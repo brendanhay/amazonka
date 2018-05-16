@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.PurchaseReservedNodeOffering
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,18 +70,18 @@ purchaseReservedNodeOffering
     -> PurchaseReservedNodeOffering
 purchaseReservedNodeOffering pReservedNodeOfferingId_ =
   PurchaseReservedNodeOffering'
-  { _prnoNodeCount = Nothing
-  , _prnoReservedNodeOfferingId = pReservedNodeOfferingId_
-  }
+    { _prnoNodeCount = Nothing
+    , _prnoReservedNodeOfferingId = pReservedNodeOfferingId_
+    }
 
 
 -- | The number of reserved nodes that you want to purchase. Default: @1@
 prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
-prnoNodeCount = lens _prnoNodeCount (\ s a -> s{_prnoNodeCount = a});
+prnoNodeCount = lens _prnoNodeCount (\ s a -> s{_prnoNodeCount = a})
 
 -- | The unique identifier of the reserved node offering you want to purchase.
 prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
-prnoReservedNodeOfferingId = lens _prnoReservedNodeOfferingId (\ s a -> s{_prnoReservedNodeOfferingId = a});
+prnoReservedNodeOfferingId = lens _prnoReservedNodeOfferingId (\ s a -> s{_prnoReservedNodeOfferingId = a})
 
 instance AWSRequest PurchaseReservedNodeOffering
          where
@@ -134,16 +134,16 @@ purchaseReservedNodeOfferingResponse
     -> PurchaseReservedNodeOfferingResponse
 purchaseReservedNodeOfferingResponse pResponseStatus_ =
   PurchaseReservedNodeOfferingResponse'
-  {_prnorsReservedNode = Nothing, _prnorsResponseStatus = pResponseStatus_}
+    {_prnorsReservedNode = Nothing, _prnorsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
-prnorsReservedNode = lens _prnorsReservedNode (\ s a -> s{_prnorsReservedNode = a});
+prnorsReservedNode = lens _prnorsReservedNode (\ s a -> s{_prnorsReservedNode = a})
 
 -- | -- | The response status code.
 prnorsResponseStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
-prnorsResponseStatus = lens _prnorsResponseStatus (\ s a -> s{_prnorsResponseStatus = a});
+prnorsResponseStatus = lens _prnorsResponseStatus (\ s a -> s{_prnorsResponseStatus = a})
 
 instance NFData PurchaseReservedNodeOfferingResponse
          where

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Glue
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,6 +61,9 @@ import Test.Tasty
 --         , requestGetMapping $
 --             getMapping
 --
+--         , requestGetTableVersion $
+--             getTableVersion
+--
 --         , requestGetJobs $
 --             getJobs
 --
@@ -69,6 +72,9 @@ import Test.Tasty
 --
 --         , requestCreateConnection $
 --             createConnection
+--
+--         , requestDeleteTableVersion $
+--             deleteTableVersion
 --
 --         , requestDeleteDevEndpoint $
 --             deleteDevEndpoint
@@ -138,6 +144,9 @@ import Test.Tasty
 --
 --         , requestGetJob $
 --             getJob
+--
+--         , requestBatchDeleteTableVersion $
+--             batchDeleteTableVersion
 --
 --         , requestGetDevEndpoints $
 --             getDevEndpoints
@@ -289,6 +298,9 @@ import Test.Tasty
 --         , responseGetMapping $
 --             getMappingResponse
 --
+--         , responseGetTableVersion $
+--             getTableVersionResponse
+--
 --         , responseGetJobs $
 --             getJobsResponse
 --
@@ -297,6 +309,9 @@ import Test.Tasty
 --
 --         , responseCreateConnection $
 --             createConnectionResponse
+--
+--         , responseDeleteTableVersion $
+--             deleteTableVersionResponse
 --
 --         , responseDeleteDevEndpoint $
 --             deleteDevEndpointResponse
@@ -366,6 +381,9 @@ import Test.Tasty
 --
 --         , responseGetJob $
 --             getJobResponse
+--
+--         , responseBatchDeleteTableVersion $
+--             batchDeleteTableVersionResponse
 --
 --         , responseGetDevEndpoints $
 --             getDevEndpointsResponse
@@ -541,6 +559,11 @@ requestGetMapping = req
     "GetMapping"
     "fixture/GetMapping.yaml"
 
+requestGetTableVersion :: GetTableVersion -> TestTree
+requestGetTableVersion = req
+    "GetTableVersion"
+    "fixture/GetTableVersion.yaml"
+
 requestGetJobs :: GetJobs -> TestTree
 requestGetJobs = req
     "GetJobs"
@@ -555,6 +578,11 @@ requestCreateConnection :: CreateConnection -> TestTree
 requestCreateConnection = req
     "CreateConnection"
     "fixture/CreateConnection.yaml"
+
+requestDeleteTableVersion :: DeleteTableVersion -> TestTree
+requestDeleteTableVersion = req
+    "DeleteTableVersion"
+    "fixture/DeleteTableVersion.yaml"
 
 requestDeleteDevEndpoint :: DeleteDevEndpoint -> TestTree
 requestDeleteDevEndpoint = req
@@ -670,6 +698,11 @@ requestGetJob :: GetJob -> TestTree
 requestGetJob = req
     "GetJob"
     "fixture/GetJob.yaml"
+
+requestBatchDeleteTableVersion :: BatchDeleteTableVersion -> TestTree
+requestBatchDeleteTableVersion = req
+    "BatchDeleteTableVersion"
+    "fixture/BatchDeleteTableVersion.yaml"
 
 requestGetDevEndpoints :: GetDevEndpoints -> TestTree
 requestGetDevEndpoints = req
@@ -940,6 +973,13 @@ responseGetMapping = res
     glue
     (Proxy :: Proxy GetMapping)
 
+responseGetTableVersion :: GetTableVersionResponse -> TestTree
+responseGetTableVersion = res
+    "GetTableVersionResponse"
+    "fixture/GetTableVersionResponse.proto"
+    glue
+    (Proxy :: Proxy GetTableVersion)
+
 responseGetJobs :: GetJobsResponse -> TestTree
 responseGetJobs = res
     "GetJobsResponse"
@@ -960,6 +1000,13 @@ responseCreateConnection = res
     "fixture/CreateConnectionResponse.proto"
     glue
     (Proxy :: Proxy CreateConnection)
+
+responseDeleteTableVersion :: DeleteTableVersionResponse -> TestTree
+responseDeleteTableVersion = res
+    "DeleteTableVersionResponse"
+    "fixture/DeleteTableVersionResponse.proto"
+    glue
+    (Proxy :: Proxy DeleteTableVersion)
 
 responseDeleteDevEndpoint :: DeleteDevEndpointResponse -> TestTree
 responseDeleteDevEndpoint = res
@@ -1121,6 +1168,13 @@ responseGetJob = res
     "fixture/GetJobResponse.proto"
     glue
     (Proxy :: Proxy GetJob)
+
+responseBatchDeleteTableVersion :: BatchDeleteTableVersionResponse -> TestTree
+responseBatchDeleteTableVersion = res
+    "BatchDeleteTableVersionResponse"
+    "fixture/BatchDeleteTableVersionResponse.proto"
+    glue
+    (Proxy :: Proxy BatchDeleteTableVersion)
 
 responseGetDevEndpoints :: GetDevEndpointsResponse -> TestTree
 responseGetDevEndpoints = res

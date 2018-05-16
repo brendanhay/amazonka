@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DescribeBudget
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get a single budget
+-- Describes a budget.
+--
+--
 module Network.AWS.Budgets.DescribeBudget
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import Network.AWS.Response
 
 -- | Request of DescribeBudget
 --
+--
+--
 -- /See:/ 'describeBudget' smart constructor.
 data DescribeBudget = DescribeBudget'
   { _desAccountId  :: !Text
@@ -56,9 +60,9 @@ data DescribeBudget = DescribeBudget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desAccountId' - Undocumented member.
+-- * 'desAccountId' - The @accountId@ that is associated with the budget that you want a description of.
 --
--- * 'desBudgetName' - Undocumented member.
+-- * 'desBudgetName' - The name of the budget that you want a description of.
 describeBudget
     :: Text -- ^ 'desAccountId'
     -> Text -- ^ 'desBudgetName'
@@ -67,13 +71,13 @@ describeBudget pAccountId_ pBudgetName_ =
   DescribeBudget' {_desAccountId = pAccountId_, _desBudgetName = pBudgetName_}
 
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budget that you want a description of.
 desAccountId :: Lens' DescribeBudget Text
-desAccountId = lens _desAccountId (\ s a -> s{_desAccountId = a});
+desAccountId = lens _desAccountId (\ s a -> s{_desAccountId = a})
 
--- | Undocumented member.
+-- | The name of the budget that you want a description of.
 desBudgetName :: Lens' DescribeBudget Text
-desBudgetName = lens _desBudgetName (\ s a -> s{_desBudgetName = a});
+desBudgetName = lens _desBudgetName (\ s a -> s{_desBudgetName = a})
 
 instance AWSRequest DescribeBudget where
         type Rs DescribeBudget = DescribeBudgetResponse
@@ -113,6 +117,8 @@ instance ToQuery DescribeBudget where
 
 -- | Response of DescribeBudget
 --
+--
+--
 -- /See:/ 'describeBudgetResponse' smart constructor.
 data DescribeBudgetResponse = DescribeBudgetResponse'
   { _desrsBudget         :: !(Maybe Budget)
@@ -124,7 +130,7 @@ data DescribeBudgetResponse = DescribeBudgetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsBudget' - Undocumented member.
+-- * 'desrsBudget' - The description of the budget.
 --
 -- * 'desrsResponseStatus' - -- | The response status code.
 describeBudgetResponse
@@ -132,15 +138,15 @@ describeBudgetResponse
     -> DescribeBudgetResponse
 describeBudgetResponse pResponseStatus_ =
   DescribeBudgetResponse'
-  {_desrsBudget = Nothing, _desrsResponseStatus = pResponseStatus_}
+    {_desrsBudget = Nothing, _desrsResponseStatus = pResponseStatus_}
 
 
--- | Undocumented member.
+-- | The description of the budget.
 desrsBudget :: Lens' DescribeBudgetResponse (Maybe Budget)
-desrsBudget = lens _desrsBudget (\ s a -> s{_desrsBudget = a});
+desrsBudget = lens _desrsBudget (\ s a -> s{_desrsBudget = a})
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeBudgetResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 instance NFData DescribeBudgetResponse where

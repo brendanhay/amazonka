@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListWorkerBlocks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- The @ListWorkersBlocks@ operation retrieves a list of Workers who are blocked from working on your HITs.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListWorkerBlocks
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.MechanicalTurk.ListWorkerBlocks
 import Network.AWS.Lens
 import Network.AWS.MechanicalTurk.Types
 import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -69,11 +72,18 @@ listWorkerBlocks =
 
 -- | Pagination token
 lwbNextToken :: Lens' ListWorkerBlocks (Maybe Text)
-lwbNextToken = lens _lwbNextToken (\ s a -> s{_lwbNextToken = a});
+lwbNextToken = lens _lwbNextToken (\ s a -> s{_lwbNextToken = a})
 
 -- | Undocumented member.
 lwbMaxResults :: Lens' ListWorkerBlocks (Maybe Natural)
-lwbMaxResults = lens _lwbMaxResults (\ s a -> s{_lwbMaxResults = a}) . mapping _Nat;
+lwbMaxResults = lens _lwbMaxResults (\ s a -> s{_lwbMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListWorkerBlocks where
+        page rq rs
+          | stop (rs ^. lwbrsNextToken) = Nothing
+          | stop (rs ^. lwbrsWorkerBlocks) = Nothing
+          | otherwise =
+            Just $ rq & lwbNextToken .~ rs ^. lwbrsNextToken
 
 instance AWSRequest ListWorkerBlocks where
         type Rs ListWorkerBlocks = ListWorkerBlocksResponse
@@ -139,27 +149,27 @@ listWorkerBlocksResponse
     -> ListWorkerBlocksResponse
 listWorkerBlocksResponse pResponseStatus_ =
   ListWorkerBlocksResponse'
-  { _lwbrsWorkerBlocks = Nothing
-  , _lwbrsNextToken = Nothing
-  , _lwbrsNumResults = Nothing
-  , _lwbrsResponseStatus = pResponseStatus_
-  }
+    { _lwbrsWorkerBlocks = Nothing
+    , _lwbrsNextToken = Nothing
+    , _lwbrsNumResults = Nothing
+    , _lwbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.
 lwbrsWorkerBlocks :: Lens' ListWorkerBlocksResponse [WorkerBlock]
-lwbrsWorkerBlocks = lens _lwbrsWorkerBlocks (\ s a -> s{_lwbrsWorkerBlocks = a}) . _Default . _Coerce;
+lwbrsWorkerBlocks = lens _lwbrsWorkerBlocks (\ s a -> s{_lwbrsWorkerBlocks = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 lwbrsNextToken :: Lens' ListWorkerBlocksResponse (Maybe Text)
-lwbrsNextToken = lens _lwbrsNextToken (\ s a -> s{_lwbrsNextToken = a});
+lwbrsNextToken = lens _lwbrsNextToken (\ s a -> s{_lwbrsNextToken = a})
 
 -- | The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
 lwbrsNumResults :: Lens' ListWorkerBlocksResponse (Maybe Int)
-lwbrsNumResults = lens _lwbrsNumResults (\ s a -> s{_lwbrsNumResults = a});
+lwbrsNumResults = lens _lwbrsNumResults (\ s a -> s{_lwbrsNumResults = a})
 
 -- | -- | The response status code.
 lwbrsResponseStatus :: Lens' ListWorkerBlocksResponse Int
-lwbrsResponseStatus = lens _lwbrsResponseStatus (\ s a -> s{_lwbrsResponseStatus = a});
+lwbrsResponseStatus = lens _lwbrsResponseStatus (\ s a -> s{_lwbrsResponseStatus = a})
 
 instance NFData ListWorkerBlocksResponse where

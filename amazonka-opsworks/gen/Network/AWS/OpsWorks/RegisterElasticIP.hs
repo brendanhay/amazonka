@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterElasticIP
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ registerElasticIP pElasticIP_ pStackId_ =
 
 -- | The Elastic IP address.
 reiElasticIP :: Lens' RegisterElasticIP Text
-reiElasticIP = lens _reiElasticIP (\ s a -> s{_reiElasticIP = a});
+reiElasticIP = lens _reiElasticIP (\ s a -> s{_reiElasticIP = a})
 
 -- | The stack ID.
 reiStackId :: Lens' RegisterElasticIP Text
-reiStackId = lens _reiStackId (\ s a -> s{_reiStackId = a});
+reiStackId = lens _reiStackId (\ s a -> s{_reiStackId = a})
 
 instance AWSRequest RegisterElasticIP where
         type Rs RegisterElasticIP = RegisterElasticIPResponse
@@ -136,15 +136,15 @@ registerElasticIPResponse
     -> RegisterElasticIPResponse
 registerElasticIPResponse pResponseStatus_ =
   RegisterElasticIPResponse'
-  {_reirsElasticIP = Nothing, _reirsResponseStatus = pResponseStatus_}
+    {_reirsElasticIP = Nothing, _reirsResponseStatus = pResponseStatus_}
 
 
 -- | The Elastic IP address.
 reirsElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
-reirsElasticIP = lens _reirsElasticIP (\ s a -> s{_reirsElasticIP = a});
+reirsElasticIP = lens _reirsElasticIP (\ s a -> s{_reirsElasticIP = a})
 
 -- | -- | The response status code.
 reirsResponseStatus :: Lens' RegisterElasticIPResponse Int
-reirsResponseStatus = lens _reirsResponseStatus (\ s a -> s{_reirsResponseStatus = a});
+reirsResponseStatus = lens _reirsResponseStatus (\ s a -> s{_reirsResponseStatus = a})
 
 instance NFData RegisterElasticIPResponse where

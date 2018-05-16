@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.SignalWorkflowExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -89,33 +89,33 @@ signalWorkflowExecution
     -> SignalWorkflowExecution
 signalWorkflowExecution pDomain_ pWorkflowId_ pSignalName_ =
   SignalWorkflowExecution'
-  { _sweInput = Nothing
-  , _sweRunId = Nothing
-  , _sweDomain = pDomain_
-  , _sweWorkflowId = pWorkflowId_
-  , _sweSignalName = pSignalName_
-  }
+    { _sweInput = Nothing
+    , _sweRunId = Nothing
+    , _sweDomain = pDomain_
+    , _sweWorkflowId = pWorkflowId_
+    , _sweSignalName = pSignalName_
+    }
 
 
 -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target workflow execution's history.
 sweInput :: Lens' SignalWorkflowExecution (Maybe Text)
-sweInput = lens _sweInput (\ s a -> s{_sweInput = a});
+sweInput = lens _sweInput (\ s a -> s{_sweInput = a})
 
 -- | The runId of the workflow execution to signal.
 sweRunId :: Lens' SignalWorkflowExecution (Maybe Text)
-sweRunId = lens _sweRunId (\ s a -> s{_sweRunId = a});
+sweRunId = lens _sweRunId (\ s a -> s{_sweRunId = a})
 
 -- | The name of the domain containing the workflow execution to signal.
 sweDomain :: Lens' SignalWorkflowExecution Text
-sweDomain = lens _sweDomain (\ s a -> s{_sweDomain = a});
+sweDomain = lens _sweDomain (\ s a -> s{_sweDomain = a})
 
 -- | The workflowId of the workflow execution to signal.
 sweWorkflowId :: Lens' SignalWorkflowExecution Text
-sweWorkflowId = lens _sweWorkflowId (\ s a -> s{_sweWorkflowId = a});
+sweWorkflowId = lens _sweWorkflowId (\ s a -> s{_sweWorkflowId = a})
 
 -- | The name of the signal. This name must be meaningful to the target workflow.
 sweSignalName :: Lens' SignalWorkflowExecution Text
-sweSignalName = lens _sweSignalName (\ s a -> s{_sweSignalName = a});
+sweSignalName = lens _sweSignalName (\ s a -> s{_sweSignalName = a})
 
 instance AWSRequest SignalWorkflowExecution where
         type Rs SignalWorkflowExecution =

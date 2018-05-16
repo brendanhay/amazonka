@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStacks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ describeStacks = DescribeStacks' {_dNextToken = Nothing, _dStackName = Nothing}
 
 -- | A string that identifies the next page of stacks that you want to retrieve.
 dNextToken :: Lens' DescribeStacks (Maybe Text)
-dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a})
 
 -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 dStackName :: Lens' DescribeStacks (Maybe Text)
-dStackName = lens _dStackName (\ s a -> s{_dStackName = a});
+dStackName = lens _dStackName (\ s a -> s{_dStackName = a})
 
 instance AWSPager DescribeStacks where
         page rq rs
@@ -143,22 +143,22 @@ describeStacksResponse
     -> DescribeStacksResponse
 describeStacksResponse pResponseStatus_ =
   DescribeStacksResponse'
-  { _dsrsNextToken = Nothing
-  , _dsrsStacks = Nothing
-  , _dsrsResponseStatus = pResponseStatus_
-  }
+    { _dsrsNextToken = Nothing
+    , _dsrsStacks = Nothing
+    , _dsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
 dsrsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
-dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
+dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a})
 
 -- | A list of stack structures.
 dsrsStacks :: Lens' DescribeStacksResponse [Stack]
-dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce;
+dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStacksResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DescribeStacksResponse where

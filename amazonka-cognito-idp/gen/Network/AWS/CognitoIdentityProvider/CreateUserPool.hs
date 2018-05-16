@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateUserPool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,7 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPool
     , cupVerificationMessageTemplate
     , cupEmailVerificationMessage
     , cupSmsAuthenticationMessage
+    , cupUserPoolAddOns
     , cupEmailVerificationSubject
     , cupUsernameAttributes
     , cupAliasAttributes
@@ -71,6 +72,7 @@ data CreateUserPool = CreateUserPool'
   , _cupVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
   , _cupEmailVerificationMessage    :: !(Maybe Text)
   , _cupSmsAuthenticationMessage    :: !(Maybe Text)
+  , _cupUserPoolAddOns              :: !(Maybe UserPoolAddOnsType)
   , _cupEmailVerificationSubject    :: !(Maybe Text)
   , _cupUsernameAttributes          :: !(Maybe [UsernameAttributeType])
   , _cupAliasAttributes             :: !(Maybe [AliasAttributeType])
@@ -99,6 +101,8 @@ data CreateUserPool = CreateUserPool'
 -- * 'cupEmailVerificationMessage' - A string representing the email verification message.
 --
 -- * 'cupSmsAuthenticationMessage' - A string representing the SMS authentication message.
+--
+-- * 'cupUserPoolAddOns' - Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
 --
 -- * 'cupEmailVerificationSubject' - A string representing the email verification subject.
 --
@@ -132,98 +136,103 @@ createUserPool
     -> CreateUserPool
 createUserPool pPoolName_ =
   CreateUserPool'
-  { _cupUserPoolTags = Nothing
-  , _cupVerificationMessageTemplate = Nothing
-  , _cupEmailVerificationMessage = Nothing
-  , _cupSmsAuthenticationMessage = Nothing
-  , _cupEmailVerificationSubject = Nothing
-  , _cupUsernameAttributes = Nothing
-  , _cupAliasAttributes = Nothing
-  , _cupSchema = Nothing
-  , _cupEmailConfiguration = Nothing
-  , _cupSmsVerificationMessage = Nothing
-  , _cupMFAConfiguration = Nothing
-  , _cupLambdaConfig = Nothing
-  , _cupSmsConfiguration = Nothing
-  , _cupAdminCreateUserConfig = Nothing
-  , _cupDeviceConfiguration = Nothing
-  , _cupAutoVerifiedAttributes = Nothing
-  , _cupPolicies = Nothing
-  , _cupPoolName = pPoolName_
-  }
+    { _cupUserPoolTags = Nothing
+    , _cupVerificationMessageTemplate = Nothing
+    , _cupEmailVerificationMessage = Nothing
+    , _cupSmsAuthenticationMessage = Nothing
+    , _cupUserPoolAddOns = Nothing
+    , _cupEmailVerificationSubject = Nothing
+    , _cupUsernameAttributes = Nothing
+    , _cupAliasAttributes = Nothing
+    , _cupSchema = Nothing
+    , _cupEmailConfiguration = Nothing
+    , _cupSmsVerificationMessage = Nothing
+    , _cupMFAConfiguration = Nothing
+    , _cupLambdaConfig = Nothing
+    , _cupSmsConfiguration = Nothing
+    , _cupAdminCreateUserConfig = Nothing
+    , _cupDeviceConfiguration = Nothing
+    , _cupAutoVerifiedAttributes = Nothing
+    , _cupPolicies = Nothing
+    , _cupPoolName = pPoolName_
+    }
 
 
 -- | The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
 cupUserPoolTags :: Lens' CreateUserPool (HashMap Text Text)
-cupUserPoolTags = lens _cupUserPoolTags (\ s a -> s{_cupUserPoolTags = a}) . _Default . _Map;
+cupUserPoolTags = lens _cupUserPoolTags (\ s a -> s{_cupUserPoolTags = a}) . _Default . _Map
 
 -- | The template for the verification message that the user sees when the app requests permission to access the user's information.
 cupVerificationMessageTemplate :: Lens' CreateUserPool (Maybe VerificationMessageTemplateType)
-cupVerificationMessageTemplate = lens _cupVerificationMessageTemplate (\ s a -> s{_cupVerificationMessageTemplate = a});
+cupVerificationMessageTemplate = lens _cupVerificationMessageTemplate (\ s a -> s{_cupVerificationMessageTemplate = a})
 
 -- | A string representing the email verification message.
 cupEmailVerificationMessage :: Lens' CreateUserPool (Maybe Text)
-cupEmailVerificationMessage = lens _cupEmailVerificationMessage (\ s a -> s{_cupEmailVerificationMessage = a});
+cupEmailVerificationMessage = lens _cupEmailVerificationMessage (\ s a -> s{_cupEmailVerificationMessage = a})
 
 -- | A string representing the SMS authentication message.
 cupSmsAuthenticationMessage :: Lens' CreateUserPool (Maybe Text)
-cupSmsAuthenticationMessage = lens _cupSmsAuthenticationMessage (\ s a -> s{_cupSmsAuthenticationMessage = a});
+cupSmsAuthenticationMessage = lens _cupSmsAuthenticationMessage (\ s a -> s{_cupSmsAuthenticationMessage = a})
+
+-- | Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
+cupUserPoolAddOns :: Lens' CreateUserPool (Maybe UserPoolAddOnsType)
+cupUserPoolAddOns = lens _cupUserPoolAddOns (\ s a -> s{_cupUserPoolAddOns = a})
 
 -- | A string representing the email verification subject.
 cupEmailVerificationSubject :: Lens' CreateUserPool (Maybe Text)
-cupEmailVerificationSubject = lens _cupEmailVerificationSubject (\ s a -> s{_cupEmailVerificationSubject = a});
+cupEmailVerificationSubject = lens _cupEmailVerificationSubject (\ s a -> s{_cupEmailVerificationSubject = a})
 
 -- | Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
 cupUsernameAttributes :: Lens' CreateUserPool [UsernameAttributeType]
-cupUsernameAttributes = lens _cupUsernameAttributes (\ s a -> s{_cupUsernameAttributes = a}) . _Default . _Coerce;
+cupUsernameAttributes = lens _cupUsernameAttributes (\ s a -> s{_cupUsernameAttributes = a}) . _Default . _Coerce
 
 -- | Attributes supported as an alias for this user pool. Possible values: __phone_number__ , __email__ , or __preferred_username__ .
 cupAliasAttributes :: Lens' CreateUserPool [AliasAttributeType]
-cupAliasAttributes = lens _cupAliasAttributes (\ s a -> s{_cupAliasAttributes = a}) . _Default . _Coerce;
+cupAliasAttributes = lens _cupAliasAttributes (\ s a -> s{_cupAliasAttributes = a}) . _Default . _Coerce
 
 -- | An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
 cupSchema :: Lens' CreateUserPool (Maybe (NonEmpty SchemaAttributeType))
-cupSchema = lens _cupSchema (\ s a -> s{_cupSchema = a}) . mapping _List1;
+cupSchema = lens _cupSchema (\ s a -> s{_cupSchema = a}) . mapping _List1
 
 -- | The email configuration.
 cupEmailConfiguration :: Lens' CreateUserPool (Maybe EmailConfigurationType)
-cupEmailConfiguration = lens _cupEmailConfiguration (\ s a -> s{_cupEmailConfiguration = a});
+cupEmailConfiguration = lens _cupEmailConfiguration (\ s a -> s{_cupEmailConfiguration = a})
 
 -- | A string representing the SMS verification message.
 cupSmsVerificationMessage :: Lens' CreateUserPool (Maybe Text)
-cupSmsVerificationMessage = lens _cupSmsVerificationMessage (\ s a -> s{_cupSmsVerificationMessage = a});
+cupSmsVerificationMessage = lens _cupSmsVerificationMessage (\ s a -> s{_cupSmsVerificationMessage = a})
 
 -- | Specifies MFA configuration details.
 cupMFAConfiguration :: Lens' CreateUserPool (Maybe UserPoolMFAType)
-cupMFAConfiguration = lens _cupMFAConfiguration (\ s a -> s{_cupMFAConfiguration = a});
+cupMFAConfiguration = lens _cupMFAConfiguration (\ s a -> s{_cupMFAConfiguration = a})
 
 -- | The Lambda trigger configuration information for the new user pool.
 cupLambdaConfig :: Lens' CreateUserPool (Maybe LambdaConfigType)
-cupLambdaConfig = lens _cupLambdaConfig (\ s a -> s{_cupLambdaConfig = a});
+cupLambdaConfig = lens _cupLambdaConfig (\ s a -> s{_cupLambdaConfig = a})
 
 -- | The SMS configuration.
 cupSmsConfiguration :: Lens' CreateUserPool (Maybe SmsConfigurationType)
-cupSmsConfiguration = lens _cupSmsConfiguration (\ s a -> s{_cupSmsConfiguration = a});
+cupSmsConfiguration = lens _cupSmsConfiguration (\ s a -> s{_cupSmsConfiguration = a})
 
 -- | The configuration for @AdminCreateUser@ requests.
 cupAdminCreateUserConfig :: Lens' CreateUserPool (Maybe AdminCreateUserConfigType)
-cupAdminCreateUserConfig = lens _cupAdminCreateUserConfig (\ s a -> s{_cupAdminCreateUserConfig = a});
+cupAdminCreateUserConfig = lens _cupAdminCreateUserConfig (\ s a -> s{_cupAdminCreateUserConfig = a})
 
 -- | The device configuration.
 cupDeviceConfiguration :: Lens' CreateUserPool (Maybe DeviceConfigurationType)
-cupDeviceConfiguration = lens _cupDeviceConfiguration (\ s a -> s{_cupDeviceConfiguration = a});
+cupDeviceConfiguration = lens _cupDeviceConfiguration (\ s a -> s{_cupDeviceConfiguration = a})
 
 -- | The attributes to be auto-verified. Possible values: __email__ , __phone_number__ .
 cupAutoVerifiedAttributes :: Lens' CreateUserPool [VerifiedAttributeType]
-cupAutoVerifiedAttributes = lens _cupAutoVerifiedAttributes (\ s a -> s{_cupAutoVerifiedAttributes = a}) . _Default . _Coerce;
+cupAutoVerifiedAttributes = lens _cupAutoVerifiedAttributes (\ s a -> s{_cupAutoVerifiedAttributes = a}) . _Default . _Coerce
 
 -- | The policies associated with the new user pool.
 cupPolicies :: Lens' CreateUserPool (Maybe UserPoolPolicyType)
-cupPolicies = lens _cupPolicies (\ s a -> s{_cupPolicies = a});
+cupPolicies = lens _cupPolicies (\ s a -> s{_cupPolicies = a})
 
 -- | A string used to name the user pool.
 cupPoolName :: Lens' CreateUserPool Text
-cupPoolName = lens _cupPoolName (\ s a -> s{_cupPoolName = a});
+cupPoolName = lens _cupPoolName (\ s a -> s{_cupPoolName = a})
 
 instance AWSRequest CreateUserPool where
         type Rs CreateUserPool = CreateUserPoolResponse
@@ -259,6 +268,7 @@ instance ToJSON CreateUserPool where
                     _cupEmailVerificationMessage,
                   ("SmsAuthenticationMessage" .=) <$>
                     _cupSmsAuthenticationMessage,
+                  ("UserPoolAddOns" .=) <$> _cupUserPoolAddOns,
                   ("EmailVerificationSubject" .=) <$>
                     _cupEmailVerificationSubject,
                   ("UsernameAttributes" .=) <$> _cupUsernameAttributes,
@@ -308,15 +318,15 @@ createUserPoolResponse
     -> CreateUserPoolResponse
 createUserPoolResponse pResponseStatus_ =
   CreateUserPoolResponse'
-  {_cuprsUserPool = Nothing, _cuprsResponseStatus = pResponseStatus_}
+    {_cuprsUserPool = Nothing, _cuprsResponseStatus = pResponseStatus_}
 
 
 -- | A container for the user pool details.
 cuprsUserPool :: Lens' CreateUserPoolResponse (Maybe UserPoolType)
-cuprsUserPool = lens _cuprsUserPool (\ s a -> s{_cuprsUserPool = a});
+cuprsUserPool = lens _cuprsUserPool (\ s a -> s{_cuprsUserPool = a})
 
 -- | -- | The response status code.
 cuprsResponseStatus :: Lens' CreateUserPoolResponse Int
-cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a});
+cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a})
 
 instance NFData CreateUserPoolResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,33 +82,33 @@ importInstance
     -> ImportInstance
 importInstance pPlatform_ =
   ImportInstance'
-  { _iiLaunchSpecification = Nothing
-  , _iiDiskImages = Nothing
-  , _iiDescription = Nothing
-  , _iiDryRun = Nothing
-  , _iiPlatform = pPlatform_
-  }
+    { _iiLaunchSpecification = Nothing
+    , _iiDiskImages = Nothing
+    , _iiDescription = Nothing
+    , _iiDryRun = Nothing
+    , _iiPlatform = pPlatform_
+    }
 
 
 -- | The launch specification.
 iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
-iiLaunchSpecification = lens _iiLaunchSpecification (\ s a -> s{_iiLaunchSpecification = a});
+iiLaunchSpecification = lens _iiLaunchSpecification (\ s a -> s{_iiLaunchSpecification = a})
 
 -- | The disk image.
 iiDiskImages :: Lens' ImportInstance [DiskImage]
-iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a}) . _Default . _Coerce;
+iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a}) . _Default . _Coerce
 
 -- | A description for the instance being imported.
 iiDescription :: Lens' ImportInstance (Maybe Text)
-iiDescription = lens _iiDescription (\ s a -> s{_iiDescription = a});
+iiDescription = lens _iiDescription (\ s a -> s{_iiDescription = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 iiDryRun :: Lens' ImportInstance (Maybe Bool)
-iiDryRun = lens _iiDryRun (\ s a -> s{_iiDryRun = a});
+iiDryRun = lens _iiDryRun (\ s a -> s{_iiDryRun = a})
 
 -- | The instance operating system.
 iiPlatform :: Lens' ImportInstance PlatformValues
-iiPlatform = lens _iiPlatform (\ s a -> s{_iiPlatform = a});
+iiPlatform = lens _iiPlatform (\ s a -> s{_iiPlatform = a})
 
 instance AWSRequest ImportInstance where
         type Rs ImportInstance = ImportInstanceResponse
@@ -162,15 +162,15 @@ importInstanceResponse
     -> ImportInstanceResponse
 importInstanceResponse pResponseStatus_ =
   ImportInstanceResponse'
-  {_iirsConversionTask = Nothing, _iirsResponseStatus = pResponseStatus_}
+    {_iirsConversionTask = Nothing, _iirsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the conversion task.
 iirsConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
-iirsConversionTask = lens _iirsConversionTask (\ s a -> s{_iirsConversionTask = a});
+iirsConversionTask = lens _iirsConversionTask (\ s a -> s{_iirsConversionTask = a})
 
 -- | -- | The response status code.
 iirsResponseStatus :: Lens' ImportInstanceResponse Int
-iirsResponseStatus = lens _iirsResponseStatus (\ s a -> s{_iirsResponseStatus = a});
+iirsResponseStatus = lens _iirsResponseStatus (\ s a -> s{_iirsResponseStatus = a})
 
 instance NFData ImportInstanceResponse where

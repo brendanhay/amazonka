@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetBlob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ getBlob pRepositoryName_ pBlobId_ =
 
 -- | The name of the repository that contains the blob.
 gRepositoryName :: Lens' GetBlob Text
-gRepositoryName = lens _gRepositoryName (\ s a -> s{_gRepositoryName = a});
+gRepositoryName = lens _gRepositoryName (\ s a -> s{_gRepositoryName = a})
 
 -- | The ID of the blob, which is its SHA-1 pointer.
 gBlobId :: Lens' GetBlob Text
-gBlobId = lens _gBlobId (\ s a -> s{_gBlobId = a});
+gBlobId = lens _gBlobId (\ s a -> s{_gBlobId = a})
 
 instance AWSRequest GetBlob where
         type Rs GetBlob = GetBlobResponse
@@ -138,15 +138,15 @@ getBlobResponse
     -> GetBlobResponse
 getBlobResponse pResponseStatus_ pContent_ =
   GetBlobResponse'
-  {_gbrsResponseStatus = pResponseStatus_, _gbrsContent = _Base64 # pContent_}
+    {_gbrsResponseStatus = pResponseStatus_, _gbrsContent = _Base64 # pContent_}
 
 
 -- | -- | The response status code.
 gbrsResponseStatus :: Lens' GetBlobResponse Int
-gbrsResponseStatus = lens _gbrsResponseStatus (\ s a -> s{_gbrsResponseStatus = a});
+gbrsResponseStatus = lens _gbrsResponseStatus (\ s a -> s{_gbrsResponseStatus = a})
 
 -- | The content of the blob, usually a file.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 gbrsContent :: Lens' GetBlobResponse ByteString
-gbrsContent = lens _gbrsContent (\ s a -> s{_gbrsContent = a}) . _Base64;
+gbrsContent = lens _gbrsContent (\ s a -> s{_gbrsContent = a}) . _Base64
 
 instance NFData GetBlobResponse where

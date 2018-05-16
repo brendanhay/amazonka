@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteNotificationSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,16 +62,18 @@ deleteNotificationSubscription
     -> DeleteNotificationSubscription
 deleteNotificationSubscription pSubscriptionId_ pOrganizationId_ =
   DeleteNotificationSubscription'
-  {_dnsSubscriptionId = pSubscriptionId_, _dnsOrganizationId = pOrganizationId_}
+    { _dnsSubscriptionId = pSubscriptionId_
+    , _dnsOrganizationId = pOrganizationId_
+    }
 
 
 -- | The ID of the subscription.
 dnsSubscriptionId :: Lens' DeleteNotificationSubscription Text
-dnsSubscriptionId = lens _dnsSubscriptionId (\ s a -> s{_dnsSubscriptionId = a});
+dnsSubscriptionId = lens _dnsSubscriptionId (\ s a -> s{_dnsSubscriptionId = a})
 
 -- | The ID of the organization.
 dnsOrganizationId :: Lens' DeleteNotificationSubscription Text
-dnsOrganizationId = lens _dnsOrganizationId (\ s a -> s{_dnsOrganizationId = a});
+dnsOrganizationId = lens _dnsOrganizationId (\ s a -> s{_dnsOrganizationId = a})
 
 instance AWSRequest DeleteNotificationSubscription
          where

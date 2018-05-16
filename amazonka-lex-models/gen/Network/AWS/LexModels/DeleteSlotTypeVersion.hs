@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteSlotTypeVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ deleteSlotTypeVersion pName_ pVersion_ =
 
 -- | The name of the slot type.
 dstvName :: Lens' DeleteSlotTypeVersion Text
-dstvName = lens _dstvName (\ s a -> s{_dstvName = a});
+dstvName = lens _dstvName (\ s a -> s{_dstvName = a})
 
 -- | The version of the slot type to delete. You cannot delete the @> LATEST@ version of the slot type. To delete the @> LATEST@ version, use the 'DeleteSlotType' operation.
 dstvVersion :: Lens' DeleteSlotTypeVersion Text
-dstvVersion = lens _dstvVersion (\ s a -> s{_dstvVersion = a});
+dstvVersion = lens _dstvVersion (\ s a -> s{_dstvVersion = a})
 
 instance AWSRequest DeleteSlotTypeVersion where
         type Rs DeleteSlotTypeVersion =

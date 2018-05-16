@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DeleteTrust
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ deleteTrust
     -> DeleteTrust
 deleteTrust pTrustId_ =
   DeleteTrust'
-  {_dtDeleteAssociatedConditionalForwarder = Nothing, _dtTrustId = pTrustId_}
+    {_dtDeleteAssociatedConditionalForwarder = Nothing, _dtTrustId = pTrustId_}
 
 
 -- | Delete a conditional forwarder as part of a DeleteTrustRequest.
 dtDeleteAssociatedConditionalForwarder :: Lens' DeleteTrust (Maybe Bool)
-dtDeleteAssociatedConditionalForwarder = lens _dtDeleteAssociatedConditionalForwarder (\ s a -> s{_dtDeleteAssociatedConditionalForwarder = a});
+dtDeleteAssociatedConditionalForwarder = lens _dtDeleteAssociatedConditionalForwarder (\ s a -> s{_dtDeleteAssociatedConditionalForwarder = a})
 
 -- | The Trust ID of the trust relationship to be deleted.
 dtTrustId :: Lens' DeleteTrust Text
-dtTrustId = lens _dtTrustId (\ s a -> s{_dtTrustId = a});
+dtTrustId = lens _dtTrustId (\ s a -> s{_dtTrustId = a})
 
 instance AWSRequest DeleteTrust where
         type Rs DeleteTrust = DeleteTrustResponse
@@ -139,15 +139,15 @@ deleteTrustResponse
     -> DeleteTrustResponse
 deleteTrustResponse pResponseStatus_ =
   DeleteTrustResponse'
-  {_dttrsTrustId = Nothing, _dttrsResponseStatus = pResponseStatus_}
+    {_dttrsTrustId = Nothing, _dttrsResponseStatus = pResponseStatus_}
 
 
 -- | The Trust ID of the trust relationship that was deleted.
 dttrsTrustId :: Lens' DeleteTrustResponse (Maybe Text)
-dttrsTrustId = lens _dttrsTrustId (\ s a -> s{_dttrsTrustId = a});
+dttrsTrustId = lens _dttrsTrustId (\ s a -> s{_dttrsTrustId = a})
 
 -- | -- | The response status code.
 dttrsResponseStatus :: Lens' DeleteTrustResponse Int
-dttrsResponseStatus = lens _dttrsResponseStatus (\ s a -> s{_dttrsResponseStatus = a});
+dttrsResponseStatus = lens _dttrsResponseStatus (\ s a -> s{_dttrsResponseStatus = a})
 
 instance NFData DeleteTrustResponse where

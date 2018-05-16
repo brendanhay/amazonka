@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeCopyProductStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the status of the specified copy product operation.
+-- Gets the status of the specified copy product operation.
 --
 --
 module Network.AWS.ServiceCatalog.DescribeCopyProductStatus
@@ -60,22 +60,22 @@ data DescribeCopyProductStatus = DescribeCopyProductStatus'
 --
 -- * 'dcpsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dcpsCopyProductToken' - The token returned from the call to @CopyProduct@ that initiated the operation.
+-- * 'dcpsCopyProductToken' - The token for the copy product operation. This token is returned by 'CopyProduct' .
 describeCopyProductStatus
     :: Text -- ^ 'dcpsCopyProductToken'
     -> DescribeCopyProductStatus
 describeCopyProductStatus pCopyProductToken_ =
   DescribeCopyProductStatus'
-  {_dcpsAcceptLanguage = Nothing, _dcpsCopyProductToken = pCopyProductToken_}
+    {_dcpsAcceptLanguage = Nothing, _dcpsCopyProductToken = pCopyProductToken_}
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dcpsAcceptLanguage :: Lens' DescribeCopyProductStatus (Maybe Text)
-dcpsAcceptLanguage = lens _dcpsAcceptLanguage (\ s a -> s{_dcpsAcceptLanguage = a});
+dcpsAcceptLanguage = lens _dcpsAcceptLanguage (\ s a -> s{_dcpsAcceptLanguage = a})
 
--- | The token returned from the call to @CopyProduct@ that initiated the operation.
+-- | The token for the copy product operation. This token is returned by 'CopyProduct' .
 dcpsCopyProductToken :: Lens' DescribeCopyProductStatus Text
-dcpsCopyProductToken = lens _dcpsCopyProductToken (\ s a -> s{_dcpsCopyProductToken = a});
+dcpsCopyProductToken = lens _dcpsCopyProductToken (\ s a -> s{_dcpsCopyProductToken = a})
 
 instance AWSRequest DescribeCopyProductStatus where
         type Rs DescribeCopyProductStatus =
@@ -130,7 +130,7 @@ data DescribeCopyProductStatusResponse = DescribeCopyProductStatusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcpsrsTargetProductId' - The ID of the copied product.
+-- * 'dcpsrsTargetProductId' - The identifier of the copied product.
 --
 -- * 'dcpsrsCopyProductStatus' - The status of the copy product operation.
 --
@@ -142,28 +142,28 @@ describeCopyProductStatusResponse
     -> DescribeCopyProductStatusResponse
 describeCopyProductStatusResponse pResponseStatus_ =
   DescribeCopyProductStatusResponse'
-  { _dcpsrsTargetProductId = Nothing
-  , _dcpsrsCopyProductStatus = Nothing
-  , _dcpsrsStatusDetail = Nothing
-  , _dcpsrsResponseStatus = pResponseStatus_
-  }
+    { _dcpsrsTargetProductId = Nothing
+    , _dcpsrsCopyProductStatus = Nothing
+    , _dcpsrsStatusDetail = Nothing
+    , _dcpsrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The ID of the copied product.
+-- | The identifier of the copied product.
 dcpsrsTargetProductId :: Lens' DescribeCopyProductStatusResponse (Maybe Text)
-dcpsrsTargetProductId = lens _dcpsrsTargetProductId (\ s a -> s{_dcpsrsTargetProductId = a});
+dcpsrsTargetProductId = lens _dcpsrsTargetProductId (\ s a -> s{_dcpsrsTargetProductId = a})
 
 -- | The status of the copy product operation.
 dcpsrsCopyProductStatus :: Lens' DescribeCopyProductStatusResponse (Maybe CopyProductStatus)
-dcpsrsCopyProductStatus = lens _dcpsrsCopyProductStatus (\ s a -> s{_dcpsrsCopyProductStatus = a});
+dcpsrsCopyProductStatus = lens _dcpsrsCopyProductStatus (\ s a -> s{_dcpsrsCopyProductStatus = a})
 
 -- | The status message.
 dcpsrsStatusDetail :: Lens' DescribeCopyProductStatusResponse (Maybe Text)
-dcpsrsStatusDetail = lens _dcpsrsStatusDetail (\ s a -> s{_dcpsrsStatusDetail = a});
+dcpsrsStatusDetail = lens _dcpsrsStatusDetail (\ s a -> s{_dcpsrsStatusDetail = a})
 
 -- | -- | The response status code.
 dcpsrsResponseStatus :: Lens' DescribeCopyProductStatusResponse Int
-dcpsrsResponseStatus = lens _dcpsrsResponseStatus (\ s a -> s{_dcpsrsResponseStatus = a});
+dcpsrsResponseStatus = lens _dcpsrsResponseStatus (\ s a -> s{_dcpsrsResponseStatus = a})
 
 instance NFData DescribeCopyProductStatusResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ChangeTagsForResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,28 +78,28 @@ changeTagsForResource
     -> ChangeTagsForResource
 changeTagsForResource pResourceType_ pResourceId_ =
   ChangeTagsForResource'
-  { _ctfrRemoveTagKeys = Nothing
-  , _ctfrAddTags = Nothing
-  , _ctfrResourceType = pResourceType_
-  , _ctfrResourceId = pResourceId_
-  }
+    { _ctfrRemoveTagKeys = Nothing
+    , _ctfrAddTags = Nothing
+    , _ctfrResourceType = pResourceType_
+    , _ctfrResourceId = pResourceId_
+    }
 
 
 -- | A complex type that contains a list of the tags that you want to delete from the specified health check or hosted zone. You can specify up to 10 keys.
 ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (NonEmpty Text))
-ctfrRemoveTagKeys = lens _ctfrRemoveTagKeys (\ s a -> s{_ctfrRemoveTagKeys = a}) . mapping _List1;
+ctfrRemoveTagKeys = lens _ctfrRemoveTagKeys (\ s a -> s{_ctfrRemoveTagKeys = a}) . mapping _List1
 
 -- | A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags that you want to edit @Value@ for. You can add a maximum of 10 tags to a health check or a hosted zone.
 ctfrAddTags :: Lens' ChangeTagsForResource (Maybe (NonEmpty Tag))
-ctfrAddTags = lens _ctfrAddTags (\ s a -> s{_ctfrAddTags = a}) . mapping _List1;
+ctfrAddTags = lens _ctfrAddTags (\ s a -> s{_ctfrAddTags = a}) . mapping _List1
 
 -- | The type of the resource.     * The resource type for health checks is @healthcheck@ .     * The resource type for hosted zones is @hostedzone@ .
 ctfrResourceType :: Lens' ChangeTagsForResource TagResourceType
-ctfrResourceType = lens _ctfrResourceType (\ s a -> s{_ctfrResourceType = a});
+ctfrResourceType = lens _ctfrResourceType (\ s a -> s{_ctfrResourceType = a})
 
 -- | The ID of the resource for which you want to add, change, or delete tags.
 ctfrResourceId :: Lens' ChangeTagsForResource Text
-ctfrResourceId = lens _ctfrResourceId (\ s a -> s{_ctfrResourceId = a});
+ctfrResourceId = lens _ctfrResourceId (\ s a -> s{_ctfrResourceId = a})
 
 instance AWSRequest ChangeTagsForResource where
         type Rs ChangeTagsForResource =
@@ -164,6 +164,6 @@ changeTagsForResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ctfrrsResponseStatus :: Lens' ChangeTagsForResourceResponse Int
-ctfrrsResponseStatus = lens _ctfrrsResponseStatus (\ s a -> s{_ctfrrsResponseStatus = a});
+ctfrrsResponseStatus = lens _ctfrrsResponseStatus (\ s a -> s{_ctfrrsResponseStatus = a})
 
 instance NFData ChangeTagsForResourceResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketACL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -87,53 +87,53 @@ putBucketACL
     -> PutBucketACL
 putBucketACL pBucket_ =
   PutBucketACL'
-  { _pbaGrantReadACP = Nothing
-  , _pbaGrantWriteACP = Nothing
-  , _pbaGrantRead = Nothing
-  , _pbaGrantFullControl = Nothing
-  , _pbaContentMD5 = Nothing
-  , _pbaAccessControlPolicy = Nothing
-  , _pbaGrantWrite = Nothing
-  , _pbaACL = Nothing
-  , _pbaBucket = pBucket_
-  }
+    { _pbaGrantReadACP = Nothing
+    , _pbaGrantWriteACP = Nothing
+    , _pbaGrantRead = Nothing
+    , _pbaGrantFullControl = Nothing
+    , _pbaContentMD5 = Nothing
+    , _pbaAccessControlPolicy = Nothing
+    , _pbaGrantWrite = Nothing
+    , _pbaACL = Nothing
+    , _pbaBucket = pBucket_
+    }
 
 
 -- | Allows grantee to read the bucket ACL.
 pbaGrantReadACP :: Lens' PutBucketACL (Maybe Text)
-pbaGrantReadACP = lens _pbaGrantReadACP (\ s a -> s{_pbaGrantReadACP = a});
+pbaGrantReadACP = lens _pbaGrantReadACP (\ s a -> s{_pbaGrantReadACP = a})
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 pbaGrantWriteACP :: Lens' PutBucketACL (Maybe Text)
-pbaGrantWriteACP = lens _pbaGrantWriteACP (\ s a -> s{_pbaGrantWriteACP = a});
+pbaGrantWriteACP = lens _pbaGrantWriteACP (\ s a -> s{_pbaGrantWriteACP = a})
 
 -- | Allows grantee to list the objects in the bucket.
 pbaGrantRead :: Lens' PutBucketACL (Maybe Text)
-pbaGrantRead = lens _pbaGrantRead (\ s a -> s{_pbaGrantRead = a});
+pbaGrantRead = lens _pbaGrantRead (\ s a -> s{_pbaGrantRead = a})
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 pbaGrantFullControl :: Lens' PutBucketACL (Maybe Text)
-pbaGrantFullControl = lens _pbaGrantFullControl (\ s a -> s{_pbaGrantFullControl = a});
+pbaGrantFullControl = lens _pbaGrantFullControl (\ s a -> s{_pbaGrantFullControl = a})
 
 -- | Undocumented member.
 pbaContentMD5 :: Lens' PutBucketACL (Maybe Text)
-pbaContentMD5 = lens _pbaContentMD5 (\ s a -> s{_pbaContentMD5 = a});
+pbaContentMD5 = lens _pbaContentMD5 (\ s a -> s{_pbaContentMD5 = a})
 
 -- | Undocumented member.
 pbaAccessControlPolicy :: Lens' PutBucketACL (Maybe AccessControlPolicy)
-pbaAccessControlPolicy = lens _pbaAccessControlPolicy (\ s a -> s{_pbaAccessControlPolicy = a});
+pbaAccessControlPolicy = lens _pbaAccessControlPolicy (\ s a -> s{_pbaAccessControlPolicy = a})
 
 -- | Allows grantee to create, overwrite, and delete any object in the bucket.
 pbaGrantWrite :: Lens' PutBucketACL (Maybe Text)
-pbaGrantWrite = lens _pbaGrantWrite (\ s a -> s{_pbaGrantWrite = a});
+pbaGrantWrite = lens _pbaGrantWrite (\ s a -> s{_pbaGrantWrite = a})
 
 -- | The canned ACL to apply to the bucket.
 pbaACL :: Lens' PutBucketACL (Maybe BucketCannedACL)
-pbaACL = lens _pbaACL (\ s a -> s{_pbaACL = a});
+pbaACL = lens _pbaACL (\ s a -> s{_pbaACL = a})
 
 -- | Undocumented member.
 pbaBucket :: Lens' PutBucketACL BucketName
-pbaBucket = lens _pbaBucket (\ s a -> s{_pbaBucket = a});
+pbaBucket = lens _pbaBucket (\ s a -> s{_pbaBucket = a})
 
 instance AWSRequest PutBucketACL where
         type Rs PutBucketACL = PutBucketACLResponse

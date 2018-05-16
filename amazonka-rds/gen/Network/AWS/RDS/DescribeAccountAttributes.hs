@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeAccountAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.
 --
 --
--- This command does not take any parameters.
+-- This command doesn't take any parameters.
 --
 module Network.AWS.RDS.DescribeAccountAttributes
     (
@@ -114,16 +114,16 @@ describeAccountAttributesResponse
     -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pResponseStatus_ =
   DescribeAccountAttributesResponse'
-  {_daarsAccountQuotas = Nothing, _daarsResponseStatus = pResponseStatus_}
+    {_daarsAccountQuotas = Nothing, _daarsResponseStatus = pResponseStatus_}
 
 
 -- | A list of 'AccountQuota' objects. Within this list, each quota has a name, a count of usage toward the quota maximum, and a maximum value for the quota.
 daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
-daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce;
+daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
+daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a})
 
 instance NFData DescribeAccountAttributesResponse
          where

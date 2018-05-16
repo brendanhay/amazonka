@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateServiceSpecificCredential
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ data CreateServiceSpecificCredential = CreateServiceSpecificCredential'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csscUserName' - The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'csscUserName' - The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'csscServiceName' - The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
 createServiceSpecificCredential
@@ -73,16 +73,16 @@ createServiceSpecificCredential
     -> CreateServiceSpecificCredential
 createServiceSpecificCredential pUserName_ pServiceName_ =
   CreateServiceSpecificCredential'
-  {_csscUserName = pUserName_, _csscServiceName = pServiceName_}
+    {_csscUserName = pUserName_, _csscServiceName = pServiceName_}
 
 
--- | The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 csscUserName :: Lens' CreateServiceSpecificCredential Text
-csscUserName = lens _csscUserName (\ s a -> s{_csscUserName = a});
+csscUserName = lens _csscUserName (\ s a -> s{_csscUserName = a})
 
 -- | The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
 csscServiceName :: Lens' CreateServiceSpecificCredential Text
-csscServiceName = lens _csscServiceName (\ s a -> s{_csscServiceName = a});
+csscServiceName = lens _csscServiceName (\ s a -> s{_csscServiceName = a})
 
 instance AWSRequest CreateServiceSpecificCredential
          where
@@ -138,18 +138,18 @@ createServiceSpecificCredentialResponse
     -> CreateServiceSpecificCredentialResponse
 createServiceSpecificCredentialResponse pResponseStatus_ =
   CreateServiceSpecificCredentialResponse'
-  { _csscrsServiceSpecificCredential = Nothing
-  , _csscrsResponseStatus = pResponseStatus_
-  }
+    { _csscrsServiceSpecificCredential = Nothing
+    , _csscrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A structure that contains information about the newly created service-specific credential. /Important:/ This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you will have to reset the password with 'ResetServiceSpecificCredential' .
 csscrsServiceSpecificCredential :: Lens' CreateServiceSpecificCredentialResponse (Maybe ServiceSpecificCredential)
-csscrsServiceSpecificCredential = lens _csscrsServiceSpecificCredential (\ s a -> s{_csscrsServiceSpecificCredential = a});
+csscrsServiceSpecificCredential = lens _csscrsServiceSpecificCredential (\ s a -> s{_csscrsServiceSpecificCredential = a})
 
 -- | -- | The response status code.
 csscrsResponseStatus :: Lens' CreateServiceSpecificCredentialResponse Int
-csscrsResponseStatus = lens _csscrsResponseStatus (\ s a -> s{_csscrsResponseStatus = a});
+csscrsResponseStatus = lens _csscrsResponseStatus (\ s a -> s{_csscrsResponseStatus = a})
 
 instance NFData
            CreateServiceSpecificCredentialResponse

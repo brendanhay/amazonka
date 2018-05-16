@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.RejectAssignment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,18 @@ rejectAssignment
     -> RejectAssignment
 rejectAssignment pAssignmentId_ pRequesterFeedback_ =
   RejectAssignment'
-  {_raAssignmentId = pAssignmentId_, _raRequesterFeedback = pRequesterFeedback_}
+    { _raAssignmentId = pAssignmentId_
+    , _raRequesterFeedback = pRequesterFeedback_
+    }
 
 
 -- | The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
 raAssignmentId :: Lens' RejectAssignment Text
-raAssignmentId = lens _raAssignmentId (\ s a -> s{_raAssignmentId = a});
+raAssignmentId = lens _raAssignmentId (\ s a -> s{_raAssignmentId = a})
 
 -- | A message for the Worker, which the Worker can see in the Status section of the web site.
 raRequesterFeedback :: Lens' RejectAssignment Text
-raRequesterFeedback = lens _raRequesterFeedback (\ s a -> s{_raRequesterFeedback = a});
+raRequesterFeedback = lens _raRequesterFeedback (\ s a -> s{_raRequesterFeedback = a})
 
 instance AWSRequest RejectAssignment where
         type Rs RejectAssignment = RejectAssignmentResponse
@@ -134,6 +136,6 @@ rejectAssignmentResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rarsResponseStatus :: Lens' RejectAssignmentResponse Int
-rarsResponseStatus = lens _rarsResponseStatus (\ s a -> s{_rarsResponseStatus = a});
+rarsResponseStatus = lens _rarsResponseStatus (\ s a -> s{_rarsResponseStatus = a})
 
 instance NFData RejectAssignmentResponse where

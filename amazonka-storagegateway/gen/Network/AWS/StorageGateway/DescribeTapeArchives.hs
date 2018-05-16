@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeTapeArchives
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This operation is only supported in the tape gateway architecture.
+-- Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This operation is only supported in the tape gateway type.
 --
 --
 -- If a specific @TapeARN@ is not specified, AWS Storage Gateway returns a description of all virtual tapes found in the VTS associated with your account.
@@ -77,20 +77,20 @@ describeTapeArchives
     :: DescribeTapeArchives
 describeTapeArchives =
   DescribeTapeArchives'
-  {_dtaMarker = Nothing, _dtaLimit = Nothing, _dtaTapeARNs = Nothing}
+    {_dtaMarker = Nothing, _dtaLimit = Nothing, _dtaTapeARNs = Nothing}
 
 
 -- | An opaque string that indicates the position at which to begin describing virtual tapes.
 dtaMarker :: Lens' DescribeTapeArchives (Maybe Text)
-dtaMarker = lens _dtaMarker (\ s a -> s{_dtaMarker = a});
+dtaMarker = lens _dtaMarker (\ s a -> s{_dtaMarker = a})
 
 -- | Specifies that the number of virtual tapes descried be limited to the specified number.
 dtaLimit :: Lens' DescribeTapeArchives (Maybe Natural)
-dtaLimit = lens _dtaLimit (\ s a -> s{_dtaLimit = a}) . mapping _Nat;
+dtaLimit = lens _dtaLimit (\ s a -> s{_dtaLimit = a}) . mapping _Nat
 
 -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe.
 dtaTapeARNs :: Lens' DescribeTapeArchives [Text]
-dtaTapeARNs = lens _dtaTapeARNs (\ s a -> s{_dtaTapeARNs = a}) . _Default . _Coerce;
+dtaTapeARNs = lens _dtaTapeARNs (\ s a -> s{_dtaTapeARNs = a}) . _Default . _Coerce
 
 instance AWSPager DescribeTapeArchives where
         page rq rs
@@ -165,22 +165,22 @@ describeTapeArchivesResponse
     -> DescribeTapeArchivesResponse
 describeTapeArchivesResponse pResponseStatus_ =
   DescribeTapeArchivesResponse'
-  { _dtarsTapeArchives = Nothing
-  , _dtarsMarker = Nothing
-  , _dtarsResponseStatus = pResponseStatus_
-  }
+    { _dtarsTapeArchives = Nothing
+    , _dtarsMarker = Nothing
+    , _dtarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name(ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description and tape barcode.
 dtarsTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
-dtarsTapeArchives = lens _dtarsTapeArchives (\ s a -> s{_dtarsTapeArchives = a}) . _Default . _Coerce;
+dtarsTapeArchives = lens _dtarsTapeArchives (\ s a -> s{_dtarsTapeArchives = a}) . _Default . _Coerce
 
 -- | An opaque string that indicates the position at which the virtual tapes that were fetched for description ended. Use this marker in your next request to fetch the next set of virtual tapes in the virtual tape shelf (VTS). If there are no more virtual tapes to describe, this field does not appear in the response.
 dtarsMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
-dtarsMarker = lens _dtarsMarker (\ s a -> s{_dtarsMarker = a});
+dtarsMarker = lens _dtarsMarker (\ s a -> s{_dtarsMarker = a})
 
 -- | -- | The response status code.
 dtarsResponseStatus :: Lens' DescribeTapeArchivesResponse Int
-dtarsResponseStatus = lens _dtarsResponseStatus (\ s a -> s{_dtarsResponseStatus = a});
+dtarsResponseStatus = lens _dtarsResponseStatus (\ s a -> s{_dtarsResponseStatus = a})
 
 instance NFData DescribeTapeArchivesResponse where

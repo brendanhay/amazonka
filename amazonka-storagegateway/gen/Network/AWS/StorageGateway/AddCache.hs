@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.AddCache
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures one or more gateway local disks as cache for a gateway. This operation is only supported in the cached volume, tape and file gateway architectures (see <http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html Storage Gateway Concepts> ).
+-- Configures one or more gateway local disks as cache for a gateway. This operation is only supported in the cached volume, tape and file gateway type (see <http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html Storage Gateway Concepts> ).
 --
 --
 -- In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to add cache, and one or more disk IDs that you want to configure as cache.
@@ -70,11 +70,11 @@ addCache pGatewayARN_ =
 
 -- | Undocumented member.
 acGatewayARN :: Lens' AddCache Text
-acGatewayARN = lens _acGatewayARN (\ s a -> s{_acGatewayARN = a});
+acGatewayARN = lens _acGatewayARN (\ s a -> s{_acGatewayARN = a})
 
 -- | Undocumented member.
 acDiskIds :: Lens' AddCache [Text]
-acDiskIds = lens _acDiskIds (\ s a -> s{_acDiskIds = a}) . _Coerce;
+acDiskIds = lens _acDiskIds (\ s a -> s{_acDiskIds = a}) . _Coerce
 
 instance AWSRequest AddCache where
         type Rs AddCache = AddCacheResponse
@@ -130,15 +130,15 @@ addCacheResponse
     -> AddCacheResponse
 addCacheResponse pResponseStatus_ =
   AddCacheResponse'
-  {_acrsGatewayARN = Nothing, _acrsResponseStatus = pResponseStatus_}
+    {_acrsGatewayARN = Nothing, _acrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 acrsGatewayARN :: Lens' AddCacheResponse (Maybe Text)
-acrsGatewayARN = lens _acrsGatewayARN (\ s a -> s{_acrsGatewayARN = a});
+acrsGatewayARN = lens _acrsGatewayARN (\ s a -> s{_acrsGatewayARN = a})
 
 -- | -- | The response status code.
 acrsResponseStatus :: Lens' AddCacheResponse Int
-acrsResponseStatus = lens _acrsResponseStatus (\ s a -> s{_acrsResponseStatus = a});
+acrsResponseStatus = lens _acrsResponseStatus (\ s a -> s{_acrsResponseStatus = a})
 
 instance NFData AddCacheResponse where

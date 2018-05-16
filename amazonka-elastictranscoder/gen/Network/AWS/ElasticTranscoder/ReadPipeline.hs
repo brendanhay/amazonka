@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ReadPipeline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ readPipeline pId_ = ReadPipeline' {_rId = pId_}
 
 -- | The identifier of the pipeline to read.
 rId :: Lens' ReadPipeline Text
-rId = lens _rId (\ s a -> s{_rId = a});
+rId = lens _rId (\ s a -> s{_rId = a})
 
 instance AWSRequest ReadPipeline where
         type Rs ReadPipeline = ReadPipelineResponse
@@ -120,22 +120,22 @@ readPipelineResponse
     -> ReadPipelineResponse
 readPipelineResponse pResponseStatus_ =
   ReadPipelineResponse'
-  { _rrsWarnings = Nothing
-  , _rrsPipeline = Nothing
-  , _rrsResponseStatus = pResponseStatus_
-  }
+    { _rrsWarnings = Nothing
+    , _rrsPipeline = Nothing
+    , _rrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline. Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
 rrsWarnings :: Lens' ReadPipelineResponse [Warning]
-rrsWarnings = lens _rrsWarnings (\ s a -> s{_rrsWarnings = a}) . _Default . _Coerce;
+rrsWarnings = lens _rrsWarnings (\ s a -> s{_rrsWarnings = a}) . _Default . _Coerce
 
 -- | A section of the response body that provides information about the pipeline.
 rrsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
-rrsPipeline = lens _rrsPipeline (\ s a -> s{_rrsPipeline = a});
+rrsPipeline = lens _rrsPipeline (\ s a -> s{_rrsPipeline = a})
 
 -- | -- | The response status code.
 rrsResponseStatus :: Lens' ReadPipelineResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
+rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a})
 
 instance NFData ReadPipelineResponse where

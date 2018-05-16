@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteChapCredentials
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,16 +76,16 @@ deleteChapCredentials
     -> DeleteChapCredentials
 deleteChapCredentials pTargetARN_ pInitiatorName_ =
   DeleteChapCredentials'
-  {_dTargetARN = pTargetARN_, _dInitiatorName = pInitiatorName_}
+    {_dTargetARN = pTargetARN_, _dInitiatorName = pInitiatorName_}
 
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 dTargetARN :: Lens' DeleteChapCredentials Text
-dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
+dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a})
 
 -- | The iSCSI initiator that connects to the target.
 dInitiatorName :: Lens' DeleteChapCredentials Text
-dInitiatorName = lens _dInitiatorName (\ s a -> s{_dInitiatorName = a});
+dInitiatorName = lens _dInitiatorName (\ s a -> s{_dInitiatorName = a})
 
 instance AWSRequest DeleteChapCredentials where
         type Rs DeleteChapCredentials =
@@ -151,22 +151,22 @@ deleteChapCredentialsResponse
     -> DeleteChapCredentialsResponse
 deleteChapCredentialsResponse pResponseStatus_ =
   DeleteChapCredentialsResponse'
-  { _drsTargetARN = Nothing
-  , _drsInitiatorName = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsTargetARN = Nothing
+    , _drsInitiatorName = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the target.
 drsTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
-drsTargetARN = lens _drsTargetARN (\ s a -> s{_drsTargetARN = a});
+drsTargetARN = lens _drsTargetARN (\ s a -> s{_drsTargetARN = a})
 
 -- | The iSCSI initiator that connects to the target.
 drsInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
-drsInitiatorName = lens _drsInitiatorName (\ s a -> s{_drsInitiatorName = a});
+drsInitiatorName = lens _drsInitiatorName (\ s a -> s{_drsInitiatorName = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteChapCredentialsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteChapCredentialsResponse where

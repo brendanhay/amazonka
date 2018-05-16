@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.BatchDeleteImage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,23 +77,23 @@ batchDeleteImage
     -> BatchDeleteImage
 batchDeleteImage pRepositoryName_ =
   BatchDeleteImage'
-  { _bdiRegistryId = Nothing
-  , _bdiRepositoryName = pRepositoryName_
-  , _bdiImageIds = mempty
-  }
+    { _bdiRegistryId = Nothing
+    , _bdiRepositoryName = pRepositoryName_
+    , _bdiImageIds = mempty
+    }
 
 
 -- | The AWS account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default registry is assumed.
 bdiRegistryId :: Lens' BatchDeleteImage (Maybe Text)
-bdiRegistryId = lens _bdiRegistryId (\ s a -> s{_bdiRegistryId = a});
+bdiRegistryId = lens _bdiRegistryId (\ s a -> s{_bdiRegistryId = a})
 
 -- | The repository that contains the image to delete.
 bdiRepositoryName :: Lens' BatchDeleteImage Text
-bdiRepositoryName = lens _bdiRepositoryName (\ s a -> s{_bdiRepositoryName = a});
+bdiRepositoryName = lens _bdiRepositoryName (\ s a -> s{_bdiRepositoryName = a})
 
 -- | A list of image ID references that correspond to images to delete. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
 bdiImageIds :: Lens' BatchDeleteImage [ImageIdentifier]
-bdiImageIds = lens _bdiImageIds (\ s a -> s{_bdiImageIds = a}) . _Coerce;
+bdiImageIds = lens _bdiImageIds (\ s a -> s{_bdiImageIds = a}) . _Coerce
 
 instance AWSRequest BatchDeleteImage where
         type Rs BatchDeleteImage = BatchDeleteImageResponse
@@ -156,22 +156,22 @@ batchDeleteImageResponse
     -> BatchDeleteImageResponse
 batchDeleteImageResponse pResponseStatus_ =
   BatchDeleteImageResponse'
-  { _bdirsFailures = Nothing
-  , _bdirsImageIds = Nothing
-  , _bdirsResponseStatus = pResponseStatus_
-  }
+    { _bdirsFailures = Nothing
+    , _bdirsImageIds = Nothing
+    , _bdirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Any failures associated with the call.
 bdirsFailures :: Lens' BatchDeleteImageResponse [ImageFailure]
-bdirsFailures = lens _bdirsFailures (\ s a -> s{_bdirsFailures = a}) . _Default . _Coerce;
+bdirsFailures = lens _bdirsFailures (\ s a -> s{_bdirsFailures = a}) . _Default . _Coerce
 
 -- | The image IDs of the deleted images.
 bdirsImageIds :: Lens' BatchDeleteImageResponse [ImageIdentifier]
-bdirsImageIds = lens _bdirsImageIds (\ s a -> s{_bdirsImageIds = a}) . _Default . _Coerce;
+bdirsImageIds = lens _bdirsImageIds (\ s a -> s{_bdirsImageIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bdirsResponseStatus :: Lens' BatchDeleteImageResponse Int
-bdirsResponseStatus = lens _bdirsResponseStatus (\ s a -> s{_bdirsResponseStatus = a});
+bdirsResponseStatus = lens _bdirsResponseStatus (\ s a -> s{_bdirsResponseStatus = a})
 
 instance NFData BatchDeleteImageResponse where

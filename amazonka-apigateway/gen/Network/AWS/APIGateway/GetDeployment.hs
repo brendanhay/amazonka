@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDeployment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a 'Deployment' resource.
+-- | Requests API Gateway to get information about a 'Deployment' resource.
 --
 --
 --
@@ -66,32 +66,32 @@ data GetDeployment = GetDeployment'
 --
 -- * 'gEmbed' - A query parameter to retrieve the specified embedded resources of the returned 'Deployment' resource in the response. In a REST API call, this @embed@ parameter value is a list of comma-separated strings, as in @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2@ . The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the @"apisummary"@ string. For example, @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary@ .
 --
--- * 'gRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'gRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'gDeploymentId' - The identifier of the 'Deployment' resource to get information about.
+-- * 'gDeploymentId' - [Required] The identifier of the 'Deployment' resource to get information about.
 getDeployment
     :: Text -- ^ 'gRestAPIId'
     -> Text -- ^ 'gDeploymentId'
     -> GetDeployment
 getDeployment pRestAPIId_ pDeploymentId_ =
   GetDeployment'
-  { _gEmbed = Nothing
-  , _gRestAPIId = pRestAPIId_
-  , _gDeploymentId = pDeploymentId_
-  }
+    { _gEmbed = Nothing
+    , _gRestAPIId = pRestAPIId_
+    , _gDeploymentId = pDeploymentId_
+    }
 
 
 -- | A query parameter to retrieve the specified embedded resources of the returned 'Deployment' resource in the response. In a REST API call, this @embed@ parameter value is a list of comma-separated strings, as in @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2@ . The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the @"apisummary"@ string. For example, @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary@ .
 gEmbed :: Lens' GetDeployment [Text]
-gEmbed = lens _gEmbed (\ s a -> s{_gEmbed = a}) . _Default . _Coerce;
+gEmbed = lens _gEmbed (\ s a -> s{_gEmbed = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 gRestAPIId :: Lens' GetDeployment Text
-gRestAPIId = lens _gRestAPIId (\ s a -> s{_gRestAPIId = a});
+gRestAPIId = lens _gRestAPIId (\ s a -> s{_gRestAPIId = a})
 
--- | The identifier of the 'Deployment' resource to get information about.
+-- | [Required] The identifier of the 'Deployment' resource to get information about.
 gDeploymentId :: Lens' GetDeployment Text
-gDeploymentId = lens _gDeploymentId (\ s a -> s{_gDeploymentId = a});
+gDeploymentId = lens _gDeploymentId (\ s a -> s{_gDeploymentId = a})
 
 instance AWSRequest GetDeployment where
         type Rs GetDeployment = Deployment

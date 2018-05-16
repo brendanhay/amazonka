@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeOptionGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -87,38 +87,38 @@ describeOptionGroups
     :: DescribeOptionGroups
 describeOptionGroups =
   DescribeOptionGroups'
-  { _dogFilters = Nothing
-  , _dogEngineName = Nothing
-  , _dogMajorEngineVersion = Nothing
-  , _dogMarker = Nothing
-  , _dogMaxRecords = Nothing
-  , _dogOptionGroupName = Nothing
-  }
+    { _dogFilters = Nothing
+    , _dogEngineName = Nothing
+    , _dogMajorEngineVersion = Nothing
+    , _dogMarker = Nothing
+    , _dogMaxRecords = Nothing
+    , _dogOptionGroupName = Nothing
+    }
 
 
 -- | This parameter is not currently supported.
 dogFilters :: Lens' DescribeOptionGroups [Filter]
-dogFilters = lens _dogFilters (\ s a -> s{_dogFilters = a}) . _Default . _Coerce;
+dogFilters = lens _dogFilters (\ s a -> s{_dogFilters = a}) . _Default . _Coerce
 
 -- | Filters the list of option groups to only include groups associated with a specific database engine.
 dogEngineName :: Lens' DescribeOptionGroups (Maybe Text)
-dogEngineName = lens _dogEngineName (\ s a -> s{_dogEngineName = a});
+dogEngineName = lens _dogEngineName (\ s a -> s{_dogEngineName = a})
 
 -- | Filters the list of option groups to only include groups associated with a specific database engine version. If specified, then EngineName must also be specified.
 dogMajorEngineVersion :: Lens' DescribeOptionGroups (Maybe Text)
-dogMajorEngineVersion = lens _dogMajorEngineVersion (\ s a -> s{_dogMajorEngineVersion = a});
+dogMajorEngineVersion = lens _dogMajorEngineVersion (\ s a -> s{_dogMajorEngineVersion = a})
 
 -- | An optional pagination token provided by a previous DescribeOptionGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dogMarker :: Lens' DescribeOptionGroups (Maybe Text)
-dogMarker = lens _dogMarker (\ s a -> s{_dogMarker = a});
+dogMarker = lens _dogMarker (\ s a -> s{_dogMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dogMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
-dogMaxRecords = lens _dogMaxRecords (\ s a -> s{_dogMaxRecords = a});
+dogMaxRecords = lens _dogMaxRecords (\ s a -> s{_dogMaxRecords = a})
 
 -- | The name of the option group to describe. Cannot be supplied together with EngineName or MajorEngineVersion.
 dogOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
-dogOptionGroupName = lens _dogOptionGroupName (\ s a -> s{_dogOptionGroupName = a});
+dogOptionGroupName = lens _dogOptionGroupName (\ s a -> s{_dogOptionGroupName = a})
 
 instance AWSPager DescribeOptionGroups where
         page rq rs
@@ -189,22 +189,22 @@ describeOptionGroupsResponse
     -> DescribeOptionGroupsResponse
 describeOptionGroupsResponse pResponseStatus_ =
   DescribeOptionGroupsResponse'
-  { _dogrsMarker = Nothing
-  , _dogrsOptionGroupsList = Nothing
-  , _dogrsResponseStatus = pResponseStatus_
-  }
+    { _dogrsMarker = Nothing
+    , _dogrsOptionGroupsList = Nothing
+    , _dogrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dogrsMarker :: Lens' DescribeOptionGroupsResponse (Maybe Text)
-dogrsMarker = lens _dogrsMarker (\ s a -> s{_dogrsMarker = a});
+dogrsMarker = lens _dogrsMarker (\ s a -> s{_dogrsMarker = a})
 
 -- | List of option groups.
 dogrsOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
-dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\ s a -> s{_dogrsOptionGroupsList = a}) . _Default . _Coerce;
+dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\ s a -> s{_dogrsOptionGroupsList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dogrsResponseStatus :: Lens' DescribeOptionGroupsResponse Int
-dogrsResponseStatus = lens _dogrsResponseStatus (\ s a -> s{_dogrsResponseStatus = a});
+dogrsResponseStatus = lens _dogrsResponseStatus (\ s a -> s{_dogrsResponseStatus = a})
 
 instance NFData DescribeOptionGroupsResponse where

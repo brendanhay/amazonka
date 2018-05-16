@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RunInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,6 +39,8 @@
 --
 --
 --
+-- You can create a <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html launch template> , which is a resource that contains the parameters to launch an instance. When you launch an instance using 'RunInstances' , you can specify the launch template instead of specifying the launch parameters.
+--
 -- To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.
 --
 -- An instance is ready for you to use when it's in the @running@ state. You can check the state of your instance using 'DescribeInstances' . You can tag instances and EBS volumes during launch, after launch, or both. For more information, see 'CreateTags' and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Amazon EC2 Resources> .
@@ -53,33 +55,37 @@ module Network.AWS.EC2.RunInstances
       runInstances
     , RunInstances
     -- * Request Lenses
-    , rAdditionalInfo
-    , rSecurityGroupIds
-    , rSecurityGroups
-    , rClientToken
-    , rDisableAPITermination
-    , rKeyName
-    , rNetworkInterfaces
-    , rRAMDiskId
-    , rSubnetId
-    , rKernelId
-    , rInstanceType
-    , rEBSOptimized
-    , rUserData
-    , rMonitoring
-    , rTagSpecifications
-    , rIPv6AddressCount
-    , rIAMInstanceProfile
-    , rElasticGpuSpecification
-    , rPrivateIPAddress
-    , rInstanceInitiatedShutdownBehavior
-    , rBlockDeviceMappings
-    , rDryRun
-    , rPlacement
-    , rIPv6Addresses
-    , rImageId
-    , rMaxCount
-    , rMinCount
+    , risAdditionalInfo
+    , risSecurityGroupIds
+    , risSecurityGroups
+    , risClientToken
+    , risInstanceMarketOptions
+    , risDisableAPITermination
+    , risKeyName
+    , risNetworkInterfaces
+    , risRAMDiskId
+    , risCPUOptions
+    , risSubnetId
+    , risKernelId
+    , risInstanceType
+    , risEBSOptimized
+    , risUserData
+    , risMonitoring
+    , risTagSpecifications
+    , risIPv6AddressCount
+    , risIAMInstanceProfile
+    , risElasticGpuSpecification
+    , risImageId
+    , risPrivateIPAddress
+    , risInstanceInitiatedShutdownBehavior
+    , risLaunchTemplate
+    , risCreditSpecification
+    , risBlockDeviceMappings
+    , risDryRun
+    , risPlacement
+    , risIPv6Addresses
+    , risMaxCount
+    , risMinCount
 
     -- * Destructuring the Response
     , reservation
@@ -105,33 +111,37 @@ import Network.AWS.Response
 --
 -- /See:/ 'runInstances' smart constructor.
 data RunInstances = RunInstances'
-  { _rAdditionalInfo :: !(Maybe Text)
-  , _rSecurityGroupIds :: !(Maybe [Text])
-  , _rSecurityGroups :: !(Maybe [Text])
-  , _rClientToken :: !(Maybe Text)
-  , _rDisableAPITermination :: !(Maybe Bool)
-  , _rKeyName :: !(Maybe Text)
-  , _rNetworkInterfaces :: !(Maybe [InstanceNetworkInterfaceSpecification])
-  , _rRAMDiskId :: !(Maybe Text)
-  , _rSubnetId :: !(Maybe Text)
-  , _rKernelId :: !(Maybe Text)
-  , _rInstanceType :: !(Maybe InstanceType)
-  , _rEBSOptimized :: !(Maybe Bool)
-  , _rUserData :: !(Maybe Text)
-  , _rMonitoring :: !(Maybe RunInstancesMonitoringEnabled)
-  , _rTagSpecifications :: !(Maybe [TagSpecification])
-  , _rIPv6AddressCount :: !(Maybe Int)
-  , _rIAMInstanceProfile :: !(Maybe IAMInstanceProfileSpecification)
-  , _rElasticGpuSpecification :: !(Maybe [ElasticGpuSpecification])
-  , _rPrivateIPAddress :: !(Maybe Text)
-  , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
-  , _rBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-  , _rDryRun :: !(Maybe Bool)
-  , _rPlacement :: !(Maybe Placement)
-  , _rIPv6Addresses :: !(Maybe [InstanceIPv6Address])
-  , _rImageId :: !Text
-  , _rMaxCount :: !Int
-  , _rMinCount :: !Int
+  { _risAdditionalInfo :: !(Maybe Text)
+  , _risSecurityGroupIds :: !(Maybe [Text])
+  , _risSecurityGroups :: !(Maybe [Text])
+  , _risClientToken :: !(Maybe Text)
+  , _risInstanceMarketOptions :: !(Maybe InstanceMarketOptionsRequest)
+  , _risDisableAPITermination :: !(Maybe Bool)
+  , _risKeyName :: !(Maybe Text)
+  , _risNetworkInterfaces :: !(Maybe [InstanceNetworkInterfaceSpecification])
+  , _risRAMDiskId :: !(Maybe Text)
+  , _risCPUOptions :: !(Maybe CPUOptionsRequest)
+  , _risSubnetId :: !(Maybe Text)
+  , _risKernelId :: !(Maybe Text)
+  , _risInstanceType :: !(Maybe InstanceType)
+  , _risEBSOptimized :: !(Maybe Bool)
+  , _risUserData :: !(Maybe Text)
+  , _risMonitoring :: !(Maybe RunInstancesMonitoringEnabled)
+  , _risTagSpecifications :: !(Maybe [TagSpecification])
+  , _risIPv6AddressCount :: !(Maybe Int)
+  , _risIAMInstanceProfile :: !(Maybe IAMInstanceProfileSpecification)
+  , _risElasticGpuSpecification :: !(Maybe [ElasticGpuSpecification])
+  , _risImageId :: !(Maybe Text)
+  , _risPrivateIPAddress :: !(Maybe Text)
+  , _risInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
+  , _risLaunchTemplate :: !(Maybe LaunchTemplateSpecification)
+  , _risCreditSpecification :: !(Maybe CreditSpecificationRequest)
+  , _risBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+  , _risDryRun :: !(Maybe Bool)
+  , _risPlacement :: !(Maybe Placement)
+  , _risIPv6Addresses :: !(Maybe [InstanceIPv6Address])
+  , _risMaxCount :: !Int
+  , _risMinCount :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,203 +149,230 @@ data RunInstances = RunInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rAdditionalInfo' - Reserved.
+-- * 'risAdditionalInfo' - Reserved.
 --
--- * 'rSecurityGroupIds' - One or more security group IDs. You can create a security group using 'CreateSecurityGroup' . Default: Amazon EC2 uses the default security group.
+-- * 'risSecurityGroupIds' - One or more security group IDs. You can create a security group using 'CreateSecurityGroup' . Default: Amazon EC2 uses the default security group.
 --
--- * 'rSecurityGroups' - [EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you must use security group IDs instead. Default: Amazon EC2 uses the default security group.
+-- * 'risSecurityGroups' - [EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you must use security group IDs instead. Default: Amazon EC2 uses the default security group.
 --
--- * 'rClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraints: Maximum 64 ASCII characters
+-- * 'risClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraints: Maximum 64 ASCII characters
 --
--- * 'rDisableAPITermination' - If you set this parameter to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to @false@ after launch, use 'ModifyInstanceAttribute' . Alternatively, if you set @InstanceInitiatedShutdownBehavior@ to @terminate@ , you can terminate the instance by running the shutdown command from the instance. Default: @false@
+-- * 'risInstanceMarketOptions' - The market (purchasing) option for the instances.
 --
--- * 'rKeyName' - The name of the key pair. You can create a key pair using 'CreateKeyPair' or 'ImportKeyPair' . /Important:/ If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
+-- * 'risDisableAPITermination' - If you set this parameter to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to @false@ after launch, use 'ModifyInstanceAttribute' . Alternatively, if you set @InstanceInitiatedShutdownBehavior@ to @terminate@ , you can terminate the instance by running the shutdown command from the instance. Default: @false@
 --
--- * 'rNetworkInterfaces' - One or more network interfaces.
+-- * 'risKeyName' - The name of the key pair. You can create a key pair using 'CreateKeyPair' or 'ImportKeyPair' . /Important:/ If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
 --
--- * 'rRAMDiskId' - The ID of the RAM disk. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'risNetworkInterfaces' - One or more network interfaces.
 --
--- * 'rSubnetId' - [EC2-VPC] The ID of the subnet to launch the instance into.
+-- * 'risRAMDiskId' - The ID of the RAM disk. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'rKernelId' - The ID of the kernel. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'risCPUOptions' - The CPU options for the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'rInstanceType' - The instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ . Default: @m1.small@
+-- * 'risSubnetId' - [EC2-VPC] The ID of the subnet to launch the instance into.
 --
--- * 'rEBSOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance. Default: @false@
+-- * 'risKernelId' - The ID of the kernel. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'rUserData' - The user data to make available to the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
+-- * 'risInstanceType' - The instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ . Default: @m1.small@
 --
--- * 'rMonitoring' - The monitoring for the instance.
+-- * 'risEBSOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance. Default: @false@
 --
--- * 'rTagSpecifications' - The tags to apply to the resources during launch. You can tag instances and volumes. The specified tags are applied to all instances or volumes that are created during launch.
+-- * 'risUserData' - The user data to make available to the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
 --
--- * 'rIPv6AddressCount' - [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+-- * 'risMonitoring' - The monitoring for the instance.
 --
--- * 'rIAMInstanceProfile' - The IAM instance profile.
+-- * 'risTagSpecifications' - The tags to apply to the resources during launch. You can tag instances and volumes. The specified tags are applied to all instances or volumes that are created during launch.
 --
--- * 'rElasticGpuSpecification' - An Elastic GPU to associate with the instance.
+-- * 'risIPv6AddressCount' - [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
 --
--- * 'rPrivateIPAddress' - [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet. Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
+-- * 'risIAMInstanceProfile' - The IAM instance profile.
 --
--- * 'rInstanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown). Default: @stop@
+-- * 'risElasticGpuSpecification' - An elastic GPU to associate with the instance.
 --
--- * 'rBlockDeviceMappings' - One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+-- * 'risImageId' - The ID of the AMI, which you can get by calling 'DescribeImages' . An AMI is required to launch an instance and must be specified here or in a launch template.
 --
--- * 'rDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'risPrivateIPAddress' - [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet. Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
 --
--- * 'rPlacement' - The placement for the instance.
+-- * 'risInstanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown). Default: @stop@
 --
--- * 'rIPv6Addresses' - [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+-- * 'risLaunchTemplate' - The launch template to use to launch the instances. Any parameters that you specify in 'RunInstances' override the same parameters in the launch template. You can specify either the name or ID of a launch template, but not both.
 --
--- * 'rImageId' - The ID of the AMI, which you can get by calling 'DescribeImages' .
+-- * 'risCreditSpecification' - The credit option for CPU usage of the instance. Valid values are @standard@ and @unlimited@ . To change this attribute after launch, use 'ModifyInstanceCreditSpecification' . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html T2 Instances> in the /Amazon Elastic Compute Cloud User Guide/ . Default: @standard@
 --
--- * 'rMaxCount' - The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above @MinCount@ . Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 FAQ.
+-- * 'risBlockDeviceMappings' - One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
 --
--- * 'rMinCount' - The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances. Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 General FAQ.
+-- * 'risDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- * 'risPlacement' - The placement for the instance.
+--
+-- * 'risIPv6Addresses' - [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+--
+-- * 'risMaxCount' - The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above @MinCount@ . Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 FAQ.
+--
+-- * 'risMinCount' - The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances. Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 General FAQ.
 runInstances
-    :: Text -- ^ 'rImageId'
-    -> Int -- ^ 'rMaxCount'
-    -> Int -- ^ 'rMinCount'
+    :: Int -- ^ 'risMaxCount'
+    -> Int -- ^ 'risMinCount'
     -> RunInstances
-runInstances pImageId_ pMaxCount_ pMinCount_ =
+runInstances pMaxCount_ pMinCount_ =
   RunInstances'
-  { _rAdditionalInfo = Nothing
-  , _rSecurityGroupIds = Nothing
-  , _rSecurityGroups = Nothing
-  , _rClientToken = Nothing
-  , _rDisableAPITermination = Nothing
-  , _rKeyName = Nothing
-  , _rNetworkInterfaces = Nothing
-  , _rRAMDiskId = Nothing
-  , _rSubnetId = Nothing
-  , _rKernelId = Nothing
-  , _rInstanceType = Nothing
-  , _rEBSOptimized = Nothing
-  , _rUserData = Nothing
-  , _rMonitoring = Nothing
-  , _rTagSpecifications = Nothing
-  , _rIPv6AddressCount = Nothing
-  , _rIAMInstanceProfile = Nothing
-  , _rElasticGpuSpecification = Nothing
-  , _rPrivateIPAddress = Nothing
-  , _rInstanceInitiatedShutdownBehavior = Nothing
-  , _rBlockDeviceMappings = Nothing
-  , _rDryRun = Nothing
-  , _rPlacement = Nothing
-  , _rIPv6Addresses = Nothing
-  , _rImageId = pImageId_
-  , _rMaxCount = pMaxCount_
-  , _rMinCount = pMinCount_
-  }
+    { _risAdditionalInfo = Nothing
+    , _risSecurityGroupIds = Nothing
+    , _risSecurityGroups = Nothing
+    , _risClientToken = Nothing
+    , _risInstanceMarketOptions = Nothing
+    , _risDisableAPITermination = Nothing
+    , _risKeyName = Nothing
+    , _risNetworkInterfaces = Nothing
+    , _risRAMDiskId = Nothing
+    , _risCPUOptions = Nothing
+    , _risSubnetId = Nothing
+    , _risKernelId = Nothing
+    , _risInstanceType = Nothing
+    , _risEBSOptimized = Nothing
+    , _risUserData = Nothing
+    , _risMonitoring = Nothing
+    , _risTagSpecifications = Nothing
+    , _risIPv6AddressCount = Nothing
+    , _risIAMInstanceProfile = Nothing
+    , _risElasticGpuSpecification = Nothing
+    , _risImageId = Nothing
+    , _risPrivateIPAddress = Nothing
+    , _risInstanceInitiatedShutdownBehavior = Nothing
+    , _risLaunchTemplate = Nothing
+    , _risCreditSpecification = Nothing
+    , _risBlockDeviceMappings = Nothing
+    , _risDryRun = Nothing
+    , _risPlacement = Nothing
+    , _risIPv6Addresses = Nothing
+    , _risMaxCount = pMaxCount_
+    , _risMinCount = pMinCount_
+    }
 
 
 -- | Reserved.
-rAdditionalInfo :: Lens' RunInstances (Maybe Text)
-rAdditionalInfo = lens _rAdditionalInfo (\ s a -> s{_rAdditionalInfo = a});
+risAdditionalInfo :: Lens' RunInstances (Maybe Text)
+risAdditionalInfo = lens _risAdditionalInfo (\ s a -> s{_risAdditionalInfo = a})
 
 -- | One or more security group IDs. You can create a security group using 'CreateSecurityGroup' . Default: Amazon EC2 uses the default security group.
-rSecurityGroupIds :: Lens' RunInstances [Text]
-rSecurityGroupIds = lens _rSecurityGroupIds (\ s a -> s{_rSecurityGroupIds = a}) . _Default . _Coerce;
+risSecurityGroupIds :: Lens' RunInstances [Text]
+risSecurityGroupIds = lens _risSecurityGroupIds (\ s a -> s{_risSecurityGroupIds = a}) . _Default . _Coerce
 
 -- | [EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you must use security group IDs instead. Default: Amazon EC2 uses the default security group.
-rSecurityGroups :: Lens' RunInstances [Text]
-rSecurityGroups = lens _rSecurityGroups (\ s a -> s{_rSecurityGroups = a}) . _Default . _Coerce;
+risSecurityGroups :: Lens' RunInstances [Text]
+risSecurityGroups = lens _risSecurityGroups (\ s a -> s{_risSecurityGroups = a}) . _Default . _Coerce
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraints: Maximum 64 ASCII characters
-rClientToken :: Lens' RunInstances (Maybe Text)
-rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a});
+risClientToken :: Lens' RunInstances (Maybe Text)
+risClientToken = lens _risClientToken (\ s a -> s{_risClientToken = a})
+
+-- | The market (purchasing) option for the instances.
+risInstanceMarketOptions :: Lens' RunInstances (Maybe InstanceMarketOptionsRequest)
+risInstanceMarketOptions = lens _risInstanceMarketOptions (\ s a -> s{_risInstanceMarketOptions = a})
 
 -- | If you set this parameter to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to @false@ after launch, use 'ModifyInstanceAttribute' . Alternatively, if you set @InstanceInitiatedShutdownBehavior@ to @terminate@ , you can terminate the instance by running the shutdown command from the instance. Default: @false@
-rDisableAPITermination :: Lens' RunInstances (Maybe Bool)
-rDisableAPITermination = lens _rDisableAPITermination (\ s a -> s{_rDisableAPITermination = a});
+risDisableAPITermination :: Lens' RunInstances (Maybe Bool)
+risDisableAPITermination = lens _risDisableAPITermination (\ s a -> s{_risDisableAPITermination = a})
 
 -- | The name of the key pair. You can create a key pair using 'CreateKeyPair' or 'ImportKeyPair' . /Important:/ If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
-rKeyName :: Lens' RunInstances (Maybe Text)
-rKeyName = lens _rKeyName (\ s a -> s{_rKeyName = a});
+risKeyName :: Lens' RunInstances (Maybe Text)
+risKeyName = lens _risKeyName (\ s a -> s{_risKeyName = a})
 
 -- | One or more network interfaces.
-rNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
-rNetworkInterfaces = lens _rNetworkInterfaces (\ s a -> s{_rNetworkInterfaces = a}) . _Default . _Coerce;
+risNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
+risNetworkInterfaces = lens _risNetworkInterfaces (\ s a -> s{_risNetworkInterfaces = a}) . _Default . _Coerce
 
 -- | The ID of the RAM disk. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB> in the /Amazon Elastic Compute Cloud User Guide/ .
-rRAMDiskId :: Lens' RunInstances (Maybe Text)
-rRAMDiskId = lens _rRAMDiskId (\ s a -> s{_rRAMDiskId = a});
+risRAMDiskId :: Lens' RunInstances (Maybe Text)
+risRAMDiskId = lens _risRAMDiskId (\ s a -> s{_risRAMDiskId = a})
+
+-- | The CPU options for the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
+risCPUOptions :: Lens' RunInstances (Maybe CPUOptionsRequest)
+risCPUOptions = lens _risCPUOptions (\ s a -> s{_risCPUOptions = a})
 
 -- | [EC2-VPC] The ID of the subnet to launch the instance into.
-rSubnetId :: Lens' RunInstances (Maybe Text)
-rSubnetId = lens _rSubnetId (\ s a -> s{_rSubnetId = a});
+risSubnetId :: Lens' RunInstances (Maybe Text)
+risSubnetId = lens _risSubnetId (\ s a -> s{_risSubnetId = a})
 
 -- | The ID of the kernel. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB> in the /Amazon Elastic Compute Cloud User Guide/ .
-rKernelId :: Lens' RunInstances (Maybe Text)
-rKernelId = lens _rKernelId (\ s a -> s{_rKernelId = a});
+risKernelId :: Lens' RunInstances (Maybe Text)
+risKernelId = lens _risKernelId (\ s a -> s{_risKernelId = a})
 
 -- | The instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ . Default: @m1.small@
-rInstanceType :: Lens' RunInstances (Maybe InstanceType)
-rInstanceType = lens _rInstanceType (\ s a -> s{_rInstanceType = a});
+risInstanceType :: Lens' RunInstances (Maybe InstanceType)
+risInstanceType = lens _risInstanceType (\ s a -> s{_risInstanceType = a})
 
 -- | Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance. Default: @false@
-rEBSOptimized :: Lens' RunInstances (Maybe Bool)
-rEBSOptimized = lens _rEBSOptimized (\ s a -> s{_rEBSOptimized = a});
+risEBSOptimized :: Lens' RunInstances (Maybe Bool)
+risEBSOptimized = lens _risEBSOptimized (\ s a -> s{_risEBSOptimized = a})
 
 -- | The user data to make available to the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
-rUserData :: Lens' RunInstances (Maybe Text)
-rUserData = lens _rUserData (\ s a -> s{_rUserData = a});
+risUserData :: Lens' RunInstances (Maybe Text)
+risUserData = lens _risUserData (\ s a -> s{_risUserData = a})
 
 -- | The monitoring for the instance.
-rMonitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
-rMonitoring = lens _rMonitoring (\ s a -> s{_rMonitoring = a});
+risMonitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
+risMonitoring = lens _risMonitoring (\ s a -> s{_risMonitoring = a})
 
 -- | The tags to apply to the resources during launch. You can tag instances and volumes. The specified tags are applied to all instances or volumes that are created during launch.
-rTagSpecifications :: Lens' RunInstances [TagSpecification]
-rTagSpecifications = lens _rTagSpecifications (\ s a -> s{_rTagSpecifications = a}) . _Default . _Coerce;
+risTagSpecifications :: Lens' RunInstances [TagSpecification]
+risTagSpecifications = lens _risTagSpecifications (\ s a -> s{_risTagSpecifications = a}) . _Default . _Coerce
 
 -- | [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
-rIPv6AddressCount :: Lens' RunInstances (Maybe Int)
-rIPv6AddressCount = lens _rIPv6AddressCount (\ s a -> s{_rIPv6AddressCount = a});
+risIPv6AddressCount :: Lens' RunInstances (Maybe Int)
+risIPv6AddressCount = lens _risIPv6AddressCount (\ s a -> s{_risIPv6AddressCount = a})
 
 -- | The IAM instance profile.
-rIAMInstanceProfile :: Lens' RunInstances (Maybe IAMInstanceProfileSpecification)
-rIAMInstanceProfile = lens _rIAMInstanceProfile (\ s a -> s{_rIAMInstanceProfile = a});
+risIAMInstanceProfile :: Lens' RunInstances (Maybe IAMInstanceProfileSpecification)
+risIAMInstanceProfile = lens _risIAMInstanceProfile (\ s a -> s{_risIAMInstanceProfile = a})
 
--- | An Elastic GPU to associate with the instance.
-rElasticGpuSpecification :: Lens' RunInstances [ElasticGpuSpecification]
-rElasticGpuSpecification = lens _rElasticGpuSpecification (\ s a -> s{_rElasticGpuSpecification = a}) . _Default . _Coerce;
+-- | An elastic GPU to associate with the instance.
+risElasticGpuSpecification :: Lens' RunInstances [ElasticGpuSpecification]
+risElasticGpuSpecification = lens _risElasticGpuSpecification (\ s a -> s{_risElasticGpuSpecification = a}) . _Default . _Coerce
+
+-- | The ID of the AMI, which you can get by calling 'DescribeImages' . An AMI is required to launch an instance and must be specified here or in a launch template.
+risImageId :: Lens' RunInstances (Maybe Text)
+risImageId = lens _risImageId (\ s a -> s{_risImageId = a})
 
 -- | [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet. Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
-rPrivateIPAddress :: Lens' RunInstances (Maybe Text)
-rPrivateIPAddress = lens _rPrivateIPAddress (\ s a -> s{_rPrivateIPAddress = a});
+risPrivateIPAddress :: Lens' RunInstances (Maybe Text)
+risPrivateIPAddress = lens _risPrivateIPAddress (\ s a -> s{_risPrivateIPAddress = a})
 
 -- | Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown). Default: @stop@
-rInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior)
-rInstanceInitiatedShutdownBehavior = lens _rInstanceInitiatedShutdownBehavior (\ s a -> s{_rInstanceInitiatedShutdownBehavior = a});
+risInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior)
+risInstanceInitiatedShutdownBehavior = lens _risInstanceInitiatedShutdownBehavior (\ s a -> s{_risInstanceInitiatedShutdownBehavior = a})
+
+-- | The launch template to use to launch the instances. Any parameters that you specify in 'RunInstances' override the same parameters in the launch template. You can specify either the name or ID of a launch template, but not both.
+risLaunchTemplate :: Lens' RunInstances (Maybe LaunchTemplateSpecification)
+risLaunchTemplate = lens _risLaunchTemplate (\ s a -> s{_risLaunchTemplate = a})
+
+-- | The credit option for CPU usage of the instance. Valid values are @standard@ and @unlimited@ . To change this attribute after launch, use 'ModifyInstanceCreditSpecification' . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html T2 Instances> in the /Amazon Elastic Compute Cloud User Guide/ . Default: @standard@
+risCreditSpecification :: Lens' RunInstances (Maybe CreditSpecificationRequest)
+risCreditSpecification = lens _risCreditSpecification (\ s a -> s{_risCreditSpecification = a})
 
 -- | One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
-rBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
-rBlockDeviceMappings = lens _rBlockDeviceMappings (\ s a -> s{_rBlockDeviceMappings = a}) . _Default . _Coerce;
+risBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
+risBlockDeviceMappings = lens _risBlockDeviceMappings (\ s a -> s{_risBlockDeviceMappings = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-rDryRun :: Lens' RunInstances (Maybe Bool)
-rDryRun = lens _rDryRun (\ s a -> s{_rDryRun = a});
+risDryRun :: Lens' RunInstances (Maybe Bool)
+risDryRun = lens _risDryRun (\ s a -> s{_risDryRun = a})
 
 -- | The placement for the instance.
-rPlacement :: Lens' RunInstances (Maybe Placement)
-rPlacement = lens _rPlacement (\ s a -> s{_rPlacement = a});
+risPlacement :: Lens' RunInstances (Maybe Placement)
+risPlacement = lens _risPlacement (\ s a -> s{_risPlacement = a})
 
 -- | [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
-rIPv6Addresses :: Lens' RunInstances [InstanceIPv6Address]
-rIPv6Addresses = lens _rIPv6Addresses (\ s a -> s{_rIPv6Addresses = a}) . _Default . _Coerce;
-
--- | The ID of the AMI, which you can get by calling 'DescribeImages' .
-rImageId :: Lens' RunInstances Text
-rImageId = lens _rImageId (\ s a -> s{_rImageId = a});
+risIPv6Addresses :: Lens' RunInstances [InstanceIPv6Address]
+risIPv6Addresses = lens _risIPv6Addresses (\ s a -> s{_risIPv6Addresses = a}) . _Default . _Coerce
 
 -- | The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above @MinCount@ . Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 FAQ.
-rMaxCount :: Lens' RunInstances Int
-rMaxCount = lens _rMaxCount (\ s a -> s{_rMaxCount = a});
+risMaxCount :: Lens' RunInstances Int
+risMaxCount = lens _risMaxCount (\ s a -> s{_risMaxCount = a})
 
 -- | The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances. Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 General FAQ.
-rMinCount :: Lens' RunInstances Int
-rMinCount = lens _rMinCount (\ s a -> s{_rMinCount = a});
+risMinCount :: Lens' RunInstances Int
+risMinCount = lens _risMinCount (\ s a -> s{_risMinCount = a})
 
 instance AWSRequest RunInstances where
         type Rs RunInstances = Reservation
@@ -357,40 +394,46 @@ instance ToQuery RunInstances where
           = mconcat
               ["Action" =: ("RunInstances" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "AdditionalInfo" =: _rAdditionalInfo,
+               "AdditionalInfo" =: _risAdditionalInfo,
                toQuery
                  (toQueryList "SecurityGroupId" <$>
-                    _rSecurityGroupIds),
+                    _risSecurityGroupIds),
                toQuery
-                 (toQueryList "SecurityGroup" <$> _rSecurityGroups),
-               "ClientToken" =: _rClientToken,
-               "DisableApiTermination" =: _rDisableAPITermination,
-               "KeyName" =: _rKeyName,
+                 (toQueryList "SecurityGroup" <$> _risSecurityGroups),
+               "ClientToken" =: _risClientToken,
+               "InstanceMarketOptions" =: _risInstanceMarketOptions,
+               "DisableApiTermination" =: _risDisableAPITermination,
+               "KeyName" =: _risKeyName,
                toQuery
                  (toQueryList "NetworkInterface" <$>
-                    _rNetworkInterfaces),
-               "RamdiskId" =: _rRAMDiskId, "SubnetId" =: _rSubnetId,
-               "KernelId" =: _rKernelId,
-               "InstanceType" =: _rInstanceType,
-               "EbsOptimized" =: _rEBSOptimized,
-               "UserData" =: _rUserData,
-               "Monitoring" =: _rMonitoring,
+                    _risNetworkInterfaces),
+               "RamdiskId" =: _risRAMDiskId,
+               "CpuOptions" =: _risCPUOptions,
+               "SubnetId" =: _risSubnetId,
+               "KernelId" =: _risKernelId,
+               "InstanceType" =: _risInstanceType,
+               "EbsOptimized" =: _risEBSOptimized,
+               "UserData" =: _risUserData,
+               "Monitoring" =: _risMonitoring,
                toQuery
                  (toQueryList "TagSpecification" <$>
-                    _rTagSpecifications),
-               "Ipv6AddressCount" =: _rIPv6AddressCount,
-               "IamInstanceProfile" =: _rIAMInstanceProfile,
+                    _risTagSpecifications),
+               "Ipv6AddressCount" =: _risIPv6AddressCount,
+               "IamInstanceProfile" =: _risIAMInstanceProfile,
                toQuery
                  (toQueryList "ElasticGpuSpecification" <$>
-                    _rElasticGpuSpecification),
-               "PrivateIpAddress" =: _rPrivateIPAddress,
+                    _risElasticGpuSpecification),
+               "ImageId" =: _risImageId,
+               "PrivateIpAddress" =: _risPrivateIPAddress,
                "InstanceInitiatedShutdownBehavior" =:
-                 _rInstanceInitiatedShutdownBehavior,
+                 _risInstanceInitiatedShutdownBehavior,
+               "LaunchTemplate" =: _risLaunchTemplate,
+               "CreditSpecification" =: _risCreditSpecification,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
-                    _rBlockDeviceMappings),
-               "DryRun" =: _rDryRun, "Placement" =: _rPlacement,
+                    _risBlockDeviceMappings),
+               "DryRun" =: _risDryRun, "Placement" =: _risPlacement,
                toQuery
-                 (toQueryList "Ipv6Address" <$> _rIPv6Addresses),
-               "ImageId" =: _rImageId, "MaxCount" =: _rMaxCount,
-               "MinCount" =: _rMinCount]
+                 (toQueryList "Ipv6Address" <$> _risIPv6Addresses),
+               "MaxCount" =: _risMaxCount,
+               "MinCount" =: _risMinCount]

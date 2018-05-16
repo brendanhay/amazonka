@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.ListDeliveryStreams
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Lists your delivery streams.
 --
 --
--- The number of delivery streams might be too large to return using a single call to 'ListDeliveryStreams' . You can limit the number of delivery streams returned, using the __Limit__ parameter. To determine whether there are more delivery streams to list, check the value of __HasMoreDeliveryStreams__ in the output. If there are more delivery streams to list, you can request them by specifying the name of the last delivery stream returned in the call in the __ExclusiveStartDeliveryStreamName__ parameter of a subsequent call.
+-- The number of delivery streams might be too large to return using a single call to @ListDeliveryStreams@ . You can limit the number of delivery streams returned, using the __Limit__ parameter. To determine whether there are more delivery streams to list, check the value of @HasMoreDeliveryStreams@ in the output. If there are more delivery streams to list, you can request them by specifying the name of the last delivery stream returned in the call in the @ExclusiveStartDeliveryStreamName@ parameter of a subsequent call.
 --
 module Network.AWS.Firehose.ListDeliveryStreams
     (
@@ -61,32 +61,32 @@ data ListDeliveryStreams = ListDeliveryStreams'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldsLimit' - The maximum number of delivery streams to list.
+-- * 'ldsLimit' - The maximum number of delivery streams to list. The default value is 10.
 --
--- * 'ldsDeliveryStreamType' - The delivery stream type. This can be one of the following values:     * @DirectPut@ : Provider applications access the delivery stream directly.     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis stream as a source. This parameter is optional. If this parameter is omitted, delivery streams of all types are returned.
+-- * 'ldsDeliveryStreamType' - The delivery stream type. This can be one of the following values:     * @DirectPut@ : Provider applications access the delivery stream directly.     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis data stream as a source. This parameter is optional. If this parameter is omitted, delivery streams of all types are returned.
 --
 -- * 'ldsExclusiveStartDeliveryStreamName' - The name of the delivery stream to start the list with.
 listDeliveryStreams
     :: ListDeliveryStreams
 listDeliveryStreams =
   ListDeliveryStreams'
-  { _ldsLimit = Nothing
-  , _ldsDeliveryStreamType = Nothing
-  , _ldsExclusiveStartDeliveryStreamName = Nothing
-  }
+    { _ldsLimit = Nothing
+    , _ldsDeliveryStreamType = Nothing
+    , _ldsExclusiveStartDeliveryStreamName = Nothing
+    }
 
 
--- | The maximum number of delivery streams to list.
+-- | The maximum number of delivery streams to list. The default value is 10.
 ldsLimit :: Lens' ListDeliveryStreams (Maybe Natural)
-ldsLimit = lens _ldsLimit (\ s a -> s{_ldsLimit = a}) . mapping _Nat;
+ldsLimit = lens _ldsLimit (\ s a -> s{_ldsLimit = a}) . mapping _Nat
 
--- | The delivery stream type. This can be one of the following values:     * @DirectPut@ : Provider applications access the delivery stream directly.     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis stream as a source. This parameter is optional. If this parameter is omitted, delivery streams of all types are returned.
+-- | The delivery stream type. This can be one of the following values:     * @DirectPut@ : Provider applications access the delivery stream directly.     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis data stream as a source. This parameter is optional. If this parameter is omitted, delivery streams of all types are returned.
 ldsDeliveryStreamType :: Lens' ListDeliveryStreams (Maybe DeliveryStreamType)
-ldsDeliveryStreamType = lens _ldsDeliveryStreamType (\ s a -> s{_ldsDeliveryStreamType = a});
+ldsDeliveryStreamType = lens _ldsDeliveryStreamType (\ s a -> s{_ldsDeliveryStreamType = a})
 
 -- | The name of the delivery stream to start the list with.
 ldsExclusiveStartDeliveryStreamName :: Lens' ListDeliveryStreams (Maybe Text)
-ldsExclusiveStartDeliveryStreamName = lens _ldsExclusiveStartDeliveryStreamName (\ s a -> s{_ldsExclusiveStartDeliveryStreamName = a});
+ldsExclusiveStartDeliveryStreamName = lens _ldsExclusiveStartDeliveryStreamName (\ s a -> s{_ldsExclusiveStartDeliveryStreamName = a})
 
 instance AWSRequest ListDeliveryStreams where
         type Rs ListDeliveryStreams =
@@ -152,22 +152,22 @@ listDeliveryStreamsResponse
     -> ListDeliveryStreamsResponse
 listDeliveryStreamsResponse pResponseStatus_ pHasMoreDeliveryStreams_ =
   ListDeliveryStreamsResponse'
-  { _ldsrsResponseStatus = pResponseStatus_
-  , _ldsrsDeliveryStreamNames = mempty
-  , _ldsrsHasMoreDeliveryStreams = pHasMoreDeliveryStreams_
-  }
+    { _ldsrsResponseStatus = pResponseStatus_
+    , _ldsrsDeliveryStreamNames = mempty
+    , _ldsrsHasMoreDeliveryStreams = pHasMoreDeliveryStreams_
+    }
 
 
 -- | -- | The response status code.
 ldsrsResponseStatus :: Lens' ListDeliveryStreamsResponse Int
-ldsrsResponseStatus = lens _ldsrsResponseStatus (\ s a -> s{_ldsrsResponseStatus = a});
+ldsrsResponseStatus = lens _ldsrsResponseStatus (\ s a -> s{_ldsrsResponseStatus = a})
 
 -- | The names of the delivery streams.
 ldsrsDeliveryStreamNames :: Lens' ListDeliveryStreamsResponse [Text]
-ldsrsDeliveryStreamNames = lens _ldsrsDeliveryStreamNames (\ s a -> s{_ldsrsDeliveryStreamNames = a}) . _Coerce;
+ldsrsDeliveryStreamNames = lens _ldsrsDeliveryStreamNames (\ s a -> s{_ldsrsDeliveryStreamNames = a}) . _Coerce
 
 -- | Indicates whether there are more delivery streams available to list.
 ldsrsHasMoreDeliveryStreams :: Lens' ListDeliveryStreamsResponse Bool
-ldsrsHasMoreDeliveryStreams = lens _ldsrsHasMoreDeliveryStreams (\ s a -> s{_ldsrsHasMoreDeliveryStreams = a});
+ldsrsHasMoreDeliveryStreams = lens _ldsrsHasMoreDeliveryStreams (\ s a -> s{_ldsrsHasMoreDeliveryStreams = a})
 
 instance NFData ListDeliveryStreamsResponse where

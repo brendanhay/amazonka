@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteLayer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteLayer pLayerId_ = DeleteLayer' {_dlLayerId = pLayerId_}
 
 -- | The layer ID.
 dlLayerId :: Lens' DeleteLayer Text
-dlLayerId = lens _dlLayerId (\ s a -> s{_dlLayerId = a});
+dlLayerId = lens _dlLayerId (\ s a -> s{_dlLayerId = a})
 
 instance AWSRequest DeleteLayer where
         type Rs DeleteLayer = DeleteLayerResponse

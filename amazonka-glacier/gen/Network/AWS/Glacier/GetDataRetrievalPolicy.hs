@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.GetDataRetrievalPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getDataRetrievalPolicy pAccountId_ =
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 gdrpAccountId :: Lens' GetDataRetrievalPolicy Text
-gdrpAccountId = lens _gdrpAccountId (\ s a -> s{_gdrpAccountId = a});
+gdrpAccountId = lens _gdrpAccountId (\ s a -> s{_gdrpAccountId = a})
 
 instance AWSRequest GetDataRetrievalPolicy where
         type Rs GetDataRetrievalPolicy =
@@ -119,15 +119,15 @@ getDataRetrievalPolicyResponse
     -> GetDataRetrievalPolicyResponse
 getDataRetrievalPolicyResponse pResponseStatus_ =
   GetDataRetrievalPolicyResponse'
-  {_gdrprsPolicy = Nothing, _gdrprsResponseStatus = pResponseStatus_}
+    {_gdrprsPolicy = Nothing, _gdrprsResponseStatus = pResponseStatus_}
 
 
 -- | Contains the returned data retrieval policy in JSON format.
 gdrprsPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
-gdrprsPolicy = lens _gdrprsPolicy (\ s a -> s{_gdrprsPolicy = a});
+gdrprsPolicy = lens _gdrprsPolicy (\ s a -> s{_gdrprsPolicy = a})
 
 -- | -- | The response status code.
 gdrprsResponseStatus :: Lens' GetDataRetrievalPolicyResponse Int
-gdrprsResponseStatus = lens _gdrprsResponseStatus (\ s a -> s{_gdrprsResponseStatus = a});
+gdrprsResponseStatus = lens _gdrprsResponseStatus (\ s a -> s{_gdrprsResponseStatus = a})
 
 instance NFData GetDataRetrievalPolicyResponse where

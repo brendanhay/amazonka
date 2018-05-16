@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutMetricFilter
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ putMetricFilter
     -> PutMetricFilter
 putMetricFilter pLogGroupName_ pFilterName_ pFilterPattern_ pMetricTransformations_ =
   PutMetricFilter'
-  { _pmfLogGroupName = pLogGroupName_
-  , _pmfFilterName = pFilterName_
-  , _pmfFilterPattern = pFilterPattern_
-  , _pmfMetricTransformations = _List1 # pMetricTransformations_
-  }
+    { _pmfLogGroupName = pLogGroupName_
+    , _pmfFilterName = pFilterName_
+    , _pmfFilterPattern = pFilterPattern_
+    , _pmfMetricTransformations = _List1 # pMetricTransformations_
+    }
 
 
 -- | The name of the log group.
 pmfLogGroupName :: Lens' PutMetricFilter Text
-pmfLogGroupName = lens _pmfLogGroupName (\ s a -> s{_pmfLogGroupName = a});
+pmfLogGroupName = lens _pmfLogGroupName (\ s a -> s{_pmfLogGroupName = a})
 
 -- | A name for the metric filter.
 pmfFilterName :: Lens' PutMetricFilter Text
-pmfFilterName = lens _pmfFilterName (\ s a -> s{_pmfFilterName = a});
+pmfFilterName = lens _pmfFilterName (\ s a -> s{_pmfFilterName = a})
 
 -- | A filter pattern for extracting metric data out of ingested log events.
 pmfFilterPattern :: Lens' PutMetricFilter Text
-pmfFilterPattern = lens _pmfFilterPattern (\ s a -> s{_pmfFilterPattern = a});
+pmfFilterPattern = lens _pmfFilterPattern (\ s a -> s{_pmfFilterPattern = a})
 
 -- | A collection of information that defines how metric data gets emitted.
 pmfMetricTransformations :: Lens' PutMetricFilter (NonEmpty MetricTransformation)
-pmfMetricTransformations = lens _pmfMetricTransformations (\ s a -> s{_pmfMetricTransformations = a}) . _List1;
+pmfMetricTransformations = lens _pmfMetricTransformations (\ s a -> s{_pmfMetricTransformations = a}) . _List1
 
 instance AWSRequest PutMetricFilter where
         type Rs PutMetricFilter = PutMetricFilterResponse

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.ServiceCatalog
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,6 +34,9 @@ import Test.Tasty
 --         , requestUpdateConstraint $
 --             updateConstraint
 --
+--         , requestCreateProvisionedProductPlan $
+--             createProvisionedProductPlan
+--
 --         , requestCreateProduct $
 --             createProduct
 --
@@ -51,6 +54,9 @@ import Test.Tasty
 --
 --         , requestListRecordHistory $
 --             listRecordHistory
+--
+--         , requestDescribeProvisionedProductPlan $
+--             describeProvisionedProductPlan
 --
 --         , requestAssociateTagOptionWithResource $
 --             associateTagOptionWithResource
@@ -88,11 +94,20 @@ import Test.Tasty
 --         , requestSearchProducts $
 --             searchProducts
 --
+--         , requestSearchProvisionedProducts $
+--             searchProvisionedProducts
+--
 --         , requestDescribeProduct $
 --             describeProduct
 --
+--         , requestDeleteProvisionedProductPlan $
+--             deleteProvisionedProductPlan
+--
 --         , requestCreateConstraint $
 --             createConstraint
+--
+--         , requestListProvisionedProductPlans $
+--             listProvisionedProductPlans
 --
 --         , requestListPortfolioAccess $
 --             listPortfolioAccess
@@ -115,6 +130,9 @@ import Test.Tasty
 --         , requestListAcceptedPortfolioShares $
 --             listAcceptedPortfolioShares
 --
+--         , requestExecuteProvisionedProductPlan $
+--             executeProvisionedProductPlan
+--
 --         , requestAcceptPortfolioShare $
 --             acceptPortfolioShare
 --
@@ -135,6 +153,9 @@ import Test.Tasty
 --
 --         , requestRejectPortfolioShare $
 --             rejectPortfolioShare
+--
+--         , requestDeleteTagOption $
+--             deleteTagOption
 --
 --         , requestUpdateTagOption $
 --             updateTagOption
@@ -196,6 +217,9 @@ import Test.Tasty
 --         , responseUpdateConstraint $
 --             updateConstraintResponse
 --
+--         , responseCreateProvisionedProductPlan $
+--             createProvisionedProductPlanResponse
+--
 --         , responseCreateProduct $
 --             createProductResponse
 --
@@ -213,6 +237,9 @@ import Test.Tasty
 --
 --         , responseListRecordHistory $
 --             listRecordHistoryResponse
+--
+--         , responseDescribeProvisionedProductPlan $
+--             describeProvisionedProductPlanResponse
 --
 --         , responseAssociateTagOptionWithResource $
 --             associateTagOptionWithResourceResponse
@@ -250,11 +277,20 @@ import Test.Tasty
 --         , responseSearchProducts $
 --             searchProductsResponse
 --
+--         , responseSearchProvisionedProducts $
+--             searchProvisionedProductsResponse
+--
 --         , responseDescribeProduct $
 --             describeProductResponse
 --
+--         , responseDeleteProvisionedProductPlan $
+--             deleteProvisionedProductPlanResponse
+--
 --         , responseCreateConstraint $
 --             createConstraintResponse
+--
+--         , responseListProvisionedProductPlans $
+--             listProvisionedProductPlansResponse
 --
 --         , responseListPortfolioAccess $
 --             listPortfolioAccessResponse
@@ -277,6 +313,9 @@ import Test.Tasty
 --         , responseListAcceptedPortfolioShares $
 --             listAcceptedPortfolioSharesResponse
 --
+--         , responseExecuteProvisionedProductPlan $
+--             executeProvisionedProductPlanResponse
+--
 --         , responseAcceptPortfolioShare $
 --             acceptPortfolioShareResponse
 --
@@ -297,6 +336,9 @@ import Test.Tasty
 --
 --         , responseRejectPortfolioShare $
 --             rejectPortfolioShareResponse
+--
+--         , responseDeleteTagOption $
+--             deleteTagOptionResponse
 --
 --         , responseUpdateTagOption $
 --             updateTagOptionResponse
@@ -364,6 +406,11 @@ requestUpdateConstraint = req
     "UpdateConstraint"
     "fixture/UpdateConstraint.yaml"
 
+requestCreateProvisionedProductPlan :: CreateProvisionedProductPlan -> TestTree
+requestCreateProvisionedProductPlan = req
+    "CreateProvisionedProductPlan"
+    "fixture/CreateProvisionedProductPlan.yaml"
+
 requestCreateProduct :: CreateProduct -> TestTree
 requestCreateProduct = req
     "CreateProduct"
@@ -393,6 +440,11 @@ requestListRecordHistory :: ListRecordHistory -> TestTree
 requestListRecordHistory = req
     "ListRecordHistory"
     "fixture/ListRecordHistory.yaml"
+
+requestDescribeProvisionedProductPlan :: DescribeProvisionedProductPlan -> TestTree
+requestDescribeProvisionedProductPlan = req
+    "DescribeProvisionedProductPlan"
+    "fixture/DescribeProvisionedProductPlan.yaml"
 
 requestAssociateTagOptionWithResource :: AssociateTagOptionWithResource -> TestTree
 requestAssociateTagOptionWithResource = req
@@ -454,15 +506,30 @@ requestSearchProducts = req
     "SearchProducts"
     "fixture/SearchProducts.yaml"
 
+requestSearchProvisionedProducts :: SearchProvisionedProducts -> TestTree
+requestSearchProvisionedProducts = req
+    "SearchProvisionedProducts"
+    "fixture/SearchProvisionedProducts.yaml"
+
 requestDescribeProduct :: DescribeProduct -> TestTree
 requestDescribeProduct = req
     "DescribeProduct"
     "fixture/DescribeProduct.yaml"
 
+requestDeleteProvisionedProductPlan :: DeleteProvisionedProductPlan -> TestTree
+requestDeleteProvisionedProductPlan = req
+    "DeleteProvisionedProductPlan"
+    "fixture/DeleteProvisionedProductPlan.yaml"
+
 requestCreateConstraint :: CreateConstraint -> TestTree
 requestCreateConstraint = req
     "CreateConstraint"
     "fixture/CreateConstraint.yaml"
+
+requestListProvisionedProductPlans :: ListProvisionedProductPlans -> TestTree
+requestListProvisionedProductPlans = req
+    "ListProvisionedProductPlans"
+    "fixture/ListProvisionedProductPlans.yaml"
 
 requestListPortfolioAccess :: ListPortfolioAccess -> TestTree
 requestListPortfolioAccess = req
@@ -499,6 +566,11 @@ requestListAcceptedPortfolioShares = req
     "ListAcceptedPortfolioShares"
     "fixture/ListAcceptedPortfolioShares.yaml"
 
+requestExecuteProvisionedProductPlan :: ExecuteProvisionedProductPlan -> TestTree
+requestExecuteProvisionedProductPlan = req
+    "ExecuteProvisionedProductPlan"
+    "fixture/ExecuteProvisionedProductPlan.yaml"
+
 requestAcceptPortfolioShare :: AcceptPortfolioShare -> TestTree
 requestAcceptPortfolioShare = req
     "AcceptPortfolioShare"
@@ -533,6 +605,11 @@ requestRejectPortfolioShare :: RejectPortfolioShare -> TestTree
 requestRejectPortfolioShare = req
     "RejectPortfolioShare"
     "fixture/RejectPortfolioShare.yaml"
+
+requestDeleteTagOption :: DeleteTagOption -> TestTree
+requestDeleteTagOption = req
+    "DeleteTagOption"
+    "fixture/DeleteTagOption.yaml"
 
 requestUpdateTagOption :: UpdateTagOption -> TestTree
 requestUpdateTagOption = req
@@ -635,6 +712,13 @@ responseUpdateConstraint = res
     serviceCatalog
     (Proxy :: Proxy UpdateConstraint)
 
+responseCreateProvisionedProductPlan :: CreateProvisionedProductPlanResponse -> TestTree
+responseCreateProvisionedProductPlan = res
+    "CreateProvisionedProductPlanResponse"
+    "fixture/CreateProvisionedProductPlanResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy CreateProvisionedProductPlan)
+
 responseCreateProduct :: CreateProductResponse -> TestTree
 responseCreateProduct = res
     "CreateProductResponse"
@@ -676,6 +760,13 @@ responseListRecordHistory = res
     "fixture/ListRecordHistoryResponse.proto"
     serviceCatalog
     (Proxy :: Proxy ListRecordHistory)
+
+responseDescribeProvisionedProductPlan :: DescribeProvisionedProductPlanResponse -> TestTree
+responseDescribeProvisionedProductPlan = res
+    "DescribeProvisionedProductPlanResponse"
+    "fixture/DescribeProvisionedProductPlanResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DescribeProvisionedProductPlan)
 
 responseAssociateTagOptionWithResource :: AssociateTagOptionWithResourceResponse -> TestTree
 responseAssociateTagOptionWithResource = res
@@ -761,6 +852,13 @@ responseSearchProducts = res
     serviceCatalog
     (Proxy :: Proxy SearchProducts)
 
+responseSearchProvisionedProducts :: SearchProvisionedProductsResponse -> TestTree
+responseSearchProvisionedProducts = res
+    "SearchProvisionedProductsResponse"
+    "fixture/SearchProvisionedProductsResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy SearchProvisionedProducts)
+
 responseDescribeProduct :: DescribeProductResponse -> TestTree
 responseDescribeProduct = res
     "DescribeProductResponse"
@@ -768,12 +866,26 @@ responseDescribeProduct = res
     serviceCatalog
     (Proxy :: Proxy DescribeProduct)
 
+responseDeleteProvisionedProductPlan :: DeleteProvisionedProductPlanResponse -> TestTree
+responseDeleteProvisionedProductPlan = res
+    "DeleteProvisionedProductPlanResponse"
+    "fixture/DeleteProvisionedProductPlanResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DeleteProvisionedProductPlan)
+
 responseCreateConstraint :: CreateConstraintResponse -> TestTree
 responseCreateConstraint = res
     "CreateConstraintResponse"
     "fixture/CreateConstraintResponse.proto"
     serviceCatalog
     (Proxy :: Proxy CreateConstraint)
+
+responseListProvisionedProductPlans :: ListProvisionedProductPlansResponse -> TestTree
+responseListProvisionedProductPlans = res
+    "ListProvisionedProductPlansResponse"
+    "fixture/ListProvisionedProductPlansResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy ListProvisionedProductPlans)
 
 responseListPortfolioAccess :: ListPortfolioAccessResponse -> TestTree
 responseListPortfolioAccess = res
@@ -824,6 +936,13 @@ responseListAcceptedPortfolioShares = res
     serviceCatalog
     (Proxy :: Proxy ListAcceptedPortfolioShares)
 
+responseExecuteProvisionedProductPlan :: ExecuteProvisionedProductPlanResponse -> TestTree
+responseExecuteProvisionedProductPlan = res
+    "ExecuteProvisionedProductPlanResponse"
+    "fixture/ExecuteProvisionedProductPlanResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy ExecuteProvisionedProductPlan)
+
 responseAcceptPortfolioShare :: AcceptPortfolioShareResponse -> TestTree
 responseAcceptPortfolioShare = res
     "AcceptPortfolioShareResponse"
@@ -872,6 +991,13 @@ responseRejectPortfolioShare = res
     "fixture/RejectPortfolioShareResponse.proto"
     serviceCatalog
     (Proxy :: Proxy RejectPortfolioShare)
+
+responseDeleteTagOption :: DeleteTagOptionResponse -> TestTree
+responseDeleteTagOption = res
+    "DeleteTagOptionResponse"
+    "fixture/DeleteTagOptionResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DeleteTagOption)
 
 responseUpdateTagOption :: UpdateTagOptionResponse -> TestTree
 responseUpdateTagOption = res

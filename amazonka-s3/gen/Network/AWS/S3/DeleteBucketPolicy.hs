@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ deleteBucketPolicy pBucket_ = DeleteBucketPolicy' {_dbpBucket = pBucket_}
 
 -- | Undocumented member.
 dbpBucket :: Lens' DeleteBucketPolicy BucketName
-dbpBucket = lens _dbpBucket (\ s a -> s{_dbpBucket = a});
+dbpBucket = lens _dbpBucket (\ s a -> s{_dbpBucket = a})
 
 instance AWSRequest DeleteBucketPolicy where
         type Rs DeleteBucketPolicy =

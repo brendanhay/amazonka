@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ModifyHAPG
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,20 +72,23 @@ modifyHAPG
     -> ModifyHAPG
 modifyHAPG pHAPGARN_ =
   ModifyHAPG'
-  {_mhPartitionSerialList = Nothing, _mhLabel = Nothing, _mhHAPGARN = pHAPGARN_}
+    { _mhPartitionSerialList = Nothing
+    , _mhLabel = Nothing
+    , _mhHAPGARN = pHAPGARN_
+    }
 
 
 -- | The list of partition serial numbers to make members of the high-availability partition group.
 mhPartitionSerialList :: Lens' ModifyHAPG [Text]
-mhPartitionSerialList = lens _mhPartitionSerialList (\ s a -> s{_mhPartitionSerialList = a}) . _Default . _Coerce;
+mhPartitionSerialList = lens _mhPartitionSerialList (\ s a -> s{_mhPartitionSerialList = a}) . _Default . _Coerce
 
 -- | The new label for the high-availability partition group.
 mhLabel :: Lens' ModifyHAPG (Maybe Text)
-mhLabel = lens _mhLabel (\ s a -> s{_mhLabel = a});
+mhLabel = lens _mhLabel (\ s a -> s{_mhLabel = a})
 
 -- | The ARN of the high-availability partition group to modify.
 mhHAPGARN :: Lens' ModifyHAPG Text
-mhHAPGARN = lens _mhHAPGARN (\ s a -> s{_mhHAPGARN = a});
+mhHAPGARN = lens _mhHAPGARN (\ s a -> s{_mhHAPGARN = a})
 
 instance AWSRequest ModifyHAPG where
         type Rs ModifyHAPG = ModifyHAPGResponse
@@ -143,15 +146,15 @@ modifyHAPGResponse
     -> ModifyHAPGResponse
 modifyHAPGResponse pResponseStatus_ =
   ModifyHAPGResponse'
-  {_mhrsHAPGARN = Nothing, _mhrsResponseStatus = pResponseStatus_}
+    {_mhrsHAPGARN = Nothing, _mhrsResponseStatus = pResponseStatus_}
 
 
 -- | The ARN of the high-availability partition group.
 mhrsHAPGARN :: Lens' ModifyHAPGResponse (Maybe Text)
-mhrsHAPGARN = lens _mhrsHAPGARN (\ s a -> s{_mhrsHAPGARN = a});
+mhrsHAPGARN = lens _mhrsHAPGARN (\ s a -> s{_mhrsHAPGARN = a})
 
 -- | -- | The response status code.
 mhrsResponseStatus :: Lens' ModifyHAPGResponse Int
-mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a});
+mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a})
 
 instance NFData ModifyHAPGResponse where

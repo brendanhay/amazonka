@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetLoggerDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ newtype GetLoggerDefinition = GetLoggerDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gldLoggerDefinitionId' - logger definition Id
+-- * 'gldLoggerDefinitionId' - The ID of the logger definition.
 getLoggerDefinition
     :: Text -- ^ 'gldLoggerDefinitionId'
     -> GetLoggerDefinition
@@ -66,9 +66,9 @@ getLoggerDefinition pLoggerDefinitionId_ =
   GetLoggerDefinition' {_gldLoggerDefinitionId = pLoggerDefinitionId_}
 
 
--- | logger definition Id
+-- | The ID of the logger definition.
 gldLoggerDefinitionId :: Lens' GetLoggerDefinition Text
-gldLoggerDefinitionId = lens _gldLoggerDefinitionId (\ s a -> s{_gldLoggerDefinitionId = a});
+gldLoggerDefinitionId = lens _gldLoggerDefinitionId (\ s a -> s{_gldLoggerDefinitionId = a})
 
 instance AWSRequest GetLoggerDefinition where
         type Rs GetLoggerDefinition =
@@ -123,19 +123,19 @@ data GetLoggerDefinitionResponse = GetLoggerDefinitionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gldrsLatestVersionARN' - Latest version arn of the definition.
+-- * 'gldrsLatestVersionARN' - The ARN of the latest version of the definition.
 --
--- * 'gldrsARN' - Arn of the definition.
+-- * 'gldrsARN' - The ARN of the definition.
 --
--- * 'gldrsName' - Name of the definition.
+-- * 'gldrsName' - The name of the definition.
 --
--- * 'gldrsCreationTimestamp' - Timestamp of when the definition was created.
+-- * 'gldrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
 --
--- * 'gldrsId' - Id of the definition.
+-- * 'gldrsId' - The ID of the definition.
 --
--- * 'gldrsLatestVersion' - Last version of the definition.
+-- * 'gldrsLatestVersion' - The latest version of the definition.
 --
--- * 'gldrsLastUpdatedTimestamp' - Last updated timestamp of the definition.
+-- * 'gldrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- * 'gldrsResponseStatus' - -- | The response status code.
 getLoggerDefinitionResponse
@@ -143,47 +143,47 @@ getLoggerDefinitionResponse
     -> GetLoggerDefinitionResponse
 getLoggerDefinitionResponse pResponseStatus_ =
   GetLoggerDefinitionResponse'
-  { _gldrsLatestVersionARN = Nothing
-  , _gldrsARN = Nothing
-  , _gldrsName = Nothing
-  , _gldrsCreationTimestamp = Nothing
-  , _gldrsId = Nothing
-  , _gldrsLatestVersion = Nothing
-  , _gldrsLastUpdatedTimestamp = Nothing
-  , _gldrsResponseStatus = pResponseStatus_
-  }
+    { _gldrsLatestVersionARN = Nothing
+    , _gldrsARN = Nothing
+    , _gldrsName = Nothing
+    , _gldrsCreationTimestamp = Nothing
+    , _gldrsId = Nothing
+    , _gldrsLatestVersion = Nothing
+    , _gldrsLastUpdatedTimestamp = Nothing
+    , _gldrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Latest version arn of the definition.
+-- | The ARN of the latest version of the definition.
 gldrsLatestVersionARN :: Lens' GetLoggerDefinitionResponse (Maybe Text)
-gldrsLatestVersionARN = lens _gldrsLatestVersionARN (\ s a -> s{_gldrsLatestVersionARN = a});
+gldrsLatestVersionARN = lens _gldrsLatestVersionARN (\ s a -> s{_gldrsLatestVersionARN = a})
 
--- | Arn of the definition.
+-- | The ARN of the definition.
 gldrsARN :: Lens' GetLoggerDefinitionResponse (Maybe Text)
-gldrsARN = lens _gldrsARN (\ s a -> s{_gldrsARN = a});
+gldrsARN = lens _gldrsARN (\ s a -> s{_gldrsARN = a})
 
--- | Name of the definition.
+-- | The name of the definition.
 gldrsName :: Lens' GetLoggerDefinitionResponse (Maybe Text)
-gldrsName = lens _gldrsName (\ s a -> s{_gldrsName = a});
+gldrsName = lens _gldrsName (\ s a -> s{_gldrsName = a})
 
--- | Timestamp of when the definition was created.
+-- | The time, in milliseconds since the epoch, when the definition was created.
 gldrsCreationTimestamp :: Lens' GetLoggerDefinitionResponse (Maybe Text)
-gldrsCreationTimestamp = lens _gldrsCreationTimestamp (\ s a -> s{_gldrsCreationTimestamp = a});
+gldrsCreationTimestamp = lens _gldrsCreationTimestamp (\ s a -> s{_gldrsCreationTimestamp = a})
 
--- | Id of the definition.
+-- | The ID of the definition.
 gldrsId :: Lens' GetLoggerDefinitionResponse (Maybe Text)
-gldrsId = lens _gldrsId (\ s a -> s{_gldrsId = a});
+gldrsId = lens _gldrsId (\ s a -> s{_gldrsId = a})
 
--- | Last version of the definition.
+-- | The latest version of the definition.
 gldrsLatestVersion :: Lens' GetLoggerDefinitionResponse (Maybe Text)
-gldrsLatestVersion = lens _gldrsLatestVersion (\ s a -> s{_gldrsLatestVersion = a});
+gldrsLatestVersion = lens _gldrsLatestVersion (\ s a -> s{_gldrsLatestVersion = a})
 
--- | Last updated timestamp of the definition.
+-- | The time, in milliseconds since the epoch, when the definition was last updated.
 gldrsLastUpdatedTimestamp :: Lens' GetLoggerDefinitionResponse (Maybe Text)
-gldrsLastUpdatedTimestamp = lens _gldrsLastUpdatedTimestamp (\ s a -> s{_gldrsLastUpdatedTimestamp = a});
+gldrsLastUpdatedTimestamp = lens _gldrsLastUpdatedTimestamp (\ s a -> s{_gldrsLastUpdatedTimestamp = a})
 
 -- | -- | The response status code.
 gldrsResponseStatus :: Lens' GetLoggerDefinitionResponse Int
-gldrsResponseStatus = lens _gldrsResponseStatus (\ s a -> s{_gldrsResponseStatus = a});
+gldrsResponseStatus = lens _gldrsResponseStatus (\ s a -> s{_gldrsResponseStatus = a})
 
 instance NFData GetLoggerDefinitionResponse where

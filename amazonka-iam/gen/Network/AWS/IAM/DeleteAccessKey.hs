@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteAccessKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Deletes the access key pair associated with the specified IAM user.
 --
 --
--- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
+-- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
 --
 module Network.AWS.IAM.DeleteAccessKey
     (
@@ -55,7 +55,7 @@ data DeleteAccessKey = DeleteAccessKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dakUserName' - The name of the user whose access key pair you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'dakUserName' - The name of the user whose access key pair you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'dakAccessKeyId' - The access key ID for the access key ID and secret access key you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 deleteAccessKey
@@ -65,13 +65,13 @@ deleteAccessKey pAccessKeyId_ =
   DeleteAccessKey' {_dakUserName = Nothing, _dakAccessKeyId = pAccessKeyId_}
 
 
--- | The name of the user whose access key pair you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user whose access key pair you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 dakUserName :: Lens' DeleteAccessKey (Maybe Text)
-dakUserName = lens _dakUserName (\ s a -> s{_dakUserName = a});
+dakUserName = lens _dakUserName (\ s a -> s{_dakUserName = a})
 
 -- | The access key ID for the access key ID and secret access key you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 dakAccessKeyId :: Lens' DeleteAccessKey AccessKey
-dakAccessKeyId = lens _dakAccessKeyId (\ s a -> s{_dakAccessKeyId = a});
+dakAccessKeyId = lens _dakAccessKeyId (\ s a -> s{_dakAccessKeyId = a})
 
 instance AWSRequest DeleteAccessKey where
         type Rs DeleteAccessKey = DeleteAccessKeyResponse

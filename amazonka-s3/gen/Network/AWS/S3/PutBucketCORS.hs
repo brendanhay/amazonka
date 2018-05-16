@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketCORS
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,23 +64,23 @@ putBucketCORS
     -> PutBucketCORS
 putBucketCORS pBucket_ pCORSConfiguration_ =
   PutBucketCORS'
-  { _pbcContentMD5 = Nothing
-  , _pbcBucket = pBucket_
-  , _pbcCORSConfiguration = pCORSConfiguration_
-  }
+    { _pbcContentMD5 = Nothing
+    , _pbcBucket = pBucket_
+    , _pbcCORSConfiguration = pCORSConfiguration_
+    }
 
 
 -- | Undocumented member.
 pbcContentMD5 :: Lens' PutBucketCORS (Maybe Text)
-pbcContentMD5 = lens _pbcContentMD5 (\ s a -> s{_pbcContentMD5 = a});
+pbcContentMD5 = lens _pbcContentMD5 (\ s a -> s{_pbcContentMD5 = a})
 
 -- | Undocumented member.
 pbcBucket :: Lens' PutBucketCORS BucketName
-pbcBucket = lens _pbcBucket (\ s a -> s{_pbcBucket = a});
+pbcBucket = lens _pbcBucket (\ s a -> s{_pbcBucket = a})
 
 -- | Undocumented member.
 pbcCORSConfiguration :: Lens' PutBucketCORS CORSConfiguration
-pbcCORSConfiguration = lens _pbcCORSConfiguration (\ s a -> s{_pbcCORSConfiguration = a});
+pbcCORSConfiguration = lens _pbcCORSConfiguration (\ s a -> s{_pbcCORSConfiguration = a})
 
 instance AWSRequest PutBucketCORS where
         type Rs PutBucketCORS = PutBucketCORSResponse

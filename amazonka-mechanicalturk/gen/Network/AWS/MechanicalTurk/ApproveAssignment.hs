@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ApproveAssignment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,23 +79,23 @@ approveAssignment
     -> ApproveAssignment
 approveAssignment pAssignmentId_ =
   ApproveAssignment'
-  { _aaOverrideRejection = Nothing
-  , _aaRequesterFeedback = Nothing
-  , _aaAssignmentId = pAssignmentId_
-  }
+    { _aaOverrideRejection = Nothing
+    , _aaRequesterFeedback = Nothing
+    , _aaAssignmentId = pAssignmentId_
+    }
 
 
 -- | A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to @False@ .
 aaOverrideRejection :: Lens' ApproveAssignment (Maybe Bool)
-aaOverrideRejection = lens _aaOverrideRejection (\ s a -> s{_aaOverrideRejection = a});
+aaOverrideRejection = lens _aaOverrideRejection (\ s a -> s{_aaOverrideRejection = a})
 
 -- | A message for the Worker, which the Worker can see in the Status section of the web site.
 aaRequesterFeedback :: Lens' ApproveAssignment (Maybe Text)
-aaRequesterFeedback = lens _aaRequesterFeedback (\ s a -> s{_aaRequesterFeedback = a});
+aaRequesterFeedback = lens _aaRequesterFeedback (\ s a -> s{_aaRequesterFeedback = a})
 
 -- | The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
 aaAssignmentId :: Lens' ApproveAssignment Text
-aaAssignmentId = lens _aaAssignmentId (\ s a -> s{_aaAssignmentId = a});
+aaAssignmentId = lens _aaAssignmentId (\ s a -> s{_aaAssignmentId = a})
 
 instance AWSRequest ApproveAssignment where
         type Rs ApproveAssignment = ApproveAssignmentResponse
@@ -153,6 +153,6 @@ approveAssignmentResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 aarsResponseStatus :: Lens' ApproveAssignmentResponse Int
-aarsResponseStatus = lens _aarsResponseStatus (\ s a -> s{_aarsResponseStatus = a});
+aarsResponseStatus = lens _aarsResponseStatus (\ s a -> s{_aarsResponseStatus = a})
 
 instance NFData ApproveAssignmentResponse where

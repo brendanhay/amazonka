@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeUploadBuffer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the upload buffer of a gateway. This operation is supported for the stored volume, cached volume and tape gateway architectures.
+-- Returns information about the upload buffer of a gateway. This operation is supported for the stored volume, cached volume and tape gateway types.
 --
 --
 -- The response includes disk IDs that are configured as upload buffer space, and it includes the amount of upload buffer space allocated and used.
@@ -69,7 +69,7 @@ describeUploadBuffer pGatewayARN_ =
 
 -- | Undocumented member.
 dubGatewayARN :: Lens' DescribeUploadBuffer Text
-dubGatewayARN = lens _dubGatewayARN (\ s a -> s{_dubGatewayARN = a});
+dubGatewayARN = lens _dubGatewayARN (\ s a -> s{_dubGatewayARN = a})
 
 instance AWSRequest DescribeUploadBuffer where
         type Rs DescribeUploadBuffer =
@@ -138,32 +138,32 @@ describeUploadBufferResponse
     -> DescribeUploadBufferResponse
 describeUploadBufferResponse pResponseStatus_ =
   DescribeUploadBufferResponse'
-  { _dubrsUploadBufferAllocatedInBytes = Nothing
-  , _dubrsGatewayARN = Nothing
-  , _dubrsDiskIds = Nothing
-  , _dubrsUploadBufferUsedInBytes = Nothing
-  , _dubrsResponseStatus = pResponseStatus_
-  }
+    { _dubrsUploadBufferAllocatedInBytes = Nothing
+    , _dubrsGatewayARN = Nothing
+    , _dubrsDiskIds = Nothing
+    , _dubrsUploadBufferUsedInBytes = Nothing
+    , _dubrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dubrsUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
-dubrsUploadBufferAllocatedInBytes = lens _dubrsUploadBufferAllocatedInBytes (\ s a -> s{_dubrsUploadBufferAllocatedInBytes = a});
+dubrsUploadBufferAllocatedInBytes = lens _dubrsUploadBufferAllocatedInBytes (\ s a -> s{_dubrsUploadBufferAllocatedInBytes = a})
 
 -- | Undocumented member.
 dubrsGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
-dubrsGatewayARN = lens _dubrsGatewayARN (\ s a -> s{_dubrsGatewayARN = a});
+dubrsGatewayARN = lens _dubrsGatewayARN (\ s a -> s{_dubrsGatewayARN = a})
 
 -- | Undocumented member.
 dubrsDiskIds :: Lens' DescribeUploadBufferResponse [Text]
-dubrsDiskIds = lens _dubrsDiskIds (\ s a -> s{_dubrsDiskIds = a}) . _Default . _Coerce;
+dubrsDiskIds = lens _dubrsDiskIds (\ s a -> s{_dubrsDiskIds = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 dubrsUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
-dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_dubrsUploadBufferUsedInBytes = a});
+dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_dubrsUploadBufferUsedInBytes = a})
 
 -- | -- | The response status code.
 dubrsResponseStatus :: Lens' DescribeUploadBufferResponse Int
-dubrsResponseStatus = lens _dubrsResponseStatus (\ s a -> s{_dubrsResponseStatus = a});
+dubrsResponseStatus = lens _dubrsResponseStatus (\ s a -> s{_dubrsResponseStatus = a})
 
 instance NFData DescribeUploadBufferResponse where

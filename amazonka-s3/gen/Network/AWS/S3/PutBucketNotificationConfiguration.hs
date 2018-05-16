@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketNotificationConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,18 +60,18 @@ putBucketNotificationConfiguration
     -> PutBucketNotificationConfiguration
 putBucketNotificationConfiguration pBucket_ pNotificationConfiguration_ =
   PutBucketNotificationConfiguration'
-  { _pbncBucket = pBucket_
-  , _pbncNotificationConfiguration = pNotificationConfiguration_
-  }
+    { _pbncBucket = pBucket_
+    , _pbncNotificationConfiguration = pNotificationConfiguration_
+    }
 
 
 -- | Undocumented member.
 pbncBucket :: Lens' PutBucketNotificationConfiguration BucketName
-pbncBucket = lens _pbncBucket (\ s a -> s{_pbncBucket = a});
+pbncBucket = lens _pbncBucket (\ s a -> s{_pbncBucket = a})
 
 -- | Undocumented member.
 pbncNotificationConfiguration :: Lens' PutBucketNotificationConfiguration NotificationConfiguration
-pbncNotificationConfiguration = lens _pbncNotificationConfiguration (\ s a -> s{_pbncNotificationConfiguration = a});
+pbncNotificationConfiguration = lens _pbncNotificationConfiguration (\ s a -> s{_pbncNotificationConfiguration = a})
 
 instance AWSRequest
            PutBucketNotificationConfiguration

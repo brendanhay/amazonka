@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.EnableSnapshotCopy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ enableSnapshotCopy
     -> EnableSnapshotCopy
 enableSnapshotCopy pClusterIdentifier_ pDestinationRegion_ =
   EnableSnapshotCopy'
-  { _escRetentionPeriod = Nothing
-  , _escSnapshotCopyGrantName = Nothing
-  , _escClusterIdentifier = pClusterIdentifier_
-  , _escDestinationRegion = pDestinationRegion_
-  }
+    { _escRetentionPeriod = Nothing
+    , _escSnapshotCopyGrantName = Nothing
+    , _escClusterIdentifier = pClusterIdentifier_
+    , _escDestinationRegion = pDestinationRegion_
+    }
 
 
 -- | The number of days to retain automated snapshots in the destination region after they are copied from the source region. Default: 7. Constraints: Must be at least 1 and no more than 35.
 escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
-escRetentionPeriod = lens _escRetentionPeriod (\ s a -> s{_escRetentionPeriod = a});
+escRetentionPeriod = lens _escRetentionPeriod (\ s a -> s{_escRetentionPeriod = a})
 
 -- | The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
 escSnapshotCopyGrantName :: Lens' EnableSnapshotCopy (Maybe Text)
-escSnapshotCopyGrantName = lens _escSnapshotCopyGrantName (\ s a -> s{_escSnapshotCopyGrantName = a});
+escSnapshotCopyGrantName = lens _escSnapshotCopyGrantName (\ s a -> s{_escSnapshotCopyGrantName = a})
 
 -- | The unique identifier of the source cluster to copy snapshots from. Constraints: Must be the valid name of an existing cluster that does not already have cross-region snapshot copy enabled.
 escClusterIdentifier :: Lens' EnableSnapshotCopy Text
-escClusterIdentifier = lens _escClusterIdentifier (\ s a -> s{_escClusterIdentifier = a});
+escClusterIdentifier = lens _escClusterIdentifier (\ s a -> s{_escClusterIdentifier = a})
 
 -- | The destination region that you want to copy snapshots to. Constraints: Must be the name of a valid region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
 escDestinationRegion :: Lens' EnableSnapshotCopy Text
-escDestinationRegion = lens _escDestinationRegion (\ s a -> s{_escDestinationRegion = a});
+escDestinationRegion = lens _escDestinationRegion (\ s a -> s{_escDestinationRegion = a})
 
 instance AWSRequest EnableSnapshotCopy where
         type Rs EnableSnapshotCopy =
@@ -149,15 +149,15 @@ enableSnapshotCopyResponse
     -> EnableSnapshotCopyResponse
 enableSnapshotCopyResponse pResponseStatus_ =
   EnableSnapshotCopyResponse'
-  {_escrsCluster = Nothing, _escrsResponseStatus = pResponseStatus_}
+    {_escrsCluster = Nothing, _escrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 escrsCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
-escrsCluster = lens _escrsCluster (\ s a -> s{_escrsCluster = a});
+escrsCluster = lens _escrsCluster (\ s a -> s{_escrsCluster = a})
 
 -- | -- | The response status code.
 escrsResponseStatus :: Lens' EnableSnapshotCopyResponse Int
-escrsResponseStatus = lens _escrsResponseStatus (\ s a -> s{_escrsResponseStatus = a});
+escrsResponseStatus = lens _escrsResponseStatus (\ s a -> s{_escrsResponseStatus = a})
 
 instance NFData EnableSnapshotCopyResponse where

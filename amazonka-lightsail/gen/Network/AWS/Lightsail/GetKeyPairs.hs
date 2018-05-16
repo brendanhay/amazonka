@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetKeyPairs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ getKeyPairs = GetKeyPairs' {_gkpPageToken = Nothing}
 
 -- | A token used for advancing to the next page of results from your get key pairs request.
 gkpPageToken :: Lens' GetKeyPairs (Maybe Text)
-gkpPageToken = lens _gkpPageToken (\ s a -> s{_gkpPageToken = a});
+gkpPageToken = lens _gkpPageToken (\ s a -> s{_gkpPageToken = a})
 
 instance AWSPager GetKeyPairs where
         page rq rs
@@ -132,22 +132,22 @@ getKeyPairsResponse
     -> GetKeyPairsResponse
 getKeyPairsResponse pResponseStatus_ =
   GetKeyPairsResponse'
-  { _gkpsrsNextPageToken = Nothing
-  , _gkpsrsKeyPairs = Nothing
-  , _gkpsrsResponseStatus = pResponseStatus_
-  }
+    { _gkpsrsNextPageToken = Nothing
+    , _gkpsrsKeyPairs = Nothing
+    , _gkpsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A token used for advancing to the next page of results from your get key pairs request.
 gkpsrsNextPageToken :: Lens' GetKeyPairsResponse (Maybe Text)
-gkpsrsNextPageToken = lens _gkpsrsNextPageToken (\ s a -> s{_gkpsrsNextPageToken = a});
+gkpsrsNextPageToken = lens _gkpsrsNextPageToken (\ s a -> s{_gkpsrsNextPageToken = a})
 
 -- | An array of key-value pairs containing information about the key pairs.
 gkpsrsKeyPairs :: Lens' GetKeyPairsResponse [KeyPair]
-gkpsrsKeyPairs = lens _gkpsrsKeyPairs (\ s a -> s{_gkpsrsKeyPairs = a}) . _Default . _Coerce;
+gkpsrsKeyPairs = lens _gkpsrsKeyPairs (\ s a -> s{_gkpsrsKeyPairs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gkpsrsResponseStatus :: Lens' GetKeyPairsResponse Int
-gkpsrsResponseStatus = lens _gkpsrsResponseStatus (\ s a -> s{_gkpsrsResponseStatus = a});
+gkpsrsResponseStatus = lens _gkpsrsResponseStatus (\ s a -> s{_gkpsrsResponseStatus = a})
 
 instance NFData GetKeyPairsResponse where

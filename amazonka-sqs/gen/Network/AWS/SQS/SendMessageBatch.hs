@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.SendMessageBatch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,11 +85,11 @@ sendMessageBatch pQueueURL_ =
 
 -- | The URL of the Amazon SQS queue to which batched messages are sent. Queue URLs are case-sensitive.
 smbQueueURL :: Lens' SendMessageBatch Text
-smbQueueURL = lens _smbQueueURL (\ s a -> s{_smbQueueURL = a});
+smbQueueURL = lens _smbQueueURL (\ s a -> s{_smbQueueURL = a})
 
 -- | A list of @'SendMessageBatchRequestEntry' @ items.
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
-smbEntries = lens _smbEntries (\ s a -> s{_smbEntries = a}) . _Coerce;
+smbEntries = lens _smbEntries (\ s a -> s{_smbEntries = a}) . _Coerce
 
 instance AWSRequest SendMessageBatch where
         type Rs SendMessageBatch = SendMessageBatchResponse
@@ -147,22 +147,22 @@ sendMessageBatchResponse
     -> SendMessageBatchResponse
 sendMessageBatchResponse pResponseStatus_ =
   SendMessageBatchResponse'
-  { _smbrsResponseStatus = pResponseStatus_
-  , _smbrsSuccessful = mempty
-  , _smbrsFailed = mempty
-  }
+    { _smbrsResponseStatus = pResponseStatus_
+    , _smbrsSuccessful = mempty
+    , _smbrsFailed = mempty
+    }
 
 
 -- | -- | The response status code.
 smbrsResponseStatus :: Lens' SendMessageBatchResponse Int
-smbrsResponseStatus = lens _smbrsResponseStatus (\ s a -> s{_smbrsResponseStatus = a});
+smbrsResponseStatus = lens _smbrsResponseStatus (\ s a -> s{_smbrsResponseStatus = a})
 
 -- | A list of @'SendMessageBatchResultEntry' @ items.
 smbrsSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
-smbrsSuccessful = lens _smbrsSuccessful (\ s a -> s{_smbrsSuccessful = a}) . _Coerce;
+smbrsSuccessful = lens _smbrsSuccessful (\ s a -> s{_smbrsSuccessful = a}) . _Coerce
 
 -- | A list of @'BatchResultErrorEntry' @ items with error details about each message that can't be enqueued.
 smbrsFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
-smbrsFailed = lens _smbrsFailed (\ s a -> s{_smbrsFailed = a}) . _Coerce;
+smbrsFailed = lens _smbrsFailed (\ s a -> s{_smbrsFailed = a}) . _Coerce
 
 instance NFData SendMessageBatchResponse where

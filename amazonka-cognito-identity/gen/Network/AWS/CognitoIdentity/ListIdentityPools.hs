@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.ListIdentityPools
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,16 +71,16 @@ listIdentityPools
     -> ListIdentityPools
 listIdentityPools pMaxResults_ =
   ListIdentityPools'
-  {_lipNextToken = Nothing, _lipMaxResults = _Nat # pMaxResults_}
+    {_lipNextToken = Nothing, _lipMaxResults = _Nat # pMaxResults_}
 
 
 -- | A pagination token.
 lipNextToken :: Lens' ListIdentityPools (Maybe Text)
-lipNextToken = lens _lipNextToken (\ s a -> s{_lipNextToken = a});
+lipNextToken = lens _lipNextToken (\ s a -> s{_lipNextToken = a})
 
 -- | The maximum number of identities to return.
 lipMaxResults :: Lens' ListIdentityPools Natural
-lipMaxResults = lens _lipMaxResults (\ s a -> s{_lipMaxResults = a}) . _Nat;
+lipMaxResults = lens _lipMaxResults (\ s a -> s{_lipMaxResults = a}) . _Nat
 
 instance AWSRequest ListIdentityPools where
         type Rs ListIdentityPools = ListIdentityPoolsResponse
@@ -146,22 +146,22 @@ listIdentityPoolsResponse
     -> ListIdentityPoolsResponse
 listIdentityPoolsResponse pResponseStatus_ =
   ListIdentityPoolsResponse'
-  { _liprsIdentityPools = Nothing
-  , _liprsNextToken = Nothing
-  , _liprsResponseStatus = pResponseStatus_
-  }
+    { _liprsIdentityPools = Nothing
+    , _liprsNextToken = Nothing
+    , _liprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The identity pools returned by the ListIdentityPools action.
 liprsIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
-liprsIdentityPools = lens _liprsIdentityPools (\ s a -> s{_liprsIdentityPools = a}) . _Default . _Coerce;
+liprsIdentityPools = lens _liprsIdentityPools (\ s a -> s{_liprsIdentityPools = a}) . _Default . _Coerce
 
 -- | A pagination token.
 liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
-liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
+liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a})
 
 -- | -- | The response status code.
 liprsResponseStatus :: Lens' ListIdentityPoolsResponse Int
-liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
+liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a})
 
 instance NFData ListIdentityPoolsResponse where

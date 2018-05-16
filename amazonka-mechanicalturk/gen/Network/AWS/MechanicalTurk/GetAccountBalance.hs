@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetAccountBalance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -112,22 +112,22 @@ getAccountBalanceResponse
     -> GetAccountBalanceResponse
 getAccountBalanceResponse pResponseStatus_ =
   GetAccountBalanceResponse'
-  { _gabrsAvailableBalance = Nothing
-  , _gabrsOnHoldBalance = Nothing
-  , _gabrsResponseStatus = pResponseStatus_
-  }
+    { _gabrsAvailableBalance = Nothing
+    , _gabrsOnHoldBalance = Nothing
+    , _gabrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 gabrsAvailableBalance :: Lens' GetAccountBalanceResponse (Maybe Text)
-gabrsAvailableBalance = lens _gabrsAvailableBalance (\ s a -> s{_gabrsAvailableBalance = a});
+gabrsAvailableBalance = lens _gabrsAvailableBalance (\ s a -> s{_gabrsAvailableBalance = a})
 
 -- | Undocumented member.
 gabrsOnHoldBalance :: Lens' GetAccountBalanceResponse (Maybe Text)
-gabrsOnHoldBalance = lens _gabrsOnHoldBalance (\ s a -> s{_gabrsOnHoldBalance = a});
+gabrsOnHoldBalance = lens _gabrsOnHoldBalance (\ s a -> s{_gabrsOnHoldBalance = a})
 
 -- | -- | The response status code.
 gabrsResponseStatus :: Lens' GetAccountBalanceResponse Int
-gabrsResponseStatus = lens _gabrsResponseStatus (\ s a -> s{_gabrsResponseStatus = a});
+gabrsResponseStatus = lens _gabrsResponseStatus (\ s a -> s{_gabrsResponseStatus = a})
 
 instance NFData GetAccountBalanceResponse where

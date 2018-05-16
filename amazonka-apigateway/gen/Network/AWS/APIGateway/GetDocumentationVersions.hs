@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDocumentationVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ data GetDocumentationVersions = GetDocumentationVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdvLimit' - The maximum number of returned results per page.
+-- * 'gdvLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'gdvPosition' - The current pagination position in the paged result set.
 --
@@ -71,20 +71,20 @@ getDocumentationVersions
     -> GetDocumentationVersions
 getDocumentationVersions pRestAPIId_ =
   GetDocumentationVersions'
-  {_gdvLimit = Nothing, _gdvPosition = Nothing, _gdvRestAPIId = pRestAPIId_}
+    {_gdvLimit = Nothing, _gdvPosition = Nothing, _gdvRestAPIId = pRestAPIId_}
 
 
--- | The maximum number of returned results per page.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 gdvLimit :: Lens' GetDocumentationVersions (Maybe Int)
-gdvLimit = lens _gdvLimit (\ s a -> s{_gdvLimit = a});
+gdvLimit = lens _gdvLimit (\ s a -> s{_gdvLimit = a})
 
 -- | The current pagination position in the paged result set.
 gdvPosition :: Lens' GetDocumentationVersions (Maybe Text)
-gdvPosition = lens _gdvPosition (\ s a -> s{_gdvPosition = a});
+gdvPosition = lens _gdvPosition (\ s a -> s{_gdvPosition = a})
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 gdvRestAPIId :: Lens' GetDocumentationVersions Text
-gdvRestAPIId = lens _gdvRestAPIId (\ s a -> s{_gdvRestAPIId = a});
+gdvRestAPIId = lens _gdvRestAPIId (\ s a -> s{_gdvRestAPIId = a})
 
 instance AWSRequest GetDocumentationVersions where
         type Rs GetDocumentationVersions =
@@ -147,23 +147,23 @@ getDocumentationVersionsResponse
     -> GetDocumentationVersionsResponse
 getDocumentationVersionsResponse pResponseStatus_ =
   GetDocumentationVersionsResponse'
-  { _gdvrsItems = Nothing
-  , _gdvrsPosition = Nothing
-  , _gdvrsResponseStatus = pResponseStatus_
-  }
+    { _gdvrsItems = Nothing
+    , _gdvrsPosition = Nothing
+    , _gdvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 gdvrsItems :: Lens' GetDocumentationVersionsResponse [DocumentationVersion]
-gdvrsItems = lens _gdvrsItems (\ s a -> s{_gdvrsItems = a}) . _Default . _Coerce;
+gdvrsItems = lens _gdvrsItems (\ s a -> s{_gdvrsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gdvrsPosition :: Lens' GetDocumentationVersionsResponse (Maybe Text)
-gdvrsPosition = lens _gdvrsPosition (\ s a -> s{_gdvrsPosition = a});
+gdvrsPosition = lens _gdvrsPosition (\ s a -> s{_gdvrsPosition = a})
 
 -- | -- | The response status code.
 gdvrsResponseStatus :: Lens' GetDocumentationVersionsResponse Int
-gdvrsResponseStatus = lens _gdvrsResponseStatus (\ s a -> s{_gdvrsResponseStatus = a});
+gdvrsResponseStatus = lens _gdvrsResponseStatus (\ s a -> s{_gdvrsResponseStatus = a})
 
 instance NFData GetDocumentationVersionsResponse
          where

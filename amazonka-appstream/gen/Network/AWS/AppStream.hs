@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,6 +38,9 @@ module Network.AWS.AppStream
     -- ** OperationNotPermittedException
     , _OperationNotPermittedException
 
+    -- ** InvalidAccountStatusException
+    , _InvalidAccountStatusException
+
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
 
@@ -55,6 +58,12 @@ module Network.AWS.AppStream
 
     -- * Waiters
     -- $waiters
+
+    -- ** FleetStopped
+    , fleetStopped
+
+    -- ** FleetStarted
+    , fleetStarted
 
     -- * Operations
     -- $operations
@@ -92,6 +101,9 @@ module Network.AWS.AppStream
     -- ** CreateImageBuilder
     , module Network.AWS.AppStream.CreateImageBuilder
 
+    -- ** ListTagsForResource
+    , module Network.AWS.AppStream.ListTagsForResource
+
     -- ** DescribeDirectoryConfigs
     , module Network.AWS.AppStream.DescribeDirectoryConfigs
 
@@ -128,11 +140,20 @@ module Network.AWS.AppStream
     -- ** CreateStack
     , module Network.AWS.AppStream.CreateStack
 
+    -- ** CopyImage
+    , module Network.AWS.AppStream.CopyImage
+
     -- ** ExpireSession
     , module Network.AWS.AppStream.ExpireSession
 
+    -- ** TagResource
+    , module Network.AWS.AppStream.TagResource
+
     -- ** CreateStreamingURL
     , module Network.AWS.AppStream.CreateStreamingURL
+
+    -- ** UntagResource
+    , module Network.AWS.AppStream.UntagResource
 
     -- ** StartFleet
     , module Network.AWS.AppStream.StartFleet
@@ -180,6 +201,9 @@ module Network.AWS.AppStream
 
     -- ** SessionState
     , SessionState (..)
+
+    -- ** StackAttribute
+    , StackAttribute (..)
 
     -- ** StackErrorCode
     , StackErrorCode (..)
@@ -268,6 +292,7 @@ module Network.AWS.AppStream
     , iBaseImageARN
     , iDisplayName
     , iDescription
+    , iAppstreamAgentVersion
     , iApplications
     , iName
 
@@ -287,6 +312,7 @@ module Network.AWS.AppStream
     , ibDisplayName
     , ibEnableDefaultInternetAccess
     , ibDescription
+    , ibAppstreamAgentVersion
     , ibName
 
     -- ** ImageBuilderStateChangeReason
@@ -327,12 +353,14 @@ module Network.AWS.AppStream
     -- ** Stack
     , Stack
     , stack
+    , sFeedbackURL
     , sARN
     , sCreatedTime
     , sStorageConnectors
     , sDisplayName
     , sStackErrors
     , sDescription
+    , sRedirectURL
     , sName
 
     -- ** StackError
@@ -355,6 +383,7 @@ module Network.AWS.AppStream
     ) where
 
 import Network.AWS.AppStream.AssociateFleet
+import Network.AWS.AppStream.CopyImage
 import Network.AWS.AppStream.CreateDirectoryConfig
 import Network.AWS.AppStream.CreateFleet
 import Network.AWS.AppStream.CreateImageBuilder
@@ -376,11 +405,14 @@ import Network.AWS.AppStream.DisassociateFleet
 import Network.AWS.AppStream.ExpireSession
 import Network.AWS.AppStream.ListAssociatedFleets
 import Network.AWS.AppStream.ListAssociatedStacks
+import Network.AWS.AppStream.ListTagsForResource
 import Network.AWS.AppStream.StartFleet
 import Network.AWS.AppStream.StartImageBuilder
 import Network.AWS.AppStream.StopFleet
 import Network.AWS.AppStream.StopImageBuilder
+import Network.AWS.AppStream.TagResource
 import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.UntagResource
 import Network.AWS.AppStream.UpdateDirectoryConfig
 import Network.AWS.AppStream.UpdateFleet
 import Network.AWS.AppStream.UpdateStack

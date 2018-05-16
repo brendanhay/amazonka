@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBClusterParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,7 +76,7 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
 --
 -- * 'cdcpgDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must match the name of an existing DBClusterParameterGroup.
 --
--- * 'cdcpgDBParameterGroupFamily' - The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
+-- * 'cdcpgDBParameterGroupFamily' - The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family. __Aurora MySQL__  Example: @aurora5.6@ , @aurora-mysql5.7@  __Aurora PostgreSQL__  Example: @aurora-postgresql9.6@
 --
 -- * 'cdcpgDescription' - The description for the DB cluster parameter group.
 createDBClusterParameterGroup
@@ -86,28 +86,28 @@ createDBClusterParameterGroup
     -> CreateDBClusterParameterGroup
 createDBClusterParameterGroup pDBClusterParameterGroupName_ pDBParameterGroupFamily_ pDescription_ =
   CreateDBClusterParameterGroup'
-  { _cdcpgTags = Nothing
-  , _cdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
-  , _cdcpgDBParameterGroupFamily = pDBParameterGroupFamily_
-  , _cdcpgDescription = pDescription_
-  }
+    { _cdcpgTags = Nothing
+    , _cdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
+    , _cdcpgDBParameterGroupFamily = pDBParameterGroupFamily_
+    , _cdcpgDescription = pDescription_
+    }
 
 
 -- | Undocumented member.
 cdcpgTags :: Lens' CreateDBClusterParameterGroup [Tag]
-cdcpgTags = lens _cdcpgTags (\ s a -> s{_cdcpgTags = a}) . _Default . _Coerce;
+cdcpgTags = lens _cdcpgTags (\ s a -> s{_cdcpgTags = a}) . _Default . _Coerce
 
 -- | The name of the DB cluster parameter group. Constraints:     * Must match the name of an existing DBClusterParameterGroup.
 cdcpgDBClusterParameterGroupName :: Lens' CreateDBClusterParameterGroup Text
-cdcpgDBClusterParameterGroupName = lens _cdcpgDBClusterParameterGroupName (\ s a -> s{_cdcpgDBClusterParameterGroupName = a});
+cdcpgDBClusterParameterGroupName = lens _cdcpgDBClusterParameterGroupName (\ s a -> s{_cdcpgDBClusterParameterGroupName = a})
 
--- | The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
+-- | The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family. __Aurora MySQL__  Example: @aurora5.6@ , @aurora-mysql5.7@  __Aurora PostgreSQL__  Example: @aurora-postgresql9.6@
 cdcpgDBParameterGroupFamily :: Lens' CreateDBClusterParameterGroup Text
-cdcpgDBParameterGroupFamily = lens _cdcpgDBParameterGroupFamily (\ s a -> s{_cdcpgDBParameterGroupFamily = a});
+cdcpgDBParameterGroupFamily = lens _cdcpgDBParameterGroupFamily (\ s a -> s{_cdcpgDBParameterGroupFamily = a})
 
 -- | The description for the DB cluster parameter group.
 cdcpgDescription :: Lens' CreateDBClusterParameterGroup Text
-cdcpgDescription = lens _cdcpgDescription (\ s a -> s{_cdcpgDescription = a});
+cdcpgDescription = lens _cdcpgDescription (\ s a -> s{_cdcpgDescription = a})
 
 instance AWSRequest CreateDBClusterParameterGroup
          where
@@ -165,18 +165,18 @@ createDBClusterParameterGroupResponse
     -> CreateDBClusterParameterGroupResponse
 createDBClusterParameterGroupResponse pResponseStatus_ =
   CreateDBClusterParameterGroupResponse'
-  { _cdbcpgrsDBClusterParameterGroup = Nothing
-  , _cdbcpgrsResponseStatus = pResponseStatus_
-  }
+    { _cdbcpgrsDBClusterParameterGroup = Nothing
+    , _cdbcpgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 cdbcpgrsDBClusterParameterGroup :: Lens' CreateDBClusterParameterGroupResponse (Maybe DBClusterParameterGroup)
-cdbcpgrsDBClusterParameterGroup = lens _cdbcpgrsDBClusterParameterGroup (\ s a -> s{_cdbcpgrsDBClusterParameterGroup = a});
+cdbcpgrsDBClusterParameterGroup = lens _cdbcpgrsDBClusterParameterGroup (\ s a -> s{_cdbcpgrsDBClusterParameterGroup = a})
 
 -- | -- | The response status code.
 cdbcpgrsResponseStatus :: Lens' CreateDBClusterParameterGroupResponse Int
-cdbcpgrsResponseStatus = lens _cdbcpgrsResponseStatus (\ s a -> s{_cdbcpgrsResponseStatus = a});
+cdbcpgrsResponseStatus = lens _cdbcpgrsResponseStatus (\ s a -> s{_cdbcpgrsResponseStatus = a})
 
 instance NFData CreateDBClusterParameterGroupResponse
          where

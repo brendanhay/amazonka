@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ createDomain pDomainName_ = CreateDomain' {_cdDomainName = pDomainName_}
 
 -- | The domain name to manage (e.g., @example.com@ ).
 cdDomainName :: Lens' CreateDomain Text
-cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
+cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a})
 
 instance AWSRequest CreateDomain where
         type Rs CreateDomain = CreateDomainResponse
@@ -117,15 +117,15 @@ createDomainResponse
     -> CreateDomainResponse
 createDomainResponse pResponseStatus_ =
   CreateDomainResponse'
-  {_cdrsOperation = Nothing, _cdrsResponseStatus = pResponseStatus_}
+    {_cdrsOperation = Nothing, _cdrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the domain resource you created.
 cdrsOperation :: Lens' CreateDomainResponse (Maybe Operation)
-cdrsOperation = lens _cdrsOperation (\ s a -> s{_cdrsOperation = a});
+cdrsOperation = lens _cdrsOperation (\ s a -> s{_cdrsOperation = a})
 
 -- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDomainResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a})
 
 instance NFData CreateDomainResponse where

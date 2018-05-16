@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AddCustomAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,18 +68,18 @@ addCustomAttributes
     -> AddCustomAttributes
 addCustomAttributes pUserPoolId_ pCustomAttributes_ =
   AddCustomAttributes'
-  { _acaUserPoolId = pUserPoolId_
-  , _acaCustomAttributes = _List1 # pCustomAttributes_
-  }
+    { _acaUserPoolId = pUserPoolId_
+    , _acaCustomAttributes = _List1 # pCustomAttributes_
+    }
 
 
 -- | The user pool ID for the user pool where you want to add custom attributes.
 acaUserPoolId :: Lens' AddCustomAttributes Text
-acaUserPoolId = lens _acaUserPoolId (\ s a -> s{_acaUserPoolId = a});
+acaUserPoolId = lens _acaUserPoolId (\ s a -> s{_acaUserPoolId = a})
 
 -- | An array of custom attributes, such as Mutable and Name.
 acaCustomAttributes :: Lens' AddCustomAttributes (NonEmpty SchemaAttributeType)
-acaCustomAttributes = lens _acaCustomAttributes (\ s a -> s{_acaCustomAttributes = a}) . _List1;
+acaCustomAttributes = lens _acaCustomAttributes (\ s a -> s{_acaCustomAttributes = a}) . _List1
 
 instance AWSRequest AddCustomAttributes where
         type Rs AddCustomAttributes =
@@ -141,6 +141,6 @@ addCustomAttributesResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 acarsResponseStatus :: Lens' AddCustomAttributesResponse Int
-acarsResponseStatus = lens _acarsResponseStatus (\ s a -> s{_acarsResponseStatus = a});
+acarsResponseStatus = lens _acarsResponseStatus (\ s a -> s{_acarsResponseStatus = a})
 
 instance NFData AddCustomAttributesResponse where

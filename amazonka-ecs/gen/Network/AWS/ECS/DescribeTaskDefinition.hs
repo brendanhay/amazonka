@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeTaskDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ describeTaskDefinition pTaskDefinition_ =
 
 -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@ (@family:revision@ ) for a specific revision in the family, or full Amazon Resource Name (ARN) of the task definition to describe.
 dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
-dtdTaskDefinition = lens _dtdTaskDefinition (\ s a -> s{_dtdTaskDefinition = a});
+dtdTaskDefinition = lens _dtdTaskDefinition (\ s a -> s{_dtdTaskDefinition = a})
 
 instance AWSRequest DescribeTaskDefinition where
         type Rs DescribeTaskDefinition =
@@ -121,15 +121,15 @@ describeTaskDefinitionResponse
     -> DescribeTaskDefinitionResponse
 describeTaskDefinitionResponse pResponseStatus_ =
   DescribeTaskDefinitionResponse'
-  {_desrsTaskDefinition = Nothing, _desrsResponseStatus = pResponseStatus_}
+    {_desrsTaskDefinition = Nothing, _desrsResponseStatus = pResponseStatus_}
 
 
 -- | The full task definition description.
 desrsTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
-desrsTaskDefinition = lens _desrsTaskDefinition (\ s a -> s{_desrsTaskDefinition = a});
+desrsTaskDefinition = lens _desrsTaskDefinition (\ s a -> s{_desrsTaskDefinition = a})
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeTaskDefinitionResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 instance NFData DescribeTaskDefinitionResponse where

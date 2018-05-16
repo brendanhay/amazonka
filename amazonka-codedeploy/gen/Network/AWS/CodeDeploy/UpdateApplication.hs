@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.UpdateApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ updateApplication
     :: UpdateApplication
 updateApplication =
   UpdateApplication'
-  {_uaNewApplicationName = Nothing, _uaApplicationName = Nothing}
+    {_uaNewApplicationName = Nothing, _uaApplicationName = Nothing}
 
 
 -- | The new name to give the application.
 uaNewApplicationName :: Lens' UpdateApplication (Maybe Text)
-uaNewApplicationName = lens _uaNewApplicationName (\ s a -> s{_uaNewApplicationName = a});
+uaNewApplicationName = lens _uaNewApplicationName (\ s a -> s{_uaNewApplicationName = a})
 
 -- | The current name of the application you want to change.
 uaApplicationName :: Lens' UpdateApplication (Maybe Text)
-uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
+uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a})
 
 instance AWSRequest UpdateApplication where
         type Rs UpdateApplication = UpdateApplicationResponse

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateCrawlerSchedule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the schedule of a crawler using a Cron expression.
+-- Updates the schedule of a crawler using a @cron@ expression.
 --
 --
 module Network.AWS.Glue.UpdateCrawlerSchedule
@@ -63,16 +63,16 @@ updateCrawlerSchedule
     -> UpdateCrawlerSchedule
 updateCrawlerSchedule pCrawlerName_ =
   UpdateCrawlerSchedule'
-  {_ucsSchedule = Nothing, _ucsCrawlerName = pCrawlerName_}
+    {_ucsSchedule = Nothing, _ucsCrawlerName = pCrawlerName_}
 
 
 -- | The updated @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 ucsSchedule :: Lens' UpdateCrawlerSchedule (Maybe Text)
-ucsSchedule = lens _ucsSchedule (\ s a -> s{_ucsSchedule = a});
+ucsSchedule = lens _ucsSchedule (\ s a -> s{_ucsSchedule = a})
 
 -- | Name of the crawler whose schedule to update.
 ucsCrawlerName :: Lens' UpdateCrawlerSchedule Text
-ucsCrawlerName = lens _ucsCrawlerName (\ s a -> s{_ucsCrawlerName = a});
+ucsCrawlerName = lens _ucsCrawlerName (\ s a -> s{_ucsCrawlerName = a})
 
 instance AWSRequest UpdateCrawlerSchedule where
         type Rs UpdateCrawlerSchedule =
@@ -130,6 +130,6 @@ updateCrawlerScheduleResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ucsrsResponseStatus :: Lens' UpdateCrawlerScheduleResponse Int
-ucsrsResponseStatus = lens _ucsrsResponseStatus (\ s a -> s{_ucsrsResponseStatus = a});
+ucsrsResponseStatus = lens _ucsrsResponseStatus (\ s a -> s{_ucsrsResponseStatus = a})
 
 instance NFData UpdateCrawlerScheduleResponse where

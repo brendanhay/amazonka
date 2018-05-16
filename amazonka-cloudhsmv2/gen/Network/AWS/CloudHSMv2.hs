@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,7 +43,7 @@ module Network.AWS.CloudHSMv2
     -- * Operations
     -- $operations
 
-    -- ** DescribeClusters
+    -- ** DescribeClusters (Paginated)
     , module Network.AWS.CloudHSMv2.DescribeClusters
 
     -- ** InitializeCluster
@@ -52,7 +52,7 @@ module Network.AWS.CloudHSMv2
     -- ** CreateHSM
     , module Network.AWS.CloudHSMv2.CreateHSM
 
-    -- ** DescribeBackups
+    -- ** DescribeBackups (Paginated)
     , module Network.AWS.CloudHSMv2.DescribeBackups
 
     -- ** DeleteCluster
@@ -67,7 +67,7 @@ module Network.AWS.CloudHSMv2
     -- ** TagResource
     , module Network.AWS.CloudHSMv2.TagResource
 
-    -- ** ListTags
+    -- ** ListTags (Paginated)
     , module Network.AWS.CloudHSMv2.ListTags
 
     -- ** UntagResource

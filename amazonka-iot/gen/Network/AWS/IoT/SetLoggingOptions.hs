@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.SetLoggingOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ setLoggingOptions pLoggingOptionsPayload_ =
 
 -- | The logging options payload.
 sloLoggingOptionsPayload :: Lens' SetLoggingOptions LoggingOptionsPayload
-sloLoggingOptionsPayload = lens _sloLoggingOptionsPayload (\ s a -> s{_sloLoggingOptionsPayload = a});
+sloLoggingOptionsPayload = lens _sloLoggingOptionsPayload (\ s a -> s{_sloLoggingOptionsPayload = a})
 
 instance AWSRequest SetLoggingOptions where
         type Rs SetLoggingOptions = SetLoggingOptionsResponse

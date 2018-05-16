@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.GetPasswordData
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,11 +82,11 @@ getPasswordData pInstanceId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 gpdDryRun :: Lens' GetPasswordData (Maybe Bool)
-gpdDryRun = lens _gpdDryRun (\ s a -> s{_gpdDryRun = a});
+gpdDryRun = lens _gpdDryRun (\ s a -> s{_gpdDryRun = a})
 
 -- | The ID of the Windows instance.
 gpdInstanceId :: Lens' GetPasswordData Text
-gpdInstanceId = lens _gpdInstanceId (\ s a -> s{_gpdInstanceId = a});
+gpdInstanceId = lens _gpdInstanceId (\ s a -> s{_gpdInstanceId = a})
 
 instance AWSRequest GetPasswordData where
         type Rs GetPasswordData = GetPasswordDataResponse
@@ -149,27 +149,27 @@ getPasswordDataResponse
     -> GetPasswordDataResponse
 getPasswordDataResponse pResponseStatus_ pInstanceId_ pPasswordData_ pTimestamp_ =
   GetPasswordDataResponse'
-  { _gpdrsResponseStatus = pResponseStatus_
-  , _gpdrsInstanceId = pInstanceId_
-  , _gpdrsPasswordData = pPasswordData_
-  , _gpdrsTimestamp = _Time # pTimestamp_
-  }
+    { _gpdrsResponseStatus = pResponseStatus_
+    , _gpdrsInstanceId = pInstanceId_
+    , _gpdrsPasswordData = pPasswordData_
+    , _gpdrsTimestamp = _Time # pTimestamp_
+    }
 
 
 -- | -- | The response status code.
 gpdrsResponseStatus :: Lens' GetPasswordDataResponse Int
-gpdrsResponseStatus = lens _gpdrsResponseStatus (\ s a -> s{_gpdrsResponseStatus = a});
+gpdrsResponseStatus = lens _gpdrsResponseStatus (\ s a -> s{_gpdrsResponseStatus = a})
 
 -- | The ID of the Windows instance.
 gpdrsInstanceId :: Lens' GetPasswordDataResponse Text
-gpdrsInstanceId = lens _gpdrsInstanceId (\ s a -> s{_gpdrsInstanceId = a});
+gpdrsInstanceId = lens _gpdrsInstanceId (\ s a -> s{_gpdrsInstanceId = a})
 
 -- | The password of the instance. Returns an empty string if the password is not available.
 gpdrsPasswordData :: Lens' GetPasswordDataResponse Text
-gpdrsPasswordData = lens _gpdrsPasswordData (\ s a -> s{_gpdrsPasswordData = a});
+gpdrsPasswordData = lens _gpdrsPasswordData (\ s a -> s{_gpdrsPasswordData = a})
 
 -- | The time the data was last updated.
 gpdrsTimestamp :: Lens' GetPasswordDataResponse UTCTime
-gpdrsTimestamp = lens _gpdrsTimestamp (\ s a -> s{_gpdrsTimestamp = a}) . _Time;
+gpdrsTimestamp = lens _gpdrsTimestamp (\ s a -> s{_gpdrsTimestamp = a}) . _Time
 
 instance NFData GetPasswordDataResponse where

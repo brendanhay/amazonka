@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetOfferingStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ getOfferingStatus = GetOfferingStatus' {_gosNextToken = Nothing}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 gosNextToken :: Lens' GetOfferingStatus (Maybe Text)
-gosNextToken = lens _gosNextToken (\ s a -> s{_gosNextToken = a});
+gosNextToken = lens _gosNextToken (\ s a -> s{_gosNextToken = a})
 
 instance AWSPager GetOfferingStatus where
         page rq rs
@@ -147,27 +147,27 @@ getOfferingStatusResponse
     -> GetOfferingStatusResponse
 getOfferingStatusResponse pResponseStatus_ =
   GetOfferingStatusResponse'
-  { _gosrsNextPeriod = Nothing
-  , _gosrsCurrent = Nothing
-  , _gosrsNextToken = Nothing
-  , _gosrsResponseStatus = pResponseStatus_
-  }
+    { _gosrsNextPeriod = Nothing
+    , _gosrsCurrent = Nothing
+    , _gosrsNextToken = Nothing
+    , _gosrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | When specified, gets the offering status for the next period.
 gosrsNextPeriod :: Lens' GetOfferingStatusResponse (HashMap Text OfferingStatus)
-gosrsNextPeriod = lens _gosrsNextPeriod (\ s a -> s{_gosrsNextPeriod = a}) . _Default . _Map;
+gosrsNextPeriod = lens _gosrsNextPeriod (\ s a -> s{_gosrsNextPeriod = a}) . _Default . _Map
 
 -- | When specified, gets the offering status for the current period.
 gosrsCurrent :: Lens' GetOfferingStatusResponse (HashMap Text OfferingStatus)
-gosrsCurrent = lens _gosrsCurrent (\ s a -> s{_gosrsCurrent = a}) . _Default . _Map;
+gosrsCurrent = lens _gosrsCurrent (\ s a -> s{_gosrsCurrent = a}) . _Default . _Map
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 gosrsNextToken :: Lens' GetOfferingStatusResponse (Maybe Text)
-gosrsNextToken = lens _gosrsNextToken (\ s a -> s{_gosrsNextToken = a});
+gosrsNextToken = lens _gosrsNextToken (\ s a -> s{_gosrsNextToken = a})
 
 -- | -- | The response status code.
 gosrsResponseStatus :: Lens' GetOfferingStatusResponse Int
-gosrsResponseStatus = lens _gosrsResponseStatus (\ s a -> s{_gosrsResponseStatus = a});
+gosrsResponseStatus = lens _gosrsResponseStatus (\ s a -> s{_gosrsResponseStatus = a})
 
 instance NFData GetOfferingStatusResponse where

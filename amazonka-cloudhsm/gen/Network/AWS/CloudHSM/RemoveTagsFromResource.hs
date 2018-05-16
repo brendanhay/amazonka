@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.RemoveTagsFromResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ removeTagsFromResource
     -> RemoveTagsFromResource
 removeTagsFromResource pResourceARN_ =
   RemoveTagsFromResource'
-  {_rtfrResourceARN = pResourceARN_, _rtfrTagKeyList = mempty}
+    {_rtfrResourceARN = pResourceARN_, _rtfrTagKeyList = mempty}
 
 
 -- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
 rtfrResourceARN :: Lens' RemoveTagsFromResource Text
-rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
+rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a})
 
 -- | The tag key or keys to remove. Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use 'AddTagsToResource' .
 rtfrTagKeyList :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeyList = lens _rtfrTagKeyList (\ s a -> s{_rtfrTagKeyList = a}) . _Coerce;
+rtfrTagKeyList = lens _rtfrTagKeyList (\ s a -> s{_rtfrTagKeyList = a}) . _Coerce
 
 instance AWSRequest RemoveTagsFromResource where
         type Rs RemoveTagsFromResource =
@@ -138,15 +138,15 @@ removeTagsFromResourceResponse
     -> RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse pResponseStatus_ pStatus_ =
   RemoveTagsFromResourceResponse'
-  {_rtfrrsResponseStatus = pResponseStatus_, _rtfrrsStatus = pStatus_}
+    {_rtfrrsResponseStatus = pResponseStatus_, _rtfrrsStatus = pStatus_}
 
 
 -- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
-rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
+rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a})
 
 -- | The status of the operation.
 rtfrrsStatus :: Lens' RemoveTagsFromResourceResponse Text
-rtfrrsStatus = lens _rtfrrsStatus (\ s a -> s{_rtfrrsStatus = a});
+rtfrrsStatus = lens _rtfrrsStatus (\ s a -> s{_rtfrrsStatus = a})
 
 instance NFData RemoveTagsFromResourceResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,22 +53,22 @@ data UpdateGroup = UpdateGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugName' - name of the definition
+-- * 'ugName' - The name of the definition.
 --
--- * 'ugGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'ugGroupId' - The ID of the AWS Greengrass group.
 updateGroup
     :: Text -- ^ 'ugGroupId'
     -> UpdateGroup
 updateGroup pGroupId_ = UpdateGroup' {_ugName = Nothing, _ugGroupId = pGroupId_}
 
 
--- | name of the definition
+-- | The name of the definition.
 ugName :: Lens' UpdateGroup (Maybe Text)
-ugName = lens _ugName (\ s a -> s{_ugName = a});
+ugName = lens _ugName (\ s a -> s{_ugName = a})
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 ugGroupId :: Lens' UpdateGroup Text
-ugGroupId = lens _ugGroupId (\ s a -> s{_ugGroupId = a});
+ugGroupId = lens _ugGroupId (\ s a -> s{_ugGroupId = a})
 
 instance AWSRequest UpdateGroup where
         type Rs UpdateGroup = UpdateGroupResponse
@@ -120,6 +120,6 @@ updateGroupResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ugrsResponseStatus :: Lens' UpdateGroupResponse Int
-ugrsResponseStatus = lens _ugrsResponseStatus (\ s a -> s{_ugrsResponseStatus = a});
+ugrsResponseStatus = lens _ugrsResponseStatus (\ s a -> s{_ugrsResponseStatus = a})
 
 instance NFData UpdateGroupResponse where

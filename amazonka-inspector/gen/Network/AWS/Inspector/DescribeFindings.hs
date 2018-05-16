@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeFindings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ describeFindings
     -> DescribeFindings
 describeFindings pFindingARNs_ =
   DescribeFindings'
-  {_dfLocale = Nothing, _dfFindingARNs = _List1 # pFindingARNs_}
+    {_dfLocale = Nothing, _dfFindingARNs = _List1 # pFindingARNs_}
 
 
 -- | The locale into which you want to translate a finding description, recommendation, and the short description that identifies the finding.
 dfLocale :: Lens' DescribeFindings (Maybe Locale)
-dfLocale = lens _dfLocale (\ s a -> s{_dfLocale = a});
+dfLocale = lens _dfLocale (\ s a -> s{_dfLocale = a})
 
 -- | The ARN that specifies the finding that you want to describe.
 dfFindingARNs :: Lens' DescribeFindings (NonEmpty Text)
-dfFindingARNs = lens _dfFindingARNs (\ s a -> s{_dfFindingARNs = a}) . _List1;
+dfFindingARNs = lens _dfFindingARNs (\ s a -> s{_dfFindingARNs = a}) . _List1
 
 instance AWSRequest DescribeFindings where
         type Rs DescribeFindings = DescribeFindingsResponse
@@ -134,22 +134,22 @@ describeFindingsResponse
     -> DescribeFindingsResponse
 describeFindingsResponse pResponseStatus_ =
   DescribeFindingsResponse'
-  { _dfrsResponseStatus = pResponseStatus_
-  , _dfrsFindings = mempty
-  , _dfrsFailedItems = mempty
-  }
+    { _dfrsResponseStatus = pResponseStatus_
+    , _dfrsFindings = mempty
+    , _dfrsFailedItems = mempty
+    }
 
 
 -- | -- | The response status code.
 dfrsResponseStatus :: Lens' DescribeFindingsResponse Int
-dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a});
+dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a})
 
 -- | Information about the finding.
 dfrsFindings :: Lens' DescribeFindingsResponse [Finding]
-dfrsFindings = lens _dfrsFindings (\ s a -> s{_dfrsFindings = a}) . _Coerce;
+dfrsFindings = lens _dfrsFindings (\ s a -> s{_dfrsFindings = a}) . _Coerce
 
 -- | Finding details that cannot be described. An error code is provided for each failed item.
 dfrsFailedItems :: Lens' DescribeFindingsResponse (HashMap Text FailedItemDetails)
-dfrsFailedItems = lens _dfrsFailedItems (\ s a -> s{_dfrsFailedItems = a}) . _Map;
+dfrsFailedItems = lens _dfrsFailedItems (\ s a -> s{_dfrsFailedItems = a}) . _Map
 
 instance NFData DescribeFindingsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.GrantAccess
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ grantAccess pInstanceId_ =
 
 -- | The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
 gaValidForInMinutes :: Lens' GrantAccess (Maybe Natural)
-gaValidForInMinutes = lens _gaValidForInMinutes (\ s a -> s{_gaValidForInMinutes = a}) . mapping _Nat;
+gaValidForInMinutes = lens _gaValidForInMinutes (\ s a -> s{_gaValidForInMinutes = a}) . mapping _Nat
 
 -- | The instance's AWS OpsWorks Stacks ID.
 gaInstanceId :: Lens' GrantAccess Text
-gaInstanceId = lens _gaInstanceId (\ s a -> s{_gaInstanceId = a});
+gaInstanceId = lens _gaInstanceId (\ s a -> s{_gaInstanceId = a})
 
 instance AWSRequest GrantAccess where
         type Rs GrantAccess = GrantAccessResponse
@@ -133,15 +133,15 @@ grantAccessResponse
     -> GrantAccessResponse
 grantAccessResponse pResponseStatus_ =
   GrantAccessResponse'
-  {_garsTemporaryCredential = Nothing, _garsResponseStatus = pResponseStatus_}
+    {_garsTemporaryCredential = Nothing, _garsResponseStatus = pResponseStatus_}
 
 
 -- | A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
 garsTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
-garsTemporaryCredential = lens _garsTemporaryCredential (\ s a -> s{_garsTemporaryCredential = a});
+garsTemporaryCredential = lens _garsTemporaryCredential (\ s a -> s{_garsTemporaryCredential = a})
 
 -- | -- | The response status code.
 garsResponseStatus :: Lens' GrantAccessResponse Int
-garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a})
 
 instance NFData GrantAccessResponse where

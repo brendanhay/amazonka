@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteFolder
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,7 @@ data DeleteFolder = DeleteFolder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'dfAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'dfFolderId' - The ID of the folder.
 deleteFolder
@@ -63,13 +63,13 @@ deleteFolder pFolderId_ =
   DeleteFolder' {_dfAuthenticationToken = Nothing, _dfFolderId = pFolderId_}
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 dfAuthenticationToken :: Lens' DeleteFolder (Maybe Text)
-dfAuthenticationToken = lens _dfAuthenticationToken (\ s a -> s{_dfAuthenticationToken = a}) . mapping _Sensitive;
+dfAuthenticationToken = lens _dfAuthenticationToken (\ s a -> s{_dfAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the folder.
 dfFolderId :: Lens' DeleteFolder Text
-dfFolderId = lens _dfFolderId (\ s a -> s{_dfFolderId = a});
+dfFolderId = lens _dfFolderId (\ s a -> s{_dfFolderId = a})
 
 instance AWSRequest DeleteFolder where
         type Rs DeleteFolder = DeleteFolderResponse

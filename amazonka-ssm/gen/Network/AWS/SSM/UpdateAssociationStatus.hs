@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateAssociationStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ updateAssociationStatus
     -> UpdateAssociationStatus
 updateAssociationStatus pName_ pInstanceId_ pAssociationStatus_ =
   UpdateAssociationStatus'
-  { _uasName = pName_
-  , _uasInstanceId = pInstanceId_
-  , _uasAssociationStatus = pAssociationStatus_
-  }
+    { _uasName = pName_
+    , _uasInstanceId = pInstanceId_
+    , _uasAssociationStatus = pAssociationStatus_
+    }
 
 
 -- | The name of the Systems Manager document.
 uasName :: Lens' UpdateAssociationStatus Text
-uasName = lens _uasName (\ s a -> s{_uasName = a});
+uasName = lens _uasName (\ s a -> s{_uasName = a})
 
 -- | The ID of the instance.
 uasInstanceId :: Lens' UpdateAssociationStatus Text
-uasInstanceId = lens _uasInstanceId (\ s a -> s{_uasInstanceId = a});
+uasInstanceId = lens _uasInstanceId (\ s a -> s{_uasInstanceId = a})
 
 -- | The association status.
 uasAssociationStatus :: Lens' UpdateAssociationStatus AssociationStatus
-uasAssociationStatus = lens _uasAssociationStatus (\ s a -> s{_uasAssociationStatus = a});
+uasAssociationStatus = lens _uasAssociationStatus (\ s a -> s{_uasAssociationStatus = a})
 
 instance AWSRequest UpdateAssociationStatus where
         type Rs UpdateAssociationStatus =
@@ -145,17 +145,17 @@ updateAssociationStatusResponse
     -> UpdateAssociationStatusResponse
 updateAssociationStatusResponse pResponseStatus_ =
   UpdateAssociationStatusResponse'
-  { _uasrsAssociationDescription = Nothing
-  , _uasrsResponseStatus = pResponseStatus_
-  }
+    { _uasrsAssociationDescription = Nothing
+    , _uasrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the association.
 uasrsAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
-uasrsAssociationDescription = lens _uasrsAssociationDescription (\ s a -> s{_uasrsAssociationDescription = a});
+uasrsAssociationDescription = lens _uasrsAssociationDescription (\ s a -> s{_uasrsAssociationDescription = a})
 
 -- | -- | The response status code.
 uasrsResponseStatus :: Lens' UpdateAssociationStatusResponse Int
-uasrsResponseStatus = lens _uasrsResponseStatus (\ s a -> s{_uasrsResponseStatus = a});
+uasrsResponseStatus = lens _uasrsResponseStatus (\ s a -> s{_uasrsResponseStatus = a})
 
 instance NFData UpdateAssociationStatusResponse where

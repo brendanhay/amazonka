@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DeleteTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ deleteTags pFileSystemId_ =
 
 -- | ID of the file system whose tags you want to delete (String).
 dFileSystemId :: Lens' DeleteTags Text
-dFileSystemId = lens _dFileSystemId (\ s a -> s{_dFileSystemId = a});
+dFileSystemId = lens _dFileSystemId (\ s a -> s{_dFileSystemId = a})
 
 -- | List of tag keys to delete.
 dTagKeys :: Lens' DeleteTags [Text]
-dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce;
+dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce
 
 instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse

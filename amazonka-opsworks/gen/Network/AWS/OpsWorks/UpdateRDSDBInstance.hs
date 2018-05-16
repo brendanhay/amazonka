@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateRDSDBInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,23 +67,23 @@ updateRDSDBInstance
     -> UpdateRDSDBInstance
 updateRDSDBInstance pRDSDBInstanceARN_ =
   UpdateRDSDBInstance'
-  { _urdiDBUser = Nothing
-  , _urdiDBPassword = Nothing
-  , _urdiRDSDBInstanceARN = pRDSDBInstanceARN_
-  }
+    { _urdiDBUser = Nothing
+    , _urdiDBPassword = Nothing
+    , _urdiRDSDBInstanceARN = pRDSDBInstanceARN_
+    }
 
 
 -- | The master user name.
 urdiDBUser :: Lens' UpdateRDSDBInstance (Maybe Text)
-urdiDBUser = lens _urdiDBUser (\ s a -> s{_urdiDBUser = a});
+urdiDBUser = lens _urdiDBUser (\ s a -> s{_urdiDBUser = a})
 
 -- | The database password.
 urdiDBPassword :: Lens' UpdateRDSDBInstance (Maybe Text)
-urdiDBPassword = lens _urdiDBPassword (\ s a -> s{_urdiDBPassword = a});
+urdiDBPassword = lens _urdiDBPassword (\ s a -> s{_urdiDBPassword = a})
 
 -- | The Amazon RDS instance's ARN.
 urdiRDSDBInstanceARN :: Lens' UpdateRDSDBInstance Text
-urdiRDSDBInstanceARN = lens _urdiRDSDBInstanceARN (\ s a -> s{_urdiRDSDBInstanceARN = a});
+urdiRDSDBInstanceARN = lens _urdiRDSDBInstanceARN (\ s a -> s{_urdiRDSDBInstanceARN = a})
 
 instance AWSRequest UpdateRDSDBInstance where
         type Rs UpdateRDSDBInstance =

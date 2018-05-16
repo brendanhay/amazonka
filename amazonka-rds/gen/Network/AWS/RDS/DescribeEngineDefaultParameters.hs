@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeEngineDefaultParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedpFilters' - Not currently supported.
+-- * 'dedpFilters' - This parameter is not currently supported.
 --
 -- * 'dedpMarker' - An optional pagination token provided by a previous @DescribeEngineDefaultParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
@@ -79,28 +79,28 @@ describeEngineDefaultParameters
     -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters pDBParameterGroupFamily_ =
   DescribeEngineDefaultParameters'
-  { _dedpFilters = Nothing
-  , _dedpMarker = Nothing
-  , _dedpMaxRecords = Nothing
-  , _dedpDBParameterGroupFamily = pDBParameterGroupFamily_
-  }
+    { _dedpFilters = Nothing
+    , _dedpMarker = Nothing
+    , _dedpMaxRecords = Nothing
+    , _dedpDBParameterGroupFamily = pDBParameterGroupFamily_
+    }
 
 
--- | Not currently supported.
+-- | This parameter is not currently supported.
 dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
-dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default . _Coerce;
+dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous @DescribeEngineDefaultParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
-dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
+dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
-dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a});
+dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a})
 
 -- | The name of the DB parameter group family.
 dedpDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
-dedpDBParameterGroupFamily = lens _dedpDBParameterGroupFamily (\ s a -> s{_dedpDBParameterGroupFamily = a});
+dedpDBParameterGroupFamily = lens _dedpDBParameterGroupFamily (\ s a -> s{_dedpDBParameterGroupFamily = a})
 
 instance AWSPager DescribeEngineDefaultParameters
          where
@@ -173,18 +173,18 @@ describeEngineDefaultParametersResponse
     -> DescribeEngineDefaultParametersResponse
 describeEngineDefaultParametersResponse pResponseStatus_ pEngineDefaults_ =
   DescribeEngineDefaultParametersResponse'
-  { _dedprsResponseStatus = pResponseStatus_
-  , _dedprsEngineDefaults = pEngineDefaults_
-  }
+    { _dedprsResponseStatus = pResponseStatus_
+    , _dedprsEngineDefaults = pEngineDefaults_
+    }
 
 
 -- | -- | The response status code.
 dedprsResponseStatus :: Lens' DescribeEngineDefaultParametersResponse Int
-dedprsResponseStatus = lens _dedprsResponseStatus (\ s a -> s{_dedprsResponseStatus = a});
+dedprsResponseStatus = lens _dedprsResponseStatus (\ s a -> s{_dedprsResponseStatus = a})
 
 -- | Undocumented member.
 dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
-dedprsEngineDefaults = lens _dedprsEngineDefaults (\ s a -> s{_dedprsEngineDefaults = a});
+dedprsEngineDefaults = lens _dedprsEngineDefaults (\ s a -> s{_dedprsEngineDefaults = a})
 
 instance NFData
            DescribeEngineDefaultParametersResponse

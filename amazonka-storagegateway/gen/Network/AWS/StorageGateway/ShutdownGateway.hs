@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ShutdownGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,7 +73,7 @@ shutdownGateway pGatewayARN_ = ShutdownGateway' {_sGatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
 sGatewayARN :: Lens' ShutdownGateway Text
-sGatewayARN = lens _sGatewayARN (\ s a -> s{_sGatewayARN = a});
+sGatewayARN = lens _sGatewayARN (\ s a -> s{_sGatewayARN = a})
 
 instance AWSRequest ShutdownGateway where
         type Rs ShutdownGateway = ShutdownGatewayResponse
@@ -132,15 +132,15 @@ shutdownGatewayResponse
     -> ShutdownGatewayResponse
 shutdownGatewayResponse pResponseStatus_ =
   ShutdownGatewayResponse'
-  {_srsGatewayARN = Nothing, _srsResponseStatus = pResponseStatus_}
+    {_srsGatewayARN = Nothing, _srsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 srsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
-srsGatewayARN = lens _srsGatewayARN (\ s a -> s{_srsGatewayARN = a});
+srsGatewayARN = lens _srsGatewayARN (\ s a -> s{_srsGatewayARN = a})
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' ShutdownGatewayResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData ShutdownGatewayResponse where

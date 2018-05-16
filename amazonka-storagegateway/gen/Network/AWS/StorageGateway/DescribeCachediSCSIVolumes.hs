@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of the gateway volumes specified in the request. This operation is only supported in the cached volume gateway architecture.
+-- Returns a description of the gateway volumes specified in the request. This operation is only supported in the cached volume gateway types.
 --
 --
 -- The list of gateway volumes in the request must be from one gateway. In the response Amazon Storage Gateway returns volume information sorted by volume Amazon Resource Name (ARN).
@@ -65,7 +65,7 @@ describeCachediSCSIVolumes =
 
 -- | Undocumented member.
 dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
-dcscsivVolumeARNs = lens _dcscsivVolumeARNs (\ s a -> s{_dcscsivVolumeARNs = a}) . _Coerce;
+dcscsivVolumeARNs = lens _dcscsivVolumeARNs (\ s a -> s{_dcscsivVolumeARNs = a}) . _Coerce
 
 instance AWSRequest DescribeCachediSCSIVolumes where
         type Rs DescribeCachediSCSIVolumes =
@@ -127,18 +127,18 @@ describeCachediSCSIVolumesResponse
     -> DescribeCachediSCSIVolumesResponse
 describeCachediSCSIVolumesResponse pResponseStatus_ =
   DescribeCachediSCSIVolumesResponse'
-  { _dcscsivrsCachediSCSIVolumes = Nothing
-  , _dcscsivrsResponseStatus = pResponseStatus_
-  }
+    { _dcscsivrsCachediSCSIVolumes = Nothing
+    , _dcscsivrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of objects where each object contains metadata about one cached volume.
 dcscsivrsCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolume]
-dcscsivrsCachediSCSIVolumes = lens _dcscsivrsCachediSCSIVolumes (\ s a -> s{_dcscsivrsCachediSCSIVolumes = a}) . _Default . _Coerce;
+dcscsivrsCachediSCSIVolumes = lens _dcscsivrsCachediSCSIVolumes (\ s a -> s{_dcscsivrsCachediSCSIVolumes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcscsivrsResponseStatus :: Lens' DescribeCachediSCSIVolumesResponse Int
-dcscsivrsResponseStatus = lens _dcscsivrsResponseStatus (\ s a -> s{_dcscsivrsResponseStatus = a});
+dcscsivrsResponseStatus = lens _dcscsivrsResponseStatus (\ s a -> s{_dcscsivrsResponseStatus = a})
 
 instance NFData DescribeCachediSCSIVolumesResponse
          where

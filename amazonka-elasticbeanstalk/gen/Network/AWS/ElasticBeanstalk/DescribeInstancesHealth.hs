@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ describeInstancesHealth
     :: DescribeInstancesHealth
 describeInstancesHealth =
   DescribeInstancesHealth'
-  { _dihNextToken = Nothing
-  , _dihEnvironmentName = Nothing
-  , _dihAttributeNames = Nothing
-  , _dihEnvironmentId = Nothing
-  }
+    { _dihNextToken = Nothing
+    , _dihEnvironmentName = Nothing
+    , _dihAttributeNames = Nothing
+    , _dihEnvironmentId = Nothing
+    }
 
 
 -- | Specify the pagination token returned by a previous call.
 dihNextToken :: Lens' DescribeInstancesHealth (Maybe Text)
-dihNextToken = lens _dihNextToken (\ s a -> s{_dihNextToken = a});
+dihNextToken = lens _dihNextToken (\ s a -> s{_dihNextToken = a})
 
 -- | Specify the AWS Elastic Beanstalk environment by name.
 dihEnvironmentName :: Lens' DescribeInstancesHealth (Maybe Text)
-dihEnvironmentName = lens _dihEnvironmentName (\ s a -> s{_dihEnvironmentName = a});
+dihEnvironmentName = lens _dihEnvironmentName (\ s a -> s{_dihEnvironmentName = a})
 
 -- | Specifies the response elements you wish to receive. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns a list of instances.
 dihAttributeNames :: Lens' DescribeInstancesHealth [InstancesHealthAttribute]
-dihAttributeNames = lens _dihAttributeNames (\ s a -> s{_dihAttributeNames = a}) . _Default . _Coerce;
+dihAttributeNames = lens _dihAttributeNames (\ s a -> s{_dihAttributeNames = a}) . _Default . _Coerce
 
 -- | Specify the AWS Elastic Beanstalk environment by ID.
 dihEnvironmentId :: Lens' DescribeInstancesHealth (Maybe Text)
-dihEnvironmentId = lens _dihEnvironmentId (\ s a -> s{_dihEnvironmentId = a});
+dihEnvironmentId = lens _dihEnvironmentId (\ s a -> s{_dihEnvironmentId = a})
 
 instance AWSRequest DescribeInstancesHealth where
         type Rs DescribeInstancesHealth =
@@ -166,27 +166,27 @@ describeInstancesHealthResponse
     -> DescribeInstancesHealthResponse
 describeInstancesHealthResponse pResponseStatus_ =
   DescribeInstancesHealthResponse'
-  { _dihrsInstanceHealthList = Nothing
-  , _dihrsNextToken = Nothing
-  , _dihrsRefreshedAt = Nothing
-  , _dihrsResponseStatus = pResponseStatus_
-  }
+    { _dihrsInstanceHealthList = Nothing
+    , _dihrsNextToken = Nothing
+    , _dihrsRefreshedAt = Nothing
+    , _dihrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Detailed health information about each instance.
 dihrsInstanceHealthList :: Lens' DescribeInstancesHealthResponse [SingleInstanceHealth]
-dihrsInstanceHealthList = lens _dihrsInstanceHealthList (\ s a -> s{_dihrsInstanceHealthList = a}) . _Default . _Coerce;
+dihrsInstanceHealthList = lens _dihrsInstanceHealthList (\ s a -> s{_dihrsInstanceHealthList = a}) . _Default . _Coerce
 
 -- | Pagination token for the next page of results, if available.
 dihrsNextToken :: Lens' DescribeInstancesHealthResponse (Maybe Text)
-dihrsNextToken = lens _dihrsNextToken (\ s a -> s{_dihrsNextToken = a});
+dihrsNextToken = lens _dihrsNextToken (\ s a -> s{_dihrsNextToken = a})
 
 -- | The date and time that the health information was retrieved.
 dihrsRefreshedAt :: Lens' DescribeInstancesHealthResponse (Maybe UTCTime)
-dihrsRefreshedAt = lens _dihrsRefreshedAt (\ s a -> s{_dihrsRefreshedAt = a}) . mapping _Time;
+dihrsRefreshedAt = lens _dihrsRefreshedAt (\ s a -> s{_dihrsRefreshedAt = a}) . mapping _Time
 
 -- | -- | The response status code.
 dihrsResponseStatus :: Lens' DescribeInstancesHealthResponse Int
-dihrsResponseStatus = lens _dihrsResponseStatus (\ s a -> s{_dihrsResponseStatus = a});
+dihrsResponseStatus = lens _dihrsResponseStatus (\ s a -> s{_dihrsResponseStatus = a})
 
 instance NFData DescribeInstancesHealthResponse where

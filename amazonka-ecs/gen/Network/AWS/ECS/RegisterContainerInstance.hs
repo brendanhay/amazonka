@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.RegisterContainerInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ data RegisterContainerInstance = RegisterContainerInstance'
 --
 -- * 'rciInstanceIdentityDocument' - The instance identity document for the EC2 instance to register. This document can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/document/@
 --
--- * 'rciContainerInstanceARN' - The Amazon Resource Name (ARN) of the container instance (if it was previously registered).
+-- * 'rciContainerInstanceARN' - The ARN of the container instance (if it was previously registered).
 --
 -- * 'rciVersionInfo' - The version information for the Amazon ECS container agent and Docker daemon running on the container instance.
 --
@@ -83,43 +83,43 @@ registerContainerInstance
     :: RegisterContainerInstance
 registerContainerInstance =
   RegisterContainerInstance'
-  { _rciInstanceIdentityDocumentSignature = Nothing
-  , _rciCluster = Nothing
-  , _rciInstanceIdentityDocument = Nothing
-  , _rciContainerInstanceARN = Nothing
-  , _rciVersionInfo = Nothing
-  , _rciAttributes = Nothing
-  , _rciTotalResources = Nothing
-  }
+    { _rciInstanceIdentityDocumentSignature = Nothing
+    , _rciCluster = Nothing
+    , _rciInstanceIdentityDocument = Nothing
+    , _rciContainerInstanceARN = Nothing
+    , _rciVersionInfo = Nothing
+    , _rciAttributes = Nothing
+    , _rciTotalResources = Nothing
+    }
 
 
 -- | The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/signature/@
 rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
-rciInstanceIdentityDocumentSignature = lens _rciInstanceIdentityDocumentSignature (\ s a -> s{_rciInstanceIdentityDocumentSignature = a});
+rciInstanceIdentityDocumentSignature = lens _rciInstanceIdentityDocumentSignature (\ s a -> s{_rciInstanceIdentityDocumentSignature = a})
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed.
 rciCluster :: Lens' RegisterContainerInstance (Maybe Text)
-rciCluster = lens _rciCluster (\ s a -> s{_rciCluster = a});
+rciCluster = lens _rciCluster (\ s a -> s{_rciCluster = a})
 
 -- | The instance identity document for the EC2 instance to register. This document can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/document/@
 rciInstanceIdentityDocument :: Lens' RegisterContainerInstance (Maybe Text)
-rciInstanceIdentityDocument = lens _rciInstanceIdentityDocument (\ s a -> s{_rciInstanceIdentityDocument = a});
+rciInstanceIdentityDocument = lens _rciInstanceIdentityDocument (\ s a -> s{_rciInstanceIdentityDocument = a})
 
--- | The Amazon Resource Name (ARN) of the container instance (if it was previously registered).
+-- | The ARN of the container instance (if it was previously registered).
 rciContainerInstanceARN :: Lens' RegisterContainerInstance (Maybe Text)
-rciContainerInstanceARN = lens _rciContainerInstanceARN (\ s a -> s{_rciContainerInstanceARN = a});
+rciContainerInstanceARN = lens _rciContainerInstanceARN (\ s a -> s{_rciContainerInstanceARN = a})
 
 -- | The version information for the Amazon ECS container agent and Docker daemon running on the container instance.
 rciVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
-rciVersionInfo = lens _rciVersionInfo (\ s a -> s{_rciVersionInfo = a});
+rciVersionInfo = lens _rciVersionInfo (\ s a -> s{_rciVersionInfo = a})
 
 -- | The container instance attributes that this container instance supports.
 rciAttributes :: Lens' RegisterContainerInstance [Attribute]
-rciAttributes = lens _rciAttributes (\ s a -> s{_rciAttributes = a}) . _Default . _Coerce;
+rciAttributes = lens _rciAttributes (\ s a -> s{_rciAttributes = a}) . _Default . _Coerce
 
 -- | The resources available on the instance.
 rciTotalResources :: Lens' RegisterContainerInstance [Resource]
-rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a}) . _Default . _Coerce;
+rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a}) . _Default . _Coerce
 
 instance AWSRequest RegisterContainerInstance where
         type Rs RegisterContainerInstance =
@@ -185,16 +185,16 @@ registerContainerInstanceResponse
     -> RegisterContainerInstanceResponse
 registerContainerInstanceResponse pResponseStatus_ =
   RegisterContainerInstanceResponse'
-  {_rcirsContainerInstance = Nothing, _rcirsResponseStatus = pResponseStatus_}
+    {_rcirsContainerInstance = Nothing, _rcirsResponseStatus = pResponseStatus_}
 
 
 -- | The container instance that was registered.
 rcirsContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe ContainerInstance)
-rcirsContainerInstance = lens _rcirsContainerInstance (\ s a -> s{_rcirsContainerInstance = a});
+rcirsContainerInstance = lens _rcirsContainerInstance (\ s a -> s{_rcirsContainerInstance = a})
 
 -- | -- | The response status code.
 rcirsResponseStatus :: Lens' RegisterContainerInstanceResponse Int
-rcirsResponseStatus = lens _rcirsResponseStatus (\ s a -> s{_rcirsResponseStatus = a});
+rcirsResponseStatus = lens _rcirsResponseStatus (\ s a -> s{_rcirsResponseStatus = a})
 
 instance NFData RegisterContainerInstanceResponse
          where

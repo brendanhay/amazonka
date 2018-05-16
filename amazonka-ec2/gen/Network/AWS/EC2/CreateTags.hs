@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,15 +74,15 @@ createTags =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cDryRun :: Lens' CreateTags (Maybe Bool)
-cDryRun = lens _cDryRun (\ s a -> s{_cDryRun = a});
+cDryRun = lens _cDryRun (\ s a -> s{_cDryRun = a})
 
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
 cResources :: Lens' CreateTags [Text]
-cResources = lens _cResources (\ s a -> s{_cResources = a}) . _Coerce;
+cResources = lens _cResources (\ s a -> s{_cResources = a}) . _Coerce
 
 -- | One or more tags. The @value@ parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
 cTags :: Lens' CreateTags [Tag]
-cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Coerce;
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Coerce
 
 instance AWSRequest CreateTags where
         type Rs CreateTags = CreateTagsResponse

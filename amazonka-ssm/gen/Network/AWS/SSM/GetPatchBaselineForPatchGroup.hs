@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetPatchBaselineForPatchGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ getPatchBaselineForPatchGroup
     -> GetPatchBaselineForPatchGroup
 getPatchBaselineForPatchGroup pPatchGroup_ =
   GetPatchBaselineForPatchGroup'
-  {_gpbfpgOperatingSystem = Nothing, _gpbfpgPatchGroup = pPatchGroup_}
+    {_gpbfpgOperatingSystem = Nothing, _gpbfpgPatchGroup = pPatchGroup_}
 
 
 -- | Returns he operating system rule specified for patch groups using the patch baseline.
 gpbfpgOperatingSystem :: Lens' GetPatchBaselineForPatchGroup (Maybe OperatingSystem)
-gpbfpgOperatingSystem = lens _gpbfpgOperatingSystem (\ s a -> s{_gpbfpgOperatingSystem = a});
+gpbfpgOperatingSystem = lens _gpbfpgOperatingSystem (\ s a -> s{_gpbfpgOperatingSystem = a})
 
 -- | The name of the patch group whose patch baseline should be retrieved.
 gpbfpgPatchGroup :: Lens' GetPatchBaselineForPatchGroup Text
-gpbfpgPatchGroup = lens _gpbfpgPatchGroup (\ s a -> s{_gpbfpgPatchGroup = a});
+gpbfpgPatchGroup = lens _gpbfpgPatchGroup (\ s a -> s{_gpbfpgPatchGroup = a})
 
 instance AWSRequest GetPatchBaselineForPatchGroup
          where
@@ -143,28 +143,28 @@ getPatchBaselineForPatchGroupResponse
     -> GetPatchBaselineForPatchGroupResponse
 getPatchBaselineForPatchGroupResponse pResponseStatus_ =
   GetPatchBaselineForPatchGroupResponse'
-  { _gpbfpgrsOperatingSystem = Nothing
-  , _gpbfpgrsBaselineId = Nothing
-  , _gpbfpgrsPatchGroup = Nothing
-  , _gpbfpgrsResponseStatus = pResponseStatus_
-  }
+    { _gpbfpgrsOperatingSystem = Nothing
+    , _gpbfpgrsBaselineId = Nothing
+    , _gpbfpgrsPatchGroup = Nothing
+    , _gpbfpgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The operating system rule specified for patch groups using the patch baseline.
 gpbfpgrsOperatingSystem :: Lens' GetPatchBaselineForPatchGroupResponse (Maybe OperatingSystem)
-gpbfpgrsOperatingSystem = lens _gpbfpgrsOperatingSystem (\ s a -> s{_gpbfpgrsOperatingSystem = a});
+gpbfpgrsOperatingSystem = lens _gpbfpgrsOperatingSystem (\ s a -> s{_gpbfpgrsOperatingSystem = a})
 
 -- | The ID of the patch baseline that should be used for the patch group.
 gpbfpgrsBaselineId :: Lens' GetPatchBaselineForPatchGroupResponse (Maybe Text)
-gpbfpgrsBaselineId = lens _gpbfpgrsBaselineId (\ s a -> s{_gpbfpgrsBaselineId = a});
+gpbfpgrsBaselineId = lens _gpbfpgrsBaselineId (\ s a -> s{_gpbfpgrsBaselineId = a})
 
 -- | The name of the patch group.
 gpbfpgrsPatchGroup :: Lens' GetPatchBaselineForPatchGroupResponse (Maybe Text)
-gpbfpgrsPatchGroup = lens _gpbfpgrsPatchGroup (\ s a -> s{_gpbfpgrsPatchGroup = a});
+gpbfpgrsPatchGroup = lens _gpbfpgrsPatchGroup (\ s a -> s{_gpbfpgrsPatchGroup = a})
 
 -- | -- | The response status code.
 gpbfpgrsResponseStatus :: Lens' GetPatchBaselineForPatchGroupResponse Int
-gpbfpgrsResponseStatus = lens _gpbfpgrsResponseStatus (\ s a -> s{_gpbfpgrsResponseStatus = a});
+gpbfpgrsResponseStatus = lens _gpbfpgrsResponseStatus (\ s a -> s{_gpbfpgrsResponseStatus = a})
 
 instance NFData GetPatchBaselineForPatchGroupResponse
          where

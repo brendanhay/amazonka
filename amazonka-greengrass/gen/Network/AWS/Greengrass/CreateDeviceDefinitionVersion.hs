@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateDeviceDefinitionVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,33 +59,33 @@ data CreateDeviceDefinitionVersion = CreateDeviceDefinitionVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cddvAmznClientToken' - The client token used to request idempotent operations.
+-- * 'cddvAmznClientToken' - A client token used to correlate requests and responses.
 --
--- * 'cddvDevices' - Devices in the definition version.
+-- * 'cddvDevices' - A list of devices in the definition version.
 --
--- * 'cddvDeviceDefinitionId' - device definition Id
+-- * 'cddvDeviceDefinitionId' - The ID of the device definition.
 createDeviceDefinitionVersion
     :: Text -- ^ 'cddvDeviceDefinitionId'
     -> CreateDeviceDefinitionVersion
 createDeviceDefinitionVersion pDeviceDefinitionId_ =
   CreateDeviceDefinitionVersion'
-  { _cddvAmznClientToken = Nothing
-  , _cddvDevices = Nothing
-  , _cddvDeviceDefinitionId = pDeviceDefinitionId_
-  }
+    { _cddvAmznClientToken = Nothing
+    , _cddvDevices = Nothing
+    , _cddvDeviceDefinitionId = pDeviceDefinitionId_
+    }
 
 
--- | The client token used to request idempotent operations.
+-- | A client token used to correlate requests and responses.
 cddvAmznClientToken :: Lens' CreateDeviceDefinitionVersion (Maybe Text)
-cddvAmznClientToken = lens _cddvAmznClientToken (\ s a -> s{_cddvAmznClientToken = a});
+cddvAmznClientToken = lens _cddvAmznClientToken (\ s a -> s{_cddvAmznClientToken = a})
 
--- | Devices in the definition version.
+-- | A list of devices in the definition version.
 cddvDevices :: Lens' CreateDeviceDefinitionVersion [Device]
-cddvDevices = lens _cddvDevices (\ s a -> s{_cddvDevices = a}) . _Default . _Coerce;
+cddvDevices = lens _cddvDevices (\ s a -> s{_cddvDevices = a}) . _Default . _Coerce
 
--- | device definition Id
+-- | The ID of the device definition.
 cddvDeviceDefinitionId :: Lens' CreateDeviceDefinitionVersion Text
-cddvDeviceDefinitionId = lens _cddvDeviceDefinitionId (\ s a -> s{_cddvDeviceDefinitionId = a});
+cddvDeviceDefinitionId = lens _cddvDeviceDefinitionId (\ s a -> s{_cddvDeviceDefinitionId = a})
 
 instance AWSRequest CreateDeviceDefinitionVersion
          where
@@ -141,13 +141,13 @@ data CreateDeviceDefinitionVersionResponse = CreateDeviceDefinitionVersionRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cddvrsARN' - Arn of the version.
+-- * 'cddvrsARN' - The ARN of the version.
 --
--- * 'cddvrsCreationTimestamp' - Timestamp of when the version was created.
+-- * 'cddvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
 --
--- * 'cddvrsVersion' - Unique Id of a version.
+-- * 'cddvrsVersion' - The unique ID of the version.
 --
--- * 'cddvrsId' - Id of the resource container.
+-- * 'cddvrsId' - The ID of the version.
 --
 -- * 'cddvrsResponseStatus' - -- | The response status code.
 createDeviceDefinitionVersionResponse
@@ -155,33 +155,33 @@ createDeviceDefinitionVersionResponse
     -> CreateDeviceDefinitionVersionResponse
 createDeviceDefinitionVersionResponse pResponseStatus_ =
   CreateDeviceDefinitionVersionResponse'
-  { _cddvrsARN = Nothing
-  , _cddvrsCreationTimestamp = Nothing
-  , _cddvrsVersion = Nothing
-  , _cddvrsId = Nothing
-  , _cddvrsResponseStatus = pResponseStatus_
-  }
+    { _cddvrsARN = Nothing
+    , _cddvrsCreationTimestamp = Nothing
+    , _cddvrsVersion = Nothing
+    , _cddvrsId = Nothing
+    , _cddvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Arn of the version.
+-- | The ARN of the version.
 cddvrsARN :: Lens' CreateDeviceDefinitionVersionResponse (Maybe Text)
-cddvrsARN = lens _cddvrsARN (\ s a -> s{_cddvrsARN = a});
+cddvrsARN = lens _cddvrsARN (\ s a -> s{_cddvrsARN = a})
 
--- | Timestamp of when the version was created.
+-- | The time, in milliseconds since the epoch, when the version was created.
 cddvrsCreationTimestamp :: Lens' CreateDeviceDefinitionVersionResponse (Maybe Text)
-cddvrsCreationTimestamp = lens _cddvrsCreationTimestamp (\ s a -> s{_cddvrsCreationTimestamp = a});
+cddvrsCreationTimestamp = lens _cddvrsCreationTimestamp (\ s a -> s{_cddvrsCreationTimestamp = a})
 
--- | Unique Id of a version.
+-- | The unique ID of the version.
 cddvrsVersion :: Lens' CreateDeviceDefinitionVersionResponse (Maybe Text)
-cddvrsVersion = lens _cddvrsVersion (\ s a -> s{_cddvrsVersion = a});
+cddvrsVersion = lens _cddvrsVersion (\ s a -> s{_cddvrsVersion = a})
 
--- | Id of the resource container.
+-- | The ID of the version.
 cddvrsId :: Lens' CreateDeviceDefinitionVersionResponse (Maybe Text)
-cddvrsId = lens _cddvrsId (\ s a -> s{_cddvrsId = a});
+cddvrsId = lens _cddvrsId (\ s a -> s{_cddvrsId = a})
 
 -- | -- | The response status code.
 cddvrsResponseStatus :: Lens' CreateDeviceDefinitionVersionResponse Int
-cddvrsResponseStatus = lens _cddvrsResponseStatus (\ s a -> s{_cddvrsResponseStatus = a});
+cddvrsResponseStatus = lens _cddvrsResponseStatus (\ s a -> s{_cddvrsResponseStatus = a})
 
 instance NFData CreateDeviceDefinitionVersionResponse
          where

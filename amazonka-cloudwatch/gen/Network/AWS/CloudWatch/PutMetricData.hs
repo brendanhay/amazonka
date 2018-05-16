@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.PutMetricData
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,11 +81,11 @@ putMetricData pNamespace_ =
 
 -- | The namespace for the metric data. You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for use by Amazon Web Services products.
 pmdNamespace :: Lens' PutMetricData Text
-pmdNamespace = lens _pmdNamespace (\ s a -> s{_pmdNamespace = a});
+pmdNamespace = lens _pmdNamespace (\ s a -> s{_pmdNamespace = a})
 
 -- | The data for the metric.
 pmdMetricData :: Lens' PutMetricData [MetricDatum]
-pmdMetricData = lens _pmdMetricData (\ s a -> s{_pmdMetricData = a}) . _Coerce;
+pmdMetricData = lens _pmdMetricData (\ s a -> s{_pmdMetricData = a}) . _Coerce
 
 instance AWSRequest PutMetricData where
         type Rs PutMetricData = PutMetricDataResponse

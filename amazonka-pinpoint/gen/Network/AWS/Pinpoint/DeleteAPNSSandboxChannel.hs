@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteAPNSSandboxChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteAPNSSandboxChannel pApplicationId_ =
 
 -- | Undocumented member.
 dascApplicationId :: Lens' DeleteAPNSSandboxChannel Text
-dascApplicationId = lens _dascApplicationId (\ s a -> s{_dascApplicationId = a});
+dascApplicationId = lens _dascApplicationId (\ s a -> s{_dascApplicationId = a})
 
 instance AWSRequest DeleteAPNSSandboxChannel where
         type Rs DeleteAPNSSandboxChannel =
@@ -114,18 +114,18 @@ deleteAPNSSandboxChannelResponse
     -> DeleteAPNSSandboxChannelResponse
 deleteAPNSSandboxChannelResponse pResponseStatus_ pAPNSSandboxChannelResponse_ =
   DeleteAPNSSandboxChannelResponse'
-  { _dascrsResponseStatus = pResponseStatus_
-  , _dascrsAPNSSandboxChannelResponse = pAPNSSandboxChannelResponse_
-  }
+    { _dascrsResponseStatus = pResponseStatus_
+    , _dascrsAPNSSandboxChannelResponse = pAPNSSandboxChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 dascrsResponseStatus :: Lens' DeleteAPNSSandboxChannelResponse Int
-dascrsResponseStatus = lens _dascrsResponseStatus (\ s a -> s{_dascrsResponseStatus = a});
+dascrsResponseStatus = lens _dascrsResponseStatus (\ s a -> s{_dascrsResponseStatus = a})
 
 -- | Undocumented member.
 dascrsAPNSSandboxChannelResponse :: Lens' DeleteAPNSSandboxChannelResponse APNSSandboxChannelResponse
-dascrsAPNSSandboxChannelResponse = lens _dascrsAPNSSandboxChannelResponse (\ s a -> s{_dascrsAPNSSandboxChannelResponse = a});
+dascrsAPNSSandboxChannelResponse = lens _dascrsAPNSSandboxChannelResponse (\ s a -> s{_dascrsAPNSSandboxChannelResponse = a})
 
 instance NFData DeleteAPNSSandboxChannelResponse
          where

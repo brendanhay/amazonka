@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceNetworkACLAssociation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,8 @@
 --
 -- Changes which network ACL a subnet is associated with. By default when you create a subnet, it's automatically associated with the default network ACL. For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/ .
 --
+--
+-- This is an idempotent operation.
 --
 module Network.AWS.EC2.ReplaceNetworkACLAssociation
     (
@@ -73,23 +75,23 @@ replaceNetworkACLAssociation
     -> ReplaceNetworkACLAssociation
 replaceNetworkACLAssociation pAssociationId_ pNetworkACLId_ =
   ReplaceNetworkACLAssociation'
-  { _rnaaDryRun = Nothing
-  , _rnaaAssociationId = pAssociationId_
-  , _rnaaNetworkACLId = pNetworkACLId_
-  }
+    { _rnaaDryRun = Nothing
+    , _rnaaAssociationId = pAssociationId_
+    , _rnaaNetworkACLId = pNetworkACLId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rnaaDryRun :: Lens' ReplaceNetworkACLAssociation (Maybe Bool)
-rnaaDryRun = lens _rnaaDryRun (\ s a -> s{_rnaaDryRun = a});
+rnaaDryRun = lens _rnaaDryRun (\ s a -> s{_rnaaDryRun = a})
 
 -- | The ID of the current association between the original network ACL and the subnet.
 rnaaAssociationId :: Lens' ReplaceNetworkACLAssociation Text
-rnaaAssociationId = lens _rnaaAssociationId (\ s a -> s{_rnaaAssociationId = a});
+rnaaAssociationId = lens _rnaaAssociationId (\ s a -> s{_rnaaAssociationId = a})
 
 -- | The ID of the new network ACL to associate with the subnet.
 rnaaNetworkACLId :: Lens' ReplaceNetworkACLAssociation Text
-rnaaNetworkACLId = lens _rnaaNetworkACLId (\ s a -> s{_rnaaNetworkACLId = a});
+rnaaNetworkACLId = lens _rnaaNetworkACLId (\ s a -> s{_rnaaNetworkACLId = a})
 
 instance AWSRequest ReplaceNetworkACLAssociation
          where
@@ -145,16 +147,18 @@ replaceNetworkACLAssociationResponse
     -> ReplaceNetworkACLAssociationResponse
 replaceNetworkACLAssociationResponse pResponseStatus_ =
   ReplaceNetworkACLAssociationResponse'
-  {_rnaarsNewAssociationId = Nothing, _rnaarsResponseStatus = pResponseStatus_}
+    { _rnaarsNewAssociationId = Nothing
+    , _rnaarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the new association.
 rnaarsNewAssociationId :: Lens' ReplaceNetworkACLAssociationResponse (Maybe Text)
-rnaarsNewAssociationId = lens _rnaarsNewAssociationId (\ s a -> s{_rnaarsNewAssociationId = a});
+rnaarsNewAssociationId = lens _rnaarsNewAssociationId (\ s a -> s{_rnaarsNewAssociationId = a})
 
 -- | -- | The response status code.
 rnaarsResponseStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
-rnaarsResponseStatus = lens _rnaarsResponseStatus (\ s a -> s{_rnaarsResponseStatus = a});
+rnaarsResponseStatus = lens _rnaarsResponseStatus (\ s a -> s{_rnaarsResponseStatus = a})
 
 instance NFData ReplaceNetworkACLAssociationResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateVPCAssociationAuthorization
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ createVPCAssociationAuthorization
     -> CreateVPCAssociationAuthorization
 createVPCAssociationAuthorization pHostedZoneId_ pVPC_ =
   CreateVPCAssociationAuthorization'
-  {_cvaaHostedZoneId = pHostedZoneId_, _cvaaVPC = pVPC_}
+    {_cvaaHostedZoneId = pHostedZoneId_, _cvaaVPC = pVPC_}
 
 
 -- | The ID of the private hosted zone that you want to authorize associating a VPC with.
 cvaaHostedZoneId :: Lens' CreateVPCAssociationAuthorization ResourceId
-cvaaHostedZoneId = lens _cvaaHostedZoneId (\ s a -> s{_cvaaHostedZoneId = a});
+cvaaHostedZoneId = lens _cvaaHostedZoneId (\ s a -> s{_cvaaHostedZoneId = a})
 
 -- | A complex type that contains the VPC ID and region for the VPC that you want to authorize associating with your hosted zone.
 cvaaVPC :: Lens' CreateVPCAssociationAuthorization VPC
-cvaaVPC = lens _cvaaVPC (\ s a -> s{_cvaaVPC = a});
+cvaaVPC = lens _cvaaVPC (\ s a -> s{_cvaaVPC = a})
 
 instance AWSRequest CreateVPCAssociationAuthorization
          where
@@ -153,23 +153,23 @@ createVPCAssociationAuthorizationResponse
     -> CreateVPCAssociationAuthorizationResponse
 createVPCAssociationAuthorizationResponse pResponseStatus_ pHostedZoneId_ pVPC_ =
   CreateVPCAssociationAuthorizationResponse'
-  { _cvaarsResponseStatus = pResponseStatus_
-  , _cvaarsHostedZoneId = pHostedZoneId_
-  , _cvaarsVPC = pVPC_
-  }
+    { _cvaarsResponseStatus = pResponseStatus_
+    , _cvaarsHostedZoneId = pHostedZoneId_
+    , _cvaarsVPC = pVPC_
+    }
 
 
 -- | -- | The response status code.
 cvaarsResponseStatus :: Lens' CreateVPCAssociationAuthorizationResponse Int
-cvaarsResponseStatus = lens _cvaarsResponseStatus (\ s a -> s{_cvaarsResponseStatus = a});
+cvaarsResponseStatus = lens _cvaarsResponseStatus (\ s a -> s{_cvaarsResponseStatus = a})
 
 -- | The ID of the hosted zone that you authorized associating a VPC with.
 cvaarsHostedZoneId :: Lens' CreateVPCAssociationAuthorizationResponse ResourceId
-cvaarsHostedZoneId = lens _cvaarsHostedZoneId (\ s a -> s{_cvaarsHostedZoneId = a});
+cvaarsHostedZoneId = lens _cvaarsHostedZoneId (\ s a -> s{_cvaarsHostedZoneId = a})
 
 -- | The VPC that you authorized associating with a hosted zone.
 cvaarsVPC :: Lens' CreateVPCAssociationAuthorizationResponse VPC
-cvaarsVPC = lens _cvaarsVPC (\ s a -> s{_cvaarsVPC = a});
+cvaarsVPC = lens _cvaarsVPC (\ s a -> s{_cvaarsVPC = a})
 
 instance NFData
            CreateVPCAssociationAuthorizationResponse

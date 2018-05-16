@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getInstance pInstanceName_ = GetInstance' {_giInstanceName = pInstanceName_}
 
 -- | The name of the instance.
 giInstanceName :: Lens' GetInstance Text
-giInstanceName = lens _giInstanceName (\ s a -> s{_giInstanceName = a});
+giInstanceName = lens _giInstanceName (\ s a -> s{_giInstanceName = a})
 
 instance AWSRequest GetInstance where
         type Rs GetInstance = GetInstanceResponse
@@ -118,15 +118,15 @@ getInstanceResponse
     -> GetInstanceResponse
 getInstanceResponse pResponseStatus_ =
   GetInstanceResponse'
-  {_girsInstance = Nothing, _girsResponseStatus = pResponseStatus_}
+    {_girsInstance = Nothing, _girsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the specified instance.
 girsInstance :: Lens' GetInstanceResponse (Maybe Instance)
-girsInstance = lens _girsInstance (\ s a -> s{_girsInstance = a});
+girsInstance = lens _girsInstance (\ s a -> s{_girsInstance = a})
 
 -- | -- | The response status code.
 girsResponseStatus :: Lens' GetInstanceResponse Int
-girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
+girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a})
 
 instance NFData GetInstanceResponse where

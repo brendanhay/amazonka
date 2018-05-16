@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.DisableDomainTransferLock
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ disableDomainTransferLock pDomainName_ =
 
 -- | The name of the domain that you want to remove the transfer lock for.
 ddtlDomainName :: Lens' DisableDomainTransferLock Text
-ddtlDomainName = lens _ddtlDomainName (\ s a -> s{_ddtlDomainName = a});
+ddtlDomainName = lens _ddtlDomainName (\ s a -> s{_ddtlDomainName = a})
 
 instance AWSRequest DisableDomainTransferLock where
         type Rs DisableDomainTransferLock =
@@ -129,16 +129,18 @@ disableDomainTransferLockResponse
     -> DisableDomainTransferLockResponse
 disableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
   DisableDomainTransferLockResponse'
-  {_ddtlrsResponseStatus = pResponseStatus_, _ddtlrsOperationId = pOperationId_}
+    { _ddtlrsResponseStatus = pResponseStatus_
+    , _ddtlrsOperationId = pOperationId_
+    }
 
 
 -- | -- | The response status code.
 ddtlrsResponseStatus :: Lens' DisableDomainTransferLockResponse Int
-ddtlrsResponseStatus = lens _ddtlrsResponseStatus (\ s a -> s{_ddtlrsResponseStatus = a});
+ddtlrsResponseStatus = lens _ddtlrsResponseStatus (\ s a -> s{_ddtlrsResponseStatus = a})
 
 -- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 ddtlrsOperationId :: Lens' DisableDomainTransferLockResponse Text
-ddtlrsOperationId = lens _ddtlrsOperationId (\ s a -> s{_ddtlrsOperationId = a});
+ddtlrsOperationId = lens _ddtlrsOperationId (\ s a -> s{_ddtlrsOperationId = a})
 
 instance NFData DisableDomainTransferLockResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ deregisterTaskFromMaintenanceWindow
     -> DeregisterTaskFromMaintenanceWindow
 deregisterTaskFromMaintenanceWindow pWindowId_ pWindowTaskId_ =
   DeregisterTaskFromMaintenanceWindow'
-  {_derWindowId = pWindowId_, _derWindowTaskId = pWindowTaskId_}
+    {_derWindowId = pWindowId_, _derWindowTaskId = pWindowTaskId_}
 
 
 -- | The ID of the Maintenance Window the task should be removed from.
 derWindowId :: Lens' DeregisterTaskFromMaintenanceWindow Text
-derWindowId = lens _derWindowId (\ s a -> s{_derWindowId = a});
+derWindowId = lens _derWindowId (\ s a -> s{_derWindowId = a})
 
 -- | The ID of the task to remove from the Maintenance Window.
 derWindowTaskId :: Lens' DeregisterTaskFromMaintenanceWindow Text
-derWindowTaskId = lens _derWindowTaskId (\ s a -> s{_derWindowTaskId = a});
+derWindowTaskId = lens _derWindowTaskId (\ s a -> s{_derWindowTaskId = a})
 
 instance AWSRequest
            DeregisterTaskFromMaintenanceWindow
@@ -146,23 +146,23 @@ deregisterTaskFromMaintenanceWindowResponse
     -> DeregisterTaskFromMaintenanceWindowResponse
 deregisterTaskFromMaintenanceWindowResponse pResponseStatus_ =
   DeregisterTaskFromMaintenanceWindowResponse'
-  { _derrsWindowTaskId = Nothing
-  , _derrsWindowId = Nothing
-  , _derrsResponseStatus = pResponseStatus_
-  }
+    { _derrsWindowTaskId = Nothing
+    , _derrsWindowId = Nothing
+    , _derrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the task removed from the Maintenance Window.
 derrsWindowTaskId :: Lens' DeregisterTaskFromMaintenanceWindowResponse (Maybe Text)
-derrsWindowTaskId = lens _derrsWindowTaskId (\ s a -> s{_derrsWindowTaskId = a});
+derrsWindowTaskId = lens _derrsWindowTaskId (\ s a -> s{_derrsWindowTaskId = a})
 
 -- | The ID of the Maintenance Window the task was removed from.
 derrsWindowId :: Lens' DeregisterTaskFromMaintenanceWindowResponse (Maybe Text)
-derrsWindowId = lens _derrsWindowId (\ s a -> s{_derrsWindowId = a});
+derrsWindowId = lens _derrsWindowId (\ s a -> s{_derrsWindowId = a})
 
 -- | -- | The response status code.
 derrsResponseStatus :: Lens' DeregisterTaskFromMaintenanceWindowResponse Int
-derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
+derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a})
 
 instance NFData
            DeregisterTaskFromMaintenanceWindowResponse

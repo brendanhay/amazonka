@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateDocumentationPart
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ createDocumentationPart
     -> CreateDocumentationPart
 createDocumentationPart pRestAPIId_ pLocation_ pProperties_ =
   CreateDocumentationPart'
-  { _cdpRestAPIId = pRestAPIId_
-  , _cdpLocation = pLocation_
-  , _cdpProperties = pProperties_
-  }
+    { _cdpRestAPIId = pRestAPIId_
+    , _cdpLocation = pLocation_
+    , _cdpProperties = pProperties_
+    }
 
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 cdpRestAPIId :: Lens' CreateDocumentationPart Text
-cdpRestAPIId = lens _cdpRestAPIId (\ s a -> s{_cdpRestAPIId = a});
+cdpRestAPIId = lens _cdpRestAPIId (\ s a -> s{_cdpRestAPIId = a})
 
 -- | [Required] The location of the targeted API entity of the to-be-created documentation part.
 cdpLocation :: Lens' CreateDocumentationPart DocumentationPartLocation
-cdpLocation = lens _cdpLocation (\ s a -> s{_cdpLocation = a});
+cdpLocation = lens _cdpLocation (\ s a -> s{_cdpLocation = a})
 
 -- | [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only Swagger-compliant key-value pairs can be exported and, hence, published.
 cdpProperties :: Lens' CreateDocumentationPart Text
-cdpProperties = lens _cdpProperties (\ s a -> s{_cdpProperties = a});
+cdpProperties = lens _cdpProperties (\ s a -> s{_cdpProperties = a})
 
 instance AWSRequest CreateDocumentationPart where
         type Rs CreateDocumentationPart = DocumentationPart

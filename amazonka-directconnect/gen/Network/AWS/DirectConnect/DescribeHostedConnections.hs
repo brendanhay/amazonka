@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeHostedConnections
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ describeHostedConnections pConnectionId_ =
 
 -- | The ID of the interconnect or LAG on which the hosted connections are provisioned. Example: dxcon-abc123 or dxlag-abc123 Default: None
 dhcConnectionId :: Lens' DescribeHostedConnections Text
-dhcConnectionId = lens _dhcConnectionId (\ s a -> s{_dhcConnectionId = a});
+dhcConnectionId = lens _dhcConnectionId (\ s a -> s{_dhcConnectionId = a})
 
 instance AWSRequest DescribeHostedConnections where
         type Rs DescribeHostedConnections = Connections

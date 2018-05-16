@@ -12,22 +12,22 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.CreateStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an Amazon Kinesis stream. A stream captures and transports data records that are continuously emitted from different data sources or /producers/ . Scale-out within a stream is explicitly supported by means of shards, which are uniquely identified groups of data records in a stream.
+-- Creates a Kinesis data stream. A stream captures and transports data records that are continuously emitted from different data sources or /producers/ . Scale-out within a stream is explicitly supported by means of shards, which are uniquely identified groups of data records in a stream.
 --
 --
--- You specify and control the number of shards that a stream is composed of. Each shard can support reads up to 5 transactions per second, up to a maximum data read total of 2 MB per second. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MB per second. You can add shards to a stream if the amount of data input increases and you can remove shards if the amount of data input decreases.
+-- You specify and control the number of shards that a stream is composed of. Each shard can support reads up to five transactions per second, up to a maximum data read total of 2 MB per second. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MB per second. If the amount of data input increases or decreases, you can add or remove shards.
 --
--- The stream name identifies the stream. The name is scoped to the AWS account used by the application. It is also scoped by region. That is, two streams in two different accounts can have the same name, and two streams in the same account, but in two different regions, can have the same name.
+-- The stream name identifies the stream. The name is scoped to the AWS account used by the application. It is also scoped by AWS Region. That is, two streams in two different accounts can have the same name, and two streams in the same account, but in two different Regions, can have the same name.
 --
--- @CreateStream@ is an asynchronous operation. Upon receiving a @CreateStream@ request, Amazon Kinesis immediately returns and sets the stream status to @CREATING@ . After the stream is created, Amazon Kinesis sets the stream status to @ACTIVE@ . You should perform read and write operations only on an @ACTIVE@ stream.
+-- @CreateStream@ is an asynchronous operation. Upon receiving a @CreateStream@ request, Kinesis Data Streams immediately returns and sets the stream status to @CREATING@ . After the stream is created, Kinesis Data Streams sets the stream status to @ACTIVE@ . You should perform read and write operations only on an @ACTIVE@ stream.
 --
--- You receive a @LimitExceededException@ when making a @CreateStream@ request if you try to do one of the following:
+-- You receive a @LimitExceededException@ when making a @CreateStream@ request when you try to do one of the following:
 --
 --     * Have more than five streams in the @CREATING@ state at any point in time.
 --
@@ -35,11 +35,11 @@
 --
 --
 --
--- For the default shard limit for an AWS account, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits> in the /Amazon Kinesis Streams Developer Guide/ . If you need to increase this limit, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support> .
+-- For the default shard limit for an AWS account, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Amazon Kinesis Data Streams Limits> in the /Amazon Kinesis Data Streams Developer Guide/ . To increase this limit, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support> .
 --
 -- You can use @DescribeStream@ to check the stream status, which is returned in @StreamStatus@ .
 --
--- 'CreateStream' has a limit of 5 transactions per second per account.
+-- 'CreateStream' has a limit of five transactions per second per account.
 --
 module Network.AWS.Kinesis.CreateStream
     (
@@ -77,7 +77,7 @@ data CreateStream = CreateStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csStreamName' - A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account but in two different regions can have the same name.
+-- * 'csStreamName' - A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.
 --
 -- * 'csShardCount' - The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput. DefaultShardLimit;
 createStream
@@ -86,16 +86,16 @@ createStream
     -> CreateStream
 createStream pStreamName_ pShardCount_ =
   CreateStream'
-  {_csStreamName = pStreamName_, _csShardCount = _Nat # pShardCount_}
+    {_csStreamName = pStreamName_, _csShardCount = _Nat # pShardCount_}
 
 
--- | A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account but in two different regions can have the same name.
+-- | A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.
 csStreamName :: Lens' CreateStream Text
-csStreamName = lens _csStreamName (\ s a -> s{_csStreamName = a});
+csStreamName = lens _csStreamName (\ s a -> s{_csStreamName = a})
 
 -- | The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput. DefaultShardLimit;
 csShardCount :: Lens' CreateStream Natural
-csShardCount = lens _csShardCount (\ s a -> s{_csShardCount = a}) . _Nat;
+csShardCount = lens _csShardCount (\ s a -> s{_csShardCount = a}) . _Nat
 
 instance AWSRequest CreateStream where
         type Rs CreateStream = CreateStreamResponse

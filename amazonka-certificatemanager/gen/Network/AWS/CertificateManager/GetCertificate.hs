@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.GetCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves an ACM Certificate and certificate chain for the certificate specified by an ARN. The chain is an ordered list of certificates that contains the ACM Certificate, intermediate certificates of subordinate CAs, and the root certificate in that order. The certificate and certificate chain are base64 encoded. If you want to decode the certificate chain to see the individual certificate fields, you can use OpenSSL.
+-- Retrieves a certificate specified by an ARN and its certificate chain . The chain is an ordered list of certificates that contains the end entity certificate, intermediate certificates of subordinate CAs, and the root certificate in that order. The certificate and certificate chain are base64 encoded. If you want to decode the certificate to see the individual fields, you can use OpenSSL.
 --
 --
 module Network.AWS.CertificateManager.GetCertificate
@@ -65,7 +65,7 @@ getCertificate pCertificateARN_ =
 
 -- | String that contains a certificate ARN in the following format: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 gcCertificateARN :: Lens' GetCertificate Text
-gcCertificateARN = lens _gcCertificateARN (\ s a -> s{_gcCertificateARN = a});
+gcCertificateARN = lens _gcCertificateARN (\ s a -> s{_gcCertificateARN = a})
 
 instance AWSRequest GetCertificate where
         type Rs GetCertificate = GetCertificateResponse
@@ -114,7 +114,7 @@ data GetCertificateResponse = GetCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrsCertificate' - String that contains the ACM Certificate represented by the ARN specified at input.
+-- * 'gcrsCertificate' - String that contains the ACM certificate represented by the ARN specified at input.
 --
 -- * 'gcrsCertificateChain' - The certificate chain that contains the root certificate issued by the certificate authority (CA).
 --
@@ -124,22 +124,22 @@ getCertificateResponse
     -> GetCertificateResponse
 getCertificateResponse pResponseStatus_ =
   GetCertificateResponse'
-  { _gcrsCertificate = Nothing
-  , _gcrsCertificateChain = Nothing
-  , _gcrsResponseStatus = pResponseStatus_
-  }
+    { _gcrsCertificate = Nothing
+    , _gcrsCertificateChain = Nothing
+    , _gcrsResponseStatus = pResponseStatus_
+    }
 
 
--- | String that contains the ACM Certificate represented by the ARN specified at input.
+-- | String that contains the ACM certificate represented by the ARN specified at input.
 gcrsCertificate :: Lens' GetCertificateResponse (Maybe Text)
-gcrsCertificate = lens _gcrsCertificate (\ s a -> s{_gcrsCertificate = a});
+gcrsCertificate = lens _gcrsCertificate (\ s a -> s{_gcrsCertificate = a})
 
 -- | The certificate chain that contains the root certificate issued by the certificate authority (CA).
 gcrsCertificateChain :: Lens' GetCertificateResponse (Maybe Text)
-gcrsCertificateChain = lens _gcrsCertificateChain (\ s a -> s{_gcrsCertificateChain = a});
+gcrsCertificateChain = lens _gcrsCertificateChain (\ s a -> s{_gcrsCertificateChain = a})
 
 -- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetCertificateResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
+gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a})
 
 instance NFData GetCertificateResponse where

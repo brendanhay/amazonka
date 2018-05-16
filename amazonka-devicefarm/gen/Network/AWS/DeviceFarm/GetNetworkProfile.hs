@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetNetworkProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getNetworkProfile pArn_ = GetNetworkProfile' {_gnpArn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the network profile you want to return information about.
 gnpArn :: Lens' GetNetworkProfile Text
-gnpArn = lens _gnpArn (\ s a -> s{_gnpArn = a});
+gnpArn = lens _gnpArn (\ s a -> s{_gnpArn = a})
 
 instance AWSRequest GetNetworkProfile where
         type Rs GetNetworkProfile = GetNetworkProfileResponse
@@ -117,15 +117,15 @@ getNetworkProfileResponse
     -> GetNetworkProfileResponse
 getNetworkProfileResponse pResponseStatus_ =
   GetNetworkProfileResponse'
-  {_gnprsNetworkProfile = Nothing, _gnprsResponseStatus = pResponseStatus_}
+    {_gnprsNetworkProfile = Nothing, _gnprsResponseStatus = pResponseStatus_}
 
 
 -- | The network profile.
 gnprsNetworkProfile :: Lens' GetNetworkProfileResponse (Maybe NetworkProfile)
-gnprsNetworkProfile = lens _gnprsNetworkProfile (\ s a -> s{_gnprsNetworkProfile = a});
+gnprsNetworkProfile = lens _gnprsNetworkProfile (\ s a -> s{_gnprsNetworkProfile = a})
 
 -- | -- | The response status code.
 gnprsResponseStatus :: Lens' GetNetworkProfileResponse Int
-gnprsResponseStatus = lens _gnprsResponseStatus (\ s a -> s{_gnprsResponseStatus = a});
+gnprsResponseStatus = lens _gnprsResponseStatus (\ s a -> s{_gnprsResponseStatus = a})
 
 instance NFData GetNetworkProfileResponse where

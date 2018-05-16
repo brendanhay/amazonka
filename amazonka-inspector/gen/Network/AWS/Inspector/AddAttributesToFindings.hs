@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.AddAttributesToFindings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ addAttributesToFindings
     -> AddAttributesToFindings
 addAttributesToFindings pFindingARNs_ =
   AddAttributesToFindings'
-  {_aatfFindingARNs = _List1 # pFindingARNs_, _aatfAttributes = mempty}
+    {_aatfFindingARNs = _List1 # pFindingARNs_, _aatfAttributes = mempty}
 
 
 -- | The ARNs that specify the findings that you want to assign attributes to.
 aatfFindingARNs :: Lens' AddAttributesToFindings (NonEmpty Text)
-aatfFindingARNs = lens _aatfFindingARNs (\ s a -> s{_aatfFindingARNs = a}) . _List1;
+aatfFindingARNs = lens _aatfFindingARNs (\ s a -> s{_aatfFindingARNs = a}) . _List1
 
 -- | The array of attributes that you want to assign to specified findings.
 aatfAttributes :: Lens' AddAttributesToFindings [Attribute]
-aatfAttributes = lens _aatfAttributes (\ s a -> s{_aatfAttributes = a}) . _Coerce;
+aatfAttributes = lens _aatfAttributes (\ s a -> s{_aatfAttributes = a}) . _Coerce
 
 instance AWSRequest AddAttributesToFindings where
         type Rs AddAttributesToFindings =
@@ -132,15 +132,15 @@ addAttributesToFindingsResponse
     -> AddAttributesToFindingsResponse
 addAttributesToFindingsResponse pResponseStatus_ =
   AddAttributesToFindingsResponse'
-  {_aatfrsResponseStatus = pResponseStatus_, _aatfrsFailedItems = mempty}
+    {_aatfrsResponseStatus = pResponseStatus_, _aatfrsFailedItems = mempty}
 
 
 -- | -- | The response status code.
 aatfrsResponseStatus :: Lens' AddAttributesToFindingsResponse Int
-aatfrsResponseStatus = lens _aatfrsResponseStatus (\ s a -> s{_aatfrsResponseStatus = a});
+aatfrsResponseStatus = lens _aatfrsResponseStatus (\ s a -> s{_aatfrsResponseStatus = a})
 
 -- | Attribute details that cannot be described. An error code is provided for each failed item.
 aatfrsFailedItems :: Lens' AddAttributesToFindingsResponse (HashMap Text FailedItemDetails)
-aatfrsFailedItems = lens _aatfrsFailedItems (\ s a -> s{_aatfrsFailedItems = a}) . _Map;
+aatfrsFailedItems = lens _aatfrsFailedItems (\ s a -> s{_aatfrsFailedItems = a}) . _Map
 
 instance NFData AddAttributesToFindingsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetCoreDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ newtype GetCoreDefinition = GetCoreDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcdCoreDefinitionId' - core definition Id
+-- * 'gcdCoreDefinitionId' - The ID of the core definition.
 getCoreDefinition
     :: Text -- ^ 'gcdCoreDefinitionId'
     -> GetCoreDefinition
@@ -66,9 +66,9 @@ getCoreDefinition pCoreDefinitionId_ =
   GetCoreDefinition' {_gcdCoreDefinitionId = pCoreDefinitionId_}
 
 
--- | core definition Id
+-- | The ID of the core definition.
 gcdCoreDefinitionId :: Lens' GetCoreDefinition Text
-gcdCoreDefinitionId = lens _gcdCoreDefinitionId (\ s a -> s{_gcdCoreDefinitionId = a});
+gcdCoreDefinitionId = lens _gcdCoreDefinitionId (\ s a -> s{_gcdCoreDefinitionId = a})
 
 instance AWSRequest GetCoreDefinition where
         type Rs GetCoreDefinition = GetCoreDefinitionResponse
@@ -122,19 +122,19 @@ data GetCoreDefinitionResponse = GetCoreDefinitionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcdrsLatestVersionARN' - Latest version arn of the definition.
+-- * 'gcdrsLatestVersionARN' - The ARN of the latest version of the definition.
 --
--- * 'gcdrsARN' - Arn of the definition.
+-- * 'gcdrsARN' - The ARN of the definition.
 --
--- * 'gcdrsName' - Name of the definition.
+-- * 'gcdrsName' - The name of the definition.
 --
--- * 'gcdrsCreationTimestamp' - Timestamp of when the definition was created.
+-- * 'gcdrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
 --
--- * 'gcdrsId' - Id of the definition.
+-- * 'gcdrsId' - The ID of the definition.
 --
--- * 'gcdrsLatestVersion' - Last version of the definition.
+-- * 'gcdrsLatestVersion' - The latest version of the definition.
 --
--- * 'gcdrsLastUpdatedTimestamp' - Last updated timestamp of the definition.
+-- * 'gcdrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- * 'gcdrsResponseStatus' - -- | The response status code.
 getCoreDefinitionResponse
@@ -142,47 +142,47 @@ getCoreDefinitionResponse
     -> GetCoreDefinitionResponse
 getCoreDefinitionResponse pResponseStatus_ =
   GetCoreDefinitionResponse'
-  { _gcdrsLatestVersionARN = Nothing
-  , _gcdrsARN = Nothing
-  , _gcdrsName = Nothing
-  , _gcdrsCreationTimestamp = Nothing
-  , _gcdrsId = Nothing
-  , _gcdrsLatestVersion = Nothing
-  , _gcdrsLastUpdatedTimestamp = Nothing
-  , _gcdrsResponseStatus = pResponseStatus_
-  }
+    { _gcdrsLatestVersionARN = Nothing
+    , _gcdrsARN = Nothing
+    , _gcdrsName = Nothing
+    , _gcdrsCreationTimestamp = Nothing
+    , _gcdrsId = Nothing
+    , _gcdrsLatestVersion = Nothing
+    , _gcdrsLastUpdatedTimestamp = Nothing
+    , _gcdrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Latest version arn of the definition.
+-- | The ARN of the latest version of the definition.
 gcdrsLatestVersionARN :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsLatestVersionARN = lens _gcdrsLatestVersionARN (\ s a -> s{_gcdrsLatestVersionARN = a});
+gcdrsLatestVersionARN = lens _gcdrsLatestVersionARN (\ s a -> s{_gcdrsLatestVersionARN = a})
 
--- | Arn of the definition.
+-- | The ARN of the definition.
 gcdrsARN :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsARN = lens _gcdrsARN (\ s a -> s{_gcdrsARN = a});
+gcdrsARN = lens _gcdrsARN (\ s a -> s{_gcdrsARN = a})
 
--- | Name of the definition.
+-- | The name of the definition.
 gcdrsName :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsName = lens _gcdrsName (\ s a -> s{_gcdrsName = a});
+gcdrsName = lens _gcdrsName (\ s a -> s{_gcdrsName = a})
 
--- | Timestamp of when the definition was created.
+-- | The time, in milliseconds since the epoch, when the definition was created.
 gcdrsCreationTimestamp :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsCreationTimestamp = lens _gcdrsCreationTimestamp (\ s a -> s{_gcdrsCreationTimestamp = a});
+gcdrsCreationTimestamp = lens _gcdrsCreationTimestamp (\ s a -> s{_gcdrsCreationTimestamp = a})
 
--- | Id of the definition.
+-- | The ID of the definition.
 gcdrsId :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsId = lens _gcdrsId (\ s a -> s{_gcdrsId = a});
+gcdrsId = lens _gcdrsId (\ s a -> s{_gcdrsId = a})
 
--- | Last version of the definition.
+-- | The latest version of the definition.
 gcdrsLatestVersion :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsLatestVersion = lens _gcdrsLatestVersion (\ s a -> s{_gcdrsLatestVersion = a});
+gcdrsLatestVersion = lens _gcdrsLatestVersion (\ s a -> s{_gcdrsLatestVersion = a})
 
--- | Last updated timestamp of the definition.
+-- | The time, in milliseconds since the epoch, when the definition was last updated.
 gcdrsLastUpdatedTimestamp :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsLastUpdatedTimestamp = lens _gcdrsLastUpdatedTimestamp (\ s a -> s{_gcdrsLastUpdatedTimestamp = a});
+gcdrsLastUpdatedTimestamp = lens _gcdrsLastUpdatedTimestamp (\ s a -> s{_gcdrsLastUpdatedTimestamp = a})
 
 -- | -- | The response status code.
 gcdrsResponseStatus :: Lens' GetCoreDefinitionResponse Int
-gcdrsResponseStatus = lens _gcdrsResponseStatus (\ s a -> s{_gcdrsResponseStatus = a});
+gcdrsResponseStatus = lens _gcdrsResponseStatus (\ s a -> s{_gcdrsResponseStatus = a})
 
 instance NFData GetCoreDefinitionResponse where

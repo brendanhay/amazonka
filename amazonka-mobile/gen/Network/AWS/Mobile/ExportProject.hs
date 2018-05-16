@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Mobile.ExportProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ exportProject pProjectId_ = ExportProject' {_epProjectId = pProjectId_}
 
 -- | Unique project identifier.
 epProjectId :: Lens' ExportProject Text
-epProjectId = lens _epProjectId (\ s a -> s{_epProjectId = a});
+epProjectId = lens _epProjectId (\ s a -> s{_epProjectId = a})
 
 instance AWSRequest ExportProject where
         type Rs ExportProject = ExportProjectResponse
@@ -132,27 +132,27 @@ exportProjectResponse
     -> ExportProjectResponse
 exportProjectResponse pResponseStatus_ =
   ExportProjectResponse'
-  { _eprsShareURL = Nothing
-  , _eprsDownloadURL = Nothing
-  , _eprsSnapshotId = Nothing
-  , _eprsResponseStatus = pResponseStatus_
-  }
+    { _eprsShareURL = Nothing
+    , _eprsDownloadURL = Nothing
+    , _eprsSnapshotId = Nothing
+    , _eprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again.
 eprsShareURL :: Lens' ExportProjectResponse (Maybe Text)
-eprsShareURL = lens _eprsShareURL (\ s a -> s{_eprsShareURL = a});
+eprsShareURL = lens _eprsShareURL (\ s a -> s{_eprsShareURL = a})
 
 -- | URL which can be used to download the exported project configuation file(s).
 eprsDownloadURL :: Lens' ExportProjectResponse (Maybe Text)
-eprsDownloadURL = lens _eprsDownloadURL (\ s a -> s{_eprsDownloadURL = a});
+eprsDownloadURL = lens _eprsDownloadURL (\ s a -> s{_eprsDownloadURL = a})
 
 -- | Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL.
 eprsSnapshotId :: Lens' ExportProjectResponse (Maybe Text)
-eprsSnapshotId = lens _eprsSnapshotId (\ s a -> s{_eprsSnapshotId = a});
+eprsSnapshotId = lens _eprsSnapshotId (\ s a -> s{_eprsSnapshotId = a})
 
 -- | -- | The response status code.
 eprsResponseStatus :: Lens' ExportProjectResponse Int
-eprsResponseStatus = lens _eprsResponseStatus (\ s a -> s{_eprsResponseStatus = a});
+eprsResponseStatus = lens _eprsResponseStatus (\ s a -> s{_eprsResponseStatus = a})
 
 instance NFData ExportProjectResponse where

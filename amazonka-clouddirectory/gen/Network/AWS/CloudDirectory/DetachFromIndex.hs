@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DetachFromIndex
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ detachFromIndex
     -> DetachFromIndex
 detachFromIndex pDirectoryARN_ pIndexReference_ pTargetReference_ =
   DetachFromIndex'
-  { _dfiDirectoryARN = pDirectoryARN_
-  , _dfiIndexReference = pIndexReference_
-  , _dfiTargetReference = pTargetReference_
-  }
+    { _dfiDirectoryARN = pDirectoryARN_
+    , _dfiIndexReference = pIndexReference_
+    , _dfiTargetReference = pTargetReference_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the directory the index and object exist in.
 dfiDirectoryARN :: Lens' DetachFromIndex Text
-dfiDirectoryARN = lens _dfiDirectoryARN (\ s a -> s{_dfiDirectoryARN = a});
+dfiDirectoryARN = lens _dfiDirectoryARN (\ s a -> s{_dfiDirectoryARN = a})
 
 -- | A reference to the index object.
 dfiIndexReference :: Lens' DetachFromIndex ObjectReference
-dfiIndexReference = lens _dfiIndexReference (\ s a -> s{_dfiIndexReference = a});
+dfiIndexReference = lens _dfiIndexReference (\ s a -> s{_dfiIndexReference = a})
 
 -- | A reference to the object being detached from the index.
 dfiTargetReference :: Lens' DetachFromIndex ObjectReference
-dfiTargetReference = lens _dfiTargetReference (\ s a -> s{_dfiTargetReference = a});
+dfiTargetReference = lens _dfiTargetReference (\ s a -> s{_dfiTargetReference = a})
 
 instance AWSRequest DetachFromIndex where
         type Rs DetachFromIndex = DetachFromIndexResponse
@@ -141,17 +141,17 @@ detachFromIndexResponse
     -> DetachFromIndexResponse
 detachFromIndexResponse pResponseStatus_ =
   DetachFromIndexResponse'
-  { _dfirsDetachedObjectIdentifier = Nothing
-  , _dfirsResponseStatus = pResponseStatus_
-  }
+    { _dfirsDetachedObjectIdentifier = Nothing
+    , _dfirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The @ObjectIdentifier@ of the object that was detached from the index.
 dfirsDetachedObjectIdentifier :: Lens' DetachFromIndexResponse (Maybe Text)
-dfirsDetachedObjectIdentifier = lens _dfirsDetachedObjectIdentifier (\ s a -> s{_dfirsDetachedObjectIdentifier = a});
+dfirsDetachedObjectIdentifier = lens _dfirsDetachedObjectIdentifier (\ s a -> s{_dfirsDetachedObjectIdentifier = a})
 
 -- | -- | The response status code.
 dfirsResponseStatus :: Lens' DetachFromIndexResponse Int
-dfirsResponseStatus = lens _dfirsResponseStatus (\ s a -> s{_dfirsResponseStatus = a});
+dfirsResponseStatus = lens _dfirsResponseStatus (\ s a -> s{_dfirsResponseStatus = a})
 
 instance NFData DetachFromIndexResponse where

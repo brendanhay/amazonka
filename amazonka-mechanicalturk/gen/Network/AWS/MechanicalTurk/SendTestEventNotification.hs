@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.SendTestEventNotification
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ sendTestEventNotification
     -> SendTestEventNotification
 sendTestEventNotification pNotification_ pTestEventType_ =
   SendTestEventNotification'
-  {_stenNotification = pNotification_, _stenTestEventType = pTestEventType_}
+    {_stenNotification = pNotification_, _stenTestEventType = pTestEventType_}
 
 
 -- | The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type.
 stenNotification :: Lens' SendTestEventNotification NotificationSpecification
-stenNotification = lens _stenNotification (\ s a -> s{_stenNotification = a});
+stenNotification = lens _stenNotification (\ s a -> s{_stenNotification = a})
 
 -- | The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event.
 stenTestEventType :: Lens' SendTestEventNotification EventType
-stenTestEventType = lens _stenTestEventType (\ s a -> s{_stenTestEventType = a});
+stenTestEventType = lens _stenTestEventType (\ s a -> s{_stenTestEventType = a})
 
 instance AWSRequest SendTestEventNotification where
         type Rs SendTestEventNotification =
@@ -132,7 +132,7 @@ sendTestEventNotificationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 stenrsResponseStatus :: Lens' SendTestEventNotificationResponse Int
-stenrsResponseStatus = lens _stenrsResponseStatus (\ s a -> s{_stenrsResponseStatus = a});
+stenrsResponseStatus = lens _stenrsResponseStatus (\ s a -> s{_stenrsResponseStatus = a})
 
 instance NFData SendTestEventNotificationResponse
          where

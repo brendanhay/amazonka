@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetDevice
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getDevice pArn_ = GetDevice' {_gdArn = pArn_}
 
 -- | The device type's ARN.
 gdArn :: Lens' GetDevice Text
-gdArn = lens _gdArn (\ s a -> s{_gdArn = a});
+gdArn = lens _gdArn (\ s a -> s{_gdArn = a})
 
 instance AWSRequest GetDevice where
         type Rs GetDevice = GetDeviceResponse
@@ -124,15 +124,15 @@ getDeviceResponse
     -> GetDeviceResponse
 getDeviceResponse pResponseStatus_ =
   GetDeviceResponse'
-  {_gdrsDevice = Nothing, _gdrsResponseStatus = pResponseStatus_}
+    {_gdrsDevice = Nothing, _gdrsResponseStatus = pResponseStatus_}
 
 
 -- | An object containing information about the requested device.
 gdrsDevice :: Lens' GetDeviceResponse (Maybe Device)
-gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a});
+gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a})
 
 -- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeviceResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a})
 
 instance NFData GetDeviceResponse where

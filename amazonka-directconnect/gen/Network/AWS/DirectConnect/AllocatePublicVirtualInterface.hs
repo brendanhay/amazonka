@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AllocatePublicVirtualInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -97,24 +97,24 @@ allocatePublicVirtualInterface
     -> AllocatePublicVirtualInterface
 allocatePublicVirtualInterface pConnectionId_ pOwnerAccount_ pNewPublicVirtualInterfaceAllocation_ =
   AllocatePublicVirtualInterface'
-  { _aConnectionId = pConnectionId_
-  , _aOwnerAccount = pOwnerAccount_
-  , _aNewPublicVirtualInterfaceAllocation =
-      pNewPublicVirtualInterfaceAllocation_
-  }
+    { _aConnectionId = pConnectionId_
+    , _aOwnerAccount = pOwnerAccount_
+    , _aNewPublicVirtualInterfaceAllocation =
+        pNewPublicVirtualInterfaceAllocation_
+    }
 
 
 -- | The connection ID on which the public virtual interface is provisioned. Default: None
 aConnectionId :: Lens' AllocatePublicVirtualInterface Text
-aConnectionId = lens _aConnectionId (\ s a -> s{_aConnectionId = a});
+aConnectionId = lens _aConnectionId (\ s a -> s{_aConnectionId = a})
 
 -- | The AWS account that will own the new public virtual interface. Default: None
 aOwnerAccount :: Lens' AllocatePublicVirtualInterface Text
-aOwnerAccount = lens _aOwnerAccount (\ s a -> s{_aOwnerAccount = a});
+aOwnerAccount = lens _aOwnerAccount (\ s a -> s{_aOwnerAccount = a})
 
 -- | Detailed information for the public virtual interface to be provisioned. Default: None
 aNewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
-aNewPublicVirtualInterfaceAllocation = lens _aNewPublicVirtualInterfaceAllocation (\ s a -> s{_aNewPublicVirtualInterfaceAllocation = a});
+aNewPublicVirtualInterfaceAllocation = lens _aNewPublicVirtualInterfaceAllocation (\ s a -> s{_aNewPublicVirtualInterfaceAllocation = a})
 
 instance AWSRequest AllocatePublicVirtualInterface
          where

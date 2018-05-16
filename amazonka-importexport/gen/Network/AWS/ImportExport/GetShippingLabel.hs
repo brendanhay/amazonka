@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.GetShippingLabel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -102,68 +102,68 @@ getShippingLabel
     :: GetShippingLabel
 getShippingLabel =
   GetShippingLabel'
-  { _gslStreet3 = Nothing
-  , _gslAPIVersion = Nothing
-  , _gslCountry = Nothing
-  , _gslStateOrProvince = Nothing
-  , _gslPostalCode = Nothing
-  , _gslStreet2 = Nothing
-  , _gslName = Nothing
-  , _gslCompany = Nothing
-  , _gslPhoneNumber = Nothing
-  , _gslCity = Nothing
-  , _gslStreet1 = Nothing
-  , _gslJobIds = mempty
-  }
+    { _gslStreet3 = Nothing
+    , _gslAPIVersion = Nothing
+    , _gslCountry = Nothing
+    , _gslStateOrProvince = Nothing
+    , _gslPostalCode = Nothing
+    , _gslStreet2 = Nothing
+    , _gslName = Nothing
+    , _gslCompany = Nothing
+    , _gslPhoneNumber = Nothing
+    , _gslCity = Nothing
+    , _gslStreet1 = Nothing
+    , _gslJobIds = mempty
+    }
 
 
 -- | Undocumented member.
 gslStreet3 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet3 = lens _gslStreet3 (\ s a -> s{_gslStreet3 = a});
+gslStreet3 = lens _gslStreet3 (\ s a -> s{_gslStreet3 = a})
 
 -- | Undocumented member.
 gslAPIVersion :: Lens' GetShippingLabel (Maybe Text)
-gslAPIVersion = lens _gslAPIVersion (\ s a -> s{_gslAPIVersion = a});
+gslAPIVersion = lens _gslAPIVersion (\ s a -> s{_gslAPIVersion = a})
 
 -- | Undocumented member.
 gslCountry :: Lens' GetShippingLabel (Maybe Text)
-gslCountry = lens _gslCountry (\ s a -> s{_gslCountry = a});
+gslCountry = lens _gslCountry (\ s a -> s{_gslCountry = a})
 
 -- | Undocumented member.
 gslStateOrProvince :: Lens' GetShippingLabel (Maybe Text)
-gslStateOrProvince = lens _gslStateOrProvince (\ s a -> s{_gslStateOrProvince = a});
+gslStateOrProvince = lens _gslStateOrProvince (\ s a -> s{_gslStateOrProvince = a})
 
 -- | Undocumented member.
 gslPostalCode :: Lens' GetShippingLabel (Maybe Text)
-gslPostalCode = lens _gslPostalCode (\ s a -> s{_gslPostalCode = a});
+gslPostalCode = lens _gslPostalCode (\ s a -> s{_gslPostalCode = a})
 
 -- | Undocumented member.
 gslStreet2 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet2 = lens _gslStreet2 (\ s a -> s{_gslStreet2 = a});
+gslStreet2 = lens _gslStreet2 (\ s a -> s{_gslStreet2 = a})
 
 -- | Undocumented member.
 gslName :: Lens' GetShippingLabel (Maybe Text)
-gslName = lens _gslName (\ s a -> s{_gslName = a});
+gslName = lens _gslName (\ s a -> s{_gslName = a})
 
 -- | Undocumented member.
 gslCompany :: Lens' GetShippingLabel (Maybe Text)
-gslCompany = lens _gslCompany (\ s a -> s{_gslCompany = a});
+gslCompany = lens _gslCompany (\ s a -> s{_gslCompany = a})
 
 -- | Undocumented member.
 gslPhoneNumber :: Lens' GetShippingLabel (Maybe Text)
-gslPhoneNumber = lens _gslPhoneNumber (\ s a -> s{_gslPhoneNumber = a});
+gslPhoneNumber = lens _gslPhoneNumber (\ s a -> s{_gslPhoneNumber = a})
 
 -- | Undocumented member.
 gslCity :: Lens' GetShippingLabel (Maybe Text)
-gslCity = lens _gslCity (\ s a -> s{_gslCity = a});
+gslCity = lens _gslCity (\ s a -> s{_gslCity = a})
 
 -- | Undocumented member.
 gslStreet1 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet1 = lens _gslStreet1 (\ s a -> s{_gslStreet1 = a});
+gslStreet1 = lens _gslStreet1 (\ s a -> s{_gslStreet1 = a})
 
 -- | Undocumented member.
 gslJobIds :: Lens' GetShippingLabel [Text]
-gslJobIds = lens _gslJobIds (\ s a -> s{_gslJobIds = a}) . _Coerce;
+gslJobIds = lens _gslJobIds (\ s a -> s{_gslJobIds = a}) . _Coerce
 
 instance AWSRequest GetShippingLabel where
         type Rs GetShippingLabel = GetShippingLabelResponse
@@ -224,22 +224,22 @@ getShippingLabelResponse
     -> GetShippingLabelResponse
 getShippingLabelResponse pResponseStatus_ =
   GetShippingLabelResponse'
-  { _gslrsShippingLabelURL = Nothing
-  , _gslrsWarning = Nothing
-  , _gslrsResponseStatus = pResponseStatus_
-  }
+    { _gslrsShippingLabelURL = Nothing
+    , _gslrsWarning = Nothing
+    , _gslrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 gslrsShippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
-gslrsShippingLabelURL = lens _gslrsShippingLabelURL (\ s a -> s{_gslrsShippingLabelURL = a});
+gslrsShippingLabelURL = lens _gslrsShippingLabelURL (\ s a -> s{_gslrsShippingLabelURL = a})
 
 -- | Undocumented member.
 gslrsWarning :: Lens' GetShippingLabelResponse (Maybe Text)
-gslrsWarning = lens _gslrsWarning (\ s a -> s{_gslrsWarning = a});
+gslrsWarning = lens _gslrsWarning (\ s a -> s{_gslrsWarning = a})
 
 -- | -- | The response status code.
 gslrsResponseStatus :: Lens' GetShippingLabelResponse Int
-gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a});
+gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a})
 
 instance NFData GetShippingLabelResponse where

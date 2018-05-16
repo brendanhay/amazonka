@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.CreateBranch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ createBranch
     -> CreateBranch
 createBranch pRepositoryName_ pBranchName_ pCommitId_ =
   CreateBranch'
-  { _cbRepositoryName = pRepositoryName_
-  , _cbBranchName = pBranchName_
-  , _cbCommitId = pCommitId_
-  }
+    { _cbRepositoryName = pRepositoryName_
+    , _cbBranchName = pBranchName_
+    , _cbCommitId = pCommitId_
+    }
 
 
 -- | The name of the repository in which you want to create the new branch.
 cbRepositoryName :: Lens' CreateBranch Text
-cbRepositoryName = lens _cbRepositoryName (\ s a -> s{_cbRepositoryName = a});
+cbRepositoryName = lens _cbRepositoryName (\ s a -> s{_cbRepositoryName = a})
 
 -- | The name of the new branch to create.
 cbBranchName :: Lens' CreateBranch Text
-cbBranchName = lens _cbBranchName (\ s a -> s{_cbBranchName = a});
+cbBranchName = lens _cbBranchName (\ s a -> s{_cbBranchName = a})
 
 -- | The ID of the commit to point the new branch to.
 cbCommitId :: Lens' CreateBranch Text
-cbCommitId = lens _cbCommitId (\ s a -> s{_cbCommitId = a});
+cbCommitId = lens _cbCommitId (\ s a -> s{_cbCommitId = a})
 
 instance AWSRequest CreateBranch where
         type Rs CreateBranch = CreateBranchResponse

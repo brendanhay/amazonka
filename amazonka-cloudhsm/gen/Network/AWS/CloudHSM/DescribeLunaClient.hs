@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DescribeLunaClient
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,16 +71,16 @@ describeLunaClient
     :: DescribeLunaClient
 describeLunaClient =
   DescribeLunaClient'
-  {_dlcClientARN = Nothing, _dlcCertificateFingerprint = Nothing}
+    {_dlcClientARN = Nothing, _dlcCertificateFingerprint = Nothing}
 
 
 -- | The ARN of the client.
 dlcClientARN :: Lens' DescribeLunaClient (Maybe Text)
-dlcClientARN = lens _dlcClientARN (\ s a -> s{_dlcClientARN = a});
+dlcClientARN = lens _dlcClientARN (\ s a -> s{_dlcClientARN = a})
 
 -- | The certificate fingerprint.
 dlcCertificateFingerprint :: Lens' DescribeLunaClient (Maybe Text)
-dlcCertificateFingerprint = lens _dlcCertificateFingerprint (\ s a -> s{_dlcCertificateFingerprint = a});
+dlcCertificateFingerprint = lens _dlcCertificateFingerprint (\ s a -> s{_dlcCertificateFingerprint = a})
 
 instance AWSRequest DescribeLunaClient where
         type Rs DescribeLunaClient =
@@ -156,37 +156,37 @@ describeLunaClientResponse
     -> DescribeLunaClientResponse
 describeLunaClientResponse pResponseStatus_ =
   DescribeLunaClientResponse'
-  { _drsClientARN = Nothing
-  , _drsLastModifiedTimestamp = Nothing
-  , _drsCertificateFingerprint = Nothing
-  , _drsCertificate = Nothing
-  , _drsLabel = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsClientARN = Nothing
+    , _drsLastModifiedTimestamp = Nothing
+    , _drsCertificateFingerprint = Nothing
+    , _drsCertificate = Nothing
+    , _drsLabel = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ARN of the client.
 drsClientARN :: Lens' DescribeLunaClientResponse (Maybe Text)
-drsClientARN = lens _drsClientARN (\ s a -> s{_drsClientARN = a});
+drsClientARN = lens _drsClientARN (\ s a -> s{_drsClientARN = a})
 
 -- | The date and time the client was last modified.
 drsLastModifiedTimestamp :: Lens' DescribeLunaClientResponse (Maybe Text)
-drsLastModifiedTimestamp = lens _drsLastModifiedTimestamp (\ s a -> s{_drsLastModifiedTimestamp = a});
+drsLastModifiedTimestamp = lens _drsLastModifiedTimestamp (\ s a -> s{_drsLastModifiedTimestamp = a})
 
 -- | The certificate fingerprint.
 drsCertificateFingerprint :: Lens' DescribeLunaClientResponse (Maybe Text)
-drsCertificateFingerprint = lens _drsCertificateFingerprint (\ s a -> s{_drsCertificateFingerprint = a});
+drsCertificateFingerprint = lens _drsCertificateFingerprint (\ s a -> s{_drsCertificateFingerprint = a})
 
 -- | The certificate installed on the HSMs used by this client.
 drsCertificate :: Lens' DescribeLunaClientResponse (Maybe Text)
-drsCertificate = lens _drsCertificate (\ s a -> s{_drsCertificate = a});
+drsCertificate = lens _drsCertificate (\ s a -> s{_drsCertificate = a})
 
 -- | The label of the client.
 drsLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
-drsLabel = lens _drsLabel (\ s a -> s{_drsLabel = a});
+drsLabel = lens _drsLabel (\ s a -> s{_drsLabel = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeLunaClientResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeLunaClientResponse where

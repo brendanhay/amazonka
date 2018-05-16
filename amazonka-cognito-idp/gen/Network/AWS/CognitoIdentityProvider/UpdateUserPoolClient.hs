@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,6 +37,7 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
     , uupcReadAttributes
     , uupcAllowedOAuthScopes
     , uupcAllowedOAuthFlows
+    , uupcAnalyticsConfiguration
     , uupcClientName
     , uupcCallbackURLs
     , uupcUserPoolId
@@ -73,6 +74,7 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
   , _uupcReadAttributes                  :: !(Maybe [Text])
   , _uupcAllowedOAuthScopes              :: !(Maybe [Text])
   , _uupcAllowedOAuthFlows               :: !(Maybe [OAuthFlowType])
+  , _uupcAnalyticsConfiguration          :: !(Maybe AnalyticsConfigurationType)
   , _uupcClientName                      :: !(Maybe Text)
   , _uupcCallbackURLs                    :: !(Maybe [Text])
   , _uupcUserPoolId                      :: !Text
@@ -104,6 +106,8 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 --
 -- * 'uupcAllowedOAuthFlows' - Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint. Set to @token@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
 --
+-- * 'uupcAnalyticsConfiguration' - The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+--
 -- * 'uupcClientName' - The client name from the update user pool client request.
 --
 -- * 'uupcCallbackURLs' - A list of allowed callback URLs for the identity providers.
@@ -117,78 +121,83 @@ updateUserPoolClient
     -> UpdateUserPoolClient
 updateUserPoolClient pUserPoolId_ pClientId_ =
   UpdateUserPoolClient'
-  { _uupcRefreshTokenValidity = Nothing
-  , _uupcExplicitAuthFlows = Nothing
-  , _uupcSupportedIdentityProviders = Nothing
-  , _uupcLogoutURLs = Nothing
-  , _uupcAllowedOAuthFlowsUserPoolClient = Nothing
-  , _uupcDefaultRedirectURI = Nothing
-  , _uupcWriteAttributes = Nothing
-  , _uupcReadAttributes = Nothing
-  , _uupcAllowedOAuthScopes = Nothing
-  , _uupcAllowedOAuthFlows = Nothing
-  , _uupcClientName = Nothing
-  , _uupcCallbackURLs = Nothing
-  , _uupcUserPoolId = pUserPoolId_
-  , _uupcClientId = _Sensitive # pClientId_
-  }
+    { _uupcRefreshTokenValidity = Nothing
+    , _uupcExplicitAuthFlows = Nothing
+    , _uupcSupportedIdentityProviders = Nothing
+    , _uupcLogoutURLs = Nothing
+    , _uupcAllowedOAuthFlowsUserPoolClient = Nothing
+    , _uupcDefaultRedirectURI = Nothing
+    , _uupcWriteAttributes = Nothing
+    , _uupcReadAttributes = Nothing
+    , _uupcAllowedOAuthScopes = Nothing
+    , _uupcAllowedOAuthFlows = Nothing
+    , _uupcAnalyticsConfiguration = Nothing
+    , _uupcClientName = Nothing
+    , _uupcCallbackURLs = Nothing
+    , _uupcUserPoolId = pUserPoolId_
+    , _uupcClientId = _Sensitive # pClientId_
+    }
 
 
 -- | The time limit, in days, after which the refresh token is no longer valid and cannot be used.
 uupcRefreshTokenValidity :: Lens' UpdateUserPoolClient (Maybe Natural)
-uupcRefreshTokenValidity = lens _uupcRefreshTokenValidity (\ s a -> s{_uupcRefreshTokenValidity = a}) . mapping _Nat;
+uupcRefreshTokenValidity = lens _uupcRefreshTokenValidity (\ s a -> s{_uupcRefreshTokenValidity = a}) . mapping _Nat
 
 -- | Explicit authentication flows.
 uupcExplicitAuthFlows :: Lens' UpdateUserPoolClient [ExplicitAuthFlowsType]
-uupcExplicitAuthFlows = lens _uupcExplicitAuthFlows (\ s a -> s{_uupcExplicitAuthFlows = a}) . _Default . _Coerce;
+uupcExplicitAuthFlows = lens _uupcExplicitAuthFlows (\ s a -> s{_uupcExplicitAuthFlows = a}) . _Default . _Coerce
 
 -- | A list of provider names for the identity providers that are supported on this client.
 uupcSupportedIdentityProviders :: Lens' UpdateUserPoolClient [Text]
-uupcSupportedIdentityProviders = lens _uupcSupportedIdentityProviders (\ s a -> s{_uupcSupportedIdentityProviders = a}) . _Default . _Coerce;
+uupcSupportedIdentityProviders = lens _uupcSupportedIdentityProviders (\ s a -> s{_uupcSupportedIdentityProviders = a}) . _Default . _Coerce
 
 -- | A list of allowed logout URLs for the identity providers.
 uupcLogoutURLs :: Lens' UpdateUserPoolClient [Text]
-uupcLogoutURLs = lens _uupcLogoutURLs (\ s a -> s{_uupcLogoutURLs = a}) . _Default . _Coerce;
+uupcLogoutURLs = lens _uupcLogoutURLs (\ s a -> s{_uupcLogoutURLs = a}) . _Default . _Coerce
 
 -- | Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
 uupcAllowedOAuthFlowsUserPoolClient :: Lens' UpdateUserPoolClient (Maybe Bool)
-uupcAllowedOAuthFlowsUserPoolClient = lens _uupcAllowedOAuthFlowsUserPoolClient (\ s a -> s{_uupcAllowedOAuthFlowsUserPoolClient = a});
+uupcAllowedOAuthFlowsUserPoolClient = lens _uupcAllowedOAuthFlowsUserPoolClient (\ s a -> s{_uupcAllowedOAuthFlowsUserPoolClient = a})
 
 -- | The default redirect URI. Must be in the @CallbackURLs@ list.
 uupcDefaultRedirectURI :: Lens' UpdateUserPoolClient (Maybe Text)
-uupcDefaultRedirectURI = lens _uupcDefaultRedirectURI (\ s a -> s{_uupcDefaultRedirectURI = a});
+uupcDefaultRedirectURI = lens _uupcDefaultRedirectURI (\ s a -> s{_uupcDefaultRedirectURI = a})
 
 -- | The writeable attributes of the user pool.
 uupcWriteAttributes :: Lens' UpdateUserPoolClient [Text]
-uupcWriteAttributes = lens _uupcWriteAttributes (\ s a -> s{_uupcWriteAttributes = a}) . _Default . _Coerce;
+uupcWriteAttributes = lens _uupcWriteAttributes (\ s a -> s{_uupcWriteAttributes = a}) . _Default . _Coerce
 
 -- | The read-only attributes of the user pool.
 uupcReadAttributes :: Lens' UpdateUserPoolClient [Text]
-uupcReadAttributes = lens _uupcReadAttributes (\ s a -> s{_uupcReadAttributes = a}) . _Default . _Coerce;
+uupcReadAttributes = lens _uupcReadAttributes (\ s a -> s{_uupcReadAttributes = a}) . _Default . _Coerce
 
 -- | A list of allowed @OAuth@ scopes. Currently supported values are @"phone"@ , @"email"@ , @"openid"@ , and @"Cognito"@ .
 uupcAllowedOAuthScopes :: Lens' UpdateUserPoolClient [Text]
-uupcAllowedOAuthScopes = lens _uupcAllowedOAuthScopes (\ s a -> s{_uupcAllowedOAuthScopes = a}) . _Default . _Coerce;
+uupcAllowedOAuthScopes = lens _uupcAllowedOAuthScopes (\ s a -> s{_uupcAllowedOAuthScopes = a}) . _Default . _Coerce
 
 -- | Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint. Set to @token@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
 uupcAllowedOAuthFlows :: Lens' UpdateUserPoolClient [OAuthFlowType]
-uupcAllowedOAuthFlows = lens _uupcAllowedOAuthFlows (\ s a -> s{_uupcAllowedOAuthFlows = a}) . _Default . _Coerce;
+uupcAllowedOAuthFlows = lens _uupcAllowedOAuthFlows (\ s a -> s{_uupcAllowedOAuthFlows = a}) . _Default . _Coerce
+
+-- | The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+uupcAnalyticsConfiguration :: Lens' UpdateUserPoolClient (Maybe AnalyticsConfigurationType)
+uupcAnalyticsConfiguration = lens _uupcAnalyticsConfiguration (\ s a -> s{_uupcAnalyticsConfiguration = a})
 
 -- | The client name from the update user pool client request.
 uupcClientName :: Lens' UpdateUserPoolClient (Maybe Text)
-uupcClientName = lens _uupcClientName (\ s a -> s{_uupcClientName = a});
+uupcClientName = lens _uupcClientName (\ s a -> s{_uupcClientName = a})
 
 -- | A list of allowed callback URLs for the identity providers.
 uupcCallbackURLs :: Lens' UpdateUserPoolClient [Text]
-uupcCallbackURLs = lens _uupcCallbackURLs (\ s a -> s{_uupcCallbackURLs = a}) . _Default . _Coerce;
+uupcCallbackURLs = lens _uupcCallbackURLs (\ s a -> s{_uupcCallbackURLs = a}) . _Default . _Coerce
 
 -- | The user pool ID for the user pool where you want to update the user pool client.
 uupcUserPoolId :: Lens' UpdateUserPoolClient Text
-uupcUserPoolId = lens _uupcUserPoolId (\ s a -> s{_uupcUserPoolId = a});
+uupcUserPoolId = lens _uupcUserPoolId (\ s a -> s{_uupcUserPoolId = a})
 
 -- | The ID of the client associated with the user pool.
 uupcClientId :: Lens' UpdateUserPoolClient Text
-uupcClientId = lens _uupcClientId (\ s a -> s{_uupcClientId = a}) . _Sensitive;
+uupcClientId = lens _uupcClientId (\ s a -> s{_uupcClientId = a}) . _Sensitive
 
 instance AWSRequest UpdateUserPoolClient where
         type Rs UpdateUserPoolClient =
@@ -233,6 +242,8 @@ instance ToJSON UpdateUserPoolClient where
                   ("AllowedOAuthScopes" .=) <$>
                     _uupcAllowedOAuthScopes,
                   ("AllowedOAuthFlows" .=) <$> _uupcAllowedOAuthFlows,
+                  ("AnalyticsConfiguration" .=) <$>
+                    _uupcAnalyticsConfiguration,
                   ("ClientName" .=) <$> _uupcClientName,
                   ("CallbackURLs" .=) <$> _uupcCallbackURLs,
                   Just ("UserPoolId" .= _uupcUserPoolId),
@@ -267,15 +278,15 @@ updateUserPoolClientResponse
     -> UpdateUserPoolClientResponse
 updateUserPoolClientResponse pResponseStatus_ =
   UpdateUserPoolClientResponse'
-  {_uupcrsUserPoolClient = Nothing, _uupcrsResponseStatus = pResponseStatus_}
+    {_uupcrsUserPoolClient = Nothing, _uupcrsResponseStatus = pResponseStatus_}
 
 
 -- | The user pool client value from the response from the server when an update user pool client request is made.
 uupcrsUserPoolClient :: Lens' UpdateUserPoolClientResponse (Maybe UserPoolClientType)
-uupcrsUserPoolClient = lens _uupcrsUserPoolClient (\ s a -> s{_uupcrsUserPoolClient = a});
+uupcrsUserPoolClient = lens _uupcrsUserPoolClient (\ s a -> s{_uupcrsUserPoolClient = a})
 
 -- | -- | The response status code.
 uupcrsResponseStatus :: Lens' UpdateUserPoolClientResponse Int
-uupcrsResponseStatus = lens _uupcrsResponseStatus (\ s a -> s{_uupcrsResponseStatus = a});
+uupcrsResponseStatus = lens _uupcrsResponseStatus (\ s a -> s{_uupcrsResponseStatus = a})
 
 instance NFData UpdateUserPoolClientResponse where

@@ -12,24 +12,24 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DeleteStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an Amazon Kinesis stream and all its shards and data. You must shut down any applications that are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream, it will receive the exception @ResourceNotFoundException@ .
+-- Deletes a Kinesis data stream and all its shards and data. You must shut down any applications that are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream, it receives the exception @ResourceNotFoundException@ .
 --
 --
--- If the stream is in the @ACTIVE@ state, you can delete it. After a @DeleteStream@ request, the specified stream is in the @DELETING@ state until Amazon Kinesis completes the deletion.
+-- If the stream is in the @ACTIVE@ state, you can delete it. After a @DeleteStream@ request, the specified stream is in the @DELETING@ state until Kinesis Data Streams completes the deletion.
 --
--- __Note:__ Amazon Kinesis might continue to accept data read and write operations, such as 'PutRecord' , 'PutRecords' , and 'GetRecords' , on a stream in the @DELETING@ state until the stream deletion is complete.
+-- __Note:__ Kinesis Data Streams might continue to accept data read and write operations, such as 'PutRecord' , 'PutRecords' , and 'GetRecords' , on a stream in the @DELETING@ state until the stream deletion is complete.
 --
 -- When you delete a stream, any shards in that stream are also deleted, and any tags are dissociated from the stream.
 --
 -- You can use the 'DescribeStream' operation to check the state of the stream, which is returned in @StreamStatus@ .
 --
--- 'DeleteStream' has a limit of 5 transactions per second per account.
+-- 'DeleteStream' has a limit of five transactions per second per account.
 --
 module Network.AWS.Kinesis.DeleteStream
     (
@@ -74,7 +74,7 @@ deleteStream pStreamName_ = DeleteStream' {_dsStreamName = pStreamName_}
 
 -- | The name of the stream to delete.
 dsStreamName :: Lens' DeleteStream Text
-dsStreamName = lens _dsStreamName (\ s a -> s{_dsStreamName = a});
+dsStreamName = lens _dsStreamName (\ s a -> s{_dsStreamName = a})
 
 instance AWSRequest DeleteStream where
         type Rs DeleteStream = DeleteStreamResponse

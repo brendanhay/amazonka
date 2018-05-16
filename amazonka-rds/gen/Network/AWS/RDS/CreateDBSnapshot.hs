@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ createDBSnapshot
     -> CreateDBSnapshot
 createDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
   CreateDBSnapshot'
-  { _cdbsTags = Nothing
-  , _cdbsDBSnapshotIdentifier = pDBSnapshotIdentifier_
-  , _cdbsDBInstanceIdentifier = pDBInstanceIdentifier_
-  }
+    { _cdbsTags = Nothing
+    , _cdbsDBSnapshotIdentifier = pDBSnapshotIdentifier_
+    , _cdbsDBInstanceIdentifier = pDBInstanceIdentifier_
+    }
 
 
 -- | Undocumented member.
 cdbsTags :: Lens' CreateDBSnapshot [Tag]
-cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default . _Coerce;
+cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default . _Coerce
 
 -- | The identifier for the DB snapshot. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 cdbsDBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
-cdbsDBSnapshotIdentifier = lens _cdbsDBSnapshotIdentifier (\ s a -> s{_cdbsDBSnapshotIdentifier = a});
+cdbsDBSnapshotIdentifier = lens _cdbsDBSnapshotIdentifier (\ s a -> s{_cdbsDBSnapshotIdentifier = a})
 
 -- | The identifier of the DB instance that you want to create the snapshot of. Constraints:     * Must match the identifier of an existing DBInstance.
 cdbsDBInstanceIdentifier :: Lens' CreateDBSnapshot Text
-cdbsDBInstanceIdentifier = lens _cdbsDBInstanceIdentifier (\ s a -> s{_cdbsDBInstanceIdentifier = a});
+cdbsDBInstanceIdentifier = lens _cdbsDBInstanceIdentifier (\ s a -> s{_cdbsDBInstanceIdentifier = a})
 
 instance AWSRequest CreateDBSnapshot where
         type Rs CreateDBSnapshot = CreateDBSnapshotResponse
@@ -138,15 +138,15 @@ createDBSnapshotResponse
     -> CreateDBSnapshotResponse
 createDBSnapshotResponse pResponseStatus_ =
   CreateDBSnapshotResponse'
-  {_cdbsrsDBSnapshot = Nothing, _cdbsrsResponseStatus = pResponseStatus_}
+    {_cdbsrsDBSnapshot = Nothing, _cdbsrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 cdbsrsDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
-cdbsrsDBSnapshot = lens _cdbsrsDBSnapshot (\ s a -> s{_cdbsrsDBSnapshot = a});
+cdbsrsDBSnapshot = lens _cdbsrsDBSnapshot (\ s a -> s{_cdbsrsDBSnapshot = a})
 
 -- | -- | The response status code.
 cdbsrsResponseStatus :: Lens' CreateDBSnapshotResponse Int
-cdbsrsResponseStatus = lens _cdbsrsResponseStatus (\ s a -> s{_cdbsrsResponseStatus = a});
+cdbsrsResponseStatus = lens _cdbsrsResponseStatus (\ s a -> s{_cdbsrsResponseStatus = a})
 
 instance NFData CreateDBSnapshotResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RemoveRoleFromDBCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,16 +62,18 @@ removeRoleFromDBCluster
     -> RemoveRoleFromDBCluster
 removeRoleFromDBCluster pDBClusterIdentifier_ pRoleARN_ =
   RemoveRoleFromDBCluster'
-  {_rrfdcDBClusterIdentifier = pDBClusterIdentifier_, _rrfdcRoleARN = pRoleARN_}
+    { _rrfdcDBClusterIdentifier = pDBClusterIdentifier_
+    , _rrfdcRoleARN = pRoleARN_
+    }
 
 
 -- | The name of the DB cluster to disassociate the IAM role from.
 rrfdcDBClusterIdentifier :: Lens' RemoveRoleFromDBCluster Text
-rrfdcDBClusterIdentifier = lens _rrfdcDBClusterIdentifier (\ s a -> s{_rrfdcDBClusterIdentifier = a});
+rrfdcDBClusterIdentifier = lens _rrfdcDBClusterIdentifier (\ s a -> s{_rrfdcDBClusterIdentifier = a})
 
 -- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB cluster, for example @arn:aws:iam::123456789012:role/AuroraAccessRole@ .
 rrfdcRoleARN :: Lens' RemoveRoleFromDBCluster Text
-rrfdcRoleARN = lens _rrfdcRoleARN (\ s a -> s{_rrfdcRoleARN = a});
+rrfdcRoleARN = lens _rrfdcRoleARN (\ s a -> s{_rrfdcRoleARN = a})
 
 instance AWSRequest RemoveRoleFromDBCluster where
         type Rs RemoveRoleFromDBCluster =

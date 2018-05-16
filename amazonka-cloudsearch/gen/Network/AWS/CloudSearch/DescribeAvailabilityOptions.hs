@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeAvailabilityOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ describeAvailabilityOptions
     -> DescribeAvailabilityOptions
 describeAvailabilityOptions pDomainName_ =
   DescribeAvailabilityOptions'
-  {_daoDeployed = Nothing, _daoDomainName = pDomainName_}
+    {_daoDeployed = Nothing, _daoDomainName = pDomainName_}
 
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 daoDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
-daoDeployed = lens _daoDeployed (\ s a -> s{_daoDeployed = a});
+daoDeployed = lens _daoDeployed (\ s a -> s{_daoDeployed = a})
 
 -- | The name of the domain you want to describe.
 daoDomainName :: Lens' DescribeAvailabilityOptions Text
-daoDomainName = lens _daoDomainName (\ s a -> s{_daoDomainName = a});
+daoDomainName = lens _daoDomainName (\ s a -> s{_daoDomainName = a})
 
 instance AWSRequest DescribeAvailabilityOptions where
         type Rs DescribeAvailabilityOptions =
@@ -133,16 +133,18 @@ describeAvailabilityOptionsResponse
     -> DescribeAvailabilityOptionsResponse
 describeAvailabilityOptionsResponse pResponseStatus_ =
   DescribeAvailabilityOptionsResponse'
-  {_daorsAvailabilityOptions = Nothing, _daorsResponseStatus = pResponseStatus_}
+    { _daorsAvailabilityOptions = Nothing
+    , _daorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The availability options configured for the domain. Indicates whether Multi-AZ is enabled for the domain.
 daorsAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
-daorsAvailabilityOptions = lens _daorsAvailabilityOptions (\ s a -> s{_daorsAvailabilityOptions = a});
+daorsAvailabilityOptions = lens _daorsAvailabilityOptions (\ s a -> s{_daorsAvailabilityOptions = a})
 
 -- | -- | The response status code.
 daorsResponseStatus :: Lens' DescribeAvailabilityOptionsResponse Int
-daorsResponseStatus = lens _daorsResponseStatus (\ s a -> s{_daorsResponseStatus = a});
+daorsResponseStatus = lens _daorsResponseStatus (\ s a -> s{_daorsResponseStatus = a})
 
 instance NFData DescribeAvailabilityOptionsResponse
          where

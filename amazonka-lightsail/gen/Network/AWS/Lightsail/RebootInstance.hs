@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.RebootInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ rebootInstance pInstanceName_ =
 
 -- | The name of the instance to reboot.
 riInstanceName :: Lens' RebootInstance Text
-riInstanceName = lens _riInstanceName (\ s a -> s{_riInstanceName = a});
+riInstanceName = lens _riInstanceName (\ s a -> s{_riInstanceName = a})
 
 instance AWSRequest RebootInstance where
         type Rs RebootInstance = RebootInstanceResponse
@@ -112,7 +112,7 @@ data RebootInstanceResponse = RebootInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rirsOperations' - An array of key-value pairs containing information about the request operation.
+-- * 'rirsOperations' - An array of key-value pairs containing information about the request operations.
 --
 -- * 'rirsResponseStatus' - -- | The response status code.
 rebootInstanceResponse
@@ -120,15 +120,15 @@ rebootInstanceResponse
     -> RebootInstanceResponse
 rebootInstanceResponse pResponseStatus_ =
   RebootInstanceResponse'
-  {_rirsOperations = Nothing, _rirsResponseStatus = pResponseStatus_}
+    {_rirsOperations = Nothing, _rirsResponseStatus = pResponseStatus_}
 
 
--- | An array of key-value pairs containing information about the request operation.
+-- | An array of key-value pairs containing information about the request operations.
 rirsOperations :: Lens' RebootInstanceResponse [Operation]
-rirsOperations = lens _rirsOperations (\ s a -> s{_rirsOperations = a}) . _Default . _Coerce;
+rirsOperations = lens _rirsOperations (\ s a -> s{_rirsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 rirsResponseStatus :: Lens' RebootInstanceResponse Int
-rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});
+rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a})
 
 instance NFData RebootInstanceResponse where

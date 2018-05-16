@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DetachGroupPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,7 +55,7 @@ data DetachGroupPolicy = DetachGroupPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgpGroupName' - The name (friendly name, not ARN) of the IAM group to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'dgpGroupName' - The name (friendly name, not ARN) of the IAM group to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'dgpPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 detachGroupPolicy
@@ -66,13 +66,13 @@ detachGroupPolicy pGroupName_ pPolicyARN_ =
   DetachGroupPolicy' {_dgpGroupName = pGroupName_, _dgpPolicyARN = pPolicyARN_}
 
 
--- | The name (friendly name, not ARN) of the IAM group to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name (friendly name, not ARN) of the IAM group to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 dgpGroupName :: Lens' DetachGroupPolicy Text
-dgpGroupName = lens _dgpGroupName (\ s a -> s{_dgpGroupName = a});
+dgpGroupName = lens _dgpGroupName (\ s a -> s{_dgpGroupName = a})
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 dgpPolicyARN :: Lens' DetachGroupPolicy Text
-dgpPolicyARN = lens _dgpPolicyARN (\ s a -> s{_dgpPolicyARN = a});
+dgpPolicyARN = lens _dgpPolicyARN (\ s a -> s{_dgpPolicyARN = a})
 
 instance AWSRequest DetachGroupPolicy where
         type Rs DetachGroupPolicy = DetachGroupPolicyResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.StartUserImportJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ startUserImportJob pUserPoolId_ pJobId_ =
 
 -- | The user pool ID for the user pool that the users are being imported into.
 suijUserPoolId :: Lens' StartUserImportJob Text
-suijUserPoolId = lens _suijUserPoolId (\ s a -> s{_suijUserPoolId = a});
+suijUserPoolId = lens _suijUserPoolId (\ s a -> s{_suijUserPoolId = a})
 
 -- | The job ID for the user import job.
 suijJobId :: Lens' StartUserImportJob Text
-suijJobId = lens _suijJobId (\ s a -> s{_suijJobId = a});
+suijJobId = lens _suijJobId (\ s a -> s{_suijJobId = a})
 
 instance AWSRequest StartUserImportJob where
         type Rs StartUserImportJob =
@@ -139,15 +139,15 @@ startUserImportJobResponse
     -> StartUserImportJobResponse
 startUserImportJobResponse pResponseStatus_ =
   StartUserImportJobResponse'
-  {_suijrsUserImportJob = Nothing, _suijrsResponseStatus = pResponseStatus_}
+    {_suijrsUserImportJob = Nothing, _suijrsResponseStatus = pResponseStatus_}
 
 
 -- | The job object that represents the user import job.
 suijrsUserImportJob :: Lens' StartUserImportJobResponse (Maybe UserImportJobType)
-suijrsUserImportJob = lens _suijrsUserImportJob (\ s a -> s{_suijrsUserImportJob = a});
+suijrsUserImportJob = lens _suijrsUserImportJob (\ s a -> s{_suijrsUserImportJob = a})
 
 -- | -- | The response status code.
 suijrsResponseStatus :: Lens' StartUserImportJobResponse Int
-suijrsResponseStatus = lens _suijrsResponseStatus (\ s a -> s{_suijrsResponseStatus = a});
+suijrsResponseStatus = lens _suijrsResponseStatus (\ s a -> s{_suijrsResponseStatus = a})
 
 instance NFData StartUserImportJobResponse where

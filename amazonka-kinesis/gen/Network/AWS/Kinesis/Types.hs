@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ module Network.AWS.Kinesis.Types
     , _KMSOptInRequired
     , _ProvisionedThroughputExceededException
     , _KMSNotFoundException
+    , _ExpiredNextTokenException
     , _KMSDisabledException
     , _ResourceNotFoundException
     , _KMSAccessDeniedException
@@ -115,6 +116,19 @@ module Network.AWS.Kinesis.Types
     , sdStreamCreationTimestamp
     , sdEnhancedMonitoring
 
+    -- * StreamDescriptionSummary
+    , StreamDescriptionSummary
+    , streamDescriptionSummary
+    , sdsEncryptionType
+    , sdsKeyId
+    , sdsStreamName
+    , sdsStreamARN
+    , sdsStreamStatus
+    , sdsRetentionPeriodHours
+    , sdsStreamCreationTimestamp
+    , sdsEnhancedMonitoring
+    , sdsOpenShardCount
+
     -- * Tag
     , Tag
     , tag
@@ -132,24 +146,24 @@ import Network.AWS.Sign.V4
 kinesis :: Service
 kinesis =
   Service
-  { _svcAbbrev = "Kinesis"
-  , _svcSigner = v4
-  , _svcPrefix = "kinesis"
-  , _svcVersion = "2013-12-02"
-  , _svcEndpoint = defaultEndpoint kinesis
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Kinesis"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Kinesis"
+    , _svcSigner = v4
+    , _svcPrefix = "kinesis"
+    , _svcVersion = "2013-12-02"
+    , _svcEndpoint = defaultEndpoint kinesis
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "Kinesis"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -158,6 +172,8 @@ kinesis =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -203,7 +219,7 @@ _KMSOptInRequired :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSOptInRequired = _MatchServiceError kinesis "KMSOptInRequired"
 
 
--- | The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits> in the /Amazon Kinesis Streams Developer Guide/ , and <http://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS> in the /AWS General Reference/ .
+-- | The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits> in the /Amazon Kinesis Data Streams Developer Guide/ , and <http://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS> in the /AWS General Reference/ .
 --
 --
 _ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -211,14 +227,22 @@ _ProvisionedThroughputExceededException =
   _MatchServiceError kinesis "ProvisionedThroughputExceededException"
 
 
--- | The request was rejected because the specified entity or resource couldn't be found.
+-- | The request was rejected because the specified entity or resource can't be found.
 --
 --
 _KMSNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSNotFoundException = _MatchServiceError kinesis "KMSNotFoundException"
 
 
--- | The request was rejected because the specified CMK isn't enabled.
+-- | The pagination token passed to the @ListShards@ operation is expired. For more information, see 'ListShardsInput$NextToken' .
+--
+--
+_ExpiredNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_ExpiredNextTokenException =
+  _MatchServiceError kinesis "ExpiredNextTokenException"
+
+
+-- | The request was rejected because the specified customer master key (CMK) isn't enabled.
 --
 --
 _KMSDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -241,14 +265,14 @@ _KMSAccessDeniedException =
   _MatchServiceError kinesis "KMSAccessDeniedException"
 
 
--- | The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed (5).
+-- | The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _MatchServiceError kinesis "LimitExceededException"
 
 
--- | The resource is not available for this operation. For successful operation, the resource needs to be in the @ACTIVE@ state.
+-- | The resource is not available for this operation. For successful operation, the resource must be in the @ACTIVE@ state.
 --
 --
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError

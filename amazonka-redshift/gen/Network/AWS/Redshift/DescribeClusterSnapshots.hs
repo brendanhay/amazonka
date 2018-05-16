@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterSnapshots
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,6 +35,7 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     -- * Request Lenses
     , dSnapshotIdentifier
     , dTagValues
+    , dClusterExists
     , dStartTime
     , dTagKeys
     , dClusterIdentifier
@@ -69,6 +70,7 @@ import Network.AWS.Response
 data DescribeClusterSnapshots = DescribeClusterSnapshots'
   { _dSnapshotIdentifier :: !(Maybe Text)
   , _dTagValues          :: !(Maybe [Text])
+  , _dClusterExists      :: !(Maybe Bool)
   , _dStartTime          :: !(Maybe ISO8601)
   , _dTagKeys            :: !(Maybe [Text])
   , _dClusterIdentifier  :: !(Maybe Text)
@@ -87,6 +89,8 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 -- * 'dSnapshotIdentifier' - The snapshot identifier of the snapshot about which to return information.
 --
 -- * 'dTagValues' - A tag value or values for which you want to return all matching cluster snapshots that are associated with the specified tag value or values. For example, suppose that you have snapshots that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag values associated with them.
+--
+-- * 'dClusterExists' - A value that indicates whether to return snapshots only for an existing cluster. Table-level restore can be performed only using a snapshot of an existing cluster, that is, a cluster that has not been deleted. If @ClusterExists@ is set to @true@ , @ClusterIdentifier@ is required.
 --
 -- * 'dStartTime' - A value that requests only snapshots created at or after the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Example: @2012-07-16T18:00:00Z@
 --
@@ -107,58 +111,63 @@ describeClusterSnapshots
     :: DescribeClusterSnapshots
 describeClusterSnapshots =
   DescribeClusterSnapshots'
-  { _dSnapshotIdentifier = Nothing
-  , _dTagValues = Nothing
-  , _dStartTime = Nothing
-  , _dTagKeys = Nothing
-  , _dClusterIdentifier = Nothing
-  , _dSnapshotType = Nothing
-  , _dMarker = Nothing
-  , _dMaxRecords = Nothing
-  , _dEndTime = Nothing
-  , _dOwnerAccount = Nothing
-  }
+    { _dSnapshotIdentifier = Nothing
+    , _dTagValues = Nothing
+    , _dClusterExists = Nothing
+    , _dStartTime = Nothing
+    , _dTagKeys = Nothing
+    , _dClusterIdentifier = Nothing
+    , _dSnapshotType = Nothing
+    , _dMarker = Nothing
+    , _dMaxRecords = Nothing
+    , _dEndTime = Nothing
+    , _dOwnerAccount = Nothing
+    }
 
 
 -- | The snapshot identifier of the snapshot about which to return information.
 dSnapshotIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
-dSnapshotIdentifier = lens _dSnapshotIdentifier (\ s a -> s{_dSnapshotIdentifier = a});
+dSnapshotIdentifier = lens _dSnapshotIdentifier (\ s a -> s{_dSnapshotIdentifier = a})
 
 -- | A tag value or values for which you want to return all matching cluster snapshots that are associated with the specified tag value or values. For example, suppose that you have snapshots that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag values associated with them.
 dTagValues :: Lens' DescribeClusterSnapshots [Text]
-dTagValues = lens _dTagValues (\ s a -> s{_dTagValues = a}) . _Default . _Coerce;
+dTagValues = lens _dTagValues (\ s a -> s{_dTagValues = a}) . _Default . _Coerce
+
+-- | A value that indicates whether to return snapshots only for an existing cluster. Table-level restore can be performed only using a snapshot of an existing cluster, that is, a cluster that has not been deleted. If @ClusterExists@ is set to @true@ , @ClusterIdentifier@ is required.
+dClusterExists :: Lens' DescribeClusterSnapshots (Maybe Bool)
+dClusterExists = lens _dClusterExists (\ s a -> s{_dClusterExists = a})
 
 -- | A value that requests only snapshots created at or after the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Example: @2012-07-16T18:00:00Z@
 dStartTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
-dStartTime = lens _dStartTime (\ s a -> s{_dStartTime = a}) . mapping _Time;
+dStartTime = lens _dStartTime (\ s a -> s{_dStartTime = a}) . mapping _Time
 
 -- | A tag key or keys for which you want to return all matching cluster snapshots that are associated with the specified key or keys. For example, suppose that you have snapshots that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag keys associated with them.
 dTagKeys :: Lens' DescribeClusterSnapshots [Text]
-dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Default . _Coerce;
+dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Default . _Coerce
 
 -- | The identifier of the cluster for which information about snapshots is requested.
 dClusterIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
-dClusterIdentifier = lens _dClusterIdentifier (\ s a -> s{_dClusterIdentifier = a});
+dClusterIdentifier = lens _dClusterIdentifier (\ s a -> s{_dClusterIdentifier = a})
 
 -- | The type of snapshots for which you are requesting information. By default, snapshots of all types are returned. Valid Values: @automated@ | @manual@
 dSnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
-dSnapshotType = lens _dSnapshotType (\ s a -> s{_dSnapshotType = a});
+dSnapshotType = lens _dSnapshotType (\ s a -> s{_dSnapshotType = a})
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterSnapshots' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 dMarker :: Lens' DescribeClusterSnapshots (Maybe Text)
-dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
+dMarker = lens _dMarker (\ s a -> s{_dMarker = a})
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
 dMaxRecords :: Lens' DescribeClusterSnapshots (Maybe Int)
-dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
+dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a})
 
 -- | A time value that requests only snapshots created at or before the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Example: @2012-07-16T18:00:00Z@
 dEndTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
-dEndTime = lens _dEndTime (\ s a -> s{_dEndTime = a}) . mapping _Time;
+dEndTime = lens _dEndTime (\ s a -> s{_dEndTime = a}) . mapping _Time
 
 -- | The AWS customer account used to create or copy the snapshot. Use this field to filter the results to snapshots owned by a particular account. To describe snapshots you own, either specify your AWS customer account, or do not specify the parameter.
 dOwnerAccount :: Lens' DescribeClusterSnapshots (Maybe Text)
-dOwnerAccount = lens _dOwnerAccount (\ s a -> s{_dOwnerAccount = a});
+dOwnerAccount = lens _dOwnerAccount (\ s a -> s{_dOwnerAccount = a})
 
 instance AWSPager DescribeClusterSnapshots where
         page rq rs
@@ -199,6 +208,7 @@ instance ToQuery DescribeClusterSnapshots where
                "SnapshotIdentifier" =: _dSnapshotIdentifier,
                "TagValues" =:
                  toQuery (toQueryList "TagValue" <$> _dTagValues),
+               "ClusterExists" =: _dClusterExists,
                "StartTime" =: _dStartTime,
                "TagKeys" =:
                  toQuery (toQueryList "TagKey" <$> _dTagKeys),
@@ -234,23 +244,23 @@ describeClusterSnapshotsResponse
     -> DescribeClusterSnapshotsResponse
 describeClusterSnapshotsResponse pResponseStatus_ =
   DescribeClusterSnapshotsResponse'
-  { _dcssrsSnapshots = Nothing
-  , _dcssrsMarker = Nothing
-  , _dcssrsResponseStatus = pResponseStatus_
-  }
+    { _dcssrsSnapshots = Nothing
+    , _dcssrsMarker = Nothing
+    , _dcssrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of 'Snapshot' instances.
 dcssrsSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
-dcssrsSnapshots = lens _dcssrsSnapshots (\ s a -> s{_dcssrsSnapshots = a}) . _Default . _Coerce;
+dcssrsSnapshots = lens _dcssrsSnapshots (\ s a -> s{_dcssrsSnapshots = a}) . _Default . _Coerce
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 dcssrsMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
-dcssrsMarker = lens _dcssrsMarker (\ s a -> s{_dcssrsMarker = a});
+dcssrsMarker = lens _dcssrsMarker (\ s a -> s{_dcssrsMarker = a})
 
 -- | -- | The response status code.
 dcssrsResponseStatus :: Lens' DescribeClusterSnapshotsResponse Int
-dcssrsResponseStatus = lens _dcssrsResponseStatus (\ s a -> s{_dcssrsResponseStatus = a});
+dcssrsResponseStatus = lens _dcssrsResponseStatus (\ s a -> s{_dcssrsResponseStatus = a})
 
 instance NFData DescribeClusterSnapshotsResponse
          where

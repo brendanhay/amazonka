@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.GetDomainSuggestions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ getDomainSuggestions
     -> GetDomainSuggestions
 getDomainSuggestions pDomainName_ pSuggestionCount_ pOnlyAvailable_ =
   GetDomainSuggestions'
-  { _gdsDomainName = pDomainName_
-  , _gdsSuggestionCount = pSuggestionCount_
-  , _gdsOnlyAvailable = pOnlyAvailable_
-  }
+    { _gdsDomainName = pDomainName_
+    , _gdsSuggestionCount = pSuggestionCount_
+    , _gdsOnlyAvailable = pOnlyAvailable_
+    }
 
 
 -- | A domain name that you want to use as the basis for a list of possible domain names. The domain name must contain a top-level domain (TLD), such as .com, that Amazon Route 53 supports. For a list of TLDs, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 gdsDomainName :: Lens' GetDomainSuggestions Text
-gdsDomainName = lens _gdsDomainName (\ s a -> s{_gdsDomainName = a});
+gdsDomainName = lens _gdsDomainName (\ s a -> s{_gdsDomainName = a})
 
 -- | The number of suggested domain names that you want Amazon Route 53 to return.
 gdsSuggestionCount :: Lens' GetDomainSuggestions Int
-gdsSuggestionCount = lens _gdsSuggestionCount (\ s a -> s{_gdsSuggestionCount = a});
+gdsSuggestionCount = lens _gdsSuggestionCount (\ s a -> s{_gdsSuggestionCount = a})
 
 -- | If @OnlyAvailable@ is @true@ , Amazon Route 53 returns only domain names that are available. If @OnlyAvailable@ is @false@ , Amazon Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call @checkDomainAvailability@ for each suggestion.
 gdsOnlyAvailable :: Lens' GetDomainSuggestions Bool
-gdsOnlyAvailable = lens _gdsOnlyAvailable (\ s a -> s{_gdsOnlyAvailable = a});
+gdsOnlyAvailable = lens _gdsOnlyAvailable (\ s a -> s{_gdsOnlyAvailable = a})
 
 instance AWSRequest GetDomainSuggestions where
         type Rs GetDomainSuggestions =
@@ -146,15 +146,15 @@ getDomainSuggestionsResponse
     -> GetDomainSuggestionsResponse
 getDomainSuggestionsResponse pResponseStatus_ =
   GetDomainSuggestionsResponse'
-  {_gdsrsSuggestionsList = Nothing, _gdsrsResponseStatus = pResponseStatus_}
+    {_gdsrsSuggestionsList = Nothing, _gdsrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of possible domain names. If you specified @true@ for @OnlyAvailable@ in the request, the list contains only domains that are available for registration.
 gdsrsSuggestionsList :: Lens' GetDomainSuggestionsResponse [DomainSuggestion]
-gdsrsSuggestionsList = lens _gdsrsSuggestionsList (\ s a -> s{_gdsrsSuggestionsList = a}) . _Default . _Coerce;
+gdsrsSuggestionsList = lens _gdsrsSuggestionsList (\ s a -> s{_gdsrsSuggestionsList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gdsrsResponseStatus :: Lens' GetDomainSuggestionsResponse Int
-gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
+gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a})
 
 instance NFData GetDomainSuggestionsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetStages
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about one or more 'Stage' resources.
+-- | Requests API Gateway to get information about one or more 'Stage' resources.
 --
 --
 --
@@ -62,7 +62,7 @@ data GetStages = GetStages'
 --
 -- * 'gsDeploymentId' - The stages' deployment identifiers.
 --
--- * 'gsRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'gsRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 getStages
     :: Text -- ^ 'gsRestAPIId'
     -> GetStages
@@ -72,11 +72,11 @@ getStages pRestAPIId_ =
 
 -- | The stages' deployment identifiers.
 gsDeploymentId :: Lens' GetStages (Maybe Text)
-gsDeploymentId = lens _gsDeploymentId (\ s a -> s{_gsDeploymentId = a});
+gsDeploymentId = lens _gsDeploymentId (\ s a -> s{_gsDeploymentId = a})
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 gsRestAPIId :: Lens' GetStages Text
-gsRestAPIId = lens _gsRestAPIId (\ s a -> s{_gsRestAPIId = a});
+gsRestAPIId = lens _gsRestAPIId (\ s a -> s{_gsRestAPIId = a})
 
 instance AWSRequest GetStages where
         type Rs GetStages = GetStagesResponse
@@ -130,15 +130,15 @@ getStagesResponse
     -> GetStagesResponse
 getStagesResponse pResponseStatus_ =
   GetStagesResponse'
-  {_gsrsItem = Nothing, _gsrsResponseStatus = pResponseStatus_}
+    {_gsrsItem = Nothing, _gsrsResponseStatus = pResponseStatus_}
 
 
 -- | The current page of elements from this collection.
 gsrsItem :: Lens' GetStagesResponse [Stage]
-gsrsItem = lens _gsrsItem (\ s a -> s{_gsrsItem = a}) . _Default . _Coerce;
+gsrsItem = lens _gsrsItem (\ s a -> s{_gsrsItem = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gsrsResponseStatus :: Lens' GetStagesResponse Int
-gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
+gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a})
 
 instance NFData GetStagesResponse where

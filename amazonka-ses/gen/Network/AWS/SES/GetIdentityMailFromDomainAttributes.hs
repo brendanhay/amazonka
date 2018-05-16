@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetIdentityMailFromDomainAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ getIdentityMailFromDomainAttributes =
 
 -- | A list of one or more identities.
 gimfdaIdentities :: Lens' GetIdentityMailFromDomainAttributes [Text]
-gimfdaIdentities = lens _gimfdaIdentities (\ s a -> s{_gimfdaIdentities = a}) . _Coerce;
+gimfdaIdentities = lens _gimfdaIdentities (\ s a -> s{_gimfdaIdentities = a}) . _Coerce
 
 instance AWSRequest
            GetIdentityMailFromDomainAttributes
@@ -135,18 +135,18 @@ getIdentityMailFromDomainAttributesResponse
     -> GetIdentityMailFromDomainAttributesResponse
 getIdentityMailFromDomainAttributesResponse pResponseStatus_ =
   GetIdentityMailFromDomainAttributesResponse'
-  { _gimfdarsResponseStatus = pResponseStatus_
-  , _gimfdarsMailFromDomainAttributes = mempty
-  }
+    { _gimfdarsResponseStatus = pResponseStatus_
+    , _gimfdarsMailFromDomainAttributes = mempty
+    }
 
 
 -- | -- | The response status code.
 gimfdarsResponseStatus :: Lens' GetIdentityMailFromDomainAttributesResponse Int
-gimfdarsResponseStatus = lens _gimfdarsResponseStatus (\ s a -> s{_gimfdarsResponseStatus = a});
+gimfdarsResponseStatus = lens _gimfdarsResponseStatus (\ s a -> s{_gimfdarsResponseStatus = a})
 
 -- | A map of identities to custom MAIL FROM attributes.
 gimfdarsMailFromDomainAttributes :: Lens' GetIdentityMailFromDomainAttributesResponse (HashMap Text IdentityMailFromDomainAttributes)
-gimfdarsMailFromDomainAttributes = lens _gimfdarsMailFromDomainAttributes (\ s a -> s{_gimfdarsMailFromDomainAttributes = a}) . _Map;
+gimfdarsMailFromDomainAttributes = lens _gimfdarsMailFromDomainAttributes (\ s a -> s{_gimfdarsMailFromDomainAttributes = a}) . _Map
 
 instance NFData
            GetIdentityMailFromDomainAttributesResponse

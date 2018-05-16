@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.AttachThingPrincipal
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ attachThingPrincipal
     -> AttachThingPrincipal
 attachThingPrincipal pThingName_ pPrincipal_ =
   AttachThingPrincipal'
-  {_atpThingName = pThingName_, _atpPrincipal = pPrincipal_}
+    {_atpThingName = pThingName_, _atpPrincipal = pPrincipal_}
 
 
 -- | The name of the thing.
 atpThingName :: Lens' AttachThingPrincipal Text
-atpThingName = lens _atpThingName (\ s a -> s{_atpThingName = a});
+atpThingName = lens _atpThingName (\ s a -> s{_atpThingName = a})
 
 -- | The principal, such as a certificate or other credential.
 atpPrincipal :: Lens' AttachThingPrincipal Text
-atpPrincipal = lens _atpPrincipal (\ s a -> s{_atpPrincipal = a});
+atpPrincipal = lens _atpPrincipal (\ s a -> s{_atpPrincipal = a})
 
 instance AWSRequest AttachThingPrincipal where
         type Rs AttachThingPrincipal =
@@ -132,6 +132,6 @@ attachThingPrincipalResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 atprsResponseStatus :: Lens' AttachThingPrincipalResponse Int
-atprsResponseStatus = lens _atprsResponseStatus (\ s a -> s{_atprsResponseStatus = a});
+atprsResponseStatus = lens _atprsResponseStatus (\ s a -> s{_atprsResponseStatus = a})
 
 instance NFData AttachThingPrincipalResponse where

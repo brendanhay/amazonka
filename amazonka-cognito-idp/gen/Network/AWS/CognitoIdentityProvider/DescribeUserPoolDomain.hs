@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeUserPoolDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ describeUserPoolDomain pDomain_ = DescribeUserPoolDomain' {_dDomain = pDomain_}
 
 -- | The domain string.
 dDomain :: Lens' DescribeUserPoolDomain Text
-dDomain = lens _dDomain (\ s a -> s{_dDomain = a});
+dDomain = lens _dDomain (\ s a -> s{_dDomain = a})
 
 instance AWSRequest DescribeUserPoolDomain where
         type Rs DescribeUserPoolDomain =
@@ -118,15 +118,15 @@ describeUserPoolDomainResponse
     -> DescribeUserPoolDomainResponse
 describeUserPoolDomainResponse pResponseStatus_ =
   DescribeUserPoolDomainResponse'
-  {_drsDomainDescription = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsDomainDescription = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | A domain description object containing information about the domain.
 drsDomainDescription :: Lens' DescribeUserPoolDomainResponse (Maybe DomainDescriptionType)
-drsDomainDescription = lens _drsDomainDescription (\ s a -> s{_drsDomainDescription = a});
+drsDomainDescription = lens _drsDomainDescription (\ s a -> s{_drsDomainDescription = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeUserPoolDomainResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeUserPoolDomainResponse where

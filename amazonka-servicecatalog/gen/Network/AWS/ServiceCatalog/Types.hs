@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,11 +27,17 @@ module Network.AWS.ServiceCatalog.Types
     -- * AccessLevelFilterKey
     , AccessLevelFilterKey (..)
 
+    -- * ChangeAction
+    , ChangeAction (..)
+
     -- * CopyOption
     , CopyOption (..)
 
     -- * CopyProductStatus
     , CopyProductStatus (..)
+
+    -- * EvaluationType
+    , EvaluationType (..)
 
     -- * PrincipalType
     , PrincipalType (..)
@@ -48,8 +54,17 @@ module Network.AWS.ServiceCatalog.Types
     -- * ProductViewSortBy
     , ProductViewSortBy (..)
 
+    -- * ProvisionedProductPlanStatus
+    , ProvisionedProductPlanStatus (..)
+
+    -- * ProvisionedProductPlanType
+    , ProvisionedProductPlanType (..)
+
     -- * ProvisionedProductStatus
     , ProvisionedProductStatus (..)
+
+    -- * ProvisionedProductViewFilterBy
+    , ProvisionedProductViewFilterBy (..)
 
     -- * ProvisioningArtifactPropertyName
     , ProvisioningArtifactPropertyName (..)
@@ -60,8 +75,17 @@ module Network.AWS.ServiceCatalog.Types
     -- * RecordStatus
     , RecordStatus (..)
 
+    -- * Replacement
+    , Replacement (..)
+
     -- * RequestStatus
     , RequestStatus (..)
+
+    -- * RequiresRecreation
+    , RequiresRecreation (..)
+
+    -- * ResourceAttribute
+    , ResourceAttribute (..)
 
     -- * SortOrder
     , SortOrder (..)
@@ -71,6 +95,11 @@ module Network.AWS.ServiceCatalog.Types
     , accessLevelFilter
     , alfValue
     , alfKey
+
+    -- * CloudWatchDashboard
+    , CloudWatchDashboard
+    , cloudWatchDashboard
+    , cwdName
 
     -- * ConstraintDetail
     , ConstraintDetail
@@ -157,6 +186,25 @@ module Network.AWS.ServiceCatalog.Types
     , pvsProductId
     , pvsSupportDescription
 
+    -- * ProvisionedProductAttribute
+    , ProvisionedProductAttribute
+    , provisionedProductAttribute
+    , ppaIdempotencyToken
+    , ppaStatus
+    , ppaProvisioningArtifactId
+    , ppaARN
+    , ppaCreatedTime
+    , ppaUserARN
+    , ppaStatusMessage
+    , ppaName
+    , ppaLastRecordId
+    , ppaUserARNSession
+    , ppaId
+    , ppaType
+    , ppaPhysicalId
+    , ppaProductId
+    , ppaTags
+
     -- * ProvisionedProductDetail
     , ProvisionedProductDetail
     , provisionedProductDetail
@@ -170,6 +218,35 @@ module Network.AWS.ServiceCatalog.Types
     , ppdId
     , ppdType
 
+    -- * ProvisionedProductPlanDetails
+    , ProvisionedProductPlanDetails
+    , provisionedProductPlanDetails
+    , pppdStatus
+    , pppdProvisionProductId
+    , pppdProvisioningArtifactId
+    , pppdProvisionProductName
+    , pppdCreatedTime
+    , pppdNotificationARNs
+    , pppdPlanId
+    , pppdPlanName
+    , pppdStatusMessage
+    , pppdUpdatedTime
+    , pppdPathId
+    , pppdProvisioningParameters
+    , pppdPlanType
+    , pppdProductId
+    , pppdTags
+
+    -- * ProvisionedProductPlanSummary
+    , ProvisionedProductPlanSummary
+    , provisionedProductPlanSummary
+    , pppsProvisionProductId
+    , pppsProvisioningArtifactId
+    , pppsProvisionProductName
+    , pppsPlanId
+    , pppsPlanName
+    , pppsPlanType
+
     -- * ProvisioningArtifact
     , ProvisioningArtifact
     , provisioningArtifact
@@ -182,6 +259,7 @@ module Network.AWS.ServiceCatalog.Types
     , ProvisioningArtifactDetail
     , provisioningArtifactDetail
     , padCreatedTime
+    , padActive
     , padName
     , padId
     , padType
@@ -256,6 +334,24 @@ module Network.AWS.ServiceCatalog.Types
     , rtValue
     , rtKey
 
+    -- * ResourceChange
+    , ResourceChange
+    , resourceChange
+    , rcLogicalResourceId
+    , rcPhysicalResourceId
+    , rcResourceType
+    , rcAction
+    , rcScope
+    , rcDetails
+    , rcReplacement
+
+    -- * ResourceChangeDetail
+    , ResourceChangeDetail
+    , resourceChangeDetail
+    , rcdCausingEntity
+    , rcdEvaluation
+    , rcdTarget
+
     -- * ResourceDetail
     , ResourceDetail
     , resourceDetail
@@ -264,6 +360,13 @@ module Network.AWS.ServiceCatalog.Types
     , rName
     , rId
     , rDescription
+
+    -- * ResourceTargetDefinition
+    , ResourceTargetDefinition
+    , resourceTargetDefinition
+    , rtdAttribute
+    , rtdRequiresRecreation
+    , rtdName
 
     -- * Tag
     , Tag
@@ -309,24 +412,24 @@ import Network.AWS.Sign.V4
 serviceCatalog :: Service
 serviceCatalog =
   Service
-  { _svcAbbrev = "ServiceCatalog"
-  , _svcSigner = v4
-  , _svcPrefix = "servicecatalog"
-  , _svcVersion = "2015-12-10"
-  , _svcEndpoint = defaultEndpoint serviceCatalog
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "ServiceCatalog"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "ServiceCatalog"
+    , _svcSigner = v4
+    , _svcPrefix = "servicecatalog"
+    , _svcVersion = "2015-12-10"
+    , _svcEndpoint = defaultEndpoint serviceCatalog
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "ServiceCatalog"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -335,6 +438,8 @@ serviceCatalog =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -342,7 +447,7 @@ serviceCatalog =
       | otherwise = Nothing
 
 
--- | One or more parameters provided to the operation are invalid.
+-- | One or more parameters provided to the operation are not valid.
 --
 --
 _InvalidParametersException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -374,7 +479,7 @@ _ResourceNotFoundException =
   _MatchServiceError serviceCatalog "ResourceNotFoundException"
 
 
--- | An attempt was made to modify a resource that is in an invalid state. Inspect the resource you are using for this operation to ensure that all resource states are valid before retrying the operation.
+-- | An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.
 --
 --
 _InvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -382,7 +487,7 @@ _InvalidStateException =
   _MatchServiceError serviceCatalog "InvalidStateException"
 
 
--- | The current limits of the service would have been exceeded by this operation. Reduce the resource use or increase the service limits and retry the operation.
+-- | The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -390,7 +495,7 @@ _LimitExceededException =
   _MatchServiceError serviceCatalog "LimitExceededException"
 
 
--- | The operation was requested against a resource that is currently in use. Free the resource from use and retry the operation.
+-- | A resource that is currently in use. Ensure that the resource is not in use and retry the operation.
 --
 --
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError

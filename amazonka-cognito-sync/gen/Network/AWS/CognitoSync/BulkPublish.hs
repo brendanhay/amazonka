@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.BulkPublish
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ bulkPublish pIdentityPoolId_ =
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 bpIdentityPoolId :: Lens' BulkPublish Text
-bpIdentityPoolId = lens _bpIdentityPoolId (\ s a -> s{_bpIdentityPoolId = a});
+bpIdentityPoolId = lens _bpIdentityPoolId (\ s a -> s{_bpIdentityPoolId = a})
 
 instance AWSRequest BulkPublish where
         type Rs BulkPublish = BulkPublishResponse
@@ -123,15 +123,15 @@ bulkPublishResponse
     -> BulkPublishResponse
 bulkPublishResponse pResponseStatus_ =
   BulkPublishResponse'
-  {_bprsIdentityPoolId = Nothing, _bprsResponseStatus = pResponseStatus_}
+    {_bprsIdentityPoolId = Nothing, _bprsResponseStatus = pResponseStatus_}
 
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 bprsIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
-bprsIdentityPoolId = lens _bprsIdentityPoolId (\ s a -> s{_bprsIdentityPoolId = a});
+bprsIdentityPoolId = lens _bprsIdentityPoolId (\ s a -> s{_bprsIdentityPoolId = a})
 
 -- | -- | The response status code.
 bprsResponseStatus :: Lens' BulkPublishResponse Int
-bprsResponseStatus = lens _bprsResponseStatus (\ s a -> s{_bprsResponseStatus = a});
+bprsResponseStatus = lens _bprsResponseStatus (\ s a -> s{_bprsResponseStatus = a})
 
 instance NFData BulkPublishResponse where

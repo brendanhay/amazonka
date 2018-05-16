@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.BatchGetRepositories
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ batchGetRepositories = BatchGetRepositories' {_bgrRepositoryNames = mempty}
 
 -- | The names of the repositories to get information about.
 bgrRepositoryNames :: Lens' BatchGetRepositories [Text]
-bgrRepositoryNames = lens _bgrRepositoryNames (\ s a -> s{_bgrRepositoryNames = a}) . _Coerce;
+bgrRepositoryNames = lens _bgrRepositoryNames (\ s a -> s{_bgrRepositoryNames = a}) . _Coerce
 
 instance AWSRequest BatchGetRepositories where
         type Rs BatchGetRepositories =
@@ -133,22 +133,22 @@ batchGetRepositoriesResponse
     -> BatchGetRepositoriesResponse
 batchGetRepositoriesResponse pResponseStatus_ =
   BatchGetRepositoriesResponse'
-  { _bgrrsRepositories = Nothing
-  , _bgrrsRepositoriesNotFound = Nothing
-  , _bgrrsResponseStatus = pResponseStatus_
-  }
+    { _bgrrsRepositories = Nothing
+    , _bgrrsRepositoriesNotFound = Nothing
+    , _bgrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of repositories returned by the batch get repositories operation.
 bgrrsRepositories :: Lens' BatchGetRepositoriesResponse [RepositoryMetadata]
-bgrrsRepositories = lens _bgrrsRepositories (\ s a -> s{_bgrrsRepositories = a}) . _Default . _Coerce;
+bgrrsRepositories = lens _bgrrsRepositories (\ s a -> s{_bgrrsRepositories = a}) . _Default . _Coerce
 
 -- | Returns a list of repository names for which information could not be found.
 bgrrsRepositoriesNotFound :: Lens' BatchGetRepositoriesResponse [Text]
-bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default . _Coerce;
+bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bgrrsResponseStatus :: Lens' BatchGetRepositoriesResponse Int
-bgrrsResponseStatus = lens _bgrrsResponseStatus (\ s a -> s{_bgrrsResponseStatus = a});
+bgrrsResponseStatus = lens _bgrrsResponseStatus (\ s a -> s{_bgrrsResponseStatus = a})
 
 instance NFData BatchGetRepositoriesResponse where

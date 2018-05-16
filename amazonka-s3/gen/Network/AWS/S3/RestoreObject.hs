@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.RestoreObject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,6 +36,7 @@ module Network.AWS.S3.RestoreObject
     , RestoreObjectResponse
     -- * Response Lenses
     , rorsRequestCharged
+    , rorsRestoreOutputPath
     , rorsResponseStatus
     ) where
 
@@ -53,7 +54,7 @@ data RestoreObject = RestoreObject'
   , _roRestoreRequest :: !(Maybe RestoreRequest)
   , _roBucket         :: !BucketName
   , _roKey            :: !ObjectKey
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'RestoreObject' with the minimum fields required to make a request.
@@ -75,33 +76,33 @@ restoreObject
     -> RestoreObject
 restoreObject pBucket_ pKey_ =
   RestoreObject'
-  { _roVersionId = Nothing
-  , _roRequestPayer = Nothing
-  , _roRestoreRequest = Nothing
-  , _roBucket = pBucket_
-  , _roKey = pKey_
-  }
+    { _roVersionId = Nothing
+    , _roRequestPayer = Nothing
+    , _roRestoreRequest = Nothing
+    , _roBucket = pBucket_
+    , _roKey = pKey_
+    }
 
 
 -- | Undocumented member.
 roVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
-roVersionId = lens _roVersionId (\ s a -> s{_roVersionId = a});
+roVersionId = lens _roVersionId (\ s a -> s{_roVersionId = a})
 
 -- | Undocumented member.
 roRequestPayer :: Lens' RestoreObject (Maybe RequestPayer)
-roRequestPayer = lens _roRequestPayer (\ s a -> s{_roRequestPayer = a});
+roRequestPayer = lens _roRequestPayer (\ s a -> s{_roRequestPayer = a})
 
 -- | Undocumented member.
 roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
-roRestoreRequest = lens _roRestoreRequest (\ s a -> s{_roRestoreRequest = a});
+roRestoreRequest = lens _roRestoreRequest (\ s a -> s{_roRestoreRequest = a})
 
 -- | Undocumented member.
 roBucket :: Lens' RestoreObject BucketName
-roBucket = lens _roBucket (\ s a -> s{_roBucket = a});
+roBucket = lens _roBucket (\ s a -> s{_roBucket = a})
 
 -- | Undocumented member.
 roKey :: Lens' RestoreObject ObjectKey
-roKey = lens _roKey (\ s a -> s{_roKey = a});
+roKey = lens _roKey (\ s a -> s{_roKey = a})
 
 instance AWSRequest RestoreObject where
         type Rs RestoreObject = RestoreObjectResponse
@@ -111,7 +112,8 @@ instance AWSRequest RestoreObject where
               (\ s h x ->
                  RestoreObjectResponse' <$>
                    (h .#? "x-amz-request-charged") <*>
-                     (pure (fromEnum s)))
+                     (h .#? "x-amz-restore-output-path")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable RestoreObject where
 
@@ -138,8 +140,9 @@ instance ToQuery RestoreObject where
 
 -- | /See:/ 'restoreObjectResponse' smart constructor.
 data RestoreObjectResponse = RestoreObjectResponse'
-  { _rorsRequestCharged :: !(Maybe RequestCharged)
-  , _rorsResponseStatus :: !Int
+  { _rorsRequestCharged    :: !(Maybe RequestCharged)
+  , _rorsRestoreOutputPath :: !(Maybe Text)
+  , _rorsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,21 +152,30 @@ data RestoreObjectResponse = RestoreObjectResponse'
 --
 -- * 'rorsRequestCharged' - Undocumented member.
 --
+-- * 'rorsRestoreOutputPath' - Indicates the path in the provided S3 output location where Select results will be restored to.
+--
 -- * 'rorsResponseStatus' - -- | The response status code.
 restoreObjectResponse
     :: Int -- ^ 'rorsResponseStatus'
     -> RestoreObjectResponse
 restoreObjectResponse pResponseStatus_ =
   RestoreObjectResponse'
-  {_rorsRequestCharged = Nothing, _rorsResponseStatus = pResponseStatus_}
+    { _rorsRequestCharged = Nothing
+    , _rorsRestoreOutputPath = Nothing
+    , _rorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 rorsRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
-rorsRequestCharged = lens _rorsRequestCharged (\ s a -> s{_rorsRequestCharged = a});
+rorsRequestCharged = lens _rorsRequestCharged (\ s a -> s{_rorsRequestCharged = a})
+
+-- | Indicates the path in the provided S3 output location where Select results will be restored to.
+rorsRestoreOutputPath :: Lens' RestoreObjectResponse (Maybe Text)
+rorsRestoreOutputPath = lens _rorsRestoreOutputPath (\ s a -> s{_rorsRestoreOutputPath = a})
 
 -- | -- | The response status code.
 rorsResponseStatus :: Lens' RestoreObjectResponse Int
-rorsResponseStatus = lens _rorsResponseStatus (\ s a -> s{_rorsResponseStatus = a});
+rorsResponseStatus = lens _rorsResponseStatus (\ s a -> s{_rorsResponseStatus = a})
 
 instance NFData RestoreObjectResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListComplianceItems
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,33 +76,33 @@ listComplianceItems
     :: ListComplianceItems
 listComplianceItems =
   ListComplianceItems'
-  { _lResourceIds = Nothing
-  , _lFilters = Nothing
-  , _lNextToken = Nothing
-  , _lMaxResults = Nothing
-  , _lResourceTypes = Nothing
-  }
+    { _lResourceIds = Nothing
+    , _lFilters = Nothing
+    , _lNextToken = Nothing
+    , _lMaxResults = Nothing
+    , _lResourceTypes = Nothing
+    }
 
 
 -- | The ID for the resources from which to get compliance information. Currently, you can only specify one resource ID.
 lResourceIds :: Lens' ListComplianceItems (Maybe (NonEmpty Text))
-lResourceIds = lens _lResourceIds (\ s a -> s{_lResourceIds = a}) . mapping _List1;
+lResourceIds = lens _lResourceIds (\ s a -> s{_lResourceIds = a}) . mapping _List1
 
 -- | One or more compliance filters. Use a filter to return a more specific list of results.
 lFilters :: Lens' ListComplianceItems [ComplianceStringFilter]
-lFilters = lens _lFilters (\ s a -> s{_lFilters = a}) . _Default . _Coerce;
+lFilters = lens _lFilters (\ s a -> s{_lFilters = a}) . _Default . _Coerce
 
 -- | A token to start the list. Use this token to get the next set of results.
 lNextToken :: Lens' ListComplianceItems (Maybe Text)
-lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
+lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lMaxResults :: Lens' ListComplianceItems (Maybe Natural)
-lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a}) . mapping _Nat;
+lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a}) . mapping _Nat
 
 -- | The type of resource from which to get compliance information. Currently, the only supported resource type is @ManagedInstance@ .
 lResourceTypes :: Lens' ListComplianceItems (Maybe (NonEmpty Text))
-lResourceTypes = lens _lResourceTypes (\ s a -> s{_lResourceTypes = a}) . mapping _List1;
+lResourceTypes = lens _lResourceTypes (\ s a -> s{_lResourceTypes = a}) . mapping _List1
 
 instance AWSRequest ListComplianceItems where
         type Rs ListComplianceItems =
@@ -167,22 +167,22 @@ listComplianceItemsResponse
     -> ListComplianceItemsResponse
 listComplianceItemsResponse pResponseStatus_ =
   ListComplianceItemsResponse'
-  { _lcirsComplianceItems = Nothing
-  , _lcirsNextToken = Nothing
-  , _lcirsResponseStatus = pResponseStatus_
-  }
+    { _lcirsComplianceItems = Nothing
+    , _lcirsNextToken = Nothing
+    , _lcirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of compliance information for the specified resource ID.
 lcirsComplianceItems :: Lens' ListComplianceItemsResponse [ComplianceItem]
-lcirsComplianceItems = lens _lcirsComplianceItems (\ s a -> s{_lcirsComplianceItems = a}) . _Default . _Coerce;
+lcirsComplianceItems = lens _lcirsComplianceItems (\ s a -> s{_lcirsComplianceItems = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
 lcirsNextToken :: Lens' ListComplianceItemsResponse (Maybe Text)
-lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
+lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a})
 
 -- | -- | The response status code.
 lcirsResponseStatus :: Lens' ListComplianceItemsResponse Int
-lcirsResponseStatus = lens _lcirsResponseStatus (\ s a -> s{_lcirsResponseStatus = a});
+lcirsResponseStatus = lens _lcirsResponseStatus (\ s a -> s{_lcirsResponseStatus = a})
 
 instance NFData ListComplianceItemsResponse where

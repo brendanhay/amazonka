@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DescribeReceiptRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,16 +73,16 @@ describeReceiptRule
     -> DescribeReceiptRule
 describeReceiptRule pRuleSetName_ pRuleName_ =
   DescribeReceiptRule'
-  {_drrRuleSetName = pRuleSetName_, _drrRuleName = pRuleName_}
+    {_drrRuleSetName = pRuleSetName_, _drrRuleName = pRuleName_}
 
 
 -- | The name of the receipt rule set that the receipt rule belongs to.
 drrRuleSetName :: Lens' DescribeReceiptRule Text
-drrRuleSetName = lens _drrRuleSetName (\ s a -> s{_drrRuleSetName = a});
+drrRuleSetName = lens _drrRuleSetName (\ s a -> s{_drrRuleSetName = a})
 
 -- | The name of the receipt rule.
 drrRuleName :: Lens' DescribeReceiptRule Text
-drrRuleName = lens _drrRuleName (\ s a -> s{_drrRuleName = a});
+drrRuleName = lens _drrRuleName (\ s a -> s{_drrRuleName = a})
 
 instance AWSRequest DescribeReceiptRule where
         type Rs DescribeReceiptRule =
@@ -135,15 +135,15 @@ describeReceiptRuleResponse
     -> DescribeReceiptRuleResponse
 describeReceiptRuleResponse pResponseStatus_ =
   DescribeReceiptRuleResponse'
-  {_drrrsRule = Nothing, _drrrsResponseStatus = pResponseStatus_}
+    {_drrrsRule = Nothing, _drrrsResponseStatus = pResponseStatus_}
 
 
 -- | A data structure that contains the specified receipt rule's name, actions, recipients, domains, enabled status, scan status, and Transport Layer Security (TLS) policy.
 drrrsRule :: Lens' DescribeReceiptRuleResponse (Maybe ReceiptRule)
-drrrsRule = lens _drrrsRule (\ s a -> s{_drrrsRule = a});
+drrrsRule = lens _drrrsRule (\ s a -> s{_drrrsRule = a})
 
 -- | -- | The response status code.
 drrrsResponseStatus :: Lens' DescribeReceiptRuleResponse Int
-drrrsResponseStatus = lens _drrrsResponseStatus (\ s a -> s{_drrrsResponseStatus = a});
+drrrsResponseStatus = lens _drrrsResponseStatus (\ s a -> s{_drrrsResponseStatus = a})
 
 instance NFData DescribeReceiptRuleResponse where

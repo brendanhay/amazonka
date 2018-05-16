@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ createSnapshot pDirectoryId_ =
 
 -- | The descriptive name to apply to the snapshot.
 csName :: Lens' CreateSnapshot (Maybe Text)
-csName = lens _csName (\ s a -> s{_csName = a});
+csName = lens _csName (\ s a -> s{_csName = a})
 
 -- | The identifier of the directory of which to take a snapshot.
 csDirectoryId :: Lens' CreateSnapshot Text
-csDirectoryId = lens _csDirectoryId (\ s a -> s{_csDirectoryId = a});
+csDirectoryId = lens _csDirectoryId (\ s a -> s{_csDirectoryId = a})
 
 instance AWSRequest CreateSnapshot where
         type Rs CreateSnapshot = CreateSnapshotResponse
@@ -137,15 +137,15 @@ createSnapshotResponse
     -> CreateSnapshotResponse
 createSnapshotResponse pResponseStatus_ =
   CreateSnapshotResponse'
-  {_csrsSnapshotId = Nothing, _csrsResponseStatus = pResponseStatus_}
+    {_csrsSnapshotId = Nothing, _csrsResponseStatus = pResponseStatus_}
 
 
 -- | The identifier of the snapshot that was created.
 csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
-csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
+csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a})
 
 -- | -- | The response status code.
 csrsResponseStatus :: Lens' CreateSnapshotResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a})
 
 instance NFData CreateSnapshotResponse where

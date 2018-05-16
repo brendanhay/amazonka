@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateDefaultSubnet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ createDefaultSubnet
     -> CreateDefaultSubnet
 createDefaultSubnet pAvailabilityZone_ =
   CreateDefaultSubnet'
-  {_cdsDryRun = Nothing, _cdsAvailabilityZone = pAvailabilityZone_}
+    {_cdsDryRun = Nothing, _cdsAvailabilityZone = pAvailabilityZone_}
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cdsDryRun :: Lens' CreateDefaultSubnet (Maybe Bool)
-cdsDryRun = lens _cdsDryRun (\ s a -> s{_cdsDryRun = a});
+cdsDryRun = lens _cdsDryRun (\ s a -> s{_cdsDryRun = a})
 
 -- | The Availability Zone in which to create the default subnet.
 cdsAvailabilityZone :: Lens' CreateDefaultSubnet Text
-cdsAvailabilityZone = lens _cdsAvailabilityZone (\ s a -> s{_cdsAvailabilityZone = a});
+cdsAvailabilityZone = lens _cdsAvailabilityZone (\ s a -> s{_cdsAvailabilityZone = a})
 
 instance AWSRequest CreateDefaultSubnet where
         type Rs CreateDefaultSubnet =
@@ -122,15 +122,15 @@ createDefaultSubnetResponse
     -> CreateDefaultSubnetResponse
 createDefaultSubnetResponse pResponseStatus_ =
   CreateDefaultSubnetResponse'
-  {_cdsrsSubnet = Nothing, _cdsrsResponseStatus = pResponseStatus_}
+    {_cdsrsSubnet = Nothing, _cdsrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the subnet.
 cdsrsSubnet :: Lens' CreateDefaultSubnetResponse (Maybe Subnet)
-cdsrsSubnet = lens _cdsrsSubnet (\ s a -> s{_cdsrsSubnet = a});
+cdsrsSubnet = lens _cdsrsSubnet (\ s a -> s{_cdsrsSubnet = a})
 
 -- | -- | The response status code.
 cdsrsResponseStatus :: Lens' CreateDefaultSubnetResponse Int
-cdsrsResponseStatus = lens _cdsrsResponseStatus (\ s a -> s{_cdsrsResponseStatus = a});
+cdsrsResponseStatus = lens _cdsrsResponseStatus (\ s a -> s{_cdsrsResponseStatus = a})
 
 instance NFData CreateDefaultSubnetResponse where

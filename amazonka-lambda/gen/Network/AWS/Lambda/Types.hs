@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@ module Network.AWS.Lambda.Types
     , _EC2ThrottledException
     , _InvalidRuntimeException
     , _PolicyLengthExceededException
+    , _PreconditionFailedException
     , _EC2AccessDeniedException
     , _InvalidSubnetIdException
     , _UnsupportedMediaTypeException
@@ -63,6 +64,7 @@ module Network.AWS.Lambda.Types
     , accountLimit
     , alConcurrentExecutions
     , alTotalCodeSize
+    , alUnreservedConcurrentExecutions
     , alCodeSizeUnzipped
     , alCodeSizeZipped
 
@@ -75,10 +77,22 @@ module Network.AWS.Lambda.Types
     -- * AliasConfiguration
     , AliasConfiguration
     , aliasConfiguration
+    , acRoutingConfig
     , acName
     , acFunctionVersion
     , acAliasARN
     , acDescription
+    , acRevisionId
+
+    -- * AliasRoutingConfiguration
+    , AliasRoutingConfiguration
+    , aliasRoutingConfiguration
+    , arcAdditionalVersionWeights
+
+    -- * Concurrency
+    , Concurrency
+    , concurrency
+    , cReservedConcurrentExecutions
 
     -- * DeadLetterConfig
     , DeadLetterConfig
@@ -148,6 +162,7 @@ module Network.AWS.Lambda.Types
     , fcCodeSha256
     , fcTracingConfig
     , fcDescription
+    , fcRevisionId
     , fcMasterARN
 
     -- * TracingConfig
@@ -184,24 +199,24 @@ import Network.AWS.Sign.V4
 lambda :: Service
 lambda =
   Service
-  { _svcAbbrev = "Lambda"
-  , _svcSigner = v4
-  , _svcPrefix = "lambda"
-  , _svcVersion = "2015-03-31"
-  , _svcEndpoint = defaultEndpoint lambda
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Lambda"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Lambda"
+    , _svcSigner = v4
+    , _svcPrefix = "lambda"
+    , _svcVersion = "2015-03-31"
+    , _svcEndpoint = defaultEndpoint lambda
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "Lambda"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -210,6 +225,8 @@ lambda =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -247,6 +264,14 @@ _InvalidRuntimeException =
 _PolicyLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyLengthExceededException =
   _MatchServiceError lambda "PolicyLengthExceededException" . hasStatus 400
+
+
+-- | The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the @GetFunction@ or the @GetAlias@ API to retrieve the latest RevisionId for your resource.
+--
+--
+_PreconditionFailedException :: AsError a => Getting (First ServiceError) a ServiceError
+_PreconditionFailedException =
+  _MatchServiceError lambda "PreconditionFailedException" . hasStatus 412
 
 
 -- |
@@ -297,7 +322,7 @@ _ENILimitReachedException =
   _MatchServiceError lambda "ENILimitReachedException" . hasStatus 502
 
 
--- | One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the @CreateFunction@ or the @UpdateFunctionConfiguration@ API, that AWS Lambda is unable to assume you will get this exception. You will also get this exception if you have selected a deprecated runtime, such as Node v0.10.42.
+-- | One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the @CreateFunction@ or the @UpdateFunctionConfiguration@ API, that AWS Lambda is unable to assume you will get this exception.
 --
 --
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError

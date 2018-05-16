@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.TestEventPattern
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ testEventPattern pEventPattern_ pEvent_ =
 
 -- | The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 tepEventPattern :: Lens' TestEventPattern Text
-tepEventPattern = lens _tepEventPattern (\ s a -> s{_tepEventPattern = a});
+tepEventPattern = lens _tepEventPattern (\ s a -> s{_tepEventPattern = a})
 
 -- | The event, in JSON format, to test against the event pattern.
 tepEvent :: Lens' TestEventPattern Text
-tepEvent = lens _tepEvent (\ s a -> s{_tepEvent = a});
+tepEvent = lens _tepEvent (\ s a -> s{_tepEvent = a})
 
 instance AWSRequest TestEventPattern where
         type Rs TestEventPattern = TestEventPatternResponse
@@ -131,15 +131,15 @@ testEventPatternResponse
     -> TestEventPatternResponse
 testEventPatternResponse pResponseStatus_ =
   TestEventPatternResponse'
-  {_teprsResult = Nothing, _teprsResponseStatus = pResponseStatus_}
+    {_teprsResult = Nothing, _teprsResponseStatus = pResponseStatus_}
 
 
 -- | Indicates whether the event matches the event pattern.
 teprsResult :: Lens' TestEventPatternResponse (Maybe Bool)
-teprsResult = lens _teprsResult (\ s a -> s{_teprsResult = a});
+teprsResult = lens _teprsResult (\ s a -> s{_teprsResult = a})
 
 -- | -- | The response status code.
 teprsResponseStatus :: Lens' TestEventPatternResponse Int
-teprsResponseStatus = lens _teprsResponseStatus (\ s a -> s{_teprsResponseStatus = a});
+teprsResponseStatus = lens _teprsResponseStatus (\ s a -> s{_teprsResponseStatus = a})
 
 instance NFData TestEventPatternResponse where

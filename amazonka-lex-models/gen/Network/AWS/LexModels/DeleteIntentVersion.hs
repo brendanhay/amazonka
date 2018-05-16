@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteIntentVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ deleteIntentVersion pName_ pVersion_ =
 
 -- | The name of the intent.
 divName :: Lens' DeleteIntentVersion Text
-divName = lens _divName (\ s a -> s{_divName = a});
+divName = lens _divName (\ s a -> s{_divName = a})
 
 -- | The version of the intent to delete. You cannot delete the @> LATEST@ version of the intent. To delete the @> LATEST@ version, use the 'DeleteIntent' operation.
 divVersion :: Lens' DeleteIntentVersion Text
-divVersion = lens _divVersion (\ s a -> s{_divVersion = a});
+divVersion = lens _divVersion (\ s a -> s{_divVersion = a})
 
 instance AWSRequest DeleteIntentVersion where
         type Rs DeleteIntentVersion =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.AllocateStaticIP
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ allocateStaticIP pStaticIPName_ =
 
 -- | The name of the static IP address.
 asiStaticIPName :: Lens' AllocateStaticIP Text
-asiStaticIPName = lens _asiStaticIPName (\ s a -> s{_asiStaticIPName = a});
+asiStaticIPName = lens _asiStaticIPName (\ s a -> s{_asiStaticIPName = a})
 
 instance AWSRequest AllocateStaticIP where
         type Rs AllocateStaticIP = AllocateStaticIPResponse
@@ -121,15 +121,15 @@ allocateStaticIPResponse
     -> AllocateStaticIPResponse
 allocateStaticIPResponse pResponseStatus_ =
   AllocateStaticIPResponse'
-  {_asirsOperations = Nothing, _asirsResponseStatus = pResponseStatus_}
+    {_asirsOperations = Nothing, _asirsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the static IP address you allocated.
 asirsOperations :: Lens' AllocateStaticIPResponse [Operation]
-asirsOperations = lens _asirsOperations (\ s a -> s{_asirsOperations = a}) . _Default . _Coerce;
+asirsOperations = lens _asirsOperations (\ s a -> s{_asirsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 asirsResponseStatus :: Lens' AllocateStaticIPResponse Int
-asirsResponseStatus = lens _asirsResponseStatus (\ s a -> s{_asirsResponseStatus = a});
+asirsResponseStatus = lens _asirsResponseStatus (\ s a -> s{_asirsResponseStatus = a})
 
 instance NFData AllocateStaticIPResponse where

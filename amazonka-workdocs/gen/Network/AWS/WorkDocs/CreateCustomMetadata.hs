@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateCustomMetadata
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ data CreateCustomMetadata = CreateCustomMetadata'
 --
 -- * 'ccmVersionId' - The ID of the version, if the custom metadata is being added to a document version.
 --
--- * 'ccmAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'ccmAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'ccmResourceId' - The ID of the resource.
 --
@@ -71,28 +71,28 @@ createCustomMetadata
     -> CreateCustomMetadata
 createCustomMetadata pResourceId_ =
   CreateCustomMetadata'
-  { _ccmVersionId = Nothing
-  , _ccmAuthenticationToken = Nothing
-  , _ccmResourceId = pResourceId_
-  , _ccmCustomMetadata = mempty
-  }
+    { _ccmVersionId = Nothing
+    , _ccmAuthenticationToken = Nothing
+    , _ccmResourceId = pResourceId_
+    , _ccmCustomMetadata = mempty
+    }
 
 
 -- | The ID of the version, if the custom metadata is being added to a document version.
 ccmVersionId :: Lens' CreateCustomMetadata (Maybe Text)
-ccmVersionId = lens _ccmVersionId (\ s a -> s{_ccmVersionId = a});
+ccmVersionId = lens _ccmVersionId (\ s a -> s{_ccmVersionId = a})
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 ccmAuthenticationToken :: Lens' CreateCustomMetadata (Maybe Text)
-ccmAuthenticationToken = lens _ccmAuthenticationToken (\ s a -> s{_ccmAuthenticationToken = a}) . mapping _Sensitive;
+ccmAuthenticationToken = lens _ccmAuthenticationToken (\ s a -> s{_ccmAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the resource.
 ccmResourceId :: Lens' CreateCustomMetadata Text
-ccmResourceId = lens _ccmResourceId (\ s a -> s{_ccmResourceId = a});
+ccmResourceId = lens _ccmResourceId (\ s a -> s{_ccmResourceId = a})
 
 -- | Custom metadata in the form of name-value pairs.
 ccmCustomMetadata :: Lens' CreateCustomMetadata (HashMap Text Text)
-ccmCustomMetadata = lens _ccmCustomMetadata (\ s a -> s{_ccmCustomMetadata = a}) . _Map;
+ccmCustomMetadata = lens _ccmCustomMetadata (\ s a -> s{_ccmCustomMetadata = a}) . _Map
 
 instance AWSRequest CreateCustomMetadata where
         type Rs CreateCustomMetadata =
@@ -151,6 +151,6 @@ createCustomMetadataResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ccmrsResponseStatus :: Lens' CreateCustomMetadataResponse Int
-ccmrsResponseStatus = lens _ccmrsResponseStatus (\ s a -> s{_ccmrsResponseStatus = a});
+ccmrsResponseStatus = lens _ccmrsResponseStatus (\ s a -> s{_ccmrsResponseStatus = a})
 
 instance NFData CreateCustomMetadataResponse where

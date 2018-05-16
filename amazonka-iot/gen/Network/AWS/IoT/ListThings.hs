@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListThings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,7 +74,7 @@ data ListThings = ListThings'
 --
 -- * 'ltThingTypeName' - The name of the thing type used to search for things.
 --
--- * 'ltNextToken' - The token for the next set of results, or __null__ if there are no additional results.
+-- * 'ltNextToken' - The token used to get the next set of results, or __null__ if there are no additional results.
 --
 -- * 'ltAttributeName' - The attribute name used to search for things.
 --
@@ -83,33 +83,33 @@ listThings
     :: ListThings
 listThings =
   ListThings'
-  { _ltAttributeValue = Nothing
-  , _ltThingTypeName = Nothing
-  , _ltNextToken = Nothing
-  , _ltAttributeName = Nothing
-  , _ltMaxResults = Nothing
-  }
+    { _ltAttributeValue = Nothing
+    , _ltThingTypeName = Nothing
+    , _ltNextToken = Nothing
+    , _ltAttributeName = Nothing
+    , _ltMaxResults = Nothing
+    }
 
 
 -- | The attribute value used to search for things.
 ltAttributeValue :: Lens' ListThings (Maybe Text)
-ltAttributeValue = lens _ltAttributeValue (\ s a -> s{_ltAttributeValue = a});
+ltAttributeValue = lens _ltAttributeValue (\ s a -> s{_ltAttributeValue = a})
 
 -- | The name of the thing type used to search for things.
 ltThingTypeName :: Lens' ListThings (Maybe Text)
-ltThingTypeName = lens _ltThingTypeName (\ s a -> s{_ltThingTypeName = a});
+ltThingTypeName = lens _ltThingTypeName (\ s a -> s{_ltThingTypeName = a})
 
--- | The token for the next set of results, or __null__ if there are no additional results.
+-- | The token used to get the next set of results, or __null__ if there are no additional results.
 ltNextToken :: Lens' ListThings (Maybe Text)
-ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
+ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
 
 -- | The attribute name used to search for things.
 ltAttributeName :: Lens' ListThings (Maybe Text)
-ltAttributeName = lens _ltAttributeName (\ s a -> s{_ltAttributeName = a});
+ltAttributeName = lens _ltAttributeName (\ s a -> s{_ltAttributeName = a})
 
 -- | The maximum number of results to return in this operation.
 ltMaxResults :: Lens' ListThings (Maybe Natural)
-ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a}) . mapping _Nat;
+ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a}) . mapping _Nat
 
 instance AWSPager ListThings where
         page rq rs
@@ -163,7 +163,7 @@ data ListThingsResponse = ListThingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsNextToken' - The token for the next set of results, or __null__ if there are no additional results.
+-- * 'ltrsNextToken' - The token used to get the next set of results, or __null__ if there are no additional results.
 --
 -- * 'ltrsThings' - The things.
 --
@@ -173,22 +173,22 @@ listThingsResponse
     -> ListThingsResponse
 listThingsResponse pResponseStatus_ =
   ListThingsResponse'
-  { _ltrsNextToken = Nothing
-  , _ltrsThings = Nothing
-  , _ltrsResponseStatus = pResponseStatus_
-  }
+    { _ltrsNextToken = Nothing
+    , _ltrsThings = Nothing
+    , _ltrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The token for the next set of results, or __null__ if there are no additional results.
+-- | The token used to get the next set of results, or __null__ if there are no additional results.
 ltrsNextToken :: Lens' ListThingsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
+ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a})
 
 -- | The things.
 ltrsThings :: Lens' ListThingsResponse [ThingAttribute]
-ltrsThings = lens _ltrsThings (\ s a -> s{_ltrsThings = a}) . _Default . _Coerce;
+ltrsThings = lens _ltrsThings (\ s a -> s{_ltrsThings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListThingsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
 
 instance NFData ListThingsResponse where

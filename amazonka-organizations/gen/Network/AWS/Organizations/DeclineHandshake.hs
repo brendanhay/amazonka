@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DeclineHandshake
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ declineHandshake pHandshakeId_ =
 
 -- | The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the 'ListHandshakesForAccount' operation. The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
 dHandshakeId :: Lens' DeclineHandshake Text
-dHandshakeId = lens _dHandshakeId (\ s a -> s{_dHandshakeId = a});
+dHandshakeId = lens _dHandshakeId (\ s a -> s{_dHandshakeId = a})
 
 instance AWSRequest DeclineHandshake where
         type Rs DeclineHandshake = DeclineHandshakeResponse
@@ -123,15 +123,15 @@ declineHandshakeResponse
     -> DeclineHandshakeResponse
 declineHandshakeResponse pResponseStatus_ =
   DeclineHandshakeResponse'
-  {_drsHandshake = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsHandshake = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that contains details about the declined handshake. The state is updated to show the value @DECLINED@ .
 drsHandshake :: Lens' DeclineHandshakeResponse (Maybe Handshake)
-drsHandshake = lens _drsHandshake (\ s a -> s{_drsHandshake = a});
+drsHandshake = lens _drsHandshake (\ s a -> s{_drsHandshake = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeclineHandshakeResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeclineHandshakeResponse where

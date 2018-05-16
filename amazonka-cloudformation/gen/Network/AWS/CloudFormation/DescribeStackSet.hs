@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ describeStackSet pStackSetName_ =
 
 -- | The name or unique ID of the stack set whose description you want.
 desStackSetName :: Lens' DescribeStackSet Text
-desStackSetName = lens _desStackSetName (\ s a -> s{_desStackSetName = a});
+desStackSetName = lens _desStackSetName (\ s a -> s{_desStackSetName = a})
 
 instance AWSRequest DescribeStackSet where
         type Rs DescribeStackSet = DescribeStackSetResponse
@@ -111,15 +111,15 @@ describeStackSetResponse
     -> DescribeStackSetResponse
 describeStackSetResponse pResponseStatus_ =
   DescribeStackSetResponse'
-  {_drsStackSet = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsStackSet = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | The specified stack set.
 drsStackSet :: Lens' DescribeStackSetResponse (Maybe StackSet)
-drsStackSet = lens _drsStackSet (\ s a -> s{_drsStackSet = a});
+drsStackSet = lens _drsStackSet (\ s a -> s{_drsStackSet = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeStackSetResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeStackSetResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.UntagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ untagResource
     -> UntagResource
 untagResource pResourceId_ pTagKeyList_ =
   UntagResource'
-  {_urResourceId = pResourceId_, _urTagKeyList = _List1 # pTagKeyList_}
+    {_urResourceId = pResourceId_, _urTagKeyList = _List1 # pTagKeyList_}
 
 
 -- | The cluster identifier (ID) for the cluster whose tags you are removing. To find the cluster ID, use 'DescribeClusters' .
 urResourceId :: Lens' UntagResource Text
-urResourceId = lens _urResourceId (\ s a -> s{_urResourceId = a});
+urResourceId = lens _urResourceId (\ s a -> s{_urResourceId = a})
 
 -- | A list of one or more tag keys for the tags that you are removing. Specify only the tag keys, not the tag values.
 urTagKeyList :: Lens' UntagResource (NonEmpty Text)
-urTagKeyList = lens _urTagKeyList (\ s a -> s{_urTagKeyList = a}) . _List1;
+urTagKeyList = lens _urTagKeyList (\ s a -> s{_urTagKeyList = a}) . _List1
 
 instance AWSRequest UntagResource where
         type Rs UntagResource = UntagResourceResponse
@@ -129,6 +129,6 @@ untagResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 urrsResponseStatus :: Lens' UntagResourceResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
 
 instance NFData UntagResourceResponse where

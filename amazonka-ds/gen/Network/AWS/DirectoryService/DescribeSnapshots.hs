@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DescribeSnapshots
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,28 +80,28 @@ describeSnapshots
     :: DescribeSnapshots
 describeSnapshots =
   DescribeSnapshots'
-  { _dsDirectoryId = Nothing
-  , _dsNextToken = Nothing
-  , _dsSnapshotIds = Nothing
-  , _dsLimit = Nothing
-  }
+    { _dsDirectoryId = Nothing
+    , _dsNextToken = Nothing
+    , _dsSnapshotIds = Nothing
+    , _dsLimit = Nothing
+    }
 
 
 -- | The identifier of the directory for which to retrieve snapshot information.
 dsDirectoryId :: Lens' DescribeSnapshots (Maybe Text)
-dsDirectoryId = lens _dsDirectoryId (\ s a -> s{_dsDirectoryId = a});
+dsDirectoryId = lens _dsDirectoryId (\ s a -> s{_dsDirectoryId = a})
 
 -- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to 'DescribeSnapshots' . Pass null if this is the first call.
 dsNextToken :: Lens' DescribeSnapshots (Maybe Text)
-dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a});
+dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a})
 
 -- | A list of identifiers of the snapshots to obtain the information for. If this member is null or empty, all snapshots are returned using the /Limit/ and /NextToken/ members.
 dsSnapshotIds :: Lens' DescribeSnapshots [Text]
-dsSnapshotIds = lens _dsSnapshotIds (\ s a -> s{_dsSnapshotIds = a}) . _Default . _Coerce;
+dsSnapshotIds = lens _dsSnapshotIds (\ s a -> s{_dsSnapshotIds = a}) . _Default . _Coerce
 
 -- | The maximum number of objects to return.
 dsLimit :: Lens' DescribeSnapshots (Maybe Natural)
-dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a}) . mapping _Nat;
+dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a}) . mapping _Nat
 
 instance AWSRequest DescribeSnapshots where
         type Rs DescribeSnapshots = DescribeSnapshotsResponse
@@ -169,22 +169,22 @@ describeSnapshotsResponse
     -> DescribeSnapshotsResponse
 describeSnapshotsResponse pResponseStatus_ =
   DescribeSnapshotsResponse'
-  { _dssrsNextToken = Nothing
-  , _dssrsSnapshots = Nothing
-  , _dssrsResponseStatus = pResponseStatus_
-  }
+    { _dssrsNextToken = Nothing
+    , _dssrsSnapshots = Nothing
+    , _dssrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If not null, more results are available. Pass this value in the /NextToken/ member of a subsequent call to 'DescribeSnapshots' .
 dssrsNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
-dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
+dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a})
 
 -- | The list of 'Snapshot' objects that were retrieved. It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
 dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default . _Coerce;
+dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSnapshotsResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a})
 
 instance NFData DescribeSnapshotsResponse where

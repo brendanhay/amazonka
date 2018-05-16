@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetUsagePlans
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,27 +68,27 @@ data GetUsagePlans = GetUsagePlans'
 --
 -- * 'gupKeyId' - The identifier of the API key associated with the usage plans.
 --
--- * 'gupLimit' - The maximum number of returned results per page.
+-- * 'gupLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'gupPosition' - The current pagination position in the paged result set.
 getUsagePlans
     :: GetUsagePlans
 getUsagePlans =
   GetUsagePlans'
-  {_gupKeyId = Nothing, _gupLimit = Nothing, _gupPosition = Nothing}
+    {_gupKeyId = Nothing, _gupLimit = Nothing, _gupPosition = Nothing}
 
 
 -- | The identifier of the API key associated with the usage plans.
 gupKeyId :: Lens' GetUsagePlans (Maybe Text)
-gupKeyId = lens _gupKeyId (\ s a -> s{_gupKeyId = a});
+gupKeyId = lens _gupKeyId (\ s a -> s{_gupKeyId = a})
 
--- | The maximum number of returned results per page.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 gupLimit :: Lens' GetUsagePlans (Maybe Int)
-gupLimit = lens _gupLimit (\ s a -> s{_gupLimit = a});
+gupLimit = lens _gupLimit (\ s a -> s{_gupLimit = a})
 
 -- | The current pagination position in the paged result set.
 gupPosition :: Lens' GetUsagePlans (Maybe Text)
-gupPosition = lens _gupPosition (\ s a -> s{_gupPosition = a});
+gupPosition = lens _gupPosition (\ s a -> s{_gupPosition = a})
 
 instance AWSPager GetUsagePlans where
         page rq rs
@@ -153,22 +153,22 @@ getUsagePlansResponse
     -> GetUsagePlansResponse
 getUsagePlansResponse pResponseStatus_ =
   GetUsagePlansResponse'
-  { _guprsItems = Nothing
-  , _guprsPosition = Nothing
-  , _guprsResponseStatus = pResponseStatus_
-  }
+    { _guprsItems = Nothing
+    , _guprsPosition = Nothing
+    , _guprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 guprsItems :: Lens' GetUsagePlansResponse [UsagePlan]
-guprsItems = lens _guprsItems (\ s a -> s{_guprsItems = a}) . _Default . _Coerce;
+guprsItems = lens _guprsItems (\ s a -> s{_guprsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 guprsPosition :: Lens' GetUsagePlansResponse (Maybe Text)
-guprsPosition = lens _guprsPosition (\ s a -> s{_guprsPosition = a});
+guprsPosition = lens _guprsPosition (\ s a -> s{_guprsPosition = a})
 
 -- | -- | The response status code.
 guprsResponseStatus :: Lens' GetUsagePlansResponse Int
-guprsResponseStatus = lens _guprsResponseStatus (\ s a -> s{_guprsResponseStatus = a});
+guprsResponseStatus = lens _guprsResponseStatus (\ s a -> s{_guprsResponseStatus = a})
 
 instance NFData GetUsagePlansResponse where

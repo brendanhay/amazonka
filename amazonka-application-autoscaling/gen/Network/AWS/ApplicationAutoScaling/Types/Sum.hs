@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -125,22 +125,49 @@ instance FromJSON MetricStatistic where
     parseJSON = parseJSONText "MetricStatistic"
 
 data MetricType
-  = DynamoDBReadCapacityUtilization
+  = ALBRequestCountPerTarget
+  | DynamoDBReadCapacityUtilization
   | DynamoDBWriteCapacityUtilization
+  | EC2SpotFleetRequestAverageCPUUtilization
+  | EC2SpotFleetRequestAverageNetworkIn
+  | EC2SpotFleetRequestAverageNetworkOut
+  | ECSServiceAverageCPUUtilization
+  | ECSServiceAverageMemoryUtilization
+  | RDSReaderAverageCPUUtilization
+  | RDSReaderAverageDatabaseConnections
+  | SageMakerVariantInvocationsPerInstance
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText MetricType where
     parser = takeLowerText >>= \case
+        "albrequestcountpertarget" -> pure ALBRequestCountPerTarget
         "dynamodbreadcapacityutilization" -> pure DynamoDBReadCapacityUtilization
         "dynamodbwritecapacityutilization" -> pure DynamoDBWriteCapacityUtilization
+        "ec2spotfleetrequestaveragecpuutilization" -> pure EC2SpotFleetRequestAverageCPUUtilization
+        "ec2spotfleetrequestaveragenetworkin" -> pure EC2SpotFleetRequestAverageNetworkIn
+        "ec2spotfleetrequestaveragenetworkout" -> pure EC2SpotFleetRequestAverageNetworkOut
+        "ecsserviceaveragecpuutilization" -> pure ECSServiceAverageCPUUtilization
+        "ecsserviceaveragememoryutilization" -> pure ECSServiceAverageMemoryUtilization
+        "rdsreaderaveragecpuutilization" -> pure RDSReaderAverageCPUUtilization
+        "rdsreaderaveragedatabaseconnections" -> pure RDSReaderAverageDatabaseConnections
+        "sagemakervariantinvocationsperinstance" -> pure SageMakerVariantInvocationsPerInstance
         e -> fromTextError $ "Failure parsing MetricType from value: '" <> e
-           <> "'. Accepted values: dynamodbreadcapacityutilization, dynamodbwritecapacityutilization"
+           <> "'. Accepted values: albrequestcountpertarget, dynamodbreadcapacityutilization, dynamodbwritecapacityutilization, ec2spotfleetrequestaveragecpuutilization, ec2spotfleetrequestaveragenetworkin, ec2spotfleetrequestaveragenetworkout, ecsserviceaveragecpuutilization, ecsserviceaveragememoryutilization, rdsreaderaveragecpuutilization, rdsreaderaveragedatabaseconnections, sagemakervariantinvocationsperinstance"
 
 instance ToText MetricType where
     toText = \case
+        ALBRequestCountPerTarget -> "ALBRequestCountPerTarget"
         DynamoDBReadCapacityUtilization -> "DynamoDBReadCapacityUtilization"
         DynamoDBWriteCapacityUtilization -> "DynamoDBWriteCapacityUtilization"
+        EC2SpotFleetRequestAverageCPUUtilization -> "EC2SpotFleetRequestAverageCPUUtilization"
+        EC2SpotFleetRequestAverageNetworkIn -> "EC2SpotFleetRequestAverageNetworkIn"
+        EC2SpotFleetRequestAverageNetworkOut -> "EC2SpotFleetRequestAverageNetworkOut"
+        ECSServiceAverageCPUUtilization -> "ECSServiceAverageCPUUtilization"
+        ECSServiceAverageMemoryUtilization -> "ECSServiceAverageMemoryUtilization"
+        RDSReaderAverageCPUUtilization -> "RDSReaderAverageCPUUtilization"
+        RDSReaderAverageDatabaseConnections -> "RDSReaderAverageDatabaseConnections"
+        SageMakerVariantInvocationsPerInstance -> "SageMakerVariantInvocationsPerInstance"
 
 instance Hashable     MetricType
 instance NFData       MetricType
@@ -193,6 +220,8 @@ data ScalableDimension
   | EC2SpotFleetRequestTargetCapacity
   | EcsServiceDesiredCount
   | ElasticmapreduceInstancegroupInstanceCount
+  | RDSClusterReadReplicaCount
+  | SagemakerVariantDesiredInstanceCount
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -206,8 +235,10 @@ instance FromText ScalableDimension where
         "ec2:spot-fleet-request:targetcapacity" -> pure EC2SpotFleetRequestTargetCapacity
         "ecs:service:desiredcount" -> pure EcsServiceDesiredCount
         "elasticmapreduce:instancegroup:instancecount" -> pure ElasticmapreduceInstancegroupInstanceCount
+        "rds:cluster:readreplicacount" -> pure RDSClusterReadReplicaCount
+        "sagemaker:variant:desiredinstancecount" -> pure SagemakerVariantDesiredInstanceCount
         e -> fromTextError $ "Failure parsing ScalableDimension from value: '" <> e
-           <> "'. Accepted values: appstream:fleet:desiredcapacity, dynamodb:index:readcapacityunits, dynamodb:index:writecapacityunits, dynamodb:table:readcapacityunits, dynamodb:table:writecapacityunits, ec2:spot-fleet-request:targetcapacity, ecs:service:desiredcount, elasticmapreduce:instancegroup:instancecount"
+           <> "'. Accepted values: appstream:fleet:desiredcapacity, dynamodb:index:readcapacityunits, dynamodb:index:writecapacityunits, dynamodb:table:readcapacityunits, dynamodb:table:writecapacityunits, ec2:spot-fleet-request:targetcapacity, ecs:service:desiredcount, elasticmapreduce:instancegroup:instancecount, rds:cluster:readreplicacount, sagemaker:variant:desiredinstancecount"
 
 instance ToText ScalableDimension where
     toText = \case
@@ -219,6 +250,8 @@ instance ToText ScalableDimension where
         EC2SpotFleetRequestTargetCapacity -> "ec2:spot-fleet-request:TargetCapacity"
         EcsServiceDesiredCount -> "ecs:service:DesiredCount"
         ElasticmapreduceInstancegroupInstanceCount -> "elasticmapreduce:instancegroup:InstanceCount"
+        RDSClusterReadReplicaCount -> "rds:cluster:ReadReplicaCount"
+        SagemakerVariantDesiredInstanceCount -> "sagemaker:variant:DesiredInstanceCount"
 
 instance Hashable     ScalableDimension
 instance NFData       ScalableDimension
@@ -277,6 +310,8 @@ data ServiceNamespace
   | EC2
   | Ecs
   | Elasticmapreduce
+  | RDS
+  | Sagemaker
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -287,8 +322,10 @@ instance FromText ServiceNamespace where
         "ec2" -> pure EC2
         "ecs" -> pure Ecs
         "elasticmapreduce" -> pure Elasticmapreduce
+        "rds" -> pure RDS
+        "sagemaker" -> pure Sagemaker
         e -> fromTextError $ "Failure parsing ServiceNamespace from value: '" <> e
-           <> "'. Accepted values: appstream, dynamodb, ec2, ecs, elasticmapreduce"
+           <> "'. Accepted values: appstream, dynamodb, ec2, ecs, elasticmapreduce, rds, sagemaker"
 
 instance ToText ServiceNamespace where
     toText = \case
@@ -297,6 +334,8 @@ instance ToText ServiceNamespace where
         EC2 -> "ec2"
         Ecs -> "ecs"
         Elasticmapreduce -> "elasticmapreduce"
+        RDS -> "rds"
+        Sagemaker -> "sagemaker"
 
 instance Hashable     ServiceNamespace
 instance NFData       ServiceNamespace

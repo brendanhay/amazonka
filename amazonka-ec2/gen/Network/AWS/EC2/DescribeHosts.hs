@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeHosts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ data DescribeHosts = DescribeHosts'
 --
 -- * 'dhNextToken' - The token to retrieve the next page of results.
 --
--- * 'dhFilter' - One or more filters.     * @instance-type@ - The instance type size that the Dedicated Host is configured to support.     * @auto-placement@ - Whether auto-placement is enabled or disabled (@on@ | @off@ ).     * @host-reservation-id@ - The ID of the reservation assigned to this host.     * @client-token@ - The idempotency token you provided when you launched the instance     * @state@ - The allocation state of the Dedicated Host (@available@ | @under-assessment@ | @permanent-failure@ | @released@ | @released-permanent-failure@ ).     * @availability-zone@ - The Availability Zone of the host.
+-- * 'dhFilter' - One or more filters.     * @auto-placement@ - Whether auto-placement is enabled or disabled (@on@ | @off@ ).     * @availability-zone@ - The Availability Zone of the host.     * @client-token@ - The idempotency token you provided when you allocated the host.     * @host-reservation-id@ - The ID of the reservation assigned to this host.     * @instance-type@ - The instance type size that the Dedicated Host is configured to support.     * @state@ - The allocation state of the Dedicated Host (@available@ | @under-assessment@ | @permanent-failure@ | @released@ | @released-permanent-failure@ ).
 --
 -- * 'dhHostIds' - The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.
 --
@@ -78,28 +78,28 @@ describeHosts
     :: DescribeHosts
 describeHosts =
   DescribeHosts'
-  { _dhNextToken = Nothing
-  , _dhFilter = Nothing
-  , _dhHostIds = Nothing
-  , _dhMaxResults = Nothing
-  }
+    { _dhNextToken = Nothing
+    , _dhFilter = Nothing
+    , _dhHostIds = Nothing
+    , _dhMaxResults = Nothing
+    }
 
 
 -- | The token to retrieve the next page of results.
 dhNextToken :: Lens' DescribeHosts (Maybe Text)
-dhNextToken = lens _dhNextToken (\ s a -> s{_dhNextToken = a});
+dhNextToken = lens _dhNextToken (\ s a -> s{_dhNextToken = a})
 
--- | One or more filters.     * @instance-type@ - The instance type size that the Dedicated Host is configured to support.     * @auto-placement@ - Whether auto-placement is enabled or disabled (@on@ | @off@ ).     * @host-reservation-id@ - The ID of the reservation assigned to this host.     * @client-token@ - The idempotency token you provided when you launched the instance     * @state@ - The allocation state of the Dedicated Host (@available@ | @under-assessment@ | @permanent-failure@ | @released@ | @released-permanent-failure@ ).     * @availability-zone@ - The Availability Zone of the host.
+-- | One or more filters.     * @auto-placement@ - Whether auto-placement is enabled or disabled (@on@ | @off@ ).     * @availability-zone@ - The Availability Zone of the host.     * @client-token@ - The idempotency token you provided when you allocated the host.     * @host-reservation-id@ - The ID of the reservation assigned to this host.     * @instance-type@ - The instance type size that the Dedicated Host is configured to support.     * @state@ - The allocation state of the Dedicated Host (@available@ | @under-assessment@ | @permanent-failure@ | @released@ | @released-permanent-failure@ ).
 dhFilter :: Lens' DescribeHosts [Filter]
-dhFilter = lens _dhFilter (\ s a -> s{_dhFilter = a}) . _Default . _Coerce;
+dhFilter = lens _dhFilter (\ s a -> s{_dhFilter = a}) . _Default . _Coerce
 
 -- | The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.
 dhHostIds :: Lens' DescribeHosts [Text]
-dhHostIds = lens _dhHostIds (\ s a -> s{_dhHostIds = a}) . _Default . _Coerce;
+dhHostIds = lens _dhHostIds (\ s a -> s{_dhHostIds = a}) . _Default . _Coerce
 
 -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error. You cannot specify this parameter and the host IDs parameter in the same request.
 dhMaxResults :: Lens' DescribeHosts (Maybe Int)
-dhMaxResults = lens _dhMaxResults (\ s a -> s{_dhMaxResults = a});
+dhMaxResults = lens _dhMaxResults (\ s a -> s{_dhMaxResults = a})
 
 instance AWSRequest DescribeHosts where
         type Rs DescribeHosts = DescribeHostsResponse
@@ -159,22 +159,22 @@ describeHostsResponse
     -> DescribeHostsResponse
 describeHostsResponse pResponseStatus_ =
   DescribeHostsResponse'
-  { _dhrsHosts = Nothing
-  , _dhrsNextToken = Nothing
-  , _dhrsResponseStatus = pResponseStatus_
-  }
+    { _dhrsHosts = Nothing
+    , _dhrsNextToken = Nothing
+    , _dhrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the Dedicated Hosts.
 dhrsHosts :: Lens' DescribeHostsResponse [Host]
-dhrsHosts = lens _dhrsHosts (\ s a -> s{_dhrsHosts = a}) . _Default . _Coerce;
+dhrsHosts = lens _dhrsHosts (\ s a -> s{_dhrsHosts = a}) . _Default . _Coerce
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dhrsNextToken :: Lens' DescribeHostsResponse (Maybe Text)
-dhrsNextToken = lens _dhrsNextToken (\ s a -> s{_dhrsNextToken = a});
+dhrsNextToken = lens _dhrsNextToken (\ s a -> s{_dhrsNextToken = a})
 
 -- | -- | The response status code.
 dhrsResponseStatus :: Lens' DescribeHostsResponse Int
-dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
+dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a})
 
 instance NFData DescribeHostsResponse where

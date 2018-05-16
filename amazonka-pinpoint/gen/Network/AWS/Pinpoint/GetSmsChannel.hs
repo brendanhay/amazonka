@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSmsChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getSmsChannel pApplicationId_ =
 
 -- | Undocumented member.
 gscApplicationId :: Lens' GetSmsChannel Text
-gscApplicationId = lens _gscApplicationId (\ s a -> s{_gscApplicationId = a});
+gscApplicationId = lens _gscApplicationId (\ s a -> s{_gscApplicationId = a})
 
 instance AWSRequest GetSmsChannel where
         type Rs GetSmsChannel = GetSmsChannelResponse
@@ -113,17 +113,17 @@ getSmsChannelResponse
     -> GetSmsChannelResponse
 getSmsChannelResponse pResponseStatus_ pSMSChannelResponse_ =
   GetSmsChannelResponse'
-  { _gscrsResponseStatus = pResponseStatus_
-  , _gscrsSMSChannelResponse = pSMSChannelResponse_
-  }
+    { _gscrsResponseStatus = pResponseStatus_
+    , _gscrsSMSChannelResponse = pSMSChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 gscrsResponseStatus :: Lens' GetSmsChannelResponse Int
-gscrsResponseStatus = lens _gscrsResponseStatus (\ s a -> s{_gscrsResponseStatus = a});
+gscrsResponseStatus = lens _gscrsResponseStatus (\ s a -> s{_gscrsResponseStatus = a})
 
 -- | Undocumented member.
 gscrsSMSChannelResponse :: Lens' GetSmsChannelResponse SMSChannelResponse
-gscrsSMSChannelResponse = lens _gscrsSMSChannelResponse (\ s a -> s{_gscrsSMSChannelResponse = a});
+gscrsSMSChannelResponse = lens _gscrsSMSChannelResponse (\ s a -> s{_gscrsSMSChannelResponse = a})
 
 instance NFData GetSmsChannelResponse where

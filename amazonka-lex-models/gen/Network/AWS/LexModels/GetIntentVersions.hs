@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetIntentVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,8 @@
 --
 -- This operation requires permissions for the @lex:GetIntentVersions@ action.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.LexModels.GetIntentVersions
     (
     -- * Creating a Request
@@ -49,6 +51,7 @@ module Network.AWS.LexModels.GetIntentVersions
 import Network.AWS.Lens
 import Network.AWS.LexModels.Types
 import Network.AWS.LexModels.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,20 +78,27 @@ getIntentVersions
     -> GetIntentVersions
 getIntentVersions pName_ =
   GetIntentVersions'
-  {_givNextToken = Nothing, _givMaxResults = Nothing, _givName = pName_}
+    {_givNextToken = Nothing, _givMaxResults = Nothing, _givName = pName_}
 
 
 -- | A pagination token for fetching the next page of intent versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
 givNextToken :: Lens' GetIntentVersions (Maybe Text)
-givNextToken = lens _givNextToken (\ s a -> s{_givNextToken = a});
+givNextToken = lens _givNextToken (\ s a -> s{_givNextToken = a})
 
 -- | The maximum number of intent versions to return in the response. The default is 10.
 givMaxResults :: Lens' GetIntentVersions (Maybe Natural)
-givMaxResults = lens _givMaxResults (\ s a -> s{_givMaxResults = a}) . mapping _Nat;
+givMaxResults = lens _givMaxResults (\ s a -> s{_givMaxResults = a}) . mapping _Nat
 
 -- | The name of the intent for which versions should be returned.
 givName :: Lens' GetIntentVersions Text
-givName = lens _givName (\ s a -> s{_givName = a});
+givName = lens _givName (\ s a -> s{_givName = a})
+
+instance AWSPager GetIntentVersions where
+        page rq rs
+          | stop (rs ^. givrsNextToken) = Nothing
+          | stop (rs ^. givrsIntents) = Nothing
+          | otherwise =
+            Just $ rq & givNextToken .~ rs ^. givrsNextToken
 
 instance AWSRequest GetIntentVersions where
         type Rs GetIntentVersions = GetIntentVersionsResponse
@@ -143,22 +153,22 @@ getIntentVersionsResponse
     -> GetIntentVersionsResponse
 getIntentVersionsResponse pResponseStatus_ =
   GetIntentVersionsResponse'
-  { _givrsIntents = Nothing
-  , _givrsNextToken = Nothing
-  , _givrsResponseStatus = pResponseStatus_
-  }
+    { _givrsIntents = Nothing
+    , _givrsNextToken = Nothing
+    , _givrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of @IntentMetadata@ objects, one for each numbered version of the intent plus one for the @> LATEST@ version.
 givrsIntents :: Lens' GetIntentVersionsResponse [IntentMetadata]
-givrsIntents = lens _givrsIntents (\ s a -> s{_givrsIntents = a}) . _Default . _Coerce;
+givrsIntents = lens _givrsIntents (\ s a -> s{_givrsIntents = a}) . _Default . _Coerce
 
 -- | A pagination token for fetching the next page of intent versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
 givrsNextToken :: Lens' GetIntentVersionsResponse (Maybe Text)
-givrsNextToken = lens _givrsNextToken (\ s a -> s{_givrsNextToken = a});
+givrsNextToken = lens _givrsNextToken (\ s a -> s{_givrsNextToken = a})
 
 -- | -- | The response status code.
 givrsResponseStatus :: Lens' GetIntentVersionsResponse Int
-givrsResponseStatus = lens _givrsResponseStatus (\ s a -> s{_givrsResponseStatus = a});
+givrsResponseStatus = lens _givrsResponseStatus (\ s a -> s{_givrsResponseStatus = a})
 
 instance NFData GetIntentVersionsResponse where

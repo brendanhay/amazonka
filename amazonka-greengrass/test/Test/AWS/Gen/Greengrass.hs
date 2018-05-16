@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Greengrass
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,6 +94,9 @@ import Test.Tasty
 --         , requestGetServiceRoleForAccount $
 --             getServiceRoleForAccount
 --
+--         , requestCreateSoftwareUpdateJob $
+--             createSoftwareUpdateJob
+--
 --         , requestCreateLoggerDefinition $
 --             createLoggerDefinition
 --
@@ -118,11 +121,29 @@ import Test.Tasty
 --         , requestGetDeploymentStatus $
 --             getDeploymentStatus
 --
+--         , requestCreateResourceDefinition $
+--             createResourceDefinition
+--
+--         , requestGetResourceDefinitionVersion $
+--             getResourceDefinitionVersion
+--
 --         , requestUpdateFunctionDefinition $
 --             updateFunctionDefinition
 --
 --         , requestDeleteFunctionDefinition $
 --             deleteFunctionDefinition
+--
+--         , requestListResourceDefinitions $
+--             listResourceDefinitions
+--
+--         , requestCreateResourceDefinitionVersion $
+--             createResourceDefinitionVersion
+--
+--         , requestGetResourceDefinition $
+--             getResourceDefinition
+--
+--         , requestListResourceDefinitionVersions $
+--             listResourceDefinitionVersions
 --
 --         , requestDisassociateServiceRoleFromAccount $
 --             disassociateServiceRoleFromAccount
@@ -198,6 +219,12 @@ import Test.Tasty
 --
 --         , requestListGroups $
 --             listGroups
+--
+--         , requestDeleteResourceDefinition $
+--             deleteResourceDefinition
+--
+--         , requestUpdateResourceDefinition $
+--             updateResourceDefinition
 --
 --         , requestListDeviceDefinitionVersions $
 --             listDeviceDefinitionVersions
@@ -292,6 +319,9 @@ import Test.Tasty
 --         , responseGetServiceRoleForAccount $
 --             getServiceRoleForAccountResponse
 --
+--         , responseCreateSoftwareUpdateJob $
+--             createSoftwareUpdateJobResponse
+--
 --         , responseCreateLoggerDefinition $
 --             createLoggerDefinitionResponse
 --
@@ -316,11 +346,29 @@ import Test.Tasty
 --         , responseGetDeploymentStatus $
 --             getDeploymentStatusResponse
 --
+--         , responseCreateResourceDefinition $
+--             createResourceDefinitionResponse
+--
+--         , responseGetResourceDefinitionVersion $
+--             getResourceDefinitionVersionResponse
+--
 --         , responseUpdateFunctionDefinition $
 --             updateFunctionDefinitionResponse
 --
 --         , responseDeleteFunctionDefinition $
 --             deleteFunctionDefinitionResponse
+--
+--         , responseListResourceDefinitions $
+--             listResourceDefinitionsResponse
+--
+--         , responseCreateResourceDefinitionVersion $
+--             createResourceDefinitionVersionResponse
+--
+--         , responseGetResourceDefinition $
+--             getResourceDefinitionResponse
+--
+--         , responseListResourceDefinitionVersions $
+--             listResourceDefinitionVersionsResponse
 --
 --         , responseDisassociateServiceRoleFromAccount $
 --             disassociateServiceRoleFromAccountResponse
@@ -396,6 +444,12 @@ import Test.Tasty
 --
 --         , responseListGroups $
 --             listGroupsResponse
+--
+--         , responseDeleteResourceDefinition $
+--             deleteResourceDefinitionResponse
+--
+--         , responseUpdateResourceDefinition $
+--             updateResourceDefinitionResponse
 --
 --         , responseListDeviceDefinitionVersions $
 --             listDeviceDefinitionVersionsResponse
@@ -536,6 +590,11 @@ requestGetServiceRoleForAccount = req
     "GetServiceRoleForAccount"
     "fixture/GetServiceRoleForAccount.yaml"
 
+requestCreateSoftwareUpdateJob :: CreateSoftwareUpdateJob -> TestTree
+requestCreateSoftwareUpdateJob = req
+    "CreateSoftwareUpdateJob"
+    "fixture/CreateSoftwareUpdateJob.yaml"
+
 requestCreateLoggerDefinition :: CreateLoggerDefinition -> TestTree
 requestCreateLoggerDefinition = req
     "CreateLoggerDefinition"
@@ -576,6 +635,16 @@ requestGetDeploymentStatus = req
     "GetDeploymentStatus"
     "fixture/GetDeploymentStatus.yaml"
 
+requestCreateResourceDefinition :: CreateResourceDefinition -> TestTree
+requestCreateResourceDefinition = req
+    "CreateResourceDefinition"
+    "fixture/CreateResourceDefinition.yaml"
+
+requestGetResourceDefinitionVersion :: GetResourceDefinitionVersion -> TestTree
+requestGetResourceDefinitionVersion = req
+    "GetResourceDefinitionVersion"
+    "fixture/GetResourceDefinitionVersion.yaml"
+
 requestUpdateFunctionDefinition :: UpdateFunctionDefinition -> TestTree
 requestUpdateFunctionDefinition = req
     "UpdateFunctionDefinition"
@@ -585,6 +654,26 @@ requestDeleteFunctionDefinition :: DeleteFunctionDefinition -> TestTree
 requestDeleteFunctionDefinition = req
     "DeleteFunctionDefinition"
     "fixture/DeleteFunctionDefinition.yaml"
+
+requestListResourceDefinitions :: ListResourceDefinitions -> TestTree
+requestListResourceDefinitions = req
+    "ListResourceDefinitions"
+    "fixture/ListResourceDefinitions.yaml"
+
+requestCreateResourceDefinitionVersion :: CreateResourceDefinitionVersion -> TestTree
+requestCreateResourceDefinitionVersion = req
+    "CreateResourceDefinitionVersion"
+    "fixture/CreateResourceDefinitionVersion.yaml"
+
+requestGetResourceDefinition :: GetResourceDefinition -> TestTree
+requestGetResourceDefinition = req
+    "GetResourceDefinition"
+    "fixture/GetResourceDefinition.yaml"
+
+requestListResourceDefinitionVersions :: ListResourceDefinitionVersions -> TestTree
+requestListResourceDefinitionVersions = req
+    "ListResourceDefinitionVersions"
+    "fixture/ListResourceDefinitionVersions.yaml"
 
 requestDisassociateServiceRoleFromAccount :: DisassociateServiceRoleFromAccount -> TestTree
 requestDisassociateServiceRoleFromAccount = req
@@ -710,6 +799,16 @@ requestListGroups :: ListGroups -> TestTree
 requestListGroups = req
     "ListGroups"
     "fixture/ListGroups.yaml"
+
+requestDeleteResourceDefinition :: DeleteResourceDefinition -> TestTree
+requestDeleteResourceDefinition = req
+    "DeleteResourceDefinition"
+    "fixture/DeleteResourceDefinition.yaml"
+
+requestUpdateResourceDefinition :: UpdateResourceDefinition -> TestTree
+requestUpdateResourceDefinition = req
+    "UpdateResourceDefinition"
+    "fixture/UpdateResourceDefinition.yaml"
 
 requestListDeviceDefinitionVersions :: ListDeviceDefinitionVersions -> TestTree
 requestListDeviceDefinitionVersions = req
@@ -907,6 +1006,13 @@ responseGetServiceRoleForAccount = res
     greengrass
     (Proxy :: Proxy GetServiceRoleForAccount)
 
+responseCreateSoftwareUpdateJob :: CreateSoftwareUpdateJobResponse -> TestTree
+responseCreateSoftwareUpdateJob = res
+    "CreateSoftwareUpdateJobResponse"
+    "fixture/CreateSoftwareUpdateJobResponse.proto"
+    greengrass
+    (Proxy :: Proxy CreateSoftwareUpdateJob)
+
 responseCreateLoggerDefinition :: CreateLoggerDefinitionResponse -> TestTree
 responseCreateLoggerDefinition = res
     "CreateLoggerDefinitionResponse"
@@ -963,6 +1069,20 @@ responseGetDeploymentStatus = res
     greengrass
     (Proxy :: Proxy GetDeploymentStatus)
 
+responseCreateResourceDefinition :: CreateResourceDefinitionResponse -> TestTree
+responseCreateResourceDefinition = res
+    "CreateResourceDefinitionResponse"
+    "fixture/CreateResourceDefinitionResponse.proto"
+    greengrass
+    (Proxy :: Proxy CreateResourceDefinition)
+
+responseGetResourceDefinitionVersion :: GetResourceDefinitionVersionResponse -> TestTree
+responseGetResourceDefinitionVersion = res
+    "GetResourceDefinitionVersionResponse"
+    "fixture/GetResourceDefinitionVersionResponse.proto"
+    greengrass
+    (Proxy :: Proxy GetResourceDefinitionVersion)
+
 responseUpdateFunctionDefinition :: UpdateFunctionDefinitionResponse -> TestTree
 responseUpdateFunctionDefinition = res
     "UpdateFunctionDefinitionResponse"
@@ -976,6 +1096,34 @@ responseDeleteFunctionDefinition = res
     "fixture/DeleteFunctionDefinitionResponse.proto"
     greengrass
     (Proxy :: Proxy DeleteFunctionDefinition)
+
+responseListResourceDefinitions :: ListResourceDefinitionsResponse -> TestTree
+responseListResourceDefinitions = res
+    "ListResourceDefinitionsResponse"
+    "fixture/ListResourceDefinitionsResponse.proto"
+    greengrass
+    (Proxy :: Proxy ListResourceDefinitions)
+
+responseCreateResourceDefinitionVersion :: CreateResourceDefinitionVersionResponse -> TestTree
+responseCreateResourceDefinitionVersion = res
+    "CreateResourceDefinitionVersionResponse"
+    "fixture/CreateResourceDefinitionVersionResponse.proto"
+    greengrass
+    (Proxy :: Proxy CreateResourceDefinitionVersion)
+
+responseGetResourceDefinition :: GetResourceDefinitionResponse -> TestTree
+responseGetResourceDefinition = res
+    "GetResourceDefinitionResponse"
+    "fixture/GetResourceDefinitionResponse.proto"
+    greengrass
+    (Proxy :: Proxy GetResourceDefinition)
+
+responseListResourceDefinitionVersions :: ListResourceDefinitionVersionsResponse -> TestTree
+responseListResourceDefinitionVersions = res
+    "ListResourceDefinitionVersionsResponse"
+    "fixture/ListResourceDefinitionVersionsResponse.proto"
+    greengrass
+    (Proxy :: Proxy ListResourceDefinitionVersions)
 
 responseDisassociateServiceRoleFromAccount :: DisassociateServiceRoleFromAccountResponse -> TestTree
 responseDisassociateServiceRoleFromAccount = res
@@ -1151,6 +1299,20 @@ responseListGroups = res
     "fixture/ListGroupsResponse.proto"
     greengrass
     (Proxy :: Proxy ListGroups)
+
+responseDeleteResourceDefinition :: DeleteResourceDefinitionResponse -> TestTree
+responseDeleteResourceDefinition = res
+    "DeleteResourceDefinitionResponse"
+    "fixture/DeleteResourceDefinitionResponse.proto"
+    greengrass
+    (Proxy :: Proxy DeleteResourceDefinition)
+
+responseUpdateResourceDefinition :: UpdateResourceDefinitionResponse -> TestTree
+responseUpdateResourceDefinition = res
+    "UpdateResourceDefinitionResponse"
+    "fixture/UpdateResourceDefinitionResponse.proto"
+    greengrass
+    (Proxy :: Proxy UpdateResourceDefinition)
 
 responseListDeviceDefinitionVersions :: ListDeviceDefinitionVersionsResponse -> TestTree
 responseListDeviceDefinitionVersions = res

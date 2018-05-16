@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,33 +80,33 @@ describeDBParameters
     -> DescribeDBParameters
 describeDBParameters pDBParameterGroupName_ =
   DescribeDBParameters'
-  { _ddpFilters = Nothing
-  , _ddpMarker = Nothing
-  , _ddpMaxRecords = Nothing
-  , _ddpSource = Nothing
-  , _ddpDBParameterGroupName = pDBParameterGroupName_
-  }
+    { _ddpFilters = Nothing
+    , _ddpMarker = Nothing
+    , _ddpMaxRecords = Nothing
+    , _ddpSource = Nothing
+    , _ddpDBParameterGroupName = pDBParameterGroupName_
+    }
 
 
 -- | This parameter is not currently supported.
 ddpFilters :: Lens' DescribeDBParameters [Filter]
-ddpFilters = lens _ddpFilters (\ s a -> s{_ddpFilters = a}) . _Default . _Coerce;
+ddpFilters = lens _ddpFilters (\ s a -> s{_ddpFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous @DescribeDBParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddpMarker :: Lens' DescribeDBParameters (Maybe Text)
-ddpMarker = lens _ddpMarker (\ s a -> s{_ddpMarker = a});
+ddpMarker = lens _ddpMarker (\ s a -> s{_ddpMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddpMaxRecords :: Lens' DescribeDBParameters (Maybe Int)
-ddpMaxRecords = lens _ddpMaxRecords (\ s a -> s{_ddpMaxRecords = a});
+ddpMaxRecords = lens _ddpMaxRecords (\ s a -> s{_ddpMaxRecords = a})
 
 -- | The parameter types to return. Default: All parameter types returned Valid Values: @user | system | engine-default@
 ddpSource :: Lens' DescribeDBParameters (Maybe Text)
-ddpSource = lens _ddpSource (\ s a -> s{_ddpSource = a});
+ddpSource = lens _ddpSource (\ s a -> s{_ddpSource = a})
 
 -- | The name of a specific DB parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBParameterGroup.
 ddpDBParameterGroupName :: Lens' DescribeDBParameters Text
-ddpDBParameterGroupName = lens _ddpDBParameterGroupName (\ s a -> s{_ddpDBParameterGroupName = a});
+ddpDBParameterGroupName = lens _ddpDBParameterGroupName (\ s a -> s{_ddpDBParameterGroupName = a})
 
 instance AWSPager DescribeDBParameters where
         page rq rs
@@ -176,22 +176,22 @@ describeDBParametersResponse
     -> DescribeDBParametersResponse
 describeDBParametersResponse pResponseStatus_ =
   DescribeDBParametersResponse'
-  { _ddprsMarker = Nothing
-  , _ddprsParameters = Nothing
-  , _ddprsResponseStatus = pResponseStatus_
-  }
+    { _ddprsMarker = Nothing
+    , _ddprsParameters = Nothing
+    , _ddprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddprsMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
-ddprsMarker = lens _ddprsMarker (\ s a -> s{_ddprsMarker = a});
+ddprsMarker = lens _ddprsMarker (\ s a -> s{_ddprsMarker = a})
 
 -- | A list of 'Parameter' values.
 ddprsParameters :: Lens' DescribeDBParametersResponse [Parameter]
-ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _Default . _Coerce;
+ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddprsResponseStatus :: Lens' DescribeDBParametersResponse Int
-ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});
+ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a})
 
 instance NFData DescribeDBParametersResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListSubscriptionsByTopic
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,16 +72,16 @@ listSubscriptionsByTopic
     -> ListSubscriptionsByTopic
 listSubscriptionsByTopic pTopicARN_ =
   ListSubscriptionsByTopic'
-  {_lsbtNextToken = Nothing, _lsbtTopicARN = pTopicARN_}
+    {_lsbtNextToken = Nothing, _lsbtTopicARN = pTopicARN_}
 
 
 -- | Token returned by the previous @ListSubscriptionsByTopic@ request.
 lsbtNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
-lsbtNextToken = lens _lsbtNextToken (\ s a -> s{_lsbtNextToken = a});
+lsbtNextToken = lens _lsbtNextToken (\ s a -> s{_lsbtNextToken = a})
 
 -- | The ARN of the topic for which you wish to find subscriptions.
 lsbtTopicARN :: Lens' ListSubscriptionsByTopic Text
-lsbtTopicARN = lens _lsbtTopicARN (\ s a -> s{_lsbtTopicARN = a});
+lsbtTopicARN = lens _lsbtTopicARN (\ s a -> s{_lsbtTopicARN = a})
 
 instance AWSPager ListSubscriptionsByTopic where
         page rq rs
@@ -148,23 +148,23 @@ listSubscriptionsByTopicResponse
     -> ListSubscriptionsByTopicResponse
 listSubscriptionsByTopicResponse pResponseStatus_ =
   ListSubscriptionsByTopicResponse'
-  { _lsbtrsNextToken = Nothing
-  , _lsbtrsSubscriptions = Nothing
-  , _lsbtrsResponseStatus = pResponseStatus_
-  }
+    { _lsbtrsNextToken = Nothing
+    , _lsbtrsSubscriptions = Nothing
+    , _lsbtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This element is returned if there are more subscriptions to retrieve.
 lsbtrsNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
-lsbtrsNextToken = lens _lsbtrsNextToken (\ s a -> s{_lsbtrsNextToken = a});
+lsbtrsNextToken = lens _lsbtrsNextToken (\ s a -> s{_lsbtrsNextToken = a})
 
 -- | A list of subscriptions.
 lsbtrsSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
-lsbtrsSubscriptions = lens _lsbtrsSubscriptions (\ s a -> s{_lsbtrsSubscriptions = a}) . _Default . _Coerce;
+lsbtrsSubscriptions = lens _lsbtrsSubscriptions (\ s a -> s{_lsbtrsSubscriptions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lsbtrsResponseStatus :: Lens' ListSubscriptionsByTopicResponse Int
-lsbtrsResponseStatus = lens _lsbtrsResponseStatus (\ s a -> s{_lsbtrsResponseStatus = a});
+lsbtrsResponseStatus = lens _lsbtrsResponseStatus (\ s a -> s{_lsbtrsResponseStatus = a})
 
 instance NFData ListSubscriptionsByTopicResponse
          where

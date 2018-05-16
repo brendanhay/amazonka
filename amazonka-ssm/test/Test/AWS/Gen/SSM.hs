@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.SSM
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -163,6 +163,9 @@ import Test.Tasty
 --         , requestCancelCommand $
 --             cancelCommand
 --
+--         , requestDescribeAutomationStepExecutions $
+--             describeAutomationStepExecutions
+--
 --         , requestGetCommandInvocation $
 --             getCommandInvocation
 --
@@ -267,6 +270,12 @@ import Test.Tasty
 --
 --         , requestUpdateAssociation $
 --             updateAssociation
+--
+--         , requestDescribeInventoryDeletions $
+--             describeInventoryDeletions
+--
+--         , requestDeleteInventory $
+--             deleteInventory
 --
 --         , requestPutInventory $
 --             putInventory
@@ -454,6 +463,9 @@ import Test.Tasty
 --         , responseCancelCommand $
 --             cancelCommandResponse
 --
+--         , responseDescribeAutomationStepExecutions $
+--             describeAutomationStepExecutionsResponse
+--
 --         , responseGetCommandInvocation $
 --             getCommandInvocationResponse
 --
@@ -558,6 +570,12 @@ import Test.Tasty
 --
 --         , responseUpdateAssociation $
 --             updateAssociationResponse
+--
+--         , responseDescribeInventoryDeletions $
+--             describeInventoryDeletionsResponse
+--
+--         , responseDeleteInventory $
+--             deleteInventoryResponse
 --
 --         , responsePutInventory $
 --             putInventoryResponse
@@ -837,6 +855,11 @@ requestCancelCommand = req
     "CancelCommand"
     "fixture/CancelCommand.yaml"
 
+requestDescribeAutomationStepExecutions :: DescribeAutomationStepExecutions -> TestTree
+requestDescribeAutomationStepExecutions = req
+    "DescribeAutomationStepExecutions"
+    "fixture/DescribeAutomationStepExecutions.yaml"
+
 requestGetCommandInvocation :: GetCommandInvocation -> TestTree
 requestGetCommandInvocation = req
     "GetCommandInvocation"
@@ -1011,6 +1034,16 @@ requestUpdateAssociation :: UpdateAssociation -> TestTree
 requestUpdateAssociation = req
     "UpdateAssociation"
     "fixture/UpdateAssociation.yaml"
+
+requestDescribeInventoryDeletions :: DescribeInventoryDeletions -> TestTree
+requestDescribeInventoryDeletions = req
+    "DescribeInventoryDeletions"
+    "fixture/DescribeInventoryDeletions.yaml"
+
+requestDeleteInventory :: DeleteInventory -> TestTree
+requestDeleteInventory = req
+    "DeleteInventory"
+    "fixture/DeleteInventory.yaml"
 
 requestPutInventory :: PutInventory -> TestTree
 requestPutInventory = req
@@ -1409,6 +1442,13 @@ responseCancelCommand = res
     ssm
     (Proxy :: Proxy CancelCommand)
 
+responseDescribeAutomationStepExecutions :: DescribeAutomationStepExecutionsResponse -> TestTree
+responseDescribeAutomationStepExecutions = res
+    "DescribeAutomationStepExecutionsResponse"
+    "fixture/DescribeAutomationStepExecutionsResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribeAutomationStepExecutions)
+
 responseGetCommandInvocation :: GetCommandInvocationResponse -> TestTree
 responseGetCommandInvocation = res
     "GetCommandInvocationResponse"
@@ -1653,6 +1693,20 @@ responseUpdateAssociation = res
     "fixture/UpdateAssociationResponse.proto"
     ssm
     (Proxy :: Proxy UpdateAssociation)
+
+responseDescribeInventoryDeletions :: DescribeInventoryDeletionsResponse -> TestTree
+responseDescribeInventoryDeletions = res
+    "DescribeInventoryDeletionsResponse"
+    "fixture/DescribeInventoryDeletionsResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribeInventoryDeletions)
+
+responseDeleteInventory :: DeleteInventoryResponse -> TestTree
+responseDeleteInventory = res
+    "DeleteInventoryResponse"
+    "fixture/DeleteInventoryResponse.proto"
+    ssm
+    (Proxy :: Proxy DeleteInventory)
 
 responsePutInventory :: PutInventoryResponse -> TestTree
 responsePutInventory = res

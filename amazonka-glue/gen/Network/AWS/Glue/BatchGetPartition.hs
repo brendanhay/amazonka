@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.BatchGetPartition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ batchGetPartition
     -> BatchGetPartition
 batchGetPartition pDatabaseName_ pTableName_ =
   BatchGetPartition'
-  { _bgpCatalogId = Nothing
-  , _bgpDatabaseName = pDatabaseName_
-  , _bgpTableName = pTableName_
-  , _bgpPartitionsToGet = mempty
-  }
+    { _bgpCatalogId = Nothing
+    , _bgpDatabaseName = pDatabaseName_
+    , _bgpTableName = pTableName_
+    , _bgpPartitionsToGet = mempty
+    }
 
 
 -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
 bgpCatalogId :: Lens' BatchGetPartition (Maybe Text)
-bgpCatalogId = lens _bgpCatalogId (\ s a -> s{_bgpCatalogId = a});
+bgpCatalogId = lens _bgpCatalogId (\ s a -> s{_bgpCatalogId = a})
 
 -- | The name of the catalog database where the partitions reside.
 bgpDatabaseName :: Lens' BatchGetPartition Text
-bgpDatabaseName = lens _bgpDatabaseName (\ s a -> s{_bgpDatabaseName = a});
+bgpDatabaseName = lens _bgpDatabaseName (\ s a -> s{_bgpDatabaseName = a})
 
 -- | The name of the partitions' table.
 bgpTableName :: Lens' BatchGetPartition Text
-bgpTableName = lens _bgpTableName (\ s a -> s{_bgpTableName = a});
+bgpTableName = lens _bgpTableName (\ s a -> s{_bgpTableName = a})
 
 -- | A list of partition values identifying the partitions to retrieve.
 bgpPartitionsToGet :: Lens' BatchGetPartition [PartitionValueList]
-bgpPartitionsToGet = lens _bgpPartitionsToGet (\ s a -> s{_bgpPartitionsToGet = a}) . _Coerce;
+bgpPartitionsToGet = lens _bgpPartitionsToGet (\ s a -> s{_bgpPartitionsToGet = a}) . _Coerce
 
 instance AWSRequest BatchGetPartition where
         type Rs BatchGetPartition = BatchGetPartitionResponse
@@ -158,22 +158,22 @@ batchGetPartitionResponse
     -> BatchGetPartitionResponse
 batchGetPartitionResponse pResponseStatus_ =
   BatchGetPartitionResponse'
-  { _bgprsUnprocessedKeys = Nothing
-  , _bgprsPartitions = Nothing
-  , _bgprsResponseStatus = pResponseStatus_
-  }
+    { _bgprsUnprocessedKeys = Nothing
+    , _bgprsPartitions = Nothing
+    , _bgprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of the partition values in the request for which partions were not returned.
 bgprsUnprocessedKeys :: Lens' BatchGetPartitionResponse [PartitionValueList]
-bgprsUnprocessedKeys = lens _bgprsUnprocessedKeys (\ s a -> s{_bgprsUnprocessedKeys = a}) . _Default . _Coerce;
+bgprsUnprocessedKeys = lens _bgprsUnprocessedKeys (\ s a -> s{_bgprsUnprocessedKeys = a}) . _Default . _Coerce
 
 -- | A list of the requested partitions.
 bgprsPartitions :: Lens' BatchGetPartitionResponse [Partition]
-bgprsPartitions = lens _bgprsPartitions (\ s a -> s{_bgprsPartitions = a}) . _Default . _Coerce;
+bgprsPartitions = lens _bgprsPartitions (\ s a -> s{_bgprsPartitions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bgprsResponseStatus :: Lens' BatchGetPartitionResponse Int
-bgprsResponseStatus = lens _bgprsResponseStatus (\ s a -> s{_bgprsResponseStatus = a});
+bgprsResponseStatus = lens _bgprsResponseStatus (\ s a -> s{_bgprsResponseStatus = a})
 
 instance NFData BatchGetPartitionResponse where

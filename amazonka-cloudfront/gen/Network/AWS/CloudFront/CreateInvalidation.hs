@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateInvalidation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,18 +70,18 @@ createInvalidation
     -> CreateInvalidation
 createInvalidation pDistributionId_ pInvalidationBatch_ =
   CreateInvalidation'
-  { _ciDistributionId = pDistributionId_
-  , _ciInvalidationBatch = pInvalidationBatch_
-  }
+    { _ciDistributionId = pDistributionId_
+    , _ciInvalidationBatch = pInvalidationBatch_
+    }
 
 
 -- | The distribution's id.
 ciDistributionId :: Lens' CreateInvalidation Text
-ciDistributionId = lens _ciDistributionId (\ s a -> s{_ciDistributionId = a});
+ciDistributionId = lens _ciDistributionId (\ s a -> s{_ciDistributionId = a})
 
 -- | The batch information for the invalidation.
 ciInvalidationBatch :: Lens' CreateInvalidation InvalidationBatch
-ciInvalidationBatch = lens _ciInvalidationBatch (\ s a -> s{_ciInvalidationBatch = a});
+ciInvalidationBatch = lens _ciInvalidationBatch (\ s a -> s{_ciInvalidationBatch = a})
 
 instance AWSRequest CreateInvalidation where
         type Rs CreateInvalidation =
@@ -101,7 +101,7 @@ instance NFData CreateInvalidation where
 instance ToElement CreateInvalidation where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}InvalidationBatch"
+              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}InvalidationBatch"
               .
               _ciInvalidationBatch
 
@@ -111,7 +111,7 @@ instance ToHeaders CreateInvalidation where
 instance ToPath CreateInvalidation where
         toPath CreateInvalidation'{..}
           = mconcat
-              ["/2017-03-25/distribution/", toBS _ciDistributionId,
+              ["/2017-10-30/distribution/", toBS _ciDistributionId,
                "/invalidation"]
 
 instance ToQuery CreateInvalidation where
@@ -143,22 +143,22 @@ createInvalidationResponse
     -> CreateInvalidationResponse
 createInvalidationResponse pResponseStatus_ =
   CreateInvalidationResponse'
-  { _cirsInvalidation = Nothing
-  , _cirsLocation = Nothing
-  , _cirsResponseStatus = pResponseStatus_
-  }
+    { _cirsInvalidation = Nothing
+    , _cirsLocation = Nothing
+    , _cirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The invalidation's information.
 cirsInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
-cirsInvalidation = lens _cirsInvalidation (\ s a -> s{_cirsInvalidation = a});
+cirsInvalidation = lens _cirsInvalidation (\ s a -> s{_cirsInvalidation = a})
 
 -- | The fully qualified URI of the distribution and invalidation batch request, including the @Invalidation ID@ .
 cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
-cirsLocation = lens _cirsLocation (\ s a -> s{_cirsLocation = a});
+cirsLocation = lens _cirsLocation (\ s a -> s{_cirsLocation = a})
 
 -- | -- | The response status code.
 cirsResponseStatus :: Lens' CreateInvalidationResponse Int
-cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
+cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a})
 
 instance NFData CreateInvalidationResponse where

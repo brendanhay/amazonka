@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ deleteLogGroup pLogGroupName_ =
 
 -- | The name of the log group.
 dlgLogGroupName :: Lens' DeleteLogGroup Text
-dlgLogGroupName = lens _dlgLogGroupName (\ s a -> s{_dlgLogGroupName = a});
+dlgLogGroupName = lens _dlgLogGroupName (\ s a -> s{_dlgLogGroupName = a})
 
 instance AWSRequest DeleteLogGroup where
         type Rs DeleteLogGroup = DeleteLogGroupResponse

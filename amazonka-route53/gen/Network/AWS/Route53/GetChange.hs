@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetChange
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,7 +73,7 @@ getChange pId_ = GetChange' {_gcId = pId_}
 
 -- | The ID of the change batch request. The value that you specify here is the value that @ChangeResourceRecordSets@ returned in the @Id@ element when you submitted the request.
 gcId :: Lens' GetChange ResourceId
-gcId = lens _gcId (\ s a -> s{_gcId = a});
+gcId = lens _gcId (\ s a -> s{_gcId = a})
 
 instance AWSRequest GetChange where
         type Rs GetChange = GetChangeResponse
@@ -122,15 +122,15 @@ getChangeResponse
     -> GetChangeResponse
 getChangeResponse pResponseStatus_ pChangeInfo_ =
   GetChangeResponse'
-  {_gcrsResponseStatus = pResponseStatus_, _gcrsChangeInfo = pChangeInfo_}
+    {_gcrsResponseStatus = pResponseStatus_, _gcrsChangeInfo = pChangeInfo_}
 
 
 -- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetChangeResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
+gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a})
 
 -- | A complex type that contains information about the specified change batch.
 gcrsChangeInfo :: Lens' GetChangeResponse ChangeInfo
-gcrsChangeInfo = lens _gcrsChangeInfo (\ s a -> s{_gcrsChangeInfo = a});
+gcrsChangeInfo = lens _gcrsChangeInfo (\ s a -> s{_gcrsChangeInfo = a})
 
 instance NFData GetChangeResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteResourceDataSync
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteResourceDataSync pSyncName_ =
 
 -- | The name of the configuration to delete.
 drdsSyncName :: Lens' DeleteResourceDataSync Text
-drdsSyncName = lens _drdsSyncName (\ s a -> s{_drdsSyncName = a});
+drdsSyncName = lens _drdsSyncName (\ s a -> s{_drdsSyncName = a})
 
 instance AWSRequest DeleteResourceDataSync where
         type Rs DeleteResourceDataSync =
@@ -119,6 +119,6 @@ deleteResourceDataSyncResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drdsrsResponseStatus :: Lens' DeleteResourceDataSyncResponse Int
-drdsrsResponseStatus = lens _drdsrsResponseStatus (\ s a -> s{_drdsrsResponseStatus = a});
+drdsrsResponseStatus = lens _drdsrsResponseStatus (\ s a -> s{_drdsrsResponseStatus = a})
 
 instance NFData DeleteResourceDataSyncResponse where

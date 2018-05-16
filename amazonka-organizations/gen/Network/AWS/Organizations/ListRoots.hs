@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListRoots
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ listRoots = ListRoots' {_lrNextToken = Nothing, _lrMaxResults = Nothing}
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 lrNextToken :: Lens' ListRoots (Maybe Text)
-lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
+lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a})
 
 -- | (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 lrMaxResults :: Lens' ListRoots (Maybe Natural)
-lrMaxResults = lens _lrMaxResults (\ s a -> s{_lrMaxResults = a}) . mapping _Nat;
+lrMaxResults = lens _lrMaxResults (\ s a -> s{_lrMaxResults = a}) . mapping _Nat
 
 instance AWSPager ListRoots where
         page rq rs
@@ -144,22 +144,22 @@ listRootsResponse
     -> ListRootsResponse
 listRootsResponse pResponseStatus_ =
   ListRootsResponse'
-  { _lrrsRoots = Nothing
-  , _lrrsNextToken = Nothing
-  , _lrrsResponseStatus = pResponseStatus_
-  }
+    { _lrrsRoots = Nothing
+    , _lrrsNextToken = Nothing
+    , _lrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of roots that are defined in an organization.
 lrrsRoots :: Lens' ListRootsResponse [Root]
-lrrsRoots = lens _lrrsRoots (\ s a -> s{_lrrsRoots = a}) . _Default . _Coerce;
+lrrsRoots = lens _lrrsRoots (\ s a -> s{_lrrsRoots = a}) . _Default . _Coerce
 
 -- | If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 lrrsNextToken :: Lens' ListRootsResponse (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
+lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a})
 
 -- | -- | The response status code.
 lrrsResponseStatus :: Lens' ListRootsResponse Int
-lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
+lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a})
 
 instance NFData ListRootsResponse where

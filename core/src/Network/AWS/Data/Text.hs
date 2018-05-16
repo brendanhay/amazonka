@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.Text
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -28,7 +28,6 @@ module Network.AWS.Data.Text
     , showText
     ) where
 
-import           Control.Applicative
 import           Data.Attoparsec.Text              (Parser)
 import qualified Data.Attoparsec.Text              as A
 import           Data.ByteString                   (ByteString)

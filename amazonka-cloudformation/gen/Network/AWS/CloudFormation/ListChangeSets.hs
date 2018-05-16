@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListChangeSets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ listChangeSets pStackName_ =
 
 -- | A string (provided by the 'ListChangeSets' response output) that identifies the next page of change sets that you want to retrieve.
 lcsNextToken :: Lens' ListChangeSets (Maybe Text)
-lcsNextToken = lens _lcsNextToken (\ s a -> s{_lcsNextToken = a});
+lcsNextToken = lens _lcsNextToken (\ s a -> s{_lcsNextToken = a})
 
 -- | The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets.
 lcsStackName :: Lens' ListChangeSets Text
-lcsStackName = lens _lcsStackName (\ s a -> s{_lcsStackName = a});
+lcsStackName = lens _lcsStackName (\ s a -> s{_lcsStackName = a})
 
 instance AWSRequest ListChangeSets where
         type Rs ListChangeSets = ListChangeSetsResponse
@@ -135,22 +135,22 @@ listChangeSetsResponse
     -> ListChangeSetsResponse
 listChangeSetsResponse pResponseStatus_ =
   ListChangeSetsResponse'
-  { _lcsrsNextToken = Nothing
-  , _lcsrsSummaries = Nothing
-  , _lcsrsResponseStatus = pResponseStatus_
-  }
+    { _lcsrsNextToken = Nothing
+    , _lcsrsSummaries = Nothing
+    , _lcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the output exceeds 1 MB, a string that identifies the next page of change sets. If there is no additional page, this value is null.
 lcsrsNextToken :: Lens' ListChangeSetsResponse (Maybe Text)
-lcsrsNextToken = lens _lcsrsNextToken (\ s a -> s{_lcsrsNextToken = a});
+lcsrsNextToken = lens _lcsrsNextToken (\ s a -> s{_lcsrsNextToken = a})
 
 -- | A list of @ChangeSetSummary@ structures that provides the ID and status of each change set for the specified stack.
 lcsrsSummaries :: Lens' ListChangeSetsResponse [ChangeSetSummary]
-lcsrsSummaries = lens _lcsrsSummaries (\ s a -> s{_lcsrsSummaries = a}) . _Default . _Coerce;
+lcsrsSummaries = lens _lcsrsSummaries (\ s a -> s{_lcsrsSummaries = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lcsrsResponseStatus :: Lens' ListChangeSetsResponse Int
-lcsrsResponseStatus = lens _lcsrsResponseStatus (\ s a -> s{_lcsrsResponseStatus = a});
+lcsrsResponseStatus = lens _lcsrsResponseStatus (\ s a -> s{_lcsrsResponseStatus = a})
 
 instance NFData ListChangeSetsResponse where

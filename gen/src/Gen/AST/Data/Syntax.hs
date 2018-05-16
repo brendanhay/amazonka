@@ -9,7 +9,7 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- Module      : Gen.AST.Data.Syntax
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -163,7 +163,7 @@ errorD m n s c =
     rhs = Exts.appFun (var "_MatchServiceError") [var (m ^. serviceConfig), str c]
 
 dataD :: Id -> [QualConDecl] -> [Derive] -> Decl
-dataD n fs cs = Exts.DataDecl () arity Nothing head' fs (Just derives)
+dataD n fs cs = Exts.DataDecl () arity Nothing head' fs [derives]
   where
     arity =
         case fs of
@@ -175,11 +175,11 @@ dataD n fs cs = Exts.DataDecl () arity Nothing head' fs (Just derives)
         Exts.DHead () (ident (typeId n))
 
     derives =
-        Exts.Deriving () (map (rule . Text.pack) (mapMaybe derivingName cs))
+        Exts.Deriving () Nothing $
+            map (rule . Text.pack) (mapMaybe derivingName cs)
 
     rule c =
         Exts.IRule () Nothing Nothing (Exts.IHCon () (unqual c))
-
 
 recordD :: HasMetadata a Identity => a -> Id -> [Field] -> QualConDecl
 recordD m n = conD . \case
@@ -386,11 +386,13 @@ responseE p r fs = Exts.app (responseF p r fs) bdy
 
     parseAll :: Exp
     parseAll = flip Exts.app (var "x") $
-        case p of
-            JSON       -> var "eitherParseJSON"
-            RestJSON   -> var "eitherParseJSON"
-            APIGateway -> var "eitherParseJSON"
-            _          -> var "parseXML"
+        if any fieldLitPayload fs
+            then var "pure"
+            else case p of
+                     JSON       -> var "eitherParseJSON"
+                     RestJSON   -> var "eitherParseJSON"
+                     APIGateway -> var "eitherParseJSON"
+                     _          -> var "parseXML"
 
     body = any fieldStream fs
 
@@ -719,7 +721,7 @@ responseF :: Protocol -> RefF a -> [Field] -> Exp
 responseF p r fs
     | null fs                         = var "receiveNull"
     | any fieldStream fs              = var "receiveBody"
-    | any fieldLitPayload fs          = var "receiveJSON" -- Currently assumes JSON body literal.
+    | any fieldLitPayload fs          = var "receiveBytes"
     | Just x <- r ^. refResultWrapper = Exts.app (var (suf <> "Wrapper")) (str x)
     | all (not . fieldBody) fs        = var "receiveEmpty"
     | otherwise                       = var suf
@@ -793,7 +795,9 @@ internal m f = directed True  m (_fieldDirection f) f
 external m f = directed False m (_fieldDirection f) f
 
 -- FIXME: split again into internal/external
-directed :: (HasMetadata a Identity, TypeOf b)
+directed :: ( HasMetadata a Identity
+            , TypeOf b
+            )
          => Bool
          -> a
          -> Maybe Direction
@@ -855,7 +859,7 @@ mapping t e = infixE e "." (go t)
 iso :: TType -> Maybe Exp
 iso = \case
     TLit Time     -> Just (var "_Time")
-    TLit Blob     -> Just (var "_Base64")
+    TLit Base64   -> Just (var "_Base64")
     TNatural      -> Just (var "_Nat")
     TSensitive x  -> Just (infixE (var "_Sensitive") "." (maybeToList (iso x)))
     TList1     {} -> Just (var "_List1")
@@ -865,21 +869,25 @@ iso = \case
 
 literal :: Bool -> Timestamp -> Lit -> Type
 literal i ts = \case
-    Bool             -> tycon "Bool"
-    Int              -> tycon "Int"
-    Long             -> tycon "Integer"
-    Double           -> tycon "Double"
-    Text             -> tycon "Text"
+    Bool            -> tycon "Bool"
+    Int             -> tycon "Int"
+    Long            -> tycon "Integer"
+    Double          -> tycon "Double"
+    Text            -> tycon "Text"
+    Bytes           -> tycon "ByteString"
 
-    Blob | i         -> tycon "Base64"
-         | otherwise -> tycon "ByteString"
+    Base64
+        | i         -> tycon "Base64"
+        | otherwise -> tycon "ByteString"
 
-    Time | i         -> tycon (tsToText ts)
-         | otherwise -> tycon "UTCTime"
 
-    Json             ->
-        tyapp (tyapp (tycon "HashMap") (tycon "Text"))
-                      (tycon "Value")
+    Time
+        | i         -> tycon (tsToText ts)
+        | otherwise -> tycon "UTCTime"
+
+    Json            -> tycon "ByteString"
+        -- tyapp (tyapp (tycon "HashMap") (tycon "Text"))
+        --               (tycon "Value")
 
 strict :: Type -> Type
 strict = Exts.TyBang () (Exts.BangedTy ()) (Exts.NoUnpackPragma ()) . \case

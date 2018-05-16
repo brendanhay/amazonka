@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminDisableUser
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ adminDisableUser
     -> AdminDisableUser
 adminDisableUser pUserPoolId_ pUsername_ =
   AdminDisableUser'
-  {_aduUserPoolId = pUserPoolId_, _aduUsername = _Sensitive # pUsername_}
+    {_aduUserPoolId = pUserPoolId_, _aduUsername = _Sensitive # pUsername_}
 
 
 -- | The user pool ID for the user pool where you want to disable the user.
 aduUserPoolId :: Lens' AdminDisableUser Text
-aduUserPoolId = lens _aduUserPoolId (\ s a -> s{_aduUserPoolId = a});
+aduUserPoolId = lens _aduUserPoolId (\ s a -> s{_aduUserPoolId = a})
 
 -- | The user name of the user you wish to disable.
 aduUsername :: Lens' AdminDisableUser Text
-aduUsername = lens _aduUsername (\ s a -> s{_aduUsername = a}) . _Sensitive;
+aduUsername = lens _aduUsername (\ s a -> s{_aduUsername = a}) . _Sensitive
 
 instance AWSRequest AdminDisableUser where
         type Rs AdminDisableUser = AdminDisableUserResponse
@@ -140,6 +140,6 @@ adminDisableUserResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 adursResponseStatus :: Lens' AdminDisableUserResponse Int
-adursResponseStatus = lens _adursResponseStatus (\ s a -> s{_adursResponseStatus = a});
+adursResponseStatus = lens _adursResponseStatus (\ s a -> s{_adursResponseStatus = a})
 
 instance NFData AdminDisableUserResponse where

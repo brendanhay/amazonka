@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetPatchBaseline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,7 +38,9 @@ module Network.AWS.SSM.GetPatchBaseline
     , gpbrsGlobalFilters
     , gpbrsApprovedPatchesComplianceLevel
     , gpbrsApprovedPatches
+    , gpbrsApprovedPatchesEnableNonSecurity
     , gpbrsRejectedPatches
+    , gpbrsSources
     , gpbrsCreatedDate
     , gpbrsName
     , gpbrsPatchGroups
@@ -75,7 +77,7 @@ getPatchBaseline pBaselineId_ =
 
 -- | The ID of the patch baseline to retrieve.
 gpbBaselineId :: Lens' GetPatchBaseline Text
-gpbBaselineId = lens _gpbBaselineId (\ s a -> s{_gpbBaselineId = a});
+gpbBaselineId = lens _gpbBaselineId (\ s a -> s{_gpbBaselineId = a})
 
 instance AWSRequest GetPatchBaseline where
         type Rs GetPatchBaseline = GetPatchBaselineResponse
@@ -88,7 +90,9 @@ instance AWSRequest GetPatchBaseline where
                      <*> (x .?> "GlobalFilters")
                      <*> (x .?> "ApprovedPatchesComplianceLevel")
                      <*> (x .?> "ApprovedPatches" .!@ mempty)
+                     <*> (x .?> "ApprovedPatchesEnableNonSecurity")
                      <*> (x .?> "RejectedPatches" .!@ mempty)
+                     <*> (x .?> "Sources" .!@ mempty)
                      <*> (x .?> "CreatedDate")
                      <*> (x .?> "Name")
                      <*> (x .?> "PatchGroups" .!@ mempty)
@@ -123,20 +127,22 @@ instance ToQuery GetPatchBaseline where
 
 -- | /See:/ 'getPatchBaselineResponse' smart constructor.
 data GetPatchBaselineResponse = GetPatchBaselineResponse'
-  { _gpbrsApprovalRules                  :: !(Maybe PatchRuleGroup)
-  , _gpbrsOperatingSystem                :: !(Maybe OperatingSystem)
-  , _gpbrsGlobalFilters                  :: !(Maybe PatchFilterGroup)
-  , _gpbrsApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
-  , _gpbrsApprovedPatches                :: !(Maybe [Text])
-  , _gpbrsRejectedPatches                :: !(Maybe [Text])
-  , _gpbrsCreatedDate                    :: !(Maybe POSIX)
-  , _gpbrsName                           :: !(Maybe Text)
-  , _gpbrsPatchGroups                    :: !(Maybe [Text])
-  , _gpbrsModifiedDate                   :: !(Maybe POSIX)
-  , _gpbrsDescription                    :: !(Maybe Text)
-  , _gpbrsBaselineId                     :: !(Maybe Text)
-  , _gpbrsResponseStatus                 :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { _gpbrsApprovalRules                    :: !(Maybe PatchRuleGroup)
+  , _gpbrsOperatingSystem                  :: !(Maybe OperatingSystem)
+  , _gpbrsGlobalFilters                    :: !(Maybe PatchFilterGroup)
+  , _gpbrsApprovedPatchesComplianceLevel   :: !(Maybe PatchComplianceLevel)
+  , _gpbrsApprovedPatches                  :: !(Maybe [Text])
+  , _gpbrsApprovedPatchesEnableNonSecurity :: !(Maybe Bool)
+  , _gpbrsRejectedPatches                  :: !(Maybe [Text])
+  , _gpbrsSources                          :: !(Maybe [PatchSource])
+  , _gpbrsCreatedDate                      :: !(Maybe POSIX)
+  , _gpbrsName                             :: !(Maybe Text)
+  , _gpbrsPatchGroups                      :: !(Maybe [Text])
+  , _gpbrsModifiedDate                     :: !(Maybe POSIX)
+  , _gpbrsDescription                      :: !(Maybe Text)
+  , _gpbrsBaselineId                       :: !(Maybe Text)
+  , _gpbrsResponseStatus                   :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'GetPatchBaselineResponse' with the minimum fields required to make a request.
@@ -153,7 +159,11 @@ data GetPatchBaselineResponse = GetPatchBaselineResponse'
 --
 -- * 'gpbrsApprovedPatches' - A list of explicitly approved patches for the baseline.
 --
+-- * 'gpbrsApprovedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+--
 -- * 'gpbrsRejectedPatches' - A list of explicitly rejected patches for the baseline.
+--
+-- * 'gpbrsSources' - Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
 --
 -- * 'gpbrsCreatedDate' - The date the patch baseline was created.
 --
@@ -173,72 +183,82 @@ getPatchBaselineResponse
     -> GetPatchBaselineResponse
 getPatchBaselineResponse pResponseStatus_ =
   GetPatchBaselineResponse'
-  { _gpbrsApprovalRules = Nothing
-  , _gpbrsOperatingSystem = Nothing
-  , _gpbrsGlobalFilters = Nothing
-  , _gpbrsApprovedPatchesComplianceLevel = Nothing
-  , _gpbrsApprovedPatches = Nothing
-  , _gpbrsRejectedPatches = Nothing
-  , _gpbrsCreatedDate = Nothing
-  , _gpbrsName = Nothing
-  , _gpbrsPatchGroups = Nothing
-  , _gpbrsModifiedDate = Nothing
-  , _gpbrsDescription = Nothing
-  , _gpbrsBaselineId = Nothing
-  , _gpbrsResponseStatus = pResponseStatus_
-  }
+    { _gpbrsApprovalRules = Nothing
+    , _gpbrsOperatingSystem = Nothing
+    , _gpbrsGlobalFilters = Nothing
+    , _gpbrsApprovedPatchesComplianceLevel = Nothing
+    , _gpbrsApprovedPatches = Nothing
+    , _gpbrsApprovedPatchesEnableNonSecurity = Nothing
+    , _gpbrsRejectedPatches = Nothing
+    , _gpbrsSources = Nothing
+    , _gpbrsCreatedDate = Nothing
+    , _gpbrsName = Nothing
+    , _gpbrsPatchGroups = Nothing
+    , _gpbrsModifiedDate = Nothing
+    , _gpbrsDescription = Nothing
+    , _gpbrsBaselineId = Nothing
+    , _gpbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A set of rules used to include patches in the baseline.
 gpbrsApprovalRules :: Lens' GetPatchBaselineResponse (Maybe PatchRuleGroup)
-gpbrsApprovalRules = lens _gpbrsApprovalRules (\ s a -> s{_gpbrsApprovalRules = a});
+gpbrsApprovalRules = lens _gpbrsApprovalRules (\ s a -> s{_gpbrsApprovalRules = a})
 
 -- | Returns the operating system specified for the patch baseline.
 gpbrsOperatingSystem :: Lens' GetPatchBaselineResponse (Maybe OperatingSystem)
-gpbrsOperatingSystem = lens _gpbrsOperatingSystem (\ s a -> s{_gpbrsOperatingSystem = a});
+gpbrsOperatingSystem = lens _gpbrsOperatingSystem (\ s a -> s{_gpbrsOperatingSystem = a})
 
 -- | A set of global filters used to exclude patches from the baseline.
 gpbrsGlobalFilters :: Lens' GetPatchBaselineResponse (Maybe PatchFilterGroup)
-gpbrsGlobalFilters = lens _gpbrsGlobalFilters (\ s a -> s{_gpbrsGlobalFilters = a});
+gpbrsGlobalFilters = lens _gpbrsGlobalFilters (\ s a -> s{_gpbrsGlobalFilters = a})
 
 -- | Returns the specified compliance severity level for approved patches in the patch baseline.
 gpbrsApprovedPatchesComplianceLevel :: Lens' GetPatchBaselineResponse (Maybe PatchComplianceLevel)
-gpbrsApprovedPatchesComplianceLevel = lens _gpbrsApprovedPatchesComplianceLevel (\ s a -> s{_gpbrsApprovedPatchesComplianceLevel = a});
+gpbrsApprovedPatchesComplianceLevel = lens _gpbrsApprovedPatchesComplianceLevel (\ s a -> s{_gpbrsApprovedPatchesComplianceLevel = a})
 
 -- | A list of explicitly approved patches for the baseline.
 gpbrsApprovedPatches :: Lens' GetPatchBaselineResponse [Text]
-gpbrsApprovedPatches = lens _gpbrsApprovedPatches (\ s a -> s{_gpbrsApprovedPatches = a}) . _Default . _Coerce;
+gpbrsApprovedPatches = lens _gpbrsApprovedPatches (\ s a -> s{_gpbrsApprovedPatches = a}) . _Default . _Coerce
+
+-- | Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+gpbrsApprovedPatchesEnableNonSecurity :: Lens' GetPatchBaselineResponse (Maybe Bool)
+gpbrsApprovedPatchesEnableNonSecurity = lens _gpbrsApprovedPatchesEnableNonSecurity (\ s a -> s{_gpbrsApprovedPatchesEnableNonSecurity = a})
 
 -- | A list of explicitly rejected patches for the baseline.
 gpbrsRejectedPatches :: Lens' GetPatchBaselineResponse [Text]
-gpbrsRejectedPatches = lens _gpbrsRejectedPatches (\ s a -> s{_gpbrsRejectedPatches = a}) . _Default . _Coerce;
+gpbrsRejectedPatches = lens _gpbrsRejectedPatches (\ s a -> s{_gpbrsRejectedPatches = a}) . _Default . _Coerce
+
+-- | Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
+gpbrsSources :: Lens' GetPatchBaselineResponse [PatchSource]
+gpbrsSources = lens _gpbrsSources (\ s a -> s{_gpbrsSources = a}) . _Default . _Coerce
 
 -- | The date the patch baseline was created.
 gpbrsCreatedDate :: Lens' GetPatchBaselineResponse (Maybe UTCTime)
-gpbrsCreatedDate = lens _gpbrsCreatedDate (\ s a -> s{_gpbrsCreatedDate = a}) . mapping _Time;
+gpbrsCreatedDate = lens _gpbrsCreatedDate (\ s a -> s{_gpbrsCreatedDate = a}) . mapping _Time
 
 -- | The name of the patch baseline.
 gpbrsName :: Lens' GetPatchBaselineResponse (Maybe Text)
-gpbrsName = lens _gpbrsName (\ s a -> s{_gpbrsName = a});
+gpbrsName = lens _gpbrsName (\ s a -> s{_gpbrsName = a})
 
 -- | Patch groups included in the patch baseline.
 gpbrsPatchGroups :: Lens' GetPatchBaselineResponse [Text]
-gpbrsPatchGroups = lens _gpbrsPatchGroups (\ s a -> s{_gpbrsPatchGroups = a}) . _Default . _Coerce;
+gpbrsPatchGroups = lens _gpbrsPatchGroups (\ s a -> s{_gpbrsPatchGroups = a}) . _Default . _Coerce
 
 -- | The date the patch baseline was last modified.
 gpbrsModifiedDate :: Lens' GetPatchBaselineResponse (Maybe UTCTime)
-gpbrsModifiedDate = lens _gpbrsModifiedDate (\ s a -> s{_gpbrsModifiedDate = a}) . mapping _Time;
+gpbrsModifiedDate = lens _gpbrsModifiedDate (\ s a -> s{_gpbrsModifiedDate = a}) . mapping _Time
 
 -- | A description of the patch baseline.
 gpbrsDescription :: Lens' GetPatchBaselineResponse (Maybe Text)
-gpbrsDescription = lens _gpbrsDescription (\ s a -> s{_gpbrsDescription = a});
+gpbrsDescription = lens _gpbrsDescription (\ s a -> s{_gpbrsDescription = a})
 
 -- | The ID of the retrieved patch baseline.
 gpbrsBaselineId :: Lens' GetPatchBaselineResponse (Maybe Text)
-gpbrsBaselineId = lens _gpbrsBaselineId (\ s a -> s{_gpbrsBaselineId = a});
+gpbrsBaselineId = lens _gpbrsBaselineId (\ s a -> s{_gpbrsBaselineId = a})
 
 -- | -- | The response status code.
 gpbrsResponseStatus :: Lens' GetPatchBaselineResponse Int
-gpbrsResponseStatus = lens _gpbrsResponseStatus (\ s a -> s{_gpbrsResponseStatus = a});
+gpbrsResponseStatus = lens _gpbrsResponseStatus (\ s a -> s{_gpbrsResponseStatus = a})
 
 instance NFData GetPatchBaselineResponse where

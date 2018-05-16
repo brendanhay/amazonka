@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetAPNSChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getAPNSChannel pApplicationId_ =
 
 -- | Undocumented member.
 gacApplicationId :: Lens' GetAPNSChannel Text
-gacApplicationId = lens _gacApplicationId (\ s a -> s{_gacApplicationId = a});
+gacApplicationId = lens _gacApplicationId (\ s a -> s{_gacApplicationId = a})
 
 instance AWSRequest GetAPNSChannel where
         type Rs GetAPNSChannel = GetAPNSChannelResponse
@@ -113,17 +113,17 @@ getAPNSChannelResponse
     -> GetAPNSChannelResponse
 getAPNSChannelResponse pResponseStatus_ pAPNSChannelResponse_ =
   GetAPNSChannelResponse'
-  { _gacrsResponseStatus = pResponseStatus_
-  , _gacrsAPNSChannelResponse = pAPNSChannelResponse_
-  }
+    { _gacrsResponseStatus = pResponseStatus_
+    , _gacrsAPNSChannelResponse = pAPNSChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 gacrsResponseStatus :: Lens' GetAPNSChannelResponse Int
-gacrsResponseStatus = lens _gacrsResponseStatus (\ s a -> s{_gacrsResponseStatus = a});
+gacrsResponseStatus = lens _gacrsResponseStatus (\ s a -> s{_gacrsResponseStatus = a})
 
 -- | Undocumented member.
 gacrsAPNSChannelResponse :: Lens' GetAPNSChannelResponse APNSChannelResponse
-gacrsAPNSChannelResponse = lens _gacrsAPNSChannelResponse (\ s a -> s{_gacrsAPNSChannelResponse = a});
+gacrsAPNSChannelResponse = lens _gacrsAPNSChannelResponse (\ s a -> s{_gacrsAPNSChannelResponse = a})
 
 instance NFData GetAPNSChannelResponse where

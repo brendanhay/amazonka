@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.UntagProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,11 +66,11 @@ untagProject pId_ = UntagProject' {_uId = pId_, _uTags = mempty}
 
 -- | The ID of the project to remove tags from.
 uId :: Lens' UntagProject Text
-uId = lens _uId (\ s a -> s{_uId = a});
+uId = lens _uId (\ s a -> s{_uId = a})
 
 -- | The tags to remove from the project.
 uTags :: Lens' UntagProject [Text]
-uTags = lens _uTags (\ s a -> s{_uTags = a}) . _Coerce;
+uTags = lens _uTags (\ s a -> s{_uTags = a}) . _Coerce
 
 instance AWSRequest UntagProject where
         type Rs UntagProject = UntagProjectResponse
@@ -125,6 +125,6 @@ untagProjectResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ursResponseStatus :: Lens' UntagProjectResponse Int
-ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a});
+ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a})
 
 instance NFData UntagProjectResponse where

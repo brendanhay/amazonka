@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ adminUpdateDeviceStatus
     -> AdminUpdateDeviceStatus
 adminUpdateDeviceStatus pUserPoolId_ pUsername_ pDeviceKey_ =
   AdminUpdateDeviceStatus'
-  { _audsDeviceRememberedStatus = Nothing
-  , _audsUserPoolId = pUserPoolId_
-  , _audsUsername = _Sensitive # pUsername_
-  , _audsDeviceKey = pDeviceKey_
-  }
+    { _audsDeviceRememberedStatus = Nothing
+    , _audsUserPoolId = pUserPoolId_
+    , _audsUsername = _Sensitive # pUsername_
+    , _audsDeviceKey = pDeviceKey_
+    }
 
 
 -- | The status indicating whether a device has been remembered or not.
 audsDeviceRememberedStatus :: Lens' AdminUpdateDeviceStatus (Maybe DeviceRememberedStatusType)
-audsDeviceRememberedStatus = lens _audsDeviceRememberedStatus (\ s a -> s{_audsDeviceRememberedStatus = a});
+audsDeviceRememberedStatus = lens _audsDeviceRememberedStatus (\ s a -> s{_audsDeviceRememberedStatus = a})
 
 -- | The user pool ID.
 audsUserPoolId :: Lens' AdminUpdateDeviceStatus Text
-audsUserPoolId = lens _audsUserPoolId (\ s a -> s{_audsUserPoolId = a});
+audsUserPoolId = lens _audsUserPoolId (\ s a -> s{_audsUserPoolId = a})
 
 -- | The user name.
 audsUsername :: Lens' AdminUpdateDeviceStatus Text
-audsUsername = lens _audsUsername (\ s a -> s{_audsUsername = a}) . _Sensitive;
+audsUsername = lens _audsUsername (\ s a -> s{_audsUsername = a}) . _Sensitive
 
 -- | The device key.
 audsDeviceKey :: Lens' AdminUpdateDeviceStatus Text
-audsDeviceKey = lens _audsDeviceKey (\ s a -> s{_audsDeviceKey = a});
+audsDeviceKey = lens _audsDeviceKey (\ s a -> s{_audsDeviceKey = a})
 
 instance AWSRequest AdminUpdateDeviceStatus where
         type Rs AdminUpdateDeviceStatus =
@@ -166,6 +166,6 @@ adminUpdateDeviceStatusResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 audsrsResponseStatus :: Lens' AdminUpdateDeviceStatusResponse Int
-audsrsResponseStatus = lens _audsrsResponseStatus (\ s a -> s{_audsrsResponseStatus = a});
+audsrsResponseStatus = lens _audsrsResponseStatus (\ s a -> s{_audsrsResponseStatus = a})
 
 instance NFData AdminUpdateDeviceStatusResponse where

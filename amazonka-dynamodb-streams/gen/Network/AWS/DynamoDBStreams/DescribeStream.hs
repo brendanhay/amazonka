@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.DescribeStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ describeStream
     -> DescribeStream
 describeStream pStreamARN_ =
   DescribeStream'
-  { _dsExclusiveStartShardId = Nothing
-  , _dsLimit = Nothing
-  , _dsStreamARN = pStreamARN_
-  }
+    { _dsExclusiveStartShardId = Nothing
+    , _dsLimit = Nothing
+    , _dsStreamARN = pStreamARN_
+    }
 
 
 -- | The shard ID of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedShardId@ in the previous operation.
 dsExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
-dsExclusiveStartShardId = lens _dsExclusiveStartShardId (\ s a -> s{_dsExclusiveStartShardId = a});
+dsExclusiveStartShardId = lens _dsExclusiveStartShardId (\ s a -> s{_dsExclusiveStartShardId = a})
 
 -- | The maximum number of shard objects to return. The upper limit is 100.
 dsLimit :: Lens' DescribeStream (Maybe Natural)
-dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a}) . mapping _Nat;
+dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a}) . mapping _Nat
 
 -- | The Amazon Resource Name (ARN) for the stream.
 dsStreamARN :: Lens' DescribeStream Text
-dsStreamARN = lens _dsStreamARN (\ s a -> s{_dsStreamARN = a});
+dsStreamARN = lens _dsStreamARN (\ s a -> s{_dsStreamARN = a})
 
 instance AWSRequest DescribeStream where
         type Rs DescribeStream = DescribeStreamResponse
@@ -153,15 +153,15 @@ describeStreamResponse
     -> DescribeStreamResponse
 describeStreamResponse pResponseStatus_ =
   DescribeStreamResponse'
-  {_dsrsStreamDescription = Nothing, _dsrsResponseStatus = pResponseStatus_}
+    {_dsrsStreamDescription = Nothing, _dsrsResponseStatus = pResponseStatus_}
 
 
 -- | A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.
 dsrsStreamDescription :: Lens' DescribeStreamResponse (Maybe StreamDescription)
-dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});
+dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a})
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStreamResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DescribeStreamResponse where

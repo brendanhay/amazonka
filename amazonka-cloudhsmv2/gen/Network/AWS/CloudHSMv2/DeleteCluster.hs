@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.DeleteCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteCluster pClusterId_ = DeleteCluster' {_dcClusterId = pClusterId_}
 
 -- | The identifier (ID) of the cluster that you are deleting. To find the cluster ID, use 'DescribeClusters' .
 dcClusterId :: Lens' DeleteCluster Text
-dcClusterId = lens _dcClusterId (\ s a -> s{_dcClusterId = a});
+dcClusterId = lens _dcClusterId (\ s a -> s{_dcClusterId = a})
 
 instance AWSRequest DeleteCluster where
         type Rs DeleteCluster = DeleteClusterResponse
@@ -117,15 +117,15 @@ deleteClusterResponse
     -> DeleteClusterResponse
 deleteClusterResponse pResponseStatus_ =
   DeleteClusterResponse'
-  {_drsCluster = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsCluster = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the cluster that was deleted.
 drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
-drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
+drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteClusterResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteClusterResponse where

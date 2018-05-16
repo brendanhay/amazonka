@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListPublishedSchemaARNs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves each published schema Amazon Resource Name (ARN).
+-- Lists the major version families of each published schema. If a major version ARN is provided as @SchemaArn@ , the minor version revisions in that family are listed instead.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListPublishedSchemaARNs
     (
     -- * Creating a Request
@@ -28,6 +30,7 @@ module Network.AWS.CloudDirectory.ListPublishedSchemaARNs
     , ListPublishedSchemaARNs
     -- * Request Lenses
     , lpsaNextToken
+    , lpsaSchemaARN
     , lpsaMaxResults
 
     -- * Destructuring the Response
@@ -42,6 +45,7 @@ module Network.AWS.CloudDirectory.ListPublishedSchemaARNs
 import Network.AWS.CloudDirectory.Types
 import Network.AWS.CloudDirectory.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -49,6 +53,7 @@ import Network.AWS.Response
 -- | /See:/ 'listPublishedSchemaARNs' smart constructor.
 data ListPublishedSchemaARNs = ListPublishedSchemaARNs'
   { _lpsaNextToken  :: !(Maybe Text)
+  , _lpsaSchemaARN  :: !(Maybe Text)
   , _lpsaMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -59,20 +64,37 @@ data ListPublishedSchemaARNs = ListPublishedSchemaARNs'
 --
 -- * 'lpsaNextToken' - The pagination token.
 --
+-- * 'lpsaSchemaARN' - The response for @ListPublishedSchemaArns@ when this parameter is used will list all minor version ARNs for a major version.
+--
 -- * 'lpsaMaxResults' - The maximum number of results to retrieve.
 listPublishedSchemaARNs
     :: ListPublishedSchemaARNs
 listPublishedSchemaARNs =
-  ListPublishedSchemaARNs' {_lpsaNextToken = Nothing, _lpsaMaxResults = Nothing}
+  ListPublishedSchemaARNs'
+    { _lpsaNextToken = Nothing
+    , _lpsaSchemaARN = Nothing
+    , _lpsaMaxResults = Nothing
+    }
 
 
 -- | The pagination token.
 lpsaNextToken :: Lens' ListPublishedSchemaARNs (Maybe Text)
-lpsaNextToken = lens _lpsaNextToken (\ s a -> s{_lpsaNextToken = a});
+lpsaNextToken = lens _lpsaNextToken (\ s a -> s{_lpsaNextToken = a})
+
+-- | The response for @ListPublishedSchemaArns@ when this parameter is used will list all minor version ARNs for a major version.
+lpsaSchemaARN :: Lens' ListPublishedSchemaARNs (Maybe Text)
+lpsaSchemaARN = lens _lpsaSchemaARN (\ s a -> s{_lpsaSchemaARN = a})
 
 -- | The maximum number of results to retrieve.
 lpsaMaxResults :: Lens' ListPublishedSchemaARNs (Maybe Natural)
-lpsaMaxResults = lens _lpsaMaxResults (\ s a -> s{_lpsaMaxResults = a}) . mapping _Nat;
+lpsaMaxResults = lens _lpsaMaxResults (\ s a -> s{_lpsaMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListPublishedSchemaARNs where
+        page rq rs
+          | stop (rs ^. lpsarsNextToken) = Nothing
+          | stop (rs ^. lpsarsSchemaARNs) = Nothing
+          | otherwise =
+            Just $ rq & lpsaNextToken .~ rs ^. lpsarsNextToken
 
 instance AWSRequest ListPublishedSchemaARNs where
         type Rs ListPublishedSchemaARNs =
@@ -98,6 +120,7 @@ instance ToJSON ListPublishedSchemaARNs where
           = object
               (catMaybes
                  [("NextToken" .=) <$> _lpsaNextToken,
+                  ("SchemaArn" .=) <$> _lpsaSchemaARN,
                   ("MaxResults" .=) <$> _lpsaMaxResults])
 
 instance ToPath ListPublishedSchemaARNs where
@@ -130,22 +153,22 @@ listPublishedSchemaARNsResponse
     -> ListPublishedSchemaARNsResponse
 listPublishedSchemaARNsResponse pResponseStatus_ =
   ListPublishedSchemaARNsResponse'
-  { _lpsarsSchemaARNs = Nothing
-  , _lpsarsNextToken = Nothing
-  , _lpsarsResponseStatus = pResponseStatus_
-  }
+    { _lpsarsSchemaARNs = Nothing
+    , _lpsarsNextToken = Nothing
+    , _lpsarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ARNs of published schemas.
 lpsarsSchemaARNs :: Lens' ListPublishedSchemaARNsResponse [Text]
-lpsarsSchemaARNs = lens _lpsarsSchemaARNs (\ s a -> s{_lpsarsSchemaARNs = a}) . _Default . _Coerce;
+lpsarsSchemaARNs = lens _lpsarsSchemaARNs (\ s a -> s{_lpsarsSchemaARNs = a}) . _Default . _Coerce
 
 -- | The pagination token.
 lpsarsNextToken :: Lens' ListPublishedSchemaARNsResponse (Maybe Text)
-lpsarsNextToken = lens _lpsarsNextToken (\ s a -> s{_lpsarsNextToken = a});
+lpsarsNextToken = lens _lpsarsNextToken (\ s a -> s{_lpsarsNextToken = a})
 
 -- | -- | The response status code.
 lpsarsResponseStatus :: Lens' ListPublishedSchemaARNsResponse Int
-lpsarsResponseStatus = lens _lpsarsResponseStatus (\ s a -> s{_lpsarsResponseStatus = a});
+lpsarsResponseStatus = lens _lpsarsResponseStatus (\ s a -> s{_lpsarsResponseStatus = a})
 
 instance NFData ListPublishedSchemaARNsResponse where

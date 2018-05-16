@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ApplySchema
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Copies the input published schema into the 'Directory' with the same name and version as that of the published schema .
+-- Copies the input published schema, at the specified version, into the 'Directory' with the same name and version as that of the published schema.
 --
 --
 module Network.AWS.CloudDirectory.ApplySchema
@@ -66,18 +66,18 @@ applySchema
     -> ApplySchema
 applySchema pPublishedSchemaARN_ pDirectoryARN_ =
   ApplySchema'
-  { _asPublishedSchemaARN = pPublishedSchemaARN_
-  , _asDirectoryARN = pDirectoryARN_
-  }
+    { _asPublishedSchemaARN = pPublishedSchemaARN_
+    , _asDirectoryARN = pDirectoryARN_
+    }
 
 
 -- | Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
 asPublishedSchemaARN :: Lens' ApplySchema Text
-asPublishedSchemaARN = lens _asPublishedSchemaARN (\ s a -> s{_asPublishedSchemaARN = a});
+asPublishedSchemaARN = lens _asPublishedSchemaARN (\ s a -> s{_asPublishedSchemaARN = a})
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
 asDirectoryARN :: Lens' ApplySchema Text
-asDirectoryARN = lens _asDirectoryARN (\ s a -> s{_asDirectoryARN = a});
+asDirectoryARN = lens _asDirectoryARN (\ s a -> s{_asDirectoryARN = a})
 
 instance AWSRequest ApplySchema where
         type Rs ApplySchema = ApplySchemaResponse
@@ -134,22 +134,22 @@ applySchemaResponse
     -> ApplySchemaResponse
 applySchemaResponse pResponseStatus_ =
   ApplySchemaResponse'
-  { _asrsDirectoryARN = Nothing
-  , _asrsAppliedSchemaARN = Nothing
-  , _asrsResponseStatus = pResponseStatus_
-  }
+    { _asrsDirectoryARN = Nothing
+    , _asrsAppliedSchemaARN = Nothing
+    , _asrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ARN that is associated with the 'Directory' . For more information, see 'arns' .
 asrsDirectoryARN :: Lens' ApplySchemaResponse (Maybe Text)
-asrsDirectoryARN = lens _asrsDirectoryARN (\ s a -> s{_asrsDirectoryARN = a});
+asrsDirectoryARN = lens _asrsDirectoryARN (\ s a -> s{_asrsDirectoryARN = a})
 
 -- | The applied schema ARN that is associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
 asrsAppliedSchemaARN :: Lens' ApplySchemaResponse (Maybe Text)
-asrsAppliedSchemaARN = lens _asrsAppliedSchemaARN (\ s a -> s{_asrsAppliedSchemaARN = a});
+asrsAppliedSchemaARN = lens _asrsAppliedSchemaARN (\ s a -> s{_asrsAppliedSchemaARN = a})
 
 -- | -- | The response status code.
 asrsResponseStatus :: Lens' ApplySchemaResponse Int
-asrsResponseStatus = lens _asrsResponseStatus (\ s a -> s{_asrsResponseStatus = a});
+asrsResponseStatus = lens _asrsResponseStatus (\ s a -> s{_asrsResponseStatus = a})
 
 instance NFData ApplySchemaResponse where

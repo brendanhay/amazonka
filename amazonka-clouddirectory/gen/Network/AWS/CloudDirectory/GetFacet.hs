@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.GetFacet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ getFacet pSchemaARN_ pName_ =
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 gfSchemaARN :: Lens' GetFacet Text
-gfSchemaARN = lens _gfSchemaARN (\ s a -> s{_gfSchemaARN = a});
+gfSchemaARN = lens _gfSchemaARN (\ s a -> s{_gfSchemaARN = a})
 
 -- | The name of the facet to retrieve.
 gfName :: Lens' GetFacet Text
-gfName = lens _gfName (\ s a -> s{_gfName = a});
+gfName = lens _gfName (\ s a -> s{_gfName = a})
 
 instance AWSRequest GetFacet where
         type Rs GetFacet = GetFacetResponse
@@ -122,15 +122,15 @@ getFacetResponse
     -> GetFacetResponse
 getFacetResponse pResponseStatus_ =
   GetFacetResponse'
-  {_gfrsFacet = Nothing, _gfrsResponseStatus = pResponseStatus_}
+    {_gfrsFacet = Nothing, _gfrsResponseStatus = pResponseStatus_}
 
 
 -- | The 'Facet' structure that is associated with the facet.
 gfrsFacet :: Lens' GetFacetResponse (Maybe Facet)
-gfrsFacet = lens _gfrsFacet (\ s a -> s{_gfrsFacet = a});
+gfrsFacet = lens _gfrsFacet (\ s a -> s{_gfrsFacet = a})
 
 -- | -- | The response status code.
 gfrsResponseStatus :: Lens' GetFacetResponse Int
-gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a});
+gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a})
 
 instance NFData GetFacetResponse where

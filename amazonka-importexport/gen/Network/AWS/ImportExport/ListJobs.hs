@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.ListJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,15 +75,15 @@ listJobs =
 
 -- | Undocumented member.
 ljAPIVersion :: Lens' ListJobs (Maybe Text)
-ljAPIVersion = lens _ljAPIVersion (\ s a -> s{_ljAPIVersion = a});
+ljAPIVersion = lens _ljAPIVersion (\ s a -> s{_ljAPIVersion = a})
 
 -- | Undocumented member.
 ljMarker :: Lens' ListJobs (Maybe Text)
-ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a});
+ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a})
 
 -- | Undocumented member.
 ljMaxJobs :: Lens' ListJobs (Maybe Int)
-ljMaxJobs = lens _ljMaxJobs (\ s a -> s{_ljMaxJobs = a});
+ljMaxJobs = lens _ljMaxJobs (\ s a -> s{_ljMaxJobs = a})
 
 instance AWSPager ListJobs where
         page rq rs
@@ -149,22 +149,22 @@ listJobsResponse
     -> ListJobsResponse
 listJobsResponse pResponseStatus_ =
   ListJobsResponse'
-  { _ljrsJobs = Nothing
-  , _ljrsIsTruncated = Nothing
-  , _ljrsResponseStatus = pResponseStatus_
-  }
+    { _ljrsJobs = Nothing
+    , _ljrsIsTruncated = Nothing
+    , _ljrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ljrsJobs :: Lens' ListJobsResponse [Job]
-ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
+ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
-ljrsIsTruncated = lens _ljrsIsTruncated (\ s a -> s{_ljrsIsTruncated = a});
+ljrsIsTruncated = lens _ljrsIsTruncated (\ s a -> s{_ljrsIsTruncated = a})
 
 -- | -- | The response status code.
 ljrsResponseStatus :: Lens' ListJobsResponse Int
-ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
+ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a})
 
 instance NFData ListJobsResponse where

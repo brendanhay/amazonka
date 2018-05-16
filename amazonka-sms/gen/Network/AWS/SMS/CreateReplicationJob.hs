@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SMS.CreateReplicationJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,38 +80,38 @@ createReplicationJob
     -> CreateReplicationJob
 createReplicationJob pServerId_ pSeedReplicationTime_ pFrequency_ =
   CreateReplicationJob'
-  { _crjLicenseType = Nothing
-  , _crjRoleName = Nothing
-  , _crjDescription = Nothing
-  , _crjServerId = pServerId_
-  , _crjSeedReplicationTime = _Time # pSeedReplicationTime_
-  , _crjFrequency = pFrequency_
-  }
+    { _crjLicenseType = Nothing
+    , _crjRoleName = Nothing
+    , _crjDescription = Nothing
+    , _crjServerId = pServerId_
+    , _crjSeedReplicationTime = _Time # pSeedReplicationTime_
+    , _crjFrequency = pFrequency_
+    }
 
 
 -- | Undocumented member.
 crjLicenseType :: Lens' CreateReplicationJob (Maybe LicenseType)
-crjLicenseType = lens _crjLicenseType (\ s a -> s{_crjLicenseType = a});
+crjLicenseType = lens _crjLicenseType (\ s a -> s{_crjLicenseType = a})
 
 -- | Undocumented member.
 crjRoleName :: Lens' CreateReplicationJob (Maybe Text)
-crjRoleName = lens _crjRoleName (\ s a -> s{_crjRoleName = a});
+crjRoleName = lens _crjRoleName (\ s a -> s{_crjRoleName = a})
 
 -- | Undocumented member.
 crjDescription :: Lens' CreateReplicationJob (Maybe Text)
-crjDescription = lens _crjDescription (\ s a -> s{_crjDescription = a});
+crjDescription = lens _crjDescription (\ s a -> s{_crjDescription = a})
 
 -- | Undocumented member.
 crjServerId :: Lens' CreateReplicationJob Text
-crjServerId = lens _crjServerId (\ s a -> s{_crjServerId = a});
+crjServerId = lens _crjServerId (\ s a -> s{_crjServerId = a})
 
 -- | Undocumented member.
 crjSeedReplicationTime :: Lens' CreateReplicationJob UTCTime
-crjSeedReplicationTime = lens _crjSeedReplicationTime (\ s a -> s{_crjSeedReplicationTime = a}) . _Time;
+crjSeedReplicationTime = lens _crjSeedReplicationTime (\ s a -> s{_crjSeedReplicationTime = a}) . _Time
 
 -- | Undocumented member.
 crjFrequency :: Lens' CreateReplicationJob Int
-crjFrequency = lens _crjFrequency (\ s a -> s{_crjFrequency = a});
+crjFrequency = lens _crjFrequency (\ s a -> s{_crjFrequency = a})
 
 instance AWSRequest CreateReplicationJob where
         type Rs CreateReplicationJob =
@@ -174,15 +174,15 @@ createReplicationJobResponse
     -> CreateReplicationJobResponse
 createReplicationJobResponse pResponseStatus_ =
   CreateReplicationJobResponse'
-  {_crjrsReplicationJobId = Nothing, _crjrsResponseStatus = pResponseStatus_}
+    {_crjrsReplicationJobId = Nothing, _crjrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 crjrsReplicationJobId :: Lens' CreateReplicationJobResponse (Maybe Text)
-crjrsReplicationJobId = lens _crjrsReplicationJobId (\ s a -> s{_crjrsReplicationJobId = a});
+crjrsReplicationJobId = lens _crjrsReplicationJobId (\ s a -> s{_crjrsReplicationJobId = a})
 
 -- | -- | The response status code.
 crjrsResponseStatus :: Lens' CreateReplicationJobResponse Int
-crjrsResponseStatus = lens _crjrsResponseStatus (\ s a -> s{_crjrsResponseStatus = a});
+crjrsResponseStatus = lens _crjrsResponseStatus (\ s a -> s{_crjrsResponseStatus = a})
 
 instance NFData CreateReplicationJobResponse where

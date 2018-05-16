@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.GetDirectoryLimits
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -115,15 +115,15 @@ getDirectoryLimitsResponse
     -> GetDirectoryLimitsResponse
 getDirectoryLimitsResponse pResponseStatus_ =
   GetDirectoryLimitsResponse'
-  {_gdlrsDirectoryLimits = Nothing, _gdlrsResponseStatus = pResponseStatus_}
+    {_gdlrsDirectoryLimits = Nothing, _gdlrsResponseStatus = pResponseStatus_}
 
 
 -- | A 'DirectoryLimits' object that contains the directory limits for the current region.
 gdlrsDirectoryLimits :: Lens' GetDirectoryLimitsResponse (Maybe DirectoryLimits)
-gdlrsDirectoryLimits = lens _gdlrsDirectoryLimits (\ s a -> s{_gdlrsDirectoryLimits = a});
+gdlrsDirectoryLimits = lens _gdlrsDirectoryLimits (\ s a -> s{_gdlrsDirectoryLimits = a})
 
 -- | -- | The response status code.
 gdlrsResponseStatus :: Lens' GetDirectoryLimitsResponse Int
-gdlrsResponseStatus = lens _gdlrsResponseStatus (\ s a -> s{_gdlrsResponseStatus = a});
+gdlrsResponseStatus = lens _gdlrsResponseStatus (\ s a -> s{_gdlrsResponseStatus = a})
 
 instance NFData GetDirectoryLimitsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteKeyPair
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ deleteKeyPair pKeyName_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dkpDryRun :: Lens' DeleteKeyPair (Maybe Bool)
-dkpDryRun = lens _dkpDryRun (\ s a -> s{_dkpDryRun = a});
+dkpDryRun = lens _dkpDryRun (\ s a -> s{_dkpDryRun = a})
 
 -- | The name of the key pair.
 dkpKeyName :: Lens' DeleteKeyPair Text
-dkpKeyName = lens _dkpKeyName (\ s a -> s{_dkpKeyName = a});
+dkpKeyName = lens _dkpKeyName (\ s a -> s{_dkpKeyName = a})
 
 instance AWSRequest DeleteKeyPair where
         type Rs DeleteKeyPair = DeleteKeyPairResponse

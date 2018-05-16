@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ describeTimeBasedAutoScaling =
 
 -- | An array of instance IDs.
 dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
-dtbasInstanceIds = lens _dtbasInstanceIds (\ s a -> s{_dtbasInstanceIds = a}) . _Coerce;
+dtbasInstanceIds = lens _dtbasInstanceIds (\ s a -> s{_dtbasInstanceIds = a}) . _Coerce
 
 instance AWSRequest DescribeTimeBasedAutoScaling
          where
@@ -129,18 +129,18 @@ describeTimeBasedAutoScalingResponse
     -> DescribeTimeBasedAutoScalingResponse
 describeTimeBasedAutoScalingResponse pResponseStatus_ =
   DescribeTimeBasedAutoScalingResponse'
-  { _dtbasrsTimeBasedAutoScalingConfigurations = Nothing
-  , _dtbasrsResponseStatus = pResponseStatus_
-  }
+    { _dtbasrsTimeBasedAutoScalingConfigurations = Nothing
+    , _dtbasrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe the configuration for the specified instances.
 dtbasrsTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
-dtbasrsTimeBasedAutoScalingConfigurations = lens _dtbasrsTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrsTimeBasedAutoScalingConfigurations = a}) . _Default . _Coerce;
+dtbasrsTimeBasedAutoScalingConfigurations = lens _dtbasrsTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrsTimeBasedAutoScalingConfigurations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtbasrsResponseStatus :: Lens' DescribeTimeBasedAutoScalingResponse Int
-dtbasrsResponseStatus = lens _dtbasrsResponseStatus (\ s a -> s{_dtbasrsResponseStatus = a});
+dtbasrsResponseStatus = lens _dtbasrsResponseStatus (\ s a -> s{_dtbasrsResponseStatus = a})
 
 instance NFData DescribeTimeBasedAutoScalingResponse
          where

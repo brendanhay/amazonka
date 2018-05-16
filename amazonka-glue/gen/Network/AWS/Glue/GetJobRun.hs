@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetJobRun
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,9 +58,9 @@ data GetJobRun = GetJobRun'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gPredecessorsIncluded' - A list of the predecessor runs to return as well.
+-- * 'gPredecessorsIncluded' - True if a list of predecessor runs should be returned.
 --
--- * 'gJobName' - Name of the job being run.
+-- * 'gJobName' - Name of the job definition being run.
 --
 -- * 'gRunId' - The ID of the job run.
 getJobRun
@@ -69,20 +69,20 @@ getJobRun
     -> GetJobRun
 getJobRun pJobName_ pRunId_ =
   GetJobRun'
-  {_gPredecessorsIncluded = Nothing, _gJobName = pJobName_, _gRunId = pRunId_}
+    {_gPredecessorsIncluded = Nothing, _gJobName = pJobName_, _gRunId = pRunId_}
 
 
--- | A list of the predecessor runs to return as well.
+-- | True if a list of predecessor runs should be returned.
 gPredecessorsIncluded :: Lens' GetJobRun (Maybe Bool)
-gPredecessorsIncluded = lens _gPredecessorsIncluded (\ s a -> s{_gPredecessorsIncluded = a});
+gPredecessorsIncluded = lens _gPredecessorsIncluded (\ s a -> s{_gPredecessorsIncluded = a})
 
--- | Name of the job being run.
+-- | Name of the job definition being run.
 gJobName :: Lens' GetJobRun Text
-gJobName = lens _gJobName (\ s a -> s{_gJobName = a});
+gJobName = lens _gJobName (\ s a -> s{_gJobName = a})
 
 -- | The ID of the job run.
 gRunId :: Lens' GetJobRun Text
-gRunId = lens _gRunId (\ s a -> s{_gRunId = a});
+gRunId = lens _gRunId (\ s a -> s{_gRunId = a})
 
 instance AWSRequest GetJobRun where
         type Rs GetJobRun = GetJobRunResponse
@@ -140,15 +140,15 @@ getJobRunResponse
     -> GetJobRunResponse
 getJobRunResponse pResponseStatus_ =
   GetJobRunResponse'
-  {_gjrjrsJobRun = Nothing, _gjrjrsResponseStatus = pResponseStatus_}
+    {_gjrjrsJobRun = Nothing, _gjrjrsResponseStatus = pResponseStatus_}
 
 
 -- | The requested job-run metadata.
 gjrjrsJobRun :: Lens' GetJobRunResponse (Maybe JobRun)
-gjrjrsJobRun = lens _gjrjrsJobRun (\ s a -> s{_gjrjrsJobRun = a});
+gjrjrsJobRun = lens _gjrjrsJobRun (\ s a -> s{_gjrjrsJobRun = a})
 
 -- | -- | The response status code.
 gjrjrsResponseStatus :: Lens' GetJobRunResponse Int
-gjrjrsResponseStatus = lens _gjrjrsResponseStatus (\ s a -> s{_gjrjrsResponseStatus = a});
+gjrjrsResponseStatus = lens _gjrjrsResponseStatus (\ s a -> s{_gjrjrsResponseStatus = a})
 
 instance NFData GetJobRunResponse where

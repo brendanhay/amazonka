@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetSizeConstraintSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getSizeConstraintSet pSizeConstraintSetId_ =
 
 -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 gscsSizeConstraintSetId :: Lens' GetSizeConstraintSet Text
-gscsSizeConstraintSetId = lens _gscsSizeConstraintSetId (\ s a -> s{_gscsSizeConstraintSetId = a});
+gscsSizeConstraintSetId = lens _gscsSizeConstraintSetId (\ s a -> s{_gscsSizeConstraintSetId = a})
 
 instance AWSRequest GetSizeConstraintSet where
         type Rs GetSizeConstraintSet =
@@ -122,15 +122,17 @@ getSizeConstraintSetResponse
     -> GetSizeConstraintSetResponse
 getSizeConstraintSetResponse pResponseStatus_ =
   GetSizeConstraintSetResponse'
-  {_gscsrsSizeConstraintSet = Nothing, _gscsrsResponseStatus = pResponseStatus_}
+    { _gscsrsSizeConstraintSet = Nothing
+    , _gscsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@      * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@      * 'FieldToMatch' : Contains @Data@ and @Type@
 gscsrsSizeConstraintSet :: Lens' GetSizeConstraintSetResponse (Maybe SizeConstraintSet)
-gscsrsSizeConstraintSet = lens _gscsrsSizeConstraintSet (\ s a -> s{_gscsrsSizeConstraintSet = a});
+gscsrsSizeConstraintSet = lens _gscsrsSizeConstraintSet (\ s a -> s{_gscsrsSizeConstraintSet = a})
 
 -- | -- | The response status code.
 gscsrsResponseStatus :: Lens' GetSizeConstraintSetResponse Int
-gscsrsResponseStatus = lens _gscsrsResponseStatus (\ s a -> s{_gscsrsResponseStatus = a});
+gscsrsResponseStatus = lens _gscsrsResponseStatus (\ s a -> s{_gscsrsResponseStatus = a})
 
 instance NFData GetSizeConstraintSetResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteSubnet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ deleteSubnet pSubnetId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ddDryRun :: Lens' DeleteSubnet (Maybe Bool)
-ddDryRun = lens _ddDryRun (\ s a -> s{_ddDryRun = a});
+ddDryRun = lens _ddDryRun (\ s a -> s{_ddDryRun = a})
 
 -- | The ID of the subnet.
 ddSubnetId :: Lens' DeleteSubnet Text
-ddSubnetId = lens _ddSubnetId (\ s a -> s{_ddSubnetId = a});
+ddSubnetId = lens _ddSubnetId (\ s a -> s{_ddSubnetId = a})
 
 instance AWSRequest DeleteSubnet where
         type Rs DeleteSubnet = DeleteSubnetResponse

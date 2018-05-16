@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.ListTargetsByRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,20 +69,20 @@ listTargetsByRule
     -> ListTargetsByRule
 listTargetsByRule pRule_ =
   ListTargetsByRule'
-  {_ltbrNextToken = Nothing, _ltbrLimit = Nothing, _ltbrRule = pRule_}
+    {_ltbrNextToken = Nothing, _ltbrLimit = Nothing, _ltbrRule = pRule_}
 
 
 -- | The token returned by a previous call to retrieve the next set of results.
 ltbrNextToken :: Lens' ListTargetsByRule (Maybe Text)
-ltbrNextToken = lens _ltbrNextToken (\ s a -> s{_ltbrNextToken = a});
+ltbrNextToken = lens _ltbrNextToken (\ s a -> s{_ltbrNextToken = a})
 
 -- | The maximum number of results to return.
 ltbrLimit :: Lens' ListTargetsByRule (Maybe Natural)
-ltbrLimit = lens _ltbrLimit (\ s a -> s{_ltbrLimit = a}) . mapping _Nat;
+ltbrLimit = lens _ltbrLimit (\ s a -> s{_ltbrLimit = a}) . mapping _Nat
 
 -- | The name of the rule.
 ltbrRule :: Lens' ListTargetsByRule Text
-ltbrRule = lens _ltbrRule (\ s a -> s{_ltbrRule = a});
+ltbrRule = lens _ltbrRule (\ s a -> s{_ltbrRule = a})
 
 instance AWSRequest ListTargetsByRule where
         type Rs ListTargetsByRule = ListTargetsByRuleResponse
@@ -143,22 +143,22 @@ listTargetsByRuleResponse
     -> ListTargetsByRuleResponse
 listTargetsByRuleResponse pResponseStatus_ =
   ListTargetsByRuleResponse'
-  { _ltbrrsNextToken = Nothing
-  , _ltbrrsTargets = Nothing
-  , _ltbrrsResponseStatus = pResponseStatus_
-  }
+    { _ltbrrsNextToken = Nothing
+    , _ltbrrsTargets = Nothing
+    , _ltbrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
 ltbrrsNextToken :: Lens' ListTargetsByRuleResponse (Maybe Text)
-ltbrrsNextToken = lens _ltbrrsNextToken (\ s a -> s{_ltbrrsNextToken = a});
+ltbrrsNextToken = lens _ltbrrsNextToken (\ s a -> s{_ltbrrsNextToken = a})
 
 -- | The targets assigned to the rule.
 ltbrrsTargets :: Lens' ListTargetsByRuleResponse (Maybe (NonEmpty Target))
-ltbrrsTargets = lens _ltbrrsTargets (\ s a -> s{_ltbrrsTargets = a}) . mapping _List1;
+ltbrrsTargets = lens _ltbrrsTargets (\ s a -> s{_ltbrrsTargets = a}) . mapping _List1
 
 -- | -- | The response status code.
 ltbrrsResponseStatus :: Lens' ListTargetsByRuleResponse Int
-ltbrrsResponseStatus = lens _ltbrrsResponseStatus (\ s a -> s{_ltbrrsResponseStatus = a});
+ltbrrsResponseStatus = lens _ltbrrsResponseStatus (\ s a -> s{_ltbrrsResponseStatus = a})
 
 instance NFData ListTargetsByRuleResponse where

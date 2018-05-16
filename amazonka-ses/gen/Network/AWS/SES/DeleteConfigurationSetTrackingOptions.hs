@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteConfigurationSetTrackingOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,12 +65,12 @@ deleteConfigurationSetTrackingOptions
     -> DeleteConfigurationSetTrackingOptions
 deleteConfigurationSetTrackingOptions pConfigurationSetName_ =
   DeleteConfigurationSetTrackingOptions'
-  {_dcstoConfigurationSetName = pConfigurationSetName_}
+    {_dcstoConfigurationSetName = pConfigurationSetName_}
 
 
 -- | The name of the configuration set from which you want to delete the tracking options.
 dcstoConfigurationSetName :: Lens' DeleteConfigurationSetTrackingOptions Text
-dcstoConfigurationSetName = lens _dcstoConfigurationSetName (\ s a -> s{_dcstoConfigurationSetName = a});
+dcstoConfigurationSetName = lens _dcstoConfigurationSetName (\ s a -> s{_dcstoConfigurationSetName = a})
 
 instance AWSRequest
            DeleteConfigurationSetTrackingOptions
@@ -132,12 +132,12 @@ deleteConfigurationSetTrackingOptionsResponse
     -> DeleteConfigurationSetTrackingOptionsResponse
 deleteConfigurationSetTrackingOptionsResponse pResponseStatus_ =
   DeleteConfigurationSetTrackingOptionsResponse'
-  {_dcstorsResponseStatus = pResponseStatus_}
+    {_dcstorsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dcstorsResponseStatus :: Lens' DeleteConfigurationSetTrackingOptionsResponse Int
-dcstorsResponseStatus = lens _dcstorsResponseStatus (\ s a -> s{_dcstorsResponseStatus = a});
+dcstorsResponseStatus = lens _dcstorsResponseStatus (\ s a -> s{_dcstorsResponseStatus = a})
 
 instance NFData
            DeleteConfigurationSetTrackingOptionsResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListStackSetOperationResults
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ listStackSetOperationResults
     -> ListStackSetOperationResults
 listStackSetOperationResults pStackSetName_ pOperationId_ =
   ListStackSetOperationResults'
-  { _lssorNextToken = Nothing
-  , _lssorMaxResults = Nothing
-  , _lssorStackSetName = pStackSetName_
-  , _lssorOperationId = pOperationId_
-  }
+    { _lssorNextToken = Nothing
+    , _lssorMaxResults = Nothing
+    , _lssorStackSetName = pStackSetName_
+    , _lssorOperationId = pOperationId_
+    }
 
 
 -- | If the previous request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackSetOperationResults@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
 lssorNextToken :: Lens' ListStackSetOperationResults (Maybe Text)
-lssorNextToken = lens _lssorNextToken (\ s a -> s{_lssorNextToken = a});
+lssorNextToken = lens _lssorNextToken (\ s a -> s{_lssorNextToken = a})
 
 -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 lssorMaxResults :: Lens' ListStackSetOperationResults (Maybe Natural)
-lssorMaxResults = lens _lssorMaxResults (\ s a -> s{_lssorMaxResults = a}) . mapping _Nat;
+lssorMaxResults = lens _lssorMaxResults (\ s a -> s{_lssorMaxResults = a}) . mapping _Nat
 
 -- | The name or unique ID of the stack set that you want to get operation results for.
 lssorStackSetName :: Lens' ListStackSetOperationResults Text
-lssorStackSetName = lens _lssorStackSetName (\ s a -> s{_lssorStackSetName = a});
+lssorStackSetName = lens _lssorStackSetName (\ s a -> s{_lssorStackSetName = a})
 
 -- | The ID of the stack set operation.
 lssorOperationId :: Lens' ListStackSetOperationResults Text
-lssorOperationId = lens _lssorOperationId (\ s a -> s{_lssorOperationId = a});
+lssorOperationId = lens _lssorOperationId (\ s a -> s{_lssorOperationId = a})
 
 instance AWSRequest ListStackSetOperationResults
          where
@@ -155,23 +155,23 @@ listStackSetOperationResultsResponse
     -> ListStackSetOperationResultsResponse
 listStackSetOperationResultsResponse pResponseStatus_ =
   ListStackSetOperationResultsResponse'
-  { _lssorrsNextToken = Nothing
-  , _lssorrsSummaries = Nothing
-  , _lssorrsResponseStatus = pResponseStatus_
-  }
+    { _lssorrsNextToken = Nothing
+    , _lssorrsSummaries = Nothing
+    , _lssorrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the request doesn't return all results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListOperationResults@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, @NextToken@ is set to @null@ .
 lssorrsNextToken :: Lens' ListStackSetOperationResultsResponse (Maybe Text)
-lssorrsNextToken = lens _lssorrsNextToken (\ s a -> s{_lssorrsNextToken = a});
+lssorrsNextToken = lens _lssorrsNextToken (\ s a -> s{_lssorrsNextToken = a})
 
 -- | A list of @StackSetOperationResultSummary@ structures that contain information about the specified operation results, for accounts and regions that are included in the operation.
 lssorrsSummaries :: Lens' ListStackSetOperationResultsResponse [StackSetOperationResultSummary]
-lssorrsSummaries = lens _lssorrsSummaries (\ s a -> s{_lssorrsSummaries = a}) . _Default . _Coerce;
+lssorrsSummaries = lens _lssorrsSummaries (\ s a -> s{_lssorrsSummaries = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lssorrsResponseStatus :: Lens' ListStackSetOperationResultsResponse Int
-lssorrsResponseStatus = lens _lssorrsResponseStatus (\ s a -> s{_lssorrsResponseStatus = a});
+lssorrsResponseStatus = lens _lssorrsResponseStatus (\ s a -> s{_lssorrsResponseStatus = a})
 
 instance NFData ListStackSetOperationResultsResponse
          where

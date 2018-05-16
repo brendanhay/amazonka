@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.SendUsersMessages
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ sendUsersMessages
     -> SendUsersMessages
 sendUsersMessages pApplicationId_ pSendUsersMessageRequest_ =
   SendUsersMessages'
-  { _sumsApplicationId = pApplicationId_
-  , _sumsSendUsersMessageRequest = pSendUsersMessageRequest_
-  }
+    { _sumsApplicationId = pApplicationId_
+    , _sumsSendUsersMessageRequest = pSendUsersMessageRequest_
+    }
 
 
 -- | Undocumented member.
 sumsApplicationId :: Lens' SendUsersMessages Text
-sumsApplicationId = lens _sumsApplicationId (\ s a -> s{_sumsApplicationId = a});
+sumsApplicationId = lens _sumsApplicationId (\ s a -> s{_sumsApplicationId = a})
 
 -- | Undocumented member.
 sumsSendUsersMessageRequest :: Lens' SendUsersMessages SendUsersMessageRequest
-sumsSendUsersMessageRequest = lens _sumsSendUsersMessageRequest (\ s a -> s{_sumsSendUsersMessageRequest = a});
+sumsSendUsersMessageRequest = lens _sumsSendUsersMessageRequest (\ s a -> s{_sumsSendUsersMessageRequest = a})
 
 instance AWSRequest SendUsersMessages where
         type Rs SendUsersMessages = SendUsersMessagesResponse
@@ -133,17 +133,17 @@ sendUsersMessagesResponse
     -> SendUsersMessagesResponse
 sendUsersMessagesResponse pResponseStatus_ pSendUsersMessageResponse_ =
   SendUsersMessagesResponse'
-  { _sumrsResponseStatus = pResponseStatus_
-  , _sumrsSendUsersMessageResponse = pSendUsersMessageResponse_
-  }
+    { _sumrsResponseStatus = pResponseStatus_
+    , _sumrsSendUsersMessageResponse = pSendUsersMessageResponse_
+    }
 
 
 -- | -- | The response status code.
 sumrsResponseStatus :: Lens' SendUsersMessagesResponse Int
-sumrsResponseStatus = lens _sumrsResponseStatus (\ s a -> s{_sumrsResponseStatus = a});
+sumrsResponseStatus = lens _sumrsResponseStatus (\ s a -> s{_sumrsResponseStatus = a})
 
 -- | Undocumented member.
 sumrsSendUsersMessageResponse :: Lens' SendUsersMessagesResponse SendUsersMessageResponse
-sumrsSendUsersMessageResponse = lens _sumrsSendUsersMessageResponse (\ s a -> s{_sumrsSendUsersMessageResponse = a});
+sumrsSendUsersMessageResponse = lens _sumrsSendUsersMessageResponse (\ s a -> s{_sumrsSendUsersMessageResponse = a})
 
 instance NFData SendUsersMessagesResponse where

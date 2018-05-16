@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreatePortfolio
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new portfolio.
+-- Creates a portfolio.
 --
 --
 module Network.AWS.ServiceCatalog.CreatePortfolio
@@ -67,15 +67,15 @@ data CreatePortfolio = CreatePortfolio'
 --
 -- * 'creAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'creDescription' - The text description of the portfolio.
+-- * 'creDescription' - The description of the portfolio.
 --
--- * 'creTags' - Tags to associate with the new portfolio.
+-- * 'creTags' - One or more tags.
 --
 -- * 'creDisplayName' - The name to use for display purposes.
 --
 -- * 'creProviderName' - The name of the portfolio provider.
 --
--- * 'creIdempotencyToken' - A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- * 'creIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 createPortfolio
     :: Text -- ^ 'creDisplayName'
     -> Text -- ^ 'creProviderName'
@@ -83,38 +83,38 @@ createPortfolio
     -> CreatePortfolio
 createPortfolio pDisplayName_ pProviderName_ pIdempotencyToken_ =
   CreatePortfolio'
-  { _creAcceptLanguage = Nothing
-  , _creDescription = Nothing
-  , _creTags = Nothing
-  , _creDisplayName = pDisplayName_
-  , _creProviderName = pProviderName_
-  , _creIdempotencyToken = pIdempotencyToken_
-  }
+    { _creAcceptLanguage = Nothing
+    , _creDescription = Nothing
+    , _creTags = Nothing
+    , _creDisplayName = pDisplayName_
+    , _creProviderName = pProviderName_
+    , _creIdempotencyToken = pIdempotencyToken_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 creAcceptLanguage :: Lens' CreatePortfolio (Maybe Text)
-creAcceptLanguage = lens _creAcceptLanguage (\ s a -> s{_creAcceptLanguage = a});
+creAcceptLanguage = lens _creAcceptLanguage (\ s a -> s{_creAcceptLanguage = a})
 
--- | The text description of the portfolio.
+-- | The description of the portfolio.
 creDescription :: Lens' CreatePortfolio (Maybe Text)
-creDescription = lens _creDescription (\ s a -> s{_creDescription = a});
+creDescription = lens _creDescription (\ s a -> s{_creDescription = a})
 
--- | Tags to associate with the new portfolio.
+-- | One or more tags.
 creTags :: Lens' CreatePortfolio [Tag]
-creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default . _Coerce;
+creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default . _Coerce
 
 -- | The name to use for display purposes.
 creDisplayName :: Lens' CreatePortfolio Text
-creDisplayName = lens _creDisplayName (\ s a -> s{_creDisplayName = a});
+creDisplayName = lens _creDisplayName (\ s a -> s{_creDisplayName = a})
 
 -- | The name of the portfolio provider.
 creProviderName :: Lens' CreatePortfolio Text
-creProviderName = lens _creProviderName (\ s a -> s{_creProviderName = a});
+creProviderName = lens _creProviderName (\ s a -> s{_creProviderName = a})
 
--- | A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 creIdempotencyToken :: Lens' CreatePortfolio Text
-creIdempotencyToken = lens _creIdempotencyToken (\ s a -> s{_creIdempotencyToken = a});
+creIdempotencyToken = lens _creIdempotencyToken (\ s a -> s{_creIdempotencyToken = a})
 
 instance AWSRequest CreatePortfolio where
         type Rs CreatePortfolio = CreatePortfolioResponse
@@ -170,9 +170,9 @@ data CreatePortfolioResponse = CreatePortfolioResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsPortfolioDetail' - The resulting detailed portfolio information.
+-- * 'crsPortfolioDetail' - Information about the portfolio.
 --
--- * 'crsTags' - Tags successfully associated with the new portfolio.
+-- * 'crsTags' - Information about the tags associated with the portfolio.
 --
 -- * 'crsResponseStatus' - -- | The response status code.
 createPortfolioResponse
@@ -180,22 +180,22 @@ createPortfolioResponse
     -> CreatePortfolioResponse
 createPortfolioResponse pResponseStatus_ =
   CreatePortfolioResponse'
-  { _crsPortfolioDetail = Nothing
-  , _crsTags = Nothing
-  , _crsResponseStatus = pResponseStatus_
-  }
+    { _crsPortfolioDetail = Nothing
+    , _crsTags = Nothing
+    , _crsResponseStatus = pResponseStatus_
+    }
 
 
--- | The resulting detailed portfolio information.
+-- | Information about the portfolio.
 crsPortfolioDetail :: Lens' CreatePortfolioResponse (Maybe PortfolioDetail)
-crsPortfolioDetail = lens _crsPortfolioDetail (\ s a -> s{_crsPortfolioDetail = a});
+crsPortfolioDetail = lens _crsPortfolioDetail (\ s a -> s{_crsPortfolioDetail = a})
 
--- | Tags successfully associated with the new portfolio.
+-- | Information about the tags associated with the portfolio.
 crsTags :: Lens' CreatePortfolioResponse [Tag]
-crsTags = lens _crsTags (\ s a -> s{_crsTags = a}) . _Default . _Coerce;
+crsTags = lens _crsTags (\ s a -> s{_crsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 crsResponseStatus :: Lens' CreatePortfolioResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
 
 instance NFData CreatePortfolioResponse where

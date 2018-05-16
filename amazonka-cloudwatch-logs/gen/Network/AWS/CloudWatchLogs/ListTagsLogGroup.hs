@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.ListTagsLogGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ listTagsLogGroup pLogGroupName_ =
 
 -- | The name of the log group.
 ltlgLogGroupName :: Lens' ListTagsLogGroup Text
-ltlgLogGroupName = lens _ltlgLogGroupName (\ s a -> s{_ltlgLogGroupName = a});
+ltlgLogGroupName = lens _ltlgLogGroupName (\ s a -> s{_ltlgLogGroupName = a})
 
 instance AWSRequest ListTagsLogGroup where
         type Rs ListTagsLogGroup = ListTagsLogGroupResponse
@@ -119,15 +119,15 @@ listTagsLogGroupResponse
     -> ListTagsLogGroupResponse
 listTagsLogGroupResponse pResponseStatus_ =
   ListTagsLogGroupResponse'
-  {_ltlgrsTags = Nothing, _ltlgrsResponseStatus = pResponseStatus_}
+    {_ltlgrsTags = Nothing, _ltlgrsResponseStatus = pResponseStatus_}
 
 
 -- | The tags for the log group.
 ltlgrsTags :: Lens' ListTagsLogGroupResponse (HashMap Text Text)
-ltlgrsTags = lens _ltlgrsTags (\ s a -> s{_ltlgrsTags = a}) . _Default . _Map;
+ltlgrsTags = lens _ltlgrsTags (\ s a -> s{_ltlgrsTags = a}) . _Default . _Map
 
 -- | -- | The response status code.
 ltlgrsResponseStatus :: Lens' ListTagsLogGroupResponse Int
-ltlgrsResponseStatus = lens _ltlgrsResponseStatus (\ s a -> s{_ltlgrsResponseStatus = a});
+ltlgrsResponseStatus = lens _ltlgrsResponseStatus (\ s a -> s{_ltlgrsResponseStatus = a})
 
 instance NFData ListTagsLogGroupResponse where

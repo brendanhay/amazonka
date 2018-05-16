@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListAssociationVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ listAssociationVersions
     -> ListAssociationVersions
 listAssociationVersions pAssociationId_ =
   ListAssociationVersions'
-  { _lavNextToken = Nothing
-  , _lavMaxResults = Nothing
-  , _lavAssociationId = pAssociationId_
-  }
+    { _lavNextToken = Nothing
+    , _lavMaxResults = Nothing
+    , _lavAssociationId = pAssociationId_
+    }
 
 
 -- | A token to start the list. Use this token to get the next set of results.
 lavNextToken :: Lens' ListAssociationVersions (Maybe Text)
-lavNextToken = lens _lavNextToken (\ s a -> s{_lavNextToken = a});
+lavNextToken = lens _lavNextToken (\ s a -> s{_lavNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lavMaxResults :: Lens' ListAssociationVersions (Maybe Natural)
-lavMaxResults = lens _lavMaxResults (\ s a -> s{_lavMaxResults = a}) . mapping _Nat;
+lavMaxResults = lens _lavMaxResults (\ s a -> s{_lavMaxResults = a}) . mapping _Nat
 
 -- | The association ID for which you want to view all versions.
 lavAssociationId :: Lens' ListAssociationVersions Text
-lavAssociationId = lens _lavAssociationId (\ s a -> s{_lavAssociationId = a});
+lavAssociationId = lens _lavAssociationId (\ s a -> s{_lavAssociationId = a})
 
 instance AWSRequest ListAssociationVersions where
         type Rs ListAssociationVersions =
@@ -147,22 +147,22 @@ listAssociationVersionsResponse
     -> ListAssociationVersionsResponse
 listAssociationVersionsResponse pResponseStatus_ =
   ListAssociationVersionsResponse'
-  { _lavrsNextToken = Nothing
-  , _lavrsAssociationVersions = Nothing
-  , _lavrsResponseStatus = pResponseStatus_
-  }
+    { _lavrsNextToken = Nothing
+    , _lavrsAssociationVersions = Nothing
+    , _lavrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
 lavrsNextToken :: Lens' ListAssociationVersionsResponse (Maybe Text)
-lavrsNextToken = lens _lavrsNextToken (\ s a -> s{_lavrsNextToken = a});
+lavrsNextToken = lens _lavrsNextToken (\ s a -> s{_lavrsNextToken = a})
 
 -- | Information about all versions of the association for the specified association ID.
 lavrsAssociationVersions :: Lens' ListAssociationVersionsResponse (Maybe (NonEmpty AssociationVersionInfo))
-lavrsAssociationVersions = lens _lavrsAssociationVersions (\ s a -> s{_lavrsAssociationVersions = a}) . mapping _List1;
+lavrsAssociationVersions = lens _lavrsAssociationVersions (\ s a -> s{_lavrsAssociationVersions = a}) . mapping _List1
 
 -- | -- | The response status code.
 lavrsResponseStatus :: Lens' ListAssociationVersionsResponse Int
-lavrsResponseStatus = lens _lavrsResponseStatus (\ s a -> s{_lavrsResponseStatus = a});
+lavrsResponseStatus = lens _lavrsResponseStatus (\ s a -> s{_lavrsResponseStatus = a})
 
 instance NFData ListAssociationVersionsResponse where

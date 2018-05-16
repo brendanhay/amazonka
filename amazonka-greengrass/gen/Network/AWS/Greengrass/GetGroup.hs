@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,16 +58,16 @@ newtype GetGroup = GetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'ggGroupId' - The ID of the AWS Greengrass group.
 getGroup
     :: Text -- ^ 'ggGroupId'
     -> GetGroup
 getGroup pGroupId_ = GetGroup' {_ggGroupId = pGroupId_}
 
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 ggGroupId :: Lens' GetGroup Text
-ggGroupId = lens _ggGroupId (\ s a -> s{_ggGroupId = a});
+ggGroupId = lens _ggGroupId (\ s a -> s{_ggGroupId = a})
 
 instance AWSRequest GetGroup where
         type Rs GetGroup = GetGroupResponse
@@ -119,19 +119,19 @@ data GetGroupResponse = GetGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggrsLatestVersionARN' - Latest version arn of the definition.
+-- * 'ggrsLatestVersionARN' - The ARN of the latest version of the definition.
 --
--- * 'ggrsARN' - Arn of the definition.
+-- * 'ggrsARN' - The ARN of the definition.
 --
--- * 'ggrsName' - Name of the definition.
+-- * 'ggrsName' - The name of the definition.
 --
--- * 'ggrsCreationTimestamp' - Timestamp of when the definition was created.
+-- * 'ggrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
 --
--- * 'ggrsId' - Id of the definition.
+-- * 'ggrsId' - The ID of the definition.
 --
--- * 'ggrsLatestVersion' - Last version of the definition.
+-- * 'ggrsLatestVersion' - The latest version of the definition.
 --
--- * 'ggrsLastUpdatedTimestamp' - Last updated timestamp of the definition.
+-- * 'ggrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- * 'ggrsResponseStatus' - -- | The response status code.
 getGroupResponse
@@ -139,47 +139,47 @@ getGroupResponse
     -> GetGroupResponse
 getGroupResponse pResponseStatus_ =
   GetGroupResponse'
-  { _ggrsLatestVersionARN = Nothing
-  , _ggrsARN = Nothing
-  , _ggrsName = Nothing
-  , _ggrsCreationTimestamp = Nothing
-  , _ggrsId = Nothing
-  , _ggrsLatestVersion = Nothing
-  , _ggrsLastUpdatedTimestamp = Nothing
-  , _ggrsResponseStatus = pResponseStatus_
-  }
+    { _ggrsLatestVersionARN = Nothing
+    , _ggrsARN = Nothing
+    , _ggrsName = Nothing
+    , _ggrsCreationTimestamp = Nothing
+    , _ggrsId = Nothing
+    , _ggrsLatestVersion = Nothing
+    , _ggrsLastUpdatedTimestamp = Nothing
+    , _ggrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Latest version arn of the definition.
+-- | The ARN of the latest version of the definition.
 ggrsLatestVersionARN :: Lens' GetGroupResponse (Maybe Text)
-ggrsLatestVersionARN = lens _ggrsLatestVersionARN (\ s a -> s{_ggrsLatestVersionARN = a});
+ggrsLatestVersionARN = lens _ggrsLatestVersionARN (\ s a -> s{_ggrsLatestVersionARN = a})
 
--- | Arn of the definition.
+-- | The ARN of the definition.
 ggrsARN :: Lens' GetGroupResponse (Maybe Text)
-ggrsARN = lens _ggrsARN (\ s a -> s{_ggrsARN = a});
+ggrsARN = lens _ggrsARN (\ s a -> s{_ggrsARN = a})
 
--- | Name of the definition.
+-- | The name of the definition.
 ggrsName :: Lens' GetGroupResponse (Maybe Text)
-ggrsName = lens _ggrsName (\ s a -> s{_ggrsName = a});
+ggrsName = lens _ggrsName (\ s a -> s{_ggrsName = a})
 
--- | Timestamp of when the definition was created.
+-- | The time, in milliseconds since the epoch, when the definition was created.
 ggrsCreationTimestamp :: Lens' GetGroupResponse (Maybe Text)
-ggrsCreationTimestamp = lens _ggrsCreationTimestamp (\ s a -> s{_ggrsCreationTimestamp = a});
+ggrsCreationTimestamp = lens _ggrsCreationTimestamp (\ s a -> s{_ggrsCreationTimestamp = a})
 
--- | Id of the definition.
+-- | The ID of the definition.
 ggrsId :: Lens' GetGroupResponse (Maybe Text)
-ggrsId = lens _ggrsId (\ s a -> s{_ggrsId = a});
+ggrsId = lens _ggrsId (\ s a -> s{_ggrsId = a})
 
--- | Last version of the definition.
+-- | The latest version of the definition.
 ggrsLatestVersion :: Lens' GetGroupResponse (Maybe Text)
-ggrsLatestVersion = lens _ggrsLatestVersion (\ s a -> s{_ggrsLatestVersion = a});
+ggrsLatestVersion = lens _ggrsLatestVersion (\ s a -> s{_ggrsLatestVersion = a})
 
--- | Last updated timestamp of the definition.
+-- | The time, in milliseconds since the epoch, when the definition was last updated.
 ggrsLastUpdatedTimestamp :: Lens' GetGroupResponse (Maybe Text)
-ggrsLastUpdatedTimestamp = lens _ggrsLastUpdatedTimestamp (\ s a -> s{_ggrsLastUpdatedTimestamp = a});
+ggrsLastUpdatedTimestamp = lens _ggrsLastUpdatedTimestamp (\ s a -> s{_ggrsLastUpdatedTimestamp = a})
 
 -- | -- | The response status code.
 ggrsResponseStatus :: Lens' GetGroupResponse Int
-ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a});
+ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a})
 
 instance NFData GetGroupResponse where

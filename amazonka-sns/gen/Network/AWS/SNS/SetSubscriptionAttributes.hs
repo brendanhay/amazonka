@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.SetSubscriptionAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ setSubscriptionAttributes
     -> SetSubscriptionAttributes
 setSubscriptionAttributes pSubscriptionARN_ pAttributeName_ =
   SetSubscriptionAttributes'
-  { _ssaAttributeValue = Nothing
-  , _ssaSubscriptionARN = pSubscriptionARN_
-  , _ssaAttributeName = pAttributeName_
-  }
+    { _ssaAttributeValue = Nothing
+    , _ssaSubscriptionARN = pSubscriptionARN_
+    , _ssaAttributeName = pAttributeName_
+    }
 
 
 -- | The new value for the attribute in JSON format.
 ssaAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
-ssaAttributeValue = lens _ssaAttributeValue (\ s a -> s{_ssaAttributeValue = a});
+ssaAttributeValue = lens _ssaAttributeValue (\ s a -> s{_ssaAttributeValue = a})
 
 -- | The ARN of the subscription to modify.
 ssaSubscriptionARN :: Lens' SetSubscriptionAttributes Text
-ssaSubscriptionARN = lens _ssaSubscriptionARN (\ s a -> s{_ssaSubscriptionARN = a});
+ssaSubscriptionARN = lens _ssaSubscriptionARN (\ s a -> s{_ssaSubscriptionARN = a})
 
 -- | The name of the attribute you want to set. Only a subset of the subscriptions attributes are mutable. Valid values: @DeliveryPolicy@ | @RawMessageDelivery@
 ssaAttributeName :: Lens' SetSubscriptionAttributes Text
-ssaAttributeName = lens _ssaAttributeName (\ s a -> s{_ssaAttributeName = a});
+ssaAttributeName = lens _ssaAttributeName (\ s a -> s{_ssaAttributeName = a})
 
 instance AWSRequest SetSubscriptionAttributes where
         type Rs SetSubscriptionAttributes =

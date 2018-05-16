@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.AcceptPortfolioShare
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accepts an offer to share a portfolio.
+-- Accepts an offer to share the specified portfolio.
 --
 --
 module Network.AWS.ServiceCatalog.AcceptPortfolioShare
@@ -63,16 +63,16 @@ acceptPortfolioShare
     -> AcceptPortfolioShare
 acceptPortfolioShare pPortfolioId_ =
   AcceptPortfolioShare'
-  {_apsAcceptLanguage = Nothing, _apsPortfolioId = pPortfolioId_}
+    {_apsAcceptLanguage = Nothing, _apsPortfolioId = pPortfolioId_}
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 apsAcceptLanguage :: Lens' AcceptPortfolioShare (Maybe Text)
-apsAcceptLanguage = lens _apsAcceptLanguage (\ s a -> s{_apsAcceptLanguage = a});
+apsAcceptLanguage = lens _apsAcceptLanguage (\ s a -> s{_apsAcceptLanguage = a})
 
 -- | The portfolio identifier.
 apsPortfolioId :: Lens' AcceptPortfolioShare Text
-apsPortfolioId = lens _apsPortfolioId (\ s a -> s{_apsPortfolioId = a});
+apsPortfolioId = lens _apsPortfolioId (\ s a -> s{_apsPortfolioId = a})
 
 instance AWSRequest AcceptPortfolioShare where
         type Rs AcceptPortfolioShare =
@@ -131,6 +131,6 @@ acceptPortfolioShareResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 apsrsResponseStatus :: Lens' AcceptPortfolioShareResponse Int
-apsrsResponseStatus = lens _apsrsResponseStatus (\ s a -> s{_apsrsResponseStatus = a});
+apsrsResponseStatus = lens _apsrsResponseStatus (\ s a -> s{_apsrsResponseStatus = a})
 
 instance NFData AcceptPortfolioShareResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AllocateHosts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,33 +82,33 @@ allocateHosts
     -> AllocateHosts
 allocateHosts pAvailabilityZone_ pInstanceType_ pQuantity_ =
   AllocateHosts'
-  { _ahClientToken = Nothing
-  , _ahAutoPlacement = Nothing
-  , _ahAvailabilityZone = pAvailabilityZone_
-  , _ahInstanceType = pInstanceType_
-  , _ahQuantity = pQuantity_
-  }
+    { _ahClientToken = Nothing
+    , _ahAutoPlacement = Nothing
+    , _ahAvailabilityZone = pAvailabilityZone_
+    , _ahInstanceType = pInstanceType_
+    , _ahQuantity = pQuantity_
+    }
 
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 ahClientToken :: Lens' AllocateHosts (Maybe Text)
-ahClientToken = lens _ahClientToken (\ s a -> s{_ahClientToken = a});
+ahClientToken = lens _ahClientToken (\ s a -> s{_ahClientToken = a})
 
 -- | This is enabled by default. This property allows instances to be automatically placed onto available Dedicated Hosts, when you are launching instances without specifying a host ID. Default: Enabled
 ahAutoPlacement :: Lens' AllocateHosts (Maybe AutoPlacement)
-ahAutoPlacement = lens _ahAutoPlacement (\ s a -> s{_ahAutoPlacement = a});
+ahAutoPlacement = lens _ahAutoPlacement (\ s a -> s{_ahAutoPlacement = a})
 
 -- | The Availability Zone for the Dedicated Hosts.
 ahAvailabilityZone :: Lens' AllocateHosts Text
-ahAvailabilityZone = lens _ahAvailabilityZone (\ s a -> s{_ahAvailabilityZone = a});
+ahAvailabilityZone = lens _ahAvailabilityZone (\ s a -> s{_ahAvailabilityZone = a})
 
 -- | Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the instance type, that is the only instance type that you can launch onto that host.
 ahInstanceType :: Lens' AllocateHosts Text
-ahInstanceType = lens _ahInstanceType (\ s a -> s{_ahInstanceType = a});
+ahInstanceType = lens _ahInstanceType (\ s a -> s{_ahInstanceType = a})
 
 -- | The number of Dedicated Hosts you want to allocate to your account with these parameters.
 ahQuantity :: Lens' AllocateHosts Int
-ahQuantity = lens _ahQuantity (\ s a -> s{_ahQuantity = a});
+ahQuantity = lens _ahQuantity (\ s a -> s{_ahQuantity = a})
 
 instance AWSRequest AllocateHosts where
         type Rs AllocateHosts = AllocateHostsResponse
@@ -165,15 +165,15 @@ allocateHostsResponse
     -> AllocateHostsResponse
 allocateHostsResponse pResponseStatus_ =
   AllocateHostsResponse'
-  {_ahrsHostIds = Nothing, _ahrsResponseStatus = pResponseStatus_}
+    {_ahrsHostIds = Nothing, _ahrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific host.
 ahrsHostIds :: Lens' AllocateHostsResponse [Text]
-ahrsHostIds = lens _ahrsHostIds (\ s a -> s{_ahrsHostIds = a}) . _Default . _Coerce;
+ahrsHostIds = lens _ahrsHostIds (\ s a -> s{_ahrsHostIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ahrsResponseStatus :: Lens' AllocateHostsResponse Int
-ahrsResponseStatus = lens _ahrsResponseStatus (\ s a -> s{_ahrsResponseStatus = a});
+ahrsResponseStatus = lens _ahrsResponseStatus (\ s a -> s{_ahrsResponseStatus = a})
 
 instance NFData AllocateHostsResponse where

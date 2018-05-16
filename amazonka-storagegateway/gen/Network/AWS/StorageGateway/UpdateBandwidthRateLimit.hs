@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateBandwidthRateLimit
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,23 +82,23 @@ updateBandwidthRateLimit
     -> UpdateBandwidthRateLimit
 updateBandwidthRateLimit pGatewayARN_ =
   UpdateBandwidthRateLimit'
-  { _ubrlAverageUploadRateLimitInBitsPerSec = Nothing
-  , _ubrlAverageDownloadRateLimitInBitsPerSec = Nothing
-  , _ubrlGatewayARN = pGatewayARN_
-  }
+    { _ubrlAverageUploadRateLimitInBitsPerSec = Nothing
+    , _ubrlAverageDownloadRateLimitInBitsPerSec = Nothing
+    , _ubrlGatewayARN = pGatewayARN_
+    }
 
 
 -- | The average upload bandwidth rate limit in bits per second.
 ubrlAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
-ubrlAverageUploadRateLimitInBitsPerSec = lens _ubrlAverageUploadRateLimitInBitsPerSec (\ s a -> s{_ubrlAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat;
+ubrlAverageUploadRateLimitInBitsPerSec = lens _ubrlAverageUploadRateLimitInBitsPerSec (\ s a -> s{_ubrlAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat
 
 -- | The average download bandwidth rate limit in bits per second.
 ubrlAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
-ubrlAverageDownloadRateLimitInBitsPerSec = lens _ubrlAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_ubrlAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
+ubrlAverageDownloadRateLimitInBitsPerSec = lens _ubrlAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_ubrlAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat
 
 -- | Undocumented member.
 ubrlGatewayARN :: Lens' UpdateBandwidthRateLimit Text
-ubrlGatewayARN = lens _ubrlGatewayARN (\ s a -> s{_ubrlGatewayARN = a});
+ubrlGatewayARN = lens _ubrlGatewayARN (\ s a -> s{_ubrlGatewayARN = a})
 
 instance AWSRequest UpdateBandwidthRateLimit where
         type Rs UpdateBandwidthRateLimit =
@@ -163,16 +163,16 @@ updateBandwidthRateLimitResponse
     -> UpdateBandwidthRateLimitResponse
 updateBandwidthRateLimitResponse pResponseStatus_ =
   UpdateBandwidthRateLimitResponse'
-  {_ubrlrsGatewayARN = Nothing, _ubrlrsResponseStatus = pResponseStatus_}
+    {_ubrlrsGatewayARN = Nothing, _ubrlrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 ubrlrsGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
-ubrlrsGatewayARN = lens _ubrlrsGatewayARN (\ s a -> s{_ubrlrsGatewayARN = a});
+ubrlrsGatewayARN = lens _ubrlrsGatewayARN (\ s a -> s{_ubrlrsGatewayARN = a})
 
 -- | -- | The response status code.
 ubrlrsResponseStatus :: Lens' UpdateBandwidthRateLimitResponse Int
-ubrlrsResponseStatus = lens _ubrlrsResponseStatus (\ s a -> s{_ubrlrsResponseStatus = a});
+ubrlrsResponseStatus = lens _ubrlrsResponseStatus (\ s a -> s{_ubrlrsResponseStatus = a})
 
 instance NFData UpdateBandwidthRateLimitResponse
          where

@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -96,6 +96,7 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * ApplicationDescription
     , ApplicationDescription
     , applicationDescription
+    , adApplicationARN
     , adVersions
     , adDateUpdated
     , adDateCreated
@@ -133,6 +134,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , avdVersionLabel
     , avdSourceBuildInformation
     , avdApplicationName
+    , avdApplicationVersionARN
     , avdBuildARN
     , avdDescription
 
@@ -467,6 +469,20 @@ module Network.AWS.ElasticBeanstalk.Types
     , qURL
     , qName
 
+    -- * ResourceQuota
+    , ResourceQuota
+    , resourceQuota
+    , rqMaximum
+
+    -- * ResourceQuotas
+    , ResourceQuotas
+    , resourceQuotas
+    , rqApplicationQuota
+    , rqCustomPlatformQuota
+    , rqApplicationVersionQuota
+    , rqEnvironmentQuota
+    , rqConfigurationTemplateQuota
+
     -- * S3Location
     , S3Location
     , s3Location
@@ -550,24 +566,24 @@ import Network.AWS.Sign.V4
 elasticBeanstalk :: Service
 elasticBeanstalk =
   Service
-  { _svcAbbrev = "ElasticBeanstalk"
-  , _svcSigner = v4
-  , _svcPrefix = "elasticbeanstalk"
-  , _svcVersion = "2010-12-01"
-  , _svcEndpoint = defaultEndpoint elasticBeanstalk
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "ElasticBeanstalk"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "ElasticBeanstalk"
+    , _svcSigner = v4
+    , _svcPrefix = "elasticbeanstalk"
+    , _svcVersion = "2010-12-01"
+    , _svcEndpoint = defaultEndpoint elasticBeanstalk
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError "ElasticBeanstalk"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -576,6 +592,8 @@ elasticBeanstalk =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -652,7 +670,7 @@ _ResourceTypeNotSupportedException =
   hasStatus 400
 
 
--- | The specified account does not have sufficient privileges for one of more AWS services.
+-- | The specified account does not have sufficient privileges for one or more AWS services.
 --
 --
 _InsufficientPrivilegesException :: AsError a => Getting (First ServiceError) a ServiceError

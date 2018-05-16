@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ getCloudFrontOriginAccessIdentity pId_ =
 
 -- | The identity's ID.
 gcfoaiId :: Lens' GetCloudFrontOriginAccessIdentity Text
-gcfoaiId = lens _gcfoaiId (\ s a -> s{_gcfoaiId = a});
+gcfoaiId = lens _gcfoaiId (\ s a -> s{_gcfoaiId = a})
 
 instance AWSRequest GetCloudFrontOriginAccessIdentity
          where
@@ -97,7 +97,7 @@ instance ToPath GetCloudFrontOriginAccessIdentity
          where
         toPath GetCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2017-03-25/origin-access-identity/cloudfront/",
+              ["/2017-10-30/origin-access-identity/cloudfront/",
                toBS _gcfoaiId]
 
 instance ToQuery GetCloudFrontOriginAccessIdentity
@@ -130,23 +130,23 @@ getCloudFrontOriginAccessIdentityResponse
     -> GetCloudFrontOriginAccessIdentityResponse
 getCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
   GetCloudFrontOriginAccessIdentityResponse'
-  { _gcfoairsETag = Nothing
-  , _gcfoairsCloudFrontOriginAccessIdentity = Nothing
-  , _gcfoairsResponseStatus = pResponseStatus_
-  }
+    { _gcfoairsETag = Nothing
+    , _gcfoairsCloudFrontOriginAccessIdentity = Nothing
+    , _gcfoairsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current version of the origin access identity's information. For example: @E2QWRUHAPOMQZL@ .
 gcfoairsETag :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe Text)
-gcfoairsETag = lens _gcfoairsETag (\ s a -> s{_gcfoairsETag = a});
+gcfoairsETag = lens _gcfoairsETag (\ s a -> s{_gcfoairsETag = a})
 
 -- | The origin access identity's information.
 gcfoairsCloudFrontOriginAccessIdentity :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
-gcfoairsCloudFrontOriginAccessIdentity = lens _gcfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_gcfoairsCloudFrontOriginAccessIdentity = a});
+gcfoairsCloudFrontOriginAccessIdentity = lens _gcfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_gcfoairsCloudFrontOriginAccessIdentity = a})
 
 -- | -- | The response status code.
 gcfoairsResponseStatus :: Lens' GetCloudFrontOriginAccessIdentityResponse Int
-gcfoairsResponseStatus = lens _gcfoairsResponseStatus (\ s a -> s{_gcfoairsResponseStatus = a});
+gcfoairsResponseStatus = lens _gcfoairsResponseStatus (\ s a -> s{_gcfoairsResponseStatus = a})
 
 instance NFData
            GetCloudFrontOriginAccessIdentityResponse

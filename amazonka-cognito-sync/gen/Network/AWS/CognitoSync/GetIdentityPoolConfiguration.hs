@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.GetIdentityPoolConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ getIdentityPoolConfiguration pIdentityPoolId_ =
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.
 gipcIdentityPoolId :: Lens' GetIdentityPoolConfiguration Text
-gipcIdentityPoolId = lens _gipcIdentityPoolId (\ s a -> s{_gipcIdentityPoolId = a});
+gipcIdentityPoolId = lens _gipcIdentityPoolId (\ s a -> s{_gipcIdentityPoolId = a})
 
 instance AWSRequest GetIdentityPoolConfiguration
          where
@@ -136,28 +136,28 @@ getIdentityPoolConfigurationResponse
     -> GetIdentityPoolConfigurationResponse
 getIdentityPoolConfigurationResponse pResponseStatus_ =
   GetIdentityPoolConfigurationResponse'
-  { _gipcrsIdentityPoolId = Nothing
-  , _gipcrsCognitoStreams = Nothing
-  , _gipcrsPushSync = Nothing
-  , _gipcrsResponseStatus = pResponseStatus_
-  }
+    { _gipcrsIdentityPoolId = Nothing
+    , _gipcrsCognitoStreams = Nothing
+    , _gipcrsPushSync = Nothing
+    , _gipcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
 gipcrsIdentityPoolId :: Lens' GetIdentityPoolConfigurationResponse (Maybe Text)
-gipcrsIdentityPoolId = lens _gipcrsIdentityPoolId (\ s a -> s{_gipcrsIdentityPoolId = a});
+gipcrsIdentityPoolId = lens _gipcrsIdentityPoolId (\ s a -> s{_gipcrsIdentityPoolId = a})
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 gipcrsCognitoStreams :: Lens' GetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
-gipcrsCognitoStreams = lens _gipcrsCognitoStreams (\ s a -> s{_gipcrsCognitoStreams = a});
+gipcrsCognitoStreams = lens _gipcrsCognitoStreams (\ s a -> s{_gipcrsCognitoStreams = a})
 
 -- | Options to apply to this identity pool for push synchronization.
 gipcrsPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
-gipcrsPushSync = lens _gipcrsPushSync (\ s a -> s{_gipcrsPushSync = a});
+gipcrsPushSync = lens _gipcrsPushSync (\ s a -> s{_gipcrsPushSync = a})
 
 -- | -- | The response status code.
 gipcrsResponseStatus :: Lens' GetIdentityPoolConfigurationResponse Int
-gipcrsResponseStatus = lens _gipcrsResponseStatus (\ s a -> s{_gipcrsResponseStatus = a});
+gipcrsResponseStatus = lens _gipcrsResponseStatus (\ s a -> s{_gipcrsResponseStatus = a})
 
 instance NFData GetIdentityPoolConfigurationResponse
          where

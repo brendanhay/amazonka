@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteOptionGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deleteOptionGroup pOptionGroupName_ =
 
 -- | The name of the option group to be deleted.
 dOptionGroupName :: Lens' DeleteOptionGroup Text
-dOptionGroupName = lens _dOptionGroupName (\ s a -> s{_dOptionGroupName = a});
+dOptionGroupName = lens _dOptionGroupName (\ s a -> s{_dOptionGroupName = a})
 
 instance AWSRequest DeleteOptionGroup where
         type Rs DeleteOptionGroup = DeleteOptionGroupResponse

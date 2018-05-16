@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSpotFleetInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the running instances for the specified Spot fleet.
+-- Describes the running instances for the specified Spot Fleet.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeSpotFleetInstances
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.EC2.DescribeSpotFleetInstances
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,34 +75,41 @@ data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
 --
 -- * 'dsfiMaxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 --
--- * 'dsfiSpotFleetRequestId' - The ID of the Spot fleet request.
+-- * 'dsfiSpotFleetRequestId' - The ID of the Spot Fleet request.
 describeSpotFleetInstances
     :: Text -- ^ 'dsfiSpotFleetRequestId'
     -> DescribeSpotFleetInstances
 describeSpotFleetInstances pSpotFleetRequestId_ =
   DescribeSpotFleetInstances'
-  { _dsfiNextToken = Nothing
-  , _dsfiDryRun = Nothing
-  , _dsfiMaxResults = Nothing
-  , _dsfiSpotFleetRequestId = pSpotFleetRequestId_
-  }
+    { _dsfiNextToken = Nothing
+    , _dsfiDryRun = Nothing
+    , _dsfiMaxResults = Nothing
+    , _dsfiSpotFleetRequestId = pSpotFleetRequestId_
+    }
 
 
 -- | The token for the next set of results.
 dsfiNextToken :: Lens' DescribeSpotFleetInstances (Maybe Text)
-dsfiNextToken = lens _dsfiNextToken (\ s a -> s{_dsfiNextToken = a});
+dsfiNextToken = lens _dsfiNextToken (\ s a -> s{_dsfiNextToken = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsfiDryRun :: Lens' DescribeSpotFleetInstances (Maybe Bool)
-dsfiDryRun = lens _dsfiDryRun (\ s a -> s{_dsfiDryRun = a});
+dsfiDryRun = lens _dsfiDryRun (\ s a -> s{_dsfiDryRun = a})
 
 -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 dsfiMaxResults :: Lens' DescribeSpotFleetInstances (Maybe Int)
-dsfiMaxResults = lens _dsfiMaxResults (\ s a -> s{_dsfiMaxResults = a});
+dsfiMaxResults = lens _dsfiMaxResults (\ s a -> s{_dsfiMaxResults = a})
 
--- | The ID of the Spot fleet request.
+-- | The ID of the Spot Fleet request.
 dsfiSpotFleetRequestId :: Lens' DescribeSpotFleetInstances Text
-dsfiSpotFleetRequestId = lens _dsfiSpotFleetRequestId (\ s a -> s{_dsfiSpotFleetRequestId = a});
+dsfiSpotFleetRequestId = lens _dsfiSpotFleetRequestId (\ s a -> s{_dsfiSpotFleetRequestId = a})
+
+instance AWSPager DescribeSpotFleetInstances where
+        page rq rs
+          | stop (rs ^. dsfirsNextToken) = Nothing
+          | stop (rs ^. dsfirsActiveInstances) = Nothing
+          | otherwise =
+            Just $ rq & dsfiNextToken .~ rs ^. dsfirsNextToken
 
 instance AWSRequest DescribeSpotFleetInstances where
         type Rs DescribeSpotFleetInstances =
@@ -156,37 +166,37 @@ data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
 --
 -- * 'dsfirsResponseStatus' - -- | The response status code.
 --
--- * 'dsfirsActiveInstances' - The running instances. Note that this list is refreshed periodically and might be out of date.
+-- * 'dsfirsActiveInstances' - The running instances. This list is refreshed periodically and might be out of date.
 --
--- * 'dsfirsSpotFleetRequestId' - The ID of the Spot fleet request.
+-- * 'dsfirsSpotFleetRequestId' - The ID of the Spot Fleet request.
 describeSpotFleetInstancesResponse
     :: Int -- ^ 'dsfirsResponseStatus'
     -> Text -- ^ 'dsfirsSpotFleetRequestId'
     -> DescribeSpotFleetInstancesResponse
 describeSpotFleetInstancesResponse pResponseStatus_ pSpotFleetRequestId_ =
   DescribeSpotFleetInstancesResponse'
-  { _dsfirsNextToken = Nothing
-  , _dsfirsResponseStatus = pResponseStatus_
-  , _dsfirsActiveInstances = mempty
-  , _dsfirsSpotFleetRequestId = pSpotFleetRequestId_
-  }
+    { _dsfirsNextToken = Nothing
+    , _dsfirsResponseStatus = pResponseStatus_
+    , _dsfirsActiveInstances = mempty
+    , _dsfirsSpotFleetRequestId = pSpotFleetRequestId_
+    }
 
 
 -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 dsfirsNextToken :: Lens' DescribeSpotFleetInstancesResponse (Maybe Text)
-dsfirsNextToken = lens _dsfirsNextToken (\ s a -> s{_dsfirsNextToken = a});
+dsfirsNextToken = lens _dsfirsNextToken (\ s a -> s{_dsfirsNextToken = a})
 
 -- | -- | The response status code.
 dsfirsResponseStatus :: Lens' DescribeSpotFleetInstancesResponse Int
-dsfirsResponseStatus = lens _dsfirsResponseStatus (\ s a -> s{_dsfirsResponseStatus = a});
+dsfirsResponseStatus = lens _dsfirsResponseStatus (\ s a -> s{_dsfirsResponseStatus = a})
 
--- | The running instances. Note that this list is refreshed periodically and might be out of date.
+-- | The running instances. This list is refreshed periodically and might be out of date.
 dsfirsActiveInstances :: Lens' DescribeSpotFleetInstancesResponse [ActiveInstance]
-dsfirsActiveInstances = lens _dsfirsActiveInstances (\ s a -> s{_dsfirsActiveInstances = a}) . _Coerce;
+dsfirsActiveInstances = lens _dsfirsActiveInstances (\ s a -> s{_dsfirsActiveInstances = a}) . _Coerce
 
--- | The ID of the Spot fleet request.
+-- | The ID of the Spot Fleet request.
 dsfirsSpotFleetRequestId :: Lens' DescribeSpotFleetInstancesResponse Text
-dsfirsSpotFleetRequestId = lens _dsfirsSpotFleetRequestId (\ s a -> s{_dsfirsSpotFleetRequestId = a});
+dsfirsSpotFleetRequestId = lens _dsfirsSpotFleetRequestId (\ s a -> s{_dsfirsSpotFleetRequestId = a})
 
 instance NFData DescribeSpotFleetInstancesResponse
          where

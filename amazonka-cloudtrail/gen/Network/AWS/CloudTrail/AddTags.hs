@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.AddTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ addTags pResourceId_ =
 
 -- | Contains a list of CloudTrail tags, up to a limit of 50
 atTagsList :: Lens' AddTags [Tag]
-atTagsList = lens _atTagsList (\ s a -> s{_atTagsList = a}) . _Default . _Coerce;
+atTagsList = lens _atTagsList (\ s a -> s{_atTagsList = a}) . _Default . _Coerce
 
 -- | Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 atResourceId :: Lens' AddTags Text
-atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a});
+atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a})
 
 instance AWSRequest AddTags where
         type Rs AddTags = AddTagsResponse
@@ -135,6 +135,6 @@ addTagsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
-atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
+atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a})
 
 instance NFData AddTagsResponse where

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,6 +79,9 @@ module Network.AWS.Pinpoint
     -- ** GetSegmentVersion
     , module Network.AWS.Pinpoint.GetSegmentVersion
 
+    -- ** CreateExportJob
+    , module Network.AWS.Pinpoint.CreateExportJob
+
     -- ** CreateSegment
     , module Network.AWS.Pinpoint.CreateSegment
 
@@ -88,11 +91,17 @@ module Network.AWS.Pinpoint
     -- ** DeleteADMChannel
     , module Network.AWS.Pinpoint.DeleteADMChannel
 
+    -- ** DeleteEndpoint
+    , module Network.AWS.Pinpoint.DeleteEndpoint
+
     -- ** UpdateEndpoint
     , module Network.AWS.Pinpoint.UpdateEndpoint
 
     -- ** CreateCampaign
     , module Network.AWS.Pinpoint.CreateCampaign
+
+    -- ** GetExportJob
+    , module Network.AWS.Pinpoint.GetExportJob
 
     -- ** GetEndpoint
     , module Network.AWS.Pinpoint.GetEndpoint
@@ -187,6 +196,9 @@ module Network.AWS.Pinpoint
     -- ** CreateApp
     , module Network.AWS.Pinpoint.CreateApp
 
+    -- ** GetSegmentExportJobs
+    , module Network.AWS.Pinpoint.GetSegmentExportJobs
+
     -- ** GetSmsChannel
     , module Network.AWS.Pinpoint.GetSmsChannel
 
@@ -204,6 +216,9 @@ module Network.AWS.Pinpoint
 
     -- ** GetSegments
     , module Network.AWS.Pinpoint.GetSegments
+
+    -- ** GetExportJobs
+    , module Network.AWS.Pinpoint.GetExportJobs
 
     -- ** CreateImportJob
     , module Network.AWS.Pinpoint.CreateImportJob
@@ -266,6 +281,9 @@ module Network.AWS.Pinpoint
 
     -- ** MessageType
     , MessageType (..)
+
+    -- ** Mode
+    , Mode (..)
 
     -- ** RecencyType
     , RecencyType (..)
@@ -492,6 +510,7 @@ module Network.AWS.Pinpoint
     , asrLimits
     , asrQuietTime
     , asrApplicationId
+    , asrCampaignHook
 
     -- ** ApplicationsResponse
     , ApplicationsResponse
@@ -552,6 +571,13 @@ module Network.AWS.Pinpoint
     , cemHTMLBody
     , cemTitle
 
+    -- ** CampaignHook
+    , CampaignHook
+    , campaignHook
+    , chLambdaFunctionName
+    , chMode
+    , chWebURL
+
     -- ** CampaignLimits
     , CampaignLimits
     , campaignLimits
@@ -566,6 +592,7 @@ module Network.AWS.Pinpoint
     , cState
     , cLastModifiedDate
     , cSchedule
+    , cHook
     , cTreatmentName
     , cLimits
     , cIsPaused
@@ -770,6 +797,43 @@ module Network.AWS.Pinpoint
     , esExternalId
     , esRoleARN
 
+    -- ** ExportJobRequest
+    , ExportJobRequest
+    , exportJobRequest
+    , eS3URLPrefix
+    , eSegmentId
+    , eRoleARN
+
+    -- ** ExportJobResource
+    , ExportJobResource
+    , exportJobResource
+    , ejrS3URLPrefix
+    , ejrSegmentId
+    , ejrRoleARN
+
+    -- ** ExportJobResponse
+    , ExportJobResponse
+    , exportJobResponse
+    , ejCompletedPieces
+    , ejFailedPieces
+    , ejDefinition
+    , ejTotalProcessed
+    , ejFailures
+    , ejTotalPieces
+    , ejApplicationId
+    , ejId
+    , ejCreationDate
+    , ejType
+    , ejCompletionDate
+    , ejJobStatus
+    , ejTotalFailures
+
+    -- ** ExportJobsResponse
+    , ExportJobsResponse
+    , exportJobsResponse
+    , ejNextToken
+    , ejItem
+
     -- ** GCMChannelRequest
     , GCMChannelRequest
     , gcmChannelRequest
@@ -954,6 +1018,7 @@ module Network.AWS.Pinpoint
     , SMSMessage
     , sMSMessage
     , smsmSubstitutions
+    , smsmOriginationNumber
     , smsmBody
     , smsmMessageType
     , smsmSenderId
@@ -1062,11 +1127,13 @@ module Network.AWS.Pinpoint
     , writeApplicationSettingsRequest
     , wasrLimits
     , wasrQuietTime
+    , wasrCampaignHook
 
     -- ** WriteCampaignRequest
     , WriteCampaignRequest
     , writeCampaignRequest
     , wcrSchedule
+    , wcrHook
     , wcrTreatmentName
     , wcrLimits
     , wcrIsPaused
@@ -1103,6 +1170,7 @@ module Network.AWS.Pinpoint
 
 import Network.AWS.Pinpoint.CreateApp
 import Network.AWS.Pinpoint.CreateCampaign
+import Network.AWS.Pinpoint.CreateExportJob
 import Network.AWS.Pinpoint.CreateImportJob
 import Network.AWS.Pinpoint.CreateSegment
 import Network.AWS.Pinpoint.DeleteADMChannel
@@ -1114,6 +1182,7 @@ import Network.AWS.Pinpoint.DeleteApp
 import Network.AWS.Pinpoint.DeleteBaiduChannel
 import Network.AWS.Pinpoint.DeleteCampaign
 import Network.AWS.Pinpoint.DeleteEmailChannel
+import Network.AWS.Pinpoint.DeleteEndpoint
 import Network.AWS.Pinpoint.DeleteEventStream
 import Network.AWS.Pinpoint.DeleteGCMChannel
 import Network.AWS.Pinpoint.DeleteSegment
@@ -1135,10 +1204,13 @@ import Network.AWS.Pinpoint.GetCampaignVersions
 import Network.AWS.Pinpoint.GetEmailChannel
 import Network.AWS.Pinpoint.GetEndpoint
 import Network.AWS.Pinpoint.GetEventStream
+import Network.AWS.Pinpoint.GetExportJob
+import Network.AWS.Pinpoint.GetExportJobs
 import Network.AWS.Pinpoint.GetGCMChannel
 import Network.AWS.Pinpoint.GetImportJob
 import Network.AWS.Pinpoint.GetImportJobs
 import Network.AWS.Pinpoint.GetSegment
+import Network.AWS.Pinpoint.GetSegmentExportJobs
 import Network.AWS.Pinpoint.GetSegmentImportJobs
 import Network.AWS.Pinpoint.GetSegments
 import Network.AWS.Pinpoint.GetSegmentVersion

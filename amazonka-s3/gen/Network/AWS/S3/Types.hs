@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,6 +42,9 @@ module Network.AWS.S3.Types
     -- * BucketVersioningStatus
     , BucketVersioningStatus (..)
 
+    -- * CompressionType
+    , CompressionType (..)
+
     -- * EncodingType
     , EncodingType (..)
 
@@ -50,6 +53,12 @@ module Network.AWS.S3.Types
 
     -- * ExpirationStatus
     , ExpirationStatus (..)
+
+    -- * ExpressionType
+    , ExpressionType (..)
+
+    -- * FileHeaderInfo
+    , FileHeaderInfo (..)
 
     -- * FilterRuleName
     , FilterRuleName (..)
@@ -65,6 +74,9 @@ module Network.AWS.S3.Types
 
     -- * InventoryOptionalField
     , InventoryOptionalField (..)
+
+    -- * JSONType
+    , JSONType (..)
 
     -- * MFADelete
     , MFADelete (..)
@@ -96,6 +108,9 @@ module Network.AWS.S3.Types
     -- * Protocol
     , Protocol (..)
 
+    -- * QuoteFields
+    , QuoteFields (..)
+
     -- * ReplicationRuleStatus
     , ReplicationRuleStatus (..)
 
@@ -107,6 +122,9 @@ module Network.AWS.S3.Types
 
     -- * RequestPayer
     , RequestPayer (..)
+
+    -- * RestoreRequestType
+    , RestoreRequestType (..)
 
     -- * ServerSideEncryption
     , ServerSideEncryption (..)
@@ -216,6 +234,25 @@ module Network.AWS.S3.Types
     , crAllowedMethods
     , crAllowedOrigins
 
+    -- * CSVInput
+    , CSVInput
+    , csvInput
+    , ciQuoteCharacter
+    , ciRecordDelimiter
+    , ciFileHeaderInfo
+    , ciQuoteEscapeCharacter
+    , ciComments
+    , ciFieldDelimiter
+
+    -- * CSVOutput
+    , CSVOutput
+    , csvOutput
+    , coQuoteCharacter
+    , coQuoteFields
+    , coRecordDelimiter
+    , coQuoteEscapeCharacter
+    , coFieldDelimiter
+
     -- * CommonPrefix
     , CommonPrefix
     , commonPrefix
@@ -237,6 +274,10 @@ module Network.AWS.S3.Types
     , condition
     , cKeyPrefixEquals
     , cHTTPErrorCodeReturnedEquals
+
+    -- * ContinuationEvent
+    , ContinuationEvent
+    , continuationEvent
 
     -- * CopyObjectResult
     , CopyObjectResult
@@ -287,10 +328,21 @@ module Network.AWS.S3.Types
     , dEncryptionConfiguration
     , dBucket
 
+    -- * Encryption
+    , Encryption
+    , encryption
+    , eKMSKeyId
+    , eKMSContext
+    , eEncryptionType
+
     -- * EncryptionConfiguration
     , EncryptionConfiguration
     , encryptionConfiguration
     , ecReplicaKMSKeyId
+
+    -- * EndEvent
+    , EndEvent
+    , endEvent
 
     -- * ErrorDocument
     , ErrorDocument
@@ -334,6 +386,13 @@ module Network.AWS.S3.Types
     , iDisplayName
     , iId
 
+    -- * InputSerialization
+    , InputSerialization
+    , inputSerialization
+    , isJSON
+    , isCSV
+    , isCompressionType
+
     -- * InventoryConfiguration
     , InventoryConfiguration
     , inventoryConfiguration
@@ -374,6 +433,16 @@ module Network.AWS.S3.Types
     , InventorySchedule
     , inventorySchedule
     , isFrequency
+
+    -- * JSONInput
+    , JSONInput
+    , jsonInput
+    , jiType
+
+    -- * JSONOutput
+    , JSONOutput
+    , jsonOutput
+    , joRecordDelimiter
 
     -- * LambdaFunctionConfiguration
     , LambdaFunctionConfiguration
@@ -419,9 +488,15 @@ module Network.AWS.S3.Types
     -- * LoggingEnabled
     , LoggingEnabled
     , loggingEnabled
-    , leTargetBucket
     , leTargetGrants
+    , leTargetBucket
     , leTargetPrefix
+
+    -- * MetadataEntry
+    , MetadataEntry
+    , metadataEntry
+    , meValue
+    , meName
 
     -- * MetricsAndOperator
     , MetricsAndOperator
@@ -503,6 +578,17 @@ module Network.AWS.S3.Types
     , ovStorageClass
     , ovLastModified
 
+    -- * OutputLocation
+    , OutputLocation
+    , outputLocation
+    , olS3
+
+    -- * OutputSerialization
+    , OutputSerialization
+    , outputSerialization
+    , osJSON
+    , osCSV
+
     -- * Owner
     , Owner
     , owner
@@ -517,6 +603,18 @@ module Network.AWS.S3.Types
     , pPartNumber
     , pLastModified
 
+    -- * Progress
+    , Progress
+    , progress
+    , pBytesReturned
+    , pBytesScanned
+    , pBytesProcessed
+
+    -- * ProgressEvent
+    , ProgressEvent
+    , progressEvent
+    , peDetails
+
     -- * QueueConfiguration
     , QueueConfiguration
     , queueConfiguration
@@ -524,6 +622,11 @@ module Network.AWS.S3.Types
     , qcFilter
     , qcQueueARN
     , qcEvents
+
+    -- * RecordsEvent
+    , RecordsEvent
+    , recordsEvent
+    , rePayload
 
     -- * Redirect
     , Redirect
@@ -560,11 +663,21 @@ module Network.AWS.S3.Types
     , requestPaymentConfiguration
     , rpcPayer
 
+    -- * RequestProgress
+    , RequestProgress
+    , requestProgress
+    , rpEnabled
+
     -- * RestoreRequest
     , RestoreRequest
     , restoreRequest
-    , rrGlacierJobParameters
     , rrDays
+    , rrSelectParameters
+    , rrOutputLocation
+    , rrTier
+    , rrGlacierJobParameters
+    , rrType
+    , rrDescription
 
     -- * RoutingRule
     , RoutingRule
@@ -576,6 +689,18 @@ module Network.AWS.S3.Types
     , S3KeyFilter
     , s3KeyFilter
     , skfFilterRules
+
+    -- * S3Location
+    , S3Location
+    , s3Location
+    , slCannedACL
+    , slAccessControlList
+    , slUserMetadata
+    , slEncryption
+    , slStorageClass
+    , slTagging
+    , slBucketName
+    , slPrefix
 
     -- * S3ServiceError
     , S3ServiceError
@@ -593,6 +718,23 @@ module Network.AWS.S3.Types
     -- * SSES3
     , SSES3
     , sSES3
+
+    -- * SelectObjectContentEventStream
+    , SelectObjectContentEventStream
+    , selectObjectContentEventStream
+    , socesProgress
+    , socesRecords
+    , socesCont
+    , socesStats
+    , socesEnd
+
+    -- * SelectParameters
+    , SelectParameters
+    , selectParameters
+    , spInputSerialization
+    , spExpressionType
+    , spExpression
+    , spOutputSerialization
 
     -- * ServerSideEncryptionByDefault
     , ServerSideEncryptionByDefault
@@ -619,6 +761,18 @@ module Network.AWS.S3.Types
     , SseKMSEncryptedObjects
     , sseKMSEncryptedObjects
     , skeoStatus
+
+    -- * Stats
+    , Stats
+    , stats
+    , sBytesReturned
+    , sBytesScanned
+    , sBytesProcessed
+
+    -- * StatsEvent
+    , StatsEvent
+    , statsEvent
+    , seDetails
 
     -- * StorageClassAnalysis
     , StorageClassAnalysis
@@ -689,24 +843,24 @@ import Network.AWS.Sign.V4
 s3 :: Service
 s3 =
   Service
-  { _svcAbbrev = "S3"
-  , _svcSigner = v4
-  , _svcPrefix = "s3"
-  , _svcVersion = "2006-03-01"
-  , _svcEndpoint = defaultEndpoint s3
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "S3"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "S3"
+    , _svcSigner = v4
+    , _svcPrefix = "s3"
+    , _svcVersion = "2006-03-01"
+    , _svcEndpoint = defaultEndpoint s3
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError "S3"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -715,6 +869,8 @@ s3 =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasCode "BadDigest" . hasStatus 400) e = Just "contentmd5"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"

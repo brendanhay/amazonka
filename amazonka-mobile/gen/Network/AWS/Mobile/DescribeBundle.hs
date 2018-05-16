@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Mobile.DescribeBundle
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ describeBundle pBundleId_ = DescribeBundle' {_dbBundleId = pBundleId_}
 
 -- | Unique bundle identifier.
 dbBundleId :: Lens' DescribeBundle Text
-dbBundleId = lens _dbBundleId (\ s a -> s{_dbBundleId = a});
+dbBundleId = lens _dbBundleId (\ s a -> s{_dbBundleId = a})
 
 instance AWSRequest DescribeBundle where
         type Rs DescribeBundle = DescribeBundleResponse
@@ -119,15 +119,15 @@ describeBundleResponse
     -> DescribeBundleResponse
 describeBundleResponse pResponseStatus_ =
   DescribeBundleResponse'
-  {_dbrsDetails = Nothing, _dbrsResponseStatus = pResponseStatus_}
+    {_dbrsDetails = Nothing, _dbrsResponseStatus = pResponseStatus_}
 
 
 -- | The details of the bundle.
 dbrsDetails :: Lens' DescribeBundleResponse (Maybe BundleDetails)
-dbrsDetails = lens _dbrsDetails (\ s a -> s{_dbrsDetails = a});
+dbrsDetails = lens _dbrsDetails (\ s a -> s{_dbrsDetails = a})
 
 -- | -- | The response status code.
 dbrsResponseStatus :: Lens' DescribeBundleResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
+dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a})
 
 instance NFData DescribeBundleResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeTargetHealth
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ describeTargetHealth
     -> DescribeTargetHealth
 describeTargetHealth pTargetGroupARN_ =
   DescribeTargetHealth'
-  {_dthTargets = Nothing, _dthTargetGroupARN = pTargetGroupARN_}
+    {_dthTargets = Nothing, _dthTargetGroupARN = pTargetGroupARN_}
 
 
 -- | The targets.
 dthTargets :: Lens' DescribeTargetHealth [TargetDescription]
-dthTargets = lens _dthTargets (\ s a -> s{_dthTargets = a}) . _Default . _Coerce;
+dthTargets = lens _dthTargets (\ s a -> s{_dthTargets = a}) . _Default . _Coerce
 
 -- | The Amazon Resource Name (ARN) of the target group.
 dthTargetGroupARN :: Lens' DescribeTargetHealth Text
-dthTargetGroupARN = lens _dthTargetGroupARN (\ s a -> s{_dthTargetGroupARN = a});
+dthTargetGroupARN = lens _dthTargetGroupARN (\ s a -> s{_dthTargetGroupARN = a})
 
 instance AWSRequest DescribeTargetHealth where
         type Rs DescribeTargetHealth =
@@ -125,17 +125,17 @@ describeTargetHealthResponse
     -> DescribeTargetHealthResponse
 describeTargetHealthResponse pResponseStatus_ =
   DescribeTargetHealthResponse'
-  { _dthrsTargetHealthDescriptions = Nothing
-  , _dthrsResponseStatus = pResponseStatus_
-  }
+    { _dthrsTargetHealthDescriptions = Nothing
+    , _dthrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the health of the targets.
 dthrsTargetHealthDescriptions :: Lens' DescribeTargetHealthResponse [TargetHealthDescription]
-dthrsTargetHealthDescriptions = lens _dthrsTargetHealthDescriptions (\ s a -> s{_dthrsTargetHealthDescriptions = a}) . _Default . _Coerce;
+dthrsTargetHealthDescriptions = lens _dthrsTargetHealthDescriptions (\ s a -> s{_dthrsTargetHealthDescriptions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dthrsResponseStatus :: Lens' DescribeTargetHealthResponse Int
-dthrsResponseStatus = lens _dthrsResponseStatus (\ s a -> s{_dthrsResponseStatus = a});
+dthrsResponseStatus = lens _dthrsResponseStatus (\ s a -> s{_dthrsResponseStatus = a})
 
 instance NFData DescribeTargetHealthResponse where

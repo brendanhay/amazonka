@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetIPSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getIPSet pIPSetId_ = GetIPSet' {_gisIPSetId = pIPSetId_}
 
 -- | The @IPSetId@ of the 'IPSet' that you want to get. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 gisIPSetId :: Lens' GetIPSet Text
-gisIPSetId = lens _gisIPSetId (\ s a -> s{_gisIPSetId = a});
+gisIPSetId = lens _gisIPSetId (\ s a -> s{_gisIPSetId = a})
 
 instance AWSRequest GetIPSet where
         type Rs GetIPSet = GetIPSetResponse
@@ -117,15 +117,15 @@ getIPSetResponse
     -> GetIPSetResponse
 getIPSetResponse pResponseStatus_ =
   GetIPSetResponse'
-  {_gisrsIPSet = Nothing, _gisrsResponseStatus = pResponseStatus_}
+    {_gisrsIPSet = Nothing, _gisrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@      * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
 gisrsIPSet :: Lens' GetIPSetResponse (Maybe IPSet)
-gisrsIPSet = lens _gisrsIPSet (\ s a -> s{_gisrsIPSet = a});
+gisrsIPSet = lens _gisrsIPSet (\ s a -> s{_gisrsIPSet = a})
 
 -- | -- | The response status code.
 gisrsResponseStatus :: Lens' GetIPSetResponse Int
-gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a});
+gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a})
 
 instance NFData GetIPSetResponse where

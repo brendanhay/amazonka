@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ updateUserAttributes
     -> UpdateUserAttributes
 updateUserAttributes pAccessToken_ =
   UpdateUserAttributes'
-  {_uuaUserAttributes = mempty, _uuaAccessToken = _Sensitive # pAccessToken_}
+    {_uuaUserAttributes = mempty, _uuaAccessToken = _Sensitive # pAccessToken_}
 
 
 -- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 uuaUserAttributes :: Lens' UpdateUserAttributes [AttributeType]
-uuaUserAttributes = lens _uuaUserAttributes (\ s a -> s{_uuaUserAttributes = a}) . _Coerce;
+uuaUserAttributes = lens _uuaUserAttributes (\ s a -> s{_uuaUserAttributes = a}) . _Coerce
 
 -- | The access token for the request to update user attributes.
 uuaAccessToken :: Lens' UpdateUserAttributes Text
-uuaAccessToken = lens _uuaAccessToken (\ s a -> s{_uuaAccessToken = a}) . _Sensitive;
+uuaAccessToken = lens _uuaAccessToken (\ s a -> s{_uuaAccessToken = a}) . _Sensitive
 
 instance AWSRequest UpdateUserAttributes where
         type Rs UpdateUserAttributes =
@@ -140,17 +140,17 @@ updateUserAttributesResponse
     -> UpdateUserAttributesResponse
 updateUserAttributesResponse pResponseStatus_ =
   UpdateUserAttributesResponse'
-  { _uuarsCodeDeliveryDetailsList = Nothing
-  , _uuarsResponseStatus = pResponseStatus_
-  }
+    { _uuarsCodeDeliveryDetailsList = Nothing
+    , _uuarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The code delivery details list from the server for the request to update user attributes.
 uuarsCodeDeliveryDetailsList :: Lens' UpdateUserAttributesResponse [CodeDeliveryDetailsType]
-uuarsCodeDeliveryDetailsList = lens _uuarsCodeDeliveryDetailsList (\ s a -> s{_uuarsCodeDeliveryDetailsList = a}) . _Default . _Coerce;
+uuarsCodeDeliveryDetailsList = lens _uuarsCodeDeliveryDetailsList (\ s a -> s{_uuarsCodeDeliveryDetailsList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 uuarsResponseStatus :: Lens' UpdateUserAttributesResponse Int
-uuarsResponseStatus = lens _uuarsResponseStatus (\ s a -> s{_uuarsResponseStatus = a});
+uuarsResponseStatus = lens _uuarsResponseStatus (\ s a -> s{_uuarsResponseStatus = a})
 
 instance NFData UpdateUserAttributesResponse where

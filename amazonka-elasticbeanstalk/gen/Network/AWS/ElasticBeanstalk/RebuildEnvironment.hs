@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.RebuildEnvironment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ rebuildEnvironment =
 
 -- | The name of the environment to rebuild. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 reEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
-reEnvironmentName = lens _reEnvironmentName (\ s a -> s{_reEnvironmentName = a});
+reEnvironmentName = lens _reEnvironmentName (\ s a -> s{_reEnvironmentName = a})
 
 -- | The ID of the environment to rebuild. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 reEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
-reEnvironmentId = lens _reEnvironmentId (\ s a -> s{_reEnvironmentId = a});
+reEnvironmentId = lens _reEnvironmentId (\ s a -> s{_reEnvironmentId = a})
 
 instance AWSRequest RebuildEnvironment where
         type Rs RebuildEnvironment =

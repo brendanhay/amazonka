@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.UpdateHITReviewStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ updateHITReviewStatus pHITId_ =
 
 -- | Specifies how to update the HIT status. Default is @False@ .      * Setting this to false will only transition a HIT from @Reviewable@ to @Reviewing@      * Setting this to true will only transition a HIT from @Reviewing@ to @Reviewable@
 uhitrsRevert :: Lens' UpdateHITReviewStatus (Maybe Bool)
-uhitrsRevert = lens _uhitrsRevert (\ s a -> s{_uhitrsRevert = a});
+uhitrsRevert = lens _uhitrsRevert (\ s a -> s{_uhitrsRevert = a})
 
 -- | The ID of the HIT to update.
 uhitrsHITId :: Lens' UpdateHITReviewStatus Text
-uhitrsHITId = lens _uhitrsHITId (\ s a -> s{_uhitrsHITId = a});
+uhitrsHITId = lens _uhitrsHITId (\ s a -> s{_uhitrsHITId = a})
 
 instance AWSRequest UpdateHITReviewStatus where
         type Rs UpdateHITReviewStatus =
@@ -130,6 +130,6 @@ updateHITReviewStatusResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 uhitrsrsResponseStatus :: Lens' UpdateHITReviewStatusResponse Int
-uhitrsrsResponseStatus = lens _uhitrsrsResponseStatus (\ s a -> s{_uhitrsrsResponseStatus = a});
+uhitrsrsResponseStatus = lens _uhitrsrsResponseStatus (\ s a -> s{_uhitrsrsResponseStatus = a})
 
 instance NFData UpdateHITReviewStatusResponse where

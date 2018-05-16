@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketEncryption
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ deleteBucketEncryption pBucket_ =
 
 -- | The name of the bucket containing the server-side encryption configuration to delete.
 dbeBucket :: Lens' DeleteBucketEncryption BucketName
-dbeBucket = lens _dbeBucket (\ s a -> s{_dbeBucket = a});
+dbeBucket = lens _dbeBucket (\ s a -> s{_dbeBucket = a})
 
 instance AWSRequest DeleteBucketEncryption where
         type Rs DeleteBucketEncryption =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeleteDeliveryChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | The input for the 'DeleteDeliveryChannel' action. The action accepts the following data in JSON format.
+-- | The input for the 'DeleteDeliveryChannel' action. The action accepts the following data, in JSON format.
 --
 --
 --
@@ -67,7 +67,7 @@ deleteDeliveryChannel pDeliveryChannelName_ =
 
 -- | The name of the delivery channel to delete.
 ddcDeliveryChannelName :: Lens' DeleteDeliveryChannel Text
-ddcDeliveryChannelName = lens _ddcDeliveryChannelName (\ s a -> s{_ddcDeliveryChannelName = a});
+ddcDeliveryChannelName = lens _ddcDeliveryChannelName (\ s a -> s{_ddcDeliveryChannelName = a})
 
 instance AWSRequest DeleteDeliveryChannel where
         type Rs DeleteDeliveryChannel =

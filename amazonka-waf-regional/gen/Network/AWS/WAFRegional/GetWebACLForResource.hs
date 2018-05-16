@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetWebACLForResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getWebACLForResource pResourceARN_ =
 
 -- | The ARN (Amazon Resource Name) of the resource for which to get the web ACL.
 gwafrResourceARN :: Lens' GetWebACLForResource Text
-gwafrResourceARN = lens _gwafrResourceARN (\ s a -> s{_gwafrResourceARN = a});
+gwafrResourceARN = lens _gwafrResourceARN (\ s a -> s{_gwafrResourceARN = a})
 
 instance AWSRequest GetWebACLForResource where
         type Rs GetWebACLForResource =
@@ -121,15 +121,15 @@ getWebACLForResourceResponse
     -> GetWebACLForResourceResponse
 getWebACLForResourceResponse pResponseStatus_ =
   GetWebACLForResourceResponse'
-  {_gwafrrsWebACLSummary = Nothing, _gwafrrsResponseStatus = pResponseStatus_}
+    {_gwafrrsWebACLSummary = Nothing, _gwafrrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the web ACL that you specified in the @GetWebACLForResource@ request. If there is no associated resource, a null WebACLSummary is returned.
 gwafrrsWebACLSummary :: Lens' GetWebACLForResourceResponse (Maybe WebACLSummary)
-gwafrrsWebACLSummary = lens _gwafrrsWebACLSummary (\ s a -> s{_gwafrrsWebACLSummary = a});
+gwafrrsWebACLSummary = lens _gwafrrsWebACLSummary (\ s a -> s{_gwafrrsWebACLSummary = a})
 
 -- | -- | The response status code.
 gwafrrsResponseStatus :: Lens' GetWebACLForResourceResponse Int
-gwafrrsResponseStatus = lens _gwafrrsResponseStatus (\ s a -> s{_gwafrrsResponseStatus = a});
+gwafrrsResponseStatus = lens _gwafrrsResponseStatus (\ s a -> s{_gwafrrsResponseStatus = a})
 
 instance NFData GetWebACLForResourceResponse where

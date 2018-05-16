@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Control.Monad.Trans.AWS
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -262,7 +262,7 @@ runAWST r (AWST' m) = runReaderT m r
 -- | An alias for the constraints required to send requests,
 -- which 'AWST' implicitly fulfils.
 type AWSConstraint r m =
-    ( MonadCatch     m
+    ( MonadThrow     m
     , MonadResource  m
     , MonadReader  r m
     , HasEnv       r
@@ -282,7 +282,7 @@ send = retrier >=> fmap snd . hoistError
 -- Throws 'Error'.
 paginate :: (AWSConstraint r m, AWSPager a)
          => a
-         -> Source m (Rs a)
+         -> ConduitM () (Rs a) m ()
 paginate = go
   where
     go !x = do

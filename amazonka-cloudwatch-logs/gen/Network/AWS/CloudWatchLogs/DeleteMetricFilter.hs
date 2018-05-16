@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteMetricFilter
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,16 +62,16 @@ deleteMetricFilter
     -> DeleteMetricFilter
 deleteMetricFilter pLogGroupName_ pFilterName_ =
   DeleteMetricFilter'
-  {_delLogGroupName = pLogGroupName_, _delFilterName = pFilterName_}
+    {_delLogGroupName = pLogGroupName_, _delFilterName = pFilterName_}
 
 
 -- | The name of the log group.
 delLogGroupName :: Lens' DeleteMetricFilter Text
-delLogGroupName = lens _delLogGroupName (\ s a -> s{_delLogGroupName = a});
+delLogGroupName = lens _delLogGroupName (\ s a -> s{_delLogGroupName = a})
 
 -- | The name of the metric filter.
 delFilterName :: Lens' DeleteMetricFilter Text
-delFilterName = lens _delFilterName (\ s a -> s{_delFilterName = a});
+delFilterName = lens _delFilterName (\ s a -> s{_delFilterName = a})
 
 instance AWSRequest DeleteMetricFilter where
         type Rs DeleteMetricFilter =

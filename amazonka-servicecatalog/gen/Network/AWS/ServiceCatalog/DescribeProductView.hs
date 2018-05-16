@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeProductView
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about a specified product.
+-- Gets information about the specified product.
 --
---
--- This operation is functionally identical to 'DescribeProduct' except that it takes as input @ProductViewId@ instead of @ProductId@ .
 --
 module Network.AWS.ServiceCatalog.DescribeProductView
     (
@@ -61,7 +59,7 @@ data DescribeProductView = DescribeProductView'
 --
 -- * 'dpvAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dpvId' - The @ProductViewId@ of the product to describe.
+-- * 'dpvId' - The product view identifier.
 describeProductView
     :: Text -- ^ 'dpvId'
     -> DescribeProductView
@@ -71,11 +69,11 @@ describeProductView pId_ =
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpvAcceptLanguage :: Lens' DescribeProductView (Maybe Text)
-dpvAcceptLanguage = lens _dpvAcceptLanguage (\ s a -> s{_dpvAcceptLanguage = a});
+dpvAcceptLanguage = lens _dpvAcceptLanguage (\ s a -> s{_dpvAcceptLanguage = a})
 
--- | The @ProductViewId@ of the product to describe.
+-- | The product view identifier.
 dpvId :: Lens' DescribeProductView Text
-dpvId = lens _dpvId (\ s a -> s{_dpvId = a});
+dpvId = lens _dpvId (\ s a -> s{_dpvId = a})
 
 instance AWSRequest DescribeProductView where
         type Rs DescribeProductView =
@@ -128,9 +126,9 @@ data DescribeProductViewResponse = DescribeProductViewResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpvrsProductViewSummary' - The summary metadata about the specified product.
+-- * 'dpvrsProductViewSummary' - Summary information about the product.
 --
--- * 'dpvrsProvisioningArtifacts' - A list of provisioning artifact objects for the specified product. The @ProvisioningArtifacts@ represent the ways in which the specified product can be provisioned.
+-- * 'dpvrsProvisioningArtifacts' - Information about the provisioning artifacts for the product.
 --
 -- * 'dpvrsResponseStatus' - -- | The response status code.
 describeProductViewResponse
@@ -138,22 +136,22 @@ describeProductViewResponse
     -> DescribeProductViewResponse
 describeProductViewResponse pResponseStatus_ =
   DescribeProductViewResponse'
-  { _dpvrsProductViewSummary = Nothing
-  , _dpvrsProvisioningArtifacts = Nothing
-  , _dpvrsResponseStatus = pResponseStatus_
-  }
+    { _dpvrsProductViewSummary = Nothing
+    , _dpvrsProvisioningArtifacts = Nothing
+    , _dpvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The summary metadata about the specified product.
+-- | Summary information about the product.
 dpvrsProductViewSummary :: Lens' DescribeProductViewResponse (Maybe ProductViewSummary)
-dpvrsProductViewSummary = lens _dpvrsProductViewSummary (\ s a -> s{_dpvrsProductViewSummary = a});
+dpvrsProductViewSummary = lens _dpvrsProductViewSummary (\ s a -> s{_dpvrsProductViewSummary = a})
 
--- | A list of provisioning artifact objects for the specified product. The @ProvisioningArtifacts@ represent the ways in which the specified product can be provisioned.
+-- | Information about the provisioning artifacts for the product.
 dpvrsProvisioningArtifacts :: Lens' DescribeProductViewResponse [ProvisioningArtifact]
-dpvrsProvisioningArtifacts = lens _dpvrsProvisioningArtifacts (\ s a -> s{_dpvrsProvisioningArtifacts = a}) . _Default . _Coerce;
+dpvrsProvisioningArtifacts = lens _dpvrsProvisioningArtifacts (\ s a -> s{_dpvrsProvisioningArtifacts = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dpvrsResponseStatus :: Lens' DescribeProductViewResponse Int
-dpvrsResponseStatus = lens _dpvrsResponseStatus (\ s a -> s{_dpvrsResponseStatus = a});
+dpvrsResponseStatus = lens _dpvrsResponseStatus (\ s a -> s{_dpvrsResponseStatus = a})
 
 instance NFData DescribeProductViewResponse where

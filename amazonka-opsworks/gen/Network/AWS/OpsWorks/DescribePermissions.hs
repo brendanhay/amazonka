@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribePermissions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ describePermissions =
 
 -- | The user's IAM ARN. This can also be a federated user's ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 dpIAMUserARN :: Lens' DescribePermissions (Maybe Text)
-dpIAMUserARN = lens _dpIAMUserARN (\ s a -> s{_dpIAMUserARN = a});
+dpIAMUserARN = lens _dpIAMUserARN (\ s a -> s{_dpIAMUserARN = a})
 
 -- | The stack ID.
 dpStackId :: Lens' DescribePermissions (Maybe Text)
-dpStackId = lens _dpStackId (\ s a -> s{_dpStackId = a});
+dpStackId = lens _dpStackId (\ s a -> s{_dpStackId = a})
 
 instance AWSRequest DescribePermissions where
         type Rs DescribePermissions =
@@ -136,15 +136,15 @@ describePermissionsResponse
     -> DescribePermissionsResponse
 describePermissionsResponse pResponseStatus_ =
   DescribePermissionsResponse'
-  {_dprsPermissions = Nothing, _dprsResponseStatus = pResponseStatus_}
+    {_dprsPermissions = Nothing, _dprsResponseStatus = pResponseStatus_}
 
 
 -- | An array of @Permission@ objects that describe the stack permissions.     * If the request object contains only a stack ID, the array contains a @Permission@ object with permissions for each of the stack IAM ARNs.     * If the request object contains only an IAM ARN, the array contains a @Permission@ object with permissions for each of the user's stack IDs.     * If the request contains a stack ID and an IAM ARN, the array contains a single @Permission@ object with permissions for the specified stack and IAM ARN.
 dprsPermissions :: Lens' DescribePermissionsResponse [Permission]
-dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _Default . _Coerce;
+dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DescribePermissionsResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DescribePermissionsResponse where

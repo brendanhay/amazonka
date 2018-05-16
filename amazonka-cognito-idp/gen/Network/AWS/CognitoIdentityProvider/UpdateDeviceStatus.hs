@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ updateDeviceStatus
     -> UpdateDeviceStatus
 updateDeviceStatus pAccessToken_ pDeviceKey_ =
   UpdateDeviceStatus'
-  { _udsDeviceRememberedStatus = Nothing
-  , _udsAccessToken = _Sensitive # pAccessToken_
-  , _udsDeviceKey = pDeviceKey_
-  }
+    { _udsDeviceRememberedStatus = Nothing
+    , _udsAccessToken = _Sensitive # pAccessToken_
+    , _udsDeviceKey = pDeviceKey_
+    }
 
 
 -- | The status of whether a device is remembered.
 udsDeviceRememberedStatus :: Lens' UpdateDeviceStatus (Maybe DeviceRememberedStatusType)
-udsDeviceRememberedStatus = lens _udsDeviceRememberedStatus (\ s a -> s{_udsDeviceRememberedStatus = a});
+udsDeviceRememberedStatus = lens _udsDeviceRememberedStatus (\ s a -> s{_udsDeviceRememberedStatus = a})
 
 -- | The access token.
 udsAccessToken :: Lens' UpdateDeviceStatus Text
-udsAccessToken = lens _udsAccessToken (\ s a -> s{_udsAccessToken = a}) . _Sensitive;
+udsAccessToken = lens _udsAccessToken (\ s a -> s{_udsAccessToken = a}) . _Sensitive
 
 -- | The device key.
 udsDeviceKey :: Lens' UpdateDeviceStatus Text
-udsDeviceKey = lens _udsDeviceKey (\ s a -> s{_udsDeviceKey = a});
+udsDeviceKey = lens _udsDeviceKey (\ s a -> s{_udsDeviceKey = a})
 
 instance AWSRequest UpdateDeviceStatus where
         type Rs UpdateDeviceStatus =
@@ -152,6 +152,6 @@ updateDeviceStatusResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 udsrsResponseStatus :: Lens' UpdateDeviceStatusResponse Int
-udsrsResponseStatus = lens _udsrsResponseStatus (\ s a -> s{_udsrsResponseStatus = a});
+udsrsResponseStatus = lens _udsrsResponseStatus (\ s a -> s{_udsrsResponseStatus = a})
 
 instance NFData UpdateDeviceStatusResponse where

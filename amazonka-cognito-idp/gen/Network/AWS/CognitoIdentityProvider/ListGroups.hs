@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,20 +71,20 @@ listGroups
     -> ListGroups
 listGroups pUserPoolId_ =
   ListGroups'
-  {_lgNextToken = Nothing, _lgLimit = Nothing, _lgUserPoolId = pUserPoolId_}
+    {_lgNextToken = Nothing, _lgLimit = Nothing, _lgUserPoolId = pUserPoolId_}
 
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lgNextToken :: Lens' ListGroups (Maybe Text)
-lgNextToken = lens _lgNextToken (\ s a -> s{_lgNextToken = a});
+lgNextToken = lens _lgNextToken (\ s a -> s{_lgNextToken = a})
 
 -- | The limit of the request to list groups.
 lgLimit :: Lens' ListGroups (Maybe Natural)
-lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
+lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat
 
 -- | The user pool ID for the user pool.
 lgUserPoolId :: Lens' ListGroups Text
-lgUserPoolId = lens _lgUserPoolId (\ s a -> s{_lgUserPoolId = a});
+lgUserPoolId = lens _lgUserPoolId (\ s a -> s{_lgUserPoolId = a})
 
 instance AWSRequest ListGroups where
         type Rs ListGroups = ListGroupsResponse
@@ -146,22 +146,22 @@ listGroupsResponse
     -> ListGroupsResponse
 listGroupsResponse pResponseStatus_ =
   ListGroupsResponse'
-  { _lgrsGroups = Nothing
-  , _lgrsNextToken = Nothing
-  , _lgrsResponseStatus = pResponseStatus_
-  }
+    { _lgrsGroups = Nothing
+    , _lgrsNextToken = Nothing
+    , _lgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The group objects for the groups.
 lgrsGroups :: Lens' ListGroupsResponse [GroupType]
-lgrsGroups = lens _lgrsGroups (\ s a -> s{_lgrsGroups = a}) . _Default . _Coerce;
+lgrsGroups = lens _lgrsGroups (\ s a -> s{_lgrsGroups = a}) . _Default . _Coerce
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lgrsNextToken :: Lens' ListGroupsResponse (Maybe Text)
-lgrsNextToken = lens _lgrsNextToken (\ s a -> s{_lgrsNextToken = a});
+lgrsNextToken = lens _lgrsNextToken (\ s a -> s{_lgrsNextToken = a})
 
 -- | -- | The response status code.
 lgrsResponseStatus :: Lens' ListGroupsResponse Int
-lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});
+lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a})
 
 instance NFData ListGroupsResponse where

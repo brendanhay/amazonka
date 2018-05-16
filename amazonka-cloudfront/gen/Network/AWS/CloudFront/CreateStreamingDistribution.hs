@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateStreamingDistribution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,12 +74,12 @@ createStreamingDistribution
     -> CreateStreamingDistribution
 createStreamingDistribution pStreamingDistributionConfig_ =
   CreateStreamingDistribution'
-  {_csdStreamingDistributionConfig = pStreamingDistributionConfig_}
+    {_csdStreamingDistributionConfig = pStreamingDistributionConfig_}
 
 
 -- | The streaming distribution's configuration information.
 csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
-csdStreamingDistributionConfig = lens _csdStreamingDistributionConfig (\ s a -> s{_csdStreamingDistributionConfig = a});
+csdStreamingDistributionConfig = lens _csdStreamingDistributionConfig (\ s a -> s{_csdStreamingDistributionConfig = a})
 
 instance AWSRequest CreateStreamingDistribution where
         type Rs CreateStreamingDistribution =
@@ -100,7 +100,7 @@ instance NFData CreateStreamingDistribution where
 instance ToElement CreateStreamingDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}StreamingDistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}StreamingDistributionConfig"
               .
               _csdStreamingDistributionConfig
 
@@ -108,7 +108,7 @@ instance ToHeaders CreateStreamingDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateStreamingDistribution where
-        toPath = const "/2017-03-25/streaming-distribution"
+        toPath = const "/2017-10-30/streaming-distribution"
 
 instance ToQuery CreateStreamingDistribution where
         toQuery = const mempty
@@ -142,28 +142,28 @@ createStreamingDistributionResponse
     -> CreateStreamingDistributionResponse
 createStreamingDistributionResponse pResponseStatus_ =
   CreateStreamingDistributionResponse'
-  { _csdrsETag = Nothing
-  , _csdrsLocation = Nothing
-  , _csdrsStreamingDistribution = Nothing
-  , _csdrsResponseStatus = pResponseStatus_
-  }
+    { _csdrsETag = Nothing
+    , _csdrsLocation = Nothing
+    , _csdrsStreamingDistribution = Nothing
+    , _csdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current version of the streaming distribution created.
 csdrsETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdrsETag = lens _csdrsETag (\ s a -> s{_csdrsETag = a});
+csdrsETag = lens _csdrsETag (\ s a -> s{_csdrsETag = a})
 
 -- | The fully qualified URI of the new streaming distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8@ .
 csdrsLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdrsLocation = lens _csdrsLocation (\ s a -> s{_csdrsLocation = a});
+csdrsLocation = lens _csdrsLocation (\ s a -> s{_csdrsLocation = a})
 
 -- | The streaming distribution's information.
 csdrsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
-csdrsStreamingDistribution = lens _csdrsStreamingDistribution (\ s a -> s{_csdrsStreamingDistribution = a});
+csdrsStreamingDistribution = lens _csdrsStreamingDistribution (\ s a -> s{_csdrsStreamingDistribution = a})
 
 -- | -- | The response status code.
 csdrsResponseStatus :: Lens' CreateStreamingDistributionResponse Int
-csdrsResponseStatus = lens _csdrsResponseStatus (\ s a -> s{_csdrsResponseStatus = a});
+csdrsResponseStatus = lens _csdrsResponseStatus (\ s a -> s{_csdrsResponseStatus = a})
 
 instance NFData CreateStreamingDistributionResponse
          where

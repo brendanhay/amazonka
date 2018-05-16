@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.CountPendingActivityTasks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,16 +79,16 @@ countPendingActivityTasks
     -> CountPendingActivityTasks
 countPendingActivityTasks pDomain_ pTaskList_ =
   CountPendingActivityTasks'
-  {_cpatDomain = pDomain_, _cpatTaskList = pTaskList_}
+    {_cpatDomain = pDomain_, _cpatTaskList = pTaskList_}
 
 
 -- | The name of the domain that contains the task list.
 cpatDomain :: Lens' CountPendingActivityTasks Text
-cpatDomain = lens _cpatDomain (\ s a -> s{_cpatDomain = a});
+cpatDomain = lens _cpatDomain (\ s a -> s{_cpatDomain = a})
 
 -- | The name of the task list.
 cpatTaskList :: Lens' CountPendingActivityTasks TaskList
-cpatTaskList = lens _cpatTaskList (\ s a -> s{_cpatTaskList = a});
+cpatTaskList = lens _cpatTaskList (\ s a -> s{_cpatTaskList = a})
 
 instance AWSRequest CountPendingActivityTasks where
         type Rs CountPendingActivityTasks = PendingTaskCount

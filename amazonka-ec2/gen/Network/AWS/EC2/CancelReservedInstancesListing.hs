@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelReservedInstancesListing
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,12 +66,12 @@ cancelReservedInstancesListing
     -> CancelReservedInstancesListing
 cancelReservedInstancesListing pReservedInstancesListingId_ =
   CancelReservedInstancesListing'
-  {_crilReservedInstancesListingId = pReservedInstancesListingId_}
+    {_crilReservedInstancesListingId = pReservedInstancesListingId_}
 
 
 -- | The ID of the Reserved Instance listing.
 crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
-crilReservedInstancesListingId = lens _crilReservedInstancesListingId (\ s a -> s{_crilReservedInstancesListingId = a});
+crilReservedInstancesListingId = lens _crilReservedInstancesListingId (\ s a -> s{_crilReservedInstancesListingId = a})
 
 instance AWSRequest CancelReservedInstancesListing
          where
@@ -130,18 +130,18 @@ cancelReservedInstancesListingResponse
     -> CancelReservedInstancesListingResponse
 cancelReservedInstancesListingResponse pResponseStatus_ =
   CancelReservedInstancesListingResponse'
-  { _crilrsReservedInstancesListings = Nothing
-  , _crilrsResponseStatus = pResponseStatus_
-  }
+    { _crilrsReservedInstancesListings = Nothing
+    , _crilrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The Reserved Instance listing.
 crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
-crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default . _Coerce;
+crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 crilrsResponseStatus :: Lens' CancelReservedInstancesListingResponse Int
-crilrsResponseStatus = lens _crilrsResponseStatus (\ s a -> s{_crilrsResponseStatus = a});
+crilrsResponseStatus = lens _crilrsResponseStatus (\ s a -> s{_crilrsResponseStatus = a})
 
 instance NFData
            CancelReservedInstancesListingResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutDestination
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ putDestination
     -> PutDestination
 putDestination pDestinationName_ pTargetARN_ pRoleARN_ =
   PutDestination'
-  { _pdDestinationName = pDestinationName_
-  , _pdTargetARN = pTargetARN_
-  , _pdRoleARN = pRoleARN_
-  }
+    { _pdDestinationName = pDestinationName_
+    , _pdTargetARN = pTargetARN_
+    , _pdRoleARN = pRoleARN_
+    }
 
 
 -- | A name for the destination.
 pdDestinationName :: Lens' PutDestination Text
-pdDestinationName = lens _pdDestinationName (\ s a -> s{_pdDestinationName = a});
+pdDestinationName = lens _pdDestinationName (\ s a -> s{_pdDestinationName = a})
 
 -- | The ARN of an Amazon Kinesis stream to which to deliver matching log events.
 pdTargetARN :: Lens' PutDestination Text
-pdTargetARN = lens _pdTargetARN (\ s a -> s{_pdTargetARN = a});
+pdTargetARN = lens _pdTargetARN (\ s a -> s{_pdTargetARN = a})
 
 -- | The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis PutRecord operation on the destination stream.
 pdRoleARN :: Lens' PutDestination Text
-pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a});
+pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a})
 
 instance AWSRequest PutDestination where
         type Rs PutDestination = PutDestinationResponse
@@ -145,15 +145,15 @@ putDestinationResponse
     -> PutDestinationResponse
 putDestinationResponse pResponseStatus_ =
   PutDestinationResponse'
-  {_pdrsDestination = Nothing, _pdrsResponseStatus = pResponseStatus_}
+    {_pdrsDestination = Nothing, _pdrsResponseStatus = pResponseStatus_}
 
 
 -- | The destination.
 pdrsDestination :: Lens' PutDestinationResponse (Maybe Destination)
-pdrsDestination = lens _pdrsDestination (\ s a -> s{_pdrsDestination = a});
+pdrsDestination = lens _pdrsDestination (\ s a -> s{_pdrsDestination = a})
 
 -- | -- | The response status code.
 pdrsResponseStatus :: Lens' PutDestinationResponse Int
-pdrsResponseStatus = lens _pdrsResponseStatus (\ s a -> s{_pdrsResponseStatus = a});
+pdrsResponseStatus = lens _pdrsResponseStatus (\ s a -> s{_pdrsResponseStatus = a})
 
 instance NFData PutDestinationResponse where

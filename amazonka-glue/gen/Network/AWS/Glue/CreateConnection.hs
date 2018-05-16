@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,16 +63,16 @@ createConnection
     -> CreateConnection
 createConnection pConnectionInput_ =
   CreateConnection'
-  {_ccCatalogId = Nothing, _ccConnectionInput = pConnectionInput_}
+    {_ccCatalogId = Nothing, _ccConnectionInput = pConnectionInput_}
 
 
 -- | The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 ccCatalogId :: Lens' CreateConnection (Maybe Text)
-ccCatalogId = lens _ccCatalogId (\ s a -> s{_ccCatalogId = a});
+ccCatalogId = lens _ccCatalogId (\ s a -> s{_ccCatalogId = a})
 
 -- | A @ConnectionInput@ object defining the connection to create.
 ccConnectionInput :: Lens' CreateConnection ConnectionInput
-ccConnectionInput = lens _ccConnectionInput (\ s a -> s{_ccConnectionInput = a});
+ccConnectionInput = lens _ccConnectionInput (\ s a -> s{_ccConnectionInput = a})
 
 instance AWSRequest CreateConnection where
         type Rs CreateConnection = CreateConnectionResponse
@@ -128,6 +128,6 @@ createConnectionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 crsResponseStatus :: Lens' CreateConnectionResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
 
 instance NFData CreateConnectionResponse where

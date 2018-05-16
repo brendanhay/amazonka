@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Athena.CreateNamedQuery
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,33 +80,33 @@ createNamedQuery
     -> CreateNamedQuery
 createNamedQuery pName_ pDatabase_ pQueryString_ =
   CreateNamedQuery'
-  { _cnqClientRequestToken = Nothing
-  , _cnqDescription = Nothing
-  , _cnqName = pName_
-  , _cnqDatabase = pDatabase_
-  , _cnqQueryString = pQueryString_
-  }
+    { _cnqClientRequestToken = Nothing
+    , _cnqDescription = Nothing
+    , _cnqName = pName_
+    , _cnqDatabase = pDatabase_
+    , _cnqQueryString = pQueryString_
+    }
 
 
 -- | A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another @CreateNamedQuery@ request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the @QueryString@ , an error is returned. /Important:/ This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.
 cnqClientRequestToken :: Lens' CreateNamedQuery (Maybe Text)
-cnqClientRequestToken = lens _cnqClientRequestToken (\ s a -> s{_cnqClientRequestToken = a});
+cnqClientRequestToken = lens _cnqClientRequestToken (\ s a -> s{_cnqClientRequestToken = a})
 
 -- | A brief explanation of the query.
 cnqDescription :: Lens' CreateNamedQuery (Maybe Text)
-cnqDescription = lens _cnqDescription (\ s a -> s{_cnqDescription = a});
+cnqDescription = lens _cnqDescription (\ s a -> s{_cnqDescription = a})
 
 -- | The plain language name for the query.
 cnqName :: Lens' CreateNamedQuery Text
-cnqName = lens _cnqName (\ s a -> s{_cnqName = a});
+cnqName = lens _cnqName (\ s a -> s{_cnqName = a})
 
 -- | The database to which the query belongs.
 cnqDatabase :: Lens' CreateNamedQuery Text
-cnqDatabase = lens _cnqDatabase (\ s a -> s{_cnqDatabase = a});
+cnqDatabase = lens _cnqDatabase (\ s a -> s{_cnqDatabase = a})
 
 -- | The text of the query itself. In other words, all query statements.
 cnqQueryString :: Lens' CreateNamedQuery Text
-cnqQueryString = lens _cnqQueryString (\ s a -> s{_cnqQueryString = a});
+cnqQueryString = lens _cnqQueryString (\ s a -> s{_cnqQueryString = a})
 
 instance AWSRequest CreateNamedQuery where
         type Rs CreateNamedQuery = CreateNamedQueryResponse
@@ -166,15 +166,15 @@ createNamedQueryResponse
     -> CreateNamedQueryResponse
 createNamedQueryResponse pResponseStatus_ =
   CreateNamedQueryResponse'
-  {_cnqrsNamedQueryId = Nothing, _cnqrsResponseStatus = pResponseStatus_}
+    {_cnqrsNamedQueryId = Nothing, _cnqrsResponseStatus = pResponseStatus_}
 
 
 -- | The unique ID of the query.
 cnqrsNamedQueryId :: Lens' CreateNamedQueryResponse (Maybe Text)
-cnqrsNamedQueryId = lens _cnqrsNamedQueryId (\ s a -> s{_cnqrsNamedQueryId = a});
+cnqrsNamedQueryId = lens _cnqrsNamedQueryId (\ s a -> s{_cnqrsNamedQueryId = a})
 
 -- | -- | The response status code.
 cnqrsResponseStatus :: Lens' CreateNamedQueryResponse Int
-cnqrsResponseStatus = lens _cnqrsResponseStatus (\ s a -> s{_cnqrsResponseStatus = a});
+cnqrsResponseStatus = lens _cnqrsResponseStatus (\ s a -> s{_cnqrsResponseStatus = a})
 
 instance NFData CreateNamedQueryResponse where

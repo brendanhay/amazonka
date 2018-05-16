@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListIdentityPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ listIdentityPolicies pIdentity_ =
 
 -- | The identity that is associated with the policy for which the policies will be listed. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
 lipIdentity :: Lens' ListIdentityPolicies Text
-lipIdentity = lens _lipIdentity (\ s a -> s{_lipIdentity = a});
+lipIdentity = lens _lipIdentity (\ s a -> s{_lipIdentity = a})
 
 instance AWSRequest ListIdentityPolicies where
         type Rs ListIdentityPolicies =
@@ -126,15 +126,15 @@ listIdentityPoliciesResponse
     -> ListIdentityPoliciesResponse
 listIdentityPoliciesResponse pResponseStatus_ =
   ListIdentityPoliciesResponse'
-  {_liprsResponseStatus = pResponseStatus_, _liprsPolicyNames = mempty}
+    {_liprsResponseStatus = pResponseStatus_, _liprsPolicyNames = mempty}
 
 
 -- | -- | The response status code.
 liprsResponseStatus :: Lens' ListIdentityPoliciesResponse Int
-liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
+liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a})
 
 -- | A list of names of policies that apply to the specified identity.
 liprsPolicyNames :: Lens' ListIdentityPoliciesResponse [Text]
-liprsPolicyNames = lens _liprsPolicyNames (\ s a -> s{_liprsPolicyNames = a}) . _Coerce;
+liprsPolicyNames = lens _liprsPolicyNames (\ s a -> s{_liprsPolicyNames = a}) . _Coerce
 
 instance NFData ListIdentityPoliciesResponse where

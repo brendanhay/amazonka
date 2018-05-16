@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.Encryption.Encrypt
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
@@ -14,7 +14,7 @@
 --
 module Network.AWS.S3.Encryption.Encrypt where
 
-import           Control.Lens                           hiding (coerce)
+import           Control.Lens (Setter', lens, view, (&), (%~), (<>~), (^.), to)
 import           Control.Monad
 import           Control.Monad.Trans.AWS
 import           Data.Coerce

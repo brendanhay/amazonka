@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.Waiters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,22 +26,22 @@ import Network.AWS.Waiter
 instanceProfileExists :: Wait GetInstanceProfile
 instanceProfileExists =
   Wait
-  { _waitName = "InstanceProfileExists"
-  , _waitAttempts = 40
-  , _waitDelay = 1
-  , _waitAcceptors =
-      [matchStatus 200 AcceptSuccess, matchStatus 404 AcceptRetry]
-  }
+    { _waitName = "InstanceProfileExists"
+    , _waitAttempts = 40
+    , _waitDelay = 1
+    , _waitAcceptors =
+        [matchStatus 200 AcceptSuccess, matchStatus 404 AcceptRetry]
+    }
 
 
 -- | Polls 'Network.AWS.IAM.GetUser' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
 userExists :: Wait GetUser
 userExists =
   Wait
-  { _waitName = "UserExists"
-  , _waitAttempts = 20
-  , _waitDelay = 1
-  , _waitAcceptors =
-      [matchStatus 200 AcceptSuccess, matchError "NoSuchEntity" AcceptRetry]
-  }
+    { _waitName = "UserExists"
+    , _waitAttempts = 20
+    , _waitDelay = 1
+    , _waitAcceptors =
+        [matchStatus 200 AcceptSuccess, matchError "NoSuchEntity" AcceptRetry]
+    }
 

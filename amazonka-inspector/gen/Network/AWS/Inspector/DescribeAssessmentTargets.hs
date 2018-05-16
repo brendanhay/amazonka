@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeAssessmentTargets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,12 +61,12 @@ describeAssessmentTargets
     -> DescribeAssessmentTargets
 describeAssessmentTargets pAssessmentTargetARNs_ =
   DescribeAssessmentTargets'
-  {_datAssessmentTargetARNs = _List1 # pAssessmentTargetARNs_}
+    {_datAssessmentTargetARNs = _List1 # pAssessmentTargetARNs_}
 
 
 -- | The ARNs that specifies the assessment targets that you want to describe.
 datAssessmentTargetARNs :: Lens' DescribeAssessmentTargets (NonEmpty Text)
-datAssessmentTargetARNs = lens _datAssessmentTargetARNs (\ s a -> s{_datAssessmentTargetARNs = a}) . _List1;
+datAssessmentTargetARNs = lens _datAssessmentTargetARNs (\ s a -> s{_datAssessmentTargetARNs = a}) . _List1
 
 instance AWSRequest DescribeAssessmentTargets where
         type Rs DescribeAssessmentTargets =
@@ -130,23 +130,23 @@ describeAssessmentTargetsResponse
     -> DescribeAssessmentTargetsResponse
 describeAssessmentTargetsResponse pResponseStatus_ =
   DescribeAssessmentTargetsResponse'
-  { _drsResponseStatus = pResponseStatus_
-  , _drsAssessmentTargets = mempty
-  , _drsFailedItems = mempty
-  }
+    { _drsResponseStatus = pResponseStatus_
+    , _drsAssessmentTargets = mempty
+    , _drsFailedItems = mempty
+    }
 
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeAssessmentTargetsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 -- | Information about the assessment targets.
 drsAssessmentTargets :: Lens' DescribeAssessmentTargetsResponse [AssessmentTarget]
-drsAssessmentTargets = lens _drsAssessmentTargets (\ s a -> s{_drsAssessmentTargets = a}) . _Coerce;
+drsAssessmentTargets = lens _drsAssessmentTargets (\ s a -> s{_drsAssessmentTargets = a}) . _Coerce
 
 -- | Assessment target details that cannot be described. An error code is provided for each failed item.
 drsFailedItems :: Lens' DescribeAssessmentTargetsResponse (HashMap Text FailedItemDetails)
-drsFailedItems = lens _drsFailedItems (\ s a -> s{_drsFailedItems = a}) . _Map;
+drsFailedItems = lens _drsFailedItems (\ s a -> s{_drsFailedItems = a}) . _Map
 
 instance NFData DescribeAssessmentTargetsResponse
          where

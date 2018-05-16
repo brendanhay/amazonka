@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.DeleteIdentities
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ deleteIdentities pIdentityIdsToDelete_ =
 
 -- | A list of 1-60 identities that you want to delete.
 diIdentityIdsToDelete :: Lens' DeleteIdentities (NonEmpty Text)
-diIdentityIdsToDelete = lens _diIdentityIdsToDelete (\ s a -> s{_diIdentityIdsToDelete = a}) . _List1;
+diIdentityIdsToDelete = lens _diIdentityIdsToDelete (\ s a -> s{_diIdentityIdsToDelete = a}) . _List1
 
 instance AWSRequest DeleteIdentities where
         type Rs DeleteIdentities = DeleteIdentitiesResponse
@@ -132,17 +132,17 @@ deleteIdentitiesResponse
     -> DeleteIdentitiesResponse
 deleteIdentitiesResponse pResponseStatus_ =
   DeleteIdentitiesResponse'
-  { _dirsUnprocessedIdentityIds = Nothing
-  , _dirsResponseStatus = pResponseStatus_
-  }
+    { _dirsUnprocessedIdentityIds = Nothing
+    , _dirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.
 dirsUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentityId]
-dirsUnprocessedIdentityIds = lens _dirsUnprocessedIdentityIds (\ s a -> s{_dirsUnprocessedIdentityIds = a}) . _Default . _Coerce;
+dirsUnprocessedIdentityIds = lens _dirsUnprocessedIdentityIds (\ s a -> s{_dirsUnprocessedIdentityIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dirsResponseStatus :: Lens' DeleteIdentitiesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
 
 instance NFData DeleteIdentitiesResponse where

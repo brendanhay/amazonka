@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateBuild
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,15 +90,15 @@ updateBuild pBuildId_ =
 
 -- | Descriptive label that is associated with a build. Build names do not need to be unique.
 ubName :: Lens' UpdateBuild (Maybe Text)
-ubName = lens _ubName (\ s a -> s{_ubName = a});
+ubName = lens _ubName (\ s a -> s{_ubName = a})
 
 -- | Version that is associated with this build. Version strings do not need to be unique.
 ubVersion :: Lens' UpdateBuild (Maybe Text)
-ubVersion = lens _ubVersion (\ s a -> s{_ubVersion = a});
+ubVersion = lens _ubVersion (\ s a -> s{_ubVersion = a})
 
 -- | Unique identifier for a build to update.
 ubBuildId :: Lens' UpdateBuild Text
-ubBuildId = lens _ubBuildId (\ s a -> s{_ubBuildId = a});
+ubBuildId = lens _ubBuildId (\ s a -> s{_ubBuildId = a})
 
 instance AWSRequest UpdateBuild where
         type Rs UpdateBuild = UpdateBuildResponse
@@ -159,15 +159,15 @@ updateBuildResponse
     -> UpdateBuildResponse
 updateBuildResponse pResponseStatus_ =
   UpdateBuildResponse'
-  {_ubrsBuild = Nothing, _ubrsResponseStatus = pResponseStatus_}
+    {_ubrsBuild = Nothing, _ubrsResponseStatus = pResponseStatus_}
 
 
 -- | Object that contains the updated build record.
 ubrsBuild :: Lens' UpdateBuildResponse (Maybe Build)
-ubrsBuild = lens _ubrsBuild (\ s a -> s{_ubrsBuild = a});
+ubrsBuild = lens _ubrsBuild (\ s a -> s{_ubrsBuild = a})
 
 -- | -- | The response status code.
 ubrsResponseStatus :: Lens' UpdateBuildResponse Int
-ubrsResponseStatus = lens _ubrsResponseStatus (\ s a -> s{_ubrsResponseStatus = a});
+ubrsResponseStatus = lens _ubrsResponseStatus (\ s a -> s{_ubrsResponseStatus = a})
 
 instance NFData UpdateBuildResponse where

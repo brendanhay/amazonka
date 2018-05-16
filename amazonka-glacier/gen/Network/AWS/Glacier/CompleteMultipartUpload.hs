@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.CompleteMultipartUpload
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,33 +93,33 @@ completeMultipartUpload
     -> CompleteMultipartUpload
 completeMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
   CompleteMultipartUpload'
-  { _cmuChecksum = Nothing
-  , _cmuArchiveSize = Nothing
-  , _cmuAccountId = pAccountId_
-  , _cmuVaultName = pVaultName_
-  , _cmuUploadId = pUploadId_
-  }
+    { _cmuChecksum = Nothing
+    , _cmuArchiveSize = Nothing
+    , _cmuAccountId = pAccountId_
+    , _cmuVaultName = pVaultName_
+    , _cmuUploadId = pUploadId_
+    }
 
 
 -- | The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash of the individual parts. If the value you specify in the request does not match the SHA256 tree hash of the final assembled archive as computed by Amazon Glacier, Amazon Glacier returns an error and the request fails.
 cmuChecksum :: Lens' CompleteMultipartUpload (Maybe Text)
-cmuChecksum = lens _cmuChecksum (\ s a -> s{_cmuChecksum = a});
+cmuChecksum = lens _cmuChecksum (\ s a -> s{_cmuChecksum = a})
 
 -- | The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.
 cmuArchiveSize :: Lens' CompleteMultipartUpload (Maybe Text)
-cmuArchiveSize = lens _cmuArchiveSize (\ s a -> s{_cmuArchiveSize = a});
+cmuArchiveSize = lens _cmuArchiveSize (\ s a -> s{_cmuArchiveSize = a})
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 cmuAccountId :: Lens' CompleteMultipartUpload Text
-cmuAccountId = lens _cmuAccountId (\ s a -> s{_cmuAccountId = a});
+cmuAccountId = lens _cmuAccountId (\ s a -> s{_cmuAccountId = a})
 
 -- | The name of the vault.
 cmuVaultName :: Lens' CompleteMultipartUpload Text
-cmuVaultName = lens _cmuVaultName (\ s a -> s{_cmuVaultName = a});
+cmuVaultName = lens _cmuVaultName (\ s a -> s{_cmuVaultName = a})
 
 -- | The upload ID of the multipart upload.
 cmuUploadId :: Lens' CompleteMultipartUpload Text
-cmuUploadId = lens _cmuUploadId (\ s a -> s{_cmuUploadId = a});
+cmuUploadId = lens _cmuUploadId (\ s a -> s{_cmuUploadId = a})
 
 instance AWSRequest CompleteMultipartUpload where
         type Rs CompleteMultipartUpload =

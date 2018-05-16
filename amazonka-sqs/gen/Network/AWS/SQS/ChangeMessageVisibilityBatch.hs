@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ChangeMessageVisibilityBatch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,16 +71,16 @@ changeMessageVisibilityBatch
     -> ChangeMessageVisibilityBatch
 changeMessageVisibilityBatch pQueueURL_ =
   ChangeMessageVisibilityBatch'
-  {_cmvbQueueURL = pQueueURL_, _cmvbEntries = mempty}
+    {_cmvbQueueURL = pQueueURL_, _cmvbEntries = mempty}
 
 
 -- | The URL of the Amazon SQS queue whose messages' visibility is changed. Queue URLs are case-sensitive.
 cmvbQueueURL :: Lens' ChangeMessageVisibilityBatch Text
-cmvbQueueURL = lens _cmvbQueueURL (\ s a -> s{_cmvbQueueURL = a});
+cmvbQueueURL = lens _cmvbQueueURL (\ s a -> s{_cmvbQueueURL = a})
 
 -- | A list of receipt handles of the messages for which the visibility timeout must be changed.
 cmvbEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
-cmvbEntries = lens _cmvbEntries (\ s a -> s{_cmvbEntries = a}) . _Coerce;
+cmvbEntries = lens _cmvbEntries (\ s a -> s{_cmvbEntries = a}) . _Coerce
 
 instance AWSRequest ChangeMessageVisibilityBatch
          where
@@ -145,23 +145,23 @@ changeMessageVisibilityBatchResponse
     -> ChangeMessageVisibilityBatchResponse
 changeMessageVisibilityBatchResponse pResponseStatus_ =
   ChangeMessageVisibilityBatchResponse'
-  { _cmvbrsResponseStatus = pResponseStatus_
-  , _cmvbrsSuccessful = mempty
-  , _cmvbrsFailed = mempty
-  }
+    { _cmvbrsResponseStatus = pResponseStatus_
+    , _cmvbrsSuccessful = mempty
+    , _cmvbrsFailed = mempty
+    }
 
 
 -- | -- | The response status code.
 cmvbrsResponseStatus :: Lens' ChangeMessageVisibilityBatchResponse Int
-cmvbrsResponseStatus = lens _cmvbrsResponseStatus (\ s a -> s{_cmvbrsResponseStatus = a});
+cmvbrsResponseStatus = lens _cmvbrsResponseStatus (\ s a -> s{_cmvbrsResponseStatus = a})
 
 -- | A list of @'ChangeMessageVisibilityBatchResultEntry' @ items.
 cmvbrsSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
-cmvbrsSuccessful = lens _cmvbrsSuccessful (\ s a -> s{_cmvbrsSuccessful = a}) . _Coerce;
+cmvbrsSuccessful = lens _cmvbrsSuccessful (\ s a -> s{_cmvbrsSuccessful = a}) . _Coerce
 
 -- | A list of @'BatchResultErrorEntry' @ items.
 cmvbrsFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
-cmvbrsFailed = lens _cmvbrsFailed (\ s a -> s{_cmvbrsFailed = a}) . _Coerce;
+cmvbrsFailed = lens _cmvbrsFailed (\ s a -> s{_cmvbrsFailed = a}) . _Coerce
 
 instance NFData ChangeMessageVisibilityBatchResponse
          where

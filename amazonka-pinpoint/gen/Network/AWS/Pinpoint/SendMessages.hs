@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.SendMessages
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,16 +63,16 @@ sendMessages
     -> SendMessages
 sendMessages pApplicationId_ pMessageRequest_ =
   SendMessages'
-  {_smApplicationId = pApplicationId_, _smMessageRequest = pMessageRequest_}
+    {_smApplicationId = pApplicationId_, _smMessageRequest = pMessageRequest_}
 
 
 -- | Undocumented member.
 smApplicationId :: Lens' SendMessages Text
-smApplicationId = lens _smApplicationId (\ s a -> s{_smApplicationId = a});
+smApplicationId = lens _smApplicationId (\ s a -> s{_smApplicationId = a})
 
 -- | Undocumented member.
 smMessageRequest :: Lens' SendMessages MessageRequest
-smMessageRequest = lens _smMessageRequest (\ s a -> s{_smMessageRequest = a});
+smMessageRequest = lens _smMessageRequest (\ s a -> s{_smMessageRequest = a})
 
 instance AWSRequest SendMessages where
         type Rs SendMessages = SendMessagesResponse
@@ -128,17 +128,17 @@ sendMessagesResponse
     -> SendMessagesResponse
 sendMessagesResponse pResponseStatus_ pMessageResponse_ =
   SendMessagesResponse'
-  { _smrsResponseStatus = pResponseStatus_
-  , _smrsMessageResponse = pMessageResponse_
-  }
+    { _smrsResponseStatus = pResponseStatus_
+    , _smrsMessageResponse = pMessageResponse_
+    }
 
 
 -- | -- | The response status code.
 smrsResponseStatus :: Lens' SendMessagesResponse Int
-smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a});
+smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a})
 
 -- | Undocumented member.
 smrsMessageResponse :: Lens' SendMessagesResponse MessageResponse
-smrsMessageResponse = lens _smrsMessageResponse (\ s a -> s{_smrsMessageResponse = a});
+smrsMessageResponse = lens _smrsMessageResponse (\ s a -> s{_smrsMessageResponse = a})
 
 instance NFData SendMessagesResponse where

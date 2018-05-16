@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteExpression
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ deleteExpression
     -> DeleteExpression
 deleteExpression pDomainName_ pExpressionName_ =
   DeleteExpression'
-  {_delDomainName = pDomainName_, _delExpressionName = pExpressionName_}
+    {_delDomainName = pDomainName_, _delExpressionName = pExpressionName_}
 
 
 -- | Undocumented member.
 delDomainName :: Lens' DeleteExpression Text
-delDomainName = lens _delDomainName (\ s a -> s{_delDomainName = a});
+delDomainName = lens _delDomainName (\ s a -> s{_delDomainName = a})
 
 -- | The name of the @'Expression' @ to delete.
 delExpressionName :: Lens' DeleteExpression Text
-delExpressionName = lens _delExpressionName (\ s a -> s{_delExpressionName = a});
+delExpressionName = lens _delExpressionName (\ s a -> s{_delExpressionName = a})
 
 instance AWSRequest DeleteExpression where
         type Rs DeleteExpression = DeleteExpressionResponse
@@ -131,15 +131,15 @@ deleteExpressionResponse
     -> DeleteExpressionResponse
 deleteExpressionResponse pResponseStatus_ pExpression_ =
   DeleteExpressionResponse'
-  {_delrsResponseStatus = pResponseStatus_, _delrsExpression = pExpression_}
+    {_delrsResponseStatus = pResponseStatus_, _delrsExpression = pExpression_}
 
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteExpressionResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 -- | The status of the expression being deleted.
 delrsExpression :: Lens' DeleteExpressionResponse ExpressionStatus
-delrsExpression = lens _delrsExpression (\ s a -> s{_delrsExpression = a});
+delrsExpression = lens _delrsExpression (\ s a -> s{_delrsExpression = a})
 
 instance NFData DeleteExpressionResponse where

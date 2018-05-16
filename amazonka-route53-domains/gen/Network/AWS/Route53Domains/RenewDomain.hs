@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.RenewDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ renewDomain
     -> RenewDomain
 renewDomain pDomainName_ pCurrentExpiryYear_ =
   RenewDomain'
-  { _rdDurationInYears = Nothing
-  , _rdDomainName = pDomainName_
-  , _rdCurrentExpiryYear = pCurrentExpiryYear_
-  }
+    { _rdDurationInYears = Nothing
+    , _rdDomainName = pDomainName_
+    , _rdCurrentExpiryYear = pCurrentExpiryYear_
+    }
 
 
 -- | The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ . Default: 1
 rdDurationInYears :: Lens' RenewDomain (Maybe Natural)
-rdDurationInYears = lens _rdDurationInYears (\ s a -> s{_rdDurationInYears = a}) . mapping _Nat;
+rdDurationInYears = lens _rdDurationInYears (\ s a -> s{_rdDurationInYears = a}) . mapping _Nat
 
 -- | The name of the domain that you want to renew.
 rdDomainName :: Lens' RenewDomain Text
-rdDomainName = lens _rdDomainName (\ s a -> s{_rdDomainName = a});
+rdDomainName = lens _rdDomainName (\ s a -> s{_rdDomainName = a})
 
 -- | The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.
 rdCurrentExpiryYear :: Lens' RenewDomain Int
-rdCurrentExpiryYear = lens _rdCurrentExpiryYear (\ s a -> s{_rdCurrentExpiryYear = a});
+rdCurrentExpiryYear = lens _rdCurrentExpiryYear (\ s a -> s{_rdCurrentExpiryYear = a})
 
 instance AWSRequest RenewDomain where
         type Rs RenewDomain = RenewDomainResponse
@@ -150,15 +150,15 @@ renewDomainResponse
     -> RenewDomainResponse
 renewDomainResponse pResponseStatus_ pOperationId_ =
   RenewDomainResponse'
-  {_rrsResponseStatus = pResponseStatus_, _rrsOperationId = pOperationId_}
+    {_rrsResponseStatus = pResponseStatus_, _rrsOperationId = pOperationId_}
 
 
 -- | -- | The response status code.
 rrsResponseStatus :: Lens' RenewDomainResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
+rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a})
 
 -- | The identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 rrsOperationId :: Lens' RenewDomainResponse Text
-rrsOperationId = lens _rrsOperationId (\ s a -> s{_rrsOperationId = a});
+rrsOperationId = lens _rrsOperationId (\ s a -> s{_rrsOperationId = a})
 
 instance NFData RenewDomainResponse where

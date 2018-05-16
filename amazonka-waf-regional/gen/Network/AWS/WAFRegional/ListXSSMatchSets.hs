@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListXSSMatchSets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ listXSSMatchSets =
 
 -- | If you specify a value for @Limit@ and you have more 'XssMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @XssMatchSets@ . For the second and subsequent @ListXssMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @XssMatchSets@ .
 lxmsNextMarker :: Lens' ListXSSMatchSets (Maybe Text)
-lxmsNextMarker = lens _lxmsNextMarker (\ s a -> s{_lxmsNextMarker = a});
+lxmsNextMarker = lens _lxmsNextMarker (\ s a -> s{_lxmsNextMarker = a})
 
 -- | Specifies the number of 'XssMatchSet' objects that you want AWS WAF to return for this request. If you have more @XssMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 lxmsLimit :: Lens' ListXSSMatchSets (Maybe Natural)
-lxmsLimit = lens _lxmsLimit (\ s a -> s{_lxmsLimit = a}) . mapping _Nat;
+lxmsLimit = lens _lxmsLimit (\ s a -> s{_lxmsLimit = a}) . mapping _Nat
 
 instance AWSRequest ListXSSMatchSets where
         type Rs ListXSSMatchSets = ListXSSMatchSetsResponse
@@ -142,22 +142,22 @@ listXSSMatchSetsResponse
     -> ListXSSMatchSetsResponse
 listXSSMatchSetsResponse pResponseStatus_ =
   ListXSSMatchSetsResponse'
-  { _lxmsrsXSSMatchSets = Nothing
-  , _lxmsrsNextMarker = Nothing
-  , _lxmsrsResponseStatus = pResponseStatus_
-  }
+    { _lxmsrsXSSMatchSets = Nothing
+    , _lxmsrsNextMarker = Nothing
+    , _lxmsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of 'XssMatchSetSummary' objects.
 lxmsrsXSSMatchSets :: Lens' ListXSSMatchSetsResponse [XSSMatchSetSummary]
-lxmsrsXSSMatchSets = lens _lxmsrsXSSMatchSets (\ s a -> s{_lxmsrsXSSMatchSets = a}) . _Default . _Coerce;
+lxmsrsXSSMatchSets = lens _lxmsrsXSSMatchSets (\ s a -> s{_lxmsrsXSSMatchSets = a}) . _Default . _Coerce
 
 -- | If you have more 'XssMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @XssMatchSet@ objects, submit another @ListXssMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 lxmsrsNextMarker :: Lens' ListXSSMatchSetsResponse (Maybe Text)
-lxmsrsNextMarker = lens _lxmsrsNextMarker (\ s a -> s{_lxmsrsNextMarker = a});
+lxmsrsNextMarker = lens _lxmsrsNextMarker (\ s a -> s{_lxmsrsNextMarker = a})
 
 -- | -- | The response status code.
 lxmsrsResponseStatus :: Lens' ListXSSMatchSetsResponse Int
-lxmsrsResponseStatus = lens _lxmsrsResponseStatus (\ s a -> s{_lxmsrsResponseStatus = a});
+lxmsrsResponseStatus = lens _lxmsrsResponseStatus (\ s a -> s{_lxmsrsResponseStatus = a})
 
 instance NFData ListXSSMatchSetsResponse where

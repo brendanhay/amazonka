@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateResourceServer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ createResourceServer
     -> CreateResourceServer
 createResourceServer pUserPoolId_ pIdentifier_ pName_ =
   CreateResourceServer'
-  { _crsScopes = Nothing
-  , _crsUserPoolId = pUserPoolId_
-  , _crsIdentifier = pIdentifier_
-  , _crsName = pName_
-  }
+    { _crsScopes = Nothing
+    , _crsUserPoolId = pUserPoolId_
+    , _crsIdentifier = pIdentifier_
+    , _crsName = pName_
+    }
 
 
 -- | A list of scopes. Each scope is map, where the keys are @name@ and @description@ .
 crsScopes :: Lens' CreateResourceServer [ResourceServerScopeType]
-crsScopes = lens _crsScopes (\ s a -> s{_crsScopes = a}) . _Default . _Coerce;
+crsScopes = lens _crsScopes (\ s a -> s{_crsScopes = a}) . _Default . _Coerce
 
 -- | The user pool ID for the user pool.
 crsUserPoolId :: Lens' CreateResourceServer Text
-crsUserPoolId = lens _crsUserPoolId (\ s a -> s{_crsUserPoolId = a});
+crsUserPoolId = lens _crsUserPoolId (\ s a -> s{_crsUserPoolId = a})
 
 -- | A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example, @https://my-weather-api.example.com@ .
 crsIdentifier :: Lens' CreateResourceServer Text
-crsIdentifier = lens _crsIdentifier (\ s a -> s{_crsIdentifier = a});
+crsIdentifier = lens _crsIdentifier (\ s a -> s{_crsIdentifier = a})
 
 -- | A friendly name for the resource server.
 crsName :: Lens' CreateResourceServer Text
-crsName = lens _crsName (\ s a -> s{_crsName = a});
+crsName = lens _crsName (\ s a -> s{_crsName = a})
 
 instance AWSRequest CreateResourceServer where
         type Rs CreateResourceServer =
@@ -156,17 +156,17 @@ createResourceServerResponse
     -> CreateResourceServerResponse
 createResourceServerResponse pResponseStatus_ pResourceServer_ =
   CreateResourceServerResponse'
-  { _crsrsResponseStatus = pResponseStatus_
-  , _crsrsResourceServer = pResourceServer_
-  }
+    { _crsrsResponseStatus = pResponseStatus_
+    , _crsrsResourceServer = pResourceServer_
+    }
 
 
 -- | -- | The response status code.
 crsrsResponseStatus :: Lens' CreateResourceServerResponse Int
-crsrsResponseStatus = lens _crsrsResponseStatus (\ s a -> s{_crsrsResponseStatus = a});
+crsrsResponseStatus = lens _crsrsResponseStatus (\ s a -> s{_crsrsResponseStatus = a})
 
 -- | The newly created resource server.
 crsrsResourceServer :: Lens' CreateResourceServerResponse ResourceServerType
-crsrsResourceServer = lens _crsrsResourceServer (\ s a -> s{_crsrsResourceServer = a});
+crsrsResourceServer = lens _crsrsResourceServer (\ s a -> s{_crsrsResourceServer = a})
 
 instance NFData CreateResourceServerResponse where

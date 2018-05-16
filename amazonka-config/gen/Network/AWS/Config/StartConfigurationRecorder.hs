@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.StartConfigurationRecorder
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,12 +63,12 @@ startConfigurationRecorder
     -> StartConfigurationRecorder
 startConfigurationRecorder pConfigurationRecorderName_ =
   StartConfigurationRecorder'
-  {_sConfigurationRecorderName = pConfigurationRecorderName_}
+    {_sConfigurationRecorderName = pConfigurationRecorderName_}
 
 
 -- | The name of the recorder object that records each configuration change made to the resources.
 sConfigurationRecorderName :: Lens' StartConfigurationRecorder Text
-sConfigurationRecorderName = lens _sConfigurationRecorderName (\ s a -> s{_sConfigurationRecorderName = a});
+sConfigurationRecorderName = lens _sConfigurationRecorderName (\ s a -> s{_sConfigurationRecorderName = a})
 
 instance AWSRequest StartConfigurationRecorder where
         type Rs StartConfigurationRecorder =

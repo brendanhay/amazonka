@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -176,6 +176,7 @@ data JobRunState
   | Stopped
   | Stopping
   | Succeeded
+  | Timeout
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -187,8 +188,9 @@ instance FromText JobRunState where
         "stopped" -> pure Stopped
         "stopping" -> pure Stopping
         "succeeded" -> pure Succeeded
+        "timeout" -> pure Timeout
         e -> fromTextError $ "Failure parsing JobRunState from value: '" <> e
-           <> "'. Accepted values: failed, running, starting, stopped, stopping, succeeded"
+           <> "'. Accepted values: failed, running, starting, stopped, stopping, succeeded, timeout"
 
 instance ToText JobRunState where
     toText = \case
@@ -198,6 +200,7 @@ instance ToText JobRunState where
         Stopped -> "STOPPED"
         Stopping -> "STOPPING"
         Succeeded -> "SUCCEEDED"
+        Timeout -> "TIMEOUT"
 
 instance Hashable     JobRunState
 instance NFData       JobRunState
@@ -210,6 +213,33 @@ instance ToJSON JobRunState where
 
 instance FromJSON JobRunState where
     parseJSON = parseJSONText "JobRunState"
+
+data Language
+  = Python
+  | Scala
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Language where
+    parser = takeLowerText >>= \case
+        "python" -> pure Python
+        "scala" -> pure Scala
+        e -> fromTextError $ "Failure parsing Language from value: '" <> e
+           <> "'. Accepted values: python, scala"
+
+instance ToText Language where
+    toText = \case
+        Python -> "PYTHON"
+        Scala -> "SCALA"
+
+instance Hashable     Language
+instance NFData       Language
+instance ToByteString Language
+instance ToQuery      Language
+instance ToHeader     Language
+
+instance ToJSON Language where
+    toJSON = toJSONText
 
 data LastCrawlStatus
   = LCSCancelled
@@ -241,20 +271,23 @@ instance ToHeader     LastCrawlStatus
 instance FromJSON LastCrawlStatus where
     parseJSON = parseJSONText "LastCrawlStatus"
 
-data Logical =
-  And
+data Logical
+  = And
+  | Any
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText Logical where
     parser = takeLowerText >>= \case
         "and" -> pure And
+        "any" -> pure Any
         e -> fromTextError $ "Failure parsing Logical from value: '" <> e
-           <> "'. Accepted values: and"
+           <> "'. Accepted values: and, any"
 
 instance ToText Logical where
     toText = \case
         And -> "AND"
+        Any -> "ANY"
 
 instance Hashable     Logical
 instance NFData       Logical

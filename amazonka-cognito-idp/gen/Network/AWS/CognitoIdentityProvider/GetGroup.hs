@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ getGroup pGroupName_ pUserPoolId_ =
 
 -- | The name of the group.
 ggGroupName :: Lens' GetGroup Text
-ggGroupName = lens _ggGroupName (\ s a -> s{_ggGroupName = a});
+ggGroupName = lens _ggGroupName (\ s a -> s{_ggGroupName = a})
 
 -- | The user pool ID for the user pool.
 ggUserPoolId :: Lens' GetGroup Text
-ggUserPoolId = lens _ggUserPoolId (\ s a -> s{_ggUserPoolId = a});
+ggUserPoolId = lens _ggUserPoolId (\ s a -> s{_ggUserPoolId = a})
 
 instance AWSRequest GetGroup where
         type Rs GetGroup = GetGroupResponse
@@ -132,15 +132,15 @@ getGroupResponse
     -> GetGroupResponse
 getGroupResponse pResponseStatus_ =
   GetGroupResponse'
-  {_ggrsGroup = Nothing, _ggrsResponseStatus = pResponseStatus_}
+    {_ggrsGroup = Nothing, _ggrsResponseStatus = pResponseStatus_}
 
 
 -- | The group object for the group.
 ggrsGroup :: Lens' GetGroupResponse (Maybe GroupType)
-ggrsGroup = lens _ggrsGroup (\ s a -> s{_ggrsGroup = a});
+ggrsGroup = lens _ggrsGroup (\ s a -> s{_ggrsGroup = a})
 
 -- | -- | The response status code.
 ggrsResponseStatus :: Lens' GetGroupResponse Int
-ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a});
+ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a})
 
 instance NFData GetGroupResponse where

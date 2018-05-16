@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteRestAPI
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,16 +55,16 @@ newtype DeleteRestAPI = DeleteRestAPI'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'draRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'draRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 deleteRestAPI
     :: Text -- ^ 'draRestAPIId'
     -> DeleteRestAPI
 deleteRestAPI pRestAPIId_ = DeleteRestAPI' {_draRestAPIId = pRestAPIId_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 draRestAPIId :: Lens' DeleteRestAPI Text
-draRestAPIId = lens _draRestAPIId (\ s a -> s{_draRestAPIId = a});
+draRestAPIId = lens _draRestAPIId (\ s a -> s{_draRestAPIId = a})
 
 instance AWSRequest DeleteRestAPI where
         type Rs DeleteRestAPI = DeleteRestAPIResponse

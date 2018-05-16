@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SMS.GetConnectors
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ getConnectors = GetConnectors' {_gcNextToken = Nothing, _gcMaxResults = Nothing}
 
 -- | Undocumented member.
 gcNextToken :: Lens' GetConnectors (Maybe Text)
-gcNextToken = lens _gcNextToken (\ s a -> s{_gcNextToken = a});
+gcNextToken = lens _gcNextToken (\ s a -> s{_gcNextToken = a})
 
 -- | Undocumented member.
 gcMaxResults :: Lens' GetConnectors (Maybe Int)
-gcMaxResults = lens _gcMaxResults (\ s a -> s{_gcMaxResults = a});
+gcMaxResults = lens _gcMaxResults (\ s a -> s{_gcMaxResults = a})
 
 instance AWSPager GetConnectors where
         page rq rs
@@ -141,22 +141,22 @@ getConnectorsResponse
     -> GetConnectorsResponse
 getConnectorsResponse pResponseStatus_ =
   GetConnectorsResponse'
-  { _gcrsConnectorList = Nothing
-  , _gcrsNextToken = Nothing
-  , _gcrsResponseStatus = pResponseStatus_
-  }
+    { _gcrsConnectorList = Nothing
+    , _gcrsNextToken = Nothing
+    , _gcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 gcrsConnectorList :: Lens' GetConnectorsResponse [Connector]
-gcrsConnectorList = lens _gcrsConnectorList (\ s a -> s{_gcrsConnectorList = a}) . _Default . _Coerce;
+gcrsConnectorList = lens _gcrsConnectorList (\ s a -> s{_gcrsConnectorList = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gcrsNextToken :: Lens' GetConnectorsResponse (Maybe Text)
-gcrsNextToken = lens _gcrsNextToken (\ s a -> s{_gcrsNextToken = a});
+gcrsNextToken = lens _gcrsNextToken (\ s a -> s{_gcrsNextToken = a})
 
 -- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetConnectorsResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
+gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a})
 
 instance NFData GetConnectorsResponse where

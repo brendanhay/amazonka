@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.ListTagsForProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,20 +69,20 @@ listTagsForProject
     -> ListTagsForProject
 listTagsForProject pId_ =
   ListTagsForProject'
-  {_ltfpNextToken = Nothing, _ltfpMaxResults = Nothing, _ltfpId = pId_}
+    {_ltfpNextToken = Nothing, _ltfpMaxResults = Nothing, _ltfpId = pId_}
 
 
 -- | Reserved for future use.
 ltfpNextToken :: Lens' ListTagsForProject (Maybe Text)
-ltfpNextToken = lens _ltfpNextToken (\ s a -> s{_ltfpNextToken = a});
+ltfpNextToken = lens _ltfpNextToken (\ s a -> s{_ltfpNextToken = a})
 
 -- | Reserved for future use.
 ltfpMaxResults :: Lens' ListTagsForProject (Maybe Natural)
-ltfpMaxResults = lens _ltfpMaxResults (\ s a -> s{_ltfpMaxResults = a}) . mapping _Nat;
+ltfpMaxResults = lens _ltfpMaxResults (\ s a -> s{_ltfpMaxResults = a}) . mapping _Nat
 
 -- | The ID of the project to get tags for.
 ltfpId :: Lens' ListTagsForProject Text
-ltfpId = lens _ltfpId (\ s a -> s{_ltfpId = a});
+ltfpId = lens _ltfpId (\ s a -> s{_ltfpId = a})
 
 instance AWSRequest ListTagsForProject where
         type Rs ListTagsForProject =
@@ -145,22 +145,22 @@ listTagsForProjectResponse
     -> ListTagsForProjectResponse
 listTagsForProjectResponse pResponseStatus_ =
   ListTagsForProjectResponse'
-  { _ltfprsNextToken = Nothing
-  , _ltfprsTags = Nothing
-  , _ltfprsResponseStatus = pResponseStatus_
-  }
+    { _ltfprsNextToken = Nothing
+    , _ltfprsTags = Nothing
+    , _ltfprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Reserved for future use.
 ltfprsNextToken :: Lens' ListTagsForProjectResponse (Maybe Text)
-ltfprsNextToken = lens _ltfprsNextToken (\ s a -> s{_ltfprsNextToken = a});
+ltfprsNextToken = lens _ltfprsNextToken (\ s a -> s{_ltfprsNextToken = a})
 
 -- | The tags for the project.
 ltfprsTags :: Lens' ListTagsForProjectResponse (HashMap Text Text)
-ltfprsTags = lens _ltfprsTags (\ s a -> s{_ltfprsTags = a}) . _Default . _Map;
+ltfprsTags = lens _ltfprsTags (\ s a -> s{_ltfprsTags = a}) . _Default . _Map
 
 -- | -- | The response status code.
 ltfprsResponseStatus :: Lens' ListTagsForProjectResponse Int
-ltfprsResponseStatus = lens _ltfprsResponseStatus (\ s a -> s{_ltfprsResponseStatus = a});
+ltfprsResponseStatus = lens _ltfprsResponseStatus (\ s a -> s{_ltfprsResponseStatus = a})
 
 instance NFData ListTagsForProjectResponse where

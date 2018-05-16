@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,9 +57,9 @@ data DeleteResource = DeleteResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'drRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'drResourceId' - The identifier of the 'Resource' resource.
+-- * 'drResourceId' - [Required] The identifier of the 'Resource' resource.
 deleteResource
     :: Text -- ^ 'drRestAPIId'
     -> Text -- ^ 'drResourceId'
@@ -68,13 +68,13 @@ deleteResource pRestAPIId_ pResourceId_ =
   DeleteResource' {_drRestAPIId = pRestAPIId_, _drResourceId = pResourceId_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 drRestAPIId :: Lens' DeleteResource Text
-drRestAPIId = lens _drRestAPIId (\ s a -> s{_drRestAPIId = a});
+drRestAPIId = lens _drRestAPIId (\ s a -> s{_drRestAPIId = a})
 
--- | The identifier of the 'Resource' resource.
+-- | [Required] The identifier of the 'Resource' resource.
 drResourceId :: Lens' DeleteResource Text
-drResourceId = lens _drResourceId (\ s a -> s{_drResourceId = a});
+drResourceId = lens _drResourceId (\ s a -> s{_drResourceId = a})
 
 instance AWSRequest DeleteResource where
         type Rs DeleteResource = DeleteResourceResponse

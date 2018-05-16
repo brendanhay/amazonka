@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateStreamingDistributionWithTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,14 +66,14 @@ createStreamingDistributionWithTags
     -> CreateStreamingDistributionWithTags
 createStreamingDistributionWithTags pStreamingDistributionConfigWithTags_ =
   CreateStreamingDistributionWithTags'
-  { _csdwtStreamingDistributionConfigWithTags =
-      pStreamingDistributionConfigWithTags_
-  }
+    { _csdwtStreamingDistributionConfigWithTags =
+        pStreamingDistributionConfigWithTags_
+    }
 
 
 -- | The streaming distribution's configuration information.
 csdwtStreamingDistributionConfigWithTags :: Lens' CreateStreamingDistributionWithTags StreamingDistributionConfigWithTags
-csdwtStreamingDistributionConfigWithTags = lens _csdwtStreamingDistributionConfigWithTags (\ s a -> s{_csdwtStreamingDistributionConfigWithTags = a});
+csdwtStreamingDistributionConfigWithTags = lens _csdwtStreamingDistributionConfigWithTags (\ s a -> s{_csdwtStreamingDistributionConfigWithTags = a})
 
 instance AWSRequest
            CreateStreamingDistributionWithTags
@@ -100,7 +100,7 @@ instance ToElement
          where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}StreamingDistributionConfigWithTags"
+              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}StreamingDistributionConfigWithTags"
               .
               _csdwtStreamingDistributionConfigWithTags
 
@@ -111,7 +111,7 @@ instance ToHeaders
 
 instance ToPath CreateStreamingDistributionWithTags
          where
-        toPath = const "/2017-03-25/streaming-distribution"
+        toPath = const "/2017-10-30/streaming-distribution"
 
 instance ToQuery CreateStreamingDistributionWithTags
          where
@@ -146,28 +146,28 @@ createStreamingDistributionWithTagsResponse
     -> CreateStreamingDistributionWithTagsResponse
 createStreamingDistributionWithTagsResponse pResponseStatus_ =
   CreateStreamingDistributionWithTagsResponse'
-  { _csdwtrsETag = Nothing
-  , _csdwtrsLocation = Nothing
-  , _csdwtrsStreamingDistribution = Nothing
-  , _csdwtrsResponseStatus = pResponseStatus_
-  }
+    { _csdwtrsETag = Nothing
+    , _csdwtrsLocation = Nothing
+    , _csdwtrsStreamingDistribution = Nothing
+    , _csdwtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 csdwtrsETag :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe Text)
-csdwtrsETag = lens _csdwtrsETag (\ s a -> s{_csdwtrsETag = a});
+csdwtrsETag = lens _csdwtrsETag (\ s a -> s{_csdwtrsETag = a})
 
 -- | The fully qualified URI of the new streaming distribution resource just created. For example:@https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8@ .
 csdwtrsLocation :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe Text)
-csdwtrsLocation = lens _csdwtrsLocation (\ s a -> s{_csdwtrsLocation = a});
+csdwtrsLocation = lens _csdwtrsLocation (\ s a -> s{_csdwtrsLocation = a})
 
 -- | The streaming distribution's information.
 csdwtrsStreamingDistribution :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe StreamingDistribution)
-csdwtrsStreamingDistribution = lens _csdwtrsStreamingDistribution (\ s a -> s{_csdwtrsStreamingDistribution = a});
+csdwtrsStreamingDistribution = lens _csdwtrsStreamingDistribution (\ s a -> s{_csdwtrsStreamingDistribution = a})
 
 -- | -- | The response status code.
 csdwtrsResponseStatus :: Lens' CreateStreamingDistributionWithTagsResponse Int
-csdwtrsResponseStatus = lens _csdwtrsResponseStatus (\ s a -> s{_csdwtrsResponseStatus = a});
+csdwtrsResponseStatus = lens _csdwtrsResponseStatus (\ s a -> s{_csdwtrsResponseStatus = a})
 
 instance NFData
            CreateStreamingDistributionWithTagsResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ResourceGroupsTagging.GetTagValues
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ getTagValues pKey_ =
 
 -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a PaginationToken, use that string for this value to request an additional page of data.
 gtvPaginationToken :: Lens' GetTagValues (Maybe Text)
-gtvPaginationToken = lens _gtvPaginationToken (\ s a -> s{_gtvPaginationToken = a});
+gtvPaginationToken = lens _gtvPaginationToken (\ s a -> s{_gtvPaginationToken = a})
 
 -- | The key for which you want to list all existing values in the specified region for the AWS account.
 gtvKey :: Lens' GetTagValues Text
-gtvKey = lens _gtvKey (\ s a -> s{_gtvKey = a});
+gtvKey = lens _gtvKey (\ s a -> s{_gtvKey = a})
 
 instance AWSPager GetTagValues where
         page rq rs
@@ -146,22 +146,22 @@ getTagValuesResponse
     -> GetTagValuesResponse
 getTagValuesResponse pResponseStatus_ =
   GetTagValuesResponse'
-  { _gtvrsPaginationToken = Nothing
-  , _gtvrsTagValues = Nothing
-  , _gtvrsResponseStatus = pResponseStatus_
-  }
+    { _gtvrsPaginationToken = Nothing
+    , _gtvrsTagValues = Nothing
+    , _gtvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
 gtvrsPaginationToken :: Lens' GetTagValuesResponse (Maybe Text)
-gtvrsPaginationToken = lens _gtvrsPaginationToken (\ s a -> s{_gtvrsPaginationToken = a});
+gtvrsPaginationToken = lens _gtvrsPaginationToken (\ s a -> s{_gtvrsPaginationToken = a})
 
 -- | A list of all tag values for the specified key in the AWS account.
 gtvrsTagValues :: Lens' GetTagValuesResponse [Text]
-gtvrsTagValues = lens _gtvrsTagValues (\ s a -> s{_gtvrsTagValues = a}) . _Default . _Coerce;
+gtvrsTagValues = lens _gtvrsTagValues (\ s a -> s{_gtvrsTagValues = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gtvrsResponseStatus :: Lens' GetTagValuesResponse Int
-gtvrsResponseStatus = lens _gtvrsResponseStatus (\ s a -> s{_gtvrsResponseStatus = a});
+gtvrsResponseStatus = lens _gtvrsResponseStatus (\ s a -> s{_gtvrsResponseStatus = a})
 
 instance NFData GetTagValuesResponse where

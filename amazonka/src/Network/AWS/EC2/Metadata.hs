@@ -4,10 +4,11 @@
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE CPP                #-}
 
 -- |
 -- Module      : Network.AWS.EC2.Metadata
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -330,9 +331,15 @@ userdata :: (MonadIO m, MonadCatch m) => Manager -> m (Maybe ByteString)
 userdata m = do
     x <- try $ get m (latest <> "user-data")
     case x of
+#if MIN_VERSION_http_client(0,5,0)
         Left (HttpExceptionRequest _ (StatusCodeException rs _))
             | fromEnum (responseStatus rs) == 404
                 -> return Nothing
+#else
+        Left (StatusCodeException s _ _)
+            | fromEnum s == 404
+                -> return Nothing
+#endif
         Left  e -> throwM e
         Right b -> return (Just b)
 
@@ -342,8 +349,8 @@ userdata m = do
 -- will need to be manually parsed using 'fromText' when the relevant types
 -- from a library such as "Network.AWS.EC2" are brought into scope.
 data IdentityDocument = IdentityDocument
-    { _devpayProductCodes :: Maybe Text
-    , _billingProducts    :: Maybe Text
+    { _devpayProductCodes :: Maybe [Text]
+    , _billingProducts    :: Maybe [Text]
     , _version            :: Maybe Text
     , _privateIp          :: Maybe Text
     , _availabilityZone   :: Text
@@ -358,10 +365,10 @@ data IdentityDocument = IdentityDocument
     , _pendingTime        :: Maybe ISO8601
     } deriving (Eq, Show)
 
-devpayProductCodes :: Lens' IdentityDocument (Maybe Text)
+devpayProductCodes :: Lens' IdentityDocument (Maybe [Text])
 devpayProductCodes = lens _devpayProductCodes (\s a -> s { _devpayProductCodes = a })
 
-billingProducts :: Lens' IdentityDocument (Maybe Text)
+billingProducts :: Lens' IdentityDocument (Maybe [Text])
 billingProducts = lens _billingProducts (\s a -> s { _billingProducts = a })
 
 version :: Lens' IdentityDocument (Maybe Text)
@@ -456,6 +463,10 @@ get m url = liftIO (strip `liftM` request m url)
 
 request :: Manager -> Text -> IO ByteString
 request m url = do
+#if MIN_VERSION_http_client(0,4,30)
     rq <- parseUrlThrow (Text.unpack url)
+#else
+    rq <- parseUrl (Text.unpack url)
+#endif
     rs <- httpLbs rq m
     return . LBS.toStrict $ responseBody rs

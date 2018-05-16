@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DescribeSubscribersForNotification
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get subscribers of a notification
+-- Lists the subscribers associated with a notification.
+--
+--
 module Network.AWS.Budgets.DescribeSubscribersForNotification
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import Network.AWS.Response
 
 -- | Request of DescribeSubscribersForNotification
 --
+--
+--
 -- /See:/ 'describeSubscribersForNotification' smart constructor.
 data DescribeSubscribersForNotification = DescribeSubscribersForNotification'
   { _dsfnNextToken    :: !(Maybe Text)
@@ -63,15 +67,15 @@ data DescribeSubscribersForNotification = DescribeSubscribersForNotification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsfnNextToken' - Undocumented member.
+-- * 'dsfnNextToken' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'dsfnMaxResults' - Undocumented member.
+-- * 'dsfnMaxResults' - Optional integer. Specifies the maximum number of results to return in response.
 --
--- * 'dsfnAccountId' - Undocumented member.
+-- * 'dsfnAccountId' - The @accountId@ that is associated with the budget whose subscribers you want descriptions of.
 --
--- * 'dsfnBudgetName' - Undocumented member.
+-- * 'dsfnBudgetName' - The name of the budget whose subscribers you want descriptions of.
 --
--- * 'dsfnNotification' - Undocumented member.
+-- * 'dsfnNotification' - The notification whose subscribers you want to list.
 describeSubscribersForNotification
     :: Text -- ^ 'dsfnAccountId'
     -> Text -- ^ 'dsfnBudgetName'
@@ -79,33 +83,33 @@ describeSubscribersForNotification
     -> DescribeSubscribersForNotification
 describeSubscribersForNotification pAccountId_ pBudgetName_ pNotification_ =
   DescribeSubscribersForNotification'
-  { _dsfnNextToken = Nothing
-  , _dsfnMaxResults = Nothing
-  , _dsfnAccountId = pAccountId_
-  , _dsfnBudgetName = pBudgetName_
-  , _dsfnNotification = pNotification_
-  }
+    { _dsfnNextToken = Nothing
+    , _dsfnMaxResults = Nothing
+    , _dsfnAccountId = pAccountId_
+    , _dsfnBudgetName = pBudgetName_
+    , _dsfnNotification = pNotification_
+    }
 
 
--- | Undocumented member.
+-- | The pagination token that indicates the next set of results to retrieve.
 dsfnNextToken :: Lens' DescribeSubscribersForNotification (Maybe Text)
-dsfnNextToken = lens _dsfnNextToken (\ s a -> s{_dsfnNextToken = a});
+dsfnNextToken = lens _dsfnNextToken (\ s a -> s{_dsfnNextToken = a})
 
--- | Undocumented member.
+-- | Optional integer. Specifies the maximum number of results to return in response.
 dsfnMaxResults :: Lens' DescribeSubscribersForNotification (Maybe Natural)
-dsfnMaxResults = lens _dsfnMaxResults (\ s a -> s{_dsfnMaxResults = a}) . mapping _Nat;
+dsfnMaxResults = lens _dsfnMaxResults (\ s a -> s{_dsfnMaxResults = a}) . mapping _Nat
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budget whose subscribers you want descriptions of.
 dsfnAccountId :: Lens' DescribeSubscribersForNotification Text
-dsfnAccountId = lens _dsfnAccountId (\ s a -> s{_dsfnAccountId = a});
+dsfnAccountId = lens _dsfnAccountId (\ s a -> s{_dsfnAccountId = a})
 
--- | Undocumented member.
+-- | The name of the budget whose subscribers you want descriptions of.
 dsfnBudgetName :: Lens' DescribeSubscribersForNotification Text
-dsfnBudgetName = lens _dsfnBudgetName (\ s a -> s{_dsfnBudgetName = a});
+dsfnBudgetName = lens _dsfnBudgetName (\ s a -> s{_dsfnBudgetName = a})
 
--- | Undocumented member.
+-- | The notification whose subscribers you want to list.
 dsfnNotification :: Lens' DescribeSubscribersForNotification Notification
-dsfnNotification = lens _dsfnNotification (\ s a -> s{_dsfnNotification = a});
+dsfnNotification = lens _dsfnNotification (\ s a -> s{_dsfnNotification = a})
 
 instance AWSRequest
            DescribeSubscribersForNotification
@@ -158,6 +162,8 @@ instance ToQuery DescribeSubscribersForNotification
 
 -- | Response of DescribeSubscribersForNotification
 --
+--
+--
 -- /See:/ 'describeSubscribersForNotificationResponse' smart constructor.
 data DescribeSubscribersForNotificationResponse = DescribeSubscribersForNotificationResponse'
   { _dsfnrsNextToken      :: !(Maybe Text)
@@ -170,9 +176,9 @@ data DescribeSubscribersForNotificationResponse = DescribeSubscribersForNotifica
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsfnrsNextToken' - Undocumented member.
+-- * 'dsfnrsNextToken' - The pagination token that indicates the next set of results that you can retrieve.
 --
--- * 'dsfnrsSubscribers' - Undocumented member.
+-- * 'dsfnrsSubscribers' - A list of subscribers associated with a notification.
 --
 -- * 'dsfnrsResponseStatus' - -- | The response status code.
 describeSubscribersForNotificationResponse
@@ -180,23 +186,23 @@ describeSubscribersForNotificationResponse
     -> DescribeSubscribersForNotificationResponse
 describeSubscribersForNotificationResponse pResponseStatus_ =
   DescribeSubscribersForNotificationResponse'
-  { _dsfnrsNextToken = Nothing
-  , _dsfnrsSubscribers = Nothing
-  , _dsfnrsResponseStatus = pResponseStatus_
-  }
+    { _dsfnrsNextToken = Nothing
+    , _dsfnrsSubscribers = Nothing
+    , _dsfnrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Undocumented member.
+-- | The pagination token that indicates the next set of results that you can retrieve.
 dsfnrsNextToken :: Lens' DescribeSubscribersForNotificationResponse (Maybe Text)
-dsfnrsNextToken = lens _dsfnrsNextToken (\ s a -> s{_dsfnrsNextToken = a});
+dsfnrsNextToken = lens _dsfnrsNextToken (\ s a -> s{_dsfnrsNextToken = a})
 
--- | Undocumented member.
+-- | A list of subscribers associated with a notification.
 dsfnrsSubscribers :: Lens' DescribeSubscribersForNotificationResponse (Maybe (NonEmpty Subscriber))
-dsfnrsSubscribers = lens _dsfnrsSubscribers (\ s a -> s{_dsfnrsSubscribers = a}) . mapping _List1;
+dsfnrsSubscribers = lens _dsfnrsSubscribers (\ s a -> s{_dsfnrsSubscribers = a}) . mapping _List1
 
 -- | -- | The response status code.
 dsfnrsResponseStatus :: Lens' DescribeSubscribersForNotificationResponse Int
-dsfnrsResponseStatus = lens _dsfnrsResponseStatus (\ s a -> s{_dsfnrsResponseStatus = a});
+dsfnrsResponseStatus = lens _dsfnrsResponseStatus (\ s a -> s{_dsfnrsResponseStatus = a})
 
 instance NFData
            DescribeSubscribersForNotificationResponse

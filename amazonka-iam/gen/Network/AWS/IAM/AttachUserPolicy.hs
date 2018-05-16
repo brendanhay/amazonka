@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.AttachUserPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ data AttachUserPolicy = AttachUserPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aupUserName' - The name (friendly name, not ARN) of the IAM user to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'aupUserName' - The name (friendly name, not ARN) of the IAM user to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'aupPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to attach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 attachUserPolicy
@@ -68,13 +68,13 @@ attachUserPolicy pUserName_ pPolicyARN_ =
   AttachUserPolicy' {_aupUserName = pUserName_, _aupPolicyARN = pPolicyARN_}
 
 
--- | The name (friendly name, not ARN) of the IAM user to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name (friendly name, not ARN) of the IAM user to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 aupUserName :: Lens' AttachUserPolicy Text
-aupUserName = lens _aupUserName (\ s a -> s{_aupUserName = a});
+aupUserName = lens _aupUserName (\ s a -> s{_aupUserName = a})
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 aupPolicyARN :: Lens' AttachUserPolicy Text
-aupPolicyARN = lens _aupPolicyARN (\ s a -> s{_aupPolicyARN = a});
+aupPolicyARN = lens _aupPolicyARN (\ s a -> s{_aupPolicyARN = a})
 
 instance AWSRequest AttachUserPolicy where
         type Rs AttachUserPolicy = AttachUserPolicyResponse

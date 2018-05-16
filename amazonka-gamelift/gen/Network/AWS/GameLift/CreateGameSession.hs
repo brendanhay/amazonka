@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateGameSession
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -114,7 +114,7 @@ data CreateGameSession = CreateGameSession'
 --
 -- * 'cgsIdempotencyToken' - Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .) Idempotency tokens remain in use for 30 days after a game session has ended; game session objects are retained for this time period and then deleted.
 --
--- * 'cgsGameProperties' - Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- * 'cgsGameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 --
 -- * 'cgsGameSessionId' - /This parameter is no longer preferred. Please use @IdempotencyToken@ instead./ Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .)
 --
@@ -122,7 +122,7 @@ data CreateGameSession = CreateGameSession'
 --
 -- * 'cgsName' - Descriptive label that is associated with a game session. Session names do not need to be unique.
 --
--- * 'cgsGameSessionData' - Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- * 'cgsGameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 --
 -- * 'cgsFleetId' - Unique identifier for a fleet to create a game session in. Each request must reference either a fleet ID or alias ID, but not both.
 --
@@ -134,53 +134,53 @@ createGameSession
     -> CreateGameSession
 createGameSession pMaximumPlayerSessionCount_ =
   CreateGameSession'
-  { _cgsIdempotencyToken = Nothing
-  , _cgsGameProperties = Nothing
-  , _cgsGameSessionId = Nothing
-  , _cgsAliasId = Nothing
-  , _cgsName = Nothing
-  , _cgsGameSessionData = Nothing
-  , _cgsFleetId = Nothing
-  , _cgsCreatorId = Nothing
-  , _cgsMaximumPlayerSessionCount = _Nat # pMaximumPlayerSessionCount_
-  }
+    { _cgsIdempotencyToken = Nothing
+    , _cgsGameProperties = Nothing
+    , _cgsGameSessionId = Nothing
+    , _cgsAliasId = Nothing
+    , _cgsName = Nothing
+    , _cgsGameSessionData = Nothing
+    , _cgsFleetId = Nothing
+    , _cgsCreatorId = Nothing
+    , _cgsMaximumPlayerSessionCount = _Nat # pMaximumPlayerSessionCount_
+    }
 
 
 -- | Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .) Idempotency tokens remain in use for 30 days after a game session has ended; game session objects are retained for this time period and then deleted.
 cgsIdempotencyToken :: Lens' CreateGameSession (Maybe Text)
-cgsIdempotencyToken = lens _cgsIdempotencyToken (\ s a -> s{_cgsIdempotencyToken = a});
+cgsIdempotencyToken = lens _cgsIdempotencyToken (\ s a -> s{_cgsIdempotencyToken = a})
 
--- | Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 cgsGameProperties :: Lens' CreateGameSession [GameProperty]
-cgsGameProperties = lens _cgsGameProperties (\ s a -> s{_cgsGameProperties = a}) . _Default . _Coerce;
+cgsGameProperties = lens _cgsGameProperties (\ s a -> s{_cgsGameProperties = a}) . _Default . _Coerce
 
 -- | /This parameter is no longer preferred. Please use @IdempotencyToken@ instead./ Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .)
 cgsGameSessionId :: Lens' CreateGameSession (Maybe Text)
-cgsGameSessionId = lens _cgsGameSessionId (\ s a -> s{_cgsGameSessionId = a});
+cgsGameSessionId = lens _cgsGameSessionId (\ s a -> s{_cgsGameSessionId = a})
 
 -- | Unique identifier for an alias associated with the fleet to create a game session in. Each request must reference either a fleet ID or alias ID, but not both.
 cgsAliasId :: Lens' CreateGameSession (Maybe Text)
-cgsAliasId = lens _cgsAliasId (\ s a -> s{_cgsAliasId = a});
+cgsAliasId = lens _cgsAliasId (\ s a -> s{_cgsAliasId = a})
 
 -- | Descriptive label that is associated with a game session. Session names do not need to be unique.
 cgsName :: Lens' CreateGameSession (Maybe Text)
-cgsName = lens _cgsName (\ s a -> s{_cgsName = a});
+cgsName = lens _cgsName (\ s a -> s{_cgsName = a})
 
--- | Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 cgsGameSessionData :: Lens' CreateGameSession (Maybe Text)
-cgsGameSessionData = lens _cgsGameSessionData (\ s a -> s{_cgsGameSessionData = a});
+cgsGameSessionData = lens _cgsGameSessionData (\ s a -> s{_cgsGameSessionData = a})
 
 -- | Unique identifier for a fleet to create a game session in. Each request must reference either a fleet ID or alias ID, but not both.
 cgsFleetId :: Lens' CreateGameSession (Maybe Text)
-cgsFleetId = lens _cgsFleetId (\ s a -> s{_cgsFleetId = a});
+cgsFleetId = lens _cgsFleetId (\ s a -> s{_cgsFleetId = a})
 
 -- | Unique identifier for a player or entity creating the game session. This ID is used to enforce a resource protection policy (if one exists) that limits the number of concurrent active game sessions one player can have.
 cgsCreatorId :: Lens' CreateGameSession (Maybe Text)
-cgsCreatorId = lens _cgsCreatorId (\ s a -> s{_cgsCreatorId = a});
+cgsCreatorId = lens _cgsCreatorId (\ s a -> s{_cgsCreatorId = a})
 
 -- | Maximum number of players that can be connected simultaneously to the game session.
 cgsMaximumPlayerSessionCount :: Lens' CreateGameSession Natural
-cgsMaximumPlayerSessionCount = lens _cgsMaximumPlayerSessionCount (\ s a -> s{_cgsMaximumPlayerSessionCount = a}) . _Nat;
+cgsMaximumPlayerSessionCount = lens _cgsMaximumPlayerSessionCount (\ s a -> s{_cgsMaximumPlayerSessionCount = a}) . _Nat
 
 instance AWSRequest CreateGameSession where
         type Rs CreateGameSession = CreateGameSessionResponse
@@ -249,15 +249,15 @@ createGameSessionResponse
     -> CreateGameSessionResponse
 createGameSessionResponse pResponseStatus_ =
   CreateGameSessionResponse'
-  {_cgsrsGameSession = Nothing, _cgsrsResponseStatus = pResponseStatus_}
+    {_cgsrsGameSession = Nothing, _cgsrsResponseStatus = pResponseStatus_}
 
 
 -- | Object that describes the newly created game session record.
 cgsrsGameSession :: Lens' CreateGameSessionResponse (Maybe GameSession)
-cgsrsGameSession = lens _cgsrsGameSession (\ s a -> s{_cgsrsGameSession = a});
+cgsrsGameSession = lens _cgsrsGameSession (\ s a -> s{_cgsrsGameSession = a})
 
 -- | -- | The response status code.
 cgsrsResponseStatus :: Lens' CreateGameSessionResponse Int
-cgsrsResponseStatus = lens _cgsrsResponseStatus (\ s a -> s{_cgsrsResponseStatus = a});
+cgsrsResponseStatus = lens _cgsrsResponseStatus (\ s a -> s{_cgsrsResponseStatus = a})
 
 instance NFData CreateGameSessionResponse where

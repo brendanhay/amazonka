@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteAuthorizer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,25 +58,25 @@ data DeleteAuthorizer = DeleteAuthorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'daRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'daAuthorizerId' - The identifier of the 'Authorizer' resource.
+-- * 'daAuthorizerId' - [Required] The identifier of the 'Authorizer' resource.
 deleteAuthorizer
     :: Text -- ^ 'daRestAPIId'
     -> Text -- ^ 'daAuthorizerId'
     -> DeleteAuthorizer
 deleteAuthorizer pRestAPIId_ pAuthorizerId_ =
   DeleteAuthorizer'
-  {_daRestAPIId = pRestAPIId_, _daAuthorizerId = pAuthorizerId_}
+    {_daRestAPIId = pRestAPIId_, _daAuthorizerId = pAuthorizerId_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 daRestAPIId :: Lens' DeleteAuthorizer Text
-daRestAPIId = lens _daRestAPIId (\ s a -> s{_daRestAPIId = a});
+daRestAPIId = lens _daRestAPIId (\ s a -> s{_daRestAPIId = a})
 
--- | The identifier of the 'Authorizer' resource.
+-- | [Required] The identifier of the 'Authorizer' resource.
 daAuthorizerId :: Lens' DeleteAuthorizer Text
-daAuthorizerId = lens _daAuthorizerId (\ s a -> s{_daAuthorizerId = a});
+daAuthorizerId = lens _daAuthorizerId (\ s a -> s{_daAuthorizerId = a})
 
 instance AWSRequest DeleteAuthorizer where
         type Rs DeleteAuthorizer = DeleteAuthorizerResponse

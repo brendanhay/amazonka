@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.DescribeIdentityPoolUsage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ describeIdentityPoolUsage pIdentityPoolId_ =
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 dipuIdentityPoolId :: Lens' DescribeIdentityPoolUsage Text
-dipuIdentityPoolId = lens _dipuIdentityPoolId (\ s a -> s{_dipuIdentityPoolId = a});
+dipuIdentityPoolId = lens _dipuIdentityPoolId (\ s a -> s{_dipuIdentityPoolId = a})
 
 instance AWSRequest DescribeIdentityPoolUsage where
         type Rs DescribeIdentityPoolUsage =
@@ -120,16 +120,18 @@ describeIdentityPoolUsageResponse
     -> DescribeIdentityPoolUsageResponse
 describeIdentityPoolUsageResponse pResponseStatus_ =
   DescribeIdentityPoolUsageResponse'
-  {_dipursIdentityPoolUsage = Nothing, _dipursResponseStatus = pResponseStatus_}
+    { _dipursIdentityPoolUsage = Nothing
+    , _dipursResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the usage of the identity pool.
 dipursIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe IdentityPoolUsage)
-dipursIdentityPoolUsage = lens _dipursIdentityPoolUsage (\ s a -> s{_dipursIdentityPoolUsage = a});
+dipursIdentityPoolUsage = lens _dipursIdentityPoolUsage (\ s a -> s{_dipursIdentityPoolUsage = a})
 
 -- | -- | The response status code.
 dipursResponseStatus :: Lens' DescribeIdentityPoolUsageResponse Int
-dipursResponseStatus = lens _dipursResponseStatus (\ s a -> s{_dipursResponseStatus = a});
+dipursResponseStatus = lens _dipursResponseStatus (\ s a -> s{_dipursResponseStatus = a})
 
 instance NFData DescribeIdentityPoolUsageResponse
          where

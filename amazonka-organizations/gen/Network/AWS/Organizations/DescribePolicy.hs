@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ describePolicy pPolicyId_ = DescribePolicy' {_dpPolicyId = pPolicyId_}
 
 -- | The unique identifier (ID) of the policy that you want details about. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
 dpPolicyId :: Lens' DescribePolicy Text
-dpPolicyId = lens _dpPolicyId (\ s a -> s{_dpPolicyId = a});
+dpPolicyId = lens _dpPolicyId (\ s a -> s{_dpPolicyId = a})
 
 instance AWSRequest DescribePolicy where
         type Rs DescribePolicy = DescribePolicyResponse
@@ -120,15 +120,15 @@ describePolicyResponse
     -> DescribePolicyResponse
 describePolicyResponse pResponseStatus_ =
   DescribePolicyResponse'
-  {_dprsPolicy = Nothing, _dprsResponseStatus = pResponseStatus_}
+    {_dprsPolicy = Nothing, _dprsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that contains details about the specified policy.
 dprsPolicy :: Lens' DescribePolicyResponse (Maybe Policy)
-dprsPolicy = lens _dprsPolicy (\ s a -> s{_dprsPolicy = a});
+dprsPolicy = lens _dprsPolicy (\ s a -> s{_dprsPolicy = a})
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DescribePolicyResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DescribePolicyResponse where

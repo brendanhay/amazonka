@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.AddTagsToVault
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ addTagsToVault
     -> AddTagsToVault
 addTagsToVault pAccountId_ pVaultName_ =
   AddTagsToVault'
-  { _attvTags = Nothing
-  , _attvAccountId = pAccountId_
-  , _attvVaultName = pVaultName_
-  }
+    { _attvTags = Nothing
+    , _attvAccountId = pAccountId_
+    , _attvVaultName = pVaultName_
+    }
 
 
 -- | The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
 attvTags :: Lens' AddTagsToVault (HashMap Text Text)
-attvTags = lens _attvTags (\ s a -> s{_attvTags = a}) . _Default . _Map;
+attvTags = lens _attvTags (\ s a -> s{_attvTags = a}) . _Default . _Map
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 attvAccountId :: Lens' AddTagsToVault Text
-attvAccountId = lens _attvAccountId (\ s a -> s{_attvAccountId = a});
+attvAccountId = lens _attvAccountId (\ s a -> s{_attvAccountId = a})
 
 -- | The name of the vault.
 attvVaultName :: Lens' AddTagsToVault Text
-attvVaultName = lens _attvVaultName (\ s a -> s{_attvVaultName = a});
+attvVaultName = lens _attvVaultName (\ s a -> s{_attvVaultName = a})
 
 instance AWSRequest AddTagsToVault where
         type Rs AddTagsToVault = AddTagsToVaultResponse

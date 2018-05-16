@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateVPCPeeringConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,23 +93,23 @@ createVPCPeeringConnection
     -> CreateVPCPeeringConnection
 createVPCPeeringConnection pFleetId_ pPeerVPCAWSAccountId_ pPeerVPCId_ =
   CreateVPCPeeringConnection'
-  { _cvpcFleetId = pFleetId_
-  , _cvpcPeerVPCAWSAccountId = pPeerVPCAWSAccountId_
-  , _cvpcPeerVPCId = pPeerVPCId_
-  }
+    { _cvpcFleetId = pFleetId_
+    , _cvpcPeerVPCAWSAccountId = pPeerVPCAWSAccountId_
+    , _cvpcPeerVPCId = pPeerVPCId_
+    }
 
 
 -- | Unique identifier for a fleet. This tells Amazon GameLift which GameLift VPC to peer with.
 cvpcFleetId :: Lens' CreateVPCPeeringConnection Text
-cvpcFleetId = lens _cvpcFleetId (\ s a -> s{_cvpcFleetId = a});
+cvpcFleetId = lens _cvpcFleetId (\ s a -> s{_cvpcFleetId = a})
 
 -- | Unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your Account ID in the AWS Management Console under account settings.
 cvpcPeerVPCAWSAccountId :: Lens' CreateVPCPeeringConnection Text
-cvpcPeerVPCAWSAccountId = lens _cvpcPeerVPCAWSAccountId (\ s a -> s{_cvpcPeerVPCAWSAccountId = a});
+cvpcPeerVPCAWSAccountId = lens _cvpcPeerVPCAWSAccountId (\ s a -> s{_cvpcPeerVPCAWSAccountId = a})
 
 -- | Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
 cvpcPeerVPCId :: Lens' CreateVPCPeeringConnection Text
-cvpcPeerVPCId = lens _cvpcPeerVPCId (\ s a -> s{_cvpcPeerVPCId = a});
+cvpcPeerVPCId = lens _cvpcPeerVPCId (\ s a -> s{_cvpcPeerVPCId = a})
 
 instance AWSRequest CreateVPCPeeringConnection where
         type Rs CreateVPCPeeringConnection =
@@ -170,7 +170,7 @@ createVPCPeeringConnectionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cvpcrsResponseStatus :: Lens' CreateVPCPeeringConnectionResponse Int
-cvpcrsResponseStatus = lens _cvpcrsResponseStatus (\ s a -> s{_cvpcrsResponseStatus = a});
+cvpcrsResponseStatus = lens _cvpcrsResponseStatus (\ s a -> s{_cvpcrsResponseStatus = a})
 
 instance NFData CreateVPCPeeringConnectionResponse
          where

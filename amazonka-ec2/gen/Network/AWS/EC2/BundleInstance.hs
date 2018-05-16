@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.BundleInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,20 +77,20 @@ bundleInstance
     -> BundleInstance
 bundleInstance pInstanceId_ pStorage_ =
   BundleInstance'
-  {_biDryRun = Nothing, _biInstanceId = pInstanceId_, _biStorage = pStorage_}
+    {_biDryRun = Nothing, _biInstanceId = pInstanceId_, _biStorage = pStorage_}
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 biDryRun :: Lens' BundleInstance (Maybe Bool)
-biDryRun = lens _biDryRun (\ s a -> s{_biDryRun = a});
+biDryRun = lens _biDryRun (\ s a -> s{_biDryRun = a})
 
 -- | The ID of the instance to bundle. Type: String Default: None Required: Yes
 biInstanceId :: Lens' BundleInstance Text
-biInstanceId = lens _biInstanceId (\ s a -> s{_biInstanceId = a});
+biInstanceId = lens _biInstanceId (\ s a -> s{_biInstanceId = a})
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
 biStorage :: Lens' BundleInstance Storage
-biStorage = lens _biStorage (\ s a -> s{_biStorage = a});
+biStorage = lens _biStorage (\ s a -> s{_biStorage = a})
 
 instance AWSRequest BundleInstance where
         type Rs BundleInstance = BundleInstanceResponse
@@ -142,15 +142,15 @@ bundleInstanceResponse
     -> BundleInstanceResponse
 bundleInstanceResponse pResponseStatus_ =
   BundleInstanceResponse'
-  {_birsBundleTask = Nothing, _birsResponseStatus = pResponseStatus_}
+    {_birsBundleTask = Nothing, _birsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the bundle task.
 birsBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
-birsBundleTask = lens _birsBundleTask (\ s a -> s{_birsBundleTask = a});
+birsBundleTask = lens _birsBundleTask (\ s a -> s{_birsBundleTask = a})
 
 -- | -- | The response status code.
 birsResponseStatus :: Lens' BundleInstanceResponse Int
-birsResponseStatus = lens _birsResponseStatus (\ s a -> s{_birsResponseStatus = a});
+birsResponseStatus = lens _birsResponseStatus (\ s a -> s{_birsResponseStatus = a})
 
 instance NFData BundleInstanceResponse where

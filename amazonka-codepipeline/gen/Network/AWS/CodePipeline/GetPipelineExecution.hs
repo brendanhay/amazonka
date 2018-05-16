@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.GetPipelineExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,18 +69,18 @@ getPipelineExecution
     -> GetPipelineExecution
 getPipelineExecution pPipelineName_ pPipelineExecutionId_ =
   GetPipelineExecution'
-  { _gpePipelineName = pPipelineName_
-  , _gpePipelineExecutionId = pPipelineExecutionId_
-  }
+    { _gpePipelineName = pPipelineName_
+    , _gpePipelineExecutionId = pPipelineExecutionId_
+    }
 
 
 -- | The name of the pipeline about which you want to get execution details.
 gpePipelineName :: Lens' GetPipelineExecution Text
-gpePipelineName = lens _gpePipelineName (\ s a -> s{_gpePipelineName = a});
+gpePipelineName = lens _gpePipelineName (\ s a -> s{_gpePipelineName = a})
 
 -- | The ID of the pipeline execution about which you want to get execution details.
 gpePipelineExecutionId :: Lens' GetPipelineExecution Text
-gpePipelineExecutionId = lens _gpePipelineExecutionId (\ s a -> s{_gpePipelineExecutionId = a});
+gpePipelineExecutionId = lens _gpePipelineExecutionId (\ s a -> s{_gpePipelineExecutionId = a})
 
 instance AWSRequest GetPipelineExecution where
         type Rs GetPipelineExecution =
@@ -143,15 +143,15 @@ getPipelineExecutionResponse
     -> GetPipelineExecutionResponse
 getPipelineExecutionResponse pResponseStatus_ =
   GetPipelineExecutionResponse'
-  {_gpersPipelineExecution = Nothing, _gpersResponseStatus = pResponseStatus_}
+    {_gpersPipelineExecution = Nothing, _gpersResponseStatus = pResponseStatus_}
 
 
 -- | Represents information about the execution of a pipeline.
 gpersPipelineExecution :: Lens' GetPipelineExecutionResponse (Maybe PipelineExecution)
-gpersPipelineExecution = lens _gpersPipelineExecution (\ s a -> s{_gpersPipelineExecution = a});
+gpersPipelineExecution = lens _gpersPipelineExecution (\ s a -> s{_gpersPipelineExecution = a})
 
 -- | -- | The response status code.
 gpersResponseStatus :: Lens' GetPipelineExecutionResponse Int
-gpersResponseStatus = lens _gpersResponseStatus (\ s a -> s{_gpersResponseStatus = a});
+gpersResponseStatus = lens _gpersResponseStatus (\ s a -> s{_gpersResponseStatus = a})
 
 instance NFData GetPipelineExecutionResponse where

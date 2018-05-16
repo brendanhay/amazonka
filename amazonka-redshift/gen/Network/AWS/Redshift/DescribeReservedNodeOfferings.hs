@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeReservedNodeOfferings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,23 +77,23 @@ describeReservedNodeOfferings
     :: DescribeReservedNodeOfferings
 describeReservedNodeOfferings =
   DescribeReservedNodeOfferings'
-  { _drnoReservedNodeOfferingId = Nothing
-  , _drnoMarker = Nothing
-  , _drnoMaxRecords = Nothing
-  }
+    { _drnoReservedNodeOfferingId = Nothing
+    , _drnoMarker = Nothing
+    , _drnoMaxRecords = Nothing
+    }
 
 
 -- | The unique identifier for the offering.
 drnoReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
-drnoReservedNodeOfferingId = lens _drnoReservedNodeOfferingId (\ s a -> s{_drnoReservedNodeOfferingId = a});
+drnoReservedNodeOfferingId = lens _drnoReservedNodeOfferingId (\ s a -> s{_drnoReservedNodeOfferingId = a})
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeReservedNodeOfferings' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 drnoMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
-drnoMarker = lens _drnoMarker (\ s a -> s{_drnoMarker = a});
+drnoMarker = lens _drnoMarker (\ s a -> s{_drnoMarker = a})
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
 drnoMaxRecords :: Lens' DescribeReservedNodeOfferings (Maybe Int)
-drnoMaxRecords = lens _drnoMaxRecords (\ s a -> s{_drnoMaxRecords = a});
+drnoMaxRecords = lens _drnoMaxRecords (\ s a -> s{_drnoMaxRecords = a})
 
 instance AWSPager DescribeReservedNodeOfferings where
         page rq rs
@@ -165,23 +165,23 @@ describeReservedNodeOfferingsResponse
     -> DescribeReservedNodeOfferingsResponse
 describeReservedNodeOfferingsResponse pResponseStatus_ =
   DescribeReservedNodeOfferingsResponse'
-  { _drnorsReservedNodeOfferings = Nothing
-  , _drnorsMarker = Nothing
-  , _drnorsResponseStatus = pResponseStatus_
-  }
+    { _drnorsReservedNodeOfferings = Nothing
+    , _drnorsMarker = Nothing
+    , _drnorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of @ReservedNodeOffering@ objects.
 drnorsReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
-drnorsReservedNodeOfferings = lens _drnorsReservedNodeOfferings (\ s a -> s{_drnorsReservedNodeOfferings = a}) . _Default . _Coerce;
+drnorsReservedNodeOfferings = lens _drnorsReservedNodeOfferings (\ s a -> s{_drnorsReservedNodeOfferings = a}) . _Default . _Coerce
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 drnorsMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
-drnorsMarker = lens _drnorsMarker (\ s a -> s{_drnorsMarker = a});
+drnorsMarker = lens _drnorsMarker (\ s a -> s{_drnorsMarker = a})
 
 -- | -- | The response status code.
 drnorsResponseStatus :: Lens' DescribeReservedNodeOfferingsResponse Int
-drnorsResponseStatus = lens _drnorsResponseStatus (\ s a -> s{_drnorsResponseStatus = a});
+drnorsResponseStatus = lens _drnorsResponseStatus (\ s a -> s{_drnorsResponseStatus = a})
 
 instance NFData DescribeReservedNodeOfferingsResponse
          where

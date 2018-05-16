@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.GetSMSAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getSMSAttributes = GetSMSAttributes' {_gsmsaAttributes = Nothing}
 
 -- | A list of the individual attribute names, such as @MonthlySpendLimit@ , for which you want values. For all attribute names, see <http://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html SetSMSAttributes> . If you don't use this parameter, Amazon SNS returns all SMS attributes.
 gsmsaAttributes :: Lens' GetSMSAttributes [Text]
-gsmsaAttributes = lens _gsmsaAttributes (\ s a -> s{_gsmsaAttributes = a}) . _Default . _Coerce;
+gsmsaAttributes = lens _gsmsaAttributes (\ s a -> s{_gsmsaAttributes = a}) . _Default . _Coerce
 
 instance AWSRequest GetSMSAttributes where
         type Rs GetSMSAttributes = GetSMSAttributesResponse
@@ -122,15 +122,15 @@ getSMSAttributesResponse
     -> GetSMSAttributesResponse
 getSMSAttributesResponse pResponseStatus_ =
   GetSMSAttributesResponse'
-  {_gsmsarsAttributes = Nothing, _gsmsarsResponseStatus = pResponseStatus_}
+    {_gsmsarsAttributes = Nothing, _gsmsarsResponseStatus = pResponseStatus_}
 
 
 -- | The SMS attribute names and their values.
 gsmsarsAttributes :: Lens' GetSMSAttributesResponse (HashMap Text Text)
-gsmsarsAttributes = lens _gsmsarsAttributes (\ s a -> s{_gsmsarsAttributes = a}) . _Default . _Map;
+gsmsarsAttributes = lens _gsmsarsAttributes (\ s a -> s{_gsmsarsAttributes = a}) . _Default . _Map
 
 -- | -- | The response status code.
 gsmsarsResponseStatus :: Lens' GetSMSAttributesResponse Int
-gsmsarsResponseStatus = lens _gsmsarsResponseStatus (\ s a -> s{_gsmsarsResponseStatus = a});
+gsmsarsResponseStatus = lens _gsmsarsResponseStatus (\ s a -> s{_gsmsarsResponseStatus = a})
 
 instance NFData GetSMSAttributesResponse where

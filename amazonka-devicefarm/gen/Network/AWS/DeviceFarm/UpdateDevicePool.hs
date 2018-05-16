@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.UpdateDevicePool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ updateDevicePool
     -> UpdateDevicePool
 updateDevicePool pArn_ =
   UpdateDevicePool'
-  { _udpRules = Nothing
-  , _udpName = Nothing
-  , _udpDescription = Nothing
-  , _udpArn = pArn_
-  }
+    { _udpRules = Nothing
+    , _udpName = Nothing
+    , _udpDescription = Nothing
+    , _udpArn = pArn_
+    }
 
 
 -- | Represents the rules you wish to modify for the device pool. Updating rules is optional; however, if you choose to update rules for your request, the update will replace the existing rules.
 udpRules :: Lens' UpdateDevicePool [Rule]
-udpRules = lens _udpRules (\ s a -> s{_udpRules = a}) . _Default . _Coerce;
+udpRules = lens _udpRules (\ s a -> s{_udpRules = a}) . _Default . _Coerce
 
 -- | A string representing the name of the device pool you wish to update.
 udpName :: Lens' UpdateDevicePool (Maybe Text)
-udpName = lens _udpName (\ s a -> s{_udpName = a});
+udpName = lens _udpName (\ s a -> s{_udpName = a})
 
 -- | A description of the device pool you wish to update.
 udpDescription :: Lens' UpdateDevicePool (Maybe Text)
-udpDescription = lens _udpDescription (\ s a -> s{_udpDescription = a});
+udpDescription = lens _udpDescription (\ s a -> s{_udpDescription = a})
 
 -- | The Amazon Resourc Name (ARN) of the Device Farm device pool you wish to update.
 udpArn :: Lens' UpdateDevicePool Text
-udpArn = lens _udpArn (\ s a -> s{_udpArn = a});
+udpArn = lens _udpArn (\ s a -> s{_udpArn = a})
 
 instance AWSRequest UpdateDevicePool where
         type Rs UpdateDevicePool = UpdateDevicePoolResponse
@@ -160,15 +160,15 @@ updateDevicePoolResponse
     -> UpdateDevicePoolResponse
 updateDevicePoolResponse pResponseStatus_ =
   UpdateDevicePoolResponse'
-  {_udprsDevicePool = Nothing, _udprsResponseStatus = pResponseStatus_}
+    {_udprsDevicePool = Nothing, _udprsResponseStatus = pResponseStatus_}
 
 
 -- | The device pool you just updated.
 udprsDevicePool :: Lens' UpdateDevicePoolResponse (Maybe DevicePool)
-udprsDevicePool = lens _udprsDevicePool (\ s a -> s{_udprsDevicePool = a});
+udprsDevicePool = lens _udprsDevicePool (\ s a -> s{_udprsDevicePool = a})
 
 -- | -- | The response status code.
 udprsResponseStatus :: Lens' UpdateDevicePoolResponse Int
-udprsResponseStatus = lens _udprsResponseStatus (\ s a -> s{_udprsResponseStatus = a});
+udprsResponseStatus = lens _udprsResponseStatus (\ s a -> s{_udprsResponseStatus = a})
 
 instance NFData UpdateDevicePoolResponse where

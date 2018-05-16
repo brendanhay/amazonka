@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ abortEnvironmentUpdate
     :: AbortEnvironmentUpdate
 abortEnvironmentUpdate =
   AbortEnvironmentUpdate'
-  {_aeuEnvironmentName = Nothing, _aeuEnvironmentId = Nothing}
+    {_aeuEnvironmentName = Nothing, _aeuEnvironmentId = Nothing}
 
 
 -- | This specifies the name of the environment with the in-progress update that you want to cancel.
 aeuEnvironmentName :: Lens' AbortEnvironmentUpdate (Maybe Text)
-aeuEnvironmentName = lens _aeuEnvironmentName (\ s a -> s{_aeuEnvironmentName = a});
+aeuEnvironmentName = lens _aeuEnvironmentName (\ s a -> s{_aeuEnvironmentName = a})
 
 -- | This specifies the ID of the environment with the in-progress update that you want to cancel.
 aeuEnvironmentId :: Lens' AbortEnvironmentUpdate (Maybe Text)
-aeuEnvironmentId = lens _aeuEnvironmentId (\ s a -> s{_aeuEnvironmentId = a});
+aeuEnvironmentId = lens _aeuEnvironmentId (\ s a -> s{_aeuEnvironmentId = a})
 
 instance AWSRequest AbortEnvironmentUpdate where
         type Rs AbortEnvironmentUpdate =

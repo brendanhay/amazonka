@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateSmsChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ updateSmsChannel
     -> UpdateSmsChannel
 updateSmsChannel pApplicationId_ pSMSChannelRequest_ =
   UpdateSmsChannel'
-  { _uscApplicationId = pApplicationId_
-  , _uscSMSChannelRequest = pSMSChannelRequest_
-  }
+    { _uscApplicationId = pApplicationId_
+    , _uscSMSChannelRequest = pSMSChannelRequest_
+    }
 
 
 -- | Undocumented member.
 uscApplicationId :: Lens' UpdateSmsChannel Text
-uscApplicationId = lens _uscApplicationId (\ s a -> s{_uscApplicationId = a});
+uscApplicationId = lens _uscApplicationId (\ s a -> s{_uscApplicationId = a})
 
 -- | Undocumented member.
 uscSMSChannelRequest :: Lens' UpdateSmsChannel SMSChannelRequest
-uscSMSChannelRequest = lens _uscSMSChannelRequest (\ s a -> s{_uscSMSChannelRequest = a});
+uscSMSChannelRequest = lens _uscSMSChannelRequest (\ s a -> s{_uscSMSChannelRequest = a})
 
 instance AWSRequest UpdateSmsChannel where
         type Rs UpdateSmsChannel = UpdateSmsChannelResponse
@@ -132,17 +132,17 @@ updateSmsChannelResponse
     -> UpdateSmsChannelResponse
 updateSmsChannelResponse pResponseStatus_ pSMSChannelResponse_ =
   UpdateSmsChannelResponse'
-  { _uscrsResponseStatus = pResponseStatus_
-  , _uscrsSMSChannelResponse = pSMSChannelResponse_
-  }
+    { _uscrsResponseStatus = pResponseStatus_
+    , _uscrsSMSChannelResponse = pSMSChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 uscrsResponseStatus :: Lens' UpdateSmsChannelResponse Int
-uscrsResponseStatus = lens _uscrsResponseStatus (\ s a -> s{_uscrsResponseStatus = a});
+uscrsResponseStatus = lens _uscrsResponseStatus (\ s a -> s{_uscrsResponseStatus = a})
 
 -- | Undocumented member.
 uscrsSMSChannelResponse :: Lens' UpdateSmsChannelResponse SMSChannelResponse
-uscrsSMSChannelResponse = lens _uscrsSMSChannelResponse (\ s a -> s{_uscrsSMSChannelResponse = a});
+uscrsSMSChannelResponse = lens _uscrsSMSChannelResponse (\ s a -> s{_uscrsSMSChannelResponse = a})
 
 instance NFData UpdateSmsChannelResponse where

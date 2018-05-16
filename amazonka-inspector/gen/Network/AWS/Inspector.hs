@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,16 +59,16 @@ module Network.AWS.Inspector
     -- ** GetTelemetryMetadata
     , module Network.AWS.Inspector.GetTelemetryMetadata
 
-    -- ** ListFindings
+    -- ** ListFindings (Paginated)
     , module Network.AWS.Inspector.ListFindings
 
-    -- ** ListAssessmentTemplates
+    -- ** ListAssessmentTemplates (Paginated)
     , module Network.AWS.Inspector.ListAssessmentTemplates
 
     -- ** SubscribeToEvent
     , module Network.AWS.Inspector.SubscribeToEvent
 
-    -- ** ListAssessmentRunAgents
+    -- ** ListAssessmentRunAgents (Paginated)
     , module Network.AWS.Inspector.ListAssessmentRunAgents
 
     -- ** StartAssessmentRun
@@ -98,13 +98,13 @@ module Network.AWS.Inspector
     -- ** CreateAssessmentTarget
     , module Network.AWS.Inspector.CreateAssessmentTarget
 
-    -- ** ListEventSubscriptions
+    -- ** ListEventSubscriptions (Paginated)
     , module Network.AWS.Inspector.ListEventSubscriptions
 
     -- ** RegisterCrossAccountAccessRole
     , module Network.AWS.Inspector.RegisterCrossAccountAccessRole
 
-    -- ** ListAssessmentTargets
+    -- ** ListAssessmentTargets (Paginated)
     , module Network.AWS.Inspector.ListAssessmentTargets
 
     -- ** CreateResourceGroup
@@ -116,7 +116,7 @@ module Network.AWS.Inspector
     -- ** StopAssessmentRun
     , module Network.AWS.Inspector.StopAssessmentRun
 
-    -- ** PreviewAgents
+    -- ** PreviewAgents (Paginated)
     , module Network.AWS.Inspector.PreviewAgents
 
     -- ** DescribeFindings
@@ -134,13 +134,13 @@ module Network.AWS.Inspector
     -- ** DeleteAssessmentRun
     , module Network.AWS.Inspector.DeleteAssessmentRun
 
-    -- ** ListAssessmentRuns
+    -- ** ListAssessmentRuns (Paginated)
     , module Network.AWS.Inspector.ListAssessmentRuns
 
     -- ** GetAssessmentReport
     , module Network.AWS.Inspector.GetAssessmentReport
 
-    -- ** ListRulesPackages
+    -- ** ListRulesPackages (Paginated)
     , module Network.AWS.Inspector.ListRulesPackages
 
     -- ** DescribeAssessmentRuns
@@ -205,7 +205,13 @@ module Network.AWS.Inspector
     -- ** AgentPreview
     , AgentPreview
     , agentPreview
+    , apHostname
     , apAutoScalingGroup
+    , apOperatingSystem
+    , apAgentVersion
+    , apKernelVersion
+    , apAgentHealth
+    , apIpv4Address
     , apAgentId
 
     -- ** AssessmentRun
@@ -282,12 +288,14 @@ module Network.AWS.Inspector
     -- ** AssessmentTemplate
     , AssessmentTemplate
     , assessmentTemplate
+    , atLastAssessmentRunARN
     , atArn
     , atName
     , atAssessmentTargetARN
     , atDurationInSeconds
     , atRulesPackageARNs
     , atUserAttributesForFindings
+    , atAssessmentRunCount
     , atCreatedAt
 
     -- ** AssessmentTemplateFilter

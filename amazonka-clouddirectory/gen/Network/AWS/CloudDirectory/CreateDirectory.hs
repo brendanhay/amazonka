@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateDirectory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ createDirectory pName_ pSchemaARN_ =
 
 -- | The name of the 'Directory' . Should be unique per account, per region.
 cdName :: Lens' CreateDirectory Text
-cdName = lens _cdName (\ s a -> s{_cdName = a});
+cdName = lens _cdName (\ s a -> s{_cdName = a})
 
 -- | The Amazon Resource Name (ARN) of the published schema that will be copied into the data 'Directory' . For more information, see 'arns' .
 cdSchemaARN :: Lens' CreateDirectory Text
-cdSchemaARN = lens _cdSchemaARN (\ s a -> s{_cdSchemaARN = a});
+cdSchemaARN = lens _cdSchemaARN (\ s a -> s{_cdSchemaARN = a})
 
 instance AWSRequest CreateDirectory where
         type Rs CreateDirectory = CreateDirectoryResponse
@@ -142,32 +142,32 @@ createDirectoryResponse
     -> CreateDirectoryResponse
 createDirectoryResponse pResponseStatus_ pDirectoryARN_ pName_ pObjectIdentifier_ pAppliedSchemaARN_ =
   CreateDirectoryResponse'
-  { _cdrsResponseStatus = pResponseStatus_
-  , _cdrsDirectoryARN = pDirectoryARN_
-  , _cdrsName = pName_
-  , _cdrsObjectIdentifier = pObjectIdentifier_
-  , _cdrsAppliedSchemaARN = pAppliedSchemaARN_
-  }
+    { _cdrsResponseStatus = pResponseStatus_
+    , _cdrsDirectoryARN = pDirectoryARN_
+    , _cdrsName = pName_
+    , _cdrsObjectIdentifier = pObjectIdentifier_
+    , _cdrsAppliedSchemaARN = pAppliedSchemaARN_
+    }
 
 
 -- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDirectoryResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a})
 
 -- | The ARN that is associated with the 'Directory' . For more information, see 'arns' .
 cdrsDirectoryARN :: Lens' CreateDirectoryResponse Text
-cdrsDirectoryARN = lens _cdrsDirectoryARN (\ s a -> s{_cdrsDirectoryARN = a});
+cdrsDirectoryARN = lens _cdrsDirectoryARN (\ s a -> s{_cdrsDirectoryARN = a})
 
 -- | The name of the 'Directory' .
 cdrsName :: Lens' CreateDirectoryResponse Text
-cdrsName = lens _cdrsName (\ s a -> s{_cdrsName = a});
+cdrsName = lens _cdrsName (\ s a -> s{_cdrsName = a})
 
 -- | The root object node of the created directory.
 cdrsObjectIdentifier :: Lens' CreateDirectoryResponse Text
-cdrsObjectIdentifier = lens _cdrsObjectIdentifier (\ s a -> s{_cdrsObjectIdentifier = a});
+cdrsObjectIdentifier = lens _cdrsObjectIdentifier (\ s a -> s{_cdrsObjectIdentifier = a})
 
 -- | The ARN of the published schema in the 'Directory' . Once a published schema is copied into the directory, it has its own ARN, which is referred to applied schema ARN. For more information, see 'arns' .
 cdrsAppliedSchemaARN :: Lens' CreateDirectoryResponse Text
-cdrsAppliedSchemaARN = lens _cdrsAppliedSchemaARN (\ s a -> s{_cdrsAppliedSchemaARN = a});
+cdrsAppliedSchemaARN = lens _cdrsAppliedSchemaARN (\ s a -> s{_cdrsAppliedSchemaARN = a})
 
 instance NFData CreateDirectoryResponse where

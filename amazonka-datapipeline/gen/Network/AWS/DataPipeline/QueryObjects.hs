@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.QueryObjects
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,33 +86,33 @@ queryObjects
     -> QueryObjects
 queryObjects pPipelineId_ pSphere_ =
   QueryObjects'
-  { _qoQuery = Nothing
-  , _qoMarker = Nothing
-  , _qoLimit = Nothing
-  , _qoPipelineId = pPipelineId_
-  , _qoSphere = pSphere_
-  }
+    { _qoQuery = Nothing
+    , _qoMarker = Nothing
+    , _qoLimit = Nothing
+    , _qoPipelineId = pPipelineId_
+    , _qoSphere = pSphere_
+    }
 
 
 -- | The query that defines the objects to be returned. The @Query@ object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts.
 qoQuery :: Lens' QueryObjects (Maybe Query)
-qoQuery = lens _qoQuery (\ s a -> s{_qoQuery = a});
+qoQuery = lens _qoQuery (\ s a -> s{_qoQuery = a})
 
 -- | The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call @QueryObjects@ with the marker value from the previous call to retrieve the next set of results.
 qoMarker :: Lens' QueryObjects (Maybe Text)
-qoMarker = lens _qoMarker (\ s a -> s{_qoMarker = a});
+qoMarker = lens _qoMarker (\ s a -> s{_qoMarker = a})
 
 -- | The maximum number of object names that @QueryObjects@ will return in a single call. The default value is 100.
 qoLimit :: Lens' QueryObjects (Maybe Int)
-qoLimit = lens _qoLimit (\ s a -> s{_qoLimit = a});
+qoLimit = lens _qoLimit (\ s a -> s{_qoLimit = a})
 
 -- | The ID of the pipeline.
 qoPipelineId :: Lens' QueryObjects Text
-qoPipelineId = lens _qoPipelineId (\ s a -> s{_qoPipelineId = a});
+qoPipelineId = lens _qoPipelineId (\ s a -> s{_qoPipelineId = a})
 
 -- | Indicates whether the query applies to components or instances. The possible values are: @COMPONENT@ , @INSTANCE@ , and @ATTEMPT@ .
 qoSphere :: Lens' QueryObjects Text
-qoSphere = lens _qoSphere (\ s a -> s{_qoSphere = a});
+qoSphere = lens _qoSphere (\ s a -> s{_qoSphere = a})
 
 instance AWSPager QueryObjects where
         page rq rs
@@ -190,27 +190,27 @@ queryObjectsResponse
     -> QueryObjectsResponse
 queryObjectsResponse pResponseStatus_ =
   QueryObjectsResponse'
-  { _qorsHasMoreResults = Nothing
-  , _qorsIds = Nothing
-  , _qorsMarker = Nothing
-  , _qorsResponseStatus = pResponseStatus_
-  }
+    { _qorsHasMoreResults = Nothing
+    , _qorsIds = Nothing
+    , _qorsMarker = Nothing
+    , _qorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Indicates whether there are more results that can be obtained by a subsequent call.
 qorsHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
-qorsHasMoreResults = lens _qorsHasMoreResults (\ s a -> s{_qorsHasMoreResults = a});
+qorsHasMoreResults = lens _qorsHasMoreResults (\ s a -> s{_qorsHasMoreResults = a})
 
 -- | The identifiers that match the query selectors.
 qorsIds :: Lens' QueryObjectsResponse [Text]
-qorsIds = lens _qorsIds (\ s a -> s{_qorsIds = a}) . _Default . _Coerce;
+qorsIds = lens _qorsIds (\ s a -> s{_qorsIds = a}) . _Default . _Coerce
 
 -- | The starting point for the next page of results. To view the next page of results, call @QueryObjects@ again with this marker value. If the value is null, there are no more results.
 qorsMarker :: Lens' QueryObjectsResponse (Maybe Text)
-qorsMarker = lens _qorsMarker (\ s a -> s{_qorsMarker = a});
+qorsMarker = lens _qorsMarker (\ s a -> s{_qorsMarker = a})
 
 -- | -- | The response status code.
 qorsResponseStatus :: Lens' QueryObjectsResponse Int
-qorsResponseStatus = lens _qorsResponseStatus (\ s a -> s{_qorsResponseStatus = a});
+qorsResponseStatus = lens _qorsResponseStatus (\ s a -> s{_qorsResponseStatus = a})
 
 instance NFData QueryObjectsResponse where

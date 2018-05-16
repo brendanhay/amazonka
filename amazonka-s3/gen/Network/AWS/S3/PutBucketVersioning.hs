@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketVersioning
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,28 +68,28 @@ putBucketVersioning
     -> PutBucketVersioning
 putBucketVersioning pBucket_ pVersioningConfiguration_ =
   PutBucketVersioning'
-  { _pbvMFA = Nothing
-  , _pbvContentMD5 = Nothing
-  , _pbvBucket = pBucket_
-  , _pbvVersioningConfiguration = pVersioningConfiguration_
-  }
+    { _pbvMFA = Nothing
+    , _pbvContentMD5 = Nothing
+    , _pbvBucket = pBucket_
+    , _pbvVersioningConfiguration = pVersioningConfiguration_
+    }
 
 
 -- | The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 pbvMFA :: Lens' PutBucketVersioning (Maybe Text)
-pbvMFA = lens _pbvMFA (\ s a -> s{_pbvMFA = a});
+pbvMFA = lens _pbvMFA (\ s a -> s{_pbvMFA = a})
 
 -- | Undocumented member.
 pbvContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
-pbvContentMD5 = lens _pbvContentMD5 (\ s a -> s{_pbvContentMD5 = a});
+pbvContentMD5 = lens _pbvContentMD5 (\ s a -> s{_pbvContentMD5 = a})
 
 -- | Undocumented member.
 pbvBucket :: Lens' PutBucketVersioning BucketName
-pbvBucket = lens _pbvBucket (\ s a -> s{_pbvBucket = a});
+pbvBucket = lens _pbvBucket (\ s a -> s{_pbvBucket = a})
 
 -- | Undocumented member.
 pbvVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
-pbvVersioningConfiguration = lens _pbvVersioningConfiguration (\ s a -> s{_pbvVersioningConfiguration = a});
+pbvVersioningConfiguration = lens _pbvVersioningConfiguration (\ s a -> s{_pbvVersioningConfiguration = a})
 
 instance AWSRequest PutBucketVersioning where
         type Rs PutBucketVersioning =

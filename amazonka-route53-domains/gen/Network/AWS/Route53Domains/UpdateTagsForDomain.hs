@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateTagsForDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ updateTagsForDomain
     -> UpdateTagsForDomain
 updateTagsForDomain pDomainName_ =
   UpdateTagsForDomain'
-  {_utfdTagsToUpdate = Nothing, _utfdDomainName = pDomainName_}
+    {_utfdTagsToUpdate = Nothing, _utfdDomainName = pDomainName_}
 
 
 -- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
 utfdTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
-utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . _Default . _Coerce;
+utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . _Default . _Coerce
 
 -- | The domain for which you want to add or update tags.
 utfdDomainName :: Lens' UpdateTagsForDomain Text
-utfdDomainName = lens _utfdDomainName (\ s a -> s{_utfdDomainName = a});
+utfdDomainName = lens _utfdDomainName (\ s a -> s{_utfdDomainName = a})
 
 instance AWSRequest UpdateTagsForDomain where
         type Rs UpdateTagsForDomain =
@@ -136,6 +136,6 @@ updateTagsForDomainResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 utfdrsResponseStatus :: Lens' UpdateTagsForDomainResponse Int
-utfdrsResponseStatus = lens _utfdrsResponseStatus (\ s a -> s{_utfdrsResponseStatus = a});
+utfdrsResponseStatus = lens _utfdrsResponseStatus (\ s a -> s{_utfdrsResponseStatus = a})
 
 instance NFData UpdateTagsForDomainResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.AttachPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,11 +86,11 @@ attachPolicy pPolicyId_ pTargetId_ =
 
 -- | The unique identifier (ID) of the policy that you want to attach to the target. You can get the ID for the policy by calling the 'ListPolicies' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
 apPolicyId :: Lens' AttachPolicy Text
-apPolicyId = lens _apPolicyId (\ s a -> s{_apPolicyId = a});
+apPolicyId = lens _apPolicyId (\ s a -> s{_apPolicyId = a})
 
 -- | The unique identifier (ID) of the root, OU, or account that you want to attach the policy to. You can get the ID by calling the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:     * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits.     * Account: a string that consists of exactly 12 digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 apTargetId :: Lens' AttachPolicy Text
-apTargetId = lens _apTargetId (\ s a -> s{_apTargetId = a});
+apTargetId = lens _apTargetId (\ s a -> s{_apTargetId = a})
 
 instance AWSRequest AttachPolicy where
         type Rs AttachPolicy = AttachPolicyResponse

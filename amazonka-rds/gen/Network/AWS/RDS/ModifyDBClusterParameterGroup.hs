@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBClusterParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,18 +71,18 @@ modifyDBClusterParameterGroup
     -> ModifyDBClusterParameterGroup
 modifyDBClusterParameterGroup pDBClusterParameterGroupName_ =
   ModifyDBClusterParameterGroup'
-  { _mdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
-  , _mdcpgParameters = mempty
-  }
+    { _mdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
+    , _mdcpgParameters = mempty
+    }
 
 
 -- | The name of the DB cluster parameter group to modify.
 mdcpgDBClusterParameterGroupName :: Lens' ModifyDBClusterParameterGroup Text
-mdcpgDBClusterParameterGroupName = lens _mdcpgDBClusterParameterGroupName (\ s a -> s{_mdcpgDBClusterParameterGroupName = a});
+mdcpgDBClusterParameterGroupName = lens _mdcpgDBClusterParameterGroupName (\ s a -> s{_mdcpgDBClusterParameterGroupName = a})
 
 -- | A list of parameters in the DB cluster parameter group to modify.
 mdcpgParameters :: Lens' ModifyDBClusterParameterGroup [Parameter]
-mdcpgParameters = lens _mdcpgParameters (\ s a -> s{_mdcpgParameters = a}) . _Coerce;
+mdcpgParameters = lens _mdcpgParameters (\ s a -> s{_mdcpgParameters = a}) . _Coerce
 
 instance AWSRequest ModifyDBClusterParameterGroup
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeFpgaImageAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ describeFpgaImageAttribute
     -> DescribeFpgaImageAttribute
 describeFpgaImageAttribute pFpgaImageId_ pAttribute_ =
   DescribeFpgaImageAttribute'
-  { _dfiaDryRun = Nothing
-  , _dfiaFpgaImageId = pFpgaImageId_
-  , _dfiaAttribute = pAttribute_
-  }
+    { _dfiaDryRun = Nothing
+    , _dfiaFpgaImageId = pFpgaImageId_
+    , _dfiaAttribute = pAttribute_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dfiaDryRun :: Lens' DescribeFpgaImageAttribute (Maybe Bool)
-dfiaDryRun = lens _dfiaDryRun (\ s a -> s{_dfiaDryRun = a});
+dfiaDryRun = lens _dfiaDryRun (\ s a -> s{_dfiaDryRun = a})
 
 -- | The ID of the AFI.
 dfiaFpgaImageId :: Lens' DescribeFpgaImageAttribute Text
-dfiaFpgaImageId = lens _dfiaFpgaImageId (\ s a -> s{_dfiaFpgaImageId = a});
+dfiaFpgaImageId = lens _dfiaFpgaImageId (\ s a -> s{_dfiaFpgaImageId = a})
 
 -- | The AFI attribute.
 dfiaAttribute :: Lens' DescribeFpgaImageAttribute FpgaImageAttributeName
-dfiaAttribute = lens _dfiaAttribute (\ s a -> s{_dfiaAttribute = a});
+dfiaAttribute = lens _dfiaAttribute (\ s a -> s{_dfiaAttribute = a})
 
 instance AWSRequest DescribeFpgaImageAttribute where
         type Rs DescribeFpgaImageAttribute =
@@ -136,18 +136,18 @@ describeFpgaImageAttributeResponse
     -> DescribeFpgaImageAttributeResponse
 describeFpgaImageAttributeResponse pResponseStatus_ =
   DescribeFpgaImageAttributeResponse'
-  { _dfiarsFpgaImageAttribute = Nothing
-  , _dfiarsResponseStatus = pResponseStatus_
-  }
+    { _dfiarsFpgaImageAttribute = Nothing
+    , _dfiarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the attribute.
 dfiarsFpgaImageAttribute :: Lens' DescribeFpgaImageAttributeResponse (Maybe FpgaImageAttribute)
-dfiarsFpgaImageAttribute = lens _dfiarsFpgaImageAttribute (\ s a -> s{_dfiarsFpgaImageAttribute = a});
+dfiarsFpgaImageAttribute = lens _dfiarsFpgaImageAttribute (\ s a -> s{_dfiarsFpgaImageAttribute = a})
 
 -- | -- | The response status code.
 dfiarsResponseStatus :: Lens' DescribeFpgaImageAttributeResponse Int
-dfiarsResponseStatus = lens _dfiarsResponseStatus (\ s a -> s{_dfiarsResponseStatus = a});
+dfiarsResponseStatus = lens _dfiarsResponseStatus (\ s a -> s{_dfiarsResponseStatus = a})
 
 instance NFData DescribeFpgaImageAttributeResponse
          where

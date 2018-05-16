@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateCustomerGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,28 +84,28 @@ createCustomerGateway
     -> CreateCustomerGateway
 createCustomerGateway pBGPASN_ pPublicIP_ pType_ =
   CreateCustomerGateway'
-  { _ccgDryRun = Nothing
-  , _ccgBGPASN = pBGPASN_
-  , _ccgPublicIP = pPublicIP_
-  , _ccgType = pType_
-  }
+    { _ccgDryRun = Nothing
+    , _ccgBGPASN = pBGPASN_
+    , _ccgPublicIP = pPublicIP_
+    , _ccgType = pType_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ccgDryRun :: Lens' CreateCustomerGateway (Maybe Bool)
-ccgDryRun = lens _ccgDryRun (\ s a -> s{_ccgDryRun = a});
+ccgDryRun = lens _ccgDryRun (\ s a -> s{_ccgDryRun = a})
 
 -- | For devices that support BGP, the customer gateway's BGP ASN. Default: 65000
 ccgBGPASN :: Lens' CreateCustomerGateway Int
-ccgBGPASN = lens _ccgBGPASN (\ s a -> s{_ccgBGPASN = a});
+ccgBGPASN = lens _ccgBGPASN (\ s a -> s{_ccgBGPASN = a})
 
 -- | The Internet-routable IP address for the customer gateway's outside interface. The address must be static.
 ccgPublicIP :: Lens' CreateCustomerGateway Text
-ccgPublicIP = lens _ccgPublicIP (\ s a -> s{_ccgPublicIP = a});
+ccgPublicIP = lens _ccgPublicIP (\ s a -> s{_ccgPublicIP = a})
 
 -- | The type of VPN connection that this customer gateway supports (@ipsec.1@ ).
 ccgType :: Lens' CreateCustomerGateway GatewayType
-ccgType = lens _ccgType (\ s a -> s{_ccgType = a});
+ccgType = lens _ccgType (\ s a -> s{_ccgType = a})
 
 instance AWSRequest CreateCustomerGateway where
         type Rs CreateCustomerGateway =
@@ -158,15 +158,15 @@ createCustomerGatewayResponse
     -> CreateCustomerGatewayResponse
 createCustomerGatewayResponse pResponseStatus_ =
   CreateCustomerGatewayResponse'
-  {_ccgrsCustomerGateway = Nothing, _ccgrsResponseStatus = pResponseStatus_}
+    {_ccgrsCustomerGateway = Nothing, _ccgrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the customer gateway.
 ccgrsCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
-ccgrsCustomerGateway = lens _ccgrsCustomerGateway (\ s a -> s{_ccgrsCustomerGateway = a});
+ccgrsCustomerGateway = lens _ccgrsCustomerGateway (\ s a -> s{_ccgrsCustomerGateway = a})
 
 -- | -- | The response status code.
 ccgrsResponseStatus :: Lens' CreateCustomerGatewayResponse Int
-ccgrsResponseStatus = lens _ccgrsResponseStatus (\ s a -> s{_ccgrsResponseStatus = a});
+ccgrsResponseStatus = lens _ccgrsResponseStatus (\ s a -> s{_ccgrsResponseStatus = a})
 
 instance NFData CreateCustomerGatewayResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetCredentialsForIdentity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ getCredentialsForIdentity
     -> GetCredentialsForIdentity
 getCredentialsForIdentity pIdentityId_ =
   GetCredentialsForIdentity'
-  { _gcfiCustomRoleARN = Nothing
-  , _gcfiLogins = Nothing
-  , _gcfiIdentityId = pIdentityId_
-  }
+    { _gcfiCustomRoleARN = Nothing
+    , _gcfiLogins = Nothing
+    , _gcfiIdentityId = pIdentityId_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the role to be assumed when multiple roles were received in the token from the identity provider. For example, a SAML-based identity provider. This parameter is optional for identity providers that do not support role customization.
 gcfiCustomRoleARN :: Lens' GetCredentialsForIdentity (Maybe Text)
-gcfiCustomRoleARN = lens _gcfiCustomRoleARN (\ s a -> s{_gcfiCustomRoleARN = a});
+gcfiCustomRoleARN = lens _gcfiCustomRoleARN (\ s a -> s{_gcfiCustomRoleARN = a})
 
 -- | A set of optional name-value pairs that map provider names to provider tokens.
 gcfiLogins :: Lens' GetCredentialsForIdentity (HashMap Text Text)
-gcfiLogins = lens _gcfiLogins (\ s a -> s{_gcfiLogins = a}) . _Default . _Map;
+gcfiLogins = lens _gcfiLogins (\ s a -> s{_gcfiLogins = a}) . _Default . _Map
 
 -- | A unique identifier in the format REGION:GUID.
 gcfiIdentityId :: Lens' GetCredentialsForIdentity Text
-gcfiIdentityId = lens _gcfiIdentityId (\ s a -> s{_gcfiIdentityId = a});
+gcfiIdentityId = lens _gcfiIdentityId (\ s a -> s{_gcfiIdentityId = a})
 
 instance AWSRequest GetCredentialsForIdentity where
         type Rs GetCredentialsForIdentity =
@@ -158,23 +158,23 @@ getCredentialsForIdentityResponse
     -> GetCredentialsForIdentityResponse
 getCredentialsForIdentityResponse pResponseStatus_ =
   GetCredentialsForIdentityResponse'
-  { _gcfirsCredentials = Nothing
-  , _gcfirsIdentityId = Nothing
-  , _gcfirsResponseStatus = pResponseStatus_
-  }
+    { _gcfirsCredentials = Nothing
+    , _gcfirsIdentityId = Nothing
+    , _gcfirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Credentials for the provided identity ID.
 gcfirsCredentials :: Lens' GetCredentialsForIdentityResponse (Maybe Credentials)
-gcfirsCredentials = lens _gcfirsCredentials (\ s a -> s{_gcfirsCredentials = a});
+gcfirsCredentials = lens _gcfirsCredentials (\ s a -> s{_gcfirsCredentials = a})
 
 -- | A unique identifier in the format REGION:GUID.
 gcfirsIdentityId :: Lens' GetCredentialsForIdentityResponse (Maybe Text)
-gcfirsIdentityId = lens _gcfirsIdentityId (\ s a -> s{_gcfirsIdentityId = a});
+gcfirsIdentityId = lens _gcfirsIdentityId (\ s a -> s{_gcfirsIdentityId = a})
 
 -- | -- | The response status code.
 gcfirsResponseStatus :: Lens' GetCredentialsForIdentityResponse Int
-gcfirsResponseStatus = lens _gcfirsResponseStatus (\ s a -> s{_gcfirsResponseStatus = a});
+gcfirsResponseStatus = lens _gcfirsResponseStatus (\ s a -> s{_gcfirsResponseStatus = a})
 
 instance NFData GetCredentialsForIdentityResponse
          where

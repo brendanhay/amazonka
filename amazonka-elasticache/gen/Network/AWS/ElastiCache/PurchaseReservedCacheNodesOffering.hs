@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ purchaseReservedCacheNodesOffering
     -> PurchaseReservedCacheNodesOffering
 purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId_ =
   PurchaseReservedCacheNodesOffering'
-  { _prcnoCacheNodeCount = Nothing
-  , _prcnoReservedCacheNodeId = Nothing
-  , _prcnoReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId_
-  }
+    { _prcnoCacheNodeCount = Nothing
+    , _prcnoReservedCacheNodeId = Nothing
+    , _prcnoReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId_
+    }
 
 
 -- | The number of cache node instances to reserve. Default: @1@
 prcnoCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Int)
-prcnoCacheNodeCount = lens _prcnoCacheNodeCount (\ s a -> s{_prcnoCacheNodeCount = a});
+prcnoCacheNodeCount = lens _prcnoCacheNodeCount (\ s a -> s{_prcnoCacheNodeCount = a})
 
 -- | A customer-specified identifier to track this reservation. Example: myreservationID
 prcnoReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOffering (Maybe Text)
-prcnoReservedCacheNodeId = lens _prcnoReservedCacheNodeId (\ s a -> s{_prcnoReservedCacheNodeId = a});
+prcnoReservedCacheNodeId = lens _prcnoReservedCacheNodeId (\ s a -> s{_prcnoReservedCacheNodeId = a})
 
 -- | The ID of the reserved cache node offering to purchase. Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
 prcnoReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering Text
-prcnoReservedCacheNodesOfferingId = lens _prcnoReservedCacheNodesOfferingId (\ s a -> s{_prcnoReservedCacheNodesOfferingId = a});
+prcnoReservedCacheNodesOfferingId = lens _prcnoReservedCacheNodesOfferingId (\ s a -> s{_prcnoReservedCacheNodesOfferingId = a})
 
 instance AWSRequest
            PurchaseReservedCacheNodesOffering
@@ -148,18 +148,18 @@ purchaseReservedCacheNodesOfferingResponse
     -> PurchaseReservedCacheNodesOfferingResponse
 purchaseReservedCacheNodesOfferingResponse pResponseStatus_ =
   PurchaseReservedCacheNodesOfferingResponse'
-  { _prcnorsReservedCacheNode = Nothing
-  , _prcnorsResponseStatus = pResponseStatus_
-  }
+    { _prcnorsReservedCacheNode = Nothing
+    , _prcnorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 prcnorsReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
-prcnorsReservedCacheNode = lens _prcnorsReservedCacheNode (\ s a -> s{_prcnorsReservedCacheNode = a});
+prcnorsReservedCacheNode = lens _prcnorsReservedCacheNode (\ s a -> s{_prcnorsReservedCacheNode = a})
 
 -- | -- | The response status code.
 prcnorsResponseStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
-prcnorsResponseStatus = lens _prcnorsResponseStatus (\ s a -> s{_prcnorsResponseStatus = a});
+prcnorsResponseStatus = lens _prcnorsResponseStatus (\ s a -> s{_prcnorsResponseStatus = a})
 
 instance NFData
            PurchaseReservedCacheNodesOfferingResponse

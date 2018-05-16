@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DescribeFileSystems
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,28 +90,28 @@ describeFileSystems
     :: DescribeFileSystems
 describeFileSystems =
   DescribeFileSystems'
-  { _dfsFileSystemId = Nothing
-  , _dfsCreationToken = Nothing
-  , _dfsMarker = Nothing
-  , _dfsMaxItems = Nothing
-  }
+    { _dfsFileSystemId = Nothing
+    , _dfsCreationToken = Nothing
+    , _dfsMarker = Nothing
+    , _dfsMaxItems = Nothing
+    }
 
 
 -- | (Optional) ID of the file system whose description you want to retrieve (String).
 dfsFileSystemId :: Lens' DescribeFileSystems (Maybe Text)
-dfsFileSystemId = lens _dfsFileSystemId (\ s a -> s{_dfsFileSystemId = a});
+dfsFileSystemId = lens _dfsFileSystemId (\ s a -> s{_dfsFileSystemId = a})
 
 -- | (Optional) Restricts the list to the file system with this creation token (String). You specify a creation token when you create an Amazon EFS file system.
 dfsCreationToken :: Lens' DescribeFileSystems (Maybe Text)
-dfsCreationToken = lens _dfsCreationToken (\ s a -> s{_dfsCreationToken = a});
+dfsCreationToken = lens _dfsCreationToken (\ s a -> s{_dfsCreationToken = a})
 
 -- | (Optional) Opaque pagination token returned from a previous @DescribeFileSystems@ operation (String). If present, specifies to continue the list from where the returning call had left off.
 dfsMarker :: Lens' DescribeFileSystems (Maybe Text)
-dfsMarker = lens _dfsMarker (\ s a -> s{_dfsMarker = a});
+dfsMarker = lens _dfsMarker (\ s a -> s{_dfsMarker = a})
 
 -- | (Optional) Specifies the maximum number of file systems to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon EFS returns is the minimum of the @MaxItems@ parameter specified in the request and the service's internal maximum number of items per page.
 dfsMaxItems :: Lens' DescribeFileSystems (Maybe Natural)
-dfsMaxItems = lens _dfsMaxItems (\ s a -> s{_dfsMaxItems = a}) . mapping _Nat;
+dfsMaxItems = lens _dfsMaxItems (\ s a -> s{_dfsMaxItems = a}) . mapping _Nat
 
 instance AWSPager DescribeFileSystems where
         page rq rs
@@ -174,27 +174,27 @@ describeFileSystemsResponse
     -> DescribeFileSystemsResponse
 describeFileSystemsResponse pResponseStatus_ =
   DescribeFileSystemsResponse'
-  { _dfsrsFileSystems = Nothing
-  , _dfsrsMarker = Nothing
-  , _dfsrsNextMarker = Nothing
-  , _dfsrsResponseStatus = pResponseStatus_
-  }
+    { _dfsrsFileSystems = Nothing
+    , _dfsrsMarker = Nothing
+    , _dfsrsNextMarker = Nothing
+    , _dfsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Array of file system descriptions.
 dfsrsFileSystems :: Lens' DescribeFileSystemsResponse [FileSystemDescription]
-dfsrsFileSystems = lens _dfsrsFileSystems (\ s a -> s{_dfsrsFileSystems = a}) . _Default . _Coerce;
+dfsrsFileSystems = lens _dfsrsFileSystems (\ s a -> s{_dfsrsFileSystems = a}) . _Default . _Coerce
 
 -- | Present if provided by caller in the request (String).
 dfsrsMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)
-dfsrsMarker = lens _dfsrsMarker (\ s a -> s{_dfsrsMarker = a});
+dfsrsMarker = lens _dfsrsMarker (\ s a -> s{_dfsrsMarker = a})
 
 -- | Present if there are more file systems than returned in the response (String). You can use the @NextMarker@ in the subsequent request to fetch the descriptions.
 dfsrsNextMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)
-dfsrsNextMarker = lens _dfsrsNextMarker (\ s a -> s{_dfsrsNextMarker = a});
+dfsrsNextMarker = lens _dfsrsNextMarker (\ s a -> s{_dfsrsNextMarker = a})
 
 -- | -- | The response status code.
 dfsrsResponseStatus :: Lens' DescribeFileSystemsResponse Int
-dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a});
+dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a})
 
 instance NFData DescribeFileSystemsResponse where

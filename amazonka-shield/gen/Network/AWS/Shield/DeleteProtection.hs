@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Shield.DeleteProtection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteProtection pProtectionId_ =
 
 -- | The unique identifier (ID) for the 'Protection' object to be deleted.
 dProtectionId :: Lens' DeleteProtection Text
-dProtectionId = lens _dProtectionId (\ s a -> s{_dProtectionId = a});
+dProtectionId = lens _dProtectionId (\ s a -> s{_dProtectionId = a})
 
 instance AWSRequest DeleteProtection where
         type Rs DeleteProtection = DeleteProtectionResponse
@@ -118,6 +118,6 @@ deleteProtectionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteProtectionResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteProtectionResponse where

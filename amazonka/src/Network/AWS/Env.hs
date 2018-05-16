@@ -4,10 +4,11 @@
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE ViewPatterns      #-}
+{-# LANGUAGE CPP               #-}
 
 -- |
 -- Module      : Network.AWS.Env
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -38,7 +39,6 @@ module Network.AWS.Env
     , retryConnectionFailure
     ) where
 
-import Control.Applicative
 import Control.Monad.Catch
 import Control.Monad.IO.Class
 import Control.Monad.Reader
@@ -192,7 +192,7 @@ newEnv :: (Applicative m, MonadIO m, MonadCatch m)
        => Credentials -- ^ Credential discovery mechanism.
        -> m Env
 newEnv c =
-    liftIO (newManager conduitManagerSettings)
+    liftIO (newManager tlsManagerSettings)
         >>= newEnvWith c Nothing
 
 -- | /See:/ 'newEnv'
@@ -216,6 +216,7 @@ newEnvWith c p m = do
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.
 retryConnectionFailure :: Int -> Int -> HttpException -> Bool
+#if MIN_VERSION_http_client(0,5,0)
 retryConnectionFailure _     _ InvalidUrlException {}      = False
 retryConnectionFailure limit n (HttpExceptionRequest _ ex)
     | n >= limit = False
@@ -227,3 +228,12 @@ retryConnectionFailure limit n (HttpExceptionRequest _ ex)
             ConnectionFailure {}   -> True
             InternalException {}   -> True
             _                      -> False
+#else
+retryConnectionFailure limit n = \case
+    _ | n >= limit                -> False
+    NoResponseDataReceived        -> True
+    FailedConnectionException  {} -> True
+    FailedConnectionException2 {} -> True
+    TlsException               {} -> True
+    _                             -> False
+#endif

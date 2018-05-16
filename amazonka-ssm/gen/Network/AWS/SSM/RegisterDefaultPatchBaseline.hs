@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.RegisterDefaultPatchBaseline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ registerDefaultPatchBaseline pBaselineId_ =
 
 -- | The ID of the patch baseline that should be the default patch baseline.
 rdpbBaselineId :: Lens' RegisterDefaultPatchBaseline Text
-rdpbBaselineId = lens _rdpbBaselineId (\ s a -> s{_rdpbBaselineId = a});
+rdpbBaselineId = lens _rdpbBaselineId (\ s a -> s{_rdpbBaselineId = a})
 
 instance AWSRequest RegisterDefaultPatchBaseline
          where
@@ -121,16 +121,16 @@ registerDefaultPatchBaselineResponse
     -> RegisterDefaultPatchBaselineResponse
 registerDefaultPatchBaselineResponse pResponseStatus_ =
   RegisterDefaultPatchBaselineResponse'
-  {_rdpbrsBaselineId = Nothing, _rdpbrsResponseStatus = pResponseStatus_}
+    {_rdpbrsBaselineId = Nothing, _rdpbrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the default patch baseline.
 rdpbrsBaselineId :: Lens' RegisterDefaultPatchBaselineResponse (Maybe Text)
-rdpbrsBaselineId = lens _rdpbrsBaselineId (\ s a -> s{_rdpbrsBaselineId = a});
+rdpbrsBaselineId = lens _rdpbrsBaselineId (\ s a -> s{_rdpbrsBaselineId = a})
 
 -- | -- | The response status code.
 rdpbrsResponseStatus :: Lens' RegisterDefaultPatchBaselineResponse Int
-rdpbrsResponseStatus = lens _rdpbrsResponseStatus (\ s a -> s{_rdpbrsResponseStatus = a});
+rdpbrsResponseStatus = lens _rdpbrsResponseStatus (\ s a -> s{_rdpbrsResponseStatus = a})
 
 instance NFData RegisterDefaultPatchBaselineResponse
          where

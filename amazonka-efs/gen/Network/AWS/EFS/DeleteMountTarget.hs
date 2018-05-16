@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DeleteMountTarget
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,7 +79,7 @@ deleteMountTarget pMountTargetId_ =
 
 -- | ID of the mount target to delete (String).
 dMountTargetId :: Lens' DeleteMountTarget Text
-dMountTargetId = lens _dMountTargetId (\ s a -> s{_dMountTargetId = a});
+dMountTargetId = lens _dMountTargetId (\ s a -> s{_dMountTargetId = a})
 
 instance AWSRequest DeleteMountTarget where
         type Rs DeleteMountTarget = DeleteMountTargetResponse

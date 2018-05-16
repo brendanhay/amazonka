@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateIdentityProvider
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,33 +77,33 @@ updateIdentityProvider
     -> UpdateIdentityProvider
 updateIdentityProvider pUserPoolId_ pProviderName_ =
   UpdateIdentityProvider'
-  { _uipIdpIdentifiers = Nothing
-  , _uipAttributeMapping = Nothing
-  , _uipProviderDetails = Nothing
-  , _uipUserPoolId = pUserPoolId_
-  , _uipProviderName = pProviderName_
-  }
+    { _uipIdpIdentifiers = Nothing
+    , _uipAttributeMapping = Nothing
+    , _uipProviderDetails = Nothing
+    , _uipUserPoolId = pUserPoolId_
+    , _uipProviderName = pProviderName_
+    }
 
 
 -- | A list of identity provider identifiers.
 uipIdpIdentifiers :: Lens' UpdateIdentityProvider [Text]
-uipIdpIdentifiers = lens _uipIdpIdentifiers (\ s a -> s{_uipIdpIdentifiers = a}) . _Default . _Coerce;
+uipIdpIdentifiers = lens _uipIdpIdentifiers (\ s a -> s{_uipIdpIdentifiers = a}) . _Default . _Coerce
 
 -- | The identity provider attribute mapping to be changed.
 uipAttributeMapping :: Lens' UpdateIdentityProvider (HashMap Text Text)
-uipAttributeMapping = lens _uipAttributeMapping (\ s a -> s{_uipAttributeMapping = a}) . _Default . _Map;
+uipAttributeMapping = lens _uipAttributeMapping (\ s a -> s{_uipAttributeMapping = a}) . _Default . _Map
 
 -- | The identity provider details to be updated, such as @MetadataURL@ and @MetadataFile@ .
 uipProviderDetails :: Lens' UpdateIdentityProvider (HashMap Text Text)
-uipProviderDetails = lens _uipProviderDetails (\ s a -> s{_uipProviderDetails = a}) . _Default . _Map;
+uipProviderDetails = lens _uipProviderDetails (\ s a -> s{_uipProviderDetails = a}) . _Default . _Map
 
 -- | The user pool ID.
 uipUserPoolId :: Lens' UpdateIdentityProvider Text
-uipUserPoolId = lens _uipUserPoolId (\ s a -> s{_uipUserPoolId = a});
+uipUserPoolId = lens _uipUserPoolId (\ s a -> s{_uipUserPoolId = a})
 
 -- | The identity provider name.
 uipProviderName :: Lens' UpdateIdentityProvider Text
-uipProviderName = lens _uipProviderName (\ s a -> s{_uipProviderName = a});
+uipProviderName = lens _uipProviderName (\ s a -> s{_uipProviderName = a})
 
 instance AWSRequest UpdateIdentityProvider where
         type Rs UpdateIdentityProvider =
@@ -165,17 +165,17 @@ updateIdentityProviderResponse
     -> UpdateIdentityProviderResponse
 updateIdentityProviderResponse pResponseStatus_ pIdentityProvider_ =
   UpdateIdentityProviderResponse'
-  { _uiprsResponseStatus = pResponseStatus_
-  , _uiprsIdentityProvider = pIdentityProvider_
-  }
+    { _uiprsResponseStatus = pResponseStatus_
+    , _uiprsIdentityProvider = pIdentityProvider_
+    }
 
 
 -- | -- | The response status code.
 uiprsResponseStatus :: Lens' UpdateIdentityProviderResponse Int
-uiprsResponseStatus = lens _uiprsResponseStatus (\ s a -> s{_uiprsResponseStatus = a});
+uiprsResponseStatus = lens _uiprsResponseStatus (\ s a -> s{_uiprsResponseStatus = a})
 
 -- | The identity provider object.
 uiprsIdentityProvider :: Lens' UpdateIdentityProviderResponse IdentityProviderType
-uiprsIdentityProvider = lens _uiprsIdentityProvider (\ s a -> s{_uiprsIdentityProvider = a});
+uiprsIdentityProvider = lens _uiprsIdentityProvider (\ s a -> s{_uiprsIdentityProvider = a})
 
 instance NFData UpdateIdentityProviderResponse where

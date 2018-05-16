@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -19,17 +19,24 @@ module Network.AWS.SES.Types
     , _InvalidConfigurationSetException
     , _InvalidSNSDestinationException
     , _TemplateDoesNotExistException
+    , _ConfigurationSetSendingPausedException
     , _CannotDeleteException
+    , _ProductionAccessNotGrantedException
     , _RuleDoesNotExistException
     , _MessageRejected
     , _InvalidRenderingParameterException
     , _MissingRenderingAttributeException
+    , _FromEmailAddressNotVerifiedException
     , _RuleSetDoesNotExistException
     , _MailFromDomainNotVerifiedException
     , _InvalidFirehoseDestinationException
     , _ConfigurationSetAlreadyExistsException
+    , _CustomVerificationEmailInvalidContentException
     , _InvalidTrackingOptionsException
+    , _AccountSendingPausedException
     , _EventDestinationDoesNotExistException
+    , _CustomVerificationEmailTemplateAlreadyExistsException
+    , _CustomVerificationEmailTemplateDoesNotExistException
     , _InvalidCloudWatchDestinationException
     , _InvalidLambdaFunctionException
     , _TrackingOptionsDoesNotExistException
@@ -156,6 +163,15 @@ module Network.AWS.SES.Types
     , content
     , cCharset
     , cData
+
+    -- * CustomVerificationEmailTemplate
+    , CustomVerificationEmailTemplate
+    , customVerificationEmailTemplate
+    , cvetFromEmailAddress
+    , cvetTemplateName
+    , cvetFailureRedirectionURL
+    , cvetTemplateSubject
+    , cvetSuccessRedirectionURL
 
     -- * Destination
     , Destination
@@ -298,6 +314,13 @@ module Network.AWS.SES.Types
     , rdfAction
     , rdfStatus
 
+    -- * ReputationOptions
+    , ReputationOptions
+    , reputationOptions
+    , roLastFreshStart
+    , roReputationMetricsEnabled
+    , roSendingEnabled
+
     -- * S3Action
     , S3Action
     , s3Action
@@ -368,24 +391,24 @@ import Network.AWS.Sign.V4
 ses :: Service
 ses =
   Service
-  { _svcAbbrev = "SES"
-  , _svcSigner = v4
-  , _svcPrefix = "email"
-  , _svcVersion = "2010-12-01"
-  , _svcEndpoint = defaultEndpoint ses
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "SES"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "SES"
+    , _svcSigner = v4
+    , _svcPrefix = "email"
+    , _svcVersion = "2010-12-01"
+    , _svcEndpoint = defaultEndpoint ses
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError "SES"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -394,6 +417,8 @@ ses =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -425,11 +450,30 @@ _TemplateDoesNotExistException =
   _MatchServiceError ses "TemplateDoesNotExist" . hasStatus 400
 
 
+-- | Indicates that email sending is disabled for the configuration set.
+--
+--
+-- You can enable or disable email sending for a configuration set using 'UpdateConfigurationSetSendingEnabled' .
+--
+_ConfigurationSetSendingPausedException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConfigurationSetSendingPausedException =
+  _MatchServiceError ses "ConfigurationSetSendingPausedException" .
+  hasStatus 400
+
+
 -- | Indicates that the delete operation could not be completed.
 --
 --
 _CannotDeleteException :: AsError a => Getting (First ServiceError) a ServiceError
 _CannotDeleteException = _MatchServiceError ses "CannotDelete" . hasStatus 400
+
+
+-- | Indicates that the account has not been granted production access.
+--
+--
+_ProductionAccessNotGrantedException :: AsError a => Getting (First ServiceError) a ServiceError
+_ProductionAccessNotGrantedException =
+  _MatchServiceError ses "ProductionAccessNotGranted" . hasStatus 400
 
 
 -- | Indicates that the provided receipt rule does not exist.
@@ -461,6 +505,14 @@ _InvalidRenderingParameterException =
 _MissingRenderingAttributeException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingRenderingAttributeException =
   _MatchServiceError ses "MissingRenderingAttribute" . hasStatus 400
+
+
+-- | Indicates that the sender address specified for a custom verification email is not verified, and is therefore not eligible to send the custom verification email.
+--
+--
+_FromEmailAddressNotVerifiedException :: AsError a => Getting (First ServiceError) a ServiceError
+_FromEmailAddressNotVerifiedException =
+  _MatchServiceError ses "FromEmailAddressNotVerified" . hasStatus 400
 
 
 -- | Indicates that the provided receipt rule set does not exist.
@@ -495,6 +547,14 @@ _ConfigurationSetAlreadyExistsException =
   _MatchServiceError ses "ConfigurationSetAlreadyExists" . hasStatus 400
 
 
+-- | Indicates that custom verification email template provided content is invalid.
+--
+--
+_CustomVerificationEmailInvalidContentException :: AsError a => Getting (First ServiceError) a ServiceError
+_CustomVerificationEmailInvalidContentException =
+  _MatchServiceError ses "CustomVerificationEmailInvalidContent" . hasStatus 400
+
+
 -- | Indicates that the custom domain to be used for open and click tracking redirects is invalid. This error appears most often in the following situations:
 --
 --
@@ -509,12 +569,40 @@ _InvalidTrackingOptionsException =
   _MatchServiceError ses "InvalidTrackingOptions" . hasStatus 400
 
 
+-- | Indicates that email sending is disabled for your entire Amazon SES account.
+--
+--
+-- You can enable or disable email sending for your Amazon SES account using 'UpdateAccountSendingEnabled' .
+--
+_AccountSendingPausedException :: AsError a => Getting (First ServiceError) a ServiceError
+_AccountSendingPausedException =
+  _MatchServiceError ses "AccountSendingPausedException" . hasStatus 400
+
+
 -- | Indicates that the event destination does not exist.
 --
 --
 _EventDestinationDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _EventDestinationDoesNotExistException =
   _MatchServiceError ses "EventDestinationDoesNotExist" . hasStatus 400
+
+
+-- | Indicates that a custom verification email template with the name you specified already exists.
+--
+--
+_CustomVerificationEmailTemplateAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_CustomVerificationEmailTemplateAlreadyExistsException =
+  _MatchServiceError ses "CustomVerificationEmailTemplateAlreadyExists" .
+  hasStatus 400
+
+
+-- | Indicates that a custom verification email template with the name you specified does not exist.
+--
+--
+_CustomVerificationEmailTemplateDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_CustomVerificationEmailTemplateDoesNotExistException =
+  _MatchServiceError ses "CustomVerificationEmailTemplateDoesNotExist" .
+  hasStatus 400
 
 
 -- | Indicates that the Amazon CloudWatch destination is invalid. See the error message for details.

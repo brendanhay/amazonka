@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Initiates a snapshot of a gateway from a volume recovery point. This operation is only supported in the cached volume gateway architecture.
+-- Initiates a snapshot of a gateway from a volume recovery point. This operation is only supported in the cached volume gateway type.
 --
 --
 -- A volume recovery point is a point in time at which all data of the volume is consistent and from which you can create a snapshot. To get a list of volume recovery point for cached volume gateway, use 'ListVolumeRecoveryPoints' .
@@ -71,18 +71,18 @@ createSnapshotFromVolumeRecoveryPoint
     -> CreateSnapshotFromVolumeRecoveryPoint
 createSnapshotFromVolumeRecoveryPoint pVolumeARN_ pSnapshotDescription_ =
   CreateSnapshotFromVolumeRecoveryPoint'
-  { _csfvrpVolumeARN = pVolumeARN_
-  , _csfvrpSnapshotDescription = pSnapshotDescription_
-  }
+    { _csfvrpVolumeARN = pVolumeARN_
+    , _csfvrpSnapshotDescription = pSnapshotDescription_
+    }
 
 
 -- | Undocumented member.
 csfvrpVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
-csfvrpVolumeARN = lens _csfvrpVolumeARN (\ s a -> s{_csfvrpVolumeARN = a});
+csfvrpVolumeARN = lens _csfvrpVolumeARN (\ s a -> s{_csfvrpVolumeARN = a})
 
 -- | Undocumented member.
 csfvrpSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
-csfvrpSnapshotDescription = lens _csfvrpSnapshotDescription (\ s a -> s{_csfvrpSnapshotDescription = a});
+csfvrpSnapshotDescription = lens _csfvrpSnapshotDescription (\ s a -> s{_csfvrpSnapshotDescription = a})
 
 instance AWSRequest
            CreateSnapshotFromVolumeRecoveryPoint
@@ -162,28 +162,28 @@ createSnapshotFromVolumeRecoveryPointResponse
     -> CreateSnapshotFromVolumeRecoveryPointResponse
 createSnapshotFromVolumeRecoveryPointResponse pResponseStatus_ =
   CreateSnapshotFromVolumeRecoveryPointResponse'
-  { _csfvrprsVolumeRecoveryPointTime = Nothing
-  , _csfvrprsVolumeARN = Nothing
-  , _csfvrprsSnapshotId = Nothing
-  , _csfvrprsResponseStatus = pResponseStatus_
-  }
+    { _csfvrprsVolumeRecoveryPointTime = Nothing
+    , _csfvrprsVolumeARN = Nothing
+    , _csfvrprsSnapshotId = Nothing
+    , _csfvrprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 csfvrprsVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprsVolumeRecoveryPointTime = lens _csfvrprsVolumeRecoveryPointTime (\ s a -> s{_csfvrprsVolumeRecoveryPointTime = a});
+csfvrprsVolumeRecoveryPointTime = lens _csfvrprsVolumeRecoveryPointTime (\ s a -> s{_csfvrprsVolumeRecoveryPointTime = a})
 
 -- | Undocumented member.
 csfvrprsVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprsVolumeARN = lens _csfvrprsVolumeARN (\ s a -> s{_csfvrprsVolumeARN = a});
+csfvrprsVolumeARN = lens _csfvrprsVolumeARN (\ s a -> s{_csfvrprsVolumeARN = a})
 
 -- | Undocumented member.
 csfvrprsSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprsSnapshotId = lens _csfvrprsSnapshotId (\ s a -> s{_csfvrprsSnapshotId = a});
+csfvrprsSnapshotId = lens _csfvrprsSnapshotId (\ s a -> s{_csfvrprsSnapshotId = a})
 
 -- | -- | The response status code.
 csfvrprsResponseStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Int
-csfvrprsResponseStatus = lens _csfvrprsResponseStatus (\ s a -> s{_csfvrprsResponseStatus = a});
+csfvrprsResponseStatus = lens _csfvrprsResponseStatus (\ s a -> s{_csfvrprsResponseStatus = a})
 
 instance NFData
            CreateSnapshotFromVolumeRecoveryPointResponse

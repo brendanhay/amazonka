@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteLabels
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ data DeleteLabels = DeleteLabels'
 --
 -- * 'dlDeleteAll' - Flag to request removal of all labels from the specified resource.
 --
--- * 'dlAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'dlAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'dlLabels' - List of labels to delete from the resource.
 --
@@ -71,28 +71,28 @@ deleteLabels
     -> DeleteLabels
 deleteLabels pResourceId_ =
   DeleteLabels'
-  { _dlDeleteAll = Nothing
-  , _dlAuthenticationToken = Nothing
-  , _dlLabels = Nothing
-  , _dlResourceId = pResourceId_
-  }
+    { _dlDeleteAll = Nothing
+    , _dlAuthenticationToken = Nothing
+    , _dlLabels = Nothing
+    , _dlResourceId = pResourceId_
+    }
 
 
 -- | Flag to request removal of all labels from the specified resource.
 dlDeleteAll :: Lens' DeleteLabels (Maybe Bool)
-dlDeleteAll = lens _dlDeleteAll (\ s a -> s{_dlDeleteAll = a});
+dlDeleteAll = lens _dlDeleteAll (\ s a -> s{_dlDeleteAll = a})
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 dlAuthenticationToken :: Lens' DeleteLabels (Maybe Text)
-dlAuthenticationToken = lens _dlAuthenticationToken (\ s a -> s{_dlAuthenticationToken = a}) . mapping _Sensitive;
+dlAuthenticationToken = lens _dlAuthenticationToken (\ s a -> s{_dlAuthenticationToken = a}) . mapping _Sensitive
 
 -- | List of labels to delete from the resource.
 dlLabels :: Lens' DeleteLabels [Text]
-dlLabels = lens _dlLabels (\ s a -> s{_dlLabels = a}) . _Default . _Coerce;
+dlLabels = lens _dlLabels (\ s a -> s{_dlLabels = a}) . _Default . _Coerce
 
 -- | The ID of the resource.
 dlResourceId :: Lens' DeleteLabels Text
-dlResourceId = lens _dlResourceId (\ s a -> s{_dlResourceId = a});
+dlResourceId = lens _dlResourceId (\ s a -> s{_dlResourceId = a})
 
 instance AWSRequest DeleteLabels where
         type Rs DeleteLabels = DeleteLabelsResponse
@@ -145,6 +145,6 @@ deleteLabelsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dlrsResponseStatus :: Lens' DeleteLabelsResponse Int
-dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a})
 
 instance NFData DeleteLabelsResponse where

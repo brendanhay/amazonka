@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.DescribeActivity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ describeActivity pActivityARN_ =
 
 -- | The Amazon Resource Name (ARN) of the activity to describe.
 dActivityARN :: Lens' DescribeActivity Text
-dActivityARN = lens _dActivityARN (\ s a -> s{_dActivityARN = a});
+dActivityARN = lens _dActivityARN (\ s a -> s{_dActivityARN = a})
 
 instance AWSRequest DescribeActivity where
         type Rs DescribeActivity = DescribeActivityResponse
@@ -122,7 +122,7 @@ data DescribeActivityResponse = DescribeActivityResponse'
 --
 -- * 'desrsName' - The name of the activity. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 --
--- * 'desrsCreationDate' - The date the activity was created.
+-- * 'desrsCreationDate' - The date the activity is created.
 describeActivityResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> Text -- ^ 'desrsActivityARN'
@@ -131,27 +131,27 @@ describeActivityResponse
     -> DescribeActivityResponse
 describeActivityResponse pResponseStatus_ pActivityARN_ pName_ pCreationDate_ =
   DescribeActivityResponse'
-  { _desrsResponseStatus = pResponseStatus_
-  , _desrsActivityARN = pActivityARN_
-  , _desrsName = pName_
-  , _desrsCreationDate = _Time # pCreationDate_
-  }
+    { _desrsResponseStatus = pResponseStatus_
+    , _desrsActivityARN = pActivityARN_
+    , _desrsName = pName_
+    , _desrsCreationDate = _Time # pCreationDate_
+    }
 
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeActivityResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 -- | The Amazon Resource Name (ARN) that identifies the activity.
 desrsActivityARN :: Lens' DescribeActivityResponse Text
-desrsActivityARN = lens _desrsActivityARN (\ s a -> s{_desrsActivityARN = a});
+desrsActivityARN = lens _desrsActivityARN (\ s a -> s{_desrsActivityARN = a})
 
 -- | The name of the activity. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 desrsName :: Lens' DescribeActivityResponse Text
-desrsName = lens _desrsName (\ s a -> s{_desrsName = a});
+desrsName = lens _desrsName (\ s a -> s{_desrsName = a})
 
--- | The date the activity was created.
+-- | The date the activity is created.
 desrsCreationDate :: Lens' DescribeActivityResponse UTCTime
-desrsCreationDate = lens _desrsCreationDate (\ s a -> s{_desrsCreationDate = a}) . _Time;
+desrsCreationDate = lens _desrsCreationDate (\ s a -> s{_desrsCreationDate = a}) . _Time
 
 instance NFData DescribeActivityResponse where

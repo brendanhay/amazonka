@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateDocumentationVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ createDocumentationVersion
     -> CreateDocumentationVersion
 createDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
   CreateDocumentationVersion'
-  { _cdvStageName = Nothing
-  , _cdvDescription = Nothing
-  , _cdvRestAPIId = pRestAPIId_
-  , _cdvDocumentationVersion = pDocumentationVersion_
-  }
+    { _cdvStageName = Nothing
+    , _cdvDescription = Nothing
+    , _cdvRestAPIId = pRestAPIId_
+    , _cdvDocumentationVersion = pDocumentationVersion_
+    }
 
 
 -- | The stage name to be associated with the new documentation snapshot.
 cdvStageName :: Lens' CreateDocumentationVersion (Maybe Text)
-cdvStageName = lens _cdvStageName (\ s a -> s{_cdvStageName = a});
+cdvStageName = lens _cdvStageName (\ s a -> s{_cdvStageName = a})
 
 -- | A description about the new documentation snapshot.
 cdvDescription :: Lens' CreateDocumentationVersion (Maybe Text)
-cdvDescription = lens _cdvDescription (\ s a -> s{_cdvDescription = a});
+cdvDescription = lens _cdvDescription (\ s a -> s{_cdvDescription = a})
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 cdvRestAPIId :: Lens' CreateDocumentationVersion Text
-cdvRestAPIId = lens _cdvRestAPIId (\ s a -> s{_cdvRestAPIId = a});
+cdvRestAPIId = lens _cdvRestAPIId (\ s a -> s{_cdvRestAPIId = a})
 
 -- | [Required] The version identifier of the new snapshot.
 cdvDocumentationVersion :: Lens' CreateDocumentationVersion Text
-cdvDocumentationVersion = lens _cdvDocumentationVersion (\ s a -> s{_cdvDocumentationVersion = a});
+cdvDocumentationVersion = lens _cdvDocumentationVersion (\ s a -> s{_cdvDocumentationVersion = a})
 
 instance AWSRequest CreateDocumentationVersion where
         type Rs CreateDocumentationVersion =

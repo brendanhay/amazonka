@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CreateAssociationBatch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ createAssociationBatch pEntries_ =
 
 -- | One or more associations.
 cabEntries :: Lens' CreateAssociationBatch (NonEmpty CreateAssociationBatchRequestEntry)
-cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a}) . _List1;
+cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a}) . _List1
 
 instance AWSRequest CreateAssociationBatch where
         type Rs CreateAssociationBatch =
@@ -129,22 +129,22 @@ createAssociationBatchResponse
     -> CreateAssociationBatchResponse
 createAssociationBatchResponse pResponseStatus_ =
   CreateAssociationBatchResponse'
-  { _cabrsSuccessful = Nothing
-  , _cabrsFailed = Nothing
-  , _cabrsResponseStatus = pResponseStatus_
-  }
+    { _cabrsSuccessful = Nothing
+    , _cabrsFailed = Nothing
+    , _cabrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the associations that succeeded.
 cabrsSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
-cabrsSuccessful = lens _cabrsSuccessful (\ s a -> s{_cabrsSuccessful = a}) . _Default . _Coerce;
+cabrsSuccessful = lens _cabrsSuccessful (\ s a -> s{_cabrsSuccessful = a}) . _Default . _Coerce
 
 -- | Information about the associations that failed.
 cabrsFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
-cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default . _Coerce;
+cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 cabrsResponseStatus :: Lens' CreateAssociationBatchResponse Int
-cabrsResponseStatus = lens _cabrsResponseStatus (\ s a -> s{_cabrsResponseStatus = a});
+cabrsResponseStatus = lens _cabrsResponseStatus (\ s a -> s{_cabrsResponseStatus = a})
 
 instance NFData CreateAssociationBatchResponse where

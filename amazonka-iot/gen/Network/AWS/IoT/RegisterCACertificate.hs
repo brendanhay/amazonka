@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.RegisterCACertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,7 @@ module Network.AWS.IoT.RegisterCACertificate
     -- * Request Lenses
     , rcacSetAsActive
     , rcacAllowAutoRegistration
+    , rcacRegistrationConfig
     , rcacCaCertificate
     , rcacVerificationCertificate
 
@@ -56,6 +57,7 @@ import Network.AWS.Response
 data RegisterCACertificate = RegisterCACertificate'
   { _rcacSetAsActive             :: !(Maybe Bool)
   , _rcacAllowAutoRegistration   :: !(Maybe Bool)
+  , _rcacRegistrationConfig      :: !(Maybe RegistrationConfig)
   , _rcacCaCertificate           :: !Text
   , _rcacVerificationCertificate :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -69,6 +71,8 @@ data RegisterCACertificate = RegisterCACertificate'
 --
 -- * 'rcacAllowAutoRegistration' - Allows this CA certificate to be used for auto registration of device certificates.
 --
+-- * 'rcacRegistrationConfig' - Information about the registration configuration.
+--
 -- * 'rcacCaCertificate' - The CA certificate.
 --
 -- * 'rcacVerificationCertificate' - The private key verification certificate.
@@ -78,28 +82,33 @@ registerCACertificate
     -> RegisterCACertificate
 registerCACertificate pCaCertificate_ pVerificationCertificate_ =
   RegisterCACertificate'
-  { _rcacSetAsActive = Nothing
-  , _rcacAllowAutoRegistration = Nothing
-  , _rcacCaCertificate = pCaCertificate_
-  , _rcacVerificationCertificate = pVerificationCertificate_
-  }
+    { _rcacSetAsActive = Nothing
+    , _rcacAllowAutoRegistration = Nothing
+    , _rcacRegistrationConfig = Nothing
+    , _rcacCaCertificate = pCaCertificate_
+    , _rcacVerificationCertificate = pVerificationCertificate_
+    }
 
 
 -- | A boolean value that specifies if the CA certificate is set to active.
 rcacSetAsActive :: Lens' RegisterCACertificate (Maybe Bool)
-rcacSetAsActive = lens _rcacSetAsActive (\ s a -> s{_rcacSetAsActive = a});
+rcacSetAsActive = lens _rcacSetAsActive (\ s a -> s{_rcacSetAsActive = a})
 
 -- | Allows this CA certificate to be used for auto registration of device certificates.
 rcacAllowAutoRegistration :: Lens' RegisterCACertificate (Maybe Bool)
-rcacAllowAutoRegistration = lens _rcacAllowAutoRegistration (\ s a -> s{_rcacAllowAutoRegistration = a});
+rcacAllowAutoRegistration = lens _rcacAllowAutoRegistration (\ s a -> s{_rcacAllowAutoRegistration = a})
+
+-- | Information about the registration configuration.
+rcacRegistrationConfig :: Lens' RegisterCACertificate (Maybe RegistrationConfig)
+rcacRegistrationConfig = lens _rcacRegistrationConfig (\ s a -> s{_rcacRegistrationConfig = a})
 
 -- | The CA certificate.
 rcacCaCertificate :: Lens' RegisterCACertificate Text
-rcacCaCertificate = lens _rcacCaCertificate (\ s a -> s{_rcacCaCertificate = a});
+rcacCaCertificate = lens _rcacCaCertificate (\ s a -> s{_rcacCaCertificate = a})
 
 -- | The private key verification certificate.
 rcacVerificationCertificate :: Lens' RegisterCACertificate Text
-rcacVerificationCertificate = lens _rcacVerificationCertificate (\ s a -> s{_rcacVerificationCertificate = a});
+rcacVerificationCertificate = lens _rcacVerificationCertificate (\ s a -> s{_rcacVerificationCertificate = a})
 
 instance AWSRequest RegisterCACertificate where
         type Rs RegisterCACertificate =
@@ -123,7 +132,9 @@ instance ToJSON RegisterCACertificate where
         toJSON RegisterCACertificate'{..}
           = object
               (catMaybes
-                 [Just ("caCertificate" .= _rcacCaCertificate),
+                 [("registrationConfig" .=) <$>
+                    _rcacRegistrationConfig,
+                  Just ("caCertificate" .= _rcacCaCertificate),
                   Just
                     ("verificationCertificate" .=
                        _rcacVerificationCertificate)])
@@ -164,22 +175,22 @@ registerCACertificateResponse
     -> RegisterCACertificateResponse
 registerCACertificateResponse pResponseStatus_ =
   RegisterCACertificateResponse'
-  { _rcacrsCertificateARN = Nothing
-  , _rcacrsCertificateId = Nothing
-  , _rcacrsResponseStatus = pResponseStatus_
-  }
+    { _rcacrsCertificateARN = Nothing
+    , _rcacrsCertificateId = Nothing
+    , _rcacrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The CA certificate ARN.
 rcacrsCertificateARN :: Lens' RegisterCACertificateResponse (Maybe Text)
-rcacrsCertificateARN = lens _rcacrsCertificateARN (\ s a -> s{_rcacrsCertificateARN = a});
+rcacrsCertificateARN = lens _rcacrsCertificateARN (\ s a -> s{_rcacrsCertificateARN = a})
 
 -- | The CA certificate identifier.
 rcacrsCertificateId :: Lens' RegisterCACertificateResponse (Maybe Text)
-rcacrsCertificateId = lens _rcacrsCertificateId (\ s a -> s{_rcacrsCertificateId = a});
+rcacrsCertificateId = lens _rcacrsCertificateId (\ s a -> s{_rcacrsCertificateId = a})
 
 -- | -- | The response status code.
 rcacrsResponseStatus :: Lens' RegisterCACertificateResponse Int
-rcacrsResponseStatus = lens _rcacrsResponseStatus (\ s a -> s{_rcacrsResponseStatus = a});
+rcacrsResponseStatus = lens _rcacrsResponseStatus (\ s a -> s{_rcacrsResponseStatus = a})
 
 instance NFData RegisterCACertificateResponse where

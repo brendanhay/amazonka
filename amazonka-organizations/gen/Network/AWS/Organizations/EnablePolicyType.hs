@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.EnablePolicyType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,10 @@
 --
 --
 -- This operation can be called only from the organization's master account.
+--
+-- You can enable a policy type in a root only if that policy type is available in the organization. Use 'DescribeOrganization' to view the status of available policy types in the organization.
+--
+-- To view the status of policy type in a root, use 'ListRoots' .
 --
 module Network.AWS.Organizations.EnablePolicyType
     (
@@ -71,11 +75,11 @@ enablePolicyType pRootId_ pPolicyType_ =
 
 -- | The unique identifier (ID) of the root in which you want to enable a policy type. You can get the ID from the 'ListRoots' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
 eptRootId :: Lens' EnablePolicyType Text
-eptRootId = lens _eptRootId (\ s a -> s{_eptRootId = a});
+eptRootId = lens _eptRootId (\ s a -> s{_eptRootId = a})
 
 -- | The policy type that you want to enable.
 eptPolicyType :: Lens' EnablePolicyType PolicyType
-eptPolicyType = lens _eptPolicyType (\ s a -> s{_eptPolicyType = a});
+eptPolicyType = lens _eptPolicyType (\ s a -> s{_eptPolicyType = a})
 
 instance AWSRequest EnablePolicyType where
         type Rs EnablePolicyType = EnablePolicyTypeResponse
@@ -132,15 +136,15 @@ enablePolicyTypeResponse
     -> EnablePolicyTypeResponse
 enablePolicyTypeResponse pResponseStatus_ =
   EnablePolicyTypeResponse'
-  {_eptrsRoot = Nothing, _eptrsResponseStatus = pResponseStatus_}
+    {_eptrsRoot = Nothing, _eptrsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that shows the root with the updated list of enabled policy types.
 eptrsRoot :: Lens' EnablePolicyTypeResponse (Maybe Root)
-eptrsRoot = lens _eptrsRoot (\ s a -> s{_eptrsRoot = a});
+eptrsRoot = lens _eptrsRoot (\ s a -> s{_eptrsRoot = a})
 
 -- | -- | The response status code.
 eptrsResponseStatus :: Lens' EnablePolicyTypeResponse Int
-eptrsResponseStatus = lens _eptrsResponseStatus (\ s a -> s{_eptrsResponseStatus = a});
+eptrsResponseStatus = lens _eptrsResponseStatus (\ s a -> s{_eptrsResponseStatus = a})
 
 instance NFData EnablePolicyTypeResponse where

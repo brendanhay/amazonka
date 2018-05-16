@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.PutRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,8 @@
 --
 -- Creates or updates the specified rule. Rules are enabled by default, or based on value of the state. You can disable a rule using 'DisableRule' .
 --
+--
+-- If you are updating an existing rule, the rule is completely replaced with what you specify in this @PutRule@ command. If you omit arguments in @PutRule@ , the old values for those arguments are not kept. Instead, they are replaced with null values.
 --
 -- When you create or update a rule, incoming events might not immediately start matching to new or updated rules. Please allow a short period of time for changes to take effect.
 --
@@ -86,38 +88,38 @@ putRule
     -> PutRule
 putRule pName_ =
   PutRule'
-  { _prEventPattern = Nothing
-  , _prState = Nothing
-  , _prScheduleExpression = Nothing
-  , _prDescription = Nothing
-  , _prRoleARN = Nothing
-  , _prName = pName_
-  }
+    { _prEventPattern = Nothing
+    , _prState = Nothing
+    , _prScheduleExpression = Nothing
+    , _prDescription = Nothing
+    , _prRoleARN = Nothing
+    , _prName = pName_
+    }
 
 
 -- | The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 prEventPattern :: Lens' PutRule (Maybe Text)
-prEventPattern = lens _prEventPattern (\ s a -> s{_prEventPattern = a});
+prEventPattern = lens _prEventPattern (\ s a -> s{_prEventPattern = a})
 
 -- | Indicates whether the rule is enabled or disabled.
 prState :: Lens' PutRule (Maybe RuleState)
-prState = lens _prState (\ s a -> s{_prState = a});
+prState = lens _prState (\ s a -> s{_prState = a})
 
 -- | The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
 prScheduleExpression :: Lens' PutRule (Maybe Text)
-prScheduleExpression = lens _prScheduleExpression (\ s a -> s{_prScheduleExpression = a});
+prScheduleExpression = lens _prScheduleExpression (\ s a -> s{_prScheduleExpression = a})
 
 -- | A description of the rule.
 prDescription :: Lens' PutRule (Maybe Text)
-prDescription = lens _prDescription (\ s a -> s{_prDescription = a});
+prDescription = lens _prDescription (\ s a -> s{_prDescription = a})
 
 -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
 prRoleARN :: Lens' PutRule (Maybe Text)
-prRoleARN = lens _prRoleARN (\ s a -> s{_prRoleARN = a});
+prRoleARN = lens _prRoleARN (\ s a -> s{_prRoleARN = a})
 
 -- | The name of the rule that you are creating or updating.
 prName :: Lens' PutRule Text
-prName = lens _prName (\ s a -> s{_prName = a});
+prName = lens _prName (\ s a -> s{_prName = a})
 
 instance AWSRequest PutRule where
         type Rs PutRule = PutRuleResponse
@@ -177,15 +179,15 @@ putRuleResponse
     -> PutRuleResponse
 putRuleResponse pResponseStatus_ =
   PutRuleResponse'
-  {_prrsRuleARN = Nothing, _prrsResponseStatus = pResponseStatus_}
+    {_prrsRuleARN = Nothing, _prrsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon Resource Name (ARN) of the rule.
 prrsRuleARN :: Lens' PutRuleResponse (Maybe Text)
-prrsRuleARN = lens _prrsRuleARN (\ s a -> s{_prrsRuleARN = a});
+prrsRuleARN = lens _prrsRuleARN (\ s a -> s{_prrsRuleARN = a})
 
 -- | -- | The response status code.
 prrsResponseStatus :: Lens' PutRuleResponse Int
-prrsResponseStatus = lens _prrsResponseStatus (\ s a -> s{_prrsResponseStatus = a});
+prrsResponseStatus = lens _prrsResponseStatus (\ s a -> s{_prrsResponseStatus = a})
 
 instance NFData PutRuleResponse where

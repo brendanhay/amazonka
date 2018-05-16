@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteAssociation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,20 +68,20 @@ deleteAssociation
     :: DeleteAssociation
 deleteAssociation =
   DeleteAssociation'
-  {_daaAssociationId = Nothing, _daaInstanceId = Nothing, _daaName = Nothing}
+    {_daaAssociationId = Nothing, _daaInstanceId = Nothing, _daaName = Nothing}
 
 
 -- | The association ID that you want to delete.
 daaAssociationId :: Lens' DeleteAssociation (Maybe Text)
-daaAssociationId = lens _daaAssociationId (\ s a -> s{_daaAssociationId = a});
+daaAssociationId = lens _daaAssociationId (\ s a -> s{_daaAssociationId = a})
 
 -- | The ID of the instance.
 daaInstanceId :: Lens' DeleteAssociation (Maybe Text)
-daaInstanceId = lens _daaInstanceId (\ s a -> s{_daaInstanceId = a});
+daaInstanceId = lens _daaInstanceId (\ s a -> s{_daaInstanceId = a})
 
 -- | The name of the Systems Manager document.
 daaName :: Lens' DeleteAssociation (Maybe Text)
-daaName = lens _daaName (\ s a -> s{_daaName = a});
+daaName = lens _daaName (\ s a -> s{_daaName = a})
 
 instance AWSRequest DeleteAssociation where
         type Rs DeleteAssociation = DeleteAssociationResponse
@@ -138,6 +138,6 @@ deleteAssociationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteAssociationResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteAssociationResponse where

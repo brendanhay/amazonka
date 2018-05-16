@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.ListCuratedEnvironmentImages
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -109,16 +109,16 @@ listCuratedEnvironmentImagesResponse
     -> ListCuratedEnvironmentImagesResponse
 listCuratedEnvironmentImagesResponse pResponseStatus_ =
   ListCuratedEnvironmentImagesResponse'
-  {_lceirsPlatforms = Nothing, _lceirsResponseStatus = pResponseStatus_}
+    {_lceirsPlatforms = Nothing, _lceirsResponseStatus = pResponseStatus_}
 
 
 -- | Information about supported platforms for Docker images that are managed by AWS CodeBuild.
 lceirsPlatforms :: Lens' ListCuratedEnvironmentImagesResponse [EnvironmentPlatform]
-lceirsPlatforms = lens _lceirsPlatforms (\ s a -> s{_lceirsPlatforms = a}) . _Default . _Coerce;
+lceirsPlatforms = lens _lceirsPlatforms (\ s a -> s{_lceirsPlatforms = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lceirsResponseStatus :: Lens' ListCuratedEnvironmentImagesResponse Int
-lceirsResponseStatus = lens _lceirsResponseStatus (\ s a -> s{_lceirsResponseStatus = a});
+lceirsResponseStatus = lens _lceirsResponseStatus (\ s a -> s{_lceirsResponseStatus = a})
 
 instance NFData ListCuratedEnvironmentImagesResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.ListMetrics
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ listMetrics
     :: ListMetrics
 listMetrics =
   ListMetrics'
-  { _lmMetricName = Nothing
-  , _lmNamespace = Nothing
-  , _lmNextToken = Nothing
-  , _lmDimensions = Nothing
-  }
+    { _lmMetricName = Nothing
+    , _lmNamespace = Nothing
+    , _lmNextToken = Nothing
+    , _lmDimensions = Nothing
+    }
 
 
 -- | The name of the metric to filter against.
 lmMetricName :: Lens' ListMetrics (Maybe Text)
-lmMetricName = lens _lmMetricName (\ s a -> s{_lmMetricName = a});
+lmMetricName = lens _lmMetricName (\ s a -> s{_lmMetricName = a})
 
 -- | The namespace to filter against.
 lmNamespace :: Lens' ListMetrics (Maybe Text)
-lmNamespace = lens _lmNamespace (\ s a -> s{_lmNamespace = a});
+lmNamespace = lens _lmNamespace (\ s a -> s{_lmNamespace = a})
 
 -- | The token returned by a previous call to indicate that there is more data available.
 lmNextToken :: Lens' ListMetrics (Maybe Text)
-lmNextToken = lens _lmNextToken (\ s a -> s{_lmNextToken = a});
+lmNextToken = lens _lmNextToken (\ s a -> s{_lmNextToken = a})
 
 -- | The dimensions to filter against.
 lmDimensions :: Lens' ListMetrics [DimensionFilter]
-lmDimensions = lens _lmDimensions (\ s a -> s{_lmDimensions = a}) . _Default . _Coerce;
+lmDimensions = lens _lmDimensions (\ s a -> s{_lmDimensions = a}) . _Default . _Coerce
 
 instance AWSPager ListMetrics where
         page rq rs
@@ -164,22 +164,22 @@ listMetricsResponse
     -> ListMetricsResponse
 listMetricsResponse pResponseStatus_ =
   ListMetricsResponse'
-  { _lmrsMetrics = Nothing
-  , _lmrsNextToken = Nothing
-  , _lmrsResponseStatus = pResponseStatus_
-  }
+    { _lmrsMetrics = Nothing
+    , _lmrsNextToken = Nothing
+    , _lmrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The metrics.
 lmrsMetrics :: Lens' ListMetricsResponse [Metric]
-lmrsMetrics = lens _lmrsMetrics (\ s a -> s{_lmrsMetrics = a}) . _Default . _Coerce;
+lmrsMetrics = lens _lmrsMetrics (\ s a -> s{_lmrsMetrics = a}) . _Default . _Coerce
 
 -- | The token that marks the start of the next batch of returned results.
 lmrsNextToken :: Lens' ListMetricsResponse (Maybe Text)
-lmrsNextToken = lens _lmrsNextToken (\ s a -> s{_lmrsNextToken = a});
+lmrsNextToken = lens _lmrsNextToken (\ s a -> s{_lmrsNextToken = a})
 
 -- | -- | The response status code.
 lmrsResponseStatus :: Lens' ListMetricsResponse Int
-lmrsResponseStatus = lens _lmrsResponseStatus (\ s a -> s{_lmrsResponseStatus = a});
+lmrsResponseStatus = lens _lmrsResponseStatus (\ s a -> s{_lmrsResponseStatus = a})
 
 instance NFData ListMetricsResponse where

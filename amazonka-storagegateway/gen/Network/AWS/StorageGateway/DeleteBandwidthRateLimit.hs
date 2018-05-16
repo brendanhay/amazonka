@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteBandwidthRateLimit
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,16 +73,16 @@ deleteBandwidthRateLimit
     -> DeleteBandwidthRateLimit
 deleteBandwidthRateLimit pGatewayARN_ pBandwidthType_ =
   DeleteBandwidthRateLimit'
-  {_dbrlbGatewayARN = pGatewayARN_, _dbrlbBandwidthType = pBandwidthType_}
+    {_dbrlbGatewayARN = pGatewayARN_, _dbrlbBandwidthType = pBandwidthType_}
 
 
 -- | Undocumented member.
 dbrlbGatewayARN :: Lens' DeleteBandwidthRateLimit Text
-dbrlbGatewayARN = lens _dbrlbGatewayARN (\ s a -> s{_dbrlbGatewayARN = a});
+dbrlbGatewayARN = lens _dbrlbGatewayARN (\ s a -> s{_dbrlbGatewayARN = a})
 
 -- | One of the BandwidthType values that indicates the gateway bandwidth rate limit to delete. Valid Values: @Upload@ , @Download@ , @All@ .
 dbrlbBandwidthType :: Lens' DeleteBandwidthRateLimit Text
-dbrlbBandwidthType = lens _dbrlbBandwidthType (\ s a -> s{_dbrlbBandwidthType = a});
+dbrlbBandwidthType = lens _dbrlbBandwidthType (\ s a -> s{_dbrlbBandwidthType = a})
 
 instance AWSRequest DeleteBandwidthRateLimit where
         type Rs DeleteBandwidthRateLimit =
@@ -144,16 +144,16 @@ deleteBandwidthRateLimitResponse
     -> DeleteBandwidthRateLimitResponse
 deleteBandwidthRateLimitResponse pResponseStatus_ =
   DeleteBandwidthRateLimitResponse'
-  {_delrsGatewayARN = Nothing, _delrsResponseStatus = pResponseStatus_}
+    {_delrsGatewayARN = Nothing, _delrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 delrsGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
-delrsGatewayARN = lens _delrsGatewayARN (\ s a -> s{_delrsGatewayARN = a});
+delrsGatewayARN = lens _delrsGatewayARN (\ s a -> s{_delrsGatewayARN = a})
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteBandwidthRateLimitResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteBandwidthRateLimitResponse
          where

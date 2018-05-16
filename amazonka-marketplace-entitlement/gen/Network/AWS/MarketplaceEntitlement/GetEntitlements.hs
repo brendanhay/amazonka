@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceEntitlement.GetEntitlements
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ getEntitlements
     -> GetEntitlements
 getEntitlements pProductCode_ =
   GetEntitlements'
-  { _geNextToken = Nothing
-  , _geFilter = Nothing
-  , _geMaxResults = Nothing
-  , _geProductCode = pProductCode_
-  }
+    { _geNextToken = Nothing
+    , _geFilter = Nothing
+    , _geMaxResults = Nothing
+    , _geProductCode = pProductCode_
+    }
 
 
 -- | For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult.
 geNextToken :: Lens' GetEntitlements (Maybe Text)
-geNextToken = lens _geNextToken (\ s a -> s{_geNextToken = a});
+geNextToken = lens _geNextToken (\ s a -> s{_geNextToken = a})
 
 -- | Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are /unioned/ for each value in the value list, and then /intersected/ for each filter key.
 geFilter :: Lens' GetEntitlements (HashMap GetEntitlementFilterName (NonEmpty Text))
-geFilter = lens _geFilter (\ s a -> s{_geFilter = a}) . _Default . _Map;
+geFilter = lens _geFilter (\ s a -> s{_geFilter = a}) . _Default . _Map
 
 -- | The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements.
 geMaxResults :: Lens' GetEntitlements (Maybe Int)
-geMaxResults = lens _geMaxResults (\ s a -> s{_geMaxResults = a});
+geMaxResults = lens _geMaxResults (\ s a -> s{_geMaxResults = a})
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code will be provided by AWS Marketplace when the product listing is created.
 geProductCode :: Lens' GetEntitlements Text
-geProductCode = lens _geProductCode (\ s a -> s{_geProductCode = a});
+geProductCode = lens _geProductCode (\ s a -> s{_geProductCode = a})
 
 instance AWSRequest GetEntitlements where
         type Rs GetEntitlements = GetEntitlementsResponse
@@ -166,22 +166,22 @@ getEntitlementsResponse
     -> GetEntitlementsResponse
 getEntitlementsResponse pResponseStatus_ =
   GetEntitlementsResponse'
-  { _gersNextToken = Nothing
-  , _gersEntitlements = Nothing
-  , _gersResponseStatus = pResponseStatus_
-  }
+    { _gersNextToken = Nothing
+    , _gersEntitlements = Nothing
+    , _gersResponseStatus = pResponseStatus_
+    }
 
 
 -- | For paginated results, use NextToken in subsequent calls to GetEntitlements. If the result contains an empty set of entitlements, NextToken might still be present and should be used.
 gersNextToken :: Lens' GetEntitlementsResponse (Maybe Text)
-gersNextToken = lens _gersNextToken (\ s a -> s{_gersNextToken = a});
+gersNextToken = lens _gersNextToken (\ s a -> s{_gersNextToken = a})
 
 -- | The set of entitlements found through the GetEntitlements operation. If the result contains an empty set of entitlements, NextToken might still be present and should be used.
 gersEntitlements :: Lens' GetEntitlementsResponse [Entitlement]
-gersEntitlements = lens _gersEntitlements (\ s a -> s{_gersEntitlements = a}) . _Default . _Coerce;
+gersEntitlements = lens _gersEntitlements (\ s a -> s{_gersEntitlements = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gersResponseStatus :: Lens' GetEntitlementsResponse Int
-gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a});
+gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a})
 
 instance NFData GetEntitlementsResponse where

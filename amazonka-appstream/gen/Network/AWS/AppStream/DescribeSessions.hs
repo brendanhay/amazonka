@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeSessions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,47 +73,47 @@ data DescribeSessions = DescribeSessions'
 --
 -- * 'dsAuthenticationType' - The authentication method. Specify @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user. The default is to authenticate users using a streaming URL.
 --
--- * 'dsStackName' - The name of the stack.
+-- * 'dsStackName' - The name of the stack. This value is case-sensitive.
 --
--- * 'dsFleetName' - The name of the fleet.
+-- * 'dsFleetName' - The name of the fleet. This value is case-sensitive.
 describeSessions
     :: Text -- ^ 'dsStackName'
     -> Text -- ^ 'dsFleetName'
     -> DescribeSessions
 describeSessions pStackName_ pFleetName_ =
   DescribeSessions'
-  { _dsUserId = Nothing
-  , _dsNextToken = Nothing
-  , _dsLimit = Nothing
-  , _dsAuthenticationType = Nothing
-  , _dsStackName = pStackName_
-  , _dsFleetName = pFleetName_
-  }
+    { _dsUserId = Nothing
+    , _dsNextToken = Nothing
+    , _dsLimit = Nothing
+    , _dsAuthenticationType = Nothing
+    , _dsStackName = pStackName_
+    , _dsFleetName = pFleetName_
+    }
 
 
 -- | The user ID.
 dsUserId :: Lens' DescribeSessions (Maybe Text)
-dsUserId = lens _dsUserId (\ s a -> s{_dsUserId = a});
+dsUserId = lens _dsUserId (\ s a -> s{_dsUserId = a})
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 dsNextToken :: Lens' DescribeSessions (Maybe Text)
-dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a});
+dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a})
 
 -- | The size of each page of results. The default value is 20 and the maximum value is 50.
 dsLimit :: Lens' DescribeSessions (Maybe Int)
-dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a});
+dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a})
 
 -- | The authentication method. Specify @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user. The default is to authenticate users using a streaming URL.
 dsAuthenticationType :: Lens' DescribeSessions (Maybe AuthenticationType)
-dsAuthenticationType = lens _dsAuthenticationType (\ s a -> s{_dsAuthenticationType = a});
+dsAuthenticationType = lens _dsAuthenticationType (\ s a -> s{_dsAuthenticationType = a})
 
--- | The name of the stack.
+-- | The name of the stack. This value is case-sensitive.
 dsStackName :: Lens' DescribeSessions Text
-dsStackName = lens _dsStackName (\ s a -> s{_dsStackName = a});
+dsStackName = lens _dsStackName (\ s a -> s{_dsStackName = a})
 
--- | The name of the fleet.
+-- | The name of the fleet. This value is case-sensitive.
 dsFleetName :: Lens' DescribeSessions Text
-dsFleetName = lens _dsFleetName (\ s a -> s{_dsFleetName = a});
+dsFleetName = lens _dsFleetName (\ s a -> s{_dsFleetName = a})
 
 instance AWSRequest DescribeSessions where
         type Rs DescribeSessions = DescribeSessionsResponse
@@ -178,22 +178,22 @@ describeSessionsResponse
     -> DescribeSessionsResponse
 describeSessionsResponse pResponseStatus_ =
   DescribeSessionsResponse'
-  { _dssrsNextToken = Nothing
-  , _dssrsSessions = Nothing
-  , _dssrsResponseStatus = pResponseStatus_
-  }
+    { _dssrsNextToken = Nothing
+    , _dssrsSessions = Nothing
+    , _dssrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 dssrsNextToken :: Lens' DescribeSessionsResponse (Maybe Text)
-dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
+dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a})
 
 -- | Information about the streaming sessions.
 dssrsSessions :: Lens' DescribeSessionsResponse [Session]
-dssrsSessions = lens _dssrsSessions (\ s a -> s{_dssrsSessions = a}) . _Default . _Coerce;
+dssrsSessions = lens _dssrsSessions (\ s a -> s{_dssrsSessions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSessionsResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a})
 
 instance NFData DescribeSessionsResponse where

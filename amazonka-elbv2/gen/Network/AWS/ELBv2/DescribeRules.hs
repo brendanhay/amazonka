@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeRules
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,28 +72,28 @@ describeRules
     :: DescribeRules
 describeRules =
   DescribeRules'
-  { _drListenerARN = Nothing
-  , _drMarker = Nothing
-  , _drRuleARNs = Nothing
-  , _drPageSize = Nothing
-  }
+    { _drListenerARN = Nothing
+    , _drMarker = Nothing
+    , _drRuleARNs = Nothing
+    , _drPageSize = Nothing
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the listener.
 drListenerARN :: Lens' DescribeRules (Maybe Text)
-drListenerARN = lens _drListenerARN (\ s a -> s{_drListenerARN = a});
+drListenerARN = lens _drListenerARN (\ s a -> s{_drListenerARN = a})
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 drMarker :: Lens' DescribeRules (Maybe Text)
-drMarker = lens _drMarker (\ s a -> s{_drMarker = a});
+drMarker = lens _drMarker (\ s a -> s{_drMarker = a})
 
 -- | The Amazon Resource Names (ARN) of the rules.
 drRuleARNs :: Lens' DescribeRules [Text]
-drRuleARNs = lens _drRuleARNs (\ s a -> s{_drRuleARNs = a}) . _Default . _Coerce;
+drRuleARNs = lens _drRuleARNs (\ s a -> s{_drRuleARNs = a}) . _Default . _Coerce
 
 -- | The maximum number of results to return with this call.
 drPageSize :: Lens' DescribeRules (Maybe Natural)
-drPageSize = lens _drPageSize (\ s a -> s{_drPageSize = a}) . mapping _Nat;
+drPageSize = lens _drPageSize (\ s a -> s{_drPageSize = a}) . mapping _Nat
 
 instance AWSRequest DescribeRules where
         type Rs DescribeRules = DescribeRulesResponse
@@ -150,22 +150,22 @@ describeRulesResponse
     -> DescribeRulesResponse
 describeRulesResponse pResponseStatus_ =
   DescribeRulesResponse'
-  { _drsrsRules = Nothing
-  , _drsrsNextMarker = Nothing
-  , _drsrsResponseStatus = pResponseStatus_
-  }
+    { _drsrsRules = Nothing
+    , _drsrsNextMarker = Nothing
+    , _drsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the rules.
 drsrsRules :: Lens' DescribeRulesResponse [Rule]
-drsrsRules = lens _drsrsRules (\ s a -> s{_drsrsRules = a}) . _Default . _Coerce;
+drsrsRules = lens _drsrsRules (\ s a -> s{_drsrsRules = a}) . _Default . _Coerce
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 drsrsNextMarker :: Lens' DescribeRulesResponse (Maybe Text)
-drsrsNextMarker = lens _drsrsNextMarker (\ s a -> s{_drsrsNextMarker = a});
+drsrsNextMarker = lens _drsrsNextMarker (\ s a -> s{_drsrsNextMarker = a})
 
 -- | -- | The response status code.
 drsrsResponseStatus :: Lens' DescribeRulesResponse Int
-drsrsResponseStatus = lens _drsrsResponseStatus (\ s a -> s{_drsrsResponseStatus = a});
+drsrsResponseStatus = lens _drsrsResponseStatus (\ s a -> s{_drsrsResponseStatus = a})
 
 instance NFData DescribeRulesResponse where

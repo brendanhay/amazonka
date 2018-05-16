@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeServiceErrors
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ describeServiceErrors
     :: DescribeServiceErrors
 describeServiceErrors =
   DescribeServiceErrors'
-  { _dseInstanceId = Nothing
-  , _dseStackId = Nothing
-  , _dseServiceErrorIds = Nothing
-  }
+    { _dseInstanceId = Nothing
+    , _dseStackId = Nothing
+    , _dseServiceErrorIds = Nothing
+    }
 
 
 -- | The instance ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified instance.
 dseInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
-dseInstanceId = lens _dseInstanceId (\ s a -> s{_dseInstanceId = a});
+dseInstanceId = lens _dseInstanceId (\ s a -> s{_dseInstanceId = a})
 
 -- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified stack.
 dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
-dseStackId = lens _dseStackId (\ s a -> s{_dseStackId = a});
+dseStackId = lens _dseStackId (\ s a -> s{_dseStackId = a})
 
 -- | An array of service error IDs. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the specified errors. Otherwise, it returns a description of every error.
 dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
-dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = a}) . _Default . _Coerce;
+dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeServiceErrors where
         type Rs DescribeServiceErrors =
@@ -151,15 +151,15 @@ describeServiceErrorsResponse
     -> DescribeServiceErrorsResponse
 describeServiceErrorsResponse pResponseStatus_ =
   DescribeServiceErrorsResponse'
-  {_dsersServiceErrors = Nothing, _dsersResponseStatus = pResponseStatus_}
+    {_dsersServiceErrors = Nothing, _dsersResponseStatus = pResponseStatus_}
 
 
 -- | An array of @ServiceError@ objects that describe the specified service errors.
 dsersServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
-dsersServiceErrors = lens _dsersServiceErrors (\ s a -> s{_dsersServiceErrors = a}) . _Default . _Coerce;
+dsersServiceErrors = lens _dsersServiceErrors (\ s a -> s{_dsersServiceErrors = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsersResponseStatus :: Lens' DescribeServiceErrorsResponse Int
-dsersResponseStatus = lens _dsersResponseStatus (\ s a -> s{_dsersResponseStatus = a});
+dsersResponseStatus = lens _dsersResponseStatus (\ s a -> s{_dsersResponseStatus = a})
 
 instance NFData DescribeServiceErrorsResponse where

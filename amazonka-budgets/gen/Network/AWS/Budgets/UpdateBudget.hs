@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.UpdateBudget
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update the information of a budget already created
+-- Updates a budget. You can change every part of a budget except for the @budgetName@ and the @calculatedSpend@ . When a budget is modified, the @calculatedSpend@ drops to zero until AWS has new usage data to use for forecasting.
+--
+--
 module Network.AWS.Budgets.UpdateBudget
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import Network.AWS.Response
 
 -- | Request of UpdateBudget
 --
+--
+--
 -- /See:/ 'updateBudget' smart constructor.
 data UpdateBudget = UpdateBudget'
   { _ubAccountId :: !Text
@@ -55,9 +59,9 @@ data UpdateBudget = UpdateBudget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ubAccountId' - Undocumented member.
+-- * 'ubAccountId' - The @accountId@ that is associated with the budget that you want to update.
 --
--- * 'ubNewBudget' - Undocumented member.
+-- * 'ubNewBudget' - The budget that you want to update your budget to.
 updateBudget
     :: Text -- ^ 'ubAccountId'
     -> Budget -- ^ 'ubNewBudget'
@@ -66,13 +70,13 @@ updateBudget pAccountId_ pNewBudget_ =
   UpdateBudget' {_ubAccountId = pAccountId_, _ubNewBudget = pNewBudget_}
 
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budget that you want to update.
 ubAccountId :: Lens' UpdateBudget Text
-ubAccountId = lens _ubAccountId (\ s a -> s{_ubAccountId = a});
+ubAccountId = lens _ubAccountId (\ s a -> s{_ubAccountId = a})
 
--- | Undocumented member.
+-- | The budget that you want to update your budget to.
 ubNewBudget :: Lens' UpdateBudget Budget
-ubNewBudget = lens _ubNewBudget (\ s a -> s{_ubNewBudget = a});
+ubNewBudget = lens _ubNewBudget (\ s a -> s{_ubNewBudget = a})
 
 instance AWSRequest UpdateBudget where
         type Rs UpdateBudget = UpdateBudgetResponse
@@ -111,6 +115,8 @@ instance ToQuery UpdateBudget where
 
 -- | Response of UpdateBudget
 --
+--
+--
 -- /See:/ 'updateBudgetResponse' smart constructor.
 newtype UpdateBudgetResponse = UpdateBudgetResponse'
   { _ubrsResponseStatus :: Int
@@ -131,6 +137,6 @@ updateBudgetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ubrsResponseStatus :: Lens' UpdateBudgetResponse Int
-ubrsResponseStatus = lens _ubrsResponseStatus (\ s a -> s{_ubrsResponseStatus = a});
+ubrsResponseStatus = lens _ubrsResponseStatus (\ s a -> s{_ubrsResponseStatus = a})
 
 instance NFData UpdateBudgetResponse where

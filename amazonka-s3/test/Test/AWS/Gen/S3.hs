@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.S3
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,8 +88,8 @@ import Test.Tasty
 --         , requestDeleteBucketMetricsConfiguration $
 --             deleteBucketMetricsConfiguration
 --
---         , requestListObjectsV $
---             listObjectsV
+--         , requestListObjectsV2 $
+--             listObjectsV2
 --
 --         , requestGetObject $
 --             getObject
@@ -132,6 +132,9 @@ import Test.Tasty
 --
 --         , requestUploadPart $
 --             uploadPart
+--
+--         , requestSelectObjectContent $
+--             selectObjectContent
 --
 --         , requestGetBucketReplication $
 --             getBucketReplication
@@ -310,8 +313,8 @@ import Test.Tasty
 --         , responseDeleteBucketMetricsConfiguration $
 --             deleteBucketMetricsConfigurationResponse
 --
---         , responseListObjectsV $
---             listObjectsVResponse
+--         , responseListObjectsV2 $
+--             listObjectsV2Response
 --
 --         , responseGetObject $
 --             getObjectResponse
@@ -354,6 +357,9 @@ import Test.Tasty
 --
 --         , responseUploadPart $
 --             uploadPartResponse
+--
+--         , responseSelectObjectContent $
+--             selectObjectContentResponse
 --
 --         , responseGetBucketReplication $
 --             getBucketReplicationResponse
@@ -569,10 +575,10 @@ requestDeleteBucketMetricsConfiguration = req
     "DeleteBucketMetricsConfiguration"
     "fixture/DeleteBucketMetricsConfiguration.yaml"
 
-requestListObjectsV :: ListObjectsV -> TestTree
-requestListObjectsV = req
-    "ListObjectsV"
-    "fixture/ListObjectsV.yaml"
+requestListObjectsV2 :: ListObjectsV2 -> TestTree
+requestListObjectsV2 = req
+    "ListObjectsV2"
+    "fixture/ListObjectsV2.yaml"
 
 requestGetObject :: GetObject -> TestTree
 requestGetObject = req
@@ -638,6 +644,11 @@ requestCreateMultipartUpload :: CreateMultipartUpload -> TestTree
 requestCreateMultipartUpload = req
     "CreateMultipartUpload"
     "fixture/CreateMultipartUpload.yaml"
+
+requestSelectObjectContent :: SelectObjectContent -> TestTree
+requestSelectObjectContent = req
+    "SelectObjectContent"
+    "fixture/SelectObjectContent.yaml"
 
 requestGetBucketReplication :: GetBucketReplication -> TestTree
 requestGetBucketReplication = req
@@ -971,12 +982,12 @@ responseDeleteBucketMetricsConfiguration = res
     s3
     (Proxy :: Proxy DeleteBucketMetricsConfiguration)
 
-responseListObjectsV :: ListObjectsVResponse -> TestTree
-responseListObjectsV = res
-    "ListObjectsVResponse"
-    "fixture/ListObjectsVResponse.proto"
+responseListObjectsV2 :: ListObjectsV2Response -> TestTree
+responseListObjectsV2 = res
+    "ListObjectsV2Response"
+    "fixture/ListObjectsV2Response.proto"
     s3
-    (Proxy :: Proxy ListObjectsV)
+    (Proxy :: Proxy ListObjectsV2)
 
 responsePutBucketReplication :: PutBucketReplicationResponse -> TestTree
 responsePutBucketReplication = res
@@ -1068,6 +1079,13 @@ responseUploadPart = res
     "fixture/UploadPartResponse.proto"
     s3
     (Proxy :: Proxy UploadPart)
+
+responseSelectObjectContent :: SelectObjectContentResponse -> TestTree
+responseSelectObjectContent = res
+    "SelectObjectContentResponse"
+    "fixture/SelectObjectContentResponse.proto"
+    s3
+    (Proxy :: Proxy SelectObjectContent)
 
 responseGetBucketReplication :: GetBucketReplicationResponse -> TestTree
 responseGetBucketReplication = res

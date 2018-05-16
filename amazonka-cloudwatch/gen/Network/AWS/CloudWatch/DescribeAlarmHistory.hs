@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmHistory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,38 +85,38 @@ describeAlarmHistory
     :: DescribeAlarmHistory
 describeAlarmHistory =
   DescribeAlarmHistory'
-  { _dahAlarmName = Nothing
-  , _dahHistoryItemType = Nothing
-  , _dahEndDate = Nothing
-  , _dahStartDate = Nothing
-  , _dahNextToken = Nothing
-  , _dahMaxRecords = Nothing
-  }
+    { _dahAlarmName = Nothing
+    , _dahHistoryItemType = Nothing
+    , _dahEndDate = Nothing
+    , _dahStartDate = Nothing
+    , _dahNextToken = Nothing
+    , _dahMaxRecords = Nothing
+    }
 
 
 -- | The name of the alarm.
 dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
-dahAlarmName = lens _dahAlarmName (\ s a -> s{_dahAlarmName = a});
+dahAlarmName = lens _dahAlarmName (\ s a -> s{_dahAlarmName = a})
 
 -- | The type of alarm histories to retrieve.
 dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
-dahHistoryItemType = lens _dahHistoryItemType (\ s a -> s{_dahHistoryItemType = a});
+dahHistoryItemType = lens _dahHistoryItemType (\ s a -> s{_dahHistoryItemType = a})
 
 -- | The ending date to retrieve alarm history.
 dahEndDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
-dahEndDate = lens _dahEndDate (\ s a -> s{_dahEndDate = a}) . mapping _Time;
+dahEndDate = lens _dahEndDate (\ s a -> s{_dahEndDate = a}) . mapping _Time
 
 -- | The starting date to retrieve alarm history.
 dahStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
-dahStartDate = lens _dahStartDate (\ s a -> s{_dahStartDate = a}) . mapping _Time;
+dahStartDate = lens _dahStartDate (\ s a -> s{_dahStartDate = a}) . mapping _Time
 
 -- | The token returned by a previous call to indicate that there is more data available.
 dahNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
-dahNextToken = lens _dahNextToken (\ s a -> s{_dahNextToken = a});
+dahNextToken = lens _dahNextToken (\ s a -> s{_dahNextToken = a})
 
 -- | The maximum number of alarm history records to retrieve.
 dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
-dahMaxRecords = lens _dahMaxRecords (\ s a -> s{_dahMaxRecords = a}) . mapping _Nat;
+dahMaxRecords = lens _dahMaxRecords (\ s a -> s{_dahMaxRecords = a}) . mapping _Nat
 
 instance AWSPager DescribeAlarmHistory where
         page rq rs
@@ -182,22 +182,22 @@ describeAlarmHistoryResponse
     -> DescribeAlarmHistoryResponse
 describeAlarmHistoryResponse pResponseStatus_ =
   DescribeAlarmHistoryResponse'
-  { _dahrsAlarmHistoryItems = Nothing
-  , _dahrsNextToken = Nothing
-  , _dahrsResponseStatus = pResponseStatus_
-  }
+    { _dahrsAlarmHistoryItems = Nothing
+    , _dahrsNextToken = Nothing
+    , _dahrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The alarm histories, in JSON format.
 dahrsAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
-dahrsAlarmHistoryItems = lens _dahrsAlarmHistoryItems (\ s a -> s{_dahrsAlarmHistoryItems = a}) . _Default . _Coerce;
+dahrsAlarmHistoryItems = lens _dahrsAlarmHistoryItems (\ s a -> s{_dahrsAlarmHistoryItems = a}) . _Default . _Coerce
 
 -- | The token that marks the start of the next batch of returned results.
 dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
-dahrsNextToken = lens _dahrsNextToken (\ s a -> s{_dahrsNextToken = a});
+dahrsNextToken = lens _dahrsNextToken (\ s a -> s{_dahrsNextToken = a})
 
 -- | -- | The response status code.
 dahrsResponseStatus :: Lens' DescribeAlarmHistoryResponse Int
-dahrsResponseStatus = lens _dahrsResponseStatus (\ s a -> s{_dahrsResponseStatus = a});
+dahrsResponseStatus = lens _dahrsResponseStatus (\ s a -> s{_dahrsResponseStatus = a})
 
 instance NFData DescribeAlarmHistoryResponse where

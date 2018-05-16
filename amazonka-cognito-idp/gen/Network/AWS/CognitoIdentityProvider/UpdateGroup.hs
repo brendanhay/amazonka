@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ data UpdateGroup = UpdateGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugPrecedence' - The new precedence value for the group. For more information about this parameter, see <API_CreateGroup.html CreateGroup> .
+-- * 'ugPrecedence' - The new precedence value for the group. For more information about this parameter, see .
 --
 -- * 'ugDescription' - A string containing the new description of the group.
 --
@@ -79,33 +79,33 @@ updateGroup
     -> UpdateGroup
 updateGroup pGroupName_ pUserPoolId_ =
   UpdateGroup'
-  { _ugPrecedence = Nothing
-  , _ugDescription = Nothing
-  , _ugRoleARN = Nothing
-  , _ugGroupName = pGroupName_
-  , _ugUserPoolId = pUserPoolId_
-  }
+    { _ugPrecedence = Nothing
+    , _ugDescription = Nothing
+    , _ugRoleARN = Nothing
+    , _ugGroupName = pGroupName_
+    , _ugUserPoolId = pUserPoolId_
+    }
 
 
--- | The new precedence value for the group. For more information about this parameter, see <API_CreateGroup.html CreateGroup> .
+-- | The new precedence value for the group. For more information about this parameter, see .
 ugPrecedence :: Lens' UpdateGroup (Maybe Natural)
-ugPrecedence = lens _ugPrecedence (\ s a -> s{_ugPrecedence = a}) . mapping _Nat;
+ugPrecedence = lens _ugPrecedence (\ s a -> s{_ugPrecedence = a}) . mapping _Nat
 
 -- | A string containing the new description of the group.
 ugDescription :: Lens' UpdateGroup (Maybe Text)
-ugDescription = lens _ugDescription (\ s a -> s{_ugDescription = a});
+ugDescription = lens _ugDescription (\ s a -> s{_ugDescription = a})
 
 -- | The new role ARN for the group. This is used for setting the @cognito:roles@ and @cognito:preferred_role@ claims in the token.
 ugRoleARN :: Lens' UpdateGroup (Maybe Text)
-ugRoleARN = lens _ugRoleARN (\ s a -> s{_ugRoleARN = a});
+ugRoleARN = lens _ugRoleARN (\ s a -> s{_ugRoleARN = a})
 
 -- | The name of the group.
 ugGroupName :: Lens' UpdateGroup Text
-ugGroupName = lens _ugGroupName (\ s a -> s{_ugGroupName = a});
+ugGroupName = lens _ugGroupName (\ s a -> s{_ugGroupName = a})
 
 -- | The user pool ID for the user pool.
 ugUserPoolId :: Lens' UpdateGroup Text
-ugUserPoolId = lens _ugUserPoolId (\ s a -> s{_ugUserPoolId = a});
+ugUserPoolId = lens _ugUserPoolId (\ s a -> s{_ugUserPoolId = a})
 
 instance AWSRequest UpdateGroup where
         type Rs UpdateGroup = UpdateGroupResponse
@@ -165,15 +165,15 @@ updateGroupResponse
     -> UpdateGroupResponse
 updateGroupResponse pResponseStatus_ =
   UpdateGroupResponse'
-  {_ugrsGroup = Nothing, _ugrsResponseStatus = pResponseStatus_}
+    {_ugrsGroup = Nothing, _ugrsResponseStatus = pResponseStatus_}
 
 
 -- | The group object for the group.
 ugrsGroup :: Lens' UpdateGroupResponse (Maybe GroupType)
-ugrsGroup = lens _ugrsGroup (\ s a -> s{_ugrsGroup = a});
+ugrsGroup = lens _ugrsGroup (\ s a -> s{_ugrsGroup = a})
 
 -- | -- | The response status code.
 ugrsResponseStatus :: Lens' UpdateGroupResponse Int
-ugrsResponseStatus = lens _ugrsResponseStatus (\ s a -> s{_ugrsResponseStatus = a});
+ugrsResponseStatus = lens _ugrsResponseStatus (\ s a -> s{_ugrsResponseStatus = a})
 
 instance NFData UpdateGroupResponse where

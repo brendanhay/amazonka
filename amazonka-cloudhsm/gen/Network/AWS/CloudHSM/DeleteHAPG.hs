@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DeleteHAPG
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ deleteHAPG pHAPGARN_ = DeleteHAPG' {_dhHAPGARN = pHAPGARN_}
 
 -- | The ARN of the high-availability partition group to delete.
 dhHAPGARN :: Lens' DeleteHAPG Text
-dhHAPGARN = lens _dhHAPGARN (\ s a -> s{_dhHAPGARN = a});
+dhHAPGARN = lens _dhHAPGARN (\ s a -> s{_dhHAPGARN = a})
 
 instance AWSRequest DeleteHAPG where
         type Rs DeleteHAPG = DeleteHAPGResponse
@@ -129,15 +129,15 @@ deleteHAPGResponse
     -> DeleteHAPGResponse
 deleteHAPGResponse pResponseStatus_ pStatus_ =
   DeleteHAPGResponse'
-  {_dhrsResponseStatus = pResponseStatus_, _dhrsStatus = pStatus_}
+    {_dhrsResponseStatus = pResponseStatus_, _dhrsStatus = pStatus_}
 
 
 -- | -- | The response status code.
 dhrsResponseStatus :: Lens' DeleteHAPGResponse Int
-dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
+dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a})
 
 -- | The status of the action.
 dhrsStatus :: Lens' DeleteHAPGResponse Text
-dhrsStatus = lens _dhrsStatus (\ s a -> s{_dhrsStatus = a});
+dhrsStatus = lens _dhrsStatus (\ s a -> s{_dhrsStatus = a})
 
 instance NFData DeleteHAPGResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ adminUserGlobalSignOut
     -> AdminUserGlobalSignOut
 adminUserGlobalSignOut pUserPoolId_ pUsername_ =
   AdminUserGlobalSignOut'
-  {_augsoUserPoolId = pUserPoolId_, _augsoUsername = _Sensitive # pUsername_}
+    {_augsoUserPoolId = pUserPoolId_, _augsoUsername = _Sensitive # pUsername_}
 
 
 -- | The user pool ID.
 augsoUserPoolId :: Lens' AdminUserGlobalSignOut Text
-augsoUserPoolId = lens _augsoUserPoolId (\ s a -> s{_augsoUserPoolId = a});
+augsoUserPoolId = lens _augsoUserPoolId (\ s a -> s{_augsoUserPoolId = a})
 
 -- | The user name.
 augsoUsername :: Lens' AdminUserGlobalSignOut Text
-augsoUsername = lens _augsoUsername (\ s a -> s{_augsoUsername = a}) . _Sensitive;
+augsoUsername = lens _augsoUsername (\ s a -> s{_augsoUsername = a}) . _Sensitive
 
 instance AWSRequest AdminUserGlobalSignOut where
         type Rs AdminUserGlobalSignOut =
@@ -142,6 +142,6 @@ adminUserGlobalSignOutResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 augsorsResponseStatus :: Lens' AdminUserGlobalSignOutResponse Int
-augsorsResponseStatus = lens _augsorsResponseStatus (\ s a -> s{_augsorsResponseStatus = a});
+augsorsResponseStatus = lens _augsorsResponseStatus (\ s a -> s{_augsorsResponseStatus = a})
 
 instance NFData AdminUserGlobalSignOutResponse where

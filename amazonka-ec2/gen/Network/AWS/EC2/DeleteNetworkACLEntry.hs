@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteNetworkACLEntry
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,28 +75,28 @@ deleteNetworkACLEntry
     -> DeleteNetworkACLEntry
 deleteNetworkACLEntry pEgress_ pNetworkACLId_ pRuleNumber_ =
   DeleteNetworkACLEntry'
-  { _dnaeDryRun = Nothing
-  , _dnaeEgress = pEgress_
-  , _dnaeNetworkACLId = pNetworkACLId_
-  , _dnaeRuleNumber = pRuleNumber_
-  }
+    { _dnaeDryRun = Nothing
+    , _dnaeEgress = pEgress_
+    , _dnaeNetworkACLId = pNetworkACLId_
+    , _dnaeRuleNumber = pRuleNumber_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dnaeDryRun :: Lens' DeleteNetworkACLEntry (Maybe Bool)
-dnaeDryRun = lens _dnaeDryRun (\ s a -> s{_dnaeDryRun = a});
+dnaeDryRun = lens _dnaeDryRun (\ s a -> s{_dnaeDryRun = a})
 
 -- | Indicates whether the rule is an egress rule.
 dnaeEgress :: Lens' DeleteNetworkACLEntry Bool
-dnaeEgress = lens _dnaeEgress (\ s a -> s{_dnaeEgress = a});
+dnaeEgress = lens _dnaeEgress (\ s a -> s{_dnaeEgress = a})
 
 -- | The ID of the network ACL.
 dnaeNetworkACLId :: Lens' DeleteNetworkACLEntry Text
-dnaeNetworkACLId = lens _dnaeNetworkACLId (\ s a -> s{_dnaeNetworkACLId = a});
+dnaeNetworkACLId = lens _dnaeNetworkACLId (\ s a -> s{_dnaeNetworkACLId = a})
 
 -- | The rule number of the entry to delete.
 dnaeRuleNumber :: Lens' DeleteNetworkACLEntry Int
-dnaeRuleNumber = lens _dnaeRuleNumber (\ s a -> s{_dnaeRuleNumber = a});
+dnaeRuleNumber = lens _dnaeRuleNumber (\ s a -> s{_dnaeRuleNumber = a})
 
 instance AWSRequest DeleteNetworkACLEntry where
         type Rs DeleteNetworkACLEntry =

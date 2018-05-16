@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.SetInstanceHealth
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ setInstanceHealth
     -> SetInstanceHealth
 setInstanceHealth pInstanceId_ pHealthStatus_ =
   SetInstanceHealth'
-  { _sihShouldRespectGracePeriod = Nothing
-  , _sihInstanceId = pInstanceId_
-  , _sihHealthStatus = pHealthStatus_
-  }
+    { _sihShouldRespectGracePeriod = Nothing
+    , _sihInstanceId = pInstanceId_
+    , _sihHealthStatus = pHealthStatus_
+    }
 
 
 -- | If the Auto Scaling group of the specified instance has a @HealthCheckGracePeriod@ specified for the group, by default, this call will respect the grace period. Set this to @False@ , if you do not want the call to respect the grace period associated with the group. For more information, see the description of the health check grace period for 'CreateAutoScalingGroup' .
 sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
-sihShouldRespectGracePeriod = lens _sihShouldRespectGracePeriod (\ s a -> s{_sihShouldRespectGracePeriod = a});
+sihShouldRespectGracePeriod = lens _sihShouldRespectGracePeriod (\ s a -> s{_sihShouldRespectGracePeriod = a})
 
 -- | The ID of the instance.
 sihInstanceId :: Lens' SetInstanceHealth Text
-sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a});
+sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a})
 
 -- | The health status of the instance. Set to @Healthy@ if you want the instance to remain in service. Set to @Unhealthy@ if you want the instance to be out of service. Auto Scaling will terminate and replace the unhealthy instance.
 sihHealthStatus :: Lens' SetInstanceHealth Text
-sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
+sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a})
 
 instance AWSRequest SetInstanceHealth where
         type Rs SetInstanceHealth = SetInstanceHealthResponse

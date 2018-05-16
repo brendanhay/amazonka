@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,11 +47,11 @@ agentFilter =
 
 -- | The current health state of the agent. Values can be set to __HEALTHY__ or __UNHEALTHY__ .
 afAgentHealths :: Lens' AgentFilter [AgentHealth]
-afAgentHealths = lens _afAgentHealths (\ s a -> s{_afAgentHealths = a}) . _Coerce;
+afAgentHealths = lens _afAgentHealths (\ s a -> s{_afAgentHealths = a}) . _Coerce
 
 -- | The detailed health state of the agent. Values can be set to __IDLE__ , __RUNNING__ , __SHUTDOWN__ , __UNHEALTHY__ , __THROTTLED__ , and __UNKNOWN__ .
 afAgentHealthCodes :: Lens' AgentFilter [AgentHealthCode]
-afAgentHealthCodes = lens _afAgentHealthCodes (\ s a -> s{_afAgentHealthCodes = a}) . _Coerce;
+afAgentHealthCodes = lens _afAgentHealthCodes (\ s a -> s{_afAgentHealthCodes = a}) . _Coerce
 
 instance Hashable AgentFilter where
 
@@ -70,7 +70,13 @@ instance ToJSON AgentFilter where
 --
 -- /See:/ 'agentPreview' smart constructor.
 data AgentPreview = AgentPreview'
-  { _apAutoScalingGroup :: !(Maybe Text)
+  { _apHostname         :: !(Maybe Text)
+  , _apAutoScalingGroup :: !(Maybe Text)
+  , _apOperatingSystem  :: !(Maybe Text)
+  , _apAgentVersion     :: !(Maybe Text)
+  , _apKernelVersion    :: !(Maybe Text)
+  , _apAgentHealth      :: !(Maybe AgentHealth)
+  , _apIpv4Address      :: !(Maybe Text)
   , _apAgentId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -79,30 +85,81 @@ data AgentPreview = AgentPreview'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'apHostname' - The hostname of the EC2 instance on which the Amazon Inspector Agent is installed.
+--
 -- * 'apAutoScalingGroup' - The Auto Scaling group for the EC2 instance where the agent is installed.
+--
+-- * 'apOperatingSystem' - The operating system running on the EC2 instance on which the Amazon Inspector Agent is installed.
+--
+-- * 'apAgentVersion' - The version of the Amazon Inspector Agent.
+--
+-- * 'apKernelVersion' - The kernel version of the operating system running on the EC2 instance on which the Amazon Inspector Agent is installed.
+--
+-- * 'apAgentHealth' - The health status of the Amazon Inspector Agent.
+--
+-- * 'apIpv4Address' - The IP address of the EC2 instance on which the Amazon Inspector Agent is installed.
 --
 -- * 'apAgentId' - The ID of the EC2 instance where the agent is installed.
 agentPreview
     :: Text -- ^ 'apAgentId'
     -> AgentPreview
 agentPreview pAgentId_ =
-  AgentPreview' {_apAutoScalingGroup = Nothing, _apAgentId = pAgentId_}
+  AgentPreview'
+    { _apHostname = Nothing
+    , _apAutoScalingGroup = Nothing
+    , _apOperatingSystem = Nothing
+    , _apAgentVersion = Nothing
+    , _apKernelVersion = Nothing
+    , _apAgentHealth = Nothing
+    , _apIpv4Address = Nothing
+    , _apAgentId = pAgentId_
+    }
 
+
+-- | The hostname of the EC2 instance on which the Amazon Inspector Agent is installed.
+apHostname :: Lens' AgentPreview (Maybe Text)
+apHostname = lens _apHostname (\ s a -> s{_apHostname = a})
 
 -- | The Auto Scaling group for the EC2 instance where the agent is installed.
 apAutoScalingGroup :: Lens' AgentPreview (Maybe Text)
-apAutoScalingGroup = lens _apAutoScalingGroup (\ s a -> s{_apAutoScalingGroup = a});
+apAutoScalingGroup = lens _apAutoScalingGroup (\ s a -> s{_apAutoScalingGroup = a})
+
+-- | The operating system running on the EC2 instance on which the Amazon Inspector Agent is installed.
+apOperatingSystem :: Lens' AgentPreview (Maybe Text)
+apOperatingSystem = lens _apOperatingSystem (\ s a -> s{_apOperatingSystem = a})
+
+-- | The version of the Amazon Inspector Agent.
+apAgentVersion :: Lens' AgentPreview (Maybe Text)
+apAgentVersion = lens _apAgentVersion (\ s a -> s{_apAgentVersion = a})
+
+-- | The kernel version of the operating system running on the EC2 instance on which the Amazon Inspector Agent is installed.
+apKernelVersion :: Lens' AgentPreview (Maybe Text)
+apKernelVersion = lens _apKernelVersion (\ s a -> s{_apKernelVersion = a})
+
+-- | The health status of the Amazon Inspector Agent.
+apAgentHealth :: Lens' AgentPreview (Maybe AgentHealth)
+apAgentHealth = lens _apAgentHealth (\ s a -> s{_apAgentHealth = a})
+
+-- | The IP address of the EC2 instance on which the Amazon Inspector Agent is installed.
+apIpv4Address :: Lens' AgentPreview (Maybe Text)
+apIpv4Address = lens _apIpv4Address (\ s a -> s{_apIpv4Address = a})
 
 -- | The ID of the EC2 instance where the agent is installed.
 apAgentId :: Lens' AgentPreview Text
-apAgentId = lens _apAgentId (\ s a -> s{_apAgentId = a});
+apAgentId = lens _apAgentId (\ s a -> s{_apAgentId = a})
 
 instance FromJSON AgentPreview where
         parseJSON
           = withObject "AgentPreview"
               (\ x ->
                  AgentPreview' <$>
-                   (x .:? "autoScalingGroup") <*> (x .: "agentId"))
+                   (x .:? "hostname") <*> (x .:? "autoScalingGroup") <*>
+                     (x .:? "operatingSystem")
+                     <*> (x .:? "agentVersion")
+                     <*> (x .:? "kernelVersion")
+                     <*> (x .:? "agentHealth")
+                     <*> (x .:? "ipv4Address")
+                     <*> (x .: "agentId"))
 
 instance Hashable AgentPreview where
 
@@ -180,83 +237,83 @@ assessmentRun
     -> AssessmentRun
 assessmentRun pArn_ pName_ pAssessmentTemplateARN_ pState_ pDurationInSeconds_ pRulesPackageARNs_ pCreatedAt_ pStateChangedAt_ pDataCollected_ =
   AssessmentRun'
-  { _arStartedAt = Nothing
-  , _arCompletedAt = Nothing
-  , _arArn = pArn_
-  , _arName = pName_
-  , _arAssessmentTemplateARN = pAssessmentTemplateARN_
-  , _arState = pState_
-  , _arDurationInSeconds = _Nat # pDurationInSeconds_
-  , _arRulesPackageARNs = _List1 # pRulesPackageARNs_
-  , _arUserAttributesForFindings = mempty
-  , _arCreatedAt = _Time # pCreatedAt_
-  , _arStateChangedAt = _Time # pStateChangedAt_
-  , _arDataCollected = pDataCollected_
-  , _arStateChanges = mempty
-  , _arNotifications = mempty
-  , _arFindingCounts = mempty
-  }
+    { _arStartedAt = Nothing
+    , _arCompletedAt = Nothing
+    , _arArn = pArn_
+    , _arName = pName_
+    , _arAssessmentTemplateARN = pAssessmentTemplateARN_
+    , _arState = pState_
+    , _arDurationInSeconds = _Nat # pDurationInSeconds_
+    , _arRulesPackageARNs = _List1 # pRulesPackageARNs_
+    , _arUserAttributesForFindings = mempty
+    , _arCreatedAt = _Time # pCreatedAt_
+    , _arStateChangedAt = _Time # pStateChangedAt_
+    , _arDataCollected = pDataCollected_
+    , _arStateChanges = mempty
+    , _arNotifications = mempty
+    , _arFindingCounts = mempty
+    }
 
 
 -- | The time when 'StartAssessmentRun' was called.
 arStartedAt :: Lens' AssessmentRun (Maybe UTCTime)
-arStartedAt = lens _arStartedAt (\ s a -> s{_arStartedAt = a}) . mapping _Time;
+arStartedAt = lens _arStartedAt (\ s a -> s{_arStartedAt = a}) . mapping _Time
 
 -- | The assessment run completion time that corresponds to the rules packages evaluation completion time or failure.
 arCompletedAt :: Lens' AssessmentRun (Maybe UTCTime)
-arCompletedAt = lens _arCompletedAt (\ s a -> s{_arCompletedAt = a}) . mapping _Time;
+arCompletedAt = lens _arCompletedAt (\ s a -> s{_arCompletedAt = a}) . mapping _Time
 
 -- | The ARN of the assessment run.
 arArn :: Lens' AssessmentRun Text
-arArn = lens _arArn (\ s a -> s{_arArn = a});
+arArn = lens _arArn (\ s a -> s{_arArn = a})
 
 -- | The auto-generated name for the assessment run.
 arName :: Lens' AssessmentRun Text
-arName = lens _arName (\ s a -> s{_arName = a});
+arName = lens _arName (\ s a -> s{_arName = a})
 
 -- | The ARN of the assessment template that is associated with the assessment run.
 arAssessmentTemplateARN :: Lens' AssessmentRun Text
-arAssessmentTemplateARN = lens _arAssessmentTemplateARN (\ s a -> s{_arAssessmentTemplateARN = a});
+arAssessmentTemplateARN = lens _arAssessmentTemplateARN (\ s a -> s{_arAssessmentTemplateARN = a})
 
 -- | The state of the assessment run.
 arState :: Lens' AssessmentRun AssessmentRunState
-arState = lens _arState (\ s a -> s{_arState = a});
+arState = lens _arState (\ s a -> s{_arState = a})
 
 -- | The duration of the assessment run.
 arDurationInSeconds :: Lens' AssessmentRun Natural
-arDurationInSeconds = lens _arDurationInSeconds (\ s a -> s{_arDurationInSeconds = a}) . _Nat;
+arDurationInSeconds = lens _arDurationInSeconds (\ s a -> s{_arDurationInSeconds = a}) . _Nat
 
 -- | The rules packages selected for the assessment run.
 arRulesPackageARNs :: Lens' AssessmentRun (NonEmpty Text)
-arRulesPackageARNs = lens _arRulesPackageARNs (\ s a -> s{_arRulesPackageARNs = a}) . _List1;
+arRulesPackageARNs = lens _arRulesPackageARNs (\ s a -> s{_arRulesPackageARNs = a}) . _List1
 
 -- | The user-defined attributes that are assigned to every generated finding.
 arUserAttributesForFindings :: Lens' AssessmentRun [Attribute]
-arUserAttributesForFindings = lens _arUserAttributesForFindings (\ s a -> s{_arUserAttributesForFindings = a}) . _Coerce;
+arUserAttributesForFindings = lens _arUserAttributesForFindings (\ s a -> s{_arUserAttributesForFindings = a}) . _Coerce
 
 -- | The time when 'StartAssessmentRun' was called.
 arCreatedAt :: Lens' AssessmentRun UTCTime
-arCreatedAt = lens _arCreatedAt (\ s a -> s{_arCreatedAt = a}) . _Time;
+arCreatedAt = lens _arCreatedAt (\ s a -> s{_arCreatedAt = a}) . _Time
 
 -- | The last time when the assessment run's state changed.
 arStateChangedAt :: Lens' AssessmentRun UTCTime
-arStateChangedAt = lens _arStateChangedAt (\ s a -> s{_arStateChangedAt = a}) . _Time;
+arStateChangedAt = lens _arStateChangedAt (\ s a -> s{_arStateChangedAt = a}) . _Time
 
 -- | A Boolean value (true or false) that specifies whether the process of collecting data from the agents is completed.
 arDataCollected :: Lens' AssessmentRun Bool
-arDataCollected = lens _arDataCollected (\ s a -> s{_arDataCollected = a});
+arDataCollected = lens _arDataCollected (\ s a -> s{_arDataCollected = a})
 
 -- | A list of the assessment run state changes.
 arStateChanges :: Lens' AssessmentRun [AssessmentRunStateChange]
-arStateChanges = lens _arStateChanges (\ s a -> s{_arStateChanges = a}) . _Coerce;
+arStateChanges = lens _arStateChanges (\ s a -> s{_arStateChanges = a}) . _Coerce
 
 -- | A list of notifications for the event subscriptions. A notification about a particular generated finding is added to this list only once.
 arNotifications :: Lens' AssessmentRun [AssessmentRunNotification]
-arNotifications = lens _arNotifications (\ s a -> s{_arNotifications = a}) . _Coerce;
+arNotifications = lens _arNotifications (\ s a -> s{_arNotifications = a}) . _Coerce
 
 -- | Provides a total count of generated findings per severity.
 arFindingCounts :: Lens' AssessmentRun (HashMap Severity Int)
-arFindingCounts = lens _arFindingCounts (\ s a -> s{_arFindingCounts = a}) . _Map;
+arFindingCounts = lens _arFindingCounts (\ s a -> s{_arFindingCounts = a}) . _Map
 
 instance FromJSON AssessmentRun where
         parseJSON
@@ -323,43 +380,43 @@ assessmentRunAgent
     -> AssessmentRunAgent
 assessmentRunAgent pAgentId_ pAssessmentRunARN_ pAgentHealth_ pAgentHealthCode_ =
   AssessmentRunAgent'
-  { _araAutoScalingGroup = Nothing
-  , _araAgentHealthDetails = Nothing
-  , _araAgentId = pAgentId_
-  , _araAssessmentRunARN = pAssessmentRunARN_
-  , _araAgentHealth = pAgentHealth_
-  , _araAgentHealthCode = pAgentHealthCode_
-  , _araTelemetryMetadata = mempty
-  }
+    { _araAutoScalingGroup = Nothing
+    , _araAgentHealthDetails = Nothing
+    , _araAgentId = pAgentId_
+    , _araAssessmentRunARN = pAssessmentRunARN_
+    , _araAgentHealth = pAgentHealth_
+    , _araAgentHealthCode = pAgentHealthCode_
+    , _araTelemetryMetadata = mempty
+    }
 
 
 -- | The Auto Scaling group of the EC2 instance that is specified by the agent ID.
 araAutoScalingGroup :: Lens' AssessmentRunAgent (Maybe Text)
-araAutoScalingGroup = lens _araAutoScalingGroup (\ s a -> s{_araAutoScalingGroup = a});
+araAutoScalingGroup = lens _araAutoScalingGroup (\ s a -> s{_araAutoScalingGroup = a})
 
 -- | The description for the agent health code.
 araAgentHealthDetails :: Lens' AssessmentRunAgent (Maybe Text)
-araAgentHealthDetails = lens _araAgentHealthDetails (\ s a -> s{_araAgentHealthDetails = a});
+araAgentHealthDetails = lens _araAgentHealthDetails (\ s a -> s{_araAgentHealthDetails = a})
 
 -- | The AWS account of the EC2 instance where the agent is installed.
 araAgentId :: Lens' AssessmentRunAgent Text
-araAgentId = lens _araAgentId (\ s a -> s{_araAgentId = a});
+araAgentId = lens _araAgentId (\ s a -> s{_araAgentId = a})
 
 -- | The ARN of the assessment run that is associated with the agent.
 araAssessmentRunARN :: Lens' AssessmentRunAgent Text
-araAssessmentRunARN = lens _araAssessmentRunARN (\ s a -> s{_araAssessmentRunARN = a});
+araAssessmentRunARN = lens _araAssessmentRunARN (\ s a -> s{_araAssessmentRunARN = a})
 
 -- | The current health state of the agent.
 araAgentHealth :: Lens' AssessmentRunAgent AgentHealth
-araAgentHealth = lens _araAgentHealth (\ s a -> s{_araAgentHealth = a});
+araAgentHealth = lens _araAgentHealth (\ s a -> s{_araAgentHealth = a})
 
 -- | The detailed health state of the agent.
 araAgentHealthCode :: Lens' AssessmentRunAgent AgentHealthCode
-araAgentHealthCode = lens _araAgentHealthCode (\ s a -> s{_araAgentHealthCode = a});
+araAgentHealthCode = lens _araAgentHealthCode (\ s a -> s{_araAgentHealthCode = a})
 
 -- | The Amazon Inspector application data metrics that are collected by the agent.
 araTelemetryMetadata :: Lens' AssessmentRunAgent [TelemetryMetadata]
-araTelemetryMetadata = lens _araTelemetryMetadata (\ s a -> s{_araTelemetryMetadata = a}) . _Coerce;
+araTelemetryMetadata = lens _araTelemetryMetadata (\ s a -> s{_araTelemetryMetadata = a}) . _Coerce
 
 instance FromJSON AssessmentRunAgent where
         parseJSON
@@ -415,43 +472,43 @@ assessmentRunFilter
     :: AssessmentRunFilter
 assessmentRunFilter =
   AssessmentRunFilter'
-  { _arfStates = Nothing
-  , _arfNamePattern = Nothing
-  , _arfStartTimeRange = Nothing
-  , _arfStateChangeTimeRange = Nothing
-  , _arfRulesPackageARNs = Nothing
-  , _arfCompletionTimeRange = Nothing
-  , _arfDurationRange = Nothing
-  }
+    { _arfStates = Nothing
+    , _arfNamePattern = Nothing
+    , _arfStartTimeRange = Nothing
+    , _arfStateChangeTimeRange = Nothing
+    , _arfRulesPackageARNs = Nothing
+    , _arfCompletionTimeRange = Nothing
+    , _arfDurationRange = Nothing
+    }
 
 
 -- | For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the 'AssessmentRun' data type.
 arfStates :: Lens' AssessmentRunFilter [AssessmentRunState]
-arfStates = lens _arfStates (\ s a -> s{_arfStates = a}) . _Default . _Coerce;
+arfStates = lens _arfStates (\ s a -> s{_arfStates = a}) . _Default . _Coerce
 
 -- | For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the __assessmentRunName__ property of the 'AssessmentRun' data type.
 arfNamePattern :: Lens' AssessmentRunFilter (Maybe Text)
-arfNamePattern = lens _arfNamePattern (\ s a -> s{_arfNamePattern = a});
+arfNamePattern = lens _arfNamePattern (\ s a -> s{_arfNamePattern = a})
 
 -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __startTime__ property of the 'AssessmentRun' data type.
 arfStartTimeRange :: Lens' AssessmentRunFilter (Maybe TimestampRange)
-arfStartTimeRange = lens _arfStartTimeRange (\ s a -> s{_arfStartTimeRange = a});
+arfStartTimeRange = lens _arfStartTimeRange (\ s a -> s{_arfStartTimeRange = a})
 
 -- | For a record to match a filter, the value that is specified for this data type property must match the __stateChangedAt__ property of the 'AssessmentRun' data type.
 arfStateChangeTimeRange :: Lens' AssessmentRunFilter (Maybe TimestampRange)
-arfStateChangeTimeRange = lens _arfStateChangeTimeRange (\ s a -> s{_arfStateChangeTimeRange = a});
+arfStateChangeTimeRange = lens _arfStateChangeTimeRange (\ s a -> s{_arfStateChangeTimeRange = a})
 
 -- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the 'AssessmentRun' data type.
 arfRulesPackageARNs :: Lens' AssessmentRunFilter [Text]
-arfRulesPackageARNs = lens _arfRulesPackageARNs (\ s a -> s{_arfRulesPackageARNs = a}) . _Default . _Coerce;
+arfRulesPackageARNs = lens _arfRulesPackageARNs (\ s a -> s{_arfRulesPackageARNs = a}) . _Default . _Coerce
 
 -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __completedAt__ property of the 'AssessmentRun' data type.
 arfCompletionTimeRange :: Lens' AssessmentRunFilter (Maybe TimestampRange)
-arfCompletionTimeRange = lens _arfCompletionTimeRange (\ s a -> s{_arfCompletionTimeRange = a});
+arfCompletionTimeRange = lens _arfCompletionTimeRange (\ s a -> s{_arfCompletionTimeRange = a})
 
 -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentRun' data type.
 arfDurationRange :: Lens' AssessmentRunFilter (Maybe DurationRange)
-arfDurationRange = lens _arfDurationRange (\ s a -> s{_arfDurationRange = a});
+arfDurationRange = lens _arfDurationRange (\ s a -> s{_arfDurationRange = a})
 
 instance Hashable AssessmentRunFilter where
 
@@ -508,38 +565,38 @@ assessmentRunNotification
     -> AssessmentRunNotification
 assessmentRunNotification pDate_ pEvent_ pError_ =
   AssessmentRunNotification'
-  { _arnSnsTopicARN = Nothing
-  , _arnSnsPublishStatusCode = Nothing
-  , _arnMessage = Nothing
-  , _arnDate = _Time # pDate_
-  , _arnEvent = pEvent_
-  , _arnError = pError_
-  }
+    { _arnSnsTopicARN = Nothing
+    , _arnSnsPublishStatusCode = Nothing
+    , _arnMessage = Nothing
+    , _arnDate = _Time # pDate_
+    , _arnEvent = pEvent_
+    , _arnError = pError_
+    }
 
 
 -- | The SNS topic to which the SNS notification is sent.
 arnSnsTopicARN :: Lens' AssessmentRunNotification (Maybe Text)
-arnSnsTopicARN = lens _arnSnsTopicARN (\ s a -> s{_arnSnsTopicARN = a});
+arnSnsTopicARN = lens _arnSnsTopicARN (\ s a -> s{_arnSnsTopicARN = a})
 
 -- | The status code of the SNS notification.
 arnSnsPublishStatusCode :: Lens' AssessmentRunNotification (Maybe AssessmentRunNotificationSNSStatusCode)
-arnSnsPublishStatusCode = lens _arnSnsPublishStatusCode (\ s a -> s{_arnSnsPublishStatusCode = a});
+arnSnsPublishStatusCode = lens _arnSnsPublishStatusCode (\ s a -> s{_arnSnsPublishStatusCode = a})
 
 -- | The message included in the notification.
 arnMessage :: Lens' AssessmentRunNotification (Maybe Text)
-arnMessage = lens _arnMessage (\ s a -> s{_arnMessage = a});
+arnMessage = lens _arnMessage (\ s a -> s{_arnMessage = a})
 
 -- | The date of the notification.
 arnDate :: Lens' AssessmentRunNotification UTCTime
-arnDate = lens _arnDate (\ s a -> s{_arnDate = a}) . _Time;
+arnDate = lens _arnDate (\ s a -> s{_arnDate = a}) . _Time
 
 -- | The event for which a notification is sent.
 arnEvent :: Lens' AssessmentRunNotification InspectorEvent
-arnEvent = lens _arnEvent (\ s a -> s{_arnEvent = a});
+arnEvent = lens _arnEvent (\ s a -> s{_arnEvent = a})
 
 -- | The Boolean value that specifies whether the notification represents an error.
 arnError :: Lens' AssessmentRunNotification Bool
-arnError = lens _arnError (\ s a -> s{_arnError = a});
+arnError = lens _arnError (\ s a -> s{_arnError = a})
 
 instance FromJSON AssessmentRunNotification where
         parseJSON
@@ -581,16 +638,16 @@ assessmentRunStateChange
     -> AssessmentRunStateChange
 assessmentRunStateChange pStateChangedAt_ pState_ =
   AssessmentRunStateChange'
-  {_arscStateChangedAt = _Time # pStateChangedAt_, _arscState = pState_}
+    {_arscStateChangedAt = _Time # pStateChangedAt_, _arscState = pState_}
 
 
 -- | The last time the assessment run state changed.
 arscStateChangedAt :: Lens' AssessmentRunStateChange UTCTime
-arscStateChangedAt = lens _arscStateChangedAt (\ s a -> s{_arscStateChangedAt = a}) . _Time;
+arscStateChangedAt = lens _arscStateChangedAt (\ s a -> s{_arscStateChangedAt = a}) . _Time
 
 -- | The assessment run state.
 arscState :: Lens' AssessmentRunStateChange AssessmentRunState
-arscState = lens _arscState (\ s a -> s{_arscState = a});
+arscState = lens _arscState (\ s a -> s{_arscState = a})
 
 instance FromJSON AssessmentRunStateChange where
         parseJSON
@@ -639,33 +696,33 @@ assessmentTarget
     -> AssessmentTarget
 assessmentTarget pArn_ pName_ pResourceGroupARN_ pCreatedAt_ pUpdatedAt_ =
   AssessmentTarget'
-  { _aArn = pArn_
-  , _aName = pName_
-  , _aResourceGroupARN = pResourceGroupARN_
-  , _aCreatedAt = _Time # pCreatedAt_
-  , _aUpdatedAt = _Time # pUpdatedAt_
-  }
+    { _aArn = pArn_
+    , _aName = pName_
+    , _aResourceGroupARN = pResourceGroupARN_
+    , _aCreatedAt = _Time # pCreatedAt_
+    , _aUpdatedAt = _Time # pUpdatedAt_
+    }
 
 
 -- | The ARN that specifies the Amazon Inspector assessment target.
 aArn :: Lens' AssessmentTarget Text
-aArn = lens _aArn (\ s a -> s{_aArn = a});
+aArn = lens _aArn (\ s a -> s{_aArn = a})
 
 -- | The name of the Amazon Inspector assessment target.
 aName :: Lens' AssessmentTarget Text
-aName = lens _aName (\ s a -> s{_aName = a});
+aName = lens _aName (\ s a -> s{_aName = a})
 
 -- | The ARN that specifies the resource group that is associated with the assessment target.
 aResourceGroupARN :: Lens' AssessmentTarget Text
-aResourceGroupARN = lens _aResourceGroupARN (\ s a -> s{_aResourceGroupARN = a});
+aResourceGroupARN = lens _aResourceGroupARN (\ s a -> s{_aResourceGroupARN = a})
 
 -- | The time at which the assessment target is created.
 aCreatedAt :: Lens' AssessmentTarget UTCTime
-aCreatedAt = lens _aCreatedAt (\ s a -> s{_aCreatedAt = a}) . _Time;
+aCreatedAt = lens _aCreatedAt (\ s a -> s{_aCreatedAt = a}) . _Time
 
 -- | The time at which 'UpdateAssessmentTarget' is called.
 aUpdatedAt :: Lens' AssessmentTarget UTCTime
-aUpdatedAt = lens _aUpdatedAt (\ s a -> s{_aUpdatedAt = a}) . _Time;
+aUpdatedAt = lens _aUpdatedAt (\ s a -> s{_aUpdatedAt = a}) . _Time
 
 instance FromJSON AssessmentTarget where
         parseJSON
@@ -704,7 +761,7 @@ assessmentTargetFilter =
 
 -- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTargetName__ property of the 'AssessmentTarget' data type.
 atfAssessmentTargetNamePattern :: Lens' AssessmentTargetFilter (Maybe Text)
-atfAssessmentTargetNamePattern = lens _atfAssessmentTargetNamePattern (\ s a -> s{_atfAssessmentTargetNamePattern = a});
+atfAssessmentTargetNamePattern = lens _atfAssessmentTargetNamePattern (\ s a -> s{_atfAssessmentTargetNamePattern = a})
 
 instance Hashable AssessmentTargetFilter where
 
@@ -723,12 +780,14 @@ instance ToJSON AssessmentTargetFilter where
 --
 -- /See:/ 'assessmentTemplate' smart constructor.
 data AssessmentTemplate = AssessmentTemplate'
-  { _atArn                       :: !Text
+  { _atLastAssessmentRunARN      :: !(Maybe Text)
+  , _atArn                       :: !Text
   , _atName                      :: !Text
   , _atAssessmentTargetARN       :: !Text
   , _atDurationInSeconds         :: !Nat
   , _atRulesPackageARNs          :: ![Text]
   , _atUserAttributesForFindings :: ![Attribute]
+  , _atAssessmentRunCount        :: !Int
   , _atCreatedAt                 :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -736,6 +795,8 @@ data AssessmentTemplate = AssessmentTemplate'
 -- | Creates a value of 'AssessmentTemplate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atLastAssessmentRunARN' - The Amazon Resource Name (ARN) of the most recent assessment run associated with this assessment template. This value exists only when the value of assessmentRunCount is greater than zero.
 --
 -- * 'atArn' - The ARN of the assessment template.
 --
@@ -749,64 +810,79 @@ data AssessmentTemplate = AssessmentTemplate'
 --
 -- * 'atUserAttributesForFindings' - The user-defined attributes that are assigned to every generated finding from the assessment run that uses this assessment template.
 --
+-- * 'atAssessmentRunCount' - The number of existing assessment runs associated with this assessment template. This value can be zero or a positive integer.
+--
 -- * 'atCreatedAt' - The time at which the assessment template is created.
 assessmentTemplate
     :: Text -- ^ 'atArn'
     -> Text -- ^ 'atName'
     -> Text -- ^ 'atAssessmentTargetARN'
     -> Natural -- ^ 'atDurationInSeconds'
+    -> Int -- ^ 'atAssessmentRunCount'
     -> UTCTime -- ^ 'atCreatedAt'
     -> AssessmentTemplate
-assessmentTemplate pArn_ pName_ pAssessmentTargetARN_ pDurationInSeconds_ pCreatedAt_ =
+assessmentTemplate pArn_ pName_ pAssessmentTargetARN_ pDurationInSeconds_ pAssessmentRunCount_ pCreatedAt_ =
   AssessmentTemplate'
-  { _atArn = pArn_
-  , _atName = pName_
-  , _atAssessmentTargetARN = pAssessmentTargetARN_
-  , _atDurationInSeconds = _Nat # pDurationInSeconds_
-  , _atRulesPackageARNs = mempty
-  , _atUserAttributesForFindings = mempty
-  , _atCreatedAt = _Time # pCreatedAt_
-  }
+    { _atLastAssessmentRunARN = Nothing
+    , _atArn = pArn_
+    , _atName = pName_
+    , _atAssessmentTargetARN = pAssessmentTargetARN_
+    , _atDurationInSeconds = _Nat # pDurationInSeconds_
+    , _atRulesPackageARNs = mempty
+    , _atUserAttributesForFindings = mempty
+    , _atAssessmentRunCount = pAssessmentRunCount_
+    , _atCreatedAt = _Time # pCreatedAt_
+    }
 
+
+-- | The Amazon Resource Name (ARN) of the most recent assessment run associated with this assessment template. This value exists only when the value of assessmentRunCount is greater than zero.
+atLastAssessmentRunARN :: Lens' AssessmentTemplate (Maybe Text)
+atLastAssessmentRunARN = lens _atLastAssessmentRunARN (\ s a -> s{_atLastAssessmentRunARN = a})
 
 -- | The ARN of the assessment template.
 atArn :: Lens' AssessmentTemplate Text
-atArn = lens _atArn (\ s a -> s{_atArn = a});
+atArn = lens _atArn (\ s a -> s{_atArn = a})
 
 -- | The name of the assessment template.
 atName :: Lens' AssessmentTemplate Text
-atName = lens _atName (\ s a -> s{_atName = a});
+atName = lens _atName (\ s a -> s{_atName = a})
 
 -- | The ARN of the assessment target that corresponds to this assessment template.
 atAssessmentTargetARN :: Lens' AssessmentTemplate Text
-atAssessmentTargetARN = lens _atAssessmentTargetARN (\ s a -> s{_atAssessmentTargetARN = a});
+atAssessmentTargetARN = lens _atAssessmentTargetARN (\ s a -> s{_atAssessmentTargetARN = a})
 
 -- | The duration in seconds specified for this assessment tempate. The default value is 3600 seconds (one hour). The maximum value is 86400 seconds (one day).
 atDurationInSeconds :: Lens' AssessmentTemplate Natural
-atDurationInSeconds = lens _atDurationInSeconds (\ s a -> s{_atDurationInSeconds = a}) . _Nat;
+atDurationInSeconds = lens _atDurationInSeconds (\ s a -> s{_atDurationInSeconds = a}) . _Nat
 
 -- | The rules packages that are specified for this assessment template.
 atRulesPackageARNs :: Lens' AssessmentTemplate [Text]
-atRulesPackageARNs = lens _atRulesPackageARNs (\ s a -> s{_atRulesPackageARNs = a}) . _Coerce;
+atRulesPackageARNs = lens _atRulesPackageARNs (\ s a -> s{_atRulesPackageARNs = a}) . _Coerce
 
 -- | The user-defined attributes that are assigned to every generated finding from the assessment run that uses this assessment template.
 atUserAttributesForFindings :: Lens' AssessmentTemplate [Attribute]
-atUserAttributesForFindings = lens _atUserAttributesForFindings (\ s a -> s{_atUserAttributesForFindings = a}) . _Coerce;
+atUserAttributesForFindings = lens _atUserAttributesForFindings (\ s a -> s{_atUserAttributesForFindings = a}) . _Coerce
+
+-- | The number of existing assessment runs associated with this assessment template. This value can be zero or a positive integer.
+atAssessmentRunCount :: Lens' AssessmentTemplate Int
+atAssessmentRunCount = lens _atAssessmentRunCount (\ s a -> s{_atAssessmentRunCount = a})
 
 -- | The time at which the assessment template is created.
 atCreatedAt :: Lens' AssessmentTemplate UTCTime
-atCreatedAt = lens _atCreatedAt (\ s a -> s{_atCreatedAt = a}) . _Time;
+atCreatedAt = lens _atCreatedAt (\ s a -> s{_atCreatedAt = a}) . _Time
 
 instance FromJSON AssessmentTemplate where
         parseJSON
           = withObject "AssessmentTemplate"
               (\ x ->
                  AssessmentTemplate' <$>
-                   (x .: "arn") <*> (x .: "name") <*>
-                     (x .: "assessmentTargetArn")
+                   (x .:? "lastAssessmentRunArn") <*> (x .: "arn") <*>
+                     (x .: "name")
+                     <*> (x .: "assessmentTargetArn")
                      <*> (x .: "durationInSeconds")
                      <*> (x .:? "rulesPackageArns" .!= mempty)
                      <*> (x .:? "userAttributesForFindings" .!= mempty)
+                     <*> (x .: "assessmentRunCount")
                      <*> (x .: "createdAt"))
 
 instance Hashable AssessmentTemplate where
@@ -838,23 +914,23 @@ assessmentTemplateFilter
     :: AssessmentTemplateFilter
 assessmentTemplateFilter =
   AssessmentTemplateFilter'
-  { _atfNamePattern = Nothing
-  , _atfRulesPackageARNs = Nothing
-  , _atfDurationRange = Nothing
-  }
+    { _atfNamePattern = Nothing
+    , _atfRulesPackageARNs = Nothing
+    , _atfDurationRange = Nothing
+    }
 
 
 -- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTemplateName__ property of the 'AssessmentTemplate' data type.
 atfNamePattern :: Lens' AssessmentTemplateFilter (Maybe Text)
-atfNamePattern = lens _atfNamePattern (\ s a -> s{_atfNamePattern = a});
+atfNamePattern = lens _atfNamePattern (\ s a -> s{_atfNamePattern = a})
 
 -- | For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the __rulesPackageArns__ property of the 'AssessmentTemplate' data type.
 atfRulesPackageARNs :: Lens' AssessmentTemplateFilter [Text]
-atfRulesPackageARNs = lens _atfRulesPackageARNs (\ s a -> s{_atfRulesPackageARNs = a}) . _Default . _Coerce;
+atfRulesPackageARNs = lens _atfRulesPackageARNs (\ s a -> s{_atfRulesPackageARNs = a}) . _Default . _Coerce
 
 -- | For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentTemplate' data type.
 atfDurationRange :: Lens' AssessmentTemplateFilter (Maybe DurationRange)
-atfDurationRange = lens _atfDurationRange (\ s a -> s{_atfDurationRange = a});
+atfDurationRange = lens _atfDurationRange (\ s a -> s{_atfDurationRange = a})
 
 instance Hashable AssessmentTemplateFilter where
 
@@ -903,38 +979,38 @@ assetAttributes
     -> AssetAttributes
 assetAttributes pSchemaVersion_ =
   AssetAttributes'
-  { _aaHostname = Nothing
-  , _aaAutoScalingGroup = Nothing
-  , _aaIpv4Addresses = Nothing
-  , _aaAgentId = Nothing
-  , _aaAmiId = Nothing
-  , _aaSchemaVersion = _Nat # pSchemaVersion_
-  }
+    { _aaHostname = Nothing
+    , _aaAutoScalingGroup = Nothing
+    , _aaIpv4Addresses = Nothing
+    , _aaAgentId = Nothing
+    , _aaAmiId = Nothing
+    , _aaSchemaVersion = _Nat # pSchemaVersion_
+    }
 
 
 -- | The hostname of the EC2 instance where the finding is generated.
 aaHostname :: Lens' AssetAttributes (Maybe Text)
-aaHostname = lens _aaHostname (\ s a -> s{_aaHostname = a});
+aaHostname = lens _aaHostname (\ s a -> s{_aaHostname = a})
 
 -- | The Auto Scaling group of the EC2 instance where the finding is generated.
 aaAutoScalingGroup :: Lens' AssetAttributes (Maybe Text)
-aaAutoScalingGroup = lens _aaAutoScalingGroup (\ s a -> s{_aaAutoScalingGroup = a});
+aaAutoScalingGroup = lens _aaAutoScalingGroup (\ s a -> s{_aaAutoScalingGroup = a})
 
 -- | The list of IP v4 addresses of the EC2 instance where the finding is generated.
 aaIpv4Addresses :: Lens' AssetAttributes [Text]
-aaIpv4Addresses = lens _aaIpv4Addresses (\ s a -> s{_aaIpv4Addresses = a}) . _Default . _Coerce;
+aaIpv4Addresses = lens _aaIpv4Addresses (\ s a -> s{_aaIpv4Addresses = a}) . _Default . _Coerce
 
 -- | The ID of the agent that is installed on the EC2 instance where the finding is generated.
 aaAgentId :: Lens' AssetAttributes (Maybe Text)
-aaAgentId = lens _aaAgentId (\ s a -> s{_aaAgentId = a});
+aaAgentId = lens _aaAgentId (\ s a -> s{_aaAgentId = a})
 
 -- | The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where the finding is generated.
 aaAmiId :: Lens' AssetAttributes (Maybe Text)
-aaAmiId = lens _aaAmiId (\ s a -> s{_aaAmiId = a});
+aaAmiId = lens _aaAmiId (\ s a -> s{_aaAmiId = a})
 
 -- | The schema version of this data type.
 aaSchemaVersion :: Lens' AssetAttributes Natural
-aaSchemaVersion = lens _aaSchemaVersion (\ s a -> s{_aaSchemaVersion = a}) . _Nat;
+aaSchemaVersion = lens _aaSchemaVersion (\ s a -> s{_aaSchemaVersion = a}) . _Nat
 
 instance FromJSON AssetAttributes where
         parseJSON
@@ -977,11 +1053,11 @@ attribute pKey_ = Attribute' {_aValue = Nothing, _aKey = pKey_}
 
 -- | The value assigned to the attribute key.
 aValue :: Lens' Attribute (Maybe Text)
-aValue = lens _aValue (\ s a -> s{_aValue = a});
+aValue = lens _aValue (\ s a -> s{_aValue = a})
 
 -- | The attribute key.
 aKey :: Lens' Attribute Text
-aKey = lens _aKey (\ s a -> s{_aKey = a});
+aKey = lens _aKey (\ s a -> s{_aKey = a})
 
 instance FromJSON Attribute where
         parseJSON
@@ -1025,11 +1101,11 @@ durationRange =
 
 -- | The minimum value of the duration range. Must be greater than zero.
 drMinSeconds :: Lens' DurationRange (Maybe Natural)
-drMinSeconds = lens _drMinSeconds (\ s a -> s{_drMinSeconds = a}) . mapping _Nat;
+drMinSeconds = lens _drMinSeconds (\ s a -> s{_drMinSeconds = a}) . mapping _Nat
 
 -- | The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
 drMaxSeconds :: Lens' DurationRange (Maybe Natural)
-drMaxSeconds = lens _drMaxSeconds (\ s a -> s{_drMaxSeconds = a}) . mapping _Nat;
+drMaxSeconds = lens _drMaxSeconds (\ s a -> s{_drMaxSeconds = a}) . mapping _Nat
 
 instance Hashable DurationRange where
 
@@ -1066,16 +1142,16 @@ eventSubscription
     -> EventSubscription
 eventSubscription pEvent_ pSubscribedAt_ =
   EventSubscription'
-  {_esEvent = pEvent_, _esSubscribedAt = _Time # pSubscribedAt_}
+    {_esEvent = pEvent_, _esSubscribedAt = _Time # pSubscribedAt_}
 
 
 -- | The event for which Amazon Simple Notification Service (SNS) notifications are sent.
 esEvent :: Lens' EventSubscription InspectorEvent
-esEvent = lens _esEvent (\ s a -> s{_esEvent = a});
+esEvent = lens _esEvent (\ s a -> s{_esEvent = a})
 
 -- | The time at which 'SubscribeToEvent' is called.
 esSubscribedAt :: Lens' EventSubscription UTCTime
-esSubscribedAt = lens _esSubscribedAt (\ s a -> s{_esSubscribedAt = a}) . _Time;
+esSubscribedAt = lens _esSubscribedAt (\ s a -> s{_esSubscribedAt = a}) . _Time
 
 instance FromJSON EventSubscription where
         parseJSON
@@ -1112,16 +1188,16 @@ failedItemDetails
     -> FailedItemDetails
 failedItemDetails pFailureCode_ pRetryable_ =
   FailedItemDetails'
-  {_fidFailureCode = pFailureCode_, _fidRetryable = pRetryable_}
+    {_fidFailureCode = pFailureCode_, _fidRetryable = pRetryable_}
 
 
 -- | The status code of a failed item.
 fidFailureCode :: Lens' FailedItemDetails FailedItemErrorCode
-fidFailureCode = lens _fidFailureCode (\ s a -> s{_fidFailureCode = a});
+fidFailureCode = lens _fidFailureCode (\ s a -> s{_fidFailureCode = a})
 
 -- | Indicates whether you can immediately retry a request for this item for a specified resource.
 fidRetryable :: Lens' FailedItemDetails Bool
-fidRetryable = lens _fidRetryable (\ s a -> s{_fidRetryable = a});
+fidRetryable = lens _fidRetryable (\ s a -> s{_fidRetryable = a})
 
 instance FromJSON FailedItemDetails where
         parseJSON
@@ -1207,98 +1283,98 @@ finding
     -> Finding
 finding pArn_ pCreatedAt_ pUpdatedAt_ =
   Finding'
-  { _fService = Nothing
-  , _fSeverity = Nothing
-  , _fSchemaVersion = Nothing
-  , _fConfidence = Nothing
-  , _fAssetAttributes = Nothing
-  , _fServiceAttributes = Nothing
-  , _fId = Nothing
-  , _fNumericSeverity = Nothing
-  , _fAssetType = Nothing
-  , _fTitle = Nothing
-  , _fIndicatorOfCompromise = Nothing
-  , _fDescription = Nothing
-  , _fRecommendation = Nothing
-  , _fArn = pArn_
-  , _fAttributes = mempty
-  , _fUserAttributes = mempty
-  , _fCreatedAt = _Time # pCreatedAt_
-  , _fUpdatedAt = _Time # pUpdatedAt_
-  }
+    { _fService = Nothing
+    , _fSeverity = Nothing
+    , _fSchemaVersion = Nothing
+    , _fConfidence = Nothing
+    , _fAssetAttributes = Nothing
+    , _fServiceAttributes = Nothing
+    , _fId = Nothing
+    , _fNumericSeverity = Nothing
+    , _fAssetType = Nothing
+    , _fTitle = Nothing
+    , _fIndicatorOfCompromise = Nothing
+    , _fDescription = Nothing
+    , _fRecommendation = Nothing
+    , _fArn = pArn_
+    , _fAttributes = mempty
+    , _fUserAttributes = mempty
+    , _fCreatedAt = _Time # pCreatedAt_
+    , _fUpdatedAt = _Time # pUpdatedAt_
+    }
 
 
 -- | The data element is set to "Inspector".
 fService :: Lens' Finding (Maybe Text)
-fService = lens _fService (\ s a -> s{_fService = a});
+fService = lens _fService (\ s a -> s{_fService = a})
 
 -- | The finding severity. Values can be set to High, Medium, Low, and Informational.
 fSeverity :: Lens' Finding (Maybe Severity)
-fSeverity = lens _fSeverity (\ s a -> s{_fSeverity = a});
+fSeverity = lens _fSeverity (\ s a -> s{_fSeverity = a})
 
 -- | The schema version of this data type.
 fSchemaVersion :: Lens' Finding (Maybe Natural)
-fSchemaVersion = lens _fSchemaVersion (\ s a -> s{_fSchemaVersion = a}) . mapping _Nat;
+fSchemaVersion = lens _fSchemaVersion (\ s a -> s{_fSchemaVersion = a}) . mapping _Nat
 
 -- | This data element is currently not used.
 fConfidence :: Lens' Finding (Maybe Natural)
-fConfidence = lens _fConfidence (\ s a -> s{_fConfidence = a}) . mapping _Nat;
+fConfidence = lens _fConfidence (\ s a -> s{_fConfidence = a}) . mapping _Nat
 
 -- | A collection of attributes of the host from which the finding is generated.
 fAssetAttributes :: Lens' Finding (Maybe AssetAttributes)
-fAssetAttributes = lens _fAssetAttributes (\ s a -> s{_fAssetAttributes = a});
+fAssetAttributes = lens _fAssetAttributes (\ s a -> s{_fAssetAttributes = a})
 
 -- | This data type is used in the 'Finding' data type.
 fServiceAttributes :: Lens' Finding (Maybe InspectorServiceAttributes)
-fServiceAttributes = lens _fServiceAttributes (\ s a -> s{_fServiceAttributes = a});
+fServiceAttributes = lens _fServiceAttributes (\ s a -> s{_fServiceAttributes = a})
 
 -- | The ID of the finding.
 fId :: Lens' Finding (Maybe Text)
-fId = lens _fId (\ s a -> s{_fId = a});
+fId = lens _fId (\ s a -> s{_fId = a})
 
 -- | The numeric value of the finding severity.
 fNumericSeverity :: Lens' Finding (Maybe Double)
-fNumericSeverity = lens _fNumericSeverity (\ s a -> s{_fNumericSeverity = a});
+fNumericSeverity = lens _fNumericSeverity (\ s a -> s{_fNumericSeverity = a})
 
 -- | The type of the host from which the finding is generated.
 fAssetType :: Lens' Finding (Maybe AssetType)
-fAssetType = lens _fAssetType (\ s a -> s{_fAssetType = a});
+fAssetType = lens _fAssetType (\ s a -> s{_fAssetType = a})
 
 -- | The name of the finding.
 fTitle :: Lens' Finding (Maybe Text)
-fTitle = lens _fTitle (\ s a -> s{_fTitle = a});
+fTitle = lens _fTitle (\ s a -> s{_fTitle = a})
 
 -- | This data element is currently not used.
 fIndicatorOfCompromise :: Lens' Finding (Maybe Bool)
-fIndicatorOfCompromise = lens _fIndicatorOfCompromise (\ s a -> s{_fIndicatorOfCompromise = a});
+fIndicatorOfCompromise = lens _fIndicatorOfCompromise (\ s a -> s{_fIndicatorOfCompromise = a})
 
 -- | The description of the finding.
 fDescription :: Lens' Finding (Maybe Text)
-fDescription = lens _fDescription (\ s a -> s{_fDescription = a});
+fDescription = lens _fDescription (\ s a -> s{_fDescription = a})
 
 -- | The recommendation for the finding.
 fRecommendation :: Lens' Finding (Maybe Text)
-fRecommendation = lens _fRecommendation (\ s a -> s{_fRecommendation = a});
+fRecommendation = lens _fRecommendation (\ s a -> s{_fRecommendation = a})
 
 -- | The ARN that specifies the finding.
 fArn :: Lens' Finding Text
-fArn = lens _fArn (\ s a -> s{_fArn = a});
+fArn = lens _fArn (\ s a -> s{_fArn = a})
 
 -- | The system-defined attributes for the finding.
 fAttributes :: Lens' Finding [Attribute]
-fAttributes = lens _fAttributes (\ s a -> s{_fAttributes = a}) . _Coerce;
+fAttributes = lens _fAttributes (\ s a -> s{_fAttributes = a}) . _Coerce
 
 -- | The user-defined attributes that are assigned to the finding.
 fUserAttributes :: Lens' Finding [Attribute]
-fUserAttributes = lens _fUserAttributes (\ s a -> s{_fUserAttributes = a}) . _Coerce;
+fUserAttributes = lens _fUserAttributes (\ s a -> s{_fUserAttributes = a}) . _Coerce
 
 -- | The time when the finding was generated.
 fCreatedAt :: Lens' Finding UTCTime
-fCreatedAt = lens _fCreatedAt (\ s a -> s{_fCreatedAt = a}) . _Time;
+fCreatedAt = lens _fCreatedAt (\ s a -> s{_fCreatedAt = a}) . _Time
 
 -- | The time when 'AddAttributesToFindings' is called.
 fUpdatedAt :: Lens' Finding UTCTime
-fUpdatedAt = lens _fUpdatedAt (\ s a -> s{_fUpdatedAt = a}) . _Time;
+fUpdatedAt = lens _fUpdatedAt (\ s a -> s{_fUpdatedAt = a}) . _Time
 
 instance FromJSON Finding where
         parseJSON
@@ -1367,48 +1443,48 @@ findingFilter
     :: FindingFilter
 findingFilter =
   FindingFilter'
-  { _ffAgentIds = Nothing
-  , _ffRuleNames = Nothing
-  , _ffUserAttributes = Nothing
-  , _ffRulesPackageARNs = Nothing
-  , _ffAttributes = Nothing
-  , _ffSeverities = Nothing
-  , _ffCreationTimeRange = Nothing
-  , _ffAutoScalingGroups = Nothing
-  }
+    { _ffAgentIds = Nothing
+    , _ffRuleNames = Nothing
+    , _ffUserAttributes = Nothing
+    , _ffRulesPackageARNs = Nothing
+    , _ffAttributes = Nothing
+    , _ffSeverities = Nothing
+    , _ffCreationTimeRange = Nothing
+    , _ffAutoScalingGroups = Nothing
+    }
 
 
 -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __agentId__ property of the 'Finding' data type.
 ffAgentIds :: Lens' FindingFilter [Text]
-ffAgentIds = lens _ffAgentIds (\ s a -> s{_ffAgentIds = a}) . _Default . _Coerce;
+ffAgentIds = lens _ffAgentIds (\ s a -> s{_ffAgentIds = a}) . _Default . _Coerce
 
 -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __ruleName__ property of the 'Finding' data type.
 ffRuleNames :: Lens' FindingFilter [Text]
-ffRuleNames = lens _ffRuleNames (\ s a -> s{_ffRuleNames = a}) . _Default . _Coerce;
+ffRuleNames = lens _ffRuleNames (\ s a -> s{_ffRuleNames = a}) . _Default . _Coerce
 
 -- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __userAttributes__ property of the 'Finding' data type.
 ffUserAttributes :: Lens' FindingFilter [Attribute]
-ffUserAttributes = lens _ffUserAttributes (\ s a -> s{_ffUserAttributes = a}) . _Default . _Coerce;
+ffUserAttributes = lens _ffUserAttributes (\ s a -> s{_ffUserAttributes = a}) . _Default . _Coerce
 
 -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __rulesPackageArn__ property of the 'Finding' data type.
 ffRulesPackageARNs :: Lens' FindingFilter [Text]
-ffRulesPackageARNs = lens _ffRulesPackageARNs (\ s a -> s{_ffRulesPackageARNs = a}) . _Default . _Coerce;
+ffRulesPackageARNs = lens _ffRulesPackageARNs (\ s a -> s{_ffRulesPackageARNs = a}) . _Default . _Coerce
 
 -- | For a record to match a filter, the list of values that are specified for this data type property must be contained in the list of values of the __attributes__ property of the 'Finding' data type.
 ffAttributes :: Lens' FindingFilter [Attribute]
-ffAttributes = lens _ffAttributes (\ s a -> s{_ffAttributes = a}) . _Default . _Coerce;
+ffAttributes = lens _ffAttributes (\ s a -> s{_ffAttributes = a}) . _Default . _Coerce
 
 -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __severity__ property of the 'Finding' data type.
 ffSeverities :: Lens' FindingFilter [Severity]
-ffSeverities = lens _ffSeverities (\ s a -> s{_ffSeverities = a}) . _Default . _Coerce;
+ffSeverities = lens _ffSeverities (\ s a -> s{_ffSeverities = a}) . _Default . _Coerce
 
 -- | The time range during which the finding is generated.
 ffCreationTimeRange :: Lens' FindingFilter (Maybe TimestampRange)
-ffCreationTimeRange = lens _ffCreationTimeRange (\ s a -> s{_ffCreationTimeRange = a});
+ffCreationTimeRange = lens _ffCreationTimeRange (\ s a -> s{_ffCreationTimeRange = a})
 
 -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __autoScalingGroup__ property of the 'Finding' data type.
 ffAutoScalingGroups :: Lens' FindingFilter [Text]
-ffAutoScalingGroups = lens _ffAutoScalingGroups (\ s a -> s{_ffAutoScalingGroups = a}) . _Default . _Coerce;
+ffAutoScalingGroups = lens _ffAutoScalingGroups (\ s a -> s{_ffAutoScalingGroups = a}) . _Default . _Coerce
 
 instance Hashable FindingFilter where
 
@@ -1453,23 +1529,23 @@ inspectorServiceAttributes
     -> InspectorServiceAttributes
 inspectorServiceAttributes pSchemaVersion_ =
   InspectorServiceAttributes'
-  { _isaRulesPackageARN = Nothing
-  , _isaAssessmentRunARN = Nothing
-  , _isaSchemaVersion = _Nat # pSchemaVersion_
-  }
+    { _isaRulesPackageARN = Nothing
+    , _isaAssessmentRunARN = Nothing
+    , _isaSchemaVersion = _Nat # pSchemaVersion_
+    }
 
 
 -- | The ARN of the rules package that is used to generate the finding.
 isaRulesPackageARN :: Lens' InspectorServiceAttributes (Maybe Text)
-isaRulesPackageARN = lens _isaRulesPackageARN (\ s a -> s{_isaRulesPackageARN = a});
+isaRulesPackageARN = lens _isaRulesPackageARN (\ s a -> s{_isaRulesPackageARN = a})
 
 -- | The ARN of the assessment run during which the finding is generated.
 isaAssessmentRunARN :: Lens' InspectorServiceAttributes (Maybe Text)
-isaAssessmentRunARN = lens _isaAssessmentRunARN (\ s a -> s{_isaAssessmentRunARN = a});
+isaAssessmentRunARN = lens _isaAssessmentRunARN (\ s a -> s{_isaAssessmentRunARN = a})
 
 -- | The schema version of this data type.
 isaSchemaVersion :: Lens' InspectorServiceAttributes Natural
-isaSchemaVersion = lens _isaSchemaVersion (\ s a -> s{_isaSchemaVersion = a}) . _Nat;
+isaSchemaVersion = lens _isaSchemaVersion (\ s a -> s{_isaSchemaVersion = a}) . _Nat
 
 instance FromJSON InspectorServiceAttributes where
         parseJSON
@@ -1512,23 +1588,23 @@ resourceGroup
     -> ResourceGroup
 resourceGroup pArn_ pTags_ pCreatedAt_ =
   ResourceGroup'
-  { _rgArn = pArn_
-  , _rgTags = _List1 # pTags_
-  , _rgCreatedAt = _Time # pCreatedAt_
-  }
+    { _rgArn = pArn_
+    , _rgTags = _List1 # pTags_
+    , _rgCreatedAt = _Time # pCreatedAt_
+    }
 
 
 -- | The ARN of the resource group.
 rgArn :: Lens' ResourceGroup Text
-rgArn = lens _rgArn (\ s a -> s{_rgArn = a});
+rgArn = lens _rgArn (\ s a -> s{_rgArn = a})
 
 -- | The tags (key and value pairs) of the resource group. This data type property is used in the 'CreateResourceGroup' action.
 rgTags :: Lens' ResourceGroup (NonEmpty ResourceGroupTag)
-rgTags = lens _rgTags (\ s a -> s{_rgTags = a}) . _List1;
+rgTags = lens _rgTags (\ s a -> s{_rgTags = a}) . _List1
 
 -- | The time at which resource group is created.
 rgCreatedAt :: Lens' ResourceGroup UTCTime
-rgCreatedAt = lens _rgCreatedAt (\ s a -> s{_rgCreatedAt = a}) . _Time;
+rgCreatedAt = lens _rgCreatedAt (\ s a -> s{_rgCreatedAt = a}) . _Time
 
 instance FromJSON ResourceGroup where
         parseJSON
@@ -1569,11 +1645,11 @@ resourceGroupTag pKey_ =
 
 -- | The value assigned to a tag key.
 rgtValue :: Lens' ResourceGroupTag (Maybe Text)
-rgtValue = lens _rgtValue (\ s a -> s{_rgtValue = a});
+rgtValue = lens _rgtValue (\ s a -> s{_rgtValue = a})
 
 -- | A tag key.
 rgtKey :: Lens' ResourceGroupTag Text
-rgtKey = lens _rgtKey (\ s a -> s{_rgtKey = a});
+rgtKey = lens _rgtKey (\ s a -> s{_rgtKey = a})
 
 instance FromJSON ResourceGroupTag where
         parseJSON
@@ -1628,33 +1704,33 @@ rulesPackage
     -> RulesPackage
 rulesPackage pArn_ pName_ pVersion_ pProvider_ =
   RulesPackage'
-  { _rpDescription = Nothing
-  , _rpArn = pArn_
-  , _rpName = pName_
-  , _rpVersion = pVersion_
-  , _rpProvider = pProvider_
-  }
+    { _rpDescription = Nothing
+    , _rpArn = pArn_
+    , _rpName = pName_
+    , _rpVersion = pVersion_
+    , _rpProvider = pProvider_
+    }
 
 
 -- | The description of the rules package.
 rpDescription :: Lens' RulesPackage (Maybe Text)
-rpDescription = lens _rpDescription (\ s a -> s{_rpDescription = a});
+rpDescription = lens _rpDescription (\ s a -> s{_rpDescription = a})
 
 -- | The ARN of the rules package.
 rpArn :: Lens' RulesPackage Text
-rpArn = lens _rpArn (\ s a -> s{_rpArn = a});
+rpArn = lens _rpArn (\ s a -> s{_rpArn = a})
 
 -- | The name of the rules package.
 rpName :: Lens' RulesPackage Text
-rpName = lens _rpName (\ s a -> s{_rpName = a});
+rpName = lens _rpName (\ s a -> s{_rpName = a})
 
 -- | The version ID of the rules package.
 rpVersion :: Lens' RulesPackage Text
-rpVersion = lens _rpVersion (\ s a -> s{_rpVersion = a});
+rpVersion = lens _rpVersion (\ s a -> s{_rpVersion = a})
 
 -- | The provider of the rules package.
 rpProvider :: Lens' RulesPackage Text
-rpProvider = lens _rpProvider (\ s a -> s{_rpProvider = a});
+rpProvider = lens _rpProvider (\ s a -> s{_rpProvider = a})
 
 instance FromJSON RulesPackage where
         parseJSON
@@ -1698,23 +1774,23 @@ subscription
     -> Subscription
 subscription pResourceARN_ pTopicARN_ pEventSubscriptions_ =
   Subscription'
-  { _sResourceARN = pResourceARN_
-  , _sTopicARN = pTopicARN_
-  , _sEventSubscriptions = _List1 # pEventSubscriptions_
-  }
+    { _sResourceARN = pResourceARN_
+    , _sTopicARN = pTopicARN_
+    , _sEventSubscriptions = _List1 # pEventSubscriptions_
+    }
 
 
 -- | The ARN of the assessment template that is used during the event for which the SNS notification is sent.
 sResourceARN :: Lens' Subscription Text
-sResourceARN = lens _sResourceARN (\ s a -> s{_sResourceARN = a});
+sResourceARN = lens _sResourceARN (\ s a -> s{_sResourceARN = a})
 
 -- | The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS notifications are sent.
 sTopicARN :: Lens' Subscription Text
-sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a});
+sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a})
 
 -- | The list of existing event subscriptions.
 sEventSubscriptions :: Lens' Subscription (NonEmpty EventSubscription)
-sEventSubscriptions = lens _sEventSubscriptions (\ s a -> s{_sEventSubscriptions = a}) . _List1;
+sEventSubscriptions = lens _sEventSubscriptions (\ s a -> s{_sEventSubscriptions = a}) . _List1
 
 instance FromJSON Subscription where
         parseJSON
@@ -1754,11 +1830,11 @@ tag pKey_ = Tag' {_tagValue = Nothing, _tagKey = pKey_}
 
 -- | A value assigned to a tag key.
 tagValue :: Lens' Tag (Maybe Text)
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 -- | A tag key.
 tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 instance FromJSON Tag where
         parseJSON
@@ -1803,20 +1879,20 @@ telemetryMetadata
     -> TelemetryMetadata
 telemetryMetadata pMessageType_ pCount_ =
   TelemetryMetadata'
-  {_tmDataSize = Nothing, _tmMessageType = pMessageType_, _tmCount = pCount_}
+    {_tmDataSize = Nothing, _tmMessageType = pMessageType_, _tmCount = pCount_}
 
 
 -- | The data size of messages that the agent sends to the Amazon Inspector service.
 tmDataSize :: Lens' TelemetryMetadata (Maybe Integer)
-tmDataSize = lens _tmDataSize (\ s a -> s{_tmDataSize = a});
+tmDataSize = lens _tmDataSize (\ s a -> s{_tmDataSize = a})
 
 -- | A specific type of behavioral data that is collected by the agent.
 tmMessageType :: Lens' TelemetryMetadata Text
-tmMessageType = lens _tmMessageType (\ s a -> s{_tmMessageType = a});
+tmMessageType = lens _tmMessageType (\ s a -> s{_tmMessageType = a})
 
 -- | The count of messages that the agent sends to the Amazon Inspector service.
 tmCount :: Lens' TelemetryMetadata Integer
-tmCount = lens _tmCount (\ s a -> s{_tmCount = a});
+tmCount = lens _tmCount (\ s a -> s{_tmCount = a})
 
 instance FromJSON TelemetryMetadata where
         parseJSON
@@ -1855,11 +1931,11 @@ timestampRange = TimestampRange' {_trEndDate = Nothing, _trBeginDate = Nothing}
 
 -- | The maximum value of the timestamp range.
 trEndDate :: Lens' TimestampRange (Maybe UTCTime)
-trEndDate = lens _trEndDate (\ s a -> s{_trEndDate = a}) . mapping _Time;
+trEndDate = lens _trEndDate (\ s a -> s{_trEndDate = a}) . mapping _Time
 
 -- | The minimum value of the timestamp range.
 trBeginDate :: Lens' TimestampRange (Maybe UTCTime)
-trBeginDate = lens _trBeginDate (\ s a -> s{_trBeginDate = a}) . mapping _Time;
+trBeginDate = lens _trBeginDate (\ s a -> s{_trBeginDate = a}) . mapping _Time
 
 instance Hashable TimestampRange where
 

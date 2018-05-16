@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListAttachedUserPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 --
 -- An IAM user can also have inline policies embedded with it. To list the inline policies for a user, use the 'ListUserPolicies' API. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 --
--- You can paginate the results using the @MaxItems@ and @Marker@ parameters. You can use the @PathPrefix@ parameter to limit the list of policies to only those matching the specified path prefix. If there are no policies attached to the specified group (or none that match the specified path prefix), the action returns an empty list.
+-- You can paginate the results using the @MaxItems@ and @Marker@ parameters. You can use the @PathPrefix@ parameter to limit the list of policies to only those matching the specified path prefix. If there are no policies attached to the specified group (or none that match the specified path prefix), the operation returns an empty list.
 --
 --
 -- This operation returns paginated results.
@@ -69,40 +69,40 @@ data ListAttachedUserPolicies = ListAttachedUserPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laupPathPrefix' - The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'laupPathPrefix' - The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
 -- * 'laupMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
 -- * 'laupMaxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 --
--- * 'laupUserName' - The name (friendly name, not ARN) of the user to list attached policies for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'laupUserName' - The name (friendly name, not ARN) of the user to list attached policies for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 listAttachedUserPolicies
     :: Text -- ^ 'laupUserName'
     -> ListAttachedUserPolicies
 listAttachedUserPolicies pUserName_ =
   ListAttachedUserPolicies'
-  { _laupPathPrefix = Nothing
-  , _laupMarker = Nothing
-  , _laupMaxItems = Nothing
-  , _laupUserName = pUserName_
-  }
+    { _laupPathPrefix = Nothing
+    , _laupMarker = Nothing
+    , _laupMaxItems = Nothing
+    , _laupUserName = pUserName_
+    }
 
 
--- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 laupPathPrefix :: Lens' ListAttachedUserPolicies (Maybe Text)
-laupPathPrefix = lens _laupPathPrefix (\ s a -> s{_laupPathPrefix = a});
+laupPathPrefix = lens _laupPathPrefix (\ s a -> s{_laupPathPrefix = a})
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 laupMarker :: Lens' ListAttachedUserPolicies (Maybe Text)
-laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a});
+laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a})
 
 -- | (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 laupMaxItems :: Lens' ListAttachedUserPolicies (Maybe Natural)
-laupMaxItems = lens _laupMaxItems (\ s a -> s{_laupMaxItems = a}) . mapping _Nat;
+laupMaxItems = lens _laupMaxItems (\ s a -> s{_laupMaxItems = a}) . mapping _Nat
 
--- | The name (friendly name, not ARN) of the user to list attached policies for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name (friendly name, not ARN) of the user to list attached policies for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 laupUserName :: Lens' ListAttachedUserPolicies Text
-laupUserName = lens _laupUserName (\ s a -> s{_laupUserName = a});
+laupUserName = lens _laupUserName (\ s a -> s{_laupUserName = a})
 
 instance AWSPager ListAttachedUserPolicies where
         page rq rs
@@ -174,28 +174,28 @@ listAttachedUserPoliciesResponse
     -> ListAttachedUserPoliciesResponse
 listAttachedUserPoliciesResponse pResponseStatus_ =
   ListAttachedUserPoliciesResponse'
-  { _lauprsAttachedPolicies = Nothing
-  , _lauprsMarker = Nothing
-  , _lauprsIsTruncated = Nothing
-  , _lauprsResponseStatus = pResponseStatus_
-  }
+    { _lauprsAttachedPolicies = Nothing
+    , _lauprsMarker = Nothing
+    , _lauprsIsTruncated = Nothing
+    , _lauprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of the attached policies.
 lauprsAttachedPolicies :: Lens' ListAttachedUserPoliciesResponse [AttachedPolicy]
-lauprsAttachedPolicies = lens _lauprsAttachedPolicies (\ s a -> s{_lauprsAttachedPolicies = a}) . _Default . _Coerce;
+lauprsAttachedPolicies = lens _lauprsAttachedPolicies (\ s a -> s{_lauprsAttachedPolicies = a}) . _Default . _Coerce
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lauprsMarker :: Lens' ListAttachedUserPoliciesResponse (Maybe Text)
-lauprsMarker = lens _lauprsMarker (\ s a -> s{_lauprsMarker = a});
+lauprsMarker = lens _lauprsMarker (\ s a -> s{_lauprsMarker = a})
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 lauprsIsTruncated :: Lens' ListAttachedUserPoliciesResponse (Maybe Bool)
-lauprsIsTruncated = lens _lauprsIsTruncated (\ s a -> s{_lauprsIsTruncated = a});
+lauprsIsTruncated = lens _lauprsIsTruncated (\ s a -> s{_lauprsIsTruncated = a})
 
 -- | -- | The response status code.
 lauprsResponseStatus :: Lens' ListAttachedUserPoliciesResponse Int
-lauprsResponseStatus = lens _lauprsResponseStatus (\ s a -> s{_lauprsResponseStatus = a});
+lauprsResponseStatus = lens _lauprsResponseStatus (\ s a -> s{_lauprsResponseStatus = a})
 
 instance NFData ListAttachedUserPoliciesResponse
          where

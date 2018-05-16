@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.BatchDeleteBuilds
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ batchDeleteBuilds pIds_ = BatchDeleteBuilds' {_bdbIds = _List1 # pIds_}
 
 -- | The IDs of the builds to delete.
 bdbIds :: Lens' BatchDeleteBuilds (NonEmpty Text)
-bdbIds = lens _bdbIds (\ s a -> s{_bdbIds = a}) . _List1;
+bdbIds = lens _bdbIds (\ s a -> s{_bdbIds = a}) . _List1
 
 instance AWSRequest BatchDeleteBuilds where
         type Rs BatchDeleteBuilds = BatchDeleteBuildsResponse
@@ -123,22 +123,22 @@ batchDeleteBuildsResponse
     -> BatchDeleteBuildsResponse
 batchDeleteBuildsResponse pResponseStatus_ =
   BatchDeleteBuildsResponse'
-  { _bdbrsBuildsNotDeleted = Nothing
-  , _bdbrsBuildsDeleted = Nothing
-  , _bdbrsResponseStatus = pResponseStatus_
-  }
+    { _bdbrsBuildsNotDeleted = Nothing
+    , _bdbrsBuildsDeleted = Nothing
+    , _bdbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about any builds that could not be successfully deleted.
 bdbrsBuildsNotDeleted :: Lens' BatchDeleteBuildsResponse [BuildNotDeleted]
-bdbrsBuildsNotDeleted = lens _bdbrsBuildsNotDeleted (\ s a -> s{_bdbrsBuildsNotDeleted = a}) . _Default . _Coerce;
+bdbrsBuildsNotDeleted = lens _bdbrsBuildsNotDeleted (\ s a -> s{_bdbrsBuildsNotDeleted = a}) . _Default . _Coerce
 
 -- | The IDs of the builds that were successfully deleted.
 bdbrsBuildsDeleted :: Lens' BatchDeleteBuildsResponse (Maybe (NonEmpty Text))
-bdbrsBuildsDeleted = lens _bdbrsBuildsDeleted (\ s a -> s{_bdbrsBuildsDeleted = a}) . mapping _List1;
+bdbrsBuildsDeleted = lens _bdbrsBuildsDeleted (\ s a -> s{_bdbrsBuildsDeleted = a}) . mapping _List1
 
 -- | -- | The response status code.
 bdbrsResponseStatus :: Lens' BatchDeleteBuildsResponse Int
-bdbrsResponseStatus = lens _bdbrsResponseStatus (\ s a -> s{_bdbrsResponseStatus = a});
+bdbrsResponseStatus = lens _bdbrsResponseStatus (\ s a -> s{_bdbrsResponseStatus = a})
 
 instance NFData BatchDeleteBuildsResponse where

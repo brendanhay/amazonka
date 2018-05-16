@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CopyDBClusterParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,31 +74,31 @@ copyDBClusterParameterGroup
     -> CopyDBClusterParameterGroup
 copyDBClusterParameterGroup pSourceDBClusterParameterGroupIdentifier_ pTargetDBClusterParameterGroupIdentifier_ pTargetDBClusterParameterGroupDescription_ =
   CopyDBClusterParameterGroup'
-  { _cdbcpgTags = Nothing
-  , _cdbcpgSourceDBClusterParameterGroupIdentifier =
-      pSourceDBClusterParameterGroupIdentifier_
-  , _cdbcpgTargetDBClusterParameterGroupIdentifier =
-      pTargetDBClusterParameterGroupIdentifier_
-  , _cdbcpgTargetDBClusterParameterGroupDescription =
-      pTargetDBClusterParameterGroupDescription_
-  }
+    { _cdbcpgTags = Nothing
+    , _cdbcpgSourceDBClusterParameterGroupIdentifier =
+        pSourceDBClusterParameterGroupIdentifier_
+    , _cdbcpgTargetDBClusterParameterGroupIdentifier =
+        pTargetDBClusterParameterGroupIdentifier_
+    , _cdbcpgTargetDBClusterParameterGroupDescription =
+        pTargetDBClusterParameterGroupDescription_
+    }
 
 
 -- | Undocumented member.
 cdbcpgTags :: Lens' CopyDBClusterParameterGroup [Tag]
-cdbcpgTags = lens _cdbcpgTags (\ s a -> s{_cdbcpgTags = a}) . _Default . _Coerce;
+cdbcpgTags = lens _cdbcpgTags (\ s a -> s{_cdbcpgTags = a}) . _Default . _Coerce
 
 -- | The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .  Constraints:     * Must specify a valid DB cluster parameter group.     * If the source DB cluster parameter group is in the same AWS Region as the copy, specify a valid DB parameter group identifier, for example @my-db-cluster-param-group@ , or a valid ARN.     * If the source DB parameter group is in a different AWS Region than the copy, specify a valid DB cluster parameter group ARN, for example @arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1@ .
 cdbcpgSourceDBClusterParameterGroupIdentifier :: Lens' CopyDBClusterParameterGroup Text
-cdbcpgSourceDBClusterParameterGroupIdentifier = lens _cdbcpgSourceDBClusterParameterGroupIdentifier (\ s a -> s{_cdbcpgSourceDBClusterParameterGroupIdentifier = a});
+cdbcpgSourceDBClusterParameterGroupIdentifier = lens _cdbcpgSourceDBClusterParameterGroupIdentifier (\ s a -> s{_cdbcpgSourceDBClusterParameterGroupIdentifier = a})
 
 -- | The identifier for the copied DB cluster parameter group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-cluster-param-group1@
 cdbcpgTargetDBClusterParameterGroupIdentifier :: Lens' CopyDBClusterParameterGroup Text
-cdbcpgTargetDBClusterParameterGroupIdentifier = lens _cdbcpgTargetDBClusterParameterGroupIdentifier (\ s a -> s{_cdbcpgTargetDBClusterParameterGroupIdentifier = a});
+cdbcpgTargetDBClusterParameterGroupIdentifier = lens _cdbcpgTargetDBClusterParameterGroupIdentifier (\ s a -> s{_cdbcpgTargetDBClusterParameterGroupIdentifier = a})
 
 -- | A description for the copied DB cluster parameter group.
 cdbcpgTargetDBClusterParameterGroupDescription :: Lens' CopyDBClusterParameterGroup Text
-cdbcpgTargetDBClusterParameterGroupDescription = lens _cdbcpgTargetDBClusterParameterGroupDescription (\ s a -> s{_cdbcpgTargetDBClusterParameterGroupDescription = a});
+cdbcpgTargetDBClusterParameterGroupDescription = lens _cdbcpgTargetDBClusterParameterGroupDescription (\ s a -> s{_cdbcpgTargetDBClusterParameterGroupDescription = a})
 
 instance AWSRequest CopyDBClusterParameterGroup where
         type Rs CopyDBClusterParameterGroup =
@@ -156,18 +156,18 @@ copyDBClusterParameterGroupResponse
     -> CopyDBClusterParameterGroupResponse
 copyDBClusterParameterGroupResponse pResponseStatus_ =
   CopyDBClusterParameterGroupResponse'
-  { _cdcpgrsDBClusterParameterGroup = Nothing
-  , _cdcpgrsResponseStatus = pResponseStatus_
-  }
+    { _cdcpgrsDBClusterParameterGroup = Nothing
+    , _cdcpgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 cdcpgrsDBClusterParameterGroup :: Lens' CopyDBClusterParameterGroupResponse (Maybe DBClusterParameterGroup)
-cdcpgrsDBClusterParameterGroup = lens _cdcpgrsDBClusterParameterGroup (\ s a -> s{_cdcpgrsDBClusterParameterGroup = a});
+cdcpgrsDBClusterParameterGroup = lens _cdcpgrsDBClusterParameterGroup (\ s a -> s{_cdcpgrsDBClusterParameterGroup = a})
 
 -- | -- | The response status code.
 cdcpgrsResponseStatus :: Lens' CopyDBClusterParameterGroupResponse Int
-cdcpgrsResponseStatus = lens _cdcpgrsResponseStatus (\ s a -> s{_cdcpgrsResponseStatus = a});
+cdcpgrsResponseStatus = lens _cdcpgrsResponseStatus (\ s a -> s{_cdcpgrsResponseStatus = a})
 
 instance NFData CopyDBClusterParameterGroupResponse
          where

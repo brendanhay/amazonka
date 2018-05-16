@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,23 +93,23 @@ createAlias
     -> CreateAlias
 createAlias pName_ pRoutingStrategy_ =
   CreateAlias'
-  { _caDescription = Nothing
-  , _caName = pName_
-  , _caRoutingStrategy = pRoutingStrategy_
-  }
+    { _caDescription = Nothing
+    , _caName = pName_
+    , _caRoutingStrategy = pRoutingStrategy_
+    }
 
 
 -- | Human-readable description of an alias.
 caDescription :: Lens' CreateAlias (Maybe Text)
-caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
+caDescription = lens _caDescription (\ s a -> s{_caDescription = a})
 
 -- | Descriptive label that is associated with an alias. Alias names do not need to be unique.
 caName :: Lens' CreateAlias Text
-caName = lens _caName (\ s a -> s{_caName = a});
+caName = lens _caName (\ s a -> s{_caName = a})
 
 -- | Object that specifies the fleet and routing type to use for the alias.
 caRoutingStrategy :: Lens' CreateAlias RoutingStrategy
-caRoutingStrategy = lens _caRoutingStrategy (\ s a -> s{_caRoutingStrategy = a});
+caRoutingStrategy = lens _caRoutingStrategy (\ s a -> s{_caRoutingStrategy = a})
 
 instance AWSRequest CreateAlias where
         type Rs CreateAlias = CreateAliasResponse
@@ -170,15 +170,15 @@ createAliasResponse
     -> CreateAliasResponse
 createAliasResponse pResponseStatus_ =
   CreateAliasResponse'
-  {_carsAlias = Nothing, _carsResponseStatus = pResponseStatus_}
+    {_carsAlias = Nothing, _carsResponseStatus = pResponseStatus_}
 
 
 -- | Object that describes the newly created alias record.
 carsAlias :: Lens' CreateAliasResponse (Maybe Alias)
-carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a});
+carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a})
 
 -- | -- | The response status code.
 carsResponseStatus :: Lens' CreateAliasResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
 
 instance NFData CreateAliasResponse where

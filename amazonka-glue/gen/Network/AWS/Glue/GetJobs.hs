@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves all current jobs.
+-- Retrieves all current job definitions.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Glue.GetJobs
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.Glue.GetJobs
 import Network.AWS.Glue.Types
 import Network.AWS.Glue.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -67,11 +70,18 @@ getJobs = GetJobs' {_gjNextToken = Nothing, _gjMaxResults = Nothing}
 
 -- | A continuation token, if this is a continuation call.
 gjNextToken :: Lens' GetJobs (Maybe Text)
-gjNextToken = lens _gjNextToken (\ s a -> s{_gjNextToken = a});
+gjNextToken = lens _gjNextToken (\ s a -> s{_gjNextToken = a})
 
 -- | The maximum size of the response.
 gjMaxResults :: Lens' GetJobs (Maybe Natural)
-gjMaxResults = lens _gjMaxResults (\ s a -> s{_gjMaxResults = a}) . mapping _Nat;
+gjMaxResults = lens _gjMaxResults (\ s a -> s{_gjMaxResults = a}) . mapping _Nat
+
+instance AWSPager GetJobs where
+        page rq rs
+          | stop (rs ^. gjsrsNextToken) = Nothing
+          | stop (rs ^. gjsrsJobs) = Nothing
+          | otherwise =
+            Just $ rq & gjNextToken .~ rs ^. gjsrsNextToken
 
 instance AWSRequest GetJobs where
         type Rs GetJobs = GetJobsResponse
@@ -120,9 +130,9 @@ data GetJobsResponse = GetJobsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjsrsNextToken' - A continuation token, if not all jobs have yet been returned.
+-- * 'gjsrsNextToken' - A continuation token, if not all job definitions have yet been returned.
 --
--- * 'gjsrsJobs' - A list of jobs.
+-- * 'gjsrsJobs' - A list of job definitions.
 --
 -- * 'gjsrsResponseStatus' - -- | The response status code.
 getJobsResponse
@@ -130,22 +140,22 @@ getJobsResponse
     -> GetJobsResponse
 getJobsResponse pResponseStatus_ =
   GetJobsResponse'
-  { _gjsrsNextToken = Nothing
-  , _gjsrsJobs = Nothing
-  , _gjsrsResponseStatus = pResponseStatus_
-  }
+    { _gjsrsNextToken = Nothing
+    , _gjsrsJobs = Nothing
+    , _gjsrsResponseStatus = pResponseStatus_
+    }
 
 
--- | A continuation token, if not all jobs have yet been returned.
+-- | A continuation token, if not all job definitions have yet been returned.
 gjsrsNextToken :: Lens' GetJobsResponse (Maybe Text)
-gjsrsNextToken = lens _gjsrsNextToken (\ s a -> s{_gjsrsNextToken = a});
+gjsrsNextToken = lens _gjsrsNextToken (\ s a -> s{_gjsrsNextToken = a})
 
--- | A list of jobs.
+-- | A list of job definitions.
 gjsrsJobs :: Lens' GetJobsResponse [Job]
-gjsrsJobs = lens _gjsrsJobs (\ s a -> s{_gjsrsJobs = a}) . _Default . _Coerce;
+gjsrsJobs = lens _gjsrsJobs (\ s a -> s{_gjsrsJobs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gjsrsResponseStatus :: Lens' GetJobsResponse Int
-gjsrsResponseStatus = lens _gjsrsResponseStatus (\ s a -> s{_gjsrsResponseStatus = a});
+gjsrsResponseStatus = lens _gjsrsResponseStatus (\ s a -> s{_gjsrsResponseStatus = a})
 
 instance NFData GetJobsResponse where

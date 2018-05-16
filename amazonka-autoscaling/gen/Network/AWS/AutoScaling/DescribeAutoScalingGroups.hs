@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasgAutoScalingGroupNames' - The group names. If you omit this parameter, all Auto Scaling groups are described.
+-- * 'dasgAutoScalingGroupNames' - The names of the Auto Scaling groups. If you omit this parameter, all Auto Scaling groups are described.
 --
 -- * 'dasgNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -71,23 +71,23 @@ describeAutoScalingGroups
     :: DescribeAutoScalingGroups
 describeAutoScalingGroups =
   DescribeAutoScalingGroups'
-  { _dasgAutoScalingGroupNames = Nothing
-  , _dasgNextToken = Nothing
-  , _dasgMaxRecords = Nothing
-  }
+    { _dasgAutoScalingGroupNames = Nothing
+    , _dasgNextToken = Nothing
+    , _dasgMaxRecords = Nothing
+    }
 
 
--- | The group names. If you omit this parameter, all Auto Scaling groups are described.
+-- | The names of the Auto Scaling groups. If you omit this parameter, all Auto Scaling groups are described.
 dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
-dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAutoScalingGroupNames = a}) . _Default . _Coerce;
+dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAutoScalingGroupNames = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dasgNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
-dasgNextToken = lens _dasgNextToken (\ s a -> s{_dasgNextToken = a});
+dasgNextToken = lens _dasgNextToken (\ s a -> s{_dasgNextToken = a})
 
 -- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dasgMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
-dasgMaxRecords = lens _dasgMaxRecords (\ s a -> s{_dasgMaxRecords = a});
+dasgMaxRecords = lens _dasgMaxRecords (\ s a -> s{_dasgMaxRecords = a})
 
 instance AWSPager DescribeAutoScalingGroups where
         page rq rs
@@ -153,23 +153,23 @@ describeAutoScalingGroupsResponse
     -> DescribeAutoScalingGroupsResponse
 describeAutoScalingGroupsResponse pResponseStatus_ =
   DescribeAutoScalingGroupsResponse'
-  { _dasgrsNextToken = Nothing
-  , _dasgrsResponseStatus = pResponseStatus_
-  , _dasgrsAutoScalingGroups = mempty
-  }
+    { _dasgrsNextToken = Nothing
+    , _dasgrsResponseStatus = pResponseStatus_
+    , _dasgrsAutoScalingGroups = mempty
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dasgrsNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
-dasgrsNextToken = lens _dasgrsNextToken (\ s a -> s{_dasgrsNextToken = a});
+dasgrsNextToken = lens _dasgrsNextToken (\ s a -> s{_dasgrsNextToken = a})
 
 -- | -- | The response status code.
 dasgrsResponseStatus :: Lens' DescribeAutoScalingGroupsResponse Int
-dasgrsResponseStatus = lens _dasgrsResponseStatus (\ s a -> s{_dasgrsResponseStatus = a});
+dasgrsResponseStatus = lens _dasgrsResponseStatus (\ s a -> s{_dasgrsResponseStatus = a})
 
 -- | The groups.
 dasgrsAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
-dasgrsAutoScalingGroups = lens _dasgrsAutoScalingGroups (\ s a -> s{_dasgrsAutoScalingGroups = a}) . _Coerce;
+dasgrsAutoScalingGroups = lens _dasgrsAutoScalingGroups (\ s a -> s{_dasgrsAutoScalingGroups = a}) . _Coerce
 
 instance NFData DescribeAutoScalingGroupsResponse
          where

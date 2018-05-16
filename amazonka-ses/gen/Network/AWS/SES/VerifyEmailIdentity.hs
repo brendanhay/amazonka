@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.SES.VerifyEmailIdentity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds an email address to the list of identities for your Amazon SES account and attempts to verify it. This operation causes a confirmation email message to be sent to the specified address.
+-- Adds an email address to the list of identities for your Amazon SES account and attempts to verify it. As a result of executing this operation, a verification email is sent to the specified address.
 --
 --
 -- You can execute this operation no more than once per second.
@@ -69,7 +69,7 @@ verifyEmailIdentity pEmailAddress_ =
 
 -- | The email address to be verified.
 veiEmailAddress :: Lens' VerifyEmailIdentity Text
-veiEmailAddress = lens _veiEmailAddress (\ s a -> s{_veiEmailAddress = a});
+veiEmailAddress = lens _veiEmailAddress (\ s a -> s{_veiEmailAddress = a})
 
 instance AWSRequest VerifyEmailIdentity where
         type Rs VerifyEmailIdentity =
@@ -121,6 +121,6 @@ verifyEmailIdentityResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 veirsResponseStatus :: Lens' VerifyEmailIdentityResponse Int
-veirsResponseStatus = lens _veirsResponseStatus (\ s a -> s{_veirsResponseStatus = a});
+veirsResponseStatus = lens _veirsResponseStatus (\ s a -> s{_veirsResponseStatus = a})
 
 instance NFData VerifyEmailIdentityResponse where

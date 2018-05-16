@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteFpgaImage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ deleteFpgaImage pFpgaImageId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dfiDryRun :: Lens' DeleteFpgaImage (Maybe Bool)
-dfiDryRun = lens _dfiDryRun (\ s a -> s{_dfiDryRun = a});
+dfiDryRun = lens _dfiDryRun (\ s a -> s{_dfiDryRun = a})
 
 -- | The ID of the AFI.
 dfiFpgaImageId :: Lens' DeleteFpgaImage Text
-dfiFpgaImageId = lens _dfiFpgaImageId (\ s a -> s{_dfiFpgaImageId = a});
+dfiFpgaImageId = lens _dfiFpgaImageId (\ s a -> s{_dfiFpgaImageId = a})
 
 instance AWSRequest DeleteFpgaImage where
         type Rs DeleteFpgaImage = DeleteFpgaImageResponse
@@ -120,15 +120,15 @@ deleteFpgaImageResponse
     -> DeleteFpgaImageResponse
 deleteFpgaImageResponse pResponseStatus_ =
   DeleteFpgaImageResponse'
-  {_delrsReturn = Nothing, _delrsResponseStatus = pResponseStatus_}
+    {_delrsReturn = Nothing, _delrsResponseStatus = pResponseStatus_}
 
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
 delrsReturn :: Lens' DeleteFpgaImageResponse (Maybe Bool)
-delrsReturn = lens _delrsReturn (\ s a -> s{_delrsReturn = a});
+delrsReturn = lens _delrsReturn (\ s a -> s{_delrsReturn = a})
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteFpgaImageResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteFpgaImageResponse where

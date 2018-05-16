@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteAPNSVoipChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteAPNSVoipChannel pApplicationId_ =
 
 -- | Undocumented member.
 davcApplicationId :: Lens' DeleteAPNSVoipChannel Text
-davcApplicationId = lens _davcApplicationId (\ s a -> s{_davcApplicationId = a});
+davcApplicationId = lens _davcApplicationId (\ s a -> s{_davcApplicationId = a})
 
 instance AWSRequest DeleteAPNSVoipChannel where
         type Rs DeleteAPNSVoipChannel =
@@ -114,17 +114,17 @@ deleteAPNSVoipChannelResponse
     -> DeleteAPNSVoipChannelResponse
 deleteAPNSVoipChannelResponse pResponseStatus_ pAPNSVoipChannelResponse_ =
   DeleteAPNSVoipChannelResponse'
-  { _davcrsResponseStatus = pResponseStatus_
-  , _davcrsAPNSVoipChannelResponse = pAPNSVoipChannelResponse_
-  }
+    { _davcrsResponseStatus = pResponseStatus_
+    , _davcrsAPNSVoipChannelResponse = pAPNSVoipChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 davcrsResponseStatus :: Lens' DeleteAPNSVoipChannelResponse Int
-davcrsResponseStatus = lens _davcrsResponseStatus (\ s a -> s{_davcrsResponseStatus = a});
+davcrsResponseStatus = lens _davcrsResponseStatus (\ s a -> s{_davcrsResponseStatus = a})
 
 -- | Undocumented member.
 davcrsAPNSVoipChannelResponse :: Lens' DeleteAPNSVoipChannelResponse APNSVoipChannelResponse
-davcrsAPNSVoipChannelResponse = lens _davcrsAPNSVoipChannelResponse (\ s a -> s{_davcrsAPNSVoipChannelResponse = a});
+davcrsAPNSVoipChannelResponse = lens _davcrsAPNSVoipChannelResponse (\ s a -> s{_davcrsAPNSVoipChannelResponse = a})
 
 instance NFData DeleteAPNSVoipChannelResponse where

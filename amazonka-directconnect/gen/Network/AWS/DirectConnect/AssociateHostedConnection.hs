@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AssociateHostedConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,18 +79,18 @@ associateHostedConnection
     -> AssociateHostedConnection
 associateHostedConnection pConnectionId_ pParentConnectionId_ =
   AssociateHostedConnection'
-  { _assConnectionId = pConnectionId_
-  , _assParentConnectionId = pParentConnectionId_
-  }
+    { _assConnectionId = pConnectionId_
+    , _assParentConnectionId = pParentConnectionId_
+    }
 
 
 -- | The ID of the hosted connection. Example: dxcon-abc123 Default: None
 assConnectionId :: Lens' AssociateHostedConnection Text
-assConnectionId = lens _assConnectionId (\ s a -> s{_assConnectionId = a});
+assConnectionId = lens _assConnectionId (\ s a -> s{_assConnectionId = a})
 
 -- | The ID of the interconnect or the LAG. Example: dxcon-abc123 or dxlag-abc123 Default: None
 assParentConnectionId :: Lens' AssociateHostedConnection Text
-assParentConnectionId = lens _assParentConnectionId (\ s a -> s{_assParentConnectionId = a});
+assParentConnectionId = lens _assParentConnectionId (\ s a -> s{_assParentConnectionId = a})
 
 instance AWSRequest AssociateHostedConnection where
         type Rs AssociateHostedConnection = Connection

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,18 +69,18 @@ removeSourceIdentifierFromSubscription
     -> RemoveSourceIdentifierFromSubscription
 removeSourceIdentifierFromSubscription pSubscriptionName_ pSourceIdentifier_ =
   RemoveSourceIdentifierFromSubscription'
-  { _rsifsSubscriptionName = pSubscriptionName_
-  , _rsifsSourceIdentifier = pSourceIdentifier_
-  }
+    { _rsifsSubscriptionName = pSubscriptionName_
+    , _rsifsSourceIdentifier = pSourceIdentifier_
+    }
 
 
 -- | The name of the RDS event notification subscription you want to remove a source identifier from.
 rsifsSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription Text
-rsifsSubscriptionName = lens _rsifsSubscriptionName (\ s a -> s{_rsifsSubscriptionName = a});
+rsifsSubscriptionName = lens _rsifsSubscriptionName (\ s a -> s{_rsifsSubscriptionName = a})
 
 -- | The source identifier to be removed from the subscription, such as the __DB instance identifier__ for a DB instance or the name of a security group.
 rsifsSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription Text
-rsifsSourceIdentifier = lens _rsifsSourceIdentifier (\ s a -> s{_rsifsSourceIdentifier = a});
+rsifsSourceIdentifier = lens _rsifsSourceIdentifier (\ s a -> s{_rsifsSourceIdentifier = a})
 
 instance AWSRequest
            RemoveSourceIdentifierFromSubscription
@@ -144,18 +144,18 @@ removeSourceIdentifierFromSubscriptionResponse
     -> RemoveSourceIdentifierFromSubscriptionResponse
 removeSourceIdentifierFromSubscriptionResponse pResponseStatus_ =
   RemoveSourceIdentifierFromSubscriptionResponse'
-  { _rsifsrsEventSubscription = Nothing
-  , _rsifsrsResponseStatus = pResponseStatus_
-  }
+    { _rsifsrsEventSubscription = Nothing
+    , _rsifsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 rsifsrsEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
-rsifsrsEventSubscription = lens _rsifsrsEventSubscription (\ s a -> s{_rsifsrsEventSubscription = a});
+rsifsrsEventSubscription = lens _rsifsrsEventSubscription (\ s a -> s{_rsifsrsEventSubscription = a})
 
 -- | -- | The response status code.
 rsifsrsResponseStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
-rsifsrsResponseStatus = lens _rsifsrsResponseStatus (\ s a -> s{_rsifsrsResponseStatus = a});
+rsifsrsResponseStatus = lens _rsifsrsResponseStatus (\ s a -> s{_rsifsrsResponseStatus = a})
 
 instance NFData
            RemoveSourceIdentifierFromSubscriptionResponse

@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,9 @@ module Network.AWS.CodeBuild.Types
 
     -- * BuildPhaseType
     , BuildPhaseType (..)
+
+    -- * CacheType
+    , CacheType (..)
 
     -- * ComputeType
     , ComputeType (..)
@@ -74,9 +77,12 @@ module Network.AWS.CodeBuild.Types
     , bArtifacts
     , bEnvironment
     , bInitiator
+    , bNetworkInterface
     , bCurrentPhase
+    , bCache
     , bSourceVersion
     , bLogs
+    , bVpcConfig
     , bEndTime
     , bProjectName
     , bBuildStatus
@@ -110,6 +116,7 @@ module Network.AWS.CodeBuild.Types
     -- * EnvironmentImage
     , EnvironmentImage
     , environmentImage
+    , eiVersions
     , eiName
     , eiDescription
 
@@ -139,6 +146,12 @@ module Network.AWS.CodeBuild.Types
     , llGroupName
     , llStreamName
 
+    -- * NetworkInterface
+    , NetworkInterface
+    , networkInterface
+    , niSubnetId
+    , niNetworkInterfaceId
+
     -- * PhaseContext
     , PhaseContext
     , phaseContext
@@ -152,8 +165,11 @@ module Network.AWS.CodeBuild.Types
     , pArtifacts
     , pEnvironment
     , pCreated
+    , pCache
     , pName
+    , pVpcConfig
     , pSource
+    , pBadge
     , pEncryptionKey
     , pLastModified
     , pWebhook
@@ -172,10 +188,23 @@ module Network.AWS.CodeBuild.Types
     , paNamespaceType
     , paType
 
+    -- * ProjectBadge
+    , ProjectBadge
+    , projectBadge
+    , pbBadgeEnabled
+    , pbBadgeRequestURL
+
+    -- * ProjectCache
+    , ProjectCache
+    , projectCache
+    , pcLocation
+    , pcType
+
     -- * ProjectEnvironment
     , ProjectEnvironment
     , projectEnvironment
     , pePrivilegedMode
+    , peCertificate
     , peEnvironmentVariables
     , peType
     , peImage
@@ -184,9 +213,11 @@ module Network.AWS.CodeBuild.Types
     -- * ProjectSource
     , ProjectSource
     , projectSource
+    , psInsecureSSL
     , psLocation
     , psAuth
     , psBuildspec
+    , psGitCloneDepth
     , psType
 
     -- * SourceAuth
@@ -201,10 +232,21 @@ module Network.AWS.CodeBuild.Types
     , tagValue
     , tagKey
 
+    -- * VPCConfig
+    , VPCConfig
+    , vpcConfig
+    , vcSecurityGroupIds
+    , vcVpcId
+    , vcSubnets
+
     -- * Webhook
     , Webhook
     , webhook
+    , wBranchFilter
+    , wLastModifiedSecret
     , wUrl
+    , wSecret
+    , wPayloadURL
     ) where
 
 import Network.AWS.CodeBuild.Types.Product
@@ -217,24 +259,24 @@ import Network.AWS.Sign.V4
 codeBuild :: Service
 codeBuild =
   Service
-  { _svcAbbrev = "CodeBuild"
-  , _svcSigner = v4
-  , _svcPrefix = "codebuild"
-  , _svcVersion = "2016-10-06"
-  , _svcEndpoint = defaultEndpoint codeBuild
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "CodeBuild"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "CodeBuild"
+    , _svcSigner = v4
+    , _svcPrefix = "codebuild"
+    , _svcVersion = "2016-10-06"
+    , _svcEndpoint = defaultEndpoint codeBuild
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "CodeBuild"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -243,6 +285,8 @@ codeBuild =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

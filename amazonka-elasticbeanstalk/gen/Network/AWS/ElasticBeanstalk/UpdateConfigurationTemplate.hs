@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -95,33 +95,33 @@ updateConfigurationTemplate
     -> UpdateConfigurationTemplate
 updateConfigurationTemplate pApplicationName_ pTemplateName_ =
   UpdateConfigurationTemplate'
-  { _uctOptionsToRemove = Nothing
-  , _uctOptionSettings = Nothing
-  , _uctDescription = Nothing
-  , _uctApplicationName = pApplicationName_
-  , _uctTemplateName = pTemplateName_
-  }
+    { _uctOptionsToRemove = Nothing
+    , _uctOptionSettings = Nothing
+    , _uctDescription = Nothing
+    , _uctApplicationName = pApplicationName_
+    , _uctTemplateName = pTemplateName_
+    }
 
 
 -- | A list of configuration options to remove from the configuration set. Constraint: You can remove only @UserDefined@ configuration options.
 uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
-uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a}) . _Default . _Coerce;
+uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a}) . _Default . _Coerce
 
 -- | A list of configuration option settings to update with the new specified option value.
 uctOptionSettings :: Lens' UpdateConfigurationTemplate [ConfigurationOptionSetting]
-uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a}) . _Default . _Coerce;
+uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a}) . _Default . _Coerce
 
 -- | A new description for the configuration.
 uctDescription :: Lens' UpdateConfigurationTemplate (Maybe Text)
-uctDescription = lens _uctDescription (\ s a -> s{_uctDescription = a});
+uctDescription = lens _uctDescription (\ s a -> s{_uctDescription = a})
 
 -- | The name of the application associated with the configuration template to update. If no application is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
 uctApplicationName :: Lens' UpdateConfigurationTemplate Text
-uctApplicationName = lens _uctApplicationName (\ s a -> s{_uctApplicationName = a});
+uctApplicationName = lens _uctApplicationName (\ s a -> s{_uctApplicationName = a})
 
 -- | The name of the configuration template to update. If no configuration template is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
 uctTemplateName :: Lens' UpdateConfigurationTemplate Text
-uctTemplateName = lens _uctTemplateName (\ s a -> s{_uctTemplateName = a});
+uctTemplateName = lens _uctTemplateName (\ s a -> s{_uctTemplateName = a})
 
 instance AWSRequest UpdateConfigurationTemplate where
         type Rs UpdateConfigurationTemplate =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DeleteReplicationInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,12 +66,12 @@ deleteReplicationInstance
     -> DeleteReplicationInstance
 deleteReplicationInstance pReplicationInstanceARN_ =
   DeleteReplicationInstance'
-  {_driReplicationInstanceARN = pReplicationInstanceARN_}
+    {_driReplicationInstanceARN = pReplicationInstanceARN_}
 
 
 -- | The Amazon Resource Name (ARN) of the replication instance to be deleted.
 driReplicationInstanceARN :: Lens' DeleteReplicationInstance Text
-driReplicationInstanceARN = lens _driReplicationInstanceARN (\ s a -> s{_driReplicationInstanceARN = a});
+driReplicationInstanceARN = lens _driReplicationInstanceARN (\ s a -> s{_driReplicationInstanceARN = a})
 
 instance AWSRequest DeleteReplicationInstance where
         type Rs DeleteReplicationInstance =
@@ -135,16 +135,18 @@ deleteReplicationInstanceResponse
     -> DeleteReplicationInstanceResponse
 deleteReplicationInstanceResponse pResponseStatus_ =
   DeleteReplicationInstanceResponse'
-  {_drirsReplicationInstance = Nothing, _drirsResponseStatus = pResponseStatus_}
+    { _drirsReplicationInstance = Nothing
+    , _drirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The replication instance that was deleted.
 drirsReplicationInstance :: Lens' DeleteReplicationInstanceResponse (Maybe ReplicationInstance)
-drirsReplicationInstance = lens _drirsReplicationInstance (\ s a -> s{_drirsReplicationInstance = a});
+drirsReplicationInstance = lens _drirsReplicationInstance (\ s a -> s{_drirsReplicationInstance = a})
 
 -- | -- | The response status code.
 drirsResponseStatus :: Lens' DeleteReplicationInstanceResponse Int
-drirsResponseStatus = lens _drirsResponseStatus (\ s a -> s{_drirsResponseStatus = a});
+drirsResponseStatus = lens _drirsResponseStatus (\ s a -> s{_drirsResponseStatus = a})
 
 instance NFData DeleteReplicationInstanceResponse
          where

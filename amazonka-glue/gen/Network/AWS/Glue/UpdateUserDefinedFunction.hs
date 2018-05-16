@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateUserDefinedFunction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ updateUserDefinedFunction
     -> UpdateUserDefinedFunction
 updateUserDefinedFunction pDatabaseName_ pFunctionName_ pFunctionInput_ =
   UpdateUserDefinedFunction'
-  { _uudfCatalogId = Nothing
-  , _uudfDatabaseName = pDatabaseName_
-  , _uudfFunctionName = pFunctionName_
-  , _uudfFunctionInput = pFunctionInput_
-  }
+    { _uudfCatalogId = Nothing
+    , _uudfDatabaseName = pDatabaseName_
+    , _uudfFunctionName = pFunctionName_
+    , _uudfFunctionInput = pFunctionInput_
+    }
 
 
 -- | The ID of the Data Catalog where the function to be updated is located. If none is supplied, the AWS account ID is used by default.
 uudfCatalogId :: Lens' UpdateUserDefinedFunction (Maybe Text)
-uudfCatalogId = lens _uudfCatalogId (\ s a -> s{_uudfCatalogId = a});
+uudfCatalogId = lens _uudfCatalogId (\ s a -> s{_uudfCatalogId = a})
 
 -- | The name of the catalog database where the function to be updated is located.
 uudfDatabaseName :: Lens' UpdateUserDefinedFunction Text
-uudfDatabaseName = lens _uudfDatabaseName (\ s a -> s{_uudfDatabaseName = a});
+uudfDatabaseName = lens _uudfDatabaseName (\ s a -> s{_uudfDatabaseName = a})
 
 -- | The name of the function.
 uudfFunctionName :: Lens' UpdateUserDefinedFunction Text
-uudfFunctionName = lens _uudfFunctionName (\ s a -> s{_uudfFunctionName = a});
+uudfFunctionName = lens _uudfFunctionName (\ s a -> s{_uudfFunctionName = a})
 
 -- | A @FunctionInput@ object that re-defines the function in the Data Catalog.
 uudfFunctionInput :: Lens' UpdateUserDefinedFunction UserDefinedFunctionInput
-uudfFunctionInput = lens _uudfFunctionInput (\ s a -> s{_uudfFunctionInput = a});
+uudfFunctionInput = lens _uudfFunctionInput (\ s a -> s{_uudfFunctionInput = a})
 
 instance AWSRequest UpdateUserDefinedFunction where
         type Rs UpdateUserDefinedFunction =
@@ -154,7 +154,7 @@ updateUserDefinedFunctionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 uudfrsResponseStatus :: Lens' UpdateUserDefinedFunctionResponse Int
-uudfrsResponseStatus = lens _uudfrsResponseStatus (\ s a -> s{_uudfrsResponseStatus = a});
+uudfrsResponseStatus = lens _uudfrsResponseStatus (\ s a -> s{_uudfrsResponseStatus = a})
 
 instance NFData UpdateUserDefinedFunctionResponse
          where

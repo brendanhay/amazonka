@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAuthorizers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,30 +64,30 @@ data GetAuthorizers = GetAuthorizers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaLimit' - The maximum number of returned results per page.
+-- * 'gaLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'gaPosition' - The current pagination position in the paged result set.
 --
--- * 'gaRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'gaRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 getAuthorizers
     :: Text -- ^ 'gaRestAPIId'
     -> GetAuthorizers
 getAuthorizers pRestAPIId_ =
   GetAuthorizers'
-  {_gaLimit = Nothing, _gaPosition = Nothing, _gaRestAPIId = pRestAPIId_}
+    {_gaLimit = Nothing, _gaPosition = Nothing, _gaRestAPIId = pRestAPIId_}
 
 
--- | The maximum number of returned results per page.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 gaLimit :: Lens' GetAuthorizers (Maybe Int)
-gaLimit = lens _gaLimit (\ s a -> s{_gaLimit = a});
+gaLimit = lens _gaLimit (\ s a -> s{_gaLimit = a})
 
 -- | The current pagination position in the paged result set.
 gaPosition :: Lens' GetAuthorizers (Maybe Text)
-gaPosition = lens _gaPosition (\ s a -> s{_gaPosition = a});
+gaPosition = lens _gaPosition (\ s a -> s{_gaPosition = a})
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 gaRestAPIId :: Lens' GetAuthorizers Text
-gaRestAPIId = lens _gaRestAPIId (\ s a -> s{_gaRestAPIId = a});
+gaRestAPIId = lens _gaRestAPIId (\ s a -> s{_gaRestAPIId = a})
 
 instance AWSRequest GetAuthorizers where
         type Rs GetAuthorizers = GetAuthorizersResponse
@@ -146,22 +146,22 @@ getAuthorizersResponse
     -> GetAuthorizersResponse
 getAuthorizersResponse pResponseStatus_ =
   GetAuthorizersResponse'
-  { _garsItems = Nothing
-  , _garsPosition = Nothing
-  , _garsResponseStatus = pResponseStatus_
-  }
+    { _garsItems = Nothing
+    , _garsPosition = Nothing
+    , _garsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 garsItems :: Lens' GetAuthorizersResponse [Authorizer]
-garsItems = lens _garsItems (\ s a -> s{_garsItems = a}) . _Default . _Coerce;
+garsItems = lens _garsItems (\ s a -> s{_garsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 garsPosition :: Lens' GetAuthorizersResponse (Maybe Text)
-garsPosition = lens _garsPosition (\ s a -> s{_garsPosition = a});
+garsPosition = lens _garsPosition (\ s a -> s{_garsPosition = a})
 
 -- | -- | The response status code.
 garsResponseStatus :: Lens' GetAuthorizersResponse Int
-garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a})
 
 instance NFData GetAuthorizersResponse where

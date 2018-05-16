@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.UpdateNotificationSettings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,23 +67,23 @@ updateNotificationSettings
     -> UpdateNotificationSettings
 updateNotificationSettings pHITTypeId_ =
   UpdateNotificationSettings'
-  { _unsNotification = Nothing
-  , _unsActive = Nothing
-  , _unsHITTypeId = pHITTypeId_
-  }
+    { _unsNotification = Nothing
+    , _unsActive = Nothing
+    , _unsHITTypeId = pHITTypeId_
+    }
 
 
 -- | The notification specification for the HIT type.
 unsNotification :: Lens' UpdateNotificationSettings (Maybe NotificationSpecification)
-unsNotification = lens _unsNotification (\ s a -> s{_unsNotification = a});
+unsNotification = lens _unsNotification (\ s a -> s{_unsNotification = a})
 
 -- | Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed.
 unsActive :: Lens' UpdateNotificationSettings (Maybe Bool)
-unsActive = lens _unsActive (\ s a -> s{_unsActive = a});
+unsActive = lens _unsActive (\ s a -> s{_unsActive = a})
 
 -- | The ID of the HIT type whose notification specification is being updated.
 unsHITTypeId :: Lens' UpdateNotificationSettings Text
-unsHITTypeId = lens _unsHITTypeId (\ s a -> s{_unsHITTypeId = a});
+unsHITTypeId = lens _unsHITTypeId (\ s a -> s{_unsHITTypeId = a})
 
 instance AWSRequest UpdateNotificationSettings where
         type Rs UpdateNotificationSettings =
@@ -143,7 +143,7 @@ updateNotificationSettingsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 unsrsResponseStatus :: Lens' UpdateNotificationSettingsResponse Int
-unsrsResponseStatus = lens _unsrsResponseStatus (\ s a -> s{_unsrsResponseStatus = a});
+unsrsResponseStatus = lens _unsrsResponseStatus (\ s a -> s{_unsrsResponseStatus = a})
 
 instance NFData UpdateNotificationSettingsResponse
          where

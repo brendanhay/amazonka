@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.CreateSegment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ createSegment
     -> CreateSegment
 createSegment pApplicationId_ pWriteSegmentRequest_ =
   CreateSegment'
-  { _csApplicationId = pApplicationId_
-  , _csWriteSegmentRequest = pWriteSegmentRequest_
-  }
+    { _csApplicationId = pApplicationId_
+    , _csWriteSegmentRequest = pWriteSegmentRequest_
+    }
 
 
 -- | Undocumented member.
 csApplicationId :: Lens' CreateSegment Text
-csApplicationId = lens _csApplicationId (\ s a -> s{_csApplicationId = a});
+csApplicationId = lens _csApplicationId (\ s a -> s{_csApplicationId = a})
 
 -- | Undocumented member.
 csWriteSegmentRequest :: Lens' CreateSegment WriteSegmentRequest
-csWriteSegmentRequest = lens _csWriteSegmentRequest (\ s a -> s{_csWriteSegmentRequest = a});
+csWriteSegmentRequest = lens _csWriteSegmentRequest (\ s a -> s{_csWriteSegmentRequest = a})
 
 instance AWSRequest CreateSegment where
         type Rs CreateSegment = CreateSegmentResponse
@@ -131,17 +131,17 @@ createSegmentResponse
     -> CreateSegmentResponse
 createSegmentResponse pResponseStatus_ pSegmentResponse_ =
   CreateSegmentResponse'
-  { _csrsResponseStatus = pResponseStatus_
-  , _csrsSegmentResponse = pSegmentResponse_
-  }
+    { _csrsResponseStatus = pResponseStatus_
+    , _csrsSegmentResponse = pSegmentResponse_
+    }
 
 
 -- | -- | The response status code.
 csrsResponseStatus :: Lens' CreateSegmentResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a})
 
 -- | Undocumented member.
 csrsSegmentResponse :: Lens' CreateSegmentResponse SegmentResponse
-csrsSegmentResponse = lens _csrsSegmentResponse (\ s a -> s{_csrsSegmentResponse = a});
+csrsSegmentResponse = lens _csrsSegmentResponse (\ s a -> s{_csrsSegmentResponse = a})
 
 instance NFData CreateSegmentResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.AddTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ addTags pTags_ = AddTags' {_atResourceARNs = mempty, _atTags = _List1 # pTags_}
 
 -- | The Amazon Resource Name (ARN) of the resource.
 atResourceARNs :: Lens' AddTags [Text]
-atResourceARNs = lens _atResourceARNs (\ s a -> s{_atResourceARNs = a}) . _Coerce;
+atResourceARNs = lens _atResourceARNs (\ s a -> s{_atResourceARNs = a}) . _Coerce
 
 -- | The tags. Each resource can have a maximum of 10 tags.
 atTags :: Lens' AddTags (NonEmpty Tag)
-atTags = lens _atTags (\ s a -> s{_atTags = a}) . _List1;
+atTags = lens _atTags (\ s a -> s{_atTags = a}) . _List1
 
 instance AWSRequest AddTags where
         type Rs AddTags = AddTagsResponse
@@ -122,6 +122,6 @@ addTagsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
-atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
+atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a})
 
 instance NFData AddTagsResponse where

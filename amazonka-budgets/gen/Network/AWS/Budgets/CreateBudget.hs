@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.CreateBudget
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new budget
+-- Creates a budget and, if included, notifications and subscribers.
+--
+--
 module Network.AWS.Budgets.CreateBudget
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import Network.AWS.Response
 
 -- | Request of CreateBudget
 --
+--
+--
 -- /See:/ 'createBudget' smart constructor.
 data CreateBudget = CreateBudget'
   { _cbNotificationsWithSubscribers :: !(Maybe [NotificationWithSubscribers])
@@ -57,34 +61,34 @@ data CreateBudget = CreateBudget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbNotificationsWithSubscribers' - Undocumented member.
+-- * 'cbNotificationsWithSubscribers' - A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to ten email subscribers. If you include notifications and subscribers in your @CreateBudget@ call, AWS creates the notifications and subscribers for you.
 --
--- * 'cbAccountId' - Undocumented member.
+-- * 'cbAccountId' - The @accountId@ that is associated with the budget.
 --
--- * 'cbBudget' - Undocumented member.
+-- * 'cbBudget' - The budget object that you want to create.
 createBudget
     :: Text -- ^ 'cbAccountId'
     -> Budget -- ^ 'cbBudget'
     -> CreateBudget
 createBudget pAccountId_ pBudget_ =
   CreateBudget'
-  { _cbNotificationsWithSubscribers = Nothing
-  , _cbAccountId = pAccountId_
-  , _cbBudget = pBudget_
-  }
+    { _cbNotificationsWithSubscribers = Nothing
+    , _cbAccountId = pAccountId_
+    , _cbBudget = pBudget_
+    }
 
 
--- | Undocumented member.
+-- | A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to ten email subscribers. If you include notifications and subscribers in your @CreateBudget@ call, AWS creates the notifications and subscribers for you.
 cbNotificationsWithSubscribers :: Lens' CreateBudget [NotificationWithSubscribers]
-cbNotificationsWithSubscribers = lens _cbNotificationsWithSubscribers (\ s a -> s{_cbNotificationsWithSubscribers = a}) . _Default . _Coerce;
+cbNotificationsWithSubscribers = lens _cbNotificationsWithSubscribers (\ s a -> s{_cbNotificationsWithSubscribers = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budget.
 cbAccountId :: Lens' CreateBudget Text
-cbAccountId = lens _cbAccountId (\ s a -> s{_cbAccountId = a});
+cbAccountId = lens _cbAccountId (\ s a -> s{_cbAccountId = a})
 
--- | Undocumented member.
+-- | The budget object that you want to create.
 cbBudget :: Lens' CreateBudget Budget
-cbBudget = lens _cbBudget (\ s a -> s{_cbBudget = a});
+cbBudget = lens _cbBudget (\ s a -> s{_cbBudget = a})
 
 instance AWSRequest CreateBudget where
         type Rs CreateBudget = CreateBudgetResponse
@@ -125,6 +129,8 @@ instance ToQuery CreateBudget where
 
 -- | Response of CreateBudget
 --
+--
+--
 -- /See:/ 'createBudgetResponse' smart constructor.
 newtype CreateBudgetResponse = CreateBudgetResponse'
   { _cbrsResponseStatus :: Int
@@ -145,6 +151,6 @@ createBudgetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cbrsResponseStatus :: Lens' CreateBudgetResponse Int
-cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a});
+cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a})
 
 instance NFData CreateBudgetResponse where

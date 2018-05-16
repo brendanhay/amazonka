@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeletePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ deletePolicy pPolicyName_ = DeletePolicy' {_dpPolicyName = pPolicyName_}
 
 -- | The name of the policy to delete.
 dpPolicyName :: Lens' DeletePolicy Text
-dpPolicyName = lens _dpPolicyName (\ s a -> s{_dpPolicyName = a});
+dpPolicyName = lens _dpPolicyName (\ s a -> s{_dpPolicyName = a})
 
 instance AWSRequest DeletePolicy where
         type Rs DeletePolicy = DeletePolicyResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVolumeStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,33 +91,33 @@ describeVolumeStatus
     :: DescribeVolumeStatus
 describeVolumeStatus =
   DescribeVolumeStatus'
-  { _dvssFilters = Nothing
-  , _dvssVolumeIds = Nothing
-  , _dvssNextToken = Nothing
-  , _dvssDryRun = Nothing
-  , _dvssMaxResults = Nothing
-  }
+    { _dvssFilters = Nothing
+    , _dvssVolumeIds = Nothing
+    , _dvssNextToken = Nothing
+    , _dvssDryRun = Nothing
+    , _dvssMaxResults = Nothing
+    }
 
 
 -- | One or more filters.     * @action.code@ - The action code for the event (for example, @enable-volume-io@ ).     * @action.description@ - A description of the action.     * @action.event-id@ - The event ID associated with the action.     * @availability-zone@ - The Availability Zone of the instance.     * @event.description@ - A description of the event.     * @event.event-id@ - The event ID.     * @event.event-type@ - The event type (for @io-enabled@ : @passed@ | @failed@ ; for @io-performance@ : @io-performance:degraded@ | @io-performance:severely-degraded@ | @io-performance:stalled@ ).     * @event.not-after@ - The latest end time for the event.     * @event.not-before@ - The earliest start time for the event.     * @volume-status.details-name@ - The cause for @volume-status.status@ (@io-enabled@ | @io-performance@ ).     * @volume-status.details-status@ - The status of @volume-status.details-name@ (for @io-enabled@ : @passed@ | @failed@ ; for @io-performance@ : @normal@ | @degraded@ | @severely-degraded@ | @stalled@ ).     * @volume-status.status@ - The status of the volume (@ok@ | @impaired@ | @warning@ | @insufficient-data@ ).
 dvssFilters :: Lens' DescribeVolumeStatus [Filter]
-dvssFilters = lens _dvssFilters (\ s a -> s{_dvssFilters = a}) . _Default . _Coerce;
+dvssFilters = lens _dvssFilters (\ s a -> s{_dvssFilters = a}) . _Default . _Coerce
 
 -- | One or more volume IDs. Default: Describes all your volumes.
 dvssVolumeIds :: Lens' DescribeVolumeStatus [Text]
-dvssVolumeIds = lens _dvssVolumeIds (\ s a -> s{_dvssVolumeIds = a}) . _Default . _Coerce;
+dvssVolumeIds = lens _dvssVolumeIds (\ s a -> s{_dvssVolumeIds = a}) . _Default . _Coerce
 
 -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@ request. When the results of the request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dvssNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
-dvssNextToken = lens _dvssNextToken (\ s a -> s{_dvssNextToken = a});
+dvssNextToken = lens _dvssNextToken (\ s a -> s{_dvssNextToken = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvssDryRun :: Lens' DescribeVolumeStatus (Maybe Bool)
-dvssDryRun = lens _dvssDryRun (\ s a -> s{_dvssDryRun = a});
+dvssDryRun = lens _dvssDryRun (\ s a -> s{_dvssDryRun = a})
 
 -- | The maximum number of volume results returned by @DescribeVolumeStatus@ in paginated output. When this parameter is used, the request only returns @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. If this parameter is not used, then @DescribeVolumeStatus@ returns all results. You cannot specify this parameter and the volume IDs parameter in the same request.
 dvssMaxResults :: Lens' DescribeVolumeStatus (Maybe Int)
-dvssMaxResults = lens _dvssMaxResults (\ s a -> s{_dvssMaxResults = a});
+dvssMaxResults = lens _dvssMaxResults (\ s a -> s{_dvssMaxResults = a})
 
 instance AWSPager DescribeVolumeStatus where
         page rq rs
@@ -186,22 +186,22 @@ describeVolumeStatusResponse
     -> DescribeVolumeStatusResponse
 describeVolumeStatusResponse pResponseStatus_ =
   DescribeVolumeStatusResponse'
-  { _dvsrsNextToken = Nothing
-  , _dvsrsVolumeStatuses = Nothing
-  , _dvsrsResponseStatus = pResponseStatus_
-  }
+    { _dvsrsNextToken = Nothing
+    , _dvsrsVolumeStatuses = Nothing
+    , _dvsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dvsrsNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
-dvsrsNextToken = lens _dvsrsNextToken (\ s a -> s{_dvsrsNextToken = a});
+dvsrsNextToken = lens _dvsrsNextToken (\ s a -> s{_dvsrsNextToken = a})
 
 -- | A list of volumes.
 dvsrsVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
-dvsrsVolumeStatuses = lens _dvsrsVolumeStatuses (\ s a -> s{_dvsrsVolumeStatuses = a}) . _Default . _Coerce;
+dvsrsVolumeStatuses = lens _dvsrsVolumeStatuses (\ s a -> s{_dvsrsVolumeStatuses = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dvsrsResponseStatus :: Lens' DescribeVolumeStatusResponse Int
-dvsrsResponseStatus = lens _dvsrsResponseStatus (\ s a -> s{_dvsrsResponseStatus = a});
+dvsrsResponseStatus = lens _dvsrsResponseStatus (\ s a -> s{_dvsrsResponseStatus = a})
 
 instance NFData DescribeVolumeStatusResponse where

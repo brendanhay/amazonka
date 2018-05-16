@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListDevices
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ listDevices
     -> ListDevices
 listDevices pAccessToken_ =
   ListDevices'
-  { _ldPaginationToken = Nothing
-  , _ldLimit = Nothing
-  , _ldAccessToken = _Sensitive # pAccessToken_
-  }
+    { _ldPaginationToken = Nothing
+    , _ldLimit = Nothing
+    , _ldAccessToken = _Sensitive # pAccessToken_
+    }
 
 
 -- | The pagination token for the list request.
 ldPaginationToken :: Lens' ListDevices (Maybe Text)
-ldPaginationToken = lens _ldPaginationToken (\ s a -> s{_ldPaginationToken = a});
+ldPaginationToken = lens _ldPaginationToken (\ s a -> s{_ldPaginationToken = a})
 
 -- | The limit of the device request.
 ldLimit :: Lens' ListDevices (Maybe Natural)
-ldLimit = lens _ldLimit (\ s a -> s{_ldLimit = a}) . mapping _Nat;
+ldLimit = lens _ldLimit (\ s a -> s{_ldLimit = a}) . mapping _Nat
 
 -- | The access tokens for the request to list devices.
 ldAccessToken :: Lens' ListDevices Text
-ldAccessToken = lens _ldAccessToken (\ s a -> s{_ldAccessToken = a}) . _Sensitive;
+ldAccessToken = lens _ldAccessToken (\ s a -> s{_ldAccessToken = a}) . _Sensitive
 
 instance AWSRequest ListDevices where
         type Rs ListDevices = ListDevicesResponse
@@ -156,22 +156,22 @@ listDevicesResponse
     -> ListDevicesResponse
 listDevicesResponse pResponseStatus_ =
   ListDevicesResponse'
-  { _ldrsPaginationToken = Nothing
-  , _ldrsDevices = Nothing
-  , _ldrsResponseStatus = pResponseStatus_
-  }
+    { _ldrsPaginationToken = Nothing
+    , _ldrsDevices = Nothing
+    , _ldrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token for the list device response.
 ldrsPaginationToken :: Lens' ListDevicesResponse (Maybe Text)
-ldrsPaginationToken = lens _ldrsPaginationToken (\ s a -> s{_ldrsPaginationToken = a});
+ldrsPaginationToken = lens _ldrsPaginationToken (\ s a -> s{_ldrsPaginationToken = a})
 
 -- | The devices returned in the list devices response.
 ldrsDevices :: Lens' ListDevicesResponse [DeviceType]
-ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coerce;
+ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDevicesResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
 
 instance NFData ListDevicesResponse where

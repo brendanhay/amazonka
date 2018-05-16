@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeOptionGroupOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,33 +84,33 @@ describeOptionGroupOptions
     -> DescribeOptionGroupOptions
 describeOptionGroupOptions pEngineName_ =
   DescribeOptionGroupOptions'
-  { _dogoFilters = Nothing
-  , _dogoMajorEngineVersion = Nothing
-  , _dogoMarker = Nothing
-  , _dogoMaxRecords = Nothing
-  , _dogoEngineName = pEngineName_
-  }
+    { _dogoFilters = Nothing
+    , _dogoMajorEngineVersion = Nothing
+    , _dogoMarker = Nothing
+    , _dogoMaxRecords = Nothing
+    , _dogoEngineName = pEngineName_
+    }
 
 
 -- | This parameter is not currently supported.
 dogoFilters :: Lens' DescribeOptionGroupOptions [Filter]
-dogoFilters = lens _dogoFilters (\ s a -> s{_dogoFilters = a}) . _Default . _Coerce;
+dogoFilters = lens _dogoFilters (\ s a -> s{_dogoFilters = a}) . _Default . _Coerce
 
 -- | If specified, filters the results to include only options for the specified major engine version.
 dogoMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
-dogoMajorEngineVersion = lens _dogoMajorEngineVersion (\ s a -> s{_dogoMajorEngineVersion = a});
+dogoMajorEngineVersion = lens _dogoMajorEngineVersion (\ s a -> s{_dogoMajorEngineVersion = a})
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dogoMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
-dogoMarker = lens _dogoMarker (\ s a -> s{_dogoMarker = a});
+dogoMarker = lens _dogoMarker (\ s a -> s{_dogoMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dogoMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Int)
-dogoMaxRecords = lens _dogoMaxRecords (\ s a -> s{_dogoMaxRecords = a});
+dogoMaxRecords = lens _dogoMaxRecords (\ s a -> s{_dogoMaxRecords = a})
 
 -- | A required parameter. Options available for the given engine name are described.
 dogoEngineName :: Lens' DescribeOptionGroupOptions Text
-dogoEngineName = lens _dogoEngineName (\ s a -> s{_dogoEngineName = a});
+dogoEngineName = lens _dogoEngineName (\ s a -> s{_dogoEngineName = a})
 
 instance AWSPager DescribeOptionGroupOptions where
         page rq rs
@@ -182,23 +182,23 @@ describeOptionGroupOptionsResponse
     -> DescribeOptionGroupOptionsResponse
 describeOptionGroupOptionsResponse pResponseStatus_ =
   DescribeOptionGroupOptionsResponse'
-  { _dogorsOptionGroupOptions = Nothing
-  , _dogorsMarker = Nothing
-  , _dogorsResponseStatus = pResponseStatus_
-  }
+    { _dogorsOptionGroupOptions = Nothing
+    , _dogorsMarker = Nothing
+    , _dogorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dogorsOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
-dogorsOptionGroupOptions = lens _dogorsOptionGroupOptions (\ s a -> s{_dogorsOptionGroupOptions = a}) . _Default . _Coerce;
+dogorsOptionGroupOptions = lens _dogorsOptionGroupOptions (\ s a -> s{_dogorsOptionGroupOptions = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dogorsMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
-dogorsMarker = lens _dogorsMarker (\ s a -> s{_dogorsMarker = a});
+dogorsMarker = lens _dogorsMarker (\ s a -> s{_dogorsMarker = a})
 
 -- | -- | The response status code.
 dogorsResponseStatus :: Lens' DescribeOptionGroupOptionsResponse Int
-dogorsResponseStatus = lens _dogorsResponseStatus (\ s a -> s{_dogorsResponseStatus = a});
+dogorsResponseStatus = lens _dogorsResponseStatus (\ s a -> s{_dogorsResponseStatus = a})
 
 instance NFData DescribeOptionGroupOptionsResponse
          where

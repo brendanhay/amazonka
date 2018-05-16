@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.ReportTaskProgress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ reportTaskProgress pTaskId_ =
 
 -- | Key-value pairs that define the properties of the ReportTaskProgressInput object.
 rtpFields :: Lens' ReportTaskProgress [Field]
-rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a}) . _Default . _Coerce;
+rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a}) . _Default . _Coerce
 
 -- | The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
 rtpTaskId :: Lens' ReportTaskProgress Text
-rtpTaskId = lens _rtpTaskId (\ s a -> s{_rtpTaskId = a});
+rtpTaskId = lens _rtpTaskId (\ s a -> s{_rtpTaskId = a})
 
 instance AWSRequest ReportTaskProgress where
         type Rs ReportTaskProgress =
@@ -140,15 +140,15 @@ reportTaskProgressResponse
     -> ReportTaskProgressResponse
 reportTaskProgressResponse pResponseStatus_ pCanceled_ =
   ReportTaskProgressResponse'
-  {_rtprsResponseStatus = pResponseStatus_, _rtprsCanceled = pCanceled_}
+    {_rtprsResponseStatus = pResponseStatus_, _rtprsCanceled = pCanceled_}
 
 
 -- | -- | The response status code.
 rtprsResponseStatus :: Lens' ReportTaskProgressResponse Int
-rtprsResponseStatus = lens _rtprsResponseStatus (\ s a -> s{_rtprsResponseStatus = a});
+rtprsResponseStatus = lens _rtprsResponseStatus (\ s a -> s{_rtprsResponseStatus = a})
 
 -- | If true, the calling task runner should cancel processing of the task. The task runner does not need to call 'SetTaskStatus' for canceled tasks.
 rtprsCanceled :: Lens' ReportTaskProgressResponse Bool
-rtprsCanceled = lens _rtprsCanceled (\ s a -> s{_rtprsCanceled = a});
+rtprsCanceled = lens _rtprsCanceled (\ s a -> s{_rtprsCanceled = a})
 
 instance NFData ReportTaskProgressResponse where

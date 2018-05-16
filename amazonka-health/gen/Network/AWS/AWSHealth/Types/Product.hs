@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,43 +58,43 @@ affectedEntity
     :: AffectedEntity
 affectedEntity =
   AffectedEntity'
-  { _aeLastUpdatedTime = Nothing
-  , _aeEntityValue = Nothing
-  , _aeAwsAccountId = Nothing
-  , _aeEventARN = Nothing
-  , _aeEntityARN = Nothing
-  , _aeTags = Nothing
-  , _aeStatusCode = Nothing
-  }
+    { _aeLastUpdatedTime = Nothing
+    , _aeEntityValue = Nothing
+    , _aeAwsAccountId = Nothing
+    , _aeEventARN = Nothing
+    , _aeEntityARN = Nothing
+    , _aeTags = Nothing
+    , _aeStatusCode = Nothing
+    }
 
 
 -- | The most recent time that the entity was updated.
 aeLastUpdatedTime :: Lens' AffectedEntity (Maybe UTCTime)
-aeLastUpdatedTime = lens _aeLastUpdatedTime (\ s a -> s{_aeLastUpdatedTime = a}) . mapping _Time;
+aeLastUpdatedTime = lens _aeLastUpdatedTime (\ s a -> s{_aeLastUpdatedTime = a}) . mapping _Time
 
 -- | The ID of the affected entity.
 aeEntityValue :: Lens' AffectedEntity (Maybe Text)
-aeEntityValue = lens _aeEntityValue (\ s a -> s{_aeEntityValue = a});
+aeEntityValue = lens _aeEntityValue (\ s a -> s{_aeEntityValue = a})
 
 -- | The 12-digit AWS account number that contains the affected entity.
 aeAwsAccountId :: Lens' AffectedEntity (Maybe Text)
-aeAwsAccountId = lens _aeAwsAccountId (\ s a -> s{_aeAwsAccountId = a});
+aeAwsAccountId = lens _aeAwsAccountId (\ s a -> s{_aeAwsAccountId = a})
 
 -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
 aeEventARN :: Lens' AffectedEntity (Maybe Text)
-aeEventARN = lens _aeEventARN (\ s a -> s{_aeEventARN = a});
+aeEventARN = lens _aeEventARN (\ s a -> s{_aeEventARN = a})
 
 -- | The unique identifier for the entity. Format: @arn:aws:health:/entity-region/ :/aws-account/ :entity//entity-id/ @ . Example: @arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K@
 aeEntityARN :: Lens' AffectedEntity (Maybe Text)
-aeEntityARN = lens _aeEntityARN (\ s a -> s{_aeEntityARN = a});
+aeEntityARN = lens _aeEntityARN (\ s a -> s{_aeEntityARN = a})
 
 -- | A map of entity tags attached to the affected entity.
 aeTags :: Lens' AffectedEntity (HashMap Text Text)
-aeTags = lens _aeTags (\ s a -> s{_aeTags = a}) . _Default . _Map;
+aeTags = lens _aeTags (\ s a -> s{_aeTags = a}) . _Default . _Map
 
 -- | The most recent status of the entity affected by the event. The possible values are @IMPAIRED@ , @UNIMPAIRED@ , and @UNKNOWN@ .
 aeStatusCode :: Lens' AffectedEntity (Maybe EntityStatusCode)
-aeStatusCode = lens _aeStatusCode (\ s a -> s{_aeStatusCode = a});
+aeStatusCode = lens _aeStatusCode (\ s a -> s{_aeStatusCode = a})
 
 instance FromJSON AffectedEntity where
         parseJSON
@@ -137,11 +137,11 @@ dateTimeRange = DateTimeRange' {_dtrTo = Nothing, _dtrFrom = Nothing}
 
 -- | The ending date and time of a time range.
 dtrTo :: Lens' DateTimeRange (Maybe UTCTime)
-dtrTo = lens _dtrTo (\ s a -> s{_dtrTo = a}) . mapping _Time;
+dtrTo = lens _dtrTo (\ s a -> s{_dtrTo = a}) . mapping _Time
 
 -- | The starting date and time of a time range.
 dtrFrom :: Lens' DateTimeRange (Maybe UTCTime)
-dtrFrom = lens _dtrFrom (\ s a -> s{_dtrFrom = a}) . mapping _Time;
+dtrFrom = lens _dtrFrom (\ s a -> s{_dtrFrom = a}) . mapping _Time
 
 instance Hashable DateTimeRange where
 
@@ -178,11 +178,11 @@ entityAggregate = EntityAggregate' {_eCount = Nothing, _eEventARN = Nothing}
 
 -- | The number entities that match the criteria for the specified events.
 eCount :: Lens' EntityAggregate (Maybe Int)
-eCount = lens _eCount (\ s a -> s{_eCount = a});
+eCount = lens _eCount (\ s a -> s{_eCount = a})
 
 -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
 eEventARN :: Lens' EntityAggregate (Maybe Text)
-eEventARN = lens _eEventARN (\ s a -> s{_eEventARN = a});
+eEventARN = lens _eEventARN (\ s a -> s{_eEventARN = a})
 
 instance FromJSON EntityAggregate where
         parseJSON
@@ -230,38 +230,38 @@ entityFilter
     -> EntityFilter
 entityFilter pEventARNs_ =
   EntityFilter'
-  { _eStatusCodes = Nothing
-  , _eEntityARNs = Nothing
-  , _eEntityValues = Nothing
-  , _eTags = Nothing
-  , _eLastUpdatedTimes = Nothing
-  , _eEventARNs = _List1 # pEventARNs_
-  }
+    { _eStatusCodes = Nothing
+    , _eEntityARNs = Nothing
+    , _eEntityValues = Nothing
+    , _eTags = Nothing
+    , _eLastUpdatedTimes = Nothing
+    , _eEventARNs = _List1 # pEventARNs_
+    }
 
 
 -- | A list of entity status codes (@IMPAIRED@ , @UNIMPAIRED@ , or @UNKNOWN@ ).
 eStatusCodes :: Lens' EntityFilter (Maybe (NonEmpty EntityStatusCode))
-eStatusCodes = lens _eStatusCodes (\ s a -> s{_eStatusCodes = a}) . mapping _List1;
+eStatusCodes = lens _eStatusCodes (\ s a -> s{_eStatusCodes = a}) . mapping _List1
 
 -- | A list of entity ARNs (unique identifiers).
 eEntityARNs :: Lens' EntityFilter (Maybe (NonEmpty Text))
-eEntityARNs = lens _eEntityARNs (\ s a -> s{_eEntityARNs = a}) . mapping _List1;
+eEntityARNs = lens _eEntityARNs (\ s a -> s{_eEntityARNs = a}) . mapping _List1
 
 -- | A list of IDs for affected entities.
 eEntityValues :: Lens' EntityFilter (Maybe (NonEmpty Text))
-eEntityValues = lens _eEntityValues (\ s a -> s{_eEntityValues = a}) . mapping _List1;
+eEntityValues = lens _eEntityValues (\ s a -> s{_eEntityValues = a}) . mapping _List1
 
 -- | A map of entity tags attached to the affected entity.
 eTags :: Lens' EntityFilter [HashMap Text Text]
-eTags = lens _eTags (\ s a -> s{_eTags = a}) . _Default . _Coerce;
+eTags = lens _eTags (\ s a -> s{_eTags = a}) . _Default . _Coerce
 
 -- | A list of the most recent dates and times that the entity was updated.
 eLastUpdatedTimes :: Lens' EntityFilter (Maybe (NonEmpty DateTimeRange))
-eLastUpdatedTimes = lens _eLastUpdatedTimes (\ s a -> s{_eLastUpdatedTimes = a}) . mapping _List1;
+eLastUpdatedTimes = lens _eLastUpdatedTimes (\ s a -> s{_eLastUpdatedTimes = a}) . mapping _List1
 
 -- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
 eEventARNs :: Lens' EntityFilter (NonEmpty Text)
-eEventARNs = lens _eEventARNs (\ s a -> s{_eEventARNs = a}) . _List1;
+eEventARNs = lens _eEventARNs (\ s a -> s{_eEventARNs = a}) . _List1
 
 instance Hashable EntityFilter where
 
@@ -324,58 +324,58 @@ event
     :: Event
 event =
   Event'
-  { _eLastUpdatedTime = Nothing
-  , _eArn = Nothing
-  , _eService = Nothing
-  , _eStartTime = Nothing
-  , _eEventTypeCode = Nothing
-  , _eEventTypeCategory = Nothing
-  , _eAvailabilityZone = Nothing
-  , _eEndTime = Nothing
-  , _eRegion = Nothing
-  , _eStatusCode = Nothing
-  }
+    { _eLastUpdatedTime = Nothing
+    , _eArn = Nothing
+    , _eService = Nothing
+    , _eStartTime = Nothing
+    , _eEventTypeCode = Nothing
+    , _eEventTypeCategory = Nothing
+    , _eAvailabilityZone = Nothing
+    , _eEndTime = Nothing
+    , _eRegion = Nothing
+    , _eStatusCode = Nothing
+    }
 
 
 -- | The most recent date and time that the event was updated.
 eLastUpdatedTime :: Lens' Event (Maybe UTCTime)
-eLastUpdatedTime = lens _eLastUpdatedTime (\ s a -> s{_eLastUpdatedTime = a}) . mapping _Time;
+eLastUpdatedTime = lens _eLastUpdatedTime (\ s a -> s{_eLastUpdatedTime = a}) . mapping _Time
 
 -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
 eArn :: Lens' Event (Maybe Text)
-eArn = lens _eArn (\ s a -> s{_eArn = a});
+eArn = lens _eArn (\ s a -> s{_eArn = a})
 
 -- | The AWS service that is affected by the event. For example, @EC2@ , @RDS@ .
 eService :: Lens' Event (Maybe Text)
-eService = lens _eService (\ s a -> s{_eService = a});
+eService = lens _eService (\ s a -> s{_eService = a})
 
 -- | The date and time that the event began.
 eStartTime :: Lens' Event (Maybe UTCTime)
-eStartTime = lens _eStartTime (\ s a -> s{_eStartTime = a}) . mapping _Time;
+eStartTime = lens _eStartTime (\ s a -> s{_eStartTime = a}) . mapping _Time
 
 -- | The unique identifier for the event type. The format is @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
 eEventTypeCode :: Lens' Event (Maybe Text)
-eEventTypeCode = lens _eEventTypeCode (\ s a -> s{_eEventTypeCode = a});
+eEventTypeCode = lens _eEventTypeCode (\ s a -> s{_eEventTypeCode = a})
 
 -- | The
 eEventTypeCategory :: Lens' Event (Maybe EventTypeCategory)
-eEventTypeCategory = lens _eEventTypeCategory (\ s a -> s{_eEventTypeCategory = a});
+eEventTypeCategory = lens _eEventTypeCategory (\ s a -> s{_eEventTypeCategory = a})
 
 -- | The AWS Availability Zone of the event. For example, us-east-1a.
 eAvailabilityZone :: Lens' Event (Maybe Text)
-eAvailabilityZone = lens _eAvailabilityZone (\ s a -> s{_eAvailabilityZone = a});
+eAvailabilityZone = lens _eAvailabilityZone (\ s a -> s{_eAvailabilityZone = a})
 
 -- | The date and time that the event ended.
 eEndTime :: Lens' Event (Maybe UTCTime)
-eEndTime = lens _eEndTime (\ s a -> s{_eEndTime = a}) . mapping _Time;
+eEndTime = lens _eEndTime (\ s a -> s{_eEndTime = a}) . mapping _Time
 
 -- | The AWS region name of the event.
 eRegion :: Lens' Event (Maybe Text)
-eRegion = lens _eRegion (\ s a -> s{_eRegion = a});
+eRegion = lens _eRegion (\ s a -> s{_eRegion = a})
 
 -- | The most recent status of the event. Possible values are @open@ , @closed@ , and @upcoming@ .
 eStatusCode :: Lens' Event (Maybe EventStatusCode)
-eStatusCode = lens _eStatusCode (\ s a -> s{_eStatusCode = a});
+eStatusCode = lens _eStatusCode (\ s a -> s{_eStatusCode = a})
 
 instance FromJSON Event where
         parseJSON
@@ -422,11 +422,11 @@ eventAggregate =
 
 -- | The number of events of the associated issue type.
 eaCount :: Lens' EventAggregate (Maybe Int)
-eaCount = lens _eaCount (\ s a -> s{_eaCount = a});
+eaCount = lens _eaCount (\ s a -> s{_eaCount = a})
 
 -- | The issue type for the associated count.
 eaAggregateValue :: Lens' EventAggregate (Maybe Text)
-eaAggregateValue = lens _eaAggregateValue (\ s a -> s{_eaAggregateValue = a});
+eaAggregateValue = lens _eaAggregateValue (\ s a -> s{_eaAggregateValue = a})
 
 instance FromJSON EventAggregate where
         parseJSON
@@ -461,7 +461,7 @@ eventDescription = EventDescription' {_edLatestDescription = Nothing}
 
 -- | The most recent description of the event.
 edLatestDescription :: Lens' EventDescription (Maybe Text)
-edLatestDescription = lens _edLatestDescription (\ s a -> s{_edLatestDescription = a});
+edLatestDescription = lens _edLatestDescription (\ s a -> s{_edLatestDescription = a})
 
 instance FromJSON EventDescription where
         parseJSON
@@ -498,23 +498,23 @@ eventDetails
     :: EventDetails
 eventDetails =
   EventDetails'
-  { _edEvent = Nothing
-  , _edEventDescription = Nothing
-  , _edEventMetadata = Nothing
-  }
+    { _edEvent = Nothing
+    , _edEventDescription = Nothing
+    , _edEventMetadata = Nothing
+    }
 
 
 -- | Summary information about the event.
 edEvent :: Lens' EventDetails (Maybe Event)
-edEvent = lens _edEvent (\ s a -> s{_edEvent = a});
+edEvent = lens _edEvent (\ s a -> s{_edEvent = a})
 
 -- | The most recent description of the event.
 edEventDescription :: Lens' EventDetails (Maybe EventDescription)
-edEventDescription = lens _edEventDescription (\ s a -> s{_edEventDescription = a});
+edEventDescription = lens _edEventDescription (\ s a -> s{_edEventDescription = a})
 
 -- | Additional metadata about the event.
 edEventMetadata :: Lens' EventDetails (HashMap Text Text)
-edEventMetadata = lens _edEventMetadata (\ s a -> s{_edEventMetadata = a}) . _Default . _Map;
+edEventMetadata = lens _edEventMetadata (\ s a -> s{_edEventMetadata = a}) . _Default . _Map
 
 instance FromJSON EventDetails where
         parseJSON
@@ -553,23 +553,23 @@ eventDetailsErrorItem
     :: EventDetailsErrorItem
 eventDetailsErrorItem =
   EventDetailsErrorItem'
-  { _edeiEventARN = Nothing
-  , _edeiErrorName = Nothing
-  , _edeiErrorMessage = Nothing
-  }
+    { _edeiEventARN = Nothing
+    , _edeiErrorName = Nothing
+    , _edeiErrorMessage = Nothing
+    }
 
 
 -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
 edeiEventARN :: Lens' EventDetailsErrorItem (Maybe Text)
-edeiEventARN = lens _edeiEventARN (\ s a -> s{_edeiEventARN = a});
+edeiEventARN = lens _edeiEventARN (\ s a -> s{_edeiEventARN = a})
 
 -- | The name of the error.
 edeiErrorName :: Lens' EventDetailsErrorItem (Maybe Text)
-edeiErrorName = lens _edeiErrorName (\ s a -> s{_edeiErrorName = a});
+edeiErrorName = lens _edeiErrorName (\ s a -> s{_edeiErrorName = a})
 
 -- | A message that describes the error.
 edeiErrorMessage :: Lens' EventDetailsErrorItem (Maybe Text)
-edeiErrorMessage = lens _edeiErrorMessage (\ s a -> s{_edeiErrorMessage = a});
+edeiErrorMessage = lens _edeiErrorMessage (\ s a -> s{_edeiErrorMessage = a})
 
 instance FromJSON EventDetailsErrorItem where
         parseJSON
@@ -638,73 +638,73 @@ eventFilter
     :: EventFilter
 eventFilter =
   EventFilter'
-  { _efEventARNs = Nothing
-  , _efEventTypeCategories = Nothing
-  , _efEventTypeCodes = Nothing
-  , _efRegions = Nothing
-  , _efEventStatusCodes = Nothing
-  , _efEndTimes = Nothing
-  , _efAvailabilityZones = Nothing
-  , _efEntityARNs = Nothing
-  , _efEntityValues = Nothing
-  , _efStartTimes = Nothing
-  , _efServices = Nothing
-  , _efTags = Nothing
-  , _efLastUpdatedTimes = Nothing
-  }
+    { _efEventARNs = Nothing
+    , _efEventTypeCategories = Nothing
+    , _efEventTypeCodes = Nothing
+    , _efRegions = Nothing
+    , _efEventStatusCodes = Nothing
+    , _efEndTimes = Nothing
+    , _efAvailabilityZones = Nothing
+    , _efEntityARNs = Nothing
+    , _efEntityValues = Nothing
+    , _efStartTimes = Nothing
+    , _efServices = Nothing
+    , _efTags = Nothing
+    , _efLastUpdatedTimes = Nothing
+    }
 
 
 -- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
 efEventARNs :: Lens' EventFilter (Maybe (NonEmpty Text))
-efEventARNs = lens _efEventARNs (\ s a -> s{_efEventARNs = a}) . mapping _List1;
+efEventARNs = lens _efEventARNs (\ s a -> s{_efEventARNs = a}) . mapping _List1
 
 -- | A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
 efEventTypeCategories :: Lens' EventFilter (Maybe (NonEmpty EventTypeCategory))
-efEventTypeCategories = lens _efEventTypeCategories (\ s a -> s{_efEventTypeCategories = a}) . mapping _List1;
+efEventTypeCategories = lens _efEventTypeCategories (\ s a -> s{_efEventTypeCategories = a}) . mapping _List1
 
 -- | A list of unique identifiers for event types. For example, @"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED"@
 efEventTypeCodes :: Lens' EventFilter (Maybe (NonEmpty Text))
-efEventTypeCodes = lens _efEventTypeCodes (\ s a -> s{_efEventTypeCodes = a}) . mapping _List1;
+efEventTypeCodes = lens _efEventTypeCodes (\ s a -> s{_efEventTypeCodes = a}) . mapping _List1
 
 -- | A list of AWS regions.
 efRegions :: Lens' EventFilter (Maybe (NonEmpty Text))
-efRegions = lens _efRegions (\ s a -> s{_efRegions = a}) . mapping _List1;
+efRegions = lens _efRegions (\ s a -> s{_efRegions = a}) . mapping _List1
 
 -- | A list of event status codes.
 efEventStatusCodes :: Lens' EventFilter (Maybe (NonEmpty EventStatusCode))
-efEventStatusCodes = lens _efEventStatusCodes (\ s a -> s{_efEventStatusCodes = a}) . mapping _List1;
+efEventStatusCodes = lens _efEventStatusCodes (\ s a -> s{_efEventStatusCodes = a}) . mapping _List1
 
 -- | A list of dates and times that the event ended.
 efEndTimes :: Lens' EventFilter (Maybe (NonEmpty DateTimeRange))
-efEndTimes = lens _efEndTimes (\ s a -> s{_efEndTimes = a}) . mapping _List1;
+efEndTimes = lens _efEndTimes (\ s a -> s{_efEndTimes = a}) . mapping _List1
 
 -- | A list of AWS availability zones.
 efAvailabilityZones :: Lens' EventFilter [Text]
-efAvailabilityZones = lens _efAvailabilityZones (\ s a -> s{_efAvailabilityZones = a}) . _Default . _Coerce;
+efAvailabilityZones = lens _efAvailabilityZones (\ s a -> s{_efAvailabilityZones = a}) . _Default . _Coerce
 
 -- | A list of entity ARNs (unique identifiers).
 efEntityARNs :: Lens' EventFilter (Maybe (NonEmpty Text))
-efEntityARNs = lens _efEntityARNs (\ s a -> s{_efEntityARNs = a}) . mapping _List1;
+efEntityARNs = lens _efEntityARNs (\ s a -> s{_efEntityARNs = a}) . mapping _List1
 
 -- | A list of entity identifiers, such as EC2 instance IDs (@i-34ab692e@ ) or EBS volumes (@vol-426ab23e@ ).
 efEntityValues :: Lens' EventFilter (Maybe (NonEmpty Text))
-efEntityValues = lens _efEntityValues (\ s a -> s{_efEntityValues = a}) . mapping _List1;
+efEntityValues = lens _efEntityValues (\ s a -> s{_efEntityValues = a}) . mapping _List1
 
 -- | A list of dates and times that the event began.
 efStartTimes :: Lens' EventFilter (Maybe (NonEmpty DateTimeRange))
-efStartTimes = lens _efStartTimes (\ s a -> s{_efStartTimes = a}) . mapping _List1;
+efStartTimes = lens _efStartTimes (\ s a -> s{_efStartTimes = a}) . mapping _List1
 
 -- | The AWS services associated with the event. For example, @EC2@ , @RDS@ .
 efServices :: Lens' EventFilter (Maybe (NonEmpty Text))
-efServices = lens _efServices (\ s a -> s{_efServices = a}) . mapping _List1;
+efServices = lens _efServices (\ s a -> s{_efServices = a}) . mapping _List1
 
 -- | A map of entity tags attached to the affected entity.
 efTags :: Lens' EventFilter [HashMap Text Text]
-efTags = lens _efTags (\ s a -> s{_efTags = a}) . _Default . _Coerce;
+efTags = lens _efTags (\ s a -> s{_efTags = a}) . _Default . _Coerce
 
 -- | A list of dates and times that the event was last updated.
 efLastUpdatedTimes :: Lens' EventFilter (Maybe (NonEmpty DateTimeRange))
-efLastUpdatedTimes = lens _efLastUpdatedTimes (\ s a -> s{_efLastUpdatedTimes = a}) . mapping _List1;
+efLastUpdatedTimes = lens _efLastUpdatedTimes (\ s a -> s{_efLastUpdatedTimes = a}) . mapping _List1
 
 instance Hashable EventFilter where
 
@@ -758,15 +758,15 @@ eventType =
 
 -- | The AWS service that is affected by the event. For example, @EC2@ , @RDS@ .
 etService :: Lens' EventType (Maybe Text)
-etService = lens _etService (\ s a -> s{_etService = a});
+etService = lens _etService (\ s a -> s{_etService = a})
 
 -- | A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
 etCategory :: Lens' EventType (Maybe EventTypeCategory)
-etCategory = lens _etCategory (\ s a -> s{_etCategory = a});
+etCategory = lens _etCategory (\ s a -> s{_etCategory = a})
 
 -- | The unique identifier for the event type. The format is @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
 etCode :: Lens' EventType (Maybe Text)
-etCode = lens _etCode (\ s a -> s{_etCode = a});
+etCode = lens _etCode (\ s a -> s{_etCode = a})
 
 instance FromJSON EventType where
         parseJSON
@@ -805,23 +805,23 @@ eventTypeFilter
     :: EventTypeFilter
 eventTypeFilter =
   EventTypeFilter'
-  { _etfEventTypeCategories = Nothing
-  , _etfEventTypeCodes = Nothing
-  , _etfServices = Nothing
-  }
+    { _etfEventTypeCategories = Nothing
+    , _etfEventTypeCodes = Nothing
+    , _etfServices = Nothing
+    }
 
 
 -- | A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
 etfEventTypeCategories :: Lens' EventTypeFilter (Maybe (NonEmpty EventTypeCategory))
-etfEventTypeCategories = lens _etfEventTypeCategories (\ s a -> s{_etfEventTypeCategories = a}) . mapping _List1;
+etfEventTypeCategories = lens _etfEventTypeCategories (\ s a -> s{_etfEventTypeCategories = a}) . mapping _List1
 
 -- | A list of event type codes.
 etfEventTypeCodes :: Lens' EventTypeFilter (Maybe (NonEmpty Text))
-etfEventTypeCodes = lens _etfEventTypeCodes (\ s a -> s{_etfEventTypeCodes = a}) . mapping _List1;
+etfEventTypeCodes = lens _etfEventTypeCodes (\ s a -> s{_etfEventTypeCodes = a}) . mapping _List1
 
 -- | The AWS services associated with the event. For example, @EC2@ , @RDS@ .
 etfServices :: Lens' EventTypeFilter (Maybe (NonEmpty Text))
-etfServices = lens _etfServices (\ s a -> s{_etfServices = a}) . mapping _List1;
+etfServices = lens _etfServices (\ s a -> s{_etfServices = a}) . mapping _List1
 
 instance Hashable EventTypeFilter where
 

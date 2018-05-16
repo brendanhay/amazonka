@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteRun
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ deleteRun pArn_ = DeleteRun' {_drArn = pArn_}
 
 -- | The Amazon Resource Name (ARN) for the run you wish to delete.
 drArn :: Lens' DeleteRun Text
-drArn = lens _drArn (\ s a -> s{_drArn = a});
+drArn = lens _drArn (\ s a -> s{_drArn = a})
 
 instance AWSRequest DeleteRun where
         type Rs DeleteRun = DeleteRunResponse
@@ -125,6 +125,6 @@ deleteRunResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRunResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a})
 
 instance NFData DeleteRunResponse where

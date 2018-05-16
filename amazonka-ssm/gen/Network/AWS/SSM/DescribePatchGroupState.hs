@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribePatchGroupState
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ describePatchGroupState pPatchGroup_ =
 
 -- | The name of the patch group whose patch snapshot should be retrieved.
 dpgsPatchGroup :: Lens' DescribePatchGroupState Text
-dpgsPatchGroup = lens _dpgsPatchGroup (\ s a -> s{_dpgsPatchGroup = a});
+dpgsPatchGroup = lens _dpgsPatchGroup (\ s a -> s{_dpgsPatchGroup = a})
 
 instance AWSRequest DescribePatchGroupState where
         type Rs DescribePatchGroupState =
@@ -145,42 +145,42 @@ describePatchGroupStateResponse
     -> DescribePatchGroupStateResponse
 describePatchGroupStateResponse pResponseStatus_ =
   DescribePatchGroupStateResponse'
-  { _dpgsrsInstancesWithMissingPatches = Nothing
-  , _dpgsrsInstancesWithInstalledOtherPatches = Nothing
-  , _dpgsrsInstancesWithNotApplicablePatches = Nothing
-  , _dpgsrsInstancesWithInstalledPatches = Nothing
-  , _dpgsrsInstances = Nothing
-  , _dpgsrsInstancesWithFailedPatches = Nothing
-  , _dpgsrsResponseStatus = pResponseStatus_
-  }
+    { _dpgsrsInstancesWithMissingPatches = Nothing
+    , _dpgsrsInstancesWithInstalledOtherPatches = Nothing
+    , _dpgsrsInstancesWithNotApplicablePatches = Nothing
+    , _dpgsrsInstancesWithInstalledPatches = Nothing
+    , _dpgsrsInstances = Nothing
+    , _dpgsrsInstancesWithFailedPatches = Nothing
+    , _dpgsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The number of instances with missing patches from the patch baseline.
 dpgsrsInstancesWithMissingPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithMissingPatches = lens _dpgsrsInstancesWithMissingPatches (\ s a -> s{_dpgsrsInstancesWithMissingPatches = a});
+dpgsrsInstancesWithMissingPatches = lens _dpgsrsInstancesWithMissingPatches (\ s a -> s{_dpgsrsInstancesWithMissingPatches = a})
 
 -- | The number of instances with patches installed that aren't defined in the patch baseline.
 dpgsrsInstancesWithInstalledOtherPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithInstalledOtherPatches = lens _dpgsrsInstancesWithInstalledOtherPatches (\ s a -> s{_dpgsrsInstancesWithInstalledOtherPatches = a});
+dpgsrsInstancesWithInstalledOtherPatches = lens _dpgsrsInstancesWithInstalledOtherPatches (\ s a -> s{_dpgsrsInstancesWithInstalledOtherPatches = a})
 
 -- | The number of instances with patches that aren't applicable.
 dpgsrsInstancesWithNotApplicablePatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithNotApplicablePatches = lens _dpgsrsInstancesWithNotApplicablePatches (\ s a -> s{_dpgsrsInstancesWithNotApplicablePatches = a});
+dpgsrsInstancesWithNotApplicablePatches = lens _dpgsrsInstancesWithNotApplicablePatches (\ s a -> s{_dpgsrsInstancesWithNotApplicablePatches = a})
 
 -- | The number of instances with installed patches.
 dpgsrsInstancesWithInstalledPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithInstalledPatches = lens _dpgsrsInstancesWithInstalledPatches (\ s a -> s{_dpgsrsInstancesWithInstalledPatches = a});
+dpgsrsInstancesWithInstalledPatches = lens _dpgsrsInstancesWithInstalledPatches (\ s a -> s{_dpgsrsInstancesWithInstalledPatches = a})
 
 -- | The number of instances in the patch group.
 dpgsrsInstances :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstances = lens _dpgsrsInstances (\ s a -> s{_dpgsrsInstances = a});
+dpgsrsInstances = lens _dpgsrsInstances (\ s a -> s{_dpgsrsInstances = a})
 
 -- | The number of instances with patches from the patch baseline that failed to install.
 dpgsrsInstancesWithFailedPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithFailedPatches = lens _dpgsrsInstancesWithFailedPatches (\ s a -> s{_dpgsrsInstancesWithFailedPatches = a});
+dpgsrsInstancesWithFailedPatches = lens _dpgsrsInstancesWithFailedPatches (\ s a -> s{_dpgsrsInstancesWithFailedPatches = a})
 
 -- | -- | The response status code.
 dpgsrsResponseStatus :: Lens' DescribePatchGroupStateResponse Int
-dpgsrsResponseStatus = lens _dpgsrsResponseStatus (\ s a -> s{_dpgsrsResponseStatus = a});
+dpgsrsResponseStatus = lens _dpgsrsResponseStatus (\ s a -> s{_dpgsrsResponseStatus = a})
 
 instance NFData DescribePatchGroupStateResponse where

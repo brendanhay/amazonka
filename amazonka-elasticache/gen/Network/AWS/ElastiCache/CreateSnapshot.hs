@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ createSnapshot
     -> CreateSnapshot
 createSnapshot pSnapshotName_ =
   CreateSnapshot'
-  { _csCacheClusterId = Nothing
-  , _csReplicationGroupId = Nothing
-  , _csSnapshotName = pSnapshotName_
-  }
+    { _csCacheClusterId = Nothing
+    , _csReplicationGroupId = Nothing
+    , _csSnapshotName = pSnapshotName_
+    }
 
 
 -- | The identifier of an existing cluster. The snapshot is created from this cluster.
 csCacheClusterId :: Lens' CreateSnapshot (Maybe Text)
-csCacheClusterId = lens _csCacheClusterId (\ s a -> s{_csCacheClusterId = a});
+csCacheClusterId = lens _csCacheClusterId (\ s a -> s{_csCacheClusterId = a})
 
 -- | The identifier of an existing replication group. The snapshot is created from this replication group.
 csReplicationGroupId :: Lens' CreateSnapshot (Maybe Text)
-csReplicationGroupId = lens _csReplicationGroupId (\ s a -> s{_csReplicationGroupId = a});
+csReplicationGroupId = lens _csReplicationGroupId (\ s a -> s{_csReplicationGroupId = a})
 
 -- | A name for the snapshot being created.
 csSnapshotName :: Lens' CreateSnapshot Text
-csSnapshotName = lens _csSnapshotName (\ s a -> s{_csSnapshotName = a});
+csSnapshotName = lens _csSnapshotName (\ s a -> s{_csSnapshotName = a})
 
 instance AWSRequest CreateSnapshot where
         type Rs CreateSnapshot = CreateSnapshotResponse
@@ -137,15 +137,15 @@ createSnapshotResponse
     -> CreateSnapshotResponse
 createSnapshotResponse pResponseStatus_ =
   CreateSnapshotResponse'
-  {_crersSnapshot = Nothing, _crersResponseStatus = pResponseStatus_}
+    {_crersSnapshot = Nothing, _crersResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 crersSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
-crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
+crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a})
 
 -- | -- | The response status code.
 crersResponseStatus :: Lens' CreateSnapshotResponse Int
-crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a})
 
 instance NFData CreateSnapshotResponse where

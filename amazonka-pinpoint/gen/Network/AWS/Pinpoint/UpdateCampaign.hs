@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateCampaign
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ updateCampaign
     -> UpdateCampaign
 updateCampaign pCampaignId_ pApplicationId_ pWriteCampaignRequest_ =
   UpdateCampaign'
-  { _ucCampaignId = pCampaignId_
-  , _ucApplicationId = pApplicationId_
-  , _ucWriteCampaignRequest = pWriteCampaignRequest_
-  }
+    { _ucCampaignId = pCampaignId_
+    , _ucApplicationId = pApplicationId_
+    , _ucWriteCampaignRequest = pWriteCampaignRequest_
+    }
 
 
 -- | Undocumented member.
 ucCampaignId :: Lens' UpdateCampaign Text
-ucCampaignId = lens _ucCampaignId (\ s a -> s{_ucCampaignId = a});
+ucCampaignId = lens _ucCampaignId (\ s a -> s{_ucCampaignId = a})
 
 -- | Undocumented member.
 ucApplicationId :: Lens' UpdateCampaign Text
-ucApplicationId = lens _ucApplicationId (\ s a -> s{_ucApplicationId = a});
+ucApplicationId = lens _ucApplicationId (\ s a -> s{_ucApplicationId = a})
 
 -- | Undocumented member.
 ucWriteCampaignRequest :: Lens' UpdateCampaign WriteCampaignRequest
-ucWriteCampaignRequest = lens _ucWriteCampaignRequest (\ s a -> s{_ucWriteCampaignRequest = a});
+ucWriteCampaignRequest = lens _ucWriteCampaignRequest (\ s a -> s{_ucWriteCampaignRequest = a})
 
 instance AWSRequest UpdateCampaign where
         type Rs UpdateCampaign = UpdateCampaignResponse
@@ -142,17 +142,17 @@ updateCampaignResponse
     -> UpdateCampaignResponse
 updateCampaignResponse pResponseStatus_ pCampaignResponse_ =
   UpdateCampaignResponse'
-  { _ucrsResponseStatus = pResponseStatus_
-  , _ucrsCampaignResponse = pCampaignResponse_
-  }
+    { _ucrsResponseStatus = pResponseStatus_
+    , _ucrsCampaignResponse = pCampaignResponse_
+    }
 
 
 -- | -- | The response status code.
 ucrsResponseStatus :: Lens' UpdateCampaignResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a});
+ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a})
 
 -- | Undocumented member.
 ucrsCampaignResponse :: Lens' UpdateCampaignResponse CampaignResponse
-ucrsCampaignResponse = lens _ucrsCampaignResponse (\ s a -> s{_ucrsCampaignResponse = a});
+ucrsCampaignResponse = lens _ucrsCampaignResponse (\ s a -> s{_ucrsCampaignResponse = a})
 
 instance NFData UpdateCampaignResponse where

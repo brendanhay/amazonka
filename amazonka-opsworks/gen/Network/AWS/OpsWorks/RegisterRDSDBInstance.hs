@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterRDSDBInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ registerRDSDBInstance
     -> RegisterRDSDBInstance
 registerRDSDBInstance pStackId_ pRDSDBInstanceARN_ pDBUser_ pDBPassword_ =
   RegisterRDSDBInstance'
-  { _rrdiStackId = pStackId_
-  , _rrdiRDSDBInstanceARN = pRDSDBInstanceARN_
-  , _rrdiDBUser = pDBUser_
-  , _rrdiDBPassword = pDBPassword_
-  }
+    { _rrdiStackId = pStackId_
+    , _rrdiRDSDBInstanceARN = pRDSDBInstanceARN_
+    , _rrdiDBUser = pDBUser_
+    , _rrdiDBPassword = pDBPassword_
+    }
 
 
 -- | The stack ID.
 rrdiStackId :: Lens' RegisterRDSDBInstance Text
-rrdiStackId = lens _rrdiStackId (\ s a -> s{_rrdiStackId = a});
+rrdiStackId = lens _rrdiStackId (\ s a -> s{_rrdiStackId = a})
 
 -- | The Amazon RDS instance's ARN.
 rrdiRDSDBInstanceARN :: Lens' RegisterRDSDBInstance Text
-rrdiRDSDBInstanceARN = lens _rrdiRDSDBInstanceARN (\ s a -> s{_rrdiRDSDBInstanceARN = a});
+rrdiRDSDBInstanceARN = lens _rrdiRDSDBInstanceARN (\ s a -> s{_rrdiRDSDBInstanceARN = a})
 
 -- | The database's master user name.
 rrdiDBUser :: Lens' RegisterRDSDBInstance Text
-rrdiDBUser = lens _rrdiDBUser (\ s a -> s{_rrdiDBUser = a});
+rrdiDBUser = lens _rrdiDBUser (\ s a -> s{_rrdiDBUser = a})
 
 -- | The database password.
 rrdiDBPassword :: Lens' RegisterRDSDBInstance Text
-rrdiDBPassword = lens _rrdiDBPassword (\ s a -> s{_rrdiDBPassword = a});
+rrdiDBPassword = lens _rrdiDBPassword (\ s a -> s{_rrdiDBPassword = a})
 
 instance AWSRequest RegisterRDSDBInstance where
         type Rs RegisterRDSDBInstance =

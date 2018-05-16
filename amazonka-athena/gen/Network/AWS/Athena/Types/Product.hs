@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Athena.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,58 +69,58 @@ columnInfo
     -> ColumnInfo
 columnInfo pName_ pType_ =
   ColumnInfo'
-  { _ciScale = Nothing
-  , _ciPrecision = Nothing
-  , _ciSchemaName = Nothing
-  , _ciCatalogName = Nothing
-  , _ciCaseSensitive = Nothing
-  , _ciLabel = Nothing
-  , _ciTableName = Nothing
-  , _ciNullable = Nothing
-  , _ciName = pName_
-  , _ciType = pType_
-  }
+    { _ciScale = Nothing
+    , _ciPrecision = Nothing
+    , _ciSchemaName = Nothing
+    , _ciCatalogName = Nothing
+    , _ciCaseSensitive = Nothing
+    , _ciLabel = Nothing
+    , _ciTableName = Nothing
+    , _ciNullable = Nothing
+    , _ciName = pName_
+    , _ciType = pType_
+    }
 
 
 -- | For @DECIMAL@ data types, specifies the total number of digits in the fractional part of the value. Defaults to 0.
 ciScale :: Lens' ColumnInfo (Maybe Int)
-ciScale = lens _ciScale (\ s a -> s{_ciScale = a});
+ciScale = lens _ciScale (\ s a -> s{_ciScale = a})
 
 -- | For @DECIMAL@ data types, specifies the total number of digits, up to 38. For performance reasons, we recommend up to 18 digits.
 ciPrecision :: Lens' ColumnInfo (Maybe Int)
-ciPrecision = lens _ciPrecision (\ s a -> s{_ciPrecision = a});
+ciPrecision = lens _ciPrecision (\ s a -> s{_ciPrecision = a})
 
 -- | The schema name (database name) to which the query results belong.
 ciSchemaName :: Lens' ColumnInfo (Maybe Text)
-ciSchemaName = lens _ciSchemaName (\ s a -> s{_ciSchemaName = a});
+ciSchemaName = lens _ciSchemaName (\ s a -> s{_ciSchemaName = a})
 
 -- | The catalog to which the query results belong.
 ciCatalogName :: Lens' ColumnInfo (Maybe Text)
-ciCatalogName = lens _ciCatalogName (\ s a -> s{_ciCatalogName = a});
+ciCatalogName = lens _ciCatalogName (\ s a -> s{_ciCatalogName = a})
 
 -- | Indicates whether values in the column are case-sensitive.
 ciCaseSensitive :: Lens' ColumnInfo (Maybe Bool)
-ciCaseSensitive = lens _ciCaseSensitive (\ s a -> s{_ciCaseSensitive = a});
+ciCaseSensitive = lens _ciCaseSensitive (\ s a -> s{_ciCaseSensitive = a})
 
 -- | A column label.
 ciLabel :: Lens' ColumnInfo (Maybe Text)
-ciLabel = lens _ciLabel (\ s a -> s{_ciLabel = a});
+ciLabel = lens _ciLabel (\ s a -> s{_ciLabel = a})
 
 -- | The table name for the query results.
 ciTableName :: Lens' ColumnInfo (Maybe Text)
-ciTableName = lens _ciTableName (\ s a -> s{_ciTableName = a});
+ciTableName = lens _ciTableName (\ s a -> s{_ciTableName = a})
 
 -- | Indicates the column's nullable status.
 ciNullable :: Lens' ColumnInfo (Maybe ColumnNullable)
-ciNullable = lens _ciNullable (\ s a -> s{_ciNullable = a});
+ciNullable = lens _ciNullable (\ s a -> s{_ciNullable = a})
 
 -- | The name of the column.
 ciName :: Lens' ColumnInfo Text
-ciName = lens _ciName (\ s a -> s{_ciName = a});
+ciName = lens _ciName (\ s a -> s{_ciName = a})
 
 -- | The data type of the column.
 ciType :: Lens' ColumnInfo Text
-ciType = lens _ciType (\ s a -> s{_ciType = a});
+ciType = lens _ciType (\ s a -> s{_ciType = a})
 
 instance FromJSON ColumnInfo where
         parseJSON
@@ -163,7 +163,7 @@ datum = Datum' {_dVarCharValue = Nothing}
 
 -- | The value of the datum.
 dVarCharValue :: Lens' Datum (Maybe Text)
-dVarCharValue = lens _dVarCharValue (\ s a -> s{_dVarCharValue = a});
+dVarCharValue = lens _dVarCharValue (\ s a -> s{_dVarCharValue = a})
 
 instance FromJSON Datum where
         parseJSON
@@ -197,16 +197,16 @@ encryptionConfiguration
     -> EncryptionConfiguration
 encryptionConfiguration pEncryptionOption_ =
   EncryptionConfiguration'
-  {_ecKMSKey = Nothing, _ecEncryptionOption = pEncryptionOption_}
+    {_ecKMSKey = Nothing, _ecEncryptionOption = pEncryptionOption_}
 
 
 -- | For @SSE-KMS@ and @CSE-KMS@ , this is the KMS key ARN or ID.
 ecKMSKey :: Lens' EncryptionConfiguration (Maybe Text)
-ecKMSKey = lens _ecKMSKey (\ s a -> s{_ecKMSKey = a});
+ecKMSKey = lens _ecKMSKey (\ s a -> s{_ecKMSKey = a})
 
 -- | Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (@SSE-S3@ ), server-side encryption with KMS-managed keys (@SSE-KMS@ ), or client-side encryption with KMS-managed keys (CSE-KMS) is used.
 ecEncryptionOption :: Lens' EncryptionConfiguration EncryptionOption
-ecEncryptionOption = lens _ecEncryptionOption (\ s a -> s{_ecEncryptionOption = a});
+ecEncryptionOption = lens _ecEncryptionOption (\ s a -> s{_ecEncryptionOption = a})
 
 instance FromJSON EncryptionConfiguration where
         parseJSON
@@ -260,33 +260,33 @@ namedQuery
     -> NamedQuery
 namedQuery pName_ pDatabase_ pQueryString_ =
   NamedQuery'
-  { _nqNamedQueryId = Nothing
-  , _nqDescription = Nothing
-  , _nqName = pName_
-  , _nqDatabase = pDatabase_
-  , _nqQueryString = pQueryString_
-  }
+    { _nqNamedQueryId = Nothing
+    , _nqDescription = Nothing
+    , _nqName = pName_
+    , _nqDatabase = pDatabase_
+    , _nqQueryString = pQueryString_
+    }
 
 
 -- | The unique identifier of the query.
 nqNamedQueryId :: Lens' NamedQuery (Maybe Text)
-nqNamedQueryId = lens _nqNamedQueryId (\ s a -> s{_nqNamedQueryId = a});
+nqNamedQueryId = lens _nqNamedQueryId (\ s a -> s{_nqNamedQueryId = a})
 
 -- | A brief description of the query.
 nqDescription :: Lens' NamedQuery (Maybe Text)
-nqDescription = lens _nqDescription (\ s a -> s{_nqDescription = a});
+nqDescription = lens _nqDescription (\ s a -> s{_nqDescription = a})
 
 -- | The plain-language name of the query.
 nqName :: Lens' NamedQuery Text
-nqName = lens _nqName (\ s a -> s{_nqName = a});
+nqName = lens _nqName (\ s a -> s{_nqName = a})
 
 -- | The database to which the query belongs.
 nqDatabase :: Lens' NamedQuery Text
-nqDatabase = lens _nqDatabase (\ s a -> s{_nqDatabase = a});
+nqDatabase = lens _nqDatabase (\ s a -> s{_nqDatabase = a})
 
 -- | The SQL query statements that comprise the query.
 nqQueryString :: Lens' NamedQuery Text
-nqQueryString = lens _nqQueryString (\ s a -> s{_nqQueryString = a});
+nqQueryString = lens _nqQueryString (\ s a -> s{_nqQueryString = a})
 
 instance FromJSON NamedQuery where
         parseJSON
@@ -336,38 +336,38 @@ queryExecution
     :: QueryExecution
 queryExecution =
   QueryExecution'
-  { _qeStatus = Nothing
-  , _qeQueryExecutionContext = Nothing
-  , _qeResultConfiguration = Nothing
-  , _qeQuery = Nothing
-  , _qeStatistics = Nothing
-  , _qeQueryExecutionId = Nothing
-  }
+    { _qeStatus = Nothing
+    , _qeQueryExecutionContext = Nothing
+    , _qeResultConfiguration = Nothing
+    , _qeQuery = Nothing
+    , _qeStatistics = Nothing
+    , _qeQueryExecutionId = Nothing
+    }
 
 
 -- | The completion date, current state, submission time, and state change reason (if applicable) for the query execution.
 qeStatus :: Lens' QueryExecution (Maybe QueryExecutionStatus)
-qeStatus = lens _qeStatus (\ s a -> s{_qeStatus = a});
+qeStatus = lens _qeStatus (\ s a -> s{_qeStatus = a})
 
 -- | The database in which the query execution occurred.
 qeQueryExecutionContext :: Lens' QueryExecution (Maybe QueryExecutionContext)
-qeQueryExecutionContext = lens _qeQueryExecutionContext (\ s a -> s{_qeQueryExecutionContext = a});
+qeQueryExecutionContext = lens _qeQueryExecutionContext (\ s a -> s{_qeQueryExecutionContext = a})
 
 -- | The location in Amazon S3 where query results were stored and the encryption option, if any, used for query results.
 qeResultConfiguration :: Lens' QueryExecution (Maybe ResultConfiguration)
-qeResultConfiguration = lens _qeResultConfiguration (\ s a -> s{_qeResultConfiguration = a});
+qeResultConfiguration = lens _qeResultConfiguration (\ s a -> s{_qeResultConfiguration = a})
 
 -- | The SQL query statements which the query execution ran.
 qeQuery :: Lens' QueryExecution (Maybe Text)
-qeQuery = lens _qeQuery (\ s a -> s{_qeQuery = a});
+qeQuery = lens _qeQuery (\ s a -> s{_qeQuery = a})
 
 -- | The amount of data scanned during the query execution and the amount of time that it took to execute.
 qeStatistics :: Lens' QueryExecution (Maybe QueryExecutionStatistics)
-qeStatistics = lens _qeStatistics (\ s a -> s{_qeStatistics = a});
+qeStatistics = lens _qeStatistics (\ s a -> s{_qeStatistics = a})
 
 -- | The unique identifier for each query execution.
 qeQueryExecutionId :: Lens' QueryExecution (Maybe Text)
-qeQueryExecutionId = lens _qeQueryExecutionId (\ s a -> s{_qeQueryExecutionId = a});
+qeQueryExecutionId = lens _qeQueryExecutionId (\ s a -> s{_qeQueryExecutionId = a})
 
 instance FromJSON QueryExecution where
         parseJSON
@@ -406,7 +406,7 @@ queryExecutionContext = QueryExecutionContext' {_qecDatabase = Nothing}
 
 -- | The name of the database.
 qecDatabase :: Lens' QueryExecutionContext (Maybe Text)
-qecDatabase = lens _qecDatabase (\ s a -> s{_qecDatabase = a});
+qecDatabase = lens _qecDatabase (\ s a -> s{_qecDatabase = a})
 
 instance FromJSON QueryExecutionContext where
         parseJSON
@@ -445,16 +445,18 @@ queryExecutionStatistics
     :: QueryExecutionStatistics
 queryExecutionStatistics =
   QueryExecutionStatistics'
-  {_qesEngineExecutionTimeInMillis = Nothing, _qesDataScannedInBytes = Nothing}
+    { _qesEngineExecutionTimeInMillis = Nothing
+    , _qesDataScannedInBytes = Nothing
+    }
 
 
 -- | The number of milliseconds that the query took to execute.
 qesEngineExecutionTimeInMillis :: Lens' QueryExecutionStatistics (Maybe Integer)
-qesEngineExecutionTimeInMillis = lens _qesEngineExecutionTimeInMillis (\ s a -> s{_qesEngineExecutionTimeInMillis = a});
+qesEngineExecutionTimeInMillis = lens _qesEngineExecutionTimeInMillis (\ s a -> s{_qesEngineExecutionTimeInMillis = a})
 
 -- | The number of bytes in the data that was queried.
 qesDataScannedInBytes :: Lens' QueryExecutionStatistics (Maybe Integer)
-qesDataScannedInBytes = lens _qesDataScannedInBytes (\ s a -> s{_qesDataScannedInBytes = a});
+qesDataScannedInBytes = lens _qesDataScannedInBytes (\ s a -> s{_qesDataScannedInBytes = a})
 
 instance FromJSON QueryExecutionStatistics where
         parseJSON
@@ -496,28 +498,28 @@ queryExecutionStatus
     :: QueryExecutionStatus
 queryExecutionStatus =
   QueryExecutionStatus'
-  { _qesState = Nothing
-  , _qesStateChangeReason = Nothing
-  , _qesSubmissionDateTime = Nothing
-  , _qesCompletionDateTime = Nothing
-  }
+    { _qesState = Nothing
+    , _qesStateChangeReason = Nothing
+    , _qesSubmissionDateTime = Nothing
+    , _qesCompletionDateTime = Nothing
+    }
 
 
 -- | The state of query execution. @SUBMITTED@ indicates that the query is queued for execution. @RUNNING@ indicates that the query is scanning data and returning results. @SUCCEEDED@ indicates that the query completed without error. @FAILED@ indicates that the query experienced an error and did not complete processing. @CANCELLED@ indicates that user input interrupted query execution.
 qesState :: Lens' QueryExecutionStatus (Maybe QueryExecutionState)
-qesState = lens _qesState (\ s a -> s{_qesState = a});
+qesState = lens _qesState (\ s a -> s{_qesState = a})
 
 -- | Further detail about the status of the query.
 qesStateChangeReason :: Lens' QueryExecutionStatus (Maybe Text)
-qesStateChangeReason = lens _qesStateChangeReason (\ s a -> s{_qesStateChangeReason = a});
+qesStateChangeReason = lens _qesStateChangeReason (\ s a -> s{_qesStateChangeReason = a})
 
 -- | The date and time that the query was submitted.
 qesSubmissionDateTime :: Lens' QueryExecutionStatus (Maybe UTCTime)
-qesSubmissionDateTime = lens _qesSubmissionDateTime (\ s a -> s{_qesSubmissionDateTime = a}) . mapping _Time;
+qesSubmissionDateTime = lens _qesSubmissionDateTime (\ s a -> s{_qesSubmissionDateTime = a}) . mapping _Time
 
 -- | The date and time that the query completed.
 qesCompletionDateTime :: Lens' QueryExecutionStatus (Maybe UTCTime)
-qesCompletionDateTime = lens _qesCompletionDateTime (\ s a -> s{_qesCompletionDateTime = a}) . mapping _Time;
+qesCompletionDateTime = lens _qesCompletionDateTime (\ s a -> s{_qesCompletionDateTime = a}) . mapping _Time
 
 instance FromJSON QueryExecutionStatus where
         parseJSON
@@ -555,16 +557,16 @@ resultConfiguration
     -> ResultConfiguration
 resultConfiguration pOutputLocation_ =
   ResultConfiguration'
-  {_rcEncryptionConfiguration = Nothing, _rcOutputLocation = pOutputLocation_}
+    {_rcEncryptionConfiguration = Nothing, _rcOutputLocation = pOutputLocation_}
 
 
 -- | If query results are encrypted in S3, indicates the S3 encryption option used (for example, @SSE-KMS@ or @CSE-KMS@ and key information.
 rcEncryptionConfiguration :: Lens' ResultConfiguration (Maybe EncryptionConfiguration)
-rcEncryptionConfiguration = lens _rcEncryptionConfiguration (\ s a -> s{_rcEncryptionConfiguration = a});
+rcEncryptionConfiguration = lens _rcEncryptionConfiguration (\ s a -> s{_rcEncryptionConfiguration = a})
 
 -- | The location in S3 where query results are stored.
 rcOutputLocation :: Lens' ResultConfiguration Text
-rcOutputLocation = lens _rcOutputLocation (\ s a -> s{_rcOutputLocation = a});
+rcOutputLocation = lens _rcOutputLocation (\ s a -> s{_rcOutputLocation = a})
 
 instance FromJSON ResultConfiguration where
         parseJSON
@@ -611,11 +613,11 @@ resultSet = ResultSet' {_rsRows = Nothing, _rsResultSetMetadata = Nothing}
 
 -- | The rows in the table.
 rsRows :: Lens' ResultSet [Row]
-rsRows = lens _rsRows (\ s a -> s{_rsRows = a}) . _Default . _Coerce;
+rsRows = lens _rsRows (\ s a -> s{_rsRows = a}) . _Default . _Coerce
 
 -- | The metadata that describes the column structure and data types of a table of query results.
 rsResultSetMetadata :: Lens' ResultSet (Maybe ResultSetMetadata)
-rsResultSetMetadata = lens _rsResultSetMetadata (\ s a -> s{_rsResultSetMetadata = a});
+rsResultSetMetadata = lens _rsResultSetMetadata (\ s a -> s{_rsResultSetMetadata = a})
 
 instance FromJSON ResultSet where
         parseJSON
@@ -651,7 +653,7 @@ resultSetMetadata = ResultSetMetadata' {_rsmColumnInfo = Nothing}
 
 -- | Information about the columns in a query execution result.
 rsmColumnInfo :: Lens' ResultSetMetadata [ColumnInfo]
-rsmColumnInfo = lens _rsmColumnInfo (\ s a -> s{_rsmColumnInfo = a}) . _Default . _Coerce;
+rsmColumnInfo = lens _rsmColumnInfo (\ s a -> s{_rsmColumnInfo = a}) . _Default . _Coerce
 
 instance FromJSON ResultSetMetadata where
         parseJSON
@@ -686,7 +688,7 @@ row = Row' {_rowData = Nothing}
 
 -- | The data that populates a row in a query result table.
 rowData :: Lens' Row [Datum]
-rowData = lens _rowData (\ s a -> s{_rowData = a}) . _Default . _Coerce;
+rowData = lens _rowData (\ s a -> s{_rowData = a}) . _Default . _Coerce
 
 instance FromJSON Row where
         parseJSON
@@ -722,23 +724,23 @@ unprocessedNamedQueryId
     :: UnprocessedNamedQueryId
 unprocessedNamedQueryId =
   UnprocessedNamedQueryId'
-  { _unqiNamedQueryId = Nothing
-  , _unqiErrorCode = Nothing
-  , _unqiErrorMessage = Nothing
-  }
+    { _unqiNamedQueryId = Nothing
+    , _unqiErrorCode = Nothing
+    , _unqiErrorMessage = Nothing
+    }
 
 
 -- | The unique identifier of the named query.
 unqiNamedQueryId :: Lens' UnprocessedNamedQueryId (Maybe Text)
-unqiNamedQueryId = lens _unqiNamedQueryId (\ s a -> s{_unqiNamedQueryId = a});
+unqiNamedQueryId = lens _unqiNamedQueryId (\ s a -> s{_unqiNamedQueryId = a})
 
 -- | The error code returned when the processing request for the named query failed, if applicable.
 unqiErrorCode :: Lens' UnprocessedNamedQueryId (Maybe Text)
-unqiErrorCode = lens _unqiErrorCode (\ s a -> s{_unqiErrorCode = a});
+unqiErrorCode = lens _unqiErrorCode (\ s a -> s{_unqiErrorCode = a})
 
 -- | The error message returned when the processing request for the named query failed, if applicable.
 unqiErrorMessage :: Lens' UnprocessedNamedQueryId (Maybe Text)
-unqiErrorMessage = lens _unqiErrorMessage (\ s a -> s{_unqiErrorMessage = a});
+unqiErrorMessage = lens _unqiErrorMessage (\ s a -> s{_unqiErrorMessage = a})
 
 instance FromJSON UnprocessedNamedQueryId where
         parseJSON
@@ -777,23 +779,23 @@ unprocessedQueryExecutionId
     :: UnprocessedQueryExecutionId
 unprocessedQueryExecutionId =
   UnprocessedQueryExecutionId'
-  { _uqeiErrorCode = Nothing
-  , _uqeiQueryExecutionId = Nothing
-  , _uqeiErrorMessage = Nothing
-  }
+    { _uqeiErrorCode = Nothing
+    , _uqeiQueryExecutionId = Nothing
+    , _uqeiErrorMessage = Nothing
+    }
 
 
 -- | The error code returned when the query execution failed to process, if applicable.
 uqeiErrorCode :: Lens' UnprocessedQueryExecutionId (Maybe Text)
-uqeiErrorCode = lens _uqeiErrorCode (\ s a -> s{_uqeiErrorCode = a});
+uqeiErrorCode = lens _uqeiErrorCode (\ s a -> s{_uqeiErrorCode = a})
 
 -- | The unique identifier of the query execution.
 uqeiQueryExecutionId :: Lens' UnprocessedQueryExecutionId (Maybe Text)
-uqeiQueryExecutionId = lens _uqeiQueryExecutionId (\ s a -> s{_uqeiQueryExecutionId = a});
+uqeiQueryExecutionId = lens _uqeiQueryExecutionId (\ s a -> s{_uqeiQueryExecutionId = a})
 
 -- | The error message returned when the query execution failed to process, if applicable.
 uqeiErrorMessage :: Lens' UnprocessedQueryExecutionId (Maybe Text)
-uqeiErrorMessage = lens _uqeiErrorMessage (\ s a -> s{_uqeiErrorMessage = a});
+uqeiErrorMessage = lens _uqeiErrorMessage (\ s a -> s{_uqeiErrorMessage = a})
 
 instance FromJSON UnprocessedQueryExecutionId where
         parseJSON

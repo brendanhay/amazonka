@@ -8,10 +8,11 @@
 {-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE CPP                        #-}
 
 -- |
 -- Module      : Network.AWS.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -168,6 +169,10 @@ import Network.HTTP.Types.Status   (Status)
 import qualified Data.Text            as Text
 import qualified Network.HTTP.Conduit as Client
 
+#if ! MIN_VERSION_http_client(0,4,30)
+import           Text.XML                     (def)
+#endif
+
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
 
@@ -175,7 +180,7 @@ type ClientRequest = Client.Request
 type ClientResponse = Client.Response ResponseBody
 
 -- | A convenience alias encapsulating the common 'Response' body.
-type ResponseBody = ResumableSource (ResourceT IO) ByteString
+type ResponseBody = ConduitM () ByteString (ResourceT IO) ()
 
 -- | Abbreviated service name.
 newtype Abbrev = Abbrev Text
@@ -451,15 +456,24 @@ serviceRetry = lens _svcRetry (\s a -> s { _svcRetry = a })
 -- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
 -- throwing errors when receiving erroneous status codes in respones.
 clientRequest :: Endpoint -> Maybe Seconds -> ClientRequest
-clientRequest e t = Client.defaultRequest
+clientRequest e t =
+#if MIN_VERSION_http_client(0,4,30)
+  Client.defaultRequest
+#else
+  def
+#endif
     { Client.secure          = _endpointSecure e
     , Client.host            = _endpointHost   e
     , Client.port            = _endpointPort   e
     , Client.redirectCount   = 0
     , Client.responseTimeout =
+#if MIN_VERSION_http_client(0,5,0)
         case t of
             Nothing -> Client.responseTimeoutNone
             Just x  -> Client.responseTimeoutMicro (microseconds x)
+#else
+        microseconds <$> t
+#endif
     }
 
 -- | An unsigned request.
@@ -504,7 +518,7 @@ class AWSRequest a where
     type Rs a :: *
 
     request  :: a -> Request a
-    response :: MonadResource m
+    response :: (MonadResource m, MonadThrow m)
              => Logger
              -> Service
              -> Proxy a -- For injectivity reasons.

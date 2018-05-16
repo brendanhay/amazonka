@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListUserImportJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ listUserImportJobs
     -> ListUserImportJobs
 listUserImportJobs pUserPoolId_ pMaxResults_ =
   ListUserImportJobs'
-  { _luijPaginationToken = Nothing
-  , _luijUserPoolId = pUserPoolId_
-  , _luijMaxResults = _Nat # pMaxResults_
-  }
+    { _luijPaginationToken = Nothing
+    , _luijUserPoolId = pUserPoolId_
+    , _luijMaxResults = _Nat # pMaxResults_
+    }
 
 
 -- | An identifier that was returned from the previous call to @ListUserImportJobs@ , which can be used to return the next set of import jobs in the list.
 luijPaginationToken :: Lens' ListUserImportJobs (Maybe Text)
-luijPaginationToken = lens _luijPaginationToken (\ s a -> s{_luijPaginationToken = a});
+luijPaginationToken = lens _luijPaginationToken (\ s a -> s{_luijPaginationToken = a})
 
 -- | The user pool ID for the user pool that the users are being imported into.
 luijUserPoolId :: Lens' ListUserImportJobs Text
-luijUserPoolId = lens _luijUserPoolId (\ s a -> s{_luijUserPoolId = a});
+luijUserPoolId = lens _luijUserPoolId (\ s a -> s{_luijUserPoolId = a})
 
 -- | The maximum number of import jobs you want the request to return.
 luijMaxResults :: Lens' ListUserImportJobs Natural
-luijMaxResults = lens _luijMaxResults (\ s a -> s{_luijMaxResults = a}) . _Nat;
+luijMaxResults = lens _luijMaxResults (\ s a -> s{_luijMaxResults = a}) . _Nat
 
 instance AWSRequest ListUserImportJobs where
         type Rs ListUserImportJobs =
@@ -158,22 +158,22 @@ listUserImportJobsResponse
     -> ListUserImportJobsResponse
 listUserImportJobsResponse pResponseStatus_ =
   ListUserImportJobsResponse'
-  { _luijrsPaginationToken = Nothing
-  , _luijrsUserImportJobs = Nothing
-  , _luijrsResponseStatus = pResponseStatus_
-  }
+    { _luijrsPaginationToken = Nothing
+    , _luijrsUserImportJobs = Nothing
+    , _luijrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An identifier that can be used to return the next set of user import jobs in the list.
 luijrsPaginationToken :: Lens' ListUserImportJobsResponse (Maybe Text)
-luijrsPaginationToken = lens _luijrsPaginationToken (\ s a -> s{_luijrsPaginationToken = a});
+luijrsPaginationToken = lens _luijrsPaginationToken (\ s a -> s{_luijrsPaginationToken = a})
 
 -- | The user import jobs.
 luijrsUserImportJobs :: Lens' ListUserImportJobsResponse (Maybe (NonEmpty UserImportJobType))
-luijrsUserImportJobs = lens _luijrsUserImportJobs (\ s a -> s{_luijrsUserImportJobs = a}) . mapping _List1;
+luijrsUserImportJobs = lens _luijrsUserImportJobs (\ s a -> s{_luijrsUserImportJobs = a}) . mapping _List1
 
 -- | -- | The response status code.
 luijrsResponseStatus :: Lens' ListUserImportJobsResponse Int
-luijrsResponseStatus = lens _luijrsResponseStatus (\ s a -> s{_luijrsResponseStatus = a});
+luijrsResponseStatus = lens _luijrsResponseStatus (\ s a -> s{_luijrsResponseStatus = a})
 
 instance NFData ListUserImportJobsResponse where

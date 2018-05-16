@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateClassifier
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a @Classifier@ in the user's account.
+-- Creates a classifier in the user's account. This may be a @GrokClassifier@ , an @XMLClassifier@ , or abbrev @JsonClassifier@ , depending on which field of the request is present.
 --
 --
 module Network.AWS.Glue.CreateClassifier
@@ -28,6 +28,8 @@ module Network.AWS.Glue.CreateClassifier
     , CreateClassifier
     -- * Request Lenses
     , ccGrokClassifier
+    , ccXMLClassifier
+    , ccJSONClassifier
 
     -- * Destructuring the Response
     , createClassifierResponse
@@ -44,8 +46,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'createClassifier' smart constructor.
-newtype CreateClassifier = CreateClassifier'
-  { _ccGrokClassifier :: Maybe CreateGrokClassifierRequest
+data CreateClassifier = CreateClassifier'
+  { _ccGrokClassifier :: !(Maybe CreateGrokClassifierRequest)
+  , _ccXMLClassifier  :: !(Maybe CreateXMLClassifierRequest)
+  , _ccJSONClassifier :: !(Maybe CreateJSONClassifierRequest)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -53,15 +57,32 @@ newtype CreateClassifier = CreateClassifier'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccGrokClassifier' - A grok classifier to create.
+-- * 'ccGrokClassifier' - A @GrokClassifier@ object specifying the classifier to create.
+--
+-- * 'ccXMLClassifier' - An @XMLClassifier@ object specifying the classifier to create.
+--
+-- * 'ccJSONClassifier' - A @JsonClassifier@ object specifying the classifier to create.
 createClassifier
     :: CreateClassifier
-createClassifier = CreateClassifier' {_ccGrokClassifier = Nothing}
+createClassifier =
+  CreateClassifier'
+    { _ccGrokClassifier = Nothing
+    , _ccXMLClassifier = Nothing
+    , _ccJSONClassifier = Nothing
+    }
 
 
--- | A grok classifier to create.
+-- | A @GrokClassifier@ object specifying the classifier to create.
 ccGrokClassifier :: Lens' CreateClassifier (Maybe CreateGrokClassifierRequest)
-ccGrokClassifier = lens _ccGrokClassifier (\ s a -> s{_ccGrokClassifier = a});
+ccGrokClassifier = lens _ccGrokClassifier (\ s a -> s{_ccGrokClassifier = a})
+
+-- | An @XMLClassifier@ object specifying the classifier to create.
+ccXMLClassifier :: Lens' CreateClassifier (Maybe CreateXMLClassifierRequest)
+ccXMLClassifier = lens _ccXMLClassifier (\ s a -> s{_ccXMLClassifier = a})
+
+-- | A @JsonClassifier@ object specifying the classifier to create.
+ccJSONClassifier :: Lens' CreateClassifier (Maybe CreateJSONClassifierRequest)
+ccJSONClassifier = lens _ccJSONClassifier (\ s a -> s{_ccJSONClassifier = a})
 
 instance AWSRequest CreateClassifier where
         type Rs CreateClassifier = CreateClassifierResponse
@@ -88,7 +109,9 @@ instance ToJSON CreateClassifier where
         toJSON CreateClassifier'{..}
           = object
               (catMaybes
-                 [("GrokClassifier" .=) <$> _ccGrokClassifier])
+                 [("GrokClassifier" .=) <$> _ccGrokClassifier,
+                  ("XMLClassifier" .=) <$> _ccXMLClassifier,
+                  ("JsonClassifier" .=) <$> _ccJSONClassifier])
 
 instance ToPath CreateClassifier where
         toPath = const "/"
@@ -116,6 +139,6 @@ createClassifierResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CreateClassifierResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
 
 instance NFData CreateClassifierResponse where

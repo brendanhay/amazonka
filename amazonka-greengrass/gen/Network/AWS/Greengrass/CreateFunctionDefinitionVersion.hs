@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateFunctionDefinitionVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a version of a Lambda function definition that has already been defined.
+-- Creates a version of a Lambda function definition that has already been defined.
 module Network.AWS.Greengrass.CreateFunctionDefinitionVersion
     (
     -- * Creating a Request
@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Function definition version
+-- | Information needed to create a function definition version.
 --
 -- /See:/ 'createFunctionDefinitionVersion' smart constructor.
 data CreateFunctionDefinitionVersion = CreateFunctionDefinitionVersion'
@@ -61,33 +61,33 @@ data CreateFunctionDefinitionVersion = CreateFunctionDefinitionVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfdvAmznClientToken' - The client token used to request idempotent operations.
+-- * 'cfdvAmznClientToken' - A client token used to correlate requests and responses.
 --
--- * 'cfdvFunctions' - Lambda functions in this function definition version.
+-- * 'cfdvFunctions' - A list of Lambda functions in this function definition version.
 --
--- * 'cfdvFunctionDefinitionId' - the unique Id of the lambda definition
+-- * 'cfdvFunctionDefinitionId' - The ID of the Lambda function definition.
 createFunctionDefinitionVersion
     :: Text -- ^ 'cfdvFunctionDefinitionId'
     -> CreateFunctionDefinitionVersion
 createFunctionDefinitionVersion pFunctionDefinitionId_ =
   CreateFunctionDefinitionVersion'
-  { _cfdvAmznClientToken = Nothing
-  , _cfdvFunctions = Nothing
-  , _cfdvFunctionDefinitionId = pFunctionDefinitionId_
-  }
+    { _cfdvAmznClientToken = Nothing
+    , _cfdvFunctions = Nothing
+    , _cfdvFunctionDefinitionId = pFunctionDefinitionId_
+    }
 
 
--- | The client token used to request idempotent operations.
+-- | A client token used to correlate requests and responses.
 cfdvAmznClientToken :: Lens' CreateFunctionDefinitionVersion (Maybe Text)
-cfdvAmznClientToken = lens _cfdvAmznClientToken (\ s a -> s{_cfdvAmznClientToken = a});
+cfdvAmznClientToken = lens _cfdvAmznClientToken (\ s a -> s{_cfdvAmznClientToken = a})
 
--- | Lambda functions in this function definition version.
+-- | A list of Lambda functions in this function definition version.
 cfdvFunctions :: Lens' CreateFunctionDefinitionVersion [Function]
-cfdvFunctions = lens _cfdvFunctions (\ s a -> s{_cfdvFunctions = a}) . _Default . _Coerce;
+cfdvFunctions = lens _cfdvFunctions (\ s a -> s{_cfdvFunctions = a}) . _Default . _Coerce
 
--- | the unique Id of the lambda definition
+-- | The ID of the Lambda function definition.
 cfdvFunctionDefinitionId :: Lens' CreateFunctionDefinitionVersion Text
-cfdvFunctionDefinitionId = lens _cfdvFunctionDefinitionId (\ s a -> s{_cfdvFunctionDefinitionId = a});
+cfdvFunctionDefinitionId = lens _cfdvFunctionDefinitionId (\ s a -> s{_cfdvFunctionDefinitionId = a})
 
 instance AWSRequest CreateFunctionDefinitionVersion
          where
@@ -145,13 +145,13 @@ data CreateFunctionDefinitionVersionResponse = CreateFunctionDefinitionVersionRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfdvrsARN' - Arn of the version.
+-- * 'cfdvrsARN' - The ARN of the version.
 --
--- * 'cfdvrsCreationTimestamp' - Timestamp of when the version was created.
+-- * 'cfdvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
 --
--- * 'cfdvrsVersion' - Unique Id of a version.
+-- * 'cfdvrsVersion' - The unique ID of the version.
 --
--- * 'cfdvrsId' - Id of the resource container.
+-- * 'cfdvrsId' - The ID of the version.
 --
 -- * 'cfdvrsResponseStatus' - -- | The response status code.
 createFunctionDefinitionVersionResponse
@@ -159,33 +159,33 @@ createFunctionDefinitionVersionResponse
     -> CreateFunctionDefinitionVersionResponse
 createFunctionDefinitionVersionResponse pResponseStatus_ =
   CreateFunctionDefinitionVersionResponse'
-  { _cfdvrsARN = Nothing
-  , _cfdvrsCreationTimestamp = Nothing
-  , _cfdvrsVersion = Nothing
-  , _cfdvrsId = Nothing
-  , _cfdvrsResponseStatus = pResponseStatus_
-  }
+    { _cfdvrsARN = Nothing
+    , _cfdvrsCreationTimestamp = Nothing
+    , _cfdvrsVersion = Nothing
+    , _cfdvrsId = Nothing
+    , _cfdvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Arn of the version.
+-- | The ARN of the version.
 cfdvrsARN :: Lens' CreateFunctionDefinitionVersionResponse (Maybe Text)
-cfdvrsARN = lens _cfdvrsARN (\ s a -> s{_cfdvrsARN = a});
+cfdvrsARN = lens _cfdvrsARN (\ s a -> s{_cfdvrsARN = a})
 
--- | Timestamp of when the version was created.
+-- | The time, in milliseconds since the epoch, when the version was created.
 cfdvrsCreationTimestamp :: Lens' CreateFunctionDefinitionVersionResponse (Maybe Text)
-cfdvrsCreationTimestamp = lens _cfdvrsCreationTimestamp (\ s a -> s{_cfdvrsCreationTimestamp = a});
+cfdvrsCreationTimestamp = lens _cfdvrsCreationTimestamp (\ s a -> s{_cfdvrsCreationTimestamp = a})
 
--- | Unique Id of a version.
+-- | The unique ID of the version.
 cfdvrsVersion :: Lens' CreateFunctionDefinitionVersionResponse (Maybe Text)
-cfdvrsVersion = lens _cfdvrsVersion (\ s a -> s{_cfdvrsVersion = a});
+cfdvrsVersion = lens _cfdvrsVersion (\ s a -> s{_cfdvrsVersion = a})
 
--- | Id of the resource container.
+-- | The ID of the version.
 cfdvrsId :: Lens' CreateFunctionDefinitionVersionResponse (Maybe Text)
-cfdvrsId = lens _cfdvrsId (\ s a -> s{_cfdvrsId = a});
+cfdvrsId = lens _cfdvrsId (\ s a -> s{_cfdvrsId = a})
 
 -- | -- | The response status code.
 cfdvrsResponseStatus :: Lens' CreateFunctionDefinitionVersionResponse Int
-cfdvrsResponseStatus = lens _cfdvrsResponseStatus (\ s a -> s{_cfdvrsResponseStatus = a});
+cfdvrsResponseStatus = lens _cfdvrsResponseStatus (\ s a -> s{_cfdvrsResponseStatus = a})
 
 instance NFData
            CreateFunctionDefinitionVersionResponse

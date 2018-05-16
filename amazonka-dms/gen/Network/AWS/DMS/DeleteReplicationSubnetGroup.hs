@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DeleteReplicationSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,12 +63,12 @@ deleteReplicationSubnetGroup
     -> DeleteReplicationSubnetGroup
 deleteReplicationSubnetGroup pReplicationSubnetGroupIdentifier_ =
   DeleteReplicationSubnetGroup'
-  {_drsgReplicationSubnetGroupIdentifier = pReplicationSubnetGroupIdentifier_}
+    {_drsgReplicationSubnetGroupIdentifier = pReplicationSubnetGroupIdentifier_}
 
 
 -- | The subnet group name of the replication instance.
 drsgReplicationSubnetGroupIdentifier :: Lens' DeleteReplicationSubnetGroup Text
-drsgReplicationSubnetGroupIdentifier = lens _drsgReplicationSubnetGroupIdentifier (\ s a -> s{_drsgReplicationSubnetGroupIdentifier = a});
+drsgReplicationSubnetGroupIdentifier = lens _drsgReplicationSubnetGroupIdentifier (\ s a -> s{_drsgReplicationSubnetGroupIdentifier = a})
 
 instance AWSRequest DeleteReplicationSubnetGroup
          where
@@ -129,12 +129,12 @@ deleteReplicationSubnetGroupResponse
     -> DeleteReplicationSubnetGroupResponse
 deleteReplicationSubnetGroupResponse pResponseStatus_ =
   DeleteReplicationSubnetGroupResponse'
-  {_drsgrsResponseStatus = pResponseStatus_}
+    {_drsgrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 drsgrsResponseStatus :: Lens' DeleteReplicationSubnetGroupResponse Int
-drsgrsResponseStatus = lens _drsgrsResponseStatus (\ s a -> s{_drsgrsResponseStatus = a});
+drsgrsResponseStatus = lens _drsgrsResponseStatus (\ s a -> s{_drsgrsResponseStatus = a})
 
 instance NFData DeleteReplicationSubnetGroupResponse
          where

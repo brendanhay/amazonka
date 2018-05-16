@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DetachThingPrincipal
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ detachThingPrincipal
     -> DetachThingPrincipal
 detachThingPrincipal pThingName_ pPrincipal_ =
   DetachThingPrincipal'
-  {_dtpThingName = pThingName_, _dtpPrincipal = pPrincipal_}
+    {_dtpThingName = pThingName_, _dtpPrincipal = pPrincipal_}
 
 
 -- | The name of the thing.
 dtpThingName :: Lens' DetachThingPrincipal Text
-dtpThingName = lens _dtpThingName (\ s a -> s{_dtpThingName = a});
+dtpThingName = lens _dtpThingName (\ s a -> s{_dtpThingName = a})
 
 -- | If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
 dtpPrincipal :: Lens' DetachThingPrincipal Text
-dtpPrincipal = lens _dtpPrincipal (\ s a -> s{_dtpPrincipal = a});
+dtpPrincipal = lens _dtpPrincipal (\ s a -> s{_dtpPrincipal = a})
 
 instance AWSRequest DetachThingPrincipal where
         type Rs DetachThingPrincipal =
@@ -129,6 +129,6 @@ detachThingPrincipalResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dtprsResponseStatus :: Lens' DetachThingPrincipalResponse Int
-dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
+dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a})
 
 instance NFData DetachThingPrincipalResponse where

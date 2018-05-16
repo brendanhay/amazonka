@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListTagsForResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ listTagsForResource
     -> ListTagsForResource
 listTagsForResource pResourceType_ pResourceId_ =
   ListTagsForResource'
-  {_ltfrResourceType = pResourceType_, _ltfrResourceId = pResourceId_}
+    {_ltfrResourceType = pResourceType_, _ltfrResourceId = pResourceId_}
 
 
 -- | Returns a list of tags for a specific resource type.
 ltfrResourceType :: Lens' ListTagsForResource ResourceTypeForTagging
-ltfrResourceType = lens _ltfrResourceType (\ s a -> s{_ltfrResourceType = a});
+ltfrResourceType = lens _ltfrResourceType (\ s a -> s{_ltfrResourceType = a})
 
 -- | The resource ID for which you want to see a list of tags.
 ltfrResourceId :: Lens' ListTagsForResource Text
-ltfrResourceId = lens _ltfrResourceId (\ s a -> s{_ltfrResourceId = a});
+ltfrResourceId = lens _ltfrResourceId (\ s a -> s{_ltfrResourceId = a})
 
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource =
@@ -131,15 +131,15 @@ listTagsForResourceResponse
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
   ListTagsForResourceResponse'
-  {_ltfrrsTagList = Nothing, _ltfrrsResponseStatus = pResponseStatus_}
+    {_ltfrrsTagList = Nothing, _ltfrrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of tags.
 ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce;
+ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a})
 
 instance NFData ListTagsForResourceResponse where

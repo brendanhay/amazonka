@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.PutSchemaFromJSON
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ putSchemaFromJSON pSchemaARN_ pDocument_ =
 
 -- | The ARN of the schema to update.
 psfjSchemaARN :: Lens' PutSchemaFromJSON Text
-psfjSchemaARN = lens _psfjSchemaARN (\ s a -> s{_psfjSchemaARN = a});
+psfjSchemaARN = lens _psfjSchemaARN (\ s a -> s{_psfjSchemaARN = a})
 
 -- | The replacement JSON schema.
 psfjDocument :: Lens' PutSchemaFromJSON Text
-psfjDocument = lens _psfjDocument (\ s a -> s{_psfjDocument = a});
+psfjDocument = lens _psfjDocument (\ s a -> s{_psfjDocument = a})
 
 instance AWSRequest PutSchemaFromJSON where
         type Rs PutSchemaFromJSON = PutSchemaFromJSONResponse
@@ -124,15 +124,15 @@ putSchemaFromJSONResponse
     -> PutSchemaFromJSONResponse
 putSchemaFromJSONResponse pResponseStatus_ =
   PutSchemaFromJSONResponse'
-  {_psfjrsARN = Nothing, _psfjrsResponseStatus = pResponseStatus_}
+    {_psfjrsARN = Nothing, _psfjrsResponseStatus = pResponseStatus_}
 
 
 -- | The ARN of the schema to update.
 psfjrsARN :: Lens' PutSchemaFromJSONResponse (Maybe Text)
-psfjrsARN = lens _psfjrsARN (\ s a -> s{_psfjrsARN = a});
+psfjrsARN = lens _psfjrsARN (\ s a -> s{_psfjrsARN = a})
 
 -- | -- | The response status code.
 psfjrsResponseStatus :: Lens' PutSchemaFromJSONResponse Int
-psfjrsResponseStatus = lens _psfjrsResponseStatus (\ s a -> s{_psfjrsResponseStatus = a});
+psfjrsResponseStatus = lens _psfjrsResponseStatus (\ s a -> s{_psfjrsResponseStatus = a})
 
 instance NFData PutSchemaFromJSONResponse where

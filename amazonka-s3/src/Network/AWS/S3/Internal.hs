@@ -10,7 +10,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.Internal
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : This Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
@@ -65,6 +65,7 @@ newtype BucketName = BucketName Text
         , ToXML
         , ToQuery
         , ToLog
+        , FromJSON
         )
 
 instance Hashable BucketName

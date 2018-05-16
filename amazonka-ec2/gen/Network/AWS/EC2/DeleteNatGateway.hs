@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteNatGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ deleteNatGateway pNatGatewayId_ =
 
 -- | The ID of the NAT gateway.
 dngNatGatewayId :: Lens' DeleteNatGateway Text
-dngNatGatewayId = lens _dngNatGatewayId (\ s a -> s{_dngNatGatewayId = a});
+dngNatGatewayId = lens _dngNatGatewayId (\ s a -> s{_dngNatGatewayId = a})
 
 instance AWSRequest DeleteNatGateway where
         type Rs DeleteNatGateway = DeleteNatGatewayResponse
@@ -119,15 +119,15 @@ deleteNatGatewayResponse
     -> DeleteNatGatewayResponse
 deleteNatGatewayResponse pResponseStatus_ =
   DeleteNatGatewayResponse'
-  {_dngnrsNatGatewayId = Nothing, _dngnrsResponseStatus = pResponseStatus_}
+    {_dngnrsNatGatewayId = Nothing, _dngnrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the NAT gateway.
 dngnrsNatGatewayId :: Lens' DeleteNatGatewayResponse (Maybe Text)
-dngnrsNatGatewayId = lens _dngnrsNatGatewayId (\ s a -> s{_dngnrsNatGatewayId = a});
+dngnrsNatGatewayId = lens _dngnrsNatGatewayId (\ s a -> s{_dngnrsNatGatewayId = a})
 
 -- | -- | The response status code.
 dngnrsResponseStatus :: Lens' DeleteNatGatewayResponse Int
-dngnrsResponseStatus = lens _dngnrsResponseStatus (\ s a -> s{_dngnrsResponseStatus = a});
+dngnrsResponseStatus = lens _dngnrsResponseStatus (\ s a -> s{_dngnrsResponseStatus = a})
 
 instance NFData DeleteNatGatewayResponse where

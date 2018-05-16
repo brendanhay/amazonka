@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.RetireGrant
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,20 +74,20 @@ retireGrant
     :: RetireGrant
 retireGrant =
   RetireGrant'
-  {_rgKeyId = Nothing, _rgGrantId = Nothing, _rgGrantToken = Nothing}
+    {_rgKeyId = Nothing, _rgGrantId = Nothing, _rgGrantToken = Nothing}
 
 
 -- | The Amazon Resource Name (ARN) of the CMK associated with the grant.  For example: @arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 rgKeyId :: Lens' RetireGrant (Maybe Text)
-rgKeyId = lens _rgKeyId (\ s a -> s{_rgKeyId = a});
+rgKeyId = lens _rgKeyId (\ s a -> s{_rgKeyId = a})
 
 -- | Unique identifier of the grant to retire. The grant ID is returned in the response to a @CreateGrant@ operation.     * Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123
 rgGrantId :: Lens' RetireGrant (Maybe Text)
-rgGrantId = lens _rgGrantId (\ s a -> s{_rgGrantId = a});
+rgGrantId = lens _rgGrantId (\ s a -> s{_rgGrantId = a})
 
 -- | Token that identifies the grant to be retired.
 rgGrantToken :: Lens' RetireGrant (Maybe Text)
-rgGrantToken = lens _rgGrantToken (\ s a -> s{_rgGrantToken = a});
+rgGrantToken = lens _rgGrantToken (\ s a -> s{_rgGrantToken = a})
 
 instance AWSRequest RetireGrant where
         type Rs RetireGrant = RetireGrantResponse

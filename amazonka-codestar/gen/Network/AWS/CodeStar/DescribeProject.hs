@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.DescribeProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ describeProject pId_ = DescribeProject' {_dId = pId_}
 
 -- | The ID of the project.
 dId :: Lens' DescribeProject Text
-dId = lens _dId (\ s a -> s{_dId = a});
+dId = lens _dId (\ s a -> s{_dId = a})
 
 instance AWSRequest DescribeProject where
         type Rs DescribeProject = DescribeProjectResponse
@@ -151,52 +151,52 @@ describeProjectResponse
     -> DescribeProjectResponse
 describeProjectResponse pResponseStatus_ =
   DescribeProjectResponse'
-  { _drsArn = Nothing
-  , _drsProjectTemplateId = Nothing
-  , _drsName = Nothing
-  , _drsId = Nothing
-  , _drsStackId = Nothing
-  , _drsClientRequestToken = Nothing
-  , _drsCreatedTimeStamp = Nothing
-  , _drsDescription = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsArn = Nothing
+    , _drsProjectTemplateId = Nothing
+    , _drsName = Nothing
+    , _drsId = Nothing
+    , _drsStackId = Nothing
+    , _drsClientRequestToken = Nothing
+    , _drsCreatedTimeStamp = Nothing
+    , _drsDescription = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The Amazon Resource Name (ARN) for the project.
 drsArn :: Lens' DescribeProjectResponse (Maybe Text)
-drsArn = lens _drsArn (\ s a -> s{_drsArn = a});
+drsArn = lens _drsArn (\ s a -> s{_drsArn = a})
 
 -- | The ID for the AWS CodeStar project template used to create the project.
 drsProjectTemplateId :: Lens' DescribeProjectResponse (Maybe Text)
-drsProjectTemplateId = lens _drsProjectTemplateId (\ s a -> s{_drsProjectTemplateId = a});
+drsProjectTemplateId = lens _drsProjectTemplateId (\ s a -> s{_drsProjectTemplateId = a})
 
 -- | The display name for the project.
 drsName :: Lens' DescribeProjectResponse (Maybe Text)
-drsName = lens _drsName (\ s a -> s{_drsName = a}) . mapping _Sensitive;
+drsName = lens _drsName (\ s a -> s{_drsName = a}) . mapping _Sensitive
 
 -- | The ID of the project.
 drsId :: Lens' DescribeProjectResponse (Maybe Text)
-drsId = lens _drsId (\ s a -> s{_drsId = a});
+drsId = lens _drsId (\ s a -> s{_drsId = a})
 
 -- | The ID of the primary stack in AWS CloudFormation used to generate resources for the project.
 drsStackId :: Lens' DescribeProjectResponse (Maybe Text)
-drsStackId = lens _drsStackId (\ s a -> s{_drsStackId = a});
+drsStackId = lens _drsStackId (\ s a -> s{_drsStackId = a})
 
 -- | A user- or system-generated token that identifies the entity that requested project creation.
 drsClientRequestToken :: Lens' DescribeProjectResponse (Maybe Text)
-drsClientRequestToken = lens _drsClientRequestToken (\ s a -> s{_drsClientRequestToken = a});
+drsClientRequestToken = lens _drsClientRequestToken (\ s a -> s{_drsClientRequestToken = a})
 
 -- | The date and time the project was created, in timestamp format.
 drsCreatedTimeStamp :: Lens' DescribeProjectResponse (Maybe UTCTime)
-drsCreatedTimeStamp = lens _drsCreatedTimeStamp (\ s a -> s{_drsCreatedTimeStamp = a}) . mapping _Time;
+drsCreatedTimeStamp = lens _drsCreatedTimeStamp (\ s a -> s{_drsCreatedTimeStamp = a}) . mapping _Time
 
 -- | The description of the project, if any.
 drsDescription :: Lens' DescribeProjectResponse (Maybe Text)
-drsDescription = lens _drsDescription (\ s a -> s{_drsDescription = a}) . mapping _Sensitive;
+drsDescription = lens _drsDescription (\ s a -> s{_drsDescription = a}) . mapping _Sensitive
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeProjectResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeProjectResponse where

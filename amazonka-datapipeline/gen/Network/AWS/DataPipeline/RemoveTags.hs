@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.RemoveTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ removeTags pPipelineId_ =
 
 -- | The ID of the pipeline.
 rtPipelineId :: Lens' RemoveTags Text
-rtPipelineId = lens _rtPipelineId (\ s a -> s{_rtPipelineId = a});
+rtPipelineId = lens _rtPipelineId (\ s a -> s{_rtPipelineId = a})
 
 -- | The keys of the tags to remove.
 rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce;
+rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce
 
 instance AWSRequest RemoveTags where
         type Rs RemoveTags = RemoveTagsResponse
@@ -135,6 +135,6 @@ removeTagsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTagsResponse Int
-rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
+rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a})
 
 instance NFData RemoveTagsResponse where

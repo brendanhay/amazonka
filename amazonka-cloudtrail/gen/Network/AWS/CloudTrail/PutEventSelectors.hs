@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.PutEventSelectors
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -87,11 +87,11 @@ putEventSelectors pTrailName_ =
 
 -- | Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If you specify a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 pesTrailName :: Lens' PutEventSelectors Text
-pesTrailName = lens _pesTrailName (\ s a -> s{_pesTrailName = a});
+pesTrailName = lens _pesTrailName (\ s a -> s{_pesTrailName = a})
 
 -- | Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.
 pesEventSelectors :: Lens' PutEventSelectors [EventSelector]
-pesEventSelectors = lens _pesEventSelectors (\ s a -> s{_pesEventSelectors = a}) . _Coerce;
+pesEventSelectors = lens _pesEventSelectors (\ s a -> s{_pesEventSelectors = a}) . _Coerce
 
 instance AWSRequest PutEventSelectors where
         type Rs PutEventSelectors = PutEventSelectorsResponse
@@ -153,22 +153,22 @@ putEventSelectorsResponse
     -> PutEventSelectorsResponse
 putEventSelectorsResponse pResponseStatus_ =
   PutEventSelectorsResponse'
-  { _pesrsTrailARN = Nothing
-  , _pesrsEventSelectors = Nothing
-  , _pesrsResponseStatus = pResponseStatus_
-  }
+    { _pesrsTrailARN = Nothing
+    , _pesrsEventSelectors = Nothing
+    , _pesrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Specifies the ARN of the trail that was updated with event selectors. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 pesrsTrailARN :: Lens' PutEventSelectorsResponse (Maybe Text)
-pesrsTrailARN = lens _pesrsTrailARN (\ s a -> s{_pesrsTrailARN = a});
+pesrsTrailARN = lens _pesrsTrailARN (\ s a -> s{_pesrsTrailARN = a})
 
 -- | Specifies the event selectors configured for your trail.
 pesrsEventSelectors :: Lens' PutEventSelectorsResponse [EventSelector]
-pesrsEventSelectors = lens _pesrsEventSelectors (\ s a -> s{_pesrsEventSelectors = a}) . _Default . _Coerce;
+pesrsEventSelectors = lens _pesrsEventSelectors (\ s a -> s{_pesrsEventSelectors = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 pesrsResponseStatus :: Lens' PutEventSelectorsResponse Int
-pesrsResponseStatus = lens _pesrsResponseStatus (\ s a -> s{_pesrsResponseStatus = a});
+pesrsResponseStatus = lens _pesrsResponseStatus (\ s a -> s{_pesrsResponseStatus = a})
 
 instance NFData PutEventSelectorsResponse where

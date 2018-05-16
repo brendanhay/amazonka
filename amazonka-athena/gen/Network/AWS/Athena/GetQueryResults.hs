@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Athena.GetQueryResults
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ getQueryResults
     -> GetQueryResults
 getQueryResults pQueryExecutionId_ =
   GetQueryResults'
-  { _gqrNextToken = Nothing
-  , _gqrMaxResults = Nothing
-  , _gqrQueryExecutionId = pQueryExecutionId_
-  }
+    { _gqrNextToken = Nothing
+    , _gqrMaxResults = Nothing
+    , _gqrQueryExecutionId = pQueryExecutionId_
+    }
 
 
 -- | The token that specifies where to start pagination if a previous request was truncated.
 gqrNextToken :: Lens' GetQueryResults (Maybe Text)
-gqrNextToken = lens _gqrNextToken (\ s a -> s{_gqrNextToken = a});
+gqrNextToken = lens _gqrNextToken (\ s a -> s{_gqrNextToken = a})
 
 -- | The maximum number of results (rows) to return in this request.
 gqrMaxResults :: Lens' GetQueryResults (Maybe Natural)
-gqrMaxResults = lens _gqrMaxResults (\ s a -> s{_gqrMaxResults = a}) . mapping _Nat;
+gqrMaxResults = lens _gqrMaxResults (\ s a -> s{_gqrMaxResults = a}) . mapping _Nat
 
 -- | The unique ID of the query execution.
 gqrQueryExecutionId :: Lens' GetQueryResults Text
-gqrQueryExecutionId = lens _gqrQueryExecutionId (\ s a -> s{_gqrQueryExecutionId = a});
+gqrQueryExecutionId = lens _gqrQueryExecutionId (\ s a -> s{_gqrQueryExecutionId = a})
 
 instance AWSPager GetQueryResults where
         page rq rs
@@ -157,22 +157,22 @@ getQueryResultsResponse
     -> GetQueryResultsResponse
 getQueryResultsResponse pResponseStatus_ =
   GetQueryResultsResponse'
-  { _gqrrsNextToken = Nothing
-  , _gqrrsResultSet = Nothing
-  , _gqrrsResponseStatus = pResponseStatus_
-  }
+    { _gqrrsNextToken = Nothing
+    , _gqrrsResultSet = Nothing
+    , _gqrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A token to be used by the next request if this request is truncated.
 gqrrsNextToken :: Lens' GetQueryResultsResponse (Maybe Text)
-gqrrsNextToken = lens _gqrrsNextToken (\ s a -> s{_gqrrsNextToken = a});
+gqrrsNextToken = lens _gqrrsNextToken (\ s a -> s{_gqrrsNextToken = a})
 
 -- | The results of the query execution.
 gqrrsResultSet :: Lens' GetQueryResultsResponse (Maybe ResultSet)
-gqrrsResultSet = lens _gqrrsResultSet (\ s a -> s{_gqrrsResultSet = a});
+gqrrsResultSet = lens _gqrrsResultSet (\ s a -> s{_gqrrsResultSet = a})
 
 -- | -- | The response status code.
 gqrrsResponseStatus :: Lens' GetQueryResultsResponse Int
-gqrrsResponseStatus = lens _gqrrsResponseStatus (\ s a -> s{_gqrrsResponseStatus = a});
+gqrrsResponseStatus = lens _gqrrsResponseStatus (\ s a -> s{_gqrrsResponseStatus = a})
 
 instance NFData GetQueryResultsResponse where

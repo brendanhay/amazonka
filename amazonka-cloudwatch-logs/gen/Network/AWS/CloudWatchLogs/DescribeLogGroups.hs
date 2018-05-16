@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ describeLogGroups
     :: DescribeLogGroups
 describeLogGroups =
   DescribeLogGroups'
-  { _dlgLogGroupNamePrefix = Nothing
-  , _dlgNextToken = Nothing
-  , _dlgLimit = Nothing
-  }
+    { _dlgLogGroupNamePrefix = Nothing
+    , _dlgNextToken = Nothing
+    , _dlgLimit = Nothing
+    }
 
 
 -- | The prefix to match.
 dlgLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
-dlgLogGroupNamePrefix = lens _dlgLogGroupNamePrefix (\ s a -> s{_dlgLogGroupNamePrefix = a});
+dlgLogGroupNamePrefix = lens _dlgLogGroupNamePrefix (\ s a -> s{_dlgLogGroupNamePrefix = a})
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dlgNextToken :: Lens' DescribeLogGroups (Maybe Text)
-dlgNextToken = lens _dlgNextToken (\ s a -> s{_dlgNextToken = a});
+dlgNextToken = lens _dlgNextToken (\ s a -> s{_dlgNextToken = a})
 
 -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 dlgLimit :: Lens' DescribeLogGroups (Maybe Natural)
-dlgLimit = lens _dlgLimit (\ s a -> s{_dlgLimit = a}) . mapping _Nat;
+dlgLimit = lens _dlgLimit (\ s a -> s{_dlgLimit = a}) . mapping _Nat
 
 instance AWSPager DescribeLogGroups where
         page rq rs
@@ -157,22 +157,22 @@ describeLogGroupsResponse
     -> DescribeLogGroupsResponse
 describeLogGroupsResponse pResponseStatus_ =
   DescribeLogGroupsResponse'
-  { _dlgrsLogGroups = Nothing
-  , _dlgrsNextToken = Nothing
-  , _dlgrsResponseStatus = pResponseStatus_
-  }
+    { _dlgrsLogGroups = Nothing
+    , _dlgrsNextToken = Nothing
+    , _dlgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The log groups.
 dlgrsLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
-dlgrsLogGroups = lens _dlgrsLogGroups (\ s a -> s{_dlgrsLogGroups = a}) . _Default . _Coerce;
+dlgrsLogGroups = lens _dlgrsLogGroups (\ s a -> s{_dlgrsLogGroups = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 dlgrsNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
-dlgrsNextToken = lens _dlgrsNextToken (\ s a -> s{_dlgrsNextToken = a});
+dlgrsNextToken = lens _dlgrsNextToken (\ s a -> s{_dlgrsNextToken = a})
 
 -- | -- | The response status code.
 dlgrsResponseStatus :: Lens' DescribeLogGroupsResponse Int
-dlgrsResponseStatus = lens _dlgrsResponseStatus (\ s a -> s{_dlgrsResponseStatus = a});
+dlgrsResponseStatus = lens _dlgrsResponseStatus (\ s a -> s{_dlgrsResponseStatus = a})
 
 instance NFData DescribeLogGroupsResponse where

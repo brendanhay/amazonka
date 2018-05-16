@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeReplicationSubnetGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Returns information about the replication subnet groups.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DMS.DescribeReplicationSubnetGroups
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.DMS.DescribeReplicationSubnetGroups
 import Network.AWS.DMS.Types
 import Network.AWS.DMS.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,20 +75,29 @@ describeReplicationSubnetGroups
     :: DescribeReplicationSubnetGroups
 describeReplicationSubnetGroups =
   DescribeReplicationSubnetGroups'
-  {_drsgFilters = Nothing, _drsgMarker = Nothing, _drsgMaxRecords = Nothing}
+    {_drsgFilters = Nothing, _drsgMarker = Nothing, _drsgMaxRecords = Nothing}
 
 
 -- | Filters applied to the describe action.
 drsgFilters :: Lens' DescribeReplicationSubnetGroups [Filter]
-drsgFilters = lens _drsgFilters (\ s a -> s{_drsgFilters = a}) . _Default . _Coerce;
+drsgFilters = lens _drsgFilters (\ s a -> s{_drsgFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drsgMarker :: Lens' DescribeReplicationSubnetGroups (Maybe Text)
-drsgMarker = lens _drsgMarker (\ s a -> s{_drsgMarker = a});
+drsgMarker = lens _drsgMarker (\ s a -> s{_drsgMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 drsgMaxRecords :: Lens' DescribeReplicationSubnetGroups (Maybe Int)
-drsgMaxRecords = lens _drsgMaxRecords (\ s a -> s{_drsgMaxRecords = a});
+drsgMaxRecords = lens _drsgMaxRecords (\ s a -> s{_drsgMaxRecords = a})
+
+instance AWSPager DescribeReplicationSubnetGroups
+         where
+        page rq rs
+          | stop (rs ^. drsgsrsMarker) = Nothing
+          | stop (rs ^. drsgsrsReplicationSubnetGroups) =
+            Nothing
+          | otherwise =
+            Just $ rq & drsgMarker .~ rs ^. drsgsrsMarker
 
 instance AWSRequest DescribeReplicationSubnetGroups
          where
@@ -157,23 +169,23 @@ describeReplicationSubnetGroupsResponse
     -> DescribeReplicationSubnetGroupsResponse
 describeReplicationSubnetGroupsResponse pResponseStatus_ =
   DescribeReplicationSubnetGroupsResponse'
-  { _drsgsrsMarker = Nothing
-  , _drsgsrsReplicationSubnetGroups = Nothing
-  , _drsgsrsResponseStatus = pResponseStatus_
-  }
+    { _drsgsrsMarker = Nothing
+    , _drsgsrsReplicationSubnetGroups = Nothing
+    , _drsgsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drsgsrsMarker :: Lens' DescribeReplicationSubnetGroupsResponse (Maybe Text)
-drsgsrsMarker = lens _drsgsrsMarker (\ s a -> s{_drsgsrsMarker = a});
+drsgsrsMarker = lens _drsgsrsMarker (\ s a -> s{_drsgsrsMarker = a})
 
 -- | A description of the replication subnet groups.
 drsgsrsReplicationSubnetGroups :: Lens' DescribeReplicationSubnetGroupsResponse [ReplicationSubnetGroup]
-drsgsrsReplicationSubnetGroups = lens _drsgsrsReplicationSubnetGroups (\ s a -> s{_drsgsrsReplicationSubnetGroups = a}) . _Default . _Coerce;
+drsgsrsReplicationSubnetGroups = lens _drsgsrsReplicationSubnetGroups (\ s a -> s{_drsgsrsReplicationSubnetGroups = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drsgsrsResponseStatus :: Lens' DescribeReplicationSubnetGroupsResponse Int
-drsgsrsResponseStatus = lens _drsgsrsResponseStatus (\ s a -> s{_drsgsrsResponseStatus = a});
+drsgsrsResponseStatus = lens _drsgsrsResponseStatus (\ s a -> s{_drsgsrsResponseStatus = a})
 
 instance NFData
            DescribeReplicationSubnetGroupsResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.SendAutomationSignal
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ sendAutomationSignal
     -> SendAutomationSignal
 sendAutomationSignal pAutomationExecutionId_ pSignalType_ =
   SendAutomationSignal'
-  { _sasPayload = Nothing
-  , _sasAutomationExecutionId = pAutomationExecutionId_
-  , _sasSignalType = pSignalType_
-  }
+    { _sasPayload = Nothing
+    , _sasAutomationExecutionId = pAutomationExecutionId_
+    , _sasSignalType = pSignalType_
+    }
 
 
 -- | The data sent with the signal. The data schema depends on the type of signal used in the request.
 sasPayload :: Lens' SendAutomationSignal (HashMap Text [Text])
-sasPayload = lens _sasPayload (\ s a -> s{_sasPayload = a}) . _Default . _Map;
+sasPayload = lens _sasPayload (\ s a -> s{_sasPayload = a}) . _Default . _Map
 
 -- | The unique identifier for an existing Automation execution that you want to send the signal to.
 sasAutomationExecutionId :: Lens' SendAutomationSignal Text
-sasAutomationExecutionId = lens _sasAutomationExecutionId (\ s a -> s{_sasAutomationExecutionId = a});
+sasAutomationExecutionId = lens _sasAutomationExecutionId (\ s a -> s{_sasAutomationExecutionId = a})
 
 -- | The type of signal. Valid signal types include the following: Approve and Reject
 sasSignalType :: Lens' SendAutomationSignal SignalType
-sasSignalType = lens _sasSignalType (\ s a -> s{_sasSignalType = a});
+sasSignalType = lens _sasSignalType (\ s a -> s{_sasSignalType = a})
 
 instance AWSRequest SendAutomationSignal where
         type Rs SendAutomationSignal =
@@ -145,6 +145,6 @@ sendAutomationSignalResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 sasrsResponseStatus :: Lens' SendAutomationSignalResponse Int
-sasrsResponseStatus = lens _sasrsResponseStatus (\ s a -> s{_sasrsResponseStatus = a});
+sasrsResponseStatus = lens _sasrsResponseStatus (\ s a -> s{_sasrsResponseStatus = a})
 
 instance NFData SendAutomationSignalResponse where

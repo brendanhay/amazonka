@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteModel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,9 +57,9 @@ data DeleteModel = DeleteModel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'dRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'dModelName' - The name of the model to delete.
+-- * 'dModelName' - [Required] The name of the model to delete.
 deleteModel
     :: Text -- ^ 'dRestAPIId'
     -> Text -- ^ 'dModelName'
@@ -68,13 +68,13 @@ deleteModel pRestAPIId_ pModelName_ =
   DeleteModel' {_dRestAPIId = pRestAPIId_, _dModelName = pModelName_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 dRestAPIId :: Lens' DeleteModel Text
-dRestAPIId = lens _dRestAPIId (\ s a -> s{_dRestAPIId = a});
+dRestAPIId = lens _dRestAPIId (\ s a -> s{_dRestAPIId = a})
 
--- | The name of the model to delete.
+-- | [Required] The name of the model to delete.
 dModelName :: Lens' DeleteModel Text
-dModelName = lens _dModelName (\ s a -> s{_dModelName = a});
+dModelName = lens _dModelName (\ s a -> s{_dModelName = a})
 
 instance AWSRequest DeleteModel where
         type Rs DeleteModel = DeleteModelResponse

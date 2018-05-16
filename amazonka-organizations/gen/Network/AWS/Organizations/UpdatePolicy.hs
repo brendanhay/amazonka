@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.UpdatePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ updatePolicy
     -> UpdatePolicy
 updatePolicy pPolicyId_ =
   UpdatePolicy'
-  { _upContent = Nothing
-  , _upName = Nothing
-  , _upDescription = Nothing
-  , _upPolicyId = pPolicyId_
-  }
+    { _upContent = Nothing
+    , _upName = Nothing
+    , _upDescription = Nothing
+    , _upPolicyId = pPolicyId_
+    }
 
 
 -- | If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
 upContent :: Lens' UpdatePolicy (Maybe Text)
-upContent = lens _upContent (\ s a -> s{_upContent = a});
+upContent = lens _upContent (\ s a -> s{_upContent = a})
 
 -- | If provided, the new name for the policy. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 upName :: Lens' UpdatePolicy (Maybe Text)
-upName = lens _upName (\ s a -> s{_upName = a});
+upName = lens _upName (\ s a -> s{_upName = a})
 
 -- | If provided, the new description for the policy.
 upDescription :: Lens' UpdatePolicy (Maybe Text)
-upDescription = lens _upDescription (\ s a -> s{_upDescription = a});
+upDescription = lens _upDescription (\ s a -> s{_upDescription = a})
 
 -- | The unique identifier (ID) of the policy that you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
 upPolicyId :: Lens' UpdatePolicy Text
-upPolicyId = lens _upPolicyId (\ s a -> s{_upPolicyId = a});
+upPolicyId = lens _upPolicyId (\ s a -> s{_upPolicyId = a})
 
 instance AWSRequest UpdatePolicy where
         type Rs UpdatePolicy = UpdatePolicyResponse
@@ -154,15 +154,15 @@ updatePolicyResponse
     -> UpdatePolicyResponse
 updatePolicyResponse pResponseStatus_ =
   UpdatePolicyResponse'
-  {_uprsPolicy = Nothing, _uprsResponseStatus = pResponseStatus_}
+    {_uprsPolicy = Nothing, _uprsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that contains details about the updated policy, showing the requested changes.
 uprsPolicy :: Lens' UpdatePolicyResponse (Maybe Policy)
-uprsPolicy = lens _uprsPolicy (\ s a -> s{_uprsPolicy = a});
+uprsPolicy = lens _uprsPolicy (\ s a -> s{_uprsPolicy = a})
 
 -- | -- | The response status code.
 uprsResponseStatus :: Lens' UpdatePolicyResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
+uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a})
 
 instance NFData UpdatePolicyResponse where

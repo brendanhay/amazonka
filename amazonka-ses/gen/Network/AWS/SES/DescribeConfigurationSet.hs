@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DescribeConfigurationSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,6 +38,7 @@ module Network.AWS.SES.DescribeConfigurationSet
     -- * Response Lenses
     , dcsrsTrackingOptions
     , dcsrsConfigurationSet
+    , dcsrsReputationOptions
     , dcsrsEventDestinations
     , dcsrsResponseStatus
     ) where
@@ -72,18 +73,18 @@ describeConfigurationSet
     -> DescribeConfigurationSet
 describeConfigurationSet pConfigurationSetName_ =
   DescribeConfigurationSet'
-  { _dcsConfigurationSetAttributeNames = Nothing
-  , _dcsConfigurationSetName = pConfigurationSetName_
-  }
+    { _dcsConfigurationSetAttributeNames = Nothing
+    , _dcsConfigurationSetName = pConfigurationSetName_
+    }
 
 
 -- | A list of configuration set attributes to return.
 dcsConfigurationSetAttributeNames :: Lens' DescribeConfigurationSet [ConfigurationSetAttribute]
-dcsConfigurationSetAttributeNames = lens _dcsConfigurationSetAttributeNames (\ s a -> s{_dcsConfigurationSetAttributeNames = a}) . _Default . _Coerce;
+dcsConfigurationSetAttributeNames = lens _dcsConfigurationSetAttributeNames (\ s a -> s{_dcsConfigurationSetAttributeNames = a}) . _Default . _Coerce
 
 -- | The name of the configuration set to describe.
 dcsConfigurationSetName :: Lens' DescribeConfigurationSet Text
-dcsConfigurationSetName = lens _dcsConfigurationSetName (\ s a -> s{_dcsConfigurationSetName = a});
+dcsConfigurationSetName = lens _dcsConfigurationSetName (\ s a -> s{_dcsConfigurationSetName = a})
 
 instance AWSRequest DescribeConfigurationSet where
         type Rs DescribeConfigurationSet =
@@ -95,6 +96,7 @@ instance AWSRequest DescribeConfigurationSet where
                  DescribeConfigurationSetResponse' <$>
                    (x .@? "TrackingOptions") <*>
                      (x .@? "ConfigurationSet")
+                     <*> (x .@? "ReputationOptions")
                      <*>
                      (x .@? "EventDestinations" .!@ mempty >>=
                         may (parseXMLList "member"))
@@ -130,6 +132,7 @@ instance ToQuery DescribeConfigurationSet where
 data DescribeConfigurationSetResponse = DescribeConfigurationSetResponse'
   { _dcsrsTrackingOptions   :: !(Maybe TrackingOptions)
   , _dcsrsConfigurationSet  :: !(Maybe ConfigurationSet)
+  , _dcsrsReputationOptions :: !(Maybe ReputationOptions)
   , _dcsrsEventDestinations :: !(Maybe [EventDestination])
   , _dcsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -143,6 +146,8 @@ data DescribeConfigurationSetResponse = DescribeConfigurationSetResponse'
 --
 -- * 'dcsrsConfigurationSet' - The configuration set object associated with the specified configuration set.
 --
+-- * 'dcsrsReputationOptions' - An object that represents the reputation settings for the configuration set.
+--
 -- * 'dcsrsEventDestinations' - A list of event destinations associated with the configuration set.
 --
 -- * 'dcsrsResponseStatus' - -- | The response status code.
@@ -151,28 +156,33 @@ describeConfigurationSetResponse
     -> DescribeConfigurationSetResponse
 describeConfigurationSetResponse pResponseStatus_ =
   DescribeConfigurationSetResponse'
-  { _dcsrsTrackingOptions = Nothing
-  , _dcsrsConfigurationSet = Nothing
-  , _dcsrsEventDestinations = Nothing
-  , _dcsrsResponseStatus = pResponseStatus_
-  }
+    { _dcsrsTrackingOptions = Nothing
+    , _dcsrsConfigurationSet = Nothing
+    , _dcsrsReputationOptions = Nothing
+    , _dcsrsEventDestinations = Nothing
+    , _dcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The name of the custom open and click tracking domain associated with the configuration set.
 dcsrsTrackingOptions :: Lens' DescribeConfigurationSetResponse (Maybe TrackingOptions)
-dcsrsTrackingOptions = lens _dcsrsTrackingOptions (\ s a -> s{_dcsrsTrackingOptions = a});
+dcsrsTrackingOptions = lens _dcsrsTrackingOptions (\ s a -> s{_dcsrsTrackingOptions = a})
 
 -- | The configuration set object associated with the specified configuration set.
 dcsrsConfigurationSet :: Lens' DescribeConfigurationSetResponse (Maybe ConfigurationSet)
-dcsrsConfigurationSet = lens _dcsrsConfigurationSet (\ s a -> s{_dcsrsConfigurationSet = a});
+dcsrsConfigurationSet = lens _dcsrsConfigurationSet (\ s a -> s{_dcsrsConfigurationSet = a})
+
+-- | An object that represents the reputation settings for the configuration set.
+dcsrsReputationOptions :: Lens' DescribeConfigurationSetResponse (Maybe ReputationOptions)
+dcsrsReputationOptions = lens _dcsrsReputationOptions (\ s a -> s{_dcsrsReputationOptions = a})
 
 -- | A list of event destinations associated with the configuration set.
 dcsrsEventDestinations :: Lens' DescribeConfigurationSetResponse [EventDestination]
-dcsrsEventDestinations = lens _dcsrsEventDestinations (\ s a -> s{_dcsrsEventDestinations = a}) . _Default . _Coerce;
+dcsrsEventDestinations = lens _dcsrsEventDestinations (\ s a -> s{_dcsrsEventDestinations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcsrsResponseStatus :: Lens' DescribeConfigurationSetResponse Int
-dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
+dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a})
 
 instance NFData DescribeConfigurationSetResponse
          where

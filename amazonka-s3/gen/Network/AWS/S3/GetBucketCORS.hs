@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketCORS
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ getBucketCORS pBucket_ = GetBucketCORS' {_gbcBucket = pBucket_}
 
 -- | Undocumented member.
 gbcBucket :: Lens' GetBucketCORS BucketName
-gbcBucket = lens _gbcBucket (\ s a -> s{_gbcBucket = a});
+gbcBucket = lens _gbcBucket (\ s a -> s{_gbcBucket = a})
 
 instance AWSRequest GetBucketCORS where
         type Rs GetBucketCORS = GetBucketCORSResponse
@@ -106,15 +106,15 @@ getBucketCORSResponse
     -> GetBucketCORSResponse
 getBucketCORSResponse pResponseStatus_ =
   GetBucketCORSResponse'
-  {_gbcrsCORSRules = Nothing, _gbcrsResponseStatus = pResponseStatus_}
+    {_gbcrsCORSRules = Nothing, _gbcrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 gbcrsCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
-gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Default . _Coerce;
+gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gbcrsResponseStatus :: Lens' GetBucketCORSResponse Int
-gbcrsResponseStatus = lens _gbcrsResponseStatus (\ s a -> s{_gbcrsResponseStatus = a});
+gbcrsResponseStatus = lens _gbcrsResponseStatus (\ s a -> s{_gbcrsResponseStatus = a})
 
 instance NFData GetBucketCORSResponse where

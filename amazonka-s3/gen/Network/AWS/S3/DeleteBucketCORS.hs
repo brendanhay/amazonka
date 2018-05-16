@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketCORS
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ deleteBucketCORS pBucket_ = DeleteBucketCORS' {_dbcBucket = pBucket_}
 
 -- | Undocumented member.
 dbcBucket :: Lens' DeleteBucketCORS BucketName
-dbcBucket = lens _dbcBucket (\ s a -> s{_dbcBucket = a});
+dbcBucket = lens _dbcBucket (\ s a -> s{_dbcBucket = a})
 
 instance AWSRequest DeleteBucketCORS where
         type Rs DeleteBucketCORS = DeleteBucketCORSResponse

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetClassifier
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve a @Classifier@ by name.
+-- Retrieve a classifier by name.
 --
 --
 module Network.AWS.Glue.GetClassifier
@@ -54,16 +54,16 @@ newtype GetClassifier = GetClassifier'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getName' - Name of the @Classifier@ to retrieve.
+-- * 'getName' - Name of the classifier to retrieve.
 getClassifier
     :: Text -- ^ 'getName'
     -> GetClassifier
 getClassifier pName_ = GetClassifier' {_getName = pName_}
 
 
--- | Name of the @Classifier@ to retrieve.
+-- | Name of the classifier to retrieve.
 getName :: Lens' GetClassifier Text
-getName = lens _getName (\ s a -> s{_getName = a});
+getName = lens _getName (\ s a -> s{_getName = a})
 
 instance AWSRequest GetClassifier where
         type Rs GetClassifier = GetClassifierResponse
@@ -108,7 +108,7 @@ data GetClassifierResponse = GetClassifierResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrsClassifier' - The requested @Classifier@ .
+-- * 'gcrsClassifier' - The requested classifier.
 --
 -- * 'gcrsResponseStatus' - -- | The response status code.
 getClassifierResponse
@@ -116,15 +116,15 @@ getClassifierResponse
     -> GetClassifierResponse
 getClassifierResponse pResponseStatus_ =
   GetClassifierResponse'
-  {_gcrsClassifier = Nothing, _gcrsResponseStatus = pResponseStatus_}
+    {_gcrsClassifier = Nothing, _gcrsResponseStatus = pResponseStatus_}
 
 
--- | The requested @Classifier@ .
+-- | The requested classifier.
 gcrsClassifier :: Lens' GetClassifierResponse (Maybe Classifier)
-gcrsClassifier = lens _gcrsClassifier (\ s a -> s{_gcrsClassifier = a});
+gcrsClassifier = lens _gcrsClassifier (\ s a -> s{_gcrsClassifier = a})
 
 -- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetClassifierResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
+gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a})
 
 instance NFData GetClassifierResponse where

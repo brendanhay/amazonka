@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetClientCertificates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ data GetClientCertificates = GetClientCertificates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gccLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- * 'gccLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'gccPosition' - The current pagination position in the paged result set.
 getClientCertificates
@@ -73,13 +73,13 @@ getClientCertificates =
   GetClientCertificates' {_gccLimit = Nothing, _gccPosition = Nothing}
 
 
--- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 gccLimit :: Lens' GetClientCertificates (Maybe Int)
-gccLimit = lens _gccLimit (\ s a -> s{_gccLimit = a});
+gccLimit = lens _gccLimit (\ s a -> s{_gccLimit = a})
 
 -- | The current pagination position in the paged result set.
 gccPosition :: Lens' GetClientCertificates (Maybe Text)
-gccPosition = lens _gccPosition (\ s a -> s{_gccPosition = a});
+gccPosition = lens _gccPosition (\ s a -> s{_gccPosition = a})
 
 instance AWSPager GetClientCertificates where
         page rq rs
@@ -144,22 +144,22 @@ getClientCertificatesResponse
     -> GetClientCertificatesResponse
 getClientCertificatesResponse pResponseStatus_ =
   GetClientCertificatesResponse'
-  { _gccrsItems = Nothing
-  , _gccrsPosition = Nothing
-  , _gccrsResponseStatus = pResponseStatus_
-  }
+    { _gccrsItems = Nothing
+    , _gccrsPosition = Nothing
+    , _gccrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 gccrsItems :: Lens' GetClientCertificatesResponse [ClientCertificate]
-gccrsItems = lens _gccrsItems (\ s a -> s{_gccrsItems = a}) . _Default . _Coerce;
+gccrsItems = lens _gccrsItems (\ s a -> s{_gccrsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gccrsPosition :: Lens' GetClientCertificatesResponse (Maybe Text)
-gccrsPosition = lens _gccrsPosition (\ s a -> s{_gccrsPosition = a});
+gccrsPosition = lens _gccrsPosition (\ s a -> s{_gccrsPosition = a})
 
 -- | -- | The response status code.
 gccrsResponseStatus :: Lens' GetClientCertificatesResponse Int
-gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a});
+gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a})
 
 instance NFData GetClientCertificatesResponse where

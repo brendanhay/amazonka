@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeLoggingStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ describeLoggingStatus pClusterIdentifier_ =
 
 -- | The identifier of the cluster from which to get the logging status. Example: @examplecluster@
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
-dlsClusterIdentifier = lens _dlsClusterIdentifier (\ s a -> s{_dlsClusterIdentifier = a});
+dlsClusterIdentifier = lens _dlsClusterIdentifier (\ s a -> s{_dlsClusterIdentifier = a})
 
 instance AWSRequest DescribeLoggingStatus where
         type Rs DescribeLoggingStatus = LoggingStatus

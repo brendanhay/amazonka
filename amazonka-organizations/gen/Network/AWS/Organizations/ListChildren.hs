@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListChildren
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ listChildren
     -> ListChildren
 listChildren pParentId_ pChildType_ =
   ListChildren'
-  { _lcNextToken = Nothing
-  , _lcMaxResults = Nothing
-  , _lcParentId = pParentId_
-  , _lcChildType = pChildType_
-  }
+    { _lcNextToken = Nothing
+    , _lcMaxResults = Nothing
+    , _lcParentId = pParentId_
+    , _lcChildType = pChildType_
+    }
 
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 lcNextToken :: Lens' ListChildren (Maybe Text)
-lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
+lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a})
 
 -- | (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 lcMaxResults :: Lens' ListChildren (Maybe Natural)
-lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat;
+lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat
 
 -- | The unique identifier (ID) for the parent root or OU whose children you want to list. The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:     * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 lcParentId :: Lens' ListChildren Text
-lcParentId = lens _lcParentId (\ s a -> s{_lcParentId = a});
+lcParentId = lens _lcParentId (\ s a -> s{_lcParentId = a})
 
 -- | Filters the output to include only the specified child type.
 lcChildType :: Lens' ListChildren ChildType
-lcChildType = lens _lcChildType (\ s a -> s{_lcChildType = a});
+lcChildType = lens _lcChildType (\ s a -> s{_lcChildType = a})
 
 instance AWSPager ListChildren where
         page rq rs
@@ -170,22 +170,22 @@ listChildrenResponse
     -> ListChildrenResponse
 listChildrenResponse pResponseStatus_ =
   ListChildrenResponse'
-  { _lcrsChildren = Nothing
-  , _lcrsNextToken = Nothing
-  , _lcrsResponseStatus = pResponseStatus_
-  }
+    { _lcrsChildren = Nothing
+    , _lcrsNextToken = Nothing
+    , _lcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of children of the specified parent container.
 lcrsChildren :: Lens' ListChildrenResponse [Child]
-lcrsChildren = lens _lcrsChildren (\ s a -> s{_lcrsChildren = a}) . _Default . _Coerce;
+lcrsChildren = lens _lcrsChildren (\ s a -> s{_lcrsChildren = a}) . _Default . _Coerce
 
 -- | If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 lcrsNextToken :: Lens' ListChildrenResponse (Maybe Text)
-lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
+lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a})
 
 -- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListChildrenResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
+lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a})
 
 instance NFData ListChildrenResponse where

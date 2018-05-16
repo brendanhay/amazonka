@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateFlowLogs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,8 @@
 --
 --
 -- In your request, you must also specify an IAM role that has permission to publish logs to CloudWatch Logs.
+--
+-- For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html VPC Flow Logs> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 module Network.AWS.EC2.CreateFlowLogs
     (
@@ -91,38 +93,38 @@ createFlowLogs
     -> CreateFlowLogs
 createFlowLogs pDeliverLogsPermissionARN_ pLogGroupName_ pResourceType_ pTrafficType_ =
   CreateFlowLogs'
-  { _cflClientToken = Nothing
-  , _cflDeliverLogsPermissionARN = pDeliverLogsPermissionARN_
-  , _cflLogGroupName = pLogGroupName_
-  , _cflResourceIds = mempty
-  , _cflResourceType = pResourceType_
-  , _cflTrafficType = pTrafficType_
-  }
+    { _cflClientToken = Nothing
+    , _cflDeliverLogsPermissionARN = pDeliverLogsPermissionARN_
+    , _cflLogGroupName = pLogGroupName_
+    , _cflResourceIds = mempty
+    , _cflResourceType = pResourceType_
+    , _cflTrafficType = pTrafficType_
+    }
 
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 cflClientToken :: Lens' CreateFlowLogs (Maybe Text)
-cflClientToken = lens _cflClientToken (\ s a -> s{_cflClientToken = a});
+cflClientToken = lens _cflClientToken (\ s a -> s{_cflClientToken = a})
 
 -- | The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group.
 cflDeliverLogsPermissionARN :: Lens' CreateFlowLogs Text
-cflDeliverLogsPermissionARN = lens _cflDeliverLogsPermissionARN (\ s a -> s{_cflDeliverLogsPermissionARN = a});
+cflDeliverLogsPermissionARN = lens _cflDeliverLogsPermissionARN (\ s a -> s{_cflDeliverLogsPermissionARN = a})
 
 -- | The name of the CloudWatch log group.
 cflLogGroupName :: Lens' CreateFlowLogs Text
-cflLogGroupName = lens _cflLogGroupName (\ s a -> s{_cflLogGroupName = a});
+cflLogGroupName = lens _cflLogGroupName (\ s a -> s{_cflLogGroupName = a})
 
 -- | One or more subnet, network interface, or VPC IDs. Constraints: Maximum of 1000 resources
 cflResourceIds :: Lens' CreateFlowLogs [Text]
-cflResourceIds = lens _cflResourceIds (\ s a -> s{_cflResourceIds = a}) . _Coerce;
+cflResourceIds = lens _cflResourceIds (\ s a -> s{_cflResourceIds = a}) . _Coerce
 
 -- | The type of resource on which to create the flow log.
 cflResourceType :: Lens' CreateFlowLogs FlowLogsResourceType
-cflResourceType = lens _cflResourceType (\ s a -> s{_cflResourceType = a});
+cflResourceType = lens _cflResourceType (\ s a -> s{_cflResourceType = a})
 
 -- | The type of traffic to log.
 cflTrafficType :: Lens' CreateFlowLogs TrafficType
-cflTrafficType = lens _cflTrafficType (\ s a -> s{_cflTrafficType = a});
+cflTrafficType = lens _cflTrafficType (\ s a -> s{_cflTrafficType = a})
 
 instance AWSRequest CreateFlowLogs where
         type Rs CreateFlowLogs = CreateFlowLogsResponse
@@ -191,27 +193,27 @@ createFlowLogsResponse
     -> CreateFlowLogsResponse
 createFlowLogsResponse pResponseStatus_ =
   CreateFlowLogsResponse'
-  { _cflrsUnsuccessful = Nothing
-  , _cflrsClientToken = Nothing
-  , _cflrsFlowLogIds = Nothing
-  , _cflrsResponseStatus = pResponseStatus_
-  }
+    { _cflrsUnsuccessful = Nothing
+    , _cflrsClientToken = Nothing
+    , _cflrsFlowLogIds = Nothing
+    , _cflrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the flow logs that could not be created successfully.
 cflrsUnsuccessful :: Lens' CreateFlowLogsResponse [UnsuccessfulItem]
-cflrsUnsuccessful = lens _cflrsUnsuccessful (\ s a -> s{_cflrsUnsuccessful = a}) . _Default . _Coerce;
+cflrsUnsuccessful = lens _cflrsUnsuccessful (\ s a -> s{_cflrsUnsuccessful = a}) . _Default . _Coerce
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
 cflrsClientToken :: Lens' CreateFlowLogsResponse (Maybe Text)
-cflrsClientToken = lens _cflrsClientToken (\ s a -> s{_cflrsClientToken = a});
+cflrsClientToken = lens _cflrsClientToken (\ s a -> s{_cflrsClientToken = a})
 
 -- | The IDs of the flow logs.
 cflrsFlowLogIds :: Lens' CreateFlowLogsResponse [Text]
-cflrsFlowLogIds = lens _cflrsFlowLogIds (\ s a -> s{_cflrsFlowLogIds = a}) . _Default . _Coerce;
+cflrsFlowLogIds = lens _cflrsFlowLogIds (\ s a -> s{_cflrsFlowLogIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 cflrsResponseStatus :: Lens' CreateFlowLogsResponse Int
-cflrsResponseStatus = lens _cflrsResponseStatus (\ s a -> s{_cflrsResponseStatus = a});
+cflrsResponseStatus = lens _cflrsResponseStatus (\ s a -> s{_cflrsResponseStatus = a})
 
 instance NFData CreateFlowLogsResponse where

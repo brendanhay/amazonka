@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.SignUp
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,8 @@ module Network.AWS.CognitoIdentityProvider.SignUp
       signUp
     , SignUp
     -- * Request Lenses
+    , suAnalyticsMetadata
+    , suUserContextData
     , suUserAttributes
     , suSecretHash
     , suValidationData
@@ -57,18 +59,24 @@ import Network.AWS.Response
 --
 -- /See:/ 'signUp' smart constructor.
 data SignUp = SignUp'
-  { _suUserAttributes :: !(Maybe [AttributeType])
-  , _suSecretHash     :: !(Maybe (Sensitive Text))
-  , _suValidationData :: !(Maybe [AttributeType])
-  , _suClientId       :: !(Sensitive Text)
-  , _suUsername       :: !(Sensitive Text)
-  , _suPassword       :: !(Sensitive Text)
+  { _suAnalyticsMetadata :: !(Maybe AnalyticsMetadataType)
+  , _suUserContextData   :: !(Maybe UserContextDataType)
+  , _suUserAttributes    :: !(Maybe [AttributeType])
+  , _suSecretHash        :: !(Maybe (Sensitive Text))
+  , _suValidationData    :: !(Maybe [AttributeType])
+  , _suClientId          :: !(Sensitive Text)
+  , _suUsername          :: !(Sensitive Text)
+  , _suPassword          :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'SignUp' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'suAnalyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @SignUp@ calls.
+--
+-- * 'suUserContextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
 --
 -- * 'suUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 --
@@ -88,38 +96,48 @@ signUp
     -> SignUp
 signUp pClientId_ pUsername_ pPassword_ =
   SignUp'
-  { _suUserAttributes = Nothing
-  , _suSecretHash = Nothing
-  , _suValidationData = Nothing
-  , _suClientId = _Sensitive # pClientId_
-  , _suUsername = _Sensitive # pUsername_
-  , _suPassword = _Sensitive # pPassword_
-  }
+    { _suAnalyticsMetadata = Nothing
+    , _suUserContextData = Nothing
+    , _suUserAttributes = Nothing
+    , _suSecretHash = Nothing
+    , _suValidationData = Nothing
+    , _suClientId = _Sensitive # pClientId_
+    , _suUsername = _Sensitive # pUsername_
+    , _suPassword = _Sensitive # pPassword_
+    }
 
+
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for @SignUp@ calls.
+suAnalyticsMetadata :: Lens' SignUp (Maybe AnalyticsMetadataType)
+suAnalyticsMetadata = lens _suAnalyticsMetadata (\ s a -> s{_suAnalyticsMetadata = a})
+
+-- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+suUserContextData :: Lens' SignUp (Maybe UserContextDataType)
+suUserContextData = lens _suUserContextData (\ s a -> s{_suUserContextData = a})
 
 -- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 suUserAttributes :: Lens' SignUp [AttributeType]
-suUserAttributes = lens _suUserAttributes (\ s a -> s{_suUserAttributes = a}) . _Default . _Coerce;
+suUserAttributes = lens _suUserAttributes (\ s a -> s{_suUserAttributes = a}) . _Default . _Coerce
 
 -- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 suSecretHash :: Lens' SignUp (Maybe Text)
-suSecretHash = lens _suSecretHash (\ s a -> s{_suSecretHash = a}) . mapping _Sensitive;
+suSecretHash = lens _suSecretHash (\ s a -> s{_suSecretHash = a}) . mapping _Sensitive
 
 -- | The validation data in the request to register a user.
 suValidationData :: Lens' SignUp [AttributeType]
-suValidationData = lens _suValidationData (\ s a -> s{_suValidationData = a}) . _Default . _Coerce;
+suValidationData = lens _suValidationData (\ s a -> s{_suValidationData = a}) . _Default . _Coerce
 
 -- | The ID of the client associated with the user pool.
 suClientId :: Lens' SignUp Text
-suClientId = lens _suClientId (\ s a -> s{_suClientId = a}) . _Sensitive;
+suClientId = lens _suClientId (\ s a -> s{_suClientId = a}) . _Sensitive
 
 -- | The user name of the user you wish to register.
 suUsername :: Lens' SignUp Text
-suUsername = lens _suUsername (\ s a -> s{_suUsername = a}) . _Sensitive;
+suUsername = lens _suUsername (\ s a -> s{_suUsername = a}) . _Sensitive
 
 -- | The password of the user you wish to register.
 suPassword :: Lens' SignUp Text
-suPassword = lens _suPassword (\ s a -> s{_suPassword = a}) . _Sensitive;
+suPassword = lens _suPassword (\ s a -> s{_suPassword = a}) . _Sensitive
 
 instance AWSRequest SignUp where
         type Rs SignUp = SignUpResponse
@@ -150,7 +168,9 @@ instance ToJSON SignUp where
         toJSON SignUp'{..}
           = object
               (catMaybes
-                 [("UserAttributes" .=) <$> _suUserAttributes,
+                 [("AnalyticsMetadata" .=) <$> _suAnalyticsMetadata,
+                  ("UserContextData" .=) <$> _suUserContextData,
+                  ("UserAttributes" .=) <$> _suUserAttributes,
                   ("SecretHash" .=) <$> _suSecretHash,
                   ("ValidationData" .=) <$> _suValidationData,
                   Just ("ClientId" .= _suClientId),
@@ -194,27 +214,27 @@ signUpResponse
     -> SignUpResponse
 signUpResponse pResponseStatus_ pUserConfirmed_ pUserSub_ =
   SignUpResponse'
-  { _sursCodeDeliveryDetails = Nothing
-  , _sursResponseStatus = pResponseStatus_
-  , _sursUserConfirmed = pUserConfirmed_
-  , _sursUserSub = pUserSub_
-  }
+    { _sursCodeDeliveryDetails = Nothing
+    , _sursResponseStatus = pResponseStatus_
+    , _sursUserConfirmed = pUserConfirmed_
+    , _sursUserSub = pUserSub_
+    }
 
 
 -- | The code delivery details returned by the server response to the user registration request.
 sursCodeDeliveryDetails :: Lens' SignUpResponse (Maybe CodeDeliveryDetailsType)
-sursCodeDeliveryDetails = lens _sursCodeDeliveryDetails (\ s a -> s{_sursCodeDeliveryDetails = a});
+sursCodeDeliveryDetails = lens _sursCodeDeliveryDetails (\ s a -> s{_sursCodeDeliveryDetails = a})
 
 -- | -- | The response status code.
 sursResponseStatus :: Lens' SignUpResponse Int
-sursResponseStatus = lens _sursResponseStatus (\ s a -> s{_sursResponseStatus = a});
+sursResponseStatus = lens _sursResponseStatus (\ s a -> s{_sursResponseStatus = a})
 
 -- | A response from the server indicating that a user registration has been confirmed.
 sursUserConfirmed :: Lens' SignUpResponse Bool
-sursUserConfirmed = lens _sursUserConfirmed (\ s a -> s{_sursUserConfirmed = a});
+sursUserConfirmed = lens _sursUserConfirmed (\ s a -> s{_sursUserConfirmed = a})
 
 -- | The UUID of the authenticated user. This is not the same as @username@ .
 sursUserSub :: Lens' SignUpResponse Text
-sursUserSub = lens _sursUserSub (\ s a -> s{_sursUserSub = a});
+sursUserSub = lens _sursUserSub (\ s a -> s{_sursUserSub = a})
 
 instance NFData SignUpResponse where

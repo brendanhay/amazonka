@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new job.
+-- Creates a new job definition.
 --
 --
 module Network.AWS.Glue.CreateJob
@@ -32,6 +32,7 @@ module Network.AWS.Glue.CreateJob
     , cjMaxRetries
     , cjExecutionProperty
     , cjAllocatedCapacity
+    , cjTimeout
     , cjDefaultArguments
     , cjDescription
     , cjName
@@ -60,6 +61,7 @@ data CreateJob = CreateJob'
   , _cjMaxRetries        :: !(Maybe Int)
   , _cjExecutionProperty :: !(Maybe ExecutionProperty)
   , _cjAllocatedCapacity :: !(Maybe Int)
+  , _cjTimeout           :: !(Maybe Nat)
   , _cjDefaultArguments  :: !(Maybe (Map Text Text))
   , _cjDescription       :: !(Maybe Text)
   , _cjName              :: !Text
@@ -80,15 +82,17 @@ data CreateJob = CreateJob'
 --
 -- * 'cjExecutionProperty' - An ExecutionProperty specifying the maximum number of concurrent runs allowed for this job.
 --
--- * 'cjAllocatedCapacity' - The number of capacity units allocated to this job.
+-- * 'cjAllocatedCapacity' - The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
 --
--- * 'cjDefaultArguments' - The default parameters for this job.
+-- * 'cjTimeout' - The job timeout in minutes. The default is 2880 minutes (48 hours).
 --
--- * 'cjDescription' - Description of the job.
+-- * 'cjDefaultArguments' - The default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the <http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the <http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
 --
--- * 'cjName' - The name you assign to this job.
+-- * 'cjDescription' - Description of the job being defined.
 --
--- * 'cjRole' - The role associated with this job.
+-- * 'cjName' - The name you assign to this job definition. It must be unique in your account.
+--
+-- * 'cjRole' - The name or ARN of the IAM role associated with this job.
 --
 -- * 'cjCommand' - The JobCommand that executes this job.
 createJob
@@ -98,58 +102,63 @@ createJob
     -> CreateJob
 createJob pName_ pRole_ pCommand_ =
   CreateJob'
-  { _cjConnections = Nothing
-  , _cjLogURI = Nothing
-  , _cjMaxRetries = Nothing
-  , _cjExecutionProperty = Nothing
-  , _cjAllocatedCapacity = Nothing
-  , _cjDefaultArguments = Nothing
-  , _cjDescription = Nothing
-  , _cjName = pName_
-  , _cjRole = pRole_
-  , _cjCommand = pCommand_
-  }
+    { _cjConnections = Nothing
+    , _cjLogURI = Nothing
+    , _cjMaxRetries = Nothing
+    , _cjExecutionProperty = Nothing
+    , _cjAllocatedCapacity = Nothing
+    , _cjTimeout = Nothing
+    , _cjDefaultArguments = Nothing
+    , _cjDescription = Nothing
+    , _cjName = pName_
+    , _cjRole = pRole_
+    , _cjCommand = pCommand_
+    }
 
 
 -- | The connections used for this job.
 cjConnections :: Lens' CreateJob (Maybe ConnectionsList)
-cjConnections = lens _cjConnections (\ s a -> s{_cjConnections = a});
+cjConnections = lens _cjConnections (\ s a -> s{_cjConnections = a})
 
 -- | This field is reserved for future use.
 cjLogURI :: Lens' CreateJob (Maybe Text)
-cjLogURI = lens _cjLogURI (\ s a -> s{_cjLogURI = a});
+cjLogURI = lens _cjLogURI (\ s a -> s{_cjLogURI = a})
 
 -- | The maximum number of times to retry this job if it fails.
 cjMaxRetries :: Lens' CreateJob (Maybe Int)
-cjMaxRetries = lens _cjMaxRetries (\ s a -> s{_cjMaxRetries = a});
+cjMaxRetries = lens _cjMaxRetries (\ s a -> s{_cjMaxRetries = a})
 
 -- | An ExecutionProperty specifying the maximum number of concurrent runs allowed for this job.
 cjExecutionProperty :: Lens' CreateJob (Maybe ExecutionProperty)
-cjExecutionProperty = lens _cjExecutionProperty (\ s a -> s{_cjExecutionProperty = a});
+cjExecutionProperty = lens _cjExecutionProperty (\ s a -> s{_cjExecutionProperty = a})
 
--- | The number of capacity units allocated to this job.
+-- | The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
 cjAllocatedCapacity :: Lens' CreateJob (Maybe Int)
-cjAllocatedCapacity = lens _cjAllocatedCapacity (\ s a -> s{_cjAllocatedCapacity = a});
+cjAllocatedCapacity = lens _cjAllocatedCapacity (\ s a -> s{_cjAllocatedCapacity = a})
 
--- | The default parameters for this job.
+-- | The job timeout in minutes. The default is 2880 minutes (48 hours).
+cjTimeout :: Lens' CreateJob (Maybe Natural)
+cjTimeout = lens _cjTimeout (\ s a -> s{_cjTimeout = a}) . mapping _Nat
+
+-- | The default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the <http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the <http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
 cjDefaultArguments :: Lens' CreateJob (HashMap Text Text)
-cjDefaultArguments = lens _cjDefaultArguments (\ s a -> s{_cjDefaultArguments = a}) . _Default . _Map;
+cjDefaultArguments = lens _cjDefaultArguments (\ s a -> s{_cjDefaultArguments = a}) . _Default . _Map
 
--- | Description of the job.
+-- | Description of the job being defined.
 cjDescription :: Lens' CreateJob (Maybe Text)
-cjDescription = lens _cjDescription (\ s a -> s{_cjDescription = a});
+cjDescription = lens _cjDescription (\ s a -> s{_cjDescription = a})
 
--- | The name you assign to this job.
+-- | The name you assign to this job definition. It must be unique in your account.
 cjName :: Lens' CreateJob Text
-cjName = lens _cjName (\ s a -> s{_cjName = a});
+cjName = lens _cjName (\ s a -> s{_cjName = a})
 
--- | The role associated with this job.
+-- | The name or ARN of the IAM role associated with this job.
 cjRole :: Lens' CreateJob Text
-cjRole = lens _cjRole (\ s a -> s{_cjRole = a});
+cjRole = lens _cjRole (\ s a -> s{_cjRole = a})
 
 -- | The JobCommand that executes this job.
 cjCommand :: Lens' CreateJob JobCommand
-cjCommand = lens _cjCommand (\ s a -> s{_cjCommand = a});
+cjCommand = lens _cjCommand (\ s a -> s{_cjCommand = a})
 
 instance AWSRequest CreateJob where
         type Rs CreateJob = CreateJobResponse
@@ -182,6 +191,7 @@ instance ToJSON CreateJob where
                   ("MaxRetries" .=) <$> _cjMaxRetries,
                   ("ExecutionProperty" .=) <$> _cjExecutionProperty,
                   ("AllocatedCapacity" .=) <$> _cjAllocatedCapacity,
+                  ("Timeout" .=) <$> _cjTimeout,
                   ("DefaultArguments" .=) <$> _cjDefaultArguments,
                   ("Description" .=) <$> _cjDescription,
                   Just ("Name" .= _cjName), Just ("Role" .= _cjRole),
@@ -204,7 +214,7 @@ data CreateJobResponse = CreateJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cjrsName' - The unique name of the new job that has been created.
+-- * 'cjrsName' - The unique name that was provided for this job definition.
 --
 -- * 'cjrsResponseStatus' - -- | The response status code.
 createJobResponse
@@ -212,15 +222,15 @@ createJobResponse
     -> CreateJobResponse
 createJobResponse pResponseStatus_ =
   CreateJobResponse'
-  {_cjrsName = Nothing, _cjrsResponseStatus = pResponseStatus_}
+    {_cjrsName = Nothing, _cjrsResponseStatus = pResponseStatus_}
 
 
--- | The unique name of the new job that has been created.
+-- | The unique name that was provided for this job definition.
 cjrsName :: Lens' CreateJobResponse (Maybe Text)
-cjrsName = lens _cjrsName (\ s a -> s{_cjrsName = a});
+cjrsName = lens _cjrsName (\ s a -> s{_cjrsName = a})
 
 -- | -- | The response status code.
 cjrsResponseStatus :: Lens' CreateJobResponse Int
-cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
+cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a})
 
 instance NFData CreateJobResponse where

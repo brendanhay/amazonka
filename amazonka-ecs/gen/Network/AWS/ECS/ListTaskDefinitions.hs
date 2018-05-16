@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListTaskDefinitions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ data ListTaskDefinitions = ListTaskDefinitions'
 --
 -- * 'ltdFamilyPrefix' - The full family name with which to filter the @ListTaskDefinitions@ results. Specifying a @familyPrefix@ limits the listed task definitions to task definition revisions that belong to that family.
 --
--- * 'ltdNextToken' - The @nextToken@ value returned from a previous paginated @ListTaskDefinitions@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- * 'ltdNextToken' - The @nextToken@ value returned from a previous paginated @ListTaskDefinitions@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value.
 --
 -- * 'ltdSort' - The order in which to sort the results. Valid values are @ASC@ and @DESC@ . By default (@ASC@ ), task definitions are listed lexicographically by family name and in ascending numerical order by revision so that the newest task definitions in a family are listed last. Setting this parameter to @DESC@ reverses the sort order on family name and revision so that the newest task definitions in a family are listed first.
 --
@@ -79,33 +79,33 @@ listTaskDefinitions
     :: ListTaskDefinitions
 listTaskDefinitions =
   ListTaskDefinitions'
-  { _ltdStatus = Nothing
-  , _ltdFamilyPrefix = Nothing
-  , _ltdNextToken = Nothing
-  , _ltdSort = Nothing
-  , _ltdMaxResults = Nothing
-  }
+    { _ltdStatus = Nothing
+    , _ltdFamilyPrefix = Nothing
+    , _ltdNextToken = Nothing
+    , _ltdSort = Nothing
+    , _ltdMaxResults = Nothing
+    }
 
 
 -- | The task definition status with which to filter the @ListTaskDefinitions@ results. By default, only @ACTIVE@ task definitions are listed. By setting this parameter to @INACTIVE@ , you can view task definitions that are @INACTIVE@ as long as an active task or service still references them. If you paginate the resulting output, be sure to keep the @status@ value constant in each subsequent request.
 ltdStatus :: Lens' ListTaskDefinitions (Maybe TaskDefinitionStatus)
-ltdStatus = lens _ltdStatus (\ s a -> s{_ltdStatus = a});
+ltdStatus = lens _ltdStatus (\ s a -> s{_ltdStatus = a})
 
 -- | The full family name with which to filter the @ListTaskDefinitions@ results. Specifying a @familyPrefix@ limits the listed task definitions to task definition revisions that belong to that family.
 ltdFamilyPrefix :: Lens' ListTaskDefinitions (Maybe Text)
-ltdFamilyPrefix = lens _ltdFamilyPrefix (\ s a -> s{_ltdFamilyPrefix = a});
+ltdFamilyPrefix = lens _ltdFamilyPrefix (\ s a -> s{_ltdFamilyPrefix = a})
 
--- | The @nextToken@ value returned from a previous paginated @ListTaskDefinitions@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- | The @nextToken@ value returned from a previous paginated @ListTaskDefinitions@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value.
 ltdNextToken :: Lens' ListTaskDefinitions (Maybe Text)
-ltdNextToken = lens _ltdNextToken (\ s a -> s{_ltdNextToken = a});
+ltdNextToken = lens _ltdNextToken (\ s a -> s{_ltdNextToken = a})
 
 -- | The order in which to sort the results. Valid values are @ASC@ and @DESC@ . By default (@ASC@ ), task definitions are listed lexicographically by family name and in ascending numerical order by revision so that the newest task definitions in a family are listed last. Setting this parameter to @DESC@ reverses the sort order on family name and revision so that the newest task definitions in a family are listed first.
 ltdSort :: Lens' ListTaskDefinitions (Maybe SortOrder)
-ltdSort = lens _ltdSort (\ s a -> s{_ltdSort = a});
+ltdSort = lens _ltdSort (\ s a -> s{_ltdSort = a})
 
 -- | The maximum number of task definition results returned by @ListTaskDefinitions@ in paginated output. When this parameter is used, @ListTaskDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListTaskDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListTaskDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
 ltdMaxResults :: Lens' ListTaskDefinitions (Maybe Int)
-ltdMaxResults = lens _ltdMaxResults (\ s a -> s{_ltdMaxResults = a});
+ltdMaxResults = lens _ltdMaxResults (\ s a -> s{_ltdMaxResults = a})
 
 instance AWSPager ListTaskDefinitions where
         page rq rs
@@ -178,22 +178,22 @@ listTaskDefinitionsResponse
     -> ListTaskDefinitionsResponse
 listTaskDefinitionsResponse pResponseStatus_ =
   ListTaskDefinitionsResponse'
-  { _ltdrsTaskDefinitionARNs = Nothing
-  , _ltdrsNextToken = Nothing
-  , _ltdrsResponseStatus = pResponseStatus_
-  }
+    { _ltdrsTaskDefinitionARNs = Nothing
+    , _ltdrsNextToken = Nothing
+    , _ltdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of task definition Amazon Resource Name (ARN) entries for the @ListTaskDefinitions@ request.
 ltdrsTaskDefinitionARNs :: Lens' ListTaskDefinitionsResponse [Text]
-ltdrsTaskDefinitionARNs = lens _ltdrsTaskDefinitionARNs (\ s a -> s{_ltdrsTaskDefinitionARNs = a}) . _Default . _Coerce;
+ltdrsTaskDefinitionARNs = lens _ltdrsTaskDefinitionARNs (\ s a -> s{_ltdrsTaskDefinitionARNs = a}) . _Default . _Coerce
 
 -- | The @nextToken@ value to include in a future @ListTaskDefinitions@ request. When the results of a @ListTaskDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 ltdrsNextToken :: Lens' ListTaskDefinitionsResponse (Maybe Text)
-ltdrsNextToken = lens _ltdrsNextToken (\ s a -> s{_ltdrsNextToken = a});
+ltdrsNextToken = lens _ltdrsNextToken (\ s a -> s{_ltdrsNextToken = a})
 
 -- | -- | The response status code.
 ltdrsResponseStatus :: Lens' ListTaskDefinitionsResponse Int
-ltdrsResponseStatus = lens _ltdrsResponseStatus (\ s a -> s{_ltdrsResponseStatus = a});
+ltdrsResponseStatus = lens _ltdrsResponseStatus (\ s a -> s{_ltdrsResponseStatus = a})
 
 instance NFData ListTaskDefinitionsResponse where

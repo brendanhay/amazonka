@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteComment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ data DeleteComment = DeleteComment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'delAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'delDocumentId' - The ID of the document.
 --
@@ -71,28 +71,28 @@ deleteComment
     -> DeleteComment
 deleteComment pDocumentId_ pVersionId_ pCommentId_ =
   DeleteComment'
-  { _delAuthenticationToken = Nothing
-  , _delDocumentId = pDocumentId_
-  , _delVersionId = pVersionId_
-  , _delCommentId = pCommentId_
-  }
+    { _delAuthenticationToken = Nothing
+    , _delDocumentId = pDocumentId_
+    , _delVersionId = pVersionId_
+    , _delCommentId = pCommentId_
+    }
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 delAuthenticationToken :: Lens' DeleteComment (Maybe Text)
-delAuthenticationToken = lens _delAuthenticationToken (\ s a -> s{_delAuthenticationToken = a}) . mapping _Sensitive;
+delAuthenticationToken = lens _delAuthenticationToken (\ s a -> s{_delAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the document.
 delDocumentId :: Lens' DeleteComment Text
-delDocumentId = lens _delDocumentId (\ s a -> s{_delDocumentId = a});
+delDocumentId = lens _delDocumentId (\ s a -> s{_delDocumentId = a})
 
 -- | The ID of the document version.
 delVersionId :: Lens' DeleteComment Text
-delVersionId = lens _delVersionId (\ s a -> s{_delVersionId = a});
+delVersionId = lens _delVersionId (\ s a -> s{_delVersionId = a})
 
 -- | The ID of the comment.
 delCommentId :: Lens' DeleteComment Text
-delCommentId = lens _delCommentId (\ s a -> s{_delCommentId = a});
+delCommentId = lens _delCommentId (\ s a -> s{_delCommentId = a})
 
 instance AWSRequest DeleteComment where
         type Rs DeleteComment = DeleteCommentResponse

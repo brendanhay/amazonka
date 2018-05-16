@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ describeDirectConnectGatewayAssociations
     :: DescribeDirectConnectGatewayAssociations
 describeDirectConnectGatewayAssociations =
   DescribeDirectConnectGatewayAssociations'
-  { _ddcgaVirtualGatewayId = Nothing
-  , _ddcgaDirectConnectGatewayId = Nothing
-  , _ddcgaNextToken = Nothing
-  , _ddcgaMaxResults = Nothing
-  }
+    { _ddcgaVirtualGatewayId = Nothing
+    , _ddcgaDirectConnectGatewayId = Nothing
+    , _ddcgaNextToken = Nothing
+    , _ddcgaMaxResults = Nothing
+    }
 
 
 -- | The ID of the virtual private gateway. Example: "vgw-abc123ef" Default: None
 ddcgaVirtualGatewayId :: Lens' DescribeDirectConnectGatewayAssociations (Maybe Text)
-ddcgaVirtualGatewayId = lens _ddcgaVirtualGatewayId (\ s a -> s{_ddcgaVirtualGatewayId = a});
+ddcgaVirtualGatewayId = lens _ddcgaVirtualGatewayId (\ s a -> s{_ddcgaVirtualGatewayId = a})
 
 -- | The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
 ddcgaDirectConnectGatewayId :: Lens' DescribeDirectConnectGatewayAssociations (Maybe Text)
-ddcgaDirectConnectGatewayId = lens _ddcgaDirectConnectGatewayId (\ s a -> s{_ddcgaDirectConnectGatewayId = a});
+ddcgaDirectConnectGatewayId = lens _ddcgaDirectConnectGatewayId (\ s a -> s{_ddcgaDirectConnectGatewayId = a})
 
 -- | The token provided in the previous describe result to retrieve the next page of the result. Default: None
 ddcgaNextToken :: Lens' DescribeDirectConnectGatewayAssociations (Maybe Text)
-ddcgaNextToken = lens _ddcgaNextToken (\ s a -> s{_ddcgaNextToken = a});
+ddcgaNextToken = lens _ddcgaNextToken (\ s a -> s{_ddcgaNextToken = a})
 
 -- | The maximum number of direct connect gateway associations to return per page. Example: 15 Default: None
 ddcgaMaxResults :: Lens' DescribeDirectConnectGatewayAssociations (Maybe Int)
-ddcgaMaxResults = lens _ddcgaMaxResults (\ s a -> s{_ddcgaMaxResults = a});
+ddcgaMaxResults = lens _ddcgaMaxResults (\ s a -> s{_ddcgaMaxResults = a})
 
 instance AWSRequest
            DescribeDirectConnectGatewayAssociations
@@ -181,23 +181,23 @@ describeDirectConnectGatewayAssociationsResponse
     -> DescribeDirectConnectGatewayAssociationsResponse
 describeDirectConnectGatewayAssociationsResponse pResponseStatus_ =
   DescribeDirectConnectGatewayAssociationsResponse'
-  { _ddcgarsNextToken = Nothing
-  , _ddcgarsDirectConnectGatewayAssociations = Nothing
-  , _ddcgarsResponseStatus = pResponseStatus_
-  }
+    { _ddcgarsNextToken = Nothing
+    , _ddcgarsDirectConnectGatewayAssociations = Nothing
+    , _ddcgarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ddcgarsNextToken :: Lens' DescribeDirectConnectGatewayAssociationsResponse (Maybe Text)
-ddcgarsNextToken = lens _ddcgarsNextToken (\ s a -> s{_ddcgarsNextToken = a});
+ddcgarsNextToken = lens _ddcgarsNextToken (\ s a -> s{_ddcgarsNextToken = a})
 
 -- | Information about the direct connect gateway associations.
 ddcgarsDirectConnectGatewayAssociations :: Lens' DescribeDirectConnectGatewayAssociationsResponse [DirectConnectGatewayAssociation]
-ddcgarsDirectConnectGatewayAssociations = lens _ddcgarsDirectConnectGatewayAssociations (\ s a -> s{_ddcgarsDirectConnectGatewayAssociations = a}) . _Default . _Coerce;
+ddcgarsDirectConnectGatewayAssociations = lens _ddcgarsDirectConnectGatewayAssociations (\ s a -> s{_ddcgarsDirectConnectGatewayAssociations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddcgarsResponseStatus :: Lens' DescribeDirectConnectGatewayAssociationsResponse Int
-ddcgarsResponseStatus = lens _ddcgarsResponseStatus (\ s a -> s{_ddcgarsResponseStatus = a});
+ddcgarsResponseStatus = lens _ddcgarsResponseStatus (\ s a -> s{_ddcgarsResponseStatus = a})
 
 instance NFData
            DescribeDirectConnectGatewayAssociationsResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteActivation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteActivation pActivationId_ =
 
 -- | The ID of the activation that you want to delete.
 daActivationId :: Lens' DeleteActivation Text
-daActivationId = lens _daActivationId (\ s a -> s{_daActivationId = a});
+daActivationId = lens _daActivationId (\ s a -> s{_daActivationId = a})
 
 instance AWSRequest DeleteActivation where
         type Rs DeleteActivation = DeleteActivationResponse
@@ -118,6 +118,6 @@ deleteActivationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 delersResponseStatus :: Lens' DeleteActivationResponse Int
-delersResponseStatus = lens _delersResponseStatus (\ s a -> s{_delersResponseStatus = a});
+delersResponseStatus = lens _delersResponseStatus (\ s a -> s{_delersResponseStatus = a})
 
 instance NFData DeleteActivationResponse where

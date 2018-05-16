@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,88 +85,88 @@ cluster
     :: Cluster
 cluster =
   Cluster'
-  { _cStatus = Nothing
-  , _cIAMRoleARN = Nothing
-  , _cClusterARN = Nothing
-  , _cActiveNodes = Nothing
-  , _cSecurityGroups = Nothing
-  , _cNotificationConfiguration = Nothing
-  , _cNodeIdsToRemove = Nothing
-  , _cTotalNodes = Nothing
-  , _cPreferredMaintenanceWindow = Nothing
-  , _cSubnetGroup = Nothing
-  , _cClusterName = Nothing
-  , _cNodeType = Nothing
-  , _cNodes = Nothing
-  , _cClusterDiscoveryEndpoint = Nothing
-  , _cDescription = Nothing
-  , _cParameterGroup = Nothing
-  }
+    { _cStatus = Nothing
+    , _cIAMRoleARN = Nothing
+    , _cClusterARN = Nothing
+    , _cActiveNodes = Nothing
+    , _cSecurityGroups = Nothing
+    , _cNotificationConfiguration = Nothing
+    , _cNodeIdsToRemove = Nothing
+    , _cTotalNodes = Nothing
+    , _cPreferredMaintenanceWindow = Nothing
+    , _cSubnetGroup = Nothing
+    , _cClusterName = Nothing
+    , _cNodeType = Nothing
+    , _cNodes = Nothing
+    , _cClusterDiscoveryEndpoint = Nothing
+    , _cDescription = Nothing
+    , _cParameterGroup = Nothing
+    }
 
 
 -- | The current status of the cluster.
 cStatus :: Lens' Cluster (Maybe Text)
-cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
+cStatus = lens _cStatus (\ s a -> s{_cStatus = a})
 
 -- | A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
 cIAMRoleARN :: Lens' Cluster (Maybe Text)
-cIAMRoleARN = lens _cIAMRoleARN (\ s a -> s{_cIAMRoleARN = a});
+cIAMRoleARN = lens _cIAMRoleARN (\ s a -> s{_cIAMRoleARN = a})
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 cClusterARN :: Lens' Cluster (Maybe Text)
-cClusterARN = lens _cClusterARN (\ s a -> s{_cClusterARN = a});
+cClusterARN = lens _cClusterARN (\ s a -> s{_cClusterARN = a})
 
 -- | The number of nodes in the cluster that are active (i.e., capable of serving requests).
 cActiveNodes :: Lens' Cluster (Maybe Int)
-cActiveNodes = lens _cActiveNodes (\ s a -> s{_cActiveNodes = a});
+cActiveNodes = lens _cActiveNodes (\ s a -> s{_cActiveNodes = a})
 
 -- | A list of security groups, and the status of each, for the nodes in the cluster.
 cSecurityGroups :: Lens' Cluster [SecurityGroupMembership]
-cSecurityGroups = lens _cSecurityGroups (\ s a -> s{_cSecurityGroups = a}) . _Default . _Coerce;
+cSecurityGroups = lens _cSecurityGroups (\ s a -> s{_cSecurityGroups = a}) . _Default . _Coerce
 
 -- | Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).
 cNotificationConfiguration :: Lens' Cluster (Maybe NotificationConfiguration)
-cNotificationConfiguration = lens _cNotificationConfiguration (\ s a -> s{_cNotificationConfiguration = a});
+cNotificationConfiguration = lens _cNotificationConfiguration (\ s a -> s{_cNotificationConfiguration = a})
 
 -- | A list of nodes to be removed from the cluster.
 cNodeIdsToRemove :: Lens' Cluster [Text]
-cNodeIdsToRemove = lens _cNodeIdsToRemove (\ s a -> s{_cNodeIdsToRemove = a}) . _Default . _Coerce;
+cNodeIdsToRemove = lens _cNodeIdsToRemove (\ s a -> s{_cNodeIdsToRemove = a}) . _Default . _Coerce
 
 -- | The total number of nodes in the cluster.
 cTotalNodes :: Lens' Cluster (Maybe Int)
-cTotalNodes = lens _cTotalNodes (\ s a -> s{_cTotalNodes = a});
+cTotalNodes = lens _cTotalNodes (\ s a -> s{_cTotalNodes = a})
 
 -- | A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
 cPreferredMaintenanceWindow :: Lens' Cluster (Maybe Text)
-cPreferredMaintenanceWindow = lens _cPreferredMaintenanceWindow (\ s a -> s{_cPreferredMaintenanceWindow = a});
+cPreferredMaintenanceWindow = lens _cPreferredMaintenanceWindow (\ s a -> s{_cPreferredMaintenanceWindow = a})
 
 -- | The subnet group where the DAX cluster is running.
 cSubnetGroup :: Lens' Cluster (Maybe Text)
-cSubnetGroup = lens _cSubnetGroup (\ s a -> s{_cSubnetGroup = a});
+cSubnetGroup = lens _cSubnetGroup (\ s a -> s{_cSubnetGroup = a})
 
 -- | The name of the DAX cluster.
 cClusterName :: Lens' Cluster (Maybe Text)
-cClusterName = lens _cClusterName (\ s a -> s{_cClusterName = a});
+cClusterName = lens _cClusterName (\ s a -> s{_cClusterName = a})
 
 -- | The node type for the nodes in the cluster. (All nodes in a DAX cluster are of the same type.)
 cNodeType :: Lens' Cluster (Maybe Text)
-cNodeType = lens _cNodeType (\ s a -> s{_cNodeType = a});
+cNodeType = lens _cNodeType (\ s a -> s{_cNodeType = a})
 
 -- | A list of nodes that are currently in the cluster.
 cNodes :: Lens' Cluster [Node]
-cNodes = lens _cNodes (\ s a -> s{_cNodes = a}) . _Default . _Coerce;
+cNodes = lens _cNodes (\ s a -> s{_cNodes = a}) . _Default . _Coerce
 
 -- | The configuration endpoint for this DAX cluster, consisting of a DNS name and a port number. Client applications can specify this endpoint, rather than an individual node endpoint, and allow the DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
 cClusterDiscoveryEndpoint :: Lens' Cluster (Maybe Endpoint)
-cClusterDiscoveryEndpoint = lens _cClusterDiscoveryEndpoint (\ s a -> s{_cClusterDiscoveryEndpoint = a});
+cClusterDiscoveryEndpoint = lens _cClusterDiscoveryEndpoint (\ s a -> s{_cClusterDiscoveryEndpoint = a})
 
 -- | The description of the cluster.
 cDescription :: Lens' Cluster (Maybe Text)
-cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
+cDescription = lens _cDescription (\ s a -> s{_cDescription = a})
 
 -- | The parameter group being used by nodes in the cluster.
 cParameterGroup :: Lens' Cluster (Maybe ParameterGroupStatus)
-cParameterGroup = lens _cParameterGroup (\ s a -> s{_cParameterGroup = a});
+cParameterGroup = lens _cParameterGroup (\ s a -> s{_cParameterGroup = a})
 
 instance FromJSON Cluster where
         parseJSON
@@ -218,11 +218,11 @@ endpoint = Endpoint' {_eAddress = Nothing, _ePort = Nothing}
 
 -- | The DNS hostname of the endpoint.
 eAddress :: Lens' Endpoint (Maybe Text)
-eAddress = lens _eAddress (\ s a -> s{_eAddress = a});
+eAddress = lens _eAddress (\ s a -> s{_eAddress = a})
 
 -- | The port number that applications should use to connect to the endpoint.
 ePort :: Lens' Endpoint (Maybe Int)
-ePort = lens _ePort (\ s a -> s{_ePort = a});
+ePort = lens _ePort (\ s a -> s{_ePort = a})
 
 instance FromJSON Endpoint where
         parseJSON
@@ -262,28 +262,28 @@ event
     :: Event
 event =
   Event'
-  { _eSourceName = Nothing
-  , _eSourceType = Nothing
-  , _eDate = Nothing
-  , _eMessage = Nothing
-  }
+    { _eSourceName = Nothing
+    , _eSourceType = Nothing
+    , _eDate = Nothing
+    , _eMessage = Nothing
+    }
 
 
 -- | The source of the event. For example, if the event occurred at the node level, the source would be the node ID.
 eSourceName :: Lens' Event (Maybe Text)
-eSourceName = lens _eSourceName (\ s a -> s{_eSourceName = a});
+eSourceName = lens _eSourceName (\ s a -> s{_eSourceName = a})
 
 -- | Specifies the origin of this event - a cluster, a parameter group, a node ID, etc.
 eSourceType :: Lens' Event (Maybe SourceType)
-eSourceType = lens _eSourceType (\ s a -> s{_eSourceType = a});
+eSourceType = lens _eSourceType (\ s a -> s{_eSourceType = a})
 
 -- | The date and time when the event occurred.
 eDate :: Lens' Event (Maybe UTCTime)
-eDate = lens _eDate (\ s a -> s{_eDate = a}) . mapping _Time;
+eDate = lens _eDate (\ s a -> s{_eDate = a}) . mapping _Time
 
 -- | A user-defined message associated with the event.
 eMessage :: Lens' Event (Maybe Text)
-eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
+eMessage = lens _eMessage (\ s a -> s{_eMessage = a})
 
 instance FromJSON Event where
         parseJSON
@@ -332,38 +332,38 @@ node
     :: Node
 node =
   Node'
-  { _nNodeStatus = Nothing
-  , _nParameterGroupStatus = Nothing
-  , _nAvailabilityZone = Nothing
-  , _nNodeId = Nothing
-  , _nEndpoint = Nothing
-  , _nNodeCreateTime = Nothing
-  }
+    { _nNodeStatus = Nothing
+    , _nParameterGroupStatus = Nothing
+    , _nAvailabilityZone = Nothing
+    , _nNodeId = Nothing
+    , _nEndpoint = Nothing
+    , _nNodeCreateTime = Nothing
+    }
 
 
 -- | The current status of the node. For example: @available@ .
 nNodeStatus :: Lens' Node (Maybe Text)
-nNodeStatus = lens _nNodeStatus (\ s a -> s{_nNodeStatus = a});
+nNodeStatus = lens _nNodeStatus (\ s a -> s{_nNodeStatus = a})
 
 -- | The status of the parameter group associated with this node. For example, @in-sync@ .
 nParameterGroupStatus :: Lens' Node (Maybe Text)
-nParameterGroupStatus = lens _nParameterGroupStatus (\ s a -> s{_nParameterGroupStatus = a});
+nParameterGroupStatus = lens _nParameterGroupStatus (\ s a -> s{_nParameterGroupStatus = a})
 
 -- | The Availability Zone (AZ) in which the node has been deployed.
 nAvailabilityZone :: Lens' Node (Maybe Text)
-nAvailabilityZone = lens _nAvailabilityZone (\ s a -> s{_nAvailabilityZone = a});
+nAvailabilityZone = lens _nAvailabilityZone (\ s a -> s{_nAvailabilityZone = a})
 
 -- | A system-generated identifier for the node.
 nNodeId :: Lens' Node (Maybe Text)
-nNodeId = lens _nNodeId (\ s a -> s{_nNodeId = a});
+nNodeId = lens _nNodeId (\ s a -> s{_nNodeId = a})
 
 -- | The endpoint for the node, consisting of a DNS name and a port number. Client applications can connect directly to a node endpoint, if desired (as an alternative to allowing DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
 nEndpoint :: Lens' Node (Maybe Endpoint)
-nEndpoint = lens _nEndpoint (\ s a -> s{_nEndpoint = a});
+nEndpoint = lens _nEndpoint (\ s a -> s{_nEndpoint = a})
 
 -- | The date and time (in UNIX epoch format) when the node was launched.
 nNodeCreateTime :: Lens' Node (Maybe UTCTime)
-nNodeCreateTime = lens _nNodeCreateTime (\ s a -> s{_nNodeCreateTime = a}) . mapping _Time;
+nNodeCreateTime = lens _nNodeCreateTime (\ s a -> s{_nNodeCreateTime = a}) . mapping _Time
 
 instance FromJSON Node where
         parseJSON
@@ -407,11 +407,11 @@ nodeTypeSpecificValue =
 
 -- | The parameter value for this node type.
 ntsvValue :: Lens' NodeTypeSpecificValue (Maybe Text)
-ntsvValue = lens _ntsvValue (\ s a -> s{_ntsvValue = a});
+ntsvValue = lens _ntsvValue (\ s a -> s{_ntsvValue = a})
 
 -- | A node type to which the parameter value applies.
 ntsvNodeType :: Lens' NodeTypeSpecificValue (Maybe Text)
-ntsvNodeType = lens _ntsvNodeType (\ s a -> s{_ntsvNodeType = a});
+ntsvNodeType = lens _ntsvNodeType (\ s a -> s{_ntsvNodeType = a})
 
 instance FromJSON NodeTypeSpecificValue where
         parseJSON
@@ -450,11 +450,11 @@ notificationConfiguration =
 
 -- | The current state of the topic.
 ncTopicStatus :: Lens' NotificationConfiguration (Maybe Text)
-ncTopicStatus = lens _ncTopicStatus (\ s a -> s{_ncTopicStatus = a});
+ncTopicStatus = lens _ncTopicStatus (\ s a -> s{_ncTopicStatus = a})
 
 -- | The Amazon Resource Name (ARN) that identifies the topic.
 ncTopicARN :: Lens' NotificationConfiguration (Maybe Text)
-ncTopicARN = lens _ncTopicARN (\ s a -> s{_ncTopicARN = a});
+ncTopicARN = lens _ncTopicARN (\ s a -> s{_ncTopicARN = a})
 
 instance FromJSON NotificationConfiguration where
         parseJSON
@@ -513,58 +513,58 @@ parameter
     :: Parameter
 parameter =
   Parameter'
-  { _pParameterValue = Nothing
-  , _pParameterType = Nothing
-  , _pSource = Nothing
-  , _pIsModifiable = Nothing
-  , _pDataType = Nothing
-  , _pNodeTypeSpecificValues = Nothing
-  , _pAllowedValues = Nothing
-  , _pParameterName = Nothing
-  , _pDescription = Nothing
-  , _pChangeType = Nothing
-  }
+    { _pParameterValue = Nothing
+    , _pParameterType = Nothing
+    , _pSource = Nothing
+    , _pIsModifiable = Nothing
+    , _pDataType = Nothing
+    , _pNodeTypeSpecificValues = Nothing
+    , _pAllowedValues = Nothing
+    , _pParameterName = Nothing
+    , _pDescription = Nothing
+    , _pChangeType = Nothing
+    }
 
 
 -- | The value for the parameter.
 pParameterValue :: Lens' Parameter (Maybe Text)
-pParameterValue = lens _pParameterValue (\ s a -> s{_pParameterValue = a});
+pParameterValue = lens _pParameterValue (\ s a -> s{_pParameterValue = a})
 
 -- | Determines whether the parameter can be applied to any nodes, or only nodes of a particular type.
 pParameterType :: Lens' Parameter (Maybe ParameterType)
-pParameterType = lens _pParameterType (\ s a -> s{_pParameterType = a});
+pParameterType = lens _pParameterType (\ s a -> s{_pParameterType = a})
 
 -- | How the parameter is defined. For example, @system@ denotes a system-defined parameter.
 pSource :: Lens' Parameter (Maybe Text)
-pSource = lens _pSource (\ s a -> s{_pSource = a});
+pSource = lens _pSource (\ s a -> s{_pSource = a})
 
 -- | Whether the customer is allowed to modify the parameter.
 pIsModifiable :: Lens' Parameter (Maybe IsModifiable)
-pIsModifiable = lens _pIsModifiable (\ s a -> s{_pIsModifiable = a});
+pIsModifiable = lens _pIsModifiable (\ s a -> s{_pIsModifiable = a})
 
 -- | The data type of the parameter. For example, @integer@ :
 pDataType :: Lens' Parameter (Maybe Text)
-pDataType = lens _pDataType (\ s a -> s{_pDataType = a});
+pDataType = lens _pDataType (\ s a -> s{_pDataType = a})
 
 -- | A list of node types, and specific parameter values for each node.
 pNodeTypeSpecificValues :: Lens' Parameter [NodeTypeSpecificValue]
-pNodeTypeSpecificValues = lens _pNodeTypeSpecificValues (\ s a -> s{_pNodeTypeSpecificValues = a}) . _Default . _Coerce;
+pNodeTypeSpecificValues = lens _pNodeTypeSpecificValues (\ s a -> s{_pNodeTypeSpecificValues = a}) . _Default . _Coerce
 
 -- | A range of values within which the parameter can be set.
 pAllowedValues :: Lens' Parameter (Maybe Text)
-pAllowedValues = lens _pAllowedValues (\ s a -> s{_pAllowedValues = a});
+pAllowedValues = lens _pAllowedValues (\ s a -> s{_pAllowedValues = a})
 
 -- | The name of the parameter.
 pParameterName :: Lens' Parameter (Maybe Text)
-pParameterName = lens _pParameterName (\ s a -> s{_pParameterName = a});
+pParameterName = lens _pParameterName (\ s a -> s{_pParameterName = a})
 
 -- | A description of the parameter
 pDescription :: Lens' Parameter (Maybe Text)
-pDescription = lens _pDescription (\ s a -> s{_pDescription = a});
+pDescription = lens _pDescription (\ s a -> s{_pDescription = a})
 
 -- | The conditions under which changes to this parameter can be applied. For example, @requires-reboot@ indicates that a new value for this parameter will only take effect if a node is rebooted.
 pChangeType :: Lens' Parameter (Maybe ChangeType)
-pChangeType = lens _pChangeType (\ s a -> s{_pChangeType = a});
+pChangeType = lens _pChangeType (\ s a -> s{_pChangeType = a})
 
 instance FromJSON Parameter where
         parseJSON
@@ -611,11 +611,11 @@ parameterGroup =
 
 -- | A description of the parameter group.
 pgDescription :: Lens' ParameterGroup (Maybe Text)
-pgDescription = lens _pgDescription (\ s a -> s{_pgDescription = a});
+pgDescription = lens _pgDescription (\ s a -> s{_pgDescription = a})
 
 -- | The name of the parameter group.
 pgParameterGroupName :: Lens' ParameterGroup (Maybe Text)
-pgParameterGroupName = lens _pgParameterGroupName (\ s a -> s{_pgParameterGroupName = a});
+pgParameterGroupName = lens _pgParameterGroupName (\ s a -> s{_pgParameterGroupName = a})
 
 instance FromJSON ParameterGroup where
         parseJSON
@@ -654,23 +654,23 @@ parameterGroupStatus
     :: ParameterGroupStatus
 parameterGroupStatus =
   ParameterGroupStatus'
-  { _pgsNodeIdsToReboot = Nothing
-  , _pgsParameterApplyStatus = Nothing
-  , _pgsParameterGroupName = Nothing
-  }
+    { _pgsNodeIdsToReboot = Nothing
+    , _pgsParameterApplyStatus = Nothing
+    , _pgsParameterGroupName = Nothing
+    }
 
 
 -- | The node IDs of one or more nodes to be rebooted.
 pgsNodeIdsToReboot :: Lens' ParameterGroupStatus [Text]
-pgsNodeIdsToReboot = lens _pgsNodeIdsToReboot (\ s a -> s{_pgsNodeIdsToReboot = a}) . _Default . _Coerce;
+pgsNodeIdsToReboot = lens _pgsNodeIdsToReboot (\ s a -> s{_pgsNodeIdsToReboot = a}) . _Default . _Coerce
 
 -- | The status of parameter updates.
 pgsParameterApplyStatus :: Lens' ParameterGroupStatus (Maybe Text)
-pgsParameterApplyStatus = lens _pgsParameterApplyStatus (\ s a -> s{_pgsParameterApplyStatus = a});
+pgsParameterApplyStatus = lens _pgsParameterApplyStatus (\ s a -> s{_pgsParameterApplyStatus = a})
 
 -- | The name of the parameter group.
 pgsParameterGroupName :: Lens' ParameterGroupStatus (Maybe Text)
-pgsParameterGroupName = lens _pgsParameterGroupName (\ s a -> s{_pgsParameterGroupName = a});
+pgsParameterGroupName = lens _pgsParameterGroupName (\ s a -> s{_pgsParameterGroupName = a})
 
 instance FromJSON ParameterGroupStatus where
         parseJSON
@@ -707,16 +707,16 @@ parameterNameValue
     :: ParameterNameValue
 parameterNameValue =
   ParameterNameValue'
-  {_pnvParameterValue = Nothing, _pnvParameterName = Nothing}
+    {_pnvParameterValue = Nothing, _pnvParameterName = Nothing}
 
 
 -- | The value of the parameter.
 pnvParameterValue :: Lens' ParameterNameValue (Maybe Text)
-pnvParameterValue = lens _pnvParameterValue (\ s a -> s{_pnvParameterValue = a});
+pnvParameterValue = lens _pnvParameterValue (\ s a -> s{_pnvParameterValue = a})
 
 -- | The name of the parameter.
 pnvParameterName :: Lens' ParameterNameValue (Maybe Text)
-pnvParameterName = lens _pnvParameterName (\ s a -> s{_pnvParameterName = a});
+pnvParameterName = lens _pnvParameterName (\ s a -> s{_pnvParameterName = a})
 
 instance Hashable ParameterNameValue where
 
@@ -751,16 +751,16 @@ securityGroupMembership
     :: SecurityGroupMembership
 securityGroupMembership =
   SecurityGroupMembership'
-  {_sgmStatus = Nothing, _sgmSecurityGroupIdentifier = Nothing}
+    {_sgmStatus = Nothing, _sgmSecurityGroupIdentifier = Nothing}
 
 
 -- | The status of this security group.
 sgmStatus :: Lens' SecurityGroupMembership (Maybe Text)
-sgmStatus = lens _sgmStatus (\ s a -> s{_sgmStatus = a});
+sgmStatus = lens _sgmStatus (\ s a -> s{_sgmStatus = a})
 
 -- | The unique ID for this security group.
 sgmSecurityGroupIdentifier :: Lens' SecurityGroupMembership (Maybe Text)
-sgmSecurityGroupIdentifier = lens _sgmSecurityGroupIdentifier (\ s a -> s{_sgmSecurityGroupIdentifier = a});
+sgmSecurityGroupIdentifier = lens _sgmSecurityGroupIdentifier (\ s a -> s{_sgmSecurityGroupIdentifier = a})
 
 instance FromJSON SecurityGroupMembership where
         parseJSON
@@ -800,11 +800,11 @@ subnet =
 
 -- | The system-assigned identifier for the subnet.
 sSubnetIdentifier :: Lens' Subnet (Maybe Text)
-sSubnetIdentifier = lens _sSubnetIdentifier (\ s a -> s{_sSubnetIdentifier = a});
+sSubnetIdentifier = lens _sSubnetIdentifier (\ s a -> s{_sSubnetIdentifier = a})
 
 -- | The Availability Zone (AZ) for subnet subnet.
 sSubnetAvailabilityZone :: Lens' Subnet (Maybe Text)
-sSubnetAvailabilityZone = lens _sSubnetAvailabilityZone (\ s a -> s{_sSubnetAvailabilityZone = a});
+sSubnetAvailabilityZone = lens _sSubnetAvailabilityZone (\ s a -> s{_sSubnetAvailabilityZone = a})
 
 instance FromJSON Subnet where
         parseJSON
@@ -852,28 +852,28 @@ subnetGroup
     :: SubnetGroup
 subnetGroup =
   SubnetGroup'
-  { _sgVPCId = Nothing
-  , _sgSubnets = Nothing
-  , _sgSubnetGroupName = Nothing
-  , _sgDescription = Nothing
-  }
+    { _sgVPCId = Nothing
+    , _sgSubnets = Nothing
+    , _sgSubnetGroupName = Nothing
+    , _sgDescription = Nothing
+    }
 
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.
 sgVPCId :: Lens' SubnetGroup (Maybe Text)
-sgVPCId = lens _sgVPCId (\ s a -> s{_sgVPCId = a});
+sgVPCId = lens _sgVPCId (\ s a -> s{_sgVPCId = a})
 
 -- | A list of subnets associated with the subnet group.
 sgSubnets :: Lens' SubnetGroup [Subnet]
-sgSubnets = lens _sgSubnets (\ s a -> s{_sgSubnets = a}) . _Default . _Coerce;
+sgSubnets = lens _sgSubnets (\ s a -> s{_sgSubnets = a}) . _Default . _Coerce
 
 -- | The name of the subnet group.
 sgSubnetGroupName :: Lens' SubnetGroup (Maybe Text)
-sgSubnetGroupName = lens _sgSubnetGroupName (\ s a -> s{_sgSubnetGroupName = a});
+sgSubnetGroupName = lens _sgSubnetGroupName (\ s a -> s{_sgSubnetGroupName = a})
 
 -- | The description of the subnet group.
 sgDescription :: Lens' SubnetGroup (Maybe Text)
-sgDescription = lens _sgDescription (\ s a -> s{_sgDescription = a});
+sgDescription = lens _sgDescription (\ s a -> s{_sgDescription = a})
 
 instance FromJSON SubnetGroup where
         parseJSON
@@ -917,11 +917,11 @@ tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
 
 -- | The value of the tag. Tag values are case-sensitive and can be null.
 tagValue :: Lens' Tag (Maybe Text)
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 -- | The key for the tag. Tag keys are case sensitive. Every DAX cluster can only have one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
 tagKey :: Lens' Tag (Maybe Text)
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 instance FromJSON Tag where
         parseJSON

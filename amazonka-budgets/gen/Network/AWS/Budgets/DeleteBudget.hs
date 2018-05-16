@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DeleteBudget
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a budget and related notifications
+-- Deletes a budget. You can delete your budget at any time.
+--
+--
+-- __Deleting a budget also deletes the notifications and subscribers associated with that budget.__
+--
 module Network.AWS.Budgets.DeleteBudget
     (
     -- * Creating a Request
@@ -44,6 +48,8 @@ import Network.AWS.Response
 
 -- | Request of DeleteBudget
 --
+--
+--
 -- /See:/ 'deleteBudget' smart constructor.
 data DeleteBudget = DeleteBudget'
   { _dAccountId  :: !Text
@@ -55,9 +61,9 @@ data DeleteBudget = DeleteBudget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAccountId' - Undocumented member.
+-- * 'dAccountId' - The @accountId@ that is associated with the budget that you want to delete.
 --
--- * 'dBudgetName' - Undocumented member.
+-- * 'dBudgetName' - The name of the budget that you want to delete.
 deleteBudget
     :: Text -- ^ 'dAccountId'
     -> Text -- ^ 'dBudgetName'
@@ -66,13 +72,13 @@ deleteBudget pAccountId_ pBudgetName_ =
   DeleteBudget' {_dAccountId = pAccountId_, _dBudgetName = pBudgetName_}
 
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budget that you want to delete.
 dAccountId :: Lens' DeleteBudget Text
-dAccountId = lens _dAccountId (\ s a -> s{_dAccountId = a});
+dAccountId = lens _dAccountId (\ s a -> s{_dAccountId = a})
 
--- | Undocumented member.
+-- | The name of the budget that you want to delete.
 dBudgetName :: Lens' DeleteBudget Text
-dBudgetName = lens _dBudgetName (\ s a -> s{_dBudgetName = a});
+dBudgetName = lens _dBudgetName (\ s a -> s{_dBudgetName = a})
 
 instance AWSRequest DeleteBudget where
         type Rs DeleteBudget = DeleteBudgetResponse
@@ -111,6 +117,8 @@ instance ToQuery DeleteBudget where
 
 -- | Response of DeleteBudget
 --
+--
+--
 -- /See:/ 'deleteBudgetResponse' smart constructor.
 newtype DeleteBudgetResponse = DeleteBudgetResponse'
   { _drsResponseStatus :: Int
@@ -131,6 +139,6 @@ deleteBudgetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteBudgetResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteBudgetResponse where

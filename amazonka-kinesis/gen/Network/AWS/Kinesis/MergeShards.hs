@@ -12,28 +12,28 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.MergeShards
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Merges two adjacent shards in an Amazon Kinesis stream and combines them into a single shard to reduce the stream's capacity to ingest and transport data. Two shards are considered adjacent if the union of the hash key ranges for the two shards form a contiguous set with no gaps. For example, if you have two shards, one with a hash key range of 276...381 and the other with a hash key range of 382...454, then you could merge these two shards into a single shard that would have a hash key range of 276...454. After the merge, the single child shard receives data for all hash key values covered by the two parent shards.
+-- Merges two adjacent shards in a Kinesis data stream and combines them into a single shard to reduce the stream's capacity to ingest and transport data. Two shards are considered adjacent if the union of the hash key ranges for the two shards form a contiguous set with no gaps. For example, if you have two shards, one with a hash key range of 276...381 and the other with a hash key range of 382...454, then you could merge these two shards into a single shard that would have a hash key range of 276...454. After the merge, the single child shard receives data for all hash key values covered by the two parent shards.
 --
 --
--- @MergeShards@ is called when there is a need to reduce the overall capacity of a stream because of excess capacity that is not being used. You must specify the shard to be merged and the adjacent shard for a stream. For more information about merging shards, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-merge.html Merge Two Shards> in the /Amazon Kinesis Streams Developer Guide/ .
+-- @MergeShards@ is called when there is a need to reduce the overall capacity of a stream because of excess capacity that is not being used. You must specify the shard to be merged and the adjacent shard for a stream. For more information about merging shards, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-merge.html Merge Two Shards> in the /Amazon Kinesis Data Streams Developer Guide/ .
 --
 -- If the stream is in the @ACTIVE@ state, you can call @MergeShards@ . If a stream is in the @CREATING@ , @UPDATING@ , or @DELETING@ state, @MergeShards@ returns a @ResourceInUseException@ . If the specified stream does not exist, @MergeShards@ returns a @ResourceNotFoundException@ .
 --
 -- You can use 'DescribeStream' to check the state of the stream, which is returned in @StreamStatus@ .
 --
--- @MergeShards@ is an asynchronous operation. Upon receiving a @MergeShards@ request, Amazon Kinesis immediately returns a response and sets the @StreamStatus@ to @UPDATING@ . After the operation is completed, Amazon Kinesis sets the @StreamStatus@ to @ACTIVE@ . Read and write operations continue to work while the stream is in the @UPDATING@ state.
+-- @MergeShards@ is an asynchronous operation. Upon receiving a @MergeShards@ request, Amazon Kinesis Data Streams immediately returns a response and sets the @StreamStatus@ to @UPDATING@ . After the operation is completed, Kinesis Data Streams sets the @StreamStatus@ to @ACTIVE@ . Read and write operations continue to work while the stream is in the @UPDATING@ state.
 --
 -- You use 'DescribeStream' to determine the shard IDs that are specified in the @MergeShards@ request.
 --
--- If you try to operate on too many streams in parallel using 'CreateStream' , 'DeleteStream' , @MergeShards@ or 'SplitShard' , you will receive a @LimitExceededException@ .
+-- If you try to operate on too many streams in parallel using 'CreateStream' , 'DeleteStream' , @MergeShards@ , or 'SplitShard' , you receive a @LimitExceededException@ .
 --
--- @MergeShards@ has limit of 5 transactions per second per account.
+-- @MergeShards@ has a limit of five transactions per second per account.
 --
 module Network.AWS.Kinesis.MergeShards
     (
@@ -85,23 +85,23 @@ mergeShards
     -> MergeShards
 mergeShards pStreamName_ pShardToMerge_ pAdjacentShardToMerge_ =
   MergeShards'
-  { _msStreamName = pStreamName_
-  , _msShardToMerge = pShardToMerge_
-  , _msAdjacentShardToMerge = pAdjacentShardToMerge_
-  }
+    { _msStreamName = pStreamName_
+    , _msShardToMerge = pShardToMerge_
+    , _msAdjacentShardToMerge = pAdjacentShardToMerge_
+    }
 
 
 -- | The name of the stream for the merge.
 msStreamName :: Lens' MergeShards Text
-msStreamName = lens _msStreamName (\ s a -> s{_msStreamName = a});
+msStreamName = lens _msStreamName (\ s a -> s{_msStreamName = a})
 
 -- | The shard ID of the shard to combine with the adjacent shard for the merge.
 msShardToMerge :: Lens' MergeShards Text
-msShardToMerge = lens _msShardToMerge (\ s a -> s{_msShardToMerge = a});
+msShardToMerge = lens _msShardToMerge (\ s a -> s{_msShardToMerge = a})
 
 -- | The shard ID of the adjacent shard for the merge.
 msAdjacentShardToMerge :: Lens' MergeShards Text
-msAdjacentShardToMerge = lens _msAdjacentShardToMerge (\ s a -> s{_msAdjacentShardToMerge = a});
+msAdjacentShardToMerge = lens _msAdjacentShardToMerge (\ s a -> s{_msAdjacentShardToMerge = a})
 
 instance AWSRequest MergeShards where
         type Rs MergeShards = MergeShardsResponse

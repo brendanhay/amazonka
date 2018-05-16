@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ describeTags pResourceId_ pResourceType_ =
 
 -- | The ID of the ML object. For example, @exampleModelId@ .
 dtResourceId :: Lens' DescribeTags Text
-dtResourceId = lens _dtResourceId (\ s a -> s{_dtResourceId = a});
+dtResourceId = lens _dtResourceId (\ s a -> s{_dtResourceId = a})
 
 -- | The type of the ML object.
 dtResourceType :: Lens' DescribeTags TaggableResourceType
-dtResourceType = lens _dtResourceType (\ s a -> s{_dtResourceType = a});
+dtResourceType = lens _dtResourceType (\ s a -> s{_dtResourceType = a})
 
 instance AWSRequest DescribeTags where
         type Rs DescribeTags = DescribeTagsResponse
@@ -143,27 +143,27 @@ describeTagsResponse
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
   DescribeTagsResponse'
-  { _dtrsResourceId = Nothing
-  , _dtrsResourceType = Nothing
-  , _dtrsTags = Nothing
-  , _dtrsResponseStatus = pResponseStatus_
-  }
+    { _dtrsResourceId = Nothing
+    , _dtrsResourceType = Nothing
+    , _dtrsTags = Nothing
+    , _dtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the tagged ML object.
 dtrsResourceId :: Lens' DescribeTagsResponse (Maybe Text)
-dtrsResourceId = lens _dtrsResourceId (\ s a -> s{_dtrsResourceId = a});
+dtrsResourceId = lens _dtrsResourceId (\ s a -> s{_dtrsResourceId = a})
 
 -- | The type of the tagged ML object.
 dtrsResourceType :: Lens' DescribeTagsResponse (Maybe TaggableResourceType)
-dtrsResourceType = lens _dtrsResourceType (\ s a -> s{_dtrsResourceType = a});
+dtrsResourceType = lens _dtrsResourceType (\ s a -> s{_dtrsResourceType = a})
 
 -- | A list of tags associated with the ML object.
 dtrsTags :: Lens' DescribeTagsResponse [Tag]
-dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
+dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
 
 instance NFData DescribeTagsResponse where

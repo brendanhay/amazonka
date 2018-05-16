@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.AddTagsToResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ addTagsToResource pResourceARN_ =
 
 -- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.
 attrResourceARN :: Lens' AddTagsToResource Text
-attrResourceARN = lens _attrResourceARN (\ s a -> s{_attrResourceARN = a});
+attrResourceARN = lens _attrResourceARN (\ s a -> s{_attrResourceARN = a})
 
 -- | One or more tags.
 attrTagList :: Lens' AddTagsToResource [Tag]
-attrTagList = lens _attrTagList (\ s a -> s{_attrTagList = a}) . _Coerce;
+attrTagList = lens _attrTagList (\ s a -> s{_attrTagList = a}) . _Coerce
 
 instance AWSRequest AddTagsToResource where
         type Rs AddTagsToResource = AddTagsToResourceResponse
@@ -136,15 +136,15 @@ addTagsToResourceResponse
     -> AddTagsToResourceResponse
 addTagsToResourceResponse pResponseStatus_ pStatus_ =
   AddTagsToResourceResponse'
-  {_attrrsResponseStatus = pResponseStatus_, _attrrsStatus = pStatus_}
+    {_attrrsResponseStatus = pResponseStatus_, _attrrsStatus = pStatus_}
 
 
 -- | -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
-attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
+attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a})
 
 -- | The status of the operation.
 attrrsStatus :: Lens' AddTagsToResourceResponse Text
-attrrsStatus = lens _attrrsStatus (\ s a -> s{_attrrsStatus = a});
+attrrsStatus = lens _attrrsStatus (\ s a -> s{_attrrsStatus = a})
 
 instance NFData AddTagsToResourceResponse where

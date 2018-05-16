@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.DeleteIPSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,11 +81,11 @@ deleteIPSet pIPSetId_ pChangeToken_ =
 
 -- | The @IPSetId@ of the 'IPSet' that you want to delete. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 disIPSetId :: Lens' DeleteIPSet Text
-disIPSetId = lens _disIPSetId (\ s a -> s{_disIPSetId = a});
+disIPSetId = lens _disIPSetId (\ s a -> s{_disIPSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 disChangeToken :: Lens' DeleteIPSet Text
-disChangeToken = lens _disChangeToken (\ s a -> s{_disChangeToken = a});
+disChangeToken = lens _disChangeToken (\ s a -> s{_disChangeToken = a})
 
 instance AWSRequest DeleteIPSet where
         type Rs DeleteIPSet = DeleteIPSetResponse
@@ -141,15 +141,15 @@ deleteIPSetResponse
     -> DeleteIPSetResponse
 deleteIPSetResponse pResponseStatus_ =
   DeleteIPSetResponse'
-  {_disrsChangeToken = Nothing, _disrsResponseStatus = pResponseStatus_}
+    {_disrsChangeToken = Nothing, _disrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @DeleteIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 disrsChangeToken :: Lens' DeleteIPSetResponse (Maybe Text)
-disrsChangeToken = lens _disrsChangeToken (\ s a -> s{_disrsChangeToken = a});
+disrsChangeToken = lens _disrsChangeToken (\ s a -> s{_disrsChangeToken = a})
 
 -- | -- | The response status code.
 disrsResponseStatus :: Lens' DeleteIPSetResponse Int
-disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
+disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a})
 
 instance NFData DeleteIPSetResponse where

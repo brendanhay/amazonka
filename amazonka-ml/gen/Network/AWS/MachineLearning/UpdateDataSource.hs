@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateDataSource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ updateDataSource
     -> UpdateDataSource
 updateDataSource pDataSourceId_ pDataSourceName_ =
   UpdateDataSource'
-  {_udsDataSourceId = pDataSourceId_, _udsDataSourceName = pDataSourceName_}
+    {_udsDataSourceId = pDataSourceId_, _udsDataSourceName = pDataSourceName_}
 
 
 -- | The ID assigned to the @DataSource@ during creation.
 udsDataSourceId :: Lens' UpdateDataSource Text
-udsDataSourceId = lens _udsDataSourceId (\ s a -> s{_udsDataSourceId = a});
+udsDataSourceId = lens _udsDataSourceId (\ s a -> s{_udsDataSourceId = a})
 
 -- | A new user-supplied name or description of the @DataSource@ that will replace the current description.
 udsDataSourceName :: Lens' UpdateDataSource Text
-udsDataSourceName = lens _udsDataSourceName (\ s a -> s{_udsDataSourceName = a});
+udsDataSourceName = lens _udsDataSourceName (\ s a -> s{_udsDataSourceName = a})
 
 instance AWSRequest UpdateDataSource where
         type Rs UpdateDataSource = UpdateDataSourceResponse
@@ -138,15 +138,15 @@ updateDataSourceResponse
     -> UpdateDataSourceResponse
 updateDataSourceResponse pResponseStatus_ =
   UpdateDataSourceResponse'
-  {_udsrsDataSourceId = Nothing, _udsrsResponseStatus = pResponseStatus_}
+    {_udsrsDataSourceId = Nothing, _udsrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID assigned to the @DataSource@ during creation. This value should be identical to the value of the @DataSourceID@ in the request.
 udsrsDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
-udsrsDataSourceId = lens _udsrsDataSourceId (\ s a -> s{_udsrsDataSourceId = a});
+udsrsDataSourceId = lens _udsrsDataSourceId (\ s a -> s{_udsrsDataSourceId = a})
 
 -- | -- | The response status code.
 udsrsResponseStatus :: Lens' UpdateDataSourceResponse Int
-udsrsResponseStatus = lens _udsrsResponseStatus (\ s a -> s{_udsrsResponseStatus = a});
+udsrsResponseStatus = lens _udsrsResponseStatus (\ s a -> s{_udsrsResponseStatus = a})
 
 instance NFData UpdateDataSourceResponse where

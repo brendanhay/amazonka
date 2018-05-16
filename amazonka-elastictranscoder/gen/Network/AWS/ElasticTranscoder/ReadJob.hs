@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ReadJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ readJob pId_ = ReadJob' {_rjId = pId_}
 
 -- | The identifier of the job for which you want to get detailed information.
 rjId :: Lens' ReadJob Text
-rjId = lens _rjId (\ s a -> s{_rjId = a});
+rjId = lens _rjId (\ s a -> s{_rjId = a})
 
 instance AWSRequest ReadJob where
         type Rs ReadJob = ReadJobResponse
@@ -120,10 +120,10 @@ readJobResponse pResponseStatus_ pJob_ =
 
 -- | -- | The response status code.
 rjrsResponseStatus :: Lens' ReadJobResponse Int
-rjrsResponseStatus = lens _rjrsResponseStatus (\ s a -> s{_rjrsResponseStatus = a});
+rjrsResponseStatus = lens _rjrsResponseStatus (\ s a -> s{_rjrsResponseStatus = a})
 
 -- | A section of the response body that provides information about the job.
 rjrsJob :: Lens' ReadJobResponse Job'
-rjrsJob = lens _rjrsJob (\ s a -> s{_rjrsJob = a});
+rjrsJob = lens _rjrsJob (\ s a -> s{_rjrsJob = a})
 
 instance NFData ReadJobResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeEvents
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,43 +93,43 @@ describeEvents
     :: DescribeEvents
 describeEvents =
   DescribeEvents'
-  { _deStartTime = Nothing
-  , _deSourceType = Nothing
-  , _deSourceIdentifier = Nothing
-  , _deMarker = Nothing
-  , _deMaxRecords = Nothing
-  , _deEndTime = Nothing
-  , _deDuration = Nothing
-  }
+    { _deStartTime = Nothing
+    , _deSourceType = Nothing
+    , _deSourceIdentifier = Nothing
+    , _deMarker = Nothing
+    , _deMaxRecords = Nothing
+    , _deEndTime = Nothing
+    , _deDuration = Nothing
+    }
 
 
 -- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format. __Example:__ 2017-03-30T07:03:49.555Z
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
-deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
+deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time
 
 -- | The event source to retrieve events for. If no value is specified, all events are returned.
 deSourceType :: Lens' DescribeEvents (Maybe SourceType)
-deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
+deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a})
 
 -- | The identifier of the event source for which events are returned. If not specified, all sources are included in the response.
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
-deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
+deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a})
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 deMarker :: Lens' DescribeEvents (Maybe Text)
-deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
+deMarker = lens _deMarker (\ s a -> s{_deMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
-deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
+deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a})
 
 -- | The end of the time interval for which to retrieve events, specified in ISO 8601 format. __Example:__ 2017-03-30T07:03:49.555Z
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
-deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
+deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time
 
 -- | The number of minutes worth of events to retrieve.
 deDuration :: Lens' DescribeEvents (Maybe Int)
-deDuration = lens _deDuration (\ s a -> s{_deDuration = a});
+deDuration = lens _deDuration (\ s a -> s{_deDuration = a})
 
 instance AWSPager DescribeEvents where
         page rq rs
@@ -197,22 +197,22 @@ describeEventsResponse
     -> DescribeEventsResponse
 describeEventsResponse pResponseStatus_ =
   DescribeEventsResponse'
-  { _dersEvents = Nothing
-  , _dersMarker = Nothing
-  , _dersResponseStatus = pResponseStatus_
-  }
+    { _dersEvents = Nothing
+    , _dersMarker = Nothing
+    , _dersResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of events. Each element in the list contains detailed information about one event.
 dersEvents :: Lens' DescribeEventsResponse [Event]
-dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
+dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
-dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
+dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a})
 
 -- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeEventsResponse Int
-dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a})
 
 instance NFData DescribeEventsResponse where

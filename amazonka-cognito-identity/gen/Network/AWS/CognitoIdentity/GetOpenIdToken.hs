@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetOpenIdToken
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,11 +77,11 @@ getOpenIdToken pIdentityId_ =
 
 -- | A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito Identity Provider, or any other OpenId Connect provider, always include the @id_token@ .
 goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
-goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map;
+goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map
 
 -- | A unique identifier in the format REGION:GUID.
 goitIdentityId :: Lens' GetOpenIdToken Text
-goitIdentityId = lens _goitIdentityId (\ s a -> s{_goitIdentityId = a});
+goitIdentityId = lens _goitIdentityId (\ s a -> s{_goitIdentityId = a})
 
 instance AWSRequest GetOpenIdToken where
         type Rs GetOpenIdToken = GetOpenIdTokenResponse
@@ -146,22 +146,22 @@ getOpenIdTokenResponse
     -> GetOpenIdTokenResponse
 getOpenIdTokenResponse pResponseStatus_ =
   GetOpenIdTokenResponse'
-  { _goitrsToken = Nothing
-  , _goitrsIdentityId = Nothing
-  , _goitrsResponseStatus = pResponseStatus_
-  }
+    { _goitrsToken = Nothing
+    , _goitrsIdentityId = Nothing
+    , _goitrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An OpenID token, valid for 15 minutes.
 goitrsToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrsToken = lens _goitrsToken (\ s a -> s{_goitrsToken = a});
+goitrsToken = lens _goitrsToken (\ s a -> s{_goitrsToken = a})
 
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.
 goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a});
+goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a})
 
 -- | -- | The response status code.
 goitrsResponseStatus :: Lens' GetOpenIdTokenResponse Int
-goitrsResponseStatus = lens _goitrsResponseStatus (\ s a -> s{_goitrsResponseStatus = a});
+goitrsResponseStatus = lens _goitrsResponseStatus (\ s a -> s{_goitrsResponseStatus = a})
 
 instance NFData GetOpenIdTokenResponse where

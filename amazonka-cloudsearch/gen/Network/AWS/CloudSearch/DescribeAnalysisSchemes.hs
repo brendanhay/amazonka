@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeAnalysisSchemes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ describeAnalysisSchemes
     -> DescribeAnalysisSchemes
 describeAnalysisSchemes pDomainName_ =
   DescribeAnalysisSchemes'
-  { _dassDeployed = Nothing
-  , _dassAnalysisSchemeNames = Nothing
-  , _dassDomainName = pDomainName_
-  }
+    { _dassDeployed = Nothing
+    , _dassAnalysisSchemeNames = Nothing
+    , _dassDomainName = pDomainName_
+    }
 
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 dassDeployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
-dassDeployed = lens _dassDeployed (\ s a -> s{_dassDeployed = a});
+dassDeployed = lens _dassDeployed (\ s a -> s{_dassDeployed = a})
 
 -- | The analysis schemes you want to describe.
 dassAnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
-dassAnalysisSchemeNames = lens _dassAnalysisSchemeNames (\ s a -> s{_dassAnalysisSchemeNames = a}) . _Default . _Coerce;
+dassAnalysisSchemeNames = lens _dassAnalysisSchemeNames (\ s a -> s{_dassAnalysisSchemeNames = a}) . _Default . _Coerce
 
 -- | The name of the domain you want to describe.
 dassDomainName :: Lens' DescribeAnalysisSchemes Text
-dassDomainName = lens _dassDomainName (\ s a -> s{_dassDomainName = a});
+dassDomainName = lens _dassDomainName (\ s a -> s{_dassDomainName = a})
 
 instance AWSRequest DescribeAnalysisSchemes where
         type Rs DescribeAnalysisSchemes =
@@ -147,15 +147,15 @@ describeAnalysisSchemesResponse
     -> DescribeAnalysisSchemesResponse
 describeAnalysisSchemesResponse pResponseStatus_ =
   DescribeAnalysisSchemesResponse'
-  {_dasrsResponseStatus = pResponseStatus_, _dasrsAnalysisSchemes = mempty}
+    {_dasrsResponseStatus = pResponseStatus_, _dasrsAnalysisSchemes = mempty}
 
 
 -- | -- | The response status code.
 dasrsResponseStatus :: Lens' DescribeAnalysisSchemesResponse Int
-dasrsResponseStatus = lens _dasrsResponseStatus (\ s a -> s{_dasrsResponseStatus = a});
+dasrsResponseStatus = lens _dasrsResponseStatus (\ s a -> s{_dasrsResponseStatus = a})
 
 -- | The analysis scheme descriptions.
 dasrsAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
-dasrsAnalysisSchemes = lens _dasrsAnalysisSchemes (\ s a -> s{_dasrsAnalysisSchemes = a}) . _Coerce;
+dasrsAnalysisSchemes = lens _dasrsAnalysisSchemes (\ s a -> s{_dasrsAnalysisSchemes = a}) . _Coerce
 
 instance NFData DescribeAnalysisSchemesResponse where

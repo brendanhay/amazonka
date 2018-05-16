@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketAnalyticsConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,23 +65,23 @@ putBucketAnalyticsConfiguration
     -> PutBucketAnalyticsConfiguration
 putBucketAnalyticsConfiguration pBucket_ pId_ pAnalyticsConfiguration_ =
   PutBucketAnalyticsConfiguration'
-  { _pBucket = pBucket_
-  , _pId = pId_
-  , _pAnalyticsConfiguration = pAnalyticsConfiguration_
-  }
+    { _pBucket = pBucket_
+    , _pId = pId_
+    , _pAnalyticsConfiguration = pAnalyticsConfiguration_
+    }
 
 
 -- | The name of the bucket to which an analytics configuration is stored.
 pBucket :: Lens' PutBucketAnalyticsConfiguration BucketName
-pBucket = lens _pBucket (\ s a -> s{_pBucket = a});
+pBucket = lens _pBucket (\ s a -> s{_pBucket = a})
 
 -- | The identifier used to represent an analytics configuration.
 pId :: Lens' PutBucketAnalyticsConfiguration Text
-pId = lens _pId (\ s a -> s{_pId = a});
+pId = lens _pId (\ s a -> s{_pId = a})
 
 -- | The configuration and any analyses for the analytics filter.
 pAnalyticsConfiguration :: Lens' PutBucketAnalyticsConfiguration AnalyticsConfiguration
-pAnalyticsConfiguration = lens _pAnalyticsConfiguration (\ s a -> s{_pAnalyticsConfiguration = a});
+pAnalyticsConfiguration = lens _pAnalyticsConfiguration (\ s a -> s{_pAnalyticsConfiguration = a})
 
 instance AWSRequest PutBucketAnalyticsConfiguration
          where

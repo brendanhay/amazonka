@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CodeDeploy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,11 +85,17 @@ import Test.Tasty
 --         , requestUpdateApplication $
 --             updateApplication
 --
+--         , requestDeleteGitHubAccountToken $
+--             deleteGitHubAccountToken
+--
 --         , requestGetDeploymentInstance $
 --             getDeploymentInstance
 --
 --         , requestDeregisterOnPremisesInstance $
 --             deregisterOnPremisesInstance
+--
+--         , requestPutLifecycleEventHookExecutionStatus $
+--             putLifecycleEventHookExecutionStatus
 --
 --         , requestCreateApplication $
 --             createApplication
@@ -202,11 +208,17 @@ import Test.Tasty
 --         , responseUpdateApplication $
 --             updateApplicationResponse
 --
+--         , responseDeleteGitHubAccountToken $
+--             deleteGitHubAccountTokenResponse
+--
 --         , responseGetDeploymentInstance $
 --             getDeploymentInstanceResponse
 --
 --         , responseDeregisterOnPremisesInstance $
 --             deregisterOnPremisesInstanceResponse
+--
+--         , responsePutLifecycleEventHookExecutionStatus $
+--             putLifecycleEventHookExecutionStatusResponse
 --
 --         , responseCreateApplication $
 --             createApplicationResponse
@@ -359,6 +371,11 @@ requestUpdateApplication = req
     "UpdateApplication"
     "fixture/UpdateApplication.yaml"
 
+requestDeleteGitHubAccountToken :: DeleteGitHubAccountToken -> TestTree
+requestDeleteGitHubAccountToken = req
+    "DeleteGitHubAccountToken"
+    "fixture/DeleteGitHubAccountToken.yaml"
+
 requestGetDeploymentInstance :: GetDeploymentInstance -> TestTree
 requestGetDeploymentInstance = req
     "GetDeploymentInstance"
@@ -368,6 +385,11 @@ requestDeregisterOnPremisesInstance :: DeregisterOnPremisesInstance -> TestTree
 requestDeregisterOnPremisesInstance = req
     "DeregisterOnPremisesInstance"
     "fixture/DeregisterOnPremisesInstance.yaml"
+
+requestPutLifecycleEventHookExecutionStatus :: PutLifecycleEventHookExecutionStatus -> TestTree
+requestPutLifecycleEventHookExecutionStatus = req
+    "PutLifecycleEventHookExecutionStatus"
+    "fixture/PutLifecycleEventHookExecutionStatus.yaml"
 
 requestCreateApplication :: CreateApplication -> TestTree
 requestCreateApplication = req
@@ -589,6 +611,13 @@ responseUpdateApplication = res
     codeDeploy
     (Proxy :: Proxy UpdateApplication)
 
+responseDeleteGitHubAccountToken :: DeleteGitHubAccountTokenResponse -> TestTree
+responseDeleteGitHubAccountToken = res
+    "DeleteGitHubAccountTokenResponse"
+    "fixture/DeleteGitHubAccountTokenResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy DeleteGitHubAccountToken)
+
 responseGetDeploymentInstance :: GetDeploymentInstanceResponse -> TestTree
 responseGetDeploymentInstance = res
     "GetDeploymentInstanceResponse"
@@ -602,6 +631,13 @@ responseDeregisterOnPremisesInstance = res
     "fixture/DeregisterOnPremisesInstanceResponse.proto"
     codeDeploy
     (Proxy :: Proxy DeregisterOnPremisesInstance)
+
+responsePutLifecycleEventHookExecutionStatus :: PutLifecycleEventHookExecutionStatusResponse -> TestTree
+responsePutLifecycleEventHookExecutionStatus = res
+    "PutLifecycleEventHookExecutionStatusResponse"
+    "fixture/PutLifecycleEventHookExecutionStatusResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy PutLifecycleEventHookExecutionStatus)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
 responseCreateApplication = res

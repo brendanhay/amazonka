@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,28 +78,28 @@ unlinkDeveloperIdentity
     -> UnlinkDeveloperIdentity
 unlinkDeveloperIdentity pIdentityId_ pIdentityPoolId_ pDeveloperProviderName_ pDeveloperUserIdentifier_ =
   UnlinkDeveloperIdentity'
-  { _udiIdentityId = pIdentityId_
-  , _udiIdentityPoolId = pIdentityPoolId_
-  , _udiDeveloperProviderName = pDeveloperProviderName_
-  , _udiDeveloperUserIdentifier = pDeveloperUserIdentifier_
-  }
+    { _udiIdentityId = pIdentityId_
+    , _udiIdentityPoolId = pIdentityPoolId_
+    , _udiDeveloperProviderName = pDeveloperProviderName_
+    , _udiDeveloperUserIdentifier = pDeveloperUserIdentifier_
+    }
 
 
 -- | A unique identifier in the format REGION:GUID.
 udiIdentityId :: Lens' UnlinkDeveloperIdentity Text
-udiIdentityId = lens _udiIdentityId (\ s a -> s{_udiIdentityId = a});
+udiIdentityId = lens _udiIdentityId (\ s a -> s{_udiIdentityId = a})
 
 -- | An identity pool ID in the format REGION:GUID.
 udiIdentityPoolId :: Lens' UnlinkDeveloperIdentity Text
-udiIdentityPoolId = lens _udiIdentityPoolId (\ s a -> s{_udiIdentityPoolId = a});
+udiIdentityPoolId = lens _udiIdentityPoolId (\ s a -> s{_udiIdentityPoolId = a})
 
 -- | The "domain" by which Cognito will refer to your users.
 udiDeveloperProviderName :: Lens' UnlinkDeveloperIdentity Text
-udiDeveloperProviderName = lens _udiDeveloperProviderName (\ s a -> s{_udiDeveloperProviderName = a});
+udiDeveloperProviderName = lens _udiDeveloperProviderName (\ s a -> s{_udiDeveloperProviderName = a})
 
 -- | A unique ID used by your backend authentication process to identify a user.
 udiDeveloperUserIdentifier :: Lens' UnlinkDeveloperIdentity Text
-udiDeveloperUserIdentifier = lens _udiDeveloperUserIdentifier (\ s a -> s{_udiDeveloperUserIdentifier = a});
+udiDeveloperUserIdentifier = lens _udiDeveloperUserIdentifier (\ s a -> s{_udiDeveloperUserIdentifier = a})
 
 instance AWSRequest UnlinkDeveloperIdentity where
         type Rs UnlinkDeveloperIdentity =

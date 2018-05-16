@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.STS.GetFederationToken
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -100,20 +100,20 @@ getFederationToken
     -> GetFederationToken
 getFederationToken pName_ =
   GetFederationToken'
-  {_gftDurationSeconds = Nothing, _gftPolicy = Nothing, _gftName = pName_}
+    {_gftDurationSeconds = Nothing, _gftPolicy = Nothing, _gftName = pName_}
 
 
 -- | The duration, in seconds, that the session should last. Acceptable durations for federation sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default. Sessions obtained using AWS account (root) credentials are restricted to a maximum of 3600 seconds (one hour). If the specified duration is longer than one hour, the session obtained by using AWS account (root) credentials defaults to one hour.
 gftDurationSeconds :: Lens' GetFederationToken (Maybe Natural)
-gftDurationSeconds = lens _gftDurationSeconds (\ s a -> s{_gftDurationSeconds = a}) . mapping _Nat;
+gftDurationSeconds = lens _gftDurationSeconds (\ s a -> s{_gftDurationSeconds = a}) . mapping _Nat
 
 -- | An IAM policy in JSON format that is passed with the @GetFederationToken@ call and evaluated along with the policy or policies that are attached to the IAM user whose credentials are used to call @GetFederationToken@ . The passed policy is used to scope down the permissions that are available to the IAM user, by allowing only a subset of the permissions that are granted to the IAM user. The passed policy cannot grant more permissions than those granted to the IAM user. The final permissions for the federated user are the most restrictive set based on the intersection of the passed policy and the IAM user policy. If you do not pass a policy, the resulting temporary security credentials have no effective permissions. The only exception is when the temporary security credentials are used to access a resource that has a resource-based policy that specifically allows the federated user to access the resource. The format for this parameter, as described by its regex pattern, is a string of characters up to 2048 characters in length. The characters can be any ASCII character from the space character to the end of the valid character list (\u0020-\u00FF). It can also include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters. For more information about how permissions work, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html Permissions for GetFederationToken> .
 gftPolicy :: Lens' GetFederationToken (Maybe Text)
-gftPolicy = lens _gftPolicy (\ s a -> s{_gftPolicy = a});
+gftPolicy = lens _gftPolicy (\ s a -> s{_gftPolicy = a})
 
 -- | The name of the federated user. The name is used as an identifier for the temporary security credentials (such as @Bob@ ). For example, you can reference the federated user name in a resource-based policy, such as in an Amazon S3 bucket policy. The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
 gftName :: Lens' GetFederationToken Text
-gftName = lens _gftName (\ s a -> s{_gftName = a});
+gftName = lens _gftName (\ s a -> s{_gftName = a})
 
 instance AWSRequest GetFederationToken where
         type Rs GetFederationToken =
@@ -174,27 +174,27 @@ getFederationTokenResponse
     -> GetFederationTokenResponse
 getFederationTokenResponse pResponseStatus_ =
   GetFederationTokenResponse'
-  { _gftrsPackedPolicySize = Nothing
-  , _gftrsCredentials = Nothing
-  , _gftrsFederatedUser = Nothing
-  , _gftrsResponseStatus = pResponseStatus_
-  }
+    { _gftrsPackedPolicySize = Nothing
+    , _gftrsCredentials = Nothing
+    , _gftrsFederatedUser = Nothing
+    , _gftrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A percentage value indicating the size of the policy in packed form. The service rejects policies for which the packed size is greater than 100 percent of the allowed value.
 gftrsPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
-gftrsPackedPolicySize = lens _gftrsPackedPolicySize (\ s a -> s{_gftrsPackedPolicySize = a}) . mapping _Nat;
+gftrsPackedPolicySize = lens _gftrsPackedPolicySize (\ s a -> s{_gftrsPackedPolicySize = a}) . mapping _Nat
 
 -- | The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token. __Note:__ The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.
 gftrsCredentials :: Lens' GetFederationTokenResponse (Maybe AuthEnv)
-gftrsCredentials = lens _gftrsCredentials (\ s a -> s{_gftrsCredentials = a});
+gftrsCredentials = lens _gftrsCredentials (\ s a -> s{_gftrsCredentials = a})
 
 -- | Identifiers for the federated user associated with the credentials (such as @arn:aws:sts::123456789012:federated-user/Bob@ or @123456789012:Bob@ ). You can use the federated user's ARN in your resource-based policies, such as an Amazon S3 bucket policy.
 gftrsFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
-gftrsFederatedUser = lens _gftrsFederatedUser (\ s a -> s{_gftrsFederatedUser = a});
+gftrsFederatedUser = lens _gftrsFederatedUser (\ s a -> s{_gftrsFederatedUser = a})
 
 -- | -- | The response status code.
 gftrsResponseStatus :: Lens' GetFederationTokenResponse Int
-gftrsResponseStatus = lens _gftrsResponseStatus (\ s a -> s{_gftrsResponseStatus = a});
+gftrsResponseStatus = lens _gftrsResponseStatus (\ s a -> s{_gftrsResponseStatus = a})
 
 instance NFData GetFederationTokenResponse where

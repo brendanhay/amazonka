@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
@@ -7,7 +8,7 @@
 {-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.AST.Data.Field
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -43,12 +44,12 @@ data Field = Field
     , _fieldOrdinal   :: !Int
     , _fieldId        :: Id    -- ^ The memberId from the struct members map.
     , _fieldRef       :: Ref   -- ^ The original struct member reference.
-    , _fieldRequired' :: !Bool -- ^ Does the struct have this member in the required set.
+    , _fieldRequire   :: !Bool -- ^ Does the struct have this member in the required set.
     , _fieldPayload   :: !Bool -- ^ Does the struct have this memeber marked as the payload.
     , _fieldPrefix    :: Maybe Text
     , _fieldNamespace :: Maybe Text
     , _fieldDirection :: Maybe Direction
-    }
+    } deriving (Show)
 
 makeLenses ''Field
 
@@ -57,23 +58,29 @@ instance IsStreaming Field where
 
 instance TypeOf Field where
     typeOf f
-        | isStreaming r         = t
-        | typ, loc            = t
-        | f ^. fieldRequired' = t
-        | otherwise           = TMaybe t
+        | isStreaming ref    = typ
+        | isKinded, isHeader = typ
+        | f ^. fieldRequire  = typ
+        | otherwise          = TMaybe typ
       where
-        t = typeOf r
-        r = f ^. fieldRef
 
-        typ = case t of
-            TMap  {} -> True
-            TList {} -> True
-            _        -> False
+        isKinded =
+            case typ of
+                TMap  {} -> True
+                TList {} -> True
+                _        -> False
 
-        loc = fieldLocation f `elem` map Just
+        isHeader = fieldLocation f `elem` map Just
             [ Headers
             , Header
             ]
+
+        ref = f ^. fieldRef
+        typ = fmap unBase64 (typeOf ref)
+
+        unBase64 = \case
+            Base64 | f ^. fieldPayload -> Bytes
+            lit                        -> lit
 
 instance HasInfo Field where
     info = fieldAnn . info
@@ -94,7 +101,7 @@ mkFields (view metadata -> m) s st = sortFields rs $
         , _fieldOrdinal   = i
         , _fieldId        = k
         , _fieldRef       = v
-        , _fieldRequired' = req
+        , _fieldRequire   = req
         , _fieldPayload   = pay
         , _fieldPrefix    = p
         , _fieldNamespace = ns
@@ -151,7 +158,7 @@ fieldHelp f =
   where
     ann (TMaybe     t) = ann t
     ann (TSensitive t) = ann t
-    ann (TLit Blob)    = base64
+    ann (TLit Base64)  = base64
     ann _              = mempty
 
     base64 =
@@ -181,7 +188,13 @@ fieldBody x =
 
 -- | Is this primitive field set as the payload in the parent shape?
 fieldLitPayload :: Field -> Bool
-fieldLitPayload x = _fieldPayload x && fieldLit x
+fieldLitPayload x =
+    _fieldPayload x && (fieldLit x || bytes)
+  where
+    bytes =
+        case typeOf x of
+            TType "ByteString" _ -> True
+            _                    -> False
 
 fieldMaybe :: Field -> Bool
 fieldMaybe f =

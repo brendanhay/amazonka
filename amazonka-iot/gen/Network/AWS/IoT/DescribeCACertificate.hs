@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DescribeCACertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,9 @@ module Network.AWS.IoT.DescribeCACertificate
     , describeCACertificateResponse
     , DescribeCACertificateResponse
     -- * Response Lenses
-    , desrsCertificateDescription
-    , desrsResponseStatus
+    , dcaccrsCertificateDescription
+    , dcaccrsRegistrationConfig
+    , dcaccrsResponseStatus
     ) where
 
 import Network.AWS.IoT.Types
@@ -68,7 +69,7 @@ describeCACertificate pCertificateId_ =
 
 -- | The CA certificate identifier.
 dCertificateId :: Lens' DescribeCACertificate Text
-dCertificateId = lens _dCertificateId (\ s a -> s{_dCertificateId = a});
+dCertificateId = lens _dCertificateId (\ s a -> s{_dCertificateId = a})
 
 instance AWSRequest DescribeCACertificate where
         type Rs DescribeCACertificate =
@@ -79,7 +80,8 @@ instance AWSRequest DescribeCACertificate where
               (\ s h x ->
                  DescribeCACertificateResponse' <$>
                    (x .?> "certificateDescription") <*>
-                     (pure (fromEnum s)))
+                     (x .?> "registrationConfig")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable DescribeCACertificate where
 
@@ -101,8 +103,9 @@ instance ToQuery DescribeCACertificate where
 --
 -- /See:/ 'describeCACertificateResponse' smart constructor.
 data DescribeCACertificateResponse = DescribeCACertificateResponse'
-  { _desrsCertificateDescription :: !(Maybe CACertificateDescription)
-  , _desrsResponseStatus         :: !Int
+  { _dcaccrsCertificateDescription :: !(Maybe CACertificateDescription)
+  , _dcaccrsRegistrationConfig     :: !(Maybe RegistrationConfig)
+  , _dcaccrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,25 +113,32 @@ data DescribeCACertificateResponse = DescribeCACertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsCertificateDescription' - The CA certificate description.
+-- * 'dcaccrsCertificateDescription' - The CA certificate description.
 --
--- * 'desrsResponseStatus' - -- | The response status code.
+-- * 'dcaccrsRegistrationConfig' - Information about the registration configuration.
+--
+-- * 'dcaccrsResponseStatus' - -- | The response status code.
 describeCACertificateResponse
-    :: Int -- ^ 'desrsResponseStatus'
+    :: Int -- ^ 'dcaccrsResponseStatus'
     -> DescribeCACertificateResponse
 describeCACertificateResponse pResponseStatus_ =
   DescribeCACertificateResponse'
-  { _desrsCertificateDescription = Nothing
-  , _desrsResponseStatus = pResponseStatus_
-  }
+    { _dcaccrsCertificateDescription = Nothing
+    , _dcaccrsRegistrationConfig = Nothing
+    , _dcaccrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The CA certificate description.
-desrsCertificateDescription :: Lens' DescribeCACertificateResponse (Maybe CACertificateDescription)
-desrsCertificateDescription = lens _desrsCertificateDescription (\ s a -> s{_desrsCertificateDescription = a});
+dcaccrsCertificateDescription :: Lens' DescribeCACertificateResponse (Maybe CACertificateDescription)
+dcaccrsCertificateDescription = lens _dcaccrsCertificateDescription (\ s a -> s{_dcaccrsCertificateDescription = a})
+
+-- | Information about the registration configuration.
+dcaccrsRegistrationConfig :: Lens' DescribeCACertificateResponse (Maybe RegistrationConfig)
+dcaccrsRegistrationConfig = lens _dcaccrsRegistrationConfig (\ s a -> s{_dcaccrsRegistrationConfig = a})
 
 -- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeCACertificateResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+dcaccrsResponseStatus :: Lens' DescribeCACertificateResponse Int
+dcaccrsResponseStatus = lens _dcaccrsResponseStatus (\ s a -> s{_dcaccrsResponseStatus = a})
 
 instance NFData DescribeCACertificateResponse where

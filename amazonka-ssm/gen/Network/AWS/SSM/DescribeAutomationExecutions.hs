@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeAutomationExecutions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,20 +68,20 @@ describeAutomationExecutions
     :: DescribeAutomationExecutions
 describeAutomationExecutions =
   DescribeAutomationExecutions'
-  {_daeFilters = Nothing, _daeNextToken = Nothing, _daeMaxResults = Nothing}
+    {_daeFilters = Nothing, _daeNextToken = Nothing, _daeMaxResults = Nothing}
 
 
 -- | Filters used to limit the scope of executions that are requested.
 daeFilters :: Lens' DescribeAutomationExecutions (Maybe (NonEmpty AutomationExecutionFilter))
-daeFilters = lens _daeFilters (\ s a -> s{_daeFilters = a}) . mapping _List1;
+daeFilters = lens _daeFilters (\ s a -> s{_daeFilters = a}) . mapping _List1
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 daeNextToken :: Lens' DescribeAutomationExecutions (Maybe Text)
-daeNextToken = lens _daeNextToken (\ s a -> s{_daeNextToken = a});
+daeNextToken = lens _daeNextToken (\ s a -> s{_daeNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 daeMaxResults :: Lens' DescribeAutomationExecutions (Maybe Natural)
-daeMaxResults = lens _daeMaxResults (\ s a -> s{_daeMaxResults = a}) . mapping _Nat;
+daeMaxResults = lens _daeMaxResults (\ s a -> s{_daeMaxResults = a}) . mapping _Nat
 
 instance AWSRequest DescribeAutomationExecutions
          where
@@ -146,23 +146,23 @@ describeAutomationExecutionsResponse
     -> DescribeAutomationExecutionsResponse
 describeAutomationExecutionsResponse pResponseStatus_ =
   DescribeAutomationExecutionsResponse'
-  { _daersNextToken = Nothing
-  , _daersAutomationExecutionMetadataList = Nothing
-  , _daersResponseStatus = pResponseStatus_
-  }
+    { _daersNextToken = Nothing
+    , _daersAutomationExecutionMetadataList = Nothing
+    , _daersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 daersNextToken :: Lens' DescribeAutomationExecutionsResponse (Maybe Text)
-daersNextToken = lens _daersNextToken (\ s a -> s{_daersNextToken = a});
+daersNextToken = lens _daersNextToken (\ s a -> s{_daersNextToken = a})
 
 -- | The list of details about each automation execution which has occurred which matches the filter specification, if any.
 daersAutomationExecutionMetadataList :: Lens' DescribeAutomationExecutionsResponse [AutomationExecutionMetadata]
-daersAutomationExecutionMetadataList = lens _daersAutomationExecutionMetadataList (\ s a -> s{_daersAutomationExecutionMetadataList = a}) . _Default . _Coerce;
+daersAutomationExecutionMetadataList = lens _daersAutomationExecutionMetadataList (\ s a -> s{_daersAutomationExecutionMetadataList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 daersResponseStatus :: Lens' DescribeAutomationExecutionsResponse Int
-daersResponseStatus = lens _daersResponseStatus (\ s a -> s{_daersResponseStatus = a});
+daersResponseStatus = lens _daersResponseStatus (\ s a -> s{_daersResponseStatus = a})
 
 instance NFData DescribeAutomationExecutionsResponse
          where

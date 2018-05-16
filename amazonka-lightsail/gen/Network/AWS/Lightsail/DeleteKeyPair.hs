@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteKeyPair
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteKeyPair pKeyPairName_ = DeleteKeyPair' {_dkpKeyPairName = pKeyPairName_}
 
 -- | The name of the key pair to delete.
 dkpKeyPairName :: Lens' DeleteKeyPair Text
-dkpKeyPairName = lens _dkpKeyPairName (\ s a -> s{_dkpKeyPairName = a});
+dkpKeyPairName = lens _dkpKeyPairName (\ s a -> s{_dkpKeyPairName = a})
 
 instance AWSRequest DeleteKeyPair where
         type Rs DeleteKeyPair = DeleteKeyPairResponse
@@ -117,15 +117,15 @@ deleteKeyPairResponse
     -> DeleteKeyPairResponse
 deleteKeyPairResponse pResponseStatus_ =
   DeleteKeyPairResponse'
-  {_dkprsOperation = Nothing, _dkprsResponseStatus = pResponseStatus_}
+    {_dkprsOperation = Nothing, _dkprsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the results of your delete key pair request.
 dkprsOperation :: Lens' DeleteKeyPairResponse (Maybe Operation)
-dkprsOperation = lens _dkprsOperation (\ s a -> s{_dkprsOperation = a});
+dkprsOperation = lens _dkprsOperation (\ s a -> s{_dkprsOperation = a})
 
 -- | -- | The response status code.
 dkprsResponseStatus :: Lens' DeleteKeyPairResponse Int
-dkprsResponseStatus = lens _dkprsResponseStatus (\ s a -> s{_dkprsResponseStatus = a});
+dkprsResponseStatus = lens _dkprsResponseStatus (\ s a -> s{_dkprsResponseStatus = a})
 
 instance NFData DeleteKeyPairResponse where

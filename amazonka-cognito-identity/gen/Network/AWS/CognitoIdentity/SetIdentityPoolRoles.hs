@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.SetIdentityPoolRoles
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ setIdentityPoolRoles
     -> SetIdentityPoolRoles
 setIdentityPoolRoles pIdentityPoolId_ =
   SetIdentityPoolRoles'
-  { _siprRoleMappings = Nothing
-  , _siprIdentityPoolId = pIdentityPoolId_
-  , _siprRoles = mempty
-  }
+    { _siprRoleMappings = Nothing
+    , _siprIdentityPoolId = pIdentityPoolId_
+    , _siprRoles = mempty
+    }
 
 
 -- | How users for a specific identity provider are to mapped to roles. This is a string to 'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Up to 25 rules can be specified per identity provider.
 siprRoleMappings :: Lens' SetIdentityPoolRoles (HashMap Text RoleMapping)
-siprRoleMappings = lens _siprRoleMappings (\ s a -> s{_siprRoleMappings = a}) . _Default . _Map;
+siprRoleMappings = lens _siprRoleMappings (\ s a -> s{_siprRoleMappings = a}) . _Default . _Map
 
 -- | An identity pool ID in the format REGION:GUID.
 siprIdentityPoolId :: Lens' SetIdentityPoolRoles Text
-siprIdentityPoolId = lens _siprIdentityPoolId (\ s a -> s{_siprIdentityPoolId = a});
+siprIdentityPoolId = lens _siprIdentityPoolId (\ s a -> s{_siprIdentityPoolId = a})
 
 -- | The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
 siprRoles :: Lens' SetIdentityPoolRoles (HashMap Text Text)
-siprRoles = lens _siprRoles (\ s a -> s{_siprRoles = a}) . _Map;
+siprRoles = lens _siprRoles (\ s a -> s{_siprRoles = a}) . _Map
 
 instance AWSRequest SetIdentityPoolRoles where
         type Rs SetIdentityPoolRoles =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteUser
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,7 @@ data DeleteUser = DeleteUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duuAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'duuAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'duuUserId' - The ID of the user.
 deleteUser
@@ -63,13 +63,13 @@ deleteUser pUserId_ =
   DeleteUser' {_duuAuthenticationToken = Nothing, _duuUserId = pUserId_}
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 duuAuthenticationToken :: Lens' DeleteUser (Maybe Text)
-duuAuthenticationToken = lens _duuAuthenticationToken (\ s a -> s{_duuAuthenticationToken = a}) . mapping _Sensitive;
+duuAuthenticationToken = lens _duuAuthenticationToken (\ s a -> s{_duuAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the user.
 duuUserId :: Lens' DeleteUser Text
-duuUserId = lens _duuUserId (\ s a -> s{_duuUserId = a});
+duuUserId = lens _duuUserId (\ s a -> s{_duuUserId = a})
 
 instance AWSRequest DeleteUser where
         type Rs DeleteUser = DeleteUserResponse

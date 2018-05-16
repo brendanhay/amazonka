@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetRequestValidators
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,30 +63,30 @@ data GetRequestValidators = GetRequestValidators'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grvLimit' - The maximum number of returned results per page.
+-- * 'grvLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'grvPosition' - The current pagination position in the paged result set.
 --
--- * 'grvRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'grvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 getRequestValidators
     :: Text -- ^ 'grvRestAPIId'
     -> GetRequestValidators
 getRequestValidators pRestAPIId_ =
   GetRequestValidators'
-  {_grvLimit = Nothing, _grvPosition = Nothing, _grvRestAPIId = pRestAPIId_}
+    {_grvLimit = Nothing, _grvPosition = Nothing, _grvRestAPIId = pRestAPIId_}
 
 
--- | The maximum number of returned results per page.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 grvLimit :: Lens' GetRequestValidators (Maybe Int)
-grvLimit = lens _grvLimit (\ s a -> s{_grvLimit = a});
+grvLimit = lens _grvLimit (\ s a -> s{_grvLimit = a})
 
 -- | The current pagination position in the paged result set.
 grvPosition :: Lens' GetRequestValidators (Maybe Text)
-grvPosition = lens _grvPosition (\ s a -> s{_grvPosition = a});
+grvPosition = lens _grvPosition (\ s a -> s{_grvPosition = a})
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 grvRestAPIId :: Lens' GetRequestValidators Text
-grvRestAPIId = lens _grvRestAPIId (\ s a -> s{_grvRestAPIId = a});
+grvRestAPIId = lens _grvRestAPIId (\ s a -> s{_grvRestAPIId = a})
 
 instance AWSRequest GetRequestValidators where
         type Rs GetRequestValidators =
@@ -149,22 +149,22 @@ getRequestValidatorsResponse
     -> GetRequestValidatorsResponse
 getRequestValidatorsResponse pResponseStatus_ =
   GetRequestValidatorsResponse'
-  { _grvrsItems = Nothing
-  , _grvrsPosition = Nothing
-  , _grvrsResponseStatus = pResponseStatus_
-  }
+    { _grvrsItems = Nothing
+    , _grvrsPosition = Nothing
+    , _grvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 grvrsItems :: Lens' GetRequestValidatorsResponse [RequestValidator]
-grvrsItems = lens _grvrsItems (\ s a -> s{_grvrsItems = a}) . _Default . _Coerce;
+grvrsItems = lens _grvrsItems (\ s a -> s{_grvrsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 grvrsPosition :: Lens' GetRequestValidatorsResponse (Maybe Text)
-grvrsPosition = lens _grvrsPosition (\ s a -> s{_grvrsPosition = a});
+grvrsPosition = lens _grvrsPosition (\ s a -> s{_grvrsPosition = a})
 
 -- | -- | The response status code.
 grvrsResponseStatus :: Lens' GetRequestValidatorsResponse Int
-grvrsResponseStatus = lens _grvrsResponseStatus (\ s a -> s{_grvrsResponseStatus = a});
+grvrsResponseStatus = lens _grvrsResponseStatus (\ s a -> s{_grvrsResponseStatus = a})
 
 instance NFData GetRequestValidatorsResponse where

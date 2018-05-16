@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -152,7 +152,7 @@ module Network.AWS.DirectoryService
     -- ** RestoreFromSnapshot
     , module Network.AWS.DirectoryService.RestoreFromSnapshot
 
-    -- ** DescribeDomainControllers
+    -- ** DescribeDomainControllers (Paginated)
     , module Network.AWS.DirectoryService.DescribeDomainControllers
 
     -- ** DescribeSnapshots
@@ -195,6 +195,9 @@ module Network.AWS.DirectoryService
     , module Network.AWS.DirectoryService.UpdateRadius
 
     -- * Types
+
+    -- ** DirectoryEdition
+    , DirectoryEdition (..)
 
     -- ** DirectorySize
     , DirectorySize (..)
@@ -282,6 +285,7 @@ module Network.AWS.DirectoryService
     -- ** DirectoryDescription
     , DirectoryDescription
     , directoryDescription
+    , ddEdition
     , ddRadiusStatus
     , ddStage
     , ddDirectoryId

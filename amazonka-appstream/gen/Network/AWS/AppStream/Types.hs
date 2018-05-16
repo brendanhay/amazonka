@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,7 @@ module Network.AWS.AppStream.Types
     , _IncompatibleImageException
     , _ConcurrentModificationException
     , _OperationNotPermittedException
+    , _InvalidAccountStatusException
     , _ResourceNotFoundException
     , _InvalidParameterCombinationException
     , _ResourceNotAvailableException
@@ -59,6 +60,9 @@ module Network.AWS.AppStream.Types
 
     -- * SessionState
     , SessionState (..)
+
+    -- * StackAttribute
+    , StackAttribute (..)
 
     -- * StackErrorCode
     , StackErrorCode (..)
@@ -147,6 +151,7 @@ module Network.AWS.AppStream.Types
     , iBaseImageARN
     , iDisplayName
     , iDescription
+    , iAppstreamAgentVersion
     , iApplications
     , iName
 
@@ -166,6 +171,7 @@ module Network.AWS.AppStream.Types
     , ibDisplayName
     , ibEnableDefaultInternetAccess
     , ibDescription
+    , ibAppstreamAgentVersion
     , ibName
 
     -- * ImageBuilderStateChangeReason
@@ -206,12 +212,14 @@ module Network.AWS.AppStream.Types
     -- * Stack
     , Stack
     , stack
+    , sFeedbackURL
     , sARN
     , sCreatedTime
     , sStorageConnectors
     , sDisplayName
     , sStackErrors
     , sDescription
+    , sRedirectURL
     , sName
 
     -- * StackError
@@ -243,24 +251,24 @@ import Network.AWS.Sign.V4
 appStream :: Service
 appStream =
   Service
-  { _svcAbbrev = "AppStream"
-  , _svcSigner = v4
-  , _svcPrefix = "appstream2"
-  , _svcVersion = "2016-12-01"
-  , _svcEndpoint = defaultEndpoint appStream
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "AppStream"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "AppStream"
+    , _svcSigner = v4
+    , _svcPrefix = "appstream2"
+    , _svcVersion = "2016-12-01"
+    , _svcEndpoint = defaultEndpoint appStream
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "AppStream"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -269,6 +277,8 @@ appStream =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -313,6 +323,14 @@ _ConcurrentModificationException =
 _OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotPermittedException =
   _MatchServiceError appStream "OperationNotPermittedException"
+
+
+-- | The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support.
+--
+--
+_InvalidAccountStatusException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidAccountStatusException =
+  _MatchServiceError appStream "InvalidAccountStatusException"
 
 
 -- | The specified resource was not found.

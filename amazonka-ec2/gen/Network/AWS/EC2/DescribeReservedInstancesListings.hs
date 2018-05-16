@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesListings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,23 +79,23 @@ describeReservedInstancesListings
     :: DescribeReservedInstancesListings
 describeReservedInstancesListings =
   DescribeReservedInstancesListings'
-  { _drilFilters = Nothing
-  , _drilReservedInstancesId = Nothing
-  , _drilReservedInstancesListingId = Nothing
-  }
+    { _drilFilters = Nothing
+    , _drilReservedInstancesId = Nothing
+    , _drilReservedInstancesListingId = Nothing
+    }
 
 
 -- | One or more filters.     * @reserved-instances-id@ - The ID of the Reserved Instances.     * @reserved-instances-listing-id@ - The ID of the Reserved Instances listing.     * @status@ - The status of the Reserved Instance listing (@pending@ | @active@ | @cancelled@ | @closed@ ).     * @status-message@ - The reason for the status.
 drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
-drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a}) . _Default . _Coerce;
+drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a}) . _Default . _Coerce
 
 -- | One or more Reserved Instance IDs.
 drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-drilReservedInstancesId = lens _drilReservedInstancesId (\ s a -> s{_drilReservedInstancesId = a});
+drilReservedInstancesId = lens _drilReservedInstancesId (\ s a -> s{_drilReservedInstancesId = a})
 
 -- | One or more Reserved Instance listing IDs.
 drilReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-drilReservedInstancesListingId = lens _drilReservedInstancesListingId (\ s a -> s{_drilReservedInstancesListingId = a});
+drilReservedInstancesListingId = lens _drilReservedInstancesListingId (\ s a -> s{_drilReservedInstancesListingId = a})
 
 instance AWSRequest DescribeReservedInstancesListings
          where
@@ -159,18 +159,18 @@ describeReservedInstancesListingsResponse
     -> DescribeReservedInstancesListingsResponse
 describeReservedInstancesListingsResponse pResponseStatus_ =
   DescribeReservedInstancesListingsResponse'
-  { _drilrsReservedInstancesListings = Nothing
-  , _drilrsResponseStatus = pResponseStatus_
-  }
+    { _drilrsReservedInstancesListings = Nothing
+    , _drilrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the Reserved Instance listing.
 drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
-drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -> s{_drilrsReservedInstancesListings = a}) . _Default . _Coerce;
+drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -> s{_drilrsReservedInstancesListings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drilrsResponseStatus :: Lens' DescribeReservedInstancesListingsResponse Int
-drilrsResponseStatus = lens _drilrsResponseStatus (\ s a -> s{_drilrsResponseStatus = a});
+drilrsResponseStatus = lens _drilrsResponseStatus (\ s a -> s{_drilrsResponseStatus = a})
 
 instance NFData
            DescribeReservedInstancesListingsResponse

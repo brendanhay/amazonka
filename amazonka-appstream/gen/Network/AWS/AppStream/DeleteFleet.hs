@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DeleteFleet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteFleet pName_ = DeleteFleet' {_dfName = pName_}
 
 -- | The name of the fleet.
 dfName :: Lens' DeleteFleet Text
-dfName = lens _dfName (\ s a -> s{_dfName = a});
+dfName = lens _dfName (\ s a -> s{_dfName = a})
 
 instance AWSRequest DeleteFleet where
         type Rs DeleteFleet = DeleteFleetResponse
@@ -116,6 +116,6 @@ deleteFleetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dfrsResponseStatus :: Lens' DeleteFleetResponse Int
-dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a});
+dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a})
 
 instance NFData DeleteFleetResponse where

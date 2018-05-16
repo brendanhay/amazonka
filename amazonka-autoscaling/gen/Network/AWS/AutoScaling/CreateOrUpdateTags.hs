@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.CreateOrUpdateTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ createOrUpdateTags = CreateOrUpdateTags' {_coutTags = mempty}
 
 -- | One or more tags.
 coutTags :: Lens' CreateOrUpdateTags [Tag]
-coutTags = lens _coutTags (\ s a -> s{_coutTags = a}) . _Coerce;
+coutTags = lens _coutTags (\ s a -> s{_coutTags = a}) . _Coerce
 
 instance AWSRequest CreateOrUpdateTags where
         type Rs CreateOrUpdateTags =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Batch.TerminateJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ data TerminateJob = TerminateJob'
 --
 -- * 'tjJobId' - The AWS Batch job ID of the job to terminate.
 --
--- * 'tjReason' - A message to attach to the job that explains the reason for cancelling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
+-- * 'tjReason' - A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
 terminateJob
     :: Text -- ^ 'tjJobId'
     -> Text -- ^ 'tjReason'
@@ -68,11 +68,11 @@ terminateJob pJobId_ pReason_ =
 
 -- | The AWS Batch job ID of the job to terminate.
 tjJobId :: Lens' TerminateJob Text
-tjJobId = lens _tjJobId (\ s a -> s{_tjJobId = a});
+tjJobId = lens _tjJobId (\ s a -> s{_tjJobId = a})
 
--- | A message to attach to the job that explains the reason for cancelling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
+-- | A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
 tjReason :: Lens' TerminateJob Text
-tjReason = lens _tjReason (\ s a -> s{_tjReason = a});
+tjReason = lens _tjReason (\ s a -> s{_tjReason = a})
 
 instance AWSRequest TerminateJob where
         type Rs TerminateJob = TerminateJobResponse
@@ -126,6 +126,6 @@ terminateJobResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 tjrsResponseStatus :: Lens' TerminateJobResponse Int
-tjrsResponseStatus = lens _tjrsResponseStatus (\ s a -> s{_tjrsResponseStatus = a});
+tjrsResponseStatus = lens _tjrsResponseStatus (\ s a -> s{_tjrsResponseStatus = a})
 
 instance NFData TerminateJobResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateInstanceExportTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,28 +78,28 @@ createInstanceExportTask
     -> CreateInstanceExportTask
 createInstanceExportTask pInstanceId_ =
   CreateInstanceExportTask'
-  { _cietTargetEnvironment = Nothing
-  , _cietExportToS3Task = Nothing
-  , _cietDescription = Nothing
-  , _cietInstanceId = pInstanceId_
-  }
+    { _cietTargetEnvironment = Nothing
+    , _cietExportToS3Task = Nothing
+    , _cietDescription = Nothing
+    , _cietInstanceId = pInstanceId_
+    }
 
 
 -- | The target virtualization environment.
 cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
-cietTargetEnvironment = lens _cietTargetEnvironment (\ s a -> s{_cietTargetEnvironment = a});
+cietTargetEnvironment = lens _cietTargetEnvironment (\ s a -> s{_cietTargetEnvironment = a})
 
 -- | The format and location for an instance export task.
 cietExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
-cietExportToS3Task = lens _cietExportToS3Task (\ s a -> s{_cietExportToS3Task = a});
+cietExportToS3Task = lens _cietExportToS3Task (\ s a -> s{_cietExportToS3Task = a})
 
 -- | A description for the conversion task or the resource being exported. The maximum length is 255 bytes.
 cietDescription :: Lens' CreateInstanceExportTask (Maybe Text)
-cietDescription = lens _cietDescription (\ s a -> s{_cietDescription = a});
+cietDescription = lens _cietDescription (\ s a -> s{_cietDescription = a})
 
 -- | The ID of the instance.
 cietInstanceId :: Lens' CreateInstanceExportTask Text
-cietInstanceId = lens _cietInstanceId (\ s a -> s{_cietInstanceId = a});
+cietInstanceId = lens _cietInstanceId (\ s a -> s{_cietInstanceId = a})
 
 instance AWSRequest CreateInstanceExportTask where
         type Rs CreateInstanceExportTask =
@@ -155,16 +155,16 @@ createInstanceExportTaskResponse
     -> CreateInstanceExportTaskResponse
 createInstanceExportTaskResponse pResponseStatus_ =
   CreateInstanceExportTaskResponse'
-  {_cietrsExportTask = Nothing, _cietrsResponseStatus = pResponseStatus_}
+    {_cietrsExportTask = Nothing, _cietrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the instance export task.
 cietrsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
-cietrsExportTask = lens _cietrsExportTask (\ s a -> s{_cietrsExportTask = a});
+cietrsExportTask = lens _cietrsExportTask (\ s a -> s{_cietrsExportTask = a})
 
 -- | -- | The response status code.
 cietrsResponseStatus :: Lens' CreateInstanceExportTaskResponse Int
-cietrsResponseStatus = lens _cietrsResponseStatus (\ s a -> s{_cietrsResponseStatus = a});
+cietrsResponseStatus = lens _cietrsResponseStatus (\ s a -> s{_cietrsResponseStatus = a})
 
 instance NFData CreateInstanceExportTaskResponse
          where

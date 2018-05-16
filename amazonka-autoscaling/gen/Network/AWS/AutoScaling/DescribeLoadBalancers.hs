@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeLoadBalancers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,31 +63,31 @@ data DescribeLoadBalancers = DescribeLoadBalancers'
 --
 -- * 'dlbNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlbMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
+-- * 'dlbMaxRecords' - The maximum number of items to return with this call. The default value is 100 and the maximum value is 100.
 --
--- * 'dlbAutoScalingGroupName' - The name of the group.
+-- * 'dlbAutoScalingGroupName' - The name of the Auto Scaling group.
 describeLoadBalancers
     :: Text -- ^ 'dlbAutoScalingGroupName'
     -> DescribeLoadBalancers
 describeLoadBalancers pAutoScalingGroupName_ =
   DescribeLoadBalancers'
-  { _dlbNextToken = Nothing
-  , _dlbMaxRecords = Nothing
-  , _dlbAutoScalingGroupName = pAutoScalingGroupName_
-  }
+    { _dlbNextToken = Nothing
+    , _dlbMaxRecords = Nothing
+    , _dlbAutoScalingGroupName = pAutoScalingGroupName_
+    }
 
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dlbNextToken :: Lens' DescribeLoadBalancers (Maybe Text)
-dlbNextToken = lens _dlbNextToken (\ s a -> s{_dlbNextToken = a});
+dlbNextToken = lens _dlbNextToken (\ s a -> s{_dlbNextToken = a})
 
--- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
+-- | The maximum number of items to return with this call. The default value is 100 and the maximum value is 100.
 dlbMaxRecords :: Lens' DescribeLoadBalancers (Maybe Int)
-dlbMaxRecords = lens _dlbMaxRecords (\ s a -> s{_dlbMaxRecords = a});
+dlbMaxRecords = lens _dlbMaxRecords (\ s a -> s{_dlbMaxRecords = a})
 
--- | The name of the group.
+-- | The name of the Auto Scaling group.
 dlbAutoScalingGroupName :: Lens' DescribeLoadBalancers Text
-dlbAutoScalingGroupName = lens _dlbAutoScalingGroupName (\ s a -> s{_dlbAutoScalingGroupName = a});
+dlbAutoScalingGroupName = lens _dlbAutoScalingGroupName (\ s a -> s{_dlbAutoScalingGroupName = a})
 
 instance AWSRequest DescribeLoadBalancers where
         type Rs DescribeLoadBalancers =
@@ -143,22 +143,22 @@ describeLoadBalancersResponse
     -> DescribeLoadBalancersResponse
 describeLoadBalancersResponse pResponseStatus_ =
   DescribeLoadBalancersResponse'
-  { _dlbrsLoadBalancers = Nothing
-  , _dlbrsNextToken = Nothing
-  , _dlbrsResponseStatus = pResponseStatus_
-  }
+    { _dlbrsLoadBalancers = Nothing
+    , _dlbrsNextToken = Nothing
+    , _dlbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The load balancers.
 dlbrsLoadBalancers :: Lens' DescribeLoadBalancersResponse [LoadBalancerState]
-dlbrsLoadBalancers = lens _dlbrsLoadBalancers (\ s a -> s{_dlbrsLoadBalancers = a}) . _Default . _Coerce;
+dlbrsLoadBalancers = lens _dlbrsLoadBalancers (\ s a -> s{_dlbrsLoadBalancers = a}) . _Default . _Coerce
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dlbrsNextToken :: Lens' DescribeLoadBalancersResponse (Maybe Text)
-dlbrsNextToken = lens _dlbrsNextToken (\ s a -> s{_dlbrsNextToken = a});
+dlbrsNextToken = lens _dlbrsNextToken (\ s a -> s{_dlbrsNextToken = a})
 
 -- | -- | The response status code.
 dlbrsResponseStatus :: Lens' DescribeLoadBalancersResponse Int
-dlbrsResponseStatus = lens _dlbrsResponseStatus (\ s a -> s{_dlbrsResponseStatus = a});
+dlbrsResponseStatus = lens _dlbrsResponseStatus (\ s a -> s{_dlbrsResponseStatus = a})
 
 instance NFData DescribeLoadBalancersResponse where

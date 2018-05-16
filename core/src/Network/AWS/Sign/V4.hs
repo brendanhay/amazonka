@@ -11,7 +11,7 @@
 
 -- |
 -- Module      : Network.AWS.Sign.V4
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -22,7 +22,6 @@ module Network.AWS.Sign.V4
     , v4
     ) where
 
-import           Control.Applicative
 import qualified Data.CaseInsensitive        as CI
 import           Data.Monoid
 import           Network.AWS.Data.Body

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.GetDashboard
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,7 @@ import Network.AWS.Response
 
 -- | /See:/ 'getDashboard' smart constructor.
 newtype GetDashboard = GetDashboard'
-  { _gdDashboardName :: Maybe Text
+  { _gdDashboardName :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -60,13 +60,15 @@ newtype GetDashboard = GetDashboard'
 --
 -- * 'gdDashboardName' - The name of the dashboard to be described.
 getDashboard
-    :: GetDashboard
-getDashboard = GetDashboard' {_gdDashboardName = Nothing}
+    :: Text -- ^ 'gdDashboardName'
+    -> GetDashboard
+getDashboard pDashboardName_ =
+  GetDashboard' {_gdDashboardName = pDashboardName_}
 
 
 -- | The name of the dashboard to be described.
-gdDashboardName :: Lens' GetDashboard (Maybe Text)
-gdDashboardName = lens _gdDashboardName (\ s a -> s{_gdDashboardName = a});
+gdDashboardName :: Lens' GetDashboard Text
+gdDashboardName = lens _gdDashboardName (\ s a -> s{_gdDashboardName = a})
 
 instance AWSRequest GetDashboard where
         type Rs GetDashboard = GetDashboardResponse
@@ -121,27 +123,27 @@ getDashboardResponse
     -> GetDashboardResponse
 getDashboardResponse pResponseStatus_ =
   GetDashboardResponse'
-  { _gdrsDashboardName = Nothing
-  , _gdrsDashboardBody = Nothing
-  , _gdrsDashboardARN = Nothing
-  , _gdrsResponseStatus = pResponseStatus_
-  }
+    { _gdrsDashboardName = Nothing
+    , _gdrsDashboardBody = Nothing
+    , _gdrsDashboardARN = Nothing
+    , _gdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The name of the dashboard.
 gdrsDashboardName :: Lens' GetDashboardResponse (Maybe Text)
-gdrsDashboardName = lens _gdrsDashboardName (\ s a -> s{_gdrsDashboardName = a});
+gdrsDashboardName = lens _gdrsDashboardName (\ s a -> s{_gdrsDashboardName = a})
 
 -- | The detailed information about the dashboard, including what widgets are included and their location on the dashboard. For more information about the @DashboardBody@ syntax, see 'CloudWatch-Dashboard-Body-Structure' .
 gdrsDashboardBody :: Lens' GetDashboardResponse (Maybe Text)
-gdrsDashboardBody = lens _gdrsDashboardBody (\ s a -> s{_gdrsDashboardBody = a});
+gdrsDashboardBody = lens _gdrsDashboardBody (\ s a -> s{_gdrsDashboardBody = a})
 
 -- | The Amazon Resource Name (ARN) of the dashboard.
 gdrsDashboardARN :: Lens' GetDashboardResponse (Maybe Text)
-gdrsDashboardARN = lens _gdrsDashboardARN (\ s a -> s{_gdrsDashboardARN = a});
+gdrsDashboardARN = lens _gdrsDashboardARN (\ s a -> s{_gdrsDashboardARN = a})
 
 -- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDashboardResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a})
 
 instance NFData GetDashboardResponse where

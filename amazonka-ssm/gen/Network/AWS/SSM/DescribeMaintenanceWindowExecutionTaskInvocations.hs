@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,33 +78,33 @@ describeMaintenanceWindowExecutionTaskInvocations
     -> DescribeMaintenanceWindowExecutionTaskInvocations
 describeMaintenanceWindowExecutionTaskInvocations pWindowExecutionId_ pTaskId_ =
   DescribeMaintenanceWindowExecutionTaskInvocations'
-  { _dmwetiFilters = Nothing
-  , _dmwetiNextToken = Nothing
-  , _dmwetiMaxResults = Nothing
-  , _dmwetiWindowExecutionId = pWindowExecutionId_
-  , _dmwetiTaskId = pTaskId_
-  }
+    { _dmwetiFilters = Nothing
+    , _dmwetiNextToken = Nothing
+    , _dmwetiMaxResults = Nothing
+    , _dmwetiWindowExecutionId = pWindowExecutionId_
+    , _dmwetiTaskId = pTaskId_
+    }
 
 
 -- | Optional filters used to scope down the returned task invocations. The supported filter key is STATUS with the corresponding values PENDING, IN_PROGRESS, SUCCESS, FAILED, TIMED_OUT, CANCELLING, and CANCELLED.
 dmwetiFilters :: Lens' DescribeMaintenanceWindowExecutionTaskInvocations [MaintenanceWindowFilter]
-dmwetiFilters = lens _dmwetiFilters (\ s a -> s{_dmwetiFilters = a}) . _Default . _Coerce;
+dmwetiFilters = lens _dmwetiFilters (\ s a -> s{_dmwetiFilters = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dmwetiNextToken :: Lens' DescribeMaintenanceWindowExecutionTaskInvocations (Maybe Text)
-dmwetiNextToken = lens _dmwetiNextToken (\ s a -> s{_dmwetiNextToken = a});
+dmwetiNextToken = lens _dmwetiNextToken (\ s a -> s{_dmwetiNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 dmwetiMaxResults :: Lens' DescribeMaintenanceWindowExecutionTaskInvocations (Maybe Natural)
-dmwetiMaxResults = lens _dmwetiMaxResults (\ s a -> s{_dmwetiMaxResults = a}) . mapping _Nat;
+dmwetiMaxResults = lens _dmwetiMaxResults (\ s a -> s{_dmwetiMaxResults = a}) . mapping _Nat
 
 -- | The ID of the Maintenance Window execution the task is part of.
 dmwetiWindowExecutionId :: Lens' DescribeMaintenanceWindowExecutionTaskInvocations Text
-dmwetiWindowExecutionId = lens _dmwetiWindowExecutionId (\ s a -> s{_dmwetiWindowExecutionId = a});
+dmwetiWindowExecutionId = lens _dmwetiWindowExecutionId (\ s a -> s{_dmwetiWindowExecutionId = a})
 
 -- | The ID of the specific task in the Maintenance Window task that should be retrieved.
 dmwetiTaskId :: Lens' DescribeMaintenanceWindowExecutionTaskInvocations Text
-dmwetiTaskId = lens _dmwetiTaskId (\ s a -> s{_dmwetiTaskId = a});
+dmwetiTaskId = lens _dmwetiTaskId (\ s a -> s{_dmwetiTaskId = a})
 
 instance AWSRequest
            DescribeMaintenanceWindowExecutionTaskInvocations
@@ -190,23 +190,23 @@ describeMaintenanceWindowExecutionTaskInvocationsResponse
     -> DescribeMaintenanceWindowExecutionTaskInvocationsResponse
 describeMaintenanceWindowExecutionTaskInvocationsResponse pResponseStatus_ =
   DescribeMaintenanceWindowExecutionTaskInvocationsResponse'
-  { _dmwetirsWindowExecutionTaskInvocationIdentities = Nothing
-  , _dmwetirsNextToken = Nothing
-  , _dmwetirsResponseStatus = pResponseStatus_
-  }
+    { _dmwetirsWindowExecutionTaskInvocationIdentities = Nothing
+    , _dmwetirsNextToken = Nothing
+    , _dmwetirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the task invocation results per invocation.
 dmwetirsWindowExecutionTaskInvocationIdentities :: Lens' DescribeMaintenanceWindowExecutionTaskInvocationsResponse [MaintenanceWindowExecutionTaskInvocationIdentity]
-dmwetirsWindowExecutionTaskInvocationIdentities = lens _dmwetirsWindowExecutionTaskInvocationIdentities (\ s a -> s{_dmwetirsWindowExecutionTaskInvocationIdentities = a}) . _Default . _Coerce;
+dmwetirsWindowExecutionTaskInvocationIdentities = lens _dmwetirsWindowExecutionTaskInvocationIdentities (\ s a -> s{_dmwetirsWindowExecutionTaskInvocationIdentities = a}) . _Default . _Coerce
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dmwetirsNextToken :: Lens' DescribeMaintenanceWindowExecutionTaskInvocationsResponse (Maybe Text)
-dmwetirsNextToken = lens _dmwetirsNextToken (\ s a -> s{_dmwetirsNextToken = a});
+dmwetirsNextToken = lens _dmwetirsNextToken (\ s a -> s{_dmwetirsNextToken = a})
 
 -- | -- | The response status code.
 dmwetirsResponseStatus :: Lens' DescribeMaintenanceWindowExecutionTaskInvocationsResponse Int
-dmwetirsResponseStatus = lens _dmwetirsResponseStatus (\ s a -> s{_dmwetirsResponseStatus = a});
+dmwetirsResponseStatus = lens _dmwetirsResponseStatus (\ s a -> s{_dmwetirsResponseStatus = a})
 
 instance NFData
            DescribeMaintenanceWindowExecutionTaskInvocationsResponse

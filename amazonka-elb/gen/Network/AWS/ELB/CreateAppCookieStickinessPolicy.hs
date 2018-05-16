@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.CreateAppCookieStickinessPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,23 +79,23 @@ createAppCookieStickinessPolicy
     -> CreateAppCookieStickinessPolicy
 createAppCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ pCookieName_ =
   CreateAppCookieStickinessPolicy'
-  { _cacspLoadBalancerName = pLoadBalancerName_
-  , _cacspPolicyName = pPolicyName_
-  , _cacspCookieName = pCookieName_
-  }
+    { _cacspLoadBalancerName = pLoadBalancerName_
+    , _cacspPolicyName = pPolicyName_
+    , _cacspCookieName = pCookieName_
+    }
 
 
 -- | The name of the load balancer.
 cacspLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy Text
-cacspLoadBalancerName = lens _cacspLoadBalancerName (\ s a -> s{_cacspLoadBalancerName = a});
+cacspLoadBalancerName = lens _cacspLoadBalancerName (\ s a -> s{_cacspLoadBalancerName = a})
 
 -- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
 cacspPolicyName :: Lens' CreateAppCookieStickinessPolicy Text
-cacspPolicyName = lens _cacspPolicyName (\ s a -> s{_cacspPolicyName = a});
+cacspPolicyName = lens _cacspPolicyName (\ s a -> s{_cacspPolicyName = a})
 
 -- | The name of the application cookie used for stickiness.
 cacspCookieName :: Lens' CreateAppCookieStickinessPolicy Text
-cacspCookieName = lens _cacspCookieName (\ s a -> s{_cacspCookieName = a});
+cacspCookieName = lens _cacspCookieName (\ s a -> s{_cacspCookieName = a})
 
 instance AWSRequest CreateAppCookieStickinessPolicy
          where
@@ -152,12 +152,12 @@ createAppCookieStickinessPolicyResponse
     -> CreateAppCookieStickinessPolicyResponse
 createAppCookieStickinessPolicyResponse pResponseStatus_ =
   CreateAppCookieStickinessPolicyResponse'
-  {_cacsprsResponseStatus = pResponseStatus_}
+    {_cacsprsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 cacsprsResponseStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
-cacsprsResponseStatus = lens _cacsprsResponseStatus (\ s a -> s{_cacsprsResponseStatus = a});
+cacsprsResponseStatus = lens _cacsprsResponseStatus (\ s a -> s{_cacsprsResponseStatus = a})
 
 instance NFData
            CreateAppCookieStickinessPolicyResponse

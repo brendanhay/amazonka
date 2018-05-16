@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteObjectTagging
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,20 +67,20 @@ deleteObjectTagging
     -> DeleteObjectTagging
 deleteObjectTagging pBucket_ pKey_ =
   DeleteObjectTagging'
-  {_dotVersionId = Nothing, _dotBucket = pBucket_, _dotKey = pKey_}
+    {_dotVersionId = Nothing, _dotBucket = pBucket_, _dotKey = pKey_}
 
 
 -- | The versionId of the object that the tag-set will be removed from.
 dotVersionId :: Lens' DeleteObjectTagging (Maybe ObjectVersionId)
-dotVersionId = lens _dotVersionId (\ s a -> s{_dotVersionId = a});
+dotVersionId = lens _dotVersionId (\ s a -> s{_dotVersionId = a})
 
 -- | Undocumented member.
 dotBucket :: Lens' DeleteObjectTagging BucketName
-dotBucket = lens _dotBucket (\ s a -> s{_dotBucket = a});
+dotBucket = lens _dotBucket (\ s a -> s{_dotBucket = a})
 
 -- | Undocumented member.
 dotKey :: Lens' DeleteObjectTagging ObjectKey
-dotKey = lens _dotKey (\ s a -> s{_dotKey = a});
+dotKey = lens _dotKey (\ s a -> s{_dotKey = a})
 
 instance AWSRequest DeleteObjectTagging where
         type Rs DeleteObjectTagging =
@@ -126,15 +126,15 @@ deleteObjectTaggingResponse
     -> DeleteObjectTaggingResponse
 deleteObjectTaggingResponse pResponseStatus_ =
   DeleteObjectTaggingResponse'
-  {_dotrsVersionId = Nothing, _dotrsResponseStatus = pResponseStatus_}
+    {_dotrsVersionId = Nothing, _dotrsResponseStatus = pResponseStatus_}
 
 
 -- | The versionId of the object the tag-set was removed from.
 dotrsVersionId :: Lens' DeleteObjectTaggingResponse (Maybe ObjectVersionId)
-dotrsVersionId = lens _dotrsVersionId (\ s a -> s{_dotrsVersionId = a});
+dotrsVersionId = lens _dotrsVersionId (\ s a -> s{_dotrsVersionId = a})
 
 -- | -- | The response status code.
 dotrsResponseStatus :: Lens' DeleteObjectTaggingResponse Int
-dotrsResponseStatus = lens _dotrsResponseStatus (\ s a -> s{_dotrsResponseStatus = a});
+dotrsResponseStatus = lens _dotrsResponseStatus (\ s a -> s{_dotrsResponseStatus = a})
 
 instance NFData DeleteObjectTaggingResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains.Suggest
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,15 +82,15 @@ suggest pQuery_ pSuggester_ =
 
 -- | Specifies the maximum number of suggestions to return.
 sSize :: Lens' Suggest (Maybe Integer)
-sSize = lens _sSize (\ s a -> s{_sSize = a});
+sSize = lens _sSize (\ s a -> s{_sSize = a})
 
 -- | Specifies the string for which you want to get suggestions.
 sQuery :: Lens' Suggest Text
-sQuery = lens _sQuery (\ s a -> s{_sQuery = a});
+sQuery = lens _sQuery (\ s a -> s{_sQuery = a})
 
 -- | Specifies the name of the suggester to use to find suggested matches.
 sSuggester :: Lens' Suggest Text
-sSuggester = lens _sSuggester (\ s a -> s{_sSuggester = a});
+sSuggester = lens _sSuggester (\ s a -> s{_sSuggester = a})
 
 instance AWSRequest Suggest where
         type Rs Suggest = SuggestResponse
@@ -148,22 +148,22 @@ suggestResponse
     -> SuggestResponse
 suggestResponse pResponseStatus_ =
   SuggestResponse'
-  { _srsSuggest = Nothing
-  , _srsStatus = Nothing
-  , _srsResponseStatus = pResponseStatus_
-  }
+    { _srsSuggest = Nothing
+    , _srsStatus = Nothing
+    , _srsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Container for the matching search suggestion information.
 srsSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
-srsSuggest = lens _srsSuggest (\ s a -> s{_srsSuggest = a});
+srsSuggest = lens _srsSuggest (\ s a -> s{_srsSuggest = a})
 
 -- | The status of a @SuggestRequest@ . Contains the resource ID (@rid@ ) and how long it took to process the request (@timems@ ).
 srsStatus :: Lens' SuggestResponse (Maybe SuggestStatus)
-srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a})
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' SuggestResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData SuggestResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetIdentityVerificationAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,7 +73,7 @@ getIdentityVerificationAttributes =
 
 -- | A list of identities.
 givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
-givaIdentities = lens _givaIdentities (\ s a -> s{_givaIdentities = a}) . _Coerce;
+givaIdentities = lens _givaIdentities (\ s a -> s{_givaIdentities = a}) . _Coerce
 
 instance AWSRequest GetIdentityVerificationAttributes
          where
@@ -135,18 +135,18 @@ getIdentityVerificationAttributesResponse
     -> GetIdentityVerificationAttributesResponse
 getIdentityVerificationAttributesResponse pResponseStatus_ =
   GetIdentityVerificationAttributesResponse'
-  { _givarsResponseStatus = pResponseStatus_
-  , _givarsVerificationAttributes = mempty
-  }
+    { _givarsResponseStatus = pResponseStatus_
+    , _givarsVerificationAttributes = mempty
+    }
 
 
 -- | -- | The response status code.
 givarsResponseStatus :: Lens' GetIdentityVerificationAttributesResponse Int
-givarsResponseStatus = lens _givarsResponseStatus (\ s a -> s{_givarsResponseStatus = a});
+givarsResponseStatus = lens _givarsResponseStatus (\ s a -> s{_givarsResponseStatus = a})
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
 givarsVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)
-givarsVerificationAttributes = lens _givarsVerificationAttributes (\ s a -> s{_givarsVerificationAttributes = a}) . _Map;
+givarsVerificationAttributes = lens _givarsVerificationAttributes (\ s a -> s{_givarsVerificationAttributes = a}) . _Map
 
 instance NFData
            GetIdentityVerificationAttributesResponse

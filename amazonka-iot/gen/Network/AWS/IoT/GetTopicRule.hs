@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetTopicRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the specified rule.
+-- Gets information about the rule.
 --
 --
 module Network.AWS.IoT.GetTopicRule
@@ -68,7 +68,7 @@ getTopicRule pRuleName_ = GetTopicRule' {_gtrRuleName = pRuleName_}
 
 -- | The name of the rule.
 gtrRuleName :: Lens' GetTopicRule Text
-gtrRuleName = lens _gtrRuleName (\ s a -> s{_gtrRuleName = a});
+gtrRuleName = lens _gtrRuleName (\ s a -> s{_gtrRuleName = a})
 
 instance AWSRequest GetTopicRule where
         type Rs GetTopicRule = GetTopicRuleResponse
@@ -120,22 +120,22 @@ getTopicRuleResponse
     -> GetTopicRuleResponse
 getTopicRuleResponse pResponseStatus_ =
   GetTopicRuleResponse'
-  { _gtrrsRule = Nothing
-  , _gtrrsRuleARN = Nothing
-  , _gtrrsResponseStatus = pResponseStatus_
-  }
+    { _gtrrsRule = Nothing
+    , _gtrrsRuleARN = Nothing
+    , _gtrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The rule.
 gtrrsRule :: Lens' GetTopicRuleResponse (Maybe TopicRule)
-gtrrsRule = lens _gtrrsRule (\ s a -> s{_gtrrsRule = a});
+gtrrsRule = lens _gtrrsRule (\ s a -> s{_gtrrsRule = a})
 
 -- | The rule ARN.
 gtrrsRuleARN :: Lens' GetTopicRuleResponse (Maybe Text)
-gtrrsRuleARN = lens _gtrrsRuleARN (\ s a -> s{_gtrrsRuleARN = a});
+gtrrsRuleARN = lens _gtrrsRuleARN (\ s a -> s{_gtrrsRuleARN = a})
 
 -- | -- | The response status code.
 gtrrsResponseStatus :: Lens' GetTopicRuleResponse Int
-gtrrsResponseStatus = lens _gtrrsResponseStatus (\ s a -> s{_gtrrsResponseStatus = a});
+gtrrsResponseStatus = lens _gtrrsResponseStatus (\ s a -> s{_gtrrsResponseStatus = a})
 
 instance NFData GetTopicRuleResponse where

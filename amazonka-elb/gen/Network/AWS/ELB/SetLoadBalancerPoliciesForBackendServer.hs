@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,23 +78,23 @@ setLoadBalancerPoliciesForBackendServer
     -> SetLoadBalancerPoliciesForBackendServer
 setLoadBalancerPoliciesForBackendServer pLoadBalancerName_ pInstancePort_ =
   SetLoadBalancerPoliciesForBackendServer'
-  { _slbpfbsLoadBalancerName = pLoadBalancerName_
-  , _slbpfbsInstancePort = pInstancePort_
-  , _slbpfbsPolicyNames = mempty
-  }
+    { _slbpfbsLoadBalancerName = pLoadBalancerName_
+    , _slbpfbsInstancePort = pInstancePort_
+    , _slbpfbsPolicyNames = mempty
+    }
 
 
 -- | The name of the load balancer.
 slbpfbsLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text
-slbpfbsLoadBalancerName = lens _slbpfbsLoadBalancerName (\ s a -> s{_slbpfbsLoadBalancerName = a});
+slbpfbsLoadBalancerName = lens _slbpfbsLoadBalancerName (\ s a -> s{_slbpfbsLoadBalancerName = a})
 
 -- | The port number associated with the EC2 instance.
 slbpfbsInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Int
-slbpfbsInstancePort = lens _slbpfbsInstancePort (\ s a -> s{_slbpfbsInstancePort = a});
+slbpfbsInstancePort = lens _slbpfbsInstancePort (\ s a -> s{_slbpfbsInstancePort = a})
 
 -- | The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.
 slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
-slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\ s a -> s{_slbpfbsPolicyNames = a}) . _Coerce;
+slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\ s a -> s{_slbpfbsPolicyNames = a}) . _Coerce
 
 instance AWSRequest
            SetLoadBalancerPoliciesForBackendServer
@@ -161,12 +161,12 @@ setLoadBalancerPoliciesForBackendServerResponse
     -> SetLoadBalancerPoliciesForBackendServerResponse
 setLoadBalancerPoliciesForBackendServerResponse pResponseStatus_ =
   SetLoadBalancerPoliciesForBackendServerResponse'
-  {_slbpfbsrsResponseStatus = pResponseStatus_}
+    {_slbpfbsrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 slbpfbsrsResponseStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
-slbpfbsrsResponseStatus = lens _slbpfbsrsResponseStatus (\ s a -> s{_slbpfbsrsResponseStatus = a});
+slbpfbsrsResponseStatus = lens _slbpfbsrsResponseStatus (\ s a -> s{_slbpfbsrsResponseStatus = a})
 
 instance NFData
            SetLoadBalancerPoliciesForBackendServerResponse

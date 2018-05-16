@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetBlueprints
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ getBlueprints =
 
 -- | A Boolean value indicating whether to include inactive results in your request.
 gbIncludeInactive :: Lens' GetBlueprints (Maybe Bool)
-gbIncludeInactive = lens _gbIncludeInactive (\ s a -> s{_gbIncludeInactive = a});
+gbIncludeInactive = lens _gbIncludeInactive (\ s a -> s{_gbIncludeInactive = a})
 
 -- | A token used for advancing to the next page of results from your get blueprints request.
 gbPageToken :: Lens' GetBlueprints (Maybe Text)
-gbPageToken = lens _gbPageToken (\ s a -> s{_gbPageToken = a});
+gbPageToken = lens _gbPageToken (\ s a -> s{_gbPageToken = a})
 
 instance AWSPager GetBlueprints where
         page rq rs
@@ -143,22 +143,22 @@ getBlueprintsResponse
     -> GetBlueprintsResponse
 getBlueprintsResponse pResponseStatus_ =
   GetBlueprintsResponse'
-  { _gbsrsBlueprints = Nothing
-  , _gbsrsNextPageToken = Nothing
-  , _gbsrsResponseStatus = pResponseStatus_
-  }
+    { _gbsrsBlueprints = Nothing
+    , _gbsrsNextPageToken = Nothing
+    , _gbsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of key-value pairs that contains information about the available blueprints.
 gbsrsBlueprints :: Lens' GetBlueprintsResponse [Blueprint]
-gbsrsBlueprints = lens _gbsrsBlueprints (\ s a -> s{_gbsrsBlueprints = a}) . _Default . _Coerce;
+gbsrsBlueprints = lens _gbsrsBlueprints (\ s a -> s{_gbsrsBlueprints = a}) . _Default . _Coerce
 
 -- | A token used for advancing to the next page of results from your get blueprints request.
 gbsrsNextPageToken :: Lens' GetBlueprintsResponse (Maybe Text)
-gbsrsNextPageToken = lens _gbsrsNextPageToken (\ s a -> s{_gbsrsNextPageToken = a});
+gbsrsNextPageToken = lens _gbsrsNextPageToken (\ s a -> s{_gbsrsNextPageToken = a})
 
 -- | -- | The response status code.
 gbsrsResponseStatus :: Lens' GetBlueprintsResponse Int
-gbsrsResponseStatus = lens _gbsrsResponseStatus (\ s a -> s{_gbsrsResponseStatus = a});
+gbsrsResponseStatus = lens _gbsrsResponseStatus (\ s a -> s{_gbsrsResponseStatus = a})
 
 instance NFData GetBlueprintsResponse where

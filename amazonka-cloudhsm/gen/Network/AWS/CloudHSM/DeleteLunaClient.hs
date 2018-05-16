@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DeleteLunaClient
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ deleteLunaClient pClientARN_ = DeleteLunaClient' {_dClientARN = pClientARN_}
 
 -- | The ARN of the client to delete.
 dClientARN :: Lens' DeleteLunaClient Text
-dClientARN = lens _dClientARN (\ s a -> s{_dClientARN = a});
+dClientARN = lens _dClientARN (\ s a -> s{_dClientARN = a})
 
 instance AWSRequest DeleteLunaClient where
         type Rs DeleteLunaClient = DeleteLunaClientResponse
@@ -123,15 +123,15 @@ deleteLunaClientResponse
     -> DeleteLunaClientResponse
 deleteLunaClientResponse pResponseStatus_ pStatus_ =
   DeleteLunaClientResponse'
-  {_dlcrsResponseStatus = pResponseStatus_, _dlcrsStatus = pStatus_}
+    {_dlcrsResponseStatus = pResponseStatus_, _dlcrsStatus = pStatus_}
 
 
 -- | -- | The response status code.
 dlcrsResponseStatus :: Lens' DeleteLunaClientResponse Int
-dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus = a});
+dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus = a})
 
 -- | The status of the action.
 dlcrsStatus :: Lens' DeleteLunaClientResponse Text
-dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});
+dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a})
 
 instance NFData DeleteLunaClientResponse where

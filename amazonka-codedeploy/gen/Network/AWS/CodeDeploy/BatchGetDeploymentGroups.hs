@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetDeploymentGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,18 @@ batchGetDeploymentGroups
     -> BatchGetDeploymentGroups
 batchGetDeploymentGroups pApplicationName_ =
   BatchGetDeploymentGroups'
-  {_bgdgApplicationName = pApplicationName_, _bgdgDeploymentGroupNames = mempty}
+    { _bgdgApplicationName = pApplicationName_
+    , _bgdgDeploymentGroupNames = mempty
+    }
 
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 bgdgApplicationName :: Lens' BatchGetDeploymentGroups Text
-bgdgApplicationName = lens _bgdgApplicationName (\ s a -> s{_bgdgApplicationName = a});
+bgdgApplicationName = lens _bgdgApplicationName (\ s a -> s{_bgdgApplicationName = a})
 
 -- | The deployment groups' names.
 bgdgDeploymentGroupNames :: Lens' BatchGetDeploymentGroups [Text]
-bgdgDeploymentGroupNames = lens _bgdgDeploymentGroupNames (\ s a -> s{_bgdgDeploymentGroupNames = a}) . _Coerce;
+bgdgDeploymentGroupNames = lens _bgdgDeploymentGroupNames (\ s a -> s{_bgdgDeploymentGroupNames = a}) . _Coerce
 
 instance AWSRequest BatchGetDeploymentGroups where
         type Rs BatchGetDeploymentGroups =
@@ -147,23 +149,23 @@ batchGetDeploymentGroupsResponse
     -> BatchGetDeploymentGroupsResponse
 batchGetDeploymentGroupsResponse pResponseStatus_ =
   BatchGetDeploymentGroupsResponse'
-  { _bgdgrsDeploymentGroupsInfo = Nothing
-  , _bgdgrsErrorMessage = Nothing
-  , _bgdgrsResponseStatus = pResponseStatus_
-  }
+    { _bgdgrsDeploymentGroupsInfo = Nothing
+    , _bgdgrsErrorMessage = Nothing
+    , _bgdgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the deployment groups.
 bgdgrsDeploymentGroupsInfo :: Lens' BatchGetDeploymentGroupsResponse [DeploymentGroupInfo]
-bgdgrsDeploymentGroupsInfo = lens _bgdgrsDeploymentGroupsInfo (\ s a -> s{_bgdgrsDeploymentGroupsInfo = a}) . _Default . _Coerce;
+bgdgrsDeploymentGroupsInfo = lens _bgdgrsDeploymentGroupsInfo (\ s a -> s{_bgdgrsDeploymentGroupsInfo = a}) . _Default . _Coerce
 
 -- | Information about errors that may have occurred during the API call.
 bgdgrsErrorMessage :: Lens' BatchGetDeploymentGroupsResponse (Maybe Text)
-bgdgrsErrorMessage = lens _bgdgrsErrorMessage (\ s a -> s{_bgdgrsErrorMessage = a});
+bgdgrsErrorMessage = lens _bgdgrsErrorMessage (\ s a -> s{_bgdgrsErrorMessage = a})
 
 -- | -- | The response status code.
 bgdgrsResponseStatus :: Lens' BatchGetDeploymentGroupsResponse Int
-bgdgrsResponseStatus = lens _bgdgrsResponseStatus (\ s a -> s{_bgdgrsResponseStatus = a});
+bgdgrsResponseStatus = lens _bgdgrsResponseStatus (\ s a -> s{_bgdgrsResponseStatus = a})
 
 instance NFData BatchGetDeploymentGroupsResponse
          where

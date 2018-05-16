@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.GetRepositoryPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ getRepositoryPolicy
     -> GetRepositoryPolicy
 getRepositoryPolicy pRepositoryName_ =
   GetRepositoryPolicy'
-  {_grpRegistryId = Nothing, _grpRepositoryName = pRepositoryName_}
+    {_grpRegistryId = Nothing, _grpRepositoryName = pRepositoryName_}
 
 
 -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 grpRegistryId :: Lens' GetRepositoryPolicy (Maybe Text)
-grpRegistryId = lens _grpRegistryId (\ s a -> s{_grpRegistryId = a});
+grpRegistryId = lens _grpRegistryId (\ s a -> s{_grpRegistryId = a})
 
 -- | The name of the repository with the policy to retrieve.
 grpRepositoryName :: Lens' GetRepositoryPolicy Text
-grpRepositoryName = lens _grpRepositoryName (\ s a -> s{_grpRepositoryName = a});
+grpRepositoryName = lens _grpRepositoryName (\ s a -> s{_grpRepositoryName = a})
 
 instance AWSRequest GetRepositoryPolicy where
         type Rs GetRepositoryPolicy =
@@ -141,27 +141,27 @@ getRepositoryPolicyResponse
     -> GetRepositoryPolicyResponse
 getRepositoryPolicyResponse pResponseStatus_ =
   GetRepositoryPolicyResponse'
-  { _grprsRegistryId = Nothing
-  , _grprsRepositoryName = Nothing
-  , _grprsPolicyText = Nothing
-  , _grprsResponseStatus = pResponseStatus_
-  }
+    { _grprsRegistryId = Nothing
+    , _grprsRepositoryName = Nothing
+    , _grprsPolicyText = Nothing
+    , _grprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The registry ID associated with the request.
 grprsRegistryId :: Lens' GetRepositoryPolicyResponse (Maybe Text)
-grprsRegistryId = lens _grprsRegistryId (\ s a -> s{_grprsRegistryId = a});
+grprsRegistryId = lens _grprsRegistryId (\ s a -> s{_grprsRegistryId = a})
 
 -- | The repository name associated with the request.
 grprsRepositoryName :: Lens' GetRepositoryPolicyResponse (Maybe Text)
-grprsRepositoryName = lens _grprsRepositoryName (\ s a -> s{_grprsRepositoryName = a});
+grprsRepositoryName = lens _grprsRepositoryName (\ s a -> s{_grprsRepositoryName = a})
 
 -- | The JSON repository policy text associated with the repository.
 grprsPolicyText :: Lens' GetRepositoryPolicyResponse (Maybe Text)
-grprsPolicyText = lens _grprsPolicyText (\ s a -> s{_grprsPolicyText = a});
+grprsPolicyText = lens _grprsPolicyText (\ s a -> s{_grprsPolicyText = a})
 
 -- | -- | The response status code.
 grprsResponseStatus :: Lens' GetRepositoryPolicyResponse Int
-grprsResponseStatus = lens _grprsResponseStatus (\ s a -> s{_grprsResponseStatus = a});
+grprsResponseStatus = lens _grprsResponseStatus (\ s a -> s{_grprsResponseStatus = a})
 
 instance NFData GetRepositoryPolicyResponse where

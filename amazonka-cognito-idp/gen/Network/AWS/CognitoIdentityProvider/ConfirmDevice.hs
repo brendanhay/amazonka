@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ConfirmDevice
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ confirmDevice
     -> ConfirmDevice
 confirmDevice pAccessToken_ pDeviceKey_ =
   ConfirmDevice'
-  { _cdDeviceSecretVerifierConfig = Nothing
-  , _cdDeviceName = Nothing
-  , _cdAccessToken = _Sensitive # pAccessToken_
-  , _cdDeviceKey = pDeviceKey_
-  }
+    { _cdDeviceSecretVerifierConfig = Nothing
+    , _cdDeviceName = Nothing
+    , _cdAccessToken = _Sensitive # pAccessToken_
+    , _cdDeviceKey = pDeviceKey_
+    }
 
 
 -- | The configuration of the device secret verifier.
 cdDeviceSecretVerifierConfig :: Lens' ConfirmDevice (Maybe DeviceSecretVerifierConfigType)
-cdDeviceSecretVerifierConfig = lens _cdDeviceSecretVerifierConfig (\ s a -> s{_cdDeviceSecretVerifierConfig = a});
+cdDeviceSecretVerifierConfig = lens _cdDeviceSecretVerifierConfig (\ s a -> s{_cdDeviceSecretVerifierConfig = a})
 
 -- | The device name.
 cdDeviceName :: Lens' ConfirmDevice (Maybe Text)
-cdDeviceName = lens _cdDeviceName (\ s a -> s{_cdDeviceName = a});
+cdDeviceName = lens _cdDeviceName (\ s a -> s{_cdDeviceName = a})
 
 -- | The access token.
 cdAccessToken :: Lens' ConfirmDevice Text
-cdAccessToken = lens _cdAccessToken (\ s a -> s{_cdAccessToken = a}) . _Sensitive;
+cdAccessToken = lens _cdAccessToken (\ s a -> s{_cdAccessToken = a}) . _Sensitive
 
 -- | The device key.
 cdDeviceKey :: Lens' ConfirmDevice Text
-cdDeviceKey = lens _cdDeviceKey (\ s a -> s{_cdDeviceKey = a});
+cdDeviceKey = lens _cdDeviceKey (\ s a -> s{_cdDeviceKey = a})
 
 instance AWSRequest ConfirmDevice where
         type Rs ConfirmDevice = ConfirmDeviceResponse
@@ -163,17 +163,17 @@ confirmDeviceResponse
     -> ConfirmDeviceResponse
 confirmDeviceResponse pResponseStatus_ =
   ConfirmDeviceResponse'
-  { _cdrsUserConfirmationNecessary = Nothing
-  , _cdrsResponseStatus = pResponseStatus_
-  }
+    { _cdrsUserConfirmationNecessary = Nothing
+    , _cdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Indicates whether the user confirmation is necessary to confirm the device response.
 cdrsUserConfirmationNecessary :: Lens' ConfirmDeviceResponse (Maybe Bool)
-cdrsUserConfirmationNecessary = lens _cdrsUserConfirmationNecessary (\ s a -> s{_cdrsUserConfirmationNecessary = a});
+cdrsUserConfirmationNecessary = lens _cdrsUserConfirmationNecessary (\ s a -> s{_cdrsUserConfirmationNecessary = a})
 
 -- | -- | The response status code.
 cdrsResponseStatus :: Lens' ConfirmDeviceResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a})
 
 instance NFData ConfirmDeviceResponse where

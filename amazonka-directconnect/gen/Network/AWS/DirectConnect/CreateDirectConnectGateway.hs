@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateDirectConnectGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,18 +68,18 @@ createDirectConnectGateway
     -> CreateDirectConnectGateway
 createDirectConnectGateway pDirectConnectGatewayName_ =
   CreateDirectConnectGateway'
-  { _cdcgAmazonSideASN = Nothing
-  , _cdcgDirectConnectGatewayName = pDirectConnectGatewayName_
-  }
+    { _cdcgAmazonSideASN = Nothing
+    , _cdcgDirectConnectGatewayName = pDirectConnectGatewayName_
+    }
 
 
 -- | The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294  Example: 65200 Default: 64512
 cdcgAmazonSideASN :: Lens' CreateDirectConnectGateway (Maybe Integer)
-cdcgAmazonSideASN = lens _cdcgAmazonSideASN (\ s a -> s{_cdcgAmazonSideASN = a});
+cdcgAmazonSideASN = lens _cdcgAmazonSideASN (\ s a -> s{_cdcgAmazonSideASN = a})
 
 -- | The name of the direct connect gateway. Example: "My direct connect gateway" Default: None
 cdcgDirectConnectGatewayName :: Lens' CreateDirectConnectGateway Text
-cdcgDirectConnectGatewayName = lens _cdcgDirectConnectGatewayName (\ s a -> s{_cdcgDirectConnectGatewayName = a});
+cdcgDirectConnectGatewayName = lens _cdcgDirectConnectGatewayName (\ s a -> s{_cdcgDirectConnectGatewayName = a})
 
 instance AWSRequest CreateDirectConnectGateway where
         type Rs CreateDirectConnectGateway =
@@ -144,18 +144,18 @@ createDirectConnectGatewayResponse
     -> CreateDirectConnectGatewayResponse
 createDirectConnectGatewayResponse pResponseStatus_ =
   CreateDirectConnectGatewayResponse'
-  { _cdcgrsDirectConnectGateway = Nothing
-  , _cdcgrsResponseStatus = pResponseStatus_
-  }
+    { _cdcgrsDirectConnectGateway = Nothing
+    , _cdcgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The direct connect gateway to be created.
 cdcgrsDirectConnectGateway :: Lens' CreateDirectConnectGatewayResponse (Maybe DirectConnectGateway)
-cdcgrsDirectConnectGateway = lens _cdcgrsDirectConnectGateway (\ s a -> s{_cdcgrsDirectConnectGateway = a});
+cdcgrsDirectConnectGateway = lens _cdcgrsDirectConnectGateway (\ s a -> s{_cdcgrsDirectConnectGateway = a})
 
 -- | -- | The response status code.
 cdcgrsResponseStatus :: Lens' CreateDirectConnectGatewayResponse Int
-cdcgrsResponseStatus = lens _cdcgrsResponseStatus (\ s a -> s{_cdcgrsResponseStatus = a});
+cdcgrsResponseStatus = lens _cdcgrsResponseStatus (\ s a -> s{_cdcgrsResponseStatus = a})
 
 instance NFData CreateDirectConnectGatewayResponse
          where

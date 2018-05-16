@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetQualificationType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getQualificationType pQualificationTypeId_ =
 
 -- | The ID of the QualificationType.
 gqtQualificationTypeId :: Lens' GetQualificationType Text
-gqtQualificationTypeId = lens _gqtQualificationTypeId (\ s a -> s{_gqtQualificationTypeId = a});
+gqtQualificationTypeId = lens _gqtQualificationTypeId (\ s a -> s{_gqtQualificationTypeId = a})
 
 instance AWSRequest GetQualificationType where
         type Rs GetQualificationType =
@@ -122,15 +122,15 @@ getQualificationTypeResponse
     -> GetQualificationTypeResponse
 getQualificationTypeResponse pResponseStatus_ =
   GetQualificationTypeResponse'
-  {_gqtrsQualificationType = Nothing, _gqtrsResponseStatus = pResponseStatus_}
+    {_gqtrsQualificationType = Nothing, _gqtrsResponseStatus = pResponseStatus_}
 
 
 -- | The returned Qualification Type
 gqtrsQualificationType :: Lens' GetQualificationTypeResponse (Maybe QualificationType)
-gqtrsQualificationType = lens _gqtrsQualificationType (\ s a -> s{_gqtrsQualificationType = a});
+gqtrsQualificationType = lens _gqtrsQualificationType (\ s a -> s{_gqtrsQualificationType = a})
 
 -- | -- | The response status code.
 gqtrsResponseStatus :: Lens' GetQualificationTypeResponse Int
-gqtrsResponseStatus = lens _gqtrsResponseStatus (\ s a -> s{_gqtrsResponseStatus = a});
+gqtrsResponseStatus = lens _gqtrsResponseStatus (\ s a -> s{_gqtrsResponseStatus = a})
 
 instance NFData GetQualificationTypeResponse where

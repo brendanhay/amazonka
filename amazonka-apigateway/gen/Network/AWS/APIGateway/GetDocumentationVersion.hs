@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDocumentationVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,18 +68,18 @@ getDocumentationVersion
     -> GetDocumentationVersion
 getDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
   GetDocumentationVersion'
-  { _gdvdRestAPIId = pRestAPIId_
-  , _gdvdDocumentationVersion = pDocumentationVersion_
-  }
+    { _gdvdRestAPIId = pRestAPIId_
+    , _gdvdDocumentationVersion = pDocumentationVersion_
+    }
 
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 gdvdRestAPIId :: Lens' GetDocumentationVersion Text
-gdvdRestAPIId = lens _gdvdRestAPIId (\ s a -> s{_gdvdRestAPIId = a});
+gdvdRestAPIId = lens _gdvdRestAPIId (\ s a -> s{_gdvdRestAPIId = a})
 
 -- | [Required] The version identifier of the to-be-retrieved documentation snapshot.
 gdvdDocumentationVersion :: Lens' GetDocumentationVersion Text
-gdvdDocumentationVersion = lens _gdvdDocumentationVersion (\ s a -> s{_gdvdDocumentationVersion = a});
+gdvdDocumentationVersion = lens _gdvdDocumentationVersion (\ s a -> s{_gdvdDocumentationVersion = a})
 
 instance AWSRequest GetDocumentationVersion where
         type Rs GetDocumentationVersion =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesOfferings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -127,83 +127,83 @@ describeReservedInstancesOfferings
     :: DescribeReservedInstancesOfferings
 describeReservedInstancesOfferings =
   DescribeReservedInstancesOfferings'
-  { _drioMaxDuration = Nothing
-  , _drioProductDescription = Nothing
-  , _drioFilters = Nothing
-  , _drioIncludeMarketplace = Nothing
-  , _drioInstanceType = Nothing
-  , _drioNextToken = Nothing
-  , _drioMinDuration = Nothing
-  , _drioAvailabilityZone = Nothing
-  , _drioOfferingType = Nothing
-  , _drioReservedInstancesOfferingIds = Nothing
-  , _drioInstanceTenancy = Nothing
-  , _drioOfferingClass = Nothing
-  , _drioMaxInstanceCount = Nothing
-  , _drioDryRun = Nothing
-  , _drioMaxResults = Nothing
-  }
+    { _drioMaxDuration = Nothing
+    , _drioProductDescription = Nothing
+    , _drioFilters = Nothing
+    , _drioIncludeMarketplace = Nothing
+    , _drioInstanceType = Nothing
+    , _drioNextToken = Nothing
+    , _drioMinDuration = Nothing
+    , _drioAvailabilityZone = Nothing
+    , _drioOfferingType = Nothing
+    , _drioReservedInstancesOfferingIds = Nothing
+    , _drioInstanceTenancy = Nothing
+    , _drioOfferingClass = Nothing
+    , _drioMaxInstanceCount = Nothing
+    , _drioDryRun = Nothing
+    , _drioMaxResults = Nothing
+    }
 
 
 -- | The maximum duration (in seconds) to filter when searching for offerings. Default: 94608000 (3 years)
 drioMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
-drioMaxDuration = lens _drioMaxDuration (\ s a -> s{_drioMaxDuration = a});
+drioMaxDuration = lens _drioMaxDuration (\ s a -> s{_drioMaxDuration = a})
 
 -- | The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the description are for use with Amazon VPC.
 drioProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
-drioProductDescription = lens _drioProductDescription (\ s a -> s{_drioProductDescription = a});
+drioProductDescription = lens _drioProductDescription (\ s a -> s{_drioProductDescription = a})
 
 -- | One or more filters.     * @availability-zone@ - The Availability Zone where the Reserved Instance can be used.     * @duration@ - The duration of the Reserved Instance (for example, one year or three years), in seconds (@31536000@ | @94608000@ ).     * @fixed-price@ - The purchase price of the Reserved Instance (for example, 9800.0).     * @instance-type@ - The instance type that is covered by the reservation.     * @marketplace@ - Set to @true@ to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both AWS and the Reserved Instance Marketplace are listed.     * @product-description@ - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC. (@Linux/UNIX@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux@ | @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ | @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ | @Windows with SQL Server Standard (Amazon VPC)@ | @Windows with SQL Server Web@ | @Windows with SQL Server Web (Amazon VPC)@ | @Windows with SQL Server Enterprise@ | @Windows with SQL Server Enterprise (Amazon VPC)@ )      * @reserved-instances-offering-id@ - The Reserved Instances offering ID.     * @scope@ - The scope of the Reserved Instance (@Availability Zone@ or @Region@ ).     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
 drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
-drioFilters = lens _drioFilters (\ s a -> s{_drioFilters = a}) . _Default . _Coerce;
+drioFilters = lens _drioFilters (\ s a -> s{_drioFilters = a}) . _Default . _Coerce
 
 -- | Include Reserved Instance Marketplace offerings in the response.
 drioIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
-drioIncludeMarketplace = lens _drioIncludeMarketplace (\ s a -> s{_drioIncludeMarketplace = a});
+drioIncludeMarketplace = lens _drioIncludeMarketplace (\ s a -> s{_drioIncludeMarketplace = a})
 
 -- | The instance type that the reservation will cover (for example, @m1.small@ ). For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
 drioInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
-drioInstanceType = lens _drioInstanceType (\ s a -> s{_drioInstanceType = a});
+drioInstanceType = lens _drioInstanceType (\ s a -> s{_drioInstanceType = a})
 
 -- | The token to retrieve the next page of results.
 drioNextToken :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
-drioNextToken = lens _drioNextToken (\ s a -> s{_drioNextToken = a});
+drioNextToken = lens _drioNextToken (\ s a -> s{_drioNextToken = a})
 
 -- | The minimum duration (in seconds) to filter when searching for offerings. Default: 2592000 (1 month)
 drioMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
-drioMinDuration = lens _drioMinDuration (\ s a -> s{_drioMinDuration = a});
+drioMinDuration = lens _drioMinDuration (\ s a -> s{_drioMinDuration = a})
 
 -- | The Availability Zone in which the Reserved Instance can be used.
 drioAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
-drioAvailabilityZone = lens _drioAvailabilityZone (\ s a -> s{_drioAvailabilityZone = a});
+drioAvailabilityZone = lens _drioAvailabilityZone (\ s a -> s{_drioAvailabilityZone = a})
 
 -- | The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the @Medium Utilization@ Reserved Instance offering type.
 drioOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
-drioOfferingType = lens _drioOfferingType (\ s a -> s{_drioOfferingType = a});
+drioOfferingType = lens _drioOfferingType (\ s a -> s{_drioOfferingType = a})
 
 -- | One or more Reserved Instances offering IDs.
 drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
-drioReservedInstancesOfferingIds = lens _drioReservedInstancesOfferingIds (\ s a -> s{_drioReservedInstancesOfferingIds = a}) . _Default . _Coerce;
+drioReservedInstancesOfferingIds = lens _drioReservedInstancesOfferingIds (\ s a -> s{_drioReservedInstancesOfferingIds = a}) . _Default . _Coerce
 
 -- | The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of @dedicated@ is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances). __Important:__ The @host@ value cannot be used with this parameter. Use the @default@ or @dedicated@ values only. Default: @default@
 drioInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
-drioInstanceTenancy = lens _drioInstanceTenancy (\ s a -> s{_drioInstanceTenancy = a});
+drioInstanceTenancy = lens _drioInstanceTenancy (\ s a -> s{_drioInstanceTenancy = a})
 
 -- | The offering class of the Reserved Instance. Can be @standard@ or @convertible@ .
 drioOfferingClass :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingClassType)
-drioOfferingClass = lens _drioOfferingClass (\ s a -> s{_drioOfferingClass = a});
+drioOfferingClass = lens _drioOfferingClass (\ s a -> s{_drioOfferingClass = a})
 
 -- | The maximum number of instances to filter when searching for offerings. Default: 20
 drioMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
-drioMaxInstanceCount = lens _drioMaxInstanceCount (\ s a -> s{_drioMaxInstanceCount = a});
+drioMaxInstanceCount = lens _drioMaxInstanceCount (\ s a -> s{_drioMaxInstanceCount = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 drioDryRun :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
-drioDryRun = lens _drioDryRun (\ s a -> s{_drioDryRun = a});
+drioDryRun = lens _drioDryRun (\ s a -> s{_drioDryRun = a})
 
 -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. The maximum is 100. Default: 100
 drioMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
-drioMaxResults = lens _drioMaxResults (\ s a -> s{_drioMaxResults = a});
+drioMaxResults = lens _drioMaxResults (\ s a -> s{_drioMaxResults = a})
 
 instance AWSPager DescribeReservedInstancesOfferings
          where
@@ -294,23 +294,23 @@ describeReservedInstancesOfferingsResponse
     -> DescribeReservedInstancesOfferingsResponse
 describeReservedInstancesOfferingsResponse pResponseStatus_ =
   DescribeReservedInstancesOfferingsResponse'
-  { _driorsNextToken = Nothing
-  , _driorsReservedInstancesOfferings = Nothing
-  , _driorsResponseStatus = pResponseStatus_
-  }
+    { _driorsNextToken = Nothing
+    , _driorsReservedInstancesOfferings = Nothing
+    , _driorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 driorsNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
-driorsNextToken = lens _driorsNextToken (\ s a -> s{_driorsNextToken = a});
+driorsNextToken = lens _driorsNextToken (\ s a -> s{_driorsNextToken = a})
 
 -- | A list of Reserved Instances offerings.
 driorsReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
-driorsReservedInstancesOfferings = lens _driorsReservedInstancesOfferings (\ s a -> s{_driorsReservedInstancesOfferings = a}) . _Default . _Coerce;
+driorsReservedInstancesOfferings = lens _driorsReservedInstancesOfferings (\ s a -> s{_driorsReservedInstancesOfferings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 driorsResponseStatus :: Lens' DescribeReservedInstancesOfferingsResponse Int
-driorsResponseStatus = lens _driorsResponseStatus (\ s a -> s{_driorsResponseStatus = a});
+driorsResponseStatus = lens _driorsResponseStatus (\ s a -> s{_driorsResponseStatus = a})
 
 instance NFData
            DescribeReservedInstancesOfferingsResponse

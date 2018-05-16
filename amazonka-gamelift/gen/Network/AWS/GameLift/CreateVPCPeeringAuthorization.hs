@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateVPCPeeringAuthorization
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,18 +93,18 @@ createVPCPeeringAuthorization
     -> CreateVPCPeeringAuthorization
 createVPCPeeringAuthorization pGameLiftAWSAccountId_ pPeerVPCId_ =
   CreateVPCPeeringAuthorization'
-  { _cvpaGameLiftAWSAccountId = pGameLiftAWSAccountId_
-  , _cvpaPeerVPCId = pPeerVPCId_
-  }
+    { _cvpaGameLiftAWSAccountId = pGameLiftAWSAccountId_
+    , _cvpaPeerVPCId = pPeerVPCId_
+    }
 
 
 -- | Unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
 cvpaGameLiftAWSAccountId :: Lens' CreateVPCPeeringAuthorization Text
-cvpaGameLiftAWSAccountId = lens _cvpaGameLiftAWSAccountId (\ s a -> s{_cvpaGameLiftAWSAccountId = a});
+cvpaGameLiftAWSAccountId = lens _cvpaGameLiftAWSAccountId (\ s a -> s{_cvpaGameLiftAWSAccountId = a})
 
 -- | Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
 cvpaPeerVPCId :: Lens' CreateVPCPeeringAuthorization Text
-cvpaPeerVPCId = lens _cvpaPeerVPCId (\ s a -> s{_cvpaPeerVPCId = a});
+cvpaPeerVPCId = lens _cvpaPeerVPCId (\ s a -> s{_cvpaPeerVPCId = a})
 
 instance AWSRequest CreateVPCPeeringAuthorization
          where
@@ -171,18 +171,18 @@ createVPCPeeringAuthorizationResponse
     -> CreateVPCPeeringAuthorizationResponse
 createVPCPeeringAuthorizationResponse pResponseStatus_ =
   CreateVPCPeeringAuthorizationResponse'
-  { _cvparsVPCPeeringAuthorization = Nothing
-  , _cvparsResponseStatus = pResponseStatus_
-  }
+    { _cvparsVPCPeeringAuthorization = Nothing
+    , _cvparsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Details on the requested VPC peering authorization, including expiration.
 cvparsVPCPeeringAuthorization :: Lens' CreateVPCPeeringAuthorizationResponse (Maybe VPCPeeringAuthorization)
-cvparsVPCPeeringAuthorization = lens _cvparsVPCPeeringAuthorization (\ s a -> s{_cvparsVPCPeeringAuthorization = a});
+cvparsVPCPeeringAuthorization = lens _cvparsVPCPeeringAuthorization (\ s a -> s{_cvparsVPCPeeringAuthorization = a})
 
 -- | -- | The response status code.
 cvparsResponseStatus :: Lens' CreateVPCPeeringAuthorizationResponse Int
-cvparsResponseStatus = lens _cvparsResponseStatus (\ s a -> s{_cvparsResponseStatus = a});
+cvparsResponseStatus = lens _cvparsResponseStatus (\ s a -> s{_cvparsResponseStatus = a})
 
 instance NFData CreateVPCPeeringAuthorizationResponse
          where

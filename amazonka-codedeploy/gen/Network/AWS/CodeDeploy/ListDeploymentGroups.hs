@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,16 +73,16 @@ listDeploymentGroups
     -> ListDeploymentGroups
 listDeploymentGroups pApplicationName_ =
   ListDeploymentGroups'
-  {_ldgNextToken = Nothing, _ldgApplicationName = pApplicationName_}
+    {_ldgNextToken = Nothing, _ldgApplicationName = pApplicationName_}
 
 
 -- | An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
 ldgNextToken :: Lens' ListDeploymentGroups (Maybe Text)
-ldgNextToken = lens _ldgNextToken (\ s a -> s{_ldgNextToken = a});
+ldgNextToken = lens _ldgNextToken (\ s a -> s{_ldgNextToken = a})
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 ldgApplicationName :: Lens' ListDeploymentGroups Text
-ldgApplicationName = lens _ldgApplicationName (\ s a -> s{_ldgApplicationName = a});
+ldgApplicationName = lens _ldgApplicationName (\ s a -> s{_ldgApplicationName = a})
 
 instance AWSPager ListDeploymentGroups where
         page rq rs
@@ -159,27 +159,27 @@ listDeploymentGroupsResponse
     -> ListDeploymentGroupsResponse
 listDeploymentGroupsResponse pResponseStatus_ =
   ListDeploymentGroupsResponse'
-  { _ldgrsNextToken = Nothing
-  , _ldgrsApplicationName = Nothing
-  , _ldgrsDeploymentGroups = Nothing
-  , _ldgrsResponseStatus = pResponseStatus_
-  }
+    { _ldgrsNextToken = Nothing
+    , _ldgrsApplicationName = Nothing
+    , _ldgrsDeploymentGroups = Nothing
+    , _ldgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
 ldgrsNextToken :: Lens' ListDeploymentGroupsResponse (Maybe Text)
-ldgrsNextToken = lens _ldgrsNextToken (\ s a -> s{_ldgrsNextToken = a});
+ldgrsNextToken = lens _ldgrsNextToken (\ s a -> s{_ldgrsNextToken = a})
 
 -- | The application name.
 ldgrsApplicationName :: Lens' ListDeploymentGroupsResponse (Maybe Text)
-ldgrsApplicationName = lens _ldgrsApplicationName (\ s a -> s{_ldgrsApplicationName = a});
+ldgrsApplicationName = lens _ldgrsApplicationName (\ s a -> s{_ldgrsApplicationName = a})
 
 -- | A list of corresponding deployment group names.
 ldgrsDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
-ldgrsDeploymentGroups = lens _ldgrsDeploymentGroups (\ s a -> s{_ldgrsDeploymentGroups = a}) . _Default . _Coerce;
+ldgrsDeploymentGroups = lens _ldgrsDeploymentGroups (\ s a -> s{_ldgrsDeploymentGroups = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ldgrsResponseStatus :: Lens' ListDeploymentGroupsResponse Int
-ldgrsResponseStatus = lens _ldgrsResponseStatus (\ s a -> s{_ldgrsResponseStatus = a});
+ldgrsResponseStatus = lens _ldgrsResponseStatus (\ s a -> s{_ldgrsResponseStatus = a})
 
 instance NFData ListDeploymentGroupsResponse where

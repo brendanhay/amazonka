@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetOperations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getOperations = GetOperations' {_goPageToken = Nothing}
 
 -- | A token used for advancing to the next page of results from your get operations request.
 goPageToken :: Lens' GetOperations (Maybe Text)
-goPageToken = lens _goPageToken (\ s a -> s{_goPageToken = a});
+goPageToken = lens _goPageToken (\ s a -> s{_goPageToken = a})
 
 instance AWSPager GetOperations where
         page rq rs
@@ -134,22 +134,22 @@ getOperationsResponse
     -> GetOperationsResponse
 getOperationsResponse pResponseStatus_ =
   GetOperationsResponse'
-  { _gosrsNextPageToken = Nothing
-  , _gosrsOperations = Nothing
-  , _gosrsResponseStatus = pResponseStatus_
-  }
+    { _gosrsNextPageToken = Nothing
+    , _gosrsOperations = Nothing
+    , _gosrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A token used for advancing to the next page of results from your get operations request.
 gosrsNextPageToken :: Lens' GetOperationsResponse (Maybe Text)
-gosrsNextPageToken = lens _gosrsNextPageToken (\ s a -> s{_gosrsNextPageToken = a});
+gosrsNextPageToken = lens _gosrsNextPageToken (\ s a -> s{_gosrsNextPageToken = a})
 
 -- | An array of key-value pairs containing information about the results of your get operations request.
 gosrsOperations :: Lens' GetOperationsResponse [Operation]
-gosrsOperations = lens _gosrsOperations (\ s a -> s{_gosrsOperations = a}) . _Default . _Coerce;
+gosrsOperations = lens _gosrsOperations (\ s a -> s{_gosrsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gosrsResponseStatus :: Lens' GetOperationsResponse Int
-gosrsResponseStatus = lens _gosrsResponseStatus (\ s a -> s{_gosrsResponseStatus = a});
+gosrsResponseStatus = lens _gosrsResponseStatus (\ s a -> s{_gosrsResponseStatus = a})
 
 instance NFData GetOperationsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.UntagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ untagResource pResourceARN_ =
 
 -- | The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
 urResourceARN :: Lens' UntagResource Text
-urResourceARN = lens _urResourceARN (\ s a -> s{_urResourceARN = a});
+urResourceARN = lens _urResourceARN (\ s a -> s{_urResourceARN = a})
 
 -- | Keys of the tag that need to be removed from the resource.
 urTagKeys :: Lens' UntagResource [Text]
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce;
+urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce
 
 instance AWSRequest UntagResource where
         type Rs UntagResource = UntagResourceResponse
@@ -123,6 +123,6 @@ untagResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 urrsResponseStatus :: Lens' UntagResourceResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
 
 instance NFData UntagResourceResponse where

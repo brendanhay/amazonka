@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.AssociateWebACL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ associateWebACL pWebACLId_ pResourceARN_ =
 
 -- | A unique identifier (ID) for the web ACL.
 awaWebACLId :: Lens' AssociateWebACL Text
-awaWebACLId = lens _awaWebACLId (\ s a -> s{_awaWebACLId = a});
+awaWebACLId = lens _awaWebACLId (\ s a -> s{_awaWebACLId = a})
 
 -- | The ARN (Amazon Resource Name) of the resource to be protected.
 awaResourceARN :: Lens' AssociateWebACL Text
-awaResourceARN = lens _awaResourceARN (\ s a -> s{_awaResourceARN = a});
+awaResourceARN = lens _awaResourceARN (\ s a -> s{_awaResourceARN = a})
 
 instance AWSRequest AssociateWebACL where
         type Rs AssociateWebACL = AssociateWebACLResponse
@@ -129,6 +129,6 @@ associateWebACLResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 awarsResponseStatus :: Lens' AssociateWebACLResponse Int
-awarsResponseStatus = lens _awarsResponseStatus (\ s a -> s{_awarsResponseStatus = a});
+awarsResponseStatus = lens _awarsResponseStatus (\ s a -> s{_awarsResponseStatus = a})
 
 instance NFData AssociateWebACLResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ResourceGroupsTagging.GetTagKeys
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ getTagKeys = GetTagKeys' {_gtkPaginationToken = Nothing}
 
 -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a PaginationToken, use that string for this value to request an additional page of data.
 gtkPaginationToken :: Lens' GetTagKeys (Maybe Text)
-gtkPaginationToken = lens _gtkPaginationToken (\ s a -> s{_gtkPaginationToken = a});
+gtkPaginationToken = lens _gtkPaginationToken (\ s a -> s{_gtkPaginationToken = a})
 
 instance AWSPager GetTagKeys where
         page rq rs
@@ -135,22 +135,22 @@ getTagKeysResponse
     -> GetTagKeysResponse
 getTagKeysResponse pResponseStatus_ =
   GetTagKeysResponse'
-  { _gtkrsPaginationToken = Nothing
-  , _gtkrsTagKeys = Nothing
-  , _gtkrsResponseStatus = pResponseStatus_
-  }
+    { _gtkrsPaginationToken = Nothing
+    , _gtkrsTagKeys = Nothing
+    , _gtkrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
 gtkrsPaginationToken :: Lens' GetTagKeysResponse (Maybe Text)
-gtkrsPaginationToken = lens _gtkrsPaginationToken (\ s a -> s{_gtkrsPaginationToken = a});
+gtkrsPaginationToken = lens _gtkrsPaginationToken (\ s a -> s{_gtkrsPaginationToken = a})
 
 -- | A list of all tag keys in the AWS account.
 gtkrsTagKeys :: Lens' GetTagKeysResponse [Text]
-gtkrsTagKeys = lens _gtkrsTagKeys (\ s a -> s{_gtkrsTagKeys = a}) . _Default . _Coerce;
+gtkrsTagKeys = lens _gtkrsTagKeys (\ s a -> s{_gtkrsTagKeys = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gtkrsResponseStatus :: Lens' GetTagKeysResponse Int
-gtkrsResponseStatus = lens _gtkrsResponseStatus (\ s a -> s{_gtkrsResponseStatus = a});
+gtkrsResponseStatus = lens _gtkrsResponseStatus (\ s a -> s{_gtkrsResponseStatus = a})
 
 instance NFData GetTagKeysResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,28 +92,28 @@ updateAlias
     -> UpdateAlias
 updateAlias pAliasId_ =
   UpdateAlias'
-  { _uaRoutingStrategy = Nothing
-  , _uaName = Nothing
-  , _uaDescription = Nothing
-  , _uaAliasId = pAliasId_
-  }
+    { _uaRoutingStrategy = Nothing
+    , _uaName = Nothing
+    , _uaDescription = Nothing
+    , _uaAliasId = pAliasId_
+    }
 
 
 -- | Object that specifies the fleet and routing type to use for the alias.
 uaRoutingStrategy :: Lens' UpdateAlias (Maybe RoutingStrategy)
-uaRoutingStrategy = lens _uaRoutingStrategy (\ s a -> s{_uaRoutingStrategy = a});
+uaRoutingStrategy = lens _uaRoutingStrategy (\ s a -> s{_uaRoutingStrategy = a})
 
 -- | Descriptive label that is associated with an alias. Alias names do not need to be unique.
 uaName :: Lens' UpdateAlias (Maybe Text)
-uaName = lens _uaName (\ s a -> s{_uaName = a});
+uaName = lens _uaName (\ s a -> s{_uaName = a})
 
 -- | Human-readable description of an alias.
 uaDescription :: Lens' UpdateAlias (Maybe Text)
-uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
+uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a})
 
 -- | Unique identifier for a fleet alias. Specify the alias you want to update.
 uaAliasId :: Lens' UpdateAlias Text
-uaAliasId = lens _uaAliasId (\ s a -> s{_uaAliasId = a});
+uaAliasId = lens _uaAliasId (\ s a -> s{_uaAliasId = a})
 
 instance AWSRequest UpdateAlias where
         type Rs UpdateAlias = UpdateAliasResponse
@@ -175,15 +175,15 @@ updateAliasResponse
     -> UpdateAliasResponse
 updateAliasResponse pResponseStatus_ =
   UpdateAliasResponse'
-  {_uarsAlias = Nothing, _uarsResponseStatus = pResponseStatus_}
+    {_uarsAlias = Nothing, _uarsResponseStatus = pResponseStatus_}
 
 
 -- | Object that contains the updated alias configuration.
 uarsAlias :: Lens' UpdateAliasResponse (Maybe Alias)
-uarsAlias = lens _uarsAlias (\ s a -> s{_uarsAlias = a});
+uarsAlias = lens _uarsAlias (\ s a -> s{_uarsAlias = a})
 
 -- | -- | The response status code.
 uarsResponseStatus :: Lens' UpdateAliasResponse Int
-uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a});
+uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a})
 
 instance NFData UpdateAliasResponse where

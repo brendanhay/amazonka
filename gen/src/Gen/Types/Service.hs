@@ -1,4 +1,3 @@
-
 {-# LANGUAGE DataKinds              #-}
 {-# LANGUAGE DefaultSignatures      #-}
 {-# LANGUAGE DeriveFoldable         #-}
@@ -19,7 +18,7 @@
 {-# LANGUAGE TypeOperators          #-}
 
 -- Module      : Gen.Types.Service
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -32,14 +31,15 @@ module Gen.Types.Service where
 
 import Control.Comonad
 import Control.Comonad.Cofree
-import Control.Lens           hiding ((:<), List, (.=))
+import Control.Lens           ((%~), (&), (.~), (<&>), (?~), (^.))
 
-import Data.Aeson      hiding (Bool)
-import Data.Bifunctor
-import Data.List       (nub)
-import Data.Maybe
-import Data.Scientific (Scientific)
-import Data.Text       (Text)
+import Data.Aeson            (FromJSON, ToJSON, (.!=), (.:), (.:?), (.=))
+import Data.Bifunctor        (first)
+import Data.Functor.Identity (Identity)
+import Data.List             (nub)
+import Data.Maybe            (isJust)
+import Data.Scientific       (Scientific)
+import Data.Text             (Text)
 
 import Gen.Text
 import Gen.TH
@@ -55,10 +55,14 @@ import Gen.Types.Waiter
 
 import GHC.Generics (Generic)
 
+import qualified Control.Lens        as Lens
+import qualified Control.Lens.TH     as TH
+import qualified Data.Aeson          as JSON
 import qualified Data.HashMap.Strict as Map
 import qualified Data.Text           as Text
+import qualified Text.Show.Deriving  as TH (deriveShow, deriveShow1)
 
-makePrisms ''Identity
+$(TH.makePrisms ''Identity)
 
 data Signature
     = V2
@@ -76,7 +80,7 @@ instance FromJSON Signature where
     parseJSON = gParseJSON' lower
 
 instance ToJSON Signature where
-    toJSON = String . sigToText
+    toJSON = JSON.String . sigToText
 
 data Timestamp
     = RFC822
@@ -88,14 +92,14 @@ tsToText :: Timestamp -> Text
 tsToText = Text.pack . show
 
 instance FromJSON Timestamp where
-    parseJSON = withText "timestamp" $ \case
+    parseJSON = JSON.withText "timestamp" $ \case
         "rfc822"        -> pure RFC822
         "iso8601"       -> pure ISO8601
         "unixTimestamp" -> pure POSIX
         e               -> fail ("Unknown Timestamp: " ++ Text.unpack e)
 
 instance ToJSON Timestamp where
-    toJSON = toJSON . tsToText
+    toJSON = JSON.toJSON . tsToText
 
 data Protocol
     = JSON
@@ -110,7 +114,7 @@ instance FromJSON Protocol where
     parseJSON = gParseJSON' spinal
 
 instance ToJSON Protocol where
-    toJSON = String . \case
+    toJSON = JSON.String . \case
         JSON       -> "JSON"
         RestJSON   -> "JSON"
         RestXML    -> "XML"
@@ -158,7 +162,7 @@ data XML = XML'
     , _xmlUri    :: Text
     } deriving (Eq, Show, Generic)
 
-makeLenses ''XML
+$(TH.makeLenses ''XML)
 
 instance FromJSON XML where
     parseJSON = gParseJSON' (camel & lenses .~ True)
@@ -174,15 +178,17 @@ data RefF a = RefF
     , _refStreaming     :: !Bool
     , _refXMLAttribute  :: !Bool
     , _refXMLNamespace  :: Maybe XML
-    } deriving (Show, Functor, Foldable, Traversable, Generic)
+    } deriving (Functor, Foldable, Traversable, Generic)
 
-makeLenses ''RefF
+$(TH.deriveShow1 ''RefF)
+$(TH.deriveShow  ''RefF)
+$(TH.makeLenses  ''RefF)
 
 instance HasId (RefF a) where
     identifier = identifier . _refShape
 
 instance FromJSON (RefF ()) where
-    parseJSON = withObject "ref" $ \o -> RefF ()
+    parseJSON = JSON.withObject "ref" $ \o -> RefF ()
         <$> o .:  "shape"
         <*> o .:? "documentation"
         <*> o .:? "location"
@@ -194,7 +200,7 @@ instance FromJSON (RefF ()) where
         <*> o .:? "xmlNamespace"
 
 class HasRefs f where
-     references :: Traversal (f a) (f b) (RefF a) (RefF b)
+     references :: Lens.Traversal (f a) (f b) (RefF a) (RefF b)
 
 data ErrorInfo = ErrorInfo
     { _errCode        :: Maybe Text
@@ -202,10 +208,10 @@ data ErrorInfo = ErrorInfo
     , _errSenderFault :: !Bool
     } deriving (Show, Generic)
 
-makeLenses ''ErrorInfo
+$(TH.makeLenses ''ErrorInfo)
 
 instance FromJSON ErrorInfo where
-    parseJSON = withObject "error" $ \o -> ErrorInfo
+    parseJSON = JSON.withObject "error" $ \o -> ErrorInfo
         <$>  o .:? "code"
         <*> (o .:  "httpStatusCode" <&> parseStatusCode)
         <*>  o .:? "senderFault" .!= False
@@ -221,10 +227,10 @@ data Info = Info
     , _infoError         :: Maybe ErrorInfo
     } deriving (Show, Generic)
 
-makeClassy ''Info
+$(TH.makeClassy ''Info)
 
 instance FromJSON Info where
-    parseJSON = withObject "info" $ \o -> Info
+    parseJSON = JSON.withObject "info" $ \o -> Info
         <$> o .:? "documentation"
         <*> o .:? "min"
         <*> o .:? "max"
@@ -235,14 +241,16 @@ instance FromJSON Info where
         <*> o .:? "error"
 
 nonEmpty :: HasInfo a => a -> Bool
-nonEmpty = (> Just 0) . view infoMin
+nonEmpty = (> Just 0) . Lens.view infoMin
 
 data ListF a = ListF
     { _listInfo :: Info
     , _listItem :: RefF a
-    } deriving (Show, Functor, Foldable, Traversable)
+    } deriving (Functor, Foldable, Traversable)
 
-makeLenses ''ListF
+$(TH.deriveShow1 ''ListF)
+$(TH.deriveShow  ''ListF)
+$(TH.makeLenses  ''ListF)
 
 instance HasInfo (ListF a) where
     info = listInfo
@@ -251,16 +259,18 @@ instance HasRefs ListF where
     references = listItem
 
 instance FromJSON (Info -> ListF ()) where
-    parseJSON = withObject "list" $ \o -> flip ListF
+    parseJSON = JSON.withObject "list" $ \o -> flip ListF
         <$> o .: "member"
 
 data MapF a = MapF
     { _mapInfo  :: Info
     , _mapKey   :: RefF a
     , _mapValue :: RefF a
-    } deriving (Show, Functor, Foldable, Traversable)
+    } deriving (Functor, Foldable, Traversable)
 
-makeLenses ''MapF
+$(TH.deriveShow1 ''MapF)
+$(TH.deriveShow  ''MapF)
+$(TH.makeLenses  ''MapF)
 
 instance HasInfo (MapF a) where
     info = mapInfo
@@ -269,7 +279,7 @@ instance HasRefs MapF where
     references f (MapF i k v) = MapF i <$> f k <*> f v
 
 instance FromJSON (Info -> MapF ()) where
-    parseJSON = withObject "map" $ \o -> do
+    parseJSON = JSON.withObject "map" $ \o -> do
         k <- o .: "key"
         v <- o .: "value"
         return $ \i -> MapF i k v
@@ -279,18 +289,20 @@ data StructF a = StructF
     , _members    :: Map Id (RefF a)
     , _required'  :: [Id] -- ^ List so it can be used for ordering.
     , _payload    :: Maybe Id
-    } deriving (Show, Functor, Foldable, Traversable)
+    } deriving (Functor, Foldable, Traversable)
 
-makeLenses ''StructF
+$(TH.deriveShow1 ''StructF)
+$(TH.deriveShow  ''StructF)
+$(TH.makeLenses  ''StructF)
 
 instance HasInfo (StructF a) where
     info = structInfo
 
 instance HasRefs StructF where
-    references = traverseOf (members . each)
+    references = Lens.traverseOf (members . Lens.each)
 
 instance FromJSON (Info -> StructF ()) where
-    parseJSON = withObject "struct" $ \o -> do
+    parseJSON = JSON.withObject "struct" $ \o -> do
         ms <- o .:  "members"
         r  <- o .:? "required" .!= mempty
         p  <- o .:? "payload"
@@ -312,9 +324,11 @@ data ShapeF a
     | Struct (StructF a)
     | Enum   Info (Map Id Text)
     | Lit    Info Lit
-      deriving (Show, Functor, Foldable, Traversable)
+      deriving (Functor, Foldable, Traversable)
 
-makePrisms ''ShapeF
+$(TH.deriveShow1 ''ShapeF)
+$(TH.deriveShow  ''ShapeF)
+$(TH.makePrisms  ''ShapeF)
 
 instance HasInfo (ShapeF a) where
     info f = \case
@@ -326,7 +340,7 @@ instance HasInfo (ShapeF a) where
         Lit    i l  -> (`Lit`  l)  <$> f i
 
 instance HasInfo (Cofree ShapeF a) where
-    info = lens unwrap go . info
+    info = Lens.lens unwrap go . info
       where
         go s a = extract s :< a
 
@@ -340,19 +354,19 @@ instance HasRefs ShapeF where
         Lit  i l  -> pure (Lit  i l)
 
 instance FromJSON (ShapeF ()) where
-    parseJSON = withObject "shape" $ \o -> do
-        i <- parseJSON (Object o)
+    parseJSON = JSON.withObject "shape" $ \o -> do
+        i <- JSON.parseJSON (JSON.Object o)
         t <- o .:  "type"
         m <- o .:? "enum"
         case t of
-            "list"      -> List   . ($ i) <$> parseJSON (Object o)
-            "map"       -> Map    . ($ i) <$> parseJSON (Object o)
-            "structure" -> Struct . ($ i) <$> parseJSON (Object o)
+            "list"      -> List   . ($ i) <$> JSON.parseJSON (JSON.Object o)
+            "map"       -> Map    . ($ i) <$> JSON.parseJSON (JSON.Object o)
+            "structure" -> Struct . ($ i) <$> JSON.parseJSON (JSON.Object o)
             "integer"   -> pure (Lit i Int)
             "long"      -> pure (Lit i Long)
             "double"    -> pure (Lit i Double)
             "float"     -> pure (Lit i Double)
-            "blob"      -> pure (Lit i Blob)
+            "blob"      -> pure (Lit i Base64)
             "boolean"   -> pure (Lit i Bool)
             "timestamp" -> pure (Lit i Time)
             "json"      -> pure (Lit i Json)
@@ -371,20 +385,20 @@ data Operation f a b = Operation
     , _opPager         :: Maybe b
     }
 
-makeLenses ''Operation
+$(TH.makeLenses ''Operation)
 
 operationNS :: NS -> Id -> NS
 operationNS ns = mappend ns . mkNS . typeId
 
 inputName, outputName :: HasId a => Operation Identity a b -> Id
-inputName  = identifier . view (opInput  . _Identity)
-outputName = identifier . view (opOutput . _Identity)
+inputName  = identifier . Lens.view (opInput  . _Identity)
+outputName = identifier . Lens.view (opOutput . _Identity)
 
 instance HasHTTP (Operation f a b) where
     hTTP = opHTTP
 
 instance FromJSON (Operation Maybe (RefF ()) ()) where
-    parseJSON = withObject "operation" $ \o -> Operation
+    parseJSON = JSON.withObject "operation" $ \o -> Operation
         <$> (o .: "name" <&> mkId . renameOperation)
         <*> o .:? "documentation"
         <*> o .:? "deprecated" .!= False
@@ -394,12 +408,12 @@ instance FromJSON (Operation Maybe (RefF ()) ()) where
         <*> pure Nothing
 
 instance ToJSON a => ToJSON (Operation Identity a b) where
-    toJSON o = object
+    toJSON o = JSON.object
         [ "name"          .= (o ^. opName)
         , "documentation" .= (o ^. opDocumentation)
         , "input"         .= (o ^. opInput)
         , "output"        .= (o ^. opOutput)
-        , "pager"         .= (o ^. opPager . to isJust)
+        , "pager"         .= (o ^. opPager . Lens.to isJust)
         ]
 
 data Metadata f = Metadata
@@ -417,10 +431,13 @@ data Metadata f = Metadata
     , _targetPrefix     :: Maybe Text
     } deriving (Generic)
 
-makeClassy ''Metadata
+deriving instance Show (Metadata Maybe)
+deriving instance Show (Metadata Identity)
+
+$(TH.makeClassy ''Metadata)
 
 instance FromJSON (Metadata Maybe) where
-    parseJSON = withObject "meta" $ \o -> Metadata
+    parseJSON = JSON.withObject "meta" $ \o -> Metadata
         <$> o .:  "protocol"
         <*> o .:  "serviceAbbreviation"
         <*> (o .: "serviceAbbreviation" <&> serviceFunction)
@@ -456,13 +473,13 @@ data Service f a b c = Service
     , _retry         :: Retry
     } deriving (Generic)
 
-makeClassy ''Service
+$(TH.makeClassy ''Service)
 
 instance HasMetadata (Service f a b c) f where
     metadata = metadata'
 
 instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)) where
-    parseJSON = withObject "service" $ \o -> do
+    parseJSON = JSON.withObject "service" $ \o -> do
         m <- o .:  "metadata"
         p <- o .:? "pagination" .!= mempty
         Service m
@@ -484,7 +501,7 @@ class IsStreaming a where
     isStreaming :: a -> Bool
 
     default isStreaming :: HasInfo a => a -> Bool
-    isStreaming = view infoStreaming
+    isStreaming = Lens.view infoStreaming
 
 instance IsStreaming Info
 instance IsStreaming (StructF a)
@@ -501,5 +518,5 @@ instance IsStreaming TType where
 setRequired :: ([Id] -> [Id]) -> ShapeF a -> ShapeF a
 setRequired f = _Struct . required' %~ nub . f
 
-getRequired :: Fold (StructF a) Id
-getRequired = required' . each
+getRequired :: Lens.Fold (StructF a) Id
+getRequired = required' . Lens.each

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.GetDirectory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getDirectory pDirectoryARN_ = GetDirectory' {_gdDirectoryARN = pDirectoryARN_}
 
 -- | The ARN of the directory.
 gdDirectoryARN :: Lens' GetDirectory Text
-gdDirectoryARN = lens _gdDirectoryARN (\ s a -> s{_gdDirectoryARN = a});
+gdDirectoryARN = lens _gdDirectoryARN (\ s a -> s{_gdDirectoryARN = a})
 
 instance AWSRequest GetDirectory where
         type Rs GetDirectory = GetDirectoryResponse
@@ -113,15 +113,15 @@ getDirectoryResponse
     -> GetDirectoryResponse
 getDirectoryResponse pResponseStatus_ pDirectory_ =
   GetDirectoryResponse'
-  {_gdrsResponseStatus = pResponseStatus_, _gdrsDirectory = pDirectory_}
+    {_gdrsResponseStatus = pResponseStatus_, _gdrsDirectory = pDirectory_}
 
 
 -- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDirectoryResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a})
 
 -- | Metadata about the directory.
 gdrsDirectory :: Lens' GetDirectoryResponse Directory
-gdrsDirectory = lens _gdrsDirectory (\ s a -> s{_gdrsDirectory = a});
+gdrsDirectory = lens _gdrsDirectory (\ s a -> s{_gdrsDirectory = a})
 
 instance NFData GetDirectoryResponse where

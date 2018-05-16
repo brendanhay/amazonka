@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'applicationDescription' smart constructor.
 data ApplicationDescription = ApplicationDescription'
-  { _adVersions                :: !(Maybe [Text])
+  { _adApplicationARN          :: !(Maybe Text)
+  , _adVersions                :: !(Maybe [Text])
   , _adDateUpdated             :: !(Maybe ISO8601)
   , _adDateCreated             :: !(Maybe ISO8601)
   , _adApplicationName         :: !(Maybe Text)
@@ -40,6 +41,8 @@ data ApplicationDescription = ApplicationDescription'
 -- | Creates a value of 'ApplicationDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'adApplicationARN' - The Amazon Resource Name (ARN) of the application.
 --
 -- * 'adVersions' - The names of the versions for this application.
 --
@@ -58,49 +61,55 @@ applicationDescription
     :: ApplicationDescription
 applicationDescription =
   ApplicationDescription'
-  { _adVersions = Nothing
-  , _adDateUpdated = Nothing
-  , _adDateCreated = Nothing
-  , _adApplicationName = Nothing
-  , _adConfigurationTemplates = Nothing
-  , _adResourceLifecycleConfig = Nothing
-  , _adDescription = Nothing
-  }
+    { _adApplicationARN = Nothing
+    , _adVersions = Nothing
+    , _adDateUpdated = Nothing
+    , _adDateCreated = Nothing
+    , _adApplicationName = Nothing
+    , _adConfigurationTemplates = Nothing
+    , _adResourceLifecycleConfig = Nothing
+    , _adDescription = Nothing
+    }
 
+
+-- | The Amazon Resource Name (ARN) of the application.
+adApplicationARN :: Lens' ApplicationDescription (Maybe Text)
+adApplicationARN = lens _adApplicationARN (\ s a -> s{_adApplicationARN = a})
 
 -- | The names of the versions for this application.
 adVersions :: Lens' ApplicationDescription [Text]
-adVersions = lens _adVersions (\ s a -> s{_adVersions = a}) . _Default . _Coerce;
+adVersions = lens _adVersions (\ s a -> s{_adVersions = a}) . _Default . _Coerce
 
 -- | The date when the application was last modified.
 adDateUpdated :: Lens' ApplicationDescription (Maybe UTCTime)
-adDateUpdated = lens _adDateUpdated (\ s a -> s{_adDateUpdated = a}) . mapping _Time;
+adDateUpdated = lens _adDateUpdated (\ s a -> s{_adDateUpdated = a}) . mapping _Time
 
 -- | The date when the application was created.
 adDateCreated :: Lens' ApplicationDescription (Maybe UTCTime)
-adDateCreated = lens _adDateCreated (\ s a -> s{_adDateCreated = a}) . mapping _Time;
+adDateCreated = lens _adDateCreated (\ s a -> s{_adDateCreated = a}) . mapping _Time
 
 -- | The name of the application.
 adApplicationName :: Lens' ApplicationDescription (Maybe Text)
-adApplicationName = lens _adApplicationName (\ s a -> s{_adApplicationName = a});
+adApplicationName = lens _adApplicationName (\ s a -> s{_adApplicationName = a})
 
 -- | The names of the configuration templates associated with this application.
 adConfigurationTemplates :: Lens' ApplicationDescription [Text]
-adConfigurationTemplates = lens _adConfigurationTemplates (\ s a -> s{_adConfigurationTemplates = a}) . _Default . _Coerce;
+adConfigurationTemplates = lens _adConfigurationTemplates (\ s a -> s{_adConfigurationTemplates = a}) . _Default . _Coerce
 
 -- | The lifecycle settings for the application.
 adResourceLifecycleConfig :: Lens' ApplicationDescription (Maybe ApplicationResourceLifecycleConfig)
-adResourceLifecycleConfig = lens _adResourceLifecycleConfig (\ s a -> s{_adResourceLifecycleConfig = a});
+adResourceLifecycleConfig = lens _adResourceLifecycleConfig (\ s a -> s{_adResourceLifecycleConfig = a})
 
 -- | User-defined description of the application.
 adDescription :: Lens' ApplicationDescription (Maybe Text)
-adDescription = lens _adDescription (\ s a -> s{_adDescription = a});
+adDescription = lens _adDescription (\ s a -> s{_adDescription = a})
 
 instance FromXML ApplicationDescription where
         parseXML x
           = ApplicationDescription' <$>
-              (x .@? "Versions" .!@ mempty >>=
-                 may (parseXMLList "member"))
+              (x .@? "ApplicationArn") <*>
+                (x .@? "Versions" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*> (x .@? "DateUpdated")
                 <*> (x .@? "DateCreated")
                 <*> (x .@? "ApplicationName")
@@ -137,7 +146,7 @@ applicationDescriptionMessage =
 
 -- | The 'ApplicationDescription' of the application.
 admApplication :: Lens' ApplicationDescriptionMessage (Maybe ApplicationDescription)
-admApplication = lens _admApplication (\ s a -> s{_admApplication = a});
+admApplication = lens _admApplication (\ s a -> s{_admApplication = a})
 
 instance FromXML ApplicationDescriptionMessage where
         parseXML x
@@ -176,28 +185,28 @@ applicationMetrics
     :: ApplicationMetrics
 applicationMetrics =
   ApplicationMetrics'
-  { _amRequestCount = Nothing
-  , _amLatency = Nothing
-  , _amStatusCodes = Nothing
-  , _amDuration = Nothing
-  }
+    { _amRequestCount = Nothing
+    , _amLatency = Nothing
+    , _amStatusCodes = Nothing
+    , _amDuration = Nothing
+    }
 
 
 -- | Average number of requests handled by the web server per second over the last 10 seconds.
 amRequestCount :: Lens' ApplicationMetrics (Maybe Int)
-amRequestCount = lens _amRequestCount (\ s a -> s{_amRequestCount = a});
+amRequestCount = lens _amRequestCount (\ s a -> s{_amRequestCount = a})
 
 -- | Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one millisecond resolution.
 amLatency :: Lens' ApplicationMetrics (Maybe Latency)
-amLatency = lens _amLatency (\ s a -> s{_amLatency = a});
+amLatency = lens _amLatency (\ s a -> s{_amLatency = a})
 
 -- | Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response.
 amStatusCodes :: Lens' ApplicationMetrics (Maybe StatusCodes)
-amStatusCodes = lens _amStatusCodes (\ s a -> s{_amStatusCodes = a});
+amStatusCodes = lens _amStatusCodes (\ s a -> s{_amStatusCodes = a})
 
 -- | The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests (@request_count@ ) within the most recent time slice of 10 seconds (@duration@ ).
 amDuration :: Lens' ApplicationMetrics (Maybe Int)
-amDuration = lens _amDuration (\ s a -> s{_amDuration = a});
+amDuration = lens _amDuration (\ s a -> s{_amDuration = a})
 
 instance FromXML ApplicationMetrics where
         parseXML x
@@ -232,16 +241,16 @@ applicationResourceLifecycleConfig
     :: ApplicationResourceLifecycleConfig
 applicationResourceLifecycleConfig =
   ApplicationResourceLifecycleConfig'
-  {_arlcVersionLifecycleConfig = Nothing, _arlcServiceRole = Nothing}
+    {_arlcVersionLifecycleConfig = Nothing, _arlcServiceRole = Nothing}
 
 
 -- | The application version lifecycle configuration.
 arlcVersionLifecycleConfig :: Lens' ApplicationResourceLifecycleConfig (Maybe ApplicationVersionLifecycleConfig)
-arlcVersionLifecycleConfig = lens _arlcVersionLifecycleConfig (\ s a -> s{_arlcVersionLifecycleConfig = a});
+arlcVersionLifecycleConfig = lens _arlcVersionLifecycleConfig (\ s a -> s{_arlcVersionLifecycleConfig = a})
 
 -- | The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
 arlcServiceRole :: Lens' ApplicationResourceLifecycleConfig (Maybe Text)
-arlcServiceRole = lens _arlcServiceRole (\ s a -> s{_arlcServiceRole = a});
+arlcServiceRole = lens _arlcServiceRole (\ s a -> s{_arlcServiceRole = a})
 
 instance FromXML ApplicationResourceLifecycleConfig
          where
@@ -277,6 +286,7 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
   , _avdVersionLabel           :: !(Maybe Text)
   , _avdSourceBuildInformation :: !(Maybe SourceBuildInformation)
   , _avdApplicationName        :: !(Maybe Text)
+  , _avdApplicationVersionARN  :: !(Maybe Text)
   , _avdBuildARN               :: !(Maybe Text)
   , _avdDescription            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -300,6 +310,8 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
 --
 -- * 'avdApplicationName' - The name of the application to which the application version belongs.
 --
+-- * 'avdApplicationVersionARN' - The Amazon Resource Name (ARN) of the application version.
+--
 -- * 'avdBuildARN' - Reference to the artifact from the AWS CodeBuild build.
 --
 -- * 'avdDescription' - The description of the application version.
@@ -307,53 +319,58 @@ applicationVersionDescription
     :: ApplicationVersionDescription
 applicationVersionDescription =
   ApplicationVersionDescription'
-  { _avdStatus = Nothing
-  , _avdSourceBundle = Nothing
-  , _avdDateUpdated = Nothing
-  , _avdDateCreated = Nothing
-  , _avdVersionLabel = Nothing
-  , _avdSourceBuildInformation = Nothing
-  , _avdApplicationName = Nothing
-  , _avdBuildARN = Nothing
-  , _avdDescription = Nothing
-  }
+    { _avdStatus = Nothing
+    , _avdSourceBundle = Nothing
+    , _avdDateUpdated = Nothing
+    , _avdDateCreated = Nothing
+    , _avdVersionLabel = Nothing
+    , _avdSourceBuildInformation = Nothing
+    , _avdApplicationName = Nothing
+    , _avdApplicationVersionARN = Nothing
+    , _avdBuildARN = Nothing
+    , _avdDescription = Nothing
+    }
 
 
 -- | The processing status of the application version.
 avdStatus :: Lens' ApplicationVersionDescription (Maybe ApplicationVersionStatus)
-avdStatus = lens _avdStatus (\ s a -> s{_avdStatus = a});
+avdStatus = lens _avdStatus (\ s a -> s{_avdStatus = a})
 
 -- | The storage location of the application version's source bundle in Amazon S3.
 avdSourceBundle :: Lens' ApplicationVersionDescription (Maybe S3Location)
-avdSourceBundle = lens _avdSourceBundle (\ s a -> s{_avdSourceBundle = a});
+avdSourceBundle = lens _avdSourceBundle (\ s a -> s{_avdSourceBundle = a})
 
 -- | The last modified date of the application version.
 avdDateUpdated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
-avdDateUpdated = lens _avdDateUpdated (\ s a -> s{_avdDateUpdated = a}) . mapping _Time;
+avdDateUpdated = lens _avdDateUpdated (\ s a -> s{_avdDateUpdated = a}) . mapping _Time
 
 -- | The creation date of the application version.
 avdDateCreated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
-avdDateCreated = lens _avdDateCreated (\ s a -> s{_avdDateCreated = a}) . mapping _Time;
+avdDateCreated = lens _avdDateCreated (\ s a -> s{_avdDateCreated = a}) . mapping _Time
 
 -- | A unique identifier for the application version.
 avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
-avdVersionLabel = lens _avdVersionLabel (\ s a -> s{_avdVersionLabel = a});
+avdVersionLabel = lens _avdVersionLabel (\ s a -> s{_avdVersionLabel = a})
 
 -- | If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
 avdSourceBuildInformation :: Lens' ApplicationVersionDescription (Maybe SourceBuildInformation)
-avdSourceBuildInformation = lens _avdSourceBuildInformation (\ s a -> s{_avdSourceBuildInformation = a});
+avdSourceBuildInformation = lens _avdSourceBuildInformation (\ s a -> s{_avdSourceBuildInformation = a})
 
 -- | The name of the application to which the application version belongs.
 avdApplicationName :: Lens' ApplicationVersionDescription (Maybe Text)
-avdApplicationName = lens _avdApplicationName (\ s a -> s{_avdApplicationName = a});
+avdApplicationName = lens _avdApplicationName (\ s a -> s{_avdApplicationName = a})
+
+-- | The Amazon Resource Name (ARN) of the application version.
+avdApplicationVersionARN :: Lens' ApplicationVersionDescription (Maybe Text)
+avdApplicationVersionARN = lens _avdApplicationVersionARN (\ s a -> s{_avdApplicationVersionARN = a})
 
 -- | Reference to the artifact from the AWS CodeBuild build.
 avdBuildARN :: Lens' ApplicationVersionDescription (Maybe Text)
-avdBuildARN = lens _avdBuildARN (\ s a -> s{_avdBuildARN = a});
+avdBuildARN = lens _avdBuildARN (\ s a -> s{_avdBuildARN = a})
 
 -- | The description of the application version.
 avdDescription :: Lens' ApplicationVersionDescription (Maybe Text)
-avdDescription = lens _avdDescription (\ s a -> s{_avdDescription = a});
+avdDescription = lens _avdDescription (\ s a -> s{_avdDescription = a})
 
 instance FromXML ApplicationVersionDescription where
         parseXML x
@@ -364,6 +381,7 @@ instance FromXML ApplicationVersionDescription where
                 <*> (x .@? "VersionLabel")
                 <*> (x .@? "SourceBuildInformation")
                 <*> (x .@? "ApplicationName")
+                <*> (x .@? "ApplicationVersionArn")
                 <*> (x .@? "BuildArn")
                 <*> (x .@? "Description")
 
@@ -394,7 +412,7 @@ applicationVersionDescriptionMessage =
 
 -- | The 'ApplicationVersionDescription' of the application version.
 avdmApplicationVersion :: Lens' ApplicationVersionDescriptionMessage (Maybe ApplicationVersionDescription)
-avdmApplicationVersion = lens _avdmApplicationVersion (\ s a -> s{_avdmApplicationVersion = a});
+avdmApplicationVersion = lens _avdmApplicationVersion (\ s a -> s{_avdmApplicationVersion = a})
 
 instance FromXML ApplicationVersionDescriptionMessage
          where
@@ -433,16 +451,16 @@ applicationVersionLifecycleConfig
     :: ApplicationVersionLifecycleConfig
 applicationVersionLifecycleConfig =
   ApplicationVersionLifecycleConfig'
-  {_avlcMaxAgeRule = Nothing, _avlcMaxCountRule = Nothing}
+    {_avlcMaxAgeRule = Nothing, _avlcMaxCountRule = Nothing}
 
 
 -- | Specify a max age rule to restrict the length of time that application versions are retained for an application.
 avlcMaxAgeRule :: Lens' ApplicationVersionLifecycleConfig (Maybe MaxAgeRule)
-avlcMaxAgeRule = lens _avlcMaxAgeRule (\ s a -> s{_avlcMaxAgeRule = a});
+avlcMaxAgeRule = lens _avlcMaxAgeRule (\ s a -> s{_avlcMaxAgeRule = a})
 
 -- | Specify a max count rule to restrict the number of application versions that are retained for an application.
 avlcMaxCountRule :: Lens' ApplicationVersionLifecycleConfig (Maybe MaxCountRule)
-avlcMaxCountRule = lens _avlcMaxCountRule (\ s a -> s{_avlcMaxCountRule = a});
+avlcMaxCountRule = lens _avlcMaxCountRule (\ s a -> s{_avlcMaxCountRule = a})
 
 instance FromXML ApplicationVersionLifecycleConfig
          where
@@ -485,7 +503,7 @@ autoScalingGroup = AutoScalingGroup' {_asgName = Nothing}
 
 -- | The name of the @AutoScalingGroup@ .
 asgName :: Lens' AutoScalingGroup (Maybe Text)
-asgName = lens _asgName (\ s a -> s{_asgName = a});
+asgName = lens _asgName (\ s a -> s{_asgName = a})
 
 instance FromXML AutoScalingGroup where
         parseXML x = AutoScalingGroup' <$> (x .@? "Name")
@@ -527,33 +545,33 @@ buildConfiguration
     -> BuildConfiguration
 buildConfiguration pCodeBuildServiceRole_ pImage_ =
   BuildConfiguration'
-  { _bcArtifactName = Nothing
-  , _bcComputeType = Nothing
-  , _bcTimeoutInMinutes = Nothing
-  , _bcCodeBuildServiceRole = pCodeBuildServiceRole_
-  , _bcImage = pImage_
-  }
+    { _bcArtifactName = Nothing
+    , _bcComputeType = Nothing
+    , _bcTimeoutInMinutes = Nothing
+    , _bcCodeBuildServiceRole = pCodeBuildServiceRole_
+    , _bcImage = pImage_
+    }
 
 
 -- | The name of the artifact of the CodeBuild build. If provided, Elastic Beanstalk stores the build artifact in the S3 location /S3-bucket/ /resources//application-name/ /codebuild/codebuild-/version-label/ -/artifact-name/ .zip. If not provided, Elastic Beanstalk stores the build artifact in the S3 location /S3-bucket/ /resources//application-name/ /codebuild/codebuild-/version-label/ .zip.
 bcArtifactName :: Lens' BuildConfiguration (Maybe Text)
-bcArtifactName = lens _bcArtifactName (\ s a -> s{_bcArtifactName = a});
+bcArtifactName = lens _bcArtifactName (\ s a -> s{_bcArtifactName = a})
 
 -- | Information about the compute resources the build project will use.     * @BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds@      * @BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds@      * @BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds@
 bcComputeType :: Lens' BuildConfiguration (Maybe ComputeType)
-bcComputeType = lens _bcComputeType (\ s a -> s{_bcComputeType = a});
+bcComputeType = lens _bcComputeType (\ s a -> s{_bcComputeType = a})
 
 -- | How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
 bcTimeoutInMinutes :: Lens' BuildConfiguration (Maybe Int)
-bcTimeoutInMinutes = lens _bcTimeoutInMinutes (\ s a -> s{_bcTimeoutInMinutes = a});
+bcTimeoutInMinutes = lens _bcTimeoutInMinutes (\ s a -> s{_bcTimeoutInMinutes = a})
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 bcCodeBuildServiceRole :: Lens' BuildConfiguration Text
-bcCodeBuildServiceRole = lens _bcCodeBuildServiceRole (\ s a -> s{_bcCodeBuildServiceRole = a});
+bcCodeBuildServiceRole = lens _bcCodeBuildServiceRole (\ s a -> s{_bcCodeBuildServiceRole = a})
 
 -- | The ID of the Docker image to use for this build project.
 bcImage :: Lens' BuildConfiguration Text
-bcImage = lens _bcImage (\ s a -> s{_bcImage = a});
+bcImage = lens _bcImage (\ s a -> s{_bcImage = a})
 
 instance Hashable BuildConfiguration where
 
@@ -590,7 +608,7 @@ builder = Builder' {_bARN = Nothing}
 
 -- | The ARN of the builder.
 bARN :: Lens' Builder (Maybe Text)
-bARN = lens _bARN (\ s a -> s{_bARN = a});
+bARN = lens _bARN (\ s a -> s{_bARN = a})
 
 instance FromXML Builder where
         parseXML x = Builder' <$> (x .@? "ARN")
@@ -636,43 +654,43 @@ cpuUtilization
     :: CPUUtilization
 cpuUtilization =
   CPUUtilization'
-  { _cuSoftIRQ = Nothing
-  , _cuIdle = Nothing
-  , _cuIRQ = Nothing
-  , _cuSystem = Nothing
-  , _cuUser = Nothing
-  , _cuIOWait = Nothing
-  , _cuNice = Nothing
-  }
+    { _cuSoftIRQ = Nothing
+    , _cuIdle = Nothing
+    , _cuIRQ = Nothing
+    , _cuSystem = Nothing
+    , _cuUser = Nothing
+    , _cuIOWait = Nothing
+    , _cuNice = Nothing
+    }
 
 
 -- | Percentage of time that the CPU has spent in the @SoftIRQ@ state over the last 10 seconds.
 cuSoftIRQ :: Lens' CPUUtilization (Maybe Double)
-cuSoftIRQ = lens _cuSoftIRQ (\ s a -> s{_cuSoftIRQ = a});
+cuSoftIRQ = lens _cuSoftIRQ (\ s a -> s{_cuSoftIRQ = a})
 
 -- | Percentage of time that the CPU has spent in the @Idle@ state over the last 10 seconds.
 cuIdle :: Lens' CPUUtilization (Maybe Double)
-cuIdle = lens _cuIdle (\ s a -> s{_cuIdle = a});
+cuIdle = lens _cuIdle (\ s a -> s{_cuIdle = a})
 
 -- | Percentage of time that the CPU has spent in the @IRQ@ state over the last 10 seconds.
 cuIRQ :: Lens' CPUUtilization (Maybe Double)
-cuIRQ = lens _cuIRQ (\ s a -> s{_cuIRQ = a});
+cuIRQ = lens _cuIRQ (\ s a -> s{_cuIRQ = a})
 
 -- | Percentage of time that the CPU has spent in the @System@ state over the last 10 seconds.
 cuSystem :: Lens' CPUUtilization (Maybe Double)
-cuSystem = lens _cuSystem (\ s a -> s{_cuSystem = a});
+cuSystem = lens _cuSystem (\ s a -> s{_cuSystem = a})
 
 -- | Percentage of time that the CPU has spent in the @User@ state over the last 10 seconds.
 cuUser :: Lens' CPUUtilization (Maybe Double)
-cuUser = lens _cuUser (\ s a -> s{_cuUser = a});
+cuUser = lens _cuUser (\ s a -> s{_cuUser = a})
 
 -- | Percentage of time that the CPU has spent in the @I/O Wait@ state over the last 10 seconds.
 cuIOWait :: Lens' CPUUtilization (Maybe Double)
-cuIOWait = lens _cuIOWait (\ s a -> s{_cuIOWait = a});
+cuIOWait = lens _cuIOWait (\ s a -> s{_cuIOWait = a})
 
 -- | Percentage of time that the CPU has spent in the @Nice@ state over the last 10 seconds.
 cuNice :: Lens' CPUUtilization (Maybe Double)
-cuNice = lens _cuNice (\ s a -> s{_cuNice = a});
+cuNice = lens _cuNice (\ s a -> s{_cuNice = a})
 
 instance FromXML CPUUtilization where
         parseXML x
@@ -737,63 +755,63 @@ configurationOptionDescription
     :: ConfigurationOptionDescription
 configurationOptionDescription =
   ConfigurationOptionDescription'
-  { _codMaxValue = Nothing
-  , _codRegex = Nothing
-  , _codMaxLength = Nothing
-  , _codUserDefined = Nothing
-  , _codNamespace = Nothing
-  , _codValueOptions = Nothing
-  , _codName = Nothing
-  , _codChangeSeverity = Nothing
-  , _codDefaultValue = Nothing
-  , _codValueType = Nothing
-  , _codMinValue = Nothing
-  }
+    { _codMaxValue = Nothing
+    , _codRegex = Nothing
+    , _codMaxLength = Nothing
+    , _codUserDefined = Nothing
+    , _codNamespace = Nothing
+    , _codValueOptions = Nothing
+    , _codName = Nothing
+    , _codChangeSeverity = Nothing
+    , _codDefaultValue = Nothing
+    , _codValueType = Nothing
+    , _codMinValue = Nothing
+    }
 
 
 -- | If specified, the configuration option must be a numeric value less than this value.
 codMaxValue :: Lens' ConfigurationOptionDescription (Maybe Int)
-codMaxValue = lens _codMaxValue (\ s a -> s{_codMaxValue = a});
+codMaxValue = lens _codMaxValue (\ s a -> s{_codMaxValue = a})
 
 -- | If specified, the configuration option must be a string value that satisfies this regular expression.
 codRegex :: Lens' ConfigurationOptionDescription (Maybe OptionRestrictionRegex)
-codRegex = lens _codRegex (\ s a -> s{_codRegex = a});
+codRegex = lens _codRegex (\ s a -> s{_codRegex = a})
 
 -- | If specified, the configuration option must be a string value no longer than this value.
 codMaxLength :: Lens' ConfigurationOptionDescription (Maybe Int)
-codMaxLength = lens _codMaxLength (\ s a -> s{_codMaxLength = a});
+codMaxLength = lens _codMaxLength (\ s a -> s{_codMaxLength = a})
 
 -- | An indication of whether the user defined this configuration option:     * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.      * @false@ : This configuration was not defined by the user. Constraint: You can remove only @UserDefined@ options from a configuration.  Valid Values: @true@ | @false@
 codUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
-codUserDefined = lens _codUserDefined (\ s a -> s{_codUserDefined = a});
+codUserDefined = lens _codUserDefined (\ s a -> s{_codUserDefined = a})
 
 -- | A unique namespace identifying the option's associated AWS resource.
 codNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
-codNamespace = lens _codNamespace (\ s a -> s{_codNamespace = a});
+codNamespace = lens _codNamespace (\ s a -> s{_codNamespace = a})
 
 -- | If specified, values for the configuration option are selected from this list.
 codValueOptions :: Lens' ConfigurationOptionDescription [Text]
-codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a}) . _Default . _Coerce;
+codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a}) . _Default . _Coerce
 
 -- | The name of the configuration option.
 codName :: Lens' ConfigurationOptionDescription (Maybe Text)
-codName = lens _codName (\ s a -> s{_codName = a});
+codName = lens _codName (\ s a -> s{_codName = a})
 
 -- | An indication of which action is required if the value for this configuration option changes:     * @NoInterruption@ : There is no interruption to the environment or application availability.     * @RestartEnvironment@ : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.     * @RestartApplicationServer@ : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
 codChangeSeverity :: Lens' ConfigurationOptionDescription (Maybe Text)
-codChangeSeverity = lens _codChangeSeverity (\ s a -> s{_codChangeSeverity = a});
+codChangeSeverity = lens _codChangeSeverity (\ s a -> s{_codChangeSeverity = a})
 
 -- | The default value for this configuration option.
 codDefaultValue :: Lens' ConfigurationOptionDescription (Maybe Text)
-codDefaultValue = lens _codDefaultValue (\ s a -> s{_codDefaultValue = a});
+codDefaultValue = lens _codDefaultValue (\ s a -> s{_codDefaultValue = a})
 
 -- | An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:     * @Scalar@ : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the @MIN/MAX/Regex@ constraints.     * @List@ : Values for this option are multiple selections from the possible values.     * @Boolean@ : Values for this option are either @true@ or @false@ .     * @Json@ : Values for this option are a JSON representation of a @ConfigDocument@ .
 codValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
-codValueType = lens _codValueType (\ s a -> s{_codValueType = a});
+codValueType = lens _codValueType (\ s a -> s{_codValueType = a})
 
 -- | If specified, the configuration option must be a numeric value greater than this value.
 codMinValue :: Lens' ConfigurationOptionDescription (Maybe Int)
-codMinValue = lens _codMinValue (\ s a -> s{_codMinValue = a});
+codMinValue = lens _codMinValue (\ s a -> s{_codMinValue = a})
 
 instance FromXML ConfigurationOptionDescription where
         parseXML x
@@ -844,28 +862,28 @@ configurationOptionSetting
     :: ConfigurationOptionSetting
 configurationOptionSetting =
   ConfigurationOptionSetting'
-  { _cosOptionName = Nothing
-  , _cosResourceName = Nothing
-  , _cosNamespace = Nothing
-  , _cosValue = Nothing
-  }
+    { _cosOptionName = Nothing
+    , _cosResourceName = Nothing
+    , _cosNamespace = Nothing
+    , _cosValue = Nothing
+    }
 
 
 -- | The name of the configuration option.
 cosOptionName :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosOptionName = lens _cosOptionName (\ s a -> s{_cosOptionName = a});
+cosOptionName = lens _cosOptionName (\ s a -> s{_cosOptionName = a})
 
 -- | A unique resource name for a time-based scaling configuration option.
 cosResourceName :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosResourceName = lens _cosResourceName (\ s a -> s{_cosResourceName = a});
+cosResourceName = lens _cosResourceName (\ s a -> s{_cosResourceName = a})
 
 -- | A unique namespace identifying the option's associated AWS resource.
 cosNamespace :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosNamespace = lens _cosNamespace (\ s a -> s{_cosNamespace = a});
+cosNamespace = lens _cosNamespace (\ s a -> s{_cosNamespace = a})
 
 -- | The current value for the configuration option.
 cosValue :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosValue = lens _cosValue (\ s a -> s{_cosValue = a});
+cosValue = lens _cosValue (\ s a -> s{_cosValue = a})
 
 instance FromXML ConfigurationOptionSetting where
         parseXML x
@@ -931,58 +949,58 @@ configurationSettingsDescription
     :: ConfigurationSettingsDescription
 configurationSettingsDescription =
   ConfigurationSettingsDescription'
-  { _csdTemplateName = Nothing
-  , _csdOptionSettings = Nothing
-  , _csdDateUpdated = Nothing
-  , _csdDateCreated = Nothing
-  , _csdPlatformARN = Nothing
-  , _csdEnvironmentName = Nothing
-  , _csdApplicationName = Nothing
-  , _csdDeploymentStatus = Nothing
-  , _csdSolutionStackName = Nothing
-  , _csdDescription = Nothing
-  }
+    { _csdTemplateName = Nothing
+    , _csdOptionSettings = Nothing
+    , _csdDateUpdated = Nothing
+    , _csdDateCreated = Nothing
+    , _csdPlatformARN = Nothing
+    , _csdEnvironmentName = Nothing
+    , _csdApplicationName = Nothing
+    , _csdDeploymentStatus = Nothing
+    , _csdSolutionStackName = Nothing
+    , _csdDescription = Nothing
+    }
 
 
 -- | If not @null@ , the name of the configuration template for this configuration set.
 csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdTemplateName = lens _csdTemplateName (\ s a -> s{_csdTemplateName = a});
+csdTemplateName = lens _csdTemplateName (\ s a -> s{_csdTemplateName = a})
 
 -- | A list of the configuration options and their values in this configuration set.
 csdOptionSettings :: Lens' ConfigurationSettingsDescription [ConfigurationOptionSetting]
-csdOptionSettings = lens _csdOptionSettings (\ s a -> s{_csdOptionSettings = a}) . _Default . _Coerce;
+csdOptionSettings = lens _csdOptionSettings (\ s a -> s{_csdOptionSettings = a}) . _Default . _Coerce
 
 -- | The date (in UTC time) when this configuration set was last modified.
 csdDateUpdated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
-csdDateUpdated = lens _csdDateUpdated (\ s a -> s{_csdDateUpdated = a}) . mapping _Time;
+csdDateUpdated = lens _csdDateUpdated (\ s a -> s{_csdDateUpdated = a}) . mapping _Time
 
 -- | The date (in UTC time) when this configuration set was created.
 csdDateCreated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
-csdDateCreated = lens _csdDateCreated (\ s a -> s{_csdDateCreated = a}) . mapping _Time;
+csdDateCreated = lens _csdDateCreated (\ s a -> s{_csdDateCreated = a}) . mapping _Time
 
 -- | The ARN of the platform.
 csdPlatformARN :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdPlatformARN = lens _csdPlatformARN (\ s a -> s{_csdPlatformARN = a});
+csdPlatformARN = lens _csdPlatformARN (\ s a -> s{_csdPlatformARN = a})
 
 -- | If not @null@ , the name of the environment for this configuration set.
 csdEnvironmentName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdEnvironmentName = lens _csdEnvironmentName (\ s a -> s{_csdEnvironmentName = a});
+csdEnvironmentName = lens _csdEnvironmentName (\ s a -> s{_csdEnvironmentName = a})
 
 -- | The name of the application associated with this configuration set.
 csdApplicationName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdApplicationName = lens _csdApplicationName (\ s a -> s{_csdApplicationName = a});
+csdApplicationName = lens _csdApplicationName (\ s a -> s{_csdApplicationName = a})
 
 -- | If this configuration set is associated with an environment, the @DeploymentStatus@ parameter indicates the deployment status of this configuration set:      * @null@ : This configuration is not associated with a running environment.     * @pending@ : This is a draft configuration that is not deployed to the associated environment but is in the process of deploying.     * @deployed@ : This is the configuration that is currently deployed to the associated running environment.     * @failed@ : This is a draft configuration that failed to successfully deploy.
 csdDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe ConfigurationDeploymentStatus)
-csdDeploymentStatus = lens _csdDeploymentStatus (\ s a -> s{_csdDeploymentStatus = a});
+csdDeploymentStatus = lens _csdDeploymentStatus (\ s a -> s{_csdDeploymentStatus = a})
 
 -- | The name of the solution stack this configuration set uses.
 csdSolutionStackName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdSolutionStackName = lens _csdSolutionStackName (\ s a -> s{_csdSolutionStackName = a});
+csdSolutionStackName = lens _csdSolutionStackName (\ s a -> s{_csdSolutionStackName = a})
 
 -- | Describes this configuration set.
 csdDescription :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdDescription = lens _csdDescription (\ s a -> s{_csdDescription = a});
+csdDescription = lens _csdDescription (\ s a -> s{_csdDescription = a})
 
 instance FromXML ConfigurationSettingsDescription
          where
@@ -1031,11 +1049,11 @@ customAMI = CustomAMI' {_caVirtualizationType = Nothing, _caImageId = Nothing}
 
 -- | The type of virtualization used to create the custom AMI.
 caVirtualizationType :: Lens' CustomAMI (Maybe Text)
-caVirtualizationType = lens _caVirtualizationType (\ s a -> s{_caVirtualizationType = a});
+caVirtualizationType = lens _caVirtualizationType (\ s a -> s{_caVirtualizationType = a})
 
 -- | THe ID of the image used to create the custom AMI.
 caImageId :: Lens' CustomAMI (Maybe Text)
-caImageId = lens _caImageId (\ s a -> s{_caImageId = a});
+caImageId = lens _caImageId (\ s a -> s{_caImageId = a})
 
 instance FromXML CustomAMI where
         parseXML x
@@ -1074,28 +1092,28 @@ deployment
     :: Deployment
 deployment =
   Deployment'
-  { _dDeploymentId = Nothing
-  , _dStatus = Nothing
-  , _dDeploymentTime = Nothing
-  , _dVersionLabel = Nothing
-  }
+    { _dDeploymentId = Nothing
+    , _dStatus = Nothing
+    , _dDeploymentTime = Nothing
+    , _dVersionLabel = Nothing
+    }
 
 
 -- | The ID of the deployment. This number increases by one each time that you deploy source code or change instance configuration settings.
 dDeploymentId :: Lens' Deployment (Maybe Integer)
-dDeploymentId = lens _dDeploymentId (\ s a -> s{_dDeploymentId = a});
+dDeploymentId = lens _dDeploymentId (\ s a -> s{_dDeploymentId = a})
 
 -- | The status of the deployment:     * @In Progress@ : The deployment is in progress.     * @Deployed@ : The deployment succeeded.     * @Failed@ : The deployment failed.
 dStatus :: Lens' Deployment (Maybe Text)
-dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a})
 
 -- | For in-progress deployments, the time that the deployment started. For completed deployments, the time that the deployment ended.
 dDeploymentTime :: Lens' Deployment (Maybe UTCTime)
-dDeploymentTime = lens _dDeploymentTime (\ s a -> s{_dDeploymentTime = a}) . mapping _Time;
+dDeploymentTime = lens _dDeploymentTime (\ s a -> s{_dDeploymentTime = a}) . mapping _Time
 
 -- | The version label of the application version in the deployment.
 dVersionLabel :: Lens' Deployment (Maybe Text)
-dVersionLabel = lens _dVersionLabel (\ s a -> s{_dVersionLabel = a});
+dVersionLabel = lens _dVersionLabel (\ s a -> s{_dVersionLabel = a})
 
 instance FromXML Deployment where
         parseXML x
@@ -1169,7 +1187,7 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- * 'eApplicationName' - The name of the application associated with this environment.
 --
--- * 'eEnvironmentARN' - The environment's Amazon Resource Name (ARN), which can be used in other API reuqests that require an ARN.
+-- * 'eEnvironmentARN' - The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
 --
 -- * 'eSolutionStackName' - The name of the @SolutionStack@ deployed with this environment.
 --
@@ -1184,108 +1202,108 @@ environmentDescription
     :: EnvironmentDescription
 environmentDescription =
   EnvironmentDescription'
-  { _eStatus = Nothing
-  , _eCNAME = Nothing
-  , _eTemplateName = Nothing
-  , _eAbortableOperationInProgress = Nothing
-  , _eEndpointURL = Nothing
-  , _eResources = Nothing
-  , _eDateUpdated = Nothing
-  , _eDateCreated = Nothing
-  , _eHealth = Nothing
-  , _eVersionLabel = Nothing
-  , _ePlatformARN = Nothing
-  , _eTier = Nothing
-  , _eEnvironmentName = Nothing
-  , _eApplicationName = Nothing
-  , _eEnvironmentARN = Nothing
-  , _eSolutionStackName = Nothing
-  , _eEnvironmentId = Nothing
-  , _eHealthStatus = Nothing
-  , _eEnvironmentLinks = Nothing
-  , _eDescription = Nothing
-  }
+    { _eStatus = Nothing
+    , _eCNAME = Nothing
+    , _eTemplateName = Nothing
+    , _eAbortableOperationInProgress = Nothing
+    , _eEndpointURL = Nothing
+    , _eResources = Nothing
+    , _eDateUpdated = Nothing
+    , _eDateCreated = Nothing
+    , _eHealth = Nothing
+    , _eVersionLabel = Nothing
+    , _ePlatformARN = Nothing
+    , _eTier = Nothing
+    , _eEnvironmentName = Nothing
+    , _eApplicationName = Nothing
+    , _eEnvironmentARN = Nothing
+    , _eSolutionStackName = Nothing
+    , _eEnvironmentId = Nothing
+    , _eHealthStatus = Nothing
+    , _eEnvironmentLinks = Nothing
+    , _eDescription = Nothing
+    }
 
 
 -- | The current operational status of the environment:     * @Launching@ : Environment is in the process of initial deployment.     * @Updating@ : Environment is in the process of updating its configuration settings or application version.     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.     * @Terminating@ : Environment is in the shut-down process.     * @Terminated@ : Environment is not running.
 eStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
-eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
+eStatus = lens _eStatus (\ s a -> s{_eStatus = a})
 
 -- | The URL to the CNAME for this environment.
 eCNAME :: Lens' EnvironmentDescription (Maybe Text)
-eCNAME = lens _eCNAME (\ s a -> s{_eCNAME = a});
+eCNAME = lens _eCNAME (\ s a -> s{_eCNAME = a})
 
 -- | The name of the configuration template used to originally launch this environment.
 eTemplateName :: Lens' EnvironmentDescription (Maybe Text)
-eTemplateName = lens _eTemplateName (\ s a -> s{_eTemplateName = a});
+eTemplateName = lens _eTemplateName (\ s a -> s{_eTemplateName = a})
 
 -- | Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel. @true:@ There is an update in progress.  @false:@ There are no updates currently in progress.
 eAbortableOperationInProgress :: Lens' EnvironmentDescription (Maybe Bool)
-eAbortableOperationInProgress = lens _eAbortableOperationInProgress (\ s a -> s{_eAbortableOperationInProgress = a});
+eAbortableOperationInProgress = lens _eAbortableOperationInProgress (\ s a -> s{_eAbortableOperationInProgress = a})
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer. For single-instance environments, the IP address of the instance.
 eEndpointURL :: Lens' EnvironmentDescription (Maybe Text)
-eEndpointURL = lens _eEndpointURL (\ s a -> s{_eEndpointURL = a});
+eEndpointURL = lens _eEndpointURL (\ s a -> s{_eEndpointURL = a})
 
 -- | The description of the AWS resources used by this environment.
 eResources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
-eResources = lens _eResources (\ s a -> s{_eResources = a});
+eResources = lens _eResources (\ s a -> s{_eResources = a})
 
 -- | The last modified date for this environment.
 eDateUpdated :: Lens' EnvironmentDescription (Maybe UTCTime)
-eDateUpdated = lens _eDateUpdated (\ s a -> s{_eDateUpdated = a}) . mapping _Time;
+eDateUpdated = lens _eDateUpdated (\ s a -> s{_eDateUpdated = a}) . mapping _Time
 
 -- | The creation date for this environment.
 eDateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
-eDateCreated = lens _eDateCreated (\ s a -> s{_eDateCreated = a}) . mapping _Time;
+eDateCreated = lens _eDateCreated (\ s a -> s{_eDateCreated = a}) . mapping _Time
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:     * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.     * @Green@ : Indicates the environment is healthy and fully functional.     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironement@ request. Default: @Grey@
 eHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
-eHealth = lens _eHealth (\ s a -> s{_eHealth = a});
+eHealth = lens _eHealth (\ s a -> s{_eHealth = a})
 
 -- | The application version deployed in this environment.
 eVersionLabel :: Lens' EnvironmentDescription (Maybe Text)
-eVersionLabel = lens _eVersionLabel (\ s a -> s{_eVersionLabel = a});
+eVersionLabel = lens _eVersionLabel (\ s a -> s{_eVersionLabel = a})
 
 -- | The ARN of the platform.
 ePlatformARN :: Lens' EnvironmentDescription (Maybe Text)
-ePlatformARN = lens _ePlatformARN (\ s a -> s{_ePlatformARN = a});
+ePlatformARN = lens _ePlatformARN (\ s a -> s{_ePlatformARN = a})
 
 -- | Describes the current tier of this environment.
 eTier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
-eTier = lens _eTier (\ s a -> s{_eTier = a});
+eTier = lens _eTier (\ s a -> s{_eTier = a})
 
 -- | The name of this environment.
 eEnvironmentName :: Lens' EnvironmentDescription (Maybe Text)
-eEnvironmentName = lens _eEnvironmentName (\ s a -> s{_eEnvironmentName = a});
+eEnvironmentName = lens _eEnvironmentName (\ s a -> s{_eEnvironmentName = a})
 
 -- | The name of the application associated with this environment.
 eApplicationName :: Lens' EnvironmentDescription (Maybe Text)
-eApplicationName = lens _eApplicationName (\ s a -> s{_eApplicationName = a});
+eApplicationName = lens _eApplicationName (\ s a -> s{_eApplicationName = a})
 
--- | The environment's Amazon Resource Name (ARN), which can be used in other API reuqests that require an ARN.
+-- | The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
 eEnvironmentARN :: Lens' EnvironmentDescription (Maybe Text)
-eEnvironmentARN = lens _eEnvironmentARN (\ s a -> s{_eEnvironmentARN = a});
+eEnvironmentARN = lens _eEnvironmentARN (\ s a -> s{_eEnvironmentARN = a})
 
 -- | The name of the @SolutionStack@ deployed with this environment.
 eSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
-eSolutionStackName = lens _eSolutionStackName (\ s a -> s{_eSolutionStackName = a});
+eSolutionStackName = lens _eSolutionStackName (\ s a -> s{_eSolutionStackName = a})
 
 -- | The ID of this environment.
 eEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
-eEnvironmentId = lens _eEnvironmentId (\ s a -> s{_eEnvironmentId = a});
+eEnvironmentId = lens _eEnvironmentId (\ s a -> s{_eEnvironmentId = a})
 
 -- | Returns the health status of the application running in your environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 eHealthStatus :: Lens' EnvironmentDescription (Maybe EnvironmentHealthStatus)
-eHealthStatus = lens _eHealthStatus (\ s a -> s{_eHealthStatus = a});
+eHealthStatus = lens _eHealthStatus (\ s a -> s{_eHealthStatus = a})
 
 -- | A list of links to other environments in the same group.
 eEnvironmentLinks :: Lens' EnvironmentDescription [EnvironmentLink]
-eEnvironmentLinks = lens _eEnvironmentLinks (\ s a -> s{_eEnvironmentLinks = a}) . _Default . _Coerce;
+eEnvironmentLinks = lens _eEnvironmentLinks (\ s a -> s{_eEnvironmentLinks = a}) . _Default . _Coerce
 
 -- | Describes this environment.
 eDescription :: Lens' EnvironmentDescription (Maybe Text)
-eDescription = lens _eDescription (\ s a -> s{_eDescription = a});
+eDescription = lens _eDescription (\ s a -> s{_eDescription = a})
 
 instance FromXML EnvironmentDescription where
         parseXML x
@@ -1338,16 +1356,16 @@ environmentDescriptionsMessage
     :: EnvironmentDescriptionsMessage
 environmentDescriptionsMessage =
   EnvironmentDescriptionsMessage'
-  {_edmNextToken = Nothing, _edmEnvironments = Nothing}
+    {_edmNextToken = Nothing, _edmEnvironments = Nothing}
 
 
 -- | In a paginated request, the token that you can pass in a subsequent request to get the next response page.
 edmNextToken :: Lens' EnvironmentDescriptionsMessage (Maybe Text)
-edmNextToken = lens _edmNextToken (\ s a -> s{_edmNextToken = a});
+edmNextToken = lens _edmNextToken (\ s a -> s{_edmNextToken = a})
 
 -- | Returns an 'EnvironmentDescription' list.
 edmEnvironments :: Lens' EnvironmentDescriptionsMessage [EnvironmentDescription]
-edmEnvironments = lens _edmEnvironments (\ s a -> s{_edmEnvironments = a}) . _Default . _Coerce;
+edmEnvironments = lens _edmEnvironments (\ s a -> s{_edmEnvironments = a}) . _Default . _Coerce
 
 instance FromXML EnvironmentDescriptionsMessage where
         parseXML x
@@ -1389,28 +1407,28 @@ environmentInfoDescription
     :: EnvironmentInfoDescription
 environmentInfoDescription =
   EnvironmentInfoDescription'
-  { _eidSampleTimestamp = Nothing
-  , _eidEC2InstanceId = Nothing
-  , _eidInfoType = Nothing
-  , _eidMessage = Nothing
-  }
+    { _eidSampleTimestamp = Nothing
+    , _eidEC2InstanceId = Nothing
+    , _eidInfoType = Nothing
+    , _eidMessage = Nothing
+    }
 
 
 -- | The time stamp when this information was retrieved.
 eidSampleTimestamp :: Lens' EnvironmentInfoDescription (Maybe UTCTime)
-eidSampleTimestamp = lens _eidSampleTimestamp (\ s a -> s{_eidSampleTimestamp = a}) . mapping _Time;
+eidSampleTimestamp = lens _eidSampleTimestamp (\ s a -> s{_eidSampleTimestamp = a}) . mapping _Time
 
 -- | The Amazon EC2 Instance ID for this information.
 eidEC2InstanceId :: Lens' EnvironmentInfoDescription (Maybe Text)
-eidEC2InstanceId = lens _eidEC2InstanceId (\ s a -> s{_eidEC2InstanceId = a});
+eidEC2InstanceId = lens _eidEC2InstanceId (\ s a -> s{_eidEC2InstanceId = a})
 
 -- | The type of information retrieved.
 eidInfoType :: Lens' EnvironmentInfoDescription (Maybe EnvironmentInfoType)
-eidInfoType = lens _eidInfoType (\ s a -> s{_eidInfoType = a});
+eidInfoType = lens _eidInfoType (\ s a -> s{_eidInfoType = a})
 
 -- | The retrieved information.
 eidMessage :: Lens' EnvironmentInfoDescription (Maybe Text)
-eidMessage = lens _eidMessage (\ s a -> s{_eidMessage = a});
+eidMessage = lens _eidMessage (\ s a -> s{_eidMessage = a})
 
 instance FromXML EnvironmentInfoDescription where
         parseXML x
@@ -1449,11 +1467,11 @@ environmentLink =
 
 -- | The name of the link.
 elLinkName :: Lens' EnvironmentLink (Maybe Text)
-elLinkName = lens _elLinkName (\ s a -> s{_elLinkName = a});
+elLinkName = lens _elLinkName (\ s a -> s{_elLinkName = a})
 
 -- | The name of the linked environment (the dependency).
 elEnvironmentName :: Lens' EnvironmentLink (Maybe Text)
-elEnvironmentName = lens _elEnvironmentName (\ s a -> s{_elEnvironmentName = a});
+elEnvironmentName = lens _elEnvironmentName (\ s a -> s{_elEnvironmentName = a})
 
 instance FromXML EnvironmentLink where
         parseXML x
@@ -1501,43 +1519,43 @@ environmentResourceDescription
     :: EnvironmentResourceDescription
 environmentResourceDescription =
   EnvironmentResourceDescription'
-  { _erdQueues = Nothing
-  , _erdTriggers = Nothing
-  , _erdLoadBalancers = Nothing
-  , _erdEnvironmentName = Nothing
-  , _erdInstances = Nothing
-  , _erdLaunchConfigurations = Nothing
-  , _erdAutoScalingGroups = Nothing
-  }
+    { _erdQueues = Nothing
+    , _erdTriggers = Nothing
+    , _erdLoadBalancers = Nothing
+    , _erdEnvironmentName = Nothing
+    , _erdInstances = Nothing
+    , _erdLaunchConfigurations = Nothing
+    , _erdAutoScalingGroups = Nothing
+    }
 
 
 -- | The queues used by this environment.
 erdQueues :: Lens' EnvironmentResourceDescription [Queue]
-erdQueues = lens _erdQueues (\ s a -> s{_erdQueues = a}) . _Default . _Coerce;
+erdQueues = lens _erdQueues (\ s a -> s{_erdQueues = a}) . _Default . _Coerce
 
 -- | The @AutoScaling@ triggers in use by this environment.
 erdTriggers :: Lens' EnvironmentResourceDescription [Trigger]
-erdTriggers = lens _erdTriggers (\ s a -> s{_erdTriggers = a}) . _Default . _Coerce;
+erdTriggers = lens _erdTriggers (\ s a -> s{_erdTriggers = a}) . _Default . _Coerce
 
 -- | The LoadBalancers in use by this environment.
 erdLoadBalancers :: Lens' EnvironmentResourceDescription [LoadBalancer]
-erdLoadBalancers = lens _erdLoadBalancers (\ s a -> s{_erdLoadBalancers = a}) . _Default . _Coerce;
+erdLoadBalancers = lens _erdLoadBalancers (\ s a -> s{_erdLoadBalancers = a}) . _Default . _Coerce
 
 -- | The name of the environment.
 erdEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
-erdEnvironmentName = lens _erdEnvironmentName (\ s a -> s{_erdEnvironmentName = a});
+erdEnvironmentName = lens _erdEnvironmentName (\ s a -> s{_erdEnvironmentName = a})
 
 -- | The Amazon EC2 instances used by this environment.
 erdInstances :: Lens' EnvironmentResourceDescription [Instance]
-erdInstances = lens _erdInstances (\ s a -> s{_erdInstances = a}) . _Default . _Coerce;
+erdInstances = lens _erdInstances (\ s a -> s{_erdInstances = a}) . _Default . _Coerce
 
 -- | The Auto Scaling launch configurations in use by this environment.
 erdLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
-erdLaunchConfigurations = lens _erdLaunchConfigurations (\ s a -> s{_erdLaunchConfigurations = a}) . _Default . _Coerce;
+erdLaunchConfigurations = lens _erdLaunchConfigurations (\ s a -> s{_erdLaunchConfigurations = a}) . _Default . _Coerce
 
 -- | The @AutoScalingGroups@ used by this environment.
 erdAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
-erdAutoScalingGroups = lens _erdAutoScalingGroups (\ s a -> s{_erdAutoScalingGroups = a}) . _Default . _Coerce;
+erdAutoScalingGroups = lens _erdAutoScalingGroups (\ s a -> s{_erdAutoScalingGroups = a}) . _Default . _Coerce
 
 instance FromXML EnvironmentResourceDescription where
         parseXML x
@@ -1589,7 +1607,7 @@ environmentResourcesDescription =
 
 -- | Describes the LoadBalancer.
 erdLoadBalancer :: Lens' EnvironmentResourcesDescription (Maybe LoadBalancerDescription)
-erdLoadBalancer = lens _erdLoadBalancer (\ s a -> s{_erdLoadBalancer = a});
+erdLoadBalancer = lens _erdLoadBalancer (\ s a -> s{_erdLoadBalancer = a})
 
 instance FromXML EnvironmentResourcesDescription
          where
@@ -1631,15 +1649,15 @@ environmentTier =
 
 -- | The name of this environment tier.
 etName :: Lens' EnvironmentTier (Maybe Text)
-etName = lens _etName (\ s a -> s{_etName = a});
+etName = lens _etName (\ s a -> s{_etName = a})
 
 -- | The version of this environment tier.
 etVersion :: Lens' EnvironmentTier (Maybe Text)
-etVersion = lens _etVersion (\ s a -> s{_etVersion = a});
+etVersion = lens _etVersion (\ s a -> s{_etVersion = a})
 
 -- | The type of this environment tier.
 etType :: Lens' EnvironmentTier (Maybe Text)
-etType = lens _etType (\ s a -> s{_etType = a});
+etType = lens _etType (\ s a -> s{_etType = a})
 
 instance FromXML EnvironmentTier where
         parseXML x
@@ -1700,53 +1718,53 @@ eventDescription
     :: EventDescription
 eventDescription =
   EventDescription'
-  { _edRequestId = Nothing
-  , _edTemplateName = Nothing
-  , _edSeverity = Nothing
-  , _edVersionLabel = Nothing
-  , _edPlatformARN = Nothing
-  , _edEnvironmentName = Nothing
-  , _edApplicationName = Nothing
-  , _edEventDate = Nothing
-  , _edMessage = Nothing
-  }
+    { _edRequestId = Nothing
+    , _edTemplateName = Nothing
+    , _edSeverity = Nothing
+    , _edVersionLabel = Nothing
+    , _edPlatformARN = Nothing
+    , _edEnvironmentName = Nothing
+    , _edApplicationName = Nothing
+    , _edEventDate = Nothing
+    , _edMessage = Nothing
+    }
 
 
 -- | The web service request ID for the activity of this event.
 edRequestId :: Lens' EventDescription (Maybe Text)
-edRequestId = lens _edRequestId (\ s a -> s{_edRequestId = a});
+edRequestId = lens _edRequestId (\ s a -> s{_edRequestId = a})
 
 -- | The name of the configuration associated with this event.
 edTemplateName :: Lens' EventDescription (Maybe Text)
-edTemplateName = lens _edTemplateName (\ s a -> s{_edTemplateName = a});
+edTemplateName = lens _edTemplateName (\ s a -> s{_edTemplateName = a})
 
 -- | The severity level of this event.
 edSeverity :: Lens' EventDescription (Maybe EventSeverity)
-edSeverity = lens _edSeverity (\ s a -> s{_edSeverity = a});
+edSeverity = lens _edSeverity (\ s a -> s{_edSeverity = a})
 
 -- | The release label for the application version associated with this event.
 edVersionLabel :: Lens' EventDescription (Maybe Text)
-edVersionLabel = lens _edVersionLabel (\ s a -> s{_edVersionLabel = a});
+edVersionLabel = lens _edVersionLabel (\ s a -> s{_edVersionLabel = a})
 
 -- | The ARN of the platform.
 edPlatformARN :: Lens' EventDescription (Maybe Text)
-edPlatformARN = lens _edPlatformARN (\ s a -> s{_edPlatformARN = a});
+edPlatformARN = lens _edPlatformARN (\ s a -> s{_edPlatformARN = a})
 
 -- | The name of the environment associated with this event.
 edEnvironmentName :: Lens' EventDescription (Maybe Text)
-edEnvironmentName = lens _edEnvironmentName (\ s a -> s{_edEnvironmentName = a});
+edEnvironmentName = lens _edEnvironmentName (\ s a -> s{_edEnvironmentName = a})
 
 -- | The application associated with the event.
 edApplicationName :: Lens' EventDescription (Maybe Text)
-edApplicationName = lens _edApplicationName (\ s a -> s{_edApplicationName = a});
+edApplicationName = lens _edApplicationName (\ s a -> s{_edApplicationName = a})
 
 -- | The date when the event occurred.
 edEventDate :: Lens' EventDescription (Maybe UTCTime)
-edEventDate = lens _edEventDate (\ s a -> s{_edEventDate = a}) . mapping _Time;
+edEventDate = lens _edEventDate (\ s a -> s{_edEventDate = a}) . mapping _Time
 
 -- | The event message.
 edMessage :: Lens' EventDescription (Maybe Text)
-edMessage = lens _edMessage (\ s a -> s{_edMessage = a});
+edMessage = lens _edMessage (\ s a -> s{_edMessage = a})
 
 instance FromXML EventDescription where
         parseXML x
@@ -1786,7 +1804,7 @@ instance' = Instance' {_iId = Nothing}
 
 -- | The ID of the Amazon EC2 instance.
 iId :: Lens' Instance (Maybe Text)
-iId = lens _iId (\ s a -> s{_iId = a});
+iId = lens _iId (\ s a -> s{_iId = a})
 
 instance FromXML Instance where
         parseXML x = Instance' <$> (x .@? "Id")
@@ -1835,48 +1853,48 @@ instanceHealthSummary
     :: InstanceHealthSummary
 instanceHealthSummary =
   InstanceHealthSummary'
-  { _ihsOK = Nothing
-  , _ihsPending = Nothing
-  , _ihsSevere = Nothing
-  , _ihsUnknown = Nothing
-  , _ihsNoData = Nothing
-  , _ihsWarning = Nothing
-  , _ihsDegraded = Nothing
-  , _ihsInfo = Nothing
-  }
+    { _ihsOK = Nothing
+    , _ihsPending = Nothing
+    , _ihsSevere = Nothing
+    , _ihsUnknown = Nothing
+    , _ihsNoData = Nothing
+    , _ihsWarning = Nothing
+    , _ihsDegraded = Nothing
+    , _ihsInfo = Nothing
+    }
 
 
 -- | __Green.__ An instance is passing health checks and the health agent is not reporting any problems.
 ihsOK :: Lens' InstanceHealthSummary (Maybe Int)
-ihsOK = lens _ihsOK (\ s a -> s{_ihsOK = a});
+ihsOK = lens _ihsOK (\ s a -> s{_ihsOK = a})
 
 -- | __Grey.__ An operation is in progress on an instance within the command timeout.
 ihsPending :: Lens' InstanceHealthSummary (Maybe Int)
-ihsPending = lens _ihsPending (\ s a -> s{_ihsPending = a});
+ihsPending = lens _ihsPending (\ s a -> s{_ihsPending = a})
 
 -- | __Red.__ The health agent is reporting a very high number of request failures or other issues for an instance or environment.
 ihsSevere :: Lens' InstanceHealthSummary (Maybe Int)
-ihsSevere = lens _ihsSevere (\ s a -> s{_ihsSevere = a});
+ihsSevere = lens _ihsSevere (\ s a -> s{_ihsSevere = a})
 
 -- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting an insufficient amount of data on an instance.
 ihsUnknown :: Lens' InstanceHealthSummary (Maybe Int)
-ihsUnknown = lens _ihsUnknown (\ s a -> s{_ihsUnknown = a});
+ihsUnknown = lens _ihsUnknown (\ s a -> s{_ihsUnknown = a})
 
 -- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting no data on an instance.
 ihsNoData :: Lens' InstanceHealthSummary (Maybe Int)
-ihsNoData = lens _ihsNoData (\ s a -> s{_ihsNoData = a});
+ihsNoData = lens _ihsNoData (\ s a -> s{_ihsNoData = a})
 
 -- | __Yellow.__ The health agent is reporting a moderate number of request failures or other issues for an instance or environment.
 ihsWarning :: Lens' InstanceHealthSummary (Maybe Int)
-ihsWarning = lens _ihsWarning (\ s a -> s{_ihsWarning = a});
+ihsWarning = lens _ihsWarning (\ s a -> s{_ihsWarning = a})
 
 -- | __Red.__ The health agent is reporting a high number of request failures or other issues for an instance or environment.
 ihsDegraded :: Lens' InstanceHealthSummary (Maybe Int)
-ihsDegraded = lens _ihsDegraded (\ s a -> s{_ihsDegraded = a});
+ihsDegraded = lens _ihsDegraded (\ s a -> s{_ihsDegraded = a})
 
 -- | __Green.__ An operation is in progress on an instance.
 ihsInfo :: Lens' InstanceHealthSummary (Maybe Int)
-ihsInfo = lens _ihsInfo (\ s a -> s{_ihsInfo = a});
+ihsInfo = lens _ihsInfo (\ s a -> s{_ihsInfo = a})
 
 instance FromXML InstanceHealthSummary where
         parseXML x
@@ -1933,48 +1951,48 @@ latency
     :: Latency
 latency =
   Latency'
-  { _lP75 = Nothing
-  , _lP50 = Nothing
-  , _lP85 = Nothing
-  , _lP999 = Nothing
-  , _lP90 = Nothing
-  , _lP95 = Nothing
-  , _lP99 = Nothing
-  , _lP10 = Nothing
-  }
+    { _lP75 = Nothing
+    , _lP50 = Nothing
+    , _lP85 = Nothing
+    , _lP999 = Nothing
+    , _lP90 = Nothing
+    , _lP95 = Nothing
+    , _lP99 = Nothing
+    , _lP10 = Nothing
+    }
 
 
 -- | The average latency for the slowest 25 percent of requests over the last 10 seconds.
 lP75 :: Lens' Latency (Maybe Double)
-lP75 = lens _lP75 (\ s a -> s{_lP75 = a});
+lP75 = lens _lP75 (\ s a -> s{_lP75 = a})
 
 -- | The average latency for the slowest 50 percent of requests over the last 10 seconds.
 lP50 :: Lens' Latency (Maybe Double)
-lP50 = lens _lP50 (\ s a -> s{_lP50 = a});
+lP50 = lens _lP50 (\ s a -> s{_lP50 = a})
 
 -- | The average latency for the slowest 15 percent of requests over the last 10 seconds.
 lP85 :: Lens' Latency (Maybe Double)
-lP85 = lens _lP85 (\ s a -> s{_lP85 = a});
+lP85 = lens _lP85 (\ s a -> s{_lP85 = a})
 
 -- | The average latency for the slowest 0.1 percent of requests over the last 10 seconds.
 lP999 :: Lens' Latency (Maybe Double)
-lP999 = lens _lP999 (\ s a -> s{_lP999 = a});
+lP999 = lens _lP999 (\ s a -> s{_lP999 = a})
 
 -- | The average latency for the slowest 10 percent of requests over the last 10 seconds.
 lP90 :: Lens' Latency (Maybe Double)
-lP90 = lens _lP90 (\ s a -> s{_lP90 = a});
+lP90 = lens _lP90 (\ s a -> s{_lP90 = a})
 
 -- | The average latency for the slowest 5 percent of requests over the last 10 seconds.
 lP95 :: Lens' Latency (Maybe Double)
-lP95 = lens _lP95 (\ s a -> s{_lP95 = a});
+lP95 = lens _lP95 (\ s a -> s{_lP95 = a})
 
 -- | The average latency for the slowest 1 percent of requests over the last 10 seconds.
 lP99 :: Lens' Latency (Maybe Double)
-lP99 = lens _lP99 (\ s a -> s{_lP99 = a});
+lP99 = lens _lP99 (\ s a -> s{_lP99 = a})
 
 -- | The average latency for the slowest 90 percent of requests over the last 10 seconds.
 lP10 :: Lens' Latency (Maybe Double)
-lP10 = lens _lP10 (\ s a -> s{_lP10 = a});
+lP10 = lens _lP10 (\ s a -> s{_lP10 = a})
 
 instance FromXML Latency where
         parseXML x
@@ -2012,7 +2030,7 @@ launchConfiguration = LaunchConfiguration' {_lcName = Nothing}
 
 -- | The name of the launch configuration.
 lcName :: Lens' LaunchConfiguration (Maybe Text)
-lcName = lens _lcName (\ s a -> s{_lcName = a});
+lcName = lens _lcName (\ s a -> s{_lcName = a})
 
 instance FromXML LaunchConfiguration where
         parseXML x = LaunchConfiguration' <$> (x .@? "Name")
@@ -2046,11 +2064,11 @@ listener = Listener' {_lProtocol = Nothing, _lPort = Nothing}
 
 -- | The protocol that is used by the Listener.
 lProtocol :: Lens' Listener (Maybe Text)
-lProtocol = lens _lProtocol (\ s a -> s{_lProtocol = a});
+lProtocol = lens _lProtocol (\ s a -> s{_lProtocol = a})
 
 -- | The port that is used by the Listener.
 lPort :: Lens' Listener (Maybe Int)
-lPort = lens _lPort (\ s a -> s{_lPort = a});
+lPort = lens _lPort (\ s a -> s{_lPort = a})
 
 instance FromXML Listener where
         parseXML x
@@ -2082,7 +2100,7 @@ loadBalancer = LoadBalancer' {_lbName = Nothing}
 
 -- | The name of the LoadBalancer.
 lbName :: Lens' LoadBalancer (Maybe Text)
-lbName = lens _lbName (\ s a -> s{_lbName = a});
+lbName = lens _lbName (\ s a -> s{_lbName = a})
 
 instance FromXML LoadBalancer where
         parseXML x = LoadBalancer' <$> (x .@? "Name")
@@ -2116,23 +2134,23 @@ loadBalancerDescription
     :: LoadBalancerDescription
 loadBalancerDescription =
   LoadBalancerDescription'
-  { _lbdLoadBalancerName = Nothing
-  , _lbdDomain = Nothing
-  , _lbdListeners = Nothing
-  }
+    { _lbdLoadBalancerName = Nothing
+    , _lbdDomain = Nothing
+    , _lbdListeners = Nothing
+    }
 
 
 -- | The name of the LoadBalancer.
 lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
-lbdLoadBalancerName = lens _lbdLoadBalancerName (\ s a -> s{_lbdLoadBalancerName = a});
+lbdLoadBalancerName = lens _lbdLoadBalancerName (\ s a -> s{_lbdLoadBalancerName = a})
 
 -- | The domain name of the LoadBalancer.
 lbdDomain :: Lens' LoadBalancerDescription (Maybe Text)
-lbdDomain = lens _lbdDomain (\ s a -> s{_lbdDomain = a});
+lbdDomain = lens _lbdDomain (\ s a -> s{_lbdDomain = a})
 
 -- | A list of Listeners used by the LoadBalancer.
 lbdListeners :: Lens' LoadBalancerDescription [Listener]
-lbdListeners = lens _lbdListeners (\ s a -> s{_lbdListeners = a}) . _Default . _Coerce;
+lbdListeners = lens _lbdListeners (\ s a -> s{_lbdListeners = a}) . _Default . _Coerce
 
 instance FromXML LoadBalancerDescription where
         parseXML x
@@ -2176,33 +2194,33 @@ managedAction
     :: ManagedAction
 managedAction =
   ManagedAction'
-  { _maStatus = Nothing
-  , _maActionId = Nothing
-  , _maWindowStartTime = Nothing
-  , _maActionDescription = Nothing
-  , _maActionType = Nothing
-  }
+    { _maStatus = Nothing
+    , _maActionId = Nothing
+    , _maWindowStartTime = Nothing
+    , _maActionDescription = Nothing
+    , _maActionType = Nothing
+    }
 
 
 -- | The status of the managed action. If the action is @Scheduled@ , you can apply it immediately with 'ApplyEnvironmentManagedAction' .
 maStatus :: Lens' ManagedAction (Maybe ActionStatus)
-maStatus = lens _maStatus (\ s a -> s{_maStatus = a});
+maStatus = lens _maStatus (\ s a -> s{_maStatus = a})
 
 -- | A unique identifier for the managed action.
 maActionId :: Lens' ManagedAction (Maybe Text)
-maActionId = lens _maActionId (\ s a -> s{_maActionId = a});
+maActionId = lens _maActionId (\ s a -> s{_maActionId = a})
 
 -- | The start time of the maintenance window in which the managed action will execute.
 maWindowStartTime :: Lens' ManagedAction (Maybe UTCTime)
-maWindowStartTime = lens _maWindowStartTime (\ s a -> s{_maWindowStartTime = a}) . mapping _Time;
+maWindowStartTime = lens _maWindowStartTime (\ s a -> s{_maWindowStartTime = a}) . mapping _Time
 
 -- | A description of the managed action.
 maActionDescription :: Lens' ManagedAction (Maybe Text)
-maActionDescription = lens _maActionDescription (\ s a -> s{_maActionDescription = a});
+maActionDescription = lens _maActionDescription (\ s a -> s{_maActionDescription = a})
 
 -- | The type of managed action.
 maActionType :: Lens' ManagedAction (Maybe ActionType)
-maActionType = lens _maActionType (\ s a -> s{_maActionType = a});
+maActionType = lens _maActionType (\ s a -> s{_maActionType = a})
 
 instance FromXML ManagedAction where
         parseXML x
@@ -2256,48 +2274,48 @@ managedActionHistoryItem
     :: ManagedActionHistoryItem
 managedActionHistoryItem =
   ManagedActionHistoryItem'
-  { _mahiStatus = Nothing
-  , _mahiFailureType = Nothing
-  , _mahiActionId = Nothing
-  , _mahiFailureDescription = Nothing
-  , _mahiFinishedTime = Nothing
-  , _mahiActionDescription = Nothing
-  , _mahiExecutedTime = Nothing
-  , _mahiActionType = Nothing
-  }
+    { _mahiStatus = Nothing
+    , _mahiFailureType = Nothing
+    , _mahiActionId = Nothing
+    , _mahiFailureDescription = Nothing
+    , _mahiFinishedTime = Nothing
+    , _mahiActionDescription = Nothing
+    , _mahiExecutedTime = Nothing
+    , _mahiActionType = Nothing
+    }
 
 
 -- | The status of the action.
 mahiStatus :: Lens' ManagedActionHistoryItem (Maybe ActionHistoryStatus)
-mahiStatus = lens _mahiStatus (\ s a -> s{_mahiStatus = a});
+mahiStatus = lens _mahiStatus (\ s a -> s{_mahiStatus = a})
 
 -- | If the action failed, the type of failure.
 mahiFailureType :: Lens' ManagedActionHistoryItem (Maybe FailureType)
-mahiFailureType = lens _mahiFailureType (\ s a -> s{_mahiFailureType = a});
+mahiFailureType = lens _mahiFailureType (\ s a -> s{_mahiFailureType = a})
 
 -- | A unique identifier for the managed action.
 mahiActionId :: Lens' ManagedActionHistoryItem (Maybe Text)
-mahiActionId = lens _mahiActionId (\ s a -> s{_mahiActionId = a});
+mahiActionId = lens _mahiActionId (\ s a -> s{_mahiActionId = a})
 
 -- | If the action failed, a description of the failure.
 mahiFailureDescription :: Lens' ManagedActionHistoryItem (Maybe Text)
-mahiFailureDescription = lens _mahiFailureDescription (\ s a -> s{_mahiFailureDescription = a});
+mahiFailureDescription = lens _mahiFailureDescription (\ s a -> s{_mahiFailureDescription = a})
 
 -- | The date and time that the action finished executing.
 mahiFinishedTime :: Lens' ManagedActionHistoryItem (Maybe UTCTime)
-mahiFinishedTime = lens _mahiFinishedTime (\ s a -> s{_mahiFinishedTime = a}) . mapping _Time;
+mahiFinishedTime = lens _mahiFinishedTime (\ s a -> s{_mahiFinishedTime = a}) . mapping _Time
 
 -- | A description of the managed action.
 mahiActionDescription :: Lens' ManagedActionHistoryItem (Maybe Text)
-mahiActionDescription = lens _mahiActionDescription (\ s a -> s{_mahiActionDescription = a});
+mahiActionDescription = lens _mahiActionDescription (\ s a -> s{_mahiActionDescription = a})
 
 -- | The date and time that the action started executing.
 mahiExecutedTime :: Lens' ManagedActionHistoryItem (Maybe UTCTime)
-mahiExecutedTime = lens _mahiExecutedTime (\ s a -> s{_mahiExecutedTime = a}) . mapping _Time;
+mahiExecutedTime = lens _mahiExecutedTime (\ s a -> s{_mahiExecutedTime = a}) . mapping _Time
 
 -- | The type of the managed action.
 mahiActionType :: Lens' ManagedActionHistoryItem (Maybe ActionType)
-mahiActionType = lens _mahiActionType (\ s a -> s{_mahiActionType = a});
+mahiActionType = lens _mahiActionType (\ s a -> s{_mahiActionType = a})
 
 instance FromXML ManagedActionHistoryItem where
         parseXML x
@@ -2340,23 +2358,23 @@ maxAgeRule
     -> MaxAgeRule
 maxAgeRule pEnabled_ =
   MaxAgeRule'
-  { _marDeleteSourceFromS3 = Nothing
-  , _marMaxAgeInDays = Nothing
-  , _marEnabled = pEnabled_
-  }
+    { _marDeleteSourceFromS3 = Nothing
+    , _marMaxAgeInDays = Nothing
+    , _marEnabled = pEnabled_
+    }
 
 
 -- | Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 marDeleteSourceFromS3 :: Lens' MaxAgeRule (Maybe Bool)
-marDeleteSourceFromS3 = lens _marDeleteSourceFromS3 (\ s a -> s{_marDeleteSourceFromS3 = a});
+marDeleteSourceFromS3 = lens _marDeleteSourceFromS3 (\ s a -> s{_marDeleteSourceFromS3 = a})
 
 -- | Specify the number of days to retain an application versions.
 marMaxAgeInDays :: Lens' MaxAgeRule (Maybe Int)
-marMaxAgeInDays = lens _marMaxAgeInDays (\ s a -> s{_marMaxAgeInDays = a});
+marMaxAgeInDays = lens _marMaxAgeInDays (\ s a -> s{_marMaxAgeInDays = a})
 
 -- | Specify @true@ to apply the rule, or @false@ to disable it.
 marEnabled :: Lens' MaxAgeRule Bool
-marEnabled = lens _marEnabled (\ s a -> s{_marEnabled = a});
+marEnabled = lens _marEnabled (\ s a -> s{_marEnabled = a})
 
 instance FromXML MaxAgeRule where
         parseXML x
@@ -2402,23 +2420,23 @@ maxCountRule
     -> MaxCountRule
 maxCountRule pEnabled_ =
   MaxCountRule'
-  { _mcrMaxCount = Nothing
-  , _mcrDeleteSourceFromS3 = Nothing
-  , _mcrEnabled = pEnabled_
-  }
+    { _mcrMaxCount = Nothing
+    , _mcrDeleteSourceFromS3 = Nothing
+    , _mcrEnabled = pEnabled_
+    }
 
 
 -- | Specify the maximum number of application versions to retain.
 mcrMaxCount :: Lens' MaxCountRule (Maybe Int)
-mcrMaxCount = lens _mcrMaxCount (\ s a -> s{_mcrMaxCount = a});
+mcrMaxCount = lens _mcrMaxCount (\ s a -> s{_mcrMaxCount = a})
 
 -- | Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 mcrDeleteSourceFromS3 :: Lens' MaxCountRule (Maybe Bool)
-mcrDeleteSourceFromS3 = lens _mcrDeleteSourceFromS3 (\ s a -> s{_mcrDeleteSourceFromS3 = a});
+mcrDeleteSourceFromS3 = lens _mcrDeleteSourceFromS3 (\ s a -> s{_mcrDeleteSourceFromS3 = a})
 
 -- | Specify @true@ to apply the rule, or @false@ to disable it.
 mcrEnabled :: Lens' MaxCountRule Bool
-mcrEnabled = lens _mcrEnabled (\ s a -> s{_mcrEnabled = a});
+mcrEnabled = lens _mcrEnabled (\ s a -> s{_mcrEnabled = a})
 
 instance FromXML MaxCountRule where
         parseXML x
@@ -2463,11 +2481,11 @@ optionRestrictionRegex =
 
 -- | The regular expression pattern that a string configuration option value with this restriction must match.
 orrPattern :: Lens' OptionRestrictionRegex (Maybe Text)
-orrPattern = lens _orrPattern (\ s a -> s{_orrPattern = a});
+orrPattern = lens _orrPattern (\ s a -> s{_orrPattern = a})
 
 -- | A unique name representing this regular expression.
 orrLabel :: Lens' OptionRestrictionRegex (Maybe Text)
-orrLabel = lens _orrLabel (\ s a -> s{_orrLabel = a});
+orrLabel = lens _orrLabel (\ s a -> s{_orrLabel = a})
 
 instance FromXML OptionRestrictionRegex where
         parseXML x
@@ -2503,20 +2521,20 @@ optionSpecification
     :: OptionSpecification
 optionSpecification =
   OptionSpecification'
-  {_osOptionName = Nothing, _osResourceName = Nothing, _osNamespace = Nothing}
+    {_osOptionName = Nothing, _osResourceName = Nothing, _osNamespace = Nothing}
 
 
 -- | The name of the configuration option.
 osOptionName :: Lens' OptionSpecification (Maybe Text)
-osOptionName = lens _osOptionName (\ s a -> s{_osOptionName = a});
+osOptionName = lens _osOptionName (\ s a -> s{_osOptionName = a})
 
 -- | A unique resource name for a time-based scaling configuration option.
 osResourceName :: Lens' OptionSpecification (Maybe Text)
-osResourceName = lens _osResourceName (\ s a -> s{_osResourceName = a});
+osResourceName = lens _osResourceName (\ s a -> s{_osResourceName = a})
 
 -- | A unique namespace identifying the option's associated AWS resource.
 osNamespace :: Lens' OptionSpecification (Maybe Text)
-osNamespace = lens _osNamespace (\ s a -> s{_osNamespace = a});
+osNamespace = lens _osNamespace (\ s a -> s{_osNamespace = a})
 
 instance Hashable OptionSpecification where
 
@@ -2599,98 +2617,98 @@ platformDescription
     :: PlatformDescription
 platformDescription =
   PlatformDescription'
-  { _pdSupportedAddonList = Nothing
-  , _pdPlatformCategory = Nothing
-  , _pdPlatformVersion = Nothing
-  , _pdPlatformStatus = Nothing
-  , _pdMaintainer = Nothing
-  , _pdPlatformOwner = Nothing
-  , _pdDateUpdated = Nothing
-  , _pdCustomAMIList = Nothing
-  , _pdDateCreated = Nothing
-  , _pdOperatingSystemName = Nothing
-  , _pdFrameworks = Nothing
-  , _pdPlatformARN = Nothing
-  , _pdOperatingSystemVersion = Nothing
-  , _pdProgrammingLanguages = Nothing
-  , _pdSolutionStackName = Nothing
-  , _pdPlatformName = Nothing
-  , _pdDescription = Nothing
-  , _pdSupportedTierList = Nothing
-  }
+    { _pdSupportedAddonList = Nothing
+    , _pdPlatformCategory = Nothing
+    , _pdPlatformVersion = Nothing
+    , _pdPlatformStatus = Nothing
+    , _pdMaintainer = Nothing
+    , _pdPlatformOwner = Nothing
+    , _pdDateUpdated = Nothing
+    , _pdCustomAMIList = Nothing
+    , _pdDateCreated = Nothing
+    , _pdOperatingSystemName = Nothing
+    , _pdFrameworks = Nothing
+    , _pdPlatformARN = Nothing
+    , _pdOperatingSystemVersion = Nothing
+    , _pdProgrammingLanguages = Nothing
+    , _pdSolutionStackName = Nothing
+    , _pdPlatformName = Nothing
+    , _pdDescription = Nothing
+    , _pdSupportedTierList = Nothing
+    }
 
 
 -- | The additions supported by the platform.
 pdSupportedAddonList :: Lens' PlatformDescription [Text]
-pdSupportedAddonList = lens _pdSupportedAddonList (\ s a -> s{_pdSupportedAddonList = a}) . _Default . _Coerce;
+pdSupportedAddonList = lens _pdSupportedAddonList (\ s a -> s{_pdSupportedAddonList = a}) . _Default . _Coerce
 
 -- | The category of the platform.
 pdPlatformCategory :: Lens' PlatformDescription (Maybe Text)
-pdPlatformCategory = lens _pdPlatformCategory (\ s a -> s{_pdPlatformCategory = a});
+pdPlatformCategory = lens _pdPlatformCategory (\ s a -> s{_pdPlatformCategory = a})
 
 -- | The version of the platform.
 pdPlatformVersion :: Lens' PlatformDescription (Maybe Text)
-pdPlatformVersion = lens _pdPlatformVersion (\ s a -> s{_pdPlatformVersion = a});
+pdPlatformVersion = lens _pdPlatformVersion (\ s a -> s{_pdPlatformVersion = a})
 
 -- | The status of the platform.
 pdPlatformStatus :: Lens' PlatformDescription (Maybe PlatformStatus)
-pdPlatformStatus = lens _pdPlatformStatus (\ s a -> s{_pdPlatformStatus = a});
+pdPlatformStatus = lens _pdPlatformStatus (\ s a -> s{_pdPlatformStatus = a})
 
 -- | Information about the maintainer of the platform.
 pdMaintainer :: Lens' PlatformDescription (Maybe Text)
-pdMaintainer = lens _pdMaintainer (\ s a -> s{_pdMaintainer = a});
+pdMaintainer = lens _pdMaintainer (\ s a -> s{_pdMaintainer = a})
 
 -- | The AWS account ID of the person who created the platform.
 pdPlatformOwner :: Lens' PlatformDescription (Maybe Text)
-pdPlatformOwner = lens _pdPlatformOwner (\ s a -> s{_pdPlatformOwner = a});
+pdPlatformOwner = lens _pdPlatformOwner (\ s a -> s{_pdPlatformOwner = a})
 
 -- | The date when the platform was last updated.
 pdDateUpdated :: Lens' PlatformDescription (Maybe UTCTime)
-pdDateUpdated = lens _pdDateUpdated (\ s a -> s{_pdDateUpdated = a}) . mapping _Time;
+pdDateUpdated = lens _pdDateUpdated (\ s a -> s{_pdDateUpdated = a}) . mapping _Time
 
 -- | The custom AMIs supported by the platform.
 pdCustomAMIList :: Lens' PlatformDescription [CustomAMI]
-pdCustomAMIList = lens _pdCustomAMIList (\ s a -> s{_pdCustomAMIList = a}) . _Default . _Coerce;
+pdCustomAMIList = lens _pdCustomAMIList (\ s a -> s{_pdCustomAMIList = a}) . _Default . _Coerce
 
 -- | The date when the platform was created.
 pdDateCreated :: Lens' PlatformDescription (Maybe UTCTime)
-pdDateCreated = lens _pdDateCreated (\ s a -> s{_pdDateCreated = a}) . mapping _Time;
+pdDateCreated = lens _pdDateCreated (\ s a -> s{_pdDateCreated = a}) . mapping _Time
 
 -- | The operating system used by the platform.
 pdOperatingSystemName :: Lens' PlatformDescription (Maybe Text)
-pdOperatingSystemName = lens _pdOperatingSystemName (\ s a -> s{_pdOperatingSystemName = a});
+pdOperatingSystemName = lens _pdOperatingSystemName (\ s a -> s{_pdOperatingSystemName = a})
 
 -- | The frameworks supported by the platform.
 pdFrameworks :: Lens' PlatformDescription [PlatformFramework]
-pdFrameworks = lens _pdFrameworks (\ s a -> s{_pdFrameworks = a}) . _Default . _Coerce;
+pdFrameworks = lens _pdFrameworks (\ s a -> s{_pdFrameworks = a}) . _Default . _Coerce
 
 -- | The ARN of the platform.
 pdPlatformARN :: Lens' PlatformDescription (Maybe Text)
-pdPlatformARN = lens _pdPlatformARN (\ s a -> s{_pdPlatformARN = a});
+pdPlatformARN = lens _pdPlatformARN (\ s a -> s{_pdPlatformARN = a})
 
 -- | The version of the operating system used by the platform.
 pdOperatingSystemVersion :: Lens' PlatformDescription (Maybe Text)
-pdOperatingSystemVersion = lens _pdOperatingSystemVersion (\ s a -> s{_pdOperatingSystemVersion = a});
+pdOperatingSystemVersion = lens _pdOperatingSystemVersion (\ s a -> s{_pdOperatingSystemVersion = a})
 
 -- | The programming languages supported by the platform.
 pdProgrammingLanguages :: Lens' PlatformDescription [PlatformProgrammingLanguage]
-pdProgrammingLanguages = lens _pdProgrammingLanguages (\ s a -> s{_pdProgrammingLanguages = a}) . _Default . _Coerce;
+pdProgrammingLanguages = lens _pdProgrammingLanguages (\ s a -> s{_pdProgrammingLanguages = a}) . _Default . _Coerce
 
 -- | The name of the solution stack used by the platform.
 pdSolutionStackName :: Lens' PlatformDescription (Maybe Text)
-pdSolutionStackName = lens _pdSolutionStackName (\ s a -> s{_pdSolutionStackName = a});
+pdSolutionStackName = lens _pdSolutionStackName (\ s a -> s{_pdSolutionStackName = a})
 
 -- | The name of the platform.
 pdPlatformName :: Lens' PlatformDescription (Maybe Text)
-pdPlatformName = lens _pdPlatformName (\ s a -> s{_pdPlatformName = a});
+pdPlatformName = lens _pdPlatformName (\ s a -> s{_pdPlatformName = a})
 
 -- | The description of the platform.
 pdDescription :: Lens' PlatformDescription (Maybe Text)
-pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a});
+pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a})
 
 -- | The tiers supported by the platform.
 pdSupportedTierList :: Lens' PlatformDescription [Text]
-pdSupportedTierList = lens _pdSupportedTierList (\ s a -> s{_pdSupportedTierList = a}) . _Default . _Coerce;
+pdSupportedTierList = lens _pdSupportedTierList (\ s a -> s{_pdSupportedTierList = a}) . _Default . _Coerce
 
 instance FromXML PlatformDescription where
         parseXML x
@@ -2756,20 +2774,20 @@ platformFilter
     :: PlatformFilter
 platformFilter =
   PlatformFilter'
-  {_pfValues = Nothing, _pfOperator = Nothing, _pfType = Nothing}
+    {_pfValues = Nothing, _pfOperator = Nothing, _pfType = Nothing}
 
 
 -- | The list of values applied to the custom platform attribute.
 pfValues :: Lens' PlatformFilter [Text]
-pfValues = lens _pfValues (\ s a -> s{_pfValues = a}) . _Default . _Coerce;
+pfValues = lens _pfValues (\ s a -> s{_pfValues = a}) . _Default . _Coerce
 
 -- | The operator to apply to the @Type@ with each of the @Values@ . Valid Values: @=@ (equal to) | @!=@ (not equal to) | @<@ (less than) | @<=@ (less than or equal to) | @>@ (greater than) | @>=@ (greater than or equal to) | @contains@ | @begins_with@ | @ends_with@
 pfOperator :: Lens' PlatformFilter (Maybe Text)
-pfOperator = lens _pfOperator (\ s a -> s{_pfOperator = a});
+pfOperator = lens _pfOperator (\ s a -> s{_pfOperator = a})
 
 -- | The custom platform attribute to which the filter values are applied. Valid Values: @PlatformName@ | @PlatformVersion@ | @PlatformStatus@ | @PlatformOwner@
 pfType :: Lens' PlatformFilter (Maybe Text)
-pfType = lens _pfType (\ s a -> s{_pfType = a});
+pfType = lens _pfType (\ s a -> s{_pfType = a})
 
 instance Hashable PlatformFilter where
 
@@ -2807,11 +2825,11 @@ platformFramework = PlatformFramework' {_pfName = Nothing, _pfVersion = Nothing}
 
 -- | The name of the framework.
 pfName :: Lens' PlatformFramework (Maybe Text)
-pfName = lens _pfName (\ s a -> s{_pfName = a});
+pfName = lens _pfName (\ s a -> s{_pfName = a})
 
 -- | The version of the framework.
 pfVersion :: Lens' PlatformFramework (Maybe Text)
-pfVersion = lens _pfVersion (\ s a -> s{_pfVersion = a});
+pfVersion = lens _pfVersion (\ s a -> s{_pfVersion = a})
 
 instance FromXML PlatformFramework where
         parseXML x
@@ -2848,11 +2866,11 @@ platformProgrammingLanguage =
 
 -- | The name of the programming language.
 pplName :: Lens' PlatformProgrammingLanguage (Maybe Text)
-pplName = lens _pplName (\ s a -> s{_pplName = a});
+pplName = lens _pplName (\ s a -> s{_pplName = a})
 
 -- | The version of the programming language.
 pplVersion :: Lens' PlatformProgrammingLanguage (Maybe Text)
-pplVersion = lens _pplVersion (\ s a -> s{_pplVersion = a});
+pplVersion = lens _pplVersion (\ s a -> s{_pplVersion = a})
 
 instance FromXML PlatformProgrammingLanguage where
         parseXML x
@@ -2903,48 +2921,48 @@ platformSummary
     :: PlatformSummary
 platformSummary =
   PlatformSummary'
-  { _psSupportedAddonList = Nothing
-  , _psPlatformCategory = Nothing
-  , _psPlatformStatus = Nothing
-  , _psPlatformOwner = Nothing
-  , _psOperatingSystemName = Nothing
-  , _psPlatformARN = Nothing
-  , _psOperatingSystemVersion = Nothing
-  , _psSupportedTierList = Nothing
-  }
+    { _psSupportedAddonList = Nothing
+    , _psPlatformCategory = Nothing
+    , _psPlatformStatus = Nothing
+    , _psPlatformOwner = Nothing
+    , _psOperatingSystemName = Nothing
+    , _psPlatformARN = Nothing
+    , _psOperatingSystemVersion = Nothing
+    , _psSupportedTierList = Nothing
+    }
 
 
 -- | The additions associated with the platform.
 psSupportedAddonList :: Lens' PlatformSummary [Text]
-psSupportedAddonList = lens _psSupportedAddonList (\ s a -> s{_psSupportedAddonList = a}) . _Default . _Coerce;
+psSupportedAddonList = lens _psSupportedAddonList (\ s a -> s{_psSupportedAddonList = a}) . _Default . _Coerce
 
 -- | The category of platform.
 psPlatformCategory :: Lens' PlatformSummary (Maybe Text)
-psPlatformCategory = lens _psPlatformCategory (\ s a -> s{_psPlatformCategory = a});
+psPlatformCategory = lens _psPlatformCategory (\ s a -> s{_psPlatformCategory = a})
 
 -- | The status of the platform. You can create an environment from the platform once it is ready.
 psPlatformStatus :: Lens' PlatformSummary (Maybe PlatformStatus)
-psPlatformStatus = lens _psPlatformStatus (\ s a -> s{_psPlatformStatus = a});
+psPlatformStatus = lens _psPlatformStatus (\ s a -> s{_psPlatformStatus = a})
 
 -- | The AWS account ID of the person who created the platform.
 psPlatformOwner :: Lens' PlatformSummary (Maybe Text)
-psPlatformOwner = lens _psPlatformOwner (\ s a -> s{_psPlatformOwner = a});
+psPlatformOwner = lens _psPlatformOwner (\ s a -> s{_psPlatformOwner = a})
 
 -- | The operating system used by the platform.
 psOperatingSystemName :: Lens' PlatformSummary (Maybe Text)
-psOperatingSystemName = lens _psOperatingSystemName (\ s a -> s{_psOperatingSystemName = a});
+psOperatingSystemName = lens _psOperatingSystemName (\ s a -> s{_psOperatingSystemName = a})
 
 -- | The ARN of the platform.
 psPlatformARN :: Lens' PlatformSummary (Maybe Text)
-psPlatformARN = lens _psPlatformARN (\ s a -> s{_psPlatformARN = a});
+psPlatformARN = lens _psPlatformARN (\ s a -> s{_psPlatformARN = a})
 
 -- | The version of the operating system used by the platform.
 psOperatingSystemVersion :: Lens' PlatformSummary (Maybe Text)
-psOperatingSystemVersion = lens _psOperatingSystemVersion (\ s a -> s{_psOperatingSystemVersion = a});
+psOperatingSystemVersion = lens _psOperatingSystemVersion (\ s a -> s{_psOperatingSystemVersion = a})
 
 -- | The tiers in which the platform runs.
 psSupportedTierList :: Lens' PlatformSummary [Text]
-psSupportedTierList = lens _psSupportedTierList (\ s a -> s{_psSupportedTierList = a}) . _Default . _Coerce;
+psSupportedTierList = lens _psSupportedTierList (\ s a -> s{_psSupportedTierList = a}) . _Default . _Coerce
 
 instance FromXML PlatformSummary where
         parseXML x
@@ -2990,11 +3008,11 @@ queue = Queue' {_qURL = Nothing, _qName = Nothing}
 
 -- | The URL of the queue.
 qURL :: Lens' Queue (Maybe Text)
-qURL = lens _qURL (\ s a -> s{_qURL = a});
+qURL = lens _qURL (\ s a -> s{_qURL = a})
 
 -- | The name of the queue.
 qName :: Lens' Queue (Maybe Text)
-qName = lens _qName (\ s a -> s{_qName = a});
+qName = lens _qName (\ s a -> s{_qName = a})
 
 instance FromXML Queue where
         parseXML x
@@ -3003,6 +3021,109 @@ instance FromXML Queue where
 instance Hashable Queue where
 
 instance NFData Queue where
+
+-- | The AWS Elastic Beanstalk quota information for a single resource type in an AWS account. It reflects the resource's limits for this account.
+--
+--
+--
+-- /See:/ 'resourceQuota' smart constructor.
+newtype ResourceQuota = ResourceQuota'
+  { _rqMaximum :: Maybe Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ResourceQuota' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rqMaximum' - The maximum number of instances of this Elastic Beanstalk resource type that an AWS account can use.
+resourceQuota
+    :: ResourceQuota
+resourceQuota = ResourceQuota' {_rqMaximum = Nothing}
+
+
+-- | The maximum number of instances of this Elastic Beanstalk resource type that an AWS account can use.
+rqMaximum :: Lens' ResourceQuota (Maybe Int)
+rqMaximum = lens _rqMaximum (\ s a -> s{_rqMaximum = a})
+
+instance FromXML ResourceQuota where
+        parseXML x = ResourceQuota' <$> (x .@? "Maximum")
+
+instance Hashable ResourceQuota where
+
+instance NFData ResourceQuota where
+
+-- | A set of per-resource AWS Elastic Beanstalk quotas associated with an AWS account. They reflect Elastic Beanstalk resource limits for this account.
+--
+--
+--
+-- /See:/ 'resourceQuotas' smart constructor.
+data ResourceQuotas = ResourceQuotas'
+  { _rqApplicationQuota           :: !(Maybe ResourceQuota)
+  , _rqCustomPlatformQuota        :: !(Maybe ResourceQuota)
+  , _rqApplicationVersionQuota    :: !(Maybe ResourceQuota)
+  , _rqEnvironmentQuota           :: !(Maybe ResourceQuota)
+  , _rqConfigurationTemplateQuota :: !(Maybe ResourceQuota)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ResourceQuotas' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rqApplicationQuota' - The quota for applications in the AWS account.
+--
+-- * 'rqCustomPlatformQuota' - The quota for custom platforms in the AWS account.
+--
+-- * 'rqApplicationVersionQuota' - The quota for application versions in the AWS account.
+--
+-- * 'rqEnvironmentQuota' - The quota for environments in the AWS account.
+--
+-- * 'rqConfigurationTemplateQuota' - The quota for configuration templates in the AWS account.
+resourceQuotas
+    :: ResourceQuotas
+resourceQuotas =
+  ResourceQuotas'
+    { _rqApplicationQuota = Nothing
+    , _rqCustomPlatformQuota = Nothing
+    , _rqApplicationVersionQuota = Nothing
+    , _rqEnvironmentQuota = Nothing
+    , _rqConfigurationTemplateQuota = Nothing
+    }
+
+
+-- | The quota for applications in the AWS account.
+rqApplicationQuota :: Lens' ResourceQuotas (Maybe ResourceQuota)
+rqApplicationQuota = lens _rqApplicationQuota (\ s a -> s{_rqApplicationQuota = a})
+
+-- | The quota for custom platforms in the AWS account.
+rqCustomPlatformQuota :: Lens' ResourceQuotas (Maybe ResourceQuota)
+rqCustomPlatformQuota = lens _rqCustomPlatformQuota (\ s a -> s{_rqCustomPlatformQuota = a})
+
+-- | The quota for application versions in the AWS account.
+rqApplicationVersionQuota :: Lens' ResourceQuotas (Maybe ResourceQuota)
+rqApplicationVersionQuota = lens _rqApplicationVersionQuota (\ s a -> s{_rqApplicationVersionQuota = a})
+
+-- | The quota for environments in the AWS account.
+rqEnvironmentQuota :: Lens' ResourceQuotas (Maybe ResourceQuota)
+rqEnvironmentQuota = lens _rqEnvironmentQuota (\ s a -> s{_rqEnvironmentQuota = a})
+
+-- | The quota for configuration templates in the AWS account.
+rqConfigurationTemplateQuota :: Lens' ResourceQuotas (Maybe ResourceQuota)
+rqConfigurationTemplateQuota = lens _rqConfigurationTemplateQuota (\ s a -> s{_rqConfigurationTemplateQuota = a})
+
+instance FromXML ResourceQuotas where
+        parseXML x
+          = ResourceQuotas' <$>
+              (x .@? "ApplicationQuota") <*>
+                (x .@? "CustomPlatformQuota")
+                <*> (x .@? "ApplicationVersionQuota")
+                <*> (x .@? "EnvironmentQuota")
+                <*> (x .@? "ConfigurationTemplateQuota")
+
+instance Hashable ResourceQuotas where
+
+instance NFData ResourceQuotas where
 
 -- | The bucket and key of an item stored in Amazon S3.
 --
@@ -3029,11 +3150,11 @@ s3Location = S3Location' {_slS3Key = Nothing, _slS3Bucket = Nothing}
 
 -- | The Amazon S3 key where the data is located.
 slS3Key :: Lens' S3Location (Maybe Text)
-slS3Key = lens _slS3Key (\ s a -> s{_slS3Key = a});
+slS3Key = lens _slS3Key (\ s a -> s{_slS3Key = a})
 
 -- | The Amazon S3 bucket where the data is located.
 slS3Bucket :: Lens' S3Location (Maybe Text)
-slS3Bucket = lens _slS3Bucket (\ s a -> s{_slS3Bucket = a});
+slS3Bucket = lens _slS3Bucket (\ s a -> s{_slS3Bucket = a})
 
 instance FromXML S3Location where
         parseXML x
@@ -3095,58 +3216,58 @@ singleInstanceHealth
     :: SingleInstanceHealth
 singleInstanceHealth =
   SingleInstanceHealth'
-  { _sihInstanceId = Nothing
-  , _sihCauses = Nothing
-  , _sihSystem = Nothing
-  , _sihApplicationMetrics = Nothing
-  , _sihColor = Nothing
-  , _sihInstanceType = Nothing
-  , _sihAvailabilityZone = Nothing
-  , _sihHealthStatus = Nothing
-  , _sihDeployment = Nothing
-  , _sihLaunchedAt = Nothing
-  }
+    { _sihInstanceId = Nothing
+    , _sihCauses = Nothing
+    , _sihSystem = Nothing
+    , _sihApplicationMetrics = Nothing
+    , _sihColor = Nothing
+    , _sihInstanceType = Nothing
+    , _sihAvailabilityZone = Nothing
+    , _sihHealthStatus = Nothing
+    , _sihDeployment = Nothing
+    , _sihLaunchedAt = Nothing
+    }
 
 
 -- | The ID of the Amazon EC2 instance.
 sihInstanceId :: Lens' SingleInstanceHealth (Maybe Text)
-sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a});
+sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a})
 
 -- | Represents the causes, which provide more information about the current health status.
 sihCauses :: Lens' SingleInstanceHealth [Text]
-sihCauses = lens _sihCauses (\ s a -> s{_sihCauses = a}) . _Default . _Coerce;
+sihCauses = lens _sihCauses (\ s a -> s{_sihCauses = a}) . _Default . _Coerce
 
 -- | Operating system metrics from the instance.
 sihSystem :: Lens' SingleInstanceHealth (Maybe SystemStatus)
-sihSystem = lens _sihSystem (\ s a -> s{_sihSystem = a});
+sihSystem = lens _sihSystem (\ s a -> s{_sihSystem = a})
 
 -- | Request metrics from your application.
 sihApplicationMetrics :: Lens' SingleInstanceHealth (Maybe ApplicationMetrics)
-sihApplicationMetrics = lens _sihApplicationMetrics (\ s a -> s{_sihApplicationMetrics = a});
+sihApplicationMetrics = lens _sihApplicationMetrics (\ s a -> s{_sihApplicationMetrics = a})
 
 -- | Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 sihColor :: Lens' SingleInstanceHealth (Maybe Text)
-sihColor = lens _sihColor (\ s a -> s{_sihColor = a});
+sihColor = lens _sihColor (\ s a -> s{_sihColor = a})
 
 -- | The instance's type.
 sihInstanceType :: Lens' SingleInstanceHealth (Maybe Text)
-sihInstanceType = lens _sihInstanceType (\ s a -> s{_sihInstanceType = a});
+sihInstanceType = lens _sihInstanceType (\ s a -> s{_sihInstanceType = a})
 
 -- | The availability zone in which the instance runs.
 sihAvailabilityZone :: Lens' SingleInstanceHealth (Maybe Text)
-sihAvailabilityZone = lens _sihAvailabilityZone (\ s a -> s{_sihAvailabilityZone = a});
+sihAvailabilityZone = lens _sihAvailabilityZone (\ s a -> s{_sihAvailabilityZone = a})
 
 -- | Returns the health status of the specified instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 sihHealthStatus :: Lens' SingleInstanceHealth (Maybe Text)
-sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
+sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a})
 
 -- | Information about the most recent deployment to an instance.
 sihDeployment :: Lens' SingleInstanceHealth (Maybe Deployment)
-sihDeployment = lens _sihDeployment (\ s a -> s{_sihDeployment = a});
+sihDeployment = lens _sihDeployment (\ s a -> s{_sihDeployment = a})
 
 -- | The time at which the EC2 instance was launched.
 sihLaunchedAt :: Lens' SingleInstanceHealth (Maybe UTCTime)
-sihLaunchedAt = lens _sihLaunchedAt (\ s a -> s{_sihLaunchedAt = a}) . mapping _Time;
+sihLaunchedAt = lens _sihLaunchedAt (\ s a -> s{_sihLaunchedAt = a}) . mapping _Time
 
 instance FromXML SingleInstanceHealth where
         parseXML x
@@ -3189,16 +3310,16 @@ solutionStackDescription
     :: SolutionStackDescription
 solutionStackDescription =
   SolutionStackDescription'
-  {_ssdPermittedFileTypes = Nothing, _ssdSolutionStackName = Nothing}
+    {_ssdPermittedFileTypes = Nothing, _ssdSolutionStackName = Nothing}
 
 
 -- | The permitted file types allowed for a solution stack.
 ssdPermittedFileTypes :: Lens' SolutionStackDescription [Text]
-ssdPermittedFileTypes = lens _ssdPermittedFileTypes (\ s a -> s{_ssdPermittedFileTypes = a}) . _Default . _Coerce;
+ssdPermittedFileTypes = lens _ssdPermittedFileTypes (\ s a -> s{_ssdPermittedFileTypes = a}) . _Default . _Coerce
 
 -- | The name of the solution stack.
 ssdSolutionStackName :: Lens' SolutionStackDescription (Maybe Text)
-ssdSolutionStackName = lens _ssdSolutionStackName (\ s a -> s{_ssdSolutionStackName = a});
+ssdSolutionStackName = lens _ssdSolutionStackName (\ s a -> s{_ssdSolutionStackName = a})
 
 instance FromXML SolutionStackDescription where
         parseXML x
@@ -3239,23 +3360,23 @@ sourceBuildInformation
     -> SourceBuildInformation
 sourceBuildInformation pSourceType_ pSourceRepository_ pSourceLocation_ =
   SourceBuildInformation'
-  { _sbiSourceType = pSourceType_
-  , _sbiSourceRepository = pSourceRepository_
-  , _sbiSourceLocation = pSourceLocation_
-  }
+    { _sbiSourceType = pSourceType_
+    , _sbiSourceRepository = pSourceRepository_
+    , _sbiSourceLocation = pSourceLocation_
+    }
 
 
 -- | The type of repository.     * @Git@      * @Zip@
 sbiSourceType :: Lens' SourceBuildInformation SourceType
-sbiSourceType = lens _sbiSourceType (\ s a -> s{_sbiSourceType = a});
+sbiSourceType = lens _sbiSourceType (\ s a -> s{_sbiSourceType = a})
 
 -- | Location where the repository is stored.     * @CodeCommit@      * @S3@
 sbiSourceRepository :: Lens' SourceBuildInformation SourceRepository
-sbiSourceRepository = lens _sbiSourceRepository (\ s a -> s{_sbiSourceRepository = a});
+sbiSourceRepository = lens _sbiSourceRepository (\ s a -> s{_sbiSourceRepository = a})
 
 -- | The location of the source code, as a formatted string, depending on the value of @SourceRepository@      * For @CodeCommit@ , the format is the repository name and commit ID, separated by a forward slash. For example, @my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .     * For @S3@ , the format is the S3 bucket name and object key, separated by a forward slash. For example, @my-s3-bucket/Folders/my-source-file@ .
 sbiSourceLocation :: Lens' SourceBuildInformation Text
-sbiSourceLocation = lens _sbiSourceLocation (\ s a -> s{_sbiSourceLocation = a});
+sbiSourceLocation = lens _sbiSourceLocation (\ s a -> s{_sbiSourceLocation = a})
 
 instance FromXML SourceBuildInformation where
         parseXML x
@@ -3300,11 +3421,11 @@ sourceConfiguration =
 
 -- | The name of the configuration template.
 scTemplateName :: Lens' SourceConfiguration (Maybe Text)
-scTemplateName = lens _scTemplateName (\ s a -> s{_scTemplateName = a});
+scTemplateName = lens _scTemplateName (\ s a -> s{_scTemplateName = a})
 
 -- | The name of the application associated with the configuration.
 scApplicationName :: Lens' SourceConfiguration (Maybe Text)
-scApplicationName = lens _scApplicationName (\ s a -> s{_scApplicationName = a});
+scApplicationName = lens _scApplicationName (\ s a -> s{_scApplicationName = a})
 
 instance Hashable SourceConfiguration where
 
@@ -3344,28 +3465,28 @@ statusCodes
     :: StatusCodes
 statusCodes =
   StatusCodes'
-  { _scStatus2xx = Nothing
-  , _scStatus3xx = Nothing
-  , _scStatus4xx = Nothing
-  , _scStatus5xx = Nothing
-  }
+    { _scStatus2xx = Nothing
+    , _scStatus3xx = Nothing
+    , _scStatus4xx = Nothing
+    , _scStatus5xx = Nothing
+    }
 
 
 -- | The percentage of requests over the last 10 seconds that resulted in a 2xx (200, 201, etc.) status code.
 scStatus2xx :: Lens' StatusCodes (Maybe Int)
-scStatus2xx = lens _scStatus2xx (\ s a -> s{_scStatus2xx = a});
+scStatus2xx = lens _scStatus2xx (\ s a -> s{_scStatus2xx = a})
 
 -- | The percentage of requests over the last 10 seconds that resulted in a 3xx (300, 301, etc.) status code.
 scStatus3xx :: Lens' StatusCodes (Maybe Int)
-scStatus3xx = lens _scStatus3xx (\ s a -> s{_scStatus3xx = a});
+scStatus3xx = lens _scStatus3xx (\ s a -> s{_scStatus3xx = a})
 
 -- | The percentage of requests over the last 10 seconds that resulted in a 4xx (400, 401, etc.) status code.
 scStatus4xx :: Lens' StatusCodes (Maybe Int)
-scStatus4xx = lens _scStatus4xx (\ s a -> s{_scStatus4xx = a});
+scStatus4xx = lens _scStatus4xx (\ s a -> s{_scStatus4xx = a})
 
 -- | The percentage of requests over the last 10 seconds that resulted in a 5xx (500, 501, etc.) status code.
 scStatus5xx :: Lens' StatusCodes (Maybe Int)
-scStatus5xx = lens _scStatus5xx (\ s a -> s{_scStatus5xx = a});
+scStatus5xx = lens _scStatus5xx (\ s a -> s{_scStatus5xx = a})
 
 instance FromXML StatusCodes where
         parseXML x
@@ -3404,11 +3525,11 @@ systemStatus =
 
 -- | CPU utilization metrics for the instance.
 ssCPUUtilization :: Lens' SystemStatus (Maybe CPUUtilization)
-ssCPUUtilization = lens _ssCPUUtilization (\ s a -> s{_ssCPUUtilization = a});
+ssCPUUtilization = lens _ssCPUUtilization (\ s a -> s{_ssCPUUtilization = a})
 
 -- | Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
 ssLoadAverage :: Lens' SystemStatus [Double]
-ssLoadAverage = lens _ssLoadAverage (\ s a -> s{_ssLoadAverage = a}) . _Default . _Coerce;
+ssLoadAverage = lens _ssLoadAverage (\ s a -> s{_ssLoadAverage = a}) . _Default . _Coerce
 
 instance FromXML SystemStatus where
         parseXML x
@@ -3446,11 +3567,11 @@ tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
 
 -- | The value of the tag.
 tagValue :: Lens' Tag (Maybe Text)
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 -- | The key of the tag.
 tagKey :: Lens' Tag (Maybe Text)
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 instance FromXML Tag where
         parseXML x
@@ -3486,7 +3607,7 @@ trigger = Trigger' {_tName = Nothing}
 
 -- | The name of the trigger.
 tName :: Lens' Trigger (Maybe Text)
-tName = lens _tName (\ s a -> s{_tName = a});
+tName = lens _tName (\ s a -> s{_tName = a})
 
 instance FromXML Trigger where
         parseXML x = Trigger' <$> (x .@? "Name")
@@ -3523,28 +3644,28 @@ validationMessage
     :: ValidationMessage
 validationMessage =
   ValidationMessage'
-  { _vmOptionName = Nothing
-  , _vmSeverity = Nothing
-  , _vmNamespace = Nothing
-  , _vmMessage = Nothing
-  }
+    { _vmOptionName = Nothing
+    , _vmSeverity = Nothing
+    , _vmNamespace = Nothing
+    , _vmMessage = Nothing
+    }
 
 
 -- | The name of the option.
 vmOptionName :: Lens' ValidationMessage (Maybe Text)
-vmOptionName = lens _vmOptionName (\ s a -> s{_vmOptionName = a});
+vmOptionName = lens _vmOptionName (\ s a -> s{_vmOptionName = a})
 
 -- | An indication of the severity of this message:     * @error@ : This message indicates that this is not a valid setting for an option.     * @warning@ : This message is providing information you should take into account.
 vmSeverity :: Lens' ValidationMessage (Maybe ValidationSeverity)
-vmSeverity = lens _vmSeverity (\ s a -> s{_vmSeverity = a});
+vmSeverity = lens _vmSeverity (\ s a -> s{_vmSeverity = a})
 
 -- | The namespace to which the option belongs.
 vmNamespace :: Lens' ValidationMessage (Maybe Text)
-vmNamespace = lens _vmNamespace (\ s a -> s{_vmNamespace = a});
+vmNamespace = lens _vmNamespace (\ s a -> s{_vmNamespace = a})
 
 -- | A message describing the error or warning.
 vmMessage :: Lens' ValidationMessage (Maybe Text)
-vmMessage = lens _vmMessage (\ s a -> s{_vmMessage = a});
+vmMessage = lens _vmMessage (\ s a -> s{_vmMessage = a})
 
 instance FromXML ValidationMessage where
         parseXML x

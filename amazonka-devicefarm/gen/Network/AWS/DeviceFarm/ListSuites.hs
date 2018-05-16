@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListSuites
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about suites.
+-- Gets information about test suites for a given job.
 --
 --
 --
@@ -66,7 +66,7 @@ data ListSuites = ListSuites'
 --
 -- * 'lNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lArn' - The suites' ARNs.
+-- * 'lArn' - The job's Amazon Resource Name (ARN).
 listSuites
     :: Text -- ^ 'lArn'
     -> ListSuites
@@ -75,11 +75,11 @@ listSuites pArn_ = ListSuites' {_lNextToken = Nothing, _lArn = pArn_}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lNextToken :: Lens' ListSuites (Maybe Text)
-lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
+lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a})
 
--- | The suites' ARNs.
+-- | The job's Amazon Resource Name (ARN).
 lArn :: Lens' ListSuites Text
-lArn = lens _lArn (\ s a -> s{_lArn = a});
+lArn = lens _lArn (\ s a -> s{_lArn = a})
 
 instance AWSPager ListSuites where
         page rq rs
@@ -150,22 +150,22 @@ listSuitesResponse
     -> ListSuitesResponse
 listSuitesResponse pResponseStatus_ =
   ListSuitesResponse'
-  { _lsrsNextToken = Nothing
-  , _lsrsSuites = Nothing
-  , _lsrsResponseStatus = pResponseStatus_
-  }
+    { _lsrsNextToken = Nothing
+    , _lsrsSuites = Nothing
+    , _lsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 lsrsNextToken :: Lens' ListSuitesResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
+lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a})
 
 -- | Information about the suites.
 lsrsSuites :: Lens' ListSuitesResponse [Suite]
-lsrsSuites = lens _lsrsSuites (\ s a -> s{_lsrsSuites = a}) . _Default . _Coerce;
+lsrsSuites = lens _lsrsSuites (\ s a -> s{_lsrsSuites = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lsrsResponseStatus :: Lens' ListSuitesResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
+lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a})
 
 instance NFData ListSuitesResponse where

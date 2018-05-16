@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Shield.DescribeProtection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ describeProtection pProtectionId_ =
 
 -- | The unique identifier (ID) for the 'Protection' object that is described.
 dpProtectionId :: Lens' DescribeProtection Text
-dpProtectionId = lens _dpProtectionId (\ s a -> s{_dpProtectionId = a});
+dpProtectionId = lens _dpProtectionId (\ s a -> s{_dpProtectionId = a})
 
 instance AWSRequest DescribeProtection where
         type Rs DescribeProtection =
@@ -121,15 +121,15 @@ describeProtectionResponse
     -> DescribeProtectionResponse
 describeProtectionResponse pResponseStatus_ =
   DescribeProtectionResponse'
-  {_dprsProtection = Nothing, _dprsResponseStatus = pResponseStatus_}
+    {_dprsProtection = Nothing, _dprsResponseStatus = pResponseStatus_}
 
 
 -- | The 'Protection' object that is described.
 dprsProtection :: Lens' DescribeProtectionResponse (Maybe Protection)
-dprsProtection = lens _dprsProtection (\ s a -> s{_dprsProtection = a});
+dprsProtection = lens _dprsProtection (\ s a -> s{_dprsProtection = a})
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DescribeProtectionResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DescribeProtectionResponse where

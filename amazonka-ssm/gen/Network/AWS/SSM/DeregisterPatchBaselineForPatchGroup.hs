@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeregisterPatchBaselineForPatchGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ deregisterPatchBaselineForPatchGroup
     -> DeregisterPatchBaselineForPatchGroup
 deregisterPatchBaselineForPatchGroup pBaselineId_ pPatchGroup_ =
   DeregisterPatchBaselineForPatchGroup'
-  {_dpbfpgBaselineId = pBaselineId_, _dpbfpgPatchGroup = pPatchGroup_}
+    {_dpbfpgBaselineId = pBaselineId_, _dpbfpgPatchGroup = pPatchGroup_}
 
 
 -- | The ID of the patch baseline to deregister the patch group from.
 dpbfpgBaselineId :: Lens' DeregisterPatchBaselineForPatchGroup Text
-dpbfpgBaselineId = lens _dpbfpgBaselineId (\ s a -> s{_dpbfpgBaselineId = a});
+dpbfpgBaselineId = lens _dpbfpgBaselineId (\ s a -> s{_dpbfpgBaselineId = a})
 
 -- | The name of the patch group that should be deregistered from the patch baseline.
 dpbfpgPatchGroup :: Lens' DeregisterPatchBaselineForPatchGroup Text
-dpbfpgPatchGroup = lens _dpbfpgPatchGroup (\ s a -> s{_dpbfpgPatchGroup = a});
+dpbfpgPatchGroup = lens _dpbfpgPatchGroup (\ s a -> s{_dpbfpgPatchGroup = a})
 
 instance AWSRequest
            DeregisterPatchBaselineForPatchGroup
@@ -147,23 +147,23 @@ deregisterPatchBaselineForPatchGroupResponse
     -> DeregisterPatchBaselineForPatchGroupResponse
 deregisterPatchBaselineForPatchGroupResponse pResponseStatus_ =
   DeregisterPatchBaselineForPatchGroupResponse'
-  { _dpbfpgrsBaselineId = Nothing
-  , _dpbfpgrsPatchGroup = Nothing
-  , _dpbfpgrsResponseStatus = pResponseStatus_
-  }
+    { _dpbfpgrsBaselineId = Nothing
+    , _dpbfpgrsPatchGroup = Nothing
+    , _dpbfpgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the patch baseline the patch group was deregistered from.
 dpbfpgrsBaselineId :: Lens' DeregisterPatchBaselineForPatchGroupResponse (Maybe Text)
-dpbfpgrsBaselineId = lens _dpbfpgrsBaselineId (\ s a -> s{_dpbfpgrsBaselineId = a});
+dpbfpgrsBaselineId = lens _dpbfpgrsBaselineId (\ s a -> s{_dpbfpgrsBaselineId = a})
 
 -- | The name of the patch group deregistered from the patch baseline.
 dpbfpgrsPatchGroup :: Lens' DeregisterPatchBaselineForPatchGroupResponse (Maybe Text)
-dpbfpgrsPatchGroup = lens _dpbfpgrsPatchGroup (\ s a -> s{_dpbfpgrsPatchGroup = a});
+dpbfpgrsPatchGroup = lens _dpbfpgrsPatchGroup (\ s a -> s{_dpbfpgrsPatchGroup = a})
 
 -- | -- | The response status code.
 dpbfpgrsResponseStatus :: Lens' DeregisterPatchBaselineForPatchGroupResponse Int
-dpbfpgrsResponseStatus = lens _dpbfpgrsResponseStatus (\ s a -> s{_dpbfpgrsResponseStatus = a});
+dpbfpgrsResponseStatus = lens _dpbfpgrsResponseStatus (\ s a -> s{_dpbfpgrsResponseStatus = a})
 
 instance NFData
            DeregisterPatchBaselineForPatchGroupResponse

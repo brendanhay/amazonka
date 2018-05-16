@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.SetInstanceProtection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ data SetInstanceProtection = SetInstanceProtection'
 --
 -- * 'sipInstanceIds' - One or more instance IDs.
 --
--- * 'sipAutoScalingGroupName' - The name of the group.
+-- * 'sipAutoScalingGroupName' - The name of the Auto Scaling group.
 --
 -- * 'sipProtectedFromScaleIn' - Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
 setInstanceProtection
@@ -70,23 +70,23 @@ setInstanceProtection
     -> SetInstanceProtection
 setInstanceProtection pAutoScalingGroupName_ pProtectedFromScaleIn_ =
   SetInstanceProtection'
-  { _sipInstanceIds = mempty
-  , _sipAutoScalingGroupName = pAutoScalingGroupName_
-  , _sipProtectedFromScaleIn = pProtectedFromScaleIn_
-  }
+    { _sipInstanceIds = mempty
+    , _sipAutoScalingGroupName = pAutoScalingGroupName_
+    , _sipProtectedFromScaleIn = pProtectedFromScaleIn_
+    }
 
 
 -- | One or more instance IDs.
 sipInstanceIds :: Lens' SetInstanceProtection [Text]
-sipInstanceIds = lens _sipInstanceIds (\ s a -> s{_sipInstanceIds = a}) . _Coerce;
+sipInstanceIds = lens _sipInstanceIds (\ s a -> s{_sipInstanceIds = a}) . _Coerce
 
--- | The name of the group.
+-- | The name of the Auto Scaling group.
 sipAutoScalingGroupName :: Lens' SetInstanceProtection Text
-sipAutoScalingGroupName = lens _sipAutoScalingGroupName (\ s a -> s{_sipAutoScalingGroupName = a});
+sipAutoScalingGroupName = lens _sipAutoScalingGroupName (\ s a -> s{_sipAutoScalingGroupName = a})
 
 -- | Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
 sipProtectedFromScaleIn :: Lens' SetInstanceProtection Bool
-sipProtectedFromScaleIn = lens _sipProtectedFromScaleIn (\ s a -> s{_sipProtectedFromScaleIn = a});
+sipProtectedFromScaleIn = lens _sipProtectedFromScaleIn (\ s a -> s{_sipProtectedFromScaleIn = a})
 
 instance AWSRequest SetInstanceProtection where
         type Rs SetInstanceProtection =
@@ -138,6 +138,6 @@ setInstanceProtectionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 siprsResponseStatus :: Lens' SetInstanceProtectionResponse Int
-siprsResponseStatus = lens _siprsResponseStatus (\ s a -> s{_siprsResponseStatus = a});
+siprsResponseStatus = lens _siprsResponseStatus (\ s a -> s{_siprsResponseStatus = a})
 
 instance NFData SetInstanceProtectionResponse where

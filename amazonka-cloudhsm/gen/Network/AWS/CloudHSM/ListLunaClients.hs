@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ListLunaClients
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ listLunaClients = ListLunaClients' {_llcNextToken = Nothing}
 
 -- | The @NextToken@ value from a previous call to @ListLunaClients@ . Pass null if this is the first call.
 llcNextToken :: Lens' ListLunaClients (Maybe Text)
-llcNextToken = lens _llcNextToken (\ s a -> s{_llcNextToken = a});
+llcNextToken = lens _llcNextToken (\ s a -> s{_llcNextToken = a})
 
 instance AWSRequest ListLunaClients where
         type Rs ListLunaClients = ListLunaClientsResponse
@@ -128,22 +128,22 @@ listLunaClientsResponse
     -> ListLunaClientsResponse
 listLunaClientsResponse pResponseStatus_ =
   ListLunaClientsResponse'
-  { _llcrsNextToken = Nothing
-  , _llcrsResponseStatus = pResponseStatus_
-  , _llcrsClientList = mempty
-  }
+    { _llcrsNextToken = Nothing
+    , _llcrsResponseStatus = pResponseStatus_
+    , _llcrsClientList = mempty
+    }
 
 
 -- | If not null, more results are available. Pass this to @ListLunaClients@ to retrieve the next set of items.
 llcrsNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
-llcrsNextToken = lens _llcrsNextToken (\ s a -> s{_llcrsNextToken = a});
+llcrsNextToken = lens _llcrsNextToken (\ s a -> s{_llcrsNextToken = a})
 
 -- | -- | The response status code.
 llcrsResponseStatus :: Lens' ListLunaClientsResponse Int
-llcrsResponseStatus = lens _llcrsResponseStatus (\ s a -> s{_llcrsResponseStatus = a});
+llcrsResponseStatus = lens _llcrsResponseStatus (\ s a -> s{_llcrsResponseStatus = a})
 
 -- | The list of clients.
 llcrsClientList :: Lens' ListLunaClientsResponse [Text]
-llcrsClientList = lens _llcrsClientList (\ s a -> s{_llcrsClientList = a}) . _Coerce;
+llcrsClientList = lens _llcrsClientList (\ s a -> s{_llcrsClientList = a}) . _Coerce
 
 instance NFData ListLunaClientsResponse where

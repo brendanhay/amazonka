@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeVPCPeeringAuthorizations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -131,18 +131,18 @@ describeVPCPeeringAuthorizationsResponse
     -> DescribeVPCPeeringAuthorizationsResponse
 describeVPCPeeringAuthorizationsResponse pResponseStatus_ =
   DescribeVPCPeeringAuthorizationsResponse'
-  { _dvpcparsVPCPeeringAuthorizations = Nothing
-  , _dvpcparsResponseStatus = pResponseStatus_
-  }
+    { _dvpcparsVPCPeeringAuthorizations = Nothing
+    , _dvpcparsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Collection of objects that describe all valid VPC peering operations for the current AWS account.
 dvpcparsVPCPeeringAuthorizations :: Lens' DescribeVPCPeeringAuthorizationsResponse [VPCPeeringAuthorization]
-dvpcparsVPCPeeringAuthorizations = lens _dvpcparsVPCPeeringAuthorizations (\ s a -> s{_dvpcparsVPCPeeringAuthorizations = a}) . _Default . _Coerce;
+dvpcparsVPCPeeringAuthorizations = lens _dvpcparsVPCPeeringAuthorizations (\ s a -> s{_dvpcparsVPCPeeringAuthorizations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dvpcparsResponseStatus :: Lens' DescribeVPCPeeringAuthorizationsResponse Int
-dvpcparsResponseStatus = lens _dvpcparsResponseStatus (\ s a -> s{_dvpcparsResponseStatus = a});
+dvpcparsResponseStatus = lens _dvpcparsResponseStatus (\ s a -> s{_dvpcparsResponseStatus = a})
 
 instance NFData
            DescribeVPCPeeringAuthorizationsResponse

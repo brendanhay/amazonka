@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAPIKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ data GetAPIKey = GetAPIKey'
 --
 -- * 'gakIncludeValue' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains the key value.
 --
--- * 'gakApiKey' - The identifier of the 'ApiKey' resource.
+-- * 'gakApiKey' - [Required] The identifier of the 'ApiKey' resource.
 getAPIKey
     :: Text -- ^ 'gakApiKey'
     -> GetAPIKey
@@ -79,11 +79,11 @@ getAPIKey pApiKey_ =
 
 -- | A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains the key value.
 gakIncludeValue :: Lens' GetAPIKey (Maybe Bool)
-gakIncludeValue = lens _gakIncludeValue (\ s a -> s{_gakIncludeValue = a});
+gakIncludeValue = lens _gakIncludeValue (\ s a -> s{_gakIncludeValue = a})
 
--- | The identifier of the 'ApiKey' resource.
+-- | [Required] The identifier of the 'ApiKey' resource.
 gakApiKey :: Lens' GetAPIKey Text
-gakApiKey = lens _gakApiKey (\ s a -> s{_gakApiKey = a});
+gakApiKey = lens _gakApiKey (\ s a -> s{_gakApiKey = a})
 
 instance AWSRequest GetAPIKey where
         type Rs GetAPIKey = APIKey

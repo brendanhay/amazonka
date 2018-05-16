@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport.DeleteReportDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteReportDefinition = DeleteReportDefinition' {_drdReportName = Nothing}
 
 -- | Undocumented member.
 drdReportName :: Lens' DeleteReportDefinition (Maybe Text)
-drdReportName = lens _drdReportName (\ s a -> s{_drdReportName = a});
+drdReportName = lens _drdReportName (\ s a -> s{_drdReportName = a})
 
 instance AWSRequest DeleteReportDefinition where
         type Rs DeleteReportDefinition =
@@ -120,15 +120,15 @@ deleteReportDefinitionResponse
     -> DeleteReportDefinitionResponse
 deleteReportDefinitionResponse pResponseStatus_ =
   DeleteReportDefinitionResponse'
-  {_drsResponseMessage = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsResponseMessage = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 drsResponseMessage :: Lens' DeleteReportDefinitionResponse (Maybe Text)
-drsResponseMessage = lens _drsResponseMessage (\ s a -> s{_drsResponseMessage = a});
+drsResponseMessage = lens _drsResponseMessage (\ s a -> s{_drsResponseMessage = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteReportDefinitionResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteReportDefinitionResponse where

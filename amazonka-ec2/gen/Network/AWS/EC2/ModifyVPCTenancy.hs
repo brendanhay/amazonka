@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVPCTenancy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,23 +77,23 @@ modifyVPCTenancy
     -> ModifyVPCTenancy
 modifyVPCTenancy pVPCId_ pInstanceTenancy_ =
   ModifyVPCTenancy'
-  { _mvtDryRun = Nothing
-  , _mvtVPCId = pVPCId_
-  , _mvtInstanceTenancy = pInstanceTenancy_
-  }
+    { _mvtDryRun = Nothing
+    , _mvtVPCId = pVPCId_
+    , _mvtInstanceTenancy = pInstanceTenancy_
+    }
 
 
 -- | Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mvtDryRun :: Lens' ModifyVPCTenancy (Maybe Bool)
-mvtDryRun = lens _mvtDryRun (\ s a -> s{_mvtDryRun = a});
+mvtDryRun = lens _mvtDryRun (\ s a -> s{_mvtDryRun = a})
 
 -- | The ID of the VPC.
 mvtVPCId :: Lens' ModifyVPCTenancy Text
-mvtVPCId = lens _mvtVPCId (\ s a -> s{_mvtVPCId = a});
+mvtVPCId = lens _mvtVPCId (\ s a -> s{_mvtVPCId = a})
 
 -- | The instance tenancy attribute for the VPC.
 mvtInstanceTenancy :: Lens' ModifyVPCTenancy VPCTenancy
-mvtInstanceTenancy = lens _mvtInstanceTenancy (\ s a -> s{_mvtInstanceTenancy = a});
+mvtInstanceTenancy = lens _mvtInstanceTenancy (\ s a -> s{_mvtInstanceTenancy = a})
 
 instance AWSRequest ModifyVPCTenancy where
         type Rs ModifyVPCTenancy = ModifyVPCTenancyResponse
@@ -145,15 +145,15 @@ modifyVPCTenancyResponse
     -> ModifyVPCTenancyResponse
 modifyVPCTenancyResponse pResponseStatus_ =
   ModifyVPCTenancyResponse'
-  {_mvtrsReturnValue = Nothing, _mvtrsResponseStatus = pResponseStatus_}
+    {_mvtrsReturnValue = Nothing, _mvtrsResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds; otherwise, returns an error.
 mvtrsReturnValue :: Lens' ModifyVPCTenancyResponse (Maybe Bool)
-mvtrsReturnValue = lens _mvtrsReturnValue (\ s a -> s{_mvtrsReturnValue = a});
+mvtrsReturnValue = lens _mvtrsReturnValue (\ s a -> s{_mvtrsReturnValue = a})
 
 -- | -- | The response status code.
 mvtrsResponseStatus :: Lens' ModifyVPCTenancyResponse Int
-mvtrsResponseStatus = lens _mvtrsResponseStatus (\ s a -> s{_mvtrsResponseStatus = a});
+mvtrsResponseStatus = lens _mvtrsResponseStatus (\ s a -> s{_mvtrsResponseStatus = a})
 
 instance NFData ModifyVPCTenancyResponse where

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.DeviceFarm
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,6 +58,9 @@ import Test.Tasty
 --         , requestCreateUpload $
 --             createUpload
 --
+--         , requestGetDeviceInstance $
+--             getDeviceInstance
+--
 --         , requestDeleteRemoteAccessSession $
 --             deleteRemoteAccessSession
 --
@@ -94,11 +97,23 @@ import Test.Tasty
 --         , requestGetTest $
 --             getTest
 --
+--         , requestUpdateDeviceInstance $
+--             updateDeviceInstance
+--
 --         , requestGetNetworkProfile $
 --             getNetworkProfile
 --
 --         , requestRenewOffering $
 --             renewOffering
+--
+--         , requestDeleteInstanceProfile $
+--             deleteInstanceProfile
+--
+--         , requestUpdateInstanceProfile $
+--             updateInstanceProfile
+--
+--         , requestCreateInstanceProfile $
+--             createInstanceProfile
 --
 --         , requestGetDevice $
 --             getDevice
@@ -106,17 +121,32 @@ import Test.Tasty
 --         , requestListJobs $
 --             listJobs
 --
+--         , requestGetVPCEConfiguration $
+--             getVPCEConfiguration
+--
 --         , requestStopRemoteAccessSession $
 --             stopRemoteAccessSession
 --
 --         , requestCreateNetworkProfile $
 --             createNetworkProfile
 --
+--         , requestDeleteVPCEConfiguration $
+--             deleteVPCEConfiguration
+--
+--         , requestUpdateVPCEConfiguration $
+--             updateVPCEConfiguration
+--
 --         , requestGetJob $
 --             getJob
 --
+--         , requestGetInstanceProfile $
+--             getInstanceProfile
+--
 --         , requestListNetworkProfiles $
 --             listNetworkProfiles
+--
+--         , requestCreateVPCEConfiguration $
+--             createVPCEConfiguration
 --
 --         , requestScheduleRun $
 --             scheduleRun
@@ -154,14 +184,23 @@ import Test.Tasty
 --         , requestGetRemoteAccessSession $
 --             getRemoteAccessSession
 --
+--         , requestListDeviceInstances $
+--             listDeviceInstances
+--
 --         , requestPurchaseOffering $
 --             purchaseOffering
+--
+--         , requestListInstanceProfiles $
+--             listInstanceProfiles
 --
 --         , requestGetProject $
 --             getProject
 --
 --         , requestListUniqueProblems $
 --             listUniqueProblems
+--
+--         , requestListVPCEConfigurations $
+--             listVPCEConfigurations
 --
 --         , requestStopRun $
 --             stopRun
@@ -208,6 +247,9 @@ import Test.Tasty
 --         , responseCreateUpload $
 --             createUploadResponse
 --
+--         , responseGetDeviceInstance $
+--             getDeviceInstanceResponse
+--
 --         , responseDeleteRemoteAccessSession $
 --             deleteRemoteAccessSessionResponse
 --
@@ -244,11 +286,23 @@ import Test.Tasty
 --         , responseGetTest $
 --             getTestResponse
 --
+--         , responseUpdateDeviceInstance $
+--             updateDeviceInstanceResponse
+--
 --         , responseGetNetworkProfile $
 --             getNetworkProfileResponse
 --
 --         , responseRenewOffering $
 --             renewOfferingResponse
+--
+--         , responseDeleteInstanceProfile $
+--             deleteInstanceProfileResponse
+--
+--         , responseUpdateInstanceProfile $
+--             updateInstanceProfileResponse
+--
+--         , responseCreateInstanceProfile $
+--             createInstanceProfileResponse
 --
 --         , responseGetDevice $
 --             getDeviceResponse
@@ -256,17 +310,32 @@ import Test.Tasty
 --         , responseListJobs $
 --             listJobsResponse
 --
+--         , responseGetVPCEConfiguration $
+--             getVPCEConfigurationResponse
+--
 --         , responseStopRemoteAccessSession $
 --             stopRemoteAccessSessionResponse
 --
 --         , responseCreateNetworkProfile $
 --             createNetworkProfileResponse
 --
+--         , responseDeleteVPCEConfiguration $
+--             deleteVPCEConfigurationResponse
+--
+--         , responseUpdateVPCEConfiguration $
+--             updateVPCEConfigurationResponse
+--
 --         , responseGetJob $
 --             getJobResponse
 --
+--         , responseGetInstanceProfile $
+--             getInstanceProfileResponse
+--
 --         , responseListNetworkProfiles $
 --             listNetworkProfilesResponse
+--
+--         , responseCreateVPCEConfiguration $
+--             createVPCEConfigurationResponse
 --
 --         , responseScheduleRun $
 --             scheduleRunResponse
@@ -304,14 +373,23 @@ import Test.Tasty
 --         , responseGetRemoteAccessSession $
 --             getRemoteAccessSessionResponse
 --
+--         , responseListDeviceInstances $
+--             listDeviceInstancesResponse
+--
 --         , responsePurchaseOffering $
 --             purchaseOfferingResponse
+--
+--         , responseListInstanceProfiles $
+--             listInstanceProfilesResponse
 --
 --         , responseGetProject $
 --             getProjectResponse
 --
 --         , responseListUniqueProblems $
 --             listUniqueProblemsResponse
+--
+--         , responseListVPCEConfigurations $
+--             listVPCEConfigurationsResponse
 --
 --         , responseStopRun $
 --             stopRunResponse
@@ -380,6 +458,11 @@ requestCreateUpload = req
     "CreateUpload"
     "fixture/CreateUpload.yaml"
 
+requestGetDeviceInstance :: GetDeviceInstance -> TestTree
+requestGetDeviceInstance = req
+    "GetDeviceInstance"
+    "fixture/GetDeviceInstance.yaml"
+
 requestDeleteRemoteAccessSession :: DeleteRemoteAccessSession -> TestTree
 requestDeleteRemoteAccessSession = req
     "DeleteRemoteAccessSession"
@@ -440,6 +523,11 @@ requestGetTest = req
     "GetTest"
     "fixture/GetTest.yaml"
 
+requestUpdateDeviceInstance :: UpdateDeviceInstance -> TestTree
+requestUpdateDeviceInstance = req
+    "UpdateDeviceInstance"
+    "fixture/UpdateDeviceInstance.yaml"
+
 requestGetNetworkProfile :: GetNetworkProfile -> TestTree
 requestGetNetworkProfile = req
     "GetNetworkProfile"
@@ -449,6 +537,21 @@ requestRenewOffering :: RenewOffering -> TestTree
 requestRenewOffering = req
     "RenewOffering"
     "fixture/RenewOffering.yaml"
+
+requestDeleteInstanceProfile :: DeleteInstanceProfile -> TestTree
+requestDeleteInstanceProfile = req
+    "DeleteInstanceProfile"
+    "fixture/DeleteInstanceProfile.yaml"
+
+requestUpdateInstanceProfile :: UpdateInstanceProfile -> TestTree
+requestUpdateInstanceProfile = req
+    "UpdateInstanceProfile"
+    "fixture/UpdateInstanceProfile.yaml"
+
+requestCreateInstanceProfile :: CreateInstanceProfile -> TestTree
+requestCreateInstanceProfile = req
+    "CreateInstanceProfile"
+    "fixture/CreateInstanceProfile.yaml"
 
 requestGetDevice :: GetDevice -> TestTree
 requestGetDevice = req
@@ -460,6 +563,11 @@ requestListJobs = req
     "ListJobs"
     "fixture/ListJobs.yaml"
 
+requestGetVPCEConfiguration :: GetVPCEConfiguration -> TestTree
+requestGetVPCEConfiguration = req
+    "GetVPCEConfiguration"
+    "fixture/GetVPCEConfiguration.yaml"
+
 requestStopRemoteAccessSession :: StopRemoteAccessSession -> TestTree
 requestStopRemoteAccessSession = req
     "StopRemoteAccessSession"
@@ -470,15 +578,35 @@ requestCreateNetworkProfile = req
     "CreateNetworkProfile"
     "fixture/CreateNetworkProfile.yaml"
 
+requestDeleteVPCEConfiguration :: DeleteVPCEConfiguration -> TestTree
+requestDeleteVPCEConfiguration = req
+    "DeleteVPCEConfiguration"
+    "fixture/DeleteVPCEConfiguration.yaml"
+
+requestUpdateVPCEConfiguration :: UpdateVPCEConfiguration -> TestTree
+requestUpdateVPCEConfiguration = req
+    "UpdateVPCEConfiguration"
+    "fixture/UpdateVPCEConfiguration.yaml"
+
 requestGetJob :: GetJob -> TestTree
 requestGetJob = req
     "GetJob"
     "fixture/GetJob.yaml"
 
+requestGetInstanceProfile :: GetInstanceProfile -> TestTree
+requestGetInstanceProfile = req
+    "GetInstanceProfile"
+    "fixture/GetInstanceProfile.yaml"
+
 requestListNetworkProfiles :: ListNetworkProfiles -> TestTree
 requestListNetworkProfiles = req
     "ListNetworkProfiles"
     "fixture/ListNetworkProfiles.yaml"
+
+requestCreateVPCEConfiguration :: CreateVPCEConfiguration -> TestTree
+requestCreateVPCEConfiguration = req
+    "CreateVPCEConfiguration"
+    "fixture/CreateVPCEConfiguration.yaml"
 
 requestScheduleRun :: ScheduleRun -> TestTree
 requestScheduleRun = req
@@ -540,10 +668,20 @@ requestGetRemoteAccessSession = req
     "GetRemoteAccessSession"
     "fixture/GetRemoteAccessSession.yaml"
 
+requestListDeviceInstances :: ListDeviceInstances -> TestTree
+requestListDeviceInstances = req
+    "ListDeviceInstances"
+    "fixture/ListDeviceInstances.yaml"
+
 requestPurchaseOffering :: PurchaseOffering -> TestTree
 requestPurchaseOffering = req
     "PurchaseOffering"
     "fixture/PurchaseOffering.yaml"
+
+requestListInstanceProfiles :: ListInstanceProfiles -> TestTree
+requestListInstanceProfiles = req
+    "ListInstanceProfiles"
+    "fixture/ListInstanceProfiles.yaml"
 
 requestGetProject :: GetProject -> TestTree
 requestGetProject = req
@@ -554,6 +692,11 @@ requestListUniqueProblems :: ListUniqueProblems -> TestTree
 requestListUniqueProblems = req
     "ListUniqueProblems"
     "fixture/ListUniqueProblems.yaml"
+
+requestListVPCEConfigurations :: ListVPCEConfigurations -> TestTree
+requestListVPCEConfigurations = req
+    "ListVPCEConfigurations"
+    "fixture/ListVPCEConfigurations.yaml"
 
 requestStopRun :: StopRun -> TestTree
 requestStopRun = req
@@ -647,6 +790,13 @@ responseCreateUpload = res
     deviceFarm
     (Proxy :: Proxy CreateUpload)
 
+responseGetDeviceInstance :: GetDeviceInstanceResponse -> TestTree
+responseGetDeviceInstance = res
+    "GetDeviceInstanceResponse"
+    "fixture/GetDeviceInstanceResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy GetDeviceInstance)
+
 responseDeleteRemoteAccessSession :: DeleteRemoteAccessSessionResponse -> TestTree
 responseDeleteRemoteAccessSession = res
     "DeleteRemoteAccessSessionResponse"
@@ -731,6 +881,13 @@ responseGetTest = res
     deviceFarm
     (Proxy :: Proxy GetTest)
 
+responseUpdateDeviceInstance :: UpdateDeviceInstanceResponse -> TestTree
+responseUpdateDeviceInstance = res
+    "UpdateDeviceInstanceResponse"
+    "fixture/UpdateDeviceInstanceResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy UpdateDeviceInstance)
+
 responseGetNetworkProfile :: GetNetworkProfileResponse -> TestTree
 responseGetNetworkProfile = res
     "GetNetworkProfileResponse"
@@ -744,6 +901,27 @@ responseRenewOffering = res
     "fixture/RenewOfferingResponse.proto"
     deviceFarm
     (Proxy :: Proxy RenewOffering)
+
+responseDeleteInstanceProfile :: DeleteInstanceProfileResponse -> TestTree
+responseDeleteInstanceProfile = res
+    "DeleteInstanceProfileResponse"
+    "fixture/DeleteInstanceProfileResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy DeleteInstanceProfile)
+
+responseUpdateInstanceProfile :: UpdateInstanceProfileResponse -> TestTree
+responseUpdateInstanceProfile = res
+    "UpdateInstanceProfileResponse"
+    "fixture/UpdateInstanceProfileResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy UpdateInstanceProfile)
+
+responseCreateInstanceProfile :: CreateInstanceProfileResponse -> TestTree
+responseCreateInstanceProfile = res
+    "CreateInstanceProfileResponse"
+    "fixture/CreateInstanceProfileResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy CreateInstanceProfile)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
 responseGetDevice = res
@@ -759,6 +937,13 @@ responseListJobs = res
     deviceFarm
     (Proxy :: Proxy ListJobs)
 
+responseGetVPCEConfiguration :: GetVPCEConfigurationResponse -> TestTree
+responseGetVPCEConfiguration = res
+    "GetVPCEConfigurationResponse"
+    "fixture/GetVPCEConfigurationResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy GetVPCEConfiguration)
+
 responseStopRemoteAccessSession :: StopRemoteAccessSessionResponse -> TestTree
 responseStopRemoteAccessSession = res
     "StopRemoteAccessSessionResponse"
@@ -773,6 +958,20 @@ responseCreateNetworkProfile = res
     deviceFarm
     (Proxy :: Proxy CreateNetworkProfile)
 
+responseDeleteVPCEConfiguration :: DeleteVPCEConfigurationResponse -> TestTree
+responseDeleteVPCEConfiguration = res
+    "DeleteVPCEConfigurationResponse"
+    "fixture/DeleteVPCEConfigurationResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy DeleteVPCEConfiguration)
+
+responseUpdateVPCEConfiguration :: UpdateVPCEConfigurationResponse -> TestTree
+responseUpdateVPCEConfiguration = res
+    "UpdateVPCEConfigurationResponse"
+    "fixture/UpdateVPCEConfigurationResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy UpdateVPCEConfiguration)
+
 responseGetJob :: GetJobResponse -> TestTree
 responseGetJob = res
     "GetJobResponse"
@@ -780,12 +979,26 @@ responseGetJob = res
     deviceFarm
     (Proxy :: Proxy GetJob)
 
+responseGetInstanceProfile :: GetInstanceProfileResponse -> TestTree
+responseGetInstanceProfile = res
+    "GetInstanceProfileResponse"
+    "fixture/GetInstanceProfileResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy GetInstanceProfile)
+
 responseListNetworkProfiles :: ListNetworkProfilesResponse -> TestTree
 responseListNetworkProfiles = res
     "ListNetworkProfilesResponse"
     "fixture/ListNetworkProfilesResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListNetworkProfiles)
+
+responseCreateVPCEConfiguration :: CreateVPCEConfigurationResponse -> TestTree
+responseCreateVPCEConfiguration = res
+    "CreateVPCEConfigurationResponse"
+    "fixture/CreateVPCEConfigurationResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy CreateVPCEConfiguration)
 
 responseScheduleRun :: ScheduleRunResponse -> TestTree
 responseScheduleRun = res
@@ -871,12 +1084,26 @@ responseGetRemoteAccessSession = res
     deviceFarm
     (Proxy :: Proxy GetRemoteAccessSession)
 
+responseListDeviceInstances :: ListDeviceInstancesResponse -> TestTree
+responseListDeviceInstances = res
+    "ListDeviceInstancesResponse"
+    "fixture/ListDeviceInstancesResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListDeviceInstances)
+
 responsePurchaseOffering :: PurchaseOfferingResponse -> TestTree
 responsePurchaseOffering = res
     "PurchaseOfferingResponse"
     "fixture/PurchaseOfferingResponse.proto"
     deviceFarm
     (Proxy :: Proxy PurchaseOffering)
+
+responseListInstanceProfiles :: ListInstanceProfilesResponse -> TestTree
+responseListInstanceProfiles = res
+    "ListInstanceProfilesResponse"
+    "fixture/ListInstanceProfilesResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListInstanceProfiles)
 
 responseGetProject :: GetProjectResponse -> TestTree
 responseGetProject = res
@@ -891,6 +1118,13 @@ responseListUniqueProblems = res
     "fixture/ListUniqueProblemsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListUniqueProblems)
+
+responseListVPCEConfigurations :: ListVPCEConfigurationsResponse -> TestTree
+responseListVPCEConfigurations = res
+    "ListVPCEConfigurationsResponse"
+    "fixture/ListVPCEConfigurationsResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListVPCEConfigurations)
 
 responseStopRun :: StopRunResponse -> TestTree
 responseStopRun = res

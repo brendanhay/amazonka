@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateRestAPI
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,12 +34,15 @@ module Network.AWS.APIGateway.UpdateRestAPI
     , restAPI
     , RestAPI
     -- * Response Lenses
+    , raMinimumCompressionSize
     , raBinaryMediaTypes
     , raWarnings
     , raCreatedDate
     , raName
     , raVersion
+    , raApiKeySource
     , raId
+    , raPolicy
     , raEndpointConfiguration
     , raDescription
     ) where
@@ -68,7 +71,7 @@ data UpdateRestAPI = UpdateRestAPI'
 --
 -- * 'uraPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uraRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'uraRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 updateRestAPI
     :: Text -- ^ 'uraRestAPIId'
     -> UpdateRestAPI
@@ -78,11 +81,11 @@ updateRestAPI pRestAPIId_ =
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uraPatchOperations :: Lens' UpdateRestAPI [PatchOperation]
-uraPatchOperations = lens _uraPatchOperations (\ s a -> s{_uraPatchOperations = a}) . _Default . _Coerce;
+uraPatchOperations = lens _uraPatchOperations (\ s a -> s{_uraPatchOperations = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 uraRestAPIId :: Lens' UpdateRestAPI Text
-uraRestAPIId = lens _uraRestAPIId (\ s a -> s{_uraRestAPIId = a});
+uraRestAPIId = lens _uraRestAPIId (\ s a -> s{_uraRestAPIId = a})
 
 instance AWSRequest UpdateRestAPI where
         type Rs UpdateRestAPI = RestAPI

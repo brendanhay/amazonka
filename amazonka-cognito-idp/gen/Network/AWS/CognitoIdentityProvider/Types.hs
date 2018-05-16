@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,12 +33,15 @@ module Network.AWS.CognitoIdentityProvider.Types
     , _UserImportInProgressException
     , _InvalidSmsRoleTrustRelationshipException
     , _UserPoolTaggingException
+    , _SoftwareTokenMFANotFoundException
     , _TooManyRequestsException
     , _ConcurrentModificationException
+    , _UserPoolAddOnNotEnabledException
     , _UserLambdaValidationException
     , _PreconditionNotMetException
     , _ExpiredCodeException
     , _TooManyFailedAttemptsException
+    , _EnableSoftwareTokenMFAException
     , _UserNotConfirmedException
     , _GroupExistsException
     , _CodeDeliveryFailureException
@@ -51,6 +54,12 @@ module Network.AWS.CognitoIdentityProvider.Types
     , _InvalidPasswordException
     , _UsernameExistsException
 
+    -- * AccountTakeoverEventActionType
+    , AccountTakeoverEventActionType (..)
+
+    -- * AdvancedSecurityModeType
+    , AdvancedSecurityModeType (..)
+
     -- * AliasAttributeType
     , AliasAttributeType (..)
 
@@ -60,8 +69,17 @@ module Network.AWS.CognitoIdentityProvider.Types
     -- * AuthFlowType
     , AuthFlowType (..)
 
+    -- * ChallengeName
+    , ChallengeName (..)
+
     -- * ChallengeNameType
     , ChallengeNameType (..)
+
+    -- * ChallengeResponse
+    , ChallengeResponse (..)
+
+    -- * CompromisedCredentialsEventActionType
+    , CompromisedCredentialsEventActionType (..)
 
     -- * DefaultEmailOptionType
     , DefaultEmailOptionType (..)
@@ -75,8 +93,20 @@ module Network.AWS.CognitoIdentityProvider.Types
     -- * DomainStatusType
     , DomainStatusType (..)
 
+    -- * EventFilterType
+    , EventFilterType (..)
+
+    -- * EventResponseType
+    , EventResponseType (..)
+
+    -- * EventType
+    , EventType (..)
+
     -- * ExplicitAuthFlowsType
     , ExplicitAuthFlowsType (..)
+
+    -- * FeedbackValueType
+    , FeedbackValueType (..)
 
     -- * IdentityProviderTypeType
     , IdentityProviderTypeType (..)
@@ -86,6 +116,12 @@ module Network.AWS.CognitoIdentityProvider.Types
 
     -- * OAuthFlowType
     , OAuthFlowType (..)
+
+    -- * RiskDecisionType
+    , RiskDecisionType (..)
+
+    -- * RiskLevelType
+    , RiskLevelType (..)
 
     -- * StatusType
     , StatusType (..)
@@ -105,6 +141,28 @@ module Network.AWS.CognitoIdentityProvider.Types
     -- * VerifiedAttributeType
     , VerifiedAttributeType (..)
 
+    -- * VerifySoftwareTokenResponseType
+    , VerifySoftwareTokenResponseType (..)
+
+    -- * AccountTakeoverActionType
+    , AccountTakeoverActionType
+    , accountTakeoverActionType
+    , atatNotify
+    , atatEventAction
+
+    -- * AccountTakeoverActionsType
+    , AccountTakeoverActionsType
+    , accountTakeoverActionsType
+    , atatLowAction
+    , atatHighAction
+    , atatMediumAction
+
+    -- * AccountTakeoverRiskConfigurationType
+    , AccountTakeoverRiskConfigurationType
+    , accountTakeoverRiskConfigurationType
+    , atrctNotifyConfiguration
+    , atrctActions
+
     -- * AdminCreateUserConfigType
     , AdminCreateUserConfigType
     , adminCreateUserConfigType
@@ -112,11 +170,36 @@ module Network.AWS.CognitoIdentityProvider.Types
     , acuctUnusedAccountValidityDays
     , acuctInviteMessageTemplate
 
+    -- * AnalyticsConfigurationType
+    , AnalyticsConfigurationType
+    , analyticsConfigurationType
+    , actUserDataShared
+    , actApplicationId
+    , actRoleARN
+    , actExternalId
+
+    -- * AnalyticsMetadataType
+    , AnalyticsMetadataType
+    , analyticsMetadataType
+    , amtAnalyticsEndpointId
+
     -- * AttributeType
     , AttributeType
     , attributeType
     , atValue
     , atName
+
+    -- * AuthEventType
+    , AuthEventType
+    , authEventType
+    , aetEventRisk
+    , aetEventResponse
+    , aetEventContextData
+    , aetChallengeResponses
+    , aetEventType
+    , aetCreationDate
+    , aetEventFeedback
+    , aetEventId
 
     -- * AuthenticationResultType
     , AuthenticationResultType
@@ -128,12 +211,38 @@ module Network.AWS.CognitoIdentityProvider.Types
     , artTokenType
     , artIdToken
 
+    -- * ChallengeResponseType
+    , ChallengeResponseType
+    , challengeResponseType
+    , crtChallengeName
+    , crtChallengeResponse
+
     -- * CodeDeliveryDetailsType
     , CodeDeliveryDetailsType
     , codeDeliveryDetailsType
     , cddtDestination
     , cddtDeliveryMedium
     , cddtAttributeName
+
+    -- * CompromisedCredentialsActionsType
+    , CompromisedCredentialsActionsType
+    , compromisedCredentialsActionsType
+    , ccatEventAction
+
+    -- * CompromisedCredentialsRiskConfigurationType
+    , CompromisedCredentialsRiskConfigurationType
+    , compromisedCredentialsRiskConfigurationType
+    , ccrctEventFilter
+    , ccrctActions
+
+    -- * ContextDataType
+    , ContextDataType
+    , contextDataType
+    , cdtEncodedData
+    , cdtIPAddress
+    , cdtServerName
+    , cdtServerPath
+    , cdtHTTPHeaders
 
     -- * DeviceConfigurationType
     , DeviceConfigurationType
@@ -173,6 +282,28 @@ module Network.AWS.CognitoIdentityProvider.Types
     , ectSourceARN
     , ectReplyToEmailAddress
 
+    -- * EventContextDataType
+    , EventContextDataType
+    , eventContextDataType
+    , ecdtIPAddress
+    , ecdtCountry
+    , ecdtCity
+    , ecdtDeviceName
+    , ecdtTimezone
+
+    -- * EventFeedbackType
+    , EventFeedbackType
+    , eventFeedbackType
+    , eftFeedbackDate
+    , eftFeedbackValue
+    , eftProvider
+
+    -- * EventRiskType
+    , EventRiskType
+    , eventRiskType
+    , ertRiskLevel
+    , ertRiskDecision
+
     -- * GroupType
     , GroupType
     , groupType
@@ -183,6 +314,12 @@ module Network.AWS.CognitoIdentityProvider.Types
     , gtGroupName
     , gtDescription
     , gtRoleARN
+
+    -- * HTTPHeader
+    , HTTPHeader
+    , hTTPHeader
+    , httphHeaderValue
+    , httphHeaderName
 
     -- * IdentityProviderType
     , IdentityProviderType
@@ -206,6 +343,8 @@ module Network.AWS.CognitoIdentityProvider.Types
     , lctCustomMessage
     , lctDefineAuthChallenge
     , lctPostConfirmation
+    , lctPreTokenGeneration
+    , lctUserMigration
     , lctPreSignUp
 
     -- * MFAOptionType
@@ -226,6 +365,23 @@ module Network.AWS.CognitoIdentityProvider.Types
     , newDeviceMetadataType
     , ndmtDeviceGroupKey
     , ndmtDeviceKey
+
+    -- * NotifyConfigurationType
+    , NotifyConfigurationType
+    , notifyConfigurationType
+    , nctNoActionEmail
+    , nctFrom
+    , nctReplyTo
+    , nctBlockEmail
+    , nctMFAEmail
+    , nctSourceARN
+
+    -- * NotifyEmailType
+    , NotifyEmailType
+    , notifyEmailType
+    , netTextBody
+    , netHTMLBody
+    , netSubject
 
     -- * NumberAttributeConstraintsType
     , NumberAttributeConstraintsType
@@ -271,6 +427,28 @@ module Network.AWS.CognitoIdentityProvider.Types
     , rstScopes
     , rstName
 
+    -- * RiskConfigurationType
+    , RiskConfigurationType
+    , riskConfigurationType
+    , rctRiskExceptionConfiguration
+    , rctClientId
+    , rctAccountTakeoverRiskConfiguration
+    , rctLastModifiedDate
+    , rctUserPoolId
+    , rctCompromisedCredentialsRiskConfiguration
+
+    -- * RiskExceptionConfigurationType
+    , RiskExceptionConfigurationType
+    , riskExceptionConfigurationType
+    , rectSkippedIPRangeList
+    , rectBlockedIPRangeList
+
+    -- * SMSMFASettingsType
+    , SMSMFASettingsType
+    , sMSMFASettingsType
+    , smsmstEnabled
+    , smsmstPreferredMFA
+
     -- * SchemaAttributeType
     , SchemaAttributeType
     , schemaAttributeType
@@ -287,6 +465,23 @@ module Network.AWS.CognitoIdentityProvider.Types
     , smsConfigurationType
     , sctExternalId
     , sctSNSCallerARN
+
+    -- * SmsMFAConfigType
+    , SmsMFAConfigType
+    , smsMFAConfigType
+    , smctSmsAuthenticationMessage
+    , smctSmsConfiguration
+
+    -- * SoftwareTokenMFAConfigType
+    , SoftwareTokenMFAConfigType
+    , softwareTokenMFAConfigType
+    , stmctEnabled
+
+    -- * SoftwareTokenMFASettingsType
+    , SoftwareTokenMFASettingsType
+    , softwareTokenMFASettingsType
+    , stmstEnabled
+    , stmstPreferredMFA
 
     -- * StringAttributeConstraintsType
     , StringAttributeConstraintsType
@@ -305,6 +500,11 @@ module Network.AWS.CognitoIdentityProvider.Types
     , uictImageURL
     , uictCreationDate
 
+    -- * UserContextDataType
+    , UserContextDataType
+    , userContextDataType
+    , ucdtEncodedData
+
     -- * UserImportJobType
     , UserImportJobType
     , userImportJobType
@@ -321,6 +521,11 @@ module Network.AWS.CognitoIdentityProvider.Types
     , uijtCompletionDate
     , uijtCloudWatchLogsRoleARN
     , uijtImportedUsers
+
+    -- * UserPoolAddOnsType
+    , UserPoolAddOnsType
+    , userPoolAddOnsType
+    , upaotAdvancedSecurityMode
 
     -- * UserPoolClientDescription
     , UserPoolClientDescription
@@ -347,6 +552,7 @@ module Network.AWS.CognitoIdentityProvider.Types
     , upctReadAttributes
     , upctAllowedOAuthScopes
     , upctAllowedOAuthFlows
+    , upctAnalyticsConfiguration
     , upctClientName
     , upctCallbackURLs
 
@@ -374,8 +580,10 @@ module Network.AWS.CognitoIdentityProvider.Types
     , uptLastModifiedDate
     , uptVerificationMessageTemplate
     , uptEstimatedNumberOfUsers
+    , uptDomain
     , uptEmailVerificationMessage
     , uptSmsAuthenticationMessage
+    , uptUserPoolAddOns
     , uptSchemaAttributes
     , uptEmailVerificationSubject
     , uptUsernameAttributes
@@ -426,24 +634,24 @@ import Network.AWS.Sign.V4
 cognitoIdentityProvider :: Service
 cognitoIdentityProvider =
   Service
-  { _svcAbbrev = "CognitoIdentityProvider"
-  , _svcSigner = v4
-  , _svcPrefix = "cognito-idp"
-  , _svcVersion = "2016-04-18"
-  , _svcEndpoint = defaultEndpoint cognitoIdentityProvider
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "CognitoIdentityProvider"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "CognitoIdentityProvider"
+    , _svcSigner = v4
+    , _svcPrefix = "cognito-idp"
+    , _svcVersion = "2016-04-18"
+    , _svcEndpoint = defaultEndpoint cognitoIdentityProvider
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "CognitoIdentityProvider"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -452,6 +660,8 @@ cognitoIdentityProvider =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -605,6 +815,14 @@ _UserPoolTaggingException =
   _MatchServiceError cognitoIdentityProvider "UserPoolTaggingException"
 
 
+-- | This exception is thrown when the software token TOTP multi-factor authentication (MFA) is not enabled for the user pool.
+--
+--
+_SoftwareTokenMFANotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_SoftwareTokenMFANotFoundException =
+  _MatchServiceError cognitoIdentityProvider "SoftwareTokenMFANotFoundException"
+
+
 -- | This exception is thrown when the user has made too many requests for a given operation.
 --
 --
@@ -619,6 +837,14 @@ _TooManyRequestsException =
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
   _MatchServiceError cognitoIdentityProvider "ConcurrentModificationException"
+
+
+-- | This exception is thrown when user pool add-ons are not enabled.
+--
+--
+_UserPoolAddOnNotEnabledException :: AsError a => Getting (First ServiceError) a ServiceError
+_UserPoolAddOnNotEnabledException =
+  _MatchServiceError cognitoIdentityProvider "UserPoolAddOnNotEnabledException"
 
 
 -- | This exception is thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.
@@ -651,6 +877,14 @@ _ExpiredCodeException =
 _TooManyFailedAttemptsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyFailedAttemptsException =
   _MatchServiceError cognitoIdentityProvider "TooManyFailedAttemptsException"
+
+
+-- | This exception is thrown when there is a code mismatch and the service fails to configure the software token TOTP multi-factor authentication (MFA).
+--
+--
+_EnableSoftwareTokenMFAException :: AsError a => Getting (First ServiceError) a ServiceError
+_EnableSoftwareTokenMFAException =
+  _MatchServiceError cognitoIdentityProvider "EnableSoftwareTokenMFAException"
 
 
 -- | This exception is thrown when a user is not confirmed successfully.

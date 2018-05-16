@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.EnableRadius
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ enableRadius
     -> EnableRadius
 enableRadius pDirectoryId_ pRadiusSettings_ =
   EnableRadius'
-  {_erDirectoryId = pDirectoryId_, _erRadiusSettings = pRadiusSettings_}
+    {_erDirectoryId = pDirectoryId_, _erRadiusSettings = pRadiusSettings_}
 
 
 -- | The identifier of the directory for which to enable MFA.
 erDirectoryId :: Lens' EnableRadius Text
-erDirectoryId = lens _erDirectoryId (\ s a -> s{_erDirectoryId = a});
+erDirectoryId = lens _erDirectoryId (\ s a -> s{_erDirectoryId = a})
 
 -- | A 'RadiusSettings' object that contains information about the RADIUS server.
 erRadiusSettings :: Lens' EnableRadius RadiusSettings
-erRadiusSettings = lens _erRadiusSettings (\ s a -> s{_erRadiusSettings = a});
+erRadiusSettings = lens _erRadiusSettings (\ s a -> s{_erRadiusSettings = a})
 
 instance AWSRequest EnableRadius where
         type Rs EnableRadius = EnableRadiusResponse
@@ -138,6 +138,6 @@ enableRadiusResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 errsResponseStatus :: Lens' EnableRadiusResponse Int
-errsResponseStatus = lens _errsResponseStatus (\ s a -> s{_errsResponseStatus = a});
+errsResponseStatus = lens _errsResponseStatus (\ s a -> s{_errsResponseStatus = a})
 
 instance NFData EnableRadiusResponse where

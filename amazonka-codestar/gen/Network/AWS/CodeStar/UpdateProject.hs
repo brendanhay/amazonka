@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.UpdateProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,15 +71,15 @@ updateProject pId_ =
 
 -- | The name of the project you want to update.
 upName :: Lens' UpdateProject (Maybe Text)
-upName = lens _upName (\ s a -> s{_upName = a}) . mapping _Sensitive;
+upName = lens _upName (\ s a -> s{_upName = a}) . mapping _Sensitive
 
 -- | The description of the project, if any.
 upDescription :: Lens' UpdateProject (Maybe Text)
-upDescription = lens _upDescription (\ s a -> s{_upDescription = a}) . mapping _Sensitive;
+upDescription = lens _upDescription (\ s a -> s{_upDescription = a}) . mapping _Sensitive
 
 -- | The ID of the project you want to update.
 upId :: Lens' UpdateProject Text
-upId = lens _upId (\ s a -> s{_upId = a});
+upId = lens _upId (\ s a -> s{_upId = a})
 
 instance AWSRequest UpdateProject where
         type Rs UpdateProject = UpdateProjectResponse
@@ -136,6 +136,6 @@ updateProjectResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 uprsResponseStatus :: Lens' UpdateProjectResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
+uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a})
 
 instance NFData UpdateProjectResponse where

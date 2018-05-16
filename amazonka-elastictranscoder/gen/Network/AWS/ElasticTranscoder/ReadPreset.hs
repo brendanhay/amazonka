@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ReadPreset
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ readPreset pId_ = ReadPreset' {_rpId = pId_}
 
 -- | The identifier of the preset for which you want to get detailed information.
 rpId :: Lens' ReadPreset Text
-rpId = lens _rpId (\ s a -> s{_rpId = a});
+rpId = lens _rpId (\ s a -> s{_rpId = a})
 
 instance AWSRequest ReadPreset where
         type Rs ReadPreset = ReadPresetResponse
@@ -115,15 +115,15 @@ readPresetResponse
     -> ReadPresetResponse
 readPresetResponse pResponseStatus_ =
   ReadPresetResponse'
-  {_rprsPreset = Nothing, _rprsResponseStatus = pResponseStatus_}
+    {_rprsPreset = Nothing, _rprsResponseStatus = pResponseStatus_}
 
 
 -- | A section of the response body that provides information about the preset.
 rprsPreset :: Lens' ReadPresetResponse (Maybe Preset)
-rprsPreset = lens _rprsPreset (\ s a -> s{_rprsPreset = a});
+rprsPreset = lens _rprsPreset (\ s a -> s{_rprsPreset = a})
 
 -- | -- | The response status code.
 rprsResponseStatus :: Lens' ReadPresetResponse Int
-rprsResponseStatus = lens _rprsResponseStatus (\ s a -> s{_rprsResponseStatus = a});
+rprsResponseStatus = lens _rprsResponseStatus (\ s a -> s{_rprsResponseStatus = a})
 
 instance NFData ReadPresetResponse where

@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DeleteSubscriber
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a Subscriber for a notification
+-- Deletes a subscriber.
+--
+--
+-- __Deleting the last subscriber to a notification also deletes the notification.__
+--
 module Network.AWS.Budgets.DeleteSubscriber
     (
     -- * Creating a Request
@@ -46,6 +50,8 @@ import Network.AWS.Response
 
 -- | Request of DeleteSubscriber
 --
+--
+--
 -- /See:/ 'deleteSubscriber' smart constructor.
 data DeleteSubscriber = DeleteSubscriber'
   { _dsAccountId    :: !Text
@@ -59,13 +65,13 @@ data DeleteSubscriber = DeleteSubscriber'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsAccountId' - Undocumented member.
+-- * 'dsAccountId' - The @accountId@ that is associated with the budget whose subscriber you want to delete.
 --
--- * 'dsBudgetName' - Undocumented member.
+-- * 'dsBudgetName' - The name of the budget whose subscriber you want to delete.
 --
--- * 'dsNotification' - Undocumented member.
+-- * 'dsNotification' - The notification whose subscriber you want to delete.
 --
--- * 'dsSubscriber' - Undocumented member.
+-- * 'dsSubscriber' - The subscriber that you want to delete.
 deleteSubscriber
     :: Text -- ^ 'dsAccountId'
     -> Text -- ^ 'dsBudgetName'
@@ -74,28 +80,28 @@ deleteSubscriber
     -> DeleteSubscriber
 deleteSubscriber pAccountId_ pBudgetName_ pNotification_ pSubscriber_ =
   DeleteSubscriber'
-  { _dsAccountId = pAccountId_
-  , _dsBudgetName = pBudgetName_
-  , _dsNotification = pNotification_
-  , _dsSubscriber = pSubscriber_
-  }
+    { _dsAccountId = pAccountId_
+    , _dsBudgetName = pBudgetName_
+    , _dsNotification = pNotification_
+    , _dsSubscriber = pSubscriber_
+    }
 
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budget whose subscriber you want to delete.
 dsAccountId :: Lens' DeleteSubscriber Text
-dsAccountId = lens _dsAccountId (\ s a -> s{_dsAccountId = a});
+dsAccountId = lens _dsAccountId (\ s a -> s{_dsAccountId = a})
 
--- | Undocumented member.
+-- | The name of the budget whose subscriber you want to delete.
 dsBudgetName :: Lens' DeleteSubscriber Text
-dsBudgetName = lens _dsBudgetName (\ s a -> s{_dsBudgetName = a});
+dsBudgetName = lens _dsBudgetName (\ s a -> s{_dsBudgetName = a})
 
--- | Undocumented member.
+-- | The notification whose subscriber you want to delete.
 dsNotification :: Lens' DeleteSubscriber Notification
-dsNotification = lens _dsNotification (\ s a -> s{_dsNotification = a});
+dsNotification = lens _dsNotification (\ s a -> s{_dsNotification = a})
 
--- | Undocumented member.
+-- | The subscriber that you want to delete.
 dsSubscriber :: Lens' DeleteSubscriber Subscriber
-dsSubscriber = lens _dsSubscriber (\ s a -> s{_dsSubscriber = a});
+dsSubscriber = lens _dsSubscriber (\ s a -> s{_dsSubscriber = a})
 
 instance AWSRequest DeleteSubscriber where
         type Rs DeleteSubscriber = DeleteSubscriberResponse
@@ -136,6 +142,8 @@ instance ToQuery DeleteSubscriber where
 
 -- | Response of DeleteSubscriber
 --
+--
+--
 -- /See:/ 'deleteSubscriberResponse' smart constructor.
 newtype DeleteSubscriberResponse = DeleteSubscriberResponse'
   { _dsrsResponseStatus :: Int
@@ -156,6 +164,6 @@ deleteSubscriberResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteSubscriberResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DeleteSubscriberResponse where

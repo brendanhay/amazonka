@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListUniqueProblems
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,11 +76,11 @@ listUniqueProblems pArn_ =
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lupNextToken :: Lens' ListUniqueProblems (Maybe Text)
-lupNextToken = lens _lupNextToken (\ s a -> s{_lupNextToken = a});
+lupNextToken = lens _lupNextToken (\ s a -> s{_lupNextToken = a})
 
 -- | The unique problems' ARNs.
 lupArn :: Lens' ListUniqueProblems Text
-lupArn = lens _lupArn (\ s a -> s{_lupArn = a});
+lupArn = lens _lupArn (\ s a -> s{_lupArn = a})
 
 instance AWSPager ListUniqueProblems where
         page rq rs
@@ -154,22 +154,22 @@ listUniqueProblemsResponse
     -> ListUniqueProblemsResponse
 listUniqueProblemsResponse pResponseStatus_ =
   ListUniqueProblemsResponse'
-  { _luprsNextToken = Nothing
-  , _luprsUniqueProblems = Nothing
-  , _luprsResponseStatus = pResponseStatus_
-  }
+    { _luprsNextToken = Nothing
+    , _luprsUniqueProblems = Nothing
+    , _luprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 luprsNextToken :: Lens' ListUniqueProblemsResponse (Maybe Text)
-luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a});
+luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a})
 
 -- | Information about the unique problems. Allowed values include:     * PENDING: A pending condition.     * PASSED: A passing condition.     * WARNED: A warning condition.     * FAILED: A failed condition.     * SKIPPED: A skipped condition.     * ERRORED: An error condition.     * STOPPED: A stopped condition.
 luprsUniqueProblems :: Lens' ListUniqueProblemsResponse (HashMap ExecutionResult [UniqueProblem])
-luprsUniqueProblems = lens _luprsUniqueProblems (\ s a -> s{_luprsUniqueProblems = a}) . _Default . _Map;
+luprsUniqueProblems = lens _luprsUniqueProblems (\ s a -> s{_luprsUniqueProblems = a}) . _Default . _Map
 
 -- | -- | The response status code.
 luprsResponseStatus :: Lens' ListUniqueProblemsResponse Int
-luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a});
+luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a})
 
 instance NFData ListUniqueProblemsResponse where

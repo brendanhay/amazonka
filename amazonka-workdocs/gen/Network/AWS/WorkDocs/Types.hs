@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,9 +37,13 @@ module Network.AWS.WorkDocs.Types
     , _UnauthorizedOperationException
     , _DraftUploadOutOfSyncException
     , _LimitExceededException
+    , _InvalidPasswordException
 
     -- * ActivityType
     , ActivityType (..)
+
+    -- * BooleanEnumType
+    , BooleanEnumType (..)
 
     -- * CommentStatusType
     , CommentStatusType (..)
@@ -194,6 +198,12 @@ module Network.AWS.WorkDocs.Types
     , gmName
     , gmId
 
+    -- * NotificationOptions
+    , NotificationOptions
+    , notificationOptions
+    , noEmailMessage
+    , noSendEmail
+
     -- * Participants
     , Participants
     , participants
@@ -315,24 +325,24 @@ import Network.AWS.WorkDocs.Types.Sum
 workDocs :: Service
 workDocs =
   Service
-  { _svcAbbrev = "WorkDocs"
-  , _svcSigner = v4
-  , _svcPrefix = "workdocs"
-  , _svcVersion = "2016-05-01"
-  , _svcEndpoint = defaultEndpoint workDocs
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "WorkDocs"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "WorkDocs"
+    , _svcSigner = v4
+    , _svcPrefix = "workdocs"
+    , _svcVersion = "2016-05-01"
+    , _svcEndpoint = defaultEndpoint workDocs
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "WorkDocs"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -341,6 +351,8 @@ workDocs =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -390,7 +402,7 @@ _TooManyLabelsException =
   _MatchServiceError workDocs "TooManyLabelsException" . hasStatus 429
 
 
--- | The pagination marker and/or limit fields are not valid.
+-- | The pagination marker or limit fields are not valid.
 --
 --
 _InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -415,7 +427,7 @@ _TooManySubscriptionsException =
   _MatchServiceError workDocs "TooManySubscriptionsException" . hasStatus 429
 
 
--- | The AWS Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected active directory.
+-- | The AWS Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.
 --
 --
 _FailedDependencyException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -519,4 +531,12 @@ _DraftUploadOutOfSyncException =
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
   _MatchServiceError workDocs "LimitExceededException" . hasStatus 409
+
+
+-- | The password is invalid.
+--
+--
+_InvalidPasswordException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidPasswordException =
+  _MatchServiceError workDocs "InvalidPasswordException" . hasStatus 401
 

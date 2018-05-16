@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetStaticIP
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getStaticIP pStaticIPName_ = GetStaticIP' {_gsiStaticIPName = pStaticIPName_}
 
 -- | The name of the static IP in Lightsail.
 gsiStaticIPName :: Lens' GetStaticIP Text
-gsiStaticIPName = lens _gsiStaticIPName (\ s a -> s{_gsiStaticIPName = a});
+gsiStaticIPName = lens _gsiStaticIPName (\ s a -> s{_gsiStaticIPName = a})
 
 instance AWSRequest GetStaticIP where
         type Rs GetStaticIP = GetStaticIPResponse
@@ -118,15 +118,15 @@ getStaticIPResponse
     -> GetStaticIPResponse
 getStaticIPResponse pResponseStatus_ =
   GetStaticIPResponse'
-  {_gsirsStaticIP = Nothing, _gsirsResponseStatus = pResponseStatus_}
+    {_gsirsStaticIP = Nothing, _gsirsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the requested static IP.
 gsirsStaticIP :: Lens' GetStaticIPResponse (Maybe StaticIP)
-gsirsStaticIP = lens _gsirsStaticIP (\ s a -> s{_gsirsStaticIP = a});
+gsirsStaticIP = lens _gsirsStaticIP (\ s a -> s{_gsirsStaticIP = a})
 
 -- | -- | The response status code.
 gsirsResponseStatus :: Lens' GetStaticIPResponse Int
-gsirsResponseStatus = lens _gsirsResponseStatus (\ s a -> s{_gsirsResponseStatus = a});
+gsirsResponseStatus = lens _gsirsResponseStatus (\ s a -> s{_gsirsResponseStatus = a})
 
 instance NFData GetStaticIPResponse where

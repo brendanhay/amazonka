@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateKeysAndCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ createKeysAndCertificate =
 
 -- | Specifies whether the certificate is active.
 ckacSetAsActive :: Lens' CreateKeysAndCertificate (Maybe Bool)
-ckacSetAsActive = lens _ckacSetAsActive (\ s a -> s{_ckacSetAsActive = a});
+ckacSetAsActive = lens _ckacSetAsActive (\ s a -> s{_ckacSetAsActive = a})
 
 instance AWSRequest CreateKeysAndCertificate where
         type Rs CreateKeysAndCertificate =
@@ -136,33 +136,33 @@ createKeysAndCertificateResponse
     -> CreateKeysAndCertificateResponse
 createKeysAndCertificateResponse pResponseStatus_ =
   CreateKeysAndCertificateResponse'
-  { _ckacrsKeyPair = Nothing
-  , _ckacrsCertificatePem = Nothing
-  , _ckacrsCertificateARN = Nothing
-  , _ckacrsCertificateId = Nothing
-  , _ckacrsResponseStatus = pResponseStatus_
-  }
+    { _ckacrsKeyPair = Nothing
+    , _ckacrsCertificatePem = Nothing
+    , _ckacrsCertificateARN = Nothing
+    , _ckacrsCertificateId = Nothing
+    , _ckacrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The generated key pair.
 ckacrsKeyPair :: Lens' CreateKeysAndCertificateResponse (Maybe KeyPair)
-ckacrsKeyPair = lens _ckacrsKeyPair (\ s a -> s{_ckacrsKeyPair = a});
+ckacrsKeyPair = lens _ckacrsKeyPair (\ s a -> s{_ckacrsKeyPair = a})
 
 -- | The certificate data, in PEM format.
 ckacrsCertificatePem :: Lens' CreateKeysAndCertificateResponse (Maybe Text)
-ckacrsCertificatePem = lens _ckacrsCertificatePem (\ s a -> s{_ckacrsCertificatePem = a});
+ckacrsCertificatePem = lens _ckacrsCertificatePem (\ s a -> s{_ckacrsCertificatePem = a})
 
 -- | The ARN of the certificate.
 ckacrsCertificateARN :: Lens' CreateKeysAndCertificateResponse (Maybe Text)
-ckacrsCertificateARN = lens _ckacrsCertificateARN (\ s a -> s{_ckacrsCertificateARN = a});
+ckacrsCertificateARN = lens _ckacrsCertificateARN (\ s a -> s{_ckacrsCertificateARN = a})
 
 -- | The ID of the certificate. AWS IoT issues a default subject name for the certificate (for example, AWS IoT Certificate).
 ckacrsCertificateId :: Lens' CreateKeysAndCertificateResponse (Maybe Text)
-ckacrsCertificateId = lens _ckacrsCertificateId (\ s a -> s{_ckacrsCertificateId = a});
+ckacrsCertificateId = lens _ckacrsCertificateId (\ s a -> s{_ckacrsCertificateId = a})
 
 -- | -- | The response status code.
 ckacrsResponseStatus :: Lens' CreateKeysAndCertificateResponse Int
-ckacrsResponseStatus = lens _ckacrsResponseStatus (\ s a -> s{_ckacrsResponseStatus = a});
+ckacrsResponseStatus = lens _ckacrsResponseStatus (\ s a -> s{_ckacrsResponseStatus = a})
 
 instance NFData CreateKeysAndCertificateResponse
          where

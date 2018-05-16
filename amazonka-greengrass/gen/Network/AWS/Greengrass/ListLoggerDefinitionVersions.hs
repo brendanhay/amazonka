@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListLoggerDefinitionVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,33 +57,33 @@ data ListLoggerDefinitionVersions = ListLoggerDefinitionVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lldvNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lldvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lldvMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lldvMaxResults' - The maximum number of results to be returned per request.
 --
--- * 'lldvLoggerDefinitionId' - logger definition Id
+-- * 'lldvLoggerDefinitionId' - The ID of the logger definition.
 listLoggerDefinitionVersions
     :: Text -- ^ 'lldvLoggerDefinitionId'
     -> ListLoggerDefinitionVersions
 listLoggerDefinitionVersions pLoggerDefinitionId_ =
   ListLoggerDefinitionVersions'
-  { _lldvNextToken = Nothing
-  , _lldvMaxResults = Nothing
-  , _lldvLoggerDefinitionId = pLoggerDefinitionId_
-  }
+    { _lldvNextToken = Nothing
+    , _lldvMaxResults = Nothing
+    , _lldvLoggerDefinitionId = pLoggerDefinitionId_
+    }
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lldvNextToken :: Lens' ListLoggerDefinitionVersions (Maybe Text)
-lldvNextToken = lens _lldvNextToken (\ s a -> s{_lldvNextToken = a});
+lldvNextToken = lens _lldvNextToken (\ s a -> s{_lldvNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lldvMaxResults :: Lens' ListLoggerDefinitionVersions (Maybe Text)
-lldvMaxResults = lens _lldvMaxResults (\ s a -> s{_lldvMaxResults = a});
+lldvMaxResults = lens _lldvMaxResults (\ s a -> s{_lldvMaxResults = a})
 
--- | logger definition Id
+-- | The ID of the logger definition.
 lldvLoggerDefinitionId :: Lens' ListLoggerDefinitionVersions Text
-lldvLoggerDefinitionId = lens _lldvLoggerDefinitionId (\ s a -> s{_lldvLoggerDefinitionId = a});
+lldvLoggerDefinitionId = lens _lldvLoggerDefinitionId (\ s a -> s{_lldvLoggerDefinitionId = a})
 
 instance AWSRequest ListLoggerDefinitionVersions
          where
@@ -132,7 +132,7 @@ data ListLoggerDefinitionVersionsResponse = ListLoggerDefinitionVersionsResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lldvrsVersions' - Versions
+-- * 'lldvrsVersions' - Information about a version.
 --
 -- * 'lldvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
@@ -142,23 +142,23 @@ listLoggerDefinitionVersionsResponse
     -> ListLoggerDefinitionVersionsResponse
 listLoggerDefinitionVersionsResponse pResponseStatus_ =
   ListLoggerDefinitionVersionsResponse'
-  { _lldvrsVersions = Nothing
-  , _lldvrsNextToken = Nothing
-  , _lldvrsResponseStatus = pResponseStatus_
-  }
+    { _lldvrsVersions = Nothing
+    , _lldvrsNextToken = Nothing
+    , _lldvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Versions
+-- | Information about a version.
 lldvrsVersions :: Lens' ListLoggerDefinitionVersionsResponse [VersionInformation]
-lldvrsVersions = lens _lldvrsVersions (\ s a -> s{_lldvrsVersions = a}) . _Default . _Coerce;
+lldvrsVersions = lens _lldvrsVersions (\ s a -> s{_lldvrsVersions = a}) . _Default . _Coerce
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lldvrsNextToken :: Lens' ListLoggerDefinitionVersionsResponse (Maybe Text)
-lldvrsNextToken = lens _lldvrsNextToken (\ s a -> s{_lldvrsNextToken = a});
+lldvrsNextToken = lens _lldvrsNextToken (\ s a -> s{_lldvrsNextToken = a})
 
 -- | -- | The response status code.
 lldvrsResponseStatus :: Lens' ListLoggerDefinitionVersionsResponse Int
-lldvrsResponseStatus = lens _lldvrsResponseStatus (\ s a -> s{_lldvrsResponseStatus = a});
+lldvrsResponseStatus = lens _lldvrsResponseStatus (\ s a -> s{_lldvrsResponseStatus = a})
 
 instance NFData ListLoggerDefinitionVersionsResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.Predict
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ predict
     -> Predict
 predict pMLModelId_ pPredictEndpoint_ =
   Predict'
-  { _pMLModelId = pMLModelId_
-  , _pRecord = mempty
-  , _pPredictEndpoint = pPredictEndpoint_
-  }
+    { _pMLModelId = pMLModelId_
+    , _pRecord = mempty
+    , _pPredictEndpoint = pPredictEndpoint_
+    }
 
 
 -- | A unique identifier of the @MLModel@ .
 pMLModelId :: Lens' Predict Text
-pMLModelId = lens _pMLModelId (\ s a -> s{_pMLModelId = a});
+pMLModelId = lens _pMLModelId (\ s a -> s{_pMLModelId = a})
 
 -- | Undocumented member.
 pRecord :: Lens' Predict (HashMap Text Text)
-pRecord = lens _pRecord (\ s a -> s{_pRecord = a}) . _Map;
+pRecord = lens _pRecord (\ s a -> s{_pRecord = a}) . _Map
 
 -- | Undocumented member.
 pPredictEndpoint :: Lens' Predict Text
-pPredictEndpoint = lens _pPredictEndpoint (\ s a -> s{_pPredictEndpoint = a});
+pPredictEndpoint = lens _pPredictEndpoint (\ s a -> s{_pPredictEndpoint = a})
 
 instance AWSRequest Predict where
         type Rs Predict = PredictResponse
@@ -142,15 +142,15 @@ predictResponse
     -> PredictResponse
 predictResponse pResponseStatus_ =
   PredictResponse'
-  {_prsPrediction = Nothing, _prsResponseStatus = pResponseStatus_}
+    {_prsPrediction = Nothing, _prsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 prsPrediction :: Lens' PredictResponse (Maybe Prediction)
-prsPrediction = lens _prsPrediction (\ s a -> s{_prsPrediction = a});
+prsPrediction = lens _prsPrediction (\ s a -> s{_prsPrediction = a})
 
 -- | -- | The response status code.
 prsResponseStatus :: Lens' PredictResponse Int
-prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
+prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a})
 
 instance NFData PredictResponse where

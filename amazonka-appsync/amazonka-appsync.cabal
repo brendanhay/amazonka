@@ -1,0 +1,112 @@
+name:                  amazonka-appsync
+version:               1.6.0
+synopsis:              Amazon AppSync SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2018 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+description:
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.AppSync" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
+
+source-repository head
+    type:              git
+    location:          git://github.com/brendanhay/amazonka.git
+    subdir:            amazonka-appsync
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:
+        -Wall
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updates
+        -funbox-strict-fields
+
+    exposed-modules:
+          Network.AWS.AppSync
+        , Network.AWS.AppSync.CreateAPIKey
+        , Network.AWS.AppSync.CreateDataSource
+        , Network.AWS.AppSync.CreateGraphqlAPI
+        , Network.AWS.AppSync.CreateResolver
+        , Network.AWS.AppSync.CreateType
+        , Network.AWS.AppSync.DeleteAPIKey
+        , Network.AWS.AppSync.DeleteDataSource
+        , Network.AWS.AppSync.DeleteGraphqlAPI
+        , Network.AWS.AppSync.DeleteResolver
+        , Network.AWS.AppSync.DeleteType
+        , Network.AWS.AppSync.GetDataSource
+        , Network.AWS.AppSync.GetGraphqlAPI
+        , Network.AWS.AppSync.GetIntrospectionSchema
+        , Network.AWS.AppSync.GetResolver
+        , Network.AWS.AppSync.GetSchemaCreationStatus
+        , Network.AWS.AppSync.GetType
+        , Network.AWS.AppSync.ListAPIKeys
+        , Network.AWS.AppSync.ListDataSources
+        , Network.AWS.AppSync.ListGraphqlAPIs
+        , Network.AWS.AppSync.ListResolvers
+        , Network.AWS.AppSync.ListTypes
+        , Network.AWS.AppSync.StartSchemaCreation
+        , Network.AWS.AppSync.Types
+        , Network.AWS.AppSync.UpdateAPIKey
+        , Network.AWS.AppSync.UpdateDataSource
+        , Network.AWS.AppSync.UpdateGraphqlAPI
+        , Network.AWS.AppSync.UpdateResolver
+        , Network.AWS.AppSync.UpdateType
+        , Network.AWS.AppSync.Waiters
+
+    other-modules:
+          Network.AWS.AppSync.Types.Product
+        , Network.AWS.AppSync.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.6.0.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-appsync-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.AppSync
+        , Test.AWS.Gen.AppSync
+        , Test.AWS.AppSync.Internal
+
+    build-depends:
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
+        , amazonka-appsync
+        , base
+        , bytestring
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

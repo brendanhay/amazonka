@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.RenewOffering
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ renewOffering = RenewOffering' {_roQuantity = Nothing, _roOfferingId = Nothing}
 
 -- | The quantity requested in an offering renewal.
 roQuantity :: Lens' RenewOffering (Maybe Int)
-roQuantity = lens _roQuantity (\ s a -> s{_roQuantity = a});
+roQuantity = lens _roQuantity (\ s a -> s{_roQuantity = a})
 
 -- | The ID of a request to renew an offering.
 roOfferingId :: Lens' RenewOffering (Maybe Text)
-roOfferingId = lens _roOfferingId (\ s a -> s{_roOfferingId = a});
+roOfferingId = lens _roOfferingId (\ s a -> s{_roOfferingId = a})
 
 instance AWSRequest RenewOffering where
         type Rs RenewOffering = RenewOfferingResponse
@@ -135,15 +135,15 @@ renewOfferingResponse
     -> RenewOfferingResponse
 renewOfferingResponse pResponseStatus_ =
   RenewOfferingResponse'
-  {_rorsOfferingTransaction = Nothing, _rorsResponseStatus = pResponseStatus_}
+    {_rorsOfferingTransaction = Nothing, _rorsResponseStatus = pResponseStatus_}
 
 
 -- | Represents the status of the offering transaction for the renewal.
 rorsOfferingTransaction :: Lens' RenewOfferingResponse (Maybe OfferingTransaction)
-rorsOfferingTransaction = lens _rorsOfferingTransaction (\ s a -> s{_rorsOfferingTransaction = a});
+rorsOfferingTransaction = lens _rorsOfferingTransaction (\ s a -> s{_rorsOfferingTransaction = a})
 
 -- | -- | The response status code.
 rorsResponseStatus :: Lens' RenewOfferingResponse Int
-rorsResponseStatus = lens _rorsResponseStatus (\ s a -> s{_rorsResponseStatus = a});
+rorsResponseStatus = lens _rorsResponseStatus (\ s a -> s{_rorsResponseStatus = a})
 
 instance NFData RenewOfferingResponse where

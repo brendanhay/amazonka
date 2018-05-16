@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListUploads
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,11 +75,11 @@ listUploads pArn_ = ListUploads' {_luNextToken = Nothing, _luArn = pArn_}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 luNextToken :: Lens' ListUploads (Maybe Text)
-luNextToken = lens _luNextToken (\ s a -> s{_luNextToken = a});
+luNextToken = lens _luNextToken (\ s a -> s{_luNextToken = a})
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to list uploads.
 luArn :: Lens' ListUploads Text
-luArn = lens _luArn (\ s a -> s{_luArn = a});
+luArn = lens _luArn (\ s a -> s{_luArn = a})
 
 instance AWSPager ListUploads where
         page rq rs
@@ -150,22 +150,22 @@ listUploadsResponse
     -> ListUploadsResponse
 listUploadsResponse pResponseStatus_ =
   ListUploadsResponse'
-  { _lursNextToken = Nothing
-  , _lursUploads = Nothing
-  , _lursResponseStatus = pResponseStatus_
-  }
+    { _lursNextToken = Nothing
+    , _lursUploads = Nothing
+    , _lursResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 lursNextToken :: Lens' ListUploadsResponse (Maybe Text)
-lursNextToken = lens _lursNextToken (\ s a -> s{_lursNextToken = a});
+lursNextToken = lens _lursNextToken (\ s a -> s{_lursNextToken = a})
 
 -- | Information about the uploads.
 lursUploads :: Lens' ListUploadsResponse [Upload]
-lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default . _Coerce;
+lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lursResponseStatus :: Lens' ListUploadsResponse Int
-lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a});
+lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a})
 
 instance NFData ListUploadsResponse where

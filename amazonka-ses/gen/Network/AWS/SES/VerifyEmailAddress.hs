@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.VerifyEmailAddress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ verifyEmailAddress pEmailAddress_ =
 
 -- | The email address to be verified.
 veaEmailAddress :: Lens' VerifyEmailAddress Text
-veaEmailAddress = lens _veaEmailAddress (\ s a -> s{_veaEmailAddress = a});
+veaEmailAddress = lens _veaEmailAddress (\ s a -> s{_veaEmailAddress = a})
 
 instance AWSRequest VerifyEmailAddress where
         type Rs VerifyEmailAddress =

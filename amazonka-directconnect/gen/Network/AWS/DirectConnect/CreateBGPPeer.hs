@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateBGPPeer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,11 +77,11 @@ createBGPPeer =
 
 -- | Detailed information for the BGP peer to be created. Default: None
 cbpNewBGPPeer :: Lens' CreateBGPPeer (Maybe NewBGPPeer)
-cbpNewBGPPeer = lens _cbpNewBGPPeer (\ s a -> s{_cbpNewBGPPeer = a});
+cbpNewBGPPeer = lens _cbpNewBGPPeer (\ s a -> s{_cbpNewBGPPeer = a})
 
 -- | The ID of the virtual interface on which the BGP peer will be provisioned. Example: dxvif-456abc78 Default: None
 cbpVirtualInterfaceId :: Lens' CreateBGPPeer (Maybe Text)
-cbpVirtualInterfaceId = lens _cbpVirtualInterfaceId (\ s a -> s{_cbpVirtualInterfaceId = a});
+cbpVirtualInterfaceId = lens _cbpVirtualInterfaceId (\ s a -> s{_cbpVirtualInterfaceId = a})
 
 instance AWSRequest CreateBGPPeer where
         type Rs CreateBGPPeer = CreateBGPPeerResponse
@@ -142,15 +142,15 @@ createBGPPeerResponse
     -> CreateBGPPeerResponse
 createBGPPeerResponse pResponseStatus_ =
   CreateBGPPeerResponse'
-  {_cbprsVirtualInterface = Nothing, _cbprsResponseStatus = pResponseStatus_}
+    {_cbprsVirtualInterface = Nothing, _cbprsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 cbprsVirtualInterface :: Lens' CreateBGPPeerResponse (Maybe VirtualInterface)
-cbprsVirtualInterface = lens _cbprsVirtualInterface (\ s a -> s{_cbprsVirtualInterface = a});
+cbprsVirtualInterface = lens _cbprsVirtualInterface (\ s a -> s{_cbprsVirtualInterface = a})
 
 -- | -- | The response status code.
 cbprsResponseStatus :: Lens' CreateBGPPeerResponse Int
-cbprsResponseStatus = lens _cbprsResponseStatus (\ s a -> s{_cbprsResponseStatus = a});
+cbprsResponseStatus = lens _cbprsResponseStatus (\ s a -> s{_cbprsResponseStatus = a})
 
 instance NFData CreateBGPPeerResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.AssociateElasticIP
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ associateElasticIP pElasticIP_ =
 
 -- | The instance ID.
 aeiInstanceId :: Lens' AssociateElasticIP (Maybe Text)
-aeiInstanceId = lens _aeiInstanceId (\ s a -> s{_aeiInstanceId = a});
+aeiInstanceId = lens _aeiInstanceId (\ s a -> s{_aeiInstanceId = a})
 
 -- | The Elastic IP address.
 aeiElasticIP :: Lens' AssociateElasticIP Text
-aeiElasticIP = lens _aeiElasticIP (\ s a -> s{_aeiElasticIP = a});
+aeiElasticIP = lens _aeiElasticIP (\ s a -> s{_aeiElasticIP = a})
 
 instance AWSRequest AssociateElasticIP where
         type Rs AssociateElasticIP =

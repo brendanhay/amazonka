@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ListTagsForResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Returns the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.
 --
 --
--- Currently, Elastic Beanstalk only supports tagging Elastic Beanstalk environments.
+-- Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html Tagging Resources in Your Elastic Beanstalk Environment> .
 --
 module Network.AWS.ElasticBeanstalk.ListTagsForResource
     (
@@ -67,7 +67,7 @@ listTagsForResource pResourceARN_ =
 
 -- | The Amazon Resource Name (ARN) of the resouce for which a tag list is requested. Must be the ARN of an Elastic Beanstalk environment.
 ltfrResourceARN :: Lens' ListTagsForResource Text
-ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
+ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a})
 
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource =
@@ -121,22 +121,22 @@ listTagsForResourceResponse
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
   ListTagsForResourceResponse'
-  { _ltfrrsResourceTags = Nothing
-  , _ltfrrsResourceARN = Nothing
-  , _ltfrrsResponseStatus = pResponseStatus_
-  }
+    { _ltfrrsResourceTags = Nothing
+    , _ltfrrsResourceARN = Nothing
+    , _ltfrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of tag key-value pairs.
 ltfrrsResourceTags :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsResourceTags = lens _ltfrrsResourceTags (\ s a -> s{_ltfrrsResourceTags = a}) . _Default . _Coerce;
+ltfrrsResourceTags = lens _ltfrrsResourceTags (\ s a -> s{_ltfrrsResourceTags = a}) . _Default . _Coerce
 
 -- | The Amazon Resource Name (ARN) of the resouce for which a tag list was requested.
 ltfrrsResourceARN :: Lens' ListTagsForResourceResponse (Maybe Text)
-ltfrrsResourceARN = lens _ltfrrsResourceARN (\ s a -> s{_ltfrrsResourceARN = a});
+ltfrrsResourceARN = lens _ltfrrsResourceARN (\ s a -> s{_ltfrrsResourceARN = a})
 
 -- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a})
 
 instance NFData ListTagsForResourceResponse where

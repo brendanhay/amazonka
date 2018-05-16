@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.GetJobManifest
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ getJobManifest pJobId_ = GetJobManifest' {_gjmJobId = pJobId_}
 
 -- | The ID for a job that you want to get the manifest file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 gjmJobId :: Lens' GetJobManifest Text
-gjmJobId = lens _gjmJobId (\ s a -> s{_gjmJobId = a});
+gjmJobId = lens _gjmJobId (\ s a -> s{_gjmJobId = a})
 
 instance AWSRequest GetJobManifest where
         type Rs GetJobManifest = GetJobManifestResponse
@@ -123,15 +123,15 @@ getJobManifestResponse
     -> GetJobManifestResponse
 getJobManifestResponse pResponseStatus_ =
   GetJobManifestResponse'
-  {_gjmrsManifestURI = Nothing, _gjmrsResponseStatus = pResponseStatus_}
+    {_gjmrsManifestURI = Nothing, _gjmrsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon S3 presigned URL for the manifest file associated with the specified @JobId@ value.
 gjmrsManifestURI :: Lens' GetJobManifestResponse (Maybe Text)
-gjmrsManifestURI = lens _gjmrsManifestURI (\ s a -> s{_gjmrsManifestURI = a});
+gjmrsManifestURI = lens _gjmrsManifestURI (\ s a -> s{_gjmrsManifestURI = a})
 
 -- | -- | The response status code.
 gjmrsResponseStatus :: Lens' GetJobManifestResponse Int
-gjmrsResponseStatus = lens _gjmrsResponseStatus (\ s a -> s{_gjmrsResponseStatus = a});
+gjmrsResponseStatus = lens _gjmrsResponseStatus (\ s a -> s{_gjmrsResponseStatus = a})
 
 instance NFData GetJobManifestResponse where

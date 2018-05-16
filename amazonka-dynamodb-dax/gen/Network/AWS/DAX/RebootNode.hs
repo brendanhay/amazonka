@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.RebootNode
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ rebootNode pClusterName_ pNodeId_ =
 
 -- | The name of the DAX cluster containing the node to be rebooted.
 rnClusterName :: Lens' RebootNode Text
-rnClusterName = lens _rnClusterName (\ s a -> s{_rnClusterName = a});
+rnClusterName = lens _rnClusterName (\ s a -> s{_rnClusterName = a})
 
 -- | The system-assigned ID of the node to be rebooted.
 rnNodeId :: Lens' RebootNode Text
-rnNodeId = lens _rnNodeId (\ s a -> s{_rnNodeId = a});
+rnNodeId = lens _rnNodeId (\ s a -> s{_rnNodeId = a})
 
 instance AWSRequest RebootNode where
         type Rs RebootNode = RebootNodeResponse
@@ -129,15 +129,15 @@ rebootNodeResponse
     -> RebootNodeResponse
 rebootNodeResponse pResponseStatus_ =
   RebootNodeResponse'
-  {_rnrsCluster = Nothing, _rnrsResponseStatus = pResponseStatus_}
+    {_rnrsCluster = Nothing, _rnrsResponseStatus = pResponseStatus_}
 
 
 -- | A description of the DAX cluster after a node has been rebooted.
 rnrsCluster :: Lens' RebootNodeResponse (Maybe Cluster)
-rnrsCluster = lens _rnrsCluster (\ s a -> s{_rnrsCluster = a});
+rnrsCluster = lens _rnrsCluster (\ s a -> s{_rnrsCluster = a})
 
 -- | -- | The response status code.
 rnrsResponseStatus :: Lens' RebootNodeResponse Int
-rnrsResponseStatus = lens _rnrsResponseStatus (\ s a -> s{_rnrsResponseStatus = a});
+rnrsResponseStatus = lens _rnrsResponseStatus (\ s a -> s{_rnrsResponseStatus = a})
 
 instance NFData RebootNodeResponse where

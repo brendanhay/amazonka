@@ -2,7 +2,7 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.Text
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -56,6 +56,7 @@ stripSuffix s t = Text.strip . fromMaybe t $ s `Text.stripSuffix` t
 renameOperation :: Text -> Text
 renameOperation t
     | "S3" `Text.isSuffixOf` t = t
+    | "V2" `Text.isSuffixOf` t = t -- Allow "ListObjectsV2"
     | otherwise                = Text.dropWhileEnd f (Text.strip t)
   where
     f x = x == '_'
@@ -139,6 +140,8 @@ renameReserved x
         , "EQ"
         , "Error"
         , "lex"
+        , "Left"
+        , "Right"
         ] ++ map Text.pack (reservedNames haskellDef)
 
 -- Pass in Relation, check if Uni directional + not shared and then add

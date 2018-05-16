@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,53 +69,53 @@ reportDefinition
     -> ReportDefinition
 reportDefinition pReportName_ pTimeUnit_ pFormat_ pCompression_ pS3Bucket_ pS3Prefix_ pS3Region_ =
   ReportDefinition'
-  { _rdAdditionalArtifacts = Nothing
-  , _rdReportName = pReportName_
-  , _rdTimeUnit = pTimeUnit_
-  , _rdFormat = pFormat_
-  , _rdCompression = pCompression_
-  , _rdAdditionalSchemaElements = mempty
-  , _rdS3Bucket = pS3Bucket_
-  , _rdS3Prefix = pS3Prefix_
-  , _rdS3Region = pS3Region_
-  }
+    { _rdAdditionalArtifacts = Nothing
+    , _rdReportName = pReportName_
+    , _rdTimeUnit = pTimeUnit_
+    , _rdFormat = pFormat_
+    , _rdCompression = pCompression_
+    , _rdAdditionalSchemaElements = mempty
+    , _rdS3Bucket = pS3Bucket_
+    , _rdS3Prefix = pS3Prefix_
+    , _rdS3Region = pS3Region_
+    }
 
 
 -- | Undocumented member.
 rdAdditionalArtifacts :: Lens' ReportDefinition [AdditionalArtifact]
-rdAdditionalArtifacts = lens _rdAdditionalArtifacts (\ s a -> s{_rdAdditionalArtifacts = a}) . _Default . _Coerce;
+rdAdditionalArtifacts = lens _rdAdditionalArtifacts (\ s a -> s{_rdAdditionalArtifacts = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 rdReportName :: Lens' ReportDefinition Text
-rdReportName = lens _rdReportName (\ s a -> s{_rdReportName = a});
+rdReportName = lens _rdReportName (\ s a -> s{_rdReportName = a})
 
 -- | Undocumented member.
 rdTimeUnit :: Lens' ReportDefinition TimeUnit
-rdTimeUnit = lens _rdTimeUnit (\ s a -> s{_rdTimeUnit = a});
+rdTimeUnit = lens _rdTimeUnit (\ s a -> s{_rdTimeUnit = a})
 
 -- | Undocumented member.
 rdFormat :: Lens' ReportDefinition ReportFormat
-rdFormat = lens _rdFormat (\ s a -> s{_rdFormat = a});
+rdFormat = lens _rdFormat (\ s a -> s{_rdFormat = a})
 
 -- | Undocumented member.
 rdCompression :: Lens' ReportDefinition CompressionFormat
-rdCompression = lens _rdCompression (\ s a -> s{_rdCompression = a});
+rdCompression = lens _rdCompression (\ s a -> s{_rdCompression = a})
 
 -- | Undocumented member.
 rdAdditionalSchemaElements :: Lens' ReportDefinition [SchemaElement]
-rdAdditionalSchemaElements = lens _rdAdditionalSchemaElements (\ s a -> s{_rdAdditionalSchemaElements = a}) . _Coerce;
+rdAdditionalSchemaElements = lens _rdAdditionalSchemaElements (\ s a -> s{_rdAdditionalSchemaElements = a}) . _Coerce
 
 -- | Undocumented member.
 rdS3Bucket :: Lens' ReportDefinition Text
-rdS3Bucket = lens _rdS3Bucket (\ s a -> s{_rdS3Bucket = a});
+rdS3Bucket = lens _rdS3Bucket (\ s a -> s{_rdS3Bucket = a})
 
 -- | Undocumented member.
 rdS3Prefix :: Lens' ReportDefinition Text
-rdS3Prefix = lens _rdS3Prefix (\ s a -> s{_rdS3Prefix = a});
+rdS3Prefix = lens _rdS3Prefix (\ s a -> s{_rdS3Prefix = a})
 
 -- | Undocumented member.
 rdS3Region :: Lens' ReportDefinition AWSRegion
-rdS3Region = lens _rdS3Region (\ s a -> s{_rdS3Region = a});
+rdS3Region = lens _rdS3Region (\ s a -> s{_rdS3Region = a})
 
 instance FromJSON ReportDefinition where
         parseJSON

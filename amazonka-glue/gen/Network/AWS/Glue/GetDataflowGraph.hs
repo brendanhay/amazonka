@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetDataflowGraph
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getDataflowGraph = GetDataflowGraph' {_gdgPythonScript = Nothing}
 
 -- | The Python script to transform.
 gdgPythonScript :: Lens' GetDataflowGraph (Maybe Text)
-gdgPythonScript = lens _gdgPythonScript (\ s a -> s{_gdgPythonScript = a});
+gdgPythonScript = lens _gdgPythonScript (\ s a -> s{_gdgPythonScript = a})
 
 instance AWSRequest GetDataflowGraph where
         type Rs GetDataflowGraph = GetDataflowGraphResponse
@@ -123,22 +123,22 @@ getDataflowGraphResponse
     -> GetDataflowGraphResponse
 getDataflowGraphResponse pResponseStatus_ =
   GetDataflowGraphResponse'
-  { _gdgrsDagEdges = Nothing
-  , _gdgrsDagNodes = Nothing
-  , _gdgrsResponseStatus = pResponseStatus_
-  }
+    { _gdgrsDagEdges = Nothing
+    , _gdgrsDagNodes = Nothing
+    , _gdgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of the edges in the resulting DAG.
 gdgrsDagEdges :: Lens' GetDataflowGraphResponse [CodeGenEdge]
-gdgrsDagEdges = lens _gdgrsDagEdges (\ s a -> s{_gdgrsDagEdges = a}) . _Default . _Coerce;
+gdgrsDagEdges = lens _gdgrsDagEdges (\ s a -> s{_gdgrsDagEdges = a}) . _Default . _Coerce
 
 -- | A list of the nodes in the resulting DAG.
 gdgrsDagNodes :: Lens' GetDataflowGraphResponse [CodeGenNode]
-gdgrsDagNodes = lens _gdgrsDagNodes (\ s a -> s{_gdgrsDagNodes = a}) . _Default . _Coerce;
+gdgrsDagNodes = lens _gdgrsDagNodes (\ s a -> s{_gdgrsDagNodes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gdgrsResponseStatus :: Lens' GetDataflowGraphResponse Int
-gdgrsResponseStatus = lens _gdgrsResponseStatus (\ s a -> s{_gdgrsResponseStatus = a});
+gdgrsResponseStatus = lens _gdgrsResponseStatus (\ s a -> s{_gdgrsResponseStatus = a})
 
 instance NFData GetDataflowGraphResponse where

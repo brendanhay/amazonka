@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.Encryption.Envelope
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
@@ -59,7 +59,7 @@ newV1 f d = liftIO $ do
         , _v1Description = d
         }
 
-decodeV1 :: MonadResource m
+decodeV1 :: (MonadResource m, MonadThrow m)
          => [(CI Text, Text)]
          -> (ByteString -> IO ByteString)
          -> m Envelope
@@ -94,7 +94,7 @@ data V2Envelope = V2Envelope
       -- description, @x-amz-matdesc, under the key-name @kms_cmk_id@.
     }
 
-newV2 :: MonadResource m => Text -> Description -> Env -> m Envelope
+newV2 :: (MonadResource m, MonadThrow m) => Text -> Description -> Env -> m Envelope
 newV2 kid d e = do
     let ctx = Map.insert "kms_cmk_id" kid (fromDescription d)
     rs <- runAWS e . send $
@@ -113,7 +113,7 @@ newV2 kid d e = do
         , _v2Description   = Description ctx
         }
 
-decodeV2 :: MonadResource m
+decodeV2 :: (MonadResource m, MonadThrow m)
          => [(CI Text, Text)]
          -> Description
          -> Env
@@ -175,14 +175,14 @@ toMetadata = \case
     b64 :: ByteString -> ByteString
     b64 = toBS . Base64
 
-newEnvelope :: MonadResource m => Key -> Env -> m Envelope
+newEnvelope :: (MonadResource m, MonadThrow m) => Key -> Env -> m Envelope
 newEnvelope k e =
     case k of
         Symmetric  c   d -> newV1 (return . ecbEncrypt c) d
         Asymmetric p   d -> newV1 (rsaEncrypt p) d
         KMS        kid d -> newV2 kid d e
 
-decodeEnvelope :: MonadResource m
+decodeEnvelope :: (MonadResource m, MonadThrow m)
                => Key
                -> Env
                -> [(CI Text, Text)]
@@ -193,7 +193,7 @@ decodeEnvelope k e xs =
         Asymmetric p _ -> decodeV1 xs (rsaDecrypt p)
         KMS        _ d -> decodeV2 xs d e
 
-fromMetadata :: MonadResource m => Key -> Env -> HashMap Text Text -> m Envelope
+fromMetadata :: (MonadResource m, MonadThrow m) => Key -> Env -> HashMap Text Text -> m Envelope
 fromMetadata key e = decodeEnvelope key e . map (first CI.mk) . Map.toList
 
 aesKeySize, aesBlockSize :: Int

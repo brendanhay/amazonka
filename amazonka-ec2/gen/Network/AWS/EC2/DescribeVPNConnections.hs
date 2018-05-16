@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVPNConnections
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ describeVPNConnections
     :: DescribeVPNConnections
 describeVPNConnections =
   DescribeVPNConnections'
-  { _dvpncFilters = Nothing
-  , _dvpncVPNConnectionIds = Nothing
-  , _dvpncDryRun = Nothing
-  }
+    { _dvpncFilters = Nothing
+    , _dvpncVPNConnectionIds = Nothing
+    , _dvpncDryRun = Nothing
+    }
 
 
 -- | One or more filters.     * @customer-gateway-configuration@ - The configuration information for the customer gateway.     * @customer-gateway-id@ - The ID of a customer gateway associated with the VPN connection.     * @state@ - The state of the VPN connection (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @option.static-routes-only@ - Indicates whether the connection has static routes only. Used for devices that do not support Border Gateway Protocol (BGP).     * @route.destination-cidr-block@ - The destination CIDR block. This corresponds to the subnet used in a customer data center.     * @bgp-asn@ - The BGP Autonomous System Number (ASN) associated with a BGP device.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @type@ - The type of VPN connection. Currently the only supported type is @ipsec.1@ .     * @vpn-connection-id@ - The ID of the VPN connection.     * @vpn-gateway-id@ - The ID of a virtual private gateway associated with the VPN connection.
 dvpncFilters :: Lens' DescribeVPNConnections [Filter]
-dvpncFilters = lens _dvpncFilters (\ s a -> s{_dvpncFilters = a}) . _Default . _Coerce;
+dvpncFilters = lens _dvpncFilters (\ s a -> s{_dvpncFilters = a}) . _Default . _Coerce
 
 -- | One or more VPN connection IDs. Default: Describes your VPN connections.
 dvpncVPNConnectionIds :: Lens' DescribeVPNConnections [Text]
-dvpncVPNConnectionIds = lens _dvpncVPNConnectionIds (\ s a -> s{_dvpncVPNConnectionIds = a}) . _Default . _Coerce;
+dvpncVPNConnectionIds = lens _dvpncVPNConnectionIds (\ s a -> s{_dvpncVPNConnectionIds = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvpncDryRun :: Lens' DescribeVPNConnections (Maybe Bool)
-dvpncDryRun = lens _dvpncDryRun (\ s a -> s{_dvpncDryRun = a});
+dvpncDryRun = lens _dvpncDryRun (\ s a -> s{_dvpncDryRun = a})
 
 instance AWSRequest DescribeVPNConnections where
         type Rs DescribeVPNConnections =
@@ -148,15 +148,15 @@ describeVPNConnectionsResponse
     -> DescribeVPNConnectionsResponse
 describeVPNConnectionsResponse pResponseStatus_ =
   DescribeVPNConnectionsResponse'
-  {_dvcrsVPNConnections = Nothing, _dvcrsResponseStatus = pResponseStatus_}
+    {_dvcrsVPNConnections = Nothing, _dvcrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about one or more VPN connections.
 dvcrsVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
-dvcrsVPNConnections = lens _dvcrsVPNConnections (\ s a -> s{_dvcrsVPNConnections = a}) . _Default . _Coerce;
+dvcrsVPNConnections = lens _dvcrsVPNConnections (\ s a -> s{_dvcrsVPNConnections = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dvcrsResponseStatus :: Lens' DescribeVPNConnectionsResponse Int
-dvcrsResponseStatus = lens _dvcrsResponseStatus (\ s a -> s{_dvcrsResponseStatus = a});
+dvcrsResponseStatus = lens _dvcrsResponseStatus (\ s a -> s{_dvcrsResponseStatus = a})
 
 instance NFData DescribeVPNConnectionsResponse where

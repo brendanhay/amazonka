@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetIdentityNotificationAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ getIdentityNotificationAttributes =
 
 -- | A list of one or more identities. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
-ginaIdentities = lens _ginaIdentities (\ s a -> s{_ginaIdentities = a}) . _Coerce;
+ginaIdentities = lens _ginaIdentities (\ s a -> s{_ginaIdentities = a}) . _Coerce
 
 instance AWSRequest GetIdentityNotificationAttributes
          where
@@ -133,18 +133,18 @@ getIdentityNotificationAttributesResponse
     -> GetIdentityNotificationAttributesResponse
 getIdentityNotificationAttributesResponse pResponseStatus_ =
   GetIdentityNotificationAttributesResponse'
-  { _ginarsResponseStatus = pResponseStatus_
-  , _ginarsNotificationAttributes = mempty
-  }
+    { _ginarsResponseStatus = pResponseStatus_
+    , _ginarsNotificationAttributes = mempty
+    }
 
 
 -- | -- | The response status code.
 ginarsResponseStatus :: Lens' GetIdentityNotificationAttributesResponse Int
-ginarsResponseStatus = lens _ginarsResponseStatus (\ s a -> s{_ginarsResponseStatus = a});
+ginarsResponseStatus = lens _ginarsResponseStatus (\ s a -> s{_ginarsResponseStatus = a})
 
 -- | A map of Identity to IdentityNotificationAttributes.
 ginarsNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
-ginarsNotificationAttributes = lens _ginarsNotificationAttributes (\ s a -> s{_ginarsNotificationAttributes = a}) . _Map;
+ginarsNotificationAttributes = lens _ginarsNotificationAttributes (\ s a -> s{_ginarsNotificationAttributes = a}) . _Map
 
 instance NFData
            GetIdentityNotificationAttributesResponse

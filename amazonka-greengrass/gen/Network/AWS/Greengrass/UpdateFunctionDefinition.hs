@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateFunctionDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,24 +53,24 @@ data UpdateFunctionDefinition = UpdateFunctionDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufdName' - name of the definition
+-- * 'ufdName' - The name of the definition.
 --
--- * 'ufdFunctionDefinitionId' - the unique Id of the lambda definition
+-- * 'ufdFunctionDefinitionId' - The ID of the Lambda function definition.
 updateFunctionDefinition
     :: Text -- ^ 'ufdFunctionDefinitionId'
     -> UpdateFunctionDefinition
 updateFunctionDefinition pFunctionDefinitionId_ =
   UpdateFunctionDefinition'
-  {_ufdName = Nothing, _ufdFunctionDefinitionId = pFunctionDefinitionId_}
+    {_ufdName = Nothing, _ufdFunctionDefinitionId = pFunctionDefinitionId_}
 
 
--- | name of the definition
+-- | The name of the definition.
 ufdName :: Lens' UpdateFunctionDefinition (Maybe Text)
-ufdName = lens _ufdName (\ s a -> s{_ufdName = a});
+ufdName = lens _ufdName (\ s a -> s{_ufdName = a})
 
--- | the unique Id of the lambda definition
+-- | The ID of the Lambda function definition.
 ufdFunctionDefinitionId :: Lens' UpdateFunctionDefinition Text
-ufdFunctionDefinitionId = lens _ufdFunctionDefinitionId (\ s a -> s{_ufdFunctionDefinitionId = a});
+ufdFunctionDefinitionId = lens _ufdFunctionDefinitionId (\ s a -> s{_ufdFunctionDefinitionId = a})
 
 instance AWSRequest UpdateFunctionDefinition where
         type Rs UpdateFunctionDefinition =
@@ -126,7 +126,7 @@ updateFunctionDefinitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ufdrsResponseStatus :: Lens' UpdateFunctionDefinitionResponse Int
-ufdrsResponseStatus = lens _ufdrsResponseStatus (\ s a -> s{_ufdrsResponseStatus = a});
+ufdrsResponseStatus = lens _ufdrsResponseStatus (\ s a -> s{_ufdrsResponseStatus = a})
 
 instance NFData UpdateFunctionDefinitionResponse
          where

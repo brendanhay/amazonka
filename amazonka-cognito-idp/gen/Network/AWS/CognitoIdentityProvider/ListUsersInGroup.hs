@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListUsersInGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ listUsersInGroup
     -> ListUsersInGroup
 listUsersInGroup pUserPoolId_ pGroupName_ =
   ListUsersInGroup'
-  { _luigNextToken = Nothing
-  , _luigLimit = Nothing
-  , _luigUserPoolId = pUserPoolId_
-  , _luigGroupName = pGroupName_
-  }
+    { _luigNextToken = Nothing
+    , _luigLimit = Nothing
+    , _luigUserPoolId = pUserPoolId_
+    , _luigGroupName = pGroupName_
+    }
 
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 luigNextToken :: Lens' ListUsersInGroup (Maybe Text)
-luigNextToken = lens _luigNextToken (\ s a -> s{_luigNextToken = a});
+luigNextToken = lens _luigNextToken (\ s a -> s{_luigNextToken = a})
 
 -- | The limit of the request to list users.
 luigLimit :: Lens' ListUsersInGroup (Maybe Natural)
-luigLimit = lens _luigLimit (\ s a -> s{_luigLimit = a}) . mapping _Nat;
+luigLimit = lens _luigLimit (\ s a -> s{_luigLimit = a}) . mapping _Nat
 
 -- | The user pool ID for the user pool.
 luigUserPoolId :: Lens' ListUsersInGroup Text
-luigUserPoolId = lens _luigUserPoolId (\ s a -> s{_luigUserPoolId = a});
+luigUserPoolId = lens _luigUserPoolId (\ s a -> s{_luigUserPoolId = a})
 
 -- | The name of the group.
 luigGroupName :: Lens' ListUsersInGroup Text
-luigGroupName = lens _luigGroupName (\ s a -> s{_luigGroupName = a});
+luigGroupName = lens _luigGroupName (\ s a -> s{_luigGroupName = a})
 
 instance AWSRequest ListUsersInGroup where
         type Rs ListUsersInGroup = ListUsersInGroupResponse
@@ -160,22 +160,22 @@ listUsersInGroupResponse
     -> ListUsersInGroupResponse
 listUsersInGroupResponse pResponseStatus_ =
   ListUsersInGroupResponse'
-  { _luigrsUsers = Nothing
-  , _luigrsNextToken = Nothing
-  , _luigrsResponseStatus = pResponseStatus_
-  }
+    { _luigrsUsers = Nothing
+    , _luigrsNextToken = Nothing
+    , _luigrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The users returned in the request to list users.
 luigrsUsers :: Lens' ListUsersInGroupResponse [UserType]
-luigrsUsers = lens _luigrsUsers (\ s a -> s{_luigrsUsers = a}) . _Default . _Coerce;
+luigrsUsers = lens _luigrsUsers (\ s a -> s{_luigrsUsers = a}) . _Default . _Coerce
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 luigrsNextToken :: Lens' ListUsersInGroupResponse (Maybe Text)
-luigrsNextToken = lens _luigrsNextToken (\ s a -> s{_luigrsNextToken = a});
+luigrsNextToken = lens _luigrsNextToken (\ s a -> s{_luigrsNextToken = a})
 
 -- | -- | The response status code.
 luigrsResponseStatus :: Lens' ListUsersInGroupResponse Int
-luigrsResponseStatus = lens _luigrsResponseStatus (\ s a -> s{_luigrsResponseStatus = a});
+luigrsResponseStatus = lens _luigrsResponseStatus (\ s a -> s{_luigrsResponseStatus = a})
 
 instance NFData ListUsersInGroupResponse where

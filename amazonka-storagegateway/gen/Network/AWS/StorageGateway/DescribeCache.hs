@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeCache
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the cache of a gateway. This operation is only supported in the cached volume,tape and file gateway architectures.
+-- Returns information about the cache of a gateway. This operation is only supported in the cached volume, tape and file gateway types.
 --
 --
 -- The response includes disk IDs that are configured as cache, and it includes the amount of cache allocated and used.
@@ -71,7 +71,7 @@ describeCache pGatewayARN_ = DescribeCache' {_dcGatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
 dcGatewayARN :: Lens' DescribeCache Text
-dcGatewayARN = lens _dcGatewayARN (\ s a -> s{_dcGatewayARN = a});
+dcGatewayARN = lens _dcGatewayARN (\ s a -> s{_dcGatewayARN = a})
 
 instance AWSRequest DescribeCache where
         type Rs DescribeCache = DescribeCacheResponse
@@ -150,47 +150,47 @@ describeCacheResponse
     -> DescribeCacheResponse
 describeCacheResponse pResponseStatus_ =
   DescribeCacheResponse'
-  { _dcrsGatewayARN = Nothing
-  , _dcrsDiskIds = Nothing
-  , _dcrsCacheUsedPercentage = Nothing
-  , _dcrsCacheHitPercentage = Nothing
-  , _dcrsCacheMissPercentage = Nothing
-  , _dcrsCacheAllocatedInBytes = Nothing
-  , _dcrsCacheDirtyPercentage = Nothing
-  , _dcrsResponseStatus = pResponseStatus_
-  }
+    { _dcrsGatewayARN = Nothing
+    , _dcrsDiskIds = Nothing
+    , _dcrsCacheUsedPercentage = Nothing
+    , _dcrsCacheHitPercentage = Nothing
+    , _dcrsCacheMissPercentage = Nothing
+    , _dcrsCacheAllocatedInBytes = Nothing
+    , _dcrsCacheDirtyPercentage = Nothing
+    , _dcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dcrsGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
-dcrsGatewayARN = lens _dcrsGatewayARN (\ s a -> s{_dcrsGatewayARN = a});
+dcrsGatewayARN = lens _dcrsGatewayARN (\ s a -> s{_dcrsGatewayARN = a})
 
 -- | Undocumented member.
 dcrsDiskIds :: Lens' DescribeCacheResponse [Text]
-dcrsDiskIds = lens _dcrsDiskIds (\ s a -> s{_dcrsDiskIds = a}) . _Default . _Coerce;
+dcrsDiskIds = lens _dcrsDiskIds (\ s a -> s{_dcrsDiskIds = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 dcrsCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheUsedPercentage = lens _dcrsCacheUsedPercentage (\ s a -> s{_dcrsCacheUsedPercentage = a});
+dcrsCacheUsedPercentage = lens _dcrsCacheUsedPercentage (\ s a -> s{_dcrsCacheUsedPercentage = a})
 
 -- | Undocumented member.
 dcrsCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheHitPercentage = lens _dcrsCacheHitPercentage (\ s a -> s{_dcrsCacheHitPercentage = a});
+dcrsCacheHitPercentage = lens _dcrsCacheHitPercentage (\ s a -> s{_dcrsCacheHitPercentage = a})
 
 -- | Undocumented member.
 dcrsCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheMissPercentage = lens _dcrsCacheMissPercentage (\ s a -> s{_dcrsCacheMissPercentage = a});
+dcrsCacheMissPercentage = lens _dcrsCacheMissPercentage (\ s a -> s{_dcrsCacheMissPercentage = a})
 
 -- | Undocumented member.
 dcrsCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
-dcrsCacheAllocatedInBytes = lens _dcrsCacheAllocatedInBytes (\ s a -> s{_dcrsCacheAllocatedInBytes = a});
+dcrsCacheAllocatedInBytes = lens _dcrsCacheAllocatedInBytes (\ s a -> s{_dcrsCacheAllocatedInBytes = a})
 
 -- | Undocumented member.
 dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCacheDirtyPercentage = a});
+dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCacheDirtyPercentage = a})
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCacheResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DescribeCacheResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.UpdateIdentityPool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -102,48 +102,48 @@ updateIdentityPool
     -> UpdateIdentityPool
 updateIdentityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
   UpdateIdentityPool'
-  { _uipSamlProviderARNs = Nothing
-  , _uipSupportedLoginProviders = Nothing
-  , _uipDeveloperProviderName = Nothing
-  , _uipOpenIdConnectProviderARNs = Nothing
-  , _uipCognitoIdentityProviders = Nothing
-  , _uipIdentityPoolId = pIdentityPoolId_
-  , _uipIdentityPoolName = pIdentityPoolName_
-  , _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
-  }
+    { _uipSamlProviderARNs = Nothing
+    , _uipSupportedLoginProviders = Nothing
+    , _uipDeveloperProviderName = Nothing
+    , _uipOpenIdConnectProviderARNs = Nothing
+    , _uipCognitoIdentityProviders = Nothing
+    , _uipIdentityPoolId = pIdentityPoolId_
+    , _uipIdentityPoolName = pIdentityPoolName_
+    , _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
+    }
 
 
 -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
 uipSamlProviderARNs :: Lens' UpdateIdentityPool [Text]
-uipSamlProviderARNs = lens _uipSamlProviderARNs (\ s a -> s{_uipSamlProviderARNs = a}) . _Default . _Coerce;
+uipSamlProviderARNs = lens _uipSamlProviderARNs (\ s a -> s{_uipSamlProviderARNs = a}) . _Default . _Coerce
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 uipSupportedLoginProviders :: Lens' UpdateIdentityPool (HashMap Text Text)
-uipSupportedLoginProviders = lens _uipSupportedLoginProviders (\ s a -> s{_uipSupportedLoginProviders = a}) . _Default . _Map;
+uipSupportedLoginProviders = lens _uipSupportedLoginProviders (\ s a -> s{_uipSupportedLoginProviders = a}) . _Default . _Map
 
 -- | The "domain" by which Cognito will refer to your users.
 uipDeveloperProviderName :: Lens' UpdateIdentityPool (Maybe Text)
-uipDeveloperProviderName = lens _uipDeveloperProviderName (\ s a -> s{_uipDeveloperProviderName = a});
+uipDeveloperProviderName = lens _uipDeveloperProviderName (\ s a -> s{_uipDeveloperProviderName = a})
 
 -- | A list of OpendID Connect provider ARNs.
 uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool [Text]
-uipOpenIdConnectProviderARNs = lens _uipOpenIdConnectProviderARNs (\ s a -> s{_uipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
+uipOpenIdConnectProviderARNs = lens _uipOpenIdConnectProviderARNs (\ s a -> s{_uipOpenIdConnectProviderARNs = a}) . _Default . _Coerce
 
 -- | A list representing an Amazon Cognito Identity User Pool and its client ID.
 uipCognitoIdentityProviders :: Lens' UpdateIdentityPool [CognitoIdentityProvider]
-uipCognitoIdentityProviders = lens _uipCognitoIdentityProviders (\ s a -> s{_uipCognitoIdentityProviders = a}) . _Default . _Coerce;
+uipCognitoIdentityProviders = lens _uipCognitoIdentityProviders (\ s a -> s{_uipCognitoIdentityProviders = a}) . _Default . _Coerce
 
 -- | An identity pool ID in the format REGION:GUID.
 uipIdentityPoolId :: Lens' UpdateIdentityPool Text
-uipIdentityPoolId = lens _uipIdentityPoolId (\ s a -> s{_uipIdentityPoolId = a});
+uipIdentityPoolId = lens _uipIdentityPoolId (\ s a -> s{_uipIdentityPoolId = a})
 
 -- | A string that you provide.
 uipIdentityPoolName :: Lens' UpdateIdentityPool Text
-uipIdentityPoolName = lens _uipIdentityPoolName (\ s a -> s{_uipIdentityPoolName = a});
+uipIdentityPoolName = lens _uipIdentityPoolName (\ s a -> s{_uipIdentityPoolName = a})
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 uipAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPool Bool
-uipAllowUnauthenticatedIdentities = lens _uipAllowUnauthenticatedIdentities (\ s a -> s{_uipAllowUnauthenticatedIdentities = a});
+uipAllowUnauthenticatedIdentities = lens _uipAllowUnauthenticatedIdentities (\ s a -> s{_uipAllowUnauthenticatedIdentities = a})
 
 instance AWSRequest UpdateIdentityPool where
         type Rs UpdateIdentityPool = IdentityPool

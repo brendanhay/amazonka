@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetInstanceAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ resetInstanceAttribute
     -> ResetInstanceAttribute
 resetInstanceAttribute pAttribute_ pInstanceId_ =
   ResetInstanceAttribute'
-  { _riaDryRun = Nothing
-  , _riaAttribute = pAttribute_
-  , _riaInstanceId = pInstanceId_
-  }
+    { _riaDryRun = Nothing
+    , _riaAttribute = pAttribute_
+    , _riaInstanceId = pInstanceId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
-riaDryRun = lens _riaDryRun (\ s a -> s{_riaDryRun = a});
+riaDryRun = lens _riaDryRun (\ s a -> s{_riaDryRun = a})
 
 -- | The attribute to reset. /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
 riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
-riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a});
+riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a})
 
 -- | The ID of the instance.
 riaInstanceId :: Lens' ResetInstanceAttribute Text
-riaInstanceId = lens _riaInstanceId (\ s a -> s{_riaInstanceId = a});
+riaInstanceId = lens _riaInstanceId (\ s a -> s{_riaInstanceId = a})
 
 instance AWSRequest ResetInstanceAttribute where
         type Rs ResetInstanceAttribute =

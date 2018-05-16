@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.ListImages
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,33 +82,33 @@ listImages
     -> ListImages
 listImages pRepositoryName_ =
   ListImages'
-  { _liRegistryId = Nothing
-  , _liNextToken = Nothing
-  , _liFilter = Nothing
-  , _liMaxResults = Nothing
-  , _liRepositoryName = pRepositoryName_
-  }
+    { _liRegistryId = Nothing
+    , _liNextToken = Nothing
+    , _liFilter = Nothing
+    , _liMaxResults = Nothing
+    , _liRepositoryName = pRepositoryName_
+    }
 
 
 -- | The AWS account ID associated with the registry that contains the repository in which to list images. If you do not specify a registry, the default registry is assumed.
 liRegistryId :: Lens' ListImages (Maybe Text)
-liRegistryId = lens _liRegistryId (\ s a -> s{_liRegistryId = a});
+liRegistryId = lens _liRegistryId (\ s a -> s{_liRegistryId = a})
 
 -- | The @nextToken@ value returned from a previous paginated @ListImages@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 liNextToken :: Lens' ListImages (Maybe Text)
-liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
+liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a})
 
 -- | The filter key and value with which to filter your @ListImages@ results.
 liFilter :: Lens' ListImages (Maybe ListImagesFilter)
-liFilter = lens _liFilter (\ s a -> s{_liFilter = a});
+liFilter = lens _liFilter (\ s a -> s{_liFilter = a})
 
 -- | The maximum number of image results returned by @ListImages@ in paginated output. When this parameter is used, @ListImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListImages@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListImages@ returns up to 100 results and a @nextToken@ value, if applicable.
 liMaxResults :: Lens' ListImages (Maybe Natural)
-liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . mapping _Nat;
+liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . mapping _Nat
 
 -- | The repository with image IDs to be listed.
 liRepositoryName :: Lens' ListImages Text
-liRepositoryName = lens _liRepositoryName (\ s a -> s{_liRepositoryName = a});
+liRepositoryName = lens _liRepositoryName (\ s a -> s{_liRepositoryName = a})
 
 instance AWSPager ListImages where
         page rq rs
@@ -179,22 +179,22 @@ listImagesResponse
     -> ListImagesResponse
 listImagesResponse pResponseStatus_ =
   ListImagesResponse'
-  { _lirsImageIds = Nothing
-  , _lirsNextToken = Nothing
-  , _lirsResponseStatus = pResponseStatus_
-  }
+    { _lirsImageIds = Nothing
+    , _lirsNextToken = Nothing
+    , _lirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of image IDs for the requested repository.
 lirsImageIds :: Lens' ListImagesResponse [ImageIdentifier]
-lirsImageIds = lens _lirsImageIds (\ s a -> s{_lirsImageIds = a}) . _Default . _Coerce;
+lirsImageIds = lens _lirsImageIds (\ s a -> s{_lirsImageIds = a}) . _Default . _Coerce
 
 -- | The @nextToken@ value to include in a future @ListImages@ request. When the results of a @ListImages@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 lirsNextToken :: Lens' ListImagesResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
+lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a})
 
 -- | -- | The response status code.
 lirsResponseStatus :: Lens' ListImagesResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a})
 
 instance NFData ListImagesResponse where

@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,11 +47,11 @@ activityFailedEventDetails =
 
 -- | The error code of the failure.
 afedError :: Lens' ActivityFailedEventDetails (Maybe Text)
-afedError = lens _afedError (\ s a -> s{_afedError = a});
+afedError = lens _afedError (\ s a -> s{_afedError = a})
 
 -- | A more detailed explanation of the cause of the failure.
 afedCause :: Lens' ActivityFailedEventDetails (Maybe Text)
-afedCause = lens _afedCause (\ s a -> s{_afedCause = a});
+afedCause = lens _afedCause (\ s a -> s{_afedCause = a})
 
 instance FromJSON ActivityFailedEventDetails where
         parseJSON
@@ -84,7 +84,7 @@ data ActivityListItem = ActivityListItem'
 --
 -- * 'aliName' - The name of the activity. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 --
--- * 'aliCreationDate' - The date the activity was created.
+-- * 'aliCreationDate' - The date the activity is created.
 activityListItem
     :: Text -- ^ 'aliActivityARN'
     -> Text -- ^ 'aliName'
@@ -92,23 +92,23 @@ activityListItem
     -> ActivityListItem
 activityListItem pActivityARN_ pName_ pCreationDate_ =
   ActivityListItem'
-  { _aliActivityARN = pActivityARN_
-  , _aliName = pName_
-  , _aliCreationDate = _Time # pCreationDate_
-  }
+    { _aliActivityARN = pActivityARN_
+    , _aliName = pName_
+    , _aliCreationDate = _Time # pCreationDate_
+    }
 
 
 -- | The Amazon Resource Name (ARN) that identifies the activity.
 aliActivityARN :: Lens' ActivityListItem Text
-aliActivityARN = lens _aliActivityARN (\ s a -> s{_aliActivityARN = a});
+aliActivityARN = lens _aliActivityARN (\ s a -> s{_aliActivityARN = a})
 
 -- | The name of the activity. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 aliName :: Lens' ActivityListItem Text
-aliName = lens _aliName (\ s a -> s{_aliName = a});
+aliName = lens _aliName (\ s a -> s{_aliName = a})
 
--- | The date the activity was created.
+-- | The date the activity is created.
 aliCreationDate :: Lens' ActivityListItem UTCTime
-aliCreationDate = lens _aliCreationDate (\ s a -> s{_aliCreationDate = a}) . _Time;
+aliCreationDate = lens _aliCreationDate (\ s a -> s{_aliCreationDate = a}) . _Time
 
 instance FromJSON ActivityListItem where
         parseJSON
@@ -144,16 +144,16 @@ activityScheduleFailedEventDetails
     :: ActivityScheduleFailedEventDetails
 activityScheduleFailedEventDetails =
   ActivityScheduleFailedEventDetails'
-  {_asfedError = Nothing, _asfedCause = Nothing}
+    {_asfedError = Nothing, _asfedCause = Nothing}
 
 
 -- | The error code of the failure.
 asfedError :: Lens' ActivityScheduleFailedEventDetails (Maybe Text)
-asfedError = lens _asfedError (\ s a -> s{_asfedError = a});
+asfedError = lens _asfedError (\ s a -> s{_asfedError = a})
 
 -- | A more detailed explanation of the cause of the failure.
 asfedCause :: Lens' ActivityScheduleFailedEventDetails (Maybe Text)
-asfedCause = lens _asfedCause (\ s a -> s{_asfedCause = a});
+asfedCause = lens _asfedCause (\ s a -> s{_asfedCause = a})
 
 instance FromJSON ActivityScheduleFailedEventDetails
          where
@@ -198,28 +198,28 @@ activityScheduledEventDetails
     -> ActivityScheduledEventDetails
 activityScheduledEventDetails pResource_ =
   ActivityScheduledEventDetails'
-  { _asedHeartbeatInSeconds = Nothing
-  , _asedInput = Nothing
-  , _asedTimeoutInSeconds = Nothing
-  , _asedResource = pResource_
-  }
+    { _asedHeartbeatInSeconds = Nothing
+    , _asedInput = Nothing
+    , _asedTimeoutInSeconds = Nothing
+    , _asedResource = pResource_
+    }
 
 
 -- | The maximum allowed duration between two heartbeats for the activity task.
 asedHeartbeatInSeconds :: Lens' ActivityScheduledEventDetails (Maybe Integer)
-asedHeartbeatInSeconds = lens _asedHeartbeatInSeconds (\ s a -> s{_asedHeartbeatInSeconds = a});
+asedHeartbeatInSeconds = lens _asedHeartbeatInSeconds (\ s a -> s{_asedHeartbeatInSeconds = a})
 
 -- | The JSON data input to the activity task.
 asedInput :: Lens' ActivityScheduledEventDetails (Maybe Text)
-asedInput = lens _asedInput (\ s a -> s{_asedInput = a});
+asedInput = lens _asedInput (\ s a -> s{_asedInput = a})
 
 -- | The maximum allowed duration of the activity task.
 asedTimeoutInSeconds :: Lens' ActivityScheduledEventDetails (Maybe Integer)
-asedTimeoutInSeconds = lens _asedTimeoutInSeconds (\ s a -> s{_asedTimeoutInSeconds = a});
+asedTimeoutInSeconds = lens _asedTimeoutInSeconds (\ s a -> s{_asedTimeoutInSeconds = a})
 
 -- | The Amazon Resource Name (ARN) of the scheduled activity.
 asedResource :: Lens' ActivityScheduledEventDetails Text
-asedResource = lens _asedResource (\ s a -> s{_asedResource = a});
+asedResource = lens _asedResource (\ s a -> s{_asedResource = a})
 
 instance FromJSON ActivityScheduledEventDetails where
         parseJSON
@@ -248,16 +248,16 @@ newtype ActivityStartedEventDetails = ActivityStartedEventDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asedWorkerName' - The name of the worker that the task was assigned to. These names are provided by the workers when calling 'GetActivityTask' .
+-- * 'asedWorkerName' - The name of the worker that the task is assigned to. These names are provided by the workers when calling 'GetActivityTask' .
 activityStartedEventDetails
     :: ActivityStartedEventDetails
 activityStartedEventDetails =
   ActivityStartedEventDetails' {_asedWorkerName = Nothing}
 
 
--- | The name of the worker that the task was assigned to. These names are provided by the workers when calling 'GetActivityTask' .
+-- | The name of the worker that the task is assigned to. These names are provided by the workers when calling 'GetActivityTask' .
 asedWorkerName :: Lens' ActivityStartedEventDetails (Maybe Text)
-asedWorkerName = lens _asedWorkerName (\ s a -> s{_asedWorkerName = a});
+asedWorkerName = lens _asedWorkerName (\ s a -> s{_asedWorkerName = a})
 
 instance FromJSON ActivityStartedEventDetails where
         parseJSON
@@ -293,7 +293,7 @@ activitySucceededEventDetails =
 
 -- | The JSON data output by the activity task.
 asedOutput :: Lens' ActivitySucceededEventDetails (Maybe Text)
-asedOutput = lens _asedOutput (\ s a -> s{_asedOutput = a});
+asedOutput = lens _asedOutput (\ s a -> s{_asedOutput = a})
 
 instance FromJSON ActivitySucceededEventDetails where
         parseJSON
@@ -331,11 +331,11 @@ activityTimedOutEventDetails =
 
 -- | The error code of the failure.
 atoedError :: Lens' ActivityTimedOutEventDetails (Maybe Text)
-atoedError = lens _atoedError (\ s a -> s{_atoedError = a});
+atoedError = lens _atoedError (\ s a -> s{_atoedError = a})
 
 -- | A more detailed explanation of the cause of the timeout.
 atoedCause :: Lens' ActivityTimedOutEventDetails (Maybe Text)
-atoedCause = lens _atoedCause (\ s a -> s{_atoedCause = a});
+atoedCause = lens _atoedCause (\ s a -> s{_atoedCause = a})
 
 instance FromJSON ActivityTimedOutEventDetails where
         parseJSON
@@ -374,11 +374,11 @@ executionAbortedEventDetails =
 
 -- | The error code of the failure.
 eaedError :: Lens' ExecutionAbortedEventDetails (Maybe Text)
-eaedError = lens _eaedError (\ s a -> s{_eaedError = a});
+eaedError = lens _eaedError (\ s a -> s{_eaedError = a})
 
 -- | A more detailed explanation of the cause of the failure.
 eaedCause :: Lens' ExecutionAbortedEventDetails (Maybe Text)
-eaedCause = lens _eaedCause (\ s a -> s{_eaedCause = a});
+eaedCause = lens _eaedCause (\ s a -> s{_eaedCause = a})
 
 instance FromJSON ExecutionAbortedEventDetails where
         parseJSON
@@ -417,11 +417,11 @@ executionFailedEventDetails =
 
 -- | The error code of the failure.
 efedError :: Lens' ExecutionFailedEventDetails (Maybe Text)
-efedError = lens _efedError (\ s a -> s{_efedError = a});
+efedError = lens _efedError (\ s a -> s{_efedError = a})
 
 -- | A more detailed explanation of the cause of the failure.
 efedCause :: Lens' ExecutionFailedEventDetails (Maybe Text)
-efedCause = lens _efedCause (\ s a -> s{_efedCause = a});
+efedCause = lens _efedCause (\ s a -> s{_efedCause = a})
 
 instance FromJSON ExecutionFailedEventDetails where
         parseJSON
@@ -473,38 +473,38 @@ executionListItem
     -> ExecutionListItem
 executionListItem pExecutionARN_ pStateMachineARN_ pName_ pStatus_ pStartDate_ =
   ExecutionListItem'
-  { _eliStopDate = Nothing
-  , _eliExecutionARN = pExecutionARN_
-  , _eliStateMachineARN = pStateMachineARN_
-  , _eliName = pName_
-  , _eliStatus = pStatus_
-  , _eliStartDate = _Time # pStartDate_
-  }
+    { _eliStopDate = Nothing
+    , _eliExecutionARN = pExecutionARN_
+    , _eliStateMachineARN = pStateMachineARN_
+    , _eliName = pName_
+    , _eliStatus = pStatus_
+    , _eliStartDate = _Time # pStartDate_
+    }
 
 
 -- | If the execution already ended, the date the execution stopped.
 eliStopDate :: Lens' ExecutionListItem (Maybe UTCTime)
-eliStopDate = lens _eliStopDate (\ s a -> s{_eliStopDate = a}) . mapping _Time;
+eliStopDate = lens _eliStopDate (\ s a -> s{_eliStopDate = a}) . mapping _Time
 
 -- | The Amazon Resource Name (ARN) that identifies the execution.
 eliExecutionARN :: Lens' ExecutionListItem Text
-eliExecutionARN = lens _eliExecutionARN (\ s a -> s{_eliExecutionARN = a});
+eliExecutionARN = lens _eliExecutionARN (\ s a -> s{_eliExecutionARN = a})
 
 -- | The Amazon Resource Name (ARN) of the executed state machine.
 eliStateMachineARN :: Lens' ExecutionListItem Text
-eliStateMachineARN = lens _eliStateMachineARN (\ s a -> s{_eliStateMachineARN = a});
+eliStateMachineARN = lens _eliStateMachineARN (\ s a -> s{_eliStateMachineARN = a})
 
 -- | The name of the execution. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 eliName :: Lens' ExecutionListItem Text
-eliName = lens _eliName (\ s a -> s{_eliName = a});
+eliName = lens _eliName (\ s a -> s{_eliName = a})
 
 -- | The current status of the execution.
 eliStatus :: Lens' ExecutionListItem ExecutionStatus
-eliStatus = lens _eliStatus (\ s a -> s{_eliStatus = a});
+eliStatus = lens _eliStatus (\ s a -> s{_eliStatus = a})
 
 -- | The date the execution started.
 eliStartDate :: Lens' ExecutionListItem UTCTime
-eliStartDate = lens _eliStartDate (\ s a -> s{_eliStartDate = a}) . _Time;
+eliStartDate = lens _eliStartDate (\ s a -> s{_eliStartDate = a}) . _Time
 
 instance FromJSON ExecutionListItem where
         parseJSON
@@ -547,11 +547,11 @@ executionStartedEventDetails =
 
 -- | The JSON data input to the execution.
 esedInput :: Lens' ExecutionStartedEventDetails (Maybe Text)
-esedInput = lens _esedInput (\ s a -> s{_esedInput = a});
+esedInput = lens _esedInput (\ s a -> s{_esedInput = a})
 
 -- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.
 esedRoleARN :: Lens' ExecutionStartedEventDetails (Maybe Text)
-esedRoleARN = lens _esedRoleARN (\ s a -> s{_esedRoleARN = a});
+esedRoleARN = lens _esedRoleARN (\ s a -> s{_esedRoleARN = a})
 
 instance FromJSON ExecutionStartedEventDetails where
         parseJSON
@@ -587,7 +587,7 @@ executionSucceededEventDetails =
 
 -- | The JSON data output by the execution.
 esedOutput :: Lens' ExecutionSucceededEventDetails (Maybe Text)
-esedOutput = lens _esedOutput (\ s a -> s{_esedOutput = a});
+esedOutput = lens _esedOutput (\ s a -> s{_esedOutput = a})
 
 instance FromJSON ExecutionSucceededEventDetails
          where
@@ -627,11 +627,11 @@ executionTimedOutEventDetails =
 
 -- | The error code of the failure.
 etoedError :: Lens' ExecutionTimedOutEventDetails (Maybe Text)
-etoedError = lens _etoedError (\ s a -> s{_etoedError = a});
+etoedError = lens _etoedError (\ s a -> s{_etoedError = a})
 
 -- | A more detailed explanation of the cause of the timeout.
 etoedCause :: Lens' ExecutionTimedOutEventDetails (Maybe Text)
-etoedCause = lens _etoedCause (\ s a -> s{_etoedCause = a});
+etoedCause = lens _etoedCause (\ s a -> s{_etoedCause = a})
 
 instance FromJSON ExecutionTimedOutEventDetails where
         parseJSON
@@ -732,123 +732,123 @@ historyEvent
     -> HistoryEvent
 historyEvent pTimestamp_ pType_ pId_ =
   HistoryEvent'
-  { _heActivityStartedEventDetails = Nothing
-  , _heLambdaFunctionStartFailedEventDetails = Nothing
-  , _heStateExitedEventDetails = Nothing
-  , _heLambdaFunctionSucceededEventDetails = Nothing
-  , _heActivitySucceededEventDetails = Nothing
-  , _heLambdaFunctionTimedOutEventDetails = Nothing
-  , _heActivityTimedOutEventDetails = Nothing
-  , _heExecutionFailedEventDetails = Nothing
-  , _heExecutionAbortedEventDetails = Nothing
-  , _heExecutionSucceededEventDetails = Nothing
-  , _heLambdaFunctionScheduledEventDetails = Nothing
-  , _heActivityScheduledEventDetails = Nothing
-  , _heExecutionStartedEventDetails = Nothing
-  , _heActivityScheduleFailedEventDetails = Nothing
-  , _heLambdaFunctionScheduleFailedEventDetails = Nothing
-  , _heStateEnteredEventDetails = Nothing
-  , _hePreviousEventId = Nothing
-  , _heActivityFailedEventDetails = Nothing
-  , _heLambdaFunctionFailedEventDetails = Nothing
-  , _heExecutionTimedOutEventDetails = Nothing
-  , _heTimestamp = _Time # pTimestamp_
-  , _heType = pType_
-  , _heId = pId_
-  }
+    { _heActivityStartedEventDetails = Nothing
+    , _heLambdaFunctionStartFailedEventDetails = Nothing
+    , _heStateExitedEventDetails = Nothing
+    , _heLambdaFunctionSucceededEventDetails = Nothing
+    , _heActivitySucceededEventDetails = Nothing
+    , _heLambdaFunctionTimedOutEventDetails = Nothing
+    , _heActivityTimedOutEventDetails = Nothing
+    , _heExecutionFailedEventDetails = Nothing
+    , _heExecutionAbortedEventDetails = Nothing
+    , _heExecutionSucceededEventDetails = Nothing
+    , _heLambdaFunctionScheduledEventDetails = Nothing
+    , _heActivityScheduledEventDetails = Nothing
+    , _heExecutionStartedEventDetails = Nothing
+    , _heActivityScheduleFailedEventDetails = Nothing
+    , _heLambdaFunctionScheduleFailedEventDetails = Nothing
+    , _heStateEnteredEventDetails = Nothing
+    , _hePreviousEventId = Nothing
+    , _heActivityFailedEventDetails = Nothing
+    , _heLambdaFunctionFailedEventDetails = Nothing
+    , _heExecutionTimedOutEventDetails = Nothing
+    , _heTimestamp = _Time # pTimestamp_
+    , _heType = pType_
+    , _heId = pId_
+    }
 
 
 -- | Undocumented member.
 heActivityStartedEventDetails :: Lens' HistoryEvent (Maybe ActivityStartedEventDetails)
-heActivityStartedEventDetails = lens _heActivityStartedEventDetails (\ s a -> s{_heActivityStartedEventDetails = a});
+heActivityStartedEventDetails = lens _heActivityStartedEventDetails (\ s a -> s{_heActivityStartedEventDetails = a})
 
 -- | Contains details about a lambda function which failed to start during an execution.
 heLambdaFunctionStartFailedEventDetails :: Lens' HistoryEvent (Maybe LambdaFunctionStartFailedEventDetails)
-heLambdaFunctionStartFailedEventDetails = lens _heLambdaFunctionStartFailedEventDetails (\ s a -> s{_heLambdaFunctionStartFailedEventDetails = a});
+heLambdaFunctionStartFailedEventDetails = lens _heLambdaFunctionStartFailedEventDetails (\ s a -> s{_heLambdaFunctionStartFailedEventDetails = a})
 
 -- | Undocumented member.
 heStateExitedEventDetails :: Lens' HistoryEvent (Maybe StateExitedEventDetails)
-heStateExitedEventDetails = lens _heStateExitedEventDetails (\ s a -> s{_heStateExitedEventDetails = a});
+heStateExitedEventDetails = lens _heStateExitedEventDetails (\ s a -> s{_heStateExitedEventDetails = a})
 
 -- | Contains details about a lambda function which terminated successfully during an execution.
 heLambdaFunctionSucceededEventDetails :: Lens' HistoryEvent (Maybe LambdaFunctionSucceededEventDetails)
-heLambdaFunctionSucceededEventDetails = lens _heLambdaFunctionSucceededEventDetails (\ s a -> s{_heLambdaFunctionSucceededEventDetails = a});
+heLambdaFunctionSucceededEventDetails = lens _heLambdaFunctionSucceededEventDetails (\ s a -> s{_heLambdaFunctionSucceededEventDetails = a})
 
 -- | Undocumented member.
 heActivitySucceededEventDetails :: Lens' HistoryEvent (Maybe ActivitySucceededEventDetails)
-heActivitySucceededEventDetails = lens _heActivitySucceededEventDetails (\ s a -> s{_heActivitySucceededEventDetails = a});
+heActivitySucceededEventDetails = lens _heActivitySucceededEventDetails (\ s a -> s{_heActivitySucceededEventDetails = a})
 
 -- | Undocumented member.
 heLambdaFunctionTimedOutEventDetails :: Lens' HistoryEvent (Maybe LambdaFunctionTimedOutEventDetails)
-heLambdaFunctionTimedOutEventDetails = lens _heLambdaFunctionTimedOutEventDetails (\ s a -> s{_heLambdaFunctionTimedOutEventDetails = a});
+heLambdaFunctionTimedOutEventDetails = lens _heLambdaFunctionTimedOutEventDetails (\ s a -> s{_heLambdaFunctionTimedOutEventDetails = a})
 
 -- | Undocumented member.
 heActivityTimedOutEventDetails :: Lens' HistoryEvent (Maybe ActivityTimedOutEventDetails)
-heActivityTimedOutEventDetails = lens _heActivityTimedOutEventDetails (\ s a -> s{_heActivityTimedOutEventDetails = a});
+heActivityTimedOutEventDetails = lens _heActivityTimedOutEventDetails (\ s a -> s{_heActivityTimedOutEventDetails = a})
 
 -- | Undocumented member.
 heExecutionFailedEventDetails :: Lens' HistoryEvent (Maybe ExecutionFailedEventDetails)
-heExecutionFailedEventDetails = lens _heExecutionFailedEventDetails (\ s a -> s{_heExecutionFailedEventDetails = a});
+heExecutionFailedEventDetails = lens _heExecutionFailedEventDetails (\ s a -> s{_heExecutionFailedEventDetails = a})
 
 -- | Undocumented member.
 heExecutionAbortedEventDetails :: Lens' HistoryEvent (Maybe ExecutionAbortedEventDetails)
-heExecutionAbortedEventDetails = lens _heExecutionAbortedEventDetails (\ s a -> s{_heExecutionAbortedEventDetails = a});
+heExecutionAbortedEventDetails = lens _heExecutionAbortedEventDetails (\ s a -> s{_heExecutionAbortedEventDetails = a})
 
 -- | Undocumented member.
 heExecutionSucceededEventDetails :: Lens' HistoryEvent (Maybe ExecutionSucceededEventDetails)
-heExecutionSucceededEventDetails = lens _heExecutionSucceededEventDetails (\ s a -> s{_heExecutionSucceededEventDetails = a});
+heExecutionSucceededEventDetails = lens _heExecutionSucceededEventDetails (\ s a -> s{_heExecutionSucceededEventDetails = a})
 
 -- | Undocumented member.
 heLambdaFunctionScheduledEventDetails :: Lens' HistoryEvent (Maybe LambdaFunctionScheduledEventDetails)
-heLambdaFunctionScheduledEventDetails = lens _heLambdaFunctionScheduledEventDetails (\ s a -> s{_heLambdaFunctionScheduledEventDetails = a});
+heLambdaFunctionScheduledEventDetails = lens _heLambdaFunctionScheduledEventDetails (\ s a -> s{_heLambdaFunctionScheduledEventDetails = a})
 
 -- | Undocumented member.
 heActivityScheduledEventDetails :: Lens' HistoryEvent (Maybe ActivityScheduledEventDetails)
-heActivityScheduledEventDetails = lens _heActivityScheduledEventDetails (\ s a -> s{_heActivityScheduledEventDetails = a});
+heActivityScheduledEventDetails = lens _heActivityScheduledEventDetails (\ s a -> s{_heActivityScheduledEventDetails = a})
 
 -- | Undocumented member.
 heExecutionStartedEventDetails :: Lens' HistoryEvent (Maybe ExecutionStartedEventDetails)
-heExecutionStartedEventDetails = lens _heExecutionStartedEventDetails (\ s a -> s{_heExecutionStartedEventDetails = a});
+heExecutionStartedEventDetails = lens _heExecutionStartedEventDetails (\ s a -> s{_heExecutionStartedEventDetails = a})
 
 -- | Contains details about an activity schedule event which failed during an execution.
 heActivityScheduleFailedEventDetails :: Lens' HistoryEvent (Maybe ActivityScheduleFailedEventDetails)
-heActivityScheduleFailedEventDetails = lens _heActivityScheduleFailedEventDetails (\ s a -> s{_heActivityScheduleFailedEventDetails = a});
+heActivityScheduleFailedEventDetails = lens _heActivityScheduleFailedEventDetails (\ s a -> s{_heActivityScheduleFailedEventDetails = a})
 
 -- | Undocumented member.
 heLambdaFunctionScheduleFailedEventDetails :: Lens' HistoryEvent (Maybe LambdaFunctionScheduleFailedEventDetails)
-heLambdaFunctionScheduleFailedEventDetails = lens _heLambdaFunctionScheduleFailedEventDetails (\ s a -> s{_heLambdaFunctionScheduleFailedEventDetails = a});
+heLambdaFunctionScheduleFailedEventDetails = lens _heLambdaFunctionScheduleFailedEventDetails (\ s a -> s{_heLambdaFunctionScheduleFailedEventDetails = a})
 
 -- | Undocumented member.
 heStateEnteredEventDetails :: Lens' HistoryEvent (Maybe StateEnteredEventDetails)
-heStateEnteredEventDetails = lens _heStateEnteredEventDetails (\ s a -> s{_heStateEnteredEventDetails = a});
+heStateEnteredEventDetails = lens _heStateEnteredEventDetails (\ s a -> s{_heStateEnteredEventDetails = a})
 
 -- | The id of the previous event.
 hePreviousEventId :: Lens' HistoryEvent (Maybe Integer)
-hePreviousEventId = lens _hePreviousEventId (\ s a -> s{_hePreviousEventId = a});
+hePreviousEventId = lens _hePreviousEventId (\ s a -> s{_hePreviousEventId = a})
 
 -- | Undocumented member.
 heActivityFailedEventDetails :: Lens' HistoryEvent (Maybe ActivityFailedEventDetails)
-heActivityFailedEventDetails = lens _heActivityFailedEventDetails (\ s a -> s{_heActivityFailedEventDetails = a});
+heActivityFailedEventDetails = lens _heActivityFailedEventDetails (\ s a -> s{_heActivityFailedEventDetails = a})
 
 -- | Undocumented member.
 heLambdaFunctionFailedEventDetails :: Lens' HistoryEvent (Maybe LambdaFunctionFailedEventDetails)
-heLambdaFunctionFailedEventDetails = lens _heLambdaFunctionFailedEventDetails (\ s a -> s{_heLambdaFunctionFailedEventDetails = a});
+heLambdaFunctionFailedEventDetails = lens _heLambdaFunctionFailedEventDetails (\ s a -> s{_heLambdaFunctionFailedEventDetails = a})
 
 -- | Undocumented member.
 heExecutionTimedOutEventDetails :: Lens' HistoryEvent (Maybe ExecutionTimedOutEventDetails)
-heExecutionTimedOutEventDetails = lens _heExecutionTimedOutEventDetails (\ s a -> s{_heExecutionTimedOutEventDetails = a});
+heExecutionTimedOutEventDetails = lens _heExecutionTimedOutEventDetails (\ s a -> s{_heExecutionTimedOutEventDetails = a})
 
 -- | The date the event occurred.
 heTimestamp :: Lens' HistoryEvent UTCTime
-heTimestamp = lens _heTimestamp (\ s a -> s{_heTimestamp = a}) . _Time;
+heTimestamp = lens _heTimestamp (\ s a -> s{_heTimestamp = a}) . _Time
 
 -- | The type of the event.
 heType :: Lens' HistoryEvent HistoryEventType
-heType = lens _heType (\ s a -> s{_heType = a});
+heType = lens _heType (\ s a -> s{_heType = a})
 
 -- | The id of the event. Events are numbered sequentially, starting at one.
 heId :: Lens' HistoryEvent Integer
-heId = lens _heId (\ s a -> s{_heId = a});
+heId = lens _heId (\ s a -> s{_heId = a})
 
 instance FromJSON HistoryEvent where
         parseJSON
@@ -906,16 +906,16 @@ lambdaFunctionFailedEventDetails
     :: LambdaFunctionFailedEventDetails
 lambdaFunctionFailedEventDetails =
   LambdaFunctionFailedEventDetails'
-  {_lffedError = Nothing, _lffedCause = Nothing}
+    {_lffedError = Nothing, _lffedCause = Nothing}
 
 
 -- | The error code of the failure.
 lffedError :: Lens' LambdaFunctionFailedEventDetails (Maybe Text)
-lffedError = lens _lffedError (\ s a -> s{_lffedError = a});
+lffedError = lens _lffedError (\ s a -> s{_lffedError = a})
 
 -- | A more detailed explanation of the cause of the failure.
 lffedCause :: Lens' LambdaFunctionFailedEventDetails (Maybe Text)
-lffedCause = lens _lffedCause (\ s a -> s{_lffedCause = a});
+lffedCause = lens _lffedCause (\ s a -> s{_lffedCause = a})
 
 instance FromJSON LambdaFunctionFailedEventDetails
          where
@@ -953,16 +953,16 @@ lambdaFunctionScheduleFailedEventDetails
     :: LambdaFunctionScheduleFailedEventDetails
 lambdaFunctionScheduleFailedEventDetails =
   LambdaFunctionScheduleFailedEventDetails'
-  {_lError = Nothing, _lCause = Nothing}
+    {_lError = Nothing, _lCause = Nothing}
 
 
 -- | The error code of the failure.
 lError :: Lens' LambdaFunctionScheduleFailedEventDetails (Maybe Text)
-lError = lens _lError (\ s a -> s{_lError = a});
+lError = lens _lError (\ s a -> s{_lError = a})
 
 -- | A more detailed explanation of the cause of the failure.
 lCause :: Lens' LambdaFunctionScheduleFailedEventDetails (Maybe Text)
-lCause = lens _lCause (\ s a -> s{_lCause = a});
+lCause = lens _lCause (\ s a -> s{_lCause = a})
 
 instance FromJSON
            LambdaFunctionScheduleFailedEventDetails
@@ -1008,23 +1008,23 @@ lambdaFunctionScheduledEventDetails
     -> LambdaFunctionScheduledEventDetails
 lambdaFunctionScheduledEventDetails pResource_ =
   LambdaFunctionScheduledEventDetails'
-  { _lfsedInput = Nothing
-  , _lfsedTimeoutInSeconds = Nothing
-  , _lfsedResource = pResource_
-  }
+    { _lfsedInput = Nothing
+    , _lfsedTimeoutInSeconds = Nothing
+    , _lfsedResource = pResource_
+    }
 
 
 -- | The JSON data input to the lambda function.
 lfsedInput :: Lens' LambdaFunctionScheduledEventDetails (Maybe Text)
-lfsedInput = lens _lfsedInput (\ s a -> s{_lfsedInput = a});
+lfsedInput = lens _lfsedInput (\ s a -> s{_lfsedInput = a})
 
 -- | The maximum allowed duration of the lambda function.
 lfsedTimeoutInSeconds :: Lens' LambdaFunctionScheduledEventDetails (Maybe Integer)
-lfsedTimeoutInSeconds = lens _lfsedTimeoutInSeconds (\ s a -> s{_lfsedTimeoutInSeconds = a});
+lfsedTimeoutInSeconds = lens _lfsedTimeoutInSeconds (\ s a -> s{_lfsedTimeoutInSeconds = a})
 
 -- | The Amazon Resource Name (ARN) of the scheduled lambda function.
 lfsedResource :: Lens' LambdaFunctionScheduledEventDetails Text
-lfsedResource = lens _lfsedResource (\ s a -> s{_lfsedResource = a});
+lfsedResource = lens _lfsedResource (\ s a -> s{_lfsedResource = a})
 
 instance FromJSON LambdaFunctionScheduledEventDetails
          where
@@ -1063,16 +1063,16 @@ lambdaFunctionStartFailedEventDetails
     :: LambdaFunctionStartFailedEventDetails
 lambdaFunctionStartFailedEventDetails =
   LambdaFunctionStartFailedEventDetails'
-  {_lfsfedError = Nothing, _lfsfedCause = Nothing}
+    {_lfsfedError = Nothing, _lfsfedCause = Nothing}
 
 
 -- | The error code of the failure.
 lfsfedError :: Lens' LambdaFunctionStartFailedEventDetails (Maybe Text)
-lfsfedError = lens _lfsfedError (\ s a -> s{_lfsfedError = a});
+lfsfedError = lens _lfsfedError (\ s a -> s{_lfsfedError = a})
 
 -- | A more detailed explanation of the cause of the failure.
 lfsfedCause :: Lens' LambdaFunctionStartFailedEventDetails (Maybe Text)
-lfsfedCause = lens _lfsfedCause (\ s a -> s{_lfsfedCause = a});
+lfsfedCause = lens _lfsfedCause (\ s a -> s{_lfsfedCause = a})
 
 instance FromJSON
            LambdaFunctionStartFailedEventDetails
@@ -1113,7 +1113,7 @@ lambdaFunctionSucceededEventDetails =
 
 -- | The JSON data output by the lambda function.
 lfsedOutput :: Lens' LambdaFunctionSucceededEventDetails (Maybe Text)
-lfsedOutput = lens _lfsedOutput (\ s a -> s{_lfsedOutput = a});
+lfsedOutput = lens _lfsedOutput (\ s a -> s{_lfsedOutput = a})
 
 instance FromJSON LambdaFunctionSucceededEventDetails
          where
@@ -1151,16 +1151,16 @@ lambdaFunctionTimedOutEventDetails
     :: LambdaFunctionTimedOutEventDetails
 lambdaFunctionTimedOutEventDetails =
   LambdaFunctionTimedOutEventDetails'
-  {_lftoedError = Nothing, _lftoedCause = Nothing}
+    {_lftoedError = Nothing, _lftoedCause = Nothing}
 
 
 -- | The error code of the failure.
 lftoedError :: Lens' LambdaFunctionTimedOutEventDetails (Maybe Text)
-lftoedError = lens _lftoedError (\ s a -> s{_lftoedError = a});
+lftoedError = lens _lftoedError (\ s a -> s{_lftoedError = a})
 
 -- | A more detailed explanation of the cause of the timeout.
 lftoedCause :: Lens' LambdaFunctionTimedOutEventDetails (Maybe Text)
-lftoedCause = lens _lftoedCause (\ s a -> s{_lftoedCause = a});
+lftoedCause = lens _lftoedCause (\ s a -> s{_lftoedCause = a})
 
 instance FromJSON LambdaFunctionTimedOutEventDetails
          where
@@ -1203,11 +1203,11 @@ stateEnteredEventDetails pName_ =
 
 -- | The string that contains the JSON input data for the state.
 sInput :: Lens' StateEnteredEventDetails (Maybe Text)
-sInput = lens _sInput (\ s a -> s{_sInput = a});
+sInput = lens _sInput (\ s a -> s{_sInput = a})
 
 -- | The name of the state.
 sName :: Lens' StateEnteredEventDetails Text
-sName = lens _sName (\ s a -> s{_sName = a});
+sName = lens _sName (\ s a -> s{_sName = a})
 
 instance FromJSON StateEnteredEventDetails where
         parseJSON
@@ -1247,11 +1247,11 @@ stateExitedEventDetails pName_ =
 
 -- | The JSON output data of the state.
 seedOutput :: Lens' StateExitedEventDetails (Maybe Text)
-seedOutput = lens _seedOutput (\ s a -> s{_seedOutput = a});
+seedOutput = lens _seedOutput (\ s a -> s{_seedOutput = a})
 
 -- | The name of the state. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 seedName :: Lens' StateExitedEventDetails Text
-seedName = lens _seedName (\ s a -> s{_seedName = a});
+seedName = lens _seedName (\ s a -> s{_seedName = a})
 
 instance FromJSON StateExitedEventDetails where
         parseJSON
@@ -1284,7 +1284,7 @@ data StateMachineListItem = StateMachineListItem'
 --
 -- * 'smliName' - The name of the state machine. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 --
--- * 'smliCreationDate' - The date the state machine was created.
+-- * 'smliCreationDate' - The date the state machine is created.
 stateMachineListItem
     :: Text -- ^ 'smliStateMachineARN'
     -> Text -- ^ 'smliName'
@@ -1292,23 +1292,23 @@ stateMachineListItem
     -> StateMachineListItem
 stateMachineListItem pStateMachineARN_ pName_ pCreationDate_ =
   StateMachineListItem'
-  { _smliStateMachineARN = pStateMachineARN_
-  , _smliName = pName_
-  , _smliCreationDate = _Time # pCreationDate_
-  }
+    { _smliStateMachineARN = pStateMachineARN_
+    , _smliName = pName_
+    , _smliCreationDate = _Time # pCreationDate_
+    }
 
 
 -- | The Amazon Resource Name (ARN) that identifies the state machine.
 smliStateMachineARN :: Lens' StateMachineListItem Text
-smliStateMachineARN = lens _smliStateMachineARN (\ s a -> s{_smliStateMachineARN = a});
+smliStateMachineARN = lens _smliStateMachineARN (\ s a -> s{_smliStateMachineARN = a})
 
 -- | The name of the state machine. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 smliName :: Lens' StateMachineListItem Text
-smliName = lens _smliName (\ s a -> s{_smliName = a});
+smliName = lens _smliName (\ s a -> s{_smliName = a})
 
--- | The date the state machine was created.
+-- | The date the state machine is created.
 smliCreationDate :: Lens' StateMachineListItem UTCTime
-smliCreationDate = lens _smliCreationDate (\ s a -> s{_smliCreationDate = a}) . _Time;
+smliCreationDate = lens _smliCreationDate (\ s a -> s{_smliCreationDate = a}) . _Time
 
 instance FromJSON StateMachineListItem where
         parseJSON

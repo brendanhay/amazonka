@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.CancelHandshake
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ cancelHandshake pHandshakeId_ =
 
 -- | The unique identifier (ID) of the handshake that you want to cancel. You can get the ID from the 'ListHandshakesForOrganization' operation. The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
 chHandshakeId :: Lens' CancelHandshake Text
-chHandshakeId = lens _chHandshakeId (\ s a -> s{_chHandshakeId = a});
+chHandshakeId = lens _chHandshakeId (\ s a -> s{_chHandshakeId = a})
 
 instance AWSRequest CancelHandshake where
         type Rs CancelHandshake = CancelHandshakeResponse
@@ -123,15 +123,15 @@ cancelHandshakeResponse
     -> CancelHandshakeResponse
 cancelHandshakeResponse pResponseStatus_ =
   CancelHandshakeResponse'
-  {_chrsHandshake = Nothing, _chrsResponseStatus = pResponseStatus_}
+    {_chrsHandshake = Nothing, _chrsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that contains details about the handshake that you canceled.
 chrsHandshake :: Lens' CancelHandshakeResponse (Maybe Handshake)
-chrsHandshake = lens _chrsHandshake (\ s a -> s{_chrsHandshake = a});
+chrsHandshake = lens _chrsHandshake (\ s a -> s{_chrsHandshake = a})
 
 -- | -- | The response status code.
 chrsResponseStatus :: Lens' CancelHandshakeResponse Int
-chrsResponseStatus = lens _chrsResponseStatus (\ s a -> s{_chrsResponseStatus = a});
+chrsResponseStatus = lens _chrsResponseStatus (\ s a -> s{_chrsResponseStatus = a})
 
 instance NFData CancelHandshakeResponse where

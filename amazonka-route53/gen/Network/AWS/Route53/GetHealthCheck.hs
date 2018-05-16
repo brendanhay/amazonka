@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheck
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getHealthCheck pHealthCheckId_ =
 
 -- | The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 ghcHealthCheckId :: Lens' GetHealthCheck Text
-ghcHealthCheckId = lens _ghcHealthCheckId (\ s a -> s{_ghcHealthCheckId = a});
+ghcHealthCheckId = lens _ghcHealthCheckId (\ s a -> s{_ghcHealthCheckId = a})
 
 instance AWSRequest GetHealthCheck where
         type Rs GetHealthCheck = GetHealthCheckResponse
@@ -118,15 +118,15 @@ getHealthCheckResponse
     -> GetHealthCheckResponse
 getHealthCheckResponse pResponseStatus_ pHealthCheck_ =
   GetHealthCheckResponse'
-  {_ghcrsResponseStatus = pResponseStatus_, _ghcrsHealthCheck = pHealthCheck_}
+    {_ghcrsResponseStatus = pResponseStatus_, _ghcrsHealthCheck = pHealthCheck_}
 
 
 -- | -- | The response status code.
 ghcrsResponseStatus :: Lens' GetHealthCheckResponse Int
-ghcrsResponseStatus = lens _ghcrsResponseStatus (\ s a -> s{_ghcrsResponseStatus = a});
+ghcrsResponseStatus = lens _ghcrsResponseStatus (\ s a -> s{_ghcrsResponseStatus = a})
 
 -- | A complex type that contains information about one health check that is associated with the current AWS account.
 ghcrsHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
-ghcrsHealthCheck = lens _ghcrsHealthCheck (\ s a -> s{_ghcrsHealthCheck = a});
+ghcrsHealthCheck = lens _ghcrsHealthCheck (\ s a -> s{_ghcrsHealthCheck = a})
 
 instance NFData GetHealthCheckResponse where

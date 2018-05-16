@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteSegment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,16 +63,16 @@ deleteSegment
     -> DeleteSegment
 deleteSegment pSegmentId_ pApplicationId_ =
   DeleteSegment'
-  {_dsSegmentId = pSegmentId_, _dsApplicationId = pApplicationId_}
+    {_dsSegmentId = pSegmentId_, _dsApplicationId = pApplicationId_}
 
 
 -- | Undocumented member.
 dsSegmentId :: Lens' DeleteSegment Text
-dsSegmentId = lens _dsSegmentId (\ s a -> s{_dsSegmentId = a});
+dsSegmentId = lens _dsSegmentId (\ s a -> s{_dsSegmentId = a})
 
 -- | Undocumented member.
 dsApplicationId :: Lens' DeleteSegment Text
-dsApplicationId = lens _dsApplicationId (\ s a -> s{_dsApplicationId = a});
+dsApplicationId = lens _dsApplicationId (\ s a -> s{_dsApplicationId = a})
 
 instance AWSRequest DeleteSegment where
         type Rs DeleteSegment = DeleteSegmentResponse
@@ -123,17 +123,17 @@ deleteSegmentResponse
     -> DeleteSegmentResponse
 deleteSegmentResponse pResponseStatus_ pSegmentResponse_ =
   DeleteSegmentResponse'
-  { _dsrsResponseStatus = pResponseStatus_
-  , _dsrsSegmentResponse = pSegmentResponse_
-  }
+    { _dsrsResponseStatus = pResponseStatus_
+    , _dsrsSegmentResponse = pSegmentResponse_
+    }
 
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteSegmentResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 -- | Undocumented member.
 dsrsSegmentResponse :: Lens' DeleteSegmentResponse SegmentResponse
-dsrsSegmentResponse = lens _dsrsSegmentResponse (\ s a -> s{_dsrsSegmentResponse = a});
+dsrsSegmentResponse = lens _dsrsSegmentResponse (\ s a -> s{_dsrsSegmentResponse = a})
 
 instance NFData DeleteSegmentResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'batchGetOnPremisesInstances' smart constructor.
 newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
-  { _bgopiInstanceNames :: Maybe [Text]
+  { _bgopiInstanceNames :: [Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -62,12 +62,12 @@ newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
 batchGetOnPremisesInstances
     :: BatchGetOnPremisesInstances
 batchGetOnPremisesInstances =
-  BatchGetOnPremisesInstances' {_bgopiInstanceNames = Nothing}
+  BatchGetOnPremisesInstances' {_bgopiInstanceNames = mempty}
 
 
 -- | The names of the on-premises instances about which to get information.
 bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
-bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Default . _Coerce;
+bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Coerce
 
 instance AWSRequest BatchGetOnPremisesInstances where
         type Rs BatchGetOnPremisesInstances =
@@ -98,7 +98,7 @@ instance ToJSON BatchGetOnPremisesInstances where
         toJSON BatchGetOnPremisesInstances'{..}
           = object
               (catMaybes
-                 [("instanceNames" .=) <$> _bgopiInstanceNames])
+                 [Just ("instanceNames" .= _bgopiInstanceNames)])
 
 instance ToPath BatchGetOnPremisesInstances where
         toPath = const "/"
@@ -129,16 +129,16 @@ batchGetOnPremisesInstancesResponse
     -> BatchGetOnPremisesInstancesResponse
 batchGetOnPremisesInstancesResponse pResponseStatus_ =
   BatchGetOnPremisesInstancesResponse'
-  {_bgopirsInstanceInfos = Nothing, _bgopirsResponseStatus = pResponseStatus_}
+    {_bgopirsInstanceInfos = Nothing, _bgopirsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the on-premises instances.
 bgopirsInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
-bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\ s a -> s{_bgopirsInstanceInfos = a}) . _Default . _Coerce;
+bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\ s a -> s{_bgopirsInstanceInfos = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bgopirsResponseStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
-bgopirsResponseStatus = lens _bgopirsResponseStatus (\ s a -> s{_bgopirsResponseStatus = a});
+bgopirsResponseStatus = lens _bgopirsResponseStatus (\ s a -> s{_bgopirsResponseStatus = a})
 
 instance NFData BatchGetOnPremisesInstancesResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.UpdateFacet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,28 +80,28 @@ updateFacet
     -> UpdateFacet
 updateFacet pSchemaARN_ pName_ =
   UpdateFacet'
-  { _ufObjectType = Nothing
-  , _ufAttributeUpdates = Nothing
-  , _ufSchemaARN = pSchemaARN_
-  , _ufName = pName_
-  }
+    { _ufObjectType = Nothing
+    , _ufAttributeUpdates = Nothing
+    , _ufSchemaARN = pSchemaARN_
+    , _ufName = pName_
+    }
 
 
 -- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
 ufObjectType :: Lens' UpdateFacet (Maybe ObjectType)
-ufObjectType = lens _ufObjectType (\ s a -> s{_ufObjectType = a});
+ufObjectType = lens _ufObjectType (\ s a -> s{_ufObjectType = a})
 
 -- | List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
 ufAttributeUpdates :: Lens' UpdateFacet [FacetAttributeUpdate]
-ufAttributeUpdates = lens _ufAttributeUpdates (\ s a -> s{_ufAttributeUpdates = a}) . _Default . _Coerce;
+ufAttributeUpdates = lens _ufAttributeUpdates (\ s a -> s{_ufAttributeUpdates = a}) . _Default . _Coerce
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 ufSchemaARN :: Lens' UpdateFacet Text
-ufSchemaARN = lens _ufSchemaARN (\ s a -> s{_ufSchemaARN = a});
+ufSchemaARN = lens _ufSchemaARN (\ s a -> s{_ufSchemaARN = a})
 
 -- | The name of the facet.
 ufName :: Lens' UpdateFacet Text
-ufName = lens _ufName (\ s a -> s{_ufName = a});
+ufName = lens _ufName (\ s a -> s{_ufName = a})
 
 instance AWSRequest UpdateFacet where
         type Rs UpdateFacet = UpdateFacetResponse
@@ -154,6 +154,6 @@ updateFacetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ufrsResponseStatus :: Lens' UpdateFacetResponse Int
-ufrsResponseStatus = lens _ufrsResponseStatus (\ s a -> s{_ufrsResponseStatus = a});
+ufrsResponseStatus = lens _ufrsResponseStatus (\ s a -> s{_ufrsResponseStatus = a})
 
 instance NFData UpdateFacetResponse where

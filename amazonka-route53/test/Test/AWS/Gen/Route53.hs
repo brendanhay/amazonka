@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Route53
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,7 +28,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAssociateVPCWithHostedZone $
+--         [ requestGetHostedZoneLimit $
+--             getHostedZoneLimit
+--
+--         , requestAssociateVPCWithHostedZone $
 --             associateVPCWithHostedZone
 --
 --         , requestDeleteTrafficPolicy $
@@ -133,6 +136,9 @@ import Test.Tasty
 --         , requestGetHostedZoneCount $
 --             getHostedZoneCount
 --
+--         , requestGetAccountLimit $
+--             getAccountLimit
+--
 --         , requestDeleteQueryLoggingConfig $
 --             deleteQueryLoggingConfig
 --
@@ -153,6 +159,9 @@ import Test.Tasty
 --
 --         , requestGetHealthCheckStatus $
 --             getHealthCheckStatus
+--
+--         , requestGetReusableDelegationSetLimit $
+--             getReusableDelegationSetLimit
 --
 --         , requestCreateTrafficPolicyVersion $
 --             createTrafficPolicyVersion
@@ -190,7 +199,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseAssociateVPCWithHostedZone $
+--         [ responseGetHostedZoneLimit $
+--             getHostedZoneLimitResponse
+--
+--         , responseAssociateVPCWithHostedZone $
 --             associateVPCWithHostedZoneResponse
 --
 --         , responseDeleteTrafficPolicy $
@@ -295,6 +307,9 @@ import Test.Tasty
 --         , responseGetHostedZoneCount $
 --             getHostedZoneCountResponse
 --
+--         , responseGetAccountLimit $
+--             getAccountLimitResponse
+--
 --         , responseDeleteQueryLoggingConfig $
 --             deleteQueryLoggingConfigResponse
 --
@@ -315,6 +330,9 @@ import Test.Tasty
 --
 --         , responseGetHealthCheckStatus $
 --             getHealthCheckStatusResponse
+--
+--         , responseGetReusableDelegationSetLimit $
+--             getReusableDelegationSetLimitResponse
 --
 --         , responseCreateTrafficPolicyVersion $
 --             createTrafficPolicyVersionResponse
@@ -353,6 +371,11 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestGetHostedZoneLimit :: GetHostedZoneLimit -> TestTree
+requestGetHostedZoneLimit = req
+    "GetHostedZoneLimit"
+    "fixture/GetHostedZoneLimit.yaml"
 
 requestAssociateVPCWithHostedZone :: AssociateVPCWithHostedZone -> TestTree
 requestAssociateVPCWithHostedZone = req
@@ -529,6 +552,11 @@ requestGetHostedZoneCount = req
     "GetHostedZoneCount"
     "fixture/GetHostedZoneCount.yaml"
 
+requestGetAccountLimit :: GetAccountLimit -> TestTree
+requestGetAccountLimit = req
+    "GetAccountLimit"
+    "fixture/GetAccountLimit.yaml"
+
 requestDeleteQueryLoggingConfig :: DeleteQueryLoggingConfig -> TestTree
 requestDeleteQueryLoggingConfig = req
     "DeleteQueryLoggingConfig"
@@ -563,6 +591,11 @@ requestGetHealthCheckStatus :: GetHealthCheckStatus -> TestTree
 requestGetHealthCheckStatus = req
     "GetHealthCheckStatus"
     "fixture/GetHealthCheckStatus.yaml"
+
+requestGetReusableDelegationSetLimit :: GetReusableDelegationSetLimit -> TestTree
+requestGetReusableDelegationSetLimit = req
+    "GetReusableDelegationSetLimit"
+    "fixture/GetReusableDelegationSetLimit.yaml"
 
 requestCreateTrafficPolicyVersion :: CreateTrafficPolicyVersion -> TestTree
 requestCreateTrafficPolicyVersion = req
@@ -620,6 +653,13 @@ requestListTrafficPolicies = req
     "fixture/ListTrafficPolicies.yaml"
 
 -- Responses
+
+responseGetHostedZoneLimit :: GetHostedZoneLimitResponse -> TestTree
+responseGetHostedZoneLimit = res
+    "GetHostedZoneLimitResponse"
+    "fixture/GetHostedZoneLimitResponse.proto"
+    route53
+    (Proxy :: Proxy GetHostedZoneLimit)
 
 responseAssociateVPCWithHostedZone :: AssociateVPCWithHostedZoneResponse -> TestTree
 responseAssociateVPCWithHostedZone = res
@@ -866,6 +906,13 @@ responseGetHostedZoneCount = res
     route53
     (Proxy :: Proxy GetHostedZoneCount)
 
+responseGetAccountLimit :: GetAccountLimitResponse -> TestTree
+responseGetAccountLimit = res
+    "GetAccountLimitResponse"
+    "fixture/GetAccountLimitResponse.proto"
+    route53
+    (Proxy :: Proxy GetAccountLimit)
+
 responseDeleteQueryLoggingConfig :: DeleteQueryLoggingConfigResponse -> TestTree
 responseDeleteQueryLoggingConfig = res
     "DeleteQueryLoggingConfigResponse"
@@ -914,6 +961,13 @@ responseGetHealthCheckStatus = res
     "fixture/GetHealthCheckStatusResponse.proto"
     route53
     (Proxy :: Proxy GetHealthCheckStatus)
+
+responseGetReusableDelegationSetLimit :: GetReusableDelegationSetLimitResponse -> TestTree
+responseGetReusableDelegationSetLimit = res
+    "GetReusableDelegationSetLimitResponse"
+    "fixture/GetReusableDelegationSetLimitResponse.proto"
+    route53
+    (Proxy :: Proxy GetReusableDelegationSetLimit)
 
 responseCreateTrafficPolicyVersion :: CreateTrafficPolicyVersionResponse -> TestTree
 responseCreateTrafficPolicyVersion = res

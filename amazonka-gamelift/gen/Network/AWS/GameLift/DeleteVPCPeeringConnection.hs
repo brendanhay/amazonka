@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteVPCPeeringConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,18 +86,18 @@ deleteVPCPeeringConnection
     -> DeleteVPCPeeringConnection
 deleteVPCPeeringConnection pFleetId_ pVPCPeeringConnectionId_ =
   DeleteVPCPeeringConnection'
-  { _dvpcFleetId = pFleetId_
-  , _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
-  }
+    { _dvpcFleetId = pFleetId_
+    , _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
+    }
 
 
 -- | Unique identifier for a fleet. This value must match the fleet ID referenced in the VPC peering connection record.
 dvpcFleetId :: Lens' DeleteVPCPeeringConnection Text
-dvpcFleetId = lens _dvpcFleetId (\ s a -> s{_dvpcFleetId = a});
+dvpcFleetId = lens _dvpcFleetId (\ s a -> s{_dvpcFleetId = a})
 
 -- | Unique identifier for a VPC peering connection. This value is included in the 'VpcPeeringConnection' object, which can be retrieved by calling 'DescribeVpcPeeringConnections' .
 dvpcVPCPeeringConnectionId :: Lens' DeleteVPCPeeringConnection Text
-dvpcVPCPeeringConnectionId = lens _dvpcVPCPeeringConnectionId (\ s a -> s{_dvpcVPCPeeringConnectionId = a});
+dvpcVPCPeeringConnectionId = lens _dvpcVPCPeeringConnectionId (\ s a -> s{_dvpcVPCPeeringConnectionId = a})
 
 instance AWSRequest DeleteVPCPeeringConnection where
         type Rs DeleteVPCPeeringConnection =
@@ -158,7 +158,7 @@ deleteVPCPeeringConnectionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dvpcrsResponseStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
-dvpcrsResponseStatus = lens _dvpcrsResponseStatus (\ s a -> s{_dvpcrsResponseStatus = a});
+dvpcrsResponseStatus = lens _dvpcrsResponseStatus (\ s a -> s{_dvpcrsResponseStatus = a})
 
 instance NFData DeleteVPCPeeringConnectionResponse
          where

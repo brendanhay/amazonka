@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DescribeTimeToLive
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ describeTimeToLive pTableName_ =
 
 -- | The name of the table to be described.
 dttlTableName :: Lens' DescribeTimeToLive Text
-dttlTableName = lens _dttlTableName (\ s a -> s{_dttlTableName = a});
+dttlTableName = lens _dttlTableName (\ s a -> s{_dttlTableName = a})
 
 instance AWSRequest DescribeTimeToLive where
         type Rs DescribeTimeToLive =
@@ -121,17 +121,17 @@ describeTimeToLiveResponse
     -> DescribeTimeToLiveResponse
 describeTimeToLiveResponse pResponseStatus_ =
   DescribeTimeToLiveResponse'
-  { _dttlrsTimeToLiveDescription = Nothing
-  , _dttlrsResponseStatus = pResponseStatus_
-  }
+    { _dttlrsTimeToLiveDescription = Nothing
+    , _dttlrsResponseStatus = pResponseStatus_
+    }
 
 
 -- |
 dttlrsTimeToLiveDescription :: Lens' DescribeTimeToLiveResponse (Maybe TimeToLiveDescription)
-dttlrsTimeToLiveDescription = lens _dttlrsTimeToLiveDescription (\ s a -> s{_dttlrsTimeToLiveDescription = a});
+dttlrsTimeToLiveDescription = lens _dttlrsTimeToLiveDescription (\ s a -> s{_dttlrsTimeToLiveDescription = a})
 
 -- | -- | The response status code.
 dttlrsResponseStatus :: Lens' DescribeTimeToLiveResponse Int
-dttlrsResponseStatus = lens _dttlrsResponseStatus (\ s a -> s{_dttlrsResponseStatus = a});
+dttlrsResponseStatus = lens _dttlrsResponseStatus (\ s a -> s{_dttlrsResponseStatus = a})
 
 instance NFData DescribeTimeToLiveResponse where

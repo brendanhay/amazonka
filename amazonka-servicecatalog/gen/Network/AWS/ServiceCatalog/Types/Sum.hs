@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,6 +48,36 @@ instance ToHeader     AccessLevelFilterKey
 
 instance ToJSON AccessLevelFilterKey where
     toJSON = toJSONText
+
+data ChangeAction
+  = Add
+  | Modify
+  | Remove
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ChangeAction where
+    parser = takeLowerText >>= \case
+        "add" -> pure Add
+        "modify" -> pure Modify
+        "remove" -> pure Remove
+        e -> fromTextError $ "Failure parsing ChangeAction from value: '" <> e
+           <> "'. Accepted values: add, modify, remove"
+
+instance ToText ChangeAction where
+    toText = \case
+        Add -> "ADD"
+        Modify -> "MODIFY"
+        Remove -> "REMOVE"
+
+instance Hashable     ChangeAction
+instance NFData       ChangeAction
+instance ToByteString ChangeAction
+instance ToQuery      ChangeAction
+instance ToHeader     ChangeAction
+
+instance FromJSON ChangeAction where
+    parseJSON = parseJSONText "ChangeAction"
 
 data CopyOption =
   CopyTags
@@ -102,6 +132,33 @@ instance ToHeader     CopyProductStatus
 
 instance FromJSON CopyProductStatus where
     parseJSON = parseJSONText "CopyProductStatus"
+
+data EvaluationType
+  = Dynamic
+  | Static
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText EvaluationType where
+    parser = takeLowerText >>= \case
+        "dynamic" -> pure Dynamic
+        "static" -> pure Static
+        e -> fromTextError $ "Failure parsing EvaluationType from value: '" <> e
+           <> "'. Accepted values: dynamic, static"
+
+instance ToText EvaluationType where
+    toText = \case
+        Dynamic -> "DYNAMIC"
+        Static -> "STATIC"
+
+instance Hashable     EvaluationType
+instance NFData       EvaluationType
+instance ToByteString EvaluationType
+instance ToQuery      EvaluationType
+instance ToHeader     EvaluationType
+
+instance FromJSON EvaluationType where
+    parseJSON = parseJSONText "EvaluationType"
 
 data PrincipalType =
   IAM
@@ -247,9 +304,76 @@ instance ToHeader     ProductViewSortBy
 instance ToJSON ProductViewSortBy where
     toJSON = toJSONText
 
+data ProvisionedProductPlanStatus
+  = CreateFailed
+  | CreateInProgress
+  | CreateSuccess
+  | ExecuteFailed
+  | ExecuteInProgress
+  | ExecuteSuccess
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ProvisionedProductPlanStatus where
+    parser = takeLowerText >>= \case
+        "create_failed" -> pure CreateFailed
+        "create_in_progress" -> pure CreateInProgress
+        "create_success" -> pure CreateSuccess
+        "execute_failed" -> pure ExecuteFailed
+        "execute_in_progress" -> pure ExecuteInProgress
+        "execute_success" -> pure ExecuteSuccess
+        e -> fromTextError $ "Failure parsing ProvisionedProductPlanStatus from value: '" <> e
+           <> "'. Accepted values: create_failed, create_in_progress, create_success, execute_failed, execute_in_progress, execute_success"
+
+instance ToText ProvisionedProductPlanStatus where
+    toText = \case
+        CreateFailed -> "CREATE_FAILED"
+        CreateInProgress -> "CREATE_IN_PROGRESS"
+        CreateSuccess -> "CREATE_SUCCESS"
+        ExecuteFailed -> "EXECUTE_FAILED"
+        ExecuteInProgress -> "EXECUTE_IN_PROGRESS"
+        ExecuteSuccess -> "EXECUTE_SUCCESS"
+
+instance Hashable     ProvisionedProductPlanStatus
+instance NFData       ProvisionedProductPlanStatus
+instance ToByteString ProvisionedProductPlanStatus
+instance ToQuery      ProvisionedProductPlanStatus
+instance ToHeader     ProvisionedProductPlanStatus
+
+instance FromJSON ProvisionedProductPlanStatus where
+    parseJSON = parseJSONText "ProvisionedProductPlanStatus"
+
+data ProvisionedProductPlanType =
+  Cloudformation
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ProvisionedProductPlanType where
+    parser = takeLowerText >>= \case
+        "cloudformation" -> pure Cloudformation
+        e -> fromTextError $ "Failure parsing ProvisionedProductPlanType from value: '" <> e
+           <> "'. Accepted values: cloudformation"
+
+instance ToText ProvisionedProductPlanType where
+    toText = \case
+        Cloudformation -> "CLOUDFORMATION"
+
+instance Hashable     ProvisionedProductPlanType
+instance NFData       ProvisionedProductPlanType
+instance ToByteString ProvisionedProductPlanType
+instance ToQuery      ProvisionedProductPlanType
+instance ToHeader     ProvisionedProductPlanType
+
+instance ToJSON ProvisionedProductPlanType where
+    toJSON = toJSONText
+
+instance FromJSON ProvisionedProductPlanType where
+    parseJSON = parseJSONText "ProvisionedProductPlanType"
+
 data ProvisionedProductStatus
   = PPSAvailable
   | PPSError'
+  | PPSPlanInProgress
   | PPSTainted
   | PPSUnderChange
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -259,15 +383,17 @@ instance FromText ProvisionedProductStatus where
     parser = takeLowerText >>= \case
         "available" -> pure PPSAvailable
         "error" -> pure PPSError'
+        "plan_in_progress" -> pure PPSPlanInProgress
         "tainted" -> pure PPSTainted
         "under_change" -> pure PPSUnderChange
         e -> fromTextError $ "Failure parsing ProvisionedProductStatus from value: '" <> e
-           <> "'. Accepted values: available, error, tainted, under_change"
+           <> "'. Accepted values: available, error, plan_in_progress, tainted, under_change"
 
 instance ToText ProvisionedProductStatus where
     toText = \case
         PPSAvailable -> "AVAILABLE"
         PPSError' -> "ERROR"
+        PPSPlanInProgress -> "PLAN_IN_PROGRESS"
         PPSTainted -> "TAINTED"
         PPSUnderChange -> "UNDER_CHANGE"
 
@@ -279,6 +405,30 @@ instance ToHeader     ProvisionedProductStatus
 
 instance FromJSON ProvisionedProductStatus where
     parseJSON = parseJSONText "ProvisionedProductStatus"
+
+data ProvisionedProductViewFilterBy =
+  SearchQuery
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ProvisionedProductViewFilterBy where
+    parser = takeLowerText >>= \case
+        "searchquery" -> pure SearchQuery
+        e -> fromTextError $ "Failure parsing ProvisionedProductViewFilterBy from value: '" <> e
+           <> "'. Accepted values: searchquery"
+
+instance ToText ProvisionedProductViewFilterBy where
+    toText = \case
+        SearchQuery -> "SearchQuery"
+
+instance Hashable     ProvisionedProductViewFilterBy
+instance NFData       ProvisionedProductViewFilterBy
+instance ToByteString ProvisionedProductViewFilterBy
+instance ToQuery      ProvisionedProductViewFilterBy
+instance ToHeader     ProvisionedProductViewFilterBy
+
+instance ToJSON ProvisionedProductViewFilterBy where
+    toJSON = toJSONText
 
 data ProvisioningArtifactPropertyName =
   Id
@@ -373,6 +523,36 @@ instance ToHeader     RecordStatus
 instance FromJSON RecordStatus where
     parseJSON = parseJSONText "RecordStatus"
 
+data Replacement
+  = Conditional
+  | False'
+  | True'
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Replacement where
+    parser = takeLowerText >>= \case
+        "conditional" -> pure Conditional
+        "false" -> pure False'
+        "true" -> pure True'
+        e -> fromTextError $ "Failure parsing Replacement from value: '" <> e
+           <> "'. Accepted values: conditional, false, true"
+
+instance ToText Replacement where
+    toText = \case
+        Conditional -> "CONDITIONAL"
+        False' -> "FALSE"
+        True' -> "TRUE"
+
+instance Hashable     Replacement
+instance NFData       Replacement
+instance ToByteString Replacement
+instance ToQuery      Replacement
+instance ToHeader     Replacement
+
+instance FromJSON Replacement where
+    parseJSON = parseJSONText "Replacement"
+
 data RequestStatus
   = Available
   | Creating
@@ -402,6 +582,75 @@ instance ToHeader     RequestStatus
 
 instance FromJSON RequestStatus where
     parseJSON = parseJSONText "RequestStatus"
+
+data RequiresRecreation
+  = Always
+  | Conditionally
+  | Never
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RequiresRecreation where
+    parser = takeLowerText >>= \case
+        "always" -> pure Always
+        "conditionally" -> pure Conditionally
+        "never" -> pure Never
+        e -> fromTextError $ "Failure parsing RequiresRecreation from value: '" <> e
+           <> "'. Accepted values: always, conditionally, never"
+
+instance ToText RequiresRecreation where
+    toText = \case
+        Always -> "ALWAYS"
+        Conditionally -> "CONDITIONALLY"
+        Never -> "NEVER"
+
+instance Hashable     RequiresRecreation
+instance NFData       RequiresRecreation
+instance ToByteString RequiresRecreation
+instance ToQuery      RequiresRecreation
+instance ToHeader     RequiresRecreation
+
+instance FromJSON RequiresRecreation where
+    parseJSON = parseJSONText "RequiresRecreation"
+
+data ResourceAttribute
+  = Creationpolicy
+  | Deletionpolicy
+  | Metadata
+  | Properties
+  | Tags
+  | Updatepolicy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ResourceAttribute where
+    parser = takeLowerText >>= \case
+        "creationpolicy" -> pure Creationpolicy
+        "deletionpolicy" -> pure Deletionpolicy
+        "metadata" -> pure Metadata
+        "properties" -> pure Properties
+        "tags" -> pure Tags
+        "updatepolicy" -> pure Updatepolicy
+        e -> fromTextError $ "Failure parsing ResourceAttribute from value: '" <> e
+           <> "'. Accepted values: creationpolicy, deletionpolicy, metadata, properties, tags, updatepolicy"
+
+instance ToText ResourceAttribute where
+    toText = \case
+        Creationpolicy -> "CREATIONPOLICY"
+        Deletionpolicy -> "DELETIONPOLICY"
+        Metadata -> "METADATA"
+        Properties -> "PROPERTIES"
+        Tags -> "TAGS"
+        Updatepolicy -> "UPDATEPOLICY"
+
+instance Hashable     ResourceAttribute
+instance NFData       ResourceAttribute
+instance ToByteString ResourceAttribute
+instance ToQuery      ResourceAttribute
+instance ToHeader     ResourceAttribute
+
+instance FromJSON ResourceAttribute where
+    parseJSON = parseJSONText "ResourceAttribute"
 
 data SortOrder
   = Ascending

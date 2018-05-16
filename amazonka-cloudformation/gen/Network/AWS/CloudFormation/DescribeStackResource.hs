@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,16 +71,16 @@ describeStackResource
     -> DescribeStackResource
 describeStackResource pStackName_ pLogicalResourceId_ =
   DescribeStackResource'
-  {_dsrsStackName = pStackName_, _dsrsLogicalResourceId = pLogicalResourceId_}
+    {_dsrsStackName = pStackName_, _dsrsLogicalResourceId = pLogicalResourceId_}
 
 
 -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 dsrsStackName :: Lens' DescribeStackResource Text
-dsrsStackName = lens _dsrsStackName (\ s a -> s{_dsrsStackName = a});
+dsrsStackName = lens _dsrsStackName (\ s a -> s{_dsrsStackName = a})
 
 -- | The logical name of the resource as specified in the template. Default: There is no default value.
 dsrsLogicalResourceId :: Lens' DescribeStackResource Text
-dsrsLogicalResourceId = lens _dsrsLogicalResourceId (\ s a -> s{_dsrsLogicalResourceId = a});
+dsrsLogicalResourceId = lens _dsrsLogicalResourceId (\ s a -> s{_dsrsLogicalResourceId = a})
 
 instance AWSRequest DescribeStackResource where
         type Rs DescribeStackResource =
@@ -134,15 +134,17 @@ describeStackResourceResponse
     -> DescribeStackResourceResponse
 describeStackResourceResponse pResponseStatus_ =
   DescribeStackResourceResponse'
-  {_dsrrsStackResourceDetail = Nothing, _dsrrsResponseStatus = pResponseStatus_}
+    { _dsrrsStackResourceDetail = Nothing
+    , _dsrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A @StackResourceDetail@ structure containing the description of the specified resource in the specified stack.
 dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
-dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStackResourceDetail = a});
+dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStackResourceDetail = a})
 
 -- | -- | The response status code.
 dsrrsResponseStatus :: Lens' DescribeStackResourceResponse Int
-dsrrsResponseStatus = lens _dsrrsResponseStatus (\ s a -> s{_dsrrsResponseStatus = a});
+dsrrsResponseStatus = lens _dsrrsResponseStatus (\ s a -> s{_dsrrsResponseStatus = a})
 
 instance NFData DescribeStackResourceResponse where

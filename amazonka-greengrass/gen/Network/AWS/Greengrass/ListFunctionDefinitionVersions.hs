@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListFunctionDefinitionVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,33 +57,33 @@ data ListFunctionDefinitionVersions = ListFunctionDefinitionVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfdvNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lfdvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lfdvMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lfdvMaxResults' - The maximum number of results to be returned per request.
 --
--- * 'lfdvFunctionDefinitionId' - the unique Id of the lambda definition
+-- * 'lfdvFunctionDefinitionId' - The ID of the Lambda function definition.
 listFunctionDefinitionVersions
     :: Text -- ^ 'lfdvFunctionDefinitionId'
     -> ListFunctionDefinitionVersions
 listFunctionDefinitionVersions pFunctionDefinitionId_ =
   ListFunctionDefinitionVersions'
-  { _lfdvNextToken = Nothing
-  , _lfdvMaxResults = Nothing
-  , _lfdvFunctionDefinitionId = pFunctionDefinitionId_
-  }
+    { _lfdvNextToken = Nothing
+    , _lfdvMaxResults = Nothing
+    , _lfdvFunctionDefinitionId = pFunctionDefinitionId_
+    }
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lfdvNextToken :: Lens' ListFunctionDefinitionVersions (Maybe Text)
-lfdvNextToken = lens _lfdvNextToken (\ s a -> s{_lfdvNextToken = a});
+lfdvNextToken = lens _lfdvNextToken (\ s a -> s{_lfdvNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lfdvMaxResults :: Lens' ListFunctionDefinitionVersions (Maybe Text)
-lfdvMaxResults = lens _lfdvMaxResults (\ s a -> s{_lfdvMaxResults = a});
+lfdvMaxResults = lens _lfdvMaxResults (\ s a -> s{_lfdvMaxResults = a})
 
--- | the unique Id of the lambda definition
+-- | The ID of the Lambda function definition.
 lfdvFunctionDefinitionId :: Lens' ListFunctionDefinitionVersions Text
-lfdvFunctionDefinitionId = lens _lfdvFunctionDefinitionId (\ s a -> s{_lfdvFunctionDefinitionId = a});
+lfdvFunctionDefinitionId = lens _lfdvFunctionDefinitionId (\ s a -> s{_lfdvFunctionDefinitionId = a})
 
 instance AWSRequest ListFunctionDefinitionVersions
          where
@@ -134,7 +134,7 @@ data ListFunctionDefinitionVersionsResponse = ListFunctionDefinitionVersionsResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfdvrsVersions' - Versions
+-- * 'lfdvrsVersions' - Information about a version.
 --
 -- * 'lfdvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
@@ -144,23 +144,23 @@ listFunctionDefinitionVersionsResponse
     -> ListFunctionDefinitionVersionsResponse
 listFunctionDefinitionVersionsResponse pResponseStatus_ =
   ListFunctionDefinitionVersionsResponse'
-  { _lfdvrsVersions = Nothing
-  , _lfdvrsNextToken = Nothing
-  , _lfdvrsResponseStatus = pResponseStatus_
-  }
+    { _lfdvrsVersions = Nothing
+    , _lfdvrsNextToken = Nothing
+    , _lfdvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Versions
+-- | Information about a version.
 lfdvrsVersions :: Lens' ListFunctionDefinitionVersionsResponse [VersionInformation]
-lfdvrsVersions = lens _lfdvrsVersions (\ s a -> s{_lfdvrsVersions = a}) . _Default . _Coerce;
+lfdvrsVersions = lens _lfdvrsVersions (\ s a -> s{_lfdvrsVersions = a}) . _Default . _Coerce
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lfdvrsNextToken :: Lens' ListFunctionDefinitionVersionsResponse (Maybe Text)
-lfdvrsNextToken = lens _lfdvrsNextToken (\ s a -> s{_lfdvrsNextToken = a});
+lfdvrsNextToken = lens _lfdvrsNextToken (\ s a -> s{_lfdvrsNextToken = a})
 
 -- | -- | The response status code.
 lfdvrsResponseStatus :: Lens' ListFunctionDefinitionVersionsResponse Int
-lfdvrsResponseStatus = lens _lfdvrsResponseStatus (\ s a -> s{_lfdvrsResponseStatus = a});
+lfdvrsResponseStatus = lens _lfdvrsResponseStatus (\ s a -> s{_lfdvrsResponseStatus = a})
 
 instance NFData
            ListFunctionDefinitionVersionsResponse

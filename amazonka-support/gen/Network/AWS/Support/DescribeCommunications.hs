@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeCommunications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,33 +88,33 @@ describeCommunications
     -> DescribeCommunications
 describeCommunications pCaseId_ =
   DescribeCommunications'
-  { _dAfterTime = Nothing
-  , _dBeforeTime = Nothing
-  , _dNextToken = Nothing
-  , _dMaxResults = Nothing
-  , _dCaseId = pCaseId_
-  }
+    { _dAfterTime = Nothing
+    , _dBeforeTime = Nothing
+    , _dNextToken = Nothing
+    , _dMaxResults = Nothing
+    , _dCaseId = pCaseId_
+    }
 
 
 -- | The start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 dAfterTime :: Lens' DescribeCommunications (Maybe Text)
-dAfterTime = lens _dAfterTime (\ s a -> s{_dAfterTime = a});
+dAfterTime = lens _dAfterTime (\ s a -> s{_dAfterTime = a})
 
 -- | The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 dBeforeTime :: Lens' DescribeCommunications (Maybe Text)
-dBeforeTime = lens _dBeforeTime (\ s a -> s{_dBeforeTime = a});
+dBeforeTime = lens _dBeforeTime (\ s a -> s{_dBeforeTime = a})
 
 -- | A resumption point for pagination.
 dNextToken :: Lens' DescribeCommunications (Maybe Text)
-dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a})
 
 -- | The maximum number of results to return before paginating.
 dMaxResults :: Lens' DescribeCommunications (Maybe Natural)
-dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat;
+dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 dCaseId :: Lens' DescribeCommunications Text
-dCaseId = lens _dCaseId (\ s a -> s{_dCaseId = a});
+dCaseId = lens _dCaseId (\ s a -> s{_dCaseId = a})
 
 instance AWSPager DescribeCommunications where
         page rq rs
@@ -191,22 +191,22 @@ describeCommunicationsResponse
     -> DescribeCommunicationsResponse
 describeCommunicationsResponse pResponseStatus_ =
   DescribeCommunicationsResponse'
-  { _dcrsNextToken = Nothing
-  , _dcrsCommunications = Nothing
-  , _dcrsResponseStatus = pResponseStatus_
-  }
+    { _dcrsNextToken = Nothing
+    , _dcrsCommunications = Nothing
+    , _dcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A resumption point for pagination.
 dcrsNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
-dcrsNextToken = lens _dcrsNextToken (\ s a -> s{_dcrsNextToken = a});
+dcrsNextToken = lens _dcrsNextToken (\ s a -> s{_dcrsNextToken = a})
 
 -- | The communications for the case.
 dcrsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
-dcrsCommunications = lens _dcrsCommunications (\ s a -> s{_dcrsCommunications = a}) . _Default . _Coerce;
+dcrsCommunications = lens _dcrsCommunications (\ s a -> s{_dcrsCommunications = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCommunicationsResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DescribeCommunicationsResponse where

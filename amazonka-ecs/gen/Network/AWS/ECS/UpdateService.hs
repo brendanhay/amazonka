@@ -12,18 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.ECS.UpdateService
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the desired count, deployment configuration, or task definition used in a service.
+-- Modifies the desired count, deployment configuration, network configuration, or task definition used in a service.
 --
 --
 -- You can add to or subtract from the number of instantiations of a task definition in a service by specifying the cluster that the service is running in and a new @desiredCount@ parameter.
 --
--- You can use 'UpdateService' to modify your task definition and deploy a new version of your service.
+-- If you have updated the Docker image of your application, you can create a new task definition with that image and deploy it to your service. The service scheduler uses the minimum healthy percent and maximum percent parameters (in the service's deployment configuration) to determine the deployment strategy.
 --
 -- You can also update the deployment configuration of a service. When a deployment is triggered by updating the task definition of a service, the service scheduler uses the deployment configuration parameters, @minimumHealthyPercent@ and @maximumPercent@ , to determine the deployment strategy.
 --
@@ -64,8 +64,12 @@ module Network.AWS.ECS.UpdateService
     , UpdateService
     -- * Request Lenses
     , usCluster
+    , usPlatformVersion
     , usDesiredCount
+    , usForceNewDeployment
     , usTaskDefinition
+    , usHealthCheckGracePeriodSeconds
+    , usNetworkConfiguration
     , usDeploymentConfiguration
     , usService
 
@@ -86,11 +90,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateService' smart constructor.
 data UpdateService = UpdateService'
-  { _usCluster                 :: !(Maybe Text)
-  , _usDesiredCount            :: !(Maybe Int)
-  , _usTaskDefinition          :: !(Maybe Text)
-  , _usDeploymentConfiguration :: !(Maybe DeploymentConfiguration)
-  , _usService                 :: !Text
+  { _usCluster                       :: !(Maybe Text)
+  , _usPlatformVersion               :: !(Maybe Text)
+  , _usDesiredCount                  :: !(Maybe Int)
+  , _usForceNewDeployment            :: !(Maybe Bool)
+  , _usTaskDefinition                :: !(Maybe Text)
+  , _usHealthCheckGracePeriodSeconds :: !(Maybe Int)
+  , _usNetworkConfiguration          :: !(Maybe NetworkConfiguration)
+  , _usDeploymentConfiguration       :: !(Maybe DeploymentConfiguration)
+  , _usService                       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -100,9 +108,17 @@ data UpdateService = UpdateService'
 --
 -- * 'usCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
 --
+-- * 'usPlatformVersion' - The platform version you want to update your service to run.
+--
 -- * 'usDesiredCount' - The number of instantiations of the task to place and keep running in your service.
 --
--- * 'usTaskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full Amazon Resource Name (ARN) of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
+-- * 'usForceNewDeployment' - Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
+--
+-- * 'usTaskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
+--
+-- * 'usHealthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 1,800 seconds during which the ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+--
+-- * 'usNetworkConfiguration' - The network configuration for the service. This parameter is required for task definitions that use the @awsvpc@ network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- * 'usDeploymentConfiguration' - Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 --
@@ -112,33 +128,53 @@ updateService
     -> UpdateService
 updateService pService_ =
   UpdateService'
-  { _usCluster = Nothing
-  , _usDesiredCount = Nothing
-  , _usTaskDefinition = Nothing
-  , _usDeploymentConfiguration = Nothing
-  , _usService = pService_
-  }
+    { _usCluster = Nothing
+    , _usPlatformVersion = Nothing
+    , _usDesiredCount = Nothing
+    , _usForceNewDeployment = Nothing
+    , _usTaskDefinition = Nothing
+    , _usHealthCheckGracePeriodSeconds = Nothing
+    , _usNetworkConfiguration = Nothing
+    , _usDeploymentConfiguration = Nothing
+    , _usService = pService_
+    }
 
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
 usCluster :: Lens' UpdateService (Maybe Text)
-usCluster = lens _usCluster (\ s a -> s{_usCluster = a});
+usCluster = lens _usCluster (\ s a -> s{_usCluster = a})
+
+-- | The platform version you want to update your service to run.
+usPlatformVersion :: Lens' UpdateService (Maybe Text)
+usPlatformVersion = lens _usPlatformVersion (\ s a -> s{_usPlatformVersion = a})
 
 -- | The number of instantiations of the task to place and keep running in your service.
 usDesiredCount :: Lens' UpdateService (Maybe Int)
-usDesiredCount = lens _usDesiredCount (\ s a -> s{_usDesiredCount = a});
+usDesiredCount = lens _usDesiredCount (\ s a -> s{_usDesiredCount = a})
 
--- | The @family@ and @revision@ (@family:revision@ ) or full Amazon Resource Name (ARN) of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
+-- | Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
+usForceNewDeployment :: Lens' UpdateService (Maybe Bool)
+usForceNewDeployment = lens _usForceNewDeployment (\ s a -> s{_usForceNewDeployment = a})
+
+-- | The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
 usTaskDefinition :: Lens' UpdateService (Maybe Text)
-usTaskDefinition = lens _usTaskDefinition (\ s a -> s{_usTaskDefinition = a});
+usTaskDefinition = lens _usTaskDefinition (\ s a -> s{_usTaskDefinition = a})
+
+-- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 1,800 seconds during which the ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+usHealthCheckGracePeriodSeconds :: Lens' UpdateService (Maybe Int)
+usHealthCheckGracePeriodSeconds = lens _usHealthCheckGracePeriodSeconds (\ s a -> s{_usHealthCheckGracePeriodSeconds = a})
+
+-- | The network configuration for the service. This parameter is required for task definitions that use the @awsvpc@ network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking> in the /Amazon Elastic Container Service Developer Guide/ .
+usNetworkConfiguration :: Lens' UpdateService (Maybe NetworkConfiguration)
+usNetworkConfiguration = lens _usNetworkConfiguration (\ s a -> s{_usNetworkConfiguration = a})
 
 -- | Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 usDeploymentConfiguration :: Lens' UpdateService (Maybe DeploymentConfiguration)
-usDeploymentConfiguration = lens _usDeploymentConfiguration (\ s a -> s{_usDeploymentConfiguration = a});
+usDeploymentConfiguration = lens _usDeploymentConfiguration (\ s a -> s{_usDeploymentConfiguration = a})
 
 -- | The name of the service to update.
 usService :: Lens' UpdateService Text
-usService = lens _usService (\ s a -> s{_usService = a});
+usService = lens _usService (\ s a -> s{_usService = a})
 
 instance AWSRequest UpdateService where
         type Rs UpdateService = UpdateServiceResponse
@@ -168,8 +204,14 @@ instance ToJSON UpdateService where
           = object
               (catMaybes
                  [("cluster" .=) <$> _usCluster,
+                  ("platformVersion" .=) <$> _usPlatformVersion,
                   ("desiredCount" .=) <$> _usDesiredCount,
+                  ("forceNewDeployment" .=) <$> _usForceNewDeployment,
                   ("taskDefinition" .=) <$> _usTaskDefinition,
+                  ("healthCheckGracePeriodSeconds" .=) <$>
+                    _usHealthCheckGracePeriodSeconds,
+                  ("networkConfiguration" .=) <$>
+                    _usNetworkConfiguration,
                   ("deploymentConfiguration" .=) <$>
                     _usDeploymentConfiguration,
                   Just ("service" .= _usService)])
@@ -199,15 +241,15 @@ updateServiceResponse
     -> UpdateServiceResponse
 updateServiceResponse pResponseStatus_ =
   UpdateServiceResponse'
-  {_usrsService = Nothing, _usrsResponseStatus = pResponseStatus_}
+    {_usrsService = Nothing, _usrsResponseStatus = pResponseStatus_}
 
 
 -- | The full description of your service following the update call.
 usrsService :: Lens' UpdateServiceResponse (Maybe ContainerService)
-usrsService = lens _usrsService (\ s a -> s{_usrsService = a});
+usrsService = lens _usrsService (\ s a -> s{_usrsService = a})
 
 -- | -- | The response status code.
 usrsResponseStatus :: Lens' UpdateServiceResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
+usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a})
 
 instance NFData UpdateServiceResponse where

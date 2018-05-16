@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Pricing.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,7 +43,7 @@ attributeValue = AttributeValue' {_avValue = Nothing}
 
 -- | The specific value of an @attributeName@ .
 avValue :: Lens' AttributeValue (Maybe Text)
-avValue = lens _avValue (\ s a -> s{_avValue = a});
+avValue = lens _avValue (\ s a -> s{_avValue = a})
 
 instance FromJSON AttributeValue where
         parseJSON
@@ -86,15 +86,15 @@ filter' pType_ pField_ pValue_ =
 
 -- | The type of filter that you want to use. Valid values are: @TERM_MATCH@ . @TERM_MATCH@ returns only products that match both the given filter field and the given value.
 fType :: Lens' Filter FilterType
-fType = lens _fType (\ s a -> s{_fType = a});
+fType = lens _fType (\ s a -> s{_fType = a})
 
 -- | The product metadata field that you want to filter on. You can filter by just the service code to see all products for a specific service, filter by just the attribute name to see a specific attribute for multiple services, or use both a service code and an attribute name to retrieve only products that match both fields. Valid values include: @ServiceCode@ , and all attribute names For example, you can filter by the @AmazonEC2@ service code and the @volumeType@ attribute name to get the prices for only Amazon EC2 volumes.
 fField :: Lens' Filter Text
-fField = lens _fField (\ s a -> s{_fField = a});
+fField = lens _fField (\ s a -> s{_fField = a})
 
 -- | The service code or attribute value that you want to filter by. If you are filtering by service code this is the actual service code, such as @AmazonEC2@ . If you are filtering by attribute name, this is the attribute value that you want the returned products to match, such as a @Provisioned IOPS@ volume.
 fValue :: Lens' Filter Text
-fValue = lens _fValue (\ s a -> s{_fValue = a});
+fValue = lens _fValue (\ s a -> s{_fValue = a})
 
 instance Hashable Filter where
 
@@ -133,11 +133,11 @@ pricingService =
 
 -- | The attributes that are available for this service.
 psAttributeNames :: Lens' PricingService [Text]
-psAttributeNames = lens _psAttributeNames (\ s a -> s{_psAttributeNames = a}) . _Default . _Coerce;
+psAttributeNames = lens _psAttributeNames (\ s a -> s{_psAttributeNames = a}) . _Default . _Coerce
 
 -- | The code for the AWS service.
 psServiceCode :: Lens' PricingService (Maybe Text)
-psServiceCode = lens _psServiceCode (\ s a -> s{_psServiceCode = a});
+psServiceCode = lens _psServiceCode (\ s a -> s{_psServiceCode = a})
 
 instance FromJSON PricingService where
         parseJSON

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.UntagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ untagResource pResource_ pTagKeys_ =
 
 -- | An ARN of a CloudFront resource.
 urResource :: Lens' UntagResource Text
-urResource = lens _urResource (\ s a -> s{_urResource = a});
+urResource = lens _urResource (\ s a -> s{_urResource = a})
 
 -- | A complex type that contains zero or more @Tag@ key elements.
 urTagKeys :: Lens' UntagResource TagKeys
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a});
+urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a})
 
 instance AWSRequest UntagResource where
         type Rs UntagResource = UntagResourceResponse
@@ -88,7 +88,7 @@ instance NFData UntagResource where
 instance ToElement UntagResource where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}TagKeys"
+              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}TagKeys"
               .
               _urTagKeys
 
@@ -96,7 +96,7 @@ instance ToHeaders UntagResource where
         toHeaders = const mempty
 
 instance ToPath UntagResource where
-        toPath = const "/2017-03-25/tagging"
+        toPath = const "/2017-10-30/tagging"
 
 instance ToQuery UntagResource where
         toQuery UntagResource'{..}

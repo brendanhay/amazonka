@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -267,6 +267,7 @@ data EventCode
   | FleetValidationTimedOut
   | GameSessionActivationTimeout
   | GenericEvent
+  | InstanceInterrupted
   | ServerProcessCrashed
   | ServerProcessForceTerminated
   | ServerProcessInvalidPath
@@ -304,6 +305,7 @@ instance FromText EventCode where
         "fleet_validation_timed_out" -> pure FleetValidationTimedOut
         "game_session_activation_timeout" -> pure GameSessionActivationTimeout
         "generic_event" -> pure GenericEvent
+        "instance_interrupted" -> pure InstanceInterrupted
         "server_process_crashed" -> pure ServerProcessCrashed
         "server_process_force_terminated" -> pure ServerProcessForceTerminated
         "server_process_invalid_path" -> pure ServerProcessInvalidPath
@@ -312,7 +314,7 @@ instance FromText EventCode where
         "server_process_sdk_initialization_timeout" -> pure ServerProcessSDKInitializationTimeout
         "server_process_terminated_unhealthy" -> pure ServerProcessTerminatedUnhealthy
         e -> fromTextError $ "Failure parsing EventCode from value: '" <> e
-           <> "'. Accepted values: fleet_activation_failed, fleet_activation_failed_no_instances, fleet_binary_download_failed, fleet_created, fleet_creation_extracting_build, fleet_creation_running_installer, fleet_creation_validating_runtime_config, fleet_deleted, fleet_initialization_failed, fleet_new_game_session_protection_policy_updated, fleet_scaling_event, fleet_state_activating, fleet_state_active, fleet_state_building, fleet_state_downloading, fleet_state_error, fleet_state_validating, fleet_vpc_peering_deleted, fleet_vpc_peering_failed, fleet_vpc_peering_succeeded, fleet_validation_executable_runtime_failure, fleet_validation_launch_path_not_found, fleet_validation_timed_out, game_session_activation_timeout, generic_event, server_process_crashed, server_process_force_terminated, server_process_invalid_path, server_process_process_exit_timeout, server_process_process_ready_timeout, server_process_sdk_initialization_timeout, server_process_terminated_unhealthy"
+           <> "'. Accepted values: fleet_activation_failed, fleet_activation_failed_no_instances, fleet_binary_download_failed, fleet_created, fleet_creation_extracting_build, fleet_creation_running_installer, fleet_creation_validating_runtime_config, fleet_deleted, fleet_initialization_failed, fleet_new_game_session_protection_policy_updated, fleet_scaling_event, fleet_state_activating, fleet_state_active, fleet_state_building, fleet_state_downloading, fleet_state_error, fleet_state_validating, fleet_vpc_peering_deleted, fleet_vpc_peering_failed, fleet_vpc_peering_succeeded, fleet_validation_executable_runtime_failure, fleet_validation_launch_path_not_found, fleet_validation_timed_out, game_session_activation_timeout, generic_event, instance_interrupted, server_process_crashed, server_process_force_terminated, server_process_invalid_path, server_process_process_exit_timeout, server_process_process_ready_timeout, server_process_sdk_initialization_timeout, server_process_terminated_unhealthy"
 
 instance ToText EventCode where
     toText = \case
@@ -341,6 +343,7 @@ instance ToText EventCode where
         FleetValidationTimedOut -> "FLEET_VALIDATION_TIMED_OUT"
         GameSessionActivationTimeout -> "GAME_SESSION_ACTIVATION_TIMEOUT"
         GenericEvent -> "GENERIC_EVENT"
+        InstanceInterrupted -> "INSTANCE_INTERRUPTED"
         ServerProcessCrashed -> "SERVER_PROCESS_CRASHED"
         ServerProcessForceTerminated -> "SERVER_PROCESS_FORCE_TERMINATED"
         ServerProcessInvalidPath -> "SERVER_PROCESS_INVALID_PATH"
@@ -357,6 +360,33 @@ instance ToHeader     EventCode
 
 instance FromJSON EventCode where
     parseJSON = parseJSONText "EventCode"
+
+data FleetAction =
+  AutoScaling
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FleetAction where
+    parser = takeLowerText >>= \case
+        "auto_scaling" -> pure AutoScaling
+        e -> fromTextError $ "Failure parsing FleetAction from value: '" <> e
+           <> "'. Accepted values: auto_scaling"
+
+instance ToText FleetAction where
+    toText = \case
+        AutoScaling -> "AUTO_SCALING"
+
+instance Hashable     FleetAction
+instance NFData       FleetAction
+instance ToByteString FleetAction
+instance ToQuery      FleetAction
+instance ToHeader     FleetAction
+
+instance ToJSON FleetAction where
+    toJSON = toJSONText
+
+instance FromJSON FleetAction where
+    parseJSON = parseJSONText "FleetAction"
 
 data FleetStatus
   = FSActivating
@@ -405,6 +435,36 @@ instance ToHeader     FleetStatus
 
 instance FromJSON FleetStatus where
     parseJSON = parseJSONText "FleetStatus"
+
+data FleetType
+  = OnDemand
+  | Spot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FleetType where
+    parser = takeLowerText >>= \case
+        "on_demand" -> pure OnDemand
+        "spot" -> pure Spot
+        e -> fromTextError $ "Failure parsing FleetType from value: '" <> e
+           <> "'. Accepted values: on_demand, spot"
+
+instance ToText FleetType where
+    toText = \case
+        OnDemand -> "ON_DEMAND"
+        Spot -> "SPOT"
+
+instance Hashable     FleetType
+instance NFData       FleetType
+instance ToByteString FleetType
+instance ToQuery      FleetType
+instance ToHeader     FleetType
+
+instance ToJSON FleetType where
+    toJSON = toJSONText
+
+instance FromJSON FleetType where
+    parseJSON = parseJSONText "FleetType"
 
 data GameSessionPlacementState
   = Cancelled
@@ -474,6 +534,30 @@ instance ToHeader     GameSessionStatus
 
 instance FromJSON GameSessionStatus where
     parseJSON = parseJSONText "GameSessionStatus"
+
+data GameSessionStatusReason =
+  Interrupted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText GameSessionStatusReason where
+    parser = takeLowerText >>= \case
+        "interrupted" -> pure Interrupted
+        e -> fromTextError $ "Failure parsing GameSessionStatusReason from value: '" <> e
+           <> "'. Accepted values: interrupted"
+
+instance ToText GameSessionStatusReason where
+    toText = \case
+        Interrupted -> "INTERRUPTED"
+
+instance Hashable     GameSessionStatusReason
+instance NFData       GameSessionStatusReason
+instance ToByteString GameSessionStatusReason
+instance ToQuery      GameSessionStatusReason
+instance ToHeader     GameSessionStatusReason
+
+instance FromJSON GameSessionStatusReason where
+    parseJSON = parseJSONText "GameSessionStatusReason"
 
 data IPProtocol
   = TCP
@@ -729,6 +813,36 @@ instance ToHeader     PlayerSessionStatus
 
 instance FromJSON PlayerSessionStatus where
     parseJSON = parseJSONText "PlayerSessionStatus"
+
+data PolicyType
+  = RuleBased
+  | TargetBased
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PolicyType where
+    parser = takeLowerText >>= \case
+        "rulebased" -> pure RuleBased
+        "targetbased" -> pure TargetBased
+        e -> fromTextError $ "Failure parsing PolicyType from value: '" <> e
+           <> "'. Accepted values: rulebased, targetbased"
+
+instance ToText PolicyType where
+    toText = \case
+        RuleBased -> "RuleBased"
+        TargetBased -> "TargetBased"
+
+instance Hashable     PolicyType
+instance NFData       PolicyType
+instance ToByteString PolicyType
+instance ToQuery      PolicyType
+instance ToHeader     PolicyType
+
+instance ToJSON PolicyType where
+    toJSON = toJSONText
+
+instance FromJSON PolicyType where
+    parseJSON = parseJSONText "PolicyType"
 
 data ProtectionPolicy
   = FullProtection

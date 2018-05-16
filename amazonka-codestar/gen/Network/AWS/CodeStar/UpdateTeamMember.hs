@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.UpdateTeamMember
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,28 +75,28 @@ updateTeamMember
     -> UpdateTeamMember
 updateTeamMember pProjectId_ pUserARN_ =
   UpdateTeamMember'
-  { _utmRemoteAccessAllowed = Nothing
-  , _utmProjectRole = Nothing
-  , _utmProjectId = pProjectId_
-  , _utmUserARN = pUserARN_
-  }
+    { _utmRemoteAccessAllowed = Nothing
+    , _utmProjectRole = Nothing
+    , _utmProjectId = pProjectId_
+    , _utmUserARN = pUserARN_
+    }
 
 
 -- | Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile. Even if this is set to True, the user must associate a public key with their profile before the user can access resources.
 utmRemoteAccessAllowed :: Lens' UpdateTeamMember (Maybe Bool)
-utmRemoteAccessAllowed = lens _utmRemoteAccessAllowed (\ s a -> s{_utmRemoteAccessAllowed = a});
+utmRemoteAccessAllowed = lens _utmRemoteAccessAllowed (\ s a -> s{_utmRemoteAccessAllowed = a})
 
 -- | The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
 utmProjectRole :: Lens' UpdateTeamMember (Maybe Text)
-utmProjectRole = lens _utmProjectRole (\ s a -> s{_utmProjectRole = a});
+utmProjectRole = lens _utmProjectRole (\ s a -> s{_utmProjectRole = a})
 
 -- | The ID of the project.
 utmProjectId :: Lens' UpdateTeamMember Text
-utmProjectId = lens _utmProjectId (\ s a -> s{_utmProjectId = a});
+utmProjectId = lens _utmProjectId (\ s a -> s{_utmProjectId = a})
 
 -- | The Amazon Resource Name (ARN) of the user for whom you want to change team membership attributes.
 utmUserARN :: Lens' UpdateTeamMember Text
-utmUserARN = lens _utmUserARN (\ s a -> s{_utmUserARN = a});
+utmUserARN = lens _utmUserARN (\ s a -> s{_utmUserARN = a})
 
 instance AWSRequest UpdateTeamMember where
         type Rs UpdateTeamMember = UpdateTeamMemberResponse
@@ -163,27 +163,27 @@ updateTeamMemberResponse
     -> UpdateTeamMemberResponse
 updateTeamMemberResponse pResponseStatus_ =
   UpdateTeamMemberResponse'
-  { _utmrsUserARN = Nothing
-  , _utmrsRemoteAccessAllowed = Nothing
-  , _utmrsProjectRole = Nothing
-  , _utmrsResponseStatus = pResponseStatus_
-  }
+    { _utmrsUserARN = Nothing
+    , _utmrsRemoteAccessAllowed = Nothing
+    , _utmrsProjectRole = Nothing
+    , _utmrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the user whose team membership attributes were updated.
 utmrsUserARN :: Lens' UpdateTeamMemberResponse (Maybe Text)
-utmrsUserARN = lens _utmrsUserARN (\ s a -> s{_utmrsUserARN = a});
+utmrsUserARN = lens _utmrsUserARN (\ s a -> s{_utmrsUserARN = a})
 
 -- | Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile.
 utmrsRemoteAccessAllowed :: Lens' UpdateTeamMemberResponse (Maybe Bool)
-utmrsRemoteAccessAllowed = lens _utmrsRemoteAccessAllowed (\ s a -> s{_utmrsRemoteAccessAllowed = a});
+utmrsRemoteAccessAllowed = lens _utmrsRemoteAccessAllowed (\ s a -> s{_utmrsRemoteAccessAllowed = a})
 
 -- | The project role granted to the user.
 utmrsProjectRole :: Lens' UpdateTeamMemberResponse (Maybe Text)
-utmrsProjectRole = lens _utmrsProjectRole (\ s a -> s{_utmrsProjectRole = a});
+utmrsProjectRole = lens _utmrsProjectRole (\ s a -> s{_utmrsProjectRole = a})
 
 -- | -- | The response status code.
 utmrsResponseStatus :: Lens' UpdateTeamMemberResponse Int
-utmrsResponseStatus = lens _utmrsResponseStatus (\ s a -> s{_utmrsResponseStatus = a});
+utmrsResponseStatus = lens _utmrsResponseStatus (\ s a -> s{_utmrsResponseStatus = a})
 
 instance NFData UpdateTeamMemberResponse where

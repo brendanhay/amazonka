@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ describeParameters
     :: DescribeParameters
 describeParameters =
   DescribeParameters'
-  { _dpParameterFilters = Nothing
-  , _dpFilters = Nothing
-  , _dpNextToken = Nothing
-  , _dpMaxResults = Nothing
-  }
+    { _dpParameterFilters = Nothing
+    , _dpFilters = Nothing
+    , _dpNextToken = Nothing
+    , _dpMaxResults = Nothing
+    }
 
 
 -- | Filters to limit the request results.
 dpParameterFilters :: Lens' DescribeParameters [ParameterStringFilter]
-dpParameterFilters = lens _dpParameterFilters (\ s a -> s{_dpParameterFilters = a}) . _Default . _Coerce;
+dpParameterFilters = lens _dpParameterFilters (\ s a -> s{_dpParameterFilters = a}) . _Default . _Coerce
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 dpFilters :: Lens' DescribeParameters [ParametersFilter]
-dpFilters = lens _dpFilters (\ s a -> s{_dpFilters = a}) . _Default . _Coerce;
+dpFilters = lens _dpFilters (\ s a -> s{_dpFilters = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dpNextToken :: Lens' DescribeParameters (Maybe Text)
-dpNextToken = lens _dpNextToken (\ s a -> s{_dpNextToken = a});
+dpNextToken = lens _dpNextToken (\ s a -> s{_dpNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 dpMaxResults :: Lens' DescribeParameters (Maybe Natural)
-dpMaxResults = lens _dpMaxResults (\ s a -> s{_dpMaxResults = a}) . mapping _Nat;
+dpMaxResults = lens _dpMaxResults (\ s a -> s{_dpMaxResults = a}) . mapping _Nat
 
 instance AWSPager DescribeParameters where
         page rq rs
@@ -169,22 +169,22 @@ describeParametersResponse
     -> DescribeParametersResponse
 describeParametersResponse pResponseStatus_ =
   DescribeParametersResponse'
-  { _dprsNextToken = Nothing
-  , _dprsParameters = Nothing
-  , _dprsResponseStatus = pResponseStatus_
-  }
+    { _dprsNextToken = Nothing
+    , _dprsParameters = Nothing
+    , _dprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dprsNextToken :: Lens' DescribeParametersResponse (Maybe Text)
-dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a});
+dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a})
 
 -- | Parameters returned by the request.
 dprsParameters :: Lens' DescribeParametersResponse [ParameterMetadata]
-dprsParameters = lens _dprsParameters (\ s a -> s{_dprsParameters = a}) . _Default . _Coerce;
+dprsParameters = lens _dprsParameters (\ s a -> s{_dprsParameters = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DescribeParametersResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DescribeParametersResponse where

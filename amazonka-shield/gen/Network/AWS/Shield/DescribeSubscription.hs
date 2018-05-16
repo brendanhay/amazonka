@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Shield.DescribeSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -107,15 +107,15 @@ describeSubscriptionResponse
     -> DescribeSubscriptionResponse
 describeSubscriptionResponse pResponseStatus_ =
   DescribeSubscriptionResponse'
-  {_dsrsSubscription = Nothing, _dsrsResponseStatus = pResponseStatus_}
+    {_dsrsSubscription = Nothing, _dsrsResponseStatus = pResponseStatus_}
 
 
 -- | The AWS Shield Advanced subscription details for an account.
 dsrsSubscription :: Lens' DescribeSubscriptionResponse (Maybe Subscription)
-dsrsSubscription = lens _dsrsSubscription (\ s a -> s{_dsrsSubscription = a});
+dsrsSubscription = lens _dsrsSubscription (\ s a -> s{_dsrsSubscription = a})
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeSubscriptionResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DescribeSubscriptionResponse where

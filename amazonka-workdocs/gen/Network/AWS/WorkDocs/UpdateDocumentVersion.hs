@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.UpdateDocumentVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ data UpdateDocumentVersion = UpdateDocumentVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udvAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'udvAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'udvVersionStatus' - The status of the version.
 --
@@ -72,28 +72,28 @@ updateDocumentVersion
     -> UpdateDocumentVersion
 updateDocumentVersion pDocumentId_ pVersionId_ =
   UpdateDocumentVersion'
-  { _udvAuthenticationToken = Nothing
-  , _udvVersionStatus = Nothing
-  , _udvDocumentId = pDocumentId_
-  , _udvVersionId = pVersionId_
-  }
+    { _udvAuthenticationToken = Nothing
+    , _udvVersionStatus = Nothing
+    , _udvDocumentId = pDocumentId_
+    , _udvVersionId = pVersionId_
+    }
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 udvAuthenticationToken :: Lens' UpdateDocumentVersion (Maybe Text)
-udvAuthenticationToken = lens _udvAuthenticationToken (\ s a -> s{_udvAuthenticationToken = a}) . mapping _Sensitive;
+udvAuthenticationToken = lens _udvAuthenticationToken (\ s a -> s{_udvAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The status of the version.
 udvVersionStatus :: Lens' UpdateDocumentVersion (Maybe DocumentVersionStatus)
-udvVersionStatus = lens _udvVersionStatus (\ s a -> s{_udvVersionStatus = a});
+udvVersionStatus = lens _udvVersionStatus (\ s a -> s{_udvVersionStatus = a})
 
 -- | The ID of the document.
 udvDocumentId :: Lens' UpdateDocumentVersion Text
-udvDocumentId = lens _udvDocumentId (\ s a -> s{_udvDocumentId = a});
+udvDocumentId = lens _udvDocumentId (\ s a -> s{_udvDocumentId = a})
 
 -- | The version ID of the document.
 udvVersionId :: Lens' UpdateDocumentVersion Text
-udvVersionId = lens _udvVersionId (\ s a -> s{_udvVersionId = a});
+udvVersionId = lens _udvVersionId (\ s a -> s{_udvVersionId = a})
 
 instance AWSRequest UpdateDocumentVersion where
         type Rs UpdateDocumentVersion =

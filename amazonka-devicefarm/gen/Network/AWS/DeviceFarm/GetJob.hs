@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getJob pArn_ = GetJob' {_gjArn = pArn_}
 
 -- | The job's ARN.
 gjArn :: Lens' GetJob Text
-gjArn = lens _gjArn (\ s a -> s{_gjArn = a});
+gjArn = lens _gjArn (\ s a -> s{_gjArn = a})
 
 instance AWSRequest GetJob where
         type Rs GetJob = GetJobResponse
@@ -128,10 +128,10 @@ getJobResponse pResponseStatus_ =
 
 -- | An object containing information about the requested job.
 gjrsJob :: Lens' GetJobResponse (Maybe Job)
-gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a});
+gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a})
 
 -- | -- | The response status code.
 gjrsResponseStatus :: Lens' GetJobResponse Int
-gjrsResponseStatus = lens _gjrsResponseStatus (\ s a -> s{_gjrsResponseStatus = a});
+gjrsResponseStatus = lens _gjrsResponseStatus (\ s a -> s{_gjrsResponseStatus = a})
 
 instance NFData GetJobResponse where

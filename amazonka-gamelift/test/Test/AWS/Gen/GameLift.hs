@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.GameLift
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,6 +85,9 @@ import Test.Tasty
 --         , requestDeleteVPCPeeringConnection $
 --             deleteVPCPeeringConnection
 --
+--         , requestStartFleetActions $
+--             startFleetActions
+--
 --         , requestGetInstanceAccess $
 --             getInstanceAccess
 --
@@ -142,6 +145,9 @@ import Test.Tasty
 --         , requestUpdateAlias $
 --             updateAlias
 --
+--         , requestStartMatchBackfill $
+--             startMatchBackfill
+--
 --         , requestDescribeInstances $
 --             describeInstances
 --
@@ -186,6 +192,9 @@ import Test.Tasty
 --
 --         , requestDescribePlayerSessions $
 --             describePlayerSessions
+--
+--         , requestStopFleetActions $
+--             stopFleetActions
 --
 --         , requestDescribeBuild $
 --             describeBuild
@@ -280,6 +289,9 @@ import Test.Tasty
 --         , responseDeleteVPCPeeringConnection $
 --             deleteVPCPeeringConnectionResponse
 --
+--         , responseStartFleetActions $
+--             startFleetActionsResponse
+--
 --         , responseGetInstanceAccess $
 --             getInstanceAccessResponse
 --
@@ -337,6 +349,9 @@ import Test.Tasty
 --         , responseUpdateAlias $
 --             updateAliasResponse
 --
+--         , responseStartMatchBackfill $
+--             startMatchBackfillResponse
+--
 --         , responseDescribeInstances $
 --             describeInstancesResponse
 --
@@ -381,6 +396,9 @@ import Test.Tasty
 --
 --         , responseDescribePlayerSessions $
 --             describePlayerSessionsResponse
+--
+--         , responseStopFleetActions $
+--             stopFleetActionsResponse
 --
 --         , responseDescribeBuild $
 --             describeBuildResponse
@@ -515,6 +533,11 @@ requestDeleteVPCPeeringConnection = req
     "DeleteVPCPeeringConnection"
     "fixture/DeleteVPCPeeringConnection.yaml"
 
+requestStartFleetActions :: StartFleetActions -> TestTree
+requestStartFleetActions = req
+    "StartFleetActions"
+    "fixture/StartFleetActions.yaml"
+
 requestGetInstanceAccess :: GetInstanceAccess -> TestTree
 requestGetInstanceAccess = req
     "GetInstanceAccess"
@@ -610,6 +633,11 @@ requestUpdateAlias = req
     "UpdateAlias"
     "fixture/UpdateAlias.yaml"
 
+requestStartMatchBackfill :: StartMatchBackfill -> TestTree
+requestStartMatchBackfill = req
+    "StartMatchBackfill"
+    "fixture/StartMatchBackfill.yaml"
+
 requestDescribeInstances :: DescribeInstances -> TestTree
 requestDescribeInstances = req
     "DescribeInstances"
@@ -684,6 +712,11 @@ requestDescribePlayerSessions :: DescribePlayerSessions -> TestTree
 requestDescribePlayerSessions = req
     "DescribePlayerSessions"
     "fixture/DescribePlayerSessions.yaml"
+
+requestStopFleetActions :: StopFleetActions -> TestTree
+requestStopFleetActions = req
+    "StopFleetActions"
+    "fixture/StopFleetActions.yaml"
 
 requestDescribeBuild :: DescribeBuild -> TestTree
 requestDescribeBuild = req
@@ -875,6 +908,13 @@ responseDeleteVPCPeeringConnection = res
     gameLift
     (Proxy :: Proxy DeleteVPCPeeringConnection)
 
+responseStartFleetActions :: StartFleetActionsResponse -> TestTree
+responseStartFleetActions = res
+    "StartFleetActionsResponse"
+    "fixture/StartFleetActionsResponse.proto"
+    gameLift
+    (Proxy :: Proxy StartFleetActions)
+
 responseGetInstanceAccess :: GetInstanceAccessResponse -> TestTree
 responseGetInstanceAccess = res
     "GetInstanceAccessResponse"
@@ -1008,6 +1048,13 @@ responseUpdateAlias = res
     gameLift
     (Proxy :: Proxy UpdateAlias)
 
+responseStartMatchBackfill :: StartMatchBackfillResponse -> TestTree
+responseStartMatchBackfill = res
+    "StartMatchBackfillResponse"
+    "fixture/StartMatchBackfillResponse.proto"
+    gameLift
+    (Proxy :: Proxy StartMatchBackfill)
+
 responseDescribeInstances :: DescribeInstancesResponse -> TestTree
 responseDescribeInstances = res
     "DescribeInstancesResponse"
@@ -1112,6 +1159,13 @@ responseDescribePlayerSessions = res
     "fixture/DescribePlayerSessionsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribePlayerSessions)
+
+responseStopFleetActions :: StopFleetActionsResponse -> TestTree
+responseStopFleetActions = res
+    "StopFleetActionsResponse"
+    "fixture/StopFleetActionsResponse.proto"
+    gameLift
+    (Proxy :: Proxy StopFleetActions)
 
 responseDescribeBuild :: DescribeBuildResponse -> TestTree
 responseDescribeBuild = res

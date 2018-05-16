@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetSampledRequests
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ data GetSampledRequests = GetSampledRequests'
 --
 -- * 'gsrWebACLId' - The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
 --
--- * 'gsrRuleId' - @RuleId@ is one of two values:     * The @RuleId@ of the @Rule@ for which you want @GetSampledRequests@ to return a sample of requests.     * @Default_Action@ , which causes @GetSampledRequests@ to return a sample of the requests that didn't match any of the rules in the specified @WebACL@ .
+-- * 'gsrRuleId' - @RuleId@ is one of three values:     * The @RuleId@ of the @Rule@ or the @RuleGroupId@ of the @RuleGroup@ for which you want @GetSampledRequests@ to return a sample of requests.     * @Default_Action@ , which causes @GetSampledRequests@ to return a sample of the requests that didn't match any of the rules in the specified @WebACL@ .
 --
 -- * 'gsrTimeWindow' - The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. Specify the date and time in the following format: @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 --
@@ -79,28 +79,28 @@ getSampledRequests
     -> GetSampledRequests
 getSampledRequests pWebACLId_ pRuleId_ pTimeWindow_ pMaxItems_ =
   GetSampledRequests'
-  { _gsrWebACLId = pWebACLId_
-  , _gsrRuleId = pRuleId_
-  , _gsrTimeWindow = pTimeWindow_
-  , _gsrMaxItems = _Nat # pMaxItems_
-  }
+    { _gsrWebACLId = pWebACLId_
+    , _gsrRuleId = pRuleId_
+    , _gsrTimeWindow = pTimeWindow_
+    , _gsrMaxItems = _Nat # pMaxItems_
+    }
 
 
 -- | The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
 gsrWebACLId :: Lens' GetSampledRequests Text
-gsrWebACLId = lens _gsrWebACLId (\ s a -> s{_gsrWebACLId = a});
+gsrWebACLId = lens _gsrWebACLId (\ s a -> s{_gsrWebACLId = a})
 
--- | @RuleId@ is one of two values:     * The @RuleId@ of the @Rule@ for which you want @GetSampledRequests@ to return a sample of requests.     * @Default_Action@ , which causes @GetSampledRequests@ to return a sample of the requests that didn't match any of the rules in the specified @WebACL@ .
+-- | @RuleId@ is one of three values:     * The @RuleId@ of the @Rule@ or the @RuleGroupId@ of the @RuleGroup@ for which you want @GetSampledRequests@ to return a sample of requests.     * @Default_Action@ , which causes @GetSampledRequests@ to return a sample of the requests that didn't match any of the rules in the specified @WebACL@ .
 gsrRuleId :: Lens' GetSampledRequests Text
-gsrRuleId = lens _gsrRuleId (\ s a -> s{_gsrRuleId = a});
+gsrRuleId = lens _gsrRuleId (\ s a -> s{_gsrRuleId = a})
 
 -- | The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. Specify the date and time in the following format: @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 gsrTimeWindow :: Lens' GetSampledRequests TimeWindow
-gsrTimeWindow = lens _gsrTimeWindow (\ s a -> s{_gsrTimeWindow = a});
+gsrTimeWindow = lens _gsrTimeWindow (\ s a -> s{_gsrTimeWindow = a})
 
 -- | The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received during the time range. If your resource received fewer requests than the value of @MaxItems@ , @GetSampledRequests@ returns information about all of them.
 gsrMaxItems :: Lens' GetSampledRequests Natural
-gsrMaxItems = lens _gsrMaxItems (\ s a -> s{_gsrMaxItems = a}) . _Nat;
+gsrMaxItems = lens _gsrMaxItems (\ s a -> s{_gsrMaxItems = a}) . _Nat
 
 instance AWSRequest GetSampledRequests where
         type Rs GetSampledRequests =
@@ -168,27 +168,27 @@ getSampledRequestsResponse
     -> GetSampledRequestsResponse
 getSampledRequestsResponse pResponseStatus_ =
   GetSampledRequestsResponse'
-  { _gsrrsSampledRequests = Nothing
-  , _gsrrsPopulationSize = Nothing
-  , _gsrrsTimeWindow = Nothing
-  , _gsrrsResponseStatus = pResponseStatus_
-  }
+    { _gsrrsSampledRequests = Nothing
+    , _gsrrsPopulationSize = Nothing
+    , _gsrrsTimeWindow = Nothing
+    , _gsrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A complex type that contains detailed information about each of the requests in the sample.
 gsrrsSampledRequests :: Lens' GetSampledRequestsResponse [SampledHTTPRequest]
-gsrrsSampledRequests = lens _gsrrsSampledRequests (\ s a -> s{_gsrrsSampledRequests = a}) . _Default . _Coerce;
+gsrrsSampledRequests = lens _gsrrsSampledRequests (\ s a -> s{_gsrrsSampledRequests = a}) . _Default . _Coerce
 
 -- | The total number of requests from which @GetSampledRequests@ got a sample of @MaxItems@ requests. If @PopulationSize@ is less than @MaxItems@ , the sample includes every request that your AWS resource received during the specified time range.
 gsrrsPopulationSize :: Lens' GetSampledRequestsResponse (Maybe Integer)
-gsrrsPopulationSize = lens _gsrrsPopulationSize (\ s a -> s{_gsrrsPopulationSize = a});
+gsrrsPopulationSize = lens _gsrrsPopulationSize (\ s a -> s{_gsrrsPopulationSize = a})
 
 -- | Usually, @TimeWindow@ is the time range that you specified in the @GetSampledRequests@ request. However, if your AWS resource received more than 5,000 requests during the time range that you specified in the request, @GetSampledRequests@ returns the time range for the first 5,000 requests.
 gsrrsTimeWindow :: Lens' GetSampledRequestsResponse (Maybe TimeWindow)
-gsrrsTimeWindow = lens _gsrrsTimeWindow (\ s a -> s{_gsrrsTimeWindow = a});
+gsrrsTimeWindow = lens _gsrrsTimeWindow (\ s a -> s{_gsrrsTimeWindow = a})
 
 -- | -- | The response status code.
 gsrrsResponseStatus :: Lens' GetSampledRequestsResponse Int
-gsrrsResponseStatus = lens _gsrrsResponseStatus (\ s a -> s{_gsrrsResponseStatus = a});
+gsrrsResponseStatus = lens _gsrrsResponseStatus (\ s a -> s{_gsrrsResponseStatus = a})
 
 instance NFData GetSampledRequestsResponse where

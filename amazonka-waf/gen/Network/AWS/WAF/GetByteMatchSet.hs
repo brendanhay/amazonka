@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetByteMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getByteMatchSet pByteMatchSetId_ =
 
 -- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to get. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
 gbmsByteMatchSetId :: Lens' GetByteMatchSet Text
-gbmsByteMatchSetId = lens _gbmsByteMatchSetId (\ s a -> s{_gbmsByteMatchSetId = a});
+gbmsByteMatchSetId = lens _gbmsByteMatchSetId (\ s a -> s{_gbmsByteMatchSetId = a})
 
 instance AWSRequest GetByteMatchSet where
         type Rs GetByteMatchSet = GetByteMatchSetResponse
@@ -119,15 +119,15 @@ getByteMatchSetResponse
     -> GetByteMatchSetResponse
 getByteMatchSetResponse pResponseStatus_ =
   GetByteMatchSetResponse'
-  {_gbmsrsByteMatchSet = Nothing, _gbmsrsResponseStatus = pResponseStatus_}
+    {_gbmsrsByteMatchSet = Nothing, _gbmsrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@      * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 gbmsrsByteMatchSet :: Lens' GetByteMatchSetResponse (Maybe ByteMatchSet)
-gbmsrsByteMatchSet = lens _gbmsrsByteMatchSet (\ s a -> s{_gbmsrsByteMatchSet = a});
+gbmsrsByteMatchSet = lens _gbmsrsByteMatchSet (\ s a -> s{_gbmsrsByteMatchSet = a})
 
 -- | -- | The response status code.
 gbmsrsResponseStatus :: Lens' GetByteMatchSetResponse Int
-gbmsrsResponseStatus = lens _gbmsrsResponseStatus (\ s a -> s{_gbmsrsResponseStatus = a});
+gbmsrsResponseStatus = lens _gbmsrsResponseStatus (\ s a -> s{_gbmsrsResponseStatus = a})
 
 instance NFData GetByteMatchSetResponse where

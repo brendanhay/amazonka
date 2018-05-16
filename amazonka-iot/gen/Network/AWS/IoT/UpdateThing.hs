@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.UpdateThing
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ data UpdateThing = UpdateThing'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utRemoveThingType' - Remove a thing type association. If __true__ , the assocation is removed.
+-- * 'utRemoveThingType' - Remove a thing type association. If __true__ , the association is removed.
 --
 -- * 'utThingTypeName' - The name of the thing type.
 --
@@ -79,33 +79,33 @@ updateThing
     -> UpdateThing
 updateThing pThingName_ =
   UpdateThing'
-  { _utRemoveThingType = Nothing
-  , _utThingTypeName = Nothing
-  , _utExpectedVersion = Nothing
-  , _utAttributePayload = Nothing
-  , _utThingName = pThingName_
-  }
+    { _utRemoveThingType = Nothing
+    , _utThingTypeName = Nothing
+    , _utExpectedVersion = Nothing
+    , _utAttributePayload = Nothing
+    , _utThingName = pThingName_
+    }
 
 
--- | Remove a thing type association. If __true__ , the assocation is removed.
+-- | Remove a thing type association. If __true__ , the association is removed.
 utRemoveThingType :: Lens' UpdateThing (Maybe Bool)
-utRemoveThingType = lens _utRemoveThingType (\ s a -> s{_utRemoveThingType = a});
+utRemoveThingType = lens _utRemoveThingType (\ s a -> s{_utRemoveThingType = a})
 
 -- | The name of the thing type.
 utThingTypeName :: Lens' UpdateThing (Maybe Text)
-utThingTypeName = lens _utThingTypeName (\ s a -> s{_utThingTypeName = a});
+utThingTypeName = lens _utThingTypeName (\ s a -> s{_utThingTypeName = a})
 
 -- | The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @UpdateThing@ request is rejected with a @VersionConflictException@ .
 utExpectedVersion :: Lens' UpdateThing (Maybe Integer)
-utExpectedVersion = lens _utExpectedVersion (\ s a -> s{_utExpectedVersion = a});
+utExpectedVersion = lens _utExpectedVersion (\ s a -> s{_utExpectedVersion = a})
 
 -- | A list of thing attributes, a JSON string containing name-value pairs. For example: @{\"attributes\":{\"name1\":\"value2\"}}@  This data is used to add new attributes or update existing attributes.
 utAttributePayload :: Lens' UpdateThing (Maybe AttributePayload)
-utAttributePayload = lens _utAttributePayload (\ s a -> s{_utAttributePayload = a});
+utAttributePayload = lens _utAttributePayload (\ s a -> s{_utAttributePayload = a})
 
 -- | The name of the thing to update.
 utThingName :: Lens' UpdateThing Text
-utThingName = lens _utThingName (\ s a -> s{_utThingName = a});
+utThingName = lens _utThingName (\ s a -> s{_utThingName = a})
 
 instance AWSRequest UpdateThing where
         type Rs UpdateThing = UpdateThingResponse
@@ -162,6 +162,6 @@ updateThingResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 utrsResponseStatus :: Lens' UpdateThingResponse Int
-utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});
+utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a})
 
 instance NFData UpdateThingResponse where

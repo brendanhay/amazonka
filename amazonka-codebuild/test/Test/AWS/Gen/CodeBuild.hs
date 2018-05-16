@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CodeBuild
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,8 +55,14 @@ import Test.Tasty
 --         , requestBatchGetBuilds $
 --             batchGetBuilds
 --
+--         , requestUpdateWebhook $
+--             updateWebhook
+--
 --         , requestDeleteWebhook $
 --             deleteWebhook
+--
+--         , requestInvalidateProjectCache $
+--             invalidateProjectCache
 --
 --         , requestBatchDeleteBuilds $
 --             batchDeleteBuilds
@@ -100,8 +106,14 @@ import Test.Tasty
 --         , responseBatchGetBuilds $
 --             batchGetBuildsResponse
 --
+--         , responseUpdateWebhook $
+--             updateWebhookResponse
+--
 --         , responseDeleteWebhook $
 --             deleteWebhookResponse
+--
+--         , responseInvalidateProjectCache $
+--             invalidateProjectCacheResponse
 --
 --         , responseBatchDeleteBuilds $
 --             batchDeleteBuildsResponse
@@ -165,10 +177,20 @@ requestBatchGetBuilds = req
     "BatchGetBuilds"
     "fixture/BatchGetBuilds.yaml"
 
+requestUpdateWebhook :: UpdateWebhook -> TestTree
+requestUpdateWebhook = req
+    "UpdateWebhook"
+    "fixture/UpdateWebhook.yaml"
+
 requestDeleteWebhook :: DeleteWebhook -> TestTree
 requestDeleteWebhook = req
     "DeleteWebhook"
     "fixture/DeleteWebhook.yaml"
+
+requestInvalidateProjectCache :: InvalidateProjectCache -> TestTree
+requestInvalidateProjectCache = req
+    "InvalidateProjectCache"
+    "fixture/InvalidateProjectCache.yaml"
 
 requestBatchDeleteBuilds :: BatchDeleteBuilds -> TestTree
 requestBatchDeleteBuilds = req
@@ -255,12 +277,26 @@ responseBatchGetBuilds = res
     codeBuild
     (Proxy :: Proxy BatchGetBuilds)
 
+responseUpdateWebhook :: UpdateWebhookResponse -> TestTree
+responseUpdateWebhook = res
+    "UpdateWebhookResponse"
+    "fixture/UpdateWebhookResponse.proto"
+    codeBuild
+    (Proxy :: Proxy UpdateWebhook)
+
 responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
 responseDeleteWebhook = res
     "DeleteWebhookResponse"
     "fixture/DeleteWebhookResponse.proto"
     codeBuild
     (Proxy :: Proxy DeleteWebhook)
+
+responseInvalidateProjectCache :: InvalidateProjectCacheResponse -> TestTree
+responseInvalidateProjectCache = res
+    "InvalidateProjectCacheResponse"
+    "fixture/InvalidateProjectCacheResponse.proto"
+    codeBuild
+    (Proxy :: Proxy InvalidateProjectCache)
 
 responseBatchDeleteBuilds :: BatchDeleteBuildsResponse -> TestTree
 responseBatchDeleteBuilds = res

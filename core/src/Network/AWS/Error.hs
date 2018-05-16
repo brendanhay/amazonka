@@ -1,10 +1,11 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns      #-}
+{-# LANGUAGE CPP               #-}
 
 -- |
 -- Module      : Network.AWS.Error
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -63,10 +64,14 @@ httpStatus :: AsError a => Getting (First Status) a Status
 httpStatus = _Error . f
   where
     f g = \case
+#if MIN_VERSION_http_client(0,5,0)
         TransportError (HttpExceptionRequest rq (StatusCodeException rs b))
             -> (\x -> TransportError (HttpExceptionRequest rq (StatusCodeException (rs { responseStatus = x }) b)))
                <$> g (responseStatus rs)
-
+#else
+        TransportError (StatusCodeException s h c)
+            -> TransportError <$> (StatusCodeException <$> g s <*> pure h <*> pure c)
+#endif
         TransportError e
             -> pure (TransportError e)
 

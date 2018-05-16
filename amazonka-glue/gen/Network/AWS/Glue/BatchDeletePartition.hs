@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.BatchDeletePartition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ batchDeletePartition
     -> BatchDeletePartition
 batchDeletePartition pDatabaseName_ pTableName_ =
   BatchDeletePartition'
-  { _bdpCatalogId = Nothing
-  , _bdpDatabaseName = pDatabaseName_
-  , _bdpTableName = pTableName_
-  , _bdpPartitionsToDelete = mempty
-  }
+    { _bdpCatalogId = Nothing
+    , _bdpDatabaseName = pDatabaseName_
+    , _bdpTableName = pTableName_
+    , _bdpPartitionsToDelete = mempty
+    }
 
 
 -- | The ID of the Data Catalog where the partition to be deleted resides. If none is supplied, the AWS account ID is used by default.
 bdpCatalogId :: Lens' BatchDeletePartition (Maybe Text)
-bdpCatalogId = lens _bdpCatalogId (\ s a -> s{_bdpCatalogId = a});
+bdpCatalogId = lens _bdpCatalogId (\ s a -> s{_bdpCatalogId = a})
 
 -- | The name of the catalog database in which the table in question resides.
 bdpDatabaseName :: Lens' BatchDeletePartition Text
-bdpDatabaseName = lens _bdpDatabaseName (\ s a -> s{_bdpDatabaseName = a});
+bdpDatabaseName = lens _bdpDatabaseName (\ s a -> s{_bdpDatabaseName = a})
 
 -- | The name of the table where the partitions to be deleted is located.
 bdpTableName :: Lens' BatchDeletePartition Text
-bdpTableName = lens _bdpTableName (\ s a -> s{_bdpTableName = a});
+bdpTableName = lens _bdpTableName (\ s a -> s{_bdpTableName = a})
 
 -- | A list of @PartitionInput@ structures that define the partitions to be deleted.
 bdpPartitionsToDelete :: Lens' BatchDeletePartition [PartitionValueList]
-bdpPartitionsToDelete = lens _bdpPartitionsToDelete (\ s a -> s{_bdpPartitionsToDelete = a}) . _Coerce;
+bdpPartitionsToDelete = lens _bdpPartitionsToDelete (\ s a -> s{_bdpPartitionsToDelete = a}) . _Coerce
 
 instance AWSRequest BatchDeletePartition where
         type Rs BatchDeletePartition =
@@ -154,15 +154,15 @@ batchDeletePartitionResponse
     -> BatchDeletePartitionResponse
 batchDeletePartitionResponse pResponseStatus_ =
   BatchDeletePartitionResponse'
-  {_bdprsErrors = Nothing, _bdprsResponseStatus = pResponseStatus_}
+    {_bdprsErrors = Nothing, _bdprsResponseStatus = pResponseStatus_}
 
 
 -- | Errors encountered when trying to delete the requested partitions.
 bdprsErrors :: Lens' BatchDeletePartitionResponse [PartitionError]
-bdprsErrors = lens _bdprsErrors (\ s a -> s{_bdprsErrors = a}) . _Default . _Coerce;
+bdprsErrors = lens _bdprsErrors (\ s a -> s{_bdprsErrors = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bdprsResponseStatus :: Lens' BatchDeletePartitionResponse Int
-bdprsResponseStatus = lens _bdprsResponseStatus (\ s a -> s{_bdprsResponseStatus = a});
+bdprsResponseStatus = lens _bdprsResponseStatus (\ s a -> s{_bdprsResponseStatus = a})
 
 instance NFData BatchDeletePartitionResponse where

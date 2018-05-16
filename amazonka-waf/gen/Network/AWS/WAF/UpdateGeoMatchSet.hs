@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.UpdateGeoMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,23 +92,23 @@ updateGeoMatchSet
     -> UpdateGeoMatchSet
 updateGeoMatchSet pGeoMatchSetId_ pChangeToken_ pUpdates_ =
   UpdateGeoMatchSet'
-  { _ugmsGeoMatchSetId = pGeoMatchSetId_
-  , _ugmsChangeToken = pChangeToken_
-  , _ugmsUpdates = _List1 # pUpdates_
-  }
+    { _ugmsGeoMatchSetId = pGeoMatchSetId_
+    , _ugmsChangeToken = pChangeToken_
+    , _ugmsUpdates = _List1 # pUpdates_
+    }
 
 
 -- | The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to update. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
 ugmsGeoMatchSetId :: Lens' UpdateGeoMatchSet Text
-ugmsGeoMatchSetId = lens _ugmsGeoMatchSetId (\ s a -> s{_ugmsGeoMatchSetId = a});
+ugmsGeoMatchSetId = lens _ugmsGeoMatchSetId (\ s a -> s{_ugmsGeoMatchSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 ugmsChangeToken :: Lens' UpdateGeoMatchSet Text
-ugmsChangeToken = lens _ugmsChangeToken (\ s a -> s{_ugmsChangeToken = a});
+ugmsChangeToken = lens _ugmsChangeToken (\ s a -> s{_ugmsChangeToken = a})
 
 -- | An array of @GeoMatchSetUpdate@ objects that you want to insert into or delete from an 'GeoMatchSet' . For more information, see the applicable data types:     * 'GeoMatchSetUpdate' : Contains @Action@ and @GeoMatchConstraint@      * 'GeoMatchConstraint' : Contains @Type@ and @Value@  You can have only one @Type@ and @Value@ per @GeoMatchConstraint@ . To add multiple countries, include multiple @GeoMatchSetUpdate@ objects in your request.
 ugmsUpdates :: Lens' UpdateGeoMatchSet (NonEmpty GeoMatchSetUpdate)
-ugmsUpdates = lens _ugmsUpdates (\ s a -> s{_ugmsUpdates = a}) . _List1;
+ugmsUpdates = lens _ugmsUpdates (\ s a -> s{_ugmsUpdates = a}) . _List1
 
 instance AWSRequest UpdateGeoMatchSet where
         type Rs UpdateGeoMatchSet = UpdateGeoMatchSetResponse
@@ -165,15 +165,15 @@ updateGeoMatchSetResponse
     -> UpdateGeoMatchSetResponse
 updateGeoMatchSetResponse pResponseStatus_ =
   UpdateGeoMatchSetResponse'
-  {_ugmsrsChangeToken = Nothing, _ugmsrsResponseStatus = pResponseStatus_}
+    {_ugmsrsChangeToken = Nothing, _ugmsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @UpdateGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 ugmsrsChangeToken :: Lens' UpdateGeoMatchSetResponse (Maybe Text)
-ugmsrsChangeToken = lens _ugmsrsChangeToken (\ s a -> s{_ugmsrsChangeToken = a});
+ugmsrsChangeToken = lens _ugmsrsChangeToken (\ s a -> s{_ugmsrsChangeToken = a})
 
 -- | -- | The response status code.
 ugmsrsResponseStatus :: Lens' UpdateGeoMatchSetResponse Int
-ugmsrsResponseStatus = lens _ugmsrsResponseStatus (\ s a -> s{_ugmsrsResponseStatus = a});
+ugmsrsResponseStatus = lens _ugmsrsResponseStatus (\ s a -> s{_ugmsrsResponseStatus = a})
 
 instance NFData UpdateGeoMatchSetResponse where

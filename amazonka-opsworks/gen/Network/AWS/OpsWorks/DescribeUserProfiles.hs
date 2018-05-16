@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeUserProfiles
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ describeUserProfiles = DescribeUserProfiles' {_dupIAMUserARNs = Nothing}
 
 -- | An array of IAM or federated user ARNs that identify the users to be described.
 dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
-dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a}) . _Default . _Coerce;
+dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeUserProfiles where
         type Rs DescribeUserProfiles =
@@ -125,15 +125,15 @@ describeUserProfilesResponse
     -> DescribeUserProfilesResponse
 describeUserProfilesResponse pResponseStatus_ =
   DescribeUserProfilesResponse'
-  {_duprsUserProfiles = Nothing, _duprsResponseStatus = pResponseStatus_}
+    {_duprsUserProfiles = Nothing, _duprsResponseStatus = pResponseStatus_}
 
 
 -- | A @Users@ object that describes the specified users.
 duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
-duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a}) . _Default . _Coerce;
+duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 duprsResponseStatus :: Lens' DescribeUserProfilesResponse Int
-duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a});
+duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a})
 
 instance NFData DescribeUserProfilesResponse where

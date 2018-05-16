@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListVersionsByFunction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ listVersionsByFunction
     -> ListVersionsByFunction
 listVersionsByFunction pFunctionName_ =
   ListVersionsByFunction'
-  { _lvbfMarker = Nothing
-  , _lvbfMaxItems = Nothing
-  , _lvbfFunctionName = pFunctionName_
-  }
+    { _lvbfMarker = Nothing
+    , _lvbfMaxItems = Nothing
+    , _lvbfFunctionName = pFunctionName_
+    }
 
 
 -- | Optional string. An opaque pagination token returned from a previous @ListVersionsByFunction@ operation. If present, indicates where to continue the listing.
 lvbfMarker :: Lens' ListVersionsByFunction (Maybe Text)
-lvbfMarker = lens _lvbfMarker (\ s a -> s{_lvbfMarker = a});
+lvbfMarker = lens _lvbfMarker (\ s a -> s{_lvbfMarker = a})
 
 -- | Optional integer. Specifies the maximum number of AWS Lambda function versions to return in response. This parameter value must be greater than 0.
 lvbfMaxItems :: Lens' ListVersionsByFunction (Maybe Natural)
-lvbfMaxItems = lens _lvbfMaxItems (\ s a -> s{_lvbfMaxItems = a}) . mapping _Nat;
+lvbfMaxItems = lens _lvbfMaxItems (\ s a -> s{_lvbfMaxItems = a}) . mapping _Nat
 
 -- | Function name whose versions to list. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 lvbfFunctionName :: Lens' ListVersionsByFunction Text
-lvbfFunctionName = lens _lvbfFunctionName (\ s a -> s{_lvbfFunctionName = a});
+lvbfFunctionName = lens _lvbfFunctionName (\ s a -> s{_lvbfFunctionName = a})
 
 instance AWSRequest ListVersionsByFunction where
         type Rs ListVersionsByFunction =
@@ -148,22 +148,22 @@ listVersionsByFunctionResponse
     -> ListVersionsByFunctionResponse
 listVersionsByFunctionResponse pResponseStatus_ =
   ListVersionsByFunctionResponse'
-  { _lvbfrsVersions = Nothing
-  , _lvbfrsNextMarker = Nothing
-  , _lvbfrsResponseStatus = pResponseStatus_
-  }
+    { _lvbfrsVersions = Nothing
+    , _lvbfrsNextMarker = Nothing
+    , _lvbfrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of Lambda function versions.
 lvbfrsVersions :: Lens' ListVersionsByFunctionResponse [FunctionConfiguration]
-lvbfrsVersions = lens _lvbfrsVersions (\ s a -> s{_lvbfrsVersions = a}) . _Default . _Coerce;
+lvbfrsVersions = lens _lvbfrsVersions (\ s a -> s{_lvbfrsVersions = a}) . _Default . _Coerce
 
 -- | A string, present if there are more function versions.
 lvbfrsNextMarker :: Lens' ListVersionsByFunctionResponse (Maybe Text)
-lvbfrsNextMarker = lens _lvbfrsNextMarker (\ s a -> s{_lvbfrsNextMarker = a});
+lvbfrsNextMarker = lens _lvbfrsNextMarker (\ s a -> s{_lvbfrsNextMarker = a})
 
 -- | -- | The response status code.
 lvbfrsResponseStatus :: Lens' ListVersionsByFunctionResponse Int
-lvbfrsResponseStatus = lens _lvbfrsResponseStatus (\ s a -> s{_lvbfrsResponseStatus = a});
+lvbfrsResponseStatus = lens _lvbfrsResponseStatus (\ s a -> s{_lvbfrsResponseStatus = a})
 
 instance NFData ListVersionsByFunctionResponse where

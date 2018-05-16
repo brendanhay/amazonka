@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetDeployments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'batchGetDeployments' smart constructor.
 newtype BatchGetDeployments = BatchGetDeployments'
-  { _bgdDeploymentIds :: Maybe [Text]
+  { _bgdDeploymentIds :: [Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -61,12 +61,12 @@ newtype BatchGetDeployments = BatchGetDeployments'
 -- * 'bgdDeploymentIds' - A list of deployment IDs, separated by spaces.
 batchGetDeployments
     :: BatchGetDeployments
-batchGetDeployments = BatchGetDeployments' {_bgdDeploymentIds = Nothing}
+batchGetDeployments = BatchGetDeployments' {_bgdDeploymentIds = mempty}
 
 
 -- | A list of deployment IDs, separated by spaces.
 bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
-bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a}) . _Default . _Coerce;
+bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a}) . _Coerce
 
 instance AWSRequest BatchGetDeployments where
         type Rs BatchGetDeployments =
@@ -97,7 +97,7 @@ instance ToJSON BatchGetDeployments where
         toJSON BatchGetDeployments'{..}
           = object
               (catMaybes
-                 [("deploymentIds" .=) <$> _bgdDeploymentIds])
+                 [Just ("deploymentIds" .= _bgdDeploymentIds)])
 
 instance ToPath BatchGetDeployments where
         toPath = const "/"
@@ -128,15 +128,15 @@ batchGetDeploymentsResponse
     -> BatchGetDeploymentsResponse
 batchGetDeploymentsResponse pResponseStatus_ =
   BatchGetDeploymentsResponse'
-  {_bgdrsDeploymentsInfo = Nothing, _bgdrsResponseStatus = pResponseStatus_}
+    {_bgdrsDeploymentsInfo = Nothing, _bgdrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the deployments.
 bgdrsDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
-bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsInfo = a}) . _Default . _Coerce;
+bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsInfo = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bgdrsResponseStatus :: Lens' BatchGetDeploymentsResponse Int
-bgdrsResponseStatus = lens _bgdrsResponseStatus (\ s a -> s{_bgdrsResponseStatus = a});
+bgdrsResponseStatus = lens _bgdrsResponseStatus (\ s a -> s{_bgdrsResponseStatus = a})
 
 instance NFData BatchGetDeploymentsResponse where

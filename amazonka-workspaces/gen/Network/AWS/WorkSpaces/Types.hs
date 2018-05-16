@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -17,11 +17,15 @@ module Network.AWS.WorkSpaces.Types
 
     -- * Errors
     , _AccessDeniedException
+    , _ResourceCreationFailedException
     , _ResourceUnavailableException
     , _InvalidParameterValuesException
+    , _ResourceAssociatedException
     , _OperationInProgressException
+    , _ResourceAlreadyExistsException
     , _ResourceLimitExceededException
     , _InvalidResourceStateException
+    , _OperationNotSupportedException
     , _UnsupportedWorkspaceConfigurationException
     , _ResourceNotFoundException
 
@@ -31,8 +35,17 @@ module Network.AWS.WorkSpaces.Types
     -- * ConnectionState
     , ConnectionState (..)
 
+    -- * ModificationResourceEnum
+    , ModificationResourceEnum (..)
+
+    -- * ModificationStateEnum
+    , ModificationStateEnum (..)
+
     -- * RunningMode
     , RunningMode (..)
+
+    -- * TargetWorkspaceState
+    , TargetWorkspaceState (..)
 
     -- * WorkspaceDirectoryState
     , WorkspaceDirectoryState (..)
@@ -71,6 +84,18 @@ module Network.AWS.WorkSpaces.Types
     , fwcrWorkspaceId
     , fwcrErrorMessage
 
+    -- * IPRuleItem
+    , IPRuleItem
+    , ipRuleItem
+    , iriRuleDesc
+    , iriIpRule
+
+    -- * ModificationState
+    , ModificationState
+    , modificationState
+    , msState
+    , msResource
+
     -- * RebootRequest
     , RebootRequest
     , rebootRequest
@@ -80,6 +105,11 @@ module Network.AWS.WorkSpaces.Types
     , RebuildRequest
     , rebuildRequest
     , rrWorkspaceId
+
+    -- * RootStorage
+    , RootStorage
+    , rootStorage
+    , rsCapacity
 
     -- * StartRequest
     , StartRequest
@@ -113,6 +143,7 @@ module Network.AWS.WorkSpaces.Types
     , wDirectoryId
     , wState
     , wIPAddress
+    , wModificationStates
     , wUserName
     , wSubnetId
     , wBundleId
@@ -130,6 +161,7 @@ module Network.AWS.WorkSpaces.Types
     , workspaceBundle
     , wbBundleId
     , wbOwner
+    , wbRootStorage
     , wbName
     , wbComputeType
     , wbUserStorage
@@ -152,6 +184,7 @@ module Network.AWS.WorkSpaces.Types
     , wdState
     , wdCustomerUserName
     , wdSubnetIds
+    , wdIpGroupIds
     , wdAlias
     , wdWorkspaceSecurityGroupId
     , wdDirectoryType
@@ -162,8 +195,11 @@ module Network.AWS.WorkSpaces.Types
     -- * WorkspaceProperties
     , WorkspaceProperties
     , workspaceProperties
+    , wpComputeTypeName
     , wpRunningMode
+    , wpRootVolumeSizeGib
     , wpRunningModeAutoStopTimeoutInMinutes
+    , wpUserVolumeSizeGib
 
     -- * WorkspaceRequest
     , WorkspaceRequest
@@ -176,6 +212,14 @@ module Network.AWS.WorkSpaces.Types
     , wrDirectoryId
     , wrUserName
     , wrBundleId
+
+    -- * WorkspacesIPGroup
+    , WorkspacesIPGroup
+    , workspacesIPGroup
+    , wigGroupDesc
+    , wigUserRules
+    , wigGroupId
+    , wigGroupName
     ) where
 
 import Network.AWS.Lens
@@ -188,24 +232,24 @@ import Network.AWS.WorkSpaces.Types.Sum
 workSpaces :: Service
 workSpaces =
   Service
-  { _svcAbbrev = "WorkSpaces"
-  , _svcSigner = v4
-  , _svcPrefix = "workspaces"
-  , _svcVersion = "2015-04-08"
-  , _svcEndpoint = defaultEndpoint workSpaces
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "WorkSpaces"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "WorkSpaces"
+    , _svcSigner = v4
+    , _svcPrefix = "workspaces"
+    , _svcVersion = "2015-04-08"
+    , _svcEndpoint = defaultEndpoint workSpaces
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "WorkSpaces"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -214,6 +258,8 @@ workSpaces =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -226,6 +272,14 @@ workSpaces =
 --
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 _AccessDeniedException = _MatchServiceError workSpaces "AccessDeniedException"
+
+
+-- | The resource could not be created.
+--
+--
+_ResourceCreationFailedException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceCreationFailedException =
+  _MatchServiceError workSpaces "ResourceCreationFailedException"
 
 
 -- | The specified resource is not available.
@@ -244,12 +298,28 @@ _InvalidParameterValuesException =
   _MatchServiceError workSpaces "InvalidParameterValuesException"
 
 
+-- | The resource is associated with a directory.
+--
+--
+_ResourceAssociatedException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceAssociatedException =
+  _MatchServiceError workSpaces "ResourceAssociatedException"
+
+
 -- | The properties of this WorkSpace are currently being modified. Try again in a moment.
 --
 --
 _OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationInProgressException =
   _MatchServiceError workSpaces "OperationInProgressException"
+
+
+-- | The specified resource already exists.
+--
+--
+_ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceAlreadyExistsException =
+  _MatchServiceError workSpaces "ResourceAlreadyExistsException"
 
 
 -- | Your resource limits have been exceeded.
@@ -260,12 +330,20 @@ _ResourceLimitExceededException =
   _MatchServiceError workSpaces "ResourceLimitExceededException"
 
 
--- | The state of the WorkSpace is not valid for this operation.
+-- | The state of the resource is not valid for this operation.
 --
 --
 _InvalidResourceStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResourceStateException =
   _MatchServiceError workSpaces "InvalidResourceStateException"
+
+
+-- | This operation is not supported.
+--
+--
+_OperationNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
+_OperationNotSupportedException =
+  _MatchServiceError workSpaces "OperationNotSupportedException"
 
 
 -- | The configuration of this WorkSpace is not supported for this operation. For more information, see the <http://docs.aws.amazon.com/workspaces/latest/adminguide/ Amazon WorkSpaces Administration Guide> .

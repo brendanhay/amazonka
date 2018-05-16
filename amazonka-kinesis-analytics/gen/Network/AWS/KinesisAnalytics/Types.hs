@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -271,6 +271,24 @@ module Network.AWS.KinesisAnalytics.Types
     , ksouRoleARNUpdate
     , ksouResourceARNUpdate
 
+    -- * LambdaOutput
+    , LambdaOutput
+    , lambdaOutput
+    , loResourceARN
+    , loRoleARN
+
+    -- * LambdaOutputDescription
+    , LambdaOutputDescription
+    , lambdaOutputDescription
+    , lodResourceARN
+    , lodRoleARN
+
+    -- * LambdaOutputUpdate
+    , LambdaOutputUpdate
+    , lambdaOutputUpdate
+    , louRoleARNUpdate
+    , louResourceARNUpdate
+
     -- * MappingParameters
     , MappingParameters
     , mappingParameters
@@ -280,6 +298,7 @@ module Network.AWS.KinesisAnalytics.Types
     -- * Output
     , Output
     , output
+    , oLambdaOutput
     , oKinesisStreamsOutput
     , oKinesisFirehoseOutput
     , oName
@@ -293,6 +312,7 @@ module Network.AWS.KinesisAnalytics.Types
     , odKinesisFirehoseOutputDescription
     , odKinesisStreamsOutputDescription
     , odName
+    , odLambdaOutputDescription
 
     -- * OutputUpdate
     , OutputUpdate
@@ -301,6 +321,7 @@ module Network.AWS.KinesisAnalytics.Types
     , ouDestinationSchemaUpdate
     , ouKinesisFirehoseOutputUpdate
     , ouNameUpdate
+    , ouLambdaOutputUpdate
     , ouOutputId
 
     -- * RecordColumn
@@ -385,24 +406,24 @@ import Network.AWS.Sign.V4
 kinesisAnalytics :: Service
 kinesisAnalytics =
   Service
-  { _svcAbbrev = "KinesisAnalytics"
-  , _svcSigner = v4
-  , _svcPrefix = "kinesisanalytics"
-  , _svcVersion = "2015-08-14"
-  , _svcEndpoint = defaultEndpoint kinesisAnalytics
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "KinesisAnalytics"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "KinesisAnalytics"
+    , _svcSigner = v4
+    , _svcPrefix = "kinesisanalytics"
+    , _svcVersion = "2015-08-14"
+    , _svcEndpoint = defaultEndpoint kinesisAnalytics
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "KinesisAnalytics"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -411,6 +432,8 @@ kinesisAnalytics =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

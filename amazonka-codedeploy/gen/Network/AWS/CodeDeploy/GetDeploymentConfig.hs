@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getDeploymentConfig pDeploymentConfigName_ =
 
 -- | The name of a deployment configuration associated with the applicable IAM user or AWS account.
 gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
-gdcDeploymentConfigName = lens _gdcDeploymentConfigName (\ s a -> s{_gdcDeploymentConfigName = a});
+gdcDeploymentConfigName = lens _gdcDeploymentConfigName (\ s a -> s{_gdcDeploymentConfigName = a})
 
 instance AWSRequest GetDeploymentConfig where
         type Rs GetDeploymentConfig =
@@ -132,17 +132,17 @@ getDeploymentConfigResponse
     -> GetDeploymentConfigResponse
 getDeploymentConfigResponse pResponseStatus_ =
   GetDeploymentConfigResponse'
-  { _gdcrsDeploymentConfigInfo = Nothing
-  , _gdcrsResponseStatus = pResponseStatus_
-  }
+    { _gdcrsDeploymentConfigInfo = Nothing
+    , _gdcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the deployment configuration.
 gdcrsDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe DeploymentConfigInfo)
-gdcrsDeploymentConfigInfo = lens _gdcrsDeploymentConfigInfo (\ s a -> s{_gdcrsDeploymentConfigInfo = a});
+gdcrsDeploymentConfigInfo = lens _gdcrsDeploymentConfigInfo (\ s a -> s{_gdcrsDeploymentConfigInfo = a})
 
 -- | -- | The response status code.
 gdcrsResponseStatus :: Lens' GetDeploymentConfigResponse Int
-gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a});
+gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a})
 
 instance NFData GetDeploymentConfigResponse where

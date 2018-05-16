@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.PutImage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ putImage
     -> PutImage
 putImage pRepositoryName_ pImageManifest_ =
   PutImage'
-  { _piRegistryId = Nothing
-  , _piImageTag = Nothing
-  , _piRepositoryName = pRepositoryName_
-  , _piImageManifest = pImageManifest_
-  }
+    { _piRegistryId = Nothing
+    , _piImageTag = Nothing
+    , _piRepositoryName = pRepositoryName_
+    , _piImageManifest = pImageManifest_
+    }
 
 
 -- | The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
 piRegistryId :: Lens' PutImage (Maybe Text)
-piRegistryId = lens _piRegistryId (\ s a -> s{_piRegistryId = a});
+piRegistryId = lens _piRegistryId (\ s a -> s{_piRegistryId = a})
 
 -- | The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or OCI formats.
 piImageTag :: Lens' PutImage (Maybe Text)
-piImageTag = lens _piImageTag (\ s a -> s{_piImageTag = a});
+piImageTag = lens _piImageTag (\ s a -> s{_piImageTag = a})
 
 -- | The name of the repository in which to put the image.
 piRepositoryName :: Lens' PutImage Text
-piRepositoryName = lens _piRepositoryName (\ s a -> s{_piRepositoryName = a});
+piRepositoryName = lens _piRepositoryName (\ s a -> s{_piRepositoryName = a})
 
 -- | The image manifest corresponding to the image to be uploaded.
 piImageManifest :: Lens' PutImage Text
-piImageManifest = lens _piImageManifest (\ s a -> s{_piImageManifest = a});
+piImageManifest = lens _piImageManifest (\ s a -> s{_piImageManifest = a})
 
 instance AWSRequest PutImage where
         type Rs PutImage = PutImageResponse
@@ -153,15 +153,15 @@ putImageResponse
     -> PutImageResponse
 putImageResponse pResponseStatus_ =
   PutImageResponse'
-  {_pirsImage = Nothing, _pirsResponseStatus = pResponseStatus_}
+    {_pirsImage = Nothing, _pirsResponseStatus = pResponseStatus_}
 
 
 -- | Details of the image uploaded.
 pirsImage :: Lens' PutImageResponse (Maybe Image)
-pirsImage = lens _pirsImage (\ s a -> s{_pirsImage = a});
+pirsImage = lens _pirsImage (\ s a -> s{_pirsImage = a})
 
 -- | -- | The response status code.
 pirsResponseStatus :: Lens' PutImageResponse Int
-pirsResponseStatus = lens _pirsResponseStatus (\ s a -> s{_pirsResponseStatus = a});
+pirsResponseStatus = lens _pirsResponseStatus (\ s a -> s{_pirsResponseStatus = a})
 
 instance NFData PutImageResponse where

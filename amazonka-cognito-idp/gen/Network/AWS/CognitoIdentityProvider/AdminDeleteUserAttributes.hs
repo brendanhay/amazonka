@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminDeleteUserAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ adminDeleteUserAttributes
     -> AdminDeleteUserAttributes
 adminDeleteUserAttributes pUserPoolId_ pUsername_ =
   AdminDeleteUserAttributes'
-  { _aduaUserPoolId = pUserPoolId_
-  , _aduaUsername = _Sensitive # pUsername_
-  , _aduaUserAttributeNames = mempty
-  }
+    { _aduaUserPoolId = pUserPoolId_
+    , _aduaUsername = _Sensitive # pUsername_
+    , _aduaUserAttributeNames = mempty
+    }
 
 
 -- | The user pool ID for the user pool where you want to delete user attributes.
 aduaUserPoolId :: Lens' AdminDeleteUserAttributes Text
-aduaUserPoolId = lens _aduaUserPoolId (\ s a -> s{_aduaUserPoolId = a});
+aduaUserPoolId = lens _aduaUserPoolId (\ s a -> s{_aduaUserPoolId = a})
 
 -- | The user name of the user from which you would like to delete attributes.
 aduaUsername :: Lens' AdminDeleteUserAttributes Text
-aduaUsername = lens _aduaUsername (\ s a -> s{_aduaUsername = a}) . _Sensitive;
+aduaUsername = lens _aduaUsername (\ s a -> s{_aduaUsername = a}) . _Sensitive
 
 -- | An array of strings representing the user attribute names you wish to delete. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 aduaUserAttributeNames :: Lens' AdminDeleteUserAttributes [Text]
-aduaUserAttributeNames = lens _aduaUserAttributeNames (\ s a -> s{_aduaUserAttributeNames = a}) . _Coerce;
+aduaUserAttributeNames = lens _aduaUserAttributeNames (\ s a -> s{_aduaUserAttributeNames = a}) . _Coerce
 
 instance AWSRequest AdminDeleteUserAttributes where
         type Rs AdminDeleteUserAttributes =
@@ -155,7 +155,7 @@ adminDeleteUserAttributesResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 aduarsResponseStatus :: Lens' AdminDeleteUserAttributesResponse Int
-aduarsResponseStatus = lens _aduarsResponseStatus (\ s a -> s{_aduarsResponseStatus = a});
+aduarsResponseStatus = lens _aduarsResponseStatus (\ s a -> s{_aduarsResponseStatus = a})
 
 instance NFData AdminDeleteUserAttributesResponse
          where

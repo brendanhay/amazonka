@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,20 +75,20 @@ describeTags
     :: DescribeTags
 describeTags =
   DescribeTags'
-  {_dtFilters = Nothing, _dtNextToken = Nothing, _dtMaxRecords = Nothing}
+    {_dtFilters = Nothing, _dtNextToken = Nothing, _dtMaxRecords = Nothing}
 
 
 -- | A filter used to scope the tags to return.
 dtFilters :: Lens' DescribeTags [Filter]
-dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
+dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dtNextToken :: Lens' DescribeTags (Maybe Text)
-dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
+dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a})
 
 -- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dtMaxRecords :: Lens' DescribeTags (Maybe Int)
-dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
+dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a})
 
 instance AWSPager DescribeTags where
         page rq rs
@@ -151,22 +151,22 @@ describeTagsResponse
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
   DescribeTagsResponse'
-  { _dtrsNextToken = Nothing
-  , _dtrsTags = Nothing
-  , _dtrsResponseStatus = pResponseStatus_
-  }
+    { _dtrsNextToken = Nothing
+    , _dtrsTags = Nothing
+    , _dtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
+dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a})
 
 -- | One or more tags.
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
+dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
 
 instance NFData DescribeTagsResponse where

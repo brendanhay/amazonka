@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.UpdateTypedLinkFacet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,28 +72,28 @@ updateTypedLinkFacet
     -> UpdateTypedLinkFacet
 updateTypedLinkFacet pSchemaARN_ pName_ =
   UpdateTypedLinkFacet'
-  { _utlfSchemaARN = pSchemaARN_
-  , _utlfName = pName_
-  , _utlfAttributeUpdates = mempty
-  , _utlfIdentityAttributeOrder = mempty
-  }
+    { _utlfSchemaARN = pSchemaARN_
+    , _utlfName = pName_
+    , _utlfAttributeUpdates = mempty
+    , _utlfIdentityAttributeOrder = mempty
+    }
 
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 utlfSchemaARN :: Lens' UpdateTypedLinkFacet Text
-utlfSchemaARN = lens _utlfSchemaARN (\ s a -> s{_utlfSchemaARN = a});
+utlfSchemaARN = lens _utlfSchemaARN (\ s a -> s{_utlfSchemaARN = a})
 
 -- | The unique name of the typed link facet.
 utlfName :: Lens' UpdateTypedLinkFacet Text
-utlfName = lens _utlfName (\ s a -> s{_utlfName = a});
+utlfName = lens _utlfName (\ s a -> s{_utlfName = a})
 
 -- | Attributes update structure.
 utlfAttributeUpdates :: Lens' UpdateTypedLinkFacet [TypedLinkFacetAttributeUpdate]
-utlfAttributeUpdates = lens _utlfAttributeUpdates (\ s a -> s{_utlfAttributeUpdates = a}) . _Coerce;
+utlfAttributeUpdates = lens _utlfAttributeUpdates (\ s a -> s{_utlfAttributeUpdates = a}) . _Coerce
 
 -- | The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to a typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 utlfIdentityAttributeOrder :: Lens' UpdateTypedLinkFacet [Text]
-utlfIdentityAttributeOrder = lens _utlfIdentityAttributeOrder (\ s a -> s{_utlfIdentityAttributeOrder = a}) . _Coerce;
+utlfIdentityAttributeOrder = lens _utlfIdentityAttributeOrder (\ s a -> s{_utlfIdentityAttributeOrder = a}) . _Coerce
 
 instance AWSRequest UpdateTypedLinkFacet where
         type Rs UpdateTypedLinkFacet =
@@ -151,6 +151,6 @@ updateTypedLinkFacetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 utlfrsResponseStatus :: Lens' UpdateTypedLinkFacetResponse Int
-utlfrsResponseStatus = lens _utlfrsResponseStatus (\ s a -> s{_utlfrsResponseStatus = a});
+utlfrsResponseStatus = lens _utlfrsResponseStatus (\ s a -> s{_utlfrsResponseStatus = a})
 
 instance NFData UpdateTypedLinkFacetResponse where

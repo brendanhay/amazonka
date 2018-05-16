@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,6 +51,9 @@ module Network.AWS.Glue.Types
     -- * JobRunState
     , JobRunState (..)
 
+    -- * Language
+    , Language (..)
+
     -- * LastCrawlStatus
     , LastCrawlStatus (..)
 
@@ -83,6 +86,7 @@ module Network.AWS.Glue.Types
     , action
     , aArguments
     , aJobName
+    , aTimeout
 
     -- * BatchStopJobRunError
     , BatchStopJobRunError
@@ -114,6 +118,8 @@ module Network.AWS.Glue.Types
     , Classifier
     , classifier
     , cGrokClassifier
+    , cXMLClassifier
+    , cJSONClassifier
 
     -- * CodeGenEdge
     , CodeGenEdge
@@ -167,12 +173,12 @@ module Network.AWS.Glue.Types
     -- * ConnectionInput
     , ConnectionInput
     , connectionInput
-    , ciConnectionProperties
     , ciMatchCriteria
     , ciPhysicalConnectionRequirements
-    , ciName
     , ciDescription
+    , ciName
     , ciConnectionType
+    , ciConnectionProperties
 
     -- * ConnectionsList
     , ConnectionsList
@@ -195,6 +201,7 @@ module Network.AWS.Glue.Types
     , craTargets
     , craVersion
     , craDatabaseName
+    , craConfiguration
     , craTablePrefix
     , craDescription
 
@@ -224,6 +231,19 @@ module Network.AWS.Glue.Types
     , cgcrName
     , cgcrGrokPattern
 
+    -- * CreateJSONClassifierRequest
+    , CreateJSONClassifierRequest
+    , createJSONClassifierRequest
+    , cjcrName
+    , cjcrJSONPath
+
+    -- * CreateXMLClassifierRequest
+    , CreateXMLClassifierRequest
+    , createXMLClassifierRequest
+    , cxcrRowTag
+    , cxcrClassification
+    , cxcrName
+
     -- * Database
     , Database
     , database
@@ -252,6 +272,7 @@ module Network.AWS.Glue.Types
     , deSecurityGroupIds
     , deLastModifiedTimestamp
     , deVPCId
+    , dePrivateAddress
     , dePublicKey
     , deSubnetId
     , deNumberOfNodes
@@ -297,6 +318,15 @@ module Network.AWS.Glue.Types
     , gcClassification
     , gcGrokPattern
 
+    -- * JSONClassifier
+    , JSONClassifier
+    , jsonClassifier
+    , jcCreationTime
+    , jcLastUpdated
+    , jcVersion
+    , jcName
+    , jcJSONPath
+
     -- * JdbcTarget
     , JdbcTarget
     , jdbcTarget
@@ -316,6 +346,7 @@ module Network.AWS.Glue.Types
     , jMaxRetries
     , jExecutionProperty
     , jAllocatedCapacity
+    , jTimeout
     , jDefaultArguments
     , jDescription
     , jCreatedOn
@@ -332,8 +363,8 @@ module Network.AWS.Glue.Types
     -- * JobCommand
     , JobCommand
     , jobCommand
-    , jcScriptLocation
-    , jcName
+    , jobScriptLocation
+    , jobName
 
     -- * JobRun
     , JobRun
@@ -345,11 +376,13 @@ module Network.AWS.Glue.Types
     , jrJobName
     , jrStartedOn
     , jrJobRunState
+    , jrExecutionTime
     , jrPredecessorRuns
     , jrPreviousRunId
     , jrId
     , jrAttempt
     , jrAllocatedCapacity
+    , jrTimeout
     , jrErrorMessage
 
     -- * JobUpdate
@@ -362,6 +395,7 @@ module Network.AWS.Glue.Types
     , juMaxRetries
     , juExecutionProperty
     , juAllocatedCapacity
+    , juTimeout
     , juDefaultArguments
     , juDescription
 
@@ -556,6 +590,13 @@ module Network.AWS.Glue.Types
     , tvVersionId
     , tvTable
 
+    -- * TableVersionError
+    , TableVersionError
+    , tableVersionError
+    , tveVersionId
+    , tveTableName
+    , tveErrorDetail
+
     -- * Trigger
     , Trigger
     , trigger
@@ -585,6 +626,19 @@ module Network.AWS.Glue.Types
     , ugcrGrokPattern
     , ugcrName
 
+    -- * UpdateJSONClassifierRequest
+    , UpdateJSONClassifierRequest
+    , updateJSONClassifierRequest
+    , ujcrJSONPath
+    , ujcrName
+
+    -- * UpdateXMLClassifierRequest
+    , UpdateXMLClassifierRequest
+    , updateXMLClassifierRequest
+    , uxcrClassification
+    , uxcrRowTag
+    , uxcrName
+
     -- * UserDefinedFunction
     , UserDefinedFunction
     , userDefinedFunction
@@ -603,6 +657,16 @@ module Network.AWS.Glue.Types
     , udfiFunctionName
     , udfiOwnerType
     , udfiClassName
+
+    -- * XMLClassifier
+    , XMLClassifier
+    , xmlClassifier
+    , xcCreationTime
+    , xcLastUpdated
+    , xcVersion
+    , xcRowTag
+    , xcName
+    , xcClassification
     ) where
 
 import Network.AWS.Glue.Types.Product
@@ -615,24 +679,24 @@ import Network.AWS.Sign.V4
 glue :: Service
 glue =
   Service
-  { _svcAbbrev = "Glue"
-  , _svcSigner = v4
-  , _svcPrefix = "glue"
-  , _svcVersion = "2017-03-31"
-  , _svcEndpoint = defaultEndpoint glue
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Glue"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Glue"
+    , _svcSigner = v4
+    , _svcPrefix = "glue"
+    , _svcVersion = "2017-03-31"
+    , _svcEndpoint = defaultEndpoint glue
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "Glue"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -641,6 +705,8 @@ glue =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

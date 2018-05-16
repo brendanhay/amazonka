@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.CreateCollection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 --
 -- For example, you might create collections, one for each of your application users. A user can then index faces using the @IndexFaces@ operation and persist results in a specific collection. Then, a user can search the collection for faces in the user-specific container.
---
--- For an example, see 'example1' .
 --
 -- This operation requires permissions to perform the @rekognition:CreateCollection@ action.
 --
@@ -39,6 +37,7 @@ module Network.AWS.Rekognition.CreateCollection
     , createCollectionResponse
     , CreateCollectionResponse
     -- * Response Lenses
+    , ccrsFaceModelVersion
     , ccrsCollectionARN
     , ccrsStatusCode
     , ccrsResponseStatus
@@ -71,7 +70,7 @@ createCollection pCollectionId_ =
 
 -- | ID for the collection that you are creating.
 ccCollectionId :: Lens' CreateCollection Text
-ccCollectionId = lens _ccCollectionId (\ s a -> s{_ccCollectionId = a});
+ccCollectionId = lens _ccCollectionId (\ s a -> s{_ccCollectionId = a})
 
 instance AWSRequest CreateCollection where
         type Rs CreateCollection = CreateCollectionResponse
@@ -80,8 +79,10 @@ instance AWSRequest CreateCollection where
           = receiveJSON
               (\ s h x ->
                  CreateCollectionResponse' <$>
-                   (x .?> "CollectionArn") <*> (x .?> "StatusCode") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "FaceModelVersion") <*>
+                     (x .?> "CollectionArn")
+                     <*> (x .?> "StatusCode")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable CreateCollection where
 
@@ -111,15 +112,18 @@ instance ToQuery CreateCollection where
 
 -- | /See:/ 'createCollectionResponse' smart constructor.
 data CreateCollectionResponse = CreateCollectionResponse'
-  { _ccrsCollectionARN  :: !(Maybe Text)
-  , _ccrsStatusCode     :: !(Maybe Nat)
-  , _ccrsResponseStatus :: !Int
+  { _ccrsFaceModelVersion :: !(Maybe Text)
+  , _ccrsCollectionARN    :: !(Maybe Text)
+  , _ccrsStatusCode       :: !(Maybe Nat)
+  , _ccrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateCollectionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccrsFaceModelVersion' - Version number of the face detection model associated with the collection you are creating.
 --
 -- * 'ccrsCollectionARN' - Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
 --
@@ -131,22 +135,27 @@ createCollectionResponse
     -> CreateCollectionResponse
 createCollectionResponse pResponseStatus_ =
   CreateCollectionResponse'
-  { _ccrsCollectionARN = Nothing
-  , _ccrsStatusCode = Nothing
-  , _ccrsResponseStatus = pResponseStatus_
-  }
+    { _ccrsFaceModelVersion = Nothing
+    , _ccrsCollectionARN = Nothing
+    , _ccrsStatusCode = Nothing
+    , _ccrsResponseStatus = pResponseStatus_
+    }
 
+
+-- | Version number of the face detection model associated with the collection you are creating.
+ccrsFaceModelVersion :: Lens' CreateCollectionResponse (Maybe Text)
+ccrsFaceModelVersion = lens _ccrsFaceModelVersion (\ s a -> s{_ccrsFaceModelVersion = a})
 
 -- | Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
 ccrsCollectionARN :: Lens' CreateCollectionResponse (Maybe Text)
-ccrsCollectionARN = lens _ccrsCollectionARN (\ s a -> s{_ccrsCollectionARN = a});
+ccrsCollectionARN = lens _ccrsCollectionARN (\ s a -> s{_ccrsCollectionARN = a})
 
 -- | HTTP status code indicating the result of the operation.
 ccrsStatusCode :: Lens' CreateCollectionResponse (Maybe Natural)
-ccrsStatusCode = lens _ccrsStatusCode (\ s a -> s{_ccrsStatusCode = a}) . mapping _Nat;
+ccrsStatusCode = lens _ccrsStatusCode (\ s a -> s{_ccrsStatusCode = a}) . mapping _Nat
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CreateCollectionResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
 
 instance NFData CreateCollectionResponse where

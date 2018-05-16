@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.StartApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,16 +75,16 @@ startApplication
     -> StartApplication
 startApplication pApplicationName_ =
   StartApplication'
-  {_saApplicationName = pApplicationName_, _saInputConfigurations = mempty}
+    {_saApplicationName = pApplicationName_, _saInputConfigurations = mempty}
 
 
 -- | Name of the application.
 saApplicationName :: Lens' StartApplication Text
-saApplicationName = lens _saApplicationName (\ s a -> s{_saApplicationName = a});
+saApplicationName = lens _saApplicationName (\ s a -> s{_saApplicationName = a})
 
 -- | Identifies the specific input, by ID, that the application starts consuming. Amazon Kinesis Analytics starts reading the streaming source associated with the input. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading.
 saInputConfigurations :: Lens' StartApplication [InputConfiguration]
-saInputConfigurations = lens _saInputConfigurations (\ s a -> s{_saInputConfigurations = a}) . _Coerce;
+saInputConfigurations = lens _saInputConfigurations (\ s a -> s{_saInputConfigurations = a}) . _Coerce
 
 instance AWSRequest StartApplication where
         type Rs StartApplication = StartApplicationResponse
@@ -146,6 +146,6 @@ startApplicationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 sarsResponseStatus :: Lens' StartApplicationResponse Int
-sarsResponseStatus = lens _sarsResponseStatus (\ s a -> s{_sarsResponseStatus = a});
+sarsResponseStatus = lens _sarsResponseStatus (\ s a -> s{_sarsResponseStatus = a})
 
 instance NFData StartApplicationResponse where

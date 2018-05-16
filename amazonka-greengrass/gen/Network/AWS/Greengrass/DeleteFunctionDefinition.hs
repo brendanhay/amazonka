@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DeleteFunctionDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a Lambda function definition. The Lambda function definition must not have been used in a deployment.
+-- Deletes a Lambda function definition.
 module Network.AWS.Greengrass.DeleteFunctionDefinition
     (
     -- * Creating a Request
@@ -51,7 +51,7 @@ newtype DeleteFunctionDefinition = DeleteFunctionDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfdFunctionDefinitionId' - the unique Id of the lambda definition
+-- * 'dfdFunctionDefinitionId' - The ID of the Lambda function definition.
 deleteFunctionDefinition
     :: Text -- ^ 'dfdFunctionDefinitionId'
     -> DeleteFunctionDefinition
@@ -59,9 +59,9 @@ deleteFunctionDefinition pFunctionDefinitionId_ =
   DeleteFunctionDefinition' {_dfdFunctionDefinitionId = pFunctionDefinitionId_}
 
 
--- | the unique Id of the lambda definition
+-- | The ID of the Lambda function definition.
 dfdFunctionDefinitionId :: Lens' DeleteFunctionDefinition Text
-dfdFunctionDefinitionId = lens _dfdFunctionDefinitionId (\ s a -> s{_dfdFunctionDefinitionId = a});
+dfdFunctionDefinitionId = lens _dfdFunctionDefinitionId (\ s a -> s{_dfdFunctionDefinitionId = a})
 
 instance AWSRequest DeleteFunctionDefinition where
         type Rs DeleteFunctionDefinition =
@@ -113,7 +113,7 @@ deleteFunctionDefinitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dfdrsResponseStatus :: Lens' DeleteFunctionDefinitionResponse Int
-dfdrsResponseStatus = lens _dfdrsResponseStatus (\ s a -> s{_dfdrsResponseStatus = a});
+dfdrsResponseStatus = lens _dfdrsResponseStatus (\ s a -> s{_dfdrsResponseStatus = a})
 
 instance NFData DeleteFunctionDefinitionResponse
          where

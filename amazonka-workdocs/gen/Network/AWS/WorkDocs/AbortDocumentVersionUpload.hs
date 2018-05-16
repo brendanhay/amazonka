@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.AbortDocumentVersionUpload
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,7 +55,7 @@ data AbortDocumentVersionUpload = AbortDocumentVersionUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'advuAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'advuAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'advuDocumentId' - The ID of the document.
 --
@@ -66,23 +66,23 @@ abortDocumentVersionUpload
     -> AbortDocumentVersionUpload
 abortDocumentVersionUpload pDocumentId_ pVersionId_ =
   AbortDocumentVersionUpload'
-  { _advuAuthenticationToken = Nothing
-  , _advuDocumentId = pDocumentId_
-  , _advuVersionId = pVersionId_
-  }
+    { _advuAuthenticationToken = Nothing
+    , _advuDocumentId = pDocumentId_
+    , _advuVersionId = pVersionId_
+    }
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 advuAuthenticationToken :: Lens' AbortDocumentVersionUpload (Maybe Text)
-advuAuthenticationToken = lens _advuAuthenticationToken (\ s a -> s{_advuAuthenticationToken = a}) . mapping _Sensitive;
+advuAuthenticationToken = lens _advuAuthenticationToken (\ s a -> s{_advuAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the document.
 advuDocumentId :: Lens' AbortDocumentVersionUpload Text
-advuDocumentId = lens _advuDocumentId (\ s a -> s{_advuDocumentId = a});
+advuDocumentId = lens _advuDocumentId (\ s a -> s{_advuDocumentId = a})
 
 -- | The ID of the version.
 advuVersionId :: Lens' AbortDocumentVersionUpload Text
-advuVersionId = lens _advuVersionId (\ s a -> s{_advuVersionId = a});
+advuVersionId = lens _advuVersionId (\ s a -> s{_advuVersionId = a})
 
 instance AWSRequest AbortDocumentVersionUpload where
         type Rs AbortDocumentVersionUpload =

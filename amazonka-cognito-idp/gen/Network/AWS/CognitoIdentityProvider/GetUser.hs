@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetUser
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,7 +33,9 @@ module Network.AWS.CognitoIdentityProvider.GetUser
     , getUserResponse
     , GetUserResponse
     -- * Response Lenses
+    , gursUserMFASettingList
     , gursMFAOptions
+    , gursPreferredMFASetting
     , gursResponseStatus
     , gursUsername
     , gursUserAttributes
@@ -69,7 +71,7 @@ getUser pAccessToken_ = GetUser' {_guAccessToken = _Sensitive # pAccessToken_}
 
 -- | The access token returned by the server response to get information about the user.
 guAccessToken :: Lens' GetUser Text
-guAccessToken = lens _guAccessToken (\ s a -> s{_guAccessToken = a}) . _Sensitive;
+guAccessToken = lens _guAccessToken (\ s a -> s{_guAccessToken = a}) . _Sensitive
 
 instance AWSRequest GetUser where
         type Rs GetUser = GetUserResponse
@@ -78,8 +80,10 @@ instance AWSRequest GetUser where
           = receiveJSON
               (\ s h x ->
                  GetUserResponse' <$>
-                   (x .?> "MFAOptions" .!@ mempty) <*>
-                     (pure (fromEnum s))
+                   (x .?> "UserMFASettingList" .!@ mempty) <*>
+                     (x .?> "MFAOptions" .!@ mempty)
+                     <*> (x .?> "PreferredMfaSetting")
+                     <*> (pure (fromEnum s))
                      <*> (x .:> "Username")
                      <*> (x .?> "UserAttributes" .!@ mempty))
 
@@ -114,10 +118,12 @@ instance ToQuery GetUser where
 --
 -- /See:/ 'getUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
-  { _gursMFAOptions     :: !(Maybe [MFAOptionType])
-  , _gursResponseStatus :: !Int
-  , _gursUsername       :: !(Sensitive Text)
-  , _gursUserAttributes :: ![AttributeType]
+  { _gursUserMFASettingList  :: !(Maybe [Text])
+  , _gursMFAOptions          :: !(Maybe [MFAOptionType])
+  , _gursPreferredMFASetting :: !(Maybe Text)
+  , _gursResponseStatus      :: !Int
+  , _gursUsername            :: !(Sensitive Text)
+  , _gursUserAttributes      :: ![AttributeType]
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -125,7 +131,11 @@ data GetUserResponse = GetUserResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'gursUserMFASettingList' - The list of the user's MFA settings.
+--
 -- * 'gursMFAOptions' - Specifies the options for MFA (e.g., email or phone number).
+--
+-- * 'gursPreferredMFASetting' - The user's preferred MFA setting.
 --
 -- * 'gursResponseStatus' - -- | The response status code.
 --
@@ -138,27 +148,37 @@ getUserResponse
     -> GetUserResponse
 getUserResponse pResponseStatus_ pUsername_ =
   GetUserResponse'
-  { _gursMFAOptions = Nothing
-  , _gursResponseStatus = pResponseStatus_
-  , _gursUsername = _Sensitive # pUsername_
-  , _gursUserAttributes = mempty
-  }
+    { _gursUserMFASettingList = Nothing
+    , _gursMFAOptions = Nothing
+    , _gursPreferredMFASetting = Nothing
+    , _gursResponseStatus = pResponseStatus_
+    , _gursUsername = _Sensitive # pUsername_
+    , _gursUserAttributes = mempty
+    }
 
+
+-- | The list of the user's MFA settings.
+gursUserMFASettingList :: Lens' GetUserResponse [Text]
+gursUserMFASettingList = lens _gursUserMFASettingList (\ s a -> s{_gursUserMFASettingList = a}) . _Default . _Coerce
 
 -- | Specifies the options for MFA (e.g., email or phone number).
 gursMFAOptions :: Lens' GetUserResponse [MFAOptionType]
-gursMFAOptions = lens _gursMFAOptions (\ s a -> s{_gursMFAOptions = a}) . _Default . _Coerce;
+gursMFAOptions = lens _gursMFAOptions (\ s a -> s{_gursMFAOptions = a}) . _Default . _Coerce
+
+-- | The user's preferred MFA setting.
+gursPreferredMFASetting :: Lens' GetUserResponse (Maybe Text)
+gursPreferredMFASetting = lens _gursPreferredMFASetting (\ s a -> s{_gursPreferredMFASetting = a})
 
 -- | -- | The response status code.
 gursResponseStatus :: Lens' GetUserResponse Int
-gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});
+gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a})
 
 -- | The user name of the user you wish to retrieve from the get user request.
 gursUsername :: Lens' GetUserResponse Text
-gursUsername = lens _gursUsername (\ s a -> s{_gursUsername = a}) . _Sensitive;
+gursUsername = lens _gursUsername (\ s a -> s{_gursUsername = a}) . _Sensitive
 
 -- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 gursUserAttributes :: Lens' GetUserResponse [AttributeType]
-gursUserAttributes = lens _gursUserAttributes (\ s a -> s{_gursUserAttributes = a}) . _Coerce;
+gursUserAttributes = lens _gursUserAttributes (\ s a -> s{_gursUserAttributes = a}) . _Coerce
 
 instance NFData GetUserResponse where

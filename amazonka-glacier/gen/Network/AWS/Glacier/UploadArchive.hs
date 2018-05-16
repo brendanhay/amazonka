@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.UploadArchive
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -95,33 +95,33 @@ uploadArchive
     -> UploadArchive
 uploadArchive pVaultName_ pAccountId_ pBody_ =
   UploadArchive'
-  { _uaChecksum = Nothing
-  , _uaArchiveDescription = Nothing
-  , _uaVaultName = pVaultName_
-  , _uaAccountId = pAccountId_
-  , _uaBody = pBody_
-  }
+    { _uaChecksum = Nothing
+    , _uaArchiveDescription = Nothing
+    , _uaVaultName = pVaultName_
+    , _uaAccountId = pAccountId_
+    , _uaBody = pBody_
+    }
 
 
 -- | The SHA256 tree hash of the data being uploaded.
 uaChecksum :: Lens' UploadArchive (Maybe Text)
-uaChecksum = lens _uaChecksum (\ s a -> s{_uaChecksum = a});
+uaChecksum = lens _uaChecksum (\ s a -> s{_uaChecksum = a})
 
 -- | The optional description of the archive you are uploading.
 uaArchiveDescription :: Lens' UploadArchive (Maybe Text)
-uaArchiveDescription = lens _uaArchiveDescription (\ s a -> s{_uaArchiveDescription = a});
+uaArchiveDescription = lens _uaArchiveDescription (\ s a -> s{_uaArchiveDescription = a})
 
 -- | The name of the vault.
 uaVaultName :: Lens' UploadArchive Text
-uaVaultName = lens _uaVaultName (\ s a -> s{_uaVaultName = a});
+uaVaultName = lens _uaVaultName (\ s a -> s{_uaVaultName = a})
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 uaAccountId :: Lens' UploadArchive Text
-uaAccountId = lens _uaAccountId (\ s a -> s{_uaAccountId = a});
+uaAccountId = lens _uaAccountId (\ s a -> s{_uaAccountId = a})
 
 -- | The data to upload.
 uaBody :: Lens' UploadArchive HashedBody
-uaBody = lens _uaBody (\ s a -> s{_uaBody = a});
+uaBody = lens _uaBody (\ s a -> s{_uaBody = a})
 
 instance AWSRequest UploadArchive where
         type Rs UploadArchive = ArchiveCreationOutput

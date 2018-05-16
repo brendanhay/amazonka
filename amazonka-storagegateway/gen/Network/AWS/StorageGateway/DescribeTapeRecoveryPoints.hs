@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Returns a list of virtual tape recovery points that are available for the specified tape gateway.
 --
 --
--- A recovery point is a point-in-time view of a virtual tape at which all the data on the virtual tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be recovered to a new gateway. This operation is only supported in the tape gateway architecture.
+-- A recovery point is a point-in-time view of a virtual tape at which all the data on the virtual tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be recovered to a new gateway. This operation is only supported in the tape gateway type.
 --
 --
 -- This operation returns paginated results.
@@ -79,20 +79,23 @@ describeTapeRecoveryPoints
     -> DescribeTapeRecoveryPoints
 describeTapeRecoveryPoints pGatewayARN_ =
   DescribeTapeRecoveryPoints'
-  {_dtrpMarker = Nothing, _dtrpLimit = Nothing, _dtrpGatewayARN = pGatewayARN_}
+    { _dtrpMarker = Nothing
+    , _dtrpLimit = Nothing
+    , _dtrpGatewayARN = pGatewayARN_
+    }
 
 
 -- | An opaque string that indicates the position at which to begin describing the virtual tape recovery points.
 dtrpMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
-dtrpMarker = lens _dtrpMarker (\ s a -> s{_dtrpMarker = a});
+dtrpMarker = lens _dtrpMarker (\ s a -> s{_dtrpMarker = a})
 
 -- | Specifies that the number of virtual tape recovery points that are described be limited to the specified number.
 dtrpLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Natural)
-dtrpLimit = lens _dtrpLimit (\ s a -> s{_dtrpLimit = a}) . mapping _Nat;
+dtrpLimit = lens _dtrpLimit (\ s a -> s{_dtrpLimit = a}) . mapping _Nat
 
 -- | Undocumented member.
 dtrpGatewayARN :: Lens' DescribeTapeRecoveryPoints Text
-dtrpGatewayARN = lens _dtrpGatewayARN (\ s a -> s{_dtrpGatewayARN = a});
+dtrpGatewayARN = lens _dtrpGatewayARN (\ s a -> s{_dtrpGatewayARN = a})
 
 instance AWSPager DescribeTapeRecoveryPoints where
         page rq rs
@@ -171,28 +174,28 @@ describeTapeRecoveryPointsResponse
     -> DescribeTapeRecoveryPointsResponse
 describeTapeRecoveryPointsResponse pResponseStatus_ =
   DescribeTapeRecoveryPointsResponse'
-  { _dtrprsTapeRecoveryPointInfos = Nothing
-  , _dtrprsGatewayARN = Nothing
-  , _dtrprsMarker = Nothing
-  , _dtrprsResponseStatus = pResponseStatus_
-  }
+    { _dtrprsTapeRecoveryPointInfos = Nothing
+    , _dtrprsGatewayARN = Nothing
+    , _dtrprsMarker = Nothing
+    , _dtrprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of TapeRecoveryPointInfos that are available for the specified gateway.
 dtrprsTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRecoveryPointInfo]
-dtrprsTapeRecoveryPointInfos = lens _dtrprsTapeRecoveryPointInfos (\ s a -> s{_dtrprsTapeRecoveryPointInfos = a}) . _Default . _Coerce;
+dtrprsTapeRecoveryPointInfos = lens _dtrprsTapeRecoveryPointInfos (\ s a -> s{_dtrprsTapeRecoveryPointInfos = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 dtrprsGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
-dtrprsGatewayARN = lens _dtrprsGatewayARN (\ s a -> s{_dtrprsGatewayARN = a});
+dtrprsGatewayARN = lens _dtrprsGatewayARN (\ s a -> s{_dtrprsGatewayARN = a})
 
 -- | An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended. Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
 dtrprsMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
-dtrprsMarker = lens _dtrprsMarker (\ s a -> s{_dtrprsMarker = a});
+dtrprsMarker = lens _dtrprsMarker (\ s a -> s{_dtrprsMarker = a})
 
 -- | -- | The response status code.
 dtrprsResponseStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
-dtrprsResponseStatus = lens _dtrprsResponseStatus (\ s a -> s{_dtrprsResponseStatus = a});
+dtrprsResponseStatus = lens _dtrprsResponseStatus (\ s a -> s{_dtrprsResponseStatus = a})
 
 instance NFData DescribeTapeRecoveryPointsResponse
          where

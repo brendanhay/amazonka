@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.AssociateCreatedArtifact
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,28 +81,28 @@ associateCreatedArtifact
     -> AssociateCreatedArtifact
 associateCreatedArtifact pProgressUpdateStream_ pMigrationTaskName_ pCreatedArtifact_ =
   AssociateCreatedArtifact'
-  { _acaDryRun = Nothing
-  , _acaProgressUpdateStream = pProgressUpdateStream_
-  , _acaMigrationTaskName = pMigrationTaskName_
-  , _acaCreatedArtifact = pCreatedArtifact_
-  }
+    { _acaDryRun = Nothing
+    , _acaProgressUpdateStream = pProgressUpdateStream_
+    , _acaMigrationTaskName = pMigrationTaskName_
+    , _acaCreatedArtifact = pCreatedArtifact_
+    }
 
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 acaDryRun :: Lens' AssociateCreatedArtifact (Maybe Bool)
-acaDryRun = lens _acaDryRun (\ s a -> s{_acaDryRun = a});
+acaDryRun = lens _acaDryRun (\ s a -> s{_acaDryRun = a})
 
 -- | The name of the ProgressUpdateStream.
 acaProgressUpdateStream :: Lens' AssociateCreatedArtifact Text
-acaProgressUpdateStream = lens _acaProgressUpdateStream (\ s a -> s{_acaProgressUpdateStream = a});
+acaProgressUpdateStream = lens _acaProgressUpdateStream (\ s a -> s{_acaProgressUpdateStream = a})
 
 -- | Unique identifier that references the migration task.
 acaMigrationTaskName :: Lens' AssociateCreatedArtifact Text
-acaMigrationTaskName = lens _acaMigrationTaskName (\ s a -> s{_acaMigrationTaskName = a});
+acaMigrationTaskName = lens _acaMigrationTaskName (\ s a -> s{_acaMigrationTaskName = a})
 
 -- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)
 acaCreatedArtifact :: Lens' AssociateCreatedArtifact CreatedArtifact
-acaCreatedArtifact = lens _acaCreatedArtifact (\ s a -> s{_acaCreatedArtifact = a});
+acaCreatedArtifact = lens _acaCreatedArtifact (\ s a -> s{_acaCreatedArtifact = a})
 
 instance AWSRequest AssociateCreatedArtifact where
         type Rs AssociateCreatedArtifact =
@@ -164,7 +164,7 @@ associateCreatedArtifactResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 acarsResponseStatus :: Lens' AssociateCreatedArtifactResponse Int
-acarsResponseStatus = lens _acarsResponseStatus (\ s a -> s{_acarsResponseStatus = a});
+acarsResponseStatus = lens _acarsResponseStatus (\ s a -> s{_acarsResponseStatus = a})
 
 instance NFData AssociateCreatedArtifactResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeConnections
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ describeConnections = DescribeConnections' {_dConnectionId = Nothing}
 
 -- | Undocumented member.
 dConnectionId :: Lens' DescribeConnections (Maybe Text)
-dConnectionId = lens _dConnectionId (\ s a -> s{_dConnectionId = a});
+dConnectionId = lens _dConnectionId (\ s a -> s{_dConnectionId = a})
 
 instance AWSRequest DescribeConnections where
         type Rs DescribeConnections = Connections

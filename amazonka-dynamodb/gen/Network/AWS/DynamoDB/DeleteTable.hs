@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DeleteTable
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,7 +73,7 @@ deleteTable pTableName_ = DeleteTable' {_dtTableName = pTableName_}
 
 -- | The name of the table to delete.
 dtTableName :: Lens' DeleteTable Text
-dtTableName = lens _dtTableName (\ s a -> s{_dtTableName = a});
+dtTableName = lens _dtTableName (\ s a -> s{_dtTableName = a})
 
 instance AWSRequest DeleteTable where
         type Rs DeleteTable = DeleteTableResponse
@@ -131,15 +131,15 @@ deleteTableResponse
     -> DeleteTableResponse
 deleteTableResponse pResponseStatus_ =
   DeleteTableResponse'
-  {_dtrsTableDescription = Nothing, _dtrsResponseStatus = pResponseStatus_}
+    {_dtrsTableDescription = Nothing, _dtrsResponseStatus = pResponseStatus_}
 
 
 -- | Represents the properties of a table.
 dtrsTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
-dtrsTableDescription = lens _dtrsTableDescription (\ s a -> s{_dtrsTableDescription = a});
+dtrsTableDescription = lens _dtrsTableDescription (\ s a -> s{_dtrsTableDescription = a})
 
 -- | -- | The response status code.
 dtrsResponseStatus :: Lens' DeleteTableResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
 
 instance NFData DeleteTableResponse where

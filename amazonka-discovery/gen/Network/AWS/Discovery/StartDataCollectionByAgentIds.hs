@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.StartDataCollectionByAgentIds
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ startDataCollectionByAgentIds =
 
 -- | The IDs of the agents or connectors from which to start collecting data. If you send a request to an agent/connector ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the /Description/ field. If you send a request to multiple agents/connectors and you do not have permission to contact some of those agents/connectors, the system does not throw an exception. Instead, the system shows @Failed@ in the /Description/ field.
 sAgentIds :: Lens' StartDataCollectionByAgentIds [Text]
-sAgentIds = lens _sAgentIds (\ s a -> s{_sAgentIds = a}) . _Coerce;
+sAgentIds = lens _sAgentIds (\ s a -> s{_sAgentIds = a}) . _Coerce
 
 instance AWSRequest StartDataCollectionByAgentIds
          where
@@ -122,18 +122,18 @@ startDataCollectionByAgentIdsResponse
     -> StartDataCollectionByAgentIdsResponse
 startDataCollectionByAgentIdsResponse pResponseStatus_ =
   StartDataCollectionByAgentIdsResponse'
-  { _srsAgentsConfigurationStatus = Nothing
-  , _srsResponseStatus = pResponseStatus_
-  }
+    { _srsAgentsConfigurationStatus = Nothing
+    , _srsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
 srsAgentsConfigurationStatus :: Lens' StartDataCollectionByAgentIdsResponse [AgentConfigurationStatus]
-srsAgentsConfigurationStatus = lens _srsAgentsConfigurationStatus (\ s a -> s{_srsAgentsConfigurationStatus = a}) . _Default . _Coerce;
+srsAgentsConfigurationStatus = lens _srsAgentsConfigurationStatus (\ s a -> s{_srsAgentsConfigurationStatus = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StartDataCollectionByAgentIdsResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StartDataCollectionByAgentIdsResponse
          where

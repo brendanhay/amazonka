@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribeHandshake
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ describeHandshake pHandshakeId_ =
 
 -- | The unique identifier (ID) of the handshake that you want information about. You can get the ID from the original call to 'InviteAccountToOrganization' , or from a call to 'ListHandshakesForAccount' or 'ListHandshakesForOrganization' . The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
 dhHandshakeId :: Lens' DescribeHandshake Text
-dhHandshakeId = lens _dhHandshakeId (\ s a -> s{_dhHandshakeId = a});
+dhHandshakeId = lens _dhHandshakeId (\ s a -> s{_dhHandshakeId = a})
 
 instance AWSRequest DescribeHandshake where
         type Rs DescribeHandshake = DescribeHandshakeResponse
@@ -123,15 +123,15 @@ describeHandshakeResponse
     -> DescribeHandshakeResponse
 describeHandshakeResponse pResponseStatus_ =
   DescribeHandshakeResponse'
-  {_dhrsHandshake = Nothing, _dhrsResponseStatus = pResponseStatus_}
+    {_dhrsHandshake = Nothing, _dhrsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that contains information about the specified handshake.
 dhrsHandshake :: Lens' DescribeHandshakeResponse (Maybe Handshake)
-dhrsHandshake = lens _dhrsHandshake (\ s a -> s{_dhrsHandshake = a});
+dhrsHandshake = lens _dhrsHandshake (\ s a -> s{_dhrsHandshake = a})
 
 -- | -- | The response status code.
 dhrsResponseStatus :: Lens' DescribeHandshakeResponse Int
-dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
+dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a})
 
 instance NFData DescribeHandshakeResponse where

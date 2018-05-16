@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateComputer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,33 +82,33 @@ createComputer
     -> CreateComputer
 createComputer pDirectoryId_ pComputerName_ pPassword_ =
   CreateComputer'
-  { _ccComputerAttributes = Nothing
-  , _ccOrganizationalUnitDistinguishedName = Nothing
-  , _ccDirectoryId = pDirectoryId_
-  , _ccComputerName = pComputerName_
-  , _ccPassword = _Sensitive # pPassword_
-  }
+    { _ccComputerAttributes = Nothing
+    , _ccOrganizationalUnitDistinguishedName = Nothing
+    , _ccDirectoryId = pDirectoryId_
+    , _ccComputerName = pComputerName_
+    , _ccPassword = _Sensitive # pPassword_
+    }
 
 
 -- | An array of 'Attribute' objects that contain any LDAP attributes to apply to the computer account.
 ccComputerAttributes :: Lens' CreateComputer [Attribute]
-ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttributes = a}) . _Default . _Coerce;
+ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttributes = a}) . _Default . _Coerce
 
 -- | The fully-qualified distinguished name of the organizational unit to place the computer account in.
 ccOrganizationalUnitDistinguishedName :: Lens' CreateComputer (Maybe Text)
-ccOrganizationalUnitDistinguishedName = lens _ccOrganizationalUnitDistinguishedName (\ s a -> s{_ccOrganizationalUnitDistinguishedName = a});
+ccOrganizationalUnitDistinguishedName = lens _ccOrganizationalUnitDistinguishedName (\ s a -> s{_ccOrganizationalUnitDistinguishedName = a})
 
 -- | The identifier of the directory in which to create the computer account.
 ccDirectoryId :: Lens' CreateComputer Text
-ccDirectoryId = lens _ccDirectoryId (\ s a -> s{_ccDirectoryId = a});
+ccDirectoryId = lens _ccDirectoryId (\ s a -> s{_ccDirectoryId = a})
 
 -- | The name of the computer account.
 ccComputerName :: Lens' CreateComputer Text
-ccComputerName = lens _ccComputerName (\ s a -> s{_ccComputerName = a});
+ccComputerName = lens _ccComputerName (\ s a -> s{_ccComputerName = a})
 
 -- | A one-time password that is used to join the computer to the directory. You should generate a random, strong password to use for this parameter.
 ccPassword :: Lens' CreateComputer Text
-ccPassword = lens _ccPassword (\ s a -> s{_ccPassword = a}) . _Sensitive;
+ccPassword = lens _ccPassword (\ s a -> s{_ccPassword = a}) . _Sensitive
 
 instance AWSRequest CreateComputer where
         type Rs CreateComputer = CreateComputerResponse
@@ -173,15 +173,15 @@ createComputerResponse
     -> CreateComputerResponse
 createComputerResponse pResponseStatus_ =
   CreateComputerResponse'
-  {_ccrsComputer = Nothing, _ccrsResponseStatus = pResponseStatus_}
+    {_ccrsComputer = Nothing, _ccrsResponseStatus = pResponseStatus_}
 
 
 -- | A 'Computer' object that represents the computer account.
 ccrsComputer :: Lens' CreateComputerResponse (Maybe Computer)
-ccrsComputer = lens _ccrsComputer (\ s a -> s{_ccrsComputer = a});
+ccrsComputer = lens _ccrsComputer (\ s a -> s{_ccrsComputer = a})
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CreateComputerResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
 
 instance NFData CreateComputerResponse where

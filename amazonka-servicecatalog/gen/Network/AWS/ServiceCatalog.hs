@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -13,17 +13,7 @@
 --
 -- __AWS Service Catalog__
 --
--- __Overview__
---
--- <https://aws.amazon.com/servicecatalog/ AWS Service Catalog> allows organizations to create and manage catalogs of IT services that are approved for use on AWS. This documentation provides reference material for the AWS Service Catalog end user API. To get the most out of this documentation, be familiar with the terminology discussed in <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html AWS Service Catalog Concepts> .
---
--- /Additional Resources/
---
---     * <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html AWS Service Catalog Administrator Guide>
---
---     * <http://docs.aws.amazon.com/servicecatalog/latest/userguide/introduction.html AWS Service Catalog User Guide>
---
---
+-- <https://aws.amazon.com/servicecatalog/ AWS Service Catalog> enables organizations to create and manage catalogs of IT services that are approved for use on AWS. To get the most out of this documentation, you should be familiar with the terminology discussed in <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html AWS Service Catalog Concepts> .
 --
 module Network.AWS.ServiceCatalog
     (
@@ -66,6 +56,9 @@ module Network.AWS.ServiceCatalog
     -- ** UpdateConstraint
     , module Network.AWS.ServiceCatalog.UpdateConstraint
 
+    -- ** CreateProvisionedProductPlan
+    , module Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
+
     -- ** CreateProduct
     , module Network.AWS.ServiceCatalog.CreateProduct
 
@@ -84,6 +77,9 @@ module Network.AWS.ServiceCatalog
     -- ** ListRecordHistory
     , module Network.AWS.ServiceCatalog.ListRecordHistory
 
+    -- ** DescribeProvisionedProductPlan
+    , module Network.AWS.ServiceCatalog.DescribeProvisionedProductPlan
+
     -- ** AssociateTagOptionWithResource
     , module Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
 
@@ -93,7 +89,7 @@ module Network.AWS.ServiceCatalog
     -- ** DisassociateProductFromPortfolio
     , module Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
 
-    -- ** ListConstraintsForPortfolio
+    -- ** ListConstraintsForPortfolio (Paginated)
     , module Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
 
     -- ** DescribeRecord
@@ -105,7 +101,7 @@ module Network.AWS.ServiceCatalog
     -- ** CreateProvisioningArtifact
     , module Network.AWS.ServiceCatalog.CreateProvisioningArtifact
 
-    -- ** ListPortfolios
+    -- ** ListPortfolios (Paginated)
     , module Network.AWS.ServiceCatalog.ListPortfolios
 
     -- ** DescribeProductView
@@ -120,11 +116,20 @@ module Network.AWS.ServiceCatalog
     -- ** SearchProducts
     , module Network.AWS.ServiceCatalog.SearchProducts
 
+    -- ** SearchProvisionedProducts
+    , module Network.AWS.ServiceCatalog.SearchProvisionedProducts
+
     -- ** DescribeProduct
     , module Network.AWS.ServiceCatalog.DescribeProduct
 
+    -- ** DeleteProvisionedProductPlan
+    , module Network.AWS.ServiceCatalog.DeleteProvisionedProductPlan
+
     -- ** CreateConstraint
     , module Network.AWS.ServiceCatalog.CreateConstraint
+
+    -- ** ListProvisionedProductPlans
+    , module Network.AWS.ServiceCatalog.ListProvisionedProductPlans
 
     -- ** ListPortfolioAccess
     , module Network.AWS.ServiceCatalog.ListPortfolioAccess
@@ -144,8 +149,11 @@ module Network.AWS.ServiceCatalog
     -- ** AssociateProductWithPortfolio
     , module Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
 
-    -- ** ListAcceptedPortfolioShares
+    -- ** ListAcceptedPortfolioShares (Paginated)
     , module Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
+
+    -- ** ExecuteProvisionedProductPlan
+    , module Network.AWS.ServiceCatalog.ExecuteProvisionedProductPlan
 
     -- ** AcceptPortfolioShare
     , module Network.AWS.ServiceCatalog.AcceptPortfolioShare
@@ -153,7 +161,7 @@ module Network.AWS.ServiceCatalog
     -- ** ScanProvisionedProducts
     , module Network.AWS.ServiceCatalog.ScanProvisionedProducts
 
-    -- ** ListPrincipalsForPortfolio
+    -- ** ListPrincipalsForPortfolio (Paginated)
     , module Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
 
     -- ** DeleteProduct
@@ -168,13 +176,16 @@ module Network.AWS.ServiceCatalog
     -- ** RejectPortfolioShare
     , module Network.AWS.ServiceCatalog.RejectPortfolioShare
 
+    -- ** DeleteTagOption
+    , module Network.AWS.ServiceCatalog.DeleteTagOption
+
     -- ** UpdateTagOption
     , module Network.AWS.ServiceCatalog.UpdateTagOption
 
-    -- ** ListTagOptions
+    -- ** ListTagOptions (Paginated)
     , module Network.AWS.ServiceCatalog.ListTagOptions
 
-    -- ** SearchProductsAsAdmin
+    -- ** SearchProductsAsAdmin (Paginated)
     , module Network.AWS.ServiceCatalog.SearchProductsAsAdmin
 
     -- ** DeletePortfolio
@@ -183,7 +194,7 @@ module Network.AWS.ServiceCatalog
     -- ** UpdatePortfolio
     , module Network.AWS.ServiceCatalog.UpdatePortfolio
 
-    -- ** ListPortfoliosForProduct
+    -- ** ListPortfoliosForProduct (Paginated)
     , module Network.AWS.ServiceCatalog.ListPortfoliosForProduct
 
     -- ** DescribeProductAsAdmin
@@ -213,10 +224,10 @@ module Network.AWS.ServiceCatalog
     -- ** CreatePortfolio
     , module Network.AWS.ServiceCatalog.CreatePortfolio
 
-    -- ** ListLaunchPaths
+    -- ** ListLaunchPaths (Paginated)
     , module Network.AWS.ServiceCatalog.ListLaunchPaths
 
-    -- ** ListResourcesForTagOption
+    -- ** ListResourcesForTagOption (Paginated)
     , module Network.AWS.ServiceCatalog.ListResourcesForTagOption
 
     -- * Types
@@ -224,11 +235,17 @@ module Network.AWS.ServiceCatalog
     -- ** AccessLevelFilterKey
     , AccessLevelFilterKey (..)
 
+    -- ** ChangeAction
+    , ChangeAction (..)
+
     -- ** CopyOption
     , CopyOption (..)
 
     -- ** CopyProductStatus
     , CopyProductStatus (..)
+
+    -- ** EvaluationType
+    , EvaluationType (..)
 
     -- ** PrincipalType
     , PrincipalType (..)
@@ -245,8 +262,17 @@ module Network.AWS.ServiceCatalog
     -- ** ProductViewSortBy
     , ProductViewSortBy (..)
 
+    -- ** ProvisionedProductPlanStatus
+    , ProvisionedProductPlanStatus (..)
+
+    -- ** ProvisionedProductPlanType
+    , ProvisionedProductPlanType (..)
+
     -- ** ProvisionedProductStatus
     , ProvisionedProductStatus (..)
+
+    -- ** ProvisionedProductViewFilterBy
+    , ProvisionedProductViewFilterBy (..)
 
     -- ** ProvisioningArtifactPropertyName
     , ProvisioningArtifactPropertyName (..)
@@ -257,8 +283,17 @@ module Network.AWS.ServiceCatalog
     -- ** RecordStatus
     , RecordStatus (..)
 
+    -- ** Replacement
+    , Replacement (..)
+
     -- ** RequestStatus
     , RequestStatus (..)
+
+    -- ** RequiresRecreation
+    , RequiresRecreation (..)
+
+    -- ** ResourceAttribute
+    , ResourceAttribute (..)
 
     -- ** SortOrder
     , SortOrder (..)
@@ -268,6 +303,11 @@ module Network.AWS.ServiceCatalog
     , accessLevelFilter
     , alfValue
     , alfKey
+
+    -- ** CloudWatchDashboard
+    , CloudWatchDashboard
+    , cloudWatchDashboard
+    , cwdName
 
     -- ** ConstraintDetail
     , ConstraintDetail
@@ -354,6 +394,25 @@ module Network.AWS.ServiceCatalog
     , pvsProductId
     , pvsSupportDescription
 
+    -- ** ProvisionedProductAttribute
+    , ProvisionedProductAttribute
+    , provisionedProductAttribute
+    , ppaIdempotencyToken
+    , ppaStatus
+    , ppaProvisioningArtifactId
+    , ppaARN
+    , ppaCreatedTime
+    , ppaUserARN
+    , ppaStatusMessage
+    , ppaName
+    , ppaLastRecordId
+    , ppaUserARNSession
+    , ppaId
+    , ppaType
+    , ppaPhysicalId
+    , ppaProductId
+    , ppaTags
+
     -- ** ProvisionedProductDetail
     , ProvisionedProductDetail
     , provisionedProductDetail
@@ -367,6 +426,35 @@ module Network.AWS.ServiceCatalog
     , ppdId
     , ppdType
 
+    -- ** ProvisionedProductPlanDetails
+    , ProvisionedProductPlanDetails
+    , provisionedProductPlanDetails
+    , pppdStatus
+    , pppdProvisionProductId
+    , pppdProvisioningArtifactId
+    , pppdProvisionProductName
+    , pppdCreatedTime
+    , pppdNotificationARNs
+    , pppdPlanId
+    , pppdPlanName
+    , pppdStatusMessage
+    , pppdUpdatedTime
+    , pppdPathId
+    , pppdProvisioningParameters
+    , pppdPlanType
+    , pppdProductId
+    , pppdTags
+
+    -- ** ProvisionedProductPlanSummary
+    , ProvisionedProductPlanSummary
+    , provisionedProductPlanSummary
+    , pppsProvisionProductId
+    , pppsProvisioningArtifactId
+    , pppsProvisionProductName
+    , pppsPlanId
+    , pppsPlanName
+    , pppsPlanType
+
     -- ** ProvisioningArtifact
     , ProvisioningArtifact
     , provisioningArtifact
@@ -379,6 +467,7 @@ module Network.AWS.ServiceCatalog
     , ProvisioningArtifactDetail
     , provisioningArtifactDetail
     , padCreatedTime
+    , padActive
     , padName
     , padId
     , padType
@@ -453,6 +542,24 @@ module Network.AWS.ServiceCatalog
     , rtValue
     , rtKey
 
+    -- ** ResourceChange
+    , ResourceChange
+    , resourceChange
+    , rcLogicalResourceId
+    , rcPhysicalResourceId
+    , rcResourceType
+    , rcAction
+    , rcScope
+    , rcDetails
+    , rcReplacement
+
+    -- ** ResourceChangeDetail
+    , ResourceChangeDetail
+    , resourceChangeDetail
+    , rcdCausingEntity
+    , rcdEvaluation
+    , rcdTarget
+
     -- ** ResourceDetail
     , ResourceDetail
     , resourceDetail
@@ -461,6 +568,13 @@ module Network.AWS.ServiceCatalog
     , rName
     , rId
     , rDescription
+
+    -- ** ResourceTargetDefinition
+    , ResourceTargetDefinition
+    , resourceTargetDefinition
+    , rtdAttribute
+    , rtdRequiresRecreation
+    , rtdName
 
     -- ** Tag
     , Tag
@@ -505,13 +619,16 @@ import Network.AWS.ServiceCatalog.CreateConstraint
 import Network.AWS.ServiceCatalog.CreatePortfolio
 import Network.AWS.ServiceCatalog.CreatePortfolioShare
 import Network.AWS.ServiceCatalog.CreateProduct
+import Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
 import Network.AWS.ServiceCatalog.CreateProvisioningArtifact
 import Network.AWS.ServiceCatalog.CreateTagOption
 import Network.AWS.ServiceCatalog.DeleteConstraint
 import Network.AWS.ServiceCatalog.DeletePortfolio
 import Network.AWS.ServiceCatalog.DeletePortfolioShare
 import Network.AWS.ServiceCatalog.DeleteProduct
+import Network.AWS.ServiceCatalog.DeleteProvisionedProductPlan
 import Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
+import Network.AWS.ServiceCatalog.DeleteTagOption
 import Network.AWS.ServiceCatalog.DescribeConstraint
 import Network.AWS.ServiceCatalog.DescribeCopyProductStatus
 import Network.AWS.ServiceCatalog.DescribePortfolio
@@ -519,6 +636,7 @@ import Network.AWS.ServiceCatalog.DescribeProduct
 import Network.AWS.ServiceCatalog.DescribeProductAsAdmin
 import Network.AWS.ServiceCatalog.DescribeProductView
 import Network.AWS.ServiceCatalog.DescribeProvisionedProduct
+import Network.AWS.ServiceCatalog.DescribeProvisionedProductPlan
 import Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
 import Network.AWS.ServiceCatalog.DescribeProvisioningParameters
 import Network.AWS.ServiceCatalog.DescribeRecord
@@ -526,6 +644,7 @@ import Network.AWS.ServiceCatalog.DescribeTagOption
 import Network.AWS.ServiceCatalog.DisassociatePrincipalFromPortfolio
 import Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
 import Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
+import Network.AWS.ServiceCatalog.ExecuteProvisionedProductPlan
 import Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
 import Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
 import Network.AWS.ServiceCatalog.ListLaunchPaths
@@ -533,6 +652,7 @@ import Network.AWS.ServiceCatalog.ListPortfolioAccess
 import Network.AWS.ServiceCatalog.ListPortfolios
 import Network.AWS.ServiceCatalog.ListPortfoliosForProduct
 import Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
+import Network.AWS.ServiceCatalog.ListProvisionedProductPlans
 import Network.AWS.ServiceCatalog.ListProvisioningArtifacts
 import Network.AWS.ServiceCatalog.ListRecordHistory
 import Network.AWS.ServiceCatalog.ListResourcesForTagOption
@@ -542,6 +662,7 @@ import Network.AWS.ServiceCatalog.RejectPortfolioShare
 import Network.AWS.ServiceCatalog.ScanProvisionedProducts
 import Network.AWS.ServiceCatalog.SearchProducts
 import Network.AWS.ServiceCatalog.SearchProductsAsAdmin
+import Network.AWS.ServiceCatalog.SearchProvisionedProducts
 import Network.AWS.ServiceCatalog.TerminateProvisionedProduct
 import Network.AWS.ServiceCatalog.Types
 import Network.AWS.ServiceCatalog.UpdateConstraint

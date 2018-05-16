@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.CreateStackInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,7 @@ module Network.AWS.CloudFormation.CreateStackInstances
     -- * Request Lenses
     , csiOperationPreferences
     , csiOperationId
+    , csiParameterOverrides
     , csiStackSetName
     , csiAccounts
     , csiRegions
@@ -52,6 +53,7 @@ import Network.AWS.Response
 data CreateStackInstances = CreateStackInstances'
   { _csiOperationPreferences :: !(Maybe StackSetOperationPreferences)
   , _csiOperationId          :: !(Maybe Text)
+  , _csiParameterOverrides   :: !(Maybe [Parameter])
   , _csiStackSetName         :: !Text
   , _csiAccounts             :: ![Text]
   , _csiRegions              :: ![Text]
@@ -66,6 +68,8 @@ data CreateStackInstances = CreateStackInstances'
 --
 -- * 'csiOperationId' - The unique identifier for this stack set operation.  The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You might retry stack set operation requests to ensure that AWS CloudFormation successfully received them. If you don't specify an operation ID, the SDK generates one automatically.  Repeating this stack set operation with a new operation ID retries all stack instances whose status is @OUTDATED@ .
 --
+-- * 'csiParameterOverrides' - A list of stack set parameters whose values you want to override in the selected stack instances. Any overridden parameter values will be applied to all stack instances in the specified accounts and regions. When specifying parameters and their values, be aware of how AWS CloudFormation sets parameter values during stack instance operations:     * To override the current value for a parameter, include the parameter and specify its value.     * To leave a parameter set to its present value, you can do one of the following:     * Do not include the parameter in the list.     * Include the parameter and specify @UsePreviousValue@ as @true@ . (You cannot specify both a value and set @UsePreviousValue@ to @true@ .)     * To set all overridden parameter back to the values specified in the stack set, specify a parameter list but do not include any parameters.     * To leave all parameters set to their present values, do not specify this property at all. During stack set updates, any parameter values overridden for a stack instance are not updated, but retain their overridden value. You can only override the parameter /values/ that are specified in the stack set; to add or delete a parameter itself, use <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet> to update the stack set template.
+--
 -- * 'csiStackSetName' - The name or unique ID of the stack set that you want to create stack instances from.
 --
 -- * 'csiAccounts' - The names of one or more AWS accounts that you want to create stack instances in the specified region(s) for.
@@ -76,33 +80,38 @@ createStackInstances
     -> CreateStackInstances
 createStackInstances pStackSetName_ =
   CreateStackInstances'
-  { _csiOperationPreferences = Nothing
-  , _csiOperationId = Nothing
-  , _csiStackSetName = pStackSetName_
-  , _csiAccounts = mempty
-  , _csiRegions = mempty
-  }
+    { _csiOperationPreferences = Nothing
+    , _csiOperationId = Nothing
+    , _csiParameterOverrides = Nothing
+    , _csiStackSetName = pStackSetName_
+    , _csiAccounts = mempty
+    , _csiRegions = mempty
+    }
 
 
 -- | Preferences for how AWS CloudFormation performs this stack set operation.
 csiOperationPreferences :: Lens' CreateStackInstances (Maybe StackSetOperationPreferences)
-csiOperationPreferences = lens _csiOperationPreferences (\ s a -> s{_csiOperationPreferences = a});
+csiOperationPreferences = lens _csiOperationPreferences (\ s a -> s{_csiOperationPreferences = a})
 
 -- | The unique identifier for this stack set operation.  The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You might retry stack set operation requests to ensure that AWS CloudFormation successfully received them. If you don't specify an operation ID, the SDK generates one automatically.  Repeating this stack set operation with a new operation ID retries all stack instances whose status is @OUTDATED@ .
 csiOperationId :: Lens' CreateStackInstances (Maybe Text)
-csiOperationId = lens _csiOperationId (\ s a -> s{_csiOperationId = a});
+csiOperationId = lens _csiOperationId (\ s a -> s{_csiOperationId = a})
+
+-- | A list of stack set parameters whose values you want to override in the selected stack instances. Any overridden parameter values will be applied to all stack instances in the specified accounts and regions. When specifying parameters and their values, be aware of how AWS CloudFormation sets parameter values during stack instance operations:     * To override the current value for a parameter, include the parameter and specify its value.     * To leave a parameter set to its present value, you can do one of the following:     * Do not include the parameter in the list.     * Include the parameter and specify @UsePreviousValue@ as @true@ . (You cannot specify both a value and set @UsePreviousValue@ to @true@ .)     * To set all overridden parameter back to the values specified in the stack set, specify a parameter list but do not include any parameters.     * To leave all parameters set to their present values, do not specify this property at all. During stack set updates, any parameter values overridden for a stack instance are not updated, but retain their overridden value. You can only override the parameter /values/ that are specified in the stack set; to add or delete a parameter itself, use <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet> to update the stack set template.
+csiParameterOverrides :: Lens' CreateStackInstances [Parameter]
+csiParameterOverrides = lens _csiParameterOverrides (\ s a -> s{_csiParameterOverrides = a}) . _Default . _Coerce
 
 -- | The name or unique ID of the stack set that you want to create stack instances from.
 csiStackSetName :: Lens' CreateStackInstances Text
-csiStackSetName = lens _csiStackSetName (\ s a -> s{_csiStackSetName = a});
+csiStackSetName = lens _csiStackSetName (\ s a -> s{_csiStackSetName = a})
 
 -- | The names of one or more AWS accounts that you want to create stack instances in the specified region(s) for.
 csiAccounts :: Lens' CreateStackInstances [Text]
-csiAccounts = lens _csiAccounts (\ s a -> s{_csiAccounts = a}) . _Coerce;
+csiAccounts = lens _csiAccounts (\ s a -> s{_csiAccounts = a}) . _Coerce
 
 -- | The names of one or more regions where you want to create stack instances using the specified AWS account(s).
 csiRegions :: Lens' CreateStackInstances [Text]
-csiRegions = lens _csiRegions (\ s a -> s{_csiRegions = a}) . _Coerce;
+csiRegions = lens _csiRegions (\ s a -> s{_csiRegions = a}) . _Coerce
 
 instance AWSRequest CreateStackInstances where
         type Rs CreateStackInstances =
@@ -131,6 +140,9 @@ instance ToQuery CreateStackInstances where
                "Version" =: ("2010-05-15" :: ByteString),
                "OperationPreferences" =: _csiOperationPreferences,
                "OperationId" =: _csiOperationId,
+               "ParameterOverrides" =:
+                 toQuery
+                   (toQueryList "member" <$> _csiParameterOverrides),
                "StackSetName" =: _csiStackSetName,
                "Accounts" =: toQueryList "member" _csiAccounts,
                "Regions" =: toQueryList "member" _csiRegions]
@@ -154,15 +166,15 @@ createStackInstancesResponse
     -> CreateStackInstancesResponse
 createStackInstancesResponse pResponseStatus_ =
   CreateStackInstancesResponse'
-  {_csirsOperationId = Nothing, _csirsResponseStatus = pResponseStatus_}
+    {_csirsOperationId = Nothing, _csirsResponseStatus = pResponseStatus_}
 
 
 -- | The unique identifier for this stack set operation.
 csirsOperationId :: Lens' CreateStackInstancesResponse (Maybe Text)
-csirsOperationId = lens _csirsOperationId (\ s a -> s{_csirsOperationId = a});
+csirsOperationId = lens _csirsOperationId (\ s a -> s{_csirsOperationId = a})
 
 -- | -- | The response status code.
 csirsResponseStatus :: Lens' CreateStackInstancesResponse Int
-csirsResponseStatus = lens _csirsResponseStatus (\ s a -> s{_csirsResponseStatus = a});
+csirsResponseStatus = lens _csirsResponseStatus (\ s a -> s{_csirsResponseStatus = a})
 
 instance NFData CreateStackInstancesResponse where

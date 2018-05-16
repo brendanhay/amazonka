@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachInternetGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ attachInternetGateway
     -> AttachInternetGateway
 attachInternetGateway pInternetGatewayId_ pVPCId_ =
   AttachInternetGateway'
-  { _aigDryRun = Nothing
-  , _aigInternetGatewayId = pInternetGatewayId_
-  , _aigVPCId = pVPCId_
-  }
+    { _aigDryRun = Nothing
+    , _aigInternetGatewayId = pInternetGatewayId_
+    , _aigVPCId = pVPCId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aigDryRun :: Lens' AttachInternetGateway (Maybe Bool)
-aigDryRun = lens _aigDryRun (\ s a -> s{_aigDryRun = a});
+aigDryRun = lens _aigDryRun (\ s a -> s{_aigDryRun = a})
 
 -- | The ID of the Internet gateway.
 aigInternetGatewayId :: Lens' AttachInternetGateway Text
-aigInternetGatewayId = lens _aigInternetGatewayId (\ s a -> s{_aigInternetGatewayId = a});
+aigInternetGatewayId = lens _aigInternetGatewayId (\ s a -> s{_aigInternetGatewayId = a})
 
 -- | The ID of the VPC.
 aigVPCId :: Lens' AttachInternetGateway Text
-aigVPCId = lens _aigVPCId (\ s a -> s{_aigVPCId = a});
+aigVPCId = lens _aigVPCId (\ s a -> s{_aigVPCId = a})
 
 instance AWSRequest AttachInternetGateway where
         type Rs AttachInternetGateway =

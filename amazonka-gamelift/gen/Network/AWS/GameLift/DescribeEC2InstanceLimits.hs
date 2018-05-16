@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeEC2InstanceLimits
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,15 +35,21 @@
 --
 --     * 'ListFleets'
 --
+--     * 'DeleteFleet'
+--
 --     * Describe fleets:
 --
 --     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetCapacity'
 --
 --     * 'DescribeFleetPortSettings'
 --
 --     * 'DescribeFleetUtilization'
 --
 --     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeEC2InstanceLimits'
 --
 --     * 'DescribeFleetEvents'
 --
@@ -61,23 +67,13 @@
 --
 --
 --
---     * Manage fleet capacity:
+--     * Manage fleet actions:
 --
---     * 'DescribeFleetCapacity'
+--     * 'StartFleetActions'
 --
---     * 'UpdateFleetCapacity'
---
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
---     * 'DescribeEC2InstanceLimits'
+--     * 'StopFleetActions'
 --
 --
---
---     * 'DeleteFleet'
 --
 --
 --
@@ -127,7 +123,7 @@ describeEC2InstanceLimits =
 
 -- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions. Leave this parameter blank to retrieve limits for all types.
 deilEC2InstanceType :: Lens' DescribeEC2InstanceLimits (Maybe EC2InstanceType)
-deilEC2InstanceType = lens _deilEC2InstanceType (\ s a -> s{_deilEC2InstanceType = a});
+deilEC2InstanceType = lens _deilEC2InstanceType (\ s a -> s{_deilEC2InstanceType = a})
 
 instance AWSRequest DescribeEC2InstanceLimits where
         type Rs DescribeEC2InstanceLimits =
@@ -188,16 +184,18 @@ describeEC2InstanceLimitsResponse
     -> DescribeEC2InstanceLimitsResponse
 describeEC2InstanceLimitsResponse pResponseStatus_ =
   DescribeEC2InstanceLimitsResponse'
-  {_deilrsEC2InstanceLimits = Nothing, _deilrsResponseStatus = pResponseStatus_}
+    { _deilrsEC2InstanceLimits = Nothing
+    , _deilrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Object that contains the maximum number of instances for the specified instance type.
 deilrsEC2InstanceLimits :: Lens' DescribeEC2InstanceLimitsResponse [EC2InstanceLimit]
-deilrsEC2InstanceLimits = lens _deilrsEC2InstanceLimits (\ s a -> s{_deilrsEC2InstanceLimits = a}) . _Default . _Coerce;
+deilrsEC2InstanceLimits = lens _deilrsEC2InstanceLimits (\ s a -> s{_deilrsEC2InstanceLimits = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 deilrsResponseStatus :: Lens' DescribeEC2InstanceLimitsResponse Int
-deilrsResponseStatus = lens _deilrsResponseStatus (\ s a -> s{_deilrsResponseStatus = a});
+deilrsResponseStatus = lens _deilrsResponseStatus (\ s a -> s{_deilrsResponseStatus = a})
 
 instance NFData DescribeEC2InstanceLimitsResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeSchemas
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DMS.DescribeSchemas
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.DMS.DescribeSchemas
 import Network.AWS.DMS.Types
 import Network.AWS.DMS.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,20 +78,30 @@ describeSchemas
     -> DescribeSchemas
 describeSchemas pEndpointARN_ =
   DescribeSchemas'
-  {_dsMarker = Nothing, _dsMaxRecords = Nothing, _dsEndpointARN = pEndpointARN_}
+    { _dsMarker = Nothing
+    , _dsMaxRecords = Nothing
+    , _dsEndpointARN = pEndpointARN_
+    }
 
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dsMarker :: Lens' DescribeSchemas (Maybe Text)
-dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a});
+dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dsMaxRecords :: Lens' DescribeSchemas (Maybe Int)
-dsMaxRecords = lens _dsMaxRecords (\ s a -> s{_dsMaxRecords = a});
+dsMaxRecords = lens _dsMaxRecords (\ s a -> s{_dsMaxRecords = a})
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 dsEndpointARN :: Lens' DescribeSchemas Text
-dsEndpointARN = lens _dsEndpointARN (\ s a -> s{_dsEndpointARN = a});
+dsEndpointARN = lens _dsEndpointARN (\ s a -> s{_dsEndpointARN = a})
+
+instance AWSPager DescribeSchemas where
+        page rq rs
+          | stop (rs ^. dsrsMarker) = Nothing
+          | stop (rs ^. dsrsSchemas) = Nothing
+          | otherwise =
+            Just $ rq & dsMarker .~ rs ^. dsrsMarker
 
 instance AWSRequest DescribeSchemas where
         type Rs DescribeSchemas = DescribeSchemasResponse
@@ -153,22 +166,22 @@ describeSchemasResponse
     -> DescribeSchemasResponse
 describeSchemasResponse pResponseStatus_ =
   DescribeSchemasResponse'
-  { _dsrsSchemas = Nothing
-  , _dsrsMarker = Nothing
-  , _dsrsResponseStatus = pResponseStatus_
-  }
+    { _dsrsSchemas = Nothing
+    , _dsrsMarker = Nothing
+    , _dsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The described schema.
 dsrsSchemas :: Lens' DescribeSchemasResponse [Text]
-dsrsSchemas = lens _dsrsSchemas (\ s a -> s{_dsrsSchemas = a}) . _Default . _Coerce;
+dsrsSchemas = lens _dsrsSchemas (\ s a -> s{_dsrsSchemas = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dsrsMarker :: Lens' DescribeSchemasResponse (Maybe Text)
-dsrsMarker = lens _dsrsMarker (\ s a -> s{_dsrsMarker = a});
+dsrsMarker = lens _dsrsMarker (\ s a -> s{_dsrsMarker = a})
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeSchemasResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DescribeSchemasResponse where

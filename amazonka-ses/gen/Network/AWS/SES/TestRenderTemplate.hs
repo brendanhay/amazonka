@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.TestRenderTemplate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ testRenderTemplate
     -> TestRenderTemplate
 testRenderTemplate pTemplateName_ pTemplateData_ =
   TestRenderTemplate'
-  {_trtTemplateName = pTemplateName_, _trtTemplateData = pTemplateData_}
+    {_trtTemplateName = pTemplateName_, _trtTemplateData = pTemplateData_}
 
 
 -- | The name of the template that you want to render.
 trtTemplateName :: Lens' TestRenderTemplate Text
-trtTemplateName = lens _trtTemplateName (\ s a -> s{_trtTemplateName = a});
+trtTemplateName = lens _trtTemplateName (\ s a -> s{_trtTemplateName = a})
 
 -- | A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
 trtTemplateData :: Lens' TestRenderTemplate Text
-trtTemplateData = lens _trtTemplateData (\ s a -> s{_trtTemplateData = a});
+trtTemplateData = lens _trtTemplateData (\ s a -> s{_trtTemplateData = a})
 
 instance AWSRequest TestRenderTemplate where
         type Rs TestRenderTemplate =
@@ -125,15 +125,15 @@ testRenderTemplateResponse
     -> TestRenderTemplateResponse
 testRenderTemplateResponse pResponseStatus_ =
   TestRenderTemplateResponse'
-  {_trtrsRenderedTemplate = Nothing, _trtrsResponseStatus = pResponseStatus_}
+    {_trtrsRenderedTemplate = Nothing, _trtrsResponseStatus = pResponseStatus_}
 
 
 -- | The complete MIME message rendered by applying the data in the TemplateData parameter to the template specified in the TemplateName parameter.
 trtrsRenderedTemplate :: Lens' TestRenderTemplateResponse (Maybe Text)
-trtrsRenderedTemplate = lens _trtrsRenderedTemplate (\ s a -> s{_trtrsRenderedTemplate = a});
+trtrsRenderedTemplate = lens _trtrsRenderedTemplate (\ s a -> s{_trtrsRenderedTemplate = a})
 
 -- | -- | The response status code.
 trtrsResponseStatus :: Lens' TestRenderTemplateResponse Int
-trtrsResponseStatus = lens _trtrsResponseStatus (\ s a -> s{_trtrsResponseStatus = a});
+trtrsResponseStatus = lens _trtrsResponseStatus (\ s a -> s{_trtrsResponseStatus = a})
 
 instance NFData TestRenderTemplateResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateTrafficPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,20 +74,20 @@ createTrafficPolicy
     -> CreateTrafficPolicy
 createTrafficPolicy pName_ pDocument_ =
   CreateTrafficPolicy'
-  {_ctpComment = Nothing, _ctpName = pName_, _ctpDocument = pDocument_}
+    {_ctpComment = Nothing, _ctpName = pName_, _ctpDocument = pDocument_}
 
 
 -- | (Optional) Any comments that you want to include about the traffic policy.
 ctpComment :: Lens' CreateTrafficPolicy (Maybe Text)
-ctpComment = lens _ctpComment (\ s a -> s{_ctpComment = a});
+ctpComment = lens _ctpComment (\ s a -> s{_ctpComment = a})
 
 -- | The name of the traffic policy.
 ctpName :: Lens' CreateTrafficPolicy Text
-ctpName = lens _ctpName (\ s a -> s{_ctpName = a});
+ctpName = lens _ctpName (\ s a -> s{_ctpName = a})
 
 -- | The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> .
 ctpDocument :: Lens' CreateTrafficPolicy Text
-ctpDocument = lens _ctpDocument (\ s a -> s{_ctpDocument = a});
+ctpDocument = lens _ctpDocument (\ s a -> s{_ctpDocument = a})
 
 instance AWSRequest CreateTrafficPolicy where
         type Rs CreateTrafficPolicy =
@@ -152,22 +152,22 @@ createTrafficPolicyResponse
     -> CreateTrafficPolicyResponse
 createTrafficPolicyResponse pResponseStatus_ pTrafficPolicy_ pLocation_ =
   CreateTrafficPolicyResponse'
-  { _ctprsResponseStatus = pResponseStatus_
-  , _ctprsTrafficPolicy = pTrafficPolicy_
-  , _ctprsLocation = pLocation_
-  }
+    { _ctprsResponseStatus = pResponseStatus_
+    , _ctprsTrafficPolicy = pTrafficPolicy_
+    , _ctprsLocation = pLocation_
+    }
 
 
 -- | -- | The response status code.
 ctprsResponseStatus :: Lens' CreateTrafficPolicyResponse Int
-ctprsResponseStatus = lens _ctprsResponseStatus (\ s a -> s{_ctprsResponseStatus = a});
+ctprsResponseStatus = lens _ctprsResponseStatus (\ s a -> s{_ctprsResponseStatus = a})
 
 -- | A complex type that contains settings for the new traffic policy.
 ctprsTrafficPolicy :: Lens' CreateTrafficPolicyResponse TrafficPolicy
-ctprsTrafficPolicy = lens _ctprsTrafficPolicy (\ s a -> s{_ctprsTrafficPolicy = a});
+ctprsTrafficPolicy = lens _ctprsTrafficPolicy (\ s a -> s{_ctprsTrafficPolicy = a})
 
 -- | A unique URL that represents a new traffic policy.
 ctprsLocation :: Lens' CreateTrafficPolicyResponse Text
-ctprsLocation = lens _ctprsLocation (\ s a -> s{_ctprsLocation = a});
+ctprsLocation = lens _ctprsLocation (\ s a -> s{_ctprsLocation = a})
 
 instance NFData CreateTrafficPolicyResponse where

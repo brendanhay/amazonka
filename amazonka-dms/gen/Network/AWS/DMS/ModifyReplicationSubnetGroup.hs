@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.ModifyReplicationSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ modifyReplicationSubnetGroup
     -> ModifyReplicationSubnetGroup
 modifyReplicationSubnetGroup pReplicationSubnetGroupIdentifier_ =
   ModifyReplicationSubnetGroup'
-  { _mrsgReplicationSubnetGroupDescription = Nothing
-  , _mrsgReplicationSubnetGroupIdentifier = pReplicationSubnetGroupIdentifier_
-  , _mrsgSubnetIds = mempty
-  }
+    { _mrsgReplicationSubnetGroupDescription = Nothing
+    , _mrsgReplicationSubnetGroupIdentifier = pReplicationSubnetGroupIdentifier_
+    , _mrsgSubnetIds = mempty
+    }
 
 
 -- | The description of the replication instance subnet group.
 mrsgReplicationSubnetGroupDescription :: Lens' ModifyReplicationSubnetGroup (Maybe Text)
-mrsgReplicationSubnetGroupDescription = lens _mrsgReplicationSubnetGroupDescription (\ s a -> s{_mrsgReplicationSubnetGroupDescription = a});
+mrsgReplicationSubnetGroupDescription = lens _mrsgReplicationSubnetGroupDescription (\ s a -> s{_mrsgReplicationSubnetGroupDescription = a})
 
 -- | The name of the replication instance subnet group.
 mrsgReplicationSubnetGroupIdentifier :: Lens' ModifyReplicationSubnetGroup Text
-mrsgReplicationSubnetGroupIdentifier = lens _mrsgReplicationSubnetGroupIdentifier (\ s a -> s{_mrsgReplicationSubnetGroupIdentifier = a});
+mrsgReplicationSubnetGroupIdentifier = lens _mrsgReplicationSubnetGroupIdentifier (\ s a -> s{_mrsgReplicationSubnetGroupIdentifier = a})
 
 -- | A list of subnet IDs.
 mrsgSubnetIds :: Lens' ModifyReplicationSubnetGroup [Text]
-mrsgSubnetIds = lens _mrsgSubnetIds (\ s a -> s{_mrsgSubnetIds = a}) . _Coerce;
+mrsgSubnetIds = lens _mrsgSubnetIds (\ s a -> s{_mrsgSubnetIds = a}) . _Coerce
 
 instance AWSRequest ModifyReplicationSubnetGroup
          where
@@ -156,18 +156,18 @@ modifyReplicationSubnetGroupResponse
     -> ModifyReplicationSubnetGroupResponse
 modifyReplicationSubnetGroupResponse pResponseStatus_ =
   ModifyReplicationSubnetGroupResponse'
-  { _mrsgrsReplicationSubnetGroup = Nothing
-  , _mrsgrsResponseStatus = pResponseStatus_
-  }
+    { _mrsgrsReplicationSubnetGroup = Nothing
+    , _mrsgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The modified replication subnet group.
 mrsgrsReplicationSubnetGroup :: Lens' ModifyReplicationSubnetGroupResponse (Maybe ReplicationSubnetGroup)
-mrsgrsReplicationSubnetGroup = lens _mrsgrsReplicationSubnetGroup (\ s a -> s{_mrsgrsReplicationSubnetGroup = a});
+mrsgrsReplicationSubnetGroup = lens _mrsgrsReplicationSubnetGroup (\ s a -> s{_mrsgrsReplicationSubnetGroup = a})
 
 -- | -- | The response status code.
 mrsgrsResponseStatus :: Lens' ModifyReplicationSubnetGroupResponse Int
-mrsgrsResponseStatus = lens _mrsgrsResponseStatus (\ s a -> s{_mrsgrsResponseStatus = a});
+mrsgrsResponseStatus = lens _mrsgrsResponseStatus (\ s a -> s{_mrsgrsResponseStatus = a})
 
 instance NFData ModifyReplicationSubnetGroupResponse
          where

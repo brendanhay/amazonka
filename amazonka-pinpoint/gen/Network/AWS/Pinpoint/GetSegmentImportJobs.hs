@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSegmentImportJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,28 +71,28 @@ getSegmentImportJobs
     -> GetSegmentImportJobs
 getSegmentImportJobs pSegmentId_ pApplicationId_ =
   GetSegmentImportJobs'
-  { _gsijToken = Nothing
-  , _gsijPageSize = Nothing
-  , _gsijSegmentId = pSegmentId_
-  , _gsijApplicationId = pApplicationId_
-  }
+    { _gsijToken = Nothing
+    , _gsijPageSize = Nothing
+    , _gsijSegmentId = pSegmentId_
+    , _gsijApplicationId = pApplicationId_
+    }
 
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gsijToken :: Lens' GetSegmentImportJobs (Maybe Text)
-gsijToken = lens _gsijToken (\ s a -> s{_gsijToken = a});
+gsijToken = lens _gsijToken (\ s a -> s{_gsijToken = a})
 
 -- | The number of entries you want on each page in the response.
 gsijPageSize :: Lens' GetSegmentImportJobs (Maybe Text)
-gsijPageSize = lens _gsijPageSize (\ s a -> s{_gsijPageSize = a});
+gsijPageSize = lens _gsijPageSize (\ s a -> s{_gsijPageSize = a})
 
 -- | Undocumented member.
 gsijSegmentId :: Lens' GetSegmentImportJobs Text
-gsijSegmentId = lens _gsijSegmentId (\ s a -> s{_gsijSegmentId = a});
+gsijSegmentId = lens _gsijSegmentId (\ s a -> s{_gsijSegmentId = a})
 
 -- | Undocumented member.
 gsijApplicationId :: Lens' GetSegmentImportJobs Text
-gsijApplicationId = lens _gsijApplicationId (\ s a -> s{_gsijApplicationId = a});
+gsijApplicationId = lens _gsijApplicationId (\ s a -> s{_gsijApplicationId = a})
 
 instance AWSRequest GetSegmentImportJobs where
         type Rs GetSegmentImportJobs =
@@ -146,17 +146,17 @@ getSegmentImportJobsResponse
     -> GetSegmentImportJobsResponse
 getSegmentImportJobsResponse pResponseStatus_ pImportJobsResponse_ =
   GetSegmentImportJobsResponse'
-  { _gsijrsResponseStatus = pResponseStatus_
-  , _gsijrsImportJobsResponse = pImportJobsResponse_
-  }
+    { _gsijrsResponseStatus = pResponseStatus_
+    , _gsijrsImportJobsResponse = pImportJobsResponse_
+    }
 
 
 -- | -- | The response status code.
 gsijrsResponseStatus :: Lens' GetSegmentImportJobsResponse Int
-gsijrsResponseStatus = lens _gsijrsResponseStatus (\ s a -> s{_gsijrsResponseStatus = a});
+gsijrsResponseStatus = lens _gsijrsResponseStatus (\ s a -> s{_gsijrsResponseStatus = a})
 
 -- | Undocumented member.
 gsijrsImportJobsResponse :: Lens' GetSegmentImportJobsResponse ImportJobsResponse
-gsijrsImportJobsResponse = lens _gsijrsImportJobsResponse (\ s a -> s{_gsijrsImportJobsResponse = a});
+gsijrsImportJobsResponse = lens _gsijrsImportJobsResponse (\ s a -> s{_gsijrsImportJobsResponse = a})
 
 instance NFData GetSegmentImportJobsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeResourceServer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ describeResourceServer
     -> DescribeResourceServer
 describeResourceServer pUserPoolId_ pIdentifier_ =
   DescribeResourceServer'
-  {_desUserPoolId = pUserPoolId_, _desIdentifier = pIdentifier_}
+    {_desUserPoolId = pUserPoolId_, _desIdentifier = pIdentifier_}
 
 
 -- | The user pool ID for the user pool that hosts the resource server.
 desUserPoolId :: Lens' DescribeResourceServer Text
-desUserPoolId = lens _desUserPoolId (\ s a -> s{_desUserPoolId = a});
+desUserPoolId = lens _desUserPoolId (\ s a -> s{_desUserPoolId = a})
 
 -- | The identifier for the resource server
 desIdentifier :: Lens' DescribeResourceServer Text
-desIdentifier = lens _desIdentifier (\ s a -> s{_desIdentifier = a});
+desIdentifier = lens _desIdentifier (\ s a -> s{_desIdentifier = a})
 
 instance AWSRequest DescribeResourceServer where
         type Rs DescribeResourceServer =
@@ -133,17 +133,17 @@ describeResourceServerResponse
     -> DescribeResourceServerResponse
 describeResourceServerResponse pResponseStatus_ pResourceServer_ =
   DescribeResourceServerResponse'
-  { _drsrsResponseStatus = pResponseStatus_
-  , _drsrsResourceServer = pResourceServer_
-  }
+    { _drsrsResponseStatus = pResponseStatus_
+    , _drsrsResourceServer = pResourceServer_
+    }
 
 
 -- | -- | The response status code.
 drsrsResponseStatus :: Lens' DescribeResourceServerResponse Int
-drsrsResponseStatus = lens _drsrsResponseStatus (\ s a -> s{_drsrsResponseStatus = a});
+drsrsResponseStatus = lens _drsrsResponseStatus (\ s a -> s{_drsrsResponseStatus = a})
 
 -- | The resource server.
 drsrsResourceServer :: Lens' DescribeResourceServerResponse ResourceServerType
-drsrsResourceServer = lens _drsrsResourceServer (\ s a -> s{_drsrsResourceServer = a});
+drsrsResourceServer = lens _drsrsResourceServer (\ s a -> s{_drsrsResourceServer = a})
 
 instance NFData DescribeResourceServerResponse where

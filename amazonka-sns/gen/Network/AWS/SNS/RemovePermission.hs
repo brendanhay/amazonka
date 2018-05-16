@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.RemovePermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ removePermission pTopicARN_ pLabel_ =
 
 -- | The ARN of the topic whose access control policy you wish to modify.
 rpTopicARN :: Lens' RemovePermission Text
-rpTopicARN = lens _rpTopicARN (\ s a -> s{_rpTopicARN = a});
+rpTopicARN = lens _rpTopicARN (\ s a -> s{_rpTopicARN = a})
 
 -- | The unique label of the statement you want to remove.
 rpLabel :: Lens' RemovePermission Text
-rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
+rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a})
 
 instance AWSRequest RemovePermission where
         type Rs RemovePermission = RemovePermissionResponse

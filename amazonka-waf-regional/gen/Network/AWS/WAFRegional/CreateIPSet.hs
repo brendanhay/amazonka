@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.CreateIPSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,11 +84,11 @@ createIPSet pName_ pChangeToken_ =
 
 -- | A friendly name or description of the 'IPSet' . You can't change @Name@ after you create the @IPSet@ .
 cisName :: Lens' CreateIPSet Text
-cisName = lens _cisName (\ s a -> s{_cisName = a});
+cisName = lens _cisName (\ s a -> s{_cisName = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 cisChangeToken :: Lens' CreateIPSet Text
-cisChangeToken = lens _cisChangeToken (\ s a -> s{_cisChangeToken = a});
+cisChangeToken = lens _cisChangeToken (\ s a -> s{_cisChangeToken = a})
 
 instance AWSRequest CreateIPSet where
         type Rs CreateIPSet = CreateIPSetResponse
@@ -149,22 +149,22 @@ createIPSetResponse
     -> CreateIPSetResponse
 createIPSetResponse pResponseStatus_ =
   CreateIPSetResponse'
-  { _cisrsChangeToken = Nothing
-  , _cisrsIPSet = Nothing
-  , _cisrsResponseStatus = pResponseStatus_
-  }
+    { _cisrsChangeToken = Nothing
+    , _cisrsIPSet = Nothing
+    , _cisrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 cisrsChangeToken :: Lens' CreateIPSetResponse (Maybe Text)
-cisrsChangeToken = lens _cisrsChangeToken (\ s a -> s{_cisrsChangeToken = a});
+cisrsChangeToken = lens _cisrsChangeToken (\ s a -> s{_cisrsChangeToken = a})
 
 -- | The 'IPSet' returned in the @CreateIPSet@ response.
 cisrsIPSet :: Lens' CreateIPSetResponse (Maybe IPSet)
-cisrsIPSet = lens _cisrsIPSet (\ s a -> s{_cisrsIPSet = a});
+cisrsIPSet = lens _cisrsIPSet (\ s a -> s{_cisrsIPSet = a})
 
 -- | -- | The response status code.
 cisrsResponseStatus :: Lens' CreateIPSetResponse Int
-cisrsResponseStatus = lens _cisrsResponseStatus (\ s a -> s{_cisrsResponseStatus = a});
+cisrsResponseStatus = lens _cisrsResponseStatus (\ s a -> s{_cisrsResponseStatus = a})
 
 instance NFData CreateIPSetResponse where

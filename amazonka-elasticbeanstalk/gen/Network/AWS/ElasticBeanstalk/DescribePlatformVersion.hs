@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribePlatformVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ describePlatformVersion = DescribePlatformVersion' {_dPlatformARN = Nothing}
 
 -- | The ARN of the version of the platform.
 dPlatformARN :: Lens' DescribePlatformVersion (Maybe Text)
-dPlatformARN = lens _dPlatformARN (\ s a -> s{_dPlatformARN = a});
+dPlatformARN = lens _dPlatformARN (\ s a -> s{_dPlatformARN = a})
 
 instance AWSRequest DescribePlatformVersion where
         type Rs DescribePlatformVersion =
@@ -112,15 +112,15 @@ describePlatformVersionResponse
     -> DescribePlatformVersionResponse
 describePlatformVersionResponse pResponseStatus_ =
   DescribePlatformVersionResponse'
-  {_drsPlatformDescription = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsPlatformDescription = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | Detailed information about the version of the platform.
 drsPlatformDescription :: Lens' DescribePlatformVersionResponse (Maybe PlatformDescription)
-drsPlatformDescription = lens _drsPlatformDescription (\ s a -> s{_drsPlatformDescription = a});
+drsPlatformDescription = lens _drsPlatformDescription (\ s a -> s{_drsPlatformDescription = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribePlatformVersionResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribePlatformVersionResponse where

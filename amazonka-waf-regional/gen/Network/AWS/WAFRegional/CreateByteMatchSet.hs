@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.CreateByteMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,11 +84,11 @@ createByteMatchSet pName_ pChangeToken_ =
 
 -- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
 cbmsName :: Lens' CreateByteMatchSet Text
-cbmsName = lens _cbmsName (\ s a -> s{_cbmsName = a});
+cbmsName = lens _cbmsName (\ s a -> s{_cbmsName = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 cbmsChangeToken :: Lens' CreateByteMatchSet Text
-cbmsChangeToken = lens _cbmsChangeToken (\ s a -> s{_cbmsChangeToken = a});
+cbmsChangeToken = lens _cbmsChangeToken (\ s a -> s{_cbmsChangeToken = a})
 
 instance AWSRequest CreateByteMatchSet where
         type Rs CreateByteMatchSet =
@@ -150,22 +150,22 @@ createByteMatchSetResponse
     -> CreateByteMatchSetResponse
 createByteMatchSetResponse pResponseStatus_ =
   CreateByteMatchSetResponse'
-  { _cbmsrsByteMatchSet = Nothing
-  , _cbmsrsChangeToken = Nothing
-  , _cbmsrsResponseStatus = pResponseStatus_
-  }
+    { _cbmsrsByteMatchSet = Nothing
+    , _cbmsrsChangeToken = Nothing
+    , _cbmsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A 'ByteMatchSet' that contains no @ByteMatchTuple@ objects.
 cbmsrsByteMatchSet :: Lens' CreateByteMatchSetResponse (Maybe ByteMatchSet)
-cbmsrsByteMatchSet = lens _cbmsrsByteMatchSet (\ s a -> s{_cbmsrsByteMatchSet = a});
+cbmsrsByteMatchSet = lens _cbmsrsByteMatchSet (\ s a -> s{_cbmsrsByteMatchSet = a})
 
 -- | The @ChangeToken@ that you used to submit the @CreateByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 cbmsrsChangeToken :: Lens' CreateByteMatchSetResponse (Maybe Text)
-cbmsrsChangeToken = lens _cbmsrsChangeToken (\ s a -> s{_cbmsrsChangeToken = a});
+cbmsrsChangeToken = lens _cbmsrsChangeToken (\ s a -> s{_cbmsrsChangeToken = a})
 
 -- | -- | The response status code.
 cbmsrsResponseStatus :: Lens' CreateByteMatchSetResponse Int
-cbmsrsResponseStatus = lens _cbmsrsResponseStatus (\ s a -> s{_cbmsrsResponseStatus = a});
+cbmsrsResponseStatus = lens _cbmsrsResponseStatus (\ s a -> s{_cbmsrsResponseStatus = a})
 
 instance NFData CreateByteMatchSetResponse where

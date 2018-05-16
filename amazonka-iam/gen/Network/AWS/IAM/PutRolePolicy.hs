@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.PutRolePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,9 +63,9 @@ data PutRolePolicy = PutRolePolicy'
 --
 -- * 'prpRoleName' - The name of the role to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'prpPolicyName' - The name of the policy document. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
+-- * 'prpPolicyName' - The name of the policy document. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'prpPolicyDocument' - The policy document. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- * 'prpPolicyDocument' - The policy document. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:     * Any printable ASCII character ranging from the space character (\u0020) through the end of the ASCII character range     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF)     * The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)
 putRolePolicy
     :: Text -- ^ 'prpRoleName'
     -> Text -- ^ 'prpPolicyName'
@@ -73,23 +73,23 @@ putRolePolicy
     -> PutRolePolicy
 putRolePolicy pRoleName_ pPolicyName_ pPolicyDocument_ =
   PutRolePolicy'
-  { _prpRoleName = pRoleName_
-  , _prpPolicyName = pPolicyName_
-  , _prpPolicyDocument = pPolicyDocument_
-  }
+    { _prpRoleName = pRoleName_
+    , _prpPolicyName = pPolicyName_
+    , _prpPolicyDocument = pPolicyDocument_
+    }
 
 
 -- | The name of the role to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 prpRoleName :: Lens' PutRolePolicy Text
-prpRoleName = lens _prpRoleName (\ s a -> s{_prpRoleName = a});
+prpRoleName = lens _prpRoleName (\ s a -> s{_prpRoleName = a})
 
--- | The name of the policy document. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
+-- | The name of the policy document. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 prpPolicyName :: Lens' PutRolePolicy Text
-prpPolicyName = lens _prpPolicyName (\ s a -> s{_prpPolicyName = a});
+prpPolicyName = lens _prpPolicyName (\ s a -> s{_prpPolicyName = a})
 
--- | The policy document. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- | The policy document. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:     * Any printable ASCII character ranging from the space character (\u0020) through the end of the ASCII character range     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF)     * The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)
 prpPolicyDocument :: Lens' PutRolePolicy Text
-prpPolicyDocument = lens _prpPolicyDocument (\ s a -> s{_prpPolicyDocument = a});
+prpPolicyDocument = lens _prpPolicyDocument (\ s a -> s{_prpPolicyDocument = a})
 
 instance AWSRequest PutRolePolicy where
         type Rs PutRolePolicy = PutRolePolicyResponse

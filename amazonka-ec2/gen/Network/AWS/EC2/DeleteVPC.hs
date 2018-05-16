@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPC
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ deleteVPC pVPCId_ = DeleteVPC' {_delDryRun = Nothing, _delVPCId = pVPCId_}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 delDryRun :: Lens' DeleteVPC (Maybe Bool)
-delDryRun = lens _delDryRun (\ s a -> s{_delDryRun = a});
+delDryRun = lens _delDryRun (\ s a -> s{_delDryRun = a})
 
 -- | The ID of the VPC.
 delVPCId :: Lens' DeleteVPC Text
-delVPCId = lens _delVPCId (\ s a -> s{_delVPCId = a});
+delVPCId = lens _delVPCId (\ s a -> s{_delVPCId = a})
 
 instance AWSRequest DeleteVPC where
         type Rs DeleteVPC = DeleteVPCResponse

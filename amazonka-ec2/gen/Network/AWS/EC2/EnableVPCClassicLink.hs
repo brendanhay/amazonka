@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.EnableVPCClassicLink
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ enableVPCClassicLink pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 evclDryRun :: Lens' EnableVPCClassicLink (Maybe Bool)
-evclDryRun = lens _evclDryRun (\ s a -> s{_evclDryRun = a});
+evclDryRun = lens _evclDryRun (\ s a -> s{_evclDryRun = a})
 
 -- | The ID of the VPC.
 evclVPCId :: Lens' EnableVPCClassicLink Text
-evclVPCId = lens _evclVPCId (\ s a -> s{_evclVPCId = a});
+evclVPCId = lens _evclVPCId (\ s a -> s{_evclVPCId = a})
 
 instance AWSRequest EnableVPCClassicLink where
         type Rs EnableVPCClassicLink =
@@ -128,15 +128,15 @@ enableVPCClassicLinkResponse
     -> EnableVPCClassicLinkResponse
 enableVPCClassicLinkResponse pResponseStatus_ =
   EnableVPCClassicLinkResponse'
-  {_evclrsReturn = Nothing, _evclrsResponseStatus = pResponseStatus_}
+    {_evclrsReturn = Nothing, _evclrsResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 evclrsReturn :: Lens' EnableVPCClassicLinkResponse (Maybe Bool)
-evclrsReturn = lens _evclrsReturn (\ s a -> s{_evclrsReturn = a});
+evclrsReturn = lens _evclrsReturn (\ s a -> s{_evclrsReturn = a})
 
 -- | -- | The response status code.
 evclrsResponseStatus :: Lens' EnableVPCClassicLinkResponse Int
-evclrsResponseStatus = lens _evclrsResponseStatus (\ s a -> s{_evclrsResponseStatus = a});
+evclrsResponseStatus = lens _evclrsResponseStatus (\ s a -> s{_evclrsResponseStatus = a})
 
 instance NFData EnableVPCClassicLinkResponse where

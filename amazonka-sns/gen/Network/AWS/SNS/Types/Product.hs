@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,11 +46,11 @@ endpoint = Endpoint' {_eAttributes = Nothing, _eEndpointARN = Nothing}
 
 -- | Attributes for endpoint.
 eAttributes :: Lens' Endpoint (HashMap Text Text)
-eAttributes = lens _eAttributes (\ s a -> s{_eAttributes = a}) . _Default . _Map;
+eAttributes = lens _eAttributes (\ s a -> s{_eAttributes = a}) . _Default . _Map
 
 -- | EndpointArn for mobile app and device.
 eEndpointARN :: Lens' Endpoint (Maybe Text)
-eEndpointARN = lens _eEndpointARN (\ s a -> s{_eEndpointARN = a});
+eEndpointARN = lens _eEndpointARN (\ s a -> s{_eEndpointARN = a})
 
 instance FromXML Endpoint where
         parseXML x
@@ -91,23 +91,23 @@ messageAttributeValue
     -> MessageAttributeValue
 messageAttributeValue pDataType_ =
   MessageAttributeValue'
-  { _mavBinaryValue = Nothing
-  , _mavStringValue = Nothing
-  , _mavDataType = pDataType_
-  }
+    { _mavBinaryValue = Nothing
+    , _mavStringValue = Nothing
+    , _mavDataType = pDataType_
+    }
 
 
 -- | Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
-mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a}) . mapping _Base64;
+mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a}) . mapping _Base64
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters> .
 mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
-mavStringValue = lens _mavStringValue (\ s a -> s{_mavStringValue = a});
+mavStringValue = lens _mavStringValue (\ s a -> s{_mavStringValue = a})
 
 -- | Amazon SNS supports the following logical data types: String, Number, and Binary. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types> .
 mavDataType :: Lens' MessageAttributeValue Text
-mavDataType = lens _mavDataType (\ s a -> s{_mavDataType = a});
+mavDataType = lens _mavDataType (\ s a -> s{_mavDataType = a})
 
 instance Hashable MessageAttributeValue where
 
@@ -142,16 +142,16 @@ platformApplication
     :: PlatformApplication
 platformApplication =
   PlatformApplication'
-  {_paPlatformApplicationARN = Nothing, _paAttributes = Nothing}
+    {_paPlatformApplicationARN = Nothing, _paAttributes = Nothing}
 
 
 -- | PlatformApplicationArn for platform application object.
 paPlatformApplicationARN :: Lens' PlatformApplication (Maybe Text)
-paPlatformApplicationARN = lens _paPlatformApplicationARN (\ s a -> s{_paPlatformApplicationARN = a});
+paPlatformApplicationARN = lens _paPlatformApplicationARN (\ s a -> s{_paPlatformApplicationARN = a})
 
 -- | Attributes for platform application object.
 paAttributes :: Lens' PlatformApplication (HashMap Text Text)
-paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Default . _Map;
+paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Default . _Map
 
 instance FromXML PlatformApplication where
         parseXML x
@@ -195,33 +195,33 @@ subscription
     :: Subscription
 subscription =
   Subscription'
-  { _sProtocol = Nothing
-  , _sOwner = Nothing
-  , _sTopicARN = Nothing
-  , _sEndpoint = Nothing
-  , _sSubscriptionARN = Nothing
-  }
+    { _sProtocol = Nothing
+    , _sOwner = Nothing
+    , _sTopicARN = Nothing
+    , _sEndpoint = Nothing
+    , _sSubscriptionARN = Nothing
+    }
 
 
 -- | The subscription's protocol.
 sProtocol :: Lens' Subscription (Maybe Text)
-sProtocol = lens _sProtocol (\ s a -> s{_sProtocol = a});
+sProtocol = lens _sProtocol (\ s a -> s{_sProtocol = a})
 
 -- | The subscription's owner.
 sOwner :: Lens' Subscription (Maybe Text)
-sOwner = lens _sOwner (\ s a -> s{_sOwner = a});
+sOwner = lens _sOwner (\ s a -> s{_sOwner = a})
 
 -- | The ARN of the subscription's topic.
 sTopicARN :: Lens' Subscription (Maybe Text)
-sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a});
+sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a})
 
 -- | The subscription's endpoint (format depends on the protocol).
 sEndpoint :: Lens' Subscription (Maybe Text)
-sEndpoint = lens _sEndpoint (\ s a -> s{_sEndpoint = a});
+sEndpoint = lens _sEndpoint (\ s a -> s{_sEndpoint = a})
 
 -- | The subscription's ARN.
 sSubscriptionARN :: Lens' Subscription (Maybe Text)
-sSubscriptionARN = lens _sSubscriptionARN (\ s a -> s{_sSubscriptionARN = a});
+sSubscriptionARN = lens _sSubscriptionARN (\ s a -> s{_sSubscriptionARN = a})
 
 instance FromXML Subscription where
         parseXML x
@@ -257,7 +257,7 @@ topic = Topic' {_tTopicARN = Nothing}
 
 -- | The topic's ARN.
 tTopicARN :: Lens' Topic (Maybe Text)
-tTopicARN = lens _tTopicARN (\ s a -> s{_tTopicARN = a});
+tTopicARN = lens _tTopicARN (\ s a -> s{_tTopicARN = a})
 
 instance FromXML Topic where
         parseXML x = Topic' <$> (x .@? "TopicArn")

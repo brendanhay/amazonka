@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.PollForDecisionTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -110,38 +110,38 @@ pollForDecisionTask
     -> PollForDecisionTask
 pollForDecisionTask pDomain_ pTaskList_ =
   PollForDecisionTask'
-  { _pfdtNextPageToken = Nothing
-  , _pfdtReverseOrder = Nothing
-  , _pfdtMaximumPageSize = Nothing
-  , _pfdtIdentity = Nothing
-  , _pfdtDomain = pDomain_
-  , _pfdtTaskList = pTaskList_
-  }
+    { _pfdtNextPageToken = Nothing
+    , _pfdtReverseOrder = Nothing
+    , _pfdtMaximumPageSize = Nothing
+    , _pfdtIdentity = Nothing
+    , _pfdtDomain = pDomain_
+    , _pfdtTaskList = pTaskList_
+    }
 
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 pfdtNextPageToken :: Lens' PollForDecisionTask (Maybe Text)
-pfdtNextPageToken = lens _pfdtNextPageToken (\ s a -> s{_pfdtNextPageToken = a});
+pfdtNextPageToken = lens _pfdtNextPageToken (\ s a -> s{_pfdtNextPageToken = a})
 
 -- | When set to @true@ , returns the events in reverse order. By default the results are returned in ascending order of the @eventTimestamp@ of the events.
 pfdtReverseOrder :: Lens' PollForDecisionTask (Maybe Bool)
-pfdtReverseOrder = lens _pfdtReverseOrder (\ s a -> s{_pfdtReverseOrder = a});
+pfdtReverseOrder = lens _pfdtReverseOrder (\ s a -> s{_pfdtReverseOrder = a})
 
 -- | The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 pfdtMaximumPageSize :: Lens' PollForDecisionTask (Maybe Natural)
-pfdtMaximumPageSize = lens _pfdtMaximumPageSize (\ s a -> s{_pfdtMaximumPageSize = a}) . mapping _Nat;
+pfdtMaximumPageSize = lens _pfdtMaximumPageSize (\ s a -> s{_pfdtMaximumPageSize = a}) . mapping _Nat
 
 -- | Identity of the decider making the request, which is recorded in the DecisionTaskStarted event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
 pfdtIdentity :: Lens' PollForDecisionTask (Maybe Text)
-pfdtIdentity = lens _pfdtIdentity (\ s a -> s{_pfdtIdentity = a});
+pfdtIdentity = lens _pfdtIdentity (\ s a -> s{_pfdtIdentity = a})
 
 -- | The name of the domain containing the task lists to poll.
 pfdtDomain :: Lens' PollForDecisionTask Text
-pfdtDomain = lens _pfdtDomain (\ s a -> s{_pfdtDomain = a});
+pfdtDomain = lens _pfdtDomain (\ s a -> s{_pfdtDomain = a})
 
 -- | Specifies the task list to poll for decision tasks. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 pfdtTaskList :: Lens' PollForDecisionTask TaskList
-pfdtTaskList = lens _pfdtTaskList (\ s a -> s{_pfdtTaskList = a});
+pfdtTaskList = lens _pfdtTaskList (\ s a -> s{_pfdtTaskList = a})
 
 instance AWSPager PollForDecisionTask where
         page rq rs
@@ -240,47 +240,47 @@ pollForDecisionTaskResponse
     -> PollForDecisionTaskResponse
 pollForDecisionTaskResponse pResponseStatus_ pStartedEventId_ =
   PollForDecisionTaskResponse'
-  { _pfdtrsNextPageToken = Nothing
-  , _pfdtrsWorkflowType = Nothing
-  , _pfdtrsPreviousStartedEventId = Nothing
-  , _pfdtrsEvents = Nothing
-  , _pfdtrsTaskToken = Nothing
-  , _pfdtrsWorkflowExecution = Nothing
-  , _pfdtrsResponseStatus = pResponseStatus_
-  , _pfdtrsStartedEventId = pStartedEventId_
-  }
+    { _pfdtrsNextPageToken = Nothing
+    , _pfdtrsWorkflowType = Nothing
+    , _pfdtrsPreviousStartedEventId = Nothing
+    , _pfdtrsEvents = Nothing
+    , _pfdtrsTaskToken = Nothing
+    , _pfdtrsWorkflowExecution = Nothing
+    , _pfdtrsResponseStatus = pResponseStatus_
+    , _pfdtrsStartedEventId = pStartedEventId_
+    }
 
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 pfdtrsNextPageToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
-pfdtrsNextPageToken = lens _pfdtrsNextPageToken (\ s a -> s{_pfdtrsNextPageToken = a});
+pfdtrsNextPageToken = lens _pfdtrsNextPageToken (\ s a -> s{_pfdtrsNextPageToken = a})
 
 -- | The type of the workflow execution for which this decision task was created.
 pfdtrsWorkflowType :: Lens' PollForDecisionTaskResponse (Maybe WorkflowType)
-pfdtrsWorkflowType = lens _pfdtrsWorkflowType (\ s a -> s{_pfdtrsWorkflowType = a});
+pfdtrsWorkflowType = lens _pfdtrsWorkflowType (\ s a -> s{_pfdtrsWorkflowType = a})
 
 -- | The ID of the DecisionTaskStarted event of the previous decision task of this workflow execution that was processed by the decider. This can be used to determine the events in the history new since the last decision task received by the decider.
 pfdtrsPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
-pfdtrsPreviousStartedEventId = lens _pfdtrsPreviousStartedEventId (\ s a -> s{_pfdtrsPreviousStartedEventId = a});
+pfdtrsPreviousStartedEventId = lens _pfdtrsPreviousStartedEventId (\ s a -> s{_pfdtrsPreviousStartedEventId = a})
 
 -- | A paginated list of history events of the workflow execution. The decider uses this during the processing of the decision task.
 pfdtrsEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
-pfdtrsEvents = lens _pfdtrsEvents (\ s a -> s{_pfdtrsEvents = a}) . _Default . _Coerce;
+pfdtrsEvents = lens _pfdtrsEvents (\ s a -> s{_pfdtrsEvents = a}) . _Default . _Coerce
 
 -- | The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.
 pfdtrsTaskToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
-pfdtrsTaskToken = lens _pfdtrsTaskToken (\ s a -> s{_pfdtrsTaskToken = a});
+pfdtrsTaskToken = lens _pfdtrsTaskToken (\ s a -> s{_pfdtrsTaskToken = a})
 
 -- | The workflow execution for which this decision task was created.
 pfdtrsWorkflowExecution :: Lens' PollForDecisionTaskResponse (Maybe WorkflowExecution)
-pfdtrsWorkflowExecution = lens _pfdtrsWorkflowExecution (\ s a -> s{_pfdtrsWorkflowExecution = a});
+pfdtrsWorkflowExecution = lens _pfdtrsWorkflowExecution (\ s a -> s{_pfdtrsWorkflowExecution = a})
 
 -- | -- | The response status code.
 pfdtrsResponseStatus :: Lens' PollForDecisionTaskResponse Int
-pfdtrsResponseStatus = lens _pfdtrsResponseStatus (\ s a -> s{_pfdtrsResponseStatus = a});
+pfdtrsResponseStatus = lens _pfdtrsResponseStatus (\ s a -> s{_pfdtrsResponseStatus = a})
 
 -- | The ID of the @DecisionTaskStarted@ event recorded in the history.
 pfdtrsStartedEventId :: Lens' PollForDecisionTaskResponse Integer
-pfdtrsStartedEventId = lens _pfdtrsStartedEventId (\ s a -> s{_pfdtrsStartedEventId = a});
+pfdtrsStartedEventId = lens _pfdtrsStartedEventId (\ s a -> s{_pfdtrsStartedEventId = a})
 
 instance NFData PollForDecisionTaskResponse where

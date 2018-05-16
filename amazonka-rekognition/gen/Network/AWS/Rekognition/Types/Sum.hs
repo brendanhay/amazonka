@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,6 +44,60 @@ instance ToQuery      Attribute
 instance ToHeader     Attribute
 
 instance ToJSON Attribute where
+    toJSON = toJSONText
+
+data CelebrityRecognitionSortBy
+  = CRSBId
+  | CRSBTimestamp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CelebrityRecognitionSortBy where
+    parser = takeLowerText >>= \case
+        "id" -> pure CRSBId
+        "timestamp" -> pure CRSBTimestamp
+        e -> fromTextError $ "Failure parsing CelebrityRecognitionSortBy from value: '" <> e
+           <> "'. Accepted values: id, timestamp"
+
+instance ToText CelebrityRecognitionSortBy where
+    toText = \case
+        CRSBId -> "ID"
+        CRSBTimestamp -> "TIMESTAMP"
+
+instance Hashable     CelebrityRecognitionSortBy
+instance NFData       CelebrityRecognitionSortBy
+instance ToByteString CelebrityRecognitionSortBy
+instance ToQuery      CelebrityRecognitionSortBy
+instance ToHeader     CelebrityRecognitionSortBy
+
+instance ToJSON CelebrityRecognitionSortBy where
+    toJSON = toJSONText
+
+data ContentModerationSortBy
+  = CMSBName
+  | CMSBTimestamp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ContentModerationSortBy where
+    parser = takeLowerText >>= \case
+        "name" -> pure CMSBName
+        "timestamp" -> pure CMSBTimestamp
+        e -> fromTextError $ "Failure parsing ContentModerationSortBy from value: '" <> e
+           <> "'. Accepted values: name, timestamp"
+
+instance ToText ContentModerationSortBy where
+    toText = \case
+        CMSBName -> "NAME"
+        CMSBTimestamp -> "TIMESTAMP"
+
+instance Hashable     ContentModerationSortBy
+instance NFData       ContentModerationSortBy
+instance ToByteString ContentModerationSortBy
+instance ToQuery      ContentModerationSortBy
+instance ToHeader     ContentModerationSortBy
+
+instance ToJSON ContentModerationSortBy where
     toJSON = toJSONText
 
 data EmotionName
@@ -91,6 +145,60 @@ instance ToHeader     EmotionName
 instance FromJSON EmotionName where
     parseJSON = parseJSONText "EmotionName"
 
+data FaceAttributes
+  = FAAll
+  | FADefault
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FaceAttributes where
+    parser = takeLowerText >>= \case
+        "all" -> pure FAAll
+        "default" -> pure FADefault
+        e -> fromTextError $ "Failure parsing FaceAttributes from value: '" <> e
+           <> "'. Accepted values: all, default"
+
+instance ToText FaceAttributes where
+    toText = \case
+        FAAll -> "ALL"
+        FADefault -> "DEFAULT"
+
+instance Hashable     FaceAttributes
+instance NFData       FaceAttributes
+instance ToByteString FaceAttributes
+instance ToQuery      FaceAttributes
+instance ToHeader     FaceAttributes
+
+instance ToJSON FaceAttributes where
+    toJSON = toJSONText
+
+data FaceSearchSortBy
+  = FSSBIndex
+  | FSSBTimestamp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FaceSearchSortBy where
+    parser = takeLowerText >>= \case
+        "index" -> pure FSSBIndex
+        "timestamp" -> pure FSSBTimestamp
+        e -> fromTextError $ "Failure parsing FaceSearchSortBy from value: '" <> e
+           <> "'. Accepted values: index, timestamp"
+
+instance ToText FaceSearchSortBy where
+    toText = \case
+        FSSBIndex -> "INDEX"
+        FSSBTimestamp -> "TIMESTAMP"
+
+instance Hashable     FaceSearchSortBy
+instance NFData       FaceSearchSortBy
+instance ToByteString FaceSearchSortBy
+instance ToQuery      FaceSearchSortBy
+instance ToHeader     FaceSearchSortBy
+
+instance ToJSON FaceSearchSortBy where
+    toJSON = toJSONText
+
 data GenderType
   = Female
   | Male
@@ -117,6 +225,33 @@ instance ToHeader     GenderType
 
 instance FromJSON GenderType where
     parseJSON = parseJSONText "GenderType"
+
+data LabelDetectionSortBy
+  = LDSBName
+  | LDSBTimestamp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText LabelDetectionSortBy where
+    parser = takeLowerText >>= \case
+        "name" -> pure LDSBName
+        "timestamp" -> pure LDSBTimestamp
+        e -> fromTextError $ "Failure parsing LabelDetectionSortBy from value: '" <> e
+           <> "'. Accepted values: name, timestamp"
+
+instance ToText LabelDetectionSortBy where
+    toText = \case
+        LDSBName -> "NAME"
+        LDSBTimestamp -> "TIMESTAMP"
+
+instance Hashable     LabelDetectionSortBy
+instance NFData       LabelDetectionSortBy
+instance ToByteString LabelDetectionSortBy
+instance ToQuery      LabelDetectionSortBy
+instance ToHeader     LabelDetectionSortBy
+
+instance ToJSON LabelDetectionSortBy where
+    toJSON = toJSONText
 
 data LandmarkType
   = EyeLeft
@@ -246,3 +381,123 @@ instance ToHeader     OrientationCorrection
 
 instance FromJSON OrientationCorrection where
     parseJSON = parseJSONText "OrientationCorrection"
+
+data PersonTrackingSortBy
+  = Index
+  | Timestamp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PersonTrackingSortBy where
+    parser = takeLowerText >>= \case
+        "index" -> pure Index
+        "timestamp" -> pure Timestamp
+        e -> fromTextError $ "Failure parsing PersonTrackingSortBy from value: '" <> e
+           <> "'. Accepted values: index, timestamp"
+
+instance ToText PersonTrackingSortBy where
+    toText = \case
+        Index -> "INDEX"
+        Timestamp -> "TIMESTAMP"
+
+instance Hashable     PersonTrackingSortBy
+instance NFData       PersonTrackingSortBy
+instance ToByteString PersonTrackingSortBy
+instance ToQuery      PersonTrackingSortBy
+instance ToHeader     PersonTrackingSortBy
+
+instance ToJSON PersonTrackingSortBy where
+    toJSON = toJSONText
+
+data StreamProcessorStatus
+  = SPSFailed
+  | SPSRunning
+  | SPSStarting
+  | SPSStopped
+  | SPSStopping
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StreamProcessorStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure SPSFailed
+        "running" -> pure SPSRunning
+        "starting" -> pure SPSStarting
+        "stopped" -> pure SPSStopped
+        "stopping" -> pure SPSStopping
+        e -> fromTextError $ "Failure parsing StreamProcessorStatus from value: '" <> e
+           <> "'. Accepted values: failed, running, starting, stopped, stopping"
+
+instance ToText StreamProcessorStatus where
+    toText = \case
+        SPSFailed -> "FAILED"
+        SPSRunning -> "RUNNING"
+        SPSStarting -> "STARTING"
+        SPSStopped -> "STOPPED"
+        SPSStopping -> "STOPPING"
+
+instance Hashable     StreamProcessorStatus
+instance NFData       StreamProcessorStatus
+instance ToByteString StreamProcessorStatus
+instance ToQuery      StreamProcessorStatus
+instance ToHeader     StreamProcessorStatus
+
+instance FromJSON StreamProcessorStatus where
+    parseJSON = parseJSONText "StreamProcessorStatus"
+
+data TextTypes
+  = Line
+  | Word
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TextTypes where
+    parser = takeLowerText >>= \case
+        "line" -> pure Line
+        "word" -> pure Word
+        e -> fromTextError $ "Failure parsing TextTypes from value: '" <> e
+           <> "'. Accepted values: line, word"
+
+instance ToText TextTypes where
+    toText = \case
+        Line -> "LINE"
+        Word -> "WORD"
+
+instance Hashable     TextTypes
+instance NFData       TextTypes
+instance ToByteString TextTypes
+instance ToQuery      TextTypes
+instance ToHeader     TextTypes
+
+instance FromJSON TextTypes where
+    parseJSON = parseJSONText "TextTypes"
+
+data VideoJobStatus
+  = Failed
+  | InProgress
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText VideoJobStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "in_progress" -> pure InProgress
+        "succeeded" -> pure Succeeded
+        e -> fromTextError $ "Failure parsing VideoJobStatus from value: '" <> e
+           <> "'. Accepted values: failed, in_progress, succeeded"
+
+instance ToText VideoJobStatus where
+    toText = \case
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+        Succeeded -> "SUCCEEDED"
+
+instance Hashable     VideoJobStatus
+instance NFData       VideoJobStatus
+instance ToByteString VideoJobStatus
+instance ToQuery      VideoJobStatus
+instance ToHeader     VideoJobStatus
+
+instance FromJSON VideoJobStatus where
+    parseJSON = parseJSONText "VideoJobStatus"

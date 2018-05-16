@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SMS.GetServers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ getServers = GetServers' {_gsNextToken = Nothing, _gsMaxResults = Nothing}
 
 -- | Undocumented member.
 gsNextToken :: Lens' GetServers (Maybe Text)
-gsNextToken = lens _gsNextToken (\ s a -> s{_gsNextToken = a});
+gsNextToken = lens _gsNextToken (\ s a -> s{_gsNextToken = a})
 
 -- | Undocumented member.
 gsMaxResults :: Lens' GetServers (Maybe Int)
-gsMaxResults = lens _gsMaxResults (\ s a -> s{_gsMaxResults = a});
+gsMaxResults = lens _gsMaxResults (\ s a -> s{_gsMaxResults = a})
 
 instance AWSPager GetServers where
         page rq rs
@@ -151,32 +151,32 @@ getServersResponse
     -> GetServersResponse
 getServersResponse pResponseStatus_ =
   GetServersResponse'
-  { _gsrsServerCatalogStatus = Nothing
-  , _gsrsLastModifiedOn = Nothing
-  , _gsrsNextToken = Nothing
-  , _gsrsServerList = Nothing
-  , _gsrsResponseStatus = pResponseStatus_
-  }
+    { _gsrsServerCatalogStatus = Nothing
+    , _gsrsLastModifiedOn = Nothing
+    , _gsrsNextToken = Nothing
+    , _gsrsServerList = Nothing
+    , _gsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 gsrsServerCatalogStatus :: Lens' GetServersResponse (Maybe ServerCatalogStatus)
-gsrsServerCatalogStatus = lens _gsrsServerCatalogStatus (\ s a -> s{_gsrsServerCatalogStatus = a});
+gsrsServerCatalogStatus = lens _gsrsServerCatalogStatus (\ s a -> s{_gsrsServerCatalogStatus = a})
 
 -- | Undocumented member.
 gsrsLastModifiedOn :: Lens' GetServersResponse (Maybe UTCTime)
-gsrsLastModifiedOn = lens _gsrsLastModifiedOn (\ s a -> s{_gsrsLastModifiedOn = a}) . mapping _Time;
+gsrsLastModifiedOn = lens _gsrsLastModifiedOn (\ s a -> s{_gsrsLastModifiedOn = a}) . mapping _Time
 
 -- | Undocumented member.
 gsrsNextToken :: Lens' GetServersResponse (Maybe Text)
-gsrsNextToken = lens _gsrsNextToken (\ s a -> s{_gsrsNextToken = a});
+gsrsNextToken = lens _gsrsNextToken (\ s a -> s{_gsrsNextToken = a})
 
 -- | Undocumented member.
 gsrsServerList :: Lens' GetServersResponse [Server]
-gsrsServerList = lens _gsrsServerList (\ s a -> s{_gsrsServerList = a}) . _Default . _Coerce;
+gsrsServerList = lens _gsrsServerList (\ s a -> s{_gsrsServerList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gsrsResponseStatus :: Lens' GetServersResponse Int
-gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
+gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a})
 
 instance NFData GetServersResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetConnections
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Retrieves a list of connection definitions from the Data Catalog.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Glue.GetConnections
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.Glue.GetConnections
 import Network.AWS.Glue.Types
 import Network.AWS.Glue.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,28 +75,35 @@ getConnections
     :: GetConnections
 getConnections =
   GetConnections'
-  { _gcsCatalogId = Nothing
-  , _gcsNextToken = Nothing
-  , _gcsFilter = Nothing
-  , _gcsMaxResults = Nothing
-  }
+    { _gcsCatalogId = Nothing
+    , _gcsNextToken = Nothing
+    , _gcsFilter = Nothing
+    , _gcsMaxResults = Nothing
+    }
 
 
 -- | The ID of the Data Catalog in which the connections reside. If none is supplied, the AWS account ID is used by default.
 gcsCatalogId :: Lens' GetConnections (Maybe Text)
-gcsCatalogId = lens _gcsCatalogId (\ s a -> s{_gcsCatalogId = a});
+gcsCatalogId = lens _gcsCatalogId (\ s a -> s{_gcsCatalogId = a})
 
 -- | A continuation token, if this is a continuation call.
 gcsNextToken :: Lens' GetConnections (Maybe Text)
-gcsNextToken = lens _gcsNextToken (\ s a -> s{_gcsNextToken = a});
+gcsNextToken = lens _gcsNextToken (\ s a -> s{_gcsNextToken = a})
 
 -- | A filter that controls which connections will be returned.
 gcsFilter :: Lens' GetConnections (Maybe GetConnectionsFilter)
-gcsFilter = lens _gcsFilter (\ s a -> s{_gcsFilter = a});
+gcsFilter = lens _gcsFilter (\ s a -> s{_gcsFilter = a})
 
 -- | The maximum number of connections to return in one response.
 gcsMaxResults :: Lens' GetConnections (Maybe Natural)
-gcsMaxResults = lens _gcsMaxResults (\ s a -> s{_gcsMaxResults = a}) . mapping _Nat;
+gcsMaxResults = lens _gcsMaxResults (\ s a -> s{_gcsMaxResults = a}) . mapping _Nat
+
+instance AWSPager GetConnections where
+        page rq rs
+          | stop (rs ^. gccrsNextToken) = Nothing
+          | stop (rs ^. gccrsConnectionList) = Nothing
+          | otherwise =
+            Just $ rq & gcsNextToken .~ rs ^. gccrsNextToken
 
 instance AWSRequest GetConnections where
         type Rs GetConnections = GetConnectionsResponse
@@ -156,22 +166,22 @@ getConnectionsResponse
     -> GetConnectionsResponse
 getConnectionsResponse pResponseStatus_ =
   GetConnectionsResponse'
-  { _gccrsNextToken = Nothing
-  , _gccrsConnectionList = Nothing
-  , _gccrsResponseStatus = pResponseStatus_
-  }
+    { _gccrsNextToken = Nothing
+    , _gccrsConnectionList = Nothing
+    , _gccrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A continuation token, if the list of connections returned does not include the last of the filtered connections.
 gccrsNextToken :: Lens' GetConnectionsResponse (Maybe Text)
-gccrsNextToken = lens _gccrsNextToken (\ s a -> s{_gccrsNextToken = a});
+gccrsNextToken = lens _gccrsNextToken (\ s a -> s{_gccrsNextToken = a})
 
 -- | A list of requested connection definitions.
 gccrsConnectionList :: Lens' GetConnectionsResponse [Connection]
-gccrsConnectionList = lens _gccrsConnectionList (\ s a -> s{_gccrsConnectionList = a}) . _Default . _Coerce;
+gccrsConnectionList = lens _gccrsConnectionList (\ s a -> s{_gccrsConnectionList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gccrsResponseStatus :: Lens' GetConnectionsResponse Int
-gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a});
+gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a})
 
 instance NFData GetConnectionsResponse where

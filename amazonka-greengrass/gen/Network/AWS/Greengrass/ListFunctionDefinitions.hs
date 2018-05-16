@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListFunctionDefinitions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,22 +55,22 @@ data ListFunctionDefinitions = ListFunctionDefinitions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfdNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lfdNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lfdMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lfdMaxResults' - The maximum number of results to be returned per request.
 listFunctionDefinitions
     :: ListFunctionDefinitions
 listFunctionDefinitions =
   ListFunctionDefinitions' {_lfdNextToken = Nothing, _lfdMaxResults = Nothing}
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lfdNextToken :: Lens' ListFunctionDefinitions (Maybe Text)
-lfdNextToken = lens _lfdNextToken (\ s a -> s{_lfdNextToken = a});
+lfdNextToken = lens _lfdNextToken (\ s a -> s{_lfdNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lfdMaxResults :: Lens' ListFunctionDefinitions (Maybe Text)
-lfdMaxResults = lens _lfdMaxResults (\ s a -> s{_lfdMaxResults = a});
+lfdMaxResults = lens _lfdMaxResults (\ s a -> s{_lfdMaxResults = a})
 
 instance AWSRequest ListFunctionDefinitions where
         type Rs ListFunctionDefinitions =
@@ -118,7 +118,7 @@ data ListFunctionDefinitionsResponse = ListFunctionDefinitionsResponse'
 --
 -- * 'lfdrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lfdrsDefinitions' - Definitions
+-- * 'lfdrsDefinitions' - Information about a definition.
 --
 -- * 'lfdrsResponseStatus' - -- | The response status code.
 listFunctionDefinitionsResponse
@@ -126,22 +126,22 @@ listFunctionDefinitionsResponse
     -> ListFunctionDefinitionsResponse
 listFunctionDefinitionsResponse pResponseStatus_ =
   ListFunctionDefinitionsResponse'
-  { _lfdrsNextToken = Nothing
-  , _lfdrsDefinitions = Nothing
-  , _lfdrsResponseStatus = pResponseStatus_
-  }
+    { _lfdrsNextToken = Nothing
+    , _lfdrsDefinitions = Nothing
+    , _lfdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lfdrsNextToken :: Lens' ListFunctionDefinitionsResponse (Maybe Text)
-lfdrsNextToken = lens _lfdrsNextToken (\ s a -> s{_lfdrsNextToken = a});
+lfdrsNextToken = lens _lfdrsNextToken (\ s a -> s{_lfdrsNextToken = a})
 
--- | Definitions
+-- | Information about a definition.
 lfdrsDefinitions :: Lens' ListFunctionDefinitionsResponse [DefinitionInformation]
-lfdrsDefinitions = lens _lfdrsDefinitions (\ s a -> s{_lfdrsDefinitions = a}) . _Default . _Coerce;
+lfdrsDefinitions = lens _lfdrsDefinitions (\ s a -> s{_lfdrsDefinitions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lfdrsResponseStatus :: Lens' ListFunctionDefinitionsResponse Int
-lfdrsResponseStatus = lens _lfdrsResponseStatus (\ s a -> s{_lfdrsResponseStatus = a});
+lfdrsResponseStatus = lens _lfdrsResponseStatus (\ s a -> s{_lfdrsResponseStatus = a})
 
 instance NFData ListFunctionDefinitionsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.TestRepositoryTriggers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ testRepositoryTriggers
     -> TestRepositoryTriggers
 testRepositoryTriggers pRepositoryName_ =
   TestRepositoryTriggers'
-  {_trtRepositoryName = pRepositoryName_, _trtTriggers = mempty}
+    {_trtRepositoryName = pRepositoryName_, _trtTriggers = mempty}
 
 
 -- | The name of the repository in which to test the triggers.
 trtRepositoryName :: Lens' TestRepositoryTriggers Text
-trtRepositoryName = lens _trtRepositoryName (\ s a -> s{_trtRepositoryName = a});
+trtRepositoryName = lens _trtRepositoryName (\ s a -> s{_trtRepositoryName = a})
 
 -- | The list of triggers to test.
 trtTriggers :: Lens' TestRepositoryTriggers [RepositoryTrigger]
-trtTriggers = lens _trtTriggers (\ s a -> s{_trtTriggers = a}) . _Coerce;
+trtTriggers = lens _trtTriggers (\ s a -> s{_trtTriggers = a}) . _Coerce
 
 instance AWSRequest TestRepositoryTriggers where
         type Rs TestRepositoryTriggers =
@@ -145,22 +145,22 @@ testRepositoryTriggersResponse
     -> TestRepositoryTriggersResponse
 testRepositoryTriggersResponse pResponseStatus_ =
   TestRepositoryTriggersResponse'
-  { _trtrsFailedExecutions = Nothing
-  , _trtrsSuccessfulExecutions = Nothing
-  , _trtrsResponseStatus = pResponseStatus_
-  }
+    { _trtrsFailedExecutions = Nothing
+    , _trtrsSuccessfulExecutions = Nothing
+    , _trtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of triggers that were not able to be tested. This list provides the names of the triggers that could not be tested, separated by commas.
 trtrsFailedExecutions :: Lens' TestRepositoryTriggersResponse [RepositoryTriggerExecutionFailure]
-trtrsFailedExecutions = lens _trtrsFailedExecutions (\ s a -> s{_trtrsFailedExecutions = a}) . _Default . _Coerce;
+trtrsFailedExecutions = lens _trtrsFailedExecutions (\ s a -> s{_trtrsFailedExecutions = a}) . _Default . _Coerce
 
 -- | The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.
 trtrsSuccessfulExecutions :: Lens' TestRepositoryTriggersResponse [Text]
-trtrsSuccessfulExecutions = lens _trtrsSuccessfulExecutions (\ s a -> s{_trtrsSuccessfulExecutions = a}) . _Default . _Coerce;
+trtrsSuccessfulExecutions = lens _trtrsSuccessfulExecutions (\ s a -> s{_trtrsSuccessfulExecutions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 trtrsResponseStatus :: Lens' TestRepositoryTriggersResponse Int
-trtrsResponseStatus = lens _trtrsResponseStatus (\ s a -> s{_trtrsResponseStatus = a});
+trtrsResponseStatus = lens _trtrsResponseStatus (\ s a -> s{_trtrsResponseStatus = a})
 
 instance NFData TestRepositoryTriggersResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,12 +61,12 @@ deleteCacheParameterGroup
     -> DeleteCacheParameterGroup
 deleteCacheParameterGroup pCacheParameterGroupName_ =
   DeleteCacheParameterGroup'
-  {_dCacheParameterGroupName = pCacheParameterGroupName_}
+    {_dCacheParameterGroupName = pCacheParameterGroupName_}
 
 
 -- | The name of the cache parameter group to delete.
 dCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
-dCacheParameterGroupName = lens _dCacheParameterGroupName (\ s a -> s{_dCacheParameterGroupName = a});
+dCacheParameterGroupName = lens _dCacheParameterGroupName (\ s a -> s{_dCacheParameterGroupName = a})
 
 instance AWSRequest DeleteCacheParameterGroup where
         type Rs DeleteCacheParameterGroup =

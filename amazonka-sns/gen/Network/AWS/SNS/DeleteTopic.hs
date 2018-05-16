@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.DeleteTopic
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,7 +60,7 @@ deleteTopic pTopicARN_ = DeleteTopic' {_dtTopicARN = pTopicARN_}
 
 -- | The ARN of the topic you want to delete.
 dtTopicARN :: Lens' DeleteTopic Text
-dtTopicARN = lens _dtTopicARN (\ s a -> s{_dtTopicARN = a});
+dtTopicARN = lens _dtTopicARN (\ s a -> s{_dtTopicARN = a})
 
 instance AWSRequest DeleteTopic where
         type Rs DeleteTopic = DeleteTopicResponse

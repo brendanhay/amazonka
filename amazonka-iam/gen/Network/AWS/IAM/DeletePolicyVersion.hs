@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeletePolicyVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ deletePolicyVersion
     -> DeletePolicyVersion
 deletePolicyVersion pPolicyARN_ pVersionId_ =
   DeletePolicyVersion'
-  {_dpvPolicyARN = pPolicyARN_, _dpvVersionId = pVersionId_}
+    {_dpvPolicyARN = pPolicyARN_, _dpvVersionId = pVersionId_}
 
 
 -- | The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 dpvPolicyARN :: Lens' DeletePolicyVersion Text
-dpvPolicyARN = lens _dpvPolicyARN (\ s a -> s{_dpvPolicyARN = a});
+dpvPolicyARN = lens _dpvPolicyARN (\ s a -> s{_dpvPolicyARN = a})
 
 -- | The policy version to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits. For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 dpvVersionId :: Lens' DeletePolicyVersion Text
-dpvVersionId = lens _dpvVersionId (\ s a -> s{_dpvVersionId = a});
+dpvVersionId = lens _dpvVersionId (\ s a -> s{_dpvVersionId = a})
 
 instance AWSRequest DeletePolicyVersion where
         type Rs DeletePolicyVersion =

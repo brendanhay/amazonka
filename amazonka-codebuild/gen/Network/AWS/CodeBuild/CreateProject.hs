@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.CreateProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,9 @@ module Network.AWS.CodeBuild.CreateProject
       createProject
     , CreateProject
     -- * Request Lenses
+    , cpBadgeEnabled
+    , cpCache
+    , cpVpcConfig
     , cpEncryptionKey
     , cpDescription
     , cpServiceRole
@@ -54,7 +57,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createProject' smart constructor.
 data CreateProject = CreateProject'
-  { _cpEncryptionKey    :: !(Maybe Text)
+  { _cpBadgeEnabled     :: !(Maybe Bool)
+  , _cpCache            :: !(Maybe ProjectCache)
+  , _cpVpcConfig        :: !(Maybe VPCConfig)
+  , _cpEncryptionKey    :: !(Maybe Text)
   , _cpDescription      :: !(Maybe Text)
   , _cpServiceRole      :: !(Maybe Text)
   , _cpTags             :: !(Maybe [Tag])
@@ -69,6 +75,12 @@ data CreateProject = CreateProject'
 -- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpBadgeEnabled' - Set this to true to generate a publicly-accessible URL for your project's build badge.
+--
+-- * 'cpCache' - Stores recently used information so that it can be quickly accessed at a later time.
+--
+-- * 'cpVpcConfig' - VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
 --
 -- * 'cpEncryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
 --
@@ -95,53 +107,68 @@ createProject
     -> CreateProject
 createProject pName_ pSource_ pArtifacts_ pEnvironment_ =
   CreateProject'
-  { _cpEncryptionKey = Nothing
-  , _cpDescription = Nothing
-  , _cpServiceRole = Nothing
-  , _cpTags = Nothing
-  , _cpTimeoutInMinutes = Nothing
-  , _cpName = pName_
-  , _cpSource = pSource_
-  , _cpArtifacts = pArtifacts_
-  , _cpEnvironment = pEnvironment_
-  }
+    { _cpBadgeEnabled = Nothing
+    , _cpCache = Nothing
+    , _cpVpcConfig = Nothing
+    , _cpEncryptionKey = Nothing
+    , _cpDescription = Nothing
+    , _cpServiceRole = Nothing
+    , _cpTags = Nothing
+    , _cpTimeoutInMinutes = Nothing
+    , _cpName = pName_
+    , _cpSource = pSource_
+    , _cpArtifacts = pArtifacts_
+    , _cpEnvironment = pEnvironment_
+    }
 
+
+-- | Set this to true to generate a publicly-accessible URL for your project's build badge.
+cpBadgeEnabled :: Lens' CreateProject (Maybe Bool)
+cpBadgeEnabled = lens _cpBadgeEnabled (\ s a -> s{_cpBadgeEnabled = a})
+
+-- | Stores recently used information so that it can be quickly accessed at a later time.
+cpCache :: Lens' CreateProject (Maybe ProjectCache)
+cpCache = lens _cpCache (\ s a -> s{_cpCache = a})
+
+-- | VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
+cpVpcConfig :: Lens' CreateProject (Maybe VPCConfig)
+cpVpcConfig = lens _cpVpcConfig (\ s a -> s{_cpVpcConfig = a})
 
 -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
 cpEncryptionKey :: Lens' CreateProject (Maybe Text)
-cpEncryptionKey = lens _cpEncryptionKey (\ s a -> s{_cpEncryptionKey = a});
+cpEncryptionKey = lens _cpEncryptionKey (\ s a -> s{_cpEncryptionKey = a})
 
 -- | A description that makes the build project easy to identify.
 cpDescription :: Lens' CreateProject (Maybe Text)
-cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
+cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a})
 
 -- | The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 cpServiceRole :: Lens' CreateProject (Maybe Text)
-cpServiceRole = lens _cpServiceRole (\ s a -> s{_cpServiceRole = a});
+cpServiceRole = lens _cpServiceRole (\ s a -> s{_cpServiceRole = a})
 
 -- | A set of tags for this build project. These tags are available for use by AWS services that support AWS CodeBuild build project tags.
 cpTags :: Lens' CreateProject [Tag]
-cpTags = lens _cpTags (\ s a -> s{_cpTags = a}) . _Default . _Coerce;
+cpTags = lens _cpTags (\ s a -> s{_cpTags = a}) . _Default . _Coerce
 
 -- | How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any build that has not been marked as completed. The default is 60 minutes.
 cpTimeoutInMinutes :: Lens' CreateProject (Maybe Natural)
-cpTimeoutInMinutes = lens _cpTimeoutInMinutes (\ s a -> s{_cpTimeoutInMinutes = a}) . mapping _Nat;
+cpTimeoutInMinutes = lens _cpTimeoutInMinutes (\ s a -> s{_cpTimeoutInMinutes = a}) . mapping _Nat
 
 -- | The name of the build project.
 cpName :: Lens' CreateProject Text
-cpName = lens _cpName (\ s a -> s{_cpName = a});
+cpName = lens _cpName (\ s a -> s{_cpName = a})
 
 -- | Information about the build input source code for the build project.
 cpSource :: Lens' CreateProject ProjectSource
-cpSource = lens _cpSource (\ s a -> s{_cpSource = a});
+cpSource = lens _cpSource (\ s a -> s{_cpSource = a})
 
 -- | Information about the build output artifacts for the build project.
 cpArtifacts :: Lens' CreateProject ProjectArtifacts
-cpArtifacts = lens _cpArtifacts (\ s a -> s{_cpArtifacts = a});
+cpArtifacts = lens _cpArtifacts (\ s a -> s{_cpArtifacts = a})
 
 -- | Information about the build environment for the build project.
 cpEnvironment :: Lens' CreateProject ProjectEnvironment
-cpEnvironment = lens _cpEnvironment (\ s a -> s{_cpEnvironment = a});
+cpEnvironment = lens _cpEnvironment (\ s a -> s{_cpEnvironment = a})
 
 instance AWSRequest CreateProject where
         type Rs CreateProject = CreateProjectResponse
@@ -169,7 +196,10 @@ instance ToJSON CreateProject where
         toJSON CreateProject'{..}
           = object
               (catMaybes
-                 [("encryptionKey" .=) <$> _cpEncryptionKey,
+                 [("badgeEnabled" .=) <$> _cpBadgeEnabled,
+                  ("cache" .=) <$> _cpCache,
+                  ("vpcConfig" .=) <$> _cpVpcConfig,
+                  ("encryptionKey" .=) <$> _cpEncryptionKey,
                   ("description" .=) <$> _cpDescription,
                   ("serviceRole" .=) <$> _cpServiceRole,
                   ("tags" .=) <$> _cpTags,
@@ -204,15 +234,15 @@ createProjectResponse
     -> CreateProjectResponse
 createProjectResponse pResponseStatus_ =
   CreateProjectResponse'
-  {_cprsProject = Nothing, _cprsResponseStatus = pResponseStatus_}
+    {_cprsProject = Nothing, _cprsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the build project that was created.
 cprsProject :: Lens' CreateProjectResponse (Maybe Project)
-cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a});
+cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a})
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreateProjectResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
 
 instance NFData CreateProjectResponse where

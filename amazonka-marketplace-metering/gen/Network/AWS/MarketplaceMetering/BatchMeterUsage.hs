@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceMetering.BatchMeterUsage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,11 +79,11 @@ batchMeterUsage pProductCode_ =
 
 -- | The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at a time.
 bmuUsageRecords :: Lens' BatchMeterUsage [UsageRecord]
-bmuUsageRecords = lens _bmuUsageRecords (\ s a -> s{_bmuUsageRecords = a}) . _Coerce;
+bmuUsageRecords = lens _bmuUsageRecords (\ s a -> s{_bmuUsageRecords = a}) . _Coerce
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
 bmuProductCode :: Lens' BatchMeterUsage Text
-bmuProductCode = lens _bmuProductCode (\ s a -> s{_bmuProductCode = a});
+bmuProductCode = lens _bmuProductCode (\ s a -> s{_bmuProductCode = a})
 
 instance AWSRequest BatchMeterUsage where
         type Rs BatchMeterUsage = BatchMeterUsageResponse
@@ -149,22 +149,22 @@ batchMeterUsageResponse
     -> BatchMeterUsageResponse
 batchMeterUsageResponse pResponseStatus_ =
   BatchMeterUsageResponse'
-  { _bmursResults = Nothing
-  , _bmursUnprocessedRecords = Nothing
-  , _bmursResponseStatus = pResponseStatus_
-  }
+    { _bmursResults = Nothing
+    , _bmursUnprocessedRecords = Nothing
+    , _bmursResponseStatus = pResponseStatus_
+    }
 
 
 -- | Contains all UsageRecords processed by BatchMeterUsage. These records were either honored by AWS Marketplace Metering Service or were invalid.
 bmursResults :: Lens' BatchMeterUsageResponse [UsageRecordResult]
-bmursResults = lens _bmursResults (\ s a -> s{_bmursResults = a}) . _Default . _Coerce;
+bmursResults = lens _bmursResults (\ s a -> s{_bmursResults = a}) . _Default . _Coerce
 
 -- | Contains all UsageRecords that were not processed by BatchMeterUsage. This is a list of UsageRecords. You can retry the failed request by making another BatchMeterUsage call with this list as input in the BatchMeterUsageRequest.
 bmursUnprocessedRecords :: Lens' BatchMeterUsageResponse [UsageRecord]
-bmursUnprocessedRecords = lens _bmursUnprocessedRecords (\ s a -> s{_bmursUnprocessedRecords = a}) . _Default . _Coerce;
+bmursUnprocessedRecords = lens _bmursUnprocessedRecords (\ s a -> s{_bmursUnprocessedRecords = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bmursResponseStatus :: Lens' BatchMeterUsageResponse Int
-bmursResponseStatus = lens _bmursResponseStatus (\ s a -> s{_bmursResponseStatus = a});
+bmursResponseStatus = lens _bmursResponseStatus (\ s a -> s{_bmursResponseStatus = a})
 
 instance NFData BatchMeterUsageResponse where

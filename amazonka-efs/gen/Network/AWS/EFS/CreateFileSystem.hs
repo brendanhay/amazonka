@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.CreateFileSystem
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -97,28 +97,28 @@ createFileSystem
     -> CreateFileSystem
 createFileSystem pCreationToken_ =
   CreateFileSystem'
-  { _cfsPerformanceMode = Nothing
-  , _cfsEncrypted = Nothing
-  , _cfsKMSKeyId = Nothing
-  , _cfsCreationToken = pCreationToken_
-  }
+    { _cfsPerformanceMode = Nothing
+    , _cfsEncrypted = Nothing
+    , _cfsKMSKeyId = Nothing
+    , _cfsCreationToken = pCreationToken_
+    }
 
 
 -- | The @PerformanceMode@ of the file system. We recommend @generalPurpose@ performance mode for most file systems. File systems using the @maxIO@ performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. This can't be changed after the file system has been created.
 cfsPerformanceMode :: Lens' CreateFileSystem (Maybe PerformanceMode)
-cfsPerformanceMode = lens _cfsPerformanceMode (\ s a -> s{_cfsPerformanceMode = a});
+cfsPerformanceMode = lens _cfsPerformanceMode (\ s a -> s{_cfsPerformanceMode = a})
 
 -- | A boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have the option of specifying a 'CreateFileSystemRequest$KmsKeyId' for an existing AWS Key Management Service (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for Amazon EFS, @/aws/elasticfilesystem@ , is used to protect the encrypted file system.
 cfsEncrypted :: Lens' CreateFileSystem (Maybe Bool)
-cfsEncrypted = lens _cfsEncrypted (\ s a -> s{_cfsEncrypted = a});
+cfsEncrypted = lens _cfsEncrypted (\ s a -> s{_cfsEncrypted = a})
 
 -- | The id of the AWS KMS CMK that will be used to protect the encrypted file system. This parameter is only required if you want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS is used. This id can be in one of the following formats:     * Key ID - A unique identifier of the key. For example, @1234abcd-12ab-34cd-56ef-1234567890ab@ .     * ARN - An Amazon Resource Name for the key. For example, @arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@ .     * Key alias - A previously created display name for a key. For example, @alias/projectKey1@ .     * Key alias ARN - An Amazon Resource Name for a key alias. For example, @arn:aws:kms:us-west-2:444455556666:alias/projectKey1@ . Note that if the KmsKeyId is specified, the 'CreateFileSystemRequest$Encrypted' parameter must be set to true.
 cfsKMSKeyId :: Lens' CreateFileSystem (Maybe Text)
-cfsKMSKeyId = lens _cfsKMSKeyId (\ s a -> s{_cfsKMSKeyId = a});
+cfsKMSKeyId = lens _cfsKMSKeyId (\ s a -> s{_cfsKMSKeyId = a})
 
 -- | String of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.
 cfsCreationToken :: Lens' CreateFileSystem Text
-cfsCreationToken = lens _cfsCreationToken (\ s a -> s{_cfsCreationToken = a});
+cfsCreationToken = lens _cfsCreationToken (\ s a -> s{_cfsCreationToken = a})
 
 instance AWSRequest CreateFileSystem where
         type Rs CreateFileSystem = FileSystemDescription

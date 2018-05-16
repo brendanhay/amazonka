@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteXSSMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,16 +81,16 @@ deleteXSSMatchSet
     -> DeleteXSSMatchSet
 deleteXSSMatchSet pXSSMatchSetId_ pChangeToken_ =
   DeleteXSSMatchSet'
-  {_dxmsXSSMatchSetId = pXSSMatchSetId_, _dxmsChangeToken = pChangeToken_}
+    {_dxmsXSSMatchSetId = pXSSMatchSetId_, _dxmsChangeToken = pChangeToken_}
 
 
 -- | The @XssMatchSetId@ of the 'XssMatchSet' that you want to delete. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
 dxmsXSSMatchSetId :: Lens' DeleteXSSMatchSet Text
-dxmsXSSMatchSetId = lens _dxmsXSSMatchSetId (\ s a -> s{_dxmsXSSMatchSetId = a});
+dxmsXSSMatchSetId = lens _dxmsXSSMatchSetId (\ s a -> s{_dxmsXSSMatchSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 dxmsChangeToken :: Lens' DeleteXSSMatchSet Text
-dxmsChangeToken = lens _dxmsChangeToken (\ s a -> s{_dxmsChangeToken = a});
+dxmsChangeToken = lens _dxmsChangeToken (\ s a -> s{_dxmsChangeToken = a})
 
 instance AWSRequest DeleteXSSMatchSet where
         type Rs DeleteXSSMatchSet = DeleteXSSMatchSetResponse
@@ -151,15 +151,15 @@ deleteXSSMatchSetResponse
     -> DeleteXSSMatchSetResponse
 deleteXSSMatchSetResponse pResponseStatus_ =
   DeleteXSSMatchSetResponse'
-  {_dxmsrsChangeToken = Nothing, _dxmsrsResponseStatus = pResponseStatus_}
+    {_dxmsrsChangeToken = Nothing, _dxmsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @DeleteXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dxmsrsChangeToken :: Lens' DeleteXSSMatchSetResponse (Maybe Text)
-dxmsrsChangeToken = lens _dxmsrsChangeToken (\ s a -> s{_dxmsrsChangeToken = a});
+dxmsrsChangeToken = lens _dxmsrsChangeToken (\ s a -> s{_dxmsrsChangeToken = a})
 
 -- | -- | The response status code.
 dxmsrsResponseStatus :: Lens' DeleteXSSMatchSetResponse Int
-dxmsrsResponseStatus = lens _dxmsrsResponseStatus (\ s a -> s{_dxmsrsResponseStatus = a});
+dxmsrsResponseStatus = lens _dxmsrsResponseStatus (\ s a -> s{_dxmsrsResponseStatus = a})
 
 instance NFData DeleteXSSMatchSetResponse where

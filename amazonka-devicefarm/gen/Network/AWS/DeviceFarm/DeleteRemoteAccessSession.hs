@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteRemoteAccessSession
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ deleteRemoteAccessSession pArn_ = DeleteRemoteAccessSession' {_drasArn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the sesssion for which you want to delete remote access.
 drasArn :: Lens' DeleteRemoteAccessSession Text
-drasArn = lens _drasArn (\ s a -> s{_drasArn = a});
+drasArn = lens _drasArn (\ s a -> s{_drasArn = a})
 
 instance AWSRequest DeleteRemoteAccessSession where
         type Rs DeleteRemoteAccessSession =
@@ -126,7 +126,7 @@ deleteRemoteAccessSessionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drasrsResponseStatus :: Lens' DeleteRemoteAccessSessionResponse Int
-drasrsResponseStatus = lens _drasrsResponseStatus (\ s a -> s{_drasrsResponseStatus = a});
+drasrsResponseStatus = lens _drasrsResponseStatus (\ s a -> s{_drasrsResponseStatus = a})
 
 instance NFData DeleteRemoteAccessSessionResponse
          where

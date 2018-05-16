@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.PurchaseProvisionedCapacity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ purchaseProvisionedCapacity pAccountId_ =
 
 -- | The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
 ppcAccountId :: Lens' PurchaseProvisionedCapacity Text
-ppcAccountId = lens _ppcAccountId (\ s a -> s{_ppcAccountId = a});
+ppcAccountId = lens _ppcAccountId (\ s a -> s{_ppcAccountId = a})
 
 instance AWSRequest PurchaseProvisionedCapacity where
         type Rs PurchaseProvisionedCapacity =
@@ -113,16 +113,16 @@ purchaseProvisionedCapacityResponse
     -> PurchaseProvisionedCapacityResponse
 purchaseProvisionedCapacityResponse pResponseStatus_ =
   PurchaseProvisionedCapacityResponse'
-  {_ppcrsCapacityId = Nothing, _ppcrsResponseStatus = pResponseStatus_}
+    {_ppcrsCapacityId = Nothing, _ppcrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID that identifies the provisioned capacity unit.
 ppcrsCapacityId :: Lens' PurchaseProvisionedCapacityResponse (Maybe Text)
-ppcrsCapacityId = lens _ppcrsCapacityId (\ s a -> s{_ppcrsCapacityId = a});
+ppcrsCapacityId = lens _ppcrsCapacityId (\ s a -> s{_ppcrsCapacityId = a})
 
 -- | -- | The response status code.
 ppcrsResponseStatus :: Lens' PurchaseProvisionedCapacityResponse Int
-ppcrsResponseStatus = lens _ppcrsResponseStatus (\ s a -> s{_ppcrsResponseStatus = a});
+ppcrsResponseStatus = lens _ppcrsResponseStatus (\ s a -> s{_ppcrsResponseStatus = a})
 
 instance NFData PurchaseProvisionedCapacityResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DeleteParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteParameterGroup pParameterGroupName_ =
 
 -- | The name of the parameter group to delete.
 dpgParameterGroupName :: Lens' DeleteParameterGroup Text
-dpgParameterGroupName = lens _dpgParameterGroupName (\ s a -> s{_dpgParameterGroupName = a});
+dpgParameterGroupName = lens _dpgParameterGroupName (\ s a -> s{_dpgParameterGroupName = a})
 
 instance AWSRequest DeleteParameterGroup where
         type Rs DeleteParameterGroup =
@@ -121,15 +121,15 @@ deleteParameterGroupResponse
     -> DeleteParameterGroupResponse
 deleteParameterGroupResponse pResponseStatus_ =
   DeleteParameterGroupResponse'
-  {_dpgrsDeletionMessage = Nothing, _dpgrsResponseStatus = pResponseStatus_}
+    {_dpgrsDeletionMessage = Nothing, _dpgrsResponseStatus = pResponseStatus_}
 
 
 -- | A user-specified message for this action (i.e., a reason for deleting the parameter group).
 dpgrsDeletionMessage :: Lens' DeleteParameterGroupResponse (Maybe Text)
-dpgrsDeletionMessage = lens _dpgrsDeletionMessage (\ s a -> s{_dpgrsDeletionMessage = a});
+dpgrsDeletionMessage = lens _dpgrsDeletionMessage (\ s a -> s{_dpgrsDeletionMessage = a})
 
 -- | -- | The response status code.
 dpgrsResponseStatus :: Lens' DeleteParameterGroupResponse Int
-dpgrsResponseStatus = lens _dpgrsResponseStatus (\ s a -> s{_dpgrsResponseStatus = a});
+dpgrsResponseStatus = lens _dpgrsResponseStatus (\ s a -> s{_dpgrsResponseStatus = a})
 
 instance NFData DeleteParameterGroupResponse where

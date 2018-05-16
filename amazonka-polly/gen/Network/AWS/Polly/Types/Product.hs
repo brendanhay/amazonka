@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Polly.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,11 +46,11 @@ lexicon = Lexicon' {_lContent = Nothing, _lName = Nothing}
 
 -- | Lexicon content in string format. The content of a lexicon must be in PLS format.
 lContent :: Lens' Lexicon (Maybe Text)
-lContent = lens _lContent (\ s a -> s{_lContent = a});
+lContent = lens _lContent (\ s a -> s{_lContent = a})
 
 -- | Name of the lexicon.
 lName :: Lens' Lexicon (Maybe Text)
-lName = lens _lName (\ s a -> s{_lName = a}) . mapping _Sensitive;
+lName = lens _lName (\ s a -> s{_lName = a}) . mapping _Sensitive
 
 instance FromJSON Lexicon where
         parseJSON
@@ -96,38 +96,38 @@ lexiconAttributes
     :: LexiconAttributes
 lexiconAttributes =
   LexiconAttributes'
-  { _laLanguageCode = Nothing
-  , _laSize = Nothing
-  , _laLexemesCount = Nothing
-  , _laLexiconARN = Nothing
-  , _laAlphabet = Nothing
-  , _laLastModified = Nothing
-  }
+    { _laLanguageCode = Nothing
+    , _laSize = Nothing
+    , _laLexemesCount = Nothing
+    , _laLexiconARN = Nothing
+    , _laAlphabet = Nothing
+    , _laLastModified = Nothing
+    }
 
 
 -- | Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
 laLanguageCode :: Lens' LexiconAttributes (Maybe LanguageCode)
-laLanguageCode = lens _laLanguageCode (\ s a -> s{_laLanguageCode = a});
+laLanguageCode = lens _laLanguageCode (\ s a -> s{_laLanguageCode = a})
 
 -- | Total size of the lexicon, in characters.
 laSize :: Lens' LexiconAttributes (Maybe Int)
-laSize = lens _laSize (\ s a -> s{_laSize = a});
+laSize = lens _laSize (\ s a -> s{_laSize = a})
 
 -- | Number of lexemes in the lexicon.
 laLexemesCount :: Lens' LexiconAttributes (Maybe Int)
-laLexemesCount = lens _laLexemesCount (\ s a -> s{_laLexemesCount = a});
+laLexemesCount = lens _laLexemesCount (\ s a -> s{_laLexemesCount = a})
 
 -- | Amazon Resource Name (ARN) of the lexicon.
 laLexiconARN :: Lens' LexiconAttributes (Maybe Text)
-laLexiconARN = lens _laLexiconARN (\ s a -> s{_laLexiconARN = a});
+laLexiconARN = lens _laLexiconARN (\ s a -> s{_laLexiconARN = a})
 
 -- | Phonetic alphabet used in the lexicon. Valid values are @ipa@ and @x-sampa@ .
 laAlphabet :: Lens' LexiconAttributes (Maybe Text)
-laAlphabet = lens _laAlphabet (\ s a -> s{_laAlphabet = a});
+laAlphabet = lens _laAlphabet (\ s a -> s{_laAlphabet = a})
 
 -- | Date lexicon was last modified (a timestamp value).
 laLastModified :: Lens' LexiconAttributes (Maybe UTCTime)
-laLastModified = lens _laLastModified (\ s a -> s{_laLastModified = a}) . mapping _Time;
+laLastModified = lens _laLastModified (\ s a -> s{_laLastModified = a}) . mapping _Time
 
 instance FromJSON LexiconAttributes where
         parseJSON
@@ -170,11 +170,11 @@ lexiconDescription =
 
 -- | Provides lexicon metadata.
 ldAttributes :: Lens' LexiconDescription (Maybe LexiconAttributes)
-ldAttributes = lens _ldAttributes (\ s a -> s{_ldAttributes = a});
+ldAttributes = lens _ldAttributes (\ s a -> s{_ldAttributes = a})
 
 -- | Name of the lexicon.
 ldName :: Lens' LexiconDescription (Maybe Text)
-ldName = lens _ldName (\ s a -> s{_ldName = a}) . mapping _Sensitive;
+ldName = lens _ldName (\ s a -> s{_ldName = a}) . mapping _Sensitive
 
 instance FromJSON LexiconDescription where
         parseJSON
@@ -218,33 +218,33 @@ voice
     :: Voice
 voice =
   Voice'
-  { _vLanguageCode = Nothing
-  , _vLanguageName = Nothing
-  , _vGender = Nothing
-  , _vName = Nothing
-  , _vId = Nothing
-  }
+    { _vLanguageCode = Nothing
+    , _vLanguageName = Nothing
+    , _vGender = Nothing
+    , _vName = Nothing
+    , _vId = Nothing
+    }
 
 
 -- | Language code of the voice.
 vLanguageCode :: Lens' Voice (Maybe LanguageCode)
-vLanguageCode = lens _vLanguageCode (\ s a -> s{_vLanguageCode = a});
+vLanguageCode = lens _vLanguageCode (\ s a -> s{_vLanguageCode = a})
 
 -- | Human readable name of the language in English.
 vLanguageName :: Lens' Voice (Maybe Text)
-vLanguageName = lens _vLanguageName (\ s a -> s{_vLanguageName = a});
+vLanguageName = lens _vLanguageName (\ s a -> s{_vLanguageName = a})
 
 -- | Gender of the voice.
 vGender :: Lens' Voice (Maybe Gender)
-vGender = lens _vGender (\ s a -> s{_vGender = a});
+vGender = lens _vGender (\ s a -> s{_vGender = a})
 
 -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.
 vName :: Lens' Voice (Maybe Text)
-vName = lens _vName (\ s a -> s{_vName = a});
+vName = lens _vName (\ s a -> s{_vName = a})
 
 -- | Amazon Polly assigned voice ID. This is the ID that you specify when calling the @SynthesizeSpeech@ operation.
 vId :: Lens' Voice (Maybe VoiceId)
-vId = lens _vId (\ s a -> s{_vId = a});
+vId = lens _vId (\ s a -> s{_vId = a})
 
 instance FromJSON Voice where
         parseJSON

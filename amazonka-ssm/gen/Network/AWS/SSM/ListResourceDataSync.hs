@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListResourceDataSync
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ listResourceDataSync =
 
 -- | A token to start the list. Use this token to get the next set of results.
 lrdsNextToken :: Lens' ListResourceDataSync (Maybe Text)
-lrdsNextToken = lens _lrdsNextToken (\ s a -> s{_lrdsNextToken = a});
+lrdsNextToken = lens _lrdsNextToken (\ s a -> s{_lrdsNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lrdsMaxResults :: Lens' ListResourceDataSync (Maybe Natural)
-lrdsMaxResults = lens _lrdsMaxResults (\ s a -> s{_lrdsMaxResults = a}) . mapping _Nat;
+lrdsMaxResults = lens _lrdsMaxResults (\ s a -> s{_lrdsMaxResults = a}) . mapping _Nat
 
 instance AWSRequest ListResourceDataSync where
         type Rs ListResourceDataSync =
@@ -136,22 +136,22 @@ listResourceDataSyncResponse
     -> ListResourceDataSyncResponse
 listResourceDataSyncResponse pResponseStatus_ =
   ListResourceDataSyncResponse'
-  { _lrdsrsResourceDataSyncItems = Nothing
-  , _lrdsrsNextToken = Nothing
-  , _lrdsrsResponseStatus = pResponseStatus_
-  }
+    { _lrdsrsResourceDataSyncItems = Nothing
+    , _lrdsrsNextToken = Nothing
+    , _lrdsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of your current Resource Data Sync configurations and their statuses.
 lrdsrsResourceDataSyncItems :: Lens' ListResourceDataSyncResponse [ResourceDataSyncItem]
-lrdsrsResourceDataSyncItems = lens _lrdsrsResourceDataSyncItems (\ s a -> s{_lrdsrsResourceDataSyncItems = a}) . _Default . _Coerce;
+lrdsrsResourceDataSyncItems = lens _lrdsrsResourceDataSyncItems (\ s a -> s{_lrdsrsResourceDataSyncItems = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
 lrdsrsNextToken :: Lens' ListResourceDataSyncResponse (Maybe Text)
-lrdsrsNextToken = lens _lrdsrsNextToken (\ s a -> s{_lrdsrsNextToken = a});
+lrdsrsNextToken = lens _lrdsrsNextToken (\ s a -> s{_lrdsrsNextToken = a})
 
 -- | -- | The response status code.
 lrdsrsResponseStatus :: Lens' ListResourceDataSyncResponse Int
-lrdsrsResponseStatus = lens _lrdsrsResponseStatus (\ s a -> s{_lrdsrsResponseStatus = a});
+lrdsrsResponseStatus = lens _lrdsrsResponseStatus (\ s a -> s{_lrdsrsResponseStatus = a})
 
 instance NFData ListResourceDataSyncResponse where

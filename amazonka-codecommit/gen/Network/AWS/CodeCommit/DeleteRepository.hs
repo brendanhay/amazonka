@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.DeleteRepository
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ deleteRepository pRepositoryName_ =
 
 -- | The name of the repository to delete.
 drRepositoryName :: Lens' DeleteRepository Text
-drRepositoryName = lens _drRepositoryName (\ s a -> s{_drRepositoryName = a});
+drRepositoryName = lens _drRepositoryName (\ s a -> s{_drRepositoryName = a})
 
 instance AWSRequest DeleteRepository where
         type Rs DeleteRepository = DeleteRepositoryResponse
@@ -130,15 +130,15 @@ deleteRepositoryResponse
     -> DeleteRepositoryResponse
 deleteRepositoryResponse pResponseStatus_ =
   DeleteRepositoryResponse'
-  {_drrsRepositoryId = Nothing, _drrsResponseStatus = pResponseStatus_}
+    {_drrsRepositoryId = Nothing, _drrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the repository that was deleted.
 drrsRepositoryId :: Lens' DeleteRepositoryResponse (Maybe Text)
-drrsRepositoryId = lens _drrsRepositoryId (\ s a -> s{_drrsRepositoryId = a});
+drrsRepositoryId = lens _drrsRepositoryId (\ s a -> s{_drrsRepositoryId = a})
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRepositoryResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a})
 
 instance NFData DeleteRepositoryResponse where

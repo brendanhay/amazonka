@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetDocumentVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ data GetDocumentVersion = GetDocumentVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdvAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'gdvAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'gdvIncludeCustomMetadata' - Set this to TRUE to include custom metadata in the response.
 --
@@ -78,33 +78,33 @@ getDocumentVersion
     -> GetDocumentVersion
 getDocumentVersion pDocumentId_ pVersionId_ =
   GetDocumentVersion'
-  { _gdvAuthenticationToken = Nothing
-  , _gdvIncludeCustomMetadata = Nothing
-  , _gdvFields = Nothing
-  , _gdvDocumentId = pDocumentId_
-  , _gdvVersionId = pVersionId_
-  }
+    { _gdvAuthenticationToken = Nothing
+    , _gdvIncludeCustomMetadata = Nothing
+    , _gdvFields = Nothing
+    , _gdvDocumentId = pDocumentId_
+    , _gdvVersionId = pVersionId_
+    }
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 gdvAuthenticationToken :: Lens' GetDocumentVersion (Maybe Text)
-gdvAuthenticationToken = lens _gdvAuthenticationToken (\ s a -> s{_gdvAuthenticationToken = a}) . mapping _Sensitive;
+gdvAuthenticationToken = lens _gdvAuthenticationToken (\ s a -> s{_gdvAuthenticationToken = a}) . mapping _Sensitive
 
 -- | Set this to TRUE to include custom metadata in the response.
 gdvIncludeCustomMetadata :: Lens' GetDocumentVersion (Maybe Bool)
-gdvIncludeCustomMetadata = lens _gdvIncludeCustomMetadata (\ s a -> s{_gdvIncludeCustomMetadata = a});
+gdvIncludeCustomMetadata = lens _gdvIncludeCustomMetadata (\ s a -> s{_gdvIncludeCustomMetadata = a})
 
 -- | A comma-separated list of values. Specify "SOURCE" to include a URL for the source document.
 gdvFields :: Lens' GetDocumentVersion (Maybe Text)
-gdvFields = lens _gdvFields (\ s a -> s{_gdvFields = a});
+gdvFields = lens _gdvFields (\ s a -> s{_gdvFields = a})
 
 -- | The ID of the document.
 gdvDocumentId :: Lens' GetDocumentVersion Text
-gdvDocumentId = lens _gdvDocumentId (\ s a -> s{_gdvDocumentId = a});
+gdvDocumentId = lens _gdvDocumentId (\ s a -> s{_gdvDocumentId = a})
 
 -- | The version ID of the document.
 gdvVersionId :: Lens' GetDocumentVersion Text
-gdvVersionId = lens _gdvVersionId (\ s a -> s{_gdvVersionId = a});
+gdvVersionId = lens _gdvVersionId (\ s a -> s{_gdvVersionId = a})
 
 instance AWSRequest GetDocumentVersion where
         type Rs GetDocumentVersion =
@@ -164,22 +164,22 @@ getDocumentVersionResponse
     -> GetDocumentVersionResponse
 getDocumentVersionResponse pResponseStatus_ =
   GetDocumentVersionResponse'
-  { _gdvrsCustomMetadata = Nothing
-  , _gdvrsMetadata = Nothing
-  , _gdvrsResponseStatus = pResponseStatus_
-  }
+    { _gdvrsCustomMetadata = Nothing
+    , _gdvrsMetadata = Nothing
+    , _gdvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The custom metadata on the document version.
 gdvrsCustomMetadata :: Lens' GetDocumentVersionResponse (HashMap Text Text)
-gdvrsCustomMetadata = lens _gdvrsCustomMetadata (\ s a -> s{_gdvrsCustomMetadata = a}) . _Default . _Map;
+gdvrsCustomMetadata = lens _gdvrsCustomMetadata (\ s a -> s{_gdvrsCustomMetadata = a}) . _Default . _Map
 
 -- | The version metadata.
 gdvrsMetadata :: Lens' GetDocumentVersionResponse (Maybe DocumentVersionMetadata)
-gdvrsMetadata = lens _gdvrsMetadata (\ s a -> s{_gdvrsMetadata = a});
+gdvrsMetadata = lens _gdvrsMetadata (\ s a -> s{_gdvrsMetadata = a})
 
 -- | -- | The response status code.
 gdvrsResponseStatus :: Lens' GetDocumentVersionResponse Int
-gdvrsResponseStatus = lens _gdvrsResponseStatus (\ s a -> s{_gdvrsResponseStatus = a});
+gdvrsResponseStatus = lens _gdvrsResponseStatus (\ s a -> s{_gdvrsResponseStatus = a})
 
 instance NFData GetDocumentVersionResponse where

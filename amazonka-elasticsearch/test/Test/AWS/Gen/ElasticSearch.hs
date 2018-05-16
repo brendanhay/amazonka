@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.ElasticSearch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,6 +58,12 @@ import Test.Tasty
 --         , requestDeleteElasticsearchDomain $
 --             deleteElasticsearchDomain
 --
+--         , requestPurchaseReservedElasticsearchInstanceOffering $
+--             purchaseReservedElasticsearchInstanceOffering
+--
+--         , requestDescribeReservedElasticsearchInstances $
+--             describeReservedElasticsearchInstances
+--
 --         , requestUpdateElasticsearchDomainConfig $
 --             updateElasticsearchDomainConfig
 --
@@ -66,6 +72,9 @@ import Test.Tasty
 --
 --         , requestAddTags $
 --             addTags
+--
+--         , requestDescribeReservedElasticsearchInstanceOfferings $
+--             describeReservedElasticsearchInstanceOfferings
 --
 --         , requestListTags $
 --             listTags
@@ -103,6 +112,12 @@ import Test.Tasty
 --         , responseDeleteElasticsearchDomain $
 --             deleteElasticsearchDomainResponse
 --
+--         , responsePurchaseReservedElasticsearchInstanceOffering $
+--             purchaseReservedElasticsearchInstanceOfferingResponse
+--
+--         , responseDescribeReservedElasticsearchInstances $
+--             describeReservedElasticsearchInstancesResponse
+--
 --         , responseUpdateElasticsearchDomainConfig $
 --             updateElasticsearchDomainConfigResponse
 --
@@ -111,6 +126,9 @@ import Test.Tasty
 --
 --         , responseAddTags $
 --             addTagsResponse
+--
+--         , responseDescribeReservedElasticsearchInstanceOfferings $
+--             describeReservedElasticsearchInstanceOfferingsResponse
 --
 --         , responseListTags $
 --             listTagsResponse
@@ -170,6 +188,16 @@ requestDeleteElasticsearchDomain = req
     "DeleteElasticsearchDomain"
     "fixture/DeleteElasticsearchDomain.yaml"
 
+requestPurchaseReservedElasticsearchInstanceOffering :: PurchaseReservedElasticsearchInstanceOffering -> TestTree
+requestPurchaseReservedElasticsearchInstanceOffering = req
+    "PurchaseReservedElasticsearchInstanceOffering"
+    "fixture/PurchaseReservedElasticsearchInstanceOffering.yaml"
+
+requestDescribeReservedElasticsearchInstances :: DescribeReservedElasticsearchInstances -> TestTree
+requestDescribeReservedElasticsearchInstances = req
+    "DescribeReservedElasticsearchInstances"
+    "fixture/DescribeReservedElasticsearchInstances.yaml"
+
 requestUpdateElasticsearchDomainConfig :: UpdateElasticsearchDomainConfig -> TestTree
 requestUpdateElasticsearchDomainConfig = req
     "UpdateElasticsearchDomainConfig"
@@ -184,6 +212,11 @@ requestAddTags :: AddTags -> TestTree
 requestAddTags = req
     "AddTags"
     "fixture/AddTags.yaml"
+
+requestDescribeReservedElasticsearchInstanceOfferings :: DescribeReservedElasticsearchInstanceOfferings -> TestTree
+requestDescribeReservedElasticsearchInstanceOfferings = req
+    "DescribeReservedElasticsearchInstanceOfferings"
+    "fixture/DescribeReservedElasticsearchInstanceOfferings.yaml"
 
 requestListTags :: ListTags -> TestTree
 requestListTags = req
@@ -262,6 +295,20 @@ responseDeleteElasticsearchDomain = res
     elasticSearch
     (Proxy :: Proxy DeleteElasticsearchDomain)
 
+responsePurchaseReservedElasticsearchInstanceOffering :: PurchaseReservedElasticsearchInstanceOfferingResponse -> TestTree
+responsePurchaseReservedElasticsearchInstanceOffering = res
+    "PurchaseReservedElasticsearchInstanceOfferingResponse"
+    "fixture/PurchaseReservedElasticsearchInstanceOfferingResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy PurchaseReservedElasticsearchInstanceOffering)
+
+responseDescribeReservedElasticsearchInstances :: DescribeReservedElasticsearchInstancesResponse -> TestTree
+responseDescribeReservedElasticsearchInstances = res
+    "DescribeReservedElasticsearchInstancesResponse"
+    "fixture/DescribeReservedElasticsearchInstancesResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy DescribeReservedElasticsearchInstances)
+
 responseUpdateElasticsearchDomainConfig :: UpdateElasticsearchDomainConfigResponse -> TestTree
 responseUpdateElasticsearchDomainConfig = res
     "UpdateElasticsearchDomainConfigResponse"
@@ -282,6 +329,13 @@ responseAddTags = res
     "fixture/AddTagsResponse.proto"
     elasticSearch
     (Proxy :: Proxy AddTags)
+
+responseDescribeReservedElasticsearchInstanceOfferings :: DescribeReservedElasticsearchInstanceOfferingsResponse -> TestTree
+responseDescribeReservedElasticsearchInstanceOfferings = res
+    "DescribeReservedElasticsearchInstanceOfferingsResponse"
+    "fixture/DescribeReservedElasticsearchInstanceOfferingsResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy DescribeReservedElasticsearchInstanceOfferings)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags = res

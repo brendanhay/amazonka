@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.DeleteDataset
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ deleteDataset
     -> DeleteDataset
 deleteDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
   DeleteDataset'
-  { _delIdentityPoolId = pIdentityPoolId_
-  , _delIdentityId = pIdentityId_
-  , _delDatasetName = pDatasetName_
-  }
+    { _delIdentityPoolId = pIdentityPoolId_
+    , _delIdentityId = pIdentityId_
+    , _delDatasetName = pDatasetName_
+    }
 
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 delIdentityPoolId :: Lens' DeleteDataset Text
-delIdentityPoolId = lens _delIdentityPoolId (\ s a -> s{_delIdentityPoolId = a});
+delIdentityPoolId = lens _delIdentityPoolId (\ s a -> s{_delIdentityPoolId = a})
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 delIdentityId :: Lens' DeleteDataset Text
-delIdentityId = lens _delIdentityId (\ s a -> s{_delIdentityId = a});
+delIdentityId = lens _delIdentityId (\ s a -> s{_delIdentityId = a})
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 delDatasetName :: Lens' DeleteDataset Text
-delDatasetName = lens _delDatasetName (\ s a -> s{_delDatasetName = a});
+delDatasetName = lens _delDatasetName (\ s a -> s{_delDatasetName = a})
 
 instance AWSRequest DeleteDataset where
         type Rs DeleteDataset = DeleteDatasetResponse
@@ -143,15 +143,15 @@ deleteDatasetResponse
     -> DeleteDatasetResponse
 deleteDatasetResponse pResponseStatus_ =
   DeleteDatasetResponse'
-  {_drsDataset = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsDataset = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 drsDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
-drsDataset = lens _drsDataset (\ s a -> s{_drsDataset = a});
+drsDataset = lens _drsDataset (\ s a -> s{_drsDataset = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteDatasetResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteDatasetResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteResourcePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ deleteResourcePolicy = DeleteResourcePolicy' {_drpPolicyName = Nothing}
 
 -- | The name of the policy to be revoked. This parameter is required.
 drpPolicyName :: Lens' DeleteResourcePolicy (Maybe Text)
-drpPolicyName = lens _drpPolicyName (\ s a -> s{_drpPolicyName = a});
+drpPolicyName = lens _drpPolicyName (\ s a -> s{_drpPolicyName = a})
 
 instance AWSRequest DeleteResourcePolicy where
         type Rs DeleteResourcePolicy =

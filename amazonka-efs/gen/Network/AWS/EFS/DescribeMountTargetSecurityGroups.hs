@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DescribeMountTargetSecurityGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,7 +76,7 @@ describeMountTargetSecurityGroups pMountTargetId_ =
 
 -- | ID of the mount target whose security groups you want to retrieve.
 dmtsgMountTargetId :: Lens' DescribeMountTargetSecurityGroups Text
-dmtsgMountTargetId = lens _dmtsgMountTargetId (\ s a -> s{_dmtsgMountTargetId = a});
+dmtsgMountTargetId = lens _dmtsgMountTargetId (\ s a -> s{_dmtsgMountTargetId = a})
 
 instance AWSRequest DescribeMountTargetSecurityGroups
          where
@@ -130,16 +130,16 @@ describeMountTargetSecurityGroupsResponse
     -> DescribeMountTargetSecurityGroupsResponse
 describeMountTargetSecurityGroupsResponse pResponseStatus_ =
   DescribeMountTargetSecurityGroupsResponse'
-  {_dmtsgrsResponseStatus = pResponseStatus_, _dmtsgrsSecurityGroups = mempty}
+    {_dmtsgrsResponseStatus = pResponseStatus_, _dmtsgrsSecurityGroups = mempty}
 
 
 -- | -- | The response status code.
 dmtsgrsResponseStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
-dmtsgrsResponseStatus = lens _dmtsgrsResponseStatus (\ s a -> s{_dmtsgrsResponseStatus = a});
+dmtsgrsResponseStatus = lens _dmtsgrsResponseStatus (\ s a -> s{_dmtsgrsResponseStatus = a})
 
 -- | Array of security groups.
 dmtsgrsSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
-dmtsgrsSecurityGroups = lens _dmtsgrsSecurityGroups (\ s a -> s{_dmtsgrsSecurityGroups = a}) . _Coerce;
+dmtsgrsSecurityGroups = lens _dmtsgrsSecurityGroups (\ s a -> s{_dmtsgrsSecurityGroups = a}) . _Coerce
 
 instance NFData
            DescribeMountTargetSecurityGroupsResponse

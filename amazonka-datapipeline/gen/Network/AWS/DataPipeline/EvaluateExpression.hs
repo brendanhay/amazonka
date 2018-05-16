@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.EvaluateExpression
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ evaluateExpression
     -> EvaluateExpression
 evaluateExpression pPipelineId_ pObjectId_ pExpression_ =
   EvaluateExpression'
-  { _eePipelineId = pPipelineId_
-  , _eeObjectId = pObjectId_
-  , _eeExpression = pExpression_
-  }
+    { _eePipelineId = pPipelineId_
+    , _eeObjectId = pObjectId_
+    , _eeExpression = pExpression_
+    }
 
 
 -- | The ID of the pipeline.
 eePipelineId :: Lens' EvaluateExpression Text
-eePipelineId = lens _eePipelineId (\ s a -> s{_eePipelineId = a});
+eePipelineId = lens _eePipelineId (\ s a -> s{_eePipelineId = a})
 
 -- | The ID of the object.
 eeObjectId :: Lens' EvaluateExpression Text
-eeObjectId = lens _eeObjectId (\ s a -> s{_eeObjectId = a});
+eeObjectId = lens _eeObjectId (\ s a -> s{_eeObjectId = a})
 
 -- | The expression to evaluate.
 eeExpression :: Lens' EvaluateExpression Text
-eeExpression = lens _eeExpression (\ s a -> s{_eeExpression = a});
+eeExpression = lens _eeExpression (\ s a -> s{_eeExpression = a})
 
 instance AWSRequest EvaluateExpression where
         type Rs EvaluateExpression =
@@ -154,17 +154,17 @@ evaluateExpressionResponse
     -> EvaluateExpressionResponse
 evaluateExpressionResponse pResponseStatus_ pEvaluatedExpression_ =
   EvaluateExpressionResponse'
-  { _eersResponseStatus = pResponseStatus_
-  , _eersEvaluatedExpression = pEvaluatedExpression_
-  }
+    { _eersResponseStatus = pResponseStatus_
+    , _eersEvaluatedExpression = pEvaluatedExpression_
+    }
 
 
 -- | -- | The response status code.
 eersResponseStatus :: Lens' EvaluateExpressionResponse Int
-eersResponseStatus = lens _eersResponseStatus (\ s a -> s{_eersResponseStatus = a});
+eersResponseStatus = lens _eersResponseStatus (\ s a -> s{_eersResponseStatus = a})
 
 -- | The evaluated expression.
 eersEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
-eersEvaluatedExpression = lens _eersEvaluatedExpression (\ s a -> s{_eersEvaluatedExpression = a});
+eersEvaluatedExpression = lens _eersEvaluatedExpression (\ s a -> s{_eersEvaluatedExpression = a})
 
 instance NFData EvaluateExpressionResponse where

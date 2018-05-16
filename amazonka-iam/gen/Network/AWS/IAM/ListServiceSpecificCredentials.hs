@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListServiceSpecificCredentials
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the service-specific credentials associated with the specified IAM user. If there are none, the action returns an empty list. The service-specific credentials returned by this action are used only for authenticating the IAM user to a specific service. For more information about using service-specific credentials to authenticate to an AWS service, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html Set Up service-specific credentials> in the AWS CodeCommit User Guide.
+-- Returns information about the service-specific credentials associated with the specified IAM user. If there are none, the operation returns an empty list. The service-specific credentials returned by this operation are used only for authenticating the IAM user to a specific service. For more information about using service-specific credentials to authenticate to an AWS service, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html Set Up service-specific credentials> in the AWS CodeCommit User Guide.
 --
 --
 module Network.AWS.IAM.ListServiceSpecificCredentials
@@ -56,23 +56,23 @@ data ListServiceSpecificCredentials = ListServiceSpecificCredentials'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsscUserName' - The name of the user whose service-specific credentials you want information about. If this value is not specified then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'lsscUserName' - The name of the user whose service-specific credentials you want information about. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'lsscServiceName' - Filters the returned results to only those for the specified AWS service. If not specified, then AWS returns service-specific credentials for all services.
 listServiceSpecificCredentials
     :: ListServiceSpecificCredentials
 listServiceSpecificCredentials =
   ListServiceSpecificCredentials'
-  {_lsscUserName = Nothing, _lsscServiceName = Nothing}
+    {_lsscUserName = Nothing, _lsscServiceName = Nothing}
 
 
--- | The name of the user whose service-specific credentials you want information about. If this value is not specified then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user whose service-specific credentials you want information about. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 lsscUserName :: Lens' ListServiceSpecificCredentials (Maybe Text)
-lsscUserName = lens _lsscUserName (\ s a -> s{_lsscUserName = a});
+lsscUserName = lens _lsscUserName (\ s a -> s{_lsscUserName = a})
 
 -- | Filters the returned results to only those for the specified AWS service. If not specified, then AWS returns service-specific credentials for all services.
 lsscServiceName :: Lens' ListServiceSpecificCredentials (Maybe Text)
-lsscServiceName = lens _lsscServiceName (\ s a -> s{_lsscServiceName = a});
+lsscServiceName = lens _lsscServiceName (\ s a -> s{_lsscServiceName = a})
 
 instance AWSRequest ListServiceSpecificCredentials
          where
@@ -128,18 +128,18 @@ listServiceSpecificCredentialsResponse
     -> ListServiceSpecificCredentialsResponse
 listServiceSpecificCredentialsResponse pResponseStatus_ =
   ListServiceSpecificCredentialsResponse'
-  { _lsscrsServiceSpecificCredentials = Nothing
-  , _lsscrsResponseStatus = pResponseStatus_
-  }
+    { _lsscrsServiceSpecificCredentials = Nothing
+    , _lsscrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of structures that each contain details about a service-specific credential.
 lsscrsServiceSpecificCredentials :: Lens' ListServiceSpecificCredentialsResponse [ServiceSpecificCredentialMetadata]
-lsscrsServiceSpecificCredentials = lens _lsscrsServiceSpecificCredentials (\ s a -> s{_lsscrsServiceSpecificCredentials = a}) . _Default . _Coerce;
+lsscrsServiceSpecificCredentials = lens _lsscrsServiceSpecificCredentials (\ s a -> s{_lsscrsServiceSpecificCredentials = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lsscrsResponseStatus :: Lens' ListServiceSpecificCredentialsResponse Int
-lsscrsResponseStatus = lens _lsscrsResponseStatus (\ s a -> s{_lsscrsResponseStatus = a});
+lsscrsResponseStatus = lens _lsscrsResponseStatus (\ s a -> s{_lsscrsResponseStatus = a})
 
 instance NFData
            ListServiceSpecificCredentialsResponse

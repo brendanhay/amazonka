@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.ListTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@
 --
 -- This is a paginated operation, which means that each response might contain only a subset of all the tags. When the response contains only a subset of tags, it includes a @NextToken@ value. Use this value in a subsequent @ListTags@ request to get more tags. When you receive a response with no @NextToken@ (or an empty or null value), that means there are no more tags to get.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudHSMv2.ListTags
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.CloudHSMv2.ListTags
 import Network.AWS.CloudHSMv2.Types
 import Network.AWS.CloudHSMv2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -71,23 +74,30 @@ listTags
     -> ListTags
 listTags pResourceId_ =
   ListTags'
-  { _ltNextToken = Nothing
-  , _ltMaxResults = Nothing
-  , _ltResourceId = pResourceId_
-  }
+    { _ltNextToken = Nothing
+    , _ltMaxResults = Nothing
+    , _ltResourceId = pResourceId_
+    }
 
 
 -- | The @NextToken@ value that you received in the previous response. Use this value to get more tags.
 ltNextToken :: Lens' ListTags (Maybe Text)
-ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
+ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
 
 -- | The maximum number of tags to return in the response. When there are more tags than the number you specify, the response contains a @NextToken@ value.
 ltMaxResults :: Lens' ListTags (Maybe Natural)
-ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a}) . mapping _Nat;
+ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a}) . mapping _Nat
 
 -- | The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use 'DescribeClusters' .
 ltResourceId :: Lens' ListTags Text
-ltResourceId = lens _ltResourceId (\ s a -> s{_ltResourceId = a});
+ltResourceId = lens _ltResourceId (\ s a -> s{_ltResourceId = a})
+
+instance AWSPager ListTags where
+        page rq rs
+          | stop (rs ^. ltrsNextToken) = Nothing
+          | stop (rs ^. ltrsTagList) = Nothing
+          | otherwise =
+            Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTags where
         type Rs ListTags = ListTagsResponse
@@ -97,7 +107,7 @@ instance AWSRequest ListTags where
               (\ s h x ->
                  ListTagsResponse' <$>
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
-                     (x .:> "TagList"))
+                     (x .?> "TagList" .!@ mempty))
 
 instance Hashable ListTags where
 
@@ -130,7 +140,7 @@ instance ToQuery ListTags where
 data ListTagsResponse = ListTagsResponse'
   { _ltrsNextToken      :: !(Maybe Text)
   , _ltrsResponseStatus :: !Int
-  , _ltrsTagList        :: !(List1 Tag)
+  , _ltrsTagList        :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -145,26 +155,25 @@ data ListTagsResponse = ListTagsResponse'
 -- * 'ltrsTagList' - A list of tags.
 listTagsResponse
     :: Int -- ^ 'ltrsResponseStatus'
-    -> NonEmpty Tag -- ^ 'ltrsTagList'
     -> ListTagsResponse
-listTagsResponse pResponseStatus_ pTagList_ =
+listTagsResponse pResponseStatus_ =
   ListTagsResponse'
-  { _ltrsNextToken = Nothing
-  , _ltrsResponseStatus = pResponseStatus_
-  , _ltrsTagList = _List1 # pTagList_
-  }
+    { _ltrsNextToken = Nothing
+    , _ltrsResponseStatus = pResponseStatus_
+    , _ltrsTagList = mempty
+    }
 
 
 -- | An opaque string that indicates that the response contains only a subset of tags. Use this value in a subsequent @ListTags@ request to get more tags.
 ltrsNextToken :: Lens' ListTagsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
+ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a})
 
 -- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTagsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
 
 -- | A list of tags.
-ltrsTagList :: Lens' ListTagsResponse (NonEmpty Tag)
-ltrsTagList = lens _ltrsTagList (\ s a -> s{_ltrsTagList = a}) . _List1;
+ltrsTagList :: Lens' ListTagsResponse [Tag]
+ltrsTagList = lens _ltrsTagList (\ s a -> s{_ltrsTagList = a}) . _Coerce
 
 instance NFData ListTagsResponse where

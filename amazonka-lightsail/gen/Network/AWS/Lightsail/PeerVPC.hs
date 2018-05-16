@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.PeerVPC
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -105,15 +105,15 @@ peerVPCResponse
     -> PeerVPCResponse
 peerVPCResponse pResponseStatus_ =
   PeerVPCResponse'
-  {_pvrsOperation = Nothing, _pvrsResponseStatus = pResponseStatus_}
+    {_pvrsOperation = Nothing, _pvrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the request operation.
 pvrsOperation :: Lens' PeerVPCResponse (Maybe Operation)
-pvrsOperation = lens _pvrsOperation (\ s a -> s{_pvrsOperation = a});
+pvrsOperation = lens _pvrsOperation (\ s a -> s{_pvrsOperation = a})
 
 -- | -- | The response status code.
 pvrsResponseStatus :: Lens' PeerVPCResponse Int
-pvrsResponseStatus = lens _pvrsResponseStatus (\ s a -> s{_pvrsResponseStatus = a});
+pvrsResponseStatus = lens _pvrsResponseStatus (\ s a -> s{_pvrsResponseStatus = a})
 
 instance NFData PeerVPCResponse where

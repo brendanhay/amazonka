@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RegisterWorkflowType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -121,58 +121,58 @@ registerWorkflowType
     -> RegisterWorkflowType
 registerWorkflowType pDomain_ pName_ pVersion_ =
   RegisterWorkflowType'
-  { _rwtDefaultLambdaRole = Nothing
-  , _rwtDefaultChildPolicy = Nothing
-  , _rwtDefaultTaskList = Nothing
-  , _rwtDefaultTaskPriority = Nothing
-  , _rwtDefaultExecutionStartToCloseTimeout = Nothing
-  , _rwtDefaultTaskStartToCloseTimeout = Nothing
-  , _rwtDescription = Nothing
-  , _rwtDomain = pDomain_
-  , _rwtName = pName_
-  , _rwtVersion = pVersion_
-  }
+    { _rwtDefaultLambdaRole = Nothing
+    , _rwtDefaultChildPolicy = Nothing
+    , _rwtDefaultTaskList = Nothing
+    , _rwtDefaultTaskPriority = Nothing
+    , _rwtDefaultExecutionStartToCloseTimeout = Nothing
+    , _rwtDefaultTaskStartToCloseTimeout = Nothing
+    , _rwtDescription = Nothing
+    , _rwtDomain = pDomain_
+    , _rwtName = pName_
+    , _rwtVersion = pVersion_
+    }
 
 
 -- | The default IAM role attached to this workflow type.
 rwtDefaultLambdaRole :: Lens' RegisterWorkflowType (Maybe Text)
-rwtDefaultLambdaRole = lens _rwtDefaultLambdaRole (\ s a -> s{_rwtDefaultLambdaRole = a});
+rwtDefaultLambdaRole = lens _rwtDefaultLambdaRole (\ s a -> s{_rwtDefaultLambdaRole = a})
 
 -- | If set, specifies the default policy to use for the child workflow executions when a workflow execution of this type is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ 'Decision' . The supported child policies are:     * @TERMINATE@ – The child executions are terminated.     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.     * @ABANDON@ – No action is taken. The child executions continue to run.
 rwtDefaultChildPolicy :: Lens' RegisterWorkflowType (Maybe ChildPolicy)
-rwtDefaultChildPolicy = lens _rwtDefaultChildPolicy (\ s a -> s{_rwtDefaultChildPolicy = a});
+rwtDefaultChildPolicy = lens _rwtDefaultChildPolicy (\ s a -> s{_rwtDefaultChildPolicy = a})
 
 -- | If set, specifies the default task list to use for scheduling decision tasks for executions of this workflow type. This default is used only if a task list isn't provided when starting the execution through the 'StartWorkflowExecution' Action or @StartChildWorkflowExecution@ 'Decision' .
 rwtDefaultTaskList :: Lens' RegisterWorkflowType (Maybe TaskList)
-rwtDefaultTaskList = lens _rwtDefaultTaskList (\ s a -> s{_rwtDefaultTaskList = a});
+rwtDefaultTaskList = lens _rwtDefaultTaskList (\ s a -> s{_rwtDefaultTaskList = a})
 
 -- | The default task priority to assign to the workflow type. If not assigned, then @0@ is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
 rwtDefaultTaskPriority :: Lens' RegisterWorkflowType (Maybe Text)
-rwtDefaultTaskPriority = lens _rwtDefaultTaskPriority (\ s a -> s{_rwtDefaultTaskPriority = a});
+rwtDefaultTaskPriority = lens _rwtDefaultTaskPriority (\ s a -> s{_rwtDefaultTaskPriority = a})
 
 -- | If set, specifies the default maximum duration for executions of this workflow type. You can override this default when starting an execution through the 'StartWorkflowExecution' Action or @StartChildWorkflowExecution@ 'Decision' . The duration is specified in seconds; an integer greater than or equal to 0. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for @defaultExecutionStartToCloseTimeout@ ; there is a one-year max limit on the time that a workflow execution can run. Exceeding this limit always causes the workflow execution to time out.
 rwtDefaultExecutionStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
-rwtDefaultExecutionStartToCloseTimeout = lens _rwtDefaultExecutionStartToCloseTimeout (\ s a -> s{_rwtDefaultExecutionStartToCloseTimeout = a});
+rwtDefaultExecutionStartToCloseTimeout = lens _rwtDefaultExecutionStartToCloseTimeout (\ s a -> s{_rwtDefaultExecutionStartToCloseTimeout = a})
 
 -- | If set, specifies the default maximum duration of decision tasks for this workflow type. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ 'Decision' . The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 rwtDefaultTaskStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
-rwtDefaultTaskStartToCloseTimeout = lens _rwtDefaultTaskStartToCloseTimeout (\ s a -> s{_rwtDefaultTaskStartToCloseTimeout = a});
+rwtDefaultTaskStartToCloseTimeout = lens _rwtDefaultTaskStartToCloseTimeout (\ s a -> s{_rwtDefaultTaskStartToCloseTimeout = a})
 
 -- | Textual description of the workflow type.
 rwtDescription :: Lens' RegisterWorkflowType (Maybe Text)
-rwtDescription = lens _rwtDescription (\ s a -> s{_rwtDescription = a});
+rwtDescription = lens _rwtDescription (\ s a -> s{_rwtDescription = a})
 
 -- | The name of the domain in which to register the workflow type.
 rwtDomain :: Lens' RegisterWorkflowType Text
-rwtDomain = lens _rwtDomain (\ s a -> s{_rwtDomain = a});
+rwtDomain = lens _rwtDomain (\ s a -> s{_rwtDomain = a})
 
 -- | The name of the workflow type. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 rwtName :: Lens' RegisterWorkflowType Text
-rwtName = lens _rwtName (\ s a -> s{_rwtName = a});
+rwtName = lens _rwtName (\ s a -> s{_rwtName = a})
 
 -- | The version of the workflow type. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 rwtVersion :: Lens' RegisterWorkflowType Text
-rwtVersion = lens _rwtVersion (\ s a -> s{_rwtVersion = a});
+rwtVersion = lens _rwtVersion (\ s a -> s{_rwtVersion = a})
 
 instance AWSRequest RegisterWorkflowType where
         type Rs RegisterWorkflowType =

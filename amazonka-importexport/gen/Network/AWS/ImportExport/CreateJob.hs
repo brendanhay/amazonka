@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.CreateJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,33 +83,33 @@ createJob
     -> CreateJob
 createJob pJobType_ pManifest_ pValidateOnly_ =
   CreateJob'
-  { _cjAPIVersion = Nothing
-  , _cjManifestAddendum = Nothing
-  , _cjJobType = pJobType_
-  , _cjManifest = pManifest_
-  , _cjValidateOnly = pValidateOnly_
-  }
+    { _cjAPIVersion = Nothing
+    , _cjManifestAddendum = Nothing
+    , _cjJobType = pJobType_
+    , _cjManifest = pManifest_
+    , _cjValidateOnly = pValidateOnly_
+    }
 
 
 -- | Undocumented member.
 cjAPIVersion :: Lens' CreateJob (Maybe Text)
-cjAPIVersion = lens _cjAPIVersion (\ s a -> s{_cjAPIVersion = a});
+cjAPIVersion = lens _cjAPIVersion (\ s a -> s{_cjAPIVersion = a})
 
 -- | Undocumented member.
 cjManifestAddendum :: Lens' CreateJob (Maybe Text)
-cjManifestAddendum = lens _cjManifestAddendum (\ s a -> s{_cjManifestAddendum = a});
+cjManifestAddendum = lens _cjManifestAddendum (\ s a -> s{_cjManifestAddendum = a})
 
 -- | Undocumented member.
 cjJobType :: Lens' CreateJob JobType
-cjJobType = lens _cjJobType (\ s a -> s{_cjJobType = a});
+cjJobType = lens _cjJobType (\ s a -> s{_cjJobType = a})
 
 -- | Undocumented member.
 cjManifest :: Lens' CreateJob Text
-cjManifest = lens _cjManifest (\ s a -> s{_cjManifest = a});
+cjManifest = lens _cjManifest (\ s a -> s{_cjManifest = a})
 
 -- | Undocumented member.
 cjValidateOnly :: Lens' CreateJob Bool
-cjValidateOnly = lens _cjValidateOnly (\ s a -> s{_cjValidateOnly = a});
+cjValidateOnly = lens _cjValidateOnly (\ s a -> s{_cjValidateOnly = a})
 
 instance AWSRequest CreateJob where
         type Rs CreateJob = CreateJobResponse
@@ -184,42 +184,42 @@ createJobResponse
     -> CreateJobResponse
 createJobResponse pResponseStatus_ =
   CreateJobResponse'
-  { _cjrsSignature = Nothing
-  , _cjrsJobType = Nothing
-  , _cjrsJobId = Nothing
-  , _cjrsSignatureFileContents = Nothing
-  , _cjrsWarningMessage = Nothing
-  , _cjrsArtifactList = Nothing
-  , _cjrsResponseStatus = pResponseStatus_
-  }
+    { _cjrsSignature = Nothing
+    , _cjrsJobType = Nothing
+    , _cjrsJobId = Nothing
+    , _cjrsSignatureFileContents = Nothing
+    , _cjrsWarningMessage = Nothing
+    , _cjrsArtifactList = Nothing
+    , _cjrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 cjrsSignature :: Lens' CreateJobResponse (Maybe Text)
-cjrsSignature = lens _cjrsSignature (\ s a -> s{_cjrsSignature = a});
+cjrsSignature = lens _cjrsSignature (\ s a -> s{_cjrsSignature = a})
 
 -- | Undocumented member.
 cjrsJobType :: Lens' CreateJobResponse (Maybe JobType)
-cjrsJobType = lens _cjrsJobType (\ s a -> s{_cjrsJobType = a});
+cjrsJobType = lens _cjrsJobType (\ s a -> s{_cjrsJobType = a})
 
 -- | Undocumented member.
 cjrsJobId :: Lens' CreateJobResponse (Maybe Text)
-cjrsJobId = lens _cjrsJobId (\ s a -> s{_cjrsJobId = a});
+cjrsJobId = lens _cjrsJobId (\ s a -> s{_cjrsJobId = a})
 
 -- | Undocumented member.
 cjrsSignatureFileContents :: Lens' CreateJobResponse (Maybe Text)
-cjrsSignatureFileContents = lens _cjrsSignatureFileContents (\ s a -> s{_cjrsSignatureFileContents = a});
+cjrsSignatureFileContents = lens _cjrsSignatureFileContents (\ s a -> s{_cjrsSignatureFileContents = a})
 
 -- | Undocumented member.
 cjrsWarningMessage :: Lens' CreateJobResponse (Maybe Text)
-cjrsWarningMessage = lens _cjrsWarningMessage (\ s a -> s{_cjrsWarningMessage = a});
+cjrsWarningMessage = lens _cjrsWarningMessage (\ s a -> s{_cjrsWarningMessage = a})
 
 -- | Undocumented member.
 cjrsArtifactList :: Lens' CreateJobResponse [Artifact]
-cjrsArtifactList = lens _cjrsArtifactList (\ s a -> s{_cjrsArtifactList = a}) . _Default . _Coerce;
+cjrsArtifactList = lens _cjrsArtifactList (\ s a -> s{_cjrsArtifactList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 cjrsResponseStatus :: Lens' CreateJobResponse Int
-cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
+cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a})
 
 instance NFData CreateJobResponse where

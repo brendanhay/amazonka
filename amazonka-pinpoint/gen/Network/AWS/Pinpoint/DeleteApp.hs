@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteApp
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ deleteApp pApplicationId_ = DeleteApp' {_daApplicationId = pApplicationId_}
 
 -- | Undocumented member.
 daApplicationId :: Lens' DeleteApp Text
-daApplicationId = lens _daApplicationId (\ s a -> s{_daApplicationId = a});
+daApplicationId = lens _daApplicationId (\ s a -> s{_daApplicationId = a})
 
 instance AWSRequest DeleteApp where
         type Rs DeleteApp = DeleteAppResponse
@@ -110,17 +110,17 @@ deleteAppResponse
     -> DeleteAppResponse
 deleteAppResponse pResponseStatus_ pApplicationResponse_ =
   DeleteAppResponse'
-  { _darsResponseStatus = pResponseStatus_
-  , _darsApplicationResponse = pApplicationResponse_
-  }
+    { _darsResponseStatus = pResponseStatus_
+    , _darsApplicationResponse = pApplicationResponse_
+    }
 
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DeleteAppResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 -- | Undocumented member.
 darsApplicationResponse :: Lens' DeleteAppResponse ApplicationResponse
-darsApplicationResponse = lens _darsApplicationResponse (\ s a -> s{_darsApplicationResponse = a});
+darsApplicationResponse = lens _darsApplicationResponse (\ s a -> s{_darsApplicationResponse = a})
 
 instance NFData DeleteAppResponse where

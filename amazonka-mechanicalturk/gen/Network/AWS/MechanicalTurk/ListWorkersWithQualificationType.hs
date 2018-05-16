@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- The @ListWorkersWithQualificationType@ operation returns all of the Workers that have been associated with a given Qualification type.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
 import Network.AWS.Lens
 import Network.AWS.MechanicalTurk.Types
 import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -74,28 +77,36 @@ listWorkersWithQualificationType
     -> ListWorkersWithQualificationType
 listWorkersWithQualificationType pQualificationTypeId_ =
   ListWorkersWithQualificationType'
-  { _lwwqtStatus = Nothing
-  , _lwwqtNextToken = Nothing
-  , _lwwqtMaxResults = Nothing
-  , _lwwqtQualificationTypeId = pQualificationTypeId_
-  }
+    { _lwwqtStatus = Nothing
+    , _lwwqtNextToken = Nothing
+    , _lwwqtMaxResults = Nothing
+    , _lwwqtQualificationTypeId = pQualificationTypeId_
+    }
 
 
 -- | The status of the Qualifications to return. Can be @Granted | Revoked@ .
 lwwqtStatus :: Lens' ListWorkersWithQualificationType (Maybe QualificationStatus)
-lwwqtStatus = lens _lwwqtStatus (\ s a -> s{_lwwqtStatus = a});
+lwwqtStatus = lens _lwwqtStatus (\ s a -> s{_lwwqtStatus = a})
 
 -- | Pagination Token
 lwwqtNextToken :: Lens' ListWorkersWithQualificationType (Maybe Text)
-lwwqtNextToken = lens _lwwqtNextToken (\ s a -> s{_lwwqtNextToken = a});
+lwwqtNextToken = lens _lwwqtNextToken (\ s a -> s{_lwwqtNextToken = a})
 
 -- | Limit the number of results returned.
 lwwqtMaxResults :: Lens' ListWorkersWithQualificationType (Maybe Natural)
-lwwqtMaxResults = lens _lwwqtMaxResults (\ s a -> s{_lwwqtMaxResults = a}) . mapping _Nat;
+lwwqtMaxResults = lens _lwwqtMaxResults (\ s a -> s{_lwwqtMaxResults = a}) . mapping _Nat
 
 -- | The ID of the Qualification type of the Qualifications to return.
 lwwqtQualificationTypeId :: Lens' ListWorkersWithQualificationType Text
-lwwqtQualificationTypeId = lens _lwwqtQualificationTypeId (\ s a -> s{_lwwqtQualificationTypeId = a});
+lwwqtQualificationTypeId = lens _lwwqtQualificationTypeId (\ s a -> s{_lwwqtQualificationTypeId = a})
+
+instance AWSPager ListWorkersWithQualificationType
+         where
+        page rq rs
+          | stop (rs ^. lwwqtrsNextToken) = Nothing
+          | stop (rs ^. lwwqtrsQualifications) = Nothing
+          | otherwise =
+            Just $ rq & lwwqtNextToken .~ rs ^. lwwqtrsNextToken
 
 instance AWSRequest ListWorkersWithQualificationType
          where
@@ -172,28 +183,28 @@ listWorkersWithQualificationTypeResponse
     -> ListWorkersWithQualificationTypeResponse
 listWorkersWithQualificationTypeResponse pResponseStatus_ =
   ListWorkersWithQualificationTypeResponse'
-  { _lwwqtrsNextToken = Nothing
-  , _lwwqtrsNumResults = Nothing
-  , _lwwqtrsQualifications = Nothing
-  , _lwwqtrsResponseStatus = pResponseStatus_
-  }
+    { _lwwqtrsNextToken = Nothing
+    , _lwwqtrsNumResults = Nothing
+    , _lwwqtrsQualifications = Nothing
+    , _lwwqtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 lwwqtrsNextToken :: Lens' ListWorkersWithQualificationTypeResponse (Maybe Text)
-lwwqtrsNextToken = lens _lwwqtrsNextToken (\ s a -> s{_lwwqtrsNextToken = a});
+lwwqtrsNextToken = lens _lwwqtrsNextToken (\ s a -> s{_lwwqtrsNextToken = a})
 
 -- | The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.
 lwwqtrsNumResults :: Lens' ListWorkersWithQualificationTypeResponse (Maybe Int)
-lwwqtrsNumResults = lens _lwwqtrsNumResults (\ s a -> s{_lwwqtrsNumResults = a});
+lwwqtrsNumResults = lens _lwwqtrsNumResults (\ s a -> s{_lwwqtrsNumResults = a})
 
 -- | The list of Qualification elements returned by this call.
 lwwqtrsQualifications :: Lens' ListWorkersWithQualificationTypeResponse [Qualification]
-lwwqtrsQualifications = lens _lwwqtrsQualifications (\ s a -> s{_lwwqtrsQualifications = a}) . _Default . _Coerce;
+lwwqtrsQualifications = lens _lwwqtrsQualifications (\ s a -> s{_lwwqtrsQualifications = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lwwqtrsResponseStatus :: Lens' ListWorkersWithQualificationTypeResponse Int
-lwwqtrsResponseStatus = lens _lwwqtrsResponseStatus (\ s a -> s{_lwwqtrsResponseStatus = a});
+lwwqtrsResponseStatus = lens _lwwqtrsResponseStatus (\ s a -> s{_lwwqtrsResponseStatus = a})
 
 instance NFData
            ListWorkersWithQualificationTypeResponse

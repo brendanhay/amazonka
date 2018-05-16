@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetServiceRoleForAccount
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the service role that is attached to the account.
+-- Retrieves the service role that is attached to your account.
 module Network.AWS.Greengrass.GetServiceRoleForAccount
     (
     -- * Creating a Request
@@ -94,9 +94,9 @@ data GetServiceRoleForAccountResponse = GetServiceRoleForAccountResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsrfarsAssociatedAt' - Time when the service role was associated to the account.
+-- * 'gsrfarsAssociatedAt' - The time when the service role was associated with the account.
 --
--- * 'gsrfarsRoleARN' - Role arn which is associated to the account.
+-- * 'gsrfarsRoleARN' - The ARN of the role which is associated with the account.
 --
 -- * 'gsrfarsResponseStatus' - -- | The response status code.
 getServiceRoleForAccountResponse
@@ -104,23 +104,23 @@ getServiceRoleForAccountResponse
     -> GetServiceRoleForAccountResponse
 getServiceRoleForAccountResponse pResponseStatus_ =
   GetServiceRoleForAccountResponse'
-  { _gsrfarsAssociatedAt = Nothing
-  , _gsrfarsRoleARN = Nothing
-  , _gsrfarsResponseStatus = pResponseStatus_
-  }
+    { _gsrfarsAssociatedAt = Nothing
+    , _gsrfarsRoleARN = Nothing
+    , _gsrfarsResponseStatus = pResponseStatus_
+    }
 
 
--- | Time when the service role was associated to the account.
+-- | The time when the service role was associated with the account.
 gsrfarsAssociatedAt :: Lens' GetServiceRoleForAccountResponse (Maybe Text)
-gsrfarsAssociatedAt = lens _gsrfarsAssociatedAt (\ s a -> s{_gsrfarsAssociatedAt = a});
+gsrfarsAssociatedAt = lens _gsrfarsAssociatedAt (\ s a -> s{_gsrfarsAssociatedAt = a})
 
--- | Role arn which is associated to the account.
+-- | The ARN of the role which is associated with the account.
 gsrfarsRoleARN :: Lens' GetServiceRoleForAccountResponse (Maybe Text)
-gsrfarsRoleARN = lens _gsrfarsRoleARN (\ s a -> s{_gsrfarsRoleARN = a});
+gsrfarsRoleARN = lens _gsrfarsRoleARN (\ s a -> s{_gsrfarsRoleARN = a})
 
 -- | -- | The response status code.
 gsrfarsResponseStatus :: Lens' GetServiceRoleForAccountResponse Int
-gsrfarsResponseStatus = lens _gsrfarsResponseStatus (\ s a -> s{_gsrfarsResponseStatus = a});
+gsrfarsResponseStatus = lens _gsrfarsResponseStatus (\ s a -> s{_gsrfarsResponseStatus = a})
 
 instance NFData GetServiceRoleForAccountResponse
          where

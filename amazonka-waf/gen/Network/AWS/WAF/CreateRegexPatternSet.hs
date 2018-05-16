@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.CreateRegexPatternSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,11 +84,11 @@ createRegexPatternSet pName_ pChangeToken_ =
 
 -- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
 crpsName :: Lens' CreateRegexPatternSet Text
-crpsName = lens _crpsName (\ s a -> s{_crpsName = a});
+crpsName = lens _crpsName (\ s a -> s{_crpsName = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 crpsChangeToken :: Lens' CreateRegexPatternSet Text
-crpsChangeToken = lens _crpsChangeToken (\ s a -> s{_crpsChangeToken = a});
+crpsChangeToken = lens _crpsChangeToken (\ s a -> s{_crpsChangeToken = a})
 
 instance AWSRequest CreateRegexPatternSet where
         type Rs CreateRegexPatternSet =
@@ -150,22 +150,22 @@ createRegexPatternSetResponse
     -> CreateRegexPatternSetResponse
 createRegexPatternSetResponse pResponseStatus_ =
   CreateRegexPatternSetResponse'
-  { _crpsrsRegexPatternSet = Nothing
-  , _crpsrsChangeToken = Nothing
-  , _crpsrsResponseStatus = pResponseStatus_
-  }
+    { _crpsrsRegexPatternSet = Nothing
+    , _crpsrsChangeToken = Nothing
+    , _crpsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A 'RegexPatternSet' that contains no objects.
 crpsrsRegexPatternSet :: Lens' CreateRegexPatternSetResponse (Maybe RegexPatternSet)
-crpsrsRegexPatternSet = lens _crpsrsRegexPatternSet (\ s a -> s{_crpsrsRegexPatternSet = a});
+crpsrsRegexPatternSet = lens _crpsrsRegexPatternSet (\ s a -> s{_crpsrsRegexPatternSet = a})
 
 -- | The @ChangeToken@ that you used to submit the @CreateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 crpsrsChangeToken :: Lens' CreateRegexPatternSetResponse (Maybe Text)
-crpsrsChangeToken = lens _crpsrsChangeToken (\ s a -> s{_crpsrsChangeToken = a});
+crpsrsChangeToken = lens _crpsrsChangeToken (\ s a -> s{_crpsrsChangeToken = a})
 
 -- | -- | The response status code.
 crpsrsResponseStatus :: Lens' CreateRegexPatternSetResponse Int
-crpsrsResponseStatus = lens _crpsrsResponseStatus (\ s a -> s{_crpsrsResponseStatus = a});
+crpsrsResponseStatus = lens _crpsrsResponseStatus (\ s a -> s{_crpsrsResponseStatus = a})
 
 instance NFData CreateRegexPatternSetResponse where

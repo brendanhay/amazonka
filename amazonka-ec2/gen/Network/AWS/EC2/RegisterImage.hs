@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RegisterImage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,7 +90,7 @@ data RegisterImage = RegisterImage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riVirtualizationType' - The type of virtualization. Default: @paravirtual@
+-- * 'riVirtualizationType' - The type of virtualization (@hvm@ | @paravirtual@ ). Default: @paravirtual@
 --
 -- * 'riImageLocation' - The full path to your AMI manifest in Amazon S3 storage.
 --
@@ -120,73 +120,73 @@ registerImage
     -> RegisterImage
 registerImage pName_ =
   RegisterImage'
-  { _riVirtualizationType = Nothing
-  , _riImageLocation = Nothing
-  , _riEnaSupport = Nothing
-  , _riBillingProducts = Nothing
-  , _riRAMDiskId = Nothing
-  , _riKernelId = Nothing
-  , _riRootDeviceName = Nothing
-  , _riSRIOVNetSupport = Nothing
-  , _riArchitecture = Nothing
-  , _riDescription = Nothing
-  , _riBlockDeviceMappings = Nothing
-  , _riDryRun = Nothing
-  , _riName = pName_
-  }
+    { _riVirtualizationType = Nothing
+    , _riImageLocation = Nothing
+    , _riEnaSupport = Nothing
+    , _riBillingProducts = Nothing
+    , _riRAMDiskId = Nothing
+    , _riKernelId = Nothing
+    , _riRootDeviceName = Nothing
+    , _riSRIOVNetSupport = Nothing
+    , _riArchitecture = Nothing
+    , _riDescription = Nothing
+    , _riBlockDeviceMappings = Nothing
+    , _riDryRun = Nothing
+    , _riName = pName_
+    }
 
 
--- | The type of virtualization. Default: @paravirtual@
+-- | The type of virtualization (@hvm@ | @paravirtual@ ). Default: @paravirtual@
 riVirtualizationType :: Lens' RegisterImage (Maybe Text)
-riVirtualizationType = lens _riVirtualizationType (\ s a -> s{_riVirtualizationType = a});
+riVirtualizationType = lens _riVirtualizationType (\ s a -> s{_riVirtualizationType = a})
 
 -- | The full path to your AMI manifest in Amazon S3 storage.
 riImageLocation :: Lens' RegisterImage (Maybe Text)
-riImageLocation = lens _riImageLocation (\ s a -> s{_riImageLocation = a});
+riImageLocation = lens _riImageLocation (\ s a -> s{_riImageLocation = a})
 
 -- | Set to @true@ to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI. This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 riEnaSupport :: Lens' RegisterImage (Maybe Bool)
-riEnaSupport = lens _riEnaSupport (\ s a -> s{_riEnaSupport = a});
+riEnaSupport = lens _riEnaSupport (\ s a -> s{_riEnaSupport = a})
 
 -- | The billing product codes. Your account must be authorized to specify billing product codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.
 riBillingProducts :: Lens' RegisterImage [Text]
-riBillingProducts = lens _riBillingProducts (\ s a -> s{_riBillingProducts = a}) . _Default . _Coerce;
+riBillingProducts = lens _riBillingProducts (\ s a -> s{_riBillingProducts = a}) . _Default . _Coerce
 
 -- | The ID of the RAM disk.
 riRAMDiskId :: Lens' RegisterImage (Maybe Text)
-riRAMDiskId = lens _riRAMDiskId (\ s a -> s{_riRAMDiskId = a});
+riRAMDiskId = lens _riRAMDiskId (\ s a -> s{_riRAMDiskId = a})
 
 -- | The ID of the kernel.
 riKernelId :: Lens' RegisterImage (Maybe Text)
-riKernelId = lens _riKernelId (\ s a -> s{_riKernelId = a});
+riKernelId = lens _riKernelId (\ s a -> s{_riKernelId = a})
 
 -- | The device name of the root device volume (for example, @/dev/sda1@ ).
 riRootDeviceName :: Lens' RegisterImage (Maybe Text)
-riRootDeviceName = lens _riRootDeviceName (\ s a -> s{_riRootDeviceName = a});
+riRootDeviceName = lens _riRootDeviceName (\ s a -> s{_riRootDeviceName = a})
 
 -- | Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI. There is no way to disable @sriovNetSupport@ at this time. This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 riSRIOVNetSupport :: Lens' RegisterImage (Maybe Text)
-riSRIOVNetSupport = lens _riSRIOVNetSupport (\ s a -> s{_riSRIOVNetSupport = a});
+riSRIOVNetSupport = lens _riSRIOVNetSupport (\ s a -> s{_riSRIOVNetSupport = a})
 
 -- | The architecture of the AMI. Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
 riArchitecture :: Lens' RegisterImage (Maybe ArchitectureValues)
-riArchitecture = lens _riArchitecture (\ s a -> s{_riArchitecture = a});
+riArchitecture = lens _riArchitecture (\ s a -> s{_riArchitecture = a})
 
 -- | A description for your AMI.
 riDescription :: Lens' RegisterImage (Maybe Text)
-riDescription = lens _riDescription (\ s a -> s{_riDescription = a});
+riDescription = lens _riDescription (\ s a -> s{_riDescription = a})
 
 -- | One or more block device mapping entries.
 riBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
-riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a}) . _Default . _Coerce;
+riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 riDryRun :: Lens' RegisterImage (Maybe Bool)
-riDryRun = lens _riDryRun (\ s a -> s{_riDryRun = a});
+riDryRun = lens _riDryRun (\ s a -> s{_riDryRun = a})
 
 -- | A name for your AMI. Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
 riName :: Lens' RegisterImage Text
-riName = lens _riName (\ s a -> s{_riName = a});
+riName = lens _riName (\ s a -> s{_riName = a})
 
 instance AWSRequest RegisterImage where
         type Rs RegisterImage = RegisterImageResponse
@@ -252,15 +252,15 @@ registerImageResponse
     -> RegisterImageResponse
 registerImageResponse pResponseStatus_ =
   RegisterImageResponse'
-  {_rirsImageId = Nothing, _rirsResponseStatus = pResponseStatus_}
+    {_rirsImageId = Nothing, _rirsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the newly registered AMI.
 rirsImageId :: Lens' RegisterImageResponse (Maybe Text)
-rirsImageId = lens _rirsImageId (\ s a -> s{_rirsImageId = a});
+rirsImageId = lens _rirsImageId (\ s a -> s{_rirsImageId = a})
 
 -- | -- | The response status code.
 rirsResponseStatus :: Lens' RegisterImageResponse Int
-rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});
+rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a})
 
 instance NFData RegisterImageResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListComplianceSummaries
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,20 +68,20 @@ listComplianceSummaries
     :: ListComplianceSummaries
 listComplianceSummaries =
   ListComplianceSummaries'
-  {_lcsFilters = Nothing, _lcsNextToken = Nothing, _lcsMaxResults = Nothing}
+    {_lcsFilters = Nothing, _lcsNextToken = Nothing, _lcsMaxResults = Nothing}
 
 
 -- | One or more compliance or inventory filters. Use a filter to return a more specific list of results.
 lcsFilters :: Lens' ListComplianceSummaries [ComplianceStringFilter]
-lcsFilters = lens _lcsFilters (\ s a -> s{_lcsFilters = a}) . _Default . _Coerce;
+lcsFilters = lens _lcsFilters (\ s a -> s{_lcsFilters = a}) . _Default . _Coerce
 
 -- | A token to start the list. Use this token to get the next set of results.
 lcsNextToken :: Lens' ListComplianceSummaries (Maybe Text)
-lcsNextToken = lens _lcsNextToken (\ s a -> s{_lcsNextToken = a});
+lcsNextToken = lens _lcsNextToken (\ s a -> s{_lcsNextToken = a})
 
 -- | The maximum number of items to return for this call. Currently, you can specify null or 50. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lcsMaxResults :: Lens' ListComplianceSummaries (Maybe Natural)
-lcsMaxResults = lens _lcsMaxResults (\ s a -> s{_lcsMaxResults = a}) . mapping _Nat;
+lcsMaxResults = lens _lcsMaxResults (\ s a -> s{_lcsMaxResults = a}) . mapping _Nat
 
 instance AWSRequest ListComplianceSummaries where
         type Rs ListComplianceSummaries =
@@ -144,22 +144,22 @@ listComplianceSummariesResponse
     -> ListComplianceSummariesResponse
 listComplianceSummariesResponse pResponseStatus_ =
   ListComplianceSummariesResponse'
-  { _lcsrsNextToken = Nothing
-  , _lcsrsComplianceSummaryItems = Nothing
-  , _lcsrsResponseStatus = pResponseStatus_
-  }
+    { _lcsrsNextToken = Nothing
+    , _lcsrsComplianceSummaryItems = Nothing
+    , _lcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
 lcsrsNextToken :: Lens' ListComplianceSummariesResponse (Maybe Text)
-lcsrsNextToken = lens _lcsrsNextToken (\ s a -> s{_lcsrsNextToken = a});
+lcsrsNextToken = lens _lcsrsNextToken (\ s a -> s{_lcsrsNextToken = a})
 
 -- | A list of compliant and non-compliant summary counts based on compliance types. For example, this call returns State Manager associations, patches, or custom compliance types according to the filter criteria that you specified.
 lcsrsComplianceSummaryItems :: Lens' ListComplianceSummariesResponse [ComplianceSummaryItem]
-lcsrsComplianceSummaryItems = lens _lcsrsComplianceSummaryItems (\ s a -> s{_lcsrsComplianceSummaryItems = a}) . _Default . _Coerce;
+lcsrsComplianceSummaryItems = lens _lcsrsComplianceSummaryItems (\ s a -> s{_lcsrsComplianceSummaryItems = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lcsrsResponseStatus :: Lens' ListComplianceSummariesResponse Int
-lcsrsResponseStatus = lens _lcsrsResponseStatus (\ s a -> s{_lcsrsResponseStatus = a});
+lcsrsResponseStatus = lens _lcsrsResponseStatus (\ s a -> s{_lcsrsResponseStatus = a})
 
 instance NFData ListComplianceSummariesResponse where

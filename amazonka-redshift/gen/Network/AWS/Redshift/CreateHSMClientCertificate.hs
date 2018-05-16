@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateHSMClientCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,18 +70,18 @@ createHSMClientCertificate
     -> CreateHSMClientCertificate
 createHSMClientCertificate pHSMClientCertificateIdentifier_ =
   CreateHSMClientCertificate'
-  { _chccTags = Nothing
-  , _chccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_
-  }
+    { _chccTags = Nothing
+    , _chccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_
+    }
 
 
 -- | A list of tag instances.
 chccTags :: Lens' CreateHSMClientCertificate [Tag]
-chccTags = lens _chccTags (\ s a -> s{_chccTags = a}) . _Default . _Coerce;
+chccTags = lens _chccTags (\ s a -> s{_chccTags = a}) . _Default . _Coerce
 
 -- | The identifier to be assigned to the new HSM client certificate that the cluster will use to connect to the HSM to use the database encryption keys.
 chccHSMClientCertificateIdentifier :: Lens' CreateHSMClientCertificate Text
-chccHSMClientCertificateIdentifier = lens _chccHSMClientCertificateIdentifier (\ s a -> s{_chccHSMClientCertificateIdentifier = a});
+chccHSMClientCertificateIdentifier = lens _chccHSMClientCertificateIdentifier (\ s a -> s{_chccHSMClientCertificateIdentifier = a})
 
 instance AWSRequest CreateHSMClientCertificate where
         type Rs CreateHSMClientCertificate =
@@ -134,18 +134,18 @@ createHSMClientCertificateResponse
     -> CreateHSMClientCertificateResponse
 createHSMClientCertificateResponse pResponseStatus_ =
   CreateHSMClientCertificateResponse'
-  { _chccrsHSMClientCertificate = Nothing
-  , _chccrsResponseStatus = pResponseStatus_
-  }
+    { _chccrsHSMClientCertificate = Nothing
+    , _chccrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 chccrsHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HSMClientCertificate)
-chccrsHSMClientCertificate = lens _chccrsHSMClientCertificate (\ s a -> s{_chccrsHSMClientCertificate = a});
+chccrsHSMClientCertificate = lens _chccrsHSMClientCertificate (\ s a -> s{_chccrsHSMClientCertificate = a})
 
 -- | -- | The response status code.
 chccrsResponseStatus :: Lens' CreateHSMClientCertificateResponse Int
-chccrsResponseStatus = lens _chccrsResponseStatus (\ s a -> s{_chccrsResponseStatus = a});
+chccrsResponseStatus = lens _chccrsResponseStatus (\ s a -> s{_chccrsResponseStatus = a})
 
 instance NFData CreateHSMClientCertificateResponse
          where

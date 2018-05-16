@@ -6,10 +6,11 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE ViewPatterns      #-}
+{-# LANGUAGE CPP #-} -- b/w compat for http-client < 2.3.0
 
 -- |
 -- Module      : Network.AWS.Internal.HTTP
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -22,10 +23,11 @@ module Network.AWS.Internal.HTTP
 
 import Control.Arrow                (first)
 import Control.Monad
-import Control.Monad.Catch
+import Control.Monad.Catch (MonadThrow)
 import Control.Monad.Reader
 import Control.Monad.Trans.Resource
 import Control.Retry
+import Control.Exception (Handler(Handler), catches)
 
 import Data.List   (intersperse)
 import Data.Monoid
@@ -39,8 +41,12 @@ import Network.AWS.Lens            (to, view, _Just)
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 import Network.HTTP.Conduit        hiding (Proxy, Request, Response)
+#if MIN_VERSION_http_conduit(2, 3, 0)
+#else
+import Data.Conduit (unwrapResumable, addCleanup)
+#endif
 
-retrier :: ( MonadCatch m
+retrier :: ( MonadThrow m
            , MonadResource m
            , MonadReader r m
            , HasEnv r
@@ -76,7 +82,7 @@ retrier x = do
           , "attempts."
           ]
 
-waiter :: ( MonadCatch m
+waiter :: ( MonadThrow m
           , MonadResource m
           , MonadReader r m
           , HasEnv r
@@ -116,11 +122,11 @@ waiter w@Wait{..} x = do
           ]
 
 -- | The 'Service' is configured + unwrapped at this point.
-perform :: (MonadCatch m, MonadResource m, AWSRequest a)
+perform :: (MonadThrow m, MonadResource m, AWSRequest a)
         => Env
         -> Request a
         -> m (Either Error (Response a))
-perform Env{..} x = catches go handlers
+perform Env{..} x = liftIO $ catches (runResourceT go) handlers
   where
     go = do
         t           <- liftIO getCurrentTime
@@ -131,8 +137,15 @@ perform Env{..} x = catches go handlers
         logTrace _envLogger m  -- trace:Signing:Meta
         logDebug _envLogger rq -- debug:ClientRequest
 
+#if MIN_VERSION_http_conduit(2, 3, 0)
         rs          <- liftResourceT (http rq _envManager)
-
+#else
+        rs'         <- liftResourceT (http rq _envManager)
+        let resSrc   = responseBody rs'
+        (src', fin) <- unwrapResumable resSrc
+        let src = addCleanup (const fin) src'
+        let rs  = src <$ rs'
+#endif
         logDebug _envLogger rs -- debug:ClientResponse
 
         Right <$> response _envLogger (_rqService x) (p x) rs

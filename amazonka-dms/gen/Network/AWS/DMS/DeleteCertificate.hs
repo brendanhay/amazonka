@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DeleteCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteCertificate pCertificateARN_ =
 
 -- | The Amazon Resource Name (ARN) of the deleted certificate.
 dcCertificateARN :: Lens' DeleteCertificate Text
-dcCertificateARN = lens _dcCertificateARN (\ s a -> s{_dcCertificateARN = a});
+dcCertificateARN = lens _dcCertificateARN (\ s a -> s{_dcCertificateARN = a})
 
 instance AWSRequest DeleteCertificate where
         type Rs DeleteCertificate = DeleteCertificateResponse
@@ -120,15 +120,15 @@ deleteCertificateResponse
     -> DeleteCertificateResponse
 deleteCertificateResponse pResponseStatus_ =
   DeleteCertificateResponse'
-  {_dccrsCertificate = Nothing, _dccrsResponseStatus = pResponseStatus_}
+    {_dccrsCertificate = Nothing, _dccrsResponseStatus = pResponseStatus_}
 
 
 -- | The Secure Sockets Layer (SSL) certificate.
 dccrsCertificate :: Lens' DeleteCertificateResponse (Maybe Certificate)
-dccrsCertificate = lens _dccrsCertificate (\ s a -> s{_dccrsCertificate = a});
+dccrsCertificate = lens _dccrsCertificate (\ s a -> s{_dccrsCertificate = a})
 
 -- | -- | The response status code.
 dccrsResponseStatus :: Lens' DeleteCertificateResponse Int
-dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
+dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a})
 
 instance NFData DeleteCertificateResponse where

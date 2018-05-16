@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ updateApplication
     -> UpdateApplication
 updateApplication pApplicationName_ =
   UpdateApplication'
-  {_uaDescription = Nothing, _uaApplicationName = pApplicationName_}
+    {_uaDescription = Nothing, _uaApplicationName = pApplicationName_}
 
 
 -- | A new description for the application. Default: If not specified, AWS Elastic Beanstalk does not update the description.
 uaDescription :: Lens' UpdateApplication (Maybe Text)
-uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
+uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a})
 
 -- | The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
 uaApplicationName :: Lens' UpdateApplication Text
-uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
+uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a})
 
 instance AWSRequest UpdateApplication where
         type Rs UpdateApplication =

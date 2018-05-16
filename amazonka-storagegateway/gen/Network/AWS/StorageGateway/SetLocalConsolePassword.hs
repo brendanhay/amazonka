@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.SetLocalConsolePassword
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,18 +69,18 @@ setLocalConsolePassword
     -> SetLocalConsolePassword
 setLocalConsolePassword pGatewayARN_ pLocalConsolePassword_ =
   SetLocalConsolePassword'
-  { _slcpGatewayARN = pGatewayARN_
-  , _slcpLocalConsolePassword = _Sensitive # pLocalConsolePassword_
-  }
+    { _slcpGatewayARN = pGatewayARN_
+    , _slcpLocalConsolePassword = _Sensitive # pLocalConsolePassword_
+    }
 
 
 -- | Undocumented member.
 slcpGatewayARN :: Lens' SetLocalConsolePassword Text
-slcpGatewayARN = lens _slcpGatewayARN (\ s a -> s{_slcpGatewayARN = a});
+slcpGatewayARN = lens _slcpGatewayARN (\ s a -> s{_slcpGatewayARN = a})
 
 -- | The password you want to set for your VM local console.
 slcpLocalConsolePassword :: Lens' SetLocalConsolePassword Text
-slcpLocalConsolePassword = lens _slcpLocalConsolePassword (\ s a -> s{_slcpLocalConsolePassword = a}) . _Sensitive;
+slcpLocalConsolePassword = lens _slcpLocalConsolePassword (\ s a -> s{_slcpLocalConsolePassword = a}) . _Sensitive
 
 instance AWSRequest SetLocalConsolePassword where
         type Rs SetLocalConsolePassword =
@@ -140,15 +140,15 @@ setLocalConsolePasswordResponse
     -> SetLocalConsolePasswordResponse
 setLocalConsolePasswordResponse pResponseStatus_ =
   SetLocalConsolePasswordResponse'
-  {_slcprsGatewayARN = Nothing, _slcprsResponseStatus = pResponseStatus_}
+    {_slcprsGatewayARN = Nothing, _slcprsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 slcprsGatewayARN :: Lens' SetLocalConsolePasswordResponse (Maybe Text)
-slcprsGatewayARN = lens _slcprsGatewayARN (\ s a -> s{_slcprsGatewayARN = a});
+slcprsGatewayARN = lens _slcprsGatewayARN (\ s a -> s{_slcprsGatewayARN = a})
 
 -- | -- | The response status code.
 slcprsResponseStatus :: Lens' SetLocalConsolePasswordResponse Int
-slcprsResponseStatus = lens _slcprsResponseStatus (\ s a -> s{_slcprsResponseStatus = a});
+slcprsResponseStatus = lens _slcprsResponseStatus (\ s a -> s{_slcprsResponseStatus = a})
 
 instance NFData SetLocalConsolePasswordResponse where

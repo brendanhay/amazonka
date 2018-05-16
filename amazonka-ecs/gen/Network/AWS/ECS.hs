@@ -5,16 +5,18 @@
 
 -- |
 -- Module      : Network.AWS.ECS
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon EC2 Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on a cluster of EC2 instances. Amazon ECS lets you launch and stop container-enabled applications with simple API calls, allows you to get the state of your cluster from a centralized service, and gives you access to many familiar Amazon EC2 features like security groups, Amazon EBS volumes, and IAM roles.
+-- Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on a cluster. You can host your cluster on a serverless infrastructure that is managed by Amazon ECS by launching your services or tasks using the Fargate launch type. For more control, you can host your tasks on a cluster of Amazon Elastic Compute Cloud (Amazon EC2) instances that you manage by using the EC2 launch type. For more information about launch types, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> .
 --
 --
--- You can use Amazon ECS to schedule the placement of containers across your cluster based on your resource needs, isolation policies, and availability requirements. Amazon EC2 Container Service eliminates the need for you to operate your own cluster management and configuration management systems or worry about scaling your management infrastructure.
+-- Amazon ECS lets you launch and stop container-based applications with simple API calls, allows you to get the state of your cluster from a centralized service, and gives you access to many familiar Amazon EC2 features.
+--
+-- You can use Amazon ECS to schedule the placement of containers across your cluster based on your resource needs, isolation policies, and availability requirements. Amazon ECS eliminates the need for you to operate your own cluster management and configuration management systems or worry about scaling your management infrastructure.
 --
 module Network.AWS.ECS
     (
@@ -24,11 +26,20 @@ module Network.AWS.ECS
     -- * Errors
     -- $errors
 
+    -- ** AccessDeniedException
+    , _AccessDeniedException
+
     -- ** InvalidParameterException
     , _InvalidParameterException
 
     -- ** ServerException
     , _ServerException
+
+    -- ** ClusterContainsTasksException
+    , _ClusterContainsTasksException
+
+    -- ** PlatformUnknownException
+    , _PlatformUnknownException
 
     -- ** ClusterContainsServicesException
     , _ClusterContainsServicesException
@@ -45,14 +56,23 @@ module Network.AWS.ECS
     -- ** NoUpdateAvailableException
     , _NoUpdateAvailableException
 
+    -- ** UnsupportedFeatureException
+    , _UnsupportedFeatureException
+
     -- ** ServiceNotFoundException
     , _ServiceNotFoundException
+
+    -- ** PlatformTaskDefinitionIncompatibilityException
+    , _PlatformTaskDefinitionIncompatibilityException
 
     -- ** MissingVersionException
     , _MissingVersionException
 
     -- ** UpdateInProgressException
     , _UpdateInProgressException
+
+    -- ** BlockedException
+    , _BlockedException
 
     -- ** TargetNotFoundException
     , _TargetNotFoundException
@@ -176,6 +196,18 @@ module Network.AWS.ECS
     -- ** AgentUpdateStatus
     , AgentUpdateStatus (..)
 
+    -- ** AssignPublicIP
+    , AssignPublicIP (..)
+
+    -- ** ClusterField
+    , ClusterField (..)
+
+    -- ** Compatibility
+    , Compatibility (..)
+
+    -- ** Connectivity
+    , Connectivity (..)
+
     -- ** ContainerInstanceStatus
     , ContainerInstanceStatus (..)
 
@@ -184,6 +216,12 @@ module Network.AWS.ECS
 
     -- ** DeviceCgroupPermission
     , DeviceCgroupPermission (..)
+
+    -- ** HealthStatus
+    , HealthStatus (..)
+
+    -- ** LaunchType
+    , LaunchType (..)
 
     -- ** LogDriver
     , LogDriver (..)
@@ -218,6 +256,27 @@ module Network.AWS.ECS
     -- ** UlimitName
     , UlimitName (..)
 
+    -- ** AWSVPCConfiguration
+    , AWSVPCConfiguration
+    , awsVPCConfiguration
+    , avcSecurityGroups
+    , avcAssignPublicIP
+    , avcSubnets
+
+    -- ** Attachment
+    , Attachment
+    , attachment
+    , aStatus
+    , aDetails
+    , aId
+    , aType
+
+    -- ** AttachmentStateChange
+    , AttachmentStateChange
+    , attachmentStateChange
+    , ascAttachmentARN
+    , ascStatus
+
     -- ** Attribute
     , Attribute
     , attribute
@@ -235,6 +294,7 @@ module Network.AWS.ECS
     , cRegisteredContainerInstancesCount
     , cPendingTasksCount
     , cClusterName
+    , cStatistics
     , cActiveServicesCount
 
     -- ** Container
@@ -242,11 +302,13 @@ module Network.AWS.ECS
     , container
     , cNetworkBindings
     , cContainerARN
+    , cNetworkInterfaces
     , cTaskARN
     , cLastStatus
     , cReason
     , cName
     , cExitCode
+    , cHealthStatus
 
     -- ** ContainerDefinition
     , ContainerDefinition
@@ -255,6 +317,7 @@ module Network.AWS.ECS
     , cdCommand
     , cdHostname
     , cdDockerSecurityOptions
+    , cdHealthCheck
     , cdDisableNetworking
     , cdVolumesFrom
     , cdEnvironment
@@ -283,6 +346,7 @@ module Network.AWS.ECS
     , ContainerInstance
     , containerInstance
     , ciStatus
+    , ciAttachments
     , ciRunningTasksCount
     , ciRemainingResources
     , ciEc2InstanceId
@@ -313,6 +377,7 @@ module Network.AWS.ECS
     , csStatus
     , csClusterARN
     , csCreatedAt
+    , csPlatformVersion
     , csDesiredCount
     , csLoadBalancers
     , csPendingCount
@@ -321,10 +386,23 @@ module Network.AWS.ECS
     , csPlacementStrategy
     , csDeployments
     , csServiceName
+    , csLaunchType
     , csServiceARN
     , csTaskDefinition
+    , csHealthCheckGracePeriodSeconds
+    , csNetworkConfiguration
+    , csServiceRegistries
     , csRoleARN
     , csDeploymentConfiguration
+
+    -- ** ContainerStateChange
+    , ContainerStateChange
+    , containerStateChange
+    , cscNetworkBindings
+    , cscStatus
+    , cscContainerName
+    , cscReason
+    , cscExitCode
 
     -- ** Deployment
     , Deployment
@@ -332,11 +410,14 @@ module Network.AWS.ECS
     , dRunningCount
     , dStatus
     , dCreatedAt
+    , dPlatformVersion
     , dDesiredCount
     , dPendingCount
     , dId
+    , dLaunchType
     , dUpdatedAt
     , dTaskDefinition
+    , dNetworkConfiguration
 
     -- ** DeploymentConfiguration
     , DeploymentConfiguration
@@ -356,6 +437,15 @@ module Network.AWS.ECS
     , failure
     , fArn
     , fReason
+
+    -- ** HealthCheck
+    , HealthCheck
+    , healthCheck
+    , hcStartPeriod
+    , hcRetries
+    , hcInterval
+    , hcTimeout
+    , hcCommand
 
     -- ** HostEntry
     , HostEntry
@@ -383,7 +473,9 @@ module Network.AWS.ECS
     -- ** LinuxParameters
     , LinuxParameters
     , linuxParameters
+    , lpSharedMemorySize
     , lpInitProcessEnabled
+    , lpTmpfs
     , lpDevices
     , lpCapabilities
 
@@ -415,6 +507,18 @@ module Network.AWS.ECS
     , nbProtocol
     , nbHostPort
     , nbContainerPort
+
+    -- ** NetworkConfiguration
+    , NetworkConfiguration
+    , networkConfiguration
+    , ncAwsvpcConfiguration
+
+    -- ** NetworkInterface
+    , NetworkInterface
+    , networkInterface
+    , niIpv6Address
+    , niPrivateIPv4Address
+    , niAttachmentId
 
     -- ** PlacementConstraint
     , PlacementConstraint
@@ -452,6 +556,12 @@ module Network.AWS.ECS
     , seId
     , seMessage
 
+    -- ** ServiceRegistry
+    , ServiceRegistry
+    , serviceRegistry
+    , srRegistryARN
+    , srPort
+
     -- ** Task
     , Task
     , task
@@ -460,29 +570,46 @@ module Network.AWS.ECS
     , tOverrides
     , tClusterARN
     , tGroup
+    , tAttachments
     , tCreatedAt
+    , tPlatformVersion
     , tTaskARN
     , tContainerInstanceARN
+    , tExecutionStoppedAt
     , tLastStatus
+    , tMemory
+    , tPullStoppedAt
     , tContainers
     , tStartedAt
     , tVersion
     , tStartedBy
     , tStoppedReason
+    , tConnectivity
+    , tStoppingAt
+    , tLaunchType
     , tTaskDefinitionARN
+    , tHealthStatus
+    , tConnectivityAt
+    , tCpu
+    , tPullStartedAt
 
     -- ** TaskDefinition
     , TaskDefinition
     , taskDefinition
     , tdStatus
+    , tdExecutionRoleARN
+    , tdRequiresCompatibilities
     , tdFamily
     , tdContainerDefinitions
+    , tdMemory
     , tdTaskRoleARN
     , tdPlacementConstraints
     , tdNetworkMode
     , tdTaskDefinitionARN
+    , tdCompatibilities
     , tdRevision
     , tdVolumes
+    , tdCpu
     , tdRequiresAttributes
 
     -- ** TaskDefinitionPlacementConstraint
@@ -495,7 +622,15 @@ module Network.AWS.ECS
     , TaskOverride
     , taskOverride
     , toContainerOverrides
+    , toExecutionRoleARN
     , toTaskRoleARN
+
+    -- ** Tmpfs
+    , Tmpfs
+    , tmpfs
+    , tMountOptions
+    , tContainerPath
+    , tSize
 
     -- ** Ulimit
     , Ulimit

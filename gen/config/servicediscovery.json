@@ -1,0 +1,11 @@
+{
+    "libraryName": "amazonka-route53-autonaming",
+    "typeOverrides": {
+        "Service": {
+            "renamedTo": "ServiceInfo"
+        },
+        "OperationTargetType": {
+            "enumPrefix": "OTT"
+        }
+    }
+}

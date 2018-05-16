@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.ListTagsForResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ listTagsForResource
     -> ListTagsForResource
 listTagsForResource pResourceId_ =
   ListTagsForResource'
-  { _ltfrNextToken = Nothing
-  , _ltfrLimit = Nothing
-  , _ltfrResourceId = pResourceId_
-  }
+    { _ltfrNextToken = Nothing
+    , _ltfrLimit = Nothing
+    , _ltfrResourceId = pResourceId_
+    }
 
 
 -- | Reserved for future use.
 ltfrNextToken :: Lens' ListTagsForResource (Maybe Text)
-ltfrNextToken = lens _ltfrNextToken (\ s a -> s{_ltfrNextToken = a});
+ltfrNextToken = lens _ltfrNextToken (\ s a -> s{_ltfrNextToken = a})
 
 -- | Reserved for future use.
 ltfrLimit :: Lens' ListTagsForResource (Maybe Natural)
-ltfrLimit = lens _ltfrLimit (\ s a -> s{_ltfrLimit = a}) . mapping _Nat;
+ltfrLimit = lens _ltfrLimit (\ s a -> s{_ltfrLimit = a}) . mapping _Nat
 
 -- | Identifier (ID) of the directory for which you want to retrieve tags.
 ltfrResourceId :: Lens' ListTagsForResource Text
-ltfrResourceId = lens _ltfrResourceId (\ s a -> s{_ltfrResourceId = a});
+ltfrResourceId = lens _ltfrResourceId (\ s a -> s{_ltfrResourceId = a})
 
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource =
@@ -148,22 +148,22 @@ listTagsForResourceResponse
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
   ListTagsForResourceResponse'
-  { _ltfrrsNextToken = Nothing
-  , _ltfrrsTags = Nothing
-  , _ltfrrsResponseStatus = pResponseStatus_
-  }
+    { _ltfrrsNextToken = Nothing
+    , _ltfrrsTags = Nothing
+    , _ltfrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Reserved for future use.
 ltfrrsNextToken :: Lens' ListTagsForResourceResponse (Maybe Text)
-ltfrrsNextToken = lens _ltfrrsNextToken (\ s a -> s{_ltfrrsNextToken = a});
+ltfrrsNextToken = lens _ltfrrsNextToken (\ s a -> s{_ltfrrsNextToken = a})
 
 -- | List of tags returned by the ListTagsForResource operation.
 ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Default . _Coerce;
+ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a})
 
 instance NFData ListTagsForResourceResponse where

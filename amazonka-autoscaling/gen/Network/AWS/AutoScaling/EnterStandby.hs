@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.EnterStandby
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,34 +60,34 @@ data EnterStandby = EnterStandby'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esInstanceIds' - One or more instances to move into @Standby@ mode. You must specify at least one instance ID.
+-- * 'esInstanceIds' - The IDs of the instances. You can specify up to 20 instances.
 --
 -- * 'esAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'esShouldDecrementDesiredCapacity' - Specifies whether the instances moved to @Standby@ mode count as part of the Auto Scaling group's desired capacity. If set, the desired capacity for the Auto Scaling group decrements by the number of instances moved to @Standby@ mode.
+-- * 'esShouldDecrementDesiredCapacity' - Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to @Standby@ mode.
 enterStandby
     :: Text -- ^ 'esAutoScalingGroupName'
     -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
     -> EnterStandby
 enterStandby pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
   EnterStandby'
-  { _esInstanceIds = Nothing
-  , _esAutoScalingGroupName = pAutoScalingGroupName_
-  , _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
-  }
+    { _esInstanceIds = Nothing
+    , _esAutoScalingGroupName = pAutoScalingGroupName_
+    , _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
+    }
 
 
--- | One or more instances to move into @Standby@ mode. You must specify at least one instance ID.
+-- | The IDs of the instances. You can specify up to 20 instances.
 esInstanceIds :: Lens' EnterStandby [Text]
-esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default . _Coerce;
+esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default . _Coerce
 
 -- | The name of the Auto Scaling group.
 esAutoScalingGroupName :: Lens' EnterStandby Text
-esAutoScalingGroupName = lens _esAutoScalingGroupName (\ s a -> s{_esAutoScalingGroupName = a});
+esAutoScalingGroupName = lens _esAutoScalingGroupName (\ s a -> s{_esAutoScalingGroupName = a})
 
--- | Specifies whether the instances moved to @Standby@ mode count as part of the Auto Scaling group's desired capacity. If set, the desired capacity for the Auto Scaling group decrements by the number of instances moved to @Standby@ mode.
+-- | Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to @Standby@ mode.
 esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
-esShouldDecrementDesiredCapacity = lens _esShouldDecrementDesiredCapacity (\ s a -> s{_esShouldDecrementDesiredCapacity = a});
+esShouldDecrementDesiredCapacity = lens _esShouldDecrementDesiredCapacity (\ s a -> s{_esShouldDecrementDesiredCapacity = a})
 
 instance AWSRequest EnterStandby where
         type Rs EnterStandby = EnterStandbyResponse
@@ -140,15 +140,15 @@ enterStandbyResponse
     -> EnterStandbyResponse
 enterStandbyResponse pResponseStatus_ =
   EnterStandbyResponse'
-  {_ersActivities = Nothing, _ersResponseStatus = pResponseStatus_}
+    {_ersActivities = Nothing, _ersResponseStatus = pResponseStatus_}
 
 
 -- | The activities related to moving instances into @Standby@ mode.
 ersActivities :: Lens' EnterStandbyResponse [Activity]
-ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default . _Coerce;
+ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ersResponseStatus :: Lens' EnterStandbyResponse Int
-ersResponseStatus = lens _ersResponseStatus (\ s a -> s{_ersResponseStatus = a});
+ersResponseStatus = lens _ersResponseStatus (\ s a -> s{_ersResponseStatus = a})
 
 instance NFData EnterStandbyResponse where

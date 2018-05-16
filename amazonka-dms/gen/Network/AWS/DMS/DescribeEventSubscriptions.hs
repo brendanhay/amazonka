@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeEventSubscriptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@
 --
 -- If you specify @SubscriptionName@ , this action lists the description for that subscription.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DMS.DescribeEventSubscriptions
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.DMS.DescribeEventSubscriptions
 import Network.AWS.DMS.Types
 import Network.AWS.DMS.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -78,28 +81,35 @@ describeEventSubscriptions
     :: DescribeEventSubscriptions
 describeEventSubscriptions =
   DescribeEventSubscriptions'
-  { _dessSubscriptionName = Nothing
-  , _dessFilters = Nothing
-  , _dessMarker = Nothing
-  , _dessMaxRecords = Nothing
-  }
+    { _dessSubscriptionName = Nothing
+    , _dessFilters = Nothing
+    , _dessMarker = Nothing
+    , _dessMaxRecords = Nothing
+    }
 
 
 -- | The name of the AWS DMS event subscription to be described.
 dessSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
-dessSubscriptionName = lens _dessSubscriptionName (\ s a -> s{_dessSubscriptionName = a});
+dessSubscriptionName = lens _dessSubscriptionName (\ s a -> s{_dessSubscriptionName = a})
 
 -- | Filters applied to the action.
 dessFilters :: Lens' DescribeEventSubscriptions [Filter]
-dessFilters = lens _dessFilters (\ s a -> s{_dessFilters = a}) . _Default . _Coerce;
+dessFilters = lens _dessFilters (\ s a -> s{_dessFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dessMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
-dessMarker = lens _dessMarker (\ s a -> s{_dessMarker = a});
+dessMarker = lens _dessMarker (\ s a -> s{_dessMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dessMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
-dessMaxRecords = lens _dessMaxRecords (\ s a -> s{_dessMaxRecords = a});
+dessMaxRecords = lens _dessMaxRecords (\ s a -> s{_dessMaxRecords = a})
+
+instance AWSPager DescribeEventSubscriptions where
+        page rq rs
+          | stop (rs ^. desrsMarker) = Nothing
+          | stop (rs ^. desrsEventSubscriptionsList) = Nothing
+          | otherwise =
+            Just $ rq & dessMarker .~ rs ^. desrsMarker
 
 instance AWSRequest DescribeEventSubscriptions where
         type Rs DescribeEventSubscriptions =
@@ -168,23 +178,23 @@ describeEventSubscriptionsResponse
     -> DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse pResponseStatus_ =
   DescribeEventSubscriptionsResponse'
-  { _desrsEventSubscriptionsList = Nothing
-  , _desrsMarker = Nothing
-  , _desrsResponseStatus = pResponseStatus_
-  }
+    { _desrsEventSubscriptionsList = Nothing
+    , _desrsMarker = Nothing
+    , _desrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of event subscriptions.
 desrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_desrsEventSubscriptionsList = a}) . _Default . _Coerce;
+desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_desrsEventSubscriptionsList = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
-desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a});
+desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a})
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeEventSubscriptionsResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 instance NFData DescribeEventSubscriptionsResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ deleteInstance
     -> DeleteInstance
 deleteInstance pInstanceId_ =
   DeleteInstance'
-  { _diDeleteVolumes = Nothing
-  , _diDeleteElasticIP = Nothing
-  , _diInstanceId = pInstanceId_
-  }
+    { _diDeleteVolumes = Nothing
+    , _diDeleteElasticIP = Nothing
+    , _diInstanceId = pInstanceId_
+    }
 
 
 -- | Whether to delete the instance's Amazon EBS volumes.
 diDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
-diDeleteVolumes = lens _diDeleteVolumes (\ s a -> s{_diDeleteVolumes = a});
+diDeleteVolumes = lens _diDeleteVolumes (\ s a -> s{_diDeleteVolumes = a})
 
 -- | Whether to delete the instance Elastic IP address.
 diDeleteElasticIP :: Lens' DeleteInstance (Maybe Bool)
-diDeleteElasticIP = lens _diDeleteElasticIP (\ s a -> s{_diDeleteElasticIP = a});
+diDeleteElasticIP = lens _diDeleteElasticIP (\ s a -> s{_diDeleteElasticIP = a})
 
 -- | The instance ID.
 diInstanceId :: Lens' DeleteInstance Text
-diInstanceId = lens _diInstanceId (\ s a -> s{_diInstanceId = a});
+diInstanceId = lens _diInstanceId (\ s a -> s{_diInstanceId = a})
 
 instance AWSRequest DeleteInstance where
         type Rs DeleteInstance = DeleteInstanceResponse

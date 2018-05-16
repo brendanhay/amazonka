@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and cannot be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.
+-- The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.
 --
 --
 --
@@ -76,23 +76,23 @@ deleteDBCluster
     -> DeleteDBCluster
 deleteDBCluster pDBClusterIdentifier_ =
   DeleteDBCluster'
-  { _ddbcFinalDBSnapshotIdentifier = Nothing
-  , _ddbcSkipFinalSnapshot = Nothing
-  , _ddbcDBClusterIdentifier = pDBClusterIdentifier_
-  }
+    { _ddbcFinalDBSnapshotIdentifier = Nothing
+    , _ddbcSkipFinalSnapshot = Nothing
+    , _ddbcDBClusterIdentifier = pDBClusterIdentifier_
+    }
 
 
 -- | The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is set to @false@ .  Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddbcFinalDBSnapshotIdentifier :: Lens' DeleteDBCluster (Maybe Text)
-ddbcFinalDBSnapshotIdentifier = lens _ddbcFinalDBSnapshotIdentifier (\ s a -> s{_ddbcFinalDBSnapshotIdentifier = a});
+ddbcFinalDBSnapshotIdentifier = lens _ddbcFinalDBSnapshotIdentifier (\ s a -> s{_ddbcFinalDBSnapshotIdentifier = a})
 
 -- | Determines whether a final DB cluster snapshot is created before the DB cluster is deleted. If @true@ is specified, no DB cluster snapshot is created. If @false@ is specified, a DB cluster snapshot is created before the DB cluster is deleted.  Default: @false@
 ddbcSkipFinalSnapshot :: Lens' DeleteDBCluster (Maybe Bool)
-ddbcSkipFinalSnapshot = lens _ddbcSkipFinalSnapshot (\ s a -> s{_ddbcSkipFinalSnapshot = a});
+ddbcSkipFinalSnapshot = lens _ddbcSkipFinalSnapshot (\ s a -> s{_ddbcSkipFinalSnapshot = a})
 
 -- | The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive. Constraints:     * Must match an existing DBClusterIdentifier.
 ddbcDBClusterIdentifier :: Lens' DeleteDBCluster Text
-ddbcDBClusterIdentifier = lens _ddbcDBClusterIdentifier (\ s a -> s{_ddbcDBClusterIdentifier = a});
+ddbcDBClusterIdentifier = lens _ddbcDBClusterIdentifier (\ s a -> s{_ddbcDBClusterIdentifier = a})
 
 instance AWSRequest DeleteDBCluster where
         type Rs DeleteDBCluster = DeleteDBClusterResponse
@@ -142,15 +142,15 @@ deleteDBClusterResponse
     -> DeleteDBClusterResponse
 deleteDBClusterResponse pResponseStatus_ =
   DeleteDBClusterResponse'
-  {_ddbcrsDBCluster = Nothing, _ddbcrsResponseStatus = pResponseStatus_}
+    {_ddbcrsDBCluster = Nothing, _ddbcrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 ddbcrsDBCluster :: Lens' DeleteDBClusterResponse (Maybe DBCluster)
-ddbcrsDBCluster = lens _ddbcrsDBCluster (\ s a -> s{_ddbcrsDBCluster = a});
+ddbcrsDBCluster = lens _ddbcrsDBCluster (\ s a -> s{_ddbcrsDBCluster = a})
 
 -- | -- | The response status code.
 ddbcrsResponseStatus :: Lens' DeleteDBClusterResponse Int
-ddbcrsResponseStatus = lens _ddbcrsResponseStatus (\ s a -> s{_ddbcrsResponseStatus = a});
+ddbcrsResponseStatus = lens _ddbcrsResponseStatus (\ s a -> s{_ddbcrsResponseStatus = a})
 
 instance NFData DeleteDBClusterResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetRegexPatternSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getRegexPatternSet pRegexPatternSetId_ =
 
 -- | The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to get. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
 grpsRegexPatternSetId :: Lens' GetRegexPatternSet Text
-grpsRegexPatternSetId = lens _grpsRegexPatternSetId (\ s a -> s{_grpsRegexPatternSetId = a});
+grpsRegexPatternSetId = lens _grpsRegexPatternSetId (\ s a -> s{_grpsRegexPatternSetId = a})
 
 instance AWSRequest GetRegexPatternSet where
         type Rs GetRegexPatternSet =
@@ -121,15 +121,15 @@ getRegexPatternSetResponse
     -> GetRegexPatternSetResponse
 getRegexPatternSetResponse pResponseStatus_ =
   GetRegexPatternSetResponse'
-  {_grpsrsRegexPatternSet = Nothing, _grpsrsResponseStatus = pResponseStatus_}
+    {_grpsrsRegexPatternSet = Nothing, _grpsrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the 'RegexPatternSet' that you specified in the @GetRegexPatternSet@ request, including the identifier of the pattern set and the regular expression patterns you want AWS WAF to search for.
 grpsrsRegexPatternSet :: Lens' GetRegexPatternSetResponse (Maybe RegexPatternSet)
-grpsrsRegexPatternSet = lens _grpsrsRegexPatternSet (\ s a -> s{_grpsrsRegexPatternSet = a});
+grpsrsRegexPatternSet = lens _grpsrsRegexPatternSet (\ s a -> s{_grpsrsRegexPatternSet = a})
 
 -- | -- | The response status code.
 grpsrsResponseStatus :: Lens' GetRegexPatternSetResponse Int
-grpsrsResponseStatus = lens _grpsrsResponseStatus (\ s a -> s{_grpsrsResponseStatus = a});
+grpsrsResponseStatus = lens _grpsrsResponseStatus (\ s a -> s{_grpsrsResponseStatus = a})
 
 instance NFData GetRegexPatternSetResponse where

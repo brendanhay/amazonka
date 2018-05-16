@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -17,6 +17,7 @@ module Network.AWS.Rekognition.Types
 
     -- * Errors
     , _AccessDeniedException
+    , _VideoTooLargeException
     , _InvalidParameterException
     , _InvalidImageFormatException
     , _ResourceAlreadyExistsException
@@ -25,23 +26,53 @@ module Network.AWS.Rekognition.Types
     , _ImageTooLargeException
     , _ThrottlingException
     , _InternalServerError
+    , _IdempotentParameterMismatchException
     , _ResourceNotFoundException
     , _InvalidPaginationTokenException
+    , _LimitExceededException
+    , _ResourceInUseException
 
     -- * Attribute
     , Attribute (..)
 
+    -- * CelebrityRecognitionSortBy
+    , CelebrityRecognitionSortBy (..)
+
+    -- * ContentModerationSortBy
+    , ContentModerationSortBy (..)
+
     -- * EmotionName
     , EmotionName (..)
 
+    -- * FaceAttributes
+    , FaceAttributes (..)
+
+    -- * FaceSearchSortBy
+    , FaceSearchSortBy (..)
+
     -- * GenderType
     , GenderType (..)
+
+    -- * LabelDetectionSortBy
+    , LabelDetectionSortBy (..)
 
     -- * LandmarkType
     , LandmarkType (..)
 
     -- * OrientationCorrection
     , OrientationCorrection (..)
+
+    -- * PersonTrackingSortBy
+    , PersonTrackingSortBy (..)
+
+    -- * StreamProcessorStatus
+    , StreamProcessorStatus (..)
+
+    -- * TextTypes
+    , TextTypes (..)
+
+    -- * VideoJobStatus
+    , VideoJobStatus (..)
 
     -- * AgeRange
     , AgeRange
@@ -72,6 +103,22 @@ module Network.AWS.Rekognition.Types
     , cId
     , cFace
 
+    -- * CelebrityDetail
+    , CelebrityDetail
+    , celebrityDetail
+    , cdBoundingBox
+    , cdURLs
+    , cdConfidence
+    , cdName
+    , cdId
+    , cdFace
+
+    -- * CelebrityRecognition
+    , CelebrityRecognition
+    , celebrityRecognition
+    , crCelebrity
+    , crTimestamp
+
     -- * CompareFacesMatch
     , CompareFacesMatch
     , compareFacesMatch
@@ -92,6 +139,12 @@ module Network.AWS.Rekognition.Types
     , comparedSourceImageFace
     , csifBoundingBox
     , csifConfidence
+
+    -- * ContentModerationDetection
+    , ContentModerationDetection
+    , contentModerationDetection
+    , cmdModerationLabel
+    , cmdTimestamp
 
     -- * Emotion
     , Emotion
@@ -139,6 +192,12 @@ module Network.AWS.Rekognition.Types
     , fdSmile
     , fdLandmarks
 
+    -- * FaceDetection
+    , FaceDetection
+    , faceDetection
+    , fdTimestamp
+    , fdFace
+
     -- * FaceMatch
     , FaceMatch
     , faceMatch
@@ -151,11 +210,23 @@ module Network.AWS.Rekognition.Types
     , frFaceDetail
     , frFace
 
+    -- * FaceSearchSettings
+    , FaceSearchSettings
+    , faceSearchSettings
+    , fssFaceMatchThreshold
+    , fssCollectionId
+
     -- * Gender
     , Gender
     , gender
     , gValue
     , gConfidence
+
+    -- * Geometry
+    , Geometry
+    , geometry
+    , gBoundingBox
+    , gPolygon
 
     -- * Image
     , Image
@@ -169,11 +240,27 @@ module Network.AWS.Rekognition.Types
     , iqSharpness
     , iqBrightness
 
+    -- * KinesisDataStream
+    , KinesisDataStream
+    , kinesisDataStream
+    , kdsARN
+
+    -- * KinesisVideoStream
+    , KinesisVideoStream
+    , kinesisVideoStream
+    , kvsARN
+
     -- * Label
     , Label
     , label
     , lConfidence
     , lName
+
+    -- * LabelDetection
+    , LabelDetection
+    , labelDetection
+    , ldLabel
+    , ldTimestamp
 
     -- * Landmark
     , Landmark
@@ -201,6 +288,38 @@ module Network.AWS.Rekognition.Types
     , mValue
     , mConfidence
 
+    -- * NotificationChannel
+    , NotificationChannel
+    , notificationChannel
+    , ncSNSTopicARN
+    , ncRoleARN
+
+    -- * PersonDetail
+    , PersonDetail
+    , personDetail
+    , pdBoundingBox
+    , pdIndex
+    , pdFace
+
+    -- * PersonDetection
+    , PersonDetection
+    , personDetection
+    , pdPerson
+    , pdTimestamp
+
+    -- * PersonMatch
+    , PersonMatch
+    , personMatch
+    , pmFaceMatches
+    , pmPerson
+    , pmTimestamp
+
+    -- * Point
+    , Point
+    , point
+    , pX
+    , pY
+
     -- * Pose
     , Pose
     , pose
@@ -221,11 +340,57 @@ module Network.AWS.Rekognition.Types
     , smiValue
     , smiConfidence
 
+    -- * StreamProcessor
+    , StreamProcessor
+    , streamProcessor
+    , spStatus
+    , spName
+
+    -- * StreamProcessorInput
+    , StreamProcessorInput
+    , streamProcessorInput
+    , spiKinesisVideoStream
+
+    -- * StreamProcessorOutput
+    , StreamProcessorOutput
+    , streamProcessorOutput
+    , spoKinesisDataStream
+
+    -- * StreamProcessorSettings
+    , StreamProcessorSettings
+    , streamProcessorSettings
+    , spsFaceSearch
+
     -- * Sunglasses
     , Sunglasses
     , sunglasses
     , sValue
     , sConfidence
+
+    -- * TextDetection
+    , TextDetection
+    , textDetection
+    , tdDetectedText
+    , tdConfidence
+    , tdGeometry
+    , tdId
+    , tdType
+    , tdParentId
+
+    -- * Video
+    , Video
+    , video
+    , vS3Object
+
+    -- * VideoMetadata
+    , VideoMetadata
+    , videoMetadata
+    , vmFrameRate
+    , vmFormat
+    , vmCodec
+    , vmFrameHeight
+    , vmDurationMillis
+    , vmFrameWidth
     ) where
 
 import Network.AWS.Lens
@@ -238,24 +403,24 @@ import Network.AWS.Sign.V4
 rekognition :: Service
 rekognition =
   Service
-  { _svcAbbrev = "Rekognition"
-  , _svcSigner = v4
-  , _svcPrefix = "rekognition"
-  , _svcVersion = "2016-06-27"
-  , _svcEndpoint = defaultEndpoint rekognition
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Rekognition"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Rekognition"
+    , _svcSigner = v4
+    , _svcPrefix = "rekognition"
+    , _svcVersion = "2016-06-27"
+    , _svcEndpoint = defaultEndpoint rekognition
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "Rekognition"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -264,6 +429,8 @@ rekognition =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -276,6 +443,14 @@ rekognition =
 --
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 _AccessDeniedException = _MatchServiceError rekognition "AccessDeniedException"
+
+
+-- | The file size or duration of the supplied media is too large. The maximum file size is 8GB. The maximum duration is 2 hours.
+--
+--
+_VideoTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
+_VideoTooLargeException =
+  _MatchServiceError rekognition "VideoTooLargeException"
 
 
 -- | Input parameter violated a constraint. Validate your parameter before calling the API operation again.
@@ -340,7 +515,15 @@ _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _MatchServiceError rekognition "InternalServerError"
 
 
--- | Collection specified in the request is not found.
+-- | A @ClientRequestToken@ input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.
+--
+--
+_IdempotentParameterMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
+_IdempotentParameterMismatchException =
+  _MatchServiceError rekognition "IdempotentParameterMismatchException"
+
+
+-- | The collection specified in the request cannot be found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -354,4 +537,20 @@ _ResourceNotFoundException =
 _InvalidPaginationTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPaginationTokenException =
   _MatchServiceError rekognition "InvalidPaginationTokenException"
+
+
+-- | An Amazon Rekognition service limit was exceeded. For example, if you start too many Rekognition Video jobs concurrently, calls to start operations (@StartLabelDetection@ , for example) will raise a @LimitExceededException@ exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit.
+--
+--
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+  _MatchServiceError rekognition "LimitExceededException"
+
+
+-- |
+--
+--
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException =
+  _MatchServiceError rekognition "ResourceInUseException"
 

@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,6 +48,36 @@ instance ToHeader     AttributeAction
 
 instance ToJSON AttributeAction where
     toJSON = toJSONText
+
+data BackupStatus
+  = Available
+  | Creating
+  | Deleted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText BackupStatus where
+    parser = takeLowerText >>= \case
+        "available" -> pure Available
+        "creating" -> pure Creating
+        "deleted" -> pure Deleted
+        e -> fromTextError $ "Failure parsing BackupStatus from value: '" <> e
+           <> "'. Accepted values: available, creating, deleted"
+
+instance ToText BackupStatus where
+    toText = \case
+        Available -> "AVAILABLE"
+        Creating -> "CREATING"
+        Deleted -> "DELETED"
+
+instance Hashable     BackupStatus
+instance NFData       BackupStatus
+instance ToByteString BackupStatus
+instance ToQuery      BackupStatus
+instance ToHeader     BackupStatus
+
+instance FromJSON BackupStatus where
+    parseJSON = parseJSONText "BackupStatus"
 
 data ComparisonOperator
   = BeginsWith
@@ -136,6 +166,66 @@ instance ToHeader     ConditionalOperator
 instance ToJSON ConditionalOperator where
     toJSON = toJSONText
 
+data ContinuousBackupsStatus
+  = CBSDisabled
+  | CBSEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ContinuousBackupsStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure CBSDisabled
+        "enabled" -> pure CBSEnabled
+        e -> fromTextError $ "Failure parsing ContinuousBackupsStatus from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText ContinuousBackupsStatus where
+    toText = \case
+        CBSDisabled -> "DISABLED"
+        CBSEnabled -> "ENABLED"
+
+instance Hashable     ContinuousBackupsStatus
+instance NFData       ContinuousBackupsStatus
+instance ToByteString ContinuousBackupsStatus
+instance ToQuery      ContinuousBackupsStatus
+instance ToHeader     ContinuousBackupsStatus
+
+instance FromJSON ContinuousBackupsStatus where
+    parseJSON = parseJSONText "ContinuousBackupsStatus"
+
+data GlobalTableStatus
+  = GTSActive
+  | GTSCreating
+  | GTSDeleting
+  | GTSUpdating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText GlobalTableStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure GTSActive
+        "creating" -> pure GTSCreating
+        "deleting" -> pure GTSDeleting
+        "updating" -> pure GTSUpdating
+        e -> fromTextError $ "Failure parsing GlobalTableStatus from value: '" <> e
+           <> "'. Accepted values: active, creating, deleting, updating"
+
+instance ToText GlobalTableStatus where
+    toText = \case
+        GTSActive -> "ACTIVE"
+        GTSCreating -> "CREATING"
+        GTSDeleting -> "DELETING"
+        GTSUpdating -> "UPDATING"
+
+instance Hashable     GlobalTableStatus
+instance NFData       GlobalTableStatus
+instance ToByteString GlobalTableStatus
+instance ToQuery      GlobalTableStatus
+instance ToHeader     GlobalTableStatus
+
+instance FromJSON GlobalTableStatus where
+    parseJSON = parseJSONText "GlobalTableStatus"
+
 data IndexStatus
   = ISActive
   | ISCreating
@@ -199,26 +289,53 @@ instance ToJSON KeyType where
 instance FromJSON KeyType where
     parseJSON = parseJSONText "KeyType"
 
+data PointInTimeRecoveryStatus
+  = PITRSDisabled
+  | PITRSEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PointInTimeRecoveryStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure PITRSDisabled
+        "enabled" -> pure PITRSEnabled
+        e -> fromTextError $ "Failure parsing PointInTimeRecoveryStatus from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText PointInTimeRecoveryStatus where
+    toText = \case
+        PITRSDisabled -> "DISABLED"
+        PITRSEnabled -> "ENABLED"
+
+instance Hashable     PointInTimeRecoveryStatus
+instance NFData       PointInTimeRecoveryStatus
+instance ToByteString PointInTimeRecoveryStatus
+instance ToQuery      PointInTimeRecoveryStatus
+instance ToHeader     PointInTimeRecoveryStatus
+
+instance FromJSON PointInTimeRecoveryStatus where
+    parseJSON = parseJSONText "PointInTimeRecoveryStatus"
+
 data ProjectionType
-  = All
-  | Include
-  | KeysOnly
+  = PTAll
+  | PTInclude
+  | PTKeysOnly
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ProjectionType where
     parser = takeLowerText >>= \case
-        "all" -> pure All
-        "include" -> pure Include
-        "keys_only" -> pure KeysOnly
+        "all" -> pure PTAll
+        "include" -> pure PTInclude
+        "keys_only" -> pure PTKeysOnly
         e -> fromTextError $ "Failure parsing ProjectionType from value: '" <> e
            <> "'. Accepted values: all, include, keys_only"
 
 instance ToText ProjectionType where
     toText = \case
-        All -> "ALL"
-        Include -> "INCLUDE"
-        KeysOnly -> "KEYS_ONLY"
+        PTAll -> "ALL"
+        PTInclude -> "INCLUDE"
+        PTKeysOnly -> "KEYS_ONLY"
 
 instance Hashable     ProjectionType
 instance NFData       ProjectionType
@@ -231,6 +348,39 @@ instance ToJSON ProjectionType where
 
 instance FromJSON ProjectionType where
     parseJSON = parseJSONText "ProjectionType"
+
+data ReplicaStatus
+  = RSActive
+  | RSCreating
+  | RSDeleting
+  | RSUpdating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ReplicaStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure RSActive
+        "creating" -> pure RSCreating
+        "deleting" -> pure RSDeleting
+        "updating" -> pure RSUpdating
+        e -> fromTextError $ "Failure parsing ReplicaStatus from value: '" <> e
+           <> "'. Accepted values: active, creating, deleting, updating"
+
+instance ToText ReplicaStatus where
+    toText = \case
+        RSActive -> "ACTIVE"
+        RSCreating -> "CREATING"
+        RSDeleting -> "DELETING"
+        RSUpdating -> "UPDATING"
+
+instance Hashable     ReplicaStatus
+instance NFData       ReplicaStatus
+instance ToByteString ReplicaStatus
+instance ToQuery      ReplicaStatus
+instance ToHeader     ReplicaStatus
+
+instance FromJSON ReplicaStatus where
+    parseJSON = parseJSONText "ReplicaStatus"
 
 -- | Determines the level of detail about provisioned throughput consumption that is returned in the response:
 --
@@ -338,6 +488,39 @@ instance ToHeader     ReturnValue
 instance ToJSON ReturnValue where
     toJSON = toJSONText
 
+data SSEStatus
+  = SSESDisabled
+  | SSESDisabling
+  | SSESEnabled
+  | SSESEnabling
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SSEStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure SSESDisabled
+        "disabling" -> pure SSESDisabling
+        "enabled" -> pure SSESEnabled
+        "enabling" -> pure SSESEnabling
+        e -> fromTextError $ "Failure parsing SSEStatus from value: '" <> e
+           <> "'. Accepted values: disabled, disabling, enabled, enabling"
+
+instance ToText SSEStatus where
+    toText = \case
+        SSESDisabled -> "DISABLED"
+        SSESDisabling -> "DISABLING"
+        SSESEnabled -> "ENABLED"
+        SSESEnabling -> "ENABLING"
+
+instance Hashable     SSEStatus
+instance NFData       SSEStatus
+instance ToByteString SSEStatus
+instance ToQuery      SSEStatus
+instance ToHeader     SSEStatus
+
+instance FromJSON SSEStatus where
+    parseJSON = parseJSONText "SSEStatus"
+
 data ScalarAttributeType
   = B
   | N
@@ -405,28 +588,28 @@ instance ToJSON Select where
     toJSON = toJSONText
 
 data StreamViewType
-  = SVTKeysOnly
-  | SVTNewAndOldImages
-  | SVTNewImage
-  | SVTOldImage
+  = KeysOnly
+  | NewAndOldImages
+  | NewImage
+  | OldImage
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText StreamViewType where
     parser = takeLowerText >>= \case
-        "keys_only" -> pure SVTKeysOnly
-        "new_and_old_images" -> pure SVTNewAndOldImages
-        "new_image" -> pure SVTNewImage
-        "old_image" -> pure SVTOldImage
+        "keys_only" -> pure KeysOnly
+        "new_and_old_images" -> pure NewAndOldImages
+        "new_image" -> pure NewImage
+        "old_image" -> pure OldImage
         e -> fromTextError $ "Failure parsing StreamViewType from value: '" <> e
            <> "'. Accepted values: keys_only, new_and_old_images, new_image, old_image"
 
 instance ToText StreamViewType where
     toText = \case
-        SVTKeysOnly -> "KEYS_ONLY"
-        SVTNewAndOldImages -> "NEW_AND_OLD_IMAGES"
-        SVTNewImage -> "NEW_IMAGE"
-        SVTOldImage -> "OLD_IMAGE"
+        KeysOnly -> "KEYS_ONLY"
+        NewAndOldImages -> "NEW_AND_OLD_IMAGES"
+        NewImage -> "NEW_IMAGE"
+        OldImage -> "OLD_IMAGE"
 
 instance Hashable     StreamViewType
 instance NFData       StreamViewType
@@ -441,28 +624,28 @@ instance FromJSON StreamViewType where
     parseJSON = parseJSONText "StreamViewType"
 
 data TableStatus
-  = Active
-  | Creating
-  | Deleting
-  | Updating
+  = TSActive
+  | TSCreating
+  | TSDeleting
+  | TSUpdating
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText TableStatus where
     parser = takeLowerText >>= \case
-        "active" -> pure Active
-        "creating" -> pure Creating
-        "deleting" -> pure Deleting
-        "updating" -> pure Updating
+        "active" -> pure TSActive
+        "creating" -> pure TSCreating
+        "deleting" -> pure TSDeleting
+        "updating" -> pure TSUpdating
         e -> fromTextError $ "Failure parsing TableStatus from value: '" <> e
            <> "'. Accepted values: active, creating, deleting, updating"
 
 instance ToText TableStatus where
     toText = \case
-        Active -> "ACTIVE"
-        Creating -> "CREATING"
-        Deleting -> "DELETING"
-        Updating -> "UPDATING"
+        TSActive -> "ACTIVE"
+        TSCreating -> "CREATING"
+        TSDeleting -> "DELETING"
+        TSUpdating -> "UPDATING"
 
 instance Hashable     TableStatus
 instance NFData       TableStatus

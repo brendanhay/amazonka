@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.DescribeIdentityPool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,7 +76,7 @@ describeIdentityPool pIdentityPoolId_ =
 
 -- | An identity pool ID in the format REGION:GUID.
 dipIdentityPoolId :: Lens' DescribeIdentityPool Text
-dipIdentityPoolId = lens _dipIdentityPoolId (\ s a -> s{_dipIdentityPoolId = a});
+dipIdentityPoolId = lens _dipIdentityPoolId (\ s a -> s{_dipIdentityPoolId = a})
 
 instance AWSRequest DescribeIdentityPool where
         type Rs DescribeIdentityPool = IdentityPool

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DisableAlarmActions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ disableAlarmActions = DisableAlarmActions' {_daaAlarmNames = mempty}
 
 -- | The names of the alarms.
 daaAlarmNames :: Lens' DisableAlarmActions [Text]
-daaAlarmNames = lens _daaAlarmNames (\ s a -> s{_daaAlarmNames = a}) . _Coerce;
+daaAlarmNames = lens _daaAlarmNames (\ s a -> s{_daaAlarmNames = a}) . _Coerce
 
 instance AWSRequest DisableAlarmActions where
         type Rs DisableAlarmActions =

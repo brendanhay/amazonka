@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DeleteMLModel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ deleteMLModel pMLModelId_ = DeleteMLModel' {_dmlmMLModelId = pMLModelId_}
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ .
 dmlmMLModelId :: Lens' DeleteMLModel Text
-dmlmMLModelId = lens _dmlmMLModelId (\ s a -> s{_dmlmMLModelId = a});
+dmlmMLModelId = lens _dmlmMLModelId (\ s a -> s{_dmlmMLModelId = a})
 
 instance AWSRequest DeleteMLModel where
         type Rs DeleteMLModel = DeleteMLModelResponse
@@ -127,15 +127,15 @@ deleteMLModelResponse
     -> DeleteMLModelResponse
 deleteMLModelResponse pResponseStatus_ =
   DeleteMLModelResponse'
-  {_dmlmrsMLModelId = Nothing, _dmlmrsResponseStatus = pResponseStatus_}
+    {_dmlmrsMLModelId = Nothing, _dmlmrsResponseStatus = pResponseStatus_}
 
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelID@ in the request.
 dmlmrsMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
-dmlmrsMLModelId = lens _dmlmrsMLModelId (\ s a -> s{_dmlmrsMLModelId = a});
+dmlmrsMLModelId = lens _dmlmrsMLModelId (\ s a -> s{_dmlmrsMLModelId = a})
 
 -- | -- | The response status code.
 dmlmrsResponseStatus :: Lens' DeleteMLModelResponse Int
-dmlmrsResponseStatus = lens _dmlmrsResponseStatus (\ s a -> s{_dmlmrsResponseStatus = a});
+dmlmrsResponseStatus = lens _dmlmrsResponseStatus (\ s a -> s{_dmlmrsResponseStatus = a})
 
 instance NFData DeleteMLModelResponse where

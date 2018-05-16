@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.ConfigureHealthCheck
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,16 +71,16 @@ configureHealthCheck
     -> ConfigureHealthCheck
 configureHealthCheck pLoadBalancerName_ pHealthCheck_ =
   ConfigureHealthCheck'
-  {_chcLoadBalancerName = pLoadBalancerName_, _chcHealthCheck = pHealthCheck_}
+    {_chcLoadBalancerName = pLoadBalancerName_, _chcHealthCheck = pHealthCheck_}
 
 
 -- | The name of the load balancer.
 chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
-chcLoadBalancerName = lens _chcLoadBalancerName (\ s a -> s{_chcLoadBalancerName = a});
+chcLoadBalancerName = lens _chcLoadBalancerName (\ s a -> s{_chcLoadBalancerName = a})
 
 -- | The configuration information.
 chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
-chcHealthCheck = lens _chcHealthCheck (\ s a -> s{_chcHealthCheck = a});
+chcHealthCheck = lens _chcHealthCheck (\ s a -> s{_chcHealthCheck = a})
 
 instance AWSRequest ConfigureHealthCheck where
         type Rs ConfigureHealthCheck =
@@ -133,15 +133,15 @@ configureHealthCheckResponse
     -> ConfigureHealthCheckResponse
 configureHealthCheckResponse pResponseStatus_ =
   ConfigureHealthCheckResponse'
-  {_chcrsHealthCheck = Nothing, _chcrsResponseStatus = pResponseStatus_}
+    {_chcrsHealthCheck = Nothing, _chcrsResponseStatus = pResponseStatus_}
 
 
 -- | The updated health check.
 chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
-chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
+chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a})
 
 -- | -- | The response status code.
 chcrsResponseStatus :: Lens' ConfigureHealthCheckResponse Int
-chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
+chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a})
 
 instance NFData ConfigureHealthCheckResponse where

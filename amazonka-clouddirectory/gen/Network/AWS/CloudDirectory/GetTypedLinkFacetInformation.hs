@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ getTypedLinkFacetInformation
     -> GetTypedLinkFacetInformation
 getTypedLinkFacetInformation pSchemaARN_ pName_ =
   GetTypedLinkFacetInformation'
-  {_gtlfiSchemaARN = pSchemaARN_, _gtlfiName = pName_}
+    {_gtlfiSchemaARN = pSchemaARN_, _gtlfiName = pName_}
 
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 gtlfiSchemaARN :: Lens' GetTypedLinkFacetInformation Text
-gtlfiSchemaARN = lens _gtlfiSchemaARN (\ s a -> s{_gtlfiSchemaARN = a});
+gtlfiSchemaARN = lens _gtlfiSchemaARN (\ s a -> s{_gtlfiSchemaARN = a})
 
 -- | The unique name of the typed link facet.
 gtlfiName :: Lens' GetTypedLinkFacetInformation Text
-gtlfiName = lens _gtlfiName (\ s a -> s{_gtlfiName = a});
+gtlfiName = lens _gtlfiName (\ s a -> s{_gtlfiName = a})
 
 instance AWSRequest GetTypedLinkFacetInformation
          where
@@ -127,18 +127,18 @@ getTypedLinkFacetInformationResponse
     -> GetTypedLinkFacetInformationResponse
 getTypedLinkFacetInformationResponse pResponseStatus_ =
   GetTypedLinkFacetInformationResponse'
-  { _gtlfirsIdentityAttributeOrder = Nothing
-  , _gtlfirsResponseStatus = pResponseStatus_
-  }
+    { _gtlfirsIdentityAttributeOrder = Nothing
+    , _gtlfirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 gtlfirsIdentityAttributeOrder :: Lens' GetTypedLinkFacetInformationResponse [Text]
-gtlfirsIdentityAttributeOrder = lens _gtlfirsIdentityAttributeOrder (\ s a -> s{_gtlfirsIdentityAttributeOrder = a}) . _Default . _Coerce;
+gtlfirsIdentityAttributeOrder = lens _gtlfirsIdentityAttributeOrder (\ s a -> s{_gtlfirsIdentityAttributeOrder = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gtlfirsResponseStatus :: Lens' GetTypedLinkFacetInformationResponse Int
-gtlfirsResponseStatus = lens _gtlfirsResponseStatus (\ s a -> s{_gtlfirsResponseStatus = a});
+gtlfirsResponseStatus = lens _gtlfirsResponseStatus (\ s a -> s{_gtlfirsResponseStatus = a})
 
 instance NFData GetTypedLinkFacetInformationResponse
          where

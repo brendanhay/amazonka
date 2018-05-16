@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -98,6 +98,9 @@ module Network.AWS.Greengrass
     -- ** GetServiceRoleForAccount
     , module Network.AWS.Greengrass.GetServiceRoleForAccount
 
+    -- ** CreateSoftwareUpdateJob
+    , module Network.AWS.Greengrass.CreateSoftwareUpdateJob
+
     -- ** CreateLoggerDefinition
     , module Network.AWS.Greengrass.CreateLoggerDefinition
 
@@ -122,11 +125,29 @@ module Network.AWS.Greengrass
     -- ** GetDeploymentStatus
     , module Network.AWS.Greengrass.GetDeploymentStatus
 
+    -- ** CreateResourceDefinition
+    , module Network.AWS.Greengrass.CreateResourceDefinition
+
+    -- ** GetResourceDefinitionVersion
+    , module Network.AWS.Greengrass.GetResourceDefinitionVersion
+
     -- ** UpdateFunctionDefinition
     , module Network.AWS.Greengrass.UpdateFunctionDefinition
 
     -- ** DeleteFunctionDefinition
     , module Network.AWS.Greengrass.DeleteFunctionDefinition
+
+    -- ** ListResourceDefinitions
+    , module Network.AWS.Greengrass.ListResourceDefinitions
+
+    -- ** CreateResourceDefinitionVersion
+    , module Network.AWS.Greengrass.CreateResourceDefinitionVersion
+
+    -- ** GetResourceDefinition
+    , module Network.AWS.Greengrass.GetResourceDefinition
+
+    -- ** ListResourceDefinitionVersions
+    , module Network.AWS.Greengrass.ListResourceDefinitionVersions
 
     -- ** DisassociateServiceRoleFromAccount
     , module Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
@@ -203,6 +224,12 @@ module Network.AWS.Greengrass
     -- ** ListGroups
     , module Network.AWS.Greengrass.ListGroups
 
+    -- ** DeleteResourceDefinition
+    , module Network.AWS.Greengrass.DeleteResourceDefinition
+
+    -- ** UpdateResourceDefinition
+    , module Network.AWS.Greengrass.UpdateResourceDefinition
+
     -- ** ListDeviceDefinitionVersions
     , module Network.AWS.Greengrass.ListDeviceDefinitionVersions
 
@@ -232,6 +259,9 @@ module Network.AWS.Greengrass
     -- ** DeploymentType
     , DeploymentType (..)
 
+    -- ** EncodingType
+    , EncodingType (..)
+
     -- ** LoggerComponent
     , LoggerComponent (..)
 
@@ -240,6 +270,21 @@ module Network.AWS.Greengrass
 
     -- ** LoggerType
     , LoggerType (..)
+
+    -- ** Permission
+    , Permission (..)
+
+    -- ** SoftwareToUpdate
+    , SoftwareToUpdate (..)
+
+    -- ** UpdateAgentLogLevel
+    , UpdateAgentLogLevel (..)
+
+    -- ** UpdateTargetsArchitecture
+    , UpdateTargetsArchitecture (..)
+
+    -- ** UpdateTargetsOperatingSystem
+    , UpdateTargetsOperatingSystem (..)
 
     -- ** ConnectivityInfo
     , ConnectivityInfo
@@ -316,12 +361,15 @@ module Network.AWS.Greengrass
     , fcEnvironment
     , fcExecutable
     , fcPinned
+    , fcEncodingType
     , fcTimeout
 
     -- ** FunctionConfigurationEnvironment
     , FunctionConfigurationEnvironment
     , functionConfigurationEnvironment
     , fceVariables
+    , fceResourceAccessPolicies
+    , fceAccessSysfs
 
     -- ** FunctionDefinitionVersion
     , FunctionDefinitionVersion
@@ -354,19 +402,77 @@ module Network.AWS.Greengrass
     , giLatestVersion
     , giLastUpdatedTimestamp
 
+    -- ** GroupOwnerSetting
+    , GroupOwnerSetting
+    , groupOwnerSetting
+    , gosAutoAddGroupOwner
+    , gosGroupOwner
+
     -- ** GroupVersion
     , GroupVersion
     , groupVersion
+    , gvResourceDefinitionVersionARN
     , gvSubscriptionDefinitionVersionARN
     , gvCoreDefinitionVersionARN
     , gvDeviceDefinitionVersionARN
     , gvFunctionDefinitionVersionARN
     , gvLoggerDefinitionVersionARN
 
+    -- ** LocalDeviceResourceData
+    , LocalDeviceResourceData
+    , localDeviceResourceData
+    , ldrdGroupOwnerSetting
+    , ldrdSourcePath
+
+    -- ** LocalVolumeResourceData
+    , LocalVolumeResourceData
+    , localVolumeResourceData
+    , lvrdGroupOwnerSetting
+    , lvrdDestinationPath
+    , lvrdSourcePath
+
     -- ** LoggerDefinitionVersion
     , LoggerDefinitionVersion
     , loggerDefinitionVersion
     , ldvLoggers
+
+    -- ** Resource
+    , Resource
+    , resource
+    , rResourceDataContainer
+    , rName
+    , rId
+
+    -- ** ResourceAccessPolicy
+    , ResourceAccessPolicy
+    , resourceAccessPolicy
+    , rapResourceId
+    , rapPermission
+
+    -- ** ResourceDataContainer
+    , ResourceDataContainer
+    , resourceDataContainer
+    , rdcS3MachineLearningModelResourceData
+    , rdcSageMakerMachineLearningModelResourceData
+    , rdcLocalVolumeResourceData
+    , rdcLocalDeviceResourceData
+
+    -- ** ResourceDefinitionVersion
+    , ResourceDefinitionVersion
+    , resourceDefinitionVersion
+    , rdvResources
+
+    -- ** S3MachineLearningModelResourceData
+    , S3MachineLearningModelResourceData
+    , s3MachineLearningModelResourceData
+    , smlmrdDestinationPath
+    , smlmrdS3URI
+
+    -- ** SageMakerMachineLearningModelResourceData
+    , SageMakerMachineLearningModelResourceData
+    , sageMakerMachineLearningModelResourceData
+    , smmlmrdSageMakerJobARN
+    , smmlmrdDestinationPath
 
     -- ** Subscription
     , Subscription
@@ -404,6 +510,9 @@ import Network.AWS.Greengrass.CreateGroupCertificateAuthority
 import Network.AWS.Greengrass.CreateGroupVersion
 import Network.AWS.Greengrass.CreateLoggerDefinition
 import Network.AWS.Greengrass.CreateLoggerDefinitionVersion
+import Network.AWS.Greengrass.CreateResourceDefinition
+import Network.AWS.Greengrass.CreateResourceDefinitionVersion
+import Network.AWS.Greengrass.CreateSoftwareUpdateJob
 import Network.AWS.Greengrass.CreateSubscriptionDefinition
 import Network.AWS.Greengrass.CreateSubscriptionDefinitionVersion
 import Network.AWS.Greengrass.DeleteCoreDefinition
@@ -411,6 +520,7 @@ import Network.AWS.Greengrass.DeleteDeviceDefinition
 import Network.AWS.Greengrass.DeleteFunctionDefinition
 import Network.AWS.Greengrass.DeleteGroup
 import Network.AWS.Greengrass.DeleteLoggerDefinition
+import Network.AWS.Greengrass.DeleteResourceDefinition
 import Network.AWS.Greengrass.DeleteSubscriptionDefinition
 import Network.AWS.Greengrass.DisassociateRoleFromGroup
 import Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
@@ -429,6 +539,8 @@ import Network.AWS.Greengrass.GetGroupCertificateConfiguration
 import Network.AWS.Greengrass.GetGroupVersion
 import Network.AWS.Greengrass.GetLoggerDefinition
 import Network.AWS.Greengrass.GetLoggerDefinitionVersion
+import Network.AWS.Greengrass.GetResourceDefinition
+import Network.AWS.Greengrass.GetResourceDefinitionVersion
 import Network.AWS.Greengrass.GetServiceRoleForAccount
 import Network.AWS.Greengrass.GetSubscriptionDefinition
 import Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
@@ -444,6 +556,8 @@ import Network.AWS.Greengrass.ListGroups
 import Network.AWS.Greengrass.ListGroupVersions
 import Network.AWS.Greengrass.ListLoggerDefinitions
 import Network.AWS.Greengrass.ListLoggerDefinitionVersions
+import Network.AWS.Greengrass.ListResourceDefinitions
+import Network.AWS.Greengrass.ListResourceDefinitionVersions
 import Network.AWS.Greengrass.ListSubscriptionDefinitions
 import Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
 import Network.AWS.Greengrass.ResetDeployments
@@ -455,6 +569,7 @@ import Network.AWS.Greengrass.UpdateFunctionDefinition
 import Network.AWS.Greengrass.UpdateGroup
 import Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
 import Network.AWS.Greengrass.UpdateLoggerDefinition
+import Network.AWS.Greengrass.UpdateResourceDefinition
 import Network.AWS.Greengrass.UpdateSubscriptionDefinition
 import Network.AWS.Greengrass.Waiters
 

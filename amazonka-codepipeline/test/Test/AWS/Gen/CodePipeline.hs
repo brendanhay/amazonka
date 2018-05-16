@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CodePipeline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,6 +43,9 @@ import Test.Tasty
 --         , requestPutThirdPartyJobFailureResult $
 --             putThirdPartyJobFailureResult
 --
+--         , requestRegisterWebhookWithThirdParty $
+--             registerWebhookWithThirdParty
+--
 --         , requestPollForThirdPartyJobs $
 --             pollForThirdPartyJobs
 --
@@ -76,6 +79,9 @@ import Test.Tasty
 --         , requestPutJobSuccessResult $
 --             putJobSuccessResult
 --
+--         , requestDeregisterWebhookWithThirdParty $
+--             deregisterWebhookWithThirdParty
+--
 --         , requestDeleteCustomActionType $
 --             deleteCustomActionType
 --
@@ -93,6 +99,15 @@ import Test.Tasty
 --
 --         , requestEnableStageTransition $
 --             enableStageTransition
+--
+--         , requestDeleteWebhook $
+--             deleteWebhook
+--
+--         , requestPutWebhook $
+--             putWebhook
+--
+--         , requestListWebhooks $
+--             listWebhooks
 --
 --         , requestCreatePipeline $
 --             createPipeline
@@ -127,6 +142,9 @@ import Test.Tasty
 --         , responsePutThirdPartyJobFailureResult $
 --             putThirdPartyJobFailureResultResponse
 --
+--         , responseRegisterWebhookWithThirdParty $
+--             registerWebhookWithThirdPartyResponse
+--
 --         , responsePollForThirdPartyJobs $
 --             pollForThirdPartyJobsResponse
 --
@@ -160,6 +178,9 @@ import Test.Tasty
 --         , responsePutJobSuccessResult $
 --             putJobSuccessResultResponse
 --
+--         , responseDeregisterWebhookWithThirdParty $
+--             deregisterWebhookWithThirdPartyResponse
+--
 --         , responseDeleteCustomActionType $
 --             deleteCustomActionTypeResponse
 --
@@ -177,6 +198,15 @@ import Test.Tasty
 --
 --         , responseEnableStageTransition $
 --             enableStageTransitionResponse
+--
+--         , responseDeleteWebhook $
+--             deleteWebhookResponse
+--
+--         , responsePutWebhook $
+--             putWebhookResponse
+--
+--         , responseListWebhooks $
+--             listWebhooksResponse
 --
 --         , responseCreatePipeline $
 --             createPipelineResponse
@@ -222,6 +252,11 @@ requestPutThirdPartyJobFailureResult :: PutThirdPartyJobFailureResult -> TestTre
 requestPutThirdPartyJobFailureResult = req
     "PutThirdPartyJobFailureResult"
     "fixture/PutThirdPartyJobFailureResult.yaml"
+
+requestRegisterWebhookWithThirdParty :: RegisterWebhookWithThirdParty -> TestTree
+requestRegisterWebhookWithThirdParty = req
+    "RegisterWebhookWithThirdParty"
+    "fixture/RegisterWebhookWithThirdParty.yaml"
 
 requestPollForThirdPartyJobs :: PollForThirdPartyJobs -> TestTree
 requestPollForThirdPartyJobs = req
@@ -278,6 +313,11 @@ requestPutJobSuccessResult = req
     "PutJobSuccessResult"
     "fixture/PutJobSuccessResult.yaml"
 
+requestDeregisterWebhookWithThirdParty :: DeregisterWebhookWithThirdParty -> TestTree
+requestDeregisterWebhookWithThirdParty = req
+    "DeregisterWebhookWithThirdParty"
+    "fixture/DeregisterWebhookWithThirdParty.yaml"
+
 requestDeleteCustomActionType :: DeleteCustomActionType -> TestTree
 requestDeleteCustomActionType = req
     "DeleteCustomActionType"
@@ -307,6 +347,21 @@ requestEnableStageTransition :: EnableStageTransition -> TestTree
 requestEnableStageTransition = req
     "EnableStageTransition"
     "fixture/EnableStageTransition.yaml"
+
+requestDeleteWebhook :: DeleteWebhook -> TestTree
+requestDeleteWebhook = req
+    "DeleteWebhook"
+    "fixture/DeleteWebhook.yaml"
+
+requestPutWebhook :: PutWebhook -> TestTree
+requestPutWebhook = req
+    "PutWebhook"
+    "fixture/PutWebhook.yaml"
+
+requestListWebhooks :: ListWebhooks -> TestTree
+requestListWebhooks = req
+    "ListWebhooks"
+    "fixture/ListWebhooks.yaml"
 
 requestCreatePipeline :: CreatePipeline -> TestTree
 requestCreatePipeline = req
@@ -369,6 +424,13 @@ responsePutThirdPartyJobFailureResult = res
     "fixture/PutThirdPartyJobFailureResultResponse.proto"
     codePipeline
     (Proxy :: Proxy PutThirdPartyJobFailureResult)
+
+responseRegisterWebhookWithThirdParty :: RegisterWebhookWithThirdPartyResponse -> TestTree
+responseRegisterWebhookWithThirdParty = res
+    "RegisterWebhookWithThirdPartyResponse"
+    "fixture/RegisterWebhookWithThirdPartyResponse.proto"
+    codePipeline
+    (Proxy :: Proxy RegisterWebhookWithThirdParty)
 
 responsePollForThirdPartyJobs :: PollForThirdPartyJobsResponse -> TestTree
 responsePollForThirdPartyJobs = res
@@ -447,6 +509,13 @@ responsePutJobSuccessResult = res
     codePipeline
     (Proxy :: Proxy PutJobSuccessResult)
 
+responseDeregisterWebhookWithThirdParty :: DeregisterWebhookWithThirdPartyResponse -> TestTree
+responseDeregisterWebhookWithThirdParty = res
+    "DeregisterWebhookWithThirdPartyResponse"
+    "fixture/DeregisterWebhookWithThirdPartyResponse.proto"
+    codePipeline
+    (Proxy :: Proxy DeregisterWebhookWithThirdParty)
+
 responseDeleteCustomActionType :: DeleteCustomActionTypeResponse -> TestTree
 responseDeleteCustomActionType = res
     "DeleteCustomActionTypeResponse"
@@ -488,6 +557,27 @@ responseEnableStageTransition = res
     "fixture/EnableStageTransitionResponse.proto"
     codePipeline
     (Proxy :: Proxy EnableStageTransition)
+
+responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
+responseDeleteWebhook = res
+    "DeleteWebhookResponse"
+    "fixture/DeleteWebhookResponse.proto"
+    codePipeline
+    (Proxy :: Proxy DeleteWebhook)
+
+responsePutWebhook :: PutWebhookResponse -> TestTree
+responsePutWebhook = res
+    "PutWebhookResponse"
+    "fixture/PutWebhookResponse.proto"
+    codePipeline
+    (Proxy :: Proxy PutWebhook)
+
+responseListWebhooks :: ListWebhooksResponse -> TestTree
+responseListWebhooks = res
+    "ListWebhooksResponse"
+    "fixture/ListWebhooksResponse.proto"
+    codePipeline
+    (Proxy :: Proxy ListWebhooks)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
 responseCreatePipeline = res

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetApplications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'batchGetApplications' smart constructor.
 newtype BatchGetApplications = BatchGetApplications'
-  { _bgaApplicationNames :: Maybe [Text]
+  { _bgaApplicationNames :: [Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -61,12 +61,12 @@ newtype BatchGetApplications = BatchGetApplications'
 -- * 'bgaApplicationNames' - A list of application names separated by spaces.
 batchGetApplications
     :: BatchGetApplications
-batchGetApplications = BatchGetApplications' {_bgaApplicationNames = Nothing}
+batchGetApplications = BatchGetApplications' {_bgaApplicationNames = mempty}
 
 
 -- | A list of application names separated by spaces.
 bgaApplicationNames :: Lens' BatchGetApplications [Text]
-bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a}) . _Default . _Coerce;
+bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a}) . _Coerce
 
 instance AWSRequest BatchGetApplications where
         type Rs BatchGetApplications =
@@ -97,7 +97,7 @@ instance ToJSON BatchGetApplications where
         toJSON BatchGetApplications'{..}
           = object
               (catMaybes
-                 [("applicationNames" .=) <$> _bgaApplicationNames])
+                 [Just ("applicationNames" .= _bgaApplicationNames)])
 
 instance ToPath BatchGetApplications where
         toPath = const "/"
@@ -128,15 +128,15 @@ batchGetApplicationsResponse
     -> BatchGetApplicationsResponse
 batchGetApplicationsResponse pResponseStatus_ =
   BatchGetApplicationsResponse'
-  {_bgarsApplicationsInfo = Nothing, _bgarsResponseStatus = pResponseStatus_}
+    {_bgarsApplicationsInfo = Nothing, _bgarsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the applications.
 bgarsApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
-bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\ s a -> s{_bgarsApplicationsInfo = a}) . _Default . _Coerce;
+bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\ s a -> s{_bgarsApplicationsInfo = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bgarsResponseStatus :: Lens' BatchGetApplicationsResponse Int
-bgarsResponseStatus = lens _bgarsResponseStatus (\ s a -> s{_bgarsResponseStatus = a});
+bgarsResponseStatus = lens _bgarsResponseStatus (\ s a -> s{_bgarsResponseStatus = a})
 
 instance NFData BatchGetApplicationsResponse where

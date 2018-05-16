@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ data UpdateJob = UpdateJob'
 --
 -- * 'ujJobName' - Name of the job definition to update.
 --
--- * 'ujJobUpdate' - Specifies the values with which to update the job.
+-- * 'ujJobUpdate' - Specifies the values with which to update the job definition.
 updateJob
     :: Text -- ^ 'ujJobName'
     -> JobUpdate -- ^ 'ujJobUpdate'
@@ -69,11 +69,11 @@ updateJob pJobName_ pJobUpdate_ =
 
 -- | Name of the job definition to update.
 ujJobName :: Lens' UpdateJob Text
-ujJobName = lens _ujJobName (\ s a -> s{_ujJobName = a});
+ujJobName = lens _ujJobName (\ s a -> s{_ujJobName = a})
 
--- | Specifies the values with which to update the job.
+-- | Specifies the values with which to update the job definition.
 ujJobUpdate :: Lens' UpdateJob JobUpdate
-ujJobUpdate = lens _ujJobUpdate (\ s a -> s{_ujJobUpdate = a});
+ujJobUpdate = lens _ujJobUpdate (\ s a -> s{_ujJobUpdate = a})
 
 instance AWSRequest UpdateJob where
         type Rs UpdateJob = UpdateJobResponse
@@ -121,7 +121,7 @@ data UpdateJobResponse = UpdateJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ujrsJobName' - Returns the name of the updated job.
+-- * 'ujrsJobName' - Returns the name of the updated job definition.
 --
 -- * 'ujrsResponseStatus' - -- | The response status code.
 updateJobResponse
@@ -129,15 +129,15 @@ updateJobResponse
     -> UpdateJobResponse
 updateJobResponse pResponseStatus_ =
   UpdateJobResponse'
-  {_ujrsJobName = Nothing, _ujrsResponseStatus = pResponseStatus_}
+    {_ujrsJobName = Nothing, _ujrsResponseStatus = pResponseStatus_}
 
 
--- | Returns the name of the updated job.
+-- | Returns the name of the updated job definition.
 ujrsJobName :: Lens' UpdateJobResponse (Maybe Text)
-ujrsJobName = lens _ujrsJobName (\ s a -> s{_ujrsJobName = a});
+ujrsJobName = lens _ujrsJobName (\ s a -> s{_ujrsJobName = a})
 
 -- | -- | The response status code.
 ujrsResponseStatus :: Lens' UpdateJobResponse Int
-ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});
+ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a})
 
 instance NFData UpdateJobResponse where

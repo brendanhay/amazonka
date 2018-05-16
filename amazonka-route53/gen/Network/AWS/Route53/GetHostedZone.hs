@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHostedZone
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ getHostedZone pId_ = GetHostedZone' {_ghzId = pId_}
 
 -- | The ID of the hosted zone that you want to get information about.
 ghzId :: Lens' GetHostedZone ResourceId
-ghzId = lens _ghzId (\ s a -> s{_ghzId = a});
+ghzId = lens _ghzId (\ s a -> s{_ghzId = a})
 
 instance AWSRequest GetHostedZone where
         type Rs GetHostedZone = GetHostedZoneResponse
@@ -128,27 +128,27 @@ getHostedZoneResponse
     -> GetHostedZoneResponse
 getHostedZoneResponse pResponseStatus_ pHostedZone_ =
   GetHostedZoneResponse'
-  { _ghzrsVPCs = Nothing
-  , _ghzrsDelegationSet = Nothing
-  , _ghzrsResponseStatus = pResponseStatus_
-  , _ghzrsHostedZone = pHostedZone_
-  }
+    { _ghzrsVPCs = Nothing
+    , _ghzrsDelegationSet = Nothing
+    , _ghzrsResponseStatus = pResponseStatus_
+    , _ghzrsHostedZone = pHostedZone_
+    }
 
 
 -- | A complex type that contains information about the VPCs that are associated with the specified hosted zone.
 ghzrsVPCs :: Lens' GetHostedZoneResponse (Maybe (NonEmpty VPC))
-ghzrsVPCs = lens _ghzrsVPCs (\ s a -> s{_ghzrsVPCs = a}) . mapping _List1;
+ghzrsVPCs = lens _ghzrsVPCs (\ s a -> s{_ghzrsVPCs = a}) . mapping _List1
 
 -- | A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.
 ghzrsDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
-ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = a});
+ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = a})
 
 -- | -- | The response status code.
 ghzrsResponseStatus :: Lens' GetHostedZoneResponse Int
-ghzrsResponseStatus = lens _ghzrsResponseStatus (\ s a -> s{_ghzrsResponseStatus = a});
+ghzrsResponseStatus = lens _ghzrsResponseStatus (\ s a -> s{_ghzrsResponseStatus = a})
 
 -- | A complex type that contains general information about the specified hosted zone.
 ghzrsHostedZone :: Lens' GetHostedZoneResponse HostedZone
-ghzrsHostedZone = lens _ghzrsHostedZone (\ s a -> s{_ghzrsHostedZone = a});
+ghzrsHostedZone = lens _ghzrsHostedZone (\ s a -> s{_ghzrsHostedZone = a})
 
 instance NFData GetHostedZoneResponse where

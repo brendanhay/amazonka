@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Network.AWS
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -154,10 +154,8 @@ module Network.AWS
     , RsBody
     ) where
 
-import Control.Applicative
 import Control.Monad.Catch          (MonadCatch)
 import Control.Monad.IO.Class       (MonadIO)
-import Control.Monad.Morph          (hoist)
 import Control.Monad.Trans.AWS      (AWST)
 import Control.Monad.Trans.Class    (lift)
 import Control.Monad.Trans.Except   (ExceptT)
@@ -167,8 +165,7 @@ import Control.Monad.Trans.Maybe    (MaybeT)
 import Control.Monad.Trans.Reader   (ReaderT)
 import Control.Monad.Trans.Resource
 
-import Data.Conduit (Source)
-import Data.Monoid
+import Data.Conduit (ConduitM, transPipe)
 
 import Network.AWS.Auth
 import Network.AWS.Env             (Env, HasEnv (..), newEnv)
@@ -265,8 +262,8 @@ send = liftAWS . AWST.send
 
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
-paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Rs a)
-paginate = hoist liftAWS . AWST.paginate
+paginate :: (MonadAWS m, AWSPager a) => a -> ConduitM () (Rs a) m ()
+paginate x = transPipe liftAWS $ AWST.paginate x
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.

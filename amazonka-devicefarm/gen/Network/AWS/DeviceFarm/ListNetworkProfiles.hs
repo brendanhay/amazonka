@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListNetworkProfiles
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,20 +69,20 @@ listNetworkProfiles
     -> ListNetworkProfiles
 listNetworkProfiles pArn_ =
   ListNetworkProfiles'
-  {_lnpNextToken = Nothing, _lnpType = Nothing, _lnpArn = pArn_}
+    {_lnpNextToken = Nothing, _lnpType = Nothing, _lnpArn = pArn_}
 
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lnpNextToken :: Lens' ListNetworkProfiles (Maybe Text)
-lnpNextToken = lens _lnpNextToken (\ s a -> s{_lnpNextToken = a});
+lnpNextToken = lens _lnpNextToken (\ s a -> s{_lnpNextToken = a})
 
 -- | The type of network profile you wish to return information about. Valid values are listed below.
 lnpType :: Lens' ListNetworkProfiles (Maybe NetworkProfileType)
-lnpType = lens _lnpType (\ s a -> s{_lnpType = a});
+lnpType = lens _lnpType (\ s a -> s{_lnpType = a})
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to list network profiles.
 lnpArn :: Lens' ListNetworkProfiles Text
-lnpArn = lens _lnpArn (\ s a -> s{_lnpArn = a});
+lnpArn = lens _lnpArn (\ s a -> s{_lnpArn = a})
 
 instance AWSRequest ListNetworkProfiles where
         type Rs ListNetworkProfiles =
@@ -145,22 +145,22 @@ listNetworkProfilesResponse
     -> ListNetworkProfilesResponse
 listNetworkProfilesResponse pResponseStatus_ =
   ListNetworkProfilesResponse'
-  { _lnprsNetworkProfiles = Nothing
-  , _lnprsNextToken = Nothing
-  , _lnprsResponseStatus = pResponseStatus_
-  }
+    { _lnprsNetworkProfiles = Nothing
+    , _lnprsNextToken = Nothing
+    , _lnprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of the available network profiles.
 lnprsNetworkProfiles :: Lens' ListNetworkProfilesResponse [NetworkProfile]
-lnprsNetworkProfiles = lens _lnprsNetworkProfiles (\ s a -> s{_lnprsNetworkProfiles = a}) . _Default . _Coerce;
+lnprsNetworkProfiles = lens _lnprsNetworkProfiles (\ s a -> s{_lnprsNetworkProfiles = a}) . _Default . _Coerce
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lnprsNextToken :: Lens' ListNetworkProfilesResponse (Maybe Text)
-lnprsNextToken = lens _lnprsNextToken (\ s a -> s{_lnprsNextToken = a});
+lnprsNextToken = lens _lnprsNextToken (\ s a -> s{_lnprsNextToken = a})
 
 -- | -- | The response status code.
 lnprsResponseStatus :: Lens' ListNetworkProfilesResponse Int
-lnprsResponseStatus = lens _lnprsResponseStatus (\ s a -> s{_lnprsResponseStatus = a});
+lnprsResponseStatus = lens _lnprsResponseStatus (\ s a -> s{_lnprsResponseStatus = a})
 
 instance NFData ListNetworkProfilesResponse where

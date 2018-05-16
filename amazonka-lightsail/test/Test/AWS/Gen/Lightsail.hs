@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Lightsail
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,17 +43,29 @@ import Test.Tasty
 --         , requestGetInstances $
 --             getInstances
 --
+--         , requestGetLoadBalancer $
+--             getLoadBalancer
+--
 --         , requestGetInstance $
 --             getInstance
 --
 --         , requestAttachStaticIP $
 --             attachStaticIP
 --
+--         , requestDetachDisk $
+--             detachDisk
+--
 --         , requestDownloadDefaultKeyPair $
 --             downloadDefaultKeyPair
 --
+--         , requestDeleteLoadBalancerTLSCertificate $
+--             deleteLoadBalancerTLSCertificate
+--
 --         , requestGetDomains $
 --             getDomains
+--
+--         , requestCreateLoadBalancerTLSCertificate $
+--             createLoadBalancerTLSCertificate
 --
 --         , requestCreateDomainEntry $
 --             createDomainEntry
@@ -73,6 +85,12 @@ import Test.Tasty
 --         , requestRebootInstance $
 --             rebootInstance
 --
+--         , requestDeleteLoadBalancer $
+--             deleteLoadBalancer
+--
+--         , requestCreateDiskFromSnapshot $
+--             createDiskFromSnapshot
+--
 --         , requestGetInstanceSnapshot $
 --             getInstanceSnapshot
 --
@@ -88,6 +106,9 @@ import Test.Tasty
 --         , requestStopInstance $
 --             stopInstance
 --
+--         , requestDetachInstancesFromLoadBalancer $
+--             detachInstancesFromLoadBalancer
+--
 --         , requestCreateInstanceSnapshot $
 --             createInstanceSnapshot
 --
@@ -100,14 +121,32 @@ import Test.Tasty
 --         , requestUnpeerVPC $
 --             unpeerVPC
 --
+--         , requestDeleteDisk $
+--             deleteDisk
+--
 --         , requestCreateInstancesFromSnapshot $
 --             createInstancesFromSnapshot
 --
 --         , requestCreateDomain $
 --             createDomain
 --
+--         , requestGetDiskSnapshots $
+--             getDiskSnapshots
+--
 --         , requestPeerVPC $
 --             peerVPC
+--
+--         , requestGetLoadBalancers $
+--             getLoadBalancers
+--
+--         , requestAttachLoadBalancerTLSCertificate $
+--             attachLoadBalancerTLSCertificate
+--
+--         , requestUpdateLoadBalancerAttribute $
+--             updateLoadBalancerAttribute
+--
+--         , requestGetDiskSnapshot $
+--             getDiskSnapshot
 --
 --         , requestGetStaticIP $
 --             getStaticIP
@@ -118,6 +157,9 @@ import Test.Tasty
 --         , requestGetInstancePortStates $
 --             getInstancePortStates
 --
+--         , requestCreateDiskSnapshot $
+--             createDiskSnapshot
+--
 --         , requestDeleteDomainEntry $
 --             deleteDomainEntry
 --
@@ -127,6 +169,12 @@ import Test.Tasty
 --         , requestGetRegions $
 --             getRegions
 --
+--         , requestDeleteDiskSnapshot $
+--             deleteDiskSnapshot
+--
+--         , requestGetLoadBalancerMetricData $
+--             getLoadBalancerMetricData
+--
 --         , requestGetInstanceState $
 --             getInstanceState
 --
@@ -135,6 +183,12 @@ import Test.Tasty
 --
 --         , requestGetOperations $
 --             getOperations
+--
+--         , requestGetDisks $
+--             getDisks
+--
+--         , requestAttachInstancesToLoadBalancer $
+--             attachInstancesToLoadBalancer
 --
 --         , requestGetOperation $
 --             getOperation
@@ -147,6 +201,15 @@ import Test.Tasty
 --
 --         , requestPutInstancePublicPorts $
 --             putInstancePublicPorts
+--
+--         , requestGetDisk $
+--             getDisk
+--
+--         , requestCreateLoadBalancer $
+--             createLoadBalancer
+--
+--         , requestAttachDisk $
+--             attachDisk
 --
 --         , requestDetachStaticIP $
 --             detachStaticIP
@@ -162,6 +225,12 @@ import Test.Tasty
 --
 --         , requestDeleteDomain $
 --             deleteDomain
+--
+--         , requestGetLoadBalancerTLSCertificates $
+--             getLoadBalancerTLSCertificates
+--
+--         , requestCreateDisk $
+--             createDisk
 --
 --         , requestGetOperationsForResource $
 --             getOperationsForResource
@@ -190,17 +259,29 @@ import Test.Tasty
 --         , responseGetInstances $
 --             getInstancesResponse
 --
+--         , responseGetLoadBalancer $
+--             getLoadBalancerResponse
+--
 --         , responseGetInstance $
 --             getInstanceResponse
 --
 --         , responseAttachStaticIP $
 --             attachStaticIPResponse
 --
+--         , responseDetachDisk $
+--             detachDiskResponse
+--
 --         , responseDownloadDefaultKeyPair $
 --             downloadDefaultKeyPairResponse
 --
+--         , responseDeleteLoadBalancerTLSCertificate $
+--             deleteLoadBalancerTLSCertificateResponse
+--
 --         , responseGetDomains $
 --             getDomainsResponse
+--
+--         , responseCreateLoadBalancerTLSCertificate $
+--             createLoadBalancerTLSCertificateResponse
 --
 --         , responseCreateDomainEntry $
 --             createDomainEntryResponse
@@ -220,6 +301,12 @@ import Test.Tasty
 --         , responseRebootInstance $
 --             rebootInstanceResponse
 --
+--         , responseDeleteLoadBalancer $
+--             deleteLoadBalancerResponse
+--
+--         , responseCreateDiskFromSnapshot $
+--             createDiskFromSnapshotResponse
+--
 --         , responseGetInstanceSnapshot $
 --             getInstanceSnapshotResponse
 --
@@ -235,6 +322,9 @@ import Test.Tasty
 --         , responseStopInstance $
 --             stopInstanceResponse
 --
+--         , responseDetachInstancesFromLoadBalancer $
+--             detachInstancesFromLoadBalancerResponse
+--
 --         , responseCreateInstanceSnapshot $
 --             createInstanceSnapshotResponse
 --
@@ -247,14 +337,32 @@ import Test.Tasty
 --         , responseUnpeerVPC $
 --             unpeerVPCResponse
 --
+--         , responseDeleteDisk $
+--             deleteDiskResponse
+--
 --         , responseCreateInstancesFromSnapshot $
 --             createInstancesFromSnapshotResponse
 --
 --         , responseCreateDomain $
 --             createDomainResponse
 --
+--         , responseGetDiskSnapshots $
+--             getDiskSnapshotsResponse
+--
 --         , responsePeerVPC $
 --             peerVPCResponse
+--
+--         , responseGetLoadBalancers $
+--             getLoadBalancersResponse
+--
+--         , responseAttachLoadBalancerTLSCertificate $
+--             attachLoadBalancerTLSCertificateResponse
+--
+--         , responseUpdateLoadBalancerAttribute $
+--             updateLoadBalancerAttributeResponse
+--
+--         , responseGetDiskSnapshot $
+--             getDiskSnapshotResponse
 --
 --         , responseGetStaticIP $
 --             getStaticIPResponse
@@ -265,6 +373,9 @@ import Test.Tasty
 --         , responseGetInstancePortStates $
 --             getInstancePortStatesResponse
 --
+--         , responseCreateDiskSnapshot $
+--             createDiskSnapshotResponse
+--
 --         , responseDeleteDomainEntry $
 --             deleteDomainEntryResponse
 --
@@ -274,6 +385,12 @@ import Test.Tasty
 --         , responseGetRegions $
 --             getRegionsResponse
 --
+--         , responseDeleteDiskSnapshot $
+--             deleteDiskSnapshotResponse
+--
+--         , responseGetLoadBalancerMetricData $
+--             getLoadBalancerMetricDataResponse
+--
 --         , responseGetInstanceState $
 --             getInstanceStateResponse
 --
@@ -282,6 +399,12 @@ import Test.Tasty
 --
 --         , responseGetOperations $
 --             getOperationsResponse
+--
+--         , responseGetDisks $
+--             getDisksResponse
+--
+--         , responseAttachInstancesToLoadBalancer $
+--             attachInstancesToLoadBalancerResponse
 --
 --         , responseGetOperation $
 --             getOperationResponse
@@ -294,6 +417,15 @@ import Test.Tasty
 --
 --         , responsePutInstancePublicPorts $
 --             putInstancePublicPortsResponse
+--
+--         , responseGetDisk $
+--             getDiskResponse
+--
+--         , responseCreateLoadBalancer $
+--             createLoadBalancerResponse
+--
+--         , responseAttachDisk $
+--             attachDiskResponse
 --
 --         , responseDetachStaticIP $
 --             detachStaticIPResponse
@@ -309,6 +441,12 @@ import Test.Tasty
 --
 --         , responseDeleteDomain $
 --             deleteDomainResponse
+--
+--         , responseGetLoadBalancerTLSCertificates $
+--             getLoadBalancerTLSCertificatesResponse
+--
+--         , responseCreateDisk $
+--             createDiskResponse
 --
 --         , responseGetOperationsForResource $
 --             getOperationsForResourceResponse
@@ -349,6 +487,11 @@ requestGetInstances = req
     "GetInstances"
     "fixture/GetInstances.yaml"
 
+requestGetLoadBalancer :: GetLoadBalancer -> TestTree
+requestGetLoadBalancer = req
+    "GetLoadBalancer"
+    "fixture/GetLoadBalancer.yaml"
+
 requestGetInstance :: GetInstance -> TestTree
 requestGetInstance = req
     "GetInstance"
@@ -359,15 +502,30 @@ requestAttachStaticIP = req
     "AttachStaticIP"
     "fixture/AttachStaticIP.yaml"
 
+requestDetachDisk :: DetachDisk -> TestTree
+requestDetachDisk = req
+    "DetachDisk"
+    "fixture/DetachDisk.yaml"
+
 requestDownloadDefaultKeyPair :: DownloadDefaultKeyPair -> TestTree
 requestDownloadDefaultKeyPair = req
     "DownloadDefaultKeyPair"
     "fixture/DownloadDefaultKeyPair.yaml"
 
+requestDeleteLoadBalancerTLSCertificate :: DeleteLoadBalancerTLSCertificate -> TestTree
+requestDeleteLoadBalancerTLSCertificate = req
+    "DeleteLoadBalancerTLSCertificate"
+    "fixture/DeleteLoadBalancerTLSCertificate.yaml"
+
 requestGetDomains :: GetDomains -> TestTree
 requestGetDomains = req
     "GetDomains"
     "fixture/GetDomains.yaml"
+
+requestCreateLoadBalancerTLSCertificate :: CreateLoadBalancerTLSCertificate -> TestTree
+requestCreateLoadBalancerTLSCertificate = req
+    "CreateLoadBalancerTLSCertificate"
+    "fixture/CreateLoadBalancerTLSCertificate.yaml"
 
 requestCreateDomainEntry :: CreateDomainEntry -> TestTree
 requestCreateDomainEntry = req
@@ -399,6 +557,16 @@ requestRebootInstance = req
     "RebootInstance"
     "fixture/RebootInstance.yaml"
 
+requestDeleteLoadBalancer :: DeleteLoadBalancer -> TestTree
+requestDeleteLoadBalancer = req
+    "DeleteLoadBalancer"
+    "fixture/DeleteLoadBalancer.yaml"
+
+requestCreateDiskFromSnapshot :: CreateDiskFromSnapshot -> TestTree
+requestCreateDiskFromSnapshot = req
+    "CreateDiskFromSnapshot"
+    "fixture/CreateDiskFromSnapshot.yaml"
+
 requestGetInstanceSnapshot :: GetInstanceSnapshot -> TestTree
 requestGetInstanceSnapshot = req
     "GetInstanceSnapshot"
@@ -424,6 +592,11 @@ requestStopInstance = req
     "StopInstance"
     "fixture/StopInstance.yaml"
 
+requestDetachInstancesFromLoadBalancer :: DetachInstancesFromLoadBalancer -> TestTree
+requestDetachInstancesFromLoadBalancer = req
+    "DetachInstancesFromLoadBalancer"
+    "fixture/DetachInstancesFromLoadBalancer.yaml"
+
 requestCreateInstanceSnapshot :: CreateInstanceSnapshot -> TestTree
 requestCreateInstanceSnapshot = req
     "CreateInstanceSnapshot"
@@ -444,6 +617,11 @@ requestUnpeerVPC = req
     "UnpeerVPC"
     "fixture/UnpeerVPC.yaml"
 
+requestDeleteDisk :: DeleteDisk -> TestTree
+requestDeleteDisk = req
+    "DeleteDisk"
+    "fixture/DeleteDisk.yaml"
+
 requestCreateInstancesFromSnapshot :: CreateInstancesFromSnapshot -> TestTree
 requestCreateInstancesFromSnapshot = req
     "CreateInstancesFromSnapshot"
@@ -454,10 +632,35 @@ requestCreateDomain = req
     "CreateDomain"
     "fixture/CreateDomain.yaml"
 
+requestGetDiskSnapshots :: GetDiskSnapshots -> TestTree
+requestGetDiskSnapshots = req
+    "GetDiskSnapshots"
+    "fixture/GetDiskSnapshots.yaml"
+
 requestPeerVPC :: PeerVPC -> TestTree
 requestPeerVPC = req
     "PeerVPC"
     "fixture/PeerVPC.yaml"
+
+requestGetLoadBalancers :: GetLoadBalancers -> TestTree
+requestGetLoadBalancers = req
+    "GetLoadBalancers"
+    "fixture/GetLoadBalancers.yaml"
+
+requestAttachLoadBalancerTLSCertificate :: AttachLoadBalancerTLSCertificate -> TestTree
+requestAttachLoadBalancerTLSCertificate = req
+    "AttachLoadBalancerTLSCertificate"
+    "fixture/AttachLoadBalancerTLSCertificate.yaml"
+
+requestUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttribute -> TestTree
+requestUpdateLoadBalancerAttribute = req
+    "UpdateLoadBalancerAttribute"
+    "fixture/UpdateLoadBalancerAttribute.yaml"
+
+requestGetDiskSnapshot :: GetDiskSnapshot -> TestTree
+requestGetDiskSnapshot = req
+    "GetDiskSnapshot"
+    "fixture/GetDiskSnapshot.yaml"
 
 requestGetStaticIP :: GetStaticIP -> TestTree
 requestGetStaticIP = req
@@ -474,6 +677,11 @@ requestGetInstancePortStates = req
     "GetInstancePortStates"
     "fixture/GetInstancePortStates.yaml"
 
+requestCreateDiskSnapshot :: CreateDiskSnapshot -> TestTree
+requestCreateDiskSnapshot = req
+    "CreateDiskSnapshot"
+    "fixture/CreateDiskSnapshot.yaml"
+
 requestDeleteDomainEntry :: DeleteDomainEntry -> TestTree
 requestDeleteDomainEntry = req
     "DeleteDomainEntry"
@@ -489,6 +697,16 @@ requestGetRegions = req
     "GetRegions"
     "fixture/GetRegions.yaml"
 
+requestDeleteDiskSnapshot :: DeleteDiskSnapshot -> TestTree
+requestDeleteDiskSnapshot = req
+    "DeleteDiskSnapshot"
+    "fixture/DeleteDiskSnapshot.yaml"
+
+requestGetLoadBalancerMetricData :: GetLoadBalancerMetricData -> TestTree
+requestGetLoadBalancerMetricData = req
+    "GetLoadBalancerMetricData"
+    "fixture/GetLoadBalancerMetricData.yaml"
+
 requestGetInstanceState :: GetInstanceState -> TestTree
 requestGetInstanceState = req
     "GetInstanceState"
@@ -503,6 +721,16 @@ requestGetOperations :: GetOperations -> TestTree
 requestGetOperations = req
     "GetOperations"
     "fixture/GetOperations.yaml"
+
+requestGetDisks :: GetDisks -> TestTree
+requestGetDisks = req
+    "GetDisks"
+    "fixture/GetDisks.yaml"
+
+requestAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancer -> TestTree
+requestAttachInstancesToLoadBalancer = req
+    "AttachInstancesToLoadBalancer"
+    "fixture/AttachInstancesToLoadBalancer.yaml"
 
 requestGetOperation :: GetOperation -> TestTree
 requestGetOperation = req
@@ -523,6 +751,21 @@ requestPutInstancePublicPorts :: PutInstancePublicPorts -> TestTree
 requestPutInstancePublicPorts = req
     "PutInstancePublicPorts"
     "fixture/PutInstancePublicPorts.yaml"
+
+requestGetDisk :: GetDisk -> TestTree
+requestGetDisk = req
+    "GetDisk"
+    "fixture/GetDisk.yaml"
+
+requestCreateLoadBalancer :: CreateLoadBalancer -> TestTree
+requestCreateLoadBalancer = req
+    "CreateLoadBalancer"
+    "fixture/CreateLoadBalancer.yaml"
+
+requestAttachDisk :: AttachDisk -> TestTree
+requestAttachDisk = req
+    "AttachDisk"
+    "fixture/AttachDisk.yaml"
 
 requestDetachStaticIP :: DetachStaticIP -> TestTree
 requestDetachStaticIP = req
@@ -548,6 +791,16 @@ requestDeleteDomain :: DeleteDomain -> TestTree
 requestDeleteDomain = req
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
+
+requestGetLoadBalancerTLSCertificates :: GetLoadBalancerTLSCertificates -> TestTree
+requestGetLoadBalancerTLSCertificates = req
+    "GetLoadBalancerTLSCertificates"
+    "fixture/GetLoadBalancerTLSCertificates.yaml"
+
+requestCreateDisk :: CreateDisk -> TestTree
+requestCreateDisk = req
+    "CreateDisk"
+    "fixture/CreateDisk.yaml"
 
 requestGetOperationsForResource :: GetOperationsForResource -> TestTree
 requestGetOperationsForResource = req
@@ -601,6 +854,13 @@ responseGetInstances = res
     lightsail
     (Proxy :: Proxy GetInstances)
 
+responseGetLoadBalancer :: GetLoadBalancerResponse -> TestTree
+responseGetLoadBalancer = res
+    "GetLoadBalancerResponse"
+    "fixture/GetLoadBalancerResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetLoadBalancer)
+
 responseGetInstance :: GetInstanceResponse -> TestTree
 responseGetInstance = res
     "GetInstanceResponse"
@@ -615,6 +875,13 @@ responseAttachStaticIP = res
     lightsail
     (Proxy :: Proxy AttachStaticIP)
 
+responseDetachDisk :: DetachDiskResponse -> TestTree
+responseDetachDisk = res
+    "DetachDiskResponse"
+    "fixture/DetachDiskResponse.proto"
+    lightsail
+    (Proxy :: Proxy DetachDisk)
+
 responseDownloadDefaultKeyPair :: DownloadDefaultKeyPairResponse -> TestTree
 responseDownloadDefaultKeyPair = res
     "DownloadDefaultKeyPairResponse"
@@ -622,12 +889,26 @@ responseDownloadDefaultKeyPair = res
     lightsail
     (Proxy :: Proxy DownloadDefaultKeyPair)
 
+responseDeleteLoadBalancerTLSCertificate :: DeleteLoadBalancerTLSCertificateResponse -> TestTree
+responseDeleteLoadBalancerTLSCertificate = res
+    "DeleteLoadBalancerTLSCertificateResponse"
+    "fixture/DeleteLoadBalancerTLSCertificateResponse.proto"
+    lightsail
+    (Proxy :: Proxy DeleteLoadBalancerTLSCertificate)
+
 responseGetDomains :: GetDomainsResponse -> TestTree
 responseGetDomains = res
     "GetDomainsResponse"
     "fixture/GetDomainsResponse.proto"
     lightsail
     (Proxy :: Proxy GetDomains)
+
+responseCreateLoadBalancerTLSCertificate :: CreateLoadBalancerTLSCertificateResponse -> TestTree
+responseCreateLoadBalancerTLSCertificate = res
+    "CreateLoadBalancerTLSCertificateResponse"
+    "fixture/CreateLoadBalancerTLSCertificateResponse.proto"
+    lightsail
+    (Proxy :: Proxy CreateLoadBalancerTLSCertificate)
 
 responseCreateDomainEntry :: CreateDomainEntryResponse -> TestTree
 responseCreateDomainEntry = res
@@ -671,6 +952,20 @@ responseRebootInstance = res
     lightsail
     (Proxy :: Proxy RebootInstance)
 
+responseDeleteLoadBalancer :: DeleteLoadBalancerResponse -> TestTree
+responseDeleteLoadBalancer = res
+    "DeleteLoadBalancerResponse"
+    "fixture/DeleteLoadBalancerResponse.proto"
+    lightsail
+    (Proxy :: Proxy DeleteLoadBalancer)
+
+responseCreateDiskFromSnapshot :: CreateDiskFromSnapshotResponse -> TestTree
+responseCreateDiskFromSnapshot = res
+    "CreateDiskFromSnapshotResponse"
+    "fixture/CreateDiskFromSnapshotResponse.proto"
+    lightsail
+    (Proxy :: Proxy CreateDiskFromSnapshot)
+
 responseGetInstanceSnapshot :: GetInstanceSnapshotResponse -> TestTree
 responseGetInstanceSnapshot = res
     "GetInstanceSnapshotResponse"
@@ -706,6 +1001,13 @@ responseStopInstance = res
     lightsail
     (Proxy :: Proxy StopInstance)
 
+responseDetachInstancesFromLoadBalancer :: DetachInstancesFromLoadBalancerResponse -> TestTree
+responseDetachInstancesFromLoadBalancer = res
+    "DetachInstancesFromLoadBalancerResponse"
+    "fixture/DetachInstancesFromLoadBalancerResponse.proto"
+    lightsail
+    (Proxy :: Proxy DetachInstancesFromLoadBalancer)
+
 responseCreateInstanceSnapshot :: CreateInstanceSnapshotResponse -> TestTree
 responseCreateInstanceSnapshot = res
     "CreateInstanceSnapshotResponse"
@@ -734,6 +1036,13 @@ responseUnpeerVPC = res
     lightsail
     (Proxy :: Proxy UnpeerVPC)
 
+responseDeleteDisk :: DeleteDiskResponse -> TestTree
+responseDeleteDisk = res
+    "DeleteDiskResponse"
+    "fixture/DeleteDiskResponse.proto"
+    lightsail
+    (Proxy :: Proxy DeleteDisk)
+
 responseCreateInstancesFromSnapshot :: CreateInstancesFromSnapshotResponse -> TestTree
 responseCreateInstancesFromSnapshot = res
     "CreateInstancesFromSnapshotResponse"
@@ -748,12 +1057,47 @@ responseCreateDomain = res
     lightsail
     (Proxy :: Proxy CreateDomain)
 
+responseGetDiskSnapshots :: GetDiskSnapshotsResponse -> TestTree
+responseGetDiskSnapshots = res
+    "GetDiskSnapshotsResponse"
+    "fixture/GetDiskSnapshotsResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetDiskSnapshots)
+
 responsePeerVPC :: PeerVPCResponse -> TestTree
 responsePeerVPC = res
     "PeerVPCResponse"
     "fixture/PeerVPCResponse.proto"
     lightsail
     (Proxy :: Proxy PeerVPC)
+
+responseGetLoadBalancers :: GetLoadBalancersResponse -> TestTree
+responseGetLoadBalancers = res
+    "GetLoadBalancersResponse"
+    "fixture/GetLoadBalancersResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetLoadBalancers)
+
+responseAttachLoadBalancerTLSCertificate :: AttachLoadBalancerTLSCertificateResponse -> TestTree
+responseAttachLoadBalancerTLSCertificate = res
+    "AttachLoadBalancerTLSCertificateResponse"
+    "fixture/AttachLoadBalancerTLSCertificateResponse.proto"
+    lightsail
+    (Proxy :: Proxy AttachLoadBalancerTLSCertificate)
+
+responseUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttributeResponse -> TestTree
+responseUpdateLoadBalancerAttribute = res
+    "UpdateLoadBalancerAttributeResponse"
+    "fixture/UpdateLoadBalancerAttributeResponse.proto"
+    lightsail
+    (Proxy :: Proxy UpdateLoadBalancerAttribute)
+
+responseGetDiskSnapshot :: GetDiskSnapshotResponse -> TestTree
+responseGetDiskSnapshot = res
+    "GetDiskSnapshotResponse"
+    "fixture/GetDiskSnapshotResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetDiskSnapshot)
 
 responseGetStaticIP :: GetStaticIPResponse -> TestTree
 responseGetStaticIP = res
@@ -776,6 +1120,13 @@ responseGetInstancePortStates = res
     lightsail
     (Proxy :: Proxy GetInstancePortStates)
 
+responseCreateDiskSnapshot :: CreateDiskSnapshotResponse -> TestTree
+responseCreateDiskSnapshot = res
+    "CreateDiskSnapshotResponse"
+    "fixture/CreateDiskSnapshotResponse.proto"
+    lightsail
+    (Proxy :: Proxy CreateDiskSnapshot)
+
 responseDeleteDomainEntry :: DeleteDomainEntryResponse -> TestTree
 responseDeleteDomainEntry = res
     "DeleteDomainEntryResponse"
@@ -797,6 +1148,20 @@ responseGetRegions = res
     lightsail
     (Proxy :: Proxy GetRegions)
 
+responseDeleteDiskSnapshot :: DeleteDiskSnapshotResponse -> TestTree
+responseDeleteDiskSnapshot = res
+    "DeleteDiskSnapshotResponse"
+    "fixture/DeleteDiskSnapshotResponse.proto"
+    lightsail
+    (Proxy :: Proxy DeleteDiskSnapshot)
+
+responseGetLoadBalancerMetricData :: GetLoadBalancerMetricDataResponse -> TestTree
+responseGetLoadBalancerMetricData = res
+    "GetLoadBalancerMetricDataResponse"
+    "fixture/GetLoadBalancerMetricDataResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetLoadBalancerMetricData)
+
 responseGetInstanceState :: GetInstanceStateResponse -> TestTree
 responseGetInstanceState = res
     "GetInstanceStateResponse"
@@ -817,6 +1182,20 @@ responseGetOperations = res
     "fixture/GetOperationsResponse.proto"
     lightsail
     (Proxy :: Proxy GetOperations)
+
+responseGetDisks :: GetDisksResponse -> TestTree
+responseGetDisks = res
+    "GetDisksResponse"
+    "fixture/GetDisksResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetDisks)
+
+responseAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancerResponse -> TestTree
+responseAttachInstancesToLoadBalancer = res
+    "AttachInstancesToLoadBalancerResponse"
+    "fixture/AttachInstancesToLoadBalancerResponse.proto"
+    lightsail
+    (Proxy :: Proxy AttachInstancesToLoadBalancer)
 
 responseGetOperation :: GetOperationResponse -> TestTree
 responseGetOperation = res
@@ -845,6 +1224,27 @@ responsePutInstancePublicPorts = res
     "fixture/PutInstancePublicPortsResponse.proto"
     lightsail
     (Proxy :: Proxy PutInstancePublicPorts)
+
+responseGetDisk :: GetDiskResponse -> TestTree
+responseGetDisk = res
+    "GetDiskResponse"
+    "fixture/GetDiskResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetDisk)
+
+responseCreateLoadBalancer :: CreateLoadBalancerResponse -> TestTree
+responseCreateLoadBalancer = res
+    "CreateLoadBalancerResponse"
+    "fixture/CreateLoadBalancerResponse.proto"
+    lightsail
+    (Proxy :: Proxy CreateLoadBalancer)
+
+responseAttachDisk :: AttachDiskResponse -> TestTree
+responseAttachDisk = res
+    "AttachDiskResponse"
+    "fixture/AttachDiskResponse.proto"
+    lightsail
+    (Proxy :: Proxy AttachDisk)
 
 responseDetachStaticIP :: DetachStaticIPResponse -> TestTree
 responseDetachStaticIP = res
@@ -880,6 +1280,20 @@ responseDeleteDomain = res
     "fixture/DeleteDomainResponse.proto"
     lightsail
     (Proxy :: Proxy DeleteDomain)
+
+responseGetLoadBalancerTLSCertificates :: GetLoadBalancerTLSCertificatesResponse -> TestTree
+responseGetLoadBalancerTLSCertificates = res
+    "GetLoadBalancerTLSCertificatesResponse"
+    "fixture/GetLoadBalancerTLSCertificatesResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetLoadBalancerTLSCertificates)
+
+responseCreateDisk :: CreateDiskResponse -> TestTree
+responseCreateDisk = res
+    "CreateDiskResponse"
+    "fixture/CreateDiskResponse.proto"
+    lightsail
+    (Proxy :: Proxy CreateDisk)
 
 responseGetOperationsForResource :: GetOperationsForResourceResponse -> TestTree
 responseGetOperationsForResource = res

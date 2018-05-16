@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetModels
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,30 +66,30 @@ data GetModels = GetModels'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmsLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- * 'gmsLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'gmsPosition' - The current pagination position in the paged result set.
 --
--- * 'gmsRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'gmsRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 getModels
     :: Text -- ^ 'gmsRestAPIId'
     -> GetModels
 getModels pRestAPIId_ =
   GetModels'
-  {_gmsLimit = Nothing, _gmsPosition = Nothing, _gmsRestAPIId = pRestAPIId_}
+    {_gmsLimit = Nothing, _gmsPosition = Nothing, _gmsRestAPIId = pRestAPIId_}
 
 
--- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 gmsLimit :: Lens' GetModels (Maybe Int)
-gmsLimit = lens _gmsLimit (\ s a -> s{_gmsLimit = a});
+gmsLimit = lens _gmsLimit (\ s a -> s{_gmsLimit = a})
 
 -- | The current pagination position in the paged result set.
 gmsPosition :: Lens' GetModels (Maybe Text)
-gmsPosition = lens _gmsPosition (\ s a -> s{_gmsPosition = a});
+gmsPosition = lens _gmsPosition (\ s a -> s{_gmsPosition = a})
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 gmsRestAPIId :: Lens' GetModels Text
-gmsRestAPIId = lens _gmsRestAPIId (\ s a -> s{_gmsRestAPIId = a});
+gmsRestAPIId = lens _gmsRestAPIId (\ s a -> s{_gmsRestAPIId = a})
 
 instance AWSPager GetModels where
         page rq rs
@@ -155,22 +155,22 @@ getModelsResponse
     -> GetModelsResponse
 getModelsResponse pResponseStatus_ =
   GetModelsResponse'
-  { _gmrsItems = Nothing
-  , _gmrsPosition = Nothing
-  , _gmrsResponseStatus = pResponseStatus_
-  }
+    { _gmrsItems = Nothing
+    , _gmrsPosition = Nothing
+    , _gmrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 gmrsItems :: Lens' GetModelsResponse [Model]
-gmrsItems = lens _gmrsItems (\ s a -> s{_gmrsItems = a}) . _Default . _Coerce;
+gmrsItems = lens _gmrsItems (\ s a -> s{_gmrsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gmrsPosition :: Lens' GetModelsResponse (Maybe Text)
-gmrsPosition = lens _gmrsPosition (\ s a -> s{_gmrsPosition = a});
+gmrsPosition = lens _gmrsPosition (\ s a -> s{_gmrsPosition = a})
 
 -- | -- | The response status code.
 gmrsResponseStatus :: Lens' GetModelsResponse Int
-gmrsResponseStatus = lens _gmrsResponseStatus (\ s a -> s{_gmrsResponseStatus = a});
+gmrsResponseStatus = lens _gmrsResponseStatus (\ s a -> s{_gmrsResponseStatus = a})
 
 instance NFData GetModelsResponse where

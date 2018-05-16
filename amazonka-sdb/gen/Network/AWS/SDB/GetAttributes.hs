@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.GetAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,28 +75,28 @@ getAttributes
     -> GetAttributes
 getAttributes pDomainName_ pItemName_ =
   GetAttributes'
-  { _gaConsistentRead = Nothing
-  , _gaAttributeNames = Nothing
-  , _gaDomainName = pDomainName_
-  , _gaItemName = pItemName_
-  }
+    { _gaConsistentRead = Nothing
+    , _gaAttributeNames = Nothing
+    , _gaDomainName = pDomainName_
+    , _gaItemName = pItemName_
+    }
 
 
 -- | @true@
 gaConsistentRead :: Lens' GetAttributes (Maybe Bool)
-gaConsistentRead = lens _gaConsistentRead (\ s a -> s{_gaConsistentRead = a});
+gaConsistentRead = lens _gaConsistentRead (\ s a -> s{_gaConsistentRead = a})
 
 -- | The names of the attributes.
 gaAttributeNames :: Lens' GetAttributes [Text]
-gaAttributeNames = lens _gaAttributeNames (\ s a -> s{_gaAttributeNames = a}) . _Default . _Coerce;
+gaAttributeNames = lens _gaAttributeNames (\ s a -> s{_gaAttributeNames = a}) . _Default . _Coerce
 
 -- | The name of the domain in which to perform the operation.
 gaDomainName :: Lens' GetAttributes Text
-gaDomainName = lens _gaDomainName (\ s a -> s{_gaDomainName = a});
+gaDomainName = lens _gaDomainName (\ s a -> s{_gaDomainName = a})
 
 -- | The name of the item.
 gaItemName :: Lens' GetAttributes Text
-gaItemName = lens _gaItemName (\ s a -> s{_gaItemName = a});
+gaItemName = lens _gaItemName (\ s a -> s{_gaItemName = a})
 
 instance AWSRequest GetAttributes where
         type Rs GetAttributes = GetAttributesResponse
@@ -148,15 +148,15 @@ getAttributesResponse
     -> GetAttributesResponse
 getAttributesResponse pResponseStatus_ =
   GetAttributesResponse'
-  {_garsAttributes = Nothing, _garsResponseStatus = pResponseStatus_}
+    {_garsAttributes = Nothing, _garsResponseStatus = pResponseStatus_}
 
 
 -- | The list of attributes returned by the operation.
 garsAttributes :: Lens' GetAttributesResponse [Attribute]
-garsAttributes = lens _garsAttributes (\ s a -> s{_garsAttributes = a}) . _Default . _Coerce;
+garsAttributes = lens _garsAttributes (\ s a -> s{_garsAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 garsResponseStatus :: Lens' GetAttributesResponse Int
-garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a})
 
 instance NFData GetAttributesResponse where

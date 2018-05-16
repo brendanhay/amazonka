@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeGameSessionPlacement
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,7 +94,7 @@ describeGameSessionPlacement pPlacementId_ =
 
 -- | Unique identifier for a game session placement to retrieve.
 dgspPlacementId :: Lens' DescribeGameSessionPlacement Text
-dgspPlacementId = lens _dgspPlacementId (\ s a -> s{_dgspPlacementId = a});
+dgspPlacementId = lens _dgspPlacementId (\ s a -> s{_dgspPlacementId = a})
 
 instance AWSRequest DescribeGameSessionPlacement
          where
@@ -157,18 +157,18 @@ describeGameSessionPlacementResponse
     -> DescribeGameSessionPlacementResponse
 describeGameSessionPlacementResponse pResponseStatus_ =
   DescribeGameSessionPlacementResponse'
-  { _dgsprsGameSessionPlacement = Nothing
-  , _dgsprsResponseStatus = pResponseStatus_
-  }
+    { _dgsprsGameSessionPlacement = Nothing
+    , _dgsprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Object that describes the requested game session placement.
 dgsprsGameSessionPlacement :: Lens' DescribeGameSessionPlacementResponse (Maybe GameSessionPlacement)
-dgsprsGameSessionPlacement = lens _dgsprsGameSessionPlacement (\ s a -> s{_dgsprsGameSessionPlacement = a});
+dgsprsGameSessionPlacement = lens _dgsprsGameSessionPlacement (\ s a -> s{_dgsprsGameSessionPlacement = a})
 
 -- | -- | The response status code.
 dgsprsResponseStatus :: Lens' DescribeGameSessionPlacementResponse Int
-dgsprsResponseStatus = lens _dgsprsResponseStatus (\ s a -> s{_dgsprsResponseStatus = a});
+dgsprsResponseStatus = lens _dgsprsResponseStatus (\ s a -> s{_dgsprsResponseStatus = a})
 
 instance NFData DescribeGameSessionPlacementResponse
          where

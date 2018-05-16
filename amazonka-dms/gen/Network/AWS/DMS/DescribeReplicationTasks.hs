@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeReplicationTasks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Returns information about replication tasks for your account in the current region.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DMS.DescribeReplicationTasks
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.DMS.DescribeReplicationTasks
 import Network.AWS.DMS.Types
 import Network.AWS.DMS.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,20 +75,27 @@ describeReplicationTasks
     :: DescribeReplicationTasks
 describeReplicationTasks =
   DescribeReplicationTasks'
-  {_drtFilters = Nothing, _drtMarker = Nothing, _drtMaxRecords = Nothing}
+    {_drtFilters = Nothing, _drtMarker = Nothing, _drtMaxRecords = Nothing}
 
 
 -- | Filters applied to the describe action. Valid filter names: replication-task-arn | replication-task-id | migration-type | endpoint-arn | replication-instance-arn
 drtFilters :: Lens' DescribeReplicationTasks [Filter]
-drtFilters = lens _drtFilters (\ s a -> s{_drtFilters = a}) . _Default . _Coerce;
+drtFilters = lens _drtFilters (\ s a -> s{_drtFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drtMarker :: Lens' DescribeReplicationTasks (Maybe Text)
-drtMarker = lens _drtMarker (\ s a -> s{_drtMarker = a});
+drtMarker = lens _drtMarker (\ s a -> s{_drtMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 drtMaxRecords :: Lens' DescribeReplicationTasks (Maybe Int)
-drtMaxRecords = lens _drtMaxRecords (\ s a -> s{_drtMaxRecords = a});
+drtMaxRecords = lens _drtMaxRecords (\ s a -> s{_drtMaxRecords = a})
+
+instance AWSPager DescribeReplicationTasks where
+        page rq rs
+          | stop (rs ^. drtsrsMarker) = Nothing
+          | stop (rs ^. drtsrsReplicationTasks) = Nothing
+          | otherwise =
+            Just $ rq & drtMarker .~ rs ^. drtsrsMarker
 
 instance AWSRequest DescribeReplicationTasks where
         type Rs DescribeReplicationTasks =
@@ -153,23 +163,23 @@ describeReplicationTasksResponse
     -> DescribeReplicationTasksResponse
 describeReplicationTasksResponse pResponseStatus_ =
   DescribeReplicationTasksResponse'
-  { _drtsrsReplicationTasks = Nothing
-  , _drtsrsMarker = Nothing
-  , _drtsrsResponseStatus = pResponseStatus_
-  }
+    { _drtsrsReplicationTasks = Nothing
+    , _drtsrsMarker = Nothing
+    , _drtsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A description of the replication tasks.
 drtsrsReplicationTasks :: Lens' DescribeReplicationTasksResponse [ReplicationTask]
-drtsrsReplicationTasks = lens _drtsrsReplicationTasks (\ s a -> s{_drtsrsReplicationTasks = a}) . _Default . _Coerce;
+drtsrsReplicationTasks = lens _drtsrsReplicationTasks (\ s a -> s{_drtsrsReplicationTasks = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drtsrsMarker :: Lens' DescribeReplicationTasksResponse (Maybe Text)
-drtsrsMarker = lens _drtsrsMarker (\ s a -> s{_drtsrsMarker = a});
+drtsrsMarker = lens _drtsrsMarker (\ s a -> s{_drtsrsMarker = a})
 
 -- | -- | The response status code.
 drtsrsResponseStatus :: Lens' DescribeReplicationTasksResponse Int
-drtsrsResponseStatus = lens _drtsrsResponseStatus (\ s a -> s{_drtsrsResponseStatus = a});
+drtsrsResponseStatus = lens _drtsrsResponseStatus (\ s a -> s{_drtsrsResponseStatus = a})
 
 instance NFData DescribeReplicationTasksResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateObject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,39 +70,39 @@ data CreateObject = CreateObject'
 --
 -- * 'coDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' in which the object will be created. For more information, see 'arns' .
 --
--- * 'coSchemaFacets' - A list of schema facets to be associated with the object that contains @SchemaArn@ and facet name. For more information, see 'arns' .
+-- * 'coSchemaFacets' - A list of schema facets to be associated with the object. Do not provide minor version components. See 'SchemaFacet' for details.
 createObject
     :: Text -- ^ 'coDirectoryARN'
     -> CreateObject
 createObject pDirectoryARN_ =
   CreateObject'
-  { _coParentReference = Nothing
-  , _coObjectAttributeList = Nothing
-  , _coLinkName = Nothing
-  , _coDirectoryARN = pDirectoryARN_
-  , _coSchemaFacets = mempty
-  }
+    { _coParentReference = Nothing
+    , _coObjectAttributeList = Nothing
+    , _coLinkName = Nothing
+    , _coDirectoryARN = pDirectoryARN_
+    , _coSchemaFacets = mempty
+    }
 
 
 -- | If specified, the parent reference to which this object will be attached.
 coParentReference :: Lens' CreateObject (Maybe ObjectReference)
-coParentReference = lens _coParentReference (\ s a -> s{_coParentReference = a});
+coParentReference = lens _coParentReference (\ s a -> s{_coParentReference = a})
 
 -- | The attribute map whose attribute ARN contains the key and attribute value as the map value.
 coObjectAttributeList :: Lens' CreateObject [AttributeKeyAndValue]
-coObjectAttributeList = lens _coObjectAttributeList (\ s a -> s{_coObjectAttributeList = a}) . _Default . _Coerce;
+coObjectAttributeList = lens _coObjectAttributeList (\ s a -> s{_coObjectAttributeList = a}) . _Default . _Coerce
 
 -- | The name of link that is used to attach this object to a parent.
 coLinkName :: Lens' CreateObject (Maybe Text)
-coLinkName = lens _coLinkName (\ s a -> s{_coLinkName = a});
+coLinkName = lens _coLinkName (\ s a -> s{_coLinkName = a})
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' in which the object will be created. For more information, see 'arns' .
 coDirectoryARN :: Lens' CreateObject Text
-coDirectoryARN = lens _coDirectoryARN (\ s a -> s{_coDirectoryARN = a});
+coDirectoryARN = lens _coDirectoryARN (\ s a -> s{_coDirectoryARN = a})
 
--- | A list of schema facets to be associated with the object that contains @SchemaArn@ and facet name. For more information, see 'arns' .
+-- | A list of schema facets to be associated with the object. Do not provide minor version components. See 'SchemaFacet' for details.
 coSchemaFacets :: Lens' CreateObject [SchemaFacet]
-coSchemaFacets = lens _coSchemaFacets (\ s a -> s{_coSchemaFacets = a}) . _Coerce;
+coSchemaFacets = lens _coSchemaFacets (\ s a -> s{_coSchemaFacets = a}) . _Coerce
 
 instance AWSRequest CreateObject where
         type Rs CreateObject = CreateObjectResponse
@@ -157,15 +157,15 @@ createObjectResponse
     -> CreateObjectResponse
 createObjectResponse pResponseStatus_ =
   CreateObjectResponse'
-  {_corsObjectIdentifier = Nothing, _corsResponseStatus = pResponseStatus_}
+    {_corsObjectIdentifier = Nothing, _corsResponseStatus = pResponseStatus_}
 
 
 -- | The identifier that is associated with the object.
 corsObjectIdentifier :: Lens' CreateObjectResponse (Maybe Text)
-corsObjectIdentifier = lens _corsObjectIdentifier (\ s a -> s{_corsObjectIdentifier = a});
+corsObjectIdentifier = lens _corsObjectIdentifier (\ s a -> s{_corsObjectIdentifier = a})
 
 -- | -- | The response status code.
 corsResponseStatus :: Lens' CreateObjectResponse Int
-corsResponseStatus = lens _corsResponseStatus (\ s a -> s{_corsResponseStatus = a});
+corsResponseStatus = lens _corsResponseStatus (\ s a -> s{_corsResponseStatus = a})
 
 instance NFData CreateObjectResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.CreateVault
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -87,11 +87,11 @@ createVault pAccountId_ pVaultName_ =
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 cvAccountId :: Lens' CreateVault Text
-cvAccountId = lens _cvAccountId (\ s a -> s{_cvAccountId = a});
+cvAccountId = lens _cvAccountId (\ s a -> s{_cvAccountId = a})
 
 -- | The name of the vault.
 cvVaultName :: Lens' CreateVault Text
-cvVaultName = lens _cvVaultName (\ s a -> s{_cvVaultName = a});
+cvVaultName = lens _cvVaultName (\ s a -> s{_cvVaultName = a})
 
 instance AWSRequest CreateVault where
         type Rs CreateVault = CreateVaultResponse
@@ -144,15 +144,15 @@ createVaultResponse
     -> CreateVaultResponse
 createVaultResponse pResponseStatus_ =
   CreateVaultResponse'
-  {_cvrsLocation = Nothing, _cvrsResponseStatus = pResponseStatus_}
+    {_cvrsLocation = Nothing, _cvrsResponseStatus = pResponseStatus_}
 
 
 -- | The URI of the vault that was created.
 cvrsLocation :: Lens' CreateVaultResponse (Maybe Text)
-cvrsLocation = lens _cvrsLocation (\ s a -> s{_cvrsLocation = a});
+cvrsLocation = lens _cvrsLocation (\ s a -> s{_cvrsLocation = a})
 
 -- | -- | The response status code.
 cvrsResponseStatus :: Lens' CreateVaultResponse Int
-cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a});
+cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a})
 
 instance NFData CreateVaultResponse where

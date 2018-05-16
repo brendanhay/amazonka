@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CreateMaintenanceWindow
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,43 +88,43 @@ createMaintenanceWindow
     -> CreateMaintenanceWindow
 createMaintenanceWindow pName_ pSchedule_ pDuration_ pCutoff_ pAllowUnassociatedTargets_ =
   CreateMaintenanceWindow'
-  { _cmwClientToken = Nothing
-  , _cmwDescription = Nothing
-  , _cmwName = pName_
-  , _cmwSchedule = pSchedule_
-  , _cmwDuration = _Nat # pDuration_
-  , _cmwCutoff = _Nat # pCutoff_
-  , _cmwAllowUnassociatedTargets = pAllowUnassociatedTargets_
-  }
+    { _cmwClientToken = Nothing
+    , _cmwDescription = Nothing
+    , _cmwName = pName_
+    , _cmwSchedule = pSchedule_
+    , _cmwDuration = _Nat # pDuration_
+    , _cmwCutoff = _Nat # pCutoff_
+    , _cmwAllowUnassociatedTargets = pAllowUnassociatedTargets_
+    }
 
 
 -- | User-provided idempotency token.
 cmwClientToken :: Lens' CreateMaintenanceWindow (Maybe Text)
-cmwClientToken = lens _cmwClientToken (\ s a -> s{_cmwClientToken = a});
+cmwClientToken = lens _cmwClientToken (\ s a -> s{_cmwClientToken = a})
 
 -- | An optional description for the Maintenance Window. We recommend specifying a description to help you organize your Maintenance Windows.
 cmwDescription :: Lens' CreateMaintenanceWindow (Maybe Text)
-cmwDescription = lens _cmwDescription (\ s a -> s{_cmwDescription = a}) . mapping _Sensitive;
+cmwDescription = lens _cmwDescription (\ s a -> s{_cmwDescription = a}) . mapping _Sensitive
 
 -- | The name of the Maintenance Window.
 cmwName :: Lens' CreateMaintenanceWindow Text
-cmwName = lens _cmwName (\ s a -> s{_cmwName = a});
+cmwName = lens _cmwName (\ s a -> s{_cmwName = a})
 
 -- | The schedule of the Maintenance Window in the form of a cron or rate expression.
 cmwSchedule :: Lens' CreateMaintenanceWindow Text
-cmwSchedule = lens _cmwSchedule (\ s a -> s{_cmwSchedule = a});
+cmwSchedule = lens _cmwSchedule (\ s a -> s{_cmwSchedule = a})
 
 -- | The duration of the Maintenance Window in hours.
 cmwDuration :: Lens' CreateMaintenanceWindow Natural
-cmwDuration = lens _cmwDuration (\ s a -> s{_cmwDuration = a}) . _Nat;
+cmwDuration = lens _cmwDuration (\ s a -> s{_cmwDuration = a}) . _Nat
 
 -- | The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 cmwCutoff :: Lens' CreateMaintenanceWindow Natural
-cmwCutoff = lens _cmwCutoff (\ s a -> s{_cmwCutoff = a}) . _Nat;
+cmwCutoff = lens _cmwCutoff (\ s a -> s{_cmwCutoff = a}) . _Nat
 
 -- | Enables a Maintenance Window task to execute on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the Maintenance Window  If you don't enable this option, then you must specify previously-registered targets when you register a task with the Maintenance Window.
 cmwAllowUnassociatedTargets :: Lens' CreateMaintenanceWindow Bool
-cmwAllowUnassociatedTargets = lens _cmwAllowUnassociatedTargets (\ s a -> s{_cmwAllowUnassociatedTargets = a});
+cmwAllowUnassociatedTargets = lens _cmwAllowUnassociatedTargets (\ s a -> s{_cmwAllowUnassociatedTargets = a})
 
 instance AWSRequest CreateMaintenanceWindow where
         type Rs CreateMaintenanceWindow =
@@ -188,15 +188,15 @@ createMaintenanceWindowResponse
     -> CreateMaintenanceWindowResponse
 createMaintenanceWindowResponse pResponseStatus_ =
   CreateMaintenanceWindowResponse'
-  {_cmwrsWindowId = Nothing, _cmwrsResponseStatus = pResponseStatus_}
+    {_cmwrsWindowId = Nothing, _cmwrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the created Maintenance Window.
 cmwrsWindowId :: Lens' CreateMaintenanceWindowResponse (Maybe Text)
-cmwrsWindowId = lens _cmwrsWindowId (\ s a -> s{_cmwrsWindowId = a});
+cmwrsWindowId = lens _cmwrsWindowId (\ s a -> s{_cmwrsWindowId = a})
 
 -- | -- | The response status code.
 cmwrsResponseStatus :: Lens' CreateMaintenanceWindowResponse Int
-cmwrsResponseStatus = lens _cmwrsResponseStatus (\ s a -> s{_cmwrsResponseStatus = a});
+cmwrsResponseStatus = lens _cmwrsResponseStatus (\ s a -> s{_cmwrsResponseStatus = a})
 
 instance NFData CreateMaintenanceWindowResponse where

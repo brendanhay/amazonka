@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeleteConfigurationRecorder
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,12 +65,12 @@ deleteConfigurationRecorder
     -> DeleteConfigurationRecorder
 deleteConfigurationRecorder pConfigurationRecorderName_ =
   DeleteConfigurationRecorder'
-  {_dcrConfigurationRecorderName = pConfigurationRecorderName_}
+    {_dcrConfigurationRecorderName = pConfigurationRecorderName_}
 
 
 -- | The name of the configuration recorder to be deleted. You can retrieve the name of your configuration recorder by using the @DescribeConfigurationRecorders@ action.
 dcrConfigurationRecorderName :: Lens' DeleteConfigurationRecorder Text
-dcrConfigurationRecorderName = lens _dcrConfigurationRecorderName (\ s a -> s{_dcrConfigurationRecorderName = a});
+dcrConfigurationRecorderName = lens _dcrConfigurationRecorderName (\ s a -> s{_dcrConfigurationRecorderName = a})
 
 instance AWSRequest DeleteConfigurationRecorder where
         type Rs DeleteConfigurationRecorder =

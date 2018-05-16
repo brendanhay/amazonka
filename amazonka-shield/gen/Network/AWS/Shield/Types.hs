@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Shield.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,20 @@ module Network.AWS.Shield.Types
     , _LockedSubscriptionException
     , _ResourceNotFoundException
 
+    -- * AttackLayer
+    , AttackLayer (..)
+
+    -- * AttackPropertyIdentifier
+    , AttackPropertyIdentifier (..)
+
     -- * SubResourceType
     , SubResourceType (..)
+
+    -- * SubscriptionState
+    , SubscriptionState (..)
+
+    -- * Unit
+    , Unit (..)
 
     -- * AttackDetail
     , AttackDetail
@@ -36,9 +48,19 @@ module Network.AWS.Shield.Types
     , adStartTime
     , adSubResources
     , adMitigations
+    , adAttackProperties
     , adAttackCounters
     , adResourceARN
     , adEndTime
+
+    -- * AttackProperty
+    , AttackProperty
+    , attackProperty
+    , apAttackLayer
+    , apTopContributors
+    , apAttackPropertyIdentifier
+    , apTotal
+    , apUnit
 
     -- * AttackSummary
     , AttackSummary
@@ -53,6 +75,12 @@ module Network.AWS.Shield.Types
     , AttackVectorDescription
     , attackVectorDescription
     , avdVectorType
+
+    -- * Contributor
+    , Contributor
+    , contributor
+    , cValue
+    , cName
 
     -- * Mitigation
     , Mitigation
@@ -113,24 +141,24 @@ import Network.AWS.Sign.V4
 shield :: Service
 shield =
   Service
-  { _svcAbbrev = "Shield"
-  , _svcSigner = v4
-  , _svcPrefix = "shield"
-  , _svcVersion = "2016-06-02"
-  , _svcEndpoint = defaultEndpoint shield
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Shield"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Shield"
+    , _svcSigner = v4
+    , _svcPrefix = "shield"
+    , _svcVersion = "2016-06-02"
+    , _svcEndpoint = defaultEndpoint shield
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "Shield"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -139,6 +167,8 @@ shield =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -163,6 +193,10 @@ _InvalidParameterException =
 
 -- | Exception that indicates that the operation would exceed a limit.
 --
+--
+-- @Type@ is the type of limit that would be exceeded.
+--
+-- @Limit@ is the threshold that would be exceeded.
 --
 _LimitsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitsExceededException = _MatchServiceError shield "LimitsExceededException"
@@ -198,7 +232,7 @@ _InvalidOperationException =
   _MatchServiceError shield "InvalidOperationException"
 
 
--- | Exception that indicates that the subscription has been modified by another client. You can retry the request.
+-- | Exception that indicates that the subscription you are trying to delete has not yet completed the 1-year commitment. You cannot delete this subscription.
 --
 --
 _LockedSubscriptionException :: AsError a => Getting (First ServiceError) a ServiceError

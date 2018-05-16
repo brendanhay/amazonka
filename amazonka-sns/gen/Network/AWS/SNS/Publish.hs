@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.Publish
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,43 +92,43 @@ publish
     -> Publish
 publish pMessage_ =
   Publish'
-  { _pSubject = Nothing
-  , _pTargetARN = Nothing
-  , _pMessageAttributes = Nothing
-  , _pTopicARN = Nothing
-  , _pPhoneNumber = Nothing
-  , _pMessageStructure = Nothing
-  , _pMessage = pMessage_
-  }
+    { _pSubject = Nothing
+    , _pTargetARN = Nothing
+    , _pMessageAttributes = Nothing
+    , _pTopicARN = Nothing
+    , _pPhoneNumber = Nothing
+    , _pMessageStructure = Nothing
+    , _pMessage = pMessage_
+    }
 
 
 -- | Optional parameter to be used as the "Subject" line when the message is delivered to email endpoints. This field will also be included, if present, in the standard JSON messages delivered to other endpoints. Constraints: Subjects must be ASCII text that begins with a letter, number, or punctuation mark; must not include line breaks or control characters; and must be less than 100 characters long.
 pSubject :: Lens' Publish (Maybe Text)
-pSubject = lens _pSubject (\ s a -> s{_pSubject = a});
+pSubject = lens _pSubject (\ s a -> s{_pSubject = a})
 
 -- | Either TopicArn or EndpointArn, but not both. If you don't specify a value for the @TargetArn@ parameter, you must specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
 pTargetARN :: Lens' Publish (Maybe Text)
-pTargetARN = lens _pTargetARN (\ s a -> s{_pTargetARN = a});
+pTargetARN = lens _pTargetARN (\ s a -> s{_pTargetARN = a})
 
 -- | Message attributes for Publish action.
 pMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
-pMessageAttributes = lens _pMessageAttributes (\ s a -> s{_pMessageAttributes = a}) . _Default . _Map;
+pMessageAttributes = lens _pMessageAttributes (\ s a -> s{_pMessageAttributes = a}) . _Default . _Map
 
 -- | The topic you want to publish to. If you don't specify a value for the @TopicArn@ parameter, you must specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
 pTopicARN :: Lens' Publish (Maybe Text)
-pTopicARN = lens _pTopicARN (\ s a -> s{_pTopicARN = a});
+pTopicARN = lens _pTopicARN (\ s a -> s{_pTopicARN = a})
 
 -- | The phone number to which you want to deliver an SMS message. Use E.164 format. If you don't specify a value for the @PhoneNumber@ parameter, you must specify a value for the @TargetArn@ or @TopicArn@ parameters.
 pPhoneNumber :: Lens' Publish (Maybe Text)
-pPhoneNumber = lens _pPhoneNumber (\ s a -> s{_pPhoneNumber = a});
+pPhoneNumber = lens _pPhoneNumber (\ s a -> s{_pPhoneNumber = a})
 
 -- | Set @MessageStructure@ to @json@ if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set @MessageStructure@ to @json@ , the value of the @Message@ parameter must:      * be a syntactically valid JSON object; and     * contain at least a top-level JSON key of "default" with a value that is a string. You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http"). For information about sending different messages for each protocol using the AWS Management Console, go to <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol> in the /Amazon Simple Notification Service Getting Started Guide/ .  Valid value: @json@
 pMessageStructure :: Lens' Publish (Maybe Text)
-pMessageStructure = lens _pMessageStructure (\ s a -> s{_pMessageStructure = a});
+pMessageStructure = lens _pMessageStructure (\ s a -> s{_pMessageStructure = a})
 
 -- | The message you want to send to the topic. If you want to send the same message to all transport protocols, include the text of the message as a String value. If you want to send different messages for each transport protocol, set the value of the @MessageStructure@ parameter to @json@ and use a JSON object for the @Message@ parameter.  Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144 bytes, not 262144 characters). JSON-specific constraints:     * Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.     * The values will be parsed (unescaped) before they are used in outgoing messages.     * Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).     * Values have a minimum length of 0 (the empty string, "", is allowed).     * Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).     * Non-string values will cause the key to be ignored.     * Keys that do not correspond to supported transport protocols are ignored.     * Duplicate keys are not allowed.     * Failure to parse or validate any key or value in the message will cause the @Publish@ call to return an error (no partial delivery).
 pMessage :: Lens' Publish Text
-pMessage = lens _pMessage (\ s a -> s{_pMessage = a});
+pMessage = lens _pMessage (\ s a -> s{_pMessage = a})
 
 instance AWSRequest Publish where
         type Rs Publish = PublishResponse
@@ -187,15 +187,15 @@ publishResponse
     -> PublishResponse
 publishResponse pResponseStatus_ =
   PublishResponse'
-  {_prsMessageId = Nothing, _prsResponseStatus = pResponseStatus_}
+    {_prsMessageId = Nothing, _prsResponseStatus = pResponseStatus_}
 
 
 -- | Unique identifier assigned to the published message. Length Constraint: Maximum 100 characters
 prsMessageId :: Lens' PublishResponse (Maybe Text)
-prsMessageId = lens _prsMessageId (\ s a -> s{_prsMessageId = a});
+prsMessageId = lens _prsMessageId (\ s a -> s{_prsMessageId = a})
 
 -- | -- | The response status code.
 prsResponseStatus :: Lens' PublishResponse Int
-prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
+prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a})
 
 instance NFData PublishResponse where

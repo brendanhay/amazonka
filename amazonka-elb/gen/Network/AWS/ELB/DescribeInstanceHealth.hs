@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeInstanceHealth
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ describeInstanceHealth
     -> DescribeInstanceHealth
 describeInstanceHealth pLoadBalancerName_ =
   DescribeInstanceHealth'
-  {_dihInstances = Nothing, _dihLoadBalancerName = pLoadBalancerName_}
+    {_dihInstances = Nothing, _dihLoadBalancerName = pLoadBalancerName_}
 
 
 -- | The IDs of the instances.
 dihInstances :: Lens' DescribeInstanceHealth [Instance]
-dihInstances = lens _dihInstances (\ s a -> s{_dihInstances = a}) . _Default . _Coerce;
+dihInstances = lens _dihInstances (\ s a -> s{_dihInstances = a}) . _Default . _Coerce
 
 -- | The name of the load balancer.
 dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
-dihLoadBalancerName = lens _dihLoadBalancerName (\ s a -> s{_dihLoadBalancerName = a});
+dihLoadBalancerName = lens _dihLoadBalancerName (\ s a -> s{_dihLoadBalancerName = a})
 
 instance AWSRequest DescribeInstanceHealth where
         type Rs DescribeInstanceHealth =
@@ -134,15 +134,15 @@ describeInstanceHealthResponse
     -> DescribeInstanceHealthResponse
 describeInstanceHealthResponse pResponseStatus_ =
   DescribeInstanceHealthResponse'
-  {_dihrsInstanceStates = Nothing, _dihrsResponseStatus = pResponseStatus_}
+    {_dihrsInstanceStates = Nothing, _dihrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the health of the instances.
 dihrsInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
-dihrsInstanceStates = lens _dihrsInstanceStates (\ s a -> s{_dihrsInstanceStates = a}) . _Default . _Coerce;
+dihrsInstanceStates = lens _dihrsInstanceStates (\ s a -> s{_dihrsInstanceStates = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dihrsResponseStatus :: Lens' DescribeInstanceHealthResponse Int
-dihrsResponseStatus = lens _dihrsResponseStatus (\ s a -> s{_dihrsResponseStatus = a});
+dihrsResponseStatus = lens _dihrsResponseStatus (\ s a -> s{_dihrsResponseStatus = a})
 
 instance NFData DescribeInstanceHealthResponse where

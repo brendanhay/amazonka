@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.StartDBInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ startDBInstance pDBInstanceIdentifier_ =
 
 -- | The user-supplied instance identifier.
 sdbiDBInstanceIdentifier :: Lens' StartDBInstance Text
-sdbiDBInstanceIdentifier = lens _sdbiDBInstanceIdentifier (\ s a -> s{_sdbiDBInstanceIdentifier = a});
+sdbiDBInstanceIdentifier = lens _sdbiDBInstanceIdentifier (\ s a -> s{_sdbiDBInstanceIdentifier = a})
 
 instance AWSRequest StartDBInstance where
         type Rs StartDBInstance = StartDBInstanceResponse
@@ -111,15 +111,15 @@ startDBInstanceResponse
     -> StartDBInstanceResponse
 startDBInstanceResponse pResponseStatus_ =
   StartDBInstanceResponse'
-  {_sdbirsDBInstance = Nothing, _sdbirsResponseStatus = pResponseStatus_}
+    {_sdbirsDBInstance = Nothing, _sdbirsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 sdbirsDBInstance :: Lens' StartDBInstanceResponse (Maybe DBInstance)
-sdbirsDBInstance = lens _sdbirsDBInstance (\ s a -> s{_sdbirsDBInstance = a});
+sdbirsDBInstance = lens _sdbirsDBInstance (\ s a -> s{_sdbirsDBInstance = a})
 
 -- | -- | The response status code.
 sdbirsResponseStatus :: Lens' StartDBInstanceResponse Int
-sdbirsResponseStatus = lens _sdbirsResponseStatus (\ s a -> s{_sdbirsResponseStatus = a});
+sdbirsResponseStatus = lens _sdbirsResponseStatus (\ s a -> s{_sdbirsResponseStatus = a})
 
 instance NFData StartDBInstanceResponse where

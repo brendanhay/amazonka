@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.DeleteLifecyclePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,22 +61,22 @@ data DeleteLifecyclePolicy = DeleteLifecyclePolicy'
 --
 -- * 'dlpRegistryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 --
--- * 'dlpRepositoryName' - The name of the repository that is associated with the repository policy to  delete.
+-- * 'dlpRepositoryName' - The name of the repository.
 deleteLifecyclePolicy
     :: Text -- ^ 'dlpRepositoryName'
     -> DeleteLifecyclePolicy
 deleteLifecyclePolicy pRepositoryName_ =
   DeleteLifecyclePolicy'
-  {_dlpRegistryId = Nothing, _dlpRepositoryName = pRepositoryName_}
+    {_dlpRegistryId = Nothing, _dlpRepositoryName = pRepositoryName_}
 
 
 -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 dlpRegistryId :: Lens' DeleteLifecyclePolicy (Maybe Text)
-dlpRegistryId = lens _dlpRegistryId (\ s a -> s{_dlpRegistryId = a});
+dlpRegistryId = lens _dlpRegistryId (\ s a -> s{_dlpRegistryId = a})
 
--- | The name of the repository that is associated with the repository policy to  delete.
+-- | The name of the repository.
 dlpRepositoryName :: Lens' DeleteLifecyclePolicy Text
-dlpRepositoryName = lens _dlpRepositoryName (\ s a -> s{_dlpRepositoryName = a});
+dlpRepositoryName = lens _dlpRepositoryName (\ s a -> s{_dlpRepositoryName = a})
 
 instance AWSRequest DeleteLifecyclePolicy where
         type Rs DeleteLifecyclePolicy =
@@ -136,7 +136,7 @@ data DeleteLifecyclePolicyResponse = DeleteLifecyclePolicyResponse'
 --
 -- * 'dlprsLastEvaluatedAt' - The time stamp of the last time that the lifecycle policy was run.
 --
--- * 'dlprsLifecyclePolicyText' - The JSON repository policy text.
+-- * 'dlprsLifecyclePolicyText' - The JSON lifecycle policy text.
 --
 -- * 'dlprsRepositoryName' - The repository name associated with the request.
 --
@@ -146,32 +146,32 @@ deleteLifecyclePolicyResponse
     -> DeleteLifecyclePolicyResponse
 deleteLifecyclePolicyResponse pResponseStatus_ =
   DeleteLifecyclePolicyResponse'
-  { _dlprsRegistryId = Nothing
-  , _dlprsLastEvaluatedAt = Nothing
-  , _dlprsLifecyclePolicyText = Nothing
-  , _dlprsRepositoryName = Nothing
-  , _dlprsResponseStatus = pResponseStatus_
-  }
+    { _dlprsRegistryId = Nothing
+    , _dlprsLastEvaluatedAt = Nothing
+    , _dlprsLifecyclePolicyText = Nothing
+    , _dlprsRepositoryName = Nothing
+    , _dlprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The registry ID associated with the request.
 dlprsRegistryId :: Lens' DeleteLifecyclePolicyResponse (Maybe Text)
-dlprsRegistryId = lens _dlprsRegistryId (\ s a -> s{_dlprsRegistryId = a});
+dlprsRegistryId = lens _dlprsRegistryId (\ s a -> s{_dlprsRegistryId = a})
 
 -- | The time stamp of the last time that the lifecycle policy was run.
 dlprsLastEvaluatedAt :: Lens' DeleteLifecyclePolicyResponse (Maybe UTCTime)
-dlprsLastEvaluatedAt = lens _dlprsLastEvaluatedAt (\ s a -> s{_dlprsLastEvaluatedAt = a}) . mapping _Time;
+dlprsLastEvaluatedAt = lens _dlprsLastEvaluatedAt (\ s a -> s{_dlprsLastEvaluatedAt = a}) . mapping _Time
 
--- | The JSON repository policy text.
+-- | The JSON lifecycle policy text.
 dlprsLifecyclePolicyText :: Lens' DeleteLifecyclePolicyResponse (Maybe Text)
-dlprsLifecyclePolicyText = lens _dlprsLifecyclePolicyText (\ s a -> s{_dlprsLifecyclePolicyText = a});
+dlprsLifecyclePolicyText = lens _dlprsLifecyclePolicyText (\ s a -> s{_dlprsLifecyclePolicyText = a})
 
 -- | The repository name associated with the request.
 dlprsRepositoryName :: Lens' DeleteLifecyclePolicyResponse (Maybe Text)
-dlprsRepositoryName = lens _dlprsRepositoryName (\ s a -> s{_dlprsRepositoryName = a});
+dlprsRepositoryName = lens _dlprsRepositoryName (\ s a -> s{_dlprsRepositoryName = a})
 
 -- | -- | The response status code.
 dlprsResponseStatus :: Lens' DeleteLifecyclePolicyResponse Int
-dlprsResponseStatus = lens _dlprsResponseStatus (\ s a -> s{_dlprsResponseStatus = a});
+dlprsResponseStatus = lens _dlprsResponseStatus (\ s a -> s{_dlprsResponseStatus = a})
 
 instance NFData DeleteLifecyclePolicyResponse where

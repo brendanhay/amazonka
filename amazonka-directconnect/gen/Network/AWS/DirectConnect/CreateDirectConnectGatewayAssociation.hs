@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,18 +69,18 @@ createDirectConnectGatewayAssociation
     -> CreateDirectConnectGatewayAssociation
 createDirectConnectGatewayAssociation pDirectConnectGatewayId_ pVirtualGatewayId_ =
   CreateDirectConnectGatewayAssociation'
-  { _cdcgaDirectConnectGatewayId = pDirectConnectGatewayId_
-  , _cdcgaVirtualGatewayId = pVirtualGatewayId_
-  }
+    { _cdcgaDirectConnectGatewayId = pDirectConnectGatewayId_
+    , _cdcgaVirtualGatewayId = pVirtualGatewayId_
+    }
 
 
 -- | The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
 cdcgaDirectConnectGatewayId :: Lens' CreateDirectConnectGatewayAssociation Text
-cdcgaDirectConnectGatewayId = lens _cdcgaDirectConnectGatewayId (\ s a -> s{_cdcgaDirectConnectGatewayId = a});
+cdcgaDirectConnectGatewayId = lens _cdcgaDirectConnectGatewayId (\ s a -> s{_cdcgaDirectConnectGatewayId = a})
 
 -- | The ID of the virtual private gateway. Example: "vgw-abc123ef" Default: None
 cdcgaVirtualGatewayId :: Lens' CreateDirectConnectGatewayAssociation Text
-cdcgaVirtualGatewayId = lens _cdcgaVirtualGatewayId (\ s a -> s{_cdcgaVirtualGatewayId = a});
+cdcgaVirtualGatewayId = lens _cdcgaVirtualGatewayId (\ s a -> s{_cdcgaVirtualGatewayId = a})
 
 instance AWSRequest
            CreateDirectConnectGatewayAssociation
@@ -156,18 +156,18 @@ createDirectConnectGatewayAssociationResponse
     -> CreateDirectConnectGatewayAssociationResponse
 createDirectConnectGatewayAssociationResponse pResponseStatus_ =
   CreateDirectConnectGatewayAssociationResponse'
-  { _cdcgarsDirectConnectGatewayAssociation = Nothing
-  , _cdcgarsResponseStatus = pResponseStatus_
-  }
+    { _cdcgarsDirectConnectGatewayAssociation = Nothing
+    , _cdcgarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The direct connect gateway association to be created.
 cdcgarsDirectConnectGatewayAssociation :: Lens' CreateDirectConnectGatewayAssociationResponse (Maybe DirectConnectGatewayAssociation)
-cdcgarsDirectConnectGatewayAssociation = lens _cdcgarsDirectConnectGatewayAssociation (\ s a -> s{_cdcgarsDirectConnectGatewayAssociation = a});
+cdcgarsDirectConnectGatewayAssociation = lens _cdcgarsDirectConnectGatewayAssociation (\ s a -> s{_cdcgarsDirectConnectGatewayAssociation = a})
 
 -- | -- | The response status code.
 cdcgarsResponseStatus :: Lens' CreateDirectConnectGatewayAssociationResponse Int
-cdcgarsResponseStatus = lens _cdcgarsResponseStatus (\ s a -> s{_cdcgarsResponseStatus = a});
+cdcgarsResponseStatus = lens _cdcgarsResponseStatus (\ s a -> s{_cdcgarsResponseStatus = a})
 
 instance NFData
            CreateDirectConnectGatewayAssociationResponse

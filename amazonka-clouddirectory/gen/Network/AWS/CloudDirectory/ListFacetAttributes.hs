@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListFacetAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Retrieves attributes attached to the facet.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListFacetAttributes
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.CloudDirectory.ListFacetAttributes
 import Network.AWS.CloudDirectory.Types
 import Network.AWS.CloudDirectory.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -74,28 +77,35 @@ listFacetAttributes
     -> ListFacetAttributes
 listFacetAttributes pSchemaARN_ pName_ =
   ListFacetAttributes'
-  { _lfaNextToken = Nothing
-  , _lfaMaxResults = Nothing
-  , _lfaSchemaARN = pSchemaARN_
-  , _lfaName = pName_
-  }
+    { _lfaNextToken = Nothing
+    , _lfaMaxResults = Nothing
+    , _lfaSchemaARN = pSchemaARN_
+    , _lfaName = pName_
+    }
 
 
 -- | The pagination token.
 lfaNextToken :: Lens' ListFacetAttributes (Maybe Text)
-lfaNextToken = lens _lfaNextToken (\ s a -> s{_lfaNextToken = a});
+lfaNextToken = lens _lfaNextToken (\ s a -> s{_lfaNextToken = a})
 
 -- | The maximum number of results to retrieve.
 lfaMaxResults :: Lens' ListFacetAttributes (Maybe Natural)
-lfaMaxResults = lens _lfaMaxResults (\ s a -> s{_lfaMaxResults = a}) . mapping _Nat;
+lfaMaxResults = lens _lfaMaxResults (\ s a -> s{_lfaMaxResults = a}) . mapping _Nat
 
 -- | The ARN of the schema where the facet resides.
 lfaSchemaARN :: Lens' ListFacetAttributes Text
-lfaSchemaARN = lens _lfaSchemaARN (\ s a -> s{_lfaSchemaARN = a});
+lfaSchemaARN = lens _lfaSchemaARN (\ s a -> s{_lfaSchemaARN = a})
 
 -- | The name of the facet whose attributes will be retrieved.
 lfaName :: Lens' ListFacetAttributes Text
-lfaName = lens _lfaName (\ s a -> s{_lfaName = a});
+lfaName = lens _lfaName (\ s a -> s{_lfaName = a})
+
+instance AWSPager ListFacetAttributes where
+        page rq rs
+          | stop (rs ^. lfarsNextToken) = Nothing
+          | stop (rs ^. lfarsAttributes) = Nothing
+          | otherwise =
+            Just $ rq & lfaNextToken .~ rs ^. lfarsNextToken
 
 instance AWSRequest ListFacetAttributes where
         type Rs ListFacetAttributes =
@@ -155,22 +165,22 @@ listFacetAttributesResponse
     -> ListFacetAttributesResponse
 listFacetAttributesResponse pResponseStatus_ =
   ListFacetAttributesResponse'
-  { _lfarsNextToken = Nothing
-  , _lfarsAttributes = Nothing
-  , _lfarsResponseStatus = pResponseStatus_
-  }
+    { _lfarsNextToken = Nothing
+    , _lfarsAttributes = Nothing
+    , _lfarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token.
 lfarsNextToken :: Lens' ListFacetAttributesResponse (Maybe Text)
-lfarsNextToken = lens _lfarsNextToken (\ s a -> s{_lfarsNextToken = a});
+lfarsNextToken = lens _lfarsNextToken (\ s a -> s{_lfarsNextToken = a})
 
 -- | The attributes attached to the facet.
 lfarsAttributes :: Lens' ListFacetAttributesResponse [FacetAttribute]
-lfarsAttributes = lens _lfarsAttributes (\ s a -> s{_lfarsAttributes = a}) . _Default . _Coerce;
+lfarsAttributes = lens _lfarsAttributes (\ s a -> s{_lfarsAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lfarsResponseStatus :: Lens' ListFacetAttributesResponse Int
-lfarsResponseStatus = lens _lfarsResponseStatus (\ s a -> s{_lfarsResponseStatus = a});
+lfarsResponseStatus = lens _lfarsResponseStatus (\ s a -> s{_lfarsResponseStatus = a})
 
 instance NFData ListFacetAttributesResponse where

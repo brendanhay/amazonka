@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DescribeApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ describeApplication pApplicationName_ =
 
 -- | Name of the application.
 daApplicationName :: Lens' DescribeApplication Text
-daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a});
+daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a})
 
 instance AWSRequest DescribeApplication where
         type Rs DescribeApplication =
@@ -134,17 +134,17 @@ describeApplicationResponse
     -> DescribeApplicationResponse
 describeApplicationResponse pResponseStatus_ pApplicationDetail_ =
   DescribeApplicationResponse'
-  { _darsResponseStatus = pResponseStatus_
-  , _darsApplicationDetail = pApplicationDetail_
-  }
+    { _darsResponseStatus = pResponseStatus_
+    , _darsApplicationDetail = pApplicationDetail_
+    }
 
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeApplicationResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 -- | Provides a description of the application, such as the application Amazon Resource Name (ARN), status, latest version, and input and output configuration details.
 darsApplicationDetail :: Lens' DescribeApplicationResponse ApplicationDetail
-darsApplicationDetail = lens _darsApplicationDetail (\ s a -> s{_darsApplicationDetail = a});
+darsApplicationDetail = lens _darsApplicationDetail (\ s a -> s{_darsApplicationDetail = a})
 
 instance NFData DescribeApplicationResponse where

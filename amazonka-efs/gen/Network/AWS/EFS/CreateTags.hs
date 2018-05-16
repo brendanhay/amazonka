@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.CreateTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ createTags pFileSystemId_ =
 
 -- | ID of the file system whose tags you want to modify (String). This operation modifies the tags only, not the file system.
 ctFileSystemId :: Lens' CreateTags Text
-ctFileSystemId = lens _ctFileSystemId (\ s a -> s{_ctFileSystemId = a});
+ctFileSystemId = lens _ctFileSystemId (\ s a -> s{_ctFileSystemId = a})
 
 -- | Array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
 ctTags :: Lens' CreateTags [Tag]
-ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
+ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce
 
 instance AWSRequest CreateTags where
         type Rs CreateTags = CreateTagsResponse

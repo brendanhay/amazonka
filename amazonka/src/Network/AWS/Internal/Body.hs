@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Network.AWS.Internal.Body
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -11,24 +11,23 @@
 --
 module Network.AWS.Internal.Body where
 
-import           Control.Applicative
 import           Control.Monad
 import           Control.Monad.IO.Class
-import           Control.Monad.Morph
 import           Control.Monad.Trans.Resource
 import qualified Data.ByteString              as BS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Network.AWS.Prelude
 import           System.IO
+import           Data.Void (Void) -- required for < conduit-1.3
 
 -- | Convenience function for obtaining the size of a file.
 getFileSize :: MonadIO m => FilePath -> m Integer
 getFileSize path = liftIO (withBinaryFile path ReadMode hFileSize)
 
 -- | Connect a 'Sink' to a response stream.
-sinkBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
-sinkBody (RsBody body) sink = hoist liftResourceT body $$+- sink
+sinkBody :: MonadIO m => RsBody -> ConduitM ByteString Void (ResourceT IO) a -> m a
+sinkBody (RsBody body) sink = liftIO $ runConduitRes $ body .| sink
 
 -- | Construct a 'HashedBody' from a 'FilePath', calculating the 'SHA256' hash
 -- and file size.
@@ -43,7 +42,7 @@ hashedFile :: MonadIO m
            -> m HashedBody
 hashedFile path =
     liftIO $ HashedStream
-        <$> runResourceT (Conduit.sourceFile path $$ sinkSHA256)
+        <$> runResourceT (Conduit.sourceFile path `connect` sinkSHA256)
         <*> getFileSize path
         <*> pure (Conduit.sourceFile path)
 
@@ -59,7 +58,7 @@ hashedFileRange :: MonadIO m
                 -> m HashedBody
 hashedFileRange path (Just -> offset) (Just -> len) =
     liftIO $ HashedStream
-        <$> runResourceT (Conduit.sourceFileRange path offset len $$ sinkSHA256)
+        <$> runResourceT (Conduit.sourceFileRange path offset len `connect` sinkSHA256)
         <*> getFileSize path
         <*> pure (Conduit.sourceFileRange path offset len)
 
@@ -70,7 +69,7 @@ hashedFileRange path (Just -> offset) (Just -> len) =
 -- /See:/ 'ToHashedBody'.
 hashedBody :: Digest SHA256 -- ^ A SHA256 hash of the file contents.
            -> Integer       -- ^ The size of the stream in bytes.
-           -> Source (ResourceT IO) ByteString
+           -> ConduitM () ByteString (ResourceT IO) ()
            -> HashedBody
 hashedBody = HashedStream
 
@@ -126,14 +125,14 @@ unsafeChunkedBody :: ChunkSize
                      -- ^ The idealized size of chunks that will be yielded downstream.
                   -> Integer
                      -- ^ The size of the stream in bytes.
-                  -> Source (ResourceT IO) ByteString
+                  -> ConduitM () ByteString (ResourceT IO) ()
                   -> RqBody
 unsafeChunkedBody chunk size = Chunked . ChunkedBody chunk size
 
 sourceFileChunks :: MonadResource m
                  => ChunkSize
                  -> FilePath
-                 -> Source m ByteString
+                 -> ConduitM () ByteString m ()
 sourceFileChunks (ChunkSize chunk) path =
     bracketP (openBinaryFile path ReadMode) hClose go
   where
@@ -153,7 +152,7 @@ sourceFileRangeChunks :: MonadResource m
                          -- ^ The byte offset at which to start reading.
                       -> Integer
                          -- ^ The maximum number of bytes to read.
-                      -> Source m ByteString
+                      -> ConduitM () ByteString m ()
 sourceFileRangeChunks (ChunkSize chunk) path offset len =
     bracketP acquire hClose seek
   where
@@ -173,15 +172,15 @@ sourceFileRangeChunks (ChunkSize chunk) path offset len =
                 go (remainder - chunk) hd
 
 -- | Incrementally calculate a 'MD5' 'Digest'.
-sinkMD5 :: Monad m => Consumer ByteString m (Digest MD5)
+sinkMD5 :: Monad m => ConduitM ByteString o m (Digest MD5)
 sinkMD5 = sinkHash
 
 -- | Incrementally calculate a 'SHA256' 'Digest'.
-sinkSHA256 :: Monad m => Consumer ByteString m (Digest SHA256)
+sinkSHA256 :: Monad m => ConduitM ByteString o m (Digest SHA256)
 sinkSHA256 = sinkHash
 
 -- | A cryptonite compatible incremental hash sink.
-sinkHash :: (Monad m, HashAlgorithm a) => Consumer ByteString m (Digest a)
+sinkHash :: (Monad m, HashAlgorithm a) => ConduitM ByteString o m (Digest a)
 sinkHash = sink hashInit
   where
     sink ctx = do

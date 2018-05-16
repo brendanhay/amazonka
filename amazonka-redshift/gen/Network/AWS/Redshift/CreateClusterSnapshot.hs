@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateClusterSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ createClusterSnapshot
     -> CreateClusterSnapshot
 createClusterSnapshot pSnapshotIdentifier_ pClusterIdentifier_ =
   CreateClusterSnapshot'
-  { _ccsTags = Nothing
-  , _ccsSnapshotIdentifier = pSnapshotIdentifier_
-  , _ccsClusterIdentifier = pClusterIdentifier_
-  }
+    { _ccsTags = Nothing
+    , _ccsSnapshotIdentifier = pSnapshotIdentifier_
+    , _ccsClusterIdentifier = pClusterIdentifier_
+    }
 
 
 -- | A list of tag instances.
 ccsTags :: Lens' CreateClusterSnapshot [Tag]
-ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default . _Coerce;
+ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default . _Coerce
 
 -- | A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
-ccsSnapshotIdentifier = lens _ccsSnapshotIdentifier (\ s a -> s{_ccsSnapshotIdentifier = a});
+ccsSnapshotIdentifier = lens _ccsSnapshotIdentifier (\ s a -> s{_ccsSnapshotIdentifier = a})
 
 -- | The cluster identifier for which you want a snapshot.
 ccsClusterIdentifier :: Lens' CreateClusterSnapshot Text
-ccsClusterIdentifier = lens _ccsClusterIdentifier (\ s a -> s{_ccsClusterIdentifier = a});
+ccsClusterIdentifier = lens _ccsClusterIdentifier (\ s a -> s{_ccsClusterIdentifier = a})
 
 instance AWSRequest CreateClusterSnapshot where
         type Rs CreateClusterSnapshot =
@@ -141,15 +141,15 @@ createClusterSnapshotResponse
     -> CreateClusterSnapshotResponse
 createClusterSnapshotResponse pResponseStatus_ =
   CreateClusterSnapshotResponse'
-  {_crersSnapshot = Nothing, _crersResponseStatus = pResponseStatus_}
+    {_crersSnapshot = Nothing, _crersResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 crersSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
-crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
+crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a})
 
 -- | -- | The response status code.
 crersResponseStatus :: Lens' CreateClusterSnapshotResponse Int
-crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a})
 
 instance NFData CreateClusterSnapshotResponse where

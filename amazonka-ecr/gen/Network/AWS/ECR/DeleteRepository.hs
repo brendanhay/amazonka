@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.DeleteRepository
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ deleteRepository
     -> DeleteRepository
 deleteRepository pRepositoryName_ =
   DeleteRepository'
-  { _dForce = Nothing
-  , _dRegistryId = Nothing
-  , _dRepositoryName = pRepositoryName_
-  }
+    { _dForce = Nothing
+    , _dRegistryId = Nothing
+    , _dRepositoryName = pRepositoryName_
+    }
 
 
 -- | If a repository contains images, forces the deletion.
 dForce :: Lens' DeleteRepository (Maybe Bool)
-dForce = lens _dForce (\ s a -> s{_dForce = a});
+dForce = lens _dForce (\ s a -> s{_dForce = a})
 
 -- | The AWS account ID associated with the registry that contains the repository to delete. If you do not specify a registry, the default registry is assumed.
 dRegistryId :: Lens' DeleteRepository (Maybe Text)
-dRegistryId = lens _dRegistryId (\ s a -> s{_dRegistryId = a});
+dRegistryId = lens _dRegistryId (\ s a -> s{_dRegistryId = a})
 
 -- | The name of the repository to delete.
 dRepositoryName :: Lens' DeleteRepository Text
-dRepositoryName = lens _dRepositoryName (\ s a -> s{_dRepositoryName = a});
+dRepositoryName = lens _dRepositoryName (\ s a -> s{_dRepositoryName = a})
 
 instance AWSRequest DeleteRepository where
         type Rs DeleteRepository = DeleteRepositoryResponse
@@ -142,15 +142,15 @@ deleteRepositoryResponse
     -> DeleteRepositoryResponse
 deleteRepositoryResponse pResponseStatus_ =
   DeleteRepositoryResponse'
-  {_drsRepository = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsRepository = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | The repository that was deleted.
 drsRepository :: Lens' DeleteRepositoryResponse (Maybe Repository)
-drsRepository = lens _drsRepository (\ s a -> s{_drsRepository = a});
+drsRepository = lens _drsRepository (\ s a -> s{_drsRepository = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteRepositoryResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteRepositoryResponse where

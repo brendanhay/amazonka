@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.CreateRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ createRule
     -> CreateRule
 createRule pListenerARN_ pPriority_ =
   CreateRule'
-  { _crListenerARN = pListenerARN_
-  , _crConditions = mempty
-  , _crPriority = _Nat # pPriority_
-  , _crActions = mempty
-  }
+    { _crListenerARN = pListenerARN_
+    , _crConditions = mempty
+    , _crPriority = _Nat # pPriority_
+    , _crActions = mempty
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the listener.
 crListenerARN :: Lens' CreateRule Text
-crListenerARN = lens _crListenerARN (\ s a -> s{_crListenerARN = a});
+crListenerARN = lens _crListenerARN (\ s a -> s{_crListenerARN = a})
 
 -- | The conditions. Each condition specifies a field name and a single value. If the field name is @host-header@ , you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * - .     * * (matches 0 or more characters)     * ? (matches exactly 1 character) If the field name is @path-pattern@ , you can specify a single path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 crConditions :: Lens' CreateRule [RuleCondition]
-crConditions = lens _crConditions (\ s a -> s{_crConditions = a}) . _Coerce;
+crConditions = lens _crConditions (\ s a -> s{_crConditions = a}) . _Coerce
 
 -- | The priority for the rule. A listener can't have multiple rules with the same priority.
 crPriority :: Lens' CreateRule Natural
-crPriority = lens _crPriority (\ s a -> s{_crPriority = a}) . _Nat;
+crPriority = lens _crPriority (\ s a -> s{_crPriority = a}) . _Nat
 
 -- | An action. Each action has the type @forward@ and specifies a target group.
 crActions :: Lens' CreateRule [Action]
-crActions = lens _crActions (\ s a -> s{_crActions = a}) . _Coerce;
+crActions = lens _crActions (\ s a -> s{_crActions = a}) . _Coerce
 
 instance AWSRequest CreateRule where
         type Rs CreateRule = CreateRuleResponse
@@ -150,15 +150,15 @@ createRuleResponse
     -> CreateRuleResponse
 createRuleResponse pResponseStatus_ =
   CreateRuleResponse'
-  {_crrsRules = Nothing, _crrsResponseStatus = pResponseStatus_}
+    {_crrsRules = Nothing, _crrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the rule.
 crrsRules :: Lens' CreateRuleResponse [Rule]
-crrsRules = lens _crrsRules (\ s a -> s{_crrsRules = a}) . _Default . _Coerce;
+crrsRules = lens _crrsRules (\ s a -> s{_crrsRules = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 crrsResponseStatus :: Lens' CreateRuleResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
+crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a})
 
 instance NFData CreateRuleResponse where

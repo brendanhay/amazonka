@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.Path
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -31,7 +31,8 @@ module Network.AWS.Data.Path
 
 import qualified Data.ByteString             as BS
 import qualified Data.ByteString.Char8       as BS8
-import           Data.Monoid
+import           Data.Monoid                 (Monoid)
+import           Data.Semigroup              (Semigroup, (<>))
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
 import           Network.HTTP.Types.URI
@@ -65,9 +66,12 @@ deriving instance Eq   (Path a)
 type RawPath     = Path 'NoEncoding
 type EscapedPath = Path 'Percent
 
+instance Semigroup RawPath where
+    Raw xs <> Raw ys = Raw (xs ++ ys)
+
 instance Monoid RawPath where
-    mempty                    = Raw []
-    mappend (Raw xs) (Raw ys) = Raw (xs ++ ys)
+    mempty  = Raw []
+    mappend = (<>)
 
 instance ToByteString EscapedPath where
     toBS (Encoded []) = slash

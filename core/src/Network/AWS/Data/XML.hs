@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.XML
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -16,14 +16,14 @@
 --
 module Network.AWS.Data.XML where
 
-import           Control.Applicative
 import           Control.Monad
 
 import           Data.Bifunctor
 import           Data.Conduit
 import           Data.Conduit.Lazy           (lazyConsume)
 import           Data.Maybe
-import           Data.Monoid
+import           Data.Monoid                 (Monoid)
+import           Data.Semigroup              (Semigroup, (<>))
 import           Data.Traversable            (traverse)
 import           Data.XML.Types              (Event (..))
 
@@ -77,9 +77,9 @@ decodeXML lbs =
 --    by the process.'
 encodeXML :: ToElement a => a -> LazyByteString
 encodeXML x = LBS.fromChunks . unsafePerformIO . lazyConsume
-     $  Conduit.sourceList (toEvents doc)
-    =$= Conduit.map rename
-    =$= Stream.renderBytes def
+     $ Conduit.sourceList (toEvents doc)
+    .| Conduit.map rename
+    .| Stream.renderBytes def
   where
     doc = toXMLDocument $ Document
         { documentRoot     = root
@@ -147,14 +147,17 @@ data XML
     | XMany [(Name, Text)] [Node]
       deriving (Show)
 
-instance Monoid XML where
-    mempty              = XNull
-    mappend XNull XNull = XNull
-    mappend a     XNull = a
-    mappend XNull b     = b
-    mappend a     b     =
+instance Semigroup XML where
+    XNull <> XNull = XNull
+    a     <> XNull = a
+    XNull <> b     = b
+    a     <> b     =
         XMany (listXMLAttributes a <> listXMLAttributes b)
               (listXMLNodes      a <> listXMLNodes      b)
+
+instance Monoid XML where
+    mempty = XNull
+    mappend = (<>)
 
 listXMLNodes :: XML -> [Node]
 listXMLNodes = \case

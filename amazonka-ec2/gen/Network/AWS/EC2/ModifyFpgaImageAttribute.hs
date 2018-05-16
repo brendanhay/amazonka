@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyFpgaImageAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -96,58 +96,58 @@ modifyFpgaImageAttribute
     -> ModifyFpgaImageAttribute
 modifyFpgaImageAttribute pFpgaImageId_ =
   ModifyFpgaImageAttribute'
-  { _mfiaAttribute = Nothing
-  , _mfiaUserIds = Nothing
-  , _mfiaUserGroups = Nothing
-  , _mfiaLoadPermission = Nothing
-  , _mfiaName = Nothing
-  , _mfiaOperationType = Nothing
-  , _mfiaProductCodes = Nothing
-  , _mfiaDescription = Nothing
-  , _mfiaDryRun = Nothing
-  , _mfiaFpgaImageId = pFpgaImageId_
-  }
+    { _mfiaAttribute = Nothing
+    , _mfiaUserIds = Nothing
+    , _mfiaUserGroups = Nothing
+    , _mfiaLoadPermission = Nothing
+    , _mfiaName = Nothing
+    , _mfiaOperationType = Nothing
+    , _mfiaProductCodes = Nothing
+    , _mfiaDescription = Nothing
+    , _mfiaDryRun = Nothing
+    , _mfiaFpgaImageId = pFpgaImageId_
+    }
 
 
 -- | The name of the attribute.
 mfiaAttribute :: Lens' ModifyFpgaImageAttribute (Maybe FpgaImageAttributeName)
-mfiaAttribute = lens _mfiaAttribute (\ s a -> s{_mfiaAttribute = a});
+mfiaAttribute = lens _mfiaAttribute (\ s a -> s{_mfiaAttribute = a})
 
 -- | One or more AWS account IDs. This parameter is valid only when modifying the @loadPermission@ attribute.
 mfiaUserIds :: Lens' ModifyFpgaImageAttribute [Text]
-mfiaUserIds = lens _mfiaUserIds (\ s a -> s{_mfiaUserIds = a}) . _Default . _Coerce;
+mfiaUserIds = lens _mfiaUserIds (\ s a -> s{_mfiaUserIds = a}) . _Default . _Coerce
 
 -- | One or more user groups. This parameter is valid only when modifying the @loadPermission@ attribute.
 mfiaUserGroups :: Lens' ModifyFpgaImageAttribute [Text]
-mfiaUserGroups = lens _mfiaUserGroups (\ s a -> s{_mfiaUserGroups = a}) . _Default . _Coerce;
+mfiaUserGroups = lens _mfiaUserGroups (\ s a -> s{_mfiaUserGroups = a}) . _Default . _Coerce
 
 -- | The load permission for the AFI.
 mfiaLoadPermission :: Lens' ModifyFpgaImageAttribute (Maybe LoadPermissionModifications)
-mfiaLoadPermission = lens _mfiaLoadPermission (\ s a -> s{_mfiaLoadPermission = a});
+mfiaLoadPermission = lens _mfiaLoadPermission (\ s a -> s{_mfiaLoadPermission = a})
 
 -- | A name for the AFI.
 mfiaName :: Lens' ModifyFpgaImageAttribute (Maybe Text)
-mfiaName = lens _mfiaName (\ s a -> s{_mfiaName = a});
+mfiaName = lens _mfiaName (\ s a -> s{_mfiaName = a})
 
 -- | The operation type.
 mfiaOperationType :: Lens' ModifyFpgaImageAttribute (Maybe OperationType)
-mfiaOperationType = lens _mfiaOperationType (\ s a -> s{_mfiaOperationType = a});
+mfiaOperationType = lens _mfiaOperationType (\ s a -> s{_mfiaOperationType = a})
 
 -- | One or more product codes. After you add a product code to an AFI, it can't be removed. This parameter is valid only when modifying the @productCodes@ attribute.
 mfiaProductCodes :: Lens' ModifyFpgaImageAttribute [Text]
-mfiaProductCodes = lens _mfiaProductCodes (\ s a -> s{_mfiaProductCodes = a}) . _Default . _Coerce;
+mfiaProductCodes = lens _mfiaProductCodes (\ s a -> s{_mfiaProductCodes = a}) . _Default . _Coerce
 
 -- | A description for the AFI.
 mfiaDescription :: Lens' ModifyFpgaImageAttribute (Maybe Text)
-mfiaDescription = lens _mfiaDescription (\ s a -> s{_mfiaDescription = a});
+mfiaDescription = lens _mfiaDescription (\ s a -> s{_mfiaDescription = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mfiaDryRun :: Lens' ModifyFpgaImageAttribute (Maybe Bool)
-mfiaDryRun = lens _mfiaDryRun (\ s a -> s{_mfiaDryRun = a});
+mfiaDryRun = lens _mfiaDryRun (\ s a -> s{_mfiaDryRun = a})
 
 -- | The ID of the AFI.
 mfiaFpgaImageId :: Lens' ModifyFpgaImageAttribute Text
-mfiaFpgaImageId = lens _mfiaFpgaImageId (\ s a -> s{_mfiaFpgaImageId = a});
+mfiaFpgaImageId = lens _mfiaFpgaImageId (\ s a -> s{_mfiaFpgaImageId = a})
 
 instance AWSRequest ModifyFpgaImageAttribute where
         type Rs ModifyFpgaImageAttribute =
@@ -207,18 +207,18 @@ modifyFpgaImageAttributeResponse
     -> ModifyFpgaImageAttributeResponse
 modifyFpgaImageAttributeResponse pResponseStatus_ =
   ModifyFpgaImageAttributeResponse'
-  { _mfiarsFpgaImageAttribute = Nothing
-  , _mfiarsResponseStatus = pResponseStatus_
-  }
+    { _mfiarsFpgaImageAttribute = Nothing
+    , _mfiarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the attribute.
 mfiarsFpgaImageAttribute :: Lens' ModifyFpgaImageAttributeResponse (Maybe FpgaImageAttribute)
-mfiarsFpgaImageAttribute = lens _mfiarsFpgaImageAttribute (\ s a -> s{_mfiarsFpgaImageAttribute = a});
+mfiarsFpgaImageAttribute = lens _mfiarsFpgaImageAttribute (\ s a -> s{_mfiarsFpgaImageAttribute = a})
 
 -- | -- | The response status code.
 mfiarsResponseStatus :: Lens' ModifyFpgaImageAttributeResponse Int
-mfiarsResponseStatus = lens _mfiarsResponseStatus (\ s a -> s{_mfiarsResponseStatus = a});
+mfiarsResponseStatus = lens _mfiarsResponseStatus (\ s a -> s{_mfiarsResponseStatus = a})
 
 instance NFData ModifyFpgaImageAttributeResponse
          where

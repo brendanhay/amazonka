@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.UpdateRadius
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ updateRadius
     -> UpdateRadius
 updateRadius pDirectoryId_ pRadiusSettings_ =
   UpdateRadius'
-  {_urDirectoryId = pDirectoryId_, _urRadiusSettings = pRadiusSettings_}
+    {_urDirectoryId = pDirectoryId_, _urRadiusSettings = pRadiusSettings_}
 
 
 -- | The identifier of the directory for which to update the RADIUS server information.
 urDirectoryId :: Lens' UpdateRadius Text
-urDirectoryId = lens _urDirectoryId (\ s a -> s{_urDirectoryId = a});
+urDirectoryId = lens _urDirectoryId (\ s a -> s{_urDirectoryId = a})
 
 -- | A 'RadiusSettings' object that contains information about the RADIUS server.
 urRadiusSettings :: Lens' UpdateRadius RadiusSettings
-urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a});
+urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a})
 
 instance AWSRequest UpdateRadius where
         type Rs UpdateRadius = UpdateRadiusResponse
@@ -138,6 +138,6 @@ updateRadiusResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 urrsResponseStatus :: Lens' UpdateRadiusResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
 
 instance NFData UpdateRadiusResponse where

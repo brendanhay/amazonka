@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeActivities
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,15 +67,15 @@ data DescribeActivities = DescribeActivities'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daStartTime' - The timestamp that determines the starting time of the activities; the response includes the activities performed after the specified timestamp.
+-- * 'daStartTime' - The timestamp that determines the starting time of the activities. The response includes the activities performed after the specified timestamp.
 --
--- * 'daAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'daAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'daUserId' - The ID of the user who performed the action. The response includes activities pertaining to this user. This is an optional parameter and is only applicable for administrative API (SigV4) requests.
 --
--- * 'daMarker' - The marker for the next set of results. (You received this marker from a previous call.)
+-- * 'daMarker' - The marker for the next set of results.
 --
--- * 'daEndTime' - The timestamp that determines the end time of the activities; the response includes the activities performed before the specified timestamp.
+-- * 'daEndTime' - The timestamp that determines the end time of the activities. The response includes the activities performed before the specified timestamp.
 --
 -- * 'daLimit' - The maximum number of items to return.
 --
@@ -84,43 +84,43 @@ describeActivities
     :: DescribeActivities
 describeActivities =
   DescribeActivities'
-  { _daStartTime = Nothing
-  , _daAuthenticationToken = Nothing
-  , _daUserId = Nothing
-  , _daMarker = Nothing
-  , _daEndTime = Nothing
-  , _daLimit = Nothing
-  , _daOrganizationId = Nothing
-  }
+    { _daStartTime = Nothing
+    , _daAuthenticationToken = Nothing
+    , _daUserId = Nothing
+    , _daMarker = Nothing
+    , _daEndTime = Nothing
+    , _daLimit = Nothing
+    , _daOrganizationId = Nothing
+    }
 
 
--- | The timestamp that determines the starting time of the activities; the response includes the activities performed after the specified timestamp.
+-- | The timestamp that determines the starting time of the activities. The response includes the activities performed after the specified timestamp.
 daStartTime :: Lens' DescribeActivities (Maybe UTCTime)
-daStartTime = lens _daStartTime (\ s a -> s{_daStartTime = a}) . mapping _Time;
+daStartTime = lens _daStartTime (\ s a -> s{_daStartTime = a}) . mapping _Time
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 daAuthenticationToken :: Lens' DescribeActivities (Maybe Text)
-daAuthenticationToken = lens _daAuthenticationToken (\ s a -> s{_daAuthenticationToken = a}) . mapping _Sensitive;
+daAuthenticationToken = lens _daAuthenticationToken (\ s a -> s{_daAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the user who performed the action. The response includes activities pertaining to this user. This is an optional parameter and is only applicable for administrative API (SigV4) requests.
 daUserId :: Lens' DescribeActivities (Maybe Text)
-daUserId = lens _daUserId (\ s a -> s{_daUserId = a});
+daUserId = lens _daUserId (\ s a -> s{_daUserId = a})
 
--- | The marker for the next set of results. (You received this marker from a previous call.)
+-- | The marker for the next set of results.
 daMarker :: Lens' DescribeActivities (Maybe Text)
-daMarker = lens _daMarker (\ s a -> s{_daMarker = a});
+daMarker = lens _daMarker (\ s a -> s{_daMarker = a})
 
--- | The timestamp that determines the end time of the activities; the response includes the activities performed before the specified timestamp.
+-- | The timestamp that determines the end time of the activities. The response includes the activities performed before the specified timestamp.
 daEndTime :: Lens' DescribeActivities (Maybe UTCTime)
-daEndTime = lens _daEndTime (\ s a -> s{_daEndTime = a}) . mapping _Time;
+daEndTime = lens _daEndTime (\ s a -> s{_daEndTime = a}) . mapping _Time
 
 -- | The maximum number of items to return.
 daLimit :: Lens' DescribeActivities (Maybe Natural)
-daLimit = lens _daLimit (\ s a -> s{_daLimit = a}) . mapping _Nat;
+daLimit = lens _daLimit (\ s a -> s{_daLimit = a}) . mapping _Nat
 
 -- | The ID of the organization. This is a mandatory parameter when using administrative API (SigV4) requests.
 daOrganizationId :: Lens' DescribeActivities (Maybe Text)
-daOrganizationId = lens _daOrganizationId (\ s a -> s{_daOrganizationId = a});
+daOrganizationId = lens _daOrganizationId (\ s a -> s{_daOrganizationId = a})
 
 instance AWSRequest DescribeActivities where
         type Rs DescribeActivities =
@@ -178,22 +178,22 @@ describeActivitiesResponse
     -> DescribeActivitiesResponse
 describeActivitiesResponse pResponseStatus_ =
   DescribeActivitiesResponse'
-  { _darsUserActivities = Nothing
-  , _darsMarker = Nothing
-  , _darsResponseStatus = pResponseStatus_
-  }
+    { _darsUserActivities = Nothing
+    , _darsMarker = Nothing
+    , _darsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of activities for the specified user and time period.
 darsUserActivities :: Lens' DescribeActivitiesResponse [Activity]
-darsUserActivities = lens _darsUserActivities (\ s a -> s{_darsUserActivities = a}) . _Default . _Coerce;
+darsUserActivities = lens _darsUserActivities (\ s a -> s{_darsUserActivities = a}) . _Default . _Coerce
 
 -- | The marker for the next set of results.
 darsMarker :: Lens' DescribeActivitiesResponse (Maybe Text)
-darsMarker = lens _darsMarker (\ s a -> s{_darsMarker = a});
+darsMarker = lens _darsMarker (\ s a -> s{_darsMarker = a})
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeActivitiesResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DescribeActivitiesResponse where

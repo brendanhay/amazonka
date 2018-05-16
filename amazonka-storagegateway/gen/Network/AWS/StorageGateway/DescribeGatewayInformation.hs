@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeGatewayInformation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,7 +52,7 @@ import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 import Network.AWS.StorageGateway.Types.Product
 
--- | A JSON object containing the id of the gateway.
+-- | A JSON object containing the ID of the gateway.
 --
 --
 --
@@ -76,7 +76,7 @@ describeGatewayInformation pGatewayARN_ =
 
 -- | Undocumented member.
 dgiGatewayARN :: Lens' DescribeGatewayInformation Text
-dgiGatewayARN = lens _dgiGatewayARN (\ s a -> s{_dgiGatewayARN = a});
+dgiGatewayARN = lens _dgiGatewayARN (\ s a -> s{_dgiGatewayARN = a})
 
 instance AWSRequest DescribeGatewayInformation where
         type Rs DescribeGatewayInformation =
@@ -168,58 +168,58 @@ describeGatewayInformationResponse
     -> DescribeGatewayInformationResponse
 describeGatewayInformationResponse pResponseStatus_ =
   DescribeGatewayInformationResponse'
-  { _dgirsGatewayState = Nothing
-  , _dgirsGatewayARN = Nothing
-  , _dgirsGatewayNetworkInterfaces = Nothing
-  , _dgirsNextUpdateAvailabilityDate = Nothing
-  , _dgirsLastSoftwareUpdate = Nothing
-  , _dgirsGatewayName = Nothing
-  , _dgirsGatewayId = Nothing
-  , _dgirsGatewayType = Nothing
-  , _dgirsGatewayTimezone = Nothing
-  , _dgirsResponseStatus = pResponseStatus_
-  }
+    { _dgirsGatewayState = Nothing
+    , _dgirsGatewayARN = Nothing
+    , _dgirsGatewayNetworkInterfaces = Nothing
+    , _dgirsNextUpdateAvailabilityDate = Nothing
+    , _dgirsLastSoftwareUpdate = Nothing
+    , _dgirsGatewayName = Nothing
+    , _dgirsGatewayId = Nothing
+    , _dgirsGatewayType = Nothing
+    , _dgirsGatewayTimezone = Nothing
+    , _dgirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A value that indicates the operating state of the gateway.
 dgirsGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayState = lens _dgirsGatewayState (\ s a -> s{_dgirsGatewayState = a});
+dgirsGatewayState = lens _dgirsGatewayState (\ s a -> s{_dgirsGatewayState = a})
 
 -- | Undocumented member.
 dgirsGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayARN = lens _dgirsGatewayARN (\ s a -> s{_dgirsGatewayARN = a});
+dgirsGatewayARN = lens _dgirsGatewayARN (\ s a -> s{_dgirsGatewayARN = a})
 
 -- | A 'NetworkInterface' array that contains descriptions of the gateway network interfaces.
 dgirsGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [NetworkInterface]
-dgirsGatewayNetworkInterfaces = lens _dgirsGatewayNetworkInterfaces (\ s a -> s{_dgirsGatewayNetworkInterfaces = a}) . _Default . _Coerce;
+dgirsGatewayNetworkInterfaces = lens _dgirsGatewayNetworkInterfaces (\ s a -> s{_dgirsGatewayNetworkInterfaces = a}) . _Default . _Coerce
 
 -- | The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response.
 dgirsNextUpdateAvailabilityDate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsNextUpdateAvailabilityDate = lens _dgirsNextUpdateAvailabilityDate (\ s a -> s{_dgirsNextUpdateAvailabilityDate = a});
+dgirsNextUpdateAvailabilityDate = lens _dgirsNextUpdateAvailabilityDate (\ s a -> s{_dgirsNextUpdateAvailabilityDate = a})
 
 -- | The date on which the last software update was applied to the gateway. If the gateway has never been updated, this field does not return a value in the response.
 dgirsLastSoftwareUpdate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsLastSoftwareUpdate = lens _dgirsLastSoftwareUpdate (\ s a -> s{_dgirsLastSoftwareUpdate = a});
+dgirsLastSoftwareUpdate = lens _dgirsLastSoftwareUpdate (\ s a -> s{_dgirsLastSoftwareUpdate = a})
 
 -- | The name you configured for your gateway.
 dgirsGatewayName :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayName = lens _dgirsGatewayName (\ s a -> s{_dgirsGatewayName = a});
+dgirsGatewayName = lens _dgirsGatewayName (\ s a -> s{_dgirsGatewayName = a})
 
 -- | The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
 dgirsGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayId = lens _dgirsGatewayId (\ s a -> s{_dgirsGatewayId = a});
+dgirsGatewayId = lens _dgirsGatewayId (\ s a -> s{_dgirsGatewayId = a})
 
 -- | The type of the gateway.
 dgirsGatewayType :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayType = lens _dgirsGatewayType (\ s a -> s{_dgirsGatewayType = a});
+dgirsGatewayType = lens _dgirsGatewayType (\ s a -> s{_dgirsGatewayType = a})
 
 -- | A value that indicates the time zone configured for the gateway.
 dgirsGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayTimezone = lens _dgirsGatewayTimezone (\ s a -> s{_dgirsGatewayTimezone = a});
+dgirsGatewayTimezone = lens _dgirsGatewayTimezone (\ s a -> s{_dgirsGatewayTimezone = a})
 
 -- | -- | The response status code.
 dgirsResponseStatus :: Lens' DescribeGatewayInformationResponse Int
-dgirsResponseStatus = lens _dgirsResponseStatus (\ s a -> s{_dgirsResponseStatus = a});
+dgirsResponseStatus = lens _dgirsResponseStatus (\ s a -> s{_dgirsResponseStatus = a})
 
 instance NFData DescribeGatewayInformationResponse
          where

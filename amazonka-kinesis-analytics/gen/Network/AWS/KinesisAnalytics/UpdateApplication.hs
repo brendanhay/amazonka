@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.UpdateApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ updateApplication
     -> UpdateApplication
 updateApplication pApplicationName_ pCurrentApplicationVersionId_ pApplicationUpdate_ =
   UpdateApplication'
-  { _uaApplicationName = pApplicationName_
-  , _uaCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-  , _uaApplicationUpdate = pApplicationUpdate_
-  }
+    { _uaApplicationName = pApplicationName_
+    , _uaCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+    , _uaApplicationUpdate = pApplicationUpdate_
+    }
 
 
 -- | Name of the Amazon Kinesis Analytics application to update.
 uaApplicationName :: Lens' UpdateApplication Text
-uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
+uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a})
 
 -- | The current application version ID. You can use the 'DescribeApplication' operation to get this value.
 uaCurrentApplicationVersionId :: Lens' UpdateApplication Natural
-uaCurrentApplicationVersionId = lens _uaCurrentApplicationVersionId (\ s a -> s{_uaCurrentApplicationVersionId = a}) . _Nat;
+uaCurrentApplicationVersionId = lens _uaCurrentApplicationVersionId (\ s a -> s{_uaCurrentApplicationVersionId = a}) . _Nat
 
 -- | Describes application updates.
 uaApplicationUpdate :: Lens' UpdateApplication ApplicationUpdate
-uaApplicationUpdate = lens _uaApplicationUpdate (\ s a -> s{_uaApplicationUpdate = a});
+uaApplicationUpdate = lens _uaApplicationUpdate (\ s a -> s{_uaApplicationUpdate = a})
 
 instance AWSRequest UpdateApplication where
         type Rs UpdateApplication = UpdateApplicationResponse
@@ -149,6 +149,6 @@ updateApplicationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 uarsResponseStatus :: Lens' UpdateApplicationResponse Int
-uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a});
+uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a})
 
 instance NFData UpdateApplicationResponse where

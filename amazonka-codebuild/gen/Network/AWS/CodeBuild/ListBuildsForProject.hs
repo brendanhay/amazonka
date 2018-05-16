@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.ListBuildsForProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,29 +66,29 @@ data ListBuildsForProject = ListBuildsForProject'
 --
 -- * 'lbfpNextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 --
--- * 'lbfpProjectName' - The name of the build project.
+-- * 'lbfpProjectName' - The name of the AWS CodeBuild project.
 listBuildsForProject
     :: Text -- ^ 'lbfpProjectName'
     -> ListBuildsForProject
 listBuildsForProject pProjectName_ =
   ListBuildsForProject'
-  { _lbfpSortOrder = Nothing
-  , _lbfpNextToken = Nothing
-  , _lbfpProjectName = pProjectName_
-  }
+    { _lbfpSortOrder = Nothing
+    , _lbfpNextToken = Nothing
+    , _lbfpProjectName = pProjectName_
+    }
 
 
 -- | The order to list build IDs. Valid values include:     * @ASCENDING@ : List the build IDs in ascending order by build ID.     * @DESCENDING@ : List the build IDs in descending order by build ID.
 lbfpSortOrder :: Lens' ListBuildsForProject (Maybe SortOrderType)
-lbfpSortOrder = lens _lbfpSortOrder (\ s a -> s{_lbfpSortOrder = a});
+lbfpSortOrder = lens _lbfpSortOrder (\ s a -> s{_lbfpSortOrder = a})
 
 -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 lbfpNextToken :: Lens' ListBuildsForProject (Maybe Text)
-lbfpNextToken = lens _lbfpNextToken (\ s a -> s{_lbfpNextToken = a});
+lbfpNextToken = lens _lbfpNextToken (\ s a -> s{_lbfpNextToken = a})
 
--- | The name of the build project.
+-- | The name of the AWS CodeBuild project.
 lbfpProjectName :: Lens' ListBuildsForProject Text
-lbfpProjectName = lens _lbfpProjectName (\ s a -> s{_lbfpProjectName = a});
+lbfpProjectName = lens _lbfpProjectName (\ s a -> s{_lbfpProjectName = a})
 
 instance AWSPager ListBuildsForProject where
         page rq rs
@@ -158,22 +158,22 @@ listBuildsForProjectResponse
     -> ListBuildsForProjectResponse
 listBuildsForProjectResponse pResponseStatus_ =
   ListBuildsForProjectResponse'
-  { _lbfprsIds = Nothing
-  , _lbfprsNextToken = Nothing
-  , _lbfprsResponseStatus = pResponseStatus_
-  }
+    { _lbfprsIds = Nothing
+    , _lbfprsNextToken = Nothing
+    , _lbfprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of build IDs for the specified build project, with each build ID representing a single build.
 lbfprsIds :: Lens' ListBuildsForProjectResponse (Maybe (NonEmpty Text))
-lbfprsIds = lens _lbfprsIds (\ s a -> s{_lbfprsIds = a}) . mapping _List1;
+lbfprsIds = lens _lbfprsIds (\ s a -> s{_lbfprsIds = a}) . mapping _List1
 
 -- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
 lbfprsNextToken :: Lens' ListBuildsForProjectResponse (Maybe Text)
-lbfprsNextToken = lens _lbfprsNextToken (\ s a -> s{_lbfprsNextToken = a});
+lbfprsNextToken = lens _lbfprsNextToken (\ s a -> s{_lbfprsNextToken = a})
 
 -- | -- | The response status code.
 lbfprsResponseStatus :: Lens' ListBuildsForProjectResponse Int
-lbfprsResponseStatus = lens _lbfprsResponseStatus (\ s a -> s{_lbfprsResponseStatus = a});
+lbfprsResponseStatus = lens _lbfprsResponseStatus (\ s a -> s{_lbfprsResponseStatus = a})
 
 instance NFData ListBuildsForProjectResponse where

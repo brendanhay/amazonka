@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.ActivateUser
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -56,7 +56,7 @@ data ActivateUser = ActivateUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'auAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'auAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'auUserId' - The ID of the user.
 activateUser
@@ -66,13 +66,13 @@ activateUser pUserId_ =
   ActivateUser' {_auAuthenticationToken = Nothing, _auUserId = pUserId_}
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 auAuthenticationToken :: Lens' ActivateUser (Maybe Text)
-auAuthenticationToken = lens _auAuthenticationToken (\ s a -> s{_auAuthenticationToken = a}) . mapping _Sensitive;
+auAuthenticationToken = lens _auAuthenticationToken (\ s a -> s{_auAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the user.
 auUserId :: Lens' ActivateUser Text
-auUserId = lens _auUserId (\ s a -> s{_auUserId = a});
+auUserId = lens _auUserId (\ s a -> s{_auUserId = a})
 
 instance AWSRequest ActivateUser where
         type Rs ActivateUser = ActivateUserResponse
@@ -124,15 +124,15 @@ activateUserResponse
     -> ActivateUserResponse
 activateUserResponse pResponseStatus_ =
   ActivateUserResponse'
-  {_aursUser = Nothing, _aursResponseStatus = pResponseStatus_}
+    {_aursUser = Nothing, _aursResponseStatus = pResponseStatus_}
 
 
 -- | The user information.
 aursUser :: Lens' ActivateUserResponse (Maybe User)
-aursUser = lens _aursUser (\ s a -> s{_aursUser = a});
+aursUser = lens _aursUser (\ s a -> s{_aursUser = a})
 
 -- | -- | The response status code.
 aursResponseStatus :: Lens' ActivateUserResponse Int
-aursResponseStatus = lens _aursResponseStatus (\ s a -> s{_aursResponseStatus = a});
+aursResponseStatus = lens _aursResponseStatus (\ s a -> s{_aursResponseStatus = a})
 
 instance NFData ActivateUserResponse where

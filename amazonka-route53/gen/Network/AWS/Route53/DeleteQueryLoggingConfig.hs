@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteQueryLoggingConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteQueryLoggingConfig pId_ = DeleteQueryLoggingConfig' {_dqlcId = pId_}
 
 -- | The ID of the configuration that you want to delete.
 dqlcId :: Lens' DeleteQueryLoggingConfig Text
-dqlcId = lens _dqlcId (\ s a -> s{_dqlcId = a});
+dqlcId = lens _dqlcId (\ s a -> s{_dqlcId = a})
 
 instance AWSRequest DeleteQueryLoggingConfig where
         type Rs DeleteQueryLoggingConfig =
@@ -111,7 +111,7 @@ deleteQueryLoggingConfigResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dqlcrsResponseStatus :: Lens' DeleteQueryLoggingConfigResponse Int
-dqlcrsResponseStatus = lens _dqlcrsResponseStatus (\ s a -> s{_dqlcrsResponseStatus = a});
+dqlcrsResponseStatus = lens _dqlcrsResponseStatus (\ s a -> s{_dqlcrsResponseStatus = a})
 
 instance NFData DeleteQueryLoggingConfigResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DetachInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,34 +66,34 @@ data DetachInstances = DetachInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diInstanceIds' - One or more instance IDs.
+-- * 'diInstanceIds' - The IDs of the instances. You can specify up to 20 instances.
 --
--- * 'diAutoScalingGroupName' - The name of the group.
+-- * 'diAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'diShouldDecrementDesiredCapacity' - If @True@ , the Auto Scaling group decrements the desired capacity value by the number of instances detached.
+-- * 'diShouldDecrementDesiredCapacity' - Indicates whether the Auto Scaling group decrements the desired capacity value by the number of instances detached.
 detachInstances
     :: Text -- ^ 'diAutoScalingGroupName'
     -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
     -> DetachInstances
 detachInstances pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
   DetachInstances'
-  { _diInstanceIds = Nothing
-  , _diAutoScalingGroupName = pAutoScalingGroupName_
-  , _diShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
-  }
+    { _diInstanceIds = Nothing
+    , _diAutoScalingGroupName = pAutoScalingGroupName_
+    , _diShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
+    }
 
 
--- | One or more instance IDs.
+-- | The IDs of the instances. You can specify up to 20 instances.
 diInstanceIds :: Lens' DetachInstances [Text]
-diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default . _Coerce;
+diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default . _Coerce
 
--- | The name of the group.
+-- | The name of the Auto Scaling group.
 diAutoScalingGroupName :: Lens' DetachInstances Text
-diAutoScalingGroupName = lens _diAutoScalingGroupName (\ s a -> s{_diAutoScalingGroupName = a});
+diAutoScalingGroupName = lens _diAutoScalingGroupName (\ s a -> s{_diAutoScalingGroupName = a})
 
--- | If @True@ , the Auto Scaling group decrements the desired capacity value by the number of instances detached.
+-- | Indicates whether the Auto Scaling group decrements the desired capacity value by the number of instances detached.
 diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
-diShouldDecrementDesiredCapacity = lens _diShouldDecrementDesiredCapacity (\ s a -> s{_diShouldDecrementDesiredCapacity = a});
+diShouldDecrementDesiredCapacity = lens _diShouldDecrementDesiredCapacity (\ s a -> s{_diShouldDecrementDesiredCapacity = a})
 
 instance AWSRequest DetachInstances where
         type Rs DetachInstances = DetachInstancesResponse
@@ -146,15 +146,15 @@ detachInstancesResponse
     -> DetachInstancesResponse
 detachInstancesResponse pResponseStatus_ =
   DetachInstancesResponse'
-  {_dirsActivities = Nothing, _dirsResponseStatus = pResponseStatus_}
+    {_dirsActivities = Nothing, _dirsResponseStatus = pResponseStatus_}
 
 
 -- | The activities related to detaching the instances from the Auto Scaling group.
 dirsActivities :: Lens' DetachInstancesResponse [Activity]
-dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Default . _Coerce;
+dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dirsResponseStatus :: Lens' DetachInstancesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
 
 instance NFData DetachInstancesResponse where

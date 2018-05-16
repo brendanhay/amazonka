@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeImageBuilders
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Describes the specified image builders or all image builders in the account.
+--
+--
 module Network.AWS.AppStream.DescribeImageBuilders
     (
     -- * Creating a Request
@@ -57,29 +59,29 @@ data DescribeImageBuilders = DescribeImageBuilders'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dibNextToken' - Undocumented member.
+-- * 'dibNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 --
--- * 'dibNames' - Undocumented member.
+-- * 'dibNames' - The names of the image builders to describe.
 --
--- * 'dibMaxResults' - Undocumented member.
+-- * 'dibMaxResults' - The maximum size of each page of results.
 describeImageBuilders
     :: DescribeImageBuilders
 describeImageBuilders =
   DescribeImageBuilders'
-  {_dibNextToken = Nothing, _dibNames = Nothing, _dibMaxResults = Nothing}
+    {_dibNextToken = Nothing, _dibNames = Nothing, _dibMaxResults = Nothing}
 
 
--- | Undocumented member.
+-- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 dibNextToken :: Lens' DescribeImageBuilders (Maybe Text)
-dibNextToken = lens _dibNextToken (\ s a -> s{_dibNextToken = a});
+dibNextToken = lens _dibNextToken (\ s a -> s{_dibNextToken = a})
 
--- | Undocumented member.
+-- | The names of the image builders to describe.
 dibNames :: Lens' DescribeImageBuilders [Text]
-dibNames = lens _dibNames (\ s a -> s{_dibNames = a}) . _Default . _Coerce;
+dibNames = lens _dibNames (\ s a -> s{_dibNames = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- | The maximum size of each page of results.
 dibMaxResults :: Lens' DescribeImageBuilders (Maybe Int)
-dibMaxResults = lens _dibMaxResults (\ s a -> s{_dibMaxResults = a});
+dibMaxResults = lens _dibMaxResults (\ s a -> s{_dibMaxResults = a})
 
 instance AWSRequest DescribeImageBuilders where
         type Rs DescribeImageBuilders =
@@ -133,9 +135,9 @@ data DescribeImageBuildersResponse = DescribeImageBuildersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dibsrsImageBuilders' - Undocumented member.
+-- * 'dibsrsImageBuilders' - Information about the image builders.
 --
--- * 'dibsrsNextToken' - Undocumented member.
+-- * 'dibsrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
 -- * 'dibsrsResponseStatus' - -- | The response status code.
 describeImageBuildersResponse
@@ -143,22 +145,22 @@ describeImageBuildersResponse
     -> DescribeImageBuildersResponse
 describeImageBuildersResponse pResponseStatus_ =
   DescribeImageBuildersResponse'
-  { _dibsrsImageBuilders = Nothing
-  , _dibsrsNextToken = Nothing
-  , _dibsrsResponseStatus = pResponseStatus_
-  }
+    { _dibsrsImageBuilders = Nothing
+    , _dibsrsNextToken = Nothing
+    , _dibsrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Undocumented member.
+-- | Information about the image builders.
 dibsrsImageBuilders :: Lens' DescribeImageBuildersResponse [ImageBuilder]
-dibsrsImageBuilders = lens _dibsrsImageBuilders (\ s a -> s{_dibsrsImageBuilders = a}) . _Default . _Coerce;
+dibsrsImageBuilders = lens _dibsrsImageBuilders (\ s a -> s{_dibsrsImageBuilders = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 dibsrsNextToken :: Lens' DescribeImageBuildersResponse (Maybe Text)
-dibsrsNextToken = lens _dibsrsNextToken (\ s a -> s{_dibsrsNextToken = a});
+dibsrsNextToken = lens _dibsrsNextToken (\ s a -> s{_dibsrsNextToken = a})
 
 -- | -- | The response status code.
 dibsrsResponseStatus :: Lens' DescribeImageBuildersResponse Int
-dibsrsResponseStatus = lens _dibsrsResponseStatus (\ s a -> s{_dibsrsResponseStatus = a});
+dibsrsResponseStatus = lens _dibsrsResponseStatus (\ s a -> s{_dibsrsResponseStatus = a})
 
 instance NFData DescribeImageBuildersResponse where

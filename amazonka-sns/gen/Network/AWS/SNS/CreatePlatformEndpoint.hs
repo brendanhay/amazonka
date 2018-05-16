@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.CreatePlatformEndpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ createPlatformEndpoint
     -> CreatePlatformEndpoint
 createPlatformEndpoint pPlatformApplicationARN_ pToken_ =
   CreatePlatformEndpoint'
-  { _cpeCustomUserData = Nothing
-  , _cpeAttributes = Nothing
-  , _cpePlatformApplicationARN = pPlatformApplicationARN_
-  , _cpeToken = pToken_
-  }
+    { _cpeCustomUserData = Nothing
+    , _cpeAttributes = Nothing
+    , _cpePlatformApplicationARN = pPlatformApplicationARN_
+    , _cpeToken = pToken_
+    }
 
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.
 cpeCustomUserData :: Lens' CreatePlatformEndpoint (Maybe Text)
-cpeCustomUserData = lens _cpeCustomUserData (\ s a -> s{_cpeCustomUserData = a});
+cpeCustomUserData = lens _cpeCustomUserData (\ s a -> s{_cpeCustomUserData = a})
 
 -- | For a list of attributes, see <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes> .
 cpeAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
-cpeAttributes = lens _cpeAttributes (\ s a -> s{_cpeAttributes = a}) . _Default . _Map;
+cpeAttributes = lens _cpeAttributes (\ s a -> s{_cpeAttributes = a}) . _Default . _Map
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used to create a an endpoint.
 cpePlatformApplicationARN :: Lens' CreatePlatformEndpoint Text
-cpePlatformApplicationARN = lens _cpePlatformApplicationARN (\ s a -> s{_cpePlatformApplicationARN = a});
+cpePlatformApplicationARN = lens _cpePlatformApplicationARN (\ s a -> s{_cpePlatformApplicationARN = a})
 
 -- | Unique identifier created by the notification service for an app on a device. The specific name for Token will vary, depending on which notification service is being used. For example, when using APNS as the notification service, you need the device token. Alternatively, when using GCM or ADM, the device token equivalent is called the registration ID.
 cpeToken :: Lens' CreatePlatformEndpoint Text
-cpeToken = lens _cpeToken (\ s a -> s{_cpeToken = a});
+cpeToken = lens _cpeToken (\ s a -> s{_cpeToken = a})
 
 instance AWSRequest CreatePlatformEndpoint where
         type Rs CreatePlatformEndpoint =
@@ -160,15 +160,15 @@ createPlatformEndpointResponse
     -> CreatePlatformEndpointResponse
 createPlatformEndpointResponse pResponseStatus_ =
   CreatePlatformEndpointResponse'
-  {_cpersEndpointARN = Nothing, _cpersResponseStatus = pResponseStatus_}
+    {_cpersEndpointARN = Nothing, _cpersResponseStatus = pResponseStatus_}
 
 
 -- | EndpointArn returned from CreateEndpoint action.
 cpersEndpointARN :: Lens' CreatePlatformEndpointResponse (Maybe Text)
-cpersEndpointARN = lens _cpersEndpointARN (\ s a -> s{_cpersEndpointARN = a});
+cpersEndpointARN = lens _cpersEndpointARN (\ s a -> s{_cpersEndpointARN = a})
 
 -- | -- | The response status code.
 cpersResponseStatus :: Lens' CreatePlatformEndpointResponse Int
-cpersResponseStatus = lens _cpersResponseStatus (\ s a -> s{_cpersResponseStatus = a});
+cpersResponseStatus = lens _cpersResponseStatus (\ s a -> s{_cpersResponseStatus = a})
 
 instance NFData CreatePlatformEndpointResponse where

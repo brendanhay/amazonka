@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreateTagOption
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new TagOption.
+-- Creates a TagOption.
 --
 --
 module Network.AWS.ServiceCatalog.CreateTagOption
@@ -69,11 +69,11 @@ createTagOption pKey_ pValue_ =
 
 -- | The TagOption key.
 ctoKey :: Lens' CreateTagOption Text
-ctoKey = lens _ctoKey (\ s a -> s{_ctoKey = a});
+ctoKey = lens _ctoKey (\ s a -> s{_ctoKey = a})
 
 -- | The TagOption value.
 ctoValue :: Lens' CreateTagOption Text
-ctoValue = lens _ctoValue (\ s a -> s{_ctoValue = a});
+ctoValue = lens _ctoValue (\ s a -> s{_ctoValue = a})
 
 instance AWSRequest CreateTagOption where
         type Rs CreateTagOption = CreateTagOptionResponse
@@ -122,7 +122,7 @@ data CreateTagOptionResponse = CreateTagOptionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctorsTagOptionDetail' - The resulting detailed TagOption information.
+-- * 'ctorsTagOptionDetail' - Information about the TagOption.
 --
 -- * 'ctorsResponseStatus' - -- | The response status code.
 createTagOptionResponse
@@ -130,15 +130,15 @@ createTagOptionResponse
     -> CreateTagOptionResponse
 createTagOptionResponse pResponseStatus_ =
   CreateTagOptionResponse'
-  {_ctorsTagOptionDetail = Nothing, _ctorsResponseStatus = pResponseStatus_}
+    {_ctorsTagOptionDetail = Nothing, _ctorsResponseStatus = pResponseStatus_}
 
 
--- | The resulting detailed TagOption information.
+-- | Information about the TagOption.
 ctorsTagOptionDetail :: Lens' CreateTagOptionResponse (Maybe TagOptionDetail)
-ctorsTagOptionDetail = lens _ctorsTagOptionDetail (\ s a -> s{_ctorsTagOptionDetail = a});
+ctorsTagOptionDetail = lens _ctorsTagOptionDetail (\ s a -> s{_ctorsTagOptionDetail = a})
 
 -- | -- | The response status code.
 ctorsResponseStatus :: Lens' CreateTagOptionResponse Int
-ctorsResponseStatus = lens _ctorsResponseStatus (\ s a -> s{_ctorsResponseStatus = a});
+ctorsResponseStatus = lens _ctorsResponseStatus (\ s a -> s{_ctorsResponseStatus = a})
 
 instance NFData CreateTagOptionResponse where

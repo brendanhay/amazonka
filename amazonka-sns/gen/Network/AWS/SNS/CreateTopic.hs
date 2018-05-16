@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.CreateTopic
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ createTopic pName_ = CreateTopic' {_ctName = pName_}
 
 -- | The name of the topic you want to create. Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
 ctName :: Lens' CreateTopic Text
-ctName = lens _ctName (\ s a -> s{_ctName = a});
+ctName = lens _ctName (\ s a -> s{_ctName = a})
 
 instance AWSRequest CreateTopic where
         type Rs CreateTopic = CreateTopicResponse
@@ -118,15 +118,15 @@ createTopicResponse
     -> CreateTopicResponse
 createTopicResponse pResponseStatus_ =
   CreateTopicResponse'
-  {_ctrsTopicARN = Nothing, _ctrsResponseStatus = pResponseStatus_}
+    {_ctrsTopicARN = Nothing, _ctrsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
 ctrsTopicARN :: Lens' CreateTopicResponse (Maybe Text)
-ctrsTopicARN = lens _ctrsTopicARN (\ s a -> s{_ctrsTopicARN = a});
+ctrsTopicARN = lens _ctrsTopicARN (\ s a -> s{_ctrsTopicARN = a})
 
 -- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTopicResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a})
 
 instance NFData CreateTopicResponse where

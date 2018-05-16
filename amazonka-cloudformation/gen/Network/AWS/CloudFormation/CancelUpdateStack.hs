@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.CancelUpdateStack
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ cancelUpdateStack
     -> CancelUpdateStack
 cancelUpdateStack pStackName_ =
   CancelUpdateStack'
-  {_cusClientRequestToken = Nothing, _cusStackName = pStackName_}
+    {_cusClientRequestToken = Nothing, _cusStackName = pStackName_}
 
 
 -- | A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
 cusClientRequestToken :: Lens' CancelUpdateStack (Maybe Text)
-cusClientRequestToken = lens _cusClientRequestToken (\ s a -> s{_cusClientRequestToken = a});
+cusClientRequestToken = lens _cusClientRequestToken (\ s a -> s{_cusClientRequestToken = a})
 
 -- | The name or the unique stack ID that is associated with the stack.
 cusStackName :: Lens' CancelUpdateStack Text
-cusStackName = lens _cusStackName (\ s a -> s{_cusStackName = a});
+cusStackName = lens _cusStackName (\ s a -> s{_cusStackName = a})
 
 instance AWSRequest CancelUpdateStack where
         type Rs CancelUpdateStack = CancelUpdateStackResponse

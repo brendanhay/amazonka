@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.RegisterCrossAccountAccessRole
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers the IAM role that Amazon Inspector uses to list your EC2 instances at the start of the assessment run or when you call the 'PreviewAgents' action.
+-- Registers the IAM role that grants Amazon Inspector access to AWS Services needed to perform security assessments.
 --
 --
 module Network.AWS.Inspector.RegisterCrossAccountAccessRole
@@ -51,7 +51,7 @@ newtype RegisterCrossAccountAccessRole = RegisterCrossAccountAccessRole'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcaarRoleARN' - The ARN of the IAM role that Amazon Inspector uses to list your EC2 instances during the assessment run or when you call the 'PreviewAgents' action.
+-- * 'rcaarRoleARN' - The ARN of the IAM role that grants Amazon Inspector access to AWS Services needed to perform security assessments.
 registerCrossAccountAccessRole
     :: Text -- ^ 'rcaarRoleARN'
     -> RegisterCrossAccountAccessRole
@@ -59,9 +59,9 @@ registerCrossAccountAccessRole pRoleARN_ =
   RegisterCrossAccountAccessRole' {_rcaarRoleARN = pRoleARN_}
 
 
--- | The ARN of the IAM role that Amazon Inspector uses to list your EC2 instances during the assessment run or when you call the 'PreviewAgents' action.
+-- | The ARN of the IAM role that grants Amazon Inspector access to AWS Services needed to perform security assessments.
 rcaarRoleARN :: Lens' RegisterCrossAccountAccessRole Text
-rcaarRoleARN = lens _rcaarRoleARN (\ s a -> s{_rcaarRoleARN = a});
+rcaarRoleARN = lens _rcaarRoleARN (\ s a -> s{_rcaarRoleARN = a})
 
 instance AWSRequest RegisterCrossAccountAccessRole
          where

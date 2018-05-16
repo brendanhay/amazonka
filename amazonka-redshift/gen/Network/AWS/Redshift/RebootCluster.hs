@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RebootCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ rebootCluster pClusterIdentifier_ =
 
 -- | The cluster identifier.
 rcClusterIdentifier :: Lens' RebootCluster Text
-rcClusterIdentifier = lens _rcClusterIdentifier (\ s a -> s{_rcClusterIdentifier = a});
+rcClusterIdentifier = lens _rcClusterIdentifier (\ s a -> s{_rcClusterIdentifier = a})
 
 instance AWSRequest RebootCluster where
         type Rs RebootCluster = RebootClusterResponse
@@ -115,15 +115,15 @@ rebootClusterResponse
     -> RebootClusterResponse
 rebootClusterResponse pResponseStatus_ =
   RebootClusterResponse'
-  {_rcrsCluster = Nothing, _rcrsResponseStatus = pResponseStatus_}
+    {_rcrsCluster = Nothing, _rcrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 rcrsCluster :: Lens' RebootClusterResponse (Maybe Cluster)
-rcrsCluster = lens _rcrsCluster (\ s a -> s{_rcrsCluster = a});
+rcrsCluster = lens _rcrsCluster (\ s a -> s{_rcrsCluster = a})
 
 -- | -- | The response status code.
 rcrsResponseStatus :: Lens' RebootClusterResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a})
 
 instance NFData RebootClusterResponse where

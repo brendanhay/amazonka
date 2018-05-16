@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StartCrawler
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a crawl using the specified @Crawler@ , regardless of what is scheduled. If the @Crawler@ is already running, does nothing.
+-- Starts a crawl using the specified crawler, regardless of what is scheduled. If the crawler is already running, does nothing.
 --
 --
 module Network.AWS.Glue.StartCrawler
@@ -53,16 +53,16 @@ newtype StartCrawler = StartCrawler'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scName' - Name of the @Crawler@ to start.
+-- * 'scName' - Name of the crawler to start.
 startCrawler
     :: Text -- ^ 'scName'
     -> StartCrawler
 startCrawler pName_ = StartCrawler' {_scName = pName_}
 
 
--- | Name of the @Crawler@ to start.
+-- | Name of the crawler to start.
 scName :: Lens' StartCrawler Text
-scName = lens _scName (\ s a -> s{_scName = a});
+scName = lens _scName (\ s a -> s{_scName = a})
 
 instance AWSRequest StartCrawler where
         type Rs StartCrawler = StartCrawlerResponse
@@ -115,6 +115,6 @@ startCrawlerResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 scrsResponseStatus :: Lens' StartCrawlerResponse Int
-scrsResponseStatus = lens _scrsResponseStatus (\ s a -> s{_scrsResponseStatus = a});
+scrsResponseStatus = lens _scrsResponseStatus (\ s a -> s{_scrsResponseStatus = a})
 
 instance NFData StartCrawlerResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeRDSDBInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ describeRDSDBInstances
     -> DescribeRDSDBInstances
 describeRDSDBInstances pStackId_ =
   DescribeRDSDBInstances'
-  {_drdiRDSDBInstanceARNs = Nothing, _drdiStackId = pStackId_}
+    {_drdiRDSDBInstanceARNs = Nothing, _drdiStackId = pStackId_}
 
 
 -- | An array containing the ARNs of the instances to be described.
 drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
-drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\ s a -> s{_drdiRDSDBInstanceARNs = a}) . _Default . _Coerce;
+drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\ s a -> s{_drdiRDSDBInstanceARNs = a}) . _Default . _Coerce
 
 -- | The stack ID that the instances are registered with. The operation returns descriptions of all registered Amazon RDS instances.
 drdiStackId :: Lens' DescribeRDSDBInstances Text
-drdiStackId = lens _drdiStackId (\ s a -> s{_drdiStackId = a});
+drdiStackId = lens _drdiStackId (\ s a -> s{_drdiStackId = a})
 
 instance AWSRequest DescribeRDSDBInstances where
         type Rs DescribeRDSDBInstances =
@@ -140,15 +140,15 @@ describeRDSDBInstancesResponse
     -> DescribeRDSDBInstancesResponse
 describeRDSDBInstancesResponse pResponseStatus_ =
   DescribeRDSDBInstancesResponse'
-  {_drdirsRDSDBInstances = Nothing, _drdirsResponseStatus = pResponseStatus_}
+    {_drdirsRDSDBInstances = Nothing, _drdirsResponseStatus = pResponseStatus_}
 
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.
 drdirsRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
-drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstances = a}) . _Default . _Coerce;
+drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drdirsResponseStatus :: Lens' DescribeRDSDBInstancesResponse Int
-drdirsResponseStatus = lens _drdirsResponseStatus (\ s a -> s{_drdirsResponseStatus = a});
+drdirsResponseStatus = lens _drdirsResponseStatus (\ s a -> s{_drdirsResponseStatus = a})
 
 instance NFData DescribeRDSDBInstancesResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteClusterSecurityGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,12 +63,12 @@ deleteClusterSecurityGroup
     -> DeleteClusterSecurityGroup
 deleteClusterSecurityGroup pClusterSecurityGroupName_ =
   DeleteClusterSecurityGroup'
-  {_dClusterSecurityGroupName = pClusterSecurityGroupName_}
+    {_dClusterSecurityGroupName = pClusterSecurityGroupName_}
 
 
 -- | The name of the cluster security group to be deleted.
 dClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
-dClusterSecurityGroupName = lens _dClusterSecurityGroupName (\ s a -> s{_dClusterSecurityGroupName = a});
+dClusterSecurityGroupName = lens _dClusterSecurityGroupName (\ s a -> s{_dClusterSecurityGroupName = a})
 
 instance AWSRequest DeleteClusterSecurityGroup where
         type Rs DeleteClusterSecurityGroup =

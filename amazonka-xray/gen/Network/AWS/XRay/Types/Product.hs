@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.XRay.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,15 +49,15 @@ alias = Alias' {_aNames = Nothing, _aName = Nothing, _aType = Nothing}
 
 -- | A list of names for the alias, including the canonical name.
 aNames :: Lens' Alias [Text]
-aNames = lens _aNames (\ s a -> s{_aNames = a}) . _Default . _Coerce;
+aNames = lens _aNames (\ s a -> s{_aNames = a}) . _Default . _Coerce
 
 -- | The canonical name of the alias.
 aName :: Lens' Alias (Maybe Text)
-aName = lens _aName (\ s a -> s{_aName = a});
+aName = lens _aName (\ s a -> s{_aName = a})
 
 -- | The type of the alias.
 aType :: Lens' Alias (Maybe Text)
-aType = lens _aType (\ s a -> s{_aType = a});
+aType = lens _aType (\ s a -> s{_aType = a})
 
 instance FromJSON Alias where
         parseJSON
@@ -96,23 +96,23 @@ annotationValue
     :: AnnotationValue
 annotationValue =
   AnnotationValue'
-  { _avNumberValue = Nothing
-  , _avStringValue = Nothing
-  , _avBooleanValue = Nothing
-  }
+    { _avNumberValue = Nothing
+    , _avStringValue = Nothing
+    , _avBooleanValue = Nothing
+    }
 
 
 -- | Value for a Number annotation.
 avNumberValue :: Lens' AnnotationValue (Maybe Double)
-avNumberValue = lens _avNumberValue (\ s a -> s{_avNumberValue = a});
+avNumberValue = lens _avNumberValue (\ s a -> s{_avNumberValue = a})
 
 -- | Value for a String annotation.
 avStringValue :: Lens' AnnotationValue (Maybe Text)
-avStringValue = lens _avStringValue (\ s a -> s{_avStringValue = a});
+avStringValue = lens _avStringValue (\ s a -> s{_avStringValue = a})
 
 -- | Value for a Boolean annotation.
 avBooleanValue :: Lens' AnnotationValue (Maybe Bool)
-avBooleanValue = lens _avBooleanValue (\ s a -> s{_avBooleanValue = a});
+avBooleanValue = lens _avBooleanValue (\ s a -> s{_avBooleanValue = a})
 
 instance FromJSON AnnotationValue where
         parseJSON
@@ -160,38 +160,38 @@ backendConnectionErrors
     :: BackendConnectionErrors
 backendConnectionErrors =
   BackendConnectionErrors'
-  { _bceOtherCount = Nothing
-  , _bceTimeoutCount = Nothing
-  , _bceHTTPCode5XXCount = Nothing
-  , _bceConnectionRefusedCount = Nothing
-  , _bceHTTPCode4XXCount = Nothing
-  , _bceUnknownHostCount = Nothing
-  }
+    { _bceOtherCount = Nothing
+    , _bceTimeoutCount = Nothing
+    , _bceHTTPCode5XXCount = Nothing
+    , _bceConnectionRefusedCount = Nothing
+    , _bceHTTPCode4XXCount = Nothing
+    , _bceUnknownHostCount = Nothing
+    }
 
 
 -- |
 bceOtherCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceOtherCount = lens _bceOtherCount (\ s a -> s{_bceOtherCount = a});
+bceOtherCount = lens _bceOtherCount (\ s a -> s{_bceOtherCount = a})
 
 -- |
 bceTimeoutCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceTimeoutCount = lens _bceTimeoutCount (\ s a -> s{_bceTimeoutCount = a});
+bceTimeoutCount = lens _bceTimeoutCount (\ s a -> s{_bceTimeoutCount = a})
 
 -- |
 bceHTTPCode5XXCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceHTTPCode5XXCount = lens _bceHTTPCode5XXCount (\ s a -> s{_bceHTTPCode5XXCount = a});
+bceHTTPCode5XXCount = lens _bceHTTPCode5XXCount (\ s a -> s{_bceHTTPCode5XXCount = a})
 
 -- |
 bceConnectionRefusedCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceConnectionRefusedCount = lens _bceConnectionRefusedCount (\ s a -> s{_bceConnectionRefusedCount = a});
+bceConnectionRefusedCount = lens _bceConnectionRefusedCount (\ s a -> s{_bceConnectionRefusedCount = a})
 
 -- |
 bceHTTPCode4XXCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceHTTPCode4XXCount = lens _bceHTTPCode4XXCount (\ s a -> s{_bceHTTPCode4XXCount = a});
+bceHTTPCode4XXCount = lens _bceHTTPCode4XXCount (\ s a -> s{_bceHTTPCode4XXCount = a})
 
 -- |
 bceUnknownHostCount :: Lens' BackendConnectionErrors (Maybe Int)
-bceUnknownHostCount = lens _bceUnknownHostCount (\ s a -> s{_bceUnknownHostCount = a});
+bceUnknownHostCount = lens _bceUnknownHostCount (\ s a -> s{_bceUnknownHostCount = a})
 
 instance Hashable BackendConnectionErrors where
 
@@ -243,38 +243,38 @@ edge
     :: Edge
 edge =
   Edge'
-  { _eStartTime = Nothing
-  , _eAliases = Nothing
-  , _eResponseTimeHistogram = Nothing
-  , _eReferenceId = Nothing
-  , _eEndTime = Nothing
-  , _eSummaryStatistics = Nothing
-  }
+    { _eStartTime = Nothing
+    , _eAliases = Nothing
+    , _eResponseTimeHistogram = Nothing
+    , _eReferenceId = Nothing
+    , _eEndTime = Nothing
+    , _eSummaryStatistics = Nothing
+    }
 
 
 -- | The start time of the first segment on the edge.
 eStartTime :: Lens' Edge (Maybe UTCTime)
-eStartTime = lens _eStartTime (\ s a -> s{_eStartTime = a}) . mapping _Time;
+eStartTime = lens _eStartTime (\ s a -> s{_eStartTime = a}) . mapping _Time
 
 -- | Aliases for the edge.
 eAliases :: Lens' Edge [Alias]
-eAliases = lens _eAliases (\ s a -> s{_eAliases = a}) . _Default . _Coerce;
+eAliases = lens _eAliases (\ s a -> s{_eAliases = a}) . _Default . _Coerce
 
 -- | A histogram that maps the spread of client response times on an edge.
 eResponseTimeHistogram :: Lens' Edge [HistogramEntry]
-eResponseTimeHistogram = lens _eResponseTimeHistogram (\ s a -> s{_eResponseTimeHistogram = a}) . _Default . _Coerce;
+eResponseTimeHistogram = lens _eResponseTimeHistogram (\ s a -> s{_eResponseTimeHistogram = a}) . _Default . _Coerce
 
 -- | Identifier of the edge. Unique within a service map.
 eReferenceId :: Lens' Edge (Maybe Int)
-eReferenceId = lens _eReferenceId (\ s a -> s{_eReferenceId = a});
+eReferenceId = lens _eReferenceId (\ s a -> s{_eReferenceId = a})
 
 -- | The end time of the last segment on the edge.
 eEndTime :: Lens' Edge (Maybe UTCTime)
-eEndTime = lens _eEndTime (\ s a -> s{_eEndTime = a}) . mapping _Time;
+eEndTime = lens _eEndTime (\ s a -> s{_eEndTime = a}) . mapping _Time
 
 -- | Response statistics for segments on the edge.
 eSummaryStatistics :: Lens' Edge (Maybe EdgeStatistics)
-eSummaryStatistics = lens _eSummaryStatistics (\ s a -> s{_eSummaryStatistics = a});
+eSummaryStatistics = lens _eSummaryStatistics (\ s a -> s{_eSummaryStatistics = a})
 
 instance FromJSON Edge where
         parseJSON
@@ -322,33 +322,33 @@ edgeStatistics
     :: EdgeStatistics
 edgeStatistics =
   EdgeStatistics'
-  { _esFaultStatistics = Nothing
-  , _esOKCount = Nothing
-  , _esTotalResponseTime = Nothing
-  , _esErrorStatistics = Nothing
-  , _esTotalCount = Nothing
-  }
+    { _esFaultStatistics = Nothing
+    , _esOKCount = Nothing
+    , _esTotalResponseTime = Nothing
+    , _esErrorStatistics = Nothing
+    , _esTotalCount = Nothing
+    }
 
 
 -- | Information about requests that failed with a 5xx Server Error status code.
 esFaultStatistics :: Lens' EdgeStatistics (Maybe FaultStatistics)
-esFaultStatistics = lens _esFaultStatistics (\ s a -> s{_esFaultStatistics = a});
+esFaultStatistics = lens _esFaultStatistics (\ s a -> s{_esFaultStatistics = a})
 
 -- | The number of requests that completed with a 2xx Success status code.
 esOKCount :: Lens' EdgeStatistics (Maybe Integer)
-esOKCount = lens _esOKCount (\ s a -> s{_esOKCount = a});
+esOKCount = lens _esOKCount (\ s a -> s{_esOKCount = a})
 
 -- | The aggregate response time of completed requests.
 esTotalResponseTime :: Lens' EdgeStatistics (Maybe Double)
-esTotalResponseTime = lens _esTotalResponseTime (\ s a -> s{_esTotalResponseTime = a});
+esTotalResponseTime = lens _esTotalResponseTime (\ s a -> s{_esTotalResponseTime = a})
 
 -- | Information about requests that failed with a 4xx Client Error status code.
 esErrorStatistics :: Lens' EdgeStatistics (Maybe ErrorStatistics)
-esErrorStatistics = lens _esErrorStatistics (\ s a -> s{_esErrorStatistics = a});
+esErrorStatistics = lens _esErrorStatistics (\ s a -> s{_esErrorStatistics = a})
 
 -- | The total number of completed requests.
 esTotalCount :: Lens' EdgeStatistics (Maybe Integer)
-esTotalCount = lens _esTotalCount (\ s a -> s{_esTotalCount = a});
+esTotalCount = lens _esTotalCount (\ s a -> s{_esTotalCount = a})
 
 instance FromJSON EdgeStatistics where
         parseJSON
@@ -363,6 +363,57 @@ instance FromJSON EdgeStatistics where
 instance Hashable EdgeStatistics where
 
 instance NFData EdgeStatistics where
+
+-- | A configuration document that specifies encryption configuration settings.
+--
+--
+--
+-- /See:/ 'encryptionConfig' smart constructor.
+data EncryptionConfig = EncryptionConfig'
+  { _ecStatus :: !(Maybe EncryptionStatus)
+  , _ecKeyId  :: !(Maybe Text)
+  , _ecType   :: !(Maybe EncryptionType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EncryptionConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecStatus' - The encryption status. After modifying encryption configuration with 'PutEncryptionConfig' , the status can be @UPDATING@ for up to one hour before X-Ray starts encrypting data with the new key.
+--
+-- * 'ecKeyId' - The ID of the customer master key (CMK) used for encryption, if applicable.
+--
+-- * 'ecType' - The type of encryption. Set to @KMS@ for encryption with CMKs. Set to @NONE@ for default encryption.
+encryptionConfig
+    :: EncryptionConfig
+encryptionConfig =
+  EncryptionConfig' {_ecStatus = Nothing, _ecKeyId = Nothing, _ecType = Nothing}
+
+
+-- | The encryption status. After modifying encryption configuration with 'PutEncryptionConfig' , the status can be @UPDATING@ for up to one hour before X-Ray starts encrypting data with the new key.
+ecStatus :: Lens' EncryptionConfig (Maybe EncryptionStatus)
+ecStatus = lens _ecStatus (\ s a -> s{_ecStatus = a})
+
+-- | The ID of the customer master key (CMK) used for encryption, if applicable.
+ecKeyId :: Lens' EncryptionConfig (Maybe Text)
+ecKeyId = lens _ecKeyId (\ s a -> s{_ecKeyId = a})
+
+-- | The type of encryption. Set to @KMS@ for encryption with CMKs. Set to @NONE@ for default encryption.
+ecType :: Lens' EncryptionConfig (Maybe EncryptionType)
+ecType = lens _ecType (\ s a -> s{_ecType = a})
+
+instance FromJSON EncryptionConfig where
+        parseJSON
+          = withObject "EncryptionConfig"
+              (\ x ->
+                 EncryptionConfig' <$>
+                   (x .:? "Status") <*> (x .:? "KeyId") <*>
+                     (x .:? "Type"))
+
+instance Hashable EncryptionConfig where
+
+instance NFData EncryptionConfig where
 
 -- | Information about requests that failed with a 4xx Client Error status code.
 --
@@ -389,20 +440,20 @@ errorStatistics
     :: ErrorStatistics
 errorStatistics =
   ErrorStatistics'
-  {_eOtherCount = Nothing, _eThrottleCount = Nothing, _eTotalCount = Nothing}
+    {_eOtherCount = Nothing, _eThrottleCount = Nothing, _eTotalCount = Nothing}
 
 
 -- | The number of requests that failed with untracked 4xx Client Error status codes.
 eOtherCount :: Lens' ErrorStatistics (Maybe Integer)
-eOtherCount = lens _eOtherCount (\ s a -> s{_eOtherCount = a});
+eOtherCount = lens _eOtherCount (\ s a -> s{_eOtherCount = a})
 
 -- | The number of requests that failed with a 419 throttling status code.
 eThrottleCount :: Lens' ErrorStatistics (Maybe Integer)
-eThrottleCount = lens _eThrottleCount (\ s a -> s{_eThrottleCount = a});
+eThrottleCount = lens _eThrottleCount (\ s a -> s{_eThrottleCount = a})
 
 -- | The total number of requests that failed with a 4xx Client Error status code.
 eTotalCount :: Lens' ErrorStatistics (Maybe Integer)
-eTotalCount = lens _eTotalCount (\ s a -> s{_eTotalCount = a});
+eTotalCount = lens _eTotalCount (\ s a -> s{_eTotalCount = a})
 
 instance FromJSON ErrorStatistics where
         parseJSON
@@ -442,11 +493,11 @@ faultStatistics =
 
 -- | The number of requests that failed with untracked 5xx Server Error status codes.
 fsOtherCount :: Lens' FaultStatistics (Maybe Integer)
-fsOtherCount = lens _fsOtherCount (\ s a -> s{_fsOtherCount = a});
+fsOtherCount = lens _fsOtherCount (\ s a -> s{_fsOtherCount = a})
 
 -- | The total number of requests that failed with a 5xx Server Error status code.
 fsTotalCount :: Lens' FaultStatistics (Maybe Integer)
-fsTotalCount = lens _fsTotalCount (\ s a -> s{_fsTotalCount = a});
+fsTotalCount = lens _fsTotalCount (\ s a -> s{_fsTotalCount = a})
 
 instance FromJSON FaultStatistics where
         parseJSON
@@ -490,33 +541,33 @@ hTTP
     :: HTTP
 hTTP =
   HTTP'
-  { _httpHTTPMethod = Nothing
-  , _httpHTTPStatus = Nothing
-  , _httpClientIP = Nothing
-  , _httpUserAgent = Nothing
-  , _httpHTTPURL = Nothing
-  }
+    { _httpHTTPMethod = Nothing
+    , _httpHTTPStatus = Nothing
+    , _httpClientIP = Nothing
+    , _httpUserAgent = Nothing
+    , _httpHTTPURL = Nothing
+    }
 
 
 -- | The request method.
 httpHTTPMethod :: Lens' HTTP (Maybe Text)
-httpHTTPMethod = lens _httpHTTPMethod (\ s a -> s{_httpHTTPMethod = a});
+httpHTTPMethod = lens _httpHTTPMethod (\ s a -> s{_httpHTTPMethod = a})
 
 -- | The response status.
 httpHTTPStatus :: Lens' HTTP (Maybe Int)
-httpHTTPStatus = lens _httpHTTPStatus (\ s a -> s{_httpHTTPStatus = a});
+httpHTTPStatus = lens _httpHTTPStatus (\ s a -> s{_httpHTTPStatus = a})
 
 -- | The IP address of the requestor.
 httpClientIP :: Lens' HTTP (Maybe Text)
-httpClientIP = lens _httpClientIP (\ s a -> s{_httpClientIP = a});
+httpClientIP = lens _httpClientIP (\ s a -> s{_httpClientIP = a})
 
 -- | The request's user agent string.
 httpUserAgent :: Lens' HTTP (Maybe Text)
-httpUserAgent = lens _httpUserAgent (\ s a -> s{_httpUserAgent = a});
+httpUserAgent = lens _httpUserAgent (\ s a -> s{_httpUserAgent = a})
 
 -- | The request URL.
 httpHTTPURL :: Lens' HTTP (Maybe Text)
-httpHTTPURL = lens _httpHTTPURL (\ s a -> s{_httpHTTPURL = a});
+httpHTTPURL = lens _httpHTTPURL (\ s a -> s{_httpHTTPURL = a})
 
 instance FromJSON HTTP where
         parseJSON
@@ -557,11 +608,11 @@ histogramEntry = HistogramEntry' {_heCount = Nothing, _heValue = Nothing}
 
 -- | The prevalence of the entry.
 heCount :: Lens' HistogramEntry (Maybe Int)
-heCount = lens _heCount (\ s a -> s{_heCount = a});
+heCount = lens _heCount (\ s a -> s{_heCount = a})
 
 -- | The value of the entry.
 heValue :: Lens' HistogramEntry (Maybe Double)
-heValue = lens _heValue (\ s a -> s{_heValue = a});
+heValue = lens _heValue (\ s a -> s{_heValue = a})
 
 instance FromJSON HistogramEntry where
         parseJSON
@@ -577,6 +628,8 @@ instance NFData HistogramEntry where
 -- | A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with 'PutTraceSegments' , or an @inferred@ segment for a downstream service, generated from a subsegment sent by the service that called it.
 --
 --
+-- For the full segment document schema, see <https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html AWS X-Ray Segment Documents> in the /AWS X-Ray Developer Guide/ .
+--
 --
 -- /See:/ 'segment' smart constructor.
 data Segment = Segment'
@@ -589,7 +642,7 @@ data Segment = Segment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sDocument' - The segment document
+-- * 'sDocument' - The segment document.
 --
 -- * 'sId' - The segment's ID.
 segment
@@ -597,13 +650,13 @@ segment
 segment = Segment' {_sDocument = Nothing, _sId = Nothing}
 
 
--- | The segment document
+-- | The segment document.
 sDocument :: Lens' Segment (Maybe Text)
-sDocument = lens _sDocument (\ s a -> s{_sDocument = a});
+sDocument = lens _sDocument (\ s a -> s{_sDocument = a})
 
 -- | The segment's ID.
 sId :: Lens' Segment (Maybe Text)
-sId = lens _sId (\ s a -> s{_sId = a});
+sId = lens _sId (\ s a -> s{_sId = a})
 
 instance FromJSON Segment where
         parseJSON
@@ -643,28 +696,28 @@ serviceId
     :: ServiceId
 serviceId =
   ServiceId'
-  { _siAccountId = Nothing
-  , _siNames = Nothing
-  , _siName = Nothing
-  , _siType = Nothing
-  }
+    { _siAccountId = Nothing
+    , _siNames = Nothing
+    , _siName = Nothing
+    , _siType = Nothing
+    }
 
 
 -- |
 siAccountId :: Lens' ServiceId (Maybe Text)
-siAccountId = lens _siAccountId (\ s a -> s{_siAccountId = a});
+siAccountId = lens _siAccountId (\ s a -> s{_siAccountId = a})
 
 -- |
 siNames :: Lens' ServiceId [Text]
-siNames = lens _siNames (\ s a -> s{_siNames = a}) . _Default . _Coerce;
+siNames = lens _siNames (\ s a -> s{_siNames = a}) . _Default . _Coerce
 
 -- |
 siName :: Lens' ServiceId (Maybe Text)
-siName = lens _siName (\ s a -> s{_siName = a});
+siName = lens _siName (\ s a -> s{_siName = a})
 
 -- |
 siType :: Lens' ServiceId (Maybe Text)
-siType = lens _siType (\ s a -> s{_siType = a});
+siType = lens _siType (\ s a -> s{_siType = a})
 
 instance FromJSON ServiceId where
         parseJSON
@@ -734,73 +787,73 @@ serviceInfo
     :: ServiceInfo
 serviceInfo =
   ServiceInfo'
-  { _sState = Nothing
-  , _sStartTime = Nothing
-  , _sRoot = Nothing
-  , _sResponseTimeHistogram = Nothing
-  , _sDurationHistogram = Nothing
-  , _sReferenceId = Nothing
-  , _sAccountId = Nothing
-  , _sNames = Nothing
-  , _sName = Nothing
-  , _sEndTime = Nothing
-  , _sType = Nothing
-  , _sEdges = Nothing
-  , _sSummaryStatistics = Nothing
-  }
+    { _sState = Nothing
+    , _sStartTime = Nothing
+    , _sRoot = Nothing
+    , _sResponseTimeHistogram = Nothing
+    , _sDurationHistogram = Nothing
+    , _sReferenceId = Nothing
+    , _sAccountId = Nothing
+    , _sNames = Nothing
+    , _sName = Nothing
+    , _sEndTime = Nothing
+    , _sType = Nothing
+    , _sEdges = Nothing
+    , _sSummaryStatistics = Nothing
+    }
 
 
 -- | The service's state.
 sState :: Lens' ServiceInfo (Maybe Text)
-sState = lens _sState (\ s a -> s{_sState = a});
+sState = lens _sState (\ s a -> s{_sState = a})
 
 -- | The start time of the first segment that the service generated.
 sStartTime :: Lens' ServiceInfo (Maybe UTCTime)
-sStartTime = lens _sStartTime (\ s a -> s{_sStartTime = a}) . mapping _Time;
+sStartTime = lens _sStartTime (\ s a -> s{_sStartTime = a}) . mapping _Time
 
 -- | Indicates that the service was the first service to process a request.
 sRoot :: Lens' ServiceInfo (Maybe Bool)
-sRoot = lens _sRoot (\ s a -> s{_sRoot = a});
+sRoot = lens _sRoot (\ s a -> s{_sRoot = a})
 
 -- | A histogram that maps the spread of service response times.
 sResponseTimeHistogram :: Lens' ServiceInfo [HistogramEntry]
-sResponseTimeHistogram = lens _sResponseTimeHistogram (\ s a -> s{_sResponseTimeHistogram = a}) . _Default . _Coerce;
+sResponseTimeHistogram = lens _sResponseTimeHistogram (\ s a -> s{_sResponseTimeHistogram = a}) . _Default . _Coerce
 
 -- | A histogram that maps the spread of service durations.
 sDurationHistogram :: Lens' ServiceInfo [HistogramEntry]
-sDurationHistogram = lens _sDurationHistogram (\ s a -> s{_sDurationHistogram = a}) . _Default . _Coerce;
+sDurationHistogram = lens _sDurationHistogram (\ s a -> s{_sDurationHistogram = a}) . _Default . _Coerce
 
 -- | Identifier for the service. Unique within the service map.
 sReferenceId :: Lens' ServiceInfo (Maybe Int)
-sReferenceId = lens _sReferenceId (\ s a -> s{_sReferenceId = a});
+sReferenceId = lens _sReferenceId (\ s a -> s{_sReferenceId = a})
 
 -- | Identifier of the AWS account in which the service runs.
 sAccountId :: Lens' ServiceInfo (Maybe Text)
-sAccountId = lens _sAccountId (\ s a -> s{_sAccountId = a});
+sAccountId = lens _sAccountId (\ s a -> s{_sAccountId = a})
 
 -- | A list of names for the service, including the canonical name.
 sNames :: Lens' ServiceInfo [Text]
-sNames = lens _sNames (\ s a -> s{_sNames = a}) . _Default . _Coerce;
+sNames = lens _sNames (\ s a -> s{_sNames = a}) . _Default . _Coerce
 
 -- | The canonical name of the service.
 sName :: Lens' ServiceInfo (Maybe Text)
-sName = lens _sName (\ s a -> s{_sName = a});
+sName = lens _sName (\ s a -> s{_sName = a})
 
 -- | The end time of the last segment that the service generated.
 sEndTime :: Lens' ServiceInfo (Maybe UTCTime)
-sEndTime = lens _sEndTime (\ s a -> s{_sEndTime = a}) . mapping _Time;
+sEndTime = lens _sEndTime (\ s a -> s{_sEndTime = a}) . mapping _Time
 
 -- | The type of service.     * AWS Resource - The type of an AWS resource. For example, @AWS::EC2::Instance@ for a application running on Amazon EC2 or @AWS::DynamoDB::Table@ for an Amazon DynamoDB table that the application used.     * AWS Service - The type of an AWS service. For example, @AWS::DynamoDB@ for downstream calls to Amazon DynamoDB that didn't target a specific table.     * @client@ - Represents the clients that sent requests to a root service.     * @remote@ - A downstream service of indeterminate type.
 sType :: Lens' ServiceInfo (Maybe Text)
-sType = lens _sType (\ s a -> s{_sType = a});
+sType = lens _sType (\ s a -> s{_sType = a})
 
 -- | Connections to downstream services.
 sEdges :: Lens' ServiceInfo [Edge]
-sEdges = lens _sEdges (\ s a -> s{_sEdges = a}) . _Default . _Coerce;
+sEdges = lens _sEdges (\ s a -> s{_sEdges = a}) . _Default . _Coerce
 
 -- | Aggregated statistics for the service.
 sSummaryStatistics :: Lens' ServiceInfo (Maybe ServiceStatistics)
-sSummaryStatistics = lens _sSummaryStatistics (\ s a -> s{_sSummaryStatistics = a});
+sSummaryStatistics = lens _sSummaryStatistics (\ s a -> s{_sSummaryStatistics = a})
 
 instance FromJSON ServiceInfo where
         parseJSON
@@ -855,33 +908,33 @@ serviceStatistics
     :: ServiceStatistics
 serviceStatistics =
   ServiceStatistics'
-  { _ssFaultStatistics = Nothing
-  , _ssOKCount = Nothing
-  , _ssTotalResponseTime = Nothing
-  , _ssErrorStatistics = Nothing
-  , _ssTotalCount = Nothing
-  }
+    { _ssFaultStatistics = Nothing
+    , _ssOKCount = Nothing
+    , _ssTotalResponseTime = Nothing
+    , _ssErrorStatistics = Nothing
+    , _ssTotalCount = Nothing
+    }
 
 
 -- | Information about requests that failed with a 5xx Server Error status code.
 ssFaultStatistics :: Lens' ServiceStatistics (Maybe FaultStatistics)
-ssFaultStatistics = lens _ssFaultStatistics (\ s a -> s{_ssFaultStatistics = a});
+ssFaultStatistics = lens _ssFaultStatistics (\ s a -> s{_ssFaultStatistics = a})
 
 -- | The number of requests that completed with a 2xx Success status code.
 ssOKCount :: Lens' ServiceStatistics (Maybe Integer)
-ssOKCount = lens _ssOKCount (\ s a -> s{_ssOKCount = a});
+ssOKCount = lens _ssOKCount (\ s a -> s{_ssOKCount = a})
 
 -- | The aggregate response time of completed requests.
 ssTotalResponseTime :: Lens' ServiceStatistics (Maybe Double)
-ssTotalResponseTime = lens _ssTotalResponseTime (\ s a -> s{_ssTotalResponseTime = a});
+ssTotalResponseTime = lens _ssTotalResponseTime (\ s a -> s{_ssTotalResponseTime = a})
 
 -- | Information about requests that failed with a 4xx Client Error status code.
 ssErrorStatistics :: Lens' ServiceStatistics (Maybe ErrorStatistics)
-ssErrorStatistics = lens _ssErrorStatistics (\ s a -> s{_ssErrorStatistics = a});
+ssErrorStatistics = lens _ssErrorStatistics (\ s a -> s{_ssErrorStatistics = a})
 
 -- | The total number of completed requests.
 ssTotalCount :: Lens' ServiceStatistics (Maybe Integer)
-ssTotalCount = lens _ssTotalCount (\ s a -> s{_ssTotalCount = a});
+ssTotalCount = lens _ssTotalCount (\ s a -> s{_ssTotalCount = a})
 
 instance FromJSON ServiceStatistics where
         parseJSON
@@ -907,8 +960,8 @@ data TelemetryRecord = TelemetryRecord'
   , _trSegmentsSentCount       :: !(Maybe Int)
   , _trSegmentsSpilloverCount  :: !(Maybe Int)
   , _trSegmentsRejectedCount   :: !(Maybe Int)
-  , _trTimestamp               :: !(Maybe POSIX)
   , _trBackendConnectionErrors :: !(Maybe BackendConnectionErrors)
+  , _trTimestamp               :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -924,45 +977,46 @@ data TelemetryRecord = TelemetryRecord'
 --
 -- * 'trSegmentsRejectedCount' -
 --
--- * 'trTimestamp' -
---
 -- * 'trBackendConnectionErrors' -
+--
+-- * 'trTimestamp' -
 telemetryRecord
-    :: TelemetryRecord
-telemetryRecord =
+    :: UTCTime -- ^ 'trTimestamp'
+    -> TelemetryRecord
+telemetryRecord pTimestamp_ =
   TelemetryRecord'
-  { _trSegmentsReceivedCount = Nothing
-  , _trSegmentsSentCount = Nothing
-  , _trSegmentsSpilloverCount = Nothing
-  , _trSegmentsRejectedCount = Nothing
-  , _trTimestamp = Nothing
-  , _trBackendConnectionErrors = Nothing
-  }
+    { _trSegmentsReceivedCount = Nothing
+    , _trSegmentsSentCount = Nothing
+    , _trSegmentsSpilloverCount = Nothing
+    , _trSegmentsRejectedCount = Nothing
+    , _trBackendConnectionErrors = Nothing
+    , _trTimestamp = _Time # pTimestamp_
+    }
 
 
 -- |
 trSegmentsReceivedCount :: Lens' TelemetryRecord (Maybe Int)
-trSegmentsReceivedCount = lens _trSegmentsReceivedCount (\ s a -> s{_trSegmentsReceivedCount = a});
+trSegmentsReceivedCount = lens _trSegmentsReceivedCount (\ s a -> s{_trSegmentsReceivedCount = a})
 
 -- |
 trSegmentsSentCount :: Lens' TelemetryRecord (Maybe Int)
-trSegmentsSentCount = lens _trSegmentsSentCount (\ s a -> s{_trSegmentsSentCount = a});
+trSegmentsSentCount = lens _trSegmentsSentCount (\ s a -> s{_trSegmentsSentCount = a})
 
 -- |
 trSegmentsSpilloverCount :: Lens' TelemetryRecord (Maybe Int)
-trSegmentsSpilloverCount = lens _trSegmentsSpilloverCount (\ s a -> s{_trSegmentsSpilloverCount = a});
+trSegmentsSpilloverCount = lens _trSegmentsSpilloverCount (\ s a -> s{_trSegmentsSpilloverCount = a})
 
 -- |
 trSegmentsRejectedCount :: Lens' TelemetryRecord (Maybe Int)
-trSegmentsRejectedCount = lens _trSegmentsRejectedCount (\ s a -> s{_trSegmentsRejectedCount = a});
-
--- |
-trTimestamp :: Lens' TelemetryRecord (Maybe UTCTime)
-trTimestamp = lens _trTimestamp (\ s a -> s{_trTimestamp = a}) . mapping _Time;
+trSegmentsRejectedCount = lens _trSegmentsRejectedCount (\ s a -> s{_trSegmentsRejectedCount = a})
 
 -- |
 trBackendConnectionErrors :: Lens' TelemetryRecord (Maybe BackendConnectionErrors)
-trBackendConnectionErrors = lens _trBackendConnectionErrors (\ s a -> s{_trBackendConnectionErrors = a});
+trBackendConnectionErrors = lens _trBackendConnectionErrors (\ s a -> s{_trBackendConnectionErrors = a})
+
+-- |
+trTimestamp :: Lens' TelemetryRecord UTCTime
+trTimestamp = lens _trTimestamp (\ s a -> s{_trTimestamp = a}) . _Time
 
 instance Hashable TelemetryRecord where
 
@@ -979,9 +1033,9 @@ instance ToJSON TelemetryRecord where
                     _trSegmentsSpilloverCount,
                   ("SegmentsRejectedCount" .=) <$>
                     _trSegmentsRejectedCount,
-                  ("Timestamp" .=) <$> _trTimestamp,
                   ("BackendConnectionErrors" .=) <$>
-                    _trBackendConnectionErrors])
+                    _trBackendConnectionErrors,
+                  Just ("Timestamp" .= _trTimestamp)])
 
 -- | A collection of segment documents with matching trace IDs.
 --
@@ -1011,15 +1065,15 @@ trace = Trace' {_tId = Nothing, _tSegments = Nothing, _tDuration = Nothing}
 
 -- | The unique identifier for the request that generated the trace's segments and subsegments.
 tId :: Lens' Trace (Maybe Text)
-tId = lens _tId (\ s a -> s{_tId = a});
+tId = lens _tId (\ s a -> s{_tId = a})
 
 -- | Segment documents for the segments and subsegments that comprise the trace.
 tSegments :: Lens' Trace [Segment]
-tSegments = lens _tSegments (\ s a -> s{_tSegments = a}) . _Default . _Coerce;
+tSegments = lens _tSegments (\ s a -> s{_tSegments = a}) . _Default . _Coerce
 
 -- | The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
 tDuration :: Lens' Trace (Maybe Double)
-tDuration = lens _tDuration (\ s a -> s{_tDuration = a});
+tDuration = lens _tDuration (\ s a -> s{_tDuration = a})
 
 instance FromJSON Trace where
         parseJSON
@@ -1082,63 +1136,63 @@ traceSummary
     :: TraceSummary
 traceSummary =
   TraceSummary'
-  { _tsAnnotations = Nothing
-  , _tsHasThrottle = Nothing
-  , _tsUsers = Nothing
-  , _tsHasFault = Nothing
-  , _tsServiceIds = Nothing
-  , _tsIsPartial = Nothing
-  , _tsHasError = Nothing
-  , _tsId = Nothing
-  , _tsHTTP = Nothing
-  , _tsDuration = Nothing
-  , _tsResponseTime = Nothing
-  }
+    { _tsAnnotations = Nothing
+    , _tsHasThrottle = Nothing
+    , _tsUsers = Nothing
+    , _tsHasFault = Nothing
+    , _tsServiceIds = Nothing
+    , _tsIsPartial = Nothing
+    , _tsHasError = Nothing
+    , _tsId = Nothing
+    , _tsHTTP = Nothing
+    , _tsDuration = Nothing
+    , _tsResponseTime = Nothing
+    }
 
 
 -- | Annotations from the trace's segment documents.
 tsAnnotations :: Lens' TraceSummary (HashMap Text [ValueWithServiceIds])
-tsAnnotations = lens _tsAnnotations (\ s a -> s{_tsAnnotations = a}) . _Default . _Map;
+tsAnnotations = lens _tsAnnotations (\ s a -> s{_tsAnnotations = a}) . _Default . _Map
 
 -- | One or more of the segment documents has a 429 throttling error.
 tsHasThrottle :: Lens' TraceSummary (Maybe Bool)
-tsHasThrottle = lens _tsHasThrottle (\ s a -> s{_tsHasThrottle = a});
+tsHasThrottle = lens _tsHasThrottle (\ s a -> s{_tsHasThrottle = a})
 
 -- | Users from the trace's segment documents.
 tsUsers :: Lens' TraceSummary [TraceUser]
-tsUsers = lens _tsUsers (\ s a -> s{_tsUsers = a}) . _Default . _Coerce;
+tsUsers = lens _tsUsers (\ s a -> s{_tsUsers = a}) . _Default . _Coerce
 
 -- | One or more of the segment documents has a 500 series error.
 tsHasFault :: Lens' TraceSummary (Maybe Bool)
-tsHasFault = lens _tsHasFault (\ s a -> s{_tsHasFault = a});
+tsHasFault = lens _tsHasFault (\ s a -> s{_tsHasFault = a})
 
 -- | Service IDs from the trace's segment documents.
 tsServiceIds :: Lens' TraceSummary [ServiceId]
-tsServiceIds = lens _tsServiceIds (\ s a -> s{_tsServiceIds = a}) . _Default . _Coerce;
+tsServiceIds = lens _tsServiceIds (\ s a -> s{_tsServiceIds = a}) . _Default . _Coerce
 
 -- | One or more of the segment documents is in progress.
 tsIsPartial :: Lens' TraceSummary (Maybe Bool)
-tsIsPartial = lens _tsIsPartial (\ s a -> s{_tsIsPartial = a});
+tsIsPartial = lens _tsIsPartial (\ s a -> s{_tsIsPartial = a})
 
 -- | One or more of the segment documents has a 400 series error.
 tsHasError :: Lens' TraceSummary (Maybe Bool)
-tsHasError = lens _tsHasError (\ s a -> s{_tsHasError = a});
+tsHasError = lens _tsHasError (\ s a -> s{_tsHasError = a})
 
 -- | The unique identifier for the request that generated the trace's segments and subsegments.
 tsId :: Lens' TraceSummary (Maybe Text)
-tsId = lens _tsId (\ s a -> s{_tsId = a});
+tsId = lens _tsId (\ s a -> s{_tsId = a})
 
 -- | Information about the HTTP request served by the trace.
 tsHTTP :: Lens' TraceSummary (Maybe HTTP)
-tsHTTP = lens _tsHTTP (\ s a -> s{_tsHTTP = a});
+tsHTTP = lens _tsHTTP (\ s a -> s{_tsHTTP = a})
 
 -- | The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
 tsDuration :: Lens' TraceSummary (Maybe Double)
-tsDuration = lens _tsDuration (\ s a -> s{_tsDuration = a});
+tsDuration = lens _tsDuration (\ s a -> s{_tsDuration = a})
 
 -- | The length of time in seconds between the start and end times of the root segment. If the service performs work asynchronously, the response time measures the time before the response is sent to the user, while the duration measures the amount of time before the last traced activity completes.
 tsResponseTime :: Lens' TraceSummary (Maybe Double)
-tsResponseTime = lens _tsResponseTime (\ s a -> s{_tsResponseTime = a});
+tsResponseTime = lens _tsResponseTime (\ s a -> s{_tsResponseTime = a})
 
 instance FromJSON TraceSummary where
         parseJSON
@@ -1186,11 +1240,11 @@ traceUser = TraceUser' {_tuServiceIds = Nothing, _tuUserName = Nothing}
 
 -- | Services that the user's request hit.
 tuServiceIds :: Lens' TraceUser [ServiceId]
-tuServiceIds = lens _tuServiceIds (\ s a -> s{_tuServiceIds = a}) . _Default . _Coerce;
+tuServiceIds = lens _tuServiceIds (\ s a -> s{_tuServiceIds = a}) . _Default . _Coerce
 
 -- | The user's name.
 tuUserName :: Lens' TraceUser (Maybe Text)
-tuUserName = lens _tuUserName (\ s a -> s{_tuUserName = a});
+tuUserName = lens _tuUserName (\ s a -> s{_tuUserName = a})
 
 instance FromJSON TraceUser where
         parseJSON
@@ -1229,20 +1283,20 @@ unprocessedTraceSegment
     :: UnprocessedTraceSegment
 unprocessedTraceSegment =
   UnprocessedTraceSegment'
-  {_utsErrorCode = Nothing, _utsId = Nothing, _utsMessage = Nothing}
+    {_utsErrorCode = Nothing, _utsId = Nothing, _utsMessage = Nothing}
 
 
 -- | The error that caused processing to fail.
 utsErrorCode :: Lens' UnprocessedTraceSegment (Maybe Text)
-utsErrorCode = lens _utsErrorCode (\ s a -> s{_utsErrorCode = a});
+utsErrorCode = lens _utsErrorCode (\ s a -> s{_utsErrorCode = a})
 
 -- | The segment's ID.
 utsId :: Lens' UnprocessedTraceSegment (Maybe Text)
-utsId = lens _utsId (\ s a -> s{_utsId = a});
+utsId = lens _utsId (\ s a -> s{_utsId = a})
 
 -- | The error message.
 utsMessage :: Lens' UnprocessedTraceSegment (Maybe Text)
-utsMessage = lens _utsMessage (\ s a -> s{_utsMessage = a});
+utsMessage = lens _utsMessage (\ s a -> s{_utsMessage = a})
 
 instance FromJSON UnprocessedTraceSegment where
         parseJSON
@@ -1278,16 +1332,16 @@ valueWithServiceIds
     :: ValueWithServiceIds
 valueWithServiceIds =
   ValueWithServiceIds'
-  {_vwsiServiceIds = Nothing, _vwsiAnnotationValue = Nothing}
+    {_vwsiServiceIds = Nothing, _vwsiAnnotationValue = Nothing}
 
 
 -- | Services to which the annotation applies.
 vwsiServiceIds :: Lens' ValueWithServiceIds [ServiceId]
-vwsiServiceIds = lens _vwsiServiceIds (\ s a -> s{_vwsiServiceIds = a}) . _Default . _Coerce;
+vwsiServiceIds = lens _vwsiServiceIds (\ s a -> s{_vwsiServiceIds = a}) . _Default . _Coerce
 
 -- | Values of the annotation.
 vwsiAnnotationValue :: Lens' ValueWithServiceIds (Maybe AnnotationValue)
-vwsiAnnotationValue = lens _vwsiAnnotationValue (\ s a -> s{_vwsiAnnotationValue = a});
+vwsiAnnotationValue = lens _vwsiAnnotationValue (\ s a -> s{_vwsiAnnotationValue = a})
 
 instance FromJSON ValueWithServiceIds where
         parseJSON

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetKeyPair
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getKeyPair pKeyPairName_ = GetKeyPair' {_gkpKeyPairName = pKeyPairName_}
 
 -- | The name of the key pair for which you are requesting information.
 gkpKeyPairName :: Lens' GetKeyPair Text
-gkpKeyPairName = lens _gkpKeyPairName (\ s a -> s{_gkpKeyPairName = a});
+gkpKeyPairName = lens _gkpKeyPairName (\ s a -> s{_gkpKeyPairName = a})
 
 instance AWSRequest GetKeyPair where
         type Rs GetKeyPair = GetKeyPairResponse
@@ -117,15 +117,15 @@ getKeyPairResponse
     -> GetKeyPairResponse
 getKeyPairResponse pResponseStatus_ =
   GetKeyPairResponse'
-  {_gkprsKeyPair = Nothing, _gkprsResponseStatus = pResponseStatus_}
+    {_gkprsKeyPair = Nothing, _gkprsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the key pair.
 gkprsKeyPair :: Lens' GetKeyPairResponse (Maybe KeyPair)
-gkprsKeyPair = lens _gkprsKeyPair (\ s a -> s{_gkprsKeyPair = a});
+gkprsKeyPair = lens _gkprsKeyPair (\ s a -> s{_gkprsKeyPair = a})
 
 -- | -- | The response status code.
 gkprsResponseStatus :: Lens' GetKeyPairResponse Int
-gkprsResponseStatus = lens _gkprsResponseStatus (\ s a -> s{_gkprsResponseStatus = a});
+gkprsResponseStatus = lens _gkprsResponseStatus (\ s a -> s{_gkprsResponseStatus = a})
 
 instance NFData GetKeyPairResponse where

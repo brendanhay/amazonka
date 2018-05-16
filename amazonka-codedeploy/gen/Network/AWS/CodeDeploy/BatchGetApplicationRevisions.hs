@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetApplicationRevisions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ batchGetApplicationRevisions
     -> BatchGetApplicationRevisions
 batchGetApplicationRevisions pApplicationName_ =
   BatchGetApplicationRevisions'
-  {_bgarApplicationName = pApplicationName_, _bgarRevisions = mempty}
+    {_bgarApplicationName = pApplicationName_, _bgarRevisions = mempty}
 
 
 -- | The name of an AWS CodeDeploy application about which to get revision information.
 bgarApplicationName :: Lens' BatchGetApplicationRevisions Text
-bgarApplicationName = lens _bgarApplicationName (\ s a -> s{_bgarApplicationName = a});
+bgarApplicationName = lens _bgarApplicationName (\ s a -> s{_bgarApplicationName = a})
 
 -- | Information to get about the application revisions, including type and location.
 bgarRevisions :: Lens' BatchGetApplicationRevisions [RevisionLocation]
-bgarRevisions = lens _bgarRevisions (\ s a -> s{_bgarRevisions = a}) . _Coerce;
+bgarRevisions = lens _bgarRevisions (\ s a -> s{_bgarRevisions = a}) . _Coerce
 
 instance AWSRequest BatchGetApplicationRevisions
          where
@@ -151,28 +151,28 @@ batchGetApplicationRevisionsResponse
     -> BatchGetApplicationRevisionsResponse
 batchGetApplicationRevisionsResponse pResponseStatus_ =
   BatchGetApplicationRevisionsResponse'
-  { _bgarrsApplicationName = Nothing
-  , _bgarrsRevisions = Nothing
-  , _bgarrsErrorMessage = Nothing
-  , _bgarrsResponseStatus = pResponseStatus_
-  }
+    { _bgarrsApplicationName = Nothing
+    , _bgarrsRevisions = Nothing
+    , _bgarrsErrorMessage = Nothing
+    , _bgarrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The name of the application that corresponds to the revisions.
 bgarrsApplicationName :: Lens' BatchGetApplicationRevisionsResponse (Maybe Text)
-bgarrsApplicationName = lens _bgarrsApplicationName (\ s a -> s{_bgarrsApplicationName = a});
+bgarrsApplicationName = lens _bgarrsApplicationName (\ s a -> s{_bgarrsApplicationName = a})
 
 -- | Additional information about the revisions, including the type and location.
 bgarrsRevisions :: Lens' BatchGetApplicationRevisionsResponse [RevisionInfo]
-bgarrsRevisions = lens _bgarrsRevisions (\ s a -> s{_bgarrsRevisions = a}) . _Default . _Coerce;
+bgarrsRevisions = lens _bgarrsRevisions (\ s a -> s{_bgarrsRevisions = a}) . _Default . _Coerce
 
 -- | Information about errors that may have occurred during the API call.
 bgarrsErrorMessage :: Lens' BatchGetApplicationRevisionsResponse (Maybe Text)
-bgarrsErrorMessage = lens _bgarrsErrorMessage (\ s a -> s{_bgarrsErrorMessage = a});
+bgarrsErrorMessage = lens _bgarrsErrorMessage (\ s a -> s{_bgarrsErrorMessage = a})
 
 -- | -- | The response status code.
 bgarrsResponseStatus :: Lens' BatchGetApplicationRevisionsResponse Int
-bgarrsResponseStatus = lens _bgarrsResponseStatus (\ s a -> s{_bgarrsResponseStatus = a});
+bgarrsResponseStatus = lens _bgarrsResponseStatus (\ s a -> s{_bgarrsResponseStatus = a})
 
 instance NFData BatchGetApplicationRevisionsResponse
          where

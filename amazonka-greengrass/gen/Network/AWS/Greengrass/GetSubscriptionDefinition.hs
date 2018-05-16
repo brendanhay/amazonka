@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetSubscriptionDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,18 +58,18 @@ newtype GetSubscriptionDefinition = GetSubscriptionDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdSubscriptionDefinitionId' - subscription definition Id
+-- * 'gsdSubscriptionDefinitionId' - The ID of the subscription definition.
 getSubscriptionDefinition
     :: Text -- ^ 'gsdSubscriptionDefinitionId'
     -> GetSubscriptionDefinition
 getSubscriptionDefinition pSubscriptionDefinitionId_ =
   GetSubscriptionDefinition'
-  {_gsdSubscriptionDefinitionId = pSubscriptionDefinitionId_}
+    {_gsdSubscriptionDefinitionId = pSubscriptionDefinitionId_}
 
 
--- | subscription definition Id
+-- | The ID of the subscription definition.
 gsdSubscriptionDefinitionId :: Lens' GetSubscriptionDefinition Text
-gsdSubscriptionDefinitionId = lens _gsdSubscriptionDefinitionId (\ s a -> s{_gsdSubscriptionDefinitionId = a});
+gsdSubscriptionDefinitionId = lens _gsdSubscriptionDefinitionId (\ s a -> s{_gsdSubscriptionDefinitionId = a})
 
 instance AWSRequest GetSubscriptionDefinition where
         type Rs GetSubscriptionDefinition =
@@ -124,19 +124,19 @@ data GetSubscriptionDefinitionResponse = GetSubscriptionDefinitionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdrsLatestVersionARN' - Latest version arn of the definition.
+-- * 'gsdrsLatestVersionARN' - The ARN of the latest version of the definition.
 --
--- * 'gsdrsARN' - Arn of the definition.
+-- * 'gsdrsARN' - The ARN of the definition.
 --
--- * 'gsdrsName' - Name of the definition.
+-- * 'gsdrsName' - The name of the definition.
 --
--- * 'gsdrsCreationTimestamp' - Timestamp of when the definition was created.
+-- * 'gsdrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
 --
--- * 'gsdrsId' - Id of the definition.
+-- * 'gsdrsId' - The ID of the definition.
 --
--- * 'gsdrsLatestVersion' - Last version of the definition.
+-- * 'gsdrsLatestVersion' - The latest version of the definition.
 --
--- * 'gsdrsLastUpdatedTimestamp' - Last updated timestamp of the definition.
+-- * 'gsdrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- * 'gsdrsResponseStatus' - -- | The response status code.
 getSubscriptionDefinitionResponse
@@ -144,48 +144,48 @@ getSubscriptionDefinitionResponse
     -> GetSubscriptionDefinitionResponse
 getSubscriptionDefinitionResponse pResponseStatus_ =
   GetSubscriptionDefinitionResponse'
-  { _gsdrsLatestVersionARN = Nothing
-  , _gsdrsARN = Nothing
-  , _gsdrsName = Nothing
-  , _gsdrsCreationTimestamp = Nothing
-  , _gsdrsId = Nothing
-  , _gsdrsLatestVersion = Nothing
-  , _gsdrsLastUpdatedTimestamp = Nothing
-  , _gsdrsResponseStatus = pResponseStatus_
-  }
+    { _gsdrsLatestVersionARN = Nothing
+    , _gsdrsARN = Nothing
+    , _gsdrsName = Nothing
+    , _gsdrsCreationTimestamp = Nothing
+    , _gsdrsId = Nothing
+    , _gsdrsLatestVersion = Nothing
+    , _gsdrsLastUpdatedTimestamp = Nothing
+    , _gsdrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Latest version arn of the definition.
+-- | The ARN of the latest version of the definition.
 gsdrsLatestVersionARN :: Lens' GetSubscriptionDefinitionResponse (Maybe Text)
-gsdrsLatestVersionARN = lens _gsdrsLatestVersionARN (\ s a -> s{_gsdrsLatestVersionARN = a});
+gsdrsLatestVersionARN = lens _gsdrsLatestVersionARN (\ s a -> s{_gsdrsLatestVersionARN = a})
 
--- | Arn of the definition.
+-- | The ARN of the definition.
 gsdrsARN :: Lens' GetSubscriptionDefinitionResponse (Maybe Text)
-gsdrsARN = lens _gsdrsARN (\ s a -> s{_gsdrsARN = a});
+gsdrsARN = lens _gsdrsARN (\ s a -> s{_gsdrsARN = a})
 
--- | Name of the definition.
+-- | The name of the definition.
 gsdrsName :: Lens' GetSubscriptionDefinitionResponse (Maybe Text)
-gsdrsName = lens _gsdrsName (\ s a -> s{_gsdrsName = a});
+gsdrsName = lens _gsdrsName (\ s a -> s{_gsdrsName = a})
 
--- | Timestamp of when the definition was created.
+-- | The time, in milliseconds since the epoch, when the definition was created.
 gsdrsCreationTimestamp :: Lens' GetSubscriptionDefinitionResponse (Maybe Text)
-gsdrsCreationTimestamp = lens _gsdrsCreationTimestamp (\ s a -> s{_gsdrsCreationTimestamp = a});
+gsdrsCreationTimestamp = lens _gsdrsCreationTimestamp (\ s a -> s{_gsdrsCreationTimestamp = a})
 
--- | Id of the definition.
+-- | The ID of the definition.
 gsdrsId :: Lens' GetSubscriptionDefinitionResponse (Maybe Text)
-gsdrsId = lens _gsdrsId (\ s a -> s{_gsdrsId = a});
+gsdrsId = lens _gsdrsId (\ s a -> s{_gsdrsId = a})
 
--- | Last version of the definition.
+-- | The latest version of the definition.
 gsdrsLatestVersion :: Lens' GetSubscriptionDefinitionResponse (Maybe Text)
-gsdrsLatestVersion = lens _gsdrsLatestVersion (\ s a -> s{_gsdrsLatestVersion = a});
+gsdrsLatestVersion = lens _gsdrsLatestVersion (\ s a -> s{_gsdrsLatestVersion = a})
 
--- | Last updated timestamp of the definition.
+-- | The time, in milliseconds since the epoch, when the definition was last updated.
 gsdrsLastUpdatedTimestamp :: Lens' GetSubscriptionDefinitionResponse (Maybe Text)
-gsdrsLastUpdatedTimestamp = lens _gsdrsLastUpdatedTimestamp (\ s a -> s{_gsdrsLastUpdatedTimestamp = a});
+gsdrsLastUpdatedTimestamp = lens _gsdrsLastUpdatedTimestamp (\ s a -> s{_gsdrsLastUpdatedTimestamp = a})
 
 -- | -- | The response status code.
 gsdrsResponseStatus :: Lens' GetSubscriptionDefinitionResponse Int
-gsdrsResponseStatus = lens _gsdrsResponseStatus (\ s a -> s{_gsdrsResponseStatus = a});
+gsdrsResponseStatus = lens _gsdrsResponseStatus (\ s a -> s{_gsdrsResponseStatus = a})
 
 instance NFData GetSubscriptionDefinitionResponse
          where

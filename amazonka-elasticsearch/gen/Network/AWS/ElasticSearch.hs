@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ module Network.AWS.ElasticSearch
     -- ** DescribeElasticsearchDomains
     , module Network.AWS.ElasticSearch.DescribeElasticsearchDomains
 
-    -- ** ListElasticsearchInstanceTypes
+    -- ** ListElasticsearchInstanceTypes (Paginated)
     , module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
 
     -- ** DeleteElasticsearchServiceRole
@@ -85,14 +85,23 @@ module Network.AWS.ElasticSearch
     -- ** DeleteElasticsearchDomain
     , module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
 
+    -- ** PurchaseReservedElasticsearchInstanceOffering
+    , module Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
+
+    -- ** DescribeReservedElasticsearchInstances
+    , module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
+
     -- ** UpdateElasticsearchDomainConfig
     , module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
 
-    -- ** ListElasticsearchVersions
+    -- ** ListElasticsearchVersions (Paginated)
     , module Network.AWS.ElasticSearch.ListElasticsearchVersions
 
     -- ** AddTags
     , module Network.AWS.ElasticSearch.AddTags
+
+    -- ** DescribeReservedElasticsearchInstanceOfferings
+    , module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
 
     -- ** ListTags
     , module Network.AWS.ElasticSearch.ListTags
@@ -107,6 +116,9 @@ module Network.AWS.ElasticSearch
 
     -- ** OptionState
     , OptionState (..)
+
+    -- ** ReservedElasticsearchInstancePaymentOption
+    , ReservedElasticsearchInstancePaymentOption (..)
 
     -- ** VolumeType
     , VolumeType (..)
@@ -128,6 +140,20 @@ module Network.AWS.ElasticSearch
     , advancedOptionsStatus
     , aosOptions
     , aosStatus
+
+    -- ** CognitoOptions
+    , CognitoOptions
+    , cognitoOptions
+    , coIdentityPoolId
+    , coEnabled
+    , coUserPoolId
+    , coRoleARN
+
+    -- ** CognitoOptionsStatus
+    , CognitoOptionsStatus
+    , cognitoOptionsStatus
+    , cosOptions
+    , cosStatus
 
     -- ** DomainInfo
     , DomainInfo
@@ -172,6 +198,8 @@ module Network.AWS.ElasticSearch
     , edcLogPublishingOptions
     , edcElasticsearchClusterConfig
     , edcSnapshotOptions
+    , edcCognitoOptions
+    , edcEncryptionAtRestOptions
     , edcVPCOptions
     , edcAdvancedOptions
     , edcElasticsearchVersion
@@ -184,6 +212,8 @@ module Network.AWS.ElasticSearch
     , edsLogPublishingOptions
     , edsCreated
     , edsSnapshotOptions
+    , edsCognitoOptions
+    , edsEncryptionAtRestOptions
     , edsDeleted
     , edsVPCOptions
     , edsEndpoints
@@ -201,6 +231,18 @@ module Network.AWS.ElasticSearch
     , elasticsearchVersionStatus
     , evsOptions
     , evsStatus
+
+    -- ** EncryptionAtRestOptions
+    , EncryptionAtRestOptions
+    , encryptionAtRestOptions
+    , earoEnabled
+    , earoKMSKeyId
+
+    -- ** EncryptionAtRestOptionsStatus
+    , EncryptionAtRestOptionsStatus
+    , encryptionAtRestOptionsStatus
+    , earosOptions
+    , earosStatus
 
     -- ** InstanceCountLimits
     , InstanceCountLimits
@@ -240,6 +282,41 @@ module Network.AWS.ElasticSearch
     , osCreationDate
     , osUpdateDate
     , osState
+
+    -- ** RecurringCharge
+    , RecurringCharge
+    , recurringCharge
+    , rcRecurringChargeFrequency
+    , rcRecurringChargeAmount
+
+    -- ** ReservedElasticsearchInstance
+    , ReservedElasticsearchInstance
+    , reservedElasticsearchInstance
+    , reiState
+    , reiCurrencyCode
+    , reiStartTime
+    , reiReservedElasticsearchInstanceOfferingId
+    , reiReservedElasticsearchInstanceId
+    , reiElasticsearchInstanceCount
+    , reiReservationName
+    , reiElasticsearchInstanceType
+    , reiRecurringCharges
+    , reiUsagePrice
+    , reiFixedPrice
+    , reiDuration
+    , reiPaymentOption
+
+    -- ** ReservedElasticsearchInstanceOffering
+    , ReservedElasticsearchInstanceOffering
+    , reservedElasticsearchInstanceOffering
+    , reioCurrencyCode
+    , reioReservedElasticsearchInstanceOfferingId
+    , reioElasticsearchInstanceType
+    , reioRecurringCharges
+    , reioUsagePrice
+    , reioFixedPrice
+    , reioDuration
+    , reioPaymentOption
 
     -- ** SnapshotOptions
     , SnapshotOptions
@@ -300,10 +377,13 @@ import Network.AWS.ElasticSearch.DescribeElasticsearchDomain
 import Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
 import Network.AWS.ElasticSearch.DescribeElasticsearchDomains
 import Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
+import Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
+import Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
 import Network.AWS.ElasticSearch.ListDomainNames
 import Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
 import Network.AWS.ElasticSearch.ListElasticsearchVersions
 import Network.AWS.ElasticSearch.ListTags
+import Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
 import Network.AWS.ElasticSearch.RemoveTags
 import Network.AWS.ElasticSearch.Types
 import Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig

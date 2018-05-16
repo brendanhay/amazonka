@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetCurrentUser
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,7 +54,7 @@ newtype GetCurrentUser = GetCurrentUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcuAuthenticationToken' - Amazon WorkDocs authentication token.
+-- * 'gcuAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 getCurrentUser
     :: Text -- ^ 'gcuAuthenticationToken'
     -> GetCurrentUser
@@ -62,9 +62,9 @@ getCurrentUser pAuthenticationToken_ =
   GetCurrentUser' {_gcuAuthenticationToken = _Sensitive # pAuthenticationToken_}
 
 
--- | Amazon WorkDocs authentication token.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 gcuAuthenticationToken :: Lens' GetCurrentUser Text
-gcuAuthenticationToken = lens _gcuAuthenticationToken (\ s a -> s{_gcuAuthenticationToken = a}) . _Sensitive;
+gcuAuthenticationToken = lens _gcuAuthenticationToken (\ s a -> s{_gcuAuthenticationToken = a}) . _Sensitive
 
 instance AWSRequest GetCurrentUser where
         type Rs GetCurrentUser = GetCurrentUserResponse
@@ -111,15 +111,15 @@ getCurrentUserResponse
     -> GetCurrentUserResponse
 getCurrentUserResponse pResponseStatus_ =
   GetCurrentUserResponse'
-  {_gcursUser = Nothing, _gcursResponseStatus = pResponseStatus_}
+    {_gcursUser = Nothing, _gcursResponseStatus = pResponseStatus_}
 
 
 -- | Metadata of the user.
 gcursUser :: Lens' GetCurrentUserResponse (Maybe User)
-gcursUser = lens _gcursUser (\ s a -> s{_gcursUser = a});
+gcursUser = lens _gcursUser (\ s a -> s{_gcursUser = a})
 
 -- | -- | The response status code.
 gcursResponseStatus :: Lens' GetCurrentUserResponse Int
-gcursResponseStatus = lens _gcursResponseStatus (\ s a -> s{_gcursResponseStatus = a});
+gcursResponseStatus = lens _gcursResponseStatus (\ s a -> s{_gcursResponseStatus = a})
 
 instance NFData GetCurrentUserResponse where

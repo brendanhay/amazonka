@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateGameSession
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -106,33 +106,33 @@ updateGameSession
     -> UpdateGameSession
 updateGameSession pGameSessionId_ =
   UpdateGameSession'
-  { _ugsMaximumPlayerSessionCount = Nothing
-  , _ugsPlayerSessionCreationPolicy = Nothing
-  , _ugsName = Nothing
-  , _ugsProtectionPolicy = Nothing
-  , _ugsGameSessionId = pGameSessionId_
-  }
+    { _ugsMaximumPlayerSessionCount = Nothing
+    , _ugsPlayerSessionCreationPolicy = Nothing
+    , _ugsName = Nothing
+    , _ugsProtectionPolicy = Nothing
+    , _ugsGameSessionId = pGameSessionId_
+    }
 
 
 -- | Maximum number of players that can be connected simultaneously to the game session.
 ugsMaximumPlayerSessionCount :: Lens' UpdateGameSession (Maybe Natural)
-ugsMaximumPlayerSessionCount = lens _ugsMaximumPlayerSessionCount (\ s a -> s{_ugsMaximumPlayerSessionCount = a}) . mapping _Nat;
+ugsMaximumPlayerSessionCount = lens _ugsMaximumPlayerSessionCount (\ s a -> s{_ugsMaximumPlayerSessionCount = a}) . mapping _Nat
 
 -- | Policy determining whether or not the game session accepts new players.
 ugsPlayerSessionCreationPolicy :: Lens' UpdateGameSession (Maybe PlayerSessionCreationPolicy)
-ugsPlayerSessionCreationPolicy = lens _ugsPlayerSessionCreationPolicy (\ s a -> s{_ugsPlayerSessionCreationPolicy = a});
+ugsPlayerSessionCreationPolicy = lens _ugsPlayerSessionCreationPolicy (\ s a -> s{_ugsPlayerSessionCreationPolicy = a})
 
 -- | Descriptive label that is associated with a game session. Session names do not need to be unique.
 ugsName :: Lens' UpdateGameSession (Maybe Text)
-ugsName = lens _ugsName (\ s a -> s{_ugsName = a});
+ugsName = lens _ugsName (\ s a -> s{_ugsName = a})
 
 -- | Game session protection policy to apply to this game session only.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 ugsProtectionPolicy :: Lens' UpdateGameSession (Maybe ProtectionPolicy)
-ugsProtectionPolicy = lens _ugsProtectionPolicy (\ s a -> s{_ugsProtectionPolicy = a});
+ugsProtectionPolicy = lens _ugsProtectionPolicy (\ s a -> s{_ugsProtectionPolicy = a})
 
 -- | Unique identifier for the game session to update.
 ugsGameSessionId :: Lens' UpdateGameSession Text
-ugsGameSessionId = lens _ugsGameSessionId (\ s a -> s{_ugsGameSessionId = a});
+ugsGameSessionId = lens _ugsGameSessionId (\ s a -> s{_ugsGameSessionId = a})
 
 instance AWSRequest UpdateGameSession where
         type Rs UpdateGameSession = UpdateGameSessionResponse
@@ -197,15 +197,15 @@ updateGameSessionResponse
     -> UpdateGameSessionResponse
 updateGameSessionResponse pResponseStatus_ =
   UpdateGameSessionResponse'
-  {_ugsrsGameSession = Nothing, _ugsrsResponseStatus = pResponseStatus_}
+    {_ugsrsGameSession = Nothing, _ugsrsResponseStatus = pResponseStatus_}
 
 
 -- | Object that contains the updated game session metadata.
 ugsrsGameSession :: Lens' UpdateGameSessionResponse (Maybe GameSession)
-ugsrsGameSession = lens _ugsrsGameSession (\ s a -> s{_ugsrsGameSession = a});
+ugsrsGameSession = lens _ugsrsGameSession (\ s a -> s{_ugsrsGameSession = a})
 
 -- | -- | The response status code.
 ugsrsResponseStatus :: Lens' UpdateGameSessionResponse Int
-ugsrsResponseStatus = lens _ugsrsResponseStatus (\ s a -> s{_ugsrsResponseStatus = a});
+ugsrsResponseStatus = lens _ugsrsResponseStatus (\ s a -> s{_ugsrsResponseStatus = a})
 
 instance NFData UpdateGameSessionResponse where

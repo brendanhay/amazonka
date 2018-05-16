@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListOfferingPromotions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ listOfferingPromotions = ListOfferingPromotions' {_lopNextToken = Nothing}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lopNextToken :: Lens' ListOfferingPromotions (Maybe Text)
-lopNextToken = lens _lopNextToken (\ s a -> s{_lopNextToken = a});
+lopNextToken = lens _lopNextToken (\ s a -> s{_lopNextToken = a})
 
 instance AWSRequest ListOfferingPromotions where
         type Rs ListOfferingPromotions =
@@ -124,22 +124,22 @@ listOfferingPromotionsResponse
     -> ListOfferingPromotionsResponse
 listOfferingPromotionsResponse pResponseStatus_ =
   ListOfferingPromotionsResponse'
-  { _loprsNextToken = Nothing
-  , _loprsOfferingPromotions = Nothing
-  , _loprsResponseStatus = pResponseStatus_
-  }
+    { _loprsNextToken = Nothing
+    , _loprsOfferingPromotions = Nothing
+    , _loprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An identifier to be used in the next call to this operation, to return the next set of items in the list.
 loprsNextToken :: Lens' ListOfferingPromotionsResponse (Maybe Text)
-loprsNextToken = lens _loprsNextToken (\ s a -> s{_loprsNextToken = a});
+loprsNextToken = lens _loprsNextToken (\ s a -> s{_loprsNextToken = a})
 
 -- | Information about the offering promotions.
 loprsOfferingPromotions :: Lens' ListOfferingPromotionsResponse [OfferingPromotion]
-loprsOfferingPromotions = lens _loprsOfferingPromotions (\ s a -> s{_loprsOfferingPromotions = a}) . _Default . _Coerce;
+loprsOfferingPromotions = lens _loprsOfferingPromotions (\ s a -> s{_loprsOfferingPromotions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 loprsResponseStatus :: Lens' ListOfferingPromotionsResponse Int
-loprsResponseStatus = lens _loprsResponseStatus (\ s a -> s{_loprsResponseStatus = a});
+loprsResponseStatus = lens _loprsResponseStatus (\ s a -> s{_loprsResponseStatus = a})
 
 instance NFData ListOfferingPromotionsResponse where

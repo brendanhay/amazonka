@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the connection status of a specified WorkSpace.
+-- Describes the connection status of the specified WorkSpaces.
 --
 --
 module Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
@@ -57,23 +57,23 @@ data DescribeWorkspacesConnectionStatus = DescribeWorkspacesConnectionStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwcsWorkspaceIds' - An array of strings that contain the identifiers of the WorkSpaces.
+-- * 'dwcsWorkspaceIds' - The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
 --
--- * 'dwcsNextToken' - The next token of the request.
+-- * 'dwcsNextToken' - The token for the next set of results. (You received this token from a previous call.)
 describeWorkspacesConnectionStatus
     :: DescribeWorkspacesConnectionStatus
 describeWorkspacesConnectionStatus =
   DescribeWorkspacesConnectionStatus'
-  {_dwcsWorkspaceIds = Nothing, _dwcsNextToken = Nothing}
+    {_dwcsWorkspaceIds = Nothing, _dwcsNextToken = Nothing}
 
 
--- | An array of strings that contain the identifiers of the WorkSpaces.
+-- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
 dwcsWorkspaceIds :: Lens' DescribeWorkspacesConnectionStatus (Maybe (NonEmpty Text))
-dwcsWorkspaceIds = lens _dwcsWorkspaceIds (\ s a -> s{_dwcsWorkspaceIds = a}) . mapping _List1;
+dwcsWorkspaceIds = lens _dwcsWorkspaceIds (\ s a -> s{_dwcsWorkspaceIds = a}) . mapping _List1
 
--- | The next token of the request.
+-- | The token for the next set of results. (You received this token from a previous call.)
 dwcsNextToken :: Lens' DescribeWorkspacesConnectionStatus (Maybe Text)
-dwcsNextToken = lens _dwcsNextToken (\ s a -> s{_dwcsNextToken = a});
+dwcsNextToken = lens _dwcsNextToken (\ s a -> s{_dwcsNextToken = a})
 
 instance AWSRequest
            DescribeWorkspacesConnectionStatus
@@ -134,9 +134,9 @@ data DescribeWorkspacesConnectionStatusResponse = DescribeWorkspacesConnectionSt
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwcsrsNextToken' - The next token of the result.
+-- * 'dwcsrsNextToken' - The token to use to retrieve the next set of results, or null if there are no more results available.
 --
--- * 'dwcsrsWorkspacesConnectionStatus' - The connection status of the WorkSpace.
+-- * 'dwcsrsWorkspacesConnectionStatus' - Information about the connection status of the WorkSpace.
 --
 -- * 'dwcsrsResponseStatus' - -- | The response status code.
 describeWorkspacesConnectionStatusResponse
@@ -144,23 +144,23 @@ describeWorkspacesConnectionStatusResponse
     -> DescribeWorkspacesConnectionStatusResponse
 describeWorkspacesConnectionStatusResponse pResponseStatus_ =
   DescribeWorkspacesConnectionStatusResponse'
-  { _dwcsrsNextToken = Nothing
-  , _dwcsrsWorkspacesConnectionStatus = Nothing
-  , _dwcsrsResponseStatus = pResponseStatus_
-  }
+    { _dwcsrsNextToken = Nothing
+    , _dwcsrsWorkspacesConnectionStatus = Nothing
+    , _dwcsrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The next token of the result.
+-- | The token to use to retrieve the next set of results, or null if there are no more results available.
 dwcsrsNextToken :: Lens' DescribeWorkspacesConnectionStatusResponse (Maybe Text)
-dwcsrsNextToken = lens _dwcsrsNextToken (\ s a -> s{_dwcsrsNextToken = a});
+dwcsrsNextToken = lens _dwcsrsNextToken (\ s a -> s{_dwcsrsNextToken = a})
 
--- | The connection status of the WorkSpace.
+-- | Information about the connection status of the WorkSpace.
 dwcsrsWorkspacesConnectionStatus :: Lens' DescribeWorkspacesConnectionStatusResponse [WorkspaceConnectionStatus]
-dwcsrsWorkspacesConnectionStatus = lens _dwcsrsWorkspacesConnectionStatus (\ s a -> s{_dwcsrsWorkspacesConnectionStatus = a}) . _Default . _Coerce;
+dwcsrsWorkspacesConnectionStatus = lens _dwcsrsWorkspacesConnectionStatus (\ s a -> s{_dwcsrsWorkspacesConnectionStatus = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dwcsrsResponseStatus :: Lens' DescribeWorkspacesConnectionStatusResponse Int
-dwcsrsResponseStatus = lens _dwcsrsResponseStatus (\ s a -> s{_dwcsrsResponseStatus = a});
+dwcsrsResponseStatus = lens _dwcsrsResponseStatus (\ s a -> s{_dwcsrsResponseStatus = a})
 
 instance NFData
            DescribeWorkspacesConnectionStatusResponse

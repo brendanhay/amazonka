@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteEventSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ deleteEventSubscription pSubscriptionName_ =
 
 -- | The name of the RDS event notification subscription you want to delete.
 desSubscriptionName :: Lens' DeleteEventSubscription Text
-desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName = a});
+desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName = a})
 
 instance AWSRequest DeleteEventSubscription where
         type Rs DeleteEventSubscription =
@@ -117,15 +117,15 @@ deleteEventSubscriptionResponse
     -> DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse pResponseStatus_ =
   DeleteEventSubscriptionResponse'
-  {_drsEventSubscription = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsEventSubscription = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 drsEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
-drsEventSubscription = lens _drsEventSubscription (\ s a -> s{_drsEventSubscription = a});
+drsEventSubscription = lens _drsEventSubscription (\ s a -> s{_drsEventSubscription = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteEventSubscriptionResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteEventSubscriptionResponse where

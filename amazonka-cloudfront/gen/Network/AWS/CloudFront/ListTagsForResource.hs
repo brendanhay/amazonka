@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListTagsForResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ listTagsForResource pResource_ =
 
 -- | An ARN of a CloudFront resource.
 ltfrResource :: Lens' ListTagsForResource Text
-ltfrResource = lens _ltfrResource (\ s a -> s{_ltfrResource = a});
+ltfrResource = lens _ltfrResource (\ s a -> s{_ltfrResource = a})
 
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource =
@@ -88,7 +88,7 @@ instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
 
 instance ToPath ListTagsForResource where
-        toPath = const "/2017-03-25/tagging"
+        toPath = const "/2017-10-30/tagging"
 
 instance ToQuery ListTagsForResource where
         toQuery ListTagsForResource'{..}
@@ -118,15 +118,15 @@ listTagsForResourceResponse
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ pTags_ =
   ListTagsForResourceResponse'
-  {_ltfrrsResponseStatus = pResponseStatus_, _ltfrrsTags = pTags_}
+    {_ltfrrsResponseStatus = pResponseStatus_, _ltfrrsTags = pTags_}
 
 
 -- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a})
 
 -- | A complex type that contains zero or more @Tag@ elements.
 ltfrrsTags :: Lens' ListTagsForResourceResponse Tags
-ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a});
+ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a})
 
 instance NFData ListTagsForResourceResponse where

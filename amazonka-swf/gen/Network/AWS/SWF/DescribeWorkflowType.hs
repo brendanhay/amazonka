@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeWorkflowType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,16 +86,16 @@ describeWorkflowType
     -> DescribeWorkflowType
 describeWorkflowType pDomain_ pWorkflowType_ =
   DescribeWorkflowType'
-  {_dwtDomain = pDomain_, _dwtWorkflowType = pWorkflowType_}
+    {_dwtDomain = pDomain_, _dwtWorkflowType = pWorkflowType_}
 
 
 -- | The name of the domain in which this workflow type is registered.
 dwtDomain :: Lens' DescribeWorkflowType Text
-dwtDomain = lens _dwtDomain (\ s a -> s{_dwtDomain = a});
+dwtDomain = lens _dwtDomain (\ s a -> s{_dwtDomain = a})
 
 -- | The workflow type to describe.
 dwtWorkflowType :: Lens' DescribeWorkflowType WorkflowType
-dwtWorkflowType = lens _dwtWorkflowType (\ s a -> s{_dwtWorkflowType = a});
+dwtWorkflowType = lens _dwtWorkflowType (\ s a -> s{_dwtWorkflowType = a})
 
 instance AWSRequest DescribeWorkflowType where
         type Rs DescribeWorkflowType =
@@ -163,22 +163,22 @@ describeWorkflowTypeResponse
     -> DescribeWorkflowTypeResponse
 describeWorkflowTypeResponse pResponseStatus_ pTypeInfo_ pConfiguration_ =
   DescribeWorkflowTypeResponse'
-  { _dwtrsResponseStatus = pResponseStatus_
-  , _dwtrsTypeInfo = pTypeInfo_
-  , _dwtrsConfiguration = pConfiguration_
-  }
+    { _dwtrsResponseStatus = pResponseStatus_
+    , _dwtrsTypeInfo = pTypeInfo_
+    , _dwtrsConfiguration = pConfiguration_
+    }
 
 
 -- | -- | The response status code.
 dwtrsResponseStatus :: Lens' DescribeWorkflowTypeResponse Int
-dwtrsResponseStatus = lens _dwtrsResponseStatus (\ s a -> s{_dwtrsResponseStatus = a});
+dwtrsResponseStatus = lens _dwtrsResponseStatus (\ s a -> s{_dwtrsResponseStatus = a})
 
 -- | General information about the workflow type. The status of the workflow type (returned in the WorkflowTypeInfo structure) can be one of the following.     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.     * @DEPRECATED@ – The type was deprecated using 'DeprecateWorkflowType' , but is still in use. You should keep workers supporting this type running. You cannot create new workflow executions of this type.
 dwtrsTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
-dwtrsTypeInfo = lens _dwtrsTypeInfo (\ s a -> s{_dwtrsTypeInfo = a});
+dwtrsTypeInfo = lens _dwtrsTypeInfo (\ s a -> s{_dwtrsTypeInfo = a})
 
 -- | Configuration settings of the workflow type registered through 'RegisterWorkflowType'
 dwtrsConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
-dwtrsConfiguration = lens _dwtrsConfiguration (\ s a -> s{_dwtrsConfiguration = a});
+dwtrsConfiguration = lens _dwtrsConfiguration (\ s a -> s{_dwtrsConfiguration = a})
 
 instance NFData DescribeWorkflowTypeResponse where

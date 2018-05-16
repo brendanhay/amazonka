@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsIngress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ updateSecurityGroupRuleDescriptionsIngress
     :: UpdateSecurityGroupRuleDescriptionsIngress
 updateSecurityGroupRuleDescriptionsIngress =
   UpdateSecurityGroupRuleDescriptionsIngress'
-  { _usgrdiGroupId = Nothing
-  , _usgrdiGroupName = Nothing
-  , _usgrdiDryRun = Nothing
-  , _usgrdiIPPermissions = mempty
-  }
+    { _usgrdiGroupId = Nothing
+    , _usgrdiGroupName = Nothing
+    , _usgrdiDryRun = Nothing
+    , _usgrdiIPPermissions = mempty
+    }
 
 
 -- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 usgrdiGroupId :: Lens' UpdateSecurityGroupRuleDescriptionsIngress (Maybe Text)
-usgrdiGroupId = lens _usgrdiGroupId (\ s a -> s{_usgrdiGroupId = a});
+usgrdiGroupId = lens _usgrdiGroupId (\ s a -> s{_usgrdiGroupId = a})
 
 -- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
 usgrdiGroupName :: Lens' UpdateSecurityGroupRuleDescriptionsIngress (Maybe Text)
-usgrdiGroupName = lens _usgrdiGroupName (\ s a -> s{_usgrdiGroupName = a});
+usgrdiGroupName = lens _usgrdiGroupName (\ s a -> s{_usgrdiGroupName = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 usgrdiDryRun :: Lens' UpdateSecurityGroupRuleDescriptionsIngress (Maybe Bool)
-usgrdiDryRun = lens _usgrdiDryRun (\ s a -> s{_usgrdiDryRun = a});
+usgrdiDryRun = lens _usgrdiDryRun (\ s a -> s{_usgrdiDryRun = a})
 
 -- | The IP permissions for the security group rule.
 usgrdiIPPermissions :: Lens' UpdateSecurityGroupRuleDescriptionsIngress [IPPermission]
-usgrdiIPPermissions = lens _usgrdiIPPermissions (\ s a -> s{_usgrdiIPPermissions = a}) . _Coerce;
+usgrdiIPPermissions = lens _usgrdiIPPermissions (\ s a -> s{_usgrdiIPPermissions = a}) . _Coerce
 
 instance AWSRequest
            UpdateSecurityGroupRuleDescriptionsIngress
@@ -168,16 +168,16 @@ updateSecurityGroupRuleDescriptionsIngressResponse
     -> UpdateSecurityGroupRuleDescriptionsIngressResponse
 updateSecurityGroupRuleDescriptionsIngressResponse pResponseStatus_ =
   UpdateSecurityGroupRuleDescriptionsIngressResponse'
-  {_usgrdirsReturn = Nothing, _usgrdirsResponseStatus = pResponseStatus_}
+    {_usgrdirsReturn = Nothing, _usgrdirsResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds; otherwise, returns an error.
 usgrdirsReturn :: Lens' UpdateSecurityGroupRuleDescriptionsIngressResponse (Maybe Bool)
-usgrdirsReturn = lens _usgrdirsReturn (\ s a -> s{_usgrdirsReturn = a});
+usgrdirsReturn = lens _usgrdirsReturn (\ s a -> s{_usgrdirsReturn = a})
 
 -- | -- | The response status code.
 usgrdirsResponseStatus :: Lens' UpdateSecurityGroupRuleDescriptionsIngressResponse Int
-usgrdirsResponseStatus = lens _usgrdirsResponseStatus (\ s a -> s{_usgrdirsResponseStatus = a});
+usgrdirsResponseStatus = lens _usgrdirsResponseStatus (\ s a -> s{_usgrdirsResponseStatus = a})
 
 instance NFData
            UpdateSecurityGroupRuleDescriptionsIngressResponse

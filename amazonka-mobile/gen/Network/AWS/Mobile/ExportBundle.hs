@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Mobile.ExportBundle
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,20 +72,20 @@ exportBundle
     -> ExportBundle
 exportBundle pBundleId_ =
   ExportBundle'
-  {_ebPlatform = Nothing, _ebProjectId = Nothing, _ebBundleId = pBundleId_}
+    {_ebPlatform = Nothing, _ebProjectId = Nothing, _ebBundleId = pBundleId_}
 
 
 -- | Developer desktop or target application platform.
 ebPlatform :: Lens' ExportBundle (Maybe Platform)
-ebPlatform = lens _ebPlatform (\ s a -> s{_ebPlatform = a});
+ebPlatform = lens _ebPlatform (\ s a -> s{_ebPlatform = a})
 
 -- | Unique project identifier.
 ebProjectId :: Lens' ExportBundle (Maybe Text)
-ebProjectId = lens _ebProjectId (\ s a -> s{_ebProjectId = a});
+ebProjectId = lens _ebProjectId (\ s a -> s{_ebProjectId = a})
 
 -- | Unique bundle identifier.
 ebBundleId :: Lens' ExportBundle Text
-ebBundleId = lens _ebBundleId (\ s a -> s{_ebBundleId = a});
+ebBundleId = lens _ebBundleId (\ s a -> s{_ebBundleId = a})
 
 instance AWSRequest ExportBundle where
         type Rs ExportBundle = ExportBundleResponse
@@ -143,15 +143,15 @@ exportBundleResponse
     -> ExportBundleResponse
 exportBundleResponse pResponseStatus_ =
   ExportBundleResponse'
-  {_ebrsDownloadURL = Nothing, _ebrsResponseStatus = pResponseStatus_}
+    {_ebrsDownloadURL = Nothing, _ebrsResponseStatus = pResponseStatus_}
 
 
 -- | URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project.
 ebrsDownloadURL :: Lens' ExportBundleResponse (Maybe Text)
-ebrsDownloadURL = lens _ebrsDownloadURL (\ s a -> s{_ebrsDownloadURL = a});
+ebrsDownloadURL = lens _ebrsDownloadURL (\ s a -> s{_ebrsDownloadURL = a})
 
 -- | -- | The response status code.
 ebrsResponseStatus :: Lens' ExportBundleResponse Int
-ebrsResponseStatus = lens _ebrsResponseStatus (\ s a -> s{_ebrsResponseStatus = a});
+ebrsResponseStatus = lens _ebrsResponseStatus (\ s a -> s{_ebrsResponseStatus = a})
 
 instance NFData ExportBundleResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.CreateSqlInjectionMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,16 +84,16 @@ createSqlInjectionMatchSet
     -> CreateSqlInjectionMatchSet
 createSqlInjectionMatchSet pName_ pChangeToken_ =
   CreateSqlInjectionMatchSet'
-  {_csimsName = pName_, _csimsChangeToken = pChangeToken_}
+    {_csimsName = pName_, _csimsChangeToken = pChangeToken_}
 
 
 -- | A friendly name or description for the 'SqlInjectionMatchSet' that you're creating. You can't change @Name@ after you create the @SqlInjectionMatchSet@ .
 csimsName :: Lens' CreateSqlInjectionMatchSet Text
-csimsName = lens _csimsName (\ s a -> s{_csimsName = a});
+csimsName = lens _csimsName (\ s a -> s{_csimsName = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 csimsChangeToken :: Lens' CreateSqlInjectionMatchSet Text
-csimsChangeToken = lens _csimsChangeToken (\ s a -> s{_csimsChangeToken = a});
+csimsChangeToken = lens _csimsChangeToken (\ s a -> s{_csimsChangeToken = a})
 
 instance AWSRequest CreateSqlInjectionMatchSet where
         type Rs CreateSqlInjectionMatchSet =
@@ -160,23 +160,23 @@ createSqlInjectionMatchSetResponse
     -> CreateSqlInjectionMatchSetResponse
 createSqlInjectionMatchSetResponse pResponseStatus_ =
   CreateSqlInjectionMatchSetResponse'
-  { _csimsrsSqlInjectionMatchSet = Nothing
-  , _csimsrsChangeToken = Nothing
-  , _csimsrsResponseStatus = pResponseStatus_
-  }
+    { _csimsrsSqlInjectionMatchSet = Nothing
+    , _csimsrsChangeToken = Nothing
+    , _csimsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A 'SqlInjectionMatchSet' .
 csimsrsSqlInjectionMatchSet :: Lens' CreateSqlInjectionMatchSetResponse (Maybe SqlInjectionMatchSet)
-csimsrsSqlInjectionMatchSet = lens _csimsrsSqlInjectionMatchSet (\ s a -> s{_csimsrsSqlInjectionMatchSet = a});
+csimsrsSqlInjectionMatchSet = lens _csimsrsSqlInjectionMatchSet (\ s a -> s{_csimsrsSqlInjectionMatchSet = a})
 
 -- | The @ChangeToken@ that you used to submit the @CreateSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 csimsrsChangeToken :: Lens' CreateSqlInjectionMatchSetResponse (Maybe Text)
-csimsrsChangeToken = lens _csimsrsChangeToken (\ s a -> s{_csimsrsChangeToken = a});
+csimsrsChangeToken = lens _csimsrsChangeToken (\ s a -> s{_csimsrsChangeToken = a})
 
 -- | -- | The response status code.
 csimsrsResponseStatus :: Lens' CreateSqlInjectionMatchSetResponse Int
-csimsrsResponseStatus = lens _csimsrsResponseStatus (\ s a -> s{_csimsrsResponseStatus = a});
+csimsrsResponseStatus = lens _csimsrsResponseStatus (\ s a -> s{_csimsrsResponseStatus = a})
 
 instance NFData CreateSqlInjectionMatchSetResponse
          where

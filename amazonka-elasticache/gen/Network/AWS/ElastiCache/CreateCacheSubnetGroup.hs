@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateCacheSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ createCacheSubnetGroup
     -> CreateCacheSubnetGroup
 createCacheSubnetGroup pCacheSubnetGroupName_ pCacheSubnetGroupDescription_ =
   CreateCacheSubnetGroup'
-  { _ccsgCacheSubnetGroupName = pCacheSubnetGroupName_
-  , _ccsgCacheSubnetGroupDescription = pCacheSubnetGroupDescription_
-  , _ccsgSubnetIds = mempty
-  }
+    { _ccsgCacheSubnetGroupName = pCacheSubnetGroupName_
+    , _ccsgCacheSubnetGroupDescription = pCacheSubnetGroupDescription_
+    , _ccsgSubnetIds = mempty
+    }
 
 
 -- | A name for the cache subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Example: @mysubnetgroup@
 ccsgCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text
-ccsgCacheSubnetGroupName = lens _ccsgCacheSubnetGroupName (\ s a -> s{_ccsgCacheSubnetGroupName = a});
+ccsgCacheSubnetGroupName = lens _ccsgCacheSubnetGroupName (\ s a -> s{_ccsgCacheSubnetGroupName = a})
 
 -- | A description for the cache subnet group.
 ccsgCacheSubnetGroupDescription :: Lens' CreateCacheSubnetGroup Text
-ccsgCacheSubnetGroupDescription = lens _ccsgCacheSubnetGroupDescription (\ s a -> s{_ccsgCacheSubnetGroupDescription = a});
+ccsgCacheSubnetGroupDescription = lens _ccsgCacheSubnetGroupDescription (\ s a -> s{_ccsgCacheSubnetGroupDescription = a})
 
 -- | A list of VPC subnet IDs for the cache subnet group.
 ccsgSubnetIds :: Lens' CreateCacheSubnetGroup [Text]
-ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a}) . _Coerce;
+ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a}) . _Coerce
 
 instance AWSRequest CreateCacheSubnetGroup where
         type Rs CreateCacheSubnetGroup =
@@ -144,15 +144,15 @@ createCacheSubnetGroupResponse
     -> CreateCacheSubnetGroupResponse
 createCacheSubnetGroupResponse pResponseStatus_ =
   CreateCacheSubnetGroupResponse'
-  {_crsCacheSubnetGroup = Nothing, _crsResponseStatus = pResponseStatus_}
+    {_crsCacheSubnetGroup = Nothing, _crsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 crsCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
-crsCacheSubnetGroup = lens _crsCacheSubnetGroup (\ s a -> s{_crsCacheSubnetGroup = a});
+crsCacheSubnetGroup = lens _crsCacheSubnetGroup (\ s a -> s{_crsCacheSubnetGroup = a})
 
 -- | -- | The response status code.
 crsResponseStatus :: Lens' CreateCacheSubnetGroupResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
 
 instance NFData CreateCacheSubnetGroupResponse where

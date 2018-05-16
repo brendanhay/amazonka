@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.ListBuilds
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ listBuilds = ListBuilds' {_lbSortOrder = Nothing, _lbNextToken = Nothing}
 
 -- | The order to list build IDs. Valid values include:     * @ASCENDING@ : List the build IDs in ascending order by build ID.     * @DESCENDING@ : List the build IDs in descending order by build ID.
 lbSortOrder :: Lens' ListBuilds (Maybe SortOrderType)
-lbSortOrder = lens _lbSortOrder (\ s a -> s{_lbSortOrder = a});
+lbSortOrder = lens _lbSortOrder (\ s a -> s{_lbSortOrder = a})
 
 -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 lbNextToken :: Lens' ListBuilds (Maybe Text)
-lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a});
+lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a})
 
 instance AWSPager ListBuilds where
         page rq rs
@@ -141,22 +141,22 @@ listBuildsResponse
     -> ListBuildsResponse
 listBuildsResponse pResponseStatus_ =
   ListBuildsResponse'
-  { _lbrsIds = Nothing
-  , _lbrsNextToken = Nothing
-  , _lbrsResponseStatus = pResponseStatus_
-  }
+    { _lbrsIds = Nothing
+    , _lbrsNextToken = Nothing
+    , _lbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of build IDs, with each build ID representing a single build.
 lbrsIds :: Lens' ListBuildsResponse (Maybe (NonEmpty Text))
-lbrsIds = lens _lbrsIds (\ s a -> s{_lbrsIds = a}) . mapping _List1;
+lbrsIds = lens _lbrsIds (\ s a -> s{_lbrsIds = a}) . mapping _List1
 
 -- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
 lbrsNextToken :: Lens' ListBuildsResponse (Maybe Text)
-lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
+lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a})
 
 -- | -- | The response status code.
 lbrsResponseStatus :: Lens' ListBuildsResponse Int
-lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
+lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a})
 
 instance NFData ListBuildsResponse where

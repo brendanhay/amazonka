@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeCertificates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Provides a description of the certificate.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DMS.DescribeCertificates
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.DMS.DescribeCertificates
 import Network.AWS.DMS.Types
 import Network.AWS.DMS.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -68,20 +71,26 @@ describeCertificates
     :: DescribeCertificates
 describeCertificates =
   DescribeCertificates'
-  {_dFilters = Nothing, _dMarker = Nothing, _dMaxRecords = Nothing}
+    {_dFilters = Nothing, _dMarker = Nothing, _dMaxRecords = Nothing}
 
 
 -- | Filters applied to the certificate described in the form of key-value pairs.
 dFilters :: Lens' DescribeCertificates [Filter]
-dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
+dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dMarker :: Lens' DescribeCertificates (Maybe Text)
-dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
+dMarker = lens _dMarker (\ s a -> s{_dMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 10
 dMaxRecords :: Lens' DescribeCertificates (Maybe Int)
-dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
+dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a})
+
+instance AWSPager DescribeCertificates where
+        page rq rs
+          | stop (rs ^. dcrsMarker) = Nothing
+          | stop (rs ^. dcrsCertificates) = Nothing
+          | otherwise = Just $ rq & dMarker .~ rs ^. dcrsMarker
 
 instance AWSRequest DescribeCertificates where
         type Rs DescribeCertificates =
@@ -145,22 +154,22 @@ describeCertificatesResponse
     -> DescribeCertificatesResponse
 describeCertificatesResponse pResponseStatus_ =
   DescribeCertificatesResponse'
-  { _dcrsCertificates = Nothing
-  , _dcrsMarker = Nothing
-  , _dcrsResponseStatus = pResponseStatus_
-  }
+    { _dcrsCertificates = Nothing
+    , _dcrsMarker = Nothing
+    , _dcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The Secure Sockets Layer (SSL) certificates associated with the replication instance.
 dcrsCertificates :: Lens' DescribeCertificatesResponse [Certificate]
-dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . _Default . _Coerce;
+dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . _Default . _Coerce
 
 -- | The pagination token.
 dcrsMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
-dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
+dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a})
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCertificatesResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DescribeCertificatesResponse where

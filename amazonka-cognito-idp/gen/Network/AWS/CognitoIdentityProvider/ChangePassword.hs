@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ChangePassword
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,11 +61,11 @@ data ChangePassword = ChangePassword'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpPreviousPassword' - The old password in the change password request.
+-- * 'cpPreviousPassword' - The old password.
 --
--- * 'cpProposedPassword' - The new password in the change password request.
+-- * 'cpProposedPassword' - The new password.
 --
--- * 'cpAccessToken' - The access token in the change password request.
+-- * 'cpAccessToken' - The access token.
 changePassword
     :: Text -- ^ 'cpPreviousPassword'
     -> Text -- ^ 'cpProposedPassword'
@@ -73,23 +73,23 @@ changePassword
     -> ChangePassword
 changePassword pPreviousPassword_ pProposedPassword_ pAccessToken_ =
   ChangePassword'
-  { _cpPreviousPassword = _Sensitive # pPreviousPassword_
-  , _cpProposedPassword = _Sensitive # pProposedPassword_
-  , _cpAccessToken = _Sensitive # pAccessToken_
-  }
+    { _cpPreviousPassword = _Sensitive # pPreviousPassword_
+    , _cpProposedPassword = _Sensitive # pProposedPassword_
+    , _cpAccessToken = _Sensitive # pAccessToken_
+    }
 
 
--- | The old password in the change password request.
+-- | The old password.
 cpPreviousPassword :: Lens' ChangePassword Text
-cpPreviousPassword = lens _cpPreviousPassword (\ s a -> s{_cpPreviousPassword = a}) . _Sensitive;
+cpPreviousPassword = lens _cpPreviousPassword (\ s a -> s{_cpPreviousPassword = a}) . _Sensitive
 
--- | The new password in the change password request.
+-- | The new password.
 cpProposedPassword :: Lens' ChangePassword Text
-cpProposedPassword = lens _cpProposedPassword (\ s a -> s{_cpProposedPassword = a}) . _Sensitive;
+cpProposedPassword = lens _cpProposedPassword (\ s a -> s{_cpProposedPassword = a}) . _Sensitive
 
--- | The access token in the change password request.
+-- | The access token.
 cpAccessToken :: Lens' ChangePassword Text
-cpAccessToken = lens _cpAccessToken (\ s a -> s{_cpAccessToken = a}) . _Sensitive;
+cpAccessToken = lens _cpAccessToken (\ s a -> s{_cpAccessToken = a}) . _Sensitive
 
 instance AWSRequest ChangePassword where
         type Rs ChangePassword = ChangePasswordResponse
@@ -151,6 +151,6 @@ changePasswordResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' ChangePasswordResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
 
 instance NFData ChangePasswordResponse where

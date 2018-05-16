@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateNetworkInterfacePermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,33 +83,33 @@ createNetworkInterfacePermission
     -> CreateNetworkInterfacePermission
 createNetworkInterfacePermission pNetworkInterfaceId_ pPermission_ =
   CreateNetworkInterfacePermission'
-  { _cnipAWSAccountId = Nothing
-  , _cnipAWSService = Nothing
-  , _cnipDryRun = Nothing
-  , _cnipNetworkInterfaceId = pNetworkInterfaceId_
-  , _cnipPermission = pPermission_
-  }
+    { _cnipAWSAccountId = Nothing
+    , _cnipAWSService = Nothing
+    , _cnipDryRun = Nothing
+    , _cnipNetworkInterfaceId = pNetworkInterfaceId_
+    , _cnipPermission = pPermission_
+    }
 
 
 -- | The AWS account ID.
 cnipAWSAccountId :: Lens' CreateNetworkInterfacePermission (Maybe Text)
-cnipAWSAccountId = lens _cnipAWSAccountId (\ s a -> s{_cnipAWSAccountId = a});
+cnipAWSAccountId = lens _cnipAWSAccountId (\ s a -> s{_cnipAWSAccountId = a})
 
 -- | The AWS service. Currently not supported.
 cnipAWSService :: Lens' CreateNetworkInterfacePermission (Maybe Text)
-cnipAWSService = lens _cnipAWSService (\ s a -> s{_cnipAWSService = a});
+cnipAWSService = lens _cnipAWSService (\ s a -> s{_cnipAWSService = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cnipDryRun :: Lens' CreateNetworkInterfacePermission (Maybe Bool)
-cnipDryRun = lens _cnipDryRun (\ s a -> s{_cnipDryRun = a});
+cnipDryRun = lens _cnipDryRun (\ s a -> s{_cnipDryRun = a})
 
 -- | The ID of the network interface.
 cnipNetworkInterfaceId :: Lens' CreateNetworkInterfacePermission Text
-cnipNetworkInterfaceId = lens _cnipNetworkInterfaceId (\ s a -> s{_cnipNetworkInterfaceId = a});
+cnipNetworkInterfaceId = lens _cnipNetworkInterfaceId (\ s a -> s{_cnipNetworkInterfaceId = a})
 
 -- | The type of permission to grant.
 cnipPermission :: Lens' CreateNetworkInterfacePermission InterfacePermissionType
-cnipPermission = lens _cnipPermission (\ s a -> s{_cnipPermission = a});
+cnipPermission = lens _cnipPermission (\ s a -> s{_cnipPermission = a})
 
 instance AWSRequest CreateNetworkInterfacePermission
          where
@@ -173,18 +173,18 @@ createNetworkInterfacePermissionResponse
     -> CreateNetworkInterfacePermissionResponse
 createNetworkInterfacePermissionResponse pResponseStatus_ =
   CreateNetworkInterfacePermissionResponse'
-  { _cniprsInterfacePermission = Nothing
-  , _cniprsResponseStatus = pResponseStatus_
-  }
+    { _cniprsInterfacePermission = Nothing
+    , _cniprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the permission for the network interface.
 cniprsInterfacePermission :: Lens' CreateNetworkInterfacePermissionResponse (Maybe NetworkInterfacePermission)
-cniprsInterfacePermission = lens _cniprsInterfacePermission (\ s a -> s{_cniprsInterfacePermission = a});
+cniprsInterfacePermission = lens _cniprsInterfacePermission (\ s a -> s{_cniprsInterfacePermission = a})
 
 -- | -- | The response status code.
 cniprsResponseStatus :: Lens' CreateNetworkInterfacePermissionResponse Int
-cniprsResponseStatus = lens _cniprsResponseStatus (\ s a -> s{_cniprsResponseStatus = a});
+cniprsResponseStatus = lens _cniprsResponseStatus (\ s a -> s{_cniprsResponseStatus = a})
 
 instance NFData
            CreateNetworkInterfacePermissionResponse

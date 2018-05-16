@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListAliases
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ listAliases = ListAliases' {_laMarker = Nothing, _laLimit = Nothing}
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 laMarker :: Lens' ListAliases (Maybe Text)
-laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
+laMarker = lens _laMarker (\ s a -> s{_laMarker = a})
 
 -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
 laLimit :: Lens' ListAliases (Maybe Natural)
-laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
+laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat
 
 instance AWSPager ListAliases where
         page rq rs
@@ -148,27 +148,27 @@ listAliasesResponse
     -> ListAliasesResponse
 listAliasesResponse pResponseStatus_ =
   ListAliasesResponse'
-  { _larsTruncated = Nothing
-  , _larsAliases = Nothing
-  , _larsNextMarker = Nothing
-  , _larsResponseStatus = pResponseStatus_
-  }
+    { _larsTruncated = Nothing
+    , _larsAliases = Nothing
+    , _larsNextMarker = Nothing
+    , _larsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 larsTruncated :: Lens' ListAliasesResponse (Maybe Bool)
-larsTruncated = lens _larsTruncated (\ s a -> s{_larsTruncated = a});
+larsTruncated = lens _larsTruncated (\ s a -> s{_larsTruncated = a})
 
 -- | A list of aliases.
 larsAliases :: Lens' ListAliasesResponse [AliasListEntry]
-larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
+larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce
 
 -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 larsNextMarker :: Lens' ListAliasesResponse (Maybe Text)
-larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
+larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a})
 
 -- | -- | The response status code.
 larsResponseStatus :: Lens' ListAliasesResponse Int
-larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a})
 
 instance NFData ListAliasesResponse where

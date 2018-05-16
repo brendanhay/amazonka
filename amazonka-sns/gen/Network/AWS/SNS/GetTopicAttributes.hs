@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.GetTopicAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getTopicAttributes pTopicARN_ = GetTopicAttributes' {_gtaTopicARN = pTopicARN_}
 
 -- | The ARN of the topic whose properties you want to get.
 gtaTopicARN :: Lens' GetTopicAttributes Text
-gtaTopicARN = lens _gtaTopicARN (\ s a -> s{_gtaTopicARN = a});
+gtaTopicARN = lens _gtaTopicARN (\ s a -> s{_gtaTopicARN = a})
 
 instance AWSRequest GetTopicAttributes where
         type Rs GetTopicAttributes =
@@ -121,15 +121,15 @@ getTopicAttributesResponse
     -> GetTopicAttributesResponse
 getTopicAttributesResponse pResponseStatus_ =
   GetTopicAttributesResponse'
-  {_gtarsAttributes = Nothing, _gtarsResponseStatus = pResponseStatus_}
+    {_gtarsAttributes = Nothing, _gtarsResponseStatus = pResponseStatus_}
 
 
 -- | A map of the topic's attributes. Attributes in this map include the following:     * @TopicArn@ -- the topic's ARN     * @Owner@ -- the AWS account ID of the topic's owner     * @Policy@ -- the JSON serialization of the topic's access control policy     * @DisplayName@ -- the human-readable name used in the "From" field for notifications to email and email-json endpoints     * @SubscriptionsPending@ -- the number of subscriptions pending confirmation on this topic     * @SubscriptionsConfirmed@ -- the number of confirmed subscriptions on this topic     * @SubscriptionsDeleted@ -- the number of deleted subscriptions on this topic     * @DeliveryPolicy@ -- the JSON serialization of the topic's delivery policy     * @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective delivery policy that takes into account system defaults
 gtarsAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
-gtarsAttributes = lens _gtarsAttributes (\ s a -> s{_gtarsAttributes = a}) . _Default . _Map;
+gtarsAttributes = lens _gtarsAttributes (\ s a -> s{_gtarsAttributes = a}) . _Default . _Map
 
 -- | -- | The response status code.
 gtarsResponseStatus :: Lens' GetTopicAttributesResponse Int
-gtarsResponseStatus = lens _gtarsResponseStatus (\ s a -> s{_gtarsResponseStatus = a});
+gtarsResponseStatus = lens _gtarsResponseStatus (\ s a -> s{_gtarsResponseStatus = a})
 
 instance NFData GetTopicAttributesResponse where

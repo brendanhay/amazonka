@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DeleteDashboards
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,7 +45,7 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteDashboards' smart constructor.
 newtype DeleteDashboards = DeleteDashboards'
-  { _ddDashboardNames :: Maybe [Text]
+  { _ddDashboardNames :: [Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -53,15 +53,15 @@ newtype DeleteDashboards = DeleteDashboards'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddDashboardNames' - The dashboards to be deleted.
+-- * 'ddDashboardNames' - The dashboards to be deleted. This parameter is required.
 deleteDashboards
     :: DeleteDashboards
-deleteDashboards = DeleteDashboards' {_ddDashboardNames = Nothing}
+deleteDashboards = DeleteDashboards' {_ddDashboardNames = mempty}
 
 
--- | The dashboards to be deleted.
+-- | The dashboards to be deleted. This parameter is required.
 ddDashboardNames :: Lens' DeleteDashboards [Text]
-ddDashboardNames = lens _ddDashboardNames (\ s a -> s{_ddDashboardNames = a}) . _Default . _Coerce;
+ddDashboardNames = lens _ddDashboardNames (\ s a -> s{_ddDashboardNames = a}) . _Coerce
 
 instance AWSRequest DeleteDashboards where
         type Rs DeleteDashboards = DeleteDashboardsResponse
@@ -87,7 +87,7 @@ instance ToQuery DeleteDashboards where
               ["Action" =: ("DeleteDashboards" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
                "DashboardNames" =:
-                 toQuery (toQueryList "member" <$> _ddDashboardNames)]
+                 toQueryList "member" _ddDashboardNames]
 
 -- | /See:/ 'deleteDashboardsResponse' smart constructor.
 newtype DeleteDashboardsResponse = DeleteDashboardsResponse'
@@ -109,6 +109,6 @@ deleteDashboardsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDashboardsResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 instance NFData DeleteDashboardsResponse where

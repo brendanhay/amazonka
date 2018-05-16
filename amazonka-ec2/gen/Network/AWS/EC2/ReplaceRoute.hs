@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceRoute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -99,58 +99,58 @@ replaceRoute
     -> ReplaceRoute
 replaceRoute pRouteTableId_ =
   ReplaceRoute'
-  { _rrVPCPeeringConnectionId = Nothing
-  , _rrInstanceId = Nothing
-  , _rrEgressOnlyInternetGatewayId = Nothing
-  , _rrDestinationIPv6CidrBlock = Nothing
-  , _rrNatGatewayId = Nothing
-  , _rrNetworkInterfaceId = Nothing
-  , _rrGatewayId = Nothing
-  , _rrDryRun = Nothing
-  , _rrDestinationCidrBlock = Nothing
-  , _rrRouteTableId = pRouteTableId_
-  }
+    { _rrVPCPeeringConnectionId = Nothing
+    , _rrInstanceId = Nothing
+    , _rrEgressOnlyInternetGatewayId = Nothing
+    , _rrDestinationIPv6CidrBlock = Nothing
+    , _rrNatGatewayId = Nothing
+    , _rrNetworkInterfaceId = Nothing
+    , _rrGatewayId = Nothing
+    , _rrDryRun = Nothing
+    , _rrDestinationCidrBlock = Nothing
+    , _rrRouteTableId = pRouteTableId_
+    }
 
 
 -- | The ID of a VPC peering connection.
 rrVPCPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
-rrVPCPeeringConnectionId = lens _rrVPCPeeringConnectionId (\ s a -> s{_rrVPCPeeringConnectionId = a});
+rrVPCPeeringConnectionId = lens _rrVPCPeeringConnectionId (\ s a -> s{_rrVPCPeeringConnectionId = a})
 
 -- | The ID of a NAT instance in your VPC.
 rrInstanceId :: Lens' ReplaceRoute (Maybe Text)
-rrInstanceId = lens _rrInstanceId (\ s a -> s{_rrInstanceId = a});
+rrInstanceId = lens _rrInstanceId (\ s a -> s{_rrInstanceId = a})
 
 -- | [IPv6 traffic only] The ID of an egress-only Internet gateway.
 rrEgressOnlyInternetGatewayId :: Lens' ReplaceRoute (Maybe Text)
-rrEgressOnlyInternetGatewayId = lens _rrEgressOnlyInternetGatewayId (\ s a -> s{_rrEgressOnlyInternetGatewayId = a});
+rrEgressOnlyInternetGatewayId = lens _rrEgressOnlyInternetGatewayId (\ s a -> s{_rrEgressOnlyInternetGatewayId = a})
 
 -- | The IPv6 CIDR address block used for the destination match. The value you provide must match the CIDR of an existing route in the table.
 rrDestinationIPv6CidrBlock :: Lens' ReplaceRoute (Maybe Text)
-rrDestinationIPv6CidrBlock = lens _rrDestinationIPv6CidrBlock (\ s a -> s{_rrDestinationIPv6CidrBlock = a});
+rrDestinationIPv6CidrBlock = lens _rrDestinationIPv6CidrBlock (\ s a -> s{_rrDestinationIPv6CidrBlock = a})
 
 -- | [IPv4 traffic only] The ID of a NAT gateway.
 rrNatGatewayId :: Lens' ReplaceRoute (Maybe Text)
-rrNatGatewayId = lens _rrNatGatewayId (\ s a -> s{_rrNatGatewayId = a});
+rrNatGatewayId = lens _rrNatGatewayId (\ s a -> s{_rrNatGatewayId = a})
 
 -- | The ID of a network interface.
 rrNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
-rrNetworkInterfaceId = lens _rrNetworkInterfaceId (\ s a -> s{_rrNetworkInterfaceId = a});
+rrNetworkInterfaceId = lens _rrNetworkInterfaceId (\ s a -> s{_rrNetworkInterfaceId = a})
 
 -- | The ID of an Internet gateway or virtual private gateway.
 rrGatewayId :: Lens' ReplaceRoute (Maybe Text)
-rrGatewayId = lens _rrGatewayId (\ s a -> s{_rrGatewayId = a});
+rrGatewayId = lens _rrGatewayId (\ s a -> s{_rrGatewayId = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rrDryRun :: Lens' ReplaceRoute (Maybe Bool)
-rrDryRun = lens _rrDryRun (\ s a -> s{_rrDryRun = a});
+rrDryRun = lens _rrDryRun (\ s a -> s{_rrDryRun = a})
 
 -- | The IPv4 CIDR address block used for the destination match. The value you provide must match the CIDR of an existing route in the table.
 rrDestinationCidrBlock :: Lens' ReplaceRoute (Maybe Text)
-rrDestinationCidrBlock = lens _rrDestinationCidrBlock (\ s a -> s{_rrDestinationCidrBlock = a});
+rrDestinationCidrBlock = lens _rrDestinationCidrBlock (\ s a -> s{_rrDestinationCidrBlock = a})
 
 -- | The ID of the route table.
 rrRouteTableId :: Lens' ReplaceRoute Text
-rrRouteTableId = lens _rrRouteTableId (\ s a -> s{_rrRouteTableId = a});
+rrRouteTableId = lens _rrRouteTableId (\ s a -> s{_rrRouteTableId = a})
 
 instance AWSRequest ReplaceRoute where
         type Rs ReplaceRoute = ReplaceRouteResponse

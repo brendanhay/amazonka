@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListLocalDisks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ listLocalDisks pGatewayARN_ = ListLocalDisks' {_lldGatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
 lldGatewayARN :: Lens' ListLocalDisks Text
-lldGatewayARN = lens _lldGatewayARN (\ s a -> s{_lldGatewayARN = a});
+lldGatewayARN = lens _lldGatewayARN (\ s a -> s{_lldGatewayARN = a})
 
 instance AWSRequest ListLocalDisks where
         type Rs ListLocalDisks = ListLocalDisksResponse
@@ -129,22 +129,22 @@ listLocalDisksResponse
     -> ListLocalDisksResponse
 listLocalDisksResponse pResponseStatus_ =
   ListLocalDisksResponse'
-  { _lldrsGatewayARN = Nothing
-  , _lldrsDisks = Nothing
-  , _lldrsResponseStatus = pResponseStatus_
-  }
+    { _lldrsGatewayARN = Nothing
+    , _lldrsDisks = Nothing
+    , _lldrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 lldrsGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
-lldrsGatewayARN = lens _lldrsGatewayARN (\ s a -> s{_lldrsGatewayARN = a});
+lldrsGatewayARN = lens _lldrsGatewayARN (\ s a -> s{_lldrsGatewayARN = a})
 
 -- | Undocumented member.
 lldrsDisks :: Lens' ListLocalDisksResponse [Disk]
-lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default . _Coerce;
+lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lldrsResponseStatus :: Lens' ListLocalDisksResponse Int
-lldrsResponseStatus = lens _lldrsResponseStatus (\ s a -> s{_lldrsResponseStatus = a});
+lldrsResponseStatus = lens _lldrsResponseStatus (\ s a -> s{_lldrsResponseStatus = a})
 
 instance NFData ListLocalDisksResponse where

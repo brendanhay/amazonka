@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ deleteGroup pGroupName_ pUserPoolId_ =
 
 -- | The name of the group.
 dgGroupName :: Lens' DeleteGroup Text
-dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a});
+dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a})
 
 -- | The user pool ID for the user pool.
 dgUserPoolId :: Lens' DeleteGroup Text
-dgUserPoolId = lens _dgUserPoolId (\ s a -> s{_dgUserPoolId = a});
+dgUserPoolId = lens _dgUserPoolId (\ s a -> s{_dgUserPoolId = a})
 
 instance AWSRequest DeleteGroup where
         type Rs DeleteGroup = DeleteGroupResponse

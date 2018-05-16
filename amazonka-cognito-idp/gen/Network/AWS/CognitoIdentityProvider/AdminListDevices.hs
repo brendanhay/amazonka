@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminListDevices
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,28 +80,28 @@ adminListDevices
     -> AdminListDevices
 adminListDevices pUserPoolId_ pUsername_ =
   AdminListDevices'
-  { _aldPaginationToken = Nothing
-  , _aldLimit = Nothing
-  , _aldUserPoolId = pUserPoolId_
-  , _aldUsername = _Sensitive # pUsername_
-  }
+    { _aldPaginationToken = Nothing
+    , _aldLimit = Nothing
+    , _aldUserPoolId = pUserPoolId_
+    , _aldUsername = _Sensitive # pUsername_
+    }
 
 
 -- | The pagination token.
 aldPaginationToken :: Lens' AdminListDevices (Maybe Text)
-aldPaginationToken = lens _aldPaginationToken (\ s a -> s{_aldPaginationToken = a});
+aldPaginationToken = lens _aldPaginationToken (\ s a -> s{_aldPaginationToken = a})
 
 -- | The limit of the devices request.
 aldLimit :: Lens' AdminListDevices (Maybe Natural)
-aldLimit = lens _aldLimit (\ s a -> s{_aldLimit = a}) . mapping _Nat;
+aldLimit = lens _aldLimit (\ s a -> s{_aldLimit = a}) . mapping _Nat
 
 -- | The user pool ID.
 aldUserPoolId :: Lens' AdminListDevices Text
-aldUserPoolId = lens _aldUserPoolId (\ s a -> s{_aldUserPoolId = a});
+aldUserPoolId = lens _aldUserPoolId (\ s a -> s{_aldUserPoolId = a})
 
 -- | The user name.
 aldUsername :: Lens' AdminListDevices Text
-aldUsername = lens _aldUsername (\ s a -> s{_aldUsername = a}) . _Sensitive;
+aldUsername = lens _aldUsername (\ s a -> s{_aldUsername = a}) . _Sensitive
 
 instance AWSRequest AdminListDevices where
         type Rs AdminListDevices = AdminListDevicesResponse
@@ -169,22 +169,22 @@ adminListDevicesResponse
     -> AdminListDevicesResponse
 adminListDevicesResponse pResponseStatus_ =
   AdminListDevicesResponse'
-  { _aldrsPaginationToken = Nothing
-  , _aldrsDevices = Nothing
-  , _aldrsResponseStatus = pResponseStatus_
-  }
+    { _aldrsPaginationToken = Nothing
+    , _aldrsDevices = Nothing
+    , _aldrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token.
 aldrsPaginationToken :: Lens' AdminListDevicesResponse (Maybe Text)
-aldrsPaginationToken = lens _aldrsPaginationToken (\ s a -> s{_aldrsPaginationToken = a});
+aldrsPaginationToken = lens _aldrsPaginationToken (\ s a -> s{_aldrsPaginationToken = a})
 
 -- | The devices in the list of devices response.
 aldrsDevices :: Lens' AdminListDevicesResponse [DeviceType]
-aldrsDevices = lens _aldrsDevices (\ s a -> s{_aldrsDevices = a}) . _Default . _Coerce;
+aldrsDevices = lens _aldrsDevices (\ s a -> s{_aldrsDevices = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 aldrsResponseStatus :: Lens' AdminListDevicesResponse Int
-aldrsResponseStatus = lens _aldrsResponseStatus (\ s a -> s{_aldrsResponseStatus = a});
+aldrsResponseStatus = lens _aldrsResponseStatus (\ s a -> s{_aldrsResponseStatus = a})
 
 instance NFData AdminListDevicesResponse where

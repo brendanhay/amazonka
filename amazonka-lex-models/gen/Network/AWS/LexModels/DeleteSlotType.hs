@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteSlotType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteSlotType pName_ = DeleteSlotType' {_dstName = pName_}
 
 -- | The name of the slot type. The name is case sensitive.
 dstName :: Lens' DeleteSlotType Text
-dstName = lens _dstName (\ s a -> s{_dstName = a});
+dstName = lens _dstName (\ s a -> s{_dstName = a})
 
 instance AWSRequest DeleteSlotType where
         type Rs DeleteSlotType = DeleteSlotTypeResponse

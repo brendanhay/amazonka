@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateSpotDatafeedSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a data feed for Spot instances, enabling you to view Spot instance usage logs. You can create one data feed per AWS account. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs. You can create one data feed per AWS account. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
 --
 module Network.AWS.EC2.CreateSpotDatafeedSubscription
@@ -66,26 +66,26 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
 --
 -- * 'csdsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'csdsBucket' - The Amazon S3 bucket in which to store the Spot instance data feed.
+-- * 'csdsBucket' - The Amazon S3 bucket in which to store the Spot Instance data feed.
 createSpotDatafeedSubscription
     :: Text -- ^ 'csdsBucket'
     -> CreateSpotDatafeedSubscription
 createSpotDatafeedSubscription pBucket_ =
   CreateSpotDatafeedSubscription'
-  {_csdsPrefix = Nothing, _csdsDryRun = Nothing, _csdsBucket = pBucket_}
+    {_csdsPrefix = Nothing, _csdsDryRun = Nothing, _csdsBucket = pBucket_}
 
 
 -- | A prefix for the data feed file names.
 csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
-csdsPrefix = lens _csdsPrefix (\ s a -> s{_csdsPrefix = a});
+csdsPrefix = lens _csdsPrefix (\ s a -> s{_csdsPrefix = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 csdsDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
-csdsDryRun = lens _csdsDryRun (\ s a -> s{_csdsDryRun = a});
+csdsDryRun = lens _csdsDryRun (\ s a -> s{_csdsDryRun = a})
 
--- | The Amazon S3 bucket in which to store the Spot instance data feed.
+-- | The Amazon S3 bucket in which to store the Spot Instance data feed.
 csdsBucket :: Lens' CreateSpotDatafeedSubscription Text
-csdsBucket = lens _csdsBucket (\ s a -> s{_csdsBucket = a});
+csdsBucket = lens _csdsBucket (\ s a -> s{_csdsBucket = a})
 
 instance AWSRequest CreateSpotDatafeedSubscription
          where
@@ -135,7 +135,7 @@ data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csdsrsSpotDatafeedSubscription' - The Spot instance data feed subscription.
+-- * 'csdsrsSpotDatafeedSubscription' - The Spot Instance data feed subscription.
 --
 -- * 'csdsrsResponseStatus' - -- | The response status code.
 createSpotDatafeedSubscriptionResponse
@@ -143,18 +143,18 @@ createSpotDatafeedSubscriptionResponse
     -> CreateSpotDatafeedSubscriptionResponse
 createSpotDatafeedSubscriptionResponse pResponseStatus_ =
   CreateSpotDatafeedSubscriptionResponse'
-  { _csdsrsSpotDatafeedSubscription = Nothing
-  , _csdsrsResponseStatus = pResponseStatus_
-  }
+    { _csdsrsSpotDatafeedSubscription = Nothing
+    , _csdsrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The Spot instance data feed subscription.
+-- | The Spot Instance data feed subscription.
 csdsrsSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
-csdsrsSpotDatafeedSubscription = lens _csdsrsSpotDatafeedSubscription (\ s a -> s{_csdsrsSpotDatafeedSubscription = a});
+csdsrsSpotDatafeedSubscription = lens _csdsrsSpotDatafeedSubscription (\ s a -> s{_csdsrsSpotDatafeedSubscription = a})
 
 -- | -- | The response status code.
 csdsrsResponseStatus :: Lens' CreateSpotDatafeedSubscriptionResponse Int
-csdsrsResponseStatus = lens _csdsrsResponseStatus (\ s a -> s{_csdsrsResponseStatus = a});
+csdsrsResponseStatus = lens _csdsrsResponseStatus (\ s a -> s{_csdsrsResponseStatus = a})
 
 instance NFData
            CreateSpotDatafeedSubscriptionResponse

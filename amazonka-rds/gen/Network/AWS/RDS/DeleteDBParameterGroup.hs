@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted cannot be associated with any DB instances.
+-- Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't be associated with any DB instances.
 --
 --
 module Network.AWS.RDS.DeleteDBParameterGroup
@@ -55,7 +55,7 @@ newtype DeleteDBParameterGroup = DeleteDBParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * You cannot delete a default DB parameter group     * Cannot be associated with any DB instances
+-- * 'ddbpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * You can't delete a default DB parameter group     * Cannot be associated with any DB instances
 deleteDBParameterGroup
     :: Text -- ^ 'ddbpgDBParameterGroupName'
     -> DeleteDBParameterGroup
@@ -63,9 +63,9 @@ deleteDBParameterGroup pDBParameterGroupName_ =
   DeleteDBParameterGroup' {_ddbpgDBParameterGroupName = pDBParameterGroupName_}
 
 
--- | The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * You cannot delete a default DB parameter group     * Cannot be associated with any DB instances
+-- | The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * You can't delete a default DB parameter group     * Cannot be associated with any DB instances
 ddbpgDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
-ddbpgDBParameterGroupName = lens _ddbpgDBParameterGroupName (\ s a -> s{_ddbpgDBParameterGroupName = a});
+ddbpgDBParameterGroupName = lens _ddbpgDBParameterGroupName (\ s a -> s{_ddbpgDBParameterGroupName = a})
 
 instance AWSRequest DeleteDBParameterGroup where
         type Rs DeleteDBParameterGroup =

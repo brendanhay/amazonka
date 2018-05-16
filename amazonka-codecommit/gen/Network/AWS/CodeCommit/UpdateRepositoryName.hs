@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.UpdateRepositoryName
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ updateRepositoryName pOldName_ pNewName_ =
 
 -- | The existing name of the repository.
 urnOldName :: Lens' UpdateRepositoryName Text
-urnOldName = lens _urnOldName (\ s a -> s{_urnOldName = a});
+urnOldName = lens _urnOldName (\ s a -> s{_urnOldName = a})
 
 -- | The new name for the repository.
 urnNewName :: Lens' UpdateRepositoryName Text
-urnNewName = lens _urnNewName (\ s a -> s{_urnNewName = a});
+urnNewName = lens _urnNewName (\ s a -> s{_urnNewName = a})
 
 instance AWSRequest UpdateRepositoryName where
         type Rs UpdateRepositoryName =

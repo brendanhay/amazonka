@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateInternetGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ createInternetGateway = CreateInternetGateway' {_cigDryRun = Nothing}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cigDryRun :: Lens' CreateInternetGateway (Maybe Bool)
-cigDryRun = lens _cigDryRun (\ s a -> s{_cigDryRun = a});
+cigDryRun = lens _cigDryRun (\ s a -> s{_cigDryRun = a})
 
 instance AWSRequest CreateInternetGateway where
         type Rs CreateInternetGateway =
@@ -120,15 +120,15 @@ createInternetGatewayResponse
     -> CreateInternetGatewayResponse
 createInternetGatewayResponse pResponseStatus_ =
   CreateInternetGatewayResponse'
-  {_cigrsInternetGateway = Nothing, _cigrsResponseStatus = pResponseStatus_}
+    {_cigrsInternetGateway = Nothing, _cigrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the Internet gateway.
 cigrsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
-cigrsInternetGateway = lens _cigrsInternetGateway (\ s a -> s{_cigrsInternetGateway = a});
+cigrsInternetGateway = lens _cigrsInternetGateway (\ s a -> s{_cigrsInternetGateway = a})
 
 -- | -- | The response status code.
 cigrsResponseStatus :: Lens' CreateInternetGatewayResponse Int
-cigrsResponseStatus = lens _cigrsResponseStatus (\ s a -> s{_cigrsResponseStatus = a});
+cigrsResponseStatus = lens _cigrsResponseStatus (\ s a -> s{_cigrsResponseStatus = a})
 
 instance NFData CreateInternetGatewayResponse where

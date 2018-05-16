@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListDevices
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ listDevices = ListDevices' {_ldArn = Nothing, _ldNextToken = Nothing}
 
 -- | The Amazon Resource Name (ARN) of the project.
 ldArn :: Lens' ListDevices (Maybe Text)
-ldArn = lens _ldArn (\ s a -> s{_ldArn = a});
+ldArn = lens _ldArn (\ s a -> s{_ldArn = a})
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 ldNextToken :: Lens' ListDevices (Maybe Text)
-ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
+ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a})
 
 instance AWSPager ListDevices where
         page rq rs
@@ -149,22 +149,22 @@ listDevicesResponse
     -> ListDevicesResponse
 listDevicesResponse pResponseStatus_ =
   ListDevicesResponse'
-  { _ldrsNextToken = Nothing
-  , _ldrsDevices = Nothing
-  , _ldrsResponseStatus = pResponseStatus_
-  }
+    { _ldrsNextToken = Nothing
+    , _ldrsDevices = Nothing
+    , _ldrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 ldrsNextToken :: Lens' ListDevicesResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a})
 
 -- | Information about the devices.
 ldrsDevices :: Lens' ListDevicesResponse [Device]
-ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coerce;
+ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDevicesResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
 
 instance NFData ListDevicesResponse where

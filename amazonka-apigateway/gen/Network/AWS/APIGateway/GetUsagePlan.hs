@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetUsagePlan
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,16 +63,16 @@ newtype GetUsagePlan = GetUsagePlan'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gupUsagePlanId' - The identifier of the 'UsagePlan' resource to be retrieved.
+-- * 'gupUsagePlanId' - [Required] The identifier of the 'UsagePlan' resource to be retrieved.
 getUsagePlan
     :: Text -- ^ 'gupUsagePlanId'
     -> GetUsagePlan
 getUsagePlan pUsagePlanId_ = GetUsagePlan' {_gupUsagePlanId = pUsagePlanId_}
 
 
--- | The identifier of the 'UsagePlan' resource to be retrieved.
+-- | [Required] The identifier of the 'UsagePlan' resource to be retrieved.
 gupUsagePlanId :: Lens' GetUsagePlan Text
-gupUsagePlanId = lens _gupUsagePlanId (\ s a -> s{_gupUsagePlanId = a});
+gupUsagePlanId = lens _gupUsagePlanId (\ s a -> s{_gupUsagePlanId = a})
 
 instance AWSRequest GetUsagePlan where
         type Rs GetUsagePlan = UsagePlan

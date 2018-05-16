@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteTrafficPolicyInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ deleteTrafficPolicyInstance pId_ = DeleteTrafficPolicyInstance' {_dtpiId = pId_}
 
 -- | The ID of the traffic policy instance that you want to delete.  /Important:/ When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
 dtpiId :: Lens' DeleteTrafficPolicyInstance Text
-dtpiId = lens _dtpiId (\ s a -> s{_dtpiId = a});
+dtpiId = lens _dtpiId (\ s a -> s{_dtpiId = a})
 
 instance AWSRequest DeleteTrafficPolicyInstance where
         type Rs DeleteTrafficPolicyInstance =
@@ -113,12 +113,12 @@ deleteTrafficPolicyInstanceResponse
     -> DeleteTrafficPolicyInstanceResponse
 deleteTrafficPolicyInstanceResponse pResponseStatus_ =
   DeleteTrafficPolicyInstanceResponse'
-  {_dtpirsResponseStatus = pResponseStatus_}
+    {_dtpirsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dtpirsResponseStatus :: Lens' DeleteTrafficPolicyInstanceResponse Int
-dtpirsResponseStatus = lens _dtpirsResponseStatus (\ s a -> s{_dtpirsResponseStatus = a});
+dtpirsResponseStatus = lens _dtpirsResponseStatus (\ s a -> s{_dtpirsResponseStatus = a})
 
 instance NFData DeleteTrafficPolicyInstanceResponse
          where

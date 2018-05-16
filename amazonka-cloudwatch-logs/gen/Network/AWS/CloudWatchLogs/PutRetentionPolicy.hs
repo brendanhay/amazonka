@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutRetentionPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,16 +62,16 @@ putRetentionPolicy
     -> PutRetentionPolicy
 putRetentionPolicy pLogGroupName_ pRetentionInDays_ =
   PutRetentionPolicy'
-  {_prpLogGroupName = pLogGroupName_, _prpRetentionInDays = pRetentionInDays_}
+    {_prpLogGroupName = pLogGroupName_, _prpRetentionInDays = pRetentionInDays_}
 
 
 -- | The name of the log group.
 prpLogGroupName :: Lens' PutRetentionPolicy Text
-prpLogGroupName = lens _prpLogGroupName (\ s a -> s{_prpLogGroupName = a});
+prpLogGroupName = lens _prpLogGroupName (\ s a -> s{_prpLogGroupName = a})
 
 -- | Undocumented member.
 prpRetentionInDays :: Lens' PutRetentionPolicy Int
-prpRetentionInDays = lens _prpRetentionInDays (\ s a -> s{_prpRetentionInDays = a});
+prpRetentionInDays = lens _prpRetentionInDays (\ s a -> s{_prpRetentionInDays = a})
 
 instance AWSRequest PutRetentionPolicy where
         type Rs PutRetentionPolicy =

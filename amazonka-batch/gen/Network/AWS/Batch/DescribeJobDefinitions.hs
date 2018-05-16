@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Batch.DescribeJobDefinitions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,33 +76,33 @@ describeJobDefinitions
     :: DescribeJobDefinitions
 describeJobDefinitions =
   DescribeJobDefinitions'
-  { _djdStatus = Nothing
-  , _djdJobDefinitionName = Nothing
-  , _djdJobDefinitions = Nothing
-  , _djdNextToken = Nothing
-  , _djdMaxResults = Nothing
-  }
+    { _djdStatus = Nothing
+    , _djdJobDefinitionName = Nothing
+    , _djdJobDefinitions = Nothing
+    , _djdNextToken = Nothing
+    , _djdMaxResults = Nothing
+    }
 
 
 -- | The status with which to filter job definitions.
 djdStatus :: Lens' DescribeJobDefinitions (Maybe Text)
-djdStatus = lens _djdStatus (\ s a -> s{_djdStatus = a});
+djdStatus = lens _djdStatus (\ s a -> s{_djdStatus = a})
 
 -- | The name of the job definition to describe.
 djdJobDefinitionName :: Lens' DescribeJobDefinitions (Maybe Text)
-djdJobDefinitionName = lens _djdJobDefinitionName (\ s a -> s{_djdJobDefinitionName = a});
+djdJobDefinitionName = lens _djdJobDefinitionName (\ s a -> s{_djdJobDefinitionName = a})
 
 -- | A space-separated list of up to 100 job definition names or full Amazon Resource Name (ARN) entries.
 djdJobDefinitions :: Lens' DescribeJobDefinitions [Text]
-djdJobDefinitions = lens _djdJobDefinitions (\ s a -> s{_djdJobDefinitions = a}) . _Default . _Coerce;
+djdJobDefinitions = lens _djdJobDefinitions (\ s a -> s{_djdJobDefinitions = a}) . _Default . _Coerce
 
 -- | The @nextToken@ value returned from a previous paginated @DescribeJobDefinitions@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 djdNextToken :: Lens' DescribeJobDefinitions (Maybe Text)
-djdNextToken = lens _djdNextToken (\ s a -> s{_djdNextToken = a});
+djdNextToken = lens _djdNextToken (\ s a -> s{_djdNextToken = a})
 
 -- | The maximum number of results returned by @DescribeJobDefinitions@ in paginated output. When this parameter is used, @DescribeJobDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
 djdMaxResults :: Lens' DescribeJobDefinitions (Maybe Int)
-djdMaxResults = lens _djdMaxResults (\ s a -> s{_djdMaxResults = a});
+djdMaxResults = lens _djdMaxResults (\ s a -> s{_djdMaxResults = a})
 
 instance AWSRequest DescribeJobDefinitions where
         type Rs DescribeJobDefinitions =
@@ -165,22 +165,22 @@ describeJobDefinitionsResponse
     -> DescribeJobDefinitionsResponse
 describeJobDefinitionsResponse pResponseStatus_ =
   DescribeJobDefinitionsResponse'
-  { _djdrsJobDefinitions = Nothing
-  , _djdrsNextToken = Nothing
-  , _djdrsResponseStatus = pResponseStatus_
-  }
+    { _djdrsJobDefinitions = Nothing
+    , _djdrsNextToken = Nothing
+    , _djdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of job definitions.
 djdrsJobDefinitions :: Lens' DescribeJobDefinitionsResponse [JobDefinition]
-djdrsJobDefinitions = lens _djdrsJobDefinitions (\ s a -> s{_djdrsJobDefinitions = a}) . _Default . _Coerce;
+djdrsJobDefinitions = lens _djdrsJobDefinitions (\ s a -> s{_djdrsJobDefinitions = a}) . _Default . _Coerce
 
 -- | The @nextToken@ value to include in a future @DescribeJobDefinitions@ request. When the results of a @DescribeJobDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 djdrsNextToken :: Lens' DescribeJobDefinitionsResponse (Maybe Text)
-djdrsNextToken = lens _djdrsNextToken (\ s a -> s{_djdrsNextToken = a});
+djdrsNextToken = lens _djdrsNextToken (\ s a -> s{_djdrsNextToken = a})
 
 -- | -- | The response status code.
 djdrsResponseStatus :: Lens' DescribeJobDefinitionsResponse Int
-djdrsResponseStatus = lens _djdrsResponseStatus (\ s a -> s{_djdrsResponseStatus = a});
+djdrsResponseStatus = lens _djdrsResponseStatus (\ s a -> s{_djdrsResponseStatus = a})
 
 instance NFData DescribeJobDefinitionsResponse where

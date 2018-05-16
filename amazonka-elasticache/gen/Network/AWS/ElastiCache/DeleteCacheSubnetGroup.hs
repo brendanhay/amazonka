@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deleteCacheSubnetGroup pCacheSubnetGroupName_ =
 
 -- | The name of the cache subnet group to delete. Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
 dCacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
-dCacheSubnetGroupName = lens _dCacheSubnetGroupName (\ s a -> s{_dCacheSubnetGroupName = a});
+dCacheSubnetGroupName = lens _dCacheSubnetGroupName (\ s a -> s{_dCacheSubnetGroupName = a})
 
 instance AWSRequest DeleteCacheSubnetGroup where
         type Rs DeleteCacheSubnetGroup =

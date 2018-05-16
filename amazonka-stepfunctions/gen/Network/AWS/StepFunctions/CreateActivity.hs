@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.CreateActivity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an activity. An Activity is a task which you write, in any language and hosted on any machine which has access to AWS Step Functions. Activities must poll Step Functions using the @GetActivityTask@ and respond using @SendTask*@ API calls. This function lets Step Functions know the existence of your activity and returns an identifier for use in a state machine and when polling from the activity.
+-- Creates an activity. An activity is a task which you write in any programming language and host on any machine which has access to AWS Step Functions. Activities must poll Step Functions using the @GetActivityTask@ API action and respond using @SendTask*@ API actions. This function lets Step Functions know the existence of your activity and returns an identifier for use in a state machine and when polling from the activity.
 --
 --
 module Network.AWS.StepFunctions.CreateActivity
@@ -64,7 +64,7 @@ createActivity pName_ = CreateActivity' {_caName = pName_}
 
 -- | The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, see <http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 caName :: Lens' CreateActivity Text
-caName = lens _caName (\ s a -> s{_caName = a});
+caName = lens _caName (\ s a -> s{_caName = a})
 
 instance AWSRequest CreateActivity where
         type Rs CreateActivity = CreateActivityResponse
@@ -115,7 +115,7 @@ data CreateActivityResponse = CreateActivityResponse'
 --
 -- * 'carsActivityARN' - The Amazon Resource Name (ARN) that identifies the created activity.
 --
--- * 'carsCreationDate' - The date the activity was created.
+-- * 'carsCreationDate' - The date the activity is created.
 createActivityResponse
     :: Int -- ^ 'carsResponseStatus'
     -> Text -- ^ 'carsActivityARN'
@@ -123,22 +123,22 @@ createActivityResponse
     -> CreateActivityResponse
 createActivityResponse pResponseStatus_ pActivityARN_ pCreationDate_ =
   CreateActivityResponse'
-  { _carsResponseStatus = pResponseStatus_
-  , _carsActivityARN = pActivityARN_
-  , _carsCreationDate = _Time # pCreationDate_
-  }
+    { _carsResponseStatus = pResponseStatus_
+    , _carsActivityARN = pActivityARN_
+    , _carsCreationDate = _Time # pCreationDate_
+    }
 
 
 -- | -- | The response status code.
 carsResponseStatus :: Lens' CreateActivityResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
 
 -- | The Amazon Resource Name (ARN) that identifies the created activity.
 carsActivityARN :: Lens' CreateActivityResponse Text
-carsActivityARN = lens _carsActivityARN (\ s a -> s{_carsActivityARN = a});
+carsActivityARN = lens _carsActivityARN (\ s a -> s{_carsActivityARN = a})
 
--- | The date the activity was created.
+-- | The date the activity is created.
 carsCreationDate :: Lens' CreateActivityResponse UTCTime
-carsCreationDate = lens _carsCreationDate (\ s a -> s{_carsCreationDate = a}) . _Time;
+carsCreationDate = lens _carsCreationDate (\ s a -> s{_carsCreationDate = a}) . _Time
 
 instance NFData CreateActivityResponse where

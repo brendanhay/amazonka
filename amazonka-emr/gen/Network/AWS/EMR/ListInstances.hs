@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,43 +92,43 @@ listInstances
     -> ListInstances
 listInstances pClusterId_ =
   ListInstances'
-  { _liInstanceGroupTypes = Nothing
-  , _liInstanceFleetType = Nothing
-  , _liMarker = Nothing
-  , _liInstanceFleetId = Nothing
-  , _liInstanceStates = Nothing
-  , _liInstanceGroupId = Nothing
-  , _liClusterId = pClusterId_
-  }
+    { _liInstanceGroupTypes = Nothing
+    , _liInstanceFleetType = Nothing
+    , _liMarker = Nothing
+    , _liInstanceFleetId = Nothing
+    , _liInstanceStates = Nothing
+    , _liInstanceGroupId = Nothing
+    , _liClusterId = pClusterId_
+    }
 
 
 -- | The type of instance group for which to list the instances.
 liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
-liInstanceGroupTypes = lens _liInstanceGroupTypes (\ s a -> s{_liInstanceGroupTypes = a}) . _Default . _Coerce;
+liInstanceGroupTypes = lens _liInstanceGroupTypes (\ s a -> s{_liInstanceGroupTypes = a}) . _Default . _Coerce
 
 -- | The node type of the instance fleet. For example MASTER, CORE, or TASK.
 liInstanceFleetType :: Lens' ListInstances (Maybe InstanceFleetType)
-liInstanceFleetType = lens _liInstanceFleetType (\ s a -> s{_liInstanceFleetType = a});
+liInstanceFleetType = lens _liInstanceFleetType (\ s a -> s{_liInstanceFleetType = a})
 
 -- | The pagination token that indicates the next set of results to retrieve.
 liMarker :: Lens' ListInstances (Maybe Text)
-liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
+liMarker = lens _liMarker (\ s a -> s{_liMarker = a})
 
 -- | The unique identifier of the instance fleet.
 liInstanceFleetId :: Lens' ListInstances (Maybe Text)
-liInstanceFleetId = lens _liInstanceFleetId (\ s a -> s{_liInstanceFleetId = a});
+liInstanceFleetId = lens _liInstanceFleetId (\ s a -> s{_liInstanceFleetId = a})
 
 -- | A list of instance states that will filter the instances returned with this request.
 liInstanceStates :: Lens' ListInstances [InstanceState]
-liInstanceStates = lens _liInstanceStates (\ s a -> s{_liInstanceStates = a}) . _Default . _Coerce;
+liInstanceStates = lens _liInstanceStates (\ s a -> s{_liInstanceStates = a}) . _Default . _Coerce
 
 -- | The identifier of the instance group for which to list the instances.
 liInstanceGroupId :: Lens' ListInstances (Maybe Text)
-liInstanceGroupId = lens _liInstanceGroupId (\ s a -> s{_liInstanceGroupId = a});
+liInstanceGroupId = lens _liInstanceGroupId (\ s a -> s{_liInstanceGroupId = a})
 
 -- | The identifier of the cluster for which to list the instances.
 liClusterId :: Lens' ListInstances Text
-liClusterId = lens _liClusterId (\ s a -> s{_liClusterId = a});
+liClusterId = lens _liClusterId (\ s a -> s{_liClusterId = a})
 
 instance AWSPager ListInstances where
         page rq rs
@@ -204,22 +204,22 @@ listInstancesResponse
     -> ListInstancesResponse
 listInstancesResponse pResponseStatus_ =
   ListInstancesResponse'
-  { _lirsMarker = Nothing
-  , _lirsInstances = Nothing
-  , _lirsResponseStatus = pResponseStatus_
-  }
+    { _lirsMarker = Nothing
+    , _lirsInstances = Nothing
+    , _lirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
-lirsMarker = lens _lirsMarker (\ s a -> s{_lirsMarker = a});
+lirsMarker = lens _lirsMarker (\ s a -> s{_lirsMarker = a})
 
 -- | The list of instances for the cluster and given filters.
 lirsInstances :: Lens' ListInstancesResponse [Instance]
-lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default . _Coerce;
+lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lirsResponseStatus :: Lens' ListInstancesResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a})
 
 instance NFData ListInstancesResponse where

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists details of all portfolios for which sharing was accepted by this account.
+-- Lists all portfolios for which sharing was accepted by this account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -61,30 +64,38 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
 --
 -- * 'lapsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'lapsPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- * 'lapsPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
 --
--- * 'lapsPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- * 'lapsPageSize' - The maximum number of items to return with this call.
 listAcceptedPortfolioShares
     :: ListAcceptedPortfolioShares
 listAcceptedPortfolioShares =
   ListAcceptedPortfolioShares'
-  { _lapsAcceptLanguage = Nothing
-  , _lapsPageToken = Nothing
-  , _lapsPageSize = Nothing
-  }
+    { _lapsAcceptLanguage = Nothing
+    , _lapsPageToken = Nothing
+    , _lapsPageSize = Nothing
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lapsAcceptLanguage :: Lens' ListAcceptedPortfolioShares (Maybe Text)
-lapsAcceptLanguage = lens _lapsAcceptLanguage (\ s a -> s{_lapsAcceptLanguage = a});
+lapsAcceptLanguage = lens _lapsAcceptLanguage (\ s a -> s{_lapsAcceptLanguage = a})
 
--- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
 lapsPageToken :: Lens' ListAcceptedPortfolioShares (Maybe Text)
-lapsPageToken = lens _lapsPageToken (\ s a -> s{_lapsPageToken = a});
+lapsPageToken = lens _lapsPageToken (\ s a -> s{_lapsPageToken = a})
 
--- | The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- | The maximum number of items to return with this call.
 lapsPageSize :: Lens' ListAcceptedPortfolioShares (Maybe Natural)
-lapsPageSize = lens _lapsPageSize (\ s a -> s{_lapsPageSize = a}) . mapping _Nat;
+lapsPageSize = lens _lapsPageSize (\ s a -> s{_lapsPageSize = a}) . mapping _Nat
+
+instance AWSPager ListAcceptedPortfolioShares where
+        page rq rs
+          | stop (rs ^. lapsrsNextPageToken) = Nothing
+          | stop (rs ^. lapsrsPortfolioDetails) = Nothing
+          | otherwise =
+            Just $ rq &
+              lapsPageToken .~ rs ^. lapsrsNextPageToken
 
 instance AWSRequest ListAcceptedPortfolioShares where
         type Rs ListAcceptedPortfolioShares =
@@ -138,9 +149,9 @@ data ListAcceptedPortfolioSharesResponse = ListAcceptedPortfolioSharesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lapsrsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'lapsrsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
--- * 'lapsrsPortfolioDetails' - List of detailed portfolio information objects.
+-- * 'lapsrsPortfolioDetails' - Information about the portfolios.
 --
 -- * 'lapsrsResponseStatus' - -- | The response status code.
 listAcceptedPortfolioSharesResponse
@@ -148,23 +159,23 @@ listAcceptedPortfolioSharesResponse
     -> ListAcceptedPortfolioSharesResponse
 listAcceptedPortfolioSharesResponse pResponseStatus_ =
   ListAcceptedPortfolioSharesResponse'
-  { _lapsrsNextPageToken = Nothing
-  , _lapsrsPortfolioDetails = Nothing
-  , _lapsrsResponseStatus = pResponseStatus_
-  }
+    { _lapsrsNextPageToken = Nothing
+    , _lapsrsPortfolioDetails = Nothing
+    , _lapsrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 lapsrsNextPageToken :: Lens' ListAcceptedPortfolioSharesResponse (Maybe Text)
-lapsrsNextPageToken = lens _lapsrsNextPageToken (\ s a -> s{_lapsrsNextPageToken = a});
+lapsrsNextPageToken = lens _lapsrsNextPageToken (\ s a -> s{_lapsrsNextPageToken = a})
 
--- | List of detailed portfolio information objects.
+-- | Information about the portfolios.
 lapsrsPortfolioDetails :: Lens' ListAcceptedPortfolioSharesResponse [PortfolioDetail]
-lapsrsPortfolioDetails = lens _lapsrsPortfolioDetails (\ s a -> s{_lapsrsPortfolioDetails = a}) . _Default . _Coerce;
+lapsrsPortfolioDetails = lens _lapsrsPortfolioDetails (\ s a -> s{_lapsrsPortfolioDetails = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lapsrsResponseStatus :: Lens' ListAcceptedPortfolioSharesResponse Int
-lapsrsResponseStatus = lens _lapsrsResponseStatus (\ s a -> s{_lapsrsResponseStatus = a});
+lapsrsResponseStatus = lens _lapsrsResponseStatus (\ s a -> s{_lapsrsResponseStatus = a})
 
 instance NFData ListAcceptedPortfolioSharesResponse
          where

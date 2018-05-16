@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,7 +73,7 @@ data ListPolicies = ListPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpPathPrefix' - The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'lpPathPrefix' - The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
 -- * 'lpOnlyAttached' - A flag to filter the results to only the attached policies. When @OnlyAttached@ is @true@ , the returned list contains only the policies that are attached to an IAM user, group, or role. When @OnlyAttached@ is @false@ , or when the parameter is not included, all policies are returned.
 --
@@ -86,33 +86,33 @@ listPolicies
     :: ListPolicies
 listPolicies =
   ListPolicies'
-  { _lpPathPrefix = Nothing
-  , _lpOnlyAttached = Nothing
-  , _lpMarker = Nothing
-  , _lpScope = Nothing
-  , _lpMaxItems = Nothing
-  }
+    { _lpPathPrefix = Nothing
+    , _lpOnlyAttached = Nothing
+    , _lpMarker = Nothing
+    , _lpScope = Nothing
+    , _lpMaxItems = Nothing
+    }
 
 
--- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lpPathPrefix :: Lens' ListPolicies (Maybe Text)
-lpPathPrefix = lens _lpPathPrefix (\ s a -> s{_lpPathPrefix = a});
+lpPathPrefix = lens _lpPathPrefix (\ s a -> s{_lpPathPrefix = a})
 
 -- | A flag to filter the results to only the attached policies. When @OnlyAttached@ is @true@ , the returned list contains only the policies that are attached to an IAM user, group, or role. When @OnlyAttached@ is @false@ , or when the parameter is not included, all policies are returned.
 lpOnlyAttached :: Lens' ListPolicies (Maybe Bool)
-lpOnlyAttached = lens _lpOnlyAttached (\ s a -> s{_lpOnlyAttached = a});
+lpOnlyAttached = lens _lpOnlyAttached (\ s a -> s{_lpOnlyAttached = a})
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 lpMarker :: Lens' ListPolicies (Maybe Text)
-lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
+lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a})
 
 -- | The scope to use for filtering the results. To list only AWS managed policies, set @Scope@ to @AWS@ . To list only the customer managed policies in your AWS account, set @Scope@ to @Local@ . This parameter is optional. If it is not included, or if it is set to @All@ , all policies are returned.
 lpScope :: Lens' ListPolicies (Maybe PolicyScopeType)
-lpScope = lens _lpScope (\ s a -> s{_lpScope = a});
+lpScope = lens _lpScope (\ s a -> s{_lpScope = a})
 
 -- | (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 lpMaxItems :: Lens' ListPolicies (Maybe Natural)
-lpMaxItems = lens _lpMaxItems (\ s a -> s{_lpMaxItems = a}) . mapping _Nat;
+lpMaxItems = lens _lpMaxItems (\ s a -> s{_lpMaxItems = a}) . mapping _Nat
 
 instance AWSPager ListPolicies where
         page rq rs
@@ -182,27 +182,27 @@ listPoliciesResponse
     -> ListPoliciesResponse
 listPoliciesResponse pResponseStatus_ =
   ListPoliciesResponse'
-  { _lprsMarker = Nothing
-  , _lprsIsTruncated = Nothing
-  , _lprsPolicies = Nothing
-  , _lprsResponseStatus = pResponseStatus_
-  }
+    { _lprsMarker = Nothing
+    , _lprsIsTruncated = Nothing
+    , _lprsPolicies = Nothing
+    , _lprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lprsMarker :: Lens' ListPoliciesResponse (Maybe Text)
-lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
+lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a})
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 lprsIsTruncated :: Lens' ListPoliciesResponse (Maybe Bool)
-lprsIsTruncated = lens _lprsIsTruncated (\ s a -> s{_lprsIsTruncated = a});
+lprsIsTruncated = lens _lprsIsTruncated (\ s a -> s{_lprsIsTruncated = a})
 
 -- | A list of policies.
 lprsPolicies :: Lens' ListPoliciesResponse [Policy]
-lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _Coerce;
+lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPoliciesResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a})
 
 instance NFData ListPoliciesResponse where

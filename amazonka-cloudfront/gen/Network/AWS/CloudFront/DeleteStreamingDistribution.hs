@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.DeleteStreamingDistribution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,11 +91,11 @@ deleteStreamingDistribution pId_ =
 
 -- | The value of the @ETag@ header that you received when you disabled the streaming distribution. For example: @E2QWRUHAPOMQZL@ .
 dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
-dsdIfMatch = lens _dsdIfMatch (\ s a -> s{_dsdIfMatch = a});
+dsdIfMatch = lens _dsdIfMatch (\ s a -> s{_dsdIfMatch = a})
 
 -- | The distribution ID.
 dsdId :: Lens' DeleteStreamingDistribution Text
-dsdId = lens _dsdId (\ s a -> s{_dsdId = a});
+dsdId = lens _dsdId (\ s a -> s{_dsdId = a})
 
 instance AWSRequest DeleteStreamingDistribution where
         type Rs DeleteStreamingDistribution =
@@ -115,7 +115,7 @@ instance ToHeaders DeleteStreamingDistribution where
 instance ToPath DeleteStreamingDistribution where
         toPath DeleteStreamingDistribution'{..}
           = mconcat
-              ["/2017-03-25/streaming-distribution/", toBS _dsdId]
+              ["/2017-10-30/streaming-distribution/", toBS _dsdId]
 
 instance ToQuery DeleteStreamingDistribution where
         toQuery = const mempty

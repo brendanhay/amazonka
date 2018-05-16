@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the Cert expiry time for a group.
+-- Updates the Certificate expiry time for a group.
 module Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
     (
     -- * Creating a Request
@@ -56,24 +56,24 @@ data UpdateGroupCertificateConfiguration = UpdateGroupCertificateConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugccCertificateExpiryInMilliseconds' - Amount of time when the certificate expires in milliseconds.
+-- * 'ugccCertificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
 --
--- * 'ugccGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'ugccGroupId' - The ID of the AWS Greengrass group.
 updateGroupCertificateConfiguration
     :: Text -- ^ 'ugccGroupId'
     -> UpdateGroupCertificateConfiguration
 updateGroupCertificateConfiguration pGroupId_ =
   UpdateGroupCertificateConfiguration'
-  {_ugccCertificateExpiryInMilliseconds = Nothing, _ugccGroupId = pGroupId_}
+    {_ugccCertificateExpiryInMilliseconds = Nothing, _ugccGroupId = pGroupId_}
 
 
--- | Amount of time when the certificate expires in milliseconds.
+-- | The amount of time remaining before the certificate expires, in milliseconds.
 ugccCertificateExpiryInMilliseconds :: Lens' UpdateGroupCertificateConfiguration (Maybe Text)
-ugccCertificateExpiryInMilliseconds = lens _ugccCertificateExpiryInMilliseconds (\ s a -> s{_ugccCertificateExpiryInMilliseconds = a});
+ugccCertificateExpiryInMilliseconds = lens _ugccCertificateExpiryInMilliseconds (\ s a -> s{_ugccCertificateExpiryInMilliseconds = a})
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 ugccGroupId :: Lens' UpdateGroupCertificateConfiguration Text
-ugccGroupId = lens _ugccGroupId (\ s a -> s{_ugccGroupId = a});
+ugccGroupId = lens _ugccGroupId (\ s a -> s{_ugccGroupId = a})
 
 instance AWSRequest
            UpdateGroupCertificateConfiguration
@@ -137,11 +137,11 @@ data UpdateGroupCertificateConfigurationResponse = UpdateGroupCertificateConfigu
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugccrsCertificateAuthorityExpiryInMilliseconds' - Amount of time when the certificate authority expires in milliseconds.
+-- * 'ugccrsCertificateAuthorityExpiryInMilliseconds' - The amount of time remaining before the certificate authority expires, in milliseconds.
 --
--- * 'ugccrsGroupId' - Id of the group the certificate configuration belongs to.
+-- * 'ugccrsGroupId' - The ID of the group certificate configuration.
 --
--- * 'ugccrsCertificateExpiryInMilliseconds' - Amount of time when the certificate expires in milliseconds.
+-- * 'ugccrsCertificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
 --
 -- * 'ugccrsResponseStatus' - -- | The response status code.
 updateGroupCertificateConfigurationResponse
@@ -149,28 +149,28 @@ updateGroupCertificateConfigurationResponse
     -> UpdateGroupCertificateConfigurationResponse
 updateGroupCertificateConfigurationResponse pResponseStatus_ =
   UpdateGroupCertificateConfigurationResponse'
-  { _ugccrsCertificateAuthorityExpiryInMilliseconds = Nothing
-  , _ugccrsGroupId = Nothing
-  , _ugccrsCertificateExpiryInMilliseconds = Nothing
-  , _ugccrsResponseStatus = pResponseStatus_
-  }
+    { _ugccrsCertificateAuthorityExpiryInMilliseconds = Nothing
+    , _ugccrsGroupId = Nothing
+    , _ugccrsCertificateExpiryInMilliseconds = Nothing
+    , _ugccrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Amount of time when the certificate authority expires in milliseconds.
+-- | The amount of time remaining before the certificate authority expires, in milliseconds.
 ugccrsCertificateAuthorityExpiryInMilliseconds :: Lens' UpdateGroupCertificateConfigurationResponse (Maybe Text)
-ugccrsCertificateAuthorityExpiryInMilliseconds = lens _ugccrsCertificateAuthorityExpiryInMilliseconds (\ s a -> s{_ugccrsCertificateAuthorityExpiryInMilliseconds = a});
+ugccrsCertificateAuthorityExpiryInMilliseconds = lens _ugccrsCertificateAuthorityExpiryInMilliseconds (\ s a -> s{_ugccrsCertificateAuthorityExpiryInMilliseconds = a})
 
--- | Id of the group the certificate configuration belongs to.
+-- | The ID of the group certificate configuration.
 ugccrsGroupId :: Lens' UpdateGroupCertificateConfigurationResponse (Maybe Text)
-ugccrsGroupId = lens _ugccrsGroupId (\ s a -> s{_ugccrsGroupId = a});
+ugccrsGroupId = lens _ugccrsGroupId (\ s a -> s{_ugccrsGroupId = a})
 
--- | Amount of time when the certificate expires in milliseconds.
+-- | The amount of time remaining before the certificate expires, in milliseconds.
 ugccrsCertificateExpiryInMilliseconds :: Lens' UpdateGroupCertificateConfigurationResponse (Maybe Text)
-ugccrsCertificateExpiryInMilliseconds = lens _ugccrsCertificateExpiryInMilliseconds (\ s a -> s{_ugccrsCertificateExpiryInMilliseconds = a});
+ugccrsCertificateExpiryInMilliseconds = lens _ugccrsCertificateExpiryInMilliseconds (\ s a -> s{_ugccrsCertificateExpiryInMilliseconds = a})
 
 -- | -- | The response status code.
 ugccrsResponseStatus :: Lens' UpdateGroupCertificateConfigurationResponse Int
-ugccrsResponseStatus = lens _ugccrsResponseStatus (\ s a -> s{_ugccrsResponseStatus = a});
+ugccrsResponseStatus = lens _ugccrsResponseStatus (\ s a -> s{_ugccrsResponseStatus = a})
 
 instance NFData
            UpdateGroupCertificateConfigurationResponse

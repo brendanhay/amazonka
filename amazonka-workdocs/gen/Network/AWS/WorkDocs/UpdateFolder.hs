@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.UpdateFolder
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,11 +61,11 @@ data UpdateFolder = UpdateFolder'
 --
 -- * 'ufParentFolderId' - The ID of the parent folder.
 --
--- * 'ufAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'ufAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'ufName' - The name of the folder.
 --
--- * 'ufResourceState' - The resource state of the folder. Note that only ACTIVE and RECYCLED are accepted values from the API.
+-- * 'ufResourceState' - The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API.
 --
 -- * 'ufFolderId' - The ID of the folder.
 updateFolder
@@ -73,33 +73,33 @@ updateFolder
     -> UpdateFolder
 updateFolder pFolderId_ =
   UpdateFolder'
-  { _ufParentFolderId = Nothing
-  , _ufAuthenticationToken = Nothing
-  , _ufName = Nothing
-  , _ufResourceState = Nothing
-  , _ufFolderId = pFolderId_
-  }
+    { _ufParentFolderId = Nothing
+    , _ufAuthenticationToken = Nothing
+    , _ufName = Nothing
+    , _ufResourceState = Nothing
+    , _ufFolderId = pFolderId_
+    }
 
 
 -- | The ID of the parent folder.
 ufParentFolderId :: Lens' UpdateFolder (Maybe Text)
-ufParentFolderId = lens _ufParentFolderId (\ s a -> s{_ufParentFolderId = a});
+ufParentFolderId = lens _ufParentFolderId (\ s a -> s{_ufParentFolderId = a})
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 ufAuthenticationToken :: Lens' UpdateFolder (Maybe Text)
-ufAuthenticationToken = lens _ufAuthenticationToken (\ s a -> s{_ufAuthenticationToken = a}) . mapping _Sensitive;
+ufAuthenticationToken = lens _ufAuthenticationToken (\ s a -> s{_ufAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The name of the folder.
 ufName :: Lens' UpdateFolder (Maybe Text)
-ufName = lens _ufName (\ s a -> s{_ufName = a});
+ufName = lens _ufName (\ s a -> s{_ufName = a})
 
--- | The resource state of the folder. Note that only ACTIVE and RECYCLED are accepted values from the API.
+-- | The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API.
 ufResourceState :: Lens' UpdateFolder (Maybe ResourceStateType)
-ufResourceState = lens _ufResourceState (\ s a -> s{_ufResourceState = a});
+ufResourceState = lens _ufResourceState (\ s a -> s{_ufResourceState = a})
 
 -- | The ID of the folder.
 ufFolderId :: Lens' UpdateFolder Text
-ufFolderId = lens _ufFolderId (\ s a -> s{_ufFolderId = a});
+ufFolderId = lens _ufFolderId (\ s a -> s{_ufFolderId = a})
 
 instance AWSRequest UpdateFolder where
         type Rs UpdateFolder = UpdateFolderResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.InitiateVaultLock
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,23 +91,23 @@ initiateVaultLock
     -> InitiateVaultLock
 initiateVaultLock pAccountId_ pVaultName_ =
   InitiateVaultLock'
-  { _ivlPolicy = Nothing
-  , _ivlAccountId = pAccountId_
-  , _ivlVaultName = pVaultName_
-  }
+    { _ivlPolicy = Nothing
+    , _ivlAccountId = pAccountId_
+    , _ivlVaultName = pVaultName_
+    }
 
 
 -- | The vault lock policy as a JSON string, which uses "\" as an escape character.
 ivlPolicy :: Lens' InitiateVaultLock (Maybe VaultLockPolicy)
-ivlPolicy = lens _ivlPolicy (\ s a -> s{_ivlPolicy = a});
+ivlPolicy = lens _ivlPolicy (\ s a -> s{_ivlPolicy = a})
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 ivlAccountId :: Lens' InitiateVaultLock Text
-ivlAccountId = lens _ivlAccountId (\ s a -> s{_ivlAccountId = a});
+ivlAccountId = lens _ivlAccountId (\ s a -> s{_ivlAccountId = a})
 
 -- | The name of the vault.
 ivlVaultName :: Lens' InitiateVaultLock Text
-ivlVaultName = lens _ivlVaultName (\ s a -> s{_ivlVaultName = a});
+ivlVaultName = lens _ivlVaultName (\ s a -> s{_ivlVaultName = a})
 
 instance AWSRequest InitiateVaultLock where
         type Rs InitiateVaultLock = InitiateVaultLockResponse
@@ -161,15 +161,15 @@ initiateVaultLockResponse
     -> InitiateVaultLockResponse
 initiateVaultLockResponse pResponseStatus_ =
   InitiateVaultLockResponse'
-  {_ivlrsLockId = Nothing, _ivlrsResponseStatus = pResponseStatus_}
+    {_ivlrsLockId = Nothing, _ivlrsResponseStatus = pResponseStatus_}
 
 
 -- | The lock ID, which is used to complete the vault locking process.
 ivlrsLockId :: Lens' InitiateVaultLockResponse (Maybe Text)
-ivlrsLockId = lens _ivlrsLockId (\ s a -> s{_ivlrsLockId = a});
+ivlrsLockId = lens _ivlrsLockId (\ s a -> s{_ivlrsLockId = a})
 
 -- | -- | The response status code.
 ivlrsResponseStatus :: Lens' InitiateVaultLockResponse Int
-ivlrsResponseStatus = lens _ivlrsResponseStatus (\ s a -> s{_ivlrsResponseStatus = a});
+ivlrsResponseStatus = lens _ivlrsResponseStatus (\ s a -> s{_ivlrsResponseStatus = a})
 
 instance NFData InitiateVaultLockResponse where

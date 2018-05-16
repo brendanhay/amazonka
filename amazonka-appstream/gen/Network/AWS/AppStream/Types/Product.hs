@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,7 +49,7 @@ data Application = Application'
 --
 -- * 'aName' - The name of the application.
 --
--- * 'aDisplayName' - The application name displayed to end users.
+-- * 'aDisplayName' - The application name for display.
 --
 -- * 'aMetadata' - Additional attributes that describe the application.
 --
@@ -58,43 +58,43 @@ application
     :: Application
 application =
   Application'
-  { _aEnabled = Nothing
-  , _aLaunchPath = Nothing
-  , _aLaunchParameters = Nothing
-  , _aName = Nothing
-  , _aDisplayName = Nothing
-  , _aMetadata = Nothing
-  , _aIconURL = Nothing
-  }
+    { _aEnabled = Nothing
+    , _aLaunchPath = Nothing
+    , _aLaunchParameters = Nothing
+    , _aName = Nothing
+    , _aDisplayName = Nothing
+    , _aMetadata = Nothing
+    , _aIconURL = Nothing
+    }
 
 
 -- | If there is a problem, the application can be disabled after image creation.
 aEnabled :: Lens' Application (Maybe Bool)
-aEnabled = lens _aEnabled (\ s a -> s{_aEnabled = a});
+aEnabled = lens _aEnabled (\ s a -> s{_aEnabled = a})
 
 -- | The path to the application executable in the instance.
 aLaunchPath :: Lens' Application (Maybe Text)
-aLaunchPath = lens _aLaunchPath (\ s a -> s{_aLaunchPath = a});
+aLaunchPath = lens _aLaunchPath (\ s a -> s{_aLaunchPath = a})
 
 -- | The arguments that are passed to the application at launch.
 aLaunchParameters :: Lens' Application (Maybe Text)
-aLaunchParameters = lens _aLaunchParameters (\ s a -> s{_aLaunchParameters = a});
+aLaunchParameters = lens _aLaunchParameters (\ s a -> s{_aLaunchParameters = a})
 
 -- | The name of the application.
 aName :: Lens' Application (Maybe Text)
-aName = lens _aName (\ s a -> s{_aName = a});
+aName = lens _aName (\ s a -> s{_aName = a})
 
--- | The application name displayed to end users.
+-- | The application name for display.
 aDisplayName :: Lens' Application (Maybe Text)
-aDisplayName = lens _aDisplayName (\ s a -> s{_aDisplayName = a});
+aDisplayName = lens _aDisplayName (\ s a -> s{_aDisplayName = a})
 
 -- | Additional attributes that describe the application.
 aMetadata :: Lens' Application (HashMap Text Text)
-aMetadata = lens _aMetadata (\ s a -> s{_aMetadata = a}) . _Default . _Map;
+aMetadata = lens _aMetadata (\ s a -> s{_aMetadata = a}) . _Default . _Map
 
 -- | The URL for the application icon. This URL might be time-limited.
 aIconURL :: Lens' Application (Maybe Text)
-aIconURL = lens _aIconURL (\ s a -> s{_aIconURL = a});
+aIconURL = lens _aIconURL (\ s a -> s{_aIconURL = a})
 
 instance FromJSON Application where
         parseJSON
@@ -136,7 +136,7 @@ computeCapacity pDesiredInstances_ =
 
 -- | The desired number of streaming instances.
 ccDesiredInstances :: Lens' ComputeCapacity Int
-ccDesiredInstances = lens _ccDesiredInstances (\ s a -> s{_ccDesiredInstances = a});
+ccDesiredInstances = lens _ccDesiredInstances (\ s a -> s{_ccDesiredInstances = a})
 
 instance Hashable ComputeCapacity where
 
@@ -177,28 +177,28 @@ computeCapacityStatus
     -> ComputeCapacityStatus
 computeCapacityStatus pDesired_ =
   ComputeCapacityStatus'
-  { _ccsInUse = Nothing
-  , _ccsRunning = Nothing
-  , _ccsAvailable = Nothing
-  , _ccsDesired = pDesired_
-  }
+    { _ccsInUse = Nothing
+    , _ccsRunning = Nothing
+    , _ccsAvailable = Nothing
+    , _ccsDesired = pDesired_
+    }
 
 
 -- | The number of instances in use for streaming.
 ccsInUse :: Lens' ComputeCapacityStatus (Maybe Int)
-ccsInUse = lens _ccsInUse (\ s a -> s{_ccsInUse = a});
+ccsInUse = lens _ccsInUse (\ s a -> s{_ccsInUse = a})
 
 -- | The total number of simultaneous streaming instances that are running.
 ccsRunning :: Lens' ComputeCapacityStatus (Maybe Int)
-ccsRunning = lens _ccsRunning (\ s a -> s{_ccsRunning = a});
+ccsRunning = lens _ccsRunning (\ s a -> s{_ccsRunning = a})
 
 -- | The number of currently available instances that can be used to stream sessions.
 ccsAvailable :: Lens' ComputeCapacityStatus (Maybe Int)
-ccsAvailable = lens _ccsAvailable (\ s a -> s{_ccsAvailable = a});
+ccsAvailable = lens _ccsAvailable (\ s a -> s{_ccsAvailable = a})
 
 -- | The desired number of streaming instances.
 ccsDesired :: Lens' ComputeCapacityStatus Int
-ccsDesired = lens _ccsDesired (\ s a -> s{_ccsDesired = a});
+ccsDesired = lens _ccsDesired (\ s a -> s{_ccsDesired = a})
 
 instance FromJSON ComputeCapacityStatus where
         parseJSON
@@ -242,28 +242,28 @@ directoryConfig
     -> DirectoryConfig
 directoryConfig pDirectoryName_ =
   DirectoryConfig'
-  { _dcCreatedTime = Nothing
-  , _dcServiceAccountCredentials = Nothing
-  , _dcOrganizationalUnitDistinguishedNames = Nothing
-  , _dcDirectoryName = pDirectoryName_
-  }
+    { _dcCreatedTime = Nothing
+    , _dcServiceAccountCredentials = Nothing
+    , _dcOrganizationalUnitDistinguishedNames = Nothing
+    , _dcDirectoryName = pDirectoryName_
+    }
 
 
 -- | The time the directory configuration was created.
 dcCreatedTime :: Lens' DirectoryConfig (Maybe UTCTime)
-dcCreatedTime = lens _dcCreatedTime (\ s a -> s{_dcCreatedTime = a}) . mapping _Time;
+dcCreatedTime = lens _dcCreatedTime (\ s a -> s{_dcCreatedTime = a}) . mapping _Time
 
 -- | The credentials for the service account used by the streaming instance to connect to the directory.
 dcServiceAccountCredentials :: Lens' DirectoryConfig (Maybe ServiceAccountCredentials)
-dcServiceAccountCredentials = lens _dcServiceAccountCredentials (\ s a -> s{_dcServiceAccountCredentials = a});
+dcServiceAccountCredentials = lens _dcServiceAccountCredentials (\ s a -> s{_dcServiceAccountCredentials = a})
 
 -- | The distinguished names of the organizational units for computer accounts.
 dcOrganizationalUnitDistinguishedNames :: Lens' DirectoryConfig [Text]
-dcOrganizationalUnitDistinguishedNames = lens _dcOrganizationalUnitDistinguishedNames (\ s a -> s{_dcOrganizationalUnitDistinguishedNames = a}) . _Default . _Coerce;
+dcOrganizationalUnitDistinguishedNames = lens _dcOrganizationalUnitDistinguishedNames (\ s a -> s{_dcOrganizationalUnitDistinguishedNames = a}) . _Default . _Coerce
 
 -- | The fully qualified name of the directory (for example, corp.example.com).
 dcDirectoryName :: Lens' DirectoryConfig Text
-dcDirectoryName = lens _dcDirectoryName (\ s a -> s{_dcDirectoryName = a});
+dcDirectoryName = lens _dcDirectoryName (\ s a -> s{_dcDirectoryName = a})
 
 instance FromJSON DirectoryConfig where
         parseJSON
@@ -281,7 +281,7 @@ instance Hashable DirectoryConfig where
 
 instance NFData DirectoryConfig where
 
--- | Contains the information needed for streaming instances to join a domain.
+-- | Contains the information needed to join a Microsoft Active Directory domain.
 --
 --
 --
@@ -303,18 +303,18 @@ domainJoinInfo
     :: DomainJoinInfo
 domainJoinInfo =
   DomainJoinInfo'
-  { _djiOrganizationalUnitDistinguishedName = Nothing
-  , _djiDirectoryName = Nothing
-  }
+    { _djiOrganizationalUnitDistinguishedName = Nothing
+    , _djiDirectoryName = Nothing
+    }
 
 
 -- | The distinguished name of the organizational unit for computer accounts.
 djiOrganizationalUnitDistinguishedName :: Lens' DomainJoinInfo (Maybe Text)
-djiOrganizationalUnitDistinguishedName = lens _djiOrganizationalUnitDistinguishedName (\ s a -> s{_djiOrganizationalUnitDistinguishedName = a});
+djiOrganizationalUnitDistinguishedName = lens _djiOrganizationalUnitDistinguishedName (\ s a -> s{_djiOrganizationalUnitDistinguishedName = a})
 
 -- | The fully qualified name of the directory (for example, corp.example.com).
 djiDirectoryName :: Lens' DomainJoinInfo (Maybe Text)
-djiDirectoryName = lens _djiDirectoryName (\ s a -> s{_djiDirectoryName = a});
+djiDirectoryName = lens _djiDirectoryName (\ s a -> s{_djiDirectoryName = a})
 
 instance FromJSON DomainJoinInfo where
         parseJSON
@@ -365,7 +365,7 @@ data Fleet = Fleet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fDomainJoinInfo' - The information needed for streaming instances to join a domain.
+-- * 'fDomainJoinInfo' - The information needed to join a Microsoft Active Directory domain.
 --
 -- * 'fDisconnectTimeoutInSeconds' - The time after disconnection when a session is considered to have ended, in seconds. If a user who was disconnected reconnects within this time interval, the user is connected to their previous session. Specify a value between 60 and 57600.
 --
@@ -373,23 +373,23 @@ data Fleet = Fleet'
 --
 -- * 'fCreatedTime' - The time the fleet was created.
 --
--- * 'fFleetType' - Undocumented member.
+-- * 'fFleetType' - The fleet type.     * ALWAYS_ON    * Provides users with instant-on access to their apps. You are charged for all running instances in your fleet, even if no users are streaming apps.     * ON_DEMAND    * Provide users with access to applications after they connect, which takes one to two minutes. You are charged for instance streaming when users are connected and a small hourly fee for instances that are not streaming apps.
 --
 -- * 'fVPCConfig' - The VPC configuration for the fleet.
 --
 -- * 'fFleetErrors' - The fleet errors.
 --
--- * 'fDisplayName' - The fleet name displayed to end users.
+-- * 'fDisplayName' - The fleet name for display.
 --
 -- * 'fEnableDefaultInternetAccess' - Indicates whether default internet access is enabled for the fleet.
 --
--- * 'fDescription' - The description displayed to end users.
+-- * 'fDescription' - The description for display.
 --
 -- * 'fARN' - The ARN for the fleet.
 --
 -- * 'fName' - The name of the fleet.
 --
--- * 'fImageName' - The image used by the fleet.
+-- * 'fImageName' - The name of the image used to create the fleet.
 --
 -- * 'fInstanceType' - The instance type to use when launching fleet instances.
 --
@@ -406,88 +406,88 @@ fleet
     -> Fleet
 fleet pARN_ pName_ pImageName_ pInstanceType_ pComputeCapacityStatus_ pState_ =
   Fleet'
-  { _fDomainJoinInfo = Nothing
-  , _fDisconnectTimeoutInSeconds = Nothing
-  , _fMaxUserDurationInSeconds = Nothing
-  , _fCreatedTime = Nothing
-  , _fFleetType = Nothing
-  , _fVPCConfig = Nothing
-  , _fFleetErrors = Nothing
-  , _fDisplayName = Nothing
-  , _fEnableDefaultInternetAccess = Nothing
-  , _fDescription = Nothing
-  , _fARN = pARN_
-  , _fName = pName_
-  , _fImageName = pImageName_
-  , _fInstanceType = pInstanceType_
-  , _fComputeCapacityStatus = pComputeCapacityStatus_
-  , _fState = pState_
-  }
+    { _fDomainJoinInfo = Nothing
+    , _fDisconnectTimeoutInSeconds = Nothing
+    , _fMaxUserDurationInSeconds = Nothing
+    , _fCreatedTime = Nothing
+    , _fFleetType = Nothing
+    , _fVPCConfig = Nothing
+    , _fFleetErrors = Nothing
+    , _fDisplayName = Nothing
+    , _fEnableDefaultInternetAccess = Nothing
+    , _fDescription = Nothing
+    , _fARN = pARN_
+    , _fName = pName_
+    , _fImageName = pImageName_
+    , _fInstanceType = pInstanceType_
+    , _fComputeCapacityStatus = pComputeCapacityStatus_
+    , _fState = pState_
+    }
 
 
--- | The information needed for streaming instances to join a domain.
+-- | The information needed to join a Microsoft Active Directory domain.
 fDomainJoinInfo :: Lens' Fleet (Maybe DomainJoinInfo)
-fDomainJoinInfo = lens _fDomainJoinInfo (\ s a -> s{_fDomainJoinInfo = a});
+fDomainJoinInfo = lens _fDomainJoinInfo (\ s a -> s{_fDomainJoinInfo = a})
 
 -- | The time after disconnection when a session is considered to have ended, in seconds. If a user who was disconnected reconnects within this time interval, the user is connected to their previous session. Specify a value between 60 and 57600.
 fDisconnectTimeoutInSeconds :: Lens' Fleet (Maybe Int)
-fDisconnectTimeoutInSeconds = lens _fDisconnectTimeoutInSeconds (\ s a -> s{_fDisconnectTimeoutInSeconds = a});
+fDisconnectTimeoutInSeconds = lens _fDisconnectTimeoutInSeconds (\ s a -> s{_fDisconnectTimeoutInSeconds = a})
 
 -- | The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600.
 fMaxUserDurationInSeconds :: Lens' Fleet (Maybe Int)
-fMaxUserDurationInSeconds = lens _fMaxUserDurationInSeconds (\ s a -> s{_fMaxUserDurationInSeconds = a});
+fMaxUserDurationInSeconds = lens _fMaxUserDurationInSeconds (\ s a -> s{_fMaxUserDurationInSeconds = a})
 
 -- | The time the fleet was created.
 fCreatedTime :: Lens' Fleet (Maybe UTCTime)
-fCreatedTime = lens _fCreatedTime (\ s a -> s{_fCreatedTime = a}) . mapping _Time;
+fCreatedTime = lens _fCreatedTime (\ s a -> s{_fCreatedTime = a}) . mapping _Time
 
--- | Undocumented member.
+-- | The fleet type.     * ALWAYS_ON    * Provides users with instant-on access to their apps. You are charged for all running instances in your fleet, even if no users are streaming apps.     * ON_DEMAND    * Provide users with access to applications after they connect, which takes one to two minutes. You are charged for instance streaming when users are connected and a small hourly fee for instances that are not streaming apps.
 fFleetType :: Lens' Fleet (Maybe FleetType)
-fFleetType = lens _fFleetType (\ s a -> s{_fFleetType = a});
+fFleetType = lens _fFleetType (\ s a -> s{_fFleetType = a})
 
 -- | The VPC configuration for the fleet.
 fVPCConfig :: Lens' Fleet (Maybe VPCConfig)
-fVPCConfig = lens _fVPCConfig (\ s a -> s{_fVPCConfig = a});
+fVPCConfig = lens _fVPCConfig (\ s a -> s{_fVPCConfig = a})
 
 -- | The fleet errors.
 fFleetErrors :: Lens' Fleet [FleetError]
-fFleetErrors = lens _fFleetErrors (\ s a -> s{_fFleetErrors = a}) . _Default . _Coerce;
+fFleetErrors = lens _fFleetErrors (\ s a -> s{_fFleetErrors = a}) . _Default . _Coerce
 
--- | The fleet name displayed to end users.
+-- | The fleet name for display.
 fDisplayName :: Lens' Fleet (Maybe Text)
-fDisplayName = lens _fDisplayName (\ s a -> s{_fDisplayName = a});
+fDisplayName = lens _fDisplayName (\ s a -> s{_fDisplayName = a})
 
 -- | Indicates whether default internet access is enabled for the fleet.
 fEnableDefaultInternetAccess :: Lens' Fleet (Maybe Bool)
-fEnableDefaultInternetAccess = lens _fEnableDefaultInternetAccess (\ s a -> s{_fEnableDefaultInternetAccess = a});
+fEnableDefaultInternetAccess = lens _fEnableDefaultInternetAccess (\ s a -> s{_fEnableDefaultInternetAccess = a})
 
--- | The description displayed to end users.
+-- | The description for display.
 fDescription :: Lens' Fleet (Maybe Text)
-fDescription = lens _fDescription (\ s a -> s{_fDescription = a});
+fDescription = lens _fDescription (\ s a -> s{_fDescription = a})
 
 -- | The ARN for the fleet.
 fARN :: Lens' Fleet Text
-fARN = lens _fARN (\ s a -> s{_fARN = a});
+fARN = lens _fARN (\ s a -> s{_fARN = a})
 
 -- | The name of the fleet.
 fName :: Lens' Fleet Text
-fName = lens _fName (\ s a -> s{_fName = a});
+fName = lens _fName (\ s a -> s{_fName = a})
 
--- | The image used by the fleet.
+-- | The name of the image used to create the fleet.
 fImageName :: Lens' Fleet Text
-fImageName = lens _fImageName (\ s a -> s{_fImageName = a});
+fImageName = lens _fImageName (\ s a -> s{_fImageName = a})
 
 -- | The instance type to use when launching fleet instances.
 fInstanceType :: Lens' Fleet Text
-fInstanceType = lens _fInstanceType (\ s a -> s{_fInstanceType = a});
+fInstanceType = lens _fInstanceType (\ s a -> s{_fInstanceType = a})
 
 -- | The capacity status for the fleet.
 fComputeCapacityStatus :: Lens' Fleet ComputeCapacityStatus
-fComputeCapacityStatus = lens _fComputeCapacityStatus (\ s a -> s{_fComputeCapacityStatus = a});
+fComputeCapacityStatus = lens _fComputeCapacityStatus (\ s a -> s{_fComputeCapacityStatus = a})
 
 -- | The current state for the fleet.
 fState :: Lens' Fleet FleetState
-fState = lens _fState (\ s a -> s{_fState = a});
+fState = lens _fState (\ s a -> s{_fState = a})
 
 instance FromJSON Fleet where
         parseJSON
@@ -540,11 +540,11 @@ fleetError = FleetError' {_feErrorCode = Nothing, _feErrorMessage = Nothing}
 
 -- | The error code.
 feErrorCode :: Lens' FleetError (Maybe FleetErrorCode)
-feErrorCode = lens _feErrorCode (\ s a -> s{_feErrorCode = a});
+feErrorCode = lens _feErrorCode (\ s a -> s{_feErrorCode = a})
 
 -- | The error message.
 feErrorMessage :: Lens' FleetError (Maybe Text)
-feErrorMessage = lens _feErrorMessage (\ s a -> s{_feErrorMessage = a});
+feErrorMessage = lens _feErrorMessage (\ s a -> s{_feErrorMessage = a})
 
 instance FromJSON FleetError where
         parseJSON
@@ -574,6 +574,7 @@ data Image = Image'
   , _iBaseImageARN                :: !(Maybe Text)
   , _iDisplayName                 :: !(Maybe Text)
   , _iDescription                 :: !(Maybe Text)
+  , _iAppstreamAgentVersion       :: !(Maybe Text)
   , _iApplications                :: !(Maybe [Application])
   , _iName                        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -601,9 +602,11 @@ data Image = Image'
 --
 -- * 'iBaseImageARN' - The ARN of the image from which this image was created.
 --
--- * 'iDisplayName' - The image name displayed to end users.
+-- * 'iDisplayName' - The image name for display.
 --
--- * 'iDescription' - The description displayed to end users.
+-- * 'iDescription' - The description for display.
+--
+-- * 'iAppstreamAgentVersion' - The version of the AppStream 2.0 agent to use for instances that are launched from this image.
 --
 -- * 'iApplications' - The applications associated with the image.
 --
@@ -613,73 +616,78 @@ image
     -> Image
 image pName_ =
   Image'
-  { _iState = Nothing
-  , _iPlatform = Nothing
-  , _iPublicBaseImageReleasedDate = Nothing
-  , _iStateChangeReason = Nothing
-  , _iARN = Nothing
-  , _iCreatedTime = Nothing
-  , _iImageBuilderSupported = Nothing
-  , _iVisibility = Nothing
-  , _iBaseImageARN = Nothing
-  , _iDisplayName = Nothing
-  , _iDescription = Nothing
-  , _iApplications = Nothing
-  , _iName = pName_
-  }
+    { _iState = Nothing
+    , _iPlatform = Nothing
+    , _iPublicBaseImageReleasedDate = Nothing
+    , _iStateChangeReason = Nothing
+    , _iARN = Nothing
+    , _iCreatedTime = Nothing
+    , _iImageBuilderSupported = Nothing
+    , _iVisibility = Nothing
+    , _iBaseImageARN = Nothing
+    , _iDisplayName = Nothing
+    , _iDescription = Nothing
+    , _iAppstreamAgentVersion = Nothing
+    , _iApplications = Nothing
+    , _iName = pName_
+    }
 
 
 -- | The image starts in the @PENDING@ state. If image creation succeeds, the state is @AVAILABLE@ . If image creation fails, the state is @FAILED@ .
 iState :: Lens' Image (Maybe ImageState)
-iState = lens _iState (\ s a -> s{_iState = a});
+iState = lens _iState (\ s a -> s{_iState = a})
 
 -- | The operating system platform of the image.
 iPlatform :: Lens' Image (Maybe PlatformType)
-iPlatform = lens _iPlatform (\ s a -> s{_iPlatform = a});
+iPlatform = lens _iPlatform (\ s a -> s{_iPlatform = a})
 
 -- | The release date of the public base image. For private images, this date is the release date of the base image from which the image was created.
 iPublicBaseImageReleasedDate :: Lens' Image (Maybe UTCTime)
-iPublicBaseImageReleasedDate = lens _iPublicBaseImageReleasedDate (\ s a -> s{_iPublicBaseImageReleasedDate = a}) . mapping _Time;
+iPublicBaseImageReleasedDate = lens _iPublicBaseImageReleasedDate (\ s a -> s{_iPublicBaseImageReleasedDate = a}) . mapping _Time
 
 -- | The reason why the last state change occurred.
 iStateChangeReason :: Lens' Image (Maybe ImageStateChangeReason)
-iStateChangeReason = lens _iStateChangeReason (\ s a -> s{_iStateChangeReason = a});
+iStateChangeReason = lens _iStateChangeReason (\ s a -> s{_iStateChangeReason = a})
 
 -- | The ARN of the image.
 iARN :: Lens' Image (Maybe Text)
-iARN = lens _iARN (\ s a -> s{_iARN = a});
+iARN = lens _iARN (\ s a -> s{_iARN = a})
 
 -- | The time the image was created.
 iCreatedTime :: Lens' Image (Maybe UTCTime)
-iCreatedTime = lens _iCreatedTime (\ s a -> s{_iCreatedTime = a}) . mapping _Time;
+iCreatedTime = lens _iCreatedTime (\ s a -> s{_iCreatedTime = a}) . mapping _Time
 
 -- | Indicates whether an image builder can be launched from this image.
 iImageBuilderSupported :: Lens' Image (Maybe Bool)
-iImageBuilderSupported = lens _iImageBuilderSupported (\ s a -> s{_iImageBuilderSupported = a});
+iImageBuilderSupported = lens _iImageBuilderSupported (\ s a -> s{_iImageBuilderSupported = a})
 
 -- | Indicates whether the image is public or private.
 iVisibility :: Lens' Image (Maybe VisibilityType)
-iVisibility = lens _iVisibility (\ s a -> s{_iVisibility = a});
+iVisibility = lens _iVisibility (\ s a -> s{_iVisibility = a})
 
 -- | The ARN of the image from which this image was created.
 iBaseImageARN :: Lens' Image (Maybe Text)
-iBaseImageARN = lens _iBaseImageARN (\ s a -> s{_iBaseImageARN = a});
+iBaseImageARN = lens _iBaseImageARN (\ s a -> s{_iBaseImageARN = a})
 
--- | The image name displayed to end users.
+-- | The image name for display.
 iDisplayName :: Lens' Image (Maybe Text)
-iDisplayName = lens _iDisplayName (\ s a -> s{_iDisplayName = a});
+iDisplayName = lens _iDisplayName (\ s a -> s{_iDisplayName = a})
 
--- | The description displayed to end users.
+-- | The description for display.
 iDescription :: Lens' Image (Maybe Text)
-iDescription = lens _iDescription (\ s a -> s{_iDescription = a});
+iDescription = lens _iDescription (\ s a -> s{_iDescription = a})
+
+-- | The version of the AppStream 2.0 agent to use for instances that are launched from this image.
+iAppstreamAgentVersion :: Lens' Image (Maybe Text)
+iAppstreamAgentVersion = lens _iAppstreamAgentVersion (\ s a -> s{_iAppstreamAgentVersion = a})
 
 -- | The applications associated with the image.
 iApplications :: Lens' Image [Application]
-iApplications = lens _iApplications (\ s a -> s{_iApplications = a}) . _Default . _Coerce;
+iApplications = lens _iApplications (\ s a -> s{_iApplications = a}) . _Default . _Coerce
 
 -- | The name of the image.
 iName :: Lens' Image Text
-iName = lens _iName (\ s a -> s{_iName = a});
+iName = lens _iName (\ s a -> s{_iName = a})
 
 instance FromJSON Image where
         parseJSON
@@ -696,6 +704,7 @@ instance FromJSON Image where
                      <*> (x .:? "BaseImageArn")
                      <*> (x .:? "DisplayName")
                      <*> (x .:? "Description")
+                     <*> (x .:? "AppstreamAgentVersion")
                      <*> (x .:? "Applications" .!= mempty)
                      <*> (x .: "Name"))
 
@@ -703,7 +712,11 @@ instance Hashable Image where
 
 instance NFData Image where
 
--- | /See:/ 'imageBuilder' smart constructor.
+-- | Describes a streaming instance used for editing an image. New images are created from a snapshot through an image builder.
+--
+--
+--
+-- /See:/ 'imageBuilder' smart constructor.
 data ImageBuilder = ImageBuilder'
   { _ibDomainJoinInfo              :: !(Maybe DomainJoinInfo)
   , _ibState                       :: !(Maybe ImageBuilderState)
@@ -718,6 +731,7 @@ data ImageBuilder = ImageBuilder'
   , _ibDisplayName                 :: !(Maybe Text)
   , _ibEnableDefaultInternetAccess :: !(Maybe Bool)
   , _ibDescription                 :: !(Maybe Text)
+  , _ibAppstreamAgentVersion       :: !(Maybe Text)
   , _ibName                        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -726,110 +740,117 @@ data ImageBuilder = ImageBuilder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ibDomainJoinInfo' - Undocumented member.
+-- * 'ibDomainJoinInfo' - The information needed to join a Microsoft Active Directory domain.
 --
--- * 'ibState' - Undocumented member.
+-- * 'ibState' - The state of the image builder.
 --
--- * 'ibPlatform' - Undocumented member.
+-- * 'ibPlatform' - The operating system platform of the image builder.
 --
--- * 'ibStateChangeReason' - Undocumented member.
+-- * 'ibStateChangeReason' - The reason why the last state change occurred.
 --
--- * 'ibARN' - Undocumented member.
+-- * 'ibARN' - The ARN for the image builder.
 --
--- * 'ibCreatedTime' - Undocumented member.
+-- * 'ibCreatedTime' - The time stamp when the image builder was created.
 --
--- * 'ibImageBuilderErrors' - Undocumented member.
+-- * 'ibImageBuilderErrors' - The image builder errors.
 --
--- * 'ibInstanceType' - Undocumented member.
+-- * 'ibInstanceType' - The instance type for the image builder.
 --
--- * 'ibVPCConfig' - Undocumented member.
+-- * 'ibVPCConfig' - The VPC configuration of the image builder.
 --
--- * 'ibImageARN' - Undocumented member.
+-- * 'ibImageARN' - The ARN of the image from which this builder was created.
 --
--- * 'ibDisplayName' - Undocumented member.
+-- * 'ibDisplayName' - The image builder name for display.
 --
--- * 'ibEnableDefaultInternetAccess' - Undocumented member.
+-- * 'ibEnableDefaultInternetAccess' - Enables or disables default internet access for the image builder.
 --
--- * 'ibDescription' - Undocumented member.
+-- * 'ibDescription' - The description for display.
 --
--- * 'ibName' - Undocumented member.
+-- * 'ibAppstreamAgentVersion' - The version of the AppStream 2.0 agent that is currently being used by this image builder.
+--
+-- * 'ibName' - The name of the image builder.
 imageBuilder
     :: Text -- ^ 'ibName'
     -> ImageBuilder
 imageBuilder pName_ =
   ImageBuilder'
-  { _ibDomainJoinInfo = Nothing
-  , _ibState = Nothing
-  , _ibPlatform = Nothing
-  , _ibStateChangeReason = Nothing
-  , _ibARN = Nothing
-  , _ibCreatedTime = Nothing
-  , _ibImageBuilderErrors = Nothing
-  , _ibInstanceType = Nothing
-  , _ibVPCConfig = Nothing
-  , _ibImageARN = Nothing
-  , _ibDisplayName = Nothing
-  , _ibEnableDefaultInternetAccess = Nothing
-  , _ibDescription = Nothing
-  , _ibName = pName_
-  }
+    { _ibDomainJoinInfo = Nothing
+    , _ibState = Nothing
+    , _ibPlatform = Nothing
+    , _ibStateChangeReason = Nothing
+    , _ibARN = Nothing
+    , _ibCreatedTime = Nothing
+    , _ibImageBuilderErrors = Nothing
+    , _ibInstanceType = Nothing
+    , _ibVPCConfig = Nothing
+    , _ibImageARN = Nothing
+    , _ibDisplayName = Nothing
+    , _ibEnableDefaultInternetAccess = Nothing
+    , _ibDescription = Nothing
+    , _ibAppstreamAgentVersion = Nothing
+    , _ibName = pName_
+    }
 
 
--- | Undocumented member.
+-- | The information needed to join a Microsoft Active Directory domain.
 ibDomainJoinInfo :: Lens' ImageBuilder (Maybe DomainJoinInfo)
-ibDomainJoinInfo = lens _ibDomainJoinInfo (\ s a -> s{_ibDomainJoinInfo = a});
+ibDomainJoinInfo = lens _ibDomainJoinInfo (\ s a -> s{_ibDomainJoinInfo = a})
 
--- | Undocumented member.
+-- | The state of the image builder.
 ibState :: Lens' ImageBuilder (Maybe ImageBuilderState)
-ibState = lens _ibState (\ s a -> s{_ibState = a});
+ibState = lens _ibState (\ s a -> s{_ibState = a})
 
--- | Undocumented member.
+-- | The operating system platform of the image builder.
 ibPlatform :: Lens' ImageBuilder (Maybe PlatformType)
-ibPlatform = lens _ibPlatform (\ s a -> s{_ibPlatform = a});
+ibPlatform = lens _ibPlatform (\ s a -> s{_ibPlatform = a})
 
--- | Undocumented member.
+-- | The reason why the last state change occurred.
 ibStateChangeReason :: Lens' ImageBuilder (Maybe ImageBuilderStateChangeReason)
-ibStateChangeReason = lens _ibStateChangeReason (\ s a -> s{_ibStateChangeReason = a});
+ibStateChangeReason = lens _ibStateChangeReason (\ s a -> s{_ibStateChangeReason = a})
 
--- | Undocumented member.
+-- | The ARN for the image builder.
 ibARN :: Lens' ImageBuilder (Maybe Text)
-ibARN = lens _ibARN (\ s a -> s{_ibARN = a});
+ibARN = lens _ibARN (\ s a -> s{_ibARN = a})
 
--- | Undocumented member.
+-- | The time stamp when the image builder was created.
 ibCreatedTime :: Lens' ImageBuilder (Maybe UTCTime)
-ibCreatedTime = lens _ibCreatedTime (\ s a -> s{_ibCreatedTime = a}) . mapping _Time;
+ibCreatedTime = lens _ibCreatedTime (\ s a -> s{_ibCreatedTime = a}) . mapping _Time
 
--- | Undocumented member.
+-- | The image builder errors.
 ibImageBuilderErrors :: Lens' ImageBuilder [ResourceError]
-ibImageBuilderErrors = lens _ibImageBuilderErrors (\ s a -> s{_ibImageBuilderErrors = a}) . _Default . _Coerce;
+ibImageBuilderErrors = lens _ibImageBuilderErrors (\ s a -> s{_ibImageBuilderErrors = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- | The instance type for the image builder.
 ibInstanceType :: Lens' ImageBuilder (Maybe Text)
-ibInstanceType = lens _ibInstanceType (\ s a -> s{_ibInstanceType = a});
+ibInstanceType = lens _ibInstanceType (\ s a -> s{_ibInstanceType = a})
 
--- | Undocumented member.
+-- | The VPC configuration of the image builder.
 ibVPCConfig :: Lens' ImageBuilder (Maybe VPCConfig)
-ibVPCConfig = lens _ibVPCConfig (\ s a -> s{_ibVPCConfig = a});
+ibVPCConfig = lens _ibVPCConfig (\ s a -> s{_ibVPCConfig = a})
 
--- | Undocumented member.
+-- | The ARN of the image from which this builder was created.
 ibImageARN :: Lens' ImageBuilder (Maybe Text)
-ibImageARN = lens _ibImageARN (\ s a -> s{_ibImageARN = a});
+ibImageARN = lens _ibImageARN (\ s a -> s{_ibImageARN = a})
 
--- | Undocumented member.
+-- | The image builder name for display.
 ibDisplayName :: Lens' ImageBuilder (Maybe Text)
-ibDisplayName = lens _ibDisplayName (\ s a -> s{_ibDisplayName = a});
+ibDisplayName = lens _ibDisplayName (\ s a -> s{_ibDisplayName = a})
 
--- | Undocumented member.
+-- | Enables or disables default internet access for the image builder.
 ibEnableDefaultInternetAccess :: Lens' ImageBuilder (Maybe Bool)
-ibEnableDefaultInternetAccess = lens _ibEnableDefaultInternetAccess (\ s a -> s{_ibEnableDefaultInternetAccess = a});
+ibEnableDefaultInternetAccess = lens _ibEnableDefaultInternetAccess (\ s a -> s{_ibEnableDefaultInternetAccess = a})
 
--- | Undocumented member.
+-- | The description for display.
 ibDescription :: Lens' ImageBuilder (Maybe Text)
-ibDescription = lens _ibDescription (\ s a -> s{_ibDescription = a});
+ibDescription = lens _ibDescription (\ s a -> s{_ibDescription = a})
 
--- | Undocumented member.
+-- | The version of the AppStream 2.0 agent that is currently being used by this image builder.
+ibAppstreamAgentVersion :: Lens' ImageBuilder (Maybe Text)
+ibAppstreamAgentVersion = lens _ibAppstreamAgentVersion (\ s a -> s{_ibAppstreamAgentVersion = a})
+
+-- | The name of the image builder.
 ibName :: Lens' ImageBuilder Text
-ibName = lens _ibName (\ s a -> s{_ibName = a});
+ibName = lens _ibName (\ s a -> s{_ibName = a})
 
 instance FromJSON ImageBuilder where
         parseJSON
@@ -848,13 +869,18 @@ instance FromJSON ImageBuilder where
                      <*> (x .:? "DisplayName")
                      <*> (x .:? "EnableDefaultInternetAccess")
                      <*> (x .:? "Description")
+                     <*> (x .:? "AppstreamAgentVersion")
                      <*> (x .: "Name"))
 
 instance Hashable ImageBuilder where
 
 instance NFData ImageBuilder where
 
--- | /See:/ 'imageBuilderStateChangeReason' smart constructor.
+-- | Describes the reason why the last image builder state change occurred.
+--
+--
+--
+-- /See:/ 'imageBuilderStateChangeReason' smart constructor.
 data ImageBuilderStateChangeReason = ImageBuilderStateChangeReason'
   { _ibscrCode    :: !(Maybe ImageBuilderStateChangeReasonCode)
   , _ibscrMessage :: !(Maybe Text)
@@ -865,22 +891,22 @@ data ImageBuilderStateChangeReason = ImageBuilderStateChangeReason'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ibscrCode' - Undocumented member.
+-- * 'ibscrCode' - The state change reason code.
 --
--- * 'ibscrMessage' - Undocumented member.
+-- * 'ibscrMessage' - The state change reason message.
 imageBuilderStateChangeReason
     :: ImageBuilderStateChangeReason
 imageBuilderStateChangeReason =
   ImageBuilderStateChangeReason' {_ibscrCode = Nothing, _ibscrMessage = Nothing}
 
 
--- | Undocumented member.
+-- | The state change reason code.
 ibscrCode :: Lens' ImageBuilderStateChangeReason (Maybe ImageBuilderStateChangeReasonCode)
-ibscrCode = lens _ibscrCode (\ s a -> s{_ibscrCode = a});
+ibscrCode = lens _ibscrCode (\ s a -> s{_ibscrCode = a})
 
--- | Undocumented member.
+-- | The state change reason message.
 ibscrMessage :: Lens' ImageBuilderStateChangeReason (Maybe Text)
-ibscrMessage = lens _ibscrMessage (\ s a -> s{_ibscrMessage = a});
+ibscrMessage = lens _ibscrMessage (\ s a -> s{_ibscrMessage = a})
 
 instance FromJSON ImageBuilderStateChangeReason where
         parseJSON
@@ -893,7 +919,7 @@ instance Hashable ImageBuilderStateChangeReason where
 
 instance NFData ImageBuilderStateChangeReason where
 
--- | Describes the reason why the last state change occurred.
+-- | Describes the reason why the last image state change occurred.
 --
 --
 --
@@ -919,11 +945,11 @@ imageStateChangeReason =
 
 -- | The state change reason code.
 iscrCode :: Lens' ImageStateChangeReason (Maybe ImageStateChangeReasonCode)
-iscrCode = lens _iscrCode (\ s a -> s{_iscrCode = a});
+iscrCode = lens _iscrCode (\ s a -> s{_iscrCode = a})
 
 -- | The state change reason message.
 iscrMessage :: Lens' ImageStateChangeReason (Maybe Text)
-iscrMessage = lens _iscrMessage (\ s a -> s{_iscrMessage = a});
+iscrMessage = lens _iscrMessage (\ s a -> s{_iscrMessage = a})
 
 instance FromJSON ImageStateChangeReason where
         parseJSON
@@ -936,7 +962,11 @@ instance Hashable ImageStateChangeReason where
 
 instance NFData ImageStateChangeReason where
 
--- | /See:/ 'resourceError' smart constructor.
+-- | Describes a resource error.
+--
+--
+--
+-- /See:/ 'resourceError' smart constructor.
 data ResourceError = ResourceError'
   { _reErrorCode      :: !(Maybe FleetErrorCode)
   , _reErrorMessage   :: !(Maybe Text)
@@ -948,32 +978,32 @@ data ResourceError = ResourceError'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'reErrorCode' - Undocumented member.
+-- * 'reErrorCode' - The error code.
 --
--- * 'reErrorMessage' - Undocumented member.
+-- * 'reErrorMessage' - The error message.
 --
--- * 'reErrorTimestamp' - Undocumented member.
+-- * 'reErrorTimestamp' - The time the error occurred.
 resourceError
     :: ResourceError
 resourceError =
   ResourceError'
-  { _reErrorCode = Nothing
-  , _reErrorMessage = Nothing
-  , _reErrorTimestamp = Nothing
-  }
+    { _reErrorCode = Nothing
+    , _reErrorMessage = Nothing
+    , _reErrorTimestamp = Nothing
+    }
 
 
--- | Undocumented member.
+-- | The error code.
 reErrorCode :: Lens' ResourceError (Maybe FleetErrorCode)
-reErrorCode = lens _reErrorCode (\ s a -> s{_reErrorCode = a});
+reErrorCode = lens _reErrorCode (\ s a -> s{_reErrorCode = a})
 
--- | Undocumented member.
+-- | The error message.
 reErrorMessage :: Lens' ResourceError (Maybe Text)
-reErrorMessage = lens _reErrorMessage (\ s a -> s{_reErrorMessage = a});
+reErrorMessage = lens _reErrorMessage (\ s a -> s{_reErrorMessage = a})
 
--- | Undocumented member.
+-- | The time the error occurred.
 reErrorTimestamp :: Lens' ResourceError (Maybe UTCTime)
-reErrorTimestamp = lens _reErrorTimestamp (\ s a -> s{_reErrorTimestamp = a}) . mapping _Time;
+reErrorTimestamp = lens _reErrorTimestamp (\ s a -> s{_reErrorTimestamp = a}) . mapping _Time
 
 instance FromJSON ResourceError where
         parseJSON
@@ -1011,18 +1041,18 @@ serviceAccountCredentials
     -> ServiceAccountCredentials
 serviceAccountCredentials pAccountName_ pAccountPassword_ =
   ServiceAccountCredentials'
-  { _sacAccountName = _Sensitive # pAccountName_
-  , _sacAccountPassword = _Sensitive # pAccountPassword_
-  }
+    { _sacAccountName = _Sensitive # pAccountName_
+    , _sacAccountPassword = _Sensitive # pAccountPassword_
+    }
 
 
 -- | The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
 sacAccountName :: Lens' ServiceAccountCredentials Text
-sacAccountName = lens _sacAccountName (\ s a -> s{_sacAccountName = a}) . _Sensitive;
+sacAccountName = lens _sacAccountName (\ s a -> s{_sacAccountName = a}) . _Sensitive
 
 -- | The password for the account.
 sacAccountPassword :: Lens' ServiceAccountCredentials Text
-sacAccountPassword = lens _sacAccountPassword (\ s a -> s{_sacAccountPassword = a}) . _Sensitive;
+sacAccountPassword = lens _sacAccountPassword (\ s a -> s{_sacAccountPassword = a}) . _Sensitive
 
 instance FromJSON ServiceAccountCredentials where
         parseJSON
@@ -1081,38 +1111,38 @@ session
     -> Session
 session pId_ pUserId_ pStackName_ pFleetName_ pState_ =
   Session'
-  { _sAuthenticationType = Nothing
-  , _sId = pId_
-  , _sUserId = pUserId_
-  , _sStackName = pStackName_
-  , _sFleetName = pFleetName_
-  , _sState = pState_
-  }
+    { _sAuthenticationType = Nothing
+    , _sId = pId_
+    , _sUserId = pUserId_
+    , _sStackName = pStackName_
+    , _sFleetName = pFleetName_
+    , _sState = pState_
+    }
 
 
 -- | The authentication method. The user is authenticated using a streaming URL (@API@ ) or SAML federation (@SAML@ ).
 sAuthenticationType :: Lens' Session (Maybe AuthenticationType)
-sAuthenticationType = lens _sAuthenticationType (\ s a -> s{_sAuthenticationType = a});
+sAuthenticationType = lens _sAuthenticationType (\ s a -> s{_sAuthenticationType = a})
 
 -- | The ID of the streaming session.
 sId :: Lens' Session Text
-sId = lens _sId (\ s a -> s{_sId = a});
+sId = lens _sId (\ s a -> s{_sId = a})
 
 -- | The identifier of the user for whom the session was created.
 sUserId :: Lens' Session Text
-sUserId = lens _sUserId (\ s a -> s{_sUserId = a});
+sUserId = lens _sUserId (\ s a -> s{_sUserId = a})
 
 -- | The name of the stack for the streaming session.
 sStackName :: Lens' Session Text
-sStackName = lens _sStackName (\ s a -> s{_sStackName = a});
+sStackName = lens _sStackName (\ s a -> s{_sStackName = a})
 
 -- | The name of the fleet for the streaming session.
 sFleetName :: Lens' Session Text
-sFleetName = lens _sFleetName (\ s a -> s{_sFleetName = a});
+sFleetName = lens _sFleetName (\ s a -> s{_sFleetName = a})
 
 -- | The current state of the streaming session.
 sState :: Lens' Session SessionState
-sState = lens _sState (\ s a -> s{_sState = a});
+sState = lens _sState (\ s a -> s{_sState = a})
 
 instance FromJSON Session where
         parseJSON
@@ -1135,12 +1165,14 @@ instance NFData Session where
 --
 -- /See:/ 'stack' smart constructor.
 data Stack = Stack'
-  { _sARN               :: !(Maybe Text)
+  { _sFeedbackURL       :: !(Maybe Text)
+  , _sARN               :: !(Maybe Text)
   , _sCreatedTime       :: !(Maybe POSIX)
   , _sStorageConnectors :: !(Maybe [StorageConnector])
   , _sDisplayName       :: !(Maybe Text)
   , _sStackErrors       :: !(Maybe [StackError])
   , _sDescription       :: !(Maybe Text)
+  , _sRedirectURL       :: !(Maybe Text)
   , _sName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -1149,17 +1181,21 @@ data Stack = Stack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'sFeedbackURL' - The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+--
 -- * 'sARN' - The ARN of the stack.
 --
 -- * 'sCreatedTime' - The time the stack was created.
 --
 -- * 'sStorageConnectors' - The storage connectors to enable.
 --
--- * 'sDisplayName' - The stack name displayed to end users.
+-- * 'sDisplayName' - The stack name for display.
 --
 -- * 'sStackErrors' - The errors for the stack.
 --
--- * 'sDescription' - The description displayed to end users.
+-- * 'sDescription' - The description for display.
+--
+-- * 'sRedirectURL' - The URL that users are redirected to after their streaming session ends.
 --
 -- * 'sName' - The name of the stack.
 stack
@@ -1167,54 +1203,66 @@ stack
     -> Stack
 stack pName_ =
   Stack'
-  { _sARN = Nothing
-  , _sCreatedTime = Nothing
-  , _sStorageConnectors = Nothing
-  , _sDisplayName = Nothing
-  , _sStackErrors = Nothing
-  , _sDescription = Nothing
-  , _sName = pName_
-  }
+    { _sFeedbackURL = Nothing
+    , _sARN = Nothing
+    , _sCreatedTime = Nothing
+    , _sStorageConnectors = Nothing
+    , _sDisplayName = Nothing
+    , _sStackErrors = Nothing
+    , _sDescription = Nothing
+    , _sRedirectURL = Nothing
+    , _sName = pName_
+    }
 
+
+-- | The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+sFeedbackURL :: Lens' Stack (Maybe Text)
+sFeedbackURL = lens _sFeedbackURL (\ s a -> s{_sFeedbackURL = a})
 
 -- | The ARN of the stack.
 sARN :: Lens' Stack (Maybe Text)
-sARN = lens _sARN (\ s a -> s{_sARN = a});
+sARN = lens _sARN (\ s a -> s{_sARN = a})
 
 -- | The time the stack was created.
 sCreatedTime :: Lens' Stack (Maybe UTCTime)
-sCreatedTime = lens _sCreatedTime (\ s a -> s{_sCreatedTime = a}) . mapping _Time;
+sCreatedTime = lens _sCreatedTime (\ s a -> s{_sCreatedTime = a}) . mapping _Time
 
 -- | The storage connectors to enable.
 sStorageConnectors :: Lens' Stack [StorageConnector]
-sStorageConnectors = lens _sStorageConnectors (\ s a -> s{_sStorageConnectors = a}) . _Default . _Coerce;
+sStorageConnectors = lens _sStorageConnectors (\ s a -> s{_sStorageConnectors = a}) . _Default . _Coerce
 
--- | The stack name displayed to end users.
+-- | The stack name for display.
 sDisplayName :: Lens' Stack (Maybe Text)
-sDisplayName = lens _sDisplayName (\ s a -> s{_sDisplayName = a});
+sDisplayName = lens _sDisplayName (\ s a -> s{_sDisplayName = a})
 
 -- | The errors for the stack.
 sStackErrors :: Lens' Stack [StackError]
-sStackErrors = lens _sStackErrors (\ s a -> s{_sStackErrors = a}) . _Default . _Coerce;
+sStackErrors = lens _sStackErrors (\ s a -> s{_sStackErrors = a}) . _Default . _Coerce
 
--- | The description displayed to end users.
+-- | The description for display.
 sDescription :: Lens' Stack (Maybe Text)
-sDescription = lens _sDescription (\ s a -> s{_sDescription = a});
+sDescription = lens _sDescription (\ s a -> s{_sDescription = a})
+
+-- | The URL that users are redirected to after their streaming session ends.
+sRedirectURL :: Lens' Stack (Maybe Text)
+sRedirectURL = lens _sRedirectURL (\ s a -> s{_sRedirectURL = a})
 
 -- | The name of the stack.
 sName :: Lens' Stack Text
-sName = lens _sName (\ s a -> s{_sName = a});
+sName = lens _sName (\ s a -> s{_sName = a})
 
 instance FromJSON Stack where
         parseJSON
           = withObject "Stack"
               (\ x ->
                  Stack' <$>
-                   (x .:? "Arn") <*> (x .:? "CreatedTime") <*>
-                     (x .:? "StorageConnectors" .!= mempty)
+                   (x .:? "FeedbackURL") <*> (x .:? "Arn") <*>
+                     (x .:? "CreatedTime")
+                     <*> (x .:? "StorageConnectors" .!= mempty)
                      <*> (x .:? "DisplayName")
                      <*> (x .:? "StackErrors" .!= mempty)
                      <*> (x .:? "Description")
+                     <*> (x .:? "RedirectURL")
                      <*> (x .: "Name"))
 
 instance Hashable Stack where
@@ -1246,11 +1294,11 @@ stackError = StackError' {_seErrorCode = Nothing, _seErrorMessage = Nothing}
 
 -- | The error code.
 seErrorCode :: Lens' StackError (Maybe StackErrorCode)
-seErrorCode = lens _seErrorCode (\ s a -> s{_seErrorCode = a});
+seErrorCode = lens _seErrorCode (\ s a -> s{_seErrorCode = a})
 
 -- | The error message.
 seErrorMessage :: Lens' StackError (Maybe Text)
-seErrorMessage = lens _seErrorMessage (\ s a -> s{_seErrorMessage = a});
+seErrorMessage = lens _seErrorMessage (\ s a -> s{_seErrorMessage = a})
 
 instance FromJSON StackError where
         parseJSON
@@ -1286,16 +1334,16 @@ storageConnector
     -> StorageConnector
 storageConnector pConnectorType_ =
   StorageConnector'
-  {_scResourceIdentifier = Nothing, _scConnectorType = pConnectorType_}
+    {_scResourceIdentifier = Nothing, _scConnectorType = pConnectorType_}
 
 
 -- | The ARN of the storage connector.
 scResourceIdentifier :: Lens' StorageConnector (Maybe Text)
-scResourceIdentifier = lens _scResourceIdentifier (\ s a -> s{_scResourceIdentifier = a});
+scResourceIdentifier = lens _scResourceIdentifier (\ s a -> s{_scResourceIdentifier = a})
 
 -- | The type of storage connector.
 scConnectorType :: Lens' StorageConnector StorageConnectorType
-scConnectorType = lens _scConnectorType (\ s a -> s{_scConnectorType = a});
+scConnectorType = lens _scConnectorType (\ s a -> s{_scConnectorType = a})
 
 instance FromJSON StorageConnector where
         parseJSON
@@ -1341,11 +1389,11 @@ vpcConfig = VPCConfig' {_vcSecurityGroupIds = Nothing, _vcSubnetIds = Nothing}
 
 -- | The security groups for the fleet.
 vcSecurityGroupIds :: Lens' VPCConfig [Text]
-vcSecurityGroupIds = lens _vcSecurityGroupIds (\ s a -> s{_vcSecurityGroupIds = a}) . _Default . _Coerce;
+vcSecurityGroupIds = lens _vcSecurityGroupIds (\ s a -> s{_vcSecurityGroupIds = a}) . _Default . _Coerce
 
 -- | The subnets to which a network interface is established from the fleet instance.
 vcSubnetIds :: Lens' VPCConfig [Text]
-vcSubnetIds = lens _vcSubnetIds (\ s a -> s{_vcSubnetIds = a}) . _Default . _Coerce;
+vcSubnetIds = lens _vcSubnetIds (\ s a -> s{_vcSubnetIds = a}) . _Default . _Coerce
 
 instance FromJSON VPCConfig where
         parseJSON

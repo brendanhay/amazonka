@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketRequestPayment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,23 +64,23 @@ putBucketRequestPayment
     -> PutBucketRequestPayment
 putBucketRequestPayment pBucket_ pRequestPaymentConfiguration_ =
   PutBucketRequestPayment'
-  { _pbrpContentMD5 = Nothing
-  , _pbrpBucket = pBucket_
-  , _pbrpRequestPaymentConfiguration = pRequestPaymentConfiguration_
-  }
+    { _pbrpContentMD5 = Nothing
+    , _pbrpBucket = pBucket_
+    , _pbrpRequestPaymentConfiguration = pRequestPaymentConfiguration_
+    }
 
 
 -- | Undocumented member.
 pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
-pbrpContentMD5 = lens _pbrpContentMD5 (\ s a -> s{_pbrpContentMD5 = a});
+pbrpContentMD5 = lens _pbrpContentMD5 (\ s a -> s{_pbrpContentMD5 = a})
 
 -- | Undocumented member.
 pbrpBucket :: Lens' PutBucketRequestPayment BucketName
-pbrpBucket = lens _pbrpBucket (\ s a -> s{_pbrpBucket = a});
+pbrpBucket = lens _pbrpBucket (\ s a -> s{_pbrpBucket = a})
 
 -- | Undocumented member.
 pbrpRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentConfiguration
-pbrpRequestPaymentConfiguration = lens _pbrpRequestPaymentConfiguration (\ s a -> s{_pbrpRequestPaymentConfiguration = a});
+pbrpRequestPaymentConfiguration = lens _pbrpRequestPaymentConfiguration (\ s a -> s{_pbrpRequestPaymentConfiguration = a})
 
 instance AWSRequest PutBucketRequestPayment where
         type Rs PutBucketRequestPayment =

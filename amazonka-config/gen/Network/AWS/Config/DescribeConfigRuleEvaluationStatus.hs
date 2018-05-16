@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigRuleEvaluationStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,30 +65,30 @@ data DescribeConfigRuleEvaluationStatus = DescribeConfigRuleEvaluationStatus'
 --
 -- * 'dcresConfigRuleNames' - The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use.
 --
--- * 'dcresNextToken' - The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'dcresNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'dcresLimit' - The number of rule evaluation results that you want returned. This parameter is required if the rule limit for your account is more than the default of 50 rules. For more information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
+-- * 'dcresLimit' - The number of rule evaluation results that you want returned. This parameter is required if the rule limit for your account is more than the default of 50 rules. For information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
 describeConfigRuleEvaluationStatus
     :: DescribeConfigRuleEvaluationStatus
 describeConfigRuleEvaluationStatus =
   DescribeConfigRuleEvaluationStatus'
-  { _dcresConfigRuleNames = Nothing
-  , _dcresNextToken = Nothing
-  , _dcresLimit = Nothing
-  }
+    { _dcresConfigRuleNames = Nothing
+    , _dcresNextToken = Nothing
+    , _dcresLimit = Nothing
+    }
 
 
 -- | The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use.
 dcresConfigRuleNames :: Lens' DescribeConfigRuleEvaluationStatus [Text]
-dcresConfigRuleNames = lens _dcresConfigRuleNames (\ s a -> s{_dcresConfigRuleNames = a}) . _Default . _Coerce;
+dcresConfigRuleNames = lens _dcresConfigRuleNames (\ s a -> s{_dcresConfigRuleNames = a}) . _Default . _Coerce
 
--- | The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 dcresNextToken :: Lens' DescribeConfigRuleEvaluationStatus (Maybe Text)
-dcresNextToken = lens _dcresNextToken (\ s a -> s{_dcresNextToken = a});
+dcresNextToken = lens _dcresNextToken (\ s a -> s{_dcresNextToken = a})
 
--- | The number of rule evaluation results that you want returned. This parameter is required if the rule limit for your account is more than the default of 50 rules. For more information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
+-- | The number of rule evaluation results that you want returned. This parameter is required if the rule limit for your account is more than the default of 50 rules. For information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
 dcresLimit :: Lens' DescribeConfigRuleEvaluationStatus (Maybe Natural)
-dcresLimit = lens _dcresLimit (\ s a -> s{_dcresLimit = a}) . mapping _Nat;
+dcresLimit = lens _dcresLimit (\ s a -> s{_dcresLimit = a}) . mapping _Nat
 
 instance AWSRequest
            DescribeConfigRuleEvaluationStatus
@@ -164,23 +164,23 @@ describeConfigRuleEvaluationStatusResponse
     -> DescribeConfigRuleEvaluationStatusResponse
 describeConfigRuleEvaluationStatusResponse pResponseStatus_ =
   DescribeConfigRuleEvaluationStatusResponse'
-  { _dcresrsConfigRulesEvaluationStatus = Nothing
-  , _dcresrsNextToken = Nothing
-  , _dcresrsResponseStatus = pResponseStatus_
-  }
+    { _dcresrsConfigRulesEvaluationStatus = Nothing
+    , _dcresrsNextToken = Nothing
+    , _dcresrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Status information about your AWS managed Config rules.
 dcresrsConfigRulesEvaluationStatus :: Lens' DescribeConfigRuleEvaluationStatusResponse [ConfigRuleEvaluationStatus]
-dcresrsConfigRulesEvaluationStatus = lens _dcresrsConfigRulesEvaluationStatus (\ s a -> s{_dcresrsConfigRulesEvaluationStatus = a}) . _Default . _Coerce;
+dcresrsConfigRulesEvaluationStatus = lens _dcresrsConfigRulesEvaluationStatus (\ s a -> s{_dcresrsConfigRulesEvaluationStatus = a}) . _Default . _Coerce
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 dcresrsNextToken :: Lens' DescribeConfigRuleEvaluationStatusResponse (Maybe Text)
-dcresrsNextToken = lens _dcresrsNextToken (\ s a -> s{_dcresrsNextToken = a});
+dcresrsNextToken = lens _dcresrsNextToken (\ s a -> s{_dcresrsNextToken = a})
 
 -- | -- | The response status code.
 dcresrsResponseStatus :: Lens' DescribeConfigRuleEvaluationStatusResponse Int
-dcresrsResponseStatus = lens _dcresrsResponseStatus (\ s a -> s{_dcresrsResponseStatus = a});
+dcresrsResponseStatus = lens _dcresrsResponseStatus (\ s a -> s{_dcresrsResponseStatus = a})
 
 instance NFData
            DescribeConfigRuleEvaluationStatusResponse

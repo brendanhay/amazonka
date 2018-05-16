@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeDirectoryConfigs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified directory configurations.
+-- Describes the specified directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response.
 --
 --
 module Network.AWS.AppStream.DescribeDirectoryConfigs
@@ -68,23 +68,23 @@ describeDirectoryConfigs
     :: DescribeDirectoryConfigs
 describeDirectoryConfigs =
   DescribeDirectoryConfigs'
-  { _ddcNextToken = Nothing
-  , _ddcDirectoryNames = Nothing
-  , _ddcMaxResults = Nothing
-  }
+    { _ddcNextToken = Nothing
+    , _ddcDirectoryNames = Nothing
+    , _ddcMaxResults = Nothing
+    }
 
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 ddcNextToken :: Lens' DescribeDirectoryConfigs (Maybe Text)
-ddcNextToken = lens _ddcNextToken (\ s a -> s{_ddcNextToken = a});
+ddcNextToken = lens _ddcNextToken (\ s a -> s{_ddcNextToken = a})
 
 -- | The directory names.
 ddcDirectoryNames :: Lens' DescribeDirectoryConfigs [Text]
-ddcDirectoryNames = lens _ddcDirectoryNames (\ s a -> s{_ddcDirectoryNames = a}) . _Default . _Coerce;
+ddcDirectoryNames = lens _ddcDirectoryNames (\ s a -> s{_ddcDirectoryNames = a}) . _Default . _Coerce
 
 -- | The maximum size of each page of results.
 ddcMaxResults :: Lens' DescribeDirectoryConfigs (Maybe Int)
-ddcMaxResults = lens _ddcMaxResults (\ s a -> s{_ddcMaxResults = a});
+ddcMaxResults = lens _ddcMaxResults (\ s a -> s{_ddcMaxResults = a})
 
 instance AWSRequest DescribeDirectoryConfigs where
         type Rs DescribeDirectoryConfigs =
@@ -140,7 +140,7 @@ data DescribeDirectoryConfigsResponse = DescribeDirectoryConfigsResponse'
 --
 -- * 'ddcrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
--- * 'ddcrsDirectoryConfigs' - Information about the directory configurations.
+-- * 'ddcrsDirectoryConfigs' - Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response.
 --
 -- * 'ddcrsResponseStatus' - -- | The response status code.
 describeDirectoryConfigsResponse
@@ -148,23 +148,23 @@ describeDirectoryConfigsResponse
     -> DescribeDirectoryConfigsResponse
 describeDirectoryConfigsResponse pResponseStatus_ =
   DescribeDirectoryConfigsResponse'
-  { _ddcrsNextToken = Nothing
-  , _ddcrsDirectoryConfigs = Nothing
-  , _ddcrsResponseStatus = pResponseStatus_
-  }
+    { _ddcrsNextToken = Nothing
+    , _ddcrsDirectoryConfigs = Nothing
+    , _ddcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 ddcrsNextToken :: Lens' DescribeDirectoryConfigsResponse (Maybe Text)
-ddcrsNextToken = lens _ddcrsNextToken (\ s a -> s{_ddcrsNextToken = a});
+ddcrsNextToken = lens _ddcrsNextToken (\ s a -> s{_ddcrsNextToken = a})
 
--- | Information about the directory configurations.
+-- | Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response.
 ddcrsDirectoryConfigs :: Lens' DescribeDirectoryConfigsResponse [DirectoryConfig]
-ddcrsDirectoryConfigs = lens _ddcrsDirectoryConfigs (\ s a -> s{_ddcrsDirectoryConfigs = a}) . _Default . _Coerce;
+ddcrsDirectoryConfigs = lens _ddcrsDirectoryConfigs (\ s a -> s{_ddcrsDirectoryConfigs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddcrsResponseStatus :: Lens' DescribeDirectoryConfigsResponse Int
-ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a});
+ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a})
 
 instance NFData DescribeDirectoryConfigsResponse
          where

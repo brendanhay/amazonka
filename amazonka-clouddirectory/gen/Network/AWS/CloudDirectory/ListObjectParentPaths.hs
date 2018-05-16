@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListObjectParentPaths
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@
 --
 -- Use this API to evaluate all parents for an object. The call returns all objects from the root of the directory up to the requested object. The API returns the number of paths based on user-defined @MaxResults@ , in case there are multiple paths to the parent. The order of the paths and nodes returned is consistent among multiple API calls unless the objects are deleted or moved. Paths not leading to the directory root are ignored from the target object.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListObjectParentPaths
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.CloudDirectory.ListObjectParentPaths
 import Network.AWS.CloudDirectory.Types
 import Network.AWS.CloudDirectory.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -76,28 +79,36 @@ listObjectParentPaths
     -> ListObjectParentPaths
 listObjectParentPaths pDirectoryARN_ pObjectReference_ =
   ListObjectParentPaths'
-  { _loppNextToken = Nothing
-  , _loppMaxResults = Nothing
-  , _loppDirectoryARN = pDirectoryARN_
-  , _loppObjectReference = pObjectReference_
-  }
+    { _loppNextToken = Nothing
+    , _loppMaxResults = Nothing
+    , _loppDirectoryARN = pDirectoryARN_
+    , _loppObjectReference = pObjectReference_
+    }
 
 
 -- | The pagination token.
 loppNextToken :: Lens' ListObjectParentPaths (Maybe Text)
-loppNextToken = lens _loppNextToken (\ s a -> s{_loppNextToken = a});
+loppNextToken = lens _loppNextToken (\ s a -> s{_loppNextToken = a})
 
 -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 loppMaxResults :: Lens' ListObjectParentPaths (Maybe Natural)
-loppMaxResults = lens _loppMaxResults (\ s a -> s{_loppMaxResults = a}) . mapping _Nat;
+loppMaxResults = lens _loppMaxResults (\ s a -> s{_loppMaxResults = a}) . mapping _Nat
 
 -- | The ARN of the directory to which the parent path applies.
 loppDirectoryARN :: Lens' ListObjectParentPaths Text
-loppDirectoryARN = lens _loppDirectoryARN (\ s a -> s{_loppDirectoryARN = a});
+loppDirectoryARN = lens _loppDirectoryARN (\ s a -> s{_loppDirectoryARN = a})
 
 -- | The reference that identifies the object whose parent paths are listed.
 loppObjectReference :: Lens' ListObjectParentPaths ObjectReference
-loppObjectReference = lens _loppObjectReference (\ s a -> s{_loppObjectReference = a});
+loppObjectReference = lens _loppObjectReference (\ s a -> s{_loppObjectReference = a})
+
+instance AWSPager ListObjectParentPaths where
+        page rq rs
+          | stop (rs ^. lopprsNextToken) = Nothing
+          | stop (rs ^. lopprsPathToObjectIdentifiersList) =
+            Nothing
+          | otherwise =
+            Just $ rq & loppNextToken .~ rs ^. lopprsNextToken
 
 instance AWSRequest ListObjectParentPaths where
         type Rs ListObjectParentPaths =
@@ -158,22 +169,22 @@ listObjectParentPathsResponse
     -> ListObjectParentPathsResponse
 listObjectParentPathsResponse pResponseStatus_ =
   ListObjectParentPathsResponse'
-  { _lopprsPathToObjectIdentifiersList = Nothing
-  , _lopprsNextToken = Nothing
-  , _lopprsResponseStatus = pResponseStatus_
-  }
+    { _lopprsPathToObjectIdentifiersList = Nothing
+    , _lopprsNextToken = Nothing
+    , _lopprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
 lopprsPathToObjectIdentifiersList :: Lens' ListObjectParentPathsResponse [PathToObjectIdentifiers]
-lopprsPathToObjectIdentifiersList = lens _lopprsPathToObjectIdentifiersList (\ s a -> s{_lopprsPathToObjectIdentifiersList = a}) . _Default . _Coerce;
+lopprsPathToObjectIdentifiersList = lens _lopprsPathToObjectIdentifiersList (\ s a -> s{_lopprsPathToObjectIdentifiersList = a}) . _Default . _Coerce
 
 -- | The pagination token.
 lopprsNextToken :: Lens' ListObjectParentPathsResponse (Maybe Text)
-lopprsNextToken = lens _lopprsNextToken (\ s a -> s{_lopprsNextToken = a});
+lopprsNextToken = lens _lopprsNextToken (\ s a -> s{_lopprsNextToken = a})
 
 -- | -- | The response status code.
 lopprsResponseStatus :: Lens' ListObjectParentPathsResponse Int
-lopprsResponseStatus = lens _lopprsResponseStatus (\ s a -> s{_lopprsResponseStatus = a});
+lopprsResponseStatus = lens _lopprsResponseStatus (\ s a -> s{_lopprsResponseStatus = a})
 
 instance NFData ListObjectParentPathsResponse where

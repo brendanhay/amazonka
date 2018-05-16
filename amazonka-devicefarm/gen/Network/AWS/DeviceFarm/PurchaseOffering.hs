@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.PurchaseOffering
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ purchaseOffering
     :: PurchaseOffering
 purchaseOffering =
   PurchaseOffering'
-  { _poQuantity = Nothing
-  , _poOfferingId = Nothing
-  , _poOfferingPromotionId = Nothing
-  }
+    { _poQuantity = Nothing
+    , _poOfferingId = Nothing
+    , _poOfferingPromotionId = Nothing
+    }
 
 
 -- | The number of device slots you wish to purchase in an offering request.
 poQuantity :: Lens' PurchaseOffering (Maybe Int)
-poQuantity = lens _poQuantity (\ s a -> s{_poQuantity = a});
+poQuantity = lens _poQuantity (\ s a -> s{_poQuantity = a})
 
 -- | The ID of the offering.
 poOfferingId :: Lens' PurchaseOffering (Maybe Text)
-poOfferingId = lens _poOfferingId (\ s a -> s{_poOfferingId = a});
+poOfferingId = lens _poOfferingId (\ s a -> s{_poOfferingId = a})
 
 -- | The ID of the offering promotion to be applied to the purchase.
 poOfferingPromotionId :: Lens' PurchaseOffering (Maybe Text)
-poOfferingPromotionId = lens _poOfferingPromotionId (\ s a -> s{_poOfferingPromotionId = a});
+poOfferingPromotionId = lens _poOfferingPromotionId (\ s a -> s{_poOfferingPromotionId = a})
 
 instance AWSRequest PurchaseOffering where
         type Rs PurchaseOffering = PurchaseOfferingResponse
@@ -151,15 +151,15 @@ purchaseOfferingResponse
     -> PurchaseOfferingResponse
 purchaseOfferingResponse pResponseStatus_ =
   PurchaseOfferingResponse'
-  {_porsOfferingTransaction = Nothing, _porsResponseStatus = pResponseStatus_}
+    {_porsOfferingTransaction = Nothing, _porsResponseStatus = pResponseStatus_}
 
 
 -- | Represents the offering transaction for the purchase result.
 porsOfferingTransaction :: Lens' PurchaseOfferingResponse (Maybe OfferingTransaction)
-porsOfferingTransaction = lens _porsOfferingTransaction (\ s a -> s{_porsOfferingTransaction = a});
+porsOfferingTransaction = lens _porsOfferingTransaction (\ s a -> s{_porsOfferingTransaction = a})
 
 -- | -- | The response status code.
 porsResponseStatus :: Lens' PurchaseOfferingResponse Int
-porsResponseStatus = lens _porsResponseStatus (\ s a -> s{_porsResponseStatus = a});
+porsResponseStatus = lens _porsResponseStatus (\ s a -> s{_porsResponseStatus = a})
 
 instance NFData PurchaseOfferingResponse where

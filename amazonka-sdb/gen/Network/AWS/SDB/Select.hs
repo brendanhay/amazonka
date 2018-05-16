@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.Select
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,23 +76,23 @@ select
     -> Select
 select pSelectExpression_ =
   Select'
-  { _sConsistentRead = Nothing
-  , _sNextToken = Nothing
-  , _sSelectExpression = pSelectExpression_
-  }
+    { _sConsistentRead = Nothing
+    , _sNextToken = Nothing
+    , _sSelectExpression = pSelectExpression_
+    }
 
 
 -- | @true@
 sConsistentRead :: Lens' Select (Maybe Bool)
-sConsistentRead = lens _sConsistentRead (\ s a -> s{_sConsistentRead = a});
+sConsistentRead = lens _sConsistentRead (\ s a -> s{_sConsistentRead = a})
 
 -- | @ItemNames@
 sNextToken :: Lens' Select (Maybe Text)
-sNextToken = lens _sNextToken (\ s a -> s{_sNextToken = a});
+sNextToken = lens _sNextToken (\ s a -> s{_sNextToken = a})
 
 -- | The expression used to query the domain.
 sSelectExpression :: Lens' Select Text
-sSelectExpression = lens _sSelectExpression (\ s a -> s{_sSelectExpression = a});
+sSelectExpression = lens _sSelectExpression (\ s a -> s{_sSelectExpression = a})
 
 instance AWSPager Select where
         page rq rs
@@ -152,22 +152,22 @@ selectResponse
     -> SelectResponse
 selectResponse pResponseStatus_ =
   SelectResponse'
-  { _srsItems = Nothing
-  , _srsNextToken = Nothing
-  , _srsResponseStatus = pResponseStatus_
-  }
+    { _srsItems = Nothing
+    , _srsNextToken = Nothing
+    , _srsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of items that match the select expression.
 srsItems :: Lens' SelectResponse [Item]
-srsItems = lens _srsItems (\ s a -> s{_srsItems = a}) . _Default . _Coerce;
+srsItems = lens _srsItems (\ s a -> s{_srsItems = a}) . _Default . _Coerce
 
 -- | @MaxNumberOfItems@
 srsNextToken :: Lens' SelectResponse (Maybe Text)
-srsNextToken = lens _srsNextToken (\ s a -> s{_srsNextToken = a});
+srsNextToken = lens _srsNextToken (\ s a -> s{_srsNextToken = a})
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' SelectResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData SelectResponse where

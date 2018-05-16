@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetTest
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getTest pArn_ = GetTest' {_gtArn = pArn_}
 
 -- | The test's ARN.
 gtArn :: Lens' GetTest Text
-gtArn = lens _gtArn (\ s a -> s{_gtArn = a});
+gtArn = lens _gtArn (\ s a -> s{_gtArn = a})
 
 instance AWSRequest GetTest where
         type Rs GetTest = GetTestResponse
@@ -128,10 +128,10 @@ getTestResponse pResponseStatus_ =
 
 -- | A test condition that is evaluated.
 gtrsTest :: Lens' GetTestResponse (Maybe Test)
-gtrsTest = lens _gtrsTest (\ s a -> s{_gtrsTest = a});
+gtrsTest = lens _gtrsTest (\ s a -> s{_gtrsTest = a})
 
 -- | -- | The response status code.
 gtrsResponseStatus :: Lens' GetTestResponse Int
-gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});
+gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a})
 
 instance NFData GetTestResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetLoggerDefinitionVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,27 +58,27 @@ data GetLoggerDefinitionVersion = GetLoggerDefinitionVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gldvLoggerDefinitionVersionId' - logger definition version Id
+-- * 'gldvLoggerDefinitionVersionId' - The ID of the logger definition version.
 --
--- * 'gldvLoggerDefinitionId' - logger definition Id
+-- * 'gldvLoggerDefinitionId' - The ID of the logger definition.
 getLoggerDefinitionVersion
     :: Text -- ^ 'gldvLoggerDefinitionVersionId'
     -> Text -- ^ 'gldvLoggerDefinitionId'
     -> GetLoggerDefinitionVersion
 getLoggerDefinitionVersion pLoggerDefinitionVersionId_ pLoggerDefinitionId_ =
   GetLoggerDefinitionVersion'
-  { _gldvLoggerDefinitionVersionId = pLoggerDefinitionVersionId_
-  , _gldvLoggerDefinitionId = pLoggerDefinitionId_
-  }
+    { _gldvLoggerDefinitionVersionId = pLoggerDefinitionVersionId_
+    , _gldvLoggerDefinitionId = pLoggerDefinitionId_
+    }
 
 
--- | logger definition version Id
+-- | The ID of the logger definition version.
 gldvLoggerDefinitionVersionId :: Lens' GetLoggerDefinitionVersion Text
-gldvLoggerDefinitionVersionId = lens _gldvLoggerDefinitionVersionId (\ s a -> s{_gldvLoggerDefinitionVersionId = a});
+gldvLoggerDefinitionVersionId = lens _gldvLoggerDefinitionVersionId (\ s a -> s{_gldvLoggerDefinitionVersionId = a})
 
--- | logger definition Id
+-- | The ID of the logger definition.
 gldvLoggerDefinitionId :: Lens' GetLoggerDefinitionVersion Text
-gldvLoggerDefinitionId = lens _gldvLoggerDefinitionId (\ s a -> s{_gldvLoggerDefinitionId = a});
+gldvLoggerDefinitionId = lens _gldvLoggerDefinitionId (\ s a -> s{_gldvLoggerDefinitionId = a})
 
 instance AWSRequest GetLoggerDefinitionVersion where
         type Rs GetLoggerDefinitionVersion =
@@ -130,15 +130,15 @@ data GetLoggerDefinitionVersionResponse = GetLoggerDefinitionVersionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gldvrsDefinition' - Information on definition
+-- * 'gldvrsDefinition' - Information about the logger definition version.
 --
--- * 'gldvrsARN' - Arn of the logger definition version.
+-- * 'gldvrsARN' - The ARN of the logger definition version.
 --
--- * 'gldvrsCreationTimestamp' - Timestamp of when the logger definition version was created.
+-- * 'gldvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the logger definition version was created.
 --
--- * 'gldvrsVersion' - Version of the logger definition version.
+-- * 'gldvrsVersion' - The version of the logger definition version.
 --
--- * 'gldvrsId' - Id of the logger definition the version belongs to.
+-- * 'gldvrsId' - The ID of the logger definition version.
 --
 -- * 'gldvrsResponseStatus' - -- | The response status code.
 getLoggerDefinitionVersionResponse
@@ -146,38 +146,38 @@ getLoggerDefinitionVersionResponse
     -> GetLoggerDefinitionVersionResponse
 getLoggerDefinitionVersionResponse pResponseStatus_ =
   GetLoggerDefinitionVersionResponse'
-  { _gldvrsDefinition = Nothing
-  , _gldvrsARN = Nothing
-  , _gldvrsCreationTimestamp = Nothing
-  , _gldvrsVersion = Nothing
-  , _gldvrsId = Nothing
-  , _gldvrsResponseStatus = pResponseStatus_
-  }
+    { _gldvrsDefinition = Nothing
+    , _gldvrsARN = Nothing
+    , _gldvrsCreationTimestamp = Nothing
+    , _gldvrsVersion = Nothing
+    , _gldvrsId = Nothing
+    , _gldvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Information on definition
+-- | Information about the logger definition version.
 gldvrsDefinition :: Lens' GetLoggerDefinitionVersionResponse (Maybe LoggerDefinitionVersion)
-gldvrsDefinition = lens _gldvrsDefinition (\ s a -> s{_gldvrsDefinition = a});
+gldvrsDefinition = lens _gldvrsDefinition (\ s a -> s{_gldvrsDefinition = a})
 
--- | Arn of the logger definition version.
+-- | The ARN of the logger definition version.
 gldvrsARN :: Lens' GetLoggerDefinitionVersionResponse (Maybe Text)
-gldvrsARN = lens _gldvrsARN (\ s a -> s{_gldvrsARN = a});
+gldvrsARN = lens _gldvrsARN (\ s a -> s{_gldvrsARN = a})
 
--- | Timestamp of when the logger definition version was created.
+-- | The time, in milliseconds since the epoch, when the logger definition version was created.
 gldvrsCreationTimestamp :: Lens' GetLoggerDefinitionVersionResponse (Maybe Text)
-gldvrsCreationTimestamp = lens _gldvrsCreationTimestamp (\ s a -> s{_gldvrsCreationTimestamp = a});
+gldvrsCreationTimestamp = lens _gldvrsCreationTimestamp (\ s a -> s{_gldvrsCreationTimestamp = a})
 
--- | Version of the logger definition version.
+-- | The version of the logger definition version.
 gldvrsVersion :: Lens' GetLoggerDefinitionVersionResponse (Maybe Text)
-gldvrsVersion = lens _gldvrsVersion (\ s a -> s{_gldvrsVersion = a});
+gldvrsVersion = lens _gldvrsVersion (\ s a -> s{_gldvrsVersion = a})
 
--- | Id of the logger definition the version belongs to.
+-- | The ID of the logger definition version.
 gldvrsId :: Lens' GetLoggerDefinitionVersionResponse (Maybe Text)
-gldvrsId = lens _gldvrsId (\ s a -> s{_gldvrsId = a});
+gldvrsId = lens _gldvrsId (\ s a -> s{_gldvrsId = a})
 
 -- | -- | The response status code.
 gldvrsResponseStatus :: Lens' GetLoggerDefinitionVersionResponse Int
-gldvrsResponseStatus = lens _gldvrsResponseStatus (\ s a -> s{_gldvrsResponseStatus = a});
+gldvrsResponseStatus = lens _gldvrsResponseStatus (\ s a -> s{_gldvrsResponseStatus = a})
 
 instance NFData GetLoggerDefinitionVersionResponse
          where

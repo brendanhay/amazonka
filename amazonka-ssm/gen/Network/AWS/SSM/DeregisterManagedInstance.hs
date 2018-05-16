@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeregisterManagedInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deregisterManagedInstance pInstanceId_ =
 
 -- | The ID assigned to the managed instance when you registered it using the activation process.
 dmiInstanceId :: Lens' DeregisterManagedInstance Text
-dmiInstanceId = lens _dmiInstanceId (\ s a -> s{_dmiInstanceId = a});
+dmiInstanceId = lens _dmiInstanceId (\ s a -> s{_dmiInstanceId = a})
 
 instance AWSRequest DeregisterManagedInstance where
         type Rs DeregisterManagedInstance =
@@ -120,7 +120,7 @@ deregisterManagedInstanceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dmirsResponseStatus :: Lens' DeregisterManagedInstanceResponse Int
-dmirsResponseStatus = lens _dmirsResponseStatus (\ s a -> s{_dmirsResponseStatus = a});
+dmirsResponseStatus = lens _dmirsResponseStatus (\ s a -> s{_dmirsResponseStatus = a})
 
 instance NFData DeregisterManagedInstanceResponse
          where

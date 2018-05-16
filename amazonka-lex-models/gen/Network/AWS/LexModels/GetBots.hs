@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBots
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,8 @@
 --
 -- This operation requires permission for the @lex:GetBots@ action.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.LexModels.GetBots
     (
     -- * Creating a Request
@@ -51,6 +53,7 @@ module Network.AWS.LexModels.GetBots
 import Network.AWS.Lens
 import Network.AWS.LexModels.Types
 import Network.AWS.LexModels.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -76,20 +79,27 @@ getBots
     :: GetBots
 getBots =
   GetBots'
-  {_gbNameContains = Nothing, _gbNextToken = Nothing, _gbMaxResults = Nothing}
+    {_gbNameContains = Nothing, _gbNextToken = Nothing, _gbMaxResults = Nothing}
 
 
 -- | Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 gbNameContains :: Lens' GetBots (Maybe Text)
-gbNameContains = lens _gbNameContains (\ s a -> s{_gbNameContains = a});
+gbNameContains = lens _gbNameContains (\ s a -> s{_gbNameContains = a})
 
 -- | A pagination token that fetches the next page of bots. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of bots, specify the pagination token in the next request.
 gbNextToken :: Lens' GetBots (Maybe Text)
-gbNextToken = lens _gbNextToken (\ s a -> s{_gbNextToken = a});
+gbNextToken = lens _gbNextToken (\ s a -> s{_gbNextToken = a})
 
 -- | The maximum number of bots to return in the response that the request will return. The default is 10.
 gbMaxResults :: Lens' GetBots (Maybe Natural)
-gbMaxResults = lens _gbMaxResults (\ s a -> s{_gbMaxResults = a}) . mapping _Nat;
+gbMaxResults = lens _gbMaxResults (\ s a -> s{_gbMaxResults = a}) . mapping _Nat
+
+instance AWSPager GetBots where
+        page rq rs
+          | stop (rs ^. gbsrsNextToken) = Nothing
+          | stop (rs ^. gbsrsBots) = Nothing
+          | otherwise =
+            Just $ rq & gbNextToken .~ rs ^. gbsrsNextToken
 
 instance AWSRequest GetBots where
         type Rs GetBots = GetBotsResponse
@@ -144,22 +154,22 @@ getBotsResponse
     -> GetBotsResponse
 getBotsResponse pResponseStatus_ =
   GetBotsResponse'
-  { _gbsrsBots = Nothing
-  , _gbsrsNextToken = Nothing
-  , _gbsrsResponseStatus = pResponseStatus_
-  }
+    { _gbsrsBots = Nothing
+    , _gbsrsNextToken = Nothing
+    , _gbsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of @botMetadata@ objects, with one entry for each bot.
 gbsrsBots :: Lens' GetBotsResponse [BotMetadata]
-gbsrsBots = lens _gbsrsBots (\ s a -> s{_gbsrsBots = a}) . _Default . _Coerce;
+gbsrsBots = lens _gbsrsBots (\ s a -> s{_gbsrsBots = a}) . _Default . _Coerce
 
 -- | If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of bots.
 gbsrsNextToken :: Lens' GetBotsResponse (Maybe Text)
-gbsrsNextToken = lens _gbsrsNextToken (\ s a -> s{_gbsrsNextToken = a});
+gbsrsNextToken = lens _gbsrsNextToken (\ s a -> s{_gbsrsNextToken = a})
 
 -- | -- | The response status code.
 gbsrsResponseStatus :: Lens' GetBotsResponse Int
-gbsrsResponseStatus = lens _gbsrsResponseStatus (\ s a -> s{_gbsrsResponseStatus = a});
+gbsrsResponseStatus = lens _gbsrsResponseStatus (\ s a -> s{_gbsrsResponseStatus = a})
 
 instance NFData GetBotsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListAliases
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@
 --
 -- This requires permission for the lambda:ListAliases action.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lambda.ListAliases
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.Lambda.ListAliases
 import Network.AWS.Lambda.Types
 import Network.AWS.Lambda.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,28 +78,35 @@ listAliases
     -> ListAliases
 listAliases pFunctionName_ =
   ListAliases'
-  { _laMarker = Nothing
-  , _laMaxItems = Nothing
-  , _laFunctionVersion = Nothing
-  , _laFunctionName = pFunctionName_
-  }
+    { _laMarker = Nothing
+    , _laMaxItems = Nothing
+    , _laFunctionVersion = Nothing
+    , _laFunctionName = pFunctionName_
+    }
 
 
 -- | Optional string. An opaque pagination token returned from a previous @ListAliases@ operation. If present, indicates where to continue the listing.
 laMarker :: Lens' ListAliases (Maybe Text)
-laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
+laMarker = lens _laMarker (\ s a -> s{_laMarker = a})
 
 -- | Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must be greater than 0.
 laMaxItems :: Lens' ListAliases (Maybe Natural)
-laMaxItems = lens _laMaxItems (\ s a -> s{_laMaxItems = a}) . mapping _Nat;
+laMaxItems = lens _laMaxItems (\ s a -> s{_laMaxItems = a}) . mapping _Nat
 
 -- | If you specify this optional parameter, the API returns only the aliases that are pointing to the specific Lambda function version, otherwise the API returns all of the aliases created for the Lambda function.
 laFunctionVersion :: Lens' ListAliases (Maybe Text)
-laFunctionVersion = lens _laFunctionVersion (\ s a -> s{_laFunctionVersion = a});
+laFunctionVersion = lens _laFunctionVersion (\ s a -> s{_laFunctionVersion = a})
 
 -- | Lambda function name for which the alias is created. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 laFunctionName :: Lens' ListAliases Text
-laFunctionName = lens _laFunctionName (\ s a -> s{_laFunctionName = a});
+laFunctionName = lens _laFunctionName (\ s a -> s{_laFunctionName = a})
+
+instance AWSPager ListAliases where
+        page rq rs
+          | stop (rs ^. larsNextMarker) = Nothing
+          | stop (rs ^. larsAliases) = Nothing
+          | otherwise =
+            Just $ rq & laMarker .~ rs ^. larsNextMarker
 
 instance AWSRequest ListAliases where
         type Rs ListAliases = ListAliasesResponse
@@ -149,22 +159,22 @@ listAliasesResponse
     -> ListAliasesResponse
 listAliasesResponse pResponseStatus_ =
   ListAliasesResponse'
-  { _larsAliases = Nothing
-  , _larsNextMarker = Nothing
-  , _larsResponseStatus = pResponseStatus_
-  }
+    { _larsAliases = Nothing
+    , _larsNextMarker = Nothing
+    , _larsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of aliases.
 larsAliases :: Lens' ListAliasesResponse [AliasConfiguration]
-larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
+larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce
 
 -- | A string, present if there are more aliases.
 larsNextMarker :: Lens' ListAliasesResponse (Maybe Text)
-larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
+larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a})
 
 -- | -- | The response status code.
 larsResponseStatus :: Lens' ListAliasesResponse Int
-larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a})
 
 instance NFData ListAliasesResponse where

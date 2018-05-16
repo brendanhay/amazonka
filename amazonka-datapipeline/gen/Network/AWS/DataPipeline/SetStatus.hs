@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.SetStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,20 +70,20 @@ setStatus
     -> SetStatus
 setStatus pPipelineId_ pStatus_ =
   SetStatus'
-  {_ssPipelineId = pPipelineId_, _ssObjectIds = mempty, _ssStatus = pStatus_}
+    {_ssPipelineId = pPipelineId_, _ssObjectIds = mempty, _ssStatus = pStatus_}
 
 
 -- | The ID of the pipeline that contains the objects.
 ssPipelineId :: Lens' SetStatus Text
-ssPipelineId = lens _ssPipelineId (\ s a -> s{_ssPipelineId = a});
+ssPipelineId = lens _ssPipelineId (\ s a -> s{_ssPipelineId = a})
 
 -- | The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
 ssObjectIds :: Lens' SetStatus [Text]
-ssObjectIds = lens _ssObjectIds (\ s a -> s{_ssObjectIds = a}) . _Coerce;
+ssObjectIds = lens _ssObjectIds (\ s a -> s{_ssObjectIds = a}) . _Coerce
 
 -- | The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
 ssStatus :: Lens' SetStatus Text
-ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a});
+ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a})
 
 instance AWSRequest SetStatus where
         type Rs SetStatus = SetStatusResponse

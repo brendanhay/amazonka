@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListOrganizationalUnitsForParent
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ listOrganizationalUnitsForParent
     -> ListOrganizationalUnitsForParent
 listOrganizationalUnitsForParent pParentId_ =
   ListOrganizationalUnitsForParent'
-  { _loufpNextToken = Nothing
-  , _loufpMaxResults = Nothing
-  , _loufpParentId = pParentId_
-  }
+    { _loufpNextToken = Nothing
+    , _loufpMaxResults = Nothing
+    , _loufpParentId = pParentId_
+    }
 
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 loufpNextToken :: Lens' ListOrganizationalUnitsForParent (Maybe Text)
-loufpNextToken = lens _loufpNextToken (\ s a -> s{_loufpNextToken = a});
+loufpNextToken = lens _loufpNextToken (\ s a -> s{_loufpNextToken = a})
 
 -- | (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 loufpMaxResults :: Lens' ListOrganizationalUnitsForParent (Maybe Natural)
-loufpMaxResults = lens _loufpMaxResults (\ s a -> s{_loufpMaxResults = a}) . mapping _Nat;
+loufpMaxResults = lens _loufpMaxResults (\ s a -> s{_loufpMaxResults = a}) . mapping _Nat
 
 -- | The unique identifier (ID) of the root or OU whose child OUs you want to list. The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:     * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 loufpParentId :: Lens' ListOrganizationalUnitsForParent Text
-loufpParentId = lens _loufpParentId (\ s a -> s{_loufpParentId = a});
+loufpParentId = lens _loufpParentId (\ s a -> s{_loufpParentId = a})
 
 instance AWSPager ListOrganizationalUnitsForParent
          where
@@ -169,23 +169,23 @@ listOrganizationalUnitsForParentResponse
     -> ListOrganizationalUnitsForParentResponse
 listOrganizationalUnitsForParentResponse pResponseStatus_ =
   ListOrganizationalUnitsForParentResponse'
-  { _loufprsNextToken = Nothing
-  , _loufprsOrganizationalUnits = Nothing
-  , _loufprsResponseStatus = pResponseStatus_
-  }
+    { _loufprsNextToken = Nothing
+    , _loufprsOrganizationalUnits = Nothing
+    , _loufprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 loufprsNextToken :: Lens' ListOrganizationalUnitsForParentResponse (Maybe Text)
-loufprsNextToken = lens _loufprsNextToken (\ s a -> s{_loufprsNextToken = a});
+loufprsNextToken = lens _loufprsNextToken (\ s a -> s{_loufprsNextToken = a})
 
 -- | A list of the OUs in the specified root or parent OU.
 loufprsOrganizationalUnits :: Lens' ListOrganizationalUnitsForParentResponse [OrganizationalUnit]
-loufprsOrganizationalUnits = lens _loufprsOrganizationalUnits (\ s a -> s{_loufprsOrganizationalUnits = a}) . _Default . _Coerce;
+loufprsOrganizationalUnits = lens _loufprsOrganizationalUnits (\ s a -> s{_loufprsOrganizationalUnits = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 loufprsResponseStatus :: Lens' ListOrganizationalUnitsForParentResponse Int
-loufprsResponseStatus = lens _loufprsResponseStatus (\ s a -> s{_loufprsResponseStatus = a});
+loufprsResponseStatus = lens _loufprsResponseStatus (\ s a -> s{_loufprsResponseStatus = a})
 
 instance NFData
            ListOrganizationalUnitsForParentResponse

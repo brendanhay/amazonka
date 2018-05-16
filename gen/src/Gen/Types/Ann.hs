@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveFunctor      #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE FlexibleInstances  #-}
 {-# LANGUAGE LambdaCase         #-}
@@ -6,7 +7,7 @@
 {-# LANGUAGE TemplateHaskell    #-}
 
 -- Module      : Gen.Types.Ann
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -120,23 +121,27 @@ data Lit
     | Long
     | Double
     | Text
-    | Blob
+    | Base64
+    | Bytes
     | Time
     | Bool
     | Json
       deriving (Eq, Show)
 
-data TType
+data TypeF a
     = TType      Text [Derive]
-    | TLit       Lit
+    | TLit       a
     | TNatural
     | TStream
-    | TMaybe     TType
-    | TSensitive TType
-    | TList      TType
-    | TList1     TType
-    | TMap       TType TType
-      deriving (Eq, Show)
+    | TMaybe     (TypeF a)
+    | TSensitive (TypeF a)
+    | TList      (TypeF a)
+    | TList1     (TypeF a)
+    | TMap       (TypeF a) (TypeF a)
+      deriving (Eq, Show, Functor)
+
+-- FIXME: Moving to a fixpoint required too many initial changes - revisit.
+type TType = TypeF Lit
 
 data Related = Related
     { _annId       :: Id

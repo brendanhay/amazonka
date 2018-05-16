@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,9 @@ module Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
       respondToAuthChallenge
     , RespondToAuthChallenge
     -- * Request Lenses
+    , rtacAnalyticsMetadata
     , rtacChallengeResponses
+    , rtacUserContextData
     , rtacSession
     , rtacClientId
     , rtacChallengeName
@@ -56,7 +58,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'respondToAuthChallenge' smart constructor.
 data RespondToAuthChallenge = RespondToAuthChallenge'
-  { _rtacChallengeResponses :: !(Maybe (Map Text Text))
+  { _rtacAnalyticsMetadata  :: !(Maybe AnalyticsMetadataType)
+  , _rtacChallengeResponses :: !(Maybe (Map Text Text))
+  , _rtacUserContextData    :: !(Maybe UserContextDataType)
   , _rtacSession            :: !(Maybe Text)
   , _rtacClientId           :: !(Sensitive Text)
   , _rtacChallengeName      :: !ChallengeNameType
@@ -67,41 +71,55 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'rtacAnalyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @RespondToAuthChallenge@ calls.
+--
 -- * 'rtacChallengeResponses' - The challenge responses. These are inputs corresponding to the value of @ChallengeName@ , for example:     * @SMS_MFA@ : @SMS_MFA_CODE@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @PASSWORD_VERIFIER@ : @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , @TIMESTAMP@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @NEW_PASSWORD_REQUIRED@ : @NEW_PASSWORD@ , any other required attributes, @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).
+--
+-- * 'rtacUserContextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
 --
 -- * 'rtacSession' - The session which should be passed both ways in challenge-response calls to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 --
 -- * 'rtacClientId' - The app client ID.
 --
--- * 'rtacChallengeName' - The challenge name. For more information, see <API_InitiateAuth.html InitiateAuth> . @ADMIN_NO_SRP_AUTH@ is not a valid value.
+-- * 'rtacChallengeName' - The challenge name. For more information, see . @ADMIN_NO_SRP_AUTH@ is not a valid value.
 respondToAuthChallenge
     :: Text -- ^ 'rtacClientId'
     -> ChallengeNameType -- ^ 'rtacChallengeName'
     -> RespondToAuthChallenge
 respondToAuthChallenge pClientId_ pChallengeName_ =
   RespondToAuthChallenge'
-  { _rtacChallengeResponses = Nothing
-  , _rtacSession = Nothing
-  , _rtacClientId = _Sensitive # pClientId_
-  , _rtacChallengeName = pChallengeName_
-  }
+    { _rtacAnalyticsMetadata = Nothing
+    , _rtacChallengeResponses = Nothing
+    , _rtacUserContextData = Nothing
+    , _rtacSession = Nothing
+    , _rtacClientId = _Sensitive # pClientId_
+    , _rtacChallengeName = pChallengeName_
+    }
 
+
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for @RespondToAuthChallenge@ calls.
+rtacAnalyticsMetadata :: Lens' RespondToAuthChallenge (Maybe AnalyticsMetadataType)
+rtacAnalyticsMetadata = lens _rtacAnalyticsMetadata (\ s a -> s{_rtacAnalyticsMetadata = a})
 
 -- | The challenge responses. These are inputs corresponding to the value of @ChallengeName@ , for example:     * @SMS_MFA@ : @SMS_MFA_CODE@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @PASSWORD_VERIFIER@ : @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , @TIMESTAMP@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @NEW_PASSWORD_REQUIRED@ : @NEW_PASSWORD@ , any other required attributes, @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).
 rtacChallengeResponses :: Lens' RespondToAuthChallenge (HashMap Text Text)
-rtacChallengeResponses = lens _rtacChallengeResponses (\ s a -> s{_rtacChallengeResponses = a}) . _Default . _Map;
+rtacChallengeResponses = lens _rtacChallengeResponses (\ s a -> s{_rtacChallengeResponses = a}) . _Default . _Map
+
+-- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+rtacUserContextData :: Lens' RespondToAuthChallenge (Maybe UserContextDataType)
+rtacUserContextData = lens _rtacUserContextData (\ s a -> s{_rtacUserContextData = a})
 
 -- | The session which should be passed both ways in challenge-response calls to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 rtacSession :: Lens' RespondToAuthChallenge (Maybe Text)
-rtacSession = lens _rtacSession (\ s a -> s{_rtacSession = a});
+rtacSession = lens _rtacSession (\ s a -> s{_rtacSession = a})
 
 -- | The app client ID.
 rtacClientId :: Lens' RespondToAuthChallenge Text
-rtacClientId = lens _rtacClientId (\ s a -> s{_rtacClientId = a}) . _Sensitive;
+rtacClientId = lens _rtacClientId (\ s a -> s{_rtacClientId = a}) . _Sensitive
 
--- | The challenge name. For more information, see <API_InitiateAuth.html InitiateAuth> . @ADMIN_NO_SRP_AUTH@ is not a valid value.
+-- | The challenge name. For more information, see . @ADMIN_NO_SRP_AUTH@ is not a valid value.
 rtacChallengeName :: Lens' RespondToAuthChallenge ChallengeNameType
-rtacChallengeName = lens _rtacChallengeName (\ s a -> s{_rtacChallengeName = a});
+rtacChallengeName = lens _rtacChallengeName (\ s a -> s{_rtacChallengeName = a})
 
 instance AWSRequest RespondToAuthChallenge where
         type Rs RespondToAuthChallenge =
@@ -135,8 +153,10 @@ instance ToJSON RespondToAuthChallenge where
         toJSON RespondToAuthChallenge'{..}
           = object
               (catMaybes
-                 [("ChallengeResponses" .=) <$>
+                 [("AnalyticsMetadata" .=) <$> _rtacAnalyticsMetadata,
+                  ("ChallengeResponses" .=) <$>
                     _rtacChallengeResponses,
+                  ("UserContextData" .=) <$> _rtacUserContextData,
                   ("Session" .=) <$> _rtacSession,
                   Just ("ClientId" .= _rtacClientId),
                   Just ("ChallengeName" .= _rtacChallengeName)])
@@ -165,13 +185,13 @@ data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtacrsChallengeName' - The challenge name. For more information, see <API_InitiateAuth.html InitiateAuth> .
+-- * 'rtacrsChallengeName' - The challenge name. For more information, see .
 --
--- * 'rtacrsChallengeParameters' - The challenge parameters. For more information, see <API_InitiateAuth.html InitiateAuth> .
+-- * 'rtacrsChallengeParameters' - The challenge parameters. For more information, see .
 --
 -- * 'rtacrsAuthenticationResult' - The result returned by the server in response to the request to respond to the authentication challenge.
 --
--- * 'rtacrsSession' - The session which should be passed both ways in challenge-response calls to the service. If the <API_InitiateAuth.html InitiateAuth> or <API_RespondToAuthChallenge.html RespondToAuthChallenge> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
+-- * 'rtacrsSession' - The session which should be passed both ways in challenge-response calls to the service. If the or API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 --
 -- * 'rtacrsResponseStatus' - -- | The response status code.
 respondToAuthChallengeResponse
@@ -179,32 +199,32 @@ respondToAuthChallengeResponse
     -> RespondToAuthChallengeResponse
 respondToAuthChallengeResponse pResponseStatus_ =
   RespondToAuthChallengeResponse'
-  { _rtacrsChallengeName = Nothing
-  , _rtacrsChallengeParameters = Nothing
-  , _rtacrsAuthenticationResult = Nothing
-  , _rtacrsSession = Nothing
-  , _rtacrsResponseStatus = pResponseStatus_
-  }
+    { _rtacrsChallengeName = Nothing
+    , _rtacrsChallengeParameters = Nothing
+    , _rtacrsAuthenticationResult = Nothing
+    , _rtacrsSession = Nothing
+    , _rtacrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The challenge name. For more information, see <API_InitiateAuth.html InitiateAuth> .
+-- | The challenge name. For more information, see .
 rtacrsChallengeName :: Lens' RespondToAuthChallengeResponse (Maybe ChallengeNameType)
-rtacrsChallengeName = lens _rtacrsChallengeName (\ s a -> s{_rtacrsChallengeName = a});
+rtacrsChallengeName = lens _rtacrsChallengeName (\ s a -> s{_rtacrsChallengeName = a})
 
--- | The challenge parameters. For more information, see <API_InitiateAuth.html InitiateAuth> .
+-- | The challenge parameters. For more information, see .
 rtacrsChallengeParameters :: Lens' RespondToAuthChallengeResponse (HashMap Text Text)
-rtacrsChallengeParameters = lens _rtacrsChallengeParameters (\ s a -> s{_rtacrsChallengeParameters = a}) . _Default . _Map;
+rtacrsChallengeParameters = lens _rtacrsChallengeParameters (\ s a -> s{_rtacrsChallengeParameters = a}) . _Default . _Map
 
 -- | The result returned by the server in response to the request to respond to the authentication challenge.
 rtacrsAuthenticationResult :: Lens' RespondToAuthChallengeResponse (Maybe AuthenticationResultType)
-rtacrsAuthenticationResult = lens _rtacrsAuthenticationResult (\ s a -> s{_rtacrsAuthenticationResult = a});
+rtacrsAuthenticationResult = lens _rtacrsAuthenticationResult (\ s a -> s{_rtacrsAuthenticationResult = a})
 
--- | The session which should be passed both ways in challenge-response calls to the service. If the <API_InitiateAuth.html InitiateAuth> or <API_RespondToAuthChallenge.html RespondToAuthChallenge> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
+-- | The session which should be passed both ways in challenge-response calls to the service. If the or API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 rtacrsSession :: Lens' RespondToAuthChallengeResponse (Maybe Text)
-rtacrsSession = lens _rtacrsSession (\ s a -> s{_rtacrsSession = a});
+rtacrsSession = lens _rtacrsSession (\ s a -> s{_rtacrsSession = a})
 
 -- | -- | The response status code.
 rtacrsResponseStatus :: Lens' RespondToAuthChallengeResponse Int
-rtacrsResponseStatus = lens _rtacrsResponseStatus (\ s a -> s{_rtacrsResponseStatus = a});
+rtacrsResponseStatus = lens _rtacrsResponseStatus (\ s a -> s{_rtacrsResponseStatus = a})
 
 instance NFData RespondToAuthChallengeResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.UnsubscribeFromEvent
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,23 +67,23 @@ unsubscribeFromEvent
     -> UnsubscribeFromEvent
 unsubscribeFromEvent pResourceARN_ pEvent_ pTopicARN_ =
   UnsubscribeFromEvent'
-  { _ufeResourceARN = pResourceARN_
-  , _ufeEvent = pEvent_
-  , _ufeTopicARN = pTopicARN_
-  }
+    { _ufeResourceARN = pResourceARN_
+    , _ufeEvent = pEvent_
+    , _ufeTopicARN = pTopicARN_
+    }
 
 
 -- | The ARN of the assessment template that is used during the event for which you want to stop receiving SNS notifications.
 ufeResourceARN :: Lens' UnsubscribeFromEvent Text
-ufeResourceARN = lens _ufeResourceARN (\ s a -> s{_ufeResourceARN = a});
+ufeResourceARN = lens _ufeResourceARN (\ s a -> s{_ufeResourceARN = a})
 
 -- | The event for which you want to stop receiving SNS notifications.
 ufeEvent :: Lens' UnsubscribeFromEvent InspectorEvent
-ufeEvent = lens _ufeEvent (\ s a -> s{_ufeEvent = a});
+ufeEvent = lens _ufeEvent (\ s a -> s{_ufeEvent = a})
 
 -- | The ARN of the SNS topic to which SNS notifications are sent.
 ufeTopicARN :: Lens' UnsubscribeFromEvent Text
-ufeTopicARN = lens _ufeTopicARN (\ s a -> s{_ufeTopicARN = a});
+ufeTopicARN = lens _ufeTopicARN (\ s a -> s{_ufeTopicARN = a})
 
 instance AWSRequest UnsubscribeFromEvent where
         type Rs UnsubscribeFromEvent =

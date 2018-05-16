@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists jobs for a vault, including jobs that are in-progress and jobs that have recently finished.
+-- This operation lists jobs for a vault, including jobs that are in-progress and jobs that have recently finished. The List Job operation returns a list of these jobs sorted by job initiation time.
 --
---
--- To retrieve an archive or retrieve a vault inventory from Amazon Glacier, you first initiate a job, and after the job completes, you download the data. For an archive retrieval, the output is the archive data. For an inventory retrieval, it is the inventory list. The List Job operation returns a list of these jobs sorted by job initiation time.
 --
 -- The List Jobs operation supports pagination. You should always check the response @Marker@ field. If there are no more jobs to list, the @Marker@ field is set to @null@ . If there are more jobs to list, the @Marker@ field is set to a non-null value, which you can use to continue the pagination of the list. To return a list of jobs that begins at a specific job, set the marker request parameter to the @Marker@ value for that job that you obtained from a previous List Jobs request.
 --
@@ -29,7 +27,7 @@
 --
 -- Additionally, you can filter the jobs list returned by specifying the optional @statuscode@ parameter or @completed@ parameter, or both. Using the @statuscode@ parameter, you can specify to return only jobs that match either the @InProgress@ , @Succeeded@ , or @Failed@ status. Using the @completed@ parameter, you can specify to return only jobs that were completed (@true@ ) or jobs that were not completed (@false@ ).
 --
--- For the underlying REST API, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html List Jobs> .
+-- For more information about using this operation, see the documentation for the underlying REST API <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html List Jobs> .
 --
 --
 -- This operation returns paginated results.
@@ -99,38 +97,38 @@ listJobs
     -> ListJobs
 listJobs pAccountId_ pVaultName_ =
   ListJobs'
-  { _ljMarker = Nothing
-  , _ljCompleted = Nothing
-  , _ljLimit = Nothing
-  , _ljStatuscode = Nothing
-  , _ljAccountId = pAccountId_
-  , _ljVaultName = pVaultName_
-  }
+    { _ljMarker = Nothing
+    , _ljCompleted = Nothing
+    , _ljLimit = Nothing
+    , _ljStatuscode = Nothing
+    , _ljAccountId = pAccountId_
+    , _ljVaultName = pVaultName_
+    }
 
 
 -- | An opaque string used for pagination. This value specifies the job at which the listing of jobs should begin. Get the marker value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of results started in a previous List Jobs request.
 ljMarker :: Lens' ListJobs (Maybe Text)
-ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a});
+ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a})
 
 -- | The state of the jobs to return. You can specify @true@ or @false@ .
 ljCompleted :: Lens' ListJobs (Maybe Text)
-ljCompleted = lens _ljCompleted (\ s a -> s{_ljCompleted = a});
+ljCompleted = lens _ljCompleted (\ s a -> s{_ljCompleted = a})
 
 -- | The maximum number of jobs to be returned. The default limit is 1000. The number of jobs returned might be fewer than the specified limit, but the number of returned jobs never exceeds the limit.
 ljLimit :: Lens' ListJobs (Maybe Text)
-ljLimit = lens _ljLimit (\ s a -> s{_ljLimit = a});
+ljLimit = lens _ljLimit (\ s a -> s{_ljLimit = a})
 
 -- | The type of job status to return. You can specify the following values: @InProgress@ , @Succeeded@ , or @Failed@ .
 ljStatuscode :: Lens' ListJobs (Maybe Text)
-ljStatuscode = lens _ljStatuscode (\ s a -> s{_ljStatuscode = a});
+ljStatuscode = lens _ljStatuscode (\ s a -> s{_ljStatuscode = a})
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 ljAccountId :: Lens' ListJobs Text
-ljAccountId = lens _ljAccountId (\ s a -> s{_ljAccountId = a});
+ljAccountId = lens _ljAccountId (\ s a -> s{_ljAccountId = a})
 
 -- | The name of the vault.
 ljVaultName :: Lens' ListJobs Text
-ljVaultName = lens _ljVaultName (\ s a -> s{_ljVaultName = a});
+ljVaultName = lens _ljVaultName (\ s a -> s{_ljVaultName = a})
 
 instance AWSPager ListJobs where
         page rq rs
@@ -194,22 +192,22 @@ listJobsResponse
     -> ListJobsResponse
 listJobsResponse pResponseStatus_ =
   ListJobsResponse'
-  { _ljrsMarker = Nothing
-  , _ljrsJobList = Nothing
-  , _ljrsResponseStatus = pResponseStatus_
-  }
+    { _ljrsMarker = Nothing
+    , _ljrsJobList = Nothing
+    , _ljrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An opaque string used for pagination that specifies the job at which the listing of jobs should begin. You get the @marker@ value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of the results started in a previous List Jobs request.
 ljrsMarker :: Lens' ListJobsResponse (Maybe Text)
-ljrsMarker = lens _ljrsMarker (\ s a -> s{_ljrsMarker = a});
+ljrsMarker = lens _ljrsMarker (\ s a -> s{_ljrsMarker = a})
 
 -- | A list of job objects. Each job object contains metadata describing the job.
 ljrsJobList :: Lens' ListJobsResponse [GlacierJobDescription]
-ljrsJobList = lens _ljrsJobList (\ s a -> s{_ljrsJobList = a}) . _Default . _Coerce;
+ljrsJobList = lens _ljrsJobList (\ s a -> s{_ljrsJobList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ljrsResponseStatus :: Lens' ListJobsResponse Int
-ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
+ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a})
 
 instance NFData ListJobsResponse where

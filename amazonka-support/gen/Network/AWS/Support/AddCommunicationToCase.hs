@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.AddCommunicationToCase
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,28 +80,28 @@ addCommunicationToCase
     -> AddCommunicationToCase
 addCommunicationToCase pCommunicationBody_ =
   AddCommunicationToCase'
-  { _actcCaseId = Nothing
-  , _actcCcEmailAddresses = Nothing
-  , _actcAttachmentSetId = Nothing
-  , _actcCommunicationBody = pCommunicationBody_
-  }
+    { _actcCaseId = Nothing
+    , _actcCcEmailAddresses = Nothing
+    , _actcAttachmentSetId = Nothing
+    , _actcCommunicationBody = pCommunicationBody_
+    }
 
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 actcCaseId :: Lens' AddCommunicationToCase (Maybe Text)
-actcCaseId = lens _actcCaseId (\ s a -> s{_actcCaseId = a});
+actcCaseId = lens _actcCaseId (\ s a -> s{_actcCaseId = a})
 
 -- | The email addresses in the CC line of an email to be added to the support case.
 actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
-actcCcEmailAddresses = lens _actcCcEmailAddresses (\ s a -> s{_actcCcEmailAddresses = a}) . _Default . _Coerce;
+actcCcEmailAddresses = lens _actcCcEmailAddresses (\ s a -> s{_actcCcEmailAddresses = a}) . _Default . _Coerce
 
 -- | The ID of a set of one or more attachments for the communication to add to the case. Create the set by calling 'AddAttachmentsToSet'
 actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
-actcAttachmentSetId = lens _actcAttachmentSetId (\ s a -> s{_actcAttachmentSetId = a});
+actcAttachmentSetId = lens _actcAttachmentSetId (\ s a -> s{_actcAttachmentSetId = a})
 
 -- | The body of an email communication to add to the support case.
 actcCommunicationBody :: Lens' AddCommunicationToCase Text
-actcCommunicationBody = lens _actcCommunicationBody (\ s a -> s{_actcCommunicationBody = a});
+actcCommunicationBody = lens _actcCommunicationBody (\ s a -> s{_actcCommunicationBody = a})
 
 instance AWSRequest AddCommunicationToCase where
         type Rs AddCommunicationToCase =
@@ -166,15 +166,15 @@ addCommunicationToCaseResponse
     -> AddCommunicationToCaseResponse
 addCommunicationToCaseResponse pResponseStatus_ =
   AddCommunicationToCaseResponse'
-  {_actcrsResult = Nothing, _actcrsResponseStatus = pResponseStatus_}
+    {_actcrsResult = Nothing, _actcrsResponseStatus = pResponseStatus_}
 
 
 -- | True if 'AddCommunicationToCase' succeeds. Otherwise, returns an error.
 actcrsResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
-actcrsResult = lens _actcrsResult (\ s a -> s{_actcrsResult = a});
+actcrsResult = lens _actcrsResult (\ s a -> s{_actcrsResult = a})
 
 -- | -- | The response status code.
 actcrsResponseStatus :: Lens' AddCommunicationToCaseResponse Int
-actcrsResponseStatus = lens _actcrsResponseStatus (\ s a -> s{_actcrsResponseStatus = a});
+actcrsResponseStatus = lens _actcrsResponseStatus (\ s a -> s{_actcrsResponseStatus = a})
 
 instance NFData AddCommunicationToCaseResponse where

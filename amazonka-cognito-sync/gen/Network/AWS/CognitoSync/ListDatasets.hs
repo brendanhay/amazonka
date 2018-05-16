@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.ListDatasets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ listDatasets
     -> ListDatasets
 listDatasets pIdentityId_ pIdentityPoolId_ =
   ListDatasets'
-  { _ldNextToken = Nothing
-  , _ldMaxResults = Nothing
-  , _ldIdentityId = pIdentityId_
-  , _ldIdentityPoolId = pIdentityPoolId_
-  }
+    { _ldNextToken = Nothing
+    , _ldMaxResults = Nothing
+    , _ldIdentityId = pIdentityId_
+    , _ldIdentityPoolId = pIdentityPoolId_
+    }
 
 
 -- | A pagination token for obtaining the next page of results.
 ldNextToken :: Lens' ListDatasets (Maybe Text)
-ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
+ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a})
 
 -- | The maximum number of results to be returned.
 ldMaxResults :: Lens' ListDatasets (Maybe Int)
-ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a});
+ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a})
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 ldIdentityId :: Lens' ListDatasets Text
-ldIdentityId = lens _ldIdentityId (\ s a -> s{_ldIdentityId = a});
+ldIdentityId = lens _ldIdentityId (\ s a -> s{_ldIdentityId = a})
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 ldIdentityPoolId :: Lens' ListDatasets Text
-ldIdentityPoolId = lens _ldIdentityPoolId (\ s a -> s{_ldIdentityPoolId = a});
+ldIdentityPoolId = lens _ldIdentityPoolId (\ s a -> s{_ldIdentityPoolId = a})
 
 instance AWSRequest ListDatasets where
         type Rs ListDatasets = ListDatasetsResponse
@@ -163,27 +163,27 @@ listDatasetsResponse
     -> ListDatasetsResponse
 listDatasetsResponse pResponseStatus_ =
   ListDatasetsResponse'
-  { _ldrsCount = Nothing
-  , _ldrsNextToken = Nothing
-  , _ldrsDatasets = Nothing
-  , _ldrsResponseStatus = pResponseStatus_
-  }
+    { _ldrsCount = Nothing
+    , _ldrsNextToken = Nothing
+    , _ldrsDatasets = Nothing
+    , _ldrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Number of datasets returned.
 ldrsCount :: Lens' ListDatasetsResponse (Maybe Int)
-ldrsCount = lens _ldrsCount (\ s a -> s{_ldrsCount = a});
+ldrsCount = lens _ldrsCount (\ s a -> s{_ldrsCount = a})
 
 -- | A pagination token for obtaining the next page of results.
 ldrsNextToken :: Lens' ListDatasetsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a})
 
 -- | A set of datasets.
 ldrsDatasets :: Lens' ListDatasetsResponse [Dataset]
-ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default . _Coerce;
+ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDatasetsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
 
 instance NFData ListDatasetsResponse where

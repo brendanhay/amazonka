@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetGeoLocation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,23 +83,23 @@ getGeoLocation
     :: GetGeoLocation
 getGeoLocation =
   GetGeoLocation'
-  { _gglSubdivisionCode = Nothing
-  , _gglCountryCode = Nothing
-  , _gglContinentCode = Nothing
-  }
+    { _gglSubdivisionCode = Nothing
+    , _gglCountryCode = Nothing
+    , _gglContinentCode = Nothing
+    }
 
 
 -- | Amazon Route 53 uses the one- to three-letter subdivision codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> . Amazon Route 53 doesn't support subdivision codes for all countries. If you specify @SubdivisionCode@ , you must also specify @CountryCode@ .
 gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
-gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = a});
+gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = a})
 
 -- | Amazon Route 53 uses the two-letter country codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> .
 gglCountryCode :: Lens' GetGeoLocation (Maybe Text)
-gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a});
+gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a})
 
 -- | Amazon Route 53 supports the following continent codes:     * __AF__ : Africa     * __AN__ : Antarctica     * __AS__ : Asia     * __EU__ : Europe     * __OC__ : Oceania     * __NA__ : North America     * __SA__ : South America
 gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
-gglContinentCode = lens _gglContinentCode (\ s a -> s{_gglContinentCode = a});
+gglContinentCode = lens _gglContinentCode (\ s a -> s{_gglContinentCode = a})
 
 instance AWSRequest GetGeoLocation where
         type Rs GetGeoLocation = GetGeoLocationResponse
@@ -151,17 +151,17 @@ getGeoLocationResponse
     -> GetGeoLocationResponse
 getGeoLocationResponse pResponseStatus_ pGeoLocationDetails_ =
   GetGeoLocationResponse'
-  { _gglrsResponseStatus = pResponseStatus_
-  , _gglrsGeoLocationDetails = pGeoLocationDetails_
-  }
+    { _gglrsResponseStatus = pResponseStatus_
+    , _gglrsGeoLocationDetails = pGeoLocationDetails_
+    }
 
 
 -- | -- | The response status code.
 gglrsResponseStatus :: Lens' GetGeoLocationResponse Int
-gglrsResponseStatus = lens _gglrsResponseStatus (\ s a -> s{_gglrsResponseStatus = a});
+gglrsResponseStatus = lens _gglrsResponseStatus (\ s a -> s{_gglrsResponseStatus = a})
 
 -- | A complex type that contains the codes and full continent, country, and subdivision names for the specified geolocation code.
 gglrsGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
-gglrsGeoLocationDetails = lens _gglrsGeoLocationDetails (\ s a -> s{_gglrsGeoLocationDetails = a});
+gglrsGeoLocationDetails = lens _gglrsGeoLocationDetails (\ s a -> s{_gglrsGeoLocationDetails = a})
 
 instance NFData GetGeoLocationResponse where

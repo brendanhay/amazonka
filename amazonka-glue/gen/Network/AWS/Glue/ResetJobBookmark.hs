@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.ResetJobBookmark
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ resetJobBookmark pJobName_ = ResetJobBookmark' {_rjbJobName = pJobName_}
 
 -- | The name of the job in question.
 rjbJobName :: Lens' ResetJobBookmark Text
-rjbJobName = lens _rjbJobName (\ s a -> s{_rjbJobName = a});
+rjbJobName = lens _rjbJobName (\ s a -> s{_rjbJobName = a})
 
 instance AWSRequest ResetJobBookmark where
         type Rs ResetJobBookmark = ResetJobBookmarkResponse
@@ -117,15 +117,15 @@ resetJobBookmarkResponse
     -> ResetJobBookmarkResponse
 resetJobBookmarkResponse pResponseStatus_ =
   ResetJobBookmarkResponse'
-  {_rjbrsJobBookmarkEntry = Nothing, _rjbrsResponseStatus = pResponseStatus_}
+    {_rjbrsJobBookmarkEntry = Nothing, _rjbrsResponseStatus = pResponseStatus_}
 
 
 -- | The reset bookmark entry.
 rjbrsJobBookmarkEntry :: Lens' ResetJobBookmarkResponse (Maybe JobBookmarkEntry)
-rjbrsJobBookmarkEntry = lens _rjbrsJobBookmarkEntry (\ s a -> s{_rjbrsJobBookmarkEntry = a});
+rjbrsJobBookmarkEntry = lens _rjbrsJobBookmarkEntry (\ s a -> s{_rjbrsJobBookmarkEntry = a})
 
 -- | -- | The response status code.
 rjbrsResponseStatus :: Lens' ResetJobBookmarkResponse Int
-rjbrsResponseStatus = lens _rjbrsResponseStatus (\ s a -> s{_rjbrsResponseStatus = a});
+rjbrsResponseStatus = lens _rjbrsResponseStatus (\ s a -> s{_rjbrsResponseStatus = a})
 
 instance NFData ResetJobBookmarkResponse where

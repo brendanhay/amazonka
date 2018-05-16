@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetStreamingDistribution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getStreamingDistribution pId_ = GetStreamingDistribution' {_gsdId = pId_}
 
 -- | The streaming distribution's ID.
 gsdId :: Lens' GetStreamingDistribution Text
-gsdId = lens _gsdId (\ s a -> s{_gsdId = a});
+gsdId = lens _gsdId (\ s a -> s{_gsdId = a})
 
 instance AWSRequest GetStreamingDistribution where
         type Rs GetStreamingDistribution =
@@ -91,7 +91,7 @@ instance ToHeaders GetStreamingDistribution where
 instance ToPath GetStreamingDistribution where
         toPath GetStreamingDistribution'{..}
           = mconcat
-              ["/2017-03-25/streaming-distribution/", toBS _gsdId]
+              ["/2017-10-30/streaming-distribution/", toBS _gsdId]
 
 instance ToQuery GetStreamingDistribution where
         toQuery = const mempty
@@ -122,23 +122,23 @@ getStreamingDistributionResponse
     -> GetStreamingDistributionResponse
 getStreamingDistributionResponse pResponseStatus_ =
   GetStreamingDistributionResponse'
-  { _gsdrsETag = Nothing
-  , _gsdrsStreamingDistribution = Nothing
-  , _gsdrsResponseStatus = pResponseStatus_
-  }
+    { _gsdrsETag = Nothing
+    , _gsdrsStreamingDistribution = Nothing
+    , _gsdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current version of the streaming distribution's information. For example: @E2QWRUHAPOMQZL@ .
 gsdrsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
-gsdrsETag = lens _gsdrsETag (\ s a -> s{_gsdrsETag = a});
+gsdrsETag = lens _gsdrsETag (\ s a -> s{_gsdrsETag = a})
 
 -- | The streaming distribution's information.
 gsdrsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
-gsdrsStreamingDistribution = lens _gsdrsStreamingDistribution (\ s a -> s{_gsdrsStreamingDistribution = a});
+gsdrsStreamingDistribution = lens _gsdrsStreamingDistribution (\ s a -> s{_gsdrsStreamingDistribution = a})
 
 -- | -- | The response status code.
 gsdrsResponseStatus :: Lens' GetStreamingDistributionResponse Int
-gsdrsResponseStatus = lens _gsdrsResponseStatus (\ s a -> s{_gsdrsResponseStatus = a});
+gsdrsResponseStatus = lens _gsdrsResponseStatus (\ s a -> s{_gsdrsResponseStatus = a})
 
 instance NFData GetStreamingDistributionResponse
          where

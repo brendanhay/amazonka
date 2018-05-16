@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteDocument
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteDocument pName_ = DeleteDocument' {_dddName = pName_}
 
 -- | The name of the document.
 dddName :: Lens' DeleteDocument Text
-dddName = lens _dddName (\ s a -> s{_dddName = a});
+dddName = lens _dddName (\ s a -> s{_dddName = a})
 
 instance AWSRequest DeleteDocument where
         type Rs DeleteDocument = DeleteDocumentResponse
@@ -117,6 +117,6 @@ deleteDocumentResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDocumentResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 instance NFData DeleteDocumentResponse where

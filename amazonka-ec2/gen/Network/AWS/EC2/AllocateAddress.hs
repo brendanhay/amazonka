@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AllocateAddress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,20 +79,20 @@ allocateAddress
     :: AllocateAddress
 allocateAddress =
   AllocateAddress'
-  {_aaDomain = Nothing, _aaAddress = Nothing, _aaDryRun = Nothing}
+    {_aaDomain = Nothing, _aaAddress = Nothing, _aaDryRun = Nothing}
 
 
 -- | Set to @vpc@ to allocate the address for use with instances in a VPC. Default: The address is for use with instances in EC2-Classic.
 aaDomain :: Lens' AllocateAddress (Maybe DomainType)
-aaDomain = lens _aaDomain (\ s a -> s{_aaDomain = a});
+aaDomain = lens _aaDomain (\ s a -> s{_aaDomain = a})
 
 -- | [EC2-VPC] The Elastic IP address to recover.
 aaAddress :: Lens' AllocateAddress (Maybe Text)
-aaAddress = lens _aaAddress (\ s a -> s{_aaAddress = a});
+aaAddress = lens _aaAddress (\ s a -> s{_aaAddress = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
-aaDryRun = lens _aaDryRun (\ s a -> s{_aaDryRun = a});
+aaDryRun = lens _aaDryRun (\ s a -> s{_aaDryRun = a})
 
 instance AWSRequest AllocateAddress where
         type Rs AllocateAddress = AllocateAddressResponse
@@ -152,27 +152,27 @@ allocateAddressResponse
     -> AllocateAddressResponse
 allocateAddressResponse pResponseStatus_ =
   AllocateAddressResponse'
-  { _aarsAllocationId = Nothing
-  , _aarsDomain = Nothing
-  , _aarsPublicIP = Nothing
-  , _aarsResponseStatus = pResponseStatus_
-  }
+    { _aarsAllocationId = Nothing
+    , _aarsDomain = Nothing
+    , _aarsPublicIP = Nothing
+    , _aarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
 aarsAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
-aarsAllocationId = lens _aarsAllocationId (\ s a -> s{_aarsAllocationId = a});
+aarsAllocationId = lens _aarsAllocationId (\ s a -> s{_aarsAllocationId = a})
 
 -- | Indicates whether this Elastic IP address is for use with instances in EC2-Classic (@standard@ ) or instances in a VPC (@vpc@ ).
 aarsDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
-aarsDomain = lens _aarsDomain (\ s a -> s{_aarsDomain = a});
+aarsDomain = lens _aarsDomain (\ s a -> s{_aarsDomain = a})
 
 -- | The Elastic IP address.
 aarsPublicIP :: Lens' AllocateAddressResponse (Maybe Text)
-aarsPublicIP = lens _aarsPublicIP (\ s a -> s{_aarsPublicIP = a});
+aarsPublicIP = lens _aarsPublicIP (\ s a -> s{_aarsPublicIP = a})
 
 -- | -- | The response status code.
 aarsResponseStatus :: Lens' AllocateAddressResponse Int
-aarsResponseStatus = lens _aarsResponseStatus (\ s a -> s{_aarsResponseStatus = a});
+aarsResponseStatus = lens _aarsResponseStatus (\ s a -> s{_aarsResponseStatus = a})
 
 instance NFData AllocateAddressResponse where

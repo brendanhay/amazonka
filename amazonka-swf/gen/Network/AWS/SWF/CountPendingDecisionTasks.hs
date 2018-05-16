@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.CountPendingDecisionTasks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,16 +79,16 @@ countPendingDecisionTasks
     -> CountPendingDecisionTasks
 countPendingDecisionTasks pDomain_ pTaskList_ =
   CountPendingDecisionTasks'
-  {_cpdtDomain = pDomain_, _cpdtTaskList = pTaskList_}
+    {_cpdtDomain = pDomain_, _cpdtTaskList = pTaskList_}
 
 
 -- | The name of the domain that contains the task list.
 cpdtDomain :: Lens' CountPendingDecisionTasks Text
-cpdtDomain = lens _cpdtDomain (\ s a -> s{_cpdtDomain = a});
+cpdtDomain = lens _cpdtDomain (\ s a -> s{_cpdtDomain = a})
 
 -- | The name of the task list.
 cpdtTaskList :: Lens' CountPendingDecisionTasks TaskList
-cpdtTaskList = lens _cpdtTaskList (\ s a -> s{_cpdtTaskList = a});
+cpdtTaskList = lens _cpdtTaskList (\ s a -> s{_cpdtTaskList = a})
 
 instance AWSRequest CountPendingDecisionTasks where
         type Rs CountPendingDecisionTasks = PendingTaskCount

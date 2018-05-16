@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetCheckerIPRanges
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -99,15 +99,15 @@ getCheckerIPRangesResponse
     -> GetCheckerIPRangesResponse
 getCheckerIPRangesResponse pResponseStatus_ =
   GetCheckerIPRangesResponse'
-  {_gcirrsResponseStatus = pResponseStatus_, _gcirrsCheckerIPRanges = mempty}
+    {_gcirrsResponseStatus = pResponseStatus_, _gcirrsCheckerIPRanges = mempty}
 
 
 -- | -- | The response status code.
 gcirrsResponseStatus :: Lens' GetCheckerIPRangesResponse Int
-gcirrsResponseStatus = lens _gcirrsResponseStatus (\ s a -> s{_gcirrsResponseStatus = a});
+gcirrsResponseStatus = lens _gcirrsResponseStatus (\ s a -> s{_gcirrsResponseStatus = a})
 
 -- | Undocumented member.
 gcirrsCheckerIPRanges :: Lens' GetCheckerIPRangesResponse [Text]
-gcirrsCheckerIPRanges = lens _gcirrsCheckerIPRanges (\ s a -> s{_gcirrsCheckerIPRanges = a}) . _Coerce;
+gcirrsCheckerIPRanges = lens _gcirrsCheckerIPRanges (\ s a -> s{_gcirrsCheckerIPRanges = a}) . _Coerce
 
 instance NFData GetCheckerIPRangesResponse where

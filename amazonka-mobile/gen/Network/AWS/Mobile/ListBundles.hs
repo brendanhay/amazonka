@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Mobile.ListBundles
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- List all available bundles.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Mobile.ListBundles
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.Mobile.ListBundles
 import Network.AWS.Lens
 import Network.AWS.Mobile.Types
 import Network.AWS.Mobile.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -71,11 +74,18 @@ listBundles = ListBundles' {_lbNextToken = Nothing, _lbMaxResults = Nothing}
 
 -- | Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles.
 lbNextToken :: Lens' ListBundles (Maybe Text)
-lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a});
+lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a})
 
 -- | Maximum number of records to list in a single response.
 lbMaxResults :: Lens' ListBundles (Maybe Int)
-lbMaxResults = lens _lbMaxResults (\ s a -> s{_lbMaxResults = a});
+lbMaxResults = lens _lbMaxResults (\ s a -> s{_lbMaxResults = a})
+
+instance AWSPager ListBundles where
+        page rq rs
+          | stop (rs ^. lbrsNextToken) = Nothing
+          | stop (rs ^. lbrsBundleList) = Nothing
+          | otherwise =
+            Just $ rq & lbNextToken .~ rs ^. lbrsNextToken
 
 instance AWSRequest ListBundles where
         type Rs ListBundles = ListBundlesResponse
@@ -134,22 +144,22 @@ listBundlesResponse
     -> ListBundlesResponse
 listBundlesResponse pResponseStatus_ =
   ListBundlesResponse'
-  { _lbrsBundleList = Nothing
-  , _lbrsNextToken = Nothing
-  , _lbrsResponseStatus = pResponseStatus_
-  }
+    { _lbrsBundleList = Nothing
+    , _lbrsNextToken = Nothing
+    , _lbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of bundles.
 lbrsBundleList :: Lens' ListBundlesResponse [BundleDetails]
-lbrsBundleList = lens _lbrsBundleList (\ s a -> s{_lbrsBundleList = a}) . _Default . _Coerce;
+lbrsBundleList = lens _lbrsBundleList (\ s a -> s{_lbrsBundleList = a}) . _Default . _Coerce
 
 -- | Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries.
 lbrsNextToken :: Lens' ListBundlesResponse (Maybe Text)
-lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
+lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a})
 
 -- | -- | The response status code.
 lbrsResponseStatus :: Lens' ListBundlesResponse Int
-lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
+lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a})
 
 instance NFData ListBundlesResponse where

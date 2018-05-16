@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,43 +88,43 @@ registerInstance
     -> RegisterInstance
 registerInstance pStackId_ =
   RegisterInstance'
-  { _riPrivateIP = Nothing
-  , _riHostname = Nothing
-  , _riInstanceIdentity = Nothing
-  , _riPublicIP = Nothing
-  , _riRsaPublicKeyFingerprint = Nothing
-  , _riRsaPublicKey = Nothing
-  , _riStackId = pStackId_
-  }
+    { _riPrivateIP = Nothing
+    , _riHostname = Nothing
+    , _riInstanceIdentity = Nothing
+    , _riPublicIP = Nothing
+    , _riRsaPublicKeyFingerprint = Nothing
+    , _riRsaPublicKey = Nothing
+    , _riStackId = pStackId_
+    }
 
 
 -- | The instance's private IP address.
 riPrivateIP :: Lens' RegisterInstance (Maybe Text)
-riPrivateIP = lens _riPrivateIP (\ s a -> s{_riPrivateIP = a});
+riPrivateIP = lens _riPrivateIP (\ s a -> s{_riPrivateIP = a})
 
 -- | The instance's hostname.
 riHostname :: Lens' RegisterInstance (Maybe Text)
-riHostname = lens _riHostname (\ s a -> s{_riHostname = a});
+riHostname = lens _riHostname (\ s a -> s{_riHostname = a})
 
 -- | An InstanceIdentity object that contains the instance's identity.
 riInstanceIdentity :: Lens' RegisterInstance (Maybe InstanceIdentity)
-riInstanceIdentity = lens _riInstanceIdentity (\ s a -> s{_riInstanceIdentity = a});
+riInstanceIdentity = lens _riInstanceIdentity (\ s a -> s{_riInstanceIdentity = a})
 
 -- | The instance's public IP address.
 riPublicIP :: Lens' RegisterInstance (Maybe Text)
-riPublicIP = lens _riPublicIP (\ s a -> s{_riPublicIP = a});
+riPublicIP = lens _riPublicIP (\ s a -> s{_riPublicIP = a})
 
 -- | The instances public RSA key fingerprint.
 riRsaPublicKeyFingerprint :: Lens' RegisterInstance (Maybe Text)
-riRsaPublicKeyFingerprint = lens _riRsaPublicKeyFingerprint (\ s a -> s{_riRsaPublicKeyFingerprint = a});
+riRsaPublicKeyFingerprint = lens _riRsaPublicKeyFingerprint (\ s a -> s{_riRsaPublicKeyFingerprint = a})
 
 -- | The instances public RSA key. This key is used to encrypt communication between the instance and the service.
 riRsaPublicKey :: Lens' RegisterInstance (Maybe Text)
-riRsaPublicKey = lens _riRsaPublicKey (\ s a -> s{_riRsaPublicKey = a});
+riRsaPublicKey = lens _riRsaPublicKey (\ s a -> s{_riRsaPublicKey = a})
 
 -- | The ID of the stack that the instance is to be registered with.
 riStackId :: Lens' RegisterInstance Text
-riStackId = lens _riStackId (\ s a -> s{_riStackId = a});
+riStackId = lens _riStackId (\ s a -> s{_riStackId = a})
 
 instance AWSRequest RegisterInstance where
         type Rs RegisterInstance = RegisterInstanceResponse
@@ -190,15 +190,15 @@ registerInstanceResponse
     -> RegisterInstanceResponse
 registerInstanceResponse pResponseStatus_ =
   RegisterInstanceResponse'
-  {_rirsInstanceId = Nothing, _rirsResponseStatus = pResponseStatus_}
+    {_rirsInstanceId = Nothing, _rirsResponseStatus = pResponseStatus_}
 
 
 -- | The registered instance's AWS OpsWorks Stacks ID.
 rirsInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
-rirsInstanceId = lens _rirsInstanceId (\ s a -> s{_rirsInstanceId = a});
+rirsInstanceId = lens _rirsInstanceId (\ s a -> s{_rirsInstanceId = a})
 
 -- | -- | The response status code.
 rirsResponseStatus :: Lens' RegisterInstanceResponse Int
-rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});
+rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a})
 
 instance NFData RegisterInstanceResponse where

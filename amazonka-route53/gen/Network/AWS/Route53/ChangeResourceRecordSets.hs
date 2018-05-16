@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ChangeResourceRecordSets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -109,16 +109,16 @@ changeResourceRecordSets
     -> ChangeResourceRecordSets
 changeResourceRecordSets pHostedZoneId_ pChangeBatch_ =
   ChangeResourceRecordSets'
-  {_crrsHostedZoneId = pHostedZoneId_, _crrsChangeBatch = pChangeBatch_}
+    {_crrsHostedZoneId = pHostedZoneId_, _crrsChangeBatch = pChangeBatch_}
 
 
 -- | The ID of the hosted zone that contains the resource record sets that you want to change.
 crrsHostedZoneId :: Lens' ChangeResourceRecordSets ResourceId
-crrsHostedZoneId = lens _crrsHostedZoneId (\ s a -> s{_crrsHostedZoneId = a});
+crrsHostedZoneId = lens _crrsHostedZoneId (\ s a -> s{_crrsHostedZoneId = a})
 
 -- | A complex type that contains an optional comment and the @Changes@ element.
 crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
-crrsChangeBatch = lens _crrsChangeBatch (\ s a -> s{_crrsChangeBatch = a});
+crrsChangeBatch = lens _crrsChangeBatch (\ s a -> s{_crrsChangeBatch = a})
 
 instance AWSRequest ChangeResourceRecordSets where
         type Rs ChangeResourceRecordSets =
@@ -179,16 +179,16 @@ changeResourceRecordSetsResponse
     -> ChangeResourceRecordSetsResponse
 changeResourceRecordSetsResponse pResponseStatus_ pChangeInfo_ =
   ChangeResourceRecordSetsResponse'
-  {_crrsrsResponseStatus = pResponseStatus_, _crrsrsChangeInfo = pChangeInfo_}
+    {_crrsrsResponseStatus = pResponseStatus_, _crrsrsChangeInfo = pChangeInfo_}
 
 
 -- | -- | The response status code.
 crrsrsResponseStatus :: Lens' ChangeResourceRecordSetsResponse Int
-crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseStatus = a});
+crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseStatus = a})
 
 -- | A complex type that contains information about changes made to your hosted zone. This element contains an ID that you use when performing a 'GetChange' action to get detailed information about the change.
 crrsrsChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
-crrsrsChangeInfo = lens _crrsrsChangeInfo (\ s a -> s{_crrsrsChangeInfo = a});
+crrsrsChangeInfo = lens _crrsrsChangeInfo (\ s a -> s{_crrsrsChangeInfo = a})
 
 instance NFData ChangeResourceRecordSetsResponse
          where

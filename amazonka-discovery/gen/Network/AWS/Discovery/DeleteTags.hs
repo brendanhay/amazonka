@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DeleteTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,11 +65,11 @@ deleteTags = DeleteTags' {_dtTags = Nothing, _dtConfigurationIds = mempty}
 
 -- | Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
 dtTags :: Lens' DeleteTags [Tag]
-dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Default . _Coerce;
+dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Default . _Coerce
 
 -- | A list of configuration items with tags that you want to delete.
 dtConfigurationIds :: Lens' DeleteTags [Text]
-dtConfigurationIds = lens _dtConfigurationIds (\ s a -> s{_dtConfigurationIds = a}) . _Coerce;
+dtConfigurationIds = lens _dtConfigurationIds (\ s a -> s{_dtConfigurationIds = a}) . _Coerce
 
 instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse
@@ -126,6 +126,6 @@ deleteTagsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteTagsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteTagsResponse where

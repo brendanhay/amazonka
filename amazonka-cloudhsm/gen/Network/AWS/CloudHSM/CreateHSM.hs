@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.CreateHSM
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -103,48 +103,48 @@ createHSM
     -> CreateHSM
 createHSM pSubnetId_ pSSHKey_ pIAMRoleARN_ pSubscriptionType_ =
   CreateHSM'
-  { _chClientToken = Nothing
-  , _chSyslogIP = Nothing
-  , _chExternalId = Nothing
-  , _chEniIP = Nothing
-  , _chSubnetId = pSubnetId_
-  , _chSSHKey = pSSHKey_
-  , _chIAMRoleARN = pIAMRoleARN_
-  , _chSubscriptionType = pSubscriptionType_
-  }
+    { _chClientToken = Nothing
+    , _chSyslogIP = Nothing
+    , _chExternalId = Nothing
+    , _chEniIP = Nothing
+    , _chSubnetId = pSubnetId_
+    , _chSSHKey = pSSHKey_
+    , _chIAMRoleARN = pIAMRoleARN_
+    , _chSubscriptionType = pSubscriptionType_
+    }
 
 
 -- | A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.
 chClientToken :: Lens' CreateHSM (Maybe Text)
-chClientToken = lens _chClientToken (\ s a -> s{_chClientToken = a});
+chClientToken = lens _chClientToken (\ s a -> s{_chClientToken = a})
 
 -- | The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
 chSyslogIP :: Lens' CreateHSM (Maybe Text)
-chSyslogIP = lens _chSyslogIP (\ s a -> s{_chSyslogIP = a});
+chSyslogIP = lens _chSyslogIP (\ s a -> s{_chSyslogIP = a})
 
 -- | The external ID from @IamRoleArn@ , if present.
 chExternalId :: Lens' CreateHSM (Maybe Text)
-chExternalId = lens _chExternalId (\ s a -> s{_chExternalId = a});
+chExternalId = lens _chExternalId (\ s a -> s{_chExternalId = a})
 
 -- | The IP address to assign to the HSM's ENI. If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.
 chEniIP :: Lens' CreateHSM (Maybe Text)
-chEniIP = lens _chEniIP (\ s a -> s{_chEniIP = a});
+chEniIP = lens _chEniIP (\ s a -> s{_chEniIP = a})
 
 -- | The identifier of the subnet in your VPC in which to place the HSM.
 chSubnetId :: Lens' CreateHSM Text
-chSubnetId = lens _chSubnetId (\ s a -> s{_chSubnetId = a});
+chSubnetId = lens _chSubnetId (\ s a -> s{_chSubnetId = a})
 
 -- | The SSH public key to install on the HSM.
 chSSHKey :: Lens' CreateHSM Text
-chSSHKey = lens _chSSHKey (\ s a -> s{_chSSHKey = a});
+chSSHKey = lens _chSSHKey (\ s a -> s{_chSSHKey = a})
 
 -- | The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.
 chIAMRoleARN :: Lens' CreateHSM Text
-chIAMRoleARN = lens _chIAMRoleARN (\ s a -> s{_chIAMRoleARN = a});
+chIAMRoleARN = lens _chIAMRoleARN (\ s a -> s{_chIAMRoleARN = a})
 
 -- | Undocumented member.
 chSubscriptionType :: Lens' CreateHSM SubscriptionType
-chSubscriptionType = lens _chSubscriptionType (\ s a -> s{_chSubscriptionType = a});
+chSubscriptionType = lens _chSubscriptionType (\ s a -> s{_chSubscriptionType = a})
 
 instance AWSRequest CreateHSM where
         type Rs CreateHSM = CreateHSMResponse
@@ -210,15 +210,15 @@ createHSMResponse
     -> CreateHSMResponse
 createHSMResponse pResponseStatus_ =
   CreateHSMResponse'
-  {_chrsHSMARN = Nothing, _chrsResponseStatus = pResponseStatus_}
+    {_chrsHSMARN = Nothing, _chrsResponseStatus = pResponseStatus_}
 
 
 -- | The ARN of the HSM.
 chrsHSMARN :: Lens' CreateHSMResponse (Maybe Text)
-chrsHSMARN = lens _chrsHSMARN (\ s a -> s{_chrsHSMARN = a});
+chrsHSMARN = lens _chrsHSMARN (\ s a -> s{_chrsHSMARN = a})
 
 -- | -- | The response status code.
 chrsResponseStatus :: Lens' CreateHSMResponse Int
-chrsResponseStatus = lens _chrsResponseStatus (\ s a -> s{_chrsResponseStatus = a});
+chrsResponseStatus = lens _chrsResponseStatus (\ s a -> s{_chrsResponseStatus = a})
 
 instance NFData CreateHSMResponse where

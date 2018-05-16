@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeletePolicyVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ deletePolicyVersion
     -> DeletePolicyVersion
 deletePolicyVersion pPolicyName_ pPolicyVersionId_ =
   DeletePolicyVersion'
-  {_dpvPolicyName = pPolicyName_, _dpvPolicyVersionId = pPolicyVersionId_}
+    {_dpvPolicyName = pPolicyName_, _dpvPolicyVersionId = pPolicyVersionId_}
 
 
 -- | The name of the policy.
 dpvPolicyName :: Lens' DeletePolicyVersion Text
-dpvPolicyName = lens _dpvPolicyName (\ s a -> s{_dpvPolicyName = a});
+dpvPolicyName = lens _dpvPolicyName (\ s a -> s{_dpvPolicyName = a})
 
 -- | The policy version ID.
 dpvPolicyVersionId :: Lens' DeletePolicyVersion Text
-dpvPolicyVersionId = lens _dpvPolicyVersionId (\ s a -> s{_dpvPolicyVersionId = a});
+dpvPolicyVersionId = lens _dpvPolicyVersionId (\ s a -> s{_dpvPolicyVersionId = a})
 
 instance AWSRequest DeletePolicyVersion where
         type Rs DeletePolicyVersion =

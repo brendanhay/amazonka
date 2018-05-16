@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.ListRules
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,20 +68,20 @@ listRules
     :: ListRules
 listRules =
   ListRules'
-  {_lrNextToken = Nothing, _lrNamePrefix = Nothing, _lrLimit = Nothing}
+    {_lrNextToken = Nothing, _lrNamePrefix = Nothing, _lrLimit = Nothing}
 
 
 -- | The token returned by a previous call to retrieve the next set of results.
 lrNextToken :: Lens' ListRules (Maybe Text)
-lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
+lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a})
 
 -- | The prefix matching the rule name.
 lrNamePrefix :: Lens' ListRules (Maybe Text)
-lrNamePrefix = lens _lrNamePrefix (\ s a -> s{_lrNamePrefix = a});
+lrNamePrefix = lens _lrNamePrefix (\ s a -> s{_lrNamePrefix = a})
 
 -- | The maximum number of results to return.
 lrLimit :: Lens' ListRules (Maybe Natural)
-lrLimit = lens _lrLimit (\ s a -> s{_lrLimit = a}) . mapping _Nat;
+lrLimit = lens _lrLimit (\ s a -> s{_lrLimit = a}) . mapping _Nat
 
 instance AWSRequest ListRules where
         type Rs ListRules = ListRulesResponse
@@ -142,22 +142,22 @@ listRulesResponse
     -> ListRulesResponse
 listRulesResponse pResponseStatus_ =
   ListRulesResponse'
-  { _lrrsRules = Nothing
-  , _lrrsNextToken = Nothing
-  , _lrrsResponseStatus = pResponseStatus_
-  }
+    { _lrrsRules = Nothing
+    , _lrrsNextToken = Nothing
+    , _lrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The rules that match the specified criteria.
 lrrsRules :: Lens' ListRulesResponse [Rule]
-lrrsRules = lens _lrrsRules (\ s a -> s{_lrrsRules = a}) . _Default . _Coerce;
+lrrsRules = lens _lrrsRules (\ s a -> s{_lrrsRules = a}) . _Default . _Coerce
 
 -- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
 lrrsNextToken :: Lens' ListRulesResponse (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
+lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a})
 
 -- | -- | The response status code.
 lrrsResponseStatus :: Lens' ListRulesResponse Int
-lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
+lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a})
 
 instance NFData ListRulesResponse where

@@ -12,16 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.AddTagsToStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or updates tags for the specified Amazon Kinesis stream. Each stream can have up to 10 tags.
+-- Adds or updates tags for the specified Kinesis data stream. Each stream can have up to 10 tags.
 --
 --
 -- If tags have already been assigned to the stream, @AddTagsToStream@ overwrites any existing tags that correspond to the specified tag keys.
+--
+-- 'AddTagsToStream' has a limit of five transactions per second per account.
 --
 module Network.AWS.Kinesis.AddTagsToStream
     (
@@ -71,11 +73,11 @@ addTagsToStream pStreamName_ =
 
 -- | The name of the stream.
 attsStreamName :: Lens' AddTagsToStream Text
-attsStreamName = lens _attsStreamName (\ s a -> s{_attsStreamName = a});
+attsStreamName = lens _attsStreamName (\ s a -> s{_attsStreamName = a})
 
 -- | The set of key-value pairs to use to create the tags.
 attsTags :: Lens' AddTagsToStream (HashMap Text Text)
-attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Map;
+attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Map
 
 instance AWSRequest AddTagsToStream where
         type Rs AddTagsToStream = AddTagsToStreamResponse

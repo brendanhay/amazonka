@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Waiter
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -32,7 +32,6 @@ module Network.AWS.Waiter
     , nonEmptyText
     ) where
 
-import           Control.Applicative
 import           Control.Lens                (Fold, allOf, anyOf, to, (^..),
                                               (^?))
 import           Data.Maybe

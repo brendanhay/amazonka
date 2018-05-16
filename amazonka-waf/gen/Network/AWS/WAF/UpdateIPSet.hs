@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.UpdateIPSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -108,23 +108,23 @@ updateIPSet
     -> UpdateIPSet
 updateIPSet pIPSetId_ pChangeToken_ pUpdates_ =
   UpdateIPSet'
-  { _uisIPSetId = pIPSetId_
-  , _uisChangeToken = pChangeToken_
-  , _uisUpdates = _List1 # pUpdates_
-  }
+    { _uisIPSetId = pIPSetId_
+    , _uisChangeToken = pChangeToken_
+    , _uisUpdates = _List1 # pUpdates_
+    }
 
 
 -- | The @IPSetId@ of the 'IPSet' that you want to update. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 uisIPSetId :: Lens' UpdateIPSet Text
-uisIPSetId = lens _uisIPSetId (\ s a -> s{_uisIPSetId = a});
+uisIPSetId = lens _uisIPSetId (\ s a -> s{_uisIPSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 uisChangeToken :: Lens' UpdateIPSet Text
-uisChangeToken = lens _uisChangeToken (\ s a -> s{_uisChangeToken = a});
+uisChangeToken = lens _uisChangeToken (\ s a -> s{_uisChangeToken = a})
 
 -- | An array of @IPSetUpdate@ objects that you want to insert into or delete from an 'IPSet' . For more information, see the applicable data types:     * 'IPSetUpdate' : Contains @Action@ and @IPSetDescriptor@      * 'IPSetDescriptor' : Contains @Type@ and @Value@
 uisUpdates :: Lens' UpdateIPSet (NonEmpty IPSetUpdate)
-uisUpdates = lens _uisUpdates (\ s a -> s{_uisUpdates = a}) . _List1;
+uisUpdates = lens _uisUpdates (\ s a -> s{_uisUpdates = a}) . _List1
 
 instance AWSRequest UpdateIPSet where
         type Rs UpdateIPSet = UpdateIPSetResponse
@@ -181,15 +181,15 @@ updateIPSetResponse
     -> UpdateIPSetResponse
 updateIPSetResponse pResponseStatus_ =
   UpdateIPSetResponse'
-  {_uisrsChangeToken = Nothing, _uisrsResponseStatus = pResponseStatus_}
+    {_uisrsChangeToken = Nothing, _uisrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @UpdateIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 uisrsChangeToken :: Lens' UpdateIPSetResponse (Maybe Text)
-uisrsChangeToken = lens _uisrsChangeToken (\ s a -> s{_uisrsChangeToken = a});
+uisrsChangeToken = lens _uisrsChangeToken (\ s a -> s{_uisrsChangeToken = a})
 
 -- | -- | The response status code.
 uisrsResponseStatus :: Lens' UpdateIPSetResponse Int
-uisrsResponseStatus = lens _uisrsResponseStatus (\ s a -> s{_uisrsResponseStatus = a});
+uisrsResponseStatus = lens _uisrsResponseStatus (\ s a -> s{_uisrsResponseStatus = a})
 
 instance NFData UpdateIPSetResponse where

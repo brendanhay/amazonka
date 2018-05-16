@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSnapshotAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,23 +77,23 @@ describeSnapshotAttribute
     -> DescribeSnapshotAttribute
 describeSnapshotAttribute pAttribute_ pSnapshotId_ =
   DescribeSnapshotAttribute'
-  { _dsaDryRun = Nothing
-  , _dsaAttribute = pAttribute_
-  , _dsaSnapshotId = pSnapshotId_
-  }
+    { _dsaDryRun = Nothing
+    , _dsaAttribute = pAttribute_
+    , _dsaSnapshotId = pSnapshotId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
-dsaDryRun = lens _dsaDryRun (\ s a -> s{_dsaDryRun = a});
+dsaDryRun = lens _dsaDryRun (\ s a -> s{_dsaDryRun = a})
 
 -- | The snapshot attribute you would like to view.
 dsaAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
-dsaAttribute = lens _dsaAttribute (\ s a -> s{_dsaAttribute = a});
+dsaAttribute = lens _dsaAttribute (\ s a -> s{_dsaAttribute = a})
 
 -- | The ID of the EBS snapshot.
 dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
-dsaSnapshotId = lens _dsaSnapshotId (\ s a -> s{_dsaSnapshotId = a});
+dsaSnapshotId = lens _dsaSnapshotId (\ s a -> s{_dsaSnapshotId = a})
 
 instance AWSRequest DescribeSnapshotAttribute where
         type Rs DescribeSnapshotAttribute =
@@ -159,28 +159,28 @@ describeSnapshotAttributeResponse
     -> DescribeSnapshotAttributeResponse
 describeSnapshotAttributeResponse pResponseStatus_ =
   DescribeSnapshotAttributeResponse'
-  { _dsarsCreateVolumePermissions = Nothing
-  , _dsarsProductCodes = Nothing
-  , _dsarsSnapshotId = Nothing
-  , _dsarsResponseStatus = pResponseStatus_
-  }
+    { _dsarsCreateVolumePermissions = Nothing
+    , _dsarsProductCodes = Nothing
+    , _dsarsSnapshotId = Nothing
+    , _dsarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of permissions for creating volumes from the snapshot.
 dsarsCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
-dsarsCreateVolumePermissions = lens _dsarsCreateVolumePermissions (\ s a -> s{_dsarsCreateVolumePermissions = a}) . _Default . _Coerce;
+dsarsCreateVolumePermissions = lens _dsarsCreateVolumePermissions (\ s a -> s{_dsarsCreateVolumePermissions = a}) . _Default . _Coerce
 
 -- | A list of product codes.
 dsarsProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
-dsarsProductCodes = lens _dsarsProductCodes (\ s a -> s{_dsarsProductCodes = a}) . _Default . _Coerce;
+dsarsProductCodes = lens _dsarsProductCodes (\ s a -> s{_dsarsProductCodes = a}) . _Default . _Coerce
 
 -- | The ID of the EBS snapshot.
 dsarsSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
-dsarsSnapshotId = lens _dsarsSnapshotId (\ s a -> s{_dsarsSnapshotId = a});
+dsarsSnapshotId = lens _dsarsSnapshotId (\ s a -> s{_dsarsSnapshotId = a})
 
 -- | -- | The response status code.
 dsarsResponseStatus :: Lens' DescribeSnapshotAttributeResponse Int
-dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});
+dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a})
 
 instance NFData DescribeSnapshotAttributeResponse
          where

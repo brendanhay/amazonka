@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ResetCacheParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ resetCacheParameterGroup
     -> ResetCacheParameterGroup
 resetCacheParameterGroup pCacheParameterGroupName_ =
   ResetCacheParameterGroup'
-  { _rcpgResetAllParameters = Nothing
-  , _rcpgParameterNameValues = Nothing
-  , _rcpgCacheParameterGroupName = pCacheParameterGroupName_
-  }
+    { _rcpgResetAllParameters = Nothing
+    , _rcpgParameterNameValues = Nothing
+    , _rcpgCacheParameterGroupName = pCacheParameterGroupName_
+    }
 
 
 -- | If @true@ , all parameters in the cache parameter group are reset to their default values. If @false@ , only the parameters listed by @ParameterNameValues@ are reset to their default values. Valid values: @true@ | @false@
 rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
-rcpgResetAllParameters = lens _rcpgResetAllParameters (\ s a -> s{_rcpgResetAllParameters = a});
+rcpgResetAllParameters = lens _rcpgResetAllParameters (\ s a -> s{_rcpgResetAllParameters = a})
 
 -- | An array of parameter names to reset to their default values. If @ResetAllParameters@ is @true@ , do not use @ParameterNameValues@ . If @ResetAllParameters@ is @false@ , you must specify the name of at least one parameter to reset.
 rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
-rcpgParameterNameValues = lens _rcpgParameterNameValues (\ s a -> s{_rcpgParameterNameValues = a}) . _Default . _Coerce;
+rcpgParameterNameValues = lens _rcpgParameterNameValues (\ s a -> s{_rcpgParameterNameValues = a}) . _Default . _Coerce
 
 -- | The name of the cache parameter group to reset.
 rcpgCacheParameterGroupName :: Lens' ResetCacheParameterGroup Text
-rcpgCacheParameterGroupName = lens _rcpgCacheParameterGroupName (\ s a -> s{_rcpgCacheParameterGroupName = a});
+rcpgCacheParameterGroupName = lens _rcpgCacheParameterGroupName (\ s a -> s{_rcpgCacheParameterGroupName = a})
 
 instance AWSRequest ResetCacheParameterGroup where
         type Rs ResetCacheParameterGroup =

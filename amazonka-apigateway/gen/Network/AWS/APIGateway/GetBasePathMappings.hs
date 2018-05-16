@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetBasePathMappings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,30 +66,30 @@ data GetBasePathMappings = GetBasePathMappings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- * 'gLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'gPosition' - The current pagination position in the paged result set.
 --
--- * 'gDomainName' - The domain name of a 'BasePathMapping' resource.
+-- * 'gDomainName' - [Required] The domain name of a 'BasePathMapping' resource.
 getBasePathMappings
     :: Text -- ^ 'gDomainName'
     -> GetBasePathMappings
 getBasePathMappings pDomainName_ =
   GetBasePathMappings'
-  {_gLimit = Nothing, _gPosition = Nothing, _gDomainName = pDomainName_}
+    {_gLimit = Nothing, _gPosition = Nothing, _gDomainName = pDomainName_}
 
 
--- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 gLimit :: Lens' GetBasePathMappings (Maybe Int)
-gLimit = lens _gLimit (\ s a -> s{_gLimit = a});
+gLimit = lens _gLimit (\ s a -> s{_gLimit = a})
 
 -- | The current pagination position in the paged result set.
 gPosition :: Lens' GetBasePathMappings (Maybe Text)
-gPosition = lens _gPosition (\ s a -> s{_gPosition = a});
+gPosition = lens _gPosition (\ s a -> s{_gPosition = a})
 
--- | The domain name of a 'BasePathMapping' resource.
+-- | [Required] The domain name of a 'BasePathMapping' resource.
 gDomainName :: Lens' GetBasePathMappings Text
-gDomainName = lens _gDomainName (\ s a -> s{_gDomainName = a});
+gDomainName = lens _gDomainName (\ s a -> s{_gDomainName = a})
 
 instance AWSPager GetBasePathMappings where
         page rq rs
@@ -157,22 +157,22 @@ getBasePathMappingsResponse
     -> GetBasePathMappingsResponse
 getBasePathMappingsResponse pResponseStatus_ =
   GetBasePathMappingsResponse'
-  { _gbpmrsItems = Nothing
-  , _gbpmrsPosition = Nothing
-  , _gbpmrsResponseStatus = pResponseStatus_
-  }
+    { _gbpmrsItems = Nothing
+    , _gbpmrsPosition = Nothing
+    , _gbpmrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 gbpmrsItems :: Lens' GetBasePathMappingsResponse [BasePathMapping]
-gbpmrsItems = lens _gbpmrsItems (\ s a -> s{_gbpmrsItems = a}) . _Default . _Coerce;
+gbpmrsItems = lens _gbpmrsItems (\ s a -> s{_gbpmrsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gbpmrsPosition :: Lens' GetBasePathMappingsResponse (Maybe Text)
-gbpmrsPosition = lens _gbpmrsPosition (\ s a -> s{_gbpmrsPosition = a});
+gbpmrsPosition = lens _gbpmrsPosition (\ s a -> s{_gbpmrsPosition = a})
 
 -- | -- | The response status code.
 gbpmrsResponseStatus :: Lens' GetBasePathMappingsResponse Int
-gbpmrsResponseStatus = lens _gbpmrsResponseStatus (\ s a -> s{_gbpmrsResponseStatus = a});
+gbpmrsResponseStatus = lens _gbpmrsResponseStatus (\ s a -> s{_gbpmrsResponseStatus = a})
 
 instance NFData GetBasePathMappingsResponse where

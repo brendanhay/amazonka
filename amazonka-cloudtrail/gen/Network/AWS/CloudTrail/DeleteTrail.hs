@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.DeleteTrail
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ deleteTrail pName_ = DeleteTrail' {_dtName = pName_}
 
 -- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 dtName :: Lens' DeleteTrail Text
-dtName = lens _dtName (\ s a -> s{_dtName = a});
+dtName = lens _dtName (\ s a -> s{_dtName = a})
 
 instance AWSRequest DeleteTrail where
         type Rs DeleteTrail = DeleteTrailResponse
@@ -124,6 +124,6 @@ deleteTrailResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteTrailResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteTrailResponse where

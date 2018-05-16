@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.PutResourceAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,11 @@
 -- Provides identifying details of the resource being migrated so that it can be associated in the Application Discovery Service (ADS)'s repository. This association occurs asynchronously after @PutResourceAttributes@ returns.
 --
 --
--- /Important:/ Keep in mind that subsequent calls to PutResourceAttributes will override previously stored attributes. For example, if it is first called with a MAC address, but later, it is desired to /add/ an IP address, it will then be required to call it with /both/ the IP and MAC addresses to prevent overiding the MAC address.
+-- /Important:/     * Keep in mind that subsequent calls to PutResourceAttributes will override previously stored attributes. For example, if it is first called with a MAC address, but later, it is desired to /add/ an IP address, it will then be required to call it with /both/ the IP and MAC addresses to prevent overiding the MAC address.
+--
+--     * Note the instructions regarding the special use case of the @ResourceAttributeList@ parameter when specifying any "VM" related value.
+--
+--
 --
 module Network.AWS.MigrationHub.PutResourceAttributes
     (
@@ -67,7 +71,7 @@ data PutResourceAttributes = PutResourceAttributes'
 --
 -- * 'praMigrationTaskName' - Unique identifier that references the migration task.
 --
--- * 'praResourceAttributeList' - Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service (ADS)'s repository.
+-- * 'praResourceAttributeList' - Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service (ADS)'s repository. /Important:/ If any "VM" related value is used for a @ResourceAttribute@ object, it is required that @VM_MANAGER_ID@ , as a minimum, is always used. If it is not used, the server will not be associated in the Application Discovery Service (ADS)'s repository using any of the other "VM" related values, and you will experience data loss. See the Example section below for a use case of specifying "VM" related values.
 putResourceAttributes
     :: Text -- ^ 'praProgressUpdateStream'
     -> Text -- ^ 'praMigrationTaskName'
@@ -75,28 +79,28 @@ putResourceAttributes
     -> PutResourceAttributes
 putResourceAttributes pProgressUpdateStream_ pMigrationTaskName_ pResourceAttributeList_ =
   PutResourceAttributes'
-  { _praDryRun = Nothing
-  , _praProgressUpdateStream = pProgressUpdateStream_
-  , _praMigrationTaskName = pMigrationTaskName_
-  , _praResourceAttributeList = _List1 # pResourceAttributeList_
-  }
+    { _praDryRun = Nothing
+    , _praProgressUpdateStream = pProgressUpdateStream_
+    , _praMigrationTaskName = pMigrationTaskName_
+    , _praResourceAttributeList = _List1 # pResourceAttributeList_
+    }
 
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 praDryRun :: Lens' PutResourceAttributes (Maybe Bool)
-praDryRun = lens _praDryRun (\ s a -> s{_praDryRun = a});
+praDryRun = lens _praDryRun (\ s a -> s{_praDryRun = a})
 
 -- | The name of the ProgressUpdateStream.
 praProgressUpdateStream :: Lens' PutResourceAttributes Text
-praProgressUpdateStream = lens _praProgressUpdateStream (\ s a -> s{_praProgressUpdateStream = a});
+praProgressUpdateStream = lens _praProgressUpdateStream (\ s a -> s{_praProgressUpdateStream = a})
 
 -- | Unique identifier that references the migration task.
 praMigrationTaskName :: Lens' PutResourceAttributes Text
-praMigrationTaskName = lens _praMigrationTaskName (\ s a -> s{_praMigrationTaskName = a});
+praMigrationTaskName = lens _praMigrationTaskName (\ s a -> s{_praMigrationTaskName = a})
 
--- | Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service (ADS)'s repository.
+-- | Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service (ADS)'s repository. /Important:/ If any "VM" related value is used for a @ResourceAttribute@ object, it is required that @VM_MANAGER_ID@ , as a minimum, is always used. If it is not used, the server will not be associated in the Application Discovery Service (ADS)'s repository using any of the other "VM" related values, and you will experience data loss. See the Example section below for a use case of specifying "VM" related values.
 praResourceAttributeList :: Lens' PutResourceAttributes (NonEmpty ResourceAttribute)
-praResourceAttributeList = lens _praResourceAttributeList (\ s a -> s{_praResourceAttributeList = a}) . _List1;
+praResourceAttributeList = lens _praResourceAttributeList (\ s a -> s{_praResourceAttributeList = a}) . _List1
 
 instance AWSRequest PutResourceAttributes where
         type Rs PutResourceAttributes =
@@ -160,6 +164,6 @@ putResourceAttributesResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 prarsResponseStatus :: Lens' PutResourceAttributesResponse Int
-prarsResponseStatus = lens _prarsResponseStatus (\ s a -> s{_prarsResponseStatus = a});
+prarsResponseStatus = lens _prarsResponseStatus (\ s a -> s{_prarsResponseStatus = a})
 
 instance NFData PutResourceAttributesResponse where

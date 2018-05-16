@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.InviteAccountToOrganization
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ inviteAccountToOrganization pTarget_ =
 
 -- | Additional information that you want to include in the generated email to the recipient account owner.
 iatoNotes :: Lens' InviteAccountToOrganization (Maybe Text)
-iatoNotes = lens _iatoNotes (\ s a -> s{_iatoNotes = a}) . mapping _Sensitive;
+iatoNotes = lens _iatoNotes (\ s a -> s{_iatoNotes = a}) . mapping _Sensitive
 
 -- | The identifier (ID) of the AWS account that you want to invite to join your organization. This is a JSON object that contains the following elements:  @{ "Type": "ACCOUNT", "Id": "</__account id number__ / >" }@  If you use the AWS CLI, you can submit this as a single string, similar to the following example: @--target Id=123456789012,Type=ACCOUNT@  If you specify @"Type": "ACCOUNT"@ , then you must provide the AWS account ID number as the @Id@ . If you specify @"Type": "EMAIL"@ , then you must specify the email address that is associated with the account. @--target Id=bill@example.com,Type=EMAIL@
 iatoTarget :: Lens' InviteAccountToOrganization HandshakeParty
-iatoTarget = lens _iatoTarget (\ s a -> s{_iatoTarget = a});
+iatoTarget = lens _iatoTarget (\ s a -> s{_iatoTarget = a})
 
 instance AWSRequest InviteAccountToOrganization where
         type Rs InviteAccountToOrganization =
@@ -136,16 +136,16 @@ inviteAccountToOrganizationResponse
     -> InviteAccountToOrganizationResponse
 inviteAccountToOrganizationResponse pResponseStatus_ =
   InviteAccountToOrganizationResponse'
-  {_iatorsHandshake = Nothing, _iatorsResponseStatus = pResponseStatus_}
+    {_iatorsHandshake = Nothing, _iatorsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that contains details about the handshake that is created to support this invitation request.
 iatorsHandshake :: Lens' InviteAccountToOrganizationResponse (Maybe Handshake)
-iatorsHandshake = lens _iatorsHandshake (\ s a -> s{_iatorsHandshake = a});
+iatorsHandshake = lens _iatorsHandshake (\ s a -> s{_iatorsHandshake = a})
 
 -- | -- | The response status code.
 iatorsResponseStatus :: Lens' InviteAccountToOrganizationResponse Int
-iatorsResponseStatus = lens _iatorsResponseStatus (\ s a -> s{_iatorsResponseStatus = a});
+iatorsResponseStatus = lens _iatorsResponseStatus (\ s a -> s{_iatorsResponseStatus = a})
 
 instance NFData InviteAccountToOrganizationResponse
          where

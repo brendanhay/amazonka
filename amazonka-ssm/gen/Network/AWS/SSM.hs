@@ -5,17 +5,17 @@
 
 -- |
 -- Module      : Network.AWS.SSM
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Amazon EC2 Systems Manager__
+-- __AWS Systems Manager__
 --
--- Amazon EC2 Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A /managed instance/ is any Amazon EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager.
+-- AWS Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A /managed instance/ is any Amazon EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager.
 --
--- This reference is intended to be used with the <http://docs.aws.amazon.com/systems-manager/latest/userguide/ Amazon EC2 Systems Manager User Guide> .
+-- This reference is intended to be used with the <http://docs.aws.amazon.com/systems-manager/latest/userguide/ AWS Systems Manager User Guide> .
 --
 -- To get started, verify prerequisites and configure managed instances. For more information, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html Systems Manager Prerequisites> .
 --
@@ -43,6 +43,9 @@ module Network.AWS.SSM
 
     -- ** UnsupportedParameterType
     , _UnsupportedParameterType
+
+    -- ** InvalidAutomationStatusUpdateException
+    , _InvalidAutomationStatusUpdateException
 
     -- ** InvalidPluginName
     , _InvalidPluginName
@@ -88,6 +91,9 @@ module Network.AWS.SSM
 
     -- ** InvalidNextToken
     , _InvalidNextToken
+
+    -- ** InvalidInventoryRequestException
+    , _InvalidInventoryRequestException
 
     -- ** InvalidOutputFolder
     , _InvalidOutputFolder
@@ -170,6 +176,12 @@ module Network.AWS.SSM
     -- ** ComplianceTypeCountLimitExceededException
     , _ComplianceTypeCountLimitExceededException
 
+    -- ** InvalidDeleteInventoryParametersException
+    , _InvalidDeleteInventoryParametersException
+
+    -- ** InvalidDeletionIdException
+    , _InvalidDeletionIdException
+
     -- ** InvalidDocumentContent
     , _InvalidDocumentContent
 
@@ -208,6 +220,9 @@ module Network.AWS.SSM
 
     -- ** InvalidActivation
     , _InvalidActivation
+
+    -- ** InvalidOptionException
+    , _InvalidOptionException
 
     -- ** InvalidDocumentSchemaVersion
     , _InvalidDocumentSchemaVersion
@@ -272,6 +287,9 @@ module Network.AWS.SSM
     -- ** DocumentPermissionLimit
     , _DocumentPermissionLimit
 
+    -- ** AutomationStepNotFoundException
+    , _AutomationStepNotFoundException
+
     -- ** DuplicateDocumentContent
     , _DuplicateDocumentContent
 
@@ -326,7 +344,7 @@ module Network.AWS.SSM
     -- ** DescribeParameters (Paginated)
     , module Network.AWS.SSM.DescribeParameters
 
-    -- ** GetParametersByPath
+    -- ** GetParametersByPath (Paginated)
     , module Network.AWS.SSM.GetParametersByPath
 
     -- ** PutComplianceItems
@@ -431,6 +449,9 @@ module Network.AWS.SSM
     -- ** CancelCommand
     , module Network.AWS.SSM.CancelCommand
 
+    -- ** DescribeAutomationStepExecutions
+    , module Network.AWS.SSM.DescribeAutomationStepExecutions
+
     -- ** GetCommandInvocation
     , module Network.AWS.SSM.GetCommandInvocation
 
@@ -497,7 +518,7 @@ module Network.AWS.SSM
     -- ** UpdateMaintenanceWindowTask
     , module Network.AWS.SSM.UpdateMaintenanceWindowTask
 
-    -- ** GetParameterHistory
+    -- ** GetParameterHistory (Paginated)
     , module Network.AWS.SSM.GetParameterHistory
 
     -- ** CreateMaintenanceWindow
@@ -535,6 +556,12 @@ module Network.AWS.SSM
 
     -- ** UpdateAssociation
     , module Network.AWS.SSM.UpdateAssociation
+
+    -- ** DescribeInventoryDeletions
+    , module Network.AWS.SSM.DescribeInventoryDeletions
+
+    -- ** DeleteInventory
+    , module Network.AWS.SSM.DeleteInventory
 
     -- ** PutInventory
     , module Network.AWS.SSM.PutInventory
@@ -625,6 +652,9 @@ module Network.AWS.SSM
     -- ** DocumentFilterKey
     , DocumentFilterKey (..)
 
+    -- ** DocumentFormat
+    , DocumentFormat (..)
+
     -- ** DocumentHashType
     , DocumentHashType (..)
 
@@ -640,6 +670,9 @@ module Network.AWS.SSM
     -- ** DocumentType
     , DocumentType (..)
 
+    -- ** ExecutionMode
+    , ExecutionMode (..)
+
     -- ** Fault
     , Fault (..)
 
@@ -652,8 +685,14 @@ module Network.AWS.SSM
     -- ** InventoryAttributeDataType
     , InventoryAttributeDataType (..)
 
+    -- ** InventoryDeletionStatus
+    , InventoryDeletionStatus (..)
+
     -- ** InventoryQueryOperatorType
     , InventoryQueryOperatorType (..)
+
+    -- ** InventorySchemaDeleteOption
+    , InventorySchemaDeleteOption (..)
 
     -- ** LastResourceDataSyncStatus
     , LastResourceDataSyncStatus (..)
@@ -714,6 +753,12 @@ module Network.AWS.SSM
 
     -- ** SignalType
     , SignalType (..)
+
+    -- ** StepExecutionFilterKey
+    , StepExecutionFilterKey (..)
+
+    -- ** StopType
+    , StopType (..)
 
     -- ** Activation
     , Activation
@@ -800,16 +845,28 @@ module Network.AWS.SSM
     -- ** AutomationExecution
     , AutomationExecution
     , automationExecution
+    , aeCurrentStepName
+    , aeTargetParameterName
+    , aeExecutedBy
     , aeDocumentName
     , aeExecutionEndTime
     , aeFailureMessage
+    , aeMode
+    , aeStepExecutionsTruncated
     , aeAutomationExecutionStatus
+    , aeParentAutomationExecutionId
     , aeOutputs
+    , aeMaxErrors
     , aeExecutionStartTime
+    , aeCurrentAction
+    , aeTargets
+    , aeResolvedTargets
     , aeParameters
     , aeDocumentVersion
     , aeAutomationExecutionId
     , aeStepExecutions
+    , aeMaxConcurrency
+    , aeTarget
 
     -- ** AutomationExecutionFilter
     , AutomationExecutionFilter
@@ -820,15 +877,26 @@ module Network.AWS.SSM
     -- ** AutomationExecutionMetadata
     , AutomationExecutionMetadata
     , automationExecutionMetadata
+    , aemCurrentStepName
+    , aemTargetParameterName
     , aemLogFile
     , aemExecutedBy
     , aemDocumentName
     , aemExecutionEndTime
+    , aemFailureMessage
+    , aemMode
     , aemAutomationExecutionStatus
+    , aemParentAutomationExecutionId
     , aemOutputs
+    , aemMaxErrors
     , aemExecutionStartTime
+    , aemCurrentAction
+    , aemTargets
+    , aemResolvedTargets
     , aemDocumentVersion
     , aemAutomationExecutionId
+    , aemMaxConcurrency
+    , aemTarget
 
     -- ** Command
     , Command
@@ -847,6 +915,7 @@ module Network.AWS.SSM
     , cTargets
     , cCommandId
     , cParameters
+    , cDocumentVersion
     , cComment
     , cCompletedCount
     , cOutputS3BucketName
@@ -872,6 +941,7 @@ module Network.AWS.SSM
     , comStatusDetails
     , comStandardOutputURL
     , comCommandId
+    , comDocumentVersion
     , comComment
     , comTraceOutput
     , comInstanceName
@@ -976,9 +1046,11 @@ module Network.AWS.SSM
     , dSchemaVersion
     , dSha1
     , dDefaultVersion
+    , dTargetType
     , dOwner
     , dPlatformTypes
     , dCreatedDate
+    , dDocumentFormat
     , dName
     , dHashType
     , dParameters
@@ -998,8 +1070,10 @@ module Network.AWS.SSM
     , documentIdentifier
     , diDocumentType
     , diSchemaVersion
+    , diTargetType
     , diOwner
     , diPlatformTypes
+    , diDocumentFormat
     , diName
     , diDocumentVersion
     , diTags
@@ -1022,6 +1096,7 @@ module Network.AWS.SSM
     , DocumentVersionInfo
     , documentVersionInfo
     , dviCreatedDate
+    , dviDocumentFormat
     , dviName
     , dviDocumentVersion
     , dviIsDefaultVersion
@@ -1145,6 +1220,37 @@ module Network.AWS.SSM
     , ipsfValues
     , ipsfType
 
+    -- ** InventoryAggregator
+    , InventoryAggregator
+    , inventoryAggregator
+    , iaAggregators
+    , iaExpression
+
+    -- ** InventoryDeletionStatusItem
+    , InventoryDeletionStatusItem
+    , inventoryDeletionStatusItem
+    , idsiTypeName
+    , idsiLastStatusUpdateTime
+    , idsiLastStatusMessage
+    , idsiDeletionSummary
+    , idsiLastStatus
+    , idsiDeletionStartTime
+    , idsiDeletionId
+
+    -- ** InventoryDeletionSummary
+    , InventoryDeletionSummary
+    , inventoryDeletionSummary
+    , idsRemainingCount
+    , idsSummaryItems
+    , idsTotalCount
+
+    -- ** InventoryDeletionSummaryItem
+    , InventoryDeletionSummaryItem
+    , inventoryDeletionSummaryItem
+    , idsiRemainingCount
+    , idsiCount
+    , idsiVersion
+
     -- ** InventoryFilter
     , InventoryFilter
     , inventoryFilter
@@ -1172,6 +1278,7 @@ module Network.AWS.SSM
     , InventoryItemSchema
     , inventoryItemSchema
     , iisVersion
+    , iisDisplayName
     , iisTypeName
     , iisAttributes
 
@@ -1445,6 +1552,7 @@ module Network.AWS.SSM
     -- ** PatchRule
     , PatchRule
     , patchRule
+    , prEnableNonSecurity
     , prComplianceLevel
     , prPatchFilterGroup
     , prApproveAfterDays
@@ -1454,12 +1562,25 @@ module Network.AWS.SSM
     , patchRuleGroup
     , prgPatchRules
 
+    -- ** PatchSource
+    , PatchSource
+    , patchSource
+    , psName
+    , psProducts
+    , psConfiguration
+
     -- ** PatchStatus
     , PatchStatus
     , patchStatus
     , psApprovalDate
     , psDeploymentStatus
     , psComplianceLevel
+
+    -- ** ResolvedTargets
+    , ResolvedTargets
+    , resolvedTargets
+    , rtTruncated
+    , rtParameterValues
 
     -- ** ResourceComplianceSummaryItem
     , ResourceComplianceSummaryItem
@@ -1476,6 +1597,7 @@ module Network.AWS.SSM
     -- ** ResourceDataSyncItem
     , ResourceDataSyncItem
     , resourceDataSyncItem
+    , rdsiLastSyncStatusMessage
     , rdsiSyncCreatedTime
     , rdsiLastSyncTime
     , rdsiSyncName
@@ -1531,8 +1653,19 @@ module Network.AWS.SSM
     , seAction
     , seResponseCode
     , seStepStatus
+    , seOverriddenParameters
     , seOutputs
     , seExecutionStartTime
+    , seMaxAttempts
+    , seStepExecutionId
+    , seTimeoutSeconds
+    , seOnFailure
+
+    -- ** StepExecutionFilter
+    , StepExecutionFilter
+    , stepExecutionFilter
+    , sefKey
+    , sefValues
 
     -- ** Tag
     , Tag
@@ -1559,6 +1692,7 @@ import Network.AWS.SSM.CreateResourceDataSync
 import Network.AWS.SSM.DeleteActivation
 import Network.AWS.SSM.DeleteAssociation
 import Network.AWS.SSM.DeleteDocument
+import Network.AWS.SSM.DeleteInventory
 import Network.AWS.SSM.DeleteMaintenanceWindow
 import Network.AWS.SSM.DeleteParameter
 import Network.AWS.SSM.DeleteParameters
@@ -1571,6 +1705,7 @@ import Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
 import Network.AWS.SSM.DescribeActivations
 import Network.AWS.SSM.DescribeAssociation
 import Network.AWS.SSM.DescribeAutomationExecutions
+import Network.AWS.SSM.DescribeAutomationStepExecutions
 import Network.AWS.SSM.DescribeAvailablePatches
 import Network.AWS.SSM.DescribeDocument
 import Network.AWS.SSM.DescribeDocumentPermission
@@ -1581,6 +1716,7 @@ import Network.AWS.SSM.DescribeInstanceInformation
 import Network.AWS.SSM.DescribeInstancePatches
 import Network.AWS.SSM.DescribeInstancePatchStates
 import Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
+import Network.AWS.SSM.DescribeInventoryDeletions
 import Network.AWS.SSM.DescribeMaintenanceWindowExecutions
 import Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
 import Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListFacetNames
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Retrieves the names of facets that exist in a schema.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListFacetNames
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CloudDirectory.ListFacetNames
 import Network.AWS.CloudDirectory.Types
 import Network.AWS.CloudDirectory.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -69,23 +72,30 @@ listFacetNames
     -> ListFacetNames
 listFacetNames pSchemaARN_ =
   ListFacetNames'
-  { _lfnNextToken = Nothing
-  , _lfnMaxResults = Nothing
-  , _lfnSchemaARN = pSchemaARN_
-  }
+    { _lfnNextToken = Nothing
+    , _lfnMaxResults = Nothing
+    , _lfnSchemaARN = pSchemaARN_
+    }
 
 
 -- | The pagination token.
 lfnNextToken :: Lens' ListFacetNames (Maybe Text)
-lfnNextToken = lens _lfnNextToken (\ s a -> s{_lfnNextToken = a});
+lfnNextToken = lens _lfnNextToken (\ s a -> s{_lfnNextToken = a})
 
 -- | The maximum number of results to retrieve.
 lfnMaxResults :: Lens' ListFacetNames (Maybe Natural)
-lfnMaxResults = lens _lfnMaxResults (\ s a -> s{_lfnMaxResults = a}) . mapping _Nat;
+lfnMaxResults = lens _lfnMaxResults (\ s a -> s{_lfnMaxResults = a}) . mapping _Nat
 
 -- | The Amazon Resource Name (ARN) to retrieve facet names from.
 lfnSchemaARN :: Lens' ListFacetNames Text
-lfnSchemaARN = lens _lfnSchemaARN (\ s a -> s{_lfnSchemaARN = a});
+lfnSchemaARN = lens _lfnSchemaARN (\ s a -> s{_lfnSchemaARN = a})
+
+instance AWSPager ListFacetNames where
+        page rq rs
+          | stop (rs ^. lfnrsNextToken) = Nothing
+          | stop (rs ^. lfnrsFacetNames) = Nothing
+          | otherwise =
+            Just $ rq & lfnNextToken .~ rs ^. lfnrsNextToken
 
 instance AWSRequest ListFacetNames where
         type Rs ListFacetNames = ListFacetNamesResponse
@@ -142,22 +152,22 @@ listFacetNamesResponse
     -> ListFacetNamesResponse
 listFacetNamesResponse pResponseStatus_ =
   ListFacetNamesResponse'
-  { _lfnrsNextToken = Nothing
-  , _lfnrsFacetNames = Nothing
-  , _lfnrsResponseStatus = pResponseStatus_
-  }
+    { _lfnrsNextToken = Nothing
+    , _lfnrsFacetNames = Nothing
+    , _lfnrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token.
 lfnrsNextToken :: Lens' ListFacetNamesResponse (Maybe Text)
-lfnrsNextToken = lens _lfnrsNextToken (\ s a -> s{_lfnrsNextToken = a});
+lfnrsNextToken = lens _lfnrsNextToken (\ s a -> s{_lfnrsNextToken = a})
 
 -- | The names of facets that exist within the schema.
 lfnrsFacetNames :: Lens' ListFacetNamesResponse [Text]
-lfnrsFacetNames = lens _lfnrsFacetNames (\ s a -> s{_lfnrsFacetNames = a}) . _Default . _Coerce;
+lfnrsFacetNames = lens _lfnrsFacetNames (\ s a -> s{_lfnrsFacetNames = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lfnrsResponseStatus :: Lens' ListFacetNamesResponse Int
-lfnrsResponseStatus = lens _lfnrsResponseStatus (\ s a -> s{_lfnrsResponseStatus = a});
+lfnrsResponseStatus = lens _lfnrsResponseStatus (\ s a -> s{_lfnrsResponseStatus = a})
 
 instance NFData ListFacetNamesResponse where

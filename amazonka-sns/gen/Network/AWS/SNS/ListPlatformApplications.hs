@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListPlatformApplications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ listPlatformApplications = ListPlatformApplications' {_lpaNextToken = Nothing}
 
 -- | NextToken string is used when calling ListPlatformApplications action to retrieve additional records that are available after the first page results.
 lpaNextToken :: Lens' ListPlatformApplications (Maybe Text)
-lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a});
+lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a})
 
 instance AWSPager ListPlatformApplications where
         page rq rs
@@ -136,23 +136,23 @@ listPlatformApplicationsResponse
     -> ListPlatformApplicationsResponse
 listPlatformApplicationsResponse pResponseStatus_ =
   ListPlatformApplicationsResponse'
-  { _lparsPlatformApplications = Nothing
-  , _lparsNextToken = Nothing
-  , _lparsResponseStatus = pResponseStatus_
-  }
+    { _lparsPlatformApplications = Nothing
+    , _lparsNextToken = Nothing
+    , _lparsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Platform applications returned when calling ListPlatformApplications action.
 lparsPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApplication]
-lparsPlatformApplications = lens _lparsPlatformApplications (\ s a -> s{_lparsPlatformApplications = a}) . _Default . _Coerce;
+lparsPlatformApplications = lens _lparsPlatformApplications (\ s a -> s{_lparsPlatformApplications = a}) . _Default . _Coerce
 
 -- | NextToken string is returned when calling ListPlatformApplications action if additional records are available after the first page results.
 lparsNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
-lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a});
+lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a})
 
 -- | -- | The response status code.
 lparsResponseStatus :: Lens' ListPlatformApplicationsResponse Int
-lparsResponseStatus = lens _lparsResponseStatus (\ s a -> s{_lparsResponseStatus = a});
+lparsResponseStatus = lens _lparsResponseStatus (\ s a -> s{_lparsResponseStatus = a})
 
 instance NFData ListPlatformApplicationsResponse
          where

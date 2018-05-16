@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.Waiters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,19 +25,22 @@ import Network.AWS.Waiter
 jobComplete :: Wait ReadJob
 jobComplete =
   Wait
-  { _waitName = "JobComplete"
-  , _waitAttempts = 120
-  , _waitDelay = 30
-  , _waitAcceptors =
-      [ matchAll
-          "Complete"
-          AcceptSuccess
-          (rjrsJob . jStatus . _Just . to toTextCI)
-      , matchAll
-          "Canceled"
-          AcceptFailure
-          (rjrsJob . jStatus . _Just . to toTextCI)
-      , matchAll "Error" AcceptFailure (rjrsJob . jStatus . _Just . to toTextCI)
-      ]
-  }
+    { _waitName = "JobComplete"
+    , _waitAttempts = 120
+    , _waitDelay = 30
+    , _waitAcceptors =
+        [ matchAll
+            "Complete"
+            AcceptSuccess
+            (rjrsJob . jStatus . _Just . to toTextCI)
+        , matchAll
+            "Canceled"
+            AcceptFailure
+            (rjrsJob . jStatus . _Just . to toTextCI)
+        , matchAll
+            "Error"
+            AcceptFailure
+            (rjrsJob . jStatus . _Just . to toTextCI)
+        ]
+    }
 

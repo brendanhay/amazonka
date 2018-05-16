@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getProject pArn_ = GetProject' {_gpArn = pArn_}
 
 -- | The project's ARN.
 gpArn :: Lens' GetProject Text
-gpArn = lens _gpArn (\ s a -> s{_gpArn = a});
+gpArn = lens _gpArn (\ s a -> s{_gpArn = a})
 
 instance AWSRequest GetProject where
         type Rs GetProject = GetProjectResponse
@@ -124,15 +124,15 @@ getProjectResponse
     -> GetProjectResponse
 getProjectResponse pResponseStatus_ =
   GetProjectResponse'
-  {_gprsProject = Nothing, _gprsResponseStatus = pResponseStatus_}
+    {_gprsProject = Nothing, _gprsResponseStatus = pResponseStatus_}
 
 
 -- | The project you wish to get information about.
 gprsProject :: Lens' GetProjectResponse (Maybe Project)
-gprsProject = lens _gprsProject (\ s a -> s{_gprsProject = a});
+gprsProject = lens _gprsProject (\ s a -> s{_gprsProject = a})
 
 -- | -- | The response status code.
 gprsResponseStatus :: Lens' GetProjectResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a})
 
 instance NFData GetProjectResponse where

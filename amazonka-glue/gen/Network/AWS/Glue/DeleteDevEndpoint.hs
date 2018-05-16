@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteDevEndpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteDevEndpoint pEndpointName_ =
 
 -- | The name of the DevEndpoint.
 ddeEndpointName :: Lens' DeleteDevEndpoint Text
-ddeEndpointName = lens _ddeEndpointName (\ s a -> s{_ddeEndpointName = a});
+ddeEndpointName = lens _ddeEndpointName (\ s a -> s{_ddeEndpointName = a})
 
 instance AWSRequest DeleteDevEndpoint where
         type Rs DeleteDevEndpoint = DeleteDevEndpointResponse
@@ -118,6 +118,6 @@ deleteDevEndpointResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ddersResponseStatus :: Lens' DeleteDevEndpointResponse Int
-ddersResponseStatus = lens _ddersResponseStatus (\ s a -> s{_ddersResponseStatus = a});
+ddersResponseStatus = lens _ddersResponseStatus (\ s a -> s{_ddersResponseStatus = a})
 
 instance NFData DeleteDevEndpointResponse where

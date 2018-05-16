@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.AddAttachmentsToSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ addAttachmentsToSet
     :: AddAttachmentsToSet
 addAttachmentsToSet =
   AddAttachmentsToSet'
-  {_aatsAttachmentSetId = Nothing, _aatsAttachments = mempty}
+    {_aatsAttachmentSetId = Nothing, _aatsAttachments = mempty}
 
 
 -- | The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
 aatsAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
-aatsAttachmentSetId = lens _aatsAttachmentSetId (\ s a -> s{_aatsAttachmentSetId = a});
+aatsAttachmentSetId = lens _aatsAttachmentSetId (\ s a -> s{_aatsAttachmentSetId = a})
 
 -- | One or more attachments to add to the set. The limit is 3 attachments per set, and the size limit is 5 MB per attachment.
 aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
-aatsAttachments = lens _aatsAttachments (\ s a -> s{_aatsAttachments = a}) . _Coerce;
+aatsAttachments = lens _aatsAttachments (\ s a -> s{_aatsAttachments = a}) . _Coerce
 
 instance AWSRequest AddAttachmentsToSet where
         type Rs AddAttachmentsToSet =
@@ -145,22 +145,22 @@ addAttachmentsToSetResponse
     -> AddAttachmentsToSetResponse
 addAttachmentsToSetResponse pResponseStatus_ =
   AddAttachmentsToSetResponse'
-  { _aatsrsExpiryTime = Nothing
-  , _aatsrsAttachmentSetId = Nothing
-  , _aatsrsResponseStatus = pResponseStatus_
-  }
+    { _aatsrsExpiryTime = Nothing
+    , _aatsrsAttachmentSetId = Nothing
+    , _aatsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The time and date when the attachment set expires.
 aatsrsExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
-aatsrsExpiryTime = lens _aatsrsExpiryTime (\ s a -> s{_aatsrsExpiryTime = a});
+aatsrsExpiryTime = lens _aatsrsExpiryTime (\ s a -> s{_aatsrsExpiryTime = a})
 
 -- | The ID of the attachment set. If an @attachmentSetId@ was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ was specified, the attachments are added to the specified set, if it exists.
 aatsrsAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
-aatsrsAttachmentSetId = lens _aatsrsAttachmentSetId (\ s a -> s{_aatsrsAttachmentSetId = a});
+aatsrsAttachmentSetId = lens _aatsrsAttachmentSetId (\ s a -> s{_aatsrsAttachmentSetId = a})
 
 -- | -- | The response status code.
 aatsrsResponseStatus :: Lens' AddAttachmentsToSetResponse Int
-aatsrsResponseStatus = lens _aatsrsResponseStatus (\ s a -> s{_aatsrsResponseStatus = a});
+aatsrsResponseStatus = lens _aatsrsResponseStatus (\ s a -> s{_aatsrsResponseStatus = a})
 
 instance NFData AddAttachmentsToSetResponse where

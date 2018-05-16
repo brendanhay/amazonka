@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DeleteApplicationInputProcessingConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ data DeleteApplicationInputProcessingConfiguration = DeleteApplicationInputProce
 --
 -- * 'daipcCurrentApplicationVersionId' - The version ID of the Kinesis Analytics application.
 --
--- * 'daipcInputId' - The ID of the input configuration from which to delete the input configuration. You can get a list of the input IDs for an application using the 'DescribeApplication' operation.
+-- * 'daipcInputId' - The ID of the input configuration from which to delete the input processing configuration. You can get a list of the input IDs for an application by using the 'DescribeApplication' operation.
 deleteApplicationInputProcessingConfiguration
     :: Text -- ^ 'daipcApplicationName'
     -> Natural -- ^ 'daipcCurrentApplicationVersionId'
@@ -69,23 +69,23 @@ deleteApplicationInputProcessingConfiguration
     -> DeleteApplicationInputProcessingConfiguration
 deleteApplicationInputProcessingConfiguration pApplicationName_ pCurrentApplicationVersionId_ pInputId_ =
   DeleteApplicationInputProcessingConfiguration'
-  { _daipcApplicationName = pApplicationName_
-  , _daipcCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-  , _daipcInputId = pInputId_
-  }
+    { _daipcApplicationName = pApplicationName_
+    , _daipcCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+    , _daipcInputId = pInputId_
+    }
 
 
 -- | The Kinesis Analytics application name.
 daipcApplicationName :: Lens' DeleteApplicationInputProcessingConfiguration Text
-daipcApplicationName = lens _daipcApplicationName (\ s a -> s{_daipcApplicationName = a});
+daipcApplicationName = lens _daipcApplicationName (\ s a -> s{_daipcApplicationName = a})
 
 -- | The version ID of the Kinesis Analytics application.
 daipcCurrentApplicationVersionId :: Lens' DeleteApplicationInputProcessingConfiguration Natural
-daipcCurrentApplicationVersionId = lens _daipcCurrentApplicationVersionId (\ s a -> s{_daipcCurrentApplicationVersionId = a}) . _Nat;
+daipcCurrentApplicationVersionId = lens _daipcCurrentApplicationVersionId (\ s a -> s{_daipcCurrentApplicationVersionId = a}) . _Nat
 
--- | The ID of the input configuration from which to delete the input configuration. You can get a list of the input IDs for an application using the 'DescribeApplication' operation.
+-- | The ID of the input configuration from which to delete the input processing configuration. You can get a list of the input IDs for an application by using the 'DescribeApplication' operation.
 daipcInputId :: Lens' DeleteApplicationInputProcessingConfiguration Text
-daipcInputId = lens _daipcInputId (\ s a -> s{_daipcInputId = a});
+daipcInputId = lens _daipcInputId (\ s a -> s{_daipcInputId = a})
 
 instance AWSRequest
            DeleteApplicationInputProcessingConfiguration
@@ -159,12 +159,12 @@ deleteApplicationInputProcessingConfigurationResponse
     -> DeleteApplicationInputProcessingConfigurationResponse
 deleteApplicationInputProcessingConfigurationResponse pResponseStatus_ =
   DeleteApplicationInputProcessingConfigurationResponse'
-  {_daipcrsResponseStatus = pResponseStatus_}
+    {_daipcrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 daipcrsResponseStatus :: Lens' DeleteApplicationInputProcessingConfigurationResponse Int
-daipcrsResponseStatus = lens _daipcrsResponseStatus (\ s a -> s{_daipcrsResponseStatus = a});
+daipcrsResponseStatus = lens _daipcrsResponseStatus (\ s a -> s{_daipcrsResponseStatus = a})
 
 instance NFData
            DeleteApplicationInputProcessingConfigurationResponse

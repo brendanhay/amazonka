@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DisassociateCreatedArtifact
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,28 +81,28 @@ disassociateCreatedArtifact
     -> DisassociateCreatedArtifact
 disassociateCreatedArtifact pProgressUpdateStream_ pMigrationTaskName_ pCreatedArtifactName_ =
   DisassociateCreatedArtifact'
-  { _dcaDryRun = Nothing
-  , _dcaProgressUpdateStream = pProgressUpdateStream_
-  , _dcaMigrationTaskName = pMigrationTaskName_
-  , _dcaCreatedArtifactName = pCreatedArtifactName_
-  }
+    { _dcaDryRun = Nothing
+    , _dcaProgressUpdateStream = pProgressUpdateStream_
+    , _dcaMigrationTaskName = pMigrationTaskName_
+    , _dcaCreatedArtifactName = pCreatedArtifactName_
+    }
 
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 dcaDryRun :: Lens' DisassociateCreatedArtifact (Maybe Bool)
-dcaDryRun = lens _dcaDryRun (\ s a -> s{_dcaDryRun = a});
+dcaDryRun = lens _dcaDryRun (\ s a -> s{_dcaDryRun = a})
 
 -- | The name of the ProgressUpdateStream.
 dcaProgressUpdateStream :: Lens' DisassociateCreatedArtifact Text
-dcaProgressUpdateStream = lens _dcaProgressUpdateStream (\ s a -> s{_dcaProgressUpdateStream = a});
+dcaProgressUpdateStream = lens _dcaProgressUpdateStream (\ s a -> s{_dcaProgressUpdateStream = a})
 
 -- | Unique identifier that references the migration task to be disassociated with the artifact.
 dcaMigrationTaskName :: Lens' DisassociateCreatedArtifact Text
-dcaMigrationTaskName = lens _dcaMigrationTaskName (\ s a -> s{_dcaMigrationTaskName = a});
+dcaMigrationTaskName = lens _dcaMigrationTaskName (\ s a -> s{_dcaMigrationTaskName = a})
 
 -- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)
 dcaCreatedArtifactName :: Lens' DisassociateCreatedArtifact Text
-dcaCreatedArtifactName = lens _dcaCreatedArtifactName (\ s a -> s{_dcaCreatedArtifactName = a});
+dcaCreatedArtifactName = lens _dcaCreatedArtifactName (\ s a -> s{_dcaCreatedArtifactName = a})
 
 instance AWSRequest DisassociateCreatedArtifact where
         type Rs DisassociateCreatedArtifact =
@@ -165,7 +165,7 @@ disassociateCreatedArtifactResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dcarsResponseStatus :: Lens' DisassociateCreatedArtifactResponse Int
-dcarsResponseStatus = lens _dcarsResponseStatus (\ s a -> s{_dcarsResponseStatus = a});
+dcarsResponseStatus = lens _dcarsResponseStatus (\ s a -> s{_dcarsResponseStatus = a})
 
 instance NFData DisassociateCreatedArtifactResponse
          where

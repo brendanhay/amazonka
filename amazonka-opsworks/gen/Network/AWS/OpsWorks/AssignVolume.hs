@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.AssignVolume
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ assignVolume pVolumeId_ =
 
 -- | The instance ID.
 avInstanceId :: Lens' AssignVolume (Maybe Text)
-avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a});
+avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a})
 
 -- | The volume ID.
 avVolumeId :: Lens' AssignVolume Text
-avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
+avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a})
 
 instance AWSRequest AssignVolume where
         type Rs AssignVolume = AssignVolumeResponse

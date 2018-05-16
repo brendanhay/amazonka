@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.CreateProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ createProject pName_ =
 
 -- | Sets the execution timeout value (in minutes) for a project. All test runs in this project will use the specified execution timeout value unless overridden when scheduling a run.
 cpDefaultJobTimeoutMinutes :: Lens' CreateProject (Maybe Int)
-cpDefaultJobTimeoutMinutes = lens _cpDefaultJobTimeoutMinutes (\ s a -> s{_cpDefaultJobTimeoutMinutes = a});
+cpDefaultJobTimeoutMinutes = lens _cpDefaultJobTimeoutMinutes (\ s a -> s{_cpDefaultJobTimeoutMinutes = a})
 
 -- | The project's name.
 cpName :: Lens' CreateProject Text
-cpName = lens _cpName (\ s a -> s{_cpName = a});
+cpName = lens _cpName (\ s a -> s{_cpName = a})
 
 instance AWSRequest CreateProject where
         type Rs CreateProject = CreateProjectResponse
@@ -137,15 +137,15 @@ createProjectResponse
     -> CreateProjectResponse
 createProjectResponse pResponseStatus_ =
   CreateProjectResponse'
-  {_cprsProject = Nothing, _cprsResponseStatus = pResponseStatus_}
+    {_cprsProject = Nothing, _cprsResponseStatus = pResponseStatus_}
 
 
 -- | The newly created project.
 cprsProject :: Lens' CreateProjectResponse (Maybe Project)
-cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a});
+cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a})
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreateProjectResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
 
 instance NFData CreateProjectResponse where

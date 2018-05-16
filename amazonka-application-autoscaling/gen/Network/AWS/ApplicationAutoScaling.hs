@@ -5,18 +5,20 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- With Application Auto Scaling, you can automatically scale your AWS resources. The experience is similar to that of <https://aws.amazon.com/autoscaling/ Auto Scaling> . You can use Application Auto Scaling to accomplish the following tasks:
+-- With Application Auto Scaling, you can configure automatic scaling for your scalable AWS resources. You can use Application Auto Scaling to accomplish the following tasks:
 --
 --
 --     * Define scaling policies to automatically scale your AWS resources
 --
 --     * Scale your resources in response to CloudWatch alarms
+--
+--     * Schedule one-time or recurring scaling actions
 --
 --     * View the history of your scaling events
 --
@@ -24,7 +26,7 @@
 --
 -- Application Auto Scaling can scale the following AWS resources:
 --
---     * Amazon ECS services. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html Service Auto Scaling> in the /Amazon EC2 Container Service Developer Guide/ .
+--     * Amazon ECS services. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html Service Auto Scaling> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 --     * Amazon EC2 Spot fleets. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-auto-scaling.html Automatic Scaling for Spot Fleet> in the /Amazon EC2 User Guide/ .
 --
@@ -34,7 +36,13 @@
 --
 --     * Provisioned read and write capacity for Amazon DynamoDB tables and global secondary indexes. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html Managing Throughput Capacity Automatically with DynamoDB Auto Scaling> in the /Amazon DynamoDB Developer Guide/ .
 --
+--     * Amazon Aurora Replicas. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Integrating.AutoScaling.html Using Amazon Aurora Auto Scaling with Aurora Replicas> .
 --
+--     * Amazon SageMaker endpoints. For more information, see <http://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling.html Automatically Scaling Amazon SageMaker Models> .
+--
+--
+--
+-- To configure automatic scaling for multiple resources across multiple services, use AWS Auto Scaling to create a scaling plan for your application. For more information, see <http://aws.amazon.com/autoscaling AWS Auto Scaling> .
 --
 -- For a list of supported regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#as-app_region AWS Regions and Endpoints: Application Auto Scaling> in the /AWS General Reference/ .
 --

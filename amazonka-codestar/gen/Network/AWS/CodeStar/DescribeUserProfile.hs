@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.DescribeUserProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ describeUserProfile pUserARN_ = DescribeUserProfile' {_dupUserARN = pUserARN_}
 
 -- | The Amazon Resource Name (ARN) of the user.
 dupUserARN :: Lens' DescribeUserProfile Text
-dupUserARN = lens _dupUserARN (\ s a -> s{_dupUserARN = a});
+dupUserARN = lens _dupUserARN (\ s a -> s{_dupUserARN = a})
 
 instance AWSRequest DescribeUserProfile where
         type Rs DescribeUserProfile =
@@ -147,42 +147,42 @@ describeUserProfileResponse
     -> DescribeUserProfileResponse
 describeUserProfileResponse pResponseStatus_ pUserARN_ pCreatedTimestamp_ pLastModifiedTimestamp_ =
   DescribeUserProfileResponse'
-  { _duprsSshPublicKey = Nothing
-  , _duprsEmailAddress = Nothing
-  , _duprsDisplayName = Nothing
-  , _duprsResponseStatus = pResponseStatus_
-  , _duprsUserARN = pUserARN_
-  , _duprsCreatedTimestamp = _Time # pCreatedTimestamp_
-  , _duprsLastModifiedTimestamp = _Time # pLastModifiedTimestamp_
-  }
+    { _duprsSshPublicKey = Nothing
+    , _duprsEmailAddress = Nothing
+    , _duprsDisplayName = Nothing
+    , _duprsResponseStatus = pResponseStatus_
+    , _duprsUserARN = pUserARN_
+    , _duprsCreatedTimestamp = _Time # pCreatedTimestamp_
+    , _duprsLastModifiedTimestamp = _Time # pLastModifiedTimestamp_
+    }
 
 
 -- | The SSH public key associated with the user. This SSH public key is associated with the user profile, and can be used in conjunction with the associated private key for access to project resources, such as Amazon EC2 instances, if a project owner grants remote access to those resources.
 duprsSshPublicKey :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsSshPublicKey = lens _duprsSshPublicKey (\ s a -> s{_duprsSshPublicKey = a});
+duprsSshPublicKey = lens _duprsSshPublicKey (\ s a -> s{_duprsSshPublicKey = a})
 
 -- | The email address for the user. Optional.
 duprsEmailAddress :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsEmailAddress = lens _duprsEmailAddress (\ s a -> s{_duprsEmailAddress = a}) . mapping _Sensitive;
+duprsEmailAddress = lens _duprsEmailAddress (\ s a -> s{_duprsEmailAddress = a}) . mapping _Sensitive
 
 -- | The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
 duprsDisplayName :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsDisplayName = lens _duprsDisplayName (\ s a -> s{_duprsDisplayName = a});
+duprsDisplayName = lens _duprsDisplayName (\ s a -> s{_duprsDisplayName = a})
 
 -- | -- | The response status code.
 duprsResponseStatus :: Lens' DescribeUserProfileResponse Int
-duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a});
+duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a})
 
 -- | The Amazon Resource Name (ARN) of the user.
 duprsUserARN :: Lens' DescribeUserProfileResponse Text
-duprsUserARN = lens _duprsUserARN (\ s a -> s{_duprsUserARN = a});
+duprsUserARN = lens _duprsUserARN (\ s a -> s{_duprsUserARN = a})
 
 -- | The date and time when the user profile was created in AWS CodeStar, in timestamp format.
 duprsCreatedTimestamp :: Lens' DescribeUserProfileResponse UTCTime
-duprsCreatedTimestamp = lens _duprsCreatedTimestamp (\ s a -> s{_duprsCreatedTimestamp = a}) . _Time;
+duprsCreatedTimestamp = lens _duprsCreatedTimestamp (\ s a -> s{_duprsCreatedTimestamp = a}) . _Time
 
 -- | The date and time when the user profile was last modified, in timestamp format.
 duprsLastModifiedTimestamp :: Lens' DescribeUserProfileResponse UTCTime
-duprsLastModifiedTimestamp = lens _duprsLastModifiedTimestamp (\ s a -> s{_duprsLastModifiedTimestamp = a}) . _Time;
+duprsLastModifiedTimestamp = lens _duprsLastModifiedTimestamp (\ s a -> s{_duprsLastModifiedTimestamp = a}) . _Time
 
 instance NFData DescribeUserProfileResponse where

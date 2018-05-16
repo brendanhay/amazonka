@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateLabels
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ data CreateLabels = CreateLabels'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'clAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'clResourceId' - The ID of the resource.
 --
@@ -67,23 +67,23 @@ createLabels
     -> CreateLabels
 createLabels pResourceId_ =
   CreateLabels'
-  { _clAuthenticationToken = Nothing
-  , _clResourceId = pResourceId_
-  , _clLabels = mempty
-  }
+    { _clAuthenticationToken = Nothing
+    , _clResourceId = pResourceId_
+    , _clLabels = mempty
+    }
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 clAuthenticationToken :: Lens' CreateLabels (Maybe Text)
-clAuthenticationToken = lens _clAuthenticationToken (\ s a -> s{_clAuthenticationToken = a}) . mapping _Sensitive;
+clAuthenticationToken = lens _clAuthenticationToken (\ s a -> s{_clAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the resource.
 clResourceId :: Lens' CreateLabels Text
-clResourceId = lens _clResourceId (\ s a -> s{_clResourceId = a});
+clResourceId = lens _clResourceId (\ s a -> s{_clResourceId = a})
 
 -- | List of labels to add to the resource.
 clLabels :: Lens' CreateLabels [Text]
-clLabels = lens _clLabels (\ s a -> s{_clLabels = a}) . _Coerce;
+clLabels = lens _clLabels (\ s a -> s{_clLabels = a}) . _Coerce
 
 instance AWSRequest CreateLabels where
         type Rs CreateLabels = CreateLabelsResponse
@@ -136,6 +136,6 @@ createLabelsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 clrsResponseStatus :: Lens' CreateLabelsResponse Int
-clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a});
+clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a})
 
 instance NFData CreateLabelsResponse where

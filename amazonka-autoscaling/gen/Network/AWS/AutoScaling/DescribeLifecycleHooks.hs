@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeLifecycleHooks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,24 +58,24 @@ data DescribeLifecycleHooks = DescribeLifecycleHooks'
 --
 -- * 'dlhLifecycleHookNames' - The names of one or more lifecycle hooks. If you omit this parameter, all lifecycle hooks are described.
 --
--- * 'dlhAutoScalingGroupName' - The name of the group.
+-- * 'dlhAutoScalingGroupName' - The name of the Auto Scaling group.
 describeLifecycleHooks
     :: Text -- ^ 'dlhAutoScalingGroupName'
     -> DescribeLifecycleHooks
 describeLifecycleHooks pAutoScalingGroupName_ =
   DescribeLifecycleHooks'
-  { _dlhLifecycleHookNames = Nothing
-  , _dlhAutoScalingGroupName = pAutoScalingGroupName_
-  }
+    { _dlhLifecycleHookNames = Nothing
+    , _dlhAutoScalingGroupName = pAutoScalingGroupName_
+    }
 
 
 -- | The names of one or more lifecycle hooks. If you omit this parameter, all lifecycle hooks are described.
 dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
-dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHookNames = a}) . _Default . _Coerce;
+dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHookNames = a}) . _Default . _Coerce
 
--- | The name of the group.
+-- | The name of the Auto Scaling group.
 dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
-dlhAutoScalingGroupName = lens _dlhAutoScalingGroupName (\ s a -> s{_dlhAutoScalingGroupName = a});
+dlhAutoScalingGroupName = lens _dlhAutoScalingGroupName (\ s a -> s{_dlhAutoScalingGroupName = a})
 
 instance AWSRequest DescribeLifecycleHooks where
         type Rs DescribeLifecycleHooks =
@@ -129,15 +129,15 @@ describeLifecycleHooksResponse
     -> DescribeLifecycleHooksResponse
 describeLifecycleHooksResponse pResponseStatus_ =
   DescribeLifecycleHooksResponse'
-  {_dlhrsLifecycleHooks = Nothing, _dlhrsResponseStatus = pResponseStatus_}
+    {_dlhrsLifecycleHooks = Nothing, _dlhrsResponseStatus = pResponseStatus_}
 
 
 -- | The lifecycle hooks for the specified group.
 dlhrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
-dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks = a}) . _Default . _Coerce;
+dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dlhrsResponseStatus :: Lens' DescribeLifecycleHooksResponse Int
-dlhrsResponseStatus = lens _dlhrsResponseStatus (\ s a -> s{_dlhrsResponseStatus = a});
+dlhrsResponseStatus = lens _dlhrsResponseStatus (\ s a -> s{_dlhrsResponseStatus = a})
 
 instance NFData DescribeLifecycleHooksResponse where

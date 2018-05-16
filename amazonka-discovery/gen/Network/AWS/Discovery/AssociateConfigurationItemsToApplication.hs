@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.AssociateConfigurationItemsToApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ associateConfigurationItemsToApplication
     -> AssociateConfigurationItemsToApplication
 associateConfigurationItemsToApplication pApplicationConfigurationId_ =
   AssociateConfigurationItemsToApplication'
-  { _acitaApplicationConfigurationId = pApplicationConfigurationId_
-  , _acitaConfigurationIds = mempty
-  }
+    { _acitaApplicationConfigurationId = pApplicationConfigurationId_
+    , _acitaConfigurationIds = mempty
+    }
 
 
 -- | The configuration ID of an application with which items are to be associated.
 acitaApplicationConfigurationId :: Lens' AssociateConfigurationItemsToApplication Text
-acitaApplicationConfigurationId = lens _acitaApplicationConfigurationId (\ s a -> s{_acitaApplicationConfigurationId = a});
+acitaApplicationConfigurationId = lens _acitaApplicationConfigurationId (\ s a -> s{_acitaApplicationConfigurationId = a})
 
 -- | The ID of each configuration item to be associated with an application.
 acitaConfigurationIds :: Lens' AssociateConfigurationItemsToApplication [Text]
-acitaConfigurationIds = lens _acitaConfigurationIds (\ s a -> s{_acitaConfigurationIds = a}) . _Coerce;
+acitaConfigurationIds = lens _acitaConfigurationIds (\ s a -> s{_acitaConfigurationIds = a}) . _Coerce
 
 instance AWSRequest
            AssociateConfigurationItemsToApplication
@@ -145,12 +145,12 @@ associateConfigurationItemsToApplicationResponse
     -> AssociateConfigurationItemsToApplicationResponse
 associateConfigurationItemsToApplicationResponse pResponseStatus_ =
   AssociateConfigurationItemsToApplicationResponse'
-  {_acitarsResponseStatus = pResponseStatus_}
+    {_acitarsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 acitarsResponseStatus :: Lens' AssociateConfigurationItemsToApplicationResponse Int
-acitarsResponseStatus = lens _acitarsResponseStatus (\ s a -> s{_acitarsResponseStatus = a});
+acitarsResponseStatus = lens _acitarsResponseStatus (\ s a -> s{_acitarsResponseStatus = a})
 
 instance NFData
            AssociateConfigurationItemsToApplicationResponse

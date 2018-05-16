@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListHITsForQualificationType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- The @ListHITsForQualificationType@ operation returns the HITs that use the given Qualification type for a Qualification requirement. The operation returns HITs of any status, except for HITs that have been deleted with the @DeleteHIT@ operation or that have been auto-deleted.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListHITsForQualificationType
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.MechanicalTurk.ListHITsForQualificationType
 import Network.AWS.Lens
 import Network.AWS.MechanicalTurk.Types
 import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -70,23 +73,31 @@ listHITsForQualificationType
     -> ListHITsForQualificationType
 listHITsForQualificationType pQualificationTypeId_ =
   ListHITsForQualificationType'
-  { _lhitfqtNextToken = Nothing
-  , _lhitfqtMaxResults = Nothing
-  , _lhitfqtQualificationTypeId = pQualificationTypeId_
-  }
+    { _lhitfqtNextToken = Nothing
+    , _lhitfqtMaxResults = Nothing
+    , _lhitfqtQualificationTypeId = pQualificationTypeId_
+    }
 
 
 -- | Pagination Token
 lhitfqtNextToken :: Lens' ListHITsForQualificationType (Maybe Text)
-lhitfqtNextToken = lens _lhitfqtNextToken (\ s a -> s{_lhitfqtNextToken = a});
+lhitfqtNextToken = lens _lhitfqtNextToken (\ s a -> s{_lhitfqtNextToken = a})
 
 -- | Limit the number of results returned.
 lhitfqtMaxResults :: Lens' ListHITsForQualificationType (Maybe Natural)
-lhitfqtMaxResults = lens _lhitfqtMaxResults (\ s a -> s{_lhitfqtMaxResults = a}) . mapping _Nat;
+lhitfqtMaxResults = lens _lhitfqtMaxResults (\ s a -> s{_lhitfqtMaxResults = a}) . mapping _Nat
 
 -- | The ID of the Qualification type to use when querying HITs.
 lhitfqtQualificationTypeId :: Lens' ListHITsForQualificationType Text
-lhitfqtQualificationTypeId = lens _lhitfqtQualificationTypeId (\ s a -> s{_lhitfqtQualificationTypeId = a});
+lhitfqtQualificationTypeId = lens _lhitfqtQualificationTypeId (\ s a -> s{_lhitfqtQualificationTypeId = a})
+
+instance AWSPager ListHITsForQualificationType where
+        page rq rs
+          | stop (rs ^. lhitfqtrsNextToken) = Nothing
+          | stop (rs ^. lhitfqtrsHITs) = Nothing
+          | otherwise =
+            Just $ rq &
+              lhitfqtNextToken .~ rs ^. lhitfqtrsNextToken
 
 instance AWSRequest ListHITsForQualificationType
          where
@@ -156,28 +167,28 @@ listHITsForQualificationTypeResponse
     -> ListHITsForQualificationTypeResponse
 listHITsForQualificationTypeResponse pResponseStatus_ =
   ListHITsForQualificationTypeResponse'
-  { _lhitfqtrsNextToken = Nothing
-  , _lhitfqtrsNumResults = Nothing
-  , _lhitfqtrsHITs = Nothing
-  , _lhitfqtrsResponseStatus = pResponseStatus_
-  }
+    { _lhitfqtrsNextToken = Nothing
+    , _lhitfqtrsNumResults = Nothing
+    , _lhitfqtrsHITs = Nothing
+    , _lhitfqtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 lhitfqtrsNextToken :: Lens' ListHITsForQualificationTypeResponse (Maybe Text)
-lhitfqtrsNextToken = lens _lhitfqtrsNextToken (\ s a -> s{_lhitfqtrsNextToken = a});
+lhitfqtrsNextToken = lens _lhitfqtrsNextToken (\ s a -> s{_lhitfqtrsNextToken = a})
 
 -- | The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
 lhitfqtrsNumResults :: Lens' ListHITsForQualificationTypeResponse (Maybe Int)
-lhitfqtrsNumResults = lens _lhitfqtrsNumResults (\ s a -> s{_lhitfqtrsNumResults = a});
+lhitfqtrsNumResults = lens _lhitfqtrsNumResults (\ s a -> s{_lhitfqtrsNumResults = a})
 
 -- | The list of HIT elements returned by the query.
 lhitfqtrsHITs :: Lens' ListHITsForQualificationTypeResponse [HIT]
-lhitfqtrsHITs = lens _lhitfqtrsHITs (\ s a -> s{_lhitfqtrsHITs = a}) . _Default . _Coerce;
+lhitfqtrsHITs = lens _lhitfqtrsHITs (\ s a -> s{_lhitfqtrsHITs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lhitfqtrsResponseStatus :: Lens' ListHITsForQualificationTypeResponse Int
-lhitfqtrsResponseStatus = lens _lhitfqtrsResponseStatus (\ s a -> s{_lhitfqtrsResponseStatus = a});
+lhitfqtrsResponseStatus = lens _lhitfqtrsResponseStatus (\ s a -> s{_lhitfqtrsResponseStatus = a})
 
 instance NFData ListHITsForQualificationTypeResponse
          where

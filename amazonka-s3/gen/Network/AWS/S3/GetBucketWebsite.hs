@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketWebsite
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getBucketWebsite pBucket_ = GetBucketWebsite' {_gbwBucket = pBucket_}
 
 -- | Undocumented member.
 gbwBucket :: Lens' GetBucketWebsite BucketName
-gbwBucket = lens _gbwBucket (\ s a -> s{_gbwBucket = a});
+gbwBucket = lens _gbwBucket (\ s a -> s{_gbwBucket = a})
 
 instance AWSRequest GetBucketWebsite where
         type Rs GetBucketWebsite = GetBucketWebsiteResponse
@@ -123,32 +123,32 @@ getBucketWebsiteResponse
     -> GetBucketWebsiteResponse
 getBucketWebsiteResponse pResponseStatus_ =
   GetBucketWebsiteResponse'
-  { _gbwrsRedirectAllRequestsTo = Nothing
-  , _gbwrsErrorDocument = Nothing
-  , _gbwrsIndexDocument = Nothing
-  , _gbwrsRoutingRules = Nothing
-  , _gbwrsResponseStatus = pResponseStatus_
-  }
+    { _gbwrsRedirectAllRequestsTo = Nothing
+    , _gbwrsErrorDocument = Nothing
+    , _gbwrsIndexDocument = Nothing
+    , _gbwrsRoutingRules = Nothing
+    , _gbwrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 gbwrsRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
-gbwrsRedirectAllRequestsTo = lens _gbwrsRedirectAllRequestsTo (\ s a -> s{_gbwrsRedirectAllRequestsTo = a});
+gbwrsRedirectAllRequestsTo = lens _gbwrsRedirectAllRequestsTo (\ s a -> s{_gbwrsRedirectAllRequestsTo = a})
 
 -- | Undocumented member.
 gbwrsErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
-gbwrsErrorDocument = lens _gbwrsErrorDocument (\ s a -> s{_gbwrsErrorDocument = a});
+gbwrsErrorDocument = lens _gbwrsErrorDocument (\ s a -> s{_gbwrsErrorDocument = a})
 
 -- | Undocumented member.
 gbwrsIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
-gbwrsIndexDocument = lens _gbwrsIndexDocument (\ s a -> s{_gbwrsIndexDocument = a});
+gbwrsIndexDocument = lens _gbwrsIndexDocument (\ s a -> s{_gbwrsIndexDocument = a})
 
 -- | Undocumented member.
 gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
-gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default . _Coerce;
+gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gbwrsResponseStatus :: Lens' GetBucketWebsiteResponse Int
-gbwrsResponseStatus = lens _gbwrsResponseStatus (\ s a -> s{_gbwrsResponseStatus = a});
+gbwrsResponseStatus = lens _gbwrsResponseStatus (\ s a -> s{_gbwrsResponseStatus = a})
 
 instance NFData GetBucketWebsiteResponse where

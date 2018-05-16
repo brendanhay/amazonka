@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeProduct
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about a specified product.
+-- Gets information about the specified product.
 --
---
--- This operation is functionally identical to 'DescribeProductView' except that it takes as input @ProductId@ instead of @ProductViewId@ .
 --
 module Network.AWS.ServiceCatalog.DescribeProduct
     (
@@ -61,7 +59,7 @@ data DescribeProduct = DescribeProduct'
 --
 -- * 'dpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dpId' - The @ProductId@ of the product to describe.
+-- * 'dpId' - The product identifier.
 describeProduct
     :: Text -- ^ 'dpId'
     -> DescribeProduct
@@ -71,11 +69,11 @@ describeProduct pId_ =
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpAcceptLanguage :: Lens' DescribeProduct (Maybe Text)
-dpAcceptLanguage = lens _dpAcceptLanguage (\ s a -> s{_dpAcceptLanguage = a});
+dpAcceptLanguage = lens _dpAcceptLanguage (\ s a -> s{_dpAcceptLanguage = a})
 
--- | The @ProductId@ of the product to describe.
+-- | The product identifier.
 dpId :: Lens' DescribeProduct Text
-dpId = lens _dpId (\ s a -> s{_dpId = a});
+dpId = lens _dpId (\ s a -> s{_dpId = a})
 
 instance AWSRequest DescribeProduct where
         type Rs DescribeProduct = DescribeProductResponse
@@ -127,9 +125,9 @@ data DescribeProductResponse = DescribeProductResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddrsProductViewSummary' - The summary metadata about the specified product.
+-- * 'ddrsProductViewSummary' - Summary information about the product view.
 --
--- * 'ddrsProvisioningArtifacts' - A list of provisioning artifact objects for the specified product. The @ProvisioningArtifacts@ parameter represent the ways the specified product can be provisioned.
+-- * 'ddrsProvisioningArtifacts' - Information about the provisioning artifacts for the specified product.
 --
 -- * 'ddrsResponseStatus' - -- | The response status code.
 describeProductResponse
@@ -137,22 +135,22 @@ describeProductResponse
     -> DescribeProductResponse
 describeProductResponse pResponseStatus_ =
   DescribeProductResponse'
-  { _ddrsProductViewSummary = Nothing
-  , _ddrsProvisioningArtifacts = Nothing
-  , _ddrsResponseStatus = pResponseStatus_
-  }
+    { _ddrsProductViewSummary = Nothing
+    , _ddrsProvisioningArtifacts = Nothing
+    , _ddrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The summary metadata about the specified product.
+-- | Summary information about the product view.
 ddrsProductViewSummary :: Lens' DescribeProductResponse (Maybe ProductViewSummary)
-ddrsProductViewSummary = lens _ddrsProductViewSummary (\ s a -> s{_ddrsProductViewSummary = a});
+ddrsProductViewSummary = lens _ddrsProductViewSummary (\ s a -> s{_ddrsProductViewSummary = a})
 
--- | A list of provisioning artifact objects for the specified product. The @ProvisioningArtifacts@ parameter represent the ways the specified product can be provisioned.
+-- | Information about the provisioning artifacts for the specified product.
 ddrsProvisioningArtifacts :: Lens' DescribeProductResponse [ProvisioningArtifact]
-ddrsProvisioningArtifacts = lens _ddrsProvisioningArtifacts (\ s a -> s{_ddrsProvisioningArtifacts = a}) . _Default . _Coerce;
+ddrsProvisioningArtifacts = lens _ddrsProvisioningArtifacts (\ s a -> s{_ddrsProvisioningArtifacts = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeProductResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 instance NFData DescribeProductResponse where

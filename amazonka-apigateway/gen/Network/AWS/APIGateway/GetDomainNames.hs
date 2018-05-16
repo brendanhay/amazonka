@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDomainNames
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ data GetDomainNames = GetDomainNames'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdnLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- * 'gdnLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'gdnPosition' - The current pagination position in the paged result set.
 getDomainNames
@@ -72,13 +72,13 @@ getDomainNames
 getDomainNames = GetDomainNames' {_gdnLimit = Nothing, _gdnPosition = Nothing}
 
 
--- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 gdnLimit :: Lens' GetDomainNames (Maybe Int)
-gdnLimit = lens _gdnLimit (\ s a -> s{_gdnLimit = a});
+gdnLimit = lens _gdnLimit (\ s a -> s{_gdnLimit = a})
 
 -- | The current pagination position in the paged result set.
 gdnPosition :: Lens' GetDomainNames (Maybe Text)
-gdnPosition = lens _gdnPosition (\ s a -> s{_gdnPosition = a});
+gdnPosition = lens _gdnPosition (\ s a -> s{_gdnPosition = a})
 
 instance AWSPager GetDomainNames where
         page rq rs
@@ -142,22 +142,22 @@ getDomainNamesResponse
     -> GetDomainNamesResponse
 getDomainNamesResponse pResponseStatus_ =
   GetDomainNamesResponse'
-  { _gdnrsItems = Nothing
-  , _gdnrsPosition = Nothing
-  , _gdnrsResponseStatus = pResponseStatus_
-  }
+    { _gdnrsItems = Nothing
+    , _gdnrsPosition = Nothing
+    , _gdnrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 gdnrsItems :: Lens' GetDomainNamesResponse [DomainName]
-gdnrsItems = lens _gdnrsItems (\ s a -> s{_gdnrsItems = a}) . _Default . _Coerce;
+gdnrsItems = lens _gdnrsItems (\ s a -> s{_gdnrsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gdnrsPosition :: Lens' GetDomainNamesResponse (Maybe Text)
-gdnrsPosition = lens _gdnrsPosition (\ s a -> s{_gdnrsPosition = a});
+gdnrsPosition = lens _gdnrsPosition (\ s a -> s{_gdnrsPosition = a})
 
 -- | -- | The response status code.
 gdnrsResponseStatus :: Lens' GetDomainNamesResponse Int
-gdnrsResponseStatus = lens _gdnrsResponseStatus (\ s a -> s{_gdnrsResponseStatus = a});
+gdnrsResponseStatus = lens _gdnrsResponseStatus (\ s a -> s{_gdnrsResponseStatus = a})
 
 instance NFData GetDomainNamesResponse where

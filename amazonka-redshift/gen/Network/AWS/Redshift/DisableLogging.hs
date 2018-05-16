@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DisableLogging
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ disableLogging pClusterIdentifier_ =
 
 -- | The identifier of the cluster on which logging is to be stopped. Example: @examplecluster@
 dlClusterIdentifier :: Lens' DisableLogging Text
-dlClusterIdentifier = lens _dlClusterIdentifier (\ s a -> s{_dlClusterIdentifier = a});
+dlClusterIdentifier = lens _dlClusterIdentifier (\ s a -> s{_dlClusterIdentifier = a})
 
 instance AWSRequest DisableLogging where
         type Rs DisableLogging = LoggingStatus

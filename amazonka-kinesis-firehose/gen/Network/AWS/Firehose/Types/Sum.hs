@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -184,6 +184,36 @@ instance ToJSON ElasticsearchS3BackupMode where
 instance FromJSON ElasticsearchS3BackupMode where
     parseJSON = parseJSONText "ElasticsearchS3BackupMode"
 
+data HECEndpointType
+  = Event
+  | Raw
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText HECEndpointType where
+    parser = takeLowerText >>= \case
+        "event" -> pure Event
+        "raw" -> pure Raw
+        e -> fromTextError $ "Failure parsing HECEndpointType from value: '" <> e
+           <> "'. Accepted values: event, raw"
+
+instance ToText HECEndpointType where
+    toText = \case
+        Event -> "Event"
+        Raw -> "Raw"
+
+instance Hashable     HECEndpointType
+instance NFData       HECEndpointType
+instance ToByteString HECEndpointType
+instance ToQuery      HECEndpointType
+instance ToHeader     HECEndpointType
+
+instance ToJSON HECEndpointType where
+    toJSON = toJSONText
+
+instance FromJSON HECEndpointType where
+    parseJSON = parseJSONText "HECEndpointType"
+
 data NoEncryptionConfig =
   NoEncryption
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -211,23 +241,158 @@ instance ToJSON NoEncryptionConfig where
 instance FromJSON NoEncryptionConfig where
     parseJSON = parseJSONText "NoEncryptionConfig"
 
+data OrcCompression
+  = OCNone
+  | OCSnappy
+  | OCZlib
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText OrcCompression where
+    parser = takeLowerText >>= \case
+        "none" -> pure OCNone
+        "snappy" -> pure OCSnappy
+        "zlib" -> pure OCZlib
+        e -> fromTextError $ "Failure parsing OrcCompression from value: '" <> e
+           <> "'. Accepted values: none, snappy, zlib"
+
+instance ToText OrcCompression where
+    toText = \case
+        OCNone -> "NONE"
+        OCSnappy -> "SNAPPY"
+        OCZlib -> "ZLIB"
+
+instance Hashable     OrcCompression
+instance NFData       OrcCompression
+instance ToByteString OrcCompression
+instance ToQuery      OrcCompression
+instance ToHeader     OrcCompression
+
+instance ToJSON OrcCompression where
+    toJSON = toJSONText
+
+instance FromJSON OrcCompression where
+    parseJSON = parseJSONText "OrcCompression"
+
+data OrcFormatVersion
+  = V011
+  | V012
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText OrcFormatVersion where
+    parser = takeLowerText >>= \case
+        "v0_11" -> pure V011
+        "v0_12" -> pure V012
+        e -> fromTextError $ "Failure parsing OrcFormatVersion from value: '" <> e
+           <> "'. Accepted values: v0_11, v0_12"
+
+instance ToText OrcFormatVersion where
+    toText = \case
+        V011 -> "V0_11"
+        V012 -> "V0_12"
+
+instance Hashable     OrcFormatVersion
+instance NFData       OrcFormatVersion
+instance ToByteString OrcFormatVersion
+instance ToQuery      OrcFormatVersion
+instance ToHeader     OrcFormatVersion
+
+instance ToJSON OrcFormatVersion where
+    toJSON = toJSONText
+
+instance FromJSON OrcFormatVersion where
+    parseJSON = parseJSONText "OrcFormatVersion"
+
+data ParquetCompression
+  = PCGzip
+  | PCSnappy
+  | PCUncompressed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ParquetCompression where
+    parser = takeLowerText >>= \case
+        "gzip" -> pure PCGzip
+        "snappy" -> pure PCSnappy
+        "uncompressed" -> pure PCUncompressed
+        e -> fromTextError $ "Failure parsing ParquetCompression from value: '" <> e
+           <> "'. Accepted values: gzip, snappy, uncompressed"
+
+instance ToText ParquetCompression where
+    toText = \case
+        PCGzip -> "GZIP"
+        PCSnappy -> "SNAPPY"
+        PCUncompressed -> "UNCOMPRESSED"
+
+instance Hashable     ParquetCompression
+instance NFData       ParquetCompression
+instance ToByteString ParquetCompression
+instance ToQuery      ParquetCompression
+instance ToHeader     ParquetCompression
+
+instance ToJSON ParquetCompression where
+    toJSON = toJSONText
+
+instance FromJSON ParquetCompression where
+    parseJSON = parseJSONText "ParquetCompression"
+
+data ParquetWriterVersion
+  = V1
+  | V2
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ParquetWriterVersion where
+    parser = takeLowerText >>= \case
+        "v1" -> pure V1
+        "v2" -> pure V2
+        e -> fromTextError $ "Failure parsing ParquetWriterVersion from value: '" <> e
+           <> "'. Accepted values: v1, v2"
+
+instance ToText ParquetWriterVersion where
+    toText = \case
+        V1 -> "V1"
+        V2 -> "V2"
+
+instance Hashable     ParquetWriterVersion
+instance NFData       ParquetWriterVersion
+instance ToByteString ParquetWriterVersion
+instance ToQuery      ParquetWriterVersion
+instance ToHeader     ParquetWriterVersion
+
+instance ToJSON ParquetWriterVersion where
+    toJSON = toJSONText
+
+instance FromJSON ParquetWriterVersion where
+    parseJSON = parseJSONText "ParquetWriterVersion"
+
 data ProcessorParameterName
-  = LambdaARN
+  = BufferIntervalInSeconds
+  | BufferSizeInMBs
+  | LambdaARN
   | NumberOfRetries
+  | RoleARN
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ProcessorParameterName where
     parser = takeLowerText >>= \case
+        "bufferintervalinseconds" -> pure BufferIntervalInSeconds
+        "buffersizeinmbs" -> pure BufferSizeInMBs
         "lambdaarn" -> pure LambdaARN
         "numberofretries" -> pure NumberOfRetries
+        "rolearn" -> pure RoleARN
         e -> fromTextError $ "Failure parsing ProcessorParameterName from value: '" <> e
-           <> "'. Accepted values: lambdaarn, numberofretries"
+           <> "'. Accepted values: bufferintervalinseconds, buffersizeinmbs, lambdaarn, numberofretries, rolearn"
 
 instance ToText ProcessorParameterName where
     toText = \case
+        BufferIntervalInSeconds -> "BufferIntervalInSeconds"
+        BufferSizeInMBs -> "BufferSizeInMBs"
         LambdaARN -> "LambdaArn"
         NumberOfRetries -> "NumberOfRetries"
+        RoleARN -> "RoleArn"
 
 instance Hashable     ProcessorParameterName
 instance NFData       ProcessorParameterName
@@ -327,3 +492,33 @@ instance ToJSON S3BackupMode where
 
 instance FromJSON S3BackupMode where
     parseJSON = parseJSONText "S3BackupMode"
+
+data SplunkS3BackupMode
+  = AllEvents
+  | FailedEventsOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SplunkS3BackupMode where
+    parser = takeLowerText >>= \case
+        "allevents" -> pure AllEvents
+        "failedeventsonly" -> pure FailedEventsOnly
+        e -> fromTextError $ "Failure parsing SplunkS3BackupMode from value: '" <> e
+           <> "'. Accepted values: allevents, failedeventsonly"
+
+instance ToText SplunkS3BackupMode where
+    toText = \case
+        AllEvents -> "AllEvents"
+        FailedEventsOnly -> "FailedEventsOnly"
+
+instance Hashable     SplunkS3BackupMode
+instance NFData       SplunkS3BackupMode
+instance ToByteString SplunkS3BackupMode
+instance ToQuery      SplunkS3BackupMode
+instance ToHeader     SplunkS3BackupMode
+
+instance ToJSON SplunkS3BackupMode where
+    toJSON = toJSONText
+
+instance FromJSON SplunkS3BackupMode where
+    parseJSON = parseJSONText "SplunkS3BackupMode"

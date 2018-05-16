@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.ListGeoMatchSets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ listGeoMatchSets =
 
 -- | If you specify a value for @Limit@ and you have more @GeoMatchSet@ s than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @GeoMatchSet@ objects. For the second and subsequent @ListGeoMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @GeoMatchSet@ objects.
 lgmsNextMarker :: Lens' ListGeoMatchSets (Maybe Text)
-lgmsNextMarker = lens _lgmsNextMarker (\ s a -> s{_lgmsNextMarker = a});
+lgmsNextMarker = lens _lgmsNextMarker (\ s a -> s{_lgmsNextMarker = a})
 
 -- | Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to return for this request. If you have more @GeoMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @GeoMatchSet@ objects.
 lgmsLimit :: Lens' ListGeoMatchSets (Maybe Natural)
-lgmsLimit = lens _lgmsLimit (\ s a -> s{_lgmsLimit = a}) . mapping _Nat;
+lgmsLimit = lens _lgmsLimit (\ s a -> s{_lgmsLimit = a}) . mapping _Nat
 
 instance AWSRequest ListGeoMatchSets where
         type Rs ListGeoMatchSets = ListGeoMatchSetsResponse
@@ -133,22 +133,22 @@ listGeoMatchSetsResponse
     -> ListGeoMatchSetsResponse
 listGeoMatchSetsResponse pResponseStatus_ =
   ListGeoMatchSetsResponse'
-  { _lgmsrsGeoMatchSets = Nothing
-  , _lgmsrsNextMarker = Nothing
-  , _lgmsrsResponseStatus = pResponseStatus_
-  }
+    { _lgmsrsGeoMatchSets = Nothing
+    , _lgmsrsNextMarker = Nothing
+    , _lgmsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of 'GeoMatchSetSummary' objects.
 lgmsrsGeoMatchSets :: Lens' ListGeoMatchSetsResponse [GeoMatchSetSummary]
-lgmsrsGeoMatchSets = lens _lgmsrsGeoMatchSets (\ s a -> s{_lgmsrsGeoMatchSets = a}) . _Default . _Coerce;
+lgmsrsGeoMatchSets = lens _lgmsrsGeoMatchSets (\ s a -> s{_lgmsrsGeoMatchSets = a}) . _Default . _Coerce
 
 -- | If you have more @GeoMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @GeoMatchSet@ objects, submit another @ListGeoMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 lgmsrsNextMarker :: Lens' ListGeoMatchSetsResponse (Maybe Text)
-lgmsrsNextMarker = lens _lgmsrsNextMarker (\ s a -> s{_lgmsrsNextMarker = a});
+lgmsrsNextMarker = lens _lgmsrsNextMarker (\ s a -> s{_lgmsrsNextMarker = a})
 
 -- | -- | The response status code.
 lgmsrsResponseStatus :: Lens' ListGeoMatchSetsResponse Int
-lgmsrsResponseStatus = lens _lgmsrsResponseStatus (\ s a -> s{_lgmsrsResponseStatus = a});
+lgmsrsResponseStatus = lens _lgmsrsResponseStatus (\ s a -> s{_lgmsrsResponseStatus = a})
 
 instance NFData ListGeoMatchSetsResponse where

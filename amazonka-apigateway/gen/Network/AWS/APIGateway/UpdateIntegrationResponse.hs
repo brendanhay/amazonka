@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateIntegrationResponse
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,13 +71,13 @@ data UpdateIntegrationResponse = UpdateIntegrationResponse'
 --
 -- * 'uiPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uiRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'uiRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'uiResourceId' - Specifies an update integration response request's resource identifier.
+-- * 'uiResourceId' - [Required] Specifies an update integration response request's resource identifier.
 --
--- * 'uiHttpMethod' - Specifies an update integration response request's HTTP method.
+-- * 'uiHttpMethod' - [Required] Specifies an update integration response request's HTTP method.
 --
--- * 'uiStatusCode' - Specifies an update integration response request's status code.
+-- * 'uiStatusCode' - [Required] Specifies an update integration response request's status code.
 updateIntegrationResponse
     :: Text -- ^ 'uiRestAPIId'
     -> Text -- ^ 'uiResourceId'
@@ -86,33 +86,33 @@ updateIntegrationResponse
     -> UpdateIntegrationResponse
 updateIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
   UpdateIntegrationResponse'
-  { _uiPatchOperations = Nothing
-  , _uiRestAPIId = pRestAPIId_
-  , _uiResourceId = pResourceId_
-  , _uiHttpMethod = pHttpMethod_
-  , _uiStatusCode = pStatusCode_
-  }
+    { _uiPatchOperations = Nothing
+    , _uiRestAPIId = pRestAPIId_
+    , _uiResourceId = pResourceId_
+    , _uiHttpMethod = pHttpMethod_
+    , _uiStatusCode = pStatusCode_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uiPatchOperations :: Lens' UpdateIntegrationResponse [PatchOperation]
-uiPatchOperations = lens _uiPatchOperations (\ s a -> s{_uiPatchOperations = a}) . _Default . _Coerce;
+uiPatchOperations = lens _uiPatchOperations (\ s a -> s{_uiPatchOperations = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 uiRestAPIId :: Lens' UpdateIntegrationResponse Text
-uiRestAPIId = lens _uiRestAPIId (\ s a -> s{_uiRestAPIId = a});
+uiRestAPIId = lens _uiRestAPIId (\ s a -> s{_uiRestAPIId = a})
 
--- | Specifies an update integration response request's resource identifier.
+-- | [Required] Specifies an update integration response request's resource identifier.
 uiResourceId :: Lens' UpdateIntegrationResponse Text
-uiResourceId = lens _uiResourceId (\ s a -> s{_uiResourceId = a});
+uiResourceId = lens _uiResourceId (\ s a -> s{_uiResourceId = a})
 
--- | Specifies an update integration response request's HTTP method.
+-- | [Required] Specifies an update integration response request's HTTP method.
 uiHttpMethod :: Lens' UpdateIntegrationResponse Text
-uiHttpMethod = lens _uiHttpMethod (\ s a -> s{_uiHttpMethod = a});
+uiHttpMethod = lens _uiHttpMethod (\ s a -> s{_uiHttpMethod = a})
 
--- | Specifies an update integration response request's status code.
+-- | [Required] Specifies an update integration response request's status code.
 uiStatusCode :: Lens' UpdateIntegrationResponse Text
-uiStatusCode = lens _uiStatusCode (\ s a -> s{_uiStatusCode = a});
+uiStatusCode = lens _uiStatusCode (\ s a -> s{_uiStatusCode = a})
 
 instance AWSRequest UpdateIntegrationResponse where
         type Rs UpdateIntegrationResponse =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListMultipartUploads
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -89,28 +89,28 @@ listMultipartUploads
     -> ListMultipartUploads
 listMultipartUploads pAccountId_ pVaultName_ =
   ListMultipartUploads'
-  { _lmuMarker = Nothing
-  , _lmuLimit = Nothing
-  , _lmuAccountId = pAccountId_
-  , _lmuVaultName = pVaultName_
-  }
+    { _lmuMarker = Nothing
+    , _lmuLimit = Nothing
+    , _lmuAccountId = pAccountId_
+    , _lmuVaultName = pVaultName_
+    }
 
 
 -- | An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
 lmuMarker :: Lens' ListMultipartUploads (Maybe Text)
-lmuMarker = lens _lmuMarker (\ s a -> s{_lmuMarker = a});
+lmuMarker = lens _lmuMarker (\ s a -> s{_lmuMarker = a})
 
 -- | Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 1,000 uploads.
 lmuLimit :: Lens' ListMultipartUploads (Maybe Text)
-lmuLimit = lens _lmuLimit (\ s a -> s{_lmuLimit = a});
+lmuLimit = lens _lmuLimit (\ s a -> s{_lmuLimit = a})
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 lmuAccountId :: Lens' ListMultipartUploads Text
-lmuAccountId = lens _lmuAccountId (\ s a -> s{_lmuAccountId = a});
+lmuAccountId = lens _lmuAccountId (\ s a -> s{_lmuAccountId = a})
 
 -- | The name of the vault.
 lmuVaultName :: Lens' ListMultipartUploads Text
-lmuVaultName = lens _lmuVaultName (\ s a -> s{_lmuVaultName = a});
+lmuVaultName = lens _lmuVaultName (\ s a -> s{_lmuVaultName = a})
 
 instance AWSPager ListMultipartUploads where
         page rq rs
@@ -174,22 +174,22 @@ listMultipartUploadsResponse
     -> ListMultipartUploadsResponse
 listMultipartUploadsResponse pResponseStatus_ =
   ListMultipartUploadsResponse'
-  { _lmursUploadsList = Nothing
-  , _lmursMarker = Nothing
-  , _lmursResponseStatus = pResponseStatus_
-  }
+    { _lmursUploadsList = Nothing
+    , _lmursMarker = Nothing
+    , _lmursResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of in-progress multipart uploads.
 lmursUploadsList :: Lens' ListMultipartUploadsResponse [UploadListElement]
-lmursUploadsList = lens _lmursUploadsList (\ s a -> s{_lmursUploadsList = a}) . _Default . _Coerce;
+lmursUploadsList = lens _lmursUploadsList (\ s a -> s{_lmursUploadsList = a}) . _Default . _Coerce
 
 -- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is @null@ .
 lmursMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
-lmursMarker = lens _lmursMarker (\ s a -> s{_lmursMarker = a});
+lmursMarker = lens _lmursMarker (\ s a -> s{_lmursMarker = a})
 
 -- | -- | The response status code.
 lmursResponseStatus :: Lens' ListMultipartUploadsResponse Int
-lmursResponseStatus = lens _lmursResponseStatus (\ s a -> s{_lmursResponseStatus = a});
+lmursResponseStatus = lens _lmursResponseStatus (\ s a -> s{_lmursResponseStatus = a})
 
 instance NFData ListMultipartUploadsResponse where

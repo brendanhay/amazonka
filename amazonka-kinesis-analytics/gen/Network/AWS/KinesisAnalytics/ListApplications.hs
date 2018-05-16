@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.ListApplications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,16 +72,16 @@ listApplications
     :: ListApplications
 listApplications =
   ListApplications'
-  {_laLimit = Nothing, _laExclusiveStartApplicationName = Nothing}
+    {_laLimit = Nothing, _laExclusiveStartApplicationName = Nothing}
 
 
 -- | Maximum number of applications to list.
 laLimit :: Lens' ListApplications (Maybe Natural)
-laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
+laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat
 
 -- | Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.
 laExclusiveStartApplicationName :: Lens' ListApplications (Maybe Text)
-laExclusiveStartApplicationName = lens _laExclusiveStartApplicationName (\ s a -> s{_laExclusiveStartApplicationName = a});
+laExclusiveStartApplicationName = lens _laExclusiveStartApplicationName (\ s a -> s{_laExclusiveStartApplicationName = a})
 
 instance AWSRequest ListApplications where
         type Rs ListApplications = ListApplicationsResponse
@@ -149,22 +149,22 @@ listApplicationsResponse
     -> ListApplicationsResponse
 listApplicationsResponse pResponseStatus_ pHasMoreApplications_ =
   ListApplicationsResponse'
-  { _larsResponseStatus = pResponseStatus_
-  , _larsApplicationSummaries = mempty
-  , _larsHasMoreApplications = pHasMoreApplications_
-  }
+    { _larsResponseStatus = pResponseStatus_
+    , _larsApplicationSummaries = mempty
+    , _larsHasMoreApplications = pHasMoreApplications_
+    }
 
 
 -- | -- | The response status code.
 larsResponseStatus :: Lens' ListApplicationsResponse Int
-larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a})
 
 -- | List of @ApplicationSummary@ objects.
 larsApplicationSummaries :: Lens' ListApplicationsResponse [ApplicationSummary]
-larsApplicationSummaries = lens _larsApplicationSummaries (\ s a -> s{_larsApplicationSummaries = a}) . _Coerce;
+larsApplicationSummaries = lens _larsApplicationSummaries (\ s a -> s{_larsApplicationSummaries = a}) . _Coerce
 
 -- | Returns true if there are more applications to retrieve.
 larsHasMoreApplications :: Lens' ListApplicationsResponse Bool
-larsHasMoreApplications = lens _larsHasMoreApplications (\ s a -> s{_larsHasMoreApplications = a});
+larsHasMoreApplications = lens _larsHasMoreApplications (\ s a -> s{_larsHasMoreApplications = a})
 
 instance NFData ListApplicationsResponse where

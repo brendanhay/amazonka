@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.EnableRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ enableRule pName_ = EnableRule' {_erName = pName_}
 
 -- | The name of the rule.
 erName :: Lens' EnableRule Text
-erName = lens _erName (\ s a -> s{_erName = a});
+erName = lens _erName (\ s a -> s{_erName = a})
 
 instance AWSRequest EnableRule where
         type Rs EnableRule = EnableRuleResponse

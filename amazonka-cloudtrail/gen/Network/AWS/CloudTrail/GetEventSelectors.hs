@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.GetEventSelectors
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,7 +74,7 @@ getEventSelectors pTrailName_ = GetEventSelectors' {_gesTrailName = pTrailName_}
 
 -- | Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If you specify a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 gesTrailName :: Lens' GetEventSelectors Text
-gesTrailName = lens _gesTrailName (\ s a -> s{_gesTrailName = a});
+gesTrailName = lens _gesTrailName (\ s a -> s{_gesTrailName = a})
 
 instance AWSRequest GetEventSelectors where
         type Rs GetEventSelectors = GetEventSelectorsResponse
@@ -134,22 +134,22 @@ getEventSelectorsResponse
     -> GetEventSelectorsResponse
 getEventSelectorsResponse pResponseStatus_ =
   GetEventSelectorsResponse'
-  { _gesrsTrailARN = Nothing
-  , _gesrsEventSelectors = Nothing
-  , _gesrsResponseStatus = pResponseStatus_
-  }
+    { _gesrsTrailARN = Nothing
+    , _gesrsEventSelectors = Nothing
+    , _gesrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The specified trail ARN that has the event selectors.
 gesrsTrailARN :: Lens' GetEventSelectorsResponse (Maybe Text)
-gesrsTrailARN = lens _gesrsTrailARN (\ s a -> s{_gesrsTrailARN = a});
+gesrsTrailARN = lens _gesrsTrailARN (\ s a -> s{_gesrsTrailARN = a})
 
 -- | The event selectors that are configured for the trail.
 gesrsEventSelectors :: Lens' GetEventSelectorsResponse [EventSelector]
-gesrsEventSelectors = lens _gesrsEventSelectors (\ s a -> s{_gesrsEventSelectors = a}) . _Default . _Coerce;
+gesrsEventSelectors = lens _gesrsEventSelectors (\ s a -> s{_gesrsEventSelectors = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gesrsResponseStatus :: Lens' GetEventSelectorsResponse Int
-gesrsResponseStatus = lens _gesrsResponseStatus (\ s a -> s{_gesrsResponseStatus = a});
+gesrsResponseStatus = lens _gesrsResponseStatus (\ s a -> s{_gesrsResponseStatus = a})
 
 instance NFData GetEventSelectorsResponse where

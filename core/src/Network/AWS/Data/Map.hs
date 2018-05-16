@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.Map
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -23,7 +23,6 @@ module Network.AWS.Data.Map
     , toQueryMap
     ) where
 
-import           Control.Applicative
 import           Control.DeepSeq
 import           Data.Aeson
 import           Data.Bifunctor
@@ -31,14 +30,12 @@ import qualified Data.ByteString             as BS
 import qualified Data.CaseInsensitive        as CI
 import           Data.Coerce
 import           Data.Data                   (Data, Typeable)
-import           Data.Foldable               hiding (toList)
 import           Data.Hashable
 import           Data.HashMap.Strict         (HashMap)
 import qualified Data.HashMap.Strict         as Map
 import           Data.Maybe
 import           Data.Semigroup
 import qualified Data.Text.Encoding          as Text
-import           Data.Traversable
 import           GHC.Exts
 import           GHC.Generics                (Generic)
 import           Network.AWS.Data.ByteString

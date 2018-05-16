@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.CreateRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -97,23 +97,23 @@ createRule
     -> CreateRule
 createRule pName_ pMetricName_ pChangeToken_ =
   CreateRule'
-  { _crName = pName_
-  , _crMetricName = pMetricName_
-  , _crChangeToken = pChangeToken_
-  }
+    { _crName = pName_
+    , _crMetricName = pMetricName_
+    , _crChangeToken = pChangeToken_
+    }
 
 
 -- | A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
 crName :: Lens' CreateRule Text
-crName = lens _crName (\ s a -> s{_crName = a});
+crName = lens _crName (\ s a -> s{_crName = a})
 
 -- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the @Rule@ .
 crMetricName :: Lens' CreateRule Text
-crMetricName = lens _crMetricName (\ s a -> s{_crMetricName = a});
+crMetricName = lens _crMetricName (\ s a -> s{_crMetricName = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 crChangeToken :: Lens' CreateRule Text
-crChangeToken = lens _crChangeToken (\ s a -> s{_crChangeToken = a});
+crChangeToken = lens _crChangeToken (\ s a -> s{_crChangeToken = a})
 
 instance AWSRequest CreateRule where
         type Rs CreateRule = CreateRuleResponse
@@ -175,22 +175,22 @@ createRuleResponse
     -> CreateRuleResponse
 createRuleResponse pResponseStatus_ =
   CreateRuleResponse'
-  { _crrsRule = Nothing
-  , _crrsChangeToken = Nothing
-  , _crrsResponseStatus = pResponseStatus_
-  }
+    { _crrsRule = Nothing
+    , _crrsChangeToken = Nothing
+    , _crrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The 'Rule' returned in the @CreateRule@ response.
 crrsRule :: Lens' CreateRuleResponse (Maybe Rule)
-crrsRule = lens _crrsRule (\ s a -> s{_crrsRule = a});
+crrsRule = lens _crrsRule (\ s a -> s{_crrsRule = a})
 
 -- | The @ChangeToken@ that you used to submit the @CreateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 crrsChangeToken :: Lens' CreateRuleResponse (Maybe Text)
-crrsChangeToken = lens _crrsChangeToken (\ s a -> s{_crrsChangeToken = a});
+crrsChangeToken = lens _crrsChangeToken (\ s a -> s{_crrsChangeToken = a})
 
 -- | -- | The response status code.
 crrsResponseStatus :: Lens' CreateRuleResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
+crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a})
 
 instance NFData CreateRuleResponse where

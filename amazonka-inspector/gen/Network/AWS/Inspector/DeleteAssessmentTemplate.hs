@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DeleteAssessmentTemplate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,12 +57,12 @@ deleteAssessmentTemplate
     -> DeleteAssessmentTemplate
 deleteAssessmentTemplate pAssessmentTemplateARN_ =
   DeleteAssessmentTemplate'
-  {_datAssessmentTemplateARN = pAssessmentTemplateARN_}
+    {_datAssessmentTemplateARN = pAssessmentTemplateARN_}
 
 
 -- | The ARN that specifies the assessment template that you want to delete.
 datAssessmentTemplateARN :: Lens' DeleteAssessmentTemplate Text
-datAssessmentTemplateARN = lens _datAssessmentTemplateARN (\ s a -> s{_datAssessmentTemplateARN = a});
+datAssessmentTemplateARN = lens _datAssessmentTemplateARN (\ s a -> s{_datAssessmentTemplateARN = a})
 
 instance AWSRequest DeleteAssessmentTemplate where
         type Rs DeleteAssessmentTemplate =

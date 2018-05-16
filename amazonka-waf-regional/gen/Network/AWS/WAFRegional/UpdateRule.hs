@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.UpdateRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -95,20 +95,20 @@ updateRule
     -> UpdateRule
 updateRule pRuleId_ pChangeToken_ =
   UpdateRule'
-  {_urRuleId = pRuleId_, _urChangeToken = pChangeToken_, _urUpdates = mempty}
+    {_urRuleId = pRuleId_, _urChangeToken = pChangeToken_, _urUpdates = mempty}
 
 
 -- | The @RuleId@ of the @Rule@ that you want to update. @RuleId@ is returned by @CreateRule@ and by 'ListRules' .
 urRuleId :: Lens' UpdateRule Text
-urRuleId = lens _urRuleId (\ s a -> s{_urRuleId = a});
+urRuleId = lens _urRuleId (\ s a -> s{_urRuleId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 urChangeToken :: Lens' UpdateRule Text
-urChangeToken = lens _urChangeToken (\ s a -> s{_urChangeToken = a});
+urChangeToken = lens _urChangeToken (\ s a -> s{_urChangeToken = a})
 
 -- | An array of @RuleUpdate@ objects that you want to insert into or delete from a 'Rule' . For more information, see the applicable data types:     * 'RuleUpdate' : Contains @Action@ and @Predicate@      * 'Predicate' : Contains @DataId@ , @Negated@ , and @Type@      * 'FieldToMatch' : Contains @Data@ and @Type@
 urUpdates :: Lens' UpdateRule [RuleUpdate]
-urUpdates = lens _urUpdates (\ s a -> s{_urUpdates = a}) . _Coerce;
+urUpdates = lens _urUpdates (\ s a -> s{_urUpdates = a}) . _Coerce
 
 instance AWSRequest UpdateRule where
         type Rs UpdateRule = UpdateRuleResponse
@@ -166,15 +166,15 @@ updateRuleResponse
     -> UpdateRuleResponse
 updateRuleResponse pResponseStatus_ =
   UpdateRuleResponse'
-  {_urrsChangeToken = Nothing, _urrsResponseStatus = pResponseStatus_}
+    {_urrsChangeToken = Nothing, _urrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 urrsChangeToken :: Lens' UpdateRuleResponse (Maybe Text)
-urrsChangeToken = lens _urrsChangeToken (\ s a -> s{_urrsChangeToken = a});
+urrsChangeToken = lens _urrsChangeToken (\ s a -> s{_urrsChangeToken = a})
 
 -- | -- | The response status code.
 urrsResponseStatus :: Lens' UpdateRuleResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
 
 instance NFData UpdateRuleResponse where

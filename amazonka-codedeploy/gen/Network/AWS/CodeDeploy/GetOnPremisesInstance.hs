@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetOnPremisesInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getOnPremisesInstance pInstanceName_ =
 
 -- | The name of the on-premises instance about which to get information.
 gopiInstanceName :: Lens' GetOnPremisesInstance Text
-gopiInstanceName = lens _gopiInstanceName (\ s a -> s{_gopiInstanceName = a});
+gopiInstanceName = lens _gopiInstanceName (\ s a -> s{_gopiInstanceName = a})
 
 instance AWSRequest GetOnPremisesInstance where
         type Rs GetOnPremisesInstance =
@@ -129,15 +129,15 @@ getOnPremisesInstanceResponse
     -> GetOnPremisesInstanceResponse
 getOnPremisesInstanceResponse pResponseStatus_ =
   GetOnPremisesInstanceResponse'
-  {_gopirsInstanceInfo = Nothing, _gopirsResponseStatus = pResponseStatus_}
+    {_gopirsInstanceInfo = Nothing, _gopirsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the on-premises instance.
 gopirsInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
-gopirsInstanceInfo = lens _gopirsInstanceInfo (\ s a -> s{_gopirsInstanceInfo = a});
+gopirsInstanceInfo = lens _gopirsInstanceInfo (\ s a -> s{_gopirsInstanceInfo = a})
 
 -- | -- | The response status code.
 gopirsResponseStatus :: Lens' GetOnPremisesInstanceResponse Int
-gopirsResponseStatus = lens _gopirsResponseStatus (\ s a -> s{_gopirsResponseStatus = a});
+gopirsResponseStatus = lens _gopirsResponseStatus (\ s a -> s{_gopirsResponseStatus = a})
 
 instance NFData GetOnPremisesInstanceResponse where

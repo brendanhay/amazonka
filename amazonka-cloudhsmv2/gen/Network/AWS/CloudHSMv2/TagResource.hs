@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.TagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,7 +47,7 @@ import Network.AWS.Response
 -- | /See:/ 'tagResource' smart constructor.
 data TagResource = TagResource'
   { _trResourceId :: !Text
-  , _trTagList    :: !(List1 Tag)
+  , _trTagList    :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -60,19 +60,18 @@ data TagResource = TagResource'
 -- * 'trTagList' - A list of one or more tags.
 tagResource
     :: Text -- ^ 'trResourceId'
-    -> NonEmpty Tag -- ^ 'trTagList'
     -> TagResource
-tagResource pResourceId_ pTagList_ =
-  TagResource' {_trResourceId = pResourceId_, _trTagList = _List1 # pTagList_}
+tagResource pResourceId_ =
+  TagResource' {_trResourceId = pResourceId_, _trTagList = mempty}
 
 
 -- | The cluster identifier (ID) for the cluster that you are tagging. To find the cluster ID, use 'DescribeClusters' .
 trResourceId :: Lens' TagResource Text
-trResourceId = lens _trResourceId (\ s a -> s{_trResourceId = a});
+trResourceId = lens _trResourceId (\ s a -> s{_trResourceId = a})
 
 -- | A list of one or more tags.
-trTagList :: Lens' TagResource (NonEmpty Tag)
-trTagList = lens _trTagList (\ s a -> s{_trTagList = a}) . _List1;
+trTagList :: Lens' TagResource [Tag]
+trTagList = lens _trTagList (\ s a -> s{_trTagList = a}) . _Coerce
 
 instance AWSRequest TagResource where
         type Rs TagResource = TagResourceResponse
@@ -128,6 +127,6 @@ tagResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 trrsResponseStatus :: Lens' TagResourceResponse Int
-trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
+trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a})
 
 instance NFData TagResourceResponse where

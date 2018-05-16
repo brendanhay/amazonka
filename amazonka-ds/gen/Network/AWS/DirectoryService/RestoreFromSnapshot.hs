@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.RestoreFromSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ restoreFromSnapshot pSnapshotId_ =
 
 -- | The identifier of the snapshot to restore from.
 rfsSnapshotId :: Lens' RestoreFromSnapshot Text
-rfsSnapshotId = lens _rfsSnapshotId (\ s a -> s{_rfsSnapshotId = a});
+rfsSnapshotId = lens _rfsSnapshotId (\ s a -> s{_rfsSnapshotId = a})
 
 instance AWSRequest RestoreFromSnapshot where
         type Rs RestoreFromSnapshot =
@@ -131,6 +131,6 @@ restoreFromSnapshotResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rfsrsResponseStatus :: Lens' RestoreFromSnapshotResponse Int
-rfsrsResponseStatus = lens _rfsrsResponseStatus (\ s a -> s{_rfsrsResponseStatus = a});
+rfsrsResponseStatus = lens _rfsrsResponseStatus (\ s a -> s{_rfsrsResponseStatus = a})
 
 instance NFData RestoreFromSnapshotResponse where

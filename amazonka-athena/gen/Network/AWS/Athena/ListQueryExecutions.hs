@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Athena.ListQueryExecutions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ listQueryExecutions =
 
 -- | The token that specifies where to start pagination if a previous request was truncated.
 lqeNextToken :: Lens' ListQueryExecutions (Maybe Text)
-lqeNextToken = lens _lqeNextToken (\ s a -> s{_lqeNextToken = a});
+lqeNextToken = lens _lqeNextToken (\ s a -> s{_lqeNextToken = a})
 
 -- | The maximum number of query executions to return in this request.
 lqeMaxResults :: Lens' ListQueryExecutions (Maybe Natural)
-lqeMaxResults = lens _lqeMaxResults (\ s a -> s{_lqeMaxResults = a}) . mapping _Nat;
+lqeMaxResults = lens _lqeMaxResults (\ s a -> s{_lqeMaxResults = a}) . mapping _Nat
 
 instance AWSPager ListQueryExecutions where
         page rq rs
@@ -145,22 +145,22 @@ listQueryExecutionsResponse
     -> ListQueryExecutionsResponse
 listQueryExecutionsResponse pResponseStatus_ =
   ListQueryExecutionsResponse'
-  { _lqersQueryExecutionIds = Nothing
-  , _lqersNextToken = Nothing
-  , _lqersResponseStatus = pResponseStatus_
-  }
+    { _lqersQueryExecutionIds = Nothing
+    , _lqersNextToken = Nothing
+    , _lqersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The unique IDs of each query execution as an array of strings.
 lqersQueryExecutionIds :: Lens' ListQueryExecutionsResponse (Maybe (NonEmpty Text))
-lqersQueryExecutionIds = lens _lqersQueryExecutionIds (\ s a -> s{_lqersQueryExecutionIds = a}) . mapping _List1;
+lqersQueryExecutionIds = lens _lqersQueryExecutionIds (\ s a -> s{_lqersQueryExecutionIds = a}) . mapping _List1
 
 -- | A token to be used by the next request if this request is truncated.
 lqersNextToken :: Lens' ListQueryExecutionsResponse (Maybe Text)
-lqersNextToken = lens _lqersNextToken (\ s a -> s{_lqersNextToken = a});
+lqersNextToken = lens _lqersNextToken (\ s a -> s{_lqersNextToken = a})
 
 -- | -- | The response status code.
 lqersResponseStatus :: Lens' ListQueryExecutionsResponse Int
-lqersResponseStatus = lens _lqersResponseStatus (\ s a -> s{_lqersResponseStatus = a});
+lqersResponseStatus = lens _lqersResponseStatus (\ s a -> s{_lqersResponseStatus = a})
 
 instance NFData ListQueryExecutionsResponse where

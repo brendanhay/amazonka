@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GetKeyPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ data GetKeyPolicy = GetKeyPolicy'
 --
 -- * 'gkpKeyId' - A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
--- * 'gkpPolicyName' - Specifies the name of the policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
+-- * 'gkpPolicyName' - Specifies the name of the key policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
 getKeyPolicy
     :: Text -- ^ 'gkpKeyId'
     -> Text -- ^ 'gkpPolicyName'
@@ -69,11 +69,11 @@ getKeyPolicy pKeyId_ pPolicyName_ =
 
 -- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 gkpKeyId :: Lens' GetKeyPolicy Text
-gkpKeyId = lens _gkpKeyId (\ s a -> s{_gkpKeyId = a});
+gkpKeyId = lens _gkpKeyId (\ s a -> s{_gkpKeyId = a})
 
--- | Specifies the name of the policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
+-- | Specifies the name of the key policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
 gkpPolicyName :: Lens' GetKeyPolicy Text
-gkpPolicyName = lens _gkpPolicyName (\ s a -> s{_gkpPolicyName = a});
+gkpPolicyName = lens _gkpPolicyName (\ s a -> s{_gkpPolicyName = a})
 
 instance AWSRequest GetKeyPolicy where
         type Rs GetKeyPolicy = GetKeyPolicyResponse
@@ -121,7 +121,7 @@ data GetKeyPolicyResponse = GetKeyPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gkprsPolicy' - A policy document in JSON format.
+-- * 'gkprsPolicy' - A key policy document in JSON format.
 --
 -- * 'gkprsResponseStatus' - -- | The response status code.
 getKeyPolicyResponse
@@ -129,15 +129,15 @@ getKeyPolicyResponse
     -> GetKeyPolicyResponse
 getKeyPolicyResponse pResponseStatus_ =
   GetKeyPolicyResponse'
-  {_gkprsPolicy = Nothing, _gkprsResponseStatus = pResponseStatus_}
+    {_gkprsPolicy = Nothing, _gkprsResponseStatus = pResponseStatus_}
 
 
--- | A policy document in JSON format.
+-- | A key policy document in JSON format.
 gkprsPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
-gkprsPolicy = lens _gkprsPolicy (\ s a -> s{_gkprsPolicy = a});
+gkprsPolicy = lens _gkprsPolicy (\ s a -> s{_gkprsPolicy = a})
 
 -- | -- | The response status code.
 gkprsResponseStatus :: Lens' GetKeyPolicyResponse Int
-gkprsResponseStatus = lens _gkprsResponseStatus (\ s a -> s{_gkprsResponseStatus = a});
+gkprsResponseStatus = lens _gkprsResponseStatus (\ s a -> s{_gkprsResponseStatus = a})
 
 instance NFData GetKeyPolicyResponse where

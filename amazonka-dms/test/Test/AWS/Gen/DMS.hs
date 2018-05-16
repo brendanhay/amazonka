@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.DMS
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,14 @@ import Test.Tasty
 --         [ requestDeleteReplicationInstance $
 --             deleteReplicationInstance
 --
+--         , requestRebootReplicationInstance $
+--             rebootReplicationInstance
+--
 --         , requestReloadTables $
 --             reloadTables
+--
+--         , requestStartReplicationTaskAssessment $
+--             startReplicationTaskAssessment
 --
 --         , requestCreateEndpoint $
 --             createEndpoint
@@ -42,6 +48,9 @@ import Test.Tasty
 --
 --         , requestModifyEventSubscription $
 --             modifyEventSubscription
+--
+--         , requestDescribeReplicationInstanceTaskLogs $
+--             describeReplicationInstanceTaskLogs
 --
 --         , requestDescribeEvents $
 --             describeEvents
@@ -57,6 +66,9 @@ import Test.Tasty
 --
 --         , requestDeleteReplicationTask $
 --             deleteReplicationTask
+--
+--         , requestDescribeReplicationTaskAssessmentResults $
+--             describeReplicationTaskAssessmentResults
 --
 --         , requestTestConnection $
 --             testConnection
@@ -154,8 +166,14 @@ import Test.Tasty
 --         [ responseDeleteReplicationInstance $
 --             deleteReplicationInstanceResponse
 --
+--         , responseRebootReplicationInstance $
+--             rebootReplicationInstanceResponse
+--
 --         , responseReloadTables $
 --             reloadTablesResponse
+--
+--         , responseStartReplicationTaskAssessment $
+--             startReplicationTaskAssessmentResponse
 --
 --         , responseCreateEndpoint $
 --             createEndpointResponse
@@ -165,6 +183,9 @@ import Test.Tasty
 --
 --         , responseModifyEventSubscription $
 --             modifyEventSubscriptionResponse
+--
+--         , responseDescribeReplicationInstanceTaskLogs $
+--             describeReplicationInstanceTaskLogsResponse
 --
 --         , responseDescribeEvents $
 --             describeEventsResponse
@@ -180,6 +201,9 @@ import Test.Tasty
 --
 --         , responseDeleteReplicationTask $
 --             deleteReplicationTaskResponse
+--
+--         , responseDescribeReplicationTaskAssessmentResults $
+--             describeReplicationTaskAssessmentResultsResponse
 --
 --         , responseTestConnection $
 --             testConnectionResponse
@@ -281,10 +305,20 @@ requestDeleteReplicationInstance = req
     "DeleteReplicationInstance"
     "fixture/DeleteReplicationInstance.yaml"
 
+requestRebootReplicationInstance :: RebootReplicationInstance -> TestTree
+requestRebootReplicationInstance = req
+    "RebootReplicationInstance"
+    "fixture/RebootReplicationInstance.yaml"
+
 requestReloadTables :: ReloadTables -> TestTree
 requestReloadTables = req
     "ReloadTables"
     "fixture/ReloadTables.yaml"
+
+requestStartReplicationTaskAssessment :: StartReplicationTaskAssessment -> TestTree
+requestStartReplicationTaskAssessment = req
+    "StartReplicationTaskAssessment"
+    "fixture/StartReplicationTaskAssessment.yaml"
 
 requestCreateEndpoint :: CreateEndpoint -> TestTree
 requestCreateEndpoint = req
@@ -300,6 +334,11 @@ requestModifyEventSubscription :: ModifyEventSubscription -> TestTree
 requestModifyEventSubscription = req
     "ModifyEventSubscription"
     "fixture/ModifyEventSubscription.yaml"
+
+requestDescribeReplicationInstanceTaskLogs :: DescribeReplicationInstanceTaskLogs -> TestTree
+requestDescribeReplicationInstanceTaskLogs = req
+    "DescribeReplicationInstanceTaskLogs"
+    "fixture/DescribeReplicationInstanceTaskLogs.yaml"
 
 requestDescribeEvents :: DescribeEvents -> TestTree
 requestDescribeEvents = req
@@ -325,6 +364,11 @@ requestDeleteReplicationTask :: DeleteReplicationTask -> TestTree
 requestDeleteReplicationTask = req
     "DeleteReplicationTask"
     "fixture/DeleteReplicationTask.yaml"
+
+requestDescribeReplicationTaskAssessmentResults :: DescribeReplicationTaskAssessmentResults -> TestTree
+requestDescribeReplicationTaskAssessmentResults = req
+    "DescribeReplicationTaskAssessmentResults"
+    "fixture/DescribeReplicationTaskAssessmentResults.yaml"
 
 requestTestConnection :: TestConnection -> TestTree
 requestTestConnection = req
@@ -485,12 +529,26 @@ responseDeleteReplicationInstance = res
     dms
     (Proxy :: Proxy DeleteReplicationInstance)
 
+responseRebootReplicationInstance :: RebootReplicationInstanceResponse -> TestTree
+responseRebootReplicationInstance = res
+    "RebootReplicationInstanceResponse"
+    "fixture/RebootReplicationInstanceResponse.proto"
+    dms
+    (Proxy :: Proxy RebootReplicationInstance)
+
 responseReloadTables :: ReloadTablesResponse -> TestTree
 responseReloadTables = res
     "ReloadTablesResponse"
     "fixture/ReloadTablesResponse.proto"
     dms
     (Proxy :: Proxy ReloadTables)
+
+responseStartReplicationTaskAssessment :: StartReplicationTaskAssessmentResponse -> TestTree
+responseStartReplicationTaskAssessment = res
+    "StartReplicationTaskAssessmentResponse"
+    "fixture/StartReplicationTaskAssessmentResponse.proto"
+    dms
+    (Proxy :: Proxy StartReplicationTaskAssessment)
 
 responseCreateEndpoint :: CreateEndpointResponse -> TestTree
 responseCreateEndpoint = res
@@ -512,6 +570,13 @@ responseModifyEventSubscription = res
     "fixture/ModifyEventSubscriptionResponse.proto"
     dms
     (Proxy :: Proxy ModifyEventSubscription)
+
+responseDescribeReplicationInstanceTaskLogs :: DescribeReplicationInstanceTaskLogsResponse -> TestTree
+responseDescribeReplicationInstanceTaskLogs = res
+    "DescribeReplicationInstanceTaskLogsResponse"
+    "fixture/DescribeReplicationInstanceTaskLogsResponse.proto"
+    dms
+    (Proxy :: Proxy DescribeReplicationInstanceTaskLogs)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
 responseDescribeEvents = res
@@ -547,6 +612,13 @@ responseDeleteReplicationTask = res
     "fixture/DeleteReplicationTaskResponse.proto"
     dms
     (Proxy :: Proxy DeleteReplicationTask)
+
+responseDescribeReplicationTaskAssessmentResults :: DescribeReplicationTaskAssessmentResultsResponse -> TestTree
+responseDescribeReplicationTaskAssessmentResults = res
+    "DescribeReplicationTaskAssessmentResultsResponse"
+    "fixture/DescribeReplicationTaskAssessmentResultsResponse.proto"
+    dms
+    (Proxy :: Proxy DescribeReplicationTaskAssessmentResults)
 
 responseTestConnection :: TestConnectionResponse -> TestTree
 responseTestConnection = res

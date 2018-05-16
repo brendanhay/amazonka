@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListInventoryEntries
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,33 +82,33 @@ listInventoryEntries
     -> ListInventoryEntries
 listInventoryEntries pInstanceId_ pTypeName_ =
   ListInventoryEntries'
-  { _lieFilters = Nothing
-  , _lieNextToken = Nothing
-  , _lieMaxResults = Nothing
-  , _lieInstanceId = pInstanceId_
-  , _lieTypeName = pTypeName_
-  }
+    { _lieFilters = Nothing
+    , _lieNextToken = Nothing
+    , _lieMaxResults = Nothing
+    , _lieInstanceId = pInstanceId_
+    , _lieTypeName = pTypeName_
+    }
 
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 lieFilters :: Lens' ListInventoryEntries (Maybe (NonEmpty InventoryFilter))
-lieFilters = lens _lieFilters (\ s a -> s{_lieFilters = a}) . mapping _List1;
+lieFilters = lens _lieFilters (\ s a -> s{_lieFilters = a}) . mapping _List1
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 lieNextToken :: Lens' ListInventoryEntries (Maybe Text)
-lieNextToken = lens _lieNextToken (\ s a -> s{_lieNextToken = a});
+lieNextToken = lens _lieNextToken (\ s a -> s{_lieNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lieMaxResults :: Lens' ListInventoryEntries (Maybe Natural)
-lieMaxResults = lens _lieMaxResults (\ s a -> s{_lieMaxResults = a}) . mapping _Nat;
+lieMaxResults = lens _lieMaxResults (\ s a -> s{_lieMaxResults = a}) . mapping _Nat
 
 -- | The instance ID for which you want inventory information.
 lieInstanceId :: Lens' ListInventoryEntries Text
-lieInstanceId = lens _lieInstanceId (\ s a -> s{_lieInstanceId = a});
+lieInstanceId = lens _lieInstanceId (\ s a -> s{_lieInstanceId = a})
 
 -- | The type of inventory item for which you want information.
 lieTypeName :: Lens' ListInventoryEntries Text
-lieTypeName = lens _lieTypeName (\ s a -> s{_lieTypeName = a});
+lieTypeName = lens _lieTypeName (\ s a -> s{_lieTypeName = a})
 
 instance AWSRequest ListInventoryEntries where
         type Rs ListInventoryEntries =
@@ -188,42 +188,42 @@ listInventoryEntriesResponse
     -> ListInventoryEntriesResponse
 listInventoryEntriesResponse pResponseStatus_ =
   ListInventoryEntriesResponse'
-  { _liersInstanceId = Nothing
-  , _liersTypeName = Nothing
-  , _liersEntries = Nothing
-  , _liersSchemaVersion = Nothing
-  , _liersCaptureTime = Nothing
-  , _liersNextToken = Nothing
-  , _liersResponseStatus = pResponseStatus_
-  }
+    { _liersInstanceId = Nothing
+    , _liersTypeName = Nothing
+    , _liersEntries = Nothing
+    , _liersSchemaVersion = Nothing
+    , _liersCaptureTime = Nothing
+    , _liersNextToken = Nothing
+    , _liersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The instance ID targeted by the request to query inventory information.
 liersInstanceId :: Lens' ListInventoryEntriesResponse (Maybe Text)
-liersInstanceId = lens _liersInstanceId (\ s a -> s{_liersInstanceId = a});
+liersInstanceId = lens _liersInstanceId (\ s a -> s{_liersInstanceId = a})
 
 -- | The type of inventory item returned by the request.
 liersTypeName :: Lens' ListInventoryEntriesResponse (Maybe Text)
-liersTypeName = lens _liersTypeName (\ s a -> s{_liersTypeName = a});
+liersTypeName = lens _liersTypeName (\ s a -> s{_liersTypeName = a})
 
 -- | A list of inventory items on the instance(s).
 liersEntries :: Lens' ListInventoryEntriesResponse [HashMap Text Text]
-liersEntries = lens _liersEntries (\ s a -> s{_liersEntries = a}) . _Default . _Coerce;
+liersEntries = lens _liersEntries (\ s a -> s{_liersEntries = a}) . _Default . _Coerce
 
 -- | The inventory schema version used by the instance(s).
 liersSchemaVersion :: Lens' ListInventoryEntriesResponse (Maybe Text)
-liersSchemaVersion = lens _liersSchemaVersion (\ s a -> s{_liersSchemaVersion = a});
+liersSchemaVersion = lens _liersSchemaVersion (\ s a -> s{_liersSchemaVersion = a})
 
 -- | The time that inventory information was collected for the instance(s).
 liersCaptureTime :: Lens' ListInventoryEntriesResponse (Maybe Text)
-liersCaptureTime = lens _liersCaptureTime (\ s a -> s{_liersCaptureTime = a});
+liersCaptureTime = lens _liersCaptureTime (\ s a -> s{_liersCaptureTime = a})
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 liersNextToken :: Lens' ListInventoryEntriesResponse (Maybe Text)
-liersNextToken = lens _liersNextToken (\ s a -> s{_liersNextToken = a});
+liersNextToken = lens _liersNextToken (\ s a -> s{_liersNextToken = a})
 
 -- | -- | The response status code.
 liersResponseStatus :: Lens' ListInventoryEntriesResponse Int
-liersResponseStatus = lens _liersResponseStatus (\ s a -> s{_liersResponseStatus = a});
+liersResponseStatus = lens _liersResponseStatus (\ s a -> s{_liersResponseStatus = a})
 
 instance NFData ListInventoryEntriesResponse where

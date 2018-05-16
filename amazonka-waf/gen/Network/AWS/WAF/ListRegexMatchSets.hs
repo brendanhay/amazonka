@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.ListRegexMatchSets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ listRegexMatchSets =
 
 -- | If you specify a value for @Limit@ and you have more @RegexMatchSet@ objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ByteMatchSets@ . For the second and subsequent @ListRegexMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @RegexMatchSet@ objects.
 lrmsNextMarker :: Lens' ListRegexMatchSets (Maybe Text)
-lrmsNextMarker = lens _lrmsNextMarker (\ s a -> s{_lrmsNextMarker = a});
+lrmsNextMarker = lens _lrmsNextMarker (\ s a -> s{_lrmsNextMarker = a})
 
 -- | Specifies the number of @RegexMatchSet@ objects that you want AWS WAF to return for this request. If you have more @RegexMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @RegexMatchSet@ objects.
 lrmsLimit :: Lens' ListRegexMatchSets (Maybe Natural)
-lrmsLimit = lens _lrmsLimit (\ s a -> s{_lrmsLimit = a}) . mapping _Nat;
+lrmsLimit = lens _lrmsLimit (\ s a -> s{_lrmsLimit = a}) . mapping _Nat
 
 instance AWSRequest ListRegexMatchSets where
         type Rs ListRegexMatchSets =
@@ -134,22 +134,22 @@ listRegexMatchSetsResponse
     -> ListRegexMatchSetsResponse
 listRegexMatchSetsResponse pResponseStatus_ =
   ListRegexMatchSetsResponse'
-  { _lrmsrsRegexMatchSets = Nothing
-  , _lrmsrsNextMarker = Nothing
-  , _lrmsrsResponseStatus = pResponseStatus_
-  }
+    { _lrmsrsRegexMatchSets = Nothing
+    , _lrmsrsNextMarker = Nothing
+    , _lrmsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of 'RegexMatchSetSummary' objects.
 lrmsrsRegexMatchSets :: Lens' ListRegexMatchSetsResponse [RegexMatchSetSummary]
-lrmsrsRegexMatchSets = lens _lrmsrsRegexMatchSets (\ s a -> s{_lrmsrsRegexMatchSets = a}) . _Default . _Coerce;
+lrmsrsRegexMatchSets = lens _lrmsrsRegexMatchSets (\ s a -> s{_lrmsrsRegexMatchSets = a}) . _Default . _Coerce
 
 -- | If you have more @RegexMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @RegexMatchSet@ objects, submit another @ListRegexMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 lrmsrsNextMarker :: Lens' ListRegexMatchSetsResponse (Maybe Text)
-lrmsrsNextMarker = lens _lrmsrsNextMarker (\ s a -> s{_lrmsrsNextMarker = a});
+lrmsrsNextMarker = lens _lrmsrsNextMarker (\ s a -> s{_lrmsrsNextMarker = a})
 
 -- | -- | The response status code.
 lrmsrsResponseStatus :: Lens' ListRegexMatchSetsResponse Int
-lrmsrsResponseStatus = lens _lrmsrsResponseStatus (\ s a -> s{_lrmsrsResponseStatus = a});
+lrmsrsResponseStatus = lens _lrmsrsResponseStatus (\ s a -> s{_lrmsrsResponseStatus = a})
 
 instance NFData ListRegexMatchSetsResponse where

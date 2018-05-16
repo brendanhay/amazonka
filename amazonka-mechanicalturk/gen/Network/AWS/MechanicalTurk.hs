@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,16 +38,16 @@ module Network.AWS.MechanicalTurk
     -- ** ListReviewPolicyResultsForHIT
     , module Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
 
-    -- ** ListHITs
+    -- ** ListHITs (Paginated)
     , module Network.AWS.MechanicalTurk.ListHITs
 
-    -- ** ListWorkersWithQualificationType
+    -- ** ListWorkersWithQualificationType (Paginated)
     , module Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
 
     -- ** DeleteHIT
     , module Network.AWS.MechanicalTurk.DeleteHIT
 
-    -- ** ListReviewableHITs
+    -- ** ListReviewableHITs (Paginated)
     , module Network.AWS.MechanicalTurk.ListReviewableHITs
 
     -- ** GetAssignment
@@ -59,7 +59,7 @@ module Network.AWS.MechanicalTurk
     -- ** UpdateQualificationType
     , module Network.AWS.MechanicalTurk.UpdateQualificationType
 
-    -- ** ListQualificationTypes
+    -- ** ListQualificationTypes (Paginated)
     , module Network.AWS.MechanicalTurk.ListQualificationTypes
 
     -- ** UpdateHITTypeOfHIT
@@ -83,7 +83,7 @@ module Network.AWS.MechanicalTurk
     -- ** SendBonus
     , module Network.AWS.MechanicalTurk.SendBonus
 
-    -- ** ListQualificationRequests
+    -- ** ListQualificationRequests (Paginated)
     , module Network.AWS.MechanicalTurk.ListQualificationRequests
 
     -- ** UpdateExpirationForHIT
@@ -92,7 +92,7 @@ module Network.AWS.MechanicalTurk
     -- ** RejectAssignment
     , module Network.AWS.MechanicalTurk.RejectAssignment
 
-    -- ** ListAssignmentsForHIT
+    -- ** ListAssignmentsForHIT (Paginated)
     , module Network.AWS.MechanicalTurk.ListAssignmentsForHIT
 
     -- ** RejectQualificationRequest
@@ -125,13 +125,13 @@ module Network.AWS.MechanicalTurk
     -- ** CreateWorkerBlock
     , module Network.AWS.MechanicalTurk.CreateWorkerBlock
 
-    -- ** ListHITsForQualificationType
+    -- ** ListHITsForQualificationType (Paginated)
     , module Network.AWS.MechanicalTurk.ListHITsForQualificationType
 
-    -- ** ListBonusPayments
+    -- ** ListBonusPayments (Paginated)
     , module Network.AWS.MechanicalTurk.ListBonusPayments
 
-    -- ** ListWorkerBlocks
+    -- ** ListWorkerBlocks (Paginated)
     , module Network.AWS.MechanicalTurk.ListWorkerBlocks
 
     -- ** DeleteWorkerBlock
@@ -159,6 +159,9 @@ module Network.AWS.MechanicalTurk
 
     -- ** EventType
     , EventType (..)
+
+    -- ** HITAccessActions
+    , HITAccessActions (..)
 
     -- ** HITReviewStatus
     , HITReviewStatus (..)
@@ -301,6 +304,7 @@ module Network.AWS.MechanicalTurk
     , QualificationRequirement
     , qualificationRequirement
     , qrLocaleValues
+    , qrActionsGuarded
     , qrRequiredToPreview
     , qrIntegerValues
     , qrQualificationTypeId

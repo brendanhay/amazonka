@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeUserPool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ describeUserPool pUserPoolId_ = DescribeUserPool' {_dUserPoolId = pUserPoolId_}
 
 -- | The user pool ID for the user pool you want to describe.
 dUserPoolId :: Lens' DescribeUserPool Text
-dUserPoolId = lens _dUserPoolId (\ s a -> s{_dUserPoolId = a});
+dUserPoolId = lens _dUserPoolId (\ s a -> s{_dUserPoolId = a})
 
 instance AWSRequest DescribeUserPool where
         type Rs DescribeUserPool = DescribeUserPoolResponse
@@ -126,15 +126,15 @@ describeUserPoolResponse
     -> DescribeUserPoolResponse
 describeUserPoolResponse pResponseStatus_ =
   DescribeUserPoolResponse'
-  {_duprsUserPool = Nothing, _duprsResponseStatus = pResponseStatus_}
+    {_duprsUserPool = Nothing, _duprsResponseStatus = pResponseStatus_}
 
 
 -- | The container of metadata returned by the server to describe the pool.
 duprsUserPool :: Lens' DescribeUserPoolResponse (Maybe UserPoolType)
-duprsUserPool = lens _duprsUserPool (\ s a -> s{_duprsUserPool = a});
+duprsUserPool = lens _duprsUserPool (\ s a -> s{_duprsUserPool = a})
 
 -- | -- | The response status code.
 duprsResponseStatus :: Lens' DescribeUserPoolResponse Int
-duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a});
+duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a})
 
 instance NFData DescribeUserPoolResponse where

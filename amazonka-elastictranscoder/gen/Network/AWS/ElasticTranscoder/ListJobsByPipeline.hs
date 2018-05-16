@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByPipeline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,23 +78,23 @@ listJobsByPipeline
     -> ListJobsByPipeline
 listJobsByPipeline pPipelineId_ =
   ListJobsByPipeline'
-  { _ljbpAscending = Nothing
-  , _ljbpPageToken = Nothing
-  , _ljbpPipelineId = pPipelineId_
-  }
+    { _ljbpAscending = Nothing
+    , _ljbpPageToken = Nothing
+    , _ljbpPipelineId = pPipelineId_
+    }
 
 
 -- | To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
 ljbpAscending :: Lens' ListJobsByPipeline (Maybe Text)
-ljbpAscending = lens _ljbpAscending (\ s a -> s{_ljbpAscending = a});
+ljbpAscending = lens _ljbpAscending (\ s a -> s{_ljbpAscending = a})
 
 -- | When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
 ljbpPageToken :: Lens' ListJobsByPipeline (Maybe Text)
-ljbpPageToken = lens _ljbpPageToken (\ s a -> s{_ljbpPageToken = a});
+ljbpPageToken = lens _ljbpPageToken (\ s a -> s{_ljbpPageToken = a})
 
 -- | The ID of the pipeline for which you want to get job information.
 ljbpPipelineId :: Lens' ListJobsByPipeline Text
-ljbpPipelineId = lens _ljbpPipelineId (\ s a -> s{_ljbpPipelineId = a});
+ljbpPipelineId = lens _ljbpPipelineId (\ s a -> s{_ljbpPipelineId = a})
 
 instance AWSPager ListJobsByPipeline where
         page rq rs
@@ -159,22 +159,22 @@ listJobsByPipelineResponse
     -> ListJobsByPipelineResponse
 listJobsByPipelineResponse pResponseStatus_ =
   ListJobsByPipelineResponse'
-  { _ljbprsNextPageToken = Nothing
-  , _ljbprsJobs = Nothing
-  , _ljbprsResponseStatus = pResponseStatus_
-  }
+    { _ljbprsNextPageToken = Nothing
+    , _ljbprsJobs = Nothing
+    , _ljbprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
 ljbprsNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
-ljbprsNextPageToken = lens _ljbprsNextPageToken (\ s a -> s{_ljbprsNextPageToken = a});
+ljbprsNextPageToken = lens _ljbprsNextPageToken (\ s a -> s{_ljbprsNextPageToken = a})
 
 -- | An array of @Job@ objects that are in the specified pipeline.
 ljbprsJobs :: Lens' ListJobsByPipelineResponse [Job']
-ljbprsJobs = lens _ljbprsJobs (\ s a -> s{_ljbprsJobs = a}) . _Default . _Coerce;
+ljbprsJobs = lens _ljbprsJobs (\ s a -> s{_ljbprsJobs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ljbprsResponseStatus :: Lens' ListJobsByPipelineResponse Int
-ljbprsResponseStatus = lens _ljbprsResponseStatus (\ s a -> s{_ljbprsResponseStatus = a});
+ljbprsResponseStatus = lens _ljbprsResponseStatus (\ s a -> s{_ljbprsResponseStatus = a})
 
 instance NFData ListJobsByPipelineResponse where

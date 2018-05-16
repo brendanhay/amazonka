@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DeleteStack
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteStack pName_ = DeleteStack' {_dsName = pName_}
 
 -- | The name of the stack.
 dsName :: Lens' DeleteStack Text
-dsName = lens _dsName (\ s a -> s{_dsName = a});
+dsName = lens _dsName (\ s a -> s{_dsName = a})
 
 instance AWSRequest DeleteStack where
         type Rs DeleteStack = DeleteStackResponse
@@ -116,6 +116,6 @@ deleteStackResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteStackResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DeleteStackResponse where

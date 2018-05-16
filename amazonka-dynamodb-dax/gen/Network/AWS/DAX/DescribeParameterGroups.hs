@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeParameterGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ describeParameterGroups
     :: DescribeParameterGroups
 describeParameterGroups =
   DescribeParameterGroups'
-  { _dpgNextToken = Nothing
-  , _dpgParameterGroupNames = Nothing
-  , _dpgMaxResults = Nothing
-  }
+    { _dpgNextToken = Nothing
+    , _dpgParameterGroupNames = Nothing
+    , _dpgMaxResults = Nothing
+    }
 
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 dpgNextToken :: Lens' DescribeParameterGroups (Maybe Text)
-dpgNextToken = lens _dpgNextToken (\ s a -> s{_dpgNextToken = a});
+dpgNextToken = lens _dpgNextToken (\ s a -> s{_dpgNextToken = a})
 
 -- | The names of the parameter groups.
 dpgParameterGroupNames :: Lens' DescribeParameterGroups [Text]
-dpgParameterGroupNames = lens _dpgParameterGroupNames (\ s a -> s{_dpgParameterGroupNames = a}) . _Default . _Coerce;
+dpgParameterGroupNames = lens _dpgParameterGroupNames (\ s a -> s{_dpgParameterGroupNames = a}) . _Default . _Coerce
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
 dpgMaxResults :: Lens' DescribeParameterGroups (Maybe Int)
-dpgMaxResults = lens _dpgMaxResults (\ s a -> s{_dpgMaxResults = a});
+dpgMaxResults = lens _dpgMaxResults (\ s a -> s{_dpgMaxResults = a})
 
 instance AWSRequest DescribeParameterGroups where
         type Rs DescribeParameterGroups =
@@ -149,22 +149,22 @@ describeParameterGroupsResponse
     -> DescribeParameterGroupsResponse
 describeParameterGroupsResponse pResponseStatus_ =
   DescribeParameterGroupsResponse'
-  { _dpgsrsNextToken = Nothing
-  , _dpgsrsParameterGroups = Nothing
-  , _dpgsrsResponseStatus = pResponseStatus_
-  }
+    { _dpgsrsNextToken = Nothing
+    , _dpgsrsParameterGroups = Nothing
+    , _dpgsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dpgsrsNextToken :: Lens' DescribeParameterGroupsResponse (Maybe Text)
-dpgsrsNextToken = lens _dpgsrsNextToken (\ s a -> s{_dpgsrsNextToken = a});
+dpgsrsNextToken = lens _dpgsrsNextToken (\ s a -> s{_dpgsrsNextToken = a})
 
 -- | An array of parameter groups. Each element in the array represents one parameter group.
 dpgsrsParameterGroups :: Lens' DescribeParameterGroupsResponse [ParameterGroup]
-dpgsrsParameterGroups = lens _dpgsrsParameterGroups (\ s a -> s{_dpgsrsParameterGroups = a}) . _Default . _Coerce;
+dpgsrsParameterGroups = lens _dpgsrsParameterGroups (\ s a -> s{_dpgsrsParameterGroups = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dpgsrsResponseStatus :: Lens' DescribeParameterGroupsResponse Int
-dpgsrsResponseStatus = lens _dpgsrsResponseStatus (\ s a -> s{_dpgsrsResponseStatus = a});
+dpgsrsResponseStatus = lens _dpgsrsResponseStatus (\ s a -> s{_dpgsrsResponseStatus = a})
 
 instance NFData DescribeParameterGroupsResponse where

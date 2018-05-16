@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.UpdateRepositoryDescription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ updateRepositoryDescription
     -> UpdateRepositoryDescription
 updateRepositoryDescription pRepositoryName_ =
   UpdateRepositoryDescription'
-  {_urdRepositoryDescription = Nothing, _urdRepositoryName = pRepositoryName_}
+    {_urdRepositoryDescription = Nothing, _urdRepositoryName = pRepositoryName_}
 
 
 -- | The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.
 urdRepositoryDescription :: Lens' UpdateRepositoryDescription (Maybe Text)
-urdRepositoryDescription = lens _urdRepositoryDescription (\ s a -> s{_urdRepositoryDescription = a});
+urdRepositoryDescription = lens _urdRepositoryDescription (\ s a -> s{_urdRepositoryDescription = a})
 
 -- | The name of the repository to set or change the comment or description for.
 urdRepositoryName :: Lens' UpdateRepositoryDescription Text
-urdRepositoryName = lens _urdRepositoryName (\ s a -> s{_urdRepositoryName = a});
+urdRepositoryName = lens _urdRepositoryName (\ s a -> s{_urdRepositoryName = a})
 
 instance AWSRequest UpdateRepositoryDescription where
         type Rs UpdateRepositoryDescription =

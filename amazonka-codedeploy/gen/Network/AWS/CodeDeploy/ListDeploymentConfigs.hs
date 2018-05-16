@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentConfigs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ listDeploymentConfigs = ListDeploymentConfigs' {_ldcNextToken = Nothing}
 
 -- | An identifier returned from the previous list deployment configurations call. It can be used to return the next set of deployment configurations in the list.
 ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
-ldcNextToken = lens _ldcNextToken (\ s a -> s{_ldcNextToken = a});
+ldcNextToken = lens _ldcNextToken (\ s a -> s{_ldcNextToken = a})
 
 instance AWSPager ListDeploymentConfigs where
         page rq rs
@@ -142,22 +142,22 @@ listDeploymentConfigsResponse
     -> ListDeploymentConfigsResponse
 listDeploymentConfigsResponse pResponseStatus_ =
   ListDeploymentConfigsResponse'
-  { _ldcrsNextToken = Nothing
-  , _ldcrsDeploymentConfigsList = Nothing
-  , _ldcrsResponseStatus = pResponseStatus_
-  }
+    { _ldcrsNextToken = Nothing
+    , _ldcrsDeploymentConfigsList = Nothing
+    , _ldcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment configurations call to return the next set of deployment configurations in the list.
 ldcrsNextToken :: Lens' ListDeploymentConfigsResponse (Maybe Text)
-ldcrsNextToken = lens _ldcrsNextToken (\ s a -> s{_ldcrsNextToken = a});
+ldcrsNextToken = lens _ldcrsNextToken (\ s a -> s{_ldcrsNextToken = a})
 
 -- | A list of deployment configurations, including built-in configurations such as CodeDeployDefault.OneAtATime.
 ldcrsDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
-ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrsDeploymentConfigsList = a}) . _Default . _Coerce;
+ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrsDeploymentConfigsList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ldcrsResponseStatus :: Lens' ListDeploymentConfigsResponse Int
-ldcrsResponseStatus = lens _ldcrsResponseStatus (\ s a -> s{_ldcrsResponseStatus = a});
+ldcrsResponseStatus = lens _ldcrsResponseStatus (\ s a -> s{_ldcrsResponseStatus = a})
 
 instance NFData ListDeploymentConfigsResponse where

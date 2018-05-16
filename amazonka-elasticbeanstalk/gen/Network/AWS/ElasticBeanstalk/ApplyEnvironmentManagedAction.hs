@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ applyEnvironmentManagedAction
     -> ApplyEnvironmentManagedAction
 applyEnvironmentManagedAction pActionId_ =
   ApplyEnvironmentManagedAction'
-  { _aemaEnvironmentName = Nothing
-  , _aemaEnvironmentId = Nothing
-  , _aemaActionId = pActionId_
-  }
+    { _aemaEnvironmentName = Nothing
+    , _aemaEnvironmentId = Nothing
+    , _aemaActionId = pActionId_
+    }
 
 
 -- | The name of the target environment.
 aemaEnvironmentName :: Lens' ApplyEnvironmentManagedAction (Maybe Text)
-aemaEnvironmentName = lens _aemaEnvironmentName (\ s a -> s{_aemaEnvironmentName = a});
+aemaEnvironmentName = lens _aemaEnvironmentName (\ s a -> s{_aemaEnvironmentName = a})
 
 -- | The environment ID of the target environment.
 aemaEnvironmentId :: Lens' ApplyEnvironmentManagedAction (Maybe Text)
-aemaEnvironmentId = lens _aemaEnvironmentId (\ s a -> s{_aemaEnvironmentId = a});
+aemaEnvironmentId = lens _aemaEnvironmentId (\ s a -> s{_aemaEnvironmentId = a})
 
 -- | The action ID of the scheduled managed action to execute.
 aemaActionId :: Lens' ApplyEnvironmentManagedAction Text
-aemaActionId = lens _aemaActionId (\ s a -> s{_aemaActionId = a});
+aemaActionId = lens _aemaActionId (\ s a -> s{_aemaActionId = a})
 
 instance AWSRequest ApplyEnvironmentManagedAction
          where
@@ -161,33 +161,33 @@ applyEnvironmentManagedActionResponse
     -> ApplyEnvironmentManagedActionResponse
 applyEnvironmentManagedActionResponse pResponseStatus_ =
   ApplyEnvironmentManagedActionResponse'
-  { _aemarsStatus = Nothing
-  , _aemarsActionId = Nothing
-  , _aemarsActionDescription = Nothing
-  , _aemarsActionType = Nothing
-  , _aemarsResponseStatus = pResponseStatus_
-  }
+    { _aemarsStatus = Nothing
+    , _aemarsActionId = Nothing
+    , _aemarsActionDescription = Nothing
+    , _aemarsActionType = Nothing
+    , _aemarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the managed action.
 aemarsStatus :: Lens' ApplyEnvironmentManagedActionResponse (Maybe Text)
-aemarsStatus = lens _aemarsStatus (\ s a -> s{_aemarsStatus = a});
+aemarsStatus = lens _aemarsStatus (\ s a -> s{_aemarsStatus = a})
 
 -- | The action ID of the managed action.
 aemarsActionId :: Lens' ApplyEnvironmentManagedActionResponse (Maybe Text)
-aemarsActionId = lens _aemarsActionId (\ s a -> s{_aemarsActionId = a});
+aemarsActionId = lens _aemarsActionId (\ s a -> s{_aemarsActionId = a})
 
 -- | A description of the managed action.
 aemarsActionDescription :: Lens' ApplyEnvironmentManagedActionResponse (Maybe Text)
-aemarsActionDescription = lens _aemarsActionDescription (\ s a -> s{_aemarsActionDescription = a});
+aemarsActionDescription = lens _aemarsActionDescription (\ s a -> s{_aemarsActionDescription = a})
 
 -- | The type of managed action.
 aemarsActionType :: Lens' ApplyEnvironmentManagedActionResponse (Maybe ActionType)
-aemarsActionType = lens _aemarsActionType (\ s a -> s{_aemarsActionType = a});
+aemarsActionType = lens _aemarsActionType (\ s a -> s{_aemarsActionType = a})
 
 -- | -- | The response status code.
 aemarsResponseStatus :: Lens' ApplyEnvironmentManagedActionResponse Int
-aemarsResponseStatus = lens _aemarsResponseStatus (\ s a -> s{_aemarsResponseStatus = a});
+aemarsResponseStatus = lens _aemarsResponseStatus (\ s a -> s{_aemarsResponseStatus = a})
 
 instance NFData ApplyEnvironmentManagedActionResponse
          where

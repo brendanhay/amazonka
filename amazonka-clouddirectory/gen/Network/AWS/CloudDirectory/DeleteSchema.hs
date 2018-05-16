@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DeleteSchema
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteSchema pSchemaARN_ = DeleteSchema' {_dsSchemaARN = pSchemaARN_}
 
 -- | The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
 dsSchemaARN :: Lens' DeleteSchema Text
-dsSchemaARN = lens _dsSchemaARN (\ s a -> s{_dsSchemaARN = a});
+dsSchemaARN = lens _dsSchemaARN (\ s a -> s{_dsSchemaARN = a})
 
 instance AWSRequest DeleteSchema where
         type Rs DeleteSchema = DeleteSchemaResponse
@@ -111,15 +111,15 @@ deleteSchemaResponse
     -> DeleteSchemaResponse
 deleteSchemaResponse pResponseStatus_ =
   DeleteSchemaResponse'
-  {_dsrsSchemaARN = Nothing, _dsrsResponseStatus = pResponseStatus_}
+    {_dsrsSchemaARN = Nothing, _dsrsResponseStatus = pResponseStatus_}
 
 
 -- | The input ARN that is returned as part of the response. For more information, see 'arns' .
 dsrsSchemaARN :: Lens' DeleteSchemaResponse (Maybe Text)
-dsrsSchemaARN = lens _dsrsSchemaARN (\ s a -> s{_dsrsSchemaARN = a});
+dsrsSchemaARN = lens _dsrsSchemaARN (\ s a -> s{_dsrsSchemaARN = a})
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteSchemaResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DeleteSchemaResponse where

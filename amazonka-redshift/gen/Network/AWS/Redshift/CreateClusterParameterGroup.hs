@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateClusterParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,28 +82,28 @@ createClusterParameterGroup
     -> CreateClusterParameterGroup
 createClusterParameterGroup pParameterGroupName_ pParameterGroupFamily_ pDescription_ =
   CreateClusterParameterGroup'
-  { _ccpgTags = Nothing
-  , _ccpgParameterGroupName = pParameterGroupName_
-  , _ccpgParameterGroupFamily = pParameterGroupFamily_
-  , _ccpgDescription = pDescription_
-  }
+    { _ccpgTags = Nothing
+    , _ccpgParameterGroupName = pParameterGroupName_
+    , _ccpgParameterGroupFamily = pParameterGroupFamily_
+    , _ccpgDescription = pDescription_
+    }
 
 
 -- | A list of tag instances.
 ccpgTags :: Lens' CreateClusterParameterGroup [Tag]
-ccpgTags = lens _ccpgTags (\ s a -> s{_ccpgTags = a}) . _Default . _Coerce;
+ccpgTags = lens _ccpgTags (\ s a -> s{_ccpgTags = a}) . _Default . _Coerce
 
 -- | The name of the cluster parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique withing your AWS account.
 ccpgParameterGroupName :: Lens' CreateClusterParameterGroup Text
-ccpgParameterGroupName = lens _ccpgParameterGroupName (\ s a -> s{_ccpgParameterGroupName = a});
+ccpgParameterGroupName = lens _ccpgParameterGroupName (\ s a -> s{_ccpgParameterGroupName = a})
 
 -- | The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters. To get a list of valid parameter group family names, you can call 'DescribeClusterParameterGroups' . By default, Amazon Redshift returns a list of all the parameter groups that are owned by your AWS account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is "redshift-1.0".
 ccpgParameterGroupFamily :: Lens' CreateClusterParameterGroup Text
-ccpgParameterGroupFamily = lens _ccpgParameterGroupFamily (\ s a -> s{_ccpgParameterGroupFamily = a});
+ccpgParameterGroupFamily = lens _ccpgParameterGroupFamily (\ s a -> s{_ccpgParameterGroupFamily = a})
 
 -- | A description of the parameter group.
 ccpgDescription :: Lens' CreateClusterParameterGroup Text
-ccpgDescription = lens _ccpgDescription (\ s a -> s{_ccpgDescription = a});
+ccpgDescription = lens _ccpgDescription (\ s a -> s{_ccpgDescription = a})
 
 instance AWSRequest CreateClusterParameterGroup where
         type Rs CreateClusterParameterGroup =
@@ -157,18 +157,18 @@ createClusterParameterGroupResponse
     -> CreateClusterParameterGroupResponse
 createClusterParameterGroupResponse pResponseStatus_ =
   CreateClusterParameterGroupResponse'
-  { _ccpgrsClusterParameterGroup = Nothing
-  , _ccpgrsResponseStatus = pResponseStatus_
-  }
+    { _ccpgrsClusterParameterGroup = Nothing
+    , _ccpgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ccpgrsClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe ClusterParameterGroup)
-ccpgrsClusterParameterGroup = lens _ccpgrsClusterParameterGroup (\ s a -> s{_ccpgrsClusterParameterGroup = a});
+ccpgrsClusterParameterGroup = lens _ccpgrsClusterParameterGroup (\ s a -> s{_ccpgrsClusterParameterGroup = a})
 
 -- | -- | The response status code.
 ccpgrsResponseStatus :: Lens' CreateClusterParameterGroupResponse Int
-ccpgrsResponseStatus = lens _ccpgrsResponseStatus (\ s a -> s{_ccpgrsResponseStatus = a});
+ccpgrsResponseStatus = lens _ccpgrsResponseStatus (\ s a -> s{_ccpgrsResponseStatus = a})
 
 instance NFData CreateClusterParameterGroupResponse
          where

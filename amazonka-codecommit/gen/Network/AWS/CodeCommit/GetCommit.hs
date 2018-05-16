@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetCommit
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ getCommit pRepositoryName_ pCommitId_ =
 
 -- | The name of the repository to which the commit was made.
 gcRepositoryName :: Lens' GetCommit Text
-gcRepositoryName = lens _gcRepositoryName (\ s a -> s{_gcRepositoryName = a});
+gcRepositoryName = lens _gcRepositoryName (\ s a -> s{_gcRepositoryName = a})
 
 -- | The commit ID. Commit IDs are the full SHA of the commit.
 gcCommitId :: Lens' GetCommit Text
-gcCommitId = lens _gcCommitId (\ s a -> s{_gcCommitId = a});
+gcCommitId = lens _gcCommitId (\ s a -> s{_gcCommitId = a})
 
 instance AWSRequest GetCommit where
         type Rs GetCommit = GetCommitResponse
@@ -138,15 +138,15 @@ getCommitResponse
     -> GetCommitResponse
 getCommitResponse pResponseStatus_ pCommit_ =
   GetCommitResponse'
-  {_gcrsResponseStatus = pResponseStatus_, _gcrsCommit = pCommit_}
+    {_gcrsResponseStatus = pResponseStatus_, _gcrsCommit = pCommit_}
 
 
 -- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetCommitResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
+gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a})
 
 -- | A commit data type object that contains information about the specified commit.
 gcrsCommit :: Lens' GetCommitResponse Commit
-gcrsCommit = lens _gcrsCommit (\ s a -> s{_gcrsCommit = a});
+gcrsCommit = lens _gcrsCommit (\ s a -> s{_gcrsCommit = a})
 
 instance NFData GetCommitResponse where

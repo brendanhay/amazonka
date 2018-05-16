@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.BatchGetBuilds
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ batchGetBuilds pIds_ = BatchGetBuilds' {_bgbIds = _List1 # pIds_}
 
 -- | The IDs of the builds.
 bgbIds :: Lens' BatchGetBuilds (NonEmpty Text)
-bgbIds = lens _bgbIds (\ s a -> s{_bgbIds = a}) . _List1;
+bgbIds = lens _bgbIds (\ s a -> s{_bgbIds = a}) . _List1
 
 instance AWSRequest BatchGetBuilds where
         type Rs BatchGetBuilds = BatchGetBuildsResponse
@@ -122,22 +122,22 @@ batchGetBuildsResponse
     -> BatchGetBuildsResponse
 batchGetBuildsResponse pResponseStatus_ =
   BatchGetBuildsResponse'
-  { _bgbrsBuilds = Nothing
-  , _bgbrsBuildsNotFound = Nothing
-  , _bgbrsResponseStatus = pResponseStatus_
-  }
+    { _bgbrsBuilds = Nothing
+    , _bgbrsBuildsNotFound = Nothing
+    , _bgbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the requested builds.
 bgbrsBuilds :: Lens' BatchGetBuildsResponse [Build]
-bgbrsBuilds = lens _bgbrsBuilds (\ s a -> s{_bgbrsBuilds = a}) . _Default . _Coerce;
+bgbrsBuilds = lens _bgbrsBuilds (\ s a -> s{_bgbrsBuilds = a}) . _Default . _Coerce
 
 -- | The IDs of builds for which information could not be found.
 bgbrsBuildsNotFound :: Lens' BatchGetBuildsResponse (Maybe (NonEmpty Text))
-bgbrsBuildsNotFound = lens _bgbrsBuildsNotFound (\ s a -> s{_bgbrsBuildsNotFound = a}) . mapping _List1;
+bgbrsBuildsNotFound = lens _bgbrsBuildsNotFound (\ s a -> s{_bgbrsBuildsNotFound = a}) . mapping _List1
 
 -- | -- | The response status code.
 bgbrsResponseStatus :: Lens' BatchGetBuildsResponse Int
-bgbrsResponseStatus = lens _bgbrsResponseStatus (\ s a -> s{_bgbrsResponseStatus = a});
+bgbrsResponseStatus = lens _bgbrsResponseStatus (\ s a -> s{_bgbrsResponseStatus = a})
 
 instance NFData BatchGetBuildsResponse where

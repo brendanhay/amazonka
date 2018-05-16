@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ModifyCacheSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ modifyCacheSubnetGroup
     -> ModifyCacheSubnetGroup
 modifyCacheSubnetGroup pCacheSubnetGroupName_ =
   ModifyCacheSubnetGroup'
-  { _mcsgSubnetIds = Nothing
-  , _mcsgCacheSubnetGroupDescription = Nothing
-  , _mcsgCacheSubnetGroupName = pCacheSubnetGroupName_
-  }
+    { _mcsgSubnetIds = Nothing
+    , _mcsgCacheSubnetGroupDescription = Nothing
+    , _mcsgCacheSubnetGroupName = pCacheSubnetGroupName_
+    }
 
 
 -- | The EC2 subnet IDs for the cache subnet group.
 mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
-mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a}) . _Default . _Coerce;
+mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a}) . _Default . _Coerce
 
 -- | A description of the cache subnet group.
 mcsgCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
-mcsgCacheSubnetGroupDescription = lens _mcsgCacheSubnetGroupDescription (\ s a -> s{_mcsgCacheSubnetGroupDescription = a});
+mcsgCacheSubnetGroupDescription = lens _mcsgCacheSubnetGroupDescription (\ s a -> s{_mcsgCacheSubnetGroupDescription = a})
 
 -- | The name for the cache subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Example: @mysubnetgroup@
 mcsgCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup Text
-mcsgCacheSubnetGroupName = lens _mcsgCacheSubnetGroupName (\ s a -> s{_mcsgCacheSubnetGroupName = a});
+mcsgCacheSubnetGroupName = lens _mcsgCacheSubnetGroupName (\ s a -> s{_mcsgCacheSubnetGroupName = a})
 
 instance AWSRequest ModifyCacheSubnetGroup where
         type Rs ModifyCacheSubnetGroup =
@@ -142,15 +142,17 @@ modifyCacheSubnetGroupResponse
     -> ModifyCacheSubnetGroupResponse
 modifyCacheSubnetGroupResponse pResponseStatus_ =
   ModifyCacheSubnetGroupResponse'
-  {_mcsgrsCacheSubnetGroup = Nothing, _mcsgrsResponseStatus = pResponseStatus_}
+    { _mcsgrsCacheSubnetGroup = Nothing
+    , _mcsgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 mcsgrsCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
-mcsgrsCacheSubnetGroup = lens _mcsgrsCacheSubnetGroup (\ s a -> s{_mcsgrsCacheSubnetGroup = a});
+mcsgrsCacheSubnetGroup = lens _mcsgrsCacheSubnetGroup (\ s a -> s{_mcsgrsCacheSubnetGroup = a})
 
 -- | -- | The response status code.
 mcsgrsResponseStatus :: Lens' ModifyCacheSubnetGroupResponse Int
-mcsgrsResponseStatus = lens _mcsgrsResponseStatus (\ s a -> s{_mcsgrsResponseStatus = a});
+mcsgrsResponseStatus = lens _mcsgrsResponseStatus (\ s a -> s{_mcsgrsResponseStatus = a})
 
 instance NFData ModifyCacheSubnetGroupResponse where

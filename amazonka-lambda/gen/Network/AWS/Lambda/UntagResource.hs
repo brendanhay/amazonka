@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.UntagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from a Lambda function. Requires the function ARN (Amazon Resource Name).
+-- Removes tags from a Lambda function. Requires the function ARN (Amazon Resource Name). For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 --
 --
 module Network.AWS.Lambda.UntagResource
@@ -53,9 +53,9 @@ data UntagResource = UntagResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urResource' - The ARN (Amazon Resource Name) of the function.
+-- * 'urResource' - The ARN (Amazon Resource Name) of the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 --
--- * 'urTagKeys' - The list of tag keys to be deleted from the function.
+-- * 'urTagKeys' - The list of tag keys to be deleted from the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 untagResource
     :: Text -- ^ 'urResource'
     -> UntagResource
@@ -63,13 +63,13 @@ untagResource pResource_ =
   UntagResource' {_urResource = pResource_, _urTagKeys = mempty}
 
 
--- | The ARN (Amazon Resource Name) of the function.
+-- | The ARN (Amazon Resource Name) of the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 urResource :: Lens' UntagResource Text
-urResource = lens _urResource (\ s a -> s{_urResource = a});
+urResource = lens _urResource (\ s a -> s{_urResource = a})
 
--- | The list of tag keys to be deleted from the function.
+-- | The list of tag keys to be deleted from the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 urTagKeys :: Lens' UntagResource [Text]
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce;
+urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce
 
 instance AWSRequest UntagResource where
         type Rs UntagResource = UntagResourceResponse

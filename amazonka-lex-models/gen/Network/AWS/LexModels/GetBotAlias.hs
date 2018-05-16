@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBotAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,11 +77,11 @@ getBotAlias pName_ pBotName_ =
 
 -- | The name of the bot alias. The name is case sensitive.
 gbasName :: Lens' GetBotAlias Text
-gbasName = lens _gbasName (\ s a -> s{_gbasName = a});
+gbasName = lens _gbasName (\ s a -> s{_gbasName = a})
 
 -- | The name of the bot.
 gbasBotName :: Lens' GetBotAlias Text
-gbasBotName = lens _gbasBotName (\ s a -> s{_gbasBotName = a});
+gbasBotName = lens _gbasBotName (\ s a -> s{_gbasBotName = a})
 
 instance AWSRequest GetBotAlias where
         type Rs GetBotAlias = GetBotAliasResponse
@@ -155,47 +155,47 @@ getBotAliasResponse
     -> GetBotAliasResponse
 getBotAliasResponse pResponseStatus_ =
   GetBotAliasResponse'
-  { _gbasrsChecksum = Nothing
-  , _gbasrsBotVersion = Nothing
-  , _gbasrsBotName = Nothing
-  , _gbasrsCreatedDate = Nothing
-  , _gbasrsName = Nothing
-  , _gbasrsLastUpdatedDate = Nothing
-  , _gbasrsDescription = Nothing
-  , _gbasrsResponseStatus = pResponseStatus_
-  }
+    { _gbasrsChecksum = Nothing
+    , _gbasrsBotVersion = Nothing
+    , _gbasrsBotName = Nothing
+    , _gbasrsCreatedDate = Nothing
+    , _gbasrsName = Nothing
+    , _gbasrsLastUpdatedDate = Nothing
+    , _gbasrsDescription = Nothing
+    , _gbasrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Checksum of the bot alias.
 gbasrsChecksum :: Lens' GetBotAliasResponse (Maybe Text)
-gbasrsChecksum = lens _gbasrsChecksum (\ s a -> s{_gbasrsChecksum = a});
+gbasrsChecksum = lens _gbasrsChecksum (\ s a -> s{_gbasrsChecksum = a})
 
 -- | The version of the bot that the alias points to.
 gbasrsBotVersion :: Lens' GetBotAliasResponse (Maybe Text)
-gbasrsBotVersion = lens _gbasrsBotVersion (\ s a -> s{_gbasrsBotVersion = a});
+gbasrsBotVersion = lens _gbasrsBotVersion (\ s a -> s{_gbasrsBotVersion = a})
 
 -- | The name of the bot that the alias points to.
 gbasrsBotName :: Lens' GetBotAliasResponse (Maybe Text)
-gbasrsBotName = lens _gbasrsBotName (\ s a -> s{_gbasrsBotName = a});
+gbasrsBotName = lens _gbasrsBotName (\ s a -> s{_gbasrsBotName = a})
 
 -- | The date that the bot alias was created.
 gbasrsCreatedDate :: Lens' GetBotAliasResponse (Maybe UTCTime)
-gbasrsCreatedDate = lens _gbasrsCreatedDate (\ s a -> s{_gbasrsCreatedDate = a}) . mapping _Time;
+gbasrsCreatedDate = lens _gbasrsCreatedDate (\ s a -> s{_gbasrsCreatedDate = a}) . mapping _Time
 
 -- | The name of the bot alias.
 gbasrsName :: Lens' GetBotAliasResponse (Maybe Text)
-gbasrsName = lens _gbasrsName (\ s a -> s{_gbasrsName = a});
+gbasrsName = lens _gbasrsName (\ s a -> s{_gbasrsName = a})
 
 -- | The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 gbasrsLastUpdatedDate :: Lens' GetBotAliasResponse (Maybe UTCTime)
-gbasrsLastUpdatedDate = lens _gbasrsLastUpdatedDate (\ s a -> s{_gbasrsLastUpdatedDate = a}) . mapping _Time;
+gbasrsLastUpdatedDate = lens _gbasrsLastUpdatedDate (\ s a -> s{_gbasrsLastUpdatedDate = a}) . mapping _Time
 
 -- | A description of the bot alias.
 gbasrsDescription :: Lens' GetBotAliasResponse (Maybe Text)
-gbasrsDescription = lens _gbasrsDescription (\ s a -> s{_gbasrsDescription = a});
+gbasrsDescription = lens _gbasrsDescription (\ s a -> s{_gbasrsDescription = a})
 
 -- | -- | The response status code.
 gbasrsResponseStatus :: Lens' GetBotAliasResponse Int
-gbasrsResponseStatus = lens _gbasrsResponseStatus (\ s a -> s{_gbasrsResponseStatus = a});
+gbasrsResponseStatus = lens _gbasrsResponseStatus (\ s a -> s{_gbasrsResponseStatus = a})
 
 instance NFData GetBotAliasResponse where

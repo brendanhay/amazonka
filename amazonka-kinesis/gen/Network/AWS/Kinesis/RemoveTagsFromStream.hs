@@ -12,16 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.RemoveTagsFromStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from the specified Amazon Kinesis stream. Removed tags are deleted and cannot be recovered after this operation successfully completes.
+-- Removes tags from the specified Kinesis data stream. Removed tags are deleted and cannot be recovered after this operation successfully completes.
 --
 --
 -- If you specify a tag that does not exist, it is ignored.
+--
+-- 'RemoveTagsFromStream' has a limit of five transactions per second per account.
 --
 module Network.AWS.Kinesis.RemoveTagsFromStream
     (
@@ -68,16 +70,16 @@ removeTagsFromStream
     -> RemoveTagsFromStream
 removeTagsFromStream pStreamName_ pTagKeys_ =
   RemoveTagsFromStream'
-  {_rtfsStreamName = pStreamName_, _rtfsTagKeys = _List1 # pTagKeys_}
+    {_rtfsStreamName = pStreamName_, _rtfsTagKeys = _List1 # pTagKeys_}
 
 
 -- | The name of the stream.
 rtfsStreamName :: Lens' RemoveTagsFromStream Text
-rtfsStreamName = lens _rtfsStreamName (\ s a -> s{_rtfsStreamName = a});
+rtfsStreamName = lens _rtfsStreamName (\ s a -> s{_rtfsStreamName = a})
 
 -- | A list of tag keys. Each corresponding tag is removed from the stream.
 rtfsTagKeys :: Lens' RemoveTagsFromStream (NonEmpty Text)
-rtfsTagKeys = lens _rtfsTagKeys (\ s a -> s{_rtfsTagKeys = a}) . _List1;
+rtfsTagKeys = lens _rtfsTagKeys (\ s a -> s{_rtfsTagKeys = a}) . _List1
 
 instance AWSRequest RemoveTagsFromStream where
         type Rs RemoveTagsFromStream =

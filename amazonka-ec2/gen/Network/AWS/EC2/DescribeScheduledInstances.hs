@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeScheduledInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,38 +84,38 @@ describeScheduledInstances
     :: DescribeScheduledInstances
 describeScheduledInstances =
   DescribeScheduledInstances'
-  { _dsiFilters = Nothing
-  , _dsiSlotStartTimeRange = Nothing
-  , _dsiNextToken = Nothing
-  , _dsiScheduledInstanceIds = Nothing
-  , _dsiDryRun = Nothing
-  , _dsiMaxResults = Nothing
-  }
+    { _dsiFilters = Nothing
+    , _dsiSlotStartTimeRange = Nothing
+    , _dsiNextToken = Nothing
+    , _dsiScheduledInstanceIds = Nothing
+    , _dsiDryRun = Nothing
+    , _dsiMaxResults = Nothing
+    }
 
 
 -- | One or more filters.     * @availability-zone@ - The Availability Zone (for example, @us-west-2a@ ).     * @instance-type@ - The instance type (for example, @c4.large@ ).     * @network-platform@ - The network platform (@EC2-Classic@ or @EC2-VPC@ ).     * @platform@ - The platform (@Linux/UNIX@ or @Windows@ ).
 dsiFilters :: Lens' DescribeScheduledInstances [Filter]
-dsiFilters = lens _dsiFilters (\ s a -> s{_dsiFilters = a}) . _Default . _Coerce;
+dsiFilters = lens _dsiFilters (\ s a -> s{_dsiFilters = a}) . _Default . _Coerce
 
 -- | The time period for the first schedule to start.
 dsiSlotStartTimeRange :: Lens' DescribeScheduledInstances (Maybe SlotStartTimeRangeRequest)
-dsiSlotStartTimeRange = lens _dsiSlotStartTimeRange (\ s a -> s{_dsiSlotStartTimeRange = a});
+dsiSlotStartTimeRange = lens _dsiSlotStartTimeRange (\ s a -> s{_dsiSlotStartTimeRange = a})
 
 -- | The token for the next set of results.
 dsiNextToken :: Lens' DescribeScheduledInstances (Maybe Text)
-dsiNextToken = lens _dsiNextToken (\ s a -> s{_dsiNextToken = a});
+dsiNextToken = lens _dsiNextToken (\ s a -> s{_dsiNextToken = a})
 
 -- | One or more Scheduled Instance IDs.
 dsiScheduledInstanceIds :: Lens' DescribeScheduledInstances [Text]
-dsiScheduledInstanceIds = lens _dsiScheduledInstanceIds (\ s a -> s{_dsiScheduledInstanceIds = a}) . _Default . _Coerce;
+dsiScheduledInstanceIds = lens _dsiScheduledInstanceIds (\ s a -> s{_dsiScheduledInstanceIds = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsiDryRun :: Lens' DescribeScheduledInstances (Maybe Bool)
-dsiDryRun = lens _dsiDryRun (\ s a -> s{_dsiDryRun = a});
+dsiDryRun = lens _dsiDryRun (\ s a -> s{_dsiDryRun = a})
 
 -- | The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 100. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 dsiMaxResults :: Lens' DescribeScheduledInstances (Maybe Int)
-dsiMaxResults = lens _dsiMaxResults (\ s a -> s{_dsiMaxResults = a});
+dsiMaxResults = lens _dsiMaxResults (\ s a -> s{_dsiMaxResults = a})
 
 instance AWSRequest DescribeScheduledInstances where
         type Rs DescribeScheduledInstances =
@@ -181,23 +181,23 @@ describeScheduledInstancesResponse
     -> DescribeScheduledInstancesResponse
 describeScheduledInstancesResponse pResponseStatus_ =
   DescribeScheduledInstancesResponse'
-  { _dsirsNextToken = Nothing
-  , _dsirsScheduledInstanceSet = Nothing
-  , _dsirsResponseStatus = pResponseStatus_
-  }
+    { _dsirsNextToken = Nothing
+    , _dsirsScheduledInstanceSet = Nothing
+    , _dsirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 dsirsNextToken :: Lens' DescribeScheduledInstancesResponse (Maybe Text)
-dsirsNextToken = lens _dsirsNextToken (\ s a -> s{_dsirsNextToken = a});
+dsirsNextToken = lens _dsirsNextToken (\ s a -> s{_dsirsNextToken = a})
 
 -- | Information about the Scheduled Instances.
 dsirsScheduledInstanceSet :: Lens' DescribeScheduledInstancesResponse [ScheduledInstance]
-dsirsScheduledInstanceSet = lens _dsirsScheduledInstanceSet (\ s a -> s{_dsirsScheduledInstanceSet = a}) . _Default . _Coerce;
+dsirsScheduledInstanceSet = lens _dsirsScheduledInstanceSet (\ s a -> s{_dsirsScheduledInstanceSet = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsirsResponseStatus :: Lens' DescribeScheduledInstancesResponse Int
-dsirsResponseStatus = lens _dsirsResponseStatus (\ s a -> s{_dsirsResponseStatus = a});
+dsirsResponseStatus = lens _dsirsResponseStatus (\ s a -> s{_dsirsResponseStatus = a})
 
 instance NFData DescribeScheduledInstancesResponse
          where

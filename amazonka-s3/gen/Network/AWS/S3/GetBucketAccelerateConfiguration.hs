@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketAccelerateConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getBucketAccelerateConfiguration pBucket_ =
 
 -- | Name of the bucket for which the accelerate configuration is retrieved.
 gbacBucket :: Lens' GetBucketAccelerateConfiguration BucketName
-gbacBucket = lens _gbacBucket (\ s a -> s{_gbacBucket = a});
+gbacBucket = lens _gbacBucket (\ s a -> s{_gbacBucket = a})
 
 instance AWSRequest GetBucketAccelerateConfiguration
          where
@@ -113,16 +113,16 @@ getBucketAccelerateConfigurationResponse
     -> GetBucketAccelerateConfigurationResponse
 getBucketAccelerateConfigurationResponse pResponseStatus_ =
   GetBucketAccelerateConfigurationResponse'
-  {_grsStatus = Nothing, _grsResponseStatus = pResponseStatus_}
+    {_grsStatus = Nothing, _grsResponseStatus = pResponseStatus_}
 
 
 -- | The accelerate configuration of the bucket.
 grsStatus :: Lens' GetBucketAccelerateConfigurationResponse (Maybe BucketAccelerateStatus)
-grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});
+grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a})
 
 -- | -- | The response status code.
 grsResponseStatus :: Lens' GetBucketAccelerateConfigurationResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
 
 instance NFData
            GetBucketAccelerateConfigurationResponse

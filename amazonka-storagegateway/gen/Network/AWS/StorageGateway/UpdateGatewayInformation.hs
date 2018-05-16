@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateGatewayInformation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ updateGatewayInformation
     -> UpdateGatewayInformation
 updateGatewayInformation pGatewayARN_ =
   UpdateGatewayInformation'
-  { _ugiGatewayName = Nothing
-  , _ugiGatewayTimezone = Nothing
-  , _ugiGatewayARN = pGatewayARN_
-  }
+    { _ugiGatewayName = Nothing
+    , _ugiGatewayTimezone = Nothing
+    , _ugiGatewayARN = pGatewayARN_
+    }
 
 
 -- | Undocumented member.
 ugiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
-ugiGatewayName = lens _ugiGatewayName (\ s a -> s{_ugiGatewayName = a});
+ugiGatewayName = lens _ugiGatewayName (\ s a -> s{_ugiGatewayName = a})
 
 -- | Undocumented member.
 ugiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
-ugiGatewayTimezone = lens _ugiGatewayTimezone (\ s a -> s{_ugiGatewayTimezone = a});
+ugiGatewayTimezone = lens _ugiGatewayTimezone (\ s a -> s{_ugiGatewayTimezone = a})
 
 -- | Undocumented member.
 ugiGatewayARN :: Lens' UpdateGatewayInformation Text
-ugiGatewayARN = lens _ugiGatewayARN (\ s a -> s{_ugiGatewayARN = a});
+ugiGatewayARN = lens _ugiGatewayARN (\ s a -> s{_ugiGatewayARN = a})
 
 instance AWSRequest UpdateGatewayInformation where
         type Rs UpdateGatewayInformation =
@@ -152,23 +152,23 @@ updateGatewayInformationResponse
     -> UpdateGatewayInformationResponse
 updateGatewayInformationResponse pResponseStatus_ =
   UpdateGatewayInformationResponse'
-  { _ugirsGatewayARN = Nothing
-  , _ugirsGatewayName = Nothing
-  , _ugirsResponseStatus = pResponseStatus_
-  }
+    { _ugirsGatewayARN = Nothing
+    , _ugirsGatewayName = Nothing
+    , _ugirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ugirsGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
-ugirsGatewayARN = lens _ugirsGatewayARN (\ s a -> s{_ugirsGatewayARN = a});
+ugirsGatewayARN = lens _ugirsGatewayARN (\ s a -> s{_ugirsGatewayARN = a})
 
 -- | Undocumented member.
 ugirsGatewayName :: Lens' UpdateGatewayInformationResponse (Maybe Text)
-ugirsGatewayName = lens _ugirsGatewayName (\ s a -> s{_ugirsGatewayName = a});
+ugirsGatewayName = lens _ugirsGatewayName (\ s a -> s{_ugirsGatewayName = a})
 
 -- | -- | The response status code.
 ugirsResponseStatus :: Lens' UpdateGatewayInformationResponse Int
-ugirsResponseStatus = lens _ugirsResponseStatus (\ s a -> s{_ugirsResponseStatus = a});
+ugirsResponseStatus = lens _ugirsResponseStatus (\ s a -> s{_ugirsResponseStatus = a})
 
 instance NFData UpdateGatewayInformationResponse
          where

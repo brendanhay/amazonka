@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.ListBranches
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,11 +76,11 @@ listBranches pRepositoryName_ =
 
 -- | An enumeration token that allows the operation to batch the results.
 lbNextToken :: Lens' ListBranches (Maybe Text)
-lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a});
+lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a})
 
 -- | The name of the repository that contains the branches.
 lbRepositoryName :: Lens' ListBranches Text
-lbRepositoryName = lens _lbRepositoryName (\ s a -> s{_lbRepositoryName = a});
+lbRepositoryName = lens _lbRepositoryName (\ s a -> s{_lbRepositoryName = a})
 
 instance AWSPager ListBranches where
         page rq rs
@@ -151,22 +151,22 @@ listBranchesResponse
     -> ListBranchesResponse
 listBranchesResponse pResponseStatus_ =
   ListBranchesResponse'
-  { _lbrsBranches = Nothing
-  , _lbrsNextToken = Nothing
-  , _lbrsResponseStatus = pResponseStatus_
-  }
+    { _lbrsBranches = Nothing
+    , _lbrsNextToken = Nothing
+    , _lbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of branch names.
 lbrsBranches :: Lens' ListBranchesResponse [Text]
-lbrsBranches = lens _lbrsBranches (\ s a -> s{_lbrsBranches = a}) . _Default . _Coerce;
+lbrsBranches = lens _lbrsBranches (\ s a -> s{_lbrsBranches = a}) . _Default . _Coerce
 
 -- | An enumeration token that returns the batch of the results.
 lbrsNextToken :: Lens' ListBranchesResponse (Maybe Text)
-lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
+lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a})
 
 -- | -- | The response status code.
 lbrsResponseStatus :: Lens' ListBranchesResponse Int
-lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
+lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a})
 
 instance NFData ListBranchesResponse where

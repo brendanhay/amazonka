@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.PutEvaluations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,29 +66,29 @@ data PutEvaluations = PutEvaluations'
 --
 -- * 'peTestMode' - Use this parameter to specify a test run for @PutEvaluations@ . You can verify whether your AWS Lambda function will deliver evaluation results to AWS Config. No updates occur to your existing evaluations, and evaluation results are not sent to AWS Config.
 --
--- * 'peResultToken' - An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation
+-- * 'peResultToken' - An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation.
 putEvaluations
     :: Text -- ^ 'peResultToken'
     -> PutEvaluations
 putEvaluations pResultToken_ =
   PutEvaluations'
-  { _peEvaluations = Nothing
-  , _peTestMode = Nothing
-  , _peResultToken = pResultToken_
-  }
+    { _peEvaluations = Nothing
+    , _peTestMode = Nothing
+    , _peResultToken = pResultToken_
+    }
 
 
 -- | The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function.
 peEvaluations :: Lens' PutEvaluations [Evaluation]
-peEvaluations = lens _peEvaluations (\ s a -> s{_peEvaluations = a}) . _Default . _Coerce;
+peEvaluations = lens _peEvaluations (\ s a -> s{_peEvaluations = a}) . _Default . _Coerce
 
 -- | Use this parameter to specify a test run for @PutEvaluations@ . You can verify whether your AWS Lambda function will deliver evaluation results to AWS Config. No updates occur to your existing evaluations, and evaluation results are not sent to AWS Config.
 peTestMode :: Lens' PutEvaluations (Maybe Bool)
-peTestMode = lens _peTestMode (\ s a -> s{_peTestMode = a});
+peTestMode = lens _peTestMode (\ s a -> s{_peTestMode = a})
 
--- | An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation
+-- | An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation.
 peResultToken :: Lens' PutEvaluations Text
-peResultToken = lens _peResultToken (\ s a -> s{_peResultToken = a});
+peResultToken = lens _peResultToken (\ s a -> s{_peResultToken = a})
 
 instance AWSRequest PutEvaluations where
         type Rs PutEvaluations = PutEvaluationsResponse
@@ -150,15 +150,15 @@ putEvaluationsResponse
     -> PutEvaluationsResponse
 putEvaluationsResponse pResponseStatus_ =
   PutEvaluationsResponse'
-  {_persFailedEvaluations = Nothing, _persResponseStatus = pResponseStatus_}
+    {_persFailedEvaluations = Nothing, _persResponseStatus = pResponseStatus_}
 
 
 -- | Requests that failed because of a client or server error.
 persFailedEvaluations :: Lens' PutEvaluationsResponse [Evaluation]
-persFailedEvaluations = lens _persFailedEvaluations (\ s a -> s{_persFailedEvaluations = a}) . _Default . _Coerce;
+persFailedEvaluations = lens _persFailedEvaluations (\ s a -> s{_persFailedEvaluations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 persResponseStatus :: Lens' PutEvaluationsResponse Int
-persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a});
+persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a})
 
 instance NFData PutEvaluationsResponse where

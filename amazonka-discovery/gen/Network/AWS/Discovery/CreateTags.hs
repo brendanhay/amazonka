@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.CreateTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,11 +65,11 @@ createTags = CreateTags' {_ctConfigurationIds = mempty, _ctTags = mempty}
 
 -- | A list of configuration items that you want to tag.
 ctConfigurationIds :: Lens' CreateTags [Text]
-ctConfigurationIds = lens _ctConfigurationIds (\ s a -> s{_ctConfigurationIds = a}) . _Coerce;
+ctConfigurationIds = lens _ctConfigurationIds (\ s a -> s{_ctConfigurationIds = a}) . _Coerce
 
 -- | Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
 ctTags :: Lens' CreateTags [Tag]
-ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
+ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce
 
 instance AWSRequest CreateTags where
         type Rs CreateTags = CreateTagsResponse
@@ -126,6 +126,6 @@ createTagsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTagsResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a})
 
 instance NFData CreateTagsResponse where

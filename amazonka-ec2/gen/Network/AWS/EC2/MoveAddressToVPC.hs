@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.MoveAddressToVPC
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ moveAddressToVPC pPublicIP_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 matvDryRun :: Lens' MoveAddressToVPC (Maybe Bool)
-matvDryRun = lens _matvDryRun (\ s a -> s{_matvDryRun = a});
+matvDryRun = lens _matvDryRun (\ s a -> s{_matvDryRun = a})
 
 -- | The Elastic IP address.
 matvPublicIP :: Lens' MoveAddressToVPC Text
-matvPublicIP = lens _matvPublicIP (\ s a -> s{_matvPublicIP = a});
+matvPublicIP = lens _matvPublicIP (\ s a -> s{_matvPublicIP = a})
 
 instance AWSRequest MoveAddressToVPC where
         type Rs MoveAddressToVPC = MoveAddressToVPCResponse
@@ -132,22 +132,22 @@ moveAddressToVPCResponse
     -> MoveAddressToVPCResponse
 moveAddressToVPCResponse pResponseStatus_ =
   MoveAddressToVPCResponse'
-  { _matvrsStatus = Nothing
-  , _matvrsAllocationId = Nothing
-  , _matvrsResponseStatus = pResponseStatus_
-  }
+    { _matvrsStatus = Nothing
+    , _matvrsAllocationId = Nothing
+    , _matvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the move of the IP address.
 matvrsStatus :: Lens' MoveAddressToVPCResponse (Maybe AddressStatus)
-matvrsStatus = lens _matvrsStatus (\ s a -> s{_matvrsStatus = a});
+matvrsStatus = lens _matvrsStatus (\ s a -> s{_matvrsStatus = a})
 
 -- | The allocation ID for the Elastic IP address.
 matvrsAllocationId :: Lens' MoveAddressToVPCResponse (Maybe Text)
-matvrsAllocationId = lens _matvrsAllocationId (\ s a -> s{_matvrsAllocationId = a});
+matvrsAllocationId = lens _matvrsAllocationId (\ s a -> s{_matvrsAllocationId = a})
 
 -- | -- | The response status code.
 matvrsResponseStatus :: Lens' MoveAddressToVPCResponse Int
-matvrsResponseStatus = lens _matvrsResponseStatus (\ s a -> s{_matvrsResponseStatus = a});
+matvrsResponseStatus = lens _matvrsResponseStatus (\ s a -> s{_matvrsResponseStatus = a})
 
 instance NFData MoveAddressToVPCResponse where

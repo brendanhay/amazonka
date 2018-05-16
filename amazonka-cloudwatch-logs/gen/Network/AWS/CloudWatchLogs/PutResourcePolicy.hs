@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutResourcePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ putResourcePolicy =
 
 -- | Name of the new policy. This parameter is required.
 prpPolicyName :: Lens' PutResourcePolicy (Maybe Text)
-prpPolicyName = lens _prpPolicyName (\ s a -> s{_prpPolicyName = a});
+prpPolicyName = lens _prpPolicyName (\ s a -> s{_prpPolicyName = a})
 
 -- | Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace "logArn" with the ARN of your CloudWatch Logs resource, such as a log group or log stream. { "Version": "2012-10-17" "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": logArn } ] }
 prpPolicyDocument :: Lens' PutResourcePolicy (Maybe Text)
-prpPolicyDocument = lens _prpPolicyDocument (\ s a -> s{_prpPolicyDocument = a});
+prpPolicyDocument = lens _prpPolicyDocument (\ s a -> s{_prpPolicyDocument = a})
 
 instance AWSRequest PutResourcePolicy where
         type Rs PutResourcePolicy = PutResourcePolicyResponse
@@ -127,15 +127,15 @@ putResourcePolicyResponse
     -> PutResourcePolicyResponse
 putResourcePolicyResponse pResponseStatus_ =
   PutResourcePolicyResponse'
-  {_prprsResourcePolicy = Nothing, _prprsResponseStatus = pResponseStatus_}
+    {_prprsResourcePolicy = Nothing, _prprsResponseStatus = pResponseStatus_}
 
 
 -- | The new policy.
 prprsResourcePolicy :: Lens' PutResourcePolicyResponse (Maybe ResourcePolicy)
-prprsResourcePolicy = lens _prprsResourcePolicy (\ s a -> s{_prprsResourcePolicy = a});
+prprsResourcePolicy = lens _prprsResourcePolicy (\ s a -> s{_prprsResourcePolicy = a})
 
 -- | -- | The response status code.
 prprsResponseStatus :: Lens' PutResourcePolicyResponse Int
-prprsResponseStatus = lens _prprsResponseStatus (\ s a -> s{_prprsResponseStatus = a});
+prprsResponseStatus = lens _prprsResponseStatus (\ s a -> s{_prprsResponseStatus = a})
 
 instance NFData PutResourcePolicyResponse where

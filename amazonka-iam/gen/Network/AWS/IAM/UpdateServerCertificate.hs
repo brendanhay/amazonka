@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateServerCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Updates the name and/or the path of the specified server certificate stored in IAM.
 --
 --
--- For more information about working with server certificates, including a list of AWS services that can use the server certificates that you manage with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/ .
+-- For more information about working with server certificates, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/ . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
 --
 -- /Important:/ You should understand the implications of changing a server certificate's path or name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts Renaming a Server Certificate> in the /IAM User Guide/ .
 --
@@ -59,33 +59,33 @@ data UpdateServerCertificate = UpdateServerCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uNewServerCertificateName' - The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'uNewServerCertificateName' - The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'uNewPath' - The new path for the server certificate. Include this only if you are updating the server certificate's path. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'uNewPath' - The new path for the server certificate. Include this only if you are updating the server certificate's path. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'uServerCertificateName' - The name of the server certificate that you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'uServerCertificateName' - The name of the server certificate that you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 updateServerCertificate
     :: Text -- ^ 'uServerCertificateName'
     -> UpdateServerCertificate
 updateServerCertificate pServerCertificateName_ =
   UpdateServerCertificate'
-  { _uNewServerCertificateName = Nothing
-  , _uNewPath = Nothing
-  , _uServerCertificateName = pServerCertificateName_
-  }
+    { _uNewServerCertificateName = Nothing
+    , _uNewPath = Nothing
+    , _uServerCertificateName = pServerCertificateName_
+    }
 
 
--- | The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 uNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
-uNewServerCertificateName = lens _uNewServerCertificateName (\ s a -> s{_uNewServerCertificateName = a});
+uNewServerCertificateName = lens _uNewServerCertificateName (\ s a -> s{_uNewServerCertificateName = a})
 
--- | The new path for the server certificate. Include this only if you are updating the server certificate's path. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The new path for the server certificate. Include this only if you are updating the server certificate's path. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 uNewPath :: Lens' UpdateServerCertificate (Maybe Text)
-uNewPath = lens _uNewPath (\ s a -> s{_uNewPath = a});
+uNewPath = lens _uNewPath (\ s a -> s{_uNewPath = a})
 
--- | The name of the server certificate that you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the server certificate that you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 uServerCertificateName :: Lens' UpdateServerCertificate Text
-uServerCertificateName = lens _uServerCertificateName (\ s a -> s{_uServerCertificateName = a});
+uServerCertificateName = lens _uServerCertificateName (\ s a -> s{_uServerCertificateName = a})
 
 instance AWSRequest UpdateServerCertificate where
         type Rs UpdateServerCertificate =

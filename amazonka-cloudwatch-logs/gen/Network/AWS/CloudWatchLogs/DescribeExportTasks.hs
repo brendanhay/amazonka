@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeExportTasks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,28 +72,28 @@ describeExportTasks
     :: DescribeExportTasks
 describeExportTasks =
   DescribeExportTasks'
-  { _detTaskId = Nothing
-  , _detNextToken = Nothing
-  , _detLimit = Nothing
-  , _detStatusCode = Nothing
-  }
+    { _detTaskId = Nothing
+    , _detNextToken = Nothing
+    , _detLimit = Nothing
+    , _detStatusCode = Nothing
+    }
 
 
 -- | The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
 detTaskId :: Lens' DescribeExportTasks (Maybe Text)
-detTaskId = lens _detTaskId (\ s a -> s{_detTaskId = a});
+detTaskId = lens _detTaskId (\ s a -> s{_detTaskId = a})
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 detNextToken :: Lens' DescribeExportTasks (Maybe Text)
-detNextToken = lens _detNextToken (\ s a -> s{_detNextToken = a});
+detNextToken = lens _detNextToken (\ s a -> s{_detNextToken = a})
 
 -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 detLimit :: Lens' DescribeExportTasks (Maybe Natural)
-detLimit = lens _detLimit (\ s a -> s{_detLimit = a}) . mapping _Nat;
+detLimit = lens _detLimit (\ s a -> s{_detLimit = a}) . mapping _Nat
 
 -- | The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
 detStatusCode :: Lens' DescribeExportTasks (Maybe ExportTaskStatusCode)
-detStatusCode = lens _detStatusCode (\ s a -> s{_detStatusCode = a});
+detStatusCode = lens _detStatusCode (\ s a -> s{_detStatusCode = a})
 
 instance AWSRequest DescribeExportTasks where
         type Rs DescribeExportTasks =
@@ -157,22 +157,22 @@ describeExportTasksResponse
     -> DescribeExportTasksResponse
 describeExportTasksResponse pResponseStatus_ =
   DescribeExportTasksResponse'
-  { _detrsNextToken = Nothing
-  , _detrsExportTasks = Nothing
-  , _detrsResponseStatus = pResponseStatus_
-  }
+    { _detrsNextToken = Nothing
+    , _detrsExportTasks = Nothing
+    , _detrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 detrsNextToken :: Lens' DescribeExportTasksResponse (Maybe Text)
-detrsNextToken = lens _detrsNextToken (\ s a -> s{_detrsNextToken = a});
+detrsNextToken = lens _detrsNextToken (\ s a -> s{_detrsNextToken = a})
 
 -- | The export tasks.
 detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
-detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce;
+detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
+detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a})
 
 instance NFData DescribeExportTasksResponse where

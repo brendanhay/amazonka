@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -176,8 +176,32 @@ module Network.AWS.Glacier
     -- ** ActionCode
     , ActionCode (..)
 
+    -- ** CannedACL
+    , CannedACL (..)
+
+    -- ** EncryptionType
+    , EncryptionType (..)
+
+    -- ** ExpressionType
+    , ExpressionType (..)
+
+    -- ** FileHeaderInfo
+    , FileHeaderInfo (..)
+
+    -- ** Permission
+    , Permission (..)
+
+    -- ** QuoteFields
+    , QuoteFields (..)
+
     -- ** StatusCode
     , StatusCode (..)
+
+    -- ** StorageClass
+    , StorageClass (..)
+
+    -- ** Type
+    , Type (..)
 
     -- ** ArchiveCreationOutput
     , ArchiveCreationOutput
@@ -185,6 +209,25 @@ module Network.AWS.Glacier
     , acoArchiveId
     , acoChecksum
     , acoLocation
+
+    -- ** CSVInput
+    , CSVInput
+    , csvInput
+    , ciQuoteCharacter
+    , ciRecordDelimiter
+    , ciFileHeaderInfo
+    , ciQuoteEscapeCharacter
+    , ciComments
+    , ciFieldDelimiter
+
+    -- ** CSVOutput
+    , CSVOutput
+    , csvOutput
+    , coQuoteCharacter
+    , coQuoteFields
+    , coRecordDelimiter
+    , coQuoteEscapeCharacter
+    , coFieldDelimiter
 
     -- ** DataRetrievalPolicy
     , DataRetrievalPolicy
@@ -207,12 +250,21 @@ module Network.AWS.Glacier
     , dvoCreationDate
     , dvoNumberOfArchives
 
+    -- ** Encryption
+    , Encryption
+    , encryption
+    , eEncryptionType
+    , eKMSKeyId
+    , eKMSContext
+
     -- ** GlacierJobDescription
     , GlacierJobDescription
     , glacierJobDescription
     , gjdSHA256TreeHash
     , gjdArchiveId
+    , gjdSelectParameters
     , gjdJobId
+    , gjdJobOutputPath
     , gjdRetrievalByteRange
     , gjdInventoryRetrievalParameters
     , gjdAction
@@ -220,6 +272,7 @@ module Network.AWS.Glacier
     , gjdSNSTopic
     , gjdStatusMessage
     , gjdVaultARN
+    , gjdOutputLocation
     , gjdTier
     , gjdArchiveSHA256TreeHash
     , gjdCreationDate
@@ -228,6 +281,26 @@ module Network.AWS.Glacier
     , gjdInventorySizeInBytes
     , gjdArchiveSizeInBytes
     , gjdStatusCode
+
+    -- ** Grant
+    , Grant
+    , grant
+    , gPermission
+    , gGrantee
+
+    -- ** Grantee
+    , Grantee
+    , grantee
+    , gURI
+    , gEmailAddress
+    , gDisplayName
+    , gId
+    , gType
+
+    -- ** InputSerialization
+    , InputSerialization
+    , inputSerialization
+    , isCsv
 
     -- ** InventoryRetrievalJobDescription
     , InventoryRetrievalJobDescription
@@ -250,13 +323,25 @@ module Network.AWS.Glacier
     , JobParameters
     , jobParameters
     , jpArchiveId
+    , jpSelectParameters
     , jpFormat
     , jpRetrievalByteRange
     , jpInventoryRetrievalParameters
     , jpSNSTopic
+    , jpOutputLocation
     , jpTier
     , jpType
     , jpDescription
+
+    -- ** OutputLocation
+    , OutputLocation
+    , outputLocation
+    , olS3
+
+    -- ** OutputSerialization
+    , OutputSerialization
+    , outputSerialization
+    , osCsv
 
     -- ** PartListElement
     , PartListElement
@@ -270,6 +355,26 @@ module Network.AWS.Glacier
     , pcdCapacityId
     , pcdStartDate
     , pcdExpirationDate
+
+    -- ** S3Location
+    , S3Location
+    , s3Location
+    , slCannedACL
+    , slPrefix
+    , slBucketName
+    , slAccessControlList
+    , slUserMetadata
+    , slEncryption
+    , slStorageClass
+    , slTagging
+
+    -- ** SelectParameters
+    , SelectParameters
+    , selectParameters
+    , spExpressionType
+    , spOutputSerialization
+    , spExpression
+    , spInputSerialization
 
     -- ** UploadListElement
     , UploadListElement

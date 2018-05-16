@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateHSMConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -95,43 +95,43 @@ createHSMConfiguration
     -> CreateHSMConfiguration
 createHSMConfiguration pHSMConfigurationIdentifier_ pDescription_ pHSMIPAddress_ pHSMPartitionName_ pHSMPartitionPassword_ pHSMServerPublicCertificate_ =
   CreateHSMConfiguration'
-  { _chcTags = Nothing
-  , _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
-  , _chcDescription = pDescription_
-  , _chcHSMIPAddress = pHSMIPAddress_
-  , _chcHSMPartitionName = pHSMPartitionName_
-  , _chcHSMPartitionPassword = pHSMPartitionPassword_
-  , _chcHSMServerPublicCertificate = pHSMServerPublicCertificate_
-  }
+    { _chcTags = Nothing
+    , _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
+    , _chcDescription = pDescription_
+    , _chcHSMIPAddress = pHSMIPAddress_
+    , _chcHSMPartitionName = pHSMPartitionName_
+    , _chcHSMPartitionPassword = pHSMPartitionPassword_
+    , _chcHSMServerPublicCertificate = pHSMServerPublicCertificate_
+    }
 
 
 -- | A list of tag instances.
 chcTags :: Lens' CreateHSMConfiguration [Tag]
-chcTags = lens _chcTags (\ s a -> s{_chcTags = a}) . _Default . _Coerce;
+chcTags = lens _chcTags (\ s a -> s{_chcTags = a}) . _Default . _Coerce
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM configuration.
 chcHSMConfigurationIdentifier :: Lens' CreateHSMConfiguration Text
-chcHSMConfigurationIdentifier = lens _chcHSMConfigurationIdentifier (\ s a -> s{_chcHSMConfigurationIdentifier = a});
+chcHSMConfigurationIdentifier = lens _chcHSMConfigurationIdentifier (\ s a -> s{_chcHSMConfigurationIdentifier = a})
 
 -- | A text description of the HSM configuration to be created.
 chcDescription :: Lens' CreateHSMConfiguration Text
-chcDescription = lens _chcDescription (\ s a -> s{_chcDescription = a});
+chcDescription = lens _chcDescription (\ s a -> s{_chcDescription = a})
 
 -- | The IP address that the Amazon Redshift cluster must use to access the HSM.
 chcHSMIPAddress :: Lens' CreateHSMConfiguration Text
-chcHSMIPAddress = lens _chcHSMIPAddress (\ s a -> s{_chcHSMIPAddress = a});
+chcHSMIPAddress = lens _chcHSMIPAddress (\ s a -> s{_chcHSMIPAddress = a})
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
 chcHSMPartitionName :: Lens' CreateHSMConfiguration Text
-chcHSMPartitionName = lens _chcHSMPartitionName (\ s a -> s{_chcHSMPartitionName = a});
+chcHSMPartitionName = lens _chcHSMPartitionName (\ s a -> s{_chcHSMPartitionName = a})
 
 -- | The password required to access the HSM partition.
 chcHSMPartitionPassword :: Lens' CreateHSMConfiguration Text
-chcHSMPartitionPassword = lens _chcHSMPartitionPassword (\ s a -> s{_chcHSMPartitionPassword = a});
+chcHSMPartitionPassword = lens _chcHSMPartitionPassword (\ s a -> s{_chcHSMPartitionPassword = a})
 
 -- | The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 chcHSMServerPublicCertificate :: Lens' CreateHSMConfiguration Text
-chcHSMServerPublicCertificate = lens _chcHSMServerPublicCertificate (\ s a -> s{_chcHSMServerPublicCertificate = a});
+chcHSMServerPublicCertificate = lens _chcHSMServerPublicCertificate (\ s a -> s{_chcHSMServerPublicCertificate = a})
 
 instance AWSRequest CreateHSMConfiguration where
         type Rs CreateHSMConfiguration =
@@ -188,15 +188,15 @@ createHSMConfigurationResponse
     -> CreateHSMConfigurationResponse
 createHSMConfigurationResponse pResponseStatus_ =
   CreateHSMConfigurationResponse'
-  {_chcrsHSMConfiguration = Nothing, _chcrsResponseStatus = pResponseStatus_}
+    {_chcrsHSMConfiguration = Nothing, _chcrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 chcrsHSMConfiguration :: Lens' CreateHSMConfigurationResponse (Maybe HSMConfiguration)
-chcrsHSMConfiguration = lens _chcrsHSMConfiguration (\ s a -> s{_chcrsHSMConfiguration = a});
+chcrsHSMConfiguration = lens _chcrsHSMConfiguration (\ s a -> s{_chcrsHSMConfiguration = a})
 
 -- | -- | The response status code.
 chcrsResponseStatus :: Lens' CreateHSMConfigurationResponse Int
-chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
+chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a})
 
 instance NFData CreateHSMConfigurationResponse where

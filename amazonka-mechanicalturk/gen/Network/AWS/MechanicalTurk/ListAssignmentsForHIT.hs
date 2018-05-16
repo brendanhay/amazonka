@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListAssignmentsForHIT
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,8 @@
 --
 -- Results are sorted and divided into numbered pages and the operation returns a single page of results. You can use the parameters of the operation to control sorting and pagination.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListAssignmentsForHIT
     (
     -- * Creating a Request
@@ -53,6 +55,7 @@ module Network.AWS.MechanicalTurk.ListAssignmentsForHIT
 import Network.AWS.Lens
 import Network.AWS.MechanicalTurk.Types
 import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,28 +85,36 @@ listAssignmentsForHIT
     -> ListAssignmentsForHIT
 listAssignmentsForHIT pHITId_ =
   ListAssignmentsForHIT'
-  { _lafhitAssignmentStatuses = Nothing
-  , _lafhitNextToken = Nothing
-  , _lafhitMaxResults = Nothing
-  , _lafhitHITId = pHITId_
-  }
+    { _lafhitAssignmentStatuses = Nothing
+    , _lafhitNextToken = Nothing
+    , _lafhitMaxResults = Nothing
+    , _lafhitHITId = pHITId_
+    }
 
 
 -- | The status of the assignments to return: Submitted | Approved | Rejected
 lafhitAssignmentStatuses :: Lens' ListAssignmentsForHIT [AssignmentStatus]
-lafhitAssignmentStatuses = lens _lafhitAssignmentStatuses (\ s a -> s{_lafhitAssignmentStatuses = a}) . _Default . _Coerce;
+lafhitAssignmentStatuses = lens _lafhitAssignmentStatuses (\ s a -> s{_lafhitAssignmentStatuses = a}) . _Default . _Coerce
 
 -- | Pagination token
 lafhitNextToken :: Lens' ListAssignmentsForHIT (Maybe Text)
-lafhitNextToken = lens _lafhitNextToken (\ s a -> s{_lafhitNextToken = a});
+lafhitNextToken = lens _lafhitNextToken (\ s a -> s{_lafhitNextToken = a})
 
 -- | Undocumented member.
 lafhitMaxResults :: Lens' ListAssignmentsForHIT (Maybe Natural)
-lafhitMaxResults = lens _lafhitMaxResults (\ s a -> s{_lafhitMaxResults = a}) . mapping _Nat;
+lafhitMaxResults = lens _lafhitMaxResults (\ s a -> s{_lafhitMaxResults = a}) . mapping _Nat
 
 -- | The ID of the HIT.
 lafhitHITId :: Lens' ListAssignmentsForHIT Text
-lafhitHITId = lens _lafhitHITId (\ s a -> s{_lafhitHITId = a});
+lafhitHITId = lens _lafhitHITId (\ s a -> s{_lafhitHITId = a})
+
+instance AWSPager ListAssignmentsForHIT where
+        page rq rs
+          | stop (rs ^. lafhitrsNextToken) = Nothing
+          | stop (rs ^. lafhitrsAssignments) = Nothing
+          | otherwise =
+            Just $ rq &
+              lafhitNextToken .~ rs ^. lafhitrsNextToken
 
 instance AWSRequest ListAssignmentsForHIT where
         type Rs ListAssignmentsForHIT =
@@ -172,27 +183,27 @@ listAssignmentsForHITResponse
     -> ListAssignmentsForHITResponse
 listAssignmentsForHITResponse pResponseStatus_ =
   ListAssignmentsForHITResponse'
-  { _lafhitrsNextToken = Nothing
-  , _lafhitrsNumResults = Nothing
-  , _lafhitrsAssignments = Nothing
-  , _lafhitrsResponseStatus = pResponseStatus_
-  }
+    { _lafhitrsNextToken = Nothing
+    , _lafhitrsNumResults = Nothing
+    , _lafhitrsAssignments = Nothing
+    , _lafhitrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 lafhitrsNextToken :: Lens' ListAssignmentsForHITResponse (Maybe Text)
-lafhitrsNextToken = lens _lafhitrsNextToken (\ s a -> s{_lafhitrsNextToken = a});
+lafhitrsNextToken = lens _lafhitrsNextToken (\ s a -> s{_lafhitrsNextToken = a})
 
 -- | The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
 lafhitrsNumResults :: Lens' ListAssignmentsForHITResponse (Maybe Int)
-lafhitrsNumResults = lens _lafhitrsNumResults (\ s a -> s{_lafhitrsNumResults = a});
+lafhitrsNumResults = lens _lafhitrsNumResults (\ s a -> s{_lafhitrsNumResults = a})
 
 -- | The collection of Assignment data structures returned by this call.
 lafhitrsAssignments :: Lens' ListAssignmentsForHITResponse [Assignment]
-lafhitrsAssignments = lens _lafhitrsAssignments (\ s a -> s{_lafhitrsAssignments = a}) . _Default . _Coerce;
+lafhitrsAssignments = lens _lafhitrsAssignments (\ s a -> s{_lafhitrsAssignments = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lafhitrsResponseStatus :: Lens' ListAssignmentsForHITResponse Int
-lafhitrsResponseStatus = lens _lafhitrsResponseStatus (\ s a -> s{_lafhitrsResponseStatus = a});
+lafhitrsResponseStatus = lens _lafhitrsResponseStatus (\ s a -> s{_lafhitrsResponseStatus = a})
 
 instance NFData ListAssignmentsForHITResponse where

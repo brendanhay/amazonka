@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.ListUserProfiles
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ listUserProfiles =
 
 -- | The continuation token for the next set of results, if the results cannot be returned in one response.
 lupNextToken :: Lens' ListUserProfiles (Maybe Text)
-lupNextToken = lens _lupNextToken (\ s a -> s{_lupNextToken = a});
+lupNextToken = lens _lupNextToken (\ s a -> s{_lupNextToken = a})
 
 -- | The maximum number of results to return in a response.
 lupMaxResults :: Lens' ListUserProfiles (Maybe Natural)
-lupMaxResults = lens _lupMaxResults (\ s a -> s{_lupMaxResults = a}) . mapping _Nat;
+lupMaxResults = lens _lupMaxResults (\ s a -> s{_lupMaxResults = a}) . mapping _Nat
 
 instance AWSRequest ListUserProfiles where
         type Rs ListUserProfiles = ListUserProfilesResponse
@@ -132,22 +132,22 @@ listUserProfilesResponse
     -> ListUserProfilesResponse
 listUserProfilesResponse pResponseStatus_ =
   ListUserProfilesResponse'
-  { _luprsNextToken = Nothing
-  , _luprsResponseStatus = pResponseStatus_
-  , _luprsUserProfiles = mempty
-  }
+    { _luprsNextToken = Nothing
+    , _luprsResponseStatus = pResponseStatus_
+    , _luprsUserProfiles = mempty
+    }
 
 
 -- | The continuation token to use when requesting the next set of results, if there are more results to be returned.
 luprsNextToken :: Lens' ListUserProfilesResponse (Maybe Text)
-luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a});
+luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a})
 
 -- | -- | The response status code.
 luprsResponseStatus :: Lens' ListUserProfilesResponse Int
-luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a});
+luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a})
 
 -- | All the user profiles configured in AWS CodeStar for an AWS account.
 luprsUserProfiles :: Lens' ListUserProfilesResponse [UserProfileSummary]
-luprsUserProfiles = lens _luprsUserProfiles (\ s a -> s{_luprsUserProfiles = a}) . _Coerce;
+luprsUserProfiles = lens _luprsUserProfiles (\ s a -> s{_luprsUserProfiles = a}) . _Coerce
 
 instance NFData ListUserProfilesResponse where

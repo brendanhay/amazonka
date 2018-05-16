@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeFleetPortSettings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,15 +27,21 @@
 --
 --     * 'ListFleets'
 --
+--     * 'DeleteFleet'
+--
 --     * Describe fleets:
 --
 --     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetCapacity'
 --
 --     * 'DescribeFleetPortSettings'
 --
 --     * 'DescribeFleetUtilization'
 --
 --     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeEC2InstanceLimits'
 --
 --     * 'DescribeFleetEvents'
 --
@@ -53,23 +59,13 @@
 --
 --
 --
---     * Manage fleet capacity:
+--     * Manage fleet actions:
 --
---     * 'DescribeFleetCapacity'
+--     * 'StartFleetActions'
 --
---     * 'UpdateFleetCapacity'
---
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
---     * 'DescribeEC2InstanceLimits'
+--     * 'StopFleetActions'
 --
 --
---
---     * 'DeleteFleet'
 --
 --
 --
@@ -120,7 +116,7 @@ describeFleetPortSettings pFleetId_ =
 
 -- | Unique identifier for a fleet to retrieve port settings for.
 dfpsFleetId :: Lens' DescribeFleetPortSettings Text
-dfpsFleetId = lens _dfpsFleetId (\ s a -> s{_dfpsFleetId = a});
+dfpsFleetId = lens _dfpsFleetId (\ s a -> s{_dfpsFleetId = a})
 
 instance AWSRequest DescribeFleetPortSettings where
         type Rs DescribeFleetPortSettings =
@@ -180,18 +176,18 @@ describeFleetPortSettingsResponse
     -> DescribeFleetPortSettingsResponse
 describeFleetPortSettingsResponse pResponseStatus_ =
   DescribeFleetPortSettingsResponse'
-  { _dfpsrsInboundPermissions = Nothing
-  , _dfpsrsResponseStatus = pResponseStatus_
-  }
+    { _dfpsrsInboundPermissions = Nothing
+    , _dfpsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Object that contains port settings for the requested fleet ID.
 dfpsrsInboundPermissions :: Lens' DescribeFleetPortSettingsResponse [IPPermission]
-dfpsrsInboundPermissions = lens _dfpsrsInboundPermissions (\ s a -> s{_dfpsrsInboundPermissions = a}) . _Default . _Coerce;
+dfpsrsInboundPermissions = lens _dfpsrsInboundPermissions (\ s a -> s{_dfpsrsInboundPermissions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dfpsrsResponseStatus :: Lens' DescribeFleetPortSettingsResponse Int
-dfpsrsResponseStatus = lens _dfpsrsResponseStatus (\ s a -> s{_dfpsrsResponseStatus = a});
+dfpsrsResponseStatus = lens _dfpsrsResponseStatus (\ s a -> s{_dfpsrsResponseStatus = a})
 
 instance NFData DescribeFleetPortSettingsResponse
          where

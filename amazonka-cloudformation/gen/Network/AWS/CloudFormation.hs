@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -115,6 +115,9 @@ module Network.AWS.CloudFormation
 
     -- ** ListStackResources (Paginated)
     , module Network.AWS.CloudFormation.ListStackResources
+
+    -- ** UpdateStackInstances
+    , module Network.AWS.CloudFormation.UpdateStackInstances
 
     -- ** DeleteStackInstances
     , module Network.AWS.CloudFormation.DeleteStackInstances
@@ -336,6 +339,7 @@ module Network.AWS.CloudFormation
     , Parameter
     , parameter
     , pParameterValue
+    , pResolvedValue
     , pParameterKey
     , pUsePreviousValue
 
@@ -440,6 +444,7 @@ module Network.AWS.CloudFormation
     , siRegion
     , siStatusReason
     , siStackId
+    , siParameterOverrides
     , siStackSetId
 
     -- ** StackInstanceSummary
@@ -493,6 +498,8 @@ module Network.AWS.CloudFormation
     , StackSet
     , stackSet
     , ssStatus
+    , ssAdministrationRoleARN
+    , ssStackSetARN
     , ssParameters
     , ssTemplateBody
     , ssStackSetName
@@ -505,6 +512,7 @@ module Network.AWS.CloudFormation
     , StackSetOperation
     , stackSetOperation
     , ssoStatus
+    , ssoAdministrationRoleARN
     , ssoAction
     , ssoEndTimestamp
     , ssoCreationTimestamp
@@ -615,6 +623,7 @@ import Network.AWS.CloudFormation.SignalResource
 import Network.AWS.CloudFormation.StopStackSetOperation
 import Network.AWS.CloudFormation.Types
 import Network.AWS.CloudFormation.UpdateStack
+import Network.AWS.CloudFormation.UpdateStackInstances
 import Network.AWS.CloudFormation.UpdateStackSet
 import Network.AWS.CloudFormation.UpdateTerminationProtection
 import Network.AWS.CloudFormation.ValidateTemplate

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifyClusterParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ modifyClusterParameterGroup
     -> ModifyClusterParameterGroup
 modifyClusterParameterGroup pParameterGroupName_ =
   ModifyClusterParameterGroup'
-  {_mcpgParameterGroupName = pParameterGroupName_, _mcpgParameters = mempty}
+    {_mcpgParameterGroupName = pParameterGroupName_, _mcpgParameters = mempty}
 
 
 -- | The name of the parameter group to be modified.
 mcpgParameterGroupName :: Lens' ModifyClusterParameterGroup Text
-mcpgParameterGroupName = lens _mcpgParameterGroupName (\ s a -> s{_mcpgParameterGroupName = a});
+mcpgParameterGroupName = lens _mcpgParameterGroupName (\ s a -> s{_mcpgParameterGroupName = a})
 
 -- | An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request. For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional. For the workload management (WLM) configuration, you must supply all the name-value pairs in the wlm_json_configuration parameter.
 mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
-mcpgParameters = lens _mcpgParameters (\ s a -> s{_mcpgParameters = a}) . _Coerce;
+mcpgParameters = lens _mcpgParameters (\ s a -> s{_mcpgParameters = a}) . _Coerce
 
 instance AWSRequest ModifyClusterParameterGroup where
         type Rs ModifyClusterParameterGroup =

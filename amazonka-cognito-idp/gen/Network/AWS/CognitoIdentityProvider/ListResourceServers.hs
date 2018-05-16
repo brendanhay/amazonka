@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListResourceServers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ listResourceServers
     -> ListResourceServers
 listResourceServers pUserPoolId_ =
   ListResourceServers'
-  { _lrsNextToken = Nothing
-  , _lrsMaxResults = Nothing
-  , _lrsUserPoolId = pUserPoolId_
-  }
+    { _lrsNextToken = Nothing
+    , _lrsMaxResults = Nothing
+    , _lrsUserPoolId = pUserPoolId_
+    }
 
 
 -- | A pagination token.
 lrsNextToken :: Lens' ListResourceServers (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
+lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a})
 
 -- | The maximum number of resource servers to return.
 lrsMaxResults :: Lens' ListResourceServers (Maybe Natural)
-lrsMaxResults = lens _lrsMaxResults (\ s a -> s{_lrsMaxResults = a}) . mapping _Nat;
+lrsMaxResults = lens _lrsMaxResults (\ s a -> s{_lrsMaxResults = a}) . mapping _Nat
 
 -- | The user pool ID for the user pool.
 lrsUserPoolId :: Lens' ListResourceServers Text
-lrsUserPoolId = lens _lrsUserPoolId (\ s a -> s{_lrsUserPoolId = a});
+lrsUserPoolId = lens _lrsUserPoolId (\ s a -> s{_lrsUserPoolId = a})
 
 instance AWSRequest ListResourceServers where
         type Rs ListResourceServers =
@@ -148,22 +148,22 @@ listResourceServersResponse
     -> ListResourceServersResponse
 listResourceServersResponse pResponseStatus_ =
   ListResourceServersResponse'
-  { _lrsrsNextToken = Nothing
-  , _lrsrsResponseStatus = pResponseStatus_
-  , _lrsrsResourceServers = mempty
-  }
+    { _lrsrsNextToken = Nothing
+    , _lrsrsResponseStatus = pResponseStatus_
+    , _lrsrsResourceServers = mempty
+    }
 
 
 -- | A pagination token.
 lrsrsNextToken :: Lens' ListResourceServersResponse (Maybe Text)
-lrsrsNextToken = lens _lrsrsNextToken (\ s a -> s{_lrsrsNextToken = a});
+lrsrsNextToken = lens _lrsrsNextToken (\ s a -> s{_lrsrsNextToken = a})
 
 -- | -- | The response status code.
 lrsrsResponseStatus :: Lens' ListResourceServersResponse Int
-lrsrsResponseStatus = lens _lrsrsResponseStatus (\ s a -> s{_lrsrsResponseStatus = a});
+lrsrsResponseStatus = lens _lrsrsResponseStatus (\ s a -> s{_lrsrsResponseStatus = a})
 
 -- | The resource servers.
 lrsrsResourceServers :: Lens' ListResourceServersResponse [ResourceServerType]
-lrsrsResourceServers = lens _lrsrsResourceServers (\ s a -> s{_lrsrsResourceServers = a}) . _Coerce;
+lrsrsResourceServers = lens _lrsrsResourceServers (\ s a -> s{_lrsrsResourceServers = a}) . _Coerce
 
 instance NFData ListResourceServersResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.AuthorizeSnapshotAccess
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ authorizeSnapshotAccess
     -> AuthorizeSnapshotAccess
 authorizeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
   AuthorizeSnapshotAccess'
-  { _asaSnapshotClusterIdentifier = Nothing
-  , _asaSnapshotIdentifier = pSnapshotIdentifier_
-  , _asaAccountWithRestoreAccess = pAccountWithRestoreAccess_
-  }
+    { _asaSnapshotClusterIdentifier = Nothing
+    , _asaSnapshotIdentifier = pSnapshotIdentifier_
+    , _asaAccountWithRestoreAccess = pAccountWithRestoreAccess_
+    }
 
 
 -- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 asaSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
-asaSnapshotClusterIdentifier = lens _asaSnapshotClusterIdentifier (\ s a -> s{_asaSnapshotClusterIdentifier = a});
+asaSnapshotClusterIdentifier = lens _asaSnapshotClusterIdentifier (\ s a -> s{_asaSnapshotClusterIdentifier = a})
 
 -- | The identifier of the snapshot the account is authorized to restore.
 asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
-asaSnapshotIdentifier = lens _asaSnapshotIdentifier (\ s a -> s{_asaSnapshotIdentifier = a});
+asaSnapshotIdentifier = lens _asaSnapshotIdentifier (\ s a -> s{_asaSnapshotIdentifier = a})
 
 -- | The identifier of the AWS customer account authorized to restore the specified snapshot. To share a snapshot with AWS support, specify amazon-redshift-support.
 asaAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
-asaAccountWithRestoreAccess = lens _asaAccountWithRestoreAccess (\ s a -> s{_asaAccountWithRestoreAccess = a});
+asaAccountWithRestoreAccess = lens _asaAccountWithRestoreAccess (\ s a -> s{_asaAccountWithRestoreAccess = a})
 
 instance AWSRequest AuthorizeSnapshotAccess where
         type Rs AuthorizeSnapshotAccess =
@@ -144,15 +144,15 @@ authorizeSnapshotAccessResponse
     -> AuthorizeSnapshotAccessResponse
 authorizeSnapshotAccessResponse pResponseStatus_ =
   AuthorizeSnapshotAccessResponse'
-  {_asarsSnapshot = Nothing, _asarsResponseStatus = pResponseStatus_}
+    {_asarsSnapshot = Nothing, _asarsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 asarsSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
-asarsSnapshot = lens _asarsSnapshot (\ s a -> s{_asarsSnapshot = a});
+asarsSnapshot = lens _asarsSnapshot (\ s a -> s{_asarsSnapshot = a})
 
 -- | -- | The response status code.
 asarsResponseStatus :: Lens' AuthorizeSnapshotAccessResponse Int
-asarsResponseStatus = lens _asarsResponseStatus (\ s a -> s{_asarsResponseStatus = a});
+asarsResponseStatus = lens _asarsResponseStatus (\ s a -> s{_asarsResponseStatus = a})
 
 instance NFData AuthorizeSnapshotAccessResponse where

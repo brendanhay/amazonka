@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.StopAssessmentRun
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,16 +61,16 @@ stopAssessmentRun
     -> StopAssessmentRun
 stopAssessmentRun pAssessmentRunARN_ =
   StopAssessmentRun'
-  {_sarStopAction = Nothing, _sarAssessmentRunARN = pAssessmentRunARN_}
+    {_sarStopAction = Nothing, _sarAssessmentRunARN = pAssessmentRunARN_}
 
 
 -- | An input option that can be set to either START_EVALUATION or SKIP_EVALUATION. START_EVALUATION (the default value), stops the AWS agent from collecting data and begins the results evaluation and the findings generation process. SKIP_EVALUATION cancels the assessment run immediately, after which no findings are generated.
 sarStopAction :: Lens' StopAssessmentRun (Maybe StopAction)
-sarStopAction = lens _sarStopAction (\ s a -> s{_sarStopAction = a});
+sarStopAction = lens _sarStopAction (\ s a -> s{_sarStopAction = a})
 
 -- | The ARN of the assessment run that you want to stop.
 sarAssessmentRunARN :: Lens' StopAssessmentRun Text
-sarAssessmentRunARN = lens _sarAssessmentRunARN (\ s a -> s{_sarAssessmentRunARN = a});
+sarAssessmentRunARN = lens _sarAssessmentRunARN (\ s a -> s{_sarAssessmentRunARN = a})
 
 instance AWSRequest StopAssessmentRun where
         type Rs StopAssessmentRun = StopAssessmentRunResponse

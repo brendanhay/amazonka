@@ -11,7 +11,7 @@
 
 -- |
 -- Module      : Test.AWS.Fixture
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -23,7 +23,6 @@ import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Bifunctor
 import qualified Data.ByteString.Lazy         as LBS
-import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import qualified Data.HashMap.Strict          as Map
 import           Data.List                    (sortBy)
@@ -97,7 +96,7 @@ testResponse s p lbs = do
         { responseStatus    = status200
         , responseVersion   = http11
         , responseHeaders   = mempty
-        , responseBody      = newResumableSource (Conduit.sourceLbs lbs)
+        , responseBody      = Conduit.sourceLbs lbs
         , responseCookieJar = mempty
         , responseClose'    = ResponseClose (pure ())
         }

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListIncomingTypedLinks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,43 +86,43 @@ listIncomingTypedLinks
     -> ListIncomingTypedLinks
 listIncomingTypedLinks pDirectoryARN_ pObjectReference_ =
   ListIncomingTypedLinks'
-  { _litlFilterAttributeRanges = Nothing
-  , _litlConsistencyLevel = Nothing
-  , _litlNextToken = Nothing
-  , _litlFilterTypedLink = Nothing
-  , _litlMaxResults = Nothing
-  , _litlDirectoryARN = pDirectoryARN_
-  , _litlObjectReference = pObjectReference_
-  }
+    { _litlFilterAttributeRanges = Nothing
+    , _litlConsistencyLevel = Nothing
+    , _litlNextToken = Nothing
+    , _litlFilterTypedLink = Nothing
+    , _litlMaxResults = Nothing
+    , _litlDirectoryARN = pDirectoryARN_
+    , _litlObjectReference = pObjectReference_
+    }
 
 
 -- | Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
 litlFilterAttributeRanges :: Lens' ListIncomingTypedLinks [TypedLinkAttributeRange]
-litlFilterAttributeRanges = lens _litlFilterAttributeRanges (\ s a -> s{_litlFilterAttributeRanges = a}) . _Default . _Coerce;
+litlFilterAttributeRanges = lens _litlFilterAttributeRanges (\ s a -> s{_litlFilterAttributeRanges = a}) . _Default . _Coerce
 
 -- | The consistency level to execute the request at.
 litlConsistencyLevel :: Lens' ListIncomingTypedLinks (Maybe ConsistencyLevel)
-litlConsistencyLevel = lens _litlConsistencyLevel (\ s a -> s{_litlConsistencyLevel = a});
+litlConsistencyLevel = lens _litlConsistencyLevel (\ s a -> s{_litlConsistencyLevel = a})
 
 -- | The pagination token.
 litlNextToken :: Lens' ListIncomingTypedLinks (Maybe Text)
-litlNextToken = lens _litlNextToken (\ s a -> s{_litlNextToken = a});
+litlNextToken = lens _litlNextToken (\ s a -> s{_litlNextToken = a})
 
 -- | Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls.
 litlFilterTypedLink :: Lens' ListIncomingTypedLinks (Maybe TypedLinkSchemaAndFacetName)
-litlFilterTypedLink = lens _litlFilterTypedLink (\ s a -> s{_litlFilterTypedLink = a});
+litlFilterTypedLink = lens _litlFilterTypedLink (\ s a -> s{_litlFilterTypedLink = a})
 
 -- | The maximum number of results to retrieve.
 litlMaxResults :: Lens' ListIncomingTypedLinks (Maybe Natural)
-litlMaxResults = lens _litlMaxResults (\ s a -> s{_litlMaxResults = a}) . mapping _Nat;
+litlMaxResults = lens _litlMaxResults (\ s a -> s{_litlMaxResults = a}) . mapping _Nat
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to list the typed links.
 litlDirectoryARN :: Lens' ListIncomingTypedLinks Text
-litlDirectoryARN = lens _litlDirectoryARN (\ s a -> s{_litlDirectoryARN = a});
+litlDirectoryARN = lens _litlDirectoryARN (\ s a -> s{_litlDirectoryARN = a})
 
 -- | Reference that identifies the object whose attributes will be listed.
 litlObjectReference :: Lens' ListIncomingTypedLinks ObjectReference
-litlObjectReference = lens _litlObjectReference (\ s a -> s{_litlObjectReference = a});
+litlObjectReference = lens _litlObjectReference (\ s a -> s{_litlObjectReference = a})
 
 instance AWSRequest ListIncomingTypedLinks where
         type Rs ListIncomingTypedLinks =
@@ -187,22 +187,22 @@ listIncomingTypedLinksResponse
     -> ListIncomingTypedLinksResponse
 listIncomingTypedLinksResponse pResponseStatus_ =
   ListIncomingTypedLinksResponse'
-  { _litlrsLinkSpecifiers = Nothing
-  , _litlrsNextToken = Nothing
-  , _litlrsResponseStatus = pResponseStatus_
-  }
+    { _litlrsLinkSpecifiers = Nothing
+    , _litlrsNextToken = Nothing
+    , _litlrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Returns one or more typed link specifiers as output.
 litlrsLinkSpecifiers :: Lens' ListIncomingTypedLinksResponse [TypedLinkSpecifier]
-litlrsLinkSpecifiers = lens _litlrsLinkSpecifiers (\ s a -> s{_litlrsLinkSpecifiers = a}) . _Default . _Coerce;
+litlrsLinkSpecifiers = lens _litlrsLinkSpecifiers (\ s a -> s{_litlrsLinkSpecifiers = a}) . _Default . _Coerce
 
 -- | The pagination token.
 litlrsNextToken :: Lens' ListIncomingTypedLinksResponse (Maybe Text)
-litlrsNextToken = lens _litlrsNextToken (\ s a -> s{_litlrsNextToken = a});
+litlrsNextToken = lens _litlrsNextToken (\ s a -> s{_litlrsNextToken = a})
 
 -- | -- | The response status code.
 litlrsResponseStatus :: Lens' ListIncomingTypedLinksResponse Int
-litlrsResponseStatus = lens _litlrsResponseStatus (\ s a -> s{_litlrsResponseStatus = a});
+litlrsResponseStatus = lens _litlrsResponseStatus (\ s a -> s{_litlrsResponseStatus = a})
 
 instance NFData ListIncomingTypedLinksResponse where

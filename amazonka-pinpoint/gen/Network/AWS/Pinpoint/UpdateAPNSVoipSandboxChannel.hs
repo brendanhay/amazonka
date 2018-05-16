@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateAPNSVoipSandboxChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ updateAPNSVoipSandboxChannel
     -> UpdateAPNSVoipSandboxChannel
 updateAPNSVoipSandboxChannel pApplicationId_ pAPNSVoipSandboxChannelRequest_ =
   UpdateAPNSVoipSandboxChannel'
-  { _uavscApplicationId = pApplicationId_
-  , _uavscAPNSVoipSandboxChannelRequest = pAPNSVoipSandboxChannelRequest_
-  }
+    { _uavscApplicationId = pApplicationId_
+    , _uavscAPNSVoipSandboxChannelRequest = pAPNSVoipSandboxChannelRequest_
+    }
 
 
 -- | Undocumented member.
 uavscApplicationId :: Lens' UpdateAPNSVoipSandboxChannel Text
-uavscApplicationId = lens _uavscApplicationId (\ s a -> s{_uavscApplicationId = a});
+uavscApplicationId = lens _uavscApplicationId (\ s a -> s{_uavscApplicationId = a})
 
 -- | Undocumented member.
 uavscAPNSVoipSandboxChannelRequest :: Lens' UpdateAPNSVoipSandboxChannel APNSVoipSandboxChannelRequest
-uavscAPNSVoipSandboxChannelRequest = lens _uavscAPNSVoipSandboxChannelRequest (\ s a -> s{_uavscAPNSVoipSandboxChannelRequest = a});
+uavscAPNSVoipSandboxChannelRequest = lens _uavscAPNSVoipSandboxChannelRequest (\ s a -> s{_uavscAPNSVoipSandboxChannelRequest = a})
 
 instance AWSRequest UpdateAPNSVoipSandboxChannel
          where
@@ -135,18 +135,18 @@ updateAPNSVoipSandboxChannelResponse
     -> UpdateAPNSVoipSandboxChannelResponse
 updateAPNSVoipSandboxChannelResponse pResponseStatus_ pAPNSVoipSandboxChannelResponse_ =
   UpdateAPNSVoipSandboxChannelResponse'
-  { _uavscrsResponseStatus = pResponseStatus_
-  , _uavscrsAPNSVoipSandboxChannelResponse = pAPNSVoipSandboxChannelResponse_
-  }
+    { _uavscrsResponseStatus = pResponseStatus_
+    , _uavscrsAPNSVoipSandboxChannelResponse = pAPNSVoipSandboxChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 uavscrsResponseStatus :: Lens' UpdateAPNSVoipSandboxChannelResponse Int
-uavscrsResponseStatus = lens _uavscrsResponseStatus (\ s a -> s{_uavscrsResponseStatus = a});
+uavscrsResponseStatus = lens _uavscrsResponseStatus (\ s a -> s{_uavscrsResponseStatus = a})
 
 -- | Undocumented member.
 uavscrsAPNSVoipSandboxChannelResponse :: Lens' UpdateAPNSVoipSandboxChannelResponse APNSVoipSandboxChannelResponse
-uavscrsAPNSVoipSandboxChannelResponse = lens _uavscrsAPNSVoipSandboxChannelResponse (\ s a -> s{_uavscrsAPNSVoipSandboxChannelResponse = a});
+uavscrsAPNSVoipSandboxChannelResponse = lens _uavscrsAPNSVoipSandboxChannelResponse (\ s a -> s{_uavscrsAPNSVoipSandboxChannelResponse = a})
 
 instance NFData UpdateAPNSVoipSandboxChannelResponse
          where

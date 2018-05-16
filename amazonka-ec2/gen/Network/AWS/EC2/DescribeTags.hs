@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ data DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtFilters' - One or more filters.     * @key@ - The tag key.     * @resource-id@ - The resource ID.     * @resource-type@ - The resource type (@customer-gateway@ | @dhcp-options@ | @image@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-interface@ | @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@ | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ | @vpn-connection@ | @vpn-gateway@ ).     * @value@ - The tag value.
+-- * 'dtFilters' - One or more filters.     * @key@ - The tag key.     * @resource-id@ - The resource ID.     * @resource-type@ - The resource type (@customer-gateway@ | @dhcp-options@ | @elastic-ip@ | @fpga-image@ | @image@ | @instance@ | @internet-gateway@ | @launch-template@ | @natgateway@ | @network-acl@ | @network-interface@ | @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@ | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ ).     * @value@ - The tag value.
 --
 -- * 'dtNextToken' - The token to retrieve the next page of results.
 --
@@ -81,28 +81,28 @@ describeTags
     :: DescribeTags
 describeTags =
   DescribeTags'
-  { _dtFilters = Nothing
-  , _dtNextToken = Nothing
-  , _dtDryRun = Nothing
-  , _dtMaxResults = Nothing
-  }
+    { _dtFilters = Nothing
+    , _dtNextToken = Nothing
+    , _dtDryRun = Nothing
+    , _dtMaxResults = Nothing
+    }
 
 
--- | One or more filters.     * @key@ - The tag key.     * @resource-id@ - The resource ID.     * @resource-type@ - The resource type (@customer-gateway@ | @dhcp-options@ | @image@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-interface@ | @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@ | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ | @vpn-connection@ | @vpn-gateway@ ).     * @value@ - The tag value.
+-- | One or more filters.     * @key@ - The tag key.     * @resource-id@ - The resource ID.     * @resource-type@ - The resource type (@customer-gateway@ | @dhcp-options@ | @elastic-ip@ | @fpga-image@ | @image@ | @instance@ | @internet-gateway@ | @launch-template@ | @natgateway@ | @network-acl@ | @network-interface@ | @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@ | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ ).     * @value@ - The tag value.
 dtFilters :: Lens' DescribeTags [Filter]
-dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
+dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce
 
 -- | The token to retrieve the next page of results.
 dtNextToken :: Lens' DescribeTags (Maybe Text)
-dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
+dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dtDryRun :: Lens' DescribeTags (Maybe Bool)
-dtDryRun = lens _dtDryRun (\ s a -> s{_dtDryRun = a});
+dtDryRun = lens _dtDryRun (\ s a -> s{_dtDryRun = a})
 
 -- | The maximum number of results to return in a single call. This value can be between 5 and 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 dtMaxResults :: Lens' DescribeTags (Maybe Int)
-dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a});
+dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a})
 
 instance AWSPager DescribeTags where
         page rq rs
@@ -168,22 +168,22 @@ describeTagsResponse
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
   DescribeTagsResponse'
-  { _dtrsNextToken = Nothing
-  , _dtrsTags = Nothing
-  , _dtrsResponseStatus = pResponseStatus_
-  }
+    { _dtrsNextToken = Nothing
+    , _dtrsTags = Nothing
+    , _dtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return..
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
+dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a})
 
 -- | A list of tags.
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
+dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
 
 instance NFData DescribeTagsResponse where

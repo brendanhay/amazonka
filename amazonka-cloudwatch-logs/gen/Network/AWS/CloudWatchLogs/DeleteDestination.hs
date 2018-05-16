@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteDestination
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ deleteDestination pDestinationName_ =
 
 -- | The name of the destination.
 ddDestinationName :: Lens' DeleteDestination Text
-ddDestinationName = lens _ddDestinationName (\ s a -> s{_ddDestinationName = a});
+ddDestinationName = lens _ddDestinationName (\ s a -> s{_ddDestinationName = a})
 
 instance AWSRequest DeleteDestination where
         type Rs DeleteDestination = DeleteDestinationResponse

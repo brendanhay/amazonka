@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceMetering.MeterUsage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,33 +82,33 @@ meterUsage
     -> MeterUsage
 meterUsage pProductCode_ pTimestamp_ pUsageDimension_ pUsageQuantity_ pDryRun_ =
   MeterUsage'
-  { _muProductCode = pProductCode_
-  , _muTimestamp = _Time # pTimestamp_
-  , _muUsageDimension = pUsageDimension_
-  , _muUsageQuantity = _Nat # pUsageQuantity_
-  , _muDryRun = pDryRun_
-  }
+    { _muProductCode = pProductCode_
+    , _muTimestamp = _Time # pTimestamp_
+    , _muUsageDimension = pUsageDimension_
+    , _muUsageQuantity = _Nat # pUsageQuantity_
+    , _muDryRun = pDryRun_
+    }
 
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
 muProductCode :: Lens' MeterUsage Text
-muProductCode = lens _muProductCode (\ s a -> s{_muProductCode = a});
+muProductCode = lens _muProductCode (\ s a -> s{_muProductCode = a})
 
 -- | Timestamp of the hour, recorded in UTC. The seconds and milliseconds portions of the timestamp will be ignored.
 muTimestamp :: Lens' MeterUsage UTCTime
-muTimestamp = lens _muTimestamp (\ s a -> s{_muTimestamp = a}) . _Time;
+muTimestamp = lens _muTimestamp (\ s a -> s{_muTimestamp = a}) . _Time
 
 -- | It will be one of the fcp dimension name provided during the publishing of the product.
 muUsageDimension :: Lens' MeterUsage Text
-muUsageDimension = lens _muUsageDimension (\ s a -> s{_muUsageDimension = a});
+muUsageDimension = lens _muUsageDimension (\ s a -> s{_muUsageDimension = a})
 
 -- | Consumption value for the hour.
 muUsageQuantity :: Lens' MeterUsage Natural
-muUsageQuantity = lens _muUsageQuantity (\ s a -> s{_muUsageQuantity = a}) . _Nat;
+muUsageQuantity = lens _muUsageQuantity (\ s a -> s{_muUsageQuantity = a}) . _Nat
 
 -- | Checks whether you have the permissions required for the action, but does not make the request. If you have the permissions, the request returns DryRunOperation; otherwise, it returns UnauthorizedException.
 muDryRun :: Lens' MeterUsage Bool
-muDryRun = lens _muDryRun (\ s a -> s{_muDryRun = a});
+muDryRun = lens _muDryRun (\ s a -> s{_muDryRun = a})
 
 instance AWSRequest MeterUsage where
         type Rs MeterUsage = MeterUsageResponse
@@ -167,15 +167,15 @@ meterUsageResponse
     -> MeterUsageResponse
 meterUsageResponse pResponseStatus_ =
   MeterUsageResponse'
-  {_mursMeteringRecordId = Nothing, _mursResponseStatus = pResponseStatus_}
+    {_mursMeteringRecordId = Nothing, _mursResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 mursMeteringRecordId :: Lens' MeterUsageResponse (Maybe Text)
-mursMeteringRecordId = lens _mursMeteringRecordId (\ s a -> s{_mursMeteringRecordId = a});
+mursMeteringRecordId = lens _mursMeteringRecordId (\ s a -> s{_mursMeteringRecordId = a})
 
 -- | -- | The response status code.
 mursResponseStatus :: Lens' MeterUsageResponse Int
-mursResponseStatus = lens _mursResponseStatus (\ s a -> s{_mursResponseStatus = a});
+mursResponseStatus = lens _mursResponseStatus (\ s a -> s{_mursResponseStatus = a})
 
 instance NFData MeterUsageResponse where

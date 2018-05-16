@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateVTLDeviceType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the type of medium changer in a tape gateway. When you activate a tape gateway, you select a medium changer type for the tape gateway. This operation enables you to select a different type of medium changer after a tape gateway is activated. This operation is only supported in the tape gateway architecture.
+-- Updates the type of medium changer in a tape gateway. When you activate a tape gateway, you select a medium changer type for the tape gateway. This operation enables you to select a different type of medium changer after a tape gateway is activated. This operation is only supported in the tape gateway type.
 --
 --
 module Network.AWS.StorageGateway.UpdateVTLDeviceType
@@ -65,16 +65,16 @@ updateVTLDeviceType
     -> UpdateVTLDeviceType
 updateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
   UpdateVTLDeviceType'
-  {_uvtldtVTLDeviceARN = pVTLDeviceARN_, _uvtldtDeviceType = pDeviceType_}
+    {_uvtldtVTLDeviceARN = pVTLDeviceARN_, _uvtldtDeviceType = pDeviceType_}
 
 
 -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
 uvtldtVTLDeviceARN :: Lens' UpdateVTLDeviceType Text
-uvtldtVTLDeviceARN = lens _uvtldtVTLDeviceARN (\ s a -> s{_uvtldtVTLDeviceARN = a});
+uvtldtVTLDeviceARN = lens _uvtldtVTLDeviceARN (\ s a -> s{_uvtldtVTLDeviceARN = a})
 
 -- | The type of medium changer you want to select. Valid Values: "STK-L700", "AWS-Gateway-VTL"
 uvtldtDeviceType :: Lens' UpdateVTLDeviceType Text
-uvtldtDeviceType = lens _uvtldtDeviceType (\ s a -> s{_uvtldtDeviceType = a});
+uvtldtDeviceType = lens _uvtldtDeviceType (\ s a -> s{_uvtldtDeviceType = a})
 
 instance AWSRequest UpdateVTLDeviceType where
         type Rs UpdateVTLDeviceType =
@@ -136,15 +136,17 @@ updateVTLDeviceTypeResponse
     -> UpdateVTLDeviceTypeResponse
 updateVTLDeviceTypeResponse pResponseStatus_ =
   UpdateVTLDeviceTypeResponse'
-  {_uvtldtrsVTLDeviceARN = Nothing, _uvtldtrsResponseStatus = pResponseStatus_}
+    { _uvtldtrsVTLDeviceARN = Nothing
+    , _uvtldtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
 uvtldtrsVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
-uvtldtrsVTLDeviceARN = lens _uvtldtrsVTLDeviceARN (\ s a -> s{_uvtldtrsVTLDeviceARN = a});
+uvtldtrsVTLDeviceARN = lens _uvtldtrsVTLDeviceARN (\ s a -> s{_uvtldtrsVTLDeviceARN = a})
 
 -- | -- | The response status code.
 uvtldtrsResponseStatus :: Lens' UpdateVTLDeviceTypeResponse Int
-uvtldtrsResponseStatus = lens _uvtldtrsResponseStatus (\ s a -> s{_uvtldtrsResponseStatus = a});
+uvtldtrsResponseStatus = lens _uvtldtrsResponseStatus (\ s a -> s{_uvtldtrsResponseStatus = a})
 
 instance NFData UpdateVTLDeviceTypeResponse where

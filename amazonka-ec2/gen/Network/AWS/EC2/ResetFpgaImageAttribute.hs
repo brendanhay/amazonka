@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetFpgaImageAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ resetFpgaImageAttribute
     -> ResetFpgaImageAttribute
 resetFpgaImageAttribute pFpgaImageId_ =
   ResetFpgaImageAttribute'
-  { _rfiaAttribute = Nothing
-  , _rfiaDryRun = Nothing
-  , _rfiaFpgaImageId = pFpgaImageId_
-  }
+    { _rfiaAttribute = Nothing
+    , _rfiaDryRun = Nothing
+    , _rfiaFpgaImageId = pFpgaImageId_
+    }
 
 
 -- | The attribute.
 rfiaAttribute :: Lens' ResetFpgaImageAttribute (Maybe ResetFpgaImageAttributeName)
-rfiaAttribute = lens _rfiaAttribute (\ s a -> s{_rfiaAttribute = a});
+rfiaAttribute = lens _rfiaAttribute (\ s a -> s{_rfiaAttribute = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rfiaDryRun :: Lens' ResetFpgaImageAttribute (Maybe Bool)
-rfiaDryRun = lens _rfiaDryRun (\ s a -> s{_rfiaDryRun = a});
+rfiaDryRun = lens _rfiaDryRun (\ s a -> s{_rfiaDryRun = a})
 
 -- | The ID of the AFI.
 rfiaFpgaImageId :: Lens' ResetFpgaImageAttribute Text
-rfiaFpgaImageId = lens _rfiaFpgaImageId (\ s a -> s{_rfiaFpgaImageId = a});
+rfiaFpgaImageId = lens _rfiaFpgaImageId (\ s a -> s{_rfiaFpgaImageId = a})
 
 instance AWSRequest ResetFpgaImageAttribute where
         type Rs ResetFpgaImageAttribute =
@@ -135,15 +135,15 @@ resetFpgaImageAttributeResponse
     -> ResetFpgaImageAttributeResponse
 resetFpgaImageAttributeResponse pResponseStatus_ =
   ResetFpgaImageAttributeResponse'
-  {_rfiarsReturn = Nothing, _rfiarsResponseStatus = pResponseStatus_}
+    {_rfiarsReturn = Nothing, _rfiarsResponseStatus = pResponseStatus_}
 
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
 rfiarsReturn :: Lens' ResetFpgaImageAttributeResponse (Maybe Bool)
-rfiarsReturn = lens _rfiarsReturn (\ s a -> s{_rfiarsReturn = a});
+rfiarsReturn = lens _rfiarsReturn (\ s a -> s{_rfiarsReturn = a})
 
 -- | -- | The response status code.
 rfiarsResponseStatus :: Lens' ResetFpgaImageAttributeResponse Int
-rfiarsResponseStatus = lens _rfiarsResponseStatus (\ s a -> s{_rfiarsResponseStatus = a});
+rfiarsResponseStatus = lens _rfiarsResponseStatus (\ s a -> s{_rfiarsResponseStatus = a})
 
 instance NFData ResetFpgaImageAttributeResponse where

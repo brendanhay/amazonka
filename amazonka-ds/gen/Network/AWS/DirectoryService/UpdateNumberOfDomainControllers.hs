@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,18 +64,18 @@ updateNumberOfDomainControllers
     -> UpdateNumberOfDomainControllers
 updateNumberOfDomainControllers pDirectoryId_ pDesiredNumber_ =
   UpdateNumberOfDomainControllers'
-  { _unodcDirectoryId = pDirectoryId_
-  , _unodcDesiredNumber = _Nat # pDesiredNumber_
-  }
+    { _unodcDirectoryId = pDirectoryId_
+    , _unodcDesiredNumber = _Nat # pDesiredNumber_
+    }
 
 
 -- | Identifier of the directory to which the domain controllers will be added or removed.
 unodcDirectoryId :: Lens' UpdateNumberOfDomainControllers Text
-unodcDirectoryId = lens _unodcDirectoryId (\ s a -> s{_unodcDirectoryId = a});
+unodcDirectoryId = lens _unodcDirectoryId (\ s a -> s{_unodcDirectoryId = a})
 
 -- | The number of domain controllers desired in the directory.
 unodcDesiredNumber :: Lens' UpdateNumberOfDomainControllers Natural
-unodcDesiredNumber = lens _unodcDesiredNumber (\ s a -> s{_unodcDesiredNumber = a}) . _Nat;
+unodcDesiredNumber = lens _unodcDesiredNumber (\ s a -> s{_unodcDesiredNumber = a}) . _Nat
 
 instance AWSRequest UpdateNumberOfDomainControllers
          where
@@ -134,12 +134,12 @@ updateNumberOfDomainControllersResponse
     -> UpdateNumberOfDomainControllersResponse
 updateNumberOfDomainControllersResponse pResponseStatus_ =
   UpdateNumberOfDomainControllersResponse'
-  {_unodcrsResponseStatus = pResponseStatus_}
+    {_unodcrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 unodcrsResponseStatus :: Lens' UpdateNumberOfDomainControllersResponse Int
-unodcrsResponseStatus = lens _unodcrsResponseStatus (\ s a -> s{_unodcrsResponseStatus = a});
+unodcrsResponseStatus = lens _unodcrsResponseStatus (\ s a -> s{_unodcrsResponseStatus = a})
 
 instance NFData
            UpdateNumberOfDomainControllersResponse

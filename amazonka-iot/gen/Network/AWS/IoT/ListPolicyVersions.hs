@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListPolicyVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ listPolicyVersions pPolicyName_ =
 
 -- | The policy name.
 lpvPolicyName :: Lens' ListPolicyVersions Text
-lpvPolicyName = lens _lpvPolicyName (\ s a -> s{_lpvPolicyName = a});
+lpvPolicyName = lens _lpvPolicyName (\ s a -> s{_lpvPolicyName = a})
 
 instance AWSRequest ListPolicyVersions where
         type Rs ListPolicyVersions =
@@ -119,15 +119,15 @@ listPolicyVersionsResponse
     -> ListPolicyVersionsResponse
 listPolicyVersionsResponse pResponseStatus_ =
   ListPolicyVersionsResponse'
-  {_lpvrsPolicyVersions = Nothing, _lpvrsResponseStatus = pResponseStatus_}
+    {_lpvrsPolicyVersions = Nothing, _lpvrsResponseStatus = pResponseStatus_}
 
 
 -- | The policy versions.
 lpvrsPolicyVersions :: Lens' ListPolicyVersionsResponse [PolicyVersion]
-lpvrsPolicyVersions = lens _lpvrsPolicyVersions (\ s a -> s{_lpvrsPolicyVersions = a}) . _Default . _Coerce;
+lpvrsPolicyVersions = lens _lpvrsPolicyVersions (\ s a -> s{_lpvrsPolicyVersions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lpvrsResponseStatus :: Lens' ListPolicyVersionsResponse Int
-lpvrsResponseStatus = lens _lpvrsResponseStatus (\ s a -> s{_lpvrsResponseStatus = a});
+lpvrsResponseStatus = lens _lpvrsResponseStatus (\ s a -> s{_lpvrsResponseStatus = a})
 
 instance NFData ListPolicyVersionsResponse where

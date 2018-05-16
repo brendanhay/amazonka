@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeInstanceAssociationsStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ describeInstanceAssociationsStatus
     -> DescribeInstanceAssociationsStatus
 describeInstanceAssociationsStatus pInstanceId_ =
   DescribeInstanceAssociationsStatus'
-  { _diasNextToken = Nothing
-  , _diasMaxResults = Nothing
-  , _diasInstanceId = pInstanceId_
-  }
+    { _diasNextToken = Nothing
+    , _diasMaxResults = Nothing
+    , _diasInstanceId = pInstanceId_
+    }
 
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 diasNextToken :: Lens' DescribeInstanceAssociationsStatus (Maybe Text)
-diasNextToken = lens _diasNextToken (\ s a -> s{_diasNextToken = a});
+diasNextToken = lens _diasNextToken (\ s a -> s{_diasNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 diasMaxResults :: Lens' DescribeInstanceAssociationsStatus (Maybe Natural)
-diasMaxResults = lens _diasMaxResults (\ s a -> s{_diasMaxResults = a}) . mapping _Nat;
+diasMaxResults = lens _diasMaxResults (\ s a -> s{_diasMaxResults = a}) . mapping _Nat
 
 -- | The instance IDs for which you want association status information.
 diasInstanceId :: Lens' DescribeInstanceAssociationsStatus Text
-diasInstanceId = lens _diasInstanceId (\ s a -> s{_diasInstanceId = a});
+diasInstanceId = lens _diasInstanceId (\ s a -> s{_diasInstanceId = a})
 
 instance AWSRequest
            DescribeInstanceAssociationsStatus
@@ -157,23 +157,23 @@ describeInstanceAssociationsStatusResponse
     -> DescribeInstanceAssociationsStatusResponse
 describeInstanceAssociationsStatusResponse pResponseStatus_ =
   DescribeInstanceAssociationsStatusResponse'
-  { _diasrsInstanceAssociationStatusInfos = Nothing
-  , _diasrsNextToken = Nothing
-  , _diasrsResponseStatus = pResponseStatus_
-  }
+    { _diasrsInstanceAssociationStatusInfos = Nothing
+    , _diasrsNextToken = Nothing
+    , _diasrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Status information about the association.
 diasrsInstanceAssociationStatusInfos :: Lens' DescribeInstanceAssociationsStatusResponse [InstanceAssociationStatusInfo]
-diasrsInstanceAssociationStatusInfos = lens _diasrsInstanceAssociationStatusInfos (\ s a -> s{_diasrsInstanceAssociationStatusInfos = a}) . _Default . _Coerce;
+diasrsInstanceAssociationStatusInfos = lens _diasrsInstanceAssociationStatusInfos (\ s a -> s{_diasrsInstanceAssociationStatusInfos = a}) . _Default . _Coerce
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 diasrsNextToken :: Lens' DescribeInstanceAssociationsStatusResponse (Maybe Text)
-diasrsNextToken = lens _diasrsNextToken (\ s a -> s{_diasrsNextToken = a});
+diasrsNextToken = lens _diasrsNextToken (\ s a -> s{_diasrsNextToken = a})
 
 -- | -- | The response status code.
 diasrsResponseStatus :: Lens' DescribeInstanceAssociationsStatusResponse Int
-diasrsResponseStatus = lens _diasrsResponseStatus (\ s a -> s{_diasrsResponseStatus = a});
+diasrsResponseStatus = lens _diasrsResponseStatus (\ s a -> s{_diasrsResponseStatus = a})
 
 instance NFData
            DescribeInstanceAssociationsStatusResponse

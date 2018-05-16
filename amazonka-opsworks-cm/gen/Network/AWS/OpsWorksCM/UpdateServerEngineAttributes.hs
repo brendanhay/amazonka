@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates engine-specific attributes on a specified server. The server enters the @MODIFYING@ state when this operation is in progress. Only one update can occur at a time. You can use this command to reset the Chef server's private key (@CHEF_PIVOTAL_KEY@ ).
+-- Updates engine-specific attributes on a specified server. The server enters the @MODIFYING@ state when this operation is in progress. Only one update can occur at a time. You can use this command to reset a Chef server's private key (@CHEF_PIVOTAL_KEY@ ), a Chef server's admin password (@CHEF_DELIVERY_ADMIN_PASSWORD@ ), or a Puppet server's admin password (@PUPPET_ADMIN_PASSWORD@ ).
 --
 --
 -- This operation is asynchronous.
@@ -73,23 +73,23 @@ updateServerEngineAttributes
     -> UpdateServerEngineAttributes
 updateServerEngineAttributes pServerName_ pAttributeName_ =
   UpdateServerEngineAttributes'
-  { _useaAttributeValue = Nothing
-  , _useaServerName = pServerName_
-  , _useaAttributeName = pAttributeName_
-  }
+    { _useaAttributeValue = Nothing
+    , _useaServerName = pServerName_
+    , _useaAttributeName = pAttributeName_
+    }
 
 
 -- | The value to set for the attribute.
 useaAttributeValue :: Lens' UpdateServerEngineAttributes (Maybe Text)
-useaAttributeValue = lens _useaAttributeValue (\ s a -> s{_useaAttributeValue = a});
+useaAttributeValue = lens _useaAttributeValue (\ s a -> s{_useaAttributeValue = a})
 
 -- | The name of the server to update.
 useaServerName :: Lens' UpdateServerEngineAttributes Text
-useaServerName = lens _useaServerName (\ s a -> s{_useaServerName = a});
+useaServerName = lens _useaServerName (\ s a -> s{_useaServerName = a})
 
 -- | The name of the engine attribute to update.
 useaAttributeName :: Lens' UpdateServerEngineAttributes Text
-useaAttributeName = lens _useaAttributeName (\ s a -> s{_useaAttributeName = a});
+useaAttributeName = lens _useaAttributeName (\ s a -> s{_useaAttributeName = a})
 
 instance AWSRequest UpdateServerEngineAttributes
          where
@@ -149,16 +149,16 @@ updateServerEngineAttributesResponse
     -> UpdateServerEngineAttributesResponse
 updateServerEngineAttributesResponse pResponseStatus_ =
   UpdateServerEngineAttributesResponse'
-  {_usearsServer = Nothing, _usearsResponseStatus = pResponseStatus_}
+    {_usearsServer = Nothing, _usearsResponseStatus = pResponseStatus_}
 
 
 -- | Contains the response to an @UpdateServerEngineAttributes@ request.
 usearsServer :: Lens' UpdateServerEngineAttributesResponse (Maybe Server)
-usearsServer = lens _usearsServer (\ s a -> s{_usearsServer = a});
+usearsServer = lens _usearsServer (\ s a -> s{_usearsServer = a})
 
 -- | -- | The response status code.
 usearsResponseStatus :: Lens' UpdateServerEngineAttributesResponse Int
-usearsResponseStatus = lens _usearsResponseStatus (\ s a -> s{_usearsResponseStatus = a});
+usearsResponseStatus = lens _usearsResponseStatus (\ s a -> s{_usearsResponseStatus = a})
 
 instance NFData UpdateServerEngineAttributesResponse
          where

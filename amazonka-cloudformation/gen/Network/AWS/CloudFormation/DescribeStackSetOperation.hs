@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackSetOperation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ describeStackSetOperation
     -> DescribeStackSetOperation
 describeStackSetOperation pStackSetName_ pOperationId_ =
   DescribeStackSetOperation'
-  {_dssoStackSetName = pStackSetName_, _dssoOperationId = pOperationId_}
+    {_dssoStackSetName = pStackSetName_, _dssoOperationId = pOperationId_}
 
 
 -- | The name or the unique stack ID of the stack set for the stack operation.
 dssoStackSetName :: Lens' DescribeStackSetOperation Text
-dssoStackSetName = lens _dssoStackSetName (\ s a -> s{_dssoStackSetName = a});
+dssoStackSetName = lens _dssoStackSetName (\ s a -> s{_dssoStackSetName = a})
 
 -- | The unique ID of the stack set operation.
 dssoOperationId :: Lens' DescribeStackSetOperation Text
-dssoOperationId = lens _dssoOperationId (\ s a -> s{_dssoOperationId = a});
+dssoOperationId = lens _dssoOperationId (\ s a -> s{_dssoOperationId = a})
 
 instance AWSRequest DescribeStackSetOperation where
         type Rs DescribeStackSetOperation =
@@ -124,16 +124,18 @@ describeStackSetOperationResponse
     -> DescribeStackSetOperationResponse
 describeStackSetOperationResponse pResponseStatus_ =
   DescribeStackSetOperationResponse'
-  {_dssorsStackSetOperation = Nothing, _dssorsResponseStatus = pResponseStatus_}
+    { _dssorsStackSetOperation = Nothing
+    , _dssorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The specified stack set operation.
 dssorsStackSetOperation :: Lens' DescribeStackSetOperationResponse (Maybe StackSetOperation)
-dssorsStackSetOperation = lens _dssorsStackSetOperation (\ s a -> s{_dssorsStackSetOperation = a});
+dssorsStackSetOperation = lens _dssorsStackSetOperation (\ s a -> s{_dssorsStackSetOperation = a})
 
 -- | -- | The response status code.
 dssorsResponseStatus :: Lens' DescribeStackSetOperationResponse Int
-dssorsResponseStatus = lens _dssorsResponseStatus (\ s a -> s{_dssorsResponseStatus = a});
+dssorsResponseStatus = lens _dssorsResponseStatus (\ s a -> s{_dssorsResponseStatus = a})
 
 instance NFData DescribeStackSetOperationResponse
          where

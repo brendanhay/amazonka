@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DeleteTypedLinkFacet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ deleteTypedLinkFacet pSchemaARN_ pName_ =
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 dtlfSchemaARN :: Lens' DeleteTypedLinkFacet Text
-dtlfSchemaARN = lens _dtlfSchemaARN (\ s a -> s{_dtlfSchemaARN = a});
+dtlfSchemaARN = lens _dtlfSchemaARN (\ s a -> s{_dtlfSchemaARN = a})
 
 -- | The unique name of the typed link facet.
 dtlfName :: Lens' DeleteTypedLinkFacet Text
-dtlfName = lens _dtlfName (\ s a -> s{_dtlfName = a});
+dtlfName = lens _dtlfName (\ s a -> s{_dtlfName = a})
 
 instance AWSRequest DeleteTypedLinkFacet where
         type Rs DeleteTypedLinkFacet =
@@ -124,6 +124,6 @@ deleteTypedLinkFacetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dtlfrsResponseStatus :: Lens' DeleteTypedLinkFacetResponse Int
-dtlfrsResponseStatus = lens _dtlfrsResponseStatus (\ s a -> s{_dtlfrsResponseStatus = a});
+dtlfrsResponseStatus = lens _dtlfrsResponseStatus (\ s a -> s{_dtlfrsResponseStatus = a})
 
 instance NFData DeleteTypedLinkFacetResponse where

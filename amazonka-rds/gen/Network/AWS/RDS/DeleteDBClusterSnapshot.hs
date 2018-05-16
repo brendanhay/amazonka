@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBClusterSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,12 +66,12 @@ deleteDBClusterSnapshot
     -> DeleteDBClusterSnapshot
 deleteDBClusterSnapshot pDBClusterSnapshotIdentifier_ =
   DeleteDBClusterSnapshot'
-  {_ddcsDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_}
+    {_ddcsDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_}
 
 
 -- | The identifier of the DB cluster snapshot to delete. Constraints: Must be the name of an existing DB cluster snapshot in the @available@ state.
 ddcsDBClusterSnapshotIdentifier :: Lens' DeleteDBClusterSnapshot Text
-ddcsDBClusterSnapshotIdentifier = lens _ddcsDBClusterSnapshotIdentifier (\ s a -> s{_ddcsDBClusterSnapshotIdentifier = a});
+ddcsDBClusterSnapshotIdentifier = lens _ddcsDBClusterSnapshotIdentifier (\ s a -> s{_ddcsDBClusterSnapshotIdentifier = a})
 
 instance AWSRequest DeleteDBClusterSnapshot where
         type Rs DeleteDBClusterSnapshot =
@@ -121,15 +121,17 @@ deleteDBClusterSnapshotResponse
     -> DeleteDBClusterSnapshotResponse
 deleteDBClusterSnapshotResponse pResponseStatus_ =
   DeleteDBClusterSnapshotResponse'
-  {_ddcsrsDBClusterSnapshot = Nothing, _ddcsrsResponseStatus = pResponseStatus_}
+    { _ddcsrsDBClusterSnapshot = Nothing
+    , _ddcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ddcsrsDBClusterSnapshot :: Lens' DeleteDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
-ddcsrsDBClusterSnapshot = lens _ddcsrsDBClusterSnapshot (\ s a -> s{_ddcsrsDBClusterSnapshot = a});
+ddcsrsDBClusterSnapshot = lens _ddcsrsDBClusterSnapshot (\ s a -> s{_ddcsrsDBClusterSnapshot = a})
 
 -- | -- | The response status code.
 ddcsrsResponseStatus :: Lens' DeleteDBClusterSnapshotResponse Int
-ddcsrsResponseStatus = lens _ddcsrsResponseStatus (\ s a -> s{_ddcsrsResponseStatus = a});
+ddcsrsResponseStatus = lens _ddcsrsResponseStatus (\ s a -> s{_ddcsrsResponseStatus = a})
 
 instance NFData DeleteDBClusterSnapshotResponse where

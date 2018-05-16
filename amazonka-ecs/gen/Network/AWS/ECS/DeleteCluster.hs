@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DeleteCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteCluster pCluster_ = DeleteCluster' {_dcCluster = pCluster_}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster to delete.
 dcCluster :: Lens' DeleteCluster Text
-dcCluster = lens _dcCluster (\ s a -> s{_dcCluster = a});
+dcCluster = lens _dcCluster (\ s a -> s{_dcCluster = a})
 
 instance AWSRequest DeleteCluster where
         type Rs DeleteCluster = DeleteClusterResponse
@@ -117,15 +117,15 @@ deleteClusterResponse
     -> DeleteClusterResponse
 deleteClusterResponse pResponseStatus_ =
   DeleteClusterResponse'
-  {_drsCluster = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsCluster = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | The full description of the deleted cluster.
 drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
-drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
+drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteClusterResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteClusterResponse where

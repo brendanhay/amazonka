@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.UpdateSizeConstraintSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -96,23 +96,23 @@ updateSizeConstraintSet
     -> UpdateSizeConstraintSet
 updateSizeConstraintSet pSizeConstraintSetId_ pChangeToken_ pUpdates_ =
   UpdateSizeConstraintSet'
-  { _uscsSizeConstraintSetId = pSizeConstraintSetId_
-  , _uscsChangeToken = pChangeToken_
-  , _uscsUpdates = _List1 # pUpdates_
-  }
+    { _uscsSizeConstraintSetId = pSizeConstraintSetId_
+    , _uscsChangeToken = pChangeToken_
+    , _uscsUpdates = _List1 # pUpdates_
+    }
 
 
 -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to update. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 uscsSizeConstraintSetId :: Lens' UpdateSizeConstraintSet Text
-uscsSizeConstraintSetId = lens _uscsSizeConstraintSetId (\ s a -> s{_uscsSizeConstraintSetId = a});
+uscsSizeConstraintSetId = lens _uscsSizeConstraintSetId (\ s a -> s{_uscsSizeConstraintSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 uscsChangeToken :: Lens' UpdateSizeConstraintSet Text
-uscsChangeToken = lens _uscsChangeToken (\ s a -> s{_uscsChangeToken = a});
+uscsChangeToken = lens _uscsChangeToken (\ s a -> s{_uscsChangeToken = a})
 
 -- | An array of @SizeConstraintSetUpdate@ objects that you want to insert into or delete from a 'SizeConstraintSet' . For more information, see the applicable data types:     * 'SizeConstraintSetUpdate' : Contains @Action@ and @SizeConstraint@      * 'SizeConstraint' : Contains @FieldToMatch@ , @TextTransformation@ , @ComparisonOperator@ , and @Size@      * 'FieldToMatch' : Contains @Data@ and @Type@
 uscsUpdates :: Lens' UpdateSizeConstraintSet (NonEmpty SizeConstraintSetUpdate)
-uscsUpdates = lens _uscsUpdates (\ s a -> s{_uscsUpdates = a}) . _List1;
+uscsUpdates = lens _uscsUpdates (\ s a -> s{_uscsUpdates = a}) . _List1
 
 instance AWSRequest UpdateSizeConstraintSet where
         type Rs UpdateSizeConstraintSet =
@@ -172,15 +172,15 @@ updateSizeConstraintSetResponse
     -> UpdateSizeConstraintSetResponse
 updateSizeConstraintSetResponse pResponseStatus_ =
   UpdateSizeConstraintSetResponse'
-  {_uscsrsChangeToken = Nothing, _uscsrsResponseStatus = pResponseStatus_}
+    {_uscsrsChangeToken = Nothing, _uscsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @UpdateSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 uscsrsChangeToken :: Lens' UpdateSizeConstraintSetResponse (Maybe Text)
-uscsrsChangeToken = lens _uscsrsChangeToken (\ s a -> s{_uscsrsChangeToken = a});
+uscsrsChangeToken = lens _uscsrsChangeToken (\ s a -> s{_uscsrsChangeToken = a})
 
 -- | -- | The response status code.
 uscsrsResponseStatus :: Lens' UpdateSizeConstraintSetResponse Int
-uscsrsResponseStatus = lens _uscsrsResponseStatus (\ s a -> s{_uscsrsResponseStatus = a});
+uscsrsResponseStatus = lens _uscsrsResponseStatus (\ s a -> s{_uscsrsResponseStatus = a})
 
 instance NFData UpdateSizeConstraintSetResponse where

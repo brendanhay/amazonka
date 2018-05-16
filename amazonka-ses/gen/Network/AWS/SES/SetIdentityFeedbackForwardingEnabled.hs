@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,16 +72,16 @@ setIdentityFeedbackForwardingEnabled
     -> SetIdentityFeedbackForwardingEnabled
 setIdentityFeedbackForwardingEnabled pIdentity_ pForwardingEnabled_ =
   SetIdentityFeedbackForwardingEnabled'
-  {_siffeIdentity = pIdentity_, _siffeForwardingEnabled = pForwardingEnabled_}
+    {_siffeIdentity = pIdentity_, _siffeForwardingEnabled = pForwardingEnabled_}
 
 
 -- | The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
 siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
-siffeIdentity = lens _siffeIdentity (\ s a -> s{_siffeIdentity = a});
+siffeIdentity = lens _siffeIdentity (\ s a -> s{_siffeIdentity = a})
 
 -- | Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
 siffeForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
-siffeForwardingEnabled = lens _siffeForwardingEnabled (\ s a -> s{_siffeForwardingEnabled = a});
+siffeForwardingEnabled = lens _siffeForwardingEnabled (\ s a -> s{_siffeForwardingEnabled = a})
 
 instance AWSRequest
            SetIdentityFeedbackForwardingEnabled
@@ -143,12 +143,12 @@ setIdentityFeedbackForwardingEnabledResponse
     -> SetIdentityFeedbackForwardingEnabledResponse
 setIdentityFeedbackForwardingEnabledResponse pResponseStatus_ =
   SetIdentityFeedbackForwardingEnabledResponse'
-  {_siffersResponseStatus = pResponseStatus_}
+    {_siffersResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 siffersResponseStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
-siffersResponseStatus = lens _siffersResponseStatus (\ s a -> s{_siffersResponseStatus = a});
+siffersResponseStatus = lens _siffersResponseStatus (\ s a -> s{_siffersResponseStatus = a})
 
 instance NFData
            SetIdentityFeedbackForwardingEnabledResponse

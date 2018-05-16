@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeregisterVolume
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deregisterVolume pVolumeId_ = DeregisterVolume' {_dvVolumeId = pVolumeId_}
 
 -- | The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
 dvVolumeId :: Lens' DeregisterVolume Text
-dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a});
+dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a})
 
 instance AWSRequest DeregisterVolume where
         type Rs DeregisterVolume = DeregisterVolumeResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.SetDesiredCapacity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ data SetDesiredCapacity = SetDesiredCapacity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdcHonorCooldown' - By default, @SetDesiredCapacity@ overrides any cooldown period associated with the Auto Scaling group. Specify @True@ to make Auto Scaling to wait for the cool-down period associated with the Auto Scaling group to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity.
+-- * 'sdcHonorCooldown' - Indicates whether Auto Scaling waits for the cooldown period to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity. By default, Auto Scaling does not honor the cooldown period during manual scaling activities.
 --
 -- * 'sdcAutoScalingGroupName' - The name of the Auto Scaling group.
 --
@@ -68,23 +68,23 @@ setDesiredCapacity
     -> SetDesiredCapacity
 setDesiredCapacity pAutoScalingGroupName_ pDesiredCapacity_ =
   SetDesiredCapacity'
-  { _sdcHonorCooldown = Nothing
-  , _sdcAutoScalingGroupName = pAutoScalingGroupName_
-  , _sdcDesiredCapacity = pDesiredCapacity_
-  }
+    { _sdcHonorCooldown = Nothing
+    , _sdcAutoScalingGroupName = pAutoScalingGroupName_
+    , _sdcDesiredCapacity = pDesiredCapacity_
+    }
 
 
--- | By default, @SetDesiredCapacity@ overrides any cooldown period associated with the Auto Scaling group. Specify @True@ to make Auto Scaling to wait for the cool-down period associated with the Auto Scaling group to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity.
+-- | Indicates whether Auto Scaling waits for the cooldown period to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity. By default, Auto Scaling does not honor the cooldown period during manual scaling activities.
 sdcHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
-sdcHonorCooldown = lens _sdcHonorCooldown (\ s a -> s{_sdcHonorCooldown = a});
+sdcHonorCooldown = lens _sdcHonorCooldown (\ s a -> s{_sdcHonorCooldown = a})
 
 -- | The name of the Auto Scaling group.
 sdcAutoScalingGroupName :: Lens' SetDesiredCapacity Text
-sdcAutoScalingGroupName = lens _sdcAutoScalingGroupName (\ s a -> s{_sdcAutoScalingGroupName = a});
+sdcAutoScalingGroupName = lens _sdcAutoScalingGroupName (\ s a -> s{_sdcAutoScalingGroupName = a})
 
 -- | The number of EC2 instances that should be running in the Auto Scaling group.
 sdcDesiredCapacity :: Lens' SetDesiredCapacity Int
-sdcDesiredCapacity = lens _sdcDesiredCapacity (\ s a -> s{_sdcDesiredCapacity = a});
+sdcDesiredCapacity = lens _sdcDesiredCapacity (\ s a -> s{_sdcDesiredCapacity = a})
 
 instance AWSRequest SetDesiredCapacity where
         type Rs SetDesiredCapacity =

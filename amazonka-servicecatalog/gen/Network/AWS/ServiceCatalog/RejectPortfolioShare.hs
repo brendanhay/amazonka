@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.RejectPortfolioShare
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Rejects an offer to share a portfolio.
+-- Rejects an offer to share the specified portfolio.
 --
 --
 module Network.AWS.ServiceCatalog.RejectPortfolioShare
@@ -63,16 +63,16 @@ rejectPortfolioShare
     -> RejectPortfolioShare
 rejectPortfolioShare pPortfolioId_ =
   RejectPortfolioShare'
-  {_rpsAcceptLanguage = Nothing, _rpsPortfolioId = pPortfolioId_}
+    {_rpsAcceptLanguage = Nothing, _rpsPortfolioId = pPortfolioId_}
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 rpsAcceptLanguage :: Lens' RejectPortfolioShare (Maybe Text)
-rpsAcceptLanguage = lens _rpsAcceptLanguage (\ s a -> s{_rpsAcceptLanguage = a});
+rpsAcceptLanguage = lens _rpsAcceptLanguage (\ s a -> s{_rpsAcceptLanguage = a})
 
 -- | The portfolio identifier.
 rpsPortfolioId :: Lens' RejectPortfolioShare Text
-rpsPortfolioId = lens _rpsPortfolioId (\ s a -> s{_rpsPortfolioId = a});
+rpsPortfolioId = lens _rpsPortfolioId (\ s a -> s{_rpsPortfolioId = a})
 
 instance AWSRequest RejectPortfolioShare where
         type Rs RejectPortfolioShare =
@@ -131,6 +131,6 @@ rejectPortfolioShareResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rpsrsResponseStatus :: Lens' RejectPortfolioShareResponse Int
-rpsrsResponseStatus = lens _rpsrsResponseStatus (\ s a -> s{_rpsrsResponseStatus = a});
+rpsrsResponseStatus = lens _rpsrsResponseStatus (\ s a -> s{_rpsrsResponseStatus = a})
 
 instance NFData RejectPortfolioShareResponse where

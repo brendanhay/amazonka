@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetRegistrationCode
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -105,15 +105,15 @@ getRegistrationCodeResponse
     -> GetRegistrationCodeResponse
 getRegistrationCodeResponse pResponseStatus_ =
   GetRegistrationCodeResponse'
-  {_grcrsRegistrationCode = Nothing, _grcrsResponseStatus = pResponseStatus_}
+    {_grcrsRegistrationCode = Nothing, _grcrsResponseStatus = pResponseStatus_}
 
 
 -- | The CA certificate registration code.
 grcrsRegistrationCode :: Lens' GetRegistrationCodeResponse (Maybe Text)
-grcrsRegistrationCode = lens _grcrsRegistrationCode (\ s a -> s{_grcrsRegistrationCode = a});
+grcrsRegistrationCode = lens _grcrsRegistrationCode (\ s a -> s{_grcrsRegistrationCode = a})
 
 -- | -- | The response status code.
 grcrsResponseStatus :: Lens' GetRegistrationCodeResponse Int
-grcrsResponseStatus = lens _grcrsResponseStatus (\ s a -> s{_grcrsResponseStatus = a});
+grcrsResponseStatus = lens _grcrsResponseStatus (\ s a -> s{_grcrsResponseStatus = a})
 
 instance NFData GetRegistrationCodeResponse where

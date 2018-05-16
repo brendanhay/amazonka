@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.UpdateStack
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,10 +27,13 @@ module Network.AWS.AppStream.UpdateStack
       updateStack
     , UpdateStack
     -- * Request Lenses
+    , usFeedbackURL
+    , usAttributesToDelete
     , usDeleteStorageConnectors
     , usStorageConnectors
     , usDisplayName
     , usDescription
+    , usRedirectURL
     , usName
 
     -- * Destructuring the Response
@@ -50,10 +53,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
-  { _usDeleteStorageConnectors :: !(Maybe Bool)
+  { _usFeedbackURL             :: !(Maybe Text)
+  , _usAttributesToDelete      :: !(Maybe [StackAttribute])
+  , _usDeleteStorageConnectors :: !(Maybe Bool)
   , _usStorageConnectors       :: !(Maybe [StorageConnector])
   , _usDisplayName             :: !(Maybe Text)
   , _usDescription             :: !(Maybe Text)
+  , _usRedirectURL             :: !(Maybe Text)
   , _usName                    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -62,13 +68,19 @@ data UpdateStack = UpdateStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'usFeedbackURL' - The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+--
+-- * 'usAttributesToDelete' - The stack attributes to delete.
+--
 -- * 'usDeleteStorageConnectors' - Deletes the storage connectors currently enabled for the stack.
 --
 -- * 'usStorageConnectors' - The storage connectors to enable.
 --
--- * 'usDisplayName' - The stack name displayed to end users.
+-- * 'usDisplayName' - The stack name for display.
 --
--- * 'usDescription' - The description displayed to end users.
+-- * 'usDescription' - The description for display.
+--
+-- * 'usRedirectURL' - The URL that users are redirected to after their streaming session ends.
 --
 -- * 'usName' - The name of the stack.
 updateStack
@@ -76,33 +88,48 @@ updateStack
     -> UpdateStack
 updateStack pName_ =
   UpdateStack'
-  { _usDeleteStorageConnectors = Nothing
-  , _usStorageConnectors = Nothing
-  , _usDisplayName = Nothing
-  , _usDescription = Nothing
-  , _usName = pName_
-  }
+    { _usFeedbackURL = Nothing
+    , _usAttributesToDelete = Nothing
+    , _usDeleteStorageConnectors = Nothing
+    , _usStorageConnectors = Nothing
+    , _usDisplayName = Nothing
+    , _usDescription = Nothing
+    , _usRedirectURL = Nothing
+    , _usName = pName_
+    }
 
+
+-- | The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+usFeedbackURL :: Lens' UpdateStack (Maybe Text)
+usFeedbackURL = lens _usFeedbackURL (\ s a -> s{_usFeedbackURL = a})
+
+-- | The stack attributes to delete.
+usAttributesToDelete :: Lens' UpdateStack [StackAttribute]
+usAttributesToDelete = lens _usAttributesToDelete (\ s a -> s{_usAttributesToDelete = a}) . _Default . _Coerce
 
 -- | Deletes the storage connectors currently enabled for the stack.
 usDeleteStorageConnectors :: Lens' UpdateStack (Maybe Bool)
-usDeleteStorageConnectors = lens _usDeleteStorageConnectors (\ s a -> s{_usDeleteStorageConnectors = a});
+usDeleteStorageConnectors = lens _usDeleteStorageConnectors (\ s a -> s{_usDeleteStorageConnectors = a})
 
 -- | The storage connectors to enable.
 usStorageConnectors :: Lens' UpdateStack [StorageConnector]
-usStorageConnectors = lens _usStorageConnectors (\ s a -> s{_usStorageConnectors = a}) . _Default . _Coerce;
+usStorageConnectors = lens _usStorageConnectors (\ s a -> s{_usStorageConnectors = a}) . _Default . _Coerce
 
--- | The stack name displayed to end users.
+-- | The stack name for display.
 usDisplayName :: Lens' UpdateStack (Maybe Text)
-usDisplayName = lens _usDisplayName (\ s a -> s{_usDisplayName = a});
+usDisplayName = lens _usDisplayName (\ s a -> s{_usDisplayName = a})
 
--- | The description displayed to end users.
+-- | The description for display.
 usDescription :: Lens' UpdateStack (Maybe Text)
-usDescription = lens _usDescription (\ s a -> s{_usDescription = a});
+usDescription = lens _usDescription (\ s a -> s{_usDescription = a})
+
+-- | The URL that users are redirected to after their streaming session ends.
+usRedirectURL :: Lens' UpdateStack (Maybe Text)
+usRedirectURL = lens _usRedirectURL (\ s a -> s{_usRedirectURL = a})
 
 -- | The name of the stack.
 usName :: Lens' UpdateStack Text
-usName = lens _usName (\ s a -> s{_usName = a});
+usName = lens _usName (\ s a -> s{_usName = a})
 
 instance AWSRequest UpdateStack where
         type Rs UpdateStack = UpdateStackResponse
@@ -131,11 +158,14 @@ instance ToJSON UpdateStack where
         toJSON UpdateStack'{..}
           = object
               (catMaybes
-                 [("DeleteStorageConnectors" .=) <$>
+                 [("FeedbackURL" .=) <$> _usFeedbackURL,
+                  ("AttributesToDelete" .=) <$> _usAttributesToDelete,
+                  ("DeleteStorageConnectors" .=) <$>
                     _usDeleteStorageConnectors,
                   ("StorageConnectors" .=) <$> _usStorageConnectors,
                   ("DisplayName" .=) <$> _usDisplayName,
                   ("Description" .=) <$> _usDescription,
+                  ("RedirectURL" .=) <$> _usRedirectURL,
                   Just ("Name" .= _usName)])
 
 instance ToPath UpdateStack where
@@ -163,15 +193,15 @@ updateStackResponse
     -> UpdateStackResponse
 updateStackResponse pResponseStatus_ =
   UpdateStackResponse'
-  {_usrsStack = Nothing, _usrsResponseStatus = pResponseStatus_}
+    {_usrsStack = Nothing, _usrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the stack.
 usrsStack :: Lens' UpdateStackResponse (Maybe Stack)
-usrsStack = lens _usrsStack (\ s a -> s{_usrsStack = a});
+usrsStack = lens _usrsStack (\ s a -> s{_usrsStack = a})
 
 -- | -- | The response status code.
 usrsResponseStatus :: Lens' UpdateStackResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
+usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a})
 
 instance NFData UpdateStackResponse where

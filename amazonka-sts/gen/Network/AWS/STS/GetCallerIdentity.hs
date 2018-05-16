@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.STS.GetCallerIdentity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -114,27 +114,27 @@ getCallerIdentityResponse
     -> GetCallerIdentityResponse
 getCallerIdentityResponse pResponseStatus_ =
   GetCallerIdentityResponse'
-  { _gcirsARN = Nothing
-  , _gcirsAccount = Nothing
-  , _gcirsUserId = Nothing
-  , _gcirsResponseStatus = pResponseStatus_
-  }
+    { _gcirsARN = Nothing
+    , _gcirsAccount = Nothing
+    , _gcirsUserId = Nothing
+    , _gcirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The AWS ARN associated with the calling entity.
 gcirsARN :: Lens' GetCallerIdentityResponse (Maybe Text)
-gcirsARN = lens _gcirsARN (\ s a -> s{_gcirsARN = a});
+gcirsARN = lens _gcirsARN (\ s a -> s{_gcirsARN = a})
 
 -- | The AWS account ID number of the account that owns or contains the calling entity.
 gcirsAccount :: Lens' GetCallerIdentityResponse (Maybe Text)
-gcirsAccount = lens _gcirsAccount (\ s a -> s{_gcirsAccount = a});
+gcirsAccount = lens _gcirsAccount (\ s a -> s{_gcirsAccount = a})
 
 -- | The unique identifier of the calling entity. The exact value depends on the type of entity making the call. The values returned are those listed in the __aws:userid__ column in the <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table> found on the __Policy Variables__ reference page in the /IAM User Guide/ .
 gcirsUserId :: Lens' GetCallerIdentityResponse (Maybe Text)
-gcirsUserId = lens _gcirsUserId (\ s a -> s{_gcirsUserId = a});
+gcirsUserId = lens _gcirsUserId (\ s a -> s{_gcirsUserId = a})
 
 -- | -- | The response status code.
 gcirsResponseStatus :: Lens' GetCallerIdentityResponse Int
-gcirsResponseStatus = lens _gcirsResponseStatus (\ s a -> s{_gcirsResponseStatus = a});
+gcirsResponseStatus = lens _gcirsResponseStatus (\ s a -> s{_gcirsResponseStatus = a})
 
 instance NFData GetCallerIdentityResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.CreateSizeConstraintSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,16 +80,16 @@ createSizeConstraintSet
     -> CreateSizeConstraintSet
 createSizeConstraintSet pName_ pChangeToken_ =
   CreateSizeConstraintSet'
-  {_cscsName = pName_, _cscsChangeToken = pChangeToken_}
+    {_cscsName = pName_, _cscsChangeToken = pChangeToken_}
 
 
 -- | A friendly name or description of the 'SizeConstraintSet' . You can't change @Name@ after you create a @SizeConstraintSet@ .
 cscsName :: Lens' CreateSizeConstraintSet Text
-cscsName = lens _cscsName (\ s a -> s{_cscsName = a});
+cscsName = lens _cscsName (\ s a -> s{_cscsName = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 cscsChangeToken :: Lens' CreateSizeConstraintSet Text
-cscsChangeToken = lens _cscsChangeToken (\ s a -> s{_cscsChangeToken = a});
+cscsChangeToken = lens _cscsChangeToken (\ s a -> s{_cscsChangeToken = a})
 
 instance AWSRequest CreateSizeConstraintSet where
         type Rs CreateSizeConstraintSet =
@@ -151,22 +151,22 @@ createSizeConstraintSetResponse
     -> CreateSizeConstraintSetResponse
 createSizeConstraintSetResponse pResponseStatus_ =
   CreateSizeConstraintSetResponse'
-  { _cscsrsSizeConstraintSet = Nothing
-  , _cscsrsChangeToken = Nothing
-  , _cscsrsResponseStatus = pResponseStatus_
-  }
+    { _cscsrsSizeConstraintSet = Nothing
+    , _cscsrsChangeToken = Nothing
+    , _cscsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A 'SizeConstraintSet' that contains no @SizeConstraint@ objects.
 cscsrsSizeConstraintSet :: Lens' CreateSizeConstraintSetResponse (Maybe SizeConstraintSet)
-cscsrsSizeConstraintSet = lens _cscsrsSizeConstraintSet (\ s a -> s{_cscsrsSizeConstraintSet = a});
+cscsrsSizeConstraintSet = lens _cscsrsSizeConstraintSet (\ s a -> s{_cscsrsSizeConstraintSet = a})
 
 -- | The @ChangeToken@ that you used to submit the @CreateSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 cscsrsChangeToken :: Lens' CreateSizeConstraintSetResponse (Maybe Text)
-cscsrsChangeToken = lens _cscsrsChangeToken (\ s a -> s{_cscsrsChangeToken = a});
+cscsrsChangeToken = lens _cscsrsChangeToken (\ s a -> s{_cscsrsChangeToken = a})
 
 -- | -- | The response status code.
 cscsrsResponseStatus :: Lens' CreateSizeConstraintSetResponse Int
-cscsrsResponseStatus = lens _cscsrsResponseStatus (\ s a -> s{_cscsrsResponseStatus = a});
+cscsrsResponseStatus = lens _cscsrsResponseStatus (\ s a -> s{_cscsrsResponseStatus = a})
 
 instance NFData CreateSizeConstraintSetResponse where

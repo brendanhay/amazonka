@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListSqlInjectionMatchSets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ listSqlInjectionMatchSets =
 
 -- | If you specify a value for @Limit@ and you have more 'SqlInjectionMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @SqlInjectionMatchSets@ . For the second and subsequent @ListSqlInjectionMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @SqlInjectionMatchSets@ .
 lsimsNextMarker :: Lens' ListSqlInjectionMatchSets (Maybe Text)
-lsimsNextMarker = lens _lsimsNextMarker (\ s a -> s{_lsimsNextMarker = a});
+lsimsNextMarker = lens _lsimsNextMarker (\ s a -> s{_lsimsNextMarker = a})
 
 -- | Specifies the number of 'SqlInjectionMatchSet' objects that you want AWS WAF to return for this request. If you have more @SqlInjectionMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 lsimsLimit :: Lens' ListSqlInjectionMatchSets (Maybe Natural)
-lsimsLimit = lens _lsimsLimit (\ s a -> s{_lsimsLimit = a}) . mapping _Nat;
+lsimsLimit = lens _lsimsLimit (\ s a -> s{_lsimsLimit = a}) . mapping _Nat
 
 instance AWSRequest ListSqlInjectionMatchSets where
         type Rs ListSqlInjectionMatchSets =
@@ -143,23 +143,23 @@ listSqlInjectionMatchSetsResponse
     -> ListSqlInjectionMatchSetsResponse
 listSqlInjectionMatchSetsResponse pResponseStatus_ =
   ListSqlInjectionMatchSetsResponse'
-  { _lsimsrsNextMarker = Nothing
-  , _lsimsrsSqlInjectionMatchSets = Nothing
-  , _lsimsrsResponseStatus = pResponseStatus_
-  }
+    { _lsimsrsNextMarker = Nothing
+    , _lsimsrsSqlInjectionMatchSets = Nothing
+    , _lsimsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If you have more 'SqlInjectionMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @SqlInjectionMatchSet@ objects, submit another @ListSqlInjectionMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 lsimsrsNextMarker :: Lens' ListSqlInjectionMatchSetsResponse (Maybe Text)
-lsimsrsNextMarker = lens _lsimsrsNextMarker (\ s a -> s{_lsimsrsNextMarker = a});
+lsimsrsNextMarker = lens _lsimsrsNextMarker (\ s a -> s{_lsimsrsNextMarker = a})
 
 -- | An array of 'SqlInjectionMatchSetSummary' objects.
 lsimsrsSqlInjectionMatchSets :: Lens' ListSqlInjectionMatchSetsResponse [SqlInjectionMatchSetSummary]
-lsimsrsSqlInjectionMatchSets = lens _lsimsrsSqlInjectionMatchSets (\ s a -> s{_lsimsrsSqlInjectionMatchSets = a}) . _Default . _Coerce;
+lsimsrsSqlInjectionMatchSets = lens _lsimsrsSqlInjectionMatchSets (\ s a -> s{_lsimsrsSqlInjectionMatchSets = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lsimsrsResponseStatus :: Lens' ListSqlInjectionMatchSetsResponse Int
-lsimsrsResponseStatus = lens _lsimsrsResponseStatus (\ s a -> s{_lsimsrsResponseStatus = a});
+lsimsrsResponseStatus = lens _lsimsrsResponseStatus (\ s a -> s{_lsimsrsResponseStatus = a})
 
 instance NFData ListSqlInjectionMatchSetsResponse
          where

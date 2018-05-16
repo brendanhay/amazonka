@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,9 @@ module Network.AWS.EMR
 
     -- * Waiters
     -- $waiters
+
+    -- ** StepComplete
+    , stepComplete
 
     -- ** ClusterTerminated
     , clusterTerminated
@@ -276,6 +279,7 @@ module Network.AWS.EMR
     , cluReleaseLabel
     , cluRepoUpgradeOnBoot
     , cluLogURI
+    , cluKerberosAttributes
     , cluRunningAMIVersion
     , cluMasterPublicDNSName
     , cluTerminationProtected
@@ -591,6 +595,15 @@ module Network.AWS.EMR
     , jficServiceAccessSecurityGroup
     , jficTerminationProtected
     , jficPlacement
+
+    -- ** KerberosAttributes
+    , KerberosAttributes
+    , kerberosAttributes
+    , kaADDomainJoinPassword
+    , kaCrossRealmTrustPrincipalPassword
+    , kaADDomainJoinUser
+    , kaRealm
+    , kaKdcAdminPassword
 
     -- ** KeyValue
     , KeyValue

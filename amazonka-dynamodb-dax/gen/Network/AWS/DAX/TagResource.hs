@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.TagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ tagResource pResourceName_ =
 
 -- | The name of the DAX resource to which tags should be added.
 trResourceName :: Lens' TagResource Text
-trResourceName = lens _trResourceName (\ s a -> s{_trResourceName = a});
+trResourceName = lens _trResourceName (\ s a -> s{_trResourceName = a})
 
 -- | The tags to be assigned to the DAX resource.
 trTags :: Lens' TagResource [Tag]
-trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Coerce;
+trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Coerce
 
 instance AWSRequest TagResource where
         type Rs TagResource = TagResourceResponse
@@ -128,15 +128,15 @@ tagResourceResponse
     -> TagResourceResponse
 tagResourceResponse pResponseStatus_ =
   TagResourceResponse'
-  {_trrsTags = Nothing, _trrsResponseStatus = pResponseStatus_}
+    {_trrsTags = Nothing, _trrsResponseStatus = pResponseStatus_}
 
 
 -- | The list of tags that are associated with the DAX resource.
 trrsTags :: Lens' TagResourceResponse [Tag]
-trrsTags = lens _trrsTags (\ s a -> s{_trrsTags = a}) . _Default . _Coerce;
+trrsTags = lens _trrsTags (\ s a -> s{_trrsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 trrsResponseStatus :: Lens' TagResourceResponse Int
-trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
+trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a})
 
 instance NFData TagResourceResponse where

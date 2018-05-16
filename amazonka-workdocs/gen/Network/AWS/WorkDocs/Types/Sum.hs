@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -132,6 +132,33 @@ instance ToHeader     ActivityType
 
 instance FromJSON ActivityType where
     parseJSON = parseJSONText "ActivityType"
+
+data BooleanEnumType
+  = False'
+  | True'
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText BooleanEnumType where
+    parser = takeLowerText >>= \case
+        "false" -> pure False'
+        "true" -> pure True'
+        e -> fromTextError $ "Failure parsing BooleanEnumType from value: '" <> e
+           <> "'. Accepted values: false, true"
+
+instance ToText BooleanEnumType where
+    toText = \case
+        False' -> "FALSE"
+        True' -> "TRUE"
+
+instance Hashable     BooleanEnumType
+instance NFData       BooleanEnumType
+instance ToByteString BooleanEnumType
+instance ToQuery      BooleanEnumType
+instance ToHeader     BooleanEnumType
+
+instance ToJSON BooleanEnumType where
+    toJSON = toJSONText
 
 data CommentStatusType
   = Deleted
@@ -810,21 +837,30 @@ instance FromJSON UserStatusType where
 
 data UserType
   = UTAdmin
+  | UTMinimaluser
+  | UTPoweruser
   | UTUser
+  | UTWorkspacesuser
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText UserType where
     parser = takeLowerText >>= \case
         "admin" -> pure UTAdmin
+        "minimaluser" -> pure UTMinimaluser
+        "poweruser" -> pure UTPoweruser
         "user" -> pure UTUser
+        "workspacesuser" -> pure UTWorkspacesuser
         e -> fromTextError $ "Failure parsing UserType from value: '" <> e
-           <> "'. Accepted values: admin, user"
+           <> "'. Accepted values: admin, minimaluser, poweruser, user, workspacesuser"
 
 instance ToText UserType where
     toText = \case
         UTAdmin -> "ADMIN"
+        UTMinimaluser -> "MINIMALUSER"
+        UTPoweruser -> "POWERUSER"
         UTUser -> "USER"
+        UTWorkspacesuser -> "WORKSPACESUSER"
 
 instance Hashable     UserType
 instance NFData       UserType

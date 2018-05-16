@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.UpdateCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,43 +84,43 @@ updateCluster
     -> UpdateCluster
 updateCluster pClusterName_ =
   UpdateCluster'
-  { _ucSecurityGroupIds = Nothing
-  , _ucPreferredMaintenanceWindow = Nothing
-  , _ucNotificationTopicStatus = Nothing
-  , _ucDescription = Nothing
-  , _ucNotificationTopicARN = Nothing
-  , _ucParameterGroupName = Nothing
-  , _ucClusterName = pClusterName_
-  }
+    { _ucSecurityGroupIds = Nothing
+    , _ucPreferredMaintenanceWindow = Nothing
+    , _ucNotificationTopicStatus = Nothing
+    , _ucDescription = Nothing
+    , _ucNotificationTopicARN = Nothing
+    , _ucParameterGroupName = Nothing
+    , _ucClusterName = pClusterName_
+    }
 
 
 -- | A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node.
 ucSecurityGroupIds :: Lens' UpdateCluster [Text]
-ucSecurityGroupIds = lens _ucSecurityGroupIds (\ s a -> s{_ucSecurityGroupIds = a}) . _Default . _Coerce;
+ucSecurityGroupIds = lens _ucSecurityGroupIds (\ s a -> s{_ucSecurityGroupIds = a}) . _Default . _Coerce
 
 -- | A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
 ucPreferredMaintenanceWindow :: Lens' UpdateCluster (Maybe Text)
-ucPreferredMaintenanceWindow = lens _ucPreferredMaintenanceWindow (\ s a -> s{_ucPreferredMaintenanceWindow = a});
+ucPreferredMaintenanceWindow = lens _ucPreferredMaintenanceWindow (\ s a -> s{_ucPreferredMaintenanceWindow = a})
 
 -- | The current state of the topic.
 ucNotificationTopicStatus :: Lens' UpdateCluster (Maybe Text)
-ucNotificationTopicStatus = lens _ucNotificationTopicStatus (\ s a -> s{_ucNotificationTopicStatus = a});
+ucNotificationTopicStatus = lens _ucNotificationTopicStatus (\ s a -> s{_ucNotificationTopicStatus = a})
 
 -- | A description of the changes being made to the cluster.
 ucDescription :: Lens' UpdateCluster (Maybe Text)
-ucDescription = lens _ucDescription (\ s a -> s{_ucDescription = a});
+ucDescription = lens _ucDescription (\ s a -> s{_ucDescription = a})
 
 -- | The Amazon Resource Name (ARN) that identifies the topic.
 ucNotificationTopicARN :: Lens' UpdateCluster (Maybe Text)
-ucNotificationTopicARN = lens _ucNotificationTopicARN (\ s a -> s{_ucNotificationTopicARN = a});
+ucNotificationTopicARN = lens _ucNotificationTopicARN (\ s a -> s{_ucNotificationTopicARN = a})
 
 -- | The name of a parameter group for this cluster.
 ucParameterGroupName :: Lens' UpdateCluster (Maybe Text)
-ucParameterGroupName = lens _ucParameterGroupName (\ s a -> s{_ucParameterGroupName = a});
+ucParameterGroupName = lens _ucParameterGroupName (\ s a -> s{_ucParameterGroupName = a})
 
 -- | The name of the DAX cluster to be modified.
 ucClusterName :: Lens' UpdateCluster Text
-ucClusterName = lens _ucClusterName (\ s a -> s{_ucClusterName = a});
+ucClusterName = lens _ucClusterName (\ s a -> s{_ucClusterName = a})
 
 instance AWSRequest UpdateCluster where
         type Rs UpdateCluster = UpdateClusterResponse
@@ -184,15 +184,15 @@ updateClusterResponse
     -> UpdateClusterResponse
 updateClusterResponse pResponseStatus_ =
   UpdateClusterResponse'
-  {_ucrsCluster = Nothing, _ucrsResponseStatus = pResponseStatus_}
+    {_ucrsCluster = Nothing, _ucrsResponseStatus = pResponseStatus_}
 
 
 -- | A description of the DAX cluster, after it has been modified.
 ucrsCluster :: Lens' UpdateClusterResponse (Maybe Cluster)
-ucrsCluster = lens _ucrsCluster (\ s a -> s{_ucrsCluster = a});
+ucrsCluster = lens _ucrsCluster (\ s a -> s{_ucrsCluster = a})
 
 -- | -- | The response status code.
 ucrsResponseStatus :: Lens' UpdateClusterResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a});
+ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a})
 
 instance NFData UpdateClusterResponse where

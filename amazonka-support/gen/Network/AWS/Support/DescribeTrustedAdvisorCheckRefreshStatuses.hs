@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ describeTrustedAdvisorCheckRefreshStatuses =
 
 -- | The IDs of the Trusted Advisor checks to get the status of. __Note:__ Specifying the check ID of a check that is automatically refreshed causes an @InvalidParameterValue@ error.
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
-dtacrsCheckIds = lens _dtacrsCheckIds (\ s a -> s{_dtacrsCheckIds = a}) . _Coerce;
+dtacrsCheckIds = lens _dtacrsCheckIds (\ s a -> s{_dtacrsCheckIds = a}) . _Coerce
 
 instance AWSRequest
            DescribeTrustedAdvisorCheckRefreshStatuses
@@ -144,16 +144,16 @@ describeTrustedAdvisorCheckRefreshStatusesResponse
     -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
 describeTrustedAdvisorCheckRefreshStatusesResponse pResponseStatus_ =
   DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-  {_dtacrsrsResponseStatus = pResponseStatus_, _dtacrsrsStatuses = mempty}
+    {_dtacrsrsResponseStatus = pResponseStatus_, _dtacrsrsStatuses = mempty}
 
 
 -- | -- | The response status code.
 dtacrsrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
-dtacrsrsResponseStatus = lens _dtacrsrsResponseStatus (\ s a -> s{_dtacrsrsResponseStatus = a});
+dtacrsrsResponseStatus = lens _dtacrsrsResponseStatus (\ s a -> s{_dtacrsrsResponseStatus = a})
 
 -- | The refresh status of the specified Trusted Advisor checks.
 dtacrsrsStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
-dtacrsrsStatuses = lens _dtacrsrsStatuses (\ s a -> s{_dtacrsrsStatuses = a}) . _Coerce;
+dtacrsrsStatuses = lens _dtacrsrsStatuses (\ s a -> s{_dtacrsrsStatuses = a}) . _Coerce
 
 instance NFData
            DescribeTrustedAdvisorCheckRefreshStatusesResponse

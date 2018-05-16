@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetRestAPI
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,12 +33,15 @@ module Network.AWS.APIGateway.GetRestAPI
     , restAPI
     , RestAPI
     -- * Response Lenses
+    , raMinimumCompressionSize
     , raBinaryMediaTypes
     , raWarnings
     , raCreatedDate
     , raName
     , raVersion
+    , raApiKeySource
     , raId
+    , raPolicy
     , raEndpointConfiguration
     , raDescription
     ) where
@@ -64,16 +67,16 @@ newtype GetRestAPI = GetRestAPI'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'graRestAPIId' - The identifier of the 'RestApi' resource.
+-- * 'graRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 getRestAPI
     :: Text -- ^ 'graRestAPIId'
     -> GetRestAPI
 getRestAPI pRestAPIId_ = GetRestAPI' {_graRestAPIId = pRestAPIId_}
 
 
--- | The identifier of the 'RestApi' resource.
+-- | [Required] The string identifier of the associated 'RestApi' .
 graRestAPIId :: Lens' GetRestAPI Text
-graRestAPIId = lens _graRestAPIId (\ s a -> s{_graRestAPIId = a});
+graRestAPIId = lens _graRestAPIId (\ s a -> s{_graRestAPIId = a})
 
 instance AWSRequest GetRestAPI where
         type Rs GetRestAPI = RestAPI

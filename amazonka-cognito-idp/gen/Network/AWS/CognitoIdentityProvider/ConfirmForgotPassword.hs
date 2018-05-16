@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,8 @@ module Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
       confirmForgotPassword
     , ConfirmForgotPassword
     -- * Request Lenses
+    , cfpAnalyticsMetadata
+    , cfpUserContextData
     , cfpSecretHash
     , cfpClientId
     , cfpUsername
@@ -53,11 +55,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'confirmForgotPassword' smart constructor.
 data ConfirmForgotPassword = ConfirmForgotPassword'
-  { _cfpSecretHash       :: !(Maybe (Sensitive Text))
-  , _cfpClientId         :: !(Sensitive Text)
-  , _cfpUsername         :: !(Sensitive Text)
-  , _cfpConfirmationCode :: !Text
-  , _cfpPassword         :: !(Sensitive Text)
+  { _cfpAnalyticsMetadata :: !(Maybe AnalyticsMetadataType)
+  , _cfpUserContextData   :: !(Maybe UserContextDataType)
+  , _cfpSecretHash        :: !(Maybe (Sensitive Text))
+  , _cfpClientId          :: !(Sensitive Text)
+  , _cfpUsername          :: !(Sensitive Text)
+  , _cfpConfirmationCode  :: !Text
+  , _cfpPassword          :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -65,13 +69,17 @@ data ConfirmForgotPassword = ConfirmForgotPassword'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cfpAnalyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @ConfirmForgotPassword@ calls.
+--
+-- * 'cfpUserContextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+--
 -- * 'cfpSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 --
 -- * 'cfpClientId' - The app client ID of the app associated with the user pool.
 --
 -- * 'cfpUsername' - The user name of the user for whom you want to enter a code to retrieve a forgotten password.
 --
--- * 'cfpConfirmationCode' - The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see <API_ForgotPassword.html ForgotPassword>
+-- * 'cfpConfirmationCode' - The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see
 --
 -- * 'cfpPassword' - The password sent by a user's request to retrieve a forgotten password.
 confirmForgotPassword
@@ -82,33 +90,43 @@ confirmForgotPassword
     -> ConfirmForgotPassword
 confirmForgotPassword pClientId_ pUsername_ pConfirmationCode_ pPassword_ =
   ConfirmForgotPassword'
-  { _cfpSecretHash = Nothing
-  , _cfpClientId = _Sensitive # pClientId_
-  , _cfpUsername = _Sensitive # pUsername_
-  , _cfpConfirmationCode = pConfirmationCode_
-  , _cfpPassword = _Sensitive # pPassword_
-  }
+    { _cfpAnalyticsMetadata = Nothing
+    , _cfpUserContextData = Nothing
+    , _cfpSecretHash = Nothing
+    , _cfpClientId = _Sensitive # pClientId_
+    , _cfpUsername = _Sensitive # pUsername_
+    , _cfpConfirmationCode = pConfirmationCode_
+    , _cfpPassword = _Sensitive # pPassword_
+    }
 
+
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for @ConfirmForgotPassword@ calls.
+cfpAnalyticsMetadata :: Lens' ConfirmForgotPassword (Maybe AnalyticsMetadataType)
+cfpAnalyticsMetadata = lens _cfpAnalyticsMetadata (\ s a -> s{_cfpAnalyticsMetadata = a})
+
+-- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+cfpUserContextData :: Lens' ConfirmForgotPassword (Maybe UserContextDataType)
+cfpUserContextData = lens _cfpUserContextData (\ s a -> s{_cfpUserContextData = a})
 
 -- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 cfpSecretHash :: Lens' ConfirmForgotPassword (Maybe Text)
-cfpSecretHash = lens _cfpSecretHash (\ s a -> s{_cfpSecretHash = a}) . mapping _Sensitive;
+cfpSecretHash = lens _cfpSecretHash (\ s a -> s{_cfpSecretHash = a}) . mapping _Sensitive
 
 -- | The app client ID of the app associated with the user pool.
 cfpClientId :: Lens' ConfirmForgotPassword Text
-cfpClientId = lens _cfpClientId (\ s a -> s{_cfpClientId = a}) . _Sensitive;
+cfpClientId = lens _cfpClientId (\ s a -> s{_cfpClientId = a}) . _Sensitive
 
 -- | The user name of the user for whom you want to enter a code to retrieve a forgotten password.
 cfpUsername :: Lens' ConfirmForgotPassword Text
-cfpUsername = lens _cfpUsername (\ s a -> s{_cfpUsername = a}) . _Sensitive;
+cfpUsername = lens _cfpUsername (\ s a -> s{_cfpUsername = a}) . _Sensitive
 
--- | The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see <API_ForgotPassword.html ForgotPassword>
+-- | The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see
 cfpConfirmationCode :: Lens' ConfirmForgotPassword Text
-cfpConfirmationCode = lens _cfpConfirmationCode (\ s a -> s{_cfpConfirmationCode = a});
+cfpConfirmationCode = lens _cfpConfirmationCode (\ s a -> s{_cfpConfirmationCode = a})
 
 -- | The password sent by a user's request to retrieve a forgotten password.
 cfpPassword :: Lens' ConfirmForgotPassword Text
-cfpPassword = lens _cfpPassword (\ s a -> s{_cfpPassword = a}) . _Sensitive;
+cfpPassword = lens _cfpPassword (\ s a -> s{_cfpPassword = a}) . _Sensitive
 
 instance AWSRequest ConfirmForgotPassword where
         type Rs ConfirmForgotPassword =
@@ -138,7 +156,9 @@ instance ToJSON ConfirmForgotPassword where
         toJSON ConfirmForgotPassword'{..}
           = object
               (catMaybes
-                 [("SecretHash" .=) <$> _cfpSecretHash,
+                 [("AnalyticsMetadata" .=) <$> _cfpAnalyticsMetadata,
+                  ("UserContextData" .=) <$> _cfpUserContextData,
+                  ("SecretHash" .=) <$> _cfpSecretHash,
                   Just ("ClientId" .= _cfpClientId),
                   Just ("Username" .= _cfpUsername),
                   Just ("ConfirmationCode" .= _cfpConfirmationCode),
@@ -174,6 +194,6 @@ confirmForgotPasswordResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cfprsResponseStatus :: Lens' ConfirmForgotPasswordResponse Int
-cfprsResponseStatus = lens _cfprsResponseStatus (\ s a -> s{_cfprsResponseStatus = a});
+cfprsResponseStatus = lens _cfprsResponseStatus (\ s a -> s{_cfprsResponseStatus = a})
 
 instance NFData ConfirmForgotPasswordResponse where

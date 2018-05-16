@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListQualificationRequests
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- The @ListQualificationRequests@ operation retrieves requests for Qualifications of a particular Qualification type. The owner of the Qualification type calls this operation to poll for pending requests, and accepts them using the AcceptQualification operation.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListQualificationRequests
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.MechanicalTurk.ListQualificationRequests
 import Network.AWS.Lens
 import Network.AWS.MechanicalTurk.Types
 import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -69,23 +72,30 @@ listQualificationRequests
     :: ListQualificationRequests
 listQualificationRequests =
   ListQualificationRequests'
-  { _lqrNextToken = Nothing
-  , _lqrQualificationTypeId = Nothing
-  , _lqrMaxResults = Nothing
-  }
+    { _lqrNextToken = Nothing
+    , _lqrQualificationTypeId = Nothing
+    , _lqrMaxResults = Nothing
+    }
 
 
 -- | Undocumented member.
 lqrNextToken :: Lens' ListQualificationRequests (Maybe Text)
-lqrNextToken = lens _lqrNextToken (\ s a -> s{_lqrNextToken = a});
+lqrNextToken = lens _lqrNextToken (\ s a -> s{_lqrNextToken = a})
 
 -- | The ID of the QualificationType.
 lqrQualificationTypeId :: Lens' ListQualificationRequests (Maybe Text)
-lqrQualificationTypeId = lens _lqrQualificationTypeId (\ s a -> s{_lqrQualificationTypeId = a});
+lqrQualificationTypeId = lens _lqrQualificationTypeId (\ s a -> s{_lqrQualificationTypeId = a})
 
 -- | The maximum number of results to return in a single call.
 lqrMaxResults :: Lens' ListQualificationRequests (Maybe Natural)
-lqrMaxResults = lens _lqrMaxResults (\ s a -> s{_lqrMaxResults = a}) . mapping _Nat;
+lqrMaxResults = lens _lqrMaxResults (\ s a -> s{_lqrMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListQualificationRequests where
+        page rq rs
+          | stop (rs ^. lqrrsNextToken) = Nothing
+          | stop (rs ^. lqrrsQualificationRequests) = Nothing
+          | otherwise =
+            Just $ rq & lqrNextToken .~ rs ^. lqrrsNextToken
 
 instance AWSRequest ListQualificationRequests where
         type Rs ListQualificationRequests =
@@ -154,28 +164,28 @@ listQualificationRequestsResponse
     -> ListQualificationRequestsResponse
 listQualificationRequestsResponse pResponseStatus_ =
   ListQualificationRequestsResponse'
-  { _lqrrsQualificationRequests = Nothing
-  , _lqrrsNextToken = Nothing
-  , _lqrrsNumResults = Nothing
-  , _lqrrsResponseStatus = pResponseStatus_
-  }
+    { _lqrrsQualificationRequests = Nothing
+    , _lqrrsNextToken = Nothing
+    , _lqrrsNumResults = Nothing
+    , _lqrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The Qualification request. The response includes one QualificationRequest element for each Qualification request returned by the query.
 lqrrsQualificationRequests :: Lens' ListQualificationRequestsResponse [QualificationRequest]
-lqrrsQualificationRequests = lens _lqrrsQualificationRequests (\ s a -> s{_lqrrsQualificationRequests = a}) . _Default . _Coerce;
+lqrrsQualificationRequests = lens _lqrrsQualificationRequests (\ s a -> s{_lqrrsQualificationRequests = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 lqrrsNextToken :: Lens' ListQualificationRequestsResponse (Maybe Text)
-lqrrsNextToken = lens _lqrrsNextToken (\ s a -> s{_lqrrsNextToken = a});
+lqrrsNextToken = lens _lqrrsNextToken (\ s a -> s{_lqrrsNextToken = a})
 
 -- | The number of Qualification requests on this page in the filtered results list, equivalent to the number of Qualification requests being returned by this call.
 lqrrsNumResults :: Lens' ListQualificationRequestsResponse (Maybe Int)
-lqrrsNumResults = lens _lqrrsNumResults (\ s a -> s{_lqrrsNumResults = a});
+lqrrsNumResults = lens _lqrrsNumResults (\ s a -> s{_lqrrsNumResults = a})
 
 -- | -- | The response status code.
 lqrrsResponseStatus :: Lens' ListQualificationRequestsResponse Int
-lqrrsResponseStatus = lens _lqrrsResponseStatus (\ s a -> s{_lqrrsResponseStatus = a});
+lqrrsResponseStatus = lens _lqrrsResponseStatus (\ s a -> s{_lqrrsResponseStatus = a})
 
 instance NFData ListQualificationRequestsResponse
          where

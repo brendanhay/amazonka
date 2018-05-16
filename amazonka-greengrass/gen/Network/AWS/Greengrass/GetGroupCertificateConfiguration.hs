@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetGroupCertificateConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,7 +54,7 @@ newtype GetGroupCertificateConfiguration = GetGroupCertificateConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggccGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'ggccGroupId' - The ID of the AWS Greengrass group.
 getGroupCertificateConfiguration
     :: Text -- ^ 'ggccGroupId'
     -> GetGroupCertificateConfiguration
@@ -62,9 +62,9 @@ getGroupCertificateConfiguration pGroupId_ =
   GetGroupCertificateConfiguration' {_ggccGroupId = pGroupId_}
 
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 ggccGroupId :: Lens' GetGroupCertificateConfiguration Text
-ggccGroupId = lens _ggccGroupId (\ s a -> s{_ggccGroupId = a});
+ggccGroupId = lens _ggccGroupId (\ s a -> s{_ggccGroupId = a})
 
 instance AWSRequest GetGroupCertificateConfiguration
          where
@@ -118,11 +118,11 @@ data GetGroupCertificateConfigurationResponse = GetGroupCertificateConfiguration
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggccrsCertificateAuthorityExpiryInMilliseconds' - Amount of time when the certificate authority expires in milliseconds.
+-- * 'ggccrsCertificateAuthorityExpiryInMilliseconds' - The amount of time remaining before the certificate authority expires, in milliseconds.
 --
--- * 'ggccrsGroupId' - Id of the group the certificate configuration belongs to.
+-- * 'ggccrsGroupId' - The ID of the group certificate configuration.
 --
--- * 'ggccrsCertificateExpiryInMilliseconds' - Amount of time when the certificate expires in milliseconds.
+-- * 'ggccrsCertificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
 --
 -- * 'ggccrsResponseStatus' - -- | The response status code.
 getGroupCertificateConfigurationResponse
@@ -130,28 +130,28 @@ getGroupCertificateConfigurationResponse
     -> GetGroupCertificateConfigurationResponse
 getGroupCertificateConfigurationResponse pResponseStatus_ =
   GetGroupCertificateConfigurationResponse'
-  { _ggccrsCertificateAuthorityExpiryInMilliseconds = Nothing
-  , _ggccrsGroupId = Nothing
-  , _ggccrsCertificateExpiryInMilliseconds = Nothing
-  , _ggccrsResponseStatus = pResponseStatus_
-  }
+    { _ggccrsCertificateAuthorityExpiryInMilliseconds = Nothing
+    , _ggccrsGroupId = Nothing
+    , _ggccrsCertificateExpiryInMilliseconds = Nothing
+    , _ggccrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Amount of time when the certificate authority expires in milliseconds.
+-- | The amount of time remaining before the certificate authority expires, in milliseconds.
 ggccrsCertificateAuthorityExpiryInMilliseconds :: Lens' GetGroupCertificateConfigurationResponse (Maybe Text)
-ggccrsCertificateAuthorityExpiryInMilliseconds = lens _ggccrsCertificateAuthorityExpiryInMilliseconds (\ s a -> s{_ggccrsCertificateAuthorityExpiryInMilliseconds = a});
+ggccrsCertificateAuthorityExpiryInMilliseconds = lens _ggccrsCertificateAuthorityExpiryInMilliseconds (\ s a -> s{_ggccrsCertificateAuthorityExpiryInMilliseconds = a})
 
--- | Id of the group the certificate configuration belongs to.
+-- | The ID of the group certificate configuration.
 ggccrsGroupId :: Lens' GetGroupCertificateConfigurationResponse (Maybe Text)
-ggccrsGroupId = lens _ggccrsGroupId (\ s a -> s{_ggccrsGroupId = a});
+ggccrsGroupId = lens _ggccrsGroupId (\ s a -> s{_ggccrsGroupId = a})
 
--- | Amount of time when the certificate expires in milliseconds.
+-- | The amount of time remaining before the certificate expires, in milliseconds.
 ggccrsCertificateExpiryInMilliseconds :: Lens' GetGroupCertificateConfigurationResponse (Maybe Text)
-ggccrsCertificateExpiryInMilliseconds = lens _ggccrsCertificateExpiryInMilliseconds (\ s a -> s{_ggccrsCertificateExpiryInMilliseconds = a});
+ggccrsCertificateExpiryInMilliseconds = lens _ggccrsCertificateExpiryInMilliseconds (\ s a -> s{_ggccrsCertificateExpiryInMilliseconds = a})
 
 -- | -- | The response status code.
 ggccrsResponseStatus :: Lens' GetGroupCertificateConfigurationResponse Int
-ggccrsResponseStatus = lens _ggccrsResponseStatus (\ s a -> s{_ggccrsResponseStatus = a});
+ggccrsResponseStatus = lens _ggccrsResponseStatus (\ s a -> s{_ggccrsResponseStatus = a})
 
 instance NFData
            GetGroupCertificateConfigurationResponse

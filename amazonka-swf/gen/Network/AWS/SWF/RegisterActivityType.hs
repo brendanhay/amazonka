@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RegisterActivityType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -119,58 +119,58 @@ registerActivityType
     -> RegisterActivityType
 registerActivityType pDomain_ pName_ pVersion_ =
   RegisterActivityType'
-  { _ratDefaultTaskScheduleToStartTimeout = Nothing
-  , _ratDefaultTaskList = Nothing
-  , _ratDefaultTaskPriority = Nothing
-  , _ratDefaultTaskHeartbeatTimeout = Nothing
-  , _ratDefaultTaskScheduleToCloseTimeout = Nothing
-  , _ratDefaultTaskStartToCloseTimeout = Nothing
-  , _ratDescription = Nothing
-  , _ratDomain = pDomain_
-  , _ratName = pName_
-  , _ratVersion = pVersion_
-  }
+    { _ratDefaultTaskScheduleToStartTimeout = Nothing
+    , _ratDefaultTaskList = Nothing
+    , _ratDefaultTaskPriority = Nothing
+    , _ratDefaultTaskHeartbeatTimeout = Nothing
+    , _ratDefaultTaskScheduleToCloseTimeout = Nothing
+    , _ratDefaultTaskStartToCloseTimeout = Nothing
+    , _ratDescription = Nothing
+    , _ratDomain = pDomain_
+    , _ratName = pName_
+    , _ratVersion = pVersion_
+    }
 
 
 -- | If set, specifies the default maximum duration that a task of this activity type can wait before being assigned to a worker. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' . The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 ratDefaultTaskScheduleToStartTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratDefaultTaskScheduleToStartTimeout = lens _ratDefaultTaskScheduleToStartTimeout (\ s a -> s{_ratDefaultTaskScheduleToStartTimeout = a});
+ratDefaultTaskScheduleToStartTimeout = lens _ratDefaultTaskScheduleToStartTimeout (\ s a -> s{_ratDefaultTaskScheduleToStartTimeout = a})
 
 -- | If set, specifies the default task list to use for scheduling tasks of this activity type. This default task list is used if a task list isn't provided when a task is scheduled through the @ScheduleActivityTask@ 'Decision' .
 ratDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
-ratDefaultTaskList = lens _ratDefaultTaskList (\ s a -> s{_ratDefaultTaskList = a});
+ratDefaultTaskList = lens _ratDefaultTaskList (\ s a -> s{_ratDefaultTaskList = a})
 
 -- | The default task priority to assign to the activity type. If not assigned, then @0@ is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /in the \/Amazon SWF Developer Guide\/ ./ .
 ratDefaultTaskPriority :: Lens' RegisterActivityType (Maybe Text)
-ratDefaultTaskPriority = lens _ratDefaultTaskPriority (\ s a -> s{_ratDefaultTaskPriority = a});
+ratDefaultTaskPriority = lens _ratDefaultTaskPriority (\ s a -> s{_ratDefaultTaskPriority = a})
 
 -- | If set, specifies the default maximum time before which a worker processing a task of this type must report progress by calling 'RecordActivityTaskHeartbeat' . If the timeout is exceeded, the activity task is automatically timed out. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' . If the activity worker subsequently attempts to record a heartbeat or returns a result, the activity worker receives an @UnknownResource@ fault. In this case, Amazon SWF no longer considers the activity task to be valid; the activity worker should clean up the activity task. The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 ratDefaultTaskHeartbeatTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratDefaultTaskHeartbeatTimeout = lens _ratDefaultTaskHeartbeatTimeout (\ s a -> s{_ratDefaultTaskHeartbeatTimeout = a});
+ratDefaultTaskHeartbeatTimeout = lens _ratDefaultTaskHeartbeatTimeout (\ s a -> s{_ratDefaultTaskHeartbeatTimeout = a})
 
 -- | If set, specifies the default maximum duration for a task of this activity type. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' . The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 ratDefaultTaskScheduleToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratDefaultTaskScheduleToCloseTimeout = lens _ratDefaultTaskScheduleToCloseTimeout (\ s a -> s{_ratDefaultTaskScheduleToCloseTimeout = a});
+ratDefaultTaskScheduleToCloseTimeout = lens _ratDefaultTaskScheduleToCloseTimeout (\ s a -> s{_ratDefaultTaskScheduleToCloseTimeout = a})
 
 -- | If set, specifies the default maximum duration that a worker can take to process tasks of this activity type. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' . The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 ratDefaultTaskStartToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratDefaultTaskStartToCloseTimeout = lens _ratDefaultTaskStartToCloseTimeout (\ s a -> s{_ratDefaultTaskStartToCloseTimeout = a});
+ratDefaultTaskStartToCloseTimeout = lens _ratDefaultTaskStartToCloseTimeout (\ s a -> s{_ratDefaultTaskStartToCloseTimeout = a})
 
 -- | A textual description of the activity type.
 ratDescription :: Lens' RegisterActivityType (Maybe Text)
-ratDescription = lens _ratDescription (\ s a -> s{_ratDescription = a});
+ratDescription = lens _ratDescription (\ s a -> s{_ratDescription = a})
 
 -- | The name of the domain in which this activity is to be registered.
 ratDomain :: Lens' RegisterActivityType Text
-ratDomain = lens _ratDomain (\ s a -> s{_ratDomain = a});
+ratDomain = lens _ratDomain (\ s a -> s{_ratDomain = a})
 
 -- | The name of the activity type within the domain. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 ratName :: Lens' RegisterActivityType Text
-ratName = lens _ratName (\ s a -> s{_ratName = a});
+ratName = lens _ratName (\ s a -> s{_ratName = a})
 
 -- | The version of the activity type. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 ratVersion :: Lens' RegisterActivityType Text
-ratVersion = lens _ratVersion (\ s a -> s{_ratVersion = a});
+ratVersion = lens _ratVersion (\ s a -> s{_ratVersion = a})
 
 instance AWSRequest RegisterActivityType where
         type Rs RegisterActivityType =

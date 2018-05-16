@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.DisassociateTeamMember
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ disassociateTeamMember pProjectId_ pUserARN_ =
 
 -- | The ID of the AWS CodeStar project from which you want to remove a team member.
 dtmProjectId :: Lens' DisassociateTeamMember Text
-dtmProjectId = lens _dtmProjectId (\ s a -> s{_dtmProjectId = a});
+dtmProjectId = lens _dtmProjectId (\ s a -> s{_dtmProjectId = a})
 
 -- | The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
 dtmUserARN :: Lens' DisassociateTeamMember Text
-dtmUserARN = lens _dtmUserARN (\ s a -> s{_dtmUserARN = a});
+dtmUserARN = lens _dtmUserARN (\ s a -> s{_dtmUserARN = a})
 
 instance AWSRequest DisassociateTeamMember where
         type Rs DisassociateTeamMember =
@@ -131,6 +131,6 @@ disassociateTeamMemberResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dtmrsResponseStatus :: Lens' DisassociateTeamMemberResponse Int
-dtmrsResponseStatus = lens _dtmrsResponseStatus (\ s a -> s{_dtmrsResponseStatus = a});
+dtmrsResponseStatus = lens _dtmrsResponseStatus (\ s a -> s{_dtmrsResponseStatus = a})
 
 instance NFData DisassociateTeamMemberResponse where

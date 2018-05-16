@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.UpdateApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,23 +67,23 @@ updateApplication
     -> UpdateApplication
 updateApplication pConfigurationId_ =
   UpdateApplication'
-  { _uaName = Nothing
-  , _uaDescription = Nothing
-  , _uaConfigurationId = pConfigurationId_
-  }
+    { _uaName = Nothing
+    , _uaDescription = Nothing
+    , _uaConfigurationId = pConfigurationId_
+    }
 
 
 -- | New name of the application to be updated.
 uaName :: Lens' UpdateApplication (Maybe Text)
-uaName = lens _uaName (\ s a -> s{_uaName = a});
+uaName = lens _uaName (\ s a -> s{_uaName = a})
 
 -- | New description of the application to be updated.
 uaDescription :: Lens' UpdateApplication (Maybe Text)
-uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
+uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a})
 
 -- | Configuration ID of the application to be updated.
 uaConfigurationId :: Lens' UpdateApplication Text
-uaConfigurationId = lens _uaConfigurationId (\ s a -> s{_uaConfigurationId = a});
+uaConfigurationId = lens _uaConfigurationId (\ s a -> s{_uaConfigurationId = a})
 
 instance AWSRequest UpdateApplication where
         type Rs UpdateApplication = UpdateApplicationResponse
@@ -141,6 +141,6 @@ updateApplicationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 uarsResponseStatus :: Lens' UpdateApplicationResponse Int
-uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a});
+uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a})
 
 instance NFData UpdateApplicationResponse where

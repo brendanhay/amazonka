@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.SetVaultAccessPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ setVaultAccessPolicy
     -> SetVaultAccessPolicy
 setVaultAccessPolicy pAccountId_ pVaultName_ =
   SetVaultAccessPolicy'
-  { _svapPolicy = Nothing
-  , _svapAccountId = pAccountId_
-  , _svapVaultName = pVaultName_
-  }
+    { _svapPolicy = Nothing
+    , _svapAccountId = pAccountId_
+    , _svapVaultName = pVaultName_
+    }
 
 
 -- | The vault access policy as a JSON string.
 svapPolicy :: Lens' SetVaultAccessPolicy (Maybe VaultAccessPolicy)
-svapPolicy = lens _svapPolicy (\ s a -> s{_svapPolicy = a});
+svapPolicy = lens _svapPolicy (\ s a -> s{_svapPolicy = a})
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 svapAccountId :: Lens' SetVaultAccessPolicy Text
-svapAccountId = lens _svapAccountId (\ s a -> s{_svapAccountId = a});
+svapAccountId = lens _svapAccountId (\ s a -> s{_svapAccountId = a})
 
 -- | The name of the vault.
 svapVaultName :: Lens' SetVaultAccessPolicy Text
-svapVaultName = lens _svapVaultName (\ s a -> s{_svapVaultName = a});
+svapVaultName = lens _svapVaultName (\ s a -> s{_svapVaultName = a})
 
 instance AWSRequest SetVaultAccessPolicy where
         type Rs SetVaultAccessPolicy =

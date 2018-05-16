@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListAccounts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the accounts in the organization. To request only the accounts in a root or OU, use the 'ListAccountsForParent' operation instead.
+-- Lists all the accounts in the organization. To request only the accounts in a specified root or OU, use the 'ListAccountsForParent' operation instead.
 --
 --
 -- This operation can be called only from the organization's master account.
@@ -72,11 +72,11 @@ listAccounts = ListAccounts' {_laNextToken = Nothing, _laMaxResults = Nothing}
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 laNextToken :: Lens' ListAccounts (Maybe Text)
-laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
+laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a})
 
 -- | (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 laMaxResults :: Lens' ListAccounts (Maybe Natural)
-laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat;
+laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat
 
 instance AWSPager ListAccounts where
         page rq rs
@@ -144,22 +144,22 @@ listAccountsResponse
     -> ListAccountsResponse
 listAccountsResponse pResponseStatus_ =
   ListAccountsResponse'
-  { _larsAccounts = Nothing
-  , _larsNextToken = Nothing
-  , _larsResponseStatus = pResponseStatus_
-  }
+    { _larsAccounts = Nothing
+    , _larsNextToken = Nothing
+    , _larsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of objects in the organization.
 larsAccounts :: Lens' ListAccountsResponse [Account]
-larsAccounts = lens _larsAccounts (\ s a -> s{_larsAccounts = a}) . _Default . _Coerce;
+larsAccounts = lens _larsAccounts (\ s a -> s{_larsAccounts = a}) . _Default . _Coerce
 
 -- | If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 larsNextToken :: Lens' ListAccountsResponse (Maybe Text)
-larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
+larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a})
 
 -- | -- | The response status code.
 larsResponseStatus :: Lens' ListAccountsResponse Int
-larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a})
 
 instance NFData ListAccountsResponse where

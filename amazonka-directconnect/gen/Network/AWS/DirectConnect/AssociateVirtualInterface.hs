@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AssociateVirtualInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,18 +90,18 @@ associateVirtualInterface
     -> AssociateVirtualInterface
 associateVirtualInterface pVirtualInterfaceId_ pConnectionId_ =
   AssociateVirtualInterface'
-  { _aviVirtualInterfaceId = pVirtualInterfaceId_
-  , _aviConnectionId = pConnectionId_
-  }
+    { _aviVirtualInterfaceId = pVirtualInterfaceId_
+    , _aviConnectionId = pConnectionId_
+    }
 
 
 -- | The ID of the virtual interface. Example: dxvif-123dfg56 Default: None
 aviVirtualInterfaceId :: Lens' AssociateVirtualInterface Text
-aviVirtualInterfaceId = lens _aviVirtualInterfaceId (\ s a -> s{_aviVirtualInterfaceId = a});
+aviVirtualInterfaceId = lens _aviVirtualInterfaceId (\ s a -> s{_aviVirtualInterfaceId = a})
 
 -- | The ID of the LAG or connection with which to associate the virtual interface. Example: dxlag-abc123 or dxcon-abc123 Default: None
 aviConnectionId :: Lens' AssociateVirtualInterface Text
-aviConnectionId = lens _aviConnectionId (\ s a -> s{_aviConnectionId = a});
+aviConnectionId = lens _aviConnectionId (\ s a -> s{_aviConnectionId = a})
 
 instance AWSRequest AssociateVirtualInterface where
         type Rs AssociateVirtualInterface = VirtualInterface

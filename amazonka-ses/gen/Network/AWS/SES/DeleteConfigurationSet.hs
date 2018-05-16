@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteConfigurationSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ deleteConfigurationSet pConfigurationSetName_ =
 
 -- | The name of the configuration set to delete.
 dConfigurationSetName :: Lens' DeleteConfigurationSet Text
-dConfigurationSetName = lens _dConfigurationSetName (\ s a -> s{_dConfigurationSetName = a});
+dConfigurationSetName = lens _dConfigurationSetName (\ s a -> s{_dConfigurationSetName = a})
 
 instance AWSRequest DeleteConfigurationSet where
         type Rs DeleteConfigurationSet =
@@ -123,6 +123,6 @@ deleteConfigurationSetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteConfigurationSetResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteConfigurationSetResponse where

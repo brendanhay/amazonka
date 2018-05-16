@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DisableRadius
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ disableRadius pDirectoryId_ = DisableRadius' {_drDirectoryId = pDirectoryId_}
 
 -- | The identifier of the directory for which to disable MFA.
 drDirectoryId :: Lens' DisableRadius Text
-drDirectoryId = lens _drDirectoryId (\ s a -> s{_drDirectoryId = a});
+drDirectoryId = lens _drDirectoryId (\ s a -> s{_drDirectoryId = a})
 
 instance AWSRequest DisableRadius where
         type Rs DisableRadius = DisableRadiusResponse
@@ -125,6 +125,6 @@ disableRadiusResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DisableRadiusResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a})
 
 instance NFData DisableRadiusResponse where

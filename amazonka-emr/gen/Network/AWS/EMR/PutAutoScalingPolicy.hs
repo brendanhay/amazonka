@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.PutAutoScalingPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ putAutoScalingPolicy
     -> PutAutoScalingPolicy
 putAutoScalingPolicy pClusterId_ pInstanceGroupId_ pAutoScalingPolicy_ =
   PutAutoScalingPolicy'
-  { _paspClusterId = pClusterId_
-  , _paspInstanceGroupId = pInstanceGroupId_
-  , _paspAutoScalingPolicy = pAutoScalingPolicy_
-  }
+    { _paspClusterId = pClusterId_
+    , _paspInstanceGroupId = pInstanceGroupId_
+    , _paspAutoScalingPolicy = pAutoScalingPolicy_
+    }
 
 
 -- | Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
 paspClusterId :: Lens' PutAutoScalingPolicy Text
-paspClusterId = lens _paspClusterId (\ s a -> s{_paspClusterId = a});
+paspClusterId = lens _paspClusterId (\ s a -> s{_paspClusterId = a})
 
 -- | Specifies the ID of the instance group to which the automatic scaling policy is applied.
 paspInstanceGroupId :: Lens' PutAutoScalingPolicy Text
-paspInstanceGroupId = lens _paspInstanceGroupId (\ s a -> s{_paspInstanceGroupId = a});
+paspInstanceGroupId = lens _paspInstanceGroupId (\ s a -> s{_paspInstanceGroupId = a})
 
 -- | Specifies the definition of the automatic scaling policy.
 paspAutoScalingPolicy :: Lens' PutAutoScalingPolicy AutoScalingPolicy
-paspAutoScalingPolicy = lens _paspAutoScalingPolicy (\ s a -> s{_paspAutoScalingPolicy = a});
+paspAutoScalingPolicy = lens _paspAutoScalingPolicy (\ s a -> s{_paspAutoScalingPolicy = a})
 
 instance AWSRequest PutAutoScalingPolicy where
         type Rs PutAutoScalingPolicy =
@@ -156,27 +156,27 @@ putAutoScalingPolicyResponse
     -> PutAutoScalingPolicyResponse
 putAutoScalingPolicyResponse pResponseStatus_ =
   PutAutoScalingPolicyResponse'
-  { _pasprsClusterId = Nothing
-  , _pasprsAutoScalingPolicy = Nothing
-  , _pasprsInstanceGroupId = Nothing
-  , _pasprsResponseStatus = pResponseStatus_
-  }
+    { _pasprsClusterId = Nothing
+    , _pasprsAutoScalingPolicy = Nothing
+    , _pasprsInstanceGroupId = Nothing
+    , _pasprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
 pasprsClusterId :: Lens' PutAutoScalingPolicyResponse (Maybe Text)
-pasprsClusterId = lens _pasprsClusterId (\ s a -> s{_pasprsClusterId = a});
+pasprsClusterId = lens _pasprsClusterId (\ s a -> s{_pasprsClusterId = a})
 
 -- | The automatic scaling policy definition.
 pasprsAutoScalingPolicy :: Lens' PutAutoScalingPolicyResponse (Maybe AutoScalingPolicyDescription)
-pasprsAutoScalingPolicy = lens _pasprsAutoScalingPolicy (\ s a -> s{_pasprsAutoScalingPolicy = a});
+pasprsAutoScalingPolicy = lens _pasprsAutoScalingPolicy (\ s a -> s{_pasprsAutoScalingPolicy = a})
 
 -- | Specifies the ID of the instance group to which the scaling policy is applied.
 pasprsInstanceGroupId :: Lens' PutAutoScalingPolicyResponse (Maybe Text)
-pasprsInstanceGroupId = lens _pasprsInstanceGroupId (\ s a -> s{_pasprsInstanceGroupId = a});
+pasprsInstanceGroupId = lens _pasprsInstanceGroupId (\ s a -> s{_pasprsInstanceGroupId = a})
 
 -- | -- | The response status code.
 pasprsResponseStatus :: Lens' PutAutoScalingPolicyResponse Int
-pasprsResponseStatus = lens _pasprsResponseStatus (\ s a -> s{_pasprsResponseStatus = a});
+pasprsResponseStatus = lens _pasprsResponseStatus (\ s a -> s{_pasprsResponseStatus = a})
 
 instance NFData PutAutoScalingPolicyResponse where

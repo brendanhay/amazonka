@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.DeleteRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteRule pName_ = DeleteRule' {_drName = pName_}
 
 -- | The name of the rule.
 drName :: Lens' DeleteRule Text
-drName = lens _drName (\ s a -> s{_drName = a});
+drName = lens _drName (\ s a -> s{_drName = a})
 
 instance AWSRequest DeleteRule where
         type Rs DeleteRule = DeleteRuleResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.RebootWorkspaces
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,9 @@
 -- Reboots the specified WorkSpaces.
 --
 --
--- To be able to reboot a WorkSpace, the WorkSpace must have a __State__ of @AVAILABLE@ , @IMPAIRED@ , or @INOPERABLE@ .
+-- You cannot reboot a WorkSpace unless its state is @AVAILABLE@ or @UNHEALTHY@ .
+--
+-- This operation is asynchronous and returns before the WorkSpaces have rebooted.
 --
 module Network.AWS.WorkSpaces.RebootWorkspaces
     (
@@ -46,11 +48,7 @@ import Network.AWS.Response
 import Network.AWS.WorkSpaces.Types
 import Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the 'RebootWorkspaces' operation.
---
---
---
--- /See:/ 'rebootWorkspaces' smart constructor.
+-- | /See:/ 'rebootWorkspaces' smart constructor.
 newtype RebootWorkspaces = RebootWorkspaces'
   { _rwRebootWorkspaceRequests :: List1 RebootRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -60,18 +58,18 @@ newtype RebootWorkspaces = RebootWorkspaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rwRebootWorkspaceRequests' - An array of structures that specify the WorkSpaces to reboot.
+-- * 'rwRebootWorkspaceRequests' - The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.
 rebootWorkspaces
     :: NonEmpty RebootRequest -- ^ 'rwRebootWorkspaceRequests'
     -> RebootWorkspaces
 rebootWorkspaces pRebootWorkspaceRequests_ =
   RebootWorkspaces'
-  {_rwRebootWorkspaceRequests = _List1 # pRebootWorkspaceRequests_}
+    {_rwRebootWorkspaceRequests = _List1 # pRebootWorkspaceRequests_}
 
 
--- | An array of structures that specify the WorkSpaces to reboot.
+-- | The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.
 rwRebootWorkspaceRequests :: Lens' RebootWorkspaces (NonEmpty RebootRequest)
-rwRebootWorkspaceRequests = lens _rwRebootWorkspaceRequests (\ s a -> s{_rwRebootWorkspaceRequests = a}) . _List1;
+rwRebootWorkspaceRequests = lens _rwRebootWorkspaceRequests (\ s a -> s{_rwRebootWorkspaceRequests = a}) . _List1
 
 instance AWSRequest RebootWorkspaces where
         type Rs RebootWorkspaces = RebootWorkspacesResponse
@@ -110,11 +108,7 @@ instance ToPath RebootWorkspaces where
 instance ToQuery RebootWorkspaces where
         toQuery = const mempty
 
--- | Contains the results of the 'RebootWorkspaces' operation.
---
---
---
--- /See:/ 'rebootWorkspacesResponse' smart constructor.
+-- | /See:/ 'rebootWorkspacesResponse' smart constructor.
 data RebootWorkspacesResponse = RebootWorkspacesResponse'
   { _rrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
   , _rrsResponseStatus :: !Int
@@ -125,7 +119,7 @@ data RebootWorkspacesResponse = RebootWorkspacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrsFailedRequests' - An array of structures representing any WorkSpaces that could not be rebooted.
+-- * 'rrsFailedRequests' - Information about the WorkSpaces that could not be rebooted.
 --
 -- * 'rrsResponseStatus' - -- | The response status code.
 rebootWorkspacesResponse
@@ -133,15 +127,15 @@ rebootWorkspacesResponse
     -> RebootWorkspacesResponse
 rebootWorkspacesResponse pResponseStatus_ =
   RebootWorkspacesResponse'
-  {_rrsFailedRequests = Nothing, _rrsResponseStatus = pResponseStatus_}
+    {_rrsFailedRequests = Nothing, _rrsResponseStatus = pResponseStatus_}
 
 
--- | An array of structures representing any WorkSpaces that could not be rebooted.
+-- | Information about the WorkSpaces that could not be rebooted.
 rrsFailedRequests :: Lens' RebootWorkspacesResponse [FailedWorkspaceChangeRequest]
-rrsFailedRequests = lens _rrsFailedRequests (\ s a -> s{_rrsFailedRequests = a}) . _Default . _Coerce;
+rrsFailedRequests = lens _rrsFailedRequests (\ s a -> s{_rrsFailedRequests = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 rrsResponseStatus :: Lens' RebootWorkspacesResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
+rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a})
 
 instance NFData RebootWorkspacesResponse where

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DisableTopicRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables the specified rule.
+-- Disables the rule.
 --
 --
 module Network.AWS.IoT.DisableTopicRule
@@ -64,7 +64,7 @@ disableTopicRule pRuleName_ = DisableTopicRule' {_dtrRuleName = pRuleName_}
 
 -- | The name of the rule to disable.
 dtrRuleName :: Lens' DisableTopicRule Text
-dtrRuleName = lens _dtrRuleName (\ s a -> s{_dtrRuleName = a});
+dtrRuleName = lens _dtrRuleName (\ s a -> s{_dtrRuleName = a})
 
 instance AWSRequest DisableTopicRule where
         type Rs DisableTopicRule = DisableTopicRuleResponse

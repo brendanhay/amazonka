@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ disassociateConfigurationItemsFromApplication
     -> DisassociateConfigurationItemsFromApplication
 disassociateConfigurationItemsFromApplication pApplicationConfigurationId_ =
   DisassociateConfigurationItemsFromApplication'
-  { _dcifaApplicationConfigurationId = pApplicationConfigurationId_
-  , _dcifaConfigurationIds = mempty
-  }
+    { _dcifaApplicationConfigurationId = pApplicationConfigurationId_
+    , _dcifaConfigurationIds = mempty
+    }
 
 
 -- | Configuration ID of an application from which each item is disassociated.
 dcifaApplicationConfigurationId :: Lens' DisassociateConfigurationItemsFromApplication Text
-dcifaApplicationConfigurationId = lens _dcifaApplicationConfigurationId (\ s a -> s{_dcifaApplicationConfigurationId = a});
+dcifaApplicationConfigurationId = lens _dcifaApplicationConfigurationId (\ s a -> s{_dcifaApplicationConfigurationId = a})
 
 -- | Configuration ID of each item to be disassociated from an application.
 dcifaConfigurationIds :: Lens' DisassociateConfigurationItemsFromApplication [Text]
-dcifaConfigurationIds = lens _dcifaConfigurationIds (\ s a -> s{_dcifaConfigurationIds = a}) . _Coerce;
+dcifaConfigurationIds = lens _dcifaConfigurationIds (\ s a -> s{_dcifaConfigurationIds = a}) . _Coerce
 
 instance AWSRequest
            DisassociateConfigurationItemsFromApplication
@@ -147,12 +147,12 @@ disassociateConfigurationItemsFromApplicationResponse
     -> DisassociateConfigurationItemsFromApplicationResponse
 disassociateConfigurationItemsFromApplicationResponse pResponseStatus_ =
   DisassociateConfigurationItemsFromApplicationResponse'
-  {_dcifarsResponseStatus = pResponseStatus_}
+    {_dcifarsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dcifarsResponseStatus :: Lens' DisassociateConfigurationItemsFromApplicationResponse Int
-dcifarsResponseStatus = lens _dcifarsResponseStatus (\ s a -> s{_dcifarsResponseStatus = a});
+dcifarsResponseStatus = lens _dcifarsResponseStatus (\ s a -> s{_dcifarsResponseStatus = a})
 
 instance NFData
            DisassociateConfigurationItemsFromApplicationResponse

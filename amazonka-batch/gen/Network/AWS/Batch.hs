@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Batch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,6 +86,9 @@ module Network.AWS.Batch
 
     -- * Types
 
+    -- ** ArrayJobDependency
+    , ArrayJobDependency (..)
+
     -- ** CEState
     , CEState (..)
 
@@ -109,6 +112,24 @@ module Network.AWS.Batch
 
     -- ** JobStatus
     , JobStatus (..)
+
+    -- ** ArrayProperties
+    , ArrayProperties
+    , arrayProperties
+    , apSize
+
+    -- ** ArrayPropertiesDetail
+    , ArrayPropertiesDetail
+    , arrayPropertiesDetail
+    , apdSize
+    , apdStatusSummary
+    , apdIndex
+
+    -- ** ArrayPropertiesSummary
+    , ArrayPropertiesSummary
+    , arrayPropertiesSummary
+    , apsSize
+    , apsIndex
 
     -- ** AttemptContainerDetail
     , AttemptContainerDetail
@@ -215,6 +236,12 @@ module Network.AWS.Batch
     , cpVcpus
     , cpMemory
 
+    -- ** ContainerSummary
+    , ContainerSummary
+    , containerSummary
+    , csReason
+    , csExitCode
+
     -- ** Host
     , Host
     , host
@@ -223,19 +250,21 @@ module Network.AWS.Batch
     -- ** JobDefinition
     , JobDefinition
     , jobDefinition
-    , jStatus
-    , jRetryStrategy
-    , jParameters
-    , jContainerProperties
-    , jJobDefinitionName
-    , jJobDefinitionARN
-    , jRevision
-    , jType
+    , jddStatus
+    , jddRetryStrategy
+    , jddParameters
+    , jddTimeout
+    , jddContainerProperties
+    , jddJobDefinitionName
+    , jddJobDefinitionARN
+    , jddRevision
+    , jddType
 
     -- ** JobDependency
     , JobDependency
     , jobDependency
     , jJobId
+    , jType
 
     -- ** JobDetail
     , JobDetail
@@ -248,6 +277,8 @@ module Network.AWS.Batch
     , jdContainer
     , jdParameters
     , jdStatusReason
+    , jdArrayProperties
+    , jdTimeout
     , jdJobName
     , jdJobId
     , jdJobQueue
@@ -269,8 +300,20 @@ module Network.AWS.Batch
     -- ** JobSummary
     , JobSummary
     , jobSummary
+    , jsStoppedAt
+    , jsStatus
+    , jsCreatedAt
+    , jsStartedAt
+    , jsContainer
+    , jsStatusReason
+    , jsArrayProperties
     , jsJobId
     , jsJobName
+
+    -- ** JobTimeout
+    , JobTimeout
+    , jobTimeout
+    , jtAttemptDurationSeconds
 
     -- ** KeyValuePair
     , KeyValuePair

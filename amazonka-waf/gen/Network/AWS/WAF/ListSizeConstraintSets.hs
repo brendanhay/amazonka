@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.ListSizeConstraintSets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ listSizeConstraintSets =
 
 -- | If you specify a value for @Limit@ and you have more @SizeConstraintSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @SizeConstraintSets@ . For the second and subsequent @ListSizeConstraintSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @SizeConstraintSets@ .
 lscsNextMarker :: Lens' ListSizeConstraintSets (Maybe Text)
-lscsNextMarker = lens _lscsNextMarker (\ s a -> s{_lscsNextMarker = a});
+lscsNextMarker = lens _lscsNextMarker (\ s a -> s{_lscsNextMarker = a})
 
 -- | Specifies the number of @SizeConstraintSet@ objects that you want AWS WAF to return for this request. If you have more @SizeConstraintSets@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @SizeConstraintSet@ objects.
 lscsLimit :: Lens' ListSizeConstraintSets (Maybe Natural)
-lscsLimit = lens _lscsLimit (\ s a -> s{_lscsLimit = a}) . mapping _Nat;
+lscsLimit = lens _lscsLimit (\ s a -> s{_lscsLimit = a}) . mapping _Nat
 
 instance AWSPager ListSizeConstraintSets where
         page rq rs
@@ -145,22 +145,22 @@ listSizeConstraintSetsResponse
     -> ListSizeConstraintSetsResponse
 listSizeConstraintSetsResponse pResponseStatus_ =
   ListSizeConstraintSetsResponse'
-  { _lscsrsSizeConstraintSets = Nothing
-  , _lscsrsNextMarker = Nothing
-  , _lscsrsResponseStatus = pResponseStatus_
-  }
+    { _lscsrsSizeConstraintSets = Nothing
+    , _lscsrsNextMarker = Nothing
+    , _lscsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of 'SizeConstraintSetSummary' objects.
 lscsrsSizeConstraintSets :: Lens' ListSizeConstraintSetsResponse [SizeConstraintSetSummary]
-lscsrsSizeConstraintSets = lens _lscsrsSizeConstraintSets (\ s a -> s{_lscsrsSizeConstraintSets = a}) . _Default . _Coerce;
+lscsrsSizeConstraintSets = lens _lscsrsSizeConstraintSets (\ s a -> s{_lscsrsSizeConstraintSets = a}) . _Default . _Coerce
 
 -- | If you have more @SizeConstraintSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @SizeConstraintSet@ objects, submit another @ListSizeConstraintSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 lscsrsNextMarker :: Lens' ListSizeConstraintSetsResponse (Maybe Text)
-lscsrsNextMarker = lens _lscsrsNextMarker (\ s a -> s{_lscsrsNextMarker = a});
+lscsrsNextMarker = lens _lscsrsNextMarker (\ s a -> s{_lscsrsNextMarker = a})
 
 -- | -- | The response status code.
 lscsrsResponseStatus :: Lens' ListSizeConstraintSetsResponse Int
-lscsrsResponseStatus = lens _lscsrsResponseStatus (\ s a -> s{_lscsrsResponseStatus = a});
+lscsrsResponseStatus = lens _lscsrsResponseStatus (\ s a -> s{_lscsrsResponseStatus = a})
 
 instance NFData ListSizeConstraintSetsResponse where

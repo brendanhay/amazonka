@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,11 +49,11 @@ accessPoliciesStatus pOptions_ pStatus_ =
 
 -- | Undocumented member.
 apsOptions :: Lens' AccessPoliciesStatus Text
-apsOptions = lens _apsOptions (\ s a -> s{_apsOptions = a});
+apsOptions = lens _apsOptions (\ s a -> s{_apsOptions = a})
 
 -- | Undocumented member.
 apsStatus :: Lens' AccessPoliciesStatus OptionStatus
-apsStatus = lens _apsStatus (\ s a -> s{_apsStatus = a});
+apsStatus = lens _apsStatus (\ s a -> s{_apsStatus = a})
 
 instance FromXML AccessPoliciesStatus where
         parseXML x
@@ -95,33 +95,33 @@ analysisOptions
     :: AnalysisOptions
 analysisOptions =
   AnalysisOptions'
-  { _aoAlgorithmicStemming = Nothing
-  , _aoStopwords = Nothing
-  , _aoJapaneseTokenizationDictionary = Nothing
-  , _aoSynonyms = Nothing
-  , _aoStemmingDictionary = Nothing
-  }
+    { _aoAlgorithmicStemming = Nothing
+    , _aoStopwords = Nothing
+    , _aoJapaneseTokenizationDictionary = Nothing
+    , _aoSynonyms = Nothing
+    , _aoStemmingDictionary = Nothing
+    }
 
 
 -- | The level of algorithmic stemming to perform: @none@ , @minimal@ , @light@ , or @full@ . The available levels vary depending on the language. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings Language Specific Text Processing Settings> in the /Amazon CloudSearch Developer Guide/
 aoAlgorithmicStemming :: Lens' AnalysisOptions (Maybe AlgorithmicStemming)
-aoAlgorithmicStemming = lens _aoAlgorithmicStemming (\ s a -> s{_aoAlgorithmicStemming = a});
+aoAlgorithmicStemming = lens _aoAlgorithmicStemming (\ s a -> s{_aoAlgorithmicStemming = a})
 
 -- | A JSON array of terms to ignore during indexing and searching. For example, @["a", "an", "the", "of"]@ . The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported.
 aoStopwords :: Lens' AnalysisOptions (Maybe Text)
-aoStopwords = lens _aoStopwords (\ s a -> s{_aoStopwords = a});
+aoStopwords = lens _aoStopwords (\ s a -> s{_aoStopwords = a})
 
 -- | A JSON array that contains a collection of terms, tokens, readings and part of speech for Japanese Tokenizaiton. The Japanese tokenization dictionary enables you to override the default tokenization for selected terms. This is only valid for Japanese language fields.
 aoJapaneseTokenizationDictionary :: Lens' AnalysisOptions (Maybe Text)
-aoJapaneseTokenizationDictionary = lens _aoJapaneseTokenizationDictionary (\ s a -> s{_aoJapaneseTokenizationDictionary = a});
+aoJapaneseTokenizationDictionary = lens _aoJapaneseTokenizationDictionary (\ s a -> s{_aoJapaneseTokenizationDictionary = a})
 
 -- | A JSON object that defines synonym groups and aliases. A synonym group is an array of arrays, where each sub-array is a group of terms where each term in the group is considered a synonym of every other term in the group. The aliases value is an object that contains a collection of string:value pairs where the string specifies a term and the array of values specifies each of the aliases for that term. An alias is considered a synonym of the specified term, but the term is not considered a synonym of the alias. For more information about specifying synonyms, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms> in the /Amazon CloudSearch Developer Guide/ .
 aoSynonyms :: Lens' AnalysisOptions (Maybe Text)
-aoSynonyms = lens _aoSynonyms (\ s a -> s{_aoSynonyms = a});
+aoSynonyms = lens _aoSynonyms (\ s a -> s{_aoSynonyms = a})
 
 -- | A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, @{"term1": "stem1", "term2": "stem2", "term3": "stem3"}@ . The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
 aoStemmingDictionary :: Lens' AnalysisOptions (Maybe Text)
-aoStemmingDictionary = lens _aoStemmingDictionary (\ s a -> s{_aoStemmingDictionary = a});
+aoStemmingDictionary = lens _aoStemmingDictionary (\ s a -> s{_aoStemmingDictionary = a})
 
 instance FromXML AnalysisOptions where
         parseXML x
@@ -172,23 +172,23 @@ analysisScheme
     -> AnalysisScheme
 analysisScheme pAnalysisSchemeName_ pAnalysisSchemeLanguage_ =
   AnalysisScheme'
-  { _asAnalysisOptions = Nothing
-  , _asAnalysisSchemeName = pAnalysisSchemeName_
-  , _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage_
-  }
+    { _asAnalysisOptions = Nothing
+    , _asAnalysisSchemeName = pAnalysisSchemeName_
+    , _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage_
+    }
 
 
 -- | Undocumented member.
 asAnalysisOptions :: Lens' AnalysisScheme (Maybe AnalysisOptions)
-asAnalysisOptions = lens _asAnalysisOptions (\ s a -> s{_asAnalysisOptions = a});
+asAnalysisOptions = lens _asAnalysisOptions (\ s a -> s{_asAnalysisOptions = a})
 
 -- | Undocumented member.
 asAnalysisSchemeName :: Lens' AnalysisScheme Text
-asAnalysisSchemeName = lens _asAnalysisSchemeName (\ s a -> s{_asAnalysisSchemeName = a});
+asAnalysisSchemeName = lens _asAnalysisSchemeName (\ s a -> s{_asAnalysisSchemeName = a})
 
 -- | Undocumented member.
 asAnalysisSchemeLanguage :: Lens' AnalysisScheme AnalysisSchemeLanguage
-asAnalysisSchemeLanguage = lens _asAnalysisSchemeLanguage (\ s a -> s{_asAnalysisSchemeLanguage = a});
+asAnalysisSchemeLanguage = lens _asAnalysisSchemeLanguage (\ s a -> s{_asAnalysisSchemeLanguage = a})
 
 instance FromXML AnalysisScheme where
         parseXML x
@@ -237,11 +237,11 @@ analysisSchemeStatus pOptions_ pStatus_ =
 
 -- | Undocumented member.
 assOptions :: Lens' AnalysisSchemeStatus AnalysisScheme
-assOptions = lens _assOptions (\ s a -> s{_assOptions = a});
+assOptions = lens _assOptions (\ s a -> s{_assOptions = a})
 
 -- | Undocumented member.
 assStatus :: Lens' AnalysisSchemeStatus OptionStatus
-assStatus = lens _assStatus (\ s a -> s{_assStatus = a});
+assStatus = lens _assStatus (\ s a -> s{_assStatus = a})
 
 instance FromXML AnalysisSchemeStatus where
         parseXML x
@@ -280,11 +280,11 @@ availabilityOptionsStatus pOptions_ pStatus_ =
 
 -- | The availability options configured for the domain.
 aosOptions :: Lens' AvailabilityOptionsStatus Bool
-aosOptions = lens _aosOptions (\ s a -> s{_aosOptions = a});
+aosOptions = lens _aosOptions (\ s a -> s{_aosOptions = a})
 
 -- | Undocumented member.
 aosStatus :: Lens' AvailabilityOptionsStatus OptionStatus
-aosStatus = lens _aosStatus (\ s a -> s{_aosStatus = a});
+aosStatus = lens _aosStatus (\ s a -> s{_aosStatus = a})
 
 instance FromXML AvailabilityOptionsStatus where
         parseXML x
@@ -326,33 +326,33 @@ dateArrayOptions
     :: DateArrayOptions
 dateArrayOptions =
   DateArrayOptions'
-  { _daosSourceFields = Nothing
-  , _daosReturnEnabled = Nothing
-  , _daosFacetEnabled = Nothing
-  , _daosSearchEnabled = Nothing
-  , _daosDefaultValue = Nothing
-  }
+    { _daosSourceFields = Nothing
+    , _daosReturnEnabled = Nothing
+    , _daosFacetEnabled = Nothing
+    , _daosSearchEnabled = Nothing
+    , _daosDefaultValue = Nothing
+    }
 
 
 -- | A list of source fields to map to the field.
 daosSourceFields :: Lens' DateArrayOptions (Maybe Text)
-daosSourceFields = lens _daosSourceFields (\ s a -> s{_daosSourceFields = a});
+daosSourceFields = lens _daosSourceFields (\ s a -> s{_daosSourceFields = a})
 
 -- | Whether the contents of the field can be returned in the search results.
 daosReturnEnabled :: Lens' DateArrayOptions (Maybe Bool)
-daosReturnEnabled = lens _daosReturnEnabled (\ s a -> s{_daosReturnEnabled = a});
+daosReturnEnabled = lens _daosReturnEnabled (\ s a -> s{_daosReturnEnabled = a})
 
 -- | Whether facet information can be returned for the field.
 daosFacetEnabled :: Lens' DateArrayOptions (Maybe Bool)
-daosFacetEnabled = lens _daosFacetEnabled (\ s a -> s{_daosFacetEnabled = a});
+daosFacetEnabled = lens _daosFacetEnabled (\ s a -> s{_daosFacetEnabled = a})
 
 -- | Whether the contents of the field are searchable.
 daosSearchEnabled :: Lens' DateArrayOptions (Maybe Bool)
-daosSearchEnabled = lens _daosSearchEnabled (\ s a -> s{_daosSearchEnabled = a});
+daosSearchEnabled = lens _daosSearchEnabled (\ s a -> s{_daosSearchEnabled = a})
 
 -- | A value to use for the field if the field isn't specified for a document.
 daosDefaultValue :: Lens' DateArrayOptions (Maybe Text)
-daosDefaultValue = lens _daosDefaultValue (\ s a -> s{_daosDefaultValue = a});
+daosDefaultValue = lens _daosDefaultValue (\ s a -> s{_daosDefaultValue = a})
 
 instance FromXML DateArrayOptions where
         parseXML x
@@ -409,38 +409,38 @@ dateOptions
     :: DateOptions
 dateOptions =
   DateOptions'
-  { _doSourceField = Nothing
-  , _doReturnEnabled = Nothing
-  , _doFacetEnabled = Nothing
-  , _doSearchEnabled = Nothing
-  , _doSortEnabled = Nothing
-  , _doDefaultValue = Nothing
-  }
+    { _doSourceField = Nothing
+    , _doReturnEnabled = Nothing
+    , _doFacetEnabled = Nothing
+    , _doSearchEnabled = Nothing
+    , _doSortEnabled = Nothing
+    , _doDefaultValue = Nothing
+    }
 
 
 -- | Undocumented member.
 doSourceField :: Lens' DateOptions (Maybe Text)
-doSourceField = lens _doSourceField (\ s a -> s{_doSourceField = a});
+doSourceField = lens _doSourceField (\ s a -> s{_doSourceField = a})
 
 -- | Whether the contents of the field can be returned in the search results.
 doReturnEnabled :: Lens' DateOptions (Maybe Bool)
-doReturnEnabled = lens _doReturnEnabled (\ s a -> s{_doReturnEnabled = a});
+doReturnEnabled = lens _doReturnEnabled (\ s a -> s{_doReturnEnabled = a})
 
 -- | Whether facet information can be returned for the field.
 doFacetEnabled :: Lens' DateOptions (Maybe Bool)
-doFacetEnabled = lens _doFacetEnabled (\ s a -> s{_doFacetEnabled = a});
+doFacetEnabled = lens _doFacetEnabled (\ s a -> s{_doFacetEnabled = a})
 
 -- | Whether the contents of the field are searchable.
 doSearchEnabled :: Lens' DateOptions (Maybe Bool)
-doSearchEnabled = lens _doSearchEnabled (\ s a -> s{_doSearchEnabled = a});
+doSearchEnabled = lens _doSearchEnabled (\ s a -> s{_doSearchEnabled = a})
 
 -- | Whether the field can be used to sort the search results.
 doSortEnabled :: Lens' DateOptions (Maybe Bool)
-doSortEnabled = lens _doSortEnabled (\ s a -> s{_doSortEnabled = a});
+doSortEnabled = lens _doSortEnabled (\ s a -> s{_doSortEnabled = a})
 
 -- | A value to use for the field if the field isn't specified for a document.
 doDefaultValue :: Lens' DateOptions (Maybe Text)
-doDefaultValue = lens _doDefaultValue (\ s a -> s{_doDefaultValue = a});
+doDefaultValue = lens _doDefaultValue (\ s a -> s{_doDefaultValue = a})
 
 instance FromXML DateOptions where
         parseXML x
@@ -491,23 +491,23 @@ documentSuggesterOptions
     -> DocumentSuggesterOptions
 documentSuggesterOptions pSourceField_ =
   DocumentSuggesterOptions'
-  { _dsoSortExpression = Nothing
-  , _dsoFuzzyMatching = Nothing
-  , _dsoSourceField = pSourceField_
-  }
+    { _dsoSortExpression = Nothing
+    , _dsoFuzzyMatching = Nothing
+    , _dsoSourceField = pSourceField_
+    }
 
 
 -- | An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document's relevance score is not computed for suggestions, so sort expressions cannot reference the @_score@ value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
 dsoSortExpression :: Lens' DocumentSuggesterOptions (Maybe Text)
-dsoSortExpression = lens _dsoSortExpression (\ s a -> s{_dsoSortExpression = a});
+dsoSortExpression = lens _dsoSortExpression (\ s a -> s{_dsoSortExpression = a})
 
 -- | The level of fuzziness allowed when suggesting matches for a string: @none@ , @low@ , or @high@ . With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none.
 dsoFuzzyMatching :: Lens' DocumentSuggesterOptions (Maybe SuggesterFuzzyMatching)
-dsoFuzzyMatching = lens _dsoFuzzyMatching (\ s a -> s{_dsoFuzzyMatching = a});
+dsoFuzzyMatching = lens _dsoFuzzyMatching (\ s a -> s{_dsoFuzzyMatching = a})
 
 -- | The name of the index field you want to use for suggestions.
 dsoSourceField :: Lens' DocumentSuggesterOptions Text
-dsoSourceField = lens _dsoSourceField (\ s a -> s{_dsoSourceField = a});
+dsoSourceField = lens _dsoSourceField (\ s a -> s{_dsoSourceField = a})
 
 instance FromXML DocumentSuggesterOptions where
         parseXML x
@@ -584,73 +584,73 @@ domainStatus
     -> DomainStatus
 domainStatus pDomainId_ pDomainName_ pRequiresIndexDocuments_ =
   DomainStatus'
-  { _dsSearchInstanceCount = Nothing
-  , _dsSearchInstanceType = Nothing
-  , _dsDocService = Nothing
-  , _dsARN = Nothing
-  , _dsCreated = Nothing
-  , _dsSearchService = Nothing
-  , _dsLimits = Nothing
-  , _dsSearchPartitionCount = Nothing
-  , _dsDeleted = Nothing
-  , _dsProcessing = Nothing
-  , _dsDomainId = pDomainId_
-  , _dsDomainName = pDomainName_
-  , _dsRequiresIndexDocuments = pRequiresIndexDocuments_
-  }
+    { _dsSearchInstanceCount = Nothing
+    , _dsSearchInstanceType = Nothing
+    , _dsDocService = Nothing
+    , _dsARN = Nothing
+    , _dsCreated = Nothing
+    , _dsSearchService = Nothing
+    , _dsLimits = Nothing
+    , _dsSearchPartitionCount = Nothing
+    , _dsDeleted = Nothing
+    , _dsProcessing = Nothing
+    , _dsDomainId = pDomainId_
+    , _dsDomainName = pDomainName_
+    , _dsRequiresIndexDocuments = pRequiresIndexDocuments_
+    }
 
 
 -- | The number of search instances that are available to process search requests.
 dsSearchInstanceCount :: Lens' DomainStatus (Maybe Natural)
-dsSearchInstanceCount = lens _dsSearchInstanceCount (\ s a -> s{_dsSearchInstanceCount = a}) . mapping _Nat;
+dsSearchInstanceCount = lens _dsSearchInstanceCount (\ s a -> s{_dsSearchInstanceCount = a}) . mapping _Nat
 
 -- | The instance type that is being used to process search requests.
 dsSearchInstanceType :: Lens' DomainStatus (Maybe Text)
-dsSearchInstanceType = lens _dsSearchInstanceType (\ s a -> s{_dsSearchInstanceType = a});
+dsSearchInstanceType = lens _dsSearchInstanceType (\ s a -> s{_dsSearchInstanceType = a})
 
 -- | The service endpoint for updating documents in a search domain.
 dsDocService :: Lens' DomainStatus (Maybe ServiceEndpoint)
-dsDocService = lens _dsDocService (\ s a -> s{_dsDocService = a});
+dsDocService = lens _dsDocService (\ s a -> s{_dsDocService = a})
 
 -- | Undocumented member.
 dsARN :: Lens' DomainStatus (Maybe Text)
-dsARN = lens _dsARN (\ s a -> s{_dsARN = a});
+dsARN = lens _dsARN (\ s a -> s{_dsARN = a})
 
 -- | True if the search domain is created. It can take several minutes to initialize a domain when 'CreateDomain' is called. Newly created search domains are returned from 'DescribeDomains' with a false value for Created until domain creation is complete.
 dsCreated :: Lens' DomainStatus (Maybe Bool)
-dsCreated = lens _dsCreated (\ s a -> s{_dsCreated = a});
+dsCreated = lens _dsCreated (\ s a -> s{_dsCreated = a})
 
 -- | The service endpoint for requesting search results from a search domain.
 dsSearchService :: Lens' DomainStatus (Maybe ServiceEndpoint)
-dsSearchService = lens _dsSearchService (\ s a -> s{_dsSearchService = a});
+dsSearchService = lens _dsSearchService (\ s a -> s{_dsSearchService = a})
 
 -- | Undocumented member.
 dsLimits :: Lens' DomainStatus (Maybe Limits)
-dsLimits = lens _dsLimits (\ s a -> s{_dsLimits = a});
+dsLimits = lens _dsLimits (\ s a -> s{_dsLimits = a})
 
 -- | The number of partitions across which the search index is spread.
 dsSearchPartitionCount :: Lens' DomainStatus (Maybe Natural)
-dsSearchPartitionCount = lens _dsSearchPartitionCount (\ s a -> s{_dsSearchPartitionCount = a}) . mapping _Nat;
+dsSearchPartitionCount = lens _dsSearchPartitionCount (\ s a -> s{_dsSearchPartitionCount = a}) . mapping _Nat
 
 -- | True if the search domain has been deleted. The system must clean up resources dedicated to the search domain when 'DeleteDomain' is called. Newly deleted search domains are returned from 'DescribeDomains' with a true value for IsDeleted for several minutes until resource cleanup is complete.
 dsDeleted :: Lens' DomainStatus (Maybe Bool)
-dsDeleted = lens _dsDeleted (\ s a -> s{_dsDeleted = a});
+dsDeleted = lens _dsDeleted (\ s a -> s{_dsDeleted = a})
 
 -- | True if processing is being done to activate the current domain configuration.
 dsProcessing :: Lens' DomainStatus (Maybe Bool)
-dsProcessing = lens _dsProcessing (\ s a -> s{_dsProcessing = a});
+dsProcessing = lens _dsProcessing (\ s a -> s{_dsProcessing = a})
 
 -- | Undocumented member.
 dsDomainId :: Lens' DomainStatus Text
-dsDomainId = lens _dsDomainId (\ s a -> s{_dsDomainId = a});
+dsDomainId = lens _dsDomainId (\ s a -> s{_dsDomainId = a})
 
 -- | Undocumented member.
 dsDomainName :: Lens' DomainStatus Text
-dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a});
+dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a})
 
 -- | True if 'IndexDocuments' needs to be called to activate the current domain configuration.
 dsRequiresIndexDocuments :: Lens' DomainStatus Bool
-dsRequiresIndexDocuments = lens _dsRequiresIndexDocuments (\ s a -> s{_dsRequiresIndexDocuments = a});
+dsRequiresIndexDocuments = lens _dsRequiresIndexDocuments (\ s a -> s{_dsRequiresIndexDocuments = a})
 
 instance FromXML DomainStatus where
         parseXML x
@@ -704,33 +704,33 @@ doubleArrayOptions
     :: DoubleArrayOptions
 doubleArrayOptions =
   DoubleArrayOptions'
-  { _daoSourceFields = Nothing
-  , _daoReturnEnabled = Nothing
-  , _daoFacetEnabled = Nothing
-  , _daoSearchEnabled = Nothing
-  , _daoDefaultValue = Nothing
-  }
+    { _daoSourceFields = Nothing
+    , _daoReturnEnabled = Nothing
+    , _daoFacetEnabled = Nothing
+    , _daoSearchEnabled = Nothing
+    , _daoDefaultValue = Nothing
+    }
 
 
 -- | A list of source fields to map to the field.
 daoSourceFields :: Lens' DoubleArrayOptions (Maybe Text)
-daoSourceFields = lens _daoSourceFields (\ s a -> s{_daoSourceFields = a});
+daoSourceFields = lens _daoSourceFields (\ s a -> s{_daoSourceFields = a})
 
 -- | Whether the contents of the field can be returned in the search results.
 daoReturnEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
-daoReturnEnabled = lens _daoReturnEnabled (\ s a -> s{_daoReturnEnabled = a});
+daoReturnEnabled = lens _daoReturnEnabled (\ s a -> s{_daoReturnEnabled = a})
 
 -- | Whether facet information can be returned for the field.
 daoFacetEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
-daoFacetEnabled = lens _daoFacetEnabled (\ s a -> s{_daoFacetEnabled = a});
+daoFacetEnabled = lens _daoFacetEnabled (\ s a -> s{_daoFacetEnabled = a})
 
 -- | Whether the contents of the field are searchable.
 daoSearchEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
-daoSearchEnabled = lens _daoSearchEnabled (\ s a -> s{_daoSearchEnabled = a});
+daoSearchEnabled = lens _daoSearchEnabled (\ s a -> s{_daoSearchEnabled = a})
 
 -- | A value to use for the field if the field isn't specified for a document.
 daoDefaultValue :: Lens' DoubleArrayOptions (Maybe Double)
-daoDefaultValue = lens _daoDefaultValue (\ s a -> s{_daoDefaultValue = a});
+daoDefaultValue = lens _daoDefaultValue (\ s a -> s{_daoDefaultValue = a})
 
 instance FromXML DoubleArrayOptions where
         parseXML x
@@ -787,38 +787,38 @@ doubleOptions
     :: DoubleOptions
 doubleOptions =
   DoubleOptions'
-  { _dSourceField = Nothing
-  , _dReturnEnabled = Nothing
-  , _dFacetEnabled = Nothing
-  , _dSearchEnabled = Nothing
-  , _dSortEnabled = Nothing
-  , _dDefaultValue = Nothing
-  }
+    { _dSourceField = Nothing
+    , _dReturnEnabled = Nothing
+    , _dFacetEnabled = Nothing
+    , _dSearchEnabled = Nothing
+    , _dSortEnabled = Nothing
+    , _dDefaultValue = Nothing
+    }
 
 
 -- | The name of the source field to map to the field.
 dSourceField :: Lens' DoubleOptions (Maybe Text)
-dSourceField = lens _dSourceField (\ s a -> s{_dSourceField = a});
+dSourceField = lens _dSourceField (\ s a -> s{_dSourceField = a})
 
 -- | Whether the contents of the field can be returned in the search results.
 dReturnEnabled :: Lens' DoubleOptions (Maybe Bool)
-dReturnEnabled = lens _dReturnEnabled (\ s a -> s{_dReturnEnabled = a});
+dReturnEnabled = lens _dReturnEnabled (\ s a -> s{_dReturnEnabled = a})
 
 -- | Whether facet information can be returned for the field.
 dFacetEnabled :: Lens' DoubleOptions (Maybe Bool)
-dFacetEnabled = lens _dFacetEnabled (\ s a -> s{_dFacetEnabled = a});
+dFacetEnabled = lens _dFacetEnabled (\ s a -> s{_dFacetEnabled = a})
 
 -- | Whether the contents of the field are searchable.
 dSearchEnabled :: Lens' DoubleOptions (Maybe Bool)
-dSearchEnabled = lens _dSearchEnabled (\ s a -> s{_dSearchEnabled = a});
+dSearchEnabled = lens _dSearchEnabled (\ s a -> s{_dSearchEnabled = a})
 
 -- | Whether the field can be used to sort the search results.
 dSortEnabled :: Lens' DoubleOptions (Maybe Bool)
-dSortEnabled = lens _dSortEnabled (\ s a -> s{_dSortEnabled = a});
+dSortEnabled = lens _dSortEnabled (\ s a -> s{_dSortEnabled = a})
 
 -- | A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
 dDefaultValue :: Lens' DoubleOptions (Maybe Double)
-dDefaultValue = lens _dDefaultValue (\ s a -> s{_dDefaultValue = a});
+dDefaultValue = lens _dDefaultValue (\ s a -> s{_dDefaultValue = a})
 
 instance FromXML DoubleOptions where
         parseXML x
@@ -867,16 +867,16 @@ expression
     -> Expression
 expression pExpressionName_ pExpressionValue_ =
   Expression'
-  {_eExpressionName = pExpressionName_, _eExpressionValue = pExpressionValue_}
+    {_eExpressionName = pExpressionName_, _eExpressionValue = pExpressionValue_}
 
 
 -- | Undocumented member.
 eExpressionName :: Lens' Expression Text
-eExpressionName = lens _eExpressionName (\ s a -> s{_eExpressionName = a});
+eExpressionName = lens _eExpressionName (\ s a -> s{_eExpressionName = a})
 
 -- | Undocumented member.
 eExpressionValue :: Lens' Expression Text
-eExpressionValue = lens _eExpressionValue (\ s a -> s{_eExpressionValue = a});
+eExpressionValue = lens _eExpressionValue (\ s a -> s{_eExpressionValue = a})
 
 instance FromXML Expression where
         parseXML x
@@ -921,11 +921,11 @@ expressionStatus pOptions_ pStatus_ =
 
 -- | The expression that is evaluated for sorting while processing a search request.
 esOptions :: Lens' ExpressionStatus Expression
-esOptions = lens _esOptions (\ s a -> s{_esOptions = a});
+esOptions = lens _esOptions (\ s a -> s{_esOptions = a})
 
 -- | Undocumented member.
 esStatus :: Lens' ExpressionStatus OptionStatus
-esStatus = lens _esStatus (\ s a -> s{_esStatus = a});
+esStatus = lens _esStatus (\ s a -> s{_esStatus = a})
 
 instance FromXML ExpressionStatus where
         parseXML x
@@ -993,73 +993,73 @@ indexField
     -> IndexField
 indexField pIndexFieldName_ pIndexFieldType_ =
   IndexField'
-  { _ifDoubleArrayOptions = Nothing
-  , _ifDateOptions = Nothing
-  , _ifTextArrayOptions = Nothing
-  , _ifDoubleOptions = Nothing
-  , _ifTextOptions = Nothing
-  , _ifLatLonOptions = Nothing
-  , _ifLiteralArrayOptions = Nothing
-  , _ifIntArrayOptions = Nothing
-  , _ifDateArrayOptions = Nothing
-  , _ifIntOptions = Nothing
-  , _ifLiteralOptions = Nothing
-  , _ifIndexFieldName = pIndexFieldName_
-  , _ifIndexFieldType = pIndexFieldType_
-  }
+    { _ifDoubleArrayOptions = Nothing
+    , _ifDateOptions = Nothing
+    , _ifTextArrayOptions = Nothing
+    , _ifDoubleOptions = Nothing
+    , _ifTextOptions = Nothing
+    , _ifLatLonOptions = Nothing
+    , _ifLiteralArrayOptions = Nothing
+    , _ifIntArrayOptions = Nothing
+    , _ifDateArrayOptions = Nothing
+    , _ifIntOptions = Nothing
+    , _ifLiteralOptions = Nothing
+    , _ifIndexFieldName = pIndexFieldName_
+    , _ifIndexFieldType = pIndexFieldType_
+    }
 
 
 -- | Undocumented member.
 ifDoubleArrayOptions :: Lens' IndexField (Maybe DoubleArrayOptions)
-ifDoubleArrayOptions = lens _ifDoubleArrayOptions (\ s a -> s{_ifDoubleArrayOptions = a});
+ifDoubleArrayOptions = lens _ifDoubleArrayOptions (\ s a -> s{_ifDoubleArrayOptions = a})
 
 -- | Undocumented member.
 ifDateOptions :: Lens' IndexField (Maybe DateOptions)
-ifDateOptions = lens _ifDateOptions (\ s a -> s{_ifDateOptions = a});
+ifDateOptions = lens _ifDateOptions (\ s a -> s{_ifDateOptions = a})
 
 -- | Undocumented member.
 ifTextArrayOptions :: Lens' IndexField (Maybe TextArrayOptions)
-ifTextArrayOptions = lens _ifTextArrayOptions (\ s a -> s{_ifTextArrayOptions = a});
+ifTextArrayOptions = lens _ifTextArrayOptions (\ s a -> s{_ifTextArrayOptions = a})
 
 -- | Undocumented member.
 ifDoubleOptions :: Lens' IndexField (Maybe DoubleOptions)
-ifDoubleOptions = lens _ifDoubleOptions (\ s a -> s{_ifDoubleOptions = a});
+ifDoubleOptions = lens _ifDoubleOptions (\ s a -> s{_ifDoubleOptions = a})
 
 -- | Undocumented member.
 ifTextOptions :: Lens' IndexField (Maybe TextOptions)
-ifTextOptions = lens _ifTextOptions (\ s a -> s{_ifTextOptions = a});
+ifTextOptions = lens _ifTextOptions (\ s a -> s{_ifTextOptions = a})
 
 -- | Undocumented member.
 ifLatLonOptions :: Lens' IndexField (Maybe LatLonOptions)
-ifLatLonOptions = lens _ifLatLonOptions (\ s a -> s{_ifLatLonOptions = a});
+ifLatLonOptions = lens _ifLatLonOptions (\ s a -> s{_ifLatLonOptions = a})
 
 -- | Undocumented member.
 ifLiteralArrayOptions :: Lens' IndexField (Maybe LiteralArrayOptions)
-ifLiteralArrayOptions = lens _ifLiteralArrayOptions (\ s a -> s{_ifLiteralArrayOptions = a});
+ifLiteralArrayOptions = lens _ifLiteralArrayOptions (\ s a -> s{_ifLiteralArrayOptions = a})
 
 -- | Undocumented member.
 ifIntArrayOptions :: Lens' IndexField (Maybe IntArrayOptions)
-ifIntArrayOptions = lens _ifIntArrayOptions (\ s a -> s{_ifIntArrayOptions = a});
+ifIntArrayOptions = lens _ifIntArrayOptions (\ s a -> s{_ifIntArrayOptions = a})
 
 -- | Undocumented member.
 ifDateArrayOptions :: Lens' IndexField (Maybe DateArrayOptions)
-ifDateArrayOptions = lens _ifDateArrayOptions (\ s a -> s{_ifDateArrayOptions = a});
+ifDateArrayOptions = lens _ifDateArrayOptions (\ s a -> s{_ifDateArrayOptions = a})
 
 -- | Undocumented member.
 ifIntOptions :: Lens' IndexField (Maybe IntOptions)
-ifIntOptions = lens _ifIntOptions (\ s a -> s{_ifIntOptions = a});
+ifIntOptions = lens _ifIntOptions (\ s a -> s{_ifIntOptions = a})
 
 -- | Undocumented member.
 ifLiteralOptions :: Lens' IndexField (Maybe LiteralOptions)
-ifLiteralOptions = lens _ifLiteralOptions (\ s a -> s{_ifLiteralOptions = a});
+ifLiteralOptions = lens _ifLiteralOptions (\ s a -> s{_ifLiteralOptions = a})
 
 -- | A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options.  Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported.  The name @score@ is reserved and cannot be used as a field name. To reference a document's ID, you can use the name @_id@ .
 ifIndexFieldName :: Lens' IndexField Text
-ifIndexFieldName = lens _ifIndexFieldName (\ s a -> s{_ifIndexFieldName = a});
+ifIndexFieldName = lens _ifIndexFieldName (\ s a -> s{_ifIndexFieldName = a})
 
 -- | Undocumented member.
 ifIndexFieldType :: Lens' IndexField IndexFieldType
-ifIndexFieldType = lens _ifIndexFieldType (\ s a -> s{_ifIndexFieldType = a});
+ifIndexFieldType = lens _ifIndexFieldType (\ s a -> s{_ifIndexFieldType = a})
 
 instance FromXML IndexField where
         parseXML x
@@ -1127,11 +1127,11 @@ indexFieldStatus pOptions_ pStatus_ =
 
 -- | Undocumented member.
 ifsOptions :: Lens' IndexFieldStatus IndexField
-ifsOptions = lens _ifsOptions (\ s a -> s{_ifsOptions = a});
+ifsOptions = lens _ifsOptions (\ s a -> s{_ifsOptions = a})
 
 -- | Undocumented member.
 ifsStatus :: Lens' IndexFieldStatus OptionStatus
-ifsStatus = lens _ifsStatus (\ s a -> s{_ifsStatus = a});
+ifsStatus = lens _ifsStatus (\ s a -> s{_ifsStatus = a})
 
 instance FromXML IndexFieldStatus where
         parseXML x
@@ -1173,33 +1173,33 @@ intArrayOptions
     :: IntArrayOptions
 intArrayOptions =
   IntArrayOptions'
-  { _iaoSourceFields = Nothing
-  , _iaoReturnEnabled = Nothing
-  , _iaoFacetEnabled = Nothing
-  , _iaoSearchEnabled = Nothing
-  , _iaoDefaultValue = Nothing
-  }
+    { _iaoSourceFields = Nothing
+    , _iaoReturnEnabled = Nothing
+    , _iaoFacetEnabled = Nothing
+    , _iaoSearchEnabled = Nothing
+    , _iaoDefaultValue = Nothing
+    }
 
 
 -- | A list of source fields to map to the field.
 iaoSourceFields :: Lens' IntArrayOptions (Maybe Text)
-iaoSourceFields = lens _iaoSourceFields (\ s a -> s{_iaoSourceFields = a});
+iaoSourceFields = lens _iaoSourceFields (\ s a -> s{_iaoSourceFields = a})
 
 -- | Whether the contents of the field can be returned in the search results.
 iaoReturnEnabled :: Lens' IntArrayOptions (Maybe Bool)
-iaoReturnEnabled = lens _iaoReturnEnabled (\ s a -> s{_iaoReturnEnabled = a});
+iaoReturnEnabled = lens _iaoReturnEnabled (\ s a -> s{_iaoReturnEnabled = a})
 
 -- | Whether facet information can be returned for the field.
 iaoFacetEnabled :: Lens' IntArrayOptions (Maybe Bool)
-iaoFacetEnabled = lens _iaoFacetEnabled (\ s a -> s{_iaoFacetEnabled = a});
+iaoFacetEnabled = lens _iaoFacetEnabled (\ s a -> s{_iaoFacetEnabled = a})
 
 -- | Whether the contents of the field are searchable.
 iaoSearchEnabled :: Lens' IntArrayOptions (Maybe Bool)
-iaoSearchEnabled = lens _iaoSearchEnabled (\ s a -> s{_iaoSearchEnabled = a});
+iaoSearchEnabled = lens _iaoSearchEnabled (\ s a -> s{_iaoSearchEnabled = a})
 
 -- | A value to use for the field if the field isn't specified for a document.
 iaoDefaultValue :: Lens' IntArrayOptions (Maybe Integer)
-iaoDefaultValue = lens _iaoDefaultValue (\ s a -> s{_iaoDefaultValue = a});
+iaoDefaultValue = lens _iaoDefaultValue (\ s a -> s{_iaoDefaultValue = a})
 
 instance FromXML IntArrayOptions where
         parseXML x
@@ -1256,38 +1256,38 @@ intOptions
     :: IntOptions
 intOptions =
   IntOptions'
-  { _ioSourceField = Nothing
-  , _ioReturnEnabled = Nothing
-  , _ioFacetEnabled = Nothing
-  , _ioSearchEnabled = Nothing
-  , _ioSortEnabled = Nothing
-  , _ioDefaultValue = Nothing
-  }
+    { _ioSourceField = Nothing
+    , _ioReturnEnabled = Nothing
+    , _ioFacetEnabled = Nothing
+    , _ioSearchEnabled = Nothing
+    , _ioSortEnabled = Nothing
+    , _ioDefaultValue = Nothing
+    }
 
 
 -- | The name of the source field to map to the field.
 ioSourceField :: Lens' IntOptions (Maybe Text)
-ioSourceField = lens _ioSourceField (\ s a -> s{_ioSourceField = a});
+ioSourceField = lens _ioSourceField (\ s a -> s{_ioSourceField = a})
 
 -- | Whether the contents of the field can be returned in the search results.
 ioReturnEnabled :: Lens' IntOptions (Maybe Bool)
-ioReturnEnabled = lens _ioReturnEnabled (\ s a -> s{_ioReturnEnabled = a});
+ioReturnEnabled = lens _ioReturnEnabled (\ s a -> s{_ioReturnEnabled = a})
 
 -- | Whether facet information can be returned for the field.
 ioFacetEnabled :: Lens' IntOptions (Maybe Bool)
-ioFacetEnabled = lens _ioFacetEnabled (\ s a -> s{_ioFacetEnabled = a});
+ioFacetEnabled = lens _ioFacetEnabled (\ s a -> s{_ioFacetEnabled = a})
 
 -- | Whether the contents of the field are searchable.
 ioSearchEnabled :: Lens' IntOptions (Maybe Bool)
-ioSearchEnabled = lens _ioSearchEnabled (\ s a -> s{_ioSearchEnabled = a});
+ioSearchEnabled = lens _ioSearchEnabled (\ s a -> s{_ioSearchEnabled = a})
 
 -- | Whether the field can be used to sort the search results.
 ioSortEnabled :: Lens' IntOptions (Maybe Bool)
-ioSortEnabled = lens _ioSortEnabled (\ s a -> s{_ioSortEnabled = a});
+ioSortEnabled = lens _ioSortEnabled (\ s a -> s{_ioSortEnabled = a})
 
 -- | A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
 ioDefaultValue :: Lens' IntOptions (Maybe Integer)
-ioDefaultValue = lens _ioDefaultValue (\ s a -> s{_ioDefaultValue = a});
+ioDefaultValue = lens _ioDefaultValue (\ s a -> s{_ioDefaultValue = a})
 
 instance FromXML IntOptions where
         parseXML x
@@ -1346,38 +1346,38 @@ latLonOptions
     :: LatLonOptions
 latLonOptions =
   LatLonOptions'
-  { _lloSourceField = Nothing
-  , _lloReturnEnabled = Nothing
-  , _lloFacetEnabled = Nothing
-  , _lloSearchEnabled = Nothing
-  , _lloSortEnabled = Nothing
-  , _lloDefaultValue = Nothing
-  }
+    { _lloSourceField = Nothing
+    , _lloReturnEnabled = Nothing
+    , _lloFacetEnabled = Nothing
+    , _lloSearchEnabled = Nothing
+    , _lloSortEnabled = Nothing
+    , _lloDefaultValue = Nothing
+    }
 
 
 -- | Undocumented member.
 lloSourceField :: Lens' LatLonOptions (Maybe Text)
-lloSourceField = lens _lloSourceField (\ s a -> s{_lloSourceField = a});
+lloSourceField = lens _lloSourceField (\ s a -> s{_lloSourceField = a})
 
 -- | Whether the contents of the field can be returned in the search results.
 lloReturnEnabled :: Lens' LatLonOptions (Maybe Bool)
-lloReturnEnabled = lens _lloReturnEnabled (\ s a -> s{_lloReturnEnabled = a});
+lloReturnEnabled = lens _lloReturnEnabled (\ s a -> s{_lloReturnEnabled = a})
 
 -- | Whether facet information can be returned for the field.
 lloFacetEnabled :: Lens' LatLonOptions (Maybe Bool)
-lloFacetEnabled = lens _lloFacetEnabled (\ s a -> s{_lloFacetEnabled = a});
+lloFacetEnabled = lens _lloFacetEnabled (\ s a -> s{_lloFacetEnabled = a})
 
 -- | Whether the contents of the field are searchable.
 lloSearchEnabled :: Lens' LatLonOptions (Maybe Bool)
-lloSearchEnabled = lens _lloSearchEnabled (\ s a -> s{_lloSearchEnabled = a});
+lloSearchEnabled = lens _lloSearchEnabled (\ s a -> s{_lloSearchEnabled = a})
 
 -- | Whether the field can be used to sort the search results.
 lloSortEnabled :: Lens' LatLonOptions (Maybe Bool)
-lloSortEnabled = lens _lloSortEnabled (\ s a -> s{_lloSortEnabled = a});
+lloSortEnabled = lens _lloSortEnabled (\ s a -> s{_lloSortEnabled = a})
 
 -- | A value to use for the field if the field isn't specified for a document.
 lloDefaultValue :: Lens' LatLonOptions (Maybe Text)
-lloDefaultValue = lens _lloDefaultValue (\ s a -> s{_lloDefaultValue = a});
+lloDefaultValue = lens _lloDefaultValue (\ s a -> s{_lloDefaultValue = a})
 
 instance FromXML LatLonOptions where
         parseXML x
@@ -1422,18 +1422,18 @@ limits
     -> Limits
 limits pMaximumReplicationCount_ pMaximumPartitionCount_ =
   Limits'
-  { _lMaximumReplicationCount = _Nat # pMaximumReplicationCount_
-  , _lMaximumPartitionCount = _Nat # pMaximumPartitionCount_
-  }
+    { _lMaximumReplicationCount = _Nat # pMaximumReplicationCount_
+    , _lMaximumPartitionCount = _Nat # pMaximumPartitionCount_
+    }
 
 
 -- | Undocumented member.
 lMaximumReplicationCount :: Lens' Limits Natural
-lMaximumReplicationCount = lens _lMaximumReplicationCount (\ s a -> s{_lMaximumReplicationCount = a}) . _Nat;
+lMaximumReplicationCount = lens _lMaximumReplicationCount (\ s a -> s{_lMaximumReplicationCount = a}) . _Nat
 
 -- | Undocumented member.
 lMaximumPartitionCount :: Lens' Limits Natural
-lMaximumPartitionCount = lens _lMaximumPartitionCount (\ s a -> s{_lMaximumPartitionCount = a}) . _Nat;
+lMaximumPartitionCount = lens _lMaximumPartitionCount (\ s a -> s{_lMaximumPartitionCount = a}) . _Nat
 
 instance FromXML Limits where
         parseXML x
@@ -1476,33 +1476,33 @@ literalArrayOptions
     :: LiteralArrayOptions
 literalArrayOptions =
   LiteralArrayOptions'
-  { _laoSourceFields = Nothing
-  , _laoReturnEnabled = Nothing
-  , _laoFacetEnabled = Nothing
-  , _laoSearchEnabled = Nothing
-  , _laoDefaultValue = Nothing
-  }
+    { _laoSourceFields = Nothing
+    , _laoReturnEnabled = Nothing
+    , _laoFacetEnabled = Nothing
+    , _laoSearchEnabled = Nothing
+    , _laoDefaultValue = Nothing
+    }
 
 
 -- | A list of source fields to map to the field.
 laoSourceFields :: Lens' LiteralArrayOptions (Maybe Text)
-laoSourceFields = lens _laoSourceFields (\ s a -> s{_laoSourceFields = a});
+laoSourceFields = lens _laoSourceFields (\ s a -> s{_laoSourceFields = a})
 
 -- | Whether the contents of the field can be returned in the search results.
 laoReturnEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
-laoReturnEnabled = lens _laoReturnEnabled (\ s a -> s{_laoReturnEnabled = a});
+laoReturnEnabled = lens _laoReturnEnabled (\ s a -> s{_laoReturnEnabled = a})
 
 -- | Whether facet information can be returned for the field.
 laoFacetEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
-laoFacetEnabled = lens _laoFacetEnabled (\ s a -> s{_laoFacetEnabled = a});
+laoFacetEnabled = lens _laoFacetEnabled (\ s a -> s{_laoFacetEnabled = a})
 
 -- | Whether the contents of the field are searchable.
 laoSearchEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
-laoSearchEnabled = lens _laoSearchEnabled (\ s a -> s{_laoSearchEnabled = a});
+laoSearchEnabled = lens _laoSearchEnabled (\ s a -> s{_laoSearchEnabled = a})
 
 -- | A value to use for the field if the field isn't specified for a document.
 laoDefaultValue :: Lens' LiteralArrayOptions (Maybe Text)
-laoDefaultValue = lens _laoDefaultValue (\ s a -> s{_laoDefaultValue = a});
+laoDefaultValue = lens _laoDefaultValue (\ s a -> s{_laoDefaultValue = a})
 
 instance FromXML LiteralArrayOptions where
         parseXML x
@@ -1559,38 +1559,38 @@ literalOptions
     :: LiteralOptions
 literalOptions =
   LiteralOptions'
-  { _loSourceField = Nothing
-  , _loReturnEnabled = Nothing
-  , _loFacetEnabled = Nothing
-  , _loSearchEnabled = Nothing
-  , _loSortEnabled = Nothing
-  , _loDefaultValue = Nothing
-  }
+    { _loSourceField = Nothing
+    , _loReturnEnabled = Nothing
+    , _loFacetEnabled = Nothing
+    , _loSearchEnabled = Nothing
+    , _loSortEnabled = Nothing
+    , _loDefaultValue = Nothing
+    }
 
 
 -- | Undocumented member.
 loSourceField :: Lens' LiteralOptions (Maybe Text)
-loSourceField = lens _loSourceField (\ s a -> s{_loSourceField = a});
+loSourceField = lens _loSourceField (\ s a -> s{_loSourceField = a})
 
 -- | Whether the contents of the field can be returned in the search results.
 loReturnEnabled :: Lens' LiteralOptions (Maybe Bool)
-loReturnEnabled = lens _loReturnEnabled (\ s a -> s{_loReturnEnabled = a});
+loReturnEnabled = lens _loReturnEnabled (\ s a -> s{_loReturnEnabled = a})
 
 -- | Whether facet information can be returned for the field.
 loFacetEnabled :: Lens' LiteralOptions (Maybe Bool)
-loFacetEnabled = lens _loFacetEnabled (\ s a -> s{_loFacetEnabled = a});
+loFacetEnabled = lens _loFacetEnabled (\ s a -> s{_loFacetEnabled = a})
 
 -- | Whether the contents of the field are searchable.
 loSearchEnabled :: Lens' LiteralOptions (Maybe Bool)
-loSearchEnabled = lens _loSearchEnabled (\ s a -> s{_loSearchEnabled = a});
+loSearchEnabled = lens _loSearchEnabled (\ s a -> s{_loSearchEnabled = a})
 
 -- | Whether the field can be used to sort the search results.
 loSortEnabled :: Lens' LiteralOptions (Maybe Bool)
-loSortEnabled = lens _loSortEnabled (\ s a -> s{_loSortEnabled = a});
+loSortEnabled = lens _loSortEnabled (\ s a -> s{_loSortEnabled = a})
 
 -- | A value to use for the field if the field isn't specified for a document.
 loDefaultValue :: Lens' LiteralOptions (Maybe Text)
-loDefaultValue = lens _loDefaultValue (\ s a -> s{_loDefaultValue = a});
+loDefaultValue = lens _loDefaultValue (\ s a -> s{_loDefaultValue = a})
 
 instance FromXML LiteralOptions where
         parseXML x
@@ -1649,33 +1649,33 @@ optionStatus
     -> OptionStatus
 optionStatus pCreationDate_ pUpdateDate_ pState_ =
   OptionStatus'
-  { _osPendingDeletion = Nothing
-  , _osUpdateVersion = Nothing
-  , _osCreationDate = _Time # pCreationDate_
-  , _osUpdateDate = _Time # pUpdateDate_
-  , _osState = pState_
-  }
+    { _osPendingDeletion = Nothing
+    , _osUpdateVersion = Nothing
+    , _osCreationDate = _Time # pCreationDate_
+    , _osUpdateDate = _Time # pUpdateDate_
+    , _osState = pState_
+    }
 
 
 -- | Indicates that the option will be deleted once processing is complete.
 osPendingDeletion :: Lens' OptionStatus (Maybe Bool)
-osPendingDeletion = lens _osPendingDeletion (\ s a -> s{_osPendingDeletion = a});
+osPendingDeletion = lens _osPendingDeletion (\ s a -> s{_osPendingDeletion = a})
 
 -- | A unique integer that indicates when this option was last updated.
 osUpdateVersion :: Lens' OptionStatus (Maybe Natural)
-osUpdateVersion = lens _osUpdateVersion (\ s a -> s{_osUpdateVersion = a}) . mapping _Nat;
+osUpdateVersion = lens _osUpdateVersion (\ s a -> s{_osUpdateVersion = a}) . mapping _Nat
 
 -- | A timestamp for when this option was created.
 osCreationDate :: Lens' OptionStatus UTCTime
-osCreationDate = lens _osCreationDate (\ s a -> s{_osCreationDate = a}) . _Time;
+osCreationDate = lens _osCreationDate (\ s a -> s{_osCreationDate = a}) . _Time
 
 -- | A timestamp for when this option was last updated.
 osUpdateDate :: Lens' OptionStatus UTCTime
-osUpdateDate = lens _osUpdateDate (\ s a -> s{_osUpdateDate = a}) . _Time;
+osUpdateDate = lens _osUpdateDate (\ s a -> s{_osUpdateDate = a}) . _Time
 
 -- | The state of processing a change to an option. Possible values:     * @RequiresIndexDocuments@ : the option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.    * @Processing@ : the option's latest value is in the process of being activated.     * @Active@ : the option's latest value is completely deployed.    * @FailedToValidate@ : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
 osState :: Lens' OptionStatus OptionState
-osState = lens _osState (\ s a -> s{_osState = a});
+osState = lens _osState (\ s a -> s{_osState = a})
 
 instance FromXML OptionStatus where
         parseXML x
@@ -1714,23 +1714,23 @@ scalingParameters
     :: ScalingParameters
 scalingParameters =
   ScalingParameters'
-  { _spDesiredInstanceType = Nothing
-  , _spDesiredReplicationCount = Nothing
-  , _spDesiredPartitionCount = Nothing
-  }
+    { _spDesiredInstanceType = Nothing
+    , _spDesiredReplicationCount = Nothing
+    , _spDesiredPartitionCount = Nothing
+    }
 
 
 -- | The instance type that you want to preconfigure for your domain. For example, @search.m1.small@ .
 spDesiredInstanceType :: Lens' ScalingParameters (Maybe PartitionInstanceType)
-spDesiredInstanceType = lens _spDesiredInstanceType (\ s a -> s{_spDesiredInstanceType = a});
+spDesiredInstanceType = lens _spDesiredInstanceType (\ s a -> s{_spDesiredInstanceType = a})
 
 -- | The number of replicas you want to preconfigure for each index partition.
 spDesiredReplicationCount :: Lens' ScalingParameters (Maybe Natural)
-spDesiredReplicationCount = lens _spDesiredReplicationCount (\ s a -> s{_spDesiredReplicationCount = a}) . mapping _Nat;
+spDesiredReplicationCount = lens _spDesiredReplicationCount (\ s a -> s{_spDesiredReplicationCount = a}) . mapping _Nat
 
 -- | The number of partitions you want to preconfigure for your domain. Only valid when you select @m2.2xlarge@ as the desired instance type.
 spDesiredPartitionCount :: Lens' ScalingParameters (Maybe Natural)
-spDesiredPartitionCount = lens _spDesiredPartitionCount (\ s a -> s{_spDesiredPartitionCount = a}) . mapping _Nat;
+spDesiredPartitionCount = lens _spDesiredPartitionCount (\ s a -> s{_spDesiredPartitionCount = a}) . mapping _Nat
 
 instance FromXML ScalingParameters where
         parseXML x
@@ -1779,11 +1779,11 @@ scalingParametersStatus pOptions_ pStatus_ =
 
 -- | Undocumented member.
 spsOptions :: Lens' ScalingParametersStatus ScalingParameters
-spsOptions = lens _spsOptions (\ s a -> s{_spsOptions = a});
+spsOptions = lens _spsOptions (\ s a -> s{_spsOptions = a})
 
 -- | Undocumented member.
 spsStatus :: Lens' ScalingParametersStatus OptionStatus
-spsStatus = lens _spsStatus (\ s a -> s{_spsStatus = a});
+spsStatus = lens _spsStatus (\ s a -> s{_spsStatus = a})
 
 instance FromXML ScalingParametersStatus where
         parseXML x
@@ -1816,7 +1816,7 @@ serviceEndpoint = ServiceEndpoint' {_seEndpoint = Nothing}
 
 -- | Undocumented member.
 seEndpoint :: Lens' ServiceEndpoint (Maybe Text)
-seEndpoint = lens _seEndpoint (\ s a -> s{_seEndpoint = a});
+seEndpoint = lens _seEndpoint (\ s a -> s{_seEndpoint = a})
 
 instance FromXML ServiceEndpoint where
         parseXML x = ServiceEndpoint' <$> (x .@? "Endpoint")
@@ -1849,18 +1849,18 @@ suggester
     -> Suggester
 suggester pSuggesterName_ pDocumentSuggesterOptions_ =
   Suggester'
-  { _sSuggesterName = pSuggesterName_
-  , _sDocumentSuggesterOptions = pDocumentSuggesterOptions_
-  }
+    { _sSuggesterName = pSuggesterName_
+    , _sDocumentSuggesterOptions = pDocumentSuggesterOptions_
+    }
 
 
 -- | Undocumented member.
 sSuggesterName :: Lens' Suggester Text
-sSuggesterName = lens _sSuggesterName (\ s a -> s{_sSuggesterName = a});
+sSuggesterName = lens _sSuggesterName (\ s a -> s{_sSuggesterName = a})
 
 -- | Undocumented member.
 sDocumentSuggesterOptions :: Lens' Suggester DocumentSuggesterOptions
-sDocumentSuggesterOptions = lens _sDocumentSuggesterOptions (\ s a -> s{_sDocumentSuggesterOptions = a});
+sDocumentSuggesterOptions = lens _sDocumentSuggesterOptions (\ s a -> s{_sDocumentSuggesterOptions = a})
 
 instance FromXML Suggester where
         parseXML x
@@ -1907,11 +1907,11 @@ suggesterStatus pOptions_ pStatus_ =
 
 -- | Undocumented member.
 ssOptions :: Lens' SuggesterStatus Suggester
-ssOptions = lens _ssOptions (\ s a -> s{_ssOptions = a});
+ssOptions = lens _ssOptions (\ s a -> s{_ssOptions = a})
 
 -- | Undocumented member.
 ssStatus :: Lens' SuggesterStatus OptionStatus
-ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a});
+ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a})
 
 instance FromXML SuggesterStatus where
         parseXML x
@@ -1953,33 +1953,33 @@ textArrayOptions
     :: TextArrayOptions
 textArrayOptions =
   TextArrayOptions'
-  { _taoSourceFields = Nothing
-  , _taoReturnEnabled = Nothing
-  , _taoAnalysisScheme = Nothing
-  , _taoHighlightEnabled = Nothing
-  , _taoDefaultValue = Nothing
-  }
+    { _taoSourceFields = Nothing
+    , _taoReturnEnabled = Nothing
+    , _taoAnalysisScheme = Nothing
+    , _taoHighlightEnabled = Nothing
+    , _taoDefaultValue = Nothing
+    }
 
 
 -- | A list of source fields to map to the field.
 taoSourceFields :: Lens' TextArrayOptions (Maybe Text)
-taoSourceFields = lens _taoSourceFields (\ s a -> s{_taoSourceFields = a});
+taoSourceFields = lens _taoSourceFields (\ s a -> s{_taoSourceFields = a})
 
 -- | Whether the contents of the field can be returned in the search results.
 taoReturnEnabled :: Lens' TextArrayOptions (Maybe Bool)
-taoReturnEnabled = lens _taoReturnEnabled (\ s a -> s{_taoReturnEnabled = a});
+taoReturnEnabled = lens _taoReturnEnabled (\ s a -> s{_taoReturnEnabled = a})
 
 -- | The name of an analysis scheme for a @text-array@ field.
 taoAnalysisScheme :: Lens' TextArrayOptions (Maybe Text)
-taoAnalysisScheme = lens _taoAnalysisScheme (\ s a -> s{_taoAnalysisScheme = a});
+taoAnalysisScheme = lens _taoAnalysisScheme (\ s a -> s{_taoAnalysisScheme = a})
 
 -- | Whether highlights can be returned for the field.
 taoHighlightEnabled :: Lens' TextArrayOptions (Maybe Bool)
-taoHighlightEnabled = lens _taoHighlightEnabled (\ s a -> s{_taoHighlightEnabled = a});
+taoHighlightEnabled = lens _taoHighlightEnabled (\ s a -> s{_taoHighlightEnabled = a})
 
 -- | A value to use for the field if the field isn't specified for a document.
 taoDefaultValue :: Lens' TextArrayOptions (Maybe Text)
-taoDefaultValue = lens _taoDefaultValue (\ s a -> s{_taoDefaultValue = a});
+taoDefaultValue = lens _taoDefaultValue (\ s a -> s{_taoDefaultValue = a})
 
 instance FromXML TextArrayOptions where
         parseXML x
@@ -2036,38 +2036,38 @@ textOptions
     :: TextOptions
 textOptions =
   TextOptions'
-  { _toSourceField = Nothing
-  , _toReturnEnabled = Nothing
-  , _toAnalysisScheme = Nothing
-  , _toHighlightEnabled = Nothing
-  , _toSortEnabled = Nothing
-  , _toDefaultValue = Nothing
-  }
+    { _toSourceField = Nothing
+    , _toReturnEnabled = Nothing
+    , _toAnalysisScheme = Nothing
+    , _toHighlightEnabled = Nothing
+    , _toSortEnabled = Nothing
+    , _toDefaultValue = Nothing
+    }
 
 
 -- | Undocumented member.
 toSourceField :: Lens' TextOptions (Maybe Text)
-toSourceField = lens _toSourceField (\ s a -> s{_toSourceField = a});
+toSourceField = lens _toSourceField (\ s a -> s{_toSourceField = a})
 
 -- | Whether the contents of the field can be returned in the search results.
 toReturnEnabled :: Lens' TextOptions (Maybe Bool)
-toReturnEnabled = lens _toReturnEnabled (\ s a -> s{_toReturnEnabled = a});
+toReturnEnabled = lens _toReturnEnabled (\ s a -> s{_toReturnEnabled = a})
 
 -- | The name of an analysis scheme for a @text@ field.
 toAnalysisScheme :: Lens' TextOptions (Maybe Text)
-toAnalysisScheme = lens _toAnalysisScheme (\ s a -> s{_toAnalysisScheme = a});
+toAnalysisScheme = lens _toAnalysisScheme (\ s a -> s{_toAnalysisScheme = a})
 
 -- | Whether highlights can be returned for the field.
 toHighlightEnabled :: Lens' TextOptions (Maybe Bool)
-toHighlightEnabled = lens _toHighlightEnabled (\ s a -> s{_toHighlightEnabled = a});
+toHighlightEnabled = lens _toHighlightEnabled (\ s a -> s{_toHighlightEnabled = a})
 
 -- | Whether the field can be used to sort the search results.
 toSortEnabled :: Lens' TextOptions (Maybe Bool)
-toSortEnabled = lens _toSortEnabled (\ s a -> s{_toSortEnabled = a});
+toSortEnabled = lens _toSortEnabled (\ s a -> s{_toSortEnabled = a})
 
 -- | A value to use for the field if the field isn't specified for a document.
 toDefaultValue :: Lens' TextOptions (Maybe Text)
-toDefaultValue = lens _toDefaultValue (\ s a -> s{_toDefaultValue = a});
+toDefaultValue = lens _toDefaultValue (\ s a -> s{_toDefaultValue = a})
 
 instance FromXML TextOptions where
         parseXML x

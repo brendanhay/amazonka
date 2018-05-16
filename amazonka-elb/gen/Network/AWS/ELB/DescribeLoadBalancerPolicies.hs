@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ describeLoadBalancerPolicies
     :: DescribeLoadBalancerPolicies
 describeLoadBalancerPolicies =
   DescribeLoadBalancerPolicies'
-  {_dlbpPolicyNames = Nothing, _dlbpLoadBalancerName = Nothing}
+    {_dlbpPolicyNames = Nothing, _dlbpLoadBalancerName = Nothing}
 
 
 -- | The names of the policies.
 dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
-dlbpPolicyNames = lens _dlbpPolicyNames (\ s a -> s{_dlbpPolicyNames = a}) . _Default . _Coerce;
+dlbpPolicyNames = lens _dlbpPolicyNames (\ s a -> s{_dlbpPolicyNames = a}) . _Default . _Coerce
 
 -- | The name of the load balancer.
 dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
-dlbpLoadBalancerName = lens _dlbpLoadBalancerName (\ s a -> s{_dlbpLoadBalancerName = a});
+dlbpLoadBalancerName = lens _dlbpLoadBalancerName (\ s a -> s{_dlbpLoadBalancerName = a})
 
 instance AWSRequest DescribeLoadBalancerPolicies
          where
@@ -137,18 +137,18 @@ describeLoadBalancerPoliciesResponse
     -> DescribeLoadBalancerPoliciesResponse
 describeLoadBalancerPoliciesResponse pResponseStatus_ =
   DescribeLoadBalancerPoliciesResponse'
-  { _dlbprsPolicyDescriptions = Nothing
-  , _dlbprsResponseStatus = pResponseStatus_
-  }
+    { _dlbprsPolicyDescriptions = Nothing
+    , _dlbprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the policies.
 dlbprsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
-dlbprsPolicyDescriptions = lens _dlbprsPolicyDescriptions (\ s a -> s{_dlbprsPolicyDescriptions = a}) . _Default . _Coerce;
+dlbprsPolicyDescriptions = lens _dlbprsPolicyDescriptions (\ s a -> s{_dlbprsPolicyDescriptions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dlbprsResponseStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
-dlbprsResponseStatus = lens _dlbprsResponseStatus (\ s a -> s{_dlbprsResponseStatus = a});
+dlbprsResponseStatus = lens _dlbprsResponseStatus (\ s a -> s{_dlbprsResponseStatus = a})
 
 instance NFData DescribeLoadBalancerPoliciesResponse
          where

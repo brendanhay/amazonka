@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.Waiters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,10 +25,10 @@ import Network.AWS.Waiter
 alarmExists :: Wait DescribeAlarms
 alarmExists =
   Wait
-  { _waitName = "AlarmExists"
-  , _waitAttempts = 40
-  , _waitDelay = 5
-  , _waitAcceptors =
-      [matchNonEmpty True AcceptSuccess (folding (concatOf darsMetricAlarms))]
-  }
+    { _waitName = "AlarmExists"
+    , _waitAttempts = 40
+    , _waitDelay = 5
+    , _waitAcceptors =
+        [matchNonEmpty True AcceptSuccess (folding (concatOf darsMetricAlarms))]
+    }
 

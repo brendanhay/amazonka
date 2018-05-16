@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DescribeApplicationState
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ describeApplicationState pApplicationId_ =
 
 -- | The configurationId in ADS that uniquely identifies the grouped application.
 dasApplicationId :: Lens' DescribeApplicationState Text
-dasApplicationId = lens _dasApplicationId (\ s a -> s{_dasApplicationId = a});
+dasApplicationId = lens _dasApplicationId (\ s a -> s{_dasApplicationId = a})
 
 instance AWSRequest DescribeApplicationState where
         type Rs DescribeApplicationState =
@@ -127,23 +127,23 @@ describeApplicationStateResponse
     -> DescribeApplicationStateResponse
 describeApplicationStateResponse pResponseStatus_ =
   DescribeApplicationStateResponse'
-  { _dasrsLastUpdatedTime = Nothing
-  , _dasrsApplicationStatus = Nothing
-  , _dasrsResponseStatus = pResponseStatus_
-  }
+    { _dasrsLastUpdatedTime = Nothing
+    , _dasrsApplicationStatus = Nothing
+    , _dasrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The timestamp when the application status was last updated.
 dasrsLastUpdatedTime :: Lens' DescribeApplicationStateResponse (Maybe UTCTime)
-dasrsLastUpdatedTime = lens _dasrsLastUpdatedTime (\ s a -> s{_dasrsLastUpdatedTime = a}) . mapping _Time;
+dasrsLastUpdatedTime = lens _dasrsLastUpdatedTime (\ s a -> s{_dasrsLastUpdatedTime = a}) . mapping _Time
 
 -- | Status of the application - Not Started, In-Progress, Complete.
 dasrsApplicationStatus :: Lens' DescribeApplicationStateResponse (Maybe ApplicationStatus)
-dasrsApplicationStatus = lens _dasrsApplicationStatus (\ s a -> s{_dasrsApplicationStatus = a});
+dasrsApplicationStatus = lens _dasrsApplicationStatus (\ s a -> s{_dasrsApplicationStatus = a})
 
 -- | -- | The response status code.
 dasrsResponseStatus :: Lens' DescribeApplicationStateResponse Int
-dasrsResponseStatus = lens _dasrsResponseStatus (\ s a -> s{_dasrsResponseStatus = a});
+dasrsResponseStatus = lens _dasrsResponseStatus (\ s a -> s{_dasrsResponseStatus = a})
 
 instance NFData DescribeApplicationStateResponse
          where

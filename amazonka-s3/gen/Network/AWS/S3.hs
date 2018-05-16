@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.S3
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -119,8 +119,8 @@ module Network.AWS.S3
     -- ** DeleteBucketMetricsConfiguration
     , module Network.AWS.S3.DeleteBucketMetricsConfiguration
 
-    -- ** ListObjectsV
-    , module Network.AWS.S3.ListObjectsV
+    -- ** ListObjectsV2 (Paginated)
+    , module Network.AWS.S3.ListObjectsV2
 
     -- ** GetObject
     , module Network.AWS.S3.GetObject
@@ -163,6 +163,9 @@ module Network.AWS.S3
 
     -- ** UploadPart
     , module Network.AWS.S3.UploadPart
+
+    -- ** SelectObjectContent
+    , module Network.AWS.S3.SelectObjectContent
 
     -- ** GetBucketReplication
     , module Network.AWS.S3.GetBucketReplication
@@ -298,6 +301,9 @@ module Network.AWS.S3
     -- ** BucketVersioningStatus
     , BucketVersioningStatus (..)
 
+    -- ** CompressionType
+    , CompressionType (..)
+
     -- ** EncodingType
     , EncodingType (..)
 
@@ -306,6 +312,12 @@ module Network.AWS.S3
 
     -- ** ExpirationStatus
     , ExpirationStatus (..)
+
+    -- ** ExpressionType
+    , ExpressionType (..)
+
+    -- ** FileHeaderInfo
+    , FileHeaderInfo (..)
 
     -- ** FilterRuleName
     , FilterRuleName (..)
@@ -321,6 +333,9 @@ module Network.AWS.S3
 
     -- ** InventoryOptionalField
     , InventoryOptionalField (..)
+
+    -- ** JSONType
+    , JSONType (..)
 
     -- ** MFADelete
     , MFADelete (..)
@@ -352,6 +367,9 @@ module Network.AWS.S3
     -- ** Protocol
     , Protocol (..)
 
+    -- ** QuoteFields
+    , QuoteFields (..)
+
     -- ** ReplicationRuleStatus
     , ReplicationRuleStatus (..)
 
@@ -363,6 +381,9 @@ module Network.AWS.S3
 
     -- ** RequestPayer
     , RequestPayer (..)
+
+    -- ** RestoreRequestType
+    , RestoreRequestType (..)
 
     -- ** ServerSideEncryption
     , ServerSideEncryption (..)
@@ -472,6 +493,25 @@ module Network.AWS.S3
     , crAllowedMethods
     , crAllowedOrigins
 
+    -- ** CSVInput
+    , CSVInput
+    , csvInput
+    , ciQuoteCharacter
+    , ciRecordDelimiter
+    , ciFileHeaderInfo
+    , ciQuoteEscapeCharacter
+    , ciComments
+    , ciFieldDelimiter
+
+    -- ** CSVOutput
+    , CSVOutput
+    , csvOutput
+    , coQuoteCharacter
+    , coQuoteFields
+    , coRecordDelimiter
+    , coQuoteEscapeCharacter
+    , coFieldDelimiter
+
     -- ** CommonPrefix
     , CommonPrefix
     , commonPrefix
@@ -493,6 +533,10 @@ module Network.AWS.S3
     , condition
     , cKeyPrefixEquals
     , cHTTPErrorCodeReturnedEquals
+
+    -- ** ContinuationEvent
+    , ContinuationEvent
+    , continuationEvent
 
     -- ** CopyObjectResult
     , CopyObjectResult
@@ -543,10 +587,21 @@ module Network.AWS.S3
     , dEncryptionConfiguration
     , dBucket
 
+    -- ** Encryption
+    , Encryption
+    , encryption
+    , eKMSKeyId
+    , eKMSContext
+    , eEncryptionType
+
     -- ** EncryptionConfiguration
     , EncryptionConfiguration
     , encryptionConfiguration
     , ecReplicaKMSKeyId
+
+    -- ** EndEvent
+    , EndEvent
+    , endEvent
 
     -- ** ErrorDocument
     , ErrorDocument
@@ -590,6 +645,13 @@ module Network.AWS.S3
     , iDisplayName
     , iId
 
+    -- ** InputSerialization
+    , InputSerialization
+    , inputSerialization
+    , isJSON
+    , isCSV
+    , isCompressionType
+
     -- ** InventoryConfiguration
     , InventoryConfiguration
     , inventoryConfiguration
@@ -630,6 +692,16 @@ module Network.AWS.S3
     , InventorySchedule
     , inventorySchedule
     , isFrequency
+
+    -- ** JSONInput
+    , JSONInput
+    , jsonInput
+    , jiType
+
+    -- ** JSONOutput
+    , JSONOutput
+    , jsonOutput
+    , joRecordDelimiter
 
     -- ** LambdaFunctionConfiguration
     , LambdaFunctionConfiguration
@@ -675,9 +747,15 @@ module Network.AWS.S3
     -- ** LoggingEnabled
     , LoggingEnabled
     , loggingEnabled
-    , leTargetBucket
     , leTargetGrants
+    , leTargetBucket
     , leTargetPrefix
+
+    -- ** MetadataEntry
+    , MetadataEntry
+    , metadataEntry
+    , meValue
+    , meName
 
     -- ** MetricsAndOperator
     , MetricsAndOperator
@@ -759,6 +837,17 @@ module Network.AWS.S3
     , ovStorageClass
     , ovLastModified
 
+    -- ** OutputLocation
+    , OutputLocation
+    , outputLocation
+    , olS3
+
+    -- ** OutputSerialization
+    , OutputSerialization
+    , outputSerialization
+    , osJSON
+    , osCSV
+
     -- ** Owner
     , Owner
     , owner
@@ -773,6 +862,18 @@ module Network.AWS.S3
     , pPartNumber
     , pLastModified
 
+    -- ** Progress
+    , Progress
+    , progress
+    , pBytesReturned
+    , pBytesScanned
+    , pBytesProcessed
+
+    -- ** ProgressEvent
+    , ProgressEvent
+    , progressEvent
+    , peDetails
+
     -- ** QueueConfiguration
     , QueueConfiguration
     , queueConfiguration
@@ -780,6 +881,11 @@ module Network.AWS.S3
     , qcFilter
     , qcQueueARN
     , qcEvents
+
+    -- ** RecordsEvent
+    , RecordsEvent
+    , recordsEvent
+    , rePayload
 
     -- ** Redirect
     , Redirect
@@ -816,11 +922,21 @@ module Network.AWS.S3
     , requestPaymentConfiguration
     , rpcPayer
 
+    -- ** RequestProgress
+    , RequestProgress
+    , requestProgress
+    , rpEnabled
+
     -- ** RestoreRequest
     , RestoreRequest
     , restoreRequest
-    , rrGlacierJobParameters
     , rrDays
+    , rrSelectParameters
+    , rrOutputLocation
+    , rrTier
+    , rrGlacierJobParameters
+    , rrType
+    , rrDescription
 
     -- ** RoutingRule
     , RoutingRule
@@ -832,6 +948,18 @@ module Network.AWS.S3
     , S3KeyFilter
     , s3KeyFilter
     , skfFilterRules
+
+    -- ** S3Location
+    , S3Location
+    , s3Location
+    , slCannedACL
+    , slAccessControlList
+    , slUserMetadata
+    , slEncryption
+    , slStorageClass
+    , slTagging
+    , slBucketName
+    , slPrefix
 
     -- ** S3ServiceError
     , S3ServiceError
@@ -849,6 +977,23 @@ module Network.AWS.S3
     -- ** SSES3
     , SSES3
     , sSES3
+
+    -- ** SelectObjectContentEventStream
+    , SelectObjectContentEventStream
+    , selectObjectContentEventStream
+    , socesProgress
+    , socesRecords
+    , socesCont
+    , socesStats
+    , socesEnd
+
+    -- ** SelectParameters
+    , SelectParameters
+    , selectParameters
+    , spInputSerialization
+    , spExpressionType
+    , spExpression
+    , spOutputSerialization
 
     -- ** ServerSideEncryptionByDefault
     , ServerSideEncryptionByDefault
@@ -875,6 +1020,18 @@ module Network.AWS.S3
     , SseKMSEncryptedObjects
     , sseKMSEncryptedObjects
     , skeoStatus
+
+    -- ** Stats
+    , Stats
+    , stats
+    , sBytesReturned
+    , sBytesScanned
+    , sBytesProcessed
+
+    -- ** StatsEvent
+    , StatsEvent
+    , statsEvent
+    , seDetails
 
     -- ** StorageClassAnalysis
     , StorageClassAnalysis
@@ -983,7 +1140,7 @@ import Network.AWS.S3.ListBucketMetricsConfigurations
 import Network.AWS.S3.ListBuckets
 import Network.AWS.S3.ListMultipartUploads
 import Network.AWS.S3.ListObjects
-import Network.AWS.S3.ListObjectsV
+import Network.AWS.S3.ListObjectsV2
 import Network.AWS.S3.ListObjectVersions
 import Network.AWS.S3.ListParts
 import Network.AWS.S3.PutBucketAccelerateConfiguration
@@ -1006,6 +1163,7 @@ import Network.AWS.S3.PutObject
 import Network.AWS.S3.PutObjectACL
 import Network.AWS.S3.PutObjectTagging
 import Network.AWS.S3.RestoreObject
+import Network.AWS.S3.SelectObjectContent
 import Network.AWS.S3.Types
 import Network.AWS.S3.UploadPart
 import Network.AWS.S3.UploadPartCopy

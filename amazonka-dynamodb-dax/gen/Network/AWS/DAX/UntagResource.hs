@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.UntagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ untagResource pResourceName_ =
 
 -- | The name of the DAX resource from which the tags should be removed.
 urResourceName :: Lens' UntagResource Text
-urResourceName = lens _urResourceName (\ s a -> s{_urResourceName = a});
+urResourceName = lens _urResourceName (\ s a -> s{_urResourceName = a})
 
 -- | A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.
 urTagKeys :: Lens' UntagResource [Text]
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce;
+urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce
 
 instance AWSRequest UntagResource where
         type Rs UntagResource = UntagResourceResponse
@@ -128,15 +128,15 @@ untagResourceResponse
     -> UntagResourceResponse
 untagResourceResponse pResponseStatus_ =
   UntagResourceResponse'
-  {_urrsTags = Nothing, _urrsResponseStatus = pResponseStatus_}
+    {_urrsTags = Nothing, _urrsResponseStatus = pResponseStatus_}
 
 
 -- | The tag keys that have been removed from the cluster.
 urrsTags :: Lens' UntagResourceResponse [Tag]
-urrsTags = lens _urrsTags (\ s a -> s{_urrsTags = a}) . _Default . _Coerce;
+urrsTags = lens _urrsTags (\ s a -> s{_urrsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 urrsResponseStatus :: Lens' UntagResourceResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
 
 instance NFData UntagResourceResponse where

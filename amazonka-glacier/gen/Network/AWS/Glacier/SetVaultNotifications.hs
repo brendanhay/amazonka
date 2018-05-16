@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.SetVaultNotifications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,23 +84,23 @@ setVaultNotifications
     -> SetVaultNotifications
 setVaultNotifications pAccountId_ pVaultName_ =
   SetVaultNotifications'
-  { _svnVaultNotificationConfig = Nothing
-  , _svnAccountId = pAccountId_
-  , _svnVaultName = pVaultName_
-  }
+    { _svnVaultNotificationConfig = Nothing
+    , _svnAccountId = pAccountId_
+    , _svnVaultName = pVaultName_
+    }
 
 
 -- | Provides options for specifying notification configuration.
 svnVaultNotificationConfig :: Lens' SetVaultNotifications (Maybe VaultNotificationConfig)
-svnVaultNotificationConfig = lens _svnVaultNotificationConfig (\ s a -> s{_svnVaultNotificationConfig = a});
+svnVaultNotificationConfig = lens _svnVaultNotificationConfig (\ s a -> s{_svnVaultNotificationConfig = a})
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 svnAccountId :: Lens' SetVaultNotifications Text
-svnAccountId = lens _svnAccountId (\ s a -> s{_svnAccountId = a});
+svnAccountId = lens _svnAccountId (\ s a -> s{_svnAccountId = a})
 
 -- | The name of the vault.
 svnVaultName :: Lens' SetVaultNotifications Text
-svnVaultName = lens _svnVaultName (\ s a -> s{_svnVaultName = a});
+svnVaultName = lens _svnVaultName (\ s a -> s{_svnVaultName = a})
 
 instance AWSRequest SetVaultNotifications where
         type Rs SetVaultNotifications =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetModelTemplate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,9 +60,9 @@ data GetModelTemplate = GetModelTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmtRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'gmtRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'gmtModelName' - The name of the model for which to generate a template.
+-- * 'gmtModelName' - [Required] The name of the model for which to generate a template.
 getModelTemplate
     :: Text -- ^ 'gmtRestAPIId'
     -> Text -- ^ 'gmtModelName'
@@ -71,13 +71,13 @@ getModelTemplate pRestAPIId_ pModelName_ =
   GetModelTemplate' {_gmtRestAPIId = pRestAPIId_, _gmtModelName = pModelName_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 gmtRestAPIId :: Lens' GetModelTemplate Text
-gmtRestAPIId = lens _gmtRestAPIId (\ s a -> s{_gmtRestAPIId = a});
+gmtRestAPIId = lens _gmtRestAPIId (\ s a -> s{_gmtRestAPIId = a})
 
--- | The name of the model for which to generate a template.
+-- | [Required] The name of the model for which to generate a template.
 gmtModelName :: Lens' GetModelTemplate Text
-gmtModelName = lens _gmtModelName (\ s a -> s{_gmtModelName = a});
+gmtModelName = lens _gmtModelName (\ s a -> s{_gmtModelName = a})
 
 instance AWSRequest GetModelTemplate where
         type Rs GetModelTemplate = GetModelTemplateResponse
@@ -131,15 +131,15 @@ getModelTemplateResponse
     -> GetModelTemplateResponse
 getModelTemplateResponse pResponseStatus_ =
   GetModelTemplateResponse'
-  {_gmtrsValue = Nothing, _gmtrsResponseStatus = pResponseStatus_}
+    {_gmtrsValue = Nothing, _gmtrsResponseStatus = pResponseStatus_}
 
 
 -- | The Apache <http://velocity.apache.org/engine/devel/vtl-reference-guide.html Velocity Template Language (VTL)> template content used for the template resource.
 gmtrsValue :: Lens' GetModelTemplateResponse (Maybe Text)
-gmtrsValue = lens _gmtrsValue (\ s a -> s{_gmtrsValue = a});
+gmtrsValue = lens _gmtrsValue (\ s a -> s{_gmtrsValue = a})
 
 -- | -- | The response status code.
 gmtrsResponseStatus :: Lens' GetModelTemplateResponse Int
-gmtrsResponseStatus = lens _gmtrsResponseStatus (\ s a -> s{_gmtrsResponseStatus = a});
+gmtrsResponseStatus = lens _gmtrsResponseStatus (\ s a -> s{_gmtrsResponseStatus = a})
 
 instance NFData GetModelTemplateResponse where

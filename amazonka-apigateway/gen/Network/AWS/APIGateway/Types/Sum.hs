@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -18,6 +18,36 @@
 module Network.AWS.APIGateway.Types.Sum where
 
 import Network.AWS.Prelude
+
+data APIKeySourceType
+  = Authorizer
+  | Header
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText APIKeySourceType where
+    parser = takeLowerText >>= \case
+        "authorizer" -> pure Authorizer
+        "header" -> pure Header
+        e -> fromTextError $ "Failure parsing APIKeySourceType from value: '" <> e
+           <> "'. Accepted values: authorizer, header"
+
+instance ToText APIKeySourceType where
+    toText = \case
+        Authorizer -> "AUTHORIZER"
+        Header -> "HEADER"
+
+instance Hashable     APIKeySourceType
+instance NFData       APIKeySourceType
+instance ToByteString APIKeySourceType
+instance ToQuery      APIKeySourceType
+instance ToHeader     APIKeySourceType
+
+instance ToJSON APIKeySourceType where
+    toJSON = toJSONText
+
+instance FromJSON APIKeySourceType where
+    parseJSON = parseJSONText "APIKeySourceType"
 
 data APIKeysFormat =
   CSV
@@ -43,7 +73,7 @@ instance ToHeader     APIKeysFormat
 instance ToJSON APIKeysFormat where
     toJSON = toJSONText
 
--- | [Required] The authorizer type. Valid values are @TOKEN@ for a Lambda function using a single authorization token submitted in a custom header, @REQUEST@ for a Lambda function using incoming request parameters, and @COGNITO_USER_POOLS@ for using an Amazon Cognito user pool.
+-- | The authorizer type. Valid values are @TOKEN@ for a Lambda function using a single authorization token submitted in a custom header, @REQUEST@ for a Lambda function using incoming request parameters, and @COGNITO_USER_POOLS@ for using an Amazon Cognito user pool.
 --
 --
 data AuthorizerType
@@ -169,6 +199,36 @@ instance ToHeader     CacheClusterStatus
 instance FromJSON CacheClusterStatus where
     parseJSON = parseJSONText "CacheClusterStatus"
 
+data ConnectionType
+  = Internet
+  | VPCLink
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ConnectionType where
+    parser = takeLowerText >>= \case
+        "internet" -> pure Internet
+        "vpc_link" -> pure VPCLink
+        e -> fromTextError $ "Failure parsing ConnectionType from value: '" <> e
+           <> "'. Accepted values: internet, vpc_link"
+
+instance ToText ConnectionType where
+    toText = \case
+        Internet -> "INTERNET"
+        VPCLink -> "VPC_LINK"
+
+instance Hashable     ConnectionType
+instance NFData       ConnectionType
+instance ToByteString ConnectionType
+instance ToQuery      ConnectionType
+instance ToHeader     ConnectionType
+
+instance ToJSON ConnectionType where
+    toJSON = toJSONText
+
+instance FromJSON ConnectionType where
+    parseJSON = parseJSONText "ConnectionType"
+
 data ContentHandlingStrategy
   = ConvertToBinary
   | ConvertToText
@@ -200,52 +260,52 @@ instance FromJSON ContentHandlingStrategy where
     parseJSON = parseJSONText "ContentHandlingStrategy"
 
 data DocumentationPartType
-  = API
-  | Authorizer
-  | Method
-  | Model
-  | PathParameter
-  | QueryParameter
-  | RequestBody
-  | RequestHeader
-  | Resource
-  | Response
-  | ResponseBody
-  | ResponseHeader
+  = DPTAPI
+  | DPTAuthorizer
+  | DPTMethod
+  | DPTModel
+  | DPTPathParameter
+  | DPTQueryParameter
+  | DPTRequestBody
+  | DPTRequestHeader
+  | DPTResource
+  | DPTResponse
+  | DPTResponseBody
+  | DPTResponseHeader
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText DocumentationPartType where
     parser = takeLowerText >>= \case
-        "api" -> pure API
-        "authorizer" -> pure Authorizer
-        "method" -> pure Method
-        "model" -> pure Model
-        "path_parameter" -> pure PathParameter
-        "query_parameter" -> pure QueryParameter
-        "request_body" -> pure RequestBody
-        "request_header" -> pure RequestHeader
-        "resource" -> pure Resource
-        "response" -> pure Response
-        "response_body" -> pure ResponseBody
-        "response_header" -> pure ResponseHeader
+        "api" -> pure DPTAPI
+        "authorizer" -> pure DPTAuthorizer
+        "method" -> pure DPTMethod
+        "model" -> pure DPTModel
+        "path_parameter" -> pure DPTPathParameter
+        "query_parameter" -> pure DPTQueryParameter
+        "request_body" -> pure DPTRequestBody
+        "request_header" -> pure DPTRequestHeader
+        "resource" -> pure DPTResource
+        "response" -> pure DPTResponse
+        "response_body" -> pure DPTResponseBody
+        "response_header" -> pure DPTResponseHeader
         e -> fromTextError $ "Failure parsing DocumentationPartType from value: '" <> e
            <> "'. Accepted values: api, authorizer, method, model, path_parameter, query_parameter, request_body, request_header, resource, response, response_body, response_header"
 
 instance ToText DocumentationPartType where
     toText = \case
-        API -> "API"
-        Authorizer -> "AUTHORIZER"
-        Method -> "METHOD"
-        Model -> "MODEL"
-        PathParameter -> "PATH_PARAMETER"
-        QueryParameter -> "QUERY_PARAMETER"
-        RequestBody -> "REQUEST_BODY"
-        RequestHeader -> "REQUEST_HEADER"
-        Resource -> "RESOURCE"
-        Response -> "RESPONSE"
-        ResponseBody -> "RESPONSE_BODY"
-        ResponseHeader -> "RESPONSE_HEADER"
+        DPTAPI -> "API"
+        DPTAuthorizer -> "AUTHORIZER"
+        DPTMethod -> "METHOD"
+        DPTModel -> "MODEL"
+        DPTPathParameter -> "PATH_PARAMETER"
+        DPTQueryParameter -> "QUERY_PARAMETER"
+        DPTRequestBody -> "REQUEST_BODY"
+        DPTRequestHeader -> "REQUEST_HEADER"
+        DPTResource -> "RESOURCE"
+        DPTResponse -> "RESPONSE"
+        DPTResponseBody -> "RESPONSE_BODY"
+        DPTResponseHeader -> "RESPONSE_HEADER"
 
 instance Hashable     DocumentationPartType
 instance NFData       DocumentationPartType
@@ -376,7 +436,7 @@ instance ToJSON GatewayResponseType where
 instance FromJSON GatewayResponseType where
     parseJSON = parseJSONText "GatewayResponseType"
 
--- | The integration type. The valid value is @HTTP@ for integrating with an HTTP back end, @AWS@ for any AWS service endpoints, @MOCK@ for testing without actually invoking the back end, @HTTP_PROXY@ for integrating with the HTTP proxy integration, or @AWS_PROXY@ for integrating with the Lambda proxy integration type.
+-- | The integration type. The valid value is @HTTP@ for integrating an API method with an HTTP backend; @AWS@ with any AWS service endpoints; @MOCK@ for testing without actually invoking the backend; @HTTP_PROXY@ for integrating with the HTTP proxy integration; @AWS_PROXY@ for integrating with the Lambda proxy integration.
 --
 --
 data IntegrationType
@@ -417,6 +477,33 @@ instance ToJSON IntegrationType where
 
 instance FromJSON IntegrationType where
     parseJSON = parseJSONText "IntegrationType"
+
+data LocationStatusType
+  = Documented
+  | Undocumented
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText LocationStatusType where
+    parser = takeLowerText >>= \case
+        "documented" -> pure Documented
+        "undocumented" -> pure Undocumented
+        e -> fromTextError $ "Failure parsing LocationStatusType from value: '" <> e
+           <> "'. Accepted values: documented, undocumented"
+
+instance ToText LocationStatusType where
+    toText = \case
+        Documented -> "DOCUMENTED"
+        Undocumented -> "UNDOCUMENTED"
+
+instance Hashable     LocationStatusType
+instance NFData       LocationStatusType
+instance ToByteString LocationStatusType
+instance ToQuery      LocationStatusType
+instance ToHeader     LocationStatusType
+
+instance ToJSON LocationStatusType where
+    toJSON = toJSONText
 
 data Op
   = Add
@@ -546,3 +633,36 @@ instance ToHeader     UnauthorizedCacheControlHeaderStrategy
 
 instance FromJSON UnauthorizedCacheControlHeaderStrategy where
     parseJSON = parseJSONText "UnauthorizedCacheControlHeaderStrategy"
+
+data VPCLinkStatus
+  = VLSAvailable
+  | VLSDeleting
+  | VLSFailed
+  | VLSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText VPCLinkStatus where
+    parser = takeLowerText >>= \case
+        "available" -> pure VLSAvailable
+        "deleting" -> pure VLSDeleting
+        "failed" -> pure VLSFailed
+        "pending" -> pure VLSPending
+        e -> fromTextError $ "Failure parsing VPCLinkStatus from value: '" <> e
+           <> "'. Accepted values: available, deleting, failed, pending"
+
+instance ToText VPCLinkStatus where
+    toText = \case
+        VLSAvailable -> "AVAILABLE"
+        VLSDeleting -> "DELETING"
+        VLSFailed -> "FAILED"
+        VLSPending -> "PENDING"
+
+instance Hashable     VPCLinkStatus
+instance NFData       VPCLinkStatus
+instance ToByteString VPCLinkStatus
+instance ToQuery      VPCLinkStatus
+instance ToHeader     VPCLinkStatus
+
+instance FromJSON VPCLinkStatus where
+    parseJSON = parseJSONText "VPCLinkStatus"

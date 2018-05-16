@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,25 +60,25 @@ data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
 --
 -- * 'tiiasgInstanceId' - The ID of the instance.
 --
--- * 'tiiasgShouldDecrementDesiredCapacity' - If @true@ , terminating the instance also decrements the size of the Auto Scaling group.
+-- * 'tiiasgShouldDecrementDesiredCapacity' - Indicates whether terminating the instance also decrements the size of the Auto Scaling group.
 terminateInstanceInAutoScalingGroup
     :: Text -- ^ 'tiiasgInstanceId'
     -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
     -> TerminateInstanceInAutoScalingGroup
 terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity_ =
   TerminateInstanceInAutoScalingGroup'
-  { _tiiasgInstanceId = pInstanceId_
-  , _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
-  }
+    { _tiiasgInstanceId = pInstanceId_
+    , _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
+    }
 
 
 -- | The ID of the instance.
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
-tiiasgInstanceId = lens _tiiasgInstanceId (\ s a -> s{_tiiasgInstanceId = a});
+tiiasgInstanceId = lens _tiiasgInstanceId (\ s a -> s{_tiiasgInstanceId = a})
 
--- | If @true@ , terminating the instance also decrements the size of the Auto Scaling group.
+-- | Indicates whether terminating the instance also decrements the size of the Auto Scaling group.
 tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
-tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgShouldDecrementDesiredCapacity = a});
+tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgShouldDecrementDesiredCapacity = a})
 
 instance AWSRequest
            TerminateInstanceInAutoScalingGroup
@@ -139,16 +139,16 @@ terminateInstanceInAutoScalingGroupResponse
     -> TerminateInstanceInAutoScalingGroupResponse
 terminateInstanceInAutoScalingGroupResponse pResponseStatus_ =
   TerminateInstanceInAutoScalingGroupResponse'
-  {_tiiasgrsActivity = Nothing, _tiiasgrsResponseStatus = pResponseStatus_}
+    {_tiiasgrsActivity = Nothing, _tiiasgrsResponseStatus = pResponseStatus_}
 
 
 -- | A scaling activity.
 tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
-tiiasgrsActivity = lens _tiiasgrsActivity (\ s a -> s{_tiiasgrsActivity = a});
+tiiasgrsActivity = lens _tiiasgrsActivity (\ s a -> s{_tiiasgrsActivity = a})
 
 -- | -- | The response status code.
 tiiasgrsResponseStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
-tiiasgrsResponseStatus = lens _tiiasgrsResponseStatus (\ s a -> s{_tiiasgrsResponseStatus = a});
+tiiasgrsResponseStatus = lens _tiiasgrsResponseStatus (\ s a -> s{_tiiasgrsResponseStatus = a})
 
 instance NFData
            TerminateInstanceInAutoScalingGroupResponse

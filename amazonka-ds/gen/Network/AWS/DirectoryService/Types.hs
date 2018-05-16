@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,9 @@ module Network.AWS.DirectoryService.Types
     , _DomainControllerLimitExceededException
     , _TagLimitExceededException
     , _ClientException
+
+    -- * DirectoryEdition
+    , DirectoryEdition (..)
 
     -- * DirectorySize
     , DirectorySize (..)
@@ -118,6 +121,7 @@ module Network.AWS.DirectoryService.Types
     -- * DirectoryDescription
     , DirectoryDescription
     , directoryDescription
+    , ddEdition
     , ddRadiusStatus
     , ddStage
     , ddDirectoryId
@@ -275,24 +279,24 @@ import Network.AWS.Sign.V4
 directoryService :: Service
 directoryService =
   Service
-  { _svcAbbrev = "DirectoryService"
-  , _svcSigner = v4
-  , _svcPrefix = "ds"
-  , _svcVersion = "2015-04-16"
-  , _svcEndpoint = defaultEndpoint directoryService
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "DirectoryService"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "DirectoryService"
+    , _svcSigner = v4
+    , _svcPrefix = "ds"
+    , _svcVersion = "2015-04-16"
+    , _svcEndpoint = defaultEndpoint directoryService
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "DirectoryService"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -301,6 +305,8 @@ directoryService =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

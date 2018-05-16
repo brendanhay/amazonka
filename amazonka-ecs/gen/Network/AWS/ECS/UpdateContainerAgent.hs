@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.UpdateContainerAgent
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Updates the Amazon ECS container agent on a specified container instance. Updating the Amazon ECS container agent does not interrupt running tasks or services on the container instance. The process for updating the agent differs depending on whether your container instance was launched with the Amazon ECS-optimized AMI or another operating system.
 --
 --
--- @UpdateContainerAgent@ requires the Amazon ECS-optimized AMI or Amazon Linux with the @ecs-init@ service installed and running. For help updating the Amazon ECS container agent on other operating systems, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent> in the /Amazon EC2 Container Service Developer Guide/ .
+-- @UpdateContainerAgent@ requires the Amazon ECS-optimized AMI or Amazon Linux with the @ecs-init@ service installed and running. For help updating the Amazon ECS container agent on other operating systems, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 module Network.AWS.ECS.UpdateContainerAgent
     (
@@ -60,22 +60,22 @@ data UpdateContainerAgent = UpdateContainerAgent'
 --
 -- * 'ucaCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'ucaContainerInstance' - The container instance ID or full Amazon Resource Name (ARN) entries for the container instance on which you would like to update the Amazon ECS container agent.
+-- * 'ucaContainerInstance' - The container instance ID or full ARN entries for the container instance on which you would like to update the Amazon ECS container agent.
 updateContainerAgent
     :: Text -- ^ 'ucaContainerInstance'
     -> UpdateContainerAgent
 updateContainerAgent pContainerInstance_ =
   UpdateContainerAgent'
-  {_ucaCluster = Nothing, _ucaContainerInstance = pContainerInstance_}
+    {_ucaCluster = Nothing, _ucaContainerInstance = pContainerInstance_}
 
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
 ucaCluster :: Lens' UpdateContainerAgent (Maybe Text)
-ucaCluster = lens _ucaCluster (\ s a -> s{_ucaCluster = a});
+ucaCluster = lens _ucaCluster (\ s a -> s{_ucaCluster = a})
 
--- | The container instance ID or full Amazon Resource Name (ARN) entries for the container instance on which you would like to update the Amazon ECS container agent.
+-- | The container instance ID or full ARN entries for the container instance on which you would like to update the Amazon ECS container agent.
 ucaContainerInstance :: Lens' UpdateContainerAgent Text
-ucaContainerInstance = lens _ucaContainerInstance (\ s a -> s{_ucaContainerInstance = a});
+ucaContainerInstance = lens _ucaContainerInstance (\ s a -> s{_ucaContainerInstance = a})
 
 instance AWSRequest UpdateContainerAgent where
         type Rs UpdateContainerAgent =
@@ -133,15 +133,15 @@ updateContainerAgentResponse
     -> UpdateContainerAgentResponse
 updateContainerAgentResponse pResponseStatus_ =
   UpdateContainerAgentResponse'
-  {_ucarsContainerInstance = Nothing, _ucarsResponseStatus = pResponseStatus_}
+    {_ucarsContainerInstance = Nothing, _ucarsResponseStatus = pResponseStatus_}
 
 
 -- | The container instance for which the container agent was updated.
 ucarsContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
-ucarsContainerInstance = lens _ucarsContainerInstance (\ s a -> s{_ucarsContainerInstance = a});
+ucarsContainerInstance = lens _ucarsContainerInstance (\ s a -> s{_ucarsContainerInstance = a})
 
 -- | -- | The response status code.
 ucarsResponseStatus :: Lens' UpdateContainerAgentResponse Int
-ucarsResponseStatus = lens _ucarsResponseStatus (\ s a -> s{_ucarsResponseStatus = a});
+ucarsResponseStatus = lens _ucarsResponseStatus (\ s a -> s{_ucarsResponseStatus = a})
 
 instance NFData UpdateContainerAgentResponse where

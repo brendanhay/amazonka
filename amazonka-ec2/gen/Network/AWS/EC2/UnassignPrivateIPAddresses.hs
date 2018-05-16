@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.UnassignPrivateIPAddresses
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,18 +65,18 @@ unassignPrivateIPAddresses
     -> UnassignPrivateIPAddresses
 unassignPrivateIPAddresses pNetworkInterfaceId_ =
   UnassignPrivateIPAddresses'
-  { _upiaNetworkInterfaceId = pNetworkInterfaceId_
-  , _upiaPrivateIPAddresses = mempty
-  }
+    { _upiaNetworkInterfaceId = pNetworkInterfaceId_
+    , _upiaPrivateIPAddresses = mempty
+    }
 
 
 -- | The ID of the network interface.
 upiaNetworkInterfaceId :: Lens' UnassignPrivateIPAddresses Text
-upiaNetworkInterfaceId = lens _upiaNetworkInterfaceId (\ s a -> s{_upiaNetworkInterfaceId = a});
+upiaNetworkInterfaceId = lens _upiaNetworkInterfaceId (\ s a -> s{_upiaNetworkInterfaceId = a})
 
 -- | The secondary private IP addresses to unassign from the network interface. You can specify this option multiple times to unassign more than one IP address.
 upiaPrivateIPAddresses :: Lens' UnassignPrivateIPAddresses [Text]
-upiaPrivateIPAddresses = lens _upiaPrivateIPAddresses (\ s a -> s{_upiaPrivateIPAddresses = a}) . _Coerce;
+upiaPrivateIPAddresses = lens _upiaPrivateIPAddresses (\ s a -> s{_upiaPrivateIPAddresses = a}) . _Coerce
 
 instance AWSRequest UnassignPrivateIPAddresses where
         type Rs UnassignPrivateIPAddresses =

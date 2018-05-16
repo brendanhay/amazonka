@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreateProvisioningArtifact
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new provisioning artifact for the specified product. This operation does not work with a product that has been shared with you.
+-- Creates a provisioning artifact (also known as a version) for the specified product.
 --
+--
+-- You cannot create a provisioning artifact for a product that was shared with you.
 --
 module Network.AWS.ServiceCatalog.CreateProvisioningArtifact
     (
@@ -66,9 +68,9 @@ data CreateProvisioningArtifact = CreateProvisioningArtifact'
 --
 -- * 'cpaProductId' - The product identifier.
 --
--- * 'cpaParameters' - The parameters to use when creating the new provisioning artifact.
+-- * 'cpaParameters' - The configuration for the provisioning artifact.
 --
--- * 'cpaIdempotencyToken' - A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- * 'cpaIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 createProvisioningArtifact
     :: Text -- ^ 'cpaProductId'
     -> ProvisioningArtifactProperties -- ^ 'cpaParameters'
@@ -76,28 +78,28 @@ createProvisioningArtifact
     -> CreateProvisioningArtifact
 createProvisioningArtifact pProductId_ pParameters_ pIdempotencyToken_ =
   CreateProvisioningArtifact'
-  { _cpaAcceptLanguage = Nothing
-  , _cpaProductId = pProductId_
-  , _cpaParameters = pParameters_
-  , _cpaIdempotencyToken = pIdempotencyToken_
-  }
+    { _cpaAcceptLanguage = Nothing
+    , _cpaProductId = pProductId_
+    , _cpaParameters = pParameters_
+    , _cpaIdempotencyToken = pIdempotencyToken_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 cpaAcceptLanguage :: Lens' CreateProvisioningArtifact (Maybe Text)
-cpaAcceptLanguage = lens _cpaAcceptLanguage (\ s a -> s{_cpaAcceptLanguage = a});
+cpaAcceptLanguage = lens _cpaAcceptLanguage (\ s a -> s{_cpaAcceptLanguage = a})
 
 -- | The product identifier.
 cpaProductId :: Lens' CreateProvisioningArtifact Text
-cpaProductId = lens _cpaProductId (\ s a -> s{_cpaProductId = a});
+cpaProductId = lens _cpaProductId (\ s a -> s{_cpaProductId = a})
 
--- | The parameters to use when creating the new provisioning artifact.
+-- | The configuration for the provisioning artifact.
 cpaParameters :: Lens' CreateProvisioningArtifact ProvisioningArtifactProperties
-cpaParameters = lens _cpaParameters (\ s a -> s{_cpaParameters = a});
+cpaParameters = lens _cpaParameters (\ s a -> s{_cpaParameters = a})
 
--- | A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 cpaIdempotencyToken :: Lens' CreateProvisioningArtifact Text
-cpaIdempotencyToken = lens _cpaIdempotencyToken (\ s a -> s{_cpaIdempotencyToken = a});
+cpaIdempotencyToken = lens _cpaIdempotencyToken (\ s a -> s{_cpaIdempotencyToken = a})
 
 instance AWSRequest CreateProvisioningArtifact where
         type Rs CreateProvisioningArtifact =
@@ -155,9 +157,9 @@ data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
 --
 -- * 'cparsStatus' - The status of the current request.
 --
--- * 'cparsInfo' - Additional information about the creation request for the provisioning artifact.
+-- * 'cparsInfo' - The URL of the CloudFormation template in Amazon S3, in JSON format.
 --
--- * 'cparsProvisioningArtifactDetail' - The resulting detailed provisioning artifact information.
+-- * 'cparsProvisioningArtifactDetail' - Information about the provisioning artifact.
 --
 -- * 'cparsResponseStatus' - -- | The response status code.
 createProvisioningArtifactResponse
@@ -165,28 +167,28 @@ createProvisioningArtifactResponse
     -> CreateProvisioningArtifactResponse
 createProvisioningArtifactResponse pResponseStatus_ =
   CreateProvisioningArtifactResponse'
-  { _cparsStatus = Nothing
-  , _cparsInfo = Nothing
-  , _cparsProvisioningArtifactDetail = Nothing
-  , _cparsResponseStatus = pResponseStatus_
-  }
+    { _cparsStatus = Nothing
+    , _cparsInfo = Nothing
+    , _cparsProvisioningArtifactDetail = Nothing
+    , _cparsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the current request.
 cparsStatus :: Lens' CreateProvisioningArtifactResponse (Maybe RequestStatus)
-cparsStatus = lens _cparsStatus (\ s a -> s{_cparsStatus = a});
+cparsStatus = lens _cparsStatus (\ s a -> s{_cparsStatus = a})
 
--- | Additional information about the creation request for the provisioning artifact.
+-- | The URL of the CloudFormation template in Amazon S3, in JSON format.
 cparsInfo :: Lens' CreateProvisioningArtifactResponse (HashMap Text Text)
-cparsInfo = lens _cparsInfo (\ s a -> s{_cparsInfo = a}) . _Default . _Map;
+cparsInfo = lens _cparsInfo (\ s a -> s{_cparsInfo = a}) . _Default . _Map
 
--- | The resulting detailed provisioning artifact information.
+-- | Information about the provisioning artifact.
 cparsProvisioningArtifactDetail :: Lens' CreateProvisioningArtifactResponse (Maybe ProvisioningArtifactDetail)
-cparsProvisioningArtifactDetail = lens _cparsProvisioningArtifactDetail (\ s a -> s{_cparsProvisioningArtifactDetail = a});
+cparsProvisioningArtifactDetail = lens _cparsProvisioningArtifactDetail (\ s a -> s{_cparsProvisioningArtifactDetail = a})
 
 -- | -- | The response status code.
 cparsResponseStatus :: Lens' CreateProvisioningArtifactResponse Int
-cparsResponseStatus = lens _cparsResponseStatus (\ s a -> s{_cparsResponseStatus = a});
+cparsResponseStatus = lens _cparsResponseStatus (\ s a -> s{_cparsResponseStatus = a})
 
 instance NFData CreateProvisioningArtifactResponse
          where

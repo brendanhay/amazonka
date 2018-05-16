@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteIndexField
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ deleteIndexField
     -> DeleteIndexField
 deleteIndexField pDomainName_ pIndexFieldName_ =
   DeleteIndexField'
-  {_difiDomainName = pDomainName_, _difiIndexFieldName = pIndexFieldName_}
+    {_difiDomainName = pDomainName_, _difiIndexFieldName = pIndexFieldName_}
 
 
 -- | Undocumented member.
 difiDomainName :: Lens' DeleteIndexField Text
-difiDomainName = lens _difiDomainName (\ s a -> s{_difiDomainName = a});
+difiDomainName = lens _difiDomainName (\ s a -> s{_difiDomainName = a})
 
 -- | The name of the index field your want to remove from the domain's indexing options.
 difiIndexFieldName :: Lens' DeleteIndexField Text
-difiIndexFieldName = lens _difiIndexFieldName (\ s a -> s{_difiIndexFieldName = a});
+difiIndexFieldName = lens _difiIndexFieldName (\ s a -> s{_difiIndexFieldName = a})
 
 instance AWSRequest DeleteIndexField where
         type Rs DeleteIndexField = DeleteIndexFieldResponse
@@ -131,15 +131,15 @@ deleteIndexFieldResponse
     -> DeleteIndexFieldResponse
 deleteIndexFieldResponse pResponseStatus_ pIndexField_ =
   DeleteIndexFieldResponse'
-  {_difrsResponseStatus = pResponseStatus_, _difrsIndexField = pIndexField_}
+    {_difrsResponseStatus = pResponseStatus_, _difrsIndexField = pIndexField_}
 
 
 -- | -- | The response status code.
 difrsResponseStatus :: Lens' DeleteIndexFieldResponse Int
-difrsResponseStatus = lens _difrsResponseStatus (\ s a -> s{_difrsResponseStatus = a});
+difrsResponseStatus = lens _difrsResponseStatus (\ s a -> s{_difrsResponseStatus = a})
 
 -- | The status of the index field being deleted.
 difrsIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
-difrsIndexField = lens _difrsIndexField (\ s a -> s{_difrsIndexField = a});
+difrsIndexField = lens _difrsIndexField (\ s a -> s{_difrsIndexField = a})
 
 instance NFData DeleteIndexFieldResponse where

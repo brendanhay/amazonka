@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineAnalysisScheme
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ defineAnalysisScheme
     -> DefineAnalysisScheme
 defineAnalysisScheme pDomainName_ pAnalysisScheme_ =
   DefineAnalysisScheme'
-  {_dasaDomainName = pDomainName_, _dasaAnalysisScheme = pAnalysisScheme_}
+    {_dasaDomainName = pDomainName_, _dasaAnalysisScheme = pAnalysisScheme_}
 
 
 -- | Undocumented member.
 dasaDomainName :: Lens' DefineAnalysisScheme Text
-dasaDomainName = lens _dasaDomainName (\ s a -> s{_dasaDomainName = a});
+dasaDomainName = lens _dasaDomainName (\ s a -> s{_dasaDomainName = a})
 
 -- | Undocumented member.
 dasaAnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
-dasaAnalysisScheme = lens _dasaAnalysisScheme (\ s a -> s{_dasaAnalysisScheme = a});
+dasaAnalysisScheme = lens _dasaAnalysisScheme (\ s a -> s{_dasaAnalysisScheme = a})
 
 instance AWSRequest DefineAnalysisScheme where
         type Rs DefineAnalysisScheme =
@@ -132,17 +132,17 @@ defineAnalysisSchemeResponse
     -> DefineAnalysisSchemeResponse
 defineAnalysisSchemeResponse pResponseStatus_ pAnalysisScheme_ =
   DefineAnalysisSchemeResponse'
-  { _defersResponseStatus = pResponseStatus_
-  , _defersAnalysisScheme = pAnalysisScheme_
-  }
+    { _defersResponseStatus = pResponseStatus_
+    , _defersAnalysisScheme = pAnalysisScheme_
+    }
 
 
 -- | -- | The response status code.
 defersResponseStatus :: Lens' DefineAnalysisSchemeResponse Int
-defersResponseStatus = lens _defersResponseStatus (\ s a -> s{_defersResponseStatus = a});
+defersResponseStatus = lens _defersResponseStatus (\ s a -> s{_defersResponseStatus = a})
 
 -- | Undocumented member.
 defersAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
-defersAnalysisScheme = lens _defersAnalysisScheme (\ s a -> s{_defersAnalysisScheme = a});
+defersAnalysisScheme = lens _defersAnalysisScheme (\ s a -> s{_defersAnalysisScheme = a})
 
 instance NFData DefineAnalysisSchemeResponse where

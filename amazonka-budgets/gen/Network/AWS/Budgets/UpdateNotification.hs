@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.UpdateNotification
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update the information about a notification already created
+-- Updates a notification.
+--
+--
 module Network.AWS.Budgets.UpdateNotification
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import Network.AWS.Response
 
 -- | Request of UpdateNotification
 --
+--
+--
 -- /See:/ 'updateNotification' smart constructor.
 data UpdateNotification = UpdateNotification'
   { _unAccountId       :: !Text
@@ -59,13 +63,13 @@ data UpdateNotification = UpdateNotification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'unAccountId' - Undocumented member.
+-- * 'unAccountId' - The @accountId@ that is associated with the budget whose notification you want to update.
 --
--- * 'unBudgetName' - Undocumented member.
+-- * 'unBudgetName' - The name of the budget whose notification you want to update.
 --
--- * 'unOldNotification' - Undocumented member.
+-- * 'unOldNotification' - The previous notification associated with a budget.
 --
--- * 'unNewNotification' - Undocumented member.
+-- * 'unNewNotification' - The updated notification to be associated with a budget.
 updateNotification
     :: Text -- ^ 'unAccountId'
     -> Text -- ^ 'unBudgetName'
@@ -74,28 +78,28 @@ updateNotification
     -> UpdateNotification
 updateNotification pAccountId_ pBudgetName_ pOldNotification_ pNewNotification_ =
   UpdateNotification'
-  { _unAccountId = pAccountId_
-  , _unBudgetName = pBudgetName_
-  , _unOldNotification = pOldNotification_
-  , _unNewNotification = pNewNotification_
-  }
+    { _unAccountId = pAccountId_
+    , _unBudgetName = pBudgetName_
+    , _unOldNotification = pOldNotification_
+    , _unNewNotification = pNewNotification_
+    }
 
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budget whose notification you want to update.
 unAccountId :: Lens' UpdateNotification Text
-unAccountId = lens _unAccountId (\ s a -> s{_unAccountId = a});
+unAccountId = lens _unAccountId (\ s a -> s{_unAccountId = a})
 
--- | Undocumented member.
+-- | The name of the budget whose notification you want to update.
 unBudgetName :: Lens' UpdateNotification Text
-unBudgetName = lens _unBudgetName (\ s a -> s{_unBudgetName = a});
+unBudgetName = lens _unBudgetName (\ s a -> s{_unBudgetName = a})
 
--- | Undocumented member.
+-- | The previous notification associated with a budget.
 unOldNotification :: Lens' UpdateNotification Notification
-unOldNotification = lens _unOldNotification (\ s a -> s{_unOldNotification = a});
+unOldNotification = lens _unOldNotification (\ s a -> s{_unOldNotification = a})
 
--- | Undocumented member.
+-- | The updated notification to be associated with a budget.
 unNewNotification :: Lens' UpdateNotification Notification
-unNewNotification = lens _unNewNotification (\ s a -> s{_unNewNotification = a});
+unNewNotification = lens _unNewNotification (\ s a -> s{_unNewNotification = a})
 
 instance AWSRequest UpdateNotification where
         type Rs UpdateNotification =
@@ -137,6 +141,8 @@ instance ToQuery UpdateNotification where
 
 -- | Response of UpdateNotification
 --
+--
+--
 -- /See:/ 'updateNotificationResponse' smart constructor.
 newtype UpdateNotificationResponse = UpdateNotificationResponse'
   { _unrsResponseStatus :: Int
@@ -157,6 +163,6 @@ updateNotificationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 unrsResponseStatus :: Lens' UpdateNotificationResponse Int
-unrsResponseStatus = lens _unrsResponseStatus (\ s a -> s{_unrsResponseStatus = a});
+unrsResponseStatus = lens _unrsResponseStatus (\ s a -> s{_unrsResponseStatus = a})
 
 instance NFData UpdateNotificationResponse where

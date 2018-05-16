@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeWorkflowExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,16 +83,16 @@ describeWorkflowExecution
     -> DescribeWorkflowExecution
 describeWorkflowExecution pDomain_ pExecution_ =
   DescribeWorkflowExecution'
-  {_dweDomain = pDomain_, _dweExecution = pExecution_}
+    {_dweDomain = pDomain_, _dweExecution = pExecution_}
 
 
 -- | The name of the domain containing the workflow execution.
 dweDomain :: Lens' DescribeWorkflowExecution Text
-dweDomain = lens _dweDomain (\ s a -> s{_dweDomain = a});
+dweDomain = lens _dweDomain (\ s a -> s{_dweDomain = a})
 
 -- | The workflow execution to describe.
 dweExecution :: Lens' DescribeWorkflowExecution WorkflowExecution
-dweExecution = lens _dweExecution (\ s a -> s{_dweExecution = a});
+dweExecution = lens _dweExecution (\ s a -> s{_dweExecution = a})
 
 instance AWSRequest DescribeWorkflowExecution where
         type Rs DescribeWorkflowExecution =
@@ -174,38 +174,38 @@ describeWorkflowExecutionResponse
     -> DescribeWorkflowExecutionResponse
 describeWorkflowExecutionResponse pResponseStatus_ pExecutionInfo_ pExecutionConfiguration_ pOpenCounts_ =
   DescribeWorkflowExecutionResponse'
-  { _dwersLatestActivityTaskTimestamp = Nothing
-  , _dwersLatestExecutionContext = Nothing
-  , _dwersResponseStatus = pResponseStatus_
-  , _dwersExecutionInfo = pExecutionInfo_
-  , _dwersExecutionConfiguration = pExecutionConfiguration_
-  , _dwersOpenCounts = pOpenCounts_
-  }
+    { _dwersLatestActivityTaskTimestamp = Nothing
+    , _dwersLatestExecutionContext = Nothing
+    , _dwersResponseStatus = pResponseStatus_
+    , _dwersExecutionInfo = pExecutionInfo_
+    , _dwersExecutionConfiguration = pExecutionConfiguration_
+    , _dwersOpenCounts = pOpenCounts_
+    }
 
 
 -- | The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.
 dwersLatestActivityTaskTimestamp :: Lens' DescribeWorkflowExecutionResponse (Maybe UTCTime)
-dwersLatestActivityTaskTimestamp = lens _dwersLatestActivityTaskTimestamp (\ s a -> s{_dwersLatestActivityTaskTimestamp = a}) . mapping _Time;
+dwersLatestActivityTaskTimestamp = lens _dwersLatestActivityTaskTimestamp (\ s a -> s{_dwersLatestActivityTaskTimestamp = a}) . mapping _Time
 
 -- | The latest executionContext provided by the decider for this workflow execution. A decider can provide an executionContext (a free-form string) when closing a decision task using 'RespondDecisionTaskCompleted' .
 dwersLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
-dwersLatestExecutionContext = lens _dwersLatestExecutionContext (\ s a -> s{_dwersLatestExecutionContext = a});
+dwersLatestExecutionContext = lens _dwersLatestExecutionContext (\ s a -> s{_dwersLatestExecutionContext = a})
 
 -- | -- | The response status code.
 dwersResponseStatus :: Lens' DescribeWorkflowExecutionResponse Int
-dwersResponseStatus = lens _dwersResponseStatus (\ s a -> s{_dwersResponseStatus = a});
+dwersResponseStatus = lens _dwersResponseStatus (\ s a -> s{_dwersResponseStatus = a})
 
 -- | Information about the workflow execution.
 dwersExecutionInfo :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionInfo
-dwersExecutionInfo = lens _dwersExecutionInfo (\ s a -> s{_dwersExecutionInfo = a});
+dwersExecutionInfo = lens _dwersExecutionInfo (\ s a -> s{_dwersExecutionInfo = a})
 
 -- | The configuration settings for this workflow execution including timeout values, tasklist etc.
 dwersExecutionConfiguration :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionConfiguration
-dwersExecutionConfiguration = lens _dwersExecutionConfiguration (\ s a -> s{_dwersExecutionConfiguration = a});
+dwersExecutionConfiguration = lens _dwersExecutionConfiguration (\ s a -> s{_dwersExecutionConfiguration = a})
 
 -- | The number of tasks for this workflow execution. This includes open and closed tasks of all types.
 dwersOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
-dwersOpenCounts = lens _dwersOpenCounts (\ s a -> s{_dwersOpenCounts = a});
+dwersOpenCounts = lens _dwersOpenCounts (\ s a -> s{_dwersOpenCounts = a})
 
 instance NFData DescribeWorkflowExecutionResponse
          where

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeletePlacementGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. For more information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Deletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
 module Network.AWS.EC2.DeletePlacementGroup
@@ -69,11 +69,11 @@ deletePlacementGroup pGroupName_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dpgDryRun :: Lens' DeletePlacementGroup (Maybe Bool)
-dpgDryRun = lens _dpgDryRun (\ s a -> s{_dpgDryRun = a});
+dpgDryRun = lens _dpgDryRun (\ s a -> s{_dpgDryRun = a})
 
 -- | The name of the placement group.
 dpgGroupName :: Lens' DeletePlacementGroup Text
-dpgGroupName = lens _dpgGroupName (\ s a -> s{_dpgGroupName = a});
+dpgGroupName = lens _dpgGroupName (\ s a -> s{_dpgGroupName = a})
 
 instance AWSRequest DeletePlacementGroup where
         type Rs DeletePlacementGroup =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.RemoveResourcePermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ data RemoveResourcePermission = RemoveResourcePermission'
 --
 -- * 'rrpPrincipalType' - The principal type of the resource.
 --
--- * 'rrpAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'rrpAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'rrpResourceId' - The ID of the resource.
 --
@@ -70,28 +70,28 @@ removeResourcePermission
     -> RemoveResourcePermission
 removeResourcePermission pResourceId_ pPrincipalId_ =
   RemoveResourcePermission'
-  { _rrpPrincipalType = Nothing
-  , _rrpAuthenticationToken = Nothing
-  , _rrpResourceId = pResourceId_
-  , _rrpPrincipalId = pPrincipalId_
-  }
+    { _rrpPrincipalType = Nothing
+    , _rrpAuthenticationToken = Nothing
+    , _rrpResourceId = pResourceId_
+    , _rrpPrincipalId = pPrincipalId_
+    }
 
 
 -- | The principal type of the resource.
 rrpPrincipalType :: Lens' RemoveResourcePermission (Maybe PrincipalType)
-rrpPrincipalType = lens _rrpPrincipalType (\ s a -> s{_rrpPrincipalType = a});
+rrpPrincipalType = lens _rrpPrincipalType (\ s a -> s{_rrpPrincipalType = a})
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 rrpAuthenticationToken :: Lens' RemoveResourcePermission (Maybe Text)
-rrpAuthenticationToken = lens _rrpAuthenticationToken (\ s a -> s{_rrpAuthenticationToken = a}) . mapping _Sensitive;
+rrpAuthenticationToken = lens _rrpAuthenticationToken (\ s a -> s{_rrpAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the resource.
 rrpResourceId :: Lens' RemoveResourcePermission Text
-rrpResourceId = lens _rrpResourceId (\ s a -> s{_rrpResourceId = a});
+rrpResourceId = lens _rrpResourceId (\ s a -> s{_rrpResourceId = a})
 
 -- | The principal ID of the resource.
 rrpPrincipalId :: Lens' RemoveResourcePermission Text
-rrpPrincipalId = lens _rrpPrincipalId (\ s a -> s{_rrpPrincipalId = a});
+rrpPrincipalId = lens _rrpPrincipalId (\ s a -> s{_rrpPrincipalId = a})
 
 instance AWSRequest RemoveResourcePermission where
         type Rs RemoveResourcePermission =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeClusters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,20 +76,20 @@ describeClusters
     :: DescribeClusters
 describeClusters =
   DescribeClusters'
-  {_dcClusterNames = Nothing, _dcNextToken = Nothing, _dcMaxResults = Nothing}
+    {_dcClusterNames = Nothing, _dcNextToken = Nothing, _dcMaxResults = Nothing}
 
 
 -- | The names of the DAX clusters being described.
 dcClusterNames :: Lens' DescribeClusters [Text]
-dcClusterNames = lens _dcClusterNames (\ s a -> s{_dcClusterNames = a}) . _Default . _Coerce;
+dcClusterNames = lens _dcClusterNames (\ s a -> s{_dcClusterNames = a}) . _Default . _Coerce
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 dcNextToken :: Lens' DescribeClusters (Maybe Text)
-dcNextToken = lens _dcNextToken (\ s a -> s{_dcNextToken = a});
+dcNextToken = lens _dcNextToken (\ s a -> s{_dcNextToken = a})
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
 dcMaxResults :: Lens' DescribeClusters (Maybe Int)
-dcMaxResults = lens _dcMaxResults (\ s a -> s{_dcMaxResults = a});
+dcMaxResults = lens _dcMaxResults (\ s a -> s{_dcMaxResults = a})
 
 instance AWSRequest DescribeClusters where
         type Rs DescribeClusters = DescribeClustersResponse
@@ -150,22 +150,22 @@ describeClustersResponse
     -> DescribeClustersResponse
 describeClustersResponse pResponseStatus_ =
   DescribeClustersResponse'
-  { _dcrsNextToken = Nothing
-  , _dcrsClusters = Nothing
-  , _dcrsResponseStatus = pResponseStatus_
-  }
+    { _dcrsNextToken = Nothing
+    , _dcrsClusters = Nothing
+    , _dcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcrsNextToken :: Lens' DescribeClustersResponse (Maybe Text)
-dcrsNextToken = lens _dcrsNextToken (\ s a -> s{_dcrsNextToken = a});
+dcrsNextToken = lens _dcrsNextToken (\ s a -> s{_dcrsNextToken = a})
 
 -- | The descriptions of your DAX clusters, in response to a /DescribeClusters/ request.
 dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
-dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
+dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeClustersResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DescribeClustersResponse where

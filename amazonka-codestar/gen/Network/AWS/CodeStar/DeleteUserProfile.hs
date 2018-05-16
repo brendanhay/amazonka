@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.DeleteUserProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteUserProfile pUserARN_ = DeleteUserProfile' {_dUserARN = pUserARN_}
 
 -- | The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.
 dUserARN :: Lens' DeleteUserProfile Text
-dUserARN = lens _dUserARN (\ s a -> s{_dUserARN = a});
+dUserARN = lens _dUserARN (\ s a -> s{_dUserARN = a})
 
 instance AWSRequest DeleteUserProfile where
         type Rs DeleteUserProfile = DeleteUserProfileResponse
@@ -118,15 +118,15 @@ deleteUserProfileResponse
     -> DeleteUserProfileResponse
 deleteUserProfileResponse pResponseStatus_ pUserARN_ =
   DeleteUserProfileResponse'
-  {_delrsResponseStatus = pResponseStatus_, _delrsUserARN = pUserARN_}
+    {_delrsResponseStatus = pResponseStatus_, _delrsUserARN = pUserARN_}
 
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteUserProfileResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 -- | The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
 delrsUserARN :: Lens' DeleteUserProfileResponse Text
-delrsUserARN = lens _delrsUserARN (\ s a -> s{_delrsUserARN = a});
+delrsUserARN = lens _delrsUserARN (\ s a -> s{_delrsUserARN = a})
 
 instance NFData DeleteUserProfileResponse where

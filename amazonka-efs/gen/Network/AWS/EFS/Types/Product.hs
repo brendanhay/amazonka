@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,63 +78,63 @@ fileSystemDescription
     -> FileSystemDescription
 fileSystemDescription pOwnerId_ pCreationToken_ pFileSystemId_ pCreationTime_ pLifeCycleState_ pNumberOfMountTargets_ pSizeInBytes_ pPerformanceMode_ =
   FileSystemDescription'
-  { _fsdEncrypted = Nothing
-  , _fsdKMSKeyId = Nothing
-  , _fsdName = Nothing
-  , _fsdOwnerId = pOwnerId_
-  , _fsdCreationToken = pCreationToken_
-  , _fsdFileSystemId = pFileSystemId_
-  , _fsdCreationTime = _Time # pCreationTime_
-  , _fsdLifeCycleState = pLifeCycleState_
-  , _fsdNumberOfMountTargets = _Nat # pNumberOfMountTargets_
-  , _fsdSizeInBytes = pSizeInBytes_
-  , _fsdPerformanceMode = pPerformanceMode_
-  }
+    { _fsdEncrypted = Nothing
+    , _fsdKMSKeyId = Nothing
+    , _fsdName = Nothing
+    , _fsdOwnerId = pOwnerId_
+    , _fsdCreationToken = pCreationToken_
+    , _fsdFileSystemId = pFileSystemId_
+    , _fsdCreationTime = _Time # pCreationTime_
+    , _fsdLifeCycleState = pLifeCycleState_
+    , _fsdNumberOfMountTargets = _Nat # pNumberOfMountTargets_
+    , _fsdSizeInBytes = pSizeInBytes_
+    , _fsdPerformanceMode = pPerformanceMode_
+    }
 
 
 -- | A boolean value that, if true, indicates that the file system is encrypted.
 fsdEncrypted :: Lens' FileSystemDescription (Maybe Bool)
-fsdEncrypted = lens _fsdEncrypted (\ s a -> s{_fsdEncrypted = a});
+fsdEncrypted = lens _fsdEncrypted (\ s a -> s{_fsdEncrypted = a})
 
 -- | The id of an AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to protect the encrypted file system.
 fsdKMSKeyId :: Lens' FileSystemDescription (Maybe Text)
-fsdKMSKeyId = lens _fsdKMSKeyId (\ s a -> s{_fsdKMSKeyId = a});
+fsdKMSKeyId = lens _fsdKMSKeyId (\ s a -> s{_fsdKMSKeyId = a})
 
 -- | You can add tags to a file system, including a @Name@ tag. For more information, see 'CreateTags' . If the file system has a @Name@ tag, Amazon EFS returns the value in this field.
 fsdName :: Lens' FileSystemDescription (Maybe Text)
-fsdName = lens _fsdName (\ s a -> s{_fsdName = a});
+fsdName = lens _fsdName (\ s a -> s{_fsdName = a})
 
 -- | AWS account that created the file system. If the file system was created by an IAM user, the parent account to which the user belongs is the owner.
 fsdOwnerId :: Lens' FileSystemDescription Text
-fsdOwnerId = lens _fsdOwnerId (\ s a -> s{_fsdOwnerId = a});
+fsdOwnerId = lens _fsdOwnerId (\ s a -> s{_fsdOwnerId = a})
 
 -- | Opaque string specified in the request.
 fsdCreationToken :: Lens' FileSystemDescription Text
-fsdCreationToken = lens _fsdCreationToken (\ s a -> s{_fsdCreationToken = a});
+fsdCreationToken = lens _fsdCreationToken (\ s a -> s{_fsdCreationToken = a})
 
 -- | ID of the file system, assigned by Amazon EFS.
 fsdFileSystemId :: Lens' FileSystemDescription Text
-fsdFileSystemId = lens _fsdFileSystemId (\ s a -> s{_fsdFileSystemId = a});
+fsdFileSystemId = lens _fsdFileSystemId (\ s a -> s{_fsdFileSystemId = a})
 
 -- | Time that the file system was created, in seconds (since 1970-01-01T00:00:00Z).
 fsdCreationTime :: Lens' FileSystemDescription UTCTime
-fsdCreationTime = lens _fsdCreationTime (\ s a -> s{_fsdCreationTime = a}) . _Time;
+fsdCreationTime = lens _fsdCreationTime (\ s a -> s{_fsdCreationTime = a}) . _Time
 
 -- | Lifecycle phase of the file system.
 fsdLifeCycleState :: Lens' FileSystemDescription LifeCycleState
-fsdLifeCycleState = lens _fsdLifeCycleState (\ s a -> s{_fsdLifeCycleState = a});
+fsdLifeCycleState = lens _fsdLifeCycleState (\ s a -> s{_fsdLifeCycleState = a})
 
 -- | Current number of mount targets that the file system has. For more information, see 'CreateMountTarget' .
 fsdNumberOfMountTargets :: Lens' FileSystemDescription Natural
-fsdNumberOfMountTargets = lens _fsdNumberOfMountTargets (\ s a -> s{_fsdNumberOfMountTargets = a}) . _Nat;
+fsdNumberOfMountTargets = lens _fsdNumberOfMountTargets (\ s a -> s{_fsdNumberOfMountTargets = a}) . _Nat
 
 -- | Latest known metered size (in bytes) of data stored in the file system, in bytes, in its @Value@ field, and the time at which that size was determined in its @Timestamp@ field. The @Timestamp@ value is the integer number of seconds since 1970-01-01T00:00:00Z. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size the file system was at any instant in time.
 fsdSizeInBytes :: Lens' FileSystemDescription FileSystemSize
-fsdSizeInBytes = lens _fsdSizeInBytes (\ s a -> s{_fsdSizeInBytes = a});
+fsdSizeInBytes = lens _fsdSizeInBytes (\ s a -> s{_fsdSizeInBytes = a})
 
 -- | The @PerformanceMode@ of the file system.
 fsdPerformanceMode :: Lens' FileSystemDescription PerformanceMode
-fsdPerformanceMode = lens _fsdPerformanceMode (\ s a -> s{_fsdPerformanceMode = a});
+fsdPerformanceMode = lens _fsdPerformanceMode (\ s a -> s{_fsdPerformanceMode = a})
 
 instance FromJSON FileSystemDescription where
         parseJSON
@@ -183,11 +183,11 @@ fileSystemSize pValue_ =
 
 -- | Time at which the size of data, returned in the @Value@ field, was determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z.
 fssTimestamp :: Lens' FileSystemSize (Maybe UTCTime)
-fssTimestamp = lens _fssTimestamp (\ s a -> s{_fssTimestamp = a}) . mapping _Time;
+fssTimestamp = lens _fssTimestamp (\ s a -> s{_fssTimestamp = a}) . mapping _Time
 
 -- | Latest known metered size (in bytes) of data stored in the file system.
 fssValue :: Lens' FileSystemSize Natural
-fssValue = lens _fssValue (\ s a -> s{_fssValue = a}) . _Nat;
+fssValue = lens _fssValue (\ s a -> s{_fssValue = a}) . _Nat
 
 instance FromJSON FileSystemSize where
         parseJSON
@@ -241,43 +241,43 @@ mountTargetDescription
     -> MountTargetDescription
 mountTargetDescription pMountTargetId_ pFileSystemId_ pSubnetId_ pLifeCycleState_ =
   MountTargetDescription'
-  { _mtdIPAddress = Nothing
-  , _mtdNetworkInterfaceId = Nothing
-  , _mtdOwnerId = Nothing
-  , _mtdMountTargetId = pMountTargetId_
-  , _mtdFileSystemId = pFileSystemId_
-  , _mtdSubnetId = pSubnetId_
-  , _mtdLifeCycleState = pLifeCycleState_
-  }
+    { _mtdIPAddress = Nothing
+    , _mtdNetworkInterfaceId = Nothing
+    , _mtdOwnerId = Nothing
+    , _mtdMountTargetId = pMountTargetId_
+    , _mtdFileSystemId = pFileSystemId_
+    , _mtdSubnetId = pSubnetId_
+    , _mtdLifeCycleState = pLifeCycleState_
+    }
 
 
 -- | Address at which the file system may be mounted via the mount target.
 mtdIPAddress :: Lens' MountTargetDescription (Maybe Text)
-mtdIPAddress = lens _mtdIPAddress (\ s a -> s{_mtdIPAddress = a});
+mtdIPAddress = lens _mtdIPAddress (\ s a -> s{_mtdIPAddress = a})
 
 -- | ID of the network interface that Amazon EFS created when it created the mount target.
 mtdNetworkInterfaceId :: Lens' MountTargetDescription (Maybe Text)
-mtdNetworkInterfaceId = lens _mtdNetworkInterfaceId (\ s a -> s{_mtdNetworkInterfaceId = a});
+mtdNetworkInterfaceId = lens _mtdNetworkInterfaceId (\ s a -> s{_mtdNetworkInterfaceId = a})
 
 -- | AWS account ID that owns the resource.
 mtdOwnerId :: Lens' MountTargetDescription (Maybe Text)
-mtdOwnerId = lens _mtdOwnerId (\ s a -> s{_mtdOwnerId = a});
+mtdOwnerId = lens _mtdOwnerId (\ s a -> s{_mtdOwnerId = a})
 
 -- | System-assigned mount target ID.
 mtdMountTargetId :: Lens' MountTargetDescription Text
-mtdMountTargetId = lens _mtdMountTargetId (\ s a -> s{_mtdMountTargetId = a});
+mtdMountTargetId = lens _mtdMountTargetId (\ s a -> s{_mtdMountTargetId = a})
 
 -- | ID of the file system for which the mount target is intended.
 mtdFileSystemId :: Lens' MountTargetDescription Text
-mtdFileSystemId = lens _mtdFileSystemId (\ s a -> s{_mtdFileSystemId = a});
+mtdFileSystemId = lens _mtdFileSystemId (\ s a -> s{_mtdFileSystemId = a})
 
 -- | ID of the mount target's subnet.
 mtdSubnetId :: Lens' MountTargetDescription Text
-mtdSubnetId = lens _mtdSubnetId (\ s a -> s{_mtdSubnetId = a});
+mtdSubnetId = lens _mtdSubnetId (\ s a -> s{_mtdSubnetId = a})
 
 -- | Lifecycle state of the mount target.
 mtdLifeCycleState :: Lens' MountTargetDescription LifeCycleState
-mtdLifeCycleState = lens _mtdLifeCycleState (\ s a -> s{_mtdLifeCycleState = a});
+mtdLifeCycleState = lens _mtdLifeCycleState (\ s a -> s{_mtdLifeCycleState = a})
 
 instance FromJSON MountTargetDescription where
         parseJSON
@@ -322,11 +322,11 @@ tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
 
 -- | Tag key (String). The key can't start with @aws:@ .
 tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 -- | Value of the tag key.
 tagValue :: Lens' Tag Text
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 instance FromJSON Tag where
         parseJSON

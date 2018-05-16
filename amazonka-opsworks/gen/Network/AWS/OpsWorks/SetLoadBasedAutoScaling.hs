@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.SetLoadBasedAutoScaling
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,28 +71,28 @@ setLoadBasedAutoScaling
     -> SetLoadBasedAutoScaling
 setLoadBasedAutoScaling pLayerId_ =
   SetLoadBasedAutoScaling'
-  { _slbasUpScaling = Nothing
-  , _slbasEnable = Nothing
-  , _slbasDownScaling = Nothing
-  , _slbasLayerId = pLayerId_
-  }
+    { _slbasUpScaling = Nothing
+    , _slbasEnable = Nothing
+    , _slbasDownScaling = Nothing
+    , _slbasLayerId = pLayerId_
+    }
 
 
 -- | An @AutoScalingThresholds@ object with the upscaling threshold configuration. If the load exceeds these thresholds for a specified amount of time, AWS OpsWorks Stacks starts a specified number of instances.
 slbasUpScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
-slbasUpScaling = lens _slbasUpScaling (\ s a -> s{_slbasUpScaling = a});
+slbasUpScaling = lens _slbasUpScaling (\ s a -> s{_slbasUpScaling = a})
 
 -- | Enables load-based auto scaling for the layer.
 slbasEnable :: Lens' SetLoadBasedAutoScaling (Maybe Bool)
-slbasEnable = lens _slbasEnable (\ s a -> s{_slbasEnable = a});
+slbasEnable = lens _slbasEnable (\ s a -> s{_slbasEnable = a})
 
 -- | An @AutoScalingThresholds@ object with the downscaling threshold configuration. If the load falls below these thresholds for a specified amount of time, AWS OpsWorks Stacks stops a specified number of instances.
 slbasDownScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
-slbasDownScaling = lens _slbasDownScaling (\ s a -> s{_slbasDownScaling = a});
+slbasDownScaling = lens _slbasDownScaling (\ s a -> s{_slbasDownScaling = a})
 
 -- | The layer ID.
 slbasLayerId :: Lens' SetLoadBasedAutoScaling Text
-slbasLayerId = lens _slbasLayerId (\ s a -> s{_slbasLayerId = a});
+slbasLayerId = lens _slbasLayerId (\ s a -> s{_slbasLayerId = a})
 
 instance AWSRequest SetLoadBasedAutoScaling where
         type Rs SetLoadBasedAutoScaling =

@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,28 +45,28 @@ instance ToQuery      AccountAttributeName
 instance ToHeader     AccountAttributeName
 
 data ActivityStatus
-  = Error'
-  | Fulfilled
-  | PendingFulfillment
-  | PendingTermination
+  = ASError'
+  | ASFulfilled
+  | ASPendingFulfillment
+  | ASPendingTermination
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ActivityStatus where
     parser = takeLowerText >>= \case
-        "error" -> pure Error'
-        "fulfilled" -> pure Fulfilled
-        "pending_fulfillment" -> pure PendingFulfillment
-        "pending_termination" -> pure PendingTermination
+        "error" -> pure ASError'
+        "fulfilled" -> pure ASFulfilled
+        "pending_fulfillment" -> pure ASPendingFulfillment
+        "pending_termination" -> pure ASPendingTermination
         e -> fromTextError $ "Failure parsing ActivityStatus from value: '" <> e
            <> "'. Accepted values: error, fulfilled, pending_fulfillment, pending_termination"
 
 instance ToText ActivityStatus where
     toText = \case
-        Error' -> "error"
-        Fulfilled -> "fulfilled"
-        PendingFulfillment -> "pending_fulfillment"
-        PendingTermination -> "pending_termination"
+        ASError' -> "error"
+        ASFulfilled -> "fulfilled"
+        ASPendingFulfillment -> "pending_fulfillment"
+        ASPendingTermination -> "pending_termination"
 
 instance Hashable     ActivityStatus
 instance NFData       ActivityStatus
@@ -168,22 +168,22 @@ instance FromXML AllocationState where
     parseXML = parseXMLText "AllocationState"
 
 data AllocationStrategy
-  = Diversified
-  | LowestPrice
+  = ASDiversified
+  | ASLowestPrice
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText AllocationStrategy where
     parser = takeLowerText >>= \case
-        "diversified" -> pure Diversified
-        "lowestprice" -> pure LowestPrice
+        "diversified" -> pure ASDiversified
+        "lowestprice" -> pure ASLowestPrice
         e -> fromTextError $ "Failure parsing AllocationStrategy from value: '" <> e
            <> "'. Accepted values: diversified, lowestprice"
 
 instance ToText AllocationStrategy where
     toText = \case
-        Diversified -> "diversified"
-        LowestPrice -> "lowestPrice"
+        ASDiversified -> "diversified"
+        ASLowestPrice -> "lowestPrice"
 
 instance Hashable     AllocationStrategy
 instance NFData       AllocationStrategy
@@ -405,28 +405,28 @@ instance FromXML BundleTaskState where
     parseXML = parseXMLText "BundleTaskState"
 
 data CancelBatchErrorCode
-  = FleetRequestIdDoesNotExist
-  | FleetRequestIdMalformed
-  | FleetRequestNotInCancellableState
-  | UnexpectedError
+  = CBECFleetRequestIdDoesNotExist
+  | CBECFleetRequestIdMalformed
+  | CBECFleetRequestNotInCancellableState
+  | CBECUnexpectedError
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText CancelBatchErrorCode where
     parser = takeLowerText >>= \case
-        "fleetrequestiddoesnotexist" -> pure FleetRequestIdDoesNotExist
-        "fleetrequestidmalformed" -> pure FleetRequestIdMalformed
-        "fleetrequestnotincancellablestate" -> pure FleetRequestNotInCancellableState
-        "unexpectederror" -> pure UnexpectedError
+        "fleetrequestiddoesnotexist" -> pure CBECFleetRequestIdDoesNotExist
+        "fleetrequestidmalformed" -> pure CBECFleetRequestIdMalformed
+        "fleetrequestnotincancellablestate" -> pure CBECFleetRequestNotInCancellableState
+        "unexpectederror" -> pure CBECUnexpectedError
         e -> fromTextError $ "Failure parsing CancelBatchErrorCode from value: '" <> e
            <> "'. Accepted values: fleetrequestiddoesnotexist, fleetrequestidmalformed, fleetrequestnotincancellablestate, unexpectederror"
 
 instance ToText CancelBatchErrorCode where
     toText = \case
-        FleetRequestIdDoesNotExist -> "fleetRequestIdDoesNotExist"
-        FleetRequestIdMalformed -> "fleetRequestIdMalformed"
-        FleetRequestNotInCancellableState -> "fleetRequestNotInCancellableState"
-        UnexpectedError -> "unexpectedError"
+        CBECFleetRequestIdDoesNotExist -> "fleetRequestIdDoesNotExist"
+        CBECFleetRequestIdMalformed -> "fleetRequestIdMalformed"
+        CBECFleetRequestNotInCancellableState -> "fleetRequestNotInCancellableState"
+        CBECUnexpectedError -> "unexpectedError"
 
 instance Hashable     CancelBatchErrorCode
 instance NFData       CancelBatchErrorCode
@@ -472,6 +472,57 @@ instance ToHeader     CancelSpotInstanceRequestState
 
 instance FromXML CancelSpotInstanceRequestState where
     parseXML = parseXMLText "CancelSpotInstanceRequestState"
+
+data ConnectionNotificationState
+  = Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ConnectionNotificationState where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        e -> fromTextError $ "Failure parsing ConnectionNotificationState from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText ConnectionNotificationState where
+    toText = \case
+        Disabled -> "Disabled"
+        Enabled -> "Enabled"
+
+instance Hashable     ConnectionNotificationState
+instance NFData       ConnectionNotificationState
+instance ToByteString ConnectionNotificationState
+instance ToQuery      ConnectionNotificationState
+instance ToHeader     ConnectionNotificationState
+
+instance FromXML ConnectionNotificationState where
+    parseXML = parseXMLText "ConnectionNotificationState"
+
+data ConnectionNotificationType =
+  Topic
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ConnectionNotificationType where
+    parser = takeLowerText >>= \case
+        "topic" -> pure Topic
+        e -> fromTextError $ "Failure parsing ConnectionNotificationType from value: '" <> e
+           <> "'. Accepted values: topic"
+
+instance ToText ConnectionNotificationType where
+    toText = \case
+        Topic -> "Topic"
+
+instance Hashable     ConnectionNotificationType
+instance NFData       ConnectionNotificationType
+instance ToByteString ConnectionNotificationType
+instance ToQuery      ConnectionNotificationType
+instance ToHeader     ConnectionNotificationType
+
+instance FromXML ConnectionNotificationType where
+    parseXML = parseXMLText "ConnectionNotificationType"
 
 data ContainerFormat =
   Ova
@@ -580,6 +631,66 @@ instance ToHeader     DatafeedSubscriptionState
 
 instance FromXML DatafeedSubscriptionState where
     parseXML = parseXMLText "DatafeedSubscriptionState"
+
+data DefaultTargetCapacityType
+  = DTCTOnDemand
+  | DTCTSpot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DefaultTargetCapacityType where
+    parser = takeLowerText >>= \case
+        "on-demand" -> pure DTCTOnDemand
+        "spot" -> pure DTCTSpot
+        e -> fromTextError $ "Failure parsing DefaultTargetCapacityType from value: '" <> e
+           <> "'. Accepted values: on-demand, spot"
+
+instance ToText DefaultTargetCapacityType where
+    toText = \case
+        DTCTOnDemand -> "on-demand"
+        DTCTSpot -> "spot"
+
+instance Hashable     DefaultTargetCapacityType
+instance NFData       DefaultTargetCapacityType
+instance ToByteString DefaultTargetCapacityType
+instance ToQuery      DefaultTargetCapacityType
+instance ToHeader     DefaultTargetCapacityType
+
+instance FromXML DefaultTargetCapacityType where
+    parseXML = parseXMLText "DefaultTargetCapacityType"
+
+data DeleteFleetErrorCode
+  = DFECFleetIdDoesNotExist
+  | DFECFleetIdMalformed
+  | DFECFleetNotInDeletableState
+  | DFECUnexpectedError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeleteFleetErrorCode where
+    parser = takeLowerText >>= \case
+        "fleetiddoesnotexist" -> pure DFECFleetIdDoesNotExist
+        "fleetidmalformed" -> pure DFECFleetIdMalformed
+        "fleetnotindeletablestate" -> pure DFECFleetNotInDeletableState
+        "unexpectederror" -> pure DFECUnexpectedError
+        e -> fromTextError $ "Failure parsing DeleteFleetErrorCode from value: '" <> e
+           <> "'. Accepted values: fleetiddoesnotexist, fleetidmalformed, fleetnotindeletablestate, unexpectederror"
+
+instance ToText DeleteFleetErrorCode where
+    toText = \case
+        DFECFleetIdDoesNotExist -> "fleetIdDoesNotExist"
+        DFECFleetIdMalformed -> "fleetIdMalformed"
+        DFECFleetNotInDeletableState -> "fleetNotInDeletableState"
+        DFECUnexpectedError -> "unexpectedError"
+
+instance Hashable     DeleteFleetErrorCode
+instance NFData       DeleteFleetErrorCode
+instance ToByteString DeleteFleetErrorCode
+instance ToQuery      DeleteFleetErrorCode
+instance ToHeader     DeleteFleetErrorCode
+
+instance FromXML DeleteFleetErrorCode where
+    parseXML = parseXMLText "DeleteFleetErrorCode"
 
 data DeviceType
   = EBS
@@ -871,6 +982,138 @@ instance ToHeader     ExportTaskState
 
 instance FromXML ExportTaskState where
     parseXML = parseXMLText "ExportTaskState"
+
+data FleetActivityStatus
+  = Error'
+  | Fulfilled
+  | PendingFulfillment
+  | PendingTermination
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FleetActivityStatus where
+    parser = takeLowerText >>= \case
+        "error" -> pure Error'
+        "fulfilled" -> pure Fulfilled
+        "pending-fulfillment" -> pure PendingFulfillment
+        "pending-termination" -> pure PendingTermination
+        e -> fromTextError $ "Failure parsing FleetActivityStatus from value: '" <> e
+           <> "'. Accepted values: error, fulfilled, pending-fulfillment, pending-termination"
+
+instance ToText FleetActivityStatus where
+    toText = \case
+        Error' -> "error"
+        Fulfilled -> "fulfilled"
+        PendingFulfillment -> "pending-fulfillment"
+        PendingTermination -> "pending-termination"
+
+instance Hashable     FleetActivityStatus
+instance NFData       FleetActivityStatus
+instance ToByteString FleetActivityStatus
+instance ToQuery      FleetActivityStatus
+instance ToHeader     FleetActivityStatus
+
+instance FromXML FleetActivityStatus where
+    parseXML = parseXMLText "FleetActivityStatus"
+
+data FleetEventType
+  = FETFleetChange
+  | FETInstanceChange
+  | FETServiceError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FleetEventType where
+    parser = takeLowerText >>= \case
+        "fleet-change" -> pure FETFleetChange
+        "instance-change" -> pure FETInstanceChange
+        "service-error" -> pure FETServiceError
+        e -> fromTextError $ "Failure parsing FleetEventType from value: '" <> e
+           <> "'. Accepted values: fleet-change, instance-change, service-error"
+
+instance ToText FleetEventType where
+    toText = \case
+        FETFleetChange -> "fleet-change"
+        FETInstanceChange -> "instance-change"
+        FETServiceError -> "service-error"
+
+instance Hashable     FleetEventType
+instance NFData       FleetEventType
+instance ToByteString FleetEventType
+instance ToQuery      FleetEventType
+instance ToHeader     FleetEventType
+
+instance FromXML FleetEventType where
+    parseXML = parseXMLText "FleetEventType"
+
+data FleetExcessCapacityTerminationPolicy
+  = NoTermination
+  | Termination
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FleetExcessCapacityTerminationPolicy where
+    parser = takeLowerText >>= \case
+        "no-termination" -> pure NoTermination
+        "termination" -> pure Termination
+        e -> fromTextError $ "Failure parsing FleetExcessCapacityTerminationPolicy from value: '" <> e
+           <> "'. Accepted values: no-termination, termination"
+
+instance ToText FleetExcessCapacityTerminationPolicy where
+    toText = \case
+        NoTermination -> "no-termination"
+        Termination -> "termination"
+
+instance Hashable     FleetExcessCapacityTerminationPolicy
+instance NFData       FleetExcessCapacityTerminationPolicy
+instance ToByteString FleetExcessCapacityTerminationPolicy
+instance ToQuery      FleetExcessCapacityTerminationPolicy
+instance ToHeader     FleetExcessCapacityTerminationPolicy
+
+instance FromXML FleetExcessCapacityTerminationPolicy where
+    parseXML = parseXMLText "FleetExcessCapacityTerminationPolicy"
+
+data FleetStateCode
+  = FSCActive
+  | FSCDeleted
+  | FSCDeletedRunning
+  | FSCDeletedTerminating
+  | FSCFailed
+  | FSCModifying
+  | FSCSubmitted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FleetStateCode where
+    parser = takeLowerText >>= \case
+        "active" -> pure FSCActive
+        "deleted" -> pure FSCDeleted
+        "deleted-running" -> pure FSCDeletedRunning
+        "deleted-terminating" -> pure FSCDeletedTerminating
+        "failed" -> pure FSCFailed
+        "modifying" -> pure FSCModifying
+        "submitted" -> pure FSCSubmitted
+        e -> fromTextError $ "Failure parsing FleetStateCode from value: '" <> e
+           <> "'. Accepted values: active, deleted, deleted-running, deleted-terminating, failed, modifying, submitted"
+
+instance ToText FleetStateCode where
+    toText = \case
+        FSCActive -> "active"
+        FSCDeleted -> "deleted"
+        FSCDeletedRunning -> "deleted-running"
+        FSCDeletedTerminating -> "deleted-terminating"
+        FSCFailed -> "failed"
+        FSCModifying -> "modifying"
+        FSCSubmitted -> "submitted"
+
+instance Hashable     FleetStateCode
+instance NFData       FleetStateCode
+instance ToByteString FleetStateCode
+instance ToQuery      FleetStateCode
+instance ToHeader     FleetStateCode
+
+instance FromXML FleetStateCode where
+    parseXML = parseXMLText "FleetStateCode"
 
 data FleetType
   = FTMaintain
@@ -1296,22 +1539,25 @@ instance FromXML InstanceHealthStatus where
     parseXML = parseXMLText "InstanceHealthStatus"
 
 data InstanceInterruptionBehavior
-  = IIBStop
-  | IIBTerminate
+  = Hibernate
+  | Stop
+  | Terminate
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText InstanceInterruptionBehavior where
     parser = takeLowerText >>= \case
-        "stop" -> pure IIBStop
-        "terminate" -> pure IIBTerminate
+        "hibernate" -> pure Hibernate
+        "stop" -> pure Stop
+        "terminate" -> pure Terminate
         e -> fromTextError $ "Failure parsing InstanceInterruptionBehavior from value: '" <> e
-           <> "'. Accepted values: stop, terminate"
+           <> "'. Accepted values: hibernate, stop, terminate"
 
 instance ToText InstanceInterruptionBehavior where
     toText = \case
-        IIBStop -> "stop"
-        IIBTerminate -> "terminate"
+        Hibernate -> "hibernate"
+        Stop -> "stop"
+        Terminate -> "terminate"
 
 instance Hashable     InstanceInterruptionBehavior
 instance NFData       InstanceInterruptionBehavior
@@ -1323,22 +1569,22 @@ instance FromXML InstanceInterruptionBehavior where
     parseXML = parseXMLText "InstanceInterruptionBehavior"
 
 data InstanceLifecycleType
-  = Scheduled
-  | Spot
+  = ILTScheduled
+  | ILTSpot
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText InstanceLifecycleType where
     parser = takeLowerText >>= \case
-        "scheduled" -> pure Scheduled
-        "spot" -> pure Spot
+        "scheduled" -> pure ILTScheduled
+        "spot" -> pure ILTSpot
         e -> fromTextError $ "Failure parsing InstanceLifecycleType from value: '" <> e
            <> "'. Accepted values: scheduled, spot"
 
 instance ToText InstanceLifecycleType where
     toText = \case
-        Scheduled -> "scheduled"
-        Spot -> "spot"
+        ILTScheduled -> "scheduled"
+        ILTSpot -> "spot"
 
 instance Hashable     InstanceLifecycleType
 instance NFData       InstanceLifecycleType
@@ -1422,6 +1668,10 @@ data InstanceType
   | G3_16XLarge
   | G3_4XLarge
   | G3_8XLarge
+  | H1_16XLarge
+  | H1_2XLarge
+  | H1_4XLarge
+  | H1_8XLarge
   | HI1_4XLarge
   | HS1_8XLarge
   | I2_2XLarge
@@ -1451,6 +1701,12 @@ data InstanceType
   | M4_4XLarge
   | M4_Large
   | M4_XLarge
+  | M5_12XLarge
+  | M5_24XLarge
+  | M5_2XLarge
+  | M5_4XLarge
+  | M5_Large
+  | M5_XLarge
   | P2_16XLarge
   | P2_8XLarge
   | P2_XLarge
@@ -1478,7 +1734,12 @@ data InstanceType
   | T2_XLarge
   | X1_16XLarge
   | X1_32XLarge
+  | X1e_16XLarge
+  | X1e_2XLarge
   | X1e_32XLarge
+  | X1e_4XLarge
+  | X1e_8XLarge
+  | X1e_XLarge
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -1517,6 +1778,10 @@ instance FromText InstanceType where
         "g3.16xlarge" -> pure G3_16XLarge
         "g3.4xlarge" -> pure G3_4XLarge
         "g3.8xlarge" -> pure G3_8XLarge
+        "h1.16xlarge" -> pure H1_16XLarge
+        "h1.2xlarge" -> pure H1_2XLarge
+        "h1.4xlarge" -> pure H1_4XLarge
+        "h1.8xlarge" -> pure H1_8XLarge
         "hi1.4xlarge" -> pure HI1_4XLarge
         "hs1.8xlarge" -> pure HS1_8XLarge
         "i2.2xlarge" -> pure I2_2XLarge
@@ -1546,6 +1811,12 @@ instance FromText InstanceType where
         "m4.4xlarge" -> pure M4_4XLarge
         "m4.large" -> pure M4_Large
         "m4.xlarge" -> pure M4_XLarge
+        "m5.12xlarge" -> pure M5_12XLarge
+        "m5.24xlarge" -> pure M5_24XLarge
+        "m5.2xlarge" -> pure M5_2XLarge
+        "m5.4xlarge" -> pure M5_4XLarge
+        "m5.large" -> pure M5_Large
+        "m5.xlarge" -> pure M5_XLarge
         "p2.16xlarge" -> pure P2_16XLarge
         "p2.8xlarge" -> pure P2_8XLarge
         "p2.xlarge" -> pure P2_XLarge
@@ -1573,9 +1844,14 @@ instance FromText InstanceType where
         "t2.xlarge" -> pure T2_XLarge
         "x1.16xlarge" -> pure X1_16XLarge
         "x1.32xlarge" -> pure X1_32XLarge
+        "x1e.16xlarge" -> pure X1e_16XLarge
+        "x1e.2xlarge" -> pure X1e_2XLarge
         "x1e.32xlarge" -> pure X1e_32XLarge
+        "x1e.4xlarge" -> pure X1e_4XLarge
+        "x1e.8xlarge" -> pure X1e_8XLarge
+        "x1e.xlarge" -> pure X1e_XLarge
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, c5.18xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.large, c5.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, g3.16xlarge, g3.4xlarge, g3.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, i3.16xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.large, i3.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, p3.16xlarge, p3.2xlarge, p3.8xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, t1.micro, t2.2xlarge, t2.large, t2.medium, t2.micro, t2.nano, t2.small, t2.xlarge, x1.16xlarge, x1.32xlarge, x1e.32xlarge"
+           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, c5.18xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.large, c5.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, g3.16xlarge, g3.4xlarge, g3.8xlarge, h1.16xlarge, h1.2xlarge, h1.4xlarge, h1.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, i3.16xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.large, i3.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, m5.12xlarge, m5.24xlarge, m5.2xlarge, m5.4xlarge, m5.large, m5.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, p3.16xlarge, p3.2xlarge, p3.8xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, t1.micro, t2.2xlarge, t2.large, t2.medium, t2.micro, t2.nano, t2.small, t2.xlarge, x1.16xlarge, x1.32xlarge, x1e.16xlarge, x1e.2xlarge, x1e.32xlarge, x1e.4xlarge, x1e.8xlarge, x1e.xlarge"
 
 instance ToText InstanceType where
     toText = \case
@@ -1612,6 +1888,10 @@ instance ToText InstanceType where
         G3_16XLarge -> "g3.16xlarge"
         G3_4XLarge -> "g3.4xlarge"
         G3_8XLarge -> "g3.8xlarge"
+        H1_16XLarge -> "h1.16xlarge"
+        H1_2XLarge -> "h1.2xlarge"
+        H1_4XLarge -> "h1.4xlarge"
+        H1_8XLarge -> "h1.8xlarge"
         HI1_4XLarge -> "hi1.4xlarge"
         HS1_8XLarge -> "hs1.8xlarge"
         I2_2XLarge -> "i2.2xlarge"
@@ -1641,6 +1921,12 @@ instance ToText InstanceType where
         M4_4XLarge -> "m4.4xlarge"
         M4_Large -> "m4.large"
         M4_XLarge -> "m4.xlarge"
+        M5_12XLarge -> "m5.12xlarge"
+        M5_24XLarge -> "m5.24xlarge"
+        M5_2XLarge -> "m5.2xlarge"
+        M5_4XLarge -> "m5.4xlarge"
+        M5_Large -> "m5.large"
+        M5_XLarge -> "m5.xlarge"
         P2_16XLarge -> "p2.16xlarge"
         P2_8XLarge -> "p2.8xlarge"
         P2_XLarge -> "p2.xlarge"
@@ -1668,7 +1954,12 @@ instance ToText InstanceType where
         T2_XLarge -> "t2.xlarge"
         X1_16XLarge -> "x1.16xlarge"
         X1_32XLarge -> "x1.32xlarge"
+        X1e_16XLarge -> "x1e.16xlarge"
+        X1e_2XLarge -> "x1e.2xlarge"
         X1e_32XLarge -> "x1e.32xlarge"
+        X1e_4XLarge -> "x1e.4xlarge"
+        X1e_8XLarge -> "x1e.8xlarge"
+        X1e_XLarge -> "x1e.xlarge"
 
 instance Hashable     InstanceType
 instance NFData       InstanceType
@@ -1705,6 +1996,45 @@ instance ToHeader     InterfacePermissionType
 
 instance FromXML InterfacePermissionType where
     parseXML = parseXMLText "InterfacePermissionType"
+
+data LaunchTemplateErrorCode
+  = LaunchTemplateIdDoesNotExist
+  | LaunchTemplateIdMalformed
+  | LaunchTemplateNameDoesNotExist
+  | LaunchTemplateNameMalformed
+  | LaunchTemplateVersionDoesNotExist
+  | UnexpectedError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText LaunchTemplateErrorCode where
+    parser = takeLowerText >>= \case
+        "launchtemplateiddoesnotexist" -> pure LaunchTemplateIdDoesNotExist
+        "launchtemplateidmalformed" -> pure LaunchTemplateIdMalformed
+        "launchtemplatenamedoesnotexist" -> pure LaunchTemplateNameDoesNotExist
+        "launchtemplatenamemalformed" -> pure LaunchTemplateNameMalformed
+        "launchtemplateversiondoesnotexist" -> pure LaunchTemplateVersionDoesNotExist
+        "unexpectederror" -> pure UnexpectedError
+        e -> fromTextError $ "Failure parsing LaunchTemplateErrorCode from value: '" <> e
+           <> "'. Accepted values: launchtemplateiddoesnotexist, launchtemplateidmalformed, launchtemplatenamedoesnotexist, launchtemplatenamemalformed, launchtemplateversiondoesnotexist, unexpectederror"
+
+instance ToText LaunchTemplateErrorCode where
+    toText = \case
+        LaunchTemplateIdDoesNotExist -> "launchTemplateIdDoesNotExist"
+        LaunchTemplateIdMalformed -> "launchTemplateIdMalformed"
+        LaunchTemplateNameDoesNotExist -> "launchTemplateNameDoesNotExist"
+        LaunchTemplateNameMalformed -> "launchTemplateNameMalformed"
+        LaunchTemplateVersionDoesNotExist -> "launchTemplateVersionDoesNotExist"
+        UnexpectedError -> "unexpectedError"
+
+instance Hashable     LaunchTemplateErrorCode
+instance NFData       LaunchTemplateErrorCode
+instance ToByteString LaunchTemplateErrorCode
+instance ToQuery      LaunchTemplateErrorCode
+instance ToHeader     LaunchTemplateErrorCode
+
+instance FromXML LaunchTemplateErrorCode where
+    parseXML = parseXMLText "LaunchTemplateErrorCode"
 
 data ListingState
   = LAvailable
@@ -1771,6 +2101,30 @@ instance ToHeader     ListingStatus
 
 instance FromXML ListingStatus where
     parseXML = parseXMLText "ListingStatus"
+
+data MarketType =
+  Spot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText MarketType where
+    parser = takeLowerText >>= \case
+        "spot" -> pure Spot
+        e -> fromTextError $ "Failure parsing MarketType from value: '" <> e
+           <> "'. Accepted values: spot"
+
+instance ToText MarketType where
+    toText = \case
+        Spot -> "spot"
+
+instance Hashable     MarketType
+instance NFData       MarketType
+instance ToByteString MarketType
+instance ToQuery      MarketType
+instance ToHeader     MarketType
+
+instance FromXML MarketType where
+    parseXML = parseXMLText "MarketType"
 
 data MonitoringState
   = MSDisabled
@@ -1932,7 +2286,8 @@ instance FromXML NetworkInterfacePermissionStateCode where
     parseXML = parseXMLText "NetworkInterfacePermissionStateCode"
 
 data NetworkInterfaceStatus
-  = NISAttaching
+  = NISAssociated
+  | NISAttaching
   | NISAvailable
   | NISDetaching
   | NISInUse
@@ -1941,15 +2296,17 @@ data NetworkInterfaceStatus
 
 instance FromText NetworkInterfaceStatus where
     parser = takeLowerText >>= \case
+        "associated" -> pure NISAssociated
         "attaching" -> pure NISAttaching
         "available" -> pure NISAvailable
         "detaching" -> pure NISDetaching
         "in-use" -> pure NISInUse
         e -> fromTextError $ "Failure parsing NetworkInterfaceStatus from value: '" <> e
-           <> "'. Accepted values: attaching, available, detaching, in-use"
+           <> "'. Accepted values: associated, attaching, available, detaching, in-use"
 
 instance ToText NetworkInterfaceStatus where
     toText = \case
+        NISAssociated -> "associated"
         NISAttaching -> "attaching"
         NISAvailable -> "available"
         NISDetaching -> "detaching"
@@ -2168,20 +2525,23 @@ instance ToHeader     PlacementGroupState
 instance FromXML PlacementGroupState where
     parseXML = parseXMLText "PlacementGroupState"
 
-data PlacementStrategy =
-  Cluster
+data PlacementStrategy
+  = Cluster
+  | Spread
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText PlacementStrategy where
     parser = takeLowerText >>= \case
         "cluster" -> pure Cluster
+        "spread" -> pure Spread
         e -> fromTextError $ "Failure parsing PlacementStrategy from value: '" <> e
-           <> "'. Accepted values: cluster"
+           <> "'. Accepted values: cluster, spread"
 
 instance ToText PlacementStrategy where
     toText = \case
         Cluster -> "cluster"
+        Spread -> "spread"
 
 instance Hashable     PlacementStrategy
 instance NFData       PlacementStrategy
@@ -2215,6 +2575,45 @@ instance ToHeader     PlatformValues
 
 instance FromXML PlatformValues where
     parseXML = parseXMLText "PlatformValues"
+
+data PrincipalType
+  = PTAccount
+  | PTAll
+  | PTOrganizationUnit
+  | PTRole
+  | PTService
+  | PTUser
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PrincipalType where
+    parser = takeLowerText >>= \case
+        "account" -> pure PTAccount
+        "all" -> pure PTAll
+        "organizationunit" -> pure PTOrganizationUnit
+        "role" -> pure PTRole
+        "service" -> pure PTService
+        "user" -> pure PTUser
+        e -> fromTextError $ "Failure parsing PrincipalType from value: '" <> e
+           <> "'. Accepted values: account, all, organizationunit, role, service, user"
+
+instance ToText PrincipalType where
+    toText = \case
+        PTAccount -> "Account"
+        PTAll -> "All"
+        PTOrganizationUnit -> "OrganizationUnit"
+        PTRole -> "Role"
+        PTService -> "Service"
+        PTUser -> "User"
+
+instance Hashable     PrincipalType
+instance NFData       PrincipalType
+instance ToByteString PrincipalType
+instance ToQuery      PrincipalType
+instance ToHeader     PrincipalType
+
+instance FromXML PrincipalType where
+    parseXML = parseXMLText "PrincipalType"
 
 data ProductCodeValues
   = Devpay
@@ -2660,6 +3059,42 @@ instance ToHeader     Scope
 instance FromXML Scope where
     parseXML = parseXMLText "Scope"
 
+data ServiceState
+  = SerAvailable
+  | SerDeleted
+  | SerDeleting
+  | SerFailed
+  | SerPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ServiceState where
+    parser = takeLowerText >>= \case
+        "available" -> pure SerAvailable
+        "deleted" -> pure SerDeleted
+        "deleting" -> pure SerDeleting
+        "failed" -> pure SerFailed
+        "pending" -> pure SerPending
+        e -> fromTextError $ "Failure parsing ServiceState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, failed, pending"
+
+instance ToText ServiceState where
+    toText = \case
+        SerAvailable -> "Available"
+        SerDeleted -> "Deleted"
+        SerDeleting -> "Deleting"
+        SerFailed -> "Failed"
+        SerPending -> "Pending"
+
+instance Hashable     ServiceState
+instance NFData       ServiceState
+instance ToByteString ServiceState
+instance ToQuery      ServiceState
+instance ToHeader     ServiceState
+
+instance FromXML ServiceState where
+    parseXML = parseXMLText "ServiceState"
+
 data ServiceType
   = Gateway
   | Interface
@@ -2688,28 +3123,31 @@ instance FromXML ServiceType where
     parseXML = parseXMLText "ServiceType"
 
 data ShutdownBehavior
-  = Stop
-  | Terminate
+  = SBStop
+  | SBTerminate
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ShutdownBehavior where
     parser = takeLowerText >>= \case
-        "stop" -> pure Stop
-        "terminate" -> pure Terminate
+        "stop" -> pure SBStop
+        "terminate" -> pure SBTerminate
         e -> fromTextError $ "Failure parsing ShutdownBehavior from value: '" <> e
            <> "'. Accepted values: stop, terminate"
 
 instance ToText ShutdownBehavior where
     toText = \case
-        Stop -> "stop"
-        Terminate -> "terminate"
+        SBStop -> "stop"
+        SBTerminate -> "terminate"
 
 instance Hashable     ShutdownBehavior
 instance NFData       ShutdownBehavior
 instance ToByteString ShutdownBehavior
 instance ToQuery      ShutdownBehavior
 instance ToHeader     ShutdownBehavior
+
+instance FromXML ShutdownBehavior where
+    parseXML = parseXMLText "ShutdownBehavior"
 
 data SnapshotAttributeName
   = SANCreateVolumePermission
@@ -2764,6 +3202,63 @@ instance ToHeader     SnapshotState
 
 instance FromXML SnapshotState where
     parseXML = parseXMLText "SnapshotState"
+
+data SpotAllocationStrategy
+  = Diversified
+  | LowestPrice
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SpotAllocationStrategy where
+    parser = takeLowerText >>= \case
+        "diversified" -> pure Diversified
+        "lowest-price" -> pure LowestPrice
+        e -> fromTextError $ "Failure parsing SpotAllocationStrategy from value: '" <> e
+           <> "'. Accepted values: diversified, lowest-price"
+
+instance ToText SpotAllocationStrategy where
+    toText = \case
+        Diversified -> "diversified"
+        LowestPrice -> "lowest-price"
+
+instance Hashable     SpotAllocationStrategy
+instance NFData       SpotAllocationStrategy
+instance ToByteString SpotAllocationStrategy
+instance ToQuery      SpotAllocationStrategy
+instance ToHeader     SpotAllocationStrategy
+
+instance FromXML SpotAllocationStrategy where
+    parseXML = parseXMLText "SpotAllocationStrategy"
+
+data SpotInstanceInterruptionBehavior
+  = SIIBHibernate
+  | SIIBStop
+  | SIIBTerminate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SpotInstanceInterruptionBehavior where
+    parser = takeLowerText >>= \case
+        "hibernate" -> pure SIIBHibernate
+        "stop" -> pure SIIBStop
+        "terminate" -> pure SIIBTerminate
+        e -> fromTextError $ "Failure parsing SpotInstanceInterruptionBehavior from value: '" <> e
+           <> "'. Accepted values: hibernate, stop, terminate"
+
+instance ToText SpotInstanceInterruptionBehavior where
+    toText = \case
+        SIIBHibernate -> "hibernate"
+        SIIBStop -> "stop"
+        SIIBTerminate -> "terminate"
+
+instance Hashable     SpotInstanceInterruptionBehavior
+instance NFData       SpotInstanceInterruptionBehavior
+instance ToByteString SpotInstanceInterruptionBehavior
+instance ToQuery      SpotInstanceInterruptionBehavior
+instance ToHeader     SpotInstanceInterruptionBehavior
+
+instance FromXML SpotInstanceInterruptionBehavior where
+    parseXML = parseXMLText "SpotInstanceInterruptionBehavior"
 
 data SpotInstanceState
   = SISActive
@@ -3118,6 +3613,39 @@ instance ToHeader     TrafficType
 
 instance FromXML TrafficType where
     parseXML = parseXMLText "TrafficType"
+
+data UnsuccessfulInstanceCreditSpecificationErrorCode
+  = IncorrectInstanceState
+  | InstanceCreditSpecification_NotSupported
+  | InvalidInstanceId_Malformed
+  | InvalidInstanceId_NotFound
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText UnsuccessfulInstanceCreditSpecificationErrorCode where
+    parser = takeLowerText >>= \case
+        "incorrectinstancestate" -> pure IncorrectInstanceState
+        "instancecreditspecification.notsupported" -> pure InstanceCreditSpecification_NotSupported
+        "invalidinstanceid.malformed" -> pure InvalidInstanceId_Malformed
+        "invalidinstanceid.notfound" -> pure InvalidInstanceId_NotFound
+        e -> fromTextError $ "Failure parsing UnsuccessfulInstanceCreditSpecificationErrorCode from value: '" <> e
+           <> "'. Accepted values: incorrectinstancestate, instancecreditspecification.notsupported, invalidinstanceid.malformed, invalidinstanceid.notfound"
+
+instance ToText UnsuccessfulInstanceCreditSpecificationErrorCode where
+    toText = \case
+        IncorrectInstanceState -> "IncorrectInstanceState"
+        InstanceCreditSpecification_NotSupported -> "InstanceCreditSpecification.NotSupported"
+        InvalidInstanceId_Malformed -> "InvalidInstanceID.Malformed"
+        InvalidInstanceId_NotFound -> "InvalidInstanceID.NotFound"
+
+instance Hashable     UnsuccessfulInstanceCreditSpecificationErrorCode
+instance NFData       UnsuccessfulInstanceCreditSpecificationErrorCode
+instance ToByteString UnsuccessfulInstanceCreditSpecificationErrorCode
+instance ToQuery      UnsuccessfulInstanceCreditSpecificationErrorCode
+instance ToHeader     UnsuccessfulInstanceCreditSpecificationErrorCode
+
+instance FromXML UnsuccessfulInstanceCreditSpecificationErrorCode where
+    parseXML = parseXMLText "UnsuccessfulInstanceCreditSpecificationErrorCode"
 
 data VPCAttributeName
   = EnableDNSHostnames

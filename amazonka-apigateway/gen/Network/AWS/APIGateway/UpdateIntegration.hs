@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateIntegration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,13 +39,16 @@ module Network.AWS.APIGateway.UpdateIntegration
     , iHttpMethod
     , iRequestTemplates
     , iCredentials
+    , iConnectionId
     , iRequestParameters
     , iContentHandling
     , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
     , iCacheNamespace
+    , iTimeoutInMillis
     , iType
+    , iConnectionType
     , iCacheKeyParameters
     ) where
 
@@ -75,11 +78,11 @@ data UpdateIntegration = UpdateIntegration'
 --
 -- * 'updPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'updRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'updRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'updResourceId' - Represents an update integration request's resource identifier.
+-- * 'updResourceId' - [Required] Represents an update integration request's resource identifier.
 --
--- * 'updHttpMethod' - Represents an update integration request's HTTP method.
+-- * 'updHttpMethod' - [Required] Represents an update integration request's HTTP method.
 updateIntegration
     :: Text -- ^ 'updRestAPIId'
     -> Text -- ^ 'updResourceId'
@@ -87,28 +90,28 @@ updateIntegration
     -> UpdateIntegration
 updateIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
   UpdateIntegration'
-  { _updPatchOperations = Nothing
-  , _updRestAPIId = pRestAPIId_
-  , _updResourceId = pResourceId_
-  , _updHttpMethod = pHttpMethod_
-  }
+    { _updPatchOperations = Nothing
+    , _updRestAPIId = pRestAPIId_
+    , _updResourceId = pResourceId_
+    , _updHttpMethod = pHttpMethod_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 updPatchOperations :: Lens' UpdateIntegration [PatchOperation]
-updPatchOperations = lens _updPatchOperations (\ s a -> s{_updPatchOperations = a}) . _Default . _Coerce;
+updPatchOperations = lens _updPatchOperations (\ s a -> s{_updPatchOperations = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 updRestAPIId :: Lens' UpdateIntegration Text
-updRestAPIId = lens _updRestAPIId (\ s a -> s{_updRestAPIId = a});
+updRestAPIId = lens _updRestAPIId (\ s a -> s{_updRestAPIId = a})
 
--- | Represents an update integration request's resource identifier.
+-- | [Required] Represents an update integration request's resource identifier.
 updResourceId :: Lens' UpdateIntegration Text
-updResourceId = lens _updResourceId (\ s a -> s{_updResourceId = a});
+updResourceId = lens _updResourceId (\ s a -> s{_updResourceId = a})
 
--- | Represents an update integration request's HTTP method.
+-- | [Required] Represents an update integration request's HTTP method.
 updHttpMethod :: Lens' UpdateIntegration Text
-updHttpMethod = lens _updHttpMethod (\ s a -> s{_updHttpMethod = a});
+updHttpMethod = lens _updHttpMethod (\ s a -> s{_updHttpMethod = a})
 
 instance AWSRequest UpdateIntegration where
         type Rs UpdateIntegration = Integration

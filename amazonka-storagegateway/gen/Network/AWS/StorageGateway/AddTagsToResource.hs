@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.AddTagsToResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,11 +86,11 @@ addTagsToResource pResourceARN_ =
 
 -- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
 attrResourceARN :: Lens' AddTagsToResource Text
-attrResourceARN = lens _attrResourceARN (\ s a -> s{_attrResourceARN = a});
+attrResourceARN = lens _attrResourceARN (\ s a -> s{_attrResourceARN = a})
 
 -- | The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.
 attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce
 
 instance AWSRequest AddTagsToResource where
         type Rs AddTagsToResource = AddTagsToResourceResponse
@@ -151,15 +151,15 @@ addTagsToResourceResponse
     -> AddTagsToResourceResponse
 addTagsToResourceResponse pResponseStatus_ =
   AddTagsToResourceResponse'
-  {_attrrsResourceARN = Nothing, _attrrsResponseStatus = pResponseStatus_}
+    {_attrrsResourceARN = Nothing, _attrrsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
 attrrsResourceARN :: Lens' AddTagsToResourceResponse (Maybe Text)
-attrrsResourceARN = lens _attrrsResourceARN (\ s a -> s{_attrrsResourceARN = a});
+attrrsResourceARN = lens _attrrsResourceARN (\ s a -> s{_attrrsResourceARN = a})
 
 -- | -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
-attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
+attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a})
 
 instance NFData AddTagsToResourceResponse where

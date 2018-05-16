@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,18 +69,18 @@ deleteDirectConnectGatewayAssociation
     -> DeleteDirectConnectGatewayAssociation
 deleteDirectConnectGatewayAssociation pDirectConnectGatewayId_ pVirtualGatewayId_ =
   DeleteDirectConnectGatewayAssociation'
-  { _delDirectConnectGatewayId = pDirectConnectGatewayId_
-  , _delVirtualGatewayId = pVirtualGatewayId_
-  }
+    { _delDirectConnectGatewayId = pDirectConnectGatewayId_
+    , _delVirtualGatewayId = pVirtualGatewayId_
+    }
 
 
 -- | The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
 delDirectConnectGatewayId :: Lens' DeleteDirectConnectGatewayAssociation Text
-delDirectConnectGatewayId = lens _delDirectConnectGatewayId (\ s a -> s{_delDirectConnectGatewayId = a});
+delDirectConnectGatewayId = lens _delDirectConnectGatewayId (\ s a -> s{_delDirectConnectGatewayId = a})
 
 -- | The ID of the virtual private gateway. Example: "vgw-abc123ef" Default: None
 delVirtualGatewayId :: Lens' DeleteDirectConnectGatewayAssociation Text
-delVirtualGatewayId = lens _delVirtualGatewayId (\ s a -> s{_delVirtualGatewayId = a});
+delVirtualGatewayId = lens _delVirtualGatewayId (\ s a -> s{_delVirtualGatewayId = a})
 
 instance AWSRequest
            DeleteDirectConnectGatewayAssociation
@@ -156,18 +156,18 @@ deleteDirectConnectGatewayAssociationResponse
     -> DeleteDirectConnectGatewayAssociationResponse
 deleteDirectConnectGatewayAssociationResponse pResponseStatus_ =
   DeleteDirectConnectGatewayAssociationResponse'
-  { _delrsDirectConnectGatewayAssociation = Nothing
-  , _delrsResponseStatus = pResponseStatus_
-  }
+    { _delrsDirectConnectGatewayAssociation = Nothing
+    , _delrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The direct connect gateway association to be deleted.
 delrsDirectConnectGatewayAssociation :: Lens' DeleteDirectConnectGatewayAssociationResponse (Maybe DirectConnectGatewayAssociation)
-delrsDirectConnectGatewayAssociation = lens _delrsDirectConnectGatewayAssociation (\ s a -> s{_delrsDirectConnectGatewayAssociation = a});
+delrsDirectConnectGatewayAssociation = lens _delrsDirectConnectGatewayAssociation (\ s a -> s{_delrsDirectConnectGatewayAssociation = a})
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteDirectConnectGatewayAssociationResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData
            DeleteDirectConnectGatewayAssociationResponse

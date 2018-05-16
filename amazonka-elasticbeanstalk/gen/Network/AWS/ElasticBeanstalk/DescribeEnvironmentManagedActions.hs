@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ describeEnvironmentManagedActions
     :: DescribeEnvironmentManagedActions
 describeEnvironmentManagedActions =
   DescribeEnvironmentManagedActions'
-  { _demaStatus = Nothing
-  , _demaEnvironmentName = Nothing
-  , _demaEnvironmentId = Nothing
-  }
+    { _demaStatus = Nothing
+    , _demaEnvironmentName = Nothing
+    , _demaEnvironmentId = Nothing
+    }
 
 
 -- | To show only actions with a particular status, specify a status.
 demaStatus :: Lens' DescribeEnvironmentManagedActions (Maybe ActionStatus)
-demaStatus = lens _demaStatus (\ s a -> s{_demaStatus = a});
+demaStatus = lens _demaStatus (\ s a -> s{_demaStatus = a})
 
 -- | The name of the target environment.
 demaEnvironmentName :: Lens' DescribeEnvironmentManagedActions (Maybe Text)
-demaEnvironmentName = lens _demaEnvironmentName (\ s a -> s{_demaEnvironmentName = a});
+demaEnvironmentName = lens _demaEnvironmentName (\ s a -> s{_demaEnvironmentName = a})
 
 -- | The environment ID of the target environment.
 demaEnvironmentId :: Lens' DescribeEnvironmentManagedActions (Maybe Text)
-demaEnvironmentId = lens _demaEnvironmentId (\ s a -> s{_demaEnvironmentId = a});
+demaEnvironmentId = lens _demaEnvironmentId (\ s a -> s{_demaEnvironmentId = a})
 
 instance AWSRequest DescribeEnvironmentManagedActions
          where
@@ -151,16 +151,16 @@ describeEnvironmentManagedActionsResponse
     -> DescribeEnvironmentManagedActionsResponse
 describeEnvironmentManagedActionsResponse pResponseStatus_ =
   DescribeEnvironmentManagedActionsResponse'
-  {_demarsManagedActions = Nothing, _demarsResponseStatus = pResponseStatus_}
+    {_demarsManagedActions = Nothing, _demarsResponseStatus = pResponseStatus_}
 
 
 -- | A list of upcoming and in-progress managed actions.
 demarsManagedActions :: Lens' DescribeEnvironmentManagedActionsResponse (Maybe (NonEmpty ManagedAction))
-demarsManagedActions = lens _demarsManagedActions (\ s a -> s{_demarsManagedActions = a}) . mapping _List1;
+demarsManagedActions = lens _demarsManagedActions (\ s a -> s{_demarsManagedActions = a}) . mapping _List1
 
 -- | -- | The response status code.
 demarsResponseStatus :: Lens' DescribeEnvironmentManagedActionsResponse Int
-demarsResponseStatus = lens _demarsResponseStatus (\ s a -> s{_demarsResponseStatus = a});
+demarsResponseStatus = lens _demarsResponseStatus (\ s a -> s{_demarsResponseStatus = a})
 
 instance NFData
            DescribeEnvironmentManagedActionsResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.GetWorkflowExecutionHistory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -95,33 +95,33 @@ getWorkflowExecutionHistory
     -> GetWorkflowExecutionHistory
 getWorkflowExecutionHistory pDomain_ pExecution_ =
   GetWorkflowExecutionHistory'
-  { _gwehNextPageToken = Nothing
-  , _gwehReverseOrder = Nothing
-  , _gwehMaximumPageSize = Nothing
-  , _gwehDomain = pDomain_
-  , _gwehExecution = pExecution_
-  }
+    { _gwehNextPageToken = Nothing
+    , _gwehReverseOrder = Nothing
+    , _gwehMaximumPageSize = Nothing
+    , _gwehDomain = pDomain_
+    , _gwehExecution = pExecution_
+    }
 
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 gwehNextPageToken :: Lens' GetWorkflowExecutionHistory (Maybe Text)
-gwehNextPageToken = lens _gwehNextPageToken (\ s a -> s{_gwehNextPageToken = a});
+gwehNextPageToken = lens _gwehNextPageToken (\ s a -> s{_gwehNextPageToken = a})
 
 -- | When set to @true@ , returns the events in reverse order. By default the results are returned in ascending order of the @eventTimeStamp@ of the events.
 gwehReverseOrder :: Lens' GetWorkflowExecutionHistory (Maybe Bool)
-gwehReverseOrder = lens _gwehReverseOrder (\ s a -> s{_gwehReverseOrder = a});
+gwehReverseOrder = lens _gwehReverseOrder (\ s a -> s{_gwehReverseOrder = a})
 
 -- | The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 gwehMaximumPageSize :: Lens' GetWorkflowExecutionHistory (Maybe Natural)
-gwehMaximumPageSize = lens _gwehMaximumPageSize (\ s a -> s{_gwehMaximumPageSize = a}) . mapping _Nat;
+gwehMaximumPageSize = lens _gwehMaximumPageSize (\ s a -> s{_gwehMaximumPageSize = a}) . mapping _Nat
 
 -- | The name of the domain containing the workflow execution.
 gwehDomain :: Lens' GetWorkflowExecutionHistory Text
-gwehDomain = lens _gwehDomain (\ s a -> s{_gwehDomain = a});
+gwehDomain = lens _gwehDomain (\ s a -> s{_gwehDomain = a})
 
 -- | Specifies the workflow execution for which to return the history.
 gwehExecution :: Lens' GetWorkflowExecutionHistory WorkflowExecution
-gwehExecution = lens _gwehExecution (\ s a -> s{_gwehExecution = a});
+gwehExecution = lens _gwehExecution (\ s a -> s{_gwehExecution = a})
 
 instance AWSPager GetWorkflowExecutionHistory where
         page rq rs
@@ -198,23 +198,23 @@ getWorkflowExecutionHistoryResponse
     -> GetWorkflowExecutionHistoryResponse
 getWorkflowExecutionHistoryResponse pResponseStatus_ =
   GetWorkflowExecutionHistoryResponse'
-  { _gwehrsNextPageToken = Nothing
-  , _gwehrsResponseStatus = pResponseStatus_
-  , _gwehrsEvents = mempty
-  }
+    { _gwehrsNextPageToken = Nothing
+    , _gwehrsResponseStatus = pResponseStatus_
+    , _gwehrsEvents = mempty
+    }
 
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 gwehrsNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
-gwehrsNextPageToken = lens _gwehrsNextPageToken (\ s a -> s{_gwehrsNextPageToken = a});
+gwehrsNextPageToken = lens _gwehrsNextPageToken (\ s a -> s{_gwehrsNextPageToken = a})
 
 -- | -- | The response status code.
 gwehrsResponseStatus :: Lens' GetWorkflowExecutionHistoryResponse Int
-gwehrsResponseStatus = lens _gwehrsResponseStatus (\ s a -> s{_gwehrsResponseStatus = a});
+gwehrsResponseStatus = lens _gwehrsResponseStatus (\ s a -> s{_gwehrsResponseStatus = a})
 
 -- | The list of history events.
 gwehrsEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
-gwehrsEvents = lens _gwehrsEvents (\ s a -> s{_gwehrsEvents = a}) . _Coerce;
+gwehrsEvents = lens _gwehrsEvents (\ s a -> s{_gwehrsEvents = a}) . _Coerce
 
 instance NFData GetWorkflowExecutionHistoryResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.CreateParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ createParameterGroup
     -> CreateParameterGroup
 createParameterGroup pParameterGroupName_ =
   CreateParameterGroup'
-  {_cpgDescription = Nothing, _cpgParameterGroupName = pParameterGroupName_}
+    {_cpgDescription = Nothing, _cpgParameterGroupName = pParameterGroupName_}
 
 
 -- | A description of the parameter group.
 cpgDescription :: Lens' CreateParameterGroup (Maybe Text)
-cpgDescription = lens _cpgDescription (\ s a -> s{_cpgDescription = a});
+cpgDescription = lens _cpgDescription (\ s a -> s{_cpgDescription = a})
 
 -- | The name of the parameter group to apply to all of the clusters in this replication group.
 cpgParameterGroupName :: Lens' CreateParameterGroup Text
-cpgParameterGroupName = lens _cpgParameterGroupName (\ s a -> s{_cpgParameterGroupName = a});
+cpgParameterGroupName = lens _cpgParameterGroupName (\ s a -> s{_cpgParameterGroupName = a})
 
 instance AWSRequest CreateParameterGroup where
         type Rs CreateParameterGroup =
@@ -131,15 +131,15 @@ createParameterGroupResponse
     -> CreateParameterGroupResponse
 createParameterGroupResponse pResponseStatus_ =
   CreateParameterGroupResponse'
-  {_cpgrsParameterGroup = Nothing, _cpgrsResponseStatus = pResponseStatus_}
+    {_cpgrsParameterGroup = Nothing, _cpgrsResponseStatus = pResponseStatus_}
 
 
 -- | Represents the output of a /CreateParameterGroup/ action.
 cpgrsParameterGroup :: Lens' CreateParameterGroupResponse (Maybe ParameterGroup)
-cpgrsParameterGroup = lens _cpgrsParameterGroup (\ s a -> s{_cpgrsParameterGroup = a});
+cpgrsParameterGroup = lens _cpgrsParameterGroup (\ s a -> s{_cpgrsParameterGroup = a})
 
 -- | -- | The response status code.
 cpgrsResponseStatus :: Lens' CreateParameterGroupResponse Int
-cpgrsResponseStatus = lens _cpgrsResponseStatus (\ s a -> s{_cpgrsResponseStatus = a});
+cpgrsResponseStatus = lens _cpgrsResponseStatus (\ s a -> s{_cpgrsResponseStatus = a})
 
 instance NFData CreateParameterGroupResponse where

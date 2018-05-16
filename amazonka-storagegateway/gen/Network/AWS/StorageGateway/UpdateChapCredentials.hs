@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateChapCredentials
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,28 +91,28 @@ updateChapCredentials
     -> UpdateChapCredentials
 updateChapCredentials pTargetARN_ pSecretToAuthenticateInitiator_ pInitiatorName_ =
   UpdateChapCredentials'
-  { _uccSecretToAuthenticateTarget = Nothing
-  , _uccTargetARN = pTargetARN_
-  , _uccSecretToAuthenticateInitiator = pSecretToAuthenticateInitiator_
-  , _uccInitiatorName = pInitiatorName_
-  }
+    { _uccSecretToAuthenticateTarget = Nothing
+    , _uccTargetARN = pTargetARN_
+    , _uccSecretToAuthenticateInitiator = pSecretToAuthenticateInitiator_
+    , _uccInitiatorName = pInitiatorName_
+    }
 
 
 -- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client). Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
 uccSecretToAuthenticateTarget :: Lens' UpdateChapCredentials (Maybe Text)
-uccSecretToAuthenticateTarget = lens _uccSecretToAuthenticateTarget (\ s a -> s{_uccSecretToAuthenticateTarget = a});
+uccSecretToAuthenticateTarget = lens _uccSecretToAuthenticateTarget (\ s a -> s{_uccSecretToAuthenticateTarget = a})
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return the TargetARN for specified VolumeARN.
 uccTargetARN :: Lens' UpdateChapCredentials Text
-uccTargetARN = lens _uccTargetARN (\ s a -> s{_uccTargetARN = a});
+uccTargetARN = lens _uccTargetARN (\ s a -> s{_uccTargetARN = a})
 
 -- | The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
 uccSecretToAuthenticateInitiator :: Lens' UpdateChapCredentials Text
-uccSecretToAuthenticateInitiator = lens _uccSecretToAuthenticateInitiator (\ s a -> s{_uccSecretToAuthenticateInitiator = a});
+uccSecretToAuthenticateInitiator = lens _uccSecretToAuthenticateInitiator (\ s a -> s{_uccSecretToAuthenticateInitiator = a})
 
 -- | The iSCSI initiator that connects to the target.
 uccInitiatorName :: Lens' UpdateChapCredentials Text
-uccInitiatorName = lens _uccInitiatorName (\ s a -> s{_uccInitiatorName = a});
+uccInitiatorName = lens _uccInitiatorName (\ s a -> s{_uccInitiatorName = a})
 
 instance AWSRequest UpdateChapCredentials where
         type Rs UpdateChapCredentials =
@@ -183,22 +183,22 @@ updateChapCredentialsResponse
     -> UpdateChapCredentialsResponse
 updateChapCredentialsResponse pResponseStatus_ =
   UpdateChapCredentialsResponse'
-  { _uccrsTargetARN = Nothing
-  , _uccrsInitiatorName = Nothing
-  , _uccrsResponseStatus = pResponseStatus_
-  }
+    { _uccrsTargetARN = Nothing
+    , _uccrsInitiatorName = Nothing
+    , _uccrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the target. This is the same target specified in the request.
 uccrsTargetARN :: Lens' UpdateChapCredentialsResponse (Maybe Text)
-uccrsTargetARN = lens _uccrsTargetARN (\ s a -> s{_uccrsTargetARN = a});
+uccrsTargetARN = lens _uccrsTargetARN (\ s a -> s{_uccrsTargetARN = a})
 
 -- | The iSCSI initiator that connects to the target. This is the same initiator name specified in the request.
 uccrsInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
-uccrsInitiatorName = lens _uccrsInitiatorName (\ s a -> s{_uccrsInitiatorName = a});
+uccrsInitiatorName = lens _uccrsInitiatorName (\ s a -> s{_uccrsInitiatorName = a})
 
 -- | -- | The response status code.
 uccrsResponseStatus :: Lens' UpdateChapCredentialsResponse Int
-uccrsResponseStatus = lens _uccrsResponseStatus (\ s a -> s{_uccrsResponseStatus = a});
+uccrsResponseStatus = lens _uccrsResponseStatus (\ s a -> s{_uccrsResponseStatus = a})
 
 instance NFData UpdateChapCredentialsResponse where

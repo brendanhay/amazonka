@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.StartInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ startInstance pInstanceName_ = StartInstance' {_sInstanceName = pInstanceName_}
 
 -- | The name of the instance (a virtual private server) to start.
 sInstanceName :: Lens' StartInstance Text
-sInstanceName = lens _sInstanceName (\ s a -> s{_sInstanceName = a});
+sInstanceName = lens _sInstanceName (\ s a -> s{_sInstanceName = a})
 
 instance AWSRequest StartInstance where
         type Rs StartInstance = StartInstanceResponse
@@ -118,15 +118,15 @@ startInstanceResponse
     -> StartInstanceResponse
 startInstanceResponse pResponseStatus_ =
   StartInstanceResponse'
-  {_srsOperations = Nothing, _srsResponseStatus = pResponseStatus_}
+    {_srsOperations = Nothing, _srsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the request operation.
 srsOperations :: Lens' StartInstanceResponse [Operation]
-srsOperations = lens _srsOperations (\ s a -> s{_srsOperations = a}) . _Default . _Coerce;
+srsOperations = lens _srsOperations (\ s a -> s{_srsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StartInstanceResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StartInstanceResponse where

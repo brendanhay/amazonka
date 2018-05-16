@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteAnalysisScheme
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,18 @@ deleteAnalysisScheme
     -> DeleteAnalysisScheme
 deleteAnalysisScheme pDomainName_ pAnalysisSchemeName_ =
   DeleteAnalysisScheme'
-  {_dasDomainName = pDomainName_, _dasAnalysisSchemeName = pAnalysisSchemeName_}
+    { _dasDomainName = pDomainName_
+    , _dasAnalysisSchemeName = pAnalysisSchemeName_
+    }
 
 
 -- | Undocumented member.
 dasDomainName :: Lens' DeleteAnalysisScheme Text
-dasDomainName = lens _dasDomainName (\ s a -> s{_dasDomainName = a});
+dasDomainName = lens _dasDomainName (\ s a -> s{_dasDomainName = a})
 
 -- | The name of the analysis scheme you want to delete.
 dasAnalysisSchemeName :: Lens' DeleteAnalysisScheme Text
-dasAnalysisSchemeName = lens _dasAnalysisSchemeName (\ s a -> s{_dasAnalysisSchemeName = a});
+dasAnalysisSchemeName = lens _dasAnalysisSchemeName (\ s a -> s{_dasAnalysisSchemeName = a})
 
 instance AWSRequest DeleteAnalysisScheme where
         type Rs DeleteAnalysisScheme =
@@ -132,17 +134,17 @@ deleteAnalysisSchemeResponse
     -> DeleteAnalysisSchemeResponse
 deleteAnalysisSchemeResponse pResponseStatus_ pAnalysisScheme_ =
   DeleteAnalysisSchemeResponse'
-  { _dasarsResponseStatus = pResponseStatus_
-  , _dasarsAnalysisScheme = pAnalysisScheme_
-  }
+    { _dasarsResponseStatus = pResponseStatus_
+    , _dasarsAnalysisScheme = pAnalysisScheme_
+    }
 
 
 -- | -- | The response status code.
 dasarsResponseStatus :: Lens' DeleteAnalysisSchemeResponse Int
-dasarsResponseStatus = lens _dasarsResponseStatus (\ s a -> s{_dasarsResponseStatus = a});
+dasarsResponseStatus = lens _dasarsResponseStatus (\ s a -> s{_dasarsResponseStatus = a})
 
 -- | The status of the analysis scheme being deleted.
 dasarsAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
-dasarsAnalysisScheme = lens _dasarsAnalysisScheme (\ s a -> s{_dasarsAnalysisScheme = a});
+dasarsAnalysisScheme = lens _dasarsAnalysisScheme (\ s a -> s{_dasarsAnalysisScheme = a})
 
 instance NFData DeleteAnalysisSchemeResponse where

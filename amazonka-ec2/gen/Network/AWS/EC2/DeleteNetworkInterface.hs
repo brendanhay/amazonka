@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteNetworkInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ deleteNetworkInterface
     -> DeleteNetworkInterface
 deleteNetworkInterface pNetworkInterfaceId_ =
   DeleteNetworkInterface'
-  {_dninDryRun = Nothing, _dninNetworkInterfaceId = pNetworkInterfaceId_}
+    {_dninDryRun = Nothing, _dninNetworkInterfaceId = pNetworkInterfaceId_}
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dninDryRun :: Lens' DeleteNetworkInterface (Maybe Bool)
-dninDryRun = lens _dninDryRun (\ s a -> s{_dninDryRun = a});
+dninDryRun = lens _dninDryRun (\ s a -> s{_dninDryRun = a})
 
 -- | The ID of the network interface.
 dninNetworkInterfaceId :: Lens' DeleteNetworkInterface Text
-dninNetworkInterfaceId = lens _dninNetworkInterfaceId (\ s a -> s{_dninNetworkInterfaceId = a});
+dninNetworkInterfaceId = lens _dninNetworkInterfaceId (\ s a -> s{_dninNetworkInterfaceId = a})
 
 instance AWSRequest DeleteNetworkInterface where
         type Rs DeleteNetworkInterface =

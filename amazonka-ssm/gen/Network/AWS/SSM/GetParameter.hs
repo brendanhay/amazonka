@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetParameter
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ getParameter pName_ =
 
 -- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
 gWithDecryption :: Lens' GetParameter (Maybe Bool)
-gWithDecryption = lens _gWithDecryption (\ s a -> s{_gWithDecryption = a});
+gWithDecryption = lens _gWithDecryption (\ s a -> s{_gWithDecryption = a})
 
 -- | The name of the parameter you want to query.
 gName :: Lens' GetParameter Text
-gName = lens _gName (\ s a -> s{_gName = a});
+gName = lens _gName (\ s a -> s{_gName = a})
 
 instance AWSRequest GetParameter where
         type Rs GetParameter = GetParameterResponse
@@ -128,15 +128,15 @@ getParameterResponse
     -> GetParameterResponse
 getParameterResponse pResponseStatus_ =
   GetParameterResponse'
-  {_gprsParameter = Nothing, _gprsResponseStatus = pResponseStatus_}
+    {_gprsParameter = Nothing, _gprsResponseStatus = pResponseStatus_}
 
 
 -- | Information about a parameter.
 gprsParameter :: Lens' GetParameterResponse (Maybe Parameter)
-gprsParameter = lens _gprsParameter (\ s a -> s{_gprsParameter = a});
+gprsParameter = lens _gprsParameter (\ s a -> s{_gprsParameter = a})
 
 -- | -- | The response status code.
 gprsResponseStatus :: Lens' GetParameterResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a})
 
 instance NFData GetParameterResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,18 +72,18 @@ disableAvailabilityZonesForLoadBalancer
     -> DisableAvailabilityZonesForLoadBalancer
 disableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
   DisableAvailabilityZonesForLoadBalancer'
-  { _dazflbLoadBalancerName = pLoadBalancerName_
-  , _dazflbAvailabilityZones = mempty
-  }
+    { _dazflbLoadBalancerName = pLoadBalancerName_
+    , _dazflbAvailabilityZones = mempty
+    }
 
 
 -- | The name of the load balancer.
 dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
-dazflbLoadBalancerName = lens _dazflbLoadBalancerName (\ s a -> s{_dazflbLoadBalancerName = a});
+dazflbLoadBalancerName = lens _dazflbLoadBalancerName (\ s a -> s{_dazflbLoadBalancerName = a})
 
 -- | The Availability Zones.
 dazflbAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
-dazflbAvailabilityZones = lens _dazflbAvailabilityZones (\ s a -> s{_dazflbAvailabilityZones = a}) . _Coerce;
+dazflbAvailabilityZones = lens _dazflbAvailabilityZones (\ s a -> s{_dazflbAvailabilityZones = a}) . _Coerce
 
 instance AWSRequest
            DisableAvailabilityZonesForLoadBalancer
@@ -154,18 +154,18 @@ disableAvailabilityZonesForLoadBalancerResponse
     -> DisableAvailabilityZonesForLoadBalancerResponse
 disableAvailabilityZonesForLoadBalancerResponse pResponseStatus_ =
   DisableAvailabilityZonesForLoadBalancerResponse'
-  { _dazflbrsAvailabilityZones = Nothing
-  , _dazflbrsResponseStatus = pResponseStatus_
-  }
+    { _dazflbrsAvailabilityZones = Nothing
+    , _dazflbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The remaining Availability Zones for the load balancer.
 dazflbrsAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
-dazflbrsAvailabilityZones = lens _dazflbrsAvailabilityZones (\ s a -> s{_dazflbrsAvailabilityZones = a}) . _Default . _Coerce;
+dazflbrsAvailabilityZones = lens _dazflbrsAvailabilityZones (\ s a -> s{_dazflbrsAvailabilityZones = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dazflbrsResponseStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Int
-dazflbrsResponseStatus = lens _dazflbrsResponseStatus (\ s a -> s{_dazflbrsResponseStatus = a});
+dazflbrsResponseStatus = lens _dazflbrsResponseStatus (\ s a -> s{_dazflbrsResponseStatus = a})
 
 instance NFData
            DisableAvailabilityZonesForLoadBalancerResponse

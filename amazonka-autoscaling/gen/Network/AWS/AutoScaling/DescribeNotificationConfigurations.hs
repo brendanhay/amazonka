@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeNotificationConfigurations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dncAutoScalingGroupNames' - The name of the group.
+-- * 'dncAutoScalingGroupNames' - The name of the Auto Scaling group.
 --
 -- * 'dncNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -71,23 +71,23 @@ describeNotificationConfigurations
     :: DescribeNotificationConfigurations
 describeNotificationConfigurations =
   DescribeNotificationConfigurations'
-  { _dncAutoScalingGroupNames = Nothing
-  , _dncNextToken = Nothing
-  , _dncMaxRecords = Nothing
-  }
+    { _dncAutoScalingGroupNames = Nothing
+    , _dncNextToken = Nothing
+    , _dncMaxRecords = Nothing
+    }
 
 
--- | The name of the group.
+-- | The name of the Auto Scaling group.
 dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
-dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoScalingGroupNames = a}) . _Default . _Coerce;
+dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoScalingGroupNames = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dncNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
-dncNextToken = lens _dncNextToken (\ s a -> s{_dncNextToken = a});
+dncNextToken = lens _dncNextToken (\ s a -> s{_dncNextToken = a})
 
 -- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
-dncMaxRecords = lens _dncMaxRecords (\ s a -> s{_dncMaxRecords = a});
+dncMaxRecords = lens _dncMaxRecords (\ s a -> s{_dncMaxRecords = a})
 
 instance AWSPager DescribeNotificationConfigurations
          where
@@ -162,23 +162,23 @@ describeNotificationConfigurationsResponse
     -> DescribeNotificationConfigurationsResponse
 describeNotificationConfigurationsResponse pResponseStatus_ =
   DescribeNotificationConfigurationsResponse'
-  { _dncrsNextToken = Nothing
-  , _dncrsResponseStatus = pResponseStatus_
-  , _dncrsNotificationConfigurations = mempty
-  }
+    { _dncrsNextToken = Nothing
+    , _dncrsResponseStatus = pResponseStatus_
+    , _dncrsNotificationConfigurations = mempty
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
-dncrsNextToken = lens _dncrsNextToken (\ s a -> s{_dncrsNextToken = a});
+dncrsNextToken = lens _dncrsNextToken (\ s a -> s{_dncrsNextToken = a})
 
 -- | -- | The response status code.
 dncrsResponseStatus :: Lens' DescribeNotificationConfigurationsResponse Int
-dncrsResponseStatus = lens _dncrsResponseStatus (\ s a -> s{_dncrsResponseStatus = a});
+dncrsResponseStatus = lens _dncrsResponseStatus (\ s a -> s{_dncrsResponseStatus = a})
 
 -- | The notification configurations.
 dncrsNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
-dncrsNotificationConfigurations = lens _dncrsNotificationConfigurations (\ s a -> s{_dncrsNotificationConfigurations = a}) . _Coerce;
+dncrsNotificationConfigurations = lens _dncrsNotificationConfigurations (\ s a -> s{_dncrsNotificationConfigurations = a}) . _Coerce
 
 instance NFData
            DescribeNotificationConfigurationsResponse

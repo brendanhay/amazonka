@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListTemplates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ data ListTemplates = ListTemplates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltNextToken' - The token to use for pagination.
+-- * 'ltNextToken' - A token returned from a previous call to @ListTemplates@ to indicate the position in the list of email templates.
 --
 -- * 'ltMaxItems' - The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.
 listTemplates
@@ -67,13 +67,13 @@ listTemplates
 listTemplates = ListTemplates' {_ltNextToken = Nothing, _ltMaxItems = Nothing}
 
 
--- | The token to use for pagination.
+-- | A token returned from a previous call to @ListTemplates@ to indicate the position in the list of email templates.
 ltNextToken :: Lens' ListTemplates (Maybe Text)
-ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
+ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
 
 -- | The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.
 ltMaxItems :: Lens' ListTemplates (Maybe Int)
-ltMaxItems = lens _ltMaxItems (\ s a -> s{_ltMaxItems = a});
+ltMaxItems = lens _ltMaxItems (\ s a -> s{_ltMaxItems = a})
 
 instance AWSRequest ListTemplates where
         type Rs ListTemplates = ListTemplatesResponse
@@ -117,9 +117,9 @@ data ListTemplatesResponse = ListTemplatesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsTemplatesMetadata' - An array the contains the name of creation time stamp for each template in your Amazon SES account.
+-- * 'ltrsTemplatesMetadata' - An array the contains the name and creation time stamp for each template in your Amazon SES account.
 --
--- * 'ltrsNextToken' - The token to use for pagination.
+-- * 'ltrsNextToken' - A token indicating that there are additional email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 email templates.
 --
 -- * 'ltrsResponseStatus' - -- | The response status code.
 listTemplatesResponse
@@ -127,22 +127,22 @@ listTemplatesResponse
     -> ListTemplatesResponse
 listTemplatesResponse pResponseStatus_ =
   ListTemplatesResponse'
-  { _ltrsTemplatesMetadata = Nothing
-  , _ltrsNextToken = Nothing
-  , _ltrsResponseStatus = pResponseStatus_
-  }
+    { _ltrsTemplatesMetadata = Nothing
+    , _ltrsNextToken = Nothing
+    , _ltrsResponseStatus = pResponseStatus_
+    }
 
 
--- | An array the contains the name of creation time stamp for each template in your Amazon SES account.
+-- | An array the contains the name and creation time stamp for each template in your Amazon SES account.
 ltrsTemplatesMetadata :: Lens' ListTemplatesResponse [TemplateMetadata]
-ltrsTemplatesMetadata = lens _ltrsTemplatesMetadata (\ s a -> s{_ltrsTemplatesMetadata = a}) . _Default . _Coerce;
+ltrsTemplatesMetadata = lens _ltrsTemplatesMetadata (\ s a -> s{_ltrsTemplatesMetadata = a}) . _Default . _Coerce
 
--- | The token to use for pagination.
+-- | A token indicating that there are additional email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 email templates.
 ltrsNextToken :: Lens' ListTemplatesResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
+ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a})
 
 -- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTemplatesResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
 
 instance NFData ListTemplatesResponse where

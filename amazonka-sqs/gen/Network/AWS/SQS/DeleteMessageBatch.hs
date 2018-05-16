@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.DeleteMessageBatch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,11 +75,11 @@ deleteMessageBatch pQueueURL_ =
 
 -- | The URL of the Amazon SQS queue from which messages are deleted. Queue URLs are case-sensitive.
 dmbQueueURL :: Lens' DeleteMessageBatch Text
-dmbQueueURL = lens _dmbQueueURL (\ s a -> s{_dmbQueueURL = a});
+dmbQueueURL = lens _dmbQueueURL (\ s a -> s{_dmbQueueURL = a})
 
 -- | A list of receipt handles for the messages to be deleted.
 dmbEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
-dmbEntries = lens _dmbEntries (\ s a -> s{_dmbEntries = a}) . _Coerce;
+dmbEntries = lens _dmbEntries (\ s a -> s{_dmbEntries = a}) . _Coerce
 
 instance AWSRequest DeleteMessageBatch where
         type Rs DeleteMessageBatch =
@@ -138,22 +138,22 @@ deleteMessageBatchResponse
     -> DeleteMessageBatchResponse
 deleteMessageBatchResponse pResponseStatus_ =
   DeleteMessageBatchResponse'
-  { _dmbrsResponseStatus = pResponseStatus_
-  , _dmbrsSuccessful = mempty
-  , _dmbrsFailed = mempty
-  }
+    { _dmbrsResponseStatus = pResponseStatus_
+    , _dmbrsSuccessful = mempty
+    , _dmbrsFailed = mempty
+    }
 
 
 -- | -- | The response status code.
 dmbrsResponseStatus :: Lens' DeleteMessageBatchResponse Int
-dmbrsResponseStatus = lens _dmbrsResponseStatus (\ s a -> s{_dmbrsResponseStatus = a});
+dmbrsResponseStatus = lens _dmbrsResponseStatus (\ s a -> s{_dmbrsResponseStatus = a})
 
 -- | A list of @'DeleteMessageBatchResultEntry' @ items.
 dmbrsSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
-dmbrsSuccessful = lens _dmbrsSuccessful (\ s a -> s{_dmbrsSuccessful = a}) . _Coerce;
+dmbrsSuccessful = lens _dmbrsSuccessful (\ s a -> s{_dmbrsSuccessful = a}) . _Coerce
 
 -- | A list of @'BatchResultErrorEntry' @ items.
 dmbrsFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
-dmbrsFailed = lens _dmbrsFailed (\ s a -> s{_dmbrsFailed = a}) . _Coerce;
+dmbrsFailed = lens _dmbrsFailed (\ s a -> s{_dmbrsFailed = a}) . _Coerce
 
 instance NFData DeleteMessageBatchResponse where

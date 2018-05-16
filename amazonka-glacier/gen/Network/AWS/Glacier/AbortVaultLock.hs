@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.AbortVaultLock
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ abortVaultLock pAccountId_ pVaultName_ =
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 avlAccountId :: Lens' AbortVaultLock Text
-avlAccountId = lens _avlAccountId (\ s a -> s{_avlAccountId = a});
+avlAccountId = lens _avlAccountId (\ s a -> s{_avlAccountId = a})
 
 -- | The name of the vault.
 avlVaultName :: Lens' AbortVaultLock Text
-avlVaultName = lens _avlVaultName (\ s a -> s{_avlVaultName = a});
+avlVaultName = lens _avlVaultName (\ s a -> s{_avlVaultName = a})
 
 instance AWSRequest AbortVaultLock where
         type Rs AbortVaultLock = AbortVaultLockResponse

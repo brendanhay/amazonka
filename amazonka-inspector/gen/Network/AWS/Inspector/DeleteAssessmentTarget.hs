@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DeleteAssessmentTarget
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ deleteAssessmentTarget pAssessmentTargetARN_ =
 
 -- | The ARN that specifies the assessment target that you want to delete.
 datAssessmentTargetARN :: Lens' DeleteAssessmentTarget Text
-datAssessmentTargetARN = lens _datAssessmentTargetARN (\ s a -> s{_datAssessmentTargetARN = a});
+datAssessmentTargetARN = lens _datAssessmentTargetARN (\ s a -> s{_datAssessmentTargetARN = a})
 
 instance AWSRequest DeleteAssessmentTarget where
         type Rs DeleteAssessmentTarget =

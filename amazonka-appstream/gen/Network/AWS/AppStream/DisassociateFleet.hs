@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DisassociateFleet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ disassociateFleet pFleetName_ pStackName_ =
 
 -- | The name of the fleet.
 dfFleetName :: Lens' DisassociateFleet Text
-dfFleetName = lens _dfFleetName (\ s a -> s{_dfFleetName = a});
+dfFleetName = lens _dfFleetName (\ s a -> s{_dfFleetName = a})
 
 -- | The name of the stack.
 dfStackName :: Lens' DisassociateFleet Text
-dfStackName = lens _dfStackName (\ s a -> s{_dfStackName = a});
+dfStackName = lens _dfStackName (\ s a -> s{_dfStackName = a})
 
 instance AWSRequest DisassociateFleet where
         type Rs DisassociateFleet = DisassociateFleetResponse
@@ -129,6 +129,6 @@ disassociateFleetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DisassociateFleetResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DisassociateFleetResponse where

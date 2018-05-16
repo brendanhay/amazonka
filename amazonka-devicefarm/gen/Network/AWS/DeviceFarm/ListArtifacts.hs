@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListArtifacts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,15 +81,15 @@ listArtifacts pArn_ pType_ =
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 laNextToken :: Lens' ListArtifacts (Maybe Text)
-laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
+laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a})
 
 -- | The Run, Job, Suite, or Test ARN.
 laArn :: Lens' ListArtifacts Text
-laArn = lens _laArn (\ s a -> s{_laArn = a});
+laArn = lens _laArn (\ s a -> s{_laArn = a})
 
 -- | The artifacts' type. Allowed values include:     * FILE: The artifacts are files.     * LOG: The artifacts are logs.     * SCREENSHOT: The artifacts are screenshots.
 laType :: Lens' ListArtifacts ArtifactCategory
-laType = lens _laType (\ s a -> s{_laType = a});
+laType = lens _laType (\ s a -> s{_laType = a})
 
 instance AWSPager ListArtifacts where
         page rq rs
@@ -161,22 +161,22 @@ listArtifactsResponse
     -> ListArtifactsResponse
 listArtifactsResponse pResponseStatus_ =
   ListArtifactsResponse'
-  { _larsArtifacts = Nothing
-  , _larsNextToken = Nothing
-  , _larsResponseStatus = pResponseStatus_
-  }
+    { _larsArtifacts = Nothing
+    , _larsNextToken = Nothing
+    , _larsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the artifacts.
 larsArtifacts :: Lens' ListArtifactsResponse [Artifact]
-larsArtifacts = lens _larsArtifacts (\ s a -> s{_larsArtifacts = a}) . _Default . _Coerce;
+larsArtifacts = lens _larsArtifacts (\ s a -> s{_larsArtifacts = a}) . _Default . _Coerce
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 larsNextToken :: Lens' ListArtifactsResponse (Maybe Text)
-larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
+larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a})
 
 -- | -- | The response status code.
 larsResponseStatus :: Lens' ListArtifactsResponse Int
-larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a})
 
 instance NFData ListArtifactsResponse where

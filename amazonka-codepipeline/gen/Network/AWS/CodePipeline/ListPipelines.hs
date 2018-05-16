@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.ListPipelines
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ listPipelines = ListPipelines' {_lpNextToken = Nothing}
 
 -- | An identifier that was returned from the previous list pipelines call, which can be used to return the next set of pipelines in the list.
 lpNextToken :: Lens' ListPipelines (Maybe Text)
-lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
+lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a})
 
 instance AWSRequest ListPipelines where
         type Rs ListPipelines = ListPipelinesResponse
@@ -131,22 +131,22 @@ listPipelinesResponse
     -> ListPipelinesResponse
 listPipelinesResponse pResponseStatus_ =
   ListPipelinesResponse'
-  { _lprsPipelines = Nothing
-  , _lprsNextToken = Nothing
-  , _lprsResponseStatus = pResponseStatus_
-  }
+    { _lprsPipelines = Nothing
+    , _lprsNextToken = Nothing
+    , _lprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of pipelines.
 lprsPipelines :: Lens' ListPipelinesResponse [PipelineSummary]
-lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default . _Coerce;
+lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default . _Coerce
 
 -- | If the amount of returned information is significantly large, an identifier is also returned which can be used in a subsequent list pipelines call to return the next set of pipelines in the list.
 lprsNextToken :: Lens' ListPipelinesResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
+lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a})
 
 -- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPipelinesResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a})
 
 instance NFData ListPipelinesResponse where

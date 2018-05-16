@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.SetVisibleToAllUsers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ setVisibleToAllUsers
     -> SetVisibleToAllUsers
 setVisibleToAllUsers pVisibleToAllUsers_ =
   SetVisibleToAllUsers'
-  {_svtauJobFlowIds = mempty, _svtauVisibleToAllUsers = pVisibleToAllUsers_}
+    {_svtauJobFlowIds = mempty, _svtauVisibleToAllUsers = pVisibleToAllUsers_}
 
 
 -- | Identifiers of the job flows to receive the new visibility setting.
 svtauJobFlowIds :: Lens' SetVisibleToAllUsers [Text]
-svtauJobFlowIds = lens _svtauJobFlowIds (\ s a -> s{_svtauJobFlowIds = a}) . _Coerce;
+svtauJobFlowIds = lens _svtauJobFlowIds (\ s a -> s{_svtauJobFlowIds = a}) . _Coerce
 
 -- | Whether the specified clusters are visible to all IAM users of the AWS account associated with the cluster. If this value is set to True, all IAM users of that AWS account can view and, if they have the proper IAM policy permissions set, manage the clusters. If it is set to False, only the IAM user that created a cluster can view and manage it.
 svtauVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
-svtauVisibleToAllUsers = lens _svtauVisibleToAllUsers (\ s a -> s{_svtauVisibleToAllUsers = a});
+svtauVisibleToAllUsers = lens _svtauVisibleToAllUsers (\ s a -> s{_svtauVisibleToAllUsers = a})
 
 instance AWSRequest SetVisibleToAllUsers where
         type Rs SetVisibleToAllUsers =

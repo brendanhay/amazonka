@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.ModifyWorkspaceProperties
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the WorkSpace properties, including the running mode and AutoStop time.
+-- Modifies the specified WorkSpace properties.
 --
 --
 module Network.AWS.WorkSpaces.ModifyWorkspaceProperties
@@ -57,25 +57,25 @@ data ModifyWorkspaceProperties = ModifyWorkspaceProperties'
 --
 -- * 'mwpWorkspaceId' - The ID of the WorkSpace.
 --
--- * 'mwpWorkspaceProperties' - The WorkSpace properties of the request.
+-- * 'mwpWorkspaceProperties' - The properties of the WorkSpace.
 modifyWorkspaceProperties
     :: Text -- ^ 'mwpWorkspaceId'
     -> WorkspaceProperties -- ^ 'mwpWorkspaceProperties'
     -> ModifyWorkspaceProperties
 modifyWorkspaceProperties pWorkspaceId_ pWorkspaceProperties_ =
   ModifyWorkspaceProperties'
-  { _mwpWorkspaceId = pWorkspaceId_
-  , _mwpWorkspaceProperties = pWorkspaceProperties_
-  }
+    { _mwpWorkspaceId = pWorkspaceId_
+    , _mwpWorkspaceProperties = pWorkspaceProperties_
+    }
 
 
 -- | The ID of the WorkSpace.
 mwpWorkspaceId :: Lens' ModifyWorkspaceProperties Text
-mwpWorkspaceId = lens _mwpWorkspaceId (\ s a -> s{_mwpWorkspaceId = a});
+mwpWorkspaceId = lens _mwpWorkspaceId (\ s a -> s{_mwpWorkspaceId = a})
 
--- | The WorkSpace properties of the request.
+-- | The properties of the WorkSpace.
 mwpWorkspaceProperties :: Lens' ModifyWorkspaceProperties WorkspaceProperties
-mwpWorkspaceProperties = lens _mwpWorkspaceProperties (\ s a -> s{_mwpWorkspaceProperties = a});
+mwpWorkspaceProperties = lens _mwpWorkspaceProperties (\ s a -> s{_mwpWorkspaceProperties = a})
 
 instance AWSRequest ModifyWorkspaceProperties where
         type Rs ModifyWorkspaceProperties =
@@ -135,7 +135,7 @@ modifyWorkspacePropertiesResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 mwprsResponseStatus :: Lens' ModifyWorkspacePropertiesResponse Int
-mwprsResponseStatus = lens _mwprsResponseStatus (\ s a -> s{_mwprsResponseStatus = a});
+mwprsResponseStatus = lens _mwprsResponseStatus (\ s a -> s{_mwprsResponseStatus = a})
 
 instance NFData ModifyWorkspacePropertiesResponse
          where

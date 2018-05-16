@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ getDeploymentInstance
     -> GetDeploymentInstance
 getDeploymentInstance pDeploymentId_ pInstanceId_ =
   GetDeploymentInstance'
-  {_gdiDeploymentId = pDeploymentId_, _gdiInstanceId = pInstanceId_}
+    {_gdiDeploymentId = pDeploymentId_, _gdiInstanceId = pInstanceId_}
 
 
 -- | The unique ID of a deployment.
 gdiDeploymentId :: Lens' GetDeploymentInstance Text
-gdiDeploymentId = lens _gdiDeploymentId (\ s a -> s{_gdiDeploymentId = a});
+gdiDeploymentId = lens _gdiDeploymentId (\ s a -> s{_gdiDeploymentId = a})
 
 -- | The unique ID of an instance in the deployment group.
 gdiInstanceId :: Lens' GetDeploymentInstance Text
-gdiInstanceId = lens _gdiInstanceId (\ s a -> s{_gdiInstanceId = a});
+gdiInstanceId = lens _gdiInstanceId (\ s a -> s{_gdiInstanceId = a})
 
 instance AWSRequest GetDeploymentInstance where
         type Rs GetDeploymentInstance =
@@ -140,15 +140,15 @@ getDeploymentInstanceResponse
     -> GetDeploymentInstanceResponse
 getDeploymentInstanceResponse pResponseStatus_ =
   GetDeploymentInstanceResponse'
-  {_gdirsInstanceSummary = Nothing, _gdirsResponseStatus = pResponseStatus_}
+    {_gdirsInstanceSummary = Nothing, _gdirsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the instance.
 gdirsInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
-gdirsInstanceSummary = lens _gdirsInstanceSummary (\ s a -> s{_gdirsInstanceSummary = a});
+gdirsInstanceSummary = lens _gdirsInstanceSummary (\ s a -> s{_gdirsInstanceSummary = a})
 
 -- | -- | The response status code.
 gdirsResponseStatus :: Lens' GetDeploymentInstanceResponse Int
-gdirsResponseStatus = lens _gdirsResponseStatus (\ s a -> s{_gdirsResponseStatus = a});
+gdirsResponseStatus = lens _gdirsResponseStatus (\ s a -> s{_gdirsResponseStatus = a})
 
 instance NFData GetDeploymentInstanceResponse where

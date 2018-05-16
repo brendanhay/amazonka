@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVolume
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,39 +74,39 @@ data ModifyVolume = ModifyVolume'
 --
 -- * 'mvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'mvVolumeId' - Undocumented member.
+-- * 'mvVolumeId' - The ID of the volume.
 modifyVolume
     :: Text -- ^ 'mvVolumeId'
     -> ModifyVolume
 modifyVolume pVolumeId_ =
   ModifyVolume'
-  { _mvSize = Nothing
-  , _mvIOPS = Nothing
-  , _mvVolumeType = Nothing
-  , _mvDryRun = Nothing
-  , _mvVolumeId = pVolumeId_
-  }
+    { _mvSize = Nothing
+    , _mvIOPS = Nothing
+    , _mvVolumeType = Nothing
+    , _mvDryRun = Nothing
+    , _mvVolumeId = pVolumeId_
+    }
 
 
 -- | Target size in GiB of the volume to be modified. Target volume size must be greater than or equal to than the existing size of the volume. For information about available EBS volume sizes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html> . Default: If no size is specified, the existing size is retained.
 mvSize :: Lens' ModifyVolume (Maybe Int)
-mvSize = lens _mvSize (\ s a -> s{_mvSize = a});
+mvSize = lens _mvSize (\ s a -> s{_mvSize = a})
 
 -- | Target IOPS rate of the volume to be modified. Only valid for Provisioned IOPS SSD (@io1@ ) volumes. For more information about @io1@ IOPS configuration, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops> . Default: If no IOPS value is specified, the existing value is retained.
 mvIOPS :: Lens' ModifyVolume (Maybe Int)
-mvIOPS = lens _mvIOPS (\ s a -> s{_mvIOPS = a});
+mvIOPS = lens _mvIOPS (\ s a -> s{_mvIOPS = a})
 
 -- | Target EBS volume type of the volume to be modified The API does not support modifications for volume type @standard@ . You also cannot change the type of a volume to @standard@ .  Default: If no type is specified, the existing type is retained.
 mvVolumeType :: Lens' ModifyVolume (Maybe VolumeType)
-mvVolumeType = lens _mvVolumeType (\ s a -> s{_mvVolumeType = a});
+mvVolumeType = lens _mvVolumeType (\ s a -> s{_mvVolumeType = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mvDryRun :: Lens' ModifyVolume (Maybe Bool)
-mvDryRun = lens _mvDryRun (\ s a -> s{_mvDryRun = a});
+mvDryRun = lens _mvDryRun (\ s a -> s{_mvDryRun = a})
 
--- | Undocumented member.
+-- | The ID of the volume.
 mvVolumeId :: Lens' ModifyVolume Text
-mvVolumeId = lens _mvVolumeId (\ s a -> s{_mvVolumeId = a});
+mvVolumeId = lens _mvVolumeId (\ s a -> s{_mvVolumeId = a})
 
 instance AWSRequest ModifyVolume where
         type Rs ModifyVolume = ModifyVolumeResponse
@@ -155,15 +155,15 @@ modifyVolumeResponse
     -> ModifyVolumeResponse
 modifyVolumeResponse pResponseStatus_ =
   ModifyVolumeResponse'
-  {_mvrsVolumeModification = Nothing, _mvrsResponseStatus = pResponseStatus_}
+    {_mvrsVolumeModification = Nothing, _mvrsResponseStatus = pResponseStatus_}
 
 
 -- | A 'VolumeModification' object.
 mvrsVolumeModification :: Lens' ModifyVolumeResponse (Maybe VolumeModification)
-mvrsVolumeModification = lens _mvrsVolumeModification (\ s a -> s{_mvrsVolumeModification = a});
+mvrsVolumeModification = lens _mvrsVolumeModification (\ s a -> s{_mvrsVolumeModification = a})
 
 -- | -- | The response status code.
 mvrsResponseStatus :: Lens' ModifyVolumeResponse Int
-mvrsResponseStatus = lens _mvrsResponseStatus (\ s a -> s{_mvrsResponseStatus = a});
+mvrsResponseStatus = lens _mvrsResponseStatus (\ s a -> s{_mvrsResponseStatus = a})
 
 instance NFData ModifyVolumeResponse where

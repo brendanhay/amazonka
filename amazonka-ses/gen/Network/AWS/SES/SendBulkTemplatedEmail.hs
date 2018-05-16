@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SendBulkTemplatedEmail
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -108,7 +108,7 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
 --
 -- * 'sbteReplyToAddresses' - The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
 --
--- * 'sbteSource' - The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> . If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> . In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: @=?charset?encoding?encoded-text?=@ . For more information, see <https://tools.ietf.org/html/rfc2047 RFC 2047> .
+-- * 'sbteSource' - The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> . If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
 -- * 'sbteTemplate' - The template to use when sending this email.
 --
@@ -119,63 +119,63 @@ sendBulkTemplatedEmail
     -> SendBulkTemplatedEmail
 sendBulkTemplatedEmail pSource_ pTemplate_ =
   SendBulkTemplatedEmail'
-  { _sbteReturnPath = Nothing
-  , _sbteConfigurationSetName = Nothing
-  , _sbteSourceARN = Nothing
-  , _sbteDefaultTags = Nothing
-  , _sbteReturnPathARN = Nothing
-  , _sbteTemplateARN = Nothing
-  , _sbteDefaultTemplateData = Nothing
-  , _sbteReplyToAddresses = Nothing
-  , _sbteSource = pSource_
-  , _sbteTemplate = pTemplate_
-  , _sbteDestinations = mempty
-  }
+    { _sbteReturnPath = Nothing
+    , _sbteConfigurationSetName = Nothing
+    , _sbteSourceARN = Nothing
+    , _sbteDefaultTags = Nothing
+    , _sbteReturnPathARN = Nothing
+    , _sbteTemplateARN = Nothing
+    , _sbteDefaultTemplateData = Nothing
+    , _sbteReplyToAddresses = Nothing
+    , _sbteSource = pSource_
+    , _sbteTemplate = pTemplate_
+    , _sbteDestinations = mempty
+    }
 
 
 -- | The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
 sbteReturnPath :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteReturnPath = lens _sbteReturnPath (\ s a -> s{_sbteReturnPath = a});
+sbteReturnPath = lens _sbteReturnPath (\ s a -> s{_sbteReturnPath = a})
 
 -- | The name of the configuration set to use when you send an email using @SendBulkTemplatedEmail@ .
 sbteConfigurationSetName :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteConfigurationSetName = lens _sbteConfigurationSetName (\ s a -> s{_sbteConfigurationSetName = a});
+sbteConfigurationSetName = lens _sbteConfigurationSetName (\ s a -> s{_sbteConfigurationSetName = a})
 
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ . For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 sbteSourceARN :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteSourceARN = lens _sbteSourceARN (\ s a -> s{_sbteSourceARN = a});
+sbteSourceARN = lens _sbteSourceARN (\ s a -> s{_sbteSourceARN = a})
 
 -- | A list of tags, in the form of name/value pairs, to apply to an email that you send to a destination using @SendBulkTemplatedEmail@ .
 sbteDefaultTags :: Lens' SendBulkTemplatedEmail [MessageTag]
-sbteDefaultTags = lens _sbteDefaultTags (\ s a -> s{_sbteDefaultTags = a}) . _Default . _Coerce;
+sbteDefaultTags = lens _sbteDefaultTags (\ s a -> s{_sbteDefaultTags = a}) . _Default . _Coerce
 
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ . For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 sbteReturnPathARN :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteReturnPathARN = lens _sbteReturnPathARN (\ s a -> s{_sbteReturnPathARN = a});
+sbteReturnPathARN = lens _sbteReturnPathARN (\ s a -> s{_sbteReturnPathARN = a})
 
 -- | The ARN of the template to use when sending this email.
 sbteTemplateARN :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteTemplateARN = lens _sbteTemplateARN (\ s a -> s{_sbteTemplateARN = a});
+sbteTemplateARN = lens _sbteTemplateARN (\ s a -> s{_sbteTemplateARN = a})
 
 -- | A list of replacement values to apply to the template when replacement data is not specified in a Destination object. These values act as a default or fallback option when no other data is available. The template data is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
 sbteDefaultTemplateData :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteDefaultTemplateData = lens _sbteDefaultTemplateData (\ s a -> s{_sbteDefaultTemplateData = a});
+sbteDefaultTemplateData = lens _sbteDefaultTemplateData (\ s a -> s{_sbteDefaultTemplateData = a})
 
 -- | The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
 sbteReplyToAddresses :: Lens' SendBulkTemplatedEmail [Text]
-sbteReplyToAddresses = lens _sbteReplyToAddresses (\ s a -> s{_sbteReplyToAddresses = a}) . _Default . _Coerce;
+sbteReplyToAddresses = lens _sbteReplyToAddresses (\ s a -> s{_sbteReplyToAddresses = a}) . _Default . _Coerce
 
--- | The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> . If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> . In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: @=?charset?encoding?encoded-text?=@ . For more information, see <https://tools.ietf.org/html/rfc2047 RFC 2047> .
+-- | The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> . If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 sbteSource :: Lens' SendBulkTemplatedEmail Text
-sbteSource = lens _sbteSource (\ s a -> s{_sbteSource = a});
+sbteSource = lens _sbteSource (\ s a -> s{_sbteSource = a})
 
 -- | The template to use when sending this email.
 sbteTemplate :: Lens' SendBulkTemplatedEmail Text
-sbteTemplate = lens _sbteTemplate (\ s a -> s{_sbteTemplate = a});
+sbteTemplate = lens _sbteTemplate (\ s a -> s{_sbteTemplate = a})
 
 -- | One or more @Destination@ objects. All of the recipients in a @Destination@ will receive the same version of the email. You can specify up to 50 @Destination@ objects within a @Destinations@ array.
 sbteDestinations :: Lens' SendBulkTemplatedEmail [BulkEmailDestination]
-sbteDestinations = lens _sbteDestinations (\ s a -> s{_sbteDestinations = a}) . _Coerce;
+sbteDestinations = lens _sbteDestinations (\ s a -> s{_sbteDestinations = a}) . _Coerce
 
 instance AWSRequest SendBulkTemplatedEmail where
         type Rs SendBulkTemplatedEmail =
@@ -239,15 +239,15 @@ sendBulkTemplatedEmailResponse
     -> SendBulkTemplatedEmailResponse
 sendBulkTemplatedEmailResponse pResponseStatus_ =
   SendBulkTemplatedEmailResponse'
-  {_sbtersResponseStatus = pResponseStatus_, _sbtersStatus = mempty}
+    {_sbtersResponseStatus = pResponseStatus_, _sbtersStatus = mempty}
 
 
 -- | -- | The response status code.
 sbtersResponseStatus :: Lens' SendBulkTemplatedEmailResponse Int
-sbtersResponseStatus = lens _sbtersResponseStatus (\ s a -> s{_sbtersResponseStatus = a});
+sbtersResponseStatus = lens _sbtersResponseStatus (\ s a -> s{_sbtersResponseStatus = a})
 
 -- | The unique message identifier returned from the @SendBulkTemplatedEmail@ action.
 sbtersStatus :: Lens' SendBulkTemplatedEmailResponse [BulkEmailDestinationStatus]
-sbtersStatus = lens _sbtersStatus (\ s a -> s{_sbtersStatus = a}) . _Coerce;
+sbtersStatus = lens _sbtersStatus (\ s a -> s{_sbtersStatus = a}) . _Coerce
 
 instance NFData SendBulkTemplatedEmailResponse where

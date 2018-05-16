@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeHostReservations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,28 +72,28 @@ describeHostReservations
     :: DescribeHostReservations
 describeHostReservations =
   DescribeHostReservations'
-  { _dhrNextToken = Nothing
-  , _dhrHostReservationIdSet = Nothing
-  , _dhrFilter = Nothing
-  , _dhrMaxResults = Nothing
-  }
+    { _dhrNextToken = Nothing
+    , _dhrHostReservationIdSet = Nothing
+    , _dhrFilter = Nothing
+    , _dhrMaxResults = Nothing
+    }
 
 
 -- | The token to use to retrieve the next page of results.
 dhrNextToken :: Lens' DescribeHostReservations (Maybe Text)
-dhrNextToken = lens _dhrNextToken (\ s a -> s{_dhrNextToken = a});
+dhrNextToken = lens _dhrNextToken (\ s a -> s{_dhrNextToken = a})
 
 -- | One or more host reservation IDs.
 dhrHostReservationIdSet :: Lens' DescribeHostReservations [Text]
-dhrHostReservationIdSet = lens _dhrHostReservationIdSet (\ s a -> s{_dhrHostReservationIdSet = a}) . _Default . _Coerce;
+dhrHostReservationIdSet = lens _dhrHostReservationIdSet (\ s a -> s{_dhrHostReservationIdSet = a}) . _Default . _Coerce
 
 -- | One or more filters.     * @instance-family@ - The instance family (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
 dhrFilter :: Lens' DescribeHostReservations [Filter]
-dhrFilter = lens _dhrFilter (\ s a -> s{_dhrFilter = a}) . _Default . _Coerce;
+dhrFilter = lens _dhrFilter (\ s a -> s{_dhrFilter = a}) . _Default . _Coerce
 
 -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
 dhrMaxResults :: Lens' DescribeHostReservations (Maybe Int)
-dhrMaxResults = lens _dhrMaxResults (\ s a -> s{_dhrMaxResults = a});
+dhrMaxResults = lens _dhrMaxResults (\ s a -> s{_dhrMaxResults = a})
 
 instance AWSRequest DescribeHostReservations where
         type Rs DescribeHostReservations =
@@ -153,23 +153,23 @@ describeHostReservationsResponse
     -> DescribeHostReservationsResponse
 describeHostReservationsResponse pResponseStatus_ =
   DescribeHostReservationsResponse'
-  { _dhrrsNextToken = Nothing
-  , _dhrrsHostReservationSet = Nothing
-  , _dhrrsResponseStatus = pResponseStatus_
-  }
+    { _dhrrsNextToken = Nothing
+    , _dhrrsHostReservationSet = Nothing
+    , _dhrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dhrrsNextToken :: Lens' DescribeHostReservationsResponse (Maybe Text)
-dhrrsNextToken = lens _dhrrsNextToken (\ s a -> s{_dhrrsNextToken = a});
+dhrrsNextToken = lens _dhrrsNextToken (\ s a -> s{_dhrrsNextToken = a})
 
 -- | Details about the reservation's configuration.
 dhrrsHostReservationSet :: Lens' DescribeHostReservationsResponse [HostReservation]
-dhrrsHostReservationSet = lens _dhrrsHostReservationSet (\ s a -> s{_dhrrsHostReservationSet = a}) . _Default . _Coerce;
+dhrrsHostReservationSet = lens _dhrrsHostReservationSet (\ s a -> s{_dhrrsHostReservationSet = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dhrrsResponseStatus :: Lens' DescribeHostReservationsResponse Int
-dhrrsResponseStatus = lens _dhrrsResponseStatus (\ s a -> s{_dhrrsResponseStatus = a});
+dhrrsResponseStatus = lens _dhrrsResponseStatus (\ s a -> s{_dhrrsResponseStatus = a})
 
 instance NFData DescribeHostReservationsResponse
          where

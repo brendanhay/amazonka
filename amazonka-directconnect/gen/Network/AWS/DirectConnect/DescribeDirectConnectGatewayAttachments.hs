@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ describeDirectConnectGatewayAttachments
     :: DescribeDirectConnectGatewayAttachments
 describeDirectConnectGatewayAttachments =
   DescribeDirectConnectGatewayAttachments'
-  { _ddcgasDirectConnectGatewayId = Nothing
-  , _ddcgasNextToken = Nothing
-  , _ddcgasMaxResults = Nothing
-  , _ddcgasVirtualInterfaceId = Nothing
-  }
+    { _ddcgasDirectConnectGatewayId = Nothing
+    , _ddcgasNextToken = Nothing
+    , _ddcgasMaxResults = Nothing
+    , _ddcgasVirtualInterfaceId = Nothing
+    }
 
 
 -- | The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
 ddcgasDirectConnectGatewayId :: Lens' DescribeDirectConnectGatewayAttachments (Maybe Text)
-ddcgasDirectConnectGatewayId = lens _ddcgasDirectConnectGatewayId (\ s a -> s{_ddcgasDirectConnectGatewayId = a});
+ddcgasDirectConnectGatewayId = lens _ddcgasDirectConnectGatewayId (\ s a -> s{_ddcgasDirectConnectGatewayId = a})
 
 -- | The token provided in the previous describe result to retrieve the next page of the result. Default: None
 ddcgasNextToken :: Lens' DescribeDirectConnectGatewayAttachments (Maybe Text)
-ddcgasNextToken = lens _ddcgasNextToken (\ s a -> s{_ddcgasNextToken = a});
+ddcgasNextToken = lens _ddcgasNextToken (\ s a -> s{_ddcgasNextToken = a})
 
 -- | The maximum number of direct connect gateway attachments to return per page. Example: 15 Default: None
 ddcgasMaxResults :: Lens' DescribeDirectConnectGatewayAttachments (Maybe Int)
-ddcgasMaxResults = lens _ddcgasMaxResults (\ s a -> s{_ddcgasMaxResults = a});
+ddcgasMaxResults = lens _ddcgasMaxResults (\ s a -> s{_ddcgasMaxResults = a})
 
 -- | The ID of the virtual interface. Example: "dxvif-abc123ef" Default: None
 ddcgasVirtualInterfaceId :: Lens' DescribeDirectConnectGatewayAttachments (Maybe Text)
-ddcgasVirtualInterfaceId = lens _ddcgasVirtualInterfaceId (\ s a -> s{_ddcgasVirtualInterfaceId = a});
+ddcgasVirtualInterfaceId = lens _ddcgasVirtualInterfaceId (\ s a -> s{_ddcgasVirtualInterfaceId = a})
 
 instance AWSRequest
            DescribeDirectConnectGatewayAttachments
@@ -182,23 +182,23 @@ describeDirectConnectGatewayAttachmentsResponse
     -> DescribeDirectConnectGatewayAttachmentsResponse
 describeDirectConnectGatewayAttachmentsResponse pResponseStatus_ =
   DescribeDirectConnectGatewayAttachmentsResponse'
-  { _ddcgasrsNextToken = Nothing
-  , _ddcgasrsDirectConnectGatewayAttachments = Nothing
-  , _ddcgasrsResponseStatus = pResponseStatus_
-  }
+    { _ddcgasrsNextToken = Nothing
+    , _ddcgasrsDirectConnectGatewayAttachments = Nothing
+    , _ddcgasrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ddcgasrsNextToken :: Lens' DescribeDirectConnectGatewayAttachmentsResponse (Maybe Text)
-ddcgasrsNextToken = lens _ddcgasrsNextToken (\ s a -> s{_ddcgasrsNextToken = a});
+ddcgasrsNextToken = lens _ddcgasrsNextToken (\ s a -> s{_ddcgasrsNextToken = a})
 
 -- | Information about the direct connect gateway attachments.
 ddcgasrsDirectConnectGatewayAttachments :: Lens' DescribeDirectConnectGatewayAttachmentsResponse [DirectConnectGatewayAttachment]
-ddcgasrsDirectConnectGatewayAttachments = lens _ddcgasrsDirectConnectGatewayAttachments (\ s a -> s{_ddcgasrsDirectConnectGatewayAttachments = a}) . _Default . _Coerce;
+ddcgasrsDirectConnectGatewayAttachments = lens _ddcgasrsDirectConnectGatewayAttachments (\ s a -> s{_ddcgasrsDirectConnectGatewayAttachments = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddcgasrsResponseStatus :: Lens' DescribeDirectConnectGatewayAttachmentsResponse Int
-ddcgasrsResponseStatus = lens _ddcgasrsResponseStatus (\ s a -> s{_ddcgasrsResponseStatus = a});
+ddcgasrsResponseStatus = lens _ddcgasrsResponseStatus (\ s a -> s{_ddcgasrsResponseStatus = a})
 
 instance NFData
            DescribeDirectConnectGatewayAttachmentsResponse

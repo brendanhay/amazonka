@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.ListWorkflowTypes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -99,38 +99,38 @@ listWorkflowTypes
     -> ListWorkflowTypes
 listWorkflowTypes pDomain_ pRegistrationStatus_ =
   ListWorkflowTypes'
-  { _lwtNextPageToken = Nothing
-  , _lwtReverseOrder = Nothing
-  , _lwtName = Nothing
-  , _lwtMaximumPageSize = Nothing
-  , _lwtDomain = pDomain_
-  , _lwtRegistrationStatus = pRegistrationStatus_
-  }
+    { _lwtNextPageToken = Nothing
+    , _lwtReverseOrder = Nothing
+    , _lwtName = Nothing
+    , _lwtMaximumPageSize = Nothing
+    , _lwtDomain = pDomain_
+    , _lwtRegistrationStatus = pRegistrationStatus_
+    }
 
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 lwtNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
-lwtNextPageToken = lens _lwtNextPageToken (\ s a -> s{_lwtNextPageToken = a});
+lwtNextPageToken = lens _lwtNextPageToken (\ s a -> s{_lwtNextPageToken = a})
 
 -- | When set to @true@ , returns the results in reverse order. By default the results are returned in ascending alphabetical order of the @name@ of the workflow types.
 lwtReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
-lwtReverseOrder = lens _lwtReverseOrder (\ s a -> s{_lwtReverseOrder = a});
+lwtReverseOrder = lens _lwtReverseOrder (\ s a -> s{_lwtReverseOrder = a})
 
 -- | If specified, lists the workflow type with this name.
 lwtName :: Lens' ListWorkflowTypes (Maybe Text)
-lwtName = lens _lwtName (\ s a -> s{_lwtName = a});
+lwtName = lens _lwtName (\ s a -> s{_lwtName = a})
 
 -- | The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 lwtMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Natural)
-lwtMaximumPageSize = lens _lwtMaximumPageSize (\ s a -> s{_lwtMaximumPageSize = a}) . mapping _Nat;
+lwtMaximumPageSize = lens _lwtMaximumPageSize (\ s a -> s{_lwtMaximumPageSize = a}) . mapping _Nat
 
 -- | The name of the domain in which the workflow types have been registered.
 lwtDomain :: Lens' ListWorkflowTypes Text
-lwtDomain = lens _lwtDomain (\ s a -> s{_lwtDomain = a});
+lwtDomain = lens _lwtDomain (\ s a -> s{_lwtDomain = a})
 
 -- | Specifies the registration status of the workflow types to list.
 lwtRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
-lwtRegistrationStatus = lens _lwtRegistrationStatus (\ s a -> s{_lwtRegistrationStatus = a});
+lwtRegistrationStatus = lens _lwtRegistrationStatus (\ s a -> s{_lwtRegistrationStatus = a})
 
 instance AWSPager ListWorkflowTypes where
         page rq rs
@@ -208,22 +208,22 @@ listWorkflowTypesResponse
     -> ListWorkflowTypesResponse
 listWorkflowTypesResponse pResponseStatus_ =
   ListWorkflowTypesResponse'
-  { _lwtrsNextPageToken = Nothing
-  , _lwtrsResponseStatus = pResponseStatus_
-  , _lwtrsTypeInfos = mempty
-  }
+    { _lwtrsNextPageToken = Nothing
+    , _lwtrsResponseStatus = pResponseStatus_
+    , _lwtrsTypeInfos = mempty
+    }
 
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 lwtrsNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
-lwtrsNextPageToken = lens _lwtrsNextPageToken (\ s a -> s{_lwtrsNextPageToken = a});
+lwtrsNextPageToken = lens _lwtrsNextPageToken (\ s a -> s{_lwtrsNextPageToken = a})
 
 -- | -- | The response status code.
 lwtrsResponseStatus :: Lens' ListWorkflowTypesResponse Int
-lwtrsResponseStatus = lens _lwtrsResponseStatus (\ s a -> s{_lwtrsResponseStatus = a});
+lwtrsResponseStatus = lens _lwtrsResponseStatus (\ s a -> s{_lwtrsResponseStatus = a})
 
 -- | The list of workflow type information.
 lwtrsTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
-lwtrsTypeInfos = lens _lwtrsTypeInfos (\ s a -> s{_lwtrsTypeInfos = a}) . _Coerce;
+lwtrsTypeInfos = lens _lwtrsTypeInfos (\ s a -> s{_lwtrsTypeInfos = a}) . _Coerce
 
 instance NFData ListWorkflowTypesResponse where

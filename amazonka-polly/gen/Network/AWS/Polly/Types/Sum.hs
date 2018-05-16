@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Polly.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,6 +62,7 @@ data LanguageCode
   | IsIs
   | ItIt
   | JaJp
+  | KoKr
   | NbNo
   | NlNl
   | PlPl
@@ -91,6 +92,7 @@ instance FromText LanguageCode where
         "is-is" -> pure IsIs
         "it-it" -> pure ItIt
         "ja-jp" -> pure JaJp
+        "ko-kr" -> pure KoKr
         "nb-no" -> pure NbNo
         "nl-nl" -> pure NlNl
         "pl-pl" -> pure PlPl
@@ -101,7 +103,7 @@ instance FromText LanguageCode where
         "sv-se" -> pure SvSe
         "tr-tr" -> pure TrTr
         e -> fromTextError $ "Failure parsing LanguageCode from value: '" <> e
-           <> "'. Accepted values: cy-gb, da-dk, de-de, en-au, en-gb, en-gb-wls, en-in, en-us, es-es, es-us, fr-ca, fr-fr, is-is, it-it, ja-jp, nb-no, nl-nl, pl-pl, pt-br, pt-pt, ro-ro, ru-ru, sv-se, tr-tr"
+           <> "'. Accepted values: cy-gb, da-dk, de-de, en-au, en-gb, en-gb-wls, en-in, en-us, es-es, es-us, fr-ca, fr-fr, is-is, it-it, ja-jp, ko-kr, nb-no, nl-nl, pl-pl, pt-br, pt-pt, ro-ro, ru-ru, sv-se, tr-tr"
 
 instance ToText LanguageCode where
     toText = \case
@@ -120,6 +122,7 @@ instance ToText LanguageCode where
         IsIs -> "is-IS"
         ItIt -> "it-IT"
         JaJp -> "ja-JP"
+        KoKr -> "ko-KR"
         NbNo -> "nb-NO"
         NlNl -> "nl-NL"
         PlPl -> "pl-PL"
@@ -236,7 +239,8 @@ instance ToJSON TextType where
     toJSON = toJSONText
 
 data VoiceId
-  = Amy
+  = Aditi
+  | Amy
   | Astrid
   | Brian
   | Carla
@@ -282,6 +286,7 @@ data VoiceId
   | Ruben
   | Russell
   | Salli
+  | Seoyeon
   | Takumi
   | Tatyana
   | Vicki
@@ -291,6 +296,7 @@ data VoiceId
 
 instance FromText VoiceId where
     parser = takeLowerText >>= \case
+        "aditi" -> pure Aditi
         "amy" -> pure Amy
         "astrid" -> pure Astrid
         "brian" -> pure Brian
@@ -337,15 +343,17 @@ instance FromText VoiceId where
         "ruben" -> pure Ruben
         "russell" -> pure Russell
         "salli" -> pure Salli
+        "seoyeon" -> pure Seoyeon
         "takumi" -> pure Takumi
         "tatyana" -> pure Tatyana
         "vicki" -> pure Vicki
         "vitoria" -> pure Vitoria
         e -> fromTextError $ "Failure parsing VoiceId from value: '" <> e
-           <> "'. Accepted values: amy, astrid, brian, carla, carmen, celine, chantal, conchita, cristiano, dora, emma, enrique, ewa, filiz, geraint, giorgio, gwyneth, hans, ines, ivy, jacek, jan, joanna, joey, justin, karl, kendra, kimberly, liv, lotte, mads, maja, marlene, mathieu, matthew, maxim, miguel, mizuki, naja, nicole, penelope, raveena, ricardo, ruben, russell, salli, takumi, tatyana, vicki, vitoria"
+           <> "'. Accepted values: aditi, amy, astrid, brian, carla, carmen, celine, chantal, conchita, cristiano, dora, emma, enrique, ewa, filiz, geraint, giorgio, gwyneth, hans, ines, ivy, jacek, jan, joanna, joey, justin, karl, kendra, kimberly, liv, lotte, mads, maja, marlene, mathieu, matthew, maxim, miguel, mizuki, naja, nicole, penelope, raveena, ricardo, ruben, russell, salli, seoyeon, takumi, tatyana, vicki, vitoria"
 
 instance ToText VoiceId where
     toText = \case
+        Aditi -> "Aditi"
         Amy -> "Amy"
         Astrid -> "Astrid"
         Brian -> "Brian"
@@ -392,6 +400,7 @@ instance ToText VoiceId where
         Ruben -> "Ruben"
         Russell -> "Russell"
         Salli -> "Salli"
+        Seoyeon -> "Seoyeon"
         Takumi -> "Takumi"
         Tatyana -> "Tatyana"
         Vicki -> "Vicki"

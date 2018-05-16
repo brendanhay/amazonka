@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateNetworkACL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ createNetworkACL pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cnaDryRun :: Lens' CreateNetworkACL (Maybe Bool)
-cnaDryRun = lens _cnaDryRun (\ s a -> s{_cnaDryRun = a});
+cnaDryRun = lens _cnaDryRun (\ s a -> s{_cnaDryRun = a})
 
 -- | The ID of the VPC.
 cnaVPCId :: Lens' CreateNetworkACL Text
-cnaVPCId = lens _cnaVPCId (\ s a -> s{_cnaVPCId = a});
+cnaVPCId = lens _cnaVPCId (\ s a -> s{_cnaVPCId = a})
 
 instance AWSRequest CreateNetworkACL where
         type Rs CreateNetworkACL = CreateNetworkACLResponse
@@ -129,15 +129,15 @@ createNetworkACLResponse
     -> CreateNetworkACLResponse
 createNetworkACLResponse pResponseStatus_ =
   CreateNetworkACLResponse'
-  {_cnarsNetworkACL = Nothing, _cnarsResponseStatus = pResponseStatus_}
+    {_cnarsNetworkACL = Nothing, _cnarsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the network ACL.
 cnarsNetworkACL :: Lens' CreateNetworkACLResponse (Maybe NetworkACL)
-cnarsNetworkACL = lens _cnarsNetworkACL (\ s a -> s{_cnarsNetworkACL = a});
+cnarsNetworkACL = lens _cnarsNetworkACL (\ s a -> s{_cnarsNetworkACL = a})
 
 -- | -- | The response status code.
 cnarsResponseStatus :: Lens' CreateNetworkACLResponse Int
-cnarsResponseStatus = lens _cnarsResponseStatus (\ s a -> s{_cnarsResponseStatus = a});
+cnarsResponseStatus = lens _cnarsResponseStatus (\ s a -> s{_cnarsResponseStatus = a})
 
 instance NFData CreateNetworkACLResponse where

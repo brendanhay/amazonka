@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateTypedLinkFacet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ createTypedLinkFacet pSchemaARN_ pFacet_ =
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 ctlfSchemaARN :: Lens' CreateTypedLinkFacet Text
-ctlfSchemaARN = lens _ctlfSchemaARN (\ s a -> s{_ctlfSchemaARN = a});
+ctlfSchemaARN = lens _ctlfSchemaARN (\ s a -> s{_ctlfSchemaARN = a})
 
 -- | 'Facet' structure that is associated with the typed link facet.
 ctlfFacet :: Lens' CreateTypedLinkFacet TypedLinkFacet
-ctlfFacet = lens _ctlfFacet (\ s a -> s{_ctlfFacet = a});
+ctlfFacet = lens _ctlfFacet (\ s a -> s{_ctlfFacet = a})
 
 instance AWSRequest CreateTypedLinkFacet where
         type Rs CreateTypedLinkFacet =
@@ -124,6 +124,6 @@ createTypedLinkFacetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ctlfrsResponseStatus :: Lens' CreateTypedLinkFacetResponse Int
-ctlfrsResponseStatus = lens _ctlfrsResponseStatus (\ s a -> s{_ctlfrsResponseStatus = a});
+ctlfrsResponseStatus = lens _ctlfrsResponseStatus (\ s a -> s{_ctlfrsResponseStatus = a})
 
 instance NFData CreateTypedLinkFacetResponse where

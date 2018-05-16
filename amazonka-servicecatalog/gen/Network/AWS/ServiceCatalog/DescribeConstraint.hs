@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeConstraint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves detailed information for a specified constraint.
+-- Gets information about the specified constraint.
 --
 --
 module Network.AWS.ServiceCatalog.DescribeConstraint
@@ -70,11 +70,11 @@ describeConstraint pId_ =
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dAcceptLanguage :: Lens' DescribeConstraint (Maybe Text)
-dAcceptLanguage = lens _dAcceptLanguage (\ s a -> s{_dAcceptLanguage = a});
+dAcceptLanguage = lens _dAcceptLanguage (\ s a -> s{_dAcceptLanguage = a})
 
 -- | The identifier of the constraint.
 dId :: Lens' DescribeConstraint Text
-dId = lens _dId (\ s a -> s{_dId = a});
+dId = lens _dId (\ s a -> s{_dId = a})
 
 instance AWSRequest DescribeConstraint where
         type Rs DescribeConstraint =
@@ -130,9 +130,9 @@ data DescribeConstraintResponse = DescribeConstraintResponse'
 --
 -- * 'desrsStatus' - The status of the current request.
 --
--- * 'desrsConstraintDetail' - Detailed constraint information.
+-- * 'desrsConstraintDetail' - Information about the constraint.
 --
--- * 'desrsConstraintParameters' - The current parameters associated with the specified constraint.
+-- * 'desrsConstraintParameters' - The constraint parameters.
 --
 -- * 'desrsResponseStatus' - -- | The response status code.
 describeConstraintResponse
@@ -140,27 +140,27 @@ describeConstraintResponse
     -> DescribeConstraintResponse
 describeConstraintResponse pResponseStatus_ =
   DescribeConstraintResponse'
-  { _desrsStatus = Nothing
-  , _desrsConstraintDetail = Nothing
-  , _desrsConstraintParameters = Nothing
-  , _desrsResponseStatus = pResponseStatus_
-  }
+    { _desrsStatus = Nothing
+    , _desrsConstraintDetail = Nothing
+    , _desrsConstraintParameters = Nothing
+    , _desrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the current request.
 desrsStatus :: Lens' DescribeConstraintResponse (Maybe RequestStatus)
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a})
 
--- | Detailed constraint information.
+-- | Information about the constraint.
 desrsConstraintDetail :: Lens' DescribeConstraintResponse (Maybe ConstraintDetail)
-desrsConstraintDetail = lens _desrsConstraintDetail (\ s a -> s{_desrsConstraintDetail = a});
+desrsConstraintDetail = lens _desrsConstraintDetail (\ s a -> s{_desrsConstraintDetail = a})
 
--- | The current parameters associated with the specified constraint.
+-- | The constraint parameters.
 desrsConstraintParameters :: Lens' DescribeConstraintResponse (Maybe Text)
-desrsConstraintParameters = lens _desrsConstraintParameters (\ s a -> s{_desrsConstraintParameters = a});
+desrsConstraintParameters = lens _desrsConstraintParameters (\ s a -> s{_desrsConstraintParameters = a})
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeConstraintResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 instance NFData DescribeConstraintResponse where

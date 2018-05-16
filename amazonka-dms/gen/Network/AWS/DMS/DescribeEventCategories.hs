@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeEventCategories
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ describeEventCategories =
 
 -- | The type of AWS DMS resource that generates events.  Valid values: replication-instance | migration-task
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
+decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a})
 
 -- | Filters applied to the action.
 decFilters :: Lens' DescribeEventCategories [Filter]
-decFilters = lens _decFilters (\ s a -> s{_decFilters = a}) . _Default . _Coerce;
+decFilters = lens _decFilters (\ s a -> s{_decFilters = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeEventCategories where
         type Rs DescribeEventCategories =
@@ -138,17 +138,17 @@ describeEventCategoriesResponse
     -> DescribeEventCategoriesResponse
 describeEventCategoriesResponse pResponseStatus_ =
   DescribeEventCategoriesResponse'
-  { _decrsEventCategoryGroupList = Nothing
-  , _decrsResponseStatus = pResponseStatus_
-  }
+    { _decrsEventCategoryGroupList = Nothing
+    , _decrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of event categories.
 decrsEventCategoryGroupList :: Lens' DescribeEventCategoriesResponse [EventCategoryGroup]
-decrsEventCategoryGroupList = lens _decrsEventCategoryGroupList (\ s a -> s{_decrsEventCategoryGroupList = a}) . _Default . _Coerce;
+decrsEventCategoryGroupList = lens _decrsEventCategoryGroupList (\ s a -> s{_decrsEventCategoryGroupList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 decrsResponseStatus :: Lens' DescribeEventCategoriesResponse Int
-decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
+decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a})
 
 instance NFData DescribeEventCategoriesResponse where

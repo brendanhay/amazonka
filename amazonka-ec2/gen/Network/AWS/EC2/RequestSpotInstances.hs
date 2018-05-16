@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RequestSpotInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Spot instance request. Spot instances are instances that Amazon EC2 launches when the bid price that you specify exceeds the current Spot price. Amazon EC2 periodically sets the Spot price based on available Spot Instance capacity and current Spot instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Creates a Spot Instance request. Spot Instances are instances that Amazon EC2 launches when the maximum price that you specify exceeds the current Spot price. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
 --
 module Network.AWS.EC2.RequestSpotInstances
@@ -27,18 +27,18 @@ module Network.AWS.EC2.RequestSpotInstances
       requestSpotInstances
     , RequestSpotInstances
     -- * Request Lenses
-    , rsisBlockDurationMinutes
-    , rsisClientToken
-    , rsisInstanceCount
-    , rsisInstanceInterruptionBehavior
-    , rsisLaunchSpecification
-    , rsisAvailabilityZoneGroup
-    , rsisValidUntil
-    , rsisLaunchGroup
-    , rsisType
-    , rsisValidFrom
-    , rsisDryRun
-    , rsisSpotPrice
+    , rBlockDurationMinutes
+    , rClientToken
+    , rInstanceCount
+    , rInstanceInterruptionBehavior
+    , rSpotPrice
+    , rLaunchSpecification
+    , rAvailabilityZoneGroup
+    , rValidUntil
+    , rLaunchGroup
+    , rType
+    , rValidFrom
+    , rDryRun
 
     -- * Destructuring the Response
     , requestSpotInstancesResponse
@@ -61,18 +61,18 @@ import Network.AWS.Response
 --
 -- /See:/ 'requestSpotInstances' smart constructor.
 data RequestSpotInstances = RequestSpotInstances'
-  { _rsisBlockDurationMinutes         :: !(Maybe Int)
-  , _rsisClientToken                  :: !(Maybe Text)
-  , _rsisInstanceCount                :: !(Maybe Int)
-  , _rsisInstanceInterruptionBehavior :: !(Maybe InstanceInterruptionBehavior)
-  , _rsisLaunchSpecification          :: !(Maybe RequestSpotLaunchSpecification)
-  , _rsisAvailabilityZoneGroup        :: !(Maybe Text)
-  , _rsisValidUntil                   :: !(Maybe ISO8601)
-  , _rsisLaunchGroup                  :: !(Maybe Text)
-  , _rsisType                         :: !(Maybe SpotInstanceType)
-  , _rsisValidFrom                    :: !(Maybe ISO8601)
-  , _rsisDryRun                       :: !(Maybe Bool)
-  , _rsisSpotPrice                    :: !Text
+  { _rBlockDurationMinutes         :: !(Maybe Int)
+  , _rClientToken                  :: !(Maybe Text)
+  , _rInstanceCount                :: !(Maybe Int)
+  , _rInstanceInterruptionBehavior :: !(Maybe InstanceInterruptionBehavior)
+  , _rSpotPrice                    :: !(Maybe Text)
+  , _rLaunchSpecification          :: !(Maybe RequestSpotLaunchSpecification)
+  , _rAvailabilityZoneGroup        :: !(Maybe Text)
+  , _rValidUntil                   :: !(Maybe ISO8601)
+  , _rLaunchGroup                  :: !(Maybe Text)
+  , _rType                         :: !(Maybe SpotInstanceType)
+  , _rValidFrom                    :: !(Maybe ISO8601)
+  , _rDryRun                       :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -80,96 +80,95 @@ data RequestSpotInstances = RequestSpotInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsisBlockDurationMinutes' - The required duration for the Spot instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360). The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates. Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
+-- * 'rBlockDurationMinutes' - The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360). The duration period starts as soon as your Spot Instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates. You can't specify an Availability Zone group or a launch group if you specify a duration.
 --
--- * 'rsisClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'rClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
--- * 'rsisInstanceCount' - The maximum number of Spot instances to launch. Default: 1
+-- * 'rInstanceCount' - The maximum number of Spot Instances to launch. Default: 1
 --
--- * 'rsisInstanceInterruptionBehavior' - Indicates whether a Spot instance stops or terminates when it is interrupted.
+-- * 'rInstanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
 --
--- * 'rsisLaunchSpecification' - The launch specification.
+-- * 'rSpotPrice' - The maximum price per hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.
 --
--- * 'rsisAvailabilityZoneGroup' - The user-specified name for a logical grouping of bids. When you specify an Availability Zone group in a Spot Instance request, all Spot instances in the request are launched in the same Availability Zone. Instance proximity is maintained with this parameter, but the choice of Availability Zone is not. The group applies only to bids for Spot Instances of the same instance type. Any additional Spot instance requests that are specified with the same Availability Zone group name are launched in that same Availability Zone, as long as at least one instance from the group is still active. If there is no active instance running in the Availability Zone group that you specify for a new Spot instance request (all instances are terminated, the bid is expired, or the bid falls below current market), then Amazon EC2 launches the instance in any Availability Zone where the constraint can be met. Consequently, the subsequent set of Spot instances could be placed in a different zone from the original request, even if you specified the same Availability Zone group. Default: Instances are launched in any available Availability Zone.
+-- * 'rLaunchSpecification' - The launch specification.
 --
--- * 'rsisValidUntil' - The end date of the request. If this is a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. Default: The request is effective indefinitely.
+-- * 'rAvailabilityZoneGroup' - The user-specified name for a logical grouping of requests. When you specify an Availability Zone group in a Spot Instance request, all Spot Instances in the request are launched in the same Availability Zone. Instance proximity is maintained with this parameter, but the choice of Availability Zone is not. The group applies only to requests for Spot Instances of the same instance type. Any additional Spot Instance requests that are specified with the same Availability Zone group name are launched in that same Availability Zone, as long as at least one instance from the group is still active. If there is no active instance running in the Availability Zone group that you specify for a new Spot Instance request (all instances are terminated, the request is expired, or the maximum price you specified falls below current Spot price), then Amazon EC2 launches the instance in any Availability Zone where the constraint can be met. Consequently, the subsequent set of Spot Instances could be placed in a different zone from the original request, even if you specified the same Availability Zone group. Default: Instances are launched in any available Availability Zone.
 --
--- * 'rsisLaunchGroup' - The instance launch group. Launch groups are Spot instances that launch together and terminate together. Default: Instances are launched and terminated individually
+-- * 'rValidUntil' - The end date of the request. If this is a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date is reached. The default end date is 7 days from the current date.
 --
--- * 'rsisType' - The Spot instance request type. Default: @one-time@
+-- * 'rLaunchGroup' - The instance launch group. Launch groups are Spot Instances that launch together and terminate together. Default: Instances are launched and terminated individually
 --
--- * 'rsisValidFrom' - The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled. Default: The request is effective indefinitely.
+-- * 'rType' - The Spot Instance request type. Default: @one-time@
 --
--- * 'rsisDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'rValidFrom' - The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.
 --
--- * 'rsisSpotPrice' - The maximum hourly price (bid) for any Spot instance launched to fulfill the request.
+-- * 'rDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 requestSpotInstances
-    :: Text -- ^ 'rsisSpotPrice'
-    -> RequestSpotInstances
-requestSpotInstances pSpotPrice_ =
+    :: RequestSpotInstances
+requestSpotInstances =
   RequestSpotInstances'
-  { _rsisBlockDurationMinutes = Nothing
-  , _rsisClientToken = Nothing
-  , _rsisInstanceCount = Nothing
-  , _rsisInstanceInterruptionBehavior = Nothing
-  , _rsisLaunchSpecification = Nothing
-  , _rsisAvailabilityZoneGroup = Nothing
-  , _rsisValidUntil = Nothing
-  , _rsisLaunchGroup = Nothing
-  , _rsisType = Nothing
-  , _rsisValidFrom = Nothing
-  , _rsisDryRun = Nothing
-  , _rsisSpotPrice = pSpotPrice_
-  }
+    { _rBlockDurationMinutes = Nothing
+    , _rClientToken = Nothing
+    , _rInstanceCount = Nothing
+    , _rInstanceInterruptionBehavior = Nothing
+    , _rSpotPrice = Nothing
+    , _rLaunchSpecification = Nothing
+    , _rAvailabilityZoneGroup = Nothing
+    , _rValidUntil = Nothing
+    , _rLaunchGroup = Nothing
+    , _rType = Nothing
+    , _rValidFrom = Nothing
+    , _rDryRun = Nothing
+    }
 
 
--- | The required duration for the Spot instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360). The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates. Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
-rsisBlockDurationMinutes :: Lens' RequestSpotInstances (Maybe Int)
-rsisBlockDurationMinutes = lens _rsisBlockDurationMinutes (\ s a -> s{_rsisBlockDurationMinutes = a});
+-- | The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360). The duration period starts as soon as your Spot Instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates. You can't specify an Availability Zone group or a launch group if you specify a duration.
+rBlockDurationMinutes :: Lens' RequestSpotInstances (Maybe Int)
+rBlockDurationMinutes = lens _rBlockDurationMinutes (\ s a -> s{_rBlockDurationMinutes = a})
 
--- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
-rsisClientToken :: Lens' RequestSpotInstances (Maybe Text)
-rsisClientToken = lens _rsisClientToken (\ s a -> s{_rsisClientToken = a});
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon EC2 User Guide for Linux Instances/ .
+rClientToken :: Lens' RequestSpotInstances (Maybe Text)
+rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a})
 
--- | The maximum number of Spot instances to launch. Default: 1
-rsisInstanceCount :: Lens' RequestSpotInstances (Maybe Int)
-rsisInstanceCount = lens _rsisInstanceCount (\ s a -> s{_rsisInstanceCount = a});
+-- | The maximum number of Spot Instances to launch. Default: 1
+rInstanceCount :: Lens' RequestSpotInstances (Maybe Int)
+rInstanceCount = lens _rInstanceCount (\ s a -> s{_rInstanceCount = a})
 
--- | Indicates whether a Spot instance stops or terminates when it is interrupted.
-rsisInstanceInterruptionBehavior :: Lens' RequestSpotInstances (Maybe InstanceInterruptionBehavior)
-rsisInstanceInterruptionBehavior = lens _rsisInstanceInterruptionBehavior (\ s a -> s{_rsisInstanceInterruptionBehavior = a});
+-- | The behavior when a Spot Instance is interrupted. The default is @terminate@ .
+rInstanceInterruptionBehavior :: Lens' RequestSpotInstances (Maybe InstanceInterruptionBehavior)
+rInstanceInterruptionBehavior = lens _rInstanceInterruptionBehavior (\ s a -> s{_rInstanceInterruptionBehavior = a})
+
+-- | The maximum price per hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.
+rSpotPrice :: Lens' RequestSpotInstances (Maybe Text)
+rSpotPrice = lens _rSpotPrice (\ s a -> s{_rSpotPrice = a})
 
 -- | The launch specification.
-rsisLaunchSpecification :: Lens' RequestSpotInstances (Maybe RequestSpotLaunchSpecification)
-rsisLaunchSpecification = lens _rsisLaunchSpecification (\ s a -> s{_rsisLaunchSpecification = a});
+rLaunchSpecification :: Lens' RequestSpotInstances (Maybe RequestSpotLaunchSpecification)
+rLaunchSpecification = lens _rLaunchSpecification (\ s a -> s{_rLaunchSpecification = a})
 
--- | The user-specified name for a logical grouping of bids. When you specify an Availability Zone group in a Spot Instance request, all Spot instances in the request are launched in the same Availability Zone. Instance proximity is maintained with this parameter, but the choice of Availability Zone is not. The group applies only to bids for Spot Instances of the same instance type. Any additional Spot instance requests that are specified with the same Availability Zone group name are launched in that same Availability Zone, as long as at least one instance from the group is still active. If there is no active instance running in the Availability Zone group that you specify for a new Spot instance request (all instances are terminated, the bid is expired, or the bid falls below current market), then Amazon EC2 launches the instance in any Availability Zone where the constraint can be met. Consequently, the subsequent set of Spot instances could be placed in a different zone from the original request, even if you specified the same Availability Zone group. Default: Instances are launched in any available Availability Zone.
-rsisAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
-rsisAvailabilityZoneGroup = lens _rsisAvailabilityZoneGroup (\ s a -> s{_rsisAvailabilityZoneGroup = a});
+-- | The user-specified name for a logical grouping of requests. When you specify an Availability Zone group in a Spot Instance request, all Spot Instances in the request are launched in the same Availability Zone. Instance proximity is maintained with this parameter, but the choice of Availability Zone is not. The group applies only to requests for Spot Instances of the same instance type. Any additional Spot Instance requests that are specified with the same Availability Zone group name are launched in that same Availability Zone, as long as at least one instance from the group is still active. If there is no active instance running in the Availability Zone group that you specify for a new Spot Instance request (all instances are terminated, the request is expired, or the maximum price you specified falls below current Spot price), then Amazon EC2 launches the instance in any Availability Zone where the constraint can be met. Consequently, the subsequent set of Spot Instances could be placed in a different zone from the original request, even if you specified the same Availability Zone group. Default: Instances are launched in any available Availability Zone.
+rAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
+rAvailabilityZoneGroup = lens _rAvailabilityZoneGroup (\ s a -> s{_rAvailabilityZoneGroup = a})
 
--- | The end date of the request. If this is a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. Default: The request is effective indefinitely.
-rsisValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
-rsisValidUntil = lens _rsisValidUntil (\ s a -> s{_rsisValidUntil = a}) . mapping _Time;
+-- | The end date of the request. If this is a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date is reached. The default end date is 7 days from the current date.
+rValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
+rValidUntil = lens _rValidUntil (\ s a -> s{_rValidUntil = a}) . mapping _Time
 
--- | The instance launch group. Launch groups are Spot instances that launch together and terminate together. Default: Instances are launched and terminated individually
-rsisLaunchGroup :: Lens' RequestSpotInstances (Maybe Text)
-rsisLaunchGroup = lens _rsisLaunchGroup (\ s a -> s{_rsisLaunchGroup = a});
+-- | The instance launch group. Launch groups are Spot Instances that launch together and terminate together. Default: Instances are launched and terminated individually
+rLaunchGroup :: Lens' RequestSpotInstances (Maybe Text)
+rLaunchGroup = lens _rLaunchGroup (\ s a -> s{_rLaunchGroup = a})
 
--- | The Spot instance request type. Default: @one-time@
-rsisType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
-rsisType = lens _rsisType (\ s a -> s{_rsisType = a});
+-- | The Spot Instance request type. Default: @one-time@
+rType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
+rType = lens _rType (\ s a -> s{_rType = a})
 
--- | The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled. Default: The request is effective indefinitely.
-rsisValidFrom :: Lens' RequestSpotInstances (Maybe UTCTime)
-rsisValidFrom = lens _rsisValidFrom (\ s a -> s{_rsisValidFrom = a}) . mapping _Time;
+-- | The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.
+rValidFrom :: Lens' RequestSpotInstances (Maybe UTCTime)
+rValidFrom = lens _rValidFrom (\ s a -> s{_rValidFrom = a}) . mapping _Time
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-rsisDryRun :: Lens' RequestSpotInstances (Maybe Bool)
-rsisDryRun = lens _rsisDryRun (\ s a -> s{_rsisDryRun = a});
-
--- | The maximum hourly price (bid) for any Spot instance launched to fulfill the request.
-rsisSpotPrice :: Lens' RequestSpotInstances Text
-rsisSpotPrice = lens _rsisSpotPrice (\ s a -> s{_rsisSpotPrice = a});
+rDryRun :: Lens' RequestSpotInstances (Maybe Bool)
+rDryRun = lens _rDryRun (\ s a -> s{_rDryRun = a})
 
 instance AWSRequest RequestSpotInstances where
         type Rs RequestSpotInstances =
@@ -198,19 +197,17 @@ instance ToQuery RequestSpotInstances where
           = mconcat
               ["Action" =: ("RequestSpotInstances" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "BlockDurationMinutes" =: _rsisBlockDurationMinutes,
-               "ClientToken" =: _rsisClientToken,
-               "InstanceCount" =: _rsisInstanceCount,
+               "BlockDurationMinutes" =: _rBlockDurationMinutes,
+               "ClientToken" =: _rClientToken,
+               "InstanceCount" =: _rInstanceCount,
                "InstanceInterruptionBehavior" =:
-                 _rsisInstanceInterruptionBehavior,
-               "LaunchSpecification" =: _rsisLaunchSpecification,
-               "AvailabilityZoneGroup" =:
-                 _rsisAvailabilityZoneGroup,
-               "ValidUntil" =: _rsisValidUntil,
-               "LaunchGroup" =: _rsisLaunchGroup,
-               "Type" =: _rsisType, "ValidFrom" =: _rsisValidFrom,
-               "DryRun" =: _rsisDryRun,
-               "SpotPrice" =: _rsisSpotPrice]
+                 _rInstanceInterruptionBehavior,
+               "SpotPrice" =: _rSpotPrice,
+               "LaunchSpecification" =: _rLaunchSpecification,
+               "AvailabilityZoneGroup" =: _rAvailabilityZoneGroup,
+               "ValidUntil" =: _rValidUntil,
+               "LaunchGroup" =: _rLaunchGroup, "Type" =: _rType,
+               "ValidFrom" =: _rValidFrom, "DryRun" =: _rDryRun]
 
 -- | Contains the output of RequestSpotInstances.
 --
@@ -227,7 +224,7 @@ data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsirsSpotInstanceRequests' - One or more Spot instance requests.
+-- * 'rsirsSpotInstanceRequests' - One or more Spot Instance requests.
 --
 -- * 'rsirsResponseStatus' - -- | The response status code.
 requestSpotInstancesResponse
@@ -235,17 +232,17 @@ requestSpotInstancesResponse
     -> RequestSpotInstancesResponse
 requestSpotInstancesResponse pResponseStatus_ =
   RequestSpotInstancesResponse'
-  { _rsirsSpotInstanceRequests = Nothing
-  , _rsirsResponseStatus = pResponseStatus_
-  }
+    { _rsirsSpotInstanceRequests = Nothing
+    , _rsirsResponseStatus = pResponseStatus_
+    }
 
 
--- | One or more Spot instance requests.
+-- | One or more Spot Instance requests.
 rsirsSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
-rsirsSpotInstanceRequests = lens _rsirsSpotInstanceRequests (\ s a -> s{_rsirsSpotInstanceRequests = a}) . _Default . _Coerce;
+rsirsSpotInstanceRequests = lens _rsirsSpotInstanceRequests (\ s a -> s{_rsirsSpotInstanceRequests = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 rsirsResponseStatus :: Lens' RequestSpotInstancesResponse Int
-rsirsResponseStatus = lens _rsirsResponseStatus (\ s a -> s{_rsirsResponseStatus = a});
+rsirsResponseStatus = lens _rsirsResponseStatus (\ s a -> s{_rsirsResponseStatus = a})
 
 instance NFData RequestSpotInstancesResponse where

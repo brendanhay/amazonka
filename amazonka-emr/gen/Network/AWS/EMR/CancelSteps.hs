@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.CancelSteps
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ cancelSteps = CancelSteps' {_csStepIds = Nothing, _csClusterId = Nothing}
 
 -- | The list of @StepIDs@ to cancel. Use 'ListSteps' to get steps and their states for the specified cluster.
 csStepIds :: Lens' CancelSteps [Text]
-csStepIds = lens _csStepIds (\ s a -> s{_csStepIds = a}) . _Default . _Coerce;
+csStepIds = lens _csStepIds (\ s a -> s{_csStepIds = a}) . _Default . _Coerce
 
 -- | The @ClusterID@ for which specified steps will be canceled. Use 'RunJobFlow' and 'ListClusters' to get ClusterIDs.
 csClusterId :: Lens' CancelSteps (Maybe Text)
-csClusterId = lens _csClusterId (\ s a -> s{_csClusterId = a});
+csClusterId = lens _csClusterId (\ s a -> s{_csClusterId = a})
 
 instance AWSRequest CancelSteps where
         type Rs CancelSteps = CancelStepsResponse
@@ -135,15 +135,15 @@ cancelStepsResponse
     -> CancelStepsResponse
 cancelStepsResponse pResponseStatus_ =
   CancelStepsResponse'
-  {_csrsCancelStepsInfoList = Nothing, _csrsResponseStatus = pResponseStatus_}
+    {_csrsCancelStepsInfoList = Nothing, _csrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of 'CancelStepsInfo' , which shows the status of specified cancel requests for each @StepID@ specified.
 csrsCancelStepsInfoList :: Lens' CancelStepsResponse [CancelStepsInfo]
-csrsCancelStepsInfoList = lens _csrsCancelStepsInfoList (\ s a -> s{_csrsCancelStepsInfoList = a}) . _Default . _Coerce;
+csrsCancelStepsInfoList = lens _csrsCancelStepsInfoList (\ s a -> s{_csrsCancelStepsInfoList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 csrsResponseStatus :: Lens' CancelStepsResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a})
 
 instance NFData CancelStepsResponse where

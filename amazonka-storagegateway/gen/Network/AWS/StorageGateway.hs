@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -100,6 +100,9 @@ module Network.AWS.StorageGateway
 
     -- ** ListTagsForResource
     , module Network.AWS.StorageGateway.ListTagsForResource
+
+    -- ** NotifyWhenUploaded
+    , module Network.AWS.StorageGateway.NotifyWhenUploaded
 
     -- ** UpdateGatewayInformation
     , module Network.AWS.StorageGateway.UpdateGatewayInformation
@@ -250,6 +253,9 @@ module Network.AWS.StorageGateway
 
     -- * Types
 
+    -- ** ObjectACL
+    , ObjectACL (..)
+
     -- ** CachediSCSIVolume
     , CachediSCSIVolume
     , cachediSCSIVolume
@@ -259,6 +265,7 @@ module Network.AWS.StorageGateway
     , cscsivVolumeARN
     , cscsivVolumeProgress
     , cscsivVolumeSizeInBytes
+    , cscsivVolumeUsedInBytes
     , cscsivCreatedDate
     , cscsivVolumeId
     , cscsivVolumeType
@@ -322,15 +329,18 @@ module Network.AWS.StorageGateway
     , nfsfsiKMSKey
     , nfsfsiGatewayARN
     , nfsfsiPath
+    , nfsfsiObjectACL
     , nfsfsiKMSEncrypted
     , nfsfsiFileShareId
     , nfsfsiFileShareARN
     , nfsfsiDefaultStorageClass
     , nfsfsiRole
     , nfsfsiSquash
+    , nfsfsiRequesterPays
     , nfsfsiNFSFileShareDefaults
     , nfsfsiLocationARN
     , nfsfsiClientList
+    , nfsfsiGuessMIMETypeEnabled
     , nfsfsiReadOnly
 
     -- ** NetworkInterface
@@ -350,6 +360,7 @@ module Network.AWS.StorageGateway
     , sscsivVolumeARN
     , sscsivVolumeProgress
     , sscsivVolumeSizeInBytes
+    , sscsivVolumeUsedInBytes
     , sscsivCreatedDate
     , sscsivVolumeId
     , sscsivVolumeDiskId
@@ -485,6 +496,7 @@ import Network.AWS.StorageGateway.ListTapes
 import Network.AWS.StorageGateway.ListVolumeInitiators
 import Network.AWS.StorageGateway.ListVolumeRecoveryPoints
 import Network.AWS.StorageGateway.ListVolumes
+import Network.AWS.StorageGateway.NotifyWhenUploaded
 import Network.AWS.StorageGateway.RefreshCache
 import Network.AWS.StorageGateway.RemoveTagsFromResource
 import Network.AWS.StorageGateway.ResetCache

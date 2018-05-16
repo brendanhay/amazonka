@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListPortfolios
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Lists all portfolios in the catalog.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListPortfolios
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.ServiceCatalog.ListPortfolios
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -61,27 +64,34 @@ data ListPortfolios = ListPortfolios'
 --
 -- * 'lpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'lpPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- * 'lpPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
 --
--- * 'lpPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- * 'lpPageSize' - The maximum number of items to return with this call.
 listPortfolios
     :: ListPortfolios
 listPortfolios =
   ListPortfolios'
-  {_lpAcceptLanguage = Nothing, _lpPageToken = Nothing, _lpPageSize = Nothing}
+    {_lpAcceptLanguage = Nothing, _lpPageToken = Nothing, _lpPageSize = Nothing}
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lpAcceptLanguage :: Lens' ListPortfolios (Maybe Text)
-lpAcceptLanguage = lens _lpAcceptLanguage (\ s a -> s{_lpAcceptLanguage = a});
+lpAcceptLanguage = lens _lpAcceptLanguage (\ s a -> s{_lpAcceptLanguage = a})
 
--- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
 lpPageToken :: Lens' ListPortfolios (Maybe Text)
-lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a});
+lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a})
 
--- | The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- | The maximum number of items to return with this call.
 lpPageSize :: Lens' ListPortfolios (Maybe Natural)
-lpPageSize = lens _lpPageSize (\ s a -> s{_lpPageSize = a}) . mapping _Nat;
+lpPageSize = lens _lpPageSize (\ s a -> s{_lpPageSize = a}) . mapping _Nat
+
+instance AWSPager ListPortfolios where
+        page rq rs
+          | stop (rs ^. lprsNextPageToken) = Nothing
+          | stop (rs ^. lprsPortfolioDetails) = Nothing
+          | otherwise =
+            Just $ rq & lpPageToken .~ rs ^. lprsNextPageToken
 
 instance AWSRequest ListPortfolios where
         type Rs ListPortfolios = ListPortfoliosResponse
@@ -134,9 +144,9 @@ data ListPortfoliosResponse = ListPortfoliosResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lprsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'lprsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
--- * 'lprsPortfolioDetails' - List of detailed portfolio information objects.
+-- * 'lprsPortfolioDetails' - Information about the portfolios.
 --
 -- * 'lprsResponseStatus' - -- | The response status code.
 listPortfoliosResponse
@@ -144,22 +154,22 @@ listPortfoliosResponse
     -> ListPortfoliosResponse
 listPortfoliosResponse pResponseStatus_ =
   ListPortfoliosResponse'
-  { _lprsNextPageToken = Nothing
-  , _lprsPortfolioDetails = Nothing
-  , _lprsResponseStatus = pResponseStatus_
-  }
+    { _lprsNextPageToken = Nothing
+    , _lprsPortfolioDetails = Nothing
+    , _lprsResponseStatus = pResponseStatus_
+    }
 
 
--- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 lprsNextPageToken :: Lens' ListPortfoliosResponse (Maybe Text)
-lprsNextPageToken = lens _lprsNextPageToken (\ s a -> s{_lprsNextPageToken = a});
+lprsNextPageToken = lens _lprsNextPageToken (\ s a -> s{_lprsNextPageToken = a})
 
--- | List of detailed portfolio information objects.
+-- | Information about the portfolios.
 lprsPortfolioDetails :: Lens' ListPortfoliosResponse [PortfolioDetail]
-lprsPortfolioDetails = lens _lprsPortfolioDetails (\ s a -> s{_lprsPortfolioDetails = a}) . _Default . _Coerce;
+lprsPortfolioDetails = lens _lprsPortfolioDetails (\ s a -> s{_lprsPortfolioDetails = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPortfoliosResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a})
 
 instance NFData ListPortfoliosResponse where

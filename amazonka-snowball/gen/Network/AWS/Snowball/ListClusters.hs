@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.ListClusters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ listClusters = ListClusters' {_lcNextToken = Nothing, _lcMaxResults = Nothing}
 
 -- | HTTP requests are stateless. To identify what object comes "next" in the list of @ClusterListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
 lcNextToken :: Lens' ListClusters (Maybe Text)
-lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
+lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a})
 
 -- | The number of @ClusterListEntry@ objects to return.
 lcMaxResults :: Lens' ListClusters (Maybe Natural)
-lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat;
+lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat
 
 instance AWSRequest ListClusters where
         type Rs ListClusters = ListClustersResponse
@@ -133,22 +133,22 @@ listClustersResponse
     -> ListClustersResponse
 listClustersResponse pResponseStatus_ =
   ListClustersResponse'
-  { _lcrsClusterListEntries = Nothing
-  , _lcrsNextToken = Nothing
-  , _lcrsResponseStatus = pResponseStatus_
-  }
+    { _lcrsClusterListEntries = Nothing
+    , _lcrsNextToken = Nothing
+    , _lcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Each @ClusterListEntry@ object contains a cluster's state, a cluster's ID, and other important status information.
 lcrsClusterListEntries :: Lens' ListClustersResponse [ClusterListEntry]
-lcrsClusterListEntries = lens _lcrsClusterListEntries (\ s a -> s{_lcrsClusterListEntries = a}) . _Default . _Coerce;
+lcrsClusterListEntries = lens _lcrsClusterListEntries (\ s a -> s{_lcrsClusterListEntries = a}) . _Default . _Coerce
 
 -- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @ClusterListEntry@ call, your list of returned clusters will start from this point in the array.
 lcrsNextToken :: Lens' ListClustersResponse (Maybe Text)
-lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
+lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a})
 
 -- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListClustersResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
+lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a})
 
 instance NFData ListClustersResponse where

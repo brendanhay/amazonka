@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.SetSubnets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables the Availability Zone for the specified subnets for the specified Application Load Balancer. The specified subnets replace the previously enabled subnets.
+-- Enables the Availability Zone for the specified public subnets for the specified Application Load Balancer. The specified subnets replace the previously enabled subnets.
 --
 --
 -- Note that you can't change the subnets for a Network Load Balancer.
@@ -60,33 +60,33 @@ data SetSubnets = SetSubnets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssSubnetMappings' - The IDs of the subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings. You cannot specify Elastic IP addresses for your subnets.
+-- * 'ssSubnetMappings' - The IDs of the public subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings. You cannot specify Elastic IP addresses for your subnets.
 --
 -- * 'ssLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'ssSubnets' - The IDs of the subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
+-- * 'ssSubnets' - The IDs of the public subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
 setSubnets
     :: Text -- ^ 'ssLoadBalancerARN'
     -> SetSubnets
 setSubnets pLoadBalancerARN_ =
   SetSubnets'
-  { _ssSubnetMappings = Nothing
-  , _ssLoadBalancerARN = pLoadBalancerARN_
-  , _ssSubnets = mempty
-  }
+    { _ssSubnetMappings = Nothing
+    , _ssLoadBalancerARN = pLoadBalancerARN_
+    , _ssSubnets = mempty
+    }
 
 
--- | The IDs of the subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings. You cannot specify Elastic IP addresses for your subnets.
+-- | The IDs of the public subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings. You cannot specify Elastic IP addresses for your subnets.
 ssSubnetMappings :: Lens' SetSubnets [SubnetMapping]
-ssSubnetMappings = lens _ssSubnetMappings (\ s a -> s{_ssSubnetMappings = a}) . _Default . _Coerce;
+ssSubnetMappings = lens _ssSubnetMappings (\ s a -> s{_ssSubnetMappings = a}) . _Default . _Coerce
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 ssLoadBalancerARN :: Lens' SetSubnets Text
-ssLoadBalancerARN = lens _ssLoadBalancerARN (\ s a -> s{_ssLoadBalancerARN = a});
+ssLoadBalancerARN = lens _ssLoadBalancerARN (\ s a -> s{_ssLoadBalancerARN = a})
 
--- | The IDs of the subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
+-- | The IDs of the public subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
 ssSubnets :: Lens' SetSubnets [Text]
-ssSubnets = lens _ssSubnets (\ s a -> s{_ssSubnets = a}) . _Coerce;
+ssSubnets = lens _ssSubnets (\ s a -> s{_ssSubnets = a}) . _Coerce
 
 instance AWSRequest SetSubnets where
         type Rs SetSubnets = SetSubnetsResponse
@@ -138,15 +138,15 @@ setSubnetsResponse
     -> SetSubnetsResponse
 setSubnetsResponse pResponseStatus_ =
   SetSubnetsResponse'
-  {_ssrsAvailabilityZones = Nothing, _ssrsResponseStatus = pResponseStatus_}
+    {_ssrsAvailabilityZones = Nothing, _ssrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the subnet and Availability Zone.
 ssrsAvailabilityZones :: Lens' SetSubnetsResponse [AvailabilityZone]
-ssrsAvailabilityZones = lens _ssrsAvailabilityZones (\ s a -> s{_ssrsAvailabilityZones = a}) . _Default . _Coerce;
+ssrsAvailabilityZones = lens _ssrsAvailabilityZones (\ s a -> s{_ssrsAvailabilityZones = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ssrsResponseStatus :: Lens' SetSubnetsResponse Int
-ssrsResponseStatus = lens _ssrsResponseStatus (\ s a -> s{_ssrsResponseStatus = a});
+ssrsResponseStatus = lens _ssrsResponseStatus (\ s a -> s{_ssrsResponseStatus = a})
 
 instance NFData SetSubnetsResponse where

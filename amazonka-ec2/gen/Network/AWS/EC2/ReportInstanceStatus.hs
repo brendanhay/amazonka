@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReportInstanceStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,13 +29,13 @@ module Network.AWS.EC2.ReportInstanceStatus
       reportInstanceStatus
     , ReportInstanceStatus
     -- * Request Lenses
-    , risStartTime
-    , risEndTime
-    , risDescription
-    , risDryRun
-    , risInstances
-    , risReasonCodes
-    , risStatus
+    , rissStartTime
+    , rissEndTime
+    , rissDescription
+    , rissDryRun
+    , rissInstances
+    , rissReasonCodes
+    , rissStatus
 
     -- * Destructuring the Response
     , reportInstanceStatusResponse
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'reportInstanceStatus' smart constructor.
 data ReportInstanceStatus = ReportInstanceStatus'
-  { _risStartTime   :: !(Maybe ISO8601)
-  , _risEndTime     :: !(Maybe ISO8601)
-  , _risDescription :: !(Maybe Text)
-  , _risDryRun      :: !(Maybe Bool)
-  , _risInstances   :: ![Text]
-  , _risReasonCodes :: ![ReportInstanceReasonCodes]
-  , _risStatus      :: !ReportStatusType
+  { _rissStartTime   :: !(Maybe ISO8601)
+  , _rissEndTime     :: !(Maybe ISO8601)
+  , _rissDescription :: !(Maybe Text)
+  , _rissDryRun      :: !(Maybe Bool)
+  , _rissInstances   :: ![Text]
+  , _rissReasonCodes :: ![ReportInstanceReasonCodes]
+  , _rissStatus      :: !ReportStatusType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -69,61 +69,61 @@ data ReportInstanceStatus = ReportInstanceStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'risStartTime' - The time at which the reported instance health state began.
+-- * 'rissStartTime' - The time at which the reported instance health state began.
 --
--- * 'risEndTime' - The time at which the reported instance health state ended.
+-- * 'rissEndTime' - The time at which the reported instance health state ended.
 --
--- * 'risDescription' - Descriptive text about the health state of your instance.
+-- * 'rissDescription' - Descriptive text about the health state of your instance.
 --
--- * 'risDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'rissDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'risInstances' - One or more instances.
+-- * 'rissInstances' - One or more instances.
 --
--- * 'risReasonCodes' - One or more reason codes that describe the health state of your instance.     * @instance-stuck-in-state@ : My instance is stuck in a state.     * @unresponsive@ : My instance is unresponsive.     * @not-accepting-credentials@ : My instance is not accepting my credentials.     * @password-not-available@ : A password is not available for my instance.     * @performance-network@ : My instance is experiencing performance problems that I believe are network related.     * @performance-instance-store@ : My instance is experiencing performance problems that I believe are related to the instance stores.     * @performance-ebs-volume@ : My instance is experiencing performance problems that I believe are related to an EBS volume.     * @performance-other@ : My instance is experiencing performance problems.     * @other@ : [explain using the description parameter]
+-- * 'rissReasonCodes' - One or more reason codes that describe the health state of your instance.     * @instance-stuck-in-state@ : My instance is stuck in a state.     * @unresponsive@ : My instance is unresponsive.     * @not-accepting-credentials@ : My instance is not accepting my credentials.     * @password-not-available@ : A password is not available for my instance.     * @performance-network@ : My instance is experiencing performance problems that I believe are network related.     * @performance-instance-store@ : My instance is experiencing performance problems that I believe are related to the instance stores.     * @performance-ebs-volume@ : My instance is experiencing performance problems that I believe are related to an EBS volume.     * @performance-other@ : My instance is experiencing performance problems.     * @other@ : [explain using the description parameter]
 --
--- * 'risStatus' - The status of all instances listed.
+-- * 'rissStatus' - The status of all instances listed.
 reportInstanceStatus
-    :: ReportStatusType -- ^ 'risStatus'
+    :: ReportStatusType -- ^ 'rissStatus'
     -> ReportInstanceStatus
 reportInstanceStatus pStatus_ =
   ReportInstanceStatus'
-  { _risStartTime = Nothing
-  , _risEndTime = Nothing
-  , _risDescription = Nothing
-  , _risDryRun = Nothing
-  , _risInstances = mempty
-  , _risReasonCodes = mempty
-  , _risStatus = pStatus_
-  }
+    { _rissStartTime = Nothing
+    , _rissEndTime = Nothing
+    , _rissDescription = Nothing
+    , _rissDryRun = Nothing
+    , _rissInstances = mempty
+    , _rissReasonCodes = mempty
+    , _rissStatus = pStatus_
+    }
 
 
 -- | The time at which the reported instance health state began.
-risStartTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
-risStartTime = lens _risStartTime (\ s a -> s{_risStartTime = a}) . mapping _Time;
+rissStartTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
+rissStartTime = lens _rissStartTime (\ s a -> s{_rissStartTime = a}) . mapping _Time
 
 -- | The time at which the reported instance health state ended.
-risEndTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
-risEndTime = lens _risEndTime (\ s a -> s{_risEndTime = a}) . mapping _Time;
+rissEndTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
+rissEndTime = lens _rissEndTime (\ s a -> s{_rissEndTime = a}) . mapping _Time
 
 -- | Descriptive text about the health state of your instance.
-risDescription :: Lens' ReportInstanceStatus (Maybe Text)
-risDescription = lens _risDescription (\ s a -> s{_risDescription = a});
+rissDescription :: Lens' ReportInstanceStatus (Maybe Text)
+rissDescription = lens _rissDescription (\ s a -> s{_rissDescription = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-risDryRun :: Lens' ReportInstanceStatus (Maybe Bool)
-risDryRun = lens _risDryRun (\ s a -> s{_risDryRun = a});
+rissDryRun :: Lens' ReportInstanceStatus (Maybe Bool)
+rissDryRun = lens _rissDryRun (\ s a -> s{_rissDryRun = a})
 
 -- | One or more instances.
-risInstances :: Lens' ReportInstanceStatus [Text]
-risInstances = lens _risInstances (\ s a -> s{_risInstances = a}) . _Coerce;
+rissInstances :: Lens' ReportInstanceStatus [Text]
+rissInstances = lens _rissInstances (\ s a -> s{_rissInstances = a}) . _Coerce
 
 -- | One or more reason codes that describe the health state of your instance.     * @instance-stuck-in-state@ : My instance is stuck in a state.     * @unresponsive@ : My instance is unresponsive.     * @not-accepting-credentials@ : My instance is not accepting my credentials.     * @password-not-available@ : A password is not available for my instance.     * @performance-network@ : My instance is experiencing performance problems that I believe are network related.     * @performance-instance-store@ : My instance is experiencing performance problems that I believe are related to the instance stores.     * @performance-ebs-volume@ : My instance is experiencing performance problems that I believe are related to an EBS volume.     * @performance-other@ : My instance is experiencing performance problems.     * @other@ : [explain using the description parameter]
-risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
-risReasonCodes = lens _risReasonCodes (\ s a -> s{_risReasonCodes = a}) . _Coerce;
+rissReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
+rissReasonCodes = lens _rissReasonCodes (\ s a -> s{_rissReasonCodes = a}) . _Coerce
 
 -- | The status of all instances listed.
-risStatus :: Lens' ReportInstanceStatus ReportStatusType
-risStatus = lens _risStatus (\ s a -> s{_risStatus = a});
+rissStatus :: Lens' ReportInstanceStatus ReportStatusType
+rissStatus = lens _rissStatus (\ s a -> s{_rissStatus = a})
 
 instance AWSRequest ReportInstanceStatus where
         type Rs ReportInstanceStatus =
@@ -146,13 +146,13 @@ instance ToQuery ReportInstanceStatus where
           = mconcat
               ["Action" =: ("ReportInstanceStatus" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "StartTime" =: _risStartTime,
-               "EndTime" =: _risEndTime,
-               "Description" =: _risDescription,
-               "DryRun" =: _risDryRun,
-               toQueryList "InstanceId" _risInstances,
-               toQueryList "ReasonCode" _risReasonCodes,
-               "Status" =: _risStatus]
+               "StartTime" =: _rissStartTime,
+               "EndTime" =: _rissEndTime,
+               "Description" =: _rissDescription,
+               "DryRun" =: _rissDryRun,
+               toQueryList "InstanceId" _rissInstances,
+               toQueryList "ReasonCode" _rissReasonCodes,
+               "Status" =: _rissStatus]
 
 -- | /See:/ 'reportInstanceStatusResponse' smart constructor.
 data ReportInstanceStatusResponse =

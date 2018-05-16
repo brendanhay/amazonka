@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.SetDefaultPolicyVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Sets the specified version of the specified policy as the policy's default (operative) version.
 --
 --
--- This action affects all users, groups, and roles that the policy is attached to. To list the users, groups, and roles that the policy is attached to, use the 'ListEntitiesForPolicy' API.
+-- This operation affects all users, groups, and roles that the policy is attached to. To list the users, groups, and roles that the policy is attached to, use the 'ListEntitiesForPolicy' API.
 --
 -- For information about managed policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 --
@@ -66,16 +66,16 @@ setDefaultPolicyVersion
     -> SetDefaultPolicyVersion
 setDefaultPolicyVersion pPolicyARN_ pVersionId_ =
   SetDefaultPolicyVersion'
-  {_sdpvPolicyARN = pPolicyARN_, _sdpvVersionId = pVersionId_}
+    {_sdpvPolicyARN = pPolicyARN_, _sdpvVersionId = pVersionId_}
 
 
 -- | The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 sdpvPolicyARN :: Lens' SetDefaultPolicyVersion Text
-sdpvPolicyARN = lens _sdpvPolicyARN (\ s a -> s{_sdpvPolicyARN = a});
+sdpvPolicyARN = lens _sdpvPolicyARN (\ s a -> s{_sdpvPolicyARN = a})
 
 -- | The version of the policy to set as the default (operative) version. For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 sdpvVersionId :: Lens' SetDefaultPolicyVersion Text
-sdpvVersionId = lens _sdpvVersionId (\ s a -> s{_sdpvVersionId = a});
+sdpvVersionId = lens _sdpvVersionId (\ s a -> s{_sdpvVersionId = a})
 
 instance AWSRequest SetDefaultPolicyVersion where
         type Rs SetDefaultPolicyVersion =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.XRay.GetTraceSummaries
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,8 @@
 --
 -- For a full list of indexed fields and keywords that you can use in filter expressions, see <http://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html Using Filter Expressions> in the /AWS X-Ray Developer Guide/ .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.XRay.GetTraceSummaries
     (
     -- * Creating a Request
@@ -55,6 +57,7 @@ module Network.AWS.XRay.GetTraceSummaries
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -90,33 +93,40 @@ getTraceSummaries
     -> GetTraceSummaries
 getTraceSummaries pStartTime_ pEndTime_ =
   GetTraceSummaries'
-  { _gtsFilterExpression = Nothing
-  , _gtsNextToken = Nothing
-  , _gtsSampling = Nothing
-  , _gtsStartTime = _Time # pStartTime_
-  , _gtsEndTime = _Time # pEndTime_
-  }
+    { _gtsFilterExpression = Nothing
+    , _gtsNextToken = Nothing
+    , _gtsSampling = Nothing
+    , _gtsStartTime = _Time # pStartTime_
+    , _gtsEndTime = _Time # pEndTime_
+    }
 
 
 -- | Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements.
 gtsFilterExpression :: Lens' GetTraceSummaries (Maybe Text)
-gtsFilterExpression = lens _gtsFilterExpression (\ s a -> s{_gtsFilterExpression = a});
+gtsFilterExpression = lens _gtsFilterExpression (\ s a -> s{_gtsFilterExpression = a})
 
 -- | Specify the pagination token returned by a previous request to retrieve the next page of results.
 gtsNextToken :: Lens' GetTraceSummaries (Maybe Text)
-gtsNextToken = lens _gtsNextToken (\ s a -> s{_gtsNextToken = a});
+gtsNextToken = lens _gtsNextToken (\ s a -> s{_gtsNextToken = a})
 
 -- | Set to @true@ to get summaries for only a subset of available traces.
 gtsSampling :: Lens' GetTraceSummaries (Maybe Bool)
-gtsSampling = lens _gtsSampling (\ s a -> s{_gtsSampling = a});
+gtsSampling = lens _gtsSampling (\ s a -> s{_gtsSampling = a})
 
 -- | The start of the time frame for which to retrieve traces.
 gtsStartTime :: Lens' GetTraceSummaries UTCTime
-gtsStartTime = lens _gtsStartTime (\ s a -> s{_gtsStartTime = a}) . _Time;
+gtsStartTime = lens _gtsStartTime (\ s a -> s{_gtsStartTime = a}) . _Time
 
 -- | The end of the time frame for which to retrieve traces.
 gtsEndTime :: Lens' GetTraceSummaries UTCTime
-gtsEndTime = lens _gtsEndTime (\ s a -> s{_gtsEndTime = a}) . _Time;
+gtsEndTime = lens _gtsEndTime (\ s a -> s{_gtsEndTime = a}) . _Time
+
+instance AWSPager GetTraceSummaries where
+        page rq rs
+          | stop (rs ^. gtsrsNextToken) = Nothing
+          | stop (rs ^. gtsrsTraceSummaries) = Nothing
+          | otherwise =
+            Just $ rq & gtsNextToken .~ rs ^. gtsrsNextToken
 
 instance AWSRequest GetTraceSummaries where
         type Rs GetTraceSummaries = GetTraceSummariesResponse
@@ -168,7 +178,7 @@ data GetTraceSummariesResponse = GetTraceSummariesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtsrsTracesProcessedCount' - The number of traces that were processed to get this set of summaries.
+-- * 'gtsrsTracesProcessedCount' - The total number of traces processed, including traces that did not match the specified filter expression.
 --
 -- * 'gtsrsNextToken' - If the requested time frame contained more than one page of results, you can use this token to retrieve the next page. The first page contains the most most recent results, closest to the end of the time frame.
 --
@@ -182,32 +192,32 @@ getTraceSummariesResponse
     -> GetTraceSummariesResponse
 getTraceSummariesResponse pResponseStatus_ =
   GetTraceSummariesResponse'
-  { _gtsrsTracesProcessedCount = Nothing
-  , _gtsrsNextToken = Nothing
-  , _gtsrsApproximateTime = Nothing
-  , _gtsrsTraceSummaries = Nothing
-  , _gtsrsResponseStatus = pResponseStatus_
-  }
+    { _gtsrsTracesProcessedCount = Nothing
+    , _gtsrsNextToken = Nothing
+    , _gtsrsApproximateTime = Nothing
+    , _gtsrsTraceSummaries = Nothing
+    , _gtsrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The number of traces that were processed to get this set of summaries.
+-- | The total number of traces processed, including traces that did not match the specified filter expression.
 gtsrsTracesProcessedCount :: Lens' GetTraceSummariesResponse (Maybe Integer)
-gtsrsTracesProcessedCount = lens _gtsrsTracesProcessedCount (\ s a -> s{_gtsrsTracesProcessedCount = a});
+gtsrsTracesProcessedCount = lens _gtsrsTracesProcessedCount (\ s a -> s{_gtsrsTracesProcessedCount = a})
 
 -- | If the requested time frame contained more than one page of results, you can use this token to retrieve the next page. The first page contains the most most recent results, closest to the end of the time frame.
 gtsrsNextToken :: Lens' GetTraceSummariesResponse (Maybe Text)
-gtsrsNextToken = lens _gtsrsNextToken (\ s a -> s{_gtsrsNextToken = a});
+gtsrsNextToken = lens _gtsrsNextToken (\ s a -> s{_gtsrsNextToken = a})
 
 -- | The start time of this page of results.
 gtsrsApproximateTime :: Lens' GetTraceSummariesResponse (Maybe UTCTime)
-gtsrsApproximateTime = lens _gtsrsApproximateTime (\ s a -> s{_gtsrsApproximateTime = a}) . mapping _Time;
+gtsrsApproximateTime = lens _gtsrsApproximateTime (\ s a -> s{_gtsrsApproximateTime = a}) . mapping _Time
 
 -- | Trace IDs and metadata for traces that were found in the specified time frame.
 gtsrsTraceSummaries :: Lens' GetTraceSummariesResponse [TraceSummary]
-gtsrsTraceSummaries = lens _gtsrsTraceSummaries (\ s a -> s{_gtsrsTraceSummaries = a}) . _Default . _Coerce;
+gtsrsTraceSummaries = lens _gtsrsTraceSummaries (\ s a -> s{_gtsrsTraceSummaries = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gtsrsResponseStatus :: Lens' GetTraceSummariesResponse Int
-gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
+gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a})
 
 instance NFData GetTraceSummariesResponse where

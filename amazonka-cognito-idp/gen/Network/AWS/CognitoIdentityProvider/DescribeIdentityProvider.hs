@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ describeIdentityProvider
     -> DescribeIdentityProvider
 describeIdentityProvider pUserPoolId_ pProviderName_ =
   DescribeIdentityProvider'
-  {_dipUserPoolId = pUserPoolId_, _dipProviderName = pProviderName_}
+    {_dipUserPoolId = pUserPoolId_, _dipProviderName = pProviderName_}
 
 
 -- | The user pool ID.
 dipUserPoolId :: Lens' DescribeIdentityProvider Text
-dipUserPoolId = lens _dipUserPoolId (\ s a -> s{_dipUserPoolId = a});
+dipUserPoolId = lens _dipUserPoolId (\ s a -> s{_dipUserPoolId = a})
 
 -- | The identity provider name.
 dipProviderName :: Lens' DescribeIdentityProvider Text
-dipProviderName = lens _dipProviderName (\ s a -> s{_dipProviderName = a});
+dipProviderName = lens _dipProviderName (\ s a -> s{_dipProviderName = a})
 
 instance AWSRequest DescribeIdentityProvider where
         type Rs DescribeIdentityProvider =
@@ -133,18 +133,18 @@ describeIdentityProviderResponse
     -> DescribeIdentityProviderResponse
 describeIdentityProviderResponse pResponseStatus_ pIdentityProvider_ =
   DescribeIdentityProviderResponse'
-  { _diprsResponseStatus = pResponseStatus_
-  , _diprsIdentityProvider = pIdentityProvider_
-  }
+    { _diprsResponseStatus = pResponseStatus_
+    , _diprsIdentityProvider = pIdentityProvider_
+    }
 
 
 -- | -- | The response status code.
 diprsResponseStatus :: Lens' DescribeIdentityProviderResponse Int
-diprsResponseStatus = lens _diprsResponseStatus (\ s a -> s{_diprsResponseStatus = a});
+diprsResponseStatus = lens _diprsResponseStatus (\ s a -> s{_diprsResponseStatus = a})
 
 -- | The identity provider that was deleted.
 diprsIdentityProvider :: Lens' DescribeIdentityProviderResponse IdentityProviderType
-diprsIdentityProvider = lens _diprsIdentityProvider (\ s a -> s{_diprsIdentityProvider = a});
+diprsIdentityProvider = lens _diprsIdentityProvider (\ s a -> s{_diprsIdentityProvider = a})
 
 instance NFData DescribeIdentityProviderResponse
          where

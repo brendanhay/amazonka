@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport.PutReportDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ putReportDefinition pReportDefinition_ =
 
 -- | Undocumented member.
 prdReportDefinition :: Lens' PutReportDefinition ReportDefinition
-prdReportDefinition = lens _prdReportDefinition (\ s a -> s{_prdReportDefinition = a});
+prdReportDefinition = lens _prdReportDefinition (\ s a -> s{_prdReportDefinition = a})
 
 instance AWSRequest PutReportDefinition where
         type Rs PutReportDefinition =
@@ -122,6 +122,6 @@ putReportDefinitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 prdrsResponseStatus :: Lens' PutReportDefinitionResponse Int
-prdrsResponseStatus = lens _prdrsResponseStatus (\ s a -> s{_prdrsResponseStatus = a});
+prdrsResponseStatus = lens _prdrsResponseStatus (\ s a -> s{_prdrsResponseStatus = a})
 
 instance NFData PutReportDefinitionResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateDomainEntry
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ createDomainEntry
     -> CreateDomainEntry
 createDomainEntry pDomainName_ pDomainEntry_ =
   CreateDomainEntry'
-  {_cdeDomainName = pDomainName_, _cdeDomainEntry = pDomainEntry_}
+    {_cdeDomainName = pDomainName_, _cdeDomainEntry = pDomainEntry_}
 
 
 -- | The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
 cdeDomainName :: Lens' CreateDomainEntry Text
-cdeDomainName = lens _cdeDomainName (\ s a -> s{_cdeDomainName = a});
+cdeDomainName = lens _cdeDomainName (\ s a -> s{_cdeDomainName = a})
 
 -- | An array of key-value pairs containing information about the domain entry request.
 cdeDomainEntry :: Lens' CreateDomainEntry DomainEntry
-cdeDomainEntry = lens _cdeDomainEntry (\ s a -> s{_cdeDomainEntry = a});
+cdeDomainEntry = lens _cdeDomainEntry (\ s a -> s{_cdeDomainEntry = a})
 
 instance AWSRequest CreateDomainEntry where
         type Rs CreateDomainEntry = CreateDomainEntryResponse
@@ -131,15 +131,15 @@ createDomainEntryResponse
     -> CreateDomainEntryResponse
 createDomainEntryResponse pResponseStatus_ =
   CreateDomainEntryResponse'
-  {_cdersOperation = Nothing, _cdersResponseStatus = pResponseStatus_}
+    {_cdersOperation = Nothing, _cdersResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the operation.
 cdersOperation :: Lens' CreateDomainEntryResponse (Maybe Operation)
-cdersOperation = lens _cdersOperation (\ s a -> s{_cdersOperation = a});
+cdersOperation = lens _cdersOperation (\ s a -> s{_cdersOperation = a})
 
 -- | -- | The response status code.
 cdersResponseStatus :: Lens' CreateDomainEntryResponse Int
-cdersResponseStatus = lens _cdersResponseStatus (\ s a -> s{_cdersResponseStatus = a});
+cdersResponseStatus = lens _cdersResponseStatus (\ s a -> s{_cdersResponseStatus = a})
 
 instance NFData CreateDomainEntryResponse where

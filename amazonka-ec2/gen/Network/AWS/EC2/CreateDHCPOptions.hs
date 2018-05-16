@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateDHCPOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,11 +85,11 @@ createDHCPOptions =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cdoDryRun :: Lens' CreateDHCPOptions (Maybe Bool)
-cdoDryRun = lens _cdoDryRun (\ s a -> s{_cdoDryRun = a});
+cdoDryRun = lens _cdoDryRun (\ s a -> s{_cdoDryRun = a})
 
 -- | A DHCP configuration option.
 cdoDHCPConfigurations :: Lens' CreateDHCPOptions [NewDHCPConfiguration]
-cdoDHCPConfigurations = lens _cdoDHCPConfigurations (\ s a -> s{_cdoDHCPConfigurations = a}) . _Coerce;
+cdoDHCPConfigurations = lens _cdoDHCPConfigurations (\ s a -> s{_cdoDHCPConfigurations = a}) . _Coerce
 
 instance AWSRequest CreateDHCPOptions where
         type Rs CreateDHCPOptions = CreateDHCPOptionsResponse
@@ -142,15 +142,15 @@ createDHCPOptionsResponse
     -> CreateDHCPOptionsResponse
 createDHCPOptionsResponse pResponseStatus_ =
   CreateDHCPOptionsResponse'
-  {_cdorsDHCPOptions = Nothing, _cdorsResponseStatus = pResponseStatus_}
+    {_cdorsDHCPOptions = Nothing, _cdorsResponseStatus = pResponseStatus_}
 
 
 -- | A set of DHCP options.
 cdorsDHCPOptions :: Lens' CreateDHCPOptionsResponse (Maybe DHCPOptions)
-cdorsDHCPOptions = lens _cdorsDHCPOptions (\ s a -> s{_cdorsDHCPOptions = a});
+cdorsDHCPOptions = lens _cdorsDHCPOptions (\ s a -> s{_cdorsDHCPOptions = a})
 
 -- | -- | The response status code.
 cdorsResponseStatus :: Lens' CreateDHCPOptionsResponse Int
-cdorsResponseStatus = lens _cdorsResponseStatus (\ s a -> s{_cdorsResponseStatus = a});
+cdorsResponseStatus = lens _cdorsResponseStatus (\ s a -> s{_cdorsResponseStatus = a})
 
 instance NFData CreateDHCPOptionsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DeprecateActivityType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,16 +82,16 @@ deprecateActivityType
     -> DeprecateActivityType
 deprecateActivityType pDomain_ pActivityType_ =
   DeprecateActivityType'
-  {_depDomain = pDomain_, _depActivityType = pActivityType_}
+    {_depDomain = pDomain_, _depActivityType = pActivityType_}
 
 
 -- | The name of the domain in which the activity type is registered.
 depDomain :: Lens' DeprecateActivityType Text
-depDomain = lens _depDomain (\ s a -> s{_depDomain = a});
+depDomain = lens _depDomain (\ s a -> s{_depDomain = a})
 
 -- | The activity type to deprecate.
 depActivityType :: Lens' DeprecateActivityType ActivityType
-depActivityType = lens _depActivityType (\ s a -> s{_depActivityType = a});
+depActivityType = lens _depActivityType (\ s a -> s{_depActivityType = a})
 
 instance AWSRequest DeprecateActivityType where
         type Rs DeprecateActivityType =

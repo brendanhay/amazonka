@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -13,13 +13,13 @@
 --
 -- __Amazon GameLift Service__
 --
--- Amazon GameLift is a managed service for developers who need a scalable, dedicated server solution for their multiplayer games. Amazon GameLift provides tools for the following tasks: (1) acquire computing resources and deploy game servers, (2) scale game server capacity to meet player demand, (3) host game sessions and manage player access, and (4) track in-depth metrics on player usage and server performance.
+-- Amazon GameLift is a managed service for developers who need a scalable, dedicated server solution for their multiplayer games. Use Amazon GameLift for these tasks: (1) set up computing resources and deploy your game servers, (2) run game sessions and get players into games, (3) automatically scale your resources to meet player demand and manage costs, and (4) track in-depth metrics on game server performance and player usage.
 --
 -- The Amazon GameLift service API includes two important function sets:
 --
 --     * __Manage game sessions and player access__ -- Retrieve information on available game sessions; create new game sessions; send player requests to join a game session.
 --
---     * __Configure and manage game server resources__ -- Manage builds, fleets, queues, and aliases; set autoscaling policies; retrieve logs and metrics.
+--     * __Configure and manage game server resources__ -- Manage builds, fleets, queues, and aliases; set auto-scaling policies; retrieve logs and metrics.
 --
 --
 --
@@ -35,17 +35,17 @@
 --
 --
 --
--- __MORE RESOURCES__
+-- __Learn more__
 --
---     * <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Amazon GameLift Developer Guide> -- Learn more about Amazon GameLift features and how to use them.
+--     * <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Developer Guide> -- Read about Amazon GameLift features and how to use them.
 --
---     * <https://gamedev.amazon.com/forums/tutorials Lumberyard and Amazon GameLift Tutorials> -- Get started fast with walkthroughs and sample projects.
+--     * <https://gamedev.amazon.com/forums/tutorials Tutorials> -- Get started fast with walkthroughs and sample projects.
 --
 --     * <http://aws.amazon.com/blogs/gamedev/ GameDev Blog> -- Stay up to date with new features and techniques.
 --
 --     * <https://gamedev.amazon.com/forums/spaces/123/gamelift-discussion.html GameDev Forums> -- Connect with the GameDev community.
 --
---     * <http://docs.aws.amazon.com/gamelift/latest/developerguide/doc-history.html Amazon GameLift Document History> -- See changes to the Amazon GameLift service, SDKs, and documentation, as well as links to release notes.
+--     * <http://aws.amazon.com/releasenotes/Amazon-GameLift/ Release notes> and <http://docs.aws.amazon.com/gamelift/latest/developerguide/doc-history.html document history> -- Stay current with updates to the Amazon GameLift service, SDKs, and documentation.
 --
 --
 --
@@ -79,9 +79,11 @@
 --
 --
 --
---     * __Start new game sessions with FlexMatch matchmaking__
+--     * __Match players to game sessions with FlexMatch matchmaking__
 --
 --     * 'StartMatchmaking' -- Request matchmaking for one players or a group who want to play together.
+--
+--     * 'StartMatchBackfill' - Request additional player matches to fill empty slots in an existing game session.
 --
 --     * 'DescribeMatchmaking' -- Get details on a matchmaking request, including status.
 --
@@ -121,7 +123,7 @@
 --
 --     * __Manage game builds__
 --
---     * 'CreateBuild' -- Create a new build using files stored in an Amazon S3 bucket. (Update uploading permissions with 'RequestUploadCredentials' .) To create a build and upload files from a local path, use the AWS CLI command @upload-build@ .
+--     * 'CreateBuild' -- Create a new build using files stored in an Amazon S3 bucket. To create a build and upload files from a local path, use the AWS CLI command @upload-build@ .
 --
 --     * 'ListBuilds' -- Get a list of all builds uploaded to a Amazon GameLift region.
 --
@@ -159,13 +161,17 @@
 --
 --     * 'DescribeFleetCapacity' / 'UpdateFleetCapacity' -- Retrieve the capacity settings and the current number of instances in a fleet; adjust fleet capacity settings to scale up or down.
 --
---     * Autoscale -- Manage autoscaling rules and apply them to a fleet.
+--     * Autoscale -- Manage auto-scaling rules and apply them to a fleet.
 --
---     * 'PutScalingPolicy' -- Create a new autoscaling policy, or update an existing one.
+--     * 'PutScalingPolicy' -- Create a new auto-scaling policy, or update an existing one.
 --
---     * 'DescribeScalingPolicies' -- Retrieve an existing autoscaling policy.
+--     * 'DescribeScalingPolicies' -- Retrieve an existing auto-scaling policy.
 --
---     * 'DeleteScalingPolicy' -- Delete an autoscaling policy and stop it from affecting a fleet's capacity.
+--     * 'DeleteScalingPolicy' -- Delete an auto-scaling policy and stop it from affecting a fleet's capacity.
+--
+--     * 'StartFleetActions' -- Restart a fleet's auto-scaling policies.
+--
+--     * 'StopFleetActions' -- Suspend a fleet's auto-scaling policies.
 --
 --
 --
@@ -363,6 +369,9 @@ module Network.AWS.GameLift
     -- ** DeleteVPCPeeringConnection
     , module Network.AWS.GameLift.DeleteVPCPeeringConnection
 
+    -- ** StartFleetActions
+    , module Network.AWS.GameLift.StartFleetActions
+
     -- ** GetInstanceAccess
     , module Network.AWS.GameLift.GetInstanceAccess
 
@@ -420,6 +429,9 @@ module Network.AWS.GameLift
     -- ** UpdateAlias
     , module Network.AWS.GameLift.UpdateAlias
 
+    -- ** StartMatchBackfill
+    , module Network.AWS.GameLift.StartMatchBackfill
+
     -- ** DescribeInstances
     , module Network.AWS.GameLift.DescribeInstances
 
@@ -464,6 +476,9 @@ module Network.AWS.GameLift
 
     -- ** DescribePlayerSessions
     , module Network.AWS.GameLift.DescribePlayerSessions
+
+    -- ** StopFleetActions
+    , module Network.AWS.GameLift.StopFleetActions
 
     -- ** DescribeBuild
     , module Network.AWS.GameLift.DescribeBuild
@@ -515,14 +530,23 @@ module Network.AWS.GameLift
     -- ** EventCode
     , EventCode (..)
 
+    -- ** FleetAction
+    , FleetAction (..)
+
     -- ** FleetStatus
     , FleetStatus (..)
+
+    -- ** FleetType
+    , FleetType (..)
 
     -- ** GameSessionPlacementState
     , GameSessionPlacementState (..)
 
     -- ** GameSessionStatus
     , GameSessionStatus (..)
+
+    -- ** GameSessionStatusReason
+    , GameSessionStatusReason (..)
 
     -- ** IPProtocol
     , IPProtocol (..)
@@ -544,6 +568,9 @@ module Network.AWS.GameLift
 
     -- ** PlayerSessionStatus
     , PlayerSessionStatus (..)
+
+    -- ** PolicyType
+    , PolicyType (..)
 
     -- ** ProtectionPolicy
     , ProtectionPolicy (..)
@@ -638,7 +665,10 @@ module Network.AWS.GameLift
     , faOperatingSystem
     , faBuildId
     , faFleetARN
+    , faFleetType
     , faTerminationTime
+    , faInstanceType
+    , faStoppedActions
     , faNewGameSessionProtectionPolicy
     , faName
     , faServerLaunchPath
@@ -677,11 +707,13 @@ module Network.AWS.GameLift
     , gsGameProperties
     , gsIPAddress
     , gsGameSessionId
+    , gsMatchmakerData
     , gsMaximumPlayerSessionCount
     , gsTerminationTime
     , gsPlayerSessionCreationPolicy
     , gsName
     , gsCurrentPlayerSessionCount
+    , gsStatusReason
     , gsGameSessionData
     , gsFleetId
     , gsCreatorId
@@ -712,6 +744,7 @@ module Network.AWS.GameLift
     , gspStartTime
     , gspGameSessionId
     , gspGameSessionRegion
+    , gspMatchmakerData
     , gspMaximumPlayerSessionCount
     , gspEndTime
     , gspGameSessionARN
@@ -887,12 +920,14 @@ module Network.AWS.GameLift
     , spStatus
     , spScalingAdjustmentType
     , spEvaluationPeriods
+    , spPolicyType
     , spMetricName
     , spComparisonOperator
     , spName
     , spThreshold
     , spScalingAdjustment
     , spFleetId
+    , spTargetConfiguration
 
     -- ** ServerProcess
     , ServerProcess
@@ -900,6 +935,11 @@ module Network.AWS.GameLift
     , spParameters
     , spLaunchPath
     , spConcurrentExecutions
+
+    -- ** TargetConfiguration
+    , TargetConfiguration
+    , targetConfiguration
+    , tcTargetValue
 
     -- ** VPCPeeringAuthorization
     , VPCPeeringAuthorization
@@ -977,8 +1017,11 @@ import Network.AWS.GameLift.PutScalingPolicy
 import Network.AWS.GameLift.RequestUploadCredentials
 import Network.AWS.GameLift.ResolveAlias
 import Network.AWS.GameLift.SearchGameSessions
+import Network.AWS.GameLift.StartFleetActions
 import Network.AWS.GameLift.StartGameSessionPlacement
+import Network.AWS.GameLift.StartMatchBackfill
 import Network.AWS.GameLift.StartMatchmaking
+import Network.AWS.GameLift.StopFleetActions
 import Network.AWS.GameLift.StopGameSessionPlacement
 import Network.AWS.GameLift.StopMatchmaking
 import Network.AWS.GameLift.Types

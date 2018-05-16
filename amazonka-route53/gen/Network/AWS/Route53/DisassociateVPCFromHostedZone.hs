@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DisassociateVPCFromHostedZone
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ disassociateVPCFromHostedZone
     -> DisassociateVPCFromHostedZone
 disassociateVPCFromHostedZone pHostedZoneId_ pVPC_ =
   DisassociateVPCFromHostedZone'
-  { _dvfhzComment = Nothing
-  , _dvfhzHostedZoneId = pHostedZoneId_
-  , _dvfhzVPC = pVPC_
-  }
+    { _dvfhzComment = Nothing
+    , _dvfhzHostedZoneId = pHostedZoneId_
+    , _dvfhzVPC = pVPC_
+    }
 
 
 -- | /Optional:/ A comment about the disassociation request.
 dvfhzComment :: Lens' DisassociateVPCFromHostedZone (Maybe Text)
-dvfhzComment = lens _dvfhzComment (\ s a -> s{_dvfhzComment = a});
+dvfhzComment = lens _dvfhzComment (\ s a -> s{_dvfhzComment = a})
 
 -- | The ID of the private hosted zone that you want to disassociate a VPC from.
 dvfhzHostedZoneId :: Lens' DisassociateVPCFromHostedZone ResourceId
-dvfhzHostedZoneId = lens _dvfhzHostedZoneId (\ s a -> s{_dvfhzHostedZoneId = a});
+dvfhzHostedZoneId = lens _dvfhzHostedZoneId (\ s a -> s{_dvfhzHostedZoneId = a})
 
 -- | A complex type that contains information about the VPC that you're disassociating from the specified hosted zone.
 dvfhzVPC :: Lens' DisassociateVPCFromHostedZone VPC
-dvfhzVPC = lens _dvfhzVPC (\ s a -> s{_dvfhzVPC = a});
+dvfhzVPC = lens _dvfhzVPC (\ s a -> s{_dvfhzVPC = a})
 
 instance AWSRequest DisassociateVPCFromHostedZone
          where
@@ -156,16 +156,18 @@ disassociateVPCFromHostedZoneResponse
     -> DisassociateVPCFromHostedZoneResponse
 disassociateVPCFromHostedZoneResponse pResponseStatus_ pChangeInfo_ =
   DisassociateVPCFromHostedZoneResponse'
-  {_dvfhzrsResponseStatus = pResponseStatus_, _dvfhzrsChangeInfo = pChangeInfo_}
+    { _dvfhzrsResponseStatus = pResponseStatus_
+    , _dvfhzrsChangeInfo = pChangeInfo_
+    }
 
 
 -- | -- | The response status code.
 dvfhzrsResponseStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
-dvfhzrsResponseStatus = lens _dvfhzrsResponseStatus (\ s a -> s{_dvfhzrsResponseStatus = a});
+dvfhzrsResponseStatus = lens _dvfhzrsResponseStatus (\ s a -> s{_dvfhzrsResponseStatus = a})
 
 -- | A complex type that describes the changes made to the specified private hosted zone.
 dvfhzrsChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
-dvfhzrsChangeInfo = lens _dvfhzrsChangeInfo (\ s a -> s{_dvfhzrsChangeInfo = a});
+dvfhzrsChangeInfo = lens _dvfhzrsChangeInfo (\ s a -> s{_dvfhzrsChangeInfo = a})
 
 instance NFData DisassociateVPCFromHostedZoneResponse
          where

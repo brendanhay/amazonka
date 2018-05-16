@@ -4,7 +4,7 @@
 {-# LANGUAGE OverloadedStrings          #-}
 
 -- Module      : Gen.Types.Help
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -88,7 +88,7 @@ convertHaddock =
             "note"     -> mempty
             "div"      -> nodes x
             "literal"  -> mono (nodes x)
-            e          -> error ("Unhandled help tag: " ++ show e)
+            y          -> "<" <> y <> ">" <> nodes x
 
     title    x = bold x <> "\n"
     bold     x = "__" <> x <> "__ "

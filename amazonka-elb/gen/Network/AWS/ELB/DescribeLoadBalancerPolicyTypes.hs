@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ describeLoadBalancerPolicyTypes =
 
 -- | The names of the policy types. If no names are specified, describes all policy types defined by Elastic Load Balancing.
 dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
-dlbptPolicyTypeNames = lens _dlbptPolicyTypeNames (\ s a -> s{_dlbptPolicyTypeNames = a}) . _Default . _Coerce;
+dlbptPolicyTypeNames = lens _dlbptPolicyTypeNames (\ s a -> s{_dlbptPolicyTypeNames = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeLoadBalancerPolicyTypes
          where
@@ -133,18 +133,18 @@ describeLoadBalancerPolicyTypesResponse
     -> DescribeLoadBalancerPolicyTypesResponse
 describeLoadBalancerPolicyTypesResponse pResponseStatus_ =
   DescribeLoadBalancerPolicyTypesResponse'
-  { _dlbptrsPolicyTypeDescriptions = Nothing
-  , _dlbptrsResponseStatus = pResponseStatus_
-  }
+    { _dlbptrsPolicyTypeDescriptions = Nothing
+    , _dlbptrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the policy types.
 dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
-dlbptrsPolicyTypeDescriptions = lens _dlbptrsPolicyTypeDescriptions (\ s a -> s{_dlbptrsPolicyTypeDescriptions = a}) . _Default . _Coerce;
+dlbptrsPolicyTypeDescriptions = lens _dlbptrsPolicyTypeDescriptions (\ s a -> s{_dlbptrsPolicyTypeDescriptions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dlbptrsResponseStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
-dlbptrsResponseStatus = lens _dlbptrsResponseStatus (\ s a -> s{_dlbptrsResponseStatus = a});
+dlbptrsResponseStatus = lens _dlbptrsResponseStatus (\ s a -> s{_dlbptrsResponseStatus = a})
 
 instance NFData
            DescribeLoadBalancerPolicyTypesResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeFleetCapacity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,15 +27,21 @@
 --
 --     * 'ListFleets'
 --
+--     * 'DeleteFleet'
+--
 --     * Describe fleets:
 --
 --     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetCapacity'
 --
 --     * 'DescribeFleetPortSettings'
 --
 --     * 'DescribeFleetUtilization'
 --
 --     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeEC2InstanceLimits'
 --
 --     * 'DescribeFleetEvents'
 --
@@ -53,23 +59,13 @@
 --
 --
 --
---     * Manage fleet capacity:
+--     * Manage fleet actions:
 --
---     * 'DescribeFleetCapacity'
+--     * 'StartFleetActions'
 --
---     * 'UpdateFleetCapacity'
---
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
---     * 'DescribeEC2InstanceLimits'
+--     * 'StopFleetActions'
 --
 --
---
---     * 'DeleteFleet'
 --
 --
 --
@@ -124,20 +120,20 @@ describeFleetCapacity
     :: DescribeFleetCapacity
 describeFleetCapacity =
   DescribeFleetCapacity'
-  {_dfcNextToken = Nothing, _dfcLimit = Nothing, _dfcFleetIds = Nothing}
+    {_dfcNextToken = Nothing, _dfcLimit = Nothing, _dfcFleetIds = Nothing}
 
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfcNextToken :: Lens' DescribeFleetCapacity (Maybe Text)
-dfcNextToken = lens _dfcNextToken (\ s a -> s{_dfcNextToken = a});
+dfcNextToken = lens _dfcNextToken (\ s a -> s{_dfcNextToken = a})
 
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfcLimit :: Lens' DescribeFleetCapacity (Maybe Natural)
-dfcLimit = lens _dfcLimit (\ s a -> s{_dfcLimit = a}) . mapping _Nat;
+dfcLimit = lens _dfcLimit (\ s a -> s{_dfcLimit = a}) . mapping _Nat
 
 -- | Unique identifier for a fleet(s) to retrieve capacity information for. To request capacity information for all fleets, leave this parameter empty.
 dfcFleetIds :: Lens' DescribeFleetCapacity (Maybe (NonEmpty Text))
-dfcFleetIds = lens _dfcFleetIds (\ s a -> s{_dfcFleetIds = a}) . mapping _List1;
+dfcFleetIds = lens _dfcFleetIds (\ s a -> s{_dfcFleetIds = a}) . mapping _List1
 
 instance AWSRequest DescribeFleetCapacity where
         type Rs DescribeFleetCapacity =
@@ -204,22 +200,22 @@ describeFleetCapacityResponse
     -> DescribeFleetCapacityResponse
 describeFleetCapacityResponse pResponseStatus_ =
   DescribeFleetCapacityResponse'
-  { _dfcrsNextToken = Nothing
-  , _dfcrsFleetCapacity = Nothing
-  , _dfcrsResponseStatus = pResponseStatus_
-  }
+    { _dfcrsNextToken = Nothing
+    , _dfcrsFleetCapacity = Nothing
+    , _dfcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dfcrsNextToken :: Lens' DescribeFleetCapacityResponse (Maybe Text)
-dfcrsNextToken = lens _dfcrsNextToken (\ s a -> s{_dfcrsNextToken = a});
+dfcrsNextToken = lens _dfcrsNextToken (\ s a -> s{_dfcrsNextToken = a})
 
 -- | Collection of objects containing capacity information for each requested fleet ID. Leave this parameter empty to retrieve capacity information for all fleets.
 dfcrsFleetCapacity :: Lens' DescribeFleetCapacityResponse [FleetCapacity]
-dfcrsFleetCapacity = lens _dfcrsFleetCapacity (\ s a -> s{_dfcrsFleetCapacity = a}) . _Default . _Coerce;
+dfcrsFleetCapacity = lens _dfcrsFleetCapacity (\ s a -> s{_dfcrsFleetCapacity = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dfcrsResponseStatus :: Lens' DescribeFleetCapacityResponse Int
-dfcrsResponseStatus = lens _dfcrsResponseStatus (\ s a -> s{_dfcrsResponseStatus = a});
+dfcrsResponseStatus = lens _dfcrsResponseStatus (\ s a -> s{_dfcrsResponseStatus = a})
 
 instance NFData DescribeFleetCapacityResponse where

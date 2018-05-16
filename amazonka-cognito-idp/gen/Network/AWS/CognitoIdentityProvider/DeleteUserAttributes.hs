@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteUserAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,18 +67,18 @@ deleteUserAttributes
     -> DeleteUserAttributes
 deleteUserAttributes pAccessToken_ =
   DeleteUserAttributes'
-  { _duaUserAttributeNames = mempty
-  , _duaAccessToken = _Sensitive # pAccessToken_
-  }
+    { _duaUserAttributeNames = mempty
+    , _duaAccessToken = _Sensitive # pAccessToken_
+    }
 
 
 -- | An array of strings representing the user attribute names you wish to delete. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 duaUserAttributeNames :: Lens' DeleteUserAttributes [Text]
-duaUserAttributeNames = lens _duaUserAttributeNames (\ s a -> s{_duaUserAttributeNames = a}) . _Coerce;
+duaUserAttributeNames = lens _duaUserAttributeNames (\ s a -> s{_duaUserAttributeNames = a}) . _Coerce
 
 -- | The access token used in the request to delete user attributes.
 duaAccessToken :: Lens' DeleteUserAttributes Text
-duaAccessToken = lens _duaAccessToken (\ s a -> s{_duaAccessToken = a}) . _Sensitive;
+duaAccessToken = lens _duaAccessToken (\ s a -> s{_duaAccessToken = a}) . _Sensitive
 
 instance AWSRequest DeleteUserAttributes where
         type Rs DeleteUserAttributes =
@@ -142,6 +142,6 @@ deleteUserAttributesResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 duarsResponseStatus :: Lens' DeleteUserAttributesResponse Int
-duarsResponseStatus = lens _duarsResponseStatus (\ s a -> s{_duarsResponseStatus = a});
+duarsResponseStatus = lens _duarsResponseStatus (\ s a -> s{_duarsResponseStatus = a})
 
 instance NFData DeleteUserAttributesResponse where

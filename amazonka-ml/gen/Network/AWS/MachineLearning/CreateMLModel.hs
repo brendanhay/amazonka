@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateMLModel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,43 +94,43 @@ createMLModel
     -> CreateMLModel
 createMLModel pMLModelId_ pMLModelType_ pTrainingDataSourceId_ =
   CreateMLModel'
-  { _cmlmRecipe = Nothing
-  , _cmlmRecipeURI = Nothing
-  , _cmlmMLModelName = Nothing
-  , _cmlmParameters = Nothing
-  , _cmlmMLModelId = pMLModelId_
-  , _cmlmMLModelType = pMLModelType_
-  , _cmlmTrainingDataSourceId = pTrainingDataSourceId_
-  }
+    { _cmlmRecipe = Nothing
+    , _cmlmRecipeURI = Nothing
+    , _cmlmMLModelName = Nothing
+    , _cmlmParameters = Nothing
+    , _cmlmMLModelId = pMLModelId_
+    , _cmlmMLModelType = pMLModelType_
+    , _cmlmTrainingDataSourceId = pTrainingDataSourceId_
+    }
 
 
 -- | The data recipe for creating the @MLModel@ . You must specify either the recipe or its URI. If you don't specify a recipe or its URI, Amazon ML creates a default.
 cmlmRecipe :: Lens' CreateMLModel (Maybe Text)
-cmlmRecipe = lens _cmlmRecipe (\ s a -> s{_cmlmRecipe = a});
+cmlmRecipe = lens _cmlmRecipe (\ s a -> s{_cmlmRecipe = a})
 
 -- | The Amazon Simple Storage Service (Amazon S3) location and file name that contains the @MLModel@ recipe. You must specify either the recipe or its URI. If you don't specify a recipe or its URI, Amazon ML creates a default.
 cmlmRecipeURI :: Lens' CreateMLModel (Maybe Text)
-cmlmRecipeURI = lens _cmlmRecipeURI (\ s a -> s{_cmlmRecipeURI = a});
+cmlmRecipeURI = lens _cmlmRecipeURI (\ s a -> s{_cmlmRecipeURI = a})
 
 -- | A user-supplied name or description of the @MLModel@ .
 cmlmMLModelName :: Lens' CreateMLModel (Maybe Text)
-cmlmMLModelName = lens _cmlmMLModelName (\ s a -> s{_cmlmMLModelName = a});
+cmlmMLModelName = lens _cmlmMLModelName (\ s a -> s{_cmlmMLModelName = a})
 
 -- | A list of the training parameters in the @MLModel@ . The list is implemented as a map of key-value pairs. The following is the current set of training parameters:      * @sgd.maxMLModelSizeInBytes@ - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance. The value is an integer that ranges from @100000@ to @2147483648@ . The default value is @33554432@ .     * @sgd.maxPasses@ - The number of times that the training process traverses the observations to build the @MLModel@ . The value is an integer that ranges from @1@ to @10000@ . The default value is @10@ .     * @sgd.shuffleType@ - Whether Amazon ML shuffles the training data. Shuffling the data improves a model's ability to find the optimal solution for a variety of data types. The valid values are @auto@ and @none@ . The default value is @none@ . We strongly recommend that you shuffle your data.     * @sgd.l1RegularizationAmount@ - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as @1.0E-08@ . The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L1 normalization. This parameter can't be used when @L2@ is specified. Use this parameter sparingly.     * @sgd.l2RegularizationAmount@ - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as @1.0E-08@ . The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L2 normalization. This parameter can't be used when @L1@ is specified. Use this parameter sparingly.
 cmlmParameters :: Lens' CreateMLModel (HashMap Text Text)
-cmlmParameters = lens _cmlmParameters (\ s a -> s{_cmlmParameters = a}) . _Default . _Map;
+cmlmParameters = lens _cmlmParameters (\ s a -> s{_cmlmParameters = a}) . _Default . _Map
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ .
 cmlmMLModelId :: Lens' CreateMLModel Text
-cmlmMLModelId = lens _cmlmMLModelId (\ s a -> s{_cmlmMLModelId = a});
+cmlmMLModelId = lens _cmlmMLModelId (\ s a -> s{_cmlmMLModelId = a})
 
 -- | The category of supervised learning that this @MLModel@ will address. Choose from the following types:     * Choose @REGRESSION@ if the @MLModel@ will be used to predict a numeric value.    * Choose @BINARY@ if the @MLModel@ result has two possible values.    * Choose @MULTICLASS@ if the @MLModel@ result has a limited number of values.  For more information, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
 cmlmMLModelType :: Lens' CreateMLModel MLModelType
-cmlmMLModelType = lens _cmlmMLModelType (\ s a -> s{_cmlmMLModelType = a});
+cmlmMLModelType = lens _cmlmMLModelType (\ s a -> s{_cmlmMLModelType = a})
 
 -- | The @DataSource@ that points to the training data.
 cmlmTrainingDataSourceId :: Lens' CreateMLModel Text
-cmlmTrainingDataSourceId = lens _cmlmTrainingDataSourceId (\ s a -> s{_cmlmTrainingDataSourceId = a});
+cmlmTrainingDataSourceId = lens _cmlmTrainingDataSourceId (\ s a -> s{_cmlmTrainingDataSourceId = a})
 
 instance AWSRequest CreateMLModel where
         type Rs CreateMLModel = CreateMLModelResponse
@@ -199,15 +199,15 @@ createMLModelResponse
     -> CreateMLModelResponse
 createMLModelResponse pResponseStatus_ =
   CreateMLModelResponse'
-  {_cmlmrsMLModelId = Nothing, _cmlmrsResponseStatus = pResponseStatus_}
+    {_cmlmrsMLModelId = Nothing, _cmlmrsResponseStatus = pResponseStatus_}
 
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
 cmlmrsMLModelId :: Lens' CreateMLModelResponse (Maybe Text)
-cmlmrsMLModelId = lens _cmlmrsMLModelId (\ s a -> s{_cmlmrsMLModelId = a});
+cmlmrsMLModelId = lens _cmlmrsMLModelId (\ s a -> s{_cmlmrsMLModelId = a})
 
 -- | -- | The response status code.
 cmlmrsResponseStatus :: Lens' CreateMLModelResponse Int
-cmlmrsResponseStatus = lens _cmlmrsResponseStatus (\ s a -> s{_cmlmrsResponseStatus = a});
+cmlmrsResponseStatus = lens _cmlmrsResponseStatus (\ s a -> s{_cmlmrsResponseStatus = a})
 
 instance NFData CreateMLModelResponse where

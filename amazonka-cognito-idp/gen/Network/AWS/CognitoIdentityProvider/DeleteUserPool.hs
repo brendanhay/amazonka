@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteUserPool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteUserPool pUserPoolId_ = DeleteUserPool' {_dupUserPoolId = pUserPoolId_}
 
 -- | The user pool ID for the user pool you want to delete.
 dupUserPoolId :: Lens' DeleteUserPool Text
-dupUserPoolId = lens _dupUserPoolId (\ s a -> s{_dupUserPoolId = a});
+dupUserPoolId = lens _dupUserPoolId (\ s a -> s{_dupUserPoolId = a})
 
 instance AWSRequest DeleteUserPool where
         type Rs DeleteUserPool = DeleteUserPoolResponse

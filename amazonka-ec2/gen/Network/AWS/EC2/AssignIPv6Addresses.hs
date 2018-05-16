@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssignIPv6Addresses
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ assignIPv6Addresses
     -> AssignIPv6Addresses
 assignIPv6Addresses pNetworkInterfaceId_ =
   AssignIPv6Addresses'
-  { _aiaIPv6AddressCount = Nothing
-  , _aiaIPv6Addresses = Nothing
-  , _aiaNetworkInterfaceId = pNetworkInterfaceId_
-  }
+    { _aiaIPv6AddressCount = Nothing
+    , _aiaIPv6Addresses = Nothing
+    , _aiaNetworkInterfaceId = pNetworkInterfaceId_
+    }
 
 
 -- | The number of IPv6 addresses to assign to the network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
 aiaIPv6AddressCount :: Lens' AssignIPv6Addresses (Maybe Int)
-aiaIPv6AddressCount = lens _aiaIPv6AddressCount (\ s a -> s{_aiaIPv6AddressCount = a});
+aiaIPv6AddressCount = lens _aiaIPv6AddressCount (\ s a -> s{_aiaIPv6AddressCount = a})
 
 -- | One or more specific IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.
 aiaIPv6Addresses :: Lens' AssignIPv6Addresses [Text]
-aiaIPv6Addresses = lens _aiaIPv6Addresses (\ s a -> s{_aiaIPv6Addresses = a}) . _Default . _Coerce;
+aiaIPv6Addresses = lens _aiaIPv6Addresses (\ s a -> s{_aiaIPv6Addresses = a}) . _Default . _Coerce
 
 -- | The ID of the network interface.
 aiaNetworkInterfaceId :: Lens' AssignIPv6Addresses Text
-aiaNetworkInterfaceId = lens _aiaNetworkInterfaceId (\ s a -> s{_aiaNetworkInterfaceId = a});
+aiaNetworkInterfaceId = lens _aiaNetworkInterfaceId (\ s a -> s{_aiaNetworkInterfaceId = a})
 
 instance AWSRequest AssignIPv6Addresses where
         type Rs AssignIPv6Addresses =
@@ -142,22 +142,22 @@ assignIPv6AddressesResponse
     -> AssignIPv6AddressesResponse
 assignIPv6AddressesResponse pResponseStatus_ =
   AssignIPv6AddressesResponse'
-  { _aiarsNetworkInterfaceId = Nothing
-  , _aiarsAssignedIPv6Addresses = Nothing
-  , _aiarsResponseStatus = pResponseStatus_
-  }
+    { _aiarsNetworkInterfaceId = Nothing
+    , _aiarsAssignedIPv6Addresses = Nothing
+    , _aiarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the network interface.
 aiarsNetworkInterfaceId :: Lens' AssignIPv6AddressesResponse (Maybe Text)
-aiarsNetworkInterfaceId = lens _aiarsNetworkInterfaceId (\ s a -> s{_aiarsNetworkInterfaceId = a});
+aiarsNetworkInterfaceId = lens _aiarsNetworkInterfaceId (\ s a -> s{_aiarsNetworkInterfaceId = a})
 
 -- | The IPv6 addresses assigned to the network interface.
 aiarsAssignedIPv6Addresses :: Lens' AssignIPv6AddressesResponse [Text]
-aiarsAssignedIPv6Addresses = lens _aiarsAssignedIPv6Addresses (\ s a -> s{_aiarsAssignedIPv6Addresses = a}) . _Default . _Coerce;
+aiarsAssignedIPv6Addresses = lens _aiarsAssignedIPv6Addresses (\ s a -> s{_aiarsAssignedIPv6Addresses = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 aiarsResponseStatus :: Lens' AssignIPv6AddressesResponse Int
-aiarsResponseStatus = lens _aiarsResponseStatus (\ s a -> s{_aiarsResponseStatus = a});
+aiarsResponseStatus = lens _aiarsResponseStatus (\ s a -> s{_aiarsResponseStatus = a})
 
 instance NFData AssignIPv6AddressesResponse where

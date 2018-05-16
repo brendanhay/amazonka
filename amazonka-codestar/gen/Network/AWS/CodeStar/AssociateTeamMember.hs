@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.AssociateTeamMember
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,33 +78,33 @@ associateTeamMember
     -> AssociateTeamMember
 associateTeamMember pProjectId_ pUserARN_ pProjectRole_ =
   AssociateTeamMember'
-  { _atmRemoteAccessAllowed = Nothing
-  , _atmClientRequestToken = Nothing
-  , _atmProjectId = pProjectId_
-  , _atmUserARN = pUserARN_
-  , _atmProjectRole = pProjectRole_
-  }
+    { _atmRemoteAccessAllowed = Nothing
+    , _atmClientRequestToken = Nothing
+    , _atmProjectId = pProjectId_
+    , _atmUserARN = pUserARN_
+    , _atmProjectRole = pProjectRole_
+    }
 
 
 -- | Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances.
 atmRemoteAccessAllowed :: Lens' AssociateTeamMember (Maybe Bool)
-atmRemoteAccessAllowed = lens _atmRemoteAccessAllowed (\ s a -> s{_atmRemoteAccessAllowed = a});
+atmRemoteAccessAllowed = lens _atmRemoteAccessAllowed (\ s a -> s{_atmRemoteAccessAllowed = a})
 
 -- | A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request.
 atmClientRequestToken :: Lens' AssociateTeamMember (Maybe Text)
-atmClientRequestToken = lens _atmClientRequestToken (\ s a -> s{_atmClientRequestToken = a});
+atmClientRequestToken = lens _atmClientRequestToken (\ s a -> s{_atmClientRequestToken = a})
 
 -- | The ID of the project to which you will add the IAM user.
 atmProjectId :: Lens' AssociateTeamMember Text
-atmProjectId = lens _atmProjectId (\ s a -> s{_atmProjectId = a});
+atmProjectId = lens _atmProjectId (\ s a -> s{_atmProjectId = a})
 
 -- | The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project.
 atmUserARN :: Lens' AssociateTeamMember Text
-atmUserARN = lens _atmUserARN (\ s a -> s{_atmUserARN = a});
+atmUserARN = lens _atmUserARN (\ s a -> s{_atmUserARN = a})
 
 -- | The AWS CodeStar project role that will apply to this user. This role determines what actions a user can take in an AWS CodeStar project.
 atmProjectRole :: Lens' AssociateTeamMember Text
-atmProjectRole = lens _atmProjectRole (\ s a -> s{_atmProjectRole = a});
+atmProjectRole = lens _atmProjectRole (\ s a -> s{_atmProjectRole = a})
 
 instance AWSRequest AssociateTeamMember where
         type Rs AssociateTeamMember =
@@ -166,15 +166,17 @@ associateTeamMemberResponse
     -> AssociateTeamMemberResponse
 associateTeamMemberResponse pResponseStatus_ =
   AssociateTeamMemberResponse'
-  {_atmrsClientRequestToken = Nothing, _atmrsResponseStatus = pResponseStatus_}
+    { _atmrsClientRequestToken = Nothing
+    , _atmrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The user- or system-generated token from the initial request that can be used to repeat the request.
 atmrsClientRequestToken :: Lens' AssociateTeamMemberResponse (Maybe Text)
-atmrsClientRequestToken = lens _atmrsClientRequestToken (\ s a -> s{_atmrsClientRequestToken = a});
+atmrsClientRequestToken = lens _atmrsClientRequestToken (\ s a -> s{_atmrsClientRequestToken = a})
 
 -- | -- | The response status code.
 atmrsResponseStatus :: Lens' AssociateTeamMemberResponse Int
-atmrsResponseStatus = lens _atmrsResponseStatus (\ s a -> s{_atmrsResponseStatus = a});
+atmrsResponseStatus = lens _atmrsResponseStatus (\ s a -> s{_atmrsResponseStatus = a})
 
 instance NFData AssociateTeamMemberResponse where

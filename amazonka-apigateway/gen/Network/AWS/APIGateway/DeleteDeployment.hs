@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteDeployment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Requests Amazon API Gateway to delete a 'Deployment' resource.
+-- | Requests API Gateway to delete a 'Deployment' resource.
 --
 --
 --
@@ -57,25 +57,25 @@ data DeleteDeployment = DeleteDeployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'ddRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'ddDeploymentId' - The identifier of the 'Deployment' resource to delete.
+-- * 'ddDeploymentId' - [Required] The identifier of the 'Deployment' resource to delete.
 deleteDeployment
     :: Text -- ^ 'ddRestAPIId'
     -> Text -- ^ 'ddDeploymentId'
     -> DeleteDeployment
 deleteDeployment pRestAPIId_ pDeploymentId_ =
   DeleteDeployment'
-  {_ddRestAPIId = pRestAPIId_, _ddDeploymentId = pDeploymentId_}
+    {_ddRestAPIId = pRestAPIId_, _ddDeploymentId = pDeploymentId_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 ddRestAPIId :: Lens' DeleteDeployment Text
-ddRestAPIId = lens _ddRestAPIId (\ s a -> s{_ddRestAPIId = a});
+ddRestAPIId = lens _ddRestAPIId (\ s a -> s{_ddRestAPIId = a})
 
--- | The identifier of the 'Deployment' resource to delete.
+-- | [Required] The identifier of the 'Deployment' resource to delete.
 ddDeploymentId :: Lens' DeleteDeployment Text
-ddDeploymentId = lens _ddDeploymentId (\ s a -> s{_ddDeploymentId = a});
+ddDeploymentId = lens _ddDeploymentId (\ s a -> s{_ddDeploymentId = a})
 
 instance AWSRequest DeleteDeployment where
         type Rs DeleteDeployment = DeleteDeploymentResponse

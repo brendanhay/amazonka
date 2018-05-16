@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.DescribeSecurityConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ describeSecurityConfiguration pName_ =
 
 -- | The name of the security configuration.
 dName :: Lens' DescribeSecurityConfiguration Text
-dName = lens _dName (\ s a -> s{_dName = a});
+dName = lens _dName (\ s a -> s{_dName = a})
 
 instance AWSRequest DescribeSecurityConfiguration
          where
@@ -131,28 +131,28 @@ describeSecurityConfigurationResponse
     -> DescribeSecurityConfigurationResponse
 describeSecurityConfigurationResponse pResponseStatus_ =
   DescribeSecurityConfigurationResponse'
-  { _drsSecurityConfiguration = Nothing
-  , _drsName = Nothing
-  , _drsCreationDateTime = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsSecurityConfiguration = Nothing
+    , _drsName = Nothing
+    , _drsCreationDateTime = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The security configuration details in JSON format.
 drsSecurityConfiguration :: Lens' DescribeSecurityConfigurationResponse (Maybe Text)
-drsSecurityConfiguration = lens _drsSecurityConfiguration (\ s a -> s{_drsSecurityConfiguration = a});
+drsSecurityConfiguration = lens _drsSecurityConfiguration (\ s a -> s{_drsSecurityConfiguration = a})
 
 -- | The name of the security configuration.
 drsName :: Lens' DescribeSecurityConfigurationResponse (Maybe Text)
-drsName = lens _drsName (\ s a -> s{_drsName = a});
+drsName = lens _drsName (\ s a -> s{_drsName = a})
 
 -- | The date and time the security configuration was created
 drsCreationDateTime :: Lens' DescribeSecurityConfigurationResponse (Maybe UTCTime)
-drsCreationDateTime = lens _drsCreationDateTime (\ s a -> s{_drsCreationDateTime = a}) . mapping _Time;
+drsCreationDateTime = lens _drsCreationDateTime (\ s a -> s{_drsCreationDateTime = a}) . mapping _Time
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeSecurityConfigurationResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeSecurityConfigurationResponse
          where

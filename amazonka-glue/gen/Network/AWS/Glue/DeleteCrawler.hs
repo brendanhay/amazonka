@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteCrawler
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a specified @Crawler@ from the metadata store, unless the @Crawler@ state is @RUNNING@ .
+-- Removes a specified crawler from the Data Catalog, unless the crawler state is @RUNNING@ .
 --
 --
 module Network.AWS.Glue.DeleteCrawler
@@ -53,16 +53,16 @@ newtype DeleteCrawler = DeleteCrawler'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcName' - Name of the @Crawler@ to remove.
+-- * 'dcName' - Name of the crawler to remove.
 deleteCrawler
     :: Text -- ^ 'dcName'
     -> DeleteCrawler
 deleteCrawler pName_ = DeleteCrawler' {_dcName = pName_}
 
 
--- | Name of the @Crawler@ to remove.
+-- | Name of the crawler to remove.
 dcName :: Lens' DeleteCrawler Text
-dcName = lens _dcName (\ s a -> s{_dcName = a});
+dcName = lens _dcName (\ s a -> s{_dcName = a})
 
 instance AWSRequest DeleteCrawler where
         type Rs DeleteCrawler = DeleteCrawlerResponse
@@ -115,6 +115,6 @@ deleteCrawlerResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dccrsResponseStatus :: Lens' DeleteCrawlerResponse Int
-dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
+dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a})
 
 instance NFData DeleteCrawlerResponse where

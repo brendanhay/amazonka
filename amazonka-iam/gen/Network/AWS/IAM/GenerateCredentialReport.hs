@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GenerateCredentialReport
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -111,23 +111,23 @@ generateCredentialReportResponse
     -> GenerateCredentialReportResponse
 generateCredentialReportResponse pResponseStatus_ =
   GenerateCredentialReportResponse'
-  { _gcrrsState = Nothing
-  , _gcrrsDescription = Nothing
-  , _gcrrsResponseStatus = pResponseStatus_
-  }
+    { _gcrrsState = Nothing
+    , _gcrrsDescription = Nothing
+    , _gcrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the state of the credential report.
 gcrrsState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
-gcrrsState = lens _gcrrsState (\ s a -> s{_gcrrsState = a});
+gcrrsState = lens _gcrrsState (\ s a -> s{_gcrrsState = a})
 
 -- | Information about the credential report.
 gcrrsDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
-gcrrsDescription = lens _gcrrsDescription (\ s a -> s{_gcrrsDescription = a});
+gcrrsDescription = lens _gcrrsDescription (\ s a -> s{_gcrrsDescription = a})
 
 -- | -- | The response status code.
 gcrrsResponseStatus :: Lens' GenerateCredentialReportResponse Int
-gcrrsResponseStatus = lens _gcrrsResponseStatus (\ s a -> s{_gcrrsResponseStatus = a});
+gcrrsResponseStatus = lens _gcrrsResponseStatus (\ s a -> s{_gcrrsResponseStatus = a})
 
 instance NFData GenerateCredentialReportResponse
          where

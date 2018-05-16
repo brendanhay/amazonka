@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateEgressOnlyInternetGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,20 +69,20 @@ createEgressOnlyInternetGateway
     -> CreateEgressOnlyInternetGateway
 createEgressOnlyInternetGateway pVPCId_ =
   CreateEgressOnlyInternetGateway'
-  {_ceoigClientToken = Nothing, _ceoigDryRun = Nothing, _ceoigVPCId = pVPCId_}
+    {_ceoigClientToken = Nothing, _ceoigDryRun = Nothing, _ceoigVPCId = pVPCId_}
 
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 ceoigClientToken :: Lens' CreateEgressOnlyInternetGateway (Maybe Text)
-ceoigClientToken = lens _ceoigClientToken (\ s a -> s{_ceoigClientToken = a});
+ceoigClientToken = lens _ceoigClientToken (\ s a -> s{_ceoigClientToken = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ceoigDryRun :: Lens' CreateEgressOnlyInternetGateway (Maybe Bool)
-ceoigDryRun = lens _ceoigDryRun (\ s a -> s{_ceoigDryRun = a});
+ceoigDryRun = lens _ceoigDryRun (\ s a -> s{_ceoigDryRun = a})
 
 -- | The ID of the VPC for which to create the egress-only Internet gateway.
 ceoigVPCId :: Lens' CreateEgressOnlyInternetGateway Text
-ceoigVPCId = lens _ceoigVPCId (\ s a -> s{_ceoigVPCId = a});
+ceoigVPCId = lens _ceoigVPCId (\ s a -> s{_ceoigVPCId = a})
 
 instance AWSRequest CreateEgressOnlyInternetGateway
          where
@@ -141,23 +141,23 @@ createEgressOnlyInternetGatewayResponse
     -> CreateEgressOnlyInternetGatewayResponse
 createEgressOnlyInternetGatewayResponse pResponseStatus_ =
   CreateEgressOnlyInternetGatewayResponse'
-  { _ceoigrsClientToken = Nothing
-  , _ceoigrsEgressOnlyInternetGateway = Nothing
-  , _ceoigrsResponseStatus = pResponseStatus_
-  }
+    { _ceoigrsClientToken = Nothing
+    , _ceoigrsEgressOnlyInternetGateway = Nothing
+    , _ceoigrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
 ceoigrsClientToken :: Lens' CreateEgressOnlyInternetGatewayResponse (Maybe Text)
-ceoigrsClientToken = lens _ceoigrsClientToken (\ s a -> s{_ceoigrsClientToken = a});
+ceoigrsClientToken = lens _ceoigrsClientToken (\ s a -> s{_ceoigrsClientToken = a})
 
 -- | Information about the egress-only Internet gateway.
 ceoigrsEgressOnlyInternetGateway :: Lens' CreateEgressOnlyInternetGatewayResponse (Maybe EgressOnlyInternetGateway)
-ceoigrsEgressOnlyInternetGateway = lens _ceoigrsEgressOnlyInternetGateway (\ s a -> s{_ceoigrsEgressOnlyInternetGateway = a});
+ceoigrsEgressOnlyInternetGateway = lens _ceoigrsEgressOnlyInternetGateway (\ s a -> s{_ceoigrsEgressOnlyInternetGateway = a})
 
 -- | -- | The response status code.
 ceoigrsResponseStatus :: Lens' CreateEgressOnlyInternetGatewayResponse Int
-ceoigrsResponseStatus = lens _ceoigrsResponseStatus (\ s a -> s{_ceoigrsResponseStatus = a});
+ceoigrsResponseStatus = lens _ceoigrsResponseStatus (\ s a -> s{_ceoigrsResponseStatus = a})
 
 instance NFData
            CreateEgressOnlyInternetGatewayResponse

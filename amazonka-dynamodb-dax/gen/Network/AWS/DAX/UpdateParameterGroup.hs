@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.UpdateParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,18 +64,18 @@ updateParameterGroup
     -> UpdateParameterGroup
 updateParameterGroup pParameterGroupName_ =
   UpdateParameterGroup'
-  { _upgParameterGroupName = pParameterGroupName_
-  , _upgParameterNameValues = mempty
-  }
+    { _upgParameterGroupName = pParameterGroupName_
+    , _upgParameterNameValues = mempty
+    }
 
 
 -- | The name of the parameter group.
 upgParameterGroupName :: Lens' UpdateParameterGroup Text
-upgParameterGroupName = lens _upgParameterGroupName (\ s a -> s{_upgParameterGroupName = a});
+upgParameterGroupName = lens _upgParameterGroupName (\ s a -> s{_upgParameterGroupName = a})
 
 -- | An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.
 upgParameterNameValues :: Lens' UpdateParameterGroup [ParameterNameValue]
-upgParameterNameValues = lens _upgParameterNameValues (\ s a -> s{_upgParameterNameValues = a}) . _Coerce;
+upgParameterNameValues = lens _upgParameterNameValues (\ s a -> s{_upgParameterNameValues = a}) . _Coerce
 
 instance AWSRequest UpdateParameterGroup where
         type Rs UpdateParameterGroup =
@@ -134,15 +134,15 @@ updateParameterGroupResponse
     -> UpdateParameterGroupResponse
 updateParameterGroupResponse pResponseStatus_ =
   UpdateParameterGroupResponse'
-  {_upgrsParameterGroup = Nothing, _upgrsResponseStatus = pResponseStatus_}
+    {_upgrsParameterGroup = Nothing, _upgrsResponseStatus = pResponseStatus_}
 
 
 -- | The parameter group that has been modified.
 upgrsParameterGroup :: Lens' UpdateParameterGroupResponse (Maybe ParameterGroup)
-upgrsParameterGroup = lens _upgrsParameterGroup (\ s a -> s{_upgrsParameterGroup = a});
+upgrsParameterGroup = lens _upgrsParameterGroup (\ s a -> s{_upgrsParameterGroup = a})
 
 -- | -- | The response status code.
 upgrsResponseStatus :: Lens' UpdateParameterGroupResponse Int
-upgrsResponseStatus = lens _upgrsResponseStatus (\ s a -> s{_upgrsResponseStatus = a});
+upgrsResponseStatus = lens _upgrsResponseStatus (\ s a -> s{_upgrsResponseStatus = a})
 
 instance NFData UpdateParameterGroupResponse where

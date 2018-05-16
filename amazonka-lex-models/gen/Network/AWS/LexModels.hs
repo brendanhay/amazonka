@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,7 @@ module Network.AWS.LexModels
     -- ** DeleteIntentVersion
     , module Network.AWS.LexModels.DeleteIntentVersion
 
-    -- ** GetBotAliases
+    -- ** GetBotAliases (Paginated)
     , module Network.AWS.LexModels.GetBotAliases
 
     -- ** DeleteBotChannelAssociation
@@ -71,7 +71,7 @@ module Network.AWS.LexModels
     -- ** DeleteIntent
     , module Network.AWS.LexModels.DeleteIntent
 
-    -- ** GetBuiltinIntents
+    -- ** GetBuiltinIntents (Paginated)
     , module Network.AWS.LexModels.GetBuiltinIntents
 
     -- ** PutBot
@@ -80,7 +80,10 @@ module Network.AWS.LexModels
     -- ** DeleteBot
     , module Network.AWS.LexModels.DeleteBot
 
-    -- ** GetIntentVersions
+    -- ** GetImport
+    , module Network.AWS.LexModels.GetImport
+
+    -- ** GetIntentVersions (Paginated)
     , module Network.AWS.LexModels.GetIntentVersions
 
     -- ** GetBuiltinIntent
@@ -89,22 +92,22 @@ module Network.AWS.LexModels
     -- ** PutBotAlias
     , module Network.AWS.LexModels.PutBotAlias
 
-    -- ** GetBotVersions
+    -- ** GetBotVersions (Paginated)
     , module Network.AWS.LexModels.GetBotVersions
 
-    -- ** GetBotChannelAssociations
+    -- ** GetBotChannelAssociations (Paginated)
     , module Network.AWS.LexModels.GetBotChannelAssociations
 
     -- ** DeleteBotAlias
     , module Network.AWS.LexModels.DeleteBotAlias
 
-    -- ** GetSlotTypes
+    -- ** GetSlotTypes (Paginated)
     , module Network.AWS.LexModels.GetSlotTypes
 
     -- ** DeleteUtterances
     , module Network.AWS.LexModels.DeleteUtterances
 
-    -- ** GetBots
+    -- ** GetBots (Paginated)
     , module Network.AWS.LexModels.GetBots
 
     -- ** GetBot
@@ -131,28 +134,34 @@ module Network.AWS.LexModels
     -- ** DeleteSlotType
     , module Network.AWS.LexModels.DeleteSlotType
 
+    -- ** StartImport
+    , module Network.AWS.LexModels.StartImport
+
     -- ** GetBotChannelAssociation
     , module Network.AWS.LexModels.GetBotChannelAssociation
 
     -- ** PutSlotType
     , module Network.AWS.LexModels.PutSlotType
 
-    -- ** GetBuiltinSlotTypes
+    -- ** GetBuiltinSlotTypes (Paginated)
     , module Network.AWS.LexModels.GetBuiltinSlotTypes
 
     -- ** GetUtterancesView
     , module Network.AWS.LexModels.GetUtterancesView
 
-    -- ** GetSlotTypeVersions
+    -- ** GetSlotTypeVersions (Paginated)
     , module Network.AWS.LexModels.GetSlotTypeVersions
 
-    -- ** GetIntents
+    -- ** GetIntents (Paginated)
     , module Network.AWS.LexModels.GetIntents
 
     -- ** GetBotAlias
     , module Network.AWS.LexModels.GetBotAlias
 
     -- * Types
+
+    -- ** ChannelStatus
+    , ChannelStatus (..)
 
     -- ** ChannelType
     , ChannelType (..)
@@ -169,11 +178,17 @@ module Network.AWS.LexModels
     -- ** FulfillmentActivityType
     , FulfillmentActivityType (..)
 
+    -- ** ImportStatus
+    , ImportStatus (..)
+
     -- ** LexStatus
     , LexStatus (..)
 
     -- ** Locale
     , Locale (..)
+
+    -- ** MergeStrategy
+    , MergeStrategy (..)
 
     -- ** ProcessBehavior
     , ProcessBehavior (..)
@@ -204,6 +219,8 @@ module Network.AWS.LexModels
     -- ** BotChannelAssociation
     , BotChannelAssociation
     , botChannelAssociation
+    , bcaFailureReason
+    , bcaStatus
     , bcaBotAlias
     , bcaBotName
     , bcaBotConfiguration
@@ -281,6 +298,7 @@ module Network.AWS.LexModels
     -- ** Message
     , Message
     , message
+    , mGroupNumber
     , mContentType
     , mContent
 
@@ -358,6 +376,7 @@ import Network.AWS.LexModels.GetBuiltinIntent
 import Network.AWS.LexModels.GetBuiltinIntents
 import Network.AWS.LexModels.GetBuiltinSlotTypes
 import Network.AWS.LexModels.GetExport
+import Network.AWS.LexModels.GetImport
 import Network.AWS.LexModels.GetIntent
 import Network.AWS.LexModels.GetIntents
 import Network.AWS.LexModels.GetIntentVersions
@@ -369,6 +388,7 @@ import Network.AWS.LexModels.PutBot
 import Network.AWS.LexModels.PutBotAlias
 import Network.AWS.LexModels.PutIntent
 import Network.AWS.LexModels.PutSlotType
+import Network.AWS.LexModels.StartImport
 import Network.AWS.LexModels.Types
 import Network.AWS.LexModels.Waiters
 

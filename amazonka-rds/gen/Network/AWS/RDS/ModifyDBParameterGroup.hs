@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,18 @@ modifyDBParameterGroup
     -> ModifyDBParameterGroup
 modifyDBParameterGroup pDBParameterGroupName_ =
   ModifyDBParameterGroup'
-  {_mdpgDBParameterGroupName = pDBParameterGroupName_, _mdpgParameters = mempty}
+    { _mdpgDBParameterGroupName = pDBParameterGroupName_
+    , _mdpgParameters = mempty
+    }
 
 
 -- | The name of the DB parameter group. Constraints:     * If supplied, must match the name of an existing DBParameterGroup.
 mdpgDBParameterGroupName :: Lens' ModifyDBParameterGroup Text
-mdpgDBParameterGroupName = lens _mdpgDBParameterGroupName (\ s a -> s{_mdpgDBParameterGroupName = a});
+mdpgDBParameterGroupName = lens _mdpgDBParameterGroupName (\ s a -> s{_mdpgDBParameterGroupName = a})
 
 -- | An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; subsequent arguments are optional. A maximum of 20 parameters can be modified in a single request. Valid Values (for the application method): @immediate | pending-reboot@
 mdpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
-mdpgParameters = lens _mdpgParameters (\ s a -> s{_mdpgParameters = a}) . _Coerce;
+mdpgParameters = lens _mdpgParameters (\ s a -> s{_mdpgParameters = a}) . _Coerce
 
 instance AWSRequest ModifyDBParameterGroup where
         type Rs ModifyDBParameterGroup =

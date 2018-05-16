@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteDocument
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,7 @@ data DeleteDocument = DeleteDocument'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'ddAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'ddDocumentId' - The ID of the document.
 deleteDocument
@@ -61,16 +61,16 @@ deleteDocument
     -> DeleteDocument
 deleteDocument pDocumentId_ =
   DeleteDocument'
-  {_ddAuthenticationToken = Nothing, _ddDocumentId = pDocumentId_}
+    {_ddAuthenticationToken = Nothing, _ddDocumentId = pDocumentId_}
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 ddAuthenticationToken :: Lens' DeleteDocument (Maybe Text)
-ddAuthenticationToken = lens _ddAuthenticationToken (\ s a -> s{_ddAuthenticationToken = a}) . mapping _Sensitive;
+ddAuthenticationToken = lens _ddAuthenticationToken (\ s a -> s{_ddAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the document.
 ddDocumentId :: Lens' DeleteDocument Text
-ddDocumentId = lens _ddDocumentId (\ s a -> s{_ddDocumentId = a});
+ddDocumentId = lens _ddDocumentId (\ s a -> s{_ddDocumentId = a})
 
 instance AWSRequest DeleteDocument where
         type Rs DeleteDocument = DeleteDocumentResponse

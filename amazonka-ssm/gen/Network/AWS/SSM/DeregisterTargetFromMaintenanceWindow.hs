@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ deregisterTargetFromMaintenanceWindow
     -> DeregisterTargetFromMaintenanceWindow
 deregisterTargetFromMaintenanceWindow pWindowId_ pWindowTargetId_ =
   DeregisterTargetFromMaintenanceWindow'
-  { _dtfmwSafe = Nothing
-  , _dtfmwWindowId = pWindowId_
-  , _dtfmwWindowTargetId = pWindowTargetId_
-  }
+    { _dtfmwSafe = Nothing
+    , _dtfmwWindowId = pWindowId_
+    , _dtfmwWindowTargetId = pWindowTargetId_
+    }
 
 
 -- | The system checks if the target is being referenced by a task. If the target is being referenced, the system returns an error and does not deregister the target from the Maintenance Window.
 dtfmwSafe :: Lens' DeregisterTargetFromMaintenanceWindow (Maybe Bool)
-dtfmwSafe = lens _dtfmwSafe (\ s a -> s{_dtfmwSafe = a});
+dtfmwSafe = lens _dtfmwSafe (\ s a -> s{_dtfmwSafe = a})
 
 -- | The ID of the Maintenance Window the target should be removed from.
 dtfmwWindowId :: Lens' DeregisterTargetFromMaintenanceWindow Text
-dtfmwWindowId = lens _dtfmwWindowId (\ s a -> s{_dtfmwWindowId = a});
+dtfmwWindowId = lens _dtfmwWindowId (\ s a -> s{_dtfmwWindowId = a})
 
 -- | The ID of the target definition to remove.
 dtfmwWindowTargetId :: Lens' DeregisterTargetFromMaintenanceWindow Text
-dtfmwWindowTargetId = lens _dtfmwWindowTargetId (\ s a -> s{_dtfmwWindowTargetId = a});
+dtfmwWindowTargetId = lens _dtfmwWindowTargetId (\ s a -> s{_dtfmwWindowTargetId = a})
 
 instance AWSRequest
            DeregisterTargetFromMaintenanceWindow
@@ -160,23 +160,23 @@ deregisterTargetFromMaintenanceWindowResponse
     -> DeregisterTargetFromMaintenanceWindowResponse
 deregisterTargetFromMaintenanceWindowResponse pResponseStatus_ =
   DeregisterTargetFromMaintenanceWindowResponse'
-  { _dtfmwrsWindowTargetId = Nothing
-  , _dtfmwrsWindowId = Nothing
-  , _dtfmwrsResponseStatus = pResponseStatus_
-  }
+    { _dtfmwrsWindowTargetId = Nothing
+    , _dtfmwrsWindowId = Nothing
+    , _dtfmwrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the removed target definition.
 dtfmwrsWindowTargetId :: Lens' DeregisterTargetFromMaintenanceWindowResponse (Maybe Text)
-dtfmwrsWindowTargetId = lens _dtfmwrsWindowTargetId (\ s a -> s{_dtfmwrsWindowTargetId = a});
+dtfmwrsWindowTargetId = lens _dtfmwrsWindowTargetId (\ s a -> s{_dtfmwrsWindowTargetId = a})
 
 -- | The ID of the Maintenance Window the target was removed from.
 dtfmwrsWindowId :: Lens' DeregisterTargetFromMaintenanceWindowResponse (Maybe Text)
-dtfmwrsWindowId = lens _dtfmwrsWindowId (\ s a -> s{_dtfmwrsWindowId = a});
+dtfmwrsWindowId = lens _dtfmwrsWindowId (\ s a -> s{_dtfmwrsWindowId = a})
 
 -- | -- | The response status code.
 dtfmwrsResponseStatus :: Lens' DeregisterTargetFromMaintenanceWindowResponse Int
-dtfmwrsResponseStatus = lens _dtfmwrsResponseStatus (\ s a -> s{_dtfmwrsResponseStatus = a});
+dtfmwrsResponseStatus = lens _dtfmwrsResponseStatus (\ s a -> s{_dtfmwrsResponseStatus = a})
 
 instance NFData
            DeregisterTargetFromMaintenanceWindowResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DescribeExportTasks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,28 +72,28 @@ describeExportTasks
     :: DescribeExportTasks
 describeExportTasks =
   DescribeExportTasks'
-  { _detFilters = Nothing
-  , _detNextToken = Nothing
-  , _detExportIds = Nothing
-  , _detMaxResults = Nothing
-  }
+    { _detFilters = Nothing
+    , _detNextToken = Nothing
+    , _detExportIds = Nothing
+    , _detMaxResults = Nothing
+    }
 
 
 -- | One or more filters.     * @AgentId@ - ID of the agent whose collected data will be exported
 detFilters :: Lens' DescribeExportTasks [ExportFilter]
-detFilters = lens _detFilters (\ s a -> s{_detFilters = a}) . _Default . _Coerce;
+detFilters = lens _detFilters (\ s a -> s{_detFilters = a}) . _Default . _Coerce
 
 -- | The @nextToken@ value returned from a previous paginated @DescribeExportTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
 detNextToken :: Lens' DescribeExportTasks (Maybe Text)
-detNextToken = lens _detNextToken (\ s a -> s{_detNextToken = a});
+detNextToken = lens _detNextToken (\ s a -> s{_detNextToken = a})
 
 -- | One or more unique identifiers used to query the status of an export request.
 detExportIds :: Lens' DescribeExportTasks [Text]
-detExportIds = lens _detExportIds (\ s a -> s{_detExportIds = a}) . _Default . _Coerce;
+detExportIds = lens _detExportIds (\ s a -> s{_detExportIds = a}) . _Default . _Coerce
 
 -- | The maximum number of volume results returned by @DescribeExportTasks@ in paginated output. When this parameter is used, @DescribeExportTasks@ only returns @maxResults@ results in a single page along with a @nextToken@ response element.
 detMaxResults :: Lens' DescribeExportTasks (Maybe Int)
-detMaxResults = lens _detMaxResults (\ s a -> s{_detMaxResults = a});
+detMaxResults = lens _detMaxResults (\ s a -> s{_detMaxResults = a})
 
 instance AWSRequest DescribeExportTasks where
         type Rs DescribeExportTasks =
@@ -158,22 +158,22 @@ describeExportTasksResponse
     -> DescribeExportTasksResponse
 describeExportTasksResponse pResponseStatus_ =
   DescribeExportTasksResponse'
-  { _detrsNextToken = Nothing
-  , _detrsExportsInfo = Nothing
-  , _detrsResponseStatus = pResponseStatus_
-  }
+    { _detrsNextToken = Nothing
+    , _detrsExportsInfo = Nothing
+    , _detrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The @nextToken@ value to include in a future @DescribeExportTasks@ request. When the results of a @DescribeExportTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
 detrsNextToken :: Lens' DescribeExportTasksResponse (Maybe Text)
-detrsNextToken = lens _detrsNextToken (\ s a -> s{_detrsNextToken = a});
+detrsNextToken = lens _detrsNextToken (\ s a -> s{_detrsNextToken = a})
 
 -- | Contains one or more sets of export request details. When the status of a request is @SUCCEEDED@ , the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
 detrsExportsInfo :: Lens' DescribeExportTasksResponse [ExportInfo]
-detrsExportsInfo = lens _detrsExportsInfo (\ s a -> s{_detrsExportsInfo = a}) . _Default . _Coerce;
+detrsExportsInfo = lens _detrsExportsInfo (\ s a -> s{_detrsExportsInfo = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
+detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a})
 
 instance NFData DescribeExportTasksResponse where

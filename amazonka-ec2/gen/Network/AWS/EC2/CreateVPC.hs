@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPC
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,28 +82,28 @@ createVPC
     -> CreateVPC
 createVPC pCidrBlock_ =
   CreateVPC'
-  { _cvAmazonProvidedIPv6CidrBlock = Nothing
-  , _cvInstanceTenancy = Nothing
-  , _cvDryRun = Nothing
-  , _cvCidrBlock = pCidrBlock_
-  }
+    { _cvAmazonProvidedIPv6CidrBlock = Nothing
+    , _cvInstanceTenancy = Nothing
+    , _cvDryRun = Nothing
+    , _cvCidrBlock = pCidrBlock_
+    }
 
 
 -- | Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block.
 cvAmazonProvidedIPv6CidrBlock :: Lens' CreateVPC (Maybe Bool)
-cvAmazonProvidedIPv6CidrBlock = lens _cvAmazonProvidedIPv6CidrBlock (\ s a -> s{_cvAmazonProvidedIPv6CidrBlock = a});
+cvAmazonProvidedIPv6CidrBlock = lens _cvAmazonProvidedIPv6CidrBlock (\ s a -> s{_cvAmazonProvidedIPv6CidrBlock = a})
 
 -- | The tenancy options for instances launched into the VPC. For @default@ , instances are launched with shared tenancy by default. You can launch instances with any tenancy into a shared tenancy VPC. For @dedicated@ , instances are launched as dedicated tenancy instances by default. You can only launch instances with a tenancy of @dedicated@ or @host@ into a dedicated tenancy VPC.  __Important:__ The @host@ value cannot be used with this parameter. Use the @default@ or @dedicated@ values only. Default: @default@
 cvInstanceTenancy :: Lens' CreateVPC (Maybe Tenancy)
-cvInstanceTenancy = lens _cvInstanceTenancy (\ s a -> s{_cvInstanceTenancy = a});
+cvInstanceTenancy = lens _cvInstanceTenancy (\ s a -> s{_cvInstanceTenancy = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cvDryRun :: Lens' CreateVPC (Maybe Bool)
-cvDryRun = lens _cvDryRun (\ s a -> s{_cvDryRun = a});
+cvDryRun = lens _cvDryRun (\ s a -> s{_cvDryRun = a})
 
 -- | The IPv4 network range for the VPC, in CIDR notation. For example, @10.0.0.0/16@ .
 cvCidrBlock :: Lens' CreateVPC Text
-cvCidrBlock = lens _cvCidrBlock (\ s a -> s{_cvCidrBlock = a});
+cvCidrBlock = lens _cvCidrBlock (\ s a -> s{_cvCidrBlock = a})
 
 instance AWSRequest CreateVPC where
         type Rs CreateVPC = CreateVPCResponse
@@ -157,15 +157,15 @@ createVPCResponse
     -> CreateVPCResponse
 createVPCResponse pResponseStatus_ =
   CreateVPCResponse'
-  {_cvrsVPC = Nothing, _cvrsResponseStatus = pResponseStatus_}
+    {_cvrsVPC = Nothing, _cvrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the VPC.
 cvrsVPC :: Lens' CreateVPCResponse (Maybe VPC)
-cvrsVPC = lens _cvrsVPC (\ s a -> s{_cvrsVPC = a});
+cvrsVPC = lens _cvrsVPC (\ s a -> s{_cvrsVPC = a})
 
 -- | -- | The response status code.
 cvrsResponseStatus :: Lens' CreateVPCResponse Int
-cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a});
+cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a})
 
 instance NFData CreateVPCResponse where

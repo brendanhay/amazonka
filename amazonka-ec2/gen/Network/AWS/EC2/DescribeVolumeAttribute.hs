@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVolumeAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,20 +76,20 @@ describeVolumeAttribute
     -> DescribeVolumeAttribute
 describeVolumeAttribute pVolumeId_ =
   DescribeVolumeAttribute'
-  {_dvaAttribute = Nothing, _dvaDryRun = Nothing, _dvaVolumeId = pVolumeId_}
+    {_dvaAttribute = Nothing, _dvaDryRun = Nothing, _dvaVolumeId = pVolumeId_}
 
 
 -- | The attribute of the volume. This parameter is required.
 dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
-dvaAttribute = lens _dvaAttribute (\ s a -> s{_dvaAttribute = a});
+dvaAttribute = lens _dvaAttribute (\ s a -> s{_dvaAttribute = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvaDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
-dvaDryRun = lens _dvaDryRun (\ s a -> s{_dvaDryRun = a});
+dvaDryRun = lens _dvaDryRun (\ s a -> s{_dvaDryRun = a})
 
 -- | The ID of the volume.
 dvaVolumeId :: Lens' DescribeVolumeAttribute Text
-dvaVolumeId = lens _dvaVolumeId (\ s a -> s{_dvaVolumeId = a});
+dvaVolumeId = lens _dvaVolumeId (\ s a -> s{_dvaVolumeId = a})
 
 instance AWSRequest DescribeVolumeAttribute where
         type Rs DescribeVolumeAttribute =
@@ -153,27 +153,27 @@ describeVolumeAttributeResponse
     -> DescribeVolumeAttributeResponse
 describeVolumeAttributeResponse pResponseStatus_ =
   DescribeVolumeAttributeResponse'
-  { _dvarsVolumeId = Nothing
-  , _dvarsProductCodes = Nothing
-  , _dvarsAutoEnableIO = Nothing
-  , _dvarsResponseStatus = pResponseStatus_
-  }
+    { _dvarsVolumeId = Nothing
+    , _dvarsProductCodes = Nothing
+    , _dvarsAutoEnableIO = Nothing
+    , _dvarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the volume.
 dvarsVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
-dvarsVolumeId = lens _dvarsVolumeId (\ s a -> s{_dvarsVolumeId = a});
+dvarsVolumeId = lens _dvarsVolumeId (\ s a -> s{_dvarsVolumeId = a})
 
 -- | A list of product codes.
 dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
-dvarsProductCodes = lens _dvarsProductCodes (\ s a -> s{_dvarsProductCodes = a}) . _Default . _Coerce;
+dvarsProductCodes = lens _dvarsProductCodes (\ s a -> s{_dvarsProductCodes = a}) . _Default . _Coerce
 
 -- | The state of @autoEnableIO@ attribute.
 dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
-dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\ s a -> s{_dvarsAutoEnableIO = a});
+dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\ s a -> s{_dvarsAutoEnableIO = a})
 
 -- | -- | The response status code.
 dvarsResponseStatus :: Lens' DescribeVolumeAttributeResponse Int
-dvarsResponseStatus = lens _dvarsResponseStatus (\ s a -> s{_dvarsResponseStatus = a});
+dvarsResponseStatus = lens _dvarsResponseStatus (\ s a -> s{_dvarsResponseStatus = a})
 
 instance NFData DescribeVolumeAttributeResponse where

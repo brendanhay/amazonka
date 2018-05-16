@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetIntegration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Represents a get integration.
+-- Get the integration settings.
 --
 --
 module Network.AWS.APIGateway.GetIntegration
@@ -38,13 +38,16 @@ module Network.AWS.APIGateway.GetIntegration
     , iHttpMethod
     , iRequestTemplates
     , iCredentials
+    , iConnectionId
     , iRequestParameters
     , iContentHandling
     , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
     , iCacheNamespace
+    , iTimeoutInMillis
     , iType
+    , iConnectionType
     , iCacheKeyParameters
     ) where
 
@@ -55,7 +58,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents a get integration request.
+-- | Represents a request to get the integration configuration.
 --
 --
 --
@@ -71,11 +74,11 @@ data GetIntegration = GetIntegration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'giRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'giResourceId' - Specifies a get integration request's resource identifier
+-- * 'giResourceId' - [Required] Specifies a get integration request's resource identifier
 --
--- * 'giHttpMethod' - Specifies a get integration request's HTTP method.
+-- * 'giHttpMethod' - [Required] Specifies a get integration request's HTTP method.
 getIntegration
     :: Text -- ^ 'giRestAPIId'
     -> Text -- ^ 'giResourceId'
@@ -83,23 +86,23 @@ getIntegration
     -> GetIntegration
 getIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
   GetIntegration'
-  { _giRestAPIId = pRestAPIId_
-  , _giResourceId = pResourceId_
-  , _giHttpMethod = pHttpMethod_
-  }
+    { _giRestAPIId = pRestAPIId_
+    , _giResourceId = pResourceId_
+    , _giHttpMethod = pHttpMethod_
+    }
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 giRestAPIId :: Lens' GetIntegration Text
-giRestAPIId = lens _giRestAPIId (\ s a -> s{_giRestAPIId = a});
+giRestAPIId = lens _giRestAPIId (\ s a -> s{_giRestAPIId = a})
 
--- | Specifies a get integration request's resource identifier
+-- | [Required] Specifies a get integration request's resource identifier
 giResourceId :: Lens' GetIntegration Text
-giResourceId = lens _giResourceId (\ s a -> s{_giResourceId = a});
+giResourceId = lens _giResourceId (\ s a -> s{_giResourceId = a})
 
--- | Specifies a get integration request's HTTP method.
+-- | [Required] Specifies a get integration request's HTTP method.
 giHttpMethod :: Lens' GetIntegration Text
-giHttpMethod = lens _giHttpMethod (\ s a -> s{_giHttpMethod = a});
+giHttpMethod = lens _giHttpMethod (\ s a -> s{_giHttpMethod = a})
 
 instance AWSRequest GetIntegration where
         type Rs GetIntegration = Integration

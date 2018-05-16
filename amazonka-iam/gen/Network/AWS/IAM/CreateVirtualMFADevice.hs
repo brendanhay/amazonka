@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateVirtualMFADevice
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,24 +60,24 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvmdPath' - The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'cvmdPath' - The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'cvmdVirtualMFADeviceName' - The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'cvmdVirtualMFADeviceName' - The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 createVirtualMFADevice
     :: Text -- ^ 'cvmdVirtualMFADeviceName'
     -> CreateVirtualMFADevice
 createVirtualMFADevice pVirtualMFADeviceName_ =
   CreateVirtualMFADevice'
-  {_cvmdPath = Nothing, _cvmdVirtualMFADeviceName = pVirtualMFADeviceName_}
+    {_cvmdPath = Nothing, _cvmdVirtualMFADeviceName = pVirtualMFADeviceName_}
 
 
--- | The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cvmdPath :: Lens' CreateVirtualMFADevice (Maybe Text)
-cvmdPath = lens _cvmdPath (\ s a -> s{_cvmdPath = a});
+cvmdPath = lens _cvmdPath (\ s a -> s{_cvmdPath = a})
 
--- | The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 cvmdVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
-cvmdVirtualMFADeviceName = lens _cvmdVirtualMFADeviceName (\ s a -> s{_cvmdVirtualMFADeviceName = a});
+cvmdVirtualMFADeviceName = lens _cvmdVirtualMFADeviceName (\ s a -> s{_cvmdVirtualMFADeviceName = a})
 
 instance AWSRequest CreateVirtualMFADevice where
         type Rs CreateVirtualMFADevice =
@@ -132,17 +132,17 @@ createVirtualMFADeviceResponse
     -> CreateVirtualMFADeviceResponse
 createVirtualMFADeviceResponse pResponseStatus_ pVirtualMFADevice_ =
   CreateVirtualMFADeviceResponse'
-  { _cvmdrsResponseStatus = pResponseStatus_
-  , _cvmdrsVirtualMFADevice = pVirtualMFADevice_
-  }
+    { _cvmdrsResponseStatus = pResponseStatus_
+    , _cvmdrsVirtualMFADevice = pVirtualMFADevice_
+    }
 
 
 -- | -- | The response status code.
 cvmdrsResponseStatus :: Lens' CreateVirtualMFADeviceResponse Int
-cvmdrsResponseStatus = lens _cvmdrsResponseStatus (\ s a -> s{_cvmdrsResponseStatus = a});
+cvmdrsResponseStatus = lens _cvmdrsResponseStatus (\ s a -> s{_cvmdrsResponseStatus = a})
 
 -- | A structure containing details about the new virtual MFA device.
 cvmdrsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
-cvmdrsVirtualMFADevice = lens _cvmdrsVirtualMFADevice (\ s a -> s{_cvmdrsVirtualMFADevice = a});
+cvmdrsVirtualMFADevice = lens _cvmdrsVirtualMFADevice (\ s a -> s{_cvmdrsVirtualMFADevice = a})
 
 instance NFData CreateVirtualMFADeviceResponse where

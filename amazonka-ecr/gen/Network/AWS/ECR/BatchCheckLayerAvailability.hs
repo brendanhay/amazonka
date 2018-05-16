@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.BatchCheckLayerAvailability
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ batchCheckLayerAvailability
     -> BatchCheckLayerAvailability
 batchCheckLayerAvailability pRepositoryName_ pLayerDigests_ =
   BatchCheckLayerAvailability'
-  { _bclaRegistryId = Nothing
-  , _bclaRepositoryName = pRepositoryName_
-  , _bclaLayerDigests = _List1 # pLayerDigests_
-  }
+    { _bclaRegistryId = Nothing
+    , _bclaRepositoryName = pRepositoryName_
+    , _bclaLayerDigests = _List1 # pLayerDigests_
+    }
 
 
 -- | The AWS account ID associated with the registry that contains the image layers to check. If you do not specify a registry, the default registry is assumed.
 bclaRegistryId :: Lens' BatchCheckLayerAvailability (Maybe Text)
-bclaRegistryId = lens _bclaRegistryId (\ s a -> s{_bclaRegistryId = a});
+bclaRegistryId = lens _bclaRegistryId (\ s a -> s{_bclaRegistryId = a})
 
 -- | The name of the repository that is associated with the image layers to check.
 bclaRepositoryName :: Lens' BatchCheckLayerAvailability Text
-bclaRepositoryName = lens _bclaRepositoryName (\ s a -> s{_bclaRepositoryName = a});
+bclaRepositoryName = lens _bclaRepositoryName (\ s a -> s{_bclaRepositoryName = a})
 
 -- | The digests of the image layers to check.
 bclaLayerDigests :: Lens' BatchCheckLayerAvailability (NonEmpty Text)
-bclaLayerDigests = lens _bclaLayerDigests (\ s a -> s{_bclaLayerDigests = a}) . _List1;
+bclaLayerDigests = lens _bclaLayerDigests (\ s a -> s{_bclaLayerDigests = a}) . _List1
 
 instance AWSRequest BatchCheckLayerAvailability where
         type Rs BatchCheckLayerAvailability =
@@ -150,23 +150,23 @@ batchCheckLayerAvailabilityResponse
     -> BatchCheckLayerAvailabilityResponse
 batchCheckLayerAvailabilityResponse pResponseStatus_ =
   BatchCheckLayerAvailabilityResponse'
-  { _bclarsFailures = Nothing
-  , _bclarsLayers = Nothing
-  , _bclarsResponseStatus = pResponseStatus_
-  }
+    { _bclarsFailures = Nothing
+    , _bclarsLayers = Nothing
+    , _bclarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Any failures associated with the call.
 bclarsFailures :: Lens' BatchCheckLayerAvailabilityResponse [LayerFailure]
-bclarsFailures = lens _bclarsFailures (\ s a -> s{_bclarsFailures = a}) . _Default . _Coerce;
+bclarsFailures = lens _bclarsFailures (\ s a -> s{_bclarsFailures = a}) . _Default . _Coerce
 
 -- | A list of image layer objects corresponding to the image layer references in the request.
 bclarsLayers :: Lens' BatchCheckLayerAvailabilityResponse [Layer]
-bclarsLayers = lens _bclarsLayers (\ s a -> s{_bclarsLayers = a}) . _Default . _Coerce;
+bclarsLayers = lens _bclarsLayers (\ s a -> s{_bclarsLayers = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bclarsResponseStatus :: Lens' BatchCheckLayerAvailabilityResponse Int
-bclarsResponseStatus = lens _bclarsResponseStatus (\ s a -> s{_bclarsResponseStatus = a});
+bclarsResponseStatus = lens _bclarsResponseStatus (\ s a -> s{_bclarsResponseStatus = a})
 
 instance NFData BatchCheckLayerAvailabilityResponse
          where

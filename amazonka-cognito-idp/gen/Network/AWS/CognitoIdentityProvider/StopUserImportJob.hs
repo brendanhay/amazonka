@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.StopUserImportJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ stopUserImportJob pUserPoolId_ pJobId_ =
 
 -- | The user pool ID for the user pool that the users are being imported into.
 sUserPoolId :: Lens' StopUserImportJob Text
-sUserPoolId = lens _sUserPoolId (\ s a -> s{_sUserPoolId = a});
+sUserPoolId = lens _sUserPoolId (\ s a -> s{_sUserPoolId = a})
 
 -- | The job ID for the user import job.
 sJobId :: Lens' StopUserImportJob Text
-sJobId = lens _sJobId (\ s a -> s{_sJobId = a});
+sJobId = lens _sJobId (\ s a -> s{_sJobId = a})
 
 instance AWSRequest StopUserImportJob where
         type Rs StopUserImportJob = StopUserImportJobResponse
@@ -138,15 +138,15 @@ stopUserImportJobResponse
     -> StopUserImportJobResponse
 stopUserImportJobResponse pResponseStatus_ =
   StopUserImportJobResponse'
-  {_srsUserImportJob = Nothing, _srsResponseStatus = pResponseStatus_}
+    {_srsUserImportJob = Nothing, _srsResponseStatus = pResponseStatus_}
 
 
 -- | The job object that represents the user import job.
 srsUserImportJob :: Lens' StopUserImportJobResponse (Maybe UserImportJobType)
-srsUserImportJob = lens _srsUserImportJob (\ s a -> s{_srsUserImportJob = a});
+srsUserImportJob = lens _srsUserImportJob (\ s a -> s{_srsUserImportJob = a})
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StopUserImportJobResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StopUserImportJobResponse where

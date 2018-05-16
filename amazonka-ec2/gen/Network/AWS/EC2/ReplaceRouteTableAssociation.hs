@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceRouteTableAssociation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ replaceRouteTableAssociation
     -> ReplaceRouteTableAssociation
 replaceRouteTableAssociation pAssociationId_ pRouteTableId_ =
   ReplaceRouteTableAssociation'
-  { _rrtaDryRun = Nothing
-  , _rrtaAssociationId = pAssociationId_
-  , _rrtaRouteTableId = pRouteTableId_
-  }
+    { _rrtaDryRun = Nothing
+    , _rrtaAssociationId = pAssociationId_
+    , _rrtaRouteTableId = pRouteTableId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rrtaDryRun :: Lens' ReplaceRouteTableAssociation (Maybe Bool)
-rrtaDryRun = lens _rrtaDryRun (\ s a -> s{_rrtaDryRun = a});
+rrtaDryRun = lens _rrtaDryRun (\ s a -> s{_rrtaDryRun = a})
 
 -- | The association ID.
 rrtaAssociationId :: Lens' ReplaceRouteTableAssociation Text
-rrtaAssociationId = lens _rrtaAssociationId (\ s a -> s{_rrtaAssociationId = a});
+rrtaAssociationId = lens _rrtaAssociationId (\ s a -> s{_rrtaAssociationId = a})
 
 -- | The ID of the new route table to associate with the subnet.
 rrtaRouteTableId :: Lens' ReplaceRouteTableAssociation Text
-rrtaRouteTableId = lens _rrtaRouteTableId (\ s a -> s{_rrtaRouteTableId = a});
+rrtaRouteTableId = lens _rrtaRouteTableId (\ s a -> s{_rrtaRouteTableId = a})
 
 instance AWSRequest ReplaceRouteTableAssociation
          where
@@ -147,16 +147,18 @@ replaceRouteTableAssociationResponse
     -> ReplaceRouteTableAssociationResponse
 replaceRouteTableAssociationResponse pResponseStatus_ =
   ReplaceRouteTableAssociationResponse'
-  {_rrtarsNewAssociationId = Nothing, _rrtarsResponseStatus = pResponseStatus_}
+    { _rrtarsNewAssociationId = Nothing
+    , _rrtarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the new association.
 rrtarsNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
-rrtarsNewAssociationId = lens _rrtarsNewAssociationId (\ s a -> s{_rrtarsNewAssociationId = a});
+rrtarsNewAssociationId = lens _rrtarsNewAssociationId (\ s a -> s{_rrtarsNewAssociationId = a})
 
 -- | -- | The response status code.
 rrtarsResponseStatus :: Lens' ReplaceRouteTableAssociationResponse Int
-rrtarsResponseStatus = lens _rrtarsResponseStatus (\ s a -> s{_rrtarsResponseStatus = a});
+rrtarsResponseStatus = lens _rrtarsResponseStatus (\ s a -> s{_rrtarsResponseStatus = a})
 
 instance NFData ReplaceRouteTableAssociationResponse
          where

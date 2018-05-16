@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateRealtimeEndpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ createRealtimeEndpoint pMLModelId_ =
 
 -- | The ID assigned to the @MLModel@ during creation.
 creMLModelId :: Lens' CreateRealtimeEndpoint Text
-creMLModelId = lens _creMLModelId (\ s a -> s{_creMLModelId = a});
+creMLModelId = lens _creMLModelId (\ s a -> s{_creMLModelId = a})
 
 instance AWSRequest CreateRealtimeEndpoint where
         type Rs CreateRealtimeEndpoint =
@@ -132,22 +132,22 @@ createRealtimeEndpointResponse
     -> CreateRealtimeEndpointResponse
 createRealtimeEndpointResponse pResponseStatus_ =
   CreateRealtimeEndpointResponse'
-  { _crersRealtimeEndpointInfo = Nothing
-  , _crersMLModelId = Nothing
-  , _crersResponseStatus = pResponseStatus_
-  }
+    { _crersRealtimeEndpointInfo = Nothing
+    , _crersMLModelId = Nothing
+    , _crersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The endpoint information of the @MLModel@
 crersRealtimeEndpointInfo :: Lens' CreateRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
-crersRealtimeEndpointInfo = lens _crersRealtimeEndpointInfo (\ s a -> s{_crersRealtimeEndpointInfo = a});
+crersRealtimeEndpointInfo = lens _crersRealtimeEndpointInfo (\ s a -> s{_crersRealtimeEndpointInfo = a})
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
 crersMLModelId :: Lens' CreateRealtimeEndpointResponse (Maybe Text)
-crersMLModelId = lens _crersMLModelId (\ s a -> s{_crersMLModelId = a});
+crersMLModelId = lens _crersMLModelId (\ s a -> s{_crersMLModelId = a})
 
 -- | -- | The response status code.
 crersResponseStatus :: Lens' CreateRealtimeEndpointResponse Int
-crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a})
 
 instance NFData CreateRealtimeEndpointResponse where

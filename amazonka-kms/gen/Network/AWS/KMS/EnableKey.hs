@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.EnableKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,7 +60,7 @@ enableKey pKeyId_ = EnableKey' {_ekKeyId = pKeyId_}
 
 -- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 ekKeyId :: Lens' EnableKey Text
-ekKeyId = lens _ekKeyId (\ s a -> s{_ekKeyId = a});
+ekKeyId = lens _ekKeyId (\ s a -> s{_ekKeyId = a})
 
 instance AWSRequest EnableKey where
         type Rs EnableKey = EnableKeyResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.CreateJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,48 +94,48 @@ createJob
     -> CreateJob
 createJob pPipelineId_ =
   CreateJob'
-  { _cjInputs = Nothing
-  , _cjInput = Nothing
-  , _cjUserMetadata = Nothing
-  , _cjOutputs = Nothing
-  , _cjOutput = Nothing
-  , _cjPlaylists = Nothing
-  , _cjOutputKeyPrefix = Nothing
-  , _cjPipelineId = pPipelineId_
-  }
+    { _cjInputs = Nothing
+    , _cjInput = Nothing
+    , _cjUserMetadata = Nothing
+    , _cjOutputs = Nothing
+    , _cjOutput = Nothing
+    , _cjPlaylists = Nothing
+    , _cjOutputKeyPrefix = Nothing
+    , _cjPipelineId = pPipelineId_
+    }
 
 
 -- | A section of the request body that provides information about the files that are being transcoded.
 cjInputs :: Lens' CreateJob [JobInput]
-cjInputs = lens _cjInputs (\ s a -> s{_cjInputs = a}) . _Default . _Coerce;
+cjInputs = lens _cjInputs (\ s a -> s{_cjInputs = a}) . _Default . _Coerce
 
 -- | A section of the request body that provides information about the file that is being transcoded.
 cjInput :: Lens' CreateJob (Maybe JobInput)
-cjInput = lens _cjInput (\ s a -> s{_cjInput = a});
+cjInput = lens _cjInput (\ s a -> s{_cjInput = a})
 
 -- | User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in @key/value@ pairs, and you can add up to 10 @key/value@ pairs per job. Elastic Transcoder does not guarantee that @key/value@ pairs are returned in the same order in which you specify them.
 cjUserMetadata :: Lens' CreateJob (HashMap Text Text)
-cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . _Default . _Map;
+cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . _Default . _Map
 
 -- | A section of the request body that provides information about the transcoded (target) files. We recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
 cjOutputs :: Lens' CreateJob [CreateJobOutput]
-cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default . _Coerce;
+cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default . _Coerce
 
 -- | A section of the request body that provides information about the transcoded (target) file. We strongly recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
 cjOutput :: Lens' CreateJob (Maybe CreateJobOutput)
-cjOutput = lens _cjOutput (\ s a -> s{_cjOutput = a});
+cjOutput = lens _cjOutput (\ s a -> s{_cjOutput = a})
 
 -- | If you specify a preset in @PresetId@ for which the value of @Container@ is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create. The maximum number of master playlists in a job is 30.
 cjPlaylists :: Lens' CreateJob [CreateJobPlaylist]
-cjPlaylists = lens _cjPlaylists (\ s a -> s{_cjPlaylists = a}) . _Default . _Coerce;
+cjPlaylists = lens _cjPlaylists (\ s a -> s{_cjPlaylists = a}) . _Default . _Coerce
 
 -- | The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.
 cjOutputKeyPrefix :: Lens' CreateJob (Maybe Text)
-cjOutputKeyPrefix = lens _cjOutputKeyPrefix (\ s a -> s{_cjOutputKeyPrefix = a});
+cjOutputKeyPrefix = lens _cjOutputKeyPrefix (\ s a -> s{_cjOutputKeyPrefix = a})
 
 -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.
 cjPipelineId :: Lens' CreateJob Text
-cjPipelineId = lens _cjPipelineId (\ s a -> s{_cjPipelineId = a});
+cjPipelineId = lens _cjPipelineId (\ s a -> s{_cjPipelineId = a})
 
 instance AWSRequest CreateJob where
         type Rs CreateJob = CreateJobResponse
@@ -195,15 +195,15 @@ createJobResponse
     -> CreateJobResponse
 createJobResponse pResponseStatus_ =
   CreateJobResponse'
-  {_cjrsJob = Nothing, _cjrsResponseStatus = pResponseStatus_}
+    {_cjrsJob = Nothing, _cjrsResponseStatus = pResponseStatus_}
 
 
 -- | A section of the response body that provides information about the job that is created.
 cjrsJob :: Lens' CreateJobResponse (Maybe Job')
-cjrsJob = lens _cjrsJob (\ s a -> s{_cjrsJob = a});
+cjrsJob = lens _cjrsJob (\ s a -> s{_cjrsJob = a})
 
 -- | -- | The response status code.
 cjrsResponseStatus :: Lens' CreateJobResponse Int
-cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
+cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a})
 
 instance NFData CreateJobResponse where

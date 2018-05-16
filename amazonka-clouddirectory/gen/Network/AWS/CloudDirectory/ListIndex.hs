@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListIndex
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Lists objects attached to the specified index.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListIndex
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.CloudDirectory.ListIndex
 import Network.AWS.CloudDirectory.Types
 import Network.AWS.CloudDirectory.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -71,7 +74,7 @@ data ListIndex = ListIndex'
 --
 -- * 'liNextToken' - The pagination token.
 --
--- * 'liMaxResults' - The maximum number of results to retrieve from the index.
+-- * 'liMaxResults' - The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html#limits_cd AWS Directory Service Limits> .
 --
 -- * 'liDirectoryARN' - The ARN of the directory that the index exists in.
 --
@@ -82,38 +85,45 @@ listIndex
     -> ListIndex
 listIndex pDirectoryARN_ pIndexReference_ =
   ListIndex'
-  { _liRangesOnIndexedValues = Nothing
-  , _liConsistencyLevel = Nothing
-  , _liNextToken = Nothing
-  , _liMaxResults = Nothing
-  , _liDirectoryARN = pDirectoryARN_
-  , _liIndexReference = pIndexReference_
-  }
+    { _liRangesOnIndexedValues = Nothing
+    , _liConsistencyLevel = Nothing
+    , _liNextToken = Nothing
+    , _liMaxResults = Nothing
+    , _liDirectoryARN = pDirectoryARN_
+    , _liIndexReference = pIndexReference_
+    }
 
 
 -- | Specifies the ranges of indexed values that you want to query.
 liRangesOnIndexedValues :: Lens' ListIndex [ObjectAttributeRange]
-liRangesOnIndexedValues = lens _liRangesOnIndexedValues (\ s a -> s{_liRangesOnIndexedValues = a}) . _Default . _Coerce;
+liRangesOnIndexedValues = lens _liRangesOnIndexedValues (\ s a -> s{_liRangesOnIndexedValues = a}) . _Default . _Coerce
 
 -- | The consistency level to execute the request at.
 liConsistencyLevel :: Lens' ListIndex (Maybe ConsistencyLevel)
-liConsistencyLevel = lens _liConsistencyLevel (\ s a -> s{_liConsistencyLevel = a});
+liConsistencyLevel = lens _liConsistencyLevel (\ s a -> s{_liConsistencyLevel = a})
 
 -- | The pagination token.
 liNextToken :: Lens' ListIndex (Maybe Text)
-liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
+liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a})
 
--- | The maximum number of results to retrieve from the index.
+-- | The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html#limits_cd AWS Directory Service Limits> .
 liMaxResults :: Lens' ListIndex (Maybe Natural)
-liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . mapping _Nat;
+liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . mapping _Nat
 
 -- | The ARN of the directory that the index exists in.
 liDirectoryARN :: Lens' ListIndex Text
-liDirectoryARN = lens _liDirectoryARN (\ s a -> s{_liDirectoryARN = a});
+liDirectoryARN = lens _liDirectoryARN (\ s a -> s{_liDirectoryARN = a})
 
 -- | The reference to the index to list.
 liIndexReference :: Lens' ListIndex ObjectReference
-liIndexReference = lens _liIndexReference (\ s a -> s{_liIndexReference = a});
+liIndexReference = lens _liIndexReference (\ s a -> s{_liIndexReference = a})
+
+instance AWSPager ListIndex where
+        page rq rs
+          | stop (rs ^. lirsNextToken) = Nothing
+          | stop (rs ^. lirsIndexAttachments) = Nothing
+          | otherwise =
+            Just $ rq & liNextToken .~ rs ^. lirsNextToken
 
 instance AWSRequest ListIndex where
         type Rs ListIndex = ListIndexResponse
@@ -176,22 +186,22 @@ listIndexResponse
     -> ListIndexResponse
 listIndexResponse pResponseStatus_ =
   ListIndexResponse'
-  { _lirsIndexAttachments = Nothing
-  , _lirsNextToken = Nothing
-  , _lirsResponseStatus = pResponseStatus_
-  }
+    { _lirsIndexAttachments = Nothing
+    , _lirsNextToken = Nothing
+    , _lirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The objects and indexed values attached to the index.
 lirsIndexAttachments :: Lens' ListIndexResponse [IndexAttachment]
-lirsIndexAttachments = lens _lirsIndexAttachments (\ s a -> s{_lirsIndexAttachments = a}) . _Default . _Coerce;
+lirsIndexAttachments = lens _lirsIndexAttachments (\ s a -> s{_lirsIndexAttachments = a}) . _Default . _Coerce
 
 -- | The pagination token.
 lirsNextToken :: Lens' ListIndexResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
+lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a})
 
 -- | -- | The response status code.
 lirsResponseStatus :: Lens' ListIndexResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a})
 
 instance NFData ListIndexResponse where

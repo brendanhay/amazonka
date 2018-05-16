@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,78 +79,78 @@ address
     :: Address
 address =
   Address'
-  { _aIsRestricted = Nothing
-  , _aStreet3 = Nothing
-  , _aLandmark = Nothing
-  , _aPostalCode = Nothing
-  , _aCountry = Nothing
-  , _aStateOrProvince = Nothing
-  , _aStreet2 = Nothing
-  , _aAddressId = Nothing
-  , _aCity = Nothing
-  , _aPhoneNumber = Nothing
-  , _aCompany = Nothing
-  , _aName = Nothing
-  , _aPrefectureOrDistrict = Nothing
-  , _aStreet1 = Nothing
-  }
+    { _aIsRestricted = Nothing
+    , _aStreet3 = Nothing
+    , _aLandmark = Nothing
+    , _aPostalCode = Nothing
+    , _aCountry = Nothing
+    , _aStateOrProvince = Nothing
+    , _aStreet2 = Nothing
+    , _aAddressId = Nothing
+    , _aCity = Nothing
+    , _aPhoneNumber = Nothing
+    , _aCompany = Nothing
+    , _aName = Nothing
+    , _aPrefectureOrDistrict = Nothing
+    , _aStreet1 = Nothing
+    }
 
 
 -- | If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.
 aIsRestricted :: Lens' Address (Maybe Bool)
-aIsRestricted = lens _aIsRestricted (\ s a -> s{_aIsRestricted = a});
+aIsRestricted = lens _aIsRestricted (\ s a -> s{_aIsRestricted = a})
 
 -- | The third line in a street address that a Snowball is to be delivered to.
 aStreet3 :: Lens' Address (Maybe Text)
-aStreet3 = lens _aStreet3 (\ s a -> s{_aStreet3 = a});
+aStreet3 = lens _aStreet3 (\ s a -> s{_aStreet3 = a})
 
 -- | This field is no longer used and the value is ignored.
 aLandmark :: Lens' Address (Maybe Text)
-aLandmark = lens _aLandmark (\ s a -> s{_aLandmark = a});
+aLandmark = lens _aLandmark (\ s a -> s{_aLandmark = a})
 
 -- | The postal code in an address that a Snowball is to be delivered to.
 aPostalCode :: Lens' Address (Maybe Text)
-aPostalCode = lens _aPostalCode (\ s a -> s{_aPostalCode = a});
+aPostalCode = lens _aPostalCode (\ s a -> s{_aPostalCode = a})
 
 -- | The country in an address that a Snowball is to be delivered to.
 aCountry :: Lens' Address (Maybe Text)
-aCountry = lens _aCountry (\ s a -> s{_aCountry = a});
+aCountry = lens _aCountry (\ s a -> s{_aCountry = a})
 
 -- | The state or province in an address that a Snowball is to be delivered to.
 aStateOrProvince :: Lens' Address (Maybe Text)
-aStateOrProvince = lens _aStateOrProvince (\ s a -> s{_aStateOrProvince = a});
+aStateOrProvince = lens _aStateOrProvince (\ s a -> s{_aStateOrProvince = a})
 
 -- | The second line in a street address that a Snowball is to be delivered to.
 aStreet2 :: Lens' Address (Maybe Text)
-aStreet2 = lens _aStreet2 (\ s a -> s{_aStreet2 = a});
+aStreet2 = lens _aStreet2 (\ s a -> s{_aStreet2 = a})
 
 -- | The unique ID for an address.
 aAddressId :: Lens' Address (Maybe Text)
-aAddressId = lens _aAddressId (\ s a -> s{_aAddressId = a});
+aAddressId = lens _aAddressId (\ s a -> s{_aAddressId = a})
 
 -- | The city in an address that a Snowball is to be delivered to.
 aCity :: Lens' Address (Maybe Text)
-aCity = lens _aCity (\ s a -> s{_aCity = a});
+aCity = lens _aCity (\ s a -> s{_aCity = a})
 
 -- | The phone number associated with an address that a Snowball is to be delivered to.
 aPhoneNumber :: Lens' Address (Maybe Text)
-aPhoneNumber = lens _aPhoneNumber (\ s a -> s{_aPhoneNumber = a});
+aPhoneNumber = lens _aPhoneNumber (\ s a -> s{_aPhoneNumber = a})
 
 -- | The name of the company to receive a Snowball at an address.
 aCompany :: Lens' Address (Maybe Text)
-aCompany = lens _aCompany (\ s a -> s{_aCompany = a});
+aCompany = lens _aCompany (\ s a -> s{_aCompany = a})
 
 -- | The name of a person to receive a Snowball at an address.
 aName :: Lens' Address (Maybe Text)
-aName = lens _aName (\ s a -> s{_aName = a});
+aName = lens _aName (\ s a -> s{_aName = a})
 
 -- | This field is no longer used and the value is ignored.
 aPrefectureOrDistrict :: Lens' Address (Maybe Text)
-aPrefectureOrDistrict = lens _aPrefectureOrDistrict (\ s a -> s{_aPrefectureOrDistrict = a});
+aPrefectureOrDistrict = lens _aPrefectureOrDistrict (\ s a -> s{_aPrefectureOrDistrict = a})
 
 -- | The first line in a street address that a Snowball is to be delivered to.
 aStreet1 :: Lens' Address (Maybe Text)
-aStreet1 = lens _aStreet1 (\ s a -> s{_aStreet1 = a});
+aStreet1 = lens _aStreet1 (\ s a -> s{_aStreet1 = a})
 
 instance FromJSON Address where
         parseJSON
@@ -222,28 +222,28 @@ clusterListEntry
     :: ClusterListEntry
 clusterListEntry =
   ClusterListEntry'
-  { _cleClusterState = Nothing
-  , _cleClusterId = Nothing
-  , _cleCreationDate = Nothing
-  , _cleDescription = Nothing
-  }
+    { _cleClusterState = Nothing
+    , _cleClusterId = Nothing
+    , _cleCreationDate = Nothing
+    , _cleDescription = Nothing
+    }
 
 
 -- | The current state of this cluster. For information about the state of a specific node, see 'JobListEntry$JobState' .
 cleClusterState :: Lens' ClusterListEntry (Maybe ClusterState)
-cleClusterState = lens _cleClusterState (\ s a -> s{_cleClusterState = a});
+cleClusterState = lens _cleClusterState (\ s a -> s{_cleClusterState = a})
 
 -- | The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 cleClusterId :: Lens' ClusterListEntry (Maybe Text)
-cleClusterId = lens _cleClusterId (\ s a -> s{_cleClusterId = a});
+cleClusterId = lens _cleClusterId (\ s a -> s{_cleClusterId = a})
 
 -- | The creation date for this cluster.
 cleCreationDate :: Lens' ClusterListEntry (Maybe UTCTime)
-cleCreationDate = lens _cleCreationDate (\ s a -> s{_cleCreationDate = a}) . mapping _Time;
+cleCreationDate = lens _cleCreationDate (\ s a -> s{_cleCreationDate = a}) . mapping _Time
 
 -- | Defines an optional description of the cluster, for example @Environmental Data Cluster-01@ .
 cleDescription :: Lens' ClusterListEntry (Maybe Text)
-cleDescription = lens _cleDescription (\ s a -> s{_cleDescription = a});
+cleDescription = lens _cleDescription (\ s a -> s{_cleDescription = a})
 
 instance FromJSON ClusterListEntry where
         parseJSON
@@ -313,73 +313,73 @@ clusterMetadata
     :: ClusterMetadata
 clusterMetadata =
   ClusterMetadata'
-  { _cmJobType = Nothing
-  , _cmKMSKeyARN = Nothing
-  , _cmClusterState = Nothing
-  , _cmNotification = Nothing
-  , _cmForwardingAddressId = Nothing
-  , _cmAddressId = Nothing
-  , _cmSnowballType = Nothing
-  , _cmShippingOption = Nothing
-  , _cmResources = Nothing
-  , _cmClusterId = Nothing
-  , _cmCreationDate = Nothing
-  , _cmDescription = Nothing
-  , _cmRoleARN = Nothing
-  }
+    { _cmJobType = Nothing
+    , _cmKMSKeyARN = Nothing
+    , _cmClusterState = Nothing
+    , _cmNotification = Nothing
+    , _cmForwardingAddressId = Nothing
+    , _cmAddressId = Nothing
+    , _cmSnowballType = Nothing
+    , _cmShippingOption = Nothing
+    , _cmResources = Nothing
+    , _cmClusterId = Nothing
+    , _cmCreationDate = Nothing
+    , _cmDescription = Nothing
+    , _cmRoleARN = Nothing
+    }
 
 
 -- | The type of job for this cluster. Currently, the only job type supported for clusters is @LOCAL_USE@ .
 cmJobType :: Lens' ClusterMetadata (Maybe JobType)
-cmJobType = lens _cmJobType (\ s a -> s{_cmJobType = a});
+cmJobType = lens _cmJobType (\ s a -> s{_cmJobType = a})
 
 -- | The @KmsKeyARN@ Amazon Resource Name (ARN) associated with this cluster. This ARN was created using the <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS Key Management Service (AWS KMS).
 cmKMSKeyARN :: Lens' ClusterMetadata (Maybe Text)
-cmKMSKeyARN = lens _cmKMSKeyARN (\ s a -> s{_cmKMSKeyARN = a});
+cmKMSKeyARN = lens _cmKMSKeyARN (\ s a -> s{_cmKMSKeyARN = a})
 
 -- | The current status of the cluster.
 cmClusterState :: Lens' ClusterMetadata (Maybe ClusterState)
-cmClusterState = lens _cmClusterState (\ s a -> s{_cmClusterState = a});
+cmClusterState = lens _cmClusterState (\ s a -> s{_cmClusterState = a})
 
 -- | The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.
 cmNotification :: Lens' ClusterMetadata (Maybe Notification)
-cmNotification = lens _cmNotification (\ s a -> s{_cmNotification = a});
+cmNotification = lens _cmNotification (\ s a -> s{_cmNotification = a})
 
 -- | The ID of the address that you want a cluster shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
 cmForwardingAddressId :: Lens' ClusterMetadata (Maybe Text)
-cmForwardingAddressId = lens _cmForwardingAddressId (\ s a -> s{_cmForwardingAddressId = a});
+cmForwardingAddressId = lens _cmForwardingAddressId (\ s a -> s{_cmForwardingAddressId = a})
 
 -- | The automatically generated ID for a specific address.
 cmAddressId :: Lens' ClusterMetadata (Maybe Text)
-cmAddressId = lens _cmAddressId (\ s a -> s{_cmAddressId = a});
+cmAddressId = lens _cmAddressId (\ s a -> s{_cmAddressId = a})
 
 -- | The type of AWS Snowball appliance to use for this cluster. Currently, the only supported appliance type for cluster jobs is @EDGE@ .
 cmSnowballType :: Lens' ClusterMetadata (Maybe SnowballType)
-cmSnowballType = lens _cmSnowballType (\ s a -> s{_cmSnowballType = a});
+cmSnowballType = lens _cmSnowballType (\ s a -> s{_cmSnowballType = a})
 
 -- | The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge appliance, rather it represents how quickly each appliance moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, appliances shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowball Edges shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowball Edges are delivered in one to seven days.     * In the US, you have access to one-day shipping and two-day shipping.
 cmShippingOption :: Lens' ClusterMetadata (Maybe ShippingOption)
-cmShippingOption = lens _cmShippingOption (\ s a -> s{_cmShippingOption = a});
+cmShippingOption = lens _cmShippingOption (\ s a -> s{_cmShippingOption = a})
 
 -- | The arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
 cmResources :: Lens' ClusterMetadata (Maybe JobResource)
-cmResources = lens _cmResources (\ s a -> s{_cmResources = a});
+cmResources = lens _cmResources (\ s a -> s{_cmResources = a})
 
 -- | The automatically generated ID for a cluster.
 cmClusterId :: Lens' ClusterMetadata (Maybe Text)
-cmClusterId = lens _cmClusterId (\ s a -> s{_cmClusterId = a});
+cmClusterId = lens _cmClusterId (\ s a -> s{_cmClusterId = a})
 
 -- | The creation date for this cluster.
 cmCreationDate :: Lens' ClusterMetadata (Maybe UTCTime)
-cmCreationDate = lens _cmCreationDate (\ s a -> s{_cmCreationDate = a}) . mapping _Time;
+cmCreationDate = lens _cmCreationDate (\ s a -> s{_cmCreationDate = a}) . mapping _Time
 
 -- | The optional description of the cluster.
 cmDescription :: Lens' ClusterMetadata (Maybe Text)
-cmDescription = lens _cmDescription (\ s a -> s{_cmDescription = a});
+cmDescription = lens _cmDescription (\ s a -> s{_cmDescription = a})
 
 -- | The role ARN associated with this cluster. This ARN was created using the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
 cmRoleARN :: Lens' ClusterMetadata (Maybe Text)
-cmRoleARN = lens _cmRoleARN (\ s a -> s{_cmRoleARN = a});
+cmRoleARN = lens _cmRoleARN (\ s a -> s{_cmRoleARN = a})
 
 instance FromJSON ClusterMetadata where
         parseJSON
@@ -431,28 +431,28 @@ dataTransfer
     :: DataTransfer
 dataTransfer =
   DataTransfer'
-  { _dtTotalObjects = Nothing
-  , _dtTotalBytes = Nothing
-  , _dtObjectsTransferred = Nothing
-  , _dtBytesTransferred = Nothing
-  }
+    { _dtTotalObjects = Nothing
+    , _dtTotalBytes = Nothing
+    , _dtObjectsTransferred = Nothing
+    , _dtBytesTransferred = Nothing
+    }
 
 
 -- | The total number of objects for a transfer between a Snowball and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
 dtTotalObjects :: Lens' DataTransfer (Maybe Integer)
-dtTotalObjects = lens _dtTotalObjects (\ s a -> s{_dtTotalObjects = a});
+dtTotalObjects = lens _dtTotalObjects (\ s a -> s{_dtTotalObjects = a})
 
 -- | The total bytes of data for a transfer between a Snowball and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
 dtTotalBytes :: Lens' DataTransfer (Maybe Integer)
-dtTotalBytes = lens _dtTotalBytes (\ s a -> s{_dtTotalBytes = a});
+dtTotalBytes = lens _dtTotalBytes (\ s a -> s{_dtTotalBytes = a})
 
 -- | The number of objects transferred between a Snowball and Amazon S3.
 dtObjectsTransferred :: Lens' DataTransfer (Maybe Integer)
-dtObjectsTransferred = lens _dtObjectsTransferred (\ s a -> s{_dtObjectsTransferred = a});
+dtObjectsTransferred = lens _dtObjectsTransferred (\ s a -> s{_dtObjectsTransferred = a})
 
 -- | The number of bytes transferred between a Snowball and Amazon S3.
 dtBytesTransferred :: Lens' DataTransfer (Maybe Integer)
-dtBytesTransferred = lens _dtBytesTransferred (\ s a -> s{_dtBytesTransferred = a});
+dtBytesTransferred = lens _dtBytesTransferred (\ s a -> s{_dtBytesTransferred = a})
 
 instance FromJSON DataTransfer where
         parseJSON
@@ -490,7 +490,7 @@ eventTriggerDefinition =
 
 -- | The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
 etdEventResourceARN :: Lens' EventTriggerDefinition (Maybe Text)
-etdEventResourceARN = lens _etdEventResourceARN (\ s a -> s{_etdEventResourceARN = a});
+etdEventResourceARN = lens _etdEventResourceARN (\ s a -> s{_etdEventResourceARN = a})
 
 instance FromJSON EventTriggerDefinition where
         parseJSON
@@ -546,43 +546,43 @@ jobListEntry
     :: JobListEntry
 jobListEntry =
   JobListEntry'
-  { _jleJobType = Nothing
-  , _jleJobId = Nothing
-  , _jleJobState = Nothing
-  , _jleSnowballType = Nothing
-  , _jleCreationDate = Nothing
-  , _jleDescription = Nothing
-  , _jleIsMaster = Nothing
-  }
+    { _jleJobType = Nothing
+    , _jleJobId = Nothing
+    , _jleJobState = Nothing
+    , _jleSnowballType = Nothing
+    , _jleCreationDate = Nothing
+    , _jleDescription = Nothing
+    , _jleIsMaster = Nothing
+    }
 
 
 -- | The type of job.
 jleJobType :: Lens' JobListEntry (Maybe JobType)
-jleJobType = lens _jleJobType (\ s a -> s{_jleJobType = a});
+jleJobType = lens _jleJobType (\ s a -> s{_jleJobType = a})
 
 -- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 jleJobId :: Lens' JobListEntry (Maybe Text)
-jleJobId = lens _jleJobId (\ s a -> s{_jleJobId = a});
+jleJobId = lens _jleJobId (\ s a -> s{_jleJobId = a})
 
 -- | The current state of this job.
 jleJobState :: Lens' JobListEntry (Maybe JobState)
-jleJobState = lens _jleJobState (\ s a -> s{_jleJobState = a});
+jleJobState = lens _jleJobState (\ s a -> s{_jleJobState = a})
 
 -- | The type of appliance used with this job.
 jleSnowballType :: Lens' JobListEntry (Maybe SnowballType)
-jleSnowballType = lens _jleSnowballType (\ s a -> s{_jleSnowballType = a});
+jleSnowballType = lens _jleSnowballType (\ s a -> s{_jleSnowballType = a})
 
 -- | The creation date for this job.
 jleCreationDate :: Lens' JobListEntry (Maybe UTCTime)
-jleCreationDate = lens _jleCreationDate (\ s a -> s{_jleCreationDate = a}) . mapping _Time;
+jleCreationDate = lens _jleCreationDate (\ s a -> s{_jleCreationDate = a}) . mapping _Time
 
 -- | The optional description of this specific job, for example @Important Photos 2016-08-11@ .
 jleDescription :: Lens' JobListEntry (Maybe Text)
-jleDescription = lens _jleDescription (\ s a -> s{_jleDescription = a});
+jleDescription = lens _jleDescription (\ s a -> s{_jleDescription = a})
 
 -- | A value that indicates that this job is a master job. A master job represents a successful request to create an export job. Master jobs aren't associated with any Snowballs. Instead, each master job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular master job are listed, because they are created after the master job is created.
 jleIsMaster :: Lens' JobListEntry (Maybe Bool)
-jleIsMaster = lens _jleIsMaster (\ s a -> s{_jleIsMaster = a});
+jleIsMaster = lens _jleIsMaster (\ s a -> s{_jleIsMaster = a})
 
 instance FromJSON JobListEntry where
         parseJSON
@@ -631,23 +631,23 @@ jobLogs
     :: JobLogs
 jobLogs =
   JobLogs'
-  { _jlJobFailureLogURI = Nothing
-  , _jlJobCompletionReportURI = Nothing
-  , _jlJobSuccessLogURI = Nothing
-  }
+    { _jlJobFailureLogURI = Nothing
+    , _jlJobCompletionReportURI = Nothing
+    , _jlJobSuccessLogURI = Nothing
+    }
 
 
 -- | A link to an Amazon S3 presigned URL where the job failure log is located.
 jlJobFailureLogURI :: Lens' JobLogs (Maybe Text)
-jlJobFailureLogURI = lens _jlJobFailureLogURI (\ s a -> s{_jlJobFailureLogURI = a});
+jlJobFailureLogURI = lens _jlJobFailureLogURI (\ s a -> s{_jlJobFailureLogURI = a})
 
 -- | A link to an Amazon S3 presigned URL where the job completion report is located.
 jlJobCompletionReportURI :: Lens' JobLogs (Maybe Text)
-jlJobCompletionReportURI = lens _jlJobCompletionReportURI (\ s a -> s{_jlJobCompletionReportURI = a});
+jlJobCompletionReportURI = lens _jlJobCompletionReportURI (\ s a -> s{_jlJobCompletionReportURI = a})
 
 -- | A link to an Amazon S3 presigned URL where the job success log is located.
 jlJobSuccessLogURI :: Lens' JobLogs (Maybe Text)
-jlJobSuccessLogURI = lens _jlJobSuccessLogURI (\ s a -> s{_jlJobSuccessLogURI = a});
+jlJobSuccessLogURI = lens _jlJobSuccessLogURI (\ s a -> s{_jlJobSuccessLogURI = a})
 
 instance FromJSON JobLogs where
         parseJSON
@@ -729,93 +729,93 @@ jobMetadata
     :: JobMetadata
 jobMetadata =
   JobMetadata'
-  { _jmJobType = Nothing
-  , _jmKMSKeyARN = Nothing
-  , _jmJobId = Nothing
-  , _jmJobLogInfo = Nothing
-  , _jmNotification = Nothing
-  , _jmJobState = Nothing
-  , _jmForwardingAddressId = Nothing
-  , _jmShippingDetails = Nothing
-  , _jmAddressId = Nothing
-  , _jmSnowballType = Nothing
-  , _jmDataTransferProgress = Nothing
-  , _jmResources = Nothing
-  , _jmClusterId = Nothing
-  , _jmCreationDate = Nothing
-  , _jmDescription = Nothing
-  , _jmRoleARN = Nothing
-  , _jmSnowballCapacityPreference = Nothing
-  }
+    { _jmJobType = Nothing
+    , _jmKMSKeyARN = Nothing
+    , _jmJobId = Nothing
+    , _jmJobLogInfo = Nothing
+    , _jmNotification = Nothing
+    , _jmJobState = Nothing
+    , _jmForwardingAddressId = Nothing
+    , _jmShippingDetails = Nothing
+    , _jmAddressId = Nothing
+    , _jmSnowballType = Nothing
+    , _jmDataTransferProgress = Nothing
+    , _jmResources = Nothing
+    , _jmClusterId = Nothing
+    , _jmCreationDate = Nothing
+    , _jmDescription = Nothing
+    , _jmRoleARN = Nothing
+    , _jmSnowballCapacityPreference = Nothing
+    }
 
 
 -- | The type of job.
 jmJobType :: Lens' JobMetadata (Maybe JobType)
-jmJobType = lens _jmJobType (\ s a -> s{_jmJobType = a});
+jmJobType = lens _jmJobType (\ s a -> s{_jmJobType = a})
 
 -- | The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS KMS.
 jmKMSKeyARN :: Lens' JobMetadata (Maybe Text)
-jmKMSKeyARN = lens _jmKMSKeyARN (\ s a -> s{_jmKMSKeyARN = a});
+jmKMSKeyARN = lens _jmKMSKeyARN (\ s a -> s{_jmKMSKeyARN = a})
 
 -- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 jmJobId :: Lens' JobMetadata (Maybe Text)
-jmJobId = lens _jmJobId (\ s a -> s{_jmJobId = a});
+jmJobId = lens _jmJobId (\ s a -> s{_jmJobId = a})
 
 -- | Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF job report becomes available at the end of the import process. For export jobs, your job report typically becomes available while the Snowball for your job part is being delivered to you.
 jmJobLogInfo :: Lens' JobMetadata (Maybe JobLogs)
-jmJobLogInfo = lens _jmJobLogInfo (\ s a -> s{_jmJobLogInfo = a});
+jmJobLogInfo = lens _jmJobLogInfo (\ s a -> s{_jmJobLogInfo = a})
 
 -- | The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The @Notification@ object is returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type.
 jmNotification :: Lens' JobMetadata (Maybe Notification)
-jmNotification = lens _jmNotification (\ s a -> s{_jmNotification = a});
+jmNotification = lens _jmNotification (\ s a -> s{_jmNotification = a})
 
 -- | The current status of the jobs.
 jmJobState :: Lens' JobMetadata (Maybe JobState)
-jmJobState = lens _jmJobState (\ s a -> s{_jmJobState = a});
+jmJobState = lens _jmJobState (\ s a -> s{_jmJobState = a})
 
 -- | The ID of the address that you want a job shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
 jmForwardingAddressId :: Lens' JobMetadata (Maybe Text)
-jmForwardingAddressId = lens _jmForwardingAddressId (\ s a -> s{_jmForwardingAddressId = a});
+jmForwardingAddressId = lens _jmForwardingAddressId (\ s a -> s{_jmForwardingAddressId = a})
 
 -- | A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
 jmShippingDetails :: Lens' JobMetadata (Maybe ShippingDetails)
-jmShippingDetails = lens _jmShippingDetails (\ s a -> s{_jmShippingDetails = a});
+jmShippingDetails = lens _jmShippingDetails (\ s a -> s{_jmShippingDetails = a})
 
 -- | The ID for the address that you want the Snowball shipped to.
 jmAddressId :: Lens' JobMetadata (Maybe Text)
-jmAddressId = lens _jmAddressId (\ s a -> s{_jmAddressId = a});
+jmAddressId = lens _jmAddressId (\ s a -> s{_jmAddressId = a})
 
 -- | The type of appliance used with this job.
 jmSnowballType :: Lens' JobMetadata (Maybe SnowballType)
-jmSnowballType = lens _jmSnowballType (\ s a -> s{_jmSnowballType = a});
+jmSnowballType = lens _jmSnowballType (\ s a -> s{_jmSnowballType = a})
 
 -- | A value that defines the real-time status of a Snowball's data transfer while the appliance is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
 jmDataTransferProgress :: Lens' JobMetadata (Maybe DataTransfer)
-jmDataTransferProgress = lens _jmDataTransferProgress (\ s a -> s{_jmDataTransferProgress = a});
+jmDataTransferProgress = lens _jmDataTransferProgress (\ s a -> s{_jmDataTransferProgress = a})
 
 -- | An array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
 jmResources :: Lens' JobMetadata (Maybe JobResource)
-jmResources = lens _jmResources (\ s a -> s{_jmResources = a});
+jmResources = lens _jmResources (\ s a -> s{_jmResources = a})
 
 -- | The 39-character ID for the cluster, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 jmClusterId :: Lens' JobMetadata (Maybe Text)
-jmClusterId = lens _jmClusterId (\ s a -> s{_jmClusterId = a});
+jmClusterId = lens _jmClusterId (\ s a -> s{_jmClusterId = a})
 
 -- | The creation date for this job.
 jmCreationDate :: Lens' JobMetadata (Maybe UTCTime)
-jmCreationDate = lens _jmCreationDate (\ s a -> s{_jmCreationDate = a}) . mapping _Time;
+jmCreationDate = lens _jmCreationDate (\ s a -> s{_jmCreationDate = a}) . mapping _Time
 
 -- | The description of the job, provided at job creation.
 jmDescription :: Lens' JobMetadata (Maybe Text)
-jmDescription = lens _jmDescription (\ s a -> s{_jmDescription = a});
+jmDescription = lens _jmDescription (\ s a -> s{_jmDescription = a})
 
 -- | The role ARN associated with this job. This ARN was created using the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
 jmRoleARN :: Lens' JobMetadata (Maybe Text)
-jmRoleARN = lens _jmRoleARN (\ s a -> s{_jmRoleARN = a});
+jmRoleARN = lens _jmRoleARN (\ s a -> s{_jmRoleARN = a})
 
 -- | The Snowball capacity preference for this job, specified at job creation. In US regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB capacity Snowballs.
 jmSnowballCapacityPreference :: Lens' JobMetadata (Maybe SnowballCapacity)
-jmSnowballCapacityPreference = lens _jmSnowballCapacityPreference (\ s a -> s{_jmSnowballCapacityPreference = a});
+jmSnowballCapacityPreference = lens _jmSnowballCapacityPreference (\ s a -> s{_jmSnowballCapacityPreference = a})
 
 instance FromJSON JobMetadata where
         parseJSON
@@ -869,11 +869,11 @@ jobResource =
 
 -- | The Python-language Lambda functions for this job.
 jrLambdaResources :: Lens' JobResource [LambdaResource]
-jrLambdaResources = lens _jrLambdaResources (\ s a -> s{_jrLambdaResources = a}) . _Default . _Coerce;
+jrLambdaResources = lens _jrLambdaResources (\ s a -> s{_jrLambdaResources = a}) . _Default . _Coerce
 
 -- | An array of @S3Resource@ objects.
 jrS3Resources :: Lens' JobResource [S3Resource]
-jrS3Resources = lens _jrS3Resources (\ s a -> s{_jrS3Resources = a}) . _Default . _Coerce;
+jrS3Resources = lens _jrS3Resources (\ s a -> s{_jrS3Resources = a}) . _Default . _Coerce
 
 instance FromJSON JobResource where
         parseJSON
@@ -919,11 +919,11 @@ keyRange = KeyRange' {_krEndMarker = Nothing, _krBeginMarker = Nothing}
 
 -- | The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
 krEndMarker :: Lens' KeyRange (Maybe Text)
-krEndMarker = lens _krEndMarker (\ s a -> s{_krEndMarker = a});
+krEndMarker = lens _krEndMarker (\ s a -> s{_krEndMarker = a})
 
 -- | The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
 krBeginMarker :: Lens' KeyRange (Maybe Text)
-krBeginMarker = lens _krBeginMarker (\ s a -> s{_krBeginMarker = a});
+krBeginMarker = lens _krBeginMarker (\ s a -> s{_krBeginMarker = a})
 
 instance FromJSON KeyRange where
         parseJSON
@@ -969,11 +969,11 @@ lambdaResource =
 
 -- | The array of ARNs for 'S3Resource' objects to trigger the 'LambdaResource' objects associated with this job.
 lrEventTriggers :: Lens' LambdaResource [EventTriggerDefinition]
-lrEventTriggers = lens _lrEventTriggers (\ s a -> s{_lrEventTriggers = a}) . _Default . _Coerce;
+lrEventTriggers = lens _lrEventTriggers (\ s a -> s{_lrEventTriggers = a}) . _Default . _Coerce
 
 -- | An Amazon Resource Name (ARN) that represents an AWS Lambda function to be triggered by PUT object actions on the associated local Amazon S3 resource.
 lrLambdaARN :: Lens' LambdaResource (Maybe Text)
-lrLambdaARN = lens _lrLambdaARN (\ s a -> s{_lrLambdaARN = a});
+lrLambdaARN = lens _lrLambdaARN (\ s a -> s{_lrLambdaARN = a})
 
 instance FromJSON LambdaResource where
         parseJSON
@@ -1021,23 +1021,23 @@ notification
     :: Notification
 notification =
   Notification'
-  { _nNotifyAll = Nothing
-  , _nSNSTopicARN = Nothing
-  , _nJobStatesToNotify = Nothing
-  }
+    { _nNotifyAll = Nothing
+    , _nSNSTopicARN = Nothing
+    , _nJobStatesToNotify = Nothing
+    }
 
 
 -- | Any change in job state will trigger a notification for this job.
 nNotifyAll :: Lens' Notification (Maybe Bool)
-nNotifyAll = lens _nNotifyAll (\ s a -> s{_nNotifyAll = a});
+nNotifyAll = lens _nNotifyAll (\ s a -> s{_nNotifyAll = a})
 
 -- | The new SNS @TopicArn@ that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic> Amazon SNS API action. You can subscribe email addresses to an Amazon SNS topic through the AWS Management Console, or by using the <http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe> AWS Simple Notification Service (SNS) API action.
 nSNSTopicARN :: Lens' Notification (Maybe Text)
-nSNSTopicARN = lens _nSNSTopicARN (\ s a -> s{_nSNSTopicARN = a});
+nSNSTopicARN = lens _nSNSTopicARN (\ s a -> s{_nSNSTopicARN = a})
 
 -- | The list of job states that will trigger a notification for this job.
 nJobStatesToNotify :: Lens' Notification [JobState]
-nJobStatesToNotify = lens _nJobStatesToNotify (\ s a -> s{_nJobStatesToNotify = a}) . _Default . _Coerce;
+nJobStatesToNotify = lens _nJobStatesToNotify (\ s a -> s{_nJobStatesToNotify = a}) . _Default . _Coerce
 
 instance FromJSON Notification where
         parseJSON
@@ -1084,11 +1084,11 @@ s3Resource = S3Resource' {_srKeyRange = Nothing, _srBucketARN = Nothing}
 
 -- | For export jobs, you can provide an optional @KeyRange@ within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
 srKeyRange :: Lens' S3Resource (Maybe KeyRange)
-srKeyRange = lens _srKeyRange (\ s a -> s{_srKeyRange = a});
+srKeyRange = lens _srKeyRange (\ s a -> s{_srKeyRange = a})
 
 -- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
 srBucketARN :: Lens' S3Resource (Maybe Text)
-srBucketARN = lens _srBucketARN (\ s a -> s{_srBucketARN = a});
+srBucketARN = lens _srBucketARN (\ s a -> s{_srBucketARN = a})
 
 instance FromJSON S3Resource where
         parseJSON
@@ -1133,11 +1133,11 @@ shipment = Shipment' {_sStatus = Nothing, _sTrackingNumber = Nothing}
 
 -- | Status information for a shipment.
 sStatus :: Lens' Shipment (Maybe Text)
-sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
+sStatus = lens _sStatus (\ s a -> s{_sStatus = a})
 
 -- | The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snowball as the carrier transports it. For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
 sTrackingNumber :: Lens' Shipment (Maybe Text)
-sTrackingNumber = lens _sTrackingNumber (\ s a -> s{_sTrackingNumber = a});
+sTrackingNumber = lens _sTrackingNumber (\ s a -> s{_sTrackingNumber = a})
 
 instance FromJSON Shipment where
         parseJSON
@@ -1168,30 +1168,30 @@ data ShippingDetails = ShippingDetails'
 --
 -- * 'sdShippingOption' - The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snowball from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowballs are delivered in one to seven days.     * In the United States of America (US), you have access to one-day shipping and two-day shipping.
 --
--- * 'sdOutboundShipment' - The @Status@ and @TrackingNumber@ values for a Snowball being returned to AWS for a particular job.
+-- * 'sdOutboundShipment' - The @Status@ and @TrackingNumber@ values for a Snowball being delivered to the address that you specified for a particular job.
 --
--- * 'sdInboundShipment' - The @Status@ and @TrackingNumber@ values for a Snowball being delivered to the address that you specified for a particular job.
+-- * 'sdInboundShipment' - The @Status@ and @TrackingNumber@ values for a Snowball being returned to AWS for a particular job.
 shippingDetails
     :: ShippingDetails
 shippingDetails =
   ShippingDetails'
-  { _sdShippingOption = Nothing
-  , _sdOutboundShipment = Nothing
-  , _sdInboundShipment = Nothing
-  }
+    { _sdShippingOption = Nothing
+    , _sdOutboundShipment = Nothing
+    , _sdInboundShipment = Nothing
+    }
 
 
 -- | The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snowball from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowballs are delivered in one to seven days.     * In the United States of America (US), you have access to one-day shipping and two-day shipping.
 sdShippingOption :: Lens' ShippingDetails (Maybe ShippingOption)
-sdShippingOption = lens _sdShippingOption (\ s a -> s{_sdShippingOption = a});
-
--- | The @Status@ and @TrackingNumber@ values for a Snowball being returned to AWS for a particular job.
-sdOutboundShipment :: Lens' ShippingDetails (Maybe Shipment)
-sdOutboundShipment = lens _sdOutboundShipment (\ s a -> s{_sdOutboundShipment = a});
+sdShippingOption = lens _sdShippingOption (\ s a -> s{_sdShippingOption = a})
 
 -- | The @Status@ and @TrackingNumber@ values for a Snowball being delivered to the address that you specified for a particular job.
+sdOutboundShipment :: Lens' ShippingDetails (Maybe Shipment)
+sdOutboundShipment = lens _sdOutboundShipment (\ s a -> s{_sdOutboundShipment = a})
+
+-- | The @Status@ and @TrackingNumber@ values for a Snowball being returned to AWS for a particular job.
 sdInboundShipment :: Lens' ShippingDetails (Maybe Shipment)
-sdInboundShipment = lens _sdInboundShipment (\ s a -> s{_sdInboundShipment = a});
+sdInboundShipment = lens _sdInboundShipment (\ s a -> s{_sdInboundShipment = a})
 
 instance FromJSON ShippingDetails where
         parseJSON

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DetachLoadBalancers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,24 +61,24 @@ data DetachLoadBalancers = DetachLoadBalancers'
 --
 -- * 'dAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'dLoadBalancerNames' - One or more load balancer names.
+-- * 'dLoadBalancerNames' - The names of the load balancers. You can specify up to 10 load balancers.
 detachLoadBalancers
     :: Text -- ^ 'dAutoScalingGroupName'
     -> DetachLoadBalancers
 detachLoadBalancers pAutoScalingGroupName_ =
   DetachLoadBalancers'
-  { _dAutoScalingGroupName = pAutoScalingGroupName_
-  , _dLoadBalancerNames = mempty
-  }
+    { _dAutoScalingGroupName = pAutoScalingGroupName_
+    , _dLoadBalancerNames = mempty
+    }
 
 
 -- | The name of the Auto Scaling group.
 dAutoScalingGroupName :: Lens' DetachLoadBalancers Text
-dAutoScalingGroupName = lens _dAutoScalingGroupName (\ s a -> s{_dAutoScalingGroupName = a});
+dAutoScalingGroupName = lens _dAutoScalingGroupName (\ s a -> s{_dAutoScalingGroupName = a})
 
--- | One or more load balancer names.
+-- | The names of the load balancers. You can specify up to 10 load balancers.
 dLoadBalancerNames :: Lens' DetachLoadBalancers [Text]
-dLoadBalancerNames = lens _dLoadBalancerNames (\ s a -> s{_dLoadBalancerNames = a}) . _Coerce;
+dLoadBalancerNames = lens _dLoadBalancerNames (\ s a -> s{_dLoadBalancerNames = a}) . _Coerce
 
 instance AWSRequest DetachLoadBalancers where
         type Rs DetachLoadBalancers =
@@ -128,6 +128,6 @@ detachLoadBalancersResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dlbsrsResponseStatus :: Lens' DetachLoadBalancersResponse Int
-dlbsrsResponseStatus = lens _dlbsrsResponseStatus (\ s a -> s{_dlbsrsResponseStatus = a});
+dlbsrsResponseStatus = lens _dlbsrsResponseStatus (\ s a -> s{_dlbsrsResponseStatus = a})
 
 instance NFData DetachLoadBalancersResponse where

@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -16,7 +16,6 @@ module Network.AWS.Firehose.Types
       firehose
 
     -- * Errors
-    , _InvalidStreamTypeException
     , _InvalidArgumentException
     , _ConcurrentModificationException
     , _ServiceUnavailableException
@@ -39,8 +38,23 @@ module Network.AWS.Firehose.Types
     -- * ElasticsearchS3BackupMode
     , ElasticsearchS3BackupMode (..)
 
+    -- * HECEndpointType
+    , HECEndpointType (..)
+
     -- * NoEncryptionConfig
     , NoEncryptionConfig (..)
+
+    -- * OrcCompression
+    , OrcCompression (..)
+
+    -- * OrcFormatVersion
+    , OrcFormatVersion (..)
+
+    -- * ParquetCompression
+    , ParquetCompression (..)
+
+    -- * ParquetWriterVersion
+    , ParquetWriterVersion (..)
 
     -- * ProcessorParameterName
     , ProcessorParameterName (..)
@@ -53,6 +67,9 @@ module Network.AWS.Firehose.Types
 
     -- * S3BackupMode
     , S3BackupMode (..)
+
+    -- * SplunkS3BackupMode
+    , SplunkS3BackupMode (..)
 
     -- * BufferingHints
     , BufferingHints
@@ -74,6 +91,14 @@ module Network.AWS.Firehose.Types
     , ccDataTableColumns
     , ccDataTableName
 
+    -- * DataFormatConversionConfiguration
+    , DataFormatConversionConfiguration
+    , dataFormatConversionConfiguration
+    , dfccOutputFormatConfiguration
+    , dfccEnabled
+    , dfccSchemaConfiguration
+    , dfccInputFormatConfiguration
+
     -- * DeliveryStreamDescription
     , DeliveryStreamDescription
     , deliveryStreamDescription
@@ -88,9 +113,16 @@ module Network.AWS.Firehose.Types
     , dsdDestinations
     , dsdHasMoreDestinations
 
+    -- * Deserializer
+    , Deserializer
+    , deserializer
+    , dOpenXJSONSerDe
+    , dHiveJSONSerDe
+
     -- * DestinationDescription
     , DestinationDescription
     , destinationDescription
+    , ddSplunkDestinationDescription
     , ddS3DestinationDescription
     , ddExtendedS3DestinationDescription
     , ddElasticsearchDestinationDescription
@@ -168,6 +200,7 @@ module Network.AWS.Firehose.Types
     , esdcEncryptionConfiguration
     , esdcCompressionFormat
     , esdcBufferingHints
+    , esdcDataFormatConversionConfiguration
     , esdcProcessingConfiguration
     , esdcRoleARN
     , esdcBucketARN
@@ -179,6 +212,7 @@ module Network.AWS.Firehose.Types
     , esddS3BackupDescription
     , esddPrefix
     , esddCloudWatchLoggingOptions
+    , esddDataFormatConversionConfiguration
     , esddProcessingConfiguration
     , esddRoleARN
     , esddBucketARN
@@ -196,9 +230,20 @@ module Network.AWS.Firehose.Types
     , esduEncryptionConfiguration
     , esduCompressionFormat
     , esduBufferingHints
+    , esduDataFormatConversionConfiguration
     , esduBucketARN
     , esduProcessingConfiguration
     , esduRoleARN
+
+    -- * HiveJSONSerDe
+    , HiveJSONSerDe
+    , hiveJSONSerDe
+    , hjsdTimestampFormats
+
+    -- * InputFormatConfiguration
+    , InputFormatConfiguration
+    , inputFormatConfiguration
+    , ifcDeserializer
 
     -- * KMSEncryptionConfig
     , KMSEncryptionConfig
@@ -217,6 +262,42 @@ module Network.AWS.Firehose.Types
     , kssdDeliveryStartTimestamp
     , kssdKinesisStreamARN
     , kssdRoleARN
+
+    -- * OpenXJSONSerDe
+    , OpenXJSONSerDe
+    , openXJSONSerDe
+    , oxjsdColumnToJSONKeyMappings
+    , oxjsdCaseInsensitive
+    , oxjsdConvertDotsInJSONKeysToUnderscores
+
+    -- * OrcSerDe
+    , OrcSerDe
+    , orcSerDe
+    , osdBloomFilterFalsePositiveProbability
+    , osdDictionaryKeyThreshold
+    , osdEnablePadding
+    , osdCompression
+    , osdBloomFilterColumns
+    , osdRowIndexStride
+    , osdFormatVersion
+    , osdBlockSizeBytes
+    , osdStripeSizeBytes
+    , osdPaddingTolerance
+
+    -- * OutputFormatConfiguration
+    , OutputFormatConfiguration
+    , outputFormatConfiguration
+    , ofcSerializer
+
+    -- * ParquetSerDe
+    , ParquetSerDe
+    , parquetSerDe
+    , psdWriterVersion
+    , psdCompression
+    , psdMaxPaddingBytes
+    , psdEnableDictionaryCompression
+    , psdPageSizeBytes
+    , psdBlockSizeBytes
 
     -- * ProcessingConfiguration
     , ProcessingConfiguration
@@ -311,37 +392,95 @@ module Network.AWS.Firehose.Types
     -- * S3DestinationDescription
     , S3DestinationDescription
     , s3DestinationDescription
-    , sddPrefix
-    , sddCloudWatchLoggingOptions
-    , sddRoleARN
-    , sddBucketARN
-    , sddBufferingHints
-    , sddCompressionFormat
-    , sddEncryptionConfiguration
+    , s3Prefix
+    , s3CloudWatchLoggingOptions
+    , s3RoleARN
+    , s3BucketARN
+    , s3BufferingHints
+    , s3CompressionFormat
+    , s3EncryptionConfiguration
 
     -- * S3DestinationUpdate
     , S3DestinationUpdate
     , s3DestinationUpdate
-    , sduPrefix
-    , sduCloudWatchLoggingOptions
-    , sduEncryptionConfiguration
-    , sduCompressionFormat
-    , sduBufferingHints
-    , sduBucketARN
-    , sduRoleARN
+    , sPrefix
+    , sCloudWatchLoggingOptions
+    , sEncryptionConfiguration
+    , sCompressionFormat
+    , sBufferingHints
+    , sBucketARN
+    , sRoleARN
 
-    -- * SessionCredentials
-    , SessionCredentials
-    , sessionCredentials
-    , scAccessKeyId
-    , scSecretAccessKey
-    , scSessionToken
-    , scExpiration
+    -- * SchemaConfiguration
+    , SchemaConfiguration
+    , schemaConfiguration
+    , scVersionId
+    , scCatalogId
+    , scDatabaseName
+    , scRegion
+    , scTableName
+    , scRoleARN
+
+    -- * Serializer
+    , Serializer
+    , serializer
+    , sOrcSerDe
+    , sParquetSerDe
 
     -- * SourceDescription
     , SourceDescription
     , sourceDescription
     , sdKinesisStreamSourceDescription
+
+    -- * SplunkDestinationConfiguration
+    , SplunkDestinationConfiguration
+    , splunkDestinationConfiguration
+    , splS3BackupMode
+    , splCloudWatchLoggingOptions
+    , splHECAcknowledgmentTimeoutInSeconds
+    , splRetryOptions
+    , splProcessingConfiguration
+    , splHECEndpoint
+    , splHECEndpointType
+    , splHECToken
+    , splS3Configuration
+
+    -- * SplunkDestinationDescription
+    , SplunkDestinationDescription
+    , splunkDestinationDescription
+    , sddS3BackupMode
+    , sddHECToken
+    , sddHECEndpointType
+    , sddCloudWatchLoggingOptions
+    , sddHECAcknowledgmentTimeoutInSeconds
+    , sddS3DestinationDescription
+    , sddHECEndpoint
+    , sddRetryOptions
+    , sddProcessingConfiguration
+
+    -- * SplunkDestinationUpdate
+    , SplunkDestinationUpdate
+    , splunkDestinationUpdate
+    , sduS3BackupMode
+    , sduHECToken
+    , sduHECEndpointType
+    , sduCloudWatchLoggingOptions
+    , sduHECAcknowledgmentTimeoutInSeconds
+    , sduS3Update
+    , sduHECEndpoint
+    , sduRetryOptions
+    , sduProcessingConfiguration
+
+    -- * SplunkRetryOptions
+    , SplunkRetryOptions
+    , splunkRetryOptions
+    , sroDurationInSeconds
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
     ) where
 
 import Network.AWS.Firehose.Types.Product
@@ -354,24 +493,24 @@ import Network.AWS.Sign.V4
 firehose :: Service
 firehose =
   Service
-  { _svcAbbrev = "Firehose"
-  , _svcSigner = v4
-  , _svcPrefix = "firehose"
-  , _svcVersion = "2015-08-04"
-  , _svcEndpoint = defaultEndpoint firehose
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Firehose"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Firehose"
+    , _svcSigner = v4
+    , _svcPrefix = "firehose"
+    , _svcVersion = "2015-08-04"
+    , _svcEndpoint = defaultEndpoint firehose
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "Firehose"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -380,17 +519,13 @@ firehose =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
-
-
--- | Prism for InvalidStreamTypeException' errors.
-_InvalidStreamTypeException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidStreamTypeException =
-  _MatchServiceError firehose "InvalidStreamTypeException"
 
 
 -- | The specified input parameter has a value that is not valid.
@@ -409,7 +544,7 @@ _ConcurrentModificationException =
   _MatchServiceError firehose "ConcurrentModificationException"
 
 
--- | The service is unavailable, back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits> .
+-- | The service is unavailable. Back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Data Firehose Limits> .
 --
 --
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError

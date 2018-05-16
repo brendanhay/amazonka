@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.DescribeDataset
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ describeDataset
     -> DescribeDataset
 describeDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
   DescribeDataset'
-  { _ddIdentityPoolId = pIdentityPoolId_
-  , _ddIdentityId = pIdentityId_
-  , _ddDatasetName = pDatasetName_
-  }
+    { _ddIdentityPoolId = pIdentityPoolId_
+    , _ddIdentityId = pIdentityId_
+    , _ddDatasetName = pDatasetName_
+    }
 
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 ddIdentityPoolId :: Lens' DescribeDataset Text
-ddIdentityPoolId = lens _ddIdentityPoolId (\ s a -> s{_ddIdentityPoolId = a});
+ddIdentityPoolId = lens _ddIdentityPoolId (\ s a -> s{_ddIdentityPoolId = a})
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 ddIdentityId :: Lens' DescribeDataset Text
-ddIdentityId = lens _ddIdentityId (\ s a -> s{_ddIdentityId = a});
+ddIdentityId = lens _ddIdentityId (\ s a -> s{_ddIdentityId = a})
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 ddDatasetName :: Lens' DescribeDataset Text
-ddDatasetName = lens _ddDatasetName (\ s a -> s{_ddDatasetName = a});
+ddDatasetName = lens _ddDatasetName (\ s a -> s{_ddDatasetName = a})
 
 instance AWSRequest DescribeDataset where
         type Rs DescribeDataset = DescribeDatasetResponse
@@ -143,15 +143,15 @@ describeDatasetResponse
     -> DescribeDatasetResponse
 describeDatasetResponse pResponseStatus_ =
   DescribeDatasetResponse'
-  {_ddrsDataset = Nothing, _ddrsResponseStatus = pResponseStatus_}
+    {_ddrsDataset = Nothing, _ddrsResponseStatus = pResponseStatus_}
 
 
 -- | Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 ddrsDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
-ddrsDataset = lens _ddrsDataset (\ s a -> s{_ddrsDataset = a});
+ddrsDataset = lens _ddrsDataset (\ s a -> s{_ddrsDataset = a})
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDatasetResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 instance NFData DescribeDatasetResponse where

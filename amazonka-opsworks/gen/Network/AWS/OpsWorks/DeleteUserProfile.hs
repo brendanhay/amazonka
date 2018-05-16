@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteUserProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteUserProfile pIAMUserARN_ =
 
 -- | The user's IAM ARN. This can also be a federated user's ARN.
 dupIAMUserARN :: Lens' DeleteUserProfile Text
-dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a});
+dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a})
 
 instance AWSRequest DeleteUserProfile where
         type Rs DeleteUserProfile = DeleteUserProfileResponse

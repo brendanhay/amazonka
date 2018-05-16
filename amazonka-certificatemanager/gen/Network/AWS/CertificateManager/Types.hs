@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,11 +29,17 @@ module Network.AWS.CertificateManager.Types
     -- * CertificateStatus
     , CertificateStatus (..)
 
+    -- * CertificateTransparencyLoggingPreference
+    , CertificateTransparencyLoggingPreference (..)
+
     -- * CertificateType
     , CertificateType (..)
 
     -- * DomainStatus
     , DomainStatus (..)
+
+    -- * ExtendedKeyUsageName
+    , ExtendedKeyUsageName (..)
 
     -- * FailureReason
     , FailureReason (..)
@@ -41,11 +47,23 @@ module Network.AWS.CertificateManager.Types
     -- * KeyAlgorithm
     , KeyAlgorithm (..)
 
+    -- * KeyUsageName
+    , KeyUsageName (..)
+
+    -- * RecordType
+    , RecordType (..)
+
+    -- * RenewalEligibility
+    , RenewalEligibility (..)
+
     -- * RenewalStatus
     , RenewalStatus (..)
 
     -- * RevocationReason
     , RevocationReason (..)
+
+    -- * ValidationMethod
+    , ValidationMethod (..)
 
     -- * CertificateDetail
     , CertificateDetail
@@ -58,7 +76,10 @@ module Network.AWS.CertificateManager.Types
     , cdCreatedAt
     , cdCertificateARN
     , cdSerial
+    , cdRenewalEligibility
+    , cdExtendedKeyUsages
     , cdImportedAt
+    , cdKeyUsages
     , cdRevokedAt
     , cdNotBefore
     , cdRevocationReason
@@ -66,11 +87,18 @@ module Network.AWS.CertificateManager.Types
     , cdRenewalSummary
     , cdKeyAlgorithm
     , cdType
+    , cdOptions
     , cdIssuedAt
     , cdSignatureAlgorithm
     , cdDomainValidationOptions
     , cdIssuer
     , cdNotAfter
+    , cdCertificateAuthorityARN
+
+    -- * CertificateOptions
+    , CertificateOptions
+    , certificateOptions
+    , coCertificateTransparencyLoggingPreference
 
     -- * CertificateSummary
     , CertificateSummary
@@ -82,6 +110,8 @@ module Network.AWS.CertificateManager.Types
     , DomainValidation
     , domainValidation
     , dvValidationEmails
+    , dvValidationMethod
+    , dvResourceRecord
     , dvValidationStatus
     , dvValidationDomain
     , dvDomainName
@@ -92,11 +122,36 @@ module Network.AWS.CertificateManager.Types
     , dvoDomainName
     , dvoValidationDomain
 
+    -- * ExtendedKeyUsage
+    , ExtendedKeyUsage
+    , extendedKeyUsage
+    , ekuOId
+    , ekuName
+
+    -- * Filters
+    , Filters
+    , filters
+    , fKeyTypes
+    , fKeyUsage
+    , fExtendedKeyUsage
+
+    -- * KeyUsage
+    , KeyUsage
+    , keyUsage
+    , kuName
+
     -- * RenewalSummary
     , RenewalSummary
     , renewalSummary
     , rsRenewalStatus
     , rsDomainValidationOptions
+
+    -- * ResourceRecord
+    , ResourceRecord
+    , resourceRecord
+    , rrName
+    , rrType
+    , rrValue
 
     -- * Tag
     , Tag
@@ -115,24 +170,24 @@ import Network.AWS.Sign.V4
 certificateManager :: Service
 certificateManager =
   Service
-  { _svcAbbrev = "CertificateManager"
-  , _svcSigner = v4
-  , _svcPrefix = "acm"
-  , _svcVersion = "2015-12-08"
-  , _svcEndpoint = defaultEndpoint certificateManager
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "CertificateManager"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "CertificateManager"
+    , _svcSigner = v4
+    , _svcPrefix = "acm"
+    , _svcVersion = "2015-12-08"
+    , _svcEndpoint = defaultEndpoint certificateManager
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "CertificateManager"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -141,6 +196,8 @@ certificateManager =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -190,7 +247,7 @@ _InvalidARNException =
   _MatchServiceError certificateManager "InvalidArnException"
 
 
--- | The specified certificate cannot be found in the caller's account, or the caller's account cannot be found.
+-- | The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -198,7 +255,7 @@ _ResourceNotFoundException =
   _MatchServiceError certificateManager "ResourceNotFoundException"
 
 
--- | Processing has reached an invalid state. For example, this exception can occur if the specified domain is not using email validation, or the current certificate status does not permit the requested operation. See the exception message returned by ACM to determine which state is not valid.
+-- | Processing has reached an invalid state.
 --
 --
 _InvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -206,7 +263,7 @@ _InvalidStateException =
   _MatchServiceError certificateManager "InvalidStateException"
 
 
--- | An ACM limit has been exceeded. For example, you may have input more domains than are allowed or you've requested too many certificates for your account. See the exception message returned by ACM to determine which limit you have violated. For more information about ACM limits, see the <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits> topic.
+-- | An ACM limit has been exceeded.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError

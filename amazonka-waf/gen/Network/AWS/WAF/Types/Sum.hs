@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1171,21 +1171,54 @@ instance ToJSON WafActionType where
 instance FromJSON WafActionType where
     parseJSON = parseJSONText "WafActionType"
 
+data WafOverrideActionType
+  = WOATCount
+  | WOATNone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText WafOverrideActionType where
+    parser = takeLowerText >>= \case
+        "count" -> pure WOATCount
+        "none" -> pure WOATNone
+        e -> fromTextError $ "Failure parsing WafOverrideActionType from value: '" <> e
+           <> "'. Accepted values: count, none"
+
+instance ToText WafOverrideActionType where
+    toText = \case
+        WOATCount -> "COUNT"
+        WOATNone -> "NONE"
+
+instance Hashable     WafOverrideActionType
+instance NFData       WafOverrideActionType
+instance ToByteString WafOverrideActionType
+instance ToQuery      WafOverrideActionType
+instance ToHeader     WafOverrideActionType
+
+instance ToJSON WafOverrideActionType where
+    toJSON = toJSONText
+
+instance FromJSON WafOverrideActionType where
+    parseJSON = parseJSONText "WafOverrideActionType"
+
 data WafRuleType
-  = RateBased
+  = Group
+  | RateBased
   | Regular
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText WafRuleType where
     parser = takeLowerText >>= \case
+        "group" -> pure Group
         "rate_based" -> pure RateBased
         "regular" -> pure Regular
         e -> fromTextError $ "Failure parsing WafRuleType from value: '" <> e
-           <> "'. Accepted values: rate_based, regular"
+           <> "'. Accepted values: group, rate_based, regular"
 
 instance ToText WafRuleType where
     toText = \case
+        Group -> "GROUP"
         RateBased -> "RATE_BASED"
         Regular -> "REGULAR"
 

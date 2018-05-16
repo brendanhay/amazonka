@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.FailoverDBCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,16 +73,18 @@ failoverDBCluster
     :: FailoverDBCluster
 failoverDBCluster =
   FailoverDBCluster'
-  {_fdcDBClusterIdentifier = Nothing, _fdcTargetDBInstanceIdentifier = Nothing}
+    { _fdcDBClusterIdentifier = Nothing
+    , _fdcTargetDBInstanceIdentifier = Nothing
+    }
 
 
 -- | A DB cluster identifier to force a failover for. This parameter is not case-sensitive. Constraints:     * Must match the identifier of an existing DBCluster.
 fdcDBClusterIdentifier :: Lens' FailoverDBCluster (Maybe Text)
-fdcDBClusterIdentifier = lens _fdcDBClusterIdentifier (\ s a -> s{_fdcDBClusterIdentifier = a});
+fdcDBClusterIdentifier = lens _fdcDBClusterIdentifier (\ s a -> s{_fdcDBClusterIdentifier = a})
 
 -- | The name of the instance to promote to the primary instance. You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, @mydbcluster-replica1@ .
 fdcTargetDBInstanceIdentifier :: Lens' FailoverDBCluster (Maybe Text)
-fdcTargetDBInstanceIdentifier = lens _fdcTargetDBInstanceIdentifier (\ s a -> s{_fdcTargetDBInstanceIdentifier = a});
+fdcTargetDBInstanceIdentifier = lens _fdcTargetDBInstanceIdentifier (\ s a -> s{_fdcTargetDBInstanceIdentifier = a})
 
 instance AWSRequest FailoverDBCluster where
         type Rs FailoverDBCluster = FailoverDBClusterResponse
@@ -131,15 +133,15 @@ failoverDBClusterResponse
     -> FailoverDBClusterResponse
 failoverDBClusterResponse pResponseStatus_ =
   FailoverDBClusterResponse'
-  {_fdcrsDBCluster = Nothing, _fdcrsResponseStatus = pResponseStatus_}
+    {_fdcrsDBCluster = Nothing, _fdcrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 fdcrsDBCluster :: Lens' FailoverDBClusterResponse (Maybe DBCluster)
-fdcrsDBCluster = lens _fdcrsDBCluster (\ s a -> s{_fdcrsDBCluster = a});
+fdcrsDBCluster = lens _fdcrsDBCluster (\ s a -> s{_fdcrsDBCluster = a})
 
 -- | -- | The response status code.
 fdcrsResponseStatus :: Lens' FailoverDBClusterResponse Int
-fdcrsResponseStatus = lens _fdcrsResponseStatus (\ s a -> s{_fdcrsResponseStatus = a});
+fdcrsResponseStatus = lens _fdcrsResponseStatus (\ s a -> s{_fdcrsResponseStatus = a})
 
 instance NFData FailoverDBClusterResponse where

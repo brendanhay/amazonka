@@ -1,7 +1,65 @@
 # Change Log
 
+## [1.6.0](https://github.com/brendanhay/amazonka/tree/1.6.0)
+Released: **16 May, 2018**, Compare: [1.5.0](https://github.com/brendanhay/amazonka/compare/1.5.0...1.6.0)
+
+### Fixed
+
+- GHC 8.4 compatibility. [\#456](https://github.com/brendanhay/amazonka/pull/456)
+- Conduit `1.3` compatibility. [\#449](https://github.com/brendanhay/amazonka/pull/449)
+- S3 `BucketName` now has a `FromJSON` instance. [\#452](https://github.com/brendanhay/amazonka/pull/452)
+- S3 `ListObjectsV2` is now named correctly. [\#447](https://github.com/brendanhay/amazonka/pull/447)
+- HTTP `Expect` headers are now stripped when presigning URLs. [\#444](https://github.com/brendanhay/amazonka/pull/444)
+- Duplicate generated files no longer exist on case-insensitive file systems. [\#429](https://github.com/brendanhay/amazonka/pull/429)
+- EC2 metadata's instance identity document now has the correct(er) field types. [\#428](https://github.com/brendanhay/amazonka/pull/428)
+- OpsWorks `DescribeApps` and `DescribeStacks` now correctly handle optional attribute values. [\#436](https://github.com/brendanhay/amazonka/pull/436), [\#438](https://github.com/brendanhay/amazonka/pull/438)
+
+### Breaking Changes
+
+- Lambda and other `rest-json` services with binary response payloads now return a raw `ByteString` instead of `HashMap Text Value`,
+  fixing an issue where an empty body could not be deserialized. [\#428](https://github.com/brendanhay/amazonka/pull/394), [\#428](https://github.com/brendanhay/amazonka/pull/407)
+
+### New Libraries
+
+- `amazonka-alexa-business`: Alexa for Business SDK. [Overview](https://aws.amazon.com/alexaforbusiness/)
+- `amazonka-appsync`: Automatically update data in web and mobile applications in real time, and updates data for offline users as soon as they reconnect. [Overview](https://aws.amazon.com/appsync/)
+- `amazonka-autoscaling-plans`: Create instructions to configure dynamic scaling for the scalable resources in your application. [Overview](https://aws.amazon.com/autoscaling/)
+- `amazonka-certificatemanager-pca`: Create a secure private certificate authority (CA). [Overview](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html)
+- `amazonka-cloud9`: A cloud IDE for writing, running, and debugging code. [Overview](https://aws.amazon.com/cloud9/)
+- `amazonka-comprehend`: Natural language processing (NLP) service that uses machine learning to find insights and relationships in text. [Overview](https://aws.amazon.com/comprehend/)
+- `amazonka-connect`: Simple to use, cloud-based contact center. [Overview](https://aws.amazon.com/connect/)
+- `amazonka-cost-explorer`: Dive deeper into your cost and usage data to identify trends, pinpoint cost drivers, and detect anomalies. [Overview](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/)
+- `amazonka-fms`: Centrally configure and manage firewall rules across accounts and applications. [Overview](https://aws.amazon.com/firewall-manager/)
+- `amazonka-guardduty`: Intelligent threat detection and continuous monitoring to protect your AWS accounts and workloads. [Overview](https://aws.amazon.com/guardduty/)
+- `amazonka-iot-analytics`: Analytics for IoT devices. [Overview](https://aws.amazon.com/iot-analytics/)
+- `amazonka-iot-jobs-dataplane`: Define a set of remote operations that are sent to and executed on one or more devices connected to AWS IoT. [Overview](https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html)
+- `amazonka-kinesis-video`: Capture, process, and store video streams for analytics and machine learning. [Overview](https://aws.amazon.com/kinesis/video-streams/)
+- `amazonka-kinesis-video-media`: Media support for Kinesis Video. [Overview](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Media.html)
+- `amazonka-kinesis-video-archived-media`: Archived media support for Kinesis Video. [Overview](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html)
+- `amazonka-mediaconvert`: Process video files and clips to prepare on-demand content for distribution or archiving. [Overview](https://aws.amazon.com/mediaconvert/)
+- `amazonka-medialive`: Encode live video for broadcast and streaming to any device. [Overview](https://aws.amazon.com/medialive/)
+- `amazonka-mediapackage`: Easily prepare and protect video for delivery to Internet devices. [Overview](https://aws.amazon.com/mediapackage/)
+- `amazonka-mediastore`: Store and deliver video assets for live streaming media workflows. [Overview](https://aws.amazon.com/mediastore/)
+- `amazonka-mediastore-dataplane`: MediaStore data plane. [Overview](https://docs.aws.amazon.com/mediastore/latest/apireference/API_Operations_AWS_Elemental_MediaStore_Data_Plane.html)
+- `amazonka-mq`: Managed message broker service for Apache ActiveMQ. [Overview](https://aws.amazon.com/amazon-mq/)
+- `amazonka-resourcegroups`: Resource groups make it easier to manage and automate tasks on large numbers of resources at one time. [Overview](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html)
+- `amazonka-route53-autonaming`: Auto naming makes it easier to provision instances for microservices by automating DNS configuration. [Overview](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/autonaming.html)
+- `amazonka-sagemaker`: Build, train, and deploy machine learning models at scale. [Overview](https://aws.amazon.com/sagemaker/)
+- `amazonka-sagemaker-runtime`: Get inferences from SageMaker models. [Overview](https://docs.aws.amazon.com/sagemaker/latest/dg/API_Operations_Amazon_SageMaker_Runtime.html)
+- `amazonka-secretsmanager`: Easily rotate, manage, and retrieve database credentials, API keys, and other secrets through their lifecycle. [Overview](https://aws.amazon.com/secrets-manager/)
+- `amazonka-serverlessrepo`: Discover, deploy, and publish serverless applications. [Overview](https://aws.amazon.com/serverless/serverlessrepo/)
+- `amazonka-transcribe`: Automatic speech recognition. [Overview](https://aws.amazon.com/transcribe/)
+- `amazonka-translate`: A neural machine translation service that delivers fast, high-quality, and affordable language translation. [Overview](https://aws.amazon.com/translate/)
+- `amazonka-workmail`: Secure, managed business email and calendar service with support for existing desktop and mobile email client applications. [Overview](https://aws.amazon.com/workfmail/)
+
+### Updated Service Definitions
+
+> All service definitions and services have been updated and regenerated.
+Please see each individual library's commits for a list of changes.
+
+
 ## [1.5.0](https://github.com/brendanhay/amazonka/tree/1.5.0)
-fReleased: **15 November, 2017**, Compare: [1.4.5](https://github.com/brendanhay/amazonka/compare/1.4.5...1.5.0)
+Released: **15 November, 2017**, Compare: [1.4.5](https://github.com/brendanhay/amazonka/compare/1.4.5...1.5.0)
 
 ### Fixed
 

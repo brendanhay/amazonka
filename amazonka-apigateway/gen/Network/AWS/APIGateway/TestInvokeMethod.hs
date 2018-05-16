@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.TestInvokeMethod
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,11 +86,11 @@ data TestInvokeMethod = TestInvokeMethod'
 --
 -- * 'timHeaders' - A key-value map of headers to simulate an incoming invocation request.
 --
--- * 'timRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'timRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'timResourceId' - Specifies a test invoke method request's resource ID.
+-- * 'timResourceId' - [Required] Specifies a test invoke method request's resource ID.
 --
--- * 'timHttpMethod' - Specifies a test invoke method request's HTTP method.
+-- * 'timHttpMethod' - [Required] Specifies a test invoke method request's HTTP method.
 testInvokeMethod
     :: Text -- ^ 'timRestAPIId'
     -> Text -- ^ 'timResourceId'
@@ -98,48 +98,48 @@ testInvokeMethod
     -> TestInvokeMethod
 testInvokeMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
   TestInvokeMethod'
-  { _timPathWithQueryString = Nothing
-  , _timBody = Nothing
-  , _timClientCertificateId = Nothing
-  , _timStageVariables = Nothing
-  , _timHeaders = Nothing
-  , _timRestAPIId = pRestAPIId_
-  , _timResourceId = pResourceId_
-  , _timHttpMethod = pHttpMethod_
-  }
+    { _timPathWithQueryString = Nothing
+    , _timBody = Nothing
+    , _timClientCertificateId = Nothing
+    , _timStageVariables = Nothing
+    , _timHeaders = Nothing
+    , _timRestAPIId = pRestAPIId_
+    , _timResourceId = pResourceId_
+    , _timHttpMethod = pHttpMethod_
+    }
 
 
 -- | The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.
 timPathWithQueryString :: Lens' TestInvokeMethod (Maybe Text)
-timPathWithQueryString = lens _timPathWithQueryString (\ s a -> s{_timPathWithQueryString = a});
+timPathWithQueryString = lens _timPathWithQueryString (\ s a -> s{_timPathWithQueryString = a})
 
 -- | The simulated request body of an incoming invocation request.
 timBody :: Lens' TestInvokeMethod (Maybe Text)
-timBody = lens _timBody (\ s a -> s{_timBody = a});
+timBody = lens _timBody (\ s a -> s{_timBody = a})
 
 -- | A 'ClientCertificate' identifier to use in the test invocation. API Gateway will use the certificate when making the HTTPS request to the defined back-end endpoint.
 timClientCertificateId :: Lens' TestInvokeMethod (Maybe Text)
-timClientCertificateId = lens _timClientCertificateId (\ s a -> s{_timClientCertificateId = a});
+timClientCertificateId = lens _timClientCertificateId (\ s a -> s{_timClientCertificateId = a})
 
 -- | A key-value map of stage variables to simulate an invocation on a deployed 'Stage' .
 timStageVariables :: Lens' TestInvokeMethod (HashMap Text Text)
-timStageVariables = lens _timStageVariables (\ s a -> s{_timStageVariables = a}) . _Default . _Map;
+timStageVariables = lens _timStageVariables (\ s a -> s{_timStageVariables = a}) . _Default . _Map
 
 -- | A key-value map of headers to simulate an incoming invocation request.
 timHeaders :: Lens' TestInvokeMethod (HashMap Text Text)
-timHeaders = lens _timHeaders (\ s a -> s{_timHeaders = a}) . _Default . _Map;
+timHeaders = lens _timHeaders (\ s a -> s{_timHeaders = a}) . _Default . _Map
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 timRestAPIId :: Lens' TestInvokeMethod Text
-timRestAPIId = lens _timRestAPIId (\ s a -> s{_timRestAPIId = a});
+timRestAPIId = lens _timRestAPIId (\ s a -> s{_timRestAPIId = a})
 
--- | Specifies a test invoke method request's resource ID.
+-- | [Required] Specifies a test invoke method request's resource ID.
 timResourceId :: Lens' TestInvokeMethod Text
-timResourceId = lens _timResourceId (\ s a -> s{_timResourceId = a});
+timResourceId = lens _timResourceId (\ s a -> s{_timResourceId = a})
 
--- | Specifies a test invoke method request's HTTP method.
+-- | [Required] Specifies a test invoke method request's HTTP method.
 timHttpMethod :: Lens' TestInvokeMethod Text
-timHttpMethod = lens _timHttpMethod (\ s a -> s{_timHttpMethod = a});
+timHttpMethod = lens _timHttpMethod (\ s a -> s{_timHttpMethod = a})
 
 instance AWSRequest TestInvokeMethod where
         type Rs TestInvokeMethod = TestInvokeMethodResponse
@@ -205,7 +205,7 @@ data TestInvokeMethodResponse = TestInvokeMethodResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'timrsLog' - The Amazon API Gateway execution log for the test invoke request.
+-- * 'timrsLog' - The API Gateway execution log for the test invoke request.
 --
 -- * 'timrsStatus' - The HTTP status code.
 --
@@ -221,37 +221,37 @@ testInvokeMethodResponse
     -> TestInvokeMethodResponse
 testInvokeMethodResponse pResponseStatus_ =
   TestInvokeMethodResponse'
-  { _timrsLog = Nothing
-  , _timrsStatus = Nothing
-  , _timrsBody = Nothing
-  , _timrsLatency = Nothing
-  , _timrsHeaders = Nothing
-  , _timrsResponseStatus = pResponseStatus_
-  }
+    { _timrsLog = Nothing
+    , _timrsStatus = Nothing
+    , _timrsBody = Nothing
+    , _timrsLatency = Nothing
+    , _timrsHeaders = Nothing
+    , _timrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The Amazon API Gateway execution log for the test invoke request.
+-- | The API Gateway execution log for the test invoke request.
 timrsLog :: Lens' TestInvokeMethodResponse (Maybe Text)
-timrsLog = lens _timrsLog (\ s a -> s{_timrsLog = a});
+timrsLog = lens _timrsLog (\ s a -> s{_timrsLog = a})
 
 -- | The HTTP status code.
 timrsStatus :: Lens' TestInvokeMethodResponse (Maybe Int)
-timrsStatus = lens _timrsStatus (\ s a -> s{_timrsStatus = a});
+timrsStatus = lens _timrsStatus (\ s a -> s{_timrsStatus = a})
 
 -- | The body of the HTTP response.
 timrsBody :: Lens' TestInvokeMethodResponse (Maybe Text)
-timrsBody = lens _timrsBody (\ s a -> s{_timrsBody = a});
+timrsBody = lens _timrsBody (\ s a -> s{_timrsBody = a})
 
 -- | The execution latency of the test invoke request.
 timrsLatency :: Lens' TestInvokeMethodResponse (Maybe Integer)
-timrsLatency = lens _timrsLatency (\ s a -> s{_timrsLatency = a});
+timrsLatency = lens _timrsLatency (\ s a -> s{_timrsLatency = a})
 
 -- | The headers of the HTTP response.
 timrsHeaders :: Lens' TestInvokeMethodResponse (HashMap Text Text)
-timrsHeaders = lens _timrsHeaders (\ s a -> s{_timrsHeaders = a}) . _Default . _Map;
+timrsHeaders = lens _timrsHeaders (\ s a -> s{_timrsHeaders = a}) . _Default . _Map
 
 -- | -- | The response status code.
 timrsResponseStatus :: Lens' TestInvokeMethodResponse Int
-timrsResponseStatus = lens _timrsResponseStatus (\ s a -> s{_timrsResponseStatus = a});
+timrsResponseStatus = lens _timrsResponseStatus (\ s a -> s{_timrsResponseStatus = a})
 
 instance NFData TestInvokeMethodResponse where

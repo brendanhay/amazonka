@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.CreatePlatformApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,20 +75,20 @@ createPlatformApplication
     -> CreatePlatformApplication
 createPlatformApplication pName_ pPlatform_ =
   CreatePlatformApplication'
-  {_cpaName = pName_, _cpaPlatform = pPlatform_, _cpaAttributes = mempty}
+    {_cpaName = pName_, _cpaPlatform = pPlatform_, _cpaAttributes = mempty}
 
 
 -- | Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
 cpaName :: Lens' CreatePlatformApplication Text
-cpaName = lens _cpaName (\ s a -> s{_cpaName = a});
+cpaName = lens _cpaName (\ s a -> s{_cpaName = a})
 
 -- | The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud Messaging).
 cpaPlatform :: Lens' CreatePlatformApplication Text
-cpaPlatform = lens _cpaPlatform (\ s a -> s{_cpaPlatform = a});
+cpaPlatform = lens _cpaPlatform (\ s a -> s{_cpaPlatform = a})
 
 -- | For a list of attributes, see <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
 cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
-cpaAttributes = lens _cpaAttributes (\ s a -> s{_cpaAttributes = a}) . _Map;
+cpaAttributes = lens _cpaAttributes (\ s a -> s{_cpaAttributes = a}) . _Map
 
 instance AWSRequest CreatePlatformApplication where
         type Rs CreatePlatformApplication =
@@ -144,18 +144,18 @@ createPlatformApplicationResponse
     -> CreatePlatformApplicationResponse
 createPlatformApplicationResponse pResponseStatus_ =
   CreatePlatformApplicationResponse'
-  { _cparsPlatformApplicationARN = Nothing
-  , _cparsResponseStatus = pResponseStatus_
-  }
+    { _cparsPlatformApplicationARN = Nothing
+    , _cparsResponseStatus = pResponseStatus_
+    }
 
 
 -- | PlatformApplicationArn is returned.
 cparsPlatformApplicationARN :: Lens' CreatePlatformApplicationResponse (Maybe Text)
-cparsPlatformApplicationARN = lens _cparsPlatformApplicationARN (\ s a -> s{_cparsPlatformApplicationARN = a});
+cparsPlatformApplicationARN = lens _cparsPlatformApplicationARN (\ s a -> s{_cparsPlatformApplicationARN = a})
 
 -- | -- | The response status code.
 cparsResponseStatus :: Lens' CreatePlatformApplicationResponse Int
-cparsResponseStatus = lens _cparsResponseStatus (\ s a -> s{_cparsResponseStatus = a});
+cparsResponseStatus = lens _cparsResponseStatus (\ s a -> s{_cparsResponseStatus = a})
 
 instance NFData CreatePlatformApplicationResponse
          where

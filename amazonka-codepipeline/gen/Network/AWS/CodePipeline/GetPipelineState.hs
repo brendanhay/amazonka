@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.GetPipelineState
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ getPipelineState pName_ = GetPipelineState' {_gpsName = pName_}
 
 -- | The name of the pipeline about which you want to get information.
 gpsName :: Lens' GetPipelineState Text
-gpsName = lens _gpsName (\ s a -> s{_gpsName = a});
+gpsName = lens _gpsName (\ s a -> s{_gpsName = a})
 
 instance AWSRequest GetPipelineState where
         type Rs GetPipelineState = GetPipelineStateResponse
@@ -145,37 +145,37 @@ getPipelineStateResponse
     -> GetPipelineStateResponse
 getPipelineStateResponse pResponseStatus_ =
   GetPipelineStateResponse'
-  { _gpsrsPipelineName = Nothing
-  , _gpsrsCreated = Nothing
-  , _gpsrsStageStates = Nothing
-  , _gpsrsPipelineVersion = Nothing
-  , _gpsrsUpdated = Nothing
-  , _gpsrsResponseStatus = pResponseStatus_
-  }
+    { _gpsrsPipelineName = Nothing
+    , _gpsrsCreated = Nothing
+    , _gpsrsStageStates = Nothing
+    , _gpsrsPipelineVersion = Nothing
+    , _gpsrsUpdated = Nothing
+    , _gpsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The name of the pipeline for which you want to get the state.
 gpsrsPipelineName :: Lens' GetPipelineStateResponse (Maybe Text)
-gpsrsPipelineName = lens _gpsrsPipelineName (\ s a -> s{_gpsrsPipelineName = a});
+gpsrsPipelineName = lens _gpsrsPipelineName (\ s a -> s{_gpsrsPipelineName = a})
 
 -- | The date and time the pipeline was created, in timestamp format.
 gpsrsCreated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
-gpsrsCreated = lens _gpsrsCreated (\ s a -> s{_gpsrsCreated = a}) . mapping _Time;
+gpsrsCreated = lens _gpsrsCreated (\ s a -> s{_gpsrsCreated = a}) . mapping _Time
 
 -- | A list of the pipeline stage output information, including stage name, state, most recent run details, whether the stage is disabled, and other data.
 gpsrsStageStates :: Lens' GetPipelineStateResponse [StageState]
-gpsrsStageStates = lens _gpsrsStageStates (\ s a -> s{_gpsrsStageStates = a}) . _Default . _Coerce;
+gpsrsStageStates = lens _gpsrsStageStates (\ s a -> s{_gpsrsStageStates = a}) . _Default . _Coerce
 
 -- | The version number of the pipeline.
 gpsrsPipelineVersion :: Lens' GetPipelineStateResponse (Maybe Natural)
-gpsrsPipelineVersion = lens _gpsrsPipelineVersion (\ s a -> s{_gpsrsPipelineVersion = a}) . mapping _Nat;
+gpsrsPipelineVersion = lens _gpsrsPipelineVersion (\ s a -> s{_gpsrsPipelineVersion = a}) . mapping _Nat
 
 -- | The date and time the pipeline was last updated, in timestamp format.
 gpsrsUpdated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
-gpsrsUpdated = lens _gpsrsUpdated (\ s a -> s{_gpsrsUpdated = a}) . mapping _Time;
+gpsrsUpdated = lens _gpsrsUpdated (\ s a -> s{_gpsrsUpdated = a}) . mapping _Time
 
 -- | -- | The response status code.
 gpsrsResponseStatus :: Lens' GetPipelineStateResponse Int
-gpsrsResponseStatus = lens _gpsrsResponseStatus (\ s a -> s{_gpsrsResponseStatus = a});
+gpsrsResponseStatus = lens _gpsrsResponseStatus (\ s a -> s{_gpsrsResponseStatus = a})
 
 instance NFData GetPipelineStateResponse where

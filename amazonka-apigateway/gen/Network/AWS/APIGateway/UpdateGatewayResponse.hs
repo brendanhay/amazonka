@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateGatewayResponse
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,32 +67,32 @@ data UpdateGatewayResponse = UpdateGatewayResponse'
 --
 -- * 'ugPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'ugRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'ugRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'ugResponseType' - The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPES
+-- * 'ugResponseType' - [Required] The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPE
 updateGatewayResponse
     :: Text -- ^ 'ugRestAPIId'
     -> GatewayResponseType -- ^ 'ugResponseType'
     -> UpdateGatewayResponse
 updateGatewayResponse pRestAPIId_ pResponseType_ =
   UpdateGatewayResponse'
-  { _ugPatchOperations = Nothing
-  , _ugRestAPIId = pRestAPIId_
-  , _ugResponseType = pResponseType_
-  }
+    { _ugPatchOperations = Nothing
+    , _ugRestAPIId = pRestAPIId_
+    , _ugResponseType = pResponseType_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 ugPatchOperations :: Lens' UpdateGatewayResponse [PatchOperation]
-ugPatchOperations = lens _ugPatchOperations (\ s a -> s{_ugPatchOperations = a}) . _Default . _Coerce;
+ugPatchOperations = lens _ugPatchOperations (\ s a -> s{_ugPatchOperations = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 ugRestAPIId :: Lens' UpdateGatewayResponse Text
-ugRestAPIId = lens _ugRestAPIId (\ s a -> s{_ugRestAPIId = a});
+ugRestAPIId = lens _ugRestAPIId (\ s a -> s{_ugRestAPIId = a})
 
--- | The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPES
+-- | [Required] The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPE
 ugResponseType :: Lens' UpdateGatewayResponse GatewayResponseType
-ugResponseType = lens _ugResponseType (\ s a -> s{_ugResponseType = a});
+ugResponseType = lens _ugResponseType (\ s a -> s{_ugResponseType = a})
 
 instance AWSRequest UpdateGatewayResponse where
         type Rs UpdateGatewayResponse = GatewayResponse

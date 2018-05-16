@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DescribeLimits
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -163,32 +163,32 @@ describeLimitsResponse
     -> DescribeLimitsResponse
 describeLimitsResponse pResponseStatus_ =
   DescribeLimitsResponse'
-  { _dlrsTableMaxWriteCapacityUnits = Nothing
-  , _dlrsTableMaxReadCapacityUnits = Nothing
-  , _dlrsAccountMaxWriteCapacityUnits = Nothing
-  , _dlrsAccountMaxReadCapacityUnits = Nothing
-  , _dlrsResponseStatus = pResponseStatus_
-  }
+    { _dlrsTableMaxWriteCapacityUnits = Nothing
+    , _dlrsTableMaxReadCapacityUnits = Nothing
+    , _dlrsAccountMaxWriteCapacityUnits = Nothing
+    , _dlrsAccountMaxReadCapacityUnits = Nothing
+    , _dlrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The maximum write capacity units that your account allows you to provision for a new table that you are creating in this region, including the write capacity units provisioned for its global secondary indexes (GSIs).
 dlrsTableMaxWriteCapacityUnits :: Lens' DescribeLimitsResponse (Maybe Natural)
-dlrsTableMaxWriteCapacityUnits = lens _dlrsTableMaxWriteCapacityUnits (\ s a -> s{_dlrsTableMaxWriteCapacityUnits = a}) . mapping _Nat;
+dlrsTableMaxWriteCapacityUnits = lens _dlrsTableMaxWriteCapacityUnits (\ s a -> s{_dlrsTableMaxWriteCapacityUnits = a}) . mapping _Nat
 
 -- | The maximum read capacity units that your account allows you to provision for a new table that you are creating in this region, including the read capacity units provisioned for its global secondary indexes (GSIs).
 dlrsTableMaxReadCapacityUnits :: Lens' DescribeLimitsResponse (Maybe Natural)
-dlrsTableMaxReadCapacityUnits = lens _dlrsTableMaxReadCapacityUnits (\ s a -> s{_dlrsTableMaxReadCapacityUnits = a}) . mapping _Nat;
+dlrsTableMaxReadCapacityUnits = lens _dlrsTableMaxReadCapacityUnits (\ s a -> s{_dlrsTableMaxReadCapacityUnits = a}) . mapping _Nat
 
 -- | The maximum total write capacity units that your account allows you to provision across all of your tables in this region.
 dlrsAccountMaxWriteCapacityUnits :: Lens' DescribeLimitsResponse (Maybe Natural)
-dlrsAccountMaxWriteCapacityUnits = lens _dlrsAccountMaxWriteCapacityUnits (\ s a -> s{_dlrsAccountMaxWriteCapacityUnits = a}) . mapping _Nat;
+dlrsAccountMaxWriteCapacityUnits = lens _dlrsAccountMaxWriteCapacityUnits (\ s a -> s{_dlrsAccountMaxWriteCapacityUnits = a}) . mapping _Nat
 
 -- | The maximum total read capacity units that your account allows you to provision across all of your tables in this region.
 dlrsAccountMaxReadCapacityUnits :: Lens' DescribeLimitsResponse (Maybe Natural)
-dlrsAccountMaxReadCapacityUnits = lens _dlrsAccountMaxReadCapacityUnits (\ s a -> s{_dlrsAccountMaxReadCapacityUnits = a}) . mapping _Nat;
+dlrsAccountMaxReadCapacityUnits = lens _dlrsAccountMaxReadCapacityUnits (\ s a -> s{_dlrsAccountMaxReadCapacityUnits = a}) . mapping _Nat
 
 -- | -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLimitsResponse Int
-dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a})
 
 instance NFData DescribeLimitsResponse where

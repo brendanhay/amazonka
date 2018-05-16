@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.WAFRegional
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,7 +28,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListRateBasedRules $
+--         [ requestListActivatedRulesInRuleGroup $
+--             listActivatedRulesInRuleGroup
+--
+--         , requestListRateBasedRules $
 --             listRateBasedRules
 --
 --         , requestGetSizeConstraintSet $
@@ -48,6 +51,9 @@ import Test.Tasty
 --
 --         , requestCreateIPSet $
 --             createIPSet
+--
+--         , requestGetRuleGroup $
+--             getRuleGroup
 --
 --         , requestGetChangeTokenStatus $
 --             getChangeTokenStatus
@@ -78,6 +84,9 @@ import Test.Tasty
 --
 --         , requestListGeoMatchSets $
 --             listGeoMatchSets
+--
+--         , requestCreateRuleGroup $
+--             createRuleGroup
 --
 --         , requestDeleteRegexMatchSet $
 --             deleteRegexMatchSet
@@ -127,6 +136,9 @@ import Test.Tasty
 --         , requestDisassociateWebACL $
 --             disassociateWebACL
 --
+--         , requestListSubscribedRuleGroups $
+--             listSubscribedRuleGroups
+--
 --         , requestCreateSqlInjectionMatchSet $
 --             createSqlInjectionMatchSet
 --
@@ -142,11 +154,17 @@ import Test.Tasty
 --         , requestDeleteByteMatchSet $
 --             deleteByteMatchSet
 --
+--         , requestPutPermissionPolicy $
+--             putPermissionPolicy
+--
 --         , requestGetRateBasedRuleManagedKeys $
 --             getRateBasedRuleManagedKeys
 --
 --         , requestAssociateWebACL $
 --             associateWebACL
+--
+--         , requestDeletePermissionPolicy $
+--             deletePermissionPolicy
 --
 --         , requestGetRegexMatchSet $
 --             getRegexMatchSet
@@ -174,6 +192,18 @@ import Test.Tasty
 --
 --         , requestGetByteMatchSet $
 --             getByteMatchSet
+--
+--         , requestGetPermissionPolicy $
+--             getPermissionPolicy
+--
+--         , requestListRuleGroups $
+--             listRuleGroups
+--
+--         , requestDeleteRuleGroup $
+--             deleteRuleGroup
+--
+--         , requestUpdateRuleGroup $
+--             updateRuleGroup
 --
 --         , requestCreateRegexMatchSet $
 --             createRegexMatchSet
@@ -220,7 +250,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseListRateBasedRules $
+--         [ responseListActivatedRulesInRuleGroup $
+--             listActivatedRulesInRuleGroupResponse
+--
+--         , responseListRateBasedRules $
 --             listRateBasedRulesResponse
 --
 --         , responseGetSizeConstraintSet $
@@ -240,6 +273,9 @@ import Test.Tasty
 --
 --         , responseCreateIPSet $
 --             createIPSetResponse
+--
+--         , responseGetRuleGroup $
+--             getRuleGroupResponse
 --
 --         , responseGetChangeTokenStatus $
 --             getChangeTokenStatusResponse
@@ -270,6 +306,9 @@ import Test.Tasty
 --
 --         , responseListGeoMatchSets $
 --             listGeoMatchSetsResponse
+--
+--         , responseCreateRuleGroup $
+--             createRuleGroupResponse
 --
 --         , responseDeleteRegexMatchSet $
 --             deleteRegexMatchSetResponse
@@ -319,6 +358,9 @@ import Test.Tasty
 --         , responseDisassociateWebACL $
 --             disassociateWebACLResponse
 --
+--         , responseListSubscribedRuleGroups $
+--             listSubscribedRuleGroupsResponse
+--
 --         , responseCreateSqlInjectionMatchSet $
 --             createSqlInjectionMatchSetResponse
 --
@@ -334,11 +376,17 @@ import Test.Tasty
 --         , responseDeleteByteMatchSet $
 --             deleteByteMatchSetResponse
 --
+--         , responsePutPermissionPolicy $
+--             putPermissionPolicyResponse
+--
 --         , responseGetRateBasedRuleManagedKeys $
 --             getRateBasedRuleManagedKeysResponse
 --
 --         , responseAssociateWebACL $
 --             associateWebACLResponse
+--
+--         , responseDeletePermissionPolicy $
+--             deletePermissionPolicyResponse
 --
 --         , responseGetRegexMatchSet $
 --             getRegexMatchSetResponse
@@ -366,6 +414,18 @@ import Test.Tasty
 --
 --         , responseGetByteMatchSet $
 --             getByteMatchSetResponse
+--
+--         , responseGetPermissionPolicy $
+--             getPermissionPolicyResponse
+--
+--         , responseListRuleGroups $
+--             listRuleGroupsResponse
+--
+--         , responseDeleteRuleGroup $
+--             deleteRuleGroupResponse
+--
+--         , responseUpdateRuleGroup $
+--             updateRuleGroupResponse
 --
 --         , responseCreateRegexMatchSet $
 --             createRegexMatchSetResponse
@@ -414,6 +474,11 @@ import Test.Tasty
 
 -- Requests
 
+requestListActivatedRulesInRuleGroup :: ListActivatedRulesInRuleGroup -> TestTree
+requestListActivatedRulesInRuleGroup = req
+    "ListActivatedRulesInRuleGroup"
+    "fixture/ListActivatedRulesInRuleGroup.yaml"
+
 requestListRateBasedRules :: ListRateBasedRules -> TestTree
 requestListRateBasedRules = req
     "ListRateBasedRules"
@@ -448,6 +513,11 @@ requestCreateIPSet :: CreateIPSet -> TestTree
 requestCreateIPSet = req
     "CreateIPSet"
     "fixture/CreateIPSet.yaml"
+
+requestGetRuleGroup :: GetRuleGroup -> TestTree
+requestGetRuleGroup = req
+    "GetRuleGroup"
+    "fixture/GetRuleGroup.yaml"
 
 requestGetChangeTokenStatus :: GetChangeTokenStatus -> TestTree
 requestGetChangeTokenStatus = req
@@ -498,6 +568,11 @@ requestListGeoMatchSets :: ListGeoMatchSets -> TestTree
 requestListGeoMatchSets = req
     "ListGeoMatchSets"
     "fixture/ListGeoMatchSets.yaml"
+
+requestCreateRuleGroup :: CreateRuleGroup -> TestTree
+requestCreateRuleGroup = req
+    "CreateRuleGroup"
+    "fixture/CreateRuleGroup.yaml"
 
 requestDeleteRegexMatchSet :: DeleteRegexMatchSet -> TestTree
 requestDeleteRegexMatchSet = req
@@ -579,6 +654,11 @@ requestDisassociateWebACL = req
     "DisassociateWebACL"
     "fixture/DisassociateWebACL.yaml"
 
+requestListSubscribedRuleGroups :: ListSubscribedRuleGroups -> TestTree
+requestListSubscribedRuleGroups = req
+    "ListSubscribedRuleGroups"
+    "fixture/ListSubscribedRuleGroups.yaml"
+
 requestCreateSqlInjectionMatchSet :: CreateSqlInjectionMatchSet -> TestTree
 requestCreateSqlInjectionMatchSet = req
     "CreateSqlInjectionMatchSet"
@@ -604,6 +684,11 @@ requestDeleteByteMatchSet = req
     "DeleteByteMatchSet"
     "fixture/DeleteByteMatchSet.yaml"
 
+requestPutPermissionPolicy :: PutPermissionPolicy -> TestTree
+requestPutPermissionPolicy = req
+    "PutPermissionPolicy"
+    "fixture/PutPermissionPolicy.yaml"
+
 requestGetRateBasedRuleManagedKeys :: GetRateBasedRuleManagedKeys -> TestTree
 requestGetRateBasedRuleManagedKeys = req
     "GetRateBasedRuleManagedKeys"
@@ -613,6 +698,11 @@ requestAssociateWebACL :: AssociateWebACL -> TestTree
 requestAssociateWebACL = req
     "AssociateWebACL"
     "fixture/AssociateWebACL.yaml"
+
+requestDeletePermissionPolicy :: DeletePermissionPolicy -> TestTree
+requestDeletePermissionPolicy = req
+    "DeletePermissionPolicy"
+    "fixture/DeletePermissionPolicy.yaml"
 
 requestGetRegexMatchSet :: GetRegexMatchSet -> TestTree
 requestGetRegexMatchSet = req
@@ -658,6 +748,26 @@ requestGetByteMatchSet :: GetByteMatchSet -> TestTree
 requestGetByteMatchSet = req
     "GetByteMatchSet"
     "fixture/GetByteMatchSet.yaml"
+
+requestGetPermissionPolicy :: GetPermissionPolicy -> TestTree
+requestGetPermissionPolicy = req
+    "GetPermissionPolicy"
+    "fixture/GetPermissionPolicy.yaml"
+
+requestListRuleGroups :: ListRuleGroups -> TestTree
+requestListRuleGroups = req
+    "ListRuleGroups"
+    "fixture/ListRuleGroups.yaml"
+
+requestDeleteRuleGroup :: DeleteRuleGroup -> TestTree
+requestDeleteRuleGroup = req
+    "DeleteRuleGroup"
+    "fixture/DeleteRuleGroup.yaml"
+
+requestUpdateRuleGroup :: UpdateRuleGroup -> TestTree
+requestUpdateRuleGroup = req
+    "UpdateRuleGroup"
+    "fixture/UpdateRuleGroup.yaml"
 
 requestCreateRegexMatchSet :: CreateRegexMatchSet -> TestTree
 requestCreateRegexMatchSet = req
@@ -731,6 +841,13 @@ requestUpdateSqlInjectionMatchSet = req
 
 -- Responses
 
+responseListActivatedRulesInRuleGroup :: ListActivatedRulesInRuleGroupResponse -> TestTree
+responseListActivatedRulesInRuleGroup = res
+    "ListActivatedRulesInRuleGroupResponse"
+    "fixture/ListActivatedRulesInRuleGroupResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy ListActivatedRulesInRuleGroup)
+
 responseListRateBasedRules :: ListRateBasedRulesResponse -> TestTree
 responseListRateBasedRules = res
     "ListRateBasedRulesResponse"
@@ -779,6 +896,13 @@ responseCreateIPSet = res
     "fixture/CreateIPSetResponse.proto"
     wAFRegional
     (Proxy :: Proxy CreateIPSet)
+
+responseGetRuleGroup :: GetRuleGroupResponse -> TestTree
+responseGetRuleGroup = res
+    "GetRuleGroupResponse"
+    "fixture/GetRuleGroupResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy GetRuleGroup)
 
 responseGetChangeTokenStatus :: GetChangeTokenStatusResponse -> TestTree
 responseGetChangeTokenStatus = res
@@ -849,6 +973,13 @@ responseListGeoMatchSets = res
     "fixture/ListGeoMatchSetsResponse.proto"
     wAFRegional
     (Proxy :: Proxy ListGeoMatchSets)
+
+responseCreateRuleGroup :: CreateRuleGroupResponse -> TestTree
+responseCreateRuleGroup = res
+    "CreateRuleGroupResponse"
+    "fixture/CreateRuleGroupResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy CreateRuleGroup)
 
 responseDeleteRegexMatchSet :: DeleteRegexMatchSetResponse -> TestTree
 responseDeleteRegexMatchSet = res
@@ -962,6 +1093,13 @@ responseDisassociateWebACL = res
     wAFRegional
     (Proxy :: Proxy DisassociateWebACL)
 
+responseListSubscribedRuleGroups :: ListSubscribedRuleGroupsResponse -> TestTree
+responseListSubscribedRuleGroups = res
+    "ListSubscribedRuleGroupsResponse"
+    "fixture/ListSubscribedRuleGroupsResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy ListSubscribedRuleGroups)
+
 responseCreateSqlInjectionMatchSet :: CreateSqlInjectionMatchSetResponse -> TestTree
 responseCreateSqlInjectionMatchSet = res
     "CreateSqlInjectionMatchSetResponse"
@@ -997,6 +1135,13 @@ responseDeleteByteMatchSet = res
     wAFRegional
     (Proxy :: Proxy DeleteByteMatchSet)
 
+responsePutPermissionPolicy :: PutPermissionPolicyResponse -> TestTree
+responsePutPermissionPolicy = res
+    "PutPermissionPolicyResponse"
+    "fixture/PutPermissionPolicyResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy PutPermissionPolicy)
+
 responseGetRateBasedRuleManagedKeys :: GetRateBasedRuleManagedKeysResponse -> TestTree
 responseGetRateBasedRuleManagedKeys = res
     "GetRateBasedRuleManagedKeysResponse"
@@ -1010,6 +1155,13 @@ responseAssociateWebACL = res
     "fixture/AssociateWebACLResponse.proto"
     wAFRegional
     (Proxy :: Proxy AssociateWebACL)
+
+responseDeletePermissionPolicy :: DeletePermissionPolicyResponse -> TestTree
+responseDeletePermissionPolicy = res
+    "DeletePermissionPolicyResponse"
+    "fixture/DeletePermissionPolicyResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy DeletePermissionPolicy)
 
 responseGetRegexMatchSet :: GetRegexMatchSetResponse -> TestTree
 responseGetRegexMatchSet = res
@@ -1073,6 +1225,34 @@ responseGetByteMatchSet = res
     "fixture/GetByteMatchSetResponse.proto"
     wAFRegional
     (Proxy :: Proxy GetByteMatchSet)
+
+responseGetPermissionPolicy :: GetPermissionPolicyResponse -> TestTree
+responseGetPermissionPolicy = res
+    "GetPermissionPolicyResponse"
+    "fixture/GetPermissionPolicyResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy GetPermissionPolicy)
+
+responseListRuleGroups :: ListRuleGroupsResponse -> TestTree
+responseListRuleGroups = res
+    "ListRuleGroupsResponse"
+    "fixture/ListRuleGroupsResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy ListRuleGroups)
+
+responseDeleteRuleGroup :: DeleteRuleGroupResponse -> TestTree
+responseDeleteRuleGroup = res
+    "DeleteRuleGroupResponse"
+    "fixture/DeleteRuleGroupResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy DeleteRuleGroup)
+
+responseUpdateRuleGroup :: UpdateRuleGroupResponse -> TestTree
+responseUpdateRuleGroup = res
+    "UpdateRuleGroupResponse"
+    "fixture/UpdateRuleGroupResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy UpdateRuleGroup)
 
 responseCreateRegexMatchSet :: CreateRegexMatchSetResponse -> TestTree
 responseCreateRegexMatchSet = res

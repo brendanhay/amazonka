@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.StartSchemaExtension
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,29 +75,29 @@ startSchemaExtension
     -> StartSchemaExtension
 startSchemaExtension pDirectoryId_ pCreateSnapshotBeforeSchemaExtension_ pLdifContent_ pDescription_ =
   StartSchemaExtension'
-  { _sseDirectoryId = pDirectoryId_
-  , _sseCreateSnapshotBeforeSchemaExtension =
-      pCreateSnapshotBeforeSchemaExtension_
-  , _sseLdifContent = pLdifContent_
-  , _sseDescription = pDescription_
-  }
+    { _sseDirectoryId = pDirectoryId_
+    , _sseCreateSnapshotBeforeSchemaExtension =
+        pCreateSnapshotBeforeSchemaExtension_
+    , _sseLdifContent = pLdifContent_
+    , _sseDescription = pDescription_
+    }
 
 
 -- | The identifier of the directory for which the schema extension will be applied to.
 sseDirectoryId :: Lens' StartSchemaExtension Text
-sseDirectoryId = lens _sseDirectoryId (\ s a -> s{_sseDirectoryId = a});
+sseDirectoryId = lens _sseDirectoryId (\ s a -> s{_sseDirectoryId = a})
 
 -- | If true, creates a snapshot of the directory before applying the schema extension.
 sseCreateSnapshotBeforeSchemaExtension :: Lens' StartSchemaExtension Bool
-sseCreateSnapshotBeforeSchemaExtension = lens _sseCreateSnapshotBeforeSchemaExtension (\ s a -> s{_sseCreateSnapshotBeforeSchemaExtension = a});
+sseCreateSnapshotBeforeSchemaExtension = lens _sseCreateSnapshotBeforeSchemaExtension (\ s a -> s{_sseCreateSnapshotBeforeSchemaExtension = a})
 
 -- | The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.
 sseLdifContent :: Lens' StartSchemaExtension Text
-sseLdifContent = lens _sseLdifContent (\ s a -> s{_sseLdifContent = a});
+sseLdifContent = lens _sseLdifContent (\ s a -> s{_sseLdifContent = a})
 
 -- | A description of the schema extension.
 sseDescription :: Lens' StartSchemaExtension Text
-sseDescription = lens _sseDescription (\ s a -> s{_sseDescription = a});
+sseDescription = lens _sseDescription (\ s a -> s{_sseDescription = a})
 
 instance AWSRequest StartSchemaExtension where
         type Rs StartSchemaExtension =
@@ -159,15 +159,15 @@ startSchemaExtensionResponse
     -> StartSchemaExtensionResponse
 startSchemaExtensionResponse pResponseStatus_ =
   StartSchemaExtensionResponse'
-  {_ssersSchemaExtensionId = Nothing, _ssersResponseStatus = pResponseStatus_}
+    {_ssersSchemaExtensionId = Nothing, _ssersResponseStatus = pResponseStatus_}
 
 
 -- | The identifier of the schema extension that will be applied.
 ssersSchemaExtensionId :: Lens' StartSchemaExtensionResponse (Maybe Text)
-ssersSchemaExtensionId = lens _ssersSchemaExtensionId (\ s a -> s{_ssersSchemaExtensionId = a});
+ssersSchemaExtensionId = lens _ssersSchemaExtensionId (\ s a -> s{_ssersSchemaExtensionId = a})
 
 -- | -- | The response status code.
 ssersResponseStatus :: Lens' StartSchemaExtensionResponse Int
-ssersResponseStatus = lens _ssersResponseStatus (\ s a -> s{_ssersResponseStatus = a});
+ssersResponseStatus = lens _ssersResponseStatus (\ s a -> s{_ssersResponseStatus = a})
 
 instance NFData StartSchemaExtensionResponse where

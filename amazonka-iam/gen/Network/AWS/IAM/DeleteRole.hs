@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteRole
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Deletes the specified role. The role must not have any policies attached. For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles> .
 --
 --
--- /Important:/ Make sure you do not have any Amazon EC2 instances running with the role you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
+-- /Important:/ Make sure that you do not have any Amazon EC2 instances running with the role you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
 --
 module Network.AWS.IAM.DeleteRole
     (
@@ -62,7 +62,7 @@ deleteRole pRoleName_ = DeleteRole' {_drRoleName = pRoleName_}
 
 -- | The name of the role to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 drRoleName :: Lens' DeleteRole Text
-drRoleName = lens _drRoleName (\ s a -> s{_drRoleName = a});
+drRoleName = lens _drRoleName (\ s a -> s{_drRoleName = a})
 
 instance AWSRequest DeleteRole where
         type Rs DeleteRole = DeleteRoleResponse

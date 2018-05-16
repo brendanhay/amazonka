@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DisablePolicyType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ disablePolicyType pRootId_ pPolicyType_ =
 
 -- | The unique identifier (ID) of the root in which you want to disable a policy type. You can get the ID from the 'ListRoots' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
 dptRootId :: Lens' DisablePolicyType Text
-dptRootId = lens _dptRootId (\ s a -> s{_dptRootId = a});
+dptRootId = lens _dptRootId (\ s a -> s{_dptRootId = a})
 
 -- | The policy type that you want to disable in this root.
 dptPolicyType :: Lens' DisablePolicyType PolicyType
-dptPolicyType = lens _dptPolicyType (\ s a -> s{_dptPolicyType = a});
+dptPolicyType = lens _dptPolicyType (\ s a -> s{_dptPolicyType = a})
 
 instance AWSRequest DisablePolicyType where
         type Rs DisablePolicyType = DisablePolicyTypeResponse
@@ -132,15 +132,15 @@ disablePolicyTypeResponse
     -> DisablePolicyTypeResponse
 disablePolicyTypeResponse pResponseStatus_ =
   DisablePolicyTypeResponse'
-  {_dptrsRoot = Nothing, _dptrsResponseStatus = pResponseStatus_}
+    {_dptrsRoot = Nothing, _dptrsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that shows the root with the updated list of enabled policy types.
 dptrsRoot :: Lens' DisablePolicyTypeResponse (Maybe Root)
-dptrsRoot = lens _dptrsRoot (\ s a -> s{_dptrsRoot = a});
+dptrsRoot = lens _dptrsRoot (\ s a -> s{_dptrsRoot = a})
 
 -- | -- | The response status code.
 dptrsResponseStatus :: Lens' DisablePolicyTypeResponse Int
-dptrsResponseStatus = lens _dptrsResponseStatus (\ s a -> s{_dptrsResponseStatus = a});
+dptrsResponseStatus = lens _dptrsResponseStatus (\ s a -> s{_dptrsResponseStatus = a})
 
 instance NFData DisablePolicyTypeResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ModifyHSM
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,38 +90,38 @@ modifyHSM
     -> ModifyHSM
 modifyHSM pHSMARN_ =
   ModifyHSM'
-  { _mhIAMRoleARN = Nothing
-  , _mhSubnetId = Nothing
-  , _mhSyslogIP = Nothing
-  , _mhExternalId = Nothing
-  , _mhEniIP = Nothing
-  , _mhHSMARN = pHSMARN_
-  }
+    { _mhIAMRoleARN = Nothing
+    , _mhSubnetId = Nothing
+    , _mhSyslogIP = Nothing
+    , _mhExternalId = Nothing
+    , _mhEniIP = Nothing
+    , _mhHSMARN = pHSMARN_
+    }
 
 
 -- | The new IAM role ARN.
 mhIAMRoleARN :: Lens' ModifyHSM (Maybe Text)
-mhIAMRoleARN = lens _mhIAMRoleARN (\ s a -> s{_mhIAMRoleARN = a});
+mhIAMRoleARN = lens _mhIAMRoleARN (\ s a -> s{_mhIAMRoleARN = a})
 
 -- | The new identifier of the subnet that the HSM is in. The new subnet must be in the same Availability Zone as the current subnet.
 mhSubnetId :: Lens' ModifyHSM (Maybe Text)
-mhSubnetId = lens _mhSubnetId (\ s a -> s{_mhSubnetId = a});
+mhSubnetId = lens _mhSubnetId (\ s a -> s{_mhSubnetId = a})
 
 -- | The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
 mhSyslogIP :: Lens' ModifyHSM (Maybe Text)
-mhSyslogIP = lens _mhSyslogIP (\ s a -> s{_mhSyslogIP = a});
+mhSyslogIP = lens _mhSyslogIP (\ s a -> s{_mhSyslogIP = a})
 
 -- | The new external ID.
 mhExternalId :: Lens' ModifyHSM (Maybe Text)
-mhExternalId = lens _mhExternalId (\ s a -> s{_mhExternalId = a});
+mhExternalId = lens _mhExternalId (\ s a -> s{_mhExternalId = a})
 
 -- | The new IP address for the elastic network interface (ENI) attached to the HSM. If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.
 mhEniIP :: Lens' ModifyHSM (Maybe Text)
-mhEniIP = lens _mhEniIP (\ s a -> s{_mhEniIP = a});
+mhEniIP = lens _mhEniIP (\ s a -> s{_mhEniIP = a})
 
 -- | The ARN of the HSM to modify.
 mhHSMARN :: Lens' ModifyHSM Text
-mhHSMARN = lens _mhHSMARN (\ s a -> s{_mhHSMARN = a});
+mhHSMARN = lens _mhHSMARN (\ s a -> s{_mhHSMARN = a})
 
 instance AWSRequest ModifyHSM where
         type Rs ModifyHSM = ModifyHSMResponse
@@ -185,15 +185,15 @@ modifyHSMResponse
     -> ModifyHSMResponse
 modifyHSMResponse pResponseStatus_ =
   ModifyHSMResponse'
-  {_mhsmrsHSMARN = Nothing, _mhsmrsResponseStatus = pResponseStatus_}
+    {_mhsmrsHSMARN = Nothing, _mhsmrsResponseStatus = pResponseStatus_}
 
 
 -- | The ARN of the HSM.
 mhsmrsHSMARN :: Lens' ModifyHSMResponse (Maybe Text)
-mhsmrsHSMARN = lens _mhsmrsHSMARN (\ s a -> s{_mhsmrsHSMARN = a});
+mhsmrsHSMARN = lens _mhsmrsHSMARN (\ s a -> s{_mhsmrsHSMARN = a})
 
 -- | -- | The response status code.
 mhsmrsResponseStatus :: Lens' ModifyHSMResponse Int
-mhsmrsResponseStatus = lens _mhsmrsResponseStatus (\ s a -> s{_mhsmrsResponseStatus = a});
+mhsmrsResponseStatus = lens _mhsmrsResponseStatus (\ s a -> s{_mhsmrsResponseStatus = a})
 
 instance NFData ModifyHSMResponse where

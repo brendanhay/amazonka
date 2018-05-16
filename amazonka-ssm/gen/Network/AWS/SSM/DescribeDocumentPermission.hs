@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeDocumentPermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ describeDocumentPermission
     -> DescribeDocumentPermission
 describeDocumentPermission pName_ pPermissionType_ =
   DescribeDocumentPermission'
-  {_ddpName = pName_, _ddpPermissionType = pPermissionType_}
+    {_ddpName = pName_, _ddpPermissionType = pPermissionType_}
 
 
 -- | The name of the document for which you are the owner.
 ddpName :: Lens' DescribeDocumentPermission Text
-ddpName = lens _ddpName (\ s a -> s{_ddpName = a});
+ddpName = lens _ddpName (\ s a -> s{_ddpName = a})
 
 -- | The permission type for the document. The permission type can be /Share/ .
 ddpPermissionType :: Lens' DescribeDocumentPermission DocumentPermissionType
-ddpPermissionType = lens _ddpPermissionType (\ s a -> s{_ddpPermissionType = a});
+ddpPermissionType = lens _ddpPermissionType (\ s a -> s{_ddpPermissionType = a})
 
 instance AWSRequest DescribeDocumentPermission where
         type Rs DescribeDocumentPermission =
@@ -133,16 +133,16 @@ describeDocumentPermissionResponse
     -> DescribeDocumentPermissionResponse
 describeDocumentPermissionResponse pResponseStatus_ =
   DescribeDocumentPermissionResponse'
-  {_ddprsAccountIds = Nothing, _ddprsResponseStatus = pResponseStatus_}
+    {_ddprsAccountIds = Nothing, _ddprsResponseStatus = pResponseStatus_}
 
 
 -- | The account IDs that have permission to use this document. The ID can be either an AWS account or /All/ .
 ddprsAccountIds :: Lens' DescribeDocumentPermissionResponse [Text]
-ddprsAccountIds = lens _ddprsAccountIds (\ s a -> s{_ddprsAccountIds = a}) . _Default . _Coerce;
+ddprsAccountIds = lens _ddprsAccountIds (\ s a -> s{_ddprsAccountIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddprsResponseStatus :: Lens' DescribeDocumentPermissionResponse Int
-ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});
+ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a})
 
 instance NFData DescribeDocumentPermissionResponse
          where

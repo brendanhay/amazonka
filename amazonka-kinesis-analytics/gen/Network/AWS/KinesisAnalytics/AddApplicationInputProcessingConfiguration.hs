@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.AddApplicationInputProcessingConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ data AddApplicationInputProcessingConfiguration = AddApplicationInputProcessingC
 --
 -- * 'aaipcCurrentApplicationVersionId' - Version of the application to which you want to add the input processing configuration. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 --
--- * 'aaipcInputId' - The ID of the input configuration to which to add the input configuration. You can get a list of the input IDs for an application using the 'DescribeApplication' operation.
+-- * 'aaipcInputId' - The ID of the input configuration to add the input processing configuration to. You can get a list of the input IDs for an application using the 'DescribeApplication' operation.
 --
 -- * 'aaipcInputProcessingConfiguration' - The 'InputProcessingConfiguration' to add to the application.
 addApplicationInputProcessingConfiguration
@@ -74,28 +74,28 @@ addApplicationInputProcessingConfiguration
     -> AddApplicationInputProcessingConfiguration
 addApplicationInputProcessingConfiguration pApplicationName_ pCurrentApplicationVersionId_ pInputId_ pInputProcessingConfiguration_ =
   AddApplicationInputProcessingConfiguration'
-  { _aaipcApplicationName = pApplicationName_
-  , _aaipcCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-  , _aaipcInputId = pInputId_
-  , _aaipcInputProcessingConfiguration = pInputProcessingConfiguration_
-  }
+    { _aaipcApplicationName = pApplicationName_
+    , _aaipcCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+    , _aaipcInputId = pInputId_
+    , _aaipcInputProcessingConfiguration = pInputProcessingConfiguration_
+    }
 
 
 -- | Name of the application to which you want to add the input processing configuration.
 aaipcApplicationName :: Lens' AddApplicationInputProcessingConfiguration Text
-aaipcApplicationName = lens _aaipcApplicationName (\ s a -> s{_aaipcApplicationName = a});
+aaipcApplicationName = lens _aaipcApplicationName (\ s a -> s{_aaipcApplicationName = a})
 
 -- | Version of the application to which you want to add the input processing configuration. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 aaipcCurrentApplicationVersionId :: Lens' AddApplicationInputProcessingConfiguration Natural
-aaipcCurrentApplicationVersionId = lens _aaipcCurrentApplicationVersionId (\ s a -> s{_aaipcCurrentApplicationVersionId = a}) . _Nat;
+aaipcCurrentApplicationVersionId = lens _aaipcCurrentApplicationVersionId (\ s a -> s{_aaipcCurrentApplicationVersionId = a}) . _Nat
 
--- | The ID of the input configuration to which to add the input configuration. You can get a list of the input IDs for an application using the 'DescribeApplication' operation.
+-- | The ID of the input configuration to add the input processing configuration to. You can get a list of the input IDs for an application using the 'DescribeApplication' operation.
 aaipcInputId :: Lens' AddApplicationInputProcessingConfiguration Text
-aaipcInputId = lens _aaipcInputId (\ s a -> s{_aaipcInputId = a});
+aaipcInputId = lens _aaipcInputId (\ s a -> s{_aaipcInputId = a})
 
 -- | The 'InputProcessingConfiguration' to add to the application.
 aaipcInputProcessingConfiguration :: Lens' AddApplicationInputProcessingConfiguration InputProcessingConfiguration
-aaipcInputProcessingConfiguration = lens _aaipcInputProcessingConfiguration (\ s a -> s{_aaipcInputProcessingConfiguration = a});
+aaipcInputProcessingConfiguration = lens _aaipcInputProcessingConfiguration (\ s a -> s{_aaipcInputProcessingConfiguration = a})
 
 instance AWSRequest
            AddApplicationInputProcessingConfiguration
@@ -171,12 +171,12 @@ addApplicationInputProcessingConfigurationResponse
     -> AddApplicationInputProcessingConfigurationResponse
 addApplicationInputProcessingConfigurationResponse pResponseStatus_ =
   AddApplicationInputProcessingConfigurationResponse'
-  {_aaipcrsResponseStatus = pResponseStatus_}
+    {_aaipcrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 aaipcrsResponseStatus :: Lens' AddApplicationInputProcessingConfigurationResponse Int
-aaipcrsResponseStatus = lens _aaipcrsResponseStatus (\ s a -> s{_aaipcrsResponseStatus = a});
+aaipcrsResponseStatus = lens _aaipcrsResponseStatus (\ s a -> s{_aaipcrsResponseStatus = a})
 
 instance NFData
            AddApplicationInputProcessingConfigurationResponse

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -17,9 +17,9 @@
 --
 -- This is the AWS CodePipeline API Reference. This guide provides descriptions of the actions and data types for AWS CodePipeline. Some functionality for your pipeline is only configurable through the API. For additional information, see the <http://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html AWS CodePipeline User Guide> .
 --
--- You can use the AWS CodePipeline API to work with pipelines, stages, actions, gates, and transitions, as described below.
+-- You can use the AWS CodePipeline API to work with pipelines, stages, actions, and transitions, as described below.
 --
--- /Pipelines/ are models of automated release processes. Each pipeline is uniquely named, and consists of actions, gates, and stages.
+-- /Pipelines/ are models of automated release processes. Each pipeline is uniquely named, and consists of stages, actions, and transitions.
 --
 -- You can work with pipelines by calling:
 --
@@ -43,9 +43,23 @@
 --
 --
 --
--- Pipelines include /stages/ , which are logical groupings of gates and actions. Each stage contains one or more actions that must complete before the next stage begins. A stage will result in success or failure. If a stage fails, then the pipeline stops at that stage and will remain stopped until either a new version of an artifact appears in the source location, or a user takes action to re-run the most recent artifact through the pipeline. You can call 'GetPipelineState' , which displays the status of a pipeline, including the status of stages in the pipeline, or 'GetPipeline' , which returns the entire structure of the pipeline, including the stages of that pipeline. For more information about the structure of stages and actions, also refer to the <http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html AWS CodePipeline Pipeline Structure Reference> .
+-- Pipelines include /stages/ . Each stage contains one or more actions that must complete before the next stage begins. A stage will result in success or failure. If a stage fails, then the pipeline stops at that stage and will remain stopped until either a new version of an artifact appears in the source location, or a user takes action to re-run the most recent artifact through the pipeline. You can call 'GetPipelineState' , which displays the status of a pipeline, including the status of stages in the pipeline, or 'GetPipeline' , which returns the entire structure of the pipeline, including the stages of that pipeline. For more information about the structure of stages and actions, also refer to the <http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html AWS CodePipeline Pipeline Structure Reference> .
 --
--- Pipeline stages include /actions/ , which are categorized into categories such as source or build actions performed within a stage of a pipeline. For example, you can use a source action to import artifacts into a pipeline from a source such as Amazon S3. Like stages, you do not work with actions directly in most cases, but you do define and interact with actions when working with pipeline operations such as 'CreatePipeline' and 'GetPipelineState' .
+-- Pipeline stages include /actions/ , which are categorized into categories such as source or build actions performed within a stage of a pipeline. For example, you can use a source action to import artifacts into a pipeline from a source such as Amazon S3. Like stages, you do not work with actions directly in most cases, but you do define and interact with actions when working with pipeline operations such as 'CreatePipeline' and 'GetPipelineState' . Valid action categories are:
+--
+--     * Source
+--
+--     * Build
+--
+--     * Test
+--
+--     * Deploy
+--
+--     * Approval
+--
+--     * Invoke
+--
+--
 --
 -- Pipelines also include /transitions/ , which allow the transition of artifacts from one stage to the next in a pipeline after the actions in one stage complete.
 --
@@ -134,6 +148,12 @@ module Network.AWS.CodePipeline
     -- ** PipelineExecutionNotFoundException
     , _PipelineExecutionNotFoundException
 
+    -- ** InvalidWebhookAuthenticationParametersException
+    , _InvalidWebhookAuthenticationParametersException
+
+    -- ** WebhookNotFoundException
+    , _WebhookNotFoundException
+
     -- ** ActionTypeNotFoundException
     , _ActionTypeNotFoundException
 
@@ -142,6 +162,9 @@ module Network.AWS.CodePipeline
 
     -- ** InvalidStageDeclarationException
     , _InvalidStageDeclarationException
+
+    -- ** InvalidWebhookFilterPatternException
+    , _InvalidWebhookFilterPatternException
 
     -- ** InvalidActionDeclarationException
     , _InvalidActionDeclarationException
@@ -191,6 +214,9 @@ module Network.AWS.CodePipeline
     -- ** PutThirdPartyJobFailureResult
     , module Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
 
+    -- ** RegisterWebhookWithThirdParty
+    , module Network.AWS.CodePipeline.RegisterWebhookWithThirdParty
+
     -- ** PollForThirdPartyJobs
     , module Network.AWS.CodePipeline.PollForThirdPartyJobs
 
@@ -224,6 +250,9 @@ module Network.AWS.CodePipeline
     -- ** PutJobSuccessResult
     , module Network.AWS.CodePipeline.PutJobSuccessResult
 
+    -- ** DeregisterWebhookWithThirdParty
+    , module Network.AWS.CodePipeline.DeregisterWebhookWithThirdParty
+
     -- ** DeleteCustomActionType
     , module Network.AWS.CodePipeline.DeleteCustomActionType
 
@@ -241,6 +270,15 @@ module Network.AWS.CodePipeline
 
     -- ** EnableStageTransition
     , module Network.AWS.CodePipeline.EnableStageTransition
+
+    -- ** DeleteWebhook
+    , module Network.AWS.CodePipeline.DeleteWebhook
+
+    -- ** PutWebhook
+    , module Network.AWS.CodePipeline.PutWebhook
+
+    -- ** ListWebhooks
+    , module Network.AWS.CodePipeline.ListWebhooks
 
     -- ** CreatePipeline
     , module Network.AWS.CodePipeline.CreatePipeline
@@ -303,6 +341,9 @@ module Network.AWS.CodePipeline
 
     -- ** StageTransitionType
     , StageTransitionType (..)
+
+    -- ** WebhookAuthenticationType
+    , WebhookAuthenticationType (..)
 
     -- ** AWSSessionCredentials
     , AWSSessionCredentials
@@ -511,6 +552,16 @@ module Network.AWS.CodePipeline
     , jdAccountId
     , jdId
 
+    -- ** ListWebhookItem
+    , ListWebhookItem
+    , listWebhookItem
+    , lwiArn
+    , lwiErrorCode
+    , lwiLastTriggered
+    , lwiErrorMessage
+    , lwiDefinition
+    , lwiUrl
+
     -- ** OutputArtifact
     , OutputArtifact
     , outputArtifact
@@ -547,6 +598,7 @@ module Network.AWS.CodePipeline
     , pesStatus
     , pesStartTime
     , pesPipelineExecutionId
+    , pesSourceRevisions
     , pesLastUpdateTime
 
     -- ** PipelineMetadata
@@ -569,6 +621,14 @@ module Network.AWS.CodePipeline
     , s3ArtifactLocation
     , salBucketName
     , salObjectKey
+
+    -- ** SourceRevision
+    , SourceRevision
+    , sourceRevision
+    , srRevisionSummary
+    , srRevisionURL
+    , srRevisionId
+    , srActionName
 
     -- ** StageContext
     , StageContext
@@ -628,6 +688,28 @@ module Network.AWS.CodePipeline
     , tsDisabledReason
     , tsLastChangedAt
     , tsLastChangedBy
+
+    -- ** WebhookAuthConfiguration
+    , WebhookAuthConfiguration
+    , webhookAuthConfiguration
+    , wacAllowedIPRange
+    , wacSecretToken
+
+    -- ** WebhookDefinition
+    , WebhookDefinition
+    , webhookDefinition
+    , wdName
+    , wdTargetPipeline
+    , wdTargetAction
+    , wdFilters
+    , wdAuthentication
+    , wdAuthenticationConfiguration
+
+    -- ** WebhookFilterRule
+    , WebhookFilterRule
+    , webhookFilterRule
+    , wfrMatchEquals
+    , wfrJsonPath
     ) where
 
 import Network.AWS.CodePipeline.AcknowledgeJob
@@ -636,6 +718,8 @@ import Network.AWS.CodePipeline.CreateCustomActionType
 import Network.AWS.CodePipeline.CreatePipeline
 import Network.AWS.CodePipeline.DeleteCustomActionType
 import Network.AWS.CodePipeline.DeletePipeline
+import Network.AWS.CodePipeline.DeleteWebhook
+import Network.AWS.CodePipeline.DeregisterWebhookWithThirdParty
 import Network.AWS.CodePipeline.DisableStageTransition
 import Network.AWS.CodePipeline.EnableStageTransition
 import Network.AWS.CodePipeline.GetJobDetails
@@ -646,6 +730,7 @@ import Network.AWS.CodePipeline.GetThirdPartyJobDetails
 import Network.AWS.CodePipeline.ListActionTypes
 import Network.AWS.CodePipeline.ListPipelineExecutions
 import Network.AWS.CodePipeline.ListPipelines
+import Network.AWS.CodePipeline.ListWebhooks
 import Network.AWS.CodePipeline.PollForJobs
 import Network.AWS.CodePipeline.PollForThirdPartyJobs
 import Network.AWS.CodePipeline.PutActionRevision
@@ -654,6 +739,8 @@ import Network.AWS.CodePipeline.PutJobFailureResult
 import Network.AWS.CodePipeline.PutJobSuccessResult
 import Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
 import Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
+import Network.AWS.CodePipeline.PutWebhook
+import Network.AWS.CodePipeline.RegisterWebhookWithThirdParty
 import Network.AWS.CodePipeline.RetryStageExecution
 import Network.AWS.CodePipeline.StartPipelineExecution
 import Network.AWS.CodePipeline.Types

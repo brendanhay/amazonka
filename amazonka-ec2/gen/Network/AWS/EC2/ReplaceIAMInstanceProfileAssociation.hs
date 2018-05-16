@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceIAMInstanceProfileAssociation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,18 +67,18 @@ replaceIAMInstanceProfileAssociation
     -> ReplaceIAMInstanceProfileAssociation
 replaceIAMInstanceProfileAssociation pIAMInstanceProfile_ pAssociationId_ =
   ReplaceIAMInstanceProfileAssociation'
-  { _riapaIAMInstanceProfile = pIAMInstanceProfile_
-  , _riapaAssociationId = pAssociationId_
-  }
+    { _riapaIAMInstanceProfile = pIAMInstanceProfile_
+    , _riapaAssociationId = pAssociationId_
+    }
 
 
 -- | The IAM instance profile.
 riapaIAMInstanceProfile :: Lens' ReplaceIAMInstanceProfileAssociation IAMInstanceProfileSpecification
-riapaIAMInstanceProfile = lens _riapaIAMInstanceProfile (\ s a -> s{_riapaIAMInstanceProfile = a});
+riapaIAMInstanceProfile = lens _riapaIAMInstanceProfile (\ s a -> s{_riapaIAMInstanceProfile = a})
 
 -- | The ID of the existing IAM instance profile association.
 riapaAssociationId :: Lens' ReplaceIAMInstanceProfileAssociation Text
-riapaAssociationId = lens _riapaAssociationId (\ s a -> s{_riapaAssociationId = a});
+riapaAssociationId = lens _riapaAssociationId (\ s a -> s{_riapaAssociationId = a})
 
 instance AWSRequest
            ReplaceIAMInstanceProfileAssociation
@@ -139,18 +139,18 @@ replaceIAMInstanceProfileAssociationResponse
     -> ReplaceIAMInstanceProfileAssociationResponse
 replaceIAMInstanceProfileAssociationResponse pResponseStatus_ =
   ReplaceIAMInstanceProfileAssociationResponse'
-  { _riaparsIAMInstanceProfileAssociation = Nothing
-  , _riaparsResponseStatus = pResponseStatus_
-  }
+    { _riaparsIAMInstanceProfileAssociation = Nothing
+    , _riaparsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the IAM instance profile association.
 riaparsIAMInstanceProfileAssociation :: Lens' ReplaceIAMInstanceProfileAssociationResponse (Maybe IAMInstanceProfileAssociation)
-riaparsIAMInstanceProfileAssociation = lens _riaparsIAMInstanceProfileAssociation (\ s a -> s{_riaparsIAMInstanceProfileAssociation = a});
+riaparsIAMInstanceProfileAssociation = lens _riaparsIAMInstanceProfileAssociation (\ s a -> s{_riaparsIAMInstanceProfileAssociation = a})
 
 -- | -- | The response status code.
 riaparsResponseStatus :: Lens' ReplaceIAMInstanceProfileAssociationResponse Int
-riaparsResponseStatus = lens _riaparsResponseStatus (\ s a -> s{_riaparsResponseStatus = a});
+riaparsResponseStatus = lens _riaparsResponseStatus (\ s a -> s{_riaparsResponseStatus = a})
 
 instance NFData
            ReplaceIAMInstanceProfileAssociationResponse

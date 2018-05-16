@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteDevicePool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ deleteDevicePool pArn_ = DeleteDevicePool' {_ddpArn = pArn_}
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm device pool you wish to delete.
 ddpArn :: Lens' DeleteDevicePool Text
-ddpArn = lens _ddpArn (\ s a -> s{_ddpArn = a});
+ddpArn = lens _ddpArn (\ s a -> s{_ddpArn = a})
 
 instance AWSRequest DeleteDevicePool where
         type Rs DeleteDevicePool = DeleteDevicePoolResponse
@@ -124,6 +124,6 @@ deleteDevicePoolResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ddprsResponseStatus :: Lens' DeleteDevicePoolResponse Int
-ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});
+ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a})
 
 instance NFData DeleteDevicePoolResponse where

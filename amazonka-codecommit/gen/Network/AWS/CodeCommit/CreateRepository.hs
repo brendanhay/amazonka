@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.CreateRepository
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ createRepository
     -> CreateRepository
 createRepository pRepositoryName_ =
   CreateRepository'
-  {_crRepositoryDescription = Nothing, _crRepositoryName = pRepositoryName_}
+    {_crRepositoryDescription = Nothing, _crRepositoryName = pRepositoryName_}
 
 
 -- | A comment or description about the new repository.
 crRepositoryDescription :: Lens' CreateRepository (Maybe Text)
-crRepositoryDescription = lens _crRepositoryDescription (\ s a -> s{_crRepositoryDescription = a});
+crRepositoryDescription = lens _crRepositoryDescription (\ s a -> s{_crRepositoryDescription = a})
 
 -- | The name of the new repository to be created.
 crRepositoryName :: Lens' CreateRepository Text
-crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a});
+crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a})
 
 instance AWSRequest CreateRepository where
         type Rs CreateRepository = CreateRepositoryResponse
@@ -139,15 +139,15 @@ createRepositoryResponse
     -> CreateRepositoryResponse
 createRepositoryResponse pResponseStatus_ =
   CreateRepositoryResponse'
-  {_crrsRepositoryMetadata = Nothing, _crrsResponseStatus = pResponseStatus_}
+    {_crrsRepositoryMetadata = Nothing, _crrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the newly created repository.
 crrsRepositoryMetadata :: Lens' CreateRepositoryResponse (Maybe RepositoryMetadata)
-crrsRepositoryMetadata = lens _crrsRepositoryMetadata (\ s a -> s{_crrsRepositoryMetadata = a});
+crrsRepositoryMetadata = lens _crrsRepositoryMetadata (\ s a -> s{_crrsRepositoryMetadata = a})
 
 -- | -- | The response status code.
 crrsResponseStatus :: Lens' CreateRepositoryResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
+crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a})
 
 instance NFData CreateRepositoryResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.DeleteSqlInjectionMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,18 +81,18 @@ deleteSqlInjectionMatchSet
     -> DeleteSqlInjectionMatchSet
 deleteSqlInjectionMatchSet pSqlInjectionMatchSetId_ pChangeToken_ =
   DeleteSqlInjectionMatchSet'
-  { _dsimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
-  , _dsimsChangeToken = pChangeToken_
-  }
+    { _dsimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
+    , _dsimsChangeToken = pChangeToken_
+    }
 
 
 -- | The @SqlInjectionMatchSetId@ of the 'SqlInjectionMatchSet' that you want to delete. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 dsimsSqlInjectionMatchSetId :: Lens' DeleteSqlInjectionMatchSet Text
-dsimsSqlInjectionMatchSetId = lens _dsimsSqlInjectionMatchSetId (\ s a -> s{_dsimsSqlInjectionMatchSetId = a});
+dsimsSqlInjectionMatchSetId = lens _dsimsSqlInjectionMatchSetId (\ s a -> s{_dsimsSqlInjectionMatchSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 dsimsChangeToken :: Lens' DeleteSqlInjectionMatchSet Text
-dsimsChangeToken = lens _dsimsChangeToken (\ s a -> s{_dsimsChangeToken = a});
+dsimsChangeToken = lens _dsimsChangeToken (\ s a -> s{_dsimsChangeToken = a})
 
 instance AWSRequest DeleteSqlInjectionMatchSet where
         type Rs DeleteSqlInjectionMatchSet =
@@ -156,16 +156,16 @@ deleteSqlInjectionMatchSetResponse
     -> DeleteSqlInjectionMatchSetResponse
 deleteSqlInjectionMatchSetResponse pResponseStatus_ =
   DeleteSqlInjectionMatchSetResponse'
-  {_dsimsrsChangeToken = Nothing, _dsimsrsResponseStatus = pResponseStatus_}
+    {_dsimsrsChangeToken = Nothing, _dsimsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @DeleteSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dsimsrsChangeToken :: Lens' DeleteSqlInjectionMatchSetResponse (Maybe Text)
-dsimsrsChangeToken = lens _dsimsrsChangeToken (\ s a -> s{_dsimsrsChangeToken = a});
+dsimsrsChangeToken = lens _dsimsrsChangeToken (\ s a -> s{_dsimsrsChangeToken = a})
 
 -- | -- | The response status code.
 dsimsrsResponseStatus :: Lens' DeleteSqlInjectionMatchSetResponse Int
-dsimsrsResponseStatus = lens _dsimsrsResponseStatus (\ s a -> s{_dsimsrsResponseStatus = a});
+dsimsrsResponseStatus = lens _dsimsrsResponseStatus (\ s a -> s{_dsimsrsResponseStatus = a})
 
 instance NFData DeleteSqlInjectionMatchSetResponse
          where

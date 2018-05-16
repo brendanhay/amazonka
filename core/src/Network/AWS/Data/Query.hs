@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP                 #-}
 {-# LANGUAGE DefaultSignatures   #-}
 {-# LANGUAGE DeriveDataTypeable  #-}
 {-# LANGUAGE FlexibleContexts    #-}
@@ -11,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.Query
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -26,7 +27,8 @@ import qualified Data.ByteString.Lazy        as LBS
 import           Data.Data
 import           Data.List                   (sort)
 import           Data.Maybe                  (fromMaybe)
-import           Data.Monoid
+import           Data.Monoid                 (Monoid)
+import           Data.Semigroup              (Semigroup, (<>))
 import           Data.String
 import qualified Data.Text.Encoding          as Text
 import           GHC.Exts
@@ -41,14 +43,16 @@ data QueryString
     | QValue (Maybe ByteString)
       deriving (Eq, Show, Data, Typeable)
 
+instance Semigroup QueryString where
+  a <> b = case (a, b) of
+    (QList l, QList r) -> QList (l ++ r)
+    (QList l, r)       -> QList (r : l)
+    (l,       QList r) -> QList (l : r)
+    (l,       r)       -> QList [l, r]
+
 instance Monoid QueryString where
     mempty = QList []
-
-    mappend a b = case (a, b) of
-        (QList l, QList r) -> QList (l ++ r)
-        (QList l, r)       -> QList (r : l)
-        (l,       QList r) -> QList (l : r)
-        (l,       r)       -> QList [l, r]
+    mappend = (<>)
 
 instance IsString QueryString where
     fromString = parseQueryString . fromString
@@ -70,7 +74,16 @@ parseQueryString bs
         case x of
             ""  -> QValue Nothing
             "=" -> QValue Nothing
-            _   -> QValue (Just (fromMaybe x (BS8.stripPrefix "=" x)))
+            _   -> QValue (Just (fromMaybe x (stripPrefix "=" x)))
+
+stripPrefix :: ByteString -> ByteString -> Maybe ByteString
+#if MIN_VERSION_bytestring(0,10,8)
+stripPrefix = BS8.stripPrefix
+#else
+stripPrefix bs1 bs2
+   | bs1 `BS8.isPrefixOf` bs2 = Just (BS8.drop (BS8.length bs1) bs2)
+   | otherwise = Nothing
+#endif
 
 -- FIXME: use Builder
 instance ToByteString QueryString where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SMS.DisassociateConnector
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ disassociateConnector pConnectorId_ =
 
 -- | Undocumented member.
 dcConnectorId :: Lens' DisassociateConnector Text
-dcConnectorId = lens _dcConnectorId (\ s a -> s{_dcConnectorId = a});
+dcConnectorId = lens _dcConnectorId (\ s a -> s{_dcConnectorId = a})
 
 instance AWSRequest DisassociateConnector where
         type Rs DisassociateConnector =
@@ -118,6 +118,6 @@ disassociateConnectorResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DisassociateConnectorResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DisassociateConnectorResponse where

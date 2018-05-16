@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ describeElasticsearchInstanceTypeLimits
     -> DescribeElasticsearchInstanceTypeLimits
 describeElasticsearchInstanceTypeLimits pInstanceType_ pElasticsearchVersion_ =
   DescribeElasticsearchInstanceTypeLimits'
-  { _deitlDomainName = Nothing
-  , _deitlInstanceType = pInstanceType_
-  , _deitlElasticsearchVersion = pElasticsearchVersion_
-  }
+    { _deitlDomainName = Nothing
+    , _deitlInstanceType = pInstanceType_
+    , _deitlElasticsearchVersion = pElasticsearchVersion_
+    }
 
 
 -- | DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch @'Limits' @ for existing domain.
 deitlDomainName :: Lens' DescribeElasticsearchInstanceTypeLimits (Maybe Text)
-deitlDomainName = lens _deitlDomainName (\ s a -> s{_deitlDomainName = a});
+deitlDomainName = lens _deitlDomainName (\ s a -> s{_deitlDomainName = a})
 
 -- | The instance type for an Elasticsearch cluster for which Elasticsearch @'Limits' @ are needed.
 deitlInstanceType :: Lens' DescribeElasticsearchInstanceTypeLimits ESPartitionInstanceType
-deitlInstanceType = lens _deitlInstanceType (\ s a -> s{_deitlInstanceType = a});
+deitlInstanceType = lens _deitlInstanceType (\ s a -> s{_deitlInstanceType = a})
 
 -- | Version of Elasticsearch for which @'Limits' @ are needed.
 deitlElasticsearchVersion :: Lens' DescribeElasticsearchInstanceTypeLimits Text
-deitlElasticsearchVersion = lens _deitlElasticsearchVersion (\ s a -> s{_deitlElasticsearchVersion = a});
+deitlElasticsearchVersion = lens _deitlElasticsearchVersion (\ s a -> s{_deitlElasticsearchVersion = a})
 
 instance AWSRequest
            DescribeElasticsearchInstanceTypeLimits
@@ -155,16 +155,16 @@ describeElasticsearchInstanceTypeLimitsResponse
     -> DescribeElasticsearchInstanceTypeLimitsResponse
 describeElasticsearchInstanceTypeLimitsResponse pResponseStatus_ =
   DescribeElasticsearchInstanceTypeLimitsResponse'
-  {_deitlrsLimitsByRole = Nothing, _deitlrsResponseStatus = pResponseStatus_}
+    {_deitlrsLimitsByRole = Nothing, _deitlrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 deitlrsLimitsByRole :: Lens' DescribeElasticsearchInstanceTypeLimitsResponse (HashMap Text Limits)
-deitlrsLimitsByRole = lens _deitlrsLimitsByRole (\ s a -> s{_deitlrsLimitsByRole = a}) . _Default . _Map;
+deitlrsLimitsByRole = lens _deitlrsLimitsByRole (\ s a -> s{_deitlrsLimitsByRole = a}) . _Default . _Map
 
 -- | -- | The response status code.
 deitlrsResponseStatus :: Lens' DescribeElasticsearchInstanceTypeLimitsResponse Int
-deitlrsResponseStatus = lens _deitlrsResponseStatus (\ s a -> s{_deitlrsResponseStatus = a});
+deitlrsResponseStatus = lens _deitlrsResponseStatus (\ s a -> s{_deitlrsResponseStatus = a})
 
 instance NFData
            DescribeElasticsearchInstanceTypeLimitsResponse

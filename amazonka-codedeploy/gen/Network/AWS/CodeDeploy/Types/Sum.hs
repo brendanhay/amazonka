@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,24 +83,30 @@ instance FromJSON AutoRollbackEvent where
     parseJSON = parseJSONText "AutoRollbackEvent"
 
 data BundleType
-  = TAR
+  = JSON
+  | TAR
   | TGZ
+  | Yaml
   | Zip
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText BundleType where
     parser = takeLowerText >>= \case
+        "json" -> pure JSON
         "tar" -> pure TAR
         "tgz" -> pure TGZ
+        "yaml" -> pure Yaml
         "zip" -> pure Zip
         e -> fromTextError $ "Failure parsing BundleType from value: '" <> e
-           <> "'. Accepted values: tar, tgz, zip"
+           <> "'. Accepted values: json, tar, tgz, yaml, zip"
 
 instance ToText BundleType where
     toText = \case
+        JSON -> "JSON"
         TAR -> "tar"
         TGZ -> "tgz"
+        Yaml -> "YAML"
         Zip -> "zip"
 
 instance Hashable     BundleType
@@ -115,6 +121,36 @@ instance ToJSON BundleType where
 instance FromJSON BundleType where
     parseJSON = parseJSONText "BundleType"
 
+data ComputePlatform
+  = Lambda
+  | Server
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ComputePlatform where
+    parser = takeLowerText >>= \case
+        "lambda" -> pure Lambda
+        "server" -> pure Server
+        e -> fromTextError $ "Failure parsing ComputePlatform from value: '" <> e
+           <> "'. Accepted values: lambda, server"
+
+instance ToText ComputePlatform where
+    toText = \case
+        Lambda -> "Lambda"
+        Server -> "Server"
+
+instance Hashable     ComputePlatform
+instance NFData       ComputePlatform
+instance ToByteString ComputePlatform
+instance ToQuery      ComputePlatform
+instance ToHeader     ComputePlatform
+
+instance ToJSON ComputePlatform where
+    toJSON = toJSONText
+
+instance FromJSON ComputePlatform where
+    parseJSON = parseJSONText "ComputePlatform"
+
 data DeployErrorCode
   = AgentIssue
   | AlarmActive
@@ -122,12 +158,20 @@ data DeployErrorCode
   | AutoScalingConfiguration
   | AutoScalingIAMRolePermissions
   | DeploymentGroupMissing
+  | ElasticLoadBalancingInvalid
+  | ElbInvalidInstance
   | HealthConstraints
   | HealthConstraintsInvalid
+  | HookExecutionFailure
   | IAMRoleMissing
   | IAMRolePermissions
   | InternalError
+  | InvalidLambdaConfiguration
+  | InvalidLambdaFunction
   | ManualStop
+  | MissingBlueGreenDeploymentConfiguration
+  | MissingElbInformation
+  | MissingGithubToken
   | NoEC2Subscription
   | NoInstances
   | OverMaxInstances
@@ -145,12 +189,20 @@ instance FromText DeployErrorCode where
         "auto_scaling_configuration" -> pure AutoScalingConfiguration
         "auto_scaling_iam_role_permissions" -> pure AutoScalingIAMRolePermissions
         "deployment_group_missing" -> pure DeploymentGroupMissing
+        "elastic_load_balancing_invalid" -> pure ElasticLoadBalancingInvalid
+        "elb_invalid_instance" -> pure ElbInvalidInstance
         "health_constraints" -> pure HealthConstraints
         "health_constraints_invalid" -> pure HealthConstraintsInvalid
+        "hook_execution_failure" -> pure HookExecutionFailure
         "iam_role_missing" -> pure IAMRoleMissing
         "iam_role_permissions" -> pure IAMRolePermissions
         "internal_error" -> pure InternalError
+        "invalid_lambda_configuration" -> pure InvalidLambdaConfiguration
+        "invalid_lambda_function" -> pure InvalidLambdaFunction
         "manual_stop" -> pure ManualStop
+        "missing_blue_green_deployment_configuration" -> pure MissingBlueGreenDeploymentConfiguration
+        "missing_elb_information" -> pure MissingElbInformation
+        "missing_github_token" -> pure MissingGithubToken
         "no_ec2_subscription" -> pure NoEC2Subscription
         "no_instances" -> pure NoInstances
         "over_max_instances" -> pure OverMaxInstances
@@ -158,7 +210,7 @@ instance FromText DeployErrorCode where
         "throttled" -> pure Throttled
         "timeout" -> pure Timeout
         e -> fromTextError $ "Failure parsing DeployErrorCode from value: '" <> e
-           <> "'. Accepted values: agent_issue, alarm_active, application_missing, auto_scaling_configuration, auto_scaling_iam_role_permissions, deployment_group_missing, health_constraints, health_constraints_invalid, iam_role_missing, iam_role_permissions, internal_error, manual_stop, no_ec2_subscription, no_instances, over_max_instances, revision_missing, throttled, timeout"
+           <> "'. Accepted values: agent_issue, alarm_active, application_missing, auto_scaling_configuration, auto_scaling_iam_role_permissions, deployment_group_missing, elastic_load_balancing_invalid, elb_invalid_instance, health_constraints, health_constraints_invalid, hook_execution_failure, iam_role_missing, iam_role_permissions, internal_error, invalid_lambda_configuration, invalid_lambda_function, manual_stop, missing_blue_green_deployment_configuration, missing_elb_information, missing_github_token, no_ec2_subscription, no_instances, over_max_instances, revision_missing, throttled, timeout"
 
 instance ToText DeployErrorCode where
     toText = \case
@@ -168,12 +220,20 @@ instance ToText DeployErrorCode where
         AutoScalingConfiguration -> "AUTO_SCALING_CONFIGURATION"
         AutoScalingIAMRolePermissions -> "AUTO_SCALING_IAM_ROLE_PERMISSIONS"
         DeploymentGroupMissing -> "DEPLOYMENT_GROUP_MISSING"
+        ElasticLoadBalancingInvalid -> "ELASTIC_LOAD_BALANCING_INVALID"
+        ElbInvalidInstance -> "ELB_INVALID_INSTANCE"
         HealthConstraints -> "HEALTH_CONSTRAINTS"
         HealthConstraintsInvalid -> "HEALTH_CONSTRAINTS_INVALID"
+        HookExecutionFailure -> "HOOK_EXECUTION_FAILURE"
         IAMRoleMissing -> "IAM_ROLE_MISSING"
         IAMRolePermissions -> "IAM_ROLE_PERMISSIONS"
         InternalError -> "INTERNAL_ERROR"
+        InvalidLambdaConfiguration -> "INVALID_LAMBDA_CONFIGURATION"
+        InvalidLambdaFunction -> "INVALID_LAMBDA_FUNCTION"
         ManualStop -> "MANUAL_STOP"
+        MissingBlueGreenDeploymentConfiguration -> "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION"
+        MissingElbInformation -> "MISSING_ELB_INFORMATION"
+        MissingGithubToken -> "MISSING_GITHUB_TOKEN"
         NoEC2Subscription -> "NO_EC2_SUBSCRIPTION"
         NoInstances -> "NO_INSTANCES"
         OverMaxInstances -> "OVER_MAX_INSTANCES"
@@ -631,6 +691,9 @@ instance ToByteString LifecycleEventStatus
 instance ToQuery      LifecycleEventStatus
 instance ToHeader     LifecycleEventStatus
 
+instance ToJSON LifecycleEventStatus where
+    toJSON = toJSONText
+
 instance FromJSON LifecycleEventStatus where
     parseJSON = parseJSONText "LifecycleEventStatus"
 
@@ -724,6 +787,7 @@ instance ToJSON RegistrationStatus where
 data RevisionLocationType
   = GitHub
   | S3
+  | String
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -731,13 +795,15 @@ instance FromText RevisionLocationType where
     parser = takeLowerText >>= \case
         "github" -> pure GitHub
         "s3" -> pure S3
+        "string" -> pure String
         e -> fromTextError $ "Failure parsing RevisionLocationType from value: '" <> e
-           <> "'. Accepted values: github, s3"
+           <> "'. Accepted values: github, s3, string"
 
 instance ToText RevisionLocationType where
     toText = \case
         GitHub -> "GitHub"
         S3 -> "S3"
+        String -> "String"
 
 instance Hashable     RevisionLocationType
 instance NFData       RevisionLocationType
@@ -837,6 +903,39 @@ instance ToJSON TagFilterType where
 
 instance FromJSON TagFilterType where
     parseJSON = parseJSONText "TagFilterType"
+
+data TrafficRoutingType
+  = AllAtOnce
+  | TimeBasedCanary
+  | TimeBasedLinear
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TrafficRoutingType where
+    parser = takeLowerText >>= \case
+        "allatonce" -> pure AllAtOnce
+        "timebasedcanary" -> pure TimeBasedCanary
+        "timebasedlinear" -> pure TimeBasedLinear
+        e -> fromTextError $ "Failure parsing TrafficRoutingType from value: '" <> e
+           <> "'. Accepted values: allatonce, timebasedcanary, timebasedlinear"
+
+instance ToText TrafficRoutingType where
+    toText = \case
+        AllAtOnce -> "AllAtOnce"
+        TimeBasedCanary -> "TimeBasedCanary"
+        TimeBasedLinear -> "TimeBasedLinear"
+
+instance Hashable     TrafficRoutingType
+instance NFData       TrafficRoutingType
+instance ToByteString TrafficRoutingType
+instance ToQuery      TrafficRoutingType
+instance ToHeader     TrafficRoutingType
+
+instance ToJSON TrafficRoutingType where
+    toJSON = toJSONText
+
+instance FromJSON TrafficRoutingType where
+    parseJSON = parseJSONText "TrafficRoutingType"
 
 data TriggerEventType
   = DeploymentFailure

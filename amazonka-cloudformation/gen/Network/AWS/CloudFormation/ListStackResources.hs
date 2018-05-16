@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListStackResources
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,11 +78,11 @@ listStackResources pStackName_ =
 
 -- | A string that identifies the next page of stack resources that you want to retrieve.
 lsrNextToken :: Lens' ListStackResources (Maybe Text)
-lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
+lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a})
 
 -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 lsrStackName :: Lens' ListStackResources Text
-lsrStackName = lens _lsrStackName (\ s a -> s{_lsrStackName = a});
+lsrStackName = lens _lsrStackName (\ s a -> s{_lsrStackName = a})
 
 instance AWSPager ListStackResources where
         page rq rs
@@ -148,22 +148,22 @@ listStackResourcesResponse
     -> ListStackResourcesResponse
 listStackResourcesResponse pResponseStatus_ =
   ListStackResourcesResponse'
-  { _lsrrsNextToken = Nothing
-  , _lsrrsStackResourceSummaries = Nothing
-  , _lsrrsResponseStatus = pResponseStatus_
-  }
+    { _lsrrsNextToken = Nothing
+    , _lsrrsStackResourceSummaries = Nothing
+    , _lsrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the output exceeds 1 MB, a string that identifies the next page of stack resources. If no additional page exists, this value is null.
 lsrrsNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
-lsrrsNextToken = lens _lsrrsNextToken (\ s a -> s{_lsrrsNextToken = a});
+lsrrsNextToken = lens _lsrrsNextToken (\ s a -> s{_lsrrsNextToken = a})
 
 -- | A list of @StackResourceSummary@ structures.
 lsrrsStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
-lsrrsStackResourceSummaries = lens _lsrrsStackResourceSummaries (\ s a -> s{_lsrrsStackResourceSummaries = a}) . _Default . _Coerce;
+lsrrsStackResourceSummaries = lens _lsrrsStackResourceSummaries (\ s a -> s{_lsrrsStackResourceSummaries = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lsrrsResponseStatus :: Lens' ListStackResourcesResponse Int
-lsrrsResponseStatus = lens _lsrrsResponseStatus (\ s a -> s{_lsrrsResponseStatus = a});
+lsrrsResponseStatus = lens _lsrrsResponseStatus (\ s a -> s{_lsrrsResponseStatus = a})
 
 instance NFData ListStackResourcesResponse where

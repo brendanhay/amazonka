@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,11 +60,11 @@ dataResource = DataResource' {_drValues = Nothing, _drType = Nothing}
 
 -- | A list of ARN-like strings for the specified S3 objects. To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as @arn:aws:s3:::bucket-1/@ . The trail logs data events for all objects in this S3 bucket. To log data events for specific objects, specify the S3 bucket and object prefix such as @arn:aws:s3:::bucket-1/example-images@ . The trail logs data events for objects in this S3 bucket that match the prefix.
 drValues :: Lens' DataResource [Text]
-drValues = lens _drValues (\ s a -> s{_drValues = a}) . _Default . _Coerce;
+drValues = lens _drValues (\ s a -> s{_drValues = a}) . _Default . _Coerce
 
 -- | The resource type in which you want to log data events. You can specify only the following value: @AWS::S3::Object@ .
 drType :: Lens' DataResource (Maybe Text)
-drType = lens _drType (\ s a -> s{_drType = a});
+drType = lens _drType (\ s a -> s{_drType = a})
 
 instance FromJSON DataResource where
         parseJSON
@@ -121,43 +121,43 @@ event
     :: Event
 event =
   Event'
-  { _eUsername = Nothing
-  , _eResources = Nothing
-  , _eEventTime = Nothing
-  , _eCloudTrailEvent = Nothing
-  , _eEventName = Nothing
-  , _eEventSource = Nothing
-  , _eEventId = Nothing
-  }
+    { _eUsername = Nothing
+    , _eResources = Nothing
+    , _eEventTime = Nothing
+    , _eCloudTrailEvent = Nothing
+    , _eEventName = Nothing
+    , _eEventSource = Nothing
+    , _eEventId = Nothing
+    }
 
 
 -- | A user name or role name of the requester that called the API in the event returned.
 eUsername :: Lens' Event (Maybe Text)
-eUsername = lens _eUsername (\ s a -> s{_eUsername = a});
+eUsername = lens _eUsername (\ s a -> s{_eUsername = a})
 
 -- | A list of resources referenced by the event returned.
 eResources :: Lens' Event [Resource]
-eResources = lens _eResources (\ s a -> s{_eResources = a}) . _Default . _Coerce;
+eResources = lens _eResources (\ s a -> s{_eResources = a}) . _Default . _Coerce
 
 -- | The date and time of the event returned.
 eEventTime :: Lens' Event (Maybe UTCTime)
-eEventTime = lens _eEventTime (\ s a -> s{_eEventTime = a}) . mapping _Time;
+eEventTime = lens _eEventTime (\ s a -> s{_eEventTime = a}) . mapping _Time
 
 -- | A JSON string that contains a representation of the event returned.
 eCloudTrailEvent :: Lens' Event (Maybe Text)
-eCloudTrailEvent = lens _eCloudTrailEvent (\ s a -> s{_eCloudTrailEvent = a});
+eCloudTrailEvent = lens _eCloudTrailEvent (\ s a -> s{_eCloudTrailEvent = a})
 
 -- | The name of the event returned.
 eEventName :: Lens' Event (Maybe Text)
-eEventName = lens _eEventName (\ s a -> s{_eEventName = a});
+eEventName = lens _eEventName (\ s a -> s{_eEventName = a})
 
 -- | The AWS service that the request was made to.
 eEventSource :: Lens' Event (Maybe Text)
-eEventSource = lens _eEventSource (\ s a -> s{_eEventSource = a});
+eEventSource = lens _eEventSource (\ s a -> s{_eEventSource = a})
 
 -- | The CloudTrail ID of the event returned.
 eEventId :: Lens' Event (Maybe Text)
-eEventId = lens _eEventId (\ s a -> s{_eEventId = a});
+eEventId = lens _eEventId (\ s a -> s{_eEventId = a})
 
 instance FromJSON Event where
         parseJSON
@@ -202,23 +202,23 @@ eventSelector
     :: EventSelector
 eventSelector =
   EventSelector'
-  { _esDataResources = Nothing
-  , _esReadWriteType = Nothing
-  , _esIncludeManagementEvents = Nothing
-  }
+    { _esDataResources = Nothing
+    , _esReadWriteType = Nothing
+    , _esIncludeManagementEvents = Nothing
+    }
 
 
 -- | CloudTrail supports logging only data events for S3 objects. You can specify up to 250 S3 buckets and object prefixes for a trail. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events Data Events> in the /AWS CloudTrail User Guide/ .
 esDataResources :: Lens' EventSelector [DataResource]
-esDataResources = lens _esDataResources (\ s a -> s{_esDataResources = a}) . _Default . _Coerce;
+esDataResources = lens _esDataResources (\ s a -> s{_esDataResources = a}) . _Default . _Coerce
 
 -- | Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 @GetConsoleOutput@ is a read-only API operation and @RunInstances@ is a write-only API operation. By default, the value is @All@ .
 esReadWriteType :: Lens' EventSelector (Maybe ReadWriteType)
-esReadWriteType = lens _esReadWriteType (\ s a -> s{_esReadWriteType = a});
+esReadWriteType = lens _esReadWriteType (\ s a -> s{_esReadWriteType = a})
 
 -- | Specify if you want your event selector to include management events for your trail. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events Management Events> in the /AWS CloudTrail User Guide/ . By default, the value is @true@ .
 esIncludeManagementEvents :: Lens' EventSelector (Maybe Bool)
-esIncludeManagementEvents = lens _esIncludeManagementEvents (\ s a -> s{_esIncludeManagementEvents = a});
+esIncludeManagementEvents = lens _esIncludeManagementEvents (\ s a -> s{_esIncludeManagementEvents = a})
 
 instance FromJSON EventSelector where
         parseJSON
@@ -266,16 +266,16 @@ lookupAttribute
     -> LookupAttribute
 lookupAttribute pAttributeKey_ pAttributeValue_ =
   LookupAttribute'
-  {_laAttributeKey = pAttributeKey_, _laAttributeValue = pAttributeValue_}
+    {_laAttributeKey = pAttributeKey_, _laAttributeValue = pAttributeValue_}
 
 
 -- | Specifies an attribute on which to filter the events returned.
 laAttributeKey :: Lens' LookupAttribute LookupAttributeKey
-laAttributeKey = lens _laAttributeKey (\ s a -> s{_laAttributeKey = a});
+laAttributeKey = lens _laAttributeKey (\ s a -> s{_laAttributeKey = a})
 
 -- | Specifies a value for the specified AttributeKey.
 laAttributeValue :: Lens' LookupAttribute Text
-laAttributeValue = lens _laAttributeValue (\ s a -> s{_laAttributeValue = a});
+laAttributeValue = lens _laAttributeValue (\ s a -> s{_laAttributeValue = a})
 
 instance Hashable LookupAttribute where
 
@@ -316,28 +316,28 @@ publicKey
     :: PublicKey
 publicKey =
   PublicKey'
-  { _pkFingerprint = Nothing
-  , _pkValidityEndTime = Nothing
-  , _pkValue = Nothing
-  , _pkValidityStartTime = Nothing
-  }
+    { _pkFingerprint = Nothing
+    , _pkValidityEndTime = Nothing
+    , _pkValue = Nothing
+    , _pkValidityStartTime = Nothing
+    }
 
 
 -- | The fingerprint of the public key.
 pkFingerprint :: Lens' PublicKey (Maybe Text)
-pkFingerprint = lens _pkFingerprint (\ s a -> s{_pkFingerprint = a});
+pkFingerprint = lens _pkFingerprint (\ s a -> s{_pkFingerprint = a})
 
 -- | The ending time of validity of the public key.
 pkValidityEndTime :: Lens' PublicKey (Maybe UTCTime)
-pkValidityEndTime = lens _pkValidityEndTime (\ s a -> s{_pkValidityEndTime = a}) . mapping _Time;
+pkValidityEndTime = lens _pkValidityEndTime (\ s a -> s{_pkValidityEndTime = a}) . mapping _Time
 
 -- | The DER encoded public key value in PKCS#1 format.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 pkValue :: Lens' PublicKey (Maybe ByteString)
-pkValue = lens _pkValue (\ s a -> s{_pkValue = a}) . mapping _Base64;
+pkValue = lens _pkValue (\ s a -> s{_pkValue = a}) . mapping _Base64
 
 -- | The starting time of validity of the public key.
 pkValidityStartTime :: Lens' PublicKey (Maybe UTCTime)
-pkValidityStartTime = lens _pkValidityStartTime (\ s a -> s{_pkValidityStartTime = a}) . mapping _Time;
+pkValidityStartTime = lens _pkValidityStartTime (\ s a -> s{_pkValidityStartTime = a}) . mapping _Time
 
 instance FromJSON PublicKey where
         parseJSON
@@ -377,11 +377,11 @@ resource = Resource' {_rResourceType = Nothing, _rResourceName = Nothing}
 
 -- | The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: __Instance__ for EC2, __Trail__ for CloudTrail, __DBInstance__ for RDS, and __AccessKey__ for IAM. For a list of resource types supported for event lookup, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup> .
 rResourceType :: Lens' Resource (Maybe Text)
-rResourceType = lens _rResourceType (\ s a -> s{_rResourceType = a});
+rResourceType = lens _rResourceType (\ s a -> s{_rResourceType = a})
 
 -- | The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.
 rResourceName :: Lens' Resource (Maybe Text)
-rResourceName = lens _rResourceName (\ s a -> s{_rResourceName = a});
+rResourceName = lens _rResourceName (\ s a -> s{_rResourceName = a})
 
 instance FromJSON Resource where
         parseJSON
@@ -419,11 +419,11 @@ resourceTag = ResourceTag' {_rResourceId = Nothing, _rTagsList = Nothing}
 
 -- | Specifies the ARN of the resource.
 rResourceId :: Lens' ResourceTag (Maybe Text)
-rResourceId = lens _rResourceId (\ s a -> s{_rResourceId = a});
+rResourceId = lens _rResourceId (\ s a -> s{_rResourceId = a})
 
 -- | A list of tags.
 rTagsList :: Lens' ResourceTag [Tag]
-rTagsList = lens _rTagsList (\ s a -> s{_rTagsList = a}) . _Default . _Coerce;
+rTagsList = lens _rTagsList (\ s a -> s{_rTagsList = a}) . _Default . _Coerce
 
 instance FromJSON ResourceTag where
         parseJSON
@@ -463,11 +463,11 @@ tag pKey_ = Tag' {_tagValue = Nothing, _tagKey = pKey_}
 
 -- | The value in a key-value pair of a tag. The value must be no longer than 256 Unicode characters.
 tagValue :: Lens' Tag (Maybe Text)
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 -- | The key in a key-value pair. The key must be must be no longer than 128 Unicode characters. The key must be unique for the resource to which it applies.
 tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 instance FromJSON Tag where
         parseJSON
@@ -543,78 +543,78 @@ trail
     :: Trail
 trail =
   Trail'
-  { _tLogFileValidationEnabled = Nothing
-  , _tTrailARN = Nothing
-  , _tS3KeyPrefix = Nothing
-  , _tSNSTopicARN = Nothing
-  , _tSNSTopicName = Nothing
-  , _tCloudWatchLogsLogGroupARN = Nothing
-  , _tKMSKeyId = Nothing
-  , _tHomeRegion = Nothing
-  , _tName = Nothing
-  , _tIncludeGlobalServiceEvents = Nothing
-  , _tHasCustomEventSelectors = Nothing
-  , _tCloudWatchLogsRoleARN = Nothing
-  , _tS3BucketName = Nothing
-  , _tIsMultiRegionTrail = Nothing
-  }
+    { _tLogFileValidationEnabled = Nothing
+    , _tTrailARN = Nothing
+    , _tS3KeyPrefix = Nothing
+    , _tSNSTopicARN = Nothing
+    , _tSNSTopicName = Nothing
+    , _tCloudWatchLogsLogGroupARN = Nothing
+    , _tKMSKeyId = Nothing
+    , _tHomeRegion = Nothing
+    , _tName = Nothing
+    , _tIncludeGlobalServiceEvents = Nothing
+    , _tHasCustomEventSelectors = Nothing
+    , _tCloudWatchLogsRoleARN = Nothing
+    , _tS3BucketName = Nothing
+    , _tIsMultiRegionTrail = Nothing
+    }
 
 
 -- | Specifies whether log file validation is enabled.
 tLogFileValidationEnabled :: Lens' Trail (Maybe Bool)
-tLogFileValidationEnabled = lens _tLogFileValidationEnabled (\ s a -> s{_tLogFileValidationEnabled = a});
+tLogFileValidationEnabled = lens _tLogFileValidationEnabled (\ s a -> s{_tLogFileValidationEnabled = a})
 
 -- | Specifies the ARN of the trail. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 tTrailARN :: Lens' Trail (Maybe Text)
-tTrailARN = lens _tTrailARN (\ s a -> s{_tTrailARN = a});
+tTrailARN = lens _tTrailARN (\ s a -> s{_tTrailARN = a})
 
 -- | Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .The maximum length is 200 characters.
 tS3KeyPrefix :: Lens' Trail (Maybe Text)
-tS3KeyPrefix = lens _tS3KeyPrefix (\ s a -> s{_tS3KeyPrefix = a});
+tS3KeyPrefix = lens _tS3KeyPrefix (\ s a -> s{_tS3KeyPrefix = a})
 
 -- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-1:123456789012:MyTopic@
 tSNSTopicARN :: Lens' Trail (Maybe Text)
-tSNSTopicARN = lens _tSNSTopicARN (\ s a -> s{_tSNSTopicARN = a});
+tSNSTopicARN = lens _tSNSTopicARN (\ s a -> s{_tSNSTopicARN = a})
 
 -- | This field is deprecated. Use SnsTopicARN.
 tSNSTopicName :: Lens' Trail (Maybe Text)
-tSNSTopicName = lens _tSNSTopicName (\ s a -> s{_tSNSTopicName = a});
+tSNSTopicName = lens _tSNSTopicName (\ s a -> s{_tSNSTopicName = a})
 
 -- | Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered.
 tCloudWatchLogsLogGroupARN :: Lens' Trail (Maybe Text)
-tCloudWatchLogsLogGroupARN = lens _tCloudWatchLogsLogGroupARN (\ s a -> s{_tCloudWatchLogsLogGroupARN = a});
+tCloudWatchLogsLogGroupARN = lens _tCloudWatchLogsLogGroupARN (\ s a -> s{_tCloudWatchLogsLogGroupARN = a})
 
 -- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
 tKMSKeyId :: Lens' Trail (Maybe Text)
-tKMSKeyId = lens _tKMSKeyId (\ s a -> s{_tKMSKeyId = a});
+tKMSKeyId = lens _tKMSKeyId (\ s a -> s{_tKMSKeyId = a})
 
 -- | The region in which the trail was created.
 tHomeRegion :: Lens' Trail (Maybe Text)
-tHomeRegion = lens _tHomeRegion (\ s a -> s{_tHomeRegion = a});
+tHomeRegion = lens _tHomeRegion (\ s a -> s{_tHomeRegion = a})
 
 -- | Name of the trail set by calling 'CreateTrail' . The maximum length is 128 characters.
 tName :: Lens' Trail (Maybe Text)
-tName = lens _tName (\ s a -> s{_tName = a});
+tName = lens _tName (\ s a -> s{_tName = a})
 
 -- | Set to __True__ to include AWS API calls from AWS global services such as IAM. Otherwise, __False__ .
 tIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
-tIncludeGlobalServiceEvents = lens _tIncludeGlobalServiceEvents (\ s a -> s{_tIncludeGlobalServiceEvents = a});
+tIncludeGlobalServiceEvents = lens _tIncludeGlobalServiceEvents (\ s a -> s{_tIncludeGlobalServiceEvents = a})
 
 -- | Specifies if the trail has custom event selectors.
 tHasCustomEventSelectors :: Lens' Trail (Maybe Bool)
-tHasCustomEventSelectors = lens _tHasCustomEventSelectors (\ s a -> s{_tHasCustomEventSelectors = a});
+tHasCustomEventSelectors = lens _tHasCustomEventSelectors (\ s a -> s{_tHasCustomEventSelectors = a})
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 tCloudWatchLogsRoleARN :: Lens' Trail (Maybe Text)
-tCloudWatchLogsRoleARN = lens _tCloudWatchLogsRoleARN (\ s a -> s{_tCloudWatchLogsRoleARN = a});
+tCloudWatchLogsRoleARN = lens _tCloudWatchLogsRoleARN (\ s a -> s{_tCloudWatchLogsRoleARN = a})
 
 -- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
 tS3BucketName :: Lens' Trail (Maybe Text)
-tS3BucketName = lens _tS3BucketName (\ s a -> s{_tS3BucketName = a});
+tS3BucketName = lens _tS3BucketName (\ s a -> s{_tS3BucketName = a})
 
 -- | Specifies whether the trail belongs only to one region or exists in all regions.
 tIsMultiRegionTrail :: Lens' Trail (Maybe Bool)
-tIsMultiRegionTrail = lens _tIsMultiRegionTrail (\ s a -> s{_tIsMultiRegionTrail = a});
+tIsMultiRegionTrail = lens _tIsMultiRegionTrail (\ s a -> s{_tIsMultiRegionTrail = a})
 
 instance FromJSON Trail where
         parseJSON

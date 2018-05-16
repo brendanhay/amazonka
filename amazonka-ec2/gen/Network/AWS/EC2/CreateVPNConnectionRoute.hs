@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPNConnectionRoute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,18 +68,18 @@ createVPNConnectionRoute
     -> CreateVPNConnectionRoute
 createVPNConnectionRoute pDestinationCidrBlock_ pVPNConnectionId_ =
   CreateVPNConnectionRoute'
-  { _cvcrDestinationCidrBlock = pDestinationCidrBlock_
-  , _cvcrVPNConnectionId = pVPNConnectionId_
-  }
+    { _cvcrDestinationCidrBlock = pDestinationCidrBlock_
+    , _cvcrVPNConnectionId = pVPNConnectionId_
+    }
 
 
 -- | The CIDR block associated with the local subnet of the customer network.
 cvcrDestinationCidrBlock :: Lens' CreateVPNConnectionRoute Text
-cvcrDestinationCidrBlock = lens _cvcrDestinationCidrBlock (\ s a -> s{_cvcrDestinationCidrBlock = a});
+cvcrDestinationCidrBlock = lens _cvcrDestinationCidrBlock (\ s a -> s{_cvcrDestinationCidrBlock = a})
 
 -- | The ID of the VPN connection.
 cvcrVPNConnectionId :: Lens' CreateVPNConnectionRoute Text
-cvcrVPNConnectionId = lens _cvcrVPNConnectionId (\ s a -> s{_cvcrVPNConnectionId = a});
+cvcrVPNConnectionId = lens _cvcrVPNConnectionId (\ s a -> s{_cvcrVPNConnectionId = a})
 
 instance AWSRequest CreateVPNConnectionRoute where
         type Rs CreateVPNConnectionRoute =

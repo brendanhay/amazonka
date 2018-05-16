@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeChapCredentials
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ describeChapCredentials pTargetARN_ =
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 dccTargetARN :: Lens' DescribeChapCredentials Text
-dccTargetARN = lens _dccTargetARN (\ s a -> s{_dccTargetARN = a});
+dccTargetARN = lens _dccTargetARN (\ s a -> s{_dccTargetARN = a})
 
 instance AWSRequest DescribeChapCredentials where
         type Rs DescribeChapCredentials =
@@ -129,15 +129,15 @@ describeChapCredentialsResponse
     -> DescribeChapCredentialsResponse
 describeChapCredentialsResponse pResponseStatus_ =
   DescribeChapCredentialsResponse'
-  {_dccrsChapCredentials = Nothing, _dccrsResponseStatus = pResponseStatus_}
+    {_dccrsChapCredentials = Nothing, _dccrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in the array contains CHAP credential information for one target-initiator pair. If no CHAP credentials are set, an empty array is returned. CHAP credential information is provided in a JSON object with the following fields:     * __InitiatorName__ : The iSCSI initiator that connects to the target.     * __SecretToAuthenticateInitiator__ : The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.     * __SecretToAuthenticateTarget__ : The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).     * __TargetARN__ : The Amazon Resource Name (ARN) of the storage volume.
 dccrsChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
-dccrsChapCredentials = lens _dccrsChapCredentials (\ s a -> s{_dccrsChapCredentials = a}) . _Default . _Coerce;
+dccrsChapCredentials = lens _dccrsChapCredentials (\ s a -> s{_dccrsChapCredentials = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dccrsResponseStatus :: Lens' DescribeChapCredentialsResponse Int
-dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
+dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a})
 
 instance NFData DescribeChapCredentialsResponse where

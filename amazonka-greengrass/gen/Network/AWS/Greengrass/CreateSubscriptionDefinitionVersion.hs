@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateSubscriptionDefinitionVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,33 +59,33 @@ data CreateSubscriptionDefinitionVersion = CreateSubscriptionDefinitionVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csdvAmznClientToken' - The client token used to request idempotent operations.
+-- * 'csdvAmznClientToken' - A client token used to correlate requests and responses.
 --
--- * 'csdvSubscriptions' - Subscriptions in the version.
+-- * 'csdvSubscriptions' - A list of subscriptions.
 --
--- * 'csdvSubscriptionDefinitionId' - subscription definition Id
+-- * 'csdvSubscriptionDefinitionId' - The ID of the subscription definition.
 createSubscriptionDefinitionVersion
     :: Text -- ^ 'csdvSubscriptionDefinitionId'
     -> CreateSubscriptionDefinitionVersion
 createSubscriptionDefinitionVersion pSubscriptionDefinitionId_ =
   CreateSubscriptionDefinitionVersion'
-  { _csdvAmznClientToken = Nothing
-  , _csdvSubscriptions = Nothing
-  , _csdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
-  }
+    { _csdvAmznClientToken = Nothing
+    , _csdvSubscriptions = Nothing
+    , _csdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
+    }
 
 
--- | The client token used to request idempotent operations.
+-- | A client token used to correlate requests and responses.
 csdvAmznClientToken :: Lens' CreateSubscriptionDefinitionVersion (Maybe Text)
-csdvAmznClientToken = lens _csdvAmznClientToken (\ s a -> s{_csdvAmznClientToken = a});
+csdvAmznClientToken = lens _csdvAmznClientToken (\ s a -> s{_csdvAmznClientToken = a})
 
--- | Subscriptions in the version.
+-- | A list of subscriptions.
 csdvSubscriptions :: Lens' CreateSubscriptionDefinitionVersion [Subscription]
-csdvSubscriptions = lens _csdvSubscriptions (\ s a -> s{_csdvSubscriptions = a}) . _Default . _Coerce;
+csdvSubscriptions = lens _csdvSubscriptions (\ s a -> s{_csdvSubscriptions = a}) . _Default . _Coerce
 
--- | subscription definition Id
+-- | The ID of the subscription definition.
 csdvSubscriptionDefinitionId :: Lens' CreateSubscriptionDefinitionVersion Text
-csdvSubscriptionDefinitionId = lens _csdvSubscriptionDefinitionId (\ s a -> s{_csdvSubscriptionDefinitionId = a});
+csdvSubscriptionDefinitionId = lens _csdvSubscriptionDefinitionId (\ s a -> s{_csdvSubscriptionDefinitionId = a})
 
 instance AWSRequest
            CreateSubscriptionDefinitionVersion
@@ -149,13 +149,13 @@ data CreateSubscriptionDefinitionVersionResponse = CreateSubscriptionDefinitionV
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csdvrsARN' - Arn of the version.
+-- * 'csdvrsARN' - The ARN of the version.
 --
--- * 'csdvrsCreationTimestamp' - Timestamp of when the version was created.
+-- * 'csdvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
 --
--- * 'csdvrsVersion' - Unique Id of a version.
+-- * 'csdvrsVersion' - The unique ID of the version.
 --
--- * 'csdvrsId' - Id of the resource container.
+-- * 'csdvrsId' - The ID of the version.
 --
 -- * 'csdvrsResponseStatus' - -- | The response status code.
 createSubscriptionDefinitionVersionResponse
@@ -163,33 +163,33 @@ createSubscriptionDefinitionVersionResponse
     -> CreateSubscriptionDefinitionVersionResponse
 createSubscriptionDefinitionVersionResponse pResponseStatus_ =
   CreateSubscriptionDefinitionVersionResponse'
-  { _csdvrsARN = Nothing
-  , _csdvrsCreationTimestamp = Nothing
-  , _csdvrsVersion = Nothing
-  , _csdvrsId = Nothing
-  , _csdvrsResponseStatus = pResponseStatus_
-  }
+    { _csdvrsARN = Nothing
+    , _csdvrsCreationTimestamp = Nothing
+    , _csdvrsVersion = Nothing
+    , _csdvrsId = Nothing
+    , _csdvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Arn of the version.
+-- | The ARN of the version.
 csdvrsARN :: Lens' CreateSubscriptionDefinitionVersionResponse (Maybe Text)
-csdvrsARN = lens _csdvrsARN (\ s a -> s{_csdvrsARN = a});
+csdvrsARN = lens _csdvrsARN (\ s a -> s{_csdvrsARN = a})
 
--- | Timestamp of when the version was created.
+-- | The time, in milliseconds since the epoch, when the version was created.
 csdvrsCreationTimestamp :: Lens' CreateSubscriptionDefinitionVersionResponse (Maybe Text)
-csdvrsCreationTimestamp = lens _csdvrsCreationTimestamp (\ s a -> s{_csdvrsCreationTimestamp = a});
+csdvrsCreationTimestamp = lens _csdvrsCreationTimestamp (\ s a -> s{_csdvrsCreationTimestamp = a})
 
--- | Unique Id of a version.
+-- | The unique ID of the version.
 csdvrsVersion :: Lens' CreateSubscriptionDefinitionVersionResponse (Maybe Text)
-csdvrsVersion = lens _csdvrsVersion (\ s a -> s{_csdvrsVersion = a});
+csdvrsVersion = lens _csdvrsVersion (\ s a -> s{_csdvrsVersion = a})
 
--- | Id of the resource container.
+-- | The ID of the version.
 csdvrsId :: Lens' CreateSubscriptionDefinitionVersionResponse (Maybe Text)
-csdvrsId = lens _csdvrsId (\ s a -> s{_csdvrsId = a});
+csdvrsId = lens _csdvrsId (\ s a -> s{_csdvrsId = a})
 
 -- | -- | The response status code.
 csdvrsResponseStatus :: Lens' CreateSubscriptionDefinitionVersionResponse Int
-csdvrsResponseStatus = lens _csdvrsResponseStatus (\ s a -> s{_csdvrsResponseStatus = a});
+csdvrsResponseStatus = lens _csdvrsResponseStatus (\ s a -> s{_csdvrsResponseStatus = a})
 
 instance NFData
            CreateSubscriptionDefinitionVersionResponse

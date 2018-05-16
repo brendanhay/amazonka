@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetMethod
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,6 +37,7 @@ module Network.AWS.APIGateway.GetMethod
     -- * Response Lenses
     , mMethodResponses
     , mHttpMethod
+    , mAuthorizationScopes
     , mRequestValidatorId
     , mRequestModels
     , mRequestParameters
@@ -70,11 +71,11 @@ data GetMethod = GetMethod'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmmRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'gmmRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'gmmResourceId' - The 'Resource' identifier for the 'Method' resource.
+-- * 'gmmResourceId' - [Required] The 'Resource' identifier for the 'Method' resource.
 --
--- * 'gmmHttpMethod' - Specifies the method request's HTTP method type.
+-- * 'gmmHttpMethod' - [Required] Specifies the method request's HTTP method type.
 getMethod
     :: Text -- ^ 'gmmRestAPIId'
     -> Text -- ^ 'gmmResourceId'
@@ -82,23 +83,23 @@ getMethod
     -> GetMethod
 getMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
   GetMethod'
-  { _gmmRestAPIId = pRestAPIId_
-  , _gmmResourceId = pResourceId_
-  , _gmmHttpMethod = pHttpMethod_
-  }
+    { _gmmRestAPIId = pRestAPIId_
+    , _gmmResourceId = pResourceId_
+    , _gmmHttpMethod = pHttpMethod_
+    }
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 gmmRestAPIId :: Lens' GetMethod Text
-gmmRestAPIId = lens _gmmRestAPIId (\ s a -> s{_gmmRestAPIId = a});
+gmmRestAPIId = lens _gmmRestAPIId (\ s a -> s{_gmmRestAPIId = a})
 
--- | The 'Resource' identifier for the 'Method' resource.
+-- | [Required] The 'Resource' identifier for the 'Method' resource.
 gmmResourceId :: Lens' GetMethod Text
-gmmResourceId = lens _gmmResourceId (\ s a -> s{_gmmResourceId = a});
+gmmResourceId = lens _gmmResourceId (\ s a -> s{_gmmResourceId = a})
 
--- | Specifies the method request's HTTP method type.
+-- | [Required] Specifies the method request's HTTP method type.
 gmmHttpMethod :: Lens' GetMethod Text
-gmmHttpMethod = lens _gmmHttpMethod (\ s a -> s{_gmmHttpMethod = a});
+gmmHttpMethod = lens _gmmHttpMethod (\ s a -> s{_gmmHttpMethod = a})
 
 instance AWSRequest GetMethod where
         type Rs GetMethod = Method

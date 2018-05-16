@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -181,24 +181,24 @@ import Network.AWS.Sign.V4
 cloudWatchLogs :: Service
 cloudWatchLogs =
   Service
-  { _svcAbbrev = "CloudWatchLogs"
-  , _svcSigner = v4
-  , _svcPrefix = "logs"
-  , _svcVersion = "2014-03-28"
-  , _svcEndpoint = defaultEndpoint cloudWatchLogs
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "CloudWatchLogs"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "CloudWatchLogs"
+    , _svcSigner = v4
+    , _svcPrefix = "logs"
+    , _svcVersion = "2014-03-28"
+    , _svcEndpoint = defaultEndpoint cloudWatchLogs
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "CloudWatchLogs"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -207,6 +207,8 @@ cloudWatchLogs =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

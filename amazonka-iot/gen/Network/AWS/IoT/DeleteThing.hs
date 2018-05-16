@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteThing
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ module Network.AWS.IoT.DeleteThing
     , deleteThingResponse
     , DeleteThingResponse
     -- * Response Lenses
-    , delrsResponseStatus
+    , ddrsResponseStatus
     ) where
 
 import Network.AWS.IoT.Types
@@ -71,11 +71,11 @@ deleteThing pThingName_ =
 
 -- | The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @DeleteThing@ request is rejected with a @VersionConflictException@ .
 dtExpectedVersion :: Lens' DeleteThing (Maybe Integer)
-dtExpectedVersion = lens _dtExpectedVersion (\ s a -> s{_dtExpectedVersion = a});
+dtExpectedVersion = lens _dtExpectedVersion (\ s a -> s{_dtExpectedVersion = a})
 
 -- | The name of the thing to delete.
 dtThingName :: Lens' DeleteThing Text
-dtThingName = lens _dtThingName (\ s a -> s{_dtThingName = a});
+dtThingName = lens _dtThingName (\ s a -> s{_dtThingName = a})
 
 instance AWSRequest DeleteThing where
         type Rs DeleteThing = DeleteThingResponse
@@ -106,7 +106,7 @@ instance ToQuery DeleteThing where
 --
 -- /See:/ 'deleteThingResponse' smart constructor.
 newtype DeleteThingResponse = DeleteThingResponse'
-  { _delrsResponseStatus :: Int
+  { _ddrsResponseStatus :: Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,16 +114,16 @@ newtype DeleteThingResponse = DeleteThingResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsResponseStatus' - -- | The response status code.
+-- * 'ddrsResponseStatus' - -- | The response status code.
 deleteThingResponse
-    :: Int -- ^ 'delrsResponseStatus'
+    :: Int -- ^ 'ddrsResponseStatus'
     -> DeleteThingResponse
 deleteThingResponse pResponseStatus_ =
-  DeleteThingResponse' {_delrsResponseStatus = pResponseStatus_}
+  DeleteThingResponse' {_ddrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteThingResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+ddrsResponseStatus :: Lens' DeleteThingResponse Int
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 instance NFData DeleteThingResponse where

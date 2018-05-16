@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.SetStackPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ setStackPolicy
     -> SetStackPolicy
 setStackPolicy pStackName_ =
   SetStackPolicy'
-  { _sspStackPolicyBody = Nothing
-  , _sspStackPolicyURL = Nothing
-  , _sspStackName = pStackName_
-  }
+    { _sspStackPolicyBody = Nothing
+    , _sspStackPolicyURL = Nothing
+    , _sspStackName = pStackName_
+    }
 
 
 -- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 sspStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
-sspStackPolicyBody = lens _sspStackPolicyBody (\ s a -> s{_sspStackPolicyBody = a});
+sspStackPolicyBody = lens _sspStackPolicyBody (\ s a -> s{_sspStackPolicyBody = a})
 
 -- | Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 sspStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
-sspStackPolicyURL = lens _sspStackPolicyURL (\ s a -> s{_sspStackPolicyURL = a});
+sspStackPolicyURL = lens _sspStackPolicyURL (\ s a -> s{_sspStackPolicyURL = a})
 
 -- | The name or unique stack ID that you want to associate a policy with.
 sspStackName :: Lens' SetStackPolicy Text
-sspStackName = lens _sspStackName (\ s a -> s{_sspStackName = a});
+sspStackName = lens _sspStackName (\ s a -> s{_sspStackName = a})
 
 instance AWSRequest SetStackPolicy where
         type Rs SetStackPolicy = SetStackPolicyResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetBranch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ getBranch = GetBranch' {_gbBranchName = Nothing, _gbRepositoryName = Nothing}
 
 -- | The name of the branch for which you want to retrieve information.
 gbBranchName :: Lens' GetBranch (Maybe Text)
-gbBranchName = lens _gbBranchName (\ s a -> s{_gbBranchName = a});
+gbBranchName = lens _gbBranchName (\ s a -> s{_gbBranchName = a})
 
 -- | The name of the repository that contains the branch for which you want to retrieve information.
 gbRepositoryName :: Lens' GetBranch (Maybe Text)
-gbRepositoryName = lens _gbRepositoryName (\ s a -> s{_gbRepositoryName = a});
+gbRepositoryName = lens _gbRepositoryName (\ s a -> s{_gbRepositoryName = a})
 
 instance AWSRequest GetBranch where
         type Rs GetBranch = GetBranchResponse
@@ -134,15 +134,15 @@ getBranchResponse
     -> GetBranchResponse
 getBranchResponse pResponseStatus_ =
   GetBranchResponse'
-  {_grsBranch = Nothing, _grsResponseStatus = pResponseStatus_}
+    {_grsBranch = Nothing, _grsResponseStatus = pResponseStatus_}
 
 
 -- | The name of the branch.
 grsBranch :: Lens' GetBranchResponse (Maybe BranchInfo)
-grsBranch = lens _grsBranch (\ s a -> s{_grsBranch = a});
+grsBranch = lens _grsBranch (\ s a -> s{_grsBranch = a})
 
 -- | -- | The response status code.
 grsResponseStatus :: Lens' GetBranchResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
 
 instance NFData GetBranchResponse where

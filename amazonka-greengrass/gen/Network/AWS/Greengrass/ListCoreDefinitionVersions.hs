@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListCoreDefinitionVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists versions of a core definition.
+-- Lists the versions of a core definition.
 module Network.AWS.Greengrass.ListCoreDefinitionVersions
     (
     -- * Creating a Request
@@ -57,33 +57,33 @@ data ListCoreDefinitionVersions = ListCoreDefinitionVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcdvNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lcdvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lcdvMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lcdvMaxResults' - The maximum number of results to be returned per request.
 --
--- * 'lcdvCoreDefinitionId' - core definition Id
+-- * 'lcdvCoreDefinitionId' - The ID of the core definition.
 listCoreDefinitionVersions
     :: Text -- ^ 'lcdvCoreDefinitionId'
     -> ListCoreDefinitionVersions
 listCoreDefinitionVersions pCoreDefinitionId_ =
   ListCoreDefinitionVersions'
-  { _lcdvNextToken = Nothing
-  , _lcdvMaxResults = Nothing
-  , _lcdvCoreDefinitionId = pCoreDefinitionId_
-  }
+    { _lcdvNextToken = Nothing
+    , _lcdvMaxResults = Nothing
+    , _lcdvCoreDefinitionId = pCoreDefinitionId_
+    }
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lcdvNextToken :: Lens' ListCoreDefinitionVersions (Maybe Text)
-lcdvNextToken = lens _lcdvNextToken (\ s a -> s{_lcdvNextToken = a});
+lcdvNextToken = lens _lcdvNextToken (\ s a -> s{_lcdvNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lcdvMaxResults :: Lens' ListCoreDefinitionVersions (Maybe Text)
-lcdvMaxResults = lens _lcdvMaxResults (\ s a -> s{_lcdvMaxResults = a});
+lcdvMaxResults = lens _lcdvMaxResults (\ s a -> s{_lcdvMaxResults = a})
 
--- | core definition Id
+-- | The ID of the core definition.
 lcdvCoreDefinitionId :: Lens' ListCoreDefinitionVersions Text
-lcdvCoreDefinitionId = lens _lcdvCoreDefinitionId (\ s a -> s{_lcdvCoreDefinitionId = a});
+lcdvCoreDefinitionId = lens _lcdvCoreDefinitionId (\ s a -> s{_lcdvCoreDefinitionId = a})
 
 instance AWSRequest ListCoreDefinitionVersions where
         type Rs ListCoreDefinitionVersions =
@@ -131,7 +131,7 @@ data ListCoreDefinitionVersionsResponse = ListCoreDefinitionVersionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcdvrsVersions' - Versions
+-- * 'lcdvrsVersions' - Information about a version.
 --
 -- * 'lcdvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
@@ -141,23 +141,23 @@ listCoreDefinitionVersionsResponse
     -> ListCoreDefinitionVersionsResponse
 listCoreDefinitionVersionsResponse pResponseStatus_ =
   ListCoreDefinitionVersionsResponse'
-  { _lcdvrsVersions = Nothing
-  , _lcdvrsNextToken = Nothing
-  , _lcdvrsResponseStatus = pResponseStatus_
-  }
+    { _lcdvrsVersions = Nothing
+    , _lcdvrsNextToken = Nothing
+    , _lcdvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Versions
+-- | Information about a version.
 lcdvrsVersions :: Lens' ListCoreDefinitionVersionsResponse [VersionInformation]
-lcdvrsVersions = lens _lcdvrsVersions (\ s a -> s{_lcdvrsVersions = a}) . _Default . _Coerce;
+lcdvrsVersions = lens _lcdvrsVersions (\ s a -> s{_lcdvrsVersions = a}) . _Default . _Coerce
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lcdvrsNextToken :: Lens' ListCoreDefinitionVersionsResponse (Maybe Text)
-lcdvrsNextToken = lens _lcdvrsNextToken (\ s a -> s{_lcdvrsNextToken = a});
+lcdvrsNextToken = lens _lcdvrsNextToken (\ s a -> s{_lcdvrsNextToken = a})
 
 -- | -- | The response status code.
 lcdvrsResponseStatus :: Lens' ListCoreDefinitionVersionsResponse Int
-lcdvrsResponseStatus = lens _lcdvrsResponseStatus (\ s a -> s{_lcdvrsResponseStatus = a});
+lcdvrsResponseStatus = lens _lcdvrsResponseStatus (\ s a -> s{_lcdvrsResponseStatus = a})
 
 instance NFData ListCoreDefinitionVersionsResponse
          where

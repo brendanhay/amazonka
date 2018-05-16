@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeInstanceInformation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,28 +75,28 @@ describeInstanceInformation
     :: DescribeInstanceInformation
 describeInstanceInformation =
   DescribeInstanceInformation'
-  { _diiInstanceInformationFilterList = Nothing
-  , _diiFilters = Nothing
-  , _diiNextToken = Nothing
-  , _diiMaxResults = Nothing
-  }
+    { _diiInstanceInformationFilterList = Nothing
+    , _diiFilters = Nothing
+    , _diiNextToken = Nothing
+    , _diiMaxResults = Nothing
+    }
 
 
 -- | One or more filters. Use a filter to return a more specific list of instances.
 diiInstanceInformationFilterList :: Lens' DescribeInstanceInformation [InstanceInformationFilter]
-diiInstanceInformationFilterList = lens _diiInstanceInformationFilterList (\ s a -> s{_diiInstanceInformationFilterList = a}) . _Default . _Coerce;
+diiInstanceInformationFilterList = lens _diiInstanceInformationFilterList (\ s a -> s{_diiInstanceInformationFilterList = a}) . _Default . _Coerce
 
 -- | One or more filters. Use a filter to return a more specific list of instances.
 diiFilters :: Lens' DescribeInstanceInformation [InstanceInformationStringFilter]
-diiFilters = lens _diiFilters (\ s a -> s{_diiFilters = a}) . _Default . _Coerce;
+diiFilters = lens _diiFilters (\ s a -> s{_diiFilters = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 diiNextToken :: Lens' DescribeInstanceInformation (Maybe Text)
-diiNextToken = lens _diiNextToken (\ s a -> s{_diiNextToken = a});
+diiNextToken = lens _diiNextToken (\ s a -> s{_diiNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 diiMaxResults :: Lens' DescribeInstanceInformation (Maybe Natural)
-diiMaxResults = lens _diiMaxResults (\ s a -> s{_diiMaxResults = a}) . mapping _Nat;
+diiMaxResults = lens _diiMaxResults (\ s a -> s{_diiMaxResults = a}) . mapping _Nat
 
 instance AWSPager DescribeInstanceInformation where
         page rq rs
@@ -169,23 +169,23 @@ describeInstanceInformationResponse
     -> DescribeInstanceInformationResponse
 describeInstanceInformationResponse pResponseStatus_ =
   DescribeInstanceInformationResponse'
-  { _diirsNextToken = Nothing
-  , _diirsInstanceInformationList = Nothing
-  , _diirsResponseStatus = pResponseStatus_
-  }
+    { _diirsNextToken = Nothing
+    , _diirsInstanceInformationList = Nothing
+    , _diirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 diirsNextToken :: Lens' DescribeInstanceInformationResponse (Maybe Text)
-diirsNextToken = lens _diirsNextToken (\ s a -> s{_diirsNextToken = a});
+diirsNextToken = lens _diirsNextToken (\ s a -> s{_diirsNextToken = a})
 
 -- | The instance information list.
 diirsInstanceInformationList :: Lens' DescribeInstanceInformationResponse [InstanceInformation]
-diirsInstanceInformationList = lens _diirsInstanceInformationList (\ s a -> s{_diirsInstanceInformationList = a}) . _Default . _Coerce;
+diirsInstanceInformationList = lens _diirsInstanceInformationList (\ s a -> s{_diirsInstanceInformationList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 diirsResponseStatus :: Lens' DescribeInstanceInformationResponse Int
-diirsResponseStatus = lens _diirsResponseStatus (\ s a -> s{_diirsResponseStatus = a});
+diirsResponseStatus = lens _diirsResponseStatus (\ s a -> s{_diirsResponseStatus = a})
 
 instance NFData DescribeInstanceInformationResponse
          where

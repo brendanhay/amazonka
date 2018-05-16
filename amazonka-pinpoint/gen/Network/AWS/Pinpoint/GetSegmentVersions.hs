@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSegmentVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,28 +71,28 @@ getSegmentVersions
     -> GetSegmentVersions
 getSegmentVersions pSegmentId_ pApplicationId_ =
   GetSegmentVersions'
-  { _gsvToken = Nothing
-  , _gsvPageSize = Nothing
-  , _gsvSegmentId = pSegmentId_
-  , _gsvApplicationId = pApplicationId_
-  }
+    { _gsvToken = Nothing
+    , _gsvPageSize = Nothing
+    , _gsvSegmentId = pSegmentId_
+    , _gsvApplicationId = pApplicationId_
+    }
 
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gsvToken :: Lens' GetSegmentVersions (Maybe Text)
-gsvToken = lens _gsvToken (\ s a -> s{_gsvToken = a});
+gsvToken = lens _gsvToken (\ s a -> s{_gsvToken = a})
 
 -- | The number of entries you want on each page in the response.
 gsvPageSize :: Lens' GetSegmentVersions (Maybe Text)
-gsvPageSize = lens _gsvPageSize (\ s a -> s{_gsvPageSize = a});
+gsvPageSize = lens _gsvPageSize (\ s a -> s{_gsvPageSize = a})
 
 -- | Undocumented member.
 gsvSegmentId :: Lens' GetSegmentVersions Text
-gsvSegmentId = lens _gsvSegmentId (\ s a -> s{_gsvSegmentId = a});
+gsvSegmentId = lens _gsvSegmentId (\ s a -> s{_gsvSegmentId = a})
 
 -- | Undocumented member.
 gsvApplicationId :: Lens' GetSegmentVersions Text
-gsvApplicationId = lens _gsvApplicationId (\ s a -> s{_gsvApplicationId = a});
+gsvApplicationId = lens _gsvApplicationId (\ s a -> s{_gsvApplicationId = a})
 
 instance AWSRequest GetSegmentVersions where
         type Rs GetSegmentVersions =
@@ -146,17 +146,17 @@ getSegmentVersionsResponse
     -> GetSegmentVersionsResponse
 getSegmentVersionsResponse pResponseStatus_ pSegmentsResponse_ =
   GetSegmentVersionsResponse'
-  { _grsResponseStatus = pResponseStatus_
-  , _grsSegmentsResponse = pSegmentsResponse_
-  }
+    { _grsResponseStatus = pResponseStatus_
+    , _grsSegmentsResponse = pSegmentsResponse_
+    }
 
 
 -- | -- | The response status code.
 grsResponseStatus :: Lens' GetSegmentVersionsResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
 
 -- | Undocumented member.
 grsSegmentsResponse :: Lens' GetSegmentVersionsResponse SegmentsResponse
-grsSegmentsResponse = lens _grsSegmentsResponse (\ s a -> s{_grsSegmentsResponse = a});
+grsSegmentsResponse = lens _grsSegmentsResponse (\ s a -> s{_grsSegmentsResponse = a})
 
 instance NFData GetSegmentVersionsResponse where

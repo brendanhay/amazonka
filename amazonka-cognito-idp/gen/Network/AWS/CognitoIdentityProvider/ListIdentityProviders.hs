@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListIdentityProviders
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ listIdentityProviders
     -> ListIdentityProviders
 listIdentityProviders pUserPoolId_ =
   ListIdentityProviders'
-  { _lipNextToken = Nothing
-  , _lipMaxResults = Nothing
-  , _lipUserPoolId = pUserPoolId_
-  }
+    { _lipNextToken = Nothing
+    , _lipMaxResults = Nothing
+    , _lipUserPoolId = pUserPoolId_
+    }
 
 
 -- | A pagination token.
 lipNextToken :: Lens' ListIdentityProviders (Maybe Text)
-lipNextToken = lens _lipNextToken (\ s a -> s{_lipNextToken = a});
+lipNextToken = lens _lipNextToken (\ s a -> s{_lipNextToken = a})
 
 -- | The maximum number of identity providers to return.
 lipMaxResults :: Lens' ListIdentityProviders (Maybe Natural)
-lipMaxResults = lens _lipMaxResults (\ s a -> s{_lipMaxResults = a}) . mapping _Nat;
+lipMaxResults = lens _lipMaxResults (\ s a -> s{_lipMaxResults = a}) . mapping _Nat
 
 -- | The user pool ID.
 lipUserPoolId :: Lens' ListIdentityProviders Text
-lipUserPoolId = lens _lipUserPoolId (\ s a -> s{_lipUserPoolId = a});
+lipUserPoolId = lens _lipUserPoolId (\ s a -> s{_lipUserPoolId = a})
 
 instance AWSRequest ListIdentityProviders where
         type Rs ListIdentityProviders =
@@ -148,22 +148,22 @@ listIdentityProvidersResponse
     -> ListIdentityProvidersResponse
 listIdentityProvidersResponse pResponseStatus_ =
   ListIdentityProvidersResponse'
-  { _liprsNextToken = Nothing
-  , _liprsResponseStatus = pResponseStatus_
-  , _liprsProviders = mempty
-  }
+    { _liprsNextToken = Nothing
+    , _liprsResponseStatus = pResponseStatus_
+    , _liprsProviders = mempty
+    }
 
 
 -- | A pagination token.
 liprsNextToken :: Lens' ListIdentityProvidersResponse (Maybe Text)
-liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
+liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a})
 
 -- | -- | The response status code.
 liprsResponseStatus :: Lens' ListIdentityProvidersResponse Int
-liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
+liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a})
 
 -- | A list of identity provider objects.
 liprsProviders :: Lens' ListIdentityProvidersResponse [ProviderDescription]
-liprsProviders = lens _liprsProviders (\ s a -> s{_liprsProviders = a}) . _Coerce;
+liprsProviders = lens _liprsProviders (\ s a -> s{_liprsProviders = a}) . _Coerce
 
 instance NFData ListIdentityProvidersResponse where

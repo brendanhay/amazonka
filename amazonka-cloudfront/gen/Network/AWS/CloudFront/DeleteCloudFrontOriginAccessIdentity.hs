@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ deleteCloudFrontOriginAccessIdentity
     -> DeleteCloudFrontOriginAccessIdentity
 deleteCloudFrontOriginAccessIdentity pId_ =
   DeleteCloudFrontOriginAccessIdentity'
-  {_dcfoaiIfMatch = Nothing, _dcfoaiId = pId_}
+    {_dcfoaiIfMatch = Nothing, _dcfoaiId = pId_}
 
 
 -- | The value of the @ETag@ header you received from a previous @GET@ or @PUT@ request. For example: @E2QWRUHAPOMQZL@ .
 dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
-dcfoaiIfMatch = lens _dcfoaiIfMatch (\ s a -> s{_dcfoaiIfMatch = a});
+dcfoaiIfMatch = lens _dcfoaiIfMatch (\ s a -> s{_dcfoaiIfMatch = a})
 
 -- | The origin access identity's ID.
 dcfoaiId :: Lens' DeleteCloudFrontOriginAccessIdentity Text
-dcfoaiId = lens _dcfoaiId (\ s a -> s{_dcfoaiId = a});
+dcfoaiId = lens _dcfoaiId (\ s a -> s{_dcfoaiId = a})
 
 instance AWSRequest
            DeleteCloudFrontOriginAccessIdentity
@@ -103,7 +103,7 @@ instance ToPath DeleteCloudFrontOriginAccessIdentity
          where
         toPath DeleteCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2017-03-25/origin-access-identity/cloudfront/",
+              ["/2017-10-30/origin-access-identity/cloudfront/",
                toBS _dcfoaiId]
 
 instance ToQuery DeleteCloudFrontOriginAccessIdentity

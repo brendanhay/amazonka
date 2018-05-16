@@ -12,16 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.RemoveTagsFromCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Remove one or more tags from an ACM Certificate. A tag consists of a key-value pair. If you do not specify the value portion of the tag when calling this function, the tag will be removed regardless of value. If you specify a value, the tag is removed only if it is associated with the specified value.
+-- Remove one or more tags from an ACM certificate. A tag consists of a key-value pair. If you do not specify the value portion of the tag when calling this function, the tag will be removed regardless of value. If you specify a value, the tag is removed only if it is associated with the specified value.
 --
 --
--- To add tags to a certificate, use the 'AddTagsToCertificate' action. To view all of the tags that have been applied to a specific ACM Certificate, use the 'ListTagsForCertificate' action.
+-- To add tags to a certificate, use the 'AddTagsToCertificate' action. To view all of the tags that have been applied to a specific ACM certificate, use the 'ListTagsForCertificate' action.
 --
 module Network.AWS.CertificateManager.RemoveTagsFromCertificate
     (
@@ -64,16 +64,16 @@ removeTagsFromCertificate
     -> RemoveTagsFromCertificate
 removeTagsFromCertificate pCertificateARN_ pTags_ =
   RemoveTagsFromCertificate'
-  {_rtfcCertificateARN = pCertificateARN_, _rtfcTags = _List1 # pTags_}
+    {_rtfcCertificateARN = pCertificateARN_, _rtfcTags = _List1 # pTags_}
 
 
 -- | String that contains the ARN of the ACM Certificate with one or more tags that you want to remove. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 rtfcCertificateARN :: Lens' RemoveTagsFromCertificate Text
-rtfcCertificateARN = lens _rtfcCertificateARN (\ s a -> s{_rtfcCertificateARN = a});
+rtfcCertificateARN = lens _rtfcCertificateARN (\ s a -> s{_rtfcCertificateARN = a})
 
 -- | The key-value pair that defines the tag to remove.
 rtfcTags :: Lens' RemoveTagsFromCertificate (NonEmpty Tag)
-rtfcTags = lens _rtfcTags (\ s a -> s{_rtfcTags = a}) . _List1;
+rtfcTags = lens _rtfcTags (\ s a -> s{_rtfcTags = a}) . _List1
 
 instance AWSRequest RemoveTagsFromCertificate where
         type Rs RemoveTagsFromCertificate =

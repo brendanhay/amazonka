@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.Body
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -48,16 +48,16 @@ default (Builder)
 
 -- | A streaming, exception safe response body.
 newtype RsBody = RsBody
-    { _streamBody :: ResumableSource (ResourceT IO) ByteString
+    { _streamBody :: ConduitM () ByteString (ResourceT IO) ()
     } -- newtype for show/orhpan instance purposes.
 
 instance Show RsBody where
-    show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
+    show = const "RsBody { ConduitM () ByteString (ResourceT IO) () }"
 
 fuseStream :: RsBody
-           -> Conduit ByteString (ResourceT IO) ByteString
+           -> ConduitM ByteString ByteString (ResourceT IO) ()
            -> RsBody
-fuseStream b f = b { _streamBody = _streamBody b $=+ f }
+fuseStream b f = b { _streamBody = _streamBody b .| f }
 
 -- | Specifies the transmitted size of the 'Transfer-Encoding' chunks.
 --
@@ -84,7 +84,7 @@ defaultChunkSize = 128 * 1024
 data ChunkedBody = ChunkedBody
     { _chunkedSize   :: !ChunkSize
     , _chunkedLength :: !Integer
-    , _chunkedBody   :: Source (ResourceT IO) ByteString
+    , _chunkedBody   :: ConduitM () ByteString (ResourceT IO) ()
     }
 
 chunkedLength :: Lens' ChunkedBody Integer
@@ -106,9 +106,9 @@ instance Show ChunkedBody where
         <> "}"
 
 fuseChunks :: ChunkedBody
-           -> Conduit ByteString (ResourceT IO) ByteString
+           -> ConduitM ByteString ByteString (ResourceT IO) ()
            -> ChunkedBody
-fuseChunks c f = c { _chunkedBody = _chunkedBody c =$= f }
+fuseChunks c f = c { _chunkedBody = _chunkedBody c .| f }
 
 fullChunks :: ChunkedBody -> Integer
 fullChunks c = _chunkedLength c `div` fromIntegral (_chunkedSize c)
@@ -121,7 +121,7 @@ remainderBytes c =
 
 -- | An opaque request body containing a 'SHA256' hash.
 data HashedBody
-    = HashedStream (Digest SHA256) !Integer (Source (ResourceT IO) ByteString)
+    = HashedStream (Digest SHA256) !Integer (ConduitM () ByteString (ResourceT IO) ())
     | HashedBytes  (Digest SHA256) ByteString
 
 instance Show HashedBody where

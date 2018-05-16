@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachClassicLinkVPC
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,28 +81,28 @@ attachClassicLinkVPC
     -> AttachClassicLinkVPC
 attachClassicLinkVPC pInstanceId_ pVPCId_ =
   AttachClassicLinkVPC'
-  { _aclvDryRun = Nothing
-  , _aclvGroups = mempty
-  , _aclvInstanceId = pInstanceId_
-  , _aclvVPCId = pVPCId_
-  }
+    { _aclvDryRun = Nothing
+    , _aclvGroups = mempty
+    , _aclvInstanceId = pInstanceId_
+    , _aclvVPCId = pVPCId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aclvDryRun :: Lens' AttachClassicLinkVPC (Maybe Bool)
-aclvDryRun = lens _aclvDryRun (\ s a -> s{_aclvDryRun = a});
+aclvDryRun = lens _aclvDryRun (\ s a -> s{_aclvDryRun = a})
 
 -- | The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
 aclvGroups :: Lens' AttachClassicLinkVPC [Text]
-aclvGroups = lens _aclvGroups (\ s a -> s{_aclvGroups = a}) . _Coerce;
+aclvGroups = lens _aclvGroups (\ s a -> s{_aclvGroups = a}) . _Coerce
 
 -- | The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
 aclvInstanceId :: Lens' AttachClassicLinkVPC Text
-aclvInstanceId = lens _aclvInstanceId (\ s a -> s{_aclvInstanceId = a});
+aclvInstanceId = lens _aclvInstanceId (\ s a -> s{_aclvInstanceId = a})
 
 -- | The ID of a ClassicLink-enabled VPC.
 aclvVPCId :: Lens' AttachClassicLinkVPC Text
-aclvVPCId = lens _aclvVPCId (\ s a -> s{_aclvVPCId = a});
+aclvVPCId = lens _aclvVPCId (\ s a -> s{_aclvVPCId = a})
 
 instance AWSRequest AttachClassicLinkVPC where
         type Rs AttachClassicLinkVPC =
@@ -157,15 +157,15 @@ attachClassicLinkVPCResponse
     -> AttachClassicLinkVPCResponse
 attachClassicLinkVPCResponse pResponseStatus_ =
   AttachClassicLinkVPCResponse'
-  {_aclvrsReturn = Nothing, _aclvrsResponseStatus = pResponseStatus_}
+    {_aclvrsReturn = Nothing, _aclvrsResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 aclvrsReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
-aclvrsReturn = lens _aclvrsReturn (\ s a -> s{_aclvrsReturn = a});
+aclvrsReturn = lens _aclvrsReturn (\ s a -> s{_aclvrsReturn = a})
 
 -- | -- | The response status code.
 aclvrsResponseStatus :: Lens' AttachClassicLinkVPCResponse Int
-aclvrsResponseStatus = lens _aclvrsResponseStatus (\ s a -> s{_aclvrsResponseStatus = a});
+aclvrsResponseStatus = lens _aclvrsResponseStatus (\ s a -> s{_aclvrsResponseStatus = a})
 
 instance NFData AttachClassicLinkVPCResponse where

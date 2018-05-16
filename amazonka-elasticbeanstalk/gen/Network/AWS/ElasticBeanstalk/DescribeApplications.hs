@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ describeApplications = DescribeApplications' {_daApplicationNames = Nothing}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names.
 daApplicationNames :: Lens' DescribeApplications [Text]
-daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a}) . _Default . _Coerce;
+daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeApplications where
         type Rs DescribeApplications =
@@ -122,15 +122,15 @@ describeApplicationsResponse
     -> DescribeApplicationsResponse
 describeApplicationsResponse pResponseStatus_ =
   DescribeApplicationsResponse'
-  {_darsApplications = Nothing, _darsResponseStatus = pResponseStatus_}
+    {_darsApplications = Nothing, _darsResponseStatus = pResponseStatus_}
 
 
 -- | This parameter contains a list of 'ApplicationDescription' .
 darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
-darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default . _Coerce;
+darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeApplicationsResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DescribeApplicationsResponse where

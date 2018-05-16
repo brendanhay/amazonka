@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.StartPipelineExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ startPipelineExecution pName_ = StartPipelineExecution' {_speName = pName_}
 
 -- | The name of the pipeline to start.
 speName :: Lens' StartPipelineExecution Text
-speName = lens _speName (\ s a -> s{_speName = a});
+speName = lens _speName (\ s a -> s{_speName = a})
 
 instance AWSRequest StartPipelineExecution where
         type Rs StartPipelineExecution =
@@ -127,15 +127,17 @@ startPipelineExecutionResponse
     -> StartPipelineExecutionResponse
 startPipelineExecutionResponse pResponseStatus_ =
   StartPipelineExecutionResponse'
-  {_spersPipelineExecutionId = Nothing, _spersResponseStatus = pResponseStatus_}
+    { _spersPipelineExecutionId = Nothing
+    , _spersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The unique system-generated ID of the pipeline execution that was started.
 spersPipelineExecutionId :: Lens' StartPipelineExecutionResponse (Maybe Text)
-spersPipelineExecutionId = lens _spersPipelineExecutionId (\ s a -> s{_spersPipelineExecutionId = a});
+spersPipelineExecutionId = lens _spersPipelineExecutionId (\ s a -> s{_spersPipelineExecutionId = a})
 
 -- | -- | The response status code.
 spersResponseStatus :: Lens' StartPipelineExecutionResponse Int
-spersResponseStatus = lens _spersResponseStatus (\ s a -> s{_spersResponseStatus = a});
+spersResponseStatus = lens _spersResponseStatus (\ s a -> s{_spersResponseStatus = a})
 
 instance NFData StartPipelineExecutionResponse where

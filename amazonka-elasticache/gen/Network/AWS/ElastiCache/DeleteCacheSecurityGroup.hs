@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSecurityGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,12 +61,12 @@ deleteCacheSecurityGroup
     -> DeleteCacheSecurityGroup
 deleteCacheSecurityGroup pCacheSecurityGroupName_ =
   DeleteCacheSecurityGroup'
-  {_dcsgCacheSecurityGroupName = pCacheSecurityGroupName_}
+    {_dcsgCacheSecurityGroupName = pCacheSecurityGroupName_}
 
 
 -- | The name of the cache security group to delete.
 dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
-dcsgCacheSecurityGroupName = lens _dcsgCacheSecurityGroupName (\ s a -> s{_dcsgCacheSecurityGroupName = a});
+dcsgCacheSecurityGroupName = lens _dcsgCacheSecurityGroupName (\ s a -> s{_dcsgCacheSecurityGroupName = a})
 
 instance AWSRequest DeleteCacheSecurityGroup where
         type Rs DeleteCacheSecurityGroup =

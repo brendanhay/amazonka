@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DeleteElasticsearchDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ deleteElasticsearchDomain pDomainName_ =
 
 -- | The name of the Elasticsearch domain that you want to permanently delete.
 dDomainName :: Lens' DeleteElasticsearchDomain Text
-dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
+dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a})
 
 instance AWSRequest DeleteElasticsearchDomain where
         type Rs DeleteElasticsearchDomain =
@@ -118,16 +118,16 @@ deleteElasticsearchDomainResponse
     -> DeleteElasticsearchDomainResponse
 deleteElasticsearchDomainResponse pResponseStatus_ =
   DeleteElasticsearchDomainResponse'
-  {_delrsDomainStatus = Nothing, _delrsResponseStatus = pResponseStatus_}
+    {_delrsDomainStatus = Nothing, _delrsResponseStatus = pResponseStatus_}
 
 
 -- | The status of the Elasticsearch domain being deleted.
 delrsDomainStatus :: Lens' DeleteElasticsearchDomainResponse (Maybe ElasticsearchDomainStatus)
-delrsDomainStatus = lens _delrsDomainStatus (\ s a -> s{_delrsDomainStatus = a});
+delrsDomainStatus = lens _delrsDomainStatus (\ s a -> s{_delrsDomainStatus = a})
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteElasticsearchDomainResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteElasticsearchDomainResponse
          where

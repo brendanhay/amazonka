@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.StartMaintenance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ startMaintenance
     -> StartMaintenance
 startMaintenance pServerName_ =
   StartMaintenance'
-  {_smEngineAttributes = Nothing, _smServerName = pServerName_}
+    {_smEngineAttributes = Nothing, _smServerName = pServerName_}
 
 
 -- | Engine attributes that are specific to the server on which you want to run maintenance.
 smEngineAttributes :: Lens' StartMaintenance [EngineAttribute]
-smEngineAttributes = lens _smEngineAttributes (\ s a -> s{_smEngineAttributes = a}) . _Default . _Coerce;
+smEngineAttributes = lens _smEngineAttributes (\ s a -> s{_smEngineAttributes = a}) . _Default . _Coerce
 
 -- | The name of the server on which to run maintenance.
 smServerName :: Lens' StartMaintenance Text
-smServerName = lens _smServerName (\ s a -> s{_smServerName = a});
+smServerName = lens _smServerName (\ s a -> s{_smServerName = a})
 
 instance AWSRequest StartMaintenance where
         type Rs StartMaintenance = StartMaintenanceResponse
@@ -132,15 +132,15 @@ startMaintenanceResponse
     -> StartMaintenanceResponse
 startMaintenanceResponse pResponseStatus_ =
   StartMaintenanceResponse'
-  {_smrsServer = Nothing, _smrsResponseStatus = pResponseStatus_}
+    {_smrsServer = Nothing, _smrsResponseStatus = pResponseStatus_}
 
 
 -- | Contains the response to a @StartMaintenance@ request.
 smrsServer :: Lens' StartMaintenanceResponse (Maybe Server)
-smrsServer = lens _smrsServer (\ s a -> s{_smrsServer = a});
+smrsServer = lens _smrsServer (\ s a -> s{_smrsServer = a})
 
 -- | -- | The response status code.
 smrsResponseStatus :: Lens' StartMaintenanceResponse Int
-smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a});
+smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a})
 
 instance NFData StartMaintenanceResponse where

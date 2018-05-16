@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DeleteNotification
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a notification and related subscribers
+-- Deletes a notification.
+--
+--
+-- __Deleting a notification also deletes the subscribers associated with the notification.__
+--
 module Network.AWS.Budgets.DeleteNotification
     (
     -- * Creating a Request
@@ -45,6 +49,8 @@ import Network.AWS.Response
 
 -- | Request of DeleteNotification
 --
+--
+--
 -- /See:/ 'deleteNotification' smart constructor.
 data DeleteNotification = DeleteNotification'
   { _dnAccountId    :: !Text
@@ -57,11 +63,11 @@ data DeleteNotification = DeleteNotification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnAccountId' - Undocumented member.
+-- * 'dnAccountId' - The @accountId@ that is associated with the budget whose notification you want to delete.
 --
--- * 'dnBudgetName' - Undocumented member.
+-- * 'dnBudgetName' - The name of the budget whose notification you want to delete.
 --
--- * 'dnNotification' - Undocumented member.
+-- * 'dnNotification' - The notification that you want to delete.
 deleteNotification
     :: Text -- ^ 'dnAccountId'
     -> Text -- ^ 'dnBudgetName'
@@ -69,23 +75,23 @@ deleteNotification
     -> DeleteNotification
 deleteNotification pAccountId_ pBudgetName_ pNotification_ =
   DeleteNotification'
-  { _dnAccountId = pAccountId_
-  , _dnBudgetName = pBudgetName_
-  , _dnNotification = pNotification_
-  }
+    { _dnAccountId = pAccountId_
+    , _dnBudgetName = pBudgetName_
+    , _dnNotification = pNotification_
+    }
 
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budget whose notification you want to delete.
 dnAccountId :: Lens' DeleteNotification Text
-dnAccountId = lens _dnAccountId (\ s a -> s{_dnAccountId = a});
+dnAccountId = lens _dnAccountId (\ s a -> s{_dnAccountId = a})
 
--- | Undocumented member.
+-- | The name of the budget whose notification you want to delete.
 dnBudgetName :: Lens' DeleteNotification Text
-dnBudgetName = lens _dnBudgetName (\ s a -> s{_dnBudgetName = a});
+dnBudgetName = lens _dnBudgetName (\ s a -> s{_dnBudgetName = a})
 
--- | Undocumented member.
+-- | The notification that you want to delete.
 dnNotification :: Lens' DeleteNotification Notification
-dnNotification = lens _dnNotification (\ s a -> s{_dnNotification = a});
+dnNotification = lens _dnNotification (\ s a -> s{_dnNotification = a})
 
 instance AWSRequest DeleteNotification where
         type Rs DeleteNotification =
@@ -126,6 +132,8 @@ instance ToQuery DeleteNotification where
 
 -- | Response of DeleteNotification
 --
+--
+--
 -- /See:/ 'deleteNotificationResponse' smart constructor.
 newtype DeleteNotificationResponse = DeleteNotificationResponse'
   { _dnrsResponseStatus :: Int
@@ -146,6 +154,6 @@ deleteNotificationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dnrsResponseStatus :: Lens' DeleteNotificationResponse Int
-dnrsResponseStatus = lens _dnrsResponseStatus (\ s a -> s{_dnrsResponseStatus = a});
+dnrsResponseStatus = lens _dnrsResponseStatus (\ s a -> s{_dnrsResponseStatus = a})
 
 instance NFData DeleteNotificationResponse where

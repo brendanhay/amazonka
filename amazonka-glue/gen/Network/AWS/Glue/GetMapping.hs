@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetMapping
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,15 +72,15 @@ getMapping pSource_ =
 
 -- | A list of target tables.
 gmSinks :: Lens' GetMapping [CatalogEntry]
-gmSinks = lens _gmSinks (\ s a -> s{_gmSinks = a}) . _Default . _Coerce;
+gmSinks = lens _gmSinks (\ s a -> s{_gmSinks = a}) . _Default . _Coerce
 
 -- | Parameters for the mapping.
 gmLocation :: Lens' GetMapping (Maybe Location)
-gmLocation = lens _gmLocation (\ s a -> s{_gmLocation = a});
+gmLocation = lens _gmLocation (\ s a -> s{_gmLocation = a})
 
 -- | Specifies the source table.
 gmSource :: Lens' GetMapping CatalogEntry
-gmSource = lens _gmSource (\ s a -> s{_gmSource = a});
+gmSource = lens _gmSource (\ s a -> s{_gmSource = a})
 
 instance AWSRequest GetMapping where
         type Rs GetMapping = GetMappingResponse
@@ -137,15 +137,15 @@ getMappingResponse
     -> GetMappingResponse
 getMappingResponse pResponseStatus_ =
   GetMappingResponse'
-  {_gmrsResponseStatus = pResponseStatus_, _gmrsMapping = mempty}
+    {_gmrsResponseStatus = pResponseStatus_, _gmrsMapping = mempty}
 
 
 -- | -- | The response status code.
 gmrsResponseStatus :: Lens' GetMappingResponse Int
-gmrsResponseStatus = lens _gmrsResponseStatus (\ s a -> s{_gmrsResponseStatus = a});
+gmrsResponseStatus = lens _gmrsResponseStatus (\ s a -> s{_gmrsResponseStatus = a})
 
 -- | A list of mappings to the specified targets.
 gmrsMapping :: Lens' GetMappingResponse [MappingEntry]
-gmrsMapping = lens _gmrsMapping (\ s a -> s{_gmrsMapping = a}) . _Coerce;
+gmrsMapping = lens _gmrsMapping (\ s a -> s{_gmrsMapping = a}) . _Coerce
 
 instance NFData GetMappingResponse where

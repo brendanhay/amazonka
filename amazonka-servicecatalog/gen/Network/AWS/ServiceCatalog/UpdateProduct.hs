@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.UpdateProduct
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing product.
+-- Updates the specified product.
 --
 --
 module Network.AWS.ServiceCatalog.UpdateProduct
@@ -75,7 +75,7 @@ data UpdateProduct = UpdateProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upRemoveTags' - Tags to remove from the existing list of tags associated with the product.
+-- * 'upRemoveTags' - The tags to remove from the product.
 --
 -- * 'upOwner' - The updated owner of the product.
 --
@@ -87,77 +87,77 @@ data UpdateProduct = UpdateProduct'
 --
 -- * 'upAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'upAddTags' - Tags to add to the existing list of tags associated with the product.
+-- * 'upAddTags' - The tags to add to the product.
 --
 -- * 'upSupportEmail' - The updated support email for the product.
 --
--- * 'upDescription' - The updated text description of the product.
+-- * 'upDescription' - The updated description of the product.
 --
 -- * 'upSupportDescription' - The updated support description for the product.
 --
--- * 'upId' - The identifier of the product for the update request.
+-- * 'upId' - The product identifier.
 updateProduct
     :: Text -- ^ 'upId'
     -> UpdateProduct
 updateProduct pId_ =
   UpdateProduct'
-  { _upRemoveTags = Nothing
-  , _upOwner = Nothing
-  , _upSupportURL = Nothing
-  , _upDistributor = Nothing
-  , _upName = Nothing
-  , _upAcceptLanguage = Nothing
-  , _upAddTags = Nothing
-  , _upSupportEmail = Nothing
-  , _upDescription = Nothing
-  , _upSupportDescription = Nothing
-  , _upId = pId_
-  }
+    { _upRemoveTags = Nothing
+    , _upOwner = Nothing
+    , _upSupportURL = Nothing
+    , _upDistributor = Nothing
+    , _upName = Nothing
+    , _upAcceptLanguage = Nothing
+    , _upAddTags = Nothing
+    , _upSupportEmail = Nothing
+    , _upDescription = Nothing
+    , _upSupportDescription = Nothing
+    , _upId = pId_
+    }
 
 
--- | Tags to remove from the existing list of tags associated with the product.
+-- | The tags to remove from the product.
 upRemoveTags :: Lens' UpdateProduct [Text]
-upRemoveTags = lens _upRemoveTags (\ s a -> s{_upRemoveTags = a}) . _Default . _Coerce;
+upRemoveTags = lens _upRemoveTags (\ s a -> s{_upRemoveTags = a}) . _Default . _Coerce
 
 -- | The updated owner of the product.
 upOwner :: Lens' UpdateProduct (Maybe Text)
-upOwner = lens _upOwner (\ s a -> s{_upOwner = a});
+upOwner = lens _upOwner (\ s a -> s{_upOwner = a})
 
 -- | The updated support URL for the product.
 upSupportURL :: Lens' UpdateProduct (Maybe Text)
-upSupportURL = lens _upSupportURL (\ s a -> s{_upSupportURL = a});
+upSupportURL = lens _upSupportURL (\ s a -> s{_upSupportURL = a})
 
 -- | The updated distributor of the product.
 upDistributor :: Lens' UpdateProduct (Maybe Text)
-upDistributor = lens _upDistributor (\ s a -> s{_upDistributor = a});
+upDistributor = lens _upDistributor (\ s a -> s{_upDistributor = a})
 
 -- | The updated product name.
 upName :: Lens' UpdateProduct (Maybe Text)
-upName = lens _upName (\ s a -> s{_upName = a});
+upName = lens _upName (\ s a -> s{_upName = a})
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 upAcceptLanguage :: Lens' UpdateProduct (Maybe Text)
-upAcceptLanguage = lens _upAcceptLanguage (\ s a -> s{_upAcceptLanguage = a});
+upAcceptLanguage = lens _upAcceptLanguage (\ s a -> s{_upAcceptLanguage = a})
 
--- | Tags to add to the existing list of tags associated with the product.
+-- | The tags to add to the product.
 upAddTags :: Lens' UpdateProduct [Tag]
-upAddTags = lens _upAddTags (\ s a -> s{_upAddTags = a}) . _Default . _Coerce;
+upAddTags = lens _upAddTags (\ s a -> s{_upAddTags = a}) . _Default . _Coerce
 
 -- | The updated support email for the product.
 upSupportEmail :: Lens' UpdateProduct (Maybe Text)
-upSupportEmail = lens _upSupportEmail (\ s a -> s{_upSupportEmail = a});
+upSupportEmail = lens _upSupportEmail (\ s a -> s{_upSupportEmail = a})
 
--- | The updated text description of the product.
+-- | The updated description of the product.
 upDescription :: Lens' UpdateProduct (Maybe Text)
-upDescription = lens _upDescription (\ s a -> s{_upDescription = a});
+upDescription = lens _upDescription (\ s a -> s{_upDescription = a})
 
 -- | The updated support description for the product.
 upSupportDescription :: Lens' UpdateProduct (Maybe Text)
-upSupportDescription = lens _upSupportDescription (\ s a -> s{_upSupportDescription = a});
+upSupportDescription = lens _upSupportDescription (\ s a -> s{_upSupportDescription = a})
 
--- | The identifier of the product for the update request.
+-- | The product identifier.
 upId :: Lens' UpdateProduct Text
-upId = lens _upId (\ s a -> s{_upId = a});
+upId = lens _upId (\ s a -> s{_upId = a})
 
 instance AWSRequest UpdateProduct where
         type Rs UpdateProduct = UpdateProductResponse
@@ -218,9 +218,9 @@ data UpdateProductResponse = UpdateProductResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ursProductViewDetail' - The resulting detailed product view information.
+-- * 'ursProductViewDetail' - Information about the product view.
 --
--- * 'ursTags' - Tags associated with the product.
+-- * 'ursTags' - Information about the tags associated with the product.
 --
 -- * 'ursResponseStatus' - -- | The response status code.
 updateProductResponse
@@ -228,22 +228,22 @@ updateProductResponse
     -> UpdateProductResponse
 updateProductResponse pResponseStatus_ =
   UpdateProductResponse'
-  { _ursProductViewDetail = Nothing
-  , _ursTags = Nothing
-  , _ursResponseStatus = pResponseStatus_
-  }
+    { _ursProductViewDetail = Nothing
+    , _ursTags = Nothing
+    , _ursResponseStatus = pResponseStatus_
+    }
 
 
--- | The resulting detailed product view information.
+-- | Information about the product view.
 ursProductViewDetail :: Lens' UpdateProductResponse (Maybe ProductViewDetail)
-ursProductViewDetail = lens _ursProductViewDetail (\ s a -> s{_ursProductViewDetail = a});
+ursProductViewDetail = lens _ursProductViewDetail (\ s a -> s{_ursProductViewDetail = a})
 
--- | Tags associated with the product.
+-- | Information about the tags associated with the product.
 ursTags :: Lens' UpdateProductResponse [Tag]
-ursTags = lens _ursTags (\ s a -> s{_ursTags = a}) . _Default . _Coerce;
+ursTags = lens _ursTags (\ s a -> s{_ursTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ursResponseStatus :: Lens' UpdateProductResponse Int
-ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a});
+ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a})
 
 instance NFData UpdateProductResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListOfferingTransactions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ listOfferingTransactions = ListOfferingTransactions' {_lotNextToken = Nothing}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lotNextToken :: Lens' ListOfferingTransactions (Maybe Text)
-lotNextToken = lens _lotNextToken (\ s a -> s{_lotNextToken = a});
+lotNextToken = lens _lotNextToken (\ s a -> s{_lotNextToken = a})
 
 instance AWSPager ListOfferingTransactions where
         page rq rs
@@ -142,23 +142,23 @@ listOfferingTransactionsResponse
     -> ListOfferingTransactionsResponse
 listOfferingTransactionsResponse pResponseStatus_ =
   ListOfferingTransactionsResponse'
-  { _lotrsOfferingTransactions = Nothing
-  , _lotrsNextToken = Nothing
-  , _lotrsResponseStatus = pResponseStatus_
-  }
+    { _lotrsOfferingTransactions = Nothing
+    , _lotrsNextToken = Nothing
+    , _lotrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The audit log of subscriptions you have purchased and modified through AWS Device Farm.
 lotrsOfferingTransactions :: Lens' ListOfferingTransactionsResponse [OfferingTransaction]
-lotrsOfferingTransactions = lens _lotrsOfferingTransactions (\ s a -> s{_lotrsOfferingTransactions = a}) . _Default . _Coerce;
+lotrsOfferingTransactions = lens _lotrsOfferingTransactions (\ s a -> s{_lotrsOfferingTransactions = a}) . _Default . _Coerce
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lotrsNextToken :: Lens' ListOfferingTransactionsResponse (Maybe Text)
-lotrsNextToken = lens _lotrsNextToken (\ s a -> s{_lotrsNextToken = a});
+lotrsNextToken = lens _lotrsNextToken (\ s a -> s{_lotrsNextToken = a})
 
 -- | -- | The response status code.
 lotrsResponseStatus :: Lens' ListOfferingTransactionsResponse Int
-lotrsResponseStatus = lens _lotrsResponseStatus (\ s a -> s{_lotrsResponseStatus = a});
+lotrsResponseStatus = lens _lotrsResponseStatus (\ s a -> s{_lotrsResponseStatus = a})
 
 instance NFData ListOfferingTransactionsResponse
          where

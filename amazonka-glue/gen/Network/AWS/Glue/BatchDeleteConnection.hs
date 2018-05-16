@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.BatchDeleteConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ batchDeleteConnection
     :: BatchDeleteConnection
 batchDeleteConnection =
   BatchDeleteConnection'
-  {_bdcCatalogId = Nothing, _bdcConnectionNameList = mempty}
+    {_bdcCatalogId = Nothing, _bdcConnectionNameList = mempty}
 
 
 -- | The ID of the Data Catalog in which the connections reside. If none is supplied, the AWS account ID is used by default.
 bdcCatalogId :: Lens' BatchDeleteConnection (Maybe Text)
-bdcCatalogId = lens _bdcCatalogId (\ s a -> s{_bdcCatalogId = a});
+bdcCatalogId = lens _bdcCatalogId (\ s a -> s{_bdcCatalogId = a})
 
 -- | A list of names of the connections to delete.
 bdcConnectionNameList :: Lens' BatchDeleteConnection [Text]
-bdcConnectionNameList = lens _bdcConnectionNameList (\ s a -> s{_bdcConnectionNameList = a}) . _Coerce;
+bdcConnectionNameList = lens _bdcConnectionNameList (\ s a -> s{_bdcConnectionNameList = a}) . _Coerce
 
 instance AWSRequest BatchDeleteConnection where
         type Rs BatchDeleteConnection =
@@ -136,22 +136,22 @@ batchDeleteConnectionResponse
     -> BatchDeleteConnectionResponse
 batchDeleteConnectionResponse pResponseStatus_ =
   BatchDeleteConnectionResponse'
-  { _bdcrsSucceeded = Nothing
-  , _bdcrsErrors = Nothing
-  , _bdcrsResponseStatus = pResponseStatus_
-  }
+    { _bdcrsSucceeded = Nothing
+    , _bdcrsErrors = Nothing
+    , _bdcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of names of the connection definitions that were successfully deleted.
 bdcrsSucceeded :: Lens' BatchDeleteConnectionResponse [Text]
-bdcrsSucceeded = lens _bdcrsSucceeded (\ s a -> s{_bdcrsSucceeded = a}) . _Default . _Coerce;
+bdcrsSucceeded = lens _bdcrsSucceeded (\ s a -> s{_bdcrsSucceeded = a}) . _Default . _Coerce
 
 -- | A map of the names of connections that were not successfully deleted to error details.
 bdcrsErrors :: Lens' BatchDeleteConnectionResponse (HashMap Text ErrorDetail)
-bdcrsErrors = lens _bdcrsErrors (\ s a -> s{_bdcrsErrors = a}) . _Default . _Map;
+bdcrsErrors = lens _bdcrsErrors (\ s a -> s{_bdcrsErrors = a}) . _Default . _Map
 
 -- | -- | The response status code.
 bdcrsResponseStatus :: Lens' BatchDeleteConnectionResponse Int
-bdcrsResponseStatus = lens _bdcrsResponseStatus (\ s a -> s{_bdcrsResponseStatus = a});
+bdcrsResponseStatus = lens _bdcrsResponseStatus (\ s a -> s{_bdcrsResponseStatus = a})
 
 instance NFData BatchDeleteConnectionResponse where

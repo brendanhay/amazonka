@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.PutEventStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ putEventStream
     -> PutEventStream
 putEventStream pApplicationId_ pWriteEventStream_ =
   PutEventStream'
-  { _pesApplicationId = pApplicationId_
-  , _pesWriteEventStream = pWriteEventStream_
-  }
+    { _pesApplicationId = pApplicationId_
+    , _pesWriteEventStream = pWriteEventStream_
+    }
 
 
 -- | ApplicationId
 pesApplicationId :: Lens' PutEventStream Text
-pesApplicationId = lens _pesApplicationId (\ s a -> s{_pesApplicationId = a});
+pesApplicationId = lens _pesApplicationId (\ s a -> s{_pesApplicationId = a})
 
 -- | EventStream to write.
 pesWriteEventStream :: Lens' PutEventStream WriteEventStream
-pesWriteEventStream = lens _pesWriteEventStream (\ s a -> s{_pesWriteEventStream = a});
+pesWriteEventStream = lens _pesWriteEventStream (\ s a -> s{_pesWriteEventStream = a})
 
 instance AWSRequest PutEventStream where
         type Rs PutEventStream = PutEventStreamResponse
@@ -130,15 +130,15 @@ putEventStreamResponse
     -> PutEventStreamResponse
 putEventStreamResponse pResponseStatus_ pEventStream_ =
   PutEventStreamResponse'
-  {_pesrsResponseStatus = pResponseStatus_, _pesrsEventStream = pEventStream_}
+    {_pesrsResponseStatus = pResponseStatus_, _pesrsEventStream = pEventStream_}
 
 
 -- | -- | The response status code.
 pesrsResponseStatus :: Lens' PutEventStreamResponse Int
-pesrsResponseStatus = lens _pesrsResponseStatus (\ s a -> s{_pesrsResponseStatus = a});
+pesrsResponseStatus = lens _pesrsResponseStatus (\ s a -> s{_pesrsResponseStatus = a})
 
 -- | Undocumented member.
 pesrsEventStream :: Lens' PutEventStreamResponse EventStream
-pesrsEventStream = lens _pesrsEventStream (\ s a -> s{_pesrsEventStream = a});
+pesrsEventStream = lens _pesrsEventStream (\ s a -> s{_pesrsEventStream = a})
 
 instance NFData PutEventStreamResponse where

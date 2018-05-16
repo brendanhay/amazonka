@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetRole
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getRole pRoleName_ = GetRole' {_grRoleName = pRoleName_}
 
 -- | The name of the IAM role to get information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 grRoleName :: Lens' GetRole Text
-grRoleName = lens _grRoleName (\ s a -> s{_grRoleName = a});
+grRoleName = lens _grRoleName (\ s a -> s{_grRoleName = a})
 
 instance AWSRequest GetRole where
         type Rs GetRole = GetRoleResponse
@@ -119,10 +119,10 @@ getRoleResponse pResponseStatus_ pRole_ =
 
 -- | -- | The response status code.
 grrsResponseStatus :: Lens' GetRoleResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a})
 
 -- | A structure containing details about the IAM role.
 grrsRole :: Lens' GetRoleResponse Role
-grrsRole = lens _grrsRole (\ s a -> s{_grrsRole = a});
+grrsRole = lens _grrsRole (\ s a -> s{_grrsRole = a})
 
 instance NFData GetRoleResponse where

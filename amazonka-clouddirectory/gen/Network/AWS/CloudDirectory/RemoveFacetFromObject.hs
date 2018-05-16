@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.RemoveFacetFromObject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ data RemoveFacetFromObject = RemoveFacetFromObject'
 --
 -- * 'rffoDirectoryARN' - The ARN of the directory in which the object resides.
 --
--- * 'rffoSchemaFacet' - The facet to remove.
+-- * 'rffoSchemaFacet' - The facet to remove. See 'SchemaFacet' for details.
 --
 -- * 'rffoObjectReference' - A reference to the object to remove the facet from.
 removeFacetFromObject
@@ -69,23 +69,23 @@ removeFacetFromObject
     -> RemoveFacetFromObject
 removeFacetFromObject pDirectoryARN_ pSchemaFacet_ pObjectReference_ =
   RemoveFacetFromObject'
-  { _rffoDirectoryARN = pDirectoryARN_
-  , _rffoSchemaFacet = pSchemaFacet_
-  , _rffoObjectReference = pObjectReference_
-  }
+    { _rffoDirectoryARN = pDirectoryARN_
+    , _rffoSchemaFacet = pSchemaFacet_
+    , _rffoObjectReference = pObjectReference_
+    }
 
 
 -- | The ARN of the directory in which the object resides.
 rffoDirectoryARN :: Lens' RemoveFacetFromObject Text
-rffoDirectoryARN = lens _rffoDirectoryARN (\ s a -> s{_rffoDirectoryARN = a});
+rffoDirectoryARN = lens _rffoDirectoryARN (\ s a -> s{_rffoDirectoryARN = a})
 
--- | The facet to remove.
+-- | The facet to remove. See 'SchemaFacet' for details.
 rffoSchemaFacet :: Lens' RemoveFacetFromObject SchemaFacet
-rffoSchemaFacet = lens _rffoSchemaFacet (\ s a -> s{_rffoSchemaFacet = a});
+rffoSchemaFacet = lens _rffoSchemaFacet (\ s a -> s{_rffoSchemaFacet = a})
 
 -- | A reference to the object to remove the facet from.
 rffoObjectReference :: Lens' RemoveFacetFromObject ObjectReference
-rffoObjectReference = lens _rffoObjectReference (\ s a -> s{_rffoObjectReference = a});
+rffoObjectReference = lens _rffoObjectReference (\ s a -> s{_rffoObjectReference = a})
 
 instance AWSRequest RemoveFacetFromObject where
         type Rs RemoveFacetFromObject =
@@ -141,6 +141,6 @@ removeFacetFromObjectResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rfforsResponseStatus :: Lens' RemoveFacetFromObjectResponse Int
-rfforsResponseStatus = lens _rfforsResponseStatus (\ s a -> s{_rfforsResponseStatus = a});
+rfforsResponseStatus = lens _rfforsResponseStatus (\ s a -> s{_rfforsResponseStatus = a})
 
 instance NFData RemoveFacetFromObjectResponse where

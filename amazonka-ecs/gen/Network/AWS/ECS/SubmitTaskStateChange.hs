@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.SubmitTaskStateChange
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,13 @@ module Network.AWS.ECS.SubmitTaskStateChange
     -- * Request Lenses
     , stscStatus
     , stscCluster
+    , stscAttachments
+    , stscExecutionStoppedAt
+    , stscPullStoppedAt
+    , stscContainers
     , stscReason
     , stscTask
+    , stscPullStartedAt
 
     -- * Destructuring the Response
     , submitTaskStateChangeResponse
@@ -49,10 +54,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'submitTaskStateChange' smart constructor.
 data SubmitTaskStateChange = SubmitTaskStateChange'
-  { _stscStatus  :: !(Maybe Text)
-  , _stscCluster :: !(Maybe Text)
-  , _stscReason  :: !(Maybe Text)
-  , _stscTask    :: !(Maybe Text)
+  { _stscStatus             :: !(Maybe Text)
+  , _stscCluster            :: !(Maybe Text)
+  , _stscAttachments        :: !(Maybe [AttachmentStateChange])
+  , _stscExecutionStoppedAt :: !(Maybe POSIX)
+  , _stscPullStoppedAt      :: !(Maybe POSIX)
+  , _stscContainers         :: !(Maybe [ContainerStateChange])
+  , _stscReason             :: !(Maybe Text)
+  , _stscTask               :: !(Maybe Text)
+  , _stscPullStartedAt      :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -64,35 +74,70 @@ data SubmitTaskStateChange = SubmitTaskStateChange'
 --
 -- * 'stscCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
 --
+-- * 'stscAttachments' - Any attachments associated with the state change request.
+--
+-- * 'stscExecutionStoppedAt' - The Unix time stamp for when the task execution stopped.
+--
+-- * 'stscPullStoppedAt' - The Unix time stamp for when the container image pull completed.
+--
+-- * 'stscContainers' - Any containers associated with the state change request.
+--
 -- * 'stscReason' - The reason for the state change request.
 --
--- * 'stscTask' - The task ID or full Amazon Resource Name (ARN) of the task in the state change request.
+-- * 'stscTask' - The task ID or full ARN of the task in the state change request.
+--
+-- * 'stscPullStartedAt' - The Unix time stamp for when the container image pull began.
 submitTaskStateChange
     :: SubmitTaskStateChange
 submitTaskStateChange =
   SubmitTaskStateChange'
-  { _stscStatus = Nothing
-  , _stscCluster = Nothing
-  , _stscReason = Nothing
-  , _stscTask = Nothing
-  }
+    { _stscStatus = Nothing
+    , _stscCluster = Nothing
+    , _stscAttachments = Nothing
+    , _stscExecutionStoppedAt = Nothing
+    , _stscPullStoppedAt = Nothing
+    , _stscContainers = Nothing
+    , _stscReason = Nothing
+    , _stscTask = Nothing
+    , _stscPullStartedAt = Nothing
+    }
 
 
 -- | The status of the state change request.
 stscStatus :: Lens' SubmitTaskStateChange (Maybe Text)
-stscStatus = lens _stscStatus (\ s a -> s{_stscStatus = a});
+stscStatus = lens _stscStatus (\ s a -> s{_stscStatus = a})
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
 stscCluster :: Lens' SubmitTaskStateChange (Maybe Text)
-stscCluster = lens _stscCluster (\ s a -> s{_stscCluster = a});
+stscCluster = lens _stscCluster (\ s a -> s{_stscCluster = a})
+
+-- | Any attachments associated with the state change request.
+stscAttachments :: Lens' SubmitTaskStateChange [AttachmentStateChange]
+stscAttachments = lens _stscAttachments (\ s a -> s{_stscAttachments = a}) . _Default . _Coerce
+
+-- | The Unix time stamp for when the task execution stopped.
+stscExecutionStoppedAt :: Lens' SubmitTaskStateChange (Maybe UTCTime)
+stscExecutionStoppedAt = lens _stscExecutionStoppedAt (\ s a -> s{_stscExecutionStoppedAt = a}) . mapping _Time
+
+-- | The Unix time stamp for when the container image pull completed.
+stscPullStoppedAt :: Lens' SubmitTaskStateChange (Maybe UTCTime)
+stscPullStoppedAt = lens _stscPullStoppedAt (\ s a -> s{_stscPullStoppedAt = a}) . mapping _Time
+
+-- | Any containers associated with the state change request.
+stscContainers :: Lens' SubmitTaskStateChange [ContainerStateChange]
+stscContainers = lens _stscContainers (\ s a -> s{_stscContainers = a}) . _Default . _Coerce
 
 -- | The reason for the state change request.
 stscReason :: Lens' SubmitTaskStateChange (Maybe Text)
-stscReason = lens _stscReason (\ s a -> s{_stscReason = a});
+stscReason = lens _stscReason (\ s a -> s{_stscReason = a})
 
--- | The task ID or full Amazon Resource Name (ARN) of the task in the state change request.
+-- | The task ID or full ARN of the task in the state change request.
 stscTask :: Lens' SubmitTaskStateChange (Maybe Text)
-stscTask = lens _stscTask (\ s a -> s{_stscTask = a});
+stscTask = lens _stscTask (\ s a -> s{_stscTask = a})
+
+-- | The Unix time stamp for when the container image pull began.
+stscPullStartedAt :: Lens' SubmitTaskStateChange (Maybe UTCTime)
+stscPullStartedAt = lens _stscPullStartedAt (\ s a -> s{_stscPullStartedAt = a}) . mapping _Time
 
 instance AWSRequest SubmitTaskStateChange where
         type Rs SubmitTaskStateChange =
@@ -124,8 +169,14 @@ instance ToJSON SubmitTaskStateChange where
               (catMaybes
                  [("status" .=) <$> _stscStatus,
                   ("cluster" .=) <$> _stscCluster,
+                  ("attachments" .=) <$> _stscAttachments,
+                  ("executionStoppedAt" .=) <$>
+                    _stscExecutionStoppedAt,
+                  ("pullStoppedAt" .=) <$> _stscPullStoppedAt,
+                  ("containers" .=) <$> _stscContainers,
                   ("reason" .=) <$> _stscReason,
-                  ("task" .=) <$> _stscTask])
+                  ("task" .=) <$> _stscTask,
+                  ("pullStartedAt" .=) <$> _stscPullStartedAt])
 
 instance ToPath SubmitTaskStateChange where
         toPath = const "/"
@@ -152,15 +203,15 @@ submitTaskStateChangeResponse
     -> SubmitTaskStateChangeResponse
 submitTaskStateChangeResponse pResponseStatus_ =
   SubmitTaskStateChangeResponse'
-  {_stscrsAcknowledgment = Nothing, _stscrsResponseStatus = pResponseStatus_}
+    {_stscrsAcknowledgment = Nothing, _stscrsResponseStatus = pResponseStatus_}
 
 
 -- | Acknowledgement of the state change.
 stscrsAcknowledgment :: Lens' SubmitTaskStateChangeResponse (Maybe Text)
-stscrsAcknowledgment = lens _stscrsAcknowledgment (\ s a -> s{_stscrsAcknowledgment = a});
+stscrsAcknowledgment = lens _stscrsAcknowledgment (\ s a -> s{_stscrsAcknowledgment = a})
 
 -- | -- | The response status code.
 stscrsResponseStatus :: Lens' SubmitTaskStateChangeResponse Int
-stscrsResponseStatus = lens _stscrsResponseStatus (\ s a -> s{_stscrsResponseStatus = a});
+stscrsResponseStatus = lens _stscrsResponseStatus (\ s a -> s{_stscrsResponseStatus = a})
 
 instance NFData SubmitTaskStateChangeResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteNetworkInterfacePermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ deleteNetworkInterfacePermission
     -> DeleteNetworkInterfacePermission
 deleteNetworkInterfacePermission pNetworkInterfacePermissionId_ =
   DeleteNetworkInterfacePermission'
-  { _dnipForce = Nothing
-  , _dnipDryRun = Nothing
-  , _dnipNetworkInterfacePermissionId = pNetworkInterfacePermissionId_
-  }
+    { _dnipForce = Nothing
+    , _dnipDryRun = Nothing
+    , _dnipNetworkInterfacePermissionId = pNetworkInterfacePermissionId_
+    }
 
 
 -- | Specify @true@ to remove the permission even if the network interface is attached to an instance.
 dnipForce :: Lens' DeleteNetworkInterfacePermission (Maybe Bool)
-dnipForce = lens _dnipForce (\ s a -> s{_dnipForce = a});
+dnipForce = lens _dnipForce (\ s a -> s{_dnipForce = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dnipDryRun :: Lens' DeleteNetworkInterfacePermission (Maybe Bool)
-dnipDryRun = lens _dnipDryRun (\ s a -> s{_dnipDryRun = a});
+dnipDryRun = lens _dnipDryRun (\ s a -> s{_dnipDryRun = a})
 
 -- | The ID of the network interface permission.
 dnipNetworkInterfacePermissionId :: Lens' DeleteNetworkInterfacePermission Text
-dnipNetworkInterfacePermissionId = lens _dnipNetworkInterfacePermissionId (\ s a -> s{_dnipNetworkInterfacePermissionId = a});
+dnipNetworkInterfacePermissionId = lens _dnipNetworkInterfacePermissionId (\ s a -> s{_dnipNetworkInterfacePermissionId = a})
 
 instance AWSRequest DeleteNetworkInterfacePermission
          where
@@ -149,16 +149,16 @@ deleteNetworkInterfacePermissionResponse
     -> DeleteNetworkInterfacePermissionResponse
 deleteNetworkInterfacePermissionResponse pResponseStatus_ =
   DeleteNetworkInterfacePermissionResponse'
-  {_dniprsReturn = Nothing, _dniprsResponseStatus = pResponseStatus_}
+    {_dniprsReturn = Nothing, _dniprsResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds, otherwise returns an error.
 dniprsReturn :: Lens' DeleteNetworkInterfacePermissionResponse (Maybe Bool)
-dniprsReturn = lens _dniprsReturn (\ s a -> s{_dniprsReturn = a});
+dniprsReturn = lens _dniprsReturn (\ s a -> s{_dniprsReturn = a})
 
 -- | -- | The response status code.
 dniprsResponseStatus :: Lens' DeleteNetworkInterfacePermissionResponse Int
-dniprsResponseStatus = lens _dniprsResponseStatus (\ s a -> s{_dniprsResponseStatus = a});
+dniprsResponseStatus = lens _dniprsResponseStatus (\ s a -> s{_dniprsResponseStatus = a})
 
 instance NFData
            DeleteNetworkInterfacePermissionResponse

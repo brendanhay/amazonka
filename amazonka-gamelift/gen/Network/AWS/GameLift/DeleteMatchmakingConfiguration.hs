@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteMatchmakingConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,7 +85,7 @@ deleteMatchmakingConfiguration pName_ =
 
 -- | Unique identifier for a matchmaking configuration
 dmcName :: Lens' DeleteMatchmakingConfiguration Text
-dmcName = lens _dmcName (\ s a -> s{_dmcName = a});
+dmcName = lens _dmcName (\ s a -> s{_dmcName = a})
 
 instance AWSRequest DeleteMatchmakingConfiguration
          where
@@ -140,12 +140,12 @@ deleteMatchmakingConfigurationResponse
     -> DeleteMatchmakingConfigurationResponse
 deleteMatchmakingConfigurationResponse pResponseStatus_ =
   DeleteMatchmakingConfigurationResponse'
-  {_dmcrsResponseStatus = pResponseStatus_}
+    {_dmcrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dmcrsResponseStatus :: Lens' DeleteMatchmakingConfigurationResponse Int
-dmcrsResponseStatus = lens _dmcrsResponseStatus (\ s a -> s{_dmcrsResponseStatus = a});
+dmcrsResponseStatus = lens _dmcrsResponseStatus (\ s a -> s{_dmcrsResponseStatus = a})
 
 instance NFData
            DeleteMatchmakingConfigurationResponse

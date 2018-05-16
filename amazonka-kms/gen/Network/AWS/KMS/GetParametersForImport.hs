@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GetParametersForImport
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,23 +77,23 @@ getParametersForImport
     -> GetParametersForImport
 getParametersForImport pKeyId_ pWrappingAlgorithm_ pWrappingKeySpec_ =
   GetParametersForImport'
-  { _gpfiKeyId = pKeyId_
-  , _gpfiWrappingAlgorithm = pWrappingAlgorithm_
-  , _gpfiWrappingKeySpec = pWrappingKeySpec_
-  }
+    { _gpfiKeyId = pKeyId_
+    , _gpfiWrappingAlgorithm = pWrappingAlgorithm_
+    , _gpfiWrappingKeySpec = pWrappingKeySpec_
+    }
 
 
 -- | The identifier of the CMK into which you will import key material. The CMK's @Origin@ must be @EXTERNAL@ . Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 gpfiKeyId :: Lens' GetParametersForImport Text
-gpfiKeyId = lens _gpfiKeyId (\ s a -> s{_gpfiKeyId = a});
+gpfiKeyId = lens _gpfiKeyId (\ s a -> s{_gpfiKeyId = a})
 
 -- | The algorithm you will use to encrypt the key material before importing it with 'ImportKeyMaterial' . For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html Encrypt the Key Material> in the /AWS Key Management Service Developer Guide/ .
 gpfiWrappingAlgorithm :: Lens' GetParametersForImport AlgorithmSpec
-gpfiWrappingAlgorithm = lens _gpfiWrappingAlgorithm (\ s a -> s{_gpfiWrappingAlgorithm = a});
+gpfiWrappingAlgorithm = lens _gpfiWrappingAlgorithm (\ s a -> s{_gpfiWrappingAlgorithm = a})
 
 -- | The type of wrapping key (public key) to return in the response. Only 2048-bit RSA public keys are supported.
 gpfiWrappingKeySpec :: Lens' GetParametersForImport WrappingKeySpec
-gpfiWrappingKeySpec = lens _gpfiWrappingKeySpec (\ s a -> s{_gpfiWrappingKeySpec = a});
+gpfiWrappingKeySpec = lens _gpfiWrappingKeySpec (\ s a -> s{_gpfiWrappingKeySpec = a})
 
 instance AWSRequest GetParametersForImport where
         type Rs GetParametersForImport =
@@ -164,32 +164,32 @@ getParametersForImportResponse
     -> GetParametersForImportResponse
 getParametersForImportResponse pResponseStatus_ =
   GetParametersForImportResponse'
-  { _gpfirsKeyId = Nothing
-  , _gpfirsPublicKey = Nothing
-  , _gpfirsParametersValidTo = Nothing
-  , _gpfirsImportToken = Nothing
-  , _gpfirsResponseStatus = pResponseStatus_
-  }
+    { _gpfirsKeyId = Nothing
+    , _gpfirsPublicKey = Nothing
+    , _gpfirsParametersValidTo = Nothing
+    , _gpfirsImportToken = Nothing
+    , _gpfirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The identifier of the CMK to use in a subsequent 'ImportKeyMaterial' request. This is the same CMK specified in the @GetParametersForImport@ request.
 gpfirsKeyId :: Lens' GetParametersForImportResponse (Maybe Text)
-gpfirsKeyId = lens _gpfirsKeyId (\ s a -> s{_gpfirsKeyId = a});
+gpfirsKeyId = lens _gpfirsKeyId (\ s a -> s{_gpfirsKeyId = a})
 
 -- | The public key to use to encrypt the key material before importing it with 'ImportKeyMaterial' .-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 gpfirsPublicKey :: Lens' GetParametersForImportResponse (Maybe ByteString)
-gpfirsPublicKey = lens _gpfirsPublicKey (\ s a -> s{_gpfirsPublicKey = a}) . mapping (_Sensitive . _Base64);
+gpfirsPublicKey = lens _gpfirsPublicKey (\ s a -> s{_gpfirsPublicKey = a}) . mapping (_Sensitive . _Base64)
 
 -- | The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an 'ImportKeyMaterial' request and you must send another @GetParametersForImport@ request to get new ones.
 gpfirsParametersValidTo :: Lens' GetParametersForImportResponse (Maybe UTCTime)
-gpfirsParametersValidTo = lens _gpfirsParametersValidTo (\ s a -> s{_gpfirsParametersValidTo = a}) . mapping _Time;
+gpfirsParametersValidTo = lens _gpfirsParametersValidTo (\ s a -> s{_gpfirsParametersValidTo = a}) . mapping _Time
 
 -- | The import token to send in a subsequent 'ImportKeyMaterial' request.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 gpfirsImportToken :: Lens' GetParametersForImportResponse (Maybe ByteString)
-gpfirsImportToken = lens _gpfirsImportToken (\ s a -> s{_gpfirsImportToken = a}) . mapping _Base64;
+gpfirsImportToken = lens _gpfirsImportToken (\ s a -> s{_gpfirsImportToken = a}) . mapping _Base64
 
 -- | -- | The response status code.
 gpfirsResponseStatus :: Lens' GetParametersForImportResponse Int
-gpfirsResponseStatus = lens _gpfirsResponseStatus (\ s a -> s{_gpfirsResponseStatus = a});
+gpfirsResponseStatus = lens _gpfirsResponseStatus (\ s a -> s{_gpfirsResponseStatus = a})
 
 instance NFData GetParametersForImportResponse where

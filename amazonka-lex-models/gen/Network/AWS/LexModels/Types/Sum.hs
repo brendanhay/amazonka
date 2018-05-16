@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -19,8 +19,39 @@ module Network.AWS.LexModels.Types.Sum where
 
 import Network.AWS.Prelude
 
+data ChannelStatus
+  = Created
+  | Failed
+  | InProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ChannelStatus where
+    parser = takeLowerText >>= \case
+        "created" -> pure Created
+        "failed" -> pure Failed
+        "in_progress" -> pure InProgress
+        e -> fromTextError $ "Failure parsing ChannelStatus from value: '" <> e
+           <> "'. Accepted values: created, failed, in_progress"
+
+instance ToText ChannelStatus where
+    toText = \case
+        Created -> "CREATED"
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+
+instance Hashable     ChannelStatus
+instance NFData       ChannelStatus
+instance ToByteString ChannelStatus
+instance ToQuery      ChannelStatus
+instance ToHeader     ChannelStatus
+
+instance FromJSON ChannelStatus where
+    parseJSON = parseJSONText "ChannelStatus"
+
 data ChannelType
   = Facebook
+  | Kik
   | Slack
   | TwilioSms
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -29,14 +60,16 @@ data ChannelType
 instance FromText ChannelType where
     parser = takeLowerText >>= \case
         "facebook" -> pure Facebook
+        "kik" -> pure Kik
         "slack" -> pure Slack
         "twilio-sms" -> pure TwilioSms
         e -> fromTextError $ "Failure parsing ChannelType from value: '" <> e
-           <> "'. Accepted values: facebook, slack, twilio-sms"
+           <> "'. Accepted values: facebook, kik, slack, twilio-sms"
 
 instance ToText ChannelType where
     toText = \case
         Facebook -> "Facebook"
+        Kik -> "Kik"
         Slack -> "Slack"
         TwilioSms -> "Twilio-Sms"
 
@@ -50,20 +83,23 @@ instance FromJSON ChannelType where
     parseJSON = parseJSONText "ChannelType"
 
 data ContentType
-  = PlainText
+  = CustomPayload
+  | PlainText
   | Ssml
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ContentType where
     parser = takeLowerText >>= \case
+        "custompayload" -> pure CustomPayload
         "plaintext" -> pure PlainText
         "ssml" -> pure Ssml
         e -> fromTextError $ "Failure parsing ContentType from value: '" <> e
-           <> "'. Accepted values: plaintext, ssml"
+           <> "'. Accepted values: custompayload, plaintext, ssml"
 
 instance ToText ContentType where
     toText = \case
+        CustomPayload -> "CustomPayload"
         PlainText -> "PlainText"
         Ssml -> "SSML"
 
@@ -80,25 +116,25 @@ instance FromJSON ContentType where
     parseJSON = parseJSONText "ContentType"
 
 data ExportStatus
-  = Failed
-  | InProgress
-  | Ready
+  = ESFailed
+  | ESInProgress
+  | ESReady
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ExportStatus where
     parser = takeLowerText >>= \case
-        "failed" -> pure Failed
-        "in_progress" -> pure InProgress
-        "ready" -> pure Ready
+        "failed" -> pure ESFailed
+        "in_progress" -> pure ESInProgress
+        "ready" -> pure ESReady
         e -> fromTextError $ "Failure parsing ExportStatus from value: '" <> e
            <> "'. Accepted values: failed, in_progress, ready"
 
 instance ToText ExportStatus where
     toText = \case
-        Failed -> "FAILED"
-        InProgress -> "IN_PROGRESS"
-        Ready -> "READY"
+        ESFailed -> "FAILED"
+        ESInProgress -> "IN_PROGRESS"
+        ESReady -> "READY"
 
 instance Hashable     ExportStatus
 instance NFData       ExportStatus
@@ -109,20 +145,23 @@ instance ToHeader     ExportStatus
 instance FromJSON ExportStatus where
     parseJSON = parseJSONText "ExportStatus"
 
-data ExportType =
-  AlexaSkillsKit
+data ExportType
+  = AlexaSkillsKit
+  | Lex
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ExportType where
     parser = takeLowerText >>= \case
         "alexa_skills_kit" -> pure AlexaSkillsKit
+        "lex" -> pure Lex
         e -> fromTextError $ "Failure parsing ExportType from value: '" <> e
-           <> "'. Accepted values: alexa_skills_kit"
+           <> "'. Accepted values: alexa_skills_kit, lex"
 
 instance ToText ExportType where
     toText = \case
         AlexaSkillsKit -> "ALEXA_SKILLS_KIT"
+        Lex -> "LEX"
 
 instance Hashable     ExportType
 instance NFData       ExportType
@@ -166,6 +205,36 @@ instance ToJSON FulfillmentActivityType where
 instance FromJSON FulfillmentActivityType where
     parseJSON = parseJSONText "FulfillmentActivityType"
 
+data ImportStatus
+  = ISComplete
+  | ISFailed
+  | ISInProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ImportStatus where
+    parser = takeLowerText >>= \case
+        "complete" -> pure ISComplete
+        "failed" -> pure ISFailed
+        "in_progress" -> pure ISInProgress
+        e -> fromTextError $ "Failure parsing ImportStatus from value: '" <> e
+           <> "'. Accepted values: complete, failed, in_progress"
+
+instance ToText ImportStatus where
+    toText = \case
+        ISComplete -> "COMPLETE"
+        ISFailed -> "FAILED"
+        ISInProgress -> "IN_PROGRESS"
+
+instance Hashable     ImportStatus
+instance NFData       ImportStatus
+instance ToByteString ImportStatus
+instance ToQuery      ImportStatus
+instance ToHeader     ImportStatus
+
+instance FromJSON ImportStatus where
+    parseJSON = parseJSONText "ImportStatus"
+
 data LexStatus
   = LSBuilding
   | LSFailed
@@ -199,19 +268,25 @@ instance ToHeader     LexStatus
 instance FromJSON LexStatus where
     parseJSON = parseJSONText "LexStatus"
 
-data Locale =
-  EnUs
+data Locale
+  = DeDe
+  | EnGb
+  | EnUs
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText Locale where
     parser = takeLowerText >>= \case
+        "de-de" -> pure DeDe
+        "en-gb" -> pure EnGb
         "en-us" -> pure EnUs
         e -> fromTextError $ "Failure parsing Locale from value: '" <> e
-           <> "'. Accepted values: en-us"
+           <> "'. Accepted values: de-de, en-gb, en-us"
 
 instance ToText Locale where
     toText = \case
+        DeDe -> "de-DE"
+        EnGb -> "en-GB"
         EnUs -> "en-US"
 
 instance Hashable     Locale
@@ -225,6 +300,36 @@ instance ToJSON Locale where
 
 instance FromJSON Locale where
     parseJSON = parseJSONText "Locale"
+
+data MergeStrategy
+  = FailOnConflict
+  | OverwriteLatest
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText MergeStrategy where
+    parser = takeLowerText >>= \case
+        "fail_on_conflict" -> pure FailOnConflict
+        "overwrite_latest" -> pure OverwriteLatest
+        e -> fromTextError $ "Failure parsing MergeStrategy from value: '" <> e
+           <> "'. Accepted values: fail_on_conflict, overwrite_latest"
+
+instance ToText MergeStrategy where
+    toText = \case
+        FailOnConflict -> "FAIL_ON_CONFLICT"
+        OverwriteLatest -> "OVERWRITE_LATEST"
+
+instance Hashable     MergeStrategy
+instance NFData       MergeStrategy
+instance ToByteString MergeStrategy
+instance ToQuery      MergeStrategy
+instance ToHeader     MergeStrategy
+
+instance ToJSON MergeStrategy where
+    toJSON = toJSONText
+
+instance FromJSON MergeStrategy where
+    parseJSON = parseJSONText "MergeStrategy"
 
 data ProcessBehavior
   = Build
@@ -253,20 +358,26 @@ instance ToHeader     ProcessBehavior
 instance ToJSON ProcessBehavior where
     toJSON = toJSONText
 
-data ResourceType =
-  Bot
+data ResourceType
+  = Bot
+  | Intent
+  | SlotType
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
         "bot" -> pure Bot
+        "intent" -> pure Intent
+        "slot_type" -> pure SlotType
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: bot"
+           <> "'. Accepted values: bot, intent, slot_type"
 
 instance ToText ResourceType where
     toText = \case
         Bot -> "BOT"
+        Intent -> "INTENT"
+        SlotType -> "SLOT_TYPE"
 
 instance Hashable     ResourceType
 instance NFData       ResourceType

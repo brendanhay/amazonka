@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListObjectChildren
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,33 +78,33 @@ listObjectChildren
     -> ListObjectChildren
 listObjectChildren pDirectoryARN_ pObjectReference_ =
   ListObjectChildren'
-  { _locConsistencyLevel = Nothing
-  , _locNextToken = Nothing
-  , _locMaxResults = Nothing
-  , _locDirectoryARN = pDirectoryARN_
-  , _locObjectReference = pObjectReference_
-  }
+    { _locConsistencyLevel = Nothing
+    , _locNextToken = Nothing
+    , _locMaxResults = Nothing
+    , _locDirectoryARN = pDirectoryARN_
+    , _locObjectReference = pObjectReference_
+    }
 
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 locConsistencyLevel :: Lens' ListObjectChildren (Maybe ConsistencyLevel)
-locConsistencyLevel = lens _locConsistencyLevel (\ s a -> s{_locConsistencyLevel = a});
+locConsistencyLevel = lens _locConsistencyLevel (\ s a -> s{_locConsistencyLevel = a})
 
 -- | The pagination token.
 locNextToken :: Lens' ListObjectChildren (Maybe Text)
-locNextToken = lens _locNextToken (\ s a -> s{_locNextToken = a});
+locNextToken = lens _locNextToken (\ s a -> s{_locNextToken = a})
 
 -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 locMaxResults :: Lens' ListObjectChildren (Maybe Natural)
-locMaxResults = lens _locMaxResults (\ s a -> s{_locMaxResults = a}) . mapping _Nat;
+locMaxResults = lens _locMaxResults (\ s a -> s{_locMaxResults = a}) . mapping _Nat
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 locDirectoryARN :: Lens' ListObjectChildren Text
-locDirectoryARN = lens _locDirectoryARN (\ s a -> s{_locDirectoryARN = a});
+locDirectoryARN = lens _locDirectoryARN (\ s a -> s{_locDirectoryARN = a})
 
 -- | The reference that identifies the object for which child objects are being listed.
 locObjectReference :: Lens' ListObjectChildren ObjectReference
-locObjectReference = lens _locObjectReference (\ s a -> s{_locObjectReference = a});
+locObjectReference = lens _locObjectReference (\ s a -> s{_locObjectReference = a})
 
 instance AWSRequest ListObjectChildren where
         type Rs ListObjectChildren =
@@ -165,22 +165,22 @@ listObjectChildrenResponse
     -> ListObjectChildrenResponse
 listObjectChildrenResponse pResponseStatus_ =
   ListObjectChildrenResponse'
-  { _locrsChildren = Nothing
-  , _locrsNextToken = Nothing
-  , _locrsResponseStatus = pResponseStatus_
-  }
+    { _locrsChildren = Nothing
+    , _locrsNextToken = Nothing
+    , _locrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Children structure, which is a map with key as the @LinkName@ and @ObjectIdentifier@ as the value.
 locrsChildren :: Lens' ListObjectChildrenResponse (HashMap Text Text)
-locrsChildren = lens _locrsChildren (\ s a -> s{_locrsChildren = a}) . _Default . _Map;
+locrsChildren = lens _locrsChildren (\ s a -> s{_locrsChildren = a}) . _Default . _Map
 
 -- | The pagination token.
 locrsNextToken :: Lens' ListObjectChildrenResponse (Maybe Text)
-locrsNextToken = lens _locrsNextToken (\ s a -> s{_locrsNextToken = a});
+locrsNextToken = lens _locrsNextToken (\ s a -> s{_locrsNextToken = a})
 
 -- | -- | The response status code.
 locrsResponseStatus :: Lens' ListObjectChildrenResponse Int
-locrsResponseStatus = lens _locrsResponseStatus (\ s a -> s{_locrsResponseStatus = a});
+locrsResponseStatus = lens _locrsResponseStatus (\ s a -> s{_locrsResponseStatus = a})
 
 instance NFData ListObjectChildrenResponse where

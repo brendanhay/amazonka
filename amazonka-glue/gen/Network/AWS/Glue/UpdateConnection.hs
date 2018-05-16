@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ updateConnection
     -> UpdateConnection
 updateConnection pName_ pConnectionInput_ =
   UpdateConnection'
-  { _ucCatalogId = Nothing
-  , _ucName = pName_
-  , _ucConnectionInput = pConnectionInput_
-  }
+    { _ucCatalogId = Nothing
+    , _ucName = pName_
+    , _ucConnectionInput = pConnectionInput_
+    }
 
 
 -- | The ID of the Data Catalog in which the connection resides. If none is supplied, the AWS account ID is used by default.
 ucCatalogId :: Lens' UpdateConnection (Maybe Text)
-ucCatalogId = lens _ucCatalogId (\ s a -> s{_ucCatalogId = a});
+ucCatalogId = lens _ucCatalogId (\ s a -> s{_ucCatalogId = a})
 
 -- | The name of the connection definition to update.
 ucName :: Lens' UpdateConnection Text
-ucName = lens _ucName (\ s a -> s{_ucName = a});
+ucName = lens _ucName (\ s a -> s{_ucName = a})
 
 -- | A @ConnectionInput@ object that redefines the connection in question.
 ucConnectionInput :: Lens' UpdateConnection ConnectionInput
-ucConnectionInput = lens _ucConnectionInput (\ s a -> s{_ucConnectionInput = a});
+ucConnectionInput = lens _ucConnectionInput (\ s a -> s{_ucConnectionInput = a})
 
 instance AWSRequest UpdateConnection where
         type Rs UpdateConnection = UpdateConnectionResponse
@@ -141,6 +141,6 @@ updateConnectionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ucrsResponseStatus :: Lens' UpdateConnectionResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a});
+ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a})
 
 instance NFData UpdateConnectionResponse where

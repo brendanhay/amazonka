@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CopyProduct
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Copies the specified source product to the specified target product or a new product.
 --
 --
--- You can copy the product to the same account or another account. You can copy the product to the same region or another region.
+-- You can copy a product to the same account or another account. You can copy a product to the same region or another region.
 --
 -- This operation is performed asynchronously. To track the progress of the operation, use 'DescribeCopyProductStatus' .
 --
@@ -70,9 +70,9 @@ data CopyProduct = CopyProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cTargetProductId' - The ID of the target product. By default, a new product is created.
+-- * 'cTargetProductId' - The identifier of the target product. By default, a new product is created.
 --
--- * 'cSourceProvisioningArtifactIdentifiers' - The IDs of the product versions to copy. By default, all provisioning artifacts are copied.
+-- * 'cSourceProvisioningArtifactIdentifiers' - The identifiers of the provisioning artifacts (also known as versions) of the product to copy. By default, all provisioning artifacts are copied.
 --
 -- * 'cTargetProductName' - A name for the target product. The default is the name of the source product.
 --
@@ -82,50 +82,50 @@ data CopyProduct = CopyProduct'
 --
 -- * 'cSourceProductARN' - The Amazon Resource Name (ARN) of the source product.
 --
--- * 'cIdempotencyToken' - A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- * 'cIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 copyProduct
     :: Text -- ^ 'cSourceProductARN'
     -> Text -- ^ 'cIdempotencyToken'
     -> CopyProduct
 copyProduct pSourceProductARN_ pIdempotencyToken_ =
   CopyProduct'
-  { _cTargetProductId = Nothing
-  , _cSourceProvisioningArtifactIdentifiers = Nothing
-  , _cTargetProductName = Nothing
-  , _cCopyOptions = Nothing
-  , _cAcceptLanguage = Nothing
-  , _cSourceProductARN = pSourceProductARN_
-  , _cIdempotencyToken = pIdempotencyToken_
-  }
+    { _cTargetProductId = Nothing
+    , _cSourceProvisioningArtifactIdentifiers = Nothing
+    , _cTargetProductName = Nothing
+    , _cCopyOptions = Nothing
+    , _cAcceptLanguage = Nothing
+    , _cSourceProductARN = pSourceProductARN_
+    , _cIdempotencyToken = pIdempotencyToken_
+    }
 
 
--- | The ID of the target product. By default, a new product is created.
+-- | The identifier of the target product. By default, a new product is created.
 cTargetProductId :: Lens' CopyProduct (Maybe Text)
-cTargetProductId = lens _cTargetProductId (\ s a -> s{_cTargetProductId = a});
+cTargetProductId = lens _cTargetProductId (\ s a -> s{_cTargetProductId = a})
 
--- | The IDs of the product versions to copy. By default, all provisioning artifacts are copied.
+-- | The identifiers of the provisioning artifacts (also known as versions) of the product to copy. By default, all provisioning artifacts are copied.
 cSourceProvisioningArtifactIdentifiers :: Lens' CopyProduct [HashMap ProvisioningArtifactPropertyName Text]
-cSourceProvisioningArtifactIdentifiers = lens _cSourceProvisioningArtifactIdentifiers (\ s a -> s{_cSourceProvisioningArtifactIdentifiers = a}) . _Default . _Coerce;
+cSourceProvisioningArtifactIdentifiers = lens _cSourceProvisioningArtifactIdentifiers (\ s a -> s{_cSourceProvisioningArtifactIdentifiers = a}) . _Default . _Coerce
 
 -- | A name for the target product. The default is the name of the source product.
 cTargetProductName :: Lens' CopyProduct (Maybe Text)
-cTargetProductName = lens _cTargetProductName (\ s a -> s{_cTargetProductName = a});
+cTargetProductName = lens _cTargetProductName (\ s a -> s{_cTargetProductName = a})
 
 -- | The copy options. If the value is @CopyTags@ , the tags from the source product are copied to the target product.
 cCopyOptions :: Lens' CopyProduct [CopyOption]
-cCopyOptions = lens _cCopyOptions (\ s a -> s{_cCopyOptions = a}) . _Default . _Coerce;
+cCopyOptions = lens _cCopyOptions (\ s a -> s{_cCopyOptions = a}) . _Default . _Coerce
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 cAcceptLanguage :: Lens' CopyProduct (Maybe Text)
-cAcceptLanguage = lens _cAcceptLanguage (\ s a -> s{_cAcceptLanguage = a});
+cAcceptLanguage = lens _cAcceptLanguage (\ s a -> s{_cAcceptLanguage = a})
 
 -- | The Amazon Resource Name (ARN) of the source product.
 cSourceProductARN :: Lens' CopyProduct Text
-cSourceProductARN = lens _cSourceProductARN (\ s a -> s{_cSourceProductARN = a});
+cSourceProductARN = lens _cSourceProductARN (\ s a -> s{_cSourceProductARN = a})
 
--- | A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 cIdempotencyToken :: Lens' CopyProduct Text
-cIdempotencyToken = lens _cIdempotencyToken (\ s a -> s{_cIdempotencyToken = a});
+cIdempotencyToken = lens _cIdempotencyToken (\ s a -> s{_cIdempotencyToken = a})
 
 instance AWSRequest CopyProduct where
         type Rs CopyProduct = CopyProductResponse
@@ -180,7 +180,7 @@ data CopyProductResponse = CopyProductResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'coprsCopyProductToken' - A unique token to pass to @DescribeCopyProductStatus@ to track the progress of the operation.
+-- * 'coprsCopyProductToken' - The token to use to track the progress of the operation.
 --
 -- * 'coprsResponseStatus' - -- | The response status code.
 copyProductResponse
@@ -188,15 +188,15 @@ copyProductResponse
     -> CopyProductResponse
 copyProductResponse pResponseStatus_ =
   CopyProductResponse'
-  {_coprsCopyProductToken = Nothing, _coprsResponseStatus = pResponseStatus_}
+    {_coprsCopyProductToken = Nothing, _coprsResponseStatus = pResponseStatus_}
 
 
--- | A unique token to pass to @DescribeCopyProductStatus@ to track the progress of the operation.
+-- | The token to use to track the progress of the operation.
 coprsCopyProductToken :: Lens' CopyProductResponse (Maybe Text)
-coprsCopyProductToken = lens _coprsCopyProductToken (\ s a -> s{_coprsCopyProductToken = a});
+coprsCopyProductToken = lens _coprsCopyProductToken (\ s a -> s{_coprsCopyProductToken = a})
 
 -- | -- | The response status code.
 coprsResponseStatus :: Lens' CopyProductResponse Int
-coprsResponseStatus = lens _coprsResponseStatus (\ s a -> s{_coprsResponseStatus = a});
+coprsResponseStatus = lens _coprsResponseStatus (\ s a -> s{_coprsResponseStatus = a})
 
 instance NFData CopyProductResponse where

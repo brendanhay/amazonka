@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeIdFormat
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Describes the ID format settings for your resources on a per-region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.
 --
 --
--- The following resource types support longer IDs: @instance@ | @reservation@ | @snapshot@ | @volume@ .
+-- The following resource types support longer IDs: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
 --
 -- These settings apply to the IAM user who makes the request; they do not apply to the entire AWS account. By default, an IAM user defaults to the same settings as the root user, unless they explicitly override the settings by running the 'ModifyIdFormat' command. Resources created with longer IDs are visible to all IAM users, regardless of these settings and provided that they have permission to use the relevant @Describe@ command for the resource type.
 --
@@ -62,15 +62,15 @@ newtype DescribeIdFormat = DescribeIdFormat'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'difResource' - The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
+-- * 'difResource' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
 describeIdFormat
     :: DescribeIdFormat
 describeIdFormat = DescribeIdFormat' {_difResource = Nothing}
 
 
--- | The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
+-- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
 difResource :: Lens' DescribeIdFormat (Maybe Text)
-difResource = lens _difResource (\ s a -> s{_difResource = a});
+difResource = lens _difResource (\ s a -> s{_difResource = a})
 
 instance AWSRequest DescribeIdFormat where
         type Rs DescribeIdFormat = DescribeIdFormatResponse
@@ -123,15 +123,15 @@ describeIdFormatResponse
     -> DescribeIdFormatResponse
 describeIdFormatResponse pResponseStatus_ =
   DescribeIdFormatResponse'
-  {_difrsStatuses = Nothing, _difrsResponseStatus = pResponseStatus_}
+    {_difrsStatuses = Nothing, _difrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the ID format for the resource.
 difrsStatuses :: Lens' DescribeIdFormatResponse [IdFormat]
-difrsStatuses = lens _difrsStatuses (\ s a -> s{_difrsStatuses = a}) . _Default . _Coerce;
+difrsStatuses = lens _difrsStatuses (\ s a -> s{_difrsStatuses = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 difrsResponseStatus :: Lens' DescribeIdFormatResponse Int
-difrsResponseStatus = lens _difrsResponseStatus (\ s a -> s{_difrsResponseStatus = a});
+difrsResponseStatus = lens _difrsResponseStatus (\ s a -> s{_difrsResponseStatus = a})
 
 instance NFData DescribeIdFormatResponse where

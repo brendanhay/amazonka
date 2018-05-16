@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.PutPipelineDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,28 +84,28 @@ putPipelineDefinition
     -> PutPipelineDefinition
 putPipelineDefinition pPipelineId_ =
   PutPipelineDefinition'
-  { _ppdParameterObjects = Nothing
-  , _ppdParameterValues = Nothing
-  , _ppdPipelineId = pPipelineId_
-  , _ppdPipelineObjects = mempty
-  }
+    { _ppdParameterObjects = Nothing
+    , _ppdParameterValues = Nothing
+    , _ppdPipelineId = pPipelineId_
+    , _ppdPipelineObjects = mempty
+    }
 
 
 -- | The parameter objects used with the pipeline.
 ppdParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
-ppdParameterObjects = lens _ppdParameterObjects (\ s a -> s{_ppdParameterObjects = a}) . _Default . _Coerce;
+ppdParameterObjects = lens _ppdParameterObjects (\ s a -> s{_ppdParameterObjects = a}) . _Default . _Coerce
 
 -- | The parameter values used with the pipeline.
 ppdParameterValues :: Lens' PutPipelineDefinition [ParameterValue]
-ppdParameterValues = lens _ppdParameterValues (\ s a -> s{_ppdParameterValues = a}) . _Default . _Coerce;
+ppdParameterValues = lens _ppdParameterValues (\ s a -> s{_ppdParameterValues = a}) . _Default . _Coerce
 
 -- | The ID of the pipeline.
 ppdPipelineId :: Lens' PutPipelineDefinition Text
-ppdPipelineId = lens _ppdPipelineId (\ s a -> s{_ppdPipelineId = a});
+ppdPipelineId = lens _ppdPipelineId (\ s a -> s{_ppdPipelineId = a})
 
 -- | The objects that define the pipeline. These objects overwrite the existing pipeline definition.
 ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
-ppdPipelineObjects = lens _ppdPipelineObjects (\ s a -> s{_ppdPipelineObjects = a}) . _Coerce;
+ppdPipelineObjects = lens _ppdPipelineObjects (\ s a -> s{_ppdPipelineObjects = a}) . _Coerce
 
 instance AWSRequest PutPipelineDefinition where
         type Rs PutPipelineDefinition =
@@ -178,27 +178,27 @@ putPipelineDefinitionResponse
     -> PutPipelineDefinitionResponse
 putPipelineDefinitionResponse pResponseStatus_ pErrored_ =
   PutPipelineDefinitionResponse'
-  { _ppdrsValidationErrors = Nothing
-  , _ppdrsValidationWarnings = Nothing
-  , _ppdrsResponseStatus = pResponseStatus_
-  , _ppdrsErrored = pErrored_
-  }
+    { _ppdrsValidationErrors = Nothing
+    , _ppdrsValidationWarnings = Nothing
+    , _ppdrsResponseStatus = pResponseStatus_
+    , _ppdrsErrored = pErrored_
+    }
 
 
 -- | The validation errors that are associated with the objects defined in @pipelineObjects@ .
 ppdrsValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
-ppdrsValidationErrors = lens _ppdrsValidationErrors (\ s a -> s{_ppdrsValidationErrors = a}) . _Default . _Coerce;
+ppdrsValidationErrors = lens _ppdrsValidationErrors (\ s a -> s{_ppdrsValidationErrors = a}) . _Default . _Coerce
 
 -- | The validation warnings that are associated with the objects defined in @pipelineObjects@ .
 ppdrsValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
-ppdrsValidationWarnings = lens _ppdrsValidationWarnings (\ s a -> s{_ppdrsValidationWarnings = a}) . _Default . _Coerce;
+ppdrsValidationWarnings = lens _ppdrsValidationWarnings (\ s a -> s{_ppdrsValidationWarnings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ppdrsResponseStatus :: Lens' PutPipelineDefinitionResponse Int
-ppdrsResponseStatus = lens _ppdrsResponseStatus (\ s a -> s{_ppdrsResponseStatus = a});
+ppdrsResponseStatus = lens _ppdrsResponseStatus (\ s a -> s{_ppdrsResponseStatus = a})
 
 -- | Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call @PutPipelineDefinition@ to commit the corrected pipeline.
 ppdrsErrored :: Lens' PutPipelineDefinitionResponse Bool
-ppdrsErrored = lens _ppdrsErrored (\ s a -> s{_ppdrsErrored = a});
+ppdrsErrored = lens _ppdrsErrored (\ s a -> s{_ppdrsErrored = a})
 
 instance NFData PutPipelineDefinitionResponse where

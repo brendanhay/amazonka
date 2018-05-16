@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ResetDeployments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Information needed to perform a reset of a group's deployments.
+-- | Information needed to reset deployments.
 --
 -- /See:/ 'resetDeployments' smart constructor.
 data ResetDeployments = ResetDeployments'
@@ -59,30 +59,30 @@ data ResetDeployments = ResetDeployments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdAmznClientToken' - The client token used to request idempotent operations.
+-- * 'rdAmznClientToken' - A client token used to correlate requests and responses.
 --
--- * 'rdForce' - When set to true, perform a best-effort only core reset.
+-- * 'rdForce' - If true, performs a best-effort only core reset.
 --
--- * 'rdGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'rdGroupId' - The ID of the AWS Greengrass group.
 resetDeployments
     :: Text -- ^ 'rdGroupId'
     -> ResetDeployments
 resetDeployments pGroupId_ =
   ResetDeployments'
-  {_rdAmznClientToken = Nothing, _rdForce = Nothing, _rdGroupId = pGroupId_}
+    {_rdAmznClientToken = Nothing, _rdForce = Nothing, _rdGroupId = pGroupId_}
 
 
--- | The client token used to request idempotent operations.
+-- | A client token used to correlate requests and responses.
 rdAmznClientToken :: Lens' ResetDeployments (Maybe Text)
-rdAmznClientToken = lens _rdAmznClientToken (\ s a -> s{_rdAmznClientToken = a});
+rdAmznClientToken = lens _rdAmznClientToken (\ s a -> s{_rdAmznClientToken = a})
 
--- | When set to true, perform a best-effort only core reset.
+-- | If true, performs a best-effort only core reset.
 rdForce :: Lens' ResetDeployments (Maybe Bool)
-rdForce = lens _rdForce (\ s a -> s{_rdForce = a});
+rdForce = lens _rdForce (\ s a -> s{_rdForce = a})
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 rdGroupId :: Lens' ResetDeployments Text
-rdGroupId = lens _rdGroupId (\ s a -> s{_rdGroupId = a});
+rdGroupId = lens _rdGroupId (\ s a -> s{_rdGroupId = a})
 
 instance AWSRequest ResetDeployments where
         type Rs ResetDeployments = ResetDeploymentsResponse
@@ -130,9 +130,9 @@ data ResetDeploymentsResponse = ResetDeploymentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdrsDeploymentId' - The id of the reset deployment.
+-- * 'rdrsDeploymentId' - The ID of the deployment.
 --
--- * 'rdrsDeploymentARN' - The arn of the reset deployment.
+-- * 'rdrsDeploymentARN' - The ARN of the deployment.
 --
 -- * 'rdrsResponseStatus' - -- | The response status code.
 resetDeploymentsResponse
@@ -140,22 +140,22 @@ resetDeploymentsResponse
     -> ResetDeploymentsResponse
 resetDeploymentsResponse pResponseStatus_ =
   ResetDeploymentsResponse'
-  { _rdrsDeploymentId = Nothing
-  , _rdrsDeploymentARN = Nothing
-  , _rdrsResponseStatus = pResponseStatus_
-  }
+    { _rdrsDeploymentId = Nothing
+    , _rdrsDeploymentARN = Nothing
+    , _rdrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The id of the reset deployment.
+-- | The ID of the deployment.
 rdrsDeploymentId :: Lens' ResetDeploymentsResponse (Maybe Text)
-rdrsDeploymentId = lens _rdrsDeploymentId (\ s a -> s{_rdrsDeploymentId = a});
+rdrsDeploymentId = lens _rdrsDeploymentId (\ s a -> s{_rdrsDeploymentId = a})
 
--- | The arn of the reset deployment.
+-- | The ARN of the deployment.
 rdrsDeploymentARN :: Lens' ResetDeploymentsResponse (Maybe Text)
-rdrsDeploymentARN = lens _rdrsDeploymentARN (\ s a -> s{_rdrsDeploymentARN = a});
+rdrsDeploymentARN = lens _rdrsDeploymentARN (\ s a -> s{_rdrsDeploymentARN = a})
 
 -- | -- | The response status code.
 rdrsResponseStatus :: Lens' ResetDeploymentsResponse Int
-rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = a});
+rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = a})
 
 instance NFData ResetDeploymentsResponse where

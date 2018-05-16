@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerListeners
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,18 @@ deleteLoadBalancerListeners
     -> DeleteLoadBalancerListeners
 deleteLoadBalancerListeners pLoadBalancerName_ =
   DeleteLoadBalancerListeners'
-  {_dlblLoadBalancerName = pLoadBalancerName_, _dlblLoadBalancerPorts = mempty}
+    { _dlblLoadBalancerName = pLoadBalancerName_
+    , _dlblLoadBalancerPorts = mempty
+    }
 
 
 -- | The name of the load balancer.
 dlblLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
-dlblLoadBalancerName = lens _dlblLoadBalancerName (\ s a -> s{_dlblLoadBalancerName = a});
+dlblLoadBalancerName = lens _dlblLoadBalancerName (\ s a -> s{_dlblLoadBalancerName = a})
 
 -- | The client port numbers of the listeners.
 dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
-dlblLoadBalancerPorts = lens _dlblLoadBalancerPorts (\ s a -> s{_dlblLoadBalancerPorts = a}) . _Coerce;
+dlblLoadBalancerPorts = lens _dlblLoadBalancerPorts (\ s a -> s{_dlblLoadBalancerPorts = a}) . _Coerce
 
 instance AWSRequest DeleteLoadBalancerListeners where
         type Rs DeleteLoadBalancerListeners =
@@ -129,12 +131,12 @@ deleteLoadBalancerListenersResponse
     -> DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListenersResponse pResponseStatus_ =
   DeleteLoadBalancerListenersResponse'
-  {_dlblrsResponseStatus = pResponseStatus_}
+    {_dlblrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dlblrsResponseStatus :: Lens' DeleteLoadBalancerListenersResponse Int
-dlblrsResponseStatus = lens _dlblrsResponseStatus (\ s a -> s{_dlblrsResponseStatus = a});
+dlblrsResponseStatus = lens _dlblrsResponseStatus (\ s a -> s{_dlblrsResponseStatus = a})
 
 instance NFData DeleteLoadBalancerListenersResponse
          where

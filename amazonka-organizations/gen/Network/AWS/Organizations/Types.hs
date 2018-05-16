@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -128,6 +128,12 @@ module Network.AWS.Organizations.Types
     , casId
     , casRequestedTimestamp
 
+    -- * EnabledServicePrincipal
+    , EnabledServicePrincipal
+    , enabledServicePrincipal
+    , espServicePrincipal
+    , espDateEnabled
+
     -- * Handshake
     , Handshake
     , handshake
@@ -232,24 +238,24 @@ import Network.AWS.Sign.V4
 organizations :: Service
 organizations =
   Service
-  { _svcAbbrev = "Organizations"
-  , _svcSigner = v4
-  , _svcPrefix = "organizations"
-  , _svcVersion = "2016-11-28"
-  , _svcEndpoint = defaultEndpoint organizations
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Organizations"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Organizations"
+    , _svcSigner = v4
+    , _svcPrefix = "organizations"
+    , _svcVersion = "2016-11-28"
+    , _svcEndpoint = defaultEndpoint organizations
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "Organizations"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -258,6 +264,8 @@ organizations =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -357,7 +365,7 @@ _DuplicatePolicyException =
   _MatchServiceError organizations "DuplicatePolicyException"
 
 
--- | Performing this operation violates a minimum or maximum value limit. For example, attempting to removing the last SCP from an OU or root, inviting or creating too many accounts to the organization, or attaching too many policies to an account, OU, or root. This exception includes a reason that contains additional information about the violated limit.
+-- | Performing this operation violates a minimum or maximum value limit. For example, attempting to removing the last SCP from an OU or root, inviting or creating too many accounts to the organization, or attaching too many policies to an account, OU, or root. This exception includes a reason that contains additional information about the violated limit:
 --
 --
 --
@@ -551,17 +559,31 @@ _DuplicateOrganizationalUnitException =
 -- | The requested operation failed because you provided invalid values for one or more of the request parameters. This exception includes a reason that contains additional information about the violated limit:
 --
 --
---     * INVALID_PARTY_TYPE_TARGET: You specified the wrong type of entity (account, organization, or email) as a party.
+--     * IMMUTABLE_POLICY: You specified a policy that is managed by AWS and cannot be modified.
 --
---     * INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid ARN for the organization.
---
---     * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
+--     * INPUT_REQUIRED: You must include a value for all required parameters.
 --
 --     * INVALID_ENUM: You specified a value that is not valid for that parameter.
 --
 --     * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid characters.
 --
 --     * INVALID_LIST_MEMBER: You provided a list to a parameter that contains at least one invalid value.
+--
+--     * INVALID_PARTY_TYPE_TARGET: You specified the wrong type of entity (account, organization, or email) as a party.
+--
+--     * INVALID_PAGINATION_TOKEN: Get the value for the NextToken parameter from the response to a previous call of the operation.
+--
+--     * INVALID_PATTERN: You provided a value that doesn't match the required pattern.
+--
+--     * INVALID_PATTERN_TARGET_ID: You specified a policy target ID that doesn't match the required pattern.
+--
+--     * INVALID_ROLE_NAME: You provided a role name that is not valid. A role name can’t begin with the reserved prefix 'AWSServiceRoleFor'.
+--
+--     * INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid ARN for the organization.
+--
+--     * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
+--
+--     * MAX_FILTER_LIMIT_EXCEEDED: You can specify only one filter parameter for the operation.
 --
 --     * MAX_LENGTH_EXCEEDED: You provided a string parameter that is longer than allowed.
 --
@@ -570,18 +592,6 @@ _DuplicateOrganizationalUnitException =
 --     * MIN_LENGTH_EXCEEDED: You provided a string parameter that is shorter than allowed.
 --
 --     * MIN_VALUE_EXCEEDED: You provided a numeric parameter that has a smaller value than allowed.
---
---     * IMMUTABLE_POLICY: You specified a policy that is managed by AWS and cannot be modified.
---
---     * INVALID_PATTERN: You provided a value that doesn't match the required pattern.
---
---     * INVALID_PATTERN_TARGET_ID: You specified a policy target ID that doesn't match the required pattern.
---
---     * INPUT_REQUIRED: You must include a value for all required parameters.
---
---     * INVALID_PAGINATION_TOKEN: Get the value for the NextToken parameter from the response to a previous call of the operation.
---
---     * MAX_FILTER_LIMIT_EXCEEDED: You can specify only one filter parameter for the operation.
 --
 --     * MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: You can move an account only between entities in the same root.
 --

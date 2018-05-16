@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ deleteApplicationReferenceDataSource
     -> DeleteApplicationReferenceDataSource
 deleteApplicationReferenceDataSource pApplicationName_ pCurrentApplicationVersionId_ pReferenceId_ =
   DeleteApplicationReferenceDataSource'
-  { _dardsApplicationName = pApplicationName_
-  , _dardsCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-  , _dardsReferenceId = pReferenceId_
-  }
+    { _dardsApplicationName = pApplicationName_
+    , _dardsCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+    , _dardsReferenceId = pReferenceId_
+    }
 
 
 -- | Name of an existing application.
 dardsApplicationName :: Lens' DeleteApplicationReferenceDataSource Text
-dardsApplicationName = lens _dardsApplicationName (\ s a -> s{_dardsApplicationName = a});
+dardsApplicationName = lens _dardsApplicationName (\ s a -> s{_dardsApplicationName = a})
 
 -- | Version of the application. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 dardsCurrentApplicationVersionId :: Lens' DeleteApplicationReferenceDataSource Natural
-dardsCurrentApplicationVersionId = lens _dardsCurrentApplicationVersionId (\ s a -> s{_dardsCurrentApplicationVersionId = a}) . _Nat;
+dardsCurrentApplicationVersionId = lens _dardsCurrentApplicationVersionId (\ s a -> s{_dardsCurrentApplicationVersionId = a}) . _Nat
 
 -- | ID of the reference data source. When you add a reference data source to your application using the 'AddApplicationReferenceDataSource' , Amazon Kinesis Analytics assigns an ID. You can use the 'DescribeApplication' operation to get the reference ID.
 dardsReferenceId :: Lens' DeleteApplicationReferenceDataSource Text
-dardsReferenceId = lens _dardsReferenceId (\ s a -> s{_dardsReferenceId = a});
+dardsReferenceId = lens _dardsReferenceId (\ s a -> s{_dardsReferenceId = a})
 
 instance AWSRequest
            DeleteApplicationReferenceDataSource
@@ -157,12 +157,12 @@ deleteApplicationReferenceDataSourceResponse
     -> DeleteApplicationReferenceDataSourceResponse
 deleteApplicationReferenceDataSourceResponse pResponseStatus_ =
   DeleteApplicationReferenceDataSourceResponse'
-  {_dardsrsResponseStatus = pResponseStatus_}
+    {_dardsrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dardsrsResponseStatus :: Lens' DeleteApplicationReferenceDataSourceResponse Int
-dardsrsResponseStatus = lens _dardsrsResponseStatus (\ s a -> s{_dardsrsResponseStatus = a});
+dardsrsResponseStatus = lens _dardsrsResponseStatus (\ s a -> s{_dardsrsResponseStatus = a})
 
 instance NFData
            DeleteApplicationReferenceDataSourceResponse

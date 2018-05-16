@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.TagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ tagResource pResource_ pTags_ =
 
 -- | An ARN of a CloudFront resource.
 trResource :: Lens' TagResource Text
-trResource = lens _trResource (\ s a -> s{_trResource = a});
+trResource = lens _trResource (\ s a -> s{_trResource = a})
 
 -- | A complex type that contains zero or more @Tag@ elements.
 trTags :: Lens' TagResource Tags
-trTags = lens _trTags (\ s a -> s{_trTags = a});
+trTags = lens _trTags (\ s a -> s{_trTags = a})
 
 instance AWSRequest TagResource where
         type Rs TagResource = TagResourceResponse
@@ -88,7 +88,7 @@ instance NFData TagResource where
 instance ToElement TagResource where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}Tags"
+              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}Tags"
               .
               _trTags
 
@@ -96,7 +96,7 @@ instance ToHeaders TagResource where
         toHeaders = const mempty
 
 instance ToPath TagResource where
-        toPath = const "/2017-03-25/tagging"
+        toPath = const "/2017-10-30/tagging"
 
 instance ToQuery TagResource where
         toQuery TagResource'{..}

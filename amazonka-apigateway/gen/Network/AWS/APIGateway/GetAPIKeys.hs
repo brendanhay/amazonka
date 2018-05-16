@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAPIKeys
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,40 +77,40 @@ data GetAPIKeys = GetAPIKeys'
 --
 -- * 'gakNameQuery' - The name of queried API keys.
 --
--- * 'gakLimit' - The maximum number of returned results per page.
+-- * 'gakLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'gakPosition' - The current pagination position in the paged result set.
 getAPIKeys
     :: GetAPIKeys
 getAPIKeys =
   GetAPIKeys'
-  { _gakIncludeValues = Nothing
-  , _gakCustomerId = Nothing
-  , _gakNameQuery = Nothing
-  , _gakLimit = Nothing
-  , _gakPosition = Nothing
-  }
+    { _gakIncludeValues = Nothing
+    , _gakCustomerId = Nothing
+    , _gakNameQuery = Nothing
+    , _gakLimit = Nothing
+    , _gakPosition = Nothing
+    }
 
 
 -- | A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
 gakIncludeValues :: Lens' GetAPIKeys (Maybe Bool)
-gakIncludeValues = lens _gakIncludeValues (\ s a -> s{_gakIncludeValues = a});
+gakIncludeValues = lens _gakIncludeValues (\ s a -> s{_gakIncludeValues = a})
 
 -- | The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.
 gakCustomerId :: Lens' GetAPIKeys (Maybe Text)
-gakCustomerId = lens _gakCustomerId (\ s a -> s{_gakCustomerId = a});
+gakCustomerId = lens _gakCustomerId (\ s a -> s{_gakCustomerId = a})
 
 -- | The name of queried API keys.
 gakNameQuery :: Lens' GetAPIKeys (Maybe Text)
-gakNameQuery = lens _gakNameQuery (\ s a -> s{_gakNameQuery = a});
+gakNameQuery = lens _gakNameQuery (\ s a -> s{_gakNameQuery = a})
 
--- | The maximum number of returned results per page.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 gakLimit :: Lens' GetAPIKeys (Maybe Int)
-gakLimit = lens _gakLimit (\ s a -> s{_gakLimit = a});
+gakLimit = lens _gakLimit (\ s a -> s{_gakLimit = a})
 
 -- | The current pagination position in the paged result set.
 gakPosition :: Lens' GetAPIKeys (Maybe Text)
-gakPosition = lens _gakPosition (\ s a -> s{_gakPosition = a});
+gakPosition = lens _gakPosition (\ s a -> s{_gakPosition = a})
 
 instance AWSPager GetAPIKeys where
         page rq rs
@@ -182,27 +182,27 @@ getAPIKeysResponse
     -> GetAPIKeysResponse
 getAPIKeysResponse pResponseStatus_ =
   GetAPIKeysResponse'
-  { _gakrsItems = Nothing
-  , _gakrsWarnings = Nothing
-  , _gakrsPosition = Nothing
-  , _gakrsResponseStatus = pResponseStatus_
-  }
+    { _gakrsItems = Nothing
+    , _gakrsWarnings = Nothing
+    , _gakrsPosition = Nothing
+    , _gakrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 gakrsItems :: Lens' GetAPIKeysResponse [APIKey]
-gakrsItems = lens _gakrsItems (\ s a -> s{_gakrsItems = a}) . _Default . _Coerce;
+gakrsItems = lens _gakrsItems (\ s a -> s{_gakrsItems = a}) . _Default . _Coerce
 
 -- | A list of warning messages logged during the import of API keys when the @failOnWarnings@ option is set to true.
 gakrsWarnings :: Lens' GetAPIKeysResponse [Text]
-gakrsWarnings = lens _gakrsWarnings (\ s a -> s{_gakrsWarnings = a}) . _Default . _Coerce;
+gakrsWarnings = lens _gakrsWarnings (\ s a -> s{_gakrsWarnings = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gakrsPosition :: Lens' GetAPIKeysResponse (Maybe Text)
-gakrsPosition = lens _gakrsPosition (\ s a -> s{_gakrsPosition = a});
+gakrsPosition = lens _gakrsPosition (\ s a -> s{_gakrsPosition = a})
 
 -- | -- | The response status code.
 gakrsResponseStatus :: Lens' GetAPIKeysResponse Int
-gakrsResponseStatus = lens _gakrsResponseStatus (\ s a -> s{_gakrsResponseStatus = a});
+gakrsResponseStatus = lens _gakrsResponseStatus (\ s a -> s{_gakrsResponseStatus = a})
 
 instance NFData GetAPIKeysResponse where

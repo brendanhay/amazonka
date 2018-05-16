@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteUser
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deleteUser pAccessToken_ =
 
 -- | The access token from a request to delete a user.
 duAccessToken :: Lens' DeleteUser Text
-duAccessToken = lens _duAccessToken (\ s a -> s{_duAccessToken = a}) . _Sensitive;
+duAccessToken = lens _duAccessToken (\ s a -> s{_duAccessToken = a}) . _Sensitive
 
 instance AWSRequest DeleteUser where
         type Rs DeleteUser = DeleteUserResponse

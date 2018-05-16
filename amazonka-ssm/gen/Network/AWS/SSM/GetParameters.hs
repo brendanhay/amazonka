@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ getParameters pNames_ =
 
 -- | Return decrypted secure string value. Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
 gpWithDecryption :: Lens' GetParameters (Maybe Bool)
-gpWithDecryption = lens _gpWithDecryption (\ s a -> s{_gpWithDecryption = a});
+gpWithDecryption = lens _gpWithDecryption (\ s a -> s{_gpWithDecryption = a})
 
 -- | Names of the parameters for which you want to query information.
 gpNames :: Lens' GetParameters (NonEmpty Text)
-gpNames = lens _gpNames (\ s a -> s{_gpNames = a}) . _List1;
+gpNames = lens _gpNames (\ s a -> s{_gpNames = a}) . _List1
 
 instance AWSRequest GetParameters where
         type Rs GetParameters = GetParametersResponse
@@ -134,22 +134,22 @@ getParametersResponse
     -> GetParametersResponse
 getParametersResponse pResponseStatus_ =
   GetParametersResponse'
-  { _grsParameters = Nothing
-  , _grsInvalidParameters = Nothing
-  , _grsResponseStatus = pResponseStatus_
-  }
+    { _grsParameters = Nothing
+    , _grsInvalidParameters = Nothing
+    , _grsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of details for a parameter.
 grsParameters :: Lens' GetParametersResponse [Parameter]
-grsParameters = lens _grsParameters (\ s a -> s{_grsParameters = a}) . _Default . _Coerce;
+grsParameters = lens _grsParameters (\ s a -> s{_grsParameters = a}) . _Default . _Coerce
 
 -- | A list of parameters that are not formatted correctly or do not run when executed.
 grsInvalidParameters :: Lens' GetParametersResponse [Text]
-grsInvalidParameters = lens _grsInvalidParameters (\ s a -> s{_grsInvalidParameters = a}) . _Default . _Coerce;
+grsInvalidParameters = lens _grsInvalidParameters (\ s a -> s{_grsInvalidParameters = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 grsResponseStatus :: Lens' GetParametersResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
 
 instance NFData GetParametersResponse where

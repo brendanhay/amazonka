@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetBaiduChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getBaiduChannel pApplicationId_ =
 
 -- | Undocumented member.
 gbcApplicationId :: Lens' GetBaiduChannel Text
-gbcApplicationId = lens _gbcApplicationId (\ s a -> s{_gbcApplicationId = a});
+gbcApplicationId = lens _gbcApplicationId (\ s a -> s{_gbcApplicationId = a})
 
 instance AWSRequest GetBaiduChannel where
         type Rs GetBaiduChannel = GetBaiduChannelResponse
@@ -113,17 +113,17 @@ getBaiduChannelResponse
     -> GetBaiduChannelResponse
 getBaiduChannelResponse pResponseStatus_ pBaiduChannelResponse_ =
   GetBaiduChannelResponse'
-  { _gbcrsResponseStatus = pResponseStatus_
-  , _gbcrsBaiduChannelResponse = pBaiduChannelResponse_
-  }
+    { _gbcrsResponseStatus = pResponseStatus_
+    , _gbcrsBaiduChannelResponse = pBaiduChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 gbcrsResponseStatus :: Lens' GetBaiduChannelResponse Int
-gbcrsResponseStatus = lens _gbcrsResponseStatus (\ s a -> s{_gbcrsResponseStatus = a});
+gbcrsResponseStatus = lens _gbcrsResponseStatus (\ s a -> s{_gbcrsResponseStatus = a})
 
 -- | Undocumented member.
 gbcrsBaiduChannelResponse :: Lens' GetBaiduChannelResponse BaiduChannelResponse
-gbcrsBaiduChannelResponse = lens _gbcrsBaiduChannelResponse (\ s a -> s{_gbcrsBaiduChannelResponse = a});
+gbcrsBaiduChannelResponse = lens _gbcrsBaiduChannelResponse (\ s a -> s{_gbcrsBaiduChannelResponse = a})
 
 instance NFData GetBaiduChannelResponse where

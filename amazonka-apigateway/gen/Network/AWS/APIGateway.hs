@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -13,7 +13,7 @@
 --
 -- __Amazon API Gateway__
 --
--- Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application back ends. Amazon API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.
+-- Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application back ends. API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.
 --
 module Network.AWS.APIGateway
     (
@@ -58,6 +58,9 @@ module Network.AWS.APIGateway
 
     -- ** GetDeployment
     , module Network.AWS.APIGateway.GetDeployment
+
+    -- ** GetTags
+    , module Network.AWS.APIGateway.GetTags
 
     -- ** DeleteGatewayResponse
     , module Network.AWS.APIGateway.DeleteGatewayResponse
@@ -119,6 +122,9 @@ module Network.AWS.APIGateway
     -- ** CreateDeployment
     , module Network.AWS.APIGateway.CreateDeployment
 
+    -- ** GetVPCLinks (Paginated)
+    , module Network.AWS.APIGateway.GetVPCLinks
+
     -- ** CreateBasePathMapping
     , module Network.AWS.APIGateway.CreateBasePathMapping
 
@@ -157,6 +163,9 @@ module Network.AWS.APIGateway
 
     -- ** GetUsage (Paginated)
     , module Network.AWS.APIGateway.GetUsage
+
+    -- ** GetVPCLink
+    , module Network.AWS.APIGateway.GetVPCLink
 
     -- ** CreateModel
     , module Network.AWS.APIGateway.CreateModel
@@ -224,6 +233,9 @@ module Network.AWS.APIGateway
     -- ** GetDomainName
     , module Network.AWS.APIGateway.GetDomainName
 
+    -- ** CreateVPCLink
+    , module Network.AWS.APIGateway.CreateVPCLink
+
     -- ** DeleteDocumentationPart
     , module Network.AWS.APIGateway.DeleteDocumentationPart
 
@@ -241,6 +253,12 @@ module Network.AWS.APIGateway
 
     -- ** GetUsagePlanKeys (Paginated)
     , module Network.AWS.APIGateway.GetUsagePlanKeys
+
+    -- ** DeleteVPCLink
+    , module Network.AWS.APIGateway.DeleteVPCLink
+
+    -- ** UpdateVPCLink
+    , module Network.AWS.APIGateway.UpdateVPCLink
 
     -- ** FlushStageCache
     , module Network.AWS.APIGateway.FlushStageCache
@@ -329,11 +347,17 @@ module Network.AWS.APIGateway
     -- ** DeleteAuthorizer
     , module Network.AWS.APIGateway.DeleteAuthorizer
 
+    -- ** TagResource
+    , module Network.AWS.APIGateway.TagResource
+
     -- ** CreateStage
     , module Network.AWS.APIGateway.CreateStage
 
     -- ** DeleteUsagePlanKey
     , module Network.AWS.APIGateway.DeleteUsagePlanKey
+
+    -- ** UntagResource
+    , module Network.AWS.APIGateway.UntagResource
 
     -- ** CreateAPIKey
     , module Network.AWS.APIGateway.CreateAPIKey
@@ -388,6 +412,9 @@ module Network.AWS.APIGateway
 
     -- * Types
 
+    -- ** APIKeySourceType
+    , APIKeySourceType (..)
+
     -- ** APIKeysFormat
     , APIKeysFormat (..)
 
@@ -399,6 +426,9 @@ module Network.AWS.APIGateway
 
     -- ** CacheClusterStatus
     , CacheClusterStatus (..)
+
+    -- ** ConnectionType
+    , ConnectionType (..)
 
     -- ** ContentHandlingStrategy
     , ContentHandlingStrategy (..)
@@ -415,6 +445,9 @@ module Network.AWS.APIGateway
     -- ** IntegrationType
     , IntegrationType (..)
 
+    -- ** LocationStatusType
+    , LocationStatusType (..)
+
     -- ** Op
     , Op (..)
 
@@ -426,6 +459,9 @@ module Network.AWS.APIGateway
 
     -- ** UnauthorizedCacheControlHeaderStrategy
     , UnauthorizedCacheControlHeaderStrategy (..)
+
+    -- ** VPCLinkStatus
+    , VPCLinkStatus (..)
 
     -- ** APIKey
     , APIKey
@@ -445,6 +481,12 @@ module Network.AWS.APIGateway
     , apiStage
     , asStage
     , asApiId
+
+    -- ** AccessLogSettings
+    , AccessLogSettings
+    , accessLogSettings
+    , alsFormat
+    , alsDestinationARN
 
     -- ** Account
     , Account
@@ -475,6 +517,14 @@ module Network.AWS.APIGateway
     , bpmBasePath
     , bpmRestAPIId
 
+    -- ** CanarySettings
+    , CanarySettings
+    , canarySettings
+    , csDeploymentId
+    , csStageVariableOverrides
+    , csUseStageCache
+    , csPercentTraffic
+
     -- ** ClientCertificate
     , ClientCertificate
     , clientCertificate
@@ -491,6 +541,13 @@ module Network.AWS.APIGateway
     , dCreatedDate
     , dId
     , dDescription
+
+    -- ** DeploymentCanarySettings
+    , DeploymentCanarySettings
+    , deploymentCanarySettings
+    , dcsStageVariableOverrides
+    , dcsUseStageCache
+    , dcsPercentTraffic
 
     -- ** DocumentationPart
     , DocumentationPart
@@ -518,9 +575,11 @@ module Network.AWS.APIGateway
     -- ** DomainName
     , DomainName
     , domainName
+    , dnRegionalHostedZoneId
     , dnCertificateName
     , dnRegionalCertificateARN
     , dnCertificateARN
+    , dnDistributionHostedZoneId
     , dnDomainName
     , dnRegionalCertificateName
     , dnRegionalDomainName
@@ -548,13 +607,16 @@ module Network.AWS.APIGateway
     , iHttpMethod
     , iRequestTemplates
     , iCredentials
+    , iConnectionId
     , iRequestParameters
     , iContentHandling
     , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
     , iCacheNamespace
+    , iTimeoutInMillis
     , iType
+    , iConnectionType
     , iCacheKeyParameters
 
     -- ** IntegrationResponse
@@ -571,6 +633,7 @@ module Network.AWS.APIGateway
     , method
     , mMethodResponses
     , mHttpMethod
+    , mAuthorizationScopes
     , mRequestValidatorId
     , mRequestModels
     , mRequestParameters
@@ -651,12 +714,15 @@ module Network.AWS.APIGateway
     -- ** RestAPI
     , RestAPI
     , restAPI
+    , raMinimumCompressionSize
     , raBinaryMediaTypes
     , raWarnings
     , raCreatedDate
     , raName
     , raVersion
+    , raApiKeySource
     , raId
+    , raPolicy
     , raEndpointConfiguration
     , raDescription
 
@@ -682,6 +748,7 @@ module Network.AWS.APIGateway
     , stage
     , sDeploymentId
     , sVariables
+    , sAccessLogSettings
     , sDocumentationVersion
     , sClientCertificateId
     , sCreatedDate
@@ -689,9 +756,11 @@ module Network.AWS.APIGateway
     , sMethodSettings
     , sLastUpdatedDate
     , sCacheClusterSize
+    , sCanarySettings
     , sCacheClusterEnabled
     , sStageName
     , sDescription
+    , sTags
 
     -- ** StageKey
     , StageKey
@@ -732,6 +801,16 @@ module Network.AWS.APIGateway
     , upkName
     , upkId
     , upkType
+
+    -- ** VPCLink
+    , VPCLink
+    , vpcLink
+    , vlStatus
+    , vlTargetARNs
+    , vlName
+    , vlStatusMessage
+    , vlId
+    , vlDescription
     ) where
 
 import Network.AWS.APIGateway.CreateAPIKey
@@ -748,6 +827,7 @@ import Network.AWS.APIGateway.CreateRestAPI
 import Network.AWS.APIGateway.CreateStage
 import Network.AWS.APIGateway.CreateUsagePlan
 import Network.AWS.APIGateway.CreateUsagePlanKey
+import Network.AWS.APIGateway.CreateVPCLink
 import Network.AWS.APIGateway.DeleteAPIKey
 import Network.AWS.APIGateway.DeleteAuthorizer
 import Network.AWS.APIGateway.DeleteBasePathMapping
@@ -768,6 +848,7 @@ import Network.AWS.APIGateway.DeleteRestAPI
 import Network.AWS.APIGateway.DeleteStage
 import Network.AWS.APIGateway.DeleteUsagePlan
 import Network.AWS.APIGateway.DeleteUsagePlanKey
+import Network.AWS.APIGateway.DeleteVPCLink
 import Network.AWS.APIGateway.FlushStageAuthorizersCache
 import Network.AWS.APIGateway.FlushStageCache
 import Network.AWS.APIGateway.GenerateClientCertificate
@@ -809,11 +890,14 @@ import Network.AWS.APIGateway.GetSDKType
 import Network.AWS.APIGateway.GetSDKTypes
 import Network.AWS.APIGateway.GetStage
 import Network.AWS.APIGateway.GetStages
+import Network.AWS.APIGateway.GetTags
 import Network.AWS.APIGateway.GetUsage
 import Network.AWS.APIGateway.GetUsagePlan
 import Network.AWS.APIGateway.GetUsagePlanKey
 import Network.AWS.APIGateway.GetUsagePlanKeys
 import Network.AWS.APIGateway.GetUsagePlans
+import Network.AWS.APIGateway.GetVPCLink
+import Network.AWS.APIGateway.GetVPCLinks
 import Network.AWS.APIGateway.ImportAPIKeys
 import Network.AWS.APIGateway.ImportDocumentationParts
 import Network.AWS.APIGateway.ImportRestAPI
@@ -823,9 +907,11 @@ import Network.AWS.APIGateway.PutIntegrationResponse
 import Network.AWS.APIGateway.PutMethod
 import Network.AWS.APIGateway.PutMethodResponse
 import Network.AWS.APIGateway.PutRestAPI
+import Network.AWS.APIGateway.TagResource
 import Network.AWS.APIGateway.TestInvokeAuthorizer
 import Network.AWS.APIGateway.TestInvokeMethod
 import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.UntagResource
 import Network.AWS.APIGateway.UpdateAccount
 import Network.AWS.APIGateway.UpdateAPIKey
 import Network.AWS.APIGateway.UpdateAuthorizer
@@ -847,6 +933,7 @@ import Network.AWS.APIGateway.UpdateRestAPI
 import Network.AWS.APIGateway.UpdateStage
 import Network.AWS.APIGateway.UpdateUsage
 import Network.AWS.APIGateway.UpdateUsagePlan
+import Network.AWS.APIGateway.UpdateVPCLink
 import Network.AWS.APIGateway.Waiters
 
 {- $errors

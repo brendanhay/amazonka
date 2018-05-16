@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ disassociateProductFromPortfolio
     -> DisassociateProductFromPortfolio
 disassociateProductFromPortfolio pProductId_ pPortfolioId_ =
   DisassociateProductFromPortfolio'
-  { _dpfpAcceptLanguage = Nothing
-  , _dpfpProductId = pProductId_
-  , _dpfpPortfolioId = pPortfolioId_
-  }
+    { _dpfpAcceptLanguage = Nothing
+    , _dpfpProductId = pProductId_
+    , _dpfpPortfolioId = pPortfolioId_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpfpAcceptLanguage :: Lens' DisassociateProductFromPortfolio (Maybe Text)
-dpfpAcceptLanguage = lens _dpfpAcceptLanguage (\ s a -> s{_dpfpAcceptLanguage = a});
+dpfpAcceptLanguage = lens _dpfpAcceptLanguage (\ s a -> s{_dpfpAcceptLanguage = a})
 
 -- | The product identifier.
 dpfpProductId :: Lens' DisassociateProductFromPortfolio Text
-dpfpProductId = lens _dpfpProductId (\ s a -> s{_dpfpProductId = a});
+dpfpProductId = lens _dpfpProductId (\ s a -> s{_dpfpProductId = a})
 
 -- | The portfolio identifier.
 dpfpPortfolioId :: Lens' DisassociateProductFromPortfolio Text
-dpfpPortfolioId = lens _dpfpPortfolioId (\ s a -> s{_dpfpPortfolioId = a});
+dpfpPortfolioId = lens _dpfpPortfolioId (\ s a -> s{_dpfpPortfolioId = a})
 
 instance AWSRequest DisassociateProductFromPortfolio
          where
@@ -147,12 +147,12 @@ disassociateProductFromPortfolioResponse
     -> DisassociateProductFromPortfolioResponse
 disassociateProductFromPortfolioResponse pResponseStatus_ =
   DisassociateProductFromPortfolioResponse'
-  {_disrsResponseStatus = pResponseStatus_}
+    {_disrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 disrsResponseStatus :: Lens' DisassociateProductFromPortfolioResponse Int
-disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
+disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a})
 
 instance NFData
            DisassociateProductFromPortfolioResponse

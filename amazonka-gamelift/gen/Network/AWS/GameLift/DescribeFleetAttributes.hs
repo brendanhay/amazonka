@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeFleetAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,15 +27,21 @@
 --
 --     * 'ListFleets'
 --
+--     * 'DeleteFleet'
+--
 --     * Describe fleets:
 --
 --     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetCapacity'
 --
 --     * 'DescribeFleetPortSettings'
 --
 --     * 'DescribeFleetUtilization'
 --
 --     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeEC2InstanceLimits'
 --
 --     * 'DescribeFleetEvents'
 --
@@ -53,23 +59,13 @@
 --
 --
 --
---     * Manage fleet capacity:
+--     * Manage fleet actions:
 --
---     * 'DescribeFleetCapacity'
+--     * 'StartFleetActions'
 --
---     * 'UpdateFleetCapacity'
---
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
---     * 'DescribeEC2InstanceLimits'
+--     * 'StopFleetActions'
 --
 --
---
---     * 'DeleteFleet'
 --
 --
 --
@@ -124,20 +120,20 @@ describeFleetAttributes
     :: DescribeFleetAttributes
 describeFleetAttributes =
   DescribeFleetAttributes'
-  {_dfaNextToken = Nothing, _dfaLimit = Nothing, _dfaFleetIds = Nothing}
+    {_dfaNextToken = Nothing, _dfaLimit = Nothing, _dfaFleetIds = Nothing}
 
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfaNextToken :: Lens' DescribeFleetAttributes (Maybe Text)
-dfaNextToken = lens _dfaNextToken (\ s a -> s{_dfaNextToken = a});
+dfaNextToken = lens _dfaNextToken (\ s a -> s{_dfaNextToken = a})
 
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfaLimit :: Lens' DescribeFleetAttributes (Maybe Natural)
-dfaLimit = lens _dfaLimit (\ s a -> s{_dfaLimit = a}) . mapping _Nat;
+dfaLimit = lens _dfaLimit (\ s a -> s{_dfaLimit = a}) . mapping _Nat
 
 -- | Unique identifier for a fleet(s) to retrieve attributes for. To request attributes for all fleets, leave this parameter empty.
 dfaFleetIds :: Lens' DescribeFleetAttributes (Maybe (NonEmpty Text))
-dfaFleetIds = lens _dfaFleetIds (\ s a -> s{_dfaFleetIds = a}) . mapping _List1;
+dfaFleetIds = lens _dfaFleetIds (\ s a -> s{_dfaFleetIds = a}) . mapping _List1
 
 instance AWSRequest DescribeFleetAttributes where
         type Rs DescribeFleetAttributes =
@@ -204,22 +200,22 @@ describeFleetAttributesResponse
     -> DescribeFleetAttributesResponse
 describeFleetAttributesResponse pResponseStatus_ =
   DescribeFleetAttributesResponse'
-  { _dfarsNextToken = Nothing
-  , _dfarsFleetAttributes = Nothing
-  , _dfarsResponseStatus = pResponseStatus_
-  }
+    { _dfarsNextToken = Nothing
+    , _dfarsFleetAttributes = Nothing
+    , _dfarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dfarsNextToken :: Lens' DescribeFleetAttributesResponse (Maybe Text)
-dfarsNextToken = lens _dfarsNextToken (\ s a -> s{_dfarsNextToken = a});
+dfarsNextToken = lens _dfarsNextToken (\ s a -> s{_dfarsNextToken = a})
 
 -- | Collection of objects containing attribute metadata for each requested fleet ID.
 dfarsFleetAttributes :: Lens' DescribeFleetAttributesResponse [FleetAttributes]
-dfarsFleetAttributes = lens _dfarsFleetAttributes (\ s a -> s{_dfarsFleetAttributes = a}) . _Default . _Coerce;
+dfarsFleetAttributes = lens _dfarsFleetAttributes (\ s a -> s{_dfarsFleetAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dfarsResponseStatus :: Lens' DescribeFleetAttributesResponse Int
-dfarsResponseStatus = lens _dfarsResponseStatus (\ s a -> s{_dfarsResponseStatus = a});
+dfarsResponseStatus = lens _dfarsResponseStatus (\ s a -> s{_dfarsResponseStatus = a})
 
 instance NFData DescribeFleetAttributesResponse where

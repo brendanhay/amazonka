@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CopyClusterSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,23 +77,23 @@ copyClusterSnapshot
     -> CopyClusterSnapshot
 copyClusterSnapshot pSourceSnapshotIdentifier_ pTargetSnapshotIdentifier_ =
   CopyClusterSnapshot'
-  { _ccsSourceSnapshotClusterIdentifier = Nothing
-  , _ccsSourceSnapshotIdentifier = pSourceSnapshotIdentifier_
-  , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
-  }
+    { _ccsSourceSnapshotClusterIdentifier = Nothing
+    , _ccsSourceSnapshotIdentifier = pSourceSnapshotIdentifier_
+    , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
+    }
 
 
 -- | The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints:     * Must be the identifier for a valid cluster.
 ccsSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
-ccsSourceSnapshotClusterIdentifier = lens _ccsSourceSnapshotClusterIdentifier (\ s a -> s{_ccsSourceSnapshotClusterIdentifier = a});
+ccsSourceSnapshotClusterIdentifier = lens _ccsSourceSnapshotClusterIdentifier (\ s a -> s{_ccsSourceSnapshotClusterIdentifier = a})
 
 -- | The identifier for the source snapshot. Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
 ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
-ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccsSourceSnapshotIdentifier = a});
+ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccsSourceSnapshotIdentifier = a})
 
 -- | The identifier given to the new manual snapshot. Constraints:     * Cannot be null, empty, or blank.     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for the AWS account that is making the request.
 ccsTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
-ccsTargetSnapshotIdentifier = lens _ccsTargetSnapshotIdentifier (\ s a -> s{_ccsTargetSnapshotIdentifier = a});
+ccsTargetSnapshotIdentifier = lens _ccsTargetSnapshotIdentifier (\ s a -> s{_ccsTargetSnapshotIdentifier = a})
 
 instance AWSRequest CopyClusterSnapshot where
         type Rs CopyClusterSnapshot =
@@ -146,15 +146,15 @@ copyClusterSnapshotResponse
     -> CopyClusterSnapshotResponse
 copyClusterSnapshotResponse pResponseStatus_ =
   CopyClusterSnapshotResponse'
-  {_ccsrsSnapshot = Nothing, _ccsrsResponseStatus = pResponseStatus_}
+    {_ccsrsSnapshot = Nothing, _ccsrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 ccsrsSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
-ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a});
+ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a})
 
 -- | -- | The response status code.
 ccsrsResponseStatus :: Lens' CopyClusterSnapshotResponse Int
-ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a});
+ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a})
 
 instance NFData CopyClusterSnapshotResponse where

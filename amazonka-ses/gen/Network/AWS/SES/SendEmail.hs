@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SendEmail
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -100,7 +100,7 @@ data SendEmail = SendEmail'
 --
 -- * 'seReplyToAddresses' - The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
 --
--- * 'seSource' - The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> . If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> . In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: @=?charset?encoding?encoded-text?=@ . For more information, see <https://tools.ietf.org/html/rfc2047 RFC 2047> .
+-- * 'seSource' - The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> . If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
 -- * 'seDestination' - The destination for this email, composed of To:, CC:, and BCC: fields.
 --
@@ -112,53 +112,53 @@ sendEmail
     -> SendEmail
 sendEmail pSource_ pDestination_ pMessage_ =
   SendEmail'
-  { _seReturnPath = Nothing
-  , _seConfigurationSetName = Nothing
-  , _seSourceARN = Nothing
-  , _seReturnPathARN = Nothing
-  , _seTags = Nothing
-  , _seReplyToAddresses = Nothing
-  , _seSource = pSource_
-  , _seDestination = pDestination_
-  , _seMessage = pMessage_
-  }
+    { _seReturnPath = Nothing
+    , _seConfigurationSetName = Nothing
+    , _seSourceARN = Nothing
+    , _seReturnPathARN = Nothing
+    , _seTags = Nothing
+    , _seReplyToAddresses = Nothing
+    , _seSource = pSource_
+    , _seDestination = pDestination_
+    , _seMessage = pMessage_
+    }
 
 
 -- | The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
 seReturnPath :: Lens' SendEmail (Maybe Text)
-seReturnPath = lens _seReturnPath (\ s a -> s{_seReturnPath = a});
+seReturnPath = lens _seReturnPath (\ s a -> s{_seReturnPath = a})
 
 -- | The name of the configuration set to use when you send an email using @SendEmail@ .
 seConfigurationSetName :: Lens' SendEmail (Maybe Text)
-seConfigurationSetName = lens _seConfigurationSetName (\ s a -> s{_seConfigurationSetName = a});
+seConfigurationSetName = lens _seConfigurationSetName (\ s a -> s{_seConfigurationSetName = a})
 
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ . For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 seSourceARN :: Lens' SendEmail (Maybe Text)
-seSourceARN = lens _seSourceARN (\ s a -> s{_seSourceARN = a});
+seSourceARN = lens _seSourceARN (\ s a -> s{_seSourceARN = a})
 
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ . For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 seReturnPathARN :: Lens' SendEmail (Maybe Text)
-seReturnPathARN = lens _seReturnPathARN (\ s a -> s{_seReturnPathARN = a});
+seReturnPathARN = lens _seReturnPathARN (\ s a -> s{_seReturnPathARN = a})
 
 -- | A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
 seTags :: Lens' SendEmail [MessageTag]
-seTags = lens _seTags (\ s a -> s{_seTags = a}) . _Default . _Coerce;
+seTags = lens _seTags (\ s a -> s{_seTags = a}) . _Default . _Coerce
 
 -- | The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
 seReplyToAddresses :: Lens' SendEmail [Text]
-seReplyToAddresses = lens _seReplyToAddresses (\ s a -> s{_seReplyToAddresses = a}) . _Default . _Coerce;
+seReplyToAddresses = lens _seReplyToAddresses (\ s a -> s{_seReplyToAddresses = a}) . _Default . _Coerce
 
--- | The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> . If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> . In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: @=?charset?encoding?encoded-text?=@ . For more information, see <https://tools.ietf.org/html/rfc2047 RFC 2047> .
+-- | The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> . If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 seSource :: Lens' SendEmail Text
-seSource = lens _seSource (\ s a -> s{_seSource = a});
+seSource = lens _seSource (\ s a -> s{_seSource = a})
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields.
 seDestination :: Lens' SendEmail Destination
-seDestination = lens _seDestination (\ s a -> s{_seDestination = a});
+seDestination = lens _seDestination (\ s a -> s{_seDestination = a})
 
 -- | The message to be sent.
 seMessage :: Lens' SendEmail Message
-seMessage = lens _seMessage (\ s a -> s{_seMessage = a});
+seMessage = lens _seMessage (\ s a -> s{_seMessage = a})
 
 instance AWSRequest SendEmail where
         type Rs SendEmail = SendEmailResponse
@@ -220,15 +220,15 @@ sendEmailResponse
     -> SendEmailResponse
 sendEmailResponse pResponseStatus_ pMessageId_ =
   SendEmailResponse'
-  {_sersResponseStatus = pResponseStatus_, _sersMessageId = pMessageId_}
+    {_sersResponseStatus = pResponseStatus_, _sersMessageId = pMessageId_}
 
 
 -- | -- | The response status code.
 sersResponseStatus :: Lens' SendEmailResponse Int
-sersResponseStatus = lens _sersResponseStatus (\ s a -> s{_sersResponseStatus = a});
+sersResponseStatus = lens _sersResponseStatus (\ s a -> s{_sersResponseStatus = a})
 
 -- | The unique message identifier returned from the @SendEmail@ action.
 sersMessageId :: Lens' SendEmailResponse Text
-sersMessageId = lens _sersMessageId (\ s a -> s{_sersMessageId = a});
+sersMessageId = lens _sersMessageId (\ s a -> s{_sersMessageId = a})
 
 instance NFData SendEmailResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ConfirmSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ confirmSubscription
     -> ConfirmSubscription
 confirmSubscription pTopicARN_ pToken_ =
   ConfirmSubscription'
-  { _csAuthenticateOnUnsubscribe = Nothing
-  , _csTopicARN = pTopicARN_
-  , _csToken = pToken_
-  }
+    { _csAuthenticateOnUnsubscribe = Nothing
+    , _csTopicARN = pTopicARN_
+    , _csToken = pToken_
+    }
 
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is @true@ and the request has an AWS signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires AWS authentication.
 csAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
-csAuthenticateOnUnsubscribe = lens _csAuthenticateOnUnsubscribe (\ s a -> s{_csAuthenticateOnUnsubscribe = a});
+csAuthenticateOnUnsubscribe = lens _csAuthenticateOnUnsubscribe (\ s a -> s{_csAuthenticateOnUnsubscribe = a})
 
 -- | The ARN of the topic for which you wish to confirm a subscription.
 csTopicARN :: Lens' ConfirmSubscription Text
-csTopicARN = lens _csTopicARN (\ s a -> s{_csTopicARN = a});
+csTopicARN = lens _csTopicARN (\ s a -> s{_csTopicARN = a})
 
 -- | Short-lived token sent to an endpoint during the @Subscribe@ action.
 csToken :: Lens' ConfirmSubscription Text
-csToken = lens _csToken (\ s a -> s{_csToken = a});
+csToken = lens _csToken (\ s a -> s{_csToken = a})
 
 instance AWSRequest ConfirmSubscription where
         type Rs ConfirmSubscription =
@@ -143,15 +143,15 @@ confirmSubscriptionResponse
     -> ConfirmSubscriptionResponse
 confirmSubscriptionResponse pResponseStatus_ =
   ConfirmSubscriptionResponse'
-  {_csrsSubscriptionARN = Nothing, _csrsResponseStatus = pResponseStatus_}
+    {_csrsSubscriptionARN = Nothing, _csrsResponseStatus = pResponseStatus_}
 
 
 -- | The ARN of the created subscription.
 csrsSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
-csrsSubscriptionARN = lens _csrsSubscriptionARN (\ s a -> s{_csrsSubscriptionARN = a});
+csrsSubscriptionARN = lens _csrsSubscriptionARN (\ s a -> s{_csrsSubscriptionARN = a})
 
 -- | -- | The response status code.
 csrsResponseStatus :: Lens' ConfirmSubscriptionResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a})
 
 instance NFData ConfirmSubscriptionResponse where

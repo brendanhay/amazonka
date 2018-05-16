@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteMaintenanceWindow
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteMaintenanceWindow pWindowId_ =
 
 -- | The ID of the Maintenance Window to delete.
 dmwWindowId :: Lens' DeleteMaintenanceWindow Text
-dmwWindowId = lens _dmwWindowId (\ s a -> s{_dmwWindowId = a});
+dmwWindowId = lens _dmwWindowId (\ s a -> s{_dmwWindowId = a})
 
 instance AWSRequest DeleteMaintenanceWindow where
         type Rs DeleteMaintenanceWindow =
@@ -119,15 +119,15 @@ deleteMaintenanceWindowResponse
     -> DeleteMaintenanceWindowResponse
 deleteMaintenanceWindowResponse pResponseStatus_ =
   DeleteMaintenanceWindowResponse'
-  {_dmwrsWindowId = Nothing, _dmwrsResponseStatus = pResponseStatus_}
+    {_dmwrsWindowId = Nothing, _dmwrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the deleted Maintenance Window.
 dmwrsWindowId :: Lens' DeleteMaintenanceWindowResponse (Maybe Text)
-dmwrsWindowId = lens _dmwrsWindowId (\ s a -> s{_dmwrsWindowId = a});
+dmwrsWindowId = lens _dmwrsWindowId (\ s a -> s{_dmwrsWindowId = a})
 
 -- | -- | The response status code.
 dmwrsResponseStatus :: Lens' DeleteMaintenanceWindowResponse Int
-dmwrsResponseStatus = lens _dmwrsResponseStatus (\ s a -> s{_dmwrsResponseStatus = a});
+dmwrsResponseStatus = lens _dmwrsResponseStatus (\ s a -> s{_dmwrsResponseStatus = a})
 
 instance NFData DeleteMaintenanceWindowResponse where

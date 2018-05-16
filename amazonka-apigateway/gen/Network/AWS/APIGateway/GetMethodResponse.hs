@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetMethodResponse
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,13 +65,13 @@ data GetMethodResponse = GetMethodResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'gmRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'gmResourceId' - The 'Resource' identifier for the 'MethodResponse' resource.
+-- * 'gmResourceId' - [Required] The 'Resource' identifier for the 'MethodResponse' resource.
 --
--- * 'gmHttpMethod' - The HTTP verb of the 'Method' resource.
+-- * 'gmHttpMethod' - [Required] The HTTP verb of the 'Method' resource.
 --
--- * 'gmStatusCode' - The status code for the 'MethodResponse' resource.
+-- * 'gmStatusCode' - [Required] The status code for the 'MethodResponse' resource.
 getMethodResponse
     :: Text -- ^ 'gmRestAPIId'
     -> Text -- ^ 'gmResourceId'
@@ -80,28 +80,28 @@ getMethodResponse
     -> GetMethodResponse
 getMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
   GetMethodResponse'
-  { _gmRestAPIId = pRestAPIId_
-  , _gmResourceId = pResourceId_
-  , _gmHttpMethod = pHttpMethod_
-  , _gmStatusCode = pStatusCode_
-  }
+    { _gmRestAPIId = pRestAPIId_
+    , _gmResourceId = pResourceId_
+    , _gmHttpMethod = pHttpMethod_
+    , _gmStatusCode = pStatusCode_
+    }
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 gmRestAPIId :: Lens' GetMethodResponse Text
-gmRestAPIId = lens _gmRestAPIId (\ s a -> s{_gmRestAPIId = a});
+gmRestAPIId = lens _gmRestAPIId (\ s a -> s{_gmRestAPIId = a})
 
--- | The 'Resource' identifier for the 'MethodResponse' resource.
+-- | [Required] The 'Resource' identifier for the 'MethodResponse' resource.
 gmResourceId :: Lens' GetMethodResponse Text
-gmResourceId = lens _gmResourceId (\ s a -> s{_gmResourceId = a});
+gmResourceId = lens _gmResourceId (\ s a -> s{_gmResourceId = a})
 
--- | The HTTP verb of the 'Method' resource.
+-- | [Required] The HTTP verb of the 'Method' resource.
 gmHttpMethod :: Lens' GetMethodResponse Text
-gmHttpMethod = lens _gmHttpMethod (\ s a -> s{_gmHttpMethod = a});
+gmHttpMethod = lens _gmHttpMethod (\ s a -> s{_gmHttpMethod = a})
 
--- | The status code for the 'MethodResponse' resource.
+-- | [Required] The status code for the 'MethodResponse' resource.
 gmStatusCode :: Lens' GetMethodResponse Text
-gmStatusCode = lens _gmStatusCode (\ s a -> s{_gmStatusCode = a});
+gmStatusCode = lens _gmStatusCode (\ s a -> s{_gmStatusCode = a})
 
 instance AWSRequest GetMethodResponse where
         type Rs GetMethodResponse = MethodResponse

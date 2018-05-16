@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutSubscriptionFilter
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,38 +92,38 @@ putSubscriptionFilter
     -> PutSubscriptionFilter
 putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationARN_ =
   PutSubscriptionFilter'
-  { _psfDistribution = Nothing
-  , _psfRoleARN = Nothing
-  , _psfLogGroupName = pLogGroupName_
-  , _psfFilterName = pFilterName_
-  , _psfFilterPattern = pFilterPattern_
-  , _psfDestinationARN = pDestinationARN_
-  }
+    { _psfDistribution = Nothing
+    , _psfRoleARN = Nothing
+    , _psfLogGroupName = pLogGroupName_
+    , _psfFilterName = pFilterName_
+    , _psfFilterPattern = pFilterPattern_
+    , _psfDestinationARN = pDestinationARN_
+    }
 
 
 -- | The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
 psfDistribution :: Lens' PutSubscriptionFilter (Maybe Distribution)
-psfDistribution = lens _psfDistribution (\ s a -> s{_psfDistribution = a});
+psfDistribution = lens _psfDistribution (\ s a -> s{_psfDistribution = a})
 
 -- | The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
 psfRoleARN :: Lens' PutSubscriptionFilter (Maybe Text)
-psfRoleARN = lens _psfRoleARN (\ s a -> s{_psfRoleARN = a});
+psfRoleARN = lens _psfRoleARN (\ s a -> s{_psfRoleARN = a})
 
 -- | The name of the log group.
 psfLogGroupName :: Lens' PutSubscriptionFilter Text
-psfLogGroupName = lens _psfLogGroupName (\ s a -> s{_psfLogGroupName = a});
+psfLogGroupName = lens _psfLogGroupName (\ s a -> s{_psfLogGroupName = a})
 
 -- | A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in @filterName@ . Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use 'DescribeSubscriptionFilters' .
 psfFilterName :: Lens' PutSubscriptionFilter Text
-psfFilterName = lens _psfFilterName (\ s a -> s{_psfFilterName = a});
+psfFilterName = lens _psfFilterName (\ s a -> s{_psfFilterName = a})
 
 -- | A filter pattern for subscribing to a filtered stream of log events.
 psfFilterPattern :: Lens' PutSubscriptionFilter Text
-psfFilterPattern = lens _psfFilterPattern (\ s a -> s{_psfFilterPattern = a});
+psfFilterPattern = lens _psfFilterPattern (\ s a -> s{_psfFilterPattern = a})
 
 -- | The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:     * An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.     * A logical destination (specified using an ARN) belonging to a different account, for cross-account delivery.     * An Amazon Kinesis Firehose delivery stream belonging to the same account as the subscription filter, for same-account delivery.     * An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery.
 psfDestinationARN :: Lens' PutSubscriptionFilter Text
-psfDestinationARN = lens _psfDestinationARN (\ s a -> s{_psfDestinationARN = a});
+psfDestinationARN = lens _psfDestinationARN (\ s a -> s{_psfDestinationARN = a})
 
 instance AWSRequest PutSubscriptionFilter where
         type Rs PutSubscriptionFilter =

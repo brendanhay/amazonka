@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteCustomerGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ deleteCustomerGateway
     -> DeleteCustomerGateway
 deleteCustomerGateway pCustomerGatewayId_ =
   DeleteCustomerGateway'
-  {_dcgcDryRun = Nothing, _dcgcCustomerGatewayId = pCustomerGatewayId_}
+    {_dcgcDryRun = Nothing, _dcgcCustomerGatewayId = pCustomerGatewayId_}
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dcgcDryRun :: Lens' DeleteCustomerGateway (Maybe Bool)
-dcgcDryRun = lens _dcgcDryRun (\ s a -> s{_dcgcDryRun = a});
+dcgcDryRun = lens _dcgcDryRun (\ s a -> s{_dcgcDryRun = a})
 
 -- | The ID of the customer gateway.
 dcgcCustomerGatewayId :: Lens' DeleteCustomerGateway Text
-dcgcCustomerGatewayId = lens _dcgcCustomerGatewayId (\ s a -> s{_dcgcCustomerGatewayId = a});
+dcgcCustomerGatewayId = lens _dcgcCustomerGatewayId (\ s a -> s{_dcgcCustomerGatewayId = a})
 
 instance AWSRequest DeleteCustomerGateway where
         type Rs DeleteCustomerGateway =

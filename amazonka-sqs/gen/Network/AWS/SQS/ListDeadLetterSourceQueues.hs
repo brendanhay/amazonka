@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ListDeadLetterSourceQueues
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ listDeadLetterSourceQueues pQueueURL_ =
 
 -- | The URL of a dead-letter queue. Queue URLs are case-sensitive.
 ldlsqQueueURL :: Lens' ListDeadLetterSourceQueues Text
-ldlsqQueueURL = lens _ldlsqQueueURL (\ s a -> s{_ldlsqQueueURL = a});
+ldlsqQueueURL = lens _ldlsqQueueURL (\ s a -> s{_ldlsqQueueURL = a})
 
 instance AWSRequest ListDeadLetterSourceQueues where
         type Rs ListDeadLetterSourceQueues =
@@ -124,16 +124,16 @@ listDeadLetterSourceQueuesResponse
     -> ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueuesResponse pResponseStatus_ =
   ListDeadLetterSourceQueuesResponse'
-  {_ldlsqrsResponseStatus = pResponseStatus_, _ldlsqrsQueueURLs = mempty}
+    {_ldlsqrsResponseStatus = pResponseStatus_, _ldlsqrsQueueURLs = mempty}
 
 
 -- | -- | The response status code.
 ldlsqrsResponseStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
-ldlsqrsResponseStatus = lens _ldlsqrsResponseStatus (\ s a -> s{_ldlsqrsResponseStatus = a});
+ldlsqrsResponseStatus = lens _ldlsqrsResponseStatus (\ s a -> s{_ldlsqrsResponseStatus = a})
 
 -- | A list of source queue URLs that have the @RedrivePolicy@ queue attribute configured with a dead-letter queue.
 ldlsqrsQueueURLs :: Lens' ListDeadLetterSourceQueuesResponse [Text]
-ldlsqrsQueueURLs = lens _ldlsqrsQueueURLs (\ s a -> s{_ldlsqrsQueueURLs = a}) . _Coerce;
+ldlsqrsQueueURLs = lens _ldlsqrsQueueURLs (\ s a -> s{_ldlsqrsQueueURLs = a}) . _Coerce
 
 instance NFData ListDeadLetterSourceQueuesResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.AssociateVPCWithHostedZone
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ associateVPCWithHostedZone
     -> AssociateVPCWithHostedZone
 associateVPCWithHostedZone pHostedZoneId_ pVPC_ =
   AssociateVPCWithHostedZone'
-  { _avwhzComment = Nothing
-  , _avwhzHostedZoneId = pHostedZoneId_
-  , _avwhzVPC = pVPC_
-  }
+    { _avwhzComment = Nothing
+    , _avwhzHostedZoneId = pHostedZoneId_
+    , _avwhzVPC = pVPC_
+    }
 
 
 -- | /Optional:/ A comment about the association request.
 avwhzComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
-avwhzComment = lens _avwhzComment (\ s a -> s{_avwhzComment = a});
+avwhzComment = lens _avwhzComment (\ s a -> s{_avwhzComment = a})
 
 -- | The ID of the private hosted zone that you want to associate an Amazon VPC with. Note that you can't associate a VPC with a hosted zone that doesn't have an existing VPC association.
 avwhzHostedZoneId :: Lens' AssociateVPCWithHostedZone ResourceId
-avwhzHostedZoneId = lens _avwhzHostedZoneId (\ s a -> s{_avwhzHostedZoneId = a});
+avwhzHostedZoneId = lens _avwhzHostedZoneId (\ s a -> s{_avwhzHostedZoneId = a})
 
 -- | A complex type that contains information about the VPC that you want to associate with a private hosted zone.
 avwhzVPC :: Lens' AssociateVPCWithHostedZone VPC
-avwhzVPC = lens _avwhzVPC (\ s a -> s{_avwhzVPC = a});
+avwhzVPC = lens _avwhzVPC (\ s a -> s{_avwhzVPC = a})
 
 instance AWSRequest AssociateVPCWithHostedZone where
         type Rs AssociateVPCWithHostedZone =
@@ -153,16 +153,18 @@ associateVPCWithHostedZoneResponse
     -> AssociateVPCWithHostedZoneResponse
 associateVPCWithHostedZoneResponse pResponseStatus_ pChangeInfo_ =
   AssociateVPCWithHostedZoneResponse'
-  {_avwhzrsResponseStatus = pResponseStatus_, _avwhzrsChangeInfo = pChangeInfo_}
+    { _avwhzrsResponseStatus = pResponseStatus_
+    , _avwhzrsChangeInfo = pChangeInfo_
+    }
 
 
 -- | -- | The response status code.
 avwhzrsResponseStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
-avwhzrsResponseStatus = lens _avwhzrsResponseStatus (\ s a -> s{_avwhzrsResponseStatus = a});
+avwhzrsResponseStatus = lens _avwhzrsResponseStatus (\ s a -> s{_avwhzrsResponseStatus = a})
 
 -- | A complex type that describes the changes made to your hosted zone.
 avwhzrsChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
-avwhzrsChangeInfo = lens _avwhzrsChangeInfo (\ s a -> s{_avwhzrsChangeInfo = a});
+avwhzrsChangeInfo = lens _avwhzrsChangeInfo (\ s a -> s{_avwhzrsChangeInfo = a})
 
 instance NFData AssociateVPCWithHostedZoneResponse
          where

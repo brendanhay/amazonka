@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RegisterDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,24 +80,24 @@ registerDomain
     -> RegisterDomain
 registerDomain pName_ pWorkflowExecutionRetentionPeriodInDays_ =
   RegisterDomain'
-  { _rdDescription = Nothing
-  , _rdName = pName_
-  , _rdWorkflowExecutionRetentionPeriodInDays =
-      pWorkflowExecutionRetentionPeriodInDays_
-  }
+    { _rdDescription = Nothing
+    , _rdName = pName_
+    , _rdWorkflowExecutionRetentionPeriodInDays =
+        pWorkflowExecutionRetentionPeriodInDays_
+    }
 
 
 -- | A text description of the domain.
 rdDescription :: Lens' RegisterDomain (Maybe Text)
-rdDescription = lens _rdDescription (\ s a -> s{_rdDescription = a});
+rdDescription = lens _rdDescription (\ s a -> s{_rdDescription = a})
 
 -- | Name of the domain to register. The name must be unique in the region that the domain is registered in. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 rdName :: Lens' RegisterDomain Text
-rdName = lens _rdName (\ s a -> s{_rdName = a});
+rdName = lens _rdName (\ s a -> s{_rdName = a})
 
 -- | The duration (in days) that records and histories of workflow executions on the domain should be kept by the service. After the retention period, the workflow execution isn't available in the results of visibility calls. If you pass the value @NONE@ or @0@ (zero), then the workflow execution history isn't retained. As soon as the workflow execution completes, the execution record and its history are deleted. The maximum workflow execution retention period is 90 days. For more information about Amazon SWF service limits, see: <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html Amazon SWF Service Limits> in the /Amazon SWF Developer Guide/ .
 rdWorkflowExecutionRetentionPeriodInDays :: Lens' RegisterDomain Text
-rdWorkflowExecutionRetentionPeriodInDays = lens _rdWorkflowExecutionRetentionPeriodInDays (\ s a -> s{_rdWorkflowExecutionRetentionPeriodInDays = a});
+rdWorkflowExecutionRetentionPeriodInDays = lens _rdWorkflowExecutionRetentionPeriodInDays (\ s a -> s{_rdWorkflowExecutionRetentionPeriodInDays = a})
 
 instance AWSRequest RegisterDomain where
         type Rs RegisterDomain = RegisterDomainResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachVPNGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,20 +75,23 @@ attachVPNGateway
     -> AttachVPNGateway
 attachVPNGateway pVPCId_ pVPNGatewayId_ =
   AttachVPNGateway'
-  {_avgDryRun = Nothing, _avgVPCId = pVPCId_, _avgVPNGatewayId = pVPNGatewayId_}
+    { _avgDryRun = Nothing
+    , _avgVPCId = pVPCId_
+    , _avgVPNGatewayId = pVPNGatewayId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 avgDryRun :: Lens' AttachVPNGateway (Maybe Bool)
-avgDryRun = lens _avgDryRun (\ s a -> s{_avgDryRun = a});
+avgDryRun = lens _avgDryRun (\ s a -> s{_avgDryRun = a})
 
 -- | The ID of the VPC.
 avgVPCId :: Lens' AttachVPNGateway Text
-avgVPCId = lens _avgVPCId (\ s a -> s{_avgVPCId = a});
+avgVPCId = lens _avgVPCId (\ s a -> s{_avgVPCId = a})
 
 -- | The ID of the virtual private gateway.
 avgVPNGatewayId :: Lens' AttachVPNGateway Text
-avgVPNGatewayId = lens _avgVPNGatewayId (\ s a -> s{_avgVPNGatewayId = a});
+avgVPNGatewayId = lens _avgVPNGatewayId (\ s a -> s{_avgVPNGatewayId = a})
 
 instance AWSRequest AttachVPNGateway where
         type Rs AttachVPNGateway = AttachVPNGatewayResponse
@@ -140,15 +143,15 @@ attachVPNGatewayResponse
     -> AttachVPNGatewayResponse
 attachVPNGatewayResponse pResponseStatus_ =
   AttachVPNGatewayResponse'
-  {_avgrsVPCAttachment = Nothing, _avgrsResponseStatus = pResponseStatus_}
+    {_avgrsVPCAttachment = Nothing, _avgrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the attachment.
 avgrsVPCAttachment :: Lens' AttachVPNGatewayResponse (Maybe VPCAttachment)
-avgrsVPCAttachment = lens _avgrsVPCAttachment (\ s a -> s{_avgrsVPCAttachment = a});
+avgrsVPCAttachment = lens _avgrsVPCAttachment (\ s a -> s{_avgrsVPCAttachment = a})
 
 -- | -- | The response status code.
 avgrsResponseStatus :: Lens' AttachVPNGatewayResponse Int
-avgrsResponseStatus = lens _avgrsResponseStatus (\ s a -> s{_avgrsResponseStatus = a});
+avgrsResponseStatus = lens _avgrsResponseStatus (\ s a -> s{_avgrsResponseStatus = a})
 
 instance NFData AttachVPNGatewayResponse where

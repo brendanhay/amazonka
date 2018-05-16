@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateEmailChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ updateEmailChannel
     -> UpdateEmailChannel
 updateEmailChannel pApplicationId_ pEmailChannelRequest_ =
   UpdateEmailChannel'
-  { _uecApplicationId = pApplicationId_
-  , _uecEmailChannelRequest = pEmailChannelRequest_
-  }
+    { _uecApplicationId = pApplicationId_
+    , _uecEmailChannelRequest = pEmailChannelRequest_
+    }
 
 
 -- | Undocumented member.
 uecApplicationId :: Lens' UpdateEmailChannel Text
-uecApplicationId = lens _uecApplicationId (\ s a -> s{_uecApplicationId = a});
+uecApplicationId = lens _uecApplicationId (\ s a -> s{_uecApplicationId = a})
 
 -- | Undocumented member.
 uecEmailChannelRequest :: Lens' UpdateEmailChannel EmailChannelRequest
-uecEmailChannelRequest = lens _uecEmailChannelRequest (\ s a -> s{_uecEmailChannelRequest = a});
+uecEmailChannelRequest = lens _uecEmailChannelRequest (\ s a -> s{_uecEmailChannelRequest = a})
 
 instance AWSRequest UpdateEmailChannel where
         type Rs UpdateEmailChannel =
@@ -133,17 +133,17 @@ updateEmailChannelResponse
     -> UpdateEmailChannelResponse
 updateEmailChannelResponse pResponseStatus_ pEmailChannelResponse_ =
   UpdateEmailChannelResponse'
-  { _uecrsResponseStatus = pResponseStatus_
-  , _uecrsEmailChannelResponse = pEmailChannelResponse_
-  }
+    { _uecrsResponseStatus = pResponseStatus_
+    , _uecrsEmailChannelResponse = pEmailChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 uecrsResponseStatus :: Lens' UpdateEmailChannelResponse Int
-uecrsResponseStatus = lens _uecrsResponseStatus (\ s a -> s{_uecrsResponseStatus = a});
+uecrsResponseStatus = lens _uecrsResponseStatus (\ s a -> s{_uecrsResponseStatus = a})
 
 -- | Undocumented member.
 uecrsEmailChannelResponse :: Lens' UpdateEmailChannelResponse EmailChannelResponse
-uecrsEmailChannelResponse = lens _uecrsEmailChannelResponse (\ s a -> s{_uecrsEmailChannelResponse = a});
+uecrsEmailChannelResponse = lens _uecrsEmailChannelResponse (\ s a -> s{_uecrsEmailChannelResponse = a})
 
 instance NFData UpdateEmailChannelResponse where

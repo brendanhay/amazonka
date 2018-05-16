@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetUtterancesView
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,10 +24,6 @@
 -- For example, say that you have created a bot to order flowers. After your users have used your bot for a while, use the @GetUtterancesView@ operation to see the requests that they have made and whether they have been successful. You might find that the utterance "I want flowers" is not being recognized. You could add this utterance to the @OrderFlowers@ intent so that your bot recognizes that utterance.
 --
 -- After you publish a new version of a bot, you can get information about the old version and the new so that you can compare the performance across the two versions.
---
--- Data is available for the last 15 days. You can request information for up to 5 versions in each request. The response contains information about a maximum of 100 utterances for each version.
---
--- If the bot's @childDirected@ field is set to @true@ , utterances for the bot are not stored and cannot be retrieved with the @GetUtterancesView@ operation. For more information, see 'PutBot' .
 --
 -- This operation requires permissions for the @lex:GetUtterancesView@ action.
 --
@@ -81,23 +77,23 @@ getUtterancesView
     -> GetUtterancesView
 getUtterancesView pBotName_ pBotVersions_ pStatusType_ =
   GetUtterancesView'
-  { _guvBotName = pBotName_
-  , _guvBotVersions = _List1 # pBotVersions_
-  , _guvStatusType = pStatusType_
-  }
+    { _guvBotName = pBotName_
+    , _guvBotVersions = _List1 # pBotVersions_
+    , _guvStatusType = pStatusType_
+    }
 
 
 -- | The name of the bot for which utterance information should be returned.
 guvBotName :: Lens' GetUtterancesView Text
-guvBotName = lens _guvBotName (\ s a -> s{_guvBotName = a});
+guvBotName = lens _guvBotName (\ s a -> s{_guvBotName = a})
 
 -- | An array of bot versions for which utterance information should be returned. The limit is 5 versions per request.
 guvBotVersions :: Lens' GetUtterancesView (NonEmpty Text)
-guvBotVersions = lens _guvBotVersions (\ s a -> s{_guvBotVersions = a}) . _List1;
+guvBotVersions = lens _guvBotVersions (\ s a -> s{_guvBotVersions = a}) . _List1
 
 -- | To return utterances that were recognized and handled, use@Detected@ . To return utterances that were not recognized, use @Missed@ .
 guvStatusType :: Lens' GetUtterancesView StatusType
-guvStatusType = lens _guvStatusType (\ s a -> s{_guvStatusType = a});
+guvStatusType = lens _guvStatusType (\ s a -> s{_guvStatusType = a})
 
 instance AWSRequest GetUtterancesView where
         type Rs GetUtterancesView = GetUtterancesViewResponse
@@ -153,22 +149,22 @@ getUtterancesViewResponse
     -> GetUtterancesViewResponse
 getUtterancesViewResponse pResponseStatus_ =
   GetUtterancesViewResponse'
-  { _guvrsBotName = Nothing
-  , _guvrsUtterances = Nothing
-  , _guvrsResponseStatus = pResponseStatus_
-  }
+    { _guvrsBotName = Nothing
+    , _guvrsUtterances = Nothing
+    , _guvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The name of the bot for which utterance information was returned.
 guvrsBotName :: Lens' GetUtterancesViewResponse (Maybe Text)
-guvrsBotName = lens _guvrsBotName (\ s a -> s{_guvrsBotName = a});
+guvrsBotName = lens _guvrsBotName (\ s a -> s{_guvrsBotName = a})
 
 -- | An array of 'UtteranceList' objects, each containing a list of 'UtteranceData' objects describing the utterances that were processed by your bot. The response contains a maximum of 100 @UtteranceData@ objects for each version.
 guvrsUtterances :: Lens' GetUtterancesViewResponse [UtteranceList]
-guvrsUtterances = lens _guvrsUtterances (\ s a -> s{_guvrsUtterances = a}) . _Default . _Coerce;
+guvrsUtterances = lens _guvrsUtterances (\ s a -> s{_guvrsUtterances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 guvrsResponseStatus :: Lens' GetUtterancesViewResponse Int
-guvrsResponseStatus = lens _guvrsResponseStatus (\ s a -> s{_guvrsResponseStatus = a});
+guvrsResponseStatus = lens _guvrsResponseStatus (\ s a -> s{_guvrsResponseStatus = a})
 
 instance NFData GetUtterancesViewResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateEndpointsBatch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ updateEndpointsBatch
     -> UpdateEndpointsBatch
 updateEndpointsBatch pApplicationId_ pEndpointBatchRequest_ =
   UpdateEndpointsBatch'
-  { _uebApplicationId = pApplicationId_
-  , _uebEndpointBatchRequest = pEndpointBatchRequest_
-  }
+    { _uebApplicationId = pApplicationId_
+    , _uebEndpointBatchRequest = pEndpointBatchRequest_
+    }
 
 
 -- | Undocumented member.
 uebApplicationId :: Lens' UpdateEndpointsBatch Text
-uebApplicationId = lens _uebApplicationId (\ s a -> s{_uebApplicationId = a});
+uebApplicationId = lens _uebApplicationId (\ s a -> s{_uebApplicationId = a})
 
 -- | Undocumented member.
 uebEndpointBatchRequest :: Lens' UpdateEndpointsBatch EndpointBatchRequest
-uebEndpointBatchRequest = lens _uebEndpointBatchRequest (\ s a -> s{_uebEndpointBatchRequest = a});
+uebEndpointBatchRequest = lens _uebEndpointBatchRequest (\ s a -> s{_uebEndpointBatchRequest = a})
 
 instance AWSRequest UpdateEndpointsBatch where
         type Rs UpdateEndpointsBatch =
@@ -133,15 +133,15 @@ updateEndpointsBatchResponse
     -> UpdateEndpointsBatchResponse
 updateEndpointsBatchResponse pResponseStatus_ pMessageBody_ =
   UpdateEndpointsBatchResponse'
-  {_uebrsResponseStatus = pResponseStatus_, _uebrsMessageBody = pMessageBody_}
+    {_uebrsResponseStatus = pResponseStatus_, _uebrsMessageBody = pMessageBody_}
 
 
 -- | -- | The response status code.
 uebrsResponseStatus :: Lens' UpdateEndpointsBatchResponse Int
-uebrsResponseStatus = lens _uebrsResponseStatus (\ s a -> s{_uebrsResponseStatus = a});
+uebrsResponseStatus = lens _uebrsResponseStatus (\ s a -> s{_uebrsResponseStatus = a})
 
 -- | Undocumented member.
 uebrsMessageBody :: Lens' UpdateEndpointsBatchResponse MessageBody
-uebrsMessageBody = lens _uebrsMessageBody (\ s a -> s{_uebrsMessageBody = a});
+uebrsMessageBody = lens _uebrsMessageBody (\ s a -> s{_uebrsMessageBody = a})
 
 instance NFData UpdateEndpointsBatchResponse where

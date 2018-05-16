@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.UpdateCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -87,48 +87,48 @@ updateCluster
     -> UpdateCluster
 updateCluster pClusterId_ =
   UpdateCluster'
-  { _ucNotification = Nothing
-  , _ucForwardingAddressId = Nothing
-  , _ucAddressId = Nothing
-  , _ucShippingOption = Nothing
-  , _ucResources = Nothing
-  , _ucDescription = Nothing
-  , _ucRoleARN = Nothing
-  , _ucClusterId = pClusterId_
-  }
+    { _ucNotification = Nothing
+    , _ucForwardingAddressId = Nothing
+    , _ucAddressId = Nothing
+    , _ucShippingOption = Nothing
+    , _ucResources = Nothing
+    , _ucDescription = Nothing
+    , _ucRoleARN = Nothing
+    , _ucClusterId = pClusterId_
+    }
 
 
 -- | The new or updated 'Notification' object.
 ucNotification :: Lens' UpdateCluster (Maybe Notification)
-ucNotification = lens _ucNotification (\ s a -> s{_ucNotification = a});
+ucNotification = lens _ucNotification (\ s a -> s{_ucNotification = a})
 
 -- | The updated ID for the forwarding address for a cluster. This field is not supported in most regions.
 ucForwardingAddressId :: Lens' UpdateCluster (Maybe Text)
-ucForwardingAddressId = lens _ucForwardingAddressId (\ s a -> s{_ucForwardingAddressId = a});
+ucForwardingAddressId = lens _ucForwardingAddressId (\ s a -> s{_ucForwardingAddressId = a})
 
 -- | The ID of the updated 'Address' object.
 ucAddressId :: Lens' UpdateCluster (Maybe Text)
-ucAddressId = lens _ucAddressId (\ s a -> s{_ucAddressId = a});
+ucAddressId = lens _ucAddressId (\ s a -> s{_ucAddressId = a})
 
 -- | The updated shipping option value of this cluster's 'ShippingDetails' object.
 ucShippingOption :: Lens' UpdateCluster (Maybe ShippingOption)
-ucShippingOption = lens _ucShippingOption (\ s a -> s{_ucShippingOption = a});
+ucShippingOption = lens _ucShippingOption (\ s a -> s{_ucShippingOption = a})
 
 -- | The updated arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
 ucResources :: Lens' UpdateCluster (Maybe JobResource)
-ucResources = lens _ucResources (\ s a -> s{_ucResources = a});
+ucResources = lens _ucResources (\ s a -> s{_ucResources = a})
 
 -- | The updated description of this cluster.
 ucDescription :: Lens' UpdateCluster (Maybe Text)
-ucDescription = lens _ucDescription (\ s a -> s{_ucDescription = a});
+ucDescription = lens _ucDescription (\ s a -> s{_ucDescription = a})
 
 -- | The new role Amazon Resource Name (ARN) that you want to associate with this cluster. To create a role ARN, use the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
 ucRoleARN :: Lens' UpdateCluster (Maybe Text)
-ucRoleARN = lens _ucRoleARN (\ s a -> s{_ucRoleARN = a});
+ucRoleARN = lens _ucRoleARN (\ s a -> s{_ucRoleARN = a})
 
 -- | The cluster ID of the cluster that you want to update, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 ucClusterId :: Lens' UpdateCluster Text
-ucClusterId = lens _ucClusterId (\ s a -> s{_ucClusterId = a});
+ucClusterId = lens _ucClusterId (\ s a -> s{_ucClusterId = a})
 
 instance AWSRequest UpdateCluster where
         type Rs UpdateCluster = UpdateClusterResponse
@@ -192,6 +192,6 @@ updateClusterResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ucrsResponseStatus :: Lens' UpdateClusterResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a});
+ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a})
 
 instance NFData UpdateClusterResponse where

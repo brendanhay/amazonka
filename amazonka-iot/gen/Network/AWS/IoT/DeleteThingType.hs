@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteThingType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ deleteThingType pThingTypeName_ =
 
 -- | The name of the thing type.
 dttThingTypeName :: Lens' DeleteThingType Text
-dttThingTypeName = lens _dttThingTypeName (\ s a -> s{_dttThingTypeName = a});
+dttThingTypeName = lens _dttThingTypeName (\ s a -> s{_dttThingTypeName = a})
 
 instance AWSRequest DeleteThingType where
         type Rs DeleteThingType = DeleteThingTypeResponse
@@ -115,6 +115,6 @@ deleteThingTypeResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dttrsResponseStatus :: Lens' DeleteThingTypeResponse Int
-dttrsResponseStatus = lens _dttrsResponseStatus (\ s a -> s{_dttrsResponseStatus = a});
+dttrsResponseStatus = lens _dttrsResponseStatus (\ s a -> s{_dttrsResponseStatus = a})
 
 instance NFData DeleteThingTypeResponse where

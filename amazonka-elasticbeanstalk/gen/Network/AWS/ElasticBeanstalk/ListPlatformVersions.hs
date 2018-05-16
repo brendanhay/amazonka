@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ListPlatformVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,20 +68,20 @@ listPlatformVersions
     :: ListPlatformVersions
 listPlatformVersions =
   ListPlatformVersions'
-  {_lpvFilters = Nothing, _lpvNextToken = Nothing, _lpvMaxRecords = Nothing}
+    {_lpvFilters = Nothing, _lpvNextToken = Nothing, _lpvMaxRecords = Nothing}
 
 
 -- | List only the platforms where the platform member value relates to one of the supplied values.
 lpvFilters :: Lens' ListPlatformVersions [PlatformFilter]
-lpvFilters = lens _lpvFilters (\ s a -> s{_lpvFilters = a}) . _Default . _Coerce;
+lpvFilters = lens _lpvFilters (\ s a -> s{_lpvFilters = a}) . _Default . _Coerce
 
 -- | The starting index into the remaining list of platforms. Use the @NextToken@ value from a previous @ListPlatformVersion@ call.
 lpvNextToken :: Lens' ListPlatformVersions (Maybe Text)
-lpvNextToken = lens _lpvNextToken (\ s a -> s{_lpvNextToken = a});
+lpvNextToken = lens _lpvNextToken (\ s a -> s{_lpvNextToken = a})
 
 -- | The maximum number of platform values returned in one call.
 lpvMaxRecords :: Lens' ListPlatformVersions (Maybe Natural)
-lpvMaxRecords = lens _lpvMaxRecords (\ s a -> s{_lpvMaxRecords = a}) . mapping _Nat;
+lpvMaxRecords = lens _lpvMaxRecords (\ s a -> s{_lpvMaxRecords = a}) . mapping _Nat
 
 instance AWSRequest ListPlatformVersions where
         type Rs ListPlatformVersions =
@@ -138,22 +138,22 @@ listPlatformVersionsResponse
     -> ListPlatformVersionsResponse
 listPlatformVersionsResponse pResponseStatus_ =
   ListPlatformVersionsResponse'
-  { _lpvrsNextToken = Nothing
-  , _lpvrsPlatformSummaryList = Nothing
-  , _lpvrsResponseStatus = pResponseStatus_
-  }
+    { _lpvrsNextToken = Nothing
+    , _lpvrsPlatformSummaryList = Nothing
+    , _lpvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The starting index into the remaining list of platforms. if this value is not @null@ , you can use it in a subsequent @ListPlatformVersion@ call.
 lpvrsNextToken :: Lens' ListPlatformVersionsResponse (Maybe Text)
-lpvrsNextToken = lens _lpvrsNextToken (\ s a -> s{_lpvrsNextToken = a});
+lpvrsNextToken = lens _lpvrsNextToken (\ s a -> s{_lpvrsNextToken = a})
 
 -- | Detailed information about the platforms.
 lpvrsPlatformSummaryList :: Lens' ListPlatformVersionsResponse [PlatformSummary]
-lpvrsPlatformSummaryList = lens _lpvrsPlatformSummaryList (\ s a -> s{_lpvrsPlatformSummaryList = a}) . _Default . _Coerce;
+lpvrsPlatformSummaryList = lens _lpvrsPlatformSummaryList (\ s a -> s{_lpvrsPlatformSummaryList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lpvrsResponseStatus :: Lens' ListPlatformVersionsResponse Int
-lpvrsResponseStatus = lens _lpvrsResponseStatus (\ s a -> s{_lpvrsResponseStatus = a});
+lpvrsResponseStatus = lens _lpvrsResponseStatus (\ s a -> s{_lpvrsResponseStatus = a})
 
 instance NFData ListPlatformVersionsResponse where

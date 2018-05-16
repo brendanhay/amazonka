@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.XRay.GetServiceGraph
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Retrieves a document that describes services that process incoming requests, and downstream services that they call as a result. Root services process incoming requests and make calls to downstream services. Root services are applications that use the AWS X-Ray SDK. Downstream services can be other applications, AWS resources, HTTP web APIs, or SQL databases.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.XRay.GetServiceGraph
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.XRay.GetServiceGraph
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,23 +75,30 @@ getServiceGraph
     -> GetServiceGraph
 getServiceGraph pStartTime_ pEndTime_ =
   GetServiceGraph'
-  { _gsgNextToken = Nothing
-  , _gsgStartTime = _Time # pStartTime_
-  , _gsgEndTime = _Time # pEndTime_
-  }
+    { _gsgNextToken = Nothing
+    , _gsgStartTime = _Time # pStartTime_
+    , _gsgEndTime = _Time # pEndTime_
+    }
 
 
 -- | Pagination token. Not used.
 gsgNextToken :: Lens' GetServiceGraph (Maybe Text)
-gsgNextToken = lens _gsgNextToken (\ s a -> s{_gsgNextToken = a});
+gsgNextToken = lens _gsgNextToken (\ s a -> s{_gsgNextToken = a})
 
 -- | The start of the time frame for which to generate a graph.
 gsgStartTime :: Lens' GetServiceGraph UTCTime
-gsgStartTime = lens _gsgStartTime (\ s a -> s{_gsgStartTime = a}) . _Time;
+gsgStartTime = lens _gsgStartTime (\ s a -> s{_gsgStartTime = a}) . _Time
 
 -- | The end of the time frame for which to generate a graph.
 gsgEndTime :: Lens' GetServiceGraph UTCTime
-gsgEndTime = lens _gsgEndTime (\ s a -> s{_gsgEndTime = a}) . _Time;
+gsgEndTime = lens _gsgEndTime (\ s a -> s{_gsgEndTime = a}) . _Time
+
+instance AWSPager GetServiceGraph where
+        page rq rs
+          | stop (rs ^. gsgrsNextToken) = Nothing
+          | stop (rs ^. gsgrsServices) = Nothing
+          | otherwise =
+            Just $ rq & gsgNextToken .~ rs ^. gsgrsNextToken
 
 instance AWSRequest GetServiceGraph where
         type Rs GetServiceGraph = GetServiceGraphResponse
@@ -151,32 +161,32 @@ getServiceGraphResponse
     -> GetServiceGraphResponse
 getServiceGraphResponse pResponseStatus_ =
   GetServiceGraphResponse'
-  { _gsgrsStartTime = Nothing
-  , _gsgrsNextToken = Nothing
-  , _gsgrsEndTime = Nothing
-  , _gsgrsServices = Nothing
-  , _gsgrsResponseStatus = pResponseStatus_
-  }
+    { _gsgrsStartTime = Nothing
+    , _gsgrsNextToken = Nothing
+    , _gsgrsEndTime = Nothing
+    , _gsgrsServices = Nothing
+    , _gsgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The start of the time frame for which the graph was generated.
 gsgrsStartTime :: Lens' GetServiceGraphResponse (Maybe UTCTime)
-gsgrsStartTime = lens _gsgrsStartTime (\ s a -> s{_gsgrsStartTime = a}) . mapping _Time;
+gsgrsStartTime = lens _gsgrsStartTime (\ s a -> s{_gsgrsStartTime = a}) . mapping _Time
 
 -- | Pagination token. Not used.
 gsgrsNextToken :: Lens' GetServiceGraphResponse (Maybe Text)
-gsgrsNextToken = lens _gsgrsNextToken (\ s a -> s{_gsgrsNextToken = a});
+gsgrsNextToken = lens _gsgrsNextToken (\ s a -> s{_gsgrsNextToken = a})
 
 -- | The end of the time frame for which the graph was generated.
 gsgrsEndTime :: Lens' GetServiceGraphResponse (Maybe UTCTime)
-gsgrsEndTime = lens _gsgrsEndTime (\ s a -> s{_gsgrsEndTime = a}) . mapping _Time;
+gsgrsEndTime = lens _gsgrsEndTime (\ s a -> s{_gsgrsEndTime = a}) . mapping _Time
 
 -- | The services that have processed a traced request during the specified time frame.
 gsgrsServices :: Lens' GetServiceGraphResponse [ServiceInfo]
-gsgrsServices = lens _gsgrsServices (\ s a -> s{_gsgrsServices = a}) . _Default . _Coerce;
+gsgrsServices = lens _gsgrsServices (\ s a -> s{_gsgrsServices = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gsgrsResponseStatus :: Lens' GetServiceGraphResponse Int
-gsgrsResponseStatus = lens _gsgrsResponseStatus (\ s a -> s{_gsgrsResponseStatus = a});
+gsgrsResponseStatus = lens _gsgrsResponseStatus (\ s a -> s{_gsgrsResponseStatus = a})
 
 instance NFData GetServiceGraphResponse where

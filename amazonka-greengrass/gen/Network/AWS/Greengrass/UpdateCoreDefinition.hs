@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateCoreDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,24 +53,24 @@ data UpdateCoreDefinition = UpdateCoreDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucdName' - name of the definition
+-- * 'ucdName' - The name of the definition.
 --
--- * 'ucdCoreDefinitionId' - core definition Id
+-- * 'ucdCoreDefinitionId' - The ID of the core definition.
 updateCoreDefinition
     :: Text -- ^ 'ucdCoreDefinitionId'
     -> UpdateCoreDefinition
 updateCoreDefinition pCoreDefinitionId_ =
   UpdateCoreDefinition'
-  {_ucdName = Nothing, _ucdCoreDefinitionId = pCoreDefinitionId_}
+    {_ucdName = Nothing, _ucdCoreDefinitionId = pCoreDefinitionId_}
 
 
--- | name of the definition
+-- | The name of the definition.
 ucdName :: Lens' UpdateCoreDefinition (Maybe Text)
-ucdName = lens _ucdName (\ s a -> s{_ucdName = a});
+ucdName = lens _ucdName (\ s a -> s{_ucdName = a})
 
--- | core definition Id
+-- | The ID of the core definition.
 ucdCoreDefinitionId :: Lens' UpdateCoreDefinition Text
-ucdCoreDefinitionId = lens _ucdCoreDefinitionId (\ s a -> s{_ucdCoreDefinitionId = a});
+ucdCoreDefinitionId = lens _ucdCoreDefinitionId (\ s a -> s{_ucdCoreDefinitionId = a})
 
 instance AWSRequest UpdateCoreDefinition where
         type Rs UpdateCoreDefinition =
@@ -126,6 +126,6 @@ updateCoreDefinitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ucdrsResponseStatus :: Lens' UpdateCoreDefinitionResponse Int
-ucdrsResponseStatus = lens _ucdrsResponseStatus (\ s a -> s{_ucdrsResponseStatus = a});
+ucdrsResponseStatus = lens _ucdrsResponseStatus (\ s a -> s{_ucdrsResponseStatus = a})
 
 instance NFData UpdateCoreDefinitionResponse where

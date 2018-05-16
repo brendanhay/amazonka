@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DeregisterEventTopic
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ deregisterEventTopic
     -> DeregisterEventTopic
 deregisterEventTopic pDirectoryId_ pTopicName_ =
   DeregisterEventTopic'
-  {_detDirectoryId = pDirectoryId_, _detTopicName = pTopicName_}
+    {_detDirectoryId = pDirectoryId_, _detTopicName = pTopicName_}
 
 
 -- | The Directory ID to remove as a publisher. This directory will no longer send messages to the specified SNS topic.
 detDirectoryId :: Lens' DeregisterEventTopic Text
-detDirectoryId = lens _detDirectoryId (\ s a -> s{_detDirectoryId = a});
+detDirectoryId = lens _detDirectoryId (\ s a -> s{_detDirectoryId = a})
 
 -- | The name of the SNS topic from which to remove the directory as a publisher.
 detTopicName :: Lens' DeregisterEventTopic Text
-detTopicName = lens _detTopicName (\ s a -> s{_detTopicName = a});
+detTopicName = lens _detTopicName (\ s a -> s{_detTopicName = a})
 
 instance AWSRequest DeregisterEventTopic where
         type Rs DeregisterEventTopic =
@@ -140,6 +140,6 @@ deregisterEventTopicResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 derrsResponseStatus :: Lens' DeregisterEventTopicResponse Int
-derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
+derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a})
 
 instance NFData DeregisterEventTopicResponse where

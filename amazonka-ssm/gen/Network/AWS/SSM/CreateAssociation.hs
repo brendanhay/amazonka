@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CreateAssociation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,48 +92,48 @@ createAssociation
     -> CreateAssociation
 createAssociation pName_ =
   CreateAssociation'
-  { _caInstanceId = Nothing
-  , _caScheduleExpression = Nothing
-  , _caOutputLocation = Nothing
-  , _caTargets = Nothing
-  , _caParameters = Nothing
-  , _caDocumentVersion = Nothing
-  , _caAssociationName = Nothing
-  , _caName = pName_
-  }
+    { _caInstanceId = Nothing
+    , _caScheduleExpression = Nothing
+    , _caOutputLocation = Nothing
+    , _caTargets = Nothing
+    , _caParameters = Nothing
+    , _caDocumentVersion = Nothing
+    , _caAssociationName = Nothing
+    , _caName = pName_
+    }
 
 
 -- | The instance ID.
 caInstanceId :: Lens' CreateAssociation (Maybe Text)
-caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
+caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a})
 
 -- | A cron expression when the association will be applied to the target(s).
 caScheduleExpression :: Lens' CreateAssociation (Maybe Text)
-caScheduleExpression = lens _caScheduleExpression (\ s a -> s{_caScheduleExpression = a});
+caScheduleExpression = lens _caScheduleExpression (\ s a -> s{_caScheduleExpression = a})
 
 -- | An Amazon S3 bucket where you want to store the output details of the request.
 caOutputLocation :: Lens' CreateAssociation (Maybe InstanceAssociationOutputLocation)
-caOutputLocation = lens _caOutputLocation (\ s a -> s{_caOutputLocation = a});
+caOutputLocation = lens _caOutputLocation (\ s a -> s{_caOutputLocation = a})
 
 -- | The targets (either instances or tags) for the association.
 caTargets :: Lens' CreateAssociation [Target]
-caTargets = lens _caTargets (\ s a -> s{_caTargets = a}) . _Default . _Coerce;
+caTargets = lens _caTargets (\ s a -> s{_caTargets = a}) . _Default . _Coerce
 
 -- | The parameters for the documents runtime configuration.
 caParameters :: Lens' CreateAssociation (HashMap Text [Text])
-caParameters = lens _caParameters (\ s a -> s{_caParameters = a}) . _Default . _Map;
+caParameters = lens _caParameters (\ s a -> s{_caParameters = a}) . _Default . _Map
 
 -- | The document version you want to associate with the target(s). Can be a specific version or the default version.
 caDocumentVersion :: Lens' CreateAssociation (Maybe Text)
-caDocumentVersion = lens _caDocumentVersion (\ s a -> s{_caDocumentVersion = a});
+caDocumentVersion = lens _caDocumentVersion (\ s a -> s{_caDocumentVersion = a})
 
 -- | Specify a descriptive name for the association.
 caAssociationName :: Lens' CreateAssociation (Maybe Text)
-caAssociationName = lens _caAssociationName (\ s a -> s{_caAssociationName = a});
+caAssociationName = lens _caAssociationName (\ s a -> s{_caAssociationName = a})
 
 -- | The name of the Systems Manager document.
 caName :: Lens' CreateAssociation Text
-caName = lens _caName (\ s a -> s{_caName = a});
+caName = lens _caName (\ s a -> s{_caName = a})
 
 instance AWSRequest CreateAssociation where
         type Rs CreateAssociation = CreateAssociationResponse
@@ -196,15 +196,17 @@ createAssociationResponse
     -> CreateAssociationResponse
 createAssociationResponse pResponseStatus_ =
   CreateAssociationResponse'
-  {_crsAssociationDescription = Nothing, _crsResponseStatus = pResponseStatus_}
+    { _crsAssociationDescription = Nothing
+    , _crsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the association.
 crsAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
-crsAssociationDescription = lens _crsAssociationDescription (\ s a -> s{_crsAssociationDescription = a});
+crsAssociationDescription = lens _crsAssociationDescription (\ s a -> s{_crsAssociationDescription = a})
 
 -- | -- | The response status code.
 crsResponseStatus :: Lens' CreateAssociationResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
 
 instance NFData CreateAssociationResponse where

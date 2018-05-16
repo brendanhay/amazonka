@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,43 +58,43 @@ botAliasMetadata
     :: BotAliasMetadata
 botAliasMetadata =
   BotAliasMetadata'
-  { _bamChecksum = Nothing
-  , _bamBotVersion = Nothing
-  , _bamBotName = Nothing
-  , _bamCreatedDate = Nothing
-  , _bamName = Nothing
-  , _bamLastUpdatedDate = Nothing
-  , _bamDescription = Nothing
-  }
+    { _bamChecksum = Nothing
+    , _bamBotVersion = Nothing
+    , _bamBotName = Nothing
+    , _bamCreatedDate = Nothing
+    , _bamName = Nothing
+    , _bamLastUpdatedDate = Nothing
+    , _bamDescription = Nothing
+    }
 
 
 -- | Checksum of the bot alias.
 bamChecksum :: Lens' BotAliasMetadata (Maybe Text)
-bamChecksum = lens _bamChecksum (\ s a -> s{_bamChecksum = a});
+bamChecksum = lens _bamChecksum (\ s a -> s{_bamChecksum = a})
 
 -- | The version of the Amazon Lex bot to which the alias points.
 bamBotVersion :: Lens' BotAliasMetadata (Maybe Text)
-bamBotVersion = lens _bamBotVersion (\ s a -> s{_bamBotVersion = a});
+bamBotVersion = lens _bamBotVersion (\ s a -> s{_bamBotVersion = a})
 
 -- | The name of the bot to which the alias points.
 bamBotName :: Lens' BotAliasMetadata (Maybe Text)
-bamBotName = lens _bamBotName (\ s a -> s{_bamBotName = a});
+bamBotName = lens _bamBotName (\ s a -> s{_bamBotName = a})
 
 -- | The date that the bot alias was created.
 bamCreatedDate :: Lens' BotAliasMetadata (Maybe UTCTime)
-bamCreatedDate = lens _bamCreatedDate (\ s a -> s{_bamCreatedDate = a}) . mapping _Time;
+bamCreatedDate = lens _bamCreatedDate (\ s a -> s{_bamCreatedDate = a}) . mapping _Time
 
 -- | The name of the bot alias.
 bamName :: Lens' BotAliasMetadata (Maybe Text)
-bamName = lens _bamName (\ s a -> s{_bamName = a});
+bamName = lens _bamName (\ s a -> s{_bamName = a})
 
 -- | The date that the bot alias was updated. When you create a resource, the creation date and last updated date are the same.
 bamLastUpdatedDate :: Lens' BotAliasMetadata (Maybe UTCTime)
-bamLastUpdatedDate = lens _bamLastUpdatedDate (\ s a -> s{_bamLastUpdatedDate = a}) . mapping _Time;
+bamLastUpdatedDate = lens _bamLastUpdatedDate (\ s a -> s{_bamLastUpdatedDate = a}) . mapping _Time
 
 -- | A description of the bot alias.
 bamDescription :: Lens' BotAliasMetadata (Maybe Text)
-bamDescription = lens _bamDescription (\ s a -> s{_bamDescription = a});
+bamDescription = lens _bamDescription (\ s a -> s{_bamDescription = a})
 
 instance FromJSON BotAliasMetadata where
         parseJSON
@@ -118,7 +118,9 @@ instance NFData BotAliasMetadata where
 --
 -- /See:/ 'botChannelAssociation' smart constructor.
 data BotChannelAssociation = BotChannelAssociation'
-  { _bcaBotAlias         :: !(Maybe Text)
+  { _bcaFailureReason    :: !(Maybe Text)
+  , _bcaStatus           :: !(Maybe ChannelStatus)
+  , _bcaBotAlias         :: !(Maybe Text)
   , _bcaBotName          :: !(Maybe Text)
   , _bcaBotConfiguration :: !(Maybe (Sensitive (Map Text Text)))
   , _bcaCreatedDate      :: !(Maybe POSIX)
@@ -131,6 +133,10 @@ data BotChannelAssociation = BotChannelAssociation'
 -- | Creates a value of 'BotChannelAssociation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bcaFailureReason' - If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to create the association.
+--
+-- * 'bcaStatus' - The status of the bot channel.      * @CREATED@ - The channel has been created and is ready for use.     * @IN_PROGRESS@ - Channel creation is in progress.     * @FAILED@ - There was an error creating the channel. For information about the reason for the failure, see the @failureReason@ field.
 --
 -- * 'bcaBotAlias' - An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
 --
@@ -149,51 +155,63 @@ botChannelAssociation
     :: BotChannelAssociation
 botChannelAssociation =
   BotChannelAssociation'
-  { _bcaBotAlias = Nothing
-  , _bcaBotName = Nothing
-  , _bcaBotConfiguration = Nothing
-  , _bcaCreatedDate = Nothing
-  , _bcaName = Nothing
-  , _bcaType = Nothing
-  , _bcaDescription = Nothing
-  }
+    { _bcaFailureReason = Nothing
+    , _bcaStatus = Nothing
+    , _bcaBotAlias = Nothing
+    , _bcaBotName = Nothing
+    , _bcaBotConfiguration = Nothing
+    , _bcaCreatedDate = Nothing
+    , _bcaName = Nothing
+    , _bcaType = Nothing
+    , _bcaDescription = Nothing
+    }
 
+
+-- | If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to create the association.
+bcaFailureReason :: Lens' BotChannelAssociation (Maybe Text)
+bcaFailureReason = lens _bcaFailureReason (\ s a -> s{_bcaFailureReason = a})
+
+-- | The status of the bot channel.      * @CREATED@ - The channel has been created and is ready for use.     * @IN_PROGRESS@ - Channel creation is in progress.     * @FAILED@ - There was an error creating the channel. For information about the reason for the failure, see the @failureReason@ field.
+bcaStatus :: Lens' BotChannelAssociation (Maybe ChannelStatus)
+bcaStatus = lens _bcaStatus (\ s a -> s{_bcaStatus = a})
 
 -- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
 bcaBotAlias :: Lens' BotChannelAssociation (Maybe Text)
-bcaBotAlias = lens _bcaBotAlias (\ s a -> s{_bcaBotAlias = a});
+bcaBotAlias = lens _bcaBotAlias (\ s a -> s{_bcaBotAlias = a})
 
 -- | The name of the Amazon Lex bot to which this association is being made.
 bcaBotName :: Lens' BotChannelAssociation (Maybe Text)
-bcaBotName = lens _bcaBotName (\ s a -> s{_bcaBotName = a});
+bcaBotName = lens _bcaBotName (\ s a -> s{_bcaBotName = a})
 
 -- | Provides information necessary to communicate with the messaging platform.
 bcaBotConfiguration :: Lens' BotChannelAssociation (Maybe (HashMap Text Text))
-bcaBotConfiguration = lens _bcaBotConfiguration (\ s a -> s{_bcaBotConfiguration = a}) . mapping (_Sensitive . _Map);
+bcaBotConfiguration = lens _bcaBotConfiguration (\ s a -> s{_bcaBotConfiguration = a}) . mapping (_Sensitive . _Map)
 
 -- | The date that the association between the Amazon Lex bot and the channel was created.
 bcaCreatedDate :: Lens' BotChannelAssociation (Maybe UTCTime)
-bcaCreatedDate = lens _bcaCreatedDate (\ s a -> s{_bcaCreatedDate = a}) . mapping _Time;
+bcaCreatedDate = lens _bcaCreatedDate (\ s a -> s{_bcaCreatedDate = a}) . mapping _Time
 
 -- | The name of the association between the bot and the channel.
 bcaName :: Lens' BotChannelAssociation (Maybe Text)
-bcaName = lens _bcaName (\ s a -> s{_bcaName = a});
+bcaName = lens _bcaName (\ s a -> s{_bcaName = a})
 
 -- | Specifies the type of association by indicating the type of channel being established between the Amazon Lex bot and the external messaging platform.
 bcaType :: Lens' BotChannelAssociation (Maybe ChannelType)
-bcaType = lens _bcaType (\ s a -> s{_bcaType = a});
+bcaType = lens _bcaType (\ s a -> s{_bcaType = a})
 
 -- | A text description of the association you are creating.
 bcaDescription :: Lens' BotChannelAssociation (Maybe Text)
-bcaDescription = lens _bcaDescription (\ s a -> s{_bcaDescription = a});
+bcaDescription = lens _bcaDescription (\ s a -> s{_bcaDescription = a})
 
 instance FromJSON BotChannelAssociation where
         parseJSON
           = withObject "BotChannelAssociation"
               (\ x ->
                  BotChannelAssociation' <$>
-                   (x .:? "botAlias") <*> (x .:? "botName") <*>
-                     (x .:? "botConfiguration" .!= mempty)
+                   (x .:? "failureReason") <*> (x .:? "status") <*>
+                     (x .:? "botAlias")
+                     <*> (x .:? "botName")
+                     <*> (x .:? "botConfiguration" .!= mempty)
                      <*> (x .:? "createdDate")
                      <*> (x .:? "name")
                      <*> (x .:? "type")
@@ -237,38 +255,38 @@ botMetadata
     :: BotMetadata
 botMetadata =
   BotMetadata'
-  { _bmStatus = Nothing
-  , _bmCreatedDate = Nothing
-  , _bmName = Nothing
-  , _bmVersion = Nothing
-  , _bmLastUpdatedDate = Nothing
-  , _bmDescription = Nothing
-  }
+    { _bmStatus = Nothing
+    , _bmCreatedDate = Nothing
+    , _bmName = Nothing
+    , _bmVersion = Nothing
+    , _bmLastUpdatedDate = Nothing
+    , _bmDescription = Nothing
+    }
 
 
 -- | The status of the bot.
 bmStatus :: Lens' BotMetadata (Maybe LexStatus)
-bmStatus = lens _bmStatus (\ s a -> s{_bmStatus = a});
+bmStatus = lens _bmStatus (\ s a -> s{_bmStatus = a})
 
 -- | The date that the bot was created.
 bmCreatedDate :: Lens' BotMetadata (Maybe UTCTime)
-bmCreatedDate = lens _bmCreatedDate (\ s a -> s{_bmCreatedDate = a}) . mapping _Time;
+bmCreatedDate = lens _bmCreatedDate (\ s a -> s{_bmCreatedDate = a}) . mapping _Time
 
 -- | The name of the bot.
 bmName :: Lens' BotMetadata (Maybe Text)
-bmName = lens _bmName (\ s a -> s{_bmName = a});
+bmName = lens _bmName (\ s a -> s{_bmName = a})
 
 -- | The version of the bot. For a new bot, the version is always @> LATEST@ .
 bmVersion :: Lens' BotMetadata (Maybe Text)
-bmVersion = lens _bmVersion (\ s a -> s{_bmVersion = a});
+bmVersion = lens _bmVersion (\ s a -> s{_bmVersion = a})
 
 -- | The date that the bot was updated. When you create a bot, the creation date and last updated date are the same.
 bmLastUpdatedDate :: Lens' BotMetadata (Maybe UTCTime)
-bmLastUpdatedDate = lens _bmLastUpdatedDate (\ s a -> s{_bmLastUpdatedDate = a}) . mapping _Time;
+bmLastUpdatedDate = lens _bmLastUpdatedDate (\ s a -> s{_bmLastUpdatedDate = a}) . mapping _Time
 
 -- | A description of the bot.
 bmDescription :: Lens' BotMetadata (Maybe Text)
-bmDescription = lens _bmDescription (\ s a -> s{_bmDescription = a});
+bmDescription = lens _bmDescription (\ s a -> s{_bmDescription = a})
 
 instance FromJSON BotMetadata where
         parseJSON
@@ -307,16 +325,16 @@ builtinIntentMetadata
     :: BuiltinIntentMetadata
 builtinIntentMetadata =
   BuiltinIntentMetadata'
-  {_bimSignature = Nothing, _bimSupportedLocales = Nothing}
+    {_bimSignature = Nothing, _bimSupportedLocales = Nothing}
 
 
 -- | A unique identifier for the built-in intent. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
 bimSignature :: Lens' BuiltinIntentMetadata (Maybe Text)
-bimSignature = lens _bimSignature (\ s a -> s{_bimSignature = a});
+bimSignature = lens _bimSignature (\ s a -> s{_bimSignature = a})
 
 -- | A list of identifiers for the locales that the intent supports.
 bimSupportedLocales :: Lens' BuiltinIntentMetadata [Locale]
-bimSupportedLocales = lens _bimSupportedLocales (\ s a -> s{_bimSupportedLocales = a}) . _Default . _Coerce;
+bimSupportedLocales = lens _bimSupportedLocales (\ s a -> s{_bimSupportedLocales = a}) . _Default . _Coerce
 
 instance FromJSON BuiltinIntentMetadata where
         parseJSON
@@ -352,7 +370,7 @@ builtinIntentSlot = BuiltinIntentSlot' {_bisName = Nothing}
 
 -- | A list of the slots defined for the intent.
 bisName :: Lens' BuiltinIntentSlot (Maybe Text)
-bisName = lens _bisName (\ s a -> s{_bisName = a});
+bisName = lens _bisName (\ s a -> s{_bisName = a})
 
 instance FromJSON BuiltinIntentSlot where
         parseJSON
@@ -385,16 +403,16 @@ builtinSlotTypeMetadata
     :: BuiltinSlotTypeMetadata
 builtinSlotTypeMetadata =
   BuiltinSlotTypeMetadata'
-  {_bstmSignature = Nothing, _bstmSupportedLocales = Nothing}
+    {_bstmSignature = Nothing, _bstmSupportedLocales = Nothing}
 
 
 -- | A unique identifier for the built-in slot type. To find the signature for a slot type, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
 bstmSignature :: Lens' BuiltinSlotTypeMetadata (Maybe Text)
-bstmSignature = lens _bstmSignature (\ s a -> s{_bstmSignature = a});
+bstmSignature = lens _bstmSignature (\ s a -> s{_bstmSignature = a})
 
 -- | A list of target locales for the slot.
 bstmSupportedLocales :: Lens' BuiltinSlotTypeMetadata [Locale]
-bstmSupportedLocales = lens _bstmSupportedLocales (\ s a -> s{_bstmSupportedLocales = a}) . _Default . _Coerce;
+bstmSupportedLocales = lens _bstmSupportedLocales (\ s a -> s{_bstmSupportedLocales = a}) . _Default . _Coerce
 
 instance FromJSON BuiltinSlotTypeMetadata where
         parseJSON
@@ -436,11 +454,11 @@ codeHook pUri_ pMessageVersion_ =
 
 -- | The Amazon Resource Name (ARN) of the Lambda function.
 chUri :: Lens' CodeHook Text
-chUri = lens _chUri (\ s a -> s{_chUri = a});
+chUri = lens _chUri (\ s a -> s{_chUri = a})
 
 -- | The version of the request-response that you want Amazon Lex to use to invoke your Lambda function. For more information, see 'using-lambda' .
 chMessageVersion :: Lens' CodeHook Text
-chMessageVersion = lens _chMessageVersion (\ s a -> s{_chMessageVersion = a});
+chMessageVersion = lens _chMessageVersion (\ s a -> s{_chMessageVersion = a})
 
 instance FromJSON CodeHook where
         parseJSON
@@ -497,11 +515,11 @@ enumerationValue pValue_ =
 
 -- | Additional values related to the slot type value.
 evSynonyms :: Lens' EnumerationValue [Text]
-evSynonyms = lens _evSynonyms (\ s a -> s{_evSynonyms = a}) . _Default . _Coerce;
+evSynonyms = lens _evSynonyms (\ s a -> s{_evSynonyms = a}) . _Default . _Coerce
 
 -- | The value of the slot type.
 evValue :: Lens' EnumerationValue Text
-evValue = lens _evValue (\ s a -> s{_evValue = a});
+evValue = lens _evValue (\ s a -> s{_evValue = a})
 
 instance FromJSON EnumerationValue where
         parseJSON
@@ -545,16 +563,16 @@ followUpPrompt
     -> FollowUpPrompt
 followUpPrompt pPrompt_ pRejectionStatement_ =
   FollowUpPrompt'
-  {_fupPrompt = pPrompt_, _fupRejectionStatement = pRejectionStatement_}
+    {_fupPrompt = pPrompt_, _fupRejectionStatement = pRejectionStatement_}
 
 
 -- | Prompts for information from the user.
 fupPrompt :: Lens' FollowUpPrompt Prompt
-fupPrompt = lens _fupPrompt (\ s a -> s{_fupPrompt = a});
+fupPrompt = lens _fupPrompt (\ s a -> s{_fupPrompt = a})
 
 -- | If the user answers "no" to the question defined in the @prompt@ field, Amazon Lex responds with this statement to acknowledge that the intent was canceled.
 fupRejectionStatement :: Lens' FollowUpPrompt Statement
-fupRejectionStatement = lens _fupRejectionStatement (\ s a -> s{_fupRejectionStatement = a});
+fupRejectionStatement = lens _fupRejectionStatement (\ s a -> s{_fupRejectionStatement = a})
 
 instance FromJSON FollowUpPrompt where
         parseJSON
@@ -610,11 +628,11 @@ fulfillmentActivity pType_ =
 
 -- | A description of the Lambda function that is run to fulfill the intent.
 faCodeHook :: Lens' FulfillmentActivity (Maybe CodeHook)
-faCodeHook = lens _faCodeHook (\ s a -> s{_faCodeHook = a});
+faCodeHook = lens _faCodeHook (\ s a -> s{_faCodeHook = a})
 
 -- | How the intent should be fulfilled, either by running a Lambda function or by returning the slot data to the client application.
 faType :: Lens' FulfillmentActivity FulfillmentActivityType
-faType = lens _faType (\ s a -> s{_faType = a});
+faType = lens _faType (\ s a -> s{_faType = a})
 
 instance FromJSON FulfillmentActivity where
         parseJSON
@@ -662,11 +680,11 @@ intent pIntentName_ pIntentVersion_ =
 
 -- | The name of the intent.
 iIntentName :: Lens' Intent Text
-iIntentName = lens _iIntentName (\ s a -> s{_iIntentName = a});
+iIntentName = lens _iIntentName (\ s a -> s{_iIntentName = a})
 
 -- | The version of the intent.
 iIntentVersion :: Lens' Intent Text
-iIntentVersion = lens _iIntentVersion (\ s a -> s{_iIntentVersion = a});
+iIntentVersion = lens _iIntentVersion (\ s a -> s{_iIntentVersion = a})
 
 instance FromJSON Intent where
         parseJSON
@@ -717,33 +735,33 @@ intentMetadata
     :: IntentMetadata
 intentMetadata =
   IntentMetadata'
-  { _imCreatedDate = Nothing
-  , _imName = Nothing
-  , _imVersion = Nothing
-  , _imLastUpdatedDate = Nothing
-  , _imDescription = Nothing
-  }
+    { _imCreatedDate = Nothing
+    , _imName = Nothing
+    , _imVersion = Nothing
+    , _imLastUpdatedDate = Nothing
+    , _imDescription = Nothing
+    }
 
 
 -- | The date that the intent was created.
 imCreatedDate :: Lens' IntentMetadata (Maybe UTCTime)
-imCreatedDate = lens _imCreatedDate (\ s a -> s{_imCreatedDate = a}) . mapping _Time;
+imCreatedDate = lens _imCreatedDate (\ s a -> s{_imCreatedDate = a}) . mapping _Time
 
 -- | The name of the intent.
 imName :: Lens' IntentMetadata (Maybe Text)
-imName = lens _imName (\ s a -> s{_imName = a});
+imName = lens _imName (\ s a -> s{_imName = a})
 
 -- | The version of the intent.
 imVersion :: Lens' IntentMetadata (Maybe Text)
-imVersion = lens _imVersion (\ s a -> s{_imVersion = a});
+imVersion = lens _imVersion (\ s a -> s{_imVersion = a})
 
 -- | The date that the intent was updated. When you create an intent, the creation date and last updated date are the same.
 imLastUpdatedDate :: Lens' IntentMetadata (Maybe UTCTime)
-imLastUpdatedDate = lens _imLastUpdatedDate (\ s a -> s{_imLastUpdatedDate = a}) . mapping _Time;
+imLastUpdatedDate = lens _imLastUpdatedDate (\ s a -> s{_imLastUpdatedDate = a}) . mapping _Time
 
 -- | A description of the intent.
 imDescription :: Lens' IntentMetadata (Maybe Text)
-imDescription = lens _imDescription (\ s a -> s{_imDescription = a});
+imDescription = lens _imDescription (\ s a -> s{_imDescription = a})
 
 instance FromJSON IntentMetadata where
         parseJSON
@@ -765,7 +783,8 @@ instance NFData IntentMetadata where
 --
 -- /See:/ 'message' smart constructor.
 data Message = Message'
-  { _mContentType :: !ContentType
+  { _mGroupNumber :: !(Maybe Nat)
+  , _mContentType :: !ContentType
   , _mContent     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -773,6 +792,8 @@ data Message = Message'
 -- | Creates a value of 'Message' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mGroupNumber' - Identifies the message group that the message belongs to. When a group is assigned to a message, Amazon Lex returns one message from each group in the response.
 --
 -- * 'mContentType' - The content type of the message string.
 --
@@ -782,23 +803,32 @@ message
     -> Text -- ^ 'mContent'
     -> Message
 message pContentType_ pContent_ =
-  Message' {_mContentType = pContentType_, _mContent = pContent_}
+  Message'
+    { _mGroupNumber = Nothing
+    , _mContentType = pContentType_
+    , _mContent = pContent_
+    }
 
+
+-- | Identifies the message group that the message belongs to. When a group is assigned to a message, Amazon Lex returns one message from each group in the response.
+mGroupNumber :: Lens' Message (Maybe Natural)
+mGroupNumber = lens _mGroupNumber (\ s a -> s{_mGroupNumber = a}) . mapping _Nat
 
 -- | The content type of the message string.
 mContentType :: Lens' Message ContentType
-mContentType = lens _mContentType (\ s a -> s{_mContentType = a});
+mContentType = lens _mContentType (\ s a -> s{_mContentType = a})
 
 -- | The text of the message.
 mContent :: Lens' Message Text
-mContent = lens _mContent (\ s a -> s{_mContent = a});
+mContent = lens _mContent (\ s a -> s{_mContent = a})
 
 instance FromJSON Message where
         parseJSON
           = withObject "Message"
               (\ x ->
                  Message' <$>
-                   (x .: "contentType") <*> (x .: "content"))
+                   (x .:? "groupNumber") <*> (x .: "contentType") <*>
+                     (x .: "content"))
 
 instance Hashable Message where
 
@@ -808,7 +838,8 @@ instance ToJSON Message where
         toJSON Message'{..}
           = object
               (catMaybes
-                 [Just ("contentType" .= _mContentType),
+                 [("groupNumber" .=) <$> _mGroupNumber,
+                  Just ("contentType" .= _mContentType),
                   Just ("content" .= _mContent)])
 
 -- | Obtains information from the user. To define a prompt, provide one or more messages and specify the number of attempts to get information from the user. If you provide more than one message, Amazon Lex chooses one of the messages to use to prompt the user. For more information, see 'how-it-works' .
@@ -838,23 +869,23 @@ prompt
     -> Prompt
 prompt pMessages_ pMaxAttempts_ =
   Prompt'
-  { _pResponseCard = Nothing
-  , _pMessages = _List1 # pMessages_
-  , _pMaxAttempts = _Nat # pMaxAttempts_
-  }
+    { _pResponseCard = Nothing
+    , _pMessages = _List1 # pMessages_
+    , _pMaxAttempts = _Nat # pMaxAttempts_
+    }
 
 
 -- | A response card. Amazon Lex uses this prompt at runtime, in the @PostText@ API response. It substitutes session attributes and slot values for placeholders in the response card. For more information, see 'ex-resp-card' .
 pResponseCard :: Lens' Prompt (Maybe Text)
-pResponseCard = lens _pResponseCard (\ s a -> s{_pResponseCard = a});
+pResponseCard = lens _pResponseCard (\ s a -> s{_pResponseCard = a})
 
 -- | An array of objects, each of which provides a message string and its type. You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
 pMessages :: Lens' Prompt (NonEmpty Message)
-pMessages = lens _pMessages (\ s a -> s{_pMessages = a}) . _List1;
+pMessages = lens _pMessages (\ s a -> s{_pMessages = a}) . _List1
 
 -- | The number of times to prompt the user for information.
 pMaxAttempts :: Lens' Prompt Natural
-pMaxAttempts = lens _pMaxAttempts (\ s a -> s{_pMaxAttempts = a}) . _Nat;
+pMaxAttempts = lens _pMaxAttempts (\ s a -> s{_pMaxAttempts = a}) . _Nat
 
 instance FromJSON Prompt where
         parseJSON
@@ -921,53 +952,53 @@ slot
     -> Slot
 slot pName_ pSlotConstraint_ =
   Slot'
-  { _sSlotType = Nothing
-  , _sValueElicitationPrompt = Nothing
-  , _sResponseCard = Nothing
-  , _sPriority = Nothing
-  , _sSlotTypeVersion = Nothing
-  , _sSampleUtterances = Nothing
-  , _sDescription = Nothing
-  , _sName = pName_
-  , _sSlotConstraint = pSlotConstraint_
-  }
+    { _sSlotType = Nothing
+    , _sValueElicitationPrompt = Nothing
+    , _sResponseCard = Nothing
+    , _sPriority = Nothing
+    , _sSlotTypeVersion = Nothing
+    , _sSampleUtterances = Nothing
+    , _sDescription = Nothing
+    , _sName = pName_
+    , _sSlotConstraint = pSlotConstraint_
+    }
 
 
 -- | The type of the slot, either a custom slot type that you defined or one of the built-in slot types.
 sSlotType :: Lens' Slot (Maybe Text)
-sSlotType = lens _sSlotType (\ s a -> s{_sSlotType = a});
+sSlotType = lens _sSlotType (\ s a -> s{_sSlotType = a})
 
 -- | The prompt that Amazon Lex uses to elicit the slot value from the user.
 sValueElicitationPrompt :: Lens' Slot (Maybe Prompt)
-sValueElicitationPrompt = lens _sValueElicitationPrompt (\ s a -> s{_sValueElicitationPrompt = a});
+sValueElicitationPrompt = lens _sValueElicitationPrompt (\ s a -> s{_sValueElicitationPrompt = a})
 
 -- | A set of possible responses for the slot type used by text-based clients. A user chooses an option from the response card, instead of using text to reply.
 sResponseCard :: Lens' Slot (Maybe Text)
-sResponseCard = lens _sResponseCard (\ s a -> s{_sResponseCard = a});
+sResponseCard = lens _sResponseCard (\ s a -> s{_sResponseCard = a})
 
 -- | Directs Lex the order in which to elicit this slot value from the user. For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits values is arbitrary.
 sPriority :: Lens' Slot (Maybe Natural)
-sPriority = lens _sPriority (\ s a -> s{_sPriority = a}) . mapping _Nat;
+sPriority = lens _sPriority (\ s a -> s{_sPriority = a}) . mapping _Nat
 
 -- | The version of the slot type.
 sSlotTypeVersion :: Lens' Slot (Maybe Text)
-sSlotTypeVersion = lens _sSlotTypeVersion (\ s a -> s{_sSlotTypeVersion = a});
+sSlotTypeVersion = lens _sSlotTypeVersion (\ s a -> s{_sSlotTypeVersion = a})
 
 -- | If you know a specific pattern with which users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
 sSampleUtterances :: Lens' Slot [Text]
-sSampleUtterances = lens _sSampleUtterances (\ s a -> s{_sSampleUtterances = a}) . _Default . _Coerce;
+sSampleUtterances = lens _sSampleUtterances (\ s a -> s{_sSampleUtterances = a}) . _Default . _Coerce
 
 -- | A description of the slot.
 sDescription :: Lens' Slot (Maybe Text)
-sDescription = lens _sDescription (\ s a -> s{_sDescription = a});
+sDescription = lens _sDescription (\ s a -> s{_sDescription = a})
 
 -- | The name of the slot.
 sName :: Lens' Slot Text
-sName = lens _sName (\ s a -> s{_sName = a});
+sName = lens _sName (\ s a -> s{_sName = a})
 
 -- | Specifies whether the slot is required or optional.
 sSlotConstraint :: Lens' Slot SlotConstraint
-sSlotConstraint = lens _sSlotConstraint (\ s a -> s{_sSlotConstraint = a});
+sSlotConstraint = lens _sSlotConstraint (\ s a -> s{_sSlotConstraint = a})
 
 instance FromJSON Slot where
         parseJSON
@@ -1034,33 +1065,33 @@ slotTypeMetadata
     :: SlotTypeMetadata
 slotTypeMetadata =
   SlotTypeMetadata'
-  { _stmCreatedDate = Nothing
-  , _stmName = Nothing
-  , _stmVersion = Nothing
-  , _stmLastUpdatedDate = Nothing
-  , _stmDescription = Nothing
-  }
+    { _stmCreatedDate = Nothing
+    , _stmName = Nothing
+    , _stmVersion = Nothing
+    , _stmLastUpdatedDate = Nothing
+    , _stmDescription = Nothing
+    }
 
 
 -- | The date that the slot type was created.
 stmCreatedDate :: Lens' SlotTypeMetadata (Maybe UTCTime)
-stmCreatedDate = lens _stmCreatedDate (\ s a -> s{_stmCreatedDate = a}) . mapping _Time;
+stmCreatedDate = lens _stmCreatedDate (\ s a -> s{_stmCreatedDate = a}) . mapping _Time
 
 -- | The name of the slot type.
 stmName :: Lens' SlotTypeMetadata (Maybe Text)
-stmName = lens _stmName (\ s a -> s{_stmName = a});
+stmName = lens _stmName (\ s a -> s{_stmName = a})
 
 -- | The version of the slot type.
 stmVersion :: Lens' SlotTypeMetadata (Maybe Text)
-stmVersion = lens _stmVersion (\ s a -> s{_stmVersion = a});
+stmVersion = lens _stmVersion (\ s a -> s{_stmVersion = a})
 
 -- | The date that the slot type was updated. When you create a resource, the creation date and last updated date are the same.
 stmLastUpdatedDate :: Lens' SlotTypeMetadata (Maybe UTCTime)
-stmLastUpdatedDate = lens _stmLastUpdatedDate (\ s a -> s{_stmLastUpdatedDate = a}) . mapping _Time;
+stmLastUpdatedDate = lens _stmLastUpdatedDate (\ s a -> s{_stmLastUpdatedDate = a}) . mapping _Time
 
 -- | A description of the slot type.
 stmDescription :: Lens' SlotTypeMetadata (Maybe Text)
-stmDescription = lens _stmDescription (\ s a -> s{_stmDescription = a});
+stmDescription = lens _stmDescription (\ s a -> s{_stmDescription = a})
 
 instance FromJSON SlotTypeMetadata where
         parseJSON
@@ -1103,11 +1134,11 @@ statement pMessages_ =
 
 -- | At runtime, if the client is using the <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> API, Amazon Lex includes the response card in the response. It substitutes all of the session attributes and slot values for placeholders in the response card.
 staResponseCard :: Lens' Statement (Maybe Text)
-staResponseCard = lens _staResponseCard (\ s a -> s{_staResponseCard = a});
+staResponseCard = lens _staResponseCard (\ s a -> s{_staResponseCard = a})
 
 -- | A collection of message objects.
 staMessages :: Lens' Statement (NonEmpty Message)
-staMessages = lens _staMessages (\ s a -> s{_staMessages = a}) . _List1;
+staMessages = lens _staMessages (\ s a -> s{_staMessages = a}) . _List1
 
 instance FromJSON Statement where
         parseJSON
@@ -1158,33 +1189,33 @@ utteranceData
     :: UtteranceData
 utteranceData =
   UtteranceData'
-  { _udFirstUtteredDate = Nothing
-  , _udCount = Nothing
-  , _udUtteranceString = Nothing
-  , _udLastUtteredDate = Nothing
-  , _udDistinctUsers = Nothing
-  }
+    { _udFirstUtteredDate = Nothing
+    , _udCount = Nothing
+    , _udUtteranceString = Nothing
+    , _udLastUtteredDate = Nothing
+    , _udDistinctUsers = Nothing
+    }
 
 
 -- | The date that the utterance was first recorded.
 udFirstUtteredDate :: Lens' UtteranceData (Maybe UTCTime)
-udFirstUtteredDate = lens _udFirstUtteredDate (\ s a -> s{_udFirstUtteredDate = a}) . mapping _Time;
+udFirstUtteredDate = lens _udFirstUtteredDate (\ s a -> s{_udFirstUtteredDate = a}) . mapping _Time
 
 -- | The number of times that the utterance was processed.
 udCount :: Lens' UtteranceData (Maybe Int)
-udCount = lens _udCount (\ s a -> s{_udCount = a});
+udCount = lens _udCount (\ s a -> s{_udCount = a})
 
 -- | The text that was entered by the user or the text representation of an audio clip.
 udUtteranceString :: Lens' UtteranceData (Maybe Text)
-udUtteranceString = lens _udUtteranceString (\ s a -> s{_udUtteranceString = a});
+udUtteranceString = lens _udUtteranceString (\ s a -> s{_udUtteranceString = a})
 
 -- | The date that the utterance was last recorded.
 udLastUtteredDate :: Lens' UtteranceData (Maybe UTCTime)
-udLastUtteredDate = lens _udLastUtteredDate (\ s a -> s{_udLastUtteredDate = a}) . mapping _Time;
+udLastUtteredDate = lens _udLastUtteredDate (\ s a -> s{_udLastUtteredDate = a}) . mapping _Time
 
 -- | The total number of individuals that used the utterance.
 udDistinctUsers :: Lens' UtteranceData (Maybe Int)
-udDistinctUsers = lens _udDistinctUsers (\ s a -> s{_udDistinctUsers = a});
+udDistinctUsers = lens _udDistinctUsers (\ s a -> s{_udDistinctUsers = a})
 
 instance FromJSON UtteranceData where
         parseJSON
@@ -1226,11 +1257,11 @@ utteranceList =
 
 -- | The version of the bot that processed the list.
 ulBotVersion :: Lens' UtteranceList (Maybe Text)
-ulBotVersion = lens _ulBotVersion (\ s a -> s{_ulBotVersion = a});
+ulBotVersion = lens _ulBotVersion (\ s a -> s{_ulBotVersion = a})
 
 -- | One or more 'UtteranceData' objects that contain information about the utterances that have been made to a bot. The maximum number of object is 100.
 ulUtterances :: Lens' UtteranceList [UtteranceData]
-ulUtterances = lens _ulUtterances (\ s a -> s{_ulUtterances = a}) . _Default . _Coerce;
+ulUtterances = lens _ulUtterances (\ s a -> s{_ulUtterances = a}) . _Default . _Coerce
 
 instance FromJSON UtteranceList where
         parseJSON

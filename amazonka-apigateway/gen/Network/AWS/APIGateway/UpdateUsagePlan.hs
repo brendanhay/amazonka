@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateUsagePlan
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,22 +67,22 @@ data UpdateUsagePlan = UpdateUsagePlan'
 --
 -- * 'uupPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uupUsagePlanId' - The Id of the to-be-updated usage plan.
+-- * 'uupUsagePlanId' - [Required] The Id of the to-be-updated usage plan.
 updateUsagePlan
     :: Text -- ^ 'uupUsagePlanId'
     -> UpdateUsagePlan
 updateUsagePlan pUsagePlanId_ =
   UpdateUsagePlan'
-  {_uupPatchOperations = Nothing, _uupUsagePlanId = pUsagePlanId_}
+    {_uupPatchOperations = Nothing, _uupUsagePlanId = pUsagePlanId_}
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uupPatchOperations :: Lens' UpdateUsagePlan [PatchOperation]
-uupPatchOperations = lens _uupPatchOperations (\ s a -> s{_uupPatchOperations = a}) . _Default . _Coerce;
+uupPatchOperations = lens _uupPatchOperations (\ s a -> s{_uupPatchOperations = a}) . _Default . _Coerce
 
--- | The Id of the to-be-updated usage plan.
+-- | [Required] The Id of the to-be-updated usage plan.
 uupUsagePlanId :: Lens' UpdateUsagePlan Text
-uupUsagePlanId = lens _uupUsagePlanId (\ s a -> s{_uupUsagePlanId = a});
+uupUsagePlanId = lens _uupUsagePlanId (\ s a -> s{_uupUsagePlanId = a})
 
 instance AWSRequest UpdateUsagePlan where
         type Rs UpdateUsagePlan = UsagePlan

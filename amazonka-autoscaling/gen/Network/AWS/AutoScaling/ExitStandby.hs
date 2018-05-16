@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.ExitStandby
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ data ExitStandby = ExitStandby'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eInstanceIds' - One or more instance IDs. You must specify at least one instance ID.
+-- * 'eInstanceIds' - The IDs of the instances. You can specify up to 20 instances.
 --
 -- * 'eAutoScalingGroupName' - The name of the Auto Scaling group.
 exitStandby
@@ -66,16 +66,16 @@ exitStandby
     -> ExitStandby
 exitStandby pAutoScalingGroupName_ =
   ExitStandby'
-  {_eInstanceIds = Nothing, _eAutoScalingGroupName = pAutoScalingGroupName_}
+    {_eInstanceIds = Nothing, _eAutoScalingGroupName = pAutoScalingGroupName_}
 
 
--- | One or more instance IDs. You must specify at least one instance ID.
+-- | The IDs of the instances. You can specify up to 20 instances.
 eInstanceIds :: Lens' ExitStandby [Text]
-eInstanceIds = lens _eInstanceIds (\ s a -> s{_eInstanceIds = a}) . _Default . _Coerce;
+eInstanceIds = lens _eInstanceIds (\ s a -> s{_eInstanceIds = a}) . _Default . _Coerce
 
 -- | The name of the Auto Scaling group.
 eAutoScalingGroupName :: Lens' ExitStandby Text
-eAutoScalingGroupName = lens _eAutoScalingGroupName (\ s a -> s{_eAutoScalingGroupName = a});
+eAutoScalingGroupName = lens _eAutoScalingGroupName (\ s a -> s{_eAutoScalingGroupName = a})
 
 instance AWSRequest ExitStandby where
         type Rs ExitStandby = ExitStandbyResponse
@@ -126,15 +126,15 @@ exitStandbyResponse
     -> ExitStandbyResponse
 exitStandbyResponse pResponseStatus_ =
   ExitStandbyResponse'
-  {_esrsActivities = Nothing, _esrsResponseStatus = pResponseStatus_}
+    {_esrsActivities = Nothing, _esrsResponseStatus = pResponseStatus_}
 
 
 -- | The activities related to moving instances out of @Standby@ mode.
 esrsActivities :: Lens' ExitStandbyResponse [Activity]
-esrsActivities = lens _esrsActivities (\ s a -> s{_esrsActivities = a}) . _Default . _Coerce;
+esrsActivities = lens _esrsActivities (\ s a -> s{_esrsActivities = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 esrsResponseStatus :: Lens' ExitStandbyResponse Int
-esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});
+esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a})
 
 instance NFData ExitStandbyResponse where

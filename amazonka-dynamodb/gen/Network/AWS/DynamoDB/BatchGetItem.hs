@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.BatchGetItem
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -89,16 +89,16 @@ batchGetItem
     :: BatchGetItem
 batchGetItem =
   BatchGetItem'
-  {_bgiReturnConsumedCapacity = Nothing, _bgiRequestItems = mempty}
+    {_bgiReturnConsumedCapacity = Nothing, _bgiRequestItems = mempty}
 
 
 -- | Undocumented member.
 bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
-bgiReturnConsumedCapacity = lens _bgiReturnConsumedCapacity (\ s a -> s{_bgiReturnConsumedCapacity = a});
+bgiReturnConsumedCapacity = lens _bgiReturnConsumedCapacity (\ s a -> s{_bgiReturnConsumedCapacity = a})
 
 -- | A map of one or more table names and, for each table, a map that describes one or more items to retrieve from that table. Each table name can be used only once per @BatchGetItem@ request. Each element in the map of items to retrieve consists of the following:     * @ConsistentRead@ - If @true@ , a strongly consistent read is used; if @false@ (the default), an eventually consistent read is used.     * @ExpressionAttributeNames@ - One or more substitution tokens for attribute names in the @ProjectionExpression@ parameter. The following are some use cases for using @ExpressionAttributeNames@ :     * To access an attribute whose name conflicts with a DynamoDB reserved word.     * To create a placeholder for repeating occurrences of an attribute name in an expression.     * To prevent special characters in an attribute name from being misinterpreted in an expression. Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:     * @Percentile@  The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :     * @{"#P":"Percentile"}@  You could then use this substitution in an expression, as in this example:     * @#P = :val@  For more information on expression attribute names, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .     * @Keys@ - An array of primary key attribute values that define specific items in the table. For each primary key, you must provide /all/ of the key attributes. For example, with a simple primary key, you only need to provide the partition key value. For a composite key, you must provide /both/ the partition key value and the sort key value.     * @ProjectionExpression@ - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .     * @AttributesToGet@ - This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet> in the /Amazon DynamoDB Developer Guide/ .
 bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
-bgiRequestItems = lens _bgiRequestItems (\ s a -> s{_bgiRequestItems = a}) . _Map;
+bgiRequestItems = lens _bgiRequestItems (\ s a -> s{_bgiRequestItems = a}) . _Map
 
 instance AWSRequest BatchGetItem where
         type Rs BatchGetItem = BatchGetItemResponse
@@ -168,27 +168,27 @@ batchGetItemResponse
     -> BatchGetItemResponse
 batchGetItemResponse pResponseStatus_ =
   BatchGetItemResponse'
-  { _bgirsUnprocessedKeys = Nothing
-  , _bgirsResponses = Nothing
-  , _bgirsConsumedCapacity = Nothing
-  , _bgirsResponseStatus = pResponseStatus_
-  }
+    { _bgirsUnprocessedKeys = Nothing
+    , _bgirsResponses = Nothing
+    , _bgirsConsumedCapacity = Nothing
+    , _bgirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A map of tables and their respective keys that were not processed with the current response. The @UnprocessedKeys@ value is in the same form as @RequestItems@ , so the value can be provided directly to a subsequent @BatchGetItem@ operation. For more information, see @RequestItems@ in the Request Parameters section. Each element consists of:     * @Keys@ - An array of primary key attribute values that define specific items in the table.     * @ProjectionExpression@ - One or more attributes to be retrieved from the table or index. By default, all attributes are returned. If a requested attribute is not found, it does not appear in the result.     * @ConsistentRead@ - The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used. If there are no unprocessed keys remaining, the response contains an empty @UnprocessedKeys@ map.
 bgirsUnprocessedKeys :: Lens' BatchGetItemResponse (HashMap Text KeysAndAttributes)
-bgirsUnprocessedKeys = lens _bgirsUnprocessedKeys (\ s a -> s{_bgirsUnprocessedKeys = a}) . _Default . _Map;
+bgirsUnprocessedKeys = lens _bgirsUnprocessedKeys (\ s a -> s{_bgirsUnprocessedKeys = a}) . _Default . _Map
 
 -- | A map of table name to a list of items. Each object in @Responses@ consists of a table name, along with a map of attribute data consisting of the data type and attribute value.
 bgirsResponses :: Lens' BatchGetItemResponse (HashMap Text [HashMap Text AttributeValue])
-bgirsResponses = lens _bgirsResponses (\ s a -> s{_bgirsResponses = a}) . _Default . _Map;
+bgirsResponses = lens _bgirsResponses (\ s a -> s{_bgirsResponses = a}) . _Default . _Map
 
 -- | The read capacity units consumed by the entire @BatchGetItem@ operation. Each element consists of:     * @TableName@ - The table that consumed the provisioned throughput.     * @CapacityUnits@ - The total number of capacity units consumed.
 bgirsConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
-bgirsConsumedCapacity = lens _bgirsConsumedCapacity (\ s a -> s{_bgirsConsumedCapacity = a}) . _Default . _Coerce;
+bgirsConsumedCapacity = lens _bgirsConsumedCapacity (\ s a -> s{_bgirsConsumedCapacity = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bgirsResponseStatus :: Lens' BatchGetItemResponse Int
-bgirsResponseStatus = lens _bgirsResponseStatus (\ s a -> s{_bgirsResponseStatus = a});
+bgirsResponseStatus = lens _bgirsResponseStatus (\ s a -> s{_bgirsResponseStatus = a})
 
 instance NFData BatchGetItemResponse where

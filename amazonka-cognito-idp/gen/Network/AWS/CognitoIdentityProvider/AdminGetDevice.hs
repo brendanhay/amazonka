@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminGetDevice
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,23 +76,23 @@ adminGetDevice
     -> AdminGetDevice
 adminGetDevice pDeviceKey_ pUserPoolId_ pUsername_ =
   AdminGetDevice'
-  { _agdDeviceKey = pDeviceKey_
-  , _agdUserPoolId = pUserPoolId_
-  , _agdUsername = _Sensitive # pUsername_
-  }
+    { _agdDeviceKey = pDeviceKey_
+    , _agdUserPoolId = pUserPoolId_
+    , _agdUsername = _Sensitive # pUsername_
+    }
 
 
 -- | The device key.
 agdDeviceKey :: Lens' AdminGetDevice Text
-agdDeviceKey = lens _agdDeviceKey (\ s a -> s{_agdDeviceKey = a});
+agdDeviceKey = lens _agdDeviceKey (\ s a -> s{_agdDeviceKey = a})
 
 -- | The user pool ID.
 agdUserPoolId :: Lens' AdminGetDevice Text
-agdUserPoolId = lens _agdUserPoolId (\ s a -> s{_agdUserPoolId = a});
+agdUserPoolId = lens _agdUserPoolId (\ s a -> s{_agdUserPoolId = a})
 
 -- | The user name.
 agdUsername :: Lens' AdminGetDevice Text
-agdUsername = lens _agdUsername (\ s a -> s{_agdUsername = a}) . _Sensitive;
+agdUsername = lens _agdUsername (\ s a -> s{_agdUsername = a}) . _Sensitive
 
 instance AWSRequest AdminGetDevice where
         type Rs AdminGetDevice = AdminGetDeviceResponse
@@ -155,15 +155,15 @@ adminGetDeviceResponse
     -> AdminGetDeviceResponse
 adminGetDeviceResponse pResponseStatus_ pDevice_ =
   AdminGetDeviceResponse'
-  {_agdrsResponseStatus = pResponseStatus_, _agdrsDevice = pDevice_}
+    {_agdrsResponseStatus = pResponseStatus_, _agdrsDevice = pDevice_}
 
 
 -- | -- | The response status code.
 agdrsResponseStatus :: Lens' AdminGetDeviceResponse Int
-agdrsResponseStatus = lens _agdrsResponseStatus (\ s a -> s{_agdrsResponseStatus = a});
+agdrsResponseStatus = lens _agdrsResponseStatus (\ s a -> s{_agdrsResponseStatus = a})
 
 -- | The device.
 agdrsDevice :: Lens' AdminGetDeviceResponse DeviceType
-agdrsDevice = lens _agdrsDevice (\ s a -> s{_agdrsDevice = a});
+agdrsDevice = lens _agdrsDevice (\ s a -> s{_agdrsDevice = a})
 
 instance NFData AdminGetDeviceResponse where

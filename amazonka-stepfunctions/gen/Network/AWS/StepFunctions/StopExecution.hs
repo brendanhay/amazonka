@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.StopExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,20 +68,20 @@ stopExecution
     -> StopExecution
 stopExecution pExecutionARN_ =
   StopExecution'
-  {_seError = Nothing, _seCause = Nothing, _seExecutionARN = pExecutionARN_}
+    {_seError = Nothing, _seCause = Nothing, _seExecutionARN = pExecutionARN_}
 
 
 -- | An arbitrary error code that identifies the cause of the termination.
 seError :: Lens' StopExecution (Maybe Text)
-seError = lens _seError (\ s a -> s{_seError = a});
+seError = lens _seError (\ s a -> s{_seError = a})
 
 -- | A more detailed explanation of the cause of the termination.
 seCause :: Lens' StopExecution (Maybe Text)
-seCause = lens _seCause (\ s a -> s{_seCause = a});
+seCause = lens _seCause (\ s a -> s{_seCause = a})
 
 -- | The Amazon Resource Name (ARN) of the execution to stop.
 seExecutionARN :: Lens' StopExecution Text
-seExecutionARN = lens _seExecutionARN (\ s a -> s{_seExecutionARN = a});
+seExecutionARN = lens _seExecutionARN (\ s a -> s{_seExecutionARN = a})
 
 instance AWSRequest StopExecution where
         type Rs StopExecution = StopExecutionResponse
@@ -132,22 +132,22 @@ data StopExecutionResponse = StopExecutionResponse'
 --
 -- * 'sersResponseStatus' - -- | The response status code.
 --
--- * 'sersStopDate' - The date the execution was stopped.
+-- * 'sersStopDate' - The date the execution is stopped.
 stopExecutionResponse
     :: Int -- ^ 'sersResponseStatus'
     -> UTCTime -- ^ 'sersStopDate'
     -> StopExecutionResponse
 stopExecutionResponse pResponseStatus_ pStopDate_ =
   StopExecutionResponse'
-  {_sersResponseStatus = pResponseStatus_, _sersStopDate = _Time # pStopDate_}
+    {_sersResponseStatus = pResponseStatus_, _sersStopDate = _Time # pStopDate_}
 
 
 -- | -- | The response status code.
 sersResponseStatus :: Lens' StopExecutionResponse Int
-sersResponseStatus = lens _sersResponseStatus (\ s a -> s{_sersResponseStatus = a});
+sersResponseStatus = lens _sersResponseStatus (\ s a -> s{_sersResponseStatus = a})
 
--- | The date the execution was stopped.
+-- | The date the execution is stopped.
 sersStopDate :: Lens' StopExecutionResponse UTCTime
-sersStopDate = lens _sersStopDate (\ s a -> s{_sersStopDate = a}) . _Time;
+sersStopDate = lens _sersStopDate (\ s a -> s{_sersStopDate = a}) . _Time
 
 instance NFData StopExecutionResponse where

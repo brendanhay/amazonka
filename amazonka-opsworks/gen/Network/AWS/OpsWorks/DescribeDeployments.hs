@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeDeployments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,29 +60,29 @@ data DescribeDeployments = DescribeDeployments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddAppId' - The app ID. If you include this parameter, @DescribeDeployments@ returns a description of the commands associated with the specified app.
+-- * 'ddAppId' - The app ID. If you include this parameter, the command returns a description of the commands associated with the specified app.
 --
--- * 'ddDeploymentIds' - An array of deployment IDs to be described. If you include this parameter, @DescribeDeployments@ returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
+-- * 'ddDeploymentIds' - An array of deployment IDs to be described. If you include this parameter, the command returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
 --
--- * 'ddStackId' - The stack ID. If you include this parameter, @DescribeDeployments@ returns a description of the commands associated with the specified stack.
+-- * 'ddStackId' - The stack ID. If you include this parameter, the command returns a description of the commands associated with the specified stack.
 describeDeployments
     :: DescribeDeployments
 describeDeployments =
   DescribeDeployments'
-  {_ddAppId = Nothing, _ddDeploymentIds = Nothing, _ddStackId = Nothing}
+    {_ddAppId = Nothing, _ddDeploymentIds = Nothing, _ddStackId = Nothing}
 
 
--- | The app ID. If you include this parameter, @DescribeDeployments@ returns a description of the commands associated with the specified app.
+-- | The app ID. If you include this parameter, the command returns a description of the commands associated with the specified app.
 ddAppId :: Lens' DescribeDeployments (Maybe Text)
-ddAppId = lens _ddAppId (\ s a -> s{_ddAppId = a});
+ddAppId = lens _ddAppId (\ s a -> s{_ddAppId = a})
 
--- | An array of deployment IDs to be described. If you include this parameter, @DescribeDeployments@ returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
+-- | An array of deployment IDs to be described. If you include this parameter, the command returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
 ddDeploymentIds :: Lens' DescribeDeployments [Text]
-ddDeploymentIds = lens _ddDeploymentIds (\ s a -> s{_ddDeploymentIds = a}) . _Default . _Coerce;
+ddDeploymentIds = lens _ddDeploymentIds (\ s a -> s{_ddDeploymentIds = a}) . _Default . _Coerce
 
--- | The stack ID. If you include this parameter, @DescribeDeployments@ returns a description of the commands associated with the specified stack.
+-- | The stack ID. If you include this parameter, the command returns a description of the commands associated with the specified stack.
 ddStackId :: Lens' DescribeDeployments (Maybe Text)
-ddStackId = lens _ddStackId (\ s a -> s{_ddStackId = a});
+ddStackId = lens _ddStackId (\ s a -> s{_ddStackId = a})
 
 instance AWSRequest DescribeDeployments where
         type Rs DescribeDeployments =
@@ -146,15 +146,15 @@ describeDeploymentsResponse
     -> DescribeDeploymentsResponse
 describeDeploymentsResponse pResponseStatus_ =
   DescribeDeploymentsResponse'
-  {_ddrsDeployments = Nothing, _ddrsResponseStatus = pResponseStatus_}
+    {_ddrsDeployments = Nothing, _ddrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of @Deployment@ objects that describe the deployments.
 ddrsDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
-ddrsDeployments = lens _ddrsDeployments (\ s a -> s{_ddrsDeployments = a}) . _Default . _Coerce;
+ddrsDeployments = lens _ddrsDeployments (\ s a -> s{_ddrsDeployments = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDeploymentsResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 instance NFData DescribeDeploymentsResponse where

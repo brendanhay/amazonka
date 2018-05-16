@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetRegexMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getRegexMatchSet pRegexMatchSetId_ =
 
 -- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to get. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
 grmsRegexMatchSetId :: Lens' GetRegexMatchSet Text
-grmsRegexMatchSetId = lens _grmsRegexMatchSetId (\ s a -> s{_grmsRegexMatchSetId = a});
+grmsRegexMatchSetId = lens _grmsRegexMatchSetId (\ s a -> s{_grmsRegexMatchSetId = a})
 
 instance AWSRequest GetRegexMatchSet where
         type Rs GetRegexMatchSet = GetRegexMatchSetResponse
@@ -120,15 +120,15 @@ getRegexMatchSetResponse
     -> GetRegexMatchSetResponse
 getRegexMatchSetResponse pResponseStatus_ =
   GetRegexMatchSetResponse'
-  {_grmsrsRegexMatchSet = Nothing, _grmsrsResponseStatus = pResponseStatus_}
+    {_grmsrsRegexMatchSet = Nothing, _grmsrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the 'RegexMatchSet' that you specified in the @GetRegexMatchSet@ request. For more information, see 'RegexMatchTuple' .
 grmsrsRegexMatchSet :: Lens' GetRegexMatchSetResponse (Maybe RegexMatchSet)
-grmsrsRegexMatchSet = lens _grmsrsRegexMatchSet (\ s a -> s{_grmsrsRegexMatchSet = a});
+grmsrsRegexMatchSet = lens _grmsrsRegexMatchSet (\ s a -> s{_grmsrsRegexMatchSet = a})
 
 -- | -- | The response status code.
 grmsrsResponseStatus :: Lens' GetRegexMatchSetResponse Int
-grmsrsResponseStatus = lens _grmsrsResponseStatus (\ s a -> s{_grmsrsResponseStatus = a});
+grmsrsResponseStatus = lens _grmsrsResponseStatus (\ s a -> s{_grmsrsResponseStatus = a})
 
 instance NFData GetRegexMatchSetResponse where

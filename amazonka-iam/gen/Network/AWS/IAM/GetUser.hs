@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetUser
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -56,15 +56,15 @@ newtype GetUser = GetUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guUserName' - The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'guUserName' - The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 getUser
     :: GetUser
 getUser = GetUser' {_guUserName = Nothing}
 
 
--- | The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 guUserName :: Lens' GetUser (Maybe Text)
-guUserName = lens _guUserName (\ s a -> s{_guUserName = a});
+guUserName = lens _guUserName (\ s a -> s{_guUserName = a})
 
 instance AWSRequest GetUser where
         type Rs GetUser = GetUserResponse
@@ -120,10 +120,10 @@ getUserResponse pResponseStatus_ pUser_ =
 
 -- | -- | The response status code.
 gursResponseStatus :: Lens' GetUserResponse Int
-gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});
+gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a})
 
 -- | A structure containing details about the IAM user.
 gursUser :: Lens' GetUserResponse User
-gursUser = lens _gursUser (\ s a -> s{_gursUser = a});
+gursUser = lens _gursUser (\ s a -> s{_gursUser = a})
 
 instance NFData GetUserResponse where

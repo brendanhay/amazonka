@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetTemplate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ getTemplate pTemplateName_ = GetTemplate' {_gtTemplateName = pTemplateName_}
 
 -- | The name of the template you want to retrieve.
 gtTemplateName :: Lens' GetTemplate Text
-gtTemplateName = lens _gtTemplateName (\ s a -> s{_gtTemplateName = a});
+gtTemplateName = lens _gtTemplateName (\ s a -> s{_gtTemplateName = a})
 
 instance AWSRequest GetTemplate where
         type Rs GetTemplate = GetTemplateResponse
@@ -112,15 +112,15 @@ getTemplateResponse
     -> GetTemplateResponse
 getTemplateResponse pResponseStatus_ =
   GetTemplateResponse'
-  {_gtrsTemplate = Nothing, _gtrsResponseStatus = pResponseStatus_}
+    {_gtrsTemplate = Nothing, _gtrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 gtrsTemplate :: Lens' GetTemplateResponse (Maybe Template)
-gtrsTemplate = lens _gtrsTemplate (\ s a -> s{_gtrsTemplate = a});
+gtrsTemplate = lens _gtrsTemplate (\ s a -> s{_gtrsTemplate = a})
 
 -- | -- | The response status code.
 gtrsResponseStatus :: Lens' GetTemplateResponse Int
-gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});
+gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a})
 
 instance NFData GetTemplateResponse where

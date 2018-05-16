@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribeOrganizationalUnit
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,12 +62,12 @@ describeOrganizationalUnit
     -> DescribeOrganizationalUnit
 describeOrganizationalUnit pOrganizationalUnitId_ =
   DescribeOrganizationalUnit'
-  {_douOrganizationalUnitId = pOrganizationalUnitId_}
+    {_douOrganizationalUnitId = pOrganizationalUnitId_}
 
 
 -- | The unique identifier (ID) of the organizational unit that you want details about. You can get the ID from the 'ListOrganizationalUnitsForParent' operation. The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 douOrganizationalUnitId :: Lens' DescribeOrganizationalUnit Text
-douOrganizationalUnitId = lens _douOrganizationalUnitId (\ s a -> s{_douOrganizationalUnitId = a});
+douOrganizationalUnitId = lens _douOrganizationalUnitId (\ s a -> s{_douOrganizationalUnitId = a})
 
 instance AWSRequest DescribeOrganizationalUnit where
         type Rs DescribeOrganizationalUnit =
@@ -126,16 +126,18 @@ describeOrganizationalUnitResponse
     -> DescribeOrganizationalUnitResponse
 describeOrganizationalUnitResponse pResponseStatus_ =
   DescribeOrganizationalUnitResponse'
-  {_doursOrganizationalUnit = Nothing, _doursResponseStatus = pResponseStatus_}
+    { _doursOrganizationalUnit = Nothing
+    , _doursResponseStatus = pResponseStatus_
+    }
 
 
 -- | A structure that contains details about the specified OU.
 doursOrganizationalUnit :: Lens' DescribeOrganizationalUnitResponse (Maybe OrganizationalUnit)
-doursOrganizationalUnit = lens _doursOrganizationalUnit (\ s a -> s{_doursOrganizationalUnit = a});
+doursOrganizationalUnit = lens _doursOrganizationalUnit (\ s a -> s{_doursOrganizationalUnit = a})
 
 -- | -- | The response status code.
 doursResponseStatus :: Lens' DescribeOrganizationalUnitResponse Int
-doursResponseStatus = lens _doursResponseStatus (\ s a -> s{_doursResponseStatus = a});
+doursResponseStatus = lens _doursResponseStatus (\ s a -> s{_doursResponseStatus = a})
 
 instance NFData DescribeOrganizationalUnitResponse
          where

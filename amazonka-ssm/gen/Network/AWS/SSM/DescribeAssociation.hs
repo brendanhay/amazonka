@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeAssociation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the associations for the specified Systems Manager document or instance.
+-- Describes the association for the specified target or instance. If you created the association by using the @Targets@ parameter, then you must retrieve the association by using the association ID. If you created the association by specifying an instance ID and a Systems Manager document, then you retrieve the association by specifying the document name and the instance ID.
 --
 --
 module Network.AWS.SSM.DescribeAssociation
@@ -71,28 +71,28 @@ describeAssociation
     :: DescribeAssociation
 describeAssociation =
   DescribeAssociation'
-  { _daAssociationId = Nothing
-  , _daInstanceId = Nothing
-  , _daName = Nothing
-  , _daAssociationVersion = Nothing
-  }
+    { _daAssociationId = Nothing
+    , _daInstanceId = Nothing
+    , _daName = Nothing
+    , _daAssociationVersion = Nothing
+    }
 
 
 -- | The association ID for which you want information.
 daAssociationId :: Lens' DescribeAssociation (Maybe Text)
-daAssociationId = lens _daAssociationId (\ s a -> s{_daAssociationId = a});
+daAssociationId = lens _daAssociationId (\ s a -> s{_daAssociationId = a})
 
 -- | The instance ID.
 daInstanceId :: Lens' DescribeAssociation (Maybe Text)
-daInstanceId = lens _daInstanceId (\ s a -> s{_daInstanceId = a});
+daInstanceId = lens _daInstanceId (\ s a -> s{_daInstanceId = a})
 
 -- | The name of the Systems Manager document.
 daName :: Lens' DescribeAssociation (Maybe Text)
-daName = lens _daName (\ s a -> s{_daName = a});
+daName = lens _daName (\ s a -> s{_daName = a})
 
 -- | Specify the association version to retrieve. To view the latest version, either specify @> LATEST@ for this parameter, or omit this parameter. To view a list of all associations for an instance, use ListInstanceAssociations. To get a list of versions for a specific association, use ListAssociationVersions.
 daAssociationVersion :: Lens' DescribeAssociation (Maybe Text)
-daAssociationVersion = lens _daAssociationVersion (\ s a -> s{_daAssociationVersion = a});
+daAssociationVersion = lens _daAssociationVersion (\ s a -> s{_daAssociationVersion = a})
 
 instance AWSRequest DescribeAssociation where
         type Rs DescribeAssociation =
@@ -152,17 +152,17 @@ describeAssociationResponse
     -> DescribeAssociationResponse
 describeAssociationResponse pResponseStatus_ =
   DescribeAssociationResponse'
-  { _daarsAssociationDescription = Nothing
-  , _daarsResponseStatus = pResponseStatus_
-  }
+    { _daarsAssociationDescription = Nothing
+    , _daarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the association.
 daarsAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
-daarsAssociationDescription = lens _daarsAssociationDescription (\ s a -> s{_daarsAssociationDescription = a});
+daarsAssociationDescription = lens _daarsAssociationDescription (\ s a -> s{_daarsAssociationDescription = a})
 
 -- | -- | The response status code.
 daarsResponseStatus :: Lens' DescribeAssociationResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
+daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a})
 
 instance NFData DescribeAssociationResponse where

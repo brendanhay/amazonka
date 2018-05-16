@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeProvisionedProduct
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve detailed information about the provisioned product.
+-- Gets information about the specified provisioned product.
 --
 --
 module Network.AWS.ServiceCatalog.DescribeProvisionedProduct
@@ -27,14 +27,15 @@ module Network.AWS.ServiceCatalog.DescribeProvisionedProduct
       describeProvisionedProduct
     , DescribeProvisionedProduct
     -- * Request Lenses
-    , dpppAcceptLanguage
-    , dpppId
+    , deseAcceptLanguage
+    , deseId
 
     -- * Destructuring the Response
     , describeProvisionedProductResponse
     , DescribeProvisionedProductResponse
     -- * Response Lenses
     , drsProvisionedProductDetail
+    , drsCloudWatchDashboards
     , drsResponseStatus
     ) where
 
@@ -47,8 +48,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProvisionedProduct' smart constructor.
 data DescribeProvisionedProduct = DescribeProvisionedProduct'
-  { _dpppAcceptLanguage :: !(Maybe Text)
-  , _dpppId             :: !Text
+  { _deseAcceptLanguage :: !(Maybe Text)
+  , _deseId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -56,23 +57,23 @@ data DescribeProvisionedProduct = DescribeProvisionedProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- * 'deseAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dpppId' - The provisioned product identifier.
+-- * 'deseId' - The provisioned product identifier.
 describeProvisionedProduct
-    :: Text -- ^ 'dpppId'
+    :: Text -- ^ 'deseId'
     -> DescribeProvisionedProduct
 describeProvisionedProduct pId_ =
-  DescribeProvisionedProduct' {_dpppAcceptLanguage = Nothing, _dpppId = pId_}
+  DescribeProvisionedProduct' {_deseAcceptLanguage = Nothing, _deseId = pId_}
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-dpppAcceptLanguage :: Lens' DescribeProvisionedProduct (Maybe Text)
-dpppAcceptLanguage = lens _dpppAcceptLanguage (\ s a -> s{_dpppAcceptLanguage = a});
+deseAcceptLanguage :: Lens' DescribeProvisionedProduct (Maybe Text)
+deseAcceptLanguage = lens _deseAcceptLanguage (\ s a -> s{_deseAcceptLanguage = a})
 
 -- | The provisioned product identifier.
-dpppId :: Lens' DescribeProvisionedProduct Text
-dpppId = lens _dpppId (\ s a -> s{_dpppId = a});
+deseId :: Lens' DescribeProvisionedProduct Text
+deseId = lens _deseId (\ s a -> s{_deseId = a})
 
 instance AWSRequest DescribeProvisionedProduct where
         type Rs DescribeProvisionedProduct =
@@ -83,7 +84,8 @@ instance AWSRequest DescribeProvisionedProduct where
               (\ s h x ->
                  DescribeProvisionedProductResponse' <$>
                    (x .?> "ProvisionedProductDetail") <*>
-                     (pure (fromEnum s)))
+                     (x .?> "CloudWatchDashboards" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance Hashable DescribeProvisionedProduct where
 
@@ -103,8 +105,8 @@ instance ToJSON DescribeProvisionedProduct where
         toJSON DescribeProvisionedProduct'{..}
           = object
               (catMaybes
-                 [("AcceptLanguage" .=) <$> _dpppAcceptLanguage,
-                  Just ("Id" .= _dpppId)])
+                 [("AcceptLanguage" .=) <$> _deseAcceptLanguage,
+                  Just ("Id" .= _deseId)])
 
 instance ToPath DescribeProvisionedProduct where
         toPath = const "/"
@@ -115,6 +117,7 @@ instance ToQuery DescribeProvisionedProduct where
 -- | /See:/ 'describeProvisionedProductResponse' smart constructor.
 data DescribeProvisionedProductResponse = DescribeProvisionedProductResponse'
   { _drsProvisionedProductDetail :: !(Maybe ProvisionedProductDetail)
+  , _drsCloudWatchDashboards     :: !(Maybe [CloudWatchDashboard])
   , _drsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -123,7 +126,9 @@ data DescribeProvisionedProductResponse = DescribeProvisionedProductResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsProvisionedProductDetail' - Detailed provisioned product information.
+-- * 'drsProvisionedProductDetail' - Information about the provisioned product.
+--
+-- * 'drsCloudWatchDashboards' - Any CloudWatch dashboards that were created when provisioning the product.
 --
 -- * 'drsResponseStatus' - -- | The response status code.
 describeProvisionedProductResponse
@@ -131,18 +136,23 @@ describeProvisionedProductResponse
     -> DescribeProvisionedProductResponse
 describeProvisionedProductResponse pResponseStatus_ =
   DescribeProvisionedProductResponse'
-  { _drsProvisionedProductDetail = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsProvisionedProductDetail = Nothing
+    , _drsCloudWatchDashboards = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
--- | Detailed provisioned product information.
+-- | Information about the provisioned product.
 drsProvisionedProductDetail :: Lens' DescribeProvisionedProductResponse (Maybe ProvisionedProductDetail)
-drsProvisionedProductDetail = lens _drsProvisionedProductDetail (\ s a -> s{_drsProvisionedProductDetail = a});
+drsProvisionedProductDetail = lens _drsProvisionedProductDetail (\ s a -> s{_drsProvisionedProductDetail = a})
+
+-- | Any CloudWatch dashboards that were created when provisioning the product.
+drsCloudWatchDashboards :: Lens' DescribeProvisionedProductResponse [CloudWatchDashboard]
+drsCloudWatchDashboards = lens _drsCloudWatchDashboards (\ s a -> s{_drsCloudWatchDashboards = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeProvisionedProductResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeProvisionedProductResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.ListPipelines
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ listPipelines = ListPipelines' {_lpMarker = Nothing}
 
 -- | The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call @ListPipelines@ with the marker value from the previous call to retrieve the next set of results.
 lpMarker :: Lens' ListPipelines (Maybe Text)
-lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
+lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a})
 
 instance AWSPager ListPipelines where
         page rq rs
@@ -143,27 +143,27 @@ listPipelinesResponse
     -> ListPipelinesResponse
 listPipelinesResponse pResponseStatus_ =
   ListPipelinesResponse'
-  { _lprsHasMoreResults = Nothing
-  , _lprsMarker = Nothing
-  , _lprsResponseStatus = pResponseStatus_
-  , _lprsPipelineIdList = mempty
-  }
+    { _lprsHasMoreResults = Nothing
+    , _lprsMarker = Nothing
+    , _lprsResponseStatus = pResponseStatus_
+    , _lprsPipelineIdList = mempty
+    }
 
 
 -- | Indicates whether there are more results that can be obtained by a subsequent call.
 lprsHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
-lprsHasMoreResults = lens _lprsHasMoreResults (\ s a -> s{_lprsHasMoreResults = a});
+lprsHasMoreResults = lens _lprsHasMoreResults (\ s a -> s{_lprsHasMoreResults = a})
 
 -- | The starting point for the next page of results. To view the next page of results, call @ListPipelinesOutput@ again with this marker value. If the value is null, there are no more results.
 lprsMarker :: Lens' ListPipelinesResponse (Maybe Text)
-lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
+lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a})
 
 -- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPipelinesResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a})
 
 -- | The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call 'DescribePipelines' and 'GetPipelineDefinition' .
 lprsPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
-lprsPipelineIdList = lens _lprsPipelineIdList (\ s a -> s{_lprsPipelineIdList = a}) . _Coerce;
+lprsPipelineIdList = lens _lprsPipelineIdList (\ s a -> s{_lprsPipelineIdList = a}) . _Coerce
 
 instance NFData ListPipelinesResponse where

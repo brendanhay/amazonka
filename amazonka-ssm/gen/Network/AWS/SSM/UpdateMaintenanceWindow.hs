@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateMaintenanceWindow
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -99,53 +99,53 @@ updateMaintenanceWindow
     -> UpdateMaintenanceWindow
 updateMaintenanceWindow pWindowId_ =
   UpdateMaintenanceWindow'
-  { _umwReplace = Nothing
-  , _umwEnabled = Nothing
-  , _umwSchedule = Nothing
-  , _umwName = Nothing
-  , _umwCutoff = Nothing
-  , _umwAllowUnassociatedTargets = Nothing
-  , _umwDescription = Nothing
-  , _umwDuration = Nothing
-  , _umwWindowId = pWindowId_
-  }
+    { _umwReplace = Nothing
+    , _umwEnabled = Nothing
+    , _umwSchedule = Nothing
+    , _umwName = Nothing
+    , _umwCutoff = Nothing
+    , _umwAllowUnassociatedTargets = Nothing
+    , _umwDescription = Nothing
+    , _umwDuration = Nothing
+    , _umwWindowId = pWindowId_
+    }
 
 
 -- | If True, then all fields that are required by the CreateMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
 umwReplace :: Lens' UpdateMaintenanceWindow (Maybe Bool)
-umwReplace = lens _umwReplace (\ s a -> s{_umwReplace = a});
+umwReplace = lens _umwReplace (\ s a -> s{_umwReplace = a})
 
 -- | Whether the Maintenance Window is enabled.
 umwEnabled :: Lens' UpdateMaintenanceWindow (Maybe Bool)
-umwEnabled = lens _umwEnabled (\ s a -> s{_umwEnabled = a});
+umwEnabled = lens _umwEnabled (\ s a -> s{_umwEnabled = a})
 
 -- | The schedule of the Maintenance Window in the form of a cron or rate expression.
 umwSchedule :: Lens' UpdateMaintenanceWindow (Maybe Text)
-umwSchedule = lens _umwSchedule (\ s a -> s{_umwSchedule = a});
+umwSchedule = lens _umwSchedule (\ s a -> s{_umwSchedule = a})
 
 -- | The name of the Maintenance Window.
 umwName :: Lens' UpdateMaintenanceWindow (Maybe Text)
-umwName = lens _umwName (\ s a -> s{_umwName = a});
+umwName = lens _umwName (\ s a -> s{_umwName = a})
 
 -- | The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 umwCutoff :: Lens' UpdateMaintenanceWindow (Maybe Natural)
-umwCutoff = lens _umwCutoff (\ s a -> s{_umwCutoff = a}) . mapping _Nat;
+umwCutoff = lens _umwCutoff (\ s a -> s{_umwCutoff = a}) . mapping _Nat
 
 -- | Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
 umwAllowUnassociatedTargets :: Lens' UpdateMaintenanceWindow (Maybe Bool)
-umwAllowUnassociatedTargets = lens _umwAllowUnassociatedTargets (\ s a -> s{_umwAllowUnassociatedTargets = a});
+umwAllowUnassociatedTargets = lens _umwAllowUnassociatedTargets (\ s a -> s{_umwAllowUnassociatedTargets = a})
 
 -- | An optional description for the update request.
 umwDescription :: Lens' UpdateMaintenanceWindow (Maybe Text)
-umwDescription = lens _umwDescription (\ s a -> s{_umwDescription = a}) . mapping _Sensitive;
+umwDescription = lens _umwDescription (\ s a -> s{_umwDescription = a}) . mapping _Sensitive
 
 -- | The duration of the Maintenance Window in hours.
 umwDuration :: Lens' UpdateMaintenanceWindow (Maybe Natural)
-umwDuration = lens _umwDuration (\ s a -> s{_umwDuration = a}) . mapping _Nat;
+umwDuration = lens _umwDuration (\ s a -> s{_umwDuration = a}) . mapping _Nat
 
 -- | The ID of the Maintenance Window to update.
 umwWindowId :: Lens' UpdateMaintenanceWindow Text
-umwWindowId = lens _umwWindowId (\ s a -> s{_umwWindowId = a});
+umwWindowId = lens _umwWindowId (\ s a -> s{_umwWindowId = a})
 
 instance AWSRequest UpdateMaintenanceWindow where
         type Rs UpdateMaintenanceWindow =
@@ -238,52 +238,52 @@ updateMaintenanceWindowResponse
     -> UpdateMaintenanceWindowResponse
 updateMaintenanceWindowResponse pResponseStatus_ =
   UpdateMaintenanceWindowResponse'
-  { _umwrsEnabled = Nothing
-  , _umwrsSchedule = Nothing
-  , _umwrsName = Nothing
-  , _umwrsCutoff = Nothing
-  , _umwrsAllowUnassociatedTargets = Nothing
-  , _umwrsDescription = Nothing
-  , _umwrsDuration = Nothing
-  , _umwrsWindowId = Nothing
-  , _umwrsResponseStatus = pResponseStatus_
-  }
+    { _umwrsEnabled = Nothing
+    , _umwrsSchedule = Nothing
+    , _umwrsName = Nothing
+    , _umwrsCutoff = Nothing
+    , _umwrsAllowUnassociatedTargets = Nothing
+    , _umwrsDescription = Nothing
+    , _umwrsDuration = Nothing
+    , _umwrsWindowId = Nothing
+    , _umwrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Whether the Maintenance Window is enabled.
 umwrsEnabled :: Lens' UpdateMaintenanceWindowResponse (Maybe Bool)
-umwrsEnabled = lens _umwrsEnabled (\ s a -> s{_umwrsEnabled = a});
+umwrsEnabled = lens _umwrsEnabled (\ s a -> s{_umwrsEnabled = a})
 
 -- | The schedule of the Maintenance Window in the form of a cron or rate expression.
 umwrsSchedule :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
-umwrsSchedule = lens _umwrsSchedule (\ s a -> s{_umwrsSchedule = a});
+umwrsSchedule = lens _umwrsSchedule (\ s a -> s{_umwrsSchedule = a})
 
 -- | The name of the Maintenance Window.
 umwrsName :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
-umwrsName = lens _umwrsName (\ s a -> s{_umwrsName = a});
+umwrsName = lens _umwrsName (\ s a -> s{_umwrsName = a})
 
 -- | The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 umwrsCutoff :: Lens' UpdateMaintenanceWindowResponse (Maybe Natural)
-umwrsCutoff = lens _umwrsCutoff (\ s a -> s{_umwrsCutoff = a}) . mapping _Nat;
+umwrsCutoff = lens _umwrsCutoff (\ s a -> s{_umwrsCutoff = a}) . mapping _Nat
 
 -- | Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
 umwrsAllowUnassociatedTargets :: Lens' UpdateMaintenanceWindowResponse (Maybe Bool)
-umwrsAllowUnassociatedTargets = lens _umwrsAllowUnassociatedTargets (\ s a -> s{_umwrsAllowUnassociatedTargets = a});
+umwrsAllowUnassociatedTargets = lens _umwrsAllowUnassociatedTargets (\ s a -> s{_umwrsAllowUnassociatedTargets = a})
 
 -- | An optional description of the update.
 umwrsDescription :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
-umwrsDescription = lens _umwrsDescription (\ s a -> s{_umwrsDescription = a}) . mapping _Sensitive;
+umwrsDescription = lens _umwrsDescription (\ s a -> s{_umwrsDescription = a}) . mapping _Sensitive
 
 -- | The duration of the Maintenance Window in hours.
 umwrsDuration :: Lens' UpdateMaintenanceWindowResponse (Maybe Natural)
-umwrsDuration = lens _umwrsDuration (\ s a -> s{_umwrsDuration = a}) . mapping _Nat;
+umwrsDuration = lens _umwrsDuration (\ s a -> s{_umwrsDuration = a}) . mapping _Nat
 
 -- | The ID of the created Maintenance Window.
 umwrsWindowId :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
-umwrsWindowId = lens _umwrsWindowId (\ s a -> s{_umwrsWindowId = a});
+umwrsWindowId = lens _umwrsWindowId (\ s a -> s{_umwrsWindowId = a})
 
 -- | -- | The response status code.
 umwrsResponseStatus :: Lens' UpdateMaintenanceWindowResponse Int
-umwrsResponseStatus = lens _umwrsResponseStatus (\ s a -> s{_umwrsResponseStatus = a});
+umwrsResponseStatus = lens _umwrsResponseStatus (\ s a -> s{_umwrsResponseStatus = a})
 
 instance NFData UpdateMaintenanceWindowResponse where

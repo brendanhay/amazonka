@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBEngineVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,7 +80,7 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions'
 --
 -- * 'ddevDefaultOnly' - Indicates that only the default version of the specified engine or engine and major version combination is returned.
 --
--- * 'ddevFilters' - Not currently supported.
+-- * 'ddevFilters' - This parameter is not currently supported.
 --
 -- * 'ddevEngine' - The database engine to return.
 --
@@ -95,53 +95,53 @@ describeDBEngineVersions
     :: DescribeDBEngineVersions
 describeDBEngineVersions =
   DescribeDBEngineVersions'
-  { _ddevEngineVersion = Nothing
-  , _ddevListSupportedTimezones = Nothing
-  , _ddevDefaultOnly = Nothing
-  , _ddevFilters = Nothing
-  , _ddevEngine = Nothing
-  , _ddevDBParameterGroupFamily = Nothing
-  , _ddevListSupportedCharacterSets = Nothing
-  , _ddevMarker = Nothing
-  , _ddevMaxRecords = Nothing
-  }
+    { _ddevEngineVersion = Nothing
+    , _ddevListSupportedTimezones = Nothing
+    , _ddevDefaultOnly = Nothing
+    , _ddevFilters = Nothing
+    , _ddevEngine = Nothing
+    , _ddevDBParameterGroupFamily = Nothing
+    , _ddevListSupportedCharacterSets = Nothing
+    , _ddevMarker = Nothing
+    , _ddevMaxRecords = Nothing
+    }
 
 
 -- | The database engine version to return. Example: @5.1.49@
 ddevEngineVersion :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddevEngineVersion = lens _ddevEngineVersion (\ s a -> s{_ddevEngineVersion = a});
+ddevEngineVersion = lens _ddevEngineVersion (\ s a -> s{_ddevEngineVersion = a})
 
 -- | If this parameter is specified and the requested engine supports the @TimeZone@ parameter for @CreateDBInstance@ , the response includes a list of supported time zones for each engine version.
 ddevListSupportedTimezones :: Lens' DescribeDBEngineVersions (Maybe Bool)
-ddevListSupportedTimezones = lens _ddevListSupportedTimezones (\ s a -> s{_ddevListSupportedTimezones = a});
+ddevListSupportedTimezones = lens _ddevListSupportedTimezones (\ s a -> s{_ddevListSupportedTimezones = a})
 
 -- | Indicates that only the default version of the specified engine or engine and major version combination is returned.
 ddevDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
-ddevDefaultOnly = lens _ddevDefaultOnly (\ s a -> s{_ddevDefaultOnly = a});
+ddevDefaultOnly = lens _ddevDefaultOnly (\ s a -> s{_ddevDefaultOnly = a})
 
--- | Not currently supported.
+-- | This parameter is not currently supported.
 ddevFilters :: Lens' DescribeDBEngineVersions [Filter]
-ddevFilters = lens _ddevFilters (\ s a -> s{_ddevFilters = a}) . _Default . _Coerce;
+ddevFilters = lens _ddevFilters (\ s a -> s{_ddevFilters = a}) . _Default . _Coerce
 
 -- | The database engine to return.
 ddevEngine :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddevEngine = lens _ddevEngine (\ s a -> s{_ddevEngine = a});
+ddevEngine = lens _ddevEngine (\ s a -> s{_ddevEngine = a})
 
 -- | The name of a specific DB parameter group family to return details for. Constraints:     * If supplied, must match an existing DBParameterGroupFamily.
 ddevDBParameterGroupFamily :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddevDBParameterGroupFamily = lens _ddevDBParameterGroupFamily (\ s a -> s{_ddevDBParameterGroupFamily = a});
+ddevDBParameterGroupFamily = lens _ddevDBParameterGroupFamily (\ s a -> s{_ddevDBParameterGroupFamily = a})
 
 -- | If this parameter is specified and the requested engine supports the @CharacterSetName@ parameter for @CreateDBInstance@ , the response includes a list of supported character sets for each engine version.
 ddevListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
-ddevListSupportedCharacterSets = lens _ddevListSupportedCharacterSets (\ s a -> s{_ddevListSupportedCharacterSets = a});
+ddevListSupportedCharacterSets = lens _ddevListSupportedCharacterSets (\ s a -> s{_ddevListSupportedCharacterSets = a})
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddevMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddevMarker = lens _ddevMarker (\ s a -> s{_ddevMarker = a});
+ddevMarker = lens _ddevMarker (\ s a -> s{_ddevMarker = a})
 
 -- | The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so that the following results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddevMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Int)
-ddevMaxRecords = lens _ddevMaxRecords (\ s a -> s{_ddevMaxRecords = a});
+ddevMaxRecords = lens _ddevMaxRecords (\ s a -> s{_ddevMaxRecords = a})
 
 instance AWSPager DescribeDBEngineVersions where
         page rq rs
@@ -219,23 +219,23 @@ describeDBEngineVersionsResponse
     -> DescribeDBEngineVersionsResponse
 describeDBEngineVersionsResponse pResponseStatus_ =
   DescribeDBEngineVersionsResponse'
-  { _ddevrsMarker = Nothing
-  , _ddevrsDBEngineVersions = Nothing
-  , _ddevrsResponseStatus = pResponseStatus_
-  }
+    { _ddevrsMarker = Nothing
+    , _ddevrsDBEngineVersions = Nothing
+    , _ddevrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddevrsMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
-ddevrsMarker = lens _ddevrsMarker (\ s a -> s{_ddevrsMarker = a});
+ddevrsMarker = lens _ddevrsMarker (\ s a -> s{_ddevrsMarker = a})
 
 -- | A list of @DBEngineVersion@ elements.
 ddevrsDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
-ddevrsDBEngineVersions = lens _ddevrsDBEngineVersions (\ s a -> s{_ddevrsDBEngineVersions = a}) . _Default . _Coerce;
+ddevrsDBEngineVersions = lens _ddevrsDBEngineVersions (\ s a -> s{_ddevrsDBEngineVersions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddevrsResponseStatus :: Lens' DescribeDBEngineVersionsResponse Int
-ddevrsResponseStatus = lens _ddevrsResponseStatus (\ s a -> s{_ddevrsResponseStatus = a});
+ddevrsResponseStatus = lens _ddevrsResponseStatus (\ s a -> s{_ddevrsResponseStatus = a})
 
 instance NFData DescribeDBEngineVersionsResponse
          where

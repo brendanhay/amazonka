@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.DescribeStep
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ describeStep pClusterId_ pStepId_ =
 
 -- | The identifier of the cluster with steps to describe.
 dsClusterId :: Lens' DescribeStep Text
-dsClusterId = lens _dsClusterId (\ s a -> s{_dsClusterId = a});
+dsClusterId = lens _dsClusterId (\ s a -> s{_dsClusterId = a})
 
 -- | The identifier of the step to describe.
 dsStepId :: Lens' DescribeStep Text
-dsStepId = lens _dsStepId (\ s a -> s{_dsStepId = a});
+dsStepId = lens _dsStepId (\ s a -> s{_dsStepId = a})
 
 instance AWSRequest DescribeStep where
         type Rs DescribeStep = DescribeStepResponse
@@ -137,15 +137,15 @@ describeStepResponse
     -> DescribeStepResponse
 describeStepResponse pResponseStatus_ =
   DescribeStepResponse'
-  {_dsrsStep = Nothing, _dsrsResponseStatus = pResponseStatus_}
+    {_dsrsStep = Nothing, _dsrsResponseStatus = pResponseStatus_}
 
 
 -- | The step details for the requested step identifier.
 dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
-dsrsStep = lens _dsrsStep (\ s a -> s{_dsrsStep = a});
+dsrsStep = lens _dsrsStep (\ s a -> s{_dsrsStep = a})
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStepResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DescribeStepResponse where

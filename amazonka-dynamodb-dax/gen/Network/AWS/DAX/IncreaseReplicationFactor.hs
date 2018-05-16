@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.IncreaseReplicationFactor
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ increaseReplicationFactor
     -> IncreaseReplicationFactor
 increaseReplicationFactor pClusterName_ pNewReplicationFactor_ =
   IncreaseReplicationFactor'
-  { _irfAvailabilityZones = Nothing
-  , _irfClusterName = pClusterName_
-  , _irfNewReplicationFactor = pNewReplicationFactor_
-  }
+    { _irfAvailabilityZones = Nothing
+    , _irfClusterName = pClusterName_
+    , _irfNewReplicationFactor = pNewReplicationFactor_
+    }
 
 
 -- | The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs.
 irfAvailabilityZones :: Lens' IncreaseReplicationFactor [Text]
-irfAvailabilityZones = lens _irfAvailabilityZones (\ s a -> s{_irfAvailabilityZones = a}) . _Default . _Coerce;
+irfAvailabilityZones = lens _irfAvailabilityZones (\ s a -> s{_irfAvailabilityZones = a}) . _Default . _Coerce
 
 -- | The name of the DAX cluster that will receive additional nodes.
 irfClusterName :: Lens' IncreaseReplicationFactor Text
-irfClusterName = lens _irfClusterName (\ s a -> s{_irfClusterName = a});
+irfClusterName = lens _irfClusterName (\ s a -> s{_irfClusterName = a})
 
 -- | The new number of nodes for the DAX cluster.
 irfNewReplicationFactor :: Lens' IncreaseReplicationFactor Int
-irfNewReplicationFactor = lens _irfNewReplicationFactor (\ s a -> s{_irfNewReplicationFactor = a});
+irfNewReplicationFactor = lens _irfNewReplicationFactor (\ s a -> s{_irfNewReplicationFactor = a})
 
 instance AWSRequest IncreaseReplicationFactor where
         type Rs IncreaseReplicationFactor =
@@ -146,16 +146,16 @@ increaseReplicationFactorResponse
     -> IncreaseReplicationFactorResponse
 increaseReplicationFactorResponse pResponseStatus_ =
   IncreaseReplicationFactorResponse'
-  {_irfrsCluster = Nothing, _irfrsResponseStatus = pResponseStatus_}
+    {_irfrsCluster = Nothing, _irfrsResponseStatus = pResponseStatus_}
 
 
 -- | A description of the DAX cluster. with its new replication factor.
 irfrsCluster :: Lens' IncreaseReplicationFactorResponse (Maybe Cluster)
-irfrsCluster = lens _irfrsCluster (\ s a -> s{_irfrsCluster = a});
+irfrsCluster = lens _irfrsCluster (\ s a -> s{_irfrsCluster = a})
 
 -- | -- | The response status code.
 irfrsResponseStatus :: Lens' IncreaseReplicationFactorResponse Int
-irfrsResponseStatus = lens _irfrsResponseStatus (\ s a -> s{_irfrsResponseStatus = a});
+irfrsResponseStatus = lens _irfrsResponseStatus (\ s a -> s{_irfrsResponseStatus = a})
 
 instance NFData IncreaseReplicationFactorResponse
          where

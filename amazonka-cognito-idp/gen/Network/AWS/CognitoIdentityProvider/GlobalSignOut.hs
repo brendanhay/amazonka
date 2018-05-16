@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GlobalSignOut
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ globalSignOut pAccessToken_ =
 
 -- | The access token.
 gsoAccessToken :: Lens' GlobalSignOut Text
-gsoAccessToken = lens _gsoAccessToken (\ s a -> s{_gsoAccessToken = a}) . _Sensitive;
+gsoAccessToken = lens _gsoAccessToken (\ s a -> s{_gsoAccessToken = a}) . _Sensitive
 
 instance AWSRequest GlobalSignOut where
         type Rs GlobalSignOut = GlobalSignOutResponse
@@ -126,6 +126,6 @@ globalSignOutResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 gsorsResponseStatus :: Lens' GlobalSignOutResponse Int
-gsorsResponseStatus = lens _gsorsResponseStatus (\ s a -> s{_gsorsResponseStatus = a});
+gsorsResponseStatus = lens _gsorsResponseStatus (\ s a -> s{_gsorsResponseStatus = a})
 
 instance NFData GlobalSignOutResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeFleets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ describeFleets = DescribeFleets' {_dfNextToken = Nothing, _dfNames = Nothing}
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 dfNextToken :: Lens' DescribeFleets (Maybe Text)
-dfNextToken = lens _dfNextToken (\ s a -> s{_dfNextToken = a});
+dfNextToken = lens _dfNextToken (\ s a -> s{_dfNextToken = a})
 
 -- | The names of the fleets to describe.
 dfNames :: Lens' DescribeFleets [Text]
-dfNames = lens _dfNames (\ s a -> s{_dfNames = a}) . _Default . _Coerce;
+dfNames = lens _dfNames (\ s a -> s{_dfNames = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeFleets where
         type Rs DescribeFleets = DescribeFleetsResponse
@@ -132,22 +132,22 @@ describeFleetsResponse
     -> DescribeFleetsResponse
 describeFleetsResponse pResponseStatus_ =
   DescribeFleetsResponse'
-  { _dfsrsNextToken = Nothing
-  , _dfsrsFleets = Nothing
-  , _dfsrsResponseStatus = pResponseStatus_
-  }
+    { _dfsrsNextToken = Nothing
+    , _dfsrsFleets = Nothing
+    , _dfsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 dfsrsNextToken :: Lens' DescribeFleetsResponse (Maybe Text)
-dfsrsNextToken = lens _dfsrsNextToken (\ s a -> s{_dfsrsNextToken = a});
+dfsrsNextToken = lens _dfsrsNextToken (\ s a -> s{_dfsrsNextToken = a})
 
 -- | Information about the fleets.
 dfsrsFleets :: Lens' DescribeFleetsResponse [Fleet]
-dfsrsFleets = lens _dfsrsFleets (\ s a -> s{_dfsrsFleets = a}) . _Default . _Coerce;
+dfsrsFleets = lens _dfsrsFleets (\ s a -> s{_dfsrsFleets = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dfsrsResponseStatus :: Lens' DescribeFleetsResponse Int
-dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a});
+dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a})
 
 instance NFData DescribeFleetsResponse where

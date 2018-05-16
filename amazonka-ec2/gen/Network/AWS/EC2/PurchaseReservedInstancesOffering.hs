@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.PurchaseReservedInstancesOffering
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,28 +81,28 @@ purchaseReservedInstancesOffering
     -> PurchaseReservedInstancesOffering
 purchaseReservedInstancesOffering pInstanceCount_ pReservedInstancesOfferingId_ =
   PurchaseReservedInstancesOffering'
-  { _prioLimitPrice = Nothing
-  , _prioDryRun = Nothing
-  , _prioInstanceCount = pInstanceCount_
-  , _prioReservedInstancesOfferingId = pReservedInstancesOfferingId_
-  }
+    { _prioLimitPrice = Nothing
+    , _prioDryRun = Nothing
+    , _prioInstanceCount = pInstanceCount_
+    , _prioReservedInstancesOfferingId = pReservedInstancesOfferingId_
+    }
 
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
 prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
-prioLimitPrice = lens _prioLimitPrice (\ s a -> s{_prioLimitPrice = a});
+prioLimitPrice = lens _prioLimitPrice (\ s a -> s{_prioLimitPrice = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
-prioDryRun = lens _prioDryRun (\ s a -> s{_prioDryRun = a});
+prioDryRun = lens _prioDryRun (\ s a -> s{_prioDryRun = a})
 
 -- | The number of Reserved Instances to purchase.
 prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Int
-prioInstanceCount = lens _prioInstanceCount (\ s a -> s{_prioInstanceCount = a});
+prioInstanceCount = lens _prioInstanceCount (\ s a -> s{_prioInstanceCount = a})
 
 -- | The ID of the Reserved Instance offering to purchase.
 prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
-prioReservedInstancesOfferingId = lens _prioReservedInstancesOfferingId (\ s a -> s{_prioReservedInstancesOfferingId = a});
+prioReservedInstancesOfferingId = lens _prioReservedInstancesOfferingId (\ s a -> s{_prioReservedInstancesOfferingId = a})
 
 instance AWSRequest PurchaseReservedInstancesOffering
          where
@@ -166,18 +166,18 @@ purchaseReservedInstancesOfferingResponse
     -> PurchaseReservedInstancesOfferingResponse
 purchaseReservedInstancesOfferingResponse pResponseStatus_ =
   PurchaseReservedInstancesOfferingResponse'
-  { _priorsReservedInstancesId = Nothing
-  , _priorsResponseStatus = pResponseStatus_
-  }
+    { _priorsReservedInstancesId = Nothing
+    , _priorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The IDs of the purchased Reserved Instances.
 priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
-priorsReservedInstancesId = lens _priorsReservedInstancesId (\ s a -> s{_priorsReservedInstancesId = a});
+priorsReservedInstancesId = lens _priorsReservedInstancesId (\ s a -> s{_priorsReservedInstancesId = a})
 
 -- | -- | The response status code.
 priorsResponseStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
-priorsResponseStatus = lens _priorsResponseStatus (\ s a -> s{_priorsResponseStatus = a});
+priorsResponseStatus = lens _priorsResponseStatus (\ s a -> s{_priorsResponseStatus = a})
 
 instance NFData
            PurchaseReservedInstancesOfferingResponse

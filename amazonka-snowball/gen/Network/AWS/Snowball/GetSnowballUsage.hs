@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.GetSnowballUsage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -113,22 +113,22 @@ getSnowballUsageResponse
     -> GetSnowballUsageResponse
 getSnowballUsageResponse pResponseStatus_ =
   GetSnowballUsageResponse'
-  { _gsursSnowballsInUse = Nothing
-  , _gsursSnowballLimit = Nothing
-  , _gsursResponseStatus = pResponseStatus_
-  }
+    { _gsursSnowballsInUse = Nothing
+    , _gsursSnowballLimit = Nothing
+    , _gsursResponseStatus = pResponseStatus_
+    }
 
 
 -- | The number of Snowballs that this account is currently using.
 gsursSnowballsInUse :: Lens' GetSnowballUsageResponse (Maybe Int)
-gsursSnowballsInUse = lens _gsursSnowballsInUse (\ s a -> s{_gsursSnowballsInUse = a});
+gsursSnowballsInUse = lens _gsursSnowballsInUse (\ s a -> s{_gsursSnowballsInUse = a})
 
 -- | The service limit for number of Snowballs this account can have at once. The default service limit is 1 (one).
 gsursSnowballLimit :: Lens' GetSnowballUsageResponse (Maybe Int)
-gsursSnowballLimit = lens _gsursSnowballLimit (\ s a -> s{_gsursSnowballLimit = a});
+gsursSnowballLimit = lens _gsursSnowballLimit (\ s a -> s{_gsursSnowballLimit = a})
 
 -- | -- | The response status code.
 gsursResponseStatus :: Lens' GetSnowballUsageResponse Int
-gsursResponseStatus = lens _gsursResponseStatus (\ s a -> s{_gsursResponseStatus = a});
+gsursResponseStatus = lens _gsursResponseStatus (\ s a -> s{_gsursResponseStatus = a})
 
 instance NFData GetSnowballUsageResponse where

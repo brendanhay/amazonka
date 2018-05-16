@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ListHSMs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ listHSMs = ListHSMs' {_lhsmNextToken = Nothing}
 
 -- | The @NextToken@ value from a previous call to @ListHsms@ . Pass null if this is the first call.
 lhsmNextToken :: Lens' ListHSMs (Maybe Text)
-lhsmNextToken = lens _lhsmNextToken (\ s a -> s{_lhsmNextToken = a});
+lhsmNextToken = lens _lhsmNextToken (\ s a -> s{_lhsmNextToken = a})
 
 instance AWSRequest ListHSMs where
         type Rs ListHSMs = ListHSMsResponse
@@ -131,22 +131,22 @@ listHSMsResponse
     -> ListHSMsResponse
 listHSMsResponse pResponseStatus_ =
   ListHSMsResponse'
-  { _lhsmrsNextToken = Nothing
-  , _lhsmrsHSMList = Nothing
-  , _lhsmrsResponseStatus = pResponseStatus_
-  }
+    { _lhsmrsNextToken = Nothing
+    , _lhsmrsHSMList = Nothing
+    , _lhsmrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If not null, more results are available. Pass this value to @ListHsms@ to retrieve the next set of items.
 lhsmrsNextToken :: Lens' ListHSMsResponse (Maybe Text)
-lhsmrsNextToken = lens _lhsmrsNextToken (\ s a -> s{_lhsmrsNextToken = a});
+lhsmrsNextToken = lens _lhsmrsNextToken (\ s a -> s{_lhsmrsNextToken = a})
 
 -- | The list of ARNs that identify the HSMs.
 lhsmrsHSMList :: Lens' ListHSMsResponse [Text]
-lhsmrsHSMList = lens _lhsmrsHSMList (\ s a -> s{_lhsmrsHSMList = a}) . _Default . _Coerce;
+lhsmrsHSMList = lens _lhsmrsHSMList (\ s a -> s{_lhsmrsHSMList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lhsmrsResponseStatus :: Lens' ListHSMsResponse Int
-lhsmrsResponseStatus = lens _lhsmrsResponseStatus (\ s a -> s{_lhsmrsResponseStatus = a});
+lhsmrsResponseStatus = lens _lhsmrsResponseStatus (\ s a -> s{_lhsmrsResponseStatus = a})
 
 instance NFData ListHSMsResponse where

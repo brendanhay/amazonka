@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,6 +55,9 @@ module Network.AWS.Pinpoint.Types
 
     -- * MessageType
     , MessageType (..)
+
+    -- * Mode
+    , Mode (..)
 
     -- * RecencyType
     , RecencyType (..)
@@ -281,6 +284,7 @@ module Network.AWS.Pinpoint.Types
     , asrLimits
     , asrQuietTime
     , asrApplicationId
+    , asrCampaignHook
 
     -- * ApplicationsResponse
     , ApplicationsResponse
@@ -341,6 +345,13 @@ module Network.AWS.Pinpoint.Types
     , cemHTMLBody
     , cemTitle
 
+    -- * CampaignHook
+    , CampaignHook
+    , campaignHook
+    , chLambdaFunctionName
+    , chMode
+    , chWebURL
+
     -- * CampaignLimits
     , CampaignLimits
     , campaignLimits
@@ -355,6 +366,7 @@ module Network.AWS.Pinpoint.Types
     , cState
     , cLastModifiedDate
     , cSchedule
+    , cHook
     , cTreatmentName
     , cLimits
     , cIsPaused
@@ -559,6 +571,43 @@ module Network.AWS.Pinpoint.Types
     , esExternalId
     , esRoleARN
 
+    -- * ExportJobRequest
+    , ExportJobRequest
+    , exportJobRequest
+    , eS3URLPrefix
+    , eSegmentId
+    , eRoleARN
+
+    -- * ExportJobResource
+    , ExportJobResource
+    , exportJobResource
+    , ejrS3URLPrefix
+    , ejrSegmentId
+    , ejrRoleARN
+
+    -- * ExportJobResponse
+    , ExportJobResponse
+    , exportJobResponse
+    , ejCompletedPieces
+    , ejFailedPieces
+    , ejDefinition
+    , ejTotalProcessed
+    , ejFailures
+    , ejTotalPieces
+    , ejApplicationId
+    , ejId
+    , ejCreationDate
+    , ejType
+    , ejCompletionDate
+    , ejJobStatus
+    , ejTotalFailures
+
+    -- * ExportJobsResponse
+    , ExportJobsResponse
+    , exportJobsResponse
+    , ejNextToken
+    , ejItem
+
     -- * GCMChannelRequest
     , GCMChannelRequest
     , gcmChannelRequest
@@ -743,6 +792,7 @@ module Network.AWS.Pinpoint.Types
     , SMSMessage
     , sMSMessage
     , smsmSubstitutions
+    , smsmOriginationNumber
     , smsmBody
     , smsmMessageType
     , smsmSenderId
@@ -851,11 +901,13 @@ module Network.AWS.Pinpoint.Types
     , writeApplicationSettingsRequest
     , wasrLimits
     , wasrQuietTime
+    , wasrCampaignHook
 
     -- * WriteCampaignRequest
     , WriteCampaignRequest
     , writeCampaignRequest
     , wcrSchedule
+    , wcrHook
     , wcrTreatmentName
     , wcrLimits
     , wcrIsPaused
@@ -900,24 +952,24 @@ import Network.AWS.Sign.V4
 pinpoint :: Service
 pinpoint =
   Service
-  { _svcAbbrev = "Pinpoint"
-  , _svcSigner = v4
-  , _svcPrefix = "pinpoint"
-  , _svcVersion = "2016-12-01"
-  , _svcEndpoint = defaultEndpoint pinpoint
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Pinpoint"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Pinpoint"
+    , _svcSigner = v4
+    , _svcPrefix = "pinpoint"
+    , _svcVersion = "2016-12-01"
+    , _svcEndpoint = defaultEndpoint pinpoint
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "Pinpoint"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -926,6 +978,8 @@ pinpoint =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

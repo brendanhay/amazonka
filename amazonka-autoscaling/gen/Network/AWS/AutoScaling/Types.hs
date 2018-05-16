@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,7 @@ module Network.AWS.AutoScaling.Types
     , _InvalidNextToken
     , _ScalingActivityInProgressFault
     , _ResourceContentionFault
+    , _ServiceLinkedRoleFailure
 
     -- * LifecycleState
     , LifecycleState (..)
@@ -66,12 +67,14 @@ module Network.AWS.AutoScaling.Types
     , asgStatus
     , asgTerminationPolicies
     , asgHealthCheckGracePeriod
+    , asgServiceLinkedRoleARN
     , asgNewInstancesProtectedFromScaleIn
     , asgVPCZoneIdentifier
     , asgTargetGroupARNs
     , asgEnabledMetrics
     , asgLaunchConfigurationName
     , asgInstances
+    , asgLaunchTemplate
     , asgAutoScalingGroupARN
     , asgPlacementGroup
     , asgSuspendedProcesses
@@ -90,6 +93,7 @@ module Network.AWS.AutoScaling.Types
     , AutoScalingInstanceDetails
     , autoScalingInstanceDetails
     , asidLaunchConfigurationName
+    , asidLaunchTemplate
     , asidInstanceId
     , asidAutoScalingGroupName
     , asidAvailabilityZone
@@ -140,6 +144,7 @@ module Network.AWS.AutoScaling.Types
     , Instance
     , instance'
     , iLaunchConfigurationName
+    , iLaunchTemplate
     , iInstanceId
     , iAvailabilityZone
     , iLifecycleState
@@ -174,6 +179,13 @@ module Network.AWS.AutoScaling.Types
     , lcInstanceType
     , lcCreatedTime
 
+    -- * LaunchTemplateSpecification
+    , LaunchTemplateSpecification
+    , launchTemplateSpecification
+    , ltsLaunchTemplateName
+    , ltsLaunchTemplateId
+    , ltsVersion
+
     -- * LifecycleHook
     , LifecycleHook
     , lifecycleHook
@@ -194,9 +206,9 @@ module Network.AWS.AutoScaling.Types
     , lhsHeartbeatTimeout
     , lhsNotificationMetadata
     , lhsNotificationTargetARN
-    , lhsLifecycleTransition
     , lhsRoleARN
     , lhsLifecycleHookName
+    , lhsLifecycleTransition
 
     -- * LoadBalancerState
     , LoadBalancerState
@@ -332,24 +344,24 @@ import Network.AWS.Sign.V4
 autoScaling :: Service
 autoScaling =
   Service
-  { _svcAbbrev = "AutoScaling"
-  , _svcSigner = v4
-  , _svcPrefix = "autoscaling"
-  , _svcVersion = "2011-01-01"
-  , _svcEndpoint = defaultEndpoint autoScaling
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "AutoScaling"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "AutoScaling"
+    , _svcSigner = v4
+    , _svcPrefix = "autoscaling"
+    , _svcVersion = "2011-01-01"
+    , _svcEndpoint = defaultEndpoint autoScaling
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError "AutoScaling"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -358,6 +370,8 @@ autoScaling =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -411,4 +425,12 @@ _ScalingActivityInProgressFault =
 _ResourceContentionFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceContentionFault =
   _MatchServiceError autoScaling "ResourceContention" . hasStatus 500
+
+
+-- | The service-linked role is not yet ready for use.
+--
+--
+_ServiceLinkedRoleFailure :: AsError a => Getting (First ServiceError) a ServiceError
+_ServiceLinkedRoleFailure =
+  _MatchServiceError autoScaling "ServiceLinkedRoleFailure" . hasStatus 500
 

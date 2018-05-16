@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListResourcesForWebACL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ listResourcesForWebACL pWebACLId_ =
 
 -- | The unique identifier (ID) of the web ACL for which to list the associated resources.
 lrfwaWebACLId :: Lens' ListResourcesForWebACL Text
-lrfwaWebACLId = lens _lrfwaWebACLId (\ s a -> s{_lrfwaWebACLId = a});
+lrfwaWebACLId = lens _lrfwaWebACLId (\ s a -> s{_lrfwaWebACLId = a})
 
 instance AWSRequest ListResourcesForWebACL where
         type Rs ListResourcesForWebACL =
@@ -121,15 +121,15 @@ listResourcesForWebACLResponse
     -> ListResourcesForWebACLResponse
 listResourcesForWebACLResponse pResponseStatus_ =
   ListResourcesForWebACLResponse'
-  {_lrfwarsResourceARNs = Nothing, _lrfwarsResponseStatus = pResponseStatus_}
+    {_lrfwarsResourceARNs = Nothing, _lrfwarsResponseStatus = pResponseStatus_}
 
 
 -- | An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.
 lrfwarsResourceARNs :: Lens' ListResourcesForWebACLResponse [Text]
-lrfwarsResourceARNs = lens _lrfwarsResourceARNs (\ s a -> s{_lrfwarsResourceARNs = a}) . _Default . _Coerce;
+lrfwarsResourceARNs = lens _lrfwarsResourceARNs (\ s a -> s{_lrfwarsResourceARNs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lrfwarsResponseStatus :: Lens' ListResourcesForWebACLResponse Int
-lrfwarsResponseStatus = lens _lrfwarsResponseStatus (\ s a -> s{_lrfwarsResponseStatus = a});
+lrfwarsResponseStatus = lens _lrfwarsResponseStatus (\ s a -> s{_lrfwarsResponseStatus = a})
 
 instance NFData ListResourcesForWebACLResponse where

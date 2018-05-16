@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a product with a portfolio.
+-- Associates the specified product with the specified portfolio.
 --
 --
 module Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
@@ -59,7 +59,7 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apwpSourcePortfolioId' - The identifier of the source portfolio to use with this association.
+-- * 'apwpSourcePortfolioId' - The identifier of the source portfolio.
 --
 -- * 'apwpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
@@ -72,28 +72,28 @@ associateProductWithPortfolio
     -> AssociateProductWithPortfolio
 associateProductWithPortfolio pProductId_ pPortfolioId_ =
   AssociateProductWithPortfolio'
-  { _apwpSourcePortfolioId = Nothing
-  , _apwpAcceptLanguage = Nothing
-  , _apwpProductId = pProductId_
-  , _apwpPortfolioId = pPortfolioId_
-  }
+    { _apwpSourcePortfolioId = Nothing
+    , _apwpAcceptLanguage = Nothing
+    , _apwpProductId = pProductId_
+    , _apwpPortfolioId = pPortfolioId_
+    }
 
 
--- | The identifier of the source portfolio to use with this association.
+-- | The identifier of the source portfolio.
 apwpSourcePortfolioId :: Lens' AssociateProductWithPortfolio (Maybe Text)
-apwpSourcePortfolioId = lens _apwpSourcePortfolioId (\ s a -> s{_apwpSourcePortfolioId = a});
+apwpSourcePortfolioId = lens _apwpSourcePortfolioId (\ s a -> s{_apwpSourcePortfolioId = a})
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 apwpAcceptLanguage :: Lens' AssociateProductWithPortfolio (Maybe Text)
-apwpAcceptLanguage = lens _apwpAcceptLanguage (\ s a -> s{_apwpAcceptLanguage = a});
+apwpAcceptLanguage = lens _apwpAcceptLanguage (\ s a -> s{_apwpAcceptLanguage = a})
 
 -- | The product identifier.
 apwpProductId :: Lens' AssociateProductWithPortfolio Text
-apwpProductId = lens _apwpProductId (\ s a -> s{_apwpProductId = a});
+apwpProductId = lens _apwpProductId (\ s a -> s{_apwpProductId = a})
 
 -- | The portfolio identifier.
 apwpPortfolioId :: Lens' AssociateProductWithPortfolio Text
-apwpPortfolioId = lens _apwpPortfolioId (\ s a -> s{_apwpPortfolioId = a});
+apwpPortfolioId = lens _apwpPortfolioId (\ s a -> s{_apwpPortfolioId = a})
 
 instance AWSRequest AssociateProductWithPortfolio
          where
@@ -156,7 +156,7 @@ associateProductWithPortfolioResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 arsResponseStatus :: Lens' AssociateProductWithPortfolioResponse Int
-arsResponseStatus = lens _arsResponseStatus (\ s a -> s{_arsResponseStatus = a});
+arsResponseStatus = lens _arsResponseStatus (\ s a -> s{_arsResponseStatus = a})
 
 instance NFData AssociateProductWithPortfolioResponse
          where

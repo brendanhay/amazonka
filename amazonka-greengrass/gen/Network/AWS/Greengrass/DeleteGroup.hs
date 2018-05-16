@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DeleteGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a group. The group must not have been used in deployment.
+-- Deletes a group.
 module Network.AWS.Greengrass.DeleteGroup
     (
     -- * Creating a Request
@@ -51,16 +51,16 @@ newtype DeleteGroup = DeleteGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'dgGroupId' - The ID of the AWS Greengrass group.
 deleteGroup
     :: Text -- ^ 'dgGroupId'
     -> DeleteGroup
 deleteGroup pGroupId_ = DeleteGroup' {_dgGroupId = pGroupId_}
 
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 dgGroupId :: Lens' DeleteGroup Text
-dgGroupId = lens _dgGroupId (\ s a -> s{_dgGroupId = a});
+dgGroupId = lens _dgGroupId (\ s a -> s{_dgGroupId = a})
 
 instance AWSRequest DeleteGroup where
         type Rs DeleteGroup = DeleteGroupResponse
@@ -108,6 +108,6 @@ deleteGroupResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dgrsResponseStatus :: Lens' DeleteGroupResponse Int
-dgrsResponseStatus = lens _dgrsResponseStatus (\ s a -> s{_dgrsResponseStatus = a});
+dgrsResponseStatus = lens _dgrsResponseStatus (\ s a -> s{_dgrsResponseStatus = a})
 
 instance NFData DeleteGroupResponse where

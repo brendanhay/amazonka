@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Retrieves each Amazon Resource Name (ARN) of schemas in the development state.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
 import Network.AWS.CloudDirectory.Types
 import Network.AWS.CloudDirectory.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -64,16 +67,23 @@ listDevelopmentSchemaARNs
     :: ListDevelopmentSchemaARNs
 listDevelopmentSchemaARNs =
   ListDevelopmentSchemaARNs'
-  {_ldsaNextToken = Nothing, _ldsaMaxResults = Nothing}
+    {_ldsaNextToken = Nothing, _ldsaMaxResults = Nothing}
 
 
 -- | The pagination token.
 ldsaNextToken :: Lens' ListDevelopmentSchemaARNs (Maybe Text)
-ldsaNextToken = lens _ldsaNextToken (\ s a -> s{_ldsaNextToken = a});
+ldsaNextToken = lens _ldsaNextToken (\ s a -> s{_ldsaNextToken = a})
 
 -- | The maximum number of results to retrieve.
 ldsaMaxResults :: Lens' ListDevelopmentSchemaARNs (Maybe Natural)
-ldsaMaxResults = lens _ldsaMaxResults (\ s a -> s{_ldsaMaxResults = a}) . mapping _Nat;
+ldsaMaxResults = lens _ldsaMaxResults (\ s a -> s{_ldsaMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListDevelopmentSchemaARNs where
+        page rq rs
+          | stop (rs ^. ldsarsNextToken) = Nothing
+          | stop (rs ^. ldsarsSchemaARNs) = Nothing
+          | otherwise =
+            Just $ rq & ldsaNextToken .~ rs ^. ldsarsNextToken
 
 instance AWSRequest ListDevelopmentSchemaARNs where
         type Rs ListDevelopmentSchemaARNs =
@@ -131,23 +141,23 @@ listDevelopmentSchemaARNsResponse
     -> ListDevelopmentSchemaARNsResponse
 listDevelopmentSchemaARNsResponse pResponseStatus_ =
   ListDevelopmentSchemaARNsResponse'
-  { _ldsarsSchemaARNs = Nothing
-  , _ldsarsNextToken = Nothing
-  , _ldsarsResponseStatus = pResponseStatus_
-  }
+    { _ldsarsSchemaARNs = Nothing
+    , _ldsarsNextToken = Nothing
+    , _ldsarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ARNs of retrieved development schemas.
 ldsarsSchemaARNs :: Lens' ListDevelopmentSchemaARNsResponse [Text]
-ldsarsSchemaARNs = lens _ldsarsSchemaARNs (\ s a -> s{_ldsarsSchemaARNs = a}) . _Default . _Coerce;
+ldsarsSchemaARNs = lens _ldsarsSchemaARNs (\ s a -> s{_ldsarsSchemaARNs = a}) . _Default . _Coerce
 
 -- | The pagination token.
 ldsarsNextToken :: Lens' ListDevelopmentSchemaARNsResponse (Maybe Text)
-ldsarsNextToken = lens _ldsarsNextToken (\ s a -> s{_ldsarsNextToken = a});
+ldsarsNextToken = lens _ldsarsNextToken (\ s a -> s{_ldsarsNextToken = a})
 
 -- | -- | The response status code.
 ldsarsResponseStatus :: Lens' ListDevelopmentSchemaARNsResponse Int
-ldsarsResponseStatus = lens _ldsarsResponseStatus (\ s a -> s{_ldsarsResponseStatus = a});
+ldsarsResponseStatus = lens _ldsarsResponseStatus (\ s a -> s{_ldsarsResponseStatus = a})
 
 instance NFData ListDevelopmentSchemaARNsResponse
          where

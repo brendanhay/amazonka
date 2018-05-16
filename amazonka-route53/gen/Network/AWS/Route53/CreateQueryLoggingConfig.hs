@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateQueryLoggingConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,7 +49,7 @@
 --
 --
 --
---     * Create a CloudWatch Logs resource policy, and give it the permissions that Amazon Route 53 needs to create log streams and to to send query logs to log streams. For the value of @Resource@ , specify the ARN for the log group that you created in the previous step. To use the same resource policy for all the CloudWatch Logs log groups that you created for query logging configurations, replace the hosted zone name with @*@ , for example:
+--     * Create a CloudWatch Logs resource policy, and give it the permissions that Amazon Route 53 needs to create log streams and to send query logs to log streams. For the value of @Resource@ , specify the ARN for the log group that you created in the previous step. To use the same resource policy for all the CloudWatch Logs log groups that you created for query logging configurations, replace the hosted zone name with @*@ , for example:
 --
 -- @arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*@
 --
@@ -124,18 +124,18 @@ createQueryLoggingConfig
     -> CreateQueryLoggingConfig
 createQueryLoggingConfig pHostedZoneId_ pCloudWatchLogsLogGroupARN_ =
   CreateQueryLoggingConfig'
-  { _cqlcHostedZoneId = pHostedZoneId_
-  , _cqlcCloudWatchLogsLogGroupARN = pCloudWatchLogsLogGroupARN_
-  }
+    { _cqlcHostedZoneId = pHostedZoneId_
+    , _cqlcCloudWatchLogsLogGroupARN = pCloudWatchLogsLogGroupARN_
+    }
 
 
 -- | The ID of the hosted zone that you want to log queries for. You can log queries only for public hosted zones.
 cqlcHostedZoneId :: Lens' CreateQueryLoggingConfig ResourceId
-cqlcHostedZoneId = lens _cqlcHostedZoneId (\ s a -> s{_cqlcHostedZoneId = a});
+cqlcHostedZoneId = lens _cqlcHostedZoneId (\ s a -> s{_cqlcHostedZoneId = a})
 
 -- | The Amazon Resource Name (ARN) for the log group that you want to Amazon Route 53 to send query logs to. This is the format of the ARN: arn:aws:logs:/region/ :/account-id/ :log-group:/log_group_name/  To get the ARN for a log group, you can use the CloudWatch console, the <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html DescribeLogGroups> API action, the <http://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html describe-log-groups> command, or the applicable command in one of the AWS SDKs.
 cqlcCloudWatchLogsLogGroupARN :: Lens' CreateQueryLoggingConfig Text
-cqlcCloudWatchLogsLogGroupARN = lens _cqlcCloudWatchLogsLogGroupARN (\ s a -> s{_cqlcCloudWatchLogsLogGroupARN = a});
+cqlcCloudWatchLogsLogGroupARN = lens _cqlcCloudWatchLogsLogGroupARN (\ s a -> s{_cqlcCloudWatchLogsLogGroupARN = a})
 
 instance AWSRequest CreateQueryLoggingConfig where
         type Rs CreateQueryLoggingConfig =
@@ -197,23 +197,23 @@ createQueryLoggingConfigResponse
     -> CreateQueryLoggingConfigResponse
 createQueryLoggingConfigResponse pResponseStatus_ pQueryLoggingConfig_ pLocation_ =
   CreateQueryLoggingConfigResponse'
-  { _cqlcrsResponseStatus = pResponseStatus_
-  , _cqlcrsQueryLoggingConfig = pQueryLoggingConfig_
-  , _cqlcrsLocation = pLocation_
-  }
+    { _cqlcrsResponseStatus = pResponseStatus_
+    , _cqlcrsQueryLoggingConfig = pQueryLoggingConfig_
+    , _cqlcrsLocation = pLocation_
+    }
 
 
 -- | -- | The response status code.
 cqlcrsResponseStatus :: Lens' CreateQueryLoggingConfigResponse Int
-cqlcrsResponseStatus = lens _cqlcrsResponseStatus (\ s a -> s{_cqlcrsResponseStatus = a});
+cqlcrsResponseStatus = lens _cqlcrsResponseStatus (\ s a -> s{_cqlcrsResponseStatus = a})
 
 -- | A complex type that contains the ID for a query logging configuration, the ID of the hosted zone that you want to log queries for, and the ARN for the log group that you want Amazon Route 53 to send query logs to.
 cqlcrsQueryLoggingConfig :: Lens' CreateQueryLoggingConfigResponse QueryLoggingConfig
-cqlcrsQueryLoggingConfig = lens _cqlcrsQueryLoggingConfig (\ s a -> s{_cqlcrsQueryLoggingConfig = a});
+cqlcrsQueryLoggingConfig = lens _cqlcrsQueryLoggingConfig (\ s a -> s{_cqlcrsQueryLoggingConfig = a})
 
 -- | The unique URL representing the new query logging configuration.
 cqlcrsLocation :: Lens' CreateQueryLoggingConfigResponse Text
-cqlcrsLocation = lens _cqlcrsLocation (\ s a -> s{_cqlcrsLocation = a});
+cqlcrsLocation = lens _cqlcrsLocation (\ s a -> s{_cqlcrsLocation = a})
 
 instance NFData CreateQueryLoggingConfigResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateTrafficPolicyInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -89,28 +89,28 @@ updateTrafficPolicyInstance
     -> UpdateTrafficPolicyInstance
 updateTrafficPolicyInstance pId_ pTTL_ pTrafficPolicyId_ pTrafficPolicyVersion_ =
   UpdateTrafficPolicyInstance'
-  { _utpiId = pId_
-  , _utpiTTL = _Nat # pTTL_
-  , _utpiTrafficPolicyId = pTrafficPolicyId_
-  , _utpiTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
-  }
+    { _utpiId = pId_
+    , _utpiTTL = _Nat # pTTL_
+    , _utpiTrafficPolicyId = pTrafficPolicyId_
+    , _utpiTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
+    }
 
 
 -- | The ID of the traffic policy instance that you want to update.
 utpiId :: Lens' UpdateTrafficPolicyInstance Text
-utpiId = lens _utpiId (\ s a -> s{_utpiId = a});
+utpiId = lens _utpiId (\ s a -> s{_utpiId = a})
 
 -- | The TTL that you want Amazon Route 53 to assign to all of the updated resource record sets.
 utpiTTL :: Lens' UpdateTrafficPolicyInstance Natural
-utpiTTL = lens _utpiTTL (\ s a -> s{_utpiTTL = a}) . _Nat;
+utpiTTL = lens _utpiTTL (\ s a -> s{_utpiTTL = a}) . _Nat
 
 -- | The ID of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
 utpiTrafficPolicyId :: Lens' UpdateTrafficPolicyInstance Text
-utpiTrafficPolicyId = lens _utpiTrafficPolicyId (\ s a -> s{_utpiTrafficPolicyId = a});
+utpiTrafficPolicyId = lens _utpiTrafficPolicyId (\ s a -> s{_utpiTrafficPolicyId = a})
 
 -- | The version of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
 utpiTrafficPolicyVersion :: Lens' UpdateTrafficPolicyInstance Natural
-utpiTrafficPolicyVersion = lens _utpiTrafficPolicyVersion (\ s a -> s{_utpiTrafficPolicyVersion = a}) . _Nat;
+utpiTrafficPolicyVersion = lens _utpiTrafficPolicyVersion (\ s a -> s{_utpiTrafficPolicyVersion = a}) . _Nat
 
 instance AWSRequest UpdateTrafficPolicyInstance where
         type Rs UpdateTrafficPolicyInstance =
@@ -174,18 +174,18 @@ updateTrafficPolicyInstanceResponse
     -> UpdateTrafficPolicyInstanceResponse
 updateTrafficPolicyInstanceResponse pResponseStatus_ pTrafficPolicyInstance_ =
   UpdateTrafficPolicyInstanceResponse'
-  { _utpirsResponseStatus = pResponseStatus_
-  , _utpirsTrafficPolicyInstance = pTrafficPolicyInstance_
-  }
+    { _utpirsResponseStatus = pResponseStatus_
+    , _utpirsTrafficPolicyInstance = pTrafficPolicyInstance_
+    }
 
 
 -- | -- | The response status code.
 utpirsResponseStatus :: Lens' UpdateTrafficPolicyInstanceResponse Int
-utpirsResponseStatus = lens _utpirsResponseStatus (\ s a -> s{_utpirsResponseStatus = a});
+utpirsResponseStatus = lens _utpirsResponseStatus (\ s a -> s{_utpirsResponseStatus = a})
 
 -- | A complex type that contains settings for the updated traffic policy instance.
 utpirsTrafficPolicyInstance :: Lens' UpdateTrafficPolicyInstanceResponse TrafficPolicyInstance
-utpirsTrafficPolicyInstance = lens _utpirsTrafficPolicyInstance (\ s a -> s{_utpirsTrafficPolicyInstance = a});
+utpirsTrafficPolicyInstance = lens _utpirsTrafficPolicyInstance (\ s a -> s{_utpirsTrafficPolicyInstance = a})
 
 instance NFData UpdateTrafficPolicyInstanceResponse
          where

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateDomainContact
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation updates the contact information for a particular domain. Information for at least one contact (registrant, administrator, or technical) must be supplied for update.
+-- This operation updates the contact information for a particular domain. You must specify information for at least one contact: registrant, administrator, or technical.
 --
 --
 -- If the update is successful, this method returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
@@ -78,28 +78,28 @@ updateDomainContact
     -> UpdateDomainContact
 updateDomainContact pDomainName_ =
   UpdateDomainContact'
-  { _udcRegistrantContact = Nothing
-  , _udcAdminContact = Nothing
-  , _udcTechContact = Nothing
-  , _udcDomainName = pDomainName_
-  }
+    { _udcRegistrantContact = Nothing
+    , _udcAdminContact = Nothing
+    , _udcTechContact = Nothing
+    , _udcDomainName = pDomainName_
+    }
 
 
 -- | Provides detailed contact information.
 udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcRegistrantContact = lens _udcRegistrantContact (\ s a -> s{_udcRegistrantContact = a}) . mapping _Sensitive;
+udcRegistrantContact = lens _udcRegistrantContact (\ s a -> s{_udcRegistrantContact = a}) . mapping _Sensitive
 
 -- | Provides detailed contact information.
 udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcAdminContact = lens _udcAdminContact (\ s a -> s{_udcAdminContact = a}) . mapping _Sensitive;
+udcAdminContact = lens _udcAdminContact (\ s a -> s{_udcAdminContact = a}) . mapping _Sensitive
 
 -- | Provides detailed contact information.
 udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcTechContact = lens _udcTechContact (\ s a -> s{_udcTechContact = a}) . mapping _Sensitive;
+udcTechContact = lens _udcTechContact (\ s a -> s{_udcTechContact = a}) . mapping _Sensitive
 
 -- | The name of the domain that you want to update contact information for.
 udcDomainName :: Lens' UpdateDomainContact Text
-udcDomainName = lens _udcDomainName (\ s a -> s{_udcDomainName = a});
+udcDomainName = lens _udcDomainName (\ s a -> s{_udcDomainName = a})
 
 instance AWSRequest UpdateDomainContact where
         type Rs UpdateDomainContact =
@@ -164,15 +164,15 @@ updateDomainContactResponse
     -> UpdateDomainContactResponse
 updateDomainContactResponse pResponseStatus_ pOperationId_ =
   UpdateDomainContactResponse'
-  {_udcrsResponseStatus = pResponseStatus_, _udcrsOperationId = pOperationId_}
+    {_udcrsResponseStatus = pResponseStatus_, _udcrsOperationId = pOperationId_}
 
 
 -- | -- | The response status code.
 udcrsResponseStatus :: Lens' UpdateDomainContactResponse Int
-udcrsResponseStatus = lens _udcrsResponseStatus (\ s a -> s{_udcrsResponseStatus = a});
+udcrsResponseStatus = lens _udcrsResponseStatus (\ s a -> s{_udcrsResponseStatus = a})
 
 -- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 udcrsOperationId :: Lens' UpdateDomainContactResponse Text
-udcrsOperationId = lens _udcrsOperationId (\ s a -> s{_udcrsOperationId = a});
+udcrsOperationId = lens _udcrsOperationId (\ s a -> s{_udcrsOperationId = a})
 
 instance NFData UpdateDomainContactResponse where

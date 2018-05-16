@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,9 @@ module Network.AWS.Greengrass.Types
     -- * DeploymentType
     , DeploymentType (..)
 
+    -- * EncodingType
+    , EncodingType (..)
+
     -- * LoggerComponent
     , LoggerComponent (..)
 
@@ -30,6 +33,21 @@ module Network.AWS.Greengrass.Types
 
     -- * LoggerType
     , LoggerType (..)
+
+    -- * Permission
+    , Permission (..)
+
+    -- * SoftwareToUpdate
+    , SoftwareToUpdate (..)
+
+    -- * UpdateAgentLogLevel
+    , UpdateAgentLogLevel (..)
+
+    -- * UpdateTargetsArchitecture
+    , UpdateTargetsArchitecture (..)
+
+    -- * UpdateTargetsOperatingSystem
+    , UpdateTargetsOperatingSystem (..)
 
     -- * ConnectivityInfo
     , ConnectivityInfo
@@ -106,12 +124,15 @@ module Network.AWS.Greengrass.Types
     , fcEnvironment
     , fcExecutable
     , fcPinned
+    , fcEncodingType
     , fcTimeout
 
     -- * FunctionConfigurationEnvironment
     , FunctionConfigurationEnvironment
     , functionConfigurationEnvironment
     , fceVariables
+    , fceResourceAccessPolicies
+    , fceAccessSysfs
 
     -- * FunctionDefinitionVersion
     , FunctionDefinitionVersion
@@ -144,19 +165,77 @@ module Network.AWS.Greengrass.Types
     , giLatestVersion
     , giLastUpdatedTimestamp
 
+    -- * GroupOwnerSetting
+    , GroupOwnerSetting
+    , groupOwnerSetting
+    , gosAutoAddGroupOwner
+    , gosGroupOwner
+
     -- * GroupVersion
     , GroupVersion
     , groupVersion
+    , gvResourceDefinitionVersionARN
     , gvSubscriptionDefinitionVersionARN
     , gvCoreDefinitionVersionARN
     , gvDeviceDefinitionVersionARN
     , gvFunctionDefinitionVersionARN
     , gvLoggerDefinitionVersionARN
 
+    -- * LocalDeviceResourceData
+    , LocalDeviceResourceData
+    , localDeviceResourceData
+    , ldrdGroupOwnerSetting
+    , ldrdSourcePath
+
+    -- * LocalVolumeResourceData
+    , LocalVolumeResourceData
+    , localVolumeResourceData
+    , lvrdGroupOwnerSetting
+    , lvrdDestinationPath
+    , lvrdSourcePath
+
     -- * LoggerDefinitionVersion
     , LoggerDefinitionVersion
     , loggerDefinitionVersion
     , ldvLoggers
+
+    -- * Resource
+    , Resource
+    , resource
+    , rResourceDataContainer
+    , rName
+    , rId
+
+    -- * ResourceAccessPolicy
+    , ResourceAccessPolicy
+    , resourceAccessPolicy
+    , rapResourceId
+    , rapPermission
+
+    -- * ResourceDataContainer
+    , ResourceDataContainer
+    , resourceDataContainer
+    , rdcS3MachineLearningModelResourceData
+    , rdcSageMakerMachineLearningModelResourceData
+    , rdcLocalVolumeResourceData
+    , rdcLocalDeviceResourceData
+
+    -- * ResourceDefinitionVersion
+    , ResourceDefinitionVersion
+    , resourceDefinitionVersion
+    , rdvResources
+
+    -- * S3MachineLearningModelResourceData
+    , S3MachineLearningModelResourceData
+    , s3MachineLearningModelResourceData
+    , smlmrdDestinationPath
+    , smlmrdS3URI
+
+    -- * SageMakerMachineLearningModelResourceData
+    , SageMakerMachineLearningModelResourceData
+    , sageMakerMachineLearningModelResourceData
+    , smmlmrdSageMakerJobARN
+    , smmlmrdDestinationPath
 
     -- * Subscription
     , Subscription
@@ -190,24 +269,24 @@ import Network.AWS.Sign.V4
 greengrass :: Service
 greengrass =
   Service
-  { _svcAbbrev = "Greengrass"
-  , _svcSigner = v4
-  , _svcPrefix = "greengrass"
-  , _svcVersion = "2017-06-07"
-  , _svcEndpoint = defaultEndpoint greengrass
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Greengrass"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Greengrass"
+    , _svcSigner = v4
+    , _svcPrefix = "greengrass"
+    , _svcVersion = "2017-06-07"
+    , _svcEndpoint = defaultEndpoint greengrass
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "Greengrass"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -216,6 +295,8 @@ greengrass =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -223,13 +304,13 @@ greengrass =
       | otherwise = Nothing
 
 
--- | General Error
+-- | General error information.
 _InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerErrorException =
   _MatchServiceError greengrass "InternalServerErrorException" . hasStatus 500
 
 
--- | General Error
+-- | General error information.
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _BadRequestException =
   _MatchServiceError greengrass "BadRequestException" . hasStatus 400

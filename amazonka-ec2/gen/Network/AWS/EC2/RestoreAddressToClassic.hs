@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RestoreAddressToClassic
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ restoreAddressToClassic pPublicIP_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ratcDryRun :: Lens' RestoreAddressToClassic (Maybe Bool)
-ratcDryRun = lens _ratcDryRun (\ s a -> s{_ratcDryRun = a});
+ratcDryRun = lens _ratcDryRun (\ s a -> s{_ratcDryRun = a})
 
 -- | The Elastic IP address.
 ratcPublicIP :: Lens' RestoreAddressToClassic Text
-ratcPublicIP = lens _ratcPublicIP (\ s a -> s{_ratcPublicIP = a});
+ratcPublicIP = lens _ratcPublicIP (\ s a -> s{_ratcPublicIP = a})
 
 instance AWSRequest RestoreAddressToClassic where
         type Rs RestoreAddressToClassic =
@@ -134,22 +134,22 @@ restoreAddressToClassicResponse
     -> RestoreAddressToClassicResponse
 restoreAddressToClassicResponse pResponseStatus_ =
   RestoreAddressToClassicResponse'
-  { _ratcrsStatus = Nothing
-  , _ratcrsPublicIP = Nothing
-  , _ratcrsResponseStatus = pResponseStatus_
-  }
+    { _ratcrsStatus = Nothing
+    , _ratcrsPublicIP = Nothing
+    , _ratcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The move status for the IP address.
 ratcrsStatus :: Lens' RestoreAddressToClassicResponse (Maybe AddressStatus)
-ratcrsStatus = lens _ratcrsStatus (\ s a -> s{_ratcrsStatus = a});
+ratcrsStatus = lens _ratcrsStatus (\ s a -> s{_ratcrsStatus = a})
 
 -- | The Elastic IP address.
 ratcrsPublicIP :: Lens' RestoreAddressToClassicResponse (Maybe Text)
-ratcrsPublicIP = lens _ratcrsPublicIP (\ s a -> s{_ratcrsPublicIP = a});
+ratcrsPublicIP = lens _ratcrsPublicIP (\ s a -> s{_ratcrsPublicIP = a})
 
 -- | -- | The response status code.
 ratcrsResponseStatus :: Lens' RestoreAddressToClassicResponse Int
-ratcrsResponseStatus = lens _ratcrsResponseStatus (\ s a -> s{_ratcrsResponseStatus = a});
+ratcrsResponseStatus = lens _ratcrsResponseStatus (\ s a -> s{_ratcrsResponseStatus = a})
 
 instance NFData RestoreAddressToClassicResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.RemoveTagsFromResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ removeTagsFromResource
     -> RemoveTagsFromResource
 removeTagsFromResource pResourceName_ =
   RemoveTagsFromResource'
-  {_rtfrResourceName = pResourceName_, _rtfrTagKeys = mempty}
+    {_rtfrResourceName = pResourceName_, _rtfrTagKeys = mempty}
 
 
 -- | The Amazon Resource Name (ARN) of the resource from which you want the tags removed, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 rtfrResourceName :: Lens' RemoveTagsFromResource Text
-rtfrResourceName = lens _rtfrResourceName (\ s a -> s{_rtfrResourceName = a});
+rtfrResourceName = lens _rtfrResourceName (\ s a -> s{_rtfrResourceName = a})
 
 -- | A list of @TagKeys@ identifying the tags you want removed from the named resource.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
+rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce
 
 instance AWSRequest RemoveTagsFromResource where
         type Rs RemoveTagsFromResource = TagListMessage

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.DescribeExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ describeExecution pExecutionARN_ =
 
 -- | The Amazon Resource Name (ARN) of the execution to describe.
 deExecutionARN :: Lens' DescribeExecution Text
-deExecutionARN = lens _deExecutionARN (\ s a -> s{_deExecutionARN = a});
+deExecutionARN = lens _deExecutionARN (\ s a -> s{_deExecutionARN = a})
 
 instance AWSRequest DescribeExecution where
         type Rs DescribeExecution = DescribeExecutionResponse
@@ -146,7 +146,7 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
 --
 -- * 'dersStatus' - The current status of the execution.
 --
--- * 'dersStartDate' - The date the execution was started.
+-- * 'dersStartDate' - The date the execution is started.
 --
 -- * 'dersInput' - The string that contains the JSON input data of the execution.
 describeExecutionResponse
@@ -159,52 +159,52 @@ describeExecutionResponse
     -> DescribeExecutionResponse
 describeExecutionResponse pResponseStatus_ pExecutionARN_ pStateMachineARN_ pStatus_ pStartDate_ pInput_ =
   DescribeExecutionResponse'
-  { _dersStopDate = Nothing
-  , _dersName = Nothing
-  , _dersOutput = Nothing
-  , _dersResponseStatus = pResponseStatus_
-  , _dersExecutionARN = pExecutionARN_
-  , _dersStateMachineARN = pStateMachineARN_
-  , _dersStatus = pStatus_
-  , _dersStartDate = _Time # pStartDate_
-  , _dersInput = pInput_
-  }
+    { _dersStopDate = Nothing
+    , _dersName = Nothing
+    , _dersOutput = Nothing
+    , _dersResponseStatus = pResponseStatus_
+    , _dersExecutionARN = pExecutionARN_
+    , _dersStateMachineARN = pStateMachineARN_
+    , _dersStatus = pStatus_
+    , _dersStartDate = _Time # pStartDate_
+    , _dersInput = pInput_
+    }
 
 
 -- | If the execution has already ended, the date the execution stopped.
 dersStopDate :: Lens' DescribeExecutionResponse (Maybe UTCTime)
-dersStopDate = lens _dersStopDate (\ s a -> s{_dersStopDate = a}) . mapping _Time;
+dersStopDate = lens _dersStopDate (\ s a -> s{_dersStopDate = a}) . mapping _Time
 
 -- | The name of the execution. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 dersName :: Lens' DescribeExecutionResponse (Maybe Text)
-dersName = lens _dersName (\ s a -> s{_dersName = a});
+dersName = lens _dersName (\ s a -> s{_dersName = a})
 
 -- | The JSON output data of the execution.
 dersOutput :: Lens' DescribeExecutionResponse (Maybe Text)
-dersOutput = lens _dersOutput (\ s a -> s{_dersOutput = a});
+dersOutput = lens _dersOutput (\ s a -> s{_dersOutput = a})
 
 -- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeExecutionResponse Int
-dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a})
 
 -- | The Amazon Resource Name (ARN) that identifies the execution.
 dersExecutionARN :: Lens' DescribeExecutionResponse Text
-dersExecutionARN = lens _dersExecutionARN (\ s a -> s{_dersExecutionARN = a});
+dersExecutionARN = lens _dersExecutionARN (\ s a -> s{_dersExecutionARN = a})
 
 -- | The Amazon Resource Name (ARN) of the executed stated machine.
 dersStateMachineARN :: Lens' DescribeExecutionResponse Text
-dersStateMachineARN = lens _dersStateMachineARN (\ s a -> s{_dersStateMachineARN = a});
+dersStateMachineARN = lens _dersStateMachineARN (\ s a -> s{_dersStateMachineARN = a})
 
 -- | The current status of the execution.
 dersStatus :: Lens' DescribeExecutionResponse ExecutionStatus
-dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
+dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a})
 
--- | The date the execution was started.
+-- | The date the execution is started.
 dersStartDate :: Lens' DescribeExecutionResponse UTCTime
-dersStartDate = lens _dersStartDate (\ s a -> s{_dersStartDate = a}) . _Time;
+dersStartDate = lens _dersStartDate (\ s a -> s{_dersStartDate = a}) . _Time
 
 -- | The string that contains the JSON input data of the execution.
 dersInput :: Lens' DescribeExecutionResponse Text
-dersInput = lens _dersInput (\ s a -> s{_dersInput = a});
+dersInput = lens _dersInput (\ s a -> s{_dersInput = a})
 
 instance NFData DescribeExecutionResponse where

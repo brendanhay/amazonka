@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.CountClosedWorkflowExecutions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -106,43 +106,43 @@ countClosedWorkflowExecutions
     -> CountClosedWorkflowExecutions
 countClosedWorkflowExecutions pDomain_ =
   CountClosedWorkflowExecutions'
-  { _ccweExecutionFilter = Nothing
-  , _ccweCloseStatusFilter = Nothing
-  , _ccweTypeFilter = Nothing
-  , _ccweCloseTimeFilter = Nothing
-  , _ccweTagFilter = Nothing
-  , _ccweStartTimeFilter = Nothing
-  , _ccweDomain = pDomain_
-  }
+    { _ccweExecutionFilter = Nothing
+    , _ccweCloseStatusFilter = Nothing
+    , _ccweTypeFilter = Nothing
+    , _ccweCloseTimeFilter = Nothing
+    , _ccweTagFilter = Nothing
+    , _ccweStartTimeFilter = Nothing
+    , _ccweDomain = pDomain_
+    }
 
 
 -- | If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
 ccweExecutionFilter :: Lens' CountClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
-ccweExecutionFilter = lens _ccweExecutionFilter (\ s a -> s{_ccweExecutionFilter = a});
+ccweExecutionFilter = lens _ccweExecutionFilter (\ s a -> s{_ccweExecutionFilter = a})
 
 -- | If specified, only workflow executions that match this close status are counted. This filter has an affect only if @executionStatus@ is specified as @CLOSED@ .
 ccweCloseStatusFilter :: Lens' CountClosedWorkflowExecutions (Maybe CloseStatusFilter)
-ccweCloseStatusFilter = lens _ccweCloseStatusFilter (\ s a -> s{_ccweCloseStatusFilter = a});
+ccweCloseStatusFilter = lens _ccweCloseStatusFilter (\ s a -> s{_ccweCloseStatusFilter = a})
 
 -- | If specified, indicates the type of the workflow executions to be counted.
 ccweTypeFilter :: Lens' CountClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
-ccweTypeFilter = lens _ccweTypeFilter (\ s a -> s{_ccweTypeFilter = a});
+ccweTypeFilter = lens _ccweTypeFilter (\ s a -> s{_ccweTypeFilter = a})
 
 -- | If specified, only workflow executions that meet the close time criteria of the filter are counted.
 ccweCloseTimeFilter :: Lens' CountClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
-ccweCloseTimeFilter = lens _ccweCloseTimeFilter (\ s a -> s{_ccweCloseTimeFilter = a});
+ccweCloseTimeFilter = lens _ccweCloseTimeFilter (\ s a -> s{_ccweCloseTimeFilter = a})
 
 -- | If specified, only executions that have a tag that matches the filter are counted.
 ccweTagFilter :: Lens' CountClosedWorkflowExecutions (Maybe TagFilter)
-ccweTagFilter = lens _ccweTagFilter (\ s a -> s{_ccweTagFilter = a});
+ccweTagFilter = lens _ccweTagFilter (\ s a -> s{_ccweTagFilter = a})
 
 -- | If specified, only workflow executions that meet the start time criteria of the filter are counted.
 ccweStartTimeFilter :: Lens' CountClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
-ccweStartTimeFilter = lens _ccweStartTimeFilter (\ s a -> s{_ccweStartTimeFilter = a});
+ccweStartTimeFilter = lens _ccweStartTimeFilter (\ s a -> s{_ccweStartTimeFilter = a})
 
 -- | The name of the domain containing the workflow executions to count.
 ccweDomain :: Lens' CountClosedWorkflowExecutions Text
-ccweDomain = lens _ccweDomain (\ s a -> s{_ccweDomain = a});
+ccweDomain = lens _ccweDomain (\ s a -> s{_ccweDomain = a})
 
 instance AWSRequest CountClosedWorkflowExecutions
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateDeployment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Requests Amazon API Gateway to change information about a 'Deployment' resource.
+-- | Requests API Gateway to change information about a 'Deployment' resource.
 --
 --
 --
@@ -66,7 +66,7 @@ data UpdateDeployment = UpdateDeployment'
 --
 -- * 'udPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'udRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'udRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'udDeploymentId' - The replacement identifier for the 'Deployment' resource to change information about.
 updateDeployment
@@ -75,23 +75,23 @@ updateDeployment
     -> UpdateDeployment
 updateDeployment pRestAPIId_ pDeploymentId_ =
   UpdateDeployment'
-  { _udPatchOperations = Nothing
-  , _udRestAPIId = pRestAPIId_
-  , _udDeploymentId = pDeploymentId_
-  }
+    { _udPatchOperations = Nothing
+    , _udRestAPIId = pRestAPIId_
+    , _udDeploymentId = pDeploymentId_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 udPatchOperations :: Lens' UpdateDeployment [PatchOperation]
-udPatchOperations = lens _udPatchOperations (\ s a -> s{_udPatchOperations = a}) . _Default . _Coerce;
+udPatchOperations = lens _udPatchOperations (\ s a -> s{_udPatchOperations = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 udRestAPIId :: Lens' UpdateDeployment Text
-udRestAPIId = lens _udRestAPIId (\ s a -> s{_udRestAPIId = a});
+udRestAPIId = lens _udRestAPIId (\ s a -> s{_udRestAPIId = a})
 
 -- | The replacement identifier for the 'Deployment' resource to change information about.
 udDeploymentId :: Lens' UpdateDeployment Text
-udDeploymentId = lens _udDeploymentId (\ s a -> s{_udDeploymentId = a});
+udDeploymentId = lens _udDeploymentId (\ s a -> s{_udDeploymentId = a})
 
 instance AWSRequest UpdateDeployment where
         type Rs UpdateDeployment = Deployment

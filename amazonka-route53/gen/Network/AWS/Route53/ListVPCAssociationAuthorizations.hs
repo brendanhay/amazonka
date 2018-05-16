@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListVPCAssociationAuthorizations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,23 +76,23 @@ listVPCAssociationAuthorizations
     -> ListVPCAssociationAuthorizations
 listVPCAssociationAuthorizations pHostedZoneId_ =
   ListVPCAssociationAuthorizations'
-  { _lvaaNextToken = Nothing
-  , _lvaaMaxResults = Nothing
-  , _lvaaHostedZoneId = pHostedZoneId_
-  }
+    { _lvaaNextToken = Nothing
+    , _lvaaMaxResults = Nothing
+    , _lvaaHostedZoneId = pHostedZoneId_
+    }
 
 
 -- | /Optional/ : If a response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of results, submit another request, and include the value of @NextToken@ from the response in the @nexttoken@ parameter in another @ListVPCAssociationAuthorizations@ request.
 lvaaNextToken :: Lens' ListVPCAssociationAuthorizations (Maybe Text)
-lvaaNextToken = lens _lvaaNextToken (\ s a -> s{_lvaaNextToken = a});
+lvaaNextToken = lens _lvaaNextToken (\ s a -> s{_lvaaNextToken = a})
 
 -- | /Optional/ : An integer that specifies the maximum number of VPCs that you want Amazon Route 53 to return. If you don't specify a value for @MaxResults@ , Amazon Route 53 returns up to 50 VPCs per page.
 lvaaMaxResults :: Lens' ListVPCAssociationAuthorizations (Maybe Text)
-lvaaMaxResults = lens _lvaaMaxResults (\ s a -> s{_lvaaMaxResults = a});
+lvaaMaxResults = lens _lvaaMaxResults (\ s a -> s{_lvaaMaxResults = a})
 
 -- | The ID of the hosted zone for which you want a list of VPCs that can be associated with the hosted zone.
 lvaaHostedZoneId :: Lens' ListVPCAssociationAuthorizations ResourceId
-lvaaHostedZoneId = lens _lvaaHostedZoneId (\ s a -> s{_lvaaHostedZoneId = a});
+lvaaHostedZoneId = lens _lvaaHostedZoneId (\ s a -> s{_lvaaHostedZoneId = a})
 
 instance AWSRequest ListVPCAssociationAuthorizations
          where
@@ -163,28 +163,28 @@ listVPCAssociationAuthorizationsResponse
     -> ListVPCAssociationAuthorizationsResponse
 listVPCAssociationAuthorizationsResponse pResponseStatus_ pHostedZoneId_ pVPCs_ =
   ListVPCAssociationAuthorizationsResponse'
-  { _lvaarsNextToken = Nothing
-  , _lvaarsResponseStatus = pResponseStatus_
-  , _lvaarsHostedZoneId = pHostedZoneId_
-  , _lvaarsVPCs = _List1 # pVPCs_
-  }
+    { _lvaarsNextToken = Nothing
+    , _lvaarsResponseStatus = pResponseStatus_
+    , _lvaarsHostedZoneId = pHostedZoneId_
+    , _lvaarsVPCs = _List1 # pVPCs_
+    }
 
 
 -- | When the response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of VPCs, submit another @ListVPCAssociationAuthorizations@ request, and include the value of the @NextToken@ element from the response in the @nexttoken@ request parameter.
 lvaarsNextToken :: Lens' ListVPCAssociationAuthorizationsResponse (Maybe Text)
-lvaarsNextToken = lens _lvaarsNextToken (\ s a -> s{_lvaarsNextToken = a});
+lvaarsNextToken = lens _lvaarsNextToken (\ s a -> s{_lvaarsNextToken = a})
 
 -- | -- | The response status code.
 lvaarsResponseStatus :: Lens' ListVPCAssociationAuthorizationsResponse Int
-lvaarsResponseStatus = lens _lvaarsResponseStatus (\ s a -> s{_lvaarsResponseStatus = a});
+lvaarsResponseStatus = lens _lvaarsResponseStatus (\ s a -> s{_lvaarsResponseStatus = a})
 
 -- | The ID of the hosted zone that you can associate the listed VPCs with.
 lvaarsHostedZoneId :: Lens' ListVPCAssociationAuthorizationsResponse ResourceId
-lvaarsHostedZoneId = lens _lvaarsHostedZoneId (\ s a -> s{_lvaarsHostedZoneId = a});
+lvaarsHostedZoneId = lens _lvaarsHostedZoneId (\ s a -> s{_lvaarsHostedZoneId = a})
 
 -- | The list of VPCs that are authorized to be associated with the specified hosted zone.
 lvaarsVPCs :: Lens' ListVPCAssociationAuthorizationsResponse (NonEmpty VPC)
-lvaarsVPCs = lens _lvaarsVPCs (\ s a -> s{_lvaarsVPCs = a}) . _List1;
+lvaarsVPCs = lens _lvaarsVPCs (\ s a -> s{_lvaarsVPCs = a}) . _List1
 
 instance NFData
            ListVPCAssociationAuthorizationsResponse

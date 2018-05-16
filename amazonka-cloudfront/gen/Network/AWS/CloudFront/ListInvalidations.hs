@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListInvalidations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ listInvalidations
     -> ListInvalidations
 listInvalidations pDistributionId_ =
   ListInvalidations'
-  { _liMarker = Nothing
-  , _liMaxItems = Nothing
-  , _liDistributionId = pDistributionId_
-  }
+    { _liMarker = Nothing
+    , _liMaxItems = Nothing
+    , _liDistributionId = pDistributionId_
+    }
 
 
 -- | Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set @Marker@ to the value of the @NextMarker@ from the current page's response. This value is the same as the ID of the last invalidation batch on that page.
 liMarker :: Lens' ListInvalidations (Maybe Text)
-liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
+liMarker = lens _liMarker (\ s a -> s{_liMarker = a})
 
 -- | The maximum number of invalidation batches that you want in the response body.
 liMaxItems :: Lens' ListInvalidations (Maybe Text)
-liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
+liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a})
 
 -- | The distribution's ID.
 liDistributionId :: Lens' ListInvalidations Text
-liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
+liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a})
 
 instance AWSPager ListInvalidations where
         page rq rs
@@ -124,7 +124,7 @@ instance ToHeaders ListInvalidations where
 instance ToPath ListInvalidations where
         toPath ListInvalidations'{..}
           = mconcat
-              ["/2017-03-25/distribution/", toBS _liDistributionId,
+              ["/2017-10-30/distribution/", toBS _liDistributionId,
                "/invalidation"]
 
 instance ToQuery ListInvalidations where
@@ -156,17 +156,17 @@ listInvalidationsResponse
     -> ListInvalidationsResponse
 listInvalidationsResponse pResponseStatus_ pInvalidationList_ =
   ListInvalidationsResponse'
-  { _lirsResponseStatus = pResponseStatus_
-  , _lirsInvalidationList = pInvalidationList_
-  }
+    { _lirsResponseStatus = pResponseStatus_
+    , _lirsInvalidationList = pInvalidationList_
+    }
 
 
 -- | -- | The response status code.
 lirsResponseStatus :: Lens' ListInvalidationsResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a})
 
 -- | Information about invalidation batches.
 lirsInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
-lirsInvalidationList = lens _lirsInvalidationList (\ s a -> s{_lirsInvalidationList = a});
+lirsInvalidationList = lens _lirsInvalidationList (\ s a -> s{_lirsInvalidationList = a})
 
 instance NFData ListInvalidationsResponse where

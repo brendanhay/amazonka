@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateGroupCertificateAuthority
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,24 +54,24 @@ data CreateGroupCertificateAuthority = CreateGroupCertificateAuthority'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cgcaAmznClientToken' - The client token used to request idempotent operations.
+-- * 'cgcaAmznClientToken' - A client token used to correlate requests and responses.
 --
--- * 'cgcaGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'cgcaGroupId' - The ID of the AWS Greengrass group.
 createGroupCertificateAuthority
     :: Text -- ^ 'cgcaGroupId'
     -> CreateGroupCertificateAuthority
 createGroupCertificateAuthority pGroupId_ =
   CreateGroupCertificateAuthority'
-  {_cgcaAmznClientToken = Nothing, _cgcaGroupId = pGroupId_}
+    {_cgcaAmznClientToken = Nothing, _cgcaGroupId = pGroupId_}
 
 
--- | The client token used to request idempotent operations.
+-- | A client token used to correlate requests and responses.
 cgcaAmznClientToken :: Lens' CreateGroupCertificateAuthority (Maybe Text)
-cgcaAmznClientToken = lens _cgcaAmznClientToken (\ s a -> s{_cgcaAmznClientToken = a});
+cgcaAmznClientToken = lens _cgcaAmznClientToken (\ s a -> s{_cgcaAmznClientToken = a})
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 cgcaGroupId :: Lens' CreateGroupCertificateAuthority Text
-cgcaGroupId = lens _cgcaGroupId (\ s a -> s{_cgcaGroupId = a});
+cgcaGroupId = lens _cgcaGroupId (\ s a -> s{_cgcaGroupId = a})
 
 instance AWSRequest CreateGroupCertificateAuthority
          where
@@ -122,7 +122,7 @@ data CreateGroupCertificateAuthorityResponse = CreateGroupCertificateAuthorityRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cgcarsGroupCertificateAuthorityARN' - Arn of the group certificate authority.
+-- * 'cgcarsGroupCertificateAuthorityARN' - The ARN of the group certificate authority.
 --
 -- * 'cgcarsResponseStatus' - -- | The response status code.
 createGroupCertificateAuthorityResponse
@@ -130,18 +130,18 @@ createGroupCertificateAuthorityResponse
     -> CreateGroupCertificateAuthorityResponse
 createGroupCertificateAuthorityResponse pResponseStatus_ =
   CreateGroupCertificateAuthorityResponse'
-  { _cgcarsGroupCertificateAuthorityARN = Nothing
-  , _cgcarsResponseStatus = pResponseStatus_
-  }
+    { _cgcarsGroupCertificateAuthorityARN = Nothing
+    , _cgcarsResponseStatus = pResponseStatus_
+    }
 
 
--- | Arn of the group certificate authority.
+-- | The ARN of the group certificate authority.
 cgcarsGroupCertificateAuthorityARN :: Lens' CreateGroupCertificateAuthorityResponse (Maybe Text)
-cgcarsGroupCertificateAuthorityARN = lens _cgcarsGroupCertificateAuthorityARN (\ s a -> s{_cgcarsGroupCertificateAuthorityARN = a});
+cgcarsGroupCertificateAuthorityARN = lens _cgcarsGroupCertificateAuthorityARN (\ s a -> s{_cgcarsGroupCertificateAuthorityARN = a})
 
 -- | -- | The response status code.
 cgcarsResponseStatus :: Lens' CreateGroupCertificateAuthorityResponse Int
-cgcarsResponseStatus = lens _cgcarsResponseStatus (\ s a -> s{_cgcarsResponseStatus = a});
+cgcarsResponseStatus = lens _cgcarsResponseStatus (\ s a -> s{_cgcarsResponseStatus = a})
 
 instance NFData
            CreateGroupCertificateAuthorityResponse

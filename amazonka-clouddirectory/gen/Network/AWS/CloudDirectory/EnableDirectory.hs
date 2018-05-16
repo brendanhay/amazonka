@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.EnableDirectory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ enableDirectory pDirectoryARN_ =
 
 -- | The ARN of the directory to enable.
 edDirectoryARN :: Lens' EnableDirectory Text
-edDirectoryARN = lens _edDirectoryARN (\ s a -> s{_edDirectoryARN = a});
+edDirectoryARN = lens _edDirectoryARN (\ s a -> s{_edDirectoryARN = a})
 
 instance AWSRequest EnableDirectory where
         type Rs EnableDirectory = EnableDirectoryResponse
@@ -114,15 +114,15 @@ enableDirectoryResponse
     -> EnableDirectoryResponse
 enableDirectoryResponse pResponseStatus_ pDirectoryARN_ =
   EnableDirectoryResponse'
-  {_edrsResponseStatus = pResponseStatus_, _edrsDirectoryARN = pDirectoryARN_}
+    {_edrsResponseStatus = pResponseStatus_, _edrsDirectoryARN = pDirectoryARN_}
 
 
 -- | -- | The response status code.
 edrsResponseStatus :: Lens' EnableDirectoryResponse Int
-edrsResponseStatus = lens _edrsResponseStatus (\ s a -> s{_edrsResponseStatus = a});
+edrsResponseStatus = lens _edrsResponseStatus (\ s a -> s{_edrsResponseStatus = a})
 
 -- | The ARN of the enabled directory.
 edrsDirectoryARN :: Lens' EnableDirectoryResponse Text
-edrsDirectoryARN = lens _edrsDirectoryARN (\ s a -> s{_edrsDirectoryARN = a});
+edrsDirectoryARN = lens _edrsDirectoryARN (\ s a -> s{_edrsDirectoryARN = a})
 
 instance NFData EnableDirectoryResponse where

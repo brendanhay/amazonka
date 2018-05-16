@@ -12,18 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.RequestCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate, you must specify the fully qualified domain name (FQDN) for your site in the @DomainName@ parameter. You can also specify additional FQDNs in the @SubjectAlternativeNames@ parameter if users can reach your site by using other names.
+-- Requests an ACM certificate for use with other AWS services. To request an ACM certificate, you must specify a fully qualified domain name (FQDN) in the @DomainName@ parameter. You can also specify additional FQDNs in the @SubjectAlternativeNames@ parameter.
 --
 --
--- For each domain name you specify, email is sent to the domain owner to request approval to issue the certificate. Email is sent to three registered contact addresses in the WHOIS database and to five common system administration addresses formed from the @DomainName@ you enter or the optional @ValidationDomain@ parameter. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate.html Validate Domain Ownership> .
---
--- After receiving approval from the domain owner, the ACM Certificate is issued. For more information, see the <http://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide> .
+-- If you are requesting a private certificate, domain validation is not required. If you are requesting a public certificate, each domain name that you specify must be validated to verify that you own or control the domain. You can use <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html DNS validation> or <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html email validation> . We recommend that you use DNS validation. ACM issues public certificates after receiving approval from the domain owner.
 --
 module Network.AWS.CertificateManager.RequestCertificate
     (
@@ -32,8 +30,11 @@ module Network.AWS.CertificateManager.RequestCertificate
     , RequestCertificate
     -- * Request Lenses
     , rcIdempotencyToken
+    , rcValidationMethod
     , rcSubjectAlternativeNames
+    , rcOptions
     , rcDomainValidationOptions
+    , rcCertificateAuthorityARN
     , rcDomainName
 
     -- * Destructuring the Response
@@ -54,8 +55,11 @@ import Network.AWS.Response
 -- | /See:/ 'requestCertificate' smart constructor.
 data RequestCertificate = RequestCertificate'
   { _rcIdempotencyToken        :: !(Maybe Text)
+  , _rcValidationMethod        :: !(Maybe ValidationMethod)
   , _rcSubjectAlternativeNames :: !(Maybe (List1 Text))
+  , _rcOptions                 :: !(Maybe CertificateOptions)
   , _rcDomainValidationOptions :: !(Maybe (List1 DomainValidationOption))
+  , _rcCertificateAuthorityARN :: !(Maybe Text)
   , _rcDomainName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -66,38 +70,59 @@ data RequestCertificate = RequestCertificate'
 --
 -- * 'rcIdempotencyToken' - Customer chosen string that can be used to distinguish between calls to @RequestCertificate@ . Idempotency tokens time out after one hour. Therefore, if you call @RequestCertificate@ multiple times with the same idempotency token within one hour, ACM recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, ACM recognizes that you are requesting multiple certificates.
 --
--- * 'rcSubjectAlternativeNames' - Additional FQDNs to be included in the Subject Alternative Name extension of the ACM Certificate. For example, add the name www.example.net to a certificate for which the @DomainName@ field is www.example.com if users can reach your site by using either name. The maximum number of domain names that you can add to an ACM Certificate is 100. However, the initial limit is 10 domain names. If you need more than 10 names, you must request a limit increase. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits> .
+-- * 'rcValidationMethod' - The method you want to use if you are requesting a public certificate to validate that you own or control domain. You can <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html validate with DNS> or <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html validate with email> . We recommend that you use DNS validation.
 --
--- * 'rcDomainValidationOptions' - The domain name that you want ACM to use to send you emails to validate your ownership of the domain.
+-- * 'rcSubjectAlternativeNames' - Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate. For example, add the name www.example.net to a certificate for which the @DomainName@ field is www.example.com if users can reach your site by using either name. The maximum number of domain names that you can add to an ACM certificate is 100. However, the initial limit is 10 domain names. If you need more than 10 names, you must request a limit increase. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits> . The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple labels separated by periods. No label can be longer than 63 octets. Consider the following examples:      * @(63 octets).(63 octets).(63 octets).(61 octets)@ is legal because the total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.     * @(64 octets).(63 octets).(63 octets).(61 octets)@ is not legal because the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds 63 octets.     * @(63 octets).(63 octets).(63 octets).(62 octets)@ is not legal because the total length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.
 --
--- * 'rcDomainName' - Fully qualified domain name (FQDN), such as www.example.com, of the site that you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.  The maximum length of a DNS name is 253 octets. The name is made up of multiple labels separated by periods. No label can be longer than 63 octets. Consider the following examples:  @(63 octets).(63 octets).(63 octets).(61 octets)@ is legal because the total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.  @(64 octets).(63 octets).(63 octets).(61 octets)@ is not legal because the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds 63 octets.  @(63 octets).(63 octets).(63 octets).(62 octets)@ is not legal because the total length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.
+-- * 'rcOptions' - Currently, you can use this parameter to specify whether to add the certificate to a certificate transparency log. Certificate transparency makes it possible to detect SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have not been logged typically produce an error message in a browser. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging> .
+--
+-- * 'rcDomainValidationOptions' - The domain name that you want ACM to use to send you emails so that you can validate domain ownership.
+--
+-- * 'rcCertificateAuthorityARN' - The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate. If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the <http://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html AWS Certificate Manager Private Certificate Authority (PCA)> user guide. The ARN must have the following form:  @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@
+--
+-- * 'rcDomainName' - Fully qualified domain name (FQDN), such as www.example.com, that you want to secure with an ACM certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.  The first domain name you enter cannot exceed 63 octets, including periods. Each subsequent Subject Alternative Name (SAN), however, can be up to 253 octets in length.
 requestCertificate
     :: Text -- ^ 'rcDomainName'
     -> RequestCertificate
 requestCertificate pDomainName_ =
   RequestCertificate'
-  { _rcIdempotencyToken = Nothing
-  , _rcSubjectAlternativeNames = Nothing
-  , _rcDomainValidationOptions = Nothing
-  , _rcDomainName = pDomainName_
-  }
+    { _rcIdempotencyToken = Nothing
+    , _rcValidationMethod = Nothing
+    , _rcSubjectAlternativeNames = Nothing
+    , _rcOptions = Nothing
+    , _rcDomainValidationOptions = Nothing
+    , _rcCertificateAuthorityARN = Nothing
+    , _rcDomainName = pDomainName_
+    }
 
 
 -- | Customer chosen string that can be used to distinguish between calls to @RequestCertificate@ . Idempotency tokens time out after one hour. Therefore, if you call @RequestCertificate@ multiple times with the same idempotency token within one hour, ACM recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, ACM recognizes that you are requesting multiple certificates.
 rcIdempotencyToken :: Lens' RequestCertificate (Maybe Text)
-rcIdempotencyToken = lens _rcIdempotencyToken (\ s a -> s{_rcIdempotencyToken = a});
+rcIdempotencyToken = lens _rcIdempotencyToken (\ s a -> s{_rcIdempotencyToken = a})
 
--- | Additional FQDNs to be included in the Subject Alternative Name extension of the ACM Certificate. For example, add the name www.example.net to a certificate for which the @DomainName@ field is www.example.com if users can reach your site by using either name. The maximum number of domain names that you can add to an ACM Certificate is 100. However, the initial limit is 10 domain names. If you need more than 10 names, you must request a limit increase. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits> .
+-- | The method you want to use if you are requesting a public certificate to validate that you own or control domain. You can <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html validate with DNS> or <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html validate with email> . We recommend that you use DNS validation.
+rcValidationMethod :: Lens' RequestCertificate (Maybe ValidationMethod)
+rcValidationMethod = lens _rcValidationMethod (\ s a -> s{_rcValidationMethod = a})
+
+-- | Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate. For example, add the name www.example.net to a certificate for which the @DomainName@ field is www.example.com if users can reach your site by using either name. The maximum number of domain names that you can add to an ACM certificate is 100. However, the initial limit is 10 domain names. If you need more than 10 names, you must request a limit increase. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits> . The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple labels separated by periods. No label can be longer than 63 octets. Consider the following examples:      * @(63 octets).(63 octets).(63 octets).(61 octets)@ is legal because the total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.     * @(64 octets).(63 octets).(63 octets).(61 octets)@ is not legal because the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds 63 octets.     * @(63 octets).(63 octets).(63 octets).(62 octets)@ is not legal because the total length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.
 rcSubjectAlternativeNames :: Lens' RequestCertificate (Maybe (NonEmpty Text))
-rcSubjectAlternativeNames = lens _rcSubjectAlternativeNames (\ s a -> s{_rcSubjectAlternativeNames = a}) . mapping _List1;
+rcSubjectAlternativeNames = lens _rcSubjectAlternativeNames (\ s a -> s{_rcSubjectAlternativeNames = a}) . mapping _List1
 
--- | The domain name that you want ACM to use to send you emails to validate your ownership of the domain.
+-- | Currently, you can use this parameter to specify whether to add the certificate to a certificate transparency log. Certificate transparency makes it possible to detect SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have not been logged typically produce an error message in a browser. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging> .
+rcOptions :: Lens' RequestCertificate (Maybe CertificateOptions)
+rcOptions = lens _rcOptions (\ s a -> s{_rcOptions = a})
+
+-- | The domain name that you want ACM to use to send you emails so that you can validate domain ownership.
 rcDomainValidationOptions :: Lens' RequestCertificate (Maybe (NonEmpty DomainValidationOption))
-rcDomainValidationOptions = lens _rcDomainValidationOptions (\ s a -> s{_rcDomainValidationOptions = a}) . mapping _List1;
+rcDomainValidationOptions = lens _rcDomainValidationOptions (\ s a -> s{_rcDomainValidationOptions = a}) . mapping _List1
 
--- | Fully qualified domain name (FQDN), such as www.example.com, of the site that you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.  The maximum length of a DNS name is 253 octets. The name is made up of multiple labels separated by periods. No label can be longer than 63 octets. Consider the following examples:  @(63 octets).(63 octets).(63 octets).(61 octets)@ is legal because the total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.  @(64 octets).(63 octets).(63 octets).(61 octets)@ is not legal because the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds 63 octets.  @(63 octets).(63 octets).(63 octets).(62 octets)@ is not legal because the total length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.
+-- | The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate. If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the <http://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html AWS Certificate Manager Private Certificate Authority (PCA)> user guide. The ARN must have the following form:  @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@
+rcCertificateAuthorityARN :: Lens' RequestCertificate (Maybe Text)
+rcCertificateAuthorityARN = lens _rcCertificateAuthorityARN (\ s a -> s{_rcCertificateAuthorityARN = a})
+
+-- | Fully qualified domain name (FQDN), such as www.example.com, that you want to secure with an ACM certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.  The first domain name you enter cannot exceed 63 octets, including periods. Each subsequent Subject Alternative Name (SAN), however, can be up to 253 octets in length.
 rcDomainName :: Lens' RequestCertificate Text
-rcDomainName = lens _rcDomainName (\ s a -> s{_rcDomainName = a});
+rcDomainName = lens _rcDomainName (\ s a -> s{_rcDomainName = a})
 
 instance AWSRequest RequestCertificate where
         type Rs RequestCertificate =
@@ -128,10 +153,14 @@ instance ToJSON RequestCertificate where
           = object
               (catMaybes
                  [("IdempotencyToken" .=) <$> _rcIdempotencyToken,
+                  ("ValidationMethod" .=) <$> _rcValidationMethod,
                   ("SubjectAlternativeNames" .=) <$>
                     _rcSubjectAlternativeNames,
+                  ("Options" .=) <$> _rcOptions,
                   ("DomainValidationOptions" .=) <$>
                     _rcDomainValidationOptions,
+                  ("CertificateAuthorityArn" .=) <$>
+                    _rcCertificateAuthorityARN,
                   Just ("DomainName" .= _rcDomainName)])
 
 instance ToPath RequestCertificate where
@@ -159,15 +188,15 @@ requestCertificateResponse
     -> RequestCertificateResponse
 requestCertificateResponse pResponseStatus_ =
   RequestCertificateResponse'
-  {_rcrsCertificateARN = Nothing, _rcrsResponseStatus = pResponseStatus_}
+    {_rcrsCertificateARN = Nothing, _rcrsResponseStatus = pResponseStatus_}
 
 
 -- | String that contains the ARN of the issued certificate. This must be of the form: @arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012@
 rcrsCertificateARN :: Lens' RequestCertificateResponse (Maybe Text)
-rcrsCertificateARN = lens _rcrsCertificateARN (\ s a -> s{_rcrsCertificateARN = a});
+rcrsCertificateARN = lens _rcrsCertificateARN (\ s a -> s{_rcrsCertificateARN = a})
 
 -- | -- | The response status code.
 rcrsResponseStatus :: Lens' RequestCertificateResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a})
 
 instance NFData RequestCertificateResponse where

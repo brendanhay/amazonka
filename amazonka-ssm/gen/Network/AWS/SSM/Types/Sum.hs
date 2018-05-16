@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -95,22 +95,37 @@ instance FromJSON AssociationStatusName where
     parseJSON = parseJSONText "AssociationStatusName"
 
 data AutomationExecutionFilterKey
-  = DocumentNamePrefix
-  | ExecutionStatus
+  = AEFKCurrentAction
+  | AEFKDocumentNamePrefix
+  | AEFKExecutionId
+  | AEFKExecutionStatus
+  | AEFKParentExecutionId
+  | AEFKStartTimeAfter
+  | AEFKStartTimeBefore
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText AutomationExecutionFilterKey where
     parser = takeLowerText >>= \case
-        "documentnameprefix" -> pure DocumentNamePrefix
-        "executionstatus" -> pure ExecutionStatus
+        "currentaction" -> pure AEFKCurrentAction
+        "documentnameprefix" -> pure AEFKDocumentNamePrefix
+        "executionid" -> pure AEFKExecutionId
+        "executionstatus" -> pure AEFKExecutionStatus
+        "parentexecutionid" -> pure AEFKParentExecutionId
+        "starttimeafter" -> pure AEFKStartTimeAfter
+        "starttimebefore" -> pure AEFKStartTimeBefore
         e -> fromTextError $ "Failure parsing AutomationExecutionFilterKey from value: '" <> e
-           <> "'. Accepted values: documentnameprefix, executionstatus"
+           <> "'. Accepted values: currentaction, documentnameprefix, executionid, executionstatus, parentexecutionid, starttimeafter, starttimebefore"
 
 instance ToText AutomationExecutionFilterKey where
     toText = \case
-        DocumentNamePrefix -> "DocumentNamePrefix"
-        ExecutionStatus -> "ExecutionStatus"
+        AEFKCurrentAction -> "CurrentAction"
+        AEFKDocumentNamePrefix -> "DocumentNamePrefix"
+        AEFKExecutionId -> "ExecutionId"
+        AEFKExecutionStatus -> "ExecutionStatus"
+        AEFKParentExecutionId -> "ParentExecutionId"
+        AEFKStartTimeAfter -> "StartTimeAfter"
+        AEFKStartTimeBefore -> "StartTimeBefore"
 
 instance Hashable     AutomationExecutionFilterKey
 instance NFData       AutomationExecutionFilterKey
@@ -123,6 +138,7 @@ instance ToJSON AutomationExecutionFilterKey where
 
 data AutomationExecutionStatus
   = AESCancelled
+  | AESCancelling
   | AESFailed
   | AESInProgress
   | AESPending
@@ -135,6 +151,7 @@ data AutomationExecutionStatus
 instance FromText AutomationExecutionStatus where
     parser = takeLowerText >>= \case
         "cancelled" -> pure AESCancelled
+        "cancelling" -> pure AESCancelling
         "failed" -> pure AESFailed
         "inprogress" -> pure AESInProgress
         "pending" -> pure AESPending
@@ -142,11 +159,12 @@ instance FromText AutomationExecutionStatus where
         "timedout" -> pure AESTimedOut
         "waiting" -> pure AESWaiting
         e -> fromTextError $ "Failure parsing AutomationExecutionStatus from value: '" <> e
-           <> "'. Accepted values: cancelled, failed, inprogress, pending, success, timedout, waiting"
+           <> "'. Accepted values: cancelled, cancelling, failed, inprogress, pending, success, timedout, waiting"
 
 instance ToText AutomationExecutionStatus where
     toText = \case
         AESCancelled -> "Cancelled"
+        AESCancelling -> "Cancelling"
         AESFailed -> "Failed"
         AESInProgress -> "InProgress"
         AESPending -> "Pending"
@@ -490,6 +508,36 @@ instance ToHeader     DocumentFilterKey
 instance ToJSON DocumentFilterKey where
     toJSON = toJSONText
 
+data DocumentFormat
+  = JSON
+  | Yaml
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DocumentFormat where
+    parser = takeLowerText >>= \case
+        "json" -> pure JSON
+        "yaml" -> pure Yaml
+        e -> fromTextError $ "Failure parsing DocumentFormat from value: '" <> e
+           <> "'. Accepted values: json, yaml"
+
+instance ToText DocumentFormat where
+    toText = \case
+        JSON -> "JSON"
+        Yaml -> "YAML"
+
+instance Hashable     DocumentFormat
+instance NFData       DocumentFormat
+instance ToByteString DocumentFormat
+instance ToQuery      DocumentFormat
+instance ToHeader     DocumentFormat
+
+instance ToJSON DocumentFormat where
+    toJSON = toJSONText
+
+instance FromJSON DocumentFormat where
+    parseJSON = parseJSONText "DocumentFormat"
+
 data DocumentHashType
   = HashSHA1
   | HashSHA256
@@ -637,6 +685,36 @@ instance ToJSON DocumentType where
 instance FromJSON DocumentType where
     parseJSON = parseJSONText "DocumentType"
 
+data ExecutionMode
+  = Auto
+  | Interactive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ExecutionMode where
+    parser = takeLowerText >>= \case
+        "auto" -> pure Auto
+        "interactive" -> pure Interactive
+        e -> fromTextError $ "Failure parsing ExecutionMode from value: '" <> e
+           <> "'. Accepted values: auto, interactive"
+
+instance ToText ExecutionMode where
+    toText = \case
+        Auto -> "Auto"
+        Interactive -> "Interactive"
+
+instance Hashable     ExecutionMode
+instance NFData       ExecutionMode
+instance ToByteString ExecutionMode
+instance ToQuery      ExecutionMode
+instance ToHeader     ExecutionMode
+
+instance ToJSON ExecutionMode where
+    toJSON = toJSONText
+
+instance FromJSON ExecutionMode where
+    parseJSON = parseJSONText "ExecutionMode"
+
 data Fault
   = Client
   | Server
@@ -772,6 +850,33 @@ instance ToHeader     InventoryAttributeDataType
 instance FromJSON InventoryAttributeDataType where
     parseJSON = parseJSONText "InventoryAttributeDataType"
 
+data InventoryDeletionStatus
+  = Complete
+  | InProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText InventoryDeletionStatus where
+    parser = takeLowerText >>= \case
+        "complete" -> pure Complete
+        "inprogress" -> pure InProgress
+        e -> fromTextError $ "Failure parsing InventoryDeletionStatus from value: '" <> e
+           <> "'. Accepted values: complete, inprogress"
+
+instance ToText InventoryDeletionStatus where
+    toText = \case
+        Complete -> "Complete"
+        InProgress -> "InProgress"
+
+instance Hashable     InventoryDeletionStatus
+instance NFData       InventoryDeletionStatus
+instance ToByteString InventoryDeletionStatus
+instance ToQuery      InventoryDeletionStatus
+instance ToHeader     InventoryDeletionStatus
+
+instance FromJSON InventoryDeletionStatus where
+    parseJSON = parseJSONText "InventoryDeletionStatus"
+
 data InventoryQueryOperatorType
   = BeginWith
   | Equal
@@ -806,6 +911,33 @@ instance ToQuery      InventoryQueryOperatorType
 instance ToHeader     InventoryQueryOperatorType
 
 instance ToJSON InventoryQueryOperatorType where
+    toJSON = toJSONText
+
+data InventorySchemaDeleteOption
+  = DeleteSchema
+  | DisableSchema
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText InventorySchemaDeleteOption where
+    parser = takeLowerText >>= \case
+        "deleteschema" -> pure DeleteSchema
+        "disableschema" -> pure DisableSchema
+        e -> fromTextError $ "Failure parsing InventorySchemaDeleteOption from value: '" <> e
+           <> "'. Accepted values: deleteschema, disableschema"
+
+instance ToText InventorySchemaDeleteOption where
+    toText = \case
+        DeleteSchema -> "DeleteSchema"
+        DisableSchema -> "DisableSchema"
+
+instance Hashable     InventorySchemaDeleteOption
+instance NFData       InventorySchemaDeleteOption
+instance ToByteString InventorySchemaDeleteOption
+instance ToQuery      InventorySchemaDeleteOption
+instance ToHeader     InventorySchemaDeleteOption
+
+instance ToJSON InventorySchemaDeleteOption where
     toJSON = toJSONText
 
 data LastResourceDataSyncStatus
@@ -1020,7 +1152,9 @@ instance FromJSON NotificationType where
 
 data OperatingSystem
   = AmazonLinux
+  | Centos
   | RedhatEnterpriseLinux
+  | Suse
   | Ubuntu
   | Windows
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -1029,16 +1163,20 @@ data OperatingSystem
 instance FromText OperatingSystem where
     parser = takeLowerText >>= \case
         "amazon_linux" -> pure AmazonLinux
+        "centos" -> pure Centos
         "redhat_enterprise_linux" -> pure RedhatEnterpriseLinux
+        "suse" -> pure Suse
         "ubuntu" -> pure Ubuntu
         "windows" -> pure Windows
         e -> fromTextError $ "Failure parsing OperatingSystem from value: '" <> e
-           <> "'. Accepted values: amazon_linux, redhat_enterprise_linux, ubuntu, windows"
+           <> "'. Accepted values: amazon_linux, centos, redhat_enterprise_linux, suse, ubuntu, windows"
 
 instance ToText OperatingSystem where
     toText = \case
         AmazonLinux -> "AMAZON_LINUX"
+        Centos -> "CENTOS"
         RedhatEnterpriseLinux -> "REDHAT_ENTERPRISE_LINUX"
+        Suse -> "SUSE"
         Ubuntu -> "UBUNTU"
         Windows -> "WINDOWS"
 
@@ -1453,6 +1591,9 @@ instance ToJSON ResourceTypeForTagging where
 data SignalType
   = Approve
   | Reject
+  | Resume
+  | StartStep
+  | StopStep
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -1460,13 +1601,19 @@ instance FromText SignalType where
     parser = takeLowerText >>= \case
         "approve" -> pure Approve
         "reject" -> pure Reject
+        "resume" -> pure Resume
+        "startstep" -> pure StartStep
+        "stopstep" -> pure StopStep
         e -> fromTextError $ "Failure parsing SignalType from value: '" <> e
-           <> "'. Accepted values: approve, reject"
+           <> "'. Accepted values: approve, reject, resume, startstep, stopstep"
 
 instance ToText SignalType where
     toText = \case
         Approve -> "Approve"
         Reject -> "Reject"
+        Resume -> "Resume"
+        StartStep -> "StartStep"
+        StopStep -> "StopStep"
 
 instance Hashable     SignalType
 instance NFData       SignalType
@@ -1475,4 +1622,70 @@ instance ToQuery      SignalType
 instance ToHeader     SignalType
 
 instance ToJSON SignalType where
+    toJSON = toJSONText
+
+data StepExecutionFilterKey
+  = Action
+  | StartTimeAfter
+  | StartTimeBefore
+  | StepExecutionId
+  | StepExecutionStatus
+  | StepName
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StepExecutionFilterKey where
+    parser = takeLowerText >>= \case
+        "action" -> pure Action
+        "starttimeafter" -> pure StartTimeAfter
+        "starttimebefore" -> pure StartTimeBefore
+        "stepexecutionid" -> pure StepExecutionId
+        "stepexecutionstatus" -> pure StepExecutionStatus
+        "stepname" -> pure StepName
+        e -> fromTextError $ "Failure parsing StepExecutionFilterKey from value: '" <> e
+           <> "'. Accepted values: action, starttimeafter, starttimebefore, stepexecutionid, stepexecutionstatus, stepname"
+
+instance ToText StepExecutionFilterKey where
+    toText = \case
+        Action -> "Action"
+        StartTimeAfter -> "StartTimeAfter"
+        StartTimeBefore -> "StartTimeBefore"
+        StepExecutionId -> "StepExecutionId"
+        StepExecutionStatus -> "StepExecutionStatus"
+        StepName -> "StepName"
+
+instance Hashable     StepExecutionFilterKey
+instance NFData       StepExecutionFilterKey
+instance ToByteString StepExecutionFilterKey
+instance ToQuery      StepExecutionFilterKey
+instance ToHeader     StepExecutionFilterKey
+
+instance ToJSON StepExecutionFilterKey where
+    toJSON = toJSONText
+
+data StopType
+  = STCancel
+  | STComplete
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StopType where
+    parser = takeLowerText >>= \case
+        "cancel" -> pure STCancel
+        "complete" -> pure STComplete
+        e -> fromTextError $ "Failure parsing StopType from value: '" <> e
+           <> "'. Accepted values: cancel, complete"
+
+instance ToText StopType where
+    toText = \case
+        STCancel -> "Cancel"
+        STComplete -> "Complete"
+
+instance Hashable     StopType
+instance NFData       StopType
+instance ToByteString StopType
+instance ToQuery      StopType
+instance ToHeader     StopType
+
+instance ToJSON StopType where
     toJSON = toJSONText

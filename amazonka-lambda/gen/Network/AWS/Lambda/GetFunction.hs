@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetFunction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,6 +38,7 @@ module Network.AWS.Lambda.GetFunction
     , getFunctionResponse
     , GetFunctionResponse
     -- * Response Lenses
+    , gfrsConcurrency
     , gfrsCode
     , gfrsConfiguration
     , gfrsTags
@@ -66,7 +67,7 @@ data GetFunction = GetFunction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfQualifier' - Using this optional parameter to specify a function version or an alias name. If you specify function version, the API uses qualified function ARN for the request and returns information about the specific Lambda function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points. If you don't provide this parameter, the API uses unqualified function ARN and returns information about the @> LATEST@ version of the Lambda function.
+-- * 'gfQualifier' - Use this optional parameter to specify a function version or an alias name. If you specify function version, the API uses qualified function ARN for the request and returns information about the specific Lambda function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points. If you don't provide this parameter, the API uses unqualified function ARN and returns information about the @> LATEST@ version of the Lambda function.
 --
 -- * 'gfFunctionName' - The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 getFunction
@@ -76,13 +77,13 @@ getFunction pFunctionName_ =
   GetFunction' {_gfQualifier = Nothing, _gfFunctionName = pFunctionName_}
 
 
--- | Using this optional parameter to specify a function version or an alias name. If you specify function version, the API uses qualified function ARN for the request and returns information about the specific Lambda function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points. If you don't provide this parameter, the API uses unqualified function ARN and returns information about the @> LATEST@ version of the Lambda function.
+-- | Use this optional parameter to specify a function version or an alias name. If you specify function version, the API uses qualified function ARN for the request and returns information about the specific Lambda function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points. If you don't provide this parameter, the API uses unqualified function ARN and returns information about the @> LATEST@ version of the Lambda function.
 gfQualifier :: Lens' GetFunction (Maybe Text)
-gfQualifier = lens _gfQualifier (\ s a -> s{_gfQualifier = a});
+gfQualifier = lens _gfQualifier (\ s a -> s{_gfQualifier = a})
 
 -- | The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 gfFunctionName :: Lens' GetFunction Text
-gfFunctionName = lens _gfFunctionName (\ s a -> s{_gfFunctionName = a});
+gfFunctionName = lens _gfFunctionName (\ s a -> s{_gfFunctionName = a})
 
 instance AWSRequest GetFunction where
         type Rs GetFunction = GetFunctionResponse
@@ -91,8 +92,9 @@ instance AWSRequest GetFunction where
           = receiveJSON
               (\ s h x ->
                  GetFunctionResponse' <$>
-                   (x .?> "Code") <*> (x .?> "Configuration") <*>
-                     (x .?> "Tags" .!@ mempty)
+                   (x .?> "Concurrency") <*> (x .?> "Code") <*>
+                     (x .?> "Configuration")
+                     <*> (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetFunction where
@@ -117,7 +119,8 @@ instance ToQuery GetFunction where
 --
 -- /See:/ 'getFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'
-  { _gfrsCode           :: !(Maybe FunctionCodeLocation)
+  { _gfrsConcurrency    :: !(Maybe Concurrency)
+  , _gfrsCode           :: !(Maybe FunctionCodeLocation)
   , _gfrsConfiguration  :: !(Maybe FunctionConfiguration)
   , _gfrsTags           :: !(Maybe (Map Text Text))
   , _gfrsResponseStatus :: !Int
@@ -128,11 +131,13 @@ data GetFunctionResponse = GetFunctionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'gfrsConcurrency' - The concurrent execution limit set for this function. For more information, see 'concurrent-executions' .
+--
 -- * 'gfrsCode' - Undocumented member.
 --
 -- * 'gfrsConfiguration' - Undocumented member.
 --
--- * 'gfrsTags' - Returns the list of tags associated with the function.
+-- * 'gfrsTags' - Returns the list of tags associated with the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 --
 -- * 'gfrsResponseStatus' - -- | The response status code.
 getFunctionResponse
@@ -140,27 +145,32 @@ getFunctionResponse
     -> GetFunctionResponse
 getFunctionResponse pResponseStatus_ =
   GetFunctionResponse'
-  { _gfrsCode = Nothing
-  , _gfrsConfiguration = Nothing
-  , _gfrsTags = Nothing
-  , _gfrsResponseStatus = pResponseStatus_
-  }
+    { _gfrsConcurrency = Nothing
+    , _gfrsCode = Nothing
+    , _gfrsConfiguration = Nothing
+    , _gfrsTags = Nothing
+    , _gfrsResponseStatus = pResponseStatus_
+    }
 
+
+-- | The concurrent execution limit set for this function. For more information, see 'concurrent-executions' .
+gfrsConcurrency :: Lens' GetFunctionResponse (Maybe Concurrency)
+gfrsConcurrency = lens _gfrsConcurrency (\ s a -> s{_gfrsConcurrency = a})
 
 -- | Undocumented member.
 gfrsCode :: Lens' GetFunctionResponse (Maybe FunctionCodeLocation)
-gfrsCode = lens _gfrsCode (\ s a -> s{_gfrsCode = a});
+gfrsCode = lens _gfrsCode (\ s a -> s{_gfrsCode = a})
 
 -- | Undocumented member.
 gfrsConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
-gfrsConfiguration = lens _gfrsConfiguration (\ s a -> s{_gfrsConfiguration = a});
+gfrsConfiguration = lens _gfrsConfiguration (\ s a -> s{_gfrsConfiguration = a})
 
--- | Returns the list of tags associated with the function.
+-- | Returns the list of tags associated with the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 gfrsTags :: Lens' GetFunctionResponse (HashMap Text Text)
-gfrsTags = lens _gfrsTags (\ s a -> s{_gfrsTags = a}) . _Default . _Map;
+gfrsTags = lens _gfrsTags (\ s a -> s{_gfrsTags = a}) . _Default . _Map
 
 -- | -- | The response status code.
 gfrsResponseStatus :: Lens' GetFunctionResponse Int
-gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a});
+gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a})
 
 instance NFData GetFunctionResponse where

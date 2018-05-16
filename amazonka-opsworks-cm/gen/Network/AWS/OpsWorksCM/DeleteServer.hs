@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DeleteServer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the server and the underlying AWS CloudFormation stack (including the server's EC2 instance). When you run this command, the server state is updated to @DELETING@ . After the server is deleted, it is no longer returned by @DescribeServer@ requests. If the AWS CloudFormation stack cannot be deleted, the server cannot be deleted.
+-- Deletes the server and the underlying AWS CloudFormation stacks (including the server's EC2 instance). When you run this command, the server state is updated to @DELETING@ . After the server is deleted, it is no longer returned by @DescribeServer@ requests. If the AWS CloudFormation stack cannot be deleted, the server cannot be deleted.
 --
 --
 -- This operation is asynchronous.
@@ -68,7 +68,7 @@ deleteServer pServerName_ = DeleteServer' {_dsServerName = pServerName_}
 
 -- | The ID of the server to delete.
 dsServerName :: Lens' DeleteServer Text
-dsServerName = lens _dsServerName (\ s a -> s{_dsServerName = a});
+dsServerName = lens _dsServerName (\ s a -> s{_dsServerName = a})
 
 instance AWSRequest DeleteServer where
         type Rs DeleteServer = DeleteServerResponse
@@ -123,6 +123,6 @@ deleteServerResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteServerResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DeleteServerResponse where

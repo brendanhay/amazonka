@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListOnPremisesInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ listOnPremisesInstances
     :: ListOnPremisesInstances
 listOnPremisesInstances =
   ListOnPremisesInstances'
-  { _lopiTagFilters = Nothing
-  , _lopiNextToken = Nothing
-  , _lopiRegistrationStatus = Nothing
-  }
+    { _lopiTagFilters = Nothing
+    , _lopiNextToken = Nothing
+    , _lopiRegistrationStatus = Nothing
+    }
 
 
 -- | The on-premises instance tags that will be used to restrict the corresponding on-premises instance names returned.
 lopiTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
-lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a}) . _Default . _Coerce;
+lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a}) . _Default . _Coerce
 
 -- | An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list.
 lopiNextToken :: Lens' ListOnPremisesInstances (Maybe Text)
-lopiNextToken = lens _lopiNextToken (\ s a -> s{_lopiNextToken = a});
+lopiNextToken = lens _lopiNextToken (\ s a -> s{_lopiNextToken = a})
 
 -- | The registration status of the on-premises instances:     * Deregistered: Include deregistered on-premises instances in the resulting list.     * Registered: Include registered on-premises instances in the resulting list.
 lopiRegistrationStatus :: Lens' ListOnPremisesInstances (Maybe RegistrationStatus)
-lopiRegistrationStatus = lens _lopiRegistrationStatus (\ s a -> s{_lopiRegistrationStatus = a});
+lopiRegistrationStatus = lens _lopiRegistrationStatus (\ s a -> s{_lopiRegistrationStatus = a})
 
 instance AWSRequest ListOnPremisesInstances where
         type Rs ListOnPremisesInstances =
@@ -159,22 +159,22 @@ listOnPremisesInstancesResponse
     -> ListOnPremisesInstancesResponse
 listOnPremisesInstancesResponse pResponseStatus_ =
   ListOnPremisesInstancesResponse'
-  { _lopirsNextToken = Nothing
-  , _lopirsInstanceNames = Nothing
-  , _lopirsResponseStatus = pResponseStatus_
-  }
+    { _lopirsNextToken = Nothing
+    , _lopirsInstanceNames = Nothing
+    , _lopirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list on-premises instances call to return the next set of on-premises instances in the list.
 lopirsNextToken :: Lens' ListOnPremisesInstancesResponse (Maybe Text)
-lopirsNextToken = lens _lopirsNextToken (\ s a -> s{_lopirsNextToken = a});
+lopirsNextToken = lens _lopirsNextToken (\ s a -> s{_lopirsNextToken = a})
 
 -- | The list of matching on-premises instance names.
 lopirsInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
-lopirsInstanceNames = lens _lopirsInstanceNames (\ s a -> s{_lopirsInstanceNames = a}) . _Default . _Coerce;
+lopirsInstanceNames = lens _lopirsInstanceNames (\ s a -> s{_lopirsInstanceNames = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lopirsResponseStatus :: Lens' ListOnPremisesInstancesResponse Int
-lopirsResponseStatus = lens _lopirsResponseStatus (\ s a -> s{_lopirsResponseStatus = a});
+lopirsResponseStatus = lens _lopirsResponseStatus (\ s a -> s{_lopirsResponseStatus = a})
 
 instance NFData ListOnPremisesInstancesResponse where

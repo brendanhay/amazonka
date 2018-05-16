@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.TagProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ tagProject pId_ = TagProject' {_tpId = pId_, _tpTags = mempty}
 
 -- | The ID of the project you want to add a tag to.
 tpId :: Lens' TagProject Text
-tpId = lens _tpId (\ s a -> s{_tpId = a});
+tpId = lens _tpId (\ s a -> s{_tpId = a})
 
 -- | The tags you want to add to the project.
 tpTags :: Lens' TagProject (HashMap Text Text)
-tpTags = lens _tpTags (\ s a -> s{_tpTags = a}) . _Map;
+tpTags = lens _tpTags (\ s a -> s{_tpTags = a}) . _Map
 
 instance AWSRequest TagProject where
         type Rs TagProject = TagProjectResponse
@@ -126,15 +126,15 @@ tagProjectResponse
     -> TagProjectResponse
 tagProjectResponse pResponseStatus_ =
   TagProjectResponse'
-  {_tprsTags = Nothing, _tprsResponseStatus = pResponseStatus_}
+    {_tprsTags = Nothing, _tprsResponseStatus = pResponseStatus_}
 
 
 -- | The tags for the project.
 tprsTags :: Lens' TagProjectResponse (HashMap Text Text)
-tprsTags = lens _tprsTags (\ s a -> s{_tprsTags = a}) . _Default . _Map;
+tprsTags = lens _tprsTags (\ s a -> s{_tprsTags = a}) . _Default . _Map
 
 -- | -- | The response status code.
 tprsResponseStatus :: Lens' TagProjectResponse Int
-tprsResponseStatus = lens _tprsResponseStatus (\ s a -> s{_tprsResponseStatus = a});
+tprsResponseStatus = lens _tprsResponseStatus (\ s a -> s{_tprsResponseStatus = a})
 
 instance NFData TagProjectResponse where

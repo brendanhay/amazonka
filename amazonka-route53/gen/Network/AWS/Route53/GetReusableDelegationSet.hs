@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetReusableDelegationSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getReusableDelegationSet pId_ = GetReusableDelegationSet' {_grdsId = pId_}
 
 -- | The ID of the reusable delegation set that you want to get a list of name servers for.
 grdsId :: Lens' GetReusableDelegationSet ResourceId
-grdsId = lens _grdsId (\ s a -> s{_grdsId = a});
+grdsId = lens _grdsId (\ s a -> s{_grdsId = a})
 
 instance AWSRequest GetReusableDelegationSet where
         type Rs GetReusableDelegationSet =
@@ -118,18 +118,18 @@ getReusableDelegationSetResponse
     -> GetReusableDelegationSetResponse
 getReusableDelegationSetResponse pResponseStatus_ pDelegationSet_ =
   GetReusableDelegationSetResponse'
-  { _grdsrsResponseStatus = pResponseStatus_
-  , _grdsrsDelegationSet = pDelegationSet_
-  }
+    { _grdsrsResponseStatus = pResponseStatus_
+    , _grdsrsDelegationSet = pDelegationSet_
+    }
 
 
 -- | -- | The response status code.
 grdsrsResponseStatus :: Lens' GetReusableDelegationSetResponse Int
-grdsrsResponseStatus = lens _grdsrsResponseStatus (\ s a -> s{_grdsrsResponseStatus = a});
+grdsrsResponseStatus = lens _grdsrsResponseStatus (\ s a -> s{_grdsrsResponseStatus = a})
 
 -- | A complex type that contains information about the reusable delegation set.
 grdsrsDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
-grdsrsDelegationSet = lens _grdsrsDelegationSet (\ s a -> s{_grdsrsDelegationSet = a});
+grdsrsDelegationSet = lens _grdsrsDelegationSet (\ s a -> s{_grdsrsDelegationSet = a})
 
 instance NFData GetReusableDelegationSetResponse
          where

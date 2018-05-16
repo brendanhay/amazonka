@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetUserDefinedFunction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ getUserDefinedFunction
     -> GetUserDefinedFunction
 getUserDefinedFunction pDatabaseName_ pFunctionName_ =
   GetUserDefinedFunction'
-  { _getCatalogId = Nothing
-  , _getDatabaseName = pDatabaseName_
-  , _getFunctionName = pFunctionName_
-  }
+    { _getCatalogId = Nothing
+    , _getDatabaseName = pDatabaseName_
+    , _getFunctionName = pFunctionName_
+    }
 
 
 -- | The ID of the Data Catalog where the function to be retrieved is located. If none is supplied, the AWS account ID is used by default.
 getCatalogId :: Lens' GetUserDefinedFunction (Maybe Text)
-getCatalogId = lens _getCatalogId (\ s a -> s{_getCatalogId = a});
+getCatalogId = lens _getCatalogId (\ s a -> s{_getCatalogId = a})
 
 -- | The name of the catalog database where the function is located.
 getDatabaseName :: Lens' GetUserDefinedFunction Text
-getDatabaseName = lens _getDatabaseName (\ s a -> s{_getDatabaseName = a});
+getDatabaseName = lens _getDatabaseName (\ s a -> s{_getDatabaseName = a})
 
 -- | The name of the function.
 getFunctionName :: Lens' GetUserDefinedFunction Text
-getFunctionName = lens _getFunctionName (\ s a -> s{_getFunctionName = a});
+getFunctionName = lens _getFunctionName (\ s a -> s{_getFunctionName = a})
 
 instance AWSRequest GetUserDefinedFunction where
         type Rs GetUserDefinedFunction =
@@ -144,17 +144,17 @@ getUserDefinedFunctionResponse
     -> GetUserDefinedFunctionResponse
 getUserDefinedFunctionResponse pResponseStatus_ =
   GetUserDefinedFunctionResponse'
-  { _gudfursUserDefinedFunction = Nothing
-  , _gudfursResponseStatus = pResponseStatus_
-  }
+    { _gudfursUserDefinedFunction = Nothing
+    , _gudfursResponseStatus = pResponseStatus_
+    }
 
 
 -- | The requested function definition.
 gudfursUserDefinedFunction :: Lens' GetUserDefinedFunctionResponse (Maybe UserDefinedFunction)
-gudfursUserDefinedFunction = lens _gudfursUserDefinedFunction (\ s a -> s{_gudfursUserDefinedFunction = a});
+gudfursUserDefinedFunction = lens _gudfursUserDefinedFunction (\ s a -> s{_gudfursUserDefinedFunction = a})
 
 -- | -- | The response status code.
 gudfursResponseStatus :: Lens' GetUserDefinedFunctionResponse Int
-gudfursResponseStatus = lens _gudfursResponseStatus (\ s a -> s{_gudfursResponseStatus = a});
+gudfursResponseStatus = lens _gudfursResponseStatus (\ s a -> s{_gudfursResponseStatus = a})
 
 instance NFData GetUserDefinedFunctionResponse where

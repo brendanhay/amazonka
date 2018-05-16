@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetDeploymentStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,25 +58,25 @@ data GetDeploymentStatus = GetDeploymentStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdsGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'gdsGroupId' - The ID of the AWS Greengrass group.
 --
--- * 'gdsDeploymentId' - the deployment Id
+-- * 'gdsDeploymentId' - The ID of the deployment.
 getDeploymentStatus
     :: Text -- ^ 'gdsGroupId'
     -> Text -- ^ 'gdsDeploymentId'
     -> GetDeploymentStatus
 getDeploymentStatus pGroupId_ pDeploymentId_ =
   GetDeploymentStatus'
-  {_gdsGroupId = pGroupId_, _gdsDeploymentId = pDeploymentId_}
+    {_gdsGroupId = pGroupId_, _gdsDeploymentId = pDeploymentId_}
 
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 gdsGroupId :: Lens' GetDeploymentStatus Text
-gdsGroupId = lens _gdsGroupId (\ s a -> s{_gdsGroupId = a});
+gdsGroupId = lens _gdsGroupId (\ s a -> s{_gdsGroupId = a})
 
--- | the deployment Id
+-- | The ID of the deployment.
 gdsDeploymentId :: Lens' GetDeploymentStatus Text
-gdsDeploymentId = lens _gdsDeploymentId (\ s a -> s{_gdsDeploymentId = a});
+gdsDeploymentId = lens _gdsDeploymentId (\ s a -> s{_gdsDeploymentId = a})
 
 instance AWSRequest GetDeploymentStatus where
         type Rs GetDeploymentStatus =
@@ -130,13 +130,13 @@ data GetDeploymentStatusResponse = GetDeploymentStatusResponse'
 --
 -- * 'gdsrsDeploymentType' - The type of the deployment.
 --
--- * 'gdsrsErrorDetails' - The error Details
+-- * 'gdsrsErrorDetails' - Error details
 --
--- * 'gdsrsDeploymentStatus' - Status of the deployment.
+-- * 'gdsrsDeploymentStatus' - The status of the deployment.
 --
--- * 'gdsrsUpdatedAt' - Last time the deployment status was updated.
+-- * 'gdsrsUpdatedAt' - The time, in milliseconds since the epoch, when the deployment status was updated.
 --
--- * 'gdsrsErrorMessage' - Error Message
+-- * 'gdsrsErrorMessage' - Error message
 --
 -- * 'gdsrsResponseStatus' - -- | The response status code.
 getDeploymentStatusResponse
@@ -144,37 +144,37 @@ getDeploymentStatusResponse
     -> GetDeploymentStatusResponse
 getDeploymentStatusResponse pResponseStatus_ =
   GetDeploymentStatusResponse'
-  { _gdsrsDeploymentType = Nothing
-  , _gdsrsErrorDetails = Nothing
-  , _gdsrsDeploymentStatus = Nothing
-  , _gdsrsUpdatedAt = Nothing
-  , _gdsrsErrorMessage = Nothing
-  , _gdsrsResponseStatus = pResponseStatus_
-  }
+    { _gdsrsDeploymentType = Nothing
+    , _gdsrsErrorDetails = Nothing
+    , _gdsrsDeploymentStatus = Nothing
+    , _gdsrsUpdatedAt = Nothing
+    , _gdsrsErrorMessage = Nothing
+    , _gdsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The type of the deployment.
 gdsrsDeploymentType :: Lens' GetDeploymentStatusResponse (Maybe DeploymentType)
-gdsrsDeploymentType = lens _gdsrsDeploymentType (\ s a -> s{_gdsrsDeploymentType = a});
+gdsrsDeploymentType = lens _gdsrsDeploymentType (\ s a -> s{_gdsrsDeploymentType = a})
 
--- | The error Details
+-- | Error details
 gdsrsErrorDetails :: Lens' GetDeploymentStatusResponse [ErrorDetail]
-gdsrsErrorDetails = lens _gdsrsErrorDetails (\ s a -> s{_gdsrsErrorDetails = a}) . _Default . _Coerce;
+gdsrsErrorDetails = lens _gdsrsErrorDetails (\ s a -> s{_gdsrsErrorDetails = a}) . _Default . _Coerce
 
--- | Status of the deployment.
+-- | The status of the deployment.
 gdsrsDeploymentStatus :: Lens' GetDeploymentStatusResponse (Maybe Text)
-gdsrsDeploymentStatus = lens _gdsrsDeploymentStatus (\ s a -> s{_gdsrsDeploymentStatus = a});
+gdsrsDeploymentStatus = lens _gdsrsDeploymentStatus (\ s a -> s{_gdsrsDeploymentStatus = a})
 
--- | Last time the deployment status was updated.
+-- | The time, in milliseconds since the epoch, when the deployment status was updated.
 gdsrsUpdatedAt :: Lens' GetDeploymentStatusResponse (Maybe Text)
-gdsrsUpdatedAt = lens _gdsrsUpdatedAt (\ s a -> s{_gdsrsUpdatedAt = a});
+gdsrsUpdatedAt = lens _gdsrsUpdatedAt (\ s a -> s{_gdsrsUpdatedAt = a})
 
--- | Error Message
+-- | Error message
 gdsrsErrorMessage :: Lens' GetDeploymentStatusResponse (Maybe Text)
-gdsrsErrorMessage = lens _gdsrsErrorMessage (\ s a -> s{_gdsrsErrorMessage = a});
+gdsrsErrorMessage = lens _gdsrsErrorMessage (\ s a -> s{_gdsrsErrorMessage = a})
 
 -- | -- | The response status code.
 gdsrsResponseStatus :: Lens' GetDeploymentStatusResponse Int
-gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
+gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a})
 
 instance NFData GetDeploymentStatusResponse where

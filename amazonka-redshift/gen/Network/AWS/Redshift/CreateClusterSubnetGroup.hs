@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateClusterSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ createClusterSubnetGroup
     -> CreateClusterSubnetGroup
 createClusterSubnetGroup pClusterSubnetGroupName_ pDescription_ =
   CreateClusterSubnetGroup'
-  { _ccsgTags = Nothing
-  , _ccsgClusterSubnetGroupName = pClusterSubnetGroupName_
-  , _ccsgDescription = pDescription_
-  , _ccsgSubnetIds = mempty
-  }
+    { _ccsgTags = Nothing
+    , _ccsgClusterSubnetGroupName = pClusterSubnetGroupName_
+    , _ccsgDescription = pDescription_
+    , _ccsgSubnetIds = mempty
+    }
 
 
 -- | A list of tag instances.
 ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
-ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default . _Coerce;
+ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default . _Coerce
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a lowercase string. Constraints:     * Must contain no more than 255 alphanumeric characters or hyphens.     * Must not be "Default".     * Must be unique for all subnet groups that are created by your AWS account. Example: @examplesubnetgroup@
 ccsgClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
-ccsgClusterSubnetGroupName = lens _ccsgClusterSubnetGroupName (\ s a -> s{_ccsgClusterSubnetGroupName = a});
+ccsgClusterSubnetGroupName = lens _ccsgClusterSubnetGroupName (\ s a -> s{_ccsgClusterSubnetGroupName = a})
 
 -- | A description for the subnet group.
 ccsgDescription :: Lens' CreateClusterSubnetGroup Text
-ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a});
+ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a})
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
 ccsgSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
-ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a}) . _Coerce;
+ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a}) . _Coerce
 
 instance AWSRequest CreateClusterSubnetGroup where
         type Rs CreateClusterSubnetGroup =
@@ -154,18 +154,18 @@ createClusterSubnetGroupResponse
     -> CreateClusterSubnetGroupResponse
 createClusterSubnetGroupResponse pResponseStatus_ =
   CreateClusterSubnetGroupResponse'
-  { _ccsgrsClusterSubnetGroup = Nothing
-  , _ccsgrsResponseStatus = pResponseStatus_
-  }
+    { _ccsgrsClusterSubnetGroup = Nothing
+    , _ccsgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ccsgrsClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
-ccsgrsClusterSubnetGroup = lens _ccsgrsClusterSubnetGroup (\ s a -> s{_ccsgrsClusterSubnetGroup = a});
+ccsgrsClusterSubnetGroup = lens _ccsgrsClusterSubnetGroup (\ s a -> s{_ccsgrsClusterSubnetGroup = a})
 
 -- | -- | The response status code.
 ccsgrsResponseStatus :: Lens' CreateClusterSubnetGroupResponse Int
-ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a});
+ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a})
 
 instance NFData CreateClusterSubnetGroupResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateSubnetCidrBlock
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ associateSubnetCidrBlock
     -> AssociateSubnetCidrBlock
 associateSubnetCidrBlock pIPv6CidrBlock_ pSubnetId_ =
   AssociateSubnetCidrBlock'
-  {_ascbIPv6CidrBlock = pIPv6CidrBlock_, _ascbSubnetId = pSubnetId_}
+    {_ascbIPv6CidrBlock = pIPv6CidrBlock_, _ascbSubnetId = pSubnetId_}
 
 
 -- | The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.
 ascbIPv6CidrBlock :: Lens' AssociateSubnetCidrBlock Text
-ascbIPv6CidrBlock = lens _ascbIPv6CidrBlock (\ s a -> s{_ascbIPv6CidrBlock = a});
+ascbIPv6CidrBlock = lens _ascbIPv6CidrBlock (\ s a -> s{_ascbIPv6CidrBlock = a})
 
 -- | The ID of your subnet.
 ascbSubnetId :: Lens' AssociateSubnetCidrBlock Text
-ascbSubnetId = lens _ascbSubnetId (\ s a -> s{_ascbSubnetId = a});
+ascbSubnetId = lens _ascbSubnetId (\ s a -> s{_ascbSubnetId = a})
 
 instance AWSRequest AssociateSubnetCidrBlock where
         type Rs AssociateSubnetCidrBlock =
@@ -130,23 +130,23 @@ associateSubnetCidrBlockResponse
     -> AssociateSubnetCidrBlockResponse
 associateSubnetCidrBlockResponse pResponseStatus_ =
   AssociateSubnetCidrBlockResponse'
-  { _ascbrsSubnetId = Nothing
-  , _ascbrsIPv6CidrBlockAssociation = Nothing
-  , _ascbrsResponseStatus = pResponseStatus_
-  }
+    { _ascbrsSubnetId = Nothing
+    , _ascbrsIPv6CidrBlockAssociation = Nothing
+    , _ascbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the subnet.
 ascbrsSubnetId :: Lens' AssociateSubnetCidrBlockResponse (Maybe Text)
-ascbrsSubnetId = lens _ascbrsSubnetId (\ s a -> s{_ascbrsSubnetId = a});
+ascbrsSubnetId = lens _ascbrsSubnetId (\ s a -> s{_ascbrsSubnetId = a})
 
 -- | Information about the IPv6 CIDR block association.
 ascbrsIPv6CidrBlockAssociation :: Lens' AssociateSubnetCidrBlockResponse (Maybe SubnetIPv6CidrBlockAssociation)
-ascbrsIPv6CidrBlockAssociation = lens _ascbrsIPv6CidrBlockAssociation (\ s a -> s{_ascbrsIPv6CidrBlockAssociation = a});
+ascbrsIPv6CidrBlockAssociation = lens _ascbrsIPv6CidrBlockAssociation (\ s a -> s{_ascbrsIPv6CidrBlockAssociation = a})
 
 -- | -- | The response status code.
 ascbrsResponseStatus :: Lens' AssociateSubnetCidrBlockResponse Int
-ascbrsResponseStatus = lens _ascbrsResponseStatus (\ s a -> s{_ascbrsResponseStatus = a});
+ascbrsResponseStatus = lens _ascbrsResponseStatus (\ s a -> s{_ascbrsResponseStatus = a})
 
 instance NFData AssociateSubnetCidrBlockResponse
          where

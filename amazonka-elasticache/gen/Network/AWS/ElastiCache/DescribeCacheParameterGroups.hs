@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheParameterGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ describeCacheParameterGroups
     :: DescribeCacheParameterGroups
 describeCacheParameterGroups =
   DescribeCacheParameterGroups'
-  { _dcpgCacheParameterGroupName = Nothing
-  , _dcpgMarker = Nothing
-  , _dcpgMaxRecords = Nothing
-  }
+    { _dcpgCacheParameterGroupName = Nothing
+    , _dcpgMarker = Nothing
+    , _dcpgMaxRecords = Nothing
+    }
 
 
 -- | The name of a specific cache parameter group to return details for.
 dcpgCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
-dcpgCacheParameterGroupName = lens _dcpgCacheParameterGroupName (\ s a -> s{_dcpgCacheParameterGroupName = a});
+dcpgCacheParameterGroupName = lens _dcpgCacheParameterGroupName (\ s a -> s{_dcpgCacheParameterGroupName = a})
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
-dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
+dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 dcpgMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
-dcpgMaxRecords = lens _dcpgMaxRecords (\ s a -> s{_dcpgMaxRecords = a});
+dcpgMaxRecords = lens _dcpgMaxRecords (\ s a -> s{_dcpgMaxRecords = a})
 
 instance AWSPager DescribeCacheParameterGroups where
         page rq rs
@@ -162,23 +162,23 @@ describeCacheParameterGroupsResponse
     -> DescribeCacheParameterGroupsResponse
 describeCacheParameterGroupsResponse pResponseStatus_ =
   DescribeCacheParameterGroupsResponse'
-  { _dcpgrsCacheParameterGroups = Nothing
-  , _dcpgrsMarker = Nothing
-  , _dcpgrsResponseStatus = pResponseStatus_
-  }
+    { _dcpgrsCacheParameterGroups = Nothing
+    , _dcpgrsMarker = Nothing
+    , _dcpgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of cache parameter groups. Each element in the list contains detailed information about one cache parameter group.
 dcpgrsCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
-dcpgrsCacheParameterGroups = lens _dcpgrsCacheParameterGroups (\ s a -> s{_dcpgrsCacheParameterGroups = a}) . _Default . _Coerce;
+dcpgrsCacheParameterGroups = lens _dcpgrsCacheParameterGroups (\ s a -> s{_dcpgrsCacheParameterGroups = a}) . _Default . _Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcpgrsMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
-dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a});
+dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a})
 
 -- | -- | The response status code.
 dcpgrsResponseStatus :: Lens' DescribeCacheParameterGroupsResponse Int
-dcpgrsResponseStatus = lens _dcpgrsResponseStatus (\ s a -> s{_dcpgrsResponseStatus = a});
+dcpgrsResponseStatus = lens _dcpgrsResponseStatus (\ s a -> s{_dcpgrsResponseStatus = a})
 
 instance NFData DescribeCacheParameterGroupsResponse
          where

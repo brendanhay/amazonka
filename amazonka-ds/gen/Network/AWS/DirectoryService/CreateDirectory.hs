@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateDirectory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,38 +88,38 @@ createDirectory
     -> CreateDirectory
 createDirectory pName_ pPassword_ pSize_ =
   CreateDirectory'
-  { _cShortName = Nothing
-  , _cVPCSettings = Nothing
-  , _cDescription = Nothing
-  , _cName = pName_
-  , _cPassword = _Sensitive # pPassword_
-  , _cSize = pSize_
-  }
+    { _cShortName = Nothing
+    , _cVPCSettings = Nothing
+    , _cDescription = Nothing
+    , _cName = pName_
+    , _cPassword = _Sensitive # pPassword_
+    , _cSize = pSize_
+    }
 
 
 -- | The short name of the directory, such as @CORP@ .
 cShortName :: Lens' CreateDirectory (Maybe Text)
-cShortName = lens _cShortName (\ s a -> s{_cShortName = a});
+cShortName = lens _cShortName (\ s a -> s{_cShortName = a})
 
 -- | A 'DirectoryVpcSettings' object that contains additional information for the operation.
 cVPCSettings :: Lens' CreateDirectory (Maybe DirectoryVPCSettings)
-cVPCSettings = lens _cVPCSettings (\ s a -> s{_cVPCSettings = a});
+cVPCSettings = lens _cVPCSettings (\ s a -> s{_cVPCSettings = a})
 
 -- | A textual description for the directory.
 cDescription :: Lens' CreateDirectory (Maybe Text)
-cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
+cDescription = lens _cDescription (\ s a -> s{_cDescription = a})
 
 -- | The fully qualified name for the directory, such as @corp.example.com@ .
 cName :: Lens' CreateDirectory Text
-cName = lens _cName (\ s a -> s{_cName = a});
+cName = lens _cName (\ s a -> s{_cName = a})
 
 -- | The password for the directory administrator. The directory creation process creates a directory administrator account with the username @Administrator@ and this password.
 cPassword :: Lens' CreateDirectory Text
-cPassword = lens _cPassword (\ s a -> s{_cPassword = a}) . _Sensitive;
+cPassword = lens _cPassword (\ s a -> s{_cPassword = a}) . _Sensitive
 
 -- | The size of the directory.
 cSize :: Lens' CreateDirectory DirectorySize
-cSize = lens _cSize (\ s a -> s{_cSize = a});
+cSize = lens _cSize (\ s a -> s{_cSize = a})
 
 instance AWSRequest CreateDirectory where
         type Rs CreateDirectory = CreateDirectoryResponse
@@ -184,15 +184,15 @@ createDirectoryResponse
     -> CreateDirectoryResponse
 createDirectoryResponse pResponseStatus_ =
   CreateDirectoryResponse'
-  {_crsDirectoryId = Nothing, _crsResponseStatus = pResponseStatus_}
+    {_crsDirectoryId = Nothing, _crsResponseStatus = pResponseStatus_}
 
 
 -- | The identifier of the directory that was created.
 crsDirectoryId :: Lens' CreateDirectoryResponse (Maybe Text)
-crsDirectoryId = lens _crsDirectoryId (\ s a -> s{_crsDirectoryId = a});
+crsDirectoryId = lens _crsDirectoryId (\ s a -> s{_crsDirectoryId = a})
 
 -- | -- | The response status code.
 crsResponseStatus :: Lens' CreateDirectoryResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
 
 instance NFData CreateDirectoryResponse where

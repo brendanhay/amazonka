@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetActiveNames
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ getActiveNames = GetActiveNames' {_ganPageToken = Nothing}
 
 -- | A token used for paginating results from your get active names request.
 ganPageToken :: Lens' GetActiveNames (Maybe Text)
-ganPageToken = lens _ganPageToken (\ s a -> s{_ganPageToken = a});
+ganPageToken = lens _ganPageToken (\ s a -> s{_ganPageToken = a})
 
 instance AWSPager GetActiveNames where
         page rq rs
@@ -132,22 +132,22 @@ getActiveNamesResponse
     -> GetActiveNamesResponse
 getActiveNamesResponse pResponseStatus_ =
   GetActiveNamesResponse'
-  { _ganrsNextPageToken = Nothing
-  , _ganrsActiveNames = Nothing
-  , _ganrsResponseStatus = pResponseStatus_
-  }
+    { _ganrsNextPageToken = Nothing
+    , _ganrsActiveNames = Nothing
+    , _ganrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A token used for advancing to the next page of results from your get active names request.
 ganrsNextPageToken :: Lens' GetActiveNamesResponse (Maybe Text)
-ganrsNextPageToken = lens _ganrsNextPageToken (\ s a -> s{_ganrsNextPageToken = a});
+ganrsNextPageToken = lens _ganrsNextPageToken (\ s a -> s{_ganrsNextPageToken = a})
 
 -- | The list of active names returned by the get active names request.
 ganrsActiveNames :: Lens' GetActiveNamesResponse [Text]
-ganrsActiveNames = lens _ganrsActiveNames (\ s a -> s{_ganrsActiveNames = a}) . _Default . _Coerce;
+ganrsActiveNames = lens _ganrsActiveNames (\ s a -> s{_ganrsActiveNames = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ganrsResponseStatus :: Lens' GetActiveNamesResponse Int
-ganrsResponseStatus = lens _ganrsResponseStatus (\ s a -> s{_ganrsResponseStatus = a});
+ganrsResponseStatus = lens _ganrsResponseStatus (\ s a -> s{_ganrsResponseStatus = a})
 
 instance NFData GetActiveNamesResponse where

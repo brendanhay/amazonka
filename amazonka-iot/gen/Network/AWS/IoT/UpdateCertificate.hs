@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.UpdateCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ data UpdateCertificate = UpdateCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucCertificateId' - The ID of the certificate.
+-- * 'ucCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 --
 -- * 'ucNewStatus' - The new status. __Note:__ Setting the status to PENDING_TRANSFER will result in an exception being thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not intended for developer use. __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
 updateCertificate
@@ -70,16 +70,16 @@ updateCertificate
     -> UpdateCertificate
 updateCertificate pCertificateId_ pNewStatus_ =
   UpdateCertificate'
-  {_ucCertificateId = pCertificateId_, _ucNewStatus = pNewStatus_}
+    {_ucCertificateId = pCertificateId_, _ucNewStatus = pNewStatus_}
 
 
--- | The ID of the certificate.
+-- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 ucCertificateId :: Lens' UpdateCertificate Text
-ucCertificateId = lens _ucCertificateId (\ s a -> s{_ucCertificateId = a});
+ucCertificateId = lens _ucCertificateId (\ s a -> s{_ucCertificateId = a})
 
 -- | The new status. __Note:__ Setting the status to PENDING_TRANSFER will result in an exception being thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not intended for developer use. __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
 ucNewStatus :: Lens' UpdateCertificate CertificateStatus
-ucNewStatus = lens _ucNewStatus (\ s a -> s{_ucNewStatus = a});
+ucNewStatus = lens _ucNewStatus (\ s a -> s{_ucNewStatus = a})
 
 instance AWSRequest UpdateCertificate where
         type Rs UpdateCertificate = UpdateCertificateResponse

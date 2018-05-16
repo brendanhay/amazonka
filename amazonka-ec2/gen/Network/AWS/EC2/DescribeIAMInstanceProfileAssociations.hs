@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeIAMInstanceProfileAssociations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Describes your IAM instance profile associations.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeIAMInstanceProfileAssociations
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.EC2.DescribeIAMInstanceProfileAssociations
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,28 +75,38 @@ describeIAMInstanceProfileAssociations
     :: DescribeIAMInstanceProfileAssociations
 describeIAMInstanceProfileAssociations =
   DescribeIAMInstanceProfileAssociations'
-  { _diapaFilters = Nothing
-  , _diapaNextToken = Nothing
-  , _diapaAssociationIds = Nothing
-  , _diapaMaxResults = Nothing
-  }
+    { _diapaFilters = Nothing
+    , _diapaNextToken = Nothing
+    , _diapaAssociationIds = Nothing
+    , _diapaMaxResults = Nothing
+    }
 
 
 -- | One or more filters.     * @instance-id@ - The ID of the instance.     * @state@ - The state of the association (@associating@ | @associated@ | @disassociating@ | @disassociated@ ).
 diapaFilters :: Lens' DescribeIAMInstanceProfileAssociations [Filter]
-diapaFilters = lens _diapaFilters (\ s a -> s{_diapaFilters = a}) . _Default . _Coerce;
+diapaFilters = lens _diapaFilters (\ s a -> s{_diapaFilters = a}) . _Default . _Coerce
 
 -- | The token to request the next page of results.
 diapaNextToken :: Lens' DescribeIAMInstanceProfileAssociations (Maybe Text)
-diapaNextToken = lens _diapaNextToken (\ s a -> s{_diapaNextToken = a});
+diapaNextToken = lens _diapaNextToken (\ s a -> s{_diapaNextToken = a})
 
 -- | One or more IAM instance profile associations.
 diapaAssociationIds :: Lens' DescribeIAMInstanceProfileAssociations [Text]
-diapaAssociationIds = lens _diapaAssociationIds (\ s a -> s{_diapaAssociationIds = a}) . _Default . _Coerce;
+diapaAssociationIds = lens _diapaAssociationIds (\ s a -> s{_diapaAssociationIds = a}) . _Default . _Coerce
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 diapaMaxResults :: Lens' DescribeIAMInstanceProfileAssociations (Maybe Natural)
-diapaMaxResults = lens _diapaMaxResults (\ s a -> s{_diapaMaxResults = a}) . mapping _Nat;
+diapaMaxResults = lens _diapaMaxResults (\ s a -> s{_diapaMaxResults = a}) . mapping _Nat
+
+instance AWSPager
+           DescribeIAMInstanceProfileAssociations
+         where
+        page rq rs
+          | stop (rs ^. diaparsNextToken) = Nothing
+          | stop (rs ^. diaparsIAMInstanceProfileAssociations)
+            = Nothing
+          | otherwise =
+            Just $ rq & diapaNextToken .~ rs ^. diaparsNextToken
 
 instance AWSRequest
            DescribeIAMInstanceProfileAssociations
@@ -166,23 +179,23 @@ describeIAMInstanceProfileAssociationsResponse
     -> DescribeIAMInstanceProfileAssociationsResponse
 describeIAMInstanceProfileAssociationsResponse pResponseStatus_ =
   DescribeIAMInstanceProfileAssociationsResponse'
-  { _diaparsIAMInstanceProfileAssociations = Nothing
-  , _diaparsNextToken = Nothing
-  , _diaparsResponseStatus = pResponseStatus_
-  }
+    { _diaparsIAMInstanceProfileAssociations = Nothing
+    , _diaparsNextToken = Nothing
+    , _diaparsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about one or more IAM instance profile associations.
 diaparsIAMInstanceProfileAssociations :: Lens' DescribeIAMInstanceProfileAssociationsResponse [IAMInstanceProfileAssociation]
-diaparsIAMInstanceProfileAssociations = lens _diaparsIAMInstanceProfileAssociations (\ s a -> s{_diaparsIAMInstanceProfileAssociations = a}) . _Default . _Coerce;
+diaparsIAMInstanceProfileAssociations = lens _diaparsIAMInstanceProfileAssociations (\ s a -> s{_diaparsIAMInstanceProfileAssociations = a}) . _Default . _Coerce
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 diaparsNextToken :: Lens' DescribeIAMInstanceProfileAssociationsResponse (Maybe Text)
-diaparsNextToken = lens _diaparsNextToken (\ s a -> s{_diaparsNextToken = a});
+diaparsNextToken = lens _diaparsNextToken (\ s a -> s{_diaparsNextToken = a})
 
 -- | -- | The response status code.
 diaparsResponseStatus :: Lens' DescribeIAMInstanceProfileAssociationsResponse Int
-diaparsResponseStatus = lens _diaparsResponseStatus (\ s a -> s{_diaparsResponseStatus = a});
+diaparsResponseStatus = lens _diaparsResponseStatus (\ s a -> s{_diaparsResponseStatus = a})
 
 instance NFData
            DescribeIAMInstanceProfileAssociationsResponse

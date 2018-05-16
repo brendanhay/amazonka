@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssignPrivateIPAddresses
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,28 +75,28 @@ assignPrivateIPAddresses
     -> AssignPrivateIPAddresses
 assignPrivateIPAddresses pNetworkInterfaceId_ =
   AssignPrivateIPAddresses'
-  { _apiaPrivateIPAddresses = Nothing
-  , _apiaAllowReassignment = Nothing
-  , _apiaSecondaryPrivateIPAddressCount = Nothing
-  , _apiaNetworkInterfaceId = pNetworkInterfaceId_
-  }
+    { _apiaPrivateIPAddresses = Nothing
+    , _apiaAllowReassignment = Nothing
+    , _apiaSecondaryPrivateIPAddressCount = Nothing
+    , _apiaNetworkInterfaceId = pNetworkInterfaceId_
+    }
 
 
 -- | One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses. If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.
 apiaPrivateIPAddresses :: Lens' AssignPrivateIPAddresses [Text]
-apiaPrivateIPAddresses = lens _apiaPrivateIPAddresses (\ s a -> s{_apiaPrivateIPAddresses = a}) . _Default . _Coerce;
+apiaPrivateIPAddresses = lens _apiaPrivateIPAddresses (\ s a -> s{_apiaPrivateIPAddresses = a}) . _Default . _Coerce
 
 -- | Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.
 apiaAllowReassignment :: Lens' AssignPrivateIPAddresses (Maybe Bool)
-apiaAllowReassignment = lens _apiaAllowReassignment (\ s a -> s{_apiaAllowReassignment = a});
+apiaAllowReassignment = lens _apiaAllowReassignment (\ s a -> s{_apiaAllowReassignment = a})
 
 -- | The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.
 apiaSecondaryPrivateIPAddressCount :: Lens' AssignPrivateIPAddresses (Maybe Int)
-apiaSecondaryPrivateIPAddressCount = lens _apiaSecondaryPrivateIPAddressCount (\ s a -> s{_apiaSecondaryPrivateIPAddressCount = a});
+apiaSecondaryPrivateIPAddressCount = lens _apiaSecondaryPrivateIPAddressCount (\ s a -> s{_apiaSecondaryPrivateIPAddressCount = a})
 
 -- | The ID of the network interface.
 apiaNetworkInterfaceId :: Lens' AssignPrivateIPAddresses Text
-apiaNetworkInterfaceId = lens _apiaNetworkInterfaceId (\ s a -> s{_apiaNetworkInterfaceId = a});
+apiaNetworkInterfaceId = lens _apiaNetworkInterfaceId (\ s a -> s{_apiaNetworkInterfaceId = a})
 
 instance AWSRequest AssignPrivateIPAddresses where
         type Rs AssignPrivateIPAddresses =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListPrincipalThings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ data ListPrincipalThings = ListPrincipalThings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lptNextToken' - The token for the next set of results, or __null__ if there are no additional results.
+-- * 'lptNextToken' - The token used to get the next set of results, or __null__ if there are no additional results.
 --
 -- * 'lptMaxResults' - The maximum number of results to return in this operation.
 --
@@ -76,23 +76,23 @@ listPrincipalThings
     -> ListPrincipalThings
 listPrincipalThings pPrincipal_ =
   ListPrincipalThings'
-  { _lptNextToken = Nothing
-  , _lptMaxResults = Nothing
-  , _lptPrincipal = pPrincipal_
-  }
+    { _lptNextToken = Nothing
+    , _lptMaxResults = Nothing
+    , _lptPrincipal = pPrincipal_
+    }
 
 
--- | The token for the next set of results, or __null__ if there are no additional results.
+-- | The token used to get the next set of results, or __null__ if there are no additional results.
 lptNextToken :: Lens' ListPrincipalThings (Maybe Text)
-lptNextToken = lens _lptNextToken (\ s a -> s{_lptNextToken = a});
+lptNextToken = lens _lptNextToken (\ s a -> s{_lptNextToken = a})
 
 -- | The maximum number of results to return in this operation.
 lptMaxResults :: Lens' ListPrincipalThings (Maybe Natural)
-lptMaxResults = lens _lptMaxResults (\ s a -> s{_lptMaxResults = a}) . mapping _Nat;
+lptMaxResults = lens _lptMaxResults (\ s a -> s{_lptMaxResults = a}) . mapping _Nat
 
 -- | The principal.
 lptPrincipal :: Lens' ListPrincipalThings Text
-lptPrincipal = lens _lptPrincipal (\ s a -> s{_lptPrincipal = a});
+lptPrincipal = lens _lptPrincipal (\ s a -> s{_lptPrincipal = a})
 
 instance AWSPager ListPrincipalThings where
         page rq rs
@@ -145,7 +145,7 @@ data ListPrincipalThingsResponse = ListPrincipalThingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lptrsNextToken' - The token for the next set of results, or __null__ if there are no additional results.
+-- * 'lptrsNextToken' - The token used to get the next set of results, or __null__ if there are no additional results.
 --
 -- * 'lptrsThings' - The things.
 --
@@ -155,22 +155,22 @@ listPrincipalThingsResponse
     -> ListPrincipalThingsResponse
 listPrincipalThingsResponse pResponseStatus_ =
   ListPrincipalThingsResponse'
-  { _lptrsNextToken = Nothing
-  , _lptrsThings = Nothing
-  , _lptrsResponseStatus = pResponseStatus_
-  }
+    { _lptrsNextToken = Nothing
+    , _lptrsThings = Nothing
+    , _lptrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The token for the next set of results, or __null__ if there are no additional results.
+-- | The token used to get the next set of results, or __null__ if there are no additional results.
 lptrsNextToken :: Lens' ListPrincipalThingsResponse (Maybe Text)
-lptrsNextToken = lens _lptrsNextToken (\ s a -> s{_lptrsNextToken = a});
+lptrsNextToken = lens _lptrsNextToken (\ s a -> s{_lptrsNextToken = a})
 
 -- | The things.
 lptrsThings :: Lens' ListPrincipalThingsResponse [Text]
-lptrsThings = lens _lptrsThings (\ s a -> s{_lptrsThings = a}) . _Default . _Coerce;
+lptrsThings = lens _lptrsThings (\ s a -> s{_lptrsThings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lptrsResponseStatus :: Lens' ListPrincipalThingsResponse Int
-lptrsResponseStatus = lens _lptrsResponseStatus (\ s a -> s{_lptrsResponseStatus = a});
+lptrsResponseStatus = lens _lptrsResponseStatus (\ s a -> s{_lptrsResponseStatus = a})
 
 instance NFData ListPrincipalThingsResponse where

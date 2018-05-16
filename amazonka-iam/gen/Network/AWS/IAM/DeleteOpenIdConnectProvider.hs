@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteOpenIdConnectProvider
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 --
 -- Deleting an IAM OIDC provider resource does not update any roles that reference the provider as a principal in their trust policies. Any attempt to assume a role that references a deleted provider fails.
 --
--- This action is idempotent; it does not fail or return an error if you call the action for a provider that does not exist.
+-- This operation is idempotent; it does not fail or return an error if you call the operation for a provider that does not exist.
 --
 module Network.AWS.IAM.DeleteOpenIdConnectProvider
     (
@@ -55,18 +55,18 @@ newtype DeleteOpenIdConnectProvider = DeleteOpenIdConnectProvider'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'doicpOpenIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the 'ListOpenIDConnectProviders' action.
+-- * 'doicpOpenIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the 'ListOpenIDConnectProviders' operation.
 deleteOpenIdConnectProvider
     :: Text -- ^ 'doicpOpenIdConnectProviderARN'
     -> DeleteOpenIdConnectProvider
 deleteOpenIdConnectProvider pOpenIdConnectProviderARN_ =
   DeleteOpenIdConnectProvider'
-  {_doicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_}
+    {_doicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_}
 
 
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the 'ListOpenIDConnectProviders' action.
+-- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the 'ListOpenIDConnectProviders' operation.
 doicpOpenIdConnectProviderARN :: Lens' DeleteOpenIdConnectProvider Text
-doicpOpenIdConnectProviderARN = lens _doicpOpenIdConnectProviderARN (\ s a -> s{_doicpOpenIdConnectProviderARN = a});
+doicpOpenIdConnectProviderARN = lens _doicpOpenIdConnectProviderARN (\ s a -> s{_doicpOpenIdConnectProviderARN = a})
 
 instance AWSRequest DeleteOpenIdConnectProvider where
         type Rs DeleteOpenIdConnectProvider =

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.Sensitive
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -16,7 +16,8 @@ module Network.AWS.Data.Sensitive where
 import           Control.DeepSeq
 import           Data.Data                   (Data, Typeable)
 import           Data.Hashable
-import           Data.Monoid
+import           Data.Monoid                 (Monoid)
+import           Data.Semigroup              (Semigroup)
 import           Data.String
 
 import           GHC.Generics                (Generic)
@@ -36,6 +37,7 @@ newtype Sensitive a = Sensitive { desensitise :: a }
         ( Eq
         , Ord
         , IsString
+        , Semigroup
         , Monoid
         , Data
         , Typeable

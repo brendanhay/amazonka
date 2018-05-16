@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.DeleteHIT
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteHIT pHITId_ = DeleteHIT' {_dhitHITId = pHITId_}
 
 -- | The ID of the HIT to be deleted.
 dhitHITId :: Lens' DeleteHIT Text
-dhitHITId = lens _dhitHITId (\ s a -> s{_dhitHITId = a});
+dhitHITId = lens _dhitHITId (\ s a -> s{_dhitHITId = a})
 
 instance AWSRequest DeleteHIT where
         type Rs DeleteHIT = DeleteHITResponse
@@ -118,6 +118,6 @@ deleteHITResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dhitrsResponseStatus :: Lens' DeleteHITResponse Int
-dhitrsResponseStatus = lens _dhitrsResponseStatus (\ s a -> s{_dhitrsResponseStatus = a});
+dhitrsResponseStatus = lens _dhitrsResponseStatus (\ s a -> s{_dhitrsResponseStatus = a})
 
 instance NFData DeleteHITResponse where

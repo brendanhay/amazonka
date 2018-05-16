@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -173,6 +173,33 @@ instance FromXML BucketVersioningStatus where
 instance ToXML BucketVersioningStatus where
     toXML = toXMLText
 
+data CompressionType
+  = CTGzip
+  | CTNone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CompressionType where
+    parser = takeLowerText >>= \case
+        "gzip" -> pure CTGzip
+        "none" -> pure CTNone
+        e -> fromTextError $ "Failure parsing CompressionType from value: '" <> e
+           <> "'. Accepted values: gzip, none"
+
+instance ToText CompressionType where
+    toText = \case
+        CTGzip -> "GZIP"
+        CTNone -> "NONE"
+
+instance Hashable     CompressionType
+instance NFData       CompressionType
+instance ToByteString CompressionType
+instance ToQuery      CompressionType
+instance ToHeader     CompressionType
+
+instance ToXML CompressionType where
+    toXML = toXMLText
+
 -- | Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
 data EncodingType =
   URL
@@ -283,6 +310,60 @@ instance FromXML ExpirationStatus where
 instance ToXML ExpirationStatus where
     toXML = toXMLText
 
+data ExpressionType =
+  Sql
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ExpressionType where
+    parser = takeLowerText >>= \case
+        "sql" -> pure Sql
+        e -> fromTextError $ "Failure parsing ExpressionType from value: '" <> e
+           <> "'. Accepted values: sql"
+
+instance ToText ExpressionType where
+    toText = \case
+        Sql -> "SQL"
+
+instance Hashable     ExpressionType
+instance NFData       ExpressionType
+instance ToByteString ExpressionType
+instance ToQuery      ExpressionType
+instance ToHeader     ExpressionType
+
+instance ToXML ExpressionType where
+    toXML = toXMLText
+
+data FileHeaderInfo
+  = Ignore
+  | None
+  | Use
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FileHeaderInfo where
+    parser = takeLowerText >>= \case
+        "ignore" -> pure Ignore
+        "none" -> pure None
+        "use" -> pure Use
+        e -> fromTextError $ "Failure parsing FileHeaderInfo from value: '" <> e
+           <> "'. Accepted values: ignore, none, use"
+
+instance ToText FileHeaderInfo where
+    toText = \case
+        Ignore -> "IGNORE"
+        None -> "NONE"
+        Use -> "USE"
+
+instance Hashable     FileHeaderInfo
+instance NFData       FileHeaderInfo
+instance ToByteString FileHeaderInfo
+instance ToQuery      FileHeaderInfo
+instance ToHeader     FileHeaderInfo
+
+instance ToXML FileHeaderInfo where
+    toXML = toXMLText
+
 data FilterRuleName
   = Prefix
   | Suffix
@@ -313,20 +394,23 @@ instance FromXML FilterRuleName where
 instance ToXML FilterRuleName where
     toXML = toXMLText
 
-data InventoryFormat =
-  IFCSV
+data InventoryFormat
+  = IFCSV
+  | IFOrc
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText InventoryFormat where
     parser = takeLowerText >>= \case
         "csv" -> pure IFCSV
+        "orc" -> pure IFOrc
         e -> fromTextError $ "Failure parsing InventoryFormat from value: '" <> e
-           <> "'. Accepted values: csv"
+           <> "'. Accepted values: csv, orc"
 
 instance ToText InventoryFormat where
     toText = \case
         IFCSV -> "CSV"
+        IFOrc -> "ORC"
 
 instance Hashable     InventoryFormat
 instance NFData       InventoryFormat
@@ -443,6 +527,33 @@ instance FromXML InventoryOptionalField where
     parseXML = parseXMLText "InventoryOptionalField"
 
 instance ToXML InventoryOptionalField where
+    toXML = toXMLText
+
+data JSONType
+  = Document
+  | Lines
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText JSONType where
+    parser = takeLowerText >>= \case
+        "document" -> pure Document
+        "lines" -> pure Lines
+        e -> fromTextError $ "Failure parsing JSONType from value: '" <> e
+           <> "'. Accepted values: document, lines"
+
+instance ToText JSONType where
+    toText = \case
+        Document -> "DOCUMENT"
+        Lines -> "LINES"
+
+instance Hashable     JSONType
+instance NFData       JSONType
+instance ToByteString JSONType
+instance ToQuery      JSONType
+instance ToHeader     JSONType
+
+instance ToXML JSONType where
     toXML = toXMLText
 
 data MFADelete
@@ -751,6 +862,33 @@ instance FromXML Protocol where
 instance ToXML Protocol where
     toXML = toXMLText
 
+data QuoteFields
+  = ASNeeded
+  | Always
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText QuoteFields where
+    parser = takeLowerText >>= \case
+        "asneeded" -> pure ASNeeded
+        "always" -> pure Always
+        e -> fromTextError $ "Failure parsing QuoteFields from value: '" <> e
+           <> "'. Accepted values: asneeded, always"
+
+instance ToText QuoteFields where
+    toText = \case
+        ASNeeded -> "ASNEEDED"
+        Always -> "ALWAYS"
+
+instance Hashable     QuoteFields
+instance NFData       QuoteFields
+instance ToByteString QuoteFields
+instance ToQuery      QuoteFields
+instance ToHeader     QuoteFields
+
+instance ToXML QuoteFields where
+    toXML = toXMLText
+
 data ReplicationRuleStatus
   = Disabled
   | Enabled
@@ -864,6 +1002,30 @@ instance ToHeader     RequestPayer
 instance ToXML RequestPayer where
     toXML = toXMLText
 
+data RestoreRequestType =
+  Select
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RestoreRequestType where
+    parser = takeLowerText >>= \case
+        "select" -> pure Select
+        e -> fromTextError $ "Failure parsing RestoreRequestType from value: '" <> e
+           <> "'. Accepted values: select"
+
+instance ToText RestoreRequestType where
+    toText = \case
+        Select -> "SELECT"
+
+instance Hashable     RestoreRequestType
+instance NFData       RestoreRequestType
+instance ToByteString RestoreRequestType
+instance ToQuery      RestoreRequestType
+instance ToHeader     RestoreRequestType
+
+instance ToXML RestoreRequestType where
+    toXML = toXMLText
+
 data ServerSideEncryption
   = AES256
   | AWSKMS
@@ -925,7 +1087,8 @@ instance ToXML SseKMSEncryptedObjectsStatus where
     toXML = toXMLText
 
 data StorageClass
-  = ReducedRedundancy
+  = OnezoneIA
+  | ReducedRedundancy
   | Standard
   | StandardIA
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -933,14 +1096,16 @@ data StorageClass
 
 instance FromText StorageClass where
     parser = takeLowerText >>= \case
+        "onezone_ia" -> pure OnezoneIA
         "reduced_redundancy" -> pure ReducedRedundancy
         "standard" -> pure Standard
         "standard_ia" -> pure StandardIA
         e -> fromTextError $ "Failure parsing StorageClass from value: '" <> e
-           <> "'. Accepted values: reduced_redundancy, standard, standard_ia"
+           <> "'. Accepted values: onezone_ia, reduced_redundancy, standard, standard_ia"
 
 instance ToText StorageClass where
     toText = \case
+        OnezoneIA -> "ONEZONE_IA"
         ReducedRedundancy -> "REDUCED_REDUNDANCY"
         Standard -> "STANDARD"
         StandardIA -> "STANDARD_IA"
@@ -1043,6 +1208,7 @@ instance ToXML Tier where
 
 data TransitionStorageClass
   = TSCGlacier
+  | TSCOnezoneIA
   | TSCStandardIA
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -1050,13 +1216,15 @@ data TransitionStorageClass
 instance FromText TransitionStorageClass where
     parser = takeLowerText >>= \case
         "glacier" -> pure TSCGlacier
+        "onezone_ia" -> pure TSCOnezoneIA
         "standard_ia" -> pure TSCStandardIA
         e -> fromTextError $ "Failure parsing TransitionStorageClass from value: '" <> e
-           <> "'. Accepted values: glacier, standard_ia"
+           <> "'. Accepted values: glacier, onezone_ia, standard_ia"
 
 instance ToText TransitionStorageClass where
     toText = \case
         TSCGlacier -> "GLACIER"
+        TSCOnezoneIA -> "ONEZONE_IA"
         TSCStandardIA -> "STANDARD_IA"
 
 instance Hashable     TransitionStorageClass

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeContainerInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes Amazon EC2 Container Service container instances. Returns metadata about registered and remaining resources on each container instance requested.
+-- Describes Amazon Elastic Container Service container instances. Returns metadata about registered and remaining resources on each container instance requested.
 --
 --
 module Network.AWS.ECS.DescribeContainerInstances
@@ -59,21 +59,21 @@ data DescribeContainerInstances = DescribeContainerInstances'
 --
 -- * 'dciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to describe. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'dciContainerInstances' - A list of container instance IDs or full Amazon Resource Name (ARN) entries.
+-- * 'dciContainerInstances' - A list of container instance IDs or full ARN entries.
 describeContainerInstances
     :: DescribeContainerInstances
 describeContainerInstances =
   DescribeContainerInstances'
-  {_dciCluster = Nothing, _dciContainerInstances = mempty}
+    {_dciCluster = Nothing, _dciContainerInstances = mempty}
 
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to describe. If you do not specify a cluster, the default cluster is assumed.
 dciCluster :: Lens' DescribeContainerInstances (Maybe Text)
-dciCluster = lens _dciCluster (\ s a -> s{_dciCluster = a});
+dciCluster = lens _dciCluster (\ s a -> s{_dciCluster = a})
 
--- | A list of container instance IDs or full Amazon Resource Name (ARN) entries.
+-- | A list of container instance IDs or full ARN entries.
 dciContainerInstances :: Lens' DescribeContainerInstances [Text]
-dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a}) . _Coerce;
+dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a}) . _Coerce
 
 instance AWSRequest DescribeContainerInstances where
         type Rs DescribeContainerInstances =
@@ -137,23 +137,23 @@ describeContainerInstancesResponse
     -> DescribeContainerInstancesResponse
 describeContainerInstancesResponse pResponseStatus_ =
   DescribeContainerInstancesResponse'
-  { _dcisrsFailures = Nothing
-  , _dcisrsContainerInstances = Nothing
-  , _dcisrsResponseStatus = pResponseStatus_
-  }
+    { _dcisrsFailures = Nothing
+    , _dcisrsContainerInstances = Nothing
+    , _dcisrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Any failures associated with the call.
 dcisrsFailures :: Lens' DescribeContainerInstancesResponse [Failure]
-dcisrsFailures = lens _dcisrsFailures (\ s a -> s{_dcisrsFailures = a}) . _Default . _Coerce;
+dcisrsFailures = lens _dcisrsFailures (\ s a -> s{_dcisrsFailures = a}) . _Default . _Coerce
 
 -- | The list of container instances.
 dcisrsContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
-dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsContainerInstances = a}) . _Default . _Coerce;
+dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsContainerInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcisrsResponseStatus :: Lens' DescribeContainerInstancesResponse Int
-dcisrsResponseStatus = lens _dcisrsResponseStatus (\ s a -> s{_dcisrsResponseStatus = a});
+dcisrsResponseStatus = lens _dcisrsResponseStatus (\ s a -> s{_dcisrsResponseStatus = a})
 
 instance NFData DescribeContainerInstancesResponse
          where

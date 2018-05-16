@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetGeoMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getGeoMatchSet pGeoMatchSetId_ =
 
 -- | The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to get. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
 ggmsGeoMatchSetId :: Lens' GetGeoMatchSet Text
-ggmsGeoMatchSetId = lens _ggmsGeoMatchSetId (\ s a -> s{_ggmsGeoMatchSetId = a});
+ggmsGeoMatchSetId = lens _ggmsGeoMatchSetId (\ s a -> s{_ggmsGeoMatchSetId = a})
 
 instance AWSRequest GetGeoMatchSet where
         type Rs GetGeoMatchSet = GetGeoMatchSetResponse
@@ -120,15 +120,15 @@ getGeoMatchSetResponse
     -> GetGeoMatchSetResponse
 getGeoMatchSetResponse pResponseStatus_ =
   GetGeoMatchSetResponse'
-  {_ggmsrsGeoMatchSet = Nothing, _ggmsrsResponseStatus = pResponseStatus_}
+    {_ggmsrsGeoMatchSet = Nothing, _ggmsrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the 'GeoMatchSet' that you specified in the @GetGeoMatchSet@ request. This includes the @Type@ , which for a @GeoMatchContraint@ is always @Country@ , as well as the @Value@ , which is the identifier for a specific country.
 ggmsrsGeoMatchSet :: Lens' GetGeoMatchSetResponse (Maybe GeoMatchSet)
-ggmsrsGeoMatchSet = lens _ggmsrsGeoMatchSet (\ s a -> s{_ggmsrsGeoMatchSet = a});
+ggmsrsGeoMatchSet = lens _ggmsrsGeoMatchSet (\ s a -> s{_ggmsrsGeoMatchSet = a})
 
 -- | -- | The response status code.
 ggmsrsResponseStatus :: Lens' GetGeoMatchSetResponse Int
-ggmsrsResponseStatus = lens _ggmsrsResponseStatus (\ s a -> s{_ggmsrsResponseStatus = a});
+ggmsrsResponseStatus = lens _ggmsrsResponseStatus (\ s a -> s{_ggmsrsResponseStatus = a})
 
 instance NFData GetGeoMatchSetResponse where

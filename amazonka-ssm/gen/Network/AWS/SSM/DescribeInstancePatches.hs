@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeInstancePatches
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ describeInstancePatches
     -> DescribeInstancePatches
 describeInstancePatches pInstanceId_ =
   DescribeInstancePatches'
-  { _dipFilters = Nothing
-  , _dipNextToken = Nothing
-  , _dipMaxResults = Nothing
-  , _dipInstanceId = pInstanceId_
-  }
+    { _dipFilters = Nothing
+    , _dipNextToken = Nothing
+    , _dipMaxResults = Nothing
+    , _dipInstanceId = pInstanceId_
+    }
 
 
 -- | Each entry in the array is a structure containing: Key (string, between 1 and 128 characters) Values (array of strings, each string between 1 and 256 characters)
 dipFilters :: Lens' DescribeInstancePatches [PatchOrchestratorFilter]
-dipFilters = lens _dipFilters (\ s a -> s{_dipFilters = a}) . _Default . _Coerce;
+dipFilters = lens _dipFilters (\ s a -> s{_dipFilters = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dipNextToken :: Lens' DescribeInstancePatches (Maybe Text)
-dipNextToken = lens _dipNextToken (\ s a -> s{_dipNextToken = a});
+dipNextToken = lens _dipNextToken (\ s a -> s{_dipNextToken = a})
 
 -- | The maximum number of patches to return (per page).
 dipMaxResults :: Lens' DescribeInstancePatches (Maybe Natural)
-dipMaxResults = lens _dipMaxResults (\ s a -> s{_dipMaxResults = a}) . mapping _Nat;
+dipMaxResults = lens _dipMaxResults (\ s a -> s{_dipMaxResults = a}) . mapping _Nat
 
 -- | The ID of the instance whose patch state information should be retrieved.
 dipInstanceId :: Lens' DescribeInstancePatches Text
-dipInstanceId = lens _dipInstanceId (\ s a -> s{_dipInstanceId = a});
+dipInstanceId = lens _dipInstanceId (\ s a -> s{_dipInstanceId = a})
 
 instance AWSRequest DescribeInstancePatches where
         type Rs DescribeInstancePatches =
@@ -157,22 +157,22 @@ describeInstancePatchesResponse
     -> DescribeInstancePatchesResponse
 describeInstancePatchesResponse pResponseStatus_ =
   DescribeInstancePatchesResponse'
-  { _diprsPatches = Nothing
-  , _diprsNextToken = Nothing
-  , _diprsResponseStatus = pResponseStatus_
-  }
+    { _diprsPatches = Nothing
+    , _diprsNextToken = Nothing
+    , _diprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string: "INSTALLED", "INSTALLED OTHER", "MISSING", "NOT APPLICABLE", "FAILED") InstalledTime (DateTime) InstalledBy (string)
 diprsPatches :: Lens' DescribeInstancePatchesResponse [PatchComplianceData]
-diprsPatches = lens _diprsPatches (\ s a -> s{_diprsPatches = a}) . _Default . _Coerce;
+diprsPatches = lens _diprsPatches (\ s a -> s{_diprsPatches = a}) . _Default . _Coerce
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 diprsNextToken :: Lens' DescribeInstancePatchesResponse (Maybe Text)
-diprsNextToken = lens _diprsNextToken (\ s a -> s{_diprsNextToken = a});
+diprsNextToken = lens _diprsNextToken (\ s a -> s{_diprsNextToken = a})
 
 -- | -- | The response status code.
 diprsResponseStatus :: Lens' DescribeInstancePatchesResponse Int
-diprsResponseStatus = lens _diprsResponseStatus (\ s a -> s{_diprsResponseStatus = a});
+diprsResponseStatus = lens _diprsResponseStatus (\ s a -> s{_diprsResponseStatus = a})
 
 instance NFData DescribeInstancePatchesResponse where

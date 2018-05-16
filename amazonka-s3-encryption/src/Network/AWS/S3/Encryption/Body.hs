@@ -2,7 +2,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.Encryption.Body
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
@@ -36,13 +36,13 @@ instance ToChunkedBody RqBody where
 
 enforceChunks :: Integral a
               => a
-              -> Source (ResourceT IO) ByteString
+              -> ConduitM () ByteString (ResourceT IO) ()
               -> ChunkedBody
 enforceChunks sz =
     ChunkedBody defaultChunkSize (fromIntegral sz) . flip fuse go
   where
     go = awaitForever (\i -> leftover i >> sinkLazy >>= yield)
-      =$= takeCE n
-      =$= mapC LBS.toStrict
+      .| takeCE n
+      .| mapC LBS.toStrict
 
     n = fromIntegral defaultChunkSize

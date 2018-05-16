@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteBaiduChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteBaiduChannel pApplicationId_ =
 
 -- | Undocumented member.
 dbcApplicationId :: Lens' DeleteBaiduChannel Text
-dbcApplicationId = lens _dbcApplicationId (\ s a -> s{_dbcApplicationId = a});
+dbcApplicationId = lens _dbcApplicationId (\ s a -> s{_dbcApplicationId = a})
 
 instance AWSRequest DeleteBaiduChannel where
         type Rs DeleteBaiduChannel =
@@ -114,17 +114,17 @@ deleteBaiduChannelResponse
     -> DeleteBaiduChannelResponse
 deleteBaiduChannelResponse pResponseStatus_ pBaiduChannelResponse_ =
   DeleteBaiduChannelResponse'
-  { _dbcrsResponseStatus = pResponseStatus_
-  , _dbcrsBaiduChannelResponse = pBaiduChannelResponse_
-  }
+    { _dbcrsResponseStatus = pResponseStatus_
+    , _dbcrsBaiduChannelResponse = pBaiduChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 dbcrsResponseStatus :: Lens' DeleteBaiduChannelResponse Int
-dbcrsResponseStatus = lens _dbcrsResponseStatus (\ s a -> s{_dbcrsResponseStatus = a});
+dbcrsResponseStatus = lens _dbcrsResponseStatus (\ s a -> s{_dbcrsResponseStatus = a})
 
 -- | Undocumented member.
 dbcrsBaiduChannelResponse :: Lens' DeleteBaiduChannelResponse BaiduChannelResponse
-dbcrsBaiduChannelResponse = lens _dbcrsBaiduChannelResponse (\ s a -> s{_dbcrsBaiduChannelResponse = a});
+dbcrsBaiduChannelResponse = lens _dbcrsBaiduChannelResponse (\ s a -> s{_dbcrsBaiduChannelResponse = a})
 
 instance NFData DeleteBaiduChannelResponse where

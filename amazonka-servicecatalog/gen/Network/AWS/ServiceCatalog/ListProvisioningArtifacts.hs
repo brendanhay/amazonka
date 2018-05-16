@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListProvisioningArtifacts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all provisioning artifacts associated with the specified product.
+-- Lists all provisioning artifacts (also known as versions) for the specified product.
 --
 --
 module Network.AWS.ServiceCatalog.ListProvisioningArtifacts
@@ -65,16 +65,16 @@ listProvisioningArtifacts
     -> ListProvisioningArtifacts
 listProvisioningArtifacts pProductId_ =
   ListProvisioningArtifacts'
-  {_lpaAcceptLanguage = Nothing, _lpaProductId = pProductId_}
+    {_lpaAcceptLanguage = Nothing, _lpaProductId = pProductId_}
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lpaAcceptLanguage :: Lens' ListProvisioningArtifacts (Maybe Text)
-lpaAcceptLanguage = lens _lpaAcceptLanguage (\ s a -> s{_lpaAcceptLanguage = a});
+lpaAcceptLanguage = lens _lpaAcceptLanguage (\ s a -> s{_lpaAcceptLanguage = a})
 
 -- | The product identifier.
 lpaProductId :: Lens' ListProvisioningArtifacts Text
-lpaProductId = lens _lpaProductId (\ s a -> s{_lpaProductId = a});
+lpaProductId = lens _lpaProductId (\ s a -> s{_lpaProductId = a})
 
 instance AWSRequest ListProvisioningArtifacts where
         type Rs ListProvisioningArtifacts =
@@ -127,9 +127,9 @@ data ListProvisioningArtifactsResponse = ListProvisioningArtifactsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'lrsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
--- * 'lrsProvisioningArtifactDetails' - List of detailed provisioning artifact information objects.
+-- * 'lrsProvisioningArtifactDetails' - Information about the provisioning artifacts.
 --
 -- * 'lrsResponseStatus' - -- | The response status code.
 listProvisioningArtifactsResponse
@@ -137,23 +137,23 @@ listProvisioningArtifactsResponse
     -> ListProvisioningArtifactsResponse
 listProvisioningArtifactsResponse pResponseStatus_ =
   ListProvisioningArtifactsResponse'
-  { _lrsNextPageToken = Nothing
-  , _lrsProvisioningArtifactDetails = Nothing
-  , _lrsResponseStatus = pResponseStatus_
-  }
+    { _lrsNextPageToken = Nothing
+    , _lrsProvisioningArtifactDetails = Nothing
+    , _lrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 lrsNextPageToken :: Lens' ListProvisioningArtifactsResponse (Maybe Text)
-lrsNextPageToken = lens _lrsNextPageToken (\ s a -> s{_lrsNextPageToken = a});
+lrsNextPageToken = lens _lrsNextPageToken (\ s a -> s{_lrsNextPageToken = a})
 
--- | List of detailed provisioning artifact information objects.
+-- | Information about the provisioning artifacts.
 lrsProvisioningArtifactDetails :: Lens' ListProvisioningArtifactsResponse [ProvisioningArtifactDetail]
-lrsProvisioningArtifactDetails = lens _lrsProvisioningArtifactDetails (\ s a -> s{_lrsProvisioningArtifactDetails = a}) . _Default . _Coerce;
+lrsProvisioningArtifactDetails = lens _lrsProvisioningArtifactDetails (\ s a -> s{_lrsProvisioningArtifactDetails = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lrsResponseStatus :: Lens' ListProvisioningArtifactsResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
+lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a})
 
 instance NFData ListProvisioningArtifactsResponse
          where

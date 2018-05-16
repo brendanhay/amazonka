@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteBuild
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,7 +80,7 @@ deleteBuild pBuildId_ = DeleteBuild' {_dbBuildId = pBuildId_}
 
 -- | Unique identifier for a build to delete.
 dbBuildId :: Lens' DeleteBuild Text
-dbBuildId = lens _dbBuildId (\ s a -> s{_dbBuildId = a});
+dbBuildId = lens _dbBuildId (\ s a -> s{_dbBuildId = a})
 
 instance AWSRequest DeleteBuild where
         type Rs DeleteBuild = DeleteBuildResponse

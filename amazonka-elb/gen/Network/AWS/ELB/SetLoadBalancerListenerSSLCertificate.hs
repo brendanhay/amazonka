@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ setLoadBalancerListenerSSLCertificate
     -> SetLoadBalancerListenerSSLCertificate
 setLoadBalancerListenerSSLCertificate pLoadBalancerName_ pLoadBalancerPort_ pSSLCertificateId_ =
   SetLoadBalancerListenerSSLCertificate'
-  { _slblscLoadBalancerName = pLoadBalancerName_
-  , _slblscLoadBalancerPort = pLoadBalancerPort_
-  , _slblscSSLCertificateId = pSSLCertificateId_
-  }
+    { _slblscLoadBalancerName = pLoadBalancerName_
+    , _slblscLoadBalancerPort = pLoadBalancerPort_
+    , _slblscSSLCertificateId = pSSLCertificateId_
+    }
 
 
 -- | The name of the load balancer.
 slblscLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate Text
-slblscLoadBalancerName = lens _slblscLoadBalancerName (\ s a -> s{_slblscLoadBalancerName = a});
+slblscLoadBalancerName = lens _slblscLoadBalancerName (\ s a -> s{_slblscLoadBalancerName = a})
 
 -- | The port that uses the specified SSL certificate.
 slblscLoadBalancerPort :: Lens' SetLoadBalancerListenerSSLCertificate Int
-slblscLoadBalancerPort = lens _slblscLoadBalancerPort (\ s a -> s{_slblscLoadBalancerPort = a});
+slblscLoadBalancerPort = lens _slblscLoadBalancerPort (\ s a -> s{_slblscLoadBalancerPort = a})
 
 -- | The Amazon Resource Name (ARN) of the SSL certificate.
 slblscSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate Text
-slblscSSLCertificateId = lens _slblscSSLCertificateId (\ s a -> s{_slblscSSLCertificateId = a});
+slblscSSLCertificateId = lens _slblscSSLCertificateId (\ s a -> s{_slblscSSLCertificateId = a})
 
 instance AWSRequest
            SetLoadBalancerListenerSSLCertificate
@@ -155,12 +155,12 @@ setLoadBalancerListenerSSLCertificateResponse
     -> SetLoadBalancerListenerSSLCertificateResponse
 setLoadBalancerListenerSSLCertificateResponse pResponseStatus_ =
   SetLoadBalancerListenerSSLCertificateResponse'
-  {_slblscrsResponseStatus = pResponseStatus_}
+    {_slblscrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 slblscrsResponseStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
-slblscrsResponseStatus = lens _slblscrsResponseStatus (\ s a -> s{_slblscrsResponseStatus = a});
+slblscrsResponseStatus = lens _slblscrsResponseStatus (\ s a -> s{_slblscrsResponseStatus = a})
 
 instance NFData
            SetLoadBalancerListenerSSLCertificateResponse

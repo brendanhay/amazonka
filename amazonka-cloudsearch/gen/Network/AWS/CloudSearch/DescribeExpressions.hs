@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeExpressions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ describeExpressions
     -> DescribeExpressions
 describeExpressions pDomainName_ =
   DescribeExpressions'
-  { _deDeployed = Nothing
-  , _deExpressionNames = Nothing
-  , _deDomainName = pDomainName_
-  }
+    { _deDeployed = Nothing
+    , _deExpressionNames = Nothing
+    , _deDomainName = pDomainName_
+    }
 
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 deDeployed :: Lens' DescribeExpressions (Maybe Bool)
-deDeployed = lens _deDeployed (\ s a -> s{_deDeployed = a});
+deDeployed = lens _deDeployed (\ s a -> s{_deDeployed = a})
 
 -- | Limits the @'DescribeExpressions' @ response to the specified expressions. If not specified, all expressions are shown.
 deExpressionNames :: Lens' DescribeExpressions [Text]
-deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a}) . _Default . _Coerce;
+deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a}) . _Default . _Coerce
 
 -- | The name of the domain you want to describe.
 deDomainName :: Lens' DescribeExpressions Text
-deDomainName = lens _deDomainName (\ s a -> s{_deDomainName = a});
+deDomainName = lens _deDomainName (\ s a -> s{_deDomainName = a})
 
 instance AWSRequest DescribeExpressions where
         type Rs DescribeExpressions =
@@ -146,15 +146,15 @@ describeExpressionsResponse
     -> DescribeExpressionsResponse
 describeExpressionsResponse pResponseStatus_ =
   DescribeExpressionsResponse'
-  {_drsResponseStatus = pResponseStatus_, _drsExpressions = mempty}
+    {_drsResponseStatus = pResponseStatus_, _drsExpressions = mempty}
 
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeExpressionsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 -- | The expressions configured for the domain.
 drsExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-drsExpressions = lens _drsExpressions (\ s a -> s{_drsExpressions = a}) . _Coerce;
+drsExpressions = lens _drsExpressions (\ s a -> s{_drsExpressions = a}) . _Coerce
 
 instance NFData DescribeExpressionsResponse where

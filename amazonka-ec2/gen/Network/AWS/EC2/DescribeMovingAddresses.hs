@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeMovingAddresses
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,33 +80,33 @@ describeMovingAddresses
     :: DescribeMovingAddresses
 describeMovingAddresses =
   DescribeMovingAddresses'
-  { _dmaFilters = Nothing
-  , _dmaPublicIPs = Nothing
-  , _dmaNextToken = Nothing
-  , _dmaDryRun = Nothing
-  , _dmaMaxResults = Nothing
-  }
+    { _dmaFilters = Nothing
+    , _dmaPublicIPs = Nothing
+    , _dmaNextToken = Nothing
+    , _dmaDryRun = Nothing
+    , _dmaMaxResults = Nothing
+    }
 
 
 -- | One or more filters.     * @moving-status@ - The status of the Elastic IP address (@MovingToVpc@ | @RestoringToClassic@ ).
 dmaFilters :: Lens' DescribeMovingAddresses [Filter]
-dmaFilters = lens _dmaFilters (\ s a -> s{_dmaFilters = a}) . _Default . _Coerce;
+dmaFilters = lens _dmaFilters (\ s a -> s{_dmaFilters = a}) . _Default . _Coerce
 
 -- | One or more Elastic IP addresses.
 dmaPublicIPs :: Lens' DescribeMovingAddresses [Text]
-dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default . _Coerce;
+dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default . _Coerce
 
 -- | The token to use to retrieve the next page of results.
 dmaNextToken :: Lens' DescribeMovingAddresses (Maybe Text)
-dmaNextToken = lens _dmaNextToken (\ s a -> s{_dmaNextToken = a});
+dmaNextToken = lens _dmaNextToken (\ s a -> s{_dmaNextToken = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dmaDryRun :: Lens' DescribeMovingAddresses (Maybe Bool)
-dmaDryRun = lens _dmaDryRun (\ s a -> s{_dmaDryRun = a});
+dmaDryRun = lens _dmaDryRun (\ s a -> s{_dmaDryRun = a})
 
 -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value outside of this range, an error is returned. Default: If no value is provided, the default is 1000.
 dmaMaxResults :: Lens' DescribeMovingAddresses (Maybe Int)
-dmaMaxResults = lens _dmaMaxResults (\ s a -> s{_dmaMaxResults = a});
+dmaMaxResults = lens _dmaMaxResults (\ s a -> s{_dmaMaxResults = a})
 
 instance AWSRequest DescribeMovingAddresses where
         type Rs DescribeMovingAddresses =
@@ -168,22 +168,22 @@ describeMovingAddressesResponse
     -> DescribeMovingAddressesResponse
 describeMovingAddressesResponse pResponseStatus_ =
   DescribeMovingAddressesResponse'
-  { _dmarsMovingAddressStatuses = Nothing
-  , _dmarsNextToken = Nothing
-  , _dmarsResponseStatus = pResponseStatus_
-  }
+    { _dmarsMovingAddressStatuses = Nothing
+    , _dmarsNextToken = Nothing
+    , _dmarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status for each Elastic IP address.
 dmarsMovingAddressStatuses :: Lens' DescribeMovingAddressesResponse [MovingAddressStatus]
-dmarsMovingAddressStatuses = lens _dmarsMovingAddressStatuses (\ s a -> s{_dmarsMovingAddressStatuses = a}) . _Default . _Coerce;
+dmarsMovingAddressStatuses = lens _dmarsMovingAddressStatuses (\ s a -> s{_dmarsMovingAddressStatuses = a}) . _Default . _Coerce
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dmarsNextToken :: Lens' DescribeMovingAddressesResponse (Maybe Text)
-dmarsNextToken = lens _dmarsNextToken (\ s a -> s{_dmarsNextToken = a});
+dmarsNextToken = lens _dmarsNextToken (\ s a -> s{_dmarsNextToken = a})
 
 -- | -- | The response status code.
 dmarsResponseStatus :: Lens' DescribeMovingAddressesResponse Int
-dmarsResponseStatus = lens _dmarsResponseStatus (\ s a -> s{_dmarsResponseStatus = a});
+dmarsResponseStatus = lens _dmarsResponseStatus (\ s a -> s{_dmarsResponseStatus = a})
 
 instance NFData DescribeMovingAddressesResponse where

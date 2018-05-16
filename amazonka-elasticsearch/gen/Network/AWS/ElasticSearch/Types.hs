@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,6 +34,9 @@ module Network.AWS.ElasticSearch.Types
     -- * OptionState
     , OptionState (..)
 
+    -- * ReservedElasticsearchInstancePaymentOption
+    , ReservedElasticsearchInstancePaymentOption (..)
+
     -- * VolumeType
     , VolumeType (..)
 
@@ -54,6 +57,20 @@ module Network.AWS.ElasticSearch.Types
     , advancedOptionsStatus
     , aosOptions
     , aosStatus
+
+    -- * CognitoOptions
+    , CognitoOptions
+    , cognitoOptions
+    , coIdentityPoolId
+    , coEnabled
+    , coUserPoolId
+    , coRoleARN
+
+    -- * CognitoOptionsStatus
+    , CognitoOptionsStatus
+    , cognitoOptionsStatus
+    , cosOptions
+    , cosStatus
 
     -- * DomainInfo
     , DomainInfo
@@ -98,6 +115,8 @@ module Network.AWS.ElasticSearch.Types
     , edcLogPublishingOptions
     , edcElasticsearchClusterConfig
     , edcSnapshotOptions
+    , edcCognitoOptions
+    , edcEncryptionAtRestOptions
     , edcVPCOptions
     , edcAdvancedOptions
     , edcElasticsearchVersion
@@ -110,6 +129,8 @@ module Network.AWS.ElasticSearch.Types
     , edsLogPublishingOptions
     , edsCreated
     , edsSnapshotOptions
+    , edsCognitoOptions
+    , edsEncryptionAtRestOptions
     , edsDeleted
     , edsVPCOptions
     , edsEndpoints
@@ -127,6 +148,18 @@ module Network.AWS.ElasticSearch.Types
     , elasticsearchVersionStatus
     , evsOptions
     , evsStatus
+
+    -- * EncryptionAtRestOptions
+    , EncryptionAtRestOptions
+    , encryptionAtRestOptions
+    , earoEnabled
+    , earoKMSKeyId
+
+    -- * EncryptionAtRestOptionsStatus
+    , EncryptionAtRestOptionsStatus
+    , encryptionAtRestOptionsStatus
+    , earosOptions
+    , earosStatus
 
     -- * InstanceCountLimits
     , InstanceCountLimits
@@ -166,6 +199,41 @@ module Network.AWS.ElasticSearch.Types
     , osCreationDate
     , osUpdateDate
     , osState
+
+    -- * RecurringCharge
+    , RecurringCharge
+    , recurringCharge
+    , rcRecurringChargeFrequency
+    , rcRecurringChargeAmount
+
+    -- * ReservedElasticsearchInstance
+    , ReservedElasticsearchInstance
+    , reservedElasticsearchInstance
+    , reiState
+    , reiCurrencyCode
+    , reiStartTime
+    , reiReservedElasticsearchInstanceOfferingId
+    , reiReservedElasticsearchInstanceId
+    , reiElasticsearchInstanceCount
+    , reiReservationName
+    , reiElasticsearchInstanceType
+    , reiRecurringCharges
+    , reiUsagePrice
+    , reiFixedPrice
+    , reiDuration
+    , reiPaymentOption
+
+    -- * ReservedElasticsearchInstanceOffering
+    , ReservedElasticsearchInstanceOffering
+    , reservedElasticsearchInstanceOffering
+    , reioCurrencyCode
+    , reioReservedElasticsearchInstanceOfferingId
+    , reioElasticsearchInstanceType
+    , reioRecurringCharges
+    , reioUsagePrice
+    , reioFixedPrice
+    , reioDuration
+    , reioPaymentOption
 
     -- * SnapshotOptions
     , SnapshotOptions
@@ -228,24 +296,24 @@ import Network.AWS.Sign.V4
 elasticSearch :: Service
 elasticSearch =
   Service
-  { _svcAbbrev = "ElasticSearch"
-  , _svcSigner = v4
-  , _svcPrefix = "es"
-  , _svcVersion = "2015-01-01"
-  , _svcEndpoint = defaultEndpoint elasticSearch
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "ElasticSearch"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "ElasticSearch"
+    , _svcSigner = v4
+    , _svcPrefix = "es"
+    , _svcVersion = "2015-01-01"
+    , _svcEndpoint = defaultEndpoint elasticSearch
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "ElasticSearch"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -254,6 +322,8 @@ elasticSearch =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

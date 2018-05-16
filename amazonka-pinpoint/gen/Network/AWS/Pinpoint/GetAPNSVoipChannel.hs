@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetAPNSVoipChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getAPNSVoipChannel pApplicationId_ =
 
 -- | Undocumented member.
 gavcApplicationId :: Lens' GetAPNSVoipChannel Text
-gavcApplicationId = lens _gavcApplicationId (\ s a -> s{_gavcApplicationId = a});
+gavcApplicationId = lens _gavcApplicationId (\ s a -> s{_gavcApplicationId = a})
 
 instance AWSRequest GetAPNSVoipChannel where
         type Rs GetAPNSVoipChannel =
@@ -114,17 +114,17 @@ getAPNSVoipChannelResponse
     -> GetAPNSVoipChannelResponse
 getAPNSVoipChannelResponse pResponseStatus_ pAPNSVoipChannelResponse_ =
   GetAPNSVoipChannelResponse'
-  { _gavcrsResponseStatus = pResponseStatus_
-  , _gavcrsAPNSVoipChannelResponse = pAPNSVoipChannelResponse_
-  }
+    { _gavcrsResponseStatus = pResponseStatus_
+    , _gavcrsAPNSVoipChannelResponse = pAPNSVoipChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 gavcrsResponseStatus :: Lens' GetAPNSVoipChannelResponse Int
-gavcrsResponseStatus = lens _gavcrsResponseStatus (\ s a -> s{_gavcrsResponseStatus = a});
+gavcrsResponseStatus = lens _gavcrsResponseStatus (\ s a -> s{_gavcrsResponseStatus = a})
 
 -- | Undocumented member.
 gavcrsAPNSVoipChannelResponse :: Lens' GetAPNSVoipChannelResponse APNSVoipChannelResponse
-gavcrsAPNSVoipChannelResponse = lens _gavcrsAPNSVoipChannelResponse (\ s a -> s{_gavcrsAPNSVoipChannelResponse = a});
+gavcrsAPNSVoipChannelResponse = lens _gavcrsAPNSVoipChannelResponse (\ s a -> s{_gavcrsAPNSVoipChannelResponse = a})
 
 instance NFData GetAPNSVoipChannelResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,38 +85,38 @@ describeConfigurationOptions
     :: DescribeConfigurationOptions
 describeConfigurationOptions =
   DescribeConfigurationOptions'
-  { _dcoTemplateName = Nothing
-  , _dcoPlatformARN = Nothing
-  , _dcoEnvironmentName = Nothing
-  , _dcoApplicationName = Nothing
-  , _dcoSolutionStackName = Nothing
-  , _dcoOptions = Nothing
-  }
+    { _dcoTemplateName = Nothing
+    , _dcoPlatformARN = Nothing
+    , _dcoEnvironmentName = Nothing
+    , _dcoApplicationName = Nothing
+    , _dcoSolutionStackName = Nothing
+    , _dcoOptions = Nothing
+    }
 
 
 -- | The name of the configuration template whose configuration options you want to describe.
 dcoTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcoTemplateName = lens _dcoTemplateName (\ s a -> s{_dcoTemplateName = a});
+dcoTemplateName = lens _dcoTemplateName (\ s a -> s{_dcoTemplateName = a})
 
 -- | The ARN of the custom platform.
 dcoPlatformARN :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcoPlatformARN = lens _dcoPlatformARN (\ s a -> s{_dcoPlatformARN = a});
+dcoPlatformARN = lens _dcoPlatformARN (\ s a -> s{_dcoPlatformARN = a})
 
 -- | The name of the environment whose configuration options you want to describe.
 dcoEnvironmentName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcoEnvironmentName = lens _dcoEnvironmentName (\ s a -> s{_dcoEnvironmentName = a});
+dcoEnvironmentName = lens _dcoEnvironmentName (\ s a -> s{_dcoEnvironmentName = a})
 
 -- | The name of the application associated with the configuration template or environment. Only needed if you want to describe the configuration options associated with either the configuration template or environment.
 dcoApplicationName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcoApplicationName = lens _dcoApplicationName (\ s a -> s{_dcoApplicationName = a});
+dcoApplicationName = lens _dcoApplicationName (\ s a -> s{_dcoApplicationName = a})
 
 -- | The name of the solution stack whose configuration options you want to describe.
 dcoSolutionStackName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcoSolutionStackName = lens _dcoSolutionStackName (\ s a -> s{_dcoSolutionStackName = a});
+dcoSolutionStackName = lens _dcoSolutionStackName (\ s a -> s{_dcoSolutionStackName = a})
 
 -- | If specified, restricts the descriptions to only the specified options.
 dcoOptions :: Lens' DescribeConfigurationOptions [OptionSpecification]
-dcoOptions = lens _dcoOptions (\ s a -> s{_dcoOptions = a}) . _Default . _Coerce;
+dcoOptions = lens _dcoOptions (\ s a -> s{_dcoOptions = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeConfigurationOptions
          where
@@ -187,28 +187,28 @@ describeConfigurationOptionsResponse
     -> DescribeConfigurationOptionsResponse
 describeConfigurationOptionsResponse pResponseStatus_ =
   DescribeConfigurationOptionsResponse'
-  { _dcorsPlatformARN = Nothing
-  , _dcorsSolutionStackName = Nothing
-  , _dcorsOptions = Nothing
-  , _dcorsResponseStatus = pResponseStatus_
-  }
+    { _dcorsPlatformARN = Nothing
+    , _dcorsSolutionStackName = Nothing
+    , _dcorsOptions = Nothing
+    , _dcorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ARN of the platform.
 dcorsPlatformARN :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
-dcorsPlatformARN = lens _dcorsPlatformARN (\ s a -> s{_dcorsPlatformARN = a});
+dcorsPlatformARN = lens _dcorsPlatformARN (\ s a -> s{_dcorsPlatformARN = a})
 
 -- | The name of the solution stack these configuration options belong to.
 dcorsSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
-dcorsSolutionStackName = lens _dcorsSolutionStackName (\ s a -> s{_dcorsSolutionStackName = a});
+dcorsSolutionStackName = lens _dcorsSolutionStackName (\ s a -> s{_dcorsSolutionStackName = a})
 
 -- | A list of 'ConfigurationOptionDescription' .
 dcorsOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
-dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _Coerce;
+dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcorsResponseStatus :: Lens' DescribeConfigurationOptionsResponse Int
-dcorsResponseStatus = lens _dcorsResponseStatus (\ s a -> s{_dcorsResponseStatus = a});
+dcorsResponseStatus = lens _dcorsResponseStatus (\ s a -> s{_dcorsResponseStatus = a})
 
 instance NFData DescribeConfigurationOptionsResponse
          where

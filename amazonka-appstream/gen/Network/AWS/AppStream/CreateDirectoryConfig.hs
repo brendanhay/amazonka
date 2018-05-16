@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.CreateDirectoryConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ createDirectoryConfig
     -> CreateDirectoryConfig
 createDirectoryConfig pDirectoryName_ pServiceAccountCredentials_ =
   CreateDirectoryConfig'
-  { _cdcDirectoryName = pDirectoryName_
-  , _cdcOrganizationalUnitDistinguishedNames = mempty
-  , _cdcServiceAccountCredentials = pServiceAccountCredentials_
-  }
+    { _cdcDirectoryName = pDirectoryName_
+    , _cdcOrganizationalUnitDistinguishedNames = mempty
+    , _cdcServiceAccountCredentials = pServiceAccountCredentials_
+    }
 
 
 -- | The fully qualified name of the directory (for example, corp.example.com).
 cdcDirectoryName :: Lens' CreateDirectoryConfig Text
-cdcDirectoryName = lens _cdcDirectoryName (\ s a -> s{_cdcDirectoryName = a});
+cdcDirectoryName = lens _cdcDirectoryName (\ s a -> s{_cdcDirectoryName = a})
 
 -- | The distinguished names of the organizational units for computer accounts.
 cdcOrganizationalUnitDistinguishedNames :: Lens' CreateDirectoryConfig [Text]
-cdcOrganizationalUnitDistinguishedNames = lens _cdcOrganizationalUnitDistinguishedNames (\ s a -> s{_cdcOrganizationalUnitDistinguishedNames = a}) . _Coerce;
+cdcOrganizationalUnitDistinguishedNames = lens _cdcOrganizationalUnitDistinguishedNames (\ s a -> s{_cdcOrganizationalUnitDistinguishedNames = a}) . _Coerce
 
 -- | The credentials for the service account used by the streaming instance to connect to the directory.
 cdcServiceAccountCredentials :: Lens' CreateDirectoryConfig ServiceAccountCredentials
-cdcServiceAccountCredentials = lens _cdcServiceAccountCredentials (\ s a -> s{_cdcServiceAccountCredentials = a});
+cdcServiceAccountCredentials = lens _cdcServiceAccountCredentials (\ s a -> s{_cdcServiceAccountCredentials = a})
 
 instance AWSRequest CreateDirectoryConfig where
         type Rs CreateDirectoryConfig =
@@ -148,15 +148,15 @@ createDirectoryConfigResponse
     -> CreateDirectoryConfigResponse
 createDirectoryConfigResponse pResponseStatus_ =
   CreateDirectoryConfigResponse'
-  {_cdcrsDirectoryConfig = Nothing, _cdcrsResponseStatus = pResponseStatus_}
+    {_cdcrsDirectoryConfig = Nothing, _cdcrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the directory configuration.
 cdcrsDirectoryConfig :: Lens' CreateDirectoryConfigResponse (Maybe DirectoryConfig)
-cdcrsDirectoryConfig = lens _cdcrsDirectoryConfig (\ s a -> s{_cdcrsDirectoryConfig = a});
+cdcrsDirectoryConfig = lens _cdcrsDirectoryConfig (\ s a -> s{_cdcrsDirectoryConfig = a})
 
 -- | -- | The response status code.
 cdcrsResponseStatus :: Lens' CreateDirectoryConfigResponse Int
-cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a});
+cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a})
 
 instance NFData CreateDirectoryConfigResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DetachObject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ detachObject
     -> DetachObject
 detachObject pDirectoryARN_ pParentReference_ pLinkName_ =
   DetachObject'
-  { _detDirectoryARN = pDirectoryARN_
-  , _detParentReference = pParentReference_
-  , _detLinkName = pLinkName_
-  }
+    { _detDirectoryARN = pDirectoryARN_
+    , _detParentReference = pParentReference_
+    , _detLinkName = pLinkName_
+    }
 
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
 detDirectoryARN :: Lens' DetachObject Text
-detDirectoryARN = lens _detDirectoryARN (\ s a -> s{_detDirectoryARN = a});
+detDirectoryARN = lens _detDirectoryARN (\ s a -> s{_detDirectoryARN = a})
 
 -- | The parent reference from which the object with the specified link name is detached.
 detParentReference :: Lens' DetachObject ObjectReference
-detParentReference = lens _detParentReference (\ s a -> s{_detParentReference = a});
+detParentReference = lens _detParentReference (\ s a -> s{_detParentReference = a})
 
 -- | The link name associated with the object that needs to be detached.
 detLinkName :: Lens' DetachObject Text
-detLinkName = lens _detLinkName (\ s a -> s{_detLinkName = a});
+detLinkName = lens _detLinkName (\ s a -> s{_detLinkName = a})
 
 instance AWSRequest DetachObject where
         type Rs DetachObject = DetachObjectResponse
@@ -141,17 +141,17 @@ detachObjectResponse
     -> DetachObjectResponse
 detachObjectResponse pResponseStatus_ =
   DetachObjectResponse'
-  { _detrsDetachedObjectIdentifier = Nothing
-  , _detrsResponseStatus = pResponseStatus_
-  }
+    { _detrsDetachedObjectIdentifier = Nothing
+    , _detrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The @ObjectIdentifier@ that was detached from the object.
 detrsDetachedObjectIdentifier :: Lens' DetachObjectResponse (Maybe Text)
-detrsDetachedObjectIdentifier = lens _detrsDetachedObjectIdentifier (\ s a -> s{_detrsDetachedObjectIdentifier = a});
+detrsDetachedObjectIdentifier = lens _detrsDetachedObjectIdentifier (\ s a -> s{_detrsDetachedObjectIdentifier = a})
 
 -- | -- | The response status code.
 detrsResponseStatus :: Lens' DetachObjectResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
+detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a})
 
 instance NFData DetachObjectResponse where

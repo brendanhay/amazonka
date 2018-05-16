@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateTrust
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,38 +91,38 @@ createTrust
     -> CreateTrust
 createTrust pDirectoryId_ pRemoteDomainName_ pTrustPassword_ pTrustDirection_ =
   CreateTrust'
-  { _ctConditionalForwarderIPAddrs = Nothing
-  , _ctTrustType = Nothing
-  , _ctDirectoryId = pDirectoryId_
-  , _ctRemoteDomainName = pRemoteDomainName_
-  , _ctTrustPassword = _Sensitive # pTrustPassword_
-  , _ctTrustDirection = pTrustDirection_
-  }
+    { _ctConditionalForwarderIPAddrs = Nothing
+    , _ctTrustType = Nothing
+    , _ctDirectoryId = pDirectoryId_
+    , _ctRemoteDomainName = pRemoteDomainName_
+    , _ctTrustPassword = _Sensitive # pTrustPassword_
+    , _ctTrustDirection = pTrustDirection_
+    }
 
 
 -- | The IP addresses of the remote DNS server associated with RemoteDomainName.
 ctConditionalForwarderIPAddrs :: Lens' CreateTrust [Text]
-ctConditionalForwarderIPAddrs = lens _ctConditionalForwarderIPAddrs (\ s a -> s{_ctConditionalForwarderIPAddrs = a}) . _Default . _Coerce;
+ctConditionalForwarderIPAddrs = lens _ctConditionalForwarderIPAddrs (\ s a -> s{_ctConditionalForwarderIPAddrs = a}) . _Default . _Coerce
 
 -- | The trust relationship type.
 ctTrustType :: Lens' CreateTrust (Maybe TrustType)
-ctTrustType = lens _ctTrustType (\ s a -> s{_ctTrustType = a});
+ctTrustType = lens _ctTrustType (\ s a -> s{_ctTrustType = a})
 
 -- | The Directory ID of the Microsoft AD in the AWS cloud for which to establish the trust relationship.
 ctDirectoryId :: Lens' CreateTrust Text
-ctDirectoryId = lens _ctDirectoryId (\ s a -> s{_ctDirectoryId = a});
+ctDirectoryId = lens _ctDirectoryId (\ s a -> s{_ctDirectoryId = a})
 
 -- | The Fully Qualified Domain Name (FQDN) of the external domain for which to create the trust relationship.
 ctRemoteDomainName :: Lens' CreateTrust Text
-ctRemoteDomainName = lens _ctRemoteDomainName (\ s a -> s{_ctRemoteDomainName = a});
+ctRemoteDomainName = lens _ctRemoteDomainName (\ s a -> s{_ctRemoteDomainName = a})
 
 -- | The trust password. The must be the same password that was used when creating the trust relationship on the external domain.
 ctTrustPassword :: Lens' CreateTrust Text
-ctTrustPassword = lens _ctTrustPassword (\ s a -> s{_ctTrustPassword = a}) . _Sensitive;
+ctTrustPassword = lens _ctTrustPassword (\ s a -> s{_ctTrustPassword = a}) . _Sensitive
 
 -- | The direction of the trust relationship.
 ctTrustDirection :: Lens' CreateTrust TrustDirection
-ctTrustDirection = lens _ctTrustDirection (\ s a -> s{_ctTrustDirection = a});
+ctTrustDirection = lens _ctTrustDirection (\ s a -> s{_ctTrustDirection = a})
 
 instance AWSRequest CreateTrust where
         type Rs CreateTrust = CreateTrustResponse
@@ -188,15 +188,15 @@ createTrustResponse
     -> CreateTrustResponse
 createTrustResponse pResponseStatus_ =
   CreateTrustResponse'
-  {_ctrsTrustId = Nothing, _ctrsResponseStatus = pResponseStatus_}
+    {_ctrsTrustId = Nothing, _ctrsResponseStatus = pResponseStatus_}
 
 
 -- | A unique identifier for the trust relationship that was created.
 ctrsTrustId :: Lens' CreateTrustResponse (Maybe Text)
-ctrsTrustId = lens _ctrsTrustId (\ s a -> s{_ctrsTrustId = a});
+ctrsTrustId = lens _ctrsTrustId (\ s a -> s{_ctrsTrustId = a})
 
 -- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTrustResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a})
 
 instance NFData CreateTrustResponse where

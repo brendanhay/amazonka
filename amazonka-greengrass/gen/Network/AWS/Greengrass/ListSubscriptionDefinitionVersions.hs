@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,33 +57,33 @@ data ListSubscriptionDefinitionVersions = ListSubscriptionDefinitionVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsdvNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lsdvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lsdvMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lsdvMaxResults' - The maximum number of results to be returned per request.
 --
--- * 'lsdvSubscriptionDefinitionId' - subscription definition Id
+-- * 'lsdvSubscriptionDefinitionId' - The ID of the subscription definition.
 listSubscriptionDefinitionVersions
     :: Text -- ^ 'lsdvSubscriptionDefinitionId'
     -> ListSubscriptionDefinitionVersions
 listSubscriptionDefinitionVersions pSubscriptionDefinitionId_ =
   ListSubscriptionDefinitionVersions'
-  { _lsdvNextToken = Nothing
-  , _lsdvMaxResults = Nothing
-  , _lsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
-  }
+    { _lsdvNextToken = Nothing
+    , _lsdvMaxResults = Nothing
+    , _lsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
+    }
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lsdvNextToken :: Lens' ListSubscriptionDefinitionVersions (Maybe Text)
-lsdvNextToken = lens _lsdvNextToken (\ s a -> s{_lsdvNextToken = a});
+lsdvNextToken = lens _lsdvNextToken (\ s a -> s{_lsdvNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lsdvMaxResults :: Lens' ListSubscriptionDefinitionVersions (Maybe Text)
-lsdvMaxResults = lens _lsdvMaxResults (\ s a -> s{_lsdvMaxResults = a});
+lsdvMaxResults = lens _lsdvMaxResults (\ s a -> s{_lsdvMaxResults = a})
 
--- | subscription definition Id
+-- | The ID of the subscription definition.
 lsdvSubscriptionDefinitionId :: Lens' ListSubscriptionDefinitionVersions Text
-lsdvSubscriptionDefinitionId = lens _lsdvSubscriptionDefinitionId (\ s a -> s{_lsdvSubscriptionDefinitionId = a});
+lsdvSubscriptionDefinitionId = lens _lsdvSubscriptionDefinitionId (\ s a -> s{_lsdvSubscriptionDefinitionId = a})
 
 instance AWSRequest
            ListSubscriptionDefinitionVersions
@@ -138,7 +138,7 @@ data ListSubscriptionDefinitionVersionsResponse = ListSubscriptionDefinitionVers
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsdvrsVersions' - Versions
+-- * 'lsdvrsVersions' - Information about a version.
 --
 -- * 'lsdvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
@@ -148,23 +148,23 @@ listSubscriptionDefinitionVersionsResponse
     -> ListSubscriptionDefinitionVersionsResponse
 listSubscriptionDefinitionVersionsResponse pResponseStatus_ =
   ListSubscriptionDefinitionVersionsResponse'
-  { _lsdvrsVersions = Nothing
-  , _lsdvrsNextToken = Nothing
-  , _lsdvrsResponseStatus = pResponseStatus_
-  }
+    { _lsdvrsVersions = Nothing
+    , _lsdvrsNextToken = Nothing
+    , _lsdvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Versions
+-- | Information about a version.
 lsdvrsVersions :: Lens' ListSubscriptionDefinitionVersionsResponse [VersionInformation]
-lsdvrsVersions = lens _lsdvrsVersions (\ s a -> s{_lsdvrsVersions = a}) . _Default . _Coerce;
+lsdvrsVersions = lens _lsdvrsVersions (\ s a -> s{_lsdvrsVersions = a}) . _Default . _Coerce
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lsdvrsNextToken :: Lens' ListSubscriptionDefinitionVersionsResponse (Maybe Text)
-lsdvrsNextToken = lens _lsdvrsNextToken (\ s a -> s{_lsdvrsNextToken = a});
+lsdvrsNextToken = lens _lsdvrsNextToken (\ s a -> s{_lsdvrsNextToken = a})
 
 -- | -- | The response status code.
 lsdvrsResponseStatus :: Lens' ListSubscriptionDefinitionVersionsResponse Int
-lsdvrsResponseStatus = lens _lsdvrsResponseStatus (\ s a -> s{_lsdvrsResponseStatus = a});
+lsdvrsResponseStatus = lens _lsdvrsResponseStatus (\ s a -> s{_lsdvrsResponseStatus = a})
 
 instance NFData
            ListSubscriptionDefinitionVersionsResponse

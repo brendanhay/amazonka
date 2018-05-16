@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.CompleteLifecycleAction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,7 +83,7 @@ data CompleteLifecycleAction = CompleteLifecycleAction'
 --
 -- * 'claLifecycleHookName' - The name of the lifecycle hook.
 --
--- * 'claAutoScalingGroupName' - The name of the group for the lifecycle hook.
+-- * 'claAutoScalingGroupName' - The name of the Auto Scaling group.
 --
 -- * 'claLifecycleActionResult' - The action for the group to take. This parameter can be either @CONTINUE@ or @ABANDON@ .
 completeLifecycleAction
@@ -93,33 +93,33 @@ completeLifecycleAction
     -> CompleteLifecycleAction
 completeLifecycleAction pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionResult_ =
   CompleteLifecycleAction'
-  { _claInstanceId = Nothing
-  , _claLifecycleActionToken = Nothing
-  , _claLifecycleHookName = pLifecycleHookName_
-  , _claAutoScalingGroupName = pAutoScalingGroupName_
-  , _claLifecycleActionResult = pLifecycleActionResult_
-  }
+    { _claInstanceId = Nothing
+    , _claLifecycleActionToken = Nothing
+    , _claLifecycleHookName = pLifecycleHookName_
+    , _claAutoScalingGroupName = pAutoScalingGroupName_
+    , _claLifecycleActionResult = pLifecycleActionResult_
+    }
 
 
 -- | The ID of the instance.
 claInstanceId :: Lens' CompleteLifecycleAction (Maybe Text)
-claInstanceId = lens _claInstanceId (\ s a -> s{_claInstanceId = a});
+claInstanceId = lens _claInstanceId (\ s a -> s{_claInstanceId = a})
 
 -- | A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.
 claLifecycleActionToken :: Lens' CompleteLifecycleAction (Maybe Text)
-claLifecycleActionToken = lens _claLifecycleActionToken (\ s a -> s{_claLifecycleActionToken = a});
+claLifecycleActionToken = lens _claLifecycleActionToken (\ s a -> s{_claLifecycleActionToken = a})
 
 -- | The name of the lifecycle hook.
 claLifecycleHookName :: Lens' CompleteLifecycleAction Text
-claLifecycleHookName = lens _claLifecycleHookName (\ s a -> s{_claLifecycleHookName = a});
+claLifecycleHookName = lens _claLifecycleHookName (\ s a -> s{_claLifecycleHookName = a})
 
--- | The name of the group for the lifecycle hook.
+-- | The name of the Auto Scaling group.
 claAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
-claAutoScalingGroupName = lens _claAutoScalingGroupName (\ s a -> s{_claAutoScalingGroupName = a});
+claAutoScalingGroupName = lens _claAutoScalingGroupName (\ s a -> s{_claAutoScalingGroupName = a})
 
 -- | The action for the group to take. This parameter can be either @CONTINUE@ or @ABANDON@ .
 claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
-claLifecycleActionResult = lens _claLifecycleActionResult (\ s a -> s{_claLifecycleActionResult = a});
+claLifecycleActionResult = lens _claLifecycleActionResult (\ s a -> s{_claLifecycleActionResult = a})
 
 instance AWSRequest CompleteLifecycleAction where
         type Rs CompleteLifecycleAction =
@@ -173,6 +173,6 @@ completeLifecycleActionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 clarsResponseStatus :: Lens' CompleteLifecycleActionResponse Int
-clarsResponseStatus = lens _clarsResponseStatus (\ s a -> s{_clarsResponseStatus = a});
+clarsResponseStatus = lens _clarsResponseStatus (\ s a -> s{_clarsResponseStatus = a})
 
 instance NFData CompleteLifecycleActionResponse where

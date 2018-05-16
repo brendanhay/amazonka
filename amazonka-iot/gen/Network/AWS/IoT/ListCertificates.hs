@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListCertificates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,20 +77,20 @@ listCertificates
     :: ListCertificates
 listCertificates =
   ListCertificates'
-  {_lcMarker = Nothing, _lcAscendingOrder = Nothing, _lcPageSize = Nothing}
+    {_lcMarker = Nothing, _lcAscendingOrder = Nothing, _lcPageSize = Nothing}
 
 
 -- | The marker for the next set of results.
 lcMarker :: Lens' ListCertificates (Maybe Text)
-lcMarker = lens _lcMarker (\ s a -> s{_lcMarker = a});
+lcMarker = lens _lcMarker (\ s a -> s{_lcMarker = a})
 
 -- | Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 lcAscendingOrder :: Lens' ListCertificates (Maybe Bool)
-lcAscendingOrder = lens _lcAscendingOrder (\ s a -> s{_lcAscendingOrder = a});
+lcAscendingOrder = lens _lcAscendingOrder (\ s a -> s{_lcAscendingOrder = a})
 
 -- | The result page size.
 lcPageSize :: Lens' ListCertificates (Maybe Natural)
-lcPageSize = lens _lcPageSize (\ s a -> s{_lcPageSize = a}) . mapping _Nat;
+lcPageSize = lens _lcPageSize (\ s a -> s{_lcPageSize = a}) . mapping _Nat
 
 instance AWSPager ListCertificates where
         page rq rs
@@ -153,22 +153,22 @@ listCertificatesResponse
     -> ListCertificatesResponse
 listCertificatesResponse pResponseStatus_ =
   ListCertificatesResponse'
-  { _lcrsCertificates = Nothing
-  , _lcrsNextMarker = Nothing
-  , _lcrsResponseStatus = pResponseStatus_
-  }
+    { _lcrsCertificates = Nothing
+    , _lcrsNextMarker = Nothing
+    , _lcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The descriptions of the certificates.
 lcrsCertificates :: Lens' ListCertificatesResponse [Certificate]
-lcrsCertificates = lens _lcrsCertificates (\ s a -> s{_lcrsCertificates = a}) . _Default . _Coerce;
+lcrsCertificates = lens _lcrsCertificates (\ s a -> s{_lcrsCertificates = a}) . _Default . _Coerce
 
 -- | The marker for the next set of results, or null if there are no additional results.
 lcrsNextMarker :: Lens' ListCertificatesResponse (Maybe Text)
-lcrsNextMarker = lens _lcrsNextMarker (\ s a -> s{_lcrsNextMarker = a});
+lcrsNextMarker = lens _lcrsNextMarker (\ s a -> s{_lcrsNextMarker = a})
 
 -- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListCertificatesResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
+lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a})
 
 instance NFData ListCertificatesResponse where

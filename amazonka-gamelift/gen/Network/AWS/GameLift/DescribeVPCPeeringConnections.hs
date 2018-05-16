@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeVPCPeeringConnections
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,7 +85,7 @@ describeVPCPeeringConnections =
 
 -- | Unique identifier for a fleet.
 dvpcpcFleetId :: Lens' DescribeVPCPeeringConnections (Maybe Text)
-dvpcpcFleetId = lens _dvpcpcFleetId (\ s a -> s{_dvpcpcFleetId = a});
+dvpcpcFleetId = lens _dvpcpcFleetId (\ s a -> s{_dvpcpcFleetId = a})
 
 instance AWSRequest DescribeVPCPeeringConnections
          where
@@ -148,18 +148,18 @@ describeVPCPeeringConnectionsResponse
     -> DescribeVPCPeeringConnectionsResponse
 describeVPCPeeringConnectionsResponse pResponseStatus_ =
   DescribeVPCPeeringConnectionsResponse'
-  { _dvpcpcrsVPCPeeringConnections = Nothing
-  , _dvpcpcrsResponseStatus = pResponseStatus_
-  }
+    { _dvpcpcrsVPCPeeringConnections = Nothing
+    , _dvpcpcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Collection of VPC peering connection records that match the request.
 dvpcpcrsVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPCPeeringConnection]
-dvpcpcrsVPCPeeringConnections = lens _dvpcpcrsVPCPeeringConnections (\ s a -> s{_dvpcpcrsVPCPeeringConnections = a}) . _Default . _Coerce;
+dvpcpcrsVPCPeeringConnections = lens _dvpcpcrsVPCPeeringConnections (\ s a -> s{_dvpcpcrsVPCPeeringConnections = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dvpcpcrsResponseStatus :: Lens' DescribeVPCPeeringConnectionsResponse Int
-dvpcpcrsResponseStatus = lens _dvpcpcrsResponseStatus (\ s a -> s{_dvpcpcrsResponseStatus = a});
+dvpcpcrsResponseStatus = lens _dvpcpcrsResponseStatus (\ s a -> s{_dvpcpcrsResponseStatus = a})
 
 instance NFData DescribeVPCPeeringConnectionsResponse
          where

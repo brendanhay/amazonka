@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CancelCertificateTransfer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ newtype CancelCertificateTransfer = CancelCertificateTransfer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cctCertificateId' - The ID of the certificate.
+-- * 'cctCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 cancelCertificateTransfer
     :: Text -- ^ 'cctCertificateId'
     -> CancelCertificateTransfer
@@ -67,9 +67,9 @@ cancelCertificateTransfer pCertificateId_ =
   CancelCertificateTransfer' {_cctCertificateId = pCertificateId_}
 
 
--- | The ID of the certificate.
+-- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 cctCertificateId :: Lens' CancelCertificateTransfer Text
-cctCertificateId = lens _cctCertificateId (\ s a -> s{_cctCertificateId = a});
+cctCertificateId = lens _cctCertificateId (\ s a -> s{_cctCertificateId = a})
 
 instance AWSRequest CancelCertificateTransfer where
         type Rs CancelCertificateTransfer =

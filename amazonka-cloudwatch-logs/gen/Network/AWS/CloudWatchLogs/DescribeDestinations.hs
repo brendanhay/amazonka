@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeDestinations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ describeDestinations
     :: DescribeDestinations
 describeDestinations =
   DescribeDestinations'
-  { _ddNextToken = Nothing
-  , _ddLimit = Nothing
-  , _ddDestinationNamePrefix = Nothing
-  }
+    { _ddNextToken = Nothing
+    , _ddLimit = Nothing
+    , _ddDestinationNamePrefix = Nothing
+    }
 
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 ddNextToken :: Lens' DescribeDestinations (Maybe Text)
-ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
+ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a})
 
 -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 ddLimit :: Lens' DescribeDestinations (Maybe Natural)
-ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
+ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat
 
 -- | The prefix to match. If you don't specify a value, no prefix filter is applied.
 ddDestinationNamePrefix :: Lens' DescribeDestinations (Maybe Text)
-ddDestinationNamePrefix = lens _ddDestinationNamePrefix (\ s a -> s{_ddDestinationNamePrefix = a});
+ddDestinationNamePrefix = lens _ddDestinationNamePrefix (\ s a -> s{_ddDestinationNamePrefix = a})
 
 instance AWSPager DescribeDestinations where
         page rq rs
@@ -158,22 +158,22 @@ describeDestinationsResponse
     -> DescribeDestinationsResponse
 describeDestinationsResponse pResponseStatus_ =
   DescribeDestinationsResponse'
-  { _ddrsNextToken = Nothing
-  , _ddrsDestinations = Nothing
-  , _ddrsResponseStatus = pResponseStatus_
-  }
+    { _ddrsNextToken = Nothing
+    , _ddrsDestinations = Nothing
+    , _ddrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ddrsNextToken :: Lens' DescribeDestinationsResponse (Maybe Text)
-ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
+ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a})
 
 -- | The destinations.
 ddrsDestinations :: Lens' DescribeDestinationsResponse [Destination]
-ddrsDestinations = lens _ddrsDestinations (\ s a -> s{_ddrsDestinations = a}) . _Default . _Coerce;
+ddrsDestinations = lens _ddrsDestinations (\ s a -> s{_ddrsDestinations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDestinationsResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 instance NFData DescribeDestinationsResponse where

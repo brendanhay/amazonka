@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.CreateDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ createDomain pDomainName_ = CreateDomain' {_cdDomainName = pDomainName_}
 
 -- | The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
 cdDomainName :: Lens' CreateDomain Text
-cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
+cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a})
 
 instance AWSRequest CreateDomain where
         type Rs CreateDomain = CreateDomainResponse

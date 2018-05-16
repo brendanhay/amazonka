@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeResourcePolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ describeResourcePolicies =
 
 -- | Undocumented member.
 drpNextToken :: Lens' DescribeResourcePolicies (Maybe Text)
-drpNextToken = lens _drpNextToken (\ s a -> s{_drpNextToken = a});
+drpNextToken = lens _drpNextToken (\ s a -> s{_drpNextToken = a})
 
 -- | The maximum number of resource policies to be displayed with one call of this API.
 drpLimit :: Lens' DescribeResourcePolicies (Maybe Natural)
-drpLimit = lens _drpLimit (\ s a -> s{_drpLimit = a}) . mapping _Nat;
+drpLimit = lens _drpLimit (\ s a -> s{_drpLimit = a}) . mapping _Nat
 
 instance AWSRequest DescribeResourcePolicies where
         type Rs DescribeResourcePolicies =
@@ -135,23 +135,23 @@ describeResourcePoliciesResponse
     -> DescribeResourcePoliciesResponse
 describeResourcePoliciesResponse pResponseStatus_ =
   DescribeResourcePoliciesResponse'
-  { _drprsResourcePolicies = Nothing
-  , _drprsNextToken = Nothing
-  , _drprsResponseStatus = pResponseStatus_
-  }
+    { _drprsResourcePolicies = Nothing
+    , _drprsNextToken = Nothing
+    , _drprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The resource policies that exist in this account.
 drprsResourcePolicies :: Lens' DescribeResourcePoliciesResponse [ResourcePolicy]
-drprsResourcePolicies = lens _drprsResourcePolicies (\ s a -> s{_drprsResourcePolicies = a}) . _Default . _Coerce;
+drprsResourcePolicies = lens _drprsResourcePolicies (\ s a -> s{_drprsResourcePolicies = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 drprsNextToken :: Lens' DescribeResourcePoliciesResponse (Maybe Text)
-drprsNextToken = lens _drprsNextToken (\ s a -> s{_drprsNextToken = a});
+drprsNextToken = lens _drprsNextToken (\ s a -> s{_drprsNextToken = a})
 
 -- | -- | The response status code.
 drprsResponseStatus :: Lens' DescribeResourcePoliciesResponse Int
-drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a});
+drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a})
 
 instance NFData DescribeResourcePoliciesResponse
          where

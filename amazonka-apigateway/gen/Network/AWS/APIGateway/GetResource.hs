@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,29 +67,32 @@ data GetResource = GetResource'
 --
 -- * 'grEmbed' - A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
 --
--- * 'grRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'grRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'grResourceId' - The identifier for the 'Resource' resource.
+-- * 'grResourceId' - [Required] The identifier for the 'Resource' resource.
 getResource
     :: Text -- ^ 'grRestAPIId'
     -> Text -- ^ 'grResourceId'
     -> GetResource
 getResource pRestAPIId_ pResourceId_ =
   GetResource'
-  {_grEmbed = Nothing, _grRestAPIId = pRestAPIId_, _grResourceId = pResourceId_}
+    { _grEmbed = Nothing
+    , _grRestAPIId = pRestAPIId_
+    , _grResourceId = pResourceId_
+    }
 
 
 -- | A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
 grEmbed :: Lens' GetResource [Text]
-grEmbed = lens _grEmbed (\ s a -> s{_grEmbed = a}) . _Default . _Coerce;
+grEmbed = lens _grEmbed (\ s a -> s{_grEmbed = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 grRestAPIId :: Lens' GetResource Text
-grRestAPIId = lens _grRestAPIId (\ s a -> s{_grRestAPIId = a});
+grRestAPIId = lens _grRestAPIId (\ s a -> s{_grRestAPIId = a})
 
--- | The identifier for the 'Resource' resource.
+-- | [Required] The identifier for the 'Resource' resource.
 grResourceId :: Lens' GetResource Text
-grResourceId = lens _grResourceId (\ s a -> s{_grResourceId = a});
+grResourceId = lens _grResourceId (\ s a -> s{_grResourceId = a})
 
 instance AWSRequest GetResource where
         type Rs GetResource = Resource

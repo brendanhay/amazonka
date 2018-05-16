@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListCACertificates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,23 +77,23 @@ listCACertificates
     :: ListCACertificates
 listCACertificates =
   ListCACertificates'
-  { _lcacMarker = Nothing
-  , _lcacAscendingOrder = Nothing
-  , _lcacPageSize = Nothing
-  }
+    { _lcacMarker = Nothing
+    , _lcacAscendingOrder = Nothing
+    , _lcacPageSize = Nothing
+    }
 
 
 -- | The marker for the next set of results.
 lcacMarker :: Lens' ListCACertificates (Maybe Text)
-lcacMarker = lens _lcacMarker (\ s a -> s{_lcacMarker = a});
+lcacMarker = lens _lcacMarker (\ s a -> s{_lcacMarker = a})
 
 -- | Determines the order of the results.
 lcacAscendingOrder :: Lens' ListCACertificates (Maybe Bool)
-lcacAscendingOrder = lens _lcacAscendingOrder (\ s a -> s{_lcacAscendingOrder = a});
+lcacAscendingOrder = lens _lcacAscendingOrder (\ s a -> s{_lcacAscendingOrder = a})
 
 -- | The result page size.
 lcacPageSize :: Lens' ListCACertificates (Maybe Natural)
-lcacPageSize = lens _lcacPageSize (\ s a -> s{_lcacPageSize = a}) . mapping _Nat;
+lcacPageSize = lens _lcacPageSize (\ s a -> s{_lcacPageSize = a}) . mapping _Nat
 
 instance AWSPager ListCACertificates where
         page rq rs
@@ -157,22 +157,22 @@ listCACertificatesResponse
     -> ListCACertificatesResponse
 listCACertificatesResponse pResponseStatus_ =
   ListCACertificatesResponse'
-  { _lcacrsCertificates = Nothing
-  , _lcacrsNextMarker = Nothing
-  , _lcacrsResponseStatus = pResponseStatus_
-  }
+    { _lcacrsCertificates = Nothing
+    , _lcacrsNextMarker = Nothing
+    , _lcacrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The CA certificates registered in your AWS account.
 lcacrsCertificates :: Lens' ListCACertificatesResponse [CACertificate]
-lcacrsCertificates = lens _lcacrsCertificates (\ s a -> s{_lcacrsCertificates = a}) . _Default . _Coerce;
+lcacrsCertificates = lens _lcacrsCertificates (\ s a -> s{_lcacrsCertificates = a}) . _Default . _Coerce
 
 -- | The current position within the list of CA certificates.
 lcacrsNextMarker :: Lens' ListCACertificatesResponse (Maybe Text)
-lcacrsNextMarker = lens _lcacrsNextMarker (\ s a -> s{_lcacrsNextMarker = a});
+lcacrsNextMarker = lens _lcacrsNextMarker (\ s a -> s{_lcacrsNextMarker = a})
 
 -- | -- | The response status code.
 lcacrsResponseStatus :: Lens' ListCACertificatesResponse Int
-lcacrsResponseStatus = lens _lcacrsResponseStatus (\ s a -> s{_lcacrsResponseStatus = a});
+lcacrsResponseStatus = lens _lcacrsResponseStatus (\ s a -> s{_lcacrsResponseStatus = a})
 
 instance NFData ListCACertificatesResponse where

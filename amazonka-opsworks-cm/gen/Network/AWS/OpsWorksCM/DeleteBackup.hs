@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DeleteBackup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteBackup pBackupId_ = DeleteBackup' {_dbBackupId = pBackupId_}
 
 -- | The ID of the backup to delete. Run the DescribeBackups command to get a list of backup IDs. Backup IDs are in the format @ServerName-yyyyMMddHHmmssSSS@ .
 dbBackupId :: Lens' DeleteBackup Text
-dbBackupId = lens _dbBackupId (\ s a -> s{_dbBackupId = a});
+dbBackupId = lens _dbBackupId (\ s a -> s{_dbBackupId = a})
 
 instance AWSRequest DeleteBackup where
         type Rs DeleteBackup = DeleteBackupResponse
@@ -119,6 +119,6 @@ deleteBackupResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dbrsResponseStatus :: Lens' DeleteBackupResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
+dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a})
 
 instance NFData DeleteBackupResponse where

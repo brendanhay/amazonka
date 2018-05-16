@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateMatchmakingConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -98,7 +98,7 @@ data UpdateMatchmakingConfiguration = UpdateMatchmakingConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umcGameProperties' - Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+-- * 'umcGameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
 --
 -- * 'umcRuleSetName' - Unique identifier for a matchmaking rule set to use with this configuration. A matchmaking configuration can only use rule sets that are defined in the same region.
 --
@@ -114,7 +114,7 @@ data UpdateMatchmakingConfiguration = UpdateMatchmakingConfiguration'
 --
 -- * 'umcAcceptanceRequired' - Flag that determines whether or not a match that was created with this configuration must be accepted by the matched players. To require acceptance, set to TRUE.
 --
--- * 'umcGameSessionData' - Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+-- * 'umcGameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
 --
 -- * 'umcDescription' - Descriptive label that is associated with matchmaking configuration.
 --
@@ -126,68 +126,68 @@ updateMatchmakingConfiguration
     -> UpdateMatchmakingConfiguration
 updateMatchmakingConfiguration pName_ =
   UpdateMatchmakingConfiguration'
-  { _umcGameProperties = Nothing
-  , _umcRuleSetName = Nothing
-  , _umcAcceptanceTimeoutSeconds = Nothing
-  , _umcRequestTimeoutSeconds = Nothing
-  , _umcNotificationTarget = Nothing
-  , _umcGameSessionQueueARNs = Nothing
-  , _umcCustomEventData = Nothing
-  , _umcAcceptanceRequired = Nothing
-  , _umcGameSessionData = Nothing
-  , _umcDescription = Nothing
-  , _umcAdditionalPlayerCount = Nothing
-  , _umcName = pName_
-  }
+    { _umcGameProperties = Nothing
+    , _umcRuleSetName = Nothing
+    , _umcAcceptanceTimeoutSeconds = Nothing
+    , _umcRequestTimeoutSeconds = Nothing
+    , _umcNotificationTarget = Nothing
+    , _umcGameSessionQueueARNs = Nothing
+    , _umcCustomEventData = Nothing
+    , _umcAcceptanceRequired = Nothing
+    , _umcGameSessionData = Nothing
+    , _umcDescription = Nothing
+    , _umcAdditionalPlayerCount = Nothing
+    , _umcName = pName_
+    }
 
 
--- | Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+-- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
 umcGameProperties :: Lens' UpdateMatchmakingConfiguration [GameProperty]
-umcGameProperties = lens _umcGameProperties (\ s a -> s{_umcGameProperties = a}) . _Default . _Coerce;
+umcGameProperties = lens _umcGameProperties (\ s a -> s{_umcGameProperties = a}) . _Default . _Coerce
 
 -- | Unique identifier for a matchmaking rule set to use with this configuration. A matchmaking configuration can only use rule sets that are defined in the same region.
 umcRuleSetName :: Lens' UpdateMatchmakingConfiguration (Maybe Text)
-umcRuleSetName = lens _umcRuleSetName (\ s a -> s{_umcRuleSetName = a});
+umcRuleSetName = lens _umcRuleSetName (\ s a -> s{_umcRuleSetName = a})
 
 -- | Length of time (in seconds) to wait for players to accept a proposed match. If any player rejects the match or fails to accept before the timeout, the ticket continues to look for an acceptable match.
 umcAcceptanceTimeoutSeconds :: Lens' UpdateMatchmakingConfiguration (Maybe Natural)
-umcAcceptanceTimeoutSeconds = lens _umcAcceptanceTimeoutSeconds (\ s a -> s{_umcAcceptanceTimeoutSeconds = a}) . mapping _Nat;
+umcAcceptanceTimeoutSeconds = lens _umcAcceptanceTimeoutSeconds (\ s a -> s{_umcAcceptanceTimeoutSeconds = a}) . mapping _Nat
 
 -- | Maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out. Requests that time out can be resubmitted as needed.
 umcRequestTimeoutSeconds :: Lens' UpdateMatchmakingConfiguration (Maybe Natural)
-umcRequestTimeoutSeconds = lens _umcRequestTimeoutSeconds (\ s a -> s{_umcRequestTimeoutSeconds = a}) . mapping _Nat;
+umcRequestTimeoutSeconds = lens _umcRequestTimeoutSeconds (\ s a -> s{_umcRequestTimeoutSeconds = a}) . mapping _Nat
 
 -- | SNS topic ARN that is set up to receive matchmaking notifications. See <http://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html Setting up Notifications for Matchmaking> for more information.
 umcNotificationTarget :: Lens' UpdateMatchmakingConfiguration (Maybe Text)
-umcNotificationTarget = lens _umcNotificationTarget (\ s a -> s{_umcNotificationTarget = a});
+umcNotificationTarget = lens _umcNotificationTarget (\ s a -> s{_umcNotificationTarget = a})
 
 -- | Amazon Resource Name (<http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session queue and uniquely identifies it. Format is @arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@ . These queues are used when placing game sessions for matches that are created with this matchmaking configuration. Queues can be located in any region.
 umcGameSessionQueueARNs :: Lens' UpdateMatchmakingConfiguration [Text]
-umcGameSessionQueueARNs = lens _umcGameSessionQueueARNs (\ s a -> s{_umcGameSessionQueueARNs = a}) . _Default . _Coerce;
+umcGameSessionQueueARNs = lens _umcGameSessionQueueARNs (\ s a -> s{_umcGameSessionQueueARNs = a}) . _Default . _Coerce
 
 -- | Information to attached to all events related to the matchmaking configuration.
 umcCustomEventData :: Lens' UpdateMatchmakingConfiguration (Maybe Text)
-umcCustomEventData = lens _umcCustomEventData (\ s a -> s{_umcCustomEventData = a});
+umcCustomEventData = lens _umcCustomEventData (\ s a -> s{_umcCustomEventData = a})
 
 -- | Flag that determines whether or not a match that was created with this configuration must be accepted by the matched players. To require acceptance, set to TRUE.
 umcAcceptanceRequired :: Lens' UpdateMatchmakingConfiguration (Maybe Bool)
-umcAcceptanceRequired = lens _umcAcceptanceRequired (\ s a -> s{_umcAcceptanceRequired = a});
+umcAcceptanceRequired = lens _umcAcceptanceRequired (\ s a -> s{_umcAcceptanceRequired = a})
 
--- | Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+-- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
 umcGameSessionData :: Lens' UpdateMatchmakingConfiguration (Maybe Text)
-umcGameSessionData = lens _umcGameSessionData (\ s a -> s{_umcGameSessionData = a});
+umcGameSessionData = lens _umcGameSessionData (\ s a -> s{_umcGameSessionData = a})
 
 -- | Descriptive label that is associated with matchmaking configuration.
 umcDescription :: Lens' UpdateMatchmakingConfiguration (Maybe Text)
-umcDescription = lens _umcDescription (\ s a -> s{_umcDescription = a});
+umcDescription = lens _umcDescription (\ s a -> s{_umcDescription = a})
 
 -- | Number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
 umcAdditionalPlayerCount :: Lens' UpdateMatchmakingConfiguration (Maybe Natural)
-umcAdditionalPlayerCount = lens _umcAdditionalPlayerCount (\ s a -> s{_umcAdditionalPlayerCount = a}) . mapping _Nat;
+umcAdditionalPlayerCount = lens _umcAdditionalPlayerCount (\ s a -> s{_umcAdditionalPlayerCount = a}) . mapping _Nat
 
 -- | Unique identifier for a matchmaking configuration to update.
 umcName :: Lens' UpdateMatchmakingConfiguration Text
-umcName = lens _umcName (\ s a -> s{_umcName = a});
+umcName = lens _umcName (\ s a -> s{_umcName = a})
 
 instance AWSRequest UpdateMatchmakingConfiguration
          where
@@ -266,16 +266,16 @@ updateMatchmakingConfigurationResponse
     -> UpdateMatchmakingConfigurationResponse
 updateMatchmakingConfigurationResponse pResponseStatus_ =
   UpdateMatchmakingConfigurationResponse'
-  {_umcrsConfiguration = Nothing, _umcrsResponseStatus = pResponseStatus_}
+    {_umcrsConfiguration = Nothing, _umcrsResponseStatus = pResponseStatus_}
 
 
 -- | Object that describes the updated matchmaking configuration.
 umcrsConfiguration :: Lens' UpdateMatchmakingConfigurationResponse (Maybe MatchmakingConfiguration)
-umcrsConfiguration = lens _umcrsConfiguration (\ s a -> s{_umcrsConfiguration = a});
+umcrsConfiguration = lens _umcrsConfiguration (\ s a -> s{_umcrsConfiguration = a})
 
 -- | -- | The response status code.
 umcrsResponseStatus :: Lens' UpdateMatchmakingConfigurationResponse Int
-umcrsResponseStatus = lens _umcrsResponseStatus (\ s a -> s{_umcrsResponseStatus = a});
+umcrsResponseStatus = lens _umcrsResponseStatus (\ s a -> s{_umcrsResponseStatus = a})
 
 instance NFData
            UpdateMatchmakingConfigurationResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteHSMConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,12 +61,12 @@ deleteHSMConfiguration
     -> DeleteHSMConfiguration
 deleteHSMConfiguration pHSMConfigurationIdentifier_ =
   DeleteHSMConfiguration'
-  {_dhcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_}
+    {_dhcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_}
 
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
 dhcHSMConfigurationIdentifier :: Lens' DeleteHSMConfiguration Text
-dhcHSMConfigurationIdentifier = lens _dhcHSMConfigurationIdentifier (\ s a -> s{_dhcHSMConfigurationIdentifier = a});
+dhcHSMConfigurationIdentifier = lens _dhcHSMConfigurationIdentifier (\ s a -> s{_dhcHSMConfigurationIdentifier = a})
 
 instance AWSRequest DeleteHSMConfiguration where
         type Rs DeleteHSMConfiguration =

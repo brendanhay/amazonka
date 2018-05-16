@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListVolumeRecoveryPoints
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the recovery points for a specified gateway. This operation is only supported in the cached volume gateway architecture.
+-- Lists the recovery points for a specified gateway. This operation is only supported in the cached volume gateway type.
 --
 --
 -- Each cache volume has one recovery point. A volume recovery point is a point in time at which all data of the volume is consistent and from which you can create a snapshot or clone a new cached volume from a source volume. To create a snapshot from a volume recovery point use the 'CreateSnapshotFromVolumeRecoveryPoint' operation.
@@ -67,7 +67,7 @@ listVolumeRecoveryPoints pGatewayARN_ =
 
 -- | Undocumented member.
 lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
-lvrpGatewayARN = lens _lvrpGatewayARN (\ s a -> s{_lvrpGatewayARN = a});
+lvrpGatewayARN = lens _lvrpGatewayARN (\ s a -> s{_lvrpGatewayARN = a})
 
 instance AWSRequest ListVolumeRecoveryPoints where
         type Rs ListVolumeRecoveryPoints =
@@ -128,23 +128,23 @@ listVolumeRecoveryPointsResponse
     -> ListVolumeRecoveryPointsResponse
 listVolumeRecoveryPointsResponse pResponseStatus_ =
   ListVolumeRecoveryPointsResponse'
-  { _lvrprsVolumeRecoveryPointInfos = Nothing
-  , _lvrprsGatewayARN = Nothing
-  , _lvrprsResponseStatus = pResponseStatus_
-  }
+    { _lvrprsVolumeRecoveryPointInfos = Nothing
+    , _lvrprsGatewayARN = Nothing
+    , _lvrprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 lvrprsVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
-lvrprsVolumeRecoveryPointInfos = lens _lvrprsVolumeRecoveryPointInfos (\ s a -> s{_lvrprsVolumeRecoveryPointInfos = a}) . _Default . _Coerce;
+lvrprsVolumeRecoveryPointInfos = lens _lvrprsVolumeRecoveryPointInfos (\ s a -> s{_lvrprsVolumeRecoveryPointInfos = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
-lvrprsGatewayARN = lens _lvrprsGatewayARN (\ s a -> s{_lvrprsGatewayARN = a});
+lvrprsGatewayARN = lens _lvrprsGatewayARN (\ s a -> s{_lvrprsGatewayARN = a})
 
 -- | -- | The response status code.
 lvrprsResponseStatus :: Lens' ListVolumeRecoveryPointsResponse Int
-lvrprsResponseStatus = lens _lvrprsResponseStatus (\ s a -> s{_lvrprsResponseStatus = a});
+lvrprsResponseStatus = lens _lvrprsResponseStatus (\ s a -> s{_lvrprsResponseStatus = a})
 
 instance NFData ListVolumeRecoveryPointsResponse
          where

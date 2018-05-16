@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.BuildSuggesters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ buildSuggesters pDomainName_ = BuildSuggesters' {_bsDomainName = pDomainName_}
 
 -- | Undocumented member.
 bsDomainName :: Lens' BuildSuggesters Text
-bsDomainName = lens _bsDomainName (\ s a -> s{_bsDomainName = a});
+bsDomainName = lens _bsDomainName (\ s a -> s{_bsDomainName = a})
 
 instance AWSRequest BuildSuggesters where
         type Rs BuildSuggesters = BuildSuggestersResponse
@@ -120,15 +120,15 @@ buildSuggestersResponse
     -> BuildSuggestersResponse
 buildSuggestersResponse pResponseStatus_ =
   BuildSuggestersResponse'
-  {_bsrsFieldNames = Nothing, _bsrsResponseStatus = pResponseStatus_}
+    {_bsrsFieldNames = Nothing, _bsrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 bsrsFieldNames :: Lens' BuildSuggestersResponse [Text]
-bsrsFieldNames = lens _bsrsFieldNames (\ s a -> s{_bsrsFieldNames = a}) . _Default . _Coerce;
+bsrsFieldNames = lens _bsrsFieldNames (\ s a -> s{_bsrsFieldNames = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bsrsResponseStatus :: Lens' BuildSuggestersResponse Int
-bsrsResponseStatus = lens _bsrsResponseStatus (\ s a -> s{_bsrsResponseStatus = a});
+bsrsResponseStatus = lens _bsrsResponseStatus (\ s a -> s{_bsrsResponseStatus = a})
 
 instance NFData BuildSuggestersResponse where

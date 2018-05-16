@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.GetRecords
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,11 +75,11 @@ getRecords pShardIterator_ =
 
 -- | The maximum number of records to return from the shard. The upper limit is 1000.
 grLimit :: Lens' GetRecords (Maybe Natural)
-grLimit = lens _grLimit (\ s a -> s{_grLimit = a}) . mapping _Nat;
+grLimit = lens _grLimit (\ s a -> s{_grLimit = a}) . mapping _Nat
 
 -- | A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.
 grShardIterator :: Lens' GetRecords Text
-grShardIterator = lens _grShardIterator (\ s a -> s{_grShardIterator = a});
+grShardIterator = lens _grShardIterator (\ s a -> s{_grShardIterator = a})
 
 instance AWSRequest GetRecords where
         type Rs GetRecords = GetRecordsResponse
@@ -145,22 +145,22 @@ getRecordsResponse
     -> GetRecordsResponse
 getRecordsResponse pResponseStatus_ =
   GetRecordsResponse'
-  { _grrsRecords = Nothing
-  , _grrsNextShardIterator = Nothing
-  , _grrsResponseStatus = pResponseStatus_
-  }
+    { _grrsRecords = Nothing
+    , _grrsNextShardIterator = Nothing
+    , _grrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The stream records from the shard, which were retrieved using the shard iterator.
 grrsRecords :: Lens' GetRecordsResponse [Record]
-grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Default . _Coerce;
+grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Default . _Coerce
 
 -- | The next position in the shard from which to start sequentially reading stream records. If set to @null@ , the shard has been closed and the requested iterator will not return any more data.
 grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
-grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a});
+grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a})
 
 -- | -- | The response status code.
 grrsResponseStatus :: Lens' GetRecordsResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a})
 
 instance NFData GetRecordsResponse where

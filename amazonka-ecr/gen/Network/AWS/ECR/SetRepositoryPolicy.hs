@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.SetRepositoryPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,28 +75,28 @@ setRepositoryPolicy
     -> SetRepositoryPolicy
 setRepositoryPolicy pRepositoryName_ pPolicyText_ =
   SetRepositoryPolicy'
-  { _srpForce = Nothing
-  , _srpRegistryId = Nothing
-  , _srpRepositoryName = pRepositoryName_
-  , _srpPolicyText = pPolicyText_
-  }
+    { _srpForce = Nothing
+    , _srpRegistryId = Nothing
+    , _srpRepositoryName = pRepositoryName_
+    , _srpPolicyText = pPolicyText_
+    }
 
 
 -- | If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the 'SetRepositoryPolicy' operation. This is intended to prevent accidental repository lock outs.
 srpForce :: Lens' SetRepositoryPolicy (Maybe Bool)
-srpForce = lens _srpForce (\ s a -> s{_srpForce = a});
+srpForce = lens _srpForce (\ s a -> s{_srpForce = a})
 
 -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 srpRegistryId :: Lens' SetRepositoryPolicy (Maybe Text)
-srpRegistryId = lens _srpRegistryId (\ s a -> s{_srpRegistryId = a});
+srpRegistryId = lens _srpRegistryId (\ s a -> s{_srpRegistryId = a})
 
 -- | The name of the repository to receive the policy.
 srpRepositoryName :: Lens' SetRepositoryPolicy Text
-srpRepositoryName = lens _srpRepositoryName (\ s a -> s{_srpRepositoryName = a});
+srpRepositoryName = lens _srpRepositoryName (\ s a -> s{_srpRepositoryName = a})
 
 -- | The JSON repository policy text to apply to the repository.
 srpPolicyText :: Lens' SetRepositoryPolicy Text
-srpPolicyText = lens _srpPolicyText (\ s a -> s{_srpPolicyText = a});
+srpPolicyText = lens _srpPolicyText (\ s a -> s{_srpPolicyText = a})
 
 instance AWSRequest SetRepositoryPolicy where
         type Rs SetRepositoryPolicy =
@@ -164,27 +164,27 @@ setRepositoryPolicyResponse
     -> SetRepositoryPolicyResponse
 setRepositoryPolicyResponse pResponseStatus_ =
   SetRepositoryPolicyResponse'
-  { _srprsRegistryId = Nothing
-  , _srprsRepositoryName = Nothing
-  , _srprsPolicyText = Nothing
-  , _srprsResponseStatus = pResponseStatus_
-  }
+    { _srprsRegistryId = Nothing
+    , _srprsRepositoryName = Nothing
+    , _srprsPolicyText = Nothing
+    , _srprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The registry ID associated with the request.
 srprsRegistryId :: Lens' SetRepositoryPolicyResponse (Maybe Text)
-srprsRegistryId = lens _srprsRegistryId (\ s a -> s{_srprsRegistryId = a});
+srprsRegistryId = lens _srprsRegistryId (\ s a -> s{_srprsRegistryId = a})
 
 -- | The repository name associated with the request.
 srprsRepositoryName :: Lens' SetRepositoryPolicyResponse (Maybe Text)
-srprsRepositoryName = lens _srprsRepositoryName (\ s a -> s{_srprsRepositoryName = a});
+srprsRepositoryName = lens _srprsRepositoryName (\ s a -> s{_srprsRepositoryName = a})
 
 -- | The JSON repository policy text applied to the repository.
 srprsPolicyText :: Lens' SetRepositoryPolicyResponse (Maybe Text)
-srprsPolicyText = lens _srprsPolicyText (\ s a -> s{_srprsPolicyText = a});
+srprsPolicyText = lens _srprsPolicyText (\ s a -> s{_srprsPolicyText = a})
 
 -- | -- | The response status code.
 srprsResponseStatus :: Lens' SetRepositoryPolicyResponse Int
-srprsResponseStatus = lens _srprsResponseStatus (\ s a -> s{_srprsResponseStatus = a});
+srprsResponseStatus = lens _srprsResponseStatus (\ s a -> s{_srprsResponseStatus = a})
 
 instance NFData SetRepositoryPolicyResponse where

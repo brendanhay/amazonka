@@ -12,18 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeMatchmaking
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a set of one or more matchmaking tickets. Use this operation to retrieve ticket information, including status and--once a successful match is made--acquire connection information for the resulting new game session.
+-- Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket information, including status and--once a successful match is made--acquire connection information for the resulting new game session.
 --
 --
 -- You can use this operation to track the progress of matchmaking requests (through polling) as an alternative to using event notifications. See more details on tracking matchmaking requests through polling or notifications in 'StartMatchmaking' .
 --
--- You can request data for a one or a list of ticket IDs. If the request is successful, a ticket object is returned for each requested ID. When specifying a list of ticket IDs, objects are returned only for tickets that currently exist.
+-- To request matchmaking tickets, provide a list of up to 10 ticket IDs. If the request is successful, a ticket object is returned for each requested ID that currently exists.
 --
 -- Matchmaking-related operations include:
 --
@@ -34,6 +34,8 @@
 --     * 'StopMatchmaking'
 --
 --     * 'AcceptMatch'
+--
+--     * 'StartMatchBackfill'
 --
 --
 --
@@ -74,15 +76,15 @@ newtype DescribeMatchmaking = DescribeMatchmaking'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmTicketIds' - Unique identifier for a matchmaking ticket. To request all existing tickets, leave this parameter empty.
+-- * 'dmTicketIds' - Unique identifier for a matchmaking ticket. You can include up to 10 ID values.
 describeMatchmaking
     :: DescribeMatchmaking
 describeMatchmaking = DescribeMatchmaking' {_dmTicketIds = mempty}
 
 
--- | Unique identifier for a matchmaking ticket. To request all existing tickets, leave this parameter empty.
+-- | Unique identifier for a matchmaking ticket. You can include up to 10 ID values.
 dmTicketIds :: Lens' DescribeMatchmaking [Text]
-dmTicketIds = lens _dmTicketIds (\ s a -> s{_dmTicketIds = a}) . _Coerce;
+dmTicketIds = lens _dmTicketIds (\ s a -> s{_dmTicketIds = a}) . _Coerce
 
 instance AWSRequest DescribeMatchmaking where
         type Rs DescribeMatchmaking =
@@ -142,15 +144,15 @@ describeMatchmakingResponse
     -> DescribeMatchmakingResponse
 describeMatchmakingResponse pResponseStatus_ =
   DescribeMatchmakingResponse'
-  {_dmrsTicketList = Nothing, _dmrsResponseStatus = pResponseStatus_}
+    {_dmrsTicketList = Nothing, _dmrsResponseStatus = pResponseStatus_}
 
 
 -- | Collection of existing matchmaking ticket objects matching the request.
 dmrsTicketList :: Lens' DescribeMatchmakingResponse [MatchmakingTicket]
-dmrsTicketList = lens _dmrsTicketList (\ s a -> s{_dmrsTicketList = a}) . _Default . _Coerce;
+dmrsTicketList = lens _dmrsTicketList (\ s a -> s{_dmrsTicketList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dmrsResponseStatus :: Lens' DescribeMatchmakingResponse Int
-dmrsResponseStatus = lens _dmrsResponseStatus (\ s a -> s{_dmrsResponseStatus = a});
+dmrsResponseStatus = lens _dmrsResponseStatus (\ s a -> s{_dmrsResponseStatus = a})
 
 instance NFData DescribeMatchmakingResponse where

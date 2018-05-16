@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.NotifyMigrationTaskState
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,38 +91,38 @@ notifyMigrationTaskState
     -> NotifyMigrationTaskState
 notifyMigrationTaskState pProgressUpdateStream_ pMigrationTaskName_ pTask_ pUpdateDateTime_ pNextUpdateSeconds_ =
   NotifyMigrationTaskState'
-  { _nmtsDryRun = Nothing
-  , _nmtsProgressUpdateStream = pProgressUpdateStream_
-  , _nmtsMigrationTaskName = pMigrationTaskName_
-  , _nmtsTask = pTask_
-  , _nmtsUpdateDateTime = _Time # pUpdateDateTime_
-  , _nmtsNextUpdateSeconds = _Nat # pNextUpdateSeconds_
-  }
+    { _nmtsDryRun = Nothing
+    , _nmtsProgressUpdateStream = pProgressUpdateStream_
+    , _nmtsMigrationTaskName = pMigrationTaskName_
+    , _nmtsTask = pTask_
+    , _nmtsUpdateDateTime = _Time # pUpdateDateTime_
+    , _nmtsNextUpdateSeconds = _Nat # pNextUpdateSeconds_
+    }
 
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 nmtsDryRun :: Lens' NotifyMigrationTaskState (Maybe Bool)
-nmtsDryRun = lens _nmtsDryRun (\ s a -> s{_nmtsDryRun = a});
+nmtsDryRun = lens _nmtsDryRun (\ s a -> s{_nmtsDryRun = a})
 
 -- | The name of the ProgressUpdateStream.
 nmtsProgressUpdateStream :: Lens' NotifyMigrationTaskState Text
-nmtsProgressUpdateStream = lens _nmtsProgressUpdateStream (\ s a -> s{_nmtsProgressUpdateStream = a});
+nmtsProgressUpdateStream = lens _nmtsProgressUpdateStream (\ s a -> s{_nmtsProgressUpdateStream = a})
 
 -- | Unique identifier that references the migration task.
 nmtsMigrationTaskName :: Lens' NotifyMigrationTaskState Text
-nmtsMigrationTaskName = lens _nmtsMigrationTaskName (\ s a -> s{_nmtsMigrationTaskName = a});
+nmtsMigrationTaskName = lens _nmtsMigrationTaskName (\ s a -> s{_nmtsMigrationTaskName = a})
 
 -- | Information about the task's progress and status.
 nmtsTask :: Lens' NotifyMigrationTaskState Task
-nmtsTask = lens _nmtsTask (\ s a -> s{_nmtsTask = a});
+nmtsTask = lens _nmtsTask (\ s a -> s{_nmtsTask = a})
 
 -- | The timestamp when the task was gathered.
 nmtsUpdateDateTime :: Lens' NotifyMigrationTaskState UTCTime
-nmtsUpdateDateTime = lens _nmtsUpdateDateTime (\ s a -> s{_nmtsUpdateDateTime = a}) . _Time;
+nmtsUpdateDateTime = lens _nmtsUpdateDateTime (\ s a -> s{_nmtsUpdateDateTime = a}) . _Time
 
 -- | Number of seconds after the UpdateDateTime within which the Migration Hub can expect an update. If Migration Hub does not receive an update within the specified interval, then the migration task will be considered stale.
 nmtsNextUpdateSeconds :: Lens' NotifyMigrationTaskState Natural
-nmtsNextUpdateSeconds = lens _nmtsNextUpdateSeconds (\ s a -> s{_nmtsNextUpdateSeconds = a}) . _Nat;
+nmtsNextUpdateSeconds = lens _nmtsNextUpdateSeconds (\ s a -> s{_nmtsNextUpdateSeconds = a}) . _Nat
 
 instance AWSRequest NotifyMigrationTaskState where
         type Rs NotifyMigrationTaskState =
@@ -188,7 +188,7 @@ notifyMigrationTaskStateResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 nmtsrsResponseStatus :: Lens' NotifyMigrationTaskStateResponse Int
-nmtsrsResponseStatus = lens _nmtsrsResponseStatus (\ s a -> s{_nmtsrsResponseStatus = a});
+nmtsrsResponseStatus = lens _nmtsrsResponseStatus (\ s a -> s{_nmtsrsResponseStatus = a})
 
 instance NFData NotifyMigrationTaskStateResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,9 +63,9 @@ data AssociatePrincipalWithPortfolio = AssociatePrincipalWithPortfolio'
 --
 -- * 'aPortfolioId' - The portfolio identifier.
 --
--- * 'aPrincipalARN' - The ARN representing the principal (IAM user, role, or group).
+-- * 'aPrincipalARN' - The ARN of the principal (IAM user, role, or group).
 --
--- * 'aPrincipalType' - The principal type. Must be @IAM@
+-- * 'aPrincipalType' - The principal type. The supported value is @IAM@ .
 associatePrincipalWithPortfolio
     :: Text -- ^ 'aPortfolioId'
     -> Text -- ^ 'aPrincipalARN'
@@ -73,28 +73,28 @@ associatePrincipalWithPortfolio
     -> AssociatePrincipalWithPortfolio
 associatePrincipalWithPortfolio pPortfolioId_ pPrincipalARN_ pPrincipalType_ =
   AssociatePrincipalWithPortfolio'
-  { _aAcceptLanguage = Nothing
-  , _aPortfolioId = pPortfolioId_
-  , _aPrincipalARN = pPrincipalARN_
-  , _aPrincipalType = pPrincipalType_
-  }
+    { _aAcceptLanguage = Nothing
+    , _aPortfolioId = pPortfolioId_
+    , _aPrincipalARN = pPrincipalARN_
+    , _aPrincipalType = pPrincipalType_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 aAcceptLanguage :: Lens' AssociatePrincipalWithPortfolio (Maybe Text)
-aAcceptLanguage = lens _aAcceptLanguage (\ s a -> s{_aAcceptLanguage = a});
+aAcceptLanguage = lens _aAcceptLanguage (\ s a -> s{_aAcceptLanguage = a})
 
 -- | The portfolio identifier.
 aPortfolioId :: Lens' AssociatePrincipalWithPortfolio Text
-aPortfolioId = lens _aPortfolioId (\ s a -> s{_aPortfolioId = a});
+aPortfolioId = lens _aPortfolioId (\ s a -> s{_aPortfolioId = a})
 
--- | The ARN representing the principal (IAM user, role, or group).
+-- | The ARN of the principal (IAM user, role, or group).
 aPrincipalARN :: Lens' AssociatePrincipalWithPortfolio Text
-aPrincipalARN = lens _aPrincipalARN (\ s a -> s{_aPrincipalARN = a});
+aPrincipalARN = lens _aPrincipalARN (\ s a -> s{_aPrincipalARN = a})
 
--- | The principal type. Must be @IAM@
+-- | The principal type. The supported value is @IAM@ .
 aPrincipalType :: Lens' AssociatePrincipalWithPortfolio PrincipalType
-aPrincipalType = lens _aPrincipalType (\ s a -> s{_aPrincipalType = a});
+aPrincipalType = lens _aPrincipalType (\ s a -> s{_aPrincipalType = a})
 
 instance AWSRequest AssociatePrincipalWithPortfolio
          where
@@ -155,12 +155,12 @@ associatePrincipalWithPortfolioResponse
     -> AssociatePrincipalWithPortfolioResponse
 associatePrincipalWithPortfolioResponse pResponseStatus_ =
   AssociatePrincipalWithPortfolioResponse'
-  {_apwprsResponseStatus = pResponseStatus_}
+    {_apwprsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 apwprsResponseStatus :: Lens' AssociatePrincipalWithPortfolioResponse Int
-apwprsResponseStatus = lens _apwprsResponseStatus (\ s a -> s{_apwprsResponseStatus = a});
+apwprsResponseStatus = lens _apwprsResponseStatus (\ s a -> s{_apwprsResponseStatus = a})
 
 instance NFData
            AssociatePrincipalWithPortfolioResponse

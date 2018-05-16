@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pricing.GetProducts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Returns a list of all products that match the filter criteria.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Pricing.GetProducts
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.Pricing.GetProducts
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Pricing.Types
 import Network.AWS.Pricing.Types.Product
@@ -77,33 +80,40 @@ getProducts
     :: GetProducts
 getProducts =
   GetProducts'
-  { _gpFilters = Nothing
-  , _gpFormatVersion = Nothing
-  , _gpNextToken = Nothing
-  , _gpServiceCode = Nothing
-  , _gpMaxResults = Nothing
-  }
+    { _gpFilters = Nothing
+    , _gpFormatVersion = Nothing
+    , _gpNextToken = Nothing
+    , _gpServiceCode = Nothing
+    , _gpMaxResults = Nothing
+    }
 
 
 -- | The list of filters that limit the returned products. only products that match all filters are returned.
 gpFilters :: Lens' GetProducts [Filter]
-gpFilters = lens _gpFilters (\ s a -> s{_gpFilters = a}) . _Default . _Coerce;
+gpFilters = lens _gpFilters (\ s a -> s{_gpFilters = a}) . _Default . _Coerce
 
 -- | The format version that you want the response to be in. Valid values are: @aws_v1@
 gpFormatVersion :: Lens' GetProducts (Maybe Text)
-gpFormatVersion = lens _gpFormatVersion (\ s a -> s{_gpFormatVersion = a});
+gpFormatVersion = lens _gpFormatVersion (\ s a -> s{_gpFormatVersion = a})
 
 -- | The pagination token that indicates the next set of results that you want to retrieve.
 gpNextToken :: Lens' GetProducts (Maybe Text)
-gpNextToken = lens _gpNextToken (\ s a -> s{_gpNextToken = a});
+gpNextToken = lens _gpNextToken (\ s a -> s{_gpNextToken = a})
 
 -- | The code for the service whose products you want to retrieve.
 gpServiceCode :: Lens' GetProducts (Maybe Text)
-gpServiceCode = lens _gpServiceCode (\ s a -> s{_gpServiceCode = a});
+gpServiceCode = lens _gpServiceCode (\ s a -> s{_gpServiceCode = a})
 
 -- | The maximum number of results to return in the response.
 gpMaxResults :: Lens' GetProducts (Maybe Natural)
-gpMaxResults = lens _gpMaxResults (\ s a -> s{_gpMaxResults = a}) . mapping _Nat;
+gpMaxResults = lens _gpMaxResults (\ s a -> s{_gpMaxResults = a}) . mapping _Nat
+
+instance AWSPager GetProducts where
+        page rq rs
+          | stop (rs ^. gprsNextToken) = Nothing
+          | stop (rs ^. gprsPriceList) = Nothing
+          | otherwise =
+            Just $ rq & gpNextToken .~ rs ^. gprsNextToken
 
 instance AWSRequest GetProducts where
         type Rs GetProducts = GetProductsResponse
@@ -170,27 +180,27 @@ getProductsResponse
     -> GetProductsResponse
 getProductsResponse pResponseStatus_ =
   GetProductsResponse'
-  { _gprsFormatVersion = Nothing
-  , _gprsNextToken = Nothing
-  , _gprsPriceList = Nothing
-  , _gprsResponseStatus = pResponseStatus_
-  }
+    { _gprsFormatVersion = Nothing
+    , _gprsNextToken = Nothing
+    , _gprsPriceList = Nothing
+    , _gprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The format version of the response. For example, aws_v1.
 gprsFormatVersion :: Lens' GetProductsResponse (Maybe Text)
-gprsFormatVersion = lens _gprsFormatVersion (\ s a -> s{_gprsFormatVersion = a});
+gprsFormatVersion = lens _gprsFormatVersion (\ s a -> s{_gprsFormatVersion = a})
 
 -- | The pagination token that indicates the next set of results to retrieve.
 gprsNextToken :: Lens' GetProductsResponse (Maybe Text)
-gprsNextToken = lens _gprsNextToken (\ s a -> s{_gprsNextToken = a});
+gprsNextToken = lens _gprsNextToken (\ s a -> s{_gprsNextToken = a})
 
 -- | The list of products that match your filters. The list contains both the product metadata and the price information.
 gprsPriceList :: Lens' GetProductsResponse [Text]
-gprsPriceList = lens _gprsPriceList (\ s a -> s{_gprsPriceList = a}) . _Default . _Coerce;
+gprsPriceList = lens _gprsPriceList (\ s a -> s{_gprsPriceList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gprsResponseStatus :: Lens' GetProductsResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a})
 
 instance NFData GetProductsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeregisterElasticIP
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deregisterElasticIP pElasticIP_ =
 
 -- | The Elastic IP address.
 deipElasticIP :: Lens' DeregisterElasticIP Text
-deipElasticIP = lens _deipElasticIP (\ s a -> s{_deipElasticIP = a});
+deipElasticIP = lens _deipElasticIP (\ s a -> s{_deipElasticIP = a})
 
 instance AWSRequest DeregisterElasticIP where
         type Rs DeregisterElasticIP =

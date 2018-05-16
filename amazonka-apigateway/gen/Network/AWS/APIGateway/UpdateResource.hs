@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,32 +67,32 @@ data UpdateResource = UpdateResource'
 --
 -- * 'urPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'urRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'urRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'urResourceId' - The identifier of the 'Resource' resource.
+-- * 'urResourceId' - [Required] The identifier of the 'Resource' resource.
 updateResource
     :: Text -- ^ 'urRestAPIId'
     -> Text -- ^ 'urResourceId'
     -> UpdateResource
 updateResource pRestAPIId_ pResourceId_ =
   UpdateResource'
-  { _urPatchOperations = Nothing
-  , _urRestAPIId = pRestAPIId_
-  , _urResourceId = pResourceId_
-  }
+    { _urPatchOperations = Nothing
+    , _urRestAPIId = pRestAPIId_
+    , _urResourceId = pResourceId_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 urPatchOperations :: Lens' UpdateResource [PatchOperation]
-urPatchOperations = lens _urPatchOperations (\ s a -> s{_urPatchOperations = a}) . _Default . _Coerce;
+urPatchOperations = lens _urPatchOperations (\ s a -> s{_urPatchOperations = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 urRestAPIId :: Lens' UpdateResource Text
-urRestAPIId = lens _urRestAPIId (\ s a -> s{_urRestAPIId = a});
+urRestAPIId = lens _urRestAPIId (\ s a -> s{_urRestAPIId = a})
 
--- | The identifier of the 'Resource' resource.
+-- | [Required] The identifier of the 'Resource' resource.
 urResourceId :: Lens' UpdateResource Text
-urResourceId = lens _urResourceId (\ s a -> s{_urResourceId = a});
+urResourceId = lens _urResourceId (\ s a -> s{_urResourceId = a})
 
 instance AWSRequest UpdateResource where
         type Rs UpdateResource = Resource

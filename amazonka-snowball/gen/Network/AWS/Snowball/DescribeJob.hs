@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.DescribeJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ describeJob pJobId_ = DescribeJob' {_djJobId = pJobId_}
 
 -- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 djJobId :: Lens' DescribeJob Text
-djJobId = lens _djJobId (\ s a -> s{_djJobId = a});
+djJobId = lens _djJobId (\ s a -> s{_djJobId = a})
 
 instance AWSRequest DescribeJob where
         type Rs DescribeJob = DescribeJobResponse
@@ -123,22 +123,22 @@ describeJobResponse
     -> DescribeJobResponse
 describeJobResponse pResponseStatus_ =
   DescribeJobResponse'
-  { _djrsJobMetadata = Nothing
-  , _djrsSubJobMetadata = Nothing
-  , _djrsResponseStatus = pResponseStatus_
-  }
+    { _djrsJobMetadata = Nothing
+    , _djrsSubJobMetadata = Nothing
+    , _djrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about a specific job, including shipping information, job status, and other important metadata.
 djrsJobMetadata :: Lens' DescribeJobResponse (Maybe JobMetadata)
-djrsJobMetadata = lens _djrsJobMetadata (\ s a -> s{_djrsJobMetadata = a});
+djrsJobMetadata = lens _djrsJobMetadata (\ s a -> s{_djrsJobMetadata = a})
 
 -- | Information about a specific job part (in the case of an export job), including shipping information, job status, and other important metadata.
 djrsSubJobMetadata :: Lens' DescribeJobResponse [JobMetadata]
-djrsSubJobMetadata = lens _djrsSubJobMetadata (\ s a -> s{_djrsSubJobMetadata = a}) . _Default . _Coerce;
+djrsSubJobMetadata = lens _djrsSubJobMetadata (\ s a -> s{_djrsSubJobMetadata = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 djrsResponseStatus :: Lens' DescribeJobResponse Int
-djrsResponseStatus = lens _djrsResponseStatus (\ s a -> s{_djrsResponseStatus = a});
+djrsResponseStatus = lens _djrsResponseStatus (\ s a -> s{_djrsResponseStatus = a})
 
 instance NFData DescribeJobResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineIndexField
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ defineIndexField
     -> DefineIndexField
 defineIndexField pDomainName_ pIndexField_ =
   DefineIndexField'
-  {_defeDomainName = pDomainName_, _defeIndexField = pIndexField_}
+    {_defeDomainName = pDomainName_, _defeIndexField = pIndexField_}
 
 
 -- | Undocumented member.
 defeDomainName :: Lens' DefineIndexField Text
-defeDomainName = lens _defeDomainName (\ s a -> s{_defeDomainName = a});
+defeDomainName = lens _defeDomainName (\ s a -> s{_defeDomainName = a})
 
 -- | The index field and field options you want to configure.
 defeIndexField :: Lens' DefineIndexField IndexField
-defeIndexField = lens _defeIndexField (\ s a -> s{_defeIndexField = a});
+defeIndexField = lens _defeIndexField (\ s a -> s{_defeIndexField = a})
 
 instance AWSRequest DefineIndexField where
         type Rs DefineIndexField = DefineIndexFieldResponse
@@ -131,15 +131,15 @@ defineIndexFieldResponse
     -> DefineIndexFieldResponse
 defineIndexFieldResponse pResponseStatus_ pIndexField_ =
   DefineIndexFieldResponse'
-  {_defrsResponseStatus = pResponseStatus_, _defrsIndexField = pIndexField_}
+    {_defrsResponseStatus = pResponseStatus_, _defrsIndexField = pIndexField_}
 
 
 -- | -- | The response status code.
 defrsResponseStatus :: Lens' DefineIndexFieldResponse Int
-defrsResponseStatus = lens _defrsResponseStatus (\ s a -> s{_defrsResponseStatus = a});
+defrsResponseStatus = lens _defrsResponseStatus (\ s a -> s{_defrsResponseStatus = a})
 
 -- | Undocumented member.
 defrsIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
-defrsIndexField = lens _defrsIndexField (\ s a -> s{_defrsIndexField = a});
+defrsIndexField = lens _defrsIndexField (\ s a -> s{_defrsIndexField = a})
 
 instance NFData DefineIndexFieldResponse where

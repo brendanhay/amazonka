@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.AssociateRoleToGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a role with a group. The role will be used by the AWS Greengrass core in order to access AWS cloud services. The role's permissions will allow Greengrass core Lambda functions to perform actions against the cloud.
+-- Associates a role with a group. Your AWS Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.
 module Network.AWS.Greengrass.AssociateRoleToGroup
     (
     -- * Creating a Request
@@ -54,9 +54,9 @@ data AssociateRoleToGroup = AssociateRoleToGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'artgRoleARN' - Role arn you wish to associate with this group.
+-- * 'artgRoleARN' - The ARN of the role you wish to associate with this group.
 --
--- * 'artgGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'artgGroupId' - The ID of the AWS Greengrass group.
 associateRoleToGroup
     :: Text -- ^ 'artgGroupId'
     -> AssociateRoleToGroup
@@ -64,13 +64,13 @@ associateRoleToGroup pGroupId_ =
   AssociateRoleToGroup' {_artgRoleARN = Nothing, _artgGroupId = pGroupId_}
 
 
--- | Role arn you wish to associate with this group.
+-- | The ARN of the role you wish to associate with this group.
 artgRoleARN :: Lens' AssociateRoleToGroup (Maybe Text)
-artgRoleARN = lens _artgRoleARN (\ s a -> s{_artgRoleARN = a});
+artgRoleARN = lens _artgRoleARN (\ s a -> s{_artgRoleARN = a})
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 artgGroupId :: Lens' AssociateRoleToGroup Text
-artgGroupId = lens _artgGroupId (\ s a -> s{_artgGroupId = a});
+artgGroupId = lens _artgGroupId (\ s a -> s{_artgGroupId = a})
 
 instance AWSRequest AssociateRoleToGroup where
         type Rs AssociateRoleToGroup =
@@ -117,7 +117,7 @@ data AssociateRoleToGroupResponse = AssociateRoleToGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'artgrsAssociatedAt' - Time the role arn was associated to your group.
+-- * 'artgrsAssociatedAt' - The time, in milliseconds since the epoch, when the role ARN was associated with the group.
 --
 -- * 'artgrsResponseStatus' - -- | The response status code.
 associateRoleToGroupResponse
@@ -125,15 +125,15 @@ associateRoleToGroupResponse
     -> AssociateRoleToGroupResponse
 associateRoleToGroupResponse pResponseStatus_ =
   AssociateRoleToGroupResponse'
-  {_artgrsAssociatedAt = Nothing, _artgrsResponseStatus = pResponseStatus_}
+    {_artgrsAssociatedAt = Nothing, _artgrsResponseStatus = pResponseStatus_}
 
 
--- | Time the role arn was associated to your group.
+-- | The time, in milliseconds since the epoch, when the role ARN was associated with the group.
 artgrsAssociatedAt :: Lens' AssociateRoleToGroupResponse (Maybe Text)
-artgrsAssociatedAt = lens _artgrsAssociatedAt (\ s a -> s{_artgrsAssociatedAt = a});
+artgrsAssociatedAt = lens _artgrsAssociatedAt (\ s a -> s{_artgrsAssociatedAt = a})
 
 -- | -- | The response status code.
 artgrsResponseStatus :: Lens' AssociateRoleToGroupResponse Int
-artgrsResponseStatus = lens _artgrsResponseStatus (\ s a -> s{_artgrsResponseStatus = a});
+artgrsResponseStatus = lens _artgrsResponseStatus (\ s a -> s{_artgrsResponseStatus = a})
 
 instance NFData AssociateRoleToGroupResponse where

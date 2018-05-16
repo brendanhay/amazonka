@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetUsage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,15 +76,15 @@ data GetUsage = GetUsage'
 --
 -- * 'guKeyId' - The Id of the API key associated with the resultant usage data.
 --
--- * 'guLimit' - The maximum number of returned results per page.
+-- * 'guLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'guPosition' - The current pagination position in the paged result set.
 --
--- * 'guUsagePlanId' - The Id of the usage plan associated with the usage data.
+-- * 'guUsagePlanId' - [Required] The Id of the usage plan associated with the usage data.
 --
--- * 'guStartDate' - The starting date (e.g., 2016-01-01) of the usage data.
+-- * 'guStartDate' - [Required] The starting date (e.g., 2016-01-01) of the usage data.
 --
--- * 'guEndDate' - The ending date (e.g., 2016-12-31) of the usage data.
+-- * 'guEndDate' - [Required] The ending date (e.g., 2016-12-31) of the usage data.
 getUsage
     :: Text -- ^ 'guUsagePlanId'
     -> Text -- ^ 'guStartDate'
@@ -92,38 +92,38 @@ getUsage
     -> GetUsage
 getUsage pUsagePlanId_ pStartDate_ pEndDate_ =
   GetUsage'
-  { _guKeyId = Nothing
-  , _guLimit = Nothing
-  , _guPosition = Nothing
-  , _guUsagePlanId = pUsagePlanId_
-  , _guStartDate = pStartDate_
-  , _guEndDate = pEndDate_
-  }
+    { _guKeyId = Nothing
+    , _guLimit = Nothing
+    , _guPosition = Nothing
+    , _guUsagePlanId = pUsagePlanId_
+    , _guStartDate = pStartDate_
+    , _guEndDate = pEndDate_
+    }
 
 
 -- | The Id of the API key associated with the resultant usage data.
 guKeyId :: Lens' GetUsage (Maybe Text)
-guKeyId = lens _guKeyId (\ s a -> s{_guKeyId = a});
+guKeyId = lens _guKeyId (\ s a -> s{_guKeyId = a})
 
--- | The maximum number of returned results per page.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 guLimit :: Lens' GetUsage (Maybe Int)
-guLimit = lens _guLimit (\ s a -> s{_guLimit = a});
+guLimit = lens _guLimit (\ s a -> s{_guLimit = a})
 
 -- | The current pagination position in the paged result set.
 guPosition :: Lens' GetUsage (Maybe Text)
-guPosition = lens _guPosition (\ s a -> s{_guPosition = a});
+guPosition = lens _guPosition (\ s a -> s{_guPosition = a})
 
--- | The Id of the usage plan associated with the usage data.
+-- | [Required] The Id of the usage plan associated with the usage data.
 guUsagePlanId :: Lens' GetUsage Text
-guUsagePlanId = lens _guUsagePlanId (\ s a -> s{_guUsagePlanId = a});
+guUsagePlanId = lens _guUsagePlanId (\ s a -> s{_guUsagePlanId = a})
 
--- | The starting date (e.g., 2016-01-01) of the usage data.
+-- | [Required] The starting date (e.g., 2016-01-01) of the usage data.
 guStartDate :: Lens' GetUsage Text
-guStartDate = lens _guStartDate (\ s a -> s{_guStartDate = a});
+guStartDate = lens _guStartDate (\ s a -> s{_guStartDate = a})
 
--- | The ending date (e.g., 2016-12-31) of the usage data.
+-- | [Required] The ending date (e.g., 2016-12-31) of the usage data.
 guEndDate :: Lens' GetUsage Text
-guEndDate = lens _guEndDate (\ s a -> s{_guEndDate = a});
+guEndDate = lens _guEndDate (\ s a -> s{_guEndDate = a})
 
 instance AWSPager GetUsage where
         page rq rs

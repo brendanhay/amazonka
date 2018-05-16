@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeAccountLimits
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ describeAccountLimits = DescribeAccountLimits' {_dalNextToken = Nothing}
 
 -- | A string that identifies the next page of limits that you want to retrieve.
 dalNextToken :: Lens' DescribeAccountLimits (Maybe Text)
-dalNextToken = lens _dalNextToken (\ s a -> s{_dalNextToken = a});
+dalNextToken = lens _dalNextToken (\ s a -> s{_dalNextToken = a})
 
 instance AWSRequest DescribeAccountLimits where
         type Rs DescribeAccountLimits =
@@ -125,22 +125,22 @@ describeAccountLimitsResponse
     -> DescribeAccountLimitsResponse
 describeAccountLimitsResponse pResponseStatus_ =
   DescribeAccountLimitsResponse'
-  { _dalrsNextToken = Nothing
-  , _dalrsAccountLimits = Nothing
-  , _dalrsResponseStatus = pResponseStatus_
-  }
+    { _dalrsNextToken = Nothing
+    , _dalrsAccountLimits = Nothing
+    , _dalrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next page of limits. If no additional page exists, this value is null.
 dalrsNextToken :: Lens' DescribeAccountLimitsResponse (Maybe Text)
-dalrsNextToken = lens _dalrsNextToken (\ s a -> s{_dalrsNextToken = a});
+dalrsNextToken = lens _dalrsNextToken (\ s a -> s{_dalrsNextToken = a})
 
 -- | An account limit structure that contain a list of AWS CloudFormation account limits and their values.
 dalrsAccountLimits :: Lens' DescribeAccountLimitsResponse [AccountLimit]
-dalrsAccountLimits = lens _dalrsAccountLimits (\ s a -> s{_dalrsAccountLimits = a}) . _Default . _Coerce;
+dalrsAccountLimits = lens _dalrsAccountLimits (\ s a -> s{_dalrsAccountLimits = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
-dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a});
+dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a})
 
 instance NFData DescribeAccountLimitsResponse where

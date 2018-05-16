@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListHostedZonesByName
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -103,23 +103,23 @@ listHostedZonesByName
     :: ListHostedZonesByName
 listHostedZonesByName =
   ListHostedZonesByName'
-  { _lhzbnHostedZoneId = Nothing
-  , _lhzbnMaxItems = Nothing
-  , _lhzbnDNSName = Nothing
-  }
+    { _lhzbnHostedZoneId = Nothing
+    , _lhzbnMaxItems = Nothing
+    , _lhzbnDNSName = Nothing
+    }
 
 
 -- | (Optional) For your first request to @ListHostedZonesByName@ , do not include the @hostedzoneid@ parameter. If you have more hosted zones than the value of @maxitems@ , @ListHostedZonesByName@ returns only the first @maxitems@ hosted zones. To get the next group of @maxitems@ hosted zones, submit another request to @ListHostedZonesByName@ and include both @dnsname@ and @hostedzoneid@ parameters. For the value of @hostedzoneid@ , specify the value of the @NextHostedZoneId@ element from the previous response.
 lhzbnHostedZoneId :: Lens' ListHostedZonesByName (Maybe ResourceId)
-lhzbnHostedZoneId = lens _lhzbnHostedZoneId (\ s a -> s{_lhzbnHostedZoneId = a});
+lhzbnHostedZoneId = lens _lhzbnHostedZoneId (\ s a -> s{_lhzbnHostedZoneId = a})
 
 -- | The maximum number of hosted zones to be included in the response body for this request. If you have more than @maxitems@ hosted zones, then the value of the @IsTruncated@ element in the response is true, and the values of @NextDNSName@ and @NextHostedZoneId@ specify the first hosted zone in the next group of @maxitems@ hosted zones.
 lhzbnMaxItems :: Lens' ListHostedZonesByName (Maybe Text)
-lhzbnMaxItems = lens _lhzbnMaxItems (\ s a -> s{_lhzbnMaxItems = a});
+lhzbnMaxItems = lens _lhzbnMaxItems (\ s a -> s{_lhzbnMaxItems = a})
 
 -- | (Optional) For your first request to @ListHostedZonesByName@ , include the @dnsname@ parameter only if you want to specify the name of the first hosted zone in the response. If you don't include the @dnsname@ parameter, Amazon Route 53 returns all of the hosted zones that were created by the current AWS account, in ASCII order. For subsequent requests, include both @dnsname@ and @hostedzoneid@ parameters. For @dnsname@ , specify the value of @NextDNSName@ from the previous response.
 lhzbnDNSName :: Lens' ListHostedZonesByName (Maybe Text)
-lhzbnDNSName = lens _lhzbnDNSName (\ s a -> s{_lhzbnDNSName = a});
+lhzbnDNSName = lens _lhzbnDNSName (\ s a -> s{_lhzbnDNSName = a})
 
 instance AWSRequest ListHostedZonesByName where
         type Rs ListHostedZonesByName =
@@ -199,47 +199,47 @@ listHostedZonesByNameResponse
     -> ListHostedZonesByNameResponse
 listHostedZonesByNameResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
   ListHostedZonesByNameResponse'
-  { _lhzbnrsHostedZoneId = Nothing
-  , _lhzbnrsNextHostedZoneId = Nothing
-  , _lhzbnrsDNSName = Nothing
-  , _lhzbnrsNextDNSName = Nothing
-  , _lhzbnrsResponseStatus = pResponseStatus_
-  , _lhzbnrsHostedZones = mempty
-  , _lhzbnrsIsTruncated = pIsTruncated_
-  , _lhzbnrsMaxItems = pMaxItems_
-  }
+    { _lhzbnrsHostedZoneId = Nothing
+    , _lhzbnrsNextHostedZoneId = Nothing
+    , _lhzbnrsDNSName = Nothing
+    , _lhzbnrsNextDNSName = Nothing
+    , _lhzbnrsResponseStatus = pResponseStatus_
+    , _lhzbnrsHostedZones = mempty
+    , _lhzbnrsIsTruncated = pIsTruncated_
+    , _lhzbnrsMaxItems = pMaxItems_
+    }
 
 
 -- | The ID that Amazon Route 53 assigned to the hosted zone when you created it.
 lhzbnrsHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe ResourceId)
-lhzbnrsHostedZoneId = lens _lhzbnrsHostedZoneId (\ s a -> s{_lhzbnrsHostedZoneId = a});
+lhzbnrsHostedZoneId = lens _lhzbnrsHostedZoneId (\ s a -> s{_lhzbnrsHostedZoneId = a})
 
 -- | If @IsTruncated@ is @true@ , the value of @NextHostedZoneId@ identifies the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters, respectively. This element is present only if @IsTruncated@ is @true@ .
 lhzbnrsNextHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe ResourceId)
-lhzbnrsNextHostedZoneId = lens _lhzbnrsNextHostedZoneId (\ s a -> s{_lhzbnrsNextHostedZoneId = a});
+lhzbnrsNextHostedZoneId = lens _lhzbnrsNextHostedZoneId (\ s a -> s{_lhzbnrsNextHostedZoneId = a})
 
 -- | For the second and subsequent calls to @ListHostedZonesByName@ , @DNSName@ is the value that you specified for the @dnsname@ parameter in the request that produced the current response.
 lhzbnrsDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
-lhzbnrsDNSName = lens _lhzbnrsDNSName (\ s a -> s{_lhzbnrsDNSName = a});
+lhzbnrsDNSName = lens _lhzbnrsDNSName (\ s a -> s{_lhzbnrsDNSName = a})
 
 -- | If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters, respectively. This element is present only if @IsTruncated@ is @true@ .
 lhzbnrsNextDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
-lhzbnrsNextDNSName = lens _lhzbnrsNextDNSName (\ s a -> s{_lhzbnrsNextDNSName = a});
+lhzbnrsNextDNSName = lens _lhzbnrsNextDNSName (\ s a -> s{_lhzbnrsNextDNSName = a})
 
 -- | -- | The response status code.
 lhzbnrsResponseStatus :: Lens' ListHostedZonesByNameResponse Int
-lhzbnrsResponseStatus = lens _lhzbnrsResponseStatus (\ s a -> s{_lhzbnrsResponseStatus = a});
+lhzbnrsResponseStatus = lens _lhzbnrsResponseStatus (\ s a -> s{_lhzbnrsResponseStatus = a})
 
 -- | A complex type that contains general information about the hosted zone.
 lhzbnrsHostedZones :: Lens' ListHostedZonesByNameResponse [HostedZone]
-lhzbnrsHostedZones = lens _lhzbnrsHostedZones (\ s a -> s{_lhzbnrsHostedZones = a}) . _Coerce;
+lhzbnrsHostedZones = lens _lhzbnrsHostedZones (\ s a -> s{_lhzbnrsHostedZones = a}) . _Coerce
 
 -- | A flag that indicates whether there are more hosted zones to be listed. If the response was truncated, you can get the next group of @maxitems@ hosted zones by calling @ListHostedZonesByName@ again and specifying the values of @NextDNSName@ and @NextHostedZoneId@ elements in the @dnsname@ and @hostedzoneid@ parameters.
 lhzbnrsIsTruncated :: Lens' ListHostedZonesByNameResponse Bool
-lhzbnrsIsTruncated = lens _lhzbnrsIsTruncated (\ s a -> s{_lhzbnrsIsTruncated = a});
+lhzbnrsIsTruncated = lens _lhzbnrsIsTruncated (\ s a -> s{_lhzbnrsIsTruncated = a})
 
 -- | The value that you specified for the @maxitems@ parameter in the call to @ListHostedZonesByName@ that produced the current response.
 lhzbnrsMaxItems :: Lens' ListHostedZonesByNameResponse Text
-lhzbnrsMaxItems = lens _lhzbnrsMaxItems (\ s a -> s{_lhzbnrsMaxItems = a});
+lhzbnrsMaxItems = lens _lhzbnrsMaxItems (\ s a -> s{_lhzbnrsMaxItems = a})
 
 instance NFData ListHostedZonesByNameResponse where

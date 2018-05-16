@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CopySnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -113,23 +113,23 @@ copySnapshot
     -> CopySnapshot
 copySnapshot pSourceSnapshotName_ pTargetSnapshotName_ =
   CopySnapshot'
-  { _csTargetBucket = Nothing
-  , _csSourceSnapshotName = pSourceSnapshotName_
-  , _csTargetSnapshotName = pTargetSnapshotName_
-  }
+    { _csTargetBucket = Nothing
+    , _csSourceSnapshotName = pSourceSnapshotName_
+    , _csTargetSnapshotName = pTargetSnapshotName_
+    }
 
 
 -- | The Amazon S3 bucket to which the snapshot is exported. This parameter is used only when exporting a snapshot for external access. When using this parameter to export a snapshot, be sure Amazon ElastiCache has the needed permissions to this S3 bucket. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.GrantAccess Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket> in the /Amazon ElastiCache User Guide/ . For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html Exporting a Snapshot> in the /Amazon ElastiCache User Guide/ .
 csTargetBucket :: Lens' CopySnapshot (Maybe Text)
-csTargetBucket = lens _csTargetBucket (\ s a -> s{_csTargetBucket = a});
+csTargetBucket = lens _csTargetBucket (\ s a -> s{_csTargetBucket = a})
 
 -- | The name of an existing snapshot from which to make a copy.
 csSourceSnapshotName :: Lens' CopySnapshot Text
-csSourceSnapshotName = lens _csSourceSnapshotName (\ s a -> s{_csSourceSnapshotName = a});
+csSourceSnapshotName = lens _csSourceSnapshotName (\ s a -> s{_csSourceSnapshotName = a})
 
 -- | A name for the snapshot copy. ElastiCache does not permit overwriting a snapshot, therefore this name must be unique within its context - ElastiCache or an Amazon S3 bucket if exporting.
 csTargetSnapshotName :: Lens' CopySnapshot Text
-csTargetSnapshotName = lens _csTargetSnapshotName (\ s a -> s{_csTargetSnapshotName = a});
+csTargetSnapshotName = lens _csTargetSnapshotName (\ s a -> s{_csTargetSnapshotName = a})
 
 instance AWSRequest CopySnapshot where
         type Rs CopySnapshot = CopySnapshotResponse
@@ -178,15 +178,15 @@ copySnapshotResponse
     -> CopySnapshotResponse
 copySnapshotResponse pResponseStatus_ =
   CopySnapshotResponse'
-  {_csrsSnapshot = Nothing, _csrsResponseStatus = pResponseStatus_}
+    {_csrsSnapshot = Nothing, _csrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 csrsSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
-csrsSnapshot = lens _csrsSnapshot (\ s a -> s{_csrsSnapshot = a});
+csrsSnapshot = lens _csrsSnapshot (\ s a -> s{_csrsSnapshot = a})
 
 -- | -- | The response status code.
 csrsResponseStatus :: Lens' CopySnapshotResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a})
 
 instance NFData CopySnapshotResponse where

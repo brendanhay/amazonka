@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeApps
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ describeApps = DescribeApps' {_daAppIds = Nothing, _daStackId = Nothing}
 
 -- | An array of app IDs for the apps to be described. If you use this parameter, @DescribeApps@ returns a description of the specified apps. Otherwise, it returns a description of every app.
 daAppIds :: Lens' DescribeApps [Text]
-daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default . _Coerce;
+daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default . _Coerce
 
 -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a description of the apps in the specified stack.
 daStackId :: Lens' DescribeApps (Maybe Text)
-daStackId = lens _daStackId (\ s a -> s{_daStackId = a});
+daStackId = lens _daStackId (\ s a -> s{_daStackId = a})
 
 instance AWSRequest DescribeApps where
         type Rs DescribeApps = DescribeAppsResponse
@@ -132,15 +132,15 @@ describeAppsResponse
     -> DescribeAppsResponse
 describeAppsResponse pResponseStatus_ =
   DescribeAppsResponse'
-  {_darsApps = Nothing, _darsResponseStatus = pResponseStatus_}
+    {_darsApps = Nothing, _darsResponseStatus = pResponseStatus_}
 
 
 -- | An array of @App@ objects that describe the specified apps.
 darsApps :: Lens' DescribeAppsResponse [App]
-darsApps = lens _darsApps (\ s a -> s{_darsApps = a}) . _Default . _Coerce;
+darsApps = lens _darsApps (\ s a -> s{_darsApps = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAppsResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DescribeAppsResponse where

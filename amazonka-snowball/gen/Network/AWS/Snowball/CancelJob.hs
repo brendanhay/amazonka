@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.CancelJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ cancelJob pJobId_ = CancelJob' {_cjJobId = pJobId_}
 
 -- | The 39-character job ID for the job that you want to cancel, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 cjJobId :: Lens' CancelJob Text
-cjJobId = lens _cjJobId (\ s a -> s{_cjJobId = a});
+cjJobId = lens _cjJobId (\ s a -> s{_cjJobId = a})
 
 instance AWSRequest CancelJob where
         type Rs CancelJob = CancelJobResponse
@@ -116,6 +116,6 @@ cancelJobResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 crsResponseStatus :: Lens' CancelJobResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
 
 instance NFData CancelJobResponse where

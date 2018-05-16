@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.DescribePipelines
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ describePipelines = DescribePipelines' {_dpPipelineIds = mempty}
 
 -- | The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call 'ListPipelines' .
 dpPipelineIds :: Lens' DescribePipelines [Text]
-dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a}) . _Coerce;
+dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a}) . _Coerce
 
 instance AWSRequest DescribePipelines where
         type Rs DescribePipelines = DescribePipelinesResponse
@@ -127,17 +127,17 @@ describePipelinesResponse
     -> DescribePipelinesResponse
 describePipelinesResponse pResponseStatus_ =
   DescribePipelinesResponse'
-  { _dprsResponseStatus = pResponseStatus_
-  , _dprsPipelineDescriptionList = mempty
-  }
+    { _dprsResponseStatus = pResponseStatus_
+    , _dprsPipelineDescriptionList = mempty
+    }
 
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DescribePipelinesResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 -- | An array of descriptions for the specified pipelines.
 dprsPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
-dprsPipelineDescriptionList = lens _dprsPipelineDescriptionList (\ s a -> s{_dprsPipelineDescriptionList = a}) . _Coerce;
+dprsPipelineDescriptionList = lens _dprsPipelineDescriptionList (\ s a -> s{_dprsPipelineDescriptionList = a}) . _Coerce
 
 instance NFData DescribePipelinesResponse where

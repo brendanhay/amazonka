@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.UpdateProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,20 +72,20 @@ updateProject
     -> UpdateProject
 updateProject pArn_ =
   UpdateProject'
-  {_upName = Nothing, _upDefaultJobTimeoutMinutes = Nothing, _upArn = pArn_}
+    {_upName = Nothing, _upDefaultJobTimeoutMinutes = Nothing, _upArn = pArn_}
 
 
 -- | A string representing the new name of the project that you are updating.
 upName :: Lens' UpdateProject (Maybe Text)
-upName = lens _upName (\ s a -> s{_upName = a});
+upName = lens _upName (\ s a -> s{_upName = a})
 
 -- | The number of minutes a test run in the project will execute before it times out.
 upDefaultJobTimeoutMinutes :: Lens' UpdateProject (Maybe Int)
-upDefaultJobTimeoutMinutes = lens _upDefaultJobTimeoutMinutes (\ s a -> s{_upDefaultJobTimeoutMinutes = a});
+upDefaultJobTimeoutMinutes = lens _upDefaultJobTimeoutMinutes (\ s a -> s{_upDefaultJobTimeoutMinutes = a})
 
 -- | The Amazon Resource Name (ARN) of the project whose name you wish to update.
 upArn :: Lens' UpdateProject Text
-upArn = lens _upArn (\ s a -> s{_upArn = a});
+upArn = lens _upArn (\ s a -> s{_upArn = a})
 
 instance AWSRequest UpdateProject where
         type Rs UpdateProject = UpdateProjectResponse
@@ -147,15 +147,15 @@ updateProjectResponse
     -> UpdateProjectResponse
 updateProjectResponse pResponseStatus_ =
   UpdateProjectResponse'
-  {_uprsProject = Nothing, _uprsResponseStatus = pResponseStatus_}
+    {_uprsProject = Nothing, _uprsResponseStatus = pResponseStatus_}
 
 
 -- | The project you wish to update.
 uprsProject :: Lens' UpdateProjectResponse (Maybe Project)
-uprsProject = lens _uprsProject (\ s a -> s{_uprsProject = a});
+uprsProject = lens _uprsProject (\ s a -> s{_uprsProject = a})
 
 -- | -- | The response status code.
 uprsResponseStatus :: Lens' UpdateProjectResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
+uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a})
 
 instance NFData UpdateProjectResponse where

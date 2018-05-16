@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,30 +57,33 @@ data UpdateGroup = UpdateGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugNewGroupName' - New name for the IAM group. Only include this if changing the group's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'ugNewGroupName' - New name for the IAM group. Only include this if changing the group's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'ugNewPath' - New path for the IAM group. Only include this if changing the group's path. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'ugNewPath' - New path for the IAM group. Only include this if changing the group's path. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'ugGroupName' - Name of the IAM group to update. If you're changing the name of the group, this is the original name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'ugGroupName' - Name of the IAM group to update. If you're changing the name of the group, this is the original name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 updateGroup
     :: Text -- ^ 'ugGroupName'
     -> UpdateGroup
 updateGroup pGroupName_ =
   UpdateGroup'
-  {_ugNewGroupName = Nothing, _ugNewPath = Nothing, _ugGroupName = pGroupName_}
+    { _ugNewGroupName = Nothing
+    , _ugNewPath = Nothing
+    , _ugGroupName = pGroupName_
+    }
 
 
--- | New name for the IAM group. Only include this if changing the group's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | New name for the IAM group. Only include this if changing the group's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 ugNewGroupName :: Lens' UpdateGroup (Maybe Text)
-ugNewGroupName = lens _ugNewGroupName (\ s a -> s{_ugNewGroupName = a});
+ugNewGroupName = lens _ugNewGroupName (\ s a -> s{_ugNewGroupName = a})
 
--- | New path for the IAM group. Only include this if changing the group's path. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | New path for the IAM group. Only include this if changing the group's path. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 ugNewPath :: Lens' UpdateGroup (Maybe Text)
-ugNewPath = lens _ugNewPath (\ s a -> s{_ugNewPath = a});
+ugNewPath = lens _ugNewPath (\ s a -> s{_ugNewPath = a})
 
--- | Name of the IAM group to update. If you're changing the name of the group, this is the original name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | Name of the IAM group to update. If you're changing the name of the group, this is the original name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 ugGroupName :: Lens' UpdateGroup Text
-ugGroupName = lens _ugGroupName (\ s a -> s{_ugGroupName = a});
+ugGroupName = lens _ugGroupName (\ s a -> s{_ugGroupName = a})
 
 instance AWSRequest UpdateGroup where
         type Rs UpdateGroup = UpdateGroupResponse

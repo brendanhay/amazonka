@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.RemoveTagsFromVault
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ removeTagsFromVault
     -> RemoveTagsFromVault
 removeTagsFromVault pAccountId_ pVaultName_ =
   RemoveTagsFromVault'
-  { _rtfvTagKeys = Nothing
-  , _rtfvAccountId = pAccountId_
-  , _rtfvVaultName = pVaultName_
-  }
+    { _rtfvTagKeys = Nothing
+    , _rtfvAccountId = pAccountId_
+    , _rtfvVaultName = pVaultName_
+    }
 
 
 -- | A list of tag keys. Each corresponding tag is removed from the vault.
 rtfvTagKeys :: Lens' RemoveTagsFromVault [Text]
-rtfvTagKeys = lens _rtfvTagKeys (\ s a -> s{_rtfvTagKeys = a}) . _Default . _Coerce;
+rtfvTagKeys = lens _rtfvTagKeys (\ s a -> s{_rtfvTagKeys = a}) . _Default . _Coerce
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 rtfvAccountId :: Lens' RemoveTagsFromVault Text
-rtfvAccountId = lens _rtfvAccountId (\ s a -> s{_rtfvAccountId = a});
+rtfvAccountId = lens _rtfvAccountId (\ s a -> s{_rtfvAccountId = a})
 
 -- | The name of the vault.
 rtfvVaultName :: Lens' RemoveTagsFromVault Text
-rtfvVaultName = lens _rtfvVaultName (\ s a -> s{_rtfvVaultName = a});
+rtfvVaultName = lens _rtfvVaultName (\ s a -> s{_rtfvVaultName = a})
 
 instance AWSRequest RemoveTagsFromVault where
         type Rs RemoveTagsFromVault =

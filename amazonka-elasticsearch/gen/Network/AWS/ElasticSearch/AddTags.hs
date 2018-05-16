@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.AddTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ addTags pARN_ = AddTags' {_atARN = pARN_, _atTagList = mempty}
 
 -- | Specify the @ARN@ for which you want to add the tags.
 atARN :: Lens' AddTags Text
-atARN = lens _atARN (\ s a -> s{_atARN = a});
+atARN = lens _atARN (\ s a -> s{_atARN = a})
 
 -- | List of @Tag@ that need to be added for the Elasticsearch domain.
 atTagList :: Lens' AddTags [Tag]
-atTagList = lens _atTagList (\ s a -> s{_atTagList = a}) . _Coerce;
+atTagList = lens _atTagList (\ s a -> s{_atTagList = a}) . _Coerce
 
 instance AWSRequest AddTags where
         type Rs AddTags = AddTagsResponse

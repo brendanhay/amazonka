@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Batch.DescribeComputeEnvironments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ describeComputeEnvironments
     :: DescribeComputeEnvironments
 describeComputeEnvironments =
   DescribeComputeEnvironments'
-  { _dceComputeEnvironments = Nothing
-  , _dceNextToken = Nothing
-  , _dceMaxResults = Nothing
-  }
+    { _dceComputeEnvironments = Nothing
+    , _dceNextToken = Nothing
+    , _dceMaxResults = Nothing
+    }
 
 
 -- | A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.
 dceComputeEnvironments :: Lens' DescribeComputeEnvironments [Text]
-dceComputeEnvironments = lens _dceComputeEnvironments (\ s a -> s{_dceComputeEnvironments = a}) . _Default . _Coerce;
+dceComputeEnvironments = lens _dceComputeEnvironments (\ s a -> s{_dceComputeEnvironments = a}) . _Default . _Coerce
 
 -- | The @nextToken@ value returned from a previous paginated @DescribeComputeEnvironments@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 dceNextToken :: Lens' DescribeComputeEnvironments (Maybe Text)
-dceNextToken = lens _dceNextToken (\ s a -> s{_dceNextToken = a});
+dceNextToken = lens _dceNextToken (\ s a -> s{_dceNextToken = a})
 
 -- | The maximum number of cluster results returned by @DescribeComputeEnvironments@ in paginated output. When this parameter is used, @DescribeComputeEnvironments@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeComputeEnvironments@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeComputeEnvironments@ returns up to 100 results and a @nextToken@ value if applicable.
 dceMaxResults :: Lens' DescribeComputeEnvironments (Maybe Int)
-dceMaxResults = lens _dceMaxResults (\ s a -> s{_dceMaxResults = a});
+dceMaxResults = lens _dceMaxResults (\ s a -> s{_dceMaxResults = a})
 
 instance AWSRequest DescribeComputeEnvironments where
         type Rs DescribeComputeEnvironments =
@@ -148,23 +148,23 @@ describeComputeEnvironmentsResponse
     -> DescribeComputeEnvironmentsResponse
 describeComputeEnvironmentsResponse pResponseStatus_ =
   DescribeComputeEnvironmentsResponse'
-  { _drsComputeEnvironments = Nothing
-  , _drsNextToken = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsComputeEnvironments = Nothing
+    , _drsNextToken = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of compute environments.
 drsComputeEnvironments :: Lens' DescribeComputeEnvironmentsResponse [ComputeEnvironmentDetail]
-drsComputeEnvironments = lens _drsComputeEnvironments (\ s a -> s{_drsComputeEnvironments = a}) . _Default . _Coerce;
+drsComputeEnvironments = lens _drsComputeEnvironments (\ s a -> s{_drsComputeEnvironments = a}) . _Default . _Coerce
 
 -- | The @nextToken@ value to include in a future @DescribeComputeEnvironments@ request. When the results of a @DescribeJobDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 drsNextToken :: Lens' DescribeComputeEnvironmentsResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
+drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeComputeEnvironmentsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeComputeEnvironmentsResponse
          where

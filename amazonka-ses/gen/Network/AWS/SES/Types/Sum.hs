@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,9 +84,11 @@ instance ToHeader     BounceType
 
 data BulkEmailStatus
   = AccountDailyQuotaExceeded
+  | AccountSendingPaused
   | AccountSuspended
   | AccountThrottled
   | ConfigurationSetDoesNotExist
+  | ConfigurationSetSendingPaused
   | Failed
   | InvalidParameterValue
   | InvalidSendingPoolName
@@ -101,9 +103,11 @@ data BulkEmailStatus
 instance FromText BulkEmailStatus where
     parser = takeLowerText >>= \case
         "accountdailyquotaexceeded" -> pure AccountDailyQuotaExceeded
+        "accountsendingpaused" -> pure AccountSendingPaused
         "accountsuspended" -> pure AccountSuspended
         "accountthrottled" -> pure AccountThrottled
         "configurationsetdoesnotexist" -> pure ConfigurationSetDoesNotExist
+        "configurationsetsendingpaused" -> pure ConfigurationSetSendingPaused
         "failed" -> pure Failed
         "invalidparametervalue" -> pure InvalidParameterValue
         "invalidsendingpoolname" -> pure InvalidSendingPoolName
@@ -113,14 +117,16 @@ instance FromText BulkEmailStatus where
         "templatedoesnotexist" -> pure TemplateDoesNotExist
         "transientfailure" -> pure TransientFailure
         e -> fromTextError $ "Failure parsing BulkEmailStatus from value: '" <> e
-           <> "'. Accepted values: accountdailyquotaexceeded, accountsuspended, accountthrottled, configurationsetdoesnotexist, failed, invalidparametervalue, invalidsendingpoolname, mailfromdomainnotverified, messagerejected, success, templatedoesnotexist, transientfailure"
+           <> "'. Accepted values: accountdailyquotaexceeded, accountsendingpaused, accountsuspended, accountthrottled, configurationsetdoesnotexist, configurationsetsendingpaused, failed, invalidparametervalue, invalidsendingpoolname, mailfromdomainnotverified, messagerejected, success, templatedoesnotexist, transientfailure"
 
 instance ToText BulkEmailStatus where
     toText = \case
         AccountDailyQuotaExceeded -> "AccountDailyQuotaExceeded"
+        AccountSendingPaused -> "AccountSendingPaused"
         AccountSuspended -> "AccountSuspended"
         AccountThrottled -> "AccountThrottled"
         ConfigurationSetDoesNotExist -> "ConfigurationSetDoesNotExist"
+        ConfigurationSetSendingPaused -> "ConfigurationSetSendingPaused"
         Failed -> "Failed"
         InvalidParameterValue -> "InvalidParameterValue"
         InvalidSendingPoolName -> "InvalidSendingPoolName"
@@ -141,6 +147,7 @@ instance FromXML BulkEmailStatus where
 
 data ConfigurationSetAttribute
   = EventDestinations
+  | ReputationOptions
   | TrackingOptions
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -148,13 +155,15 @@ data ConfigurationSetAttribute
 instance FromText ConfigurationSetAttribute where
     parser = takeLowerText >>= \case
         "eventdestinations" -> pure EventDestinations
+        "reputationoptions" -> pure ReputationOptions
         "trackingoptions" -> pure TrackingOptions
         e -> fromTextError $ "Failure parsing ConfigurationSetAttribute from value: '" <> e
-           <> "'. Accepted values: eventdestinations, trackingoptions"
+           <> "'. Accepted values: eventdestinations, reputationoptions, trackingoptions"
 
 instance ToText ConfigurationSetAttribute where
     toText = \case
         EventDestinations -> "eventDestinations"
+        ReputationOptions -> "reputationOptions"
         TrackingOptions -> "trackingOptions"
 
 instance Hashable     ConfigurationSetAttribute

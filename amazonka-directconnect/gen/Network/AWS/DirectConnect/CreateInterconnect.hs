@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateInterconnect
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,28 +91,28 @@ createInterconnect
     -> CreateInterconnect
 createInterconnect pInterconnectName_ pBandwidth_ pLocation_ =
   CreateInterconnect'
-  { _ciLagId = Nothing
-  , _ciInterconnectName = pInterconnectName_
-  , _ciBandwidth = pBandwidth_
-  , _ciLocation = pLocation_
-  }
+    { _ciLagId = Nothing
+    , _ciInterconnectName = pInterconnectName_
+    , _ciBandwidth = pBandwidth_
+    , _ciLocation = pLocation_
+    }
 
 
 -- | Undocumented member.
 ciLagId :: Lens' CreateInterconnect (Maybe Text)
-ciLagId = lens _ciLagId (\ s a -> s{_ciLagId = a});
+ciLagId = lens _ciLagId (\ s a -> s{_ciLagId = a})
 
 -- | The name of the interconnect. Example: "/1G Interconnect to AWS/ " Default: None
 ciInterconnectName :: Lens' CreateInterconnect Text
-ciInterconnectName = lens _ciInterconnectName (\ s a -> s{_ciInterconnectName = a});
+ciInterconnectName = lens _ciInterconnectName (\ s a -> s{_ciInterconnectName = a})
 
 -- | The port bandwidth Example: 1Gbps Default: None Available values: 1Gbps,10Gbps
 ciBandwidth :: Lens' CreateInterconnect Text
-ciBandwidth = lens _ciBandwidth (\ s a -> s{_ciBandwidth = a});
+ciBandwidth = lens _ciBandwidth (\ s a -> s{_ciBandwidth = a})
 
 -- | Where the interconnect is located Example: EqSV5 Default: None
 ciLocation :: Lens' CreateInterconnect Text
-ciLocation = lens _ciLocation (\ s a -> s{_ciLocation = a});
+ciLocation = lens _ciLocation (\ s a -> s{_ciLocation = a})
 
 instance AWSRequest CreateInterconnect where
         type Rs CreateInterconnect = Interconnect

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DeletePortfolioShare
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified portfolio share.
+-- Stops sharing the specified portfolio with the specified account.
 --
 --
 module Network.AWS.ServiceCatalog.DeletePortfolioShare
@@ -61,30 +61,30 @@ data DeletePortfolioShare = DeletePortfolioShare'
 --
 -- * 'dpsPortfolioId' - The portfolio identifier.
 --
--- * 'dpsAccountId' - The account ID associated with the share to delete.
+-- * 'dpsAccountId' - The AWS account ID.
 deletePortfolioShare
     :: Text -- ^ 'dpsPortfolioId'
     -> Text -- ^ 'dpsAccountId'
     -> DeletePortfolioShare
 deletePortfolioShare pPortfolioId_ pAccountId_ =
   DeletePortfolioShare'
-  { _dpsAcceptLanguage = Nothing
-  , _dpsPortfolioId = pPortfolioId_
-  , _dpsAccountId = pAccountId_
-  }
+    { _dpsAcceptLanguage = Nothing
+    , _dpsPortfolioId = pPortfolioId_
+    , _dpsAccountId = pAccountId_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpsAcceptLanguage :: Lens' DeletePortfolioShare (Maybe Text)
-dpsAcceptLanguage = lens _dpsAcceptLanguage (\ s a -> s{_dpsAcceptLanguage = a});
+dpsAcceptLanguage = lens _dpsAcceptLanguage (\ s a -> s{_dpsAcceptLanguage = a})
 
 -- | The portfolio identifier.
 dpsPortfolioId :: Lens' DeletePortfolioShare Text
-dpsPortfolioId = lens _dpsPortfolioId (\ s a -> s{_dpsPortfolioId = a});
+dpsPortfolioId = lens _dpsPortfolioId (\ s a -> s{_dpsPortfolioId = a})
 
--- | The account ID associated with the share to delete.
+-- | The AWS account ID.
 dpsAccountId :: Lens' DeletePortfolioShare Text
-dpsAccountId = lens _dpsAccountId (\ s a -> s{_dpsAccountId = a});
+dpsAccountId = lens _dpsAccountId (\ s a -> s{_dpsAccountId = a})
 
 instance AWSRequest DeletePortfolioShare where
         type Rs DeletePortfolioShare =
@@ -144,6 +144,6 @@ deletePortfolioShareResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dpsrsResponseStatus :: Lens' DeletePortfolioShareResponse Int
-dpsrsResponseStatus = lens _dpsrsResponseStatus (\ s a -> s{_dpsrsResponseStatus = a});
+dpsrsResponseStatus = lens _dpsrsResponseStatus (\ s a -> s{_dpsrsResponseStatus = a})
 
 instance NFData DeletePortfolioShareResponse where

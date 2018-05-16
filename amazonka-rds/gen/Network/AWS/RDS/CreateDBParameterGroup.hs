@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,28 +82,28 @@ createDBParameterGroup
     -> CreateDBParameterGroup
 createDBParameterGroup pDBParameterGroupName_ pDBParameterGroupFamily_ pDescription_ =
   CreateDBParameterGroup'
-  { _cdbpgTags = Nothing
-  , _cdbpgDBParameterGroupName = pDBParameterGroupName_
-  , _cdbpgDBParameterGroupFamily = pDBParameterGroupFamily_
-  , _cdbpgDescription = pDescription_
-  }
+    { _cdbpgTags = Nothing
+    , _cdbpgDBParameterGroupName = pDBParameterGroupName_
+    , _cdbpgDBParameterGroupFamily = pDBParameterGroupFamily_
+    , _cdbpgDescription = pDescription_
+    }
 
 
 -- | Undocumented member.
 cdbpgTags :: Lens' CreateDBParameterGroup [Tag]
-cdbpgTags = lens _cdbpgTags (\ s a -> s{_cdbpgTags = a}) . _Default . _Coerce;
+cdbpgTags = lens _cdbpgTags (\ s a -> s{_cdbpgTags = a}) . _Default . _Coerce
 
 -- | The name of the DB parameter group. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 cdbpgDBParameterGroupName :: Lens' CreateDBParameterGroup Text
-cdbpgDBParameterGroupName = lens _cdbpgDBParameterGroupName (\ s a -> s{_cdbpgDBParameterGroupName = a});
+cdbpgDBParameterGroupName = lens _cdbpgDBParameterGroupName (\ s a -> s{_cdbpgDBParameterGroupName = a})
 
 -- | The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
 cdbpgDBParameterGroupFamily :: Lens' CreateDBParameterGroup Text
-cdbpgDBParameterGroupFamily = lens _cdbpgDBParameterGroupFamily (\ s a -> s{_cdbpgDBParameterGroupFamily = a});
+cdbpgDBParameterGroupFamily = lens _cdbpgDBParameterGroupFamily (\ s a -> s{_cdbpgDBParameterGroupFamily = a})
 
 -- | The description for the DB parameter group.
 cdbpgDescription :: Lens' CreateDBParameterGroup Text
-cdbpgDescription = lens _cdbpgDescription (\ s a -> s{_cdbpgDescription = a});
+cdbpgDescription = lens _cdbpgDescription (\ s a -> s{_cdbpgDescription = a})
 
 instance AWSRequest CreateDBParameterGroup where
         type Rs CreateDBParameterGroup =
@@ -156,15 +156,17 @@ createDBParameterGroupResponse
     -> CreateDBParameterGroupResponse
 createDBParameterGroupResponse pResponseStatus_ =
   CreateDBParameterGroupResponse'
-  {_cdpgrsDBParameterGroup = Nothing, _cdpgrsResponseStatus = pResponseStatus_}
+    { _cdpgrsDBParameterGroup = Nothing
+    , _cdpgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 cdpgrsDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
-cdpgrsDBParameterGroup = lens _cdpgrsDBParameterGroup (\ s a -> s{_cdpgrsDBParameterGroup = a});
+cdpgrsDBParameterGroup = lens _cdpgrsDBParameterGroup (\ s a -> s{_cdpgrsDBParameterGroup = a})
 
 -- | -- | The response status code.
 cdpgrsResponseStatus :: Lens' CreateDBParameterGroupResponse Int
-cdpgrsResponseStatus = lens _cdpgrsResponseStatus (\ s a -> s{_cdpgrsResponseStatus = a});
+cdpgrsResponseStatus = lens _cdpgrsResponseStatus (\ s a -> s{_cdpgrsResponseStatus = a})
 
 instance NFData CreateDBParameterGroupResponse where

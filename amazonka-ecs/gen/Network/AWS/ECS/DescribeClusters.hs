@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeClusters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,7 @@ module Network.AWS.ECS.DescribeClusters
       describeClusters
     , DescribeClusters
     -- * Request Lenses
+    , dcInclude
     , dcClusters
 
     -- * Destructuring the Response
@@ -46,8 +47,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'describeClusters' smart constructor.
-newtype DescribeClusters = DescribeClusters'
-  { _dcClusters :: Maybe [Text]
+data DescribeClusters = DescribeClusters'
+  { _dcInclude  :: !(Maybe [ClusterField])
+  , _dcClusters :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -55,15 +57,22 @@ newtype DescribeClusters = DescribeClusters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dcInclude' - Additional information about your clusters to be separated by launch type, including:     * runningEC2TasksCount     * runningFargateTasksCount     * pendingEC2TasksCount     * pendingFargateTasksCount     * activeEC2ServiceCount     * activeFargateServiceCount     * drainingEC2ServiceCount     * drainingFargateServiceCount
+--
 -- * 'dcClusters' - A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
 describeClusters
     :: DescribeClusters
-describeClusters = DescribeClusters' {_dcClusters = Nothing}
+describeClusters =
+  DescribeClusters' {_dcInclude = Nothing, _dcClusters = Nothing}
 
+
+-- | Additional information about your clusters to be separated by launch type, including:     * runningEC2TasksCount     * runningFargateTasksCount     * pendingEC2TasksCount     * pendingFargateTasksCount     * activeEC2ServiceCount     * activeFargateServiceCount     * drainingEC2ServiceCount     * drainingFargateServiceCount
+dcInclude :: Lens' DescribeClusters [ClusterField]
+dcInclude = lens _dcInclude (\ s a -> s{_dcInclude = a}) . _Default . _Coerce
 
 -- | A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
 dcClusters :: Lens' DescribeClusters [Text]
-dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default . _Coerce;
+dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeClusters where
         type Rs DescribeClusters = DescribeClustersResponse
@@ -93,7 +102,9 @@ instance ToHeaders DescribeClusters where
 instance ToJSON DescribeClusters where
         toJSON DescribeClusters'{..}
           = object
-              (catMaybes [("clusters" .=) <$> _dcClusters])
+              (catMaybes
+                 [("include" .=) <$> _dcInclude,
+                  ("clusters" .=) <$> _dcClusters])
 
 instance ToPath DescribeClusters where
         toPath = const "/"
@@ -123,22 +134,22 @@ describeClustersResponse
     -> DescribeClustersResponse
 describeClustersResponse pResponseStatus_ =
   DescribeClustersResponse'
-  { _dcrsFailures = Nothing
-  , _dcrsClusters = Nothing
-  , _dcrsResponseStatus = pResponseStatus_
-  }
+    { _dcrsFailures = Nothing
+    , _dcrsClusters = Nothing
+    , _dcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Any failures associated with the call.
 dcrsFailures :: Lens' DescribeClustersResponse [Failure]
-dcrsFailures = lens _dcrsFailures (\ s a -> s{_dcrsFailures = a}) . _Default . _Coerce;
+dcrsFailures = lens _dcrsFailures (\ s a -> s{_dcrsFailures = a}) . _Default . _Coerce
 
 -- | The list of clusters.
 dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
-dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
+dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeClustersResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DescribeClustersResponse where

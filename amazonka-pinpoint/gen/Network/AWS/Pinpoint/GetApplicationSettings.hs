@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetApplicationSettings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getApplicationSettings pApplicationId_ =
 
 -- | Undocumented member.
 gasApplicationId :: Lens' GetApplicationSettings Text
-gasApplicationId = lens _gasApplicationId (\ s a -> s{_gasApplicationId = a});
+gasApplicationId = lens _gasApplicationId (\ s a -> s{_gasApplicationId = a})
 
 instance AWSRequest GetApplicationSettings where
         type Rs GetApplicationSettings =
@@ -113,17 +113,17 @@ getApplicationSettingsResponse
     -> GetApplicationSettingsResponse
 getApplicationSettingsResponse pResponseStatus_ pApplicationSettingsResource_ =
   GetApplicationSettingsResponse'
-  { _gassrsResponseStatus = pResponseStatus_
-  , _gassrsApplicationSettingsResource = pApplicationSettingsResource_
-  }
+    { _gassrsResponseStatus = pResponseStatus_
+    , _gassrsApplicationSettingsResource = pApplicationSettingsResource_
+    }
 
 
 -- | -- | The response status code.
 gassrsResponseStatus :: Lens' GetApplicationSettingsResponse Int
-gassrsResponseStatus = lens _gassrsResponseStatus (\ s a -> s{_gassrsResponseStatus = a});
+gassrsResponseStatus = lens _gassrsResponseStatus (\ s a -> s{_gassrsResponseStatus = a})
 
 -- | Undocumented member.
 gassrsApplicationSettingsResource :: Lens' GetApplicationSettingsResponse ApplicationSettingsResource
-gassrsApplicationSettingsResource = lens _gassrsApplicationSettingsResource (\ s a -> s{_gassrsApplicationSettingsResource = a});
+gassrsApplicationSettingsResource = lens _gassrsApplicationSettingsResource (\ s a -> s{_gassrsApplicationSettingsResource = a})
 
 instance NFData GetApplicationSettingsResponse where

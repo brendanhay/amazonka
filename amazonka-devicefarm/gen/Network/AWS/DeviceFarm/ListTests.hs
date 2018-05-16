@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListTests
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about tests.
+-- Gets information about tests in a given test suite.
 --
 --
 --
@@ -66,7 +66,7 @@ data ListTests = ListTests'
 --
 -- * 'ltNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'ltArn' - The tests' ARNs.
+-- * 'ltArn' - The test suite's Amazon Resource Name (ARN).
 listTests
     :: Text -- ^ 'ltArn'
     -> ListTests
@@ -75,11 +75,11 @@ listTests pArn_ = ListTests' {_ltNextToken = Nothing, _ltArn = pArn_}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 ltNextToken :: Lens' ListTests (Maybe Text)
-ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
+ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
 
--- | The tests' ARNs.
+-- | The test suite's Amazon Resource Name (ARN).
 ltArn :: Lens' ListTests Text
-ltArn = lens _ltArn (\ s a -> s{_ltArn = a});
+ltArn = lens _ltArn (\ s a -> s{_ltArn = a})
 
 instance AWSPager ListTests where
         page rq rs
@@ -150,22 +150,22 @@ listTestsResponse
     -> ListTestsResponse
 listTestsResponse pResponseStatus_ =
   ListTestsResponse'
-  { _ltrsTests = Nothing
-  , _ltrsNextToken = Nothing
-  , _ltrsResponseStatus = pResponseStatus_
-  }
+    { _ltrsTests = Nothing
+    , _ltrsNextToken = Nothing
+    , _ltrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the tests.
 ltrsTests :: Lens' ListTestsResponse [Test]
-ltrsTests = lens _ltrsTests (\ s a -> s{_ltrsTests = a}) . _Default . _Coerce;
+ltrsTests = lens _ltrsTests (\ s a -> s{_ltrsTests = a}) . _Default . _Coerce
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 ltrsNextToken :: Lens' ListTestsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
+ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a})
 
 -- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTestsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
 
 instance NFData ListTestsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetRolePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ data GetRolePolicy = GetRolePolicy'
 --
 -- * 'grpRoleName' - The name of the role associated with the policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'grpPolicyName' - The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
+-- * 'grpPolicyName' - The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 getRolePolicy
     :: Text -- ^ 'grpRoleName'
     -> Text -- ^ 'grpPolicyName'
@@ -77,11 +77,11 @@ getRolePolicy pRoleName_ pPolicyName_ =
 
 -- | The name of the role associated with the policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 grpRoleName :: Lens' GetRolePolicy Text
-grpRoleName = lens _grpRoleName (\ s a -> s{_grpRoleName = a});
+grpRoleName = lens _grpRoleName (\ s a -> s{_grpRoleName = a})
 
--- | The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
+-- | The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 grpPolicyName :: Lens' GetRolePolicy Text
-grpPolicyName = lens _grpPolicyName (\ s a -> s{_grpPolicyName = a});
+grpPolicyName = lens _grpPolicyName (\ s a -> s{_grpPolicyName = a})
 
 instance AWSRequest GetRolePolicy where
         type Rs GetRolePolicy = GetRolePolicyResponse
@@ -144,27 +144,27 @@ getRolePolicyResponse
     -> GetRolePolicyResponse
 getRolePolicyResponse pResponseStatus_ pRoleName_ pPolicyName_ pPolicyDocument_ =
   GetRolePolicyResponse'
-  { _grprsResponseStatus = pResponseStatus_
-  , _grprsRoleName = pRoleName_
-  , _grprsPolicyName = pPolicyName_
-  , _grprsPolicyDocument = pPolicyDocument_
-  }
+    { _grprsResponseStatus = pResponseStatus_
+    , _grprsRoleName = pRoleName_
+    , _grprsPolicyName = pPolicyName_
+    , _grprsPolicyDocument = pPolicyDocument_
+    }
 
 
 -- | -- | The response status code.
 grprsResponseStatus :: Lens' GetRolePolicyResponse Int
-grprsResponseStatus = lens _grprsResponseStatus (\ s a -> s{_grprsResponseStatus = a});
+grprsResponseStatus = lens _grprsResponseStatus (\ s a -> s{_grprsResponseStatus = a})
 
 -- | The role the policy is associated with.
 grprsRoleName :: Lens' GetRolePolicyResponse Text
-grprsRoleName = lens _grprsRoleName (\ s a -> s{_grprsRoleName = a});
+grprsRoleName = lens _grprsRoleName (\ s a -> s{_grprsRoleName = a})
 
 -- | The name of the policy.
 grprsPolicyName :: Lens' GetRolePolicyResponse Text
-grprsPolicyName = lens _grprsPolicyName (\ s a -> s{_grprsPolicyName = a});
+grprsPolicyName = lens _grprsPolicyName (\ s a -> s{_grprsPolicyName = a})
 
 -- | The policy document.
 grprsPolicyDocument :: Lens' GetRolePolicyResponse Text
-grprsPolicyDocument = lens _grprsPolicyDocument (\ s a -> s{_grprsPolicyDocument = a});
+grprsPolicyDocument = lens _grprsPolicyDocument (\ s a -> s{_grprsPolicyDocument = a})
 
 instance NFData GetRolePolicyResponse where

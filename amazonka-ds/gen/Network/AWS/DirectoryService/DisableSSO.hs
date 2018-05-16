@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DisableSSO
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ disableSSO
     -> DisableSSO
 disableSSO pDirectoryId_ =
   DisableSSO'
-  { _dssoUserName = Nothing
-  , _dssoPassword = Nothing
-  , _dssoDirectoryId = pDirectoryId_
-  }
+    { _dssoUserName = Nothing
+    , _dssoPassword = Nothing
+    , _dssoDirectoryId = pDirectoryId_
+    }
 
 
 -- | The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name. If the AD Connector service account does not have privileges to remove a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to disable single sign-on and are not stored by the service. The AD Connector service account is not changed.
 dssoUserName :: Lens' DisableSSO (Maybe Text)
-dssoUserName = lens _dssoUserName (\ s a -> s{_dssoUserName = a});
+dssoUserName = lens _dssoUserName (\ s a -> s{_dssoUserName = a})
 
 -- | The password of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. For more information, see the /UserName/ parameter.
 dssoPassword :: Lens' DisableSSO (Maybe Text)
-dssoPassword = lens _dssoPassword (\ s a -> s{_dssoPassword = a}) . mapping _Sensitive;
+dssoPassword = lens _dssoPassword (\ s a -> s{_dssoPassword = a}) . mapping _Sensitive
 
 -- | The identifier of the directory for which to disable single-sign on.
 dssoDirectoryId :: Lens' DisableSSO Text
-dssoDirectoryId = lens _dssoDirectoryId (\ s a -> s{_dssoDirectoryId = a});
+dssoDirectoryId = lens _dssoDirectoryId (\ s a -> s{_dssoDirectoryId = a})
 
 instance AWSRequest DisableSSO where
         type Rs DisableSSO = DisableSSOResponse
@@ -149,6 +149,6 @@ disableSSOResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dssorsResponseStatus :: Lens' DisableSSOResponse Int
-dssorsResponseStatus = lens _dssorsResponseStatus (\ s a -> s{_dssorsResponseStatus = a});
+dssorsResponseStatus = lens _dssorsResponseStatus (\ s a -> s{_dssorsResponseStatus = a})
 
 instance NFData DisableSSOResponse where

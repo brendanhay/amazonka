@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.PutInstancePublicPorts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ putInstancePublicPorts
     -> PutInstancePublicPorts
 putInstancePublicPorts pInstanceName_ =
   PutInstancePublicPorts'
-  {_pippPortInfos = mempty, _pippInstanceName = pInstanceName_}
+    {_pippPortInfos = mempty, _pippInstanceName = pInstanceName_}
 
 
 -- | Specifies information about the public port(s).
 pippPortInfos :: Lens' PutInstancePublicPorts [PortInfo]
-pippPortInfos = lens _pippPortInfos (\ s a -> s{_pippPortInfos = a}) . _Coerce;
+pippPortInfos = lens _pippPortInfos (\ s a -> s{_pippPortInfos = a}) . _Coerce
 
 -- | The Lightsail instance name of the public port(s) you are setting.
 pippInstanceName :: Lens' PutInstancePublicPorts Text
-pippInstanceName = lens _pippInstanceName (\ s a -> s{_pippInstanceName = a});
+pippInstanceName = lens _pippInstanceName (\ s a -> s{_pippInstanceName = a})
 
 instance AWSRequest PutInstancePublicPorts where
         type Rs PutInstancePublicPorts =
@@ -131,15 +131,15 @@ putInstancePublicPortsResponse
     -> PutInstancePublicPortsResponse
 putInstancePublicPortsResponse pResponseStatus_ =
   PutInstancePublicPortsResponse'
-  {_pipprsOperation = Nothing, _pipprsResponseStatus = pResponseStatus_}
+    {_pipprsOperation = Nothing, _pipprsResponseStatus = pResponseStatus_}
 
 
 -- | Describes metadata about the operation you just executed.
 pipprsOperation :: Lens' PutInstancePublicPortsResponse (Maybe Operation)
-pipprsOperation = lens _pipprsOperation (\ s a -> s{_pipprsOperation = a});
+pipprsOperation = lens _pipprsOperation (\ s a -> s{_pipprsOperation = a})
 
 -- | -- | The response status code.
 pipprsResponseStatus :: Lens' PutInstancePublicPortsResponse Int
-pipprsResponseStatus = lens _pipprsResponseStatus (\ s a -> s{_pipprsResponseStatus = a});
+pipprsResponseStatus = lens _pipprsResponseStatus (\ s a -> s{_pipprsResponseStatus = a})
 
 instance NFData PutInstancePublicPortsResponse where

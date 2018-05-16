@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.EnableLogging
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,23 +77,23 @@ enableLogging
     -> EnableLogging
 enableLogging pClusterIdentifier_ pBucketName_ =
   EnableLogging'
-  { _elS3KeyPrefix = Nothing
-  , _elClusterIdentifier = pClusterIdentifier_
-  , _elBucketName = pBucketName_
-  }
+    { _elS3KeyPrefix = Nothing
+    , _elClusterIdentifier = pClusterIdentifier_
+    , _elBucketName = pBucketName_
+    }
 
 
 -- | The prefix applied to the log file names. Constraints:     * Cannot exceed 512 characters     * Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:      * x00 to x20     * x22     * x27     * x5c     * x7f or larger
 elS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
-elS3KeyPrefix = lens _elS3KeyPrefix (\ s a -> s{_elS3KeyPrefix = a});
+elS3KeyPrefix = lens _elS3KeyPrefix (\ s a -> s{_elS3KeyPrefix = a})
 
 -- | The identifier of the cluster on which logging is to be started. Example: @examplecluster@
 elClusterIdentifier :: Lens' EnableLogging Text
-elClusterIdentifier = lens _elClusterIdentifier (\ s a -> s{_elClusterIdentifier = a});
+elClusterIdentifier = lens _elClusterIdentifier (\ s a -> s{_elClusterIdentifier = a})
 
 -- | The name of an existing S3 bucket where the log files are to be stored. Constraints:     * Must be in the same region as the cluster     * The cluster must have read bucket and put object permissions
 elBucketName :: Lens' EnableLogging Text
-elBucketName = lens _elBucketName (\ s a -> s{_elBucketName = a});
+elBucketName = lens _elBucketName (\ s a -> s{_elBucketName = a})
 
 instance AWSRequest EnableLogging where
         type Rs EnableLogging = LoggingStatus

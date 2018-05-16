@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.ListTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ listTags pResourceName_ =
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token.
 ltNextToken :: Lens' ListTags (Maybe Text)
-ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
+ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
 
 -- | The name of the DAX resource to which the tags belong.
 ltResourceName :: Lens' ListTags Text
-ltResourceName = lens _ltResourceName (\ s a -> s{_ltResourceName = a});
+ltResourceName = lens _ltResourceName (\ s a -> s{_ltResourceName = a})
 
 instance AWSRequest ListTags where
         type Rs ListTags = ListTagsResponse
@@ -133,22 +133,22 @@ listTagsResponse
     -> ListTagsResponse
 listTagsResponse pResponseStatus_ =
   ListTagsResponse'
-  { _ltrsNextToken = Nothing
-  , _ltrsTags = Nothing
-  , _ltrsResponseStatus = pResponseStatus_
-  }
+    { _ltrsNextToken = Nothing
+    , _ltrsTags = Nothing
+    , _ltrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If this value is present, there are additional results to be displayed. To retrieve them, call @ListTags@ again, with @NextToken@ set to this value.
 ltrsNextToken :: Lens' ListTagsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
+ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a})
 
 -- | A list of tags currently associated with the DAX cluster.
 ltrsTags :: Lens' ListTagsResponse [Tag]
-ltrsTags = lens _ltrsTags (\ s a -> s{_ltrsTags = a}) . _Default . _Coerce;
+ltrsTags = lens _ltrsTags (\ s a -> s{_ltrsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTagsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
 
 instance NFData ListTagsResponse where

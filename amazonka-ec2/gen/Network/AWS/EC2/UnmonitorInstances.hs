@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.UnmonitorInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ unmonitorInstances =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 uiDryRun :: Lens' UnmonitorInstances (Maybe Bool)
-uiDryRun = lens _uiDryRun (\ s a -> s{_uiDryRun = a});
+uiDryRun = lens _uiDryRun (\ s a -> s{_uiDryRun = a})
 
 -- | One or more instance IDs.
 uiInstanceIds :: Lens' UnmonitorInstances [Text]
-uiInstanceIds = lens _uiInstanceIds (\ s a -> s{_uiInstanceIds = a}) . _Coerce;
+uiInstanceIds = lens _uiInstanceIds (\ s a -> s{_uiInstanceIds = a}) . _Coerce
 
 instance AWSRequest UnmonitorInstances where
         type Rs UnmonitorInstances =
@@ -130,15 +130,15 @@ unmonitorInstancesResponse
     -> UnmonitorInstancesResponse
 unmonitorInstancesResponse pResponseStatus_ =
   UnmonitorInstancesResponse'
-  {_uirsInstanceMonitorings = Nothing, _uirsResponseStatus = pResponseStatus_}
+    {_uirsInstanceMonitorings = Nothing, _uirsResponseStatus = pResponseStatus_}
 
 
 -- | The monitoring information.
 uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
-uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanceMonitorings = a}) . _Default . _Coerce;
+uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanceMonitorings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 uirsResponseStatus :: Lens' UnmonitorInstancesResponse Int
-uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a});
+uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a})
 
 instance NFData UnmonitorInstancesResponse where

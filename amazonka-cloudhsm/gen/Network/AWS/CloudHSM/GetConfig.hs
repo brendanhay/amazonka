@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.GetConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ getConfig
     -> GetConfig
 getConfig pClientARN_ pClientVersion_ =
   GetConfig'
-  { _gcClientARN = pClientARN_
-  , _gcClientVersion = pClientVersion_
-  , _gcHAPGList = mempty
-  }
+    { _gcClientARN = pClientARN_
+    , _gcClientVersion = pClientVersion_
+    , _gcHAPGList = mempty
+    }
 
 
 -- | The ARN of the client.
 gcClientARN :: Lens' GetConfig Text
-gcClientARN = lens _gcClientARN (\ s a -> s{_gcClientARN = a});
+gcClientARN = lens _gcClientARN (\ s a -> s{_gcClientARN = a})
 
 -- | The client version.
 gcClientVersion :: Lens' GetConfig ClientVersion
-gcClientVersion = lens _gcClientVersion (\ s a -> s{_gcClientVersion = a});
+gcClientVersion = lens _gcClientVersion (\ s a -> s{_gcClientVersion = a})
 
 -- | A list of ARNs that identify the high-availability partition groups that are associated with the client.
 gcHAPGList :: Lens' GetConfig [Text]
-gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a}) . _Coerce;
+gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a}) . _Coerce
 
 instance AWSRequest GetConfig where
         type Rs GetConfig = GetConfigResponse
@@ -156,27 +156,27 @@ getConfigResponse
     -> GetConfigResponse
 getConfigResponse pResponseStatus_ =
   GetConfigResponse'
-  { _gcrsConfigFile = Nothing
-  , _gcrsConfigCred = Nothing
-  , _gcrsConfigType = Nothing
-  , _gcrsResponseStatus = pResponseStatus_
-  }
+    { _gcrsConfigFile = Nothing
+    , _gcrsConfigCred = Nothing
+    , _gcrsConfigType = Nothing
+    , _gcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The chrystoki.conf configuration file.
 gcrsConfigFile :: Lens' GetConfigResponse (Maybe Text)
-gcrsConfigFile = lens _gcrsConfigFile (\ s a -> s{_gcrsConfigFile = a});
+gcrsConfigFile = lens _gcrsConfigFile (\ s a -> s{_gcrsConfigFile = a})
 
 -- | The certificate file containing the server.pem files of the HSMs.
 gcrsConfigCred :: Lens' GetConfigResponse (Maybe Text)
-gcrsConfigCred = lens _gcrsConfigCred (\ s a -> s{_gcrsConfigCred = a});
+gcrsConfigCred = lens _gcrsConfigCred (\ s a -> s{_gcrsConfigCred = a})
 
 -- | The type of credentials.
 gcrsConfigType :: Lens' GetConfigResponse (Maybe Text)
-gcrsConfigType = lens _gcrsConfigType (\ s a -> s{_gcrsConfigType = a});
+gcrsConfigType = lens _gcrsConfigType (\ s a -> s{_gcrsConfigType = a})
 
 -- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetConfigResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
+gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a})
 
 instance NFData GetConfigResponse where

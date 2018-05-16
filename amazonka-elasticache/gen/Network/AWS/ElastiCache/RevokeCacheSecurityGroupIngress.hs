@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ revokeCacheSecurityGroupIngress
     -> RevokeCacheSecurityGroupIngress
 revokeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupName_ pEC2SecurityGroupOwnerId_ =
   RevokeCacheSecurityGroupIngress'
-  { _rcsgiCacheSecurityGroupName = pCacheSecurityGroupName_
-  , _rcsgiEC2SecurityGroupName = pEC2SecurityGroupName_
-  , _rcsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
-  }
+    { _rcsgiCacheSecurityGroupName = pCacheSecurityGroupName_
+    , _rcsgiEC2SecurityGroupName = pEC2SecurityGroupName_
+    , _rcsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
+    }
 
 
 -- | The name of the cache security group to revoke ingress from.
 rcsgiCacheSecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
-rcsgiCacheSecurityGroupName = lens _rcsgiCacheSecurityGroupName (\ s a -> s{_rcsgiCacheSecurityGroupName = a});
+rcsgiCacheSecurityGroupName = lens _rcsgiCacheSecurityGroupName (\ s a -> s{_rcsgiCacheSecurityGroupName = a})
 
 -- | The name of the Amazon EC2 security group to revoke access from.
 rcsgiEC2SecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
-rcsgiEC2SecurityGroupName = lens _rcsgiEC2SecurityGroupName (\ s a -> s{_rcsgiEC2SecurityGroupName = a});
+rcsgiEC2SecurityGroupName = lens _rcsgiEC2SecurityGroupName (\ s a -> s{_rcsgiEC2SecurityGroupName = a})
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that this is not the same thing as an AWS access key ID - you must provide a valid AWS account number for this parameter.
 rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngress Text
-rcsgiEC2SecurityGroupOwnerId = lens _rcsgiEC2SecurityGroupOwnerId (\ s a -> s{_rcsgiEC2SecurityGroupOwnerId = a});
+rcsgiEC2SecurityGroupOwnerId = lens _rcsgiEC2SecurityGroupOwnerId (\ s a -> s{_rcsgiEC2SecurityGroupOwnerId = a})
 
 instance AWSRequest RevokeCacheSecurityGroupIngress
          where
@@ -148,18 +148,18 @@ revokeCacheSecurityGroupIngressResponse
     -> RevokeCacheSecurityGroupIngressResponse
 revokeCacheSecurityGroupIngressResponse pResponseStatus_ =
   RevokeCacheSecurityGroupIngressResponse'
-  { _rcsgirsCacheSecurityGroup = Nothing
-  , _rcsgirsResponseStatus = pResponseStatus_
-  }
+    { _rcsgirsCacheSecurityGroup = Nothing
+    , _rcsgirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 rcsgirsCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
-rcsgirsCacheSecurityGroup = lens _rcsgirsCacheSecurityGroup (\ s a -> s{_rcsgirsCacheSecurityGroup = a});
+rcsgirsCacheSecurityGroup = lens _rcsgirsCacheSecurityGroup (\ s a -> s{_rcsgirsCacheSecurityGroup = a})
 
 -- | -- | The response status code.
 rcsgirsResponseStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Int
-rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\ s a -> s{_rcsgirsResponseStatus = a});
+rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\ s a -> s{_rcsgirsResponseStatus = a})
 
 instance NFData
            RevokeCacheSecurityGroupIngressResponse

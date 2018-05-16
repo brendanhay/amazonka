@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetCrawlers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves metadata for all @Crawlers@ defined in the customer account.
+-- Retrieves metadata for all crawlers defined in the customer account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Glue.GetCrawlers
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.Glue.GetCrawlers
 import Network.AWS.Glue.Types
 import Network.AWS.Glue.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -59,7 +62,7 @@ data GetCrawlers = GetCrawlers'
 --
 -- * 'gNextToken' - A continuation token, if this is a continuation request.
 --
--- * 'gMaxResults' - The number of Crawlers to return on each call.
+-- * 'gMaxResults' - The number of crawlers to return on each call.
 getCrawlers
     :: GetCrawlers
 getCrawlers = GetCrawlers' {_gNextToken = Nothing, _gMaxResults = Nothing}
@@ -67,11 +70,18 @@ getCrawlers = GetCrawlers' {_gNextToken = Nothing, _gMaxResults = Nothing}
 
 -- | A continuation token, if this is a continuation request.
 gNextToken :: Lens' GetCrawlers (Maybe Text)
-gNextToken = lens _gNextToken (\ s a -> s{_gNextToken = a});
+gNextToken = lens _gNextToken (\ s a -> s{_gNextToken = a})
 
--- | The number of Crawlers to return on each call.
+-- | The number of crawlers to return on each call.
 gMaxResults :: Lens' GetCrawlers (Maybe Natural)
-gMaxResults = lens _gMaxResults (\ s a -> s{_gMaxResults = a}) . mapping _Nat;
+gMaxResults = lens _gMaxResults (\ s a -> s{_gMaxResults = a}) . mapping _Nat
+
+instance AWSPager GetCrawlers where
+        page rq rs
+          | stop (rs ^. grsNextToken) = Nothing
+          | stop (rs ^. grsCrawlers) = Nothing
+          | otherwise =
+            Just $ rq & gNextToken .~ rs ^. grsNextToken
 
 instance AWSRequest GetCrawlers where
         type Rs GetCrawlers = GetCrawlersResponse
@@ -123,7 +133,7 @@ data GetCrawlersResponse = GetCrawlersResponse'
 --
 -- * 'grsNextToken' - A continuation token, if the returned list has not reached the end of those defined in this customer account.
 --
--- * 'grsCrawlers' - A list of @Crawler@ metadata.
+-- * 'grsCrawlers' - A list of crawler metadata.
 --
 -- * 'grsResponseStatus' - -- | The response status code.
 getCrawlersResponse
@@ -131,22 +141,22 @@ getCrawlersResponse
     -> GetCrawlersResponse
 getCrawlersResponse pResponseStatus_ =
   GetCrawlersResponse'
-  { _grsNextToken = Nothing
-  , _grsCrawlers = Nothing
-  , _grsResponseStatus = pResponseStatus_
-  }
+    { _grsNextToken = Nothing
+    , _grsCrawlers = Nothing
+    , _grsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A continuation token, if the returned list has not reached the end of those defined in this customer account.
 grsNextToken :: Lens' GetCrawlersResponse (Maybe Text)
-grsNextToken = lens _grsNextToken (\ s a -> s{_grsNextToken = a});
+grsNextToken = lens _grsNextToken (\ s a -> s{_grsNextToken = a})
 
--- | A list of @Crawler@ metadata.
+-- | A list of crawler metadata.
 grsCrawlers :: Lens' GetCrawlersResponse [Crawler]
-grsCrawlers = lens _grsCrawlers (\ s a -> s{_grsCrawlers = a}) . _Default . _Coerce;
+grsCrawlers = lens _grsCrawlers (\ s a -> s{_grsCrawlers = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 grsResponseStatus :: Lens' GetCrawlersResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
 
 instance NFData GetCrawlersResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateTrafficPolicyComment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,20 +74,20 @@ updateTrafficPolicyComment
     -> UpdateTrafficPolicyComment
 updateTrafficPolicyComment pId_ pVersion_ pComment_ =
   UpdateTrafficPolicyComment'
-  {_utpcId = pId_, _utpcVersion = _Nat # pVersion_, _utpcComment = pComment_}
+    {_utpcId = pId_, _utpcVersion = _Nat # pVersion_, _utpcComment = pComment_}
 
 
 -- | The value of @Id@ for the traffic policy that you want to update the comment for.
 utpcId :: Lens' UpdateTrafficPolicyComment Text
-utpcId = lens _utpcId (\ s a -> s{_utpcId = a});
+utpcId = lens _utpcId (\ s a -> s{_utpcId = a})
 
 -- | The value of @Version@ for the traffic policy that you want to update the comment for.
 utpcVersion :: Lens' UpdateTrafficPolicyComment Natural
-utpcVersion = lens _utpcVersion (\ s a -> s{_utpcVersion = a}) . _Nat;
+utpcVersion = lens _utpcVersion (\ s a -> s{_utpcVersion = a}) . _Nat
 
 -- | The new comment for the specified traffic policy and version.
 utpcComment :: Lens' UpdateTrafficPolicyComment Text
-utpcComment = lens _utpcComment (\ s a -> s{_utpcComment = a});
+utpcComment = lens _utpcComment (\ s a -> s{_utpcComment = a})
 
 instance AWSRequest UpdateTrafficPolicyComment where
         type Rs UpdateTrafficPolicyComment =
@@ -148,18 +148,18 @@ updateTrafficPolicyCommentResponse
     -> UpdateTrafficPolicyCommentResponse
 updateTrafficPolicyCommentResponse pResponseStatus_ pTrafficPolicy_ =
   UpdateTrafficPolicyCommentResponse'
-  { _utpcrsResponseStatus = pResponseStatus_
-  , _utpcrsTrafficPolicy = pTrafficPolicy_
-  }
+    { _utpcrsResponseStatus = pResponseStatus_
+    , _utpcrsTrafficPolicy = pTrafficPolicy_
+    }
 
 
 -- | -- | The response status code.
 utpcrsResponseStatus :: Lens' UpdateTrafficPolicyCommentResponse Int
-utpcrsResponseStatus = lens _utpcrsResponseStatus (\ s a -> s{_utpcrsResponseStatus = a});
+utpcrsResponseStatus = lens _utpcrsResponseStatus (\ s a -> s{_utpcrsResponseStatus = a})
 
 -- | A complex type that contains settings for the specified traffic policy.
 utpcrsTrafficPolicy :: Lens' UpdateTrafficPolicyCommentResponse TrafficPolicy
-utpcrsTrafficPolicy = lens _utpcrsTrafficPolicy (\ s a -> s{_utpcrsTrafficPolicy = a});
+utpcrsTrafficPolicy = lens _utpcrsTrafficPolicy (\ s a -> s{_utpcrsTrafficPolicy = a})
 
 instance NFData UpdateTrafficPolicyCommentResponse
          where

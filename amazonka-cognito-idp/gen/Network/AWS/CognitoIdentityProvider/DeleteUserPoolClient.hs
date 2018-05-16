@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ deleteUserPoolClient
     -> DeleteUserPoolClient
 deleteUserPoolClient pUserPoolId_ pClientId_ =
   DeleteUserPoolClient'
-  {_dupcUserPoolId = pUserPoolId_, _dupcClientId = _Sensitive # pClientId_}
+    {_dupcUserPoolId = pUserPoolId_, _dupcClientId = _Sensitive # pClientId_}
 
 
 -- | The user pool ID for the user pool where you want to delete the client.
 dupcUserPoolId :: Lens' DeleteUserPoolClient Text
-dupcUserPoolId = lens _dupcUserPoolId (\ s a -> s{_dupcUserPoolId = a});
+dupcUserPoolId = lens _dupcUserPoolId (\ s a -> s{_dupcUserPoolId = a})
 
 -- | The app client ID of the app associated with the user pool.
 dupcClientId :: Lens' DeleteUserPoolClient Text
-dupcClientId = lens _dupcClientId (\ s a -> s{_dupcClientId = a}) . _Sensitive;
+dupcClientId = lens _dupcClientId (\ s a -> s{_dupcClientId = a}) . _Sensitive
 
 instance AWSRequest DeleteUserPoolClient where
         type Rs DeleteUserPoolClient =

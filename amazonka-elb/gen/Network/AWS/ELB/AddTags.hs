@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.AddTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,11 +75,11 @@ addTags pTags_ =
 
 -- | The name of the load balancer. You can specify one load balancer only.
 atLoadBalancerNames :: Lens' AddTags [Text]
-atLoadBalancerNames = lens _atLoadBalancerNames (\ s a -> s{_atLoadBalancerNames = a}) . _Coerce;
+atLoadBalancerNames = lens _atLoadBalancerNames (\ s a -> s{_atLoadBalancerNames = a}) . _Coerce
 
 -- | The tags.
 atTags :: Lens' AddTags (NonEmpty Tag)
-atTags = lens _atTags (\ s a -> s{_atTags = a}) . _List1;
+atTags = lens _atTags (\ s a -> s{_atTags = a}) . _List1
 
 instance AWSRequest AddTags where
         type Rs AddTags = AddTagsResponse
@@ -131,6 +131,6 @@ addTagsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
-atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
+atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a})
 
 instance NFData AddTagsResponse where

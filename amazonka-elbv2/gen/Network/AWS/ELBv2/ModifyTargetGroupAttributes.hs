@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.ModifyTargetGroupAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ modifyTargetGroupAttributes
     -> ModifyTargetGroupAttributes
 modifyTargetGroupAttributes pTargetGroupARN_ =
   ModifyTargetGroupAttributes'
-  {_mtgaTargetGroupARN = pTargetGroupARN_, _mtgaAttributes = mempty}
+    {_mtgaTargetGroupARN = pTargetGroupARN_, _mtgaAttributes = mempty}
 
 
 -- | The Amazon Resource Name (ARN) of the target group.
 mtgaTargetGroupARN :: Lens' ModifyTargetGroupAttributes Text
-mtgaTargetGroupARN = lens _mtgaTargetGroupARN (\ s a -> s{_mtgaTargetGroupARN = a});
+mtgaTargetGroupARN = lens _mtgaTargetGroupARN (\ s a -> s{_mtgaTargetGroupARN = a})
 
 -- | The attributes.
 mtgaAttributes :: Lens' ModifyTargetGroupAttributes [TargetGroupAttribute]
-mtgaAttributes = lens _mtgaAttributes (\ s a -> s{_mtgaAttributes = a}) . _Coerce;
+mtgaAttributes = lens _mtgaAttributes (\ s a -> s{_mtgaAttributes = a}) . _Coerce
 
 instance AWSRequest ModifyTargetGroupAttributes where
         type Rs ModifyTargetGroupAttributes =
@@ -126,16 +126,16 @@ modifyTargetGroupAttributesResponse
     -> ModifyTargetGroupAttributesResponse
 modifyTargetGroupAttributesResponse pResponseStatus_ =
   ModifyTargetGroupAttributesResponse'
-  {_mtgarsAttributes = Nothing, _mtgarsResponseStatus = pResponseStatus_}
+    {_mtgarsAttributes = Nothing, _mtgarsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the attributes.
 mtgarsAttributes :: Lens' ModifyTargetGroupAttributesResponse [TargetGroupAttribute]
-mtgarsAttributes = lens _mtgarsAttributes (\ s a -> s{_mtgarsAttributes = a}) . _Default . _Coerce;
+mtgarsAttributes = lens _mtgarsAttributes (\ s a -> s{_mtgarsAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 mtgarsResponseStatus :: Lens' ModifyTargetGroupAttributesResponse Int
-mtgarsResponseStatus = lens _mtgarsResponseStatus (\ s a -> s{_mtgarsResponseStatus = a});
+mtgarsResponseStatus = lens _mtgarsResponseStatus (\ s a -> s{_mtgarsResponseStatus = a})
 
 instance NFData ModifyTargetGroupAttributesResponse
          where

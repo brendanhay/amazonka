@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteHealthCheck
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ deleteHealthCheck pHealthCheckId_ =
 
 -- | The ID of the health check that you want to delete.
 dhcHealthCheckId :: Lens' DeleteHealthCheck Text
-dhcHealthCheckId = lens _dhcHealthCheckId (\ s a -> s{_dhcHealthCheckId = a});
+dhcHealthCheckId = lens _dhcHealthCheckId (\ s a -> s{_dhcHealthCheckId = a})
 
 instance AWSRequest DeleteHealthCheck where
         type Rs DeleteHealthCheck = DeleteHealthCheckResponse
@@ -118,6 +118,6 @@ deleteHealthCheckResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dhcrsResponseStatus :: Lens' DeleteHealthCheckResponse Int
-dhcrsResponseStatus = lens _dhcrsResponseStatus (\ s a -> s{_dhcrsResponseStatus = a});
+dhcrsResponseStatus = lens _dhcrsResponseStatus (\ s a -> s{_dhcrsResponseStatus = a})
 
 instance NFData DeleteHealthCheckResponse where

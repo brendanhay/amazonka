@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ListQueueTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,7 +79,7 @@ listQueueTags pQueueURL_ = ListQueueTags' {_lqtQueueURL = pQueueURL_}
 
 -- | The URL of the queue.
 lqtQueueURL :: Lens' ListQueueTags Text
-lqtQueueURL = lens _lqtQueueURL (\ s a -> s{_lqtQueueURL = a});
+lqtQueueURL = lens _lqtQueueURL (\ s a -> s{_lqtQueueURL = a})
 
 instance AWSRequest ListQueueTags where
         type Rs ListQueueTags = ListQueueTagsResponse
@@ -127,15 +127,15 @@ listQueueTagsResponse
     -> ListQueueTagsResponse
 listQueueTagsResponse pResponseStatus_ =
   ListQueueTagsResponse'
-  {_lqtrsTags = Nothing, _lqtrsResponseStatus = pResponseStatus_}
+    {_lqtrsTags = Nothing, _lqtrsResponseStatus = pResponseStatus_}
 
 
 -- | The list of all tags added to the specified queue.
 lqtrsTags :: Lens' ListQueueTagsResponse (HashMap Text Text)
-lqtrsTags = lens _lqtrsTags (\ s a -> s{_lqtrsTags = a}) . _Default . _Map;
+lqtrsTags = lens _lqtrsTags (\ s a -> s{_lqtrsTags = a}) . _Default . _Map
 
 -- | -- | The response status code.
 lqtrsResponseStatus :: Lens' ListQueueTagsResponse Int
-lqtrsResponseStatus = lens _lqtrsResponseStatus (\ s a -> s{_lqtrsResponseStatus = a});
+lqtrsResponseStatus = lens _lqtrsResponseStatus (\ s a -> s{_lqtrsResponseStatus = a})
 
 instance NFData ListQueueTagsResponse where

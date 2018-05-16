@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.StopInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,20 +81,20 @@ stopInstances
     :: StopInstances
 stopInstances =
   StopInstances'
-  {_siForce = Nothing, _siDryRun = Nothing, _siInstanceIds = mempty}
+    {_siForce = Nothing, _siDryRun = Nothing, _siInstanceIds = mempty}
 
 
 -- | Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances. Default: @false@
 siForce :: Lens' StopInstances (Maybe Bool)
-siForce = lens _siForce (\ s a -> s{_siForce = a});
+siForce = lens _siForce (\ s a -> s{_siForce = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 siDryRun :: Lens' StopInstances (Maybe Bool)
-siDryRun = lens _siDryRun (\ s a -> s{_siDryRun = a});
+siDryRun = lens _siDryRun (\ s a -> s{_siDryRun = a})
 
 -- | One or more instance IDs.
 siInstanceIds :: Lens' StopInstances [Text]
-siInstanceIds = lens _siInstanceIds (\ s a -> s{_siInstanceIds = a}) . _Coerce;
+siInstanceIds = lens _siInstanceIds (\ s a -> s{_siInstanceIds = a}) . _Coerce
 
 instance AWSRequest StopInstances where
         type Rs StopInstances = StopInstancesResponse
@@ -148,15 +148,15 @@ stopInstancesResponse
     -> StopInstancesResponse
 stopInstancesResponse pResponseStatus_ =
   StopInstancesResponse'
-  {_sirsStoppingInstances = Nothing, _sirsResponseStatus = pResponseStatus_}
+    {_sirsStoppingInstances = Nothing, _sirsResponseStatus = pResponseStatus_}
 
 
 -- | Information about one or more stopped instances.
 sirsStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
-sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingInstances = a}) . _Default . _Coerce;
+sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 sirsResponseStatus :: Lens' StopInstancesResponse Int
-sirsResponseStatus = lens _sirsResponseStatus (\ s a -> s{_sirsResponseStatus = a});
+sirsResponseStatus = lens _sirsResponseStatus (\ s a -> s{_sirsResponseStatus = a})
 
 instance NFData StopInstancesResponse where

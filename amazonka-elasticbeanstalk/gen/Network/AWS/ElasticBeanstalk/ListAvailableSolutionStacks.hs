@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -116,23 +116,23 @@ listAvailableSolutionStacksResponse
     -> ListAvailableSolutionStacksResponse
 listAvailableSolutionStacksResponse pResponseStatus_ =
   ListAvailableSolutionStacksResponse'
-  { _lassrsSolutionStacks = Nothing
-  , _lassrsSolutionStackDetails = Nothing
-  , _lassrsResponseStatus = pResponseStatus_
-  }
+    { _lassrsSolutionStacks = Nothing
+    , _lassrsSolutionStackDetails = Nothing
+    , _lassrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of available solution stacks.
 lassrsSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
-lassrsSolutionStacks = lens _lassrsSolutionStacks (\ s a -> s{_lassrsSolutionStacks = a}) . _Default . _Coerce;
+lassrsSolutionStacks = lens _lassrsSolutionStacks (\ s a -> s{_lassrsSolutionStacks = a}) . _Default . _Coerce
 
 -- | A list of available solution stacks and their 'SolutionStackDescription' .
 lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
-lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassrsSolutionStackDetails = a}) . _Default . _Coerce;
+lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassrsSolutionStackDetails = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lassrsResponseStatus :: Lens' ListAvailableSolutionStacksResponse Int
-lassrsResponseStatus = lens _lassrsResponseStatus (\ s a -> s{_lassrsResponseStatus = a});
+lassrsResponseStatus = lens _lassrsResponseStatus (\ s a -> s{_lassrsResponseStatus = a})
 
 instance NFData ListAvailableSolutionStacksResponse
          where

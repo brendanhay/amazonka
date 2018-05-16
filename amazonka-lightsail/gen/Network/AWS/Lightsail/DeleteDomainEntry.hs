@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteDomainEntry
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ deleteDomainEntry
     -> DeleteDomainEntry
 deleteDomainEntry pDomainName_ pDomainEntry_ =
   DeleteDomainEntry'
-  {_ddeDomainName = pDomainName_, _ddeDomainEntry = pDomainEntry_}
+    {_ddeDomainName = pDomainName_, _ddeDomainEntry = pDomainEntry_}
 
 
 -- | The name of the domain entry to delete.
 ddeDomainName :: Lens' DeleteDomainEntry Text
-ddeDomainName = lens _ddeDomainName (\ s a -> s{_ddeDomainName = a});
+ddeDomainName = lens _ddeDomainName (\ s a -> s{_ddeDomainName = a})
 
 -- | An array of key-value pairs containing information about your domain entries.
 ddeDomainEntry :: Lens' DeleteDomainEntry DomainEntry
-ddeDomainEntry = lens _ddeDomainEntry (\ s a -> s{_ddeDomainEntry = a});
+ddeDomainEntry = lens _ddeDomainEntry (\ s a -> s{_ddeDomainEntry = a})
 
 instance AWSRequest DeleteDomainEntry where
         type Rs DeleteDomainEntry = DeleteDomainEntryResponse
@@ -131,15 +131,15 @@ deleteDomainEntryResponse
     -> DeleteDomainEntryResponse
 deleteDomainEntryResponse pResponseStatus_ =
   DeleteDomainEntryResponse'
-  {_ddersOperation = Nothing, _ddersResponseStatus = pResponseStatus_}
+    {_ddersOperation = Nothing, _ddersResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the results of your delete domain entry request.
 ddersOperation :: Lens' DeleteDomainEntryResponse (Maybe Operation)
-ddersOperation = lens _ddersOperation (\ s a -> s{_ddersOperation = a});
+ddersOperation = lens _ddersOperation (\ s a -> s{_ddersOperation = a})
 
 -- | -- | The response status code.
 ddersResponseStatus :: Lens' DeleteDomainEntryResponse Int
-ddersResponseStatus = lens _ddersResponseStatus (\ s a -> s{_ddersResponseStatus = a});
+ddersResponseStatus = lens _ddersResponseStatus (\ s a -> s{_ddersResponseStatus = a})
 
 instance NFData DeleteDomainEntryResponse where

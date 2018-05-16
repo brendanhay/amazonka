@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.CreateProgressUpdateStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ createProgressUpdateStream
     -> CreateProgressUpdateStream
 createProgressUpdateStream pProgressUpdateStreamName_ =
   CreateProgressUpdateStream'
-  { _cpusDryRun = Nothing
-  , _cpusProgressUpdateStreamName = pProgressUpdateStreamName_
-  }
+    { _cpusDryRun = Nothing
+    , _cpusProgressUpdateStreamName = pProgressUpdateStreamName_
+    }
 
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 cpusDryRun :: Lens' CreateProgressUpdateStream (Maybe Bool)
-cpusDryRun = lens _cpusDryRun (\ s a -> s{_cpusDryRun = a});
+cpusDryRun = lens _cpusDryRun (\ s a -> s{_cpusDryRun = a})
 
 -- | The name of the ProgressUpdateStream.
 cpusProgressUpdateStreamName :: Lens' CreateProgressUpdateStream Text
-cpusProgressUpdateStreamName = lens _cpusProgressUpdateStreamName (\ s a -> s{_cpusProgressUpdateStreamName = a});
+cpusProgressUpdateStreamName = lens _cpusProgressUpdateStreamName (\ s a -> s{_cpusProgressUpdateStreamName = a})
 
 instance AWSRequest CreateProgressUpdateStream where
         type Rs CreateProgressUpdateStream =
@@ -135,7 +135,7 @@ createProgressUpdateStreamResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cpusrsResponseStatus :: Lens' CreateProgressUpdateStreamResponse Int
-cpusrsResponseStatus = lens _cpusrsResponseStatus (\ s a -> s{_cpusrsResponseStatus = a});
+cpusrsResponseStatus = lens _cpusrsResponseStatus (\ s a -> s{_cpusrsResponseStatus = a})
 
 instance NFData CreateProgressUpdateStreamResponse
          where

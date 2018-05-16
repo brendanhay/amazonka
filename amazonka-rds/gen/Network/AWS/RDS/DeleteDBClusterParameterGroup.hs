@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBClusterParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted cannot be associated with any DB clusters.
+-- Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.
 --
 --
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
@@ -57,18 +57,18 @@ newtype DeleteDBClusterParameterGroup = DeleteDBClusterParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbcpgDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must be the name of an existing DB cluster parameter group.     * You cannot delete a default DB cluster parameter group.     * Cannot be associated with any DB clusters.
+-- * 'ddbcpgDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must be the name of an existing DB cluster parameter group.     * You can't delete a default DB cluster parameter group.     * Cannot be associated with any DB clusters.
 deleteDBClusterParameterGroup
     :: Text -- ^ 'ddbcpgDBClusterParameterGroupName'
     -> DeleteDBClusterParameterGroup
 deleteDBClusterParameterGroup pDBClusterParameterGroupName_ =
   DeleteDBClusterParameterGroup'
-  {_ddbcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_}
+    {_ddbcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_}
 
 
--- | The name of the DB cluster parameter group. Constraints:     * Must be the name of an existing DB cluster parameter group.     * You cannot delete a default DB cluster parameter group.     * Cannot be associated with any DB clusters.
+-- | The name of the DB cluster parameter group. Constraints:     * Must be the name of an existing DB cluster parameter group.     * You can't delete a default DB cluster parameter group.     * Cannot be associated with any DB clusters.
 ddbcpgDBClusterParameterGroupName :: Lens' DeleteDBClusterParameterGroup Text
-ddbcpgDBClusterParameterGroupName = lens _ddbcpgDBClusterParameterGroupName (\ s a -> s{_ddbcpgDBClusterParameterGroupName = a});
+ddbcpgDBClusterParameterGroupName = lens _ddbcpgDBClusterParameterGroupName (\ s a -> s{_ddbcpgDBClusterParameterGroupName = a})
 
 instance AWSRequest DeleteDBClusterParameterGroup
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateDocumentDefaultVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ updateDocumentDefaultVersion
     -> UpdateDocumentDefaultVersion
 updateDocumentDefaultVersion pName_ pDocumentVersion_ =
   UpdateDocumentDefaultVersion'
-  {_uddvName = pName_, _uddvDocumentVersion = pDocumentVersion_}
+    {_uddvName = pName_, _uddvDocumentVersion = pDocumentVersion_}
 
 
 -- | The name of a custom document that you want to set as the default version.
 uddvName :: Lens' UpdateDocumentDefaultVersion Text
-uddvName = lens _uddvName (\ s a -> s{_uddvName = a});
+uddvName = lens _uddvName (\ s a -> s{_uddvName = a})
 
 -- | The version of a custom document that you want to set as the default version.
 uddvDocumentVersion :: Lens' UpdateDocumentDefaultVersion Text
-uddvDocumentVersion = lens _uddvDocumentVersion (\ s a -> s{_uddvDocumentVersion = a});
+uddvDocumentVersion = lens _uddvDocumentVersion (\ s a -> s{_uddvDocumentVersion = a})
 
 instance AWSRequest UpdateDocumentDefaultVersion
          where
@@ -133,16 +133,16 @@ updateDocumentDefaultVersionResponse
     -> UpdateDocumentDefaultVersionResponse
 updateDocumentDefaultVersionResponse pResponseStatus_ =
   UpdateDocumentDefaultVersionResponse'
-  {_uddvrsDescription = Nothing, _uddvrsResponseStatus = pResponseStatus_}
+    {_uddvrsDescription = Nothing, _uddvrsResponseStatus = pResponseStatus_}
 
 
 -- | The description of a custom document that you want to set as the default version.
 uddvrsDescription :: Lens' UpdateDocumentDefaultVersionResponse (Maybe DocumentDefaultVersionDescription)
-uddvrsDescription = lens _uddvrsDescription (\ s a -> s{_uddvrsDescription = a});
+uddvrsDescription = lens _uddvrsDescription (\ s a -> s{_uddvrsDescription = a})
 
 -- | -- | The response status code.
 uddvrsResponseStatus :: Lens' UpdateDocumentDefaultVersionResponse Int
-uddvrsResponseStatus = lens _uddvrsResponseStatus (\ s a -> s{_uddvrsResponseStatus = a});
+uddvrsResponseStatus = lens _uddvrsResponseStatus (\ s a -> s{_uddvrsResponseStatus = a})
 
 instance NFData UpdateDocumentDefaultVersionResponse
          where

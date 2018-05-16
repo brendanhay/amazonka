@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.CreateImportJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ createImportJob
     -> CreateImportJob
 createImportJob pApplicationId_ pImportJobRequest_ =
   CreateImportJob'
-  { _cijApplicationId = pApplicationId_
-  , _cijImportJobRequest = pImportJobRequest_
-  }
+    { _cijApplicationId = pApplicationId_
+    , _cijImportJobRequest = pImportJobRequest_
+    }
 
 
 -- | Undocumented member.
 cijApplicationId :: Lens' CreateImportJob Text
-cijApplicationId = lens _cijApplicationId (\ s a -> s{_cijApplicationId = a});
+cijApplicationId = lens _cijApplicationId (\ s a -> s{_cijApplicationId = a})
 
 -- | Undocumented member.
 cijImportJobRequest :: Lens' CreateImportJob ImportJobRequest
-cijImportJobRequest = lens _cijImportJobRequest (\ s a -> s{_cijImportJobRequest = a});
+cijImportJobRequest = lens _cijImportJobRequest (\ s a -> s{_cijImportJobRequest = a})
 
 instance AWSRequest CreateImportJob where
         type Rs CreateImportJob = CreateImportJobResponse
@@ -130,17 +130,17 @@ createImportJobResponse
     -> CreateImportJobResponse
 createImportJobResponse pResponseStatus_ pImportJobResponse_ =
   CreateImportJobResponse'
-  { _cijrsResponseStatus = pResponseStatus_
-  , _cijrsImportJobResponse = pImportJobResponse_
-  }
+    { _cijrsResponseStatus = pResponseStatus_
+    , _cijrsImportJobResponse = pImportJobResponse_
+    }
 
 
 -- | -- | The response status code.
 cijrsResponseStatus :: Lens' CreateImportJobResponse Int
-cijrsResponseStatus = lens _cijrsResponseStatus (\ s a -> s{_cijrsResponseStatus = a});
+cijrsResponseStatus = lens _cijrsResponseStatus (\ s a -> s{_cijrsResponseStatus = a})
 
 -- | Undocumented member.
 cijrsImportJobResponse :: Lens' CreateImportJobResponse ImportJobResponse
-cijrsImportJobResponse = lens _cijrsImportJobResponse (\ s a -> s{_cijrsImportJobResponse = a});
+cijrsImportJobResponse = lens _cijrsImportJobResponse (\ s a -> s{_cijrsImportJobResponse = a})
 
 instance NFData CreateImportJobResponse where

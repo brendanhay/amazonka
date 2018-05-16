@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeVTLDevices
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Returns a description of virtual tape library (VTL) devices for the specified tape gateway. In the response, AWS Storage Gateway returns VTL device information.
 --
 --
--- This operation is only supported in the tape gateway architecture.
+-- This operation is only supported in the tape gateway type.
 --
 --
 -- This operation returns paginated results.
@@ -83,28 +83,28 @@ describeVTLDevices
     -> DescribeVTLDevices
 describeVTLDevices pGatewayARN_ =
   DescribeVTLDevices'
-  { _dvtldMarker = Nothing
-  , _dvtldLimit = Nothing
-  , _dvtldVTLDeviceARNs = Nothing
-  , _dvtldGatewayARN = pGatewayARN_
-  }
+    { _dvtldMarker = Nothing
+    , _dvtldLimit = Nothing
+    , _dvtldVTLDeviceARNs = Nothing
+    , _dvtldGatewayARN = pGatewayARN_
+    }
 
 
 -- | An opaque string that indicates the position at which to begin describing the VTL devices.
 dvtldMarker :: Lens' DescribeVTLDevices (Maybe Text)
-dvtldMarker = lens _dvtldMarker (\ s a -> s{_dvtldMarker = a});
+dvtldMarker = lens _dvtldMarker (\ s a -> s{_dvtldMarker = a})
 
 -- | Specifies that the number of VTL devices described be limited to the specified number.
 dvtldLimit :: Lens' DescribeVTLDevices (Maybe Natural)
-dvtldLimit = lens _dvtldLimit (\ s a -> s{_dvtldLimit = a}) . mapping _Nat;
+dvtldLimit = lens _dvtldLimit (\ s a -> s{_dvtldLimit = a}) . mapping _Nat
 
 -- | An array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.
 dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
-dvtldVTLDeviceARNs = lens _dvtldVTLDeviceARNs (\ s a -> s{_dvtldVTLDeviceARNs = a}) . _Default . _Coerce;
+dvtldVTLDeviceARNs = lens _dvtldVTLDeviceARNs (\ s a -> s{_dvtldVTLDeviceARNs = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 dvtldGatewayARN :: Lens' DescribeVTLDevices Text
-dvtldGatewayARN = lens _dvtldGatewayARN (\ s a -> s{_dvtldGatewayARN = a});
+dvtldGatewayARN = lens _dvtldGatewayARN (\ s a -> s{_dvtldGatewayARN = a})
 
 instance AWSPager DescribeVTLDevices where
         page rq rs
@@ -184,27 +184,27 @@ describeVTLDevicesResponse
     -> DescribeVTLDevicesResponse
 describeVTLDevicesResponse pResponseStatus_ =
   DescribeVTLDevicesResponse'
-  { _dvtldrsVTLDevices = Nothing
-  , _dvtldrsGatewayARN = Nothing
-  , _dvtldrsMarker = Nothing
-  , _dvtldrsResponseStatus = pResponseStatus_
-  }
+    { _dvtldrsVTLDevices = Nothing
+    , _dvtldrsGatewayARN = Nothing
+    , _dvtldrsMarker = Nothing
+    , _dvtldrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of VTL device objects composed of the Amazon Resource Name(ARN) of the VTL devices.
 dvtldrsVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
-dvtldrsVTLDevices = lens _dvtldrsVTLDevices (\ s a -> s{_dvtldrsVTLDevices = a}) . _Default . _Coerce;
+dvtldrsVTLDevices = lens _dvtldrsVTLDevices (\ s a -> s{_dvtldrsVTLDevices = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 dvtldrsGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldrsGatewayARN = lens _dvtldrsGatewayARN (\ s a -> s{_dvtldrsGatewayARN = a});
+dvtldrsGatewayARN = lens _dvtldrsGatewayARN (\ s a -> s{_dvtldrsGatewayARN = a})
 
 -- | An opaque string that indicates the position at which the VTL devices that were fetched for description ended. Use the marker in your next request to fetch the next set of VTL devices in the list. If there are no more VTL devices to describe, this field does not appear in the response.
 dvtldrsMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldrsMarker = lens _dvtldrsMarker (\ s a -> s{_dvtldrsMarker = a});
+dvtldrsMarker = lens _dvtldrsMarker (\ s a -> s{_dvtldrsMarker = a})
 
 -- | -- | The response status code.
 dvtldrsResponseStatus :: Lens' DescribeVTLDevicesResponse Int
-dvtldrsResponseStatus = lens _dvtldrsResponseStatus (\ s a -> s{_dvtldrsResponseStatus = a});
+dvtldrsResponseStatus = lens _dvtldrsResponseStatus (\ s a -> s{_dvtldrsResponseStatus = a})
 
 instance NFData DescribeVTLDevicesResponse where

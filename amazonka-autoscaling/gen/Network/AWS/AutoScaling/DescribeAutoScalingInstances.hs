@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,28 +66,28 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
 --
 -- * 'dasiInstanceIds' - The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
 --
--- * 'dasiMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
+-- * 'dasiMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 50.
 describeAutoScalingInstances
     :: DescribeAutoScalingInstances
 describeAutoScalingInstances =
   DescribeAutoScalingInstances'
-  { _dasiNextToken = Nothing
-  , _dasiInstanceIds = Nothing
-  , _dasiMaxRecords = Nothing
-  }
+    { _dasiNextToken = Nothing
+    , _dasiInstanceIds = Nothing
+    , _dasiMaxRecords = Nothing
+    }
 
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
-dasiNextToken = lens _dasiNextToken (\ s a -> s{_dasiNextToken = a});
+dasiNextToken = lens _dasiNextToken (\ s a -> s{_dasiNextToken = a})
 
 -- | The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
 dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
-dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a}) . _Default . _Coerce;
+dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a}) . _Default . _Coerce
 
--- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
+-- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 50.
 dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Int)
-dasiMaxRecords = lens _dasiMaxRecords (\ s a -> s{_dasiMaxRecords = a});
+dasiMaxRecords = lens _dasiMaxRecords (\ s a -> s{_dasiMaxRecords = a})
 
 instance AWSPager DescribeAutoScalingInstances where
         page rq rs
@@ -154,23 +154,23 @@ describeAutoScalingInstancesResponse
     -> DescribeAutoScalingInstancesResponse
 describeAutoScalingInstancesResponse pResponseStatus_ =
   DescribeAutoScalingInstancesResponse'
-  { _dasirsNextToken = Nothing
-  , _dasirsAutoScalingInstances = Nothing
-  , _dasirsResponseStatus = pResponseStatus_
-  }
+    { _dasirsNextToken = Nothing
+    , _dasirsAutoScalingInstances = Nothing
+    , _dasirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dasirsNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
-dasirsNextToken = lens _dasirsNextToken (\ s a -> s{_dasirsNextToken = a});
+dasirsNextToken = lens _dasirsNextToken (\ s a -> s{_dasirsNextToken = a})
 
 -- | The instances.
 dasirsAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
-dasirsAutoScalingInstances = lens _dasirsAutoScalingInstances (\ s a -> s{_dasirsAutoScalingInstances = a}) . _Default . _Coerce;
+dasirsAutoScalingInstances = lens _dasirsAutoScalingInstances (\ s a -> s{_dasirsAutoScalingInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dasirsResponseStatus :: Lens' DescribeAutoScalingInstancesResponse Int
-dasirsResponseStatus = lens _dasirsResponseStatus (\ s a -> s{_dasirsResponseStatus = a});
+dasirsResponseStatus = lens _dasirsResponseStatus (\ s a -> s{_dasirsResponseStatus = a})
 
 instance NFData DescribeAutoScalingInstancesResponse
          where

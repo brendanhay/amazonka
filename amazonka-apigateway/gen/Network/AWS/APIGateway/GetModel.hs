@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetModel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,29 +67,32 @@ data GetModel = GetModel'
 --
 -- * 'ggFlatten' - A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
 --
--- * 'ggRestAPIId' - The 'RestApi' identifier under which the 'Model' exists.
+-- * 'ggRestAPIId' - [Required] The 'RestApi' identifier under which the 'Model' exists.
 --
--- * 'ggModelName' - The name of the model as an identifier.
+-- * 'ggModelName' - [Required] The name of the model as an identifier.
 getModel
     :: Text -- ^ 'ggRestAPIId'
     -> Text -- ^ 'ggModelName'
     -> GetModel
 getModel pRestAPIId_ pModelName_ =
   GetModel'
-  {_ggFlatten = Nothing, _ggRestAPIId = pRestAPIId_, _ggModelName = pModelName_}
+    { _ggFlatten = Nothing
+    , _ggRestAPIId = pRestAPIId_
+    , _ggModelName = pModelName_
+    }
 
 
 -- | A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
 ggFlatten :: Lens' GetModel (Maybe Bool)
-ggFlatten = lens _ggFlatten (\ s a -> s{_ggFlatten = a});
+ggFlatten = lens _ggFlatten (\ s a -> s{_ggFlatten = a})
 
--- | The 'RestApi' identifier under which the 'Model' exists.
+-- | [Required] The 'RestApi' identifier under which the 'Model' exists.
 ggRestAPIId :: Lens' GetModel Text
-ggRestAPIId = lens _ggRestAPIId (\ s a -> s{_ggRestAPIId = a});
+ggRestAPIId = lens _ggRestAPIId (\ s a -> s{_ggRestAPIId = a})
 
--- | The name of the model as an identifier.
+-- | [Required] The name of the model as an identifier.
 ggModelName :: Lens' GetModel Text
-ggModelName = lens _ggModelName (\ s a -> s{_ggModelName = a});
+ggModelName = lens _ggModelName (\ s a -> s{_ggModelName = a})
 
 instance AWSRequest GetModel where
         type Rs GetModel = Model

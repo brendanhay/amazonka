@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ComposeEnvironments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ composeEnvironments
     :: ComposeEnvironments
 composeEnvironments =
   ComposeEnvironments'
-  { _ceVersionLabels = Nothing
-  , _ceApplicationName = Nothing
-  , _ceGroupName = Nothing
-  }
+    { _ceVersionLabels = Nothing
+    , _ceApplicationName = Nothing
+    , _ceGroupName = Nothing
+    }
 
 
 -- | A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.
 ceVersionLabels :: Lens' ComposeEnvironments [Text]
-ceVersionLabels = lens _ceVersionLabels (\ s a -> s{_ceVersionLabels = a}) . _Default . _Coerce;
+ceVersionLabels = lens _ceVersionLabels (\ s a -> s{_ceVersionLabels = a}) . _Default . _Coerce
 
 -- | The name of the application to which the specified source bundles belong.
 ceApplicationName :: Lens' ComposeEnvironments (Maybe Text)
-ceApplicationName = lens _ceApplicationName (\ s a -> s{_ceApplicationName = a});
+ceApplicationName = lens _ceApplicationName (\ s a -> s{_ceApplicationName = a})
 
 -- | The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment's manifest ends with a + (plus) character. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 ceGroupName :: Lens' ComposeEnvironments (Maybe Text)
-ceGroupName = lens _ceGroupName (\ s a -> s{_ceGroupName = a});
+ceGroupName = lens _ceGroupName (\ s a -> s{_ceGroupName = a})
 
 instance AWSRequest ComposeEnvironments where
         type Rs ComposeEnvironments =

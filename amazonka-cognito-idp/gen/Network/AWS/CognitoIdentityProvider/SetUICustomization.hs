@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.SetUICustomization
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ setUICustomization
     -> SetUICustomization
 setUICustomization pUserPoolId_ =
   SetUICustomization'
-  { _suicClientId = Nothing
-  , _suicCSS = Nothing
-  , _suicImageFile = Nothing
-  , _suicUserPoolId = pUserPoolId_
-  }
+    { _suicClientId = Nothing
+    , _suicCSS = Nothing
+    , _suicImageFile = Nothing
+    , _suicUserPoolId = pUserPoolId_
+    }
 
 
 -- | The client ID for the client app.
 suicClientId :: Lens' SetUICustomization (Maybe Text)
-suicClientId = lens _suicClientId (\ s a -> s{_suicClientId = a}) . mapping _Sensitive;
+suicClientId = lens _suicClientId (\ s a -> s{_suicClientId = a}) . mapping _Sensitive
 
 -- | The CSS values in the UI customization.
 suicCSS :: Lens' SetUICustomization (Maybe Text)
-suicCSS = lens _suicCSS (\ s a -> s{_suicCSS = a});
+suicCSS = lens _suicCSS (\ s a -> s{_suicCSS = a})
 
 -- | The uploaded logo image for the UI customization.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 suicImageFile :: Lens' SetUICustomization (Maybe ByteString)
-suicImageFile = lens _suicImageFile (\ s a -> s{_suicImageFile = a}) . mapping _Base64;
+suicImageFile = lens _suicImageFile (\ s a -> s{_suicImageFile = a}) . mapping _Base64
 
 -- | The user pool ID for the user pool.
 suicUserPoolId :: Lens' SetUICustomization Text
-suicUserPoolId = lens _suicUserPoolId (\ s a -> s{_suicUserPoolId = a});
+suicUserPoolId = lens _suicUserPoolId (\ s a -> s{_suicUserPoolId = a})
 
 instance AWSRequest SetUICustomization where
         type Rs SetUICustomization =
@@ -156,17 +156,17 @@ setUICustomizationResponse
     -> SetUICustomizationResponse
 setUICustomizationResponse pResponseStatus_ pUICustomization_ =
   SetUICustomizationResponse'
-  { _suicrsResponseStatus = pResponseStatus_
-  , _suicrsUICustomization = pUICustomization_
-  }
+    { _suicrsResponseStatus = pResponseStatus_
+    , _suicrsUICustomization = pUICustomization_
+    }
 
 
 -- | -- | The response status code.
 suicrsResponseStatus :: Lens' SetUICustomizationResponse Int
-suicrsResponseStatus = lens _suicrsResponseStatus (\ s a -> s{_suicrsResponseStatus = a});
+suicrsResponseStatus = lens _suicrsResponseStatus (\ s a -> s{_suicrsResponseStatus = a})
 
 -- | The UI customization information.
 suicrsUICustomization :: Lens' SetUICustomizationResponse UICustomizationType
-suicrsUICustomization = lens _suicrsUICustomization (\ s a -> s{_suicrsUICustomization = a});
+suicrsUICustomization = lens _suicrsUICustomization (\ s a -> s{_suicrsUICustomization = a})
 
 instance NFData SetUICustomizationResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteAPIKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,16 +55,16 @@ newtype DeleteAPIKey = DeleteAPIKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dakApiKey' - The identifier of the 'ApiKey' resource to be deleted.
+-- * 'dakApiKey' - [Required] The identifier of the 'ApiKey' resource to be deleted.
 deleteAPIKey
     :: Text -- ^ 'dakApiKey'
     -> DeleteAPIKey
 deleteAPIKey pApiKey_ = DeleteAPIKey' {_dakApiKey = pApiKey_}
 
 
--- | The identifier of the 'ApiKey' resource to be deleted.
+-- | [Required] The identifier of the 'ApiKey' resource to be deleted.
 dakApiKey :: Lens' DeleteAPIKey Text
-dakApiKey = lens _dakApiKey (\ s a -> s{_dakApiKey = a});
+dakApiKey = lens _dakApiKey (\ s a -> s{_dakApiKey = a})
 
 instance AWSRequest DeleteAPIKey where
         type Rs DeleteAPIKey = DeleteAPIKeyResponse

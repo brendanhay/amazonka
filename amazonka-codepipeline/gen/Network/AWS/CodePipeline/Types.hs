@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,9 +27,12 @@ module Network.AWS.CodePipeline.Types
     , _PipelineVersionNotFoundException
     , _StageNotRetryableException
     , _PipelineExecutionNotFoundException
+    , _InvalidWebhookAuthenticationParametersException
+    , _WebhookNotFoundException
     , _ActionTypeNotFoundException
     , _InvalidNextTokenException
     , _InvalidStageDeclarationException
+    , _InvalidWebhookFilterPatternException
     , _InvalidActionDeclarationException
     , _StageNotFoundException
     , _InvalidStructureException
@@ -84,6 +87,9 @@ module Network.AWS.CodePipeline.Types
 
     -- * StageTransitionType
     , StageTransitionType (..)
+
+    -- * WebhookAuthenticationType
+    , WebhookAuthenticationType (..)
 
     -- * AWSSessionCredentials
     , AWSSessionCredentials
@@ -292,6 +298,16 @@ module Network.AWS.CodePipeline.Types
     , jdAccountId
     , jdId
 
+    -- * ListWebhookItem
+    , ListWebhookItem
+    , listWebhookItem
+    , lwiArn
+    , lwiErrorCode
+    , lwiLastTriggered
+    , lwiErrorMessage
+    , lwiDefinition
+    , lwiUrl
+
     -- * OutputArtifact
     , OutputArtifact
     , outputArtifact
@@ -328,6 +344,7 @@ module Network.AWS.CodePipeline.Types
     , pesStatus
     , pesStartTime
     , pesPipelineExecutionId
+    , pesSourceRevisions
     , pesLastUpdateTime
 
     -- * PipelineMetadata
@@ -350,6 +367,14 @@ module Network.AWS.CodePipeline.Types
     , s3ArtifactLocation
     , salBucketName
     , salObjectKey
+
+    -- * SourceRevision
+    , SourceRevision
+    , sourceRevision
+    , srRevisionSummary
+    , srRevisionURL
+    , srRevisionId
+    , srActionName
 
     -- * StageContext
     , StageContext
@@ -409,6 +434,28 @@ module Network.AWS.CodePipeline.Types
     , tsDisabledReason
     , tsLastChangedAt
     , tsLastChangedBy
+
+    -- * WebhookAuthConfiguration
+    , WebhookAuthConfiguration
+    , webhookAuthConfiguration
+    , wacAllowedIPRange
+    , wacSecretToken
+
+    -- * WebhookDefinition
+    , WebhookDefinition
+    , webhookDefinition
+    , wdName
+    , wdTargetPipeline
+    , wdTargetAction
+    , wdFilters
+    , wdAuthentication
+    , wdAuthenticationConfiguration
+
+    -- * WebhookFilterRule
+    , WebhookFilterRule
+    , webhookFilterRule
+    , wfrMatchEquals
+    , wfrJsonPath
     ) where
 
 import Network.AWS.CodePipeline.Types.Product
@@ -421,24 +468,24 @@ import Network.AWS.Sign.V4
 codePipeline :: Service
 codePipeline =
   Service
-  { _svcAbbrev = "CodePipeline"
-  , _svcSigner = v4
-  , _svcPrefix = "codepipeline"
-  , _svcVersion = "2015-07-09"
-  , _svcEndpoint = defaultEndpoint codePipeline
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "CodePipeline"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "CodePipeline"
+    , _svcSigner = v4
+    , _svcPrefix = "codepipeline"
+    , _svcVersion = "2015-07-09"
+    , _svcEndpoint = defaultEndpoint codePipeline
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "CodePipeline"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -447,6 +494,8 @@ codePipeline =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -539,6 +588,24 @@ _PipelineExecutionNotFoundException =
   _MatchServiceError codePipeline "PipelineExecutionNotFoundException"
 
 
+-- | The specified authentication type is in an invalid format.
+--
+--
+_InvalidWebhookAuthenticationParametersException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidWebhookAuthenticationParametersException =
+  _MatchServiceError
+    codePipeline
+    "InvalidWebhookAuthenticationParametersException"
+
+
+-- | The specified webhook was entered in an invalid format or cannot be found.
+--
+--
+_WebhookNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_WebhookNotFoundException =
+  _MatchServiceError codePipeline "WebhookNotFoundException"
+
+
 -- | The specified action type cannot be found.
 --
 --
@@ -561,6 +628,14 @@ _InvalidNextTokenException =
 _InvalidStageDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidStageDeclarationException =
   _MatchServiceError codePipeline "InvalidStageDeclarationException"
+
+
+-- | The specified event filter rule is in an invalid format.
+--
+--
+_InvalidWebhookFilterPatternException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidWebhookFilterPatternException =
+  _MatchServiceError codePipeline "InvalidWebhookFilterPatternException"
 
 
 -- | The specified action declaration was specified in an invalid format.

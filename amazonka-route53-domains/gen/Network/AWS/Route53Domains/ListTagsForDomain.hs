@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.ListTagsForDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ listTagsForDomain pDomainName_ =
 
 -- | The domain for which you want to get a list of tags.
 ltfdDomainName :: Lens' ListTagsForDomain Text
-ltfdDomainName = lens _ltfdDomainName (\ s a -> s{_ltfdDomainName = a});
+ltfdDomainName = lens _ltfdDomainName (\ s a -> s{_ltfdDomainName = a})
 
 instance AWSRequest ListTagsForDomain where
         type Rs ListTagsForDomain = ListTagsForDomainResponse
@@ -129,15 +129,15 @@ listTagsForDomainResponse
     -> ListTagsForDomainResponse
 listTagsForDomainResponse pResponseStatus_ =
   ListTagsForDomainResponse'
-  {_ltfdrsResponseStatus = pResponseStatus_, _ltfdrsTagList = mempty}
+    {_ltfdrsResponseStatus = pResponseStatus_, _ltfdrsTagList = mempty}
 
 
 -- | -- | The response status code.
 ltfdrsResponseStatus :: Lens' ListTagsForDomainResponse Int
-ltfdrsResponseStatus = lens _ltfdrsResponseStatus (\ s a -> s{_ltfdrsResponseStatus = a});
+ltfdrsResponseStatus = lens _ltfdrsResponseStatus (\ s a -> s{_ltfdrsResponseStatus = a})
 
 -- | A list of the tags that are associated with the specified domain.
 ltfdrsTagList :: Lens' ListTagsForDomainResponse [Tag]
-ltfdrsTagList = lens _ltfdrsTagList (\ s a -> s{_ltfdrsTagList = a}) . _Coerce;
+ltfdrsTagList = lens _ltfdrsTagList (\ s a -> s{_ltfdrsTagList = a}) . _Coerce
 
 instance NFData ListTagsForDomainResponse where

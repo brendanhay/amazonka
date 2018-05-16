@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeGameSessionQueues
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,20 +84,20 @@ describeGameSessionQueues
     :: DescribeGameSessionQueues
 describeGameSessionQueues =
   DescribeGameSessionQueues'
-  {_dgsqNextToken = Nothing, _dgsqNames = Nothing, _dgsqLimit = Nothing}
+    {_dgsqNextToken = Nothing, _dgsqNames = Nothing, _dgsqLimit = Nothing}
 
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dgsqNextToken :: Lens' DescribeGameSessionQueues (Maybe Text)
-dgsqNextToken = lens _dgsqNextToken (\ s a -> s{_dgsqNextToken = a});
+dgsqNextToken = lens _dgsqNextToken (\ s a -> s{_dgsqNextToken = a})
 
 -- | List of queue names to retrieve information for. To request settings for all queues, leave this parameter empty.
 dgsqNames :: Lens' DescribeGameSessionQueues [Text]
-dgsqNames = lens _dgsqNames (\ s a -> s{_dgsqNames = a}) . _Default . _Coerce;
+dgsqNames = lens _dgsqNames (\ s a -> s{_dgsqNames = a}) . _Default . _Coerce
 
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 dgsqLimit :: Lens' DescribeGameSessionQueues (Maybe Natural)
-dgsqLimit = lens _dgsqLimit (\ s a -> s{_dgsqLimit = a}) . mapping _Nat;
+dgsqLimit = lens _dgsqLimit (\ s a -> s{_dgsqLimit = a}) . mapping _Nat
 
 instance AWSRequest DescribeGameSessionQueues where
         type Rs DescribeGameSessionQueues =
@@ -164,23 +164,23 @@ describeGameSessionQueuesResponse
     -> DescribeGameSessionQueuesResponse
 describeGameSessionQueuesResponse pResponseStatus_ =
   DescribeGameSessionQueuesResponse'
-  { _drsNextToken = Nothing
-  , _drsGameSessionQueues = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsNextToken = Nothing
+    , _drsGameSessionQueues = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 drsNextToken :: Lens' DescribeGameSessionQueuesResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
+drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a})
 
 -- | Collection of objects that describes the requested game session queues.
 drsGameSessionQueues :: Lens' DescribeGameSessionQueuesResponse [GameSessionQueue]
-drsGameSessionQueues = lens _drsGameSessionQueues (\ s a -> s{_drsGameSessionQueues = a}) . _Default . _Coerce;
+drsGameSessionQueues = lens _drsGameSessionQueues (\ s a -> s{_drsGameSessionQueues = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeGameSessionQueuesResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeGameSessionQueuesResponse
          where

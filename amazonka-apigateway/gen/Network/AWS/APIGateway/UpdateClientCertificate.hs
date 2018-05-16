@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateClientCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,24 +65,24 @@ data UpdateClientCertificate = UpdateClientCertificate'
 --
 -- * 'uccPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uccClientCertificateId' - The identifier of the 'ClientCertificate' resource to be updated.
+-- * 'uccClientCertificateId' - [Required] The identifier of the 'ClientCertificate' resource to be updated.
 updateClientCertificate
     :: Text -- ^ 'uccClientCertificateId'
     -> UpdateClientCertificate
 updateClientCertificate pClientCertificateId_ =
   UpdateClientCertificate'
-  { _uccPatchOperations = Nothing
-  , _uccClientCertificateId = pClientCertificateId_
-  }
+    { _uccPatchOperations = Nothing
+    , _uccClientCertificateId = pClientCertificateId_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uccPatchOperations :: Lens' UpdateClientCertificate [PatchOperation]
-uccPatchOperations = lens _uccPatchOperations (\ s a -> s{_uccPatchOperations = a}) . _Default . _Coerce;
+uccPatchOperations = lens _uccPatchOperations (\ s a -> s{_uccPatchOperations = a}) . _Default . _Coerce
 
--- | The identifier of the 'ClientCertificate' resource to be updated.
+-- | [Required] The identifier of the 'ClientCertificate' resource to be updated.
 uccClientCertificateId :: Lens' UpdateClientCertificate Text
-uccClientCertificateId = lens _uccClientCertificateId (\ s a -> s{_uccClientCertificateId = a});
+uccClientCertificateId = lens _uccClientCertificateId (\ s a -> s{_uccClientCertificateId = a})
 
 instance AWSRequest UpdateClientCertificate where
         type Rs UpdateClientCertificate = ClientCertificate

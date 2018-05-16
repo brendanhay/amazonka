@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeMyUserProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -113,15 +113,15 @@ describeMyUserProfileResponse
     -> DescribeMyUserProfileResponse
 describeMyUserProfileResponse pResponseStatus_ =
   DescribeMyUserProfileResponse'
-  {_dmuprsUserProfile = Nothing, _dmuprsResponseStatus = pResponseStatus_}
+    {_dmuprsUserProfile = Nothing, _dmuprsResponseStatus = pResponseStatus_}
 
 
 -- | A @UserProfile@ object that describes the user's SSH information.
 dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
-dmuprsUserProfile = lens _dmuprsUserProfile (\ s a -> s{_dmuprsUserProfile = a});
+dmuprsUserProfile = lens _dmuprsUserProfile (\ s a -> s{_dmuprsUserProfile = a})
 
 -- | -- | The response status code.
 dmuprsResponseStatus :: Lens' DescribeMyUserProfileResponse Int
-dmuprsResponseStatus = lens _dmuprsResponseStatus (\ s a -> s{_dmuprsResponseStatus = a});
+dmuprsResponseStatus = lens _dmuprsResponseStatus (\ s a -> s{_dmuprsResponseStatus = a})
 
 instance NFData DescribeMyUserProfileResponse where

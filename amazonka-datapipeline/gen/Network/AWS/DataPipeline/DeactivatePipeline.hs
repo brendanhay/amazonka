@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.DeactivatePipeline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ deactivatePipeline pPipelineId_ =
 
 -- | Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to @CANCELED@ . If this value is false, the pipeline is deactivated after all running objects finish.
 dCancelActive :: Lens' DeactivatePipeline (Maybe Bool)
-dCancelActive = lens _dCancelActive (\ s a -> s{_dCancelActive = a});
+dCancelActive = lens _dCancelActive (\ s a -> s{_dCancelActive = a})
 
 -- | The ID of the pipeline.
 dPipelineId :: Lens' DeactivatePipeline Text
-dPipelineId = lens _dPipelineId (\ s a -> s{_dPipelineId = a});
+dPipelineId = lens _dPipelineId (\ s a -> s{_dPipelineId = a})
 
 instance AWSRequest DeactivatePipeline where
         type Rs DeactivatePipeline =
@@ -138,6 +138,6 @@ deactivatePipelineResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeactivatePipelineResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeactivatePipelineResponse where

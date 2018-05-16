@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,16 +51,16 @@ newtype DeleteGroup = DeleteGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgGroupName' - The name of the IAM group to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'dgGroupName' - The name of the IAM group to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 deleteGroup
     :: Text -- ^ 'dgGroupName'
     -> DeleteGroup
 deleteGroup pGroupName_ = DeleteGroup' {_dgGroupName = pGroupName_}
 
 
--- | The name of the IAM group to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM group to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 dgGroupName :: Lens' DeleteGroup Text
-dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a});
+dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a})
 
 instance AWSRequest DeleteGroup where
         type Rs DeleteGroup = DeleteGroupResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeVolumes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ describeVolumes
     :: DescribeVolumes
 describeVolumes =
   DescribeVolumes'
-  { _dvInstanceId = Nothing
-  , _dvVolumeIds = Nothing
-  , _dvRAIdArrayId = Nothing
-  , _dvStackId = Nothing
-  }
+    { _dvInstanceId = Nothing
+    , _dvVolumeIds = Nothing
+    , _dvRAIdArrayId = Nothing
+    , _dvStackId = Nothing
+    }
 
 
 -- | The instance ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified instance.
 dvInstanceId :: Lens' DescribeVolumes (Maybe Text)
-dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a});
+dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a})
 
 -- | Am array of volume IDs. If you use this parameter, @DescribeVolumes@ returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.
 dvVolumeIds :: Lens' DescribeVolumes [Text]
-dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a}) . _Default . _Coerce;
+dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a}) . _Default . _Coerce
 
 -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified RAID array.
 dvRAIdArrayId :: Lens' DescribeVolumes (Maybe Text)
-dvRAIdArrayId = lens _dvRAIdArrayId (\ s a -> s{_dvRAIdArrayId = a});
+dvRAIdArrayId = lens _dvRAIdArrayId (\ s a -> s{_dvRAIdArrayId = a})
 
 -- | A stack ID. The action describes the stack's registered Amazon EBS volumes.
 dvStackId :: Lens' DescribeVolumes (Maybe Text)
-dvStackId = lens _dvStackId (\ s a -> s{_dvStackId = a});
+dvStackId = lens _dvStackId (\ s a -> s{_dvStackId = a})
 
 instance AWSRequest DescribeVolumes where
         type Rs DescribeVolumes = DescribeVolumesResponse
@@ -156,15 +156,15 @@ describeVolumesResponse
     -> DescribeVolumesResponse
 describeVolumesResponse pResponseStatus_ =
   DescribeVolumesResponse'
-  {_dvrsVolumes = Nothing, _dvrsResponseStatus = pResponseStatus_}
+    {_dvrsVolumes = Nothing, _dvrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of volume IDs.
 dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
-dvrsVolumes = lens _dvrsVolumes (\ s a -> s{_dvrsVolumes = a}) . _Default . _Coerce;
+dvrsVolumes = lens _dvrsVolumes (\ s a -> s{_dvrsVolumes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dvrsResponseStatus :: Lens' DescribeVolumesResponse Int
-dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});
+dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a})
 
 instance NFData DescribeVolumesResponse where

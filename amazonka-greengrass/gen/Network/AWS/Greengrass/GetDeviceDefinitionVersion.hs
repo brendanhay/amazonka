@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetDeviceDefinitionVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,27 +58,27 @@ data GetDeviceDefinitionVersion = GetDeviceDefinitionVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gddvDeviceDefinitionVersionId' - device definition version Id
+-- * 'gddvDeviceDefinitionVersionId' - The ID of the device definition version.
 --
--- * 'gddvDeviceDefinitionId' - device definition Id
+-- * 'gddvDeviceDefinitionId' - The ID of the device definition.
 getDeviceDefinitionVersion
     :: Text -- ^ 'gddvDeviceDefinitionVersionId'
     -> Text -- ^ 'gddvDeviceDefinitionId'
     -> GetDeviceDefinitionVersion
 getDeviceDefinitionVersion pDeviceDefinitionVersionId_ pDeviceDefinitionId_ =
   GetDeviceDefinitionVersion'
-  { _gddvDeviceDefinitionVersionId = pDeviceDefinitionVersionId_
-  , _gddvDeviceDefinitionId = pDeviceDefinitionId_
-  }
+    { _gddvDeviceDefinitionVersionId = pDeviceDefinitionVersionId_
+    , _gddvDeviceDefinitionId = pDeviceDefinitionId_
+    }
 
 
--- | device definition version Id
+-- | The ID of the device definition version.
 gddvDeviceDefinitionVersionId :: Lens' GetDeviceDefinitionVersion Text
-gddvDeviceDefinitionVersionId = lens _gddvDeviceDefinitionVersionId (\ s a -> s{_gddvDeviceDefinitionVersionId = a});
+gddvDeviceDefinitionVersionId = lens _gddvDeviceDefinitionVersionId (\ s a -> s{_gddvDeviceDefinitionVersionId = a})
 
--- | device definition Id
+-- | The ID of the device definition.
 gddvDeviceDefinitionId :: Lens' GetDeviceDefinitionVersion Text
-gddvDeviceDefinitionId = lens _gddvDeviceDefinitionId (\ s a -> s{_gddvDeviceDefinitionId = a});
+gddvDeviceDefinitionId = lens _gddvDeviceDefinitionId (\ s a -> s{_gddvDeviceDefinitionId = a})
 
 instance AWSRequest GetDeviceDefinitionVersion where
         type Rs GetDeviceDefinitionVersion =
@@ -130,15 +130,15 @@ data GetDeviceDefinitionVersionResponse = GetDeviceDefinitionVersionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gddvrsDefinition' - Device definition version
+-- * 'gddvrsDefinition' - Information about the device definition version.
 --
--- * 'gddvrsARN' - Arn of the device definition version.
+-- * 'gddvrsARN' - The ARN of the device definition version.
 --
--- * 'gddvrsCreationTimestamp' - Timestamp of when the device definition version was created.
+-- * 'gddvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the device definition version was created.
 --
--- * 'gddvrsVersion' - Version of the device definition version.
+-- * 'gddvrsVersion' - The version of the device definition version.
 --
--- * 'gddvrsId' - Id of the device definition the version belongs to.
+-- * 'gddvrsId' - The ID of the device definition version.
 --
 -- * 'gddvrsResponseStatus' - -- | The response status code.
 getDeviceDefinitionVersionResponse
@@ -146,38 +146,38 @@ getDeviceDefinitionVersionResponse
     -> GetDeviceDefinitionVersionResponse
 getDeviceDefinitionVersionResponse pResponseStatus_ =
   GetDeviceDefinitionVersionResponse'
-  { _gddvrsDefinition = Nothing
-  , _gddvrsARN = Nothing
-  , _gddvrsCreationTimestamp = Nothing
-  , _gddvrsVersion = Nothing
-  , _gddvrsId = Nothing
-  , _gddvrsResponseStatus = pResponseStatus_
-  }
+    { _gddvrsDefinition = Nothing
+    , _gddvrsARN = Nothing
+    , _gddvrsCreationTimestamp = Nothing
+    , _gddvrsVersion = Nothing
+    , _gddvrsId = Nothing
+    , _gddvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Device definition version
+-- | Information about the device definition version.
 gddvrsDefinition :: Lens' GetDeviceDefinitionVersionResponse (Maybe DeviceDefinitionVersion)
-gddvrsDefinition = lens _gddvrsDefinition (\ s a -> s{_gddvrsDefinition = a});
+gddvrsDefinition = lens _gddvrsDefinition (\ s a -> s{_gddvrsDefinition = a})
 
--- | Arn of the device definition version.
+-- | The ARN of the device definition version.
 gddvrsARN :: Lens' GetDeviceDefinitionVersionResponse (Maybe Text)
-gddvrsARN = lens _gddvrsARN (\ s a -> s{_gddvrsARN = a});
+gddvrsARN = lens _gddvrsARN (\ s a -> s{_gddvrsARN = a})
 
--- | Timestamp of when the device definition version was created.
+-- | The time, in milliseconds since the epoch, when the device definition version was created.
 gddvrsCreationTimestamp :: Lens' GetDeviceDefinitionVersionResponse (Maybe Text)
-gddvrsCreationTimestamp = lens _gddvrsCreationTimestamp (\ s a -> s{_gddvrsCreationTimestamp = a});
+gddvrsCreationTimestamp = lens _gddvrsCreationTimestamp (\ s a -> s{_gddvrsCreationTimestamp = a})
 
--- | Version of the device definition version.
+-- | The version of the device definition version.
 gddvrsVersion :: Lens' GetDeviceDefinitionVersionResponse (Maybe Text)
-gddvrsVersion = lens _gddvrsVersion (\ s a -> s{_gddvrsVersion = a});
+gddvrsVersion = lens _gddvrsVersion (\ s a -> s{_gddvrsVersion = a})
 
--- | Id of the device definition the version belongs to.
+-- | The ID of the device definition version.
 gddvrsId :: Lens' GetDeviceDefinitionVersionResponse (Maybe Text)
-gddvrsId = lens _gddvrsId (\ s a -> s{_gddvrsId = a});
+gddvrsId = lens _gddvrsId (\ s a -> s{_gddvrsId = a})
 
 -- | -- | The response status code.
 gddvrsResponseStatus :: Lens' GetDeviceDefinitionVersionResponse Int
-gddvrsResponseStatus = lens _gddvrsResponseStatus (\ s a -> s{_gddvrsResponseStatus = a});
+gddvrsResponseStatus = lens _gddvrsResponseStatus (\ s a -> s{_gddvrsResponseStatus = a})
 
 instance NFData GetDeviceDefinitionVersionResponse
          where

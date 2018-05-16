@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,16 +72,16 @@ deregisterInstancesFromLoadBalancer
     -> DeregisterInstancesFromLoadBalancer
 deregisterInstancesFromLoadBalancer pLoadBalancerName_ =
   DeregisterInstancesFromLoadBalancer'
-  {_diflbLoadBalancerName = pLoadBalancerName_, _diflbInstances = mempty}
+    {_diflbLoadBalancerName = pLoadBalancerName_, _diflbInstances = mempty}
 
 
 -- | The name of the load balancer.
 diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
-diflbLoadBalancerName = lens _diflbLoadBalancerName (\ s a -> s{_diflbLoadBalancerName = a});
+diflbLoadBalancerName = lens _diflbLoadBalancerName (\ s a -> s{_diflbLoadBalancerName = a})
 
 -- | The IDs of the instances.
 diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
-diflbInstances = lens _diflbInstances (\ s a -> s{_diflbInstances = a}) . _Coerce;
+diflbInstances = lens _diflbInstances (\ s a -> s{_diflbInstances = a}) . _Coerce
 
 instance AWSRequest
            DeregisterInstancesFromLoadBalancer
@@ -147,16 +147,16 @@ deregisterInstancesFromLoadBalancerResponse
     -> DeregisterInstancesFromLoadBalancerResponse
 deregisterInstancesFromLoadBalancerResponse pResponseStatus_ =
   DeregisterInstancesFromLoadBalancerResponse'
-  {_diflbrsInstances = Nothing, _diflbrsResponseStatus = pResponseStatus_}
+    {_diflbrsInstances = Nothing, _diflbrsResponseStatus = pResponseStatus_}
 
 
 -- | The remaining instances registered with the load balancer.
 diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
-diflbrsInstances = lens _diflbrsInstances (\ s a -> s{_diflbrsInstances = a}) . _Default . _Coerce;
+diflbrsInstances = lens _diflbrsInstances (\ s a -> s{_diflbrsInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 diflbrsResponseStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
-diflbrsResponseStatus = lens _diflbrsResponseStatus (\ s a -> s{_diflbrsResponseStatus = a});
+diflbrsResponseStatus = lens _diflbrsResponseStatus (\ s a -> s{_diflbrsResponseStatus = a})
 
 instance NFData
            DeregisterInstancesFromLoadBalancerResponse

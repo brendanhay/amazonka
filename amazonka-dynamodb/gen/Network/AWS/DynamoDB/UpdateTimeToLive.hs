@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.UpdateTimeToLive
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,18 +79,18 @@ updateTimeToLive
     -> UpdateTimeToLive
 updateTimeToLive pTableName_ pTimeToLiveSpecification_ =
   UpdateTimeToLive'
-  { _uttlTableName = pTableName_
-  , _uttlTimeToLiveSpecification = pTimeToLiveSpecification_
-  }
+    { _uttlTableName = pTableName_
+    , _uttlTimeToLiveSpecification = pTimeToLiveSpecification_
+    }
 
 
 -- | The name of the table to be configured.
 uttlTableName :: Lens' UpdateTimeToLive Text
-uttlTableName = lens _uttlTableName (\ s a -> s{_uttlTableName = a});
+uttlTableName = lens _uttlTableName (\ s a -> s{_uttlTableName = a})
 
 -- | Represents the settings used to enable or disable Time to Live for the specified table.
 uttlTimeToLiveSpecification :: Lens' UpdateTimeToLive TimeToLiveSpecification
-uttlTimeToLiveSpecification = lens _uttlTimeToLiveSpecification (\ s a -> s{_uttlTimeToLiveSpecification = a});
+uttlTimeToLiveSpecification = lens _uttlTimeToLiveSpecification (\ s a -> s{_uttlTimeToLiveSpecification = a})
 
 instance AWSRequest UpdateTimeToLive where
         type Rs UpdateTimeToLive = UpdateTimeToLiveResponse
@@ -149,17 +149,17 @@ updateTimeToLiveResponse
     -> UpdateTimeToLiveResponse
 updateTimeToLiveResponse pResponseStatus_ =
   UpdateTimeToLiveResponse'
-  { _uttlrsTimeToLiveSpecification = Nothing
-  , _uttlrsResponseStatus = pResponseStatus_
-  }
+    { _uttlrsTimeToLiveSpecification = Nothing
+    , _uttlrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Represents the output of an @UpdateTimeToLive@ operation.
 uttlrsTimeToLiveSpecification :: Lens' UpdateTimeToLiveResponse (Maybe TimeToLiveSpecification)
-uttlrsTimeToLiveSpecification = lens _uttlrsTimeToLiveSpecification (\ s a -> s{_uttlrsTimeToLiveSpecification = a});
+uttlrsTimeToLiveSpecification = lens _uttlrsTimeToLiveSpecification (\ s a -> s{_uttlrsTimeToLiveSpecification = a})
 
 -- | -- | The response status code.
 uttlrsResponseStatus :: Lens' UpdateTimeToLiveResponse Int
-uttlrsResponseStatus = lens _uttlrsResponseStatus (\ s a -> s{_uttlrsResponseStatus = a});
+uttlrsResponseStatus = lens _uttlrsResponseStatus (\ s a -> s{_uttlrsResponseStatus = a})
 
 instance NFData UpdateTimeToLiveResponse where

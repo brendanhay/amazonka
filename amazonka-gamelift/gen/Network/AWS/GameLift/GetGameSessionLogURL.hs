@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.GetGameSessionLogURL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,7 +94,7 @@ getGameSessionLogURL pGameSessionId_ =
 
 -- | Unique identifier for the game session to get logs for.
 ggsluGameSessionId :: Lens' GetGameSessionLogURL Text
-ggsluGameSessionId = lens _ggsluGameSessionId (\ s a -> s{_ggsluGameSessionId = a});
+ggsluGameSessionId = lens _ggsluGameSessionId (\ s a -> s{_ggsluGameSessionId = a})
 
 instance AWSRequest GetGameSessionLogURL where
         type Rs GetGameSessionLogURL =
@@ -154,15 +154,15 @@ getGameSessionLogURLResponse
     -> GetGameSessionLogURLResponse
 getGameSessionLogURLResponse pResponseStatus_ =
   GetGameSessionLogURLResponse'
-  {_ggslursPreSignedURL = Nothing, _ggslursResponseStatus = pResponseStatus_}
+    {_ggslursPreSignedURL = Nothing, _ggslursResponseStatus = pResponseStatus_}
 
 
 -- | Location of the requested game session logs, available for download.
 ggslursPreSignedURL :: Lens' GetGameSessionLogURLResponse (Maybe Text)
-ggslursPreSignedURL = lens _ggslursPreSignedURL (\ s a -> s{_ggslursPreSignedURL = a});
+ggslursPreSignedURL = lens _ggslursPreSignedURL (\ s a -> s{_ggslursPreSignedURL = a})
 
 -- | -- | The response status code.
 ggslursResponseStatus :: Lens' GetGameSessionLogURLResponse Int
-ggslursResponseStatus = lens _ggslursResponseStatus (\ s a -> s{_ggslursResponseStatus = a});
+ggslursResponseStatus = lens _ggslursResponseStatus (\ s a -> s{_ggslursResponseStatus = a})
 
 instance NFData GetGameSessionLogURLResponse where

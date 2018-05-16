@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.CompleteVaultLock
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ completeVaultLock
     -> CompleteVaultLock
 completeVaultLock pAccountId_ pVaultName_ pLockId_ =
   CompleteVaultLock'
-  { _cvlAccountId = pAccountId_
-  , _cvlVaultName = pVaultName_
-  , _cvlLockId = pLockId_
-  }
+    { _cvlAccountId = pAccountId_
+    , _cvlVaultName = pVaultName_
+    , _cvlLockId = pLockId_
+    }
 
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 cvlAccountId :: Lens' CompleteVaultLock Text
-cvlAccountId = lens _cvlAccountId (\ s a -> s{_cvlAccountId = a});
+cvlAccountId = lens _cvlAccountId (\ s a -> s{_cvlAccountId = a})
 
 -- | The name of the vault.
 cvlVaultName :: Lens' CompleteVaultLock Text
-cvlVaultName = lens _cvlVaultName (\ s a -> s{_cvlVaultName = a});
+cvlVaultName = lens _cvlVaultName (\ s a -> s{_cvlVaultName = a})
 
 -- | The @lockId@ value is the lock ID obtained from a 'InitiateVaultLock' request.
 cvlLockId :: Lens' CompleteVaultLock Text
-cvlLockId = lens _cvlLockId (\ s a -> s{_cvlLockId = a});
+cvlLockId = lens _cvlLockId (\ s a -> s{_cvlLockId = a})
 
 instance AWSRequest CompleteVaultLock where
         type Rs CompleteVaultLock = CompleteVaultLockResponse

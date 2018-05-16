@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminEnableUser
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ adminEnableUser
     -> AdminEnableUser
 adminEnableUser pUserPoolId_ pUsername_ =
   AdminEnableUser'
-  {_aeuUserPoolId = pUserPoolId_, _aeuUsername = _Sensitive # pUsername_}
+    {_aeuUserPoolId = pUserPoolId_, _aeuUsername = _Sensitive # pUsername_}
 
 
 -- | The user pool ID for the user pool where you want to enable the user.
 aeuUserPoolId :: Lens' AdminEnableUser Text
-aeuUserPoolId = lens _aeuUserPoolId (\ s a -> s{_aeuUserPoolId = a});
+aeuUserPoolId = lens _aeuUserPoolId (\ s a -> s{_aeuUserPoolId = a})
 
 -- | The user name of the user you wish to enable.
 aeuUsername :: Lens' AdminEnableUser Text
-aeuUsername = lens _aeuUsername (\ s a -> s{_aeuUsername = a}) . _Sensitive;
+aeuUsername = lens _aeuUsername (\ s a -> s{_aeuUsername = a}) . _Sensitive
 
 instance AWSRequest AdminEnableUser where
         type Rs AdminEnableUser = AdminEnableUserResponse
@@ -140,6 +140,6 @@ adminEnableUserResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 aeursResponseStatus :: Lens' AdminEnableUserResponse Int
-aeursResponseStatus = lens _aeursResponseStatus (\ s a -> s{_aeursResponseStatus = a});
+aeursResponseStatus = lens _aeursResponseStatus (\ s a -> s{_aeursResponseStatus = a})
 
 instance NFData AdminEnableUserResponse where

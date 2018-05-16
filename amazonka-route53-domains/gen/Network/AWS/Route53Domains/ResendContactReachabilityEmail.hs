@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.ResendContactReachabilityEmail
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ resendContactReachabilityEmail =
 
 -- | The name of the domain for which you want Amazon Route 53 to resend a confirmation email to the registrant contact.
 rcreDomainName :: Lens' ResendContactReachabilityEmail (Maybe Text)
-rcreDomainName = lens _rcreDomainName (\ s a -> s{_rcreDomainName = a});
+rcreDomainName = lens _rcreDomainName (\ s a -> s{_rcreDomainName = a})
 
 instance AWSRequest ResendContactReachabilityEmail
          where
@@ -132,28 +132,28 @@ resendContactReachabilityEmailResponse
     -> ResendContactReachabilityEmailResponse
 resendContactReachabilityEmailResponse pResponseStatus_ =
   ResendContactReachabilityEmailResponse'
-  { _rcrersDomainName = Nothing
-  , _rcrersEmailAddress = Nothing
-  , _rcrersIsAlreadyVerified = Nothing
-  , _rcrersResponseStatus = pResponseStatus_
-  }
+    { _rcrersDomainName = Nothing
+    , _rcrersEmailAddress = Nothing
+    , _rcrersIsAlreadyVerified = Nothing
+    , _rcrersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The domain name for which you requested a confirmation email.
 rcrersDomainName :: Lens' ResendContactReachabilityEmailResponse (Maybe Text)
-rcrersDomainName = lens _rcrersDomainName (\ s a -> s{_rcrersDomainName = a});
+rcrersDomainName = lens _rcrersDomainName (\ s a -> s{_rcrersDomainName = a})
 
 -- | The email address for the registrant contact at the time that we sent the verification email.
 rcrersEmailAddress :: Lens' ResendContactReachabilityEmailResponse (Maybe Text)
-rcrersEmailAddress = lens _rcrersEmailAddress (\ s a -> s{_rcrersEmailAddress = a});
+rcrersEmailAddress = lens _rcrersEmailAddress (\ s a -> s{_rcrersEmailAddress = a})
 
 -- | @True@ if the email address for the registrant contact has already been verified, and @false@ otherwise. If the email address has already been verified, we don't send another confirmation email.
 rcrersIsAlreadyVerified :: Lens' ResendContactReachabilityEmailResponse (Maybe Bool)
-rcrersIsAlreadyVerified = lens _rcrersIsAlreadyVerified (\ s a -> s{_rcrersIsAlreadyVerified = a});
+rcrersIsAlreadyVerified = lens _rcrersIsAlreadyVerified (\ s a -> s{_rcrersIsAlreadyVerified = a})
 
 -- | -- | The response status code.
 rcrersResponseStatus :: Lens' ResendContactReachabilityEmailResponse Int
-rcrersResponseStatus = lens _rcrersResponseStatus (\ s a -> s{_rcrersResponseStatus = a});
+rcrersResponseStatus = lens _rcrersResponseStatus (\ s a -> s{_rcrersResponseStatus = a})
 
 instance NFData
            ResendContactReachabilityEmailResponse

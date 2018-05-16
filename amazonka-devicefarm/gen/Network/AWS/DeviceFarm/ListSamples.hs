@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListSamples
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,11 +75,11 @@ listSamples pArn_ = ListSamples' {_lsNextToken = Nothing, _lsArn = pArn_}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lsNextToken :: Lens' ListSamples (Maybe Text)
-lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
+lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a})
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to list samples.
 lsArn :: Lens' ListSamples Text
-lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
+lsArn = lens _lsArn (\ s a -> s{_lsArn = a})
 
 instance AWSPager ListSamples where
         page rq rs
@@ -150,22 +150,22 @@ listSamplesResponse
     -> ListSamplesResponse
 listSamplesResponse pResponseStatus_ =
   ListSamplesResponse'
-  { _lrsNextToken = Nothing
-  , _lrsSamples = Nothing
-  , _lrsResponseStatus = pResponseStatus_
-  }
+    { _lrsNextToken = Nothing
+    , _lrsSamples = Nothing
+    , _lrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 lrsNextToken :: Lens' ListSamplesResponse (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
+lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a})
 
 -- | Information about the samples.
 lrsSamples :: Lens' ListSamplesResponse [Sample]
-lrsSamples = lens _lrsSamples (\ s a -> s{_lrsSamples = a}) . _Default . _Coerce;
+lrsSamples = lens _lrsSamples (\ s a -> s{_lrsSamples = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lrsResponseStatus :: Lens' ListSamplesResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
+lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a})
 
 instance NFData ListSamplesResponse where

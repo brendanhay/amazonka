@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DescribeDirectories
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,20 +78,20 @@ describeDirectories
     :: DescribeDirectories
 describeDirectories =
   DescribeDirectories'
-  {_ddNextToken = Nothing, _ddDirectoryIds = Nothing, _ddLimit = Nothing}
+    {_ddNextToken = Nothing, _ddDirectoryIds = Nothing, _ddLimit = Nothing}
 
 
 -- | The /DescribeDirectoriesResult.NextToken/ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
 ddNextToken :: Lens' DescribeDirectories (Maybe Text)
-ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
+ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a})
 
 -- | A list of identifiers of the directories for which to obtain the information. If this member is null, all directories that belong to the current account are returned. An empty list results in an @InvalidParameterException@ being thrown.
 ddDirectoryIds :: Lens' DescribeDirectories [Text]
-ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a}) . _Default . _Coerce;
+ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a}) . _Default . _Coerce
 
 -- | The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
 ddLimit :: Lens' DescribeDirectories (Maybe Natural)
-ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
+ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat
 
 instance AWSRequest DescribeDirectories where
         type Rs DescribeDirectories =
@@ -159,22 +159,22 @@ describeDirectoriesResponse
     -> DescribeDirectoriesResponse
 describeDirectoriesResponse pResponseStatus_ =
   DescribeDirectoriesResponse'
-  { _ddrsDirectoryDescriptions = Nothing
-  , _ddrsNextToken = Nothing
-  , _ddrsResponseStatus = pResponseStatus_
-  }
+    { _ddrsDirectoryDescriptions = Nothing
+    , _ddrsNextToken = Nothing
+    , _ddrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of 'DirectoryDescription' objects that were retrieved. It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
 ddrsDirectoryDescriptions :: Lens' DescribeDirectoriesResponse [DirectoryDescription]
-ddrsDirectoryDescriptions = lens _ddrsDirectoryDescriptions (\ s a -> s{_ddrsDirectoryDescriptions = a}) . _Default . _Coerce;
+ddrsDirectoryDescriptions = lens _ddrsDirectoryDescriptions (\ s a -> s{_ddrsDirectoryDescriptions = a}) . _Default . _Coerce
 
 -- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'DescribeDirectories' to retrieve the next set of items.
 ddrsNextToken :: Lens' DescribeDirectoriesResponse (Maybe Text)
-ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
+ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a})
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDirectoriesResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 instance NFData DescribeDirectoriesResponse where

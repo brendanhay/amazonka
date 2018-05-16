@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.RegisterCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ registerCertificate
     -> RegisterCertificate
 registerCertificate pCertificatePem_ =
   RegisterCertificate'
-  { _rcStatus = Nothing
-  , _rcCaCertificatePem = Nothing
-  , _rcSetAsActive = Nothing
-  , _rcCertificatePem = pCertificatePem_
-  }
+    { _rcStatus = Nothing
+    , _rcCaCertificatePem = Nothing
+    , _rcSetAsActive = Nothing
+    , _rcCertificatePem = pCertificatePem_
+    }
 
 
 -- | The status of the register certificate request.
 rcStatus :: Lens' RegisterCertificate (Maybe CertificateStatus)
-rcStatus = lens _rcStatus (\ s a -> s{_rcStatus = a});
+rcStatus = lens _rcStatus (\ s a -> s{_rcStatus = a})
 
 -- | The CA certificate used to sign the device certificate being registered.
 rcCaCertificatePem :: Lens' RegisterCertificate (Maybe Text)
-rcCaCertificatePem = lens _rcCaCertificatePem (\ s a -> s{_rcCaCertificatePem = a});
+rcCaCertificatePem = lens _rcCaCertificatePem (\ s a -> s{_rcCaCertificatePem = a})
 
 -- | A boolean value that specifies if the CA certificate is set to active.
 rcSetAsActive :: Lens' RegisterCertificate (Maybe Bool)
-rcSetAsActive = lens _rcSetAsActive (\ s a -> s{_rcSetAsActive = a});
+rcSetAsActive = lens _rcSetAsActive (\ s a -> s{_rcSetAsActive = a})
 
 -- | The certificate data, in PEM format.
 rcCertificatePem :: Lens' RegisterCertificate Text
-rcCertificatePem = lens _rcCertificatePem (\ s a -> s{_rcCertificatePem = a});
+rcCertificatePem = lens _rcCertificatePem (\ s a -> s{_rcCertificatePem = a})
 
 instance AWSRequest RegisterCertificate where
         type Rs RegisterCertificate =
@@ -159,22 +159,22 @@ registerCertificateResponse
     -> RegisterCertificateResponse
 registerCertificateResponse pResponseStatus_ =
   RegisterCertificateResponse'
-  { _rcrsCertificateARN = Nothing
-  , _rcrsCertificateId = Nothing
-  , _rcrsResponseStatus = pResponseStatus_
-  }
+    { _rcrsCertificateARN = Nothing
+    , _rcrsCertificateId = Nothing
+    , _rcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The certificate ARN.
 rcrsCertificateARN :: Lens' RegisterCertificateResponse (Maybe Text)
-rcrsCertificateARN = lens _rcrsCertificateARN (\ s a -> s{_rcrsCertificateARN = a});
+rcrsCertificateARN = lens _rcrsCertificateARN (\ s a -> s{_rcrsCertificateARN = a})
 
 -- | The certificate identifier.
 rcrsCertificateId :: Lens' RegisterCertificateResponse (Maybe Text)
-rcrsCertificateId = lens _rcrsCertificateId (\ s a -> s{_rcrsCertificateId = a});
+rcrsCertificateId = lens _rcrsCertificateId (\ s a -> s{_rcrsCertificateId = a})
 
 -- | -- | The response status code.
 rcrsResponseStatus :: Lens' RegisterCertificateResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a})
 
 instance NFData RegisterCertificateResponse where

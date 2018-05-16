@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.UpdateConstraint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing constraint.
+-- Updates the specified constraint.
 --
 --
 module Network.AWS.ServiceCatalog.UpdateConstraint
@@ -62,28 +62,28 @@ data UpdateConstraint = UpdateConstraint'
 --
 -- * 'ucAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'ucDescription' - The updated text description of the constraint.
+-- * 'ucDescription' - The updated description of the constraint.
 --
--- * 'ucId' - The identifier of the constraint to update.
+-- * 'ucId' - The identifier of the constraint.
 updateConstraint
     :: Text -- ^ 'ucId'
     -> UpdateConstraint
 updateConstraint pId_ =
   UpdateConstraint'
-  {_ucAcceptLanguage = Nothing, _ucDescription = Nothing, _ucId = pId_}
+    {_ucAcceptLanguage = Nothing, _ucDescription = Nothing, _ucId = pId_}
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 ucAcceptLanguage :: Lens' UpdateConstraint (Maybe Text)
-ucAcceptLanguage = lens _ucAcceptLanguage (\ s a -> s{_ucAcceptLanguage = a});
+ucAcceptLanguage = lens _ucAcceptLanguage (\ s a -> s{_ucAcceptLanguage = a})
 
--- | The updated text description of the constraint.
+-- | The updated description of the constraint.
 ucDescription :: Lens' UpdateConstraint (Maybe Text)
-ucDescription = lens _ucDescription (\ s a -> s{_ucDescription = a});
+ucDescription = lens _ucDescription (\ s a -> s{_ucDescription = a})
 
--- | The identifier of the constraint to update.
+-- | The identifier of the constraint.
 ucId :: Lens' UpdateConstraint Text
-ucId = lens _ucId (\ s a -> s{_ucId = a});
+ucId = lens _ucId (\ s a -> s{_ucId = a})
 
 instance AWSRequest UpdateConstraint where
         type Rs UpdateConstraint = UpdateConstraintResponse
@@ -139,9 +139,9 @@ data UpdateConstraintResponse = UpdateConstraintResponse'
 --
 -- * 'ucrsStatus' - The status of the current request.
 --
--- * 'ucrsConstraintDetail' - The resulting detailed constraint information.
+-- * 'ucrsConstraintDetail' - Information about the constraint.
 --
--- * 'ucrsConstraintParameters' - The resulting updated constraint parameters.
+-- * 'ucrsConstraintParameters' - The constraint parameters.
 --
 -- * 'ucrsResponseStatus' - -- | The response status code.
 updateConstraintResponse
@@ -149,27 +149,27 @@ updateConstraintResponse
     -> UpdateConstraintResponse
 updateConstraintResponse pResponseStatus_ =
   UpdateConstraintResponse'
-  { _ucrsStatus = Nothing
-  , _ucrsConstraintDetail = Nothing
-  , _ucrsConstraintParameters = Nothing
-  , _ucrsResponseStatus = pResponseStatus_
-  }
+    { _ucrsStatus = Nothing
+    , _ucrsConstraintDetail = Nothing
+    , _ucrsConstraintParameters = Nothing
+    , _ucrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the current request.
 ucrsStatus :: Lens' UpdateConstraintResponse (Maybe RequestStatus)
-ucrsStatus = lens _ucrsStatus (\ s a -> s{_ucrsStatus = a});
+ucrsStatus = lens _ucrsStatus (\ s a -> s{_ucrsStatus = a})
 
--- | The resulting detailed constraint information.
+-- | Information about the constraint.
 ucrsConstraintDetail :: Lens' UpdateConstraintResponse (Maybe ConstraintDetail)
-ucrsConstraintDetail = lens _ucrsConstraintDetail (\ s a -> s{_ucrsConstraintDetail = a});
+ucrsConstraintDetail = lens _ucrsConstraintDetail (\ s a -> s{_ucrsConstraintDetail = a})
 
--- | The resulting updated constraint parameters.
+-- | The constraint parameters.
 ucrsConstraintParameters :: Lens' UpdateConstraintResponse (Maybe Text)
-ucrsConstraintParameters = lens _ucrsConstraintParameters (\ s a -> s{_ucrsConstraintParameters = a});
+ucrsConstraintParameters = lens _ucrsConstraintParameters (\ s a -> s{_ucrsConstraintParameters = a})
 
 -- | -- | The response status code.
 ucrsResponseStatus :: Lens' UpdateConstraintResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a});
+ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a})
 
 instance NFData UpdateConstraintResponse where

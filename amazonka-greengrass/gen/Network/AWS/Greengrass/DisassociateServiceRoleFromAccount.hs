@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates the service role from the account. Without a service role, deployments will not work.
+-- Disassociates the service role from your account. Without a service role, deployments will not work.
 module Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
     (
     -- * Creating a Request
@@ -98,7 +98,7 @@ data DisassociateServiceRoleFromAccountResponse = DisassociateServiceRoleFromAcc
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrfarsDisassociatedAt' - Time when the service role was disassociated from the account.
+-- * 'dsrfarsDisassociatedAt' - The time when the service role was disassociated from the account.
 --
 -- * 'dsrfarsResponseStatus' - -- | The response status code.
 disassociateServiceRoleFromAccountResponse
@@ -106,16 +106,18 @@ disassociateServiceRoleFromAccountResponse
     -> DisassociateServiceRoleFromAccountResponse
 disassociateServiceRoleFromAccountResponse pResponseStatus_ =
   DisassociateServiceRoleFromAccountResponse'
-  {_dsrfarsDisassociatedAt = Nothing, _dsrfarsResponseStatus = pResponseStatus_}
+    { _dsrfarsDisassociatedAt = Nothing
+    , _dsrfarsResponseStatus = pResponseStatus_
+    }
 
 
--- | Time when the service role was disassociated from the account.
+-- | The time when the service role was disassociated from the account.
 dsrfarsDisassociatedAt :: Lens' DisassociateServiceRoleFromAccountResponse (Maybe Text)
-dsrfarsDisassociatedAt = lens _dsrfarsDisassociatedAt (\ s a -> s{_dsrfarsDisassociatedAt = a});
+dsrfarsDisassociatedAt = lens _dsrfarsDisassociatedAt (\ s a -> s{_dsrfarsDisassociatedAt = a})
 
 -- | -- | The response status code.
 dsrfarsResponseStatus :: Lens' DisassociateServiceRoleFromAccountResponse Int
-dsrfarsResponseStatus = lens _dsrfarsResponseStatus (\ s a -> s{_dsrfarsResponseStatus = a});
+dsrfarsResponseStatus = lens _dsrfarsResponseStatus (\ s a -> s{_dsrfarsResponseStatus = a})
 
 instance NFData
            DisassociateServiceRoleFromAccountResponse

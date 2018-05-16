@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateUserImportJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ createUserImportJob
     -> CreateUserImportJob
 createUserImportJob pJobName_ pUserPoolId_ pCloudWatchLogsRoleARN_ =
   CreateUserImportJob'
-  { _cuijJobName = pJobName_
-  , _cuijUserPoolId = pUserPoolId_
-  , _cuijCloudWatchLogsRoleARN = pCloudWatchLogsRoleARN_
-  }
+    { _cuijJobName = pJobName_
+    , _cuijUserPoolId = pUserPoolId_
+    , _cuijCloudWatchLogsRoleARN = pCloudWatchLogsRoleARN_
+    }
 
 
 -- | The job name for the user import job.
 cuijJobName :: Lens' CreateUserImportJob Text
-cuijJobName = lens _cuijJobName (\ s a -> s{_cuijJobName = a});
+cuijJobName = lens _cuijJobName (\ s a -> s{_cuijJobName = a})
 
 -- | The user pool ID for the user pool that the users are being imported into.
 cuijUserPoolId :: Lens' CreateUserImportJob Text
-cuijUserPoolId = lens _cuijUserPoolId (\ s a -> s{_cuijUserPoolId = a});
+cuijUserPoolId = lens _cuijUserPoolId (\ s a -> s{_cuijUserPoolId = a})
 
 -- | The role ARN for the Amazon CloudWatch Logging role for the user import job.
 cuijCloudWatchLogsRoleARN :: Lens' CreateUserImportJob Text
-cuijCloudWatchLogsRoleARN = lens _cuijCloudWatchLogsRoleARN (\ s a -> s{_cuijCloudWatchLogsRoleARN = a});
+cuijCloudWatchLogsRoleARN = lens _cuijCloudWatchLogsRoleARN (\ s a -> s{_cuijCloudWatchLogsRoleARN = a})
 
 instance AWSRequest CreateUserImportJob where
         type Rs CreateUserImportJob =
@@ -155,15 +155,15 @@ createUserImportJobResponse
     -> CreateUserImportJobResponse
 createUserImportJobResponse pResponseStatus_ =
   CreateUserImportJobResponse'
-  {_cuijrsUserImportJob = Nothing, _cuijrsResponseStatus = pResponseStatus_}
+    {_cuijrsUserImportJob = Nothing, _cuijrsResponseStatus = pResponseStatus_}
 
 
 -- | The job object that represents the user import job.
 cuijrsUserImportJob :: Lens' CreateUserImportJobResponse (Maybe UserImportJobType)
-cuijrsUserImportJob = lens _cuijrsUserImportJob (\ s a -> s{_cuijrsUserImportJob = a});
+cuijrsUserImportJob = lens _cuijrsUserImportJob (\ s a -> s{_cuijrsUserImportJob = a})
 
 -- | -- | The response status code.
 cuijrsResponseStatus :: Lens' CreateUserImportJobResponse Int
-cuijrsResponseStatus = lens _cuijrsResponseStatus (\ s a -> s{_cuijrsResponseStatus = a});
+cuijrsResponseStatus = lens _cuijrsResponseStatus (\ s a -> s{_cuijrsResponseStatus = a})
 
 instance NFData CreateUserImportJobResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.CountOpenWorkflowExecutions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -99,33 +99,33 @@ countOpenWorkflowExecutions
     -> CountOpenWorkflowExecutions
 countOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
   CountOpenWorkflowExecutions'
-  { _coweExecutionFilter = Nothing
-  , _coweTypeFilter = Nothing
-  , _coweTagFilter = Nothing
-  , _coweDomain = pDomain_
-  , _coweStartTimeFilter = pStartTimeFilter_
-  }
+    { _coweExecutionFilter = Nothing
+    , _coweTypeFilter = Nothing
+    , _coweTagFilter = Nothing
+    , _coweDomain = pDomain_
+    , _coweStartTimeFilter = pStartTimeFilter_
+    }
 
 
 -- | If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
 coweExecutionFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
-coweExecutionFilter = lens _coweExecutionFilter (\ s a -> s{_coweExecutionFilter = a});
+coweExecutionFilter = lens _coweExecutionFilter (\ s a -> s{_coweExecutionFilter = a})
 
 -- | Specifies the type of the workflow executions to be counted.
 coweTypeFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
-coweTypeFilter = lens _coweTypeFilter (\ s a -> s{_coweTypeFilter = a});
+coweTypeFilter = lens _coweTypeFilter (\ s a -> s{_coweTypeFilter = a})
 
 -- | If specified, only executions that have a tag that matches the filter are counted.
 coweTagFilter :: Lens' CountOpenWorkflowExecutions (Maybe TagFilter)
-coweTagFilter = lens _coweTagFilter (\ s a -> s{_coweTagFilter = a});
+coweTagFilter = lens _coweTagFilter (\ s a -> s{_coweTagFilter = a})
 
 -- | The name of the domain containing the workflow executions to count.
 coweDomain :: Lens' CountOpenWorkflowExecutions Text
-coweDomain = lens _coweDomain (\ s a -> s{_coweDomain = a});
+coweDomain = lens _coweDomain (\ s a -> s{_coweDomain = a})
 
 -- | Specifies the start time criteria that workflow executions must meet in order to be counted.
 coweStartTimeFilter :: Lens' CountOpenWorkflowExecutions ExecutionTimeFilter
-coweStartTimeFilter = lens _coweStartTimeFilter (\ s a -> s{_coweStartTimeFilter = a});
+coweStartTimeFilter = lens _coweStartTimeFilter (\ s a -> s{_coweStartTimeFilter = a})
 
 instance AWSRequest CountOpenWorkflowExecutions where
         type Rs CountOpenWorkflowExecutions =

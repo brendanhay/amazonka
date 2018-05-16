@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.UpdateConditionalForwarder
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ updateConditionalForwarder
     -> UpdateConditionalForwarder
 updateConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
   UpdateConditionalForwarder'
-  { _ucfDirectoryId = pDirectoryId_
-  , _ucfRemoteDomainName = pRemoteDomainName_
-  , _ucfDNSIPAddrs = mempty
-  }
+    { _ucfDirectoryId = pDirectoryId_
+    , _ucfRemoteDomainName = pRemoteDomainName_
+    , _ucfDNSIPAddrs = mempty
+    }
 
 
 -- | The directory ID of the AWS directory for which to update the conditional forwarder.
 ucfDirectoryId :: Lens' UpdateConditionalForwarder Text
-ucfDirectoryId = lens _ucfDirectoryId (\ s a -> s{_ucfDirectoryId = a});
+ucfDirectoryId = lens _ucfDirectoryId (\ s a -> s{_ucfDirectoryId = a})
 
 -- | The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.
 ucfRemoteDomainName :: Lens' UpdateConditionalForwarder Text
-ucfRemoteDomainName = lens _ucfRemoteDomainName (\ s a -> s{_ucfRemoteDomainName = a});
+ucfRemoteDomainName = lens _ucfRemoteDomainName (\ s a -> s{_ucfRemoteDomainName = a})
 
 -- | The updated IP addresses of the remote DNS server associated with the conditional forwarder.
 ucfDNSIPAddrs :: Lens' UpdateConditionalForwarder [Text]
-ucfDNSIPAddrs = lens _ucfDNSIPAddrs (\ s a -> s{_ucfDNSIPAddrs = a}) . _Coerce;
+ucfDNSIPAddrs = lens _ucfDNSIPAddrs (\ s a -> s{_ucfDNSIPAddrs = a}) . _Coerce
 
 instance AWSRequest UpdateConditionalForwarder where
         type Rs UpdateConditionalForwarder =
@@ -152,7 +152,7 @@ updateConditionalForwarderResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ucfrsResponseStatus :: Lens' UpdateConditionalForwarderResponse Int
-ucfrsResponseStatus = lens _ucfrsResponseStatus (\ s a -> s{_ucfrsResponseStatus = a});
+ucfrsResponseStatus = lens _ucfrsResponseStatus (\ s a -> s{_ucfrsResponseStatus = a})
 
 instance NFData UpdateConditionalForwarderResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.UpdateRateBasedRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -102,28 +102,28 @@ updateRateBasedRule
     -> UpdateRateBasedRule
 updateRateBasedRule pRuleId_ pChangeToken_ pRateLimit_ =
   UpdateRateBasedRule'
-  { _urbrRuleId = pRuleId_
-  , _urbrChangeToken = pChangeToken_
-  , _urbrUpdates = mempty
-  , _urbrRateLimit = _Nat # pRateLimit_
-  }
+    { _urbrRuleId = pRuleId_
+    , _urbrChangeToken = pChangeToken_
+    , _urbrUpdates = mempty
+    , _urbrRateLimit = _Nat # pRateLimit_
+    }
 
 
 -- | The @RuleId@ of the @RateBasedRule@ that you want to update. @RuleId@ is returned by @CreateRateBasedRule@ and by 'ListRateBasedRules' .
 urbrRuleId :: Lens' UpdateRateBasedRule Text
-urbrRuleId = lens _urbrRuleId (\ s a -> s{_urbrRuleId = a});
+urbrRuleId = lens _urbrRuleId (\ s a -> s{_urbrRuleId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 urbrChangeToken :: Lens' UpdateRateBasedRule Text
-urbrChangeToken = lens _urbrChangeToken (\ s a -> s{_urbrChangeToken = a});
+urbrChangeToken = lens _urbrChangeToken (\ s a -> s{_urbrChangeToken = a})
 
 -- | An array of @RuleUpdate@ objects that you want to insert into or delete from a 'RateBasedRule' .
 urbrUpdates :: Lens' UpdateRateBasedRule [RuleUpdate]
-urbrUpdates = lens _urbrUpdates (\ s a -> s{_urbrUpdates = a}) . _Coerce;
+urbrUpdates = lens _urbrUpdates (\ s a -> s{_urbrUpdates = a}) . _Coerce
 
 -- | The maximum number of requests, which have an identical value in the field specified by the @RateKey@ , allowed in a five-minute period. If the number of requests exceeds the @RateLimit@ and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
 urbrRateLimit :: Lens' UpdateRateBasedRule Natural
-urbrRateLimit = lens _urbrRateLimit (\ s a -> s{_urbrRateLimit = a}) . _Nat;
+urbrRateLimit = lens _urbrRateLimit (\ s a -> s{_urbrRateLimit = a}) . _Nat
 
 instance AWSRequest UpdateRateBasedRule where
         type Rs UpdateRateBasedRule =
@@ -183,15 +183,15 @@ updateRateBasedRuleResponse
     -> UpdateRateBasedRuleResponse
 updateRateBasedRuleResponse pResponseStatus_ =
   UpdateRateBasedRuleResponse'
-  {_urbrrsChangeToken = Nothing, _urbrrsResponseStatus = pResponseStatus_}
+    {_urbrrsChangeToken = Nothing, _urbrrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 urbrrsChangeToken :: Lens' UpdateRateBasedRuleResponse (Maybe Text)
-urbrrsChangeToken = lens _urbrrsChangeToken (\ s a -> s{_urbrrsChangeToken = a});
+urbrrsChangeToken = lens _urbrrsChangeToken (\ s a -> s{_urbrrsChangeToken = a})
 
 -- | -- | The response status code.
 urbrrsResponseStatus :: Lens' UpdateRateBasedRuleResponse Int
-urbrrsResponseStatus = lens _urbrrsResponseStatus (\ s a -> s{_urbrrsResponseStatus = a});
+urbrrsResponseStatus = lens _urbrrsResponseStatus (\ s a -> s{_urbrrsResponseStatus = a})
 
 instance NFData UpdateRateBasedRuleResponse where

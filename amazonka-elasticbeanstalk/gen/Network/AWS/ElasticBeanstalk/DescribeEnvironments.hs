@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,48 +91,48 @@ describeEnvironments
     :: DescribeEnvironments
 describeEnvironments =
   DescribeEnvironments'
-  { _desEnvironmentIds = Nothing
-  , _desEnvironmentNames = Nothing
-  , _desNextToken = Nothing
-  , _desVersionLabel = Nothing
-  , _desMaxRecords = Nothing
-  , _desApplicationName = Nothing
-  , _desIncludedDeletedBackTo = Nothing
-  , _desIncludeDeleted = Nothing
-  }
+    { _desEnvironmentIds = Nothing
+    , _desEnvironmentNames = Nothing
+    , _desNextToken = Nothing
+    , _desVersionLabel = Nothing
+    , _desMaxRecords = Nothing
+    , _desApplicationName = Nothing
+    , _desIncludedDeletedBackTo = Nothing
+    , _desIncludeDeleted = Nothing
+    }
 
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.
 desEnvironmentIds :: Lens' DescribeEnvironments [Text]
-desEnvironmentIds = lens _desEnvironmentIds (\ s a -> s{_desEnvironmentIds = a}) . _Default . _Coerce;
+desEnvironmentIds = lens _desEnvironmentIds (\ s a -> s{_desEnvironmentIds = a}) . _Default . _Coerce
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.
 desEnvironmentNames :: Lens' DescribeEnvironments [Text]
-desEnvironmentNames = lens _desEnvironmentNames (\ s a -> s{_desEnvironmentNames = a}) . _Default . _Coerce;
+desEnvironmentNames = lens _desEnvironmentNames (\ s a -> s{_desEnvironmentNames = a}) . _Default . _Coerce
 
 -- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request. If no @NextToken@ is specified, the first page is retrieved.
 desNextToken :: Lens' DescribeEnvironments (Maybe Text)
-desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
+desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a})
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.
 desVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
-desVersionLabel = lens _desVersionLabel (\ s a -> s{_desVersionLabel = a});
+desVersionLabel = lens _desVersionLabel (\ s a -> s{_desVersionLabel = a})
 
 -- | For a paginated request. Specify a maximum number of environments to include in each response. If no @MaxRecords@ is specified, all available environments are retrieved in a single response.
 desMaxRecords :: Lens' DescribeEnvironments (Maybe Natural)
-desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a}) . mapping _Nat;
+desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a}) . mapping _Nat
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.
 desApplicationName :: Lens' DescribeEnvironments (Maybe Text)
-desApplicationName = lens _desApplicationName (\ s a -> s{_desApplicationName = a});
+desApplicationName = lens _desApplicationName (\ s a -> s{_desApplicationName = a})
 
 -- | If specified when @IncludeDeleted@ is set to @true@ , then environments deleted after this date are displayed.
 desIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
-desIncludedDeletedBackTo = lens _desIncludedDeletedBackTo (\ s a -> s{_desIncludedDeletedBackTo = a}) . mapping _Time;
+desIncludedDeletedBackTo = lens _desIncludedDeletedBackTo (\ s a -> s{_desIncludedDeletedBackTo = a}) . mapping _Time
 
 -- | Indicates whether to include deleted environments: @true@ : Environments that have been deleted after @IncludedDeletedBackTo@ are displayed. @false@ : Do not include deleted environments.
 desIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
-desIncludeDeleted = lens _desIncludeDeleted (\ s a -> s{_desIncludeDeleted = a});
+desIncludeDeleted = lens _desIncludeDeleted (\ s a -> s{_desIncludeDeleted = a})
 
 instance AWSRequest DescribeEnvironments where
         type Rs DescribeEnvironments =

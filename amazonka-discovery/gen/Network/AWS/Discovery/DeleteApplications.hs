@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DeleteApplications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ deleteApplications = DeleteApplications' {_daConfigurationIds = mempty}
 
 -- | Configuration ID of an application to be deleted.
 daConfigurationIds :: Lens' DeleteApplications [Text]
-daConfigurationIds = lens _daConfigurationIds (\ s a -> s{_daConfigurationIds = a}) . _Coerce;
+daConfigurationIds = lens _daConfigurationIds (\ s a -> s{_daConfigurationIds = a}) . _Coerce
 
 instance AWSRequest DeleteApplications where
         type Rs DeleteApplications =
@@ -118,6 +118,6 @@ deleteApplicationsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DeleteApplicationsResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DeleteApplicationsResponse where

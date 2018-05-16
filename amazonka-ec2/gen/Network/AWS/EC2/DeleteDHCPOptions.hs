@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteDHCPOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ deleteDHCPOptions
     -> DeleteDHCPOptions
 deleteDHCPOptions pDHCPOptionsId_ =
   DeleteDHCPOptions'
-  {_ddhcpoDryRun = Nothing, _ddhcpoDHCPOptionsId = pDHCPOptionsId_}
+    {_ddhcpoDryRun = Nothing, _ddhcpoDHCPOptionsId = pDHCPOptionsId_}
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ddhcpoDryRun :: Lens' DeleteDHCPOptions (Maybe Bool)
-ddhcpoDryRun = lens _ddhcpoDryRun (\ s a -> s{_ddhcpoDryRun = a});
+ddhcpoDryRun = lens _ddhcpoDryRun (\ s a -> s{_ddhcpoDryRun = a})
 
 -- | The ID of the DHCP options set.
 ddhcpoDHCPOptionsId :: Lens' DeleteDHCPOptions Text
-ddhcpoDHCPOptionsId = lens _ddhcpoDHCPOptionsId (\ s a -> s{_ddhcpoDHCPOptionsId = a});
+ddhcpoDHCPOptionsId = lens _ddhcpoDHCPOptionsId (\ s a -> s{_ddhcpoDHCPOptionsId = a})
 
 instance AWSRequest DeleteDHCPOptions where
         type Rs DeleteDHCPOptions = DeleteDHCPOptionsResponse

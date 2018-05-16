@@ -12,18 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.UpdateRegexMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inserts or deletes 'RegexMatchSetUpdate' objects (filters) in a 'RegexMatchSet' . For each @RegexMatchSetUpdate@ object, you specify the following values:
+-- Inserts or deletes 'RegexMatchTuple' objects (filters) in a 'RegexMatchSet' . For each @RegexMatchSetUpdate@ object, you specify the following values:
 --
 --
 --     * Whether to insert or delete the object from the array. If you want to change a @RegexMatchSetUpdate@ object, you delete the existing object and add a new one.
 --
---     * The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the @User-Agent@ header.
+--     * The part of a web request that you want AWS WAF to inspectupdate, such as a query string or the value of the @User-Agent@ header.
 --
 --     * The identifier of the pattern (a regular expression) that you want AWS WAF to look for. For more information, see 'RegexPatternSet' .
 --
@@ -94,23 +94,23 @@ updateRegexMatchSet
     -> UpdateRegexMatchSet
 updateRegexMatchSet pRegexMatchSetId_ pUpdates_ pChangeToken_ =
   UpdateRegexMatchSet'
-  { _urmsRegexMatchSetId = pRegexMatchSetId_
-  , _urmsUpdates = _List1 # pUpdates_
-  , _urmsChangeToken = pChangeToken_
-  }
+    { _urmsRegexMatchSetId = pRegexMatchSetId_
+    , _urmsUpdates = _List1 # pUpdates_
+    , _urmsChangeToken = pChangeToken_
+    }
 
 
 -- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to update. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
 urmsRegexMatchSetId :: Lens' UpdateRegexMatchSet Text
-urmsRegexMatchSetId = lens _urmsRegexMatchSetId (\ s a -> s{_urmsRegexMatchSetId = a});
+urmsRegexMatchSetId = lens _urmsRegexMatchSetId (\ s a -> s{_urmsRegexMatchSetId = a})
 
 -- | An array of @RegexMatchSetUpdate@ objects that you want to insert into or delete from a 'RegexMatchSet' . For more information, see 'RegexMatchTuple' .
 urmsUpdates :: Lens' UpdateRegexMatchSet (NonEmpty RegexMatchSetUpdate)
-urmsUpdates = lens _urmsUpdates (\ s a -> s{_urmsUpdates = a}) . _List1;
+urmsUpdates = lens _urmsUpdates (\ s a -> s{_urmsUpdates = a}) . _List1
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 urmsChangeToken :: Lens' UpdateRegexMatchSet Text
-urmsChangeToken = lens _urmsChangeToken (\ s a -> s{_urmsChangeToken = a});
+urmsChangeToken = lens _urmsChangeToken (\ s a -> s{_urmsChangeToken = a})
 
 instance AWSRequest UpdateRegexMatchSet where
         type Rs UpdateRegexMatchSet =
@@ -169,15 +169,15 @@ updateRegexMatchSetResponse
     -> UpdateRegexMatchSetResponse
 updateRegexMatchSetResponse pResponseStatus_ =
   UpdateRegexMatchSetResponse'
-  {_urmsrsChangeToken = Nothing, _urmsrsResponseStatus = pResponseStatus_}
+    {_urmsrsChangeToken = Nothing, _urmsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 urmsrsChangeToken :: Lens' UpdateRegexMatchSetResponse (Maybe Text)
-urmsrsChangeToken = lens _urmsrsChangeToken (\ s a -> s{_urmsrsChangeToken = a});
+urmsrsChangeToken = lens _urmsrsChangeToken (\ s a -> s{_urmsrsChangeToken = a})
 
 -- | -- | The response status code.
 urmsrsResponseStatus :: Lens' UpdateRegexMatchSetResponse Int
-urmsrsResponseStatus = lens _urmsrsResponseStatus (\ s a -> s{_urmsrsResponseStatus = a});
+urmsrsResponseStatus = lens _urmsrsResponseStatus (\ s a -> s{_urmsrsResponseStatus = a})
 
 instance NFData UpdateRegexMatchSetResponse where

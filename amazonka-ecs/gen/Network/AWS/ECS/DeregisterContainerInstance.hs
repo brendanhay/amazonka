@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DeregisterContainerInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Deregisters an Amazon ECS container instance from the specified cluster. This instance is no longer available to run tasks.
 --
 --
--- If you intend to use the container instance for some other purpose after deregistration, you should stop all of the tasks running on the container instance before deregistration to avoid any orphaned tasks from consuming resources.
+-- If you intend to use the container instance for some other purpose after deregistration, you should stop all of the tasks running on the container instance before deregistration. That prevents any orphaned tasks from consuming resources.
 --
 -- Deregistering a container instance removes the instance from a cluster, but it does not terminate the EC2 instance; if you are finished using the instance, be sure to terminate it in the Amazon EC2 console to stop billing.
 --
@@ -64,31 +64,31 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
 --
 -- * 'derCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to deregister. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'derForce' - Forces the deregistration of the container instance. If you have tasks running on the container instance when you deregister it with the @force@ option, these tasks remain running until you terminate the instance or the tasks stop through some other means, but they are orphaned (no longer monitored or accounted for by Amazon ECS). If an orphaned task on your container instance is part of an Amazon ECS service, then the service scheduler starts another copy of that task, on a different container instance if possible.  Any containers in orphaned service tasks that are registered with a Classic Load Balancer or an Application Load Balancer target group are deregistered, and they will begin connection draining according to the settings on the load balancer or target group.
+-- * 'derForce' - Forces the deregistration of the container instance. If you have tasks running on the container instance when you deregister it with the @force@ option, these tasks remain running until you terminate the instance or the tasks stop through some other means, but they are orphaned (no longer monitored or accounted for by Amazon ECS). If an orphaned task on your container instance is part of an Amazon ECS service, then the service scheduler starts another copy of that task, on a different container instance if possible.  Any containers in orphaned service tasks that are registered with a Classic Load Balancer or an Application Load Balancer target group are deregistered. They begin connection draining according to the settings on the load balancer or target group.
 --
--- * 'derContainerInstance' - The container instance ID or full Amazon Resource Name (ARN) of the container instance to deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:/region/ :/aws_account_id/ :container-instance//container_instance_ID/ @ .
+-- * 'derContainerInstance' - The container instance ID or full ARN of the container instance to deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:/region/ :/aws_account_id/ :container-instance//container_instance_ID/ @ .
 deregisterContainerInstance
     :: Text -- ^ 'derContainerInstance'
     -> DeregisterContainerInstance
 deregisterContainerInstance pContainerInstance_ =
   DeregisterContainerInstance'
-  { _derCluster = Nothing
-  , _derForce = Nothing
-  , _derContainerInstance = pContainerInstance_
-  }
+    { _derCluster = Nothing
+    , _derForce = Nothing
+    , _derContainerInstance = pContainerInstance_
+    }
 
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to deregister. If you do not specify a cluster, the default cluster is assumed.
 derCluster :: Lens' DeregisterContainerInstance (Maybe Text)
-derCluster = lens _derCluster (\ s a -> s{_derCluster = a});
+derCluster = lens _derCluster (\ s a -> s{_derCluster = a})
 
--- | Forces the deregistration of the container instance. If you have tasks running on the container instance when you deregister it with the @force@ option, these tasks remain running until you terminate the instance or the tasks stop through some other means, but they are orphaned (no longer monitored or accounted for by Amazon ECS). If an orphaned task on your container instance is part of an Amazon ECS service, then the service scheduler starts another copy of that task, on a different container instance if possible.  Any containers in orphaned service tasks that are registered with a Classic Load Balancer or an Application Load Balancer target group are deregistered, and they will begin connection draining according to the settings on the load balancer or target group.
+-- | Forces the deregistration of the container instance. If you have tasks running on the container instance when you deregister it with the @force@ option, these tasks remain running until you terminate the instance or the tasks stop through some other means, but they are orphaned (no longer monitored or accounted for by Amazon ECS). If an orphaned task on your container instance is part of an Amazon ECS service, then the service scheduler starts another copy of that task, on a different container instance if possible.  Any containers in orphaned service tasks that are registered with a Classic Load Balancer or an Application Load Balancer target group are deregistered. They begin connection draining according to the settings on the load balancer or target group.
 derForce :: Lens' DeregisterContainerInstance (Maybe Bool)
-derForce = lens _derForce (\ s a -> s{_derForce = a});
+derForce = lens _derForce (\ s a -> s{_derForce = a})
 
--- | The container instance ID or full Amazon Resource Name (ARN) of the container instance to deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:/region/ :/aws_account_id/ :container-instance//container_instance_ID/ @ .
+-- | The container instance ID or full ARN of the container instance to deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:/region/ :/aws_account_id/ :container-instance//container_instance_ID/ @ .
 derContainerInstance :: Lens' DeregisterContainerInstance Text
-derContainerInstance = lens _derContainerInstance (\ s a -> s{_derContainerInstance = a});
+derContainerInstance = lens _derContainerInstance (\ s a -> s{_derContainerInstance = a})
 
 instance AWSRequest DeregisterContainerInstance where
         type Rs DeregisterContainerInstance =
@@ -147,16 +147,16 @@ deregisterContainerInstanceResponse
     -> DeregisterContainerInstanceResponse
 deregisterContainerInstanceResponse pResponseStatus_ =
   DeregisterContainerInstanceResponse'
-  {_dcirsContainerInstance = Nothing, _dcirsResponseStatus = pResponseStatus_}
+    {_dcirsContainerInstance = Nothing, _dcirsResponseStatus = pResponseStatus_}
 
 
 -- | The container instance that was deregistered.
 dcirsContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe ContainerInstance)
-dcirsContainerInstance = lens _dcirsContainerInstance (\ s a -> s{_dcirsContainerInstance = a});
+dcirsContainerInstance = lens _dcirsContainerInstance (\ s a -> s{_dcirsContainerInstance = a})
 
 -- | -- | The response status code.
 dcirsResponseStatus :: Lens' DeregisterContainerInstanceResponse Int
-dcirsResponseStatus = lens _dcirsResponseStatus (\ s a -> s{_dcirsResponseStatus = a});
+dcirsResponseStatus = lens _dcirsResponseStatus (\ s a -> s{_dcirsResponseStatus = a})
 
 instance NFData DeregisterContainerInstanceResponse
          where

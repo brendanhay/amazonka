@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifyClusterIAMRoles
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ modifyClusterIAMRoles
     -> ModifyClusterIAMRoles
 modifyClusterIAMRoles pClusterIdentifier_ =
   ModifyClusterIAMRoles'
-  { _mcirRemoveIAMRoles = Nothing
-  , _mcirAddIAMRoles = Nothing
-  , _mcirClusterIdentifier = pClusterIdentifier_
-  }
+    { _mcirRemoveIAMRoles = Nothing
+    , _mcirAddIAMRoles = Nothing
+    , _mcirClusterIdentifier = pClusterIdentifier_
+    }
 
 
 -- | Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
 mcirRemoveIAMRoles :: Lens' ModifyClusterIAMRoles [Text]
-mcirRemoveIAMRoles = lens _mcirRemoveIAMRoles (\ s a -> s{_mcirRemoveIAMRoles = a}) . _Default . _Coerce;
+mcirRemoveIAMRoles = lens _mcirRemoveIAMRoles (\ s a -> s{_mcirRemoveIAMRoles = a}) . _Default . _Coerce
 
 -- | Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request.
 mcirAddIAMRoles :: Lens' ModifyClusterIAMRoles [Text]
-mcirAddIAMRoles = lens _mcirAddIAMRoles (\ s a -> s{_mcirAddIAMRoles = a}) . _Default . _Coerce;
+mcirAddIAMRoles = lens _mcirAddIAMRoles (\ s a -> s{_mcirAddIAMRoles = a}) . _Default . _Coerce
 
 -- | The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
 mcirClusterIdentifier :: Lens' ModifyClusterIAMRoles Text
-mcirClusterIdentifier = lens _mcirClusterIdentifier (\ s a -> s{_mcirClusterIdentifier = a});
+mcirClusterIdentifier = lens _mcirClusterIdentifier (\ s a -> s{_mcirClusterIdentifier = a})
 
 instance AWSRequest ModifyClusterIAMRoles where
         type Rs ModifyClusterIAMRoles =
@@ -144,15 +144,15 @@ modifyClusterIAMRolesResponse
     -> ModifyClusterIAMRolesResponse
 modifyClusterIAMRolesResponse pResponseStatus_ =
   ModifyClusterIAMRolesResponse'
-  {_mcirrsCluster = Nothing, _mcirrsResponseStatus = pResponseStatus_}
+    {_mcirrsCluster = Nothing, _mcirrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 mcirrsCluster :: Lens' ModifyClusterIAMRolesResponse (Maybe Cluster)
-mcirrsCluster = lens _mcirrsCluster (\ s a -> s{_mcirrsCluster = a});
+mcirrsCluster = lens _mcirrsCluster (\ s a -> s{_mcirrsCluster = a})
 
 -- | -- | The response status code.
 mcirrsResponseStatus :: Lens' ModifyClusterIAMRolesResponse Int
-mcirrsResponseStatus = lens _mcirrsResponseStatus (\ s a -> s{_mcirrsResponseStatus = a});
+mcirrsResponseStatus = lens _mcirrsResponseStatus (\ s a -> s{_mcirrsResponseStatus = a})
 
 instance NFData ModifyClusterIAMRolesResponse where

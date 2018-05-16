@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateUser
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ data CreateUser = CreateUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cuAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'cuAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'cuStorageRule' - The amount of storage for the user.
 --
@@ -95,53 +95,53 @@ createUser
     -> CreateUser
 createUser pUsername_ pGivenName_ pSurname_ pPassword_ =
   CreateUser'
-  { _cuAuthenticationToken = Nothing
-  , _cuStorageRule = Nothing
-  , _cuEmailAddress = Nothing
-  , _cuTimeZoneId = Nothing
-  , _cuOrganizationId = Nothing
-  , _cuUsername = pUsername_
-  , _cuGivenName = pGivenName_
-  , _cuSurname = pSurname_
-  , _cuPassword = _Sensitive # pPassword_
-  }
+    { _cuAuthenticationToken = Nothing
+    , _cuStorageRule = Nothing
+    , _cuEmailAddress = Nothing
+    , _cuTimeZoneId = Nothing
+    , _cuOrganizationId = Nothing
+    , _cuUsername = pUsername_
+    , _cuGivenName = pGivenName_
+    , _cuSurname = pSurname_
+    , _cuPassword = _Sensitive # pPassword_
+    }
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 cuAuthenticationToken :: Lens' CreateUser (Maybe Text)
-cuAuthenticationToken = lens _cuAuthenticationToken (\ s a -> s{_cuAuthenticationToken = a}) . mapping _Sensitive;
+cuAuthenticationToken = lens _cuAuthenticationToken (\ s a -> s{_cuAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The amount of storage for the user.
 cuStorageRule :: Lens' CreateUser (Maybe StorageRuleType)
-cuStorageRule = lens _cuStorageRule (\ s a -> s{_cuStorageRule = a});
+cuStorageRule = lens _cuStorageRule (\ s a -> s{_cuStorageRule = a})
 
 -- | The email address of the user.
 cuEmailAddress :: Lens' CreateUser (Maybe Text)
-cuEmailAddress = lens _cuEmailAddress (\ s a -> s{_cuEmailAddress = a});
+cuEmailAddress = lens _cuEmailAddress (\ s a -> s{_cuEmailAddress = a})
 
 -- | The time zone ID of the user.
 cuTimeZoneId :: Lens' CreateUser (Maybe Text)
-cuTimeZoneId = lens _cuTimeZoneId (\ s a -> s{_cuTimeZoneId = a});
+cuTimeZoneId = lens _cuTimeZoneId (\ s a -> s{_cuTimeZoneId = a})
 
 -- | The ID of the organization.
 cuOrganizationId :: Lens' CreateUser (Maybe Text)
-cuOrganizationId = lens _cuOrganizationId (\ s a -> s{_cuOrganizationId = a});
+cuOrganizationId = lens _cuOrganizationId (\ s a -> s{_cuOrganizationId = a})
 
 -- | The login name of the user.
 cuUsername :: Lens' CreateUser Text
-cuUsername = lens _cuUsername (\ s a -> s{_cuUsername = a});
+cuUsername = lens _cuUsername (\ s a -> s{_cuUsername = a})
 
 -- | The given name of the user.
 cuGivenName :: Lens' CreateUser Text
-cuGivenName = lens _cuGivenName (\ s a -> s{_cuGivenName = a});
+cuGivenName = lens _cuGivenName (\ s a -> s{_cuGivenName = a})
 
 -- | The surname of the user.
 cuSurname :: Lens' CreateUser Text
-cuSurname = lens _cuSurname (\ s a -> s{_cuSurname = a});
+cuSurname = lens _cuSurname (\ s a -> s{_cuSurname = a})
 
 -- | The password of the user.
 cuPassword :: Lens' CreateUser Text
-cuPassword = lens _cuPassword (\ s a -> s{_cuPassword = a}) . _Sensitive;
+cuPassword = lens _cuPassword (\ s a -> s{_cuPassword = a}) . _Sensitive
 
 instance AWSRequest CreateUser where
         type Rs CreateUser = CreateUserResponse
@@ -201,15 +201,15 @@ createUserResponse
     -> CreateUserResponse
 createUserResponse pResponseStatus_ =
   CreateUserResponse'
-  {_cursUser = Nothing, _cursResponseStatus = pResponseStatus_}
+    {_cursUser = Nothing, _cursResponseStatus = pResponseStatus_}
 
 
 -- | The user information.
 cursUser :: Lens' CreateUserResponse (Maybe User)
-cursUser = lens _cursUser (\ s a -> s{_cursUser = a});
+cursUser = lens _cursUser (\ s a -> s{_cursUser = a})
 
 -- | -- | The response status code.
 cursResponseStatus :: Lens' CreateUserResponse Int
-cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a});
+cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a})
 
 instance NFData CreateUserResponse where

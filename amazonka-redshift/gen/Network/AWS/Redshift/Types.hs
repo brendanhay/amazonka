@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -107,6 +107,9 @@ module Network.AWS.Redshift.Types
     -- * ParameterApplyType
     , ParameterApplyType (..)
 
+    -- * ReservedNodeOfferingType
+    , ReservedNodeOfferingType (..)
+
     -- * SourceType
     , SourceType (..)
 
@@ -123,6 +126,7 @@ module Network.AWS.Redshift.Types
     , AvailabilityZone
     , availabilityZone
     , azName
+    , azSupportedPlatforms
 
     -- * Cluster
     , Cluster
@@ -391,6 +395,7 @@ module Network.AWS.Redshift.Types
     -- * ReservedNode
     , ReservedNode
     , reservedNode
+    , rnReservedNodeOfferingType
     , rnState
     , rnCurrencyCode
     , rnStartTime
@@ -407,6 +412,7 @@ module Network.AWS.Redshift.Types
     -- * ReservedNodeOffering
     , ReservedNodeOffering
     , reservedNodeOffering
+    , rnoReservedNodeOfferingType
     , rnoCurrencyCode
     , rnoReservedNodeOfferingId
     , rnoRecurringCharges
@@ -473,6 +479,11 @@ module Network.AWS.Redshift.Types
     , sSubnetIdentifier
     , sSubnetAvailabilityZone
 
+    -- * SupportedPlatform
+    , SupportedPlatform
+    , supportedPlatform
+    , spName
+
     -- * TableRestoreStatus
     , TableRestoreStatus
     , tableRestoreStatus
@@ -522,24 +533,24 @@ import Network.AWS.Sign.V4
 redshift :: Service
 redshift =
   Service
-  { _svcAbbrev = "Redshift"
-  , _svcSigner = v4
-  , _svcPrefix = "redshift"
-  , _svcVersion = "2012-12-01"
-  , _svcEndpoint = defaultEndpoint redshift
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "Redshift"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Redshift"
+    , _svcSigner = v4
+    , _svcPrefix = "redshift"
+    , _svcVersion = "2012-12-01"
+    , _svcEndpoint = defaultEndpoint redshift
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError "Redshift"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -548,6 +559,8 @@ redshift =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

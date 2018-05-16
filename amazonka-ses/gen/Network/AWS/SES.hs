@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.SES
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,14 @@ module Network.AWS.SES
     -- ** TemplateDoesNotExistException
     , _TemplateDoesNotExistException
 
+    -- ** ConfigurationSetSendingPausedException
+    , _ConfigurationSetSendingPausedException
+
     -- ** CannotDeleteException
     , _CannotDeleteException
+
+    -- ** ProductionAccessNotGrantedException
+    , _ProductionAccessNotGrantedException
 
     -- ** RuleDoesNotExistException
     , _RuleDoesNotExistException
@@ -47,6 +53,9 @@ module Network.AWS.SES
     -- ** MissingRenderingAttributeException
     , _MissingRenderingAttributeException
 
+    -- ** FromEmailAddressNotVerifiedException
+    , _FromEmailAddressNotVerifiedException
+
     -- ** RuleSetDoesNotExistException
     , _RuleSetDoesNotExistException
 
@@ -59,11 +68,23 @@ module Network.AWS.SES
     -- ** ConfigurationSetAlreadyExistsException
     , _ConfigurationSetAlreadyExistsException
 
+    -- ** CustomVerificationEmailInvalidContentException
+    , _CustomVerificationEmailInvalidContentException
+
     -- ** InvalidTrackingOptionsException
     , _InvalidTrackingOptionsException
 
+    -- ** AccountSendingPausedException
+    , _AccountSendingPausedException
+
     -- ** EventDestinationDoesNotExistException
     , _EventDestinationDoesNotExistException
+
+    -- ** CustomVerificationEmailTemplateAlreadyExistsException
+    , _CustomVerificationEmailTemplateAlreadyExistsException
+
+    -- ** CustomVerificationEmailTemplateDoesNotExistException
+    , _CustomVerificationEmailTemplateDoesNotExistException
 
     -- ** InvalidCloudWatchDestinationException
     , _InvalidCloudWatchDestinationException
@@ -131,11 +152,23 @@ module Network.AWS.SES
     -- ** PutIdentityPolicy
     , module Network.AWS.SES.PutIdentityPolicy
 
+    -- ** DeleteCustomVerificationEmailTemplate
+    , module Network.AWS.SES.DeleteCustomVerificationEmailTemplate
+
     -- ** DeleteIdentityPolicy
     , module Network.AWS.SES.DeleteIdentityPolicy
 
+    -- ** UpdateCustomVerificationEmailTemplate
+    , module Network.AWS.SES.UpdateCustomVerificationEmailTemplate
+
+    -- ** SendCustomVerificationEmail
+    , module Network.AWS.SES.SendCustomVerificationEmail
+
     -- ** GetIdentityNotificationAttributes
     , module Network.AWS.SES.GetIdentityNotificationAttributes
+
+    -- ** UpdateConfigurationSetReputationMetricsEnabled
+    , module Network.AWS.SES.UpdateConfigurationSetReputationMetricsEnabled
 
     -- ** ListIdentityPolicies
     , module Network.AWS.SES.ListIdentityPolicies
@@ -227,6 +260,9 @@ module Network.AWS.SES
     -- ** GetSendStatistics
     , module Network.AWS.SES.GetSendStatistics
 
+    -- ** ListCustomVerificationEmailTemplates (Paginated)
+    , module Network.AWS.SES.ListCustomVerificationEmailTemplates
+
     -- ** DeleteIdentity
     , module Network.AWS.SES.DeleteIdentity
 
@@ -235,6 +271,12 @@ module Network.AWS.SES
 
     -- ** ListIdentities (Paginated)
     , module Network.AWS.SES.ListIdentities
+
+    -- ** UpdateConfigurationSetSendingEnabled
+    , module Network.AWS.SES.UpdateConfigurationSetSendingEnabled
+
+    -- ** CreateCustomVerificationEmailTemplate
+    , module Network.AWS.SES.CreateCustomVerificationEmailTemplate
 
     -- ** VerifyEmailIdentity
     , module Network.AWS.SES.VerifyEmailIdentity
@@ -250,6 +292,9 @@ module Network.AWS.SES
 
     -- ** ListVerifiedEmailAddresses
     , module Network.AWS.SES.ListVerifiedEmailAddresses
+
+    -- ** GetCustomVerificationEmailTemplate
+    , module Network.AWS.SES.GetCustomVerificationEmailTemplate
 
     -- ** SetIdentityNotificationTopic
     , module Network.AWS.SES.SetIdentityNotificationTopic
@@ -269,6 +314,9 @@ module Network.AWS.SES
     -- ** CreateConfigurationSetEventDestination
     , module Network.AWS.SES.CreateConfigurationSetEventDestination
 
+    -- ** GetAccountSendingEnabled
+    , module Network.AWS.SES.GetAccountSendingEnabled
+
     -- ** CreateReceiptRule
     , module Network.AWS.SES.CreateReceiptRule
 
@@ -280,6 +328,9 @@ module Network.AWS.SES
 
     -- ** CreateConfigurationSet
     , module Network.AWS.SES.CreateConfigurationSet
+
+    -- ** UpdateAccountSendingEnabled
+    , module Network.AWS.SES.UpdateAccountSendingEnabled
 
     -- ** CreateConfigurationSetTrackingOptions
     , module Network.AWS.SES.CreateConfigurationSetTrackingOptions
@@ -402,6 +453,15 @@ module Network.AWS.SES
     , content
     , cCharset
     , cData
+
+    -- ** CustomVerificationEmailTemplate
+    , CustomVerificationEmailTemplate
+    , customVerificationEmailTemplate
+    , cvetFromEmailAddress
+    , cvetTemplateName
+    , cvetFailureRedirectionURL
+    , cvetTemplateSubject
+    , cvetSuccessRedirectionURL
 
     -- ** Destination
     , Destination
@@ -544,6 +604,13 @@ module Network.AWS.SES
     , rdfAction
     , rdfStatus
 
+    -- ** ReputationOptions
+    , ReputationOptions
+    , reputationOptions
+    , roLastFreshStart
+    , roReputationMetricsEnabled
+    , roSendingEnabled
+
     -- ** S3Action
     , S3Action
     , s3Action
@@ -608,6 +675,7 @@ import Network.AWS.SES.CloneReceiptRuleSet
 import Network.AWS.SES.CreateConfigurationSet
 import Network.AWS.SES.CreateConfigurationSetEventDestination
 import Network.AWS.SES.CreateConfigurationSetTrackingOptions
+import Network.AWS.SES.CreateCustomVerificationEmailTemplate
 import Network.AWS.SES.CreateReceiptFilter
 import Network.AWS.SES.CreateReceiptRule
 import Network.AWS.SES.CreateReceiptRuleSet
@@ -615,6 +683,7 @@ import Network.AWS.SES.CreateTemplate
 import Network.AWS.SES.DeleteConfigurationSet
 import Network.AWS.SES.DeleteConfigurationSetEventDestination
 import Network.AWS.SES.DeleteConfigurationSetTrackingOptions
+import Network.AWS.SES.DeleteCustomVerificationEmailTemplate
 import Network.AWS.SES.DeleteIdentity
 import Network.AWS.SES.DeleteIdentityPolicy
 import Network.AWS.SES.DeleteReceiptFilter
@@ -626,6 +695,8 @@ import Network.AWS.SES.DescribeActiveReceiptRuleSet
 import Network.AWS.SES.DescribeConfigurationSet
 import Network.AWS.SES.DescribeReceiptRule
 import Network.AWS.SES.DescribeReceiptRuleSet
+import Network.AWS.SES.GetAccountSendingEnabled
+import Network.AWS.SES.GetCustomVerificationEmailTemplate
 import Network.AWS.SES.GetIdentityDkimAttributes
 import Network.AWS.SES.GetIdentityMailFromDomainAttributes
 import Network.AWS.SES.GetIdentityNotificationAttributes
@@ -635,6 +706,7 @@ import Network.AWS.SES.GetSendQuota
 import Network.AWS.SES.GetSendStatistics
 import Network.AWS.SES.GetTemplate
 import Network.AWS.SES.ListConfigurationSets
+import Network.AWS.SES.ListCustomVerificationEmailTemplates
 import Network.AWS.SES.ListIdentities
 import Network.AWS.SES.ListIdentityPolicies
 import Network.AWS.SES.ListReceiptFilters
@@ -645,6 +717,7 @@ import Network.AWS.SES.PutIdentityPolicy
 import Network.AWS.SES.ReorderReceiptRuleSet
 import Network.AWS.SES.SendBounce
 import Network.AWS.SES.SendBulkTemplatedEmail
+import Network.AWS.SES.SendCustomVerificationEmail
 import Network.AWS.SES.SendEmail
 import Network.AWS.SES.SendRawEmail
 import Network.AWS.SES.SendTemplatedEmail
@@ -657,8 +730,12 @@ import Network.AWS.SES.SetIdentityNotificationTopic
 import Network.AWS.SES.SetReceiptRulePosition
 import Network.AWS.SES.TestRenderTemplate
 import Network.AWS.SES.Types
+import Network.AWS.SES.UpdateAccountSendingEnabled
 import Network.AWS.SES.UpdateConfigurationSetEventDestination
+import Network.AWS.SES.UpdateConfigurationSetReputationMetricsEnabled
+import Network.AWS.SES.UpdateConfigurationSetSendingEnabled
 import Network.AWS.SES.UpdateConfigurationSetTrackingOptions
+import Network.AWS.SES.UpdateCustomVerificationEmailTemplate
 import Network.AWS.SES.UpdateReceiptRule
 import Network.AWS.SES.UpdateTemplate
 import Network.AWS.SES.VerifyDomainDkim

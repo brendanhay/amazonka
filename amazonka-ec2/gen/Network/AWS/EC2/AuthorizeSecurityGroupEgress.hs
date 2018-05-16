@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AuthorizeSecurityGroupEgress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -97,53 +97,53 @@ authorizeSecurityGroupEgress
     -> AuthorizeSecurityGroupEgress
 authorizeSecurityGroupEgress pGroupId_ =
   AuthorizeSecurityGroupEgress'
-  { _asgeFromPort = Nothing
-  , _asgeIPPermissions = Nothing
-  , _asgeIPProtocol = Nothing
-  , _asgeToPort = Nothing
-  , _asgeCidrIP = Nothing
-  , _asgeSourceSecurityGroupOwnerId = Nothing
-  , _asgeSourceSecurityGroupName = Nothing
-  , _asgeDryRun = Nothing
-  , _asgeGroupId = pGroupId_
-  }
+    { _asgeFromPort = Nothing
+    , _asgeIPPermissions = Nothing
+    , _asgeIPProtocol = Nothing
+    , _asgeToPort = Nothing
+    , _asgeCidrIP = Nothing
+    , _asgeSourceSecurityGroupOwnerId = Nothing
+    , _asgeSourceSecurityGroupName = Nothing
+    , _asgeDryRun = Nothing
+    , _asgeGroupId = pGroupId_
+    }
 
 
 -- | Not supported. Use a set of IP permissions to specify the port.
 asgeFromPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
-asgeFromPort = lens _asgeFromPort (\ s a -> s{_asgeFromPort = a});
+asgeFromPort = lens _asgeFromPort (\ s a -> s{_asgeFromPort = a})
 
 -- | One or more sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
 asgeIPPermissions :: Lens' AuthorizeSecurityGroupEgress [IPPermission]
-asgeIPPermissions = lens _asgeIPPermissions (\ s a -> s{_asgeIPPermissions = a}) . _Default . _Coerce;
+asgeIPPermissions = lens _asgeIPPermissions (\ s a -> s{_asgeIPPermissions = a}) . _Default . _Coerce
 
 -- | Not supported. Use a set of IP permissions to specify the protocol name or number.
 asgeIPProtocol :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
-asgeIPProtocol = lens _asgeIPProtocol (\ s a -> s{_asgeIPProtocol = a});
+asgeIPProtocol = lens _asgeIPProtocol (\ s a -> s{_asgeIPProtocol = a})
 
 -- | Not supported. Use a set of IP permissions to specify the port.
 asgeToPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
-asgeToPort = lens _asgeToPort (\ s a -> s{_asgeToPort = a});
+asgeToPort = lens _asgeToPort (\ s a -> s{_asgeToPort = a})
 
 -- | Not supported. Use a set of IP permissions to specify the CIDR.
 asgeCidrIP :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
-asgeCidrIP = lens _asgeCidrIP (\ s a -> s{_asgeCidrIP = a});
+asgeCidrIP = lens _asgeCidrIP (\ s a -> s{_asgeCidrIP = a})
 
 -- | Not supported. Use a set of IP permissions to specify a destination security group.
 asgeSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
-asgeSourceSecurityGroupOwnerId = lens _asgeSourceSecurityGroupOwnerId (\ s a -> s{_asgeSourceSecurityGroupOwnerId = a});
+asgeSourceSecurityGroupOwnerId = lens _asgeSourceSecurityGroupOwnerId (\ s a -> s{_asgeSourceSecurityGroupOwnerId = a})
 
 -- | Not supported. Use a set of IP permissions to specify a destination security group.
 asgeSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
-asgeSourceSecurityGroupName = lens _asgeSourceSecurityGroupName (\ s a -> s{_asgeSourceSecurityGroupName = a});
+asgeSourceSecurityGroupName = lens _asgeSourceSecurityGroupName (\ s a -> s{_asgeSourceSecurityGroupName = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 asgeDryRun :: Lens' AuthorizeSecurityGroupEgress (Maybe Bool)
-asgeDryRun = lens _asgeDryRun (\ s a -> s{_asgeDryRun = a});
+asgeDryRun = lens _asgeDryRun (\ s a -> s{_asgeDryRun = a})
 
 -- | The ID of the security group.
 asgeGroupId :: Lens' AuthorizeSecurityGroupEgress Text
-asgeGroupId = lens _asgeGroupId (\ s a -> s{_asgeGroupId = a});
+asgeGroupId = lens _asgeGroupId (\ s a -> s{_asgeGroupId = a})
 
 instance AWSRequest AuthorizeSecurityGroupEgress
          where

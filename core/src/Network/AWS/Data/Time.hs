@@ -3,17 +3,17 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE KindSignatures             #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE ScopedTypeVariables        #-}
 {-# LANGUAGE StandaloneDeriving         #-}
+{-# LANGUAGE ViewPatterns               #-}
 
 -- |
 -- Module      : Network.AWS.Data.Time
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -43,7 +43,6 @@ import qualified Data.Attoparsec.Text        as AText
 import qualified Data.ByteString.Char8       as BS
 import           Data.Data                   (Data, Typeable)
 import           Data.Hashable
-import           Data.Monoid
 import           Data.Scientific
 import           Data.Tagged
 import qualified Data.Text                   as Text
@@ -74,16 +73,8 @@ deriving instance Typeable 'BasicFormat
 deriving instance Typeable 'AWSFormat
 deriving instance Typeable 'POSIXFormat
 
-data Time :: Format -> * where
-    Time :: UTCTime -> Time a
-      deriving (Data, Typeable, Generic)
-
-deriving instance Eq   (Time a)
-deriving instance Ord  (Time a)
-deriving instance Read (Time a)
-deriving instance Show (Time a)
-
-instance NFData (Time a)
+newtype Time (a :: Format) = Time { fromTime :: UTCTime }
+    deriving (Show, Read, Eq, Ord, Data, Typeable, Generic, NFData)
 
 instance Hashable (Time a) where
     hashWithSalt salt (Time (UTCTime (ModifiedJulianDay d) t)) =
@@ -91,10 +82,10 @@ instance Hashable (Time a) where
              `hashWithSalt` toRational t
 
 _Time :: Iso' (Time a) UTCTime
-_Time = iso (\(Time t) -> t) Time
+_Time = iso fromTime Time
 
 convert :: Time a -> Time b
-convert (Time t) = Time t
+convert = Time . fromTime
 
 type RFC822    = Time 'RFC822Format
 type ISO8601   = Time 'ISO8601Format
@@ -110,36 +101,41 @@ instance TimeFormat ISO8601   where format = Tagged (iso8601DateFormat (Just "%X
 instance TimeFormat BasicTime where format = Tagged "%Y%m%d"
 instance TimeFormat AWSTime   where format = Tagged "%Y%m%dT%H%M%SZ"
 
-instance FromText BasicTime where parser = parseFormattedTime
-instance FromText AWSTime   where parser = parseFormattedTime
+instance FromText BasicTime where parser = parseUnixTimestamp <|> parseFormattedTime
+instance FromText AWSTime   where parser = parseUnixTimestamp <|> parseFormattedTime
+instance FromText RFC822    where parser = parseUnixTimestamp <|> parseFormattedTime
+instance FromText ISO8601   where parser = parseUnixTimestamp <|> parseFormattedTime
+instance FromText POSIX     where parser = parseUnixTimestamp <|> parseFormattedTime
 
-instance FromText RFC822 where
-    parser = (convert :: ISO8601 -> RFC822) <$> parseFormattedTime
-         <|> parseFormattedTime
+parseFormattedTime :: Parser (Time a)
+parseFormattedTime = do
+    s <- Text.unpack <$> AText.takeText
 
-instance FromText ISO8601 where
-    parser = (convert :: RFC822 -> ISO8601) <$> parseFormattedTime
-         <|> parseFormattedTime
-         -- Deprecated, but ensure compatibility with examples until further investigation can be done
-         <|> parseFormattedTime' (Tagged $ iso8601DateFormat (Just "%X%Q%Z"))
+    let parse :: Tagged b String -> Parser (Time a)
+        parse (untag -> fmt) =
+            case parseTime defaultTimeLocale fmt s of
+                Just x  -> pure (Time x)
+                Nothing ->
+                    fail ( "Unable to parse Time format "
+                        ++ show fmt
+                        ++ " from "
+                        ++ show s
+                         )
 
-parseFormattedTime :: forall a. TimeFormat (Time a) => Parser (Time a)
-parseFormattedTime = parseFormattedTime' format
+    parse (format :: Tagged RFC822 String)
+        <|> parse (format :: Tagged ISO8601   String)
+        <|> parse (format :: Tagged BasicTime String)
+        <|> parse (format :: Tagged AWSTime   String)
+        -- Deprecated ISO8601 format exhibited in the AWS-supplied examples.
+        <|> parse (Tagged $ iso8601DateFormat (Just "%X%Q%Z"))
+        -- Exhaustive Failure
+        <|> fail ("Failure parsing Time from value: " ++ show s)
 
-parseFormattedTime' :: Tagged (Time a) String -> Parser (Time a)
-parseFormattedTime' f = do
-    x <- Text.unpack <$> AText.takeText
-    p (parseTime defaultTimeLocale (untag f) x) x
-  where
-    p :: Maybe UTCTime -> String -> Parser (Time a)
-    p (Just x) _ = return (Time x)
-    p Nothing  s = fail $ mconcat
-        [ "Failure parsing Date format "
-        , untag f
-        , " from value: '"
-        , s
-        , "'"
-        ]
+parseUnixTimestamp :: Parser (Time a)
+parseUnixTimestamp =
+    Time . posixSecondsToUTCTime . realToFrac
+        <$> AText.double <* AText.endOfInput
+        <|> fail "Failure parsing Unix Timestamp"
 
 instance ToText RFC822    where toText = Text.pack . renderFormattedTime
 instance ToText ISO8601   where toText = Text.pack . renderFormattedTime

@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.UpdatePortfolio
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified portfolio's details. This operation does not work with a product that has been shared with you.
+-- Updates the specified portfolio.
 --
+--
+-- You cannot update a product that was shared with you.
 --
 module Network.AWS.ServiceCatalog.UpdatePortfolio
     (
@@ -67,61 +69,61 @@ data UpdatePortfolio = UpdatePortfolio'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uRemoveTags' - Tags to remove from the existing list of tags associated with the portfolio.
+-- * 'uRemoveTags' - The tags to remove.
 --
 -- * 'uAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'uDisplayName' - The name to use for display purposes.
 --
--- * 'uAddTags' - Tags to add to the existing list of tags associated with the portfolio.
+-- * 'uAddTags' - The tags to add.
 --
--- * 'uDescription' - The updated text description of the portfolio.
+-- * 'uDescription' - The updated description of the portfolio.
 --
 -- * 'uProviderName' - The updated name of the portfolio provider.
 --
--- * 'uId' - The identifier of the portfolio for the update request.
+-- * 'uId' - The portfolio identifier.
 updatePortfolio
     :: Text -- ^ 'uId'
     -> UpdatePortfolio
 updatePortfolio pId_ =
   UpdatePortfolio'
-  { _uRemoveTags = Nothing
-  , _uAcceptLanguage = Nothing
-  , _uDisplayName = Nothing
-  , _uAddTags = Nothing
-  , _uDescription = Nothing
-  , _uProviderName = Nothing
-  , _uId = pId_
-  }
+    { _uRemoveTags = Nothing
+    , _uAcceptLanguage = Nothing
+    , _uDisplayName = Nothing
+    , _uAddTags = Nothing
+    , _uDescription = Nothing
+    , _uProviderName = Nothing
+    , _uId = pId_
+    }
 
 
--- | Tags to remove from the existing list of tags associated with the portfolio.
+-- | The tags to remove.
 uRemoveTags :: Lens' UpdatePortfolio [Text]
-uRemoveTags = lens _uRemoveTags (\ s a -> s{_uRemoveTags = a}) . _Default . _Coerce;
+uRemoveTags = lens _uRemoveTags (\ s a -> s{_uRemoveTags = a}) . _Default . _Coerce
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 uAcceptLanguage :: Lens' UpdatePortfolio (Maybe Text)
-uAcceptLanguage = lens _uAcceptLanguage (\ s a -> s{_uAcceptLanguage = a});
+uAcceptLanguage = lens _uAcceptLanguage (\ s a -> s{_uAcceptLanguage = a})
 
 -- | The name to use for display purposes.
 uDisplayName :: Lens' UpdatePortfolio (Maybe Text)
-uDisplayName = lens _uDisplayName (\ s a -> s{_uDisplayName = a});
+uDisplayName = lens _uDisplayName (\ s a -> s{_uDisplayName = a})
 
--- | Tags to add to the existing list of tags associated with the portfolio.
+-- | The tags to add.
 uAddTags :: Lens' UpdatePortfolio [Tag]
-uAddTags = lens _uAddTags (\ s a -> s{_uAddTags = a}) . _Default . _Coerce;
+uAddTags = lens _uAddTags (\ s a -> s{_uAddTags = a}) . _Default . _Coerce
 
--- | The updated text description of the portfolio.
+-- | The updated description of the portfolio.
 uDescription :: Lens' UpdatePortfolio (Maybe Text)
-uDescription = lens _uDescription (\ s a -> s{_uDescription = a});
+uDescription = lens _uDescription (\ s a -> s{_uDescription = a})
 
 -- | The updated name of the portfolio provider.
 uProviderName :: Lens' UpdatePortfolio (Maybe Text)
-uProviderName = lens _uProviderName (\ s a -> s{_uProviderName = a});
+uProviderName = lens _uProviderName (\ s a -> s{_uProviderName = a})
 
--- | The identifier of the portfolio for the update request.
+-- | The portfolio identifier.
 uId :: Lens' UpdatePortfolio Text
-uId = lens _uId (\ s a -> s{_uId = a});
+uId = lens _uId (\ s a -> s{_uId = a})
 
 instance AWSRequest UpdatePortfolio where
         type Rs UpdatePortfolio = UpdatePortfolioResponse
@@ -178,9 +180,9 @@ data UpdatePortfolioResponse = UpdatePortfolioResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uprsPortfolioDetail' - The resulting detailed portfolio information.
+-- * 'uprsPortfolioDetail' - Information about the portfolio.
 --
--- * 'uprsTags' - Tags associated with the portfolio.
+-- * 'uprsTags' - Information about the tags associated with the portfolio.
 --
 -- * 'uprsResponseStatus' - -- | The response status code.
 updatePortfolioResponse
@@ -188,22 +190,22 @@ updatePortfolioResponse
     -> UpdatePortfolioResponse
 updatePortfolioResponse pResponseStatus_ =
   UpdatePortfolioResponse'
-  { _uprsPortfolioDetail = Nothing
-  , _uprsTags = Nothing
-  , _uprsResponseStatus = pResponseStatus_
-  }
+    { _uprsPortfolioDetail = Nothing
+    , _uprsTags = Nothing
+    , _uprsResponseStatus = pResponseStatus_
+    }
 
 
--- | The resulting detailed portfolio information.
+-- | Information about the portfolio.
 uprsPortfolioDetail :: Lens' UpdatePortfolioResponse (Maybe PortfolioDetail)
-uprsPortfolioDetail = lens _uprsPortfolioDetail (\ s a -> s{_uprsPortfolioDetail = a});
+uprsPortfolioDetail = lens _uprsPortfolioDetail (\ s a -> s{_uprsPortfolioDetail = a})
 
--- | Tags associated with the portfolio.
+-- | Information about the tags associated with the portfolio.
 uprsTags :: Lens' UpdatePortfolioResponse [Tag]
-uprsTags = lens _uprsTags (\ s a -> s{_uprsTags = a}) . _Default . _Coerce;
+uprsTags = lens _uprsTags (\ s a -> s{_uprsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 uprsResponseStatus :: Lens' UpdatePortfolioResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
+uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a})
 
 instance NFData UpdatePortfolioResponse where

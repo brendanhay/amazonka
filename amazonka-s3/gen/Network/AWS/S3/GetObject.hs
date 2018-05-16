@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetObject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -158,103 +158,103 @@ getObject
     -> GetObject
 getObject pBucket_ pKey_ =
   GetObject'
-  { _goIfMatch = Nothing
-  , _goVersionId = Nothing
-  , _goResponseContentType = Nothing
-  , _goResponseContentDisposition = Nothing
-  , _goResponseContentLanguage = Nothing
-  , _goSSECustomerAlgorithm = Nothing
-  , _goSSECustomerKey = Nothing
-  , _goRequestPayer = Nothing
-  , _goResponseContentEncoding = Nothing
-  , _goIfModifiedSince = Nothing
-  , _goPartNumber = Nothing
-  , _goRange = Nothing
-  , _goIfUnmodifiedSince = Nothing
-  , _goSSECustomerKeyMD5 = Nothing
-  , _goResponseCacheControl = Nothing
-  , _goResponseExpires = Nothing
-  , _goIfNoneMatch = Nothing
-  , _goBucket = pBucket_
-  , _goKey = pKey_
-  }
+    { _goIfMatch = Nothing
+    , _goVersionId = Nothing
+    , _goResponseContentType = Nothing
+    , _goResponseContentDisposition = Nothing
+    , _goResponseContentLanguage = Nothing
+    , _goSSECustomerAlgorithm = Nothing
+    , _goSSECustomerKey = Nothing
+    , _goRequestPayer = Nothing
+    , _goResponseContentEncoding = Nothing
+    , _goIfModifiedSince = Nothing
+    , _goPartNumber = Nothing
+    , _goRange = Nothing
+    , _goIfUnmodifiedSince = Nothing
+    , _goSSECustomerKeyMD5 = Nothing
+    , _goResponseCacheControl = Nothing
+    , _goResponseExpires = Nothing
+    , _goIfNoneMatch = Nothing
+    , _goBucket = pBucket_
+    , _goKey = pKey_
+    }
 
 
 -- | Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
 goIfMatch :: Lens' GetObject (Maybe Text)
-goIfMatch = lens _goIfMatch (\ s a -> s{_goIfMatch = a});
+goIfMatch = lens _goIfMatch (\ s a -> s{_goIfMatch = a})
 
 -- | VersionId used to reference a specific version of the object.
 goVersionId :: Lens' GetObject (Maybe ObjectVersionId)
-goVersionId = lens _goVersionId (\ s a -> s{_goVersionId = a});
+goVersionId = lens _goVersionId (\ s a -> s{_goVersionId = a})
 
 -- | Sets the Content-Type header of the response.
 goResponseContentType :: Lens' GetObject (Maybe Text)
-goResponseContentType = lens _goResponseContentType (\ s a -> s{_goResponseContentType = a});
+goResponseContentType = lens _goResponseContentType (\ s a -> s{_goResponseContentType = a})
 
 -- | Sets the Content-Disposition header of the response
 goResponseContentDisposition :: Lens' GetObject (Maybe Text)
-goResponseContentDisposition = lens _goResponseContentDisposition (\ s a -> s{_goResponseContentDisposition = a});
+goResponseContentDisposition = lens _goResponseContentDisposition (\ s a -> s{_goResponseContentDisposition = a})
 
 -- | Sets the Content-Language header of the response.
 goResponseContentLanguage :: Lens' GetObject (Maybe Text)
-goResponseContentLanguage = lens _goResponseContentLanguage (\ s a -> s{_goResponseContentLanguage = a});
+goResponseContentLanguage = lens _goResponseContentLanguage (\ s a -> s{_goResponseContentLanguage = a})
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 goSSECustomerAlgorithm :: Lens' GetObject (Maybe Text)
-goSSECustomerAlgorithm = lens _goSSECustomerAlgorithm (\ s a -> s{_goSSECustomerAlgorithm = a});
+goSSECustomerAlgorithm = lens _goSSECustomerAlgorithm (\ s a -> s{_goSSECustomerAlgorithm = a})
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
 goSSECustomerKey :: Lens' GetObject (Maybe Text)
-goSSECustomerKey = lens _goSSECustomerKey (\ s a -> s{_goSSECustomerKey = a}) . mapping _Sensitive;
+goSSECustomerKey = lens _goSSECustomerKey (\ s a -> s{_goSSECustomerKey = a}) . mapping _Sensitive
 
 -- | Undocumented member.
 goRequestPayer :: Lens' GetObject (Maybe RequestPayer)
-goRequestPayer = lens _goRequestPayer (\ s a -> s{_goRequestPayer = a});
+goRequestPayer = lens _goRequestPayer (\ s a -> s{_goRequestPayer = a})
 
 -- | Sets the Content-Encoding header of the response.
 goResponseContentEncoding :: Lens' GetObject (Maybe Text)
-goResponseContentEncoding = lens _goResponseContentEncoding (\ s a -> s{_goResponseContentEncoding = a});
+goResponseContentEncoding = lens _goResponseContentEncoding (\ s a -> s{_goResponseContentEncoding = a})
 
 -- | Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
 goIfModifiedSince :: Lens' GetObject (Maybe UTCTime)
-goIfModifiedSince = lens _goIfModifiedSince (\ s a -> s{_goIfModifiedSince = a}) . mapping _Time;
+goIfModifiedSince = lens _goIfModifiedSince (\ s a -> s{_goIfModifiedSince = a}) . mapping _Time
 
 -- | Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
 goPartNumber :: Lens' GetObject (Maybe Int)
-goPartNumber = lens _goPartNumber (\ s a -> s{_goPartNumber = a});
+goPartNumber = lens _goPartNumber (\ s a -> s{_goPartNumber = a})
 
 -- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 goRange :: Lens' GetObject (Maybe Text)
-goRange = lens _goRange (\ s a -> s{_goRange = a});
+goRange = lens _goRange (\ s a -> s{_goRange = a})
 
 -- | Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
 goIfUnmodifiedSince :: Lens' GetObject (Maybe UTCTime)
-goIfUnmodifiedSince = lens _goIfUnmodifiedSince (\ s a -> s{_goIfUnmodifiedSince = a}) . mapping _Time;
+goIfUnmodifiedSince = lens _goIfUnmodifiedSince (\ s a -> s{_goIfUnmodifiedSince = a}) . mapping _Time
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 goSSECustomerKeyMD5 :: Lens' GetObject (Maybe Text)
-goSSECustomerKeyMD5 = lens _goSSECustomerKeyMD5 (\ s a -> s{_goSSECustomerKeyMD5 = a});
+goSSECustomerKeyMD5 = lens _goSSECustomerKeyMD5 (\ s a -> s{_goSSECustomerKeyMD5 = a})
 
 -- | Sets the Cache-Control header of the response.
 goResponseCacheControl :: Lens' GetObject (Maybe Text)
-goResponseCacheControl = lens _goResponseCacheControl (\ s a -> s{_goResponseCacheControl = a});
+goResponseCacheControl = lens _goResponseCacheControl (\ s a -> s{_goResponseCacheControl = a})
 
 -- | Sets the Expires header of the response.
 goResponseExpires :: Lens' GetObject (Maybe UTCTime)
-goResponseExpires = lens _goResponseExpires (\ s a -> s{_goResponseExpires = a}) . mapping _Time;
+goResponseExpires = lens _goResponseExpires (\ s a -> s{_goResponseExpires = a}) . mapping _Time
 
 -- | Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
 goIfNoneMatch :: Lens' GetObject (Maybe Text)
-goIfNoneMatch = lens _goIfNoneMatch (\ s a -> s{_goIfNoneMatch = a});
+goIfNoneMatch = lens _goIfNoneMatch (\ s a -> s{_goIfNoneMatch = a})
 
 -- | Undocumented member.
 goBucket :: Lens' GetObject BucketName
-goBucket = lens _goBucket (\ s a -> s{_goBucket = a});
+goBucket = lens _goBucket (\ s a -> s{_goBucket = a})
 
 -- | Undocumented member.
 goKey :: Lens' GetObject ObjectKey
-goKey = lens _goKey (\ s a -> s{_goKey = a});
+goKey = lens _goKey (\ s a -> s{_goKey = a})
 
 instance AWSRequest GetObject where
         type Rs GetObject = GetObjectResponse
@@ -438,150 +438,150 @@ getObjectResponse
     -> GetObjectResponse
 getObjectResponse pResponseStatus_ pBody_ =
   GetObjectResponse'
-  { _gorsRequestCharged = Nothing
-  , _gorsPartsCount = Nothing
-  , _gorsETag = Nothing
-  , _gorsVersionId = Nothing
-  , _gorsContentLength = Nothing
-  , _gorsExpires = Nothing
-  , _gorsRestore = Nothing
-  , _gorsExpiration = Nothing
-  , _gorsDeleteMarker = Nothing
-  , _gorsSSECustomerAlgorithm = Nothing
-  , _gorsTagCount = Nothing
-  , _gorsMissingMeta = Nothing
-  , _gorsWebsiteRedirectLocation = Nothing
-  , _gorsAcceptRanges = Nothing
-  , _gorsStorageClass = Nothing
-  , _gorsSSECustomerKeyMD5 = Nothing
-  , _gorsSSEKMSKeyId = Nothing
-  , _gorsContentEncoding = Nothing
-  , _gorsMetadata = mempty
-  , _gorsReplicationStatus = Nothing
-  , _gorsCacheControl = Nothing
-  , _gorsContentLanguage = Nothing
-  , _gorsLastModified = Nothing
-  , _gorsContentDisposition = Nothing
-  , _gorsContentRange = Nothing
-  , _gorsServerSideEncryption = Nothing
-  , _gorsContentType = Nothing
-  , _gorsResponseStatus = pResponseStatus_
-  , _gorsBody = pBody_
-  }
+    { _gorsRequestCharged = Nothing
+    , _gorsPartsCount = Nothing
+    , _gorsETag = Nothing
+    , _gorsVersionId = Nothing
+    , _gorsContentLength = Nothing
+    , _gorsExpires = Nothing
+    , _gorsRestore = Nothing
+    , _gorsExpiration = Nothing
+    , _gorsDeleteMarker = Nothing
+    , _gorsSSECustomerAlgorithm = Nothing
+    , _gorsTagCount = Nothing
+    , _gorsMissingMeta = Nothing
+    , _gorsWebsiteRedirectLocation = Nothing
+    , _gorsAcceptRanges = Nothing
+    , _gorsStorageClass = Nothing
+    , _gorsSSECustomerKeyMD5 = Nothing
+    , _gorsSSEKMSKeyId = Nothing
+    , _gorsContentEncoding = Nothing
+    , _gorsMetadata = mempty
+    , _gorsReplicationStatus = Nothing
+    , _gorsCacheControl = Nothing
+    , _gorsContentLanguage = Nothing
+    , _gorsLastModified = Nothing
+    , _gorsContentDisposition = Nothing
+    , _gorsContentRange = Nothing
+    , _gorsServerSideEncryption = Nothing
+    , _gorsContentType = Nothing
+    , _gorsResponseStatus = pResponseStatus_
+    , _gorsBody = pBody_
+    }
 
 
 -- | Undocumented member.
 gorsRequestCharged :: Lens' GetObjectResponse (Maybe RequestCharged)
-gorsRequestCharged = lens _gorsRequestCharged (\ s a -> s{_gorsRequestCharged = a});
+gorsRequestCharged = lens _gorsRequestCharged (\ s a -> s{_gorsRequestCharged = a})
 
 -- | The count of parts this object has.
 gorsPartsCount :: Lens' GetObjectResponse (Maybe Int)
-gorsPartsCount = lens _gorsPartsCount (\ s a -> s{_gorsPartsCount = a});
+gorsPartsCount = lens _gorsPartsCount (\ s a -> s{_gorsPartsCount = a})
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
 gorsETag :: Lens' GetObjectResponse (Maybe ETag)
-gorsETag = lens _gorsETag (\ s a -> s{_gorsETag = a});
+gorsETag = lens _gorsETag (\ s a -> s{_gorsETag = a})
 
 -- | Version of the object.
 gorsVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
-gorsVersionId = lens _gorsVersionId (\ s a -> s{_gorsVersionId = a});
+gorsVersionId = lens _gorsVersionId (\ s a -> s{_gorsVersionId = a})
 
 -- | Size of the body in bytes.
 gorsContentLength :: Lens' GetObjectResponse (Maybe Integer)
-gorsContentLength = lens _gorsContentLength (\ s a -> s{_gorsContentLength = a});
+gorsContentLength = lens _gorsContentLength (\ s a -> s{_gorsContentLength = a})
 
 -- | The date and time at which the object is no longer cacheable.
 gorsExpires :: Lens' GetObjectResponse (Maybe UTCTime)
-gorsExpires = lens _gorsExpires (\ s a -> s{_gorsExpires = a}) . mapping _Time;
+gorsExpires = lens _gorsExpires (\ s a -> s{_gorsExpires = a}) . mapping _Time
 
 -- | Provides information about object restoration operation and expiration time of the restored object copy.
 gorsRestore :: Lens' GetObjectResponse (Maybe Text)
-gorsRestore = lens _gorsRestore (\ s a -> s{_gorsRestore = a});
+gorsRestore = lens _gorsRestore (\ s a -> s{_gorsRestore = a})
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
 gorsExpiration :: Lens' GetObjectResponse (Maybe Text)
-gorsExpiration = lens _gorsExpiration (\ s a -> s{_gorsExpiration = a});
+gorsExpiration = lens _gorsExpiration (\ s a -> s{_gorsExpiration = a})
 
 -- | Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
 gorsDeleteMarker :: Lens' GetObjectResponse (Maybe Bool)
-gorsDeleteMarker = lens _gorsDeleteMarker (\ s a -> s{_gorsDeleteMarker = a});
+gorsDeleteMarker = lens _gorsDeleteMarker (\ s a -> s{_gorsDeleteMarker = a})
 
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 gorsSSECustomerAlgorithm :: Lens' GetObjectResponse (Maybe Text)
-gorsSSECustomerAlgorithm = lens _gorsSSECustomerAlgorithm (\ s a -> s{_gorsSSECustomerAlgorithm = a});
+gorsSSECustomerAlgorithm = lens _gorsSSECustomerAlgorithm (\ s a -> s{_gorsSSECustomerAlgorithm = a})
 
 -- | The number of tags, if any, on the object.
 gorsTagCount :: Lens' GetObjectResponse (Maybe Int)
-gorsTagCount = lens _gorsTagCount (\ s a -> s{_gorsTagCount = a});
+gorsTagCount = lens _gorsTagCount (\ s a -> s{_gorsTagCount = a})
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
 gorsMissingMeta :: Lens' GetObjectResponse (Maybe Int)
-gorsMissingMeta = lens _gorsMissingMeta (\ s a -> s{_gorsMissingMeta = a});
+gorsMissingMeta = lens _gorsMissingMeta (\ s a -> s{_gorsMissingMeta = a})
 
 -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 gorsWebsiteRedirectLocation :: Lens' GetObjectResponse (Maybe Text)
-gorsWebsiteRedirectLocation = lens _gorsWebsiteRedirectLocation (\ s a -> s{_gorsWebsiteRedirectLocation = a});
+gorsWebsiteRedirectLocation = lens _gorsWebsiteRedirectLocation (\ s a -> s{_gorsWebsiteRedirectLocation = a})
 
 -- | Undocumented member.
 gorsAcceptRanges :: Lens' GetObjectResponse (Maybe Text)
-gorsAcceptRanges = lens _gorsAcceptRanges (\ s a -> s{_gorsAcceptRanges = a});
+gorsAcceptRanges = lens _gorsAcceptRanges (\ s a -> s{_gorsAcceptRanges = a})
 
 -- | Undocumented member.
 gorsStorageClass :: Lens' GetObjectResponse (Maybe StorageClass)
-gorsStorageClass = lens _gorsStorageClass (\ s a -> s{_gorsStorageClass = a});
+gorsStorageClass = lens _gorsStorageClass (\ s a -> s{_gorsStorageClass = a})
 
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 gorsSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
-gorsSSECustomerKeyMD5 = lens _gorsSSECustomerKeyMD5 (\ s a -> s{_gorsSSECustomerKeyMD5 = a});
+gorsSSECustomerKeyMD5 = lens _gorsSSECustomerKeyMD5 (\ s a -> s{_gorsSSECustomerKeyMD5 = a})
 
 -- | If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 gorsSSEKMSKeyId :: Lens' GetObjectResponse (Maybe Text)
-gorsSSEKMSKeyId = lens _gorsSSEKMSKeyId (\ s a -> s{_gorsSSEKMSKeyId = a}) . mapping _Sensitive;
+gorsSSEKMSKeyId = lens _gorsSSEKMSKeyId (\ s a -> s{_gorsSSEKMSKeyId = a}) . mapping _Sensitive
 
 -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 gorsContentEncoding :: Lens' GetObjectResponse (Maybe Text)
-gorsContentEncoding = lens _gorsContentEncoding (\ s a -> s{_gorsContentEncoding = a});
+gorsContentEncoding = lens _gorsContentEncoding (\ s a -> s{_gorsContentEncoding = a})
 
 -- | A map of metadata to store with the object in S3.
 gorsMetadata :: Lens' GetObjectResponse (HashMap Text Text)
-gorsMetadata = lens _gorsMetadata (\ s a -> s{_gorsMetadata = a}) . _Map;
+gorsMetadata = lens _gorsMetadata (\ s a -> s{_gorsMetadata = a}) . _Map
 
 -- | Undocumented member.
 gorsReplicationStatus :: Lens' GetObjectResponse (Maybe ReplicationStatus)
-gorsReplicationStatus = lens _gorsReplicationStatus (\ s a -> s{_gorsReplicationStatus = a});
+gorsReplicationStatus = lens _gorsReplicationStatus (\ s a -> s{_gorsReplicationStatus = a})
 
 -- | Specifies caching behavior along the request/reply chain.
 gorsCacheControl :: Lens' GetObjectResponse (Maybe Text)
-gorsCacheControl = lens _gorsCacheControl (\ s a -> s{_gorsCacheControl = a});
+gorsCacheControl = lens _gorsCacheControl (\ s a -> s{_gorsCacheControl = a})
 
 -- | The language the content is in.
 gorsContentLanguage :: Lens' GetObjectResponse (Maybe Text)
-gorsContentLanguage = lens _gorsContentLanguage (\ s a -> s{_gorsContentLanguage = a});
+gorsContentLanguage = lens _gorsContentLanguage (\ s a -> s{_gorsContentLanguage = a})
 
 -- | Last modified date of the object
 gorsLastModified :: Lens' GetObjectResponse (Maybe UTCTime)
-gorsLastModified = lens _gorsLastModified (\ s a -> s{_gorsLastModified = a}) . mapping _Time;
+gorsLastModified = lens _gorsLastModified (\ s a -> s{_gorsLastModified = a}) . mapping _Time
 
 -- | Specifies presentational information for the object.
 gorsContentDisposition :: Lens' GetObjectResponse (Maybe Text)
-gorsContentDisposition = lens _gorsContentDisposition (\ s a -> s{_gorsContentDisposition = a});
+gorsContentDisposition = lens _gorsContentDisposition (\ s a -> s{_gorsContentDisposition = a})
 
 -- | The portion of the object returned in the response.
 gorsContentRange :: Lens' GetObjectResponse (Maybe Text)
-gorsContentRange = lens _gorsContentRange (\ s a -> s{_gorsContentRange = a});
+gorsContentRange = lens _gorsContentRange (\ s a -> s{_gorsContentRange = a})
 
 -- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 gorsServerSideEncryption :: Lens' GetObjectResponse (Maybe ServerSideEncryption)
-gorsServerSideEncryption = lens _gorsServerSideEncryption (\ s a -> s{_gorsServerSideEncryption = a});
+gorsServerSideEncryption = lens _gorsServerSideEncryption (\ s a -> s{_gorsServerSideEncryption = a})
 
 -- | A standard MIME type describing the format of the object data.
 gorsContentType :: Lens' GetObjectResponse (Maybe Text)
-gorsContentType = lens _gorsContentType (\ s a -> s{_gorsContentType = a});
+gorsContentType = lens _gorsContentType (\ s a -> s{_gorsContentType = a})
 
 -- | -- | The response status code.
 gorsResponseStatus :: Lens' GetObjectResponse Int
-gorsResponseStatus = lens _gorsResponseStatus (\ s a -> s{_gorsResponseStatus = a});
+gorsResponseStatus = lens _gorsResponseStatus (\ s a -> s{_gorsResponseStatus = a})
 
 -- | Object data.
 gorsBody :: Lens' GetObjectResponse RsBody
-gorsBody = lens _gorsBody (\ s a -> s{_gorsBody = a});
+gorsBody = lens _gorsBody (\ s a -> s{_gorsBody = a})

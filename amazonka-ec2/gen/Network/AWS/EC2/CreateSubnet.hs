@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateSubnet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,33 +93,33 @@ createSubnet
     -> CreateSubnet
 createSubnet pCidrBlock_ pVPCId_ =
   CreateSubnet'
-  { _cssIPv6CidrBlock = Nothing
-  , _cssAvailabilityZone = Nothing
-  , _cssDryRun = Nothing
-  , _cssCidrBlock = pCidrBlock_
-  , _cssVPCId = pVPCId_
-  }
+    { _cssIPv6CidrBlock = Nothing
+    , _cssAvailabilityZone = Nothing
+    , _cssDryRun = Nothing
+    , _cssCidrBlock = pCidrBlock_
+    , _cssVPCId = pVPCId_
+    }
 
 
 -- | The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length.
 cssIPv6CidrBlock :: Lens' CreateSubnet (Maybe Text)
-cssIPv6CidrBlock = lens _cssIPv6CidrBlock (\ s a -> s{_cssIPv6CidrBlock = a});
+cssIPv6CidrBlock = lens _cssIPv6CidrBlock (\ s a -> s{_cssIPv6CidrBlock = a})
 
 -- | The Availability Zone for the subnet. Default: AWS selects one for you. If you create more than one subnet in your VPC, we may not necessarily select a different zone for each subnet.
 cssAvailabilityZone :: Lens' CreateSubnet (Maybe Text)
-cssAvailabilityZone = lens _cssAvailabilityZone (\ s a -> s{_cssAvailabilityZone = a});
+cssAvailabilityZone = lens _cssAvailabilityZone (\ s a -> s{_cssAvailabilityZone = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cssDryRun :: Lens' CreateSubnet (Maybe Bool)
-cssDryRun = lens _cssDryRun (\ s a -> s{_cssDryRun = a});
+cssDryRun = lens _cssDryRun (\ s a -> s{_cssDryRun = a})
 
 -- | The IPv4 network range for the subnet, in CIDR notation. For example, @10.0.0.0/24@ .
 cssCidrBlock :: Lens' CreateSubnet Text
-cssCidrBlock = lens _cssCidrBlock (\ s a -> s{_cssCidrBlock = a});
+cssCidrBlock = lens _cssCidrBlock (\ s a -> s{_cssCidrBlock = a})
 
 -- | The ID of the VPC.
 cssVPCId :: Lens' CreateSubnet Text
-cssVPCId = lens _cssVPCId (\ s a -> s{_cssVPCId = a});
+cssVPCId = lens _cssVPCId (\ s a -> s{_cssVPCId = a})
 
 instance AWSRequest CreateSubnet where
         type Rs CreateSubnet = CreateSubnetResponse
@@ -173,15 +173,15 @@ createSubnetResponse
     -> CreateSubnetResponse
 createSubnetResponse pResponseStatus_ =
   CreateSubnetResponse'
-  {_crersSubnet = Nothing, _crersResponseStatus = pResponseStatus_}
+    {_crersSubnet = Nothing, _crersResponseStatus = pResponseStatus_}
 
 
 -- | Information about the subnet.
 crersSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
-crersSubnet = lens _crersSubnet (\ s a -> s{_crersSubnet = a});
+crersSubnet = lens _crersSubnet (\ s a -> s{_crersSubnet = a})
 
 -- | -- | The response status code.
 crersResponseStatus :: Lens' CreateSubnetResponse Int
-crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a})
 
 instance NFData CreateSubnetResponse where

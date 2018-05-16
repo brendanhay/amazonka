@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetRepositoryTriggers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ getRepositoryTriggers pRepositoryName_ =
 
 -- | The name of the repository for which the trigger is configured.
 grtRepositoryName :: Lens' GetRepositoryTriggers Text
-grtRepositoryName = lens _grtRepositoryName (\ s a -> s{_grtRepositoryName = a});
+grtRepositoryName = lens _grtRepositoryName (\ s a -> s{_grtRepositoryName = a})
 
 instance AWSRequest GetRepositoryTriggers where
         type Rs GetRepositoryTriggers =
@@ -135,22 +135,22 @@ getRepositoryTriggersResponse
     -> GetRepositoryTriggersResponse
 getRepositoryTriggersResponse pResponseStatus_ =
   GetRepositoryTriggersResponse'
-  { _grtrsConfigurationId = Nothing
-  , _grtrsTriggers = Nothing
-  , _grtrsResponseStatus = pResponseStatus_
-  }
+    { _grtrsConfigurationId = Nothing
+    , _grtrsTriggers = Nothing
+    , _grtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The system-generated unique ID for the trigger.
 grtrsConfigurationId :: Lens' GetRepositoryTriggersResponse (Maybe Text)
-grtrsConfigurationId = lens _grtrsConfigurationId (\ s a -> s{_grtrsConfigurationId = a});
+grtrsConfigurationId = lens _grtrsConfigurationId (\ s a -> s{_grtrsConfigurationId = a})
 
 -- | The JSON block of configuration information for each trigger.
 grtrsTriggers :: Lens' GetRepositoryTriggersResponse [RepositoryTrigger]
-grtrsTriggers = lens _grtrsTriggers (\ s a -> s{_grtrsTriggers = a}) . _Default . _Coerce;
+grtrsTriggers = lens _grtrsTriggers (\ s a -> s{_grtrsTriggers = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 grtrsResponseStatus :: Lens' GetRepositoryTriggersResponse Int
-grtrsResponseStatus = lens _grtrsResponseStatus (\ s a -> s{_grtrsResponseStatus = a});
+grtrsResponseStatus = lens _grtrsResponseStatus (\ s a -> s{_grtrsResponseStatus = a})
 
 instance NFData GetRepositoryTriggersResponse where

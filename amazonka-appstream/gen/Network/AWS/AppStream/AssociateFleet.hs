@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.AssociateFleet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ associateFleet pFleetName_ pStackName_ =
 
 -- | The name of the fleet.
 afFleetName :: Lens' AssociateFleet Text
-afFleetName = lens _afFleetName (\ s a -> s{_afFleetName = a});
+afFleetName = lens _afFleetName (\ s a -> s{_afFleetName = a})
 
 -- | The name of the stack.
 afStackName :: Lens' AssociateFleet Text
-afStackName = lens _afStackName (\ s a -> s{_afStackName = a});
+afStackName = lens _afStackName (\ s a -> s{_afStackName = a})
 
 instance AWSRequest AssociateFleet where
         type Rs AssociateFleet = AssociateFleetResponse
@@ -129,6 +129,6 @@ associateFleetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 afrsResponseStatus :: Lens' AssociateFleetResponse Int
-afrsResponseStatus = lens _afrsResponseStatus (\ s a -> s{_afrsResponseStatus = a});
+afrsResponseStatus = lens _afrsResponseStatus (\ s a -> s{_afrsResponseStatus = a})
 
 instance NFData AssociateFleetResponse where

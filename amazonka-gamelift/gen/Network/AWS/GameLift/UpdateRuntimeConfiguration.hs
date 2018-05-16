@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateRuntimeConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,15 +31,21 @@
 --
 --     * 'ListFleets'
 --
+--     * 'DeleteFleet'
+--
 --     * Describe fleets:
 --
 --     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetCapacity'
 --
 --     * 'DescribeFleetPortSettings'
 --
 --     * 'DescribeFleetUtilization'
 --
 --     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeEC2InstanceLimits'
 --
 --     * 'DescribeFleetEvents'
 --
@@ -57,23 +63,13 @@
 --
 --
 --
---     * Manage fleet capacity:
+--     * Manage fleet actions:
 --
---     * 'DescribeFleetCapacity'
+--     * 'StartFleetActions'
 --
---     * 'UpdateFleetCapacity'
---
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
---     * 'DescribeEC2InstanceLimits'
+--     * 'StopFleetActions'
 --
 --
---
---     * 'DeleteFleet'
 --
 --
 --
@@ -125,16 +121,16 @@ updateRuntimeConfiguration
     -> UpdateRuntimeConfiguration
 updateRuntimeConfiguration pFleetId_ pRuntimeConfiguration_ =
   UpdateRuntimeConfiguration'
-  {_urcFleetId = pFleetId_, _urcRuntimeConfiguration = pRuntimeConfiguration_}
+    {_urcFleetId = pFleetId_, _urcRuntimeConfiguration = pRuntimeConfiguration_}
 
 
 -- | Unique identifier for a fleet to update run-time configuration for.
 urcFleetId :: Lens' UpdateRuntimeConfiguration Text
-urcFleetId = lens _urcFleetId (\ s a -> s{_urcFleetId = a});
+urcFleetId = lens _urcFleetId (\ s a -> s{_urcFleetId = a})
 
 -- | Instructions for launching server processes on each instance in the fleet. The run-time configuration for a fleet has a collection of server process configurations, one for each type of server process to run on an instance. A server process configuration specifies the location of the server executable, launch parameters, and the number of concurrent processes with that configuration to maintain on each instance.
 urcRuntimeConfiguration :: Lens' UpdateRuntimeConfiguration RuntimeConfiguration
-urcRuntimeConfiguration = lens _urcRuntimeConfiguration (\ s a -> s{_urcRuntimeConfiguration = a});
+urcRuntimeConfiguration = lens _urcRuntimeConfiguration (\ s a -> s{_urcRuntimeConfiguration = a})
 
 instance AWSRequest UpdateRuntimeConfiguration where
         type Rs UpdateRuntimeConfiguration =
@@ -199,18 +195,18 @@ updateRuntimeConfigurationResponse
     -> UpdateRuntimeConfigurationResponse
 updateRuntimeConfigurationResponse pResponseStatus_ =
   UpdateRuntimeConfigurationResponse'
-  { _urcrsRuntimeConfiguration = Nothing
-  , _urcrsResponseStatus = pResponseStatus_
-  }
+    { _urcrsRuntimeConfiguration = Nothing
+    , _urcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The run-time configuration currently in force. If the update was successful, this object matches the one in the request.
 urcrsRuntimeConfiguration :: Lens' UpdateRuntimeConfigurationResponse (Maybe RuntimeConfiguration)
-urcrsRuntimeConfiguration = lens _urcrsRuntimeConfiguration (\ s a -> s{_urcrsRuntimeConfiguration = a});
+urcrsRuntimeConfiguration = lens _urcrsRuntimeConfiguration (\ s a -> s{_urcrsRuntimeConfiguration = a})
 
 -- | -- | The response status code.
 urcrsResponseStatus :: Lens' UpdateRuntimeConfigurationResponse Int
-urcrsResponseStatus = lens _urcrsResponseStatus (\ s a -> s{_urcrsResponseStatus = a});
+urcrsResponseStatus = lens _urcrsResponseStatus (\ s a -> s{_urcrsResponseStatus = a})
 
 instance NFData UpdateRuntimeConfigurationResponse
          where

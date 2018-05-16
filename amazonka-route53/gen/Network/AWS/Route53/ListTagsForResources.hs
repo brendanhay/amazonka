@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListTagsForResources
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,16 +71,16 @@ listTagsForResources
     -> ListTagsForResources
 listTagsForResources pResourceType_ pResourceIds_ =
   ListTagsForResources'
-  {_lResourceType = pResourceType_, _lResourceIds = _List1 # pResourceIds_}
+    {_lResourceType = pResourceType_, _lResourceIds = _List1 # pResourceIds_}
 
 
 -- | The type of the resources.     * The resource type for health checks is @healthcheck@ .     * The resource type for hosted zones is @hostedzone@ .
 lResourceType :: Lens' ListTagsForResources TagResourceType
-lResourceType = lens _lResourceType (\ s a -> s{_lResourceType = a});
+lResourceType = lens _lResourceType (\ s a -> s{_lResourceType = a})
 
 -- | A complex type that contains the ResourceId element for each resource for which you want to get a list of tags.
 lResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
-lResourceIds = lens _lResourceIds (\ s a -> s{_lResourceIds = a}) . _List1;
+lResourceIds = lens _lResourceIds (\ s a -> s{_lResourceIds = a}) . _List1
 
 instance AWSRequest ListTagsForResources where
         type Rs ListTagsForResources =
@@ -142,15 +142,15 @@ listTagsForResourcesResponse
     -> ListTagsForResourcesResponse
 listTagsForResourcesResponse pResponseStatus_ =
   ListTagsForResourcesResponse'
-  {_lrsResponseStatus = pResponseStatus_, _lrsResourceTagSets = mempty}
+    {_lrsResponseStatus = pResponseStatus_, _lrsResourceTagSets = mempty}
 
 
 -- | -- | The response status code.
 lrsResponseStatus :: Lens' ListTagsForResourcesResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
+lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a})
 
 -- | A list of @ResourceTagSet@ s containing tags associated with the specified resources.
 lrsResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
-lrsResourceTagSets = lens _lrsResourceTagSets (\ s a -> s{_lrsResourceTagSets = a}) . _Coerce;
+lrsResourceTagSets = lens _lrsResourceTagSets (\ s a -> s{_lrsResourceTagSets = a}) . _Coerce
 
 instance NFData ListTagsForResourcesResponse where

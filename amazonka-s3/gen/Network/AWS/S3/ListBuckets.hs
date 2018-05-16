@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListBuckets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -101,22 +101,22 @@ listBucketsResponse
     -> ListBucketsResponse
 listBucketsResponse pResponseStatus_ =
   ListBucketsResponse'
-  { _lbrsBuckets = Nothing
-  , _lbrsOwner = Nothing
-  , _lbrsResponseStatus = pResponseStatus_
-  }
+    { _lbrsBuckets = Nothing
+    , _lbrsOwner = Nothing
+    , _lbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 lbrsBuckets :: Lens' ListBucketsResponse [Bucket]
-lbrsBuckets = lens _lbrsBuckets (\ s a -> s{_lbrsBuckets = a}) . _Default . _Coerce;
+lbrsBuckets = lens _lbrsBuckets (\ s a -> s{_lbrsBuckets = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 lbrsOwner :: Lens' ListBucketsResponse (Maybe Owner)
-lbrsOwner = lens _lbrsOwner (\ s a -> s{_lbrsOwner = a});
+lbrsOwner = lens _lbrsOwner (\ s a -> s{_lbrsOwner = a})
 
 -- | -- | The response status code.
 lbrsResponseStatus :: Lens' ListBucketsResponse Int
-lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
+lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a})
 
 instance NFData ListBucketsResponse where

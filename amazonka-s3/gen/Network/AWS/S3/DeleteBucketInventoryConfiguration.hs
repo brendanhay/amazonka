@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketInventoryConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,11 +64,11 @@ deleteBucketInventoryConfiguration pBucket_ pId_ =
 
 -- | The name of the bucket containing the inventory configuration to delete.
 dbicBucket :: Lens' DeleteBucketInventoryConfiguration BucketName
-dbicBucket = lens _dbicBucket (\ s a -> s{_dbicBucket = a});
+dbicBucket = lens _dbicBucket (\ s a -> s{_dbicBucket = a})
 
 -- | The ID used to identify the inventory configuration.
 dbicId :: Lens' DeleteBucketInventoryConfiguration Text
-dbicId = lens _dbicId (\ s a -> s{_dbicId = a});
+dbicId = lens _dbicId (\ s a -> s{_dbicId = a})
 
 instance AWSRequest
            DeleteBucketInventoryConfiguration

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.ListPipelineExecutions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ listPipelineExecutions
     -> ListPipelineExecutions
 listPipelineExecutions pPipelineName_ =
   ListPipelineExecutions'
-  { _lpeNextToken = Nothing
-  , _lpeMaxResults = Nothing
-  , _lpePipelineName = pPipelineName_
-  }
+    { _lpeNextToken = Nothing
+    , _lpeMaxResults = Nothing
+    , _lpePipelineName = pPipelineName_
+    }
 
 
 -- | The token that was returned from the previous ListPipelineExecutions call, which can be used to return the next set of pipeline executions in the list.
 lpeNextToken :: Lens' ListPipelineExecutions (Maybe Text)
-lpeNextToken = lens _lpeNextToken (\ s a -> s{_lpeNextToken = a});
+lpeNextToken = lens _lpeNextToken (\ s a -> s{_lpeNextToken = a})
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. The available pipeline execution history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.
 lpeMaxResults :: Lens' ListPipelineExecutions (Maybe Natural)
-lpeMaxResults = lens _lpeMaxResults (\ s a -> s{_lpeMaxResults = a}) . mapping _Nat;
+lpeMaxResults = lens _lpeMaxResults (\ s a -> s{_lpeMaxResults = a}) . mapping _Nat
 
 -- | The name of the pipeline for which you want to get execution summary information.
 lpePipelineName :: Lens' ListPipelineExecutions Text
-lpePipelineName = lens _lpePipelineName (\ s a -> s{_lpePipelineName = a});
+lpePipelineName = lens _lpePipelineName (\ s a -> s{_lpePipelineName = a})
 
 instance AWSRequest ListPipelineExecutions where
         type Rs ListPipelineExecutions =
@@ -157,22 +157,22 @@ listPipelineExecutionsResponse
     -> ListPipelineExecutionsResponse
 listPipelineExecutionsResponse pResponseStatus_ =
   ListPipelineExecutionsResponse'
-  { _lpersNextToken = Nothing
-  , _lpersPipelineExecutionSummaries = Nothing
-  , _lpersResponseStatus = pResponseStatus_
-  }
+    { _lpersNextToken = Nothing
+    , _lpersPipelineExecutionSummaries = Nothing
+    , _lpersResponseStatus = pResponseStatus_
+    }
 
 
 -- | A token that can be used in the next ListPipelineExecutions call. To view all items in the list, continue to call this operation with each subsequent token until no more nextToken values are returned.
 lpersNextToken :: Lens' ListPipelineExecutionsResponse (Maybe Text)
-lpersNextToken = lens _lpersNextToken (\ s a -> s{_lpersNextToken = a});
+lpersNextToken = lens _lpersNextToken (\ s a -> s{_lpersNextToken = a})
 
 -- | A list of executions in the history of a pipeline.
 lpersPipelineExecutionSummaries :: Lens' ListPipelineExecutionsResponse [PipelineExecutionSummary]
-lpersPipelineExecutionSummaries = lens _lpersPipelineExecutionSummaries (\ s a -> s{_lpersPipelineExecutionSummaries = a}) . _Default . _Coerce;
+lpersPipelineExecutionSummaries = lens _lpersPipelineExecutionSummaries (\ s a -> s{_lpersPipelineExecutionSummaries = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lpersResponseStatus :: Lens' ListPipelineExecutionsResponse Int
-lpersResponseStatus = lens _lpersResponseStatus (\ s a -> s{_lpersResponseStatus = a});
+lpersResponseStatus = lens _lpersResponseStatus (\ s a -> s{_lpersResponseStatus = a})
 
 instance NFData ListPipelineExecutionsResponse where

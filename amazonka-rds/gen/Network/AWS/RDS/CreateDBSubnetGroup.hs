@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ createDBSubnetGroup
     -> CreateDBSubnetGroup
 createDBSubnetGroup pDBSubnetGroupName_ pDBSubnetGroupDescription_ =
   CreateDBSubnetGroup'
-  { _cdbsgTags = Nothing
-  , _cdbsgDBSubnetGroupName = pDBSubnetGroupName_
-  , _cdbsgDBSubnetGroupDescription = pDBSubnetGroupDescription_
-  , _cdbsgSubnetIds = mempty
-  }
+    { _cdbsgTags = Nothing
+    , _cdbsgDBSubnetGroupName = pDBSubnetGroupName_
+    , _cdbsgDBSubnetGroupDescription = pDBSubnetGroupDescription_
+    , _cdbsgSubnetIds = mempty
+    }
 
 
 -- | Undocumented member.
 cdbsgTags :: Lens' CreateDBSubnetGroup [Tag]
-cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default . _Coerce;
+cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default . _Coerce
 
 -- | The name for the DB subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 cdbsgDBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
-cdbsgDBSubnetGroupName = lens _cdbsgDBSubnetGroupName (\ s a -> s{_cdbsgDBSubnetGroupName = a});
+cdbsgDBSubnetGroupName = lens _cdbsgDBSubnetGroupName (\ s a -> s{_cdbsgDBSubnetGroupName = a})
 
 -- | The description for the DB subnet group.
 cdbsgDBSubnetGroupDescription :: Lens' CreateDBSubnetGroup Text
-cdbsgDBSubnetGroupDescription = lens _cdbsgDBSubnetGroupDescription (\ s a -> s{_cdbsgDBSubnetGroupDescription = a});
+cdbsgDBSubnetGroupDescription = lens _cdbsgDBSubnetGroupDescription (\ s a -> s{_cdbsgDBSubnetGroupDescription = a})
 
 -- | The EC2 Subnet IDs for the DB subnet group.
 cdbsgSubnetIds :: Lens' CreateDBSubnetGroup [Text]
-cdbsgSubnetIds = lens _cdbsgSubnetIds (\ s a -> s{_cdbsgSubnetIds = a}) . _Coerce;
+cdbsgSubnetIds = lens _cdbsgSubnetIds (\ s a -> s{_cdbsgSubnetIds = a}) . _Coerce
 
 instance AWSRequest CreateDBSubnetGroup where
         type Rs CreateDBSubnetGroup =
@@ -151,15 +151,15 @@ createDBSubnetGroupResponse
     -> CreateDBSubnetGroupResponse
 createDBSubnetGroupResponse pResponseStatus_ =
   CreateDBSubnetGroupResponse'
-  {_cdsgrsDBSubnetGroup = Nothing, _cdsgrsResponseStatus = pResponseStatus_}
+    {_cdsgrsDBSubnetGroup = Nothing, _cdsgrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 cdsgrsDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
-cdsgrsDBSubnetGroup = lens _cdsgrsDBSubnetGroup (\ s a -> s{_cdsgrsDBSubnetGroup = a});
+cdsgrsDBSubnetGroup = lens _cdsgrsDBSubnetGroup (\ s a -> s{_cdsgrsDBSubnetGroup = a})
 
 -- | -- | The response status code.
 cdsgrsResponseStatus :: Lens' CreateDBSubnetGroupResponse Int
-cdsgrsResponseStatus = lens _cdsgrsResponseStatus (\ s a -> s{_cdsgrsResponseStatus = a});
+cdsgrsResponseStatus = lens _cdsgrsResponseStatus (\ s a -> s{_cdsgrsResponseStatus = a})
 
 instance NFData CreateDBSubnetGroupResponse where

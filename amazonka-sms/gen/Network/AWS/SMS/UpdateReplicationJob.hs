@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SMS.UpdateReplicationJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,38 +77,38 @@ updateReplicationJob
     -> UpdateReplicationJob
 updateReplicationJob pReplicationJobId_ =
   UpdateReplicationJob'
-  { _urjFrequency = Nothing
-  , _urjLicenseType = Nothing
-  , _urjRoleName = Nothing
-  , _urjNextReplicationRunStartTime = Nothing
-  , _urjDescription = Nothing
-  , _urjReplicationJobId = pReplicationJobId_
-  }
+    { _urjFrequency = Nothing
+    , _urjLicenseType = Nothing
+    , _urjRoleName = Nothing
+    , _urjNextReplicationRunStartTime = Nothing
+    , _urjDescription = Nothing
+    , _urjReplicationJobId = pReplicationJobId_
+    }
 
 
 -- | Undocumented member.
 urjFrequency :: Lens' UpdateReplicationJob (Maybe Int)
-urjFrequency = lens _urjFrequency (\ s a -> s{_urjFrequency = a});
+urjFrequency = lens _urjFrequency (\ s a -> s{_urjFrequency = a})
 
 -- | Undocumented member.
 urjLicenseType :: Lens' UpdateReplicationJob (Maybe LicenseType)
-urjLicenseType = lens _urjLicenseType (\ s a -> s{_urjLicenseType = a});
+urjLicenseType = lens _urjLicenseType (\ s a -> s{_urjLicenseType = a})
 
 -- | Undocumented member.
 urjRoleName :: Lens' UpdateReplicationJob (Maybe Text)
-urjRoleName = lens _urjRoleName (\ s a -> s{_urjRoleName = a});
+urjRoleName = lens _urjRoleName (\ s a -> s{_urjRoleName = a})
 
 -- | Undocumented member.
 urjNextReplicationRunStartTime :: Lens' UpdateReplicationJob (Maybe UTCTime)
-urjNextReplicationRunStartTime = lens _urjNextReplicationRunStartTime (\ s a -> s{_urjNextReplicationRunStartTime = a}) . mapping _Time;
+urjNextReplicationRunStartTime = lens _urjNextReplicationRunStartTime (\ s a -> s{_urjNextReplicationRunStartTime = a}) . mapping _Time
 
 -- | Undocumented member.
 urjDescription :: Lens' UpdateReplicationJob (Maybe Text)
-urjDescription = lens _urjDescription (\ s a -> s{_urjDescription = a});
+urjDescription = lens _urjDescription (\ s a -> s{_urjDescription = a})
 
 -- | Undocumented member.
 urjReplicationJobId :: Lens' UpdateReplicationJob Text
-urjReplicationJobId = lens _urjReplicationJobId (\ s a -> s{_urjReplicationJobId = a});
+urjReplicationJobId = lens _urjReplicationJobId (\ s a -> s{_urjReplicationJobId = a})
 
 instance AWSRequest UpdateReplicationJob where
         type Rs UpdateReplicationJob =
@@ -172,6 +172,6 @@ updateReplicationJobResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 urjrsResponseStatus :: Lens' UpdateReplicationJobResponse Int
-urjrsResponseStatus = lens _urjrsResponseStatus (\ s a -> s{_urjrsResponseStatus = a});
+urjrsResponseStatus = lens _urjrsResponseStatus (\ s a -> s{_urjrsResponseStatus = a})
 
 instance NFData UpdateReplicationJobResponse where

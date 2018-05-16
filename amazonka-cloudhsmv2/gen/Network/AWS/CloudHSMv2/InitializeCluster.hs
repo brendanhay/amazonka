@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.InitializeCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ initializeCluster
     -> InitializeCluster
 initializeCluster pClusterId_ pSignedCert_ pTrustAnchor_ =
   InitializeCluster'
-  { _icClusterId = pClusterId_
-  , _icSignedCert = pSignedCert_
-  , _icTrustAnchor = pTrustAnchor_
-  }
+    { _icClusterId = pClusterId_
+    , _icSignedCert = pSignedCert_
+    , _icTrustAnchor = pTrustAnchor_
+    }
 
 
 -- | The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use 'DescribeClusters' .
 icClusterId :: Lens' InitializeCluster Text
-icClusterId = lens _icClusterId (\ s a -> s{_icClusterId = a});
+icClusterId = lens _icClusterId (\ s a -> s{_icClusterId = a})
 
 -- | The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format and can contain a maximum of 5000 characters.
 icSignedCert :: Lens' InitializeCluster Text
-icSignedCert = lens _icSignedCert (\ s a -> s{_icSignedCert = a});
+icSignedCert = lens _icSignedCert (\ s a -> s{_icSignedCert = a})
 
 -- | The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. This can be a root (self-signed) certificate or a certificate chain that begins with the certificate that issued the cluster certificate and ends with a root certificate. The certificate or certificate chain must be in PEM format and can contain a maximum of 5000 characters.
 icTrustAnchor :: Lens' InitializeCluster Text
-icTrustAnchor = lens _icTrustAnchor (\ s a -> s{_icTrustAnchor = a});
+icTrustAnchor = lens _icTrustAnchor (\ s a -> s{_icTrustAnchor = a})
 
 instance AWSRequest InitializeCluster where
         type Rs InitializeCluster = InitializeClusterResponse
@@ -148,22 +148,22 @@ initializeClusterResponse
     -> InitializeClusterResponse
 initializeClusterResponse pResponseStatus_ =
   InitializeClusterResponse'
-  { _icrsStateMessage = Nothing
-  , _icrsState = Nothing
-  , _icrsResponseStatus = pResponseStatus_
-  }
+    { _icrsStateMessage = Nothing
+    , _icrsState = Nothing
+    , _icrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A description of the cluster's state.
 icrsStateMessage :: Lens' InitializeClusterResponse (Maybe Text)
-icrsStateMessage = lens _icrsStateMessage (\ s a -> s{_icrsStateMessage = a});
+icrsStateMessage = lens _icrsStateMessage (\ s a -> s{_icrsStateMessage = a})
 
 -- | The cluster's state.
 icrsState :: Lens' InitializeClusterResponse (Maybe ClusterState)
-icrsState = lens _icrsState (\ s a -> s{_icrsState = a});
+icrsState = lens _icrsState (\ s a -> s{_icrsState = a})
 
 -- | -- | The response status code.
 icrsResponseStatus :: Lens' InitializeClusterResponse Int
-icrsResponseStatus = lens _icrsResponseStatus (\ s a -> s{_icrsResponseStatus = a});
+icrsResponseStatus = lens _icrsResponseStatus (\ s a -> s{_icrsResponseStatus = a})
 
 instance NFData InitializeClusterResponse where

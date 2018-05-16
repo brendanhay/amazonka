@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@
 --
 -- __Support and Feedback for AWS Organizations__
 --
--- We welcome your feedback. Send your comments to <mailto:feedback-awsorganizations@amazon.com feedback-awsorganizations@amazon.com> or post your feedback and questions in our private <http://forums.aws.amazon.com/forum.jspa?forumID=219 AWS Organizations support forum> . If you don't have access to the forum, send a request for access to the email address, along with your forum user ID. For more information about the AWS support forums, see <http://forums.aws.amazon.com/help.jspa Forums Help> .
+-- We welcome your feedback. Send your comments to <mailto:feedback-awsorganizations@amazon.com feedback-awsorganizations@amazon.com> or post your feedback and questions in the <http://forums.aws.amazon.com/forum.jspa?forumID=219 AWS Organizations support forum> . For more information about the AWS support forums, see <http://forums.aws.amazon.com/help.jspa Forums Help> .
 --
 -- __Endpoint to Call When Using the CLI or the AWS API__
 --
@@ -226,6 +226,9 @@ module Network.AWS.Organizations
     -- ** DescribePolicy
     , module Network.AWS.Organizations.DescribePolicy
 
+    -- ** DisableAWSServiceAccess
+    , module Network.AWS.Organizations.DisableAWSServiceAccess
+
     -- ** LeaveOrganization
     , module Network.AWS.Organizations.LeaveOrganization
 
@@ -237,6 +240,9 @@ module Network.AWS.Organizations
 
     -- ** InviteAccountToOrganization
     , module Network.AWS.Organizations.InviteAccountToOrganization
+
+    -- ** ListAWSServiceAccessForOrganization (Paginated)
+    , module Network.AWS.Organizations.ListAWSServiceAccessForOrganization
 
     -- ** ListOrganizationalUnitsForParent (Paginated)
     , module Network.AWS.Organizations.ListOrganizationalUnitsForParent
@@ -273,6 +279,9 @@ module Network.AWS.Organizations
 
     -- ** RemoveAccountFromOrganization
     , module Network.AWS.Organizations.RemoveAccountFromOrganization
+
+    -- ** EnableAWSServiceAccess
+    , module Network.AWS.Organizations.EnableAWSServiceAccess
 
     -- ** DescribeOrganizationalUnit
     , module Network.AWS.Organizations.DescribeOrganizationalUnit
@@ -384,6 +393,12 @@ module Network.AWS.Organizations
     , casAccountId
     , casId
     , casRequestedTimestamp
+
+    -- ** EnabledServicePrincipal
+    , EnabledServicePrincipal
+    , enabledServicePrincipal
+    , espServicePrincipal
+    , espDateEnabled
 
     -- ** Handshake
     , Handshake
@@ -497,13 +512,16 @@ import Network.AWS.Organizations.DescribeOrganization
 import Network.AWS.Organizations.DescribeOrganizationalUnit
 import Network.AWS.Organizations.DescribePolicy
 import Network.AWS.Organizations.DetachPolicy
+import Network.AWS.Organizations.DisableAWSServiceAccess
 import Network.AWS.Organizations.DisablePolicyType
 import Network.AWS.Organizations.EnableAllFeatures
+import Network.AWS.Organizations.EnableAWSServiceAccess
 import Network.AWS.Organizations.EnablePolicyType
 import Network.AWS.Organizations.InviteAccountToOrganization
 import Network.AWS.Organizations.LeaveOrganization
 import Network.AWS.Organizations.ListAccounts
 import Network.AWS.Organizations.ListAccountsForParent
+import Network.AWS.Organizations.ListAWSServiceAccessForOrganization
 import Network.AWS.Organizations.ListChildren
 import Network.AWS.Organizations.ListCreateAccountStatus
 import Network.AWS.Organizations.ListHandshakesForAccount

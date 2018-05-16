@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetRun
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getRun pArn_ = GetRun' {_grArn = pArn_}
 
 -- | The run's ARN.
 grArn :: Lens' GetRun Text
-grArn = lens _grArn (\ s a -> s{_grArn = a});
+grArn = lens _grArn (\ s a -> s{_grArn = a})
 
 instance AWSRequest GetRun where
         type Rs GetRun = GetRunResponse
@@ -128,10 +128,10 @@ getRunResponse pResponseStatus_ =
 
 -- | The run you wish to get results from.
 grrsRun :: Lens' GetRunResponse (Maybe Run)
-grrsRun = lens _grrsRun (\ s a -> s{_grrsRun = a});
+grrsRun = lens _grrsRun (\ s a -> s{_grrsRun = a})
 
 -- | -- | The response status code.
 grrsResponseStatus :: Lens' GetRunResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a})
 
 instance NFData GetRunResponse where

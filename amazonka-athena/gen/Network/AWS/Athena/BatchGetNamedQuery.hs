@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Athena.BatchGetNamedQuery
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ batchGetNamedQuery pNamedQueryIds_ =
 
 -- | An array of query IDs.
 bgnqNamedQueryIds :: Lens' BatchGetNamedQuery (NonEmpty Text)
-bgnqNamedQueryIds = lens _bgnqNamedQueryIds (\ s a -> s{_bgnqNamedQueryIds = a}) . _List1;
+bgnqNamedQueryIds = lens _bgnqNamedQueryIds (\ s a -> s{_bgnqNamedQueryIds = a}) . _List1
 
 instance AWSRequest BatchGetNamedQuery where
         type Rs BatchGetNamedQuery =
@@ -126,22 +126,22 @@ batchGetNamedQueryResponse
     -> BatchGetNamedQueryResponse
 batchGetNamedQueryResponse pResponseStatus_ =
   BatchGetNamedQueryResponse'
-  { _bgnqrsNamedQueries = Nothing
-  , _bgnqrsUnprocessedNamedQueryIds = Nothing
-  , _bgnqrsResponseStatus = pResponseStatus_
-  }
+    { _bgnqrsNamedQueries = Nothing
+    , _bgnqrsUnprocessedNamedQueryIds = Nothing
+    , _bgnqrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the named query IDs submitted.
 bgnqrsNamedQueries :: Lens' BatchGetNamedQueryResponse [NamedQuery]
-bgnqrsNamedQueries = lens _bgnqrsNamedQueries (\ s a -> s{_bgnqrsNamedQueries = a}) . _Default . _Coerce;
+bgnqrsNamedQueries = lens _bgnqrsNamedQueries (\ s a -> s{_bgnqrsNamedQueries = a}) . _Default . _Coerce
 
 -- | Information about provided query IDs.
 bgnqrsUnprocessedNamedQueryIds :: Lens' BatchGetNamedQueryResponse [UnprocessedNamedQueryId]
-bgnqrsUnprocessedNamedQueryIds = lens _bgnqrsUnprocessedNamedQueryIds (\ s a -> s{_bgnqrsUnprocessedNamedQueryIds = a}) . _Default . _Coerce;
+bgnqrsUnprocessedNamedQueryIds = lens _bgnqrsUnprocessedNamedQueryIds (\ s a -> s{_bgnqrsUnprocessedNamedQueryIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bgnqrsResponseStatus :: Lens' BatchGetNamedQueryResponse Int
-bgnqrsResponseStatus = lens _bgnqrsResponseStatus (\ s a -> s{_bgnqrsResponseStatus = a});
+bgnqrsResponseStatus = lens _bgnqrsResponseStatus (\ s a -> s{_bgnqrsResponseStatus = a})
 
 instance NFData BatchGetNamedQueryResponse where

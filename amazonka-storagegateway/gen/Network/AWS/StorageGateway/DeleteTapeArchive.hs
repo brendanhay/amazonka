@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteTapeArchive
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified virtual tape from the virtual tape shelf (VTS). This operation is only supported in the tape gateway architecture.
+-- Deletes the specified virtual tape from the virtual tape shelf (VTS). This operation is only supported in the tape gateway type.
 --
 --
 module Network.AWS.StorageGateway.DeleteTapeArchive
@@ -67,7 +67,7 @@ deleteTapeArchive pTapeARN_ = DeleteTapeArchive' {_dtaTapeARN = pTapeARN_}
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape shelf (VTS).
 dtaTapeARN :: Lens' DeleteTapeArchive Text
-dtaTapeARN = lens _dtaTapeARN (\ s a -> s{_dtaTapeARN = a});
+dtaTapeARN = lens _dtaTapeARN (\ s a -> s{_dtaTapeARN = a})
 
 instance AWSRequest DeleteTapeArchive where
         type Rs DeleteTapeArchive = DeleteTapeArchiveResponse
@@ -126,15 +126,15 @@ deleteTapeArchiveResponse
     -> DeleteTapeArchiveResponse
 deleteTapeArchiveResponse pResponseStatus_ =
   DeleteTapeArchiveResponse'
-  {_dtatrsTapeARN = Nothing, _dtatrsResponseStatus = pResponseStatus_}
+    {_dtatrsTapeARN = Nothing, _dtatrsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon Resource Name (ARN) of the virtual tape that was deleted from the virtual tape shelf (VTS).
 dtatrsTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
-dtatrsTapeARN = lens _dtatrsTapeARN (\ s a -> s{_dtatrsTapeARN = a});
+dtatrsTapeARN = lens _dtatrsTapeARN (\ s a -> s{_dtatrsTapeARN = a})
 
 -- | -- | The response status code.
 dtatrsResponseStatus :: Lens' DeleteTapeArchiveResponse Int
-dtatrsResponseStatus = lens _dtatrsResponseStatus (\ s a -> s{_dtatrsResponseStatus = a});
+dtatrsResponseStatus = lens _dtatrsResponseStatus (\ s a -> s{_dtatrsResponseStatus = a})
 
 instance NFData DeleteTapeArchiveResponse where

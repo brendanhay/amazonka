@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListBonusPayments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- The @ListBonusPayments@ operation retrieves the amounts of bonuses you have paid to Workers for a given HIT or assignment.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListBonusPayments
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.MechanicalTurk.ListBonusPayments
 import Network.AWS.Lens
 import Network.AWS.MechanicalTurk.Types
 import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,28 +76,35 @@ listBonusPayments
     :: ListBonusPayments
 listBonusPayments =
   ListBonusPayments'
-  { _lbpNextToken = Nothing
-  , _lbpHITId = Nothing
-  , _lbpAssignmentId = Nothing
-  , _lbpMaxResults = Nothing
-  }
+    { _lbpNextToken = Nothing
+    , _lbpHITId = Nothing
+    , _lbpAssignmentId = Nothing
+    , _lbpMaxResults = Nothing
+    }
 
 
 -- | Pagination token
 lbpNextToken :: Lens' ListBonusPayments (Maybe Text)
-lbpNextToken = lens _lbpNextToken (\ s a -> s{_lbpNextToken = a});
+lbpNextToken = lens _lbpNextToken (\ s a -> s{_lbpNextToken = a})
 
 -- | The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified
 lbpHITId :: Lens' ListBonusPayments (Maybe Text)
-lbpHITId = lens _lbpHITId (\ s a -> s{_lbpHITId = a});
+lbpHITId = lens _lbpHITId (\ s a -> s{_lbpHITId = a})
 
 -- | The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified
 lbpAssignmentId :: Lens' ListBonusPayments (Maybe Text)
-lbpAssignmentId = lens _lbpAssignmentId (\ s a -> s{_lbpAssignmentId = a});
+lbpAssignmentId = lens _lbpAssignmentId (\ s a -> s{_lbpAssignmentId = a})
 
 -- | Undocumented member.
 lbpMaxResults :: Lens' ListBonusPayments (Maybe Natural)
-lbpMaxResults = lens _lbpMaxResults (\ s a -> s{_lbpMaxResults = a}) . mapping _Nat;
+lbpMaxResults = lens _lbpMaxResults (\ s a -> s{_lbpMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListBonusPayments where
+        page rq rs
+          | stop (rs ^. lbprsNextToken) = Nothing
+          | stop (rs ^. lbprsBonusPayments) = Nothing
+          | otherwise =
+            Just $ rq & lbpNextToken .~ rs ^. lbprsNextToken
 
 instance AWSRequest ListBonusPayments where
         type Rs ListBonusPayments = ListBonusPaymentsResponse
@@ -162,27 +172,27 @@ listBonusPaymentsResponse
     -> ListBonusPaymentsResponse
 listBonusPaymentsResponse pResponseStatus_ =
   ListBonusPaymentsResponse'
-  { _lbprsBonusPayments = Nothing
-  , _lbprsNextToken = Nothing
-  , _lbprsNumResults = Nothing
-  , _lbprsResponseStatus = pResponseStatus_
-  }
+    { _lbprsBonusPayments = Nothing
+    , _lbprsNextToken = Nothing
+    , _lbprsNumResults = Nothing
+    , _lbprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A successful request to the ListBonusPayments operation returns a list of BonusPayment objects.
 lbprsBonusPayments :: Lens' ListBonusPaymentsResponse [BonusPayment]
-lbprsBonusPayments = lens _lbprsBonusPayments (\ s a -> s{_lbprsBonusPayments = a}) . _Default . _Coerce;
+lbprsBonusPayments = lens _lbprsBonusPayments (\ s a -> s{_lbprsBonusPayments = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 lbprsNextToken :: Lens' ListBonusPaymentsResponse (Maybe Text)
-lbprsNextToken = lens _lbprsNextToken (\ s a -> s{_lbprsNextToken = a});
+lbprsNextToken = lens _lbprsNextToken (\ s a -> s{_lbprsNextToken = a})
 
 -- | The number of bonus payments on this page in the filtered results list, equivalent to the number of bonus payments being returned by this call.
 lbprsNumResults :: Lens' ListBonusPaymentsResponse (Maybe Int)
-lbprsNumResults = lens _lbprsNumResults (\ s a -> s{_lbprsNumResults = a});
+lbprsNumResults = lens _lbprsNumResults (\ s a -> s{_lbprsNumResults = a})
 
 -- | -- | The response status code.
 lbprsResponseStatus :: Lens' ListBonusPaymentsResponse Int
-lbprsResponseStatus = lens _lbprsResponseStatus (\ s a -> s{_lbprsResponseStatus = a});
+lbprsResponseStatus = lens _lbprsResponseStatus (\ s a -> s{_lbprsResponseStatus = a})
 
 instance NFData ListBonusPaymentsResponse where

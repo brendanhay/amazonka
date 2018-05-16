@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetDevicePool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getDevicePool pArn_ = GetDevicePool' {_gdpArn = pArn_}
 
 -- | The device pool's ARN.
 gdpArn :: Lens' GetDevicePool Text
-gdpArn = lens _gdpArn (\ s a -> s{_gdpArn = a});
+gdpArn = lens _gdpArn (\ s a -> s{_gdpArn = a})
 
 instance AWSRequest GetDevicePool where
         type Rs GetDevicePool = GetDevicePoolResponse
@@ -124,15 +124,15 @@ getDevicePoolResponse
     -> GetDevicePoolResponse
 getDevicePoolResponse pResponseStatus_ =
   GetDevicePoolResponse'
-  {_gdprsDevicePool = Nothing, _gdprsResponseStatus = pResponseStatus_}
+    {_gdprsDevicePool = Nothing, _gdprsResponseStatus = pResponseStatus_}
 
 
 -- | An object containing information about the requested device pool.
 gdprsDevicePool :: Lens' GetDevicePoolResponse (Maybe DevicePool)
-gdprsDevicePool = lens _gdprsDevicePool (\ s a -> s{_gdprsDevicePool = a});
+gdprsDevicePool = lens _gdprsDevicePool (\ s a -> s{_gdprsDevicePool = a})
 
 -- | -- | The response status code.
 gdprsResponseStatus :: Lens' GetDevicePoolResponse Int
-gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a});
+gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a})
 
 instance NFData GetDevicePoolResponse where

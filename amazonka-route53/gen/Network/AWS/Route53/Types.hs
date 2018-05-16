@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -18,6 +18,7 @@ module Network.AWS.Route53.Types
     -- * Errors
     , _HealthCheckVersionMismatch
     , _NoSuchQueryLoggingConfig
+    , _HostedZoneNotPrivate
     , _InvalidInput
     , _HostedZoneNotEmpty
     , _InvalidArgument
@@ -65,9 +66,13 @@ module Network.AWS.Route53.Types
     , _TrafficPolicyInUse
     , _InvalidVPCId
     , _HostedZoneAlreadyExists
+    , _TooManyTrafficPolicyVersionsForCurrentPolicy
 
     -- * Re-exported Types
     , module Network.AWS.Route53.Internal
+
+    -- * AccountLimitType
+    , AccountLimitType (..)
 
     -- * ChangeAction
     , ChangeAction (..)
@@ -90,6 +95,9 @@ module Network.AWS.Route53.Types
     -- * HealthCheckType
     , HealthCheckType (..)
 
+    -- * HostedZoneLimitType
+    , HostedZoneLimitType (..)
+
     -- * InsufficientDataHealthStatus
     , InsufficientDataHealthStatus (..)
 
@@ -99,6 +107,9 @@ module Network.AWS.Route53.Types
     -- * ResettableElementName
     , ResettableElementName (..)
 
+    -- * ReusableDelegationSetLimitType
+    , ReusableDelegationSetLimitType (..)
+
     -- * Statistic
     , Statistic (..)
 
@@ -107,6 +118,12 @@ module Network.AWS.Route53.Types
 
     -- * VPCRegion
     , VPCRegion (..)
+
+    -- * AccountLimit
+    , AccountLimit
+    , accountLimit
+    , alType
+    , alValue
 
     -- * AlarmIdentifier
     , AlarmIdentifier
@@ -186,6 +203,7 @@ module Network.AWS.Route53.Types
     -- * HealthCheck
     , HealthCheck
     , healthCheck
+    , hcLinkedService
     , hcCloudWatchAlarmConfiguration
     , hcId
     , hcCallerReference
@@ -222,6 +240,7 @@ module Network.AWS.Route53.Types
     -- * HostedZone
     , HostedZone
     , hostedZone
+    , hzLinkedService
     , hzConfig
     , hzResourceRecordSetCount
     , hzId
@@ -233,6 +252,18 @@ module Network.AWS.Route53.Types
     , hostedZoneConfig
     , hzcPrivateZone
     , hzcComment
+
+    -- * HostedZoneLimit
+    , HostedZoneLimit
+    , hostedZoneLimit
+    , hzlType
+    , hzlValue
+
+    -- * LinkedService
+    , LinkedService
+    , linkedService
+    , lsServicePrincipal
+    , lsDescription
 
     -- * QueryLoggingConfig
     , QueryLoggingConfig
@@ -269,6 +300,12 @@ module Network.AWS.Route53.Types
     , rtsResourceId
     , rtsResourceType
     , rtsTags
+
+    -- * ReusableDelegationSetLimit
+    , ReusableDelegationSetLimit
+    , reusableDelegationSetLimit
+    , rdslType
+    , rdslValue
 
     -- * StatusReport
     , StatusReport
@@ -332,24 +369,24 @@ import Network.AWS.Sign.V4
 route53 :: Service
 route53 =
   Service
-  { _svcAbbrev = "Route53"
-  , _svcSigner = v4
-  , _svcPrefix = "route53"
-  , _svcVersion = "2013-04-01"
-  , _svcEndpoint = defaultEndpoint route53
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "Route53"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Route53"
+    , _svcSigner = v4
+    , _svcPrefix = "route53"
+    , _svcVersion = "2013-04-01"
+    , _svcEndpoint = defaultEndpoint route53
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError "Route53"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -362,6 +399,8 @@ route53 =
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasCode "PriorRequestNotComplete" . hasStatus 400) e =
         Just "still_processing"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -383,6 +422,13 @@ _HealthCheckVersionMismatch =
 _NoSuchQueryLoggingConfig :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchQueryLoggingConfig =
   _MatchServiceError route53 "NoSuchQueryLoggingConfig" . hasStatus 404
+
+
+-- | The specified hosted zone is a public hosted zone, not a private hosted zone.
+--
+--
+_HostedZoneNotPrivate :: AsError a => Getting (First ServiceError) a ServiceError
+_HostedZoneNotPrivate = _MatchServiceError route53 "HostedZoneNotPrivate"
 
 
 -- | The input is not valid.
@@ -588,8 +634,14 @@ _HealthCheckAlreadyExists =
   _MatchServiceError route53 "HealthCheckAlreadyExists" . hasStatus 409
 
 
--- | You've created the maximum number of traffic policies that can be created for the current AWS account. You can request an increase to the limit on the <http://aws.amazon.com/route53-request/ Contact Us> page.
+-- | This traffic policy can't be created because the current account has reached the limit on the number of traffic policies.
 --
+--
+-- For information about default limits, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html Limits> in the /Amazon Route 53 Developer Guide/ .
+--
+-- To get the current limit for an account, see 'GetAccountLimit' .
+--
+-- To request a higher limit, <http://aws.amazon.com/route53-request create a case> with the AWS Support Center.
 --
 _TooManyTrafficPolicies :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTrafficPolicies =
@@ -644,15 +696,21 @@ _NoSuchChange :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchChange = _MatchServiceError route53 "NoSuchChange" . hasStatus 404
 
 
--- | The limits specified for a resource have been exceeded.
+-- | This operation can't be completed either because the current account has reached the limit on reusable delegation sets that it can create or because you've reached the limit on the number of Amazon VPCs that you can associate with a private hosted zone. To get the current limit on the number of reusable delegation sets, see 'GetAccountLimit' . To get the current limit on the number of Amazon VPCs that you can associate with a private hosted zone, see 'GetHostedZoneLimit' . To request a higher limit, <http://aws.amazon.com/route53-request create a case> with the AWS Support Center.
 --
 --
 _LimitsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitsExceeded = _MatchServiceError route53 "LimitsExceeded"
 
 
--- | You've created the maximum number of traffic policy instances that can be created for the current AWS account. You can request an increase to the limit on the <http://aws.amazon.com/route53-request/ Contact Us> page.
+-- | This traffic policy instance can't be created because the current account has reached the limit on the number of traffic policy instances.
 --
+--
+-- For information about default limits, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html Limits> in the /Amazon Route 53 Developer Guide/ .
+--
+-- For information about how to get the current limit for an account, see 'GetAccountLimit' .
+--
+-- To request a higher limit, <http://aws.amazon.com/route53-request create a case> with the AWS Support Center.
 --
 _TooManyTrafficPolicyInstances :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTrafficPolicyInstances =
@@ -691,8 +749,16 @@ _NoSuchHostedZone =
   _MatchServiceError route53 "NoSuchHostedZone" . hasStatus 404
 
 
--- | This hosted zone can't be created because the hosted zone limit is exceeded. To request a limit increase, go to the Amazon Route 53 <http://aws.amazon.com/route53-request/ Contact Us> page.
+-- | This operation can't be completed either because the current account has reached the limit on the number of hosted zones or because you've reached the limit on the number of hosted zones that can be associated with a reusable delegation set.
 --
+--
+-- For information about default limits, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html Limits> in the /Amazon Route 53 Developer Guide/ .
+--
+-- To get the current limit on hosted zones that can be created by an account, see 'GetAccountLimit' .
+--
+-- To get the current limit on hosted zones that can be associated with a reusable delegation set, see 'GetReusableDelegationSetLimit' .
+--
+-- To request a higher limit, <http://aws.amazon.com/route53-request create a case> with the AWS Support Center.
 --
 _TooManyHostedZones :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHostedZones =
@@ -718,7 +784,7 @@ _DelegationSetAlreadyCreated =
 -- | The cause of this error depends on whether you're trying to create a public or a private hosted zone:
 --
 --
---     * __Public hosted zone:__ Two hosted zones that have the same name or that have a parent/child relationship (example.com and test.example.com) can't have any common name servers. You tried to create a hosted zone that has the same name as an existing hosted zone or that's the parent or child of an existing hosted zone, and you specified a delegation set that shares one or more name servers with the existing hosted zone.
+--     * __Public hosted zone:__ Two hosted zones that have the same name or that have a parent/child relationship (example.com and test.example.com) can't have any common name servers. You tried to create a hosted zone that has the same name as an existing hosted zone or that's the parent or child of an existing hosted zone, and you specified a delegation set that shares one or more name servers with the existing hosted zone. For more information, see 'CreateReusableDelegationSet' .
 --
 --     * __Private hosted zone:__ You specified an Amazon VPC that you're already using for another hosted zone, and the domain that you specified for one of the hosted zones is a subdomain of the domain that you specified for the other hosted zone. For example, you can't use the same Amazon VPC for the hosted zones for example.com and test.example.com.
 --
@@ -736,8 +802,14 @@ _LastVPCAssociation =
   _MatchServiceError route53 "LastVPCAssociation" . hasStatus 400
 
 
--- | You have reached the maximum number of active health checks for an AWS account. The default limit is 100. To request a higher limit, <http://aws.amazon.com/route53-request create a case> with the AWS Support Center.
+-- | This health check can't be created because the current account has reached the limit on the number of active health checks.
 --
+--
+-- For information about default limits, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html Limits> in the /Amazon Route 53 Developer Guide/ .
+--
+-- For information about how to get the current limit for an account, see 'GetAccountLimit' . To request a higher limit, <http://aws.amazon.com/route53-request create a case> with the AWS Support Center.
+--
+-- You have reached the maximum number of active health checks for an AWS account. To request a higher limit, <http://aws.amazon.com/route53-request create a case> with the AWS Support Center.
 --
 _TooManyHealthChecks :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHealthChecks = _MatchServiceError route53 "TooManyHealthChecks"
@@ -772,4 +844,15 @@ _InvalidVPCId = _MatchServiceError route53 "InvalidVPCId" . hasStatus 400
 _HostedZoneAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _HostedZoneAlreadyExists =
   _MatchServiceError route53 "HostedZoneAlreadyExists" . hasStatus 409
+
+
+-- | This traffic policy version can't be created because you've reached the limit of 1000 on the number of versions that you can create for the current traffic policy.
+--
+--
+-- To create more traffic policy versions, you can use 'GetTrafficPolicy' to get the traffic policy document for a specified traffic policy version, and then use 'CreateTrafficPolicy' to create a new traffic policy using the traffic policy document.
+--
+_TooManyTrafficPolicyVersionsForCurrentPolicy :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyTrafficPolicyVersionsForCurrentPolicy =
+  _MatchServiceError route53 "TooManyTrafficPolicyVersionsForCurrentPolicy" .
+  hasStatus 400
 

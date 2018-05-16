@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetTrafficPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ getTrafficPolicy pId_ pVersion_ =
 
 -- | The ID of the traffic policy that you want to get information about.
 gtpId :: Lens' GetTrafficPolicy Text
-gtpId = lens _gtpId (\ s a -> s{_gtpId = a});
+gtpId = lens _gtpId (\ s a -> s{_gtpId = a})
 
 -- | The version number of the traffic policy that you want to get information about.
 gtpVersion :: Lens' GetTrafficPolicy Natural
-gtpVersion = lens _gtpVersion (\ s a -> s{_gtpVersion = a}) . _Nat;
+gtpVersion = lens _gtpVersion (\ s a -> s{_gtpVersion = a}) . _Nat
 
 instance AWSRequest GetTrafficPolicy where
         type Rs GetTrafficPolicy = GetTrafficPolicyResponse
@@ -128,17 +128,17 @@ getTrafficPolicyResponse
     -> GetTrafficPolicyResponse
 getTrafficPolicyResponse pResponseStatus_ pTrafficPolicy_ =
   GetTrafficPolicyResponse'
-  { _gtprsResponseStatus = pResponseStatus_
-  , _gtprsTrafficPolicy = pTrafficPolicy_
-  }
+    { _gtprsResponseStatus = pResponseStatus_
+    , _gtprsTrafficPolicy = pTrafficPolicy_
+    }
 
 
 -- | -- | The response status code.
 gtprsResponseStatus :: Lens' GetTrafficPolicyResponse Int
-gtprsResponseStatus = lens _gtprsResponseStatus (\ s a -> s{_gtprsResponseStatus = a});
+gtprsResponseStatus = lens _gtprsResponseStatus (\ s a -> s{_gtprsResponseStatus = a})
 
 -- | A complex type that contains settings for the specified traffic policy.
 gtprsTrafficPolicy :: Lens' GetTrafficPolicyResponse TrafficPolicy
-gtprsTrafficPolicy = lens _gtprsTrafficPolicy (\ s a -> s{_gtprsTrafficPolicy = a});
+gtprsTrafficPolicy = lens _gtprsTrafficPolicy (\ s a -> s{_gtprsTrafficPolicy = a})
 
 instance NFData GetTrafficPolicyResponse where

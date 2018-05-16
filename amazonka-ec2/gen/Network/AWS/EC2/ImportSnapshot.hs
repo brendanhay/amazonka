@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,38 +85,38 @@ importSnapshot
     :: ImportSnapshot
 importSnapshot =
   ImportSnapshot'
-  { _isDiskContainer = Nothing
-  , _isClientToken = Nothing
-  , _isRoleName = Nothing
-  , _isDescription = Nothing
-  , _isDryRun = Nothing
-  , _isClientData = Nothing
-  }
+    { _isDiskContainer = Nothing
+    , _isClientToken = Nothing
+    , _isRoleName = Nothing
+    , _isDescription = Nothing
+    , _isDryRun = Nothing
+    , _isClientData = Nothing
+    }
 
 
 -- | Information about the disk container.
 isDiskContainer :: Lens' ImportSnapshot (Maybe SnapshotDiskContainer)
-isDiskContainer = lens _isDiskContainer (\ s a -> s{_isDiskContainer = a});
+isDiskContainer = lens _isDiskContainer (\ s a -> s{_isDiskContainer = a})
 
 -- | Token to enable idempotency for VM import requests.
 isClientToken :: Lens' ImportSnapshot (Maybe Text)
-isClientToken = lens _isClientToken (\ s a -> s{_isClientToken = a});
+isClientToken = lens _isClientToken (\ s a -> s{_isClientToken = a})
 
 -- | The name of the role to use when not using the default role, 'vmimport'.
 isRoleName :: Lens' ImportSnapshot (Maybe Text)
-isRoleName = lens _isRoleName (\ s a -> s{_isRoleName = a});
+isRoleName = lens _isRoleName (\ s a -> s{_isRoleName = a})
 
 -- | The description string for the import snapshot task.
 isDescription :: Lens' ImportSnapshot (Maybe Text)
-isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
+isDescription = lens _isDescription (\ s a -> s{_isDescription = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 isDryRun :: Lens' ImportSnapshot (Maybe Bool)
-isDryRun = lens _isDryRun (\ s a -> s{_isDryRun = a});
+isDryRun = lens _isDryRun (\ s a -> s{_isDryRun = a})
 
 -- | The client-specific data.
 isClientData :: Lens' ImportSnapshot (Maybe ClientData)
-isClientData = lens _isClientData (\ s a -> s{_isClientData = a});
+isClientData = lens _isClientData (\ s a -> s{_isClientData = a})
 
 instance AWSRequest ImportSnapshot where
         type Rs ImportSnapshot = ImportSnapshotResponse
@@ -180,27 +180,27 @@ importSnapshotResponse
     -> ImportSnapshotResponse
 importSnapshotResponse pResponseStatus_ =
   ImportSnapshotResponse'
-  { _isrsSnapshotTaskDetail = Nothing
-  , _isrsImportTaskId = Nothing
-  , _isrsDescription = Nothing
-  , _isrsResponseStatus = pResponseStatus_
-  }
+    { _isrsSnapshotTaskDetail = Nothing
+    , _isrsImportTaskId = Nothing
+    , _isrsDescription = Nothing
+    , _isrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the import snapshot task.
 isrsSnapshotTaskDetail :: Lens' ImportSnapshotResponse (Maybe SnapshotTaskDetail)
-isrsSnapshotTaskDetail = lens _isrsSnapshotTaskDetail (\ s a -> s{_isrsSnapshotTaskDetail = a});
+isrsSnapshotTaskDetail = lens _isrsSnapshotTaskDetail (\ s a -> s{_isrsSnapshotTaskDetail = a})
 
 -- | The ID of the import snapshot task.
 isrsImportTaskId :: Lens' ImportSnapshotResponse (Maybe Text)
-isrsImportTaskId = lens _isrsImportTaskId (\ s a -> s{_isrsImportTaskId = a});
+isrsImportTaskId = lens _isrsImportTaskId (\ s a -> s{_isrsImportTaskId = a})
 
 -- | A description of the import snapshot task.
 isrsDescription :: Lens' ImportSnapshotResponse (Maybe Text)
-isrsDescription = lens _isrsDescription (\ s a -> s{_isrsDescription = a});
+isrsDescription = lens _isrsDescription (\ s a -> s{_isrsDescription = a})
 
 -- | -- | The response status code.
 isrsResponseStatus :: Lens' ImportSnapshotResponse Int
-isrsResponseStatus = lens _isrsResponseStatus (\ s a -> s{_isrsResponseStatus = a});
+isrsResponseStatus = lens _isrsResponseStatus (\ s a -> s{_isrsResponseStatus = a})
 
 instance NFData ImportSnapshotResponse where

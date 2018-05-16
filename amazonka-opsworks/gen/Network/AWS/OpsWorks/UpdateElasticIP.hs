@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateElasticIP
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ updateElasticIP pElasticIP_ =
 
 -- | The new name.
 ueiName :: Lens' UpdateElasticIP (Maybe Text)
-ueiName = lens _ueiName (\ s a -> s{_ueiName = a});
+ueiName = lens _ueiName (\ s a -> s{_ueiName = a})
 
 -- | The address.
 ueiElasticIP :: Lens' UpdateElasticIP Text
-ueiElasticIP = lens _ueiElasticIP (\ s a -> s{_ueiElasticIP = a});
+ueiElasticIP = lens _ueiElasticIP (\ s a -> s{_ueiElasticIP = a})
 
 instance AWSRequest UpdateElasticIP where
         type Rs UpdateElasticIP = UpdateElasticIPResponse

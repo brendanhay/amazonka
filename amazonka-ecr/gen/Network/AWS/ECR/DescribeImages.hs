@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.DescribeImages
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ data DescribeImages = DescribeImages'
 --
 -- * 'diImageIds' - The list of image IDs for the requested repository.
 --
--- * 'diNextToken' - The @nextToken@ value returned from a previous paginated @DescribeImages@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- * 'diNextToken' - The @nextToken@ value returned from a previous paginated @DescribeImages@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return. This option cannot be used when you specify images with @imageIds@ .
 --
 -- * 'diFilter' - The filter key and value with which to filter your @DescribeImages@ results.
 --
--- * 'diMaxResults' - The maximum number of repository results returned by @DescribeImages@ in paginated output. When this parameter is used, @DescribeImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImages@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeImages@ returns up to 100 results and a @nextToken@ value, if applicable.
+-- * 'diMaxResults' - The maximum number of repository results returned by @DescribeImages@ in paginated output. When this parameter is used, @DescribeImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImages@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeImages@ returns up to 100 results and a @nextToken@ value, if applicable. This option cannot be used when you specify images with @imageIds@ .
 --
 -- * 'diRepositoryName' - A list of repositories to describe. If this parameter is omitted, then all repositories in a registry are described.
 describeImages
@@ -84,38 +84,38 @@ describeImages
     -> DescribeImages
 describeImages pRepositoryName_ =
   DescribeImages'
-  { _diRegistryId = Nothing
-  , _diImageIds = Nothing
-  , _diNextToken = Nothing
-  , _diFilter = Nothing
-  , _diMaxResults = Nothing
-  , _diRepositoryName = pRepositoryName_
-  }
+    { _diRegistryId = Nothing
+    , _diImageIds = Nothing
+    , _diNextToken = Nothing
+    , _diFilter = Nothing
+    , _diMaxResults = Nothing
+    , _diRepositoryName = pRepositoryName_
+    }
 
 
 -- | The AWS account ID associated with the registry that contains the repository in which to describe images. If you do not specify a registry, the default registry is assumed.
 diRegistryId :: Lens' DescribeImages (Maybe Text)
-diRegistryId = lens _diRegistryId (\ s a -> s{_diRegistryId = a});
+diRegistryId = lens _diRegistryId (\ s a -> s{_diRegistryId = a})
 
 -- | The list of image IDs for the requested repository.
 diImageIds :: Lens' DescribeImages [ImageIdentifier]
-diImageIds = lens _diImageIds (\ s a -> s{_diImageIds = a}) . _Default . _Coerce;
+diImageIds = lens _diImageIds (\ s a -> s{_diImageIds = a}) . _Default . _Coerce
 
--- | The @nextToken@ value returned from a previous paginated @DescribeImages@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- | The @nextToken@ value returned from a previous paginated @DescribeImages@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return. This option cannot be used when you specify images with @imageIds@ .
 diNextToken :: Lens' DescribeImages (Maybe Text)
-diNextToken = lens _diNextToken (\ s a -> s{_diNextToken = a});
+diNextToken = lens _diNextToken (\ s a -> s{_diNextToken = a})
 
 -- | The filter key and value with which to filter your @DescribeImages@ results.
 diFilter :: Lens' DescribeImages (Maybe DescribeImagesFilter)
-diFilter = lens _diFilter (\ s a -> s{_diFilter = a});
+diFilter = lens _diFilter (\ s a -> s{_diFilter = a})
 
--- | The maximum number of repository results returned by @DescribeImages@ in paginated output. When this parameter is used, @DescribeImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImages@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeImages@ returns up to 100 results and a @nextToken@ value, if applicable.
+-- | The maximum number of repository results returned by @DescribeImages@ in paginated output. When this parameter is used, @DescribeImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImages@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeImages@ returns up to 100 results and a @nextToken@ value, if applicable. This option cannot be used when you specify images with @imageIds@ .
 diMaxResults :: Lens' DescribeImages (Maybe Natural)
-diMaxResults = lens _diMaxResults (\ s a -> s{_diMaxResults = a}) . mapping _Nat;
+diMaxResults = lens _diMaxResults (\ s a -> s{_diMaxResults = a}) . mapping _Nat
 
 -- | A list of repositories to describe. If this parameter is omitted, then all repositories in a registry are described.
 diRepositoryName :: Lens' DescribeImages Text
-diRepositoryName = lens _diRepositoryName (\ s a -> s{_diRepositoryName = a});
+diRepositoryName = lens _diRepositoryName (\ s a -> s{_diRepositoryName = a})
 
 instance AWSPager DescribeImages where
         page rq rs
@@ -188,22 +188,22 @@ describeImagesResponse
     -> DescribeImagesResponse
 describeImagesResponse pResponseStatus_ =
   DescribeImagesResponse'
-  { _dirsImageDetails = Nothing
-  , _dirsNextToken = Nothing
-  , _dirsResponseStatus = pResponseStatus_
-  }
+    { _dirsImageDetails = Nothing
+    , _dirsNextToken = Nothing
+    , _dirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of 'ImageDetail' objects that contain data about the image.
 dirsImageDetails :: Lens' DescribeImagesResponse [ImageDetail]
-dirsImageDetails = lens _dirsImageDetails (\ s a -> s{_dirsImageDetails = a}) . _Default . _Coerce;
+dirsImageDetails = lens _dirsImageDetails (\ s a -> s{_dirsImageDetails = a}) . _Default . _Coerce
 
 -- | The @nextToken@ value to include in a future @DescribeImages@ request. When the results of a @DescribeImages@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dirsNextToken :: Lens' DescribeImagesResponse (Maybe Text)
-dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a});
+dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a})
 
 -- | -- | The response status code.
 dirsResponseStatus :: Lens' DescribeImagesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
 
 instance NFData DescribeImagesResponse where

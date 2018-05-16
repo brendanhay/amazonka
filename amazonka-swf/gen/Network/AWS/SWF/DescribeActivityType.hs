@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeActivityType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,16 +86,16 @@ describeActivityType
     -> DescribeActivityType
 describeActivityType pDomain_ pActivityType_ =
   DescribeActivityType'
-  {_datDomain = pDomain_, _datActivityType = pActivityType_}
+    {_datDomain = pDomain_, _datActivityType = pActivityType_}
 
 
 -- | The name of the domain in which the activity type is registered.
 datDomain :: Lens' DescribeActivityType Text
-datDomain = lens _datDomain (\ s a -> s{_datDomain = a});
+datDomain = lens _datDomain (\ s a -> s{_datDomain = a})
 
 -- | The activity type to get information about. Activity types are identified by the @name@ and @version@ that were supplied when the activity was registered.
 datActivityType :: Lens' DescribeActivityType ActivityType
-datActivityType = lens _datActivityType (\ s a -> s{_datActivityType = a});
+datActivityType = lens _datActivityType (\ s a -> s{_datActivityType = a})
 
 instance AWSRequest DescribeActivityType where
         type Rs DescribeActivityType =
@@ -163,22 +163,22 @@ describeActivityTypeResponse
     -> DescribeActivityTypeResponse
 describeActivityTypeResponse pResponseStatus_ pTypeInfo_ pConfiguration_ =
   DescribeActivityTypeResponse'
-  { _datrsResponseStatus = pResponseStatus_
-  , _datrsTypeInfo = pTypeInfo_
-  , _datrsConfiguration = pConfiguration_
-  }
+    { _datrsResponseStatus = pResponseStatus_
+    , _datrsTypeInfo = pTypeInfo_
+    , _datrsConfiguration = pConfiguration_
+    }
 
 
 -- | -- | The response status code.
 datrsResponseStatus :: Lens' DescribeActivityTypeResponse Int
-datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a});
+datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a})
 
 -- | General information about the activity type. The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.      * @DEPRECATED@ – The type was deprecated using 'DeprecateActivityType' , but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
 datrsTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
-datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a});
+datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a})
 
 -- | The configuration settings registered with the activity type.
 datrsConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
-datrsConfiguration = lens _datrsConfiguration (\ s a -> s{_datrsConfiguration = a});
+datrsConfiguration = lens _datrsConfiguration (\ s a -> s{_datrsConfiguration = a})
 
 instance NFData DescribeActivityTypeResponse where

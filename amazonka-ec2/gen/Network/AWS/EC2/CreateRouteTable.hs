@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateRouteTable
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ createRouteTable pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 crtDryRun :: Lens' CreateRouteTable (Maybe Bool)
-crtDryRun = lens _crtDryRun (\ s a -> s{_crtDryRun = a});
+crtDryRun = lens _crtDryRun (\ s a -> s{_crtDryRun = a})
 
 -- | The ID of the VPC.
 crtVPCId :: Lens' CreateRouteTable Text
-crtVPCId = lens _crtVPCId (\ s a -> s{_crtVPCId = a});
+crtVPCId = lens _crtVPCId (\ s a -> s{_crtVPCId = a})
 
 instance AWSRequest CreateRouteTable where
         type Rs CreateRouteTable = CreateRouteTableResponse
@@ -129,15 +129,15 @@ createRouteTableResponse
     -> CreateRouteTableResponse
 createRouteTableResponse pResponseStatus_ =
   CreateRouteTableResponse'
-  {_crtrsRouteTable = Nothing, _crtrsResponseStatus = pResponseStatus_}
+    {_crtrsRouteTable = Nothing, _crtrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the route table.
 crtrsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
-crtrsRouteTable = lens _crtrsRouteTable (\ s a -> s{_crtrsRouteTable = a});
+crtrsRouteTable = lens _crtrsRouteTable (\ s a -> s{_crtrsRouteTable = a})
 
 -- | -- | The response status code.
 crtrsResponseStatus :: Lens' CreateRouteTableResponse Int
-crtrsResponseStatus = lens _crtrsResponseStatus (\ s a -> s{_crtrsResponseStatus = a});
+crtrsResponseStatus = lens _crtrsResponseStatus (\ s a -> s{_crtrsResponseStatus = a})
 
 instance NFData CreateRouteTableResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateDefaultVPC
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ createDefaultVPC = CreateDefaultVPC' {_cdvDryRun = Nothing}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cdvDryRun :: Lens' CreateDefaultVPC (Maybe Bool)
-cdvDryRun = lens _cdvDryRun (\ s a -> s{_cdvDryRun = a});
+cdvDryRun = lens _cdvDryRun (\ s a -> s{_cdvDryRun = a})
 
 instance AWSRequest CreateDefaultVPC where
         type Rs CreateDefaultVPC = CreateDefaultVPCResponse
@@ -121,15 +121,15 @@ createDefaultVPCResponse
     -> CreateDefaultVPCResponse
 createDefaultVPCResponse pResponseStatus_ =
   CreateDefaultVPCResponse'
-  {_cdvrsVPC = Nothing, _cdvrsResponseStatus = pResponseStatus_}
+    {_cdvrsVPC = Nothing, _cdvrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the VPC.
 cdvrsVPC :: Lens' CreateDefaultVPCResponse (Maybe VPC)
-cdvrsVPC = lens _cdvrsVPC (\ s a -> s{_cdvrsVPC = a});
+cdvrsVPC = lens _cdvrsVPC (\ s a -> s{_cdvrsVPC = a})
 
 -- | -- | The response status code.
 cdvrsResponseStatus :: Lens' CreateDefaultVPCResponse Int
-cdvrsResponseStatus = lens _cdvrsResponseStatus (\ s a -> s{_cdvrsResponseStatus = a});
+cdvrsResponseStatus = lens _cdvrsResponseStatus (\ s a -> s{_cdvrsResponseStatus = a})
 
 instance NFData CreateDefaultVPCResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.DeleteMessage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ deleteMessage pQueueURL_ pReceiptHandle_ =
 
 -- | The URL of the Amazon SQS queue from which messages are deleted. Queue URLs are case-sensitive.
 dmQueueURL :: Lens' DeleteMessage Text
-dmQueueURL = lens _dmQueueURL (\ s a -> s{_dmQueueURL = a});
+dmQueueURL = lens _dmQueueURL (\ s a -> s{_dmQueueURL = a})
 
 -- | The receipt handle associated with the message to delete.
 dmReceiptHandle :: Lens' DeleteMessage Text
-dmReceiptHandle = lens _dmReceiptHandle (\ s a -> s{_dmReceiptHandle = a});
+dmReceiptHandle = lens _dmReceiptHandle (\ s a -> s{_dmReceiptHandle = a})
 
 instance AWSRequest DeleteMessage where
         type Rs DeleteMessage = DeleteMessageResponse

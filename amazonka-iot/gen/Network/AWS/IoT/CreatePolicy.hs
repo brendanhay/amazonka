@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreatePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,16 +74,16 @@ createPolicy
     -> CreatePolicy
 createPolicy pPolicyName_ pPolicyDocument_ =
   CreatePolicy'
-  {_cpPolicyName = pPolicyName_, _cpPolicyDocument = pPolicyDocument_}
+    {_cpPolicyName = pPolicyName_, _cpPolicyDocument = pPolicyDocument_}
 
 
 -- | The policy name.
 cpPolicyName :: Lens' CreatePolicy Text
-cpPolicyName = lens _cpPolicyName (\ s a -> s{_cpPolicyName = a});
+cpPolicyName = lens _cpPolicyName (\ s a -> s{_cpPolicyName = a})
 
 -- | The JSON document that describes the policy. __policyDocument__ must have a minimum length of 1, with a maximum length of 2048, excluding whitespace.
 cpPolicyDocument :: Lens' CreatePolicy Text
-cpPolicyDocument = lens _cpPolicyDocument (\ s a -> s{_cpPolicyDocument = a});
+cpPolicyDocument = lens _cpPolicyDocument (\ s a -> s{_cpPolicyDocument = a})
 
 instance AWSRequest CreatePolicy where
         type Rs CreatePolicy = CreatePolicyResponse
@@ -149,32 +149,32 @@ createPolicyResponse
     -> CreatePolicyResponse
 createPolicyResponse pResponseStatus_ =
   CreatePolicyResponse'
-  { _cprsPolicyName = Nothing
-  , _cprsPolicyDocument = Nothing
-  , _cprsPolicyVersionId = Nothing
-  , _cprsPolicyARN = Nothing
-  , _cprsResponseStatus = pResponseStatus_
-  }
+    { _cprsPolicyName = Nothing
+    , _cprsPolicyDocument = Nothing
+    , _cprsPolicyVersionId = Nothing
+    , _cprsPolicyARN = Nothing
+    , _cprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The policy name.
 cprsPolicyName :: Lens' CreatePolicyResponse (Maybe Text)
-cprsPolicyName = lens _cprsPolicyName (\ s a -> s{_cprsPolicyName = a});
+cprsPolicyName = lens _cprsPolicyName (\ s a -> s{_cprsPolicyName = a})
 
 -- | The JSON document that describes the policy.
 cprsPolicyDocument :: Lens' CreatePolicyResponse (Maybe Text)
-cprsPolicyDocument = lens _cprsPolicyDocument (\ s a -> s{_cprsPolicyDocument = a});
+cprsPolicyDocument = lens _cprsPolicyDocument (\ s a -> s{_cprsPolicyDocument = a})
 
 -- | The policy version ID.
 cprsPolicyVersionId :: Lens' CreatePolicyResponse (Maybe Text)
-cprsPolicyVersionId = lens _cprsPolicyVersionId (\ s a -> s{_cprsPolicyVersionId = a});
+cprsPolicyVersionId = lens _cprsPolicyVersionId (\ s a -> s{_cprsPolicyVersionId = a})
 
 -- | The policy ARN.
 cprsPolicyARN :: Lens' CreatePolicyResponse (Maybe Text)
-cprsPolicyARN = lens _cprsPolicyARN (\ s a -> s{_cprsPolicyARN = a});
+cprsPolicyARN = lens _cprsPolicyARN (\ s a -> s{_cprsPolicyARN = a})
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePolicyResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
 
 instance NFData CreatePolicyResponse where

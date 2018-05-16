@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains.UploadDocuments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,11 +80,11 @@ uploadDocuments pContentType_ pDocuments_ =
 
 -- | The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:     * application/json    * application/xml
 udContentType :: Lens' UploadDocuments ContentType
-udContentType = lens _udContentType (\ s a -> s{_udContentType = a});
+udContentType = lens _udContentType (\ s a -> s{_udContentType = a})
 
 -- | A batch of documents formatted in JSON or HTML.
 udDocuments :: Lens' UploadDocuments HashedBody
-udDocuments = lens _udDocuments (\ s a -> s{_udDocuments = a});
+udDocuments = lens _udDocuments (\ s a -> s{_udDocuments = a})
 
 instance AWSRequest UploadDocuments where
         type Rs UploadDocuments = UploadDocumentsResponse
@@ -103,10 +103,7 @@ instance ToBody UploadDocuments where
 
 instance ToHeaders UploadDocuments where
         toHeaders UploadDocuments'{..}
-          = mconcat
-              ["Content-Type" =# _udContentType,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+          = mconcat ["Content-Type" =# _udContentType]
 
 instance ToPath UploadDocuments where
         toPath = const "/2013-01-01/documents/batch"
@@ -146,32 +143,32 @@ uploadDocumentsResponse
     -> UploadDocumentsResponse
 uploadDocumentsResponse pResponseStatus_ =
   UploadDocumentsResponse'
-  { _udrsStatus = Nothing
-  , _udrsAdds = Nothing
-  , _udrsWarnings = Nothing
-  , _udrsDeletes = Nothing
-  , _udrsResponseStatus = pResponseStatus_
-  }
+    { _udrsStatus = Nothing
+    , _udrsAdds = Nothing
+    , _udrsWarnings = Nothing
+    , _udrsDeletes = Nothing
+    , _udrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of an @UploadDocumentsRequest@ .
 udrsStatus :: Lens' UploadDocumentsResponse (Maybe Text)
-udrsStatus = lens _udrsStatus (\ s a -> s{_udrsStatus = a});
+udrsStatus = lens _udrsStatus (\ s a -> s{_udrsStatus = a})
 
 -- | The number of documents that were added to the search domain.
 udrsAdds :: Lens' UploadDocumentsResponse (Maybe Integer)
-udrsAdds = lens _udrsAdds (\ s a -> s{_udrsAdds = a});
+udrsAdds = lens _udrsAdds (\ s a -> s{_udrsAdds = a})
 
 -- | Any warnings returned by the document service about the documents being uploaded.
 udrsWarnings :: Lens' UploadDocumentsResponse [DocumentServiceWarning]
-udrsWarnings = lens _udrsWarnings (\ s a -> s{_udrsWarnings = a}) . _Default . _Coerce;
+udrsWarnings = lens _udrsWarnings (\ s a -> s{_udrsWarnings = a}) . _Default . _Coerce
 
 -- | The number of documents that were deleted from the search domain.
 udrsDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)
-udrsDeletes = lens _udrsDeletes (\ s a -> s{_udrsDeletes = a});
+udrsDeletes = lens _udrsDeletes (\ s a -> s{_udrsDeletes = a})
 
 -- | -- | The response status code.
 udrsResponseStatus :: Lens' UploadDocumentsResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
+udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a})
 
 instance NFData UploadDocumentsResponse where

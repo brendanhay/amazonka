@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelExportTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ cancelExportTask pExportTaskId_ =
 
 -- | The ID of the export task. This is the ID returned by @CreateInstanceExportTask@ .
 cetExportTaskId :: Lens' CancelExportTask Text
-cetExportTaskId = lens _cetExportTaskId (\ s a -> s{_cetExportTaskId = a});
+cetExportTaskId = lens _cetExportTaskId (\ s a -> s{_cetExportTaskId = a})
 
 instance AWSRequest CancelExportTask where
         type Rs CancelExportTask = CancelExportTaskResponse

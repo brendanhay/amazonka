@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateUsagePlan
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,39 +79,39 @@ data CreateUsagePlan = CreateUsagePlan'
 --
 -- * 'cupDescription' - The description of the usage plan.
 --
--- * 'cupName' - The name of the usage plan.
+-- * 'cupName' - [Required] The name of the usage plan.
 createUsagePlan
     :: Text -- ^ 'cupName'
     -> CreateUsagePlan
 createUsagePlan pName_ =
   CreateUsagePlan'
-  { _cupApiStages = Nothing
-  , _cupThrottle = Nothing
-  , _cupQuota = Nothing
-  , _cupDescription = Nothing
-  , _cupName = pName_
-  }
+    { _cupApiStages = Nothing
+    , _cupThrottle = Nothing
+    , _cupQuota = Nothing
+    , _cupDescription = Nothing
+    , _cupName = pName_
+    }
 
 
 -- | The associated API stages of the usage plan.
 cupApiStages :: Lens' CreateUsagePlan [APIStage]
-cupApiStages = lens _cupApiStages (\ s a -> s{_cupApiStages = a}) . _Default . _Coerce;
+cupApiStages = lens _cupApiStages (\ s a -> s{_cupApiStages = a}) . _Default . _Coerce
 
 -- | The throttling limits of the usage plan.
 cupThrottle :: Lens' CreateUsagePlan (Maybe ThrottleSettings)
-cupThrottle = lens _cupThrottle (\ s a -> s{_cupThrottle = a});
+cupThrottle = lens _cupThrottle (\ s a -> s{_cupThrottle = a})
 
 -- | The quota of the usage plan.
 cupQuota :: Lens' CreateUsagePlan (Maybe QuotaSettings)
-cupQuota = lens _cupQuota (\ s a -> s{_cupQuota = a});
+cupQuota = lens _cupQuota (\ s a -> s{_cupQuota = a})
 
 -- | The description of the usage plan.
 cupDescription :: Lens' CreateUsagePlan (Maybe Text)
-cupDescription = lens _cupDescription (\ s a -> s{_cupDescription = a});
+cupDescription = lens _cupDescription (\ s a -> s{_cupDescription = a})
 
--- | The name of the usage plan.
+-- | [Required] The name of the usage plan.
 cupName :: Lens' CreateUsagePlan Text
-cupName = lens _cupName (\ s a -> s{_cupName = a});
+cupName = lens _cupName (\ s a -> s{_cupName = a})
 
 instance AWSRequest CreateUsagePlan where
         type Rs CreateUsagePlan = UsagePlan

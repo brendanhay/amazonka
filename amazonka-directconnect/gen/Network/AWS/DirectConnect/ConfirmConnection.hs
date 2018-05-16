@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.ConfirmConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ confirmConnection pConnectionId_ =
 
 -- | Undocumented member.
 ccConnectionId :: Lens' ConfirmConnection Text
-ccConnectionId = lens _ccConnectionId (\ s a -> s{_ccConnectionId = a});
+ccConnectionId = lens _ccConnectionId (\ s a -> s{_ccConnectionId = a})
 
 instance AWSRequest ConfirmConnection where
         type Rs ConfirmConnection = ConfirmConnectionResponse
@@ -129,15 +129,15 @@ confirmConnectionResponse
     -> ConfirmConnectionResponse
 confirmConnectionResponse pResponseStatus_ =
   ConfirmConnectionResponse'
-  {_ccrsConnectionState = Nothing, _ccrsResponseStatus = pResponseStatus_}
+    {_ccrsConnectionState = Nothing, _ccrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 ccrsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
-ccrsConnectionState = lens _ccrsConnectionState (\ s a -> s{_ccrsConnectionState = a});
+ccrsConnectionState = lens _ccrsConnectionState (\ s a -> s{_ccrsConnectionState = a})
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' ConfirmConnectionResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
 
 instance NFData ConfirmConnectionResponse where

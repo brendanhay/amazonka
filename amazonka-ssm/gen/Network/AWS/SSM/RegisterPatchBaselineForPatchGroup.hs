@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.RegisterPatchBaselineForPatchGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ registerPatchBaselineForPatchGroup
     -> RegisterPatchBaselineForPatchGroup
 registerPatchBaselineForPatchGroup pBaselineId_ pPatchGroup_ =
   RegisterPatchBaselineForPatchGroup'
-  {_rpbfpgBaselineId = pBaselineId_, _rpbfpgPatchGroup = pPatchGroup_}
+    {_rpbfpgBaselineId = pBaselineId_, _rpbfpgPatchGroup = pPatchGroup_}
 
 
 -- | The ID of the patch baseline to register the patch group with.
 rpbfpgBaselineId :: Lens' RegisterPatchBaselineForPatchGroup Text
-rpbfpgBaselineId = lens _rpbfpgBaselineId (\ s a -> s{_rpbfpgBaselineId = a});
+rpbfpgBaselineId = lens _rpbfpgBaselineId (\ s a -> s{_rpbfpgBaselineId = a})
 
 -- | The name of the patch group that should be registered with the patch baseline.
 rpbfpgPatchGroup :: Lens' RegisterPatchBaselineForPatchGroup Text
-rpbfpgPatchGroup = lens _rpbfpgPatchGroup (\ s a -> s{_rpbfpgPatchGroup = a});
+rpbfpgPatchGroup = lens _rpbfpgPatchGroup (\ s a -> s{_rpbfpgPatchGroup = a})
 
 instance AWSRequest
            RegisterPatchBaselineForPatchGroup
@@ -145,23 +145,23 @@ registerPatchBaselineForPatchGroupResponse
     -> RegisterPatchBaselineForPatchGroupResponse
 registerPatchBaselineForPatchGroupResponse pResponseStatus_ =
   RegisterPatchBaselineForPatchGroupResponse'
-  { _rpbfpgrsBaselineId = Nothing
-  , _rpbfpgrsPatchGroup = Nothing
-  , _rpbfpgrsResponseStatus = pResponseStatus_
-  }
+    { _rpbfpgrsBaselineId = Nothing
+    , _rpbfpgrsPatchGroup = Nothing
+    , _rpbfpgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the patch baseline the patch group was registered with.
 rpbfpgrsBaselineId :: Lens' RegisterPatchBaselineForPatchGroupResponse (Maybe Text)
-rpbfpgrsBaselineId = lens _rpbfpgrsBaselineId (\ s a -> s{_rpbfpgrsBaselineId = a});
+rpbfpgrsBaselineId = lens _rpbfpgrsBaselineId (\ s a -> s{_rpbfpgrsBaselineId = a})
 
 -- | The name of the patch group registered with the patch baseline.
 rpbfpgrsPatchGroup :: Lens' RegisterPatchBaselineForPatchGroupResponse (Maybe Text)
-rpbfpgrsPatchGroup = lens _rpbfpgrsPatchGroup (\ s a -> s{_rpbfpgrsPatchGroup = a});
+rpbfpgrsPatchGroup = lens _rpbfpgrsPatchGroup (\ s a -> s{_rpbfpgrsPatchGroup = a})
 
 -- | -- | The response status code.
 rpbfpgrsResponseStatus :: Lens' RegisterPatchBaselineForPatchGroupResponse Int
-rpbfpgrsResponseStatus = lens _rpbfpgrsResponseStatus (\ s a -> s{_rpbfpgrsResponseStatus = a});
+rpbfpgrsResponseStatus = lens _rpbfpgrsResponseStatus (\ s a -> s{_rpbfpgrsResponseStatus = a})
 
 instance NFData
            RegisterPatchBaselineForPatchGroupResponse

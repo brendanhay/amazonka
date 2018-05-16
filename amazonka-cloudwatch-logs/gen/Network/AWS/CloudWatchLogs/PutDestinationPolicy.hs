@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutDestinationPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,16 +62,16 @@ putDestinationPolicy
     -> PutDestinationPolicy
 putDestinationPolicy pDestinationName_ pAccessPolicy_ =
   PutDestinationPolicy'
-  {_pdpDestinationName = pDestinationName_, _pdpAccessPolicy = pAccessPolicy_}
+    {_pdpDestinationName = pDestinationName_, _pdpAccessPolicy = pAccessPolicy_}
 
 
 -- | A name for an existing destination.
 pdpDestinationName :: Lens' PutDestinationPolicy Text
-pdpDestinationName = lens _pdpDestinationName (\ s a -> s{_pdpDestinationName = a});
+pdpDestinationName = lens _pdpDestinationName (\ s a -> s{_pdpDestinationName = a})
 
 -- | An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination.
 pdpAccessPolicy :: Lens' PutDestinationPolicy Text
-pdpAccessPolicy = lens _pdpAccessPolicy (\ s a -> s{_pdpAccessPolicy = a});
+pdpAccessPolicy = lens _pdpAccessPolicy (\ s a -> s{_pdpAccessPolicy = a})
 
 instance AWSRequest PutDestinationPolicy where
         type Rs PutDestinationPolicy =

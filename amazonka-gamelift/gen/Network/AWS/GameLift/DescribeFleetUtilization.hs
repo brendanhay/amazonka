@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeFleetUtilization
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,15 +27,21 @@
 --
 --     * 'ListFleets'
 --
+--     * 'DeleteFleet'
+--
 --     * Describe fleets:
 --
 --     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetCapacity'
 --
 --     * 'DescribeFleetPortSettings'
 --
 --     * 'DescribeFleetUtilization'
 --
 --     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeEC2InstanceLimits'
 --
 --     * 'DescribeFleetEvents'
 --
@@ -53,23 +59,13 @@
 --
 --
 --
---     * Manage fleet capacity:
+--     * Manage fleet actions:
 --
---     * 'DescribeFleetCapacity'
+--     * 'StartFleetActions'
 --
---     * 'UpdateFleetCapacity'
---
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
---     * 'DescribeEC2InstanceLimits'
+--     * 'StopFleetActions'
 --
 --
---
---     * 'DeleteFleet'
 --
 --
 --
@@ -124,20 +120,20 @@ describeFleetUtilization
     :: DescribeFleetUtilization
 describeFleetUtilization =
   DescribeFleetUtilization'
-  {_dfuNextToken = Nothing, _dfuLimit = Nothing, _dfuFleetIds = Nothing}
+    {_dfuNextToken = Nothing, _dfuLimit = Nothing, _dfuFleetIds = Nothing}
 
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfuNextToken :: Lens' DescribeFleetUtilization (Maybe Text)
-dfuNextToken = lens _dfuNextToken (\ s a -> s{_dfuNextToken = a});
+dfuNextToken = lens _dfuNextToken (\ s a -> s{_dfuNextToken = a})
 
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfuLimit :: Lens' DescribeFleetUtilization (Maybe Natural)
-dfuLimit = lens _dfuLimit (\ s a -> s{_dfuLimit = a}) . mapping _Nat;
+dfuLimit = lens _dfuLimit (\ s a -> s{_dfuLimit = a}) . mapping _Nat
 
 -- | Unique identifier for a fleet(s) to retrieve utilization data for. To request utilization data for all fleets, leave this parameter empty.
 dfuFleetIds :: Lens' DescribeFleetUtilization (Maybe (NonEmpty Text))
-dfuFleetIds = lens _dfuFleetIds (\ s a -> s{_dfuFleetIds = a}) . mapping _List1;
+dfuFleetIds = lens _dfuFleetIds (\ s a -> s{_dfuFleetIds = a}) . mapping _List1
 
 instance AWSRequest DescribeFleetUtilization where
         type Rs DescribeFleetUtilization =
@@ -204,23 +200,23 @@ describeFleetUtilizationResponse
     -> DescribeFleetUtilizationResponse
 describeFleetUtilizationResponse pResponseStatus_ =
   DescribeFleetUtilizationResponse'
-  { _dfursNextToken = Nothing
-  , _dfursFleetUtilization = Nothing
-  , _dfursResponseStatus = pResponseStatus_
-  }
+    { _dfursNextToken = Nothing
+    , _dfursFleetUtilization = Nothing
+    , _dfursResponseStatus = pResponseStatus_
+    }
 
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dfursNextToken :: Lens' DescribeFleetUtilizationResponse (Maybe Text)
-dfursNextToken = lens _dfursNextToken (\ s a -> s{_dfursNextToken = a});
+dfursNextToken = lens _dfursNextToken (\ s a -> s{_dfursNextToken = a})
 
 -- | Collection of objects containing utilization information for each requested fleet ID.
 dfursFleetUtilization :: Lens' DescribeFleetUtilizationResponse [FleetUtilization]
-dfursFleetUtilization = lens _dfursFleetUtilization (\ s a -> s{_dfursFleetUtilization = a}) . _Default . _Coerce;
+dfursFleetUtilization = lens _dfursFleetUtilization (\ s a -> s{_dfursFleetUtilization = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dfursResponseStatus :: Lens' DescribeFleetUtilizationResponse Int
-dfursResponseStatus = lens _dfursResponseStatus (\ s a -> s{_dfursResponseStatus = a});
+dfursResponseStatus = lens _dfursResponseStatus (\ s a -> s{_dfursResponseStatus = a})
 
 instance NFData DescribeFleetUtilizationResponse
          where

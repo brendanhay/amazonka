@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.RemoveTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ removeTags pARN_ = RemoveTags' {_rtARN = pARN_, _rtTagKeys = mempty}
 
 -- | Specifies the @ARN@ for the Elasticsearch domain from which you want to delete the specified tags.
 rtARN :: Lens' RemoveTags Text
-rtARN = lens _rtARN (\ s a -> s{_rtARN = a});
+rtARN = lens _rtARN (\ s a -> s{_rtARN = a})
 
 -- | Specifies the @TagKey@ list which you want to remove from the Elasticsearch domain.
 rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce;
+rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce
 
 instance AWSRequest RemoveTags where
         type Rs RemoveTags = RemoveTagsResponse

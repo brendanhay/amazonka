@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ modifyDBSubnetGroup
     -> ModifyDBSubnetGroup
 modifyDBSubnetGroup pDBSubnetGroupName_ =
   ModifyDBSubnetGroup'
-  { _mdsgDBSubnetGroupDescription = Nothing
-  , _mdsgDBSubnetGroupName = pDBSubnetGroupName_
-  , _mdsgSubnetIds = mempty
-  }
+    { _mdsgDBSubnetGroupDescription = Nothing
+    , _mdsgDBSubnetGroupName = pDBSubnetGroupName_
+    , _mdsgSubnetIds = mempty
+    }
 
 
 -- | The description for the DB subnet group.
 mdsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
-mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_mdsgDBSubnetGroupDescription = a});
+mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_mdsgDBSubnetGroupDescription = a})
 
 -- | The name for the DB subnet group. This value is stored as a lowercase string. You can't modify the default subnet group.  Constraints: Must match the name of an existing DBSubnetGroup. Must not be default. Example: @mySubnetgroup@
 mdsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
-mdsgDBSubnetGroupName = lens _mdsgDBSubnetGroupName (\ s a -> s{_mdsgDBSubnetGroupName = a});
+mdsgDBSubnetGroupName = lens _mdsgDBSubnetGroupName (\ s a -> s{_mdsgDBSubnetGroupName = a})
 
 -- | The EC2 subnet IDs for the DB subnet group.
 mdsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
-mdsgSubnetIds = lens _mdsgSubnetIds (\ s a -> s{_mdsgSubnetIds = a}) . _Coerce;
+mdsgSubnetIds = lens _mdsgSubnetIds (\ s a -> s{_mdsgSubnetIds = a}) . _Coerce
 
 instance AWSRequest ModifyDBSubnetGroup where
         type Rs ModifyDBSubnetGroup =
@@ -140,15 +140,15 @@ modifyDBSubnetGroupResponse
     -> ModifyDBSubnetGroupResponse
 modifyDBSubnetGroupResponse pResponseStatus_ =
   ModifyDBSubnetGroupResponse'
-  {_mdsgrsDBSubnetGroup = Nothing, _mdsgrsResponseStatus = pResponseStatus_}
+    {_mdsgrsDBSubnetGroup = Nothing, _mdsgrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 mdsgrsDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
-mdsgrsDBSubnetGroup = lens _mdsgrsDBSubnetGroup (\ s a -> s{_mdsgrsDBSubnetGroup = a});
+mdsgrsDBSubnetGroup = lens _mdsgrsDBSubnetGroup (\ s a -> s{_mdsgrsDBSubnetGroup = a})
 
 -- | -- | The response status code.
 mdsgrsResponseStatus :: Lens' ModifyDBSubnetGroupResponse Int
-mdsgrsResponseStatus = lens _mdsgrsResponseStatus (\ s a -> s{_mdsgrsResponseStatus = a});
+mdsgrsResponseStatus = lens _mdsgrsResponseStatus (\ s a -> s{_mdsgrsResponseStatus = a})
 
 instance NFData ModifyDBSubnetGroupResponse where

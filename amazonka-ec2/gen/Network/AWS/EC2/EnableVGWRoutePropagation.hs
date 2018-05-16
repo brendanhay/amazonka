@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.EnableVGWRoutePropagation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ enableVGWRoutePropagation
     -> EnableVGWRoutePropagation
 enableVGWRoutePropagation pGatewayId_ pRouteTableId_ =
   EnableVGWRoutePropagation'
-  {_evrpGatewayId = pGatewayId_, _evrpRouteTableId = pRouteTableId_}
+    {_evrpGatewayId = pGatewayId_, _evrpRouteTableId = pRouteTableId_}
 
 
 -- | The ID of the virtual private gateway.
 evrpGatewayId :: Lens' EnableVGWRoutePropagation Text
-evrpGatewayId = lens _evrpGatewayId (\ s a -> s{_evrpGatewayId = a});
+evrpGatewayId = lens _evrpGatewayId (\ s a -> s{_evrpGatewayId = a})
 
 -- | The ID of the route table.
 evrpRouteTableId :: Lens' EnableVGWRoutePropagation Text
-evrpRouteTableId = lens _evrpRouteTableId (\ s a -> s{_evrpRouteTableId = a});
+evrpRouteTableId = lens _evrpRouteTableId (\ s a -> s{_evrpRouteTableId = a})
 
 instance AWSRequest EnableVGWRoutePropagation where
         type Rs EnableVGWRoutePropagation =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeInstancePatchStates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ describeInstancePatchStates
     :: DescribeInstancePatchStates
 describeInstancePatchStates =
   DescribeInstancePatchStates'
-  { _dipsNextToken = Nothing
-  , _dipsMaxResults = Nothing
-  , _dipsInstanceIds = mempty
-  }
+    { _dipsNextToken = Nothing
+    , _dipsMaxResults = Nothing
+    , _dipsInstanceIds = mempty
+    }
 
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dipsNextToken :: Lens' DescribeInstancePatchStates (Maybe Text)
-dipsNextToken = lens _dipsNextToken (\ s a -> s{_dipsNextToken = a});
+dipsNextToken = lens _dipsNextToken (\ s a -> s{_dipsNextToken = a})
 
 -- | The maximum number of instances to return (per page).
 dipsMaxResults :: Lens' DescribeInstancePatchStates (Maybe Natural)
-dipsMaxResults = lens _dipsMaxResults (\ s a -> s{_dipsMaxResults = a}) . mapping _Nat;
+dipsMaxResults = lens _dipsMaxResults (\ s a -> s{_dipsMaxResults = a}) . mapping _Nat
 
 -- | The ID of the instance whose patch state information should be retrieved.
 dipsInstanceIds :: Lens' DescribeInstancePatchStates [Text]
-dipsInstanceIds = lens _dipsInstanceIds (\ s a -> s{_dipsInstanceIds = a}) . _Coerce;
+dipsInstanceIds = lens _dipsInstanceIds (\ s a -> s{_dipsInstanceIds = a}) . _Coerce
 
 instance AWSRequest DescribeInstancePatchStates where
         type Rs DescribeInstancePatchStates =
@@ -148,23 +148,23 @@ describeInstancePatchStatesResponse
     -> DescribeInstancePatchStatesResponse
 describeInstancePatchStatesResponse pResponseStatus_ =
   DescribeInstancePatchStatesResponse'
-  { _dipsrsNextToken = Nothing
-  , _dipsrsInstancePatchStates = Nothing
-  , _dipsrsResponseStatus = pResponseStatus_
-  }
+    { _dipsrsNextToken = Nothing
+    , _dipsrsInstancePatchStates = Nothing
+    , _dipsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dipsrsNextToken :: Lens' DescribeInstancePatchStatesResponse (Maybe Text)
-dipsrsNextToken = lens _dipsrsNextToken (\ s a -> s{_dipsrsNextToken = a});
+dipsrsNextToken = lens _dipsrsNextToken (\ s a -> s{_dipsrsNextToken = a})
 
 -- | The high-level patch state for the requested instances.
 dipsrsInstancePatchStates :: Lens' DescribeInstancePatchStatesResponse [InstancePatchState]
-dipsrsInstancePatchStates = lens _dipsrsInstancePatchStates (\ s a -> s{_dipsrsInstancePatchStates = a}) . _Default . _Coerce;
+dipsrsInstancePatchStates = lens _dipsrsInstancePatchStates (\ s a -> s{_dipsrsInstancePatchStates = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dipsrsResponseStatus :: Lens' DescribeInstancePatchStatesResponse Int
-dipsrsResponseStatus = lens _dipsrsResponseStatus (\ s a -> s{_dipsrsResponseStatus = a});
+dipsrsResponseStatus = lens _dipsrsResponseStatus (\ s a -> s{_dipsrsResponseStatus = a})
 
 instance NFData DescribeInstancePatchStatesResponse
          where

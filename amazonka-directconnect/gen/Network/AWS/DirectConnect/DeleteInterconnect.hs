@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteInterconnect
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ deleteInterconnect pInterconnectId_ =
 
 -- | Undocumented member.
 dInterconnectId :: Lens' DeleteInterconnect Text
-dInterconnectId = lens _dInterconnectId (\ s a -> s{_dInterconnectId = a});
+dInterconnectId = lens _dInterconnectId (\ s a -> s{_dInterconnectId = a})
 
 instance AWSRequest DeleteInterconnect where
         type Rs DeleteInterconnect =
@@ -128,15 +128,15 @@ deleteInterconnectResponse
     -> DeleteInterconnectResponse
 deleteInterconnectResponse pResponseStatus_ =
   DeleteInterconnectResponse'
-  {_drsInterconnectState = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsInterconnectState = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 drsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
-drsInterconnectState = lens _drsInterconnectState (\ s a -> s{_drsInterconnectState = a});
+drsInterconnectState = lens _drsInterconnectState (\ s a -> s{_drsInterconnectState = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteInterconnectResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteInterconnectResponse where

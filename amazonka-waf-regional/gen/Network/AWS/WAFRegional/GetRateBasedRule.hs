@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetRateBasedRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getRateBasedRule pRuleId_ = GetRateBasedRule' {_grbrRuleId = pRuleId_}
 
 -- | The @RuleId@ of the 'RateBasedRule' that you want to get. @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
 grbrRuleId :: Lens' GetRateBasedRule Text
-grbrRuleId = lens _grbrRuleId (\ s a -> s{_grbrRuleId = a});
+grbrRuleId = lens _grbrRuleId (\ s a -> s{_grbrRuleId = a})
 
 instance AWSRequest GetRateBasedRule where
         type Rs GetRateBasedRule = GetRateBasedRuleResponse
@@ -117,15 +117,15 @@ getRateBasedRuleResponse
     -> GetRateBasedRuleResponse
 getRateBasedRuleResponse pResponseStatus_ =
   GetRateBasedRuleResponse'
-  {_grbrrsRule = Nothing, _grbrrsResponseStatus = pResponseStatus_}
+    {_grbrrsRule = Nothing, _grbrrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the 'RateBasedRule' that you specified in the @GetRateBasedRule@ request.
 grbrrsRule :: Lens' GetRateBasedRuleResponse (Maybe RateBasedRule)
-grbrrsRule = lens _grbrrsRule (\ s a -> s{_grbrrsRule = a});
+grbrrsRule = lens _grbrrsRule (\ s a -> s{_grbrrsRule = a})
 
 -- | -- | The response status code.
 grbrrsResponseStatus :: Lens' GetRateBasedRuleResponse Int
-grbrrsResponseStatus = lens _grbrrsResponseStatus (\ s a -> s{_grbrrsResponseStatus = a});
+grbrrsResponseStatus = lens _grbrrsResponseStatus (\ s a -> s{_grbrrsResponseStatus = a})
 
 instance NFData GetRateBasedRuleResponse where

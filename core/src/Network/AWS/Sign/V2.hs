@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Network.AWS.Sign.V2
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -16,7 +16,6 @@ module Network.AWS.Sign.V2
     ( v2
     ) where
 
-import           Control.Applicative
 import qualified Data.ByteString.Char8       as BS8
 import           Data.Monoid
 import           Data.Time

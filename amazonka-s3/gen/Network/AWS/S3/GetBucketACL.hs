@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketACL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getBucketACL pBucket_ = GetBucketACL' {_gbaBucket = pBucket_}
 
 -- | Undocumented member.
 gbaBucket :: Lens' GetBucketACL BucketName
-gbaBucket = lens _gbaBucket (\ s a -> s{_gbaBucket = a});
+gbaBucket = lens _gbaBucket (\ s a -> s{_gbaBucket = a})
 
 instance AWSRequest GetBucketACL where
         type Rs GetBucketACL = GetBucketACLResponse
@@ -112,22 +112,22 @@ getBucketACLResponse
     -> GetBucketACLResponse
 getBucketACLResponse pResponseStatus_ =
   GetBucketACLResponse'
-  { _gbarsGrants = Nothing
-  , _gbarsOwner = Nothing
-  , _gbarsResponseStatus = pResponseStatus_
-  }
+    { _gbarsGrants = Nothing
+    , _gbarsOwner = Nothing
+    , _gbarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of grants.
 gbarsGrants :: Lens' GetBucketACLResponse [Grant]
-gbarsGrants = lens _gbarsGrants (\ s a -> s{_gbarsGrants = a}) . _Default . _Coerce;
+gbarsGrants = lens _gbarsGrants (\ s a -> s{_gbarsGrants = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gbarsOwner :: Lens' GetBucketACLResponse (Maybe Owner)
-gbarsOwner = lens _gbarsOwner (\ s a -> s{_gbarsOwner = a});
+gbarsOwner = lens _gbarsOwner (\ s a -> s{_gbarsOwner = a})
 
 -- | -- | The response status code.
 gbarsResponseStatus :: Lens' GetBucketACLResponse Int
-gbarsResponseStatus = lens _gbarsResponseStatus (\ s a -> s{_gbarsResponseStatus = a});
+gbarsResponseStatus = lens _gbarsResponseStatus (\ s a -> s{_gbarsResponseStatus = a})
 
 instance NFData GetBucketACLResponse where

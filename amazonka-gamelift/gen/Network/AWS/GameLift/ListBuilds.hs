@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.ListBuilds
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,15 +90,15 @@ listBuilds =
 
 -- | Build status to filter results by. To retrieve all builds, leave this parameter empty. Possible build statuses include the following:     * __INITIALIZED__ -- A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.      * __READY__ -- The game build has been successfully uploaded. You can now create new fleets for this build.     * __FAILED__ -- The game build upload failed. You cannot create new fleets for this build.
 lbStatus :: Lens' ListBuilds (Maybe BuildStatus)
-lbStatus = lens _lbStatus (\ s a -> s{_lbStatus = a});
+lbStatus = lens _lbStatus (\ s a -> s{_lbStatus = a})
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 lbNextToken :: Lens' ListBuilds (Maybe Text)
-lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a});
+lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a})
 
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 lbLimit :: Lens' ListBuilds (Maybe Natural)
-lbLimit = lens _lbLimit (\ s a -> s{_lbLimit = a}) . mapping _Nat;
+lbLimit = lens _lbLimit (\ s a -> s{_lbLimit = a}) . mapping _Nat
 
 instance AWSRequest ListBuilds where
         type Rs ListBuilds = ListBuildsResponse
@@ -163,22 +163,22 @@ listBuildsResponse
     -> ListBuildsResponse
 listBuildsResponse pResponseStatus_ =
   ListBuildsResponse'
-  { _lbrsBuilds = Nothing
-  , _lbrsNextToken = Nothing
-  , _lbrsResponseStatus = pResponseStatus_
-  }
+    { _lbrsBuilds = Nothing
+    , _lbrsNextToken = Nothing
+    , _lbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Collection of build records that match the request.
 lbrsBuilds :: Lens' ListBuildsResponse [Build]
-lbrsBuilds = lens _lbrsBuilds (\ s a -> s{_lbrsBuilds = a}) . _Default . _Coerce;
+lbrsBuilds = lens _lbrsBuilds (\ s a -> s{_lbrsBuilds = a}) . _Default . _Coerce
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 lbrsNextToken :: Lens' ListBuildsResponse (Maybe Text)
-lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
+lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a})
 
 -- | -- | The response status code.
 lbrsResponseStatus :: Lens' ListBuildsResponse Int
-lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
+lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a})
 
 instance NFData ListBuildsResponse where

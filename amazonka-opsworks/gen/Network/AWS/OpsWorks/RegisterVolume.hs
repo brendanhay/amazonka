@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterVolume
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ registerVolume pStackId_ =
 
 -- | The Amazon EBS volume ID.
 rvEC2VolumeId :: Lens' RegisterVolume (Maybe Text)
-rvEC2VolumeId = lens _rvEC2VolumeId (\ s a -> s{_rvEC2VolumeId = a});
+rvEC2VolumeId = lens _rvEC2VolumeId (\ s a -> s{_rvEC2VolumeId = a})
 
 -- | The stack ID.
 rvStackId :: Lens' RegisterVolume Text
-rvStackId = lens _rvStackId (\ s a -> s{_rvStackId = a});
+rvStackId = lens _rvStackId (\ s a -> s{_rvStackId = a})
 
 instance AWSRequest RegisterVolume where
         type Rs RegisterVolume = RegisterVolumeResponse
@@ -134,15 +134,15 @@ registerVolumeResponse
     -> RegisterVolumeResponse
 registerVolumeResponse pResponseStatus_ =
   RegisterVolumeResponse'
-  {_rvrsVolumeId = Nothing, _rvrsResponseStatus = pResponseStatus_}
+    {_rvrsVolumeId = Nothing, _rvrsResponseStatus = pResponseStatus_}
 
 
 -- | The volume ID.
 rvrsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
-rvrsVolumeId = lens _rvrsVolumeId (\ s a -> s{_rvrsVolumeId = a});
+rvrsVolumeId = lens _rvrsVolumeId (\ s a -> s{_rvrsVolumeId = a})
 
 -- | -- | The response status code.
 rvrsResponseStatus :: Lens' RegisterVolumeResponse Int
-rvrsResponseStatus = lens _rvrsResponseStatus (\ s a -> s{_rvrsResponseStatus = a});
+rvrsResponseStatus = lens _rvrsResponseStatus (\ s a -> s{_rvrsResponseStatus = a})
 
 instance NFData RegisterVolumeResponse where

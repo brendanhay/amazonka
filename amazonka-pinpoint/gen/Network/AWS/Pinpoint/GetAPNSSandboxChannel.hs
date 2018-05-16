@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetAPNSSandboxChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getAPNSSandboxChannel pApplicationId_ =
 
 -- | Undocumented member.
 gascApplicationId :: Lens' GetAPNSSandboxChannel Text
-gascApplicationId = lens _gascApplicationId (\ s a -> s{_gascApplicationId = a});
+gascApplicationId = lens _gascApplicationId (\ s a -> s{_gascApplicationId = a})
 
 instance AWSRequest GetAPNSSandboxChannel where
         type Rs GetAPNSSandboxChannel =
@@ -114,17 +114,17 @@ getAPNSSandboxChannelResponse
     -> GetAPNSSandboxChannelResponse
 getAPNSSandboxChannelResponse pResponseStatus_ pAPNSSandboxChannelResponse_ =
   GetAPNSSandboxChannelResponse'
-  { _gascrsResponseStatus = pResponseStatus_
-  , _gascrsAPNSSandboxChannelResponse = pAPNSSandboxChannelResponse_
-  }
+    { _gascrsResponseStatus = pResponseStatus_
+    , _gascrsAPNSSandboxChannelResponse = pAPNSSandboxChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 gascrsResponseStatus :: Lens' GetAPNSSandboxChannelResponse Int
-gascrsResponseStatus = lens _gascrsResponseStatus (\ s a -> s{_gascrsResponseStatus = a});
+gascrsResponseStatus = lens _gascrsResponseStatus (\ s a -> s{_gascrsResponseStatus = a})
 
 -- | Undocumented member.
 gascrsAPNSSandboxChannelResponse :: Lens' GetAPNSSandboxChannelResponse APNSSandboxChannelResponse
-gascrsAPNSSandboxChannelResponse = lens _gascrsAPNSSandboxChannelResponse (\ s a -> s{_gascrsAPNSSandboxChannelResponse = a});
+gascrsAPNSSandboxChannelResponse = lens _gascrsAPNSSandboxChannelResponse (\ s a -> s{_gascrsAPNSSandboxChannelResponse = a})
 
 instance NFData GetAPNSSandboxChannelResponse where

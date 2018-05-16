@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateUserProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ createUserProfile
     -> CreateUserProfile
 createUserProfile pIAMUserARN_ =
   CreateUserProfile'
-  { _cupAllowSelfManagement = Nothing
-  , _cupSSHPublicKey = Nothing
-  , _cupSSHUsername = Nothing
-  , _cupIAMUserARN = pIAMUserARN_
-  }
+    { _cupAllowSelfManagement = Nothing
+    , _cupSSHPublicKey = Nothing
+    , _cupSSHUsername = Nothing
+    , _cupIAMUserARN = pIAMUserARN_
+    }
 
 
 -- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User's Public SSH Key> .
 cupAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
-cupAllowSelfManagement = lens _cupAllowSelfManagement (\ s a -> s{_cupAllowSelfManagement = a});
+cupAllowSelfManagement = lens _cupAllowSelfManagement (\ s a -> s{_cupAllowSelfManagement = a})
 
 -- | The user's public SSH key.
 cupSSHPublicKey :: Lens' CreateUserProfile (Maybe Text)
-cupSSHPublicKey = lens _cupSSHPublicKey (\ s a -> s{_cupSSHPublicKey = a});
+cupSSHPublicKey = lens _cupSSHPublicKey (\ s a -> s{_cupSSHPublicKey = a})
 
 -- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
 cupSSHUsername :: Lens' CreateUserProfile (Maybe Text)
-cupSSHUsername = lens _cupSSHUsername (\ s a -> s{_cupSSHUsername = a});
+cupSSHUsername = lens _cupSSHUsername (\ s a -> s{_cupSSHUsername = a})
 
 -- | The user's IAM ARN; this can also be a federated user's ARN.
 cupIAMUserARN :: Lens' CreateUserProfile Text
-cupIAMUserARN = lens _cupIAMUserARN (\ s a -> s{_cupIAMUserARN = a});
+cupIAMUserARN = lens _cupIAMUserARN (\ s a -> s{_cupIAMUserARN = a})
 
 instance AWSRequest CreateUserProfile where
         type Rs CreateUserProfile = CreateUserProfileResponse
@@ -159,15 +159,15 @@ createUserProfileResponse
     -> CreateUserProfileResponse
 createUserProfileResponse pResponseStatus_ =
   CreateUserProfileResponse'
-  {_cuprsIAMUserARN = Nothing, _cuprsResponseStatus = pResponseStatus_}
+    {_cuprsIAMUserARN = Nothing, _cuprsResponseStatus = pResponseStatus_}
 
 
 -- | The user's IAM ARN.
 cuprsIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
-cuprsIAMUserARN = lens _cuprsIAMUserARN (\ s a -> s{_cuprsIAMUserARN = a});
+cuprsIAMUserARN = lens _cuprsIAMUserARN (\ s a -> s{_cuprsIAMUserARN = a})
 
 -- | -- | The response status code.
 cuprsResponseStatus :: Lens' CreateUserProfileResponse Int
-cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a});
+cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a})
 
 instance NFData CreateUserProfileResponse where

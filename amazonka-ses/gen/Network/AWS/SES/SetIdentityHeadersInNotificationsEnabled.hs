@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,23 +77,23 @@ setIdentityHeadersInNotificationsEnabled
     -> SetIdentityHeadersInNotificationsEnabled
 setIdentityHeadersInNotificationsEnabled pIdentity_ pNotificationType_ pEnabled_ =
   SetIdentityHeadersInNotificationsEnabled'
-  { _sihineIdentity = pIdentity_
-  , _sihineNotificationType = pNotificationType_
-  , _sihineEnabled = pEnabled_
-  }
+    { _sihineIdentity = pIdentity_
+    , _sihineNotificationType = pNotificationType_
+    , _sihineEnabled = pEnabled_
+    }
 
 
 -- | The identity for which to enable or disable headers in notifications. Examples: @user@example.com@ , @example.com@ .
 sihineIdentity :: Lens' SetIdentityHeadersInNotificationsEnabled Text
-sihineIdentity = lens _sihineIdentity (\ s a -> s{_sihineIdentity = a});
+sihineIdentity = lens _sihineIdentity (\ s a -> s{_sihineIdentity = a})
 
 -- | The notification type for which to enable or disable headers in notifications.
 sihineNotificationType :: Lens' SetIdentityHeadersInNotificationsEnabled NotificationType
-sihineNotificationType = lens _sihineNotificationType (\ s a -> s{_sihineNotificationType = a});
+sihineNotificationType = lens _sihineNotificationType (\ s a -> s{_sihineNotificationType = a})
 
 -- | Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the specified notification type. A value of @true@ specifies that Amazon SES will include headers in notifications, and a value of @false@ specifies that Amazon SES will not include headers in notifications. This value can only be set when @NotificationType@ is already set to use a particular Amazon SNS topic.
 sihineEnabled :: Lens' SetIdentityHeadersInNotificationsEnabled Bool
-sihineEnabled = lens _sihineEnabled (\ s a -> s{_sihineEnabled = a});
+sihineEnabled = lens _sihineEnabled (\ s a -> s{_sihineEnabled = a})
 
 instance AWSRequest
            SetIdentityHeadersInNotificationsEnabled
@@ -159,12 +159,12 @@ setIdentityHeadersInNotificationsEnabledResponse
     -> SetIdentityHeadersInNotificationsEnabledResponse
 setIdentityHeadersInNotificationsEnabledResponse pResponseStatus_ =
   SetIdentityHeadersInNotificationsEnabledResponse'
-  {_sihinersResponseStatus = pResponseStatus_}
+    {_sihinersResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 sihinersResponseStatus :: Lens' SetIdentityHeadersInNotificationsEnabledResponse Int
-sihinersResponseStatus = lens _sihinersResponseStatus (\ s a -> s{_sihinersResponseStatus = a});
+sihinersResponseStatus = lens _sihinersResponseStatus (\ s a -> s{_sihinersResponseStatus = a})
 
 instance NFData
            SetIdentityHeadersInNotificationsEnabledResponse

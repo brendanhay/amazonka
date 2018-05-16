@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -207,6 +207,9 @@ module Network.AWS.IAM
 
     -- ** SimulateCustomPolicy (Paginated)
     , module Network.AWS.IAM.SimulateCustomPolicy
+
+    -- ** UpdateRole
+    , module Network.AWS.IAM.UpdateRole
 
     -- ** DeleteRole
     , module Network.AWS.IAM.DeleteRole
@@ -741,6 +744,7 @@ module Network.AWS.IAM
     -- ** Role
     , Role
     , role'
+    , rMaxSessionDuration
     , rAssumeRolePolicyDocument
     , rDescription
     , rPath
@@ -1000,6 +1004,7 @@ import Network.AWS.IAM.UpdateAssumeRolePolicy
 import Network.AWS.IAM.UpdateGroup
 import Network.AWS.IAM.UpdateLoginProfile
 import Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
+import Network.AWS.IAM.UpdateRole
 import Network.AWS.IAM.UpdateRoleDescription
 import Network.AWS.IAM.UpdateSAMLProvider
 import Network.AWS.IAM.UpdateServerCertificate

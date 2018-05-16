@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeEvents
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ describeEvents
     :: DescribeEvents
 describeEvents =
   DescribeEvents'
-  { _deLocale = Nothing
-  , _deNextToken = Nothing
-  , _deFilter = Nothing
-  , _deMaxResults = Nothing
-  }
+    { _deLocale = Nothing
+    , _deNextToken = Nothing
+    , _deFilter = Nothing
+    , _deMaxResults = Nothing
+    }
 
 
 -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 deLocale :: Lens' DescribeEvents (Maybe Text)
-deLocale = lens _deLocale (\ s a -> s{_deLocale = a});
+deLocale = lens _deLocale (\ s a -> s{_deLocale = a})
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 deNextToken :: Lens' DescribeEvents (Maybe Text)
-deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
+deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a})
 
 -- | Values to narrow the results returned.
 deFilter :: Lens' DescribeEvents (Maybe EventFilter)
-deFilter = lens _deFilter (\ s a -> s{_deFilter = a});
+deFilter = lens _deFilter (\ s a -> s{_deFilter = a})
 
 -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
 deMaxResults :: Lens' DescribeEvents (Maybe Natural)
-deMaxResults = lens _deMaxResults (\ s a -> s{_deMaxResults = a}) . mapping _Nat;
+deMaxResults = lens _deMaxResults (\ s a -> s{_deMaxResults = a}) . mapping _Nat
 
 instance AWSPager DescribeEvents where
         page rq rs
@@ -167,22 +167,22 @@ describeEventsResponse
     -> DescribeEventsResponse
 describeEventsResponse pResponseStatus_ =
   DescribeEventsResponse'
-  { _dersNextToken = Nothing
-  , _dersEvents = Nothing
-  , _dersResponseStatus = pResponseStatus_
-  }
+    { _dersNextToken = Nothing
+    , _dersEvents = Nothing
+    , _dersResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 dersNextToken :: Lens' DescribeEventsResponse (Maybe Text)
-dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a});
+dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a})
 
 -- | The events that match the specified filter criteria.
 dersEvents :: Lens' DescribeEventsResponse [Event]
-dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
+dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeEventsResponse Int
-dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a})
 
 instance NFData DescribeEventsResponse where

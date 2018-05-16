@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DiscoverPollEndpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an endpoint for the Amazon EC2 Container Service agent to poll for updates.
+-- Returns an endpoint for the Amazon ECS agent to poll for updates.
 --
 --
 module Network.AWS.ECS.DiscoverPollEndpoint
@@ -59,7 +59,7 @@ data DiscoverPollEndpoint = DiscoverPollEndpoint'
 --
 -- * 'dpeCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that the container instance belongs to.
 --
--- * 'dpeContainerInstance' - The container instance ID or full Amazon Resource Name (ARN) of the container instance. The ARN contains the @arn:aws:ecs@ namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:/region/ :/aws_account_id/ :container-instance//container_instance_ID/ @ .
+-- * 'dpeContainerInstance' - The container instance ID or full ARN of the container instance. The ARN contains the @arn:aws:ecs@ namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:/region/ :/aws_account_id/ :container-instance//container_instance_ID/ @ .
 discoverPollEndpoint
     :: DiscoverPollEndpoint
 discoverPollEndpoint =
@@ -68,11 +68,11 @@ discoverPollEndpoint =
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that the container instance belongs to.
 dpeCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
-dpeCluster = lens _dpeCluster (\ s a -> s{_dpeCluster = a});
+dpeCluster = lens _dpeCluster (\ s a -> s{_dpeCluster = a})
 
--- | The container instance ID or full Amazon Resource Name (ARN) of the container instance. The ARN contains the @arn:aws:ecs@ namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:/region/ :/aws_account_id/ :container-instance//container_instance_ID/ @ .
+-- | The container instance ID or full ARN of the container instance. The ARN contains the @arn:aws:ecs@ namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:/region/ :/aws_account_id/ :container-instance//container_instance_ID/ @ .
 dpeContainerInstance :: Lens' DiscoverPollEndpoint (Maybe Text)
-dpeContainerInstance = lens _dpeContainerInstance (\ s a -> s{_dpeContainerInstance = a});
+dpeContainerInstance = lens _dpeContainerInstance (\ s a -> s{_dpeContainerInstance = a})
 
 instance AWSRequest DiscoverPollEndpoint where
         type Rs DiscoverPollEndpoint =
@@ -134,22 +134,22 @@ discoverPollEndpointResponse
     -> DiscoverPollEndpointResponse
 discoverPollEndpointResponse pResponseStatus_ =
   DiscoverPollEndpointResponse'
-  { _dpersTelemetryEndpoint = Nothing
-  , _dpersEndpoint = Nothing
-  , _dpersResponseStatus = pResponseStatus_
-  }
+    { _dpersTelemetryEndpoint = Nothing
+    , _dpersEndpoint = Nothing
+    , _dpersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The telemetry endpoint for the Amazon ECS agent.
 dpersTelemetryEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
-dpersTelemetryEndpoint = lens _dpersTelemetryEndpoint (\ s a -> s{_dpersTelemetryEndpoint = a});
+dpersTelemetryEndpoint = lens _dpersTelemetryEndpoint (\ s a -> s{_dpersTelemetryEndpoint = a})
 
 -- | The endpoint for the Amazon ECS agent to poll.
 dpersEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
-dpersEndpoint = lens _dpersEndpoint (\ s a -> s{_dpersEndpoint = a});
+dpersEndpoint = lens _dpersEndpoint (\ s a -> s{_dpersEndpoint = a})
 
 -- | -- | The response status code.
 dpersResponseStatus :: Lens' DiscoverPollEndpointResponse Int
-dpersResponseStatus = lens _dpersResponseStatus (\ s a -> s{_dpersResponseStatus = a});
+dpersResponseStatus = lens _dpersResponseStatus (\ s a -> s{_dpersResponseStatus = a})
 
 instance NFData DiscoverPollEndpointResponse where

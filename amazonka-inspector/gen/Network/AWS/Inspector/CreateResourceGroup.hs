@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.CreateResourceGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ createResourceGroup pResourceGroupTags_ =
 
 -- | A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'. For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.
 crgResourceGroupTags :: Lens' CreateResourceGroup (NonEmpty ResourceGroupTag)
-crgResourceGroupTags = lens _crgResourceGroupTags (\ s a -> s{_crgResourceGroupTags = a}) . _List1;
+crgResourceGroupTags = lens _crgResourceGroupTags (\ s a -> s{_crgResourceGroupTags = a}) . _List1
 
 instance AWSRequest CreateResourceGroup where
         type Rs CreateResourceGroup =
@@ -123,17 +123,17 @@ createResourceGroupResponse
     -> CreateResourceGroupResponse
 createResourceGroupResponse pResponseStatus_ pResourceGroupARN_ =
   CreateResourceGroupResponse'
-  { _crgrsResponseStatus = pResponseStatus_
-  , _crgrsResourceGroupARN = pResourceGroupARN_
-  }
+    { _crgrsResponseStatus = pResponseStatus_
+    , _crgrsResourceGroupARN = pResourceGroupARN_
+    }
 
 
 -- | -- | The response status code.
 crgrsResponseStatus :: Lens' CreateResourceGroupResponse Int
-crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus = a});
+crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus = a})
 
 -- | The ARN that specifies the resource group that is created.
 crgrsResourceGroupARN :: Lens' CreateResourceGroupResponse Text
-crgrsResourceGroupARN = lens _crgrsResourceGroupARN (\ s a -> s{_crgrsResourceGroupARN = a});
+crgrsResourceGroupARN = lens _crgrsResourceGroupARN (\ s a -> s{_crgrsResourceGroupARN = a})
 
 instance NFData CreateResourceGroupResponse where

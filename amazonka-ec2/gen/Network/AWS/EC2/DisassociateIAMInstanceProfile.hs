@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisassociateIAMInstanceProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ disassociateIAMInstanceProfile pAssociationId_ =
 
 -- | The ID of the IAM instance profile association.
 diapAssociationId :: Lens' DisassociateIAMInstanceProfile Text
-diapAssociationId = lens _diapAssociationId (\ s a -> s{_diapAssociationId = a});
+diapAssociationId = lens _diapAssociationId (\ s a -> s{_diapAssociationId = a})
 
 instance AWSRequest DisassociateIAMInstanceProfile
          where
@@ -119,18 +119,18 @@ disassociateIAMInstanceProfileResponse
     -> DisassociateIAMInstanceProfileResponse
 disassociateIAMInstanceProfileResponse pResponseStatus_ =
   DisassociateIAMInstanceProfileResponse'
-  { _diaprsIAMInstanceProfileAssociation = Nothing
-  , _diaprsResponseStatus = pResponseStatus_
-  }
+    { _diaprsIAMInstanceProfileAssociation = Nothing
+    , _diaprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the IAM instance profile association.
 diaprsIAMInstanceProfileAssociation :: Lens' DisassociateIAMInstanceProfileResponse (Maybe IAMInstanceProfileAssociation)
-diaprsIAMInstanceProfileAssociation = lens _diaprsIAMInstanceProfileAssociation (\ s a -> s{_diaprsIAMInstanceProfileAssociation = a});
+diaprsIAMInstanceProfileAssociation = lens _diaprsIAMInstanceProfileAssociation (\ s a -> s{_diaprsIAMInstanceProfileAssociation = a})
 
 -- | -- | The response status code.
 diaprsResponseStatus :: Lens' DisassociateIAMInstanceProfileResponse Int
-diaprsResponseStatus = lens _diaprsResponseStatus (\ s a -> s{_diaprsResponseStatus = a});
+diaprsResponseStatus = lens _diaprsResponseStatus (\ s a -> s{_diaprsResponseStatus = a})
 
 instance NFData
            DisassociateIAMInstanceProfileResponse

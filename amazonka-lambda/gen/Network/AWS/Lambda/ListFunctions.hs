@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListFunctions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,39 +72,39 @@ data ListFunctions = ListFunctions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfMasterRegion' - Optional string. If not specified, will return only regular function versions (i.e., non-replicated versions). Valid values are: The region from which the functions are replicated. For example, if you specify @us-east-1@ , only functions replicated from that region will be returned. @ALL@ _ Will return all functions from any region. If specified, you also must specify a valid FunctionVersion parameter.
+-- * 'lfMasterRegion' - Optional string. If not specified, will return only regular function versions (i.e., non-replicated versions). Valid values are: The region from which the functions are replicated. For example, if you specify @us-east-1@ , only functions replicated from that region will be returned. @ALL@ : Will return all functions from any region. If specified, you also must specify a valid FunctionVersion parameter.
 --
 -- * 'lfMarker' - Optional string. An opaque pagination token returned from a previous @ListFunctions@ operation. If present, indicates where to continue the listing.
 --
 -- * 'lfMaxItems' - Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This parameter value must be greater than 0.
 --
--- * 'lfFunctionVersion' - Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned. Valid value: @ALL@ _ Will return all versions, including @> LATEST@ which will have fully qualified ARNs (Amazon Resource Names).
+-- * 'lfFunctionVersion' - Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned. Valid value: @ALL@ : Will return all versions, including @> LATEST@ which will have fully qualified ARNs (Amazon Resource Names).
 listFunctions
     :: ListFunctions
 listFunctions =
   ListFunctions'
-  { _lfMasterRegion = Nothing
-  , _lfMarker = Nothing
-  , _lfMaxItems = Nothing
-  , _lfFunctionVersion = Nothing
-  }
+    { _lfMasterRegion = Nothing
+    , _lfMarker = Nothing
+    , _lfMaxItems = Nothing
+    , _lfFunctionVersion = Nothing
+    }
 
 
--- | Optional string. If not specified, will return only regular function versions (i.e., non-replicated versions). Valid values are: The region from which the functions are replicated. For example, if you specify @us-east-1@ , only functions replicated from that region will be returned. @ALL@ _ Will return all functions from any region. If specified, you also must specify a valid FunctionVersion parameter.
+-- | Optional string. If not specified, will return only regular function versions (i.e., non-replicated versions). Valid values are: The region from which the functions are replicated. For example, if you specify @us-east-1@ , only functions replicated from that region will be returned. @ALL@ : Will return all functions from any region. If specified, you also must specify a valid FunctionVersion parameter.
 lfMasterRegion :: Lens' ListFunctions (Maybe Text)
-lfMasterRegion = lens _lfMasterRegion (\ s a -> s{_lfMasterRegion = a});
+lfMasterRegion = lens _lfMasterRegion (\ s a -> s{_lfMasterRegion = a})
 
 -- | Optional string. An opaque pagination token returned from a previous @ListFunctions@ operation. If present, indicates where to continue the listing.
 lfMarker :: Lens' ListFunctions (Maybe Text)
-lfMarker = lens _lfMarker (\ s a -> s{_lfMarker = a});
+lfMarker = lens _lfMarker (\ s a -> s{_lfMarker = a})
 
 -- | Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This parameter value must be greater than 0.
 lfMaxItems :: Lens' ListFunctions (Maybe Natural)
-lfMaxItems = lens _lfMaxItems (\ s a -> s{_lfMaxItems = a}) . mapping _Nat;
+lfMaxItems = lens _lfMaxItems (\ s a -> s{_lfMaxItems = a}) . mapping _Nat
 
--- | Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned. Valid value: @ALL@ _ Will return all versions, including @> LATEST@ which will have fully qualified ARNs (Amazon Resource Names).
+-- | Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned. Valid value: @ALL@ : Will return all versions, including @> LATEST@ which will have fully qualified ARNs (Amazon Resource Names).
 lfFunctionVersion :: Lens' ListFunctions (Maybe FunctionVersion)
-lfFunctionVersion = lens _lfFunctionVersion (\ s a -> s{_lfFunctionVersion = a});
+lfFunctionVersion = lens _lfFunctionVersion (\ s a -> s{_lfFunctionVersion = a})
 
 instance AWSPager ListFunctions where
         page rq rs
@@ -167,22 +167,22 @@ listFunctionsResponse
     -> ListFunctionsResponse
 listFunctionsResponse pResponseStatus_ =
   ListFunctionsResponse'
-  { _lfrsNextMarker = Nothing
-  , _lfrsFunctions = Nothing
-  , _lfrsResponseStatus = pResponseStatus_
-  }
+    { _lfrsNextMarker = Nothing
+    , _lfrsFunctions = Nothing
+    , _lfrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A string, present if there are more functions.
 lfrsNextMarker :: Lens' ListFunctionsResponse (Maybe Text)
-lfrsNextMarker = lens _lfrsNextMarker (\ s a -> s{_lfrsNextMarker = a});
+lfrsNextMarker = lens _lfrsNextMarker (\ s a -> s{_lfrsNextMarker = a})
 
 -- | A list of Lambda functions.
 lfrsFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
-lfrsFunctions = lens _lfrsFunctions (\ s a -> s{_lfrsFunctions = a}) . _Default . _Coerce;
+lfrsFunctions = lens _lfrsFunctions (\ s a -> s{_lfrsFunctions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lfrsResponseStatus :: Lens' ListFunctionsResponse Int
-lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a});
+lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a})
 
 instance NFData ListFunctionsResponse where

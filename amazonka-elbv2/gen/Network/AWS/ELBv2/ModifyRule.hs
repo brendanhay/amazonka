@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.ModifyRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,20 +72,20 @@ modifyRule
     -> ModifyRule
 modifyRule pRuleARN_ =
   ModifyRule'
-  {_mrActions = Nothing, _mrConditions = Nothing, _mrRuleARN = pRuleARN_}
+    {_mrActions = Nothing, _mrConditions = Nothing, _mrRuleARN = pRuleARN_}
 
 
 -- | The actions. The target group must use the HTTP or HTTPS protocol.
 mrActions :: Lens' ModifyRule [Action]
-mrActions = lens _mrActions (\ s a -> s{_mrActions = a}) . _Default . _Coerce;
+mrActions = lens _mrActions (\ s a -> s{_mrActions = a}) . _Default . _Coerce
 
 -- | The conditions.
 mrConditions :: Lens' ModifyRule [RuleCondition]
-mrConditions = lens _mrConditions (\ s a -> s{_mrConditions = a}) . _Default . _Coerce;
+mrConditions = lens _mrConditions (\ s a -> s{_mrConditions = a}) . _Default . _Coerce
 
 -- | The Amazon Resource Name (ARN) of the rule.
 mrRuleARN :: Lens' ModifyRule Text
-mrRuleARN = lens _mrRuleARN (\ s a -> s{_mrRuleARN = a});
+mrRuleARN = lens _mrRuleARN (\ s a -> s{_mrRuleARN = a})
 
 instance AWSRequest ModifyRule where
         type Rs ModifyRule = ModifyRuleResponse
@@ -138,15 +138,15 @@ modifyRuleResponse
     -> ModifyRuleResponse
 modifyRuleResponse pResponseStatus_ =
   ModifyRuleResponse'
-  {_mrrsRules = Nothing, _mrrsResponseStatus = pResponseStatus_}
+    {_mrrsRules = Nothing, _mrrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the rule.
 mrrsRules :: Lens' ModifyRuleResponse [Rule]
-mrrsRules = lens _mrrsRules (\ s a -> s{_mrrsRules = a}) . _Default . _Coerce;
+mrrsRules = lens _mrrsRules (\ s a -> s{_mrrsRules = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 mrrsResponseStatus :: Lens' ModifyRuleResponse Int
-mrrsResponseStatus = lens _mrrsResponseStatus (\ s a -> s{_mrrsResponseStatus = a});
+mrrsResponseStatus = lens _mrrsResponseStatus (\ s a -> s{_mrrsResponseStatus = a})
 
 instance NFData ModifyRuleResponse where

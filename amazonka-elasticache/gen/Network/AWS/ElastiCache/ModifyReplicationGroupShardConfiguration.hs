@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ModifyReplicationGroupShardConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,33 +84,33 @@ modifyReplicationGroupShardConfiguration
     -> ModifyReplicationGroupShardConfiguration
 modifyReplicationGroupShardConfiguration pReplicationGroupId_ pNodeGroupCount_ pApplyImmediately_ =
   ModifyReplicationGroupShardConfiguration'
-  { _mrgscReshardingConfiguration = Nothing
-  , _mrgscNodeGroupsToRemove = Nothing
-  , _mrgscReplicationGroupId = pReplicationGroupId_
-  , _mrgscNodeGroupCount = pNodeGroupCount_
-  , _mrgscApplyImmediately = pApplyImmediately_
-  }
+    { _mrgscReshardingConfiguration = Nothing
+    , _mrgscNodeGroupsToRemove = Nothing
+    , _mrgscReplicationGroupId = pReplicationGroupId_
+    , _mrgscNodeGroupCount = pNodeGroupCount_
+    , _mrgscApplyImmediately = pApplyImmediately_
+    }
 
 
 -- | Specifies the preferred availability zones for each node group in the cluster. If the value of @NodeGroupCount@ is greater than the current number of node groups (shards), you can use this parameter to specify the preferred availability zones of the cluster's shards. If you omit this parameter ElastiCache selects availability zones for you. You can specify this parameter only if the value of @NodeGroupCount@ is greater than the current number of node groups (shards).
 mrgscReshardingConfiguration :: Lens' ModifyReplicationGroupShardConfiguration [ReshardingConfiguration]
-mrgscReshardingConfiguration = lens _mrgscReshardingConfiguration (\ s a -> s{_mrgscReshardingConfiguration = a}) . _Default . _Coerce;
+mrgscReshardingConfiguration = lens _mrgscReshardingConfiguration (\ s a -> s{_mrgscReshardingConfiguration = a}) . _Default . _Coerce
 
 -- | If the value of @NodeGroupCount@ is less than the current number of node groups (shards), @NodeGroupsToRemove@ is a required list of node group ids to remove from the cluster.
 mrgscNodeGroupsToRemove :: Lens' ModifyReplicationGroupShardConfiguration [Text]
-mrgscNodeGroupsToRemove = lens _mrgscNodeGroupsToRemove (\ s a -> s{_mrgscNodeGroupsToRemove = a}) . _Default . _Coerce;
+mrgscNodeGroupsToRemove = lens _mrgscNodeGroupsToRemove (\ s a -> s{_mrgscNodeGroupsToRemove = a}) . _Default . _Coerce
 
 -- | The name of the Redis (cluster mode enabled) cluster (replication group) on which the shards are to be configured.
 mrgscReplicationGroupId :: Lens' ModifyReplicationGroupShardConfiguration Text
-mrgscReplicationGroupId = lens _mrgscReplicationGroupId (\ s a -> s{_mrgscReplicationGroupId = a});
+mrgscReplicationGroupId = lens _mrgscReplicationGroupId (\ s a -> s{_mrgscReplicationGroupId = a})
 
 -- | The number of node groups (shards) that results from the modification of the shard configuration.
 mrgscNodeGroupCount :: Lens' ModifyReplicationGroupShardConfiguration Int
-mrgscNodeGroupCount = lens _mrgscNodeGroupCount (\ s a -> s{_mrgscNodeGroupCount = a});
+mrgscNodeGroupCount = lens _mrgscNodeGroupCount (\ s a -> s{_mrgscNodeGroupCount = a})
 
 -- | Indicates that the shard reconfiguration process begins immediately. At present, the only permitted value for this parameter is @true@ . Value: true
 mrgscApplyImmediately :: Lens' ModifyReplicationGroupShardConfiguration Bool
-mrgscApplyImmediately = lens _mrgscApplyImmediately (\ s a -> s{_mrgscApplyImmediately = a});
+mrgscApplyImmediately = lens _mrgscApplyImmediately (\ s a -> s{_mrgscApplyImmediately = a})
 
 instance AWSRequest
            ModifyReplicationGroupShardConfiguration
@@ -183,18 +183,18 @@ modifyReplicationGroupShardConfigurationResponse
     -> ModifyReplicationGroupShardConfigurationResponse
 modifyReplicationGroupShardConfigurationResponse pResponseStatus_ =
   ModifyReplicationGroupShardConfigurationResponse'
-  { _mrgscrsReplicationGroup = Nothing
-  , _mrgscrsResponseStatus = pResponseStatus_
-  }
+    { _mrgscrsReplicationGroup = Nothing
+    , _mrgscrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 mrgscrsReplicationGroup :: Lens' ModifyReplicationGroupShardConfigurationResponse (Maybe ReplicationGroup)
-mrgscrsReplicationGroup = lens _mrgscrsReplicationGroup (\ s a -> s{_mrgscrsReplicationGroup = a});
+mrgscrsReplicationGroup = lens _mrgscrsReplicationGroup (\ s a -> s{_mrgscrsReplicationGroup = a})
 
 -- | -- | The response status code.
 mrgscrsResponseStatus :: Lens' ModifyReplicationGroupShardConfigurationResponse Int
-mrgscrsResponseStatus = lens _mrgscrsResponseStatus (\ s a -> s{_mrgscrsResponseStatus = a});
+mrgscrsResponseStatus = lens _mrgscrsResponseStatus (\ s a -> s{_mrgscrsResponseStatus = a})
 
 instance NFData
            ModifyReplicationGroupShardConfigurationResponse

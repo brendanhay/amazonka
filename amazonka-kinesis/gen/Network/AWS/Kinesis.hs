@@ -5,15 +5,15 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Amazon Kinesis Streams Service API Reference__
+-- __Amazon Kinesis Data Streams Service API Reference__
 --
--- Amazon Kinesis Streams is a managed service that scales elastically for real time processing of streaming big data.
+-- Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.
 --
 module Network.AWS.Kinesis
     (
@@ -43,6 +43,9 @@ module Network.AWS.Kinesis
 
     -- ** KMSNotFoundException
     , _KMSNotFoundException
+
+    -- ** ExpiredNextTokenException
+    , _ExpiredNextTokenException
 
     -- ** KMSDisabledException
     , _KMSDisabledException
@@ -80,6 +83,9 @@ module Network.AWS.Kinesis
     -- ** MergeShards
     , module Network.AWS.Kinesis.MergeShards
 
+    -- ** DescribeStreamSummary
+    , module Network.AWS.Kinesis.DescribeStreamSummary
+
     -- ** GetShardIterator
     , module Network.AWS.Kinesis.GetShardIterator
 
@@ -109,6 +115,9 @@ module Network.AWS.Kinesis
 
     -- ** PutRecords
     , module Network.AWS.Kinesis.PutRecords
+
+    -- ** ListShards
+    , module Network.AWS.Kinesis.ListShards
 
     -- ** DeleteStream
     , module Network.AWS.Kinesis.DeleteStream
@@ -222,6 +231,19 @@ module Network.AWS.Kinesis
     , sdStreamCreationTimestamp
     , sdEnhancedMonitoring
 
+    -- ** StreamDescriptionSummary
+    , StreamDescriptionSummary
+    , streamDescriptionSummary
+    , sdsEncryptionType
+    , sdsKeyId
+    , sdsStreamName
+    , sdsStreamARN
+    , sdsStreamStatus
+    , sdsRetentionPeriodHours
+    , sdsStreamCreationTimestamp
+    , sdsEnhancedMonitoring
+    , sdsOpenShardCount
+
     -- ** Tag
     , Tag
     , tag
@@ -235,11 +257,13 @@ import Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
 import Network.AWS.Kinesis.DeleteStream
 import Network.AWS.Kinesis.DescribeLimits
 import Network.AWS.Kinesis.DescribeStream
+import Network.AWS.Kinesis.DescribeStreamSummary
 import Network.AWS.Kinesis.DisableEnhancedMonitoring
 import Network.AWS.Kinesis.EnableEnhancedMonitoring
 import Network.AWS.Kinesis.GetRecords
 import Network.AWS.Kinesis.GetShardIterator
 import Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
+import Network.AWS.Kinesis.ListShards
 import Network.AWS.Kinesis.ListStreams
 import Network.AWS.Kinesis.ListTagsForStream
 import Network.AWS.Kinesis.MergeShards

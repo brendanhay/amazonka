@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteBot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteBot pName_ = DeleteBot' {_dbName = pName_}
 
 -- | The name of the bot. The name is case sensitive.
 dbName :: Lens' DeleteBot Text
-dbName = lens _dbName (\ s a -> s{_dbName = a});
+dbName = lens _dbName (\ s a -> s{_dbName = a})
 
 instance AWSRequest DeleteBot where
         type Rs DeleteBot = DeleteBotResponse

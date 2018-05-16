@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.CheckDomainTransferability
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ checkDomainTransferability
     -> CheckDomainTransferability
 checkDomainTransferability pDomainName_ =
   CheckDomainTransferability'
-  {_cdtAuthCode = Nothing, _cdtDomainName = pDomainName_}
+    {_cdtAuthCode = Nothing, _cdtDomainName = pDomainName_}
 
 
 -- | If the registrar for the top-level domain (TLD) requires an authorization code to transfer the domain, the code that you got from the current registrar for the domain.
 cdtAuthCode :: Lens' CheckDomainTransferability (Maybe Text)
-cdtAuthCode = lens _cdtAuthCode (\ s a -> s{_cdtAuthCode = a}) . mapping _Sensitive;
+cdtAuthCode = lens _cdtAuthCode (\ s a -> s{_cdtAuthCode = a}) . mapping _Sensitive
 
 -- | The name of the domain that you want to transfer to Amazon Route 53. Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
 cdtDomainName :: Lens' CheckDomainTransferability Text
-cdtDomainName = lens _cdtDomainName (\ s a -> s{_cdtDomainName = a});
+cdtDomainName = lens _cdtDomainName (\ s a -> s{_cdtDomainName = a})
 
 instance AWSRequest CheckDomainTransferability where
         type Rs CheckDomainTransferability =
@@ -140,18 +140,18 @@ checkDomainTransferabilityResponse
     -> CheckDomainTransferabilityResponse
 checkDomainTransferabilityResponse pResponseStatus_ pTransferability_ =
   CheckDomainTransferabilityResponse'
-  { _cdtrsResponseStatus = pResponseStatus_
-  , _cdtrsTransferability = pTransferability_
-  }
+    { _cdtrsResponseStatus = pResponseStatus_
+    , _cdtrsTransferability = pTransferability_
+    }
 
 
 -- | -- | The response status code.
 cdtrsResponseStatus :: Lens' CheckDomainTransferabilityResponse Int
-cdtrsResponseStatus = lens _cdtrsResponseStatus (\ s a -> s{_cdtrsResponseStatus = a});
+cdtrsResponseStatus = lens _cdtrsResponseStatus (\ s a -> s{_cdtrsResponseStatus = a})
 
 -- | A complex type that contains information about whether the specified domain can be transferred to Amazon Route 53.
 cdtrsTransferability :: Lens' CheckDomainTransferabilityResponse DomainTransferability
-cdtrsTransferability = lens _cdtrsTransferability (\ s a -> s{_cdtrsTransferability = a});
+cdtrsTransferability = lens _cdtrsTransferability (\ s a -> s{_cdtrsTransferability = a})
 
 instance NFData CheckDomainTransferabilityResponse
          where

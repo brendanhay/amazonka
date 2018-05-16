@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associate a TagOption identifier with a resource identifier.
+-- Associate the specified TagOption with the specified portfolio or product.
 --
 --
 module Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
@@ -64,16 +64,16 @@ associateTagOptionWithResource
     -> AssociateTagOptionWithResource
 associateTagOptionWithResource pResourceId_ pTagOptionId_ =
   AssociateTagOptionWithResource'
-  {_atowrResourceId = pResourceId_, _atowrTagOptionId = pTagOptionId_}
+    {_atowrResourceId = pResourceId_, _atowrTagOptionId = pTagOptionId_}
 
 
 -- | The resource identifier.
 atowrResourceId :: Lens' AssociateTagOptionWithResource Text
-atowrResourceId = lens _atowrResourceId (\ s a -> s{_atowrResourceId = a});
+atowrResourceId = lens _atowrResourceId (\ s a -> s{_atowrResourceId = a})
 
 -- | The TagOption identifier.
 atowrTagOptionId :: Lens' AssociateTagOptionWithResource Text
-atowrTagOptionId = lens _atowrTagOptionId (\ s a -> s{_atowrTagOptionId = a});
+atowrTagOptionId = lens _atowrTagOptionId (\ s a -> s{_atowrTagOptionId = a})
 
 instance AWSRequest AssociateTagOptionWithResource
          where
@@ -131,12 +131,12 @@ associateTagOptionWithResourceResponse
     -> AssociateTagOptionWithResourceResponse
 associateTagOptionWithResourceResponse pResponseStatus_ =
   AssociateTagOptionWithResourceResponse'
-  {_atowrrsResponseStatus = pResponseStatus_}
+    {_atowrrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 atowrrsResponseStatus :: Lens' AssociateTagOptionWithResourceResponse Int
-atowrrsResponseStatus = lens _atowrrsResponseStatus (\ s a -> s{_atowrrsResponseStatus = a});
+atowrrsResponseStatus = lens _atowrrsResponseStatus (\ s a -> s{_atowrrsResponseStatus = a})
 
 instance NFData
            AssociateTagOptionWithResourceResponse

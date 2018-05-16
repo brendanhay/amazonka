@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AddFacetToObject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a new 'Facet' to an object.
+-- Adds a new 'Facet' to an object. An object can have more than one facet applied on it.
 --
 --
 module Network.AWS.CloudDirectory.AddFacetToObject
@@ -63,7 +63,7 @@ data AddFacetToObject = AddFacetToObject'
 --
 -- * 'aftoDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 --
--- * 'aftoSchemaFacet' - Identifiers for the facet that you are adding to the object.
+-- * 'aftoSchemaFacet' - Identifiers for the facet that you are adding to the object. See 'SchemaFacet' for details.
 --
 -- * 'aftoObjectReference' - A reference to the object you are adding the specified facet to.
 addFacetToObject
@@ -73,28 +73,28 @@ addFacetToObject
     -> AddFacetToObject
 addFacetToObject pDirectoryARN_ pSchemaFacet_ pObjectReference_ =
   AddFacetToObject'
-  { _aftoObjectAttributeList = Nothing
-  , _aftoDirectoryARN = pDirectoryARN_
-  , _aftoSchemaFacet = pSchemaFacet_
-  , _aftoObjectReference = pObjectReference_
-  }
+    { _aftoObjectAttributeList = Nothing
+    , _aftoDirectoryARN = pDirectoryARN_
+    , _aftoSchemaFacet = pSchemaFacet_
+    , _aftoObjectReference = pObjectReference_
+    }
 
 
 -- | Attributes on the facet that you are adding to the object.
 aftoObjectAttributeList :: Lens' AddFacetToObject [AttributeKeyAndValue]
-aftoObjectAttributeList = lens _aftoObjectAttributeList (\ s a -> s{_aftoObjectAttributeList = a}) . _Default . _Coerce;
+aftoObjectAttributeList = lens _aftoObjectAttributeList (\ s a -> s{_aftoObjectAttributeList = a}) . _Default . _Coerce
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 aftoDirectoryARN :: Lens' AddFacetToObject Text
-aftoDirectoryARN = lens _aftoDirectoryARN (\ s a -> s{_aftoDirectoryARN = a});
+aftoDirectoryARN = lens _aftoDirectoryARN (\ s a -> s{_aftoDirectoryARN = a})
 
--- | Identifiers for the facet that you are adding to the object.
+-- | Identifiers for the facet that you are adding to the object. See 'SchemaFacet' for details.
 aftoSchemaFacet :: Lens' AddFacetToObject SchemaFacet
-aftoSchemaFacet = lens _aftoSchemaFacet (\ s a -> s{_aftoSchemaFacet = a});
+aftoSchemaFacet = lens _aftoSchemaFacet (\ s a -> s{_aftoSchemaFacet = a})
 
 -- | A reference to the object you are adding the specified facet to.
 aftoObjectReference :: Lens' AddFacetToObject ObjectReference
-aftoObjectReference = lens _aftoObjectReference (\ s a -> s{_aftoObjectReference = a});
+aftoObjectReference = lens _aftoObjectReference (\ s a -> s{_aftoObjectReference = a})
 
 instance AWSRequest AddFacetToObject where
         type Rs AddFacetToObject = AddFacetToObjectResponse
@@ -150,6 +150,6 @@ addFacetToObjectResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 aftorsResponseStatus :: Lens' AddFacetToObjectResponse Int
-aftorsResponseStatus = lens _aftorsResponseStatus (\ s a -> s{_aftorsResponseStatus = a});
+aftorsResponseStatus = lens _aftorsResponseStatus (\ s a -> s{_aftorsResponseStatus = a})
 
 instance NFData AddFacetToObjectResponse where

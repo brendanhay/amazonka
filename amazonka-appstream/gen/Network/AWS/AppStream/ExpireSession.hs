@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.ExpireSession
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ expireSession pSessionId_ = ExpireSession' {_esSessionId = pSessionId_}
 
 -- | The ID of the streaming session.
 esSessionId :: Lens' ExpireSession Text
-esSessionId = lens _esSessionId (\ s a -> s{_esSessionId = a});
+esSessionId = lens _esSessionId (\ s a -> s{_esSessionId = a})
 
 instance AWSRequest ExpireSession where
         type Rs ExpireSession = ExpireSessionResponse
@@ -117,6 +117,6 @@ expireSessionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 esrsResponseStatus :: Lens' ExpireSessionResponse Int
-esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});
+esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a})
 
 instance NFData ExpireSessionResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.GetDiscoverySummary
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -132,42 +132,42 @@ getDiscoverySummaryResponse
     -> GetDiscoverySummaryResponse
 getDiscoverySummaryResponse pResponseStatus_ =
   GetDiscoverySummaryResponse'
-  { _gdsrsServers = Nothing
-  , _gdsrsServersMappedtoTags = Nothing
-  , _gdsrsServersMappedToApplications = Nothing
-  , _gdsrsConnectorSummary = Nothing
-  , _gdsrsAgentSummary = Nothing
-  , _gdsrsApplications = Nothing
-  , _gdsrsResponseStatus = pResponseStatus_
-  }
+    { _gdsrsServers = Nothing
+    , _gdsrsServersMappedtoTags = Nothing
+    , _gdsrsServersMappedToApplications = Nothing
+    , _gdsrsConnectorSummary = Nothing
+    , _gdsrsAgentSummary = Nothing
+    , _gdsrsApplications = Nothing
+    , _gdsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The number of servers discovered.
 gdsrsServers :: Lens' GetDiscoverySummaryResponse (Maybe Integer)
-gdsrsServers = lens _gdsrsServers (\ s a -> s{_gdsrsServers = a});
+gdsrsServers = lens _gdsrsServers (\ s a -> s{_gdsrsServers = a})
 
 -- | The number of servers mapped to tags.
 gdsrsServersMappedtoTags :: Lens' GetDiscoverySummaryResponse (Maybe Integer)
-gdsrsServersMappedtoTags = lens _gdsrsServersMappedtoTags (\ s a -> s{_gdsrsServersMappedtoTags = a});
+gdsrsServersMappedtoTags = lens _gdsrsServersMappedtoTags (\ s a -> s{_gdsrsServersMappedtoTags = a})
 
 -- | The number of servers mapped to applications.
 gdsrsServersMappedToApplications :: Lens' GetDiscoverySummaryResponse (Maybe Integer)
-gdsrsServersMappedToApplications = lens _gdsrsServersMappedToApplications (\ s a -> s{_gdsrsServersMappedToApplications = a});
+gdsrsServersMappedToApplications = lens _gdsrsServersMappedToApplications (\ s a -> s{_gdsrsServersMappedToApplications = a})
 
 -- | Details about discovered connectors, including connector status and health.
 gdsrsConnectorSummary :: Lens' GetDiscoverySummaryResponse (Maybe CustomerConnectorInfo)
-gdsrsConnectorSummary = lens _gdsrsConnectorSummary (\ s a -> s{_gdsrsConnectorSummary = a});
+gdsrsConnectorSummary = lens _gdsrsConnectorSummary (\ s a -> s{_gdsrsConnectorSummary = a})
 
 -- | Details about discovered agents, including agent status and health.
 gdsrsAgentSummary :: Lens' GetDiscoverySummaryResponse (Maybe CustomerAgentInfo)
-gdsrsAgentSummary = lens _gdsrsAgentSummary (\ s a -> s{_gdsrsAgentSummary = a});
+gdsrsAgentSummary = lens _gdsrsAgentSummary (\ s a -> s{_gdsrsAgentSummary = a})
 
 -- | The number of applications discovered.
 gdsrsApplications :: Lens' GetDiscoverySummaryResponse (Maybe Integer)
-gdsrsApplications = lens _gdsrsApplications (\ s a -> s{_gdsrsApplications = a});
+gdsrsApplications = lens _gdsrsApplications (\ s a -> s{_gdsrsApplications = a})
 
 -- | -- | The response status code.
 gdsrsResponseStatus :: Lens' GetDiscoverySummaryResponse Int
-gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
+gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a})
 
 instance NFData GetDiscoverySummaryResponse where

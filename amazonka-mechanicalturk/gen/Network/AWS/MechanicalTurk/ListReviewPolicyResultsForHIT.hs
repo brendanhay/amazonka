@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,38 +85,38 @@ listReviewPolicyResultsForHIT
     -> ListReviewPolicyResultsForHIT
 listReviewPolicyResultsForHIT pHITId_ =
   ListReviewPolicyResultsForHIT'
-  { _lrprfhitRetrieveResults = Nothing
-  , _lrprfhitPolicyLevels = Nothing
-  , _lrprfhitRetrieveActions = Nothing
-  , _lrprfhitNextToken = Nothing
-  , _lrprfhitMaxResults = Nothing
-  , _lrprfhitHITId = pHITId_
-  }
+    { _lrprfhitRetrieveResults = Nothing
+    , _lrprfhitPolicyLevels = Nothing
+    , _lrprfhitRetrieveActions = Nothing
+    , _lrprfhitNextToken = Nothing
+    , _lrprfhitMaxResults = Nothing
+    , _lrprfhitHITId = pHITId_
+    }
 
 
 -- | Specify if the operation should retrieve a list of the results computed by the Review Policies.
 lrprfhitRetrieveResults :: Lens' ListReviewPolicyResultsForHIT (Maybe Bool)
-lrprfhitRetrieveResults = lens _lrprfhitRetrieveResults (\ s a -> s{_lrprfhitRetrieveResults = a});
+lrprfhitRetrieveResults = lens _lrprfhitRetrieveResults (\ s a -> s{_lrprfhitRetrieveResults = a})
 
 -- | The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies.
 lrprfhitPolicyLevels :: Lens' ListReviewPolicyResultsForHIT [ReviewPolicyLevel]
-lrprfhitPolicyLevels = lens _lrprfhitPolicyLevels (\ s a -> s{_lrprfhitPolicyLevels = a}) . _Default . _Coerce;
+lrprfhitPolicyLevels = lens _lrprfhitPolicyLevels (\ s a -> s{_lrprfhitPolicyLevels = a}) . _Default . _Coerce
 
 -- | Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes.
 lrprfhitRetrieveActions :: Lens' ListReviewPolicyResultsForHIT (Maybe Bool)
-lrprfhitRetrieveActions = lens _lrprfhitRetrieveActions (\ s a -> s{_lrprfhitRetrieveActions = a});
+lrprfhitRetrieveActions = lens _lrprfhitRetrieveActions (\ s a -> s{_lrprfhitRetrieveActions = a})
 
 -- | Pagination token
 lrprfhitNextToken :: Lens' ListReviewPolicyResultsForHIT (Maybe Text)
-lrprfhitNextToken = lens _lrprfhitNextToken (\ s a -> s{_lrprfhitNextToken = a});
+lrprfhitNextToken = lens _lrprfhitNextToken (\ s a -> s{_lrprfhitNextToken = a})
 
 -- | Limit the number of results returned.
 lrprfhitMaxResults :: Lens' ListReviewPolicyResultsForHIT (Maybe Natural)
-lrprfhitMaxResults = lens _lrprfhitMaxResults (\ s a -> s{_lrprfhitMaxResults = a}) . mapping _Nat;
+lrprfhitMaxResults = lens _lrprfhitMaxResults (\ s a -> s{_lrprfhitMaxResults = a}) . mapping _Nat
 
 -- | The unique identifier of the HIT to retrieve review results for.
 lrprfhitHITId :: Lens' ListReviewPolicyResultsForHIT Text
-lrprfhitHITId = lens _lrprfhitHITId (\ s a -> s{_lrprfhitHITId = a});
+lrprfhitHITId = lens _lrprfhitHITId (\ s a -> s{_lrprfhitHITId = a})
 
 instance AWSRequest ListReviewPolicyResultsForHIT
          where
@@ -201,43 +201,43 @@ listReviewPolicyResultsForHITResponse
     -> ListReviewPolicyResultsForHITResponse
 listReviewPolicyResultsForHITResponse pResponseStatus_ =
   ListReviewPolicyResultsForHITResponse'
-  { _lrprfhitrsHITReviewPolicy = Nothing
-  , _lrprfhitrsHITReviewReport = Nothing
-  , _lrprfhitrsNextToken = Nothing
-  , _lrprfhitrsAssignmentReviewReport = Nothing
-  , _lrprfhitrsHITId = Nothing
-  , _lrprfhitrsAssignmentReviewPolicy = Nothing
-  , _lrprfhitrsResponseStatus = pResponseStatus_
-  }
+    { _lrprfhitrsHITReviewPolicy = Nothing
+    , _lrprfhitrsHITReviewReport = Nothing
+    , _lrprfhitrsNextToken = Nothing
+    , _lrprfhitrsAssignmentReviewReport = Nothing
+    , _lrprfhitrsHITId = Nothing
+    , _lrprfhitrsAssignmentReviewPolicy = Nothing
+    , _lrprfhitrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The name of the HIT-level Review Policy. This contains only the PolicyName element.
 lrprfhitrsHITReviewPolicy :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewPolicy)
-lrprfhitrsHITReviewPolicy = lens _lrprfhitrsHITReviewPolicy (\ s a -> s{_lrprfhitrsHITReviewPolicy = a});
+lrprfhitrsHITReviewPolicy = lens _lrprfhitrsHITReviewPolicy (\ s a -> s{_lrprfhitrsHITReviewPolicy = a})
 
 -- | Contains both ReviewResult and ReviewAction elements for a particular HIT.
 lrprfhitrsHITReviewReport :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewReport)
-lrprfhitrsHITReviewReport = lens _lrprfhitrsHITReviewReport (\ s a -> s{_lrprfhitrsHITReviewReport = a});
+lrprfhitrsHITReviewReport = lens _lrprfhitrsHITReviewReport (\ s a -> s{_lrprfhitrsHITReviewReport = a})
 
 -- | Undocumented member.
 lrprfhitrsNextToken :: Lens' ListReviewPolicyResultsForHITResponse (Maybe Text)
-lrprfhitrsNextToken = lens _lrprfhitrsNextToken (\ s a -> s{_lrprfhitrsNextToken = a});
+lrprfhitrsNextToken = lens _lrprfhitrsNextToken (\ s a -> s{_lrprfhitrsNextToken = a})
 
 -- | Contains both ReviewResult and ReviewAction elements for an Assignment.
 lrprfhitrsAssignmentReviewReport :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewReport)
-lrprfhitrsAssignmentReviewReport = lens _lrprfhitrsAssignmentReviewReport (\ s a -> s{_lrprfhitrsAssignmentReviewReport = a});
+lrprfhitrsAssignmentReviewReport = lens _lrprfhitrsAssignmentReviewReport (\ s a -> s{_lrprfhitrsAssignmentReviewReport = a})
 
 -- | The HITId of the HIT for which results have been returned.
 lrprfhitrsHITId :: Lens' ListReviewPolicyResultsForHITResponse (Maybe Text)
-lrprfhitrsHITId = lens _lrprfhitrsHITId (\ s a -> s{_lrprfhitrsHITId = a});
+lrprfhitrsHITId = lens _lrprfhitrsHITId (\ s a -> s{_lrprfhitrsHITId = a})
 
 -- | The name of the Assignment-level Review Policy. This contains only the PolicyName element.
 lrprfhitrsAssignmentReviewPolicy :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewPolicy)
-lrprfhitrsAssignmentReviewPolicy = lens _lrprfhitrsAssignmentReviewPolicy (\ s a -> s{_lrprfhitrsAssignmentReviewPolicy = a});
+lrprfhitrsAssignmentReviewPolicy = lens _lrprfhitrsAssignmentReviewPolicy (\ s a -> s{_lrprfhitrsAssignmentReviewPolicy = a})
 
 -- | -- | The response status code.
 lrprfhitrsResponseStatus :: Lens' ListReviewPolicyResultsForHITResponse Int
-lrprfhitrsResponseStatus = lens _lrprfhitrsResponseStatus (\ s a -> s{_lrprfhitrsResponseStatus = a});
+lrprfhitrsResponseStatus = lens _lrprfhitrsResponseStatus (\ s a -> s{_lrprfhitrsResponseStatus = a})
 
 instance NFData ListReviewPolicyResultsForHITResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DeleteDirectoryConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteDirectoryConfig pDirectoryName_ =
 
 -- | The name of the directory configuration.
 ddcDirectoryName :: Lens' DeleteDirectoryConfig Text
-ddcDirectoryName = lens _ddcDirectoryName (\ s a -> s{_ddcDirectoryName = a});
+ddcDirectoryName = lens _ddcDirectoryName (\ s a -> s{_ddcDirectoryName = a})
 
 instance AWSRequest DeleteDirectoryConfig where
         type Rs DeleteDirectoryConfig =
@@ -121,6 +121,6 @@ deleteDirectoryConfigResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteDirectoryConfigResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteDirectoryConfigResponse where

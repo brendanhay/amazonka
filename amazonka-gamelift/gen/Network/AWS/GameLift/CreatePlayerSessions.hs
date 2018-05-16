@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreatePlayerSessions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -97,23 +97,23 @@ createPlayerSessions
     -> CreatePlayerSessions
 createPlayerSessions pGameSessionId_ pPlayerIds_ =
   CreatePlayerSessions'
-  { _cpsPlayerDataMap = Nothing
-  , _cpsGameSessionId = pGameSessionId_
-  , _cpsPlayerIds = _List1 # pPlayerIds_
-  }
+    { _cpsPlayerDataMap = Nothing
+    , _cpsGameSessionId = pGameSessionId_
+    , _cpsPlayerIds = _List1 # pPlayerIds_
+    }
 
 
 -- | Map of string pairs, each specifying a player ID and a set of developer-defined information related to the player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game. Player data strings for player IDs not included in the @PlayerIds@ parameter are ignored.
 cpsPlayerDataMap :: Lens' CreatePlayerSessions (HashMap Text Text)
-cpsPlayerDataMap = lens _cpsPlayerDataMap (\ s a -> s{_cpsPlayerDataMap = a}) . _Default . _Map;
+cpsPlayerDataMap = lens _cpsPlayerDataMap (\ s a -> s{_cpsPlayerDataMap = a}) . _Default . _Map
 
 -- | Unique identifier for the game session to add players to.
 cpsGameSessionId :: Lens' CreatePlayerSessions Text
-cpsGameSessionId = lens _cpsGameSessionId (\ s a -> s{_cpsGameSessionId = a});
+cpsGameSessionId = lens _cpsGameSessionId (\ s a -> s{_cpsGameSessionId = a})
 
 -- | List of unique identifiers for the players to be added.
 cpsPlayerIds :: Lens' CreatePlayerSessions (NonEmpty Text)
-cpsPlayerIds = lens _cpsPlayerIds (\ s a -> s{_cpsPlayerIds = a}) . _List1;
+cpsPlayerIds = lens _cpsPlayerIds (\ s a -> s{_cpsPlayerIds = a}) . _List1
 
 instance AWSRequest CreatePlayerSessions where
         type Rs CreatePlayerSessions =
@@ -176,15 +176,15 @@ createPlayerSessionsResponse
     -> CreatePlayerSessionsResponse
 createPlayerSessionsResponse pResponseStatus_ =
   CreatePlayerSessionsResponse'
-  {_crsPlayerSessions = Nothing, _crsResponseStatus = pResponseStatus_}
+    {_crsPlayerSessions = Nothing, _crsResponseStatus = pResponseStatus_}
 
 
 -- | Collection of player session objects created for the added players.
 crsPlayerSessions :: Lens' CreatePlayerSessionsResponse [PlayerSession]
-crsPlayerSessions = lens _crsPlayerSessions (\ s a -> s{_crsPlayerSessions = a}) . _Default . _Coerce;
+crsPlayerSessions = lens _crsPlayerSessions (\ s a -> s{_crsPlayerSessions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 crsResponseStatus :: Lens' CreatePlayerSessionsResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
 
 instance NFData CreatePlayerSessionsResponse where

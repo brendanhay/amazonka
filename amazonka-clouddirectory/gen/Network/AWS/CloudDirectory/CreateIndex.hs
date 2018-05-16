@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateIndex
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,33 +77,33 @@ createIndex
     -> CreateIndex
 createIndex pDirectoryARN_ pIsUnique_ =
   CreateIndex'
-  { _ciParentReference = Nothing
-  , _ciLinkName = Nothing
-  , _ciDirectoryARN = pDirectoryARN_
-  , _ciOrderedIndexedAttributeList = mempty
-  , _ciIsUnique = pIsUnique_
-  }
+    { _ciParentReference = Nothing
+    , _ciLinkName = Nothing
+    , _ciDirectoryARN = pDirectoryARN_
+    , _ciOrderedIndexedAttributeList = mempty
+    , _ciIsUnique = pIsUnique_
+    }
 
 
 -- | A reference to the parent object that contains the index object.
 ciParentReference :: Lens' CreateIndex (Maybe ObjectReference)
-ciParentReference = lens _ciParentReference (\ s a -> s{_ciParentReference = a});
+ciParentReference = lens _ciParentReference (\ s a -> s{_ciParentReference = a})
 
 -- | The name of the link between the parent object and the index object.
 ciLinkName :: Lens' CreateIndex (Maybe Text)
-ciLinkName = lens _ciLinkName (\ s a -> s{_ciLinkName = a});
+ciLinkName = lens _ciLinkName (\ s a -> s{_ciLinkName = a})
 
 -- | The ARN of the directory where the index should be created.
 ciDirectoryARN :: Lens' CreateIndex Text
-ciDirectoryARN = lens _ciDirectoryARN (\ s a -> s{_ciDirectoryARN = a});
+ciDirectoryARN = lens _ciDirectoryARN (\ s a -> s{_ciDirectoryARN = a})
 
 -- | Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
 ciOrderedIndexedAttributeList :: Lens' CreateIndex [AttributeKey]
-ciOrderedIndexedAttributeList = lens _ciOrderedIndexedAttributeList (\ s a -> s{_ciOrderedIndexedAttributeList = a}) . _Coerce;
+ciOrderedIndexedAttributeList = lens _ciOrderedIndexedAttributeList (\ s a -> s{_ciOrderedIndexedAttributeList = a}) . _Coerce
 
 -- | Indicates whether the attribute that is being indexed has unique values or not.
 ciIsUnique :: Lens' CreateIndex Bool
-ciIsUnique = lens _ciIsUnique (\ s a -> s{_ciIsUnique = a});
+ciIsUnique = lens _ciIsUnique (\ s a -> s{_ciIsUnique = a})
 
 instance AWSRequest CreateIndex where
         type Rs CreateIndex = CreateIndexResponse
@@ -159,15 +159,15 @@ createIndexResponse
     -> CreateIndexResponse
 createIndexResponse pResponseStatus_ =
   CreateIndexResponse'
-  {_cirsObjectIdentifier = Nothing, _cirsResponseStatus = pResponseStatus_}
+    {_cirsObjectIdentifier = Nothing, _cirsResponseStatus = pResponseStatus_}
 
 
 -- | The @ObjectIdentifier@ of the index created by this operation.
 cirsObjectIdentifier :: Lens' CreateIndexResponse (Maybe Text)
-cirsObjectIdentifier = lens _cirsObjectIdentifier (\ s a -> s{_cirsObjectIdentifier = a});
+cirsObjectIdentifier = lens _cirsObjectIdentifier (\ s a -> s{_cirsObjectIdentifier = a})
 
 -- | -- | The response status code.
 cirsResponseStatus :: Lens' CreateIndexResponse Int
-cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
+cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a})
 
 instance NFData CreateIndexResponse where

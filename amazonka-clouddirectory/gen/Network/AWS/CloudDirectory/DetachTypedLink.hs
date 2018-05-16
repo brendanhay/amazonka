@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DetachTypedLink
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,18 +62,18 @@ detachTypedLink
     -> DetachTypedLink
 detachTypedLink pDirectoryARN_ pTypedLinkSpecifier_ =
   DetachTypedLink'
-  { _dtlDirectoryARN = pDirectoryARN_
-  , _dtlTypedLinkSpecifier = pTypedLinkSpecifier_
-  }
+    { _dtlDirectoryARN = pDirectoryARN_
+    , _dtlTypedLinkSpecifier = pTypedLinkSpecifier_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.
 dtlDirectoryARN :: Lens' DetachTypedLink Text
-dtlDirectoryARN = lens _dtlDirectoryARN (\ s a -> s{_dtlDirectoryARN = a});
+dtlDirectoryARN = lens _dtlDirectoryARN (\ s a -> s{_dtlDirectoryARN = a})
 
 -- | Used to accept a typed link specifier as input.
 dtlTypedLinkSpecifier :: Lens' DetachTypedLink TypedLinkSpecifier
-dtlTypedLinkSpecifier = lens _dtlTypedLinkSpecifier (\ s a -> s{_dtlTypedLinkSpecifier = a});
+dtlTypedLinkSpecifier = lens _dtlTypedLinkSpecifier (\ s a -> s{_dtlTypedLinkSpecifier = a})
 
 instance AWSRequest DetachTypedLink where
         type Rs DetachTypedLink = DetachTypedLinkResponse

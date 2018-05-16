@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,18 +69,18 @@ deleteDeploymentGroup
     -> DeleteDeploymentGroup
 deleteDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
   DeleteDeploymentGroup'
-  { _ddgApplicationName = pApplicationName_
-  , _ddgDeploymentGroupName = pDeploymentGroupName_
-  }
+    { _ddgApplicationName = pApplicationName_
+    , _ddgDeploymentGroupName = pDeploymentGroupName_
+    }
 
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 ddgApplicationName :: Lens' DeleteDeploymentGroup Text
-ddgApplicationName = lens _ddgApplicationName (\ s a -> s{_ddgApplicationName = a});
+ddgApplicationName = lens _ddgApplicationName (\ s a -> s{_ddgApplicationName = a})
 
 -- | The name of an existing deployment group for the specified application.
 ddgDeploymentGroupName :: Lens' DeleteDeploymentGroup Text
-ddgDeploymentGroupName = lens _ddgDeploymentGroupName (\ s a -> s{_ddgDeploymentGroupName = a});
+ddgDeploymentGroupName = lens _ddgDeploymentGroupName (\ s a -> s{_ddgDeploymentGroupName = a})
 
 instance AWSRequest DeleteDeploymentGroup where
         type Rs DeleteDeploymentGroup =
@@ -144,15 +144,15 @@ deleteDeploymentGroupResponse
     -> DeleteDeploymentGroupResponse
 deleteDeploymentGroupResponse pResponseStatus_ =
   DeleteDeploymentGroupResponse'
-  {_ddgrsHooksNotCleanedUp = Nothing, _ddgrsResponseStatus = pResponseStatus_}
+    {_ddgrsHooksNotCleanedUp = Nothing, _ddgrsResponseStatus = pResponseStatus_}
 
 
 -- | If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group.
 ddgrsHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
-ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
+ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNotCleanedUp = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddgrsResponseStatus :: Lens' DeleteDeploymentGroupResponse Int
-ddgrsResponseStatus = lens _ddgrsResponseStatus (\ s a -> s{_ddgrsResponseStatus = a});
+ddgrsResponseStatus = lens _ddgrsResponseStatus (\ s a -> s{_ddgrsResponseStatus = a})
 
 instance NFData DeleteDeploymentGroupResponse where

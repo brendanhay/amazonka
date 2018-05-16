@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.DeleteDeliveryStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +25,7 @@
 --
 -- To check the state of a delivery stream, use 'DescribeDeliveryStream' .
 --
--- While the delivery stream is @DELETING@ state, the service may continue to accept the records, but the service doesn't make any guarantees with respect to delivering the data. Therefore, as a best practice, you should first stop any applications that are sending records before deleting a delivery stream.
+-- While the delivery stream is @DELETING@ state, the service might continue to accept the records, but it doesn't make any guarantees with respect to delivering the data. Therefore, as a best practice, you should first stop any applications that are sending records before deleting a delivery stream.
 --
 module Network.AWS.Firehose.DeleteDeliveryStream
     (
@@ -69,7 +69,7 @@ deleteDeliveryStream pDeliveryStreamName_ =
 
 -- | The name of the delivery stream.
 dDeliveryStreamName :: Lens' DeleteDeliveryStream Text
-dDeliveryStreamName = lens _dDeliveryStreamName (\ s a -> s{_dDeliveryStreamName = a});
+dDeliveryStreamName = lens _dDeliveryStreamName (\ s a -> s{_dDeliveryStreamName = a})
 
 instance AWSRequest DeleteDeliveryStream where
         type Rs DeleteDeliveryStream =
@@ -128,6 +128,6 @@ deleteDeliveryStreamResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteDeliveryStreamResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteDeliveryStreamResponse where

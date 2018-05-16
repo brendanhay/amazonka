@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateAPIKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ data UpdateAPIKey = UpdateAPIKey'
 --
 -- * 'uakPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uakApiKey' - The identifier of the 'ApiKey' resource to be updated.
+-- * 'uakApiKey' - [Required] The identifier of the 'ApiKey' resource to be updated.
 updateAPIKey
     :: Text -- ^ 'uakApiKey'
     -> UpdateAPIKey
@@ -79,11 +79,11 @@ updateAPIKey pApiKey_ =
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uakPatchOperations :: Lens' UpdateAPIKey [PatchOperation]
-uakPatchOperations = lens _uakPatchOperations (\ s a -> s{_uakPatchOperations = a}) . _Default . _Coerce;
+uakPatchOperations = lens _uakPatchOperations (\ s a -> s{_uakPatchOperations = a}) . _Default . _Coerce
 
--- | The identifier of the 'ApiKey' resource to be updated.
+-- | [Required] The identifier of the 'ApiKey' resource to be updated.
 uakApiKey :: Lens' UpdateAPIKey Text
-uakApiKey = lens _uakApiKey (\ s a -> s{_uakApiKey = a});
+uakApiKey = lens _uakApiKey (\ s a -> s{_uakApiKey = a})
 
 instance AWSRequest UpdateAPIKey where
         type Rs UpdateAPIKey = APIKey

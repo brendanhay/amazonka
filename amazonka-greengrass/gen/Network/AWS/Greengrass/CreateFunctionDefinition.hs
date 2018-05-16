@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateFunctionDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ``CreateFunctionDefinitionVersion`` later.
+-- Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ''CreateFunctionDefinitionVersion'' later.
 module Network.AWS.Greengrass.CreateFunctionDefinition
     (
     -- * Creating a Request
@@ -62,32 +62,32 @@ data CreateFunctionDefinition = CreateFunctionDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfdAmznClientToken' - The client token used to request idempotent operations.
+-- * 'cfdAmznClientToken' - A client token used to correlate requests and responses.
 --
--- * 'cfdInitialVersion' - Information on the initial version
+-- * 'cfdInitialVersion' - Information about the initial version of the function definition.
 --
--- * 'cfdName' - name of the function definition
+-- * 'cfdName' - The name of the function definition.
 createFunctionDefinition
     :: CreateFunctionDefinition
 createFunctionDefinition =
   CreateFunctionDefinition'
-  { _cfdAmznClientToken = Nothing
-  , _cfdInitialVersion = Nothing
-  , _cfdName = Nothing
-  }
+    { _cfdAmznClientToken = Nothing
+    , _cfdInitialVersion = Nothing
+    , _cfdName = Nothing
+    }
 
 
--- | The client token used to request idempotent operations.
+-- | A client token used to correlate requests and responses.
 cfdAmznClientToken :: Lens' CreateFunctionDefinition (Maybe Text)
-cfdAmznClientToken = lens _cfdAmznClientToken (\ s a -> s{_cfdAmznClientToken = a});
+cfdAmznClientToken = lens _cfdAmznClientToken (\ s a -> s{_cfdAmznClientToken = a})
 
--- | Information on the initial version
+-- | Information about the initial version of the function definition.
 cfdInitialVersion :: Lens' CreateFunctionDefinition (Maybe FunctionDefinitionVersion)
-cfdInitialVersion = lens _cfdInitialVersion (\ s a -> s{_cfdInitialVersion = a});
+cfdInitialVersion = lens _cfdInitialVersion (\ s a -> s{_cfdInitialVersion = a})
 
--- | name of the function definition
+-- | The name of the function definition.
 cfdName :: Lens' CreateFunctionDefinition (Maybe Text)
-cfdName = lens _cfdName (\ s a -> s{_cfdName = a});
+cfdName = lens _cfdName (\ s a -> s{_cfdName = a})
 
 instance AWSRequest CreateFunctionDefinition where
         type Rs CreateFunctionDefinition =
@@ -146,19 +146,19 @@ data CreateFunctionDefinitionResponse = CreateFunctionDefinitionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfdrsLatestVersionARN' - Latest version arn of the definition.
+-- * 'cfdrsLatestVersionARN' - The ARN of the latest version of the definition.
 --
--- * 'cfdrsARN' - Arn of the definition.
+-- * 'cfdrsARN' - The ARN of the definition.
 --
--- * 'cfdrsName' - Name of the definition.
+-- * 'cfdrsName' - The name of the definition.
 --
--- * 'cfdrsCreationTimestamp' - Timestamp of when the definition was created.
+-- * 'cfdrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
 --
--- * 'cfdrsId' - Id of the definition.
+-- * 'cfdrsId' - The ID of the definition.
 --
--- * 'cfdrsLatestVersion' - Last version of the definition.
+-- * 'cfdrsLatestVersion' - The latest version of the definition.
 --
--- * 'cfdrsLastUpdatedTimestamp' - Last updated timestamp of the definition.
+-- * 'cfdrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- * 'cfdrsResponseStatus' - -- | The response status code.
 createFunctionDefinitionResponse
@@ -166,48 +166,48 @@ createFunctionDefinitionResponse
     -> CreateFunctionDefinitionResponse
 createFunctionDefinitionResponse pResponseStatus_ =
   CreateFunctionDefinitionResponse'
-  { _cfdrsLatestVersionARN = Nothing
-  , _cfdrsARN = Nothing
-  , _cfdrsName = Nothing
-  , _cfdrsCreationTimestamp = Nothing
-  , _cfdrsId = Nothing
-  , _cfdrsLatestVersion = Nothing
-  , _cfdrsLastUpdatedTimestamp = Nothing
-  , _cfdrsResponseStatus = pResponseStatus_
-  }
+    { _cfdrsLatestVersionARN = Nothing
+    , _cfdrsARN = Nothing
+    , _cfdrsName = Nothing
+    , _cfdrsCreationTimestamp = Nothing
+    , _cfdrsId = Nothing
+    , _cfdrsLatestVersion = Nothing
+    , _cfdrsLastUpdatedTimestamp = Nothing
+    , _cfdrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Latest version arn of the definition.
+-- | The ARN of the latest version of the definition.
 cfdrsLatestVersionARN :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsLatestVersionARN = lens _cfdrsLatestVersionARN (\ s a -> s{_cfdrsLatestVersionARN = a});
+cfdrsLatestVersionARN = lens _cfdrsLatestVersionARN (\ s a -> s{_cfdrsLatestVersionARN = a})
 
--- | Arn of the definition.
+-- | The ARN of the definition.
 cfdrsARN :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsARN = lens _cfdrsARN (\ s a -> s{_cfdrsARN = a});
+cfdrsARN = lens _cfdrsARN (\ s a -> s{_cfdrsARN = a})
 
--- | Name of the definition.
+-- | The name of the definition.
 cfdrsName :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsName = lens _cfdrsName (\ s a -> s{_cfdrsName = a});
+cfdrsName = lens _cfdrsName (\ s a -> s{_cfdrsName = a})
 
--- | Timestamp of when the definition was created.
+-- | The time, in milliseconds since the epoch, when the definition was created.
 cfdrsCreationTimestamp :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsCreationTimestamp = lens _cfdrsCreationTimestamp (\ s a -> s{_cfdrsCreationTimestamp = a});
+cfdrsCreationTimestamp = lens _cfdrsCreationTimestamp (\ s a -> s{_cfdrsCreationTimestamp = a})
 
--- | Id of the definition.
+-- | The ID of the definition.
 cfdrsId :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsId = lens _cfdrsId (\ s a -> s{_cfdrsId = a});
+cfdrsId = lens _cfdrsId (\ s a -> s{_cfdrsId = a})
 
--- | Last version of the definition.
+-- | The latest version of the definition.
 cfdrsLatestVersion :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsLatestVersion = lens _cfdrsLatestVersion (\ s a -> s{_cfdrsLatestVersion = a});
+cfdrsLatestVersion = lens _cfdrsLatestVersion (\ s a -> s{_cfdrsLatestVersion = a})
 
--- | Last updated timestamp of the definition.
+-- | The time, in milliseconds since the epoch, when the definition was last updated.
 cfdrsLastUpdatedTimestamp :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsLastUpdatedTimestamp = lens _cfdrsLastUpdatedTimestamp (\ s a -> s{_cfdrsLastUpdatedTimestamp = a});
+cfdrsLastUpdatedTimestamp = lens _cfdrsLastUpdatedTimestamp (\ s a -> s{_cfdrsLastUpdatedTimestamp = a})
 
 -- | -- | The response status code.
 cfdrsResponseStatus :: Lens' CreateFunctionDefinitionResponse Int
-cfdrsResponseStatus = lens _cfdrsResponseStatus (\ s a -> s{_cfdrsResponseStatus = a});
+cfdrsResponseStatus = lens _cfdrsResponseStatus (\ s a -> s{_cfdrsResponseStatus = a})
 
 instance NFData CreateFunctionDefinitionResponse
          where

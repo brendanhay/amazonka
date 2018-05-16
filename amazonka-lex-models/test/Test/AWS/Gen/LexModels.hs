@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.LexModels
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,6 +58,9 @@ import Test.Tasty
 --         , requestDeleteBot $
 --             deleteBot
 --
+--         , requestGetImport $
+--             getImport
+--
 --         , requestGetIntentVersions $
 --             getIntentVersions
 --
@@ -108,6 +111,9 @@ import Test.Tasty
 --
 --         , requestDeleteSlotType $
 --             deleteSlotType
+--
+--         , requestStartImport $
+--             startImport
 --
 --         , requestGetBotChannelAssociation $
 --             getBotChannelAssociation
@@ -163,6 +169,9 @@ import Test.Tasty
 --         , responseDeleteBot $
 --             deleteBotResponse
 --
+--         , responseGetImport $
+--             getImportResponse
+--
 --         , responseGetIntentVersions $
 --             getIntentVersionsResponse
 --
@@ -213,6 +222,9 @@ import Test.Tasty
 --
 --         , responseDeleteSlotType $
 --             deleteSlotTypeResponse
+--
+--         , responseStartImport $
+--             startImportResponse
 --
 --         , responseGetBotChannelAssociation $
 --             getBotChannelAssociationResponse
@@ -289,6 +301,11 @@ requestDeleteBot :: DeleteBot -> TestTree
 requestDeleteBot = req
     "DeleteBot"
     "fixture/DeleteBot.yaml"
+
+requestGetImport :: GetImport -> TestTree
+requestGetImport = req
+    "GetImport"
+    "fixture/GetImport.yaml"
 
 requestGetIntentVersions :: GetIntentVersions -> TestTree
 requestGetIntentVersions = req
@@ -374,6 +391,11 @@ requestDeleteSlotType :: DeleteSlotType -> TestTree
 requestDeleteSlotType = req
     "DeleteSlotType"
     "fixture/DeleteSlotType.yaml"
+
+requestStartImport :: StartImport -> TestTree
+requestStartImport = req
+    "StartImport"
+    "fixture/StartImport.yaml"
 
 requestGetBotChannelAssociation :: GetBotChannelAssociation -> TestTree
 requestGetBotChannelAssociation = req
@@ -481,6 +503,13 @@ responseDeleteBot = res
     "fixture/DeleteBotResponse.proto"
     lexModels
     (Proxy :: Proxy DeleteBot)
+
+responseGetImport :: GetImportResponse -> TestTree
+responseGetImport = res
+    "GetImportResponse"
+    "fixture/GetImportResponse.proto"
+    lexModels
+    (Proxy :: Proxy GetImport)
 
 responseGetIntentVersions :: GetIntentVersionsResponse -> TestTree
 responseGetIntentVersions = res
@@ -600,6 +629,13 @@ responseDeleteSlotType = res
     "fixture/DeleteSlotTypeResponse.proto"
     lexModels
     (Proxy :: Proxy DeleteSlotType)
+
+responseStartImport :: StartImportResponse -> TestTree
+responseStartImport = res
+    "StartImportResponse"
+    "fixture/StartImportResponse.proto"
+    lexModels
+    (Proxy :: Proxy StartImport)
 
 responseGetBotChannelAssociation :: GetBotChannelAssociationResponse -> TestTree
 responseGetBotChannelAssociation = res

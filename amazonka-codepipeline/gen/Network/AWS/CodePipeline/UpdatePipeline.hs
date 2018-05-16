@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.UpdatePipeline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ updatePipeline pPipeline_ = UpdatePipeline' {_upPipeline = pPipeline_}
 
 -- | The name of the pipeline to be updated.
 upPipeline :: Lens' UpdatePipeline PipelineDeclaration
-upPipeline = lens _upPipeline (\ s a -> s{_upPipeline = a});
+upPipeline = lens _upPipeline (\ s a -> s{_upPipeline = a})
 
 instance AWSRequest UpdatePipeline where
         type Rs UpdatePipeline = UpdatePipelineResponse
@@ -126,15 +126,15 @@ updatePipelineResponse
     -> UpdatePipelineResponse
 updatePipelineResponse pResponseStatus_ =
   UpdatePipelineResponse'
-  {_uprsPipeline = Nothing, _uprsResponseStatus = pResponseStatus_}
+    {_uprsPipeline = Nothing, _uprsResponseStatus = pResponseStatus_}
 
 
 -- | The structure of the updated pipeline.
 uprsPipeline :: Lens' UpdatePipelineResponse (Maybe PipelineDeclaration)
-uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
+uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a})
 
 -- | -- | The response status code.
 uprsResponseStatus :: Lens' UpdatePipelineResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
+uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a})
 
 instance NFData UpdatePipelineResponse where

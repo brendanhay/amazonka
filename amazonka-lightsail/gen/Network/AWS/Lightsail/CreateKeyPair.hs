@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateKeyPair
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ createKeyPair pKeyPairName_ = CreateKeyPair' {_ckpKeyPairName = pKeyPairName_}
 
 -- | The name for your new key pair.
 ckpKeyPairName :: Lens' CreateKeyPair Text
-ckpKeyPairName = lens _ckpKeyPairName (\ s a -> s{_ckpKeyPairName = a});
+ckpKeyPairName = lens _ckpKeyPairName (\ s a -> s{_ckpKeyPairName = a})
 
 instance AWSRequest CreateKeyPair where
         type Rs CreateKeyPair = CreateKeyPairResponse
@@ -132,32 +132,32 @@ createKeyPairResponse
     -> CreateKeyPairResponse
 createKeyPairResponse pResponseStatus_ =
   CreateKeyPairResponse'
-  { _ckprsKeyPair = Nothing
-  , _ckprsOperation = Nothing
-  , _ckprsPublicKeyBase64 = Nothing
-  , _ckprsPrivateKeyBase64 = Nothing
-  , _ckprsResponseStatus = pResponseStatus_
-  }
+    { _ckprsKeyPair = Nothing
+    , _ckprsOperation = Nothing
+    , _ckprsPublicKeyBase64 = Nothing
+    , _ckprsPrivateKeyBase64 = Nothing
+    , _ckprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of key-value pairs containing information about the new key pair you just created.
 ckprsKeyPair :: Lens' CreateKeyPairResponse (Maybe KeyPair)
-ckprsKeyPair = lens _ckprsKeyPair (\ s a -> s{_ckprsKeyPair = a});
+ckprsKeyPair = lens _ckprsKeyPair (\ s a -> s{_ckprsKeyPair = a})
 
 -- | An array of key-value pairs containing information about the results of your create key pair request.
 ckprsOperation :: Lens' CreateKeyPairResponse (Maybe Operation)
-ckprsOperation = lens _ckprsOperation (\ s a -> s{_ckprsOperation = a});
+ckprsOperation = lens _ckprsOperation (\ s a -> s{_ckprsOperation = a})
 
 -- | A base64-encoded public key of the @ssh-rsa@ type.
 ckprsPublicKeyBase64 :: Lens' CreateKeyPairResponse (Maybe Text)
-ckprsPublicKeyBase64 = lens _ckprsPublicKeyBase64 (\ s a -> s{_ckprsPublicKeyBase64 = a});
+ckprsPublicKeyBase64 = lens _ckprsPublicKeyBase64 (\ s a -> s{_ckprsPublicKeyBase64 = a})
 
 -- | A base64-encoded RSA private key.
 ckprsPrivateKeyBase64 :: Lens' CreateKeyPairResponse (Maybe Text)
-ckprsPrivateKeyBase64 = lens _ckprsPrivateKeyBase64 (\ s a -> s{_ckprsPrivateKeyBase64 = a});
+ckprsPrivateKeyBase64 = lens _ckprsPrivateKeyBase64 (\ s a -> s{_ckprsPrivateKeyBase64 = a})
 
 -- | -- | The response status code.
 ckprsResponseStatus :: Lens' CreateKeyPairResponse Int
-ckprsResponseStatus = lens _ckprsResponseStatus (\ s a -> s{_ckprsResponseStatus = a});
+ckprsResponseStatus = lens _ckprsResponseStatus (\ s a -> s{_ckprsResponseStatus = a})
 
 instance NFData CreateKeyPairResponse where

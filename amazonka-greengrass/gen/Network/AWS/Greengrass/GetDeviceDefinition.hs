@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetDeviceDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ newtype GetDeviceDefinition = GetDeviceDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gddDeviceDefinitionId' - device definition Id
+-- * 'gddDeviceDefinitionId' - The ID of the device definition.
 getDeviceDefinition
     :: Text -- ^ 'gddDeviceDefinitionId'
     -> GetDeviceDefinition
@@ -66,9 +66,9 @@ getDeviceDefinition pDeviceDefinitionId_ =
   GetDeviceDefinition' {_gddDeviceDefinitionId = pDeviceDefinitionId_}
 
 
--- | device definition Id
+-- | The ID of the device definition.
 gddDeviceDefinitionId :: Lens' GetDeviceDefinition Text
-gddDeviceDefinitionId = lens _gddDeviceDefinitionId (\ s a -> s{_gddDeviceDefinitionId = a});
+gddDeviceDefinitionId = lens _gddDeviceDefinitionId (\ s a -> s{_gddDeviceDefinitionId = a})
 
 instance AWSRequest GetDeviceDefinition where
         type Rs GetDeviceDefinition =
@@ -123,19 +123,19 @@ data GetDeviceDefinitionResponse = GetDeviceDefinitionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gddrsLatestVersionARN' - Latest version arn of the definition.
+-- * 'gddrsLatestVersionARN' - The ARN of the latest version of the definition.
 --
--- * 'gddrsARN' - Arn of the definition.
+-- * 'gddrsARN' - The ARN of the definition.
 --
--- * 'gddrsName' - Name of the definition.
+-- * 'gddrsName' - The name of the definition.
 --
--- * 'gddrsCreationTimestamp' - Timestamp of when the definition was created.
+-- * 'gddrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
 --
--- * 'gddrsId' - Id of the definition.
+-- * 'gddrsId' - The ID of the definition.
 --
--- * 'gddrsLatestVersion' - Last version of the definition.
+-- * 'gddrsLatestVersion' - The latest version of the definition.
 --
--- * 'gddrsLastUpdatedTimestamp' - Last updated timestamp of the definition.
+-- * 'gddrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- * 'gddrsResponseStatus' - -- | The response status code.
 getDeviceDefinitionResponse
@@ -143,47 +143,47 @@ getDeviceDefinitionResponse
     -> GetDeviceDefinitionResponse
 getDeviceDefinitionResponse pResponseStatus_ =
   GetDeviceDefinitionResponse'
-  { _gddrsLatestVersionARN = Nothing
-  , _gddrsARN = Nothing
-  , _gddrsName = Nothing
-  , _gddrsCreationTimestamp = Nothing
-  , _gddrsId = Nothing
-  , _gddrsLatestVersion = Nothing
-  , _gddrsLastUpdatedTimestamp = Nothing
-  , _gddrsResponseStatus = pResponseStatus_
-  }
+    { _gddrsLatestVersionARN = Nothing
+    , _gddrsARN = Nothing
+    , _gddrsName = Nothing
+    , _gddrsCreationTimestamp = Nothing
+    , _gddrsId = Nothing
+    , _gddrsLatestVersion = Nothing
+    , _gddrsLastUpdatedTimestamp = Nothing
+    , _gddrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Latest version arn of the definition.
+-- | The ARN of the latest version of the definition.
 gddrsLatestVersionARN :: Lens' GetDeviceDefinitionResponse (Maybe Text)
-gddrsLatestVersionARN = lens _gddrsLatestVersionARN (\ s a -> s{_gddrsLatestVersionARN = a});
+gddrsLatestVersionARN = lens _gddrsLatestVersionARN (\ s a -> s{_gddrsLatestVersionARN = a})
 
--- | Arn of the definition.
+-- | The ARN of the definition.
 gddrsARN :: Lens' GetDeviceDefinitionResponse (Maybe Text)
-gddrsARN = lens _gddrsARN (\ s a -> s{_gddrsARN = a});
+gddrsARN = lens _gddrsARN (\ s a -> s{_gddrsARN = a})
 
--- | Name of the definition.
+-- | The name of the definition.
 gddrsName :: Lens' GetDeviceDefinitionResponse (Maybe Text)
-gddrsName = lens _gddrsName (\ s a -> s{_gddrsName = a});
+gddrsName = lens _gddrsName (\ s a -> s{_gddrsName = a})
 
--- | Timestamp of when the definition was created.
+-- | The time, in milliseconds since the epoch, when the definition was created.
 gddrsCreationTimestamp :: Lens' GetDeviceDefinitionResponse (Maybe Text)
-gddrsCreationTimestamp = lens _gddrsCreationTimestamp (\ s a -> s{_gddrsCreationTimestamp = a});
+gddrsCreationTimestamp = lens _gddrsCreationTimestamp (\ s a -> s{_gddrsCreationTimestamp = a})
 
--- | Id of the definition.
+-- | The ID of the definition.
 gddrsId :: Lens' GetDeviceDefinitionResponse (Maybe Text)
-gddrsId = lens _gddrsId (\ s a -> s{_gddrsId = a});
+gddrsId = lens _gddrsId (\ s a -> s{_gddrsId = a})
 
--- | Last version of the definition.
+-- | The latest version of the definition.
 gddrsLatestVersion :: Lens' GetDeviceDefinitionResponse (Maybe Text)
-gddrsLatestVersion = lens _gddrsLatestVersion (\ s a -> s{_gddrsLatestVersion = a});
+gddrsLatestVersion = lens _gddrsLatestVersion (\ s a -> s{_gddrsLatestVersion = a})
 
--- | Last updated timestamp of the definition.
+-- | The time, in milliseconds since the epoch, when the definition was last updated.
 gddrsLastUpdatedTimestamp :: Lens' GetDeviceDefinitionResponse (Maybe Text)
-gddrsLastUpdatedTimestamp = lens _gddrsLastUpdatedTimestamp (\ s a -> s{_gddrsLastUpdatedTimestamp = a});
+gddrsLastUpdatedTimestamp = lens _gddrsLastUpdatedTimestamp (\ s a -> s{_gddrsLastUpdatedTimestamp = a})
 
 -- | -- | The response status code.
 gddrsResponseStatus :: Lens' GetDeviceDefinitionResponse Int
-gddrsResponseStatus = lens _gddrsResponseStatus (\ s a -> s{_gddrsResponseStatus = a});
+gddrsResponseStatus = lens _gddrsResponseStatus (\ s a -> s{_gddrsResponseStatus = a})
 
 instance NFData GetDeviceDefinitionResponse where

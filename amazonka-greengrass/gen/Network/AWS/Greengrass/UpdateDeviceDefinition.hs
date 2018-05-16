@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateDeviceDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,24 +53,24 @@ data UpdateDeviceDefinition = UpdateDeviceDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uddName' - name of the definition
+-- * 'uddName' - The name of the definition.
 --
--- * 'uddDeviceDefinitionId' - device definition Id
+-- * 'uddDeviceDefinitionId' - The ID of the device definition.
 updateDeviceDefinition
     :: Text -- ^ 'uddDeviceDefinitionId'
     -> UpdateDeviceDefinition
 updateDeviceDefinition pDeviceDefinitionId_ =
   UpdateDeviceDefinition'
-  {_uddName = Nothing, _uddDeviceDefinitionId = pDeviceDefinitionId_}
+    {_uddName = Nothing, _uddDeviceDefinitionId = pDeviceDefinitionId_}
 
 
--- | name of the definition
+-- | The name of the definition.
 uddName :: Lens' UpdateDeviceDefinition (Maybe Text)
-uddName = lens _uddName (\ s a -> s{_uddName = a});
+uddName = lens _uddName (\ s a -> s{_uddName = a})
 
--- | device definition Id
+-- | The ID of the device definition.
 uddDeviceDefinitionId :: Lens' UpdateDeviceDefinition Text
-uddDeviceDefinitionId = lens _uddDeviceDefinitionId (\ s a -> s{_uddDeviceDefinitionId = a});
+uddDeviceDefinitionId = lens _uddDeviceDefinitionId (\ s a -> s{_uddDeviceDefinitionId = a})
 
 instance AWSRequest UpdateDeviceDefinition where
         type Rs UpdateDeviceDefinition =
@@ -126,6 +126,6 @@ updateDeviceDefinitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 uddrsResponseStatus :: Lens' UpdateDeviceDefinitionResponse Int
-uddrsResponseStatus = lens _uddrsResponseStatus (\ s a -> s{_uddrsResponseStatus = a});
+uddrsResponseStatus = lens _uddrsResponseStatus (\ s a -> s{_uddrsResponseStatus = a})
 
 instance NFData UpdateDeviceDefinitionResponse where

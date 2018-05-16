@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstanceState
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,8 @@ module Network.AWS.Lightsail.GetInstanceState
     , getInstanceStateResponse
     , GetInstanceStateResponse
     -- * Response Lenses
-    , getrsState
-    , getrsResponseStatus
+    , gisirsState
+    , gisirsResponseStatus
     ) where
 
 import Network.AWS.Lens
@@ -64,7 +64,7 @@ getInstanceState pInstanceName_ =
 
 -- | The name of the instance to get state information about.
 gisInstanceName :: Lens' GetInstanceState Text
-gisInstanceName = lens _gisInstanceName (\ s a -> s{_gisInstanceName = a});
+gisInstanceName = lens _gisInstanceName (\ s a -> s{_gisInstanceName = a})
 
 instance AWSRequest GetInstanceState where
         type Rs GetInstanceState = GetInstanceStateResponse
@@ -103,8 +103,8 @@ instance ToQuery GetInstanceState where
 
 -- | /See:/ 'getInstanceStateResponse' smart constructor.
 data GetInstanceStateResponse = GetInstanceStateResponse'
-  { _getrsState          :: !(Maybe InstanceState)
-  , _getrsResponseStatus :: !Int
+  { _gisirsState          :: !(Maybe InstanceState)
+  , _gisirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,23 +112,23 @@ data GetInstanceStateResponse = GetInstanceStateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getrsState' - The state of the instance.
+-- * 'gisirsState' - The state of the instance.
 --
--- * 'getrsResponseStatus' - -- | The response status code.
+-- * 'gisirsResponseStatus' - -- | The response status code.
 getInstanceStateResponse
-    :: Int -- ^ 'getrsResponseStatus'
+    :: Int -- ^ 'gisirsResponseStatus'
     -> GetInstanceStateResponse
 getInstanceStateResponse pResponseStatus_ =
   GetInstanceStateResponse'
-  {_getrsState = Nothing, _getrsResponseStatus = pResponseStatus_}
+    {_gisirsState = Nothing, _gisirsResponseStatus = pResponseStatus_}
 
 
 -- | The state of the instance.
-getrsState :: Lens' GetInstanceStateResponse (Maybe InstanceState)
-getrsState = lens _getrsState (\ s a -> s{_getrsState = a});
+gisirsState :: Lens' GetInstanceStateResponse (Maybe InstanceState)
+gisirsState = lens _gisirsState (\ s a -> s{_gisirsState = a})
 
 -- | -- | The response status code.
-getrsResponseStatus :: Lens' GetInstanceStateResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a});
+gisirsResponseStatus :: Lens' GetInstanceStateResponse Int
+gisirsResponseStatus = lens _gisirsResponseStatus (\ s a -> s{_gisirsResponseStatus = a})
 
 instance NFData GetInstanceStateResponse where

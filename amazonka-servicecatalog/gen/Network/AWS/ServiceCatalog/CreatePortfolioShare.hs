@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreatePortfolioShare
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new portfolio share.
+-- Shares the specified portfolio with the specified account.
 --
 --
 module Network.AWS.ServiceCatalog.CreatePortfolioShare
@@ -61,30 +61,30 @@ data CreatePortfolioShare = CreatePortfolioShare'
 --
 -- * 'cpsPortfolioId' - The portfolio identifier.
 --
--- * 'cpsAccountId' - The account ID with which to share the portfolio.
+-- * 'cpsAccountId' - The AWS account ID.
 createPortfolioShare
     :: Text -- ^ 'cpsPortfolioId'
     -> Text -- ^ 'cpsAccountId'
     -> CreatePortfolioShare
 createPortfolioShare pPortfolioId_ pAccountId_ =
   CreatePortfolioShare'
-  { _cpsAcceptLanguage = Nothing
-  , _cpsPortfolioId = pPortfolioId_
-  , _cpsAccountId = pAccountId_
-  }
+    { _cpsAcceptLanguage = Nothing
+    , _cpsPortfolioId = pPortfolioId_
+    , _cpsAccountId = pAccountId_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 cpsAcceptLanguage :: Lens' CreatePortfolioShare (Maybe Text)
-cpsAcceptLanguage = lens _cpsAcceptLanguage (\ s a -> s{_cpsAcceptLanguage = a});
+cpsAcceptLanguage = lens _cpsAcceptLanguage (\ s a -> s{_cpsAcceptLanguage = a})
 
 -- | The portfolio identifier.
 cpsPortfolioId :: Lens' CreatePortfolioShare Text
-cpsPortfolioId = lens _cpsPortfolioId (\ s a -> s{_cpsPortfolioId = a});
+cpsPortfolioId = lens _cpsPortfolioId (\ s a -> s{_cpsPortfolioId = a})
 
--- | The account ID with which to share the portfolio.
+-- | The AWS account ID.
 cpsAccountId :: Lens' CreatePortfolioShare Text
-cpsAccountId = lens _cpsAccountId (\ s a -> s{_cpsAccountId = a});
+cpsAccountId = lens _cpsAccountId (\ s a -> s{_cpsAccountId = a})
 
 instance AWSRequest CreatePortfolioShare where
         type Rs CreatePortfolioShare =
@@ -144,6 +144,6 @@ createPortfolioShareResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cpsrsResponseStatus :: Lens' CreatePortfolioShareResponse Int
-cpsrsResponseStatus = lens _cpsrsResponseStatus (\ s a -> s{_cpsrsResponseStatus = a});
+cpsrsResponseStatus = lens _cpsrsResponseStatus (\ s a -> s{_cpsrsResponseStatus = a})
 
 instance NFData CreatePortfolioShareResponse where

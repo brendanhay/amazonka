@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.RemoveTargets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ removeTargets pRule_ pIds_ =
 
 -- | The name of the rule.
 rtRule :: Lens' RemoveTargets Text
-rtRule = lens _rtRule (\ s a -> s{_rtRule = a});
+rtRule = lens _rtRule (\ s a -> s{_rtRule = a})
 
 -- | The IDs of the targets to remove from the rule.
 rtIds :: Lens' RemoveTargets (NonEmpty Text)
-rtIds = lens _rtIds (\ s a -> s{_rtIds = a}) . _List1;
+rtIds = lens _rtIds (\ s a -> s{_rtIds = a}) . _List1
 
 instance AWSRequest RemoveTargets where
         type Rs RemoveTargets = RemoveTargetsResponse
@@ -138,22 +138,22 @@ removeTargetsResponse
     -> RemoveTargetsResponse
 removeTargetsResponse pResponseStatus_ =
   RemoveTargetsResponse'
-  { _rtrsFailedEntryCount = Nothing
-  , _rtrsFailedEntries = Nothing
-  , _rtrsResponseStatus = pResponseStatus_
-  }
+    { _rtrsFailedEntryCount = Nothing
+    , _rtrsFailedEntries = Nothing
+    , _rtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The number of failed entries.
 rtrsFailedEntryCount :: Lens' RemoveTargetsResponse (Maybe Int)
-rtrsFailedEntryCount = lens _rtrsFailedEntryCount (\ s a -> s{_rtrsFailedEntryCount = a});
+rtrsFailedEntryCount = lens _rtrsFailedEntryCount (\ s a -> s{_rtrsFailedEntryCount = a})
 
 -- | The failed target entries.
 rtrsFailedEntries :: Lens' RemoveTargetsResponse [RemoveTargetsResultEntry]
-rtrsFailedEntries = lens _rtrsFailedEntries (\ s a -> s{_rtrsFailedEntries = a}) . _Default . _Coerce;
+rtrsFailedEntries = lens _rtrsFailedEntries (\ s a -> s{_rtrsFailedEntries = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTargetsResponse Int
-rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
+rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a})
 
 instance NFData RemoveTargetsResponse where

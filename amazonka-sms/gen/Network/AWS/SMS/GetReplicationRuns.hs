@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SMS.GetReplicationRuns
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ getReplicationRuns
     -> GetReplicationRuns
 getReplicationRuns pReplicationJobId_ =
   GetReplicationRuns'
-  { _grrNextToken = Nothing
-  , _grrMaxResults = Nothing
-  , _grrReplicationJobId = pReplicationJobId_
-  }
+    { _grrNextToken = Nothing
+    , _grrMaxResults = Nothing
+    , _grrReplicationJobId = pReplicationJobId_
+    }
 
 
 -- | Undocumented member.
 grrNextToken :: Lens' GetReplicationRuns (Maybe Text)
-grrNextToken = lens _grrNextToken (\ s a -> s{_grrNextToken = a});
+grrNextToken = lens _grrNextToken (\ s a -> s{_grrNextToken = a})
 
 -- | Undocumented member.
 grrMaxResults :: Lens' GetReplicationRuns (Maybe Int)
-grrMaxResults = lens _grrMaxResults (\ s a -> s{_grrMaxResults = a});
+grrMaxResults = lens _grrMaxResults (\ s a -> s{_grrMaxResults = a})
 
 -- | Undocumented member.
 grrReplicationJobId :: Lens' GetReplicationRuns Text
-grrReplicationJobId = lens _grrReplicationJobId (\ s a -> s{_grrReplicationJobId = a});
+grrReplicationJobId = lens _grrReplicationJobId (\ s a -> s{_grrReplicationJobId = a})
 
 instance AWSPager GetReplicationRuns where
         page rq rs
@@ -161,27 +161,27 @@ getReplicationRunsResponse
     -> GetReplicationRunsResponse
 getReplicationRunsResponse pResponseStatus_ =
   GetReplicationRunsResponse'
-  { _grrrsReplicationJob = Nothing
-  , _grrrsNextToken = Nothing
-  , _grrrsReplicationRunList = Nothing
-  , _grrrsResponseStatus = pResponseStatus_
-  }
+    { _grrrsReplicationJob = Nothing
+    , _grrrsNextToken = Nothing
+    , _grrrsReplicationRunList = Nothing
+    , _grrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 grrrsReplicationJob :: Lens' GetReplicationRunsResponse (Maybe ReplicationJob)
-grrrsReplicationJob = lens _grrrsReplicationJob (\ s a -> s{_grrrsReplicationJob = a});
+grrrsReplicationJob = lens _grrrsReplicationJob (\ s a -> s{_grrrsReplicationJob = a})
 
 -- | Undocumented member.
 grrrsNextToken :: Lens' GetReplicationRunsResponse (Maybe Text)
-grrrsNextToken = lens _grrrsNextToken (\ s a -> s{_grrrsNextToken = a});
+grrrsNextToken = lens _grrrsNextToken (\ s a -> s{_grrrsNextToken = a})
 
 -- | Undocumented member.
 grrrsReplicationRunList :: Lens' GetReplicationRunsResponse [ReplicationRun]
-grrrsReplicationRunList = lens _grrrsReplicationRunList (\ s a -> s{_grrrsReplicationRunList = a}) . _Default . _Coerce;
+grrrsReplicationRunList = lens _grrrsReplicationRunList (\ s a -> s{_grrrsReplicationRunList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 grrrsResponseStatus :: Lens' GetReplicationRunsResponse Int
-grrrsResponseStatus = lens _grrrsResponseStatus (\ s a -> s{_grrrsResponseStatus = a});
+grrrsResponseStatus = lens _grrrsResponseStatus (\ s a -> s{_grrrsResponseStatus = a})
 
 instance NFData GetReplicationRunsResponse where

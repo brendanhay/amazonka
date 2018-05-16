@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteIdentityPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,16 +72,16 @@ deleteIdentityPolicy
     -> DeleteIdentityPolicy
 deleteIdentityPolicy pIdentity_ pPolicyName_ =
   DeleteIdentityPolicy'
-  {_dipIdentity = pIdentity_, _dipPolicyName = pPolicyName_}
+    {_dipIdentity = pIdentity_, _dipPolicyName = pPolicyName_}
 
 
 -- | The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
 dipIdentity :: Lens' DeleteIdentityPolicy Text
-dipIdentity = lens _dipIdentity (\ s a -> s{_dipIdentity = a});
+dipIdentity = lens _dipIdentity (\ s a -> s{_dipIdentity = a})
 
 -- | The name of the policy to be deleted.
 dipPolicyName :: Lens' DeleteIdentityPolicy Text
-dipPolicyName = lens _dipPolicyName (\ s a -> s{_dipPolicyName = a});
+dipPolicyName = lens _dipPolicyName (\ s a -> s{_dipPolicyName = a})
 
 instance AWSRequest DeleteIdentityPolicy where
         type Rs DeleteIdentityPolicy =
@@ -135,6 +135,6 @@ deleteIdentityPolicyResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 diprsResponseStatus :: Lens' DeleteIdentityPolicyResponse Int
-diprsResponseStatus = lens _diprsResponseStatus (\ s a -> s{_diprsResponseStatus = a});
+diprsResponseStatus = lens _diprsResponseStatus (\ s a -> s{_diprsResponseStatus = a})
 
 instance NFData DeleteIdentityPolicyResponse where

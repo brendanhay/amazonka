@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetPlan
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a Python script to perform a specified mapping.
+-- Gets code to perform a specified mapping.
 --
 --
 module Network.AWS.Glue.GetPlan
@@ -29,6 +29,7 @@ module Network.AWS.Glue.GetPlan
     -- * Request Lenses
     , gpSinks
     , gpLocation
+    , gpLanguage
     , gpMapping
     , gpSource
 
@@ -37,6 +38,7 @@ module Network.AWS.Glue.GetPlan
     , GetPlanResponse
     -- * Response Lenses
     , gpprsPythonScript
+    , gpprsScalaCode
     , gpprsResponseStatus
     ) where
 
@@ -51,6 +53,7 @@ import Network.AWS.Response
 data GetPlan = GetPlan'
   { _gpSinks    :: !(Maybe [CatalogEntry])
   , _gpLocation :: !(Maybe Location)
+  , _gpLanguage :: !(Maybe Language)
   , _gpMapping  :: ![MappingEntry]
   , _gpSource   :: !CatalogEntry
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -64,6 +67,8 @@ data GetPlan = GetPlan'
 --
 -- * 'gpLocation' - Parameters for the mapping.
 --
+-- * 'gpLanguage' - The programming language of the code to perform the mapping.
+--
 -- * 'gpMapping' - The list of mappings from a source table to target tables.
 --
 -- * 'gpSource' - The source table.
@@ -72,28 +77,33 @@ getPlan
     -> GetPlan
 getPlan pSource_ =
   GetPlan'
-  { _gpSinks = Nothing
-  , _gpLocation = Nothing
-  , _gpMapping = mempty
-  , _gpSource = pSource_
-  }
+    { _gpSinks = Nothing
+    , _gpLocation = Nothing
+    , _gpLanguage = Nothing
+    , _gpMapping = mempty
+    , _gpSource = pSource_
+    }
 
 
 -- | The target tables.
 gpSinks :: Lens' GetPlan [CatalogEntry]
-gpSinks = lens _gpSinks (\ s a -> s{_gpSinks = a}) . _Default . _Coerce;
+gpSinks = lens _gpSinks (\ s a -> s{_gpSinks = a}) . _Default . _Coerce
 
 -- | Parameters for the mapping.
 gpLocation :: Lens' GetPlan (Maybe Location)
-gpLocation = lens _gpLocation (\ s a -> s{_gpLocation = a});
+gpLocation = lens _gpLocation (\ s a -> s{_gpLocation = a})
+
+-- | The programming language of the code to perform the mapping.
+gpLanguage :: Lens' GetPlan (Maybe Language)
+gpLanguage = lens _gpLanguage (\ s a -> s{_gpLanguage = a})
 
 -- | The list of mappings from a source table to target tables.
 gpMapping :: Lens' GetPlan [MappingEntry]
-gpMapping = lens _gpMapping (\ s a -> s{_gpMapping = a}) . _Coerce;
+gpMapping = lens _gpMapping (\ s a -> s{_gpMapping = a}) . _Coerce
 
 -- | The source table.
 gpSource :: Lens' GetPlan CatalogEntry
-gpSource = lens _gpSource (\ s a -> s{_gpSource = a});
+gpSource = lens _gpSource (\ s a -> s{_gpSource = a})
 
 instance AWSRequest GetPlan where
         type Rs GetPlan = GetPlanResponse
@@ -102,7 +112,8 @@ instance AWSRequest GetPlan where
           = receiveJSON
               (\ s h x ->
                  GetPlanResponse' <$>
-                   (x .?> "PythonScript") <*> (pure (fromEnum s)))
+                   (x .?> "PythonScript") <*> (x .?> "ScalaCode") <*>
+                     (pure (fromEnum s)))
 
 instance Hashable GetPlan where
 
@@ -122,6 +133,7 @@ instance ToJSON GetPlan where
               (catMaybes
                  [("Sinks" .=) <$> _gpSinks,
                   ("Location" .=) <$> _gpLocation,
+                  ("Language" .=) <$> _gpLanguage,
                   Just ("Mapping" .= _gpMapping),
                   Just ("Source" .= _gpSource)])
 
@@ -134,6 +146,7 @@ instance ToQuery GetPlan where
 -- | /See:/ 'getPlanResponse' smart constructor.
 data GetPlanResponse = GetPlanResponse'
   { _gpprsPythonScript   :: !(Maybe Text)
+  , _gpprsScalaCode      :: !(Maybe Text)
   , _gpprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -142,7 +155,9 @@ data GetPlanResponse = GetPlanResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpprsPythonScript' - A python script to perform the mapping.
+-- * 'gpprsPythonScript' - A Python script to perform the mapping.
+--
+-- * 'gpprsScalaCode' - Scala code to perform the mapping.
 --
 -- * 'gpprsResponseStatus' - -- | The response status code.
 getPlanResponse
@@ -150,15 +165,22 @@ getPlanResponse
     -> GetPlanResponse
 getPlanResponse pResponseStatus_ =
   GetPlanResponse'
-  {_gpprsPythonScript = Nothing, _gpprsResponseStatus = pResponseStatus_}
+    { _gpprsPythonScript = Nothing
+    , _gpprsScalaCode = Nothing
+    , _gpprsResponseStatus = pResponseStatus_
+    }
 
 
--- | A python script to perform the mapping.
+-- | A Python script to perform the mapping.
 gpprsPythonScript :: Lens' GetPlanResponse (Maybe Text)
-gpprsPythonScript = lens _gpprsPythonScript (\ s a -> s{_gpprsPythonScript = a});
+gpprsPythonScript = lens _gpprsPythonScript (\ s a -> s{_gpprsPythonScript = a})
+
+-- | Scala code to perform the mapping.
+gpprsScalaCode :: Lens' GetPlanResponse (Maybe Text)
+gpprsScalaCode = lens _gpprsScalaCode (\ s a -> s{_gpprsScalaCode = a})
 
 -- | -- | The response status code.
 gpprsResponseStatus :: Lens' GetPlanResponse Int
-gpprsResponseStatus = lens _gpprsResponseStatus (\ s a -> s{_gpprsResponseStatus = a});
+gpprsResponseStatus = lens _gpprsResponseStatus (\ s a -> s{_gpprsResponseStatus = a})
 
 instance NFData GetPlanResponse where

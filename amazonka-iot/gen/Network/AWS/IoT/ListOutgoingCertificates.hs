@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListOutgoingCertificates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists certificates that are being transfered but not yet accepted.
+-- Lists certificates that are being transferred but not yet accepted.
 --
 --
 --
@@ -75,20 +75,20 @@ listOutgoingCertificates
     :: ListOutgoingCertificates
 listOutgoingCertificates =
   ListOutgoingCertificates'
-  {_locMarker = Nothing, _locAscendingOrder = Nothing, _locPageSize = Nothing}
+    {_locMarker = Nothing, _locAscendingOrder = Nothing, _locPageSize = Nothing}
 
 
 -- | The marker for the next set of results.
 locMarker :: Lens' ListOutgoingCertificates (Maybe Text)
-locMarker = lens _locMarker (\ s a -> s{_locMarker = a});
+locMarker = lens _locMarker (\ s a -> s{_locMarker = a})
 
 -- | Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 locAscendingOrder :: Lens' ListOutgoingCertificates (Maybe Bool)
-locAscendingOrder = lens _locAscendingOrder (\ s a -> s{_locAscendingOrder = a});
+locAscendingOrder = lens _locAscendingOrder (\ s a -> s{_locAscendingOrder = a})
 
 -- | The result page size.
 locPageSize :: Lens' ListOutgoingCertificates (Maybe Natural)
-locPageSize = lens _locPageSize (\ s a -> s{_locPageSize = a}) . mapping _Nat;
+locPageSize = lens _locPageSize (\ s a -> s{_locPageSize = a}) . mapping _Nat
 
 instance AWSPager ListOutgoingCertificates where
         page rq rs
@@ -144,7 +144,7 @@ data ListOutgoingCertificatesResponse = ListOutgoingCertificatesResponse'
 --
 -- * 'locrsNextMarker' - The marker for the next set of results.
 --
--- * 'locrsOutgoingCertificates' - The certificates that are being transfered but not yet accepted.
+-- * 'locrsOutgoingCertificates' - The certificates that are being transferred but not yet accepted.
 --
 -- * 'locrsResponseStatus' - -- | The response status code.
 listOutgoingCertificatesResponse
@@ -152,23 +152,23 @@ listOutgoingCertificatesResponse
     -> ListOutgoingCertificatesResponse
 listOutgoingCertificatesResponse pResponseStatus_ =
   ListOutgoingCertificatesResponse'
-  { _locrsNextMarker = Nothing
-  , _locrsOutgoingCertificates = Nothing
-  , _locrsResponseStatus = pResponseStatus_
-  }
+    { _locrsNextMarker = Nothing
+    , _locrsOutgoingCertificates = Nothing
+    , _locrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The marker for the next set of results.
 locrsNextMarker :: Lens' ListOutgoingCertificatesResponse (Maybe Text)
-locrsNextMarker = lens _locrsNextMarker (\ s a -> s{_locrsNextMarker = a});
+locrsNextMarker = lens _locrsNextMarker (\ s a -> s{_locrsNextMarker = a})
 
--- | The certificates that are being transfered but not yet accepted.
+-- | The certificates that are being transferred but not yet accepted.
 locrsOutgoingCertificates :: Lens' ListOutgoingCertificatesResponse [OutgoingCertificate]
-locrsOutgoingCertificates = lens _locrsOutgoingCertificates (\ s a -> s{_locrsOutgoingCertificates = a}) . _Default . _Coerce;
+locrsOutgoingCertificates = lens _locrsOutgoingCertificates (\ s a -> s{_locrsOutgoingCertificates = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 locrsResponseStatus :: Lens' ListOutgoingCertificatesResponse Int
-locrsResponseStatus = lens _locrsResponseStatus (\ s a -> s{_locrsResponseStatus = a});
+locrsResponseStatus = lens _locrsResponseStatus (\ s a -> s{_locrsResponseStatus = a})
 
 instance NFData ListOutgoingCertificatesResponse
          where

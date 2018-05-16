@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetUserPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,9 +62,9 @@ data GetUserPolicy = GetUserPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gupUserName' - The name of the user who the policy is associated with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'gupUserName' - The name of the user who the policy is associated with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'gupPolicyName' - The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
+-- * 'gupPolicyName' - The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 getUserPolicy
     :: Text -- ^ 'gupUserName'
     -> Text -- ^ 'gupPolicyName'
@@ -73,13 +73,13 @@ getUserPolicy pUserName_ pPolicyName_ =
   GetUserPolicy' {_gupUserName = pUserName_, _gupPolicyName = pPolicyName_}
 
 
--- | The name of the user who the policy is associated with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user who the policy is associated with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 gupUserName :: Lens' GetUserPolicy Text
-gupUserName = lens _gupUserName (\ s a -> s{_gupUserName = a});
+gupUserName = lens _gupUserName (\ s a -> s{_gupUserName = a})
 
--- | The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
+-- | The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 gupPolicyName :: Lens' GetUserPolicy Text
-gupPolicyName = lens _gupPolicyName (\ s a -> s{_gupPolicyName = a});
+gupPolicyName = lens _gupPolicyName (\ s a -> s{_gupPolicyName = a})
 
 instance AWSRequest GetUserPolicy where
         type Rs GetUserPolicy = GetUserPolicyResponse
@@ -142,27 +142,27 @@ getUserPolicyResponse
     -> GetUserPolicyResponse
 getUserPolicyResponse pResponseStatus_ pUserName_ pPolicyName_ pPolicyDocument_ =
   GetUserPolicyResponse'
-  { _guprsResponseStatus = pResponseStatus_
-  , _guprsUserName = pUserName_
-  , _guprsPolicyName = pPolicyName_
-  , _guprsPolicyDocument = pPolicyDocument_
-  }
+    { _guprsResponseStatus = pResponseStatus_
+    , _guprsUserName = pUserName_
+    , _guprsPolicyName = pPolicyName_
+    , _guprsPolicyDocument = pPolicyDocument_
+    }
 
 
 -- | -- | The response status code.
 guprsResponseStatus :: Lens' GetUserPolicyResponse Int
-guprsResponseStatus = lens _guprsResponseStatus (\ s a -> s{_guprsResponseStatus = a});
+guprsResponseStatus = lens _guprsResponseStatus (\ s a -> s{_guprsResponseStatus = a})
 
 -- | The user the policy is associated with.
 guprsUserName :: Lens' GetUserPolicyResponse Text
-guprsUserName = lens _guprsUserName (\ s a -> s{_guprsUserName = a});
+guprsUserName = lens _guprsUserName (\ s a -> s{_guprsUserName = a})
 
 -- | The name of the policy.
 guprsPolicyName :: Lens' GetUserPolicyResponse Text
-guprsPolicyName = lens _guprsPolicyName (\ s a -> s{_guprsPolicyName = a});
+guprsPolicyName = lens _guprsPolicyName (\ s a -> s{_guprsPolicyName = a})
 
 -- | The policy document.
 guprsPolicyDocument :: Lens' GetUserPolicyResponse Text
-guprsPolicyDocument = lens _guprsPolicyDocument (\ s a -> s{_guprsPolicyDocument = a});
+guprsPolicyDocument = lens _guprsPolicyDocument (\ s a -> s{_guprsPolicyDocument = a})
 
 instance NFData GetUserPolicyResponse where

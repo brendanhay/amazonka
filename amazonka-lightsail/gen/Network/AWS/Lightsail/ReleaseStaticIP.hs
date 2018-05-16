@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.ReleaseStaticIP
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ releaseStaticIP pStaticIPName_ =
 
 -- | The name of the static IP to delete.
 rsiStaticIPName :: Lens' ReleaseStaticIP Text
-rsiStaticIPName = lens _rsiStaticIPName (\ s a -> s{_rsiStaticIPName = a});
+rsiStaticIPName = lens _rsiStaticIPName (\ s a -> s{_rsiStaticIPName = a})
 
 instance AWSRequest ReleaseStaticIP where
         type Rs ReleaseStaticIP = ReleaseStaticIPResponse
@@ -120,15 +120,15 @@ releaseStaticIPResponse
     -> ReleaseStaticIPResponse
 releaseStaticIPResponse pResponseStatus_ =
   ReleaseStaticIPResponse'
-  {_rsirsOperations = Nothing, _rsirsResponseStatus = pResponseStatus_}
+    {_rsirsOperations = Nothing, _rsirsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the request operation.
 rsirsOperations :: Lens' ReleaseStaticIPResponse [Operation]
-rsirsOperations = lens _rsirsOperations (\ s a -> s{_rsirsOperations = a}) . _Default . _Coerce;
+rsirsOperations = lens _rsirsOperations (\ s a -> s{_rsirsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 rsirsResponseStatus :: Lens' ReleaseStaticIPResponse Int
-rsirsResponseStatus = lens _rsirsResponseStatus (\ s a -> s{_rsirsResponseStatus = a});
+rsirsResponseStatus = lens _rsirsResponseStatus (\ s a -> s{_rsirsResponseStatus = a})
 
 instance NFData ReleaseStaticIPResponse where

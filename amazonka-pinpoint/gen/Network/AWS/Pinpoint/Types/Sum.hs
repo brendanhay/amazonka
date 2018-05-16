@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -125,6 +125,7 @@ data ChannelType
   | APNSVoip
   | APNSVoipSandbox
   | Baidu
+  | Custom
   | Email
   | GCM
   | Sms
@@ -139,11 +140,12 @@ instance FromText ChannelType where
         "apns_voip" -> pure APNSVoip
         "apns_voip_sandbox" -> pure APNSVoipSandbox
         "baidu" -> pure Baidu
+        "custom" -> pure Custom
         "email" -> pure Email
         "gcm" -> pure GCM
         "sms" -> pure Sms
         e -> fromTextError $ "Failure parsing ChannelType from value: '" <> e
-           <> "'. Accepted values: adm, apns, apns_sandbox, apns_voip, apns_voip_sandbox, baidu, email, gcm, sms"
+           <> "'. Accepted values: adm, apns, apns_sandbox, apns_voip, apns_voip_sandbox, baidu, custom, email, gcm, sms"
 
 instance ToText ChannelType where
     toText = \case
@@ -153,6 +155,7 @@ instance ToText ChannelType where
         APNSVoip -> "APNS_VOIP"
         APNSVoipSandbox -> "APNS_VOIP_SANDBOX"
         Baidu -> "BAIDU"
+        Custom -> "CUSTOM"
         Email -> "EMAIL"
         GCM -> "GCM"
         Sms -> "SMS"
@@ -417,6 +420,36 @@ instance ToJSON MessageType where
 
 instance FromJSON MessageType where
     parseJSON = parseJSONText "MessageType"
+
+data Mode
+  = Delivery
+  | Filter
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Mode where
+    parser = takeLowerText >>= \case
+        "delivery" -> pure Delivery
+        "filter" -> pure Filter
+        e -> fromTextError $ "Failure parsing Mode from value: '" <> e
+           <> "'. Accepted values: delivery, filter"
+
+instance ToText Mode where
+    toText = \case
+        Delivery -> "DELIVERY"
+        Filter -> "FILTER"
+
+instance Hashable     Mode
+instance NFData       Mode
+instance ToByteString Mode
+instance ToQuery      Mode
+instance ToHeader     Mode
+
+instance ToJSON Mode where
+    toJSON = toJSONText
+
+instance FromJSON Mode where
+    parseJSON = parseJSONText "Mode"
 
 data RecencyType
   = Active

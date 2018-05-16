@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.BatchDeleteTable
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,7 +60,7 @@ data BatchDeleteTable = BatchDeleteTable'
 --
 -- * 'bdtCatalogId' - The ID of the Data Catalog where the table resides. If none is supplied, the AWS account ID is used by default.
 --
--- * 'bdtDatabaseName' - The name of the catalog database where the tables to delete reside.
+-- * 'bdtDatabaseName' - The name of the catalog database where the tables to delete reside. For Hive compatibility, this name is entirely lowercase.
 --
 -- * 'bdtTablesToDelete' - A list of the table to delete.
 batchDeleteTable
@@ -68,23 +68,23 @@ batchDeleteTable
     -> BatchDeleteTable
 batchDeleteTable pDatabaseName_ =
   BatchDeleteTable'
-  { _bdtCatalogId = Nothing
-  , _bdtDatabaseName = pDatabaseName_
-  , _bdtTablesToDelete = mempty
-  }
+    { _bdtCatalogId = Nothing
+    , _bdtDatabaseName = pDatabaseName_
+    , _bdtTablesToDelete = mempty
+    }
 
 
 -- | The ID of the Data Catalog where the table resides. If none is supplied, the AWS account ID is used by default.
 bdtCatalogId :: Lens' BatchDeleteTable (Maybe Text)
-bdtCatalogId = lens _bdtCatalogId (\ s a -> s{_bdtCatalogId = a});
+bdtCatalogId = lens _bdtCatalogId (\ s a -> s{_bdtCatalogId = a})
 
--- | The name of the catalog database where the tables to delete reside.
+-- | The name of the catalog database where the tables to delete reside. For Hive compatibility, this name is entirely lowercase.
 bdtDatabaseName :: Lens' BatchDeleteTable Text
-bdtDatabaseName = lens _bdtDatabaseName (\ s a -> s{_bdtDatabaseName = a});
+bdtDatabaseName = lens _bdtDatabaseName (\ s a -> s{_bdtDatabaseName = a})
 
 -- | A list of the table to delete.
 bdtTablesToDelete :: Lens' BatchDeleteTable [Text]
-bdtTablesToDelete = lens _bdtTablesToDelete (\ s a -> s{_bdtTablesToDelete = a}) . _Coerce;
+bdtTablesToDelete = lens _bdtTablesToDelete (\ s a -> s{_bdtTablesToDelete = a}) . _Coerce
 
 instance AWSRequest BatchDeleteTable where
         type Rs BatchDeleteTable = BatchDeleteTableResponse
@@ -141,15 +141,15 @@ batchDeleteTableResponse
     -> BatchDeleteTableResponse
 batchDeleteTableResponse pResponseStatus_ =
   BatchDeleteTableResponse'
-  {_bdtrsErrors = Nothing, _bdtrsResponseStatus = pResponseStatus_}
+    {_bdtrsErrors = Nothing, _bdtrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of errors encountered in attempting to delete the specified tables.
 bdtrsErrors :: Lens' BatchDeleteTableResponse [TableError]
-bdtrsErrors = lens _bdtrsErrors (\ s a -> s{_bdtrsErrors = a}) . _Default . _Coerce;
+bdtrsErrors = lens _bdtrsErrors (\ s a -> s{_bdtrsErrors = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bdtrsResponseStatus :: Lens' BatchDeleteTableResponse Int
-bdtrsResponseStatus = lens _bdtrsResponseStatus (\ s a -> s{_bdtrsResponseStatus = a});
+bdtrsResponseStatus = lens _bdtrsResponseStatus (\ s a -> s{_bdtrsResponseStatus = a})
 
 instance NFData BatchDeleteTableResponse where

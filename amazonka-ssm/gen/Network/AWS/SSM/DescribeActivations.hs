@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeActivations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,20 +71,20 @@ describeActivations
     :: DescribeActivations
 describeActivations =
   DescribeActivations'
-  {_daFilters = Nothing, _daNextToken = Nothing, _daMaxResults = Nothing}
+    {_daFilters = Nothing, _daNextToken = Nothing, _daMaxResults = Nothing}
 
 
 -- | A filter to view information about your activations.
 daFilters :: Lens' DescribeActivations [DescribeActivationsFilter]
-daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default . _Coerce;
+daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default . _Coerce
 
 -- | A token to start the list. Use this token to get the next set of results.
 daNextToken :: Lens' DescribeActivations (Maybe Text)
-daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
+daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 daMaxResults :: Lens' DescribeActivations (Maybe Natural)
-daMaxResults = lens _daMaxResults (\ s a -> s{_daMaxResults = a}) . mapping _Nat;
+daMaxResults = lens _daMaxResults (\ s a -> s{_daMaxResults = a}) . mapping _Nat
 
 instance AWSPager DescribeActivations where
         page rq rs
@@ -154,22 +154,22 @@ describeActivationsResponse
     -> DescribeActivationsResponse
 describeActivationsResponse pResponseStatus_ =
   DescribeActivationsResponse'
-  { _darsActivationList = Nothing
-  , _darsNextToken = Nothing
-  , _darsResponseStatus = pResponseStatus_
-  }
+    { _darsActivationList = Nothing
+    , _darsNextToken = Nothing
+    , _darsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of activations for your AWS account.
 darsActivationList :: Lens' DescribeActivationsResponse [Activation]
-darsActivationList = lens _darsActivationList (\ s a -> s{_darsActivationList = a}) . _Default . _Coerce;
+darsActivationList = lens _darsActivationList (\ s a -> s{_darsActivationList = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
 darsNextToken :: Lens' DescribeActivationsResponse (Maybe Text)
-darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
+darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a})
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeActivationsResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DescribeActivationsResponse where

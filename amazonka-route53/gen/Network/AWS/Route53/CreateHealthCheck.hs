@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateHealthCheck
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,18 +88,18 @@ createHealthCheck
     -> CreateHealthCheck
 createHealthCheck pCallerReference_ pHealthCheckConfig_ =
   CreateHealthCheck'
-  { _chcCallerReference = pCallerReference_
-  , _chcHealthCheckConfig = pHealthCheckConfig_
-  }
+    { _chcCallerReference = pCallerReference_
+    , _chcHealthCheckConfig = pHealthCheckConfig_
+    }
 
 
 -- | A unique string that identifies the request and that allows you to retry a failed @CreateHealthCheck@ request without the risk of creating two identical health checks:     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ and settings as a previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health check does exist, Amazon Route 53 returns the settings for the existing health check.     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ as a deleted health check, regardless of the settings, Amazon Route 53 returns a @HealthCheckAlreadyExists@ error.     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ as an existing health check but with different settings, Amazon Route 53 returns a @HealthCheckAlreadyExists@ error.     * If you send a @CreateHealthCheck@ request with a unique @CallerReference@ but settings identical to an existing health check, Amazon Route 53 creates the health check.
 chcCallerReference :: Lens' CreateHealthCheck Text
-chcCallerReference = lens _chcCallerReference (\ s a -> s{_chcCallerReference = a});
+chcCallerReference = lens _chcCallerReference (\ s a -> s{_chcCallerReference = a})
 
 -- | A complex type that contains the response to a @CreateHealthCheck@ request.
 chcHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
-chcHealthCheckConfig = lens _chcHealthCheckConfig (\ s a -> s{_chcHealthCheckConfig = a});
+chcHealthCheckConfig = lens _chcHealthCheckConfig (\ s a -> s{_chcHealthCheckConfig = a})
 
 instance AWSRequest CreateHealthCheck where
         type Rs CreateHealthCheck = CreateHealthCheckResponse
@@ -163,22 +163,22 @@ createHealthCheckResponse
     -> CreateHealthCheckResponse
 createHealthCheckResponse pResponseStatus_ pHealthCheck_ pLocation_ =
   CreateHealthCheckResponse'
-  { _chcrsResponseStatus = pResponseStatus_
-  , _chcrsHealthCheck = pHealthCheck_
-  , _chcrsLocation = pLocation_
-  }
+    { _chcrsResponseStatus = pResponseStatus_
+    , _chcrsHealthCheck = pHealthCheck_
+    , _chcrsLocation = pLocation_
+    }
 
 
 -- | -- | The response status code.
 chcrsResponseStatus :: Lens' CreateHealthCheckResponse Int
-chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
+chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a})
 
 -- | A complex type that contains identifying information about the health check.
 chcrsHealthCheck :: Lens' CreateHealthCheckResponse HealthCheck
-chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
+chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a})
 
 -- | The unique URL representing the new health check.
 chcrsLocation :: Lens' CreateHealthCheckResponse Text
-chcrsLocation = lens _chcrsLocation (\ s a -> s{_chcrsLocation = a});
+chcrsLocation = lens _chcrsLocation (\ s a -> s{_chcrsLocation = a})
 
 instance NFData CreateHealthCheckResponse where

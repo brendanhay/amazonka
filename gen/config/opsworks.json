@@ -9,6 +9,12 @@
                 "name": "(Maybe Text)",
                 "underive": []
             }
+        },
+        "SslConfiguration": {
+            "optionalFields": [
+                "Certificate",
+                "PrivateKey"
+            ]
         }
     }
 }

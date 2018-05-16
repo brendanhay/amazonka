@@ -104,7 +104,7 @@ library
         , transformers         >= 0.2
         , transformers-compat  >= 0.3
         , unordered-containers >= 0.2.7
-        , xml-conduit          >= 1.2
+        , xml-conduit          >= 1.7.0.1
         , xml-types            >= 0.3.4
 
     if !impl(ghc>=7.9)

@@ -15,12 +15,19 @@ module Test.AWS.Lambda
     , fixtures
     ) where
 
-import           Network.AWS.Lambda
-import           Test.AWS.Gen.Lambda
-import           Test.Tasty
+import Network.AWS.Lambda
+import Network.AWS.Lens   ((&), (?~))
+
+import Test.AWS.Gen.Lambda
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []
 
 fixtures :: [TestTree]
-fixtures = []
+fixtures =
+    [ testGroup "response"
+        [ responseInvoke $
+            invokeResponse 200 & irsPayload ?~ ""
+        ]
+    ]

@@ -3,12 +3,17 @@
         "serviceAbbreviation": "OpsWorks"
     },
     "shapes": {
-        "LayerAttributes": {
+        "StackAttributes": {
             "value": {
-                "shape": "LayerAttributeValue"
+                "shape": "OptionalValue"
             }
         },
-        "LayerAttributeValue": {
+        "LayerAttributes": {
+            "value": {
+                "shape": "OptionalValue"
+            }
+        },
+        "OptionalValue": {
             "type": "string"
         }
     }

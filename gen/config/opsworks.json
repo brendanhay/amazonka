@@ -4,7 +4,7 @@
         "ServiceError": {
             "renamedTo": "ServiceError'"
         },
-        "LayerAttributeValue": {
+        "OptionalValue": {
             "replacedBy": {
                 "name": "(Maybe Text)",
                 "underive": []

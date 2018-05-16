@@ -413,9 +413,9 @@ module Network.AWS.OpsWorks.Types
     -- * SSLConfiguration
     , SSLConfiguration
     , sslConfiguration
-    , scChain
-    , scCertificate
     , scPrivateKey
+    , scCertificate
+    , scChain
 
     -- * SelfUserProfile
     , SelfUserProfile

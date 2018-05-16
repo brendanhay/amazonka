@@ -66,24 +66,24 @@ import Network.AWS.Response
 
 -- | /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
-  { _csDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-  , _csVPCId                     :: !(Maybe Text)
-  , _csChefConfiguration         :: !(Maybe ChefConfiguration)
-  , _csAgentVersion              :: !(Maybe Text)
-  , _csDefaultSSHKeyName         :: !(Maybe Text)
-  , _csCustomJSON                :: !(Maybe Text)
-  , _csCustomCookbooksSource     :: !(Maybe Source)
-  , _csDefaultAvailabilityZone   :: !(Maybe Text)
-  , _csAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-  , _csDefaultOS                 :: !(Maybe Text)
+  { _csDefaultRootDeviceType :: !(Maybe RootDeviceType)
+  , _csVPCId :: !(Maybe Text)
+  , _csChefConfiguration :: !(Maybe ChefConfiguration)
+  , _csAgentVersion :: !(Maybe Text)
+  , _csDefaultSSHKeyName :: !(Maybe Text)
+  , _csCustomJSON :: !(Maybe Text)
+  , _csCustomCookbooksSource :: !(Maybe Source)
+  , _csDefaultAvailabilityZone :: !(Maybe Text)
+  , _csAttributes :: !(Maybe (Map StackAttributesKeys (Maybe Text)))
+  , _csDefaultOS :: !(Maybe Text)
   , _csUseOpsworksSecurityGroups :: !(Maybe Bool)
-  , _csUseCustomCookbooks        :: !(Maybe Bool)
-  , _csDefaultSubnetId           :: !(Maybe Text)
-  , _csConfigurationManager      :: !(Maybe StackConfigurationManager)
-  , _csHostnameTheme             :: !(Maybe Text)
-  , _csName                      :: !Text
-  , _csRegion                    :: !Text
-  , _csServiceRoleARN            :: !Text
+  , _csUseCustomCookbooks :: !(Maybe Bool)
+  , _csDefaultSubnetId :: !(Maybe Text)
+  , _csConfigurationManager :: !(Maybe StackConfigurationManager)
+  , _csHostnameTheme :: !(Maybe Text)
+  , _csName :: !Text
+  , _csRegion :: !Text
+  , _csServiceRoleARN :: !Text
   , _csDefaultInstanceProfileARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -192,7 +192,7 @@ csDefaultAvailabilityZone :: Lens' CreateStack (Maybe Text)
 csDefaultAvailabilityZone = lens _csDefaultAvailabilityZone (\ s a -> s{_csDefaultAvailabilityZone = a})
 
 -- | One or more user-defined key-value pairs to be added to the stack attributes.
-csAttributes :: Lens' CreateStack (HashMap StackAttributesKeys Text)
+csAttributes :: Lens' CreateStack (HashMap StackAttributesKeys (Maybe Text))
 csAttributes = lens _csAttributes (\ s a -> s{_csAttributes = a}) . _Default . _Map
 
 -- | The stack's default operating system, which is installed on every instance unless you specify a different operating system when you create the instance. You can specify one of the following.     * A supported Linux operating system: An Amazon Linux version, such as @Amazon Linux 2017.09@ , @Amazon Linux 2017.03@ , @Amazon Linux 2016.09@ , @Amazon Linux 2016.03@ , @Amazon Linux 2015.09@ , or @Amazon Linux 2015.03@ .     * A supported Ubuntu operating system, such as @Ubuntu 16.04 LTS@ , @Ubuntu 14.04 LTS@ , or @Ubuntu 12.04 LTS@ .     * @CentOS Linux 7@      * @Red Hat Enterprise Linux 7@      * A supported Windows operating system, such as @Microsoft Windows Server 2012 R2 Base@ , @Microsoft Windows Server 2012 R2 with SQL Server Express@ , @Microsoft Windows Server 2012 R2 with SQL Server Standard@ , or @Microsoft Windows Server 2012 R2 with SQL Server Web@ .     * A custom AMI: @Custom@ . You specify the custom AMI you want to use when you create instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs> . The default option is the current Amazon Linux version. For more information on the supported operating systems, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Stacks Operating Systems> .

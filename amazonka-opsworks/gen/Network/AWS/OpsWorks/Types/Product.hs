@@ -2999,9 +2999,9 @@ instance NFData ReportedOS where
 --
 -- /See:/ 'sslConfiguration' smart constructor.
 data SSLConfiguration = SSLConfiguration'
-  { _scChain       :: !(Maybe Text)
-  , _scCertificate :: !Text
-  , _scPrivateKey  :: !Text
+  { _scPrivateKey  :: !(Maybe Text)
+  , _scCertificate :: !(Maybe Text)
+  , _scChain       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3009,42 +3009,37 @@ data SSLConfiguration = SSLConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scChain' - Optional. Can be used to specify an intermediate certificate authority key or client authentication.
+-- * 'scPrivateKey' - The private key; the contents of the certificate's domain.kex file.
 --
 -- * 'scCertificate' - The contents of the certificate's domain.crt file.
 --
--- * 'scPrivateKey' - The private key; the contents of the certificate's domain.kex file.
+-- * 'scChain' - Optional. Can be used to specify an intermediate certificate authority key or client authentication.
 sslConfiguration
-    :: Text -- ^ 'scCertificate'
-    -> Text -- ^ 'scPrivateKey'
-    -> SSLConfiguration
-sslConfiguration pCertificate_ pPrivateKey_ =
+    :: SSLConfiguration
+sslConfiguration =
   SSLConfiguration'
-    { _scChain = Nothing
-    , _scCertificate = pCertificate_
-    , _scPrivateKey = pPrivateKey_
-    }
+    {_scPrivateKey = Nothing, _scCertificate = Nothing, _scChain = Nothing}
 
+
+-- | The private key; the contents of the certificate's domain.kex file.
+scPrivateKey :: Lens' SSLConfiguration (Maybe Text)
+scPrivateKey = lens _scPrivateKey (\ s a -> s{_scPrivateKey = a})
+
+-- | The contents of the certificate's domain.crt file.
+scCertificate :: Lens' SSLConfiguration (Maybe Text)
+scCertificate = lens _scCertificate (\ s a -> s{_scCertificate = a})
 
 -- | Optional. Can be used to specify an intermediate certificate authority key or client authentication.
 scChain :: Lens' SSLConfiguration (Maybe Text)
 scChain = lens _scChain (\ s a -> s{_scChain = a})
-
--- | The contents of the certificate's domain.crt file.
-scCertificate :: Lens' SSLConfiguration Text
-scCertificate = lens _scCertificate (\ s a -> s{_scCertificate = a})
-
--- | The private key; the contents of the certificate's domain.kex file.
-scPrivateKey :: Lens' SSLConfiguration Text
-scPrivateKey = lens _scPrivateKey (\ s a -> s{_scPrivateKey = a})
 
 instance FromJSON SSLConfiguration where
         parseJSON
           = withObject "SSLConfiguration"
               (\ x ->
                  SSLConfiguration' <$>
-                   (x .:? "Chain") <*> (x .: "Certificate") <*>
-                     (x .: "PrivateKey"))
+                   (x .:? "PrivateKey") <*> (x .:? "Certificate") <*>
+                     (x .:? "Chain"))
 
 instance Hashable SSLConfiguration where
 
@@ -3054,9 +3049,9 @@ instance ToJSON SSLConfiguration where
         toJSON SSLConfiguration'{..}
           = object
               (catMaybes
-                 [("Chain" .=) <$> _scChain,
-                  Just ("Certificate" .= _scCertificate),
-                  Just ("PrivateKey" .= _scPrivateKey)])
+                 [("PrivateKey" .=) <$> _scPrivateKey,
+                  ("Certificate" .=) <$> _scCertificate,
+                  ("Chain" .=) <$> _scChain])
 
 -- | Describes a user's SSH information.
 --
@@ -3359,27 +3354,27 @@ instance ToJSON Source where
 -- /See:/ 'stack' smart constructor.
 data Stack = Stack'
   { _sDefaultInstanceProfileARN :: !(Maybe Text)
-  , _sServiceRoleARN            :: !(Maybe Text)
-  , _sDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-  , _sARN                       :: !(Maybe Text)
-  , _sCreatedAt                 :: !(Maybe Text)
-  , _sVPCId                     :: !(Maybe Text)
-  , _sChefConfiguration         :: !(Maybe ChefConfiguration)
-  , _sAgentVersion              :: !(Maybe Text)
-  , _sDefaultSSHKeyName         :: !(Maybe Text)
-  , _sCustomJSON                :: !(Maybe Text)
-  , _sCustomCookbooksSource     :: !(Maybe Source)
-  , _sDefaultAvailabilityZone   :: !(Maybe Text)
-  , _sAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-  , _sName                      :: !(Maybe Text)
-  , _sDefaultOS                 :: !(Maybe Text)
+  , _sServiceRoleARN :: !(Maybe Text)
+  , _sDefaultRootDeviceType :: !(Maybe RootDeviceType)
+  , _sARN :: !(Maybe Text)
+  , _sCreatedAt :: !(Maybe Text)
+  , _sVPCId :: !(Maybe Text)
+  , _sChefConfiguration :: !(Maybe ChefConfiguration)
+  , _sAgentVersion :: !(Maybe Text)
+  , _sDefaultSSHKeyName :: !(Maybe Text)
+  , _sCustomJSON :: !(Maybe Text)
+  , _sCustomCookbooksSource :: !(Maybe Source)
+  , _sDefaultAvailabilityZone :: !(Maybe Text)
+  , _sAttributes :: !(Maybe (Map StackAttributesKeys (Maybe Text)))
+  , _sName :: !(Maybe Text)
+  , _sDefaultOS :: !(Maybe Text)
   , _sUseOpsworksSecurityGroups :: !(Maybe Bool)
-  , _sUseCustomCookbooks        :: !(Maybe Bool)
-  , _sDefaultSubnetId           :: !(Maybe Text)
-  , _sRegion                    :: !(Maybe Text)
-  , _sConfigurationManager      :: !(Maybe StackConfigurationManager)
-  , _sStackId                   :: !(Maybe Text)
-  , _sHostnameTheme             :: !(Maybe Text)
+  , _sUseCustomCookbooks :: !(Maybe Bool)
+  , _sDefaultSubnetId :: !(Maybe Text)
+  , _sRegion :: !(Maybe Text)
+  , _sConfigurationManager :: !(Maybe StackConfigurationManager)
+  , _sStackId :: !(Maybe Text)
+  , _sHostnameTheme :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3508,7 +3503,7 @@ sDefaultAvailabilityZone :: Lens' Stack (Maybe Text)
 sDefaultAvailabilityZone = lens _sDefaultAvailabilityZone (\ s a -> s{_sDefaultAvailabilityZone = a})
 
 -- | The stack's attributes.
-sAttributes :: Lens' Stack (HashMap StackAttributesKeys Text)
+sAttributes :: Lens' Stack (HashMap StackAttributesKeys (Maybe Text))
 sAttributes = lens _sAttributes (\ s a -> s{_sAttributes = a}) . _Default . _Map
 
 -- | The stack name.

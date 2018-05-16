@@ -70,27 +70,27 @@ import Network.AWS.Response
 -- | /See:/ 'cloneStack' smart constructor.
 data CloneStack = CloneStack'
   { _cDefaultInstanceProfileARN :: !(Maybe Text)
-  , _cCloneAppIds               :: !(Maybe [Text])
-  , _cDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-  , _cVPCId                     :: !(Maybe Text)
-  , _cChefConfiguration         :: !(Maybe ChefConfiguration)
-  , _cAgentVersion              :: !(Maybe Text)
-  , _cDefaultSSHKeyName         :: !(Maybe Text)
-  , _cCustomJSON                :: !(Maybe Text)
-  , _cClonePermissions          :: !(Maybe Bool)
-  , _cCustomCookbooksSource     :: !(Maybe Source)
-  , _cDefaultAvailabilityZone   :: !(Maybe Text)
-  , _cAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-  , _cName                      :: !(Maybe Text)
-  , _cDefaultOS                 :: !(Maybe Text)
+  , _cCloneAppIds :: !(Maybe [Text])
+  , _cDefaultRootDeviceType :: !(Maybe RootDeviceType)
+  , _cVPCId :: !(Maybe Text)
+  , _cChefConfiguration :: !(Maybe ChefConfiguration)
+  , _cAgentVersion :: !(Maybe Text)
+  , _cDefaultSSHKeyName :: !(Maybe Text)
+  , _cCustomJSON :: !(Maybe Text)
+  , _cClonePermissions :: !(Maybe Bool)
+  , _cCustomCookbooksSource :: !(Maybe Source)
+  , _cDefaultAvailabilityZone :: !(Maybe Text)
+  , _cAttributes :: !(Maybe (Map StackAttributesKeys (Maybe Text)))
+  , _cName :: !(Maybe Text)
+  , _cDefaultOS :: !(Maybe Text)
   , _cUseOpsworksSecurityGroups :: !(Maybe Bool)
-  , _cUseCustomCookbooks        :: !(Maybe Bool)
-  , _cDefaultSubnetId           :: !(Maybe Text)
-  , _cRegion                    :: !(Maybe Text)
-  , _cConfigurationManager      :: !(Maybe StackConfigurationManager)
-  , _cHostnameTheme             :: !(Maybe Text)
-  , _cSourceStackId             :: !Text
-  , _cServiceRoleARN            :: !Text
+  , _cUseCustomCookbooks :: !(Maybe Bool)
+  , _cDefaultSubnetId :: !(Maybe Text)
+  , _cRegion :: !(Maybe Text)
+  , _cConfigurationManager :: !(Maybe StackConfigurationManager)
+  , _cHostnameTheme :: !(Maybe Text)
+  , _cSourceStackId :: !Text
+  , _cServiceRoleARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -217,7 +217,7 @@ cDefaultAvailabilityZone :: Lens' CloneStack (Maybe Text)
 cDefaultAvailabilityZone = lens _cDefaultAvailabilityZone (\ s a -> s{_cDefaultAvailabilityZone = a})
 
 -- | A list of stack attributes and values as key/value pairs to be added to the cloned stack.
-cAttributes :: Lens' CloneStack (HashMap StackAttributesKeys Text)
+cAttributes :: Lens' CloneStack (HashMap StackAttributesKeys (Maybe Text))
 cAttributes = lens _cAttributes (\ s a -> s{_cAttributes = a}) . _Default . _Map
 
 -- | The cloned stack name.

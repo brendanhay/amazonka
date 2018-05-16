@@ -63,23 +63,23 @@ import Network.AWS.Response
 -- | /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
   { _usDefaultInstanceProfileARN :: !(Maybe Text)
-  , _usServiceRoleARN            :: !(Maybe Text)
-  , _usDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-  , _usChefConfiguration         :: !(Maybe ChefConfiguration)
-  , _usAgentVersion              :: !(Maybe Text)
-  , _usDefaultSSHKeyName         :: !(Maybe Text)
-  , _usCustomJSON                :: !(Maybe Text)
-  , _usCustomCookbooksSource     :: !(Maybe Source)
-  , _usDefaultAvailabilityZone   :: !(Maybe Text)
-  , _usAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-  , _usName                      :: !(Maybe Text)
-  , _usDefaultOS                 :: !(Maybe Text)
+  , _usServiceRoleARN :: !(Maybe Text)
+  , _usDefaultRootDeviceType :: !(Maybe RootDeviceType)
+  , _usChefConfiguration :: !(Maybe ChefConfiguration)
+  , _usAgentVersion :: !(Maybe Text)
+  , _usDefaultSSHKeyName :: !(Maybe Text)
+  , _usCustomJSON :: !(Maybe Text)
+  , _usCustomCookbooksSource :: !(Maybe Source)
+  , _usDefaultAvailabilityZone :: !(Maybe Text)
+  , _usAttributes :: !(Maybe (Map StackAttributesKeys (Maybe Text)))
+  , _usName :: !(Maybe Text)
+  , _usDefaultOS :: !(Maybe Text)
   , _usUseOpsworksSecurityGroups :: !(Maybe Bool)
-  , _usUseCustomCookbooks        :: !(Maybe Bool)
-  , _usDefaultSubnetId           :: !(Maybe Text)
-  , _usConfigurationManager      :: !(Maybe StackConfigurationManager)
-  , _usHostnameTheme             :: !(Maybe Text)
-  , _usStackId                   :: !Text
+  , _usUseCustomCookbooks :: !(Maybe Bool)
+  , _usDefaultSubnetId :: !(Maybe Text)
+  , _usConfigurationManager :: !(Maybe StackConfigurationManager)
+  , _usHostnameTheme :: !(Maybe Text)
+  , _usStackId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -185,7 +185,7 @@ usDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
 usDefaultAvailabilityZone = lens _usDefaultAvailabilityZone (\ s a -> s{_usDefaultAvailabilityZone = a})
 
 -- | One or more user-defined key-value pairs to be added to the stack attributes.
-usAttributes :: Lens' UpdateStack (HashMap StackAttributesKeys Text)
+usAttributes :: Lens' UpdateStack (HashMap StackAttributesKeys (Maybe Text))
 usAttributes = lens _usAttributes (\ s a -> s{_usAttributes = a}) . _Default . _Map
 
 -- | The stack's new name.

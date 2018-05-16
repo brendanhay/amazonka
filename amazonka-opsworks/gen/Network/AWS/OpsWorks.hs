@@ -733,9 +733,9 @@ module Network.AWS.OpsWorks
     -- ** SSLConfiguration
     , SSLConfiguration
     , sslConfiguration
-    , scChain
-    , scCertificate
     , scPrivateKey
+    , scCertificate
+    , scChain
 
     -- ** SelfUserProfile
     , SelfUserProfile

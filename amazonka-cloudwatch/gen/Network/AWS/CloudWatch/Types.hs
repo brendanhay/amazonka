@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,9 @@ module Network.AWS.CloudWatch.Types
     -- * HistoryItemType
     , HistoryItemType (..)
 
+    -- * ScanBy
+    , ScanBy (..)
+
     -- * StandardUnit
     , StandardUnit (..)
 
@@ -41,6 +44,9 @@ module Network.AWS.CloudWatch.Types
 
     -- * Statistic
     , Statistic (..)
+
+    -- * StatusCode
+    , StatusCode (..)
 
     -- * AlarmHistoryItem
     , AlarmHistoryItem
@@ -89,6 +95,12 @@ module Network.AWS.CloudWatch.Types
     , dfValue
     , dfName
 
+    -- * MessageData
+    , MessageData
+    , messageData
+    , mValue
+    , mCode
+
     -- * Metric
     , Metric
     , metric
@@ -111,6 +123,7 @@ module Network.AWS.CloudWatch.Types
     , maOKActions
     , maEvaluateLowSampleCountPercentile
     , maStateValue
+    , maDatapointsToAlarm
     , maThreshold
     , maAlarmConfigurationUpdatedTimestamp
     , maActionsEnabled
@@ -124,6 +137,25 @@ module Network.AWS.CloudWatch.Types
     , maStatistic
     , maExtendedStatistic
 
+    -- * MetricDataQuery
+    , MetricDataQuery
+    , metricDataQuery
+    , mdqReturnData
+    , mdqExpression
+    , mdqLabel
+    , mdqMetricStat
+    , mdqId
+
+    -- * MetricDataResult
+    , MetricDataResult
+    , metricDataResult
+    , mdrValues
+    , mdrId
+    , mdrTimestamps
+    , mdrMessages
+    , mdrLabel
+    , mdrStatusCode
+
     -- * MetricDatum
     , MetricDatum
     , metricDatum
@@ -134,6 +166,14 @@ module Network.AWS.CloudWatch.Types
     , mdTimestamp
     , mdStatisticValues
     , mdMetricName
+
+    -- * MetricStat
+    , MetricStat
+    , metricStat
+    , msUnit
+    , msMetric
+    , msPeriod
+    , msStat
 
     -- * StatisticSet
     , StatisticSet
@@ -154,24 +194,24 @@ import Network.AWS.Sign.V4
 cloudWatch :: Service
 cloudWatch =
   Service
-  { _svcAbbrev = "CloudWatch"
-  , _svcSigner = v4
-  , _svcPrefix = "monitoring"
-  , _svcVersion = "2010-08-01"
-  , _svcEndpoint = defaultEndpoint cloudWatch
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "CloudWatch"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "CloudWatch"
+    , _svcSigner = v4
+    , _svcPrefix = "monitoring"
+    , _svcVersion = "2010-08-01"
+    , _svcEndpoint = defaultEndpoint cloudWatch
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError "CloudWatch"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -180,6 +220,8 @@ cloudWatch =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

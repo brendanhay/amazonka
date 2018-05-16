@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteSizeConstraintSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,18 +77,18 @@ deleteSizeConstraintSet
     -> DeleteSizeConstraintSet
 deleteSizeConstraintSet pSizeConstraintSetId_ pChangeToken_ =
   DeleteSizeConstraintSet'
-  { _dscsSizeConstraintSetId = pSizeConstraintSetId_
-  , _dscsChangeToken = pChangeToken_
-  }
+    { _dscsSizeConstraintSetId = pSizeConstraintSetId_
+    , _dscsChangeToken = pChangeToken_
+    }
 
 
 -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to delete. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 dscsSizeConstraintSetId :: Lens' DeleteSizeConstraintSet Text
-dscsSizeConstraintSetId = lens _dscsSizeConstraintSetId (\ s a -> s{_dscsSizeConstraintSetId = a});
+dscsSizeConstraintSetId = lens _dscsSizeConstraintSetId (\ s a -> s{_dscsSizeConstraintSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 dscsChangeToken :: Lens' DeleteSizeConstraintSet Text
-dscsChangeToken = lens _dscsChangeToken (\ s a -> s{_dscsChangeToken = a});
+dscsChangeToken = lens _dscsChangeToken (\ s a -> s{_dscsChangeToken = a})
 
 instance AWSRequest DeleteSizeConstraintSet where
         type Rs DeleteSizeConstraintSet =
@@ -147,15 +147,15 @@ deleteSizeConstraintSetResponse
     -> DeleteSizeConstraintSetResponse
 deleteSizeConstraintSetResponse pResponseStatus_ =
   DeleteSizeConstraintSetResponse'
-  {_dscsrsChangeToken = Nothing, _dscsrsResponseStatus = pResponseStatus_}
+    {_dscsrsChangeToken = Nothing, _dscsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @DeleteSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dscsrsChangeToken :: Lens' DeleteSizeConstraintSetResponse (Maybe Text)
-dscsrsChangeToken = lens _dscsrsChangeToken (\ s a -> s{_dscsrsChangeToken = a});
+dscsrsChangeToken = lens _dscsrsChangeToken (\ s a -> s{_dscsrsChangeToken = a})
 
 -- | -- | The response status code.
 dscsrsResponseStatus :: Lens' DeleteSizeConstraintSetResponse Int
-dscsrsResponseStatus = lens _dscsrsResponseStatus (\ s a -> s{_dscsrsResponseStatus = a});
+dscsrsResponseStatus = lens _dscsrsResponseStatus (\ s a -> s{_dscsrsResponseStatus = a})
 
 instance NFData DeleteSizeConstraintSetResponse where

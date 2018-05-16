@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,13 +68,13 @@ data CreateInstances = CreateInstances'
 --
 -- * 'ciCustomImageName' - (Deprecated) The name for your custom image.
 --
--- * 'ciUserData' - A launch script you can create that configures a server with additional user data. For example, you might want to run @apt-get –y update@ .
+-- * 'ciUserData' - A launch script you can create that configures a server with additional user data. For example, you might want to run @apt-get -y update@ .
 --
 -- * 'ciKeyPairName' - The name of your key pair.
 --
 -- * 'ciInstanceNames' - The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: @["MyFirstInstance","MySecondInstance"]@
 --
--- * 'ciAvailabilityZone' - The Availability Zone in which to create your instance. Use the following format: @us-east-1a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
+-- * 'ciAvailabilityZone' - The Availability Zone in which to create your instance. Use the following format: @us-east-2a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
 --
 -- * 'ciBlueprintId' - The ID for a virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ). Use the get blueprints operation to return a list of available images (or /blueprints/ ).
 --
@@ -86,43 +86,43 @@ createInstances
     -> CreateInstances
 createInstances pAvailabilityZone_ pBlueprintId_ pBundleId_ =
   CreateInstances'
-  { _ciCustomImageName = Nothing
-  , _ciUserData = Nothing
-  , _ciKeyPairName = Nothing
-  , _ciInstanceNames = mempty
-  , _ciAvailabilityZone = pAvailabilityZone_
-  , _ciBlueprintId = pBlueprintId_
-  , _ciBundleId = pBundleId_
-  }
+    { _ciCustomImageName = Nothing
+    , _ciUserData = Nothing
+    , _ciKeyPairName = Nothing
+    , _ciInstanceNames = mempty
+    , _ciAvailabilityZone = pAvailabilityZone_
+    , _ciBlueprintId = pBlueprintId_
+    , _ciBundleId = pBundleId_
+    }
 
 
 -- | (Deprecated) The name for your custom image.
 ciCustomImageName :: Lens' CreateInstances (Maybe Text)
-ciCustomImageName = lens _ciCustomImageName (\ s a -> s{_ciCustomImageName = a});
+ciCustomImageName = lens _ciCustomImageName (\ s a -> s{_ciCustomImageName = a})
 
--- | A launch script you can create that configures a server with additional user data. For example, you might want to run @apt-get –y update@ .
+-- | A launch script you can create that configures a server with additional user data. For example, you might want to run @apt-get -y update@ .
 ciUserData :: Lens' CreateInstances (Maybe Text)
-ciUserData = lens _ciUserData (\ s a -> s{_ciUserData = a});
+ciUserData = lens _ciUserData (\ s a -> s{_ciUserData = a})
 
 -- | The name of your key pair.
 ciKeyPairName :: Lens' CreateInstances (Maybe Text)
-ciKeyPairName = lens _ciKeyPairName (\ s a -> s{_ciKeyPairName = a});
+ciKeyPairName = lens _ciKeyPairName (\ s a -> s{_ciKeyPairName = a})
 
 -- | The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: @["MyFirstInstance","MySecondInstance"]@
 ciInstanceNames :: Lens' CreateInstances [Text]
-ciInstanceNames = lens _ciInstanceNames (\ s a -> s{_ciInstanceNames = a}) . _Coerce;
+ciInstanceNames = lens _ciInstanceNames (\ s a -> s{_ciInstanceNames = a}) . _Coerce
 
--- | The Availability Zone in which to create your instance. Use the following format: @us-east-1a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
+-- | The Availability Zone in which to create your instance. Use the following format: @us-east-2a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
 ciAvailabilityZone :: Lens' CreateInstances Text
-ciAvailabilityZone = lens _ciAvailabilityZone (\ s a -> s{_ciAvailabilityZone = a});
+ciAvailabilityZone = lens _ciAvailabilityZone (\ s a -> s{_ciAvailabilityZone = a})
 
 -- | The ID for a virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ). Use the get blueprints operation to return a list of available images (or /blueprints/ ).
 ciBlueprintId :: Lens' CreateInstances Text
-ciBlueprintId = lens _ciBlueprintId (\ s a -> s{_ciBlueprintId = a});
+ciBlueprintId = lens _ciBlueprintId (\ s a -> s{_ciBlueprintId = a})
 
 -- | The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
 ciBundleId :: Lens' CreateInstances Text
-ciBundleId = lens _ciBundleId (\ s a -> s{_ciBundleId = a});
+ciBundleId = lens _ciBundleId (\ s a -> s{_ciBundleId = a})
 
 instance AWSRequest CreateInstances where
         type Rs CreateInstances = CreateInstancesResponse
@@ -184,15 +184,15 @@ createInstancesResponse
     -> CreateInstancesResponse
 createInstancesResponse pResponseStatus_ =
   CreateInstancesResponse'
-  {_cirsOperations = Nothing, _cirsResponseStatus = pResponseStatus_}
+    {_cirsOperations = Nothing, _cirsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the results of your create instances request.
 cirsOperations :: Lens' CreateInstancesResponse [Operation]
-cirsOperations = lens _cirsOperations (\ s a -> s{_cirsOperations = a}) . _Default . _Coerce;
+cirsOperations = lens _cirsOperations (\ s a -> s{_cirsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 cirsResponseStatus :: Lens' CreateInstancesResponse Int
-cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
+cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a})
 
 instance NFData CreateInstancesResponse where

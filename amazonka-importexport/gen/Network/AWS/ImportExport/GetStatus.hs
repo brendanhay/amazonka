@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.GetStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,11 +82,11 @@ getStatus pJobId_ = GetStatus' {_gsAPIVersion = Nothing, _gsJobId = pJobId_}
 
 -- | Undocumented member.
 gsAPIVersion :: Lens' GetStatus (Maybe Text)
-gsAPIVersion = lens _gsAPIVersion (\ s a -> s{_gsAPIVersion = a});
+gsAPIVersion = lens _gsAPIVersion (\ s a -> s{_gsAPIVersion = a})
 
 -- | Undocumented member.
 gsJobId :: Lens' GetStatus Text
-gsJobId = lens _gsJobId (\ s a -> s{_gsJobId = a});
+gsJobId = lens _gsJobId (\ s a -> s{_gsJobId = a})
 
 instance AWSRequest GetStatus where
         type Rs GetStatus = GetStatusResponse
@@ -198,92 +198,92 @@ getStatusResponse
     -> GetStatusResponse
 getStatusResponse pResponseStatus_ =
   GetStatusResponse'
-  { _gsrsCarrier = Nothing
-  , _gsrsTrackingNumber = Nothing
-  , _gsrsSignature = Nothing
-  , _gsrsJobType = Nothing
-  , _gsrsJobId = Nothing
-  , _gsrsSignatureFileContents = Nothing
-  , _gsrsErrorCount = Nothing
-  , _gsrsCurrentManifest = Nothing
-  , _gsrsArtifactList = Nothing
-  , _gsrsLogBucket = Nothing
-  , _gsrsCreationDate = Nothing
-  , _gsrsProgressCode = Nothing
-  , _gsrsLocationCode = Nothing
-  , _gsrsLogKey = Nothing
-  , _gsrsLocationMessage = Nothing
-  , _gsrsProgressMessage = Nothing
-  , _gsrsResponseStatus = pResponseStatus_
-  }
+    { _gsrsCarrier = Nothing
+    , _gsrsTrackingNumber = Nothing
+    , _gsrsSignature = Nothing
+    , _gsrsJobType = Nothing
+    , _gsrsJobId = Nothing
+    , _gsrsSignatureFileContents = Nothing
+    , _gsrsErrorCount = Nothing
+    , _gsrsCurrentManifest = Nothing
+    , _gsrsArtifactList = Nothing
+    , _gsrsLogBucket = Nothing
+    , _gsrsCreationDate = Nothing
+    , _gsrsProgressCode = Nothing
+    , _gsrsLocationCode = Nothing
+    , _gsrsLogKey = Nothing
+    , _gsrsLocationMessage = Nothing
+    , _gsrsProgressMessage = Nothing
+    , _gsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 gsrsCarrier :: Lens' GetStatusResponse (Maybe Text)
-gsrsCarrier = lens _gsrsCarrier (\ s a -> s{_gsrsCarrier = a});
+gsrsCarrier = lens _gsrsCarrier (\ s a -> s{_gsrsCarrier = a})
 
 -- | Undocumented member.
 gsrsTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
-gsrsTrackingNumber = lens _gsrsTrackingNumber (\ s a -> s{_gsrsTrackingNumber = a});
+gsrsTrackingNumber = lens _gsrsTrackingNumber (\ s a -> s{_gsrsTrackingNumber = a})
 
 -- | Undocumented member.
 gsrsSignature :: Lens' GetStatusResponse (Maybe Text)
-gsrsSignature = lens _gsrsSignature (\ s a -> s{_gsrsSignature = a});
+gsrsSignature = lens _gsrsSignature (\ s a -> s{_gsrsSignature = a})
 
 -- | Undocumented member.
 gsrsJobType :: Lens' GetStatusResponse (Maybe JobType)
-gsrsJobType = lens _gsrsJobType (\ s a -> s{_gsrsJobType = a});
+gsrsJobType = lens _gsrsJobType (\ s a -> s{_gsrsJobType = a})
 
 -- | Undocumented member.
 gsrsJobId :: Lens' GetStatusResponse (Maybe Text)
-gsrsJobId = lens _gsrsJobId (\ s a -> s{_gsrsJobId = a});
+gsrsJobId = lens _gsrsJobId (\ s a -> s{_gsrsJobId = a})
 
 -- | Undocumented member.
 gsrsSignatureFileContents :: Lens' GetStatusResponse (Maybe Text)
-gsrsSignatureFileContents = lens _gsrsSignatureFileContents (\ s a -> s{_gsrsSignatureFileContents = a});
+gsrsSignatureFileContents = lens _gsrsSignatureFileContents (\ s a -> s{_gsrsSignatureFileContents = a})
 
 -- | Undocumented member.
 gsrsErrorCount :: Lens' GetStatusResponse (Maybe Int)
-gsrsErrorCount = lens _gsrsErrorCount (\ s a -> s{_gsrsErrorCount = a});
+gsrsErrorCount = lens _gsrsErrorCount (\ s a -> s{_gsrsErrorCount = a})
 
 -- | Undocumented member.
 gsrsCurrentManifest :: Lens' GetStatusResponse (Maybe Text)
-gsrsCurrentManifest = lens _gsrsCurrentManifest (\ s a -> s{_gsrsCurrentManifest = a});
+gsrsCurrentManifest = lens _gsrsCurrentManifest (\ s a -> s{_gsrsCurrentManifest = a})
 
 -- | Undocumented member.
 gsrsArtifactList :: Lens' GetStatusResponse [Artifact]
-gsrsArtifactList = lens _gsrsArtifactList (\ s a -> s{_gsrsArtifactList = a}) . _Default . _Coerce;
+gsrsArtifactList = lens _gsrsArtifactList (\ s a -> s{_gsrsArtifactList = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gsrsLogBucket :: Lens' GetStatusResponse (Maybe Text)
-gsrsLogBucket = lens _gsrsLogBucket (\ s a -> s{_gsrsLogBucket = a});
+gsrsLogBucket = lens _gsrsLogBucket (\ s a -> s{_gsrsLogBucket = a})
 
 -- | Undocumented member.
 gsrsCreationDate :: Lens' GetStatusResponse (Maybe UTCTime)
-gsrsCreationDate = lens _gsrsCreationDate (\ s a -> s{_gsrsCreationDate = a}) . mapping _Time;
+gsrsCreationDate = lens _gsrsCreationDate (\ s a -> s{_gsrsCreationDate = a}) . mapping _Time
 
 -- | Undocumented member.
 gsrsProgressCode :: Lens' GetStatusResponse (Maybe Text)
-gsrsProgressCode = lens _gsrsProgressCode (\ s a -> s{_gsrsProgressCode = a});
+gsrsProgressCode = lens _gsrsProgressCode (\ s a -> s{_gsrsProgressCode = a})
 
 -- | Undocumented member.
 gsrsLocationCode :: Lens' GetStatusResponse (Maybe Text)
-gsrsLocationCode = lens _gsrsLocationCode (\ s a -> s{_gsrsLocationCode = a});
+gsrsLocationCode = lens _gsrsLocationCode (\ s a -> s{_gsrsLocationCode = a})
 
 -- | Undocumented member.
 gsrsLogKey :: Lens' GetStatusResponse (Maybe Text)
-gsrsLogKey = lens _gsrsLogKey (\ s a -> s{_gsrsLogKey = a});
+gsrsLogKey = lens _gsrsLogKey (\ s a -> s{_gsrsLogKey = a})
 
 -- | Undocumented member.
 gsrsLocationMessage :: Lens' GetStatusResponse (Maybe Text)
-gsrsLocationMessage = lens _gsrsLocationMessage (\ s a -> s{_gsrsLocationMessage = a});
+gsrsLocationMessage = lens _gsrsLocationMessage (\ s a -> s{_gsrsLocationMessage = a})
 
 -- | Undocumented member.
 gsrsProgressMessage :: Lens' GetStatusResponse (Maybe Text)
-gsrsProgressMessage = lens _gsrsProgressMessage (\ s a -> s{_gsrsProgressMessage = a});
+gsrsProgressMessage = lens _gsrsProgressMessage (\ s a -> s{_gsrsProgressMessage = a})
 
 -- | -- | The response status code.
 gsrsResponseStatus :: Lens' GetStatusResponse Int
-gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
+gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a})
 
 instance NFData GetStatusResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DisassociatePrincipalFromPortfolio
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,30 +61,30 @@ data DisassociatePrincipalFromPortfolio = DisassociatePrincipalFromPortfolio'
 --
 -- * 'disPortfolioId' - The portfolio identifier.
 --
--- * 'disPrincipalARN' - The ARN representing the principal (IAM user, role, or group).
+-- * 'disPrincipalARN' - The ARN of the principal (IAM user, role, or group).
 disassociatePrincipalFromPortfolio
     :: Text -- ^ 'disPortfolioId'
     -> Text -- ^ 'disPrincipalARN'
     -> DisassociatePrincipalFromPortfolio
 disassociatePrincipalFromPortfolio pPortfolioId_ pPrincipalARN_ =
   DisassociatePrincipalFromPortfolio'
-  { _disAcceptLanguage = Nothing
-  , _disPortfolioId = pPortfolioId_
-  , _disPrincipalARN = pPrincipalARN_
-  }
+    { _disAcceptLanguage = Nothing
+    , _disPortfolioId = pPortfolioId_
+    , _disPrincipalARN = pPrincipalARN_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 disAcceptLanguage :: Lens' DisassociatePrincipalFromPortfolio (Maybe Text)
-disAcceptLanguage = lens _disAcceptLanguage (\ s a -> s{_disAcceptLanguage = a});
+disAcceptLanguage = lens _disAcceptLanguage (\ s a -> s{_disAcceptLanguage = a})
 
 -- | The portfolio identifier.
 disPortfolioId :: Lens' DisassociatePrincipalFromPortfolio Text
-disPortfolioId = lens _disPortfolioId (\ s a -> s{_disPortfolioId = a});
+disPortfolioId = lens _disPortfolioId (\ s a -> s{_disPortfolioId = a})
 
--- | The ARN representing the principal (IAM user, role, or group).
+-- | The ARN of the principal (IAM user, role, or group).
 disPrincipalARN :: Lens' DisassociatePrincipalFromPortfolio Text
-disPrincipalARN = lens _disPrincipalARN (\ s a -> s{_disPrincipalARN = a});
+disPrincipalARN = lens _disPrincipalARN (\ s a -> s{_disPrincipalARN = a})
 
 instance AWSRequest
            DisassociatePrincipalFromPortfolio
@@ -148,12 +148,12 @@ disassociatePrincipalFromPortfolioResponse
     -> DisassociatePrincipalFromPortfolioResponse
 disassociatePrincipalFromPortfolioResponse pResponseStatus_ =
   DisassociatePrincipalFromPortfolioResponse'
-  {_dpfprsResponseStatus = pResponseStatus_}
+    {_dpfprsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dpfprsResponseStatus :: Lens' DisassociatePrincipalFromPortfolioResponse Int
-dpfprsResponseStatus = lens _dpfprsResponseStatus (\ s a -> s{_dpfprsResponseStatus = a});
+dpfprsResponseStatus = lens _dpfprsResponseStatus (\ s a -> s{_dpfprsResponseStatus = a})
 
 instance NFData
            DisassociatePrincipalFromPortfolioResponse

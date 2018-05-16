@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetStaticIPs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ getStaticIPs = GetStaticIPs' {_gsiPageToken = Nothing}
 
 -- | A token used for advancing to the next page of results from your get static IPs request.
 gsiPageToken :: Lens' GetStaticIPs (Maybe Text)
-gsiPageToken = lens _gsiPageToken (\ s a -> s{_gsiPageToken = a});
+gsiPageToken = lens _gsiPageToken (\ s a -> s{_gsiPageToken = a})
 
 instance AWSPager GetStaticIPs where
         page rq rs
@@ -132,22 +132,22 @@ getStaticIPsResponse
     -> GetStaticIPsResponse
 getStaticIPsResponse pResponseStatus_ =
   GetStaticIPsResponse'
-  { _gsiprsNextPageToken = Nothing
-  , _gsiprsStaticIPs = Nothing
-  , _gsiprsResponseStatus = pResponseStatus_
-  }
+    { _gsiprsNextPageToken = Nothing
+    , _gsiprsStaticIPs = Nothing
+    , _gsiprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A token used for advancing to the next page of results from your get static IPs request.
 gsiprsNextPageToken :: Lens' GetStaticIPsResponse (Maybe Text)
-gsiprsNextPageToken = lens _gsiprsNextPageToken (\ s a -> s{_gsiprsNextPageToken = a});
+gsiprsNextPageToken = lens _gsiprsNextPageToken (\ s a -> s{_gsiprsNextPageToken = a})
 
 -- | An array of key-value pairs containing information about your get static IPs request.
 gsiprsStaticIPs :: Lens' GetStaticIPsResponse [StaticIP]
-gsiprsStaticIPs = lens _gsiprsStaticIPs (\ s a -> s{_gsiprsStaticIPs = a}) . _Default . _Coerce;
+gsiprsStaticIPs = lens _gsiprsStaticIPs (\ s a -> s{_gsiprsStaticIPs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gsiprsResponseStatus :: Lens' GetStaticIPsResponse Int
-gsiprsResponseStatus = lens _gsiprsResponseStatus (\ s a -> s{_gsiprsResponseStatus = a});
+gsiprsResponseStatus = lens _gsiprsResponseStatus (\ s a -> s{_gsiprsResponseStatus = a})
 
 instance NFData GetStaticIPsResponse where

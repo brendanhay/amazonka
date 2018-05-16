@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.RegisterDevice
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,28 +81,28 @@ registerDevice
     -> RegisterDevice
 registerDevice pIdentityPoolId_ pIdentityId_ pPlatform_ pToken_ =
   RegisterDevice'
-  { _rdIdentityPoolId = pIdentityPoolId_
-  , _rdIdentityId = pIdentityId_
-  , _rdPlatform = pPlatform_
-  , _rdToken = pToken_
-  }
+    { _rdIdentityPoolId = pIdentityPoolId_
+    , _rdIdentityId = pIdentityId_
+    , _rdPlatform = pPlatform_
+    , _rdToken = pToken_
+    }
 
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.
 rdIdentityPoolId :: Lens' RegisterDevice Text
-rdIdentityPoolId = lens _rdIdentityPoolId (\ s a -> s{_rdIdentityPoolId = a});
+rdIdentityPoolId = lens _rdIdentityPoolId (\ s a -> s{_rdIdentityPoolId = a})
 
 -- | The unique ID for this identity.
 rdIdentityId :: Lens' RegisterDevice Text
-rdIdentityId = lens _rdIdentityId (\ s a -> s{_rdIdentityId = a});
+rdIdentityId = lens _rdIdentityId (\ s a -> s{_rdIdentityId = a})
 
 -- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
 rdPlatform :: Lens' RegisterDevice Platform
-rdPlatform = lens _rdPlatform (\ s a -> s{_rdPlatform = a});
+rdPlatform = lens _rdPlatform (\ s a -> s{_rdPlatform = a})
 
 -- | The push token.
 rdToken :: Lens' RegisterDevice Text
-rdToken = lens _rdToken (\ s a -> s{_rdToken = a});
+rdToken = lens _rdToken (\ s a -> s{_rdToken = a})
 
 instance AWSRequest RegisterDevice where
         type Rs RegisterDevice = RegisterDeviceResponse
@@ -163,15 +163,15 @@ registerDeviceResponse
     -> RegisterDeviceResponse
 registerDeviceResponse pResponseStatus_ =
   RegisterDeviceResponse'
-  {_rdrsDeviceId = Nothing, _rdrsResponseStatus = pResponseStatus_}
+    {_rdrsDeviceId = Nothing, _rdrsResponseStatus = pResponseStatus_}
 
 
 -- | The unique ID generated for this device by Cognito.
 rdrsDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
-rdrsDeviceId = lens _rdrsDeviceId (\ s a -> s{_rdrsDeviceId = a});
+rdrsDeviceId = lens _rdrsDeviceId (\ s a -> s{_rdrsDeviceId = a})
 
 -- | -- | The response status code.
 rdrsResponseStatus :: Lens' RegisterDeviceResponse Int
-rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = a});
+rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = a})
 
 instance NFData RegisterDeviceResponse where

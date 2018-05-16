@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetDevEndpoints
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Retrieves all the DevEndpoints in this AWS account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Glue.GetDevEndpoints
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.Glue.GetDevEndpoints
 import Network.AWS.Glue.Types
 import Network.AWS.Glue.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -68,11 +71,18 @@ getDevEndpoints =
 
 -- | A continuation token, if this is a continuation call.
 gdeNextToken :: Lens' GetDevEndpoints (Maybe Text)
-gdeNextToken = lens _gdeNextToken (\ s a -> s{_gdeNextToken = a});
+gdeNextToken = lens _gdeNextToken (\ s a -> s{_gdeNextToken = a})
 
 -- | The maximum size of information to return.
 gdeMaxResults :: Lens' GetDevEndpoints (Maybe Natural)
-gdeMaxResults = lens _gdeMaxResults (\ s a -> s{_gdeMaxResults = a}) . mapping _Nat;
+gdeMaxResults = lens _gdeMaxResults (\ s a -> s{_gdeMaxResults = a}) . mapping _Nat
+
+instance AWSPager GetDevEndpoints where
+        page rq rs
+          | stop (rs ^. gdersNextToken) = Nothing
+          | stop (rs ^. gdersDevEndpoints) = Nothing
+          | otherwise =
+            Just $ rq & gdeNextToken .~ rs ^. gdersNextToken
 
 instance AWSRequest GetDevEndpoints where
         type Rs GetDevEndpoints = GetDevEndpointsResponse
@@ -133,22 +143,22 @@ getDevEndpointsResponse
     -> GetDevEndpointsResponse
 getDevEndpointsResponse pResponseStatus_ =
   GetDevEndpointsResponse'
-  { _gdersNextToken = Nothing
-  , _gdersDevEndpoints = Nothing
-  , _gdersResponseStatus = pResponseStatus_
-  }
+    { _gdersNextToken = Nothing
+    , _gdersDevEndpoints = Nothing
+    , _gdersResponseStatus = pResponseStatus_
+    }
 
 
 -- | A continuation token, if not all DevEndpoint definitions have yet been returned.
 gdersNextToken :: Lens' GetDevEndpointsResponse (Maybe Text)
-gdersNextToken = lens _gdersNextToken (\ s a -> s{_gdersNextToken = a});
+gdersNextToken = lens _gdersNextToken (\ s a -> s{_gdersNextToken = a})
 
 -- | A list of DevEndpoint definitions.
 gdersDevEndpoints :: Lens' GetDevEndpointsResponse [DevEndpoint]
-gdersDevEndpoints = lens _gdersDevEndpoints (\ s a -> s{_gdersDevEndpoints = a}) . _Default . _Coerce;
+gdersDevEndpoints = lens _gdersDevEndpoints (\ s a -> s{_gdersDevEndpoints = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gdersResponseStatus :: Lens' GetDevEndpointsResponse Int
-gdersResponseStatus = lens _gdersResponseStatus (\ s a -> s{_gdersResponseStatus = a});
+gdersResponseStatus = lens _gdersResponseStatus (\ s a -> s{_gdersResponseStatus = a})
 
 instance NFData GetDevEndpointsResponse where

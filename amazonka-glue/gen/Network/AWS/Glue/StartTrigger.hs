@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StartTrigger
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts an existing trigger.
+-- Starts an existing trigger. See <http://docs.aws.amazon.com/glue/latest/dg/trigger-job.html Triggering Jobs> for information about how different types of trigger are started.
 --
 --
 module Network.AWS.Glue.StartTrigger
@@ -63,7 +63,7 @@ startTrigger pName_ = StartTrigger' {_staName = pName_}
 
 -- | The name of the trigger to start.
 staName :: Lens' StartTrigger Text
-staName = lens _staName (\ s a -> s{_staName = a});
+staName = lens _staName (\ s a -> s{_staName = a})
 
 instance AWSRequest StartTrigger where
         type Rs StartTrigger = StartTriggerResponse
@@ -116,15 +116,15 @@ startTriggerResponse
     -> StartTriggerResponse
 startTriggerResponse pResponseStatus_ =
   StartTriggerResponse'
-  {_starsName = Nothing, _starsResponseStatus = pResponseStatus_}
+    {_starsName = Nothing, _starsResponseStatus = pResponseStatus_}
 
 
 -- | The name of the trigger that was started.
 starsName :: Lens' StartTriggerResponse (Maybe Text)
-starsName = lens _starsName (\ s a -> s{_starsName = a});
+starsName = lens _starsName (\ s a -> s{_starsName = a})
 
 -- | -- | The response status code.
 starsResponseStatus :: Lens' StartTriggerResponse Int
-starsResponseStatus = lens _starsResponseStatus (\ s a -> s{_starsResponseStatus = a});
+starsResponseStatus = lens _starsResponseStatus (\ s a -> s{_starsResponseStatus = a})
 
 instance NFData StartTriggerResponse where

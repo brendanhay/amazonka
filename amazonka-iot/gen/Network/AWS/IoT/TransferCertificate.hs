@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.TransferCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ data TransferCertificate = TransferCertificate'
 --
 -- * 'tcTransferMessage' - The transfer message.
 --
--- * 'tcCertificateId' - The ID of the certificate.
+-- * 'tcCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 --
 -- * 'tcTargetAWSAccount' - The AWS account.
 transferCertificate
@@ -81,23 +81,23 @@ transferCertificate
     -> TransferCertificate
 transferCertificate pCertificateId_ pTargetAWSAccount_ =
   TransferCertificate'
-  { _tcTransferMessage = Nothing
-  , _tcCertificateId = pCertificateId_
-  , _tcTargetAWSAccount = pTargetAWSAccount_
-  }
+    { _tcTransferMessage = Nothing
+    , _tcCertificateId = pCertificateId_
+    , _tcTargetAWSAccount = pTargetAWSAccount_
+    }
 
 
 -- | The transfer message.
 tcTransferMessage :: Lens' TransferCertificate (Maybe Text)
-tcTransferMessage = lens _tcTransferMessage (\ s a -> s{_tcTransferMessage = a});
+tcTransferMessage = lens _tcTransferMessage (\ s a -> s{_tcTransferMessage = a})
 
--- | The ID of the certificate.
+-- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 tcCertificateId :: Lens' TransferCertificate Text
-tcCertificateId = lens _tcCertificateId (\ s a -> s{_tcCertificateId = a});
+tcCertificateId = lens _tcCertificateId (\ s a -> s{_tcCertificateId = a})
 
 -- | The AWS account.
 tcTargetAWSAccount :: Lens' TransferCertificate Text
-tcTargetAWSAccount = lens _tcTargetAWSAccount (\ s a -> s{_tcTargetAWSAccount = a});
+tcTargetAWSAccount = lens _tcTargetAWSAccount (\ s a -> s{_tcTargetAWSAccount = a})
 
 instance AWSRequest TransferCertificate where
         type Rs TransferCertificate =
@@ -155,17 +155,17 @@ transferCertificateResponse
     -> TransferCertificateResponse
 transferCertificateResponse pResponseStatus_ =
   TransferCertificateResponse'
-  { _tcrsTransferredCertificateARN = Nothing
-  , _tcrsResponseStatus = pResponseStatus_
-  }
+    { _tcrsTransferredCertificateARN = Nothing
+    , _tcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ARN of the certificate.
 tcrsTransferredCertificateARN :: Lens' TransferCertificateResponse (Maybe Text)
-tcrsTransferredCertificateARN = lens _tcrsTransferredCertificateARN (\ s a -> s{_tcrsTransferredCertificateARN = a});
+tcrsTransferredCertificateARN = lens _tcrsTransferredCertificateARN (\ s a -> s{_tcrsTransferredCertificateARN = a})
 
 -- | -- | The response status code.
 tcrsResponseStatus :: Lens' TransferCertificateResponse Int
-tcrsResponseStatus = lens _tcrsResponseStatus (\ s a -> s{_tcrsResponseStatus = a});
+tcrsResponseStatus = lens _tcrsResponseStatus (\ s a -> s{_tcrsResponseStatus = a})
 
 instance NFData TransferCertificateResponse where

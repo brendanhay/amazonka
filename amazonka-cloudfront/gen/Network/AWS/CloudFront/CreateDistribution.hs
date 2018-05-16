@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateDistribution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ createDistribution pDistributionConfig_ =
 
 -- | The distribution's configuration information.
 cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
-cdDistributionConfig = lens _cdDistributionConfig (\ s a -> s{_cdDistributionConfig = a});
+cdDistributionConfig = lens _cdDistributionConfig (\ s a -> s{_cdDistributionConfig = a})
 
 instance AWSRequest CreateDistribution where
         type Rs CreateDistribution =
@@ -91,7 +91,7 @@ instance NFData CreateDistribution where
 instance ToElement CreateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}DistributionConfig"
               .
               _cdDistributionConfig
 
@@ -99,7 +99,7 @@ instance ToHeaders CreateDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateDistribution where
-        toPath = const "/2017-03-25/distribution"
+        toPath = const "/2017-10-30/distribution"
 
 instance ToQuery CreateDistribution where
         toQuery = const mempty
@@ -133,27 +133,27 @@ createDistributionResponse
     -> CreateDistributionResponse
 createDistributionResponse pResponseStatus_ =
   CreateDistributionResponse'
-  { _cdrsETag = Nothing
-  , _cdrsDistribution = Nothing
-  , _cdrsLocation = Nothing
-  , _cdrsResponseStatus = pResponseStatus_
-  }
+    { _cdrsETag = Nothing
+    , _cdrsDistribution = Nothing
+    , _cdrsLocation = Nothing
+    , _cdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current version of the distribution created.
 cdrsETag :: Lens' CreateDistributionResponse (Maybe Text)
-cdrsETag = lens _cdrsETag (\ s a -> s{_cdrsETag = a});
+cdrsETag = lens _cdrsETag (\ s a -> s{_cdrsETag = a})
 
 -- | The distribution's information.
 cdrsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
-cdrsDistribution = lens _cdrsDistribution (\ s a -> s{_cdrsDistribution = a});
+cdrsDistribution = lens _cdrsDistribution (\ s a -> s{_cdrsDistribution = a})
 
 -- | The fully qualified URI of the new distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5@ .
 cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
-cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a});
+cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a})
 
 -- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDistributionResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a})
 
 instance NFData CreateDistributionResponse where

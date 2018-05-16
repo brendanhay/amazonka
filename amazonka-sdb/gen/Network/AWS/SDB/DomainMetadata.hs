@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.DomainMetadata
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ domainMetadata pDomainName_ = DomainMetadata' {_dmDomainName = pDomainName_}
 
 -- | The name of the domain for which to display the metadata of.
 dmDomainName :: Lens' DomainMetadata Text
-dmDomainName = lens _dmDomainName (\ s a -> s{_dmDomainName = a});
+dmDomainName = lens _dmDomainName (\ s a -> s{_dmDomainName = a})
 
 instance AWSRequest DomainMetadata where
         type Rs DomainMetadata = DomainMetadataResponse
@@ -141,47 +141,47 @@ domainMetadataResponse
     -> DomainMetadataResponse
 domainMetadataResponse pResponseStatus_ =
   DomainMetadataResponse'
-  { _dmrsItemNamesSizeBytes = Nothing
-  , _dmrsAttributeValuesSizeBytes = Nothing
-  , _dmrsAttributeNameCount = Nothing
-  , _dmrsAttributeNamesSizeBytes = Nothing
-  , _dmrsAttributeValueCount = Nothing
-  , _dmrsItemCount = Nothing
-  , _dmrsTimestamp = Nothing
-  , _dmrsResponseStatus = pResponseStatus_
-  }
+    { _dmrsItemNamesSizeBytes = Nothing
+    , _dmrsAttributeValuesSizeBytes = Nothing
+    , _dmrsAttributeNameCount = Nothing
+    , _dmrsAttributeNamesSizeBytes = Nothing
+    , _dmrsAttributeValueCount = Nothing
+    , _dmrsItemCount = Nothing
+    , _dmrsTimestamp = Nothing
+    , _dmrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The total size of all item names in the domain, in bytes.
 dmrsItemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmrsItemNamesSizeBytes = lens _dmrsItemNamesSizeBytes (\ s a -> s{_dmrsItemNamesSizeBytes = a});
+dmrsItemNamesSizeBytes = lens _dmrsItemNamesSizeBytes (\ s a -> s{_dmrsItemNamesSizeBytes = a})
 
 -- | The total size of all attribute values in the domain, in bytes.
 dmrsAttributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmrsAttributeValuesSizeBytes = lens _dmrsAttributeValuesSizeBytes (\ s a -> s{_dmrsAttributeValuesSizeBytes = a});
+dmrsAttributeValuesSizeBytes = lens _dmrsAttributeValuesSizeBytes (\ s a -> s{_dmrsAttributeValuesSizeBytes = a})
 
 -- | The number of unique attribute names in the domain.
 dmrsAttributeNameCount :: Lens' DomainMetadataResponse (Maybe Int)
-dmrsAttributeNameCount = lens _dmrsAttributeNameCount (\ s a -> s{_dmrsAttributeNameCount = a});
+dmrsAttributeNameCount = lens _dmrsAttributeNameCount (\ s a -> s{_dmrsAttributeNameCount = a})
 
 -- | The total size of all unique attribute names in the domain, in bytes.
 dmrsAttributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmrsAttributeNamesSizeBytes = lens _dmrsAttributeNamesSizeBytes (\ s a -> s{_dmrsAttributeNamesSizeBytes = a});
+dmrsAttributeNamesSizeBytes = lens _dmrsAttributeNamesSizeBytes (\ s a -> s{_dmrsAttributeNamesSizeBytes = a})
 
 -- | The number of all attribute name/value pairs in the domain.
 dmrsAttributeValueCount :: Lens' DomainMetadataResponse (Maybe Int)
-dmrsAttributeValueCount = lens _dmrsAttributeValueCount (\ s a -> s{_dmrsAttributeValueCount = a});
+dmrsAttributeValueCount = lens _dmrsAttributeValueCount (\ s a -> s{_dmrsAttributeValueCount = a})
 
 -- | The number of all items in the domain.
 dmrsItemCount :: Lens' DomainMetadataResponse (Maybe Int)
-dmrsItemCount = lens _dmrsItemCount (\ s a -> s{_dmrsItemCount = a});
+dmrsItemCount = lens _dmrsItemCount (\ s a -> s{_dmrsItemCount = a})
 
 -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
 dmrsTimestamp :: Lens' DomainMetadataResponse (Maybe Int)
-dmrsTimestamp = lens _dmrsTimestamp (\ s a -> s{_dmrsTimestamp = a});
+dmrsTimestamp = lens _dmrsTimestamp (\ s a -> s{_dmrsTimestamp = a})
 
 -- | -- | The response status code.
 dmrsResponseStatus :: Lens' DomainMetadataResponse Int
-dmrsResponseStatus = lens _dmrsResponseStatus (\ s a -> s{_dmrsResponseStatus = a});
+dmrsResponseStatus = lens _dmrsResponseStatus (\ s a -> s{_dmrsResponseStatus = a})
 
 instance NFData DomainMetadataResponse where

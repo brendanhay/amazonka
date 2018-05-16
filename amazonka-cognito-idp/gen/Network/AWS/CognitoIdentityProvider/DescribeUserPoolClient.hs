@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ describeUserPoolClient
     -> DescribeUserPoolClient
 describeUserPoolClient pUserPoolId_ pClientId_ =
   DescribeUserPoolClient'
-  {_dupcuUserPoolId = pUserPoolId_, _dupcuClientId = _Sensitive # pClientId_}
+    {_dupcuUserPoolId = pUserPoolId_, _dupcuClientId = _Sensitive # pClientId_}
 
 
 -- | The user pool ID for the user pool you want to describe.
 dupcuUserPoolId :: Lens' DescribeUserPoolClient Text
-dupcuUserPoolId = lens _dupcuUserPoolId (\ s a -> s{_dupcuUserPoolId = a});
+dupcuUserPoolId = lens _dupcuUserPoolId (\ s a -> s{_dupcuUserPoolId = a})
 
 -- | The app client ID of the app associated with the user pool.
 dupcuClientId :: Lens' DescribeUserPoolClient Text
-dupcuClientId = lens _dupcuClientId (\ s a -> s{_dupcuClientId = a}) . _Sensitive;
+dupcuClientId = lens _dupcuClientId (\ s a -> s{_dupcuClientId = a}) . _Sensitive
 
 instance AWSRequest DescribeUserPoolClient where
         type Rs DescribeUserPoolClient =
@@ -140,15 +140,15 @@ describeUserPoolClientResponse
     -> DescribeUserPoolClientResponse
 describeUserPoolClientResponse pResponseStatus_ =
   DescribeUserPoolClientResponse'
-  {_dupcrsUserPoolClient = Nothing, _dupcrsResponseStatus = pResponseStatus_}
+    {_dupcrsUserPoolClient = Nothing, _dupcrsResponseStatus = pResponseStatus_}
 
 
 -- | The user pool client from a server response to describe the user pool client.
 dupcrsUserPoolClient :: Lens' DescribeUserPoolClientResponse (Maybe UserPoolClientType)
-dupcrsUserPoolClient = lens _dupcrsUserPoolClient (\ s a -> s{_dupcrsUserPoolClient = a});
+dupcrsUserPoolClient = lens _dupcrsUserPoolClient (\ s a -> s{_dupcrsUserPoolClient = a})
 
 -- | -- | The response status code.
 dupcrsResponseStatus :: Lens' DescribeUserPoolClientResponse Int
-dupcrsResponseStatus = lens _dupcrsResponseStatus (\ s a -> s{_dupcrsResponseStatus = a});
+dupcrsResponseStatus = lens _dupcrsResponseStatus (\ s a -> s{_dupcrsResponseStatus = a})
 
 instance NFData DescribeUserPoolClientResponse where

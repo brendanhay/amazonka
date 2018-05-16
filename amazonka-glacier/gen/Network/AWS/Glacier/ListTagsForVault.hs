@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListTagsForVault
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ listTagsForVault pAccountId_ pVaultName_ =
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 ltfvAccountId :: Lens' ListTagsForVault Text
-ltfvAccountId = lens _ltfvAccountId (\ s a -> s{_ltfvAccountId = a});
+ltfvAccountId = lens _ltfvAccountId (\ s a -> s{_ltfvAccountId = a})
 
 -- | The name of the vault.
 ltfvVaultName :: Lens' ListTagsForVault Text
-ltfvVaultName = lens _ltfvVaultName (\ s a -> s{_ltfvVaultName = a});
+ltfvVaultName = lens _ltfvVaultName (\ s a -> s{_ltfvVaultName = a})
 
 instance AWSRequest ListTagsForVault where
         type Rs ListTagsForVault = ListTagsForVaultResponse
@@ -127,15 +127,15 @@ listTagsForVaultResponse
     -> ListTagsForVaultResponse
 listTagsForVaultResponse pResponseStatus_ =
   ListTagsForVaultResponse'
-  {_ltfvrsTags = Nothing, _ltfvrsResponseStatus = pResponseStatus_}
+    {_ltfvrsTags = Nothing, _ltfvrsResponseStatus = pResponseStatus_}
 
 
 -- | The tags attached to the vault. Each tag is composed of a key and a value.
 ltfvrsTags :: Lens' ListTagsForVaultResponse (HashMap Text Text)
-ltfvrsTags = lens _ltfvrsTags (\ s a -> s{_ltfvrsTags = a}) . _Default . _Map;
+ltfvrsTags = lens _ltfvrsTags (\ s a -> s{_ltfvrsTags = a}) . _Default . _Map
 
 -- | -- | The response status code.
 ltfvrsResponseStatus :: Lens' ListTagsForVaultResponse Int
-ltfvrsResponseStatus = lens _ltfvrsResponseStatus (\ s a -> s{_ltfvrsResponseStatus = a});
+ltfvrsResponseStatus = lens _ltfvrsResponseStatus (\ s a -> s{_ltfvrsResponseStatus = a})
 
 instance NFData ListTagsForVaultResponse where

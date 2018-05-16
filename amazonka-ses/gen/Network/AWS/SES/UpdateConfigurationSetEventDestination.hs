@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.UpdateConfigurationSetEventDestination
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,18 +70,18 @@ updateConfigurationSetEventDestination
     -> UpdateConfigurationSetEventDestination
 updateConfigurationSetEventDestination pConfigurationSetName_ pEventDestination_ =
   UpdateConfigurationSetEventDestination'
-  { _ucsedConfigurationSetName = pConfigurationSetName_
-  , _ucsedEventDestination = pEventDestination_
-  }
+    { _ucsedConfigurationSetName = pConfigurationSetName_
+    , _ucsedEventDestination = pEventDestination_
+    }
 
 
 -- | The name of the configuration set that contains the event destination that you want to update.
 ucsedConfigurationSetName :: Lens' UpdateConfigurationSetEventDestination Text
-ucsedConfigurationSetName = lens _ucsedConfigurationSetName (\ s a -> s{_ucsedConfigurationSetName = a});
+ucsedConfigurationSetName = lens _ucsedConfigurationSetName (\ s a -> s{_ucsedConfigurationSetName = a})
 
 -- | The event destination object that you want to apply to the specified configuration set.
 ucsedEventDestination :: Lens' UpdateConfigurationSetEventDestination EventDestination
-ucsedEventDestination = lens _ucsedEventDestination (\ s a -> s{_ucsedEventDestination = a});
+ucsedEventDestination = lens _ucsedEventDestination (\ s a -> s{_ucsedEventDestination = a})
 
 instance AWSRequest
            UpdateConfigurationSetEventDestination
@@ -146,12 +146,12 @@ updateConfigurationSetEventDestinationResponse
     -> UpdateConfigurationSetEventDestinationResponse
 updateConfigurationSetEventDestinationResponse pResponseStatus_ =
   UpdateConfigurationSetEventDestinationResponse'
-  {_ucsedrsResponseStatus = pResponseStatus_}
+    {_ucsedrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 ucsedrsResponseStatus :: Lens' UpdateConfigurationSetEventDestinationResponse Int
-ucsedrsResponseStatus = lens _ucsedrsResponseStatus (\ s a -> s{_ucsedrsResponseStatus = a});
+ucsedrsResponseStatus = lens _ucsedrsResponseStatus (\ s a -> s{_ucsedrsResponseStatus = a})
 
 instance NFData
            UpdateConfigurationSetEventDestinationResponse

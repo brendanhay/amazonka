@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListTrafficPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ listTrafficPolicies
     :: ListTrafficPolicies
 listTrafficPolicies =
   ListTrafficPolicies'
-  {_ltpTrafficPolicyIdMarker = Nothing, _ltpMaxItems = Nothing}
+    {_ltpTrafficPolicyIdMarker = Nothing, _ltpMaxItems = Nothing}
 
 
 -- | (Conditional) For your first request to @ListTrafficPolicies@ , don't include the @TrafficPolicyIdMarker@ parameter. If you have more traffic policies than the value of @MaxItems@ , @ListTrafficPolicies@ returns only the first @MaxItems@ traffic policies. To get the next group of policies, submit another request to @ListTrafficPolicies@ . For the value of @TrafficPolicyIdMarker@ , specify the value of @TrafficPolicyIdMarker@ that was returned in the previous response.
 ltpTrafficPolicyIdMarker :: Lens' ListTrafficPolicies (Maybe Text)
-ltpTrafficPolicyIdMarker = lens _ltpTrafficPolicyIdMarker (\ s a -> s{_ltpTrafficPolicyIdMarker = a});
+ltpTrafficPolicyIdMarker = lens _ltpTrafficPolicyIdMarker (\ s a -> s{_ltpTrafficPolicyIdMarker = a})
 
 -- | (Optional) The maximum number of traffic policies that you want Amazon Route 53 to return in response to this request. If you have more than @MaxItems@ traffic policies, the value of @IsTruncated@ in the response is @true@ , and the value of @TrafficPolicyIdMarker@ is the ID of the first traffic policy that Amazon Route 53 will return if you submit another request.
 ltpMaxItems :: Lens' ListTrafficPolicies (Maybe Text)
-ltpMaxItems = lens _ltpMaxItems (\ s a -> s{_ltpMaxItems = a});
+ltpMaxItems = lens _ltpMaxItems (\ s a -> s{_ltpMaxItems = a})
 
 instance AWSRequest ListTrafficPolicies where
         type Rs ListTrafficPolicies =
@@ -147,32 +147,32 @@ listTrafficPoliciesResponse
     -> ListTrafficPoliciesResponse
 listTrafficPoliciesResponse pResponseStatus_ pIsTruncated_ pTrafficPolicyIdMarker_ pMaxItems_ =
   ListTrafficPoliciesResponse'
-  { _ltprsResponseStatus = pResponseStatus_
-  , _ltprsTrafficPolicySummaries = mempty
-  , _ltprsIsTruncated = pIsTruncated_
-  , _ltprsTrafficPolicyIdMarker = pTrafficPolicyIdMarker_
-  , _ltprsMaxItems = pMaxItems_
-  }
+    { _ltprsResponseStatus = pResponseStatus_
+    , _ltprsTrafficPolicySummaries = mempty
+    , _ltprsIsTruncated = pIsTruncated_
+    , _ltprsTrafficPolicyIdMarker = pTrafficPolicyIdMarker_
+    , _ltprsMaxItems = pMaxItems_
+    }
 
 
 -- | -- | The response status code.
 ltprsResponseStatus :: Lens' ListTrafficPoliciesResponse Int
-ltprsResponseStatus = lens _ltprsResponseStatus (\ s a -> s{_ltprsResponseStatus = a});
+ltprsResponseStatus = lens _ltprsResponseStatus (\ s a -> s{_ltprsResponseStatus = a})
 
 -- | A list that contains one @TrafficPolicySummary@ element for each traffic policy that was created by the current AWS account.
 ltprsTrafficPolicySummaries :: Lens' ListTrafficPoliciesResponse [TrafficPolicySummary]
-ltprsTrafficPolicySummaries = lens _ltprsTrafficPolicySummaries (\ s a -> s{_ltprsTrafficPolicySummaries = a}) . _Coerce;
+ltprsTrafficPolicySummaries = lens _ltprsTrafficPolicySummaries (\ s a -> s{_ltprsTrafficPolicySummaries = a}) . _Coerce
 
 -- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicies@ request and specifying the value of @TrafficPolicyIdMarker@ in the @TrafficPolicyIdMarker@ request parameter.
 ltprsIsTruncated :: Lens' ListTrafficPoliciesResponse Bool
-ltprsIsTruncated = lens _ltprsIsTruncated (\ s a -> s{_ltprsIsTruncated = a});
+ltprsIsTruncated = lens _ltprsIsTruncated (\ s a -> s{_ltprsIsTruncated = a})
 
 -- | If the value of @IsTruncated@ is @true@ , @TrafficPolicyIdMarker@ is the ID of the first traffic policy in the next group of @MaxItems@ traffic policies.
 ltprsTrafficPolicyIdMarker :: Lens' ListTrafficPoliciesResponse Text
-ltprsTrafficPolicyIdMarker = lens _ltprsTrafficPolicyIdMarker (\ s a -> s{_ltprsTrafficPolicyIdMarker = a});
+ltprsTrafficPolicyIdMarker = lens _ltprsTrafficPolicyIdMarker (\ s a -> s{_ltprsTrafficPolicyIdMarker = a})
 
 -- | The value that you specified for the @MaxItems@ parameter in the @ListTrafficPolicies@ request that produced the current response.
 ltprsMaxItems :: Lens' ListTrafficPoliciesResponse Text
-ltprsMaxItems = lens _ltprsMaxItems (\ s a -> s{_ltprsMaxItems = a});
+ltprsMaxItems = lens _ltprsMaxItems (\ s a -> s{_ltprsMaxItems = a})
 
 instance NFData ListTrafficPoliciesResponse where

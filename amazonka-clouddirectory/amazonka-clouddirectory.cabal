@@ -1,5 +1,5 @@
 name:                  amazonka-clouddirectory
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon CloudDirectory SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -70,8 +70,10 @@ library
         , Network.AWS.CloudDirectory.DetachTypedLink
         , Network.AWS.CloudDirectory.DisableDirectory
         , Network.AWS.CloudDirectory.EnableDirectory
+        , Network.AWS.CloudDirectory.GetAppliedSchemaVersion
         , Network.AWS.CloudDirectory.GetDirectory
         , Network.AWS.CloudDirectory.GetFacet
+        , Network.AWS.CloudDirectory.GetObjectAttributes
         , Network.AWS.CloudDirectory.GetObjectInformation
         , Network.AWS.CloudDirectory.GetSchemaAsJSON
         , Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
@@ -105,6 +107,8 @@ library
         , Network.AWS.CloudDirectory.UpdateObjectAttributes
         , Network.AWS.CloudDirectory.UpdateSchema
         , Network.AWS.CloudDirectory.UpdateTypedLinkFacet
+        , Network.AWS.CloudDirectory.UpgradeAppliedSchema
+        , Network.AWS.CloudDirectory.UpgradePublishedSchema
         , Network.AWS.CloudDirectory.Waiters
 
     other-modules:
@@ -112,7 +116,7 @@ library
         , Network.AWS.CloudDirectory.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-clouddirectory-test
@@ -132,8 +136,8 @@ test-suite amazonka-clouddirectory-test
         , Test.AWS.CloudDirectory.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-clouddirectory
         , base
         , bytestring

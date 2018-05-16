@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetFolderPath
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ data GetFolderPath = GetFolderPath'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfpAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'gfpAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'gfpMarker' - This value is not supported.
 --
@@ -78,33 +78,33 @@ getFolderPath
     -> GetFolderPath
 getFolderPath pFolderId_ =
   GetFolderPath'
-  { _gfpAuthenticationToken = Nothing
-  , _gfpMarker = Nothing
-  , _gfpLimit = Nothing
-  , _gfpFields = Nothing
-  , _gfpFolderId = pFolderId_
-  }
+    { _gfpAuthenticationToken = Nothing
+    , _gfpMarker = Nothing
+    , _gfpLimit = Nothing
+    , _gfpFields = Nothing
+    , _gfpFolderId = pFolderId_
+    }
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 gfpAuthenticationToken :: Lens' GetFolderPath (Maybe Text)
-gfpAuthenticationToken = lens _gfpAuthenticationToken (\ s a -> s{_gfpAuthenticationToken = a}) . mapping _Sensitive;
+gfpAuthenticationToken = lens _gfpAuthenticationToken (\ s a -> s{_gfpAuthenticationToken = a}) . mapping _Sensitive
 
 -- | This value is not supported.
 gfpMarker :: Lens' GetFolderPath (Maybe Text)
-gfpMarker = lens _gfpMarker (\ s a -> s{_gfpMarker = a});
+gfpMarker = lens _gfpMarker (\ s a -> s{_gfpMarker = a})
 
 -- | The maximum number of levels in the hierarchy to return.
 gfpLimit :: Lens' GetFolderPath (Maybe Natural)
-gfpLimit = lens _gfpLimit (\ s a -> s{_gfpLimit = a}) . mapping _Nat;
+gfpLimit = lens _gfpLimit (\ s a -> s{_gfpLimit = a}) . mapping _Nat
 
 -- | A comma-separated list of values. Specify "NAME" to include the names of the parent folders.
 gfpFields :: Lens' GetFolderPath (Maybe Text)
-gfpFields = lens _gfpFields (\ s a -> s{_gfpFields = a});
+gfpFields = lens _gfpFields (\ s a -> s{_gfpFields = a})
 
 -- | The ID of the folder.
 gfpFolderId :: Lens' GetFolderPath Text
-gfpFolderId = lens _gfpFolderId (\ s a -> s{_gfpFolderId = a});
+gfpFolderId = lens _gfpFolderId (\ s a -> s{_gfpFolderId = a})
 
 instance AWSRequest GetFolderPath where
         type Rs GetFolderPath = GetFolderPathResponse
@@ -156,15 +156,15 @@ getFolderPathResponse
     -> GetFolderPathResponse
 getFolderPathResponse pResponseStatus_ =
   GetFolderPathResponse'
-  {_gfprsPath = Nothing, _gfprsResponseStatus = pResponseStatus_}
+    {_gfprsPath = Nothing, _gfprsResponseStatus = pResponseStatus_}
 
 
 -- | The path information.
 gfprsPath :: Lens' GetFolderPathResponse (Maybe ResourcePath)
-gfprsPath = lens _gfprsPath (\ s a -> s{_gfprsPath = a});
+gfprsPath = lens _gfprsPath (\ s a -> s{_gfprsPath = a})
 
 -- | -- | The response status code.
 gfprsResponseStatus :: Lens' GetFolderPathResponse Int
-gfprsResponseStatus = lens _gfprsResponseStatus (\ s a -> s{_gfprsResponseStatus = a});
+gfprsResponseStatus = lens _gfprsResponseStatus (\ s a -> s{_gfprsResponseStatus = a})
 
 instance NFData GetFolderPathResponse where

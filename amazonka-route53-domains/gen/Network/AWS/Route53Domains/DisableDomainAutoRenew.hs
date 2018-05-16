@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.DisableDomainAutoRenew
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ disableDomainAutoRenew pDomainName_ =
 
 -- | The name of the domain that you want to disable automatic renewal for.
 ddarDomainName :: Lens' DisableDomainAutoRenew Text
-ddarDomainName = lens _ddarDomainName (\ s a -> s{_ddarDomainName = a});
+ddarDomainName = lens _ddarDomainName (\ s a -> s{_ddarDomainName = a})
 
 instance AWSRequest DisableDomainAutoRenew where
         type Rs DisableDomainAutoRenew =
@@ -120,6 +120,6 @@ disableDomainAutoRenewResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ddarrsResponseStatus :: Lens' DisableDomainAutoRenewResponse Int
-ddarrsResponseStatus = lens _ddarrsResponseStatus (\ s a -> s{_ddarrsResponseStatus = a});
+ddarrsResponseStatus = lens _ddarrsResponseStatus (\ s a -> s{_ddarrsResponseStatus = a})
 
 instance NFData DisableDomainAutoRenewResponse where

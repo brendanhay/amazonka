@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.IAM
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -105,6 +105,9 @@ import Test.Tasty
 --
 --         , requestSimulateCustomPolicy $
 --             simulateCustomPolicy
+--
+--         , requestUpdateRole $
+--             updateRole
 --
 --         , requestDeleteRole $
 --             deleteRole
@@ -474,6 +477,9 @@ import Test.Tasty
 --
 --         , responseSimulateCustomPolicy $
 --             simulatePolicyResponse
+--
+--         , responseUpdateRole $
+--             updateRoleResponse
 --
 --         , responseDeleteRole $
 --             deleteRoleResponse
@@ -897,6 +903,11 @@ requestSimulateCustomPolicy :: SimulateCustomPolicy -> TestTree
 requestSimulateCustomPolicy = req
     "SimulateCustomPolicy"
     "fixture/SimulateCustomPolicy.yaml"
+
+requestUpdateRole :: UpdateRole -> TestTree
+requestUpdateRole = req
+    "UpdateRole"
+    "fixture/UpdateRole.yaml"
 
 requestDeleteRole :: DeleteRole -> TestTree
 requestDeleteRole = req
@@ -1561,6 +1572,13 @@ responseSimulateCustomPolicy = res
     "fixture/SimulateCustomPolicyResponse.proto"
     iam
     (Proxy :: Proxy SimulateCustomPolicy)
+
+responseUpdateRole :: UpdateRoleResponse -> TestTree
+responseUpdateRole = res
+    "UpdateRoleResponse"
+    "fixture/UpdateRoleResponse.proto"
+    iam
+    (Proxy :: Proxy UpdateRole)
 
 responseDeleteRole :: DeleteRoleResponse -> TestTree
 responseDeleteRole = res

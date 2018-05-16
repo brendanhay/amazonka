@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListDeviceDefinitions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,22 +55,22 @@ data ListDeviceDefinitions = ListDeviceDefinitions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lddNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lddNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lddMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lddMaxResults' - The maximum number of results to be returned per request.
 listDeviceDefinitions
     :: ListDeviceDefinitions
 listDeviceDefinitions =
   ListDeviceDefinitions' {_lddNextToken = Nothing, _lddMaxResults = Nothing}
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lddNextToken :: Lens' ListDeviceDefinitions (Maybe Text)
-lddNextToken = lens _lddNextToken (\ s a -> s{_lddNextToken = a});
+lddNextToken = lens _lddNextToken (\ s a -> s{_lddNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lddMaxResults :: Lens' ListDeviceDefinitions (Maybe Text)
-lddMaxResults = lens _lddMaxResults (\ s a -> s{_lddMaxResults = a});
+lddMaxResults = lens _lddMaxResults (\ s a -> s{_lddMaxResults = a})
 
 instance AWSRequest ListDeviceDefinitions where
         type Rs ListDeviceDefinitions =
@@ -118,7 +118,7 @@ data ListDeviceDefinitionsResponse = ListDeviceDefinitionsResponse'
 --
 -- * 'lddrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lddrsDefinitions' - Definitions
+-- * 'lddrsDefinitions' - Information about a definition.
 --
 -- * 'lddrsResponseStatus' - -- | The response status code.
 listDeviceDefinitionsResponse
@@ -126,22 +126,22 @@ listDeviceDefinitionsResponse
     -> ListDeviceDefinitionsResponse
 listDeviceDefinitionsResponse pResponseStatus_ =
   ListDeviceDefinitionsResponse'
-  { _lddrsNextToken = Nothing
-  , _lddrsDefinitions = Nothing
-  , _lddrsResponseStatus = pResponseStatus_
-  }
+    { _lddrsNextToken = Nothing
+    , _lddrsDefinitions = Nothing
+    , _lddrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lddrsNextToken :: Lens' ListDeviceDefinitionsResponse (Maybe Text)
-lddrsNextToken = lens _lddrsNextToken (\ s a -> s{_lddrsNextToken = a});
+lddrsNextToken = lens _lddrsNextToken (\ s a -> s{_lddrsNextToken = a})
 
--- | Definitions
+-- | Information about a definition.
 lddrsDefinitions :: Lens' ListDeviceDefinitionsResponse [DefinitionInformation]
-lddrsDefinitions = lens _lddrsDefinitions (\ s a -> s{_lddrsDefinitions = a}) . _Default . _Coerce;
+lddrsDefinitions = lens _lddrsDefinitions (\ s a -> s{_lddrsDefinitions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lddrsResponseStatus :: Lens' ListDeviceDefinitionsResponse Int
-lddrsResponseStatus = lens _lddrsResponseStatus (\ s a -> s{_lddrsResponseStatus = a});
+lddrsResponseStatus = lens _lddrsResponseStatus (\ s a -> s{_lddrsResponseStatus = a})
 
 instance NFData ListDeviceDefinitionsResponse where

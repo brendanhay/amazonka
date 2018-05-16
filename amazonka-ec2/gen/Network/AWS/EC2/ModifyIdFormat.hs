@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyIdFormat
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the ID format for the specified resource on a per-region basis. You can specify that resources should receive longer IDs (17-character IDs) when they are created. The following resource types support longer IDs: @instance@ | @reservation@ | @snapshot@ | @volume@ .
+-- Modifies the ID format for the specified resource on a per-region basis. You can specify that resources should receive longer IDs (17-character IDs) when they are created.
 --
+--
+-- This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
 --
 -- This setting applies to the IAM user who makes the request; it does not apply to the entire AWS account. By default, an IAM user defaults to the same settings as the root user. If you're using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html Resource IDs> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
@@ -61,7 +63,7 @@ data ModifyIdFormat = ModifyIdFormat'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mifResource' - The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
+-- * 'mifResource' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ . Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
 --
 -- * 'mifUseLongIds' - Indicate whether the resource should use longer IDs (17-character IDs).
 modifyIdFormat
@@ -72,13 +74,13 @@ modifyIdFormat pResource_ pUseLongIds_ =
   ModifyIdFormat' {_mifResource = pResource_, _mifUseLongIds = pUseLongIds_}
 
 
--- | The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
+-- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ . Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
 mifResource :: Lens' ModifyIdFormat Text
-mifResource = lens _mifResource (\ s a -> s{_mifResource = a});
+mifResource = lens _mifResource (\ s a -> s{_mifResource = a})
 
 -- | Indicate whether the resource should use longer IDs (17-character IDs).
 mifUseLongIds :: Lens' ModifyIdFormat Bool
-mifUseLongIds = lens _mifUseLongIds (\ s a -> s{_mifUseLongIds = a});
+mifUseLongIds = lens _mifUseLongIds (\ s a -> s{_mifUseLongIds = a})
 
 instance AWSRequest ModifyIdFormat where
         type Rs ModifyIdFormat = ModifyIdFormatResponse

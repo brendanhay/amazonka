@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.StartAssessmentRun
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,18 +64,18 @@ startAssessmentRun
     -> StartAssessmentRun
 startAssessmentRun pAssessmentTemplateARN_ =
   StartAssessmentRun'
-  { _sarAssessmentRunName = Nothing
-  , _sarAssessmentTemplateARN = pAssessmentTemplateARN_
-  }
+    { _sarAssessmentRunName = Nothing
+    , _sarAssessmentTemplateARN = pAssessmentTemplateARN_
+    }
 
 
 -- | You can specify the name for the assessment run. The name must be unique for the assessment template whose ARN is used to start the assessment run.
 sarAssessmentRunName :: Lens' StartAssessmentRun (Maybe Text)
-sarAssessmentRunName = lens _sarAssessmentRunName (\ s a -> s{_sarAssessmentRunName = a});
+sarAssessmentRunName = lens _sarAssessmentRunName (\ s a -> s{_sarAssessmentRunName = a})
 
 -- | The ARN of the assessment template of the assessment run that you want to start.
 sarAssessmentTemplateARN :: Lens' StartAssessmentRun Text
-sarAssessmentTemplateARN = lens _sarAssessmentTemplateARN (\ s a -> s{_sarAssessmentTemplateARN = a});
+sarAssessmentTemplateARN = lens _sarAssessmentTemplateARN (\ s a -> s{_sarAssessmentTemplateARN = a})
 
 instance AWSRequest StartAssessmentRun where
         type Rs StartAssessmentRun =
@@ -136,17 +136,17 @@ startAssessmentRunResponse
     -> StartAssessmentRunResponse
 startAssessmentRunResponse pResponseStatus_ pAssessmentRunARN_ =
   StartAssessmentRunResponse'
-  { _sarrsResponseStatus = pResponseStatus_
-  , _sarrsAssessmentRunARN = pAssessmentRunARN_
-  }
+    { _sarrsResponseStatus = pResponseStatus_
+    , _sarrsAssessmentRunARN = pAssessmentRunARN_
+    }
 
 
 -- | -- | The response status code.
 sarrsResponseStatus :: Lens' StartAssessmentRunResponse Int
-sarrsResponseStatus = lens _sarrsResponseStatus (\ s a -> s{_sarrsResponseStatus = a});
+sarrsResponseStatus = lens _sarrsResponseStatus (\ s a -> s{_sarrsResponseStatus = a})
 
 -- | The ARN of the assessment run that has been started.
 sarrsAssessmentRunARN :: Lens' StartAssessmentRunResponse Text
-sarrsAssessmentRunARN = lens _sarrsAssessmentRunARN (\ s a -> s{_sarrsAssessmentRunARN = a});
+sarrsAssessmentRunARN = lens _sarrsAssessmentRunARN (\ s a -> s{_sarrsAssessmentRunARN = a})
 
 instance NFData StartAssessmentRunResponse where

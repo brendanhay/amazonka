@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.PurchaseScheduledInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,23 +76,23 @@ purchaseScheduledInstances
     -> PurchaseScheduledInstances
 purchaseScheduledInstances pPurchaseRequests_ =
   PurchaseScheduledInstances'
-  { _psiClientToken = Nothing
-  , _psiDryRun = Nothing
-  , _psiPurchaseRequests = _List1 # pPurchaseRequests_
-  }
+    { _psiClientToken = Nothing
+    , _psiDryRun = Nothing
+    , _psiPurchaseRequests = _List1 # pPurchaseRequests_
+    }
 
 
 -- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 psiClientToken :: Lens' PurchaseScheduledInstances (Maybe Text)
-psiClientToken = lens _psiClientToken (\ s a -> s{_psiClientToken = a});
+psiClientToken = lens _psiClientToken (\ s a -> s{_psiClientToken = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 psiDryRun :: Lens' PurchaseScheduledInstances (Maybe Bool)
-psiDryRun = lens _psiDryRun (\ s a -> s{_psiDryRun = a});
+psiDryRun = lens _psiDryRun (\ s a -> s{_psiDryRun = a})
 
 -- | One or more purchase requests.
 psiPurchaseRequests :: Lens' PurchaseScheduledInstances (NonEmpty PurchaseRequest)
-psiPurchaseRequests = lens _psiPurchaseRequests (\ s a -> s{_psiPurchaseRequests = a}) . _List1;
+psiPurchaseRequests = lens _psiPurchaseRequests (\ s a -> s{_psiPurchaseRequests = a}) . _List1
 
 instance AWSRequest PurchaseScheduledInstances where
         type Rs PurchaseScheduledInstances =
@@ -149,18 +149,18 @@ purchaseScheduledInstancesResponse
     -> PurchaseScheduledInstancesResponse
 purchaseScheduledInstancesResponse pResponseStatus_ =
   PurchaseScheduledInstancesResponse'
-  { _psirsScheduledInstanceSet = Nothing
-  , _psirsResponseStatus = pResponseStatus_
-  }
+    { _psirsScheduledInstanceSet = Nothing
+    , _psirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the Scheduled Instances.
 psirsScheduledInstanceSet :: Lens' PurchaseScheduledInstancesResponse [ScheduledInstance]
-psirsScheduledInstanceSet = lens _psirsScheduledInstanceSet (\ s a -> s{_psirsScheduledInstanceSet = a}) . _Default . _Coerce;
+psirsScheduledInstanceSet = lens _psirsScheduledInstanceSet (\ s a -> s{_psirsScheduledInstanceSet = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 psirsResponseStatus :: Lens' PurchaseScheduledInstancesResponse Int
-psirsResponseStatus = lens _psirsResponseStatus (\ s a -> s{_psirsResponseStatus = a});
+psirsResponseStatus = lens _psirsResponseStatus (\ s a -> s{_psirsResponseStatus = a})
 
 instance NFData PurchaseScheduledInstancesResponse
          where

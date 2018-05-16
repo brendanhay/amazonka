@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetClientCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ newtype GetClientCertificate = GetClientCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gccClientCertificateId' - The identifier of the 'ClientCertificate' resource to be described.
+-- * 'gccClientCertificateId' - [Required] The identifier of the 'ClientCertificate' resource to be described.
 getClientCertificate
     :: Text -- ^ 'gccClientCertificateId'
     -> GetClientCertificate
@@ -69,9 +69,9 @@ getClientCertificate pClientCertificateId_ =
   GetClientCertificate' {_gccClientCertificateId = pClientCertificateId_}
 
 
--- | The identifier of the 'ClientCertificate' resource to be described.
+-- | [Required] The identifier of the 'ClientCertificate' resource to be described.
 gccClientCertificateId :: Lens' GetClientCertificate Text
-gccClientCertificateId = lens _gccClientCertificateId (\ s a -> s{_gccClientCertificateId = a});
+gccClientCertificateId = lens _gccClientCertificateId (\ s a -> s{_gccClientCertificateId = a})
 
 instance AWSRequest GetClientCertificate where
         type Rs GetClientCertificate = ClientCertificate

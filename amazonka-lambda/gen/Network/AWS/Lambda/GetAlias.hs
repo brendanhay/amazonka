@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,10 +36,12 @@ module Network.AWS.Lambda.GetAlias
     , aliasConfiguration
     , AliasConfiguration
     -- * Response Lenses
+    , acRoutingConfig
     , acName
     , acFunctionVersion
     , acAliasARN
     , acDescription
+    , acRevisionId
     ) where
 
 import Network.AWS.Lambda.Types
@@ -73,11 +75,11 @@ getAlias pFunctionName_ pName_ =
 
 -- | Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 gaFunctionName :: Lens' GetAlias Text
-gaFunctionName = lens _gaFunctionName (\ s a -> s{_gaFunctionName = a});
+gaFunctionName = lens _gaFunctionName (\ s a -> s{_gaFunctionName = a})
 
 -- | Name of the alias for which you want to retrieve information.
 gaName :: Lens' GetAlias Text
-gaName = lens _gaName (\ s a -> s{_gaName = a});
+gaName = lens _gaName (\ s a -> s{_gaName = a})
 
 instance AWSRequest GetAlias where
         type Rs GetAlias = AliasConfiguration

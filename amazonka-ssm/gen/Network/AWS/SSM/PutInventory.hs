@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.PutInventory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,6 +34,7 @@ module Network.AWS.SSM.PutInventory
     , putInventoryResponse
     , PutInventoryResponse
     -- * Response Lenses
+    , pirsMessage
     , pirsResponseStatus
     ) where
 
@@ -68,19 +69,20 @@ putInventory pInstanceId_ pItems_ =
 
 -- | One or more instance IDs where you want to add or update inventory items.
 piInstanceId :: Lens' PutInventory Text
-piInstanceId = lens _piInstanceId (\ s a -> s{_piInstanceId = a});
+piInstanceId = lens _piInstanceId (\ s a -> s{_piInstanceId = a})
 
 -- | The inventory items that you want to add or update on instances.
 piItems :: Lens' PutInventory (NonEmpty InventoryItem)
-piItems = lens _piItems (\ s a -> s{_piItems = a}) . _List1;
+piItems = lens _piItems (\ s a -> s{_piItems = a}) . _List1
 
 instance AWSRequest PutInventory where
         type Rs PutInventory = PutInventoryResponse
         request = postJSON ssm
         response
-          = receiveEmpty
+          = receiveJSON
               (\ s h x ->
-                 PutInventoryResponse' <$> (pure (fromEnum s)))
+                 PutInventoryResponse' <$>
+                   (x .?> "Message") <*> (pure (fromEnum s)))
 
 instance Hashable PutInventory where
 
@@ -109,8 +111,9 @@ instance ToQuery PutInventory where
         toQuery = const mempty
 
 -- | /See:/ 'putInventoryResponse' smart constructor.
-newtype PutInventoryResponse = PutInventoryResponse'
-  { _pirsResponseStatus :: Int
+data PutInventoryResponse = PutInventoryResponse'
+  { _pirsMessage        :: !(Maybe Text)
+  , _pirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,16 +121,23 @@ newtype PutInventoryResponse = PutInventoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'pirsMessage' - Information about the request.
+--
 -- * 'pirsResponseStatus' - -- | The response status code.
 putInventoryResponse
     :: Int -- ^ 'pirsResponseStatus'
     -> PutInventoryResponse
 putInventoryResponse pResponseStatus_ =
-  PutInventoryResponse' {_pirsResponseStatus = pResponseStatus_}
+  PutInventoryResponse'
+    {_pirsMessage = Nothing, _pirsResponseStatus = pResponseStatus_}
 
+
+-- | Information about the request.
+pirsMessage :: Lens' PutInventoryResponse (Maybe Text)
+pirsMessage = lens _pirsMessage (\ s a -> s{_pirsMessage = a})
 
 -- | -- | The response status code.
 pirsResponseStatus :: Lens' PutInventoryResponse Int
-pirsResponseStatus = lens _pirsResponseStatus (\ s a -> s{_pirsResponseStatus = a});
+pirsResponseStatus = lens _pirsResponseStatus (\ s a -> s{_pirsResponseStatus = a})
 
 instance NFData PutInventoryResponse where

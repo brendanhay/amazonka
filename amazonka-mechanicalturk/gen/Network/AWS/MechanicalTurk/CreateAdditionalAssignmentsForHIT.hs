@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.CreateAdditionalAssignmentsForHIT
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ createAdditionalAssignmentsForHIT
     -> CreateAdditionalAssignmentsForHIT
 createAdditionalAssignmentsForHIT pHITId_ pNumberOfAdditionalAssignments_ =
   CreateAdditionalAssignmentsForHIT'
-  { _caafhitUniqueRequestToken = Nothing
-  , _caafhitHITId = pHITId_
-  , _caafhitNumberOfAdditionalAssignments = pNumberOfAdditionalAssignments_
-  }
+    { _caafhitUniqueRequestToken = Nothing
+    , _caafhitHITId = pHITId_
+    , _caafhitNumberOfAdditionalAssignments = pNumberOfAdditionalAssignments_
+    }
 
 
 -- | A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
 caafhitUniqueRequestToken :: Lens' CreateAdditionalAssignmentsForHIT (Maybe Text)
-caafhitUniqueRequestToken = lens _caafhitUniqueRequestToken (\ s a -> s{_caafhitUniqueRequestToken = a});
+caafhitUniqueRequestToken = lens _caafhitUniqueRequestToken (\ s a -> s{_caafhitUniqueRequestToken = a})
 
 -- | The ID of the HIT to extend.
 caafhitHITId :: Lens' CreateAdditionalAssignmentsForHIT Text
-caafhitHITId = lens _caafhitHITId (\ s a -> s{_caafhitHITId = a});
+caafhitHITId = lens _caafhitHITId (\ s a -> s{_caafhitHITId = a})
 
 -- | The number of additional assignments to request for this HIT.
 caafhitNumberOfAdditionalAssignments :: Lens' CreateAdditionalAssignmentsForHIT Int
-caafhitNumberOfAdditionalAssignments = lens _caafhitNumberOfAdditionalAssignments (\ s a -> s{_caafhitNumberOfAdditionalAssignments = a});
+caafhitNumberOfAdditionalAssignments = lens _caafhitNumberOfAdditionalAssignments (\ s a -> s{_caafhitNumberOfAdditionalAssignments = a})
 
 instance AWSRequest CreateAdditionalAssignmentsForHIT
          where
@@ -152,12 +152,12 @@ createAdditionalAssignmentsForHITResponse
     -> CreateAdditionalAssignmentsForHITResponse
 createAdditionalAssignmentsForHITResponse pResponseStatus_ =
   CreateAdditionalAssignmentsForHITResponse'
-  {_caafhitrsResponseStatus = pResponseStatus_}
+    {_caafhitrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 caafhitrsResponseStatus :: Lens' CreateAdditionalAssignmentsForHITResponse Int
-caafhitrsResponseStatus = lens _caafhitrsResponseStatus (\ s a -> s{_caafhitrsResponseStatus = a});
+caafhitrsResponseStatus = lens _caafhitrsResponseStatus (\ s a -> s{_caafhitrsResponseStatus = a})
 
 instance NFData
            CreateAdditionalAssignmentsForHITResponse

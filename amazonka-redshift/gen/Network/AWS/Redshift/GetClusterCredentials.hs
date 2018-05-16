@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.GetClusterCredentials
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,7 +86,7 @@ data GetClusterCredentials = GetClusterCredentials'
 --
 -- * 'gccDBName' - The name of a database that @DbUser@ is authorized to log on to. If @DbName@ is not specified, @DbUser@ can log on to any existing database. Constraints:     * Must be 1 to 64 alphanumeric characters or hyphens     * Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.     * First character must be a letter.     * Must not contain a colon ( : ) or slash ( / ).      * Cannot be a reserved word. A list of reserved words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
 --
--- * 'gccDBUser' - The name of a database user. If a user name matching @DbUser@ exists in the database, the temporary user credentials have the same permissions as the existing user. If @DbUser@ doesn't exist in the database and @Autocreate@ is @True@ , a new user is created using the value for @DbUser@ with PUBLIC permissions. If a database user matching the value for @DbUser@ doesn't exist and @Autocreate@ is @False@ , then the command succeeds but the connection attempt will fail because the user doesn't exist in the database. For more information, see <http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html CREATE USER> in the Amazon Redshift Database Developer Guide.  Constraints:     * Must be 1 to 64 alphanumeric characters or hyphens     * Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.     * First character must be a letter.     * Must not contain a colon ( : ) or slash ( / ).      * Cannot be a reserved word. A list of reserved words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
+-- * 'gccDBUser' - The name of a database user. If a user name matching @DbUser@ exists in the database, the temporary user credentials have the same permissions as the existing user. If @DbUser@ doesn't exist in the database and @Autocreate@ is @True@ , a new user is created using the value for @DbUser@ with PUBLIC permissions. If a database user matching the value for @DbUser@ doesn't exist and @Autocreate@ is @False@ , then the command succeeds but the connection attempt will fail because the user doesn't exist in the database. For more information, see <http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html CREATE USER> in the Amazon Redshift Database Developer Guide.  Constraints:     * Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be @PUBLIC@ .     * Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.     * First character must be a letter.     * Must not contain a colon ( : ) or slash ( / ).      * Cannot be a reserved word. A list of reserved words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
 --
 -- * 'gccClusterIdentifier' - The unique identifier of the cluster that contains the database for which your are requesting credentials. This parameter is case sensitive.
 getClusterCredentials
@@ -95,38 +95,38 @@ getClusterCredentials
     -> GetClusterCredentials
 getClusterCredentials pDBUser_ pClusterIdentifier_ =
   GetClusterCredentials'
-  { _gccDBGroups = Nothing
-  , _gccDurationSeconds = Nothing
-  , _gccAutoCreate = Nothing
-  , _gccDBName = Nothing
-  , _gccDBUser = pDBUser_
-  , _gccClusterIdentifier = pClusterIdentifier_
-  }
+    { _gccDBGroups = Nothing
+    , _gccDurationSeconds = Nothing
+    , _gccAutoCreate = Nothing
+    , _gccDBName = Nothing
+    , _gccDBUser = pDBUser_
+    , _gccClusterIdentifier = pClusterIdentifier_
+    }
 
 
 -- | A list of the names of existing database groups that the user named in @DbUser@ will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to PUBLIC. Database group name constraints     * Must be 1 to 64 alphanumeric characters or hyphens     * Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.     * First character must be a letter.     * Must not contain a colon ( : ) or slash ( / ).      * Cannot be a reserved word. A list of reserved words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
 gccDBGroups :: Lens' GetClusterCredentials [Text]
-gccDBGroups = lens _gccDBGroups (\ s a -> s{_gccDBGroups = a}) . _Default . _Coerce;
+gccDBGroups = lens _gccDBGroups (\ s a -> s{_gccDBGroups = a}) . _Default . _Coerce
 
 -- | The number of seconds until the returned temporary password expires. Constraint: minimum 900, maximum 3600. Default: 900
 gccDurationSeconds :: Lens' GetClusterCredentials (Maybe Int)
-gccDurationSeconds = lens _gccDurationSeconds (\ s a -> s{_gccDurationSeconds = a});
+gccDurationSeconds = lens _gccDurationSeconds (\ s a -> s{_gccDurationSeconds = a})
 
 -- | Create a database user with the name specified for the user named in @DbUser@ if one does not exist.
 gccAutoCreate :: Lens' GetClusterCredentials (Maybe Bool)
-gccAutoCreate = lens _gccAutoCreate (\ s a -> s{_gccAutoCreate = a});
+gccAutoCreate = lens _gccAutoCreate (\ s a -> s{_gccAutoCreate = a})
 
 -- | The name of a database that @DbUser@ is authorized to log on to. If @DbName@ is not specified, @DbUser@ can log on to any existing database. Constraints:     * Must be 1 to 64 alphanumeric characters or hyphens     * Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.     * First character must be a letter.     * Must not contain a colon ( : ) or slash ( / ).      * Cannot be a reserved word. A list of reserved words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
 gccDBName :: Lens' GetClusterCredentials (Maybe Text)
-gccDBName = lens _gccDBName (\ s a -> s{_gccDBName = a});
+gccDBName = lens _gccDBName (\ s a -> s{_gccDBName = a})
 
--- | The name of a database user. If a user name matching @DbUser@ exists in the database, the temporary user credentials have the same permissions as the existing user. If @DbUser@ doesn't exist in the database and @Autocreate@ is @True@ , a new user is created using the value for @DbUser@ with PUBLIC permissions. If a database user matching the value for @DbUser@ doesn't exist and @Autocreate@ is @False@ , then the command succeeds but the connection attempt will fail because the user doesn't exist in the database. For more information, see <http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html CREATE USER> in the Amazon Redshift Database Developer Guide.  Constraints:     * Must be 1 to 64 alphanumeric characters or hyphens     * Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.     * First character must be a letter.     * Must not contain a colon ( : ) or slash ( / ).      * Cannot be a reserved word. A list of reserved words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
+-- | The name of a database user. If a user name matching @DbUser@ exists in the database, the temporary user credentials have the same permissions as the existing user. If @DbUser@ doesn't exist in the database and @Autocreate@ is @True@ , a new user is created using the value for @DbUser@ with PUBLIC permissions. If a database user matching the value for @DbUser@ doesn't exist and @Autocreate@ is @False@ , then the command succeeds but the connection attempt will fail because the user doesn't exist in the database. For more information, see <http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html CREATE USER> in the Amazon Redshift Database Developer Guide.  Constraints:     * Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be @PUBLIC@ .     * Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.     * First character must be a letter.     * Must not contain a colon ( : ) or slash ( / ).      * Cannot be a reserved word. A list of reserved words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
 gccDBUser :: Lens' GetClusterCredentials Text
-gccDBUser = lens _gccDBUser (\ s a -> s{_gccDBUser = a});
+gccDBUser = lens _gccDBUser (\ s a -> s{_gccDBUser = a})
 
 -- | The unique identifier of the cluster that contains the database for which your are requesting credentials. This parameter is case sensitive.
 gccClusterIdentifier :: Lens' GetClusterCredentials Text
-gccClusterIdentifier = lens _gccClusterIdentifier (\ s a -> s{_gccClusterIdentifier = a});
+gccClusterIdentifier = lens _gccClusterIdentifier (\ s a -> s{_gccClusterIdentifier = a})
 
 instance AWSRequest GetClusterCredentials where
         type Rs GetClusterCredentials =
@@ -191,27 +191,27 @@ getClusterCredentialsResponse
     -> GetClusterCredentialsResponse
 getClusterCredentialsResponse pResponseStatus_ =
   GetClusterCredentialsResponse'
-  { _gccrsDBUser = Nothing
-  , _gccrsExpiration = Nothing
-  , _gccrsDBPassword = Nothing
-  , _gccrsResponseStatus = pResponseStatus_
-  }
+    { _gccrsDBUser = Nothing
+    , _gccrsExpiration = Nothing
+    , _gccrsDBPassword = Nothing
+    , _gccrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A database user name that is authorized to log on to the database @DbName@ using the password @DbPassword@ . If the specified DbUser exists in the database, the new user name has the same database privileges as the the user named in DbUser. By default, the user is added to PUBLIC. If the @DbGroups@ parameter is specifed, @DbUser@ is added to the listed groups for any sessions created using these credentials.
 gccrsDBUser :: Lens' GetClusterCredentialsResponse (Maybe Text)
-gccrsDBUser = lens _gccrsDBUser (\ s a -> s{_gccrsDBUser = a});
+gccrsDBUser = lens _gccrsDBUser (\ s a -> s{_gccrsDBUser = a})
 
 -- | The date and time the password in @DbPassword@ expires.
 gccrsExpiration :: Lens' GetClusterCredentialsResponse (Maybe UTCTime)
-gccrsExpiration = lens _gccrsExpiration (\ s a -> s{_gccrsExpiration = a}) . mapping _Time;
+gccrsExpiration = lens _gccrsExpiration (\ s a -> s{_gccrsExpiration = a}) . mapping _Time
 
 -- | A temporary password that authorizes the user name returned by @DbUser@ to log on to the database @DbName@ .
 gccrsDBPassword :: Lens' GetClusterCredentialsResponse (Maybe Text)
-gccrsDBPassword = lens _gccrsDBPassword (\ s a -> s{_gccrsDBPassword = a}) . mapping _Sensitive;
+gccrsDBPassword = lens _gccrsDBPassword (\ s a -> s{_gccrsDBPassword = a}) . mapping _Sensitive
 
 -- | -- | The response status code.
 gccrsResponseStatus :: Lens' GetClusterCredentialsResponse Int
-gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a});
+gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a})
 
 instance NFData GetClusterCredentialsResponse where

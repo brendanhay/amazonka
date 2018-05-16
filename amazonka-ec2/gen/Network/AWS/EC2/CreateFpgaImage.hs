@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateFpgaImage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,38 +85,38 @@ createFpgaImage
     -> CreateFpgaImage
 createFpgaImage pInputStorageLocation_ =
   CreateFpgaImage'
-  { _creClientToken = Nothing
-  , _creLogsStorageLocation = Nothing
-  , _creName = Nothing
-  , _creDescription = Nothing
-  , _creDryRun = Nothing
-  , _creInputStorageLocation = pInputStorageLocation_
-  }
+    { _creClientToken = Nothing
+    , _creLogsStorageLocation = Nothing
+    , _creName = Nothing
+    , _creDescription = Nothing
+    , _creDryRun = Nothing
+    , _creInputStorageLocation = pInputStorageLocation_
+    }
 
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
 creClientToken :: Lens' CreateFpgaImage (Maybe Text)
-creClientToken = lens _creClientToken (\ s a -> s{_creClientToken = a});
+creClientToken = lens _creClientToken (\ s a -> s{_creClientToken = a})
 
 -- | The location in Amazon S3 for the output logs.
 creLogsStorageLocation :: Lens' CreateFpgaImage (Maybe StorageLocation)
-creLogsStorageLocation = lens _creLogsStorageLocation (\ s a -> s{_creLogsStorageLocation = a});
+creLogsStorageLocation = lens _creLogsStorageLocation (\ s a -> s{_creLogsStorageLocation = a})
 
 -- | A name for the AFI.
 creName :: Lens' CreateFpgaImage (Maybe Text)
-creName = lens _creName (\ s a -> s{_creName = a});
+creName = lens _creName (\ s a -> s{_creName = a})
 
 -- | A description for the AFI.
 creDescription :: Lens' CreateFpgaImage (Maybe Text)
-creDescription = lens _creDescription (\ s a -> s{_creDescription = a});
+creDescription = lens _creDescription (\ s a -> s{_creDescription = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 creDryRun :: Lens' CreateFpgaImage (Maybe Bool)
-creDryRun = lens _creDryRun (\ s a -> s{_creDryRun = a});
+creDryRun = lens _creDryRun (\ s a -> s{_creDryRun = a})
 
 -- | The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.
 creInputStorageLocation :: Lens' CreateFpgaImage StorageLocation
-creInputStorageLocation = lens _creInputStorageLocation (\ s a -> s{_creInputStorageLocation = a});
+creInputStorageLocation = lens _creInputStorageLocation (\ s a -> s{_creInputStorageLocation = a})
 
 instance AWSRequest CreateFpgaImage where
         type Rs CreateFpgaImage = CreateFpgaImageResponse
@@ -171,22 +171,22 @@ createFpgaImageResponse
     -> CreateFpgaImageResponse
 createFpgaImageResponse pResponseStatus_ =
   CreateFpgaImageResponse'
-  { _cfirsFpgaImageId = Nothing
-  , _cfirsFpgaImageGlobalId = Nothing
-  , _cfirsResponseStatus = pResponseStatus_
-  }
+    { _cfirsFpgaImageId = Nothing
+    , _cfirsFpgaImageGlobalId = Nothing
+    , _cfirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The FPGA image identifier (AFI ID).
 cfirsFpgaImageId :: Lens' CreateFpgaImageResponse (Maybe Text)
-cfirsFpgaImageId = lens _cfirsFpgaImageId (\ s a -> s{_cfirsFpgaImageId = a});
+cfirsFpgaImageId = lens _cfirsFpgaImageId (\ s a -> s{_cfirsFpgaImageId = a})
 
 -- | The global FPGA image identifier (AGFI ID).
 cfirsFpgaImageGlobalId :: Lens' CreateFpgaImageResponse (Maybe Text)
-cfirsFpgaImageGlobalId = lens _cfirsFpgaImageGlobalId (\ s a -> s{_cfirsFpgaImageGlobalId = a});
+cfirsFpgaImageGlobalId = lens _cfirsFpgaImageGlobalId (\ s a -> s{_cfirsFpgaImageGlobalId = a})
 
 -- | -- | The response status code.
 cfirsResponseStatus :: Lens' CreateFpgaImageResponse Int
-cfirsResponseStatus = lens _cfirsResponseStatus (\ s a -> s{_cfirsResponseStatus = a});
+cfirsResponseStatus = lens _cfirsResponseStatus (\ s a -> s{_cfirsResponseStatus = a})
 
 instance NFData CreateFpgaImageResponse where

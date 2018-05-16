@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateReservedInstancesListing
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,28 +84,28 @@ createReservedInstancesListing
     -> CreateReservedInstancesListing
 createReservedInstancesListing pClientToken_ pInstanceCount_ pReservedInstancesId_ =
   CreateReservedInstancesListing'
-  { _crilClientToken = pClientToken_
-  , _crilInstanceCount = pInstanceCount_
-  , _crilPriceSchedules = mempty
-  , _crilReservedInstancesId = pReservedInstancesId_
-  }
+    { _crilClientToken = pClientToken_
+    , _crilInstanceCount = pInstanceCount_
+    , _crilPriceSchedules = mempty
+    , _crilReservedInstancesId = pReservedInstancesId_
+    }
 
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 crilClientToken :: Lens' CreateReservedInstancesListing Text
-crilClientToken = lens _crilClientToken (\ s a -> s{_crilClientToken = a});
+crilClientToken = lens _crilClientToken (\ s a -> s{_crilClientToken = a})
 
 -- | The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.
 crilInstanceCount :: Lens' CreateReservedInstancesListing Int
-crilInstanceCount = lens _crilInstanceCount (\ s a -> s{_crilInstanceCount = a});
+crilInstanceCount = lens _crilInstanceCount (\ s a -> s{_crilInstanceCount = a})
 
 -- | A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.
 crilPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
-crilPriceSchedules = lens _crilPriceSchedules (\ s a -> s{_crilPriceSchedules = a}) . _Coerce;
+crilPriceSchedules = lens _crilPriceSchedules (\ s a -> s{_crilPriceSchedules = a}) . _Coerce
 
 -- | The ID of the active Standard Reserved Instance.
 crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
-crilReservedInstancesId = lens _crilReservedInstancesId (\ s a -> s{_crilReservedInstancesId = a});
+crilReservedInstancesId = lens _crilReservedInstancesId (\ s a -> s{_crilReservedInstancesId = a})
 
 instance AWSRequest CreateReservedInstancesListing
          where
@@ -166,18 +166,18 @@ createReservedInstancesListingResponse
     -> CreateReservedInstancesListingResponse
 createReservedInstancesListingResponse pResponseStatus_ =
   CreateReservedInstancesListingResponse'
-  { _crilrrsReservedInstancesListings = Nothing
-  , _crilrrsResponseStatus = pResponseStatus_
-  }
+    { _crilrrsReservedInstancesListings = Nothing
+    , _crilrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the Standard Reserved Instance listing.
 crilrrsReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
-crilrrsReservedInstancesListings = lens _crilrrsReservedInstancesListings (\ s a -> s{_crilrrsReservedInstancesListings = a}) . _Default . _Coerce;
+crilrrsReservedInstancesListings = lens _crilrrsReservedInstancesListings (\ s a -> s{_crilrrsReservedInstancesListings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 crilrrsResponseStatus :: Lens' CreateReservedInstancesListingResponse Int
-crilrrsResponseStatus = lens _crilrrsResponseStatus (\ s a -> s{_crilrrsResponseStatus = a});
+crilrrsResponseStatus = lens _crilrrsResponseStatus (\ s a -> s{_crilrrsResponseStatus = a})
 
 instance NFData
            CreateReservedInstancesListingResponse

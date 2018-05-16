@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.CreateSecurityConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,23 +59,23 @@ data CreateSecurityConfiguration = CreateSecurityConfiguration'
 --
 -- * 'cscName' - The name of the security configuration.
 --
--- * 'cscSecurityConfiguration' - The security configuration details in JSON format.
+-- * 'cscSecurityConfiguration' - The security configuration details in JSON format. For JSON parameters and examples, see <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html Use Security Configurations to Set Up Cluster Security> in the /Amazon EMR Management Guide/ .
 createSecurityConfiguration
     :: Text -- ^ 'cscName'
     -> Text -- ^ 'cscSecurityConfiguration'
     -> CreateSecurityConfiguration
 createSecurityConfiguration pName_ pSecurityConfiguration_ =
   CreateSecurityConfiguration'
-  {_cscName = pName_, _cscSecurityConfiguration = pSecurityConfiguration_}
+    {_cscName = pName_, _cscSecurityConfiguration = pSecurityConfiguration_}
 
 
 -- | The name of the security configuration.
 cscName :: Lens' CreateSecurityConfiguration Text
-cscName = lens _cscName (\ s a -> s{_cscName = a});
+cscName = lens _cscName (\ s a -> s{_cscName = a})
 
--- | The security configuration details in JSON format.
+-- | The security configuration details in JSON format. For JSON parameters and examples, see <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html Use Security Configurations to Set Up Cluster Security> in the /Amazon EMR Management Guide/ .
 cscSecurityConfiguration :: Lens' CreateSecurityConfiguration Text
-cscSecurityConfiguration = lens _cscSecurityConfiguration (\ s a -> s{_cscSecurityConfiguration = a});
+cscSecurityConfiguration = lens _cscSecurityConfiguration (\ s a -> s{_cscSecurityConfiguration = a})
 
 instance AWSRequest CreateSecurityConfiguration where
         type Rs CreateSecurityConfiguration =
@@ -141,23 +141,23 @@ createSecurityConfigurationResponse
     -> CreateSecurityConfigurationResponse
 createSecurityConfigurationResponse pResponseStatus_ pName_ pCreationDateTime_ =
   CreateSecurityConfigurationResponse'
-  { _cscrsResponseStatus = pResponseStatus_
-  , _cscrsName = pName_
-  , _cscrsCreationDateTime = _Time # pCreationDateTime_
-  }
+    { _cscrsResponseStatus = pResponseStatus_
+    , _cscrsName = pName_
+    , _cscrsCreationDateTime = _Time # pCreationDateTime_
+    }
 
 
 -- | -- | The response status code.
 cscrsResponseStatus :: Lens' CreateSecurityConfigurationResponse Int
-cscrsResponseStatus = lens _cscrsResponseStatus (\ s a -> s{_cscrsResponseStatus = a});
+cscrsResponseStatus = lens _cscrsResponseStatus (\ s a -> s{_cscrsResponseStatus = a})
 
 -- | The name of the security configuration.
 cscrsName :: Lens' CreateSecurityConfigurationResponse Text
-cscrsName = lens _cscrsName (\ s a -> s{_cscrsName = a});
+cscrsName = lens _cscrsName (\ s a -> s{_cscrsName = a})
 
 -- | The date and time the security configuration was created.
 cscrsCreationDateTime :: Lens' CreateSecurityConfigurationResponse UTCTime
-cscrsCreationDateTime = lens _cscrsCreationDateTime (\ s a -> s{_cscrsCreationDateTime = a}) . _Time;
+cscrsCreationDateTime = lens _cscrsCreationDateTime (\ s a -> s{_cscrsCreationDateTime = a}) . _Time
 
 instance NFData CreateSecurityConfigurationResponse
          where

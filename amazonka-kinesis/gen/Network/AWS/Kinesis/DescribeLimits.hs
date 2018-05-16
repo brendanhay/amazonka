@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DescribeLimits
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 --
 -- If you update your account limits, the old limits might be returned for a few minutes.
 --
--- This operation has a limit of 1 transaction per second per account.
+-- This operation has a limit of one transaction per second per account.
 --
 module Network.AWS.Kinesis.DescribeLimits
     (
@@ -116,22 +116,22 @@ describeLimitsResponse
     -> DescribeLimitsResponse
 describeLimitsResponse pResponseStatus_ pShardLimit_ pOpenShardCount_ =
   DescribeLimitsResponse'
-  { _dlrsResponseStatus = pResponseStatus_
-  , _dlrsShardLimit = _Nat # pShardLimit_
-  , _dlrsOpenShardCount = _Nat # pOpenShardCount_
-  }
+    { _dlrsResponseStatus = pResponseStatus_
+    , _dlrsShardLimit = _Nat # pShardLimit_
+    , _dlrsOpenShardCount = _Nat # pOpenShardCount_
+    }
 
 
 -- | -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLimitsResponse Int
-dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a})
 
 -- | The maximum number of shards.
 dlrsShardLimit :: Lens' DescribeLimitsResponse Natural
-dlrsShardLimit = lens _dlrsShardLimit (\ s a -> s{_dlrsShardLimit = a}) . _Nat;
+dlrsShardLimit = lens _dlrsShardLimit (\ s a -> s{_dlrsShardLimit = a}) . _Nat
 
 -- | The number of open shards.
 dlrsOpenShardCount :: Lens' DescribeLimitsResponse Natural
-dlrsOpenShardCount = lens _dlrsOpenShardCount (\ s a -> s{_dlrsOpenShardCount = a}) . _Nat;
+dlrsOpenShardCount = lens _dlrsOpenShardCount (\ s a -> s{_dlrsOpenShardCount = a}) . _Nat
 
 instance NFData DescribeLimitsResponse where

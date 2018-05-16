@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.RefreshSchemas
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,18 +69,18 @@ refreshSchemas
     -> RefreshSchemas
 refreshSchemas pEndpointARN_ pReplicationInstanceARN_ =
   RefreshSchemas'
-  { _rsEndpointARN = pEndpointARN_
-  , _rsReplicationInstanceARN = pReplicationInstanceARN_
-  }
+    { _rsEndpointARN = pEndpointARN_
+    , _rsReplicationInstanceARN = pReplicationInstanceARN_
+    }
 
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 rsEndpointARN :: Lens' RefreshSchemas Text
-rsEndpointARN = lens _rsEndpointARN (\ s a -> s{_rsEndpointARN = a});
+rsEndpointARN = lens _rsEndpointARN (\ s a -> s{_rsEndpointARN = a})
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 rsReplicationInstanceARN :: Lens' RefreshSchemas Text
-rsReplicationInstanceARN = lens _rsReplicationInstanceARN (\ s a -> s{_rsReplicationInstanceARN = a});
+rsReplicationInstanceARN = lens _rsReplicationInstanceARN (\ s a -> s{_rsReplicationInstanceARN = a})
 
 instance AWSRequest RefreshSchemas where
         type Rs RefreshSchemas = RefreshSchemasResponse
@@ -143,15 +143,17 @@ refreshSchemasResponse
     -> RefreshSchemasResponse
 refreshSchemasResponse pResponseStatus_ =
   RefreshSchemasResponse'
-  {_rsrsRefreshSchemasStatus = Nothing, _rsrsResponseStatus = pResponseStatus_}
+    { _rsrsRefreshSchemasStatus = Nothing
+    , _rsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the refreshed schema.
 rsrsRefreshSchemasStatus :: Lens' RefreshSchemasResponse (Maybe RefreshSchemasStatus)
-rsrsRefreshSchemasStatus = lens _rsrsRefreshSchemasStatus (\ s a -> s{_rsrsRefreshSchemasStatus = a});
+rsrsRefreshSchemasStatus = lens _rsrsRefreshSchemasStatus (\ s a -> s{_rsrsRefreshSchemasStatus = a})
 
 -- | -- | The response status code.
 rsrsResponseStatus :: Lens' RefreshSchemasResponse Int
-rsrsResponseStatus = lens _rsrsResponseStatus (\ s a -> s{_rsrsResponseStatus = a});
+rsrsResponseStatus = lens _rsrsResponseStatus (\ s a -> s{_rsrsResponseStatus = a})
 
 instance NFData RefreshSchemasResponse where

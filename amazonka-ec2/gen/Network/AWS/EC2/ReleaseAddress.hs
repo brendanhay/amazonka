@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReleaseAddress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,20 +76,20 @@ releaseAddress
     :: ReleaseAddress
 releaseAddress =
   ReleaseAddress'
-  {_raAllocationId = Nothing, _raPublicIP = Nothing, _raDryRun = Nothing}
+    {_raAllocationId = Nothing, _raPublicIP = Nothing, _raDryRun = Nothing}
 
 
 -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
 raAllocationId :: Lens' ReleaseAddress (Maybe Text)
-raAllocationId = lens _raAllocationId (\ s a -> s{_raAllocationId = a});
+raAllocationId = lens _raAllocationId (\ s a -> s{_raAllocationId = a})
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
 raPublicIP :: Lens' ReleaseAddress (Maybe Text)
-raPublicIP = lens _raPublicIP (\ s a -> s{_raPublicIP = a});
+raPublicIP = lens _raPublicIP (\ s a -> s{_raPublicIP = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 raDryRun :: Lens' ReleaseAddress (Maybe Bool)
-raDryRun = lens _raDryRun (\ s a -> s{_raDryRun = a});
+raDryRun = lens _raDryRun (\ s a -> s{_raDryRun = a})
 
 instance AWSRequest ReleaseAddress where
         type Rs ReleaseAddress = ReleaseAddressResponse

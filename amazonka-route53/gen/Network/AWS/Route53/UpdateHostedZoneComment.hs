@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateHostedZoneComment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ updateHostedZoneComment pId_ =
 
 -- | The new comment for the hosted zone. If you don't specify a value for @Comment@ , Amazon Route 53 deletes the existing value of the @Comment@ element, if any.
 uhzcComment :: Lens' UpdateHostedZoneComment (Maybe Text)
-uhzcComment = lens _uhzcComment (\ s a -> s{_uhzcComment = a});
+uhzcComment = lens _uhzcComment (\ s a -> s{_uhzcComment = a})
 
 -- | The ID for the hosted zone that you want to update the comment for.
 uhzcId :: Lens' UpdateHostedZoneComment ResourceId
-uhzcId = lens _uhzcId (\ s a -> s{_uhzcId = a});
+uhzcId = lens _uhzcId (\ s a -> s{_uhzcId = a})
 
 instance AWSRequest UpdateHostedZoneComment where
         type Rs UpdateHostedZoneComment =
@@ -135,15 +135,15 @@ updateHostedZoneCommentResponse
     -> UpdateHostedZoneCommentResponse
 updateHostedZoneCommentResponse pResponseStatus_ pHostedZone_ =
   UpdateHostedZoneCommentResponse'
-  {_uhzcrsResponseStatus = pResponseStatus_, _uhzcrsHostedZone = pHostedZone_}
+    {_uhzcrsResponseStatus = pResponseStatus_, _uhzcrsHostedZone = pHostedZone_}
 
 
 -- | -- | The response status code.
 uhzcrsResponseStatus :: Lens' UpdateHostedZoneCommentResponse Int
-uhzcrsResponseStatus = lens _uhzcrsResponseStatus (\ s a -> s{_uhzcrsResponseStatus = a});
+uhzcrsResponseStatus = lens _uhzcrsResponseStatus (\ s a -> s{_uhzcrsResponseStatus = a})
 
 -- | Undocumented member.
 uhzcrsHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
-uhzcrsHostedZone = lens _uhzcrsHostedZone (\ s a -> s{_uhzcrsHostedZone = a});
+uhzcrsHostedZone = lens _uhzcrsHostedZone (\ s a -> s{_uhzcrsHostedZone = a})
 
 instance NFData UpdateHostedZoneCommentResponse where

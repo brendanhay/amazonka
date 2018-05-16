@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,16 +71,16 @@ updatePipelineNotifications
     -> UpdatePipelineNotifications
 updatePipelineNotifications pId_ pNotifications_ =
   UpdatePipelineNotifications'
-  {_upnId = pId_, _upnNotifications = pNotifications_}
+    {_upnId = pId_, _upnNotifications = pNotifications_}
 
 
 -- | The identifier of the pipeline for which you want to change notification settings.
 upnId :: Lens' UpdatePipelineNotifications Text
-upnId = lens _upnId (\ s a -> s{_upnId = a});
+upnId = lens _upnId (\ s a -> s{_upnId = a})
 
 -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. /Important:/ To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.     * __Progressing__ : The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This is the ARN that Amazon SNS returned when you created the topic.     * __Completed__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when you created the topic.     * __Warning__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition. This is the ARN that Amazon SNS returned when you created the topic.     * __Error__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.
 upnNotifications :: Lens' UpdatePipelineNotifications Notifications
-upnNotifications = lens _upnNotifications (\ s a -> s{_upnNotifications = a});
+upnNotifications = lens _upnNotifications (\ s a -> s{_upnNotifications = a})
 
 instance AWSRequest UpdatePipelineNotifications where
         type Rs UpdatePipelineNotifications =
@@ -137,16 +137,16 @@ updatePipelineNotificationsResponse
     -> UpdatePipelineNotificationsResponse
 updatePipelineNotificationsResponse pResponseStatus_ =
   UpdatePipelineNotificationsResponse'
-  {_upnrsPipeline = Nothing, _upnrsResponseStatus = pResponseStatus_}
+    {_upnrsPipeline = Nothing, _upnrsResponseStatus = pResponseStatus_}
 
 
 -- | A section of the response body that provides information about the pipeline associated with this notification.
 upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
-upnrsPipeline = lens _upnrsPipeline (\ s a -> s{_upnrsPipeline = a});
+upnrsPipeline = lens _upnrsPipeline (\ s a -> s{_upnrsPipeline = a})
 
 -- | -- | The response status code.
 upnrsResponseStatus :: Lens' UpdatePipelineNotificationsResponse Int
-upnrsResponseStatus = lens _upnrsResponseStatus (\ s a -> s{_upnrsResponseStatus = a});
+upnrsResponseStatus = lens _upnrsResponseStatus (\ s a -> s{_upnrsResponseStatus = a})
 
 instance NFData UpdatePipelineNotificationsResponse
          where

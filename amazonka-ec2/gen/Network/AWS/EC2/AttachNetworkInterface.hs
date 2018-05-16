@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachNetworkInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,28 +78,28 @@ attachNetworkInterface
     -> AttachNetworkInterface
 attachNetworkInterface pDeviceIndex_ pInstanceId_ pNetworkInterfaceId_ =
   AttachNetworkInterface'
-  { _aniDryRun = Nothing
-  , _aniDeviceIndex = pDeviceIndex_
-  , _aniInstanceId = pInstanceId_
-  , _aniNetworkInterfaceId = pNetworkInterfaceId_
-  }
+    { _aniDryRun = Nothing
+    , _aniDeviceIndex = pDeviceIndex_
+    , _aniInstanceId = pInstanceId_
+    , _aniNetworkInterfaceId = pNetworkInterfaceId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aniDryRun :: Lens' AttachNetworkInterface (Maybe Bool)
-aniDryRun = lens _aniDryRun (\ s a -> s{_aniDryRun = a});
+aniDryRun = lens _aniDryRun (\ s a -> s{_aniDryRun = a})
 
 -- | The index of the device for the network interface attachment.
 aniDeviceIndex :: Lens' AttachNetworkInterface Int
-aniDeviceIndex = lens _aniDeviceIndex (\ s a -> s{_aniDeviceIndex = a});
+aniDeviceIndex = lens _aniDeviceIndex (\ s a -> s{_aniDeviceIndex = a})
 
 -- | The ID of the instance.
 aniInstanceId :: Lens' AttachNetworkInterface Text
-aniInstanceId = lens _aniInstanceId (\ s a -> s{_aniInstanceId = a});
+aniInstanceId = lens _aniInstanceId (\ s a -> s{_aniInstanceId = a})
 
 -- | The ID of the network interface.
 aniNetworkInterfaceId :: Lens' AttachNetworkInterface Text
-aniNetworkInterfaceId = lens _aniNetworkInterfaceId (\ s a -> s{_aniNetworkInterfaceId = a});
+aniNetworkInterfaceId = lens _aniNetworkInterfaceId (\ s a -> s{_aniNetworkInterfaceId = a})
 
 instance AWSRequest AttachNetworkInterface where
         type Rs AttachNetworkInterface =
@@ -155,15 +155,15 @@ attachNetworkInterfaceResponse
     -> AttachNetworkInterfaceResponse
 attachNetworkInterfaceResponse pResponseStatus_ =
   AttachNetworkInterfaceResponse'
-  {_anirsAttachmentId = Nothing, _anirsResponseStatus = pResponseStatus_}
+    {_anirsAttachmentId = Nothing, _anirsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the network interface attachment.
 anirsAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
-anirsAttachmentId = lens _anirsAttachmentId (\ s a -> s{_anirsAttachmentId = a});
+anirsAttachmentId = lens _anirsAttachmentId (\ s a -> s{_anirsAttachmentId = a})
 
 -- | -- | The response status code.
 anirsResponseStatus :: Lens' AttachNetworkInterfaceResponse Int
-anirsResponseStatus = lens _anirsResponseStatus (\ s a -> s{_anirsResponseStatus = a});
+anirsResponseStatus = lens _anirsResponseStatus (\ s a -> s{_anirsResponseStatus = a})
 
 instance NFData AttachNetworkInterfaceResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListCommands
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,33 +79,33 @@ listCommands
     :: ListCommands
 listCommands =
   ListCommands'
-  { _lcInstanceId = Nothing
-  , _lcFilters = Nothing
-  , _lcNextToken = Nothing
-  , _lcCommandId = Nothing
-  , _lcMaxResults = Nothing
-  }
+    { _lcInstanceId = Nothing
+    , _lcFilters = Nothing
+    , _lcNextToken = Nothing
+    , _lcCommandId = Nothing
+    , _lcMaxResults = Nothing
+    }
 
 
 -- | (Optional) Lists commands issued against this instance ID.
 lcInstanceId :: Lens' ListCommands (Maybe Text)
-lcInstanceId = lens _lcInstanceId (\ s a -> s{_lcInstanceId = a});
+lcInstanceId = lens _lcInstanceId (\ s a -> s{_lcInstanceId = a})
 
 -- | (Optional) One or more filters. Use a filter to return a more specific list of results.
 lcFilters :: Lens' ListCommands (Maybe (NonEmpty CommandFilter))
-lcFilters = lens _lcFilters (\ s a -> s{_lcFilters = a}) . mapping _List1;
+lcFilters = lens _lcFilters (\ s a -> s{_lcFilters = a}) . mapping _List1
 
 -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 lcNextToken :: Lens' ListCommands (Maybe Text)
-lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
+lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a})
 
 -- | (Optional) If provided, lists only the specified command.
 lcCommandId :: Lens' ListCommands (Maybe Text)
-lcCommandId = lens _lcCommandId (\ s a -> s{_lcCommandId = a});
+lcCommandId = lens _lcCommandId (\ s a -> s{_lcCommandId = a})
 
 -- | (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lcMaxResults :: Lens' ListCommands (Maybe Natural)
-lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat;
+lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat
 
 instance AWSPager ListCommands where
         page rq rs
@@ -175,22 +175,22 @@ listCommandsResponse
     -> ListCommandsResponse
 listCommandsResponse pResponseStatus_ =
   ListCommandsResponse'
-  { _lcrsCommands = Nothing
-  , _lcrsNextToken = Nothing
-  , _lcrsResponseStatus = pResponseStatus_
-  }
+    { _lcrsCommands = Nothing
+    , _lcrsNextToken = Nothing
+    , _lcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | (Optional) The list of commands requested by the user.
 lcrsCommands :: Lens' ListCommandsResponse [Command]
-lcrsCommands = lens _lcrsCommands (\ s a -> s{_lcrsCommands = a}) . _Default . _Coerce;
+lcrsCommands = lens _lcrsCommands (\ s a -> s{_lcrsCommands = a}) . _Default . _Coerce
 
 -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 lcrsNextToken :: Lens' ListCommandsResponse (Maybe Text)
-lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
+lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a})
 
 -- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListCommandsResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
+lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a})
 
 instance NFData ListCommandsResponse where

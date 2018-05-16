@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.StopDataCollectionByAgentIds
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ stopDataCollectionByAgentIds =
 
 -- | The IDs of the agents or connectors from which to stop collecting data.
 sdcbaiAgentIds :: Lens' StopDataCollectionByAgentIds [Text]
-sdcbaiAgentIds = lens _sdcbaiAgentIds (\ s a -> s{_sdcbaiAgentIds = a}) . _Coerce;
+sdcbaiAgentIds = lens _sdcbaiAgentIds (\ s a -> s{_sdcbaiAgentIds = a}) . _Coerce
 
 instance AWSRequest StopDataCollectionByAgentIds
          where
@@ -121,18 +121,18 @@ stopDataCollectionByAgentIdsResponse
     -> StopDataCollectionByAgentIdsResponse
 stopDataCollectionByAgentIdsResponse pResponseStatus_ =
   StopDataCollectionByAgentIdsResponse'
-  { _sdcbairsAgentsConfigurationStatus = Nothing
-  , _sdcbairsResponseStatus = pResponseStatus_
-  }
+    { _sdcbairsAgentsConfigurationStatus = Nothing
+    , _sdcbairsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the agents or connector that were instructed to stop collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
 sdcbairsAgentsConfigurationStatus :: Lens' StopDataCollectionByAgentIdsResponse [AgentConfigurationStatus]
-sdcbairsAgentsConfigurationStatus = lens _sdcbairsAgentsConfigurationStatus (\ s a -> s{_sdcbairsAgentsConfigurationStatus = a}) . _Default . _Coerce;
+sdcbairsAgentsConfigurationStatus = lens _sdcbairsAgentsConfigurationStatus (\ s a -> s{_sdcbairsAgentsConfigurationStatus = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 sdcbairsResponseStatus :: Lens' StopDataCollectionByAgentIdsResponse Int
-sdcbairsResponseStatus = lens _sdcbairsResponseStatus (\ s a -> s{_sdcbairsResponseStatus = a});
+sdcbairsResponseStatus = lens _sdcbairsResponseStatus (\ s a -> s{_sdcbairsResponseStatus = a})
 
 instance NFData StopDataCollectionByAgentIdsResponse
          where

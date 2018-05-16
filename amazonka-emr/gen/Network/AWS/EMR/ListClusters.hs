@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListClusters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ listClusters
     :: ListClusters
 listClusters =
   ListClusters'
-  { _lcCreatedAfter = Nothing
-  , _lcMarker = Nothing
-  , _lcClusterStates = Nothing
-  , _lcCreatedBefore = Nothing
-  }
+    { _lcCreatedAfter = Nothing
+    , _lcMarker = Nothing
+    , _lcClusterStates = Nothing
+    , _lcCreatedBefore = Nothing
+    }
 
 
 -- | The creation date and time beginning value filter for listing clusters.
 lcCreatedAfter :: Lens' ListClusters (Maybe UTCTime)
-lcCreatedAfter = lens _lcCreatedAfter (\ s a -> s{_lcCreatedAfter = a}) . mapping _Time;
+lcCreatedAfter = lens _lcCreatedAfter (\ s a -> s{_lcCreatedAfter = a}) . mapping _Time
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lcMarker :: Lens' ListClusters (Maybe Text)
-lcMarker = lens _lcMarker (\ s a -> s{_lcMarker = a});
+lcMarker = lens _lcMarker (\ s a -> s{_lcMarker = a})
 
 -- | The cluster state filters to apply when listing clusters.
 lcClusterStates :: Lens' ListClusters [ClusterState]
-lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a}) . _Default . _Coerce;
+lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a}) . _Default . _Coerce
 
 -- | The creation date and time end value filter for listing clusters.
 lcCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
-lcCreatedBefore = lens _lcCreatedBefore (\ s a -> s{_lcCreatedBefore = a}) . mapping _Time;
+lcCreatedBefore = lens _lcCreatedBefore (\ s a -> s{_lcCreatedBefore = a}) . mapping _Time
 
 instance AWSPager ListClusters where
         page rq rs
@@ -173,22 +173,22 @@ listClustersResponse
     -> ListClustersResponse
 listClustersResponse pResponseStatus_ =
   ListClustersResponse'
-  { _lcrsMarker = Nothing
-  , _lcrsClusters = Nothing
-  , _lcrsResponseStatus = pResponseStatus_
-  }
+    { _lcrsMarker = Nothing
+    , _lcrsClusters = Nothing
+    , _lcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lcrsMarker :: Lens' ListClustersResponse (Maybe Text)
-lcrsMarker = lens _lcrsMarker (\ s a -> s{_lcrsMarker = a});
+lcrsMarker = lens _lcrsMarker (\ s a -> s{_lcrsMarker = a})
 
 -- | The list of clusters for the account based on the given filters.
 lcrsClusters :: Lens' ListClustersResponse [ClusterSummary]
-lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default . _Coerce;
+lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListClustersResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
+lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a})
 
 instance NFData ListClustersResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.CreateCampaign
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ createCampaign
     -> CreateCampaign
 createCampaign pApplicationId_ pWriteCampaignRequest_ =
   CreateCampaign'
-  { _ccApplicationId = pApplicationId_
-  , _ccWriteCampaignRequest = pWriteCampaignRequest_
-  }
+    { _ccApplicationId = pApplicationId_
+    , _ccWriteCampaignRequest = pWriteCampaignRequest_
+    }
 
 
 -- | Undocumented member.
 ccApplicationId :: Lens' CreateCampaign Text
-ccApplicationId = lens _ccApplicationId (\ s a -> s{_ccApplicationId = a});
+ccApplicationId = lens _ccApplicationId (\ s a -> s{_ccApplicationId = a})
 
 -- | Undocumented member.
 ccWriteCampaignRequest :: Lens' CreateCampaign WriteCampaignRequest
-ccWriteCampaignRequest = lens _ccWriteCampaignRequest (\ s a -> s{_ccWriteCampaignRequest = a});
+ccWriteCampaignRequest = lens _ccWriteCampaignRequest (\ s a -> s{_ccWriteCampaignRequest = a})
 
 instance AWSRequest CreateCampaign where
         type Rs CreateCampaign = CreateCampaignResponse
@@ -131,17 +131,17 @@ createCampaignResponse
     -> CreateCampaignResponse
 createCampaignResponse pResponseStatus_ pCampaignResponse_ =
   CreateCampaignResponse'
-  { _ccrsResponseStatus = pResponseStatus_
-  , _ccrsCampaignResponse = pCampaignResponse_
-  }
+    { _ccrsResponseStatus = pResponseStatus_
+    , _ccrsCampaignResponse = pCampaignResponse_
+    }
 
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CreateCampaignResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
 
 -- | Undocumented member.
 ccrsCampaignResponse :: Lens' CreateCampaignResponse CampaignResponse
-ccrsCampaignResponse = lens _ccrsCampaignResponse (\ s a -> s{_ccrsCampaignResponse = a});
+ccrsCampaignResponse = lens _ccrsCampaignResponse (\ s a -> s{_ccrsCampaignResponse = a})
 
 instance NFData CreateCampaignResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,23 +81,23 @@ requestEnvironmentInfo
     -> RequestEnvironmentInfo
 requestEnvironmentInfo pInfoType_ =
   RequestEnvironmentInfo'
-  { _reiEnvironmentName = Nothing
-  , _reiEnvironmentId = Nothing
-  , _reiInfoType = pInfoType_
-  }
+    { _reiEnvironmentName = Nothing
+    , _reiEnvironmentId = Nothing
+    , _reiInfoType = pInfoType_
+    }
 
 
 -- | The name of the environment of the requested data. If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 reiEnvironmentName :: Lens' RequestEnvironmentInfo (Maybe Text)
-reiEnvironmentName = lens _reiEnvironmentName (\ s a -> s{_reiEnvironmentName = a});
+reiEnvironmentName = lens _reiEnvironmentName (\ s a -> s{_reiEnvironmentName = a})
 
 -- | The ID of the environment of the requested data. If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.  Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 reiEnvironmentId :: Lens' RequestEnvironmentInfo (Maybe Text)
-reiEnvironmentId = lens _reiEnvironmentId (\ s a -> s{_reiEnvironmentId = a});
+reiEnvironmentId = lens _reiEnvironmentId (\ s a -> s{_reiEnvironmentId = a})
 
 -- | The type of information to request.
 reiInfoType :: Lens' RequestEnvironmentInfo EnvironmentInfoType
-reiInfoType = lens _reiInfoType (\ s a -> s{_reiInfoType = a});
+reiInfoType = lens _reiInfoType (\ s a -> s{_reiInfoType = a})
 
 instance AWSRequest RequestEnvironmentInfo where
         type Rs RequestEnvironmentInfo =

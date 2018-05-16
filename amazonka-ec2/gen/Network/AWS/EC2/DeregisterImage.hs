@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeregisterImage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ deregisterImage pImageId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 diDryRun :: Lens' DeregisterImage (Maybe Bool)
-diDryRun = lens _diDryRun (\ s a -> s{_diDryRun = a});
+diDryRun = lens _diDryRun (\ s a -> s{_diDryRun = a})
 
 -- | The ID of the AMI.
 diImageId :: Lens' DeregisterImage Text
-diImageId = lens _diImageId (\ s a -> s{_diImageId = a});
+diImageId = lens _diImageId (\ s a -> s{_diImageId = a})
 
 instance AWSRequest DeregisterImage where
         type Rs DeregisterImage = DeregisterImageResponse

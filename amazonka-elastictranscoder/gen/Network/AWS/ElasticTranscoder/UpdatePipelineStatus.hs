@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,11 +75,11 @@ updatePipelineStatus pId_ pStatus_ =
 
 -- | The identifier of the pipeline to update.
 upsId :: Lens' UpdatePipelineStatus Text
-upsId = lens _upsId (\ s a -> s{_upsId = a});
+upsId = lens _upsId (\ s a -> s{_upsId = a})
 
 -- | The desired status of the pipeline:     * @Active@ : The pipeline is processing jobs.     * @Paused@ : The pipeline is not currently processing jobs.
 upsStatus :: Lens' UpdatePipelineStatus Text
-upsStatus = lens _upsStatus (\ s a -> s{_upsStatus = a});
+upsStatus = lens _upsStatus (\ s a -> s{_upsStatus = a})
 
 instance AWSRequest UpdatePipelineStatus where
         type Rs UpdatePipelineStatus =
@@ -133,15 +133,15 @@ updatePipelineStatusResponse
     -> UpdatePipelineStatusResponse
 updatePipelineStatusResponse pResponseStatus_ =
   UpdatePipelineStatusResponse'
-  {_upsrsPipeline = Nothing, _upsrsResponseStatus = pResponseStatus_}
+    {_upsrsPipeline = Nothing, _upsrsResponseStatus = pResponseStatus_}
 
 
 -- | A section of the response body that provides information about the pipeline.
 upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
-upsrsPipeline = lens _upsrsPipeline (\ s a -> s{_upsrsPipeline = a});
+upsrsPipeline = lens _upsrsPipeline (\ s a -> s{_upsrsPipeline = a})
 
 -- | -- | The response status code.
 upsrsResponseStatus :: Lens' UpdatePipelineStatusResponse Int
-upsrsResponseStatus = lens _upsrsResponseStatus (\ s a -> s{_upsrsResponseStatus = a});
+upsrsResponseStatus = lens _upsrsResponseStatus (\ s a -> s{_upsrsResponseStatus = a})
 
 instance NFData UpdatePipelineStatusResponse where

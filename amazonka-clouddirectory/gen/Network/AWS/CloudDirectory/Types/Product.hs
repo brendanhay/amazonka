@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,20 +49,20 @@ attributeKey
     -> AttributeKey
 attributeKey pSchemaARN_ pFacetName_ pName_ =
   AttributeKey'
-  {_akSchemaARN = pSchemaARN_, _akFacetName = pFacetName_, _akName = pName_}
+    {_akSchemaARN = pSchemaARN_, _akFacetName = pFacetName_, _akName = pName_}
 
 
 -- | The Amazon Resource Name (ARN) of the schema that contains the facet and attribute.
 akSchemaARN :: Lens' AttributeKey Text
-akSchemaARN = lens _akSchemaARN (\ s a -> s{_akSchemaARN = a});
+akSchemaARN = lens _akSchemaARN (\ s a -> s{_akSchemaARN = a})
 
 -- | The name of the facet that the attribute exists within.
 akFacetName :: Lens' AttributeKey Text
-akFacetName = lens _akFacetName (\ s a -> s{_akFacetName = a});
+akFacetName = lens _akFacetName (\ s a -> s{_akFacetName = a})
 
 -- | The name of the attribute.
 akName :: Lens' AttributeKey Text
-akName = lens _akName (\ s a -> s{_akName = a});
+akName = lens _akName (\ s a -> s{_akName = a})
 
 instance FromJSON AttributeKey where
         parseJSON
@@ -112,11 +112,11 @@ attributeKeyAndValue pKey_ pValue_ =
 
 -- | The key of the attribute.
 akavKey :: Lens' AttributeKeyAndValue AttributeKey
-akavKey = lens _akavKey (\ s a -> s{_akavKey = a});
+akavKey = lens _akavKey (\ s a -> s{_akavKey = a})
 
 -- | The value of the attribute.
 akavValue :: Lens' AttributeKeyAndValue TypedAttributeValue
-akavValue = lens _akavValue (\ s a -> s{_akavValue = a});
+akavValue = lens _akavValue (\ s a -> s{_akavValue = a})
 
 instance FromJSON AttributeKeyAndValue where
         parseJSON
@@ -160,16 +160,16 @@ attributeNameAndValue
     -> AttributeNameAndValue
 attributeNameAndValue pAttributeName_ pValue_ =
   AttributeNameAndValue'
-  {_anavAttributeName = pAttributeName_, _anavValue = pValue_}
+    {_anavAttributeName = pAttributeName_, _anavValue = pValue_}
 
 
 -- | The attribute name of the typed link.
 anavAttributeName :: Lens' AttributeNameAndValue Text
-anavAttributeName = lens _anavAttributeName (\ s a -> s{_anavAttributeName = a});
+anavAttributeName = lens _anavAttributeName (\ s a -> s{_anavAttributeName = a})
 
 -- | The value for the typed link.
 anavValue :: Lens' AttributeNameAndValue TypedAttributeValue
-anavValue = lens _anavValue (\ s a -> s{_anavValue = a});
+anavValue = lens _anavValue (\ s a -> s{_anavValue = a})
 
 instance FromJSON AttributeNameAndValue where
         parseJSON
@@ -216,23 +216,23 @@ batchAddFacetToObject
     -> BatchAddFacetToObject
 batchAddFacetToObject pSchemaFacet_ pObjectReference_ =
   BatchAddFacetToObject'
-  { _baftoSchemaFacet = pSchemaFacet_
-  , _baftoObjectAttributeList = mempty
-  , _baftoObjectReference = pObjectReference_
-  }
+    { _baftoSchemaFacet = pSchemaFacet_
+    , _baftoObjectAttributeList = mempty
+    , _baftoObjectReference = pObjectReference_
+    }
 
 
 -- | Represents the facet being added to the object.
 baftoSchemaFacet :: Lens' BatchAddFacetToObject SchemaFacet
-baftoSchemaFacet = lens _baftoSchemaFacet (\ s a -> s{_baftoSchemaFacet = a});
+baftoSchemaFacet = lens _baftoSchemaFacet (\ s a -> s{_baftoSchemaFacet = a})
 
 -- | The attributes to set on the object.
 baftoObjectAttributeList :: Lens' BatchAddFacetToObject [AttributeKeyAndValue]
-baftoObjectAttributeList = lens _baftoObjectAttributeList (\ s a -> s{_baftoObjectAttributeList = a}) . _Coerce;
+baftoObjectAttributeList = lens _baftoObjectAttributeList (\ s a -> s{_baftoObjectAttributeList = a}) . _Coerce
 
 -- | A reference to the object being mutated.
 baftoObjectReference :: Lens' BatchAddFacetToObject ObjectReference
-baftoObjectReference = lens _baftoObjectReference (\ s a -> s{_baftoObjectReference = a});
+baftoObjectReference = lens _baftoObjectReference (\ s a -> s{_baftoObjectReference = a})
 
 instance Hashable BatchAddFacetToObject where
 
@@ -301,23 +301,23 @@ batchAttachObject
     -> BatchAttachObject
 batchAttachObject pParentReference_ pChildReference_ pLinkName_ =
   BatchAttachObject'
-  { _baoParentReference = pParentReference_
-  , _baoChildReference = pChildReference_
-  , _baoLinkName = pLinkName_
-  }
+    { _baoParentReference = pParentReference_
+    , _baoChildReference = pChildReference_
+    , _baoLinkName = pLinkName_
+    }
 
 
 -- | The parent object reference.
 baoParentReference :: Lens' BatchAttachObject ObjectReference
-baoParentReference = lens _baoParentReference (\ s a -> s{_baoParentReference = a});
+baoParentReference = lens _baoParentReference (\ s a -> s{_baoParentReference = a})
 
 -- | The child object reference that is to be attached to the object.
 baoChildReference :: Lens' BatchAttachObject ObjectReference
-baoChildReference = lens _baoChildReference (\ s a -> s{_baoChildReference = a});
+baoChildReference = lens _baoChildReference (\ s a -> s{_baoChildReference = a})
 
 -- | The name of the link.
 baoLinkName :: Lens' BatchAttachObject Text
-baoLinkName = lens _baoLinkName (\ s a -> s{_baoLinkName = a});
+baoLinkName = lens _baoLinkName (\ s a -> s{_baoLinkName = a})
 
 instance Hashable BatchAttachObject where
 
@@ -354,7 +354,7 @@ batchAttachObjectResponse =
 
 -- | The @ObjectIdentifier@ of the object that has been attached.
 baoAttachedObjectIdentifier :: Lens' BatchAttachObjectResponse (Maybe Text)
-baoAttachedObjectIdentifier = lens _baoAttachedObjectIdentifier (\ s a -> s{_baoAttachedObjectIdentifier = a});
+baoAttachedObjectIdentifier = lens _baoAttachedObjectIdentifier (\ s a -> s{_baoAttachedObjectIdentifier = a})
 
 instance FromJSON BatchAttachObjectResponse where
         parseJSON
@@ -391,18 +391,18 @@ batchAttachPolicy
     -> BatchAttachPolicy
 batchAttachPolicy pPolicyReference_ pObjectReference_ =
   BatchAttachPolicy'
-  { _bapPolicyReference = pPolicyReference_
-  , _bapObjectReference = pObjectReference_
-  }
+    { _bapPolicyReference = pPolicyReference_
+    , _bapObjectReference = pObjectReference_
+    }
 
 
 -- | The reference that is associated with the policy object.
 bapPolicyReference :: Lens' BatchAttachPolicy ObjectReference
-bapPolicyReference = lens _bapPolicyReference (\ s a -> s{_bapPolicyReference = a});
+bapPolicyReference = lens _bapPolicyReference (\ s a -> s{_bapPolicyReference = a})
 
 -- | The reference that identifies the object to which the policy will be attached.
 bapObjectReference :: Lens' BatchAttachPolicy ObjectReference
-bapObjectReference = lens _bapObjectReference (\ s a -> s{_bapObjectReference = a});
+bapObjectReference = lens _bapObjectReference (\ s a -> s{_bapObjectReference = a})
 
 instance Hashable BatchAttachPolicy where
 
@@ -465,18 +465,18 @@ batchAttachToIndex
     -> BatchAttachToIndex
 batchAttachToIndex pIndexReference_ pTargetReference_ =
   BatchAttachToIndex'
-  { _batiIndexReference = pIndexReference_
-  , _batiTargetReference = pTargetReference_
-  }
+    { _batiIndexReference = pIndexReference_
+    , _batiTargetReference = pTargetReference_
+    }
 
 
 -- | A reference to the index that you are attaching the object to.
 batiIndexReference :: Lens' BatchAttachToIndex ObjectReference
-batiIndexReference = lens _batiIndexReference (\ s a -> s{_batiIndexReference = a});
+batiIndexReference = lens _batiIndexReference (\ s a -> s{_batiIndexReference = a})
 
 -- | A reference to the object that you are attaching to the index.
 batiTargetReference :: Lens' BatchAttachToIndex ObjectReference
-batiTargetReference = lens _batiTargetReference (\ s a -> s{_batiTargetReference = a});
+batiTargetReference = lens _batiTargetReference (\ s a -> s{_batiTargetReference = a})
 
 instance Hashable BatchAttachToIndex where
 
@@ -512,7 +512,7 @@ batchAttachToIndexResponse =
 
 -- | The @ObjectIdentifier@ of the object that was attached to the index.
 batiAttachedObjectIdentifier :: Lens' BatchAttachToIndexResponse (Maybe Text)
-batiAttachedObjectIdentifier = lens _batiAttachedObjectIdentifier (\ s a -> s{_batiAttachedObjectIdentifier = a});
+batiAttachedObjectIdentifier = lens _batiAttachedObjectIdentifier (\ s a -> s{_batiAttachedObjectIdentifier = a})
 
 instance FromJSON BatchAttachToIndexResponse where
         parseJSON
@@ -556,28 +556,28 @@ batchAttachTypedLink
     -> BatchAttachTypedLink
 batchAttachTypedLink pSourceObjectReference_ pTargetObjectReference_ pTypedLinkFacet_ =
   BatchAttachTypedLink'
-  { _batlSourceObjectReference = pSourceObjectReference_
-  , _batlTargetObjectReference = pTargetObjectReference_
-  , _batlTypedLinkFacet = pTypedLinkFacet_
-  , _batlAttributes = mempty
-  }
+    { _batlSourceObjectReference = pSourceObjectReference_
+    , _batlTargetObjectReference = pTargetObjectReference_
+    , _batlTypedLinkFacet = pTypedLinkFacet_
+    , _batlAttributes = mempty
+    }
 
 
 -- | Identifies the source object that the typed link will attach to.
 batlSourceObjectReference :: Lens' BatchAttachTypedLink ObjectReference
-batlSourceObjectReference = lens _batlSourceObjectReference (\ s a -> s{_batlSourceObjectReference = a});
+batlSourceObjectReference = lens _batlSourceObjectReference (\ s a -> s{_batlSourceObjectReference = a})
 
 -- | Identifies the target object that the typed link will attach to.
 batlTargetObjectReference :: Lens' BatchAttachTypedLink ObjectReference
-batlTargetObjectReference = lens _batlTargetObjectReference (\ s a -> s{_batlTargetObjectReference = a});
+batlTargetObjectReference = lens _batlTargetObjectReference (\ s a -> s{_batlTargetObjectReference = a})
 
 -- | Identifies the typed link facet that is associated with the typed link.
 batlTypedLinkFacet :: Lens' BatchAttachTypedLink TypedLinkSchemaAndFacetName
-batlTypedLinkFacet = lens _batlTypedLinkFacet (\ s a -> s{_batlTypedLinkFacet = a});
+batlTypedLinkFacet = lens _batlTypedLinkFacet (\ s a -> s{_batlTypedLinkFacet = a})
 
 -- | A set of attributes that are associated with the typed link.
 batlAttributes :: Lens' BatchAttachTypedLink [AttributeNameAndValue]
-batlAttributes = lens _batlAttributes (\ s a -> s{_batlAttributes = a}) . _Coerce;
+batlAttributes = lens _batlAttributes (\ s a -> s{_batlAttributes = a}) . _Coerce
 
 instance Hashable BatchAttachTypedLink where
 
@@ -619,7 +619,7 @@ batchAttachTypedLinkResponse =
 
 -- | Returns a typed link specifier as output.
 batlTypedLinkSpecifier :: Lens' BatchAttachTypedLinkResponse (Maybe TypedLinkSpecifier)
-batlTypedLinkSpecifier = lens _batlTypedLinkSpecifier (\ s a -> s{_batlTypedLinkSpecifier = a});
+batlTypedLinkSpecifier = lens _batlTypedLinkSpecifier (\ s a -> s{_batlTypedLinkSpecifier = a})
 
 instance FromJSON BatchAttachTypedLinkResponse where
         parseJSON
@@ -664,33 +664,33 @@ batchCreateIndex
     -> BatchCreateIndex
 batchCreateIndex pIsUnique_ =
   BatchCreateIndex'
-  { _bciParentReference = Nothing
-  , _bciLinkName = Nothing
-  , _bciBatchReferenceName = Nothing
-  , _bciOrderedIndexedAttributeList = mempty
-  , _bciIsUnique = pIsUnique_
-  }
+    { _bciParentReference = Nothing
+    , _bciLinkName = Nothing
+    , _bciBatchReferenceName = Nothing
+    , _bciOrderedIndexedAttributeList = mempty
+    , _bciIsUnique = pIsUnique_
+    }
 
 
 -- | A reference to the parent object that contains the index object.
 bciParentReference :: Lens' BatchCreateIndex (Maybe ObjectReference)
-bciParentReference = lens _bciParentReference (\ s a -> s{_bciParentReference = a});
+bciParentReference = lens _bciParentReference (\ s a -> s{_bciParentReference = a})
 
 -- | The name of the link between the parent object and the index object.
 bciLinkName :: Lens' BatchCreateIndex (Maybe Text)
-bciLinkName = lens _bciLinkName (\ s a -> s{_bciLinkName = a});
+bciLinkName = lens _bciLinkName (\ s a -> s{_bciLinkName = a})
 
 -- | The batch reference name. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#batches Batches> for more information.
 bciBatchReferenceName :: Lens' BatchCreateIndex (Maybe Text)
-bciBatchReferenceName = lens _bciBatchReferenceName (\ s a -> s{_bciBatchReferenceName = a});
+bciBatchReferenceName = lens _bciBatchReferenceName (\ s a -> s{_bciBatchReferenceName = a})
 
 -- | Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
 bciOrderedIndexedAttributeList :: Lens' BatchCreateIndex [AttributeKey]
-bciOrderedIndexedAttributeList = lens _bciOrderedIndexedAttributeList (\ s a -> s{_bciOrderedIndexedAttributeList = a}) . _Coerce;
+bciOrderedIndexedAttributeList = lens _bciOrderedIndexedAttributeList (\ s a -> s{_bciOrderedIndexedAttributeList = a}) . _Coerce
 
 -- | Indicates whether the attribute that is being indexed has unique values or not.
 bciIsUnique :: Lens' BatchCreateIndex Bool
-bciIsUnique = lens _bciIsUnique (\ s a -> s{_bciIsUnique = a});
+bciIsUnique = lens _bciIsUnique (\ s a -> s{_bciIsUnique = a})
 
 instance Hashable BatchCreateIndex where
 
@@ -731,7 +731,7 @@ batchCreateIndexResponse =
 
 -- | The @ObjectIdentifier@ of the index created by this operation.
 bciObjectIdentifier :: Lens' BatchCreateIndexResponse (Maybe Text)
-bciObjectIdentifier = lens _bciObjectIdentifier (\ s a -> s{_bciObjectIdentifier = a});
+bciObjectIdentifier = lens _bciObjectIdentifier (\ s a -> s{_bciObjectIdentifier = a})
 
 instance FromJSON BatchCreateIndexResponse where
         parseJSON
@@ -750,11 +750,11 @@ instance NFData BatchCreateIndexResponse where
 --
 -- /See:/ 'batchCreateObject' smart constructor.
 data BatchCreateObject = BatchCreateObject'
-  { _bcoSchemaFacet         :: ![SchemaFacet]
+  { _bcoParentReference     :: !(Maybe ObjectReference)
+  , _bcoLinkName            :: !(Maybe Text)
+  , _bcoBatchReferenceName  :: !(Maybe Text)
+  , _bcoSchemaFacet         :: ![SchemaFacet]
   , _bcoObjectAttributeList :: ![AttributeKeyAndValue]
-  , _bcoParentReference     :: !ObjectReference
-  , _bcoLinkName            :: !Text
-  , _bcoBatchReferenceName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -762,49 +762,46 @@ data BatchCreateObject = BatchCreateObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bcoSchemaFacet' - A list of @FacetArns@ that will be associated with the object. For more information, see 'arns' .
---
--- * 'bcoObjectAttributeList' - An attribute map, which contains an attribute ARN as the key and attribute value as the map value.
---
 -- * 'bcoParentReference' - If specified, the parent reference to which this object will be attached.
 --
 -- * 'bcoLinkName' - The name of the link.
 --
 -- * 'bcoBatchReferenceName' - The batch reference name. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#batches Batches> for more information.
+--
+-- * 'bcoSchemaFacet' - A list of @FacetArns@ that will be associated with the object. For more information, see 'arns' .
+--
+-- * 'bcoObjectAttributeList' - An attribute map, which contains an attribute ARN as the key and attribute value as the map value.
 batchCreateObject
-    :: ObjectReference -- ^ 'bcoParentReference'
-    -> Text -- ^ 'bcoLinkName'
-    -> Text -- ^ 'bcoBatchReferenceName'
-    -> BatchCreateObject
-batchCreateObject pParentReference_ pLinkName_ pBatchReferenceName_ =
+    :: BatchCreateObject
+batchCreateObject =
   BatchCreateObject'
-  { _bcoSchemaFacet = mempty
-  , _bcoObjectAttributeList = mempty
-  , _bcoParentReference = pParentReference_
-  , _bcoLinkName = pLinkName_
-  , _bcoBatchReferenceName = pBatchReferenceName_
-  }
+    { _bcoParentReference = Nothing
+    , _bcoLinkName = Nothing
+    , _bcoBatchReferenceName = Nothing
+    , _bcoSchemaFacet = mempty
+    , _bcoObjectAttributeList = mempty
+    }
 
+
+-- | If specified, the parent reference to which this object will be attached.
+bcoParentReference :: Lens' BatchCreateObject (Maybe ObjectReference)
+bcoParentReference = lens _bcoParentReference (\ s a -> s{_bcoParentReference = a})
+
+-- | The name of the link.
+bcoLinkName :: Lens' BatchCreateObject (Maybe Text)
+bcoLinkName = lens _bcoLinkName (\ s a -> s{_bcoLinkName = a})
+
+-- | The batch reference name. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#batches Batches> for more information.
+bcoBatchReferenceName :: Lens' BatchCreateObject (Maybe Text)
+bcoBatchReferenceName = lens _bcoBatchReferenceName (\ s a -> s{_bcoBatchReferenceName = a})
 
 -- | A list of @FacetArns@ that will be associated with the object. For more information, see 'arns' .
 bcoSchemaFacet :: Lens' BatchCreateObject [SchemaFacet]
-bcoSchemaFacet = lens _bcoSchemaFacet (\ s a -> s{_bcoSchemaFacet = a}) . _Coerce;
+bcoSchemaFacet = lens _bcoSchemaFacet (\ s a -> s{_bcoSchemaFacet = a}) . _Coerce
 
 -- | An attribute map, which contains an attribute ARN as the key and attribute value as the map value.
 bcoObjectAttributeList :: Lens' BatchCreateObject [AttributeKeyAndValue]
-bcoObjectAttributeList = lens _bcoObjectAttributeList (\ s a -> s{_bcoObjectAttributeList = a}) . _Coerce;
-
--- | If specified, the parent reference to which this object will be attached.
-bcoParentReference :: Lens' BatchCreateObject ObjectReference
-bcoParentReference = lens _bcoParentReference (\ s a -> s{_bcoParentReference = a});
-
--- | The name of the link.
-bcoLinkName :: Lens' BatchCreateObject Text
-bcoLinkName = lens _bcoLinkName (\ s a -> s{_bcoLinkName = a});
-
--- | The batch reference name. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#batches Batches> for more information.
-bcoBatchReferenceName :: Lens' BatchCreateObject Text
-bcoBatchReferenceName = lens _bcoBatchReferenceName (\ s a -> s{_bcoBatchReferenceName = a});
+bcoObjectAttributeList = lens _bcoObjectAttributeList (\ s a -> s{_bcoObjectAttributeList = a}) . _Coerce
 
 instance Hashable BatchCreateObject where
 
@@ -814,13 +811,12 @@ instance ToJSON BatchCreateObject where
         toJSON BatchCreateObject'{..}
           = object
               (catMaybes
-                 [Just ("SchemaFacet" .= _bcoSchemaFacet),
+                 [("ParentReference" .=) <$> _bcoParentReference,
+                  ("LinkName" .=) <$> _bcoLinkName,
+                  ("BatchReferenceName" .=) <$> _bcoBatchReferenceName,
+                  Just ("SchemaFacet" .= _bcoSchemaFacet),
                   Just
-                    ("ObjectAttributeList" .= _bcoObjectAttributeList),
-                  Just ("ParentReference" .= _bcoParentReference),
-                  Just ("LinkName" .= _bcoLinkName),
-                  Just
-                    ("BatchReferenceName" .= _bcoBatchReferenceName)])
+                    ("ObjectAttributeList" .= _bcoObjectAttributeList)])
 
 -- | Represents the output of a 'CreateObject' response operation.
 --
@@ -845,7 +841,7 @@ batchCreateObjectResponse =
 
 -- | The ID that is associated with the object.
 bcoObjectIdentifier :: Lens' BatchCreateObjectResponse (Maybe Text)
-bcoObjectIdentifier = lens _bcoObjectIdentifier (\ s a -> s{_bcoObjectIdentifier = a});
+bcoObjectIdentifier = lens _bcoObjectIdentifier (\ s a -> s{_bcoObjectIdentifier = a})
 
 instance FromJSON BatchCreateObjectResponse where
         parseJSON
@@ -882,7 +878,7 @@ batchDeleteObject pObjectReference_ =
 
 -- | The reference that identifies the object.
 bdoObjectReference :: Lens' BatchDeleteObject ObjectReference
-bdoObjectReference = lens _bdoObjectReference (\ s a -> s{_bdoObjectReference = a});
+bdoObjectReference = lens _bdoObjectReference (\ s a -> s{_bdoObjectReference = a})
 
 instance Hashable BatchDeleteObject where
 
@@ -944,18 +940,18 @@ batchDetachFromIndex
     -> BatchDetachFromIndex
 batchDetachFromIndex pIndexReference_ pTargetReference_ =
   BatchDetachFromIndex'
-  { _bdfiIndexReference = pIndexReference_
-  , _bdfiTargetReference = pTargetReference_
-  }
+    { _bdfiIndexReference = pIndexReference_
+    , _bdfiTargetReference = pTargetReference_
+    }
 
 
 -- | A reference to the index object.
 bdfiIndexReference :: Lens' BatchDetachFromIndex ObjectReference
-bdfiIndexReference = lens _bdfiIndexReference (\ s a -> s{_bdfiIndexReference = a});
+bdfiIndexReference = lens _bdfiIndexReference (\ s a -> s{_bdfiIndexReference = a})
 
 -- | A reference to the object being detached from the index.
 bdfiTargetReference :: Lens' BatchDetachFromIndex ObjectReference
-bdfiTargetReference = lens _bdfiTargetReference (\ s a -> s{_bdfiTargetReference = a});
+bdfiTargetReference = lens _bdfiTargetReference (\ s a -> s{_bdfiTargetReference = a})
 
 instance Hashable BatchDetachFromIndex where
 
@@ -991,7 +987,7 @@ batchDetachFromIndexResponse =
 
 -- | The @ObjectIdentifier@ of the object that was detached from the index.
 bdfiDetachedObjectIdentifier :: Lens' BatchDetachFromIndexResponse (Maybe Text)
-bdfiDetachedObjectIdentifier = lens _bdfiDetachedObjectIdentifier (\ s a -> s{_bdfiDetachedObjectIdentifier = a});
+bdfiDetachedObjectIdentifier = lens _bdfiDetachedObjectIdentifier (\ s a -> s{_bdfiDetachedObjectIdentifier = a})
 
 instance FromJSON BatchDetachFromIndexResponse where
         parseJSON
@@ -1010,9 +1006,9 @@ instance NFData BatchDetachFromIndexResponse where
 --
 -- /See:/ 'batchDetachObject' smart constructor.
 data BatchDetachObject = BatchDetachObject'
-  { _bdoParentReference    :: !ObjectReference
+  { _bdoBatchReferenceName :: !(Maybe Text)
+  , _bdoParentReference    :: !ObjectReference
   , _bdoLinkName           :: !Text
-  , _bdoBatchReferenceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1020,35 +1016,34 @@ data BatchDetachObject = BatchDetachObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'bdoBatchReferenceName' - The batch reference name. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#batches Batches> for more information.
+--
 -- * 'bdoParentReference' - Parent reference from which the object with the specified link name is detached.
 --
 -- * 'bdoLinkName' - The name of the link.
---
--- * 'bdoBatchReferenceName' - The batch reference name. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#batches Batches> for more information.
 batchDetachObject
     :: ObjectReference -- ^ 'bdoParentReference'
     -> Text -- ^ 'bdoLinkName'
-    -> Text -- ^ 'bdoBatchReferenceName'
     -> BatchDetachObject
-batchDetachObject pParentReference_ pLinkName_ pBatchReferenceName_ =
+batchDetachObject pParentReference_ pLinkName_ =
   BatchDetachObject'
-  { _bdoParentReference = pParentReference_
-  , _bdoLinkName = pLinkName_
-  , _bdoBatchReferenceName = pBatchReferenceName_
-  }
+    { _bdoBatchReferenceName = Nothing
+    , _bdoParentReference = pParentReference_
+    , _bdoLinkName = pLinkName_
+    }
 
+
+-- | The batch reference name. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#batches Batches> for more information.
+bdoBatchReferenceName :: Lens' BatchDetachObject (Maybe Text)
+bdoBatchReferenceName = lens _bdoBatchReferenceName (\ s a -> s{_bdoBatchReferenceName = a})
 
 -- | Parent reference from which the object with the specified link name is detached.
 bdoParentReference :: Lens' BatchDetachObject ObjectReference
-bdoParentReference = lens _bdoParentReference (\ s a -> s{_bdoParentReference = a});
+bdoParentReference = lens _bdoParentReference (\ s a -> s{_bdoParentReference = a})
 
 -- | The name of the link.
 bdoLinkName :: Lens' BatchDetachObject Text
-bdoLinkName = lens _bdoLinkName (\ s a -> s{_bdoLinkName = a});
-
--- | The batch reference name. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#batches Batches> for more information.
-bdoBatchReferenceName :: Lens' BatchDetachObject Text
-bdoBatchReferenceName = lens _bdoBatchReferenceName (\ s a -> s{_bdoBatchReferenceName = a});
+bdoLinkName = lens _bdoLinkName (\ s a -> s{_bdoLinkName = a})
 
 instance Hashable BatchDetachObject where
 
@@ -1058,10 +1053,10 @@ instance ToJSON BatchDetachObject where
         toJSON BatchDetachObject'{..}
           = object
               (catMaybes
-                 [Just ("ParentReference" .= _bdoParentReference),
-                  Just ("LinkName" .= _bdoLinkName),
-                  Just
-                    ("BatchReferenceName" .= _bdoBatchReferenceName)])
+                 [("BatchReferenceName" .=) <$>
+                    _bdoBatchReferenceName,
+                  Just ("ParentReference" .= _bdoParentReference),
+                  Just ("LinkName" .= _bdoLinkName)])
 
 -- | Represents the output of a 'DetachObject' response operation.
 --
@@ -1086,7 +1081,7 @@ batchDetachObjectResponse =
 
 -- | The @ObjectIdentifier@ of the detached object.
 bdoDetachedObjectIdentifier :: Lens' BatchDetachObjectResponse (Maybe Text)
-bdoDetachedObjectIdentifier = lens _bdoDetachedObjectIdentifier (\ s a -> s{_bdoDetachedObjectIdentifier = a});
+bdoDetachedObjectIdentifier = lens _bdoDetachedObjectIdentifier (\ s a -> s{_bdoDetachedObjectIdentifier = a})
 
 instance FromJSON BatchDetachObjectResponse where
         parseJSON
@@ -1099,7 +1094,7 @@ instance Hashable BatchDetachObjectResponse where
 
 instance NFData BatchDetachObjectResponse where
 
--- | Detaches the specified policy from the specified directory inside a 'BatchRead' operation. For more information, see 'DetachPolicy' and 'BatchReadRequest$Operations' .
+-- | Detaches the specified policy from the specified directory inside a 'BatchWrite' operation. For more information, see 'DetachPolicy' and 'BatchWriteRequest$Operations' .
 --
 --
 --
@@ -1123,18 +1118,18 @@ batchDetachPolicy
     -> BatchDetachPolicy
 batchDetachPolicy pPolicyReference_ pObjectReference_ =
   BatchDetachPolicy'
-  { _bdpPolicyReference = pPolicyReference_
-  , _bdpObjectReference = pObjectReference_
-  }
+    { _bdpPolicyReference = pPolicyReference_
+    , _bdpObjectReference = pObjectReference_
+    }
 
 
 -- | Reference that identifies the policy object.
 bdpPolicyReference :: Lens' BatchDetachPolicy ObjectReference
-bdpPolicyReference = lens _bdpPolicyReference (\ s a -> s{_bdpPolicyReference = a});
+bdpPolicyReference = lens _bdpPolicyReference (\ s a -> s{_bdpPolicyReference = a})
 
 -- | Reference that identifies the object whose policy object will be detached.
 bdpObjectReference :: Lens' BatchDetachPolicy ObjectReference
-bdpObjectReference = lens _bdpObjectReference (\ s a -> s{_bdpObjectReference = a});
+bdpObjectReference = lens _bdpObjectReference (\ s a -> s{_bdpObjectReference = a})
 
 instance Hashable BatchDetachPolicy where
 
@@ -1197,7 +1192,7 @@ batchDetachTypedLink pTypedLinkSpecifier_ =
 
 -- | Used to accept a typed link specifier as input.
 bdtlTypedLinkSpecifier :: Lens' BatchDetachTypedLink TypedLinkSpecifier
-bdtlTypedLinkSpecifier = lens _bdtlTypedLinkSpecifier (\ s a -> s{_bdtlTypedLinkSpecifier = a});
+bdtlTypedLinkSpecifier = lens _bdtlTypedLinkSpecifier (\ s a -> s{_bdtlTypedLinkSpecifier = a})
 
 instance Hashable BatchDetachTypedLink where
 
@@ -1236,6 +1231,102 @@ instance Hashable BatchDetachTypedLinkResponse where
 
 instance NFData BatchDetachTypedLinkResponse where
 
+-- | Retrieves attributes within a facet that are associated with an object inside an 'BatchRead' operation. For more information, see 'GetObjectAttributes' and 'BatchReadRequest$Operations' .
+--
+--
+--
+-- /See:/ 'batchGetObjectAttributes' smart constructor.
+data BatchGetObjectAttributes = BatchGetObjectAttributes'
+  { _bgoaObjectReference :: !ObjectReference
+  , _bgoaSchemaFacet     :: !SchemaFacet
+  , _bgoaAttributeNames  :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BatchGetObjectAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgoaObjectReference' - Reference that identifies the object whose attributes will be retrieved.
+--
+-- * 'bgoaSchemaFacet' - Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
+--
+-- * 'bgoaAttributeNames' - List of attribute names whose values will be retrieved.
+batchGetObjectAttributes
+    :: ObjectReference -- ^ 'bgoaObjectReference'
+    -> SchemaFacet -- ^ 'bgoaSchemaFacet'
+    -> BatchGetObjectAttributes
+batchGetObjectAttributes pObjectReference_ pSchemaFacet_ =
+  BatchGetObjectAttributes'
+    { _bgoaObjectReference = pObjectReference_
+    , _bgoaSchemaFacet = pSchemaFacet_
+    , _bgoaAttributeNames = mempty
+    }
+
+
+-- | Reference that identifies the object whose attributes will be retrieved.
+bgoaObjectReference :: Lens' BatchGetObjectAttributes ObjectReference
+bgoaObjectReference = lens _bgoaObjectReference (\ s a -> s{_bgoaObjectReference = a})
+
+-- | Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
+bgoaSchemaFacet :: Lens' BatchGetObjectAttributes SchemaFacet
+bgoaSchemaFacet = lens _bgoaSchemaFacet (\ s a -> s{_bgoaSchemaFacet = a})
+
+-- | List of attribute names whose values will be retrieved.
+bgoaAttributeNames :: Lens' BatchGetObjectAttributes [Text]
+bgoaAttributeNames = lens _bgoaAttributeNames (\ s a -> s{_bgoaAttributeNames = a}) . _Coerce
+
+instance Hashable BatchGetObjectAttributes where
+
+instance NFData BatchGetObjectAttributes where
+
+instance ToJSON BatchGetObjectAttributes where
+        toJSON BatchGetObjectAttributes'{..}
+          = object
+              (catMaybes
+                 [Just ("ObjectReference" .= _bgoaObjectReference),
+                  Just ("SchemaFacet" .= _bgoaSchemaFacet),
+                  Just ("AttributeNames" .= _bgoaAttributeNames)])
+
+-- | Represents the output of a 'GetObjectAttributes' response operation.
+--
+--
+--
+-- /See:/ 'batchGetObjectAttributesResponse' smart constructor.
+newtype BatchGetObjectAttributesResponse = BatchGetObjectAttributesResponse'
+  { _bgoaAttributes :: Maybe [AttributeKeyAndValue]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BatchGetObjectAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgoaAttributes' - The attribute values that are associated with an object.
+batchGetObjectAttributesResponse
+    :: BatchGetObjectAttributesResponse
+batchGetObjectAttributesResponse =
+  BatchGetObjectAttributesResponse' {_bgoaAttributes = Nothing}
+
+
+-- | The attribute values that are associated with an object.
+bgoaAttributes :: Lens' BatchGetObjectAttributesResponse [AttributeKeyAndValue]
+bgoaAttributes = lens _bgoaAttributes (\ s a -> s{_bgoaAttributes = a}) . _Default . _Coerce
+
+instance FromJSON BatchGetObjectAttributesResponse
+         where
+        parseJSON
+          = withObject "BatchGetObjectAttributesResponse"
+              (\ x ->
+                 BatchGetObjectAttributesResponse' <$>
+                   (x .:? "Attributes" .!= mempty))
+
+instance Hashable BatchGetObjectAttributesResponse
+         where
+
+instance NFData BatchGetObjectAttributesResponse
+         where
+
 -- | Retrieves metadata about an object inside a 'BatchRead' operation. For more information, see 'GetObjectInformation' and 'BatchReadRequest$Operations' .
 --
 --
@@ -1260,7 +1351,7 @@ batchGetObjectInformation pObjectReference_ =
 
 -- | A reference to the object.
 bgoiObjectReference :: Lens' BatchGetObjectInformation ObjectReference
-bgoiObjectReference = lens _bgoiObjectReference (\ s a -> s{_bgoiObjectReference = a});
+bgoiObjectReference = lens _bgoiObjectReference (\ s a -> s{_bgoiObjectReference = a})
 
 instance Hashable BatchGetObjectInformation where
 
@@ -1294,16 +1385,16 @@ batchGetObjectInformationResponse
     :: BatchGetObjectInformationResponse
 batchGetObjectInformationResponse =
   BatchGetObjectInformationResponse'
-  {_bgoiObjectIdentifier = Nothing, _bgoiSchemaFacets = Nothing}
+    {_bgoiObjectIdentifier = Nothing, _bgoiSchemaFacets = Nothing}
 
 
 -- | The @ObjectIdentifier@ of the specified object.
 bgoiObjectIdentifier :: Lens' BatchGetObjectInformationResponse (Maybe Text)
-bgoiObjectIdentifier = lens _bgoiObjectIdentifier (\ s a -> s{_bgoiObjectIdentifier = a});
+bgoiObjectIdentifier = lens _bgoiObjectIdentifier (\ s a -> s{_bgoiObjectIdentifier = a})
 
 -- | The facets attached to the specified object.
 bgoiSchemaFacets :: Lens' BatchGetObjectInformationResponse [SchemaFacet]
-bgoiSchemaFacets = lens _bgoiSchemaFacets (\ s a -> s{_bgoiSchemaFacets = a}) . _Default . _Coerce;
+bgoiSchemaFacets = lens _bgoiSchemaFacets (\ s a -> s{_bgoiSchemaFacets = a}) . _Default . _Coerce
 
 instance FromJSON BatchGetObjectInformationResponse
          where
@@ -1346,23 +1437,23 @@ batchListAttachedIndices
     -> BatchListAttachedIndices
 batchListAttachedIndices pTargetReference_ =
   BatchListAttachedIndices'
-  { _blaisNextToken = Nothing
-  , _blaisMaxResults = Nothing
-  , _blaisTargetReference = pTargetReference_
-  }
+    { _blaisNextToken = Nothing
+    , _blaisMaxResults = Nothing
+    , _blaisTargetReference = pTargetReference_
+    }
 
 
 -- | The pagination token.
 blaisNextToken :: Lens' BatchListAttachedIndices (Maybe Text)
-blaisNextToken = lens _blaisNextToken (\ s a -> s{_blaisNextToken = a});
+blaisNextToken = lens _blaisNextToken (\ s a -> s{_blaisNextToken = a})
 
 -- | The maximum number of results to retrieve.
 blaisMaxResults :: Lens' BatchListAttachedIndices (Maybe Natural)
-blaisMaxResults = lens _blaisMaxResults (\ s a -> s{_blaisMaxResults = a}) . mapping _Nat;
+blaisMaxResults = lens _blaisMaxResults (\ s a -> s{_blaisMaxResults = a}) . mapping _Nat
 
 -- | A reference to the object that has indices attached.
 blaisTargetReference :: Lens' BatchListAttachedIndices ObjectReference
-blaisTargetReference = lens _blaisTargetReference (\ s a -> s{_blaisTargetReference = a});
+blaisTargetReference = lens _blaisTargetReference (\ s a -> s{_blaisTargetReference = a})
 
 instance Hashable BatchListAttachedIndices where
 
@@ -1398,16 +1489,16 @@ batchListAttachedIndicesResponse
     :: BatchListAttachedIndicesResponse
 batchListAttachedIndicesResponse =
   BatchListAttachedIndicesResponse'
-  {_blaiIndexAttachments = Nothing, _blaiNextToken = Nothing}
+    {_blaiIndexAttachments = Nothing, _blaiNextToken = Nothing}
 
 
 -- | The indices attached to the specified object.
 blaiIndexAttachments :: Lens' BatchListAttachedIndicesResponse [IndexAttachment]
-blaiIndexAttachments = lens _blaiIndexAttachments (\ s a -> s{_blaiIndexAttachments = a}) . _Default . _Coerce;
+blaiIndexAttachments = lens _blaiIndexAttachments (\ s a -> s{_blaiIndexAttachments = a}) . _Default . _Coerce
 
 -- | The pagination token.
 blaiNextToken :: Lens' BatchListAttachedIndicesResponse (Maybe Text)
-blaiNextToken = lens _blaiNextToken (\ s a -> s{_blaiNextToken = a});
+blaiNextToken = lens _blaiNextToken (\ s a -> s{_blaiNextToken = a})
 
 instance FromJSON BatchListAttachedIndicesResponse
          where
@@ -1456,33 +1547,33 @@ batchListIncomingTypedLinks
     -> BatchListIncomingTypedLinks
 batchListIncomingTypedLinks pObjectReference_ =
   BatchListIncomingTypedLinks'
-  { _blitlsFilterAttributeRanges = Nothing
-  , _blitlsNextToken = Nothing
-  , _blitlsFilterTypedLink = Nothing
-  , _blitlsMaxResults = Nothing
-  , _blitlsObjectReference = pObjectReference_
-  }
+    { _blitlsFilterAttributeRanges = Nothing
+    , _blitlsNextToken = Nothing
+    , _blitlsFilterTypedLink = Nothing
+    , _blitlsMaxResults = Nothing
+    , _blitlsObjectReference = pObjectReference_
+    }
 
 
 -- | Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
 blitlsFilterAttributeRanges :: Lens' BatchListIncomingTypedLinks [TypedLinkAttributeRange]
-blitlsFilterAttributeRanges = lens _blitlsFilterAttributeRanges (\ s a -> s{_blitlsFilterAttributeRanges = a}) . _Default . _Coerce;
+blitlsFilterAttributeRanges = lens _blitlsFilterAttributeRanges (\ s a -> s{_blitlsFilterAttributeRanges = a}) . _Default . _Coerce
 
 -- | The pagination token.
 blitlsNextToken :: Lens' BatchListIncomingTypedLinks (Maybe Text)
-blitlsNextToken = lens _blitlsNextToken (\ s a -> s{_blitlsNextToken = a});
+blitlsNextToken = lens _blitlsNextToken (\ s a -> s{_blitlsNextToken = a})
 
 -- | Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls.
 blitlsFilterTypedLink :: Lens' BatchListIncomingTypedLinks (Maybe TypedLinkSchemaAndFacetName)
-blitlsFilterTypedLink = lens _blitlsFilterTypedLink (\ s a -> s{_blitlsFilterTypedLink = a});
+blitlsFilterTypedLink = lens _blitlsFilterTypedLink (\ s a -> s{_blitlsFilterTypedLink = a})
 
 -- | The maximum number of results to retrieve.
 blitlsMaxResults :: Lens' BatchListIncomingTypedLinks (Maybe Natural)
-blitlsMaxResults = lens _blitlsMaxResults (\ s a -> s{_blitlsMaxResults = a}) . mapping _Nat;
+blitlsMaxResults = lens _blitlsMaxResults (\ s a -> s{_blitlsMaxResults = a}) . mapping _Nat
 
 -- | The reference that identifies the object whose attributes will be listed.
 blitlsObjectReference :: Lens' BatchListIncomingTypedLinks ObjectReference
-blitlsObjectReference = lens _blitlsObjectReference (\ s a -> s{_blitlsObjectReference = a});
+blitlsObjectReference = lens _blitlsObjectReference (\ s a -> s{_blitlsObjectReference = a})
 
 instance Hashable BatchListIncomingTypedLinks where
 
@@ -1521,16 +1612,16 @@ batchListIncomingTypedLinksResponse
     :: BatchListIncomingTypedLinksResponse
 batchListIncomingTypedLinksResponse =
   BatchListIncomingTypedLinksResponse'
-  {_blitlLinkSpecifiers = Nothing, _blitlNextToken = Nothing}
+    {_blitlLinkSpecifiers = Nothing, _blitlNextToken = Nothing}
 
 
 -- | Returns one or more typed link specifiers as output.
 blitlLinkSpecifiers :: Lens' BatchListIncomingTypedLinksResponse [TypedLinkSpecifier]
-blitlLinkSpecifiers = lens _blitlLinkSpecifiers (\ s a -> s{_blitlLinkSpecifiers = a}) . _Default . _Coerce;
+blitlLinkSpecifiers = lens _blitlLinkSpecifiers (\ s a -> s{_blitlLinkSpecifiers = a}) . _Default . _Coerce
 
 -- | The pagination token.
 blitlNextToken :: Lens' BatchListIncomingTypedLinksResponse (Maybe Text)
-blitlNextToken = lens _blitlNextToken (\ s a -> s{_blitlNextToken = a});
+blitlNextToken = lens _blitlNextToken (\ s a -> s{_blitlNextToken = a})
 
 instance FromJSON BatchListIncomingTypedLinksResponse
          where
@@ -1576,28 +1667,28 @@ batchListIndex
     -> BatchListIndex
 batchListIndex pIndexReference_ =
   BatchListIndex'
-  { _batRangesOnIndexedValues = Nothing
-  , _batNextToken = Nothing
-  , _batMaxResults = Nothing
-  , _batIndexReference = pIndexReference_
-  }
+    { _batRangesOnIndexedValues = Nothing
+    , _batNextToken = Nothing
+    , _batMaxResults = Nothing
+    , _batIndexReference = pIndexReference_
+    }
 
 
 -- | Specifies the ranges of indexed values that you want to query.
 batRangesOnIndexedValues :: Lens' BatchListIndex [ObjectAttributeRange]
-batRangesOnIndexedValues = lens _batRangesOnIndexedValues (\ s a -> s{_batRangesOnIndexedValues = a}) . _Default . _Coerce;
+batRangesOnIndexedValues = lens _batRangesOnIndexedValues (\ s a -> s{_batRangesOnIndexedValues = a}) . _Default . _Coerce
 
 -- | The pagination token.
 batNextToken :: Lens' BatchListIndex (Maybe Text)
-batNextToken = lens _batNextToken (\ s a -> s{_batNextToken = a});
+batNextToken = lens _batNextToken (\ s a -> s{_batNextToken = a})
 
 -- | The maximum number of results to retrieve.
 batMaxResults :: Lens' BatchListIndex (Maybe Natural)
-batMaxResults = lens _batMaxResults (\ s a -> s{_batMaxResults = a}) . mapping _Nat;
+batMaxResults = lens _batMaxResults (\ s a -> s{_batMaxResults = a}) . mapping _Nat
 
 -- | The reference to the index to list.
 batIndexReference :: Lens' BatchListIndex ObjectReference
-batIndexReference = lens _batIndexReference (\ s a -> s{_batIndexReference = a});
+batIndexReference = lens _batIndexReference (\ s a -> s{_batIndexReference = a})
 
 instance Hashable BatchListIndex where
 
@@ -1635,16 +1726,16 @@ batchListIndexResponse
     :: BatchListIndexResponse
 batchListIndexResponse =
   BatchListIndexResponse'
-  {_bliIndexAttachments = Nothing, _bliNextToken = Nothing}
+    {_bliIndexAttachments = Nothing, _bliNextToken = Nothing}
 
 
 -- | The objects and indexed values attached to the index.
 bliIndexAttachments :: Lens' BatchListIndexResponse [IndexAttachment]
-bliIndexAttachments = lens _bliIndexAttachments (\ s a -> s{_bliIndexAttachments = a}) . _Default . _Coerce;
+bliIndexAttachments = lens _bliIndexAttachments (\ s a -> s{_bliIndexAttachments = a}) . _Default . _Coerce
 
 -- | The pagination token.
 bliNextToken :: Lens' BatchListIndexResponse (Maybe Text)
-bliNextToken = lens _bliNextToken (\ s a -> s{_bliNextToken = a});
+bliNextToken = lens _bliNextToken (\ s a -> s{_bliNextToken = a})
 
 instance FromJSON BatchListIndexResponse where
         parseJSON
@@ -1687,28 +1778,28 @@ batchListObjectAttributes
     -> BatchListObjectAttributes
 batchListObjectAttributes pObjectReference_ =
   BatchListObjectAttributes'
-  { _bloaFacetFilter = Nothing
-  , _bloaNextToken = Nothing
-  , _bloaMaxResults = Nothing
-  , _bloaObjectReference = pObjectReference_
-  }
+    { _bloaFacetFilter = Nothing
+    , _bloaNextToken = Nothing
+    , _bloaMaxResults = Nothing
+    , _bloaObjectReference = pObjectReference_
+    }
 
 
 -- | Used to filter the list of object attributes that are associated with a certain facet.
 bloaFacetFilter :: Lens' BatchListObjectAttributes (Maybe SchemaFacet)
-bloaFacetFilter = lens _bloaFacetFilter (\ s a -> s{_bloaFacetFilter = a});
+bloaFacetFilter = lens _bloaFacetFilter (\ s a -> s{_bloaFacetFilter = a})
 
 -- | The pagination token.
 bloaNextToken :: Lens' BatchListObjectAttributes (Maybe Text)
-bloaNextToken = lens _bloaNextToken (\ s a -> s{_bloaNextToken = a});
+bloaNextToken = lens _bloaNextToken (\ s a -> s{_bloaNextToken = a})
 
 -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 bloaMaxResults :: Lens' BatchListObjectAttributes (Maybe Natural)
-bloaMaxResults = lens _bloaMaxResults (\ s a -> s{_bloaMaxResults = a}) . mapping _Nat;
+bloaMaxResults = lens _bloaMaxResults (\ s a -> s{_bloaMaxResults = a}) . mapping _Nat
 
 -- | Reference of the object whose attributes need to be listed.
 bloaObjectReference :: Lens' BatchListObjectAttributes ObjectReference
-bloaObjectReference = lens _bloaObjectReference (\ s a -> s{_bloaObjectReference = a});
+bloaObjectReference = lens _bloaObjectReference (\ s a -> s{_bloaObjectReference = a})
 
 instance Hashable BatchListObjectAttributes where
 
@@ -1745,16 +1836,16 @@ batchListObjectAttributesResponse
     :: BatchListObjectAttributesResponse
 batchListObjectAttributesResponse =
   BatchListObjectAttributesResponse'
-  {_bNextToken = Nothing, _bAttributes = Nothing}
+    {_bNextToken = Nothing, _bAttributes = Nothing}
 
 
 -- | The pagination token.
 bNextToken :: Lens' BatchListObjectAttributesResponse (Maybe Text)
-bNextToken = lens _bNextToken (\ s a -> s{_bNextToken = a});
+bNextToken = lens _bNextToken (\ s a -> s{_bNextToken = a})
 
 -- | The attributes map that is associated with the object. @AttributeArn@ is the key; attribute value is the value.
 bAttributes :: Lens' BatchListObjectAttributesResponse [AttributeKeyAndValue]
-bAttributes = lens _bAttributes (\ s a -> s{_bAttributes = a}) . _Default . _Coerce;
+bAttributes = lens _bAttributes (\ s a -> s{_bAttributes = a}) . _Default . _Coerce
 
 instance FromJSON BatchListObjectAttributesResponse
          where
@@ -1797,23 +1888,23 @@ batchListObjectChildren
     -> BatchListObjectChildren
 batchListObjectChildren pObjectReference_ =
   BatchListObjectChildren'
-  { _bloclNextToken = Nothing
-  , _bloclMaxResults = Nothing
-  , _bloclObjectReference = pObjectReference_
-  }
+    { _bloclNextToken = Nothing
+    , _bloclMaxResults = Nothing
+    , _bloclObjectReference = pObjectReference_
+    }
 
 
 -- | The pagination token.
 bloclNextToken :: Lens' BatchListObjectChildren (Maybe Text)
-bloclNextToken = lens _bloclNextToken (\ s a -> s{_bloclNextToken = a});
+bloclNextToken = lens _bloclNextToken (\ s a -> s{_bloclNextToken = a})
 
 -- | Maximum number of items to be retrieved in a single call. This is an approximate number.
 bloclMaxResults :: Lens' BatchListObjectChildren (Maybe Natural)
-bloclMaxResults = lens _bloclMaxResults (\ s a -> s{_bloclMaxResults = a}) . mapping _Nat;
+bloclMaxResults = lens _bloclMaxResults (\ s a -> s{_bloclMaxResults = a}) . mapping _Nat
 
 -- | Reference of the object for which child objects are being listed.
 bloclObjectReference :: Lens' BatchListObjectChildren ObjectReference
-bloclObjectReference = lens _bloclObjectReference (\ s a -> s{_bloclObjectReference = a});
+bloclObjectReference = lens _bloclObjectReference (\ s a -> s{_bloclObjectReference = a})
 
 instance Hashable BatchListObjectChildren where
 
@@ -1849,16 +1940,16 @@ batchListObjectChildrenResponse
     :: BatchListObjectChildrenResponse
 batchListObjectChildrenResponse =
   BatchListObjectChildrenResponse'
-  {_blocChildren = Nothing, _blocNextToken = Nothing}
+    {_blocChildren = Nothing, _blocNextToken = Nothing}
 
 
 -- | The children structure, which is a map with the key as the @LinkName@ and @ObjectIdentifier@ as the value.
 blocChildren :: Lens' BatchListObjectChildrenResponse (HashMap Text Text)
-blocChildren = lens _blocChildren (\ s a -> s{_blocChildren = a}) . _Default . _Map;
+blocChildren = lens _blocChildren (\ s a -> s{_blocChildren = a}) . _Default . _Map
 
 -- | The pagination token.
 blocNextToken :: Lens' BatchListObjectChildrenResponse (Maybe Text)
-blocNextToken = lens _blocNextToken (\ s a -> s{_blocNextToken = a});
+blocNextToken = lens _blocNextToken (\ s a -> s{_blocNextToken = a})
 
 instance FromJSON BatchListObjectChildrenResponse
          where
@@ -1900,23 +1991,23 @@ batchListObjectParentPaths
     -> BatchListObjectParentPaths
 batchListObjectParentPaths pObjectReference_ =
   BatchListObjectParentPaths'
-  { _bloppsNextToken = Nothing
-  , _bloppsMaxResults = Nothing
-  , _bloppsObjectReference = pObjectReference_
-  }
+    { _bloppsNextToken = Nothing
+    , _bloppsMaxResults = Nothing
+    , _bloppsObjectReference = pObjectReference_
+    }
 
 
 -- | The pagination token.
 bloppsNextToken :: Lens' BatchListObjectParentPaths (Maybe Text)
-bloppsNextToken = lens _bloppsNextToken (\ s a -> s{_bloppsNextToken = a});
+bloppsNextToken = lens _bloppsNextToken (\ s a -> s{_bloppsNextToken = a})
 
 -- | The maximum number of results to retrieve.
 bloppsMaxResults :: Lens' BatchListObjectParentPaths (Maybe Natural)
-bloppsMaxResults = lens _bloppsMaxResults (\ s a -> s{_bloppsMaxResults = a}) . mapping _Nat;
+bloppsMaxResults = lens _bloppsMaxResults (\ s a -> s{_bloppsMaxResults = a}) . mapping _Nat
 
 -- | The reference that identifies the object whose attributes will be listed.
 bloppsObjectReference :: Lens' BatchListObjectParentPaths ObjectReference
-bloppsObjectReference = lens _bloppsObjectReference (\ s a -> s{_bloppsObjectReference = a});
+bloppsObjectReference = lens _bloppsObjectReference (\ s a -> s{_bloppsObjectReference = a})
 
 instance Hashable BatchListObjectParentPaths where
 
@@ -1952,16 +2043,16 @@ batchListObjectParentPathsResponse
     :: BatchListObjectParentPathsResponse
 batchListObjectParentPathsResponse =
   BatchListObjectParentPathsResponse'
-  {_bloppPathToObjectIdentifiersList = Nothing, _bloppNextToken = Nothing}
+    {_bloppPathToObjectIdentifiersList = Nothing, _bloppNextToken = Nothing}
 
 
 -- | Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
 bloppPathToObjectIdentifiersList :: Lens' BatchListObjectParentPathsResponse [PathToObjectIdentifiers]
-bloppPathToObjectIdentifiersList = lens _bloppPathToObjectIdentifiersList (\ s a -> s{_bloppPathToObjectIdentifiersList = a}) . _Default . _Coerce;
+bloppPathToObjectIdentifiersList = lens _bloppPathToObjectIdentifiersList (\ s a -> s{_bloppPathToObjectIdentifiersList = a}) . _Default . _Coerce
 
 -- | The pagination token.
 bloppNextToken :: Lens' BatchListObjectParentPathsResponse (Maybe Text)
-bloppNextToken = lens _bloppNextToken (\ s a -> s{_bloppNextToken = a});
+bloppNextToken = lens _bloppNextToken (\ s a -> s{_bloppNextToken = a})
 
 instance FromJSON BatchListObjectParentPathsResponse
          where
@@ -2004,23 +2095,23 @@ batchListObjectPolicies
     -> BatchListObjectPolicies
 batchListObjectPolicies pObjectReference_ =
   BatchListObjectPolicies'
-  { _blopsNextToken = Nothing
-  , _blopsMaxResults = Nothing
-  , _blopsObjectReference = pObjectReference_
-  }
+    { _blopsNextToken = Nothing
+    , _blopsMaxResults = Nothing
+    , _blopsObjectReference = pObjectReference_
+    }
 
 
 -- | The pagination token.
 blopsNextToken :: Lens' BatchListObjectPolicies (Maybe Text)
-blopsNextToken = lens _blopsNextToken (\ s a -> s{_blopsNextToken = a});
+blopsNextToken = lens _blopsNextToken (\ s a -> s{_blopsNextToken = a})
 
 -- | The maximum number of results to retrieve.
 blopsMaxResults :: Lens' BatchListObjectPolicies (Maybe Natural)
-blopsMaxResults = lens _blopsMaxResults (\ s a -> s{_blopsMaxResults = a}) . mapping _Nat;
+blopsMaxResults = lens _blopsMaxResults (\ s a -> s{_blopsMaxResults = a}) . mapping _Nat
 
 -- | The reference that identifies the object whose attributes will be listed.
 blopsObjectReference :: Lens' BatchListObjectPolicies ObjectReference
-blopsObjectReference = lens _blopsObjectReference (\ s a -> s{_blopsObjectReference = a});
+blopsObjectReference = lens _blopsObjectReference (\ s a -> s{_blopsObjectReference = a})
 
 instance Hashable BatchListObjectPolicies where
 
@@ -2056,16 +2147,16 @@ batchListObjectPoliciesResponse
     :: BatchListObjectPoliciesResponse
 batchListObjectPoliciesResponse =
   BatchListObjectPoliciesResponse'
-  {_blopNextToken = Nothing, _blopAttachedPolicyIds = Nothing}
+    {_blopNextToken = Nothing, _blopAttachedPolicyIds = Nothing}
 
 
 -- | The pagination token.
 blopNextToken :: Lens' BatchListObjectPoliciesResponse (Maybe Text)
-blopNextToken = lens _blopNextToken (\ s a -> s{_blopNextToken = a});
+blopNextToken = lens _blopNextToken (\ s a -> s{_blopNextToken = a})
 
 -- | A list of policy @ObjectIdentifiers@ , that are attached to the object.
 blopAttachedPolicyIds :: Lens' BatchListObjectPoliciesResponse [Text]
-blopAttachedPolicyIds = lens _blopAttachedPolicyIds (\ s a -> s{_blopAttachedPolicyIds = a}) . _Default . _Coerce;
+blopAttachedPolicyIds = lens _blopAttachedPolicyIds (\ s a -> s{_blopAttachedPolicyIds = a}) . _Default . _Coerce
 
 instance FromJSON BatchListObjectPoliciesResponse
          where
@@ -2113,33 +2204,33 @@ batchListOutgoingTypedLinks
     -> BatchListOutgoingTypedLinks
 batchListOutgoingTypedLinks pObjectReference_ =
   BatchListOutgoingTypedLinks'
-  { _blotlsFilterAttributeRanges = Nothing
-  , _blotlsNextToken = Nothing
-  , _blotlsFilterTypedLink = Nothing
-  , _blotlsMaxResults = Nothing
-  , _blotlsObjectReference = pObjectReference_
-  }
+    { _blotlsFilterAttributeRanges = Nothing
+    , _blotlsNextToken = Nothing
+    , _blotlsFilterTypedLink = Nothing
+    , _blotlsMaxResults = Nothing
+    , _blotlsObjectReference = pObjectReference_
+    }
 
 
 -- | Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
 blotlsFilterAttributeRanges :: Lens' BatchListOutgoingTypedLinks [TypedLinkAttributeRange]
-blotlsFilterAttributeRanges = lens _blotlsFilterAttributeRanges (\ s a -> s{_blotlsFilterAttributeRanges = a}) . _Default . _Coerce;
+blotlsFilterAttributeRanges = lens _blotlsFilterAttributeRanges (\ s a -> s{_blotlsFilterAttributeRanges = a}) . _Default . _Coerce
 
 -- | The pagination token.
 blotlsNextToken :: Lens' BatchListOutgoingTypedLinks (Maybe Text)
-blotlsNextToken = lens _blotlsNextToken (\ s a -> s{_blotlsNextToken = a});
+blotlsNextToken = lens _blotlsNextToken (\ s a -> s{_blotlsNextToken = a})
 
 -- | Filters are interpreted in the order of the attributes defined on the typed link facet, not the order they are supplied to any API calls.
 blotlsFilterTypedLink :: Lens' BatchListOutgoingTypedLinks (Maybe TypedLinkSchemaAndFacetName)
-blotlsFilterTypedLink = lens _blotlsFilterTypedLink (\ s a -> s{_blotlsFilterTypedLink = a});
+blotlsFilterTypedLink = lens _blotlsFilterTypedLink (\ s a -> s{_blotlsFilterTypedLink = a})
 
 -- | The maximum number of results to retrieve.
 blotlsMaxResults :: Lens' BatchListOutgoingTypedLinks (Maybe Natural)
-blotlsMaxResults = lens _blotlsMaxResults (\ s a -> s{_blotlsMaxResults = a}) . mapping _Nat;
+blotlsMaxResults = lens _blotlsMaxResults (\ s a -> s{_blotlsMaxResults = a}) . mapping _Nat
 
 -- | The reference that identifies the object whose attributes will be listed.
 blotlsObjectReference :: Lens' BatchListOutgoingTypedLinks ObjectReference
-blotlsObjectReference = lens _blotlsObjectReference (\ s a -> s{_blotlsObjectReference = a});
+blotlsObjectReference = lens _blotlsObjectReference (\ s a -> s{_blotlsObjectReference = a})
 
 instance Hashable BatchListOutgoingTypedLinks where
 
@@ -2178,16 +2269,16 @@ batchListOutgoingTypedLinksResponse
     :: BatchListOutgoingTypedLinksResponse
 batchListOutgoingTypedLinksResponse =
   BatchListOutgoingTypedLinksResponse'
-  {_blotlTypedLinkSpecifiers = Nothing, _blotlNextToken = Nothing}
+    {_blotlTypedLinkSpecifiers = Nothing, _blotlNextToken = Nothing}
 
 
 -- | Returns a typed link specifier as output.
 blotlTypedLinkSpecifiers :: Lens' BatchListOutgoingTypedLinksResponse [TypedLinkSpecifier]
-blotlTypedLinkSpecifiers = lens _blotlTypedLinkSpecifiers (\ s a -> s{_blotlTypedLinkSpecifiers = a}) . _Default . _Coerce;
+blotlTypedLinkSpecifiers = lens _blotlTypedLinkSpecifiers (\ s a -> s{_blotlTypedLinkSpecifiers = a}) . _Default . _Coerce
 
 -- | The pagination token.
 blotlNextToken :: Lens' BatchListOutgoingTypedLinksResponse (Maybe Text)
-blotlNextToken = lens _blotlNextToken (\ s a -> s{_blotlNextToken = a});
+blotlNextToken = lens _blotlNextToken (\ s a -> s{_blotlNextToken = a})
 
 instance FromJSON BatchListOutgoingTypedLinksResponse
          where
@@ -2230,23 +2321,23 @@ batchListPolicyAttachments
     -> BatchListPolicyAttachments
 batchListPolicyAttachments pPolicyReference_ =
   BatchListPolicyAttachments'
-  { _blpasNextToken = Nothing
-  , _blpasMaxResults = Nothing
-  , _blpasPolicyReference = pPolicyReference_
-  }
+    { _blpasNextToken = Nothing
+    , _blpasMaxResults = Nothing
+    , _blpasPolicyReference = pPolicyReference_
+    }
 
 
 -- | The pagination token.
 blpasNextToken :: Lens' BatchListPolicyAttachments (Maybe Text)
-blpasNextToken = lens _blpasNextToken (\ s a -> s{_blpasNextToken = a});
+blpasNextToken = lens _blpasNextToken (\ s a -> s{_blpasNextToken = a})
 
 -- | The maximum number of results to retrieve.
 blpasMaxResults :: Lens' BatchListPolicyAttachments (Maybe Natural)
-blpasMaxResults = lens _blpasMaxResults (\ s a -> s{_blpasMaxResults = a}) . mapping _Nat;
+blpasMaxResults = lens _blpasMaxResults (\ s a -> s{_blpasMaxResults = a}) . mapping _Nat
 
 -- | The reference that identifies the policy object.
 blpasPolicyReference :: Lens' BatchListPolicyAttachments ObjectReference
-blpasPolicyReference = lens _blpasPolicyReference (\ s a -> s{_blpasPolicyReference = a});
+blpasPolicyReference = lens _blpasPolicyReference (\ s a -> s{_blpasPolicyReference = a})
 
 instance Hashable BatchListPolicyAttachments where
 
@@ -2282,16 +2373,16 @@ batchListPolicyAttachmentsResponse
     :: BatchListPolicyAttachmentsResponse
 batchListPolicyAttachmentsResponse =
   BatchListPolicyAttachmentsResponse'
-  {_blpaObjectIdentifiers = Nothing, _blpaNextToken = Nothing}
+    {_blpaObjectIdentifiers = Nothing, _blpaNextToken = Nothing}
 
 
 -- | A list of @ObjectIdentifiers@ to which the policy is attached.
 blpaObjectIdentifiers :: Lens' BatchListPolicyAttachmentsResponse [Text]
-blpaObjectIdentifiers = lens _blpaObjectIdentifiers (\ s a -> s{_blpaObjectIdentifiers = a}) . _Default . _Coerce;
+blpaObjectIdentifiers = lens _blpaObjectIdentifiers (\ s a -> s{_blpaObjectIdentifiers = a}) . _Default . _Coerce
 
 -- | The pagination token.
 blpaNextToken :: Lens' BatchListPolicyAttachmentsResponse (Maybe Text)
-blpaNextToken = lens _blpaNextToken (\ s a -> s{_blpaNextToken = a});
+blpaNextToken = lens _blpaNextToken (\ s a -> s{_blpaNextToken = a})
 
 instance FromJSON BatchListPolicyAttachmentsResponse
          where
@@ -2334,23 +2425,23 @@ batchLookupPolicy
     -> BatchLookupPolicy
 batchLookupPolicy pObjectReference_ =
   BatchLookupPolicy'
-  { _blplNextToken = Nothing
-  , _blplMaxResults = Nothing
-  , _blplObjectReference = pObjectReference_
-  }
+    { _blplNextToken = Nothing
+    , _blplMaxResults = Nothing
+    , _blplObjectReference = pObjectReference_
+    }
 
 
 -- | The pagination token.
 blplNextToken :: Lens' BatchLookupPolicy (Maybe Text)
-blplNextToken = lens _blplNextToken (\ s a -> s{_blplNextToken = a});
+blplNextToken = lens _blplNextToken (\ s a -> s{_blplNextToken = a})
 
 -- | The maximum number of results to retrieve.
 blplMaxResults :: Lens' BatchLookupPolicy (Maybe Natural)
-blplMaxResults = lens _blplMaxResults (\ s a -> s{_blplMaxResults = a}) . mapping _Nat;
+blplMaxResults = lens _blplMaxResults (\ s a -> s{_blplMaxResults = a}) . mapping _Nat
 
 -- | Reference that identifies the object whose policies will be looked up.
 blplObjectReference :: Lens' BatchLookupPolicy ObjectReference
-blplObjectReference = lens _blplObjectReference (\ s a -> s{_blplObjectReference = a});
+blplObjectReference = lens _blplObjectReference (\ s a -> s{_blplObjectReference = a})
 
 instance Hashable BatchLookupPolicy where
 
@@ -2386,16 +2477,16 @@ batchLookupPolicyResponse
     :: BatchLookupPolicyResponse
 batchLookupPolicyResponse =
   BatchLookupPolicyResponse'
-  {_blpNextToken = Nothing, _blpPolicyToPathList = Nothing}
+    {_blpNextToken = Nothing, _blpPolicyToPathList = Nothing}
 
 
 -- | The pagination token.
 blpNextToken :: Lens' BatchLookupPolicyResponse (Maybe Text)
-blpNextToken = lens _blpNextToken (\ s a -> s{_blpNextToken = a});
+blpNextToken = lens _blpNextToken (\ s a -> s{_blpNextToken = a})
 
 -- | Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies Policies> .
 blpPolicyToPathList :: Lens' BatchLookupPolicyResponse [PolicyToPath]
-blpPolicyToPathList = lens _blpPolicyToPathList (\ s a -> s{_blpPolicyToPathList = a}) . _Default . _Coerce;
+blpPolicyToPathList = lens _blpPolicyToPathList (\ s a -> s{_blpPolicyToPathList = a}) . _Default . _Coerce
 
 instance FromJSON BatchLookupPolicyResponse where
         parseJSON
@@ -2435,11 +2526,11 @@ batchReadException =
 
 -- | A type of exception, such as @InvalidArnException@ .
 breType :: Lens' BatchReadException (Maybe BatchReadExceptionType)
-breType = lens _breType (\ s a -> s{_breType = a});
+breType = lens _breType (\ s a -> s{_breType = a})
 
 -- | An exception message that is associated with the failure.
 breMessage :: Lens' BatchReadException (Maybe Text)
-breMessage = lens _breMessage (\ s a -> s{_breMessage = a});
+breMessage = lens _breMessage (\ s a -> s{_breMessage = a})
 
 instance FromJSON BatchReadException where
         parseJSON
@@ -2465,6 +2556,7 @@ data BatchReadOperation = BatchReadOperation'
   , _broListObjectParentPaths  :: !(Maybe BatchListObjectParentPaths)
   , _broListObjectAttributes   :: !(Maybe BatchListObjectAttributes)
   , _broListIncomingTypedLinks :: !(Maybe BatchListIncomingTypedLinks)
+  , _broGetObjectAttributes    :: !(Maybe BatchGetObjectAttributes)
   , _broListObjectChildren     :: !(Maybe BatchListObjectChildren)
   , _broListPolicyAttachments  :: !(Maybe BatchListPolicyAttachments)
   , _broListOutgoingTypedLinks :: !(Maybe BatchListOutgoingTypedLinks)
@@ -2490,6 +2582,8 @@ data BatchReadOperation = BatchReadOperation'
 --
 -- * 'broListIncomingTypedLinks' - Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 --
+-- * 'broGetObjectAttributes' - Retrieves attributes within a facet that are associated with an object.
+--
 -- * 'broListObjectChildren' - Returns a paginated list of child objects that are associated with a given object.
 --
 -- * 'broListPolicyAttachments' - Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
@@ -2501,63 +2595,68 @@ batchReadOperation
     :: BatchReadOperation
 batchReadOperation =
   BatchReadOperation'
-  { _broListIndex = Nothing
-  , _broGetObjectInformation = Nothing
-  , _broListAttachedIndices = Nothing
-  , _broLookupPolicy = Nothing
-  , _broListObjectParentPaths = Nothing
-  , _broListObjectAttributes = Nothing
-  , _broListIncomingTypedLinks = Nothing
-  , _broListObjectChildren = Nothing
-  , _broListPolicyAttachments = Nothing
-  , _broListOutgoingTypedLinks = Nothing
-  , _broListObjectPolicies = Nothing
-  }
+    { _broListIndex = Nothing
+    , _broGetObjectInformation = Nothing
+    , _broListAttachedIndices = Nothing
+    , _broLookupPolicy = Nothing
+    , _broListObjectParentPaths = Nothing
+    , _broListObjectAttributes = Nothing
+    , _broListIncomingTypedLinks = Nothing
+    , _broGetObjectAttributes = Nothing
+    , _broListObjectChildren = Nothing
+    , _broListPolicyAttachments = Nothing
+    , _broListOutgoingTypedLinks = Nothing
+    , _broListObjectPolicies = Nothing
+    }
 
 
 -- | Lists objects attached to the specified index.
 broListIndex :: Lens' BatchReadOperation (Maybe BatchListIndex)
-broListIndex = lens _broListIndex (\ s a -> s{_broListIndex = a});
+broListIndex = lens _broListIndex (\ s a -> s{_broListIndex = a})
 
 -- | Retrieves metadata about an object.
 broGetObjectInformation :: Lens' BatchReadOperation (Maybe BatchGetObjectInformation)
-broGetObjectInformation = lens _broGetObjectInformation (\ s a -> s{_broGetObjectInformation = a});
+broGetObjectInformation = lens _broGetObjectInformation (\ s a -> s{_broGetObjectInformation = a})
 
 -- | Lists indices attached to an object.
 broListAttachedIndices :: Lens' BatchReadOperation (Maybe BatchListAttachedIndices)
-broListAttachedIndices = lens _broListAttachedIndices (\ s a -> s{_broListAttachedIndices = a});
+broListAttachedIndices = lens _broListAttachedIndices (\ s a -> s{_broListAttachedIndices = a})
 
 -- | Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies Policies> .
 broLookupPolicy :: Lens' BatchReadOperation (Maybe BatchLookupPolicy)
-broLookupPolicy = lens _broLookupPolicy (\ s a -> s{_broLookupPolicy = a});
+broLookupPolicy = lens _broLookupPolicy (\ s a -> s{_broLookupPolicy = a})
 
 -- | Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#dirstructure Directory Structure> .
 broListObjectParentPaths :: Lens' BatchReadOperation (Maybe BatchListObjectParentPaths)
-broListObjectParentPaths = lens _broListObjectParentPaths (\ s a -> s{_broListObjectParentPaths = a});
+broListObjectParentPaths = lens _broListObjectParentPaths (\ s a -> s{_broListObjectParentPaths = a})
 
 -- | Lists all attributes that are associated with an object.
 broListObjectAttributes :: Lens' BatchReadOperation (Maybe BatchListObjectAttributes)
-broListObjectAttributes = lens _broListObjectAttributes (\ s a -> s{_broListObjectAttributes = a});
+broListObjectAttributes = lens _broListObjectAttributes (\ s a -> s{_broListObjectAttributes = a})
 
 -- | Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 broListIncomingTypedLinks :: Lens' BatchReadOperation (Maybe BatchListIncomingTypedLinks)
-broListIncomingTypedLinks = lens _broListIncomingTypedLinks (\ s a -> s{_broListIncomingTypedLinks = a});
+broListIncomingTypedLinks = lens _broListIncomingTypedLinks (\ s a -> s{_broListIncomingTypedLinks = a})
+
+-- | Retrieves attributes within a facet that are associated with an object.
+broGetObjectAttributes :: Lens' BatchReadOperation (Maybe BatchGetObjectAttributes)
+broGetObjectAttributes = lens _broGetObjectAttributes (\ s a -> s{_broGetObjectAttributes = a})
 
 -- | Returns a paginated list of child objects that are associated with a given object.
 broListObjectChildren :: Lens' BatchReadOperation (Maybe BatchListObjectChildren)
-broListObjectChildren = lens _broListObjectChildren (\ s a -> s{_broListObjectChildren = a});
+broListObjectChildren = lens _broListObjectChildren (\ s a -> s{_broListObjectChildren = a})
 
 -- | Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
 broListPolicyAttachments :: Lens' BatchReadOperation (Maybe BatchListPolicyAttachments)
-broListPolicyAttachments = lens _broListPolicyAttachments (\ s a -> s{_broListPolicyAttachments = a});
+broListPolicyAttachments = lens _broListPolicyAttachments (\ s a -> s{_broListPolicyAttachments = a})
 
 -- | Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 broListOutgoingTypedLinks :: Lens' BatchReadOperation (Maybe BatchListOutgoingTypedLinks)
-broListOutgoingTypedLinks = lens _broListOutgoingTypedLinks (\ s a -> s{_broListOutgoingTypedLinks = a});
+broListOutgoingTypedLinks = lens _broListOutgoingTypedLinks (\ s a -> s{_broListOutgoingTypedLinks = a})
 
 -- | Returns policies attached to an object in pagination fashion.
 broListObjectPolicies :: Lens' BatchReadOperation (Maybe BatchListObjectPolicies)
-broListObjectPolicies = lens _broListObjectPolicies (\ s a -> s{_broListObjectPolicies = a});
+broListObjectPolicies = lens _broListObjectPolicies (\ s a -> s{_broListObjectPolicies = a})
 
 instance Hashable BatchReadOperation where
 
@@ -2579,6 +2678,8 @@ instance ToJSON BatchReadOperation where
                     _broListObjectAttributes,
                   ("ListIncomingTypedLinks" .=) <$>
                     _broListIncomingTypedLinks,
+                  ("GetObjectAttributes" .=) <$>
+                    _broGetObjectAttributes,
                   ("ListObjectChildren" .=) <$> _broListObjectChildren,
                   ("ListPolicyAttachments" .=) <$>
                     _broListPolicyAttachments,
@@ -2609,16 +2710,16 @@ batchReadOperationResponse
     :: BatchReadOperationResponse
 batchReadOperationResponse =
   BatchReadOperationResponse'
-  {_broExceptionResponse = Nothing, _broSuccessfulResponse = Nothing}
+    {_broExceptionResponse = Nothing, _broSuccessfulResponse = Nothing}
 
 
 -- | Identifies which operation in a batch has failed.
 broExceptionResponse :: Lens' BatchReadOperationResponse (Maybe BatchReadException)
-broExceptionResponse = lens _broExceptionResponse (\ s a -> s{_broExceptionResponse = a});
+broExceptionResponse = lens _broExceptionResponse (\ s a -> s{_broExceptionResponse = a})
 
 -- | Identifies which operation in a batch has succeeded.
 broSuccessfulResponse :: Lens' BatchReadOperationResponse (Maybe BatchReadSuccessfulResponse)
-broSuccessfulResponse = lens _broSuccessfulResponse (\ s a -> s{_broSuccessfulResponse = a});
+broSuccessfulResponse = lens _broSuccessfulResponse (\ s a -> s{_broSuccessfulResponse = a})
 
 instance FromJSON BatchReadOperationResponse where
         parseJSON
@@ -2645,6 +2746,7 @@ data BatchReadSuccessfulResponse = BatchReadSuccessfulResponse'
   , _brsListObjectParentPaths  :: !(Maybe BatchListObjectParentPathsResponse)
   , _brsListObjectAttributes   :: !(Maybe BatchListObjectAttributesResponse)
   , _brsListIncomingTypedLinks :: !(Maybe BatchListIncomingTypedLinksResponse)
+  , _brsGetObjectAttributes    :: !(Maybe BatchGetObjectAttributesResponse)
   , _brsListObjectChildren     :: !(Maybe BatchListObjectChildrenResponse)
   , _brsListPolicyAttachments  :: !(Maybe BatchListPolicyAttachmentsResponse)
   , _brsListOutgoingTypedLinks :: !(Maybe BatchListOutgoingTypedLinksResponse)
@@ -2670,6 +2772,8 @@ data BatchReadSuccessfulResponse = BatchReadSuccessfulResponse'
 --
 -- * 'brsListIncomingTypedLinks' - Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 --
+-- * 'brsGetObjectAttributes' - Retrieves attributes within a facet that are associated with an object.
+--
 -- * 'brsListObjectChildren' - Returns a paginated list of child objects that are associated with a given object.
 --
 -- * 'brsListPolicyAttachments' - Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
@@ -2681,63 +2785,68 @@ batchReadSuccessfulResponse
     :: BatchReadSuccessfulResponse
 batchReadSuccessfulResponse =
   BatchReadSuccessfulResponse'
-  { _brsListIndex = Nothing
-  , _brsGetObjectInformation = Nothing
-  , _brsListAttachedIndices = Nothing
-  , _brsLookupPolicy = Nothing
-  , _brsListObjectParentPaths = Nothing
-  , _brsListObjectAttributes = Nothing
-  , _brsListIncomingTypedLinks = Nothing
-  , _brsListObjectChildren = Nothing
-  , _brsListPolicyAttachments = Nothing
-  , _brsListOutgoingTypedLinks = Nothing
-  , _brsListObjectPolicies = Nothing
-  }
+    { _brsListIndex = Nothing
+    , _brsGetObjectInformation = Nothing
+    , _brsListAttachedIndices = Nothing
+    , _brsLookupPolicy = Nothing
+    , _brsListObjectParentPaths = Nothing
+    , _brsListObjectAttributes = Nothing
+    , _brsListIncomingTypedLinks = Nothing
+    , _brsGetObjectAttributes = Nothing
+    , _brsListObjectChildren = Nothing
+    , _brsListPolicyAttachments = Nothing
+    , _brsListOutgoingTypedLinks = Nothing
+    , _brsListObjectPolicies = Nothing
+    }
 
 
 -- | Lists objects attached to the specified index.
 brsListIndex :: Lens' BatchReadSuccessfulResponse (Maybe BatchListIndexResponse)
-brsListIndex = lens _brsListIndex (\ s a -> s{_brsListIndex = a});
+brsListIndex = lens _brsListIndex (\ s a -> s{_brsListIndex = a})
 
 -- | Retrieves metadata about an object.
 brsGetObjectInformation :: Lens' BatchReadSuccessfulResponse (Maybe BatchGetObjectInformationResponse)
-brsGetObjectInformation = lens _brsGetObjectInformation (\ s a -> s{_brsGetObjectInformation = a});
+brsGetObjectInformation = lens _brsGetObjectInformation (\ s a -> s{_brsGetObjectInformation = a})
 
 -- | Lists indices attached to an object.
 brsListAttachedIndices :: Lens' BatchReadSuccessfulResponse (Maybe BatchListAttachedIndicesResponse)
-brsListAttachedIndices = lens _brsListAttachedIndices (\ s a -> s{_brsListAttachedIndices = a});
+brsListAttachedIndices = lens _brsListAttachedIndices (\ s a -> s{_brsListAttachedIndices = a})
 
 -- | Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies Policies> .
 brsLookupPolicy :: Lens' BatchReadSuccessfulResponse (Maybe BatchLookupPolicyResponse)
-brsLookupPolicy = lens _brsLookupPolicy (\ s a -> s{_brsLookupPolicy = a});
+brsLookupPolicy = lens _brsLookupPolicy (\ s a -> s{_brsLookupPolicy = a})
 
 -- | Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#dirstructure Directory Structure> .
 brsListObjectParentPaths :: Lens' BatchReadSuccessfulResponse (Maybe BatchListObjectParentPathsResponse)
-brsListObjectParentPaths = lens _brsListObjectParentPaths (\ s a -> s{_brsListObjectParentPaths = a});
+brsListObjectParentPaths = lens _brsListObjectParentPaths (\ s a -> s{_brsListObjectParentPaths = a})
 
 -- | Lists all attributes that are associated with an object.
 brsListObjectAttributes :: Lens' BatchReadSuccessfulResponse (Maybe BatchListObjectAttributesResponse)
-brsListObjectAttributes = lens _brsListObjectAttributes (\ s a -> s{_brsListObjectAttributes = a});
+brsListObjectAttributes = lens _brsListObjectAttributes (\ s a -> s{_brsListObjectAttributes = a})
 
 -- | Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 brsListIncomingTypedLinks :: Lens' BatchReadSuccessfulResponse (Maybe BatchListIncomingTypedLinksResponse)
-brsListIncomingTypedLinks = lens _brsListIncomingTypedLinks (\ s a -> s{_brsListIncomingTypedLinks = a});
+brsListIncomingTypedLinks = lens _brsListIncomingTypedLinks (\ s a -> s{_brsListIncomingTypedLinks = a})
+
+-- | Retrieves attributes within a facet that are associated with an object.
+brsGetObjectAttributes :: Lens' BatchReadSuccessfulResponse (Maybe BatchGetObjectAttributesResponse)
+brsGetObjectAttributes = lens _brsGetObjectAttributes (\ s a -> s{_brsGetObjectAttributes = a})
 
 -- | Returns a paginated list of child objects that are associated with a given object.
 brsListObjectChildren :: Lens' BatchReadSuccessfulResponse (Maybe BatchListObjectChildrenResponse)
-brsListObjectChildren = lens _brsListObjectChildren (\ s a -> s{_brsListObjectChildren = a});
+brsListObjectChildren = lens _brsListObjectChildren (\ s a -> s{_brsListObjectChildren = a})
 
 -- | Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
 brsListPolicyAttachments :: Lens' BatchReadSuccessfulResponse (Maybe BatchListPolicyAttachmentsResponse)
-brsListPolicyAttachments = lens _brsListPolicyAttachments (\ s a -> s{_brsListPolicyAttachments = a});
+brsListPolicyAttachments = lens _brsListPolicyAttachments (\ s a -> s{_brsListPolicyAttachments = a})
 
 -- | Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 brsListOutgoingTypedLinks :: Lens' BatchReadSuccessfulResponse (Maybe BatchListOutgoingTypedLinksResponse)
-brsListOutgoingTypedLinks = lens _brsListOutgoingTypedLinks (\ s a -> s{_brsListOutgoingTypedLinks = a});
+brsListOutgoingTypedLinks = lens _brsListOutgoingTypedLinks (\ s a -> s{_brsListOutgoingTypedLinks = a})
 
 -- | Returns policies attached to an object in pagination fashion.
 brsListObjectPolicies :: Lens' BatchReadSuccessfulResponse (Maybe BatchListObjectPoliciesResponse)
-brsListObjectPolicies = lens _brsListObjectPolicies (\ s a -> s{_brsListObjectPolicies = a});
+brsListObjectPolicies = lens _brsListObjectPolicies (\ s a -> s{_brsListObjectPolicies = a})
 
 instance FromJSON BatchReadSuccessfulResponse where
         parseJSON
@@ -2751,6 +2860,7 @@ instance FromJSON BatchReadSuccessfulResponse where
                      <*> (x .:? "ListObjectParentPaths")
                      <*> (x .:? "ListObjectAttributes")
                      <*> (x .:? "ListIncomingTypedLinks")
+                     <*> (x .:? "GetObjectAttributes")
                      <*> (x .:? "ListObjectChildren")
                      <*> (x .:? "ListPolicyAttachments")
                      <*> (x .:? "ListOutgoingTypedLinks")
@@ -2784,16 +2894,18 @@ batchRemoveFacetFromObject
     -> BatchRemoveFacetFromObject
 batchRemoveFacetFromObject pSchemaFacet_ pObjectReference_ =
   BatchRemoveFacetFromObject'
-  {_brffoSchemaFacet = pSchemaFacet_, _brffoObjectReference = pObjectReference_}
+    { _brffoSchemaFacet = pSchemaFacet_
+    , _brffoObjectReference = pObjectReference_
+    }
 
 
 -- | The facet to remove from the object.
 brffoSchemaFacet :: Lens' BatchRemoveFacetFromObject SchemaFacet
-brffoSchemaFacet = lens _brffoSchemaFacet (\ s a -> s{_brffoSchemaFacet = a});
+brffoSchemaFacet = lens _brffoSchemaFacet (\ s a -> s{_brffoSchemaFacet = a})
 
 -- | A reference to the object whose facet will be removed.
 brffoObjectReference :: Lens' BatchRemoveFacetFromObject ObjectReference
-brffoObjectReference = lens _brffoObjectReference (\ s a -> s{_brffoObjectReference = a});
+brffoObjectReference = lens _brffoObjectReference (\ s a -> s{_brffoObjectReference = a})
 
 instance Hashable BatchRemoveFacetFromObject where
 
@@ -2858,16 +2970,16 @@ batchUpdateObjectAttributes
     -> BatchUpdateObjectAttributes
 batchUpdateObjectAttributes pObjectReference_ =
   BatchUpdateObjectAttributes'
-  {_buoaObjectReference = pObjectReference_, _buoaAttributeUpdates = mempty}
+    {_buoaObjectReference = pObjectReference_, _buoaAttributeUpdates = mempty}
 
 
 -- | Reference that identifies the object.
 buoaObjectReference :: Lens' BatchUpdateObjectAttributes ObjectReference
-buoaObjectReference = lens _buoaObjectReference (\ s a -> s{_buoaObjectReference = a});
+buoaObjectReference = lens _buoaObjectReference (\ s a -> s{_buoaObjectReference = a})
 
 -- | Attributes update structure.
 buoaAttributeUpdates :: Lens' BatchUpdateObjectAttributes [ObjectAttributeUpdate]
-buoaAttributeUpdates = lens _buoaAttributeUpdates (\ s a -> s{_buoaAttributeUpdates = a}) . _Coerce;
+buoaAttributeUpdates = lens _buoaAttributeUpdates (\ s a -> s{_buoaAttributeUpdates = a}) . _Coerce
 
 instance Hashable BatchUpdateObjectAttributes where
 
@@ -2903,7 +3015,7 @@ batchUpdateObjectAttributesResponse =
 
 -- | ID that is associated with the object.
 buoaObjectIdentifier :: Lens' BatchUpdateObjectAttributesResponse (Maybe Text)
-buoaObjectIdentifier = lens _buoaObjectIdentifier (\ s a -> s{_buoaObjectIdentifier = a});
+buoaObjectIdentifier = lens _buoaObjectIdentifier (\ s a -> s{_buoaObjectIdentifier = a})
 
 instance FromJSON BatchUpdateObjectAttributesResponse
          where
@@ -2977,78 +3089,78 @@ batchWriteOperation
     :: BatchWriteOperation
 batchWriteOperation =
   BatchWriteOperation'
-  { _bDeleteObject = Nothing
-  , _bDetachFromIndex = Nothing
-  , _bRemoveFacetFromObject = Nothing
-  , _bAttachObject = Nothing
-  , _bCreateObject = Nothing
-  , _bAttachTypedLink = Nothing
-  , _bDetachPolicy = Nothing
-  , _bCreateIndex = Nothing
-  , _bDetachObject = Nothing
-  , _bAddFacetToObject = Nothing
-  , _bDetachTypedLink = Nothing
-  , _bUpdateObjectAttributes = Nothing
-  , _bAttachPolicy = Nothing
-  , _bAttachToIndex = Nothing
-  }
+    { _bDeleteObject = Nothing
+    , _bDetachFromIndex = Nothing
+    , _bRemoveFacetFromObject = Nothing
+    , _bAttachObject = Nothing
+    , _bCreateObject = Nothing
+    , _bAttachTypedLink = Nothing
+    , _bDetachPolicy = Nothing
+    , _bCreateIndex = Nothing
+    , _bDetachObject = Nothing
+    , _bAddFacetToObject = Nothing
+    , _bDetachTypedLink = Nothing
+    , _bUpdateObjectAttributes = Nothing
+    , _bAttachPolicy = Nothing
+    , _bAttachToIndex = Nothing
+    }
 
 
 -- | Deletes an object in a 'Directory' .
 bDeleteObject :: Lens' BatchWriteOperation (Maybe BatchDeleteObject)
-bDeleteObject = lens _bDeleteObject (\ s a -> s{_bDeleteObject = a});
+bDeleteObject = lens _bDeleteObject (\ s a -> s{_bDeleteObject = a})
 
 -- | Detaches the specified object from the specified index.
 bDetachFromIndex :: Lens' BatchWriteOperation (Maybe BatchDetachFromIndex)
-bDetachFromIndex = lens _bDetachFromIndex (\ s a -> s{_bDetachFromIndex = a});
+bDetachFromIndex = lens _bDetachFromIndex (\ s a -> s{_bDetachFromIndex = a})
 
 -- | A batch operation that removes a facet from an object.
 bRemoveFacetFromObject :: Lens' BatchWriteOperation (Maybe BatchRemoveFacetFromObject)
-bRemoveFacetFromObject = lens _bRemoveFacetFromObject (\ s a -> s{_bRemoveFacetFromObject = a});
+bRemoveFacetFromObject = lens _bRemoveFacetFromObject (\ s a -> s{_bRemoveFacetFromObject = a})
 
 -- | Attaches an object to a 'Directory' .
 bAttachObject :: Lens' BatchWriteOperation (Maybe BatchAttachObject)
-bAttachObject = lens _bAttachObject (\ s a -> s{_bAttachObject = a});
+bAttachObject = lens _bAttachObject (\ s a -> s{_bAttachObject = a})
 
 -- | Creates an object.
 bCreateObject :: Lens' BatchWriteOperation (Maybe BatchCreateObject)
-bCreateObject = lens _bCreateObject (\ s a -> s{_bCreateObject = a});
+bCreateObject = lens _bCreateObject (\ s a -> s{_bCreateObject = a})
 
 -- | Attaches a typed link to a specified source and target object. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 bAttachTypedLink :: Lens' BatchWriteOperation (Maybe BatchAttachTypedLink)
-bAttachTypedLink = lens _bAttachTypedLink (\ s a -> s{_bAttachTypedLink = a});
+bAttachTypedLink = lens _bAttachTypedLink (\ s a -> s{_bAttachTypedLink = a})
 
 -- | Detaches a policy from a 'Directory' .
 bDetachPolicy :: Lens' BatchWriteOperation (Maybe BatchDetachPolicy)
-bDetachPolicy = lens _bDetachPolicy (\ s a -> s{_bDetachPolicy = a});
+bDetachPolicy = lens _bDetachPolicy (\ s a -> s{_bDetachPolicy = a})
 
 -- | Creates an index object. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_indexing.html Indexing> for more information.
 bCreateIndex :: Lens' BatchWriteOperation (Maybe BatchCreateIndex)
-bCreateIndex = lens _bCreateIndex (\ s a -> s{_bCreateIndex = a});
+bCreateIndex = lens _bCreateIndex (\ s a -> s{_bCreateIndex = a})
 
 -- | Detaches an object from a 'Directory' .
 bDetachObject :: Lens' BatchWriteOperation (Maybe BatchDetachObject)
-bDetachObject = lens _bDetachObject (\ s a -> s{_bDetachObject = a});
+bDetachObject = lens _bDetachObject (\ s a -> s{_bDetachObject = a})
 
 -- | A batch operation that adds a facet to an object.
 bAddFacetToObject :: Lens' BatchWriteOperation (Maybe BatchAddFacetToObject)
-bAddFacetToObject = lens _bAddFacetToObject (\ s a -> s{_bAddFacetToObject = a});
+bAddFacetToObject = lens _bAddFacetToObject (\ s a -> s{_bAddFacetToObject = a})
 
 -- | Detaches a typed link from a specified source and target object. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 bDetachTypedLink :: Lens' BatchWriteOperation (Maybe BatchDetachTypedLink)
-bDetachTypedLink = lens _bDetachTypedLink (\ s a -> s{_bDetachTypedLink = a});
+bDetachTypedLink = lens _bDetachTypedLink (\ s a -> s{_bDetachTypedLink = a})
 
 -- | Updates a given object's attributes.
 bUpdateObjectAttributes :: Lens' BatchWriteOperation (Maybe BatchUpdateObjectAttributes)
-bUpdateObjectAttributes = lens _bUpdateObjectAttributes (\ s a -> s{_bUpdateObjectAttributes = a});
+bUpdateObjectAttributes = lens _bUpdateObjectAttributes (\ s a -> s{_bUpdateObjectAttributes = a})
 
 -- | Attaches a policy object to a regular object. An object can have a limited number of attached policies.
 bAttachPolicy :: Lens' BatchWriteOperation (Maybe BatchAttachPolicy)
-bAttachPolicy = lens _bAttachPolicy (\ s a -> s{_bAttachPolicy = a});
+bAttachPolicy = lens _bAttachPolicy (\ s a -> s{_bAttachPolicy = a})
 
 -- | Attaches the specified object to the specified index.
 bAttachToIndex :: Lens' BatchWriteOperation (Maybe BatchAttachToIndex)
-bAttachToIndex = lens _bAttachToIndex (\ s a -> s{_bAttachToIndex = a});
+bAttachToIndex = lens _bAttachToIndex (\ s a -> s{_bAttachToIndex = a})
 
 instance Hashable BatchWriteOperation where
 
@@ -3133,78 +3245,78 @@ batchWriteOperationResponse
     :: BatchWriteOperationResponse
 batchWriteOperationResponse =
   BatchWriteOperationResponse'
-  { _bwoDeleteObject = Nothing
-  , _bwoDetachFromIndex = Nothing
-  , _bwoRemoveFacetFromObject = Nothing
-  , _bwoAttachObject = Nothing
-  , _bwoCreateObject = Nothing
-  , _bwoAttachTypedLink = Nothing
-  , _bwoDetachPolicy = Nothing
-  , _bwoCreateIndex = Nothing
-  , _bwoDetachObject = Nothing
-  , _bwoAddFacetToObject = Nothing
-  , _bwoDetachTypedLink = Nothing
-  , _bwoUpdateObjectAttributes = Nothing
-  , _bwoAttachPolicy = Nothing
-  , _bwoAttachToIndex = Nothing
-  }
+    { _bwoDeleteObject = Nothing
+    , _bwoDetachFromIndex = Nothing
+    , _bwoRemoveFacetFromObject = Nothing
+    , _bwoAttachObject = Nothing
+    , _bwoCreateObject = Nothing
+    , _bwoAttachTypedLink = Nothing
+    , _bwoDetachPolicy = Nothing
+    , _bwoCreateIndex = Nothing
+    , _bwoDetachObject = Nothing
+    , _bwoAddFacetToObject = Nothing
+    , _bwoDetachTypedLink = Nothing
+    , _bwoUpdateObjectAttributes = Nothing
+    , _bwoAttachPolicy = Nothing
+    , _bwoAttachToIndex = Nothing
+    }
 
 
 -- | Deletes an object in a 'Directory' .
 bwoDeleteObject :: Lens' BatchWriteOperationResponse (Maybe BatchDeleteObjectResponse)
-bwoDeleteObject = lens _bwoDeleteObject (\ s a -> s{_bwoDeleteObject = a});
+bwoDeleteObject = lens _bwoDeleteObject (\ s a -> s{_bwoDeleteObject = a})
 
 -- | Detaches the specified object from the specified index.
 bwoDetachFromIndex :: Lens' BatchWriteOperationResponse (Maybe BatchDetachFromIndexResponse)
-bwoDetachFromIndex = lens _bwoDetachFromIndex (\ s a -> s{_bwoDetachFromIndex = a});
+bwoDetachFromIndex = lens _bwoDetachFromIndex (\ s a -> s{_bwoDetachFromIndex = a})
 
 -- | The result of a batch remove facet from object operation.
 bwoRemoveFacetFromObject :: Lens' BatchWriteOperationResponse (Maybe BatchRemoveFacetFromObjectResponse)
-bwoRemoveFacetFromObject = lens _bwoRemoveFacetFromObject (\ s a -> s{_bwoRemoveFacetFromObject = a});
+bwoRemoveFacetFromObject = lens _bwoRemoveFacetFromObject (\ s a -> s{_bwoRemoveFacetFromObject = a})
 
 -- | Attaches an object to a 'Directory' .
 bwoAttachObject :: Lens' BatchWriteOperationResponse (Maybe BatchAttachObjectResponse)
-bwoAttachObject = lens _bwoAttachObject (\ s a -> s{_bwoAttachObject = a});
+bwoAttachObject = lens _bwoAttachObject (\ s a -> s{_bwoAttachObject = a})
 
 -- | Creates an object in a 'Directory' .
 bwoCreateObject :: Lens' BatchWriteOperationResponse (Maybe BatchCreateObjectResponse)
-bwoCreateObject = lens _bwoCreateObject (\ s a -> s{_bwoCreateObject = a});
+bwoCreateObject = lens _bwoCreateObject (\ s a -> s{_bwoCreateObject = a})
 
 -- | Attaches a typed link to a specified source and target object. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 bwoAttachTypedLink :: Lens' BatchWriteOperationResponse (Maybe BatchAttachTypedLinkResponse)
-bwoAttachTypedLink = lens _bwoAttachTypedLink (\ s a -> s{_bwoAttachTypedLink = a});
+bwoAttachTypedLink = lens _bwoAttachTypedLink (\ s a -> s{_bwoAttachTypedLink = a})
 
 -- | Detaches a policy from a 'Directory' .
 bwoDetachPolicy :: Lens' BatchWriteOperationResponse (Maybe BatchDetachPolicyResponse)
-bwoDetachPolicy = lens _bwoDetachPolicy (\ s a -> s{_bwoDetachPolicy = a});
+bwoDetachPolicy = lens _bwoDetachPolicy (\ s a -> s{_bwoDetachPolicy = a})
 
 -- | Creates an index object. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_indexing.html Indexing> for more information.
 bwoCreateIndex :: Lens' BatchWriteOperationResponse (Maybe BatchCreateIndexResponse)
-bwoCreateIndex = lens _bwoCreateIndex (\ s a -> s{_bwoCreateIndex = a});
+bwoCreateIndex = lens _bwoCreateIndex (\ s a -> s{_bwoCreateIndex = a})
 
 -- | Detaches an object from a 'Directory' .
 bwoDetachObject :: Lens' BatchWriteOperationResponse (Maybe BatchDetachObjectResponse)
-bwoDetachObject = lens _bwoDetachObject (\ s a -> s{_bwoDetachObject = a});
+bwoDetachObject = lens _bwoDetachObject (\ s a -> s{_bwoDetachObject = a})
 
 -- | The result of an add facet to object batch operation.
 bwoAddFacetToObject :: Lens' BatchWriteOperationResponse (Maybe BatchAddFacetToObjectResponse)
-bwoAddFacetToObject = lens _bwoAddFacetToObject (\ s a -> s{_bwoAddFacetToObject = a});
+bwoAddFacetToObject = lens _bwoAddFacetToObject (\ s a -> s{_bwoAddFacetToObject = a})
 
 -- | Detaches a typed link from a specified source and target object. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 bwoDetachTypedLink :: Lens' BatchWriteOperationResponse (Maybe BatchDetachTypedLinkResponse)
-bwoDetachTypedLink = lens _bwoDetachTypedLink (\ s a -> s{_bwoDetachTypedLink = a});
+bwoDetachTypedLink = lens _bwoDetachTypedLink (\ s a -> s{_bwoDetachTypedLink = a})
 
 -- | Updates a given object’s attributes.
 bwoUpdateObjectAttributes :: Lens' BatchWriteOperationResponse (Maybe BatchUpdateObjectAttributesResponse)
-bwoUpdateObjectAttributes = lens _bwoUpdateObjectAttributes (\ s a -> s{_bwoUpdateObjectAttributes = a});
+bwoUpdateObjectAttributes = lens _bwoUpdateObjectAttributes (\ s a -> s{_bwoUpdateObjectAttributes = a})
 
 -- | Attaches a policy object to a regular object. An object can have a limited number of attached policies.
 bwoAttachPolicy :: Lens' BatchWriteOperationResponse (Maybe BatchAttachPolicyResponse)
-bwoAttachPolicy = lens _bwoAttachPolicy (\ s a -> s{_bwoAttachPolicy = a});
+bwoAttachPolicy = lens _bwoAttachPolicy (\ s a -> s{_bwoAttachPolicy = a})
 
 -- | Attaches the specified object to the specified index.
 bwoAttachToIndex :: Lens' BatchWriteOperationResponse (Maybe BatchAttachToIndexResponse)
-bwoAttachToIndex = lens _bwoAttachToIndex (\ s a -> s{_bwoAttachToIndex = a});
+bwoAttachToIndex = lens _bwoAttachToIndex (\ s a -> s{_bwoAttachToIndex = a})
 
 instance FromJSON BatchWriteOperationResponse where
         parseJSON
@@ -3257,28 +3369,28 @@ directory
     :: Directory
 directory =
   Directory'
-  { _dDirectoryARN = Nothing
-  , _dState = Nothing
-  , _dName = Nothing
-  , _dCreationDateTime = Nothing
-  }
+    { _dDirectoryARN = Nothing
+    , _dState = Nothing
+    , _dName = Nothing
+    , _dCreationDateTime = Nothing
+    }
 
 
 -- | The Amazon Resource Name (ARN) that is associated with the directory. For more information, see 'arns' .
 dDirectoryARN :: Lens' Directory (Maybe Text)
-dDirectoryARN = lens _dDirectoryARN (\ s a -> s{_dDirectoryARN = a});
+dDirectoryARN = lens _dDirectoryARN (\ s a -> s{_dDirectoryARN = a})
 
 -- | The state of the directory. Can be either @Enabled@ , @Disabled@ , or @Deleted@ .
 dState :: Lens' Directory (Maybe DirectoryState)
-dState = lens _dState (\ s a -> s{_dState = a});
+dState = lens _dState (\ s a -> s{_dState = a})
 
 -- | The name of the directory.
 dName :: Lens' Directory (Maybe Text)
-dName = lens _dName (\ s a -> s{_dName = a});
+dName = lens _dName (\ s a -> s{_dName = a})
 
 -- | The date and time when the directory was created.
 dCreationDateTime :: Lens' Directory (Maybe UTCTime)
-dCreationDateTime = lens _dCreationDateTime (\ s a -> s{_dCreationDateTime = a}) . mapping _Time;
+dCreationDateTime = lens _dCreationDateTime (\ s a -> s{_dCreationDateTime = a}) . mapping _Time
 
 instance FromJSON Directory where
         parseJSON
@@ -3293,7 +3405,7 @@ instance Hashable Directory where
 
 instance NFData Directory where
 
--- | A structure that contains @Name@ , @ARN@ , @Attributes@ , 'Rule' s, and @ObjectTypes@ .
+-- | A structure that contains @Name@ , @ARN@ , @Attributes@ , @'Rule' s@ , and @ObjectTypes@ . See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/whatarefacets.html Facets> for more information.
 --
 --
 --
@@ -3318,11 +3430,11 @@ facet = Facet' {_fObjectType = Nothing, _fName = Nothing}
 
 -- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
 fObjectType :: Lens' Facet (Maybe ObjectType)
-fObjectType = lens _fObjectType (\ s a -> s{_fObjectType = a});
+fObjectType = lens _fObjectType (\ s a -> s{_fObjectType = a})
 
 -- | The name of the 'Facet' .
 fName :: Lens' Facet (Maybe Text)
-fName = lens _fName (\ s a -> s{_fName = a});
+fName = lens _fName (\ s a -> s{_fName = a})
 
 instance FromJSON Facet where
         parseJSON
@@ -3363,28 +3475,28 @@ facetAttribute
     -> FacetAttribute
 facetAttribute pName_ =
   FacetAttribute'
-  { _faAttributeReference = Nothing
-  , _faAttributeDefinition = Nothing
-  , _faRequiredBehavior = Nothing
-  , _faName = pName_
-  }
+    { _faAttributeReference = Nothing
+    , _faAttributeDefinition = Nothing
+    , _faRequiredBehavior = Nothing
+    , _faName = pName_
+    }
 
 
 -- | An attribute reference that is associated with the attribute. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences Attribute References> for more information.
 faAttributeReference :: Lens' FacetAttribute (Maybe FacetAttributeReference)
-faAttributeReference = lens _faAttributeReference (\ s a -> s{_faAttributeReference = a});
+faAttributeReference = lens _faAttributeReference (\ s a -> s{_faAttributeReference = a})
 
 -- | A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences Attribute References> for more information.
 faAttributeDefinition :: Lens' FacetAttribute (Maybe FacetAttributeDefinition)
-faAttributeDefinition = lens _faAttributeDefinition (\ s a -> s{_faAttributeDefinition = a});
+faAttributeDefinition = lens _faAttributeDefinition (\ s a -> s{_faAttributeDefinition = a})
 
 -- | The required behavior of the @FacetAttribute@ .
 faRequiredBehavior :: Lens' FacetAttribute (Maybe RequiredAttributeBehavior)
-faRequiredBehavior = lens _faRequiredBehavior (\ s a -> s{_faRequiredBehavior = a});
+faRequiredBehavior = lens _faRequiredBehavior (\ s a -> s{_faRequiredBehavior = a})
 
 -- | The name of the facet attribute.
 faName :: Lens' FacetAttribute Text
-faName = lens _faName (\ s a -> s{_faName = a});
+faName = lens _faName (\ s a -> s{_faName = a})
 
 instance FromJSON FacetAttribute where
         parseJSON
@@ -3439,28 +3551,28 @@ facetAttributeDefinition
     -> FacetAttributeDefinition
 facetAttributeDefinition pType_ =
   FacetAttributeDefinition'
-  { _fadRules = Nothing
-  , _fadDefaultValue = Nothing
-  , _fadIsImmutable = Nothing
-  , _fadType = pType_
-  }
+    { _fadRules = Nothing
+    , _fadDefaultValue = Nothing
+    , _fadIsImmutable = Nothing
+    , _fadType = pType_
+    }
 
 
 -- | Validation rules attached to the attribute definition.
 fadRules :: Lens' FacetAttributeDefinition (HashMap Text Rule)
-fadRules = lens _fadRules (\ s a -> s{_fadRules = a}) . _Default . _Map;
+fadRules = lens _fadRules (\ s a -> s{_fadRules = a}) . _Default . _Map
 
 -- | The default value of the attribute (if configured).
 fadDefaultValue :: Lens' FacetAttributeDefinition (Maybe TypedAttributeValue)
-fadDefaultValue = lens _fadDefaultValue (\ s a -> s{_fadDefaultValue = a});
+fadDefaultValue = lens _fadDefaultValue (\ s a -> s{_fadDefaultValue = a})
 
 -- | Whether the attribute is mutable or not.
 fadIsImmutable :: Lens' FacetAttributeDefinition (Maybe Bool)
-fadIsImmutable = lens _fadIsImmutable (\ s a -> s{_fadIsImmutable = a});
+fadIsImmutable = lens _fadIsImmutable (\ s a -> s{_fadIsImmutable = a})
 
 -- | The type of the attribute.
 fadType :: Lens' FacetAttributeDefinition FacetAttributeType
-fadType = lens _fadType (\ s a -> s{_fadType = a});
+fadType = lens _fadType (\ s a -> s{_fadType = a})
 
 instance FromJSON FacetAttributeDefinition where
         parseJSON
@@ -3508,18 +3620,18 @@ facetAttributeReference
     -> FacetAttributeReference
 facetAttributeReference pTargetFacetName_ pTargetAttributeName_ =
   FacetAttributeReference'
-  { _farTargetFacetName = pTargetFacetName_
-  , _farTargetAttributeName = pTargetAttributeName_
-  }
+    { _farTargetFacetName = pTargetFacetName_
+    , _farTargetAttributeName = pTargetAttributeName_
+    }
 
 
 -- | The target facet name that is associated with the facet reference. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences Attribute References> for more information.
 farTargetFacetName :: Lens' FacetAttributeReference Text
-farTargetFacetName = lens _farTargetFacetName (\ s a -> s{_farTargetFacetName = a});
+farTargetFacetName = lens _farTargetFacetName (\ s a -> s{_farTargetFacetName = a})
 
 -- | The target attribute name that is associated with the facet reference. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences Attribute References> for more information.
 farTargetAttributeName :: Lens' FacetAttributeReference Text
-farTargetAttributeName = lens _farTargetAttributeName (\ s a -> s{_farTargetAttributeName = a});
+farTargetAttributeName = lens _farTargetAttributeName (\ s a -> s{_farTargetAttributeName = a})
 
 instance FromJSON FacetAttributeReference where
         parseJSON
@@ -3567,11 +3679,11 @@ facetAttributeUpdate =
 
 -- | The attribute to update.
 fauAttribute :: Lens' FacetAttributeUpdate (Maybe FacetAttribute)
-fauAttribute = lens _fauAttribute (\ s a -> s{_fauAttribute = a});
+fauAttribute = lens _fauAttribute (\ s a -> s{_fauAttribute = a})
 
 -- | The action to perform when updating the attribute.
 fauAction :: Lens' FacetAttributeUpdate (Maybe UpdateActionType)
-fauAction = lens _fauAction (\ s a -> s{_fauAction = a});
+fauAction = lens _fauAction (\ s a -> s{_fauAction = a})
 
 instance Hashable FacetAttributeUpdate where
 
@@ -3601,21 +3713,21 @@ data IndexAttachment = IndexAttachment'
 --
 -- * 'iaIndexedAttributes' - The indexed attribute values.
 --
--- * 'iaObjectIdentifier' - The @ObjectIdentifier@ of the object attached to the index.
+-- * 'iaObjectIdentifier' - In response to 'ListIndex' , the @ObjectIdentifier@ of the object attached to the index. In response to 'ListAttachedIndices' , the @ObjectIdentifier@ of the index attached to the object. This field will always contain the @ObjectIdentifier@ of the object on the opposite side of the attachment specified in the query.
 indexAttachment
     :: IndexAttachment
 indexAttachment =
   IndexAttachment'
-  {_iaIndexedAttributes = Nothing, _iaObjectIdentifier = Nothing}
+    {_iaIndexedAttributes = Nothing, _iaObjectIdentifier = Nothing}
 
 
 -- | The indexed attribute values.
 iaIndexedAttributes :: Lens' IndexAttachment [AttributeKeyAndValue]
-iaIndexedAttributes = lens _iaIndexedAttributes (\ s a -> s{_iaIndexedAttributes = a}) . _Default . _Coerce;
+iaIndexedAttributes = lens _iaIndexedAttributes (\ s a -> s{_iaIndexedAttributes = a}) . _Default . _Coerce
 
--- | The @ObjectIdentifier@ of the object attached to the index.
+-- | In response to 'ListIndex' , the @ObjectIdentifier@ of the object attached to the index. In response to 'ListAttachedIndices' , the @ObjectIdentifier@ of the index attached to the object. This field will always contain the @ObjectIdentifier@ of the object on the opposite side of the attachment specified in the query.
 iaObjectIdentifier :: Lens' IndexAttachment (Maybe Text)
-iaObjectIdentifier = lens _iaObjectIdentifier (\ s a -> s{_iaObjectIdentifier = a});
+iaObjectIdentifier = lens _iaObjectIdentifier (\ s a -> s{_iaObjectIdentifier = a})
 
 instance FromJSON IndexAttachment where
         parseJSON
@@ -3651,18 +3763,18 @@ objectAttributeAction
     :: ObjectAttributeAction
 objectAttributeAction =
   ObjectAttributeAction'
-  { _oaaObjectAttributeActionType = Nothing
-  , _oaaObjectAttributeUpdateValue = Nothing
-  }
+    { _oaaObjectAttributeActionType = Nothing
+    , _oaaObjectAttributeUpdateValue = Nothing
+    }
 
 
 -- | A type that can be either @Update@ or @Delete@ .
 oaaObjectAttributeActionType :: Lens' ObjectAttributeAction (Maybe UpdateActionType)
-oaaObjectAttributeActionType = lens _oaaObjectAttributeActionType (\ s a -> s{_oaaObjectAttributeActionType = a});
+oaaObjectAttributeActionType = lens _oaaObjectAttributeActionType (\ s a -> s{_oaaObjectAttributeActionType = a})
 
 -- | The value that you want to update to.
 oaaObjectAttributeUpdateValue :: Lens' ObjectAttributeAction (Maybe TypedAttributeValue)
-oaaObjectAttributeUpdateValue = lens _oaaObjectAttributeUpdateValue (\ s a -> s{_oaaObjectAttributeUpdateValue = a});
+oaaObjectAttributeUpdateValue = lens _oaaObjectAttributeUpdateValue (\ s a -> s{_oaaObjectAttributeUpdateValue = a})
 
 instance Hashable ObjectAttributeAction where
 
@@ -3703,11 +3815,11 @@ objectAttributeRange =
 
 -- | The range of attribute values being selected.
 oarRange :: Lens' ObjectAttributeRange (Maybe TypedAttributeValueRange)
-oarRange = lens _oarRange (\ s a -> s{_oarRange = a});
+oarRange = lens _oarRange (\ s a -> s{_oarRange = a})
 
 -- | The key of the attribute that the attribute range covers.
 oarAttributeKey :: Lens' ObjectAttributeRange (Maybe AttributeKey)
-oarAttributeKey = lens _oarAttributeKey (\ s a -> s{_oarAttributeKey = a});
+oarAttributeKey = lens _oarAttributeKey (\ s a -> s{_oarAttributeKey = a})
 
 instance Hashable ObjectAttributeRange where
 
@@ -3742,16 +3854,16 @@ objectAttributeUpdate
     :: ObjectAttributeUpdate
 objectAttributeUpdate =
   ObjectAttributeUpdate'
-  {_oauObjectAttributeAction = Nothing, _oauObjectAttributeKey = Nothing}
+    {_oauObjectAttributeAction = Nothing, _oauObjectAttributeKey = Nothing}
 
 
 -- | The action to perform as part of the attribute update.
 oauObjectAttributeAction :: Lens' ObjectAttributeUpdate (Maybe ObjectAttributeAction)
-oauObjectAttributeAction = lens _oauObjectAttributeAction (\ s a -> s{_oauObjectAttributeAction = a});
+oauObjectAttributeAction = lens _oauObjectAttributeAction (\ s a -> s{_oauObjectAttributeAction = a})
 
 -- | The key of the attribute being updated.
 oauObjectAttributeKey :: Lens' ObjectAttributeUpdate (Maybe AttributeKey)
-oauObjectAttributeKey = lens _oauObjectAttributeKey (\ s a -> s{_oauObjectAttributeKey = a});
+oauObjectAttributeKey = lens _oauObjectAttributeKey (\ s a -> s{_oauObjectAttributeKey = a})
 
 instance Hashable ObjectAttributeUpdate where
 
@@ -3788,7 +3900,7 @@ objectReference = ObjectReference' {_orSelector = Nothing}
 
 -- | A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects Accessing Objects> . You can identify an object in one of the following ways:     * /> ObjectIdentifier/ - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier     * /\/some\/path/ - Identifies the object based on path     * /#SomeBatchReference/ - Identifies the object in a batch call
 orSelector :: Lens' ObjectReference (Maybe Text)
-orSelector = lens _orSelector (\ s a -> s{_orSelector = a});
+orSelector = lens _orSelector (\ s a -> s{_orSelector = a})
 
 instance FromJSON ObjectReference where
         parseJSON
@@ -3826,16 +3938,16 @@ pathToObjectIdentifiers
     :: PathToObjectIdentifiers
 pathToObjectIdentifiers =
   PathToObjectIdentifiers'
-  {_ptoiObjectIdentifiers = Nothing, _ptoiPath = Nothing}
+    {_ptoiObjectIdentifiers = Nothing, _ptoiPath = Nothing}
 
 
 -- | Lists @ObjectIdentifiers@ starting from directory root to the object in the request.
 ptoiObjectIdentifiers :: Lens' PathToObjectIdentifiers [Text]
-ptoiObjectIdentifiers = lens _ptoiObjectIdentifiers (\ s a -> s{_ptoiObjectIdentifiers = a}) . _Default . _Coerce;
+ptoiObjectIdentifiers = lens _ptoiObjectIdentifiers (\ s a -> s{_ptoiObjectIdentifiers = a}) . _Default . _Coerce
 
 -- | The path that is used to identify the object starting from directory root.
 ptoiPath :: Lens' PathToObjectIdentifiers (Maybe Text)
-ptoiPath = lens _ptoiPath (\ s a -> s{_ptoiPath = a});
+ptoiPath = lens _ptoiPath (\ s a -> s{_ptoiPath = a})
 
 instance FromJSON PathToObjectIdentifiers where
         parseJSON
@@ -3874,23 +3986,23 @@ policyAttachment
     :: PolicyAttachment
 policyAttachment =
   PolicyAttachment'
-  { _paPolicyId = Nothing
-  , _paPolicyType = Nothing
-  , _paObjectIdentifier = Nothing
-  }
+    { _paPolicyId = Nothing
+    , _paPolicyType = Nothing
+    , _paObjectIdentifier = Nothing
+    }
 
 
 -- | The ID of @PolicyAttachment@ .
 paPolicyId :: Lens' PolicyAttachment (Maybe Text)
-paPolicyId = lens _paPolicyId (\ s a -> s{_paPolicyId = a});
+paPolicyId = lens _paPolicyId (\ s a -> s{_paPolicyId = a})
 
 -- | The type of policy that can be associated with @PolicyAttachment@ .
 paPolicyType :: Lens' PolicyAttachment (Maybe Text)
-paPolicyType = lens _paPolicyType (\ s a -> s{_paPolicyType = a});
+paPolicyType = lens _paPolicyType (\ s a -> s{_paPolicyType = a})
 
 -- | The @ObjectIdentifier@ that is associated with @PolicyAttachment@ .
 paObjectIdentifier :: Lens' PolicyAttachment (Maybe Text)
-paObjectIdentifier = lens _paObjectIdentifier (\ s a -> s{_paObjectIdentifier = a});
+paObjectIdentifier = lens _paObjectIdentifier (\ s a -> s{_paObjectIdentifier = a})
 
 instance FromJSON PolicyAttachment where
         parseJSON
@@ -3929,11 +4041,11 @@ policyToPath = PolicyToPath' {_ptpPath = Nothing, _ptpPolicies = Nothing}
 
 -- | The path that is referenced from the root.
 ptpPath :: Lens' PolicyToPath (Maybe Text)
-ptpPath = lens _ptpPath (\ s a -> s{_ptpPath = a});
+ptpPath = lens _ptpPath (\ s a -> s{_ptpPath = a})
 
 -- | List of policy objects.
 ptpPolicies :: Lens' PolicyToPath [PolicyAttachment]
-ptpPolicies = lens _ptpPolicies (\ s a -> s{_ptpPolicies = a}) . _Default . _Coerce;
+ptpPolicies = lens _ptpPolicies (\ s a -> s{_ptpPolicies = a}) . _Default . _Coerce
 
 instance FromJSON PolicyToPath where
         parseJSON
@@ -3971,11 +4083,11 @@ rule = Rule' {_rParameters = Nothing, _rType = Nothing}
 
 -- | The minimum and maximum parameters that are associated with the rule.
 rParameters :: Lens' Rule (HashMap Text Text)
-rParameters = lens _rParameters (\ s a -> s{_rParameters = a}) . _Default . _Map;
+rParameters = lens _rParameters (\ s a -> s{_rParameters = a}) . _Default . _Map
 
 -- | The type of attribute validation rule.
 rType :: Lens' Rule (Maybe RuleType)
-rType = lens _rType (\ s a -> s{_rType = a});
+rType = lens _rType (\ s a -> s{_rType = a})
 
 instance FromJSON Rule where
         parseJSON
@@ -4012,7 +4124,7 @@ data SchemaFacet = SchemaFacet'
 --
 -- * 'sfFacetName' - The name of the facet.
 --
--- * 'sfSchemaARN' - The ARN of the schema that contains the facet.
+-- * 'sfSchemaARN' - The ARN of the schema that contains the facet with no minor component. See 'arns' and <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/inplaceschemaupgrade.html In-Place Schema Upgrade> for a description of when to provide minor versions.
 schemaFacet
     :: SchemaFacet
 schemaFacet = SchemaFacet' {_sfFacetName = Nothing, _sfSchemaARN = Nothing}
@@ -4020,11 +4132,11 @@ schemaFacet = SchemaFacet' {_sfFacetName = Nothing, _sfSchemaARN = Nothing}
 
 -- | The name of the facet.
 sfFacetName :: Lens' SchemaFacet (Maybe Text)
-sfFacetName = lens _sfFacetName (\ s a -> s{_sfFacetName = a});
+sfFacetName = lens _sfFacetName (\ s a -> s{_sfFacetName = a})
 
--- | The ARN of the schema that contains the facet.
+-- | The ARN of the schema that contains the facet with no minor component. See 'arns' and <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/inplaceschemaupgrade.html In-Place Schema Upgrade> for a description of when to provide minor versions.
 sfSchemaARN :: Lens' SchemaFacet (Maybe Text)
-sfSchemaARN = lens _sfSchemaARN (\ s a -> s{_sfSchemaARN = a});
+sfSchemaARN = lens _sfSchemaARN (\ s a -> s{_sfSchemaARN = a})
 
 instance FromJSON SchemaFacet where
         parseJSON
@@ -4069,11 +4181,11 @@ tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
 
 -- | The value that is associated with the tag.
 tagValue :: Lens' Tag (Maybe Text)
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 -- | The key that is associated with the tag.
 tagKey :: Lens' Tag (Maybe Text)
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 instance FromJSON Tag where
         parseJSON
@@ -4121,33 +4233,33 @@ typedAttributeValue
     :: TypedAttributeValue
 typedAttributeValue =
   TypedAttributeValue'
-  { _tavBinaryValue = Nothing
-  , _tavDatetimeValue = Nothing
-  , _tavNumberValue = Nothing
-  , _tavStringValue = Nothing
-  , _tavBooleanValue = Nothing
-  }
+    { _tavBinaryValue = Nothing
+    , _tavDatetimeValue = Nothing
+    , _tavNumberValue = Nothing
+    , _tavStringValue = Nothing
+    , _tavBooleanValue = Nothing
+    }
 
 
 -- | A binary data value.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 tavBinaryValue :: Lens' TypedAttributeValue (Maybe ByteString)
-tavBinaryValue = lens _tavBinaryValue (\ s a -> s{_tavBinaryValue = a}) . mapping _Base64;
+tavBinaryValue = lens _tavBinaryValue (\ s a -> s{_tavBinaryValue = a}) . mapping _Base64
 
 -- | A date and time value.
 tavDatetimeValue :: Lens' TypedAttributeValue (Maybe UTCTime)
-tavDatetimeValue = lens _tavDatetimeValue (\ s a -> s{_tavDatetimeValue = a}) . mapping _Time;
+tavDatetimeValue = lens _tavDatetimeValue (\ s a -> s{_tavDatetimeValue = a}) . mapping _Time
 
 -- | A number data value.
 tavNumberValue :: Lens' TypedAttributeValue (Maybe Text)
-tavNumberValue = lens _tavNumberValue (\ s a -> s{_tavNumberValue = a});
+tavNumberValue = lens _tavNumberValue (\ s a -> s{_tavNumberValue = a})
 
 -- | A string data value.
 tavStringValue :: Lens' TypedAttributeValue (Maybe Text)
-tavStringValue = lens _tavStringValue (\ s a -> s{_tavStringValue = a});
+tavStringValue = lens _tavStringValue (\ s a -> s{_tavStringValue = a})
 
 -- | A Boolean data value.
 tavBooleanValue :: Lens' TypedAttributeValue (Maybe Bool)
-tavBooleanValue = lens _tavBooleanValue (\ s a -> s{_tavBooleanValue = a});
+tavBooleanValue = lens _tavBooleanValue (\ s a -> s{_tavBooleanValue = a})
 
 instance FromJSON TypedAttributeValue where
         parseJSON
@@ -4173,7 +4285,7 @@ instance ToJSON TypedAttributeValue where
                   ("StringValue" .=) <$> _tavStringValue,
                   ("BooleanValue" .=) <$> _tavBooleanValue])
 
--- | A range of attribute values.
+-- | A range of attribute values. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#rangefilters Range Filters> .
 --
 --
 --
@@ -4203,28 +4315,28 @@ typedAttributeValueRange
     -> TypedAttributeValueRange
 typedAttributeValueRange pStartMode_ pEndMode_ =
   TypedAttributeValueRange'
-  { _tavrEndValue = Nothing
-  , _tavrStartValue = Nothing
-  , _tavrStartMode = pStartMode_
-  , _tavrEndMode = pEndMode_
-  }
+    { _tavrEndValue = Nothing
+    , _tavrStartValue = Nothing
+    , _tavrStartMode = pStartMode_
+    , _tavrEndMode = pEndMode_
+    }
 
 
 -- | The attribute value to terminate the range at.
 tavrEndValue :: Lens' TypedAttributeValueRange (Maybe TypedAttributeValue)
-tavrEndValue = lens _tavrEndValue (\ s a -> s{_tavrEndValue = a});
+tavrEndValue = lens _tavrEndValue (\ s a -> s{_tavrEndValue = a})
 
 -- | The value to start the range at.
 tavrStartValue :: Lens' TypedAttributeValueRange (Maybe TypedAttributeValue)
-tavrStartValue = lens _tavrStartValue (\ s a -> s{_tavrStartValue = a});
+tavrStartValue = lens _tavrStartValue (\ s a -> s{_tavrStartValue = a})
 
 -- | The inclusive or exclusive range start.
 tavrStartMode :: Lens' TypedAttributeValueRange RangeMode
-tavrStartMode = lens _tavrStartMode (\ s a -> s{_tavrStartMode = a});
+tavrStartMode = lens _tavrStartMode (\ s a -> s{_tavrStartMode = a})
 
 -- | The inclusive or exclusive range end.
 tavrEndMode :: Lens' TypedAttributeValueRange RangeMode
-tavrEndMode = lens _tavrEndMode (\ s a -> s{_tavrEndMode = a});
+tavrEndMode = lens _tavrEndMode (\ s a -> s{_tavrEndMode = a})
 
 instance Hashable TypedAttributeValueRange where
 
@@ -4276,38 +4388,38 @@ typedLinkAttributeDefinition
     -> TypedLinkAttributeDefinition
 typedLinkAttributeDefinition pName_ pType_ pRequiredBehavior_ =
   TypedLinkAttributeDefinition'
-  { _tladRules = Nothing
-  , _tladDefaultValue = Nothing
-  , _tladIsImmutable = Nothing
-  , _tladName = pName_
-  , _tladType = pType_
-  , _tladRequiredBehavior = pRequiredBehavior_
-  }
+    { _tladRules = Nothing
+    , _tladDefaultValue = Nothing
+    , _tladIsImmutable = Nothing
+    , _tladName = pName_
+    , _tladType = pType_
+    , _tladRequiredBehavior = pRequiredBehavior_
+    }
 
 
 -- | Validation rules that are attached to the attribute definition.
 tladRules :: Lens' TypedLinkAttributeDefinition (HashMap Text Rule)
-tladRules = lens _tladRules (\ s a -> s{_tladRules = a}) . _Default . _Map;
+tladRules = lens _tladRules (\ s a -> s{_tladRules = a}) . _Default . _Map
 
 -- | The default value of the attribute (if configured).
 tladDefaultValue :: Lens' TypedLinkAttributeDefinition (Maybe TypedAttributeValue)
-tladDefaultValue = lens _tladDefaultValue (\ s a -> s{_tladDefaultValue = a});
+tladDefaultValue = lens _tladDefaultValue (\ s a -> s{_tladDefaultValue = a})
 
 -- | Whether the attribute is mutable or not.
 tladIsImmutable :: Lens' TypedLinkAttributeDefinition (Maybe Bool)
-tladIsImmutable = lens _tladIsImmutable (\ s a -> s{_tladIsImmutable = a});
+tladIsImmutable = lens _tladIsImmutable (\ s a -> s{_tladIsImmutable = a})
 
 -- | The unique name of the typed link attribute.
 tladName :: Lens' TypedLinkAttributeDefinition Text
-tladName = lens _tladName (\ s a -> s{_tladName = a});
+tladName = lens _tladName (\ s a -> s{_tladName = a})
 
 -- | The type of the attribute.
 tladType :: Lens' TypedLinkAttributeDefinition FacetAttributeType
-tladType = lens _tladType (\ s a -> s{_tladType = a});
+tladType = lens _tladType (\ s a -> s{_tladType = a})
 
 -- | The required behavior of the @TypedLinkAttributeDefinition@ .
 tladRequiredBehavior :: Lens' TypedLinkAttributeDefinition RequiredAttributeBehavior
-tladRequiredBehavior = lens _tladRequiredBehavior (\ s a -> s{_tladRequiredBehavior = a});
+tladRequiredBehavior = lens _tladRequiredBehavior (\ s a -> s{_tladRequiredBehavior = a})
 
 instance FromJSON TypedLinkAttributeDefinition where
         parseJSON
@@ -4362,11 +4474,11 @@ typedLinkAttributeRange pRange_ =
 
 -- | The unique name of the typed link attribute.
 tlarAttributeName :: Lens' TypedLinkAttributeRange (Maybe Text)
-tlarAttributeName = lens _tlarAttributeName (\ s a -> s{_tlarAttributeName = a});
+tlarAttributeName = lens _tlarAttributeName (\ s a -> s{_tlarAttributeName = a})
 
 -- | The range of attribute values that are being selected.
 tlarRange :: Lens' TypedLinkAttributeRange TypedAttributeValueRange
-tlarRange = lens _tlarRange (\ s a -> s{_tlarRange = a});
+tlarRange = lens _tlarRange (\ s a -> s{_tlarRange = a})
 
 instance Hashable TypedLinkAttributeRange where
 
@@ -4405,23 +4517,23 @@ typedLinkFacet
     -> TypedLinkFacet
 typedLinkFacet pName_ =
   TypedLinkFacet'
-  { _tlfName = pName_
-  , _tlfAttributes = mempty
-  , _tlfIdentityAttributeOrder = mempty
-  }
+    { _tlfName = pName_
+    , _tlfAttributes = mempty
+    , _tlfIdentityAttributeOrder = mempty
+    }
 
 
 -- | The unique name of the typed link facet.
 tlfName :: Lens' TypedLinkFacet Text
-tlfName = lens _tlfName (\ s a -> s{_tlfName = a});
+tlfName = lens _tlfName (\ s a -> s{_tlfName = a})
 
 -- | A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.
 tlfAttributes :: Lens' TypedLinkFacet [TypedLinkAttributeDefinition]
-tlfAttributes = lens _tlfAttributes (\ s a -> s{_tlfAttributes = a}) . _Coerce;
+tlfAttributes = lens _tlfAttributes (\ s a -> s{_tlfAttributes = a}) . _Coerce
 
 -- | The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See 'ListOutgoingTypedLinks' and 'ListIncomingTypedLinks' for details.
 tlfIdentityAttributeOrder :: Lens' TypedLinkFacet [Text]
-tlfIdentityAttributeOrder = lens _tlfIdentityAttributeOrder (\ s a -> s{_tlfIdentityAttributeOrder = a}) . _Coerce;
+tlfIdentityAttributeOrder = lens _tlfIdentityAttributeOrder (\ s a -> s{_tlfIdentityAttributeOrder = a}) . _Coerce
 
 instance Hashable TypedLinkFacet where
 
@@ -4461,16 +4573,16 @@ typedLinkFacetAttributeUpdate
     -> TypedLinkFacetAttributeUpdate
 typedLinkFacetAttributeUpdate pAttribute_ pAction_ =
   TypedLinkFacetAttributeUpdate'
-  {_tlfauAttribute = pAttribute_, _tlfauAction = pAction_}
+    {_tlfauAttribute = pAttribute_, _tlfauAction = pAction_}
 
 
 -- | The attribute to update.
 tlfauAttribute :: Lens' TypedLinkFacetAttributeUpdate TypedLinkAttributeDefinition
-tlfauAttribute = lens _tlfauAttribute (\ s a -> s{_tlfauAttribute = a});
+tlfauAttribute = lens _tlfauAttribute (\ s a -> s{_tlfauAttribute = a})
 
 -- | The action to perform when updating the attribute.
 tlfauAction :: Lens' TypedLinkFacetAttributeUpdate UpdateActionType
-tlfauAction = lens _tlfauAction (\ s a -> s{_tlfauAction = a});
+tlfauAction = lens _tlfauAction (\ s a -> s{_tlfauAction = a})
 
 instance Hashable TypedLinkFacetAttributeUpdate where
 
@@ -4507,16 +4619,16 @@ typedLinkSchemaAndFacetName
     -> TypedLinkSchemaAndFacetName
 typedLinkSchemaAndFacetName pSchemaARN_ pTypedLinkName_ =
   TypedLinkSchemaAndFacetName'
-  {_tlsafnSchemaARN = pSchemaARN_, _tlsafnTypedLinkName = pTypedLinkName_}
+    {_tlsafnSchemaARN = pSchemaARN_, _tlsafnTypedLinkName = pTypedLinkName_}
 
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 tlsafnSchemaARN :: Lens' TypedLinkSchemaAndFacetName Text
-tlsafnSchemaARN = lens _tlsafnSchemaARN (\ s a -> s{_tlsafnSchemaARN = a});
+tlsafnSchemaARN = lens _tlsafnSchemaARN (\ s a -> s{_tlsafnSchemaARN = a})
 
 -- | The unique name of the typed link facet.
 tlsafnTypedLinkName :: Lens' TypedLinkSchemaAndFacetName Text
-tlsafnTypedLinkName = lens _tlsafnTypedLinkName (\ s a -> s{_tlsafnTypedLinkName = a});
+tlsafnTypedLinkName = lens _tlsafnTypedLinkName (\ s a -> s{_tlsafnTypedLinkName = a})
 
 instance FromJSON TypedLinkSchemaAndFacetName where
         parseJSON
@@ -4567,28 +4679,28 @@ typedLinkSpecifier
     -> TypedLinkSpecifier
 typedLinkSpecifier pTypedLinkFacet_ pSourceObjectReference_ pTargetObjectReference_ =
   TypedLinkSpecifier'
-  { _tlsTypedLinkFacet = pTypedLinkFacet_
-  , _tlsSourceObjectReference = pSourceObjectReference_
-  , _tlsTargetObjectReference = pTargetObjectReference_
-  , _tlsIdentityAttributeValues = mempty
-  }
+    { _tlsTypedLinkFacet = pTypedLinkFacet_
+    , _tlsSourceObjectReference = pSourceObjectReference_
+    , _tlsTargetObjectReference = pTargetObjectReference_
+    , _tlsIdentityAttributeValues = mempty
+    }
 
 
 -- | Identifies the typed link facet that is associated with the typed link.
 tlsTypedLinkFacet :: Lens' TypedLinkSpecifier TypedLinkSchemaAndFacetName
-tlsTypedLinkFacet = lens _tlsTypedLinkFacet (\ s a -> s{_tlsTypedLinkFacet = a});
+tlsTypedLinkFacet = lens _tlsTypedLinkFacet (\ s a -> s{_tlsTypedLinkFacet = a})
 
 -- | Identifies the source object that the typed link will attach to.
 tlsSourceObjectReference :: Lens' TypedLinkSpecifier ObjectReference
-tlsSourceObjectReference = lens _tlsSourceObjectReference (\ s a -> s{_tlsSourceObjectReference = a});
+tlsSourceObjectReference = lens _tlsSourceObjectReference (\ s a -> s{_tlsSourceObjectReference = a})
 
 -- | Identifies the target object that the typed link will attach to.
 tlsTargetObjectReference :: Lens' TypedLinkSpecifier ObjectReference
-tlsTargetObjectReference = lens _tlsTargetObjectReference (\ s a -> s{_tlsTargetObjectReference = a});
+tlsTargetObjectReference = lens _tlsTargetObjectReference (\ s a -> s{_tlsTargetObjectReference = a})
 
 -- | Identifies the attribute value to update.
 tlsIdentityAttributeValues :: Lens' TypedLinkSpecifier [AttributeNameAndValue]
-tlsIdentityAttributeValues = lens _tlsIdentityAttributeValues (\ s a -> s{_tlsIdentityAttributeValues = a}) . _Coerce;
+tlsIdentityAttributeValues = lens _tlsIdentityAttributeValues (\ s a -> s{_tlsIdentityAttributeValues = a}) . _Coerce
 
 instance FromJSON TypedLinkSpecifier where
         parseJSON

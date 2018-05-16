@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyOptionGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,34 +70,34 @@ data ModifyOptionGroup = ModifyOptionGroup'
 --
 -- * 'mogApplyImmediately' - Indicates whether the changes should be applied immediately, or during the next maintenance window for each instance associated with the option group.
 --
--- * 'mogOptionGroupName' - The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
+-- * 'mogOptionGroupName' - The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
 modifyOptionGroup
     :: Text -- ^ 'mogOptionGroupName'
     -> ModifyOptionGroup
 modifyOptionGroup pOptionGroupName_ =
   ModifyOptionGroup'
-  { _mogOptionsToInclude = Nothing
-  , _mogOptionsToRemove = Nothing
-  , _mogApplyImmediately = Nothing
-  , _mogOptionGroupName = pOptionGroupName_
-  }
+    { _mogOptionsToInclude = Nothing
+    , _mogOptionsToRemove = Nothing
+    , _mogApplyImmediately = Nothing
+    , _mogOptionGroupName = pOptionGroupName_
+    }
 
 
 -- | Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.
 mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
-mogOptionsToInclude = lens _mogOptionsToInclude (\ s a -> s{_mogOptionsToInclude = a}) . _Default . _Coerce;
+mogOptionsToInclude = lens _mogOptionsToInclude (\ s a -> s{_mogOptionsToInclude = a}) . _Default . _Coerce
 
 -- | Options in this list are removed from the option group.
 mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
-mogOptionsToRemove = lens _mogOptionsToRemove (\ s a -> s{_mogOptionsToRemove = a}) . _Default . _Coerce;
+mogOptionsToRemove = lens _mogOptionsToRemove (\ s a -> s{_mogOptionsToRemove = a}) . _Default . _Coerce
 
 -- | Indicates whether the changes should be applied immediately, or during the next maintenance window for each instance associated with the option group.
 mogApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
-mogApplyImmediately = lens _mogApplyImmediately (\ s a -> s{_mogApplyImmediately = a});
+mogApplyImmediately = lens _mogApplyImmediately (\ s a -> s{_mogApplyImmediately = a})
 
--- | The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
+-- | The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
 mogOptionGroupName :: Lens' ModifyOptionGroup Text
-mogOptionGroupName = lens _mogOptionGroupName (\ s a -> s{_mogOptionGroupName = a});
+mogOptionGroupName = lens _mogOptionGroupName (\ s a -> s{_mogOptionGroupName = a})
 
 instance AWSRequest ModifyOptionGroup where
         type Rs ModifyOptionGroup = ModifyOptionGroupResponse
@@ -152,15 +152,15 @@ modifyOptionGroupResponse
     -> ModifyOptionGroupResponse
 modifyOptionGroupResponse pResponseStatus_ =
   ModifyOptionGroupResponse'
-  {_mogrsOptionGroup = Nothing, _mogrsResponseStatus = pResponseStatus_}
+    {_mogrsOptionGroup = Nothing, _mogrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
-mogrsOptionGroup = lens _mogrsOptionGroup (\ s a -> s{_mogrsOptionGroup = a});
+mogrsOptionGroup = lens _mogrsOptionGroup (\ s a -> s{_mogrsOptionGroup = a})
 
 -- | -- | The response status code.
 mogrsResponseStatus :: Lens' ModifyOptionGroupResponse Int
-mogrsResponseStatus = lens _mogrsResponseStatus (\ s a -> s{_mogrsResponseStatus = a});
+mogrsResponseStatus = lens _mogrsResponseStatus (\ s a -> s{_mogrsResponseStatus = a})
 
 instance NFData ModifyOptionGroupResponse where

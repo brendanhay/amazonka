@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineSuggester
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ defineSuggester pDomainName_ pSuggester_ =
 
 -- | Undocumented member.
 defDomainName :: Lens' DefineSuggester Text
-defDomainName = lens _defDomainName (\ s a -> s{_defDomainName = a});
+defDomainName = lens _defDomainName (\ s a -> s{_defDomainName = a})
 
 -- | Undocumented member.
 defSuggester :: Lens' DefineSuggester Suggester
-defSuggester = lens _defSuggester (\ s a -> s{_defSuggester = a});
+defSuggester = lens _defSuggester (\ s a -> s{_defSuggester = a})
 
 instance AWSRequest DefineSuggester where
         type Rs DefineSuggester = DefineSuggesterResponse
@@ -130,15 +130,15 @@ defineSuggesterResponse
     -> DefineSuggesterResponse
 defineSuggesterResponse pResponseStatus_ pSuggester_ =
   DefineSuggesterResponse'
-  {_dsrsResponseStatus = pResponseStatus_, _dsrsSuggester = pSuggester_}
+    {_dsrsResponseStatus = pResponseStatus_, _dsrsSuggester = pSuggester_}
 
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DefineSuggesterResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 -- | Undocumented member.
 dsrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
-dsrsSuggester = lens _dsrsSuggester (\ s a -> s{_dsrsSuggester = a});
+dsrsSuggester = lens _dsrsSuggester (\ s a -> s{_dsrsSuggester = a})
 
 instance NFData DefineSuggesterResponse where

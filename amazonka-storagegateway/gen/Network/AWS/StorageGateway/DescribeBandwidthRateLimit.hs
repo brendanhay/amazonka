@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeBandwidthRateLimit
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ describeBandwidthRateLimit pGatewayARN_ =
 
 -- | Undocumented member.
 dbrlGatewayARN :: Lens' DescribeBandwidthRateLimit Text
-dbrlGatewayARN = lens _dbrlGatewayARN (\ s a -> s{_dbrlGatewayARN = a});
+dbrlGatewayARN = lens _dbrlGatewayARN (\ s a -> s{_dbrlGatewayARN = a})
 
 instance AWSRequest DescribeBandwidthRateLimit where
         type Rs DescribeBandwidthRateLimit =
@@ -141,28 +141,28 @@ describeBandwidthRateLimitResponse
     -> DescribeBandwidthRateLimitResponse
 describeBandwidthRateLimitResponse pResponseStatus_ =
   DescribeBandwidthRateLimitResponse'
-  { _dbrlrsGatewayARN = Nothing
-  , _dbrlrsAverageUploadRateLimitInBitsPerSec = Nothing
-  , _dbrlrsAverageDownloadRateLimitInBitsPerSec = Nothing
-  , _dbrlrsResponseStatus = pResponseStatus_
-  }
+    { _dbrlrsGatewayARN = Nothing
+    , _dbrlrsAverageUploadRateLimitInBitsPerSec = Nothing
+    , _dbrlrsAverageDownloadRateLimitInBitsPerSec = Nothing
+    , _dbrlrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dbrlrsGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
-dbrlrsGatewayARN = lens _dbrlrsGatewayARN (\ s a -> s{_dbrlrsGatewayARN = a});
+dbrlrsGatewayARN = lens _dbrlrsGatewayARN (\ s a -> s{_dbrlrsGatewayARN = a})
 
 -- | The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.
 dbrlrsAverageUploadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
-dbrlrsAverageUploadRateLimitInBitsPerSec = lens _dbrlrsAverageUploadRateLimitInBitsPerSec (\ s a -> s{_dbrlrsAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat;
+dbrlrsAverageUploadRateLimitInBitsPerSec = lens _dbrlrsAverageUploadRateLimitInBitsPerSec (\ s a -> s{_dbrlrsAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat
 
 -- | The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
 dbrlrsAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
-dbrlrsAverageDownloadRateLimitInBitsPerSec = lens _dbrlrsAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_dbrlrsAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
+dbrlrsAverageDownloadRateLimitInBitsPerSec = lens _dbrlrsAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_dbrlrsAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat
 
 -- | -- | The response status code.
 dbrlrsResponseStatus :: Lens' DescribeBandwidthRateLimitResponse Int
-dbrlrsResponseStatus = lens _dbrlrsResponseStatus (\ s a -> s{_dbrlrsResponseStatus = a});
+dbrlrsResponseStatus = lens _dbrlrsResponseStatus (\ s a -> s{_dbrlrsResponseStatus = a})
 
 instance NFData DescribeBandwidthRateLimitResponse
          where

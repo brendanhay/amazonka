@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.RestartAppServer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ restartAppServer =
 
 -- | The name of the environment to restart the server for. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 rasEnvironmentName :: Lens' RestartAppServer (Maybe Text)
-rasEnvironmentName = lens _rasEnvironmentName (\ s a -> s{_rasEnvironmentName = a});
+rasEnvironmentName = lens _rasEnvironmentName (\ s a -> s{_rasEnvironmentName = a})
 
 -- | The ID of the environment to restart the server for. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 rasEnvironmentId :: Lens' RestartAppServer (Maybe Text)
-rasEnvironmentId = lens _rasEnvironmentId (\ s a -> s{_rasEnvironmentId = a});
+rasEnvironmentId = lens _rasEnvironmentId (\ s a -> s{_rasEnvironmentId = a})
 
 instance AWSRequest RestartAppServer where
         type Rs RestartAppServer = RestartAppServerResponse

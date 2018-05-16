@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteReusableDelegationSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ deleteReusableDelegationSet pId_ = DeleteReusableDelegationSet' {_drdsId = pId_}
 
 -- | The ID of the reusable delegation set that you want to delete.
 drdsId :: Lens' DeleteReusableDelegationSet ResourceId
-drdsId = lens _drdsId (\ s a -> s{_drdsId = a});
+drdsId = lens _drdsId (\ s a -> s{_drdsId = a})
 
 instance AWSRequest DeleteReusableDelegationSet where
         type Rs DeleteReusableDelegationSet =
@@ -117,12 +117,12 @@ deleteReusableDelegationSetResponse
     -> DeleteReusableDelegationSetResponse
 deleteReusableDelegationSetResponse pResponseStatus_ =
   DeleteReusableDelegationSetResponse'
-  {_drdsrsResponseStatus = pResponseStatus_}
+    {_drdsrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 drdsrsResponseStatus :: Lens' DeleteReusableDelegationSetResponse Int
-drdsrsResponseStatus = lens _drdsrsResponseStatus (\ s a -> s{_drdsrsResponseStatus = a});
+drdsrsResponseStatus = lens _drdsrsResponseStatus (\ s a -> s{_drdsrsResponseStatus = a})
 
 instance NFData DeleteReusableDelegationSetResponse
          where

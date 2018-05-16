@@ -1,5 +1,5 @@
 name:                  amazonka-gamelift
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon GameLift SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -95,8 +95,11 @@ library
         , Network.AWS.GameLift.RequestUploadCredentials
         , Network.AWS.GameLift.ResolveAlias
         , Network.AWS.GameLift.SearchGameSessions
+        , Network.AWS.GameLift.StartFleetActions
         , Network.AWS.GameLift.StartGameSessionPlacement
+        , Network.AWS.GameLift.StartMatchBackfill
         , Network.AWS.GameLift.StartMatchmaking
+        , Network.AWS.GameLift.StopFleetActions
         , Network.AWS.GameLift.StopGameSessionPlacement
         , Network.AWS.GameLift.StopMatchmaking
         , Network.AWS.GameLift.Types
@@ -117,7 +120,7 @@ library
         , Network.AWS.GameLift.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-gamelift-test
@@ -137,8 +140,8 @@ test-suite amazonka-gamelift-test
         , Test.AWS.GameLift.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-gamelift
         , base
         , bytestring

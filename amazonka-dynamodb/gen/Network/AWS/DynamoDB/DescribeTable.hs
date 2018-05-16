@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DescribeTable
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ describeTable pTableName_ = DescribeTable' {_dTableName = pTableName_}
 
 -- | The name of the table to describe.
 dTableName :: Lens' DescribeTable Text
-dTableName = lens _dTableName (\ s a -> s{_dTableName = a});
+dTableName = lens _dTableName (\ s a -> s{_dTableName = a})
 
 instance AWSRequest DescribeTable where
         type Rs DescribeTable = DescribeTableResponse
@@ -125,15 +125,15 @@ describeTableResponse
     -> DescribeTableResponse
 describeTableResponse pResponseStatus_ =
   DescribeTableResponse'
-  {_drsTable = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsTable = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | The properties of the table.
 drsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
-drsTable = lens _drsTable (\ s a -> s{_drsTable = a});
+drsTable = lens _drsTable (\ s a -> s{_drsTable = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeTableResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeTableResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Athena.StartQueryExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,28 +75,28 @@ startQueryExecution
     -> StartQueryExecution
 startQueryExecution pQueryString_ pResultConfiguration_ =
   StartQueryExecution'
-  { _sqeQueryExecutionContext = Nothing
-  , _sqeClientRequestToken = Nothing
-  , _sqeQueryString = pQueryString_
-  , _sqeResultConfiguration = pResultConfiguration_
-  }
+    { _sqeQueryExecutionContext = Nothing
+    , _sqeClientRequestToken = Nothing
+    , _sqeQueryString = pQueryString_
+    , _sqeResultConfiguration = pResultConfiguration_
+    }
 
 
 -- | The database within which the query executes.
 sqeQueryExecutionContext :: Lens' StartQueryExecution (Maybe QueryExecutionContext)
-sqeQueryExecutionContext = lens _sqeQueryExecutionContext (\ s a -> s{_sqeQueryExecutionContext = a});
+sqeQueryExecutionContext = lens _sqeQueryExecutionContext (\ s a -> s{_sqeQueryExecutionContext = a})
 
 -- | A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another @StartQueryExecution@ request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the @QueryString@ , an error is returned. /Important:/ This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.
 sqeClientRequestToken :: Lens' StartQueryExecution (Maybe Text)
-sqeClientRequestToken = lens _sqeClientRequestToken (\ s a -> s{_sqeClientRequestToken = a});
+sqeClientRequestToken = lens _sqeClientRequestToken (\ s a -> s{_sqeClientRequestToken = a})
 
 -- | The SQL query statements to be executed.
 sqeQueryString :: Lens' StartQueryExecution Text
-sqeQueryString = lens _sqeQueryString (\ s a -> s{_sqeQueryString = a});
+sqeQueryString = lens _sqeQueryString (\ s a -> s{_sqeQueryString = a})
 
 -- | Specifies information about where and how to save the results of the query execution.
 sqeResultConfiguration :: Lens' StartQueryExecution ResultConfiguration
-sqeResultConfiguration = lens _sqeResultConfiguration (\ s a -> s{_sqeResultConfiguration = a});
+sqeResultConfiguration = lens _sqeResultConfiguration (\ s a -> s{_sqeResultConfiguration = a})
 
 instance AWSRequest StartQueryExecution where
         type Rs StartQueryExecution =
@@ -157,15 +157,15 @@ startQueryExecutionResponse
     -> StartQueryExecutionResponse
 startQueryExecutionResponse pResponseStatus_ =
   StartQueryExecutionResponse'
-  {_sqersQueryExecutionId = Nothing, _sqersResponseStatus = pResponseStatus_}
+    {_sqersQueryExecutionId = Nothing, _sqersResponseStatus = pResponseStatus_}
 
 
 -- | The unique ID of the query that ran as a result of this request.
 sqersQueryExecutionId :: Lens' StartQueryExecutionResponse (Maybe Text)
-sqersQueryExecutionId = lens _sqersQueryExecutionId (\ s a -> s{_sqersQueryExecutionId = a});
+sqersQueryExecutionId = lens _sqersQueryExecutionId (\ s a -> s{_sqersQueryExecutionId = a})
 
 -- | -- | The response status code.
 sqersResponseStatus :: Lens' StartQueryExecutionResponse Int
-sqersResponseStatus = lens _sqersResponseStatus (\ s a -> s{_sqersResponseStatus = a});
+sqersResponseStatus = lens _sqersResponseStatus (\ s a -> s{_sqersResponseStatus = a})
 
 instance NFData StartQueryExecutionResponse where

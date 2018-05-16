@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.ResourceGroupsTagging.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,20 +46,20 @@ failureInfo
     :: FailureInfo
 failureInfo =
   FailureInfo'
-  {_fiErrorCode = Nothing, _fiErrorMessage = Nothing, _fiStatusCode = Nothing}
+    {_fiErrorCode = Nothing, _fiErrorMessage = Nothing, _fiStatusCode = Nothing}
 
 
 -- | The code of the common error. Valid values include @InternalServiceException@ , @InvalidParameterException@ , and any valid error code returned by the AWS service that hosts the resource that you want to tag.
 fiErrorCode :: Lens' FailureInfo (Maybe ResourceErrorCode)
-fiErrorCode = lens _fiErrorCode (\ s a -> s{_fiErrorCode = a});
+fiErrorCode = lens _fiErrorCode (\ s a -> s{_fiErrorCode = a})
 
 -- | The message of the common error.
 fiErrorMessage :: Lens' FailureInfo (Maybe Text)
-fiErrorMessage = lens _fiErrorMessage (\ s a -> s{_fiErrorMessage = a});
+fiErrorMessage = lens _fiErrorMessage (\ s a -> s{_fiErrorMessage = a})
 
 -- | The HTTP status code of the common error.
 fiStatusCode :: Lens' FailureInfo (Maybe Int)
-fiStatusCode = lens _fiStatusCode (\ s a -> s{_fiStatusCode = a});
+fiStatusCode = lens _fiStatusCode (\ s a -> s{_fiStatusCode = a})
 
 instance FromJSON FailureInfo where
         parseJSON
@@ -99,11 +99,11 @@ resourceTagMapping =
 
 -- | An array of resource ARN(s).
 rtmResourceARN :: Lens' ResourceTagMapping (Maybe Text)
-rtmResourceARN = lens _rtmResourceARN (\ s a -> s{_rtmResourceARN = a});
+rtmResourceARN = lens _rtmResourceARN (\ s a -> s{_rtmResourceARN = a})
 
 -- | The tags that have been applied to one or more AWS resources.
 rtmTags :: Lens' ResourceTagMapping [Tag]
-rtmTags = lens _rtmTags (\ s a -> s{_rtmTags = a}) . _Default . _Coerce;
+rtmTags = lens _rtmTags (\ s a -> s{_rtmTags = a}) . _Default . _Coerce
 
 instance FromJSON ResourceTagMapping where
         parseJSON
@@ -143,11 +143,11 @@ tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
 
 -- | One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
 tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 -- | The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
 tagValue :: Lens' Tag Text
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 instance FromJSON Tag where
         parseJSON
@@ -183,11 +183,11 @@ tagFilter = TagFilter' {_tfValues = Nothing, _tfKey = Nothing}
 
 -- | The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
 tfValues :: Lens' TagFilter [Text]
-tfValues = lens _tfValues (\ s a -> s{_tfValues = a}) . _Default . _Coerce;
+tfValues = lens _tfValues (\ s a -> s{_tfValues = a}) . _Default . _Coerce
 
 -- | One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
 tfKey :: Lens' TagFilter (Maybe Text)
-tfKey = lens _tfKey (\ s a -> s{_tfKey = a});
+tfKey = lens _tfKey (\ s a -> s{_tfKey = a})
 
 instance Hashable TagFilter where
 

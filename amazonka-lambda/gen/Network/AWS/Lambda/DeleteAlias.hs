@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.DeleteAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ deleteAlias pFunctionName_ pName_ =
 
 -- | The Lambda function name for which the alias is created. Deleting an alias does not delete the function version to which it is pointing. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 daFunctionName :: Lens' DeleteAlias Text
-daFunctionName = lens _daFunctionName (\ s a -> s{_daFunctionName = a});
+daFunctionName = lens _daFunctionName (\ s a -> s{_daFunctionName = a})
 
 -- | Name of the alias to delete.
 daName :: Lens' DeleteAlias Text
-daName = lens _daName (\ s a -> s{_daName = a});
+daName = lens _daName (\ s a -> s{_daName = a})
 
 instance AWSRequest DeleteAlias where
         type Rs DeleteAlias = DeleteAliasResponse

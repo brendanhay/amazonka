@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ deleteTags = DeleteTags' {_dtTags = mempty}
 
 -- | One or more tags.
 dtTags :: Lens' DeleteTags [Tag]
-dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Coerce;
+dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Coerce
 
 instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse

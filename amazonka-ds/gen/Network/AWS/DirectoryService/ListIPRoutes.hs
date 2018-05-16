@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.ListIPRoutes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ listIPRoutes
     -> ListIPRoutes
 listIPRoutes pDirectoryId_ =
   ListIPRoutes'
-  { _lirNextToken = Nothing
-  , _lirLimit = Nothing
-  , _lirDirectoryId = pDirectoryId_
-  }
+    { _lirNextToken = Nothing
+    , _lirLimit = Nothing
+    , _lirDirectoryId = pDirectoryId_
+    }
 
 
 -- | The /ListIpRoutes.NextToken/ value from a previous call to 'ListIpRoutes' . Pass null if this is the first call.
 lirNextToken :: Lens' ListIPRoutes (Maybe Text)
-lirNextToken = lens _lirNextToken (\ s a -> s{_lirNextToken = a});
+lirNextToken = lens _lirNextToken (\ s a -> s{_lirNextToken = a})
 
 -- | Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
 lirLimit :: Lens' ListIPRoutes (Maybe Natural)
-lirLimit = lens _lirLimit (\ s a -> s{_lirLimit = a}) . mapping _Nat;
+lirLimit = lens _lirLimit (\ s a -> s{_lirLimit = a}) . mapping _Nat
 
 -- | Identifier (ID) of the directory for which you want to retrieve the IP addresses.
 lirDirectoryId :: Lens' ListIPRoutes Text
-lirDirectoryId = lens _lirDirectoryId (\ s a -> s{_lirDirectoryId = a});
+lirDirectoryId = lens _lirDirectoryId (\ s a -> s{_lirDirectoryId = a})
 
 instance AWSRequest ListIPRoutes where
         type Rs ListIPRoutes = ListIPRoutesResponse
@@ -148,22 +148,22 @@ listIPRoutesResponse
     -> ListIPRoutesResponse
 listIPRoutesResponse pResponseStatus_ =
   ListIPRoutesResponse'
-  { _lirrsIPRoutesInfo = Nothing
-  , _lirrsNextToken = Nothing
-  , _lirrsResponseStatus = pResponseStatus_
-  }
+    { _lirrsIPRoutesInfo = Nothing
+    , _lirrsNextToken = Nothing
+    , _lirrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of 'IpRoute' s.
 lirrsIPRoutesInfo :: Lens' ListIPRoutesResponse [IPRouteInfo]
-lirrsIPRoutesInfo = lens _lirrsIPRoutesInfo (\ s a -> s{_lirrsIPRoutesInfo = a}) . _Default . _Coerce;
+lirrsIPRoutesInfo = lens _lirrsIPRoutesInfo (\ s a -> s{_lirrsIPRoutesInfo = a}) . _Default . _Coerce
 
 -- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'ListIpRoutes' to retrieve the next set of items.
 lirrsNextToken :: Lens' ListIPRoutesResponse (Maybe Text)
-lirrsNextToken = lens _lirrsNextToken (\ s a -> s{_lirrsNextToken = a});
+lirrsNextToken = lens _lirrsNextToken (\ s a -> s{_lirrsNextToken = a})
 
 -- | -- | The response status code.
 lirrsResponseStatus :: Lens' ListIPRoutesResponse Int
-lirrsResponseStatus = lens _lirrsResponseStatus (\ s a -> s{_lirrsResponseStatus = a});
+lirrsResponseStatus = lens _lirrsResponseStatus (\ s a -> s{_lirrsResponseStatus = a})
 
 instance NFData ListIPRoutesResponse where

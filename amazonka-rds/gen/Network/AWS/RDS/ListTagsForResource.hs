@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ListTagsForResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ listTagsForResource
     -> ListTagsForResource
 listTagsForResource pResourceName_ =
   ListTagsForResource'
-  {_ltfrFilters = Nothing, _ltfrResourceName = pResourceName_}
+    {_ltfrFilters = Nothing, _ltfrResourceName = pResourceName_}
 
 
 -- | This parameter is not currently supported.
 ltfrFilters :: Lens' ListTagsForResource [Filter]
-ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a}) . _Default . _Coerce;
+ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a}) . _Default . _Coerce
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
 ltfrResourceName :: Lens' ListTagsForResource Text
-ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a});
+ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a})
 
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource =
@@ -135,15 +135,15 @@ listTagsForResourceResponse
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
   ListTagsForResourceResponse'
-  {_ltfrrsTagList = Nothing, _ltfrrsResponseStatus = pResponseStatus_}
+    {_ltfrrsTagList = Nothing, _ltfrrsResponseStatus = pResponseStatus_}
 
 
 -- | List of tags returned by the ListTagsForResource operation.
 ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce;
+ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a})
 
 instance NFData ListTagsForResourceResponse where

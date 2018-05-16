@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateUserPool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,7 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPool
     , uupVerificationMessageTemplate
     , uupEmailVerificationMessage
     , uupSmsAuthenticationMessage
+    , uupUserPoolAddOns
     , uupEmailVerificationSubject
     , uupEmailConfiguration
     , uupSmsVerificationMessage
@@ -67,6 +68,7 @@ data UpdateUserPool = UpdateUserPool'
   , _uupVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
   , _uupEmailVerificationMessage    :: !(Maybe Text)
   , _uupSmsAuthenticationMessage    :: !(Maybe Text)
+  , _uupUserPoolAddOns              :: !(Maybe UserPoolAddOnsType)
   , _uupEmailVerificationSubject    :: !(Maybe Text)
   , _uupEmailConfiguration          :: !(Maybe EmailConfigurationType)
   , _uupSmsVerificationMessage      :: !(Maybe Text)
@@ -92,6 +94,8 @@ data UpdateUserPool = UpdateUserPool'
 -- * 'uupEmailVerificationMessage' - The contents of the email verification message.
 --
 -- * 'uupSmsAuthenticationMessage' - The contents of the SMS authentication message.
+--
+-- * 'uupUserPoolAddOns' - Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
 --
 -- * 'uupEmailVerificationSubject' - The subject of the email verification message.
 --
@@ -119,83 +123,88 @@ updateUserPool
     -> UpdateUserPool
 updateUserPool pUserPoolId_ =
   UpdateUserPool'
-  { _uupUserPoolTags = Nothing
-  , _uupVerificationMessageTemplate = Nothing
-  , _uupEmailVerificationMessage = Nothing
-  , _uupSmsAuthenticationMessage = Nothing
-  , _uupEmailVerificationSubject = Nothing
-  , _uupEmailConfiguration = Nothing
-  , _uupSmsVerificationMessage = Nothing
-  , _uupMFAConfiguration = Nothing
-  , _uupLambdaConfig = Nothing
-  , _uupSmsConfiguration = Nothing
-  , _uupAdminCreateUserConfig = Nothing
-  , _uupDeviceConfiguration = Nothing
-  , _uupAutoVerifiedAttributes = Nothing
-  , _uupPolicies = Nothing
-  , _uupUserPoolId = pUserPoolId_
-  }
+    { _uupUserPoolTags = Nothing
+    , _uupVerificationMessageTemplate = Nothing
+    , _uupEmailVerificationMessage = Nothing
+    , _uupSmsAuthenticationMessage = Nothing
+    , _uupUserPoolAddOns = Nothing
+    , _uupEmailVerificationSubject = Nothing
+    , _uupEmailConfiguration = Nothing
+    , _uupSmsVerificationMessage = Nothing
+    , _uupMFAConfiguration = Nothing
+    , _uupLambdaConfig = Nothing
+    , _uupSmsConfiguration = Nothing
+    , _uupAdminCreateUserConfig = Nothing
+    , _uupDeviceConfiguration = Nothing
+    , _uupAutoVerifiedAttributes = Nothing
+    , _uupPolicies = Nothing
+    , _uupUserPoolId = pUserPoolId_
+    }
 
 
 -- | The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
 uupUserPoolTags :: Lens' UpdateUserPool (HashMap Text Text)
-uupUserPoolTags = lens _uupUserPoolTags (\ s a -> s{_uupUserPoolTags = a}) . _Default . _Map;
+uupUserPoolTags = lens _uupUserPoolTags (\ s a -> s{_uupUserPoolTags = a}) . _Default . _Map
 
 -- | The template for verification messages.
 uupVerificationMessageTemplate :: Lens' UpdateUserPool (Maybe VerificationMessageTemplateType)
-uupVerificationMessageTemplate = lens _uupVerificationMessageTemplate (\ s a -> s{_uupVerificationMessageTemplate = a});
+uupVerificationMessageTemplate = lens _uupVerificationMessageTemplate (\ s a -> s{_uupVerificationMessageTemplate = a})
 
 -- | The contents of the email verification message.
 uupEmailVerificationMessage :: Lens' UpdateUserPool (Maybe Text)
-uupEmailVerificationMessage = lens _uupEmailVerificationMessage (\ s a -> s{_uupEmailVerificationMessage = a});
+uupEmailVerificationMessage = lens _uupEmailVerificationMessage (\ s a -> s{_uupEmailVerificationMessage = a})
 
 -- | The contents of the SMS authentication message.
 uupSmsAuthenticationMessage :: Lens' UpdateUserPool (Maybe Text)
-uupSmsAuthenticationMessage = lens _uupSmsAuthenticationMessage (\ s a -> s{_uupSmsAuthenticationMessage = a});
+uupSmsAuthenticationMessage = lens _uupSmsAuthenticationMessage (\ s a -> s{_uupSmsAuthenticationMessage = a})
+
+-- | Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
+uupUserPoolAddOns :: Lens' UpdateUserPool (Maybe UserPoolAddOnsType)
+uupUserPoolAddOns = lens _uupUserPoolAddOns (\ s a -> s{_uupUserPoolAddOns = a})
 
 -- | The subject of the email verification message.
 uupEmailVerificationSubject :: Lens' UpdateUserPool (Maybe Text)
-uupEmailVerificationSubject = lens _uupEmailVerificationSubject (\ s a -> s{_uupEmailVerificationSubject = a});
+uupEmailVerificationSubject = lens _uupEmailVerificationSubject (\ s a -> s{_uupEmailVerificationSubject = a})
 
 -- | Email configuration.
 uupEmailConfiguration :: Lens' UpdateUserPool (Maybe EmailConfigurationType)
-uupEmailConfiguration = lens _uupEmailConfiguration (\ s a -> s{_uupEmailConfiguration = a});
+uupEmailConfiguration = lens _uupEmailConfiguration (\ s a -> s{_uupEmailConfiguration = a})
 
 -- | A container with information about the SMS verification message.
 uupSmsVerificationMessage :: Lens' UpdateUserPool (Maybe Text)
-uupSmsVerificationMessage = lens _uupSmsVerificationMessage (\ s a -> s{_uupSmsVerificationMessage = a});
+uupSmsVerificationMessage = lens _uupSmsVerificationMessage (\ s a -> s{_uupSmsVerificationMessage = a})
 
 -- | Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.     * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.     * @OPTIONAL@ - Users have the option when registering to create an MFA token.
 uupMFAConfiguration :: Lens' UpdateUserPool (Maybe UserPoolMFAType)
-uupMFAConfiguration = lens _uupMFAConfiguration (\ s a -> s{_uupMFAConfiguration = a});
+uupMFAConfiguration = lens _uupMFAConfiguration (\ s a -> s{_uupMFAConfiguration = a})
 
 -- | The AWS Lambda configuration information from the request to update the user pool.
 uupLambdaConfig :: Lens' UpdateUserPool (Maybe LambdaConfigType)
-uupLambdaConfig = lens _uupLambdaConfig (\ s a -> s{_uupLambdaConfig = a});
+uupLambdaConfig = lens _uupLambdaConfig (\ s a -> s{_uupLambdaConfig = a})
 
 -- | SMS configuration.
 uupSmsConfiguration :: Lens' UpdateUserPool (Maybe SmsConfigurationType)
-uupSmsConfiguration = lens _uupSmsConfiguration (\ s a -> s{_uupSmsConfiguration = a});
+uupSmsConfiguration = lens _uupSmsConfiguration (\ s a -> s{_uupSmsConfiguration = a})
 
 -- | The configuration for @AdminCreateUser@ requests.
 uupAdminCreateUserConfig :: Lens' UpdateUserPool (Maybe AdminCreateUserConfigType)
-uupAdminCreateUserConfig = lens _uupAdminCreateUserConfig (\ s a -> s{_uupAdminCreateUserConfig = a});
+uupAdminCreateUserConfig = lens _uupAdminCreateUserConfig (\ s a -> s{_uupAdminCreateUserConfig = a})
 
 -- | Device configuration.
 uupDeviceConfiguration :: Lens' UpdateUserPool (Maybe DeviceConfigurationType)
-uupDeviceConfiguration = lens _uupDeviceConfiguration (\ s a -> s{_uupDeviceConfiguration = a});
+uupDeviceConfiguration = lens _uupDeviceConfiguration (\ s a -> s{_uupDeviceConfiguration = a})
 
 -- | The attributes that are automatically verified when the Amazon Cognito service makes a request to update user pools.
 uupAutoVerifiedAttributes :: Lens' UpdateUserPool [VerifiedAttributeType]
-uupAutoVerifiedAttributes = lens _uupAutoVerifiedAttributes (\ s a -> s{_uupAutoVerifiedAttributes = a}) . _Default . _Coerce;
+uupAutoVerifiedAttributes = lens _uupAutoVerifiedAttributes (\ s a -> s{_uupAutoVerifiedAttributes = a}) . _Default . _Coerce
 
 -- | A container with the policies you wish to update in a user pool.
 uupPolicies :: Lens' UpdateUserPool (Maybe UserPoolPolicyType)
-uupPolicies = lens _uupPolicies (\ s a -> s{_uupPolicies = a});
+uupPolicies = lens _uupPolicies (\ s a -> s{_uupPolicies = a})
 
 -- | The user pool ID for the user pool you want to update.
 uupUserPoolId :: Lens' UpdateUserPool Text
-uupUserPoolId = lens _uupUserPoolId (\ s a -> s{_uupUserPoolId = a});
+uupUserPoolId = lens _uupUserPoolId (\ s a -> s{_uupUserPoolId = a})
 
 instance AWSRequest UpdateUserPool where
         type Rs UpdateUserPool = UpdateUserPoolResponse
@@ -230,6 +239,7 @@ instance ToJSON UpdateUserPool where
                     _uupEmailVerificationMessage,
                   ("SmsAuthenticationMessage" .=) <$>
                     _uupSmsAuthenticationMessage,
+                  ("UserPoolAddOns" .=) <$> _uupUserPoolAddOns,
                   ("EmailVerificationSubject" .=) <$>
                     _uupEmailVerificationSubject,
                   ("EmailConfiguration" .=) <$> _uupEmailConfiguration,
@@ -277,6 +287,6 @@ updateUserPoolResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 uuprsResponseStatus :: Lens' UpdateUserPoolResponse Int
-uuprsResponseStatus = lens _uuprsResponseStatus (\ s a -> s{_uuprsResponseStatus = a});
+uuprsResponseStatus = lens _uuprsResponseStatus (\ s a -> s{_uuprsResponseStatus = a})
 
 instance NFData UpdateUserPoolResponse where

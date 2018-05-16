@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeCrossAccountAccessRole
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -123,28 +123,28 @@ describeCrossAccountAccessRoleResponse
     -> DescribeCrossAccountAccessRoleResponse
 describeCrossAccountAccessRoleResponse pResponseStatus_ pRoleARN_ pValid_ pRegisteredAt_ =
   DescribeCrossAccountAccessRoleResponse'
-  { _dcaarrsResponseStatus = pResponseStatus_
-  , _dcaarrsRoleARN = pRoleARN_
-  , _dcaarrsValid = pValid_
-  , _dcaarrsRegisteredAt = _Time # pRegisteredAt_
-  }
+    { _dcaarrsResponseStatus = pResponseStatus_
+    , _dcaarrsRoleARN = pRoleARN_
+    , _dcaarrsValid = pValid_
+    , _dcaarrsRegisteredAt = _Time # pRegisteredAt_
+    }
 
 
 -- | -- | The response status code.
 dcaarrsResponseStatus :: Lens' DescribeCrossAccountAccessRoleResponse Int
-dcaarrsResponseStatus = lens _dcaarrsResponseStatus (\ s a -> s{_dcaarrsResponseStatus = a});
+dcaarrsResponseStatus = lens _dcaarrsResponseStatus (\ s a -> s{_dcaarrsResponseStatus = a})
 
 -- | The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS account.
 dcaarrsRoleARN :: Lens' DescribeCrossAccountAccessRoleResponse Text
-dcaarrsRoleARN = lens _dcaarrsRoleARN (\ s a -> s{_dcaarrsRoleARN = a});
+dcaarrsRoleARN = lens _dcaarrsRoleARN (\ s a -> s{_dcaarrsRoleARN = a})
 
 -- | A Boolean value that specifies whether the IAM role has the necessary policies attached to enable Amazon Inspector to access your AWS account.
 dcaarrsValid :: Lens' DescribeCrossAccountAccessRoleResponse Bool
-dcaarrsValid = lens _dcaarrsValid (\ s a -> s{_dcaarrsValid = a});
+dcaarrsValid = lens _dcaarrsValid (\ s a -> s{_dcaarrsValid = a})
 
 -- | The date when the cross-account access role was registered.
 dcaarrsRegisteredAt :: Lens' DescribeCrossAccountAccessRoleResponse UTCTime
-dcaarrsRegisteredAt = lens _dcaarrsRegisteredAt (\ s a -> s{_dcaarrsRegisteredAt = a}) . _Time;
+dcaarrsRegisteredAt = lens _dcaarrsRegisteredAt (\ s a -> s{_dcaarrsRegisteredAt = a}) . _Time
 
 instance NFData
            DescribeCrossAccountAccessRoleResponse

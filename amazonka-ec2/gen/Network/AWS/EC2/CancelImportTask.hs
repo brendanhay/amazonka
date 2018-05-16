@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelImportTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,20 +73,23 @@ cancelImportTask
     :: CancelImportTask
 cancelImportTask =
   CancelImportTask'
-  {_citCancelReason = Nothing, _citImportTaskId = Nothing, _citDryRun = Nothing}
+    { _citCancelReason = Nothing
+    , _citImportTaskId = Nothing
+    , _citDryRun = Nothing
+    }
 
 
 -- | The reason for canceling the task.
 citCancelReason :: Lens' CancelImportTask (Maybe Text)
-citCancelReason = lens _citCancelReason (\ s a -> s{_citCancelReason = a});
+citCancelReason = lens _citCancelReason (\ s a -> s{_citCancelReason = a})
 
 -- | The ID of the import image or import snapshot task to be canceled.
 citImportTaskId :: Lens' CancelImportTask (Maybe Text)
-citImportTaskId = lens _citImportTaskId (\ s a -> s{_citImportTaskId = a});
+citImportTaskId = lens _citImportTaskId (\ s a -> s{_citImportTaskId = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 citDryRun :: Lens' CancelImportTask (Maybe Bool)
-citDryRun = lens _citDryRun (\ s a -> s{_citDryRun = a});
+citDryRun = lens _citDryRun (\ s a -> s{_citDryRun = a})
 
 instance AWSRequest CancelImportTask where
         type Rs CancelImportTask = CancelImportTaskResponse
@@ -147,27 +150,27 @@ cancelImportTaskResponse
     -> CancelImportTaskResponse
 cancelImportTaskResponse pResponseStatus_ =
   CancelImportTaskResponse'
-  { _citrsState = Nothing
-  , _citrsImportTaskId = Nothing
-  , _citrsPreviousState = Nothing
-  , _citrsResponseStatus = pResponseStatus_
-  }
+    { _citrsState = Nothing
+    , _citrsImportTaskId = Nothing
+    , _citrsPreviousState = Nothing
+    , _citrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current state of the task being canceled.
 citrsState :: Lens' CancelImportTaskResponse (Maybe Text)
-citrsState = lens _citrsState (\ s a -> s{_citrsState = a});
+citrsState = lens _citrsState (\ s a -> s{_citrsState = a})
 
 -- | The ID of the task being canceled.
 citrsImportTaskId :: Lens' CancelImportTaskResponse (Maybe Text)
-citrsImportTaskId = lens _citrsImportTaskId (\ s a -> s{_citrsImportTaskId = a});
+citrsImportTaskId = lens _citrsImportTaskId (\ s a -> s{_citrsImportTaskId = a})
 
 -- | The current state of the task being canceled.
 citrsPreviousState :: Lens' CancelImportTaskResponse (Maybe Text)
-citrsPreviousState = lens _citrsPreviousState (\ s a -> s{_citrsPreviousState = a});
+citrsPreviousState = lens _citrsPreviousState (\ s a -> s{_citrsPreviousState = a})
 
 -- | -- | The response status code.
 citrsResponseStatus :: Lens' CancelImportTaskResponse Int
-citrsResponseStatus = lens _citrsResponseStatus (\ s a -> s{_citrsResponseStatus = a});
+citrsResponseStatus = lens _citrsResponseStatus (\ s a -> s{_citrsResponseStatus = a})
 
 instance NFData CancelImportTaskResponse where

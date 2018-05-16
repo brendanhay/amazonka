@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getRule pRuleId_ = GetRule' {_grRuleId = pRuleId_}
 
 -- | The @RuleId@ of the 'Rule' that you want to get. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 grRuleId :: Lens' GetRule Text
-grRuleId = lens _grRuleId (\ s a -> s{_grRuleId = a});
+grRuleId = lens _grRuleId (\ s a -> s{_grRuleId = a})
 
 instance AWSRequest GetRule where
         type Rs GetRule = GetRuleResponse
@@ -120,10 +120,10 @@ getRuleResponse pResponseStatus_ =
 
 -- | Information about the 'Rule' that you specified in the @GetRule@ request. For more information, see the following topics:     * 'Rule' : Contains @MetricName@ , @Name@ , an array of @Predicate@ objects, and @RuleId@      * 'Predicate' : Each @Predicate@ object contains @DataId@ , @Negated@ , and @Type@
 grrsRule :: Lens' GetRuleResponse (Maybe Rule)
-grrsRule = lens _grrsRule (\ s a -> s{_grrsRule = a});
+grrsRule = lens _grrsRule (\ s a -> s{_grrsRule = a})
 
 -- | -- | The response status code.
 grrsResponseStatus :: Lens' GetRuleResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a})
 
 instance NFData GetRuleResponse where

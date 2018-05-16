@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketLifecycle
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ deleteBucketLifecycle pBucket_ = DeleteBucketLifecycle' {_dblBucket = pBucket_}
 
 -- | Undocumented member.
 dblBucket :: Lens' DeleteBucketLifecycle BucketName
-dblBucket = lens _dblBucket (\ s a -> s{_dblBucket = a});
+dblBucket = lens _dblBucket (\ s a -> s{_dblBucket = a})
 
 instance AWSRequest DeleteBucketLifecycle where
         type Rs DeleteBucketLifecycle =

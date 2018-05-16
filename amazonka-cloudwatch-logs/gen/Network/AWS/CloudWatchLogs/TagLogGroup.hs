@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.TagLogGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ tagLogGroup pLogGroupName_ =
 
 -- | The name of the log group.
 tlgLogGroupName :: Lens' TagLogGroup Text
-tlgLogGroupName = lens _tlgLogGroupName (\ s a -> s{_tlgLogGroupName = a});
+tlgLogGroupName = lens _tlgLogGroupName (\ s a -> s{_tlgLogGroupName = a})
 
 -- | The key-value pairs to use for the tags.
 tlgTags :: Lens' TagLogGroup (HashMap Text Text)
-tlgTags = lens _tlgTags (\ s a -> s{_tlgTags = a}) . _Map;
+tlgTags = lens _tlgTags (\ s a -> s{_tlgTags = a}) . _Map
 
 instance AWSRequest TagLogGroup where
         type Rs TagLogGroup = TagLogGroupResponse

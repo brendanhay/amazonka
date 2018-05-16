@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreatePolicyVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,30 +71,30 @@ data CreatePolicyVersion = CreatePolicyVersion'
 --
 -- * 'cpvPolicyName' - The policy name.
 --
--- * 'cpvPolicyDocument' - The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespaces
+-- * 'cpvPolicyDocument' - The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespace.
 createPolicyVersion
     :: Text -- ^ 'cpvPolicyName'
     -> Text -- ^ 'cpvPolicyDocument'
     -> CreatePolicyVersion
 createPolicyVersion pPolicyName_ pPolicyDocument_ =
   CreatePolicyVersion'
-  { _cpvSetAsDefault = Nothing
-  , _cpvPolicyName = pPolicyName_
-  , _cpvPolicyDocument = pPolicyDocument_
-  }
+    { _cpvSetAsDefault = Nothing
+    , _cpvPolicyName = pPolicyName_
+    , _cpvPolicyDocument = pPolicyDocument_
+    }
 
 
 -- | Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
 cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
-cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
+cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a})
 
 -- | The policy name.
 cpvPolicyName :: Lens' CreatePolicyVersion Text
-cpvPolicyName = lens _cpvPolicyName (\ s a -> s{_cpvPolicyName = a});
+cpvPolicyName = lens _cpvPolicyName (\ s a -> s{_cpvPolicyName = a})
 
--- | The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespaces
+-- | The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespace.
 cpvPolicyDocument :: Lens' CreatePolicyVersion Text
-cpvPolicyDocument = lens _cpvPolicyDocument (\ s a -> s{_cpvPolicyDocument = a});
+cpvPolicyDocument = lens _cpvPolicyDocument (\ s a -> s{_cpvPolicyDocument = a})
 
 instance AWSRequest CreatePolicyVersion where
         type Rs CreatePolicyVersion =
@@ -164,32 +164,32 @@ createPolicyVersionResponse
     -> CreatePolicyVersionResponse
 createPolicyVersionResponse pResponseStatus_ =
   CreatePolicyVersionResponse'
-  { _cpvrsPolicyDocument = Nothing
-  , _cpvrsPolicyVersionId = Nothing
-  , _cpvrsPolicyARN = Nothing
-  , _cpvrsIsDefaultVersion = Nothing
-  , _cpvrsResponseStatus = pResponseStatus_
-  }
+    { _cpvrsPolicyDocument = Nothing
+    , _cpvrsPolicyVersionId = Nothing
+    , _cpvrsPolicyARN = Nothing
+    , _cpvrsIsDefaultVersion = Nothing
+    , _cpvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The JSON document that describes the policy.
 cpvrsPolicyDocument :: Lens' CreatePolicyVersionResponse (Maybe Text)
-cpvrsPolicyDocument = lens _cpvrsPolicyDocument (\ s a -> s{_cpvrsPolicyDocument = a});
+cpvrsPolicyDocument = lens _cpvrsPolicyDocument (\ s a -> s{_cpvrsPolicyDocument = a})
 
 -- | The policy version ID.
 cpvrsPolicyVersionId :: Lens' CreatePolicyVersionResponse (Maybe Text)
-cpvrsPolicyVersionId = lens _cpvrsPolicyVersionId (\ s a -> s{_cpvrsPolicyVersionId = a});
+cpvrsPolicyVersionId = lens _cpvrsPolicyVersionId (\ s a -> s{_cpvrsPolicyVersionId = a})
 
 -- | The policy ARN.
 cpvrsPolicyARN :: Lens' CreatePolicyVersionResponse (Maybe Text)
-cpvrsPolicyARN = lens _cpvrsPolicyARN (\ s a -> s{_cpvrsPolicyARN = a});
+cpvrsPolicyARN = lens _cpvrsPolicyARN (\ s a -> s{_cpvrsPolicyARN = a})
 
 -- | Specifies whether the policy version is the default.
 cpvrsIsDefaultVersion :: Lens' CreatePolicyVersionResponse (Maybe Bool)
-cpvrsIsDefaultVersion = lens _cpvrsIsDefaultVersion (\ s a -> s{_cpvrsIsDefaultVersion = a});
+cpvrsIsDefaultVersion = lens _cpvrsIsDefaultVersion (\ s a -> s{_cpvrsIsDefaultVersion = a})
 
 -- | -- | The response status code.
 cpvrsResponseStatus :: Lens' CreatePolicyVersionResponse Int
-cpvrsResponseStatus = lens _cpvrsResponseStatus (\ s a -> s{_cpvrsResponseStatus = a});
+cpvrsResponseStatus = lens _cpvrsResponseStatus (\ s a -> s{_cpvrsResponseStatus = a})
 
 instance NFData CreatePolicyVersionResponse where

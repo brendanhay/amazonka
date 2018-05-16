@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,11 @@ module Network.AWS.Budgets.Types.Sum where
 import Network.AWS.Prelude
 
 -- | The type of a budget. It should be COST, USAGE, or RI_UTILIZATION.
+--
+--
 data BudgetType
   = Cost
+  | RiCoverage
   | RiUtilization
   | Usage
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -30,14 +33,16 @@ data BudgetType
 instance FromText BudgetType where
     parser = takeLowerText >>= \case
         "cost" -> pure Cost
+        "ri_coverage" -> pure RiCoverage
         "ri_utilization" -> pure RiUtilization
         "usage" -> pure Usage
         e -> fromTextError $ "Failure parsing BudgetType from value: '" <> e
-           <> "'. Accepted values: cost, ri_utilization, usage"
+           <> "'. Accepted values: cost, ri_coverage, ri_utilization, usage"
 
 instance ToText BudgetType where
     toText = \case
         Cost -> "COST"
+        RiCoverage -> "RI_COVERAGE"
         RiUtilization -> "RI_UTILIZATION"
         Usage -> "USAGE"
 
@@ -54,6 +59,8 @@ instance FromJSON BudgetType where
     parseJSON = parseJSONText "BudgetType"
 
 -- | The comparison operator of a notification. Currently we support less than, equal to and greater than.
+--
+--
 data ComparisonOperator
   = EqualTo
   | GreaterThan
@@ -88,6 +95,8 @@ instance FromJSON ComparisonOperator where
     parseJSON = parseJSONText "ComparisonOperator"
 
 -- | The type of a notification. It should be ACTUAL or FORECASTED.
+--
+--
 data NotificationType
   = Actual
   | Forecasted
@@ -119,6 +128,8 @@ instance FromJSON NotificationType where
     parseJSON = parseJSONText "NotificationType"
 
 -- | The subscription type of the subscriber. It can be SMS or EMAIL.
+--
+--
 data SubscriptionType
   = Email
   | SNS
@@ -150,6 +161,8 @@ instance FromJSON SubscriptionType where
     parseJSON = parseJSONText "SubscriptionType"
 
 -- | The type of threshold for a notification. It can be PERCENTAGE or ABSOLUTE_VALUE.
+--
+--
 data ThresholdType
   = AbsoluteValue
   | Percentage
@@ -181,6 +194,8 @@ instance FromJSON ThresholdType where
     parseJSON = parseJSONText "ThresholdType"
 
 -- | The time unit of the budget. e.g. MONTHLY, QUARTERLY, etc.
+--
+--
 data TimeUnit
   = Annually
   | Daily

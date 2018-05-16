@@ -12,16 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreatePlacementGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a placement group that you launch cluster instances into. Give the group a name that's unique within the scope of your account.
+-- Creates a placement group in which to launch instances. The strategy of the placement group determines how the instances are organized within the group.
 --
 --
--- For more information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- A @cluster@ placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A @spread@ placement group places instances on distinct hardware.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.CreatePlacementGroup
     (
@@ -63,7 +65,7 @@ data CreatePlacementGroup = CreatePlacementGroup'
 --
 -- * 'cpgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cpgGroupName' - A name for the placement group. Constraints: Up to 255 ASCII characters
+-- * 'cpgGroupName' - A name for the placement group. Must be unique within the scope of your account for the region. Constraints: Up to 255 ASCII characters
 --
 -- * 'cpgStrategy' - The placement strategy.
 createPlacementGroup
@@ -72,20 +74,23 @@ createPlacementGroup
     -> CreatePlacementGroup
 createPlacementGroup pGroupName_ pStrategy_ =
   CreatePlacementGroup'
-  {_cpgDryRun = Nothing, _cpgGroupName = pGroupName_, _cpgStrategy = pStrategy_}
+    { _cpgDryRun = Nothing
+    , _cpgGroupName = pGroupName_
+    , _cpgStrategy = pStrategy_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cpgDryRun :: Lens' CreatePlacementGroup (Maybe Bool)
-cpgDryRun = lens _cpgDryRun (\ s a -> s{_cpgDryRun = a});
+cpgDryRun = lens _cpgDryRun (\ s a -> s{_cpgDryRun = a})
 
--- | A name for the placement group. Constraints: Up to 255 ASCII characters
+-- | A name for the placement group. Must be unique within the scope of your account for the region. Constraints: Up to 255 ASCII characters
 cpgGroupName :: Lens' CreatePlacementGroup Text
-cpgGroupName = lens _cpgGroupName (\ s a -> s{_cpgGroupName = a});
+cpgGroupName = lens _cpgGroupName (\ s a -> s{_cpgGroupName = a})
 
 -- | The placement strategy.
 cpgStrategy :: Lens' CreatePlacementGroup PlacementStrategy
-cpgStrategy = lens _cpgStrategy (\ s a -> s{_cpgStrategy = a});
+cpgStrategy = lens _cpgStrategy (\ s a -> s{_cpgStrategy = a})
 
 instance AWSRequest CreatePlacementGroup where
         type Rs CreatePlacementGroup =

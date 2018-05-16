@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketVersioning
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getBucketVersioning pBucket_ = GetBucketVersioning' {_gbvBucket = pBucket_}
 
 -- | Undocumented member.
 gbvBucket :: Lens' GetBucketVersioning BucketName
-gbvBucket = lens _gbvBucket (\ s a -> s{_gbvBucket = a});
+gbvBucket = lens _gbvBucket (\ s a -> s{_gbvBucket = a})
 
 instance AWSRequest GetBucketVersioning where
         type Rs GetBucketVersioning =
@@ -111,22 +111,22 @@ getBucketVersioningResponse
     -> GetBucketVersioningResponse
 getBucketVersioningResponse pResponseStatus_ =
   GetBucketVersioningResponse'
-  { _gbvrsStatus = Nothing
-  , _gbvrsMFADelete = Nothing
-  , _gbvrsResponseStatus = pResponseStatus_
-  }
+    { _gbvrsStatus = Nothing
+    , _gbvrsMFADelete = Nothing
+    , _gbvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The versioning state of the bucket.
 gbvrsStatus :: Lens' GetBucketVersioningResponse (Maybe BucketVersioningStatus)
-gbvrsStatus = lens _gbvrsStatus (\ s a -> s{_gbvrsStatus = a});
+gbvrsStatus = lens _gbvrsStatus (\ s a -> s{_gbvrsStatus = a})
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
 gbvrsMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
-gbvrsMFADelete = lens _gbvrsMFADelete (\ s a -> s{_gbvrsMFADelete = a});
+gbvrsMFADelete = lens _gbvrsMFADelete (\ s a -> s{_gbvrsMFADelete = a})
 
 -- | -- | The response status code.
 gbvrsResponseStatus :: Lens' GetBucketVersioningResponse Int
-gbvrsResponseStatus = lens _gbvrsResponseStatus (\ s a -> s{_gbvrsResponseStatus = a});
+gbvrsResponseStatus = lens _gbvrsResponseStatus (\ s a -> s{_gbvrsResponseStatus = a})
 
 instance NFData GetBucketVersioningResponse where

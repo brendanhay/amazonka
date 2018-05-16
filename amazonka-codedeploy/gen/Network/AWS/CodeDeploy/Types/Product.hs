@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,7 +43,7 @@ alarm = Alarm' {_aName = Nothing}
 
 -- | The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
 aName :: Lens' Alarm (Maybe Text)
-aName = lens _aName (\ s a -> s{_aName = a});
+aName = lens _aName (\ s a -> s{_aName = a})
 
 instance FromJSON Alarm where
         parseJSON
@@ -83,23 +83,23 @@ alarmConfiguration
     :: AlarmConfiguration
 alarmConfiguration =
   AlarmConfiguration'
-  { _acIgnorePollAlarmFailure = Nothing
-  , _acEnabled = Nothing
-  , _acAlarms = Nothing
-  }
+    { _acIgnorePollAlarmFailure = Nothing
+    , _acEnabled = Nothing
+    , _acAlarms = Nothing
+    }
 
 
 -- | Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.     * true: The deployment will proceed even if alarm status information can't be retrieved from Amazon CloudWatch.     * false: The deployment will stop if alarm status information can't be retrieved from Amazon CloudWatch.
 acIgnorePollAlarmFailure :: Lens' AlarmConfiguration (Maybe Bool)
-acIgnorePollAlarmFailure = lens _acIgnorePollAlarmFailure (\ s a -> s{_acIgnorePollAlarmFailure = a});
+acIgnorePollAlarmFailure = lens _acIgnorePollAlarmFailure (\ s a -> s{_acIgnorePollAlarmFailure = a})
 
 -- | Indicates whether the alarm configuration is enabled.
 acEnabled :: Lens' AlarmConfiguration (Maybe Bool)
-acEnabled = lens _acEnabled (\ s a -> s{_acEnabled = a});
+acEnabled = lens _acEnabled (\ s a -> s{_acEnabled = a})
 
 -- | A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group.
 acAlarms :: Lens' AlarmConfiguration [Alarm]
-acAlarms = lens _acAlarms (\ s a -> s{_acAlarms = a}) . _Default . _Coerce;
+acAlarms = lens _acAlarms (\ s a -> s{_acAlarms = a}) . _Default . _Coerce
 
 instance FromJSON AlarmConfiguration where
         parseJSON
@@ -130,6 +130,7 @@ instance ToJSON AlarmConfiguration where
 -- /See:/ 'applicationInfo' smart constructor.
 data ApplicationInfo = ApplicationInfo'
   { _aiLinkedToGitHub    :: !(Maybe Bool)
+  , _aiComputePlatform   :: !(Maybe ComputePlatform)
   , _aiApplicationId     :: !(Maybe Text)
   , _aiApplicationName   :: !(Maybe Text)
   , _aiGitHubAccountName :: !(Maybe Text)
@@ -143,6 +144,8 @@ data ApplicationInfo = ApplicationInfo'
 --
 -- * 'aiLinkedToGitHub' - True if the user has authenticated with GitHub for the specified application; otherwise, false.
 --
+-- * 'aiComputePlatform' - The destination platform type for deployment of the application (@Lambda@ or @Server@ ).
+--
 -- * 'aiApplicationId' - The application ID.
 --
 -- * 'aiApplicationName' - The application name.
@@ -154,40 +157,47 @@ applicationInfo
     :: ApplicationInfo
 applicationInfo =
   ApplicationInfo'
-  { _aiLinkedToGitHub = Nothing
-  , _aiApplicationId = Nothing
-  , _aiApplicationName = Nothing
-  , _aiGitHubAccountName = Nothing
-  , _aiCreateTime = Nothing
-  }
+    { _aiLinkedToGitHub = Nothing
+    , _aiComputePlatform = Nothing
+    , _aiApplicationId = Nothing
+    , _aiApplicationName = Nothing
+    , _aiGitHubAccountName = Nothing
+    , _aiCreateTime = Nothing
+    }
 
 
 -- | True if the user has authenticated with GitHub for the specified application; otherwise, false.
 aiLinkedToGitHub :: Lens' ApplicationInfo (Maybe Bool)
-aiLinkedToGitHub = lens _aiLinkedToGitHub (\ s a -> s{_aiLinkedToGitHub = a});
+aiLinkedToGitHub = lens _aiLinkedToGitHub (\ s a -> s{_aiLinkedToGitHub = a})
+
+-- | The destination platform type for deployment of the application (@Lambda@ or @Server@ ).
+aiComputePlatform :: Lens' ApplicationInfo (Maybe ComputePlatform)
+aiComputePlatform = lens _aiComputePlatform (\ s a -> s{_aiComputePlatform = a})
 
 -- | The application ID.
 aiApplicationId :: Lens' ApplicationInfo (Maybe Text)
-aiApplicationId = lens _aiApplicationId (\ s a -> s{_aiApplicationId = a});
+aiApplicationId = lens _aiApplicationId (\ s a -> s{_aiApplicationId = a})
 
 -- | The application name.
 aiApplicationName :: Lens' ApplicationInfo (Maybe Text)
-aiApplicationName = lens _aiApplicationName (\ s a -> s{_aiApplicationName = a});
+aiApplicationName = lens _aiApplicationName (\ s a -> s{_aiApplicationName = a})
 
 -- | The name for a connection to a GitHub account.
 aiGitHubAccountName :: Lens' ApplicationInfo (Maybe Text)
-aiGitHubAccountName = lens _aiGitHubAccountName (\ s a -> s{_aiGitHubAccountName = a});
+aiGitHubAccountName = lens _aiGitHubAccountName (\ s a -> s{_aiGitHubAccountName = a})
 
 -- | The time at which the application was created.
 aiCreateTime :: Lens' ApplicationInfo (Maybe UTCTime)
-aiCreateTime = lens _aiCreateTime (\ s a -> s{_aiCreateTime = a}) . mapping _Time;
+aiCreateTime = lens _aiCreateTime (\ s a -> s{_aiCreateTime = a}) . mapping _Time
 
 instance FromJSON ApplicationInfo where
         parseJSON
           = withObject "ApplicationInfo"
               (\ x ->
                  ApplicationInfo' <$>
-                   (x .:? "linkedToGitHub") <*> (x .:? "applicationId")
+                   (x .:? "linkedToGitHub") <*>
+                     (x .:? "computePlatform")
+                     <*> (x .:? "applicationId")
                      <*> (x .:? "applicationName")
                      <*> (x .:? "gitHubAccountName")
                      <*> (x .:? "createTime"))
@@ -222,11 +232,11 @@ autoRollbackConfiguration =
 
 -- | Indicates whether a defined automatic rollback configuration is currently enabled.
 arcEnabled :: Lens' AutoRollbackConfiguration (Maybe Bool)
-arcEnabled = lens _arcEnabled (\ s a -> s{_arcEnabled = a});
+arcEnabled = lens _arcEnabled (\ s a -> s{_arcEnabled = a})
 
 -- | The event type or types that trigger a rollback.
 arcEvents :: Lens' AutoRollbackConfiguration [AutoRollbackEvent]
-arcEvents = lens _arcEvents (\ s a -> s{_arcEvents = a}) . _Default . _Coerce;
+arcEvents = lens _arcEvents (\ s a -> s{_arcEvents = a}) . _Default . _Coerce
 
 instance FromJSON AutoRollbackConfiguration where
         parseJSON
@@ -271,11 +281,11 @@ autoScalingGroup = AutoScalingGroup' {_asgHook = Nothing, _asgName = Nothing}
 
 -- | An Auto Scaling lifecycle event hook name.
 asgHook :: Lens' AutoScalingGroup (Maybe Text)
-asgHook = lens _asgHook (\ s a -> s{_asgHook = a});
+asgHook = lens _asgHook (\ s a -> s{_asgHook = a})
 
 -- | The Auto Scaling group name.
 asgName :: Lens' AutoScalingGroup (Maybe Text)
-asgName = lens _asgName (\ s a -> s{_asgName = a});
+asgName = lens _asgName (\ s a -> s{_asgName = a})
 
 instance FromJSON AutoScalingGroup where
         parseJSON
@@ -313,23 +323,23 @@ blueGreenDeploymentConfiguration
     :: BlueGreenDeploymentConfiguration
 blueGreenDeploymentConfiguration =
   BlueGreenDeploymentConfiguration'
-  { _bgdcDeploymentReadyOption = Nothing
-  , _bgdcGreenFleetProvisioningOption = Nothing
-  , _bgdcTerminateBlueInstancesOnDeploymentSuccess = Nothing
-  }
+    { _bgdcDeploymentReadyOption = Nothing
+    , _bgdcGreenFleetProvisioningOption = Nothing
+    , _bgdcTerminateBlueInstancesOnDeploymentSuccess = Nothing
+    }
 
 
 -- | Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
 bgdcDeploymentReadyOption :: Lens' BlueGreenDeploymentConfiguration (Maybe DeploymentReadyOption)
-bgdcDeploymentReadyOption = lens _bgdcDeploymentReadyOption (\ s a -> s{_bgdcDeploymentReadyOption = a});
+bgdcDeploymentReadyOption = lens _bgdcDeploymentReadyOption (\ s a -> s{_bgdcDeploymentReadyOption = a})
 
 -- | Information about how instances are provisioned for a replacement environment in a blue/green deployment.
 bgdcGreenFleetProvisioningOption :: Lens' BlueGreenDeploymentConfiguration (Maybe GreenFleetProvisioningOption)
-bgdcGreenFleetProvisioningOption = lens _bgdcGreenFleetProvisioningOption (\ s a -> s{_bgdcGreenFleetProvisioningOption = a});
+bgdcGreenFleetProvisioningOption = lens _bgdcGreenFleetProvisioningOption (\ s a -> s{_bgdcGreenFleetProvisioningOption = a})
 
 -- | Information about whether to terminate instances in the original fleet during a blue/green deployment.
 bgdcTerminateBlueInstancesOnDeploymentSuccess :: Lens' BlueGreenDeploymentConfiguration (Maybe BlueInstanceTerminationOption)
-bgdcTerminateBlueInstancesOnDeploymentSuccess = lens _bgdcTerminateBlueInstancesOnDeploymentSuccess (\ s a -> s{_bgdcTerminateBlueInstancesOnDeploymentSuccess = a});
+bgdcTerminateBlueInstancesOnDeploymentSuccess = lens _bgdcTerminateBlueInstancesOnDeploymentSuccess (\ s a -> s{_bgdcTerminateBlueInstancesOnDeploymentSuccess = a})
 
 instance FromJSON BlueGreenDeploymentConfiguration
          where
@@ -382,16 +392,16 @@ blueInstanceTerminationOption
     :: BlueInstanceTerminationOption
 blueInstanceTerminationOption =
   BlueInstanceTerminationOption'
-  {_bitoAction = Nothing, _bitoTerminationWaitTimeInMinutes = Nothing}
+    {_bitoAction = Nothing, _bitoTerminationWaitTimeInMinutes = Nothing}
 
 
 -- | The action to take on instances in the original environment after a successful blue/green deployment.     * TERMINATE: Instances are terminated after a specified wait time.     * KEEP_ALIVE: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
 bitoAction :: Lens' BlueInstanceTerminationOption (Maybe InstanceAction)
-bitoAction = lens _bitoAction (\ s a -> s{_bitoAction = a});
+bitoAction = lens _bitoAction (\ s a -> s{_bitoAction = a})
 
 -- | The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
 bitoTerminationWaitTimeInMinutes :: Lens' BlueInstanceTerminationOption (Maybe Int)
-bitoTerminationWaitTimeInMinutes = lens _bitoTerminationWaitTimeInMinutes (\ s a -> s{_bitoTerminationWaitTimeInMinutes = a});
+bitoTerminationWaitTimeInMinutes = lens _bitoTerminationWaitTimeInMinutes (\ s a -> s{_bitoTerminationWaitTimeInMinutes = a})
 
 instance FromJSON BlueInstanceTerminationOption where
         parseJSON
@@ -420,7 +430,9 @@ instance ToJSON BlueInstanceTerminationOption where
 -- /See:/ 'deploymentConfigInfo' smart constructor.
 data DeploymentConfigInfo = DeploymentConfigInfo'
   { _dciDeploymentConfigName :: !(Maybe Text)
+  , _dciComputePlatform      :: !(Maybe ComputePlatform)
   , _dciMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
+  , _dciTrafficRoutingConfig :: !(Maybe TrafficRoutingConfig)
   , _dciDeploymentConfigId   :: !(Maybe Text)
   , _dciCreateTime           :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -432,7 +444,11 @@ data DeploymentConfigInfo = DeploymentConfigInfo'
 --
 -- * 'dciDeploymentConfigName' - The deployment configuration name.
 --
+-- * 'dciComputePlatform' - The destination platform type for the deployment (@Lambda@ or @Server@ ).
+--
 -- * 'dciMinimumHealthyHosts' - Information about the number or percentage of minimum healthy instance.
+--
+-- * 'dciTrafficRoutingConfig' - The configuration specifying how the deployment traffic will be routed. Only deployments with a Lambda compute platform can specify this.
 --
 -- * 'dciDeploymentConfigId' - The deployment configuration ID.
 --
@@ -441,28 +457,38 @@ deploymentConfigInfo
     :: DeploymentConfigInfo
 deploymentConfigInfo =
   DeploymentConfigInfo'
-  { _dciDeploymentConfigName = Nothing
-  , _dciMinimumHealthyHosts = Nothing
-  , _dciDeploymentConfigId = Nothing
-  , _dciCreateTime = Nothing
-  }
+    { _dciDeploymentConfigName = Nothing
+    , _dciComputePlatform = Nothing
+    , _dciMinimumHealthyHosts = Nothing
+    , _dciTrafficRoutingConfig = Nothing
+    , _dciDeploymentConfigId = Nothing
+    , _dciCreateTime = Nothing
+    }
 
 
 -- | The deployment configuration name.
 dciDeploymentConfigName :: Lens' DeploymentConfigInfo (Maybe Text)
-dciDeploymentConfigName = lens _dciDeploymentConfigName (\ s a -> s{_dciDeploymentConfigName = a});
+dciDeploymentConfigName = lens _dciDeploymentConfigName (\ s a -> s{_dciDeploymentConfigName = a})
+
+-- | The destination platform type for the deployment (@Lambda@ or @Server@ ).
+dciComputePlatform :: Lens' DeploymentConfigInfo (Maybe ComputePlatform)
+dciComputePlatform = lens _dciComputePlatform (\ s a -> s{_dciComputePlatform = a})
 
 -- | Information about the number or percentage of minimum healthy instance.
 dciMinimumHealthyHosts :: Lens' DeploymentConfigInfo (Maybe MinimumHealthyHosts)
-dciMinimumHealthyHosts = lens _dciMinimumHealthyHosts (\ s a -> s{_dciMinimumHealthyHosts = a});
+dciMinimumHealthyHosts = lens _dciMinimumHealthyHosts (\ s a -> s{_dciMinimumHealthyHosts = a})
+
+-- | The configuration specifying how the deployment traffic will be routed. Only deployments with a Lambda compute platform can specify this.
+dciTrafficRoutingConfig :: Lens' DeploymentConfigInfo (Maybe TrafficRoutingConfig)
+dciTrafficRoutingConfig = lens _dciTrafficRoutingConfig (\ s a -> s{_dciTrafficRoutingConfig = a})
 
 -- | The deployment configuration ID.
 dciDeploymentConfigId :: Lens' DeploymentConfigInfo (Maybe Text)
-dciDeploymentConfigId = lens _dciDeploymentConfigId (\ s a -> s{_dciDeploymentConfigId = a});
+dciDeploymentConfigId = lens _dciDeploymentConfigId (\ s a -> s{_dciDeploymentConfigId = a})
 
 -- | The time at which the deployment configuration was created.
 dciCreateTime :: Lens' DeploymentConfigInfo (Maybe UTCTime)
-dciCreateTime = lens _dciCreateTime (\ s a -> s{_dciCreateTime = a}) . mapping _Time;
+dciCreateTime = lens _dciCreateTime (\ s a -> s{_dciCreateTime = a}) . mapping _Time
 
 instance FromJSON DeploymentConfigInfo where
         parseJSON
@@ -470,7 +496,9 @@ instance FromJSON DeploymentConfigInfo where
               (\ x ->
                  DeploymentConfigInfo' <$>
                    (x .:? "deploymentConfigName") <*>
-                     (x .:? "minimumHealthyHosts")
+                     (x .:? "computePlatform")
+                     <*> (x .:? "minimumHealthyHosts")
+                     <*> (x .:? "trafficRoutingConfig")
                      <*> (x .:? "deploymentConfigId")
                      <*> (x .:? "createTime"))
 
@@ -489,6 +517,7 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
   , _dgiDeploymentConfigName :: !(Maybe Text)
   , _dgiLastAttemptedDeployment :: !(Maybe LastDeploymentInfo)
   , _dgiOnPremisesTagSet :: !(Maybe OnPremisesTagSet)
+  , _dgiComputePlatform :: !(Maybe ComputePlatform)
   , _dgiTargetRevision :: !(Maybe RevisionLocation)
   , _dgiEc2TagFilters :: !(Maybe [EC2TagFilter])
   , _dgiBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
@@ -519,6 +548,8 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
 -- * 'dgiLastAttemptedDeployment' - Information about the most recent attempted deployment to the deployment group.
 --
 -- * 'dgiOnPremisesTagSet' - Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters.
+--
+-- * 'dgiComputePlatform' - The destination platform type for the deployment group (@Lambda@ or @Server@ ).
 --
 -- * 'dgiTargetRevision' - Information about the deployment group's target revision, including type and location.
 --
@@ -551,103 +582,108 @@ deploymentGroupInfo
     :: DeploymentGroupInfo
 deploymentGroupInfo =
   DeploymentGroupInfo'
-  { _dgiServiceRoleARN = Nothing
-  , _dgiEc2TagSet = Nothing
-  , _dgiDeploymentConfigName = Nothing
-  , _dgiLastAttemptedDeployment = Nothing
-  , _dgiOnPremisesTagSet = Nothing
-  , _dgiTargetRevision = Nothing
-  , _dgiEc2TagFilters = Nothing
-  , _dgiBlueGreenDeploymentConfiguration = Nothing
-  , _dgiLoadBalancerInfo = Nothing
-  , _dgiOnPremisesInstanceTagFilters = Nothing
-  , _dgiLastSuccessfulDeployment = Nothing
-  , _dgiApplicationName = Nothing
-  , _dgiAlarmConfiguration = Nothing
-  , _dgiTriggerConfigurations = Nothing
-  , _dgiDeploymentGroupId = Nothing
-  , _dgiAutoScalingGroups = Nothing
-  , _dgiDeploymentStyle = Nothing
-  , _dgiAutoRollbackConfiguration = Nothing
-  , _dgiDeploymentGroupName = Nothing
-  }
+    { _dgiServiceRoleARN = Nothing
+    , _dgiEc2TagSet = Nothing
+    , _dgiDeploymentConfigName = Nothing
+    , _dgiLastAttemptedDeployment = Nothing
+    , _dgiOnPremisesTagSet = Nothing
+    , _dgiComputePlatform = Nothing
+    , _dgiTargetRevision = Nothing
+    , _dgiEc2TagFilters = Nothing
+    , _dgiBlueGreenDeploymentConfiguration = Nothing
+    , _dgiLoadBalancerInfo = Nothing
+    , _dgiOnPremisesInstanceTagFilters = Nothing
+    , _dgiLastSuccessfulDeployment = Nothing
+    , _dgiApplicationName = Nothing
+    , _dgiAlarmConfiguration = Nothing
+    , _dgiTriggerConfigurations = Nothing
+    , _dgiDeploymentGroupId = Nothing
+    , _dgiAutoScalingGroups = Nothing
+    , _dgiDeploymentStyle = Nothing
+    , _dgiAutoRollbackConfiguration = Nothing
+    , _dgiDeploymentGroupName = Nothing
+    }
 
 
 -- | A service role ARN.
 dgiServiceRoleARN :: Lens' DeploymentGroupInfo (Maybe Text)
-dgiServiceRoleARN = lens _dgiServiceRoleARN (\ s a -> s{_dgiServiceRoleARN = a});
+dgiServiceRoleARN = lens _dgiServiceRoleARN (\ s a -> s{_dgiServiceRoleARN = a})
 
 -- | Information about groups of tags applied to an EC2 instance. The deployment group includes only EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilters.
 dgiEc2TagSet :: Lens' DeploymentGroupInfo (Maybe EC2TagSet)
-dgiEc2TagSet = lens _dgiEc2TagSet (\ s a -> s{_dgiEc2TagSet = a});
+dgiEc2TagSet = lens _dgiEc2TagSet (\ s a -> s{_dgiEc2TagSet = a})
 
 -- | The deployment configuration name.
 dgiDeploymentConfigName :: Lens' DeploymentGroupInfo (Maybe Text)
-dgiDeploymentConfigName = lens _dgiDeploymentConfigName (\ s a -> s{_dgiDeploymentConfigName = a});
+dgiDeploymentConfigName = lens _dgiDeploymentConfigName (\ s a -> s{_dgiDeploymentConfigName = a})
 
 -- | Information about the most recent attempted deployment to the deployment group.
 dgiLastAttemptedDeployment :: Lens' DeploymentGroupInfo (Maybe LastDeploymentInfo)
-dgiLastAttemptedDeployment = lens _dgiLastAttemptedDeployment (\ s a -> s{_dgiLastAttemptedDeployment = a});
+dgiLastAttemptedDeployment = lens _dgiLastAttemptedDeployment (\ s a -> s{_dgiLastAttemptedDeployment = a})
 
 -- | Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters.
 dgiOnPremisesTagSet :: Lens' DeploymentGroupInfo (Maybe OnPremisesTagSet)
-dgiOnPremisesTagSet = lens _dgiOnPremisesTagSet (\ s a -> s{_dgiOnPremisesTagSet = a});
+dgiOnPremisesTagSet = lens _dgiOnPremisesTagSet (\ s a -> s{_dgiOnPremisesTagSet = a})
+
+-- | The destination platform type for the deployment group (@Lambda@ or @Server@ ).
+dgiComputePlatform :: Lens' DeploymentGroupInfo (Maybe ComputePlatform)
+dgiComputePlatform = lens _dgiComputePlatform (\ s a -> s{_dgiComputePlatform = a})
 
 -- | Information about the deployment group's target revision, including type and location.
 dgiTargetRevision :: Lens' DeploymentGroupInfo (Maybe RevisionLocation)
-dgiTargetRevision = lens _dgiTargetRevision (\ s a -> s{_dgiTargetRevision = a});
+dgiTargetRevision = lens _dgiTargetRevision (\ s a -> s{_dgiTargetRevision = a})
 
 -- | The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags.
 dgiEc2TagFilters :: Lens' DeploymentGroupInfo [EC2TagFilter]
-dgiEc2TagFilters = lens _dgiEc2TagFilters (\ s a -> s{_dgiEc2TagFilters = a}) . _Default . _Coerce;
+dgiEc2TagFilters = lens _dgiEc2TagFilters (\ s a -> s{_dgiEc2TagFilters = a}) . _Default . _Coerce
 
 -- | Information about blue/green deployment options for a deployment group.
 dgiBlueGreenDeploymentConfiguration :: Lens' DeploymentGroupInfo (Maybe BlueGreenDeploymentConfiguration)
-dgiBlueGreenDeploymentConfiguration = lens _dgiBlueGreenDeploymentConfiguration (\ s a -> s{_dgiBlueGreenDeploymentConfiguration = a});
+dgiBlueGreenDeploymentConfiguration = lens _dgiBlueGreenDeploymentConfiguration (\ s a -> s{_dgiBlueGreenDeploymentConfiguration = a})
 
 -- | Information about the load balancer to use in a deployment.
 dgiLoadBalancerInfo :: Lens' DeploymentGroupInfo (Maybe LoadBalancerInfo)
-dgiLoadBalancerInfo = lens _dgiLoadBalancerInfo (\ s a -> s{_dgiLoadBalancerInfo = a});
+dgiLoadBalancerInfo = lens _dgiLoadBalancerInfo (\ s a -> s{_dgiLoadBalancerInfo = a})
 
 -- | The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags.
 dgiOnPremisesInstanceTagFilters :: Lens' DeploymentGroupInfo [TagFilter]
-dgiOnPremisesInstanceTagFilters = lens _dgiOnPremisesInstanceTagFilters (\ s a -> s{_dgiOnPremisesInstanceTagFilters = a}) . _Default . _Coerce;
+dgiOnPremisesInstanceTagFilters = lens _dgiOnPremisesInstanceTagFilters (\ s a -> s{_dgiOnPremisesInstanceTagFilters = a}) . _Default . _Coerce
 
 -- | Information about the most recent successful deployment to the deployment group.
 dgiLastSuccessfulDeployment :: Lens' DeploymentGroupInfo (Maybe LastDeploymentInfo)
-dgiLastSuccessfulDeployment = lens _dgiLastSuccessfulDeployment (\ s a -> s{_dgiLastSuccessfulDeployment = a});
+dgiLastSuccessfulDeployment = lens _dgiLastSuccessfulDeployment (\ s a -> s{_dgiLastSuccessfulDeployment = a})
 
 -- | The application name.
 dgiApplicationName :: Lens' DeploymentGroupInfo (Maybe Text)
-dgiApplicationName = lens _dgiApplicationName (\ s a -> s{_dgiApplicationName = a});
+dgiApplicationName = lens _dgiApplicationName (\ s a -> s{_dgiApplicationName = a})
 
 -- | A list of alarms associated with the deployment group.
 dgiAlarmConfiguration :: Lens' DeploymentGroupInfo (Maybe AlarmConfiguration)
-dgiAlarmConfiguration = lens _dgiAlarmConfiguration (\ s a -> s{_dgiAlarmConfiguration = a});
+dgiAlarmConfiguration = lens _dgiAlarmConfiguration (\ s a -> s{_dgiAlarmConfiguration = a})
 
 -- | Information about triggers associated with the deployment group.
 dgiTriggerConfigurations :: Lens' DeploymentGroupInfo [TriggerConfig]
-dgiTriggerConfigurations = lens _dgiTriggerConfigurations (\ s a -> s{_dgiTriggerConfigurations = a}) . _Default . _Coerce;
+dgiTriggerConfigurations = lens _dgiTriggerConfigurations (\ s a -> s{_dgiTriggerConfigurations = a}) . _Default . _Coerce
 
 -- | The deployment group ID.
 dgiDeploymentGroupId :: Lens' DeploymentGroupInfo (Maybe Text)
-dgiDeploymentGroupId = lens _dgiDeploymentGroupId (\ s a -> s{_dgiDeploymentGroupId = a});
+dgiDeploymentGroupId = lens _dgiDeploymentGroupId (\ s a -> s{_dgiDeploymentGroupId = a})
 
 -- | A list of associated Auto Scaling groups.
 dgiAutoScalingGroups :: Lens' DeploymentGroupInfo [AutoScalingGroup]
-dgiAutoScalingGroups = lens _dgiAutoScalingGroups (\ s a -> s{_dgiAutoScalingGroups = a}) . _Default . _Coerce;
+dgiAutoScalingGroups = lens _dgiAutoScalingGroups (\ s a -> s{_dgiAutoScalingGroups = a}) . _Default . _Coerce
 
 -- | Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 dgiDeploymentStyle :: Lens' DeploymentGroupInfo (Maybe DeploymentStyle)
-dgiDeploymentStyle = lens _dgiDeploymentStyle (\ s a -> s{_dgiDeploymentStyle = a});
+dgiDeploymentStyle = lens _dgiDeploymentStyle (\ s a -> s{_dgiDeploymentStyle = a})
 
 -- | Information about the automatic rollback configuration associated with the deployment group.
 dgiAutoRollbackConfiguration :: Lens' DeploymentGroupInfo (Maybe AutoRollbackConfiguration)
-dgiAutoRollbackConfiguration = lens _dgiAutoRollbackConfiguration (\ s a -> s{_dgiAutoRollbackConfiguration = a});
+dgiAutoRollbackConfiguration = lens _dgiAutoRollbackConfiguration (\ s a -> s{_dgiAutoRollbackConfiguration = a})
 
 -- | The deployment group name.
 dgiDeploymentGroupName :: Lens' DeploymentGroupInfo (Maybe Text)
-dgiDeploymentGroupName = lens _dgiDeploymentGroupName (\ s a -> s{_dgiDeploymentGroupName = a});
+dgiDeploymentGroupName = lens _dgiDeploymentGroupName (\ s a -> s{_dgiDeploymentGroupName = a})
 
 instance FromJSON DeploymentGroupInfo where
         parseJSON
@@ -658,6 +694,7 @@ instance FromJSON DeploymentGroupInfo where
                      (x .:? "deploymentConfigName")
                      <*> (x .:? "lastAttemptedDeployment")
                      <*> (x .:? "onPremisesTagSet")
+                     <*> (x .:? "computePlatform")
                      <*> (x .:? "targetRevision")
                      <*> (x .:? "ec2TagFilters" .!= mempty)
                      <*> (x .:? "blueGreenDeploymentConfiguration")
@@ -687,8 +724,10 @@ data DeploymentInfo = DeploymentInfo'
   , _diStatus :: !(Maybe DeploymentStatus)
   , _diDeploymentId :: !(Maybe Text)
   , _diDeploymentConfigName :: !(Maybe Text)
+  , _diComputePlatform :: !(Maybe ComputePlatform)
   , _diPreviousRevision :: !(Maybe RevisionLocation)
   , _diInstanceTerminationWaitTimeStarted :: !(Maybe Bool)
+  , _diDeploymentStatusMessages :: !(Maybe [Text])
   , _diStartTime :: !(Maybe POSIX)
   , _diCompleteTime :: !(Maybe POSIX)
   , _diBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
@@ -723,9 +762,13 @@ data DeploymentInfo = DeploymentInfo'
 --
 -- * 'diDeploymentConfigName' - The deployment configuration name.
 --
+-- * 'diComputePlatform' - The destination platform type for the deployment (@Lambda@ or @Server@ ).
+--
 -- * 'diPreviousRevision' - Information about the application revision that was deployed to the deployment group before the most recent successful deployment.
 --
 -- * 'diInstanceTerminationWaitTimeStarted' - Indicates whether the wait period set for the termination of instances in the original environment has started. Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period starts.
+--
+-- * 'diDeploymentStatusMessages' - Messages that contain information about the status of a deployment.
 --
 -- * 'diStartTime' - A timestamp indicating when the deployment was deployed to the deployment group. In some cases, the reported value of the start time may be later than the complete time. This is due to differences in the clock settings of back-end servers that participate in the deployment process.
 --
@@ -768,133 +811,143 @@ deploymentInfo
     :: DeploymentInfo
 deploymentInfo =
   DeploymentInfo'
-  { _diCreator = Nothing
-  , _diStatus = Nothing
-  , _diDeploymentId = Nothing
-  , _diDeploymentConfigName = Nothing
-  , _diPreviousRevision = Nothing
-  , _diInstanceTerminationWaitTimeStarted = Nothing
-  , _diStartTime = Nothing
-  , _diCompleteTime = Nothing
-  , _diBlueGreenDeploymentConfiguration = Nothing
-  , _diErrorInformation = Nothing
-  , _diLoadBalancerInfo = Nothing
-  , _diAdditionalDeploymentStatusInfo = Nothing
-  , _diDeploymentOverview = Nothing
-  , _diFileExistsBehavior = Nothing
-  , _diApplicationName = Nothing
-  , _diRollbackInfo = Nothing
-  , _diTargetInstances = Nothing
-  , _diRevision = Nothing
-  , _diDescription = Nothing
-  , _diDeploymentStyle = Nothing
-  , _diCreateTime = Nothing
-  , _diAutoRollbackConfiguration = Nothing
-  , _diUpdateOutdatedInstancesOnly = Nothing
-  , _diDeploymentGroupName = Nothing
-  , _diIgnoreApplicationStopFailures = Nothing
-  }
+    { _diCreator = Nothing
+    , _diStatus = Nothing
+    , _diDeploymentId = Nothing
+    , _diDeploymentConfigName = Nothing
+    , _diComputePlatform = Nothing
+    , _diPreviousRevision = Nothing
+    , _diInstanceTerminationWaitTimeStarted = Nothing
+    , _diDeploymentStatusMessages = Nothing
+    , _diStartTime = Nothing
+    , _diCompleteTime = Nothing
+    , _diBlueGreenDeploymentConfiguration = Nothing
+    , _diErrorInformation = Nothing
+    , _diLoadBalancerInfo = Nothing
+    , _diAdditionalDeploymentStatusInfo = Nothing
+    , _diDeploymentOverview = Nothing
+    , _diFileExistsBehavior = Nothing
+    , _diApplicationName = Nothing
+    , _diRollbackInfo = Nothing
+    , _diTargetInstances = Nothing
+    , _diRevision = Nothing
+    , _diDescription = Nothing
+    , _diDeploymentStyle = Nothing
+    , _diCreateTime = Nothing
+    , _diAutoRollbackConfiguration = Nothing
+    , _diUpdateOutdatedInstancesOnly = Nothing
+    , _diDeploymentGroupName = Nothing
+    , _diIgnoreApplicationStopFailures = Nothing
+    }
 
 
 -- | The means by which the deployment was created:     * user: A user created the deployment.     * autoscaling: Auto Scaling created the deployment.     * codeDeployRollback: A rollback process created the deployment.
 diCreator :: Lens' DeploymentInfo (Maybe DeploymentCreator)
-diCreator = lens _diCreator (\ s a -> s{_diCreator = a});
+diCreator = lens _diCreator (\ s a -> s{_diCreator = a})
 
 -- | The current state of the deployment as a whole.
 diStatus :: Lens' DeploymentInfo (Maybe DeploymentStatus)
-diStatus = lens _diStatus (\ s a -> s{_diStatus = a});
+diStatus = lens _diStatus (\ s a -> s{_diStatus = a})
 
 -- | The deployment ID.
 diDeploymentId :: Lens' DeploymentInfo (Maybe Text)
-diDeploymentId = lens _diDeploymentId (\ s a -> s{_diDeploymentId = a});
+diDeploymentId = lens _diDeploymentId (\ s a -> s{_diDeploymentId = a})
 
 -- | The deployment configuration name.
 diDeploymentConfigName :: Lens' DeploymentInfo (Maybe Text)
-diDeploymentConfigName = lens _diDeploymentConfigName (\ s a -> s{_diDeploymentConfigName = a});
+diDeploymentConfigName = lens _diDeploymentConfigName (\ s a -> s{_diDeploymentConfigName = a})
+
+-- | The destination platform type for the deployment (@Lambda@ or @Server@ ).
+diComputePlatform :: Lens' DeploymentInfo (Maybe ComputePlatform)
+diComputePlatform = lens _diComputePlatform (\ s a -> s{_diComputePlatform = a})
 
 -- | Information about the application revision that was deployed to the deployment group before the most recent successful deployment.
 diPreviousRevision :: Lens' DeploymentInfo (Maybe RevisionLocation)
-diPreviousRevision = lens _diPreviousRevision (\ s a -> s{_diPreviousRevision = a});
+diPreviousRevision = lens _diPreviousRevision (\ s a -> s{_diPreviousRevision = a})
 
 -- | Indicates whether the wait period set for the termination of instances in the original environment has started. Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period starts.
 diInstanceTerminationWaitTimeStarted :: Lens' DeploymentInfo (Maybe Bool)
-diInstanceTerminationWaitTimeStarted = lens _diInstanceTerminationWaitTimeStarted (\ s a -> s{_diInstanceTerminationWaitTimeStarted = a});
+diInstanceTerminationWaitTimeStarted = lens _diInstanceTerminationWaitTimeStarted (\ s a -> s{_diInstanceTerminationWaitTimeStarted = a})
+
+-- | Messages that contain information about the status of a deployment.
+diDeploymentStatusMessages :: Lens' DeploymentInfo [Text]
+diDeploymentStatusMessages = lens _diDeploymentStatusMessages (\ s a -> s{_diDeploymentStatusMessages = a}) . _Default . _Coerce
 
 -- | A timestamp indicating when the deployment was deployed to the deployment group. In some cases, the reported value of the start time may be later than the complete time. This is due to differences in the clock settings of back-end servers that participate in the deployment process.
 diStartTime :: Lens' DeploymentInfo (Maybe UTCTime)
-diStartTime = lens _diStartTime (\ s a -> s{_diStartTime = a}) . mapping _Time;
+diStartTime = lens _diStartTime (\ s a -> s{_diStartTime = a}) . mapping _Time
 
 -- | A timestamp indicating when the deployment was complete.
 diCompleteTime :: Lens' DeploymentInfo (Maybe UTCTime)
-diCompleteTime = lens _diCompleteTime (\ s a -> s{_diCompleteTime = a}) . mapping _Time;
+diCompleteTime = lens _diCompleteTime (\ s a -> s{_diCompleteTime = a}) . mapping _Time
 
 -- | Information about blue/green deployment options for this deployment.
 diBlueGreenDeploymentConfiguration :: Lens' DeploymentInfo (Maybe BlueGreenDeploymentConfiguration)
-diBlueGreenDeploymentConfiguration = lens _diBlueGreenDeploymentConfiguration (\ s a -> s{_diBlueGreenDeploymentConfiguration = a});
+diBlueGreenDeploymentConfiguration = lens _diBlueGreenDeploymentConfiguration (\ s a -> s{_diBlueGreenDeploymentConfiguration = a})
 
 -- | Information about any error associated with this deployment.
 diErrorInformation :: Lens' DeploymentInfo (Maybe ErrorInformation)
-diErrorInformation = lens _diErrorInformation (\ s a -> s{_diErrorInformation = a});
+diErrorInformation = lens _diErrorInformation (\ s a -> s{_diErrorInformation = a})
 
 -- | Information about the load balancer used in the deployment.
 diLoadBalancerInfo :: Lens' DeploymentInfo (Maybe LoadBalancerInfo)
-diLoadBalancerInfo = lens _diLoadBalancerInfo (\ s a -> s{_diLoadBalancerInfo = a});
+diLoadBalancerInfo = lens _diLoadBalancerInfo (\ s a -> s{_diLoadBalancerInfo = a})
 
 -- | Provides information about the results of a deployment, such as whether instances in the original environment in a blue/green deployment were not terminated.
 diAdditionalDeploymentStatusInfo :: Lens' DeploymentInfo (Maybe Text)
-diAdditionalDeploymentStatusInfo = lens _diAdditionalDeploymentStatusInfo (\ s a -> s{_diAdditionalDeploymentStatusInfo = a});
+diAdditionalDeploymentStatusInfo = lens _diAdditionalDeploymentStatusInfo (\ s a -> s{_diAdditionalDeploymentStatusInfo = a})
 
 -- | A summary of the deployment status of the instances in the deployment.
 diDeploymentOverview :: Lens' DeploymentInfo (Maybe DeploymentOverview)
-diDeploymentOverview = lens _diDeploymentOverview (\ s a -> s{_diDeploymentOverview = a});
+diDeploymentOverview = lens _diDeploymentOverview (\ s a -> s{_diDeploymentOverview = a})
 
 -- | Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment.     * DISALLOW: The deployment fails. This is also the default behavior if no option is specified.     * OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance.     * RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.
 diFileExistsBehavior :: Lens' DeploymentInfo (Maybe FileExistsBehavior)
-diFileExistsBehavior = lens _diFileExistsBehavior (\ s a -> s{_diFileExistsBehavior = a});
+diFileExistsBehavior = lens _diFileExistsBehavior (\ s a -> s{_diFileExistsBehavior = a})
 
 -- | The application name.
 diApplicationName :: Lens' DeploymentInfo (Maybe Text)
-diApplicationName = lens _diApplicationName (\ s a -> s{_diApplicationName = a});
+diApplicationName = lens _diApplicationName (\ s a -> s{_diApplicationName = a})
 
 -- | Information about a deployment rollback.
 diRollbackInfo :: Lens' DeploymentInfo (Maybe RollbackInfo)
-diRollbackInfo = lens _diRollbackInfo (\ s a -> s{_diRollbackInfo = a});
+diRollbackInfo = lens _diRollbackInfo (\ s a -> s{_diRollbackInfo = a})
 
 -- | Information about the instances that belong to the replacement environment in a blue/green deployment.
 diTargetInstances :: Lens' DeploymentInfo (Maybe TargetInstances)
-diTargetInstances = lens _diTargetInstances (\ s a -> s{_diTargetInstances = a});
+diTargetInstances = lens _diTargetInstances (\ s a -> s{_diTargetInstances = a})
 
 -- | Information about the location of stored application artifacts and the service from which to retrieve them.
 diRevision :: Lens' DeploymentInfo (Maybe RevisionLocation)
-diRevision = lens _diRevision (\ s a -> s{_diRevision = a});
+diRevision = lens _diRevision (\ s a -> s{_diRevision = a})
 
 -- | A comment about the deployment.
 diDescription :: Lens' DeploymentInfo (Maybe Text)
-diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
+diDescription = lens _diDescription (\ s a -> s{_diDescription = a})
 
 -- | Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 diDeploymentStyle :: Lens' DeploymentInfo (Maybe DeploymentStyle)
-diDeploymentStyle = lens _diDeploymentStyle (\ s a -> s{_diDeploymentStyle = a});
+diDeploymentStyle = lens _diDeploymentStyle (\ s a -> s{_diDeploymentStyle = a})
 
 -- | A timestamp indicating when the deployment was created.
 diCreateTime :: Lens' DeploymentInfo (Maybe UTCTime)
-diCreateTime = lens _diCreateTime (\ s a -> s{_diCreateTime = a}) . mapping _Time;
+diCreateTime = lens _diCreateTime (\ s a -> s{_diCreateTime = a}) . mapping _Time
 
 -- | Information about the automatic rollback configuration associated with the deployment.
 diAutoRollbackConfiguration :: Lens' DeploymentInfo (Maybe AutoRollbackConfiguration)
-diAutoRollbackConfiguration = lens _diAutoRollbackConfiguration (\ s a -> s{_diAutoRollbackConfiguration = a});
+diAutoRollbackConfiguration = lens _diAutoRollbackConfiguration (\ s a -> s{_diAutoRollbackConfiguration = a})
 
 -- | Indicates whether only instances that are not running the latest application revision are to be deployed to.
 diUpdateOutdatedInstancesOnly :: Lens' DeploymentInfo (Maybe Bool)
-diUpdateOutdatedInstancesOnly = lens _diUpdateOutdatedInstancesOnly (\ s a -> s{_diUpdateOutdatedInstancesOnly = a});
+diUpdateOutdatedInstancesOnly = lens _diUpdateOutdatedInstancesOnly (\ s a -> s{_diUpdateOutdatedInstancesOnly = a})
 
 -- | The deployment group name.
 diDeploymentGroupName :: Lens' DeploymentInfo (Maybe Text)
-diDeploymentGroupName = lens _diDeploymentGroupName (\ s a -> s{_diDeploymentGroupName = a});
+diDeploymentGroupName = lens _diDeploymentGroupName (\ s a -> s{_diDeploymentGroupName = a})
 
 -- | If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event. If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.
 diIgnoreApplicationStopFailures :: Lens' DeploymentInfo (Maybe Bool)
-diIgnoreApplicationStopFailures = lens _diIgnoreApplicationStopFailures (\ s a -> s{_diIgnoreApplicationStopFailures = a});
+diIgnoreApplicationStopFailures = lens _diIgnoreApplicationStopFailures (\ s a -> s{_diIgnoreApplicationStopFailures = a})
 
 instance FromJSON DeploymentInfo where
         parseJSON
@@ -904,8 +957,10 @@ instance FromJSON DeploymentInfo where
                    (x .:? "creator") <*> (x .:? "status") <*>
                      (x .:? "deploymentId")
                      <*> (x .:? "deploymentConfigName")
+                     <*> (x .:? "computePlatform")
                      <*> (x .:? "previousRevision")
                      <*> (x .:? "instanceTerminationWaitTimeStarted")
+                     <*> (x .:? "deploymentStatusMessages" .!= mempty)
                      <*> (x .:? "startTime")
                      <*> (x .:? "completeTime")
                      <*> (x .:? "blueGreenDeploymentConfiguration")
@@ -964,38 +1019,38 @@ deploymentOverview
     :: DeploymentOverview
 deploymentOverview =
   DeploymentOverview'
-  { _doPending = Nothing
-  , _doSkipped = Nothing
-  , _doInProgress = Nothing
-  , _doSucceeded = Nothing
-  , _doReady = Nothing
-  , _doFailed = Nothing
-  }
+    { _doPending = Nothing
+    , _doSkipped = Nothing
+    , _doInProgress = Nothing
+    , _doSucceeded = Nothing
+    , _doReady = Nothing
+    , _doFailed = Nothing
+    }
 
 
 -- | The number of instances in the deployment in a pending state.
 doPending :: Lens' DeploymentOverview (Maybe Integer)
-doPending = lens _doPending (\ s a -> s{_doPending = a});
+doPending = lens _doPending (\ s a -> s{_doPending = a})
 
 -- | The number of instances in the deployment in a skipped state.
 doSkipped :: Lens' DeploymentOverview (Maybe Integer)
-doSkipped = lens _doSkipped (\ s a -> s{_doSkipped = a});
+doSkipped = lens _doSkipped (\ s a -> s{_doSkipped = a})
 
 -- | The number of instances in which the deployment is in progress.
 doInProgress :: Lens' DeploymentOverview (Maybe Integer)
-doInProgress = lens _doInProgress (\ s a -> s{_doInProgress = a});
+doInProgress = lens _doInProgress (\ s a -> s{_doInProgress = a})
 
 -- | The number of instances in the deployment to which revisions have been successfully deployed.
 doSucceeded :: Lens' DeploymentOverview (Maybe Integer)
-doSucceeded = lens _doSucceeded (\ s a -> s{_doSucceeded = a});
+doSucceeded = lens _doSucceeded (\ s a -> s{_doSucceeded = a})
 
 -- | The number of instances in a replacement environment ready to receive traffic in a blue/green deployment.
 doReady :: Lens' DeploymentOverview (Maybe Integer)
-doReady = lens _doReady (\ s a -> s{_doReady = a});
+doReady = lens _doReady (\ s a -> s{_doReady = a})
 
 -- | The number of instances in the deployment in a failed state.
 doFailed :: Lens' DeploymentOverview (Maybe Integer)
-doFailed = lens _doFailed (\ s a -> s{_doFailed = a});
+doFailed = lens _doFailed (\ s a -> s{_doFailed = a})
 
 instance FromJSON DeploymentOverview where
         parseJSON
@@ -1027,23 +1082,23 @@ data DeploymentReadyOption = DeploymentReadyOption'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'droActionOnTimeout' - Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.     * CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.     * STOP_DEPLOYMENT: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
+-- * 'droActionOnTimeout' - Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.     * CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.     * STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using 'ContinueDeployment' . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
 --
 -- * 'droWaitTimeInMinutes' - The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout
 deploymentReadyOption
     :: DeploymentReadyOption
 deploymentReadyOption =
   DeploymentReadyOption'
-  {_droActionOnTimeout = Nothing, _droWaitTimeInMinutes = Nothing}
+    {_droActionOnTimeout = Nothing, _droWaitTimeInMinutes = Nothing}
 
 
--- | Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.     * CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.     * STOP_DEPLOYMENT: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
+-- | Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.     * CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.     * STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using 'ContinueDeployment' . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
 droActionOnTimeout :: Lens' DeploymentReadyOption (Maybe DeploymentReadyAction)
-droActionOnTimeout = lens _droActionOnTimeout (\ s a -> s{_droActionOnTimeout = a});
+droActionOnTimeout = lens _droActionOnTimeout (\ s a -> s{_droActionOnTimeout = a})
 
 -- | The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout
 droWaitTimeInMinutes :: Lens' DeploymentReadyOption (Maybe Int)
-droWaitTimeInMinutes = lens _droWaitTimeInMinutes (\ s a -> s{_droWaitTimeInMinutes = a});
+droWaitTimeInMinutes = lens _droWaitTimeInMinutes (\ s a -> s{_droWaitTimeInMinutes = a})
 
 instance FromJSON DeploymentReadyOption where
         parseJSON
@@ -1090,11 +1145,11 @@ deploymentStyle =
 
 -- | Indicates whether to route deployment traffic behind a load balancer.
 dsDeploymentOption :: Lens' DeploymentStyle (Maybe DeploymentOption)
-dsDeploymentOption = lens _dsDeploymentOption (\ s a -> s{_dsDeploymentOption = a});
+dsDeploymentOption = lens _dsDeploymentOption (\ s a -> s{_dsDeploymentOption = a})
 
 -- | Indicates whether to run an in-place deployment or a blue/green deployment.
 dsDeploymentType :: Lens' DeploymentStyle (Maybe DeploymentType)
-dsDeploymentType = lens _dsDeploymentType (\ s a -> s{_dsDeploymentType = a});
+dsDeploymentType = lens _dsDeploymentType (\ s a -> s{_dsDeploymentType = a})
 
 instance FromJSON DeploymentStyle where
         parseJSON
@@ -1143,28 +1198,28 @@ diagnostics
     :: Diagnostics
 diagnostics =
   Diagnostics'
-  { _dLogTail = Nothing
-  , _dErrorCode = Nothing
-  , _dScriptName = Nothing
-  , _dMessage = Nothing
-  }
+    { _dLogTail = Nothing
+    , _dErrorCode = Nothing
+    , _dScriptName = Nothing
+    , _dMessage = Nothing
+    }
 
 
 -- | The last portion of the diagnostic log. If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
 dLogTail :: Lens' Diagnostics (Maybe Text)
-dLogTail = lens _dLogTail (\ s a -> s{_dLogTail = a});
+dLogTail = lens _dLogTail (\ s a -> s{_dLogTail = a})
 
 -- | The associated error code:     * Success: The specified script ran.     * ScriptMissing: The specified script was not found in the specified location.     * ScriptNotExecutable: The specified script is not a recognized executable file type.     * ScriptTimedOut: The specified script did not finish running in the specified time period.     * ScriptFailed: The specified script failed to run as expected.     * UnknownError: The specified script did not run for an unknown reason.
 dErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
-dErrorCode = lens _dErrorCode (\ s a -> s{_dErrorCode = a});
+dErrorCode = lens _dErrorCode (\ s a -> s{_dErrorCode = a})
 
 -- | The name of the script.
 dScriptName :: Lens' Diagnostics (Maybe Text)
-dScriptName = lens _dScriptName (\ s a -> s{_dScriptName = a});
+dScriptName = lens _dScriptName (\ s a -> s{_dScriptName = a})
 
 -- | The message associated with the error.
 dMessage :: Lens' Diagnostics (Maybe Text)
-dMessage = lens _dMessage (\ s a -> s{_dMessage = a});
+dMessage = lens _dMessage (\ s a -> s{_dMessage = a})
 
 instance FromJSON Diagnostics where
         parseJSON
@@ -1208,15 +1263,15 @@ ec2TagFilter =
 
 -- | The tag filter value.
 etfValue :: Lens' EC2TagFilter (Maybe Text)
-etfValue = lens _etfValue (\ s a -> s{_etfValue = a});
+etfValue = lens _etfValue (\ s a -> s{_etfValue = a})
 
 -- | The tag filter key.
 etfKey :: Lens' EC2TagFilter (Maybe Text)
-etfKey = lens _etfKey (\ s a -> s{_etfKey = a});
+etfKey = lens _etfKey (\ s a -> s{_etfKey = a})
 
 -- | The tag filter type:     * KEY_ONLY: Key only.     * VALUE_ONLY: Value only.     * KEY_AND_VALUE: Key and value.
 etfType :: Lens' EC2TagFilter (Maybe EC2TagFilterType)
-etfType = lens _etfType (\ s a -> s{_etfType = a});
+etfType = lens _etfType (\ s a -> s{_etfType = a})
 
 instance FromJSON EC2TagFilter where
         parseJSON
@@ -1258,7 +1313,7 @@ ec2TagSet = EC2TagSet' {_etsEc2TagSetList = Nothing}
 
 -- | A list containing other lists of EC2 instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
 etsEc2TagSetList :: Lens' EC2TagSet [[EC2TagFilter]]
-etsEc2TagSetList = lens _etsEc2TagSetList (\ s a -> s{_etsEc2TagSetList = a}) . _Default . _Coerce;
+etsEc2TagSetList = lens _etsEc2TagSetList (\ s a -> s{_etsEc2TagSetList = a}) . _Default . _Coerce
 
 instance FromJSON EC2TagSet where
         parseJSON
@@ -1290,15 +1345,15 @@ newtype ELBInfo = ELBInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'elbiName' - For blue/green deployments, the name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
+-- * 'elbiName' - For blue/green deployments, the name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 eLBInfo
     :: ELBInfo
 eLBInfo = ELBInfo' {_elbiName = Nothing}
 
 
--- | For blue/green deployments, the name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
+-- | For blue/green deployments, the name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 elbiName :: Lens' ELBInfo (Maybe Text)
-elbiName = lens _elbiName (\ s a -> s{_elbiName = a});
+elbiName = lens _elbiName (\ s a -> s{_elbiName = a})
 
 instance FromJSON ELBInfo where
         parseJSON
@@ -1338,11 +1393,11 @@ errorInformation = ErrorInformation' {_eiCode = Nothing, _eiMessage = Nothing}
 
 -- | For information about additional error codes, see <http://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html Error Codes for AWS CodeDeploy> in the <http://docs.aws.amazon.com/codedeploy/latest/userguide AWS CodeDeploy User Guide> . The error code:     * APPLICATION_MISSING: The application was missing. This error code will most likely be raised if the application is deleted after the deployment is created but before it is started.     * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code will most likely be raised if the deployment group is deleted after the deployment is created but before it is started.     * HEALTH_CONSTRAINTS: The deployment failed on too many instances to be successfully deployed within the instance health constraints specified.     * HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed within the instance health constraints specified.     * IAM_ROLE_MISSING: The service role cannot be accessed.     * IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.     * INTERNAL_ERROR: There was an internal error.     * NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2 service.     * NO_INSTANCES: No instance were specified, or no instance can be found.     * OVER_MAX_INSTANCES: The maximum number of instance was exceeded.     * THROTTLED: The operation was throttled because the calling account exceeded the throttling limits of one or more AWS services.     * TIMEOUT: The deployment has timed out.     * REVISION_MISSING: The revision ID was missing. This error code will most likely be raised if the revision is deleted after the deployment is created but before it is started.
 eiCode :: Lens' ErrorInformation (Maybe DeployErrorCode)
-eiCode = lens _eiCode (\ s a -> s{_eiCode = a});
+eiCode = lens _eiCode (\ s a -> s{_eiCode = a})
 
 -- | An accompanying error message.
 eiMessage :: Lens' ErrorInformation (Maybe Text)
-eiMessage = lens _eiMessage (\ s a -> s{_eiMessage = a});
+eiMessage = lens _eiMessage (\ s a -> s{_eiMessage = a})
 
 instance FromJSON ErrorInformation where
         parseJSON
@@ -1386,33 +1441,33 @@ genericRevisionInfo
     :: GenericRevisionInfo
 genericRevisionInfo =
   GenericRevisionInfo'
-  { _griRegisterTime = Nothing
-  , _griFirstUsedTime = Nothing
-  , _griDeploymentGroups = Nothing
-  , _griLastUsedTime = Nothing
-  , _griDescription = Nothing
-  }
+    { _griRegisterTime = Nothing
+    , _griFirstUsedTime = Nothing
+    , _griDeploymentGroups = Nothing
+    , _griLastUsedTime = Nothing
+    , _griDescription = Nothing
+    }
 
 
 -- | When the revision was registered with AWS CodeDeploy.
 griRegisterTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
-griRegisterTime = lens _griRegisterTime (\ s a -> s{_griRegisterTime = a}) . mapping _Time;
+griRegisterTime = lens _griRegisterTime (\ s a -> s{_griRegisterTime = a}) . mapping _Time
 
 -- | When the revision was first used by AWS CodeDeploy.
 griFirstUsedTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
-griFirstUsedTime = lens _griFirstUsedTime (\ s a -> s{_griFirstUsedTime = a}) . mapping _Time;
+griFirstUsedTime = lens _griFirstUsedTime (\ s a -> s{_griFirstUsedTime = a}) . mapping _Time
 
 -- | The deployment groups for which this is the current target revision.
 griDeploymentGroups :: Lens' GenericRevisionInfo [Text]
-griDeploymentGroups = lens _griDeploymentGroups (\ s a -> s{_griDeploymentGroups = a}) . _Default . _Coerce;
+griDeploymentGroups = lens _griDeploymentGroups (\ s a -> s{_griDeploymentGroups = a}) . _Default . _Coerce
 
 -- | When the revision was last used by AWS CodeDeploy.
 griLastUsedTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
-griLastUsedTime = lens _griLastUsedTime (\ s a -> s{_griLastUsedTime = a}) . mapping _Time;
+griLastUsedTime = lens _griLastUsedTime (\ s a -> s{_griLastUsedTime = a}) . mapping _Time
 
 -- | A comment about the revision.
 griDescription :: Lens' GenericRevisionInfo (Maybe Text)
-griDescription = lens _griDescription (\ s a -> s{_griDescription = a});
+griDescription = lens _griDescription (\ s a -> s{_griDescription = a})
 
 instance FromJSON GenericRevisionInfo where
         parseJSON
@@ -1454,11 +1509,11 @@ gitHubLocation =
 
 -- | The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision.
 ghlCommitId :: Lens' GitHubLocation (Maybe Text)
-ghlCommitId = lens _ghlCommitId (\ s a -> s{_ghlCommitId = a});
+ghlCommitId = lens _ghlCommitId (\ s a -> s{_ghlCommitId = a})
 
 -- | The GitHub account and repository pair that stores a reference to the commit that represents the bundled artifacts for the application revision.  Specified as account/repository.
 ghlRepository :: Lens' GitHubLocation (Maybe Text)
-ghlRepository = lens _ghlRepository (\ s a -> s{_ghlRepository = a});
+ghlRepository = lens _ghlRepository (\ s a -> s{_ghlRepository = a})
 
 instance FromJSON GitHubLocation where
         parseJSON
@@ -1501,7 +1556,7 @@ greenFleetProvisioningOption =
 
 -- | The method used to add instances to a replacement environment.     * DISCOVER_EXISTING: Use instances that already exist or will be created manually.     * COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to define and create instances in a new Auto Scaling group.
 gfpoAction :: Lens' GreenFleetProvisioningOption (Maybe GreenFleetProvisioningAction)
-gfpoAction = lens _gfpoAction (\ s a -> s{_gfpoAction = a});
+gfpoAction = lens _gfpoAction (\ s a -> s{_gfpoAction = a})
 
 instance FromJSON GreenFleetProvisioningOption where
         parseJSON
@@ -1554,43 +1609,43 @@ instanceInfo
     :: InstanceInfo
 instanceInfo =
   InstanceInfo'
-  { _iiRegisterTime = Nothing
-  , _iiInstanceARN = Nothing
-  , _iiDeregisterTime = Nothing
-  , _iiIamUserARN = Nothing
-  , _iiInstanceName = Nothing
-  , _iiIamSessionARN = Nothing
-  , _iiTags = Nothing
-  }
+    { _iiRegisterTime = Nothing
+    , _iiInstanceARN = Nothing
+    , _iiDeregisterTime = Nothing
+    , _iiIamUserARN = Nothing
+    , _iiInstanceName = Nothing
+    , _iiIamSessionARN = Nothing
+    , _iiTags = Nothing
+    }
 
 
 -- | The time at which the on-premises instance was registered.
 iiRegisterTime :: Lens' InstanceInfo (Maybe UTCTime)
-iiRegisterTime = lens _iiRegisterTime (\ s a -> s{_iiRegisterTime = a}) . mapping _Time;
+iiRegisterTime = lens _iiRegisterTime (\ s a -> s{_iiRegisterTime = a}) . mapping _Time
 
 -- | The ARN of the on-premises instance.
 iiInstanceARN :: Lens' InstanceInfo (Maybe Text)
-iiInstanceARN = lens _iiInstanceARN (\ s a -> s{_iiInstanceARN = a});
+iiInstanceARN = lens _iiInstanceARN (\ s a -> s{_iiInstanceARN = a})
 
 -- | If the on-premises instance was deregistered, the time at which the on-premises instance was deregistered.
 iiDeregisterTime :: Lens' InstanceInfo (Maybe UTCTime)
-iiDeregisterTime = lens _iiDeregisterTime (\ s a -> s{_iiDeregisterTime = a}) . mapping _Time;
+iiDeregisterTime = lens _iiDeregisterTime (\ s a -> s{_iiDeregisterTime = a}) . mapping _Time
 
 -- | The IAM user ARN associated with the on-premises instance.
 iiIamUserARN :: Lens' InstanceInfo (Maybe Text)
-iiIamUserARN = lens _iiIamUserARN (\ s a -> s{_iiIamUserARN = a});
+iiIamUserARN = lens _iiIamUserARN (\ s a -> s{_iiIamUserARN = a})
 
 -- | The name of the on-premises instance.
 iiInstanceName :: Lens' InstanceInfo (Maybe Text)
-iiInstanceName = lens _iiInstanceName (\ s a -> s{_iiInstanceName = a});
+iiInstanceName = lens _iiInstanceName (\ s a -> s{_iiInstanceName = a})
 
 -- | The ARN of the IAM session associated with the on-premises instance.
 iiIamSessionARN :: Lens' InstanceInfo (Maybe Text)
-iiIamSessionARN = lens _iiIamSessionARN (\ s a -> s{_iiIamSessionARN = a});
+iiIamSessionARN = lens _iiIamSessionARN (\ s a -> s{_iiIamSessionARN = a})
 
 -- | The tags currently associated with the on-premises instance.
 iiTags :: Lens' InstanceInfo [Tag]
-iiTags = lens _iiTags (\ s a -> s{_iiTags = a}) . _Default . _Coerce;
+iiTags = lens _iiTags (\ s a -> s{_iiTags = a}) . _Default . _Coerce
 
 instance FromJSON InstanceInfo where
         parseJSON
@@ -1642,38 +1697,38 @@ instanceSummary
     :: InstanceSummary
 instanceSummary =
   InstanceSummary'
-  { _isInstanceId = Nothing
-  , _isStatus = Nothing
-  , _isDeploymentId = Nothing
-  , _isLastUpdatedAt = Nothing
-  , _isLifecycleEvents = Nothing
-  , _isInstanceType = Nothing
-  }
+    { _isInstanceId = Nothing
+    , _isStatus = Nothing
+    , _isDeploymentId = Nothing
+    , _isLastUpdatedAt = Nothing
+    , _isLifecycleEvents = Nothing
+    , _isInstanceType = Nothing
+    }
 
 
 -- | The instance ID.
 isInstanceId :: Lens' InstanceSummary (Maybe Text)
-isInstanceId = lens _isInstanceId (\ s a -> s{_isInstanceId = a});
+isInstanceId = lens _isInstanceId (\ s a -> s{_isInstanceId = a})
 
 -- | The deployment status for this instance:     * Pending: The deployment is pending for this instance.     * In Progress: The deployment is in progress for this instance.     * Succeeded: The deployment has succeeded for this instance.     * Failed: The deployment has failed for this instance.     * Skipped: The deployment has been skipped for this instance.     * Unknown: The deployment status is unknown for this instance.
 isStatus :: Lens' InstanceSummary (Maybe InstanceStatus)
-isStatus = lens _isStatus (\ s a -> s{_isStatus = a});
+isStatus = lens _isStatus (\ s a -> s{_isStatus = a})
 
 -- | The deployment ID.
 isDeploymentId :: Lens' InstanceSummary (Maybe Text)
-isDeploymentId = lens _isDeploymentId (\ s a -> s{_isDeploymentId = a});
+isDeploymentId = lens _isDeploymentId (\ s a -> s{_isDeploymentId = a})
 
 -- | A timestamp indicating when the instance information was last updated.
 isLastUpdatedAt :: Lens' InstanceSummary (Maybe UTCTime)
-isLastUpdatedAt = lens _isLastUpdatedAt (\ s a -> s{_isLastUpdatedAt = a}) . mapping _Time;
+isLastUpdatedAt = lens _isLastUpdatedAt (\ s a -> s{_isLastUpdatedAt = a}) . mapping _Time
 
 -- | A list of lifecycle events for this instance.
 isLifecycleEvents :: Lens' InstanceSummary [LifecycleEvent]
-isLifecycleEvents = lens _isLifecycleEvents (\ s a -> s{_isLifecycleEvents = a}) . _Default . _Coerce;
+isLifecycleEvents = lens _isLifecycleEvents (\ s a -> s{_isLifecycleEvents = a}) . _Default . _Coerce
 
 -- | Information about which environment an instance belongs to in a blue/green deployment.     * BLUE: The instance is part of the original environment.     * GREEN: The instance is part of the replacement environment.
 isInstanceType :: Lens' InstanceSummary (Maybe InstanceType)
-isInstanceType = lens _isInstanceType (\ s a -> s{_isInstanceType = a});
+isInstanceType = lens _isInstanceType (\ s a -> s{_isInstanceType = a})
 
 instance FromJSON InstanceSummary where
         parseJSON
@@ -1718,28 +1773,28 @@ lastDeploymentInfo
     :: LastDeploymentInfo
 lastDeploymentInfo =
   LastDeploymentInfo'
-  { _ldiStatus = Nothing
-  , _ldiDeploymentId = Nothing
-  , _ldiEndTime = Nothing
-  , _ldiCreateTime = Nothing
-  }
+    { _ldiStatus = Nothing
+    , _ldiDeploymentId = Nothing
+    , _ldiEndTime = Nothing
+    , _ldiCreateTime = Nothing
+    }
 
 
 -- | The status of the most recent deployment.
 ldiStatus :: Lens' LastDeploymentInfo (Maybe DeploymentStatus)
-ldiStatus = lens _ldiStatus (\ s a -> s{_ldiStatus = a});
+ldiStatus = lens _ldiStatus (\ s a -> s{_ldiStatus = a})
 
 -- | The deployment ID.
 ldiDeploymentId :: Lens' LastDeploymentInfo (Maybe Text)
-ldiDeploymentId = lens _ldiDeploymentId (\ s a -> s{_ldiDeploymentId = a});
+ldiDeploymentId = lens _ldiDeploymentId (\ s a -> s{_ldiDeploymentId = a})
 
 -- | A timestamp indicating when the most recent deployment to the deployment group completed.
 ldiEndTime :: Lens' LastDeploymentInfo (Maybe UTCTime)
-ldiEndTime = lens _ldiEndTime (\ s a -> s{_ldiEndTime = a}) . mapping _Time;
+ldiEndTime = lens _ldiEndTime (\ s a -> s{_ldiEndTime = a}) . mapping _Time
 
 -- | A timestamp indicating when the most recent deployment to the deployment group started.
 ldiCreateTime :: Lens' LastDeploymentInfo (Maybe UTCTime)
-ldiCreateTime = lens _ldiCreateTime (\ s a -> s{_ldiCreateTime = a}) . mapping _Time;
+ldiCreateTime = lens _ldiCreateTime (\ s a -> s{_ldiCreateTime = a}) . mapping _Time
 
 instance FromJSON LastDeploymentInfo where
         parseJSON
@@ -1785,33 +1840,33 @@ lifecycleEvent
     :: LifecycleEvent
 lifecycleEvent =
   LifecycleEvent'
-  { _leStatus = Nothing
-  , _leLifecycleEventName = Nothing
-  , _leStartTime = Nothing
-  , _leDiagnostics = Nothing
-  , _leEndTime = Nothing
-  }
+    { _leStatus = Nothing
+    , _leLifecycleEventName = Nothing
+    , _leStartTime = Nothing
+    , _leDiagnostics = Nothing
+    , _leEndTime = Nothing
+    }
 
 
 -- | The deployment lifecycle event status:     * Pending: The deployment lifecycle event is pending.     * InProgress: The deployment lifecycle event is in progress.     * Succeeded: The deployment lifecycle event ran successfully.     * Failed: The deployment lifecycle event has failed.     * Skipped: The deployment lifecycle event has been skipped.     * Unknown: The deployment lifecycle event is unknown.
 leStatus :: Lens' LifecycleEvent (Maybe LifecycleEventStatus)
-leStatus = lens _leStatus (\ s a -> s{_leStatus = a});
+leStatus = lens _leStatus (\ s a -> s{_leStatus = a})
 
 -- | The deployment lifecycle event name, such as ApplicationStop, BeforeInstall, AfterInstall, ApplicationStart, or ValidateService.
 leLifecycleEventName :: Lens' LifecycleEvent (Maybe Text)
-leLifecycleEventName = lens _leLifecycleEventName (\ s a -> s{_leLifecycleEventName = a});
+leLifecycleEventName = lens _leLifecycleEventName (\ s a -> s{_leLifecycleEventName = a})
 
 -- | A timestamp indicating when the deployment lifecycle event started.
 leStartTime :: Lens' LifecycleEvent (Maybe UTCTime)
-leStartTime = lens _leStartTime (\ s a -> s{_leStartTime = a}) . mapping _Time;
+leStartTime = lens _leStartTime (\ s a -> s{_leStartTime = a}) . mapping _Time
 
 -- | Diagnostic information about the deployment lifecycle event.
 leDiagnostics :: Lens' LifecycleEvent (Maybe Diagnostics)
-leDiagnostics = lens _leDiagnostics (\ s a -> s{_leDiagnostics = a});
+leDiagnostics = lens _leDiagnostics (\ s a -> s{_leDiagnostics = a})
 
 -- | A timestamp indicating when the deployment lifecycle event ended.
 leEndTime :: Lens' LifecycleEvent (Maybe UTCTime)
-leEndTime = lens _leEndTime (\ s a -> s{_leEndTime = a}) . mapping _Time;
+leEndTime = lens _leEndTime (\ s a -> s{_leEndTime = a}) . mapping _Time
 
 instance FromJSON LifecycleEvent where
         parseJSON
@@ -1849,16 +1904,16 @@ loadBalancerInfo
     :: LoadBalancerInfo
 loadBalancerInfo =
   LoadBalancerInfo'
-  {_lbiElbInfoList = Nothing, _lbiTargetGroupInfoList = Nothing}
+    {_lbiElbInfoList = Nothing, _lbiTargetGroupInfoList = Nothing}
 
 
 -- | An array containing information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
 lbiElbInfoList :: Lens' LoadBalancerInfo [ELBInfo]
-lbiElbInfoList = lens _lbiElbInfoList (\ s a -> s{_lbiElbInfoList = a}) . _Default . _Coerce;
+lbiElbInfoList = lens _lbiElbInfoList (\ s a -> s{_lbiElbInfoList = a}) . _Default . _Coerce
 
 -- | An array containing information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers.
 lbiTargetGroupInfoList :: Lens' LoadBalancerInfo [TargetGroupInfo]
-lbiTargetGroupInfoList = lens _lbiTargetGroupInfoList (\ s a -> s{_lbiTargetGroupInfoList = a}) . _Default . _Coerce;
+lbiTargetGroupInfoList = lens _lbiTargetGroupInfoList (\ s a -> s{_lbiTargetGroupInfoList = a}) . _Default . _Coerce
 
 instance FromJSON LoadBalancerInfo where
         parseJSON
@@ -1906,11 +1961,11 @@ minimumHealthyHosts =
 
 -- | The minimum healthy instance value.
 mhhValue :: Lens' MinimumHealthyHosts (Maybe Int)
-mhhValue = lens _mhhValue (\ s a -> s{_mhhValue = a});
+mhhValue = lens _mhhValue (\ s a -> s{_mhhValue = a})
 
 -- | The minimum healthy instance type:     * HOST_COUNT: The minimum number of healthy instance as an absolute value.     * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment. In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails. For more information, see <http://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health> in the /AWS CodeDeploy User Guide/ .
 mhhType :: Lens' MinimumHealthyHosts (Maybe MinimumHealthyHostsType)
-mhhType = lens _mhhType (\ s a -> s{_mhhType = a});
+mhhType = lens _mhhType (\ s a -> s{_mhhType = a})
 
 instance FromJSON MinimumHealthyHosts where
         parseJSON
@@ -1952,7 +2007,7 @@ onPremisesTagSet = OnPremisesTagSet' {_optsOnPremisesTagSetList = Nothing}
 
 -- | A list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
 optsOnPremisesTagSetList :: Lens' OnPremisesTagSet [[TagFilter]]
-optsOnPremisesTagSetList = lens _optsOnPremisesTagSetList (\ s a -> s{_optsOnPremisesTagSetList = a}) . _Default . _Coerce;
+optsOnPremisesTagSetList = lens _optsOnPremisesTagSetList (\ s a -> s{_optsOnPremisesTagSetList = a}) . _Default . _Coerce
 
 instance FromJSON OnPremisesTagSet where
         parseJSON
@@ -1971,6 +2026,55 @@ instance ToJSON OnPremisesTagSet where
               (catMaybes
                  [("onPremisesTagSetList" .=) <$>
                     _optsOnPremisesTagSetList])
+
+-- | A revision for an AWS Lambda deployment that is a YAML-formatted or JSON-formatted string. For AWS Lambda deployments, the revision is the same as the AppSpec file.
+--
+--
+--
+-- /See:/ 'rawString' smart constructor.
+data RawString = RawString'
+  { _rsContent :: !(Maybe Text)
+  , _rsSha256  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RawString' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsContent' - The YAML-formatted or JSON-formatted revision string. It includes information about which Lambda function to update and optional Lambda functions that validate deployment lifecycle events.
+--
+-- * 'rsSha256' - The SHA256 hash value of the revision that is specified as a RawString.
+rawString
+    :: RawString
+rawString = RawString' {_rsContent = Nothing, _rsSha256 = Nothing}
+
+
+-- | The YAML-formatted or JSON-formatted revision string. It includes information about which Lambda function to update and optional Lambda functions that validate deployment lifecycle events.
+rsContent :: Lens' RawString (Maybe Text)
+rsContent = lens _rsContent (\ s a -> s{_rsContent = a})
+
+-- | The SHA256 hash value of the revision that is specified as a RawString.
+rsSha256 :: Lens' RawString (Maybe Text)
+rsSha256 = lens _rsSha256 (\ s a -> s{_rsSha256 = a})
+
+instance FromJSON RawString where
+        parseJSON
+          = withObject "RawString"
+              (\ x ->
+                 RawString' <$>
+                   (x .:? "content") <*> (x .:? "sha256"))
+
+instance Hashable RawString where
+
+instance NFData RawString where
+
+instance ToJSON RawString where
+        toJSON RawString'{..}
+          = object
+              (catMaybes
+                 [("content" .=) <$> _rsContent,
+                  ("sha256" .=) <$> _rsSha256])
 
 -- | Information about an application revision.
 --
@@ -1994,16 +2098,16 @@ revisionInfo
     :: RevisionInfo
 revisionInfo =
   RevisionInfo'
-  {_riGenericRevisionInfo = Nothing, _riRevisionLocation = Nothing}
+    {_riGenericRevisionInfo = Nothing, _riRevisionLocation = Nothing}
 
 
 -- | Information about an application revision, including usage details and associated deployment groups.
 riGenericRevisionInfo :: Lens' RevisionInfo (Maybe GenericRevisionInfo)
-riGenericRevisionInfo = lens _riGenericRevisionInfo (\ s a -> s{_riGenericRevisionInfo = a});
+riGenericRevisionInfo = lens _riGenericRevisionInfo (\ s a -> s{_riGenericRevisionInfo = a})
 
 -- | Information about the location and type of an application revision.
 riRevisionLocation :: Lens' RevisionInfo (Maybe RevisionLocation)
-riRevisionLocation = lens _riRevisionLocation (\ s a -> s{_riRevisionLocation = a});
+riRevisionLocation = lens _riRevisionLocation (\ s a -> s{_riRevisionLocation = a})
 
 instance FromJSON RevisionInfo where
         parseJSON
@@ -2023,7 +2127,8 @@ instance NFData RevisionInfo where
 --
 -- /See:/ 'revisionLocation' smart constructor.
 data RevisionLocation = RevisionLocation'
-  { _rlRevisionType   :: !(Maybe RevisionLocationType)
+  { _rlString         :: !(Maybe RawString)
+  , _rlRevisionType   :: !(Maybe RevisionLocationType)
   , _rlS3Location     :: !(Maybe S3Location)
   , _rlGitHubLocation :: !(Maybe GitHubLocation)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -2033,40 +2138,48 @@ data RevisionLocation = RevisionLocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rlRevisionType' - The type of application revision:     * S3: An application revision stored in Amazon S3.     * GitHub: An application revision stored in GitHub.
+-- * 'rlString' - Information about the location of an AWS Lambda deployment revision stored as a RawString.
 --
--- * 'rlS3Location' - Information about the location of application artifacts stored in Amazon S3.
+-- * 'rlRevisionType' - The type of application revision:     * S3: An application revision stored in Amazon S3.     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
+--
+-- * 'rlS3Location' - Information about the location of a revision stored in Amazon S3.
 --
 -- * 'rlGitHubLocation' - Information about the location of application artifacts stored in GitHub.
 revisionLocation
     :: RevisionLocation
 revisionLocation =
   RevisionLocation'
-  { _rlRevisionType = Nothing
-  , _rlS3Location = Nothing
-  , _rlGitHubLocation = Nothing
-  }
+    { _rlString = Nothing
+    , _rlRevisionType = Nothing
+    , _rlS3Location = Nothing
+    , _rlGitHubLocation = Nothing
+    }
 
 
--- | The type of application revision:     * S3: An application revision stored in Amazon S3.     * GitHub: An application revision stored in GitHub.
+-- | Information about the location of an AWS Lambda deployment revision stored as a RawString.
+rlString :: Lens' RevisionLocation (Maybe RawString)
+rlString = lens _rlString (\ s a -> s{_rlString = a})
+
+-- | The type of application revision:     * S3: An application revision stored in Amazon S3.     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
 rlRevisionType :: Lens' RevisionLocation (Maybe RevisionLocationType)
-rlRevisionType = lens _rlRevisionType (\ s a -> s{_rlRevisionType = a});
+rlRevisionType = lens _rlRevisionType (\ s a -> s{_rlRevisionType = a})
 
--- | Information about the location of application artifacts stored in Amazon S3.
+-- | Information about the location of a revision stored in Amazon S3.
 rlS3Location :: Lens' RevisionLocation (Maybe S3Location)
-rlS3Location = lens _rlS3Location (\ s a -> s{_rlS3Location = a});
+rlS3Location = lens _rlS3Location (\ s a -> s{_rlS3Location = a})
 
 -- | Information about the location of application artifacts stored in GitHub.
 rlGitHubLocation :: Lens' RevisionLocation (Maybe GitHubLocation)
-rlGitHubLocation = lens _rlGitHubLocation (\ s a -> s{_rlGitHubLocation = a});
+rlGitHubLocation = lens _rlGitHubLocation (\ s a -> s{_rlGitHubLocation = a})
 
 instance FromJSON RevisionLocation where
         parseJSON
           = withObject "RevisionLocation"
               (\ x ->
                  RevisionLocation' <$>
-                   (x .:? "revisionType") <*> (x .:? "s3Location") <*>
-                     (x .:? "gitHubLocation"))
+                   (x .:? "string") <*> (x .:? "revisionType") <*>
+                     (x .:? "s3Location")
+                     <*> (x .:? "gitHubLocation"))
 
 instance Hashable RevisionLocation where
 
@@ -2076,7 +2189,8 @@ instance ToJSON RevisionLocation where
         toJSON RevisionLocation'{..}
           = object
               (catMaybes
-                 [("revisionType" .=) <$> _rlRevisionType,
+                 [("string" .=) <$> _rlString,
+                  ("revisionType" .=) <$> _rlRevisionType,
                   ("s3Location" .=) <$> _rlS3Location,
                   ("gitHubLocation" .=) <$> _rlGitHubLocation])
 
@@ -2105,23 +2219,23 @@ rollbackInfo
     :: RollbackInfo
 rollbackInfo =
   RollbackInfo'
-  { _riRollbackTriggeringDeploymentId = Nothing
-  , _riRollbackMessage = Nothing
-  , _riRollbackDeploymentId = Nothing
-  }
+    { _riRollbackTriggeringDeploymentId = Nothing
+    , _riRollbackMessage = Nothing
+    , _riRollbackDeploymentId = Nothing
+    }
 
 
 -- | The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped.
 riRollbackTriggeringDeploymentId :: Lens' RollbackInfo (Maybe Text)
-riRollbackTriggeringDeploymentId = lens _riRollbackTriggeringDeploymentId (\ s a -> s{_riRollbackTriggeringDeploymentId = a});
+riRollbackTriggeringDeploymentId = lens _riRollbackTriggeringDeploymentId (\ s a -> s{_riRollbackTriggeringDeploymentId = a})
 
 -- | Information describing the status of a deployment rollback; for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded.
 riRollbackMessage :: Lens' RollbackInfo (Maybe Text)
-riRollbackMessage = lens _riRollbackMessage (\ s a -> s{_riRollbackMessage = a});
+riRollbackMessage = lens _riRollbackMessage (\ s a -> s{_riRollbackMessage = a})
 
 -- | The ID of the deployment rollback.
 riRollbackDeploymentId :: Lens' RollbackInfo (Maybe Text)
-riRollbackDeploymentId = lens _riRollbackDeploymentId (\ s a -> s{_riRollbackDeploymentId = a});
+riRollbackDeploymentId = lens _riRollbackDeploymentId (\ s a -> s{_riRollbackDeploymentId = a})
 
 instance FromJSON RollbackInfo where
         parseJSON
@@ -2167,33 +2281,33 @@ s3Location
     :: S3Location
 s3Location =
   S3Location'
-  { _slBundleType = Nothing
-  , _slETag = Nothing
-  , _slBucket = Nothing
-  , _slKey = Nothing
-  , _slVersion = Nothing
-  }
+    { _slBundleType = Nothing
+    , _slETag = Nothing
+    , _slBucket = Nothing
+    , _slKey = Nothing
+    , _slVersion = Nothing
+    }
 
 
 -- | The file type of the application revision. Must be one of the following:     * tar: A tar archive file.     * tgz: A compressed tar archive file.     * zip: A zip archive file.
 slBundleType :: Lens' S3Location (Maybe BundleType)
-slBundleType = lens _slBundleType (\ s a -> s{_slBundleType = a});
+slBundleType = lens _slBundleType (\ s a -> s{_slBundleType = a})
 
 -- | The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision. If the ETag is not specified as an input parameter, ETag validation of the object will be skipped.
 slETag :: Lens' S3Location (Maybe Text)
-slETag = lens _slETag (\ s a -> s{_slETag = a});
+slETag = lens _slETag (\ s a -> s{_slETag = a})
 
 -- | The name of the Amazon S3 bucket where the application revision is stored.
 slBucket :: Lens' S3Location (Maybe Text)
-slBucket = lens _slBucket (\ s a -> s{_slBucket = a});
+slBucket = lens _slBucket (\ s a -> s{_slBucket = a})
 
 -- | The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
 slKey :: Lens' S3Location (Maybe Text)
-slKey = lens _slKey (\ s a -> s{_slKey = a});
+slKey = lens _slKey (\ s a -> s{_slKey = a})
 
 -- | A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision. If the version is not specified, the system will use the most recent version by default.
 slVersion :: Lens' S3Location (Maybe Text)
-slVersion = lens _slVersion (\ s a -> s{_slVersion = a});
+slVersion = lens _slVersion (\ s a -> s{_slVersion = a})
 
 instance FromJSON S3Location where
         parseJSON
@@ -2243,11 +2357,11 @@ tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
 
 -- | The tag's value.
 tagValue :: Lens' Tag (Maybe Text)
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 -- | The tag's key.
 tagKey :: Lens' Tag (Maybe Text)
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 instance FromJSON Tag where
         parseJSON
@@ -2292,15 +2406,15 @@ tagFilter = TagFilter' {_tfValue = Nothing, _tfKey = Nothing, _tfType = Nothing}
 
 -- | The on-premises instance tag filter value.
 tfValue :: Lens' TagFilter (Maybe Text)
-tfValue = lens _tfValue (\ s a -> s{_tfValue = a});
+tfValue = lens _tfValue (\ s a -> s{_tfValue = a})
 
 -- | The on-premises instance tag filter key.
 tfKey :: Lens' TagFilter (Maybe Text)
-tfKey = lens _tfKey (\ s a -> s{_tfKey = a});
+tfKey = lens _tfKey (\ s a -> s{_tfKey = a})
 
 -- | The on-premises instance tag filter type:     * KEY_ONLY: Key only.     * VALUE_ONLY: Value only.     * KEY_AND_VALUE: Key and value.
 tfType :: Lens' TagFilter (Maybe TagFilterType)
-tfType = lens _tfType (\ s a -> s{_tfType = a});
+tfType = lens _tfType (\ s a -> s{_tfType = a})
 
 instance FromJSON TagFilter where
         parseJSON
@@ -2342,7 +2456,7 @@ targetGroupInfo = TargetGroupInfo' {_tgiName = Nothing}
 
 -- | For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 tgiName :: Lens' TargetGroupInfo (Maybe Text)
-tgiName = lens _tgiName (\ s a -> s{_tgiName = a});
+tgiName = lens _tgiName (\ s a -> s{_tgiName = a})
 
 instance FromJSON TargetGroupInfo where
         parseJSON
@@ -2382,23 +2496,23 @@ targetInstances
     :: TargetInstances
 targetInstances =
   TargetInstances'
-  { _tiEc2TagSet = Nothing
-  , _tiTagFilters = Nothing
-  , _tiAutoScalingGroups = Nothing
-  }
+    { _tiEc2TagSet = Nothing
+    , _tiTagFilters = Nothing
+    , _tiAutoScalingGroups = Nothing
+    }
 
 
 -- | Information about the groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment. Cannot be used in the same call as tagFilters.
 tiEc2TagSet :: Lens' TargetInstances (Maybe EC2TagSet)
-tiEc2TagSet = lens _tiEc2TagSet (\ s a -> s{_tiEc2TagSet = a});
+tiEc2TagSet = lens _tiEc2TagSet (\ s a -> s{_tiEc2TagSet = a})
 
 -- | The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment. Cannot be used in the same call as ec2TagSet.
 tiTagFilters :: Lens' TargetInstances [EC2TagFilter]
-tiTagFilters = lens _tiTagFilters (\ s a -> s{_tiTagFilters = a}) . _Default . _Coerce;
+tiTagFilters = lens _tiTagFilters (\ s a -> s{_tiTagFilters = a}) . _Default . _Coerce
 
 -- | The names of one or more Auto Scaling groups to identify a replacement environment for a blue/green deployment.
 tiAutoScalingGroups :: Lens' TargetInstances [Text]
-tiAutoScalingGroups = lens _tiAutoScalingGroups (\ s a -> s{_tiAutoScalingGroups = a}) . _Default . _Coerce;
+tiAutoScalingGroups = lens _tiAutoScalingGroups (\ s a -> s{_tiAutoScalingGroups = a}) . _Default . _Coerce
 
 instance FromJSON TargetInstances where
         parseJSON
@@ -2420,6 +2534,110 @@ instance ToJSON TargetInstances where
                  [("ec2TagSet" .=) <$> _tiEc2TagSet,
                   ("tagFilters" .=) <$> _tiTagFilters,
                   ("autoScalingGroups" .=) <$> _tiAutoScalingGroups])
+
+-- | A configuration that shifts traffic from one version of a Lambda function to another in two increments. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+--
+--
+--
+-- /See:/ 'timeBasedCanary' smart constructor.
+data TimeBasedCanary = TimeBasedCanary'
+  { _tbcCanaryInterval   :: !(Maybe Int)
+  , _tbcCanaryPercentage :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TimeBasedCanary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tbcCanaryInterval' - The number of minutes between the first and second traffic shifts of a @TimeBasedCanary@ deployment.
+--
+-- * 'tbcCanaryPercentage' - The percentage of traffic to shift in the first increment of a @TimeBasedCanary@ deployment.
+timeBasedCanary
+    :: TimeBasedCanary
+timeBasedCanary =
+  TimeBasedCanary'
+    {_tbcCanaryInterval = Nothing, _tbcCanaryPercentage = Nothing}
+
+
+-- | The number of minutes between the first and second traffic shifts of a @TimeBasedCanary@ deployment.
+tbcCanaryInterval :: Lens' TimeBasedCanary (Maybe Int)
+tbcCanaryInterval = lens _tbcCanaryInterval (\ s a -> s{_tbcCanaryInterval = a})
+
+-- | The percentage of traffic to shift in the first increment of a @TimeBasedCanary@ deployment.
+tbcCanaryPercentage :: Lens' TimeBasedCanary (Maybe Int)
+tbcCanaryPercentage = lens _tbcCanaryPercentage (\ s a -> s{_tbcCanaryPercentage = a})
+
+instance FromJSON TimeBasedCanary where
+        parseJSON
+          = withObject "TimeBasedCanary"
+              (\ x ->
+                 TimeBasedCanary' <$>
+                   (x .:? "canaryInterval") <*>
+                     (x .:? "canaryPercentage"))
+
+instance Hashable TimeBasedCanary where
+
+instance NFData TimeBasedCanary where
+
+instance ToJSON TimeBasedCanary where
+        toJSON TimeBasedCanary'{..}
+          = object
+              (catMaybes
+                 [("canaryInterval" .=) <$> _tbcCanaryInterval,
+                  ("canaryPercentage" .=) <$> _tbcCanaryPercentage])
+
+-- | A configuration that shifts traffic from one version of a Lambda function to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+--
+--
+--
+-- /See:/ 'timeBasedLinear' smart constructor.
+data TimeBasedLinear = TimeBasedLinear'
+  { _tblLinearInterval   :: !(Maybe Int)
+  , _tblLinearPercentage :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TimeBasedLinear' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tblLinearInterval' - The number of minutes between each incremental traffic shift of a @TimeBasedLinear@ deployment.
+--
+-- * 'tblLinearPercentage' - The percentage of traffic that is shifted at the start of each increment of a @TimeBasedLinear@ deployment.
+timeBasedLinear
+    :: TimeBasedLinear
+timeBasedLinear =
+  TimeBasedLinear'
+    {_tblLinearInterval = Nothing, _tblLinearPercentage = Nothing}
+
+
+-- | The number of minutes between each incremental traffic shift of a @TimeBasedLinear@ deployment.
+tblLinearInterval :: Lens' TimeBasedLinear (Maybe Int)
+tblLinearInterval = lens _tblLinearInterval (\ s a -> s{_tblLinearInterval = a})
+
+-- | The percentage of traffic that is shifted at the start of each increment of a @TimeBasedLinear@ deployment.
+tblLinearPercentage :: Lens' TimeBasedLinear (Maybe Int)
+tblLinearPercentage = lens _tblLinearPercentage (\ s a -> s{_tblLinearPercentage = a})
+
+instance FromJSON TimeBasedLinear where
+        parseJSON
+          = withObject "TimeBasedLinear"
+              (\ x ->
+                 TimeBasedLinear' <$>
+                   (x .:? "linearInterval") <*>
+                     (x .:? "linearPercentage"))
+
+instance Hashable TimeBasedLinear where
+
+instance NFData TimeBasedLinear where
+
+instance ToJSON TimeBasedLinear where
+        toJSON TimeBasedLinear'{..}
+          = object
+              (catMaybes
+                 [("linearInterval" .=) <$> _tblLinearInterval,
+                  ("linearPercentage" .=) <$> _tblLinearPercentage])
 
 -- | Information about a time range.
 --
@@ -2446,11 +2664,11 @@ timeRange = TimeRange' {_trStart = Nothing, _trEnd = Nothing}
 
 -- | The start time of the time range.
 trStart :: Lens' TimeRange (Maybe UTCTime)
-trStart = lens _trStart (\ s a -> s{_trStart = a}) . mapping _Time;
+trStart = lens _trStart (\ s a -> s{_trStart = a}) . mapping _Time
 
 -- | The end time of the time range.
 trEnd :: Lens' TimeRange (Maybe UTCTime)
-trEnd = lens _trEnd (\ s a -> s{_trEnd = a}) . mapping _Time;
+trEnd = lens _trEnd (\ s a -> s{_trEnd = a}) . mapping _Time
 
 instance Hashable TimeRange where
 
@@ -2461,6 +2679,70 @@ instance ToJSON TimeRange where
           = object
               (catMaybes
                  [("start" .=) <$> _trStart, ("end" .=) <$> _trEnd])
+
+-- | The configuration that specifies how traffic is shifted from one version of a Lambda function to another version during an AWS Lambda deployment.
+--
+--
+--
+-- /See:/ 'trafficRoutingConfig' smart constructor.
+data TrafficRoutingConfig = TrafficRoutingConfig'
+  { _trcTimeBasedCanary :: !(Maybe TimeBasedCanary)
+  , _trcTimeBasedLinear :: !(Maybe TimeBasedLinear)
+  , _trcType            :: !(Maybe TrafficRoutingType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TrafficRoutingConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'trcTimeBasedCanary' - A configuration that shifts traffic from one version of a Lambda function to another in two increments. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+--
+-- * 'trcTimeBasedLinear' - A configuration that shifts traffic from one version of a Lambda function to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+--
+-- * 'trcType' - The type of traffic shifting (@TimeBasedCanary@ or @TimeBasedLinear@ ) used by a deployment configuration .
+trafficRoutingConfig
+    :: TrafficRoutingConfig
+trafficRoutingConfig =
+  TrafficRoutingConfig'
+    { _trcTimeBasedCanary = Nothing
+    , _trcTimeBasedLinear = Nothing
+    , _trcType = Nothing
+    }
+
+
+-- | A configuration that shifts traffic from one version of a Lambda function to another in two increments. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+trcTimeBasedCanary :: Lens' TrafficRoutingConfig (Maybe TimeBasedCanary)
+trcTimeBasedCanary = lens _trcTimeBasedCanary (\ s a -> s{_trcTimeBasedCanary = a})
+
+-- | A configuration that shifts traffic from one version of a Lambda function to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+trcTimeBasedLinear :: Lens' TrafficRoutingConfig (Maybe TimeBasedLinear)
+trcTimeBasedLinear = lens _trcTimeBasedLinear (\ s a -> s{_trcTimeBasedLinear = a})
+
+-- | The type of traffic shifting (@TimeBasedCanary@ or @TimeBasedLinear@ ) used by a deployment configuration .
+trcType :: Lens' TrafficRoutingConfig (Maybe TrafficRoutingType)
+trcType = lens _trcType (\ s a -> s{_trcType = a})
+
+instance FromJSON TrafficRoutingConfig where
+        parseJSON
+          = withObject "TrafficRoutingConfig"
+              (\ x ->
+                 TrafficRoutingConfig' <$>
+                   (x .:? "timeBasedCanary") <*>
+                     (x .:? "timeBasedLinear")
+                     <*> (x .:? "type"))
+
+instance Hashable TrafficRoutingConfig where
+
+instance NFData TrafficRoutingConfig where
+
+instance ToJSON TrafficRoutingConfig where
+        toJSON TrafficRoutingConfig'{..}
+          = object
+              (catMaybes
+                 [("timeBasedCanary" .=) <$> _trcTimeBasedCanary,
+                  ("timeBasedLinear" .=) <$> _trcTimeBasedLinear,
+                  ("type" .=) <$> _trcType])
 
 -- | Information about notification triggers for the deployment group.
 --
@@ -2487,23 +2769,23 @@ triggerConfig
     :: TriggerConfig
 triggerConfig =
   TriggerConfig'
-  { _tcTriggerName = Nothing
-  , _tcTriggerEvents = Nothing
-  , _tcTriggerTargetARN = Nothing
-  }
+    { _tcTriggerName = Nothing
+    , _tcTriggerEvents = Nothing
+    , _tcTriggerTargetARN = Nothing
+    }
 
 
 -- | The name of the notification trigger.
 tcTriggerName :: Lens' TriggerConfig (Maybe Text)
-tcTriggerName = lens _tcTriggerName (\ s a -> s{_tcTriggerName = a});
+tcTriggerName = lens _tcTriggerName (\ s a -> s{_tcTriggerName = a})
 
 -- | The event type or types for which notifications are triggered.
 tcTriggerEvents :: Lens' TriggerConfig [TriggerEventType]
-tcTriggerEvents = lens _tcTriggerEvents (\ s a -> s{_tcTriggerEvents = a}) . _Default . _Coerce;
+tcTriggerEvents = lens _tcTriggerEvents (\ s a -> s{_tcTriggerEvents = a}) . _Default . _Coerce
 
 -- | The ARN of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
 tcTriggerTargetARN :: Lens' TriggerConfig (Maybe Text)
-tcTriggerTargetARN = lens _tcTriggerTargetARN (\ s a -> s{_tcTriggerTargetARN = a});
+tcTriggerTargetARN = lens _tcTriggerTargetARN (\ s a -> s{_tcTriggerTargetARN = a})
 
 instance FromJSON TriggerConfig where
         parseJSON

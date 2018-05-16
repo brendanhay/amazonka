@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeDeliveryChannels
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ describeDeliveryChannels =
 
 -- | A list of delivery channel names.
 ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
-ddcDeliveryChannelNames = lens _ddcDeliveryChannelNames (\ s a -> s{_ddcDeliveryChannelNames = a}) . _Default . _Coerce;
+ddcDeliveryChannelNames = lens _ddcDeliveryChannelNames (\ s a -> s{_ddcDeliveryChannelNames = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeDeliveryChannels where
         type Rs DescribeDeliveryChannels =
@@ -130,16 +130,16 @@ describeDeliveryChannelsResponse
     -> DescribeDeliveryChannelsResponse
 describeDeliveryChannelsResponse pResponseStatus_ =
   DescribeDeliveryChannelsResponse'
-  {_ddcrsDeliveryChannels = Nothing, _ddcrsResponseStatus = pResponseStatus_}
+    {_ddcrsDeliveryChannels = Nothing, _ddcrsResponseStatus = pResponseStatus_}
 
 
 -- | A list that contains the descriptions of the specified delivery channel.
 ddcrsDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
-ddcrsDeliveryChannels = lens _ddcrsDeliveryChannels (\ s a -> s{_ddcrsDeliveryChannels = a}) . _Default . _Coerce;
+ddcrsDeliveryChannels = lens _ddcrsDeliveryChannels (\ s a -> s{_ddcrsDeliveryChannels = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddcrsResponseStatus :: Lens' DescribeDeliveryChannelsResponse Int
-ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a});
+ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a})
 
 instance NFData DescribeDeliveryChannelsResponse
          where

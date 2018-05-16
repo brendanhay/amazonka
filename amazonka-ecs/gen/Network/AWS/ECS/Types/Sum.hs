@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,6 +57,117 @@ instance ToHeader     AgentUpdateStatus
 
 instance FromJSON AgentUpdateStatus where
     parseJSON = parseJSONText "AgentUpdateStatus"
+
+data AssignPublicIP
+  = Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AssignPublicIP where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        e -> fromTextError $ "Failure parsing AssignPublicIP from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText AssignPublicIP where
+    toText = \case
+        Disabled -> "DISABLED"
+        Enabled -> "ENABLED"
+
+instance Hashable     AssignPublicIP
+instance NFData       AssignPublicIP
+instance ToByteString AssignPublicIP
+instance ToQuery      AssignPublicIP
+instance ToHeader     AssignPublicIP
+
+instance ToJSON AssignPublicIP where
+    toJSON = toJSONText
+
+instance FromJSON AssignPublicIP where
+    parseJSON = parseJSONText "AssignPublicIP"
+
+data ClusterField =
+  Statistics
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ClusterField where
+    parser = takeLowerText >>= \case
+        "statistics" -> pure Statistics
+        e -> fromTextError $ "Failure parsing ClusterField from value: '" <> e
+           <> "'. Accepted values: statistics"
+
+instance ToText ClusterField where
+    toText = \case
+        Statistics -> "STATISTICS"
+
+instance Hashable     ClusterField
+instance NFData       ClusterField
+instance ToByteString ClusterField
+instance ToQuery      ClusterField
+instance ToHeader     ClusterField
+
+instance ToJSON ClusterField where
+    toJSON = toJSONText
+
+data Compatibility
+  = CEC2
+  | CFargate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Compatibility where
+    parser = takeLowerText >>= \case
+        "ec2" -> pure CEC2
+        "fargate" -> pure CFargate
+        e -> fromTextError $ "Failure parsing Compatibility from value: '" <> e
+           <> "'. Accepted values: ec2, fargate"
+
+instance ToText Compatibility where
+    toText = \case
+        CEC2 -> "EC2"
+        CFargate -> "FARGATE"
+
+instance Hashable     Compatibility
+instance NFData       Compatibility
+instance ToByteString Compatibility
+instance ToQuery      Compatibility
+instance ToHeader     Compatibility
+
+instance ToJSON Compatibility where
+    toJSON = toJSONText
+
+instance FromJSON Compatibility where
+    parseJSON = parseJSONText "Compatibility"
+
+data Connectivity
+  = Connected
+  | Disconnected
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Connectivity where
+    parser = takeLowerText >>= \case
+        "connected" -> pure Connected
+        "disconnected" -> pure Disconnected
+        e -> fromTextError $ "Failure parsing Connectivity from value: '" <> e
+           <> "'. Accepted values: connected, disconnected"
+
+instance ToText Connectivity where
+    toText = \case
+        Connected -> "CONNECTED"
+        Disconnected -> "DISCONNECTED"
+
+instance Hashable     Connectivity
+instance NFData       Connectivity
+instance ToByteString Connectivity
+instance ToQuery      Connectivity
+instance ToHeader     Connectivity
+
+instance FromJSON Connectivity where
+    parseJSON = parseJSONText "Connectivity"
 
 data ContainerInstanceStatus
   = Active
@@ -148,6 +259,66 @@ instance ToJSON DeviceCgroupPermission where
 instance FromJSON DeviceCgroupPermission where
     parseJSON = parseJSONText "DeviceCgroupPermission"
 
+data HealthStatus
+  = Healthy
+  | Unhealthy
+  | Unknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText HealthStatus where
+    parser = takeLowerText >>= \case
+        "healthy" -> pure Healthy
+        "unhealthy" -> pure Unhealthy
+        "unknown" -> pure Unknown
+        e -> fromTextError $ "Failure parsing HealthStatus from value: '" <> e
+           <> "'. Accepted values: healthy, unhealthy, unknown"
+
+instance ToText HealthStatus where
+    toText = \case
+        Healthy -> "HEALTHY"
+        Unhealthy -> "UNHEALTHY"
+        Unknown -> "UNKNOWN"
+
+instance Hashable     HealthStatus
+instance NFData       HealthStatus
+instance ToByteString HealthStatus
+instance ToQuery      HealthStatus
+instance ToHeader     HealthStatus
+
+instance FromJSON HealthStatus where
+    parseJSON = parseJSONText "HealthStatus"
+
+data LaunchType
+  = EC2
+  | Fargate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText LaunchType where
+    parser = takeLowerText >>= \case
+        "ec2" -> pure EC2
+        "fargate" -> pure Fargate
+        e -> fromTextError $ "Failure parsing LaunchType from value: '" <> e
+           <> "'. Accepted values: ec2, fargate"
+
+instance ToText LaunchType where
+    toText = \case
+        EC2 -> "EC2"
+        Fargate -> "FARGATE"
+
+instance Hashable     LaunchType
+instance NFData       LaunchType
+instance ToByteString LaunchType
+instance ToQuery      LaunchType
+instance ToHeader     LaunchType
+
+instance ToJSON LaunchType where
+    toJSON = toJSONText
+
+instance FromJSON LaunchType where
+    parseJSON = parseJSONText "LaunchType"
+
 data LogDriver
   = AWSlogs
   | Fluentd
@@ -194,7 +365,8 @@ instance FromJSON LogDriver where
     parseJSON = parseJSONText "LogDriver"
 
 data NetworkMode
-  = Bridge
+  = AWSvpc
+  | Bridge
   | Host
   | None
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -202,14 +374,16 @@ data NetworkMode
 
 instance FromText NetworkMode where
     parser = takeLowerText >>= \case
+        "awsvpc" -> pure AWSvpc
         "bridge" -> pure Bridge
         "host" -> pure Host
         "none" -> pure None
         e -> fromTextError $ "Failure parsing NetworkMode from value: '" <> e
-           <> "'. Accepted values: bridge, host, none"
+           <> "'. Accepted values: awsvpc, bridge, host, none"
 
 instance ToText NetworkMode where
     toText = \case
+        AWSvpc -> "awsvpc"
         Bridge -> "bridge"
         Host -> "host"
         None -> "none"

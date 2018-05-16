@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Adds a new client ID (also known as audience) to the list of client IDs already registered for the specified IAM OpenID Connect (OIDC) provider resource.
 --
 --
--- This action is idempotent; it does not fail or return an error if you add an existing client ID to the provider.
+-- This operation is idempotent; it does not fail or return an error if you add an existing client ID to the provider.
 --
 module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
     (
@@ -55,7 +55,7 @@ data AddClientIdToOpenIdConnectProvider = AddClientIdToOpenIdConnectProvider'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acitoicpOpenIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' action.
+-- * 'acitoicpOpenIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
 --
 -- * 'acitoicpClientId' - The client ID (also known as audience) to add to the IAM OpenID Connect provider resource.
 addClientIdToOpenIdConnectProvider
@@ -64,18 +64,18 @@ addClientIdToOpenIdConnectProvider
     -> AddClientIdToOpenIdConnectProvider
 addClientIdToOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
   AddClientIdToOpenIdConnectProvider'
-  { _acitoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
-  , _acitoicpClientId = pClientId_
-  }
+    { _acitoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
+    , _acitoicpClientId = pClientId_
+    }
 
 
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' action.
+-- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
 acitoicpOpenIdConnectProviderARN :: Lens' AddClientIdToOpenIdConnectProvider Text
-acitoicpOpenIdConnectProviderARN = lens _acitoicpOpenIdConnectProviderARN (\ s a -> s{_acitoicpOpenIdConnectProviderARN = a});
+acitoicpOpenIdConnectProviderARN = lens _acitoicpOpenIdConnectProviderARN (\ s a -> s{_acitoicpOpenIdConnectProviderARN = a})
 
 -- | The client ID (also known as audience) to add to the IAM OpenID Connect provider resource.
 acitoicpClientId :: Lens' AddClientIdToOpenIdConnectProvider Text
-acitoicpClientId = lens _acitoicpClientId (\ s a -> s{_acitoicpClientId = a});
+acitoicpClientId = lens _acitoicpClientId (\ s a -> s{_acitoicpClientId = a})
 
 instance AWSRequest
            AddClientIdToOpenIdConnectProvider

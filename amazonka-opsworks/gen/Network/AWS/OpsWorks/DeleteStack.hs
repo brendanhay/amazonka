@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteStack
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteStack pStackId_ = DeleteStack' {_dsStackId = pStackId_}
 
 -- | The stack ID.
 dsStackId :: Lens' DeleteStack Text
-dsStackId = lens _dsStackId (\ s a -> s{_dsStackId = a});
+dsStackId = lens _dsStackId (\ s a -> s{_dsStackId = a})
 
 instance AWSRequest DeleteStack where
         type Rs DeleteStack = DeleteStackResponse

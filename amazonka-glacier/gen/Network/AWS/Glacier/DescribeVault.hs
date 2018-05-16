@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DescribeVault
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,11 +81,11 @@ describeVault pAccountId_ pVaultName_ =
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 dvAccountId :: Lens' DescribeVault Text
-dvAccountId = lens _dvAccountId (\ s a -> s{_dvAccountId = a});
+dvAccountId = lens _dvAccountId (\ s a -> s{_dvAccountId = a})
 
 -- | The name of the vault.
 dvVaultName :: Lens' DescribeVault Text
-dvVaultName = lens _dvVaultName (\ s a -> s{_dvVaultName = a});
+dvVaultName = lens _dvVaultName (\ s a -> s{_dvVaultName = a})
 
 instance AWSRequest DescribeVault where
         type Rs DescribeVault = DescribeVaultOutput

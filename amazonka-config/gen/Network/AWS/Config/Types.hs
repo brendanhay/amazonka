@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -19,7 +19,10 @@ module Network.AWS.Config.Types
     , _InvalidTimeRangeException
     , _InvalidSNSTopicARNException
     , _InvalidRecordingGroupException
+    , _NoAvailableOrganizationException
     , _ValidationException
+    , _OrganizationAccessDeniedException
+    , _NoSuchConfigurationAggregatorException
     , _InvalidRoleException
     , _LastDeliveryChannelDeleteFailedException
     , _InvalidLimitException
@@ -28,6 +31,7 @@ module Network.AWS.Config.Types
     , _InvalidResultTokenException
     , _NoSuchDeliveryChannelException
     , _NoSuchConfigRuleException
+    , _OrganizationAllFeaturesNotEnabledException
     , _InsufficientPermissionsException
     , _ResourceNotDiscoveredException
     , _InvalidNextTokenException
@@ -45,11 +49,20 @@ module Network.AWS.Config.Types
     , _LimitExceededException
     , _ResourceInUseException
 
+    -- * AggregatedSourceStatusType
+    , AggregatedSourceStatusType (..)
+
+    -- * AggregatedSourceType
+    , AggregatedSourceType (..)
+
     -- * ChronologicalOrder
     , ChronologicalOrder (..)
 
     -- * ComplianceType
     , ComplianceType (..)
+
+    -- * ConfigRuleComplianceSummaryGroupKey
+    , ConfigRuleComplianceSummaryGroupKey (..)
 
     -- * ConfigRuleState
     , ConfigRuleState (..)
@@ -77,6 +90,75 @@ module Network.AWS.Config.Types
 
     -- * ResourceType
     , ResourceType (..)
+
+    -- * AccountAggregationSource
+    , AccountAggregationSource
+    , accountAggregationSource
+    , aasAWSRegions
+    , aasAllAWSRegions
+    , aasAccountIds
+
+    -- * AggregateComplianceByConfigRule
+    , AggregateComplianceByConfigRule
+    , aggregateComplianceByConfigRule
+    , acbcrCompliance
+    , acbcrConfigRuleName
+    , acbcrAccountId
+    , acbcrAWSRegion
+
+    -- * AggregateComplianceCount
+    , AggregateComplianceCount
+    , aggregateComplianceCount
+    , accGroupName
+    , accComplianceSummary
+
+    -- * AggregateEvaluationResult
+    , AggregateEvaluationResult
+    , aggregateEvaluationResult
+    , aerEvaluationResultIdentifier
+    , aerAnnotation
+    , aerConfigRuleInvokedTime
+    , aerResultRecordedTime
+    , aerAccountId
+    , aerComplianceType
+    , aerAWSRegion
+
+    -- * AggregatedSourceStatus
+    , AggregatedSourceStatus
+    , aggregatedSourceStatus
+    , assLastErrorCode
+    , assLastUpdateStatus
+    , assSourceType
+    , assSourceId
+    , assLastErrorMessage
+    , assAWSRegion
+    , assLastUpdateTime
+
+    -- * AggregationAuthorization
+    , AggregationAuthorization
+    , aggregationAuthorization
+    , aaCreationTime
+    , aaAuthorizedAWSRegion
+    , aaAggregationAuthorizationARN
+    , aaAuthorizedAccountId
+
+    -- * BaseConfigurationItem
+    , BaseConfigurationItem
+    , baseConfigurationItem
+    , bciResourceId
+    , bciResourceType
+    , bciConfigurationStateId
+    , bciArn
+    , bciResourceName
+    , bciResourceCreationTime
+    , bciConfigurationItemStatus
+    , bciConfigurationItemCaptureTime
+    , bciAccountId
+    , bciSupplementaryConfiguration
+    , bciAvailabilityZone
+    , bciVersion
+    , bciAwsRegion
+    , bciConfiguration
 
     -- * Compliance
     , Compliance
@@ -139,6 +221,20 @@ module Network.AWS.Config.Types
     , crConfigRuleARN
     , crSource
 
+    -- * ConfigRuleComplianceFilters
+    , ConfigRuleComplianceFilters
+    , configRuleComplianceFilters
+    , crcfConfigRuleName
+    , crcfAccountId
+    , crcfComplianceType
+    , crcfAWSRegion
+
+    -- * ConfigRuleComplianceSummaryFilters
+    , ConfigRuleComplianceSummaryFilters
+    , configRuleComplianceSummaryFilters
+    , crcsfAccountId
+    , crcsfAWSRegion
+
     -- * ConfigRuleEvaluationStatus
     , ConfigRuleEvaluationStatus
     , configRuleEvaluationStatus
@@ -166,6 +262,16 @@ module Network.AWS.Config.Types
     , csdiLastStatusChangeTime
     , csdiLastStatus
     , csdiLastErrorMessage
+
+    -- * ConfigurationAggregator
+    , ConfigurationAggregator
+    , configurationAggregator
+    , caConfigurationAggregatorARN
+    , caCreationTime
+    , caOrganizationAggregationSource
+    , caLastUpdatedTime
+    , caAccountAggregationSources
+    , caConfigurationAggregatorName
 
     -- * ConfigurationItem
     , ConfigurationItem
@@ -257,6 +363,19 @@ module Network.AWS.Config.Types
     , erqResourceType
     , erqConfigRuleName
 
+    -- * OrganizationAggregationSource
+    , OrganizationAggregationSource
+    , organizationAggregationSource
+    , oasAWSRegions
+    , oasAllAWSRegions
+    , oasRoleARN
+
+    -- * PendingAggregationRequest
+    , PendingAggregationRequest
+    , pendingAggregationRequest
+    , parRequesterAccountId
+    , parRequesterAWSRegion
+
     -- * RecordingGroup
     , RecordingGroup
     , recordingGroup
@@ -285,6 +404,12 @@ module Network.AWS.Config.Types
     , riResourceType
     , riResourceName
     , riResourceDeletionTime
+
+    -- * ResourceKey
+    , ResourceKey
+    , resourceKey
+    , rkResourceType
+    , rkResourceId
 
     -- * Scope
     , Scope
@@ -319,24 +444,24 @@ import Network.AWS.Sign.V4
 config :: Service
 config =
   Service
-  { _svcAbbrev = "Config"
-  , _svcSigner = v4
-  , _svcPrefix = "config"
-  , _svcVersion = "2014-11-12"
-  , _svcEndpoint = defaultEndpoint config
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Config"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Config"
+    , _svcSigner = v4
+    , _svcPrefix = "config"
+    , _svcVersion = "2014-11-12"
+    , _svcEndpoint = defaultEndpoint config
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "Config"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -345,6 +470,8 @@ config =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -368,7 +495,7 @@ _InvalidSNSTopicARNException =
   _MatchServiceError config "InvalidSNSTopicARNException"
 
 
--- | AWS Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values could also be incorrectly formatted.
+-- | AWS Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values might also be incorrectly formatted.
 --
 --
 _InvalidRecordingGroupException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -376,11 +503,35 @@ _InvalidRecordingGroupException =
   _MatchServiceError config "InvalidRecordingGroupException"
 
 
+-- | Organization does is no longer available.
+--
+--
+_NoAvailableOrganizationException :: AsError a => Getting (First ServiceError) a ServiceError
+_NoAvailableOrganizationException =
+  _MatchServiceError config "NoAvailableOrganizationException"
+
+
 -- | The requested action is not valid.
 --
 --
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException = _MatchServiceError config "ValidationException"
+
+
+-- | No permission to call the EnableAWSServiceAccess API.
+--
+--
+_OrganizationAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+_OrganizationAccessDeniedException =
+  _MatchServiceError config "OrganizationAccessDeniedException"
+
+
+-- | You have specified a configuration aggregator that does not exist.
+--
+--
+_NoSuchConfigurationAggregatorException :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchConfigurationAggregatorException =
+  _MatchServiceError config "NoSuchConfigurationAggregatorException"
 
 
 -- | You have provided a null or empty role ARN.
@@ -445,6 +596,14 @@ _NoSuchConfigRuleException =
   _MatchServiceError config "NoSuchConfigRuleException"
 
 
+-- | The configuration aggregator cannot be created because organization does not have all features enabled.
+--
+--
+_OrganizationAllFeaturesNotEnabledException :: AsError a => Getting (First ServiceError) a ServiceError
+_OrganizationAllFeaturesNotEnabledException =
+  _MatchServiceError config "OrganizationAllFeaturesNotEnabledException"
+
+
 -- | Indicates one of the following errors:
 --
 --
@@ -467,7 +626,7 @@ _ResourceNotDiscoveredException =
   _MatchServiceError config "ResourceNotDiscoveredException"
 
 
--- | The specified next token is invalid. Specify the @NextToken@ string that was returned in the previous response to get the next page of results.
+-- | The specified next token is invalid. Specify the @nextToken@ string that was returned in the previous response to get the next page of results.
 --
 --
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -475,7 +634,7 @@ _InvalidNextTokenException =
   _MatchServiceError config "InvalidNextTokenException"
 
 
--- | Failed to add the AWS Config rule because the account already contains the maximum number of 50 rules. Consider deleting any deactivated rules before adding new rules.
+-- | Failed to add the AWS Config rule because the account already contains the maximum number of 50 rules. Consider deleting any deactivated rules before you add new rules.
 --
 --
 _MaxNumberOfConfigRulesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -522,7 +681,7 @@ _NoRunningConfigurationRecorderException =
   _MatchServiceError config "NoRunningConfigurationRecorderException"
 
 
--- | You have reached the limit on the number of recorders you can create.
+-- | You have reached the limit of the number of recorders you can create.
 --
 --
 _MaxNumberOfConfigurationRecordersExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -538,7 +697,7 @@ _InsufficientDeliveryPolicyException =
   _MatchServiceError config "InsufficientDeliveryPolicyException"
 
 
--- | You have reached the limit on the number of delivery channels you can create.
+-- | You have reached the limit of the number of delivery channels you can create.
 --
 --
 _MaxNumberOfDeliveryChannelsExceededException :: AsError a => Getting (First ServiceError) a ServiceError

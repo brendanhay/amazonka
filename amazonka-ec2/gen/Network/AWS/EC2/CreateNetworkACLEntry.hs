@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateNetworkACLEntry
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,7 +93,7 @@ data CreateNetworkACLEntry = CreateNetworkACLEntry'
 --
 -- * 'cnaeNetworkACLId' - The ID of the network ACL.
 --
--- * 'cnaeProtocol' - The protocol. A value of @-1@ or @all@ means all protocols. If you specify @all@ , @-1@ , or a protocol number other than @tcp@ , @udp@ , or @icmp@ , traffic on all ports is allowed, regardless of any ports or ICMP types or codes you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+-- * 'cnaeProtocol' - The protocol. A value of @-1@ or @all@ means all protocols. If you specify @all@ , @-1@ , or a protocol number other than @6@ (tcp), @17@ (udp), or @1@ (icmp), traffic on all ports is allowed, regardless of any ports or ICMP types or codes you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
 --
 -- * 'cnaeRuleAction' - Indicates whether to allow or deny the traffic that matches the rule.
 --
@@ -107,58 +107,58 @@ createNetworkACLEntry
     -> CreateNetworkACLEntry
 createNetworkACLEntry pEgress_ pNetworkACLId_ pProtocol_ pRuleAction_ pRuleNumber_ =
   CreateNetworkACLEntry'
-  { _cnaeIPv6CidrBlock = Nothing
-  , _cnaeICMPTypeCode = Nothing
-  , _cnaePortRange = Nothing
-  , _cnaeCidrBlock = Nothing
-  , _cnaeDryRun = Nothing
-  , _cnaeEgress = pEgress_
-  , _cnaeNetworkACLId = pNetworkACLId_
-  , _cnaeProtocol = pProtocol_
-  , _cnaeRuleAction = pRuleAction_
-  , _cnaeRuleNumber = pRuleNumber_
-  }
+    { _cnaeIPv6CidrBlock = Nothing
+    , _cnaeICMPTypeCode = Nothing
+    , _cnaePortRange = Nothing
+    , _cnaeCidrBlock = Nothing
+    , _cnaeDryRun = Nothing
+    , _cnaeEgress = pEgress_
+    , _cnaeNetworkACLId = pNetworkACLId_
+    , _cnaeProtocol = pProtocol_
+    , _cnaeRuleAction = pRuleAction_
+    , _cnaeRuleNumber = pRuleNumber_
+    }
 
 
 -- | The IPv6 network range to allow or deny, in CIDR notation (for example @2001:db8:1234:1a00::/64@ ).
 cnaeIPv6CidrBlock :: Lens' CreateNetworkACLEntry (Maybe Text)
-cnaeIPv6CidrBlock = lens _cnaeIPv6CidrBlock (\ s a -> s{_cnaeIPv6CidrBlock = a});
+cnaeIPv6CidrBlock = lens _cnaeIPv6CidrBlock (\ s a -> s{_cnaeIPv6CidrBlock = a})
 
 -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying the ICMP protocol, or protocol 58 (ICMPv6) with an IPv6 CIDR block.
 cnaeICMPTypeCode :: Lens' CreateNetworkACLEntry (Maybe ICMPTypeCode)
-cnaeICMPTypeCode = lens _cnaeICMPTypeCode (\ s a -> s{_cnaeICMPTypeCode = a});
+cnaeICMPTypeCode = lens _cnaeICMPTypeCode (\ s a -> s{_cnaeICMPTypeCode = a})
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
 cnaePortRange :: Lens' CreateNetworkACLEntry (Maybe PortRange)
-cnaePortRange = lens _cnaePortRange (\ s a -> s{_cnaePortRange = a});
+cnaePortRange = lens _cnaePortRange (\ s a -> s{_cnaePortRange = a})
 
 -- | The IPv4 network range to allow or deny, in CIDR notation (for example @172.16.0.0/24@ ).
 cnaeCidrBlock :: Lens' CreateNetworkACLEntry (Maybe Text)
-cnaeCidrBlock = lens _cnaeCidrBlock (\ s a -> s{_cnaeCidrBlock = a});
+cnaeCidrBlock = lens _cnaeCidrBlock (\ s a -> s{_cnaeCidrBlock = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cnaeDryRun :: Lens' CreateNetworkACLEntry (Maybe Bool)
-cnaeDryRun = lens _cnaeDryRun (\ s a -> s{_cnaeDryRun = a});
+cnaeDryRun = lens _cnaeDryRun (\ s a -> s{_cnaeDryRun = a})
 
 -- | Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).
 cnaeEgress :: Lens' CreateNetworkACLEntry Bool
-cnaeEgress = lens _cnaeEgress (\ s a -> s{_cnaeEgress = a});
+cnaeEgress = lens _cnaeEgress (\ s a -> s{_cnaeEgress = a})
 
 -- | The ID of the network ACL.
 cnaeNetworkACLId :: Lens' CreateNetworkACLEntry Text
-cnaeNetworkACLId = lens _cnaeNetworkACLId (\ s a -> s{_cnaeNetworkACLId = a});
+cnaeNetworkACLId = lens _cnaeNetworkACLId (\ s a -> s{_cnaeNetworkACLId = a})
 
--- | The protocol. A value of @-1@ or @all@ means all protocols. If you specify @all@ , @-1@ , or a protocol number other than @tcp@ , @udp@ , or @icmp@ , traffic on all ports is allowed, regardless of any ports or ICMP types or codes you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+-- | The protocol. A value of @-1@ or @all@ means all protocols. If you specify @all@ , @-1@ , or a protocol number other than @6@ (tcp), @17@ (udp), or @1@ (icmp), traffic on all ports is allowed, regardless of any ports or ICMP types or codes you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
 cnaeProtocol :: Lens' CreateNetworkACLEntry Text
-cnaeProtocol = lens _cnaeProtocol (\ s a -> s{_cnaeProtocol = a});
+cnaeProtocol = lens _cnaeProtocol (\ s a -> s{_cnaeProtocol = a})
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
 cnaeRuleAction :: Lens' CreateNetworkACLEntry RuleAction
-cnaeRuleAction = lens _cnaeRuleAction (\ s a -> s{_cnaeRuleAction = a});
+cnaeRuleAction = lens _cnaeRuleAction (\ s a -> s{_cnaeRuleAction = a})
 
 -- | The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number. Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.
 cnaeRuleNumber :: Lens' CreateNetworkACLEntry Int
-cnaeRuleNumber = lens _cnaeRuleNumber (\ s a -> s{_cnaeRuleNumber = a});
+cnaeRuleNumber = lens _cnaeRuleNumber (\ s a -> s{_cnaeRuleNumber = a})
 
 instance AWSRequest CreateNetworkACLEntry where
         type Rs CreateNetworkACLEntry =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GenerateRandom
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ generateRandom = GenerateRandom' {_grNumberOfBytes = Nothing}
 
 -- | The length of the byte string.
 grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
-grNumberOfBytes = lens _grNumberOfBytes (\ s a -> s{_grNumberOfBytes = a}) . mapping _Nat;
+grNumberOfBytes = lens _grNumberOfBytes (\ s a -> s{_grNumberOfBytes = a}) . mapping _Nat
 
 instance AWSRequest GenerateRandom where
         type Rs GenerateRandom = GenerateRandomResponse
@@ -119,15 +119,15 @@ generateRandomResponse
     -> GenerateRandomResponse
 generateRandomResponse pResponseStatus_ =
   GenerateRandomResponse'
-  {_grrsPlaintext = Nothing, _grrsResponseStatus = pResponseStatus_}
+    {_grrsPlaintext = Nothing, _grrsResponseStatus = pResponseStatus_}
 
 
 -- | The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 grrsPlaintext :: Lens' GenerateRandomResponse (Maybe ByteString)
-grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping (_Sensitive . _Base64);
+grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping (_Sensitive . _Base64)
 
 -- | -- | The response status code.
 grrsResponseStatus :: Lens' GenerateRandomResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a})
 
 instance NFData GenerateRandomResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListPolicyAttachments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListPolicyAttachments
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.CloudDirectory.ListPolicyAttachments
 import Network.AWS.CloudDirectory.Types
 import Network.AWS.CloudDirectory.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -78,33 +81,40 @@ listPolicyAttachments
     -> ListPolicyAttachments
 listPolicyAttachments pDirectoryARN_ pPolicyReference_ =
   ListPolicyAttachments'
-  { _lpaConsistencyLevel = Nothing
-  , _lpaNextToken = Nothing
-  , _lpaMaxResults = Nothing
-  , _lpaDirectoryARN = pDirectoryARN_
-  , _lpaPolicyReference = pPolicyReference_
-  }
+    { _lpaConsistencyLevel = Nothing
+    , _lpaNextToken = Nothing
+    , _lpaMaxResults = Nothing
+    , _lpaDirectoryARN = pDirectoryARN_
+    , _lpaPolicyReference = pPolicyReference_
+    }
 
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 lpaConsistencyLevel :: Lens' ListPolicyAttachments (Maybe ConsistencyLevel)
-lpaConsistencyLevel = lens _lpaConsistencyLevel (\ s a -> s{_lpaConsistencyLevel = a});
+lpaConsistencyLevel = lens _lpaConsistencyLevel (\ s a -> s{_lpaConsistencyLevel = a})
 
 -- | The pagination token.
 lpaNextToken :: Lens' ListPolicyAttachments (Maybe Text)
-lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a});
+lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a})
 
 -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 lpaMaxResults :: Lens' ListPolicyAttachments (Maybe Natural)
-lpaMaxResults = lens _lpaMaxResults (\ s a -> s{_lpaMaxResults = a}) . mapping _Nat;
+lpaMaxResults = lens _lpaMaxResults (\ s a -> s{_lpaMaxResults = a}) . mapping _Nat
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
 lpaDirectoryARN :: Lens' ListPolicyAttachments Text
-lpaDirectoryARN = lens _lpaDirectoryARN (\ s a -> s{_lpaDirectoryARN = a});
+lpaDirectoryARN = lens _lpaDirectoryARN (\ s a -> s{_lpaDirectoryARN = a})
 
 -- | The reference that identifies the policy object.
 lpaPolicyReference :: Lens' ListPolicyAttachments ObjectReference
-lpaPolicyReference = lens _lpaPolicyReference (\ s a -> s{_lpaPolicyReference = a});
+lpaPolicyReference = lens _lpaPolicyReference (\ s a -> s{_lpaPolicyReference = a})
+
+instance AWSPager ListPolicyAttachments where
+        page rq rs
+          | stop (rs ^. lparsNextToken) = Nothing
+          | stop (rs ^. lparsObjectIdentifiers) = Nothing
+          | otherwise =
+            Just $ rq & lpaNextToken .~ rs ^. lparsNextToken
 
 instance AWSRequest ListPolicyAttachments where
         type Rs ListPolicyAttachments =
@@ -166,22 +176,22 @@ listPolicyAttachmentsResponse
     -> ListPolicyAttachmentsResponse
 listPolicyAttachmentsResponse pResponseStatus_ =
   ListPolicyAttachmentsResponse'
-  { _lparsObjectIdentifiers = Nothing
-  , _lparsNextToken = Nothing
-  , _lparsResponseStatus = pResponseStatus_
-  }
+    { _lparsObjectIdentifiers = Nothing
+    , _lparsNextToken = Nothing
+    , _lparsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of @ObjectIdentifiers@ to which the policy is attached.
 lparsObjectIdentifiers :: Lens' ListPolicyAttachmentsResponse [Text]
-lparsObjectIdentifiers = lens _lparsObjectIdentifiers (\ s a -> s{_lparsObjectIdentifiers = a}) . _Default . _Coerce;
+lparsObjectIdentifiers = lens _lparsObjectIdentifiers (\ s a -> s{_lparsObjectIdentifiers = a}) . _Default . _Coerce
 
 -- | The pagination token.
 lparsNextToken :: Lens' ListPolicyAttachmentsResponse (Maybe Text)
-lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a});
+lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a})
 
 -- | -- | The response status code.
 lparsResponseStatus :: Lens' ListPolicyAttachmentsResponse Int
-lparsResponseStatus = lens _lparsResponseStatus (\ s a -> s{_lparsResponseStatus = a});
+lparsResponseStatus = lens _lparsResponseStatus (\ s a -> s{_lparsResponseStatus = a})
 
 instance NFData ListPolicyAttachmentsResponse where

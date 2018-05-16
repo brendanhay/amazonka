@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,6 +61,9 @@ module Network.AWS.CertificateManager
     -- ** ResendValidationEmail
     , module Network.AWS.CertificateManager.ResendValidationEmail
 
+    -- ** UpdateCertificateOptions
+    , module Network.AWS.CertificateManager.UpdateCertificateOptions
+
     -- ** ListTagsForCertificate
     , module Network.AWS.CertificateManager.ListTagsForCertificate
 
@@ -88,10 +91,16 @@ module Network.AWS.CertificateManager
     -- ** DescribeCertificate
     , module Network.AWS.CertificateManager.DescribeCertificate
 
+    -- ** ExportCertificate
+    , module Network.AWS.CertificateManager.ExportCertificate
+
     -- * Types
 
     -- ** CertificateStatus
     , CertificateStatus (..)
+
+    -- ** CertificateTransparencyLoggingPreference
+    , CertificateTransparencyLoggingPreference (..)
 
     -- ** CertificateType
     , CertificateType (..)
@@ -99,17 +108,32 @@ module Network.AWS.CertificateManager
     -- ** DomainStatus
     , DomainStatus (..)
 
+    -- ** ExtendedKeyUsageName
+    , ExtendedKeyUsageName (..)
+
     -- ** FailureReason
     , FailureReason (..)
 
     -- ** KeyAlgorithm
     , KeyAlgorithm (..)
 
+    -- ** KeyUsageName
+    , KeyUsageName (..)
+
+    -- ** RecordType
+    , RecordType (..)
+
+    -- ** RenewalEligibility
+    , RenewalEligibility (..)
+
     -- ** RenewalStatus
     , RenewalStatus (..)
 
     -- ** RevocationReason
     , RevocationReason (..)
+
+    -- ** ValidationMethod
+    , ValidationMethod (..)
 
     -- ** CertificateDetail
     , CertificateDetail
@@ -122,7 +146,10 @@ module Network.AWS.CertificateManager
     , cdCreatedAt
     , cdCertificateARN
     , cdSerial
+    , cdRenewalEligibility
+    , cdExtendedKeyUsages
     , cdImportedAt
+    , cdKeyUsages
     , cdRevokedAt
     , cdNotBefore
     , cdRevocationReason
@@ -130,11 +157,18 @@ module Network.AWS.CertificateManager
     , cdRenewalSummary
     , cdKeyAlgorithm
     , cdType
+    , cdOptions
     , cdIssuedAt
     , cdSignatureAlgorithm
     , cdDomainValidationOptions
     , cdIssuer
     , cdNotAfter
+    , cdCertificateAuthorityARN
+
+    -- ** CertificateOptions
+    , CertificateOptions
+    , certificateOptions
+    , coCertificateTransparencyLoggingPreference
 
     -- ** CertificateSummary
     , CertificateSummary
@@ -146,6 +180,8 @@ module Network.AWS.CertificateManager
     , DomainValidation
     , domainValidation
     , dvValidationEmails
+    , dvValidationMethod
+    , dvResourceRecord
     , dvValidationStatus
     , dvValidationDomain
     , dvDomainName
@@ -156,11 +192,36 @@ module Network.AWS.CertificateManager
     , dvoDomainName
     , dvoValidationDomain
 
+    -- ** ExtendedKeyUsage
+    , ExtendedKeyUsage
+    , extendedKeyUsage
+    , ekuOId
+    , ekuName
+
+    -- ** Filters
+    , Filters
+    , filters
+    , fKeyTypes
+    , fKeyUsage
+    , fExtendedKeyUsage
+
+    -- ** KeyUsage
+    , KeyUsage
+    , keyUsage
+    , kuName
+
     -- ** RenewalSummary
     , RenewalSummary
     , renewalSummary
     , rsRenewalStatus
     , rsDomainValidationOptions
+
+    -- ** ResourceRecord
+    , ResourceRecord
+    , resourceRecord
+    , rrName
+    , rrType
+    , rrValue
 
     -- ** Tag
     , Tag
@@ -172,6 +233,7 @@ module Network.AWS.CertificateManager
 import Network.AWS.CertificateManager.AddTagsToCertificate
 import Network.AWS.CertificateManager.DeleteCertificate
 import Network.AWS.CertificateManager.DescribeCertificate
+import Network.AWS.CertificateManager.ExportCertificate
 import Network.AWS.CertificateManager.GetCertificate
 import Network.AWS.CertificateManager.ImportCertificate
 import Network.AWS.CertificateManager.ListCertificates
@@ -180,6 +242,7 @@ import Network.AWS.CertificateManager.RemoveTagsFromCertificate
 import Network.AWS.CertificateManager.RequestCertificate
 import Network.AWS.CertificateManager.ResendValidationEmail
 import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.UpdateCertificateOptions
 import Network.AWS.CertificateManager.Waiters
 
 {- $errors

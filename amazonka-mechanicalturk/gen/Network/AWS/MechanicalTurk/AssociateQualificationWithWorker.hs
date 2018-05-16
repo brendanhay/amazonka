@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ associateQualificationWithWorker
     -> AssociateQualificationWithWorker
 associateQualificationWithWorker pQualificationTypeId_ pWorkerId_ =
   AssociateQualificationWithWorker'
-  { _aqwwIntegerValue = Nothing
-  , _aqwwSendNotification = Nothing
-  , _aqwwQualificationTypeId = pQualificationTypeId_
-  , _aqwwWorkerId = pWorkerId_
-  }
+    { _aqwwIntegerValue = Nothing
+    , _aqwwSendNotification = Nothing
+    , _aqwwQualificationTypeId = pQualificationTypeId_
+    , _aqwwWorkerId = pWorkerId_
+    }
 
 
 -- | The value of the Qualification to assign.
 aqwwIntegerValue :: Lens' AssociateQualificationWithWorker (Maybe Int)
-aqwwIntegerValue = lens _aqwwIntegerValue (\ s a -> s{_aqwwIntegerValue = a});
+aqwwIntegerValue = lens _aqwwIntegerValue (\ s a -> s{_aqwwIntegerValue = a})
 
 -- | Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default.
 aqwwSendNotification :: Lens' AssociateQualificationWithWorker (Maybe Bool)
-aqwwSendNotification = lens _aqwwSendNotification (\ s a -> s{_aqwwSendNotification = a});
+aqwwSendNotification = lens _aqwwSendNotification (\ s a -> s{_aqwwSendNotification = a})
 
 -- | The ID of the Qualification type to use for the assigned Qualification.
 aqwwQualificationTypeId :: Lens' AssociateQualificationWithWorker Text
-aqwwQualificationTypeId = lens _aqwwQualificationTypeId (\ s a -> s{_aqwwQualificationTypeId = a});
+aqwwQualificationTypeId = lens _aqwwQualificationTypeId (\ s a -> s{_aqwwQualificationTypeId = a})
 
 -- | The ID of the Worker to whom the Qualification is being assigned. Worker IDs are included with submitted HIT assignments and Qualification requests.
 aqwwWorkerId :: Lens' AssociateQualificationWithWorker Text
-aqwwWorkerId = lens _aqwwWorkerId (\ s a -> s{_aqwwWorkerId = a});
+aqwwWorkerId = lens _aqwwWorkerId (\ s a -> s{_aqwwWorkerId = a})
 
 instance AWSRequest AssociateQualificationWithWorker
          where
@@ -160,12 +160,12 @@ associateQualificationWithWorkerResponse
     -> AssociateQualificationWithWorkerResponse
 associateQualificationWithWorkerResponse pResponseStatus_ =
   AssociateQualificationWithWorkerResponse'
-  {_aqwwrsResponseStatus = pResponseStatus_}
+    {_aqwwrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 aqwwrsResponseStatus :: Lens' AssociateQualificationWithWorkerResponse Int
-aqwwrsResponseStatus = lens _aqwwrsResponseStatus (\ s a -> s{_aqwwrsResponseStatus = a});
+aqwwrsResponseStatus = lens _aqwwrsResponseStatus (\ s a -> s{_aqwwrsResponseStatus = a})
 
 instance NFData
            AssociateQualificationWithWorkerResponse

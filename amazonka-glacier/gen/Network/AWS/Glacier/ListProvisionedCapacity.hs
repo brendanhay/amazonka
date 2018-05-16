@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListProvisionedCapacity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists the provisioned capacity for the specified AWS account.
+-- This operation lists the provisioned capacity units for the specified AWS account.
 --
 --
 module Network.AWS.Glacier.ListProvisionedCapacity
@@ -54,7 +54,7 @@ newtype ListProvisionedCapacity = ListProvisionedCapacity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpcAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
+-- * 'lpcAccountId' - The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
 listProvisionedCapacity
     :: Text -- ^ 'lpcAccountId'
     -> ListProvisionedCapacity
@@ -62,9 +62,9 @@ listProvisionedCapacity pAccountId_ =
   ListProvisionedCapacity' {_lpcAccountId = pAccountId_}
 
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
+-- | The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
 lpcAccountId :: Lens' ListProvisionedCapacity Text
-lpcAccountId = lens _lpcAccountId (\ s a -> s{_lpcAccountId = a});
+lpcAccountId = lens _lpcAccountId (\ s a -> s{_lpcAccountId = a})
 
 instance AWSRequest ListProvisionedCapacity where
         type Rs ListProvisionedCapacity =
@@ -111,17 +111,17 @@ listProvisionedCapacityResponse
     -> ListProvisionedCapacityResponse
 listProvisionedCapacityResponse pResponseStatus_ =
   ListProvisionedCapacityResponse'
-  { _lpcrsProvisionedCapacityList = Nothing
-  , _lpcrsResponseStatus = pResponseStatus_
-  }
+    { _lpcrsProvisionedCapacityList = Nothing
+    , _lpcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The response body contains the following JSON fields.
 lpcrsProvisionedCapacityList :: Lens' ListProvisionedCapacityResponse [ProvisionedCapacityDescription]
-lpcrsProvisionedCapacityList = lens _lpcrsProvisionedCapacityList (\ s a -> s{_lpcrsProvisionedCapacityList = a}) . _Default . _Coerce;
+lpcrsProvisionedCapacityList = lens _lpcrsProvisionedCapacityList (\ s a -> s{_lpcrsProvisionedCapacityList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lpcrsResponseStatus :: Lens' ListProvisionedCapacityResponse Int
-lpcrsResponseStatus = lens _lpcrsResponseStatus (\ s a -> s{_lpcrsResponseStatus = a});
+lpcrsResponseStatus = lens _lpcrsResponseStatus (\ s a -> s{_lpcrsResponseStatus = a})
 
 instance NFData ListProvisionedCapacityResponse where

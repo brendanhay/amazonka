@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateTapeWithBarcode
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a virtual tape by using your own barcode. You write data to the virtual tape and then archive the tape. A barcode is unique and can not be reused if it has already been used on a tape . This applies to barcodes used on deleted tapes. This operation is only supported in the tape gateway. architecture.
+-- Creates a virtual tape by using your own barcode. You write data to the virtual tape and then archive the tape. A barcode is unique and can not be reused if it has already been used on a tape . This applies to barcodes used on deleted tapes. This operation is only supported in the tape gateway type.
 --
 --
 module Network.AWS.StorageGateway.CreateTapeWithBarcode
@@ -74,23 +74,23 @@ createTapeWithBarcode
     -> CreateTapeWithBarcode
 createTapeWithBarcode pGatewayARN_ pTapeSizeInBytes_ pTapeBarcode_ =
   CreateTapeWithBarcode'
-  { _ctwbGatewayARN = pGatewayARN_
-  , _ctwbTapeSizeInBytes = pTapeSizeInBytes_
-  , _ctwbTapeBarcode = pTapeBarcode_
-  }
+    { _ctwbGatewayARN = pGatewayARN_
+    , _ctwbTapeSizeInBytes = pTapeSizeInBytes_
+    , _ctwbTapeBarcode = pTapeBarcode_
+    }
 
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tape with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 ctwbGatewayARN :: Lens' CreateTapeWithBarcode Text
-ctwbGatewayARN = lens _ctwbGatewayARN (\ s a -> s{_ctwbGatewayARN = a});
+ctwbGatewayARN = lens _ctwbGatewayARN (\ s a -> s{_ctwbGatewayARN = a})
 
 -- | The size, in bytes, of the virtual tape that you want to create.
 ctwbTapeSizeInBytes :: Lens' CreateTapeWithBarcode Integer
-ctwbTapeSizeInBytes = lens _ctwbTapeSizeInBytes (\ s a -> s{_ctwbTapeSizeInBytes = a});
+ctwbTapeSizeInBytes = lens _ctwbTapeSizeInBytes (\ s a -> s{_ctwbTapeSizeInBytes = a})
 
 -- | The barcode that you want to assign to the tape.
 ctwbTapeBarcode :: Lens' CreateTapeWithBarcode Text
-ctwbTapeBarcode = lens _ctwbTapeBarcode (\ s a -> s{_ctwbTapeBarcode = a});
+ctwbTapeBarcode = lens _ctwbTapeBarcode (\ s a -> s{_ctwbTapeBarcode = a})
 
 instance AWSRequest CreateTapeWithBarcode where
         type Rs CreateTapeWithBarcode =
@@ -153,15 +153,15 @@ createTapeWithBarcodeResponse
     -> CreateTapeWithBarcodeResponse
 createTapeWithBarcodeResponse pResponseStatus_ =
   CreateTapeWithBarcodeResponse'
-  {_ctwbrsTapeARN = Nothing, _ctwbrsResponseStatus = pResponseStatus_}
+    {_ctwbrsTapeARN = Nothing, _ctwbrsResponseStatus = pResponseStatus_}
 
 
 -- | A unique Amazon Resource Name (ARN) that represents the virtual tape that was created.
 ctwbrsTapeARN :: Lens' CreateTapeWithBarcodeResponse (Maybe Text)
-ctwbrsTapeARN = lens _ctwbrsTapeARN (\ s a -> s{_ctwbrsTapeARN = a});
+ctwbrsTapeARN = lens _ctwbrsTapeARN (\ s a -> s{_ctwbrsTapeARN = a})
 
 -- | -- | The response status code.
 ctwbrsResponseStatus :: Lens' CreateTapeWithBarcodeResponse Int
-ctwbrsResponseStatus = lens _ctwbrsResponseStatus (\ s a -> s{_ctwbrsResponseStatus = a});
+ctwbrsResponseStatus = lens _ctwbrsResponseStatus (\ s a -> s{_ctwbrsResponseStatus = a})
 
 instance NFData CreateTapeWithBarcodeResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeRefreshSchemasStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ describeRefreshSchemasStatus pEndpointARN_ =
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 drssEndpointARN :: Lens' DescribeRefreshSchemasStatus Text
-drssEndpointARN = lens _drssEndpointARN (\ s a -> s{_drssEndpointARN = a});
+drssEndpointARN = lens _drssEndpointARN (\ s a -> s{_drssEndpointARN = a})
 
 instance AWSRequest DescribeRefreshSchemasStatus
          where
@@ -131,18 +131,18 @@ describeRefreshSchemasStatusResponse
     -> DescribeRefreshSchemasStatusResponse
 describeRefreshSchemasStatusResponse pResponseStatus_ =
   DescribeRefreshSchemasStatusResponse'
-  { _drssrsRefreshSchemasStatus = Nothing
-  , _drssrsResponseStatus = pResponseStatus_
-  }
+    { _drssrsRefreshSchemasStatus = Nothing
+    , _drssrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the schema.
 drssrsRefreshSchemasStatus :: Lens' DescribeRefreshSchemasStatusResponse (Maybe RefreshSchemasStatus)
-drssrsRefreshSchemasStatus = lens _drssrsRefreshSchemasStatus (\ s a -> s{_drssrsRefreshSchemasStatus = a});
+drssrsRefreshSchemasStatus = lens _drssrsRefreshSchemasStatus (\ s a -> s{_drssrsRefreshSchemasStatus = a})
 
 -- | -- | The response status code.
 drssrsResponseStatus :: Lens' DescribeRefreshSchemasStatusResponse Int
-drssrsResponseStatus = lens _drssrsResponseStatus (\ s a -> s{_drssrsResponseStatus = a});
+drssrsResponseStatus = lens _drssrsResponseStatus (\ s a -> s{_drssrsResponseStatus = a})
 
 instance NFData DescribeRefreshSchemasStatusResponse
          where

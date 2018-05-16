@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DisableGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Disables a tape gateway when the gateway is no longer functioning. For example, if your gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.
 --
 --
--- Use this operation for a tape gateway that is not reachable or not functioning. This operation is only supported in the tape gateway architectures.
+-- Use this operation for a tape gateway that is not reachable or not functioning. This operation is only supported in the tape gateway type.
 --
 -- /Important:/ Once a gateway is disabled it cannot be enabled.
 --
@@ -71,7 +71,7 @@ disableGateway pGatewayARN_ = DisableGateway' {_dGatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
 dGatewayARN :: Lens' DisableGateway Text
-dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a});
+dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a})
 
 instance AWSRequest DisableGateway where
         type Rs DisableGateway = DisableGatewayResponse
@@ -130,15 +130,15 @@ disableGatewayResponse
     -> DisableGatewayResponse
 disableGatewayResponse pResponseStatus_ =
   DisableGatewayResponse'
-  {_disrsGatewayARN = Nothing, _disrsResponseStatus = pResponseStatus_}
+    {_disrsGatewayARN = Nothing, _disrsResponseStatus = pResponseStatus_}
 
 
 -- | The unique Amazon Resource Name of the disabled gateway.
 disrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
-disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a});
+disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a})
 
 -- | -- | The response status code.
 disrsResponseStatus :: Lens' DisableGatewayResponse Int
-disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
+disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a})
 
 instance NFData DisableGatewayResponse where

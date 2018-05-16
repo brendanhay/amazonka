@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetConnectivityInfo
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,7 @@ newtype GetConnectivityInfo = GetConnectivityInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gciThingName' - Thing Name
+-- * 'gciThingName' - The thing name.
 getConnectivityInfo
     :: Text -- ^ 'gciThingName'
     -> GetConnectivityInfo
@@ -61,9 +61,9 @@ getConnectivityInfo pThingName_ =
   GetConnectivityInfo' {_gciThingName = pThingName_}
 
 
--- | Thing Name
+-- | The thing name.
 gciThingName :: Lens' GetConnectivityInfo Text
-gciThingName = lens _gciThingName (\ s a -> s{_gciThingName = a});
+gciThingName = lens _gciThingName (\ s a -> s{_gciThingName = a})
 
 instance AWSRequest GetConnectivityInfo where
         type Rs GetConnectivityInfo =
@@ -109,9 +109,9 @@ data GetConnectivityInfoResponse = GetConnectivityInfoResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcirsMessage' - Response Text
+-- * 'gcirsMessage' - A message about the connectivity info request.
 --
--- * 'gcirsConnectivityInfo' - Connectivity info list
+-- * 'gcirsConnectivityInfo' - Connectivity info list.
 --
 -- * 'gcirsResponseStatus' - -- | The response status code.
 getConnectivityInfoResponse
@@ -119,22 +119,22 @@ getConnectivityInfoResponse
     -> GetConnectivityInfoResponse
 getConnectivityInfoResponse pResponseStatus_ =
   GetConnectivityInfoResponse'
-  { _gcirsMessage = Nothing
-  , _gcirsConnectivityInfo = Nothing
-  , _gcirsResponseStatus = pResponseStatus_
-  }
+    { _gcirsMessage = Nothing
+    , _gcirsConnectivityInfo = Nothing
+    , _gcirsResponseStatus = pResponseStatus_
+    }
 
 
--- | Response Text
+-- | A message about the connectivity info request.
 gcirsMessage :: Lens' GetConnectivityInfoResponse (Maybe Text)
-gcirsMessage = lens _gcirsMessage (\ s a -> s{_gcirsMessage = a});
+gcirsMessage = lens _gcirsMessage (\ s a -> s{_gcirsMessage = a})
 
--- | Connectivity info list
+-- | Connectivity info list.
 gcirsConnectivityInfo :: Lens' GetConnectivityInfoResponse [ConnectivityInfo]
-gcirsConnectivityInfo = lens _gcirsConnectivityInfo (\ s a -> s{_gcirsConnectivityInfo = a}) . _Default . _Coerce;
+gcirsConnectivityInfo = lens _gcirsConnectivityInfo (\ s a -> s{_gcirsConnectivityInfo = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gcirsResponseStatus :: Lens' GetConnectivityInfoResponse Int
-gcirsResponseStatus = lens _gcirsResponseStatus (\ s a -> s{_gcirsResponseStatus = a});
+gcirsResponseStatus = lens _gcirsResponseStatus (\ s a -> s{_gcirsResponseStatus = a})
 
 instance NFData GetConnectivityInfoResponse where

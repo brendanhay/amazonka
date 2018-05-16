@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateAuthorizer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,32 +73,32 @@ data UpdateAuthorizer = UpdateAuthorizer'
 --
 -- * 'uaaPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uaaRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'uaaRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'uaaAuthorizerId' - The identifier of the 'Authorizer' resource.
+-- * 'uaaAuthorizerId' - [Required] The identifier of the 'Authorizer' resource.
 updateAuthorizer
     :: Text -- ^ 'uaaRestAPIId'
     -> Text -- ^ 'uaaAuthorizerId'
     -> UpdateAuthorizer
 updateAuthorizer pRestAPIId_ pAuthorizerId_ =
   UpdateAuthorizer'
-  { _uaaPatchOperations = Nothing
-  , _uaaRestAPIId = pRestAPIId_
-  , _uaaAuthorizerId = pAuthorizerId_
-  }
+    { _uaaPatchOperations = Nothing
+    , _uaaRestAPIId = pRestAPIId_
+    , _uaaAuthorizerId = pAuthorizerId_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uaaPatchOperations :: Lens' UpdateAuthorizer [PatchOperation]
-uaaPatchOperations = lens _uaaPatchOperations (\ s a -> s{_uaaPatchOperations = a}) . _Default . _Coerce;
+uaaPatchOperations = lens _uaaPatchOperations (\ s a -> s{_uaaPatchOperations = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 uaaRestAPIId :: Lens' UpdateAuthorizer Text
-uaaRestAPIId = lens _uaaRestAPIId (\ s a -> s{_uaaRestAPIId = a});
+uaaRestAPIId = lens _uaaRestAPIId (\ s a -> s{_uaaRestAPIId = a})
 
--- | The identifier of the 'Authorizer' resource.
+-- | [Required] The identifier of the 'Authorizer' resource.
 uaaAuthorizerId :: Lens' UpdateAuthorizer Text
-uaaAuthorizerId = lens _uaaAuthorizerId (\ s a -> s{_uaaAuthorizerId = a});
+uaaAuthorizerId = lens _uaaAuthorizerId (\ s a -> s{_uaaAuthorizerId = a})
 
 instance AWSRequest UpdateAuthorizer where
         type Rs UpdateAuthorizer = Authorizer

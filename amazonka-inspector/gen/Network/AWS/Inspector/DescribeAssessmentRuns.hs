@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeAssessmentRuns
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ describeAssessmentRuns pAssessmentRunARNs_ =
 
 -- | The ARN that specifies the assessment run that you want to describe.
 darAssessmentRunARNs :: Lens' DescribeAssessmentRuns (NonEmpty Text)
-darAssessmentRunARNs = lens _darAssessmentRunARNs (\ s a -> s{_darAssessmentRunARNs = a}) . _List1;
+darAssessmentRunARNs = lens _darAssessmentRunARNs (\ s a -> s{_darAssessmentRunARNs = a}) . _List1
 
 instance AWSRequest DescribeAssessmentRuns where
         type Rs DescribeAssessmentRuns =
@@ -128,22 +128,22 @@ describeAssessmentRunsResponse
     -> DescribeAssessmentRunsResponse
 describeAssessmentRunsResponse pResponseStatus_ =
   DescribeAssessmentRunsResponse'
-  { _darrsResponseStatus = pResponseStatus_
-  , _darrsAssessmentRuns = mempty
-  , _darrsFailedItems = mempty
-  }
+    { _darrsResponseStatus = pResponseStatus_
+    , _darrsAssessmentRuns = mempty
+    , _darrsFailedItems = mempty
+    }
 
 
 -- | -- | The response status code.
 darrsResponseStatus :: Lens' DescribeAssessmentRunsResponse Int
-darrsResponseStatus = lens _darrsResponseStatus (\ s a -> s{_darrsResponseStatus = a});
+darrsResponseStatus = lens _darrsResponseStatus (\ s a -> s{_darrsResponseStatus = a})
 
 -- | Information about the assessment run.
 darrsAssessmentRuns :: Lens' DescribeAssessmentRunsResponse [AssessmentRun]
-darrsAssessmentRuns = lens _darrsAssessmentRuns (\ s a -> s{_darrsAssessmentRuns = a}) . _Coerce;
+darrsAssessmentRuns = lens _darrsAssessmentRuns (\ s a -> s{_darrsAssessmentRuns = a}) . _Coerce
 
 -- | Assessment run details that cannot be described. An error code is provided for each failed item.
 darrsFailedItems :: Lens' DescribeAssessmentRunsResponse (HashMap Text FailedItemDetails)
-darrsFailedItems = lens _darrsFailedItems (\ s a -> s{_darrsFailedItems = a}) . _Map;
+darrsFailedItems = lens _darrsFailedItems (\ s a -> s{_darrsFailedItems = a}) . _Map
 
 instance NFData DescribeAssessmentRunsResponse where

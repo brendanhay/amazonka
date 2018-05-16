@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeTapes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a @TapeARN@ is not specified, returns a description of all virtual tapes associated with the specified gateway. This operation is only supported in the tape gateway architecture.
+-- Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a @TapeARN@ is not specified, returns a description of all virtual tapes associated with the specified gateway. This operation is only supported in the tape gateway type.
 --
 --
 --
@@ -80,28 +80,28 @@ describeTapes
     -> DescribeTapes
 describeTapes pGatewayARN_ =
   DescribeTapes'
-  { _dtMarker = Nothing
-  , _dtLimit = Nothing
-  , _dtTapeARNs = Nothing
-  , _dtGatewayARN = pGatewayARN_
-  }
+    { _dtMarker = Nothing
+    , _dtLimit = Nothing
+    , _dtTapeARNs = Nothing
+    , _dtGatewayARN = pGatewayARN_
+    }
 
 
 -- | A marker value, obtained in a previous call to @DescribeTapes@ . This marker indicates which page of results to retrieve.  If not specified, the first page of results is retrieved.
 dtMarker :: Lens' DescribeTapes (Maybe Text)
-dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
+dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a})
 
 -- | Specifies that the number of virtual tapes described be limited to the specified number.
 dtLimit :: Lens' DescribeTapes (Maybe Natural)
-dtLimit = lens _dtLimit (\ s a -> s{_dtLimit = a}) . mapping _Nat;
+dtLimit = lens _dtLimit (\ s a -> s{_dtLimit = a}) . mapping _Nat
 
 -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, Tape gateway returns a description of all virtual tapes associated with the specified gateway.
 dtTapeARNs :: Lens' DescribeTapes [Text]
-dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default . _Coerce;
+dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 dtGatewayARN :: Lens' DescribeTapes Text
-dtGatewayARN = lens _dtGatewayARN (\ s a -> s{_dtGatewayARN = a});
+dtGatewayARN = lens _dtGatewayARN (\ s a -> s{_dtGatewayARN = a})
 
 instance AWSPager DescribeTapes where
         page rq rs
@@ -175,22 +175,22 @@ describeTapesResponse
     -> DescribeTapesResponse
 describeTapesResponse pResponseStatus_ =
   DescribeTapesResponse'
-  { _dtsrsMarker = Nothing
-  , _dtsrsTapes = Nothing
-  , _dtsrsResponseStatus = pResponseStatus_
-  }
+    { _dtsrsMarker = Nothing
+    , _dtsrsTapes = Nothing
+    , _dtsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An opaque string which can be used as part of a subsequent DescribeTapes call to retrieve the next page of results. If a response does not contain a marker, then there are no more results to be retrieved.
 dtsrsMarker :: Lens' DescribeTapesResponse (Maybe Text)
-dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a});
+dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a})
 
 -- | An array of virtual tape descriptions.
 dtsrsTapes :: Lens' DescribeTapesResponse [Tape]
-dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default . _Coerce;
+dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtsrsResponseStatus :: Lens' DescribeTapesResponse Int
-dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
+dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a})
 
 instance NFData DescribeTapesResponse where

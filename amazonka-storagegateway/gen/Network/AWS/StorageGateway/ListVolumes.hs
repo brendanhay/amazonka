@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListVolumes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The response includes only the volume ARNs. If you want additional volume information, use the 'DescribeStorediSCSIVolumes' or the 'DescribeCachediSCSIVolumes' API.
 --
 --
--- The operation supports pagination. By default, the operation returns a maximum of up to 100 volumes. You can optionally specify the @Limit@ field in the body to limit the number of volumes in the response. If the number of volumes returned in the response is truncated, the response includes a Marker field. You can use this Marker value in your subsequent request to retrieve the next set of volumes. This operation is only supported in the cached volume and stored volume gateway architectures.
+-- The operation supports pagination. By default, the operation returns a maximum of up to 100 volumes. You can optionally specify the @Limit@ field in the body to limit the number of volumes in the response. If the number of volumes returned in the response is truncated, the response includes a Marker field. You can use this Marker value in your subsequent request to retrieve the next set of volumes. This operation is only supported in the cached volume and stored volume gateway types.
 --
 --
 -- This operation returns paginated results.
@@ -84,20 +84,20 @@ listVolumes
     :: ListVolumes
 listVolumes =
   ListVolumes'
-  {_lvGatewayARN = Nothing, _lvMarker = Nothing, _lvLimit = Nothing}
+    {_lvGatewayARN = Nothing, _lvMarker = Nothing, _lvLimit = Nothing}
 
 
 -- | Undocumented member.
 lvGatewayARN :: Lens' ListVolumes (Maybe Text)
-lvGatewayARN = lens _lvGatewayARN (\ s a -> s{_lvGatewayARN = a});
+lvGatewayARN = lens _lvGatewayARN (\ s a -> s{_lvGatewayARN = a})
 
 -- | A string that indicates the position at which to begin the returned list of volumes. Obtain the marker from the response of a previous List iSCSI Volumes request.
 lvMarker :: Lens' ListVolumes (Maybe Text)
-lvMarker = lens _lvMarker (\ s a -> s{_lvMarker = a});
+lvMarker = lens _lvMarker (\ s a -> s{_lvMarker = a})
 
 -- | Specifies that the list of volumes returned be limited to the specified number of items.
 lvLimit :: Lens' ListVolumes (Maybe Natural)
-lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a}) . mapping _Nat;
+lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a}) . mapping _Nat
 
 instance AWSPager ListVolumes where
         page rq rs
@@ -170,27 +170,27 @@ listVolumesResponse
     -> ListVolumesResponse
 listVolumesResponse pResponseStatus_ =
   ListVolumesResponse'
-  { _lvrsGatewayARN = Nothing
-  , _lvrsMarker = Nothing
-  , _lvrsVolumeInfos = Nothing
-  , _lvrsResponseStatus = pResponseStatus_
-  }
+    { _lvrsGatewayARN = Nothing
+    , _lvrsMarker = Nothing
+    , _lvrsVolumeInfos = Nothing
+    , _lvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 lvrsGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
-lvrsGatewayARN = lens _lvrsGatewayARN (\ s a -> s{_lvrsGatewayARN = a});
+lvrsGatewayARN = lens _lvrsGatewayARN (\ s a -> s{_lvrsGatewayARN = a})
 
 -- | Undocumented member.
 lvrsMarker :: Lens' ListVolumesResponse (Maybe Text)
-lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a});
+lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a})
 
 -- | Undocumented member.
 lvrsVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
-lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _Default . _Coerce;
+lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lvrsResponseStatus :: Lens' ListVolumesResponse Int
-lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a});
+lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a})
 
 instance NFData ListVolumesResponse where

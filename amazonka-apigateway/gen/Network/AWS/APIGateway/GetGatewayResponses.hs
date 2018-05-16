@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetGatewayResponses
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the 'GatewayResponses' collection on the given 'RestApi' . If an API developer has not added any definitions for gateway responses, the result will be the Amazon API Gateway-generated default 'GatewayResponses' collection for the supported response types.
+-- Gets the 'GatewayResponses' collection on the given 'RestApi' . If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default 'GatewayResponses' collection for the supported response types.
 --
 --
 module Network.AWS.APIGateway.GetGatewayResponses
@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Gets the 'GatewayResponses' collection on the given 'RestApi' . If an API developer has not added any definitions for gateway responses, the result will be the Amazon API Gateway-generated default 'GatewayResponses' collection for the supported response types.
+-- | Gets the 'GatewayResponses' collection on the given 'RestApi' . If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default 'GatewayResponses' collection for the supported response types.
 --
 --
 --
@@ -63,30 +63,30 @@ data GetGatewayResponses = GetGatewayResponses'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggrLimit' - The maximum number of returned results per page. The 'GatewayResponses' collection does not support pagination and the limit does not apply here.
+-- * 'ggrLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The 'GatewayResponses' collection does not support pagination and the limit does not apply here.
 --
 -- * 'ggrPosition' - The current pagination position in the paged result set. The 'GatewayResponse' collection does not support pagination and the position does not apply here.
 --
--- * 'ggrRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'ggrRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 getGatewayResponses
     :: Text -- ^ 'ggrRestAPIId'
     -> GetGatewayResponses
 getGatewayResponses pRestAPIId_ =
   GetGatewayResponses'
-  {_ggrLimit = Nothing, _ggrPosition = Nothing, _ggrRestAPIId = pRestAPIId_}
+    {_ggrLimit = Nothing, _ggrPosition = Nothing, _ggrRestAPIId = pRestAPIId_}
 
 
--- | The maximum number of returned results per page. The 'GatewayResponses' collection does not support pagination and the limit does not apply here.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The 'GatewayResponses' collection does not support pagination and the limit does not apply here.
 ggrLimit :: Lens' GetGatewayResponses (Maybe Int)
-ggrLimit = lens _ggrLimit (\ s a -> s{_ggrLimit = a});
+ggrLimit = lens _ggrLimit (\ s a -> s{_ggrLimit = a})
 
 -- | The current pagination position in the paged result set. The 'GatewayResponse' collection does not support pagination and the position does not apply here.
 ggrPosition :: Lens' GetGatewayResponses (Maybe Text)
-ggrPosition = lens _ggrPosition (\ s a -> s{_ggrPosition = a});
+ggrPosition = lens _ggrPosition (\ s a -> s{_ggrPosition = a})
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 ggrRestAPIId :: Lens' GetGatewayResponses Text
-ggrRestAPIId = lens _ggrRestAPIId (\ s a -> s{_ggrRestAPIId = a});
+ggrRestAPIId = lens _ggrRestAPIId (\ s a -> s{_ggrRestAPIId = a})
 
 instance AWSRequest GetGatewayResponses where
         type Rs GetGatewayResponses =
@@ -123,7 +123,7 @@ instance ToQuery GetGatewayResponses where
 -- | The collection of the 'GatewayResponse' instances of a 'RestApi' as a @responseType@ -to-'GatewayResponse' object map of key-value pairs. As such, pagination is not supported for querying this collection.
 --
 --
--- For more information about valid gateway response types, see <http://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html Gateway Response Types Supported by Amazon API Gateway> __Example: Get the collection of gateway responses of an API__
+-- For more information about valid gateway response types, see <http://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html Gateway Response Types Supported by API Gateway> __Example: Get the collection of gateway responses of an API__
 -- __Request__
 -- This example request shows how to retrieve the 'GatewayResponses' collection from an API.
 --
@@ -158,22 +158,22 @@ getGatewayResponsesResponse
     -> GetGatewayResponsesResponse
 getGatewayResponsesResponse pResponseStatus_ =
   GetGatewayResponsesResponse'
-  { _ggrrsItems = Nothing
-  , _ggrrsPosition = Nothing
-  , _ggrrsResponseStatus = pResponseStatus_
-  }
+    { _ggrrsItems = Nothing
+    , _ggrrsPosition = Nothing
+    , _ggrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Returns the entire collection, because of no pagination support.
 ggrrsItems :: Lens' GetGatewayResponsesResponse [GatewayResponse]
-ggrrsItems = lens _ggrrsItems (\ s a -> s{_ggrrsItems = a}) . _Default . _Coerce;
+ggrrsItems = lens _ggrrsItems (\ s a -> s{_ggrrsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 ggrrsPosition :: Lens' GetGatewayResponsesResponse (Maybe Text)
-ggrrsPosition = lens _ggrrsPosition (\ s a -> s{_ggrrsPosition = a});
+ggrrsPosition = lens _ggrrsPosition (\ s a -> s{_ggrrsPosition = a})
 
 -- | -- | The response status code.
 ggrrsResponseStatus :: Lens' GetGatewayResponsesResponse Int
-ggrrsResponseStatus = lens _ggrrsResponseStatus (\ s a -> s{_ggrrsResponseStatus = a});
+ggrrsResponseStatus = lens _ggrrsResponseStatus (\ s a -> s{_ggrrsResponseStatus = a})
 
 instance NFData GetGatewayResponsesResponse where

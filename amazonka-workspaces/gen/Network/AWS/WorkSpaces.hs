@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -13,7 +13,7 @@
 --
 -- __Amazon WorkSpaces Service__
 --
--- This reference provides detailed information about the Amazon WorkSpaces operations.
+-- Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows desktops for your users.
 --
 module Network.AWS.WorkSpaces
     (
@@ -26,20 +26,32 @@ module Network.AWS.WorkSpaces
     -- ** AccessDeniedException
     , _AccessDeniedException
 
+    -- ** ResourceCreationFailedException
+    , _ResourceCreationFailedException
+
     -- ** ResourceUnavailableException
     , _ResourceUnavailableException
 
     -- ** InvalidParameterValuesException
     , _InvalidParameterValuesException
 
+    -- ** ResourceAssociatedException
+    , _ResourceAssociatedException
+
     -- ** OperationInProgressException
     , _OperationInProgressException
+
+    -- ** ResourceAlreadyExistsException
+    , _ResourceAlreadyExistsException
 
     -- ** ResourceLimitExceededException
     , _ResourceLimitExceededException
 
     -- ** InvalidResourceStateException
     , _InvalidResourceStateException
+
+    -- ** OperationNotSupportedException
+    , _OperationNotSupportedException
 
     -- ** UnsupportedWorkspaceConfigurationException
     , _UnsupportedWorkspaceConfigurationException
@@ -53,6 +65,9 @@ module Network.AWS.WorkSpaces
     -- * Operations
     -- $operations
 
+    -- ** RevokeIPRules
+    , module Network.AWS.WorkSpaces.RevokeIPRules
+
     -- ** ModifyWorkspaceProperties
     , module Network.AWS.WorkSpaces.ModifyWorkspaceProperties
 
@@ -62,11 +77,23 @@ module Network.AWS.WorkSpaces
     -- ** DescribeWorkspaceDirectories (Paginated)
     , module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
 
+    -- ** DisassociateIPGroups
+    , module Network.AWS.WorkSpaces.DisassociateIPGroups
+
     -- ** DescribeWorkspaceBundles (Paginated)
     , module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
 
+    -- ** AuthorizeIPRules
+    , module Network.AWS.WorkSpaces.AuthorizeIPRules
+
     -- ** RebuildWorkspaces
     , module Network.AWS.WorkSpaces.RebuildWorkspaces
+
+    -- ** ModifyWorkspaceState
+    , module Network.AWS.WorkSpaces.ModifyWorkspaceState
+
+    -- ** CreateIPGroup
+    , module Network.AWS.WorkSpaces.CreateIPGroup
 
     -- ** CreateTags
     , module Network.AWS.WorkSpaces.CreateTags
@@ -74,8 +101,14 @@ module Network.AWS.WorkSpaces
     -- ** DeleteTags
     , module Network.AWS.WorkSpaces.DeleteTags
 
+    -- ** UpdateRulesOfIPGroup
+    , module Network.AWS.WorkSpaces.UpdateRulesOfIPGroup
+
     -- ** StopWorkspaces
     , module Network.AWS.WorkSpaces.StopWorkspaces
+
+    -- ** AssociateIPGroups
+    , module Network.AWS.WorkSpaces.AssociateIPGroups
 
     -- ** DescribeWorkspacesConnectionStatus
     , module Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
@@ -83,11 +116,17 @@ module Network.AWS.WorkSpaces
     -- ** RebootWorkspaces
     , module Network.AWS.WorkSpaces.RebootWorkspaces
 
+    -- ** DeleteIPGroup
+    , module Network.AWS.WorkSpaces.DeleteIPGroup
+
     -- ** TerminateWorkspaces
     , module Network.AWS.WorkSpaces.TerminateWorkspaces
 
     -- ** CreateWorkspaces
     , module Network.AWS.WorkSpaces.CreateWorkspaces
+
+    -- ** DescribeIPGroups
+    , module Network.AWS.WorkSpaces.DescribeIPGroups
 
     -- ** DescribeWorkspaces (Paginated)
     , module Network.AWS.WorkSpaces.DescribeWorkspaces
@@ -103,8 +142,17 @@ module Network.AWS.WorkSpaces
     -- ** ConnectionState
     , ConnectionState (..)
 
+    -- ** ModificationResourceEnum
+    , ModificationResourceEnum (..)
+
+    -- ** ModificationStateEnum
+    , ModificationStateEnum (..)
+
     -- ** RunningMode
     , RunningMode (..)
+
+    -- ** TargetWorkspaceState
+    , TargetWorkspaceState (..)
 
     -- ** WorkspaceDirectoryState
     , WorkspaceDirectoryState (..)
@@ -143,6 +191,18 @@ module Network.AWS.WorkSpaces
     , fwcrWorkspaceId
     , fwcrErrorMessage
 
+    -- ** IPRuleItem
+    , IPRuleItem
+    , ipRuleItem
+    , iriRuleDesc
+    , iriIpRule
+
+    -- ** ModificationState
+    , ModificationState
+    , modificationState
+    , msState
+    , msResource
+
     -- ** RebootRequest
     , RebootRequest
     , rebootRequest
@@ -152,6 +212,11 @@ module Network.AWS.WorkSpaces
     , RebuildRequest
     , rebuildRequest
     , rrWorkspaceId
+
+    -- ** RootStorage
+    , RootStorage
+    , rootStorage
+    , rsCapacity
 
     -- ** StartRequest
     , StartRequest
@@ -185,6 +250,7 @@ module Network.AWS.WorkSpaces
     , wDirectoryId
     , wState
     , wIPAddress
+    , wModificationStates
     , wUserName
     , wSubnetId
     , wBundleId
@@ -202,6 +268,7 @@ module Network.AWS.WorkSpaces
     , workspaceBundle
     , wbBundleId
     , wbOwner
+    , wbRootStorage
     , wbName
     , wbComputeType
     , wbUserStorage
@@ -224,6 +291,7 @@ module Network.AWS.WorkSpaces
     , wdState
     , wdCustomerUserName
     , wdSubnetIds
+    , wdIpGroupIds
     , wdAlias
     , wdWorkspaceSecurityGroupId
     , wdDirectoryType
@@ -234,8 +302,11 @@ module Network.AWS.WorkSpaces
     -- ** WorkspaceProperties
     , WorkspaceProperties
     , workspaceProperties
+    , wpComputeTypeName
     , wpRunningMode
+    , wpRootVolumeSizeGib
     , wpRunningModeAutoStopTimeoutInMinutes
+    , wpUserVolumeSizeGib
 
     -- ** WorkspaceRequest
     , WorkspaceRequest
@@ -248,23 +319,40 @@ module Network.AWS.WorkSpaces
     , wrDirectoryId
     , wrUserName
     , wrBundleId
+
+    -- ** WorkspacesIPGroup
+    , WorkspacesIPGroup
+    , workspacesIPGroup
+    , wigGroupDesc
+    , wigUserRules
+    , wigGroupId
+    , wigGroupName
     ) where
 
+import Network.AWS.WorkSpaces.AssociateIPGroups
+import Network.AWS.WorkSpaces.AuthorizeIPRules
+import Network.AWS.WorkSpaces.CreateIPGroup
 import Network.AWS.WorkSpaces.CreateTags
 import Network.AWS.WorkSpaces.CreateWorkspaces
+import Network.AWS.WorkSpaces.DeleteIPGroup
 import Network.AWS.WorkSpaces.DeleteTags
+import Network.AWS.WorkSpaces.DescribeIPGroups
 import Network.AWS.WorkSpaces.DescribeTags
 import Network.AWS.WorkSpaces.DescribeWorkspaceBundles
 import Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
 import Network.AWS.WorkSpaces.DescribeWorkspaces
 import Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
+import Network.AWS.WorkSpaces.DisassociateIPGroups
 import Network.AWS.WorkSpaces.ModifyWorkspaceProperties
+import Network.AWS.WorkSpaces.ModifyWorkspaceState
 import Network.AWS.WorkSpaces.RebootWorkspaces
 import Network.AWS.WorkSpaces.RebuildWorkspaces
+import Network.AWS.WorkSpaces.RevokeIPRules
 import Network.AWS.WorkSpaces.StartWorkspaces
 import Network.AWS.WorkSpaces.StopWorkspaces
 import Network.AWS.WorkSpaces.TerminateWorkspaces
 import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.UpdateRulesOfIPGroup
 import Network.AWS.WorkSpaces.Waiters
 
 {- $errors

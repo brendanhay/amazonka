@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteGCMChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteGCMChannel pApplicationId_ =
 
 -- | Undocumented member.
 dgcApplicationId :: Lens' DeleteGCMChannel Text
-dgcApplicationId = lens _dgcApplicationId (\ s a -> s{_dgcApplicationId = a});
+dgcApplicationId = lens _dgcApplicationId (\ s a -> s{_dgcApplicationId = a})
 
 instance AWSRequest DeleteGCMChannel where
         type Rs DeleteGCMChannel = DeleteGCMChannelResponse
@@ -113,17 +113,17 @@ deleteGCMChannelResponse
     -> DeleteGCMChannelResponse
 deleteGCMChannelResponse pResponseStatus_ pGCMChannelResponse_ =
   DeleteGCMChannelResponse'
-  { _dgcrsResponseStatus = pResponseStatus_
-  , _dgcrsGCMChannelResponse = pGCMChannelResponse_
-  }
+    { _dgcrsResponseStatus = pResponseStatus_
+    , _dgcrsGCMChannelResponse = pGCMChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 dgcrsResponseStatus :: Lens' DeleteGCMChannelResponse Int
-dgcrsResponseStatus = lens _dgcrsResponseStatus (\ s a -> s{_dgcrsResponseStatus = a});
+dgcrsResponseStatus = lens _dgcrsResponseStatus (\ s a -> s{_dgcrsResponseStatus = a})
 
 -- | Undocumented member.
 dgcrsGCMChannelResponse :: Lens' DeleteGCMChannelResponse GCMChannelResponse
-dgcrsGCMChannelResponse = lens _dgcrsGCMChannelResponse (\ s a -> s{_dgcrsGCMChannelResponse = a});
+dgcrsGCMChannelResponse = lens _dgcrsGCMChannelResponse (\ s a -> s{_dgcrsGCMChannelResponse = a})
 
 instance NFData DeleteGCMChannelResponse where

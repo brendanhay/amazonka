@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListPortfoliosForProduct
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Lists all portfolios that the specified product is associated with.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListPortfoliosForProduct
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.ServiceCatalog.ListPortfoliosForProduct
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -63,9 +66,9 @@ data ListPortfoliosForProduct = ListPortfoliosForProduct'
 --
 -- * 'lisAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'lisPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- * 'lisPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
 --
--- * 'lisPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- * 'lisPageSize' - The maximum number of items to return with this call.
 --
 -- * 'lisProductId' - The product identifier.
 listPortfoliosForProduct
@@ -73,28 +76,35 @@ listPortfoliosForProduct
     -> ListPortfoliosForProduct
 listPortfoliosForProduct pProductId_ =
   ListPortfoliosForProduct'
-  { _lisAcceptLanguage = Nothing
-  , _lisPageToken = Nothing
-  , _lisPageSize = Nothing
-  , _lisProductId = pProductId_
-  }
+    { _lisAcceptLanguage = Nothing
+    , _lisPageToken = Nothing
+    , _lisPageSize = Nothing
+    , _lisProductId = pProductId_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lisAcceptLanguage :: Lens' ListPortfoliosForProduct (Maybe Text)
-lisAcceptLanguage = lens _lisAcceptLanguage (\ s a -> s{_lisAcceptLanguage = a});
+lisAcceptLanguage = lens _lisAcceptLanguage (\ s a -> s{_lisAcceptLanguage = a})
 
--- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
 lisPageToken :: Lens' ListPortfoliosForProduct (Maybe Text)
-lisPageToken = lens _lisPageToken (\ s a -> s{_lisPageToken = a});
+lisPageToken = lens _lisPageToken (\ s a -> s{_lisPageToken = a})
 
--- | The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- | The maximum number of items to return with this call.
 lisPageSize :: Lens' ListPortfoliosForProduct (Maybe Natural)
-lisPageSize = lens _lisPageSize (\ s a -> s{_lisPageSize = a}) . mapping _Nat;
+lisPageSize = lens _lisPageSize (\ s a -> s{_lisPageSize = a}) . mapping _Nat
 
 -- | The product identifier.
 lisProductId :: Lens' ListPortfoliosForProduct Text
-lisProductId = lens _lisProductId (\ s a -> s{_lisProductId = a});
+lisProductId = lens _lisProductId (\ s a -> s{_lisProductId = a})
+
+instance AWSPager ListPortfoliosForProduct where
+        page rq rs
+          | stop (rs ^. lpfprsNextPageToken) = Nothing
+          | stop (rs ^. lpfprsPortfolioDetails) = Nothing
+          | otherwise =
+            Just $ rq & lisPageToken .~ rs ^. lpfprsNextPageToken
 
 instance AWSRequest ListPortfoliosForProduct where
         type Rs ListPortfoliosForProduct =
@@ -149,9 +159,9 @@ data ListPortfoliosForProductResponse = ListPortfoliosForProductResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpfprsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'lpfprsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
--- * 'lpfprsPortfolioDetails' - List of detailed portfolio information objects.
+-- * 'lpfprsPortfolioDetails' - Information about the portfolios.
 --
 -- * 'lpfprsResponseStatus' - -- | The response status code.
 listPortfoliosForProductResponse
@@ -159,23 +169,23 @@ listPortfoliosForProductResponse
     -> ListPortfoliosForProductResponse
 listPortfoliosForProductResponse pResponseStatus_ =
   ListPortfoliosForProductResponse'
-  { _lpfprsNextPageToken = Nothing
-  , _lpfprsPortfolioDetails = Nothing
-  , _lpfprsResponseStatus = pResponseStatus_
-  }
+    { _lpfprsNextPageToken = Nothing
+    , _lpfprsPortfolioDetails = Nothing
+    , _lpfprsResponseStatus = pResponseStatus_
+    }
 
 
--- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 lpfprsNextPageToken :: Lens' ListPortfoliosForProductResponse (Maybe Text)
-lpfprsNextPageToken = lens _lpfprsNextPageToken (\ s a -> s{_lpfprsNextPageToken = a});
+lpfprsNextPageToken = lens _lpfprsNextPageToken (\ s a -> s{_lpfprsNextPageToken = a})
 
--- | List of detailed portfolio information objects.
+-- | Information about the portfolios.
 lpfprsPortfolioDetails :: Lens' ListPortfoliosForProductResponse [PortfolioDetail]
-lpfprsPortfolioDetails = lens _lpfprsPortfolioDetails (\ s a -> s{_lpfprsPortfolioDetails = a}) . _Default . _Coerce;
+lpfprsPortfolioDetails = lens _lpfprsPortfolioDetails (\ s a -> s{_lpfprsPortfolioDetails = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lpfprsResponseStatus :: Lens' ListPortfoliosForProductResponse Int
-lpfprsResponseStatus = lens _lpfprsResponseStatus (\ s a -> s{_lpfprsResponseStatus = a});
+lpfprsResponseStatus = lens _lpfprsResponseStatus (\ s a -> s{_lpfprsResponseStatus = a})
 
 instance NFData ListPortfoliosForProductResponse
          where

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.TagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a list of tags (key-value pairs) on the Lambda function. Requires the Lambda function ARN (Amazon Resource Name). If a key is specified without a value, Lambda creates a tag with the specified key and a value of null.
+-- Creates a list of tags (key-value pairs) on the Lambda function. Requires the Lambda function ARN (Amazon Resource Name). If a key is specified without a value, Lambda creates a tag with the specified key and a value of null. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 --
 --
 module Network.AWS.Lambda.TagResource
@@ -53,9 +53,9 @@ data TagResource = TagResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trResource' - The ARN (Amazon Resource Name) of the Lambda function.
+-- * 'trResource' - The ARN (Amazon Resource Name) of the Lambda function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 --
--- * 'trTags' - The list of tags (key-value pairs) you are assigning to the Lambda function.
+-- * 'trTags' - The list of tags (key-value pairs) you are assigning to the Lambda function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 tagResource
     :: Text -- ^ 'trResource'
     -> TagResource
@@ -63,13 +63,13 @@ tagResource pResource_ =
   TagResource' {_trResource = pResource_, _trTags = mempty}
 
 
--- | The ARN (Amazon Resource Name) of the Lambda function.
+-- | The ARN (Amazon Resource Name) of the Lambda function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 trResource :: Lens' TagResource Text
-trResource = lens _trResource (\ s a -> s{_trResource = a});
+trResource = lens _trResource (\ s a -> s{_trResource = a})
 
--- | The list of tags (key-value pairs) you are assigning to the Lambda function.
+-- | The list of tags (key-value pairs) you are assigning to the Lambda function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
 trTags :: Lens' TagResource (HashMap Text Text)
-trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Map;
+trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Map
 
 instance AWSRequest TagResource where
         type Rs TagResource = TagResourceResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,33 +82,33 @@ authorizeDBSecurityGroupIngress
     -> AuthorizeDBSecurityGroupIngress
 authorizeDBSecurityGroupIngress pDBSecurityGroupName_ =
   AuthorizeDBSecurityGroupIngress'
-  { _adsgiEC2SecurityGroupOwnerId = Nothing
-  , _adsgiEC2SecurityGroupName = Nothing
-  , _adsgiCIdRIP = Nothing
-  , _adsgiEC2SecurityGroupId = Nothing
-  , _adsgiDBSecurityGroupName = pDBSecurityGroupName_
-  }
+    { _adsgiEC2SecurityGroupOwnerId = Nothing
+    , _adsgiEC2SecurityGroupName = Nothing
+    , _adsgiCIdRIP = Nothing
+    , _adsgiEC2SecurityGroupId = Nothing
+    , _adsgiDBSecurityGroupName = pDBSecurityGroupName_
+    }
 
 
 -- | AWS account number of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ parameter. The AWS Access Key ID is not an acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
 adsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adsgiEC2SecurityGroupOwnerId = lens _adsgiEC2SecurityGroupOwnerId (\ s a -> s{_adsgiEC2SecurityGroupOwnerId = a});
+adsgiEC2SecurityGroupOwnerId = lens _adsgiEC2SecurityGroupOwnerId (\ s a -> s{_adsgiEC2SecurityGroupOwnerId = a})
 
 -- | Name of the EC2 security group to authorize. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
 adsgiEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adsgiEC2SecurityGroupName = lens _adsgiEC2SecurityGroupName (\ s a -> s{_adsgiEC2SecurityGroupName = a});
+adsgiEC2SecurityGroupName = lens _adsgiEC2SecurityGroupName (\ s a -> s{_adsgiEC2SecurityGroupName = a})
 
 -- | The IP range to authorize.
 adsgiCIdRIP :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adsgiCIdRIP = lens _adsgiCIdRIP (\ s a -> s{_adsgiCIdRIP = a});
+adsgiCIdRIP = lens _adsgiCIdRIP (\ s a -> s{_adsgiCIdRIP = a})
 
 -- | Id of the EC2 security group to authorize. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
 adsgiEC2SecurityGroupId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adsgiEC2SecurityGroupId = lens _adsgiEC2SecurityGroupId (\ s a -> s{_adsgiEC2SecurityGroupId = a});
+adsgiEC2SecurityGroupId = lens _adsgiEC2SecurityGroupId (\ s a -> s{_adsgiEC2SecurityGroupId = a})
 
 -- | The name of the DB security group to add authorization to.
 adsgiDBSecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress Text
-adsgiDBSecurityGroupName = lens _adsgiDBSecurityGroupName (\ s a -> s{_adsgiDBSecurityGroupName = a});
+adsgiDBSecurityGroupName = lens _adsgiDBSecurityGroupName (\ s a -> s{_adsgiDBSecurityGroupName = a})
 
 instance AWSRequest AuthorizeDBSecurityGroupIngress
          where
@@ -167,16 +167,18 @@ authorizeDBSecurityGroupIngressResponse
     -> AuthorizeDBSecurityGroupIngressResponse
 authorizeDBSecurityGroupIngressResponse pResponseStatus_ =
   AuthorizeDBSecurityGroupIngressResponse'
-  {_adsgirsDBSecurityGroup = Nothing, _adsgirsResponseStatus = pResponseStatus_}
+    { _adsgirsDBSecurityGroup = Nothing
+    , _adsgirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 adsgirsDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
-adsgirsDBSecurityGroup = lens _adsgirsDBSecurityGroup (\ s a -> s{_adsgirsDBSecurityGroup = a});
+adsgirsDBSecurityGroup = lens _adsgirsDBSecurityGroup (\ s a -> s{_adsgirsDBSecurityGroup = a})
 
 -- | -- | The response status code.
 adsgirsResponseStatus :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
-adsgirsResponseStatus = lens _adsgirsResponseStatus (\ s a -> s{_adsgirsResponseStatus = a});
+adsgirsResponseStatus = lens _adsgirsResponseStatus (\ s a -> s{_adsgirsResponseStatus = a})
 
 instance NFData
            AuthorizeDBSecurityGroupIngressResponse

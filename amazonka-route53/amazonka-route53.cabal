@@ -1,5 +1,5 @@
 name:                  amazonka-route53
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Route 53 SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -64,6 +64,7 @@ library
         , Network.AWS.Route53.DeleteTrafficPolicyInstance
         , Network.AWS.Route53.DeleteVPCAssociationAuthorization
         , Network.AWS.Route53.DisassociateVPCFromHostedZone
+        , Network.AWS.Route53.GetAccountLimit
         , Network.AWS.Route53.GetChange
         , Network.AWS.Route53.GetCheckerIPRanges
         , Network.AWS.Route53.GetGeoLocation
@@ -73,8 +74,10 @@ library
         , Network.AWS.Route53.GetHealthCheckStatus
         , Network.AWS.Route53.GetHostedZone
         , Network.AWS.Route53.GetHostedZoneCount
+        , Network.AWS.Route53.GetHostedZoneLimit
         , Network.AWS.Route53.GetQueryLoggingConfig
         , Network.AWS.Route53.GetReusableDelegationSet
+        , Network.AWS.Route53.GetReusableDelegationSetLimit
         , Network.AWS.Route53.GetTrafficPolicy
         , Network.AWS.Route53.GetTrafficPolicyInstance
         , Network.AWS.Route53.GetTrafficPolicyInstanceCount
@@ -107,7 +110,7 @@ library
         , Network.AWS.Route53.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
         , text >= 1.1
 
@@ -128,8 +131,8 @@ test-suite amazonka-route53-test
         , Test.AWS.Route53.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-route53
         , base
         , bytestring

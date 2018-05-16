@@ -2,7 +2,7 @@
 
 -- |
 -- Module      : Network.AWS.Internal.Logger
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -39,7 +39,7 @@ import           System.IO
 --
 -- /Note:/ A more sophisticated logging library such as
 -- <http://hackage.haskell.org/package/tinylog tinylog> or
--- <http://hackage.haskell.org/package/FastLogger fast-logger>
+-- <http://hackage.haskell.org/package/fast-logger fast-logger>
 -- should be used in production code.
 newLogger :: MonadIO m => LogLevel -> Handle -> m Logger
 newLogger x hd = liftIO $ do

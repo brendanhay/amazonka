@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.ListOpenWorkflowExecutions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -114,48 +114,48 @@ listOpenWorkflowExecutions
     -> ListOpenWorkflowExecutions
 listOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
   ListOpenWorkflowExecutions'
-  { _loweNextPageToken = Nothing
-  , _loweExecutionFilter = Nothing
-  , _loweTypeFilter = Nothing
-  , _loweReverseOrder = Nothing
-  , _loweTagFilter = Nothing
-  , _loweMaximumPageSize = Nothing
-  , _loweDomain = pDomain_
-  , _loweStartTimeFilter = pStartTimeFilter_
-  }
+    { _loweNextPageToken = Nothing
+    , _loweExecutionFilter = Nothing
+    , _loweTypeFilter = Nothing
+    , _loweReverseOrder = Nothing
+    , _loweTagFilter = Nothing
+    , _loweMaximumPageSize = Nothing
+    , _loweDomain = pDomain_
+    , _loweStartTimeFilter = pStartTimeFilter_
+    }
 
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 loweNextPageToken :: Lens' ListOpenWorkflowExecutions (Maybe Text)
-loweNextPageToken = lens _loweNextPageToken (\ s a -> s{_loweNextPageToken = a});
+loweNextPageToken = lens _loweNextPageToken (\ s a -> s{_loweNextPageToken = a})
 
 -- | If specified, only workflow executions matching the workflow ID specified in the filter are returned.
 loweExecutionFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
-loweExecutionFilter = lens _loweExecutionFilter (\ s a -> s{_loweExecutionFilter = a});
+loweExecutionFilter = lens _loweExecutionFilter (\ s a -> s{_loweExecutionFilter = a})
 
 -- | If specified, only executions of the type specified in the filter are returned.
 loweTypeFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
-loweTypeFilter = lens _loweTypeFilter (\ s a -> s{_loweTypeFilter = a});
+loweTypeFilter = lens _loweTypeFilter (\ s a -> s{_loweTypeFilter = a})
 
 -- | When set to @true@ , returns the results in reverse order. By default the results are returned in descending order of the start time of the executions.
 loweReverseOrder :: Lens' ListOpenWorkflowExecutions (Maybe Bool)
-loweReverseOrder = lens _loweReverseOrder (\ s a -> s{_loweReverseOrder = a});
+loweReverseOrder = lens _loweReverseOrder (\ s a -> s{_loweReverseOrder = a})
 
 -- | If specified, only executions that have the matching tag are listed.
 loweTagFilter :: Lens' ListOpenWorkflowExecutions (Maybe TagFilter)
-loweTagFilter = lens _loweTagFilter (\ s a -> s{_loweTagFilter = a});
+loweTagFilter = lens _loweTagFilter (\ s a -> s{_loweTagFilter = a})
 
 -- | The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 loweMaximumPageSize :: Lens' ListOpenWorkflowExecutions (Maybe Natural)
-loweMaximumPageSize = lens _loweMaximumPageSize (\ s a -> s{_loweMaximumPageSize = a}) . mapping _Nat;
+loweMaximumPageSize = lens _loweMaximumPageSize (\ s a -> s{_loweMaximumPageSize = a}) . mapping _Nat
 
 -- | The name of the domain that contains the workflow executions to list.
 loweDomain :: Lens' ListOpenWorkflowExecutions Text
-loweDomain = lens _loweDomain (\ s a -> s{_loweDomain = a});
+loweDomain = lens _loweDomain (\ s a -> s{_loweDomain = a})
 
 -- | Workflow executions are included in the returned results based on whether their start times are within the range specified by this filter.
 loweStartTimeFilter :: Lens' ListOpenWorkflowExecutions ExecutionTimeFilter
-loweStartTimeFilter = lens _loweStartTimeFilter (\ s a -> s{_loweStartTimeFilter = a});
+loweStartTimeFilter = lens _loweStartTimeFilter (\ s a -> s{_loweStartTimeFilter = a})
 
 instance AWSPager ListOpenWorkflowExecutions where
         page rq rs

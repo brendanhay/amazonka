@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.CreateCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ createCluster
     -> CreateCluster
 createCluster pSubnetIds_ pHSMType_ =
   CreateCluster'
-  { _ccSourceBackupId = Nothing
-  , _ccSubnetIds = _List1 # pSubnetIds_
-  , _ccHSMType = pHSMType_
-  }
+    { _ccSourceBackupId = Nothing
+    , _ccSubnetIds = _List1 # pSubnetIds_
+    , _ccHSMType = pHSMType_
+    }
 
 
 -- | The identifier (ID) of the cluster backup to restore. Use this value to restore the cluster from a backup instead of creating a new cluster. To find the backup ID, use 'DescribeBackups' .
 ccSourceBackupId :: Lens' CreateCluster (Maybe Text)
-ccSourceBackupId = lens _ccSourceBackupId (\ s a -> s{_ccSourceBackupId = a});
+ccSourceBackupId = lens _ccSourceBackupId (\ s a -> s{_ccSourceBackupId = a})
 
 -- | The identifiers (IDs) of the subnets where you are creating the cluster. You must specify at least one subnet. If you specify multiple subnets, they must meet the following criteria:     * All subnets must be in the same virtual private cloud (VPC).     * You can specify only one subnet per Availability Zone.
 ccSubnetIds :: Lens' CreateCluster (NonEmpty Text)
-ccSubnetIds = lens _ccSubnetIds (\ s a -> s{_ccSubnetIds = a}) . _List1;
+ccSubnetIds = lens _ccSubnetIds (\ s a -> s{_ccSubnetIds = a}) . _List1
 
 -- | The type of HSM to use in the cluster. Currently the only allowed value is @hsm1.medium@ .
 ccHSMType :: Lens' CreateCluster Text
-ccHSMType = lens _ccHSMType (\ s a -> s{_ccHSMType = a});
+ccHSMType = lens _ccHSMType (\ s a -> s{_ccHSMType = a})
 
 instance AWSRequest CreateCluster where
         type Rs CreateCluster = CreateClusterResponse
@@ -142,15 +142,15 @@ createClusterResponse
     -> CreateClusterResponse
 createClusterResponse pResponseStatus_ =
   CreateClusterResponse'
-  {_ccrsCluster = Nothing, _ccrsResponseStatus = pResponseStatus_}
+    {_ccrsCluster = Nothing, _ccrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the cluster that was created.
 ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
-ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
+ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a})
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CreateClusterResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
 
 instance NFData CreateClusterResponse where

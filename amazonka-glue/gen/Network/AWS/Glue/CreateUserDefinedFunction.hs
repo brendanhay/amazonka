@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateUserDefinedFunction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ createUserDefinedFunction
     -> CreateUserDefinedFunction
 createUserDefinedFunction pDatabaseName_ pFunctionInput_ =
   CreateUserDefinedFunction'
-  { _cudfCatalogId = Nothing
-  , _cudfDatabaseName = pDatabaseName_
-  , _cudfFunctionInput = pFunctionInput_
-  }
+    { _cudfCatalogId = Nothing
+    , _cudfDatabaseName = pDatabaseName_
+    , _cudfFunctionInput = pFunctionInput_
+    }
 
 
 -- | The ID of the Data Catalog in which to create the function. If none is supplied, the AWS account ID is used by default.
 cudfCatalogId :: Lens' CreateUserDefinedFunction (Maybe Text)
-cudfCatalogId = lens _cudfCatalogId (\ s a -> s{_cudfCatalogId = a});
+cudfCatalogId = lens _cudfCatalogId (\ s a -> s{_cudfCatalogId = a})
 
 -- | The name of the catalog database in which to create the function.
 cudfDatabaseName :: Lens' CreateUserDefinedFunction Text
-cudfDatabaseName = lens _cudfDatabaseName (\ s a -> s{_cudfDatabaseName = a});
+cudfDatabaseName = lens _cudfDatabaseName (\ s a -> s{_cudfDatabaseName = a})
 
 -- | A @FunctionInput@ object that defines the function to create in the Data Catalog.
 cudfFunctionInput :: Lens' CreateUserDefinedFunction UserDefinedFunctionInput
-cudfFunctionInput = lens _cudfFunctionInput (\ s a -> s{_cudfFunctionInput = a});
+cudfFunctionInput = lens _cudfFunctionInput (\ s a -> s{_cudfFunctionInput = a})
 
 instance AWSRequest CreateUserDefinedFunction where
         type Rs CreateUserDefinedFunction =
@@ -143,7 +143,7 @@ createUserDefinedFunctionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cudfrsResponseStatus :: Lens' CreateUserDefinedFunctionResponse Int
-cudfrsResponseStatus = lens _cudfrsResponseStatus (\ s a -> s{_cudfrsResponseStatus = a});
+cudfrsResponseStatus = lens _cudfrsResponseStatus (\ s a -> s{_cudfrsResponseStatus = a})
 
 instance NFData CreateUserDefinedFunctionResponse
          where

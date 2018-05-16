@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelBundleTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ cancelBundleTask pBundleId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cbtDryRun :: Lens' CancelBundleTask (Maybe Bool)
-cbtDryRun = lens _cbtDryRun (\ s a -> s{_cbtDryRun = a});
+cbtDryRun = lens _cbtDryRun (\ s a -> s{_cbtDryRun = a})
 
 -- | The ID of the bundle task.
 cbtBundleId :: Lens' CancelBundleTask Text
-cbtBundleId = lens _cbtBundleId (\ s a -> s{_cbtBundleId = a});
+cbtBundleId = lens _cbtBundleId (\ s a -> s{_cbtBundleId = a})
 
 instance AWSRequest CancelBundleTask where
         type Rs CancelBundleTask = CancelBundleTaskResponse
@@ -127,15 +127,15 @@ cancelBundleTaskResponse
     -> CancelBundleTaskResponse
 cancelBundleTaskResponse pResponseStatus_ =
   CancelBundleTaskResponse'
-  {_cbtrsBundleTask = Nothing, _cbtrsResponseStatus = pResponseStatus_}
+    {_cbtrsBundleTask = Nothing, _cbtrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the bundle task.
 cbtrsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
-cbtrsBundleTask = lens _cbtrsBundleTask (\ s a -> s{_cbtrsBundleTask = a});
+cbtrsBundleTask = lens _cbtrsBundleTask (\ s a -> s{_cbtrsBundleTask = a})
 
 -- | -- | The response status code.
 cbtrsResponseStatus :: Lens' CancelBundleTaskResponse Int
-cbtrsResponseStatus = lens _cbtrsResponseStatus (\ s a -> s{_cbtrsResponseStatus = a});
+cbtrsResponseStatus = lens _cbtrsResponseStatus (\ s a -> s{_cbtrsResponseStatus = a})
 
 instance NFData CancelBundleTaskResponse where

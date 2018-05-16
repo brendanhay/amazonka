@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminAddUserToGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ adminAddUserToGroup
     -> AdminAddUserToGroup
 adminAddUserToGroup pUserPoolId_ pUsername_ pGroupName_ =
   AdminAddUserToGroup'
-  { _aautgUserPoolId = pUserPoolId_
-  , _aautgUsername = _Sensitive # pUsername_
-  , _aautgGroupName = pGroupName_
-  }
+    { _aautgUserPoolId = pUserPoolId_
+    , _aautgUsername = _Sensitive # pUsername_
+    , _aautgGroupName = pGroupName_
+    }
 
 
 -- | The user pool ID for the user pool.
 aautgUserPoolId :: Lens' AdminAddUserToGroup Text
-aautgUserPoolId = lens _aautgUserPoolId (\ s a -> s{_aautgUserPoolId = a});
+aautgUserPoolId = lens _aautgUserPoolId (\ s a -> s{_aautgUserPoolId = a})
 
 -- | The username for the user.
 aautgUsername :: Lens' AdminAddUserToGroup Text
-aautgUsername = lens _aautgUsername (\ s a -> s{_aautgUsername = a}) . _Sensitive;
+aautgUsername = lens _aautgUsername (\ s a -> s{_aautgUsername = a}) . _Sensitive
 
 -- | The group name.
 aautgGroupName :: Lens' AdminAddUserToGroup Text
-aautgGroupName = lens _aautgGroupName (\ s a -> s{_aautgGroupName = a});
+aautgGroupName = lens _aautgGroupName (\ s a -> s{_aautgGroupName = a})
 
 instance AWSRequest AdminAddUserToGroup where
         type Rs AdminAddUserToGroup =

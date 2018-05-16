@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.InitiateDocumentVersionUpload
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,15 +75,15 @@ data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
 --
 -- * 'idvuDocumentSizeInBytes' - The size of the document, in bytes.
 --
--- * 'idvuContentCreatedTimestamp' - The time stamp when the content of the document was originally created.
+-- * 'idvuContentCreatedTimestamp' - The timestamp when the content of the document was originally created.
 --
--- * 'idvuAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'idvuAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'idvuName' - The name of the document.
 --
 -- * 'idvuId' - The ID of the document.
 --
--- * 'idvuContentModifiedTimestamp' - The time stamp when the content of the document was modified.
+-- * 'idvuContentModifiedTimestamp' - The timestamp when the content of the document was modified.
 --
 -- * 'idvuContentType' - The content type of the document.
 --
@@ -93,48 +93,48 @@ initiateDocumentVersionUpload
     -> InitiateDocumentVersionUpload
 initiateDocumentVersionUpload pParentFolderId_ =
   InitiateDocumentVersionUpload'
-  { _idvuDocumentSizeInBytes = Nothing
-  , _idvuContentCreatedTimestamp = Nothing
-  , _idvuAuthenticationToken = Nothing
-  , _idvuName = Nothing
-  , _idvuId = Nothing
-  , _idvuContentModifiedTimestamp = Nothing
-  , _idvuContentType = Nothing
-  , _idvuParentFolderId = pParentFolderId_
-  }
+    { _idvuDocumentSizeInBytes = Nothing
+    , _idvuContentCreatedTimestamp = Nothing
+    , _idvuAuthenticationToken = Nothing
+    , _idvuName = Nothing
+    , _idvuId = Nothing
+    , _idvuContentModifiedTimestamp = Nothing
+    , _idvuContentType = Nothing
+    , _idvuParentFolderId = pParentFolderId_
+    }
 
 
 -- | The size of the document, in bytes.
 idvuDocumentSizeInBytes :: Lens' InitiateDocumentVersionUpload (Maybe Integer)
-idvuDocumentSizeInBytes = lens _idvuDocumentSizeInBytes (\ s a -> s{_idvuDocumentSizeInBytes = a});
+idvuDocumentSizeInBytes = lens _idvuDocumentSizeInBytes (\ s a -> s{_idvuDocumentSizeInBytes = a})
 
--- | The time stamp when the content of the document was originally created.
+-- | The timestamp when the content of the document was originally created.
 idvuContentCreatedTimestamp :: Lens' InitiateDocumentVersionUpload (Maybe UTCTime)
-idvuContentCreatedTimestamp = lens _idvuContentCreatedTimestamp (\ s a -> s{_idvuContentCreatedTimestamp = a}) . mapping _Time;
+idvuContentCreatedTimestamp = lens _idvuContentCreatedTimestamp (\ s a -> s{_idvuContentCreatedTimestamp = a}) . mapping _Time
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 idvuAuthenticationToken :: Lens' InitiateDocumentVersionUpload (Maybe Text)
-idvuAuthenticationToken = lens _idvuAuthenticationToken (\ s a -> s{_idvuAuthenticationToken = a}) . mapping _Sensitive;
+idvuAuthenticationToken = lens _idvuAuthenticationToken (\ s a -> s{_idvuAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The name of the document.
 idvuName :: Lens' InitiateDocumentVersionUpload (Maybe Text)
-idvuName = lens _idvuName (\ s a -> s{_idvuName = a});
+idvuName = lens _idvuName (\ s a -> s{_idvuName = a})
 
 -- | The ID of the document.
 idvuId :: Lens' InitiateDocumentVersionUpload (Maybe Text)
-idvuId = lens _idvuId (\ s a -> s{_idvuId = a});
+idvuId = lens _idvuId (\ s a -> s{_idvuId = a})
 
--- | The time stamp when the content of the document was modified.
+-- | The timestamp when the content of the document was modified.
 idvuContentModifiedTimestamp :: Lens' InitiateDocumentVersionUpload (Maybe UTCTime)
-idvuContentModifiedTimestamp = lens _idvuContentModifiedTimestamp (\ s a -> s{_idvuContentModifiedTimestamp = a}) . mapping _Time;
+idvuContentModifiedTimestamp = lens _idvuContentModifiedTimestamp (\ s a -> s{_idvuContentModifiedTimestamp = a}) . mapping _Time
 
 -- | The content type of the document.
 idvuContentType :: Lens' InitiateDocumentVersionUpload (Maybe Text)
-idvuContentType = lens _idvuContentType (\ s a -> s{_idvuContentType = a});
+idvuContentType = lens _idvuContentType (\ s a -> s{_idvuContentType = a})
 
 -- | The ID of the parent folder.
 idvuParentFolderId :: Lens' InitiateDocumentVersionUpload Text
-idvuParentFolderId = lens _idvuParentFolderId (\ s a -> s{_idvuParentFolderId = a});
+idvuParentFolderId = lens _idvuParentFolderId (\ s a -> s{_idvuParentFolderId = a})
 
 instance AWSRequest InitiateDocumentVersionUpload
          where
@@ -202,23 +202,23 @@ initiateDocumentVersionUploadResponse
     -> InitiateDocumentVersionUploadResponse
 initiateDocumentVersionUploadResponse pResponseStatus_ =
   InitiateDocumentVersionUploadResponse'
-  { _idvursMetadata = Nothing
-  , _idvursUploadMetadata = Nothing
-  , _idvursResponseStatus = pResponseStatus_
-  }
+    { _idvursMetadata = Nothing
+    , _idvursUploadMetadata = Nothing
+    , _idvursResponseStatus = pResponseStatus_
+    }
 
 
 -- | The document metadata.
 idvursMetadata :: Lens' InitiateDocumentVersionUploadResponse (Maybe DocumentMetadata)
-idvursMetadata = lens _idvursMetadata (\ s a -> s{_idvursMetadata = a});
+idvursMetadata = lens _idvursMetadata (\ s a -> s{_idvursMetadata = a})
 
 -- | The upload metadata.
 idvursUploadMetadata :: Lens' InitiateDocumentVersionUploadResponse (Maybe UploadMetadata)
-idvursUploadMetadata = lens _idvursUploadMetadata (\ s a -> s{_idvursUploadMetadata = a});
+idvursUploadMetadata = lens _idvursUploadMetadata (\ s a -> s{_idvursUploadMetadata = a})
 
 -- | -- | The response status code.
 idvursResponseStatus :: Lens' InitiateDocumentVersionUploadResponse Int
-idvursResponseStatus = lens _idvursResponseStatus (\ s a -> s{_idvursResponseStatus = a});
+idvursResponseStatus = lens _idvursResponseStatus (\ s a -> s{_idvursResponseStatus = a})
 
 instance NFData InitiateDocumentVersionUploadResponse
          where

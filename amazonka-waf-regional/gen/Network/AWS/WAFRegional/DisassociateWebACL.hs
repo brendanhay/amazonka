@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DisassociateWebACL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ disassociateWebACL pResourceARN_ =
 
 -- | The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed.
 dwaResourceARN :: Lens' DisassociateWebACL Text
-dwaResourceARN = lens _dwaResourceARN (\ s a -> s{_dwaResourceARN = a});
+dwaResourceARN = lens _dwaResourceARN (\ s a -> s{_dwaResourceARN = a})
 
 instance AWSRequest DisassociateWebACL where
         type Rs DisassociateWebACL =
@@ -119,6 +119,6 @@ disassociateWebACLResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dwaclrsResponseStatus :: Lens' DisassociateWebACLResponse Int
-dwaclrsResponseStatus = lens _dwaclrsResponseStatus (\ s a -> s{_dwaclrsResponseStatus = a});
+dwaclrsResponseStatus = lens _dwaclrsResponseStatus (\ s a -> s{_dwaclrsResponseStatus = a})
 
 instance NFData DisassociateWebACLResponse where

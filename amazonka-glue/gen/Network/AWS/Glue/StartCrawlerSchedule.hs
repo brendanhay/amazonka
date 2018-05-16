@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StartCrawlerSchedule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ startCrawlerSchedule pCrawlerName_ =
 
 -- | Name of the crawler to schedule.
 scsCrawlerName :: Lens' StartCrawlerSchedule Text
-scsCrawlerName = lens _scsCrawlerName (\ s a -> s{_scsCrawlerName = a});
+scsCrawlerName = lens _scsCrawlerName (\ s a -> s{_scsCrawlerName = a})
 
 instance AWSRequest StartCrawlerSchedule where
         type Rs StartCrawlerSchedule =
@@ -119,6 +119,6 @@ startCrawlerScheduleResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 scsrsResponseStatus :: Lens' StartCrawlerScheduleResponse Int
-scsrsResponseStatus = lens _scsrsResponseStatus (\ s a -> s{_scsrsResponseStatus = a});
+scsrsResponseStatus = lens _scsrsResponseStatus (\ s a -> s{_scsrsResponseStatus = a})
 
 instance NFData StartCrawlerScheduleResponse where

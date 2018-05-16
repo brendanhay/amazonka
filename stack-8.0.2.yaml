@@ -1,21 +1,35 @@
-compiler:   ghc-8.0.2
-resolver:   lts-9.0
-flags:      {}
-extra-deps: []
+compiler: ghc-8.0.2
+resolver: lts-9.0
+
+local-bin-path: bin
+
+nix:
+  enable: false
+  packages: [zlib, icu]
+  add-gc-roots: true
+
+extra-deps:
+  - xml-conduit-1.7.0.1
+
 packages:
   - core
   - test
   - examples
   - amazonka
 # GENERATED
+  - amazonka-alexa-business
   - amazonka-apigateway
   - amazonka-application-autoscaling
   - amazonka-appstream
+  - amazonka-appsync
   - amazonka-athena
   - amazonka-autoscaling
+  - amazonka-autoscaling-plans
   - amazonka-batch
   - amazonka-budgets
   - amazonka-certificatemanager
+  - amazonka-certificatemanager-pca
+  - amazonka-cloud9
   - amazonka-clouddirectory
   - amazonka-cloudformation
   - amazonka-cloudfront
@@ -35,7 +49,10 @@ packages:
   - amazonka-cognito-identity
   - amazonka-cognito-idp
   - amazonka-cognito-sync
+  - amazonka-comprehend
   - amazonka-config
+  - amazonka-connect
+  - amazonka-cost-explorer
   - amazonka-cur
   - amazonka-datapipeline
   - amazonka-devicefarm
@@ -57,19 +74,26 @@ packages:
   - amazonka-elb
   - amazonka-elbv2
   - amazonka-emr
+  - amazonka-fms
   - amazonka-gamelift
   - amazonka-glacier
   - amazonka-glue
   - amazonka-greengrass
+  - amazonka-guardduty
   - amazonka-health
   - amazonka-iam
   - amazonka-importexport
   - amazonka-inspector
   - amazonka-iot
+  - amazonka-iot-analytics
   - amazonka-iot-dataplane
+  - amazonka-iot-jobs-dataplane
   - amazonka-kinesis
   - amazonka-kinesis-analytics
   - amazonka-kinesis-firehose
+  - amazonka-kinesis-video
+  - amazonka-kinesis-video-archived-media
+  - amazonka-kinesis-video-media
   - amazonka-kms
   - amazonka-lambda
   - amazonka-lex-models
@@ -79,9 +103,15 @@ packages:
   - amazonka-marketplace-entitlement
   - amazonka-marketplace-metering
   - amazonka-mechanicalturk
+  - amazonka-mediaconvert
+  - amazonka-medialive
+  - amazonka-mediapackage
+  - amazonka-mediastore
+  - amazonka-mediastore-dataplane
   - amazonka-migrationhub
   - amazonka-ml
   - amazonka-mobile
+  - amazonka-mq
   - amazonka-opsworks
   - amazonka-opsworks-cm
   - amazonka-organizations
@@ -91,12 +121,18 @@ packages:
   - amazonka-rds
   - amazonka-redshift
   - amazonka-rekognition
+  - amazonka-resourcegroups
   - amazonka-resourcegroupstagging
   - amazonka-route53
+  - amazonka-route53-autonaming
   - amazonka-route53-domains
   - amazonka-s3
   - amazonka-s3-encryption
+  - amazonka-sagemaker
+  - amazonka-sagemaker-runtime
   - amazonka-sdb
+  - amazonka-secretsmanager
+  - amazonka-serverlessrepo
   - amazonka-servicecatalog
   - amazonka-ses
   - amazonka-shield
@@ -110,9 +146,12 @@ packages:
   - amazonka-sts
   - amazonka-support
   - amazonka-swf
+  - amazonka-transcribe
+  - amazonka-translate
   - amazonka-waf
   - amazonka-waf-regional
   - amazonka-workdocs
+  - amazonka-workmail
   - amazonka-workspaces
   - amazonka-xray
 # END GENERATED

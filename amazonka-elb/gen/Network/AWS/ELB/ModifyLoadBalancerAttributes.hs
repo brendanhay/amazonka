@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.ModifyLoadBalancerAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,18 +84,18 @@ modifyLoadBalancerAttributes
     -> ModifyLoadBalancerAttributes
 modifyLoadBalancerAttributes pLoadBalancerName_ pLoadBalancerAttributes_ =
   ModifyLoadBalancerAttributes'
-  { _mlbaLoadBalancerName = pLoadBalancerName_
-  , _mlbaLoadBalancerAttributes = pLoadBalancerAttributes_
-  }
+    { _mlbaLoadBalancerName = pLoadBalancerName_
+    , _mlbaLoadBalancerAttributes = pLoadBalancerAttributes_
+    }
 
 
 -- | The name of the load balancer.
 mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
-mlbaLoadBalancerName = lens _mlbaLoadBalancerName (\ s a -> s{_mlbaLoadBalancerName = a});
+mlbaLoadBalancerName = lens _mlbaLoadBalancerName (\ s a -> s{_mlbaLoadBalancerName = a})
 
 -- | The attributes for the load balancer.
 mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
-mlbaLoadBalancerAttributes = lens _mlbaLoadBalancerAttributes (\ s a -> s{_mlbaLoadBalancerAttributes = a});
+mlbaLoadBalancerAttributes = lens _mlbaLoadBalancerAttributes (\ s a -> s{_mlbaLoadBalancerAttributes = a})
 
 instance AWSRequest ModifyLoadBalancerAttributes
          where
@@ -157,23 +157,23 @@ modifyLoadBalancerAttributesResponse
     -> ModifyLoadBalancerAttributesResponse
 modifyLoadBalancerAttributesResponse pResponseStatus_ =
   ModifyLoadBalancerAttributesResponse'
-  { _mlbarsLoadBalancerName = Nothing
-  , _mlbarsLoadBalancerAttributes = Nothing
-  , _mlbarsResponseStatus = pResponseStatus_
-  }
+    { _mlbarsLoadBalancerName = Nothing
+    , _mlbarsLoadBalancerAttributes = Nothing
+    , _mlbarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The name of the load balancer.
 mlbarsLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
-mlbarsLoadBalancerName = lens _mlbarsLoadBalancerName (\ s a -> s{_mlbarsLoadBalancerName = a});
+mlbarsLoadBalancerName = lens _mlbarsLoadBalancerName (\ s a -> s{_mlbarsLoadBalancerName = a})
 
 -- | Information about the load balancer attributes.
 mlbarsLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
-mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_mlbarsLoadBalancerAttributes = a});
+mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_mlbarsLoadBalancerAttributes = a})
 
 -- | -- | The response status code.
 mlbarsResponseStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
-mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a});
+mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a})
 
 instance NFData ModifyLoadBalancerAttributesResponse
          where

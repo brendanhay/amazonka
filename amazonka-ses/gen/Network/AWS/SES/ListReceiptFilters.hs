@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListReceiptFilters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -115,15 +115,15 @@ listReceiptFiltersResponse
     -> ListReceiptFiltersResponse
 listReceiptFiltersResponse pResponseStatus_ =
   ListReceiptFiltersResponse'
-  {_lrfrsFilters = Nothing, _lrfrsResponseStatus = pResponseStatus_}
+    {_lrfrsFilters = Nothing, _lrfrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of IP address filter data structures, which each consist of a name, an IP address range, and whether to allow or block mail from it.
 lrfrsFilters :: Lens' ListReceiptFiltersResponse [ReceiptFilter]
-lrfrsFilters = lens _lrfrsFilters (\ s a -> s{_lrfrsFilters = a}) . _Default . _Coerce;
+lrfrsFilters = lens _lrfrsFilters (\ s a -> s{_lrfrsFilters = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lrfrsResponseStatus :: Lens' ListReceiptFiltersResponse Int
-lrfrsResponseStatus = lens _lrfrsResponseStatus (\ s a -> s{_lrfrsResponseStatus = a});
+lrfrsResponseStatus = lens _lrfrsResponseStatus (\ s a -> s{_lrfrsResponseStatus = a})
 
 instance NFData ListReceiptFiltersResponse where

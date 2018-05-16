@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheSubnetGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ describeCacheSubnetGroups
     :: DescribeCacheSubnetGroups
 describeCacheSubnetGroups =
   DescribeCacheSubnetGroups'
-  { _dcsgCacheSubnetGroupName = Nothing
-  , _dcsgMarker = Nothing
-  , _dcsgMaxRecords = Nothing
-  }
+    { _dcsgCacheSubnetGroupName = Nothing
+    , _dcsgMarker = Nothing
+    , _dcsgMaxRecords = Nothing
+    }
 
 
 -- | The name of the cache subnet group to return details for.
 dcsgCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
-dcsgCacheSubnetGroupName = lens _dcsgCacheSubnetGroupName (\ s a -> s{_dcsgCacheSubnetGroupName = a});
+dcsgCacheSubnetGroupName = lens _dcsgCacheSubnetGroupName (\ s a -> s{_dcsgCacheSubnetGroupName = a})
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
-dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
+dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 dcsgMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Int)
-dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
+dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a})
 
 instance AWSPager DescribeCacheSubnetGroups where
         page rq rs
@@ -159,23 +159,23 @@ describeCacheSubnetGroupsResponse
     -> DescribeCacheSubnetGroupsResponse
 describeCacheSubnetGroupsResponse pResponseStatus_ =
   DescribeCacheSubnetGroupsResponse'
-  { _dcsgrsMarker = Nothing
-  , _dcsgrsCacheSubnetGroups = Nothing
-  , _dcsgrsResponseStatus = pResponseStatus_
-  }
+    { _dcsgrsMarker = Nothing
+    , _dcsgrsCacheSubnetGroups = Nothing
+    , _dcsgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgrsMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
-dcsgrsMarker = lens _dcsgrsMarker (\ s a -> s{_dcsgrsMarker = a});
+dcsgrsMarker = lens _dcsgrsMarker (\ s a -> s{_dcsgrsMarker = a})
 
 -- | A list of cache subnet groups. Each element in the list contains detailed information about one group.
 dcsgrsCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
-dcsgrsCacheSubnetGroups = lens _dcsgrsCacheSubnetGroups (\ s a -> s{_dcsgrsCacheSubnetGroups = a}) . _Default . _Coerce;
+dcsgrsCacheSubnetGroups = lens _dcsgrsCacheSubnetGroups (\ s a -> s{_dcsgrsCacheSubnetGroups = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcsgrsResponseStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
-dcsgrsResponseStatus = lens _dcsgrsResponseStatus (\ s a -> s{_dcsgrsResponseStatus = a});
+dcsgrsResponseStatus = lens _dcsgrsResponseStatus (\ s a -> s{_dcsgrsResponseStatus = a})
 
 instance NFData DescribeCacheSubnetGroupsResponse
          where

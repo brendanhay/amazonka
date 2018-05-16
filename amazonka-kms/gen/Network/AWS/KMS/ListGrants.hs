@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListGrants
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,15 +78,15 @@ listGrants pKeyId_ =
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 lgMarker :: Lens' ListGrants (Maybe Text)
-lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
+lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a})
 
 -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
 lgLimit :: Lens' ListGrants (Maybe Natural)
-lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
+lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat
 
 -- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 lgKeyId :: Lens' ListGrants Text
-lgKeyId = lens _lgKeyId (\ s a -> s{_lgKeyId = a});
+lgKeyId = lens _lgKeyId (\ s a -> s{_lgKeyId = a})
 
 instance AWSPager ListGrants where
         page rq rs

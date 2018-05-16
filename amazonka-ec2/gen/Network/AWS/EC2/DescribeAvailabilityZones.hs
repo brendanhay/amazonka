@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeAvailabilityZones
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,20 +73,20 @@ describeAvailabilityZones
     :: DescribeAvailabilityZones
 describeAvailabilityZones =
   DescribeAvailabilityZones'
-  {_dazZoneNames = Nothing, _dazFilters = Nothing, _dazDryRun = Nothing}
+    {_dazZoneNames = Nothing, _dazFilters = Nothing, _dazDryRun = Nothing}
 
 
 -- | The names of one or more Availability Zones.
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
-dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default . _Coerce;
+dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default . _Coerce
 
 -- | One or more filters.     * @message@ - Information about the Availability Zone.     * @region-name@ - The name of the region for the Availability Zone (for example, @us-east-1@ ).     * @state@ - The state of the Availability Zone (@available@ | @information@ | @impaired@ | @unavailable@ ).     * @zone-name@ - The name of the Availability Zone (for example, @us-east-1a@ ).
 dazFilters :: Lens' DescribeAvailabilityZones [Filter]
-dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a}) . _Default . _Coerce;
+dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dazDryRun :: Lens' DescribeAvailabilityZones (Maybe Bool)
-dazDryRun = lens _dazDryRun (\ s a -> s{_dazDryRun = a});
+dazDryRun = lens _dazDryRun (\ s a -> s{_dazDryRun = a})
 
 instance AWSRequest DescribeAvailabilityZones where
         type Rs DescribeAvailabilityZones =
@@ -143,16 +143,16 @@ describeAvailabilityZonesResponse
     -> DescribeAvailabilityZonesResponse
 describeAvailabilityZonesResponse pResponseStatus_ =
   DescribeAvailabilityZonesResponse'
-  {_dazrsAvailabilityZones = Nothing, _dazrsResponseStatus = pResponseStatus_}
+    {_dazrsAvailabilityZones = Nothing, _dazrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about one or more Availability Zones.
 dazrsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
-dazrsAvailabilityZones = lens _dazrsAvailabilityZones (\ s a -> s{_dazrsAvailabilityZones = a}) . _Default . _Coerce;
+dazrsAvailabilityZones = lens _dazrsAvailabilityZones (\ s a -> s{_dazrsAvailabilityZones = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dazrsResponseStatus :: Lens' DescribeAvailabilityZonesResponse Int
-dazrsResponseStatus = lens _dazrsResponseStatus (\ s a -> s{_dazrsResponseStatus = a});
+dazrsResponseStatus = lens _dazrsResponseStatus (\ s a -> s{_dazrsResponseStatus = a})
 
 instance NFData DescribeAvailabilityZonesResponse
          where

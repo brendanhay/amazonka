@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.GetShardIterator
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,28 +78,28 @@ getShardIterator
     -> GetShardIterator
 getShardIterator pStreamARN_ pShardId_ pShardIteratorType_ =
   GetShardIterator'
-  { _gsiSequenceNumber = Nothing
-  , _gsiStreamARN = pStreamARN_
-  , _gsiShardId = pShardId_
-  , _gsiShardIteratorType = pShardIteratorType_
-  }
+    { _gsiSequenceNumber = Nothing
+    , _gsiStreamARN = pStreamARN_
+    , _gsiShardId = pShardId_
+    , _gsiShardIteratorType = pShardIteratorType_
+    }
 
 
 -- | The sequence number of a stream record in the shard from which to start reading.
 gsiSequenceNumber :: Lens' GetShardIterator (Maybe Text)
-gsiSequenceNumber = lens _gsiSequenceNumber (\ s a -> s{_gsiSequenceNumber = a});
+gsiSequenceNumber = lens _gsiSequenceNumber (\ s a -> s{_gsiSequenceNumber = a})
 
 -- | The Amazon Resource Name (ARN) for the stream.
 gsiStreamARN :: Lens' GetShardIterator Text
-gsiStreamARN = lens _gsiStreamARN (\ s a -> s{_gsiStreamARN = a});
+gsiStreamARN = lens _gsiStreamARN (\ s a -> s{_gsiStreamARN = a})
 
 -- | The identifier of the shard. The iterator will be returned for this shard ID.
 gsiShardId :: Lens' GetShardIterator Text
-gsiShardId = lens _gsiShardId (\ s a -> s{_gsiShardId = a});
+gsiShardId = lens _gsiShardId (\ s a -> s{_gsiShardId = a})
 
 -- | Determines how the shard iterator is used to start reading stream records from the shard:     * @AT_SEQUENCE_NUMBER@ - Start reading exactly from the position denoted by a specific sequence number.     * @AFTER_SEQUENCE_NUMBER@ - Start reading right after the position denoted by a specific sequence number.     * @TRIM_HORIZON@ - Start reading at the last (untrimmed) stream record, which is the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream.     * @LATEST@ - Start reading just after the most recent stream record in the shard, so that you always read the most recent data in the shard.
 gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
-gsiShardIteratorType = lens _gsiShardIteratorType (\ s a -> s{_gsiShardIteratorType = a});
+gsiShardIteratorType = lens _gsiShardIteratorType (\ s a -> s{_gsiShardIteratorType = a})
 
 instance AWSRequest GetShardIterator where
         type Rs GetShardIterator = GetShardIteratorResponse
@@ -162,15 +162,15 @@ getShardIteratorResponse
     -> GetShardIteratorResponse
 getShardIteratorResponse pResponseStatus_ =
   GetShardIteratorResponse'
-  {_gsirsShardIterator = Nothing, _gsirsResponseStatus = pResponseStatus_}
+    {_gsirsShardIterator = Nothing, _gsirsResponseStatus = pResponseStatus_}
 
 
 -- | The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.
 gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
-gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = a});
+gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = a})
 
 -- | -- | The response status code.
 gsirsResponseStatus :: Lens' GetShardIteratorResponse Int
-gsirsResponseStatus = lens _gsirsResponseStatus (\ s a -> s{_gsirsResponseStatus = a});
+gsirsResponseStatus = lens _gsirsResponseStatus (\ s a -> s{_gsirsResponseStatus = a})
 
 instance NFData GetShardIteratorResponse where

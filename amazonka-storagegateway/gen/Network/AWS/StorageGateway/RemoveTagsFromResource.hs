@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RemoveTagsFromResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags from the specified resource. This operation is only supported in the cached volume, stored volume and tape gateway architectures.
+-- Removes one or more tags from the specified resource. This operation is only supported in the cached volume, stored volume and tape gateway types.
 --
 --
 module Network.AWS.StorageGateway.RemoveTagsFromResource
@@ -68,16 +68,16 @@ removeTagsFromResource
     -> RemoveTagsFromResource
 removeTagsFromResource pResourceARN_ =
   RemoveTagsFromResource'
-  {_rtfrResourceARN = pResourceARN_, _rtfrTagKeys = mempty}
+    {_rtfrResourceARN = pResourceARN_, _rtfrTagKeys = mempty}
 
 
 -- | The Amazon Resource Name (ARN) of the resource you want to remove the tags from.
 rtfrResourceARN :: Lens' RemoveTagsFromResource Text
-rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
+rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a})
 
 -- | The keys of the tags you want to remove from the specified resource. A tag is composed of a key/value pair.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
+rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce
 
 instance AWSRequest RemoveTagsFromResource where
         type Rs RemoveTagsFromResource =
@@ -139,15 +139,15 @@ removeTagsFromResourceResponse
     -> RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse pResponseStatus_ =
   RemoveTagsFromResourceResponse'
-  {_rtfrrsResourceARN = Nothing, _rtfrrsResponseStatus = pResponseStatus_}
+    {_rtfrrsResourceARN = Nothing, _rtfrrsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon Resource Name (ARN) of the resource that the tags were removed from.
 rtfrrsResourceARN :: Lens' RemoveTagsFromResourceResponse (Maybe Text)
-rtfrrsResourceARN = lens _rtfrrsResourceARN (\ s a -> s{_rtfrrsResourceARN = a});
+rtfrrsResourceARN = lens _rtfrrsResourceARN (\ s a -> s{_rtfrrsResourceARN = a})
 
 -- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
-rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
+rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a})
 
 instance NFData RemoveTagsFromResourceResponse where

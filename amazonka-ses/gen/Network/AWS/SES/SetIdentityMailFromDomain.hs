@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityMailFromDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ setIdentityMailFromDomain
     -> SetIdentityMailFromDomain
 setIdentityMailFromDomain pIdentity_ =
   SetIdentityMailFromDomain'
-  { _simfdMailFromDomain = Nothing
-  , _simfdBehaviorOnMXFailure = Nothing
-  , _simfdIdentity = pIdentity_
-  }
+    { _simfdMailFromDomain = Nothing
+    , _simfdBehaviorOnMXFailure = Nothing
+    , _simfdIdentity = pIdentity_
+    }
 
 
 -- | The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a "From" address if the MAIL FROM domain is the destination of email feedback forwarding (for more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide> ), and 3) not be used to receive emails. A value of @null@ disables the custom MAIL FROM setting for the identity.
 simfdMailFromDomain :: Lens' SetIdentityMailFromDomain (Maybe Text)
-simfdMailFromDomain = lens _simfdMailFromDomain (\ s a -> s{_simfdMailFromDomain = a});
+simfdMailFromDomain = lens _simfdMailFromDomain (\ s a -> s{_simfdMailFromDomain = a})
 
 -- | The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. If you choose @UseDefaultValue@ , Amazon SES will use amazonses.com (or a subdomain of that) as the MAIL FROM domain. If you choose @RejectMessage@ , Amazon SES will return a @MailFromDomainNotVerified@ error and not send the email. The action specified in @BehaviorOnMXFailure@ is taken when the custom MAIL FROM domain setup is in the @Pending@ , @Failed@ , and @TemporaryFailure@ states.
 simfdBehaviorOnMXFailure :: Lens' SetIdentityMailFromDomain (Maybe BehaviorOnMXFailure)
-simfdBehaviorOnMXFailure = lens _simfdBehaviorOnMXFailure (\ s a -> s{_simfdBehaviorOnMXFailure = a});
+simfdBehaviorOnMXFailure = lens _simfdBehaviorOnMXFailure (\ s a -> s{_simfdBehaviorOnMXFailure = a})
 
 -- | The verified identity for which you want to enable or disable the specified custom MAIL FROM domain.
 simfdIdentity :: Lens' SetIdentityMailFromDomain Text
-simfdIdentity = lens _simfdIdentity (\ s a -> s{_simfdIdentity = a});
+simfdIdentity = lens _simfdIdentity (\ s a -> s{_simfdIdentity = a})
 
 instance AWSRequest SetIdentityMailFromDomain where
         type Rs SetIdentityMailFromDomain =
@@ -147,7 +147,7 @@ setIdentityMailFromDomainResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 simfdrsResponseStatus :: Lens' SetIdentityMailFromDomainResponse Int
-simfdrsResponseStatus = lens _simfdrsResponseStatus (\ s a -> s{_simfdrsResponseStatus = a});
+simfdrsResponseStatus = lens _simfdrsResponseStatus (\ s a -> s{_simfdrsResponseStatus = a})
 
 instance NFData SetIdentityMailFromDomainResponse
          where

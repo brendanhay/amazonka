@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetImportJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,23 +66,23 @@ getImportJobs
     -> GetImportJobs
 getImportJobs pApplicationId_ =
   GetImportJobs'
-  { _gijsToken = Nothing
-  , _gijsPageSize = Nothing
-  , _gijsApplicationId = pApplicationId_
-  }
+    { _gijsToken = Nothing
+    , _gijsPageSize = Nothing
+    , _gijsApplicationId = pApplicationId_
+    }
 
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gijsToken :: Lens' GetImportJobs (Maybe Text)
-gijsToken = lens _gijsToken (\ s a -> s{_gijsToken = a});
+gijsToken = lens _gijsToken (\ s a -> s{_gijsToken = a})
 
 -- | The number of entries you want on each page in the response.
 gijsPageSize :: Lens' GetImportJobs (Maybe Text)
-gijsPageSize = lens _gijsPageSize (\ s a -> s{_gijsPageSize = a});
+gijsPageSize = lens _gijsPageSize (\ s a -> s{_gijsPageSize = a})
 
 -- | Undocumented member.
 gijsApplicationId :: Lens' GetImportJobs Text
-gijsApplicationId = lens _gijsApplicationId (\ s a -> s{_gijsApplicationId = a});
+gijsApplicationId = lens _gijsApplicationId (\ s a -> s{_gijsApplicationId = a})
 
 instance AWSRequest GetImportJobs where
         type Rs GetImportJobs = GetImportJobsResponse
@@ -135,17 +135,17 @@ getImportJobsResponse
     -> GetImportJobsResponse
 getImportJobsResponse pResponseStatus_ pImportJobsResponse_ =
   GetImportJobsResponse'
-  { _gijsrsResponseStatus = pResponseStatus_
-  , _gijsrsImportJobsResponse = pImportJobsResponse_
-  }
+    { _gijsrsResponseStatus = pResponseStatus_
+    , _gijsrsImportJobsResponse = pImportJobsResponse_
+    }
 
 
 -- | -- | The response status code.
 gijsrsResponseStatus :: Lens' GetImportJobsResponse Int
-gijsrsResponseStatus = lens _gijsrsResponseStatus (\ s a -> s{_gijsrsResponseStatus = a});
+gijsrsResponseStatus = lens _gijsrsResponseStatus (\ s a -> s{_gijsrsResponseStatus = a})
 
 -- | Undocumented member.
 gijsrsImportJobsResponse :: Lens' GetImportJobsResponse ImportJobsResponse
-gijsrsImportJobsResponse = lens _gijsrsImportJobsResponse (\ s a -> s{_gijsrsImportJobsResponse = a});
+gijsrsImportJobsResponse = lens _gijsrsImportJobsResponse (\ s a -> s{_gijsrsImportJobsResponse = a})
 
 instance NFData GetImportJobsResponse where

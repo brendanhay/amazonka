@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterEcsCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ registerEcsCluster
     -> RegisterEcsCluster
 registerEcsCluster pEcsClusterARN_ pStackId_ =
   RegisterEcsCluster'
-  {_recEcsClusterARN = pEcsClusterARN_, _recStackId = pStackId_}
+    {_recEcsClusterARN = pEcsClusterARN_, _recStackId = pStackId_}
 
 
 -- | The cluster's ARN.
 recEcsClusterARN :: Lens' RegisterEcsCluster Text
-recEcsClusterARN = lens _recEcsClusterARN (\ s a -> s{_recEcsClusterARN = a});
+recEcsClusterARN = lens _recEcsClusterARN (\ s a -> s{_recEcsClusterARN = a})
 
 -- | The stack ID.
 recStackId :: Lens' RegisterEcsCluster Text
-recStackId = lens _recStackId (\ s a -> s{_recStackId = a});
+recStackId = lens _recStackId (\ s a -> s{_recStackId = a})
 
 instance AWSRequest RegisterEcsCluster where
         type Rs RegisterEcsCluster =
@@ -138,15 +138,15 @@ registerEcsClusterResponse
     -> RegisterEcsClusterResponse
 registerEcsClusterResponse pResponseStatus_ =
   RegisterEcsClusterResponse'
-  {_recrsEcsClusterARN = Nothing, _recrsResponseStatus = pResponseStatus_}
+    {_recrsEcsClusterARN = Nothing, _recrsResponseStatus = pResponseStatus_}
 
 
 -- | The cluster's ARN.
 recrsEcsClusterARN :: Lens' RegisterEcsClusterResponse (Maybe Text)
-recrsEcsClusterARN = lens _recrsEcsClusterARN (\ s a -> s{_recrsEcsClusterARN = a});
+recrsEcsClusterARN = lens _recrsEcsClusterARN (\ s a -> s{_recrsEcsClusterARN = a})
 
 -- | -- | The response status code.
 recrsResponseStatus :: Lens' RegisterEcsClusterResponse Int
-recrsResponseStatus = lens _recrsResponseStatus (\ s a -> s{_recrsResponseStatus = a});
+recrsResponseStatus = lens _recrsResponseStatus (\ s a -> s{_recrsResponseStatus = a})
 
 instance NFData RegisterEcsClusterResponse where

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DescribeServers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all configuration management servers that are identified with your account. Only the stored results from Amazon DynamoDB are returned. AWS OpsWorks for Chef Automate does not query other services.
+-- Lists all configuration management servers that are identified with your account. Only the stored results from Amazon DynamoDB are returned. AWS OpsWorks CM does not query other services.
 --
 --
 -- This operation is synchronous.
@@ -72,20 +72,23 @@ describeServers
     :: DescribeServers
 describeServers =
   DescribeServers'
-  {_dssServerName = Nothing, _dssNextToken = Nothing, _dssMaxResults = Nothing}
+    { _dssServerName = Nothing
+    , _dssNextToken = Nothing
+    , _dssMaxResults = Nothing
+    }
 
 
 -- | Describes the server with the specified ServerName.
 dssServerName :: Lens' DescribeServers (Maybe Text)
-dssServerName = lens _dssServerName (\ s a -> s{_dssServerName = a});
+dssServerName = lens _dssServerName (\ s a -> s{_dssServerName = a})
 
 -- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeServers@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
 dssNextToken :: Lens' DescribeServers (Maybe Text)
-dssNextToken = lens _dssNextToken (\ s a -> s{_dssNextToken = a});
+dssNextToken = lens _dssNextToken (\ s a -> s{_dssNextToken = a})
 
 -- | To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 dssMaxResults :: Lens' DescribeServers (Maybe Natural)
-dssMaxResults = lens _dssMaxResults (\ s a -> s{_dssMaxResults = a}) . mapping _Nat;
+dssMaxResults = lens _dssMaxResults (\ s a -> s{_dssMaxResults = a}) . mapping _Nat
 
 instance AWSRequest DescribeServers where
         type Rs DescribeServers = DescribeServersResponse
@@ -137,7 +140,7 @@ data DescribeServersResponse = DescribeServersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsServers' - Contains the response to a @DescribeServers@ request.
+-- * 'dssrsServers' - Contains the response to a @DescribeServers@ request. /For Puppet Server:/ @DescribeServersResponse$Servers$EngineAttributes@ contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that is used by the Puppet API over TCP port number 8140. The CA certificate is also used to sign node certificates.
 --
 -- * 'dssrsNextToken' - NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeServers@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
 --
@@ -147,22 +150,22 @@ describeServersResponse
     -> DescribeServersResponse
 describeServersResponse pResponseStatus_ =
   DescribeServersResponse'
-  { _dssrsServers = Nothing
-  , _dssrsNextToken = Nothing
-  , _dssrsResponseStatus = pResponseStatus_
-  }
+    { _dssrsServers = Nothing
+    , _dssrsNextToken = Nothing
+    , _dssrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Contains the response to a @DescribeServers@ request.
+-- | Contains the response to a @DescribeServers@ request. /For Puppet Server:/ @DescribeServersResponse$Servers$EngineAttributes@ contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that is used by the Puppet API over TCP port number 8140. The CA certificate is also used to sign node certificates.
 dssrsServers :: Lens' DescribeServersResponse [Server]
-dssrsServers = lens _dssrsServers (\ s a -> s{_dssrsServers = a}) . _Default . _Coerce;
+dssrsServers = lens _dssrsServers (\ s a -> s{_dssrsServers = a}) . _Default . _Coerce
 
 -- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeServers@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
 dssrsNextToken :: Lens' DescribeServersResponse (Maybe Text)
-dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
+dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a})
 
 -- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeServersResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a})
 
 instance NFData DescribeServersResponse where

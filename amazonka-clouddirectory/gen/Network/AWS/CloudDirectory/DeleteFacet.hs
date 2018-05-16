@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DeleteFacet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ deleteFacet pSchemaARN_ pName_ =
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 dfSchemaARN :: Lens' DeleteFacet Text
-dfSchemaARN = lens _dfSchemaARN (\ s a -> s{_dfSchemaARN = a});
+dfSchemaARN = lens _dfSchemaARN (\ s a -> s{_dfSchemaARN = a})
 
 -- | The name of the facet to delete.
 dfName :: Lens' DeleteFacet Text
-dfName = lens _dfName (\ s a -> s{_dfName = a});
+dfName = lens _dfName (\ s a -> s{_dfName = a})
 
 instance AWSRequest DeleteFacet where
         type Rs DeleteFacet = DeleteFacetResponse
@@ -122,6 +122,6 @@ deleteFacetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dfrsResponseStatus :: Lens' DeleteFacetResponse Int
-dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a});
+dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a})
 
 instance NFData DeleteFacetResponse where

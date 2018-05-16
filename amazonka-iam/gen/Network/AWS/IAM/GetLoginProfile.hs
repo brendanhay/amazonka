@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetLoginProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the user name and password-creation date for the specified IAM user. If the user has not been assigned a password, the action returns a 404 (@NoSuchEntity@ ) error.
+-- Retrieves the user name and password-creation date for the specified IAM user. If the user has not been assigned a password, the operation returns a 404 (@NoSuchEntity@ ) error.
 --
 --
 module Network.AWS.IAM.GetLoginProfile
@@ -54,16 +54,16 @@ newtype GetLoginProfile = GetLoginProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'glpUserName' - The name of the user whose login profile you want to retrieve. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'glpUserName' - The name of the user whose login profile you want to retrieve. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 getLoginProfile
     :: Text -- ^ 'glpUserName'
     -> GetLoginProfile
 getLoginProfile pUserName_ = GetLoginProfile' {_glpUserName = pUserName_}
 
 
--- | The name of the user whose login profile you want to retrieve. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user whose login profile you want to retrieve. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 glpUserName :: Lens' GetLoginProfile Text
-glpUserName = lens _glpUserName (\ s a -> s{_glpUserName = a});
+glpUserName = lens _glpUserName (\ s a -> s{_glpUserName = a})
 
 instance AWSRequest GetLoginProfile where
         type Rs GetLoginProfile = GetLoginProfileResponse
@@ -115,15 +115,17 @@ getLoginProfileResponse
     -> GetLoginProfileResponse
 getLoginProfileResponse pResponseStatus_ pLoginProfile_ =
   GetLoginProfileResponse'
-  {_glprsResponseStatus = pResponseStatus_, _glprsLoginProfile = pLoginProfile_}
+    { _glprsResponseStatus = pResponseStatus_
+    , _glprsLoginProfile = pLoginProfile_
+    }
 
 
 -- | -- | The response status code.
 glprsResponseStatus :: Lens' GetLoginProfileResponse Int
-glprsResponseStatus = lens _glprsResponseStatus (\ s a -> s{_glprsResponseStatus = a});
+glprsResponseStatus = lens _glprsResponseStatus (\ s a -> s{_glprsResponseStatus = a})
 
 -- | A structure containing the user name and password create date for the user.
 glprsLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
-glprsLoginProfile = lens _glprsLoginProfile (\ s a -> s{_glprsLoginProfile = a});
+glprsLoginProfile = lens _glprsLoginProfile (\ s a -> s{_glprsLoginProfile = a})
 
 instance NFData GetLoginProfileResponse where

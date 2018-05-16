@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.GetQueueURL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ getQueueURL
     -> GetQueueURL
 getQueueURL pQueueName_ =
   GetQueueURL'
-  {_gquQueueOwnerAWSAccountId = Nothing, _gquQueueName = pQueueName_}
+    {_gquQueueOwnerAWSAccountId = Nothing, _gquQueueName = pQueueName_}
 
 
 -- | The AWS account ID of the account that created the queue.
 gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
-gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\ s a -> s{_gquQueueOwnerAWSAccountId = a});
+gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\ s a -> s{_gquQueueOwnerAWSAccountId = a})
 
 -- | The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ). Queue names are case-sensitive.
 gquQueueName :: Lens' GetQueueURL Text
-gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a});
+gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a})
 
 instance AWSRequest GetQueueURL where
         type Rs GetQueueURL = GetQueueURLResponse
@@ -133,15 +133,15 @@ getQueueURLResponse
     -> GetQueueURLResponse
 getQueueURLResponse pResponseStatus_ pQueueURL_ =
   GetQueueURLResponse'
-  {_gqursResponseStatus = pResponseStatus_, _gqursQueueURL = pQueueURL_}
+    {_gqursResponseStatus = pResponseStatus_, _gqursQueueURL = pQueueURL_}
 
 
 -- | -- | The response status code.
 gqursResponseStatus :: Lens' GetQueueURLResponse Int
-gqursResponseStatus = lens _gqursResponseStatus (\ s a -> s{_gqursResponseStatus = a});
+gqursResponseStatus = lens _gqursResponseStatus (\ s a -> s{_gqursResponseStatus = a})
 
 -- | The URL of the queue.
 gqursQueueURL :: Lens' GetQueueURLResponse Text
-gqursQueueURL = lens _gqursQueueURL (\ s a -> s{_gqursQueueURL = a});
+gqursQueueURL = lens _gqursQueueURL (\ s a -> s{_gqursQueueURL = a})
 
 instance NFData GetQueueURLResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,8 @@ module Network.AWS.Lightsail.DeleteDomain
     , deleteDomainResponse
     , DeleteDomainResponse
     -- * Response Lenses
-    , ddrsOperation
-    , ddrsResponseStatus
+    , delrsOperation
+    , delrsResponseStatus
     ) where
 
 import Network.AWS.Lens
@@ -63,7 +63,7 @@ deleteDomain pDomainName_ = DeleteDomain' {_ddDomainName = pDomainName_}
 
 -- | The specific domain name to delete.
 ddDomainName :: Lens' DeleteDomain Text
-ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
+ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a})
 
 instance AWSRequest DeleteDomain where
         type Rs DeleteDomain = DeleteDomainResponse
@@ -100,8 +100,8 @@ instance ToQuery DeleteDomain where
 
 -- | /See:/ 'deleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
-  { _ddrsOperation      :: !(Maybe Operation)
-  , _ddrsResponseStatus :: !Int
+  { _delrsOperation      :: !(Maybe Operation)
+  , _delrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,23 +109,23 @@ data DeleteDomainResponse = DeleteDomainResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddrsOperation' - An array of key-value pairs containing information about the results of your delete domain request.
+-- * 'delrsOperation' - An array of key-value pairs containing information about the results of your delete domain request.
 --
--- * 'ddrsResponseStatus' - -- | The response status code.
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteDomainResponse
-    :: Int -- ^ 'ddrsResponseStatus'
+    :: Int -- ^ 'delrsResponseStatus'
     -> DeleteDomainResponse
 deleteDomainResponse pResponseStatus_ =
   DeleteDomainResponse'
-  {_ddrsOperation = Nothing, _ddrsResponseStatus = pResponseStatus_}
+    {_delrsOperation = Nothing, _delrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the results of your delete domain request.
-ddrsOperation :: Lens' DeleteDomainResponse (Maybe Operation)
-ddrsOperation = lens _ddrsOperation (\ s a -> s{_ddrsOperation = a});
+delrsOperation :: Lens' DeleteDomainResponse (Maybe Operation)
+delrsOperation = lens _delrsOperation (\ s a -> s{_delrsOperation = a})
 
 -- | -- | The response status code.
-ddrsResponseStatus :: Lens' DeleteDomainResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+delrsResponseStatus :: Lens' DeleteDomainResponse Int
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteDomainResponse where

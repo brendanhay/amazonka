@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.ListAssociatedFleets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ listAssociatedFleets pStackName_ =
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 lafNextToken :: Lens' ListAssociatedFleets (Maybe Text)
-lafNextToken = lens _lafNextToken (\ s a -> s{_lafNextToken = a});
+lafNextToken = lens _lafNextToken (\ s a -> s{_lafNextToken = a})
 
 -- | The name of the stack.
 lafStackName :: Lens' ListAssociatedFleets Text
-lafStackName = lens _lafStackName (\ s a -> s{_lafStackName = a});
+lafStackName = lens _lafStackName (\ s a -> s{_lafStackName = a})
 
 instance AWSRequest ListAssociatedFleets where
         type Rs ListAssociatedFleets =
@@ -135,22 +135,22 @@ listAssociatedFleetsResponse
     -> ListAssociatedFleetsResponse
 listAssociatedFleetsResponse pResponseStatus_ =
   ListAssociatedFleetsResponse'
-  { _lafrsNextToken = Nothing
-  , _lafrsNames = Nothing
-  , _lafrsResponseStatus = pResponseStatus_
-  }
+    { _lafrsNextToken = Nothing
+    , _lafrsNames = Nothing
+    , _lafrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 lafrsNextToken :: Lens' ListAssociatedFleetsResponse (Maybe Text)
-lafrsNextToken = lens _lafrsNextToken (\ s a -> s{_lafrsNextToken = a});
+lafrsNextToken = lens _lafrsNextToken (\ s a -> s{_lafrsNextToken = a})
 
 -- | The names of the fleets.
 lafrsNames :: Lens' ListAssociatedFleetsResponse [Text]
-lafrsNames = lens _lafrsNames (\ s a -> s{_lafrsNames = a}) . _Default . _Coerce;
+lafrsNames = lens _lafrsNames (\ s a -> s{_lafrsNames = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lafrsResponseStatus :: Lens' ListAssociatedFleetsResponse Int
-lafrsResponseStatus = lens _lafrsResponseStatus (\ s a -> s{_lafrsResponseStatus = a});
+lafrsResponseStatus = lens _lafrsResponseStatus (\ s a -> s{_lafrsResponseStatus = a})
 
 instance NFData ListAssociatedFleetsResponse where

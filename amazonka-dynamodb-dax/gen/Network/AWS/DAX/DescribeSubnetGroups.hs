@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeSubnetGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ describeSubnetGroups
     :: DescribeSubnetGroups
 describeSubnetGroups =
   DescribeSubnetGroups'
-  { _dsgSubnetGroupNames = Nothing
-  , _dsgNextToken = Nothing
-  , _dsgMaxResults = Nothing
-  }
+    { _dsgSubnetGroupNames = Nothing
+    , _dsgNextToken = Nothing
+    , _dsgMaxResults = Nothing
+    }
 
 
 -- | The name of the subnet group.
 dsgSubnetGroupNames :: Lens' DescribeSubnetGroups [Text]
-dsgSubnetGroupNames = lens _dsgSubnetGroupNames (\ s a -> s{_dsgSubnetGroupNames = a}) . _Default . _Coerce;
+dsgSubnetGroupNames = lens _dsgSubnetGroupNames (\ s a -> s{_dsgSubnetGroupNames = a}) . _Default . _Coerce
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 dsgNextToken :: Lens' DescribeSubnetGroups (Maybe Text)
-dsgNextToken = lens _dsgNextToken (\ s a -> s{_dsgNextToken = a});
+dsgNextToken = lens _dsgNextToken (\ s a -> s{_dsgNextToken = a})
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
 dsgMaxResults :: Lens' DescribeSubnetGroups (Maybe Int)
-dsgMaxResults = lens _dsgMaxResults (\ s a -> s{_dsgMaxResults = a});
+dsgMaxResults = lens _dsgMaxResults (\ s a -> s{_dsgMaxResults = a})
 
 instance AWSRequest DescribeSubnetGroups where
         type Rs DescribeSubnetGroups =
@@ -147,22 +147,22 @@ describeSubnetGroupsResponse
     -> DescribeSubnetGroupsResponse
 describeSubnetGroupsResponse pResponseStatus_ =
   DescribeSubnetGroupsResponse'
-  { _dsgsrsSubnetGroups = Nothing
-  , _dsgsrsNextToken = Nothing
-  , _dsgsrsResponseStatus = pResponseStatus_
-  }
+    { _dsgsrsSubnetGroups = Nothing
+    , _dsgsrsNextToken = Nothing
+    , _dsgsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of subnet groups. Each element in the array represents a single subnet group.
 dsgsrsSubnetGroups :: Lens' DescribeSubnetGroupsResponse [SubnetGroup]
-dsgsrsSubnetGroups = lens _dsgsrsSubnetGroups (\ s a -> s{_dsgsrsSubnetGroups = a}) . _Default . _Coerce;
+dsgsrsSubnetGroups = lens _dsgsrsSubnetGroups (\ s a -> s{_dsgsrsSubnetGroups = a}) . _Default . _Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dsgsrsNextToken :: Lens' DescribeSubnetGroupsResponse (Maybe Text)
-dsgsrsNextToken = lens _dsgsrsNextToken (\ s a -> s{_dsgsrsNextToken = a});
+dsgsrsNextToken = lens _dsgsrsNextToken (\ s a -> s{_dsgsrsNextToken = a})
 
 -- | -- | The response status code.
 dsgsrsResponseStatus :: Lens' DescribeSubnetGroupsResponse Int
-dsgsrsResponseStatus = lens _dsgsrsResponseStatus (\ s a -> s{_dsgsrsResponseStatus = a});
+dsgsrsResponseStatus = lens _dsgsrsResponseStatus (\ s a -> s{_dsgsrsResponseStatus = a})
 
 instance NFData DescribeSubnetGroupsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListHITs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- The @ListHITs@ operation returns all of a Requester's HITs. The operation returns HITs of any status, except for HITs that have been deleted of with the DeleteHIT operation or that have been auto-deleted.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListHITs
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.MechanicalTurk.ListHITs
 import Network.AWS.Lens
 import Network.AWS.MechanicalTurk.Types
 import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -68,11 +71,18 @@ listHITs = ListHITs' {_lhitNextToken = Nothing, _lhitMaxResults = Nothing}
 
 -- | Pagination token
 lhitNextToken :: Lens' ListHITs (Maybe Text)
-lhitNextToken = lens _lhitNextToken (\ s a -> s{_lhitNextToken = a});
+lhitNextToken = lens _lhitNextToken (\ s a -> s{_lhitNextToken = a})
 
 -- | Undocumented member.
 lhitMaxResults :: Lens' ListHITs (Maybe Natural)
-lhitMaxResults = lens _lhitMaxResults (\ s a -> s{_lhitMaxResults = a}) . mapping _Nat;
+lhitMaxResults = lens _lhitMaxResults (\ s a -> s{_lhitMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListHITs where
+        page rq rs
+          | stop (rs ^. lhitrsNextToken) = Nothing
+          | stop (rs ^. lhitrsHITs) = Nothing
+          | otherwise =
+            Just $ rq & lhitNextToken .~ rs ^. lhitrsNextToken
 
 instance AWSRequest ListHITs where
         type Rs ListHITs = ListHITsResponse
@@ -137,27 +147,27 @@ listHITsResponse
     -> ListHITsResponse
 listHITsResponse pResponseStatus_ =
   ListHITsResponse'
-  { _lhitrsNextToken = Nothing
-  , _lhitrsNumResults = Nothing
-  , _lhitrsHITs = Nothing
-  , _lhitrsResponseStatus = pResponseStatus_
-  }
+    { _lhitrsNextToken = Nothing
+    , _lhitrsNumResults = Nothing
+    , _lhitrsHITs = Nothing
+    , _lhitrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 lhitrsNextToken :: Lens' ListHITsResponse (Maybe Text)
-lhitrsNextToken = lens _lhitrsNextToken (\ s a -> s{_lhitrsNextToken = a});
+lhitrsNextToken = lens _lhitrsNextToken (\ s a -> s{_lhitrsNextToken = a})
 
 -- | The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
 lhitrsNumResults :: Lens' ListHITsResponse (Maybe Int)
-lhitrsNumResults = lens _lhitrsNumResults (\ s a -> s{_lhitrsNumResults = a});
+lhitrsNumResults = lens _lhitrsNumResults (\ s a -> s{_lhitrsNumResults = a})
 
 -- | The list of HIT elements returned by the query.
 lhitrsHITs :: Lens' ListHITsResponse [HIT]
-lhitrsHITs = lens _lhitrsHITs (\ s a -> s{_lhitrsHITs = a}) . _Default . _Coerce;
+lhitrsHITs = lens _lhitrsHITs (\ s a -> s{_lhitrsHITs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lhitrsResponseStatus :: Lens' ListHITsResponse Int
-lhitrsResponseStatus = lens _lhitrsResponseStatus (\ s a -> s{_lhitrsResponseStatus = a});
+lhitrsResponseStatus = lens _lhitrsResponseStatus (\ s a -> s{_lhitrsResponseStatus = a})
 
 instance NFData ListHITsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListSubscriptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ listSubscriptions = ListSubscriptions' {_lsNextToken = Nothing}
 
 -- | Token returned by the previous @ListSubscriptions@ request.
 lsNextToken :: Lens' ListSubscriptions (Maybe Text)
-lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
+lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a})
 
 instance AWSPager ListSubscriptions where
         page rq rs
@@ -134,22 +134,22 @@ listSubscriptionsResponse
     -> ListSubscriptionsResponse
 listSubscriptionsResponse pResponseStatus_ =
   ListSubscriptionsResponse'
-  { _lsrsNextToken = Nothing
-  , _lsrsSubscriptions = Nothing
-  , _lsrsResponseStatus = pResponseStatus_
-  }
+    { _lsrsNextToken = Nothing
+    , _lsrsSubscriptions = Nothing
+    , _lsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Token to pass along to the next @ListSubscriptions@ request. This element is returned if there are more subscriptions to retrieve.
 lsrsNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
+lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a})
 
 -- | A list of subscriptions.
 lsrsSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
-lsrsSubscriptions = lens _lsrsSubscriptions (\ s a -> s{_lsrsSubscriptions = a}) . _Default . _Coerce;
+lsrsSubscriptions = lens _lsrsSubscriptions (\ s a -> s{_lsrsSubscriptions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lsrsResponseStatus :: Lens' ListSubscriptionsResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
+lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a})
 
 instance NFData ListSubscriptionsResponse where

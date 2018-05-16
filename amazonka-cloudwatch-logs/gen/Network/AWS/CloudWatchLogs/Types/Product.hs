@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,38 +55,38 @@ destination
     :: Destination
 destination =
   Destination'
-  { _dTargetARN = Nothing
-  , _dCreationTime = Nothing
-  , _dArn = Nothing
-  , _dAccessPolicy = Nothing
-  , _dDestinationName = Nothing
-  , _dRoleARN = Nothing
-  }
+    { _dTargetARN = Nothing
+    , _dCreationTime = Nothing
+    , _dArn = Nothing
+    , _dAccessPolicy = Nothing
+    , _dDestinationName = Nothing
+    , _dRoleARN = Nothing
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the physical target to where the log events are delivered (for example, a Kinesis stream).
 dTargetARN :: Lens' Destination (Maybe Text)
-dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
+dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a})
 
 -- | The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 dCreationTime :: Lens' Destination (Maybe Natural)
-dCreationTime = lens _dCreationTime (\ s a -> s{_dCreationTime = a}) . mapping _Nat;
+dCreationTime = lens _dCreationTime (\ s a -> s{_dCreationTime = a}) . mapping _Nat
 
 -- | The ARN of this destination.
 dArn :: Lens' Destination (Maybe Text)
-dArn = lens _dArn (\ s a -> s{_dArn = a});
+dArn = lens _dArn (\ s a -> s{_dArn = a})
 
 -- | An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
 dAccessPolicy :: Lens' Destination (Maybe Text)
-dAccessPolicy = lens _dAccessPolicy (\ s a -> s{_dAccessPolicy = a});
+dAccessPolicy = lens _dAccessPolicy (\ s a -> s{_dAccessPolicy = a})
 
 -- | The name of the destination.
 dDestinationName :: Lens' Destination (Maybe Text)
-dDestinationName = lens _dDestinationName (\ s a -> s{_dDestinationName = a});
+dDestinationName = lens _dDestinationName (\ s a -> s{_dDestinationName = a})
 
 -- | A role for impersonation, used when delivering log events to the target.
 dRoleARN :: Lens' Destination (Maybe Text)
-dRoleARN = lens _dRoleARN (\ s a -> s{_dRoleARN = a});
+dRoleARN = lens _dRoleARN (\ s a -> s{_dRoleARN = a})
 
 instance FromJSON Destination where
         parseJSON
@@ -146,53 +146,53 @@ exportTask
     :: ExportTask
 exportTask =
   ExportTask'
-  { _etDestinationPrefix = Nothing
-  , _etDestination = Nothing
-  , _etStatus = Nothing
-  , _etTaskName = Nothing
-  , _etTaskId = Nothing
-  , _etTo = Nothing
-  , _etFrom = Nothing
-  , _etLogGroupName = Nothing
-  , _etExecutionInfo = Nothing
-  }
+    { _etDestinationPrefix = Nothing
+    , _etDestination = Nothing
+    , _etStatus = Nothing
+    , _etTaskName = Nothing
+    , _etTaskId = Nothing
+    , _etTo = Nothing
+    , _etFrom = Nothing
+    , _etLogGroupName = Nothing
+    , _etExecutionInfo = Nothing
+    }
 
 
 -- | The prefix that was used as the start of Amazon S3 key for every object exported.
 etDestinationPrefix :: Lens' ExportTask (Maybe Text)
-etDestinationPrefix = lens _etDestinationPrefix (\ s a -> s{_etDestinationPrefix = a});
+etDestinationPrefix = lens _etDestinationPrefix (\ s a -> s{_etDestinationPrefix = a})
 
 -- | The name of Amazon S3 bucket to which the log data was exported.
 etDestination :: Lens' ExportTask (Maybe Text)
-etDestination = lens _etDestination (\ s a -> s{_etDestination = a});
+etDestination = lens _etDestination (\ s a -> s{_etDestination = a})
 
 -- | The status of the export task.
 etStatus :: Lens' ExportTask (Maybe ExportTaskStatus)
-etStatus = lens _etStatus (\ s a -> s{_etStatus = a});
+etStatus = lens _etStatus (\ s a -> s{_etStatus = a})
 
 -- | The name of the export task.
 etTaskName :: Lens' ExportTask (Maybe Text)
-etTaskName = lens _etTaskName (\ s a -> s{_etTaskName = a});
+etTaskName = lens _etTaskName (\ s a -> s{_etTaskName = a})
 
 -- | The ID of the export task.
 etTaskId :: Lens' ExportTask (Maybe Text)
-etTaskId = lens _etTaskId (\ s a -> s{_etTaskId = a});
+etTaskId = lens _etTaskId (\ s a -> s{_etTaskId = a})
 
 -- | The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.
 etTo :: Lens' ExportTask (Maybe Natural)
-etTo = lens _etTo (\ s a -> s{_etTo = a}) . mapping _Nat;
+etTo = lens _etTo (\ s a -> s{_etTo = a}) . mapping _Nat
 
 -- | The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not exported.
 etFrom :: Lens' ExportTask (Maybe Natural)
-etFrom = lens _etFrom (\ s a -> s{_etFrom = a}) . mapping _Nat;
+etFrom = lens _etFrom (\ s a -> s{_etFrom = a}) . mapping _Nat
 
 -- | The name of the log group from which logs data was exported.
 etLogGroupName :: Lens' ExportTask (Maybe Text)
-etLogGroupName = lens _etLogGroupName (\ s a -> s{_etLogGroupName = a});
+etLogGroupName = lens _etLogGroupName (\ s a -> s{_etLogGroupName = a})
 
 -- | Execution info about the export task.
 etExecutionInfo :: Lens' ExportTask (Maybe ExportTaskExecutionInfo)
-etExecutionInfo = lens _etExecutionInfo (\ s a -> s{_etExecutionInfo = a});
+etExecutionInfo = lens _etExecutionInfo (\ s a -> s{_etExecutionInfo = a})
 
 instance FromJSON ExportTask where
         parseJSON
@@ -234,16 +234,16 @@ exportTaskExecutionInfo
     :: ExportTaskExecutionInfo
 exportTaskExecutionInfo =
   ExportTaskExecutionInfo'
-  {_eteiCreationTime = Nothing, _eteiCompletionTime = Nothing}
+    {_eteiCreationTime = Nothing, _eteiCompletionTime = Nothing}
 
 
 -- | The creation time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 eteiCreationTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
-eteiCreationTime = lens _eteiCreationTime (\ s a -> s{_eteiCreationTime = a}) . mapping _Nat;
+eteiCreationTime = lens _eteiCreationTime (\ s a -> s{_eteiCreationTime = a}) . mapping _Nat
 
 -- | The completion time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 eteiCompletionTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
-eteiCompletionTime = lens _eteiCompletionTime (\ s a -> s{_eteiCompletionTime = a}) . mapping _Nat;
+eteiCompletionTime = lens _eteiCompletionTime (\ s a -> s{_eteiCompletionTime = a}) . mapping _Nat
 
 instance FromJSON ExportTaskExecutionInfo where
         parseJSON
@@ -281,11 +281,11 @@ exportTaskStatus = ExportTaskStatus' {_etsCode = Nothing, _etsMessage = Nothing}
 
 -- | The status code of the export task.
 etsCode :: Lens' ExportTaskStatus (Maybe ExportTaskStatusCode)
-etsCode = lens _etsCode (\ s a -> s{_etsCode = a});
+etsCode = lens _etsCode (\ s a -> s{_etsCode = a})
 
 -- | The status message related to the status code.
 etsMessage :: Lens' ExportTaskStatus (Maybe Text)
-etsMessage = lens _etsMessage (\ s a -> s{_etsMessage = a});
+etsMessage = lens _etsMessage (\ s a -> s{_etsMessage = a})
 
 instance FromJSON ExportTaskStatus where
         parseJSON
@@ -329,33 +329,33 @@ filteredLogEvent
     :: FilteredLogEvent
 filteredLogEvent =
   FilteredLogEvent'
-  { _fleIngestionTime = Nothing
-  , _fleLogStreamName = Nothing
-  , _fleMessage = Nothing
-  , _fleTimestamp = Nothing
-  , _fleEventId = Nothing
-  }
+    { _fleIngestionTime = Nothing
+    , _fleLogStreamName = Nothing
+    , _fleMessage = Nothing
+    , _fleTimestamp = Nothing
+    , _fleEventId = Nothing
+    }
 
 
 -- | The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 fleIngestionTime :: Lens' FilteredLogEvent (Maybe Natural)
-fleIngestionTime = lens _fleIngestionTime (\ s a -> s{_fleIngestionTime = a}) . mapping _Nat;
+fleIngestionTime = lens _fleIngestionTime (\ s a -> s{_fleIngestionTime = a}) . mapping _Nat
 
 -- | The name of the log stream this event belongs to.
 fleLogStreamName :: Lens' FilteredLogEvent (Maybe Text)
-fleLogStreamName = lens _fleLogStreamName (\ s a -> s{_fleLogStreamName = a});
+fleLogStreamName = lens _fleLogStreamName (\ s a -> s{_fleLogStreamName = a})
 
 -- | The data contained in the log event.
 fleMessage :: Lens' FilteredLogEvent (Maybe Text)
-fleMessage = lens _fleMessage (\ s a -> s{_fleMessage = a});
+fleMessage = lens _fleMessage (\ s a -> s{_fleMessage = a})
 
 -- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 fleTimestamp :: Lens' FilteredLogEvent (Maybe Natural)
-fleTimestamp = lens _fleTimestamp (\ s a -> s{_fleTimestamp = a}) . mapping _Nat;
+fleTimestamp = lens _fleTimestamp (\ s a -> s{_fleTimestamp = a}) . mapping _Nat
 
 -- | The ID of the event.
 fleEventId :: Lens' FilteredLogEvent (Maybe Text)
-fleEventId = lens _fleEventId (\ s a -> s{_fleEventId = a});
+fleEventId = lens _fleEventId (\ s a -> s{_fleEventId = a})
 
 instance FromJSON FilteredLogEvent where
         parseJSON
@@ -399,11 +399,11 @@ inputLogEvent pTimestamp_ pMessage_ =
 
 -- | The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
 ileTimestamp :: Lens' InputLogEvent Natural
-ileTimestamp = lens _ileTimestamp (\ s a -> s{_ileTimestamp = a}) . _Nat;
+ileTimestamp = lens _ileTimestamp (\ s a -> s{_ileTimestamp = a}) . _Nat
 
 -- | The raw event message.
 ileMessage :: Lens' InputLogEvent Text
-ileMessage = lens _ileMessage (\ s a -> s{_ileMessage = a});
+ileMessage = lens _ileMessage (\ s a -> s{_ileMessage = a})
 
 instance Hashable InputLogEvent where
 
@@ -453,43 +453,43 @@ logGroup
     :: LogGroup
 logGroup =
   LogGroup'
-  { _lgCreationTime = Nothing
-  , _lgMetricFilterCount = Nothing
-  , _lgArn = Nothing
-  , _lgLogGroupName = Nothing
-  , _lgRetentionInDays = Nothing
-  , _lgKmsKeyId = Nothing
-  , _lgStoredBytes = Nothing
-  }
+    { _lgCreationTime = Nothing
+    , _lgMetricFilterCount = Nothing
+    , _lgArn = Nothing
+    , _lgLogGroupName = Nothing
+    , _lgRetentionInDays = Nothing
+    , _lgKmsKeyId = Nothing
+    , _lgStoredBytes = Nothing
+    }
 
 
 -- | The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 lgCreationTime :: Lens' LogGroup (Maybe Natural)
-lgCreationTime = lens _lgCreationTime (\ s a -> s{_lgCreationTime = a}) . mapping _Nat;
+lgCreationTime = lens _lgCreationTime (\ s a -> s{_lgCreationTime = a}) . mapping _Nat
 
 -- | The number of metric filters.
 lgMetricFilterCount :: Lens' LogGroup (Maybe Int)
-lgMetricFilterCount = lens _lgMetricFilterCount (\ s a -> s{_lgMetricFilterCount = a});
+lgMetricFilterCount = lens _lgMetricFilterCount (\ s a -> s{_lgMetricFilterCount = a})
 
 -- | The Amazon Resource Name (ARN) of the log group.
 lgArn :: Lens' LogGroup (Maybe Text)
-lgArn = lens _lgArn (\ s a -> s{_lgArn = a});
+lgArn = lens _lgArn (\ s a -> s{_lgArn = a})
 
 -- | The name of the log group.
 lgLogGroupName :: Lens' LogGroup (Maybe Text)
-lgLogGroupName = lens _lgLogGroupName (\ s a -> s{_lgLogGroupName = a});
+lgLogGroupName = lens _lgLogGroupName (\ s a -> s{_lgLogGroupName = a})
 
 -- | Undocumented member.
 lgRetentionInDays :: Lens' LogGroup (Maybe Int)
-lgRetentionInDays = lens _lgRetentionInDays (\ s a -> s{_lgRetentionInDays = a});
+lgRetentionInDays = lens _lgRetentionInDays (\ s a -> s{_lgRetentionInDays = a})
 
 -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 lgKmsKeyId :: Lens' LogGroup (Maybe Text)
-lgKmsKeyId = lens _lgKmsKeyId (\ s a -> s{_lgKmsKeyId = a});
+lgKmsKeyId = lens _lgKmsKeyId (\ s a -> s{_lgKmsKeyId = a})
 
 -- | The number of bytes stored.
 lgStoredBytes :: Lens' LogGroup (Maybe Natural)
-lgStoredBytes = lens _lgStoredBytes (\ s a -> s{_lgStoredBytes = a}) . mapping _Nat;
+lgStoredBytes = lens _lgStoredBytes (\ s a -> s{_lgStoredBytes = a}) . mapping _Nat
 
 instance FromJSON LogGroup where
         parseJSON
@@ -548,48 +548,48 @@ logStream
     :: LogStream
 logStream =
   LogStream'
-  { _lsCreationTime = Nothing
-  , _lsUploadSequenceToken = Nothing
-  , _lsArn = Nothing
-  , _lsFirstEventTimestamp = Nothing
-  , _lsLogStreamName = Nothing
-  , _lsStoredBytes = Nothing
-  , _lsLastIngestionTime = Nothing
-  , _lsLastEventTimestamp = Nothing
-  }
+    { _lsCreationTime = Nothing
+    , _lsUploadSequenceToken = Nothing
+    , _lsArn = Nothing
+    , _lsFirstEventTimestamp = Nothing
+    , _lsLogStreamName = Nothing
+    , _lsStoredBytes = Nothing
+    , _lsLastIngestionTime = Nothing
+    , _lsLastEventTimestamp = Nothing
+    }
 
 
 -- | The creation time of the stream, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 lsCreationTime :: Lens' LogStream (Maybe Natural)
-lsCreationTime = lens _lsCreationTime (\ s a -> s{_lsCreationTime = a}) . mapping _Nat;
+lsCreationTime = lens _lsCreationTime (\ s a -> s{_lsCreationTime = a}) . mapping _Nat
 
 -- | The sequence token.
 lsUploadSequenceToken :: Lens' LogStream (Maybe Text)
-lsUploadSequenceToken = lens _lsUploadSequenceToken (\ s a -> s{_lsUploadSequenceToken = a});
+lsUploadSequenceToken = lens _lsUploadSequenceToken (\ s a -> s{_lsUploadSequenceToken = a})
 
 -- | The Amazon Resource Name (ARN) of the log stream.
 lsArn :: Lens' LogStream (Maybe Text)
-lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
+lsArn = lens _lsArn (\ s a -> s{_lsArn = a})
 
 -- | The time of the first event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 lsFirstEventTimestamp :: Lens' LogStream (Maybe Natural)
-lsFirstEventTimestamp = lens _lsFirstEventTimestamp (\ s a -> s{_lsFirstEventTimestamp = a}) . mapping _Nat;
+lsFirstEventTimestamp = lens _lsFirstEventTimestamp (\ s a -> s{_lsFirstEventTimestamp = a}) . mapping _Nat
 
 -- | The name of the log stream.
 lsLogStreamName :: Lens' LogStream (Maybe Text)
-lsLogStreamName = lens _lsLogStreamName (\ s a -> s{_lsLogStreamName = a});
+lsLogStreamName = lens _lsLogStreamName (\ s a -> s{_lsLogStreamName = a})
 
 -- | The number of bytes stored.
 lsStoredBytes :: Lens' LogStream (Maybe Natural)
-lsStoredBytes = lens _lsStoredBytes (\ s a -> s{_lsStoredBytes = a}) . mapping _Nat;
+lsStoredBytes = lens _lsStoredBytes (\ s a -> s{_lsStoredBytes = a}) . mapping _Nat
 
 -- | The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 lsLastIngestionTime :: Lens' LogStream (Maybe Natural)
-lsLastIngestionTime = lens _lsLastIngestionTime (\ s a -> s{_lsLastIngestionTime = a}) . mapping _Nat;
+lsLastIngestionTime = lens _lsLastIngestionTime (\ s a -> s{_lsLastIngestionTime = a}) . mapping _Nat
 
 -- | the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTime updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
 lsLastEventTimestamp :: Lens' LogStream (Maybe Natural)
-lsLastEventTimestamp = lens _lsLastEventTimestamp (\ s a -> s{_lsLastEventTimestamp = a}) . mapping _Nat;
+lsLastEventTimestamp = lens _lsLastEventTimestamp (\ s a -> s{_lsLastEventTimestamp = a}) . mapping _Nat
 
 instance FromJSON LogStream where
         parseJSON
@@ -640,33 +640,33 @@ metricFilter
     :: MetricFilter
 metricFilter =
   MetricFilter'
-  { _mfCreationTime = Nothing
-  , _mfFilterName = Nothing
-  , _mfLogGroupName = Nothing
-  , _mfFilterPattern = Nothing
-  , _mfMetricTransformations = Nothing
-  }
+    { _mfCreationTime = Nothing
+    , _mfFilterName = Nothing
+    , _mfLogGroupName = Nothing
+    , _mfFilterPattern = Nothing
+    , _mfMetricTransformations = Nothing
+    }
 
 
 -- | The creation time of the metric filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 mfCreationTime :: Lens' MetricFilter (Maybe Natural)
-mfCreationTime = lens _mfCreationTime (\ s a -> s{_mfCreationTime = a}) . mapping _Nat;
+mfCreationTime = lens _mfCreationTime (\ s a -> s{_mfCreationTime = a}) . mapping _Nat
 
 -- | The name of the metric filter.
 mfFilterName :: Lens' MetricFilter (Maybe Text)
-mfFilterName = lens _mfFilterName (\ s a -> s{_mfFilterName = a});
+mfFilterName = lens _mfFilterName (\ s a -> s{_mfFilterName = a})
 
 -- | The name of the log group.
 mfLogGroupName :: Lens' MetricFilter (Maybe Text)
-mfLogGroupName = lens _mfLogGroupName (\ s a -> s{_mfLogGroupName = a});
+mfLogGroupName = lens _mfLogGroupName (\ s a -> s{_mfLogGroupName = a})
 
 -- | Undocumented member.
 mfFilterPattern :: Lens' MetricFilter (Maybe Text)
-mfFilterPattern = lens _mfFilterPattern (\ s a -> s{_mfFilterPattern = a});
+mfFilterPattern = lens _mfFilterPattern (\ s a -> s{_mfFilterPattern = a})
 
 -- | The metric transformations.
 mfMetricTransformations :: Lens' MetricFilter (Maybe (NonEmpty MetricTransformation))
-mfMetricTransformations = lens _mfMetricTransformations (\ s a -> s{_mfMetricTransformations = a}) . mapping _List1;
+mfMetricTransformations = lens _mfMetricTransformations (\ s a -> s{_mfMetricTransformations = a}) . mapping _List1
 
 instance FromJSON MetricFilter where
         parseJSON
@@ -707,23 +707,23 @@ metricFilterMatchRecord
     :: MetricFilterMatchRecord
 metricFilterMatchRecord =
   MetricFilterMatchRecord'
-  { _mfmrExtractedValues = Nothing
-  , _mfmrEventNumber = Nothing
-  , _mfmrEventMessage = Nothing
-  }
+    { _mfmrExtractedValues = Nothing
+    , _mfmrEventNumber = Nothing
+    , _mfmrEventMessage = Nothing
+    }
 
 
 -- | The values extracted from the event data by the filter.
 mfmrExtractedValues :: Lens' MetricFilterMatchRecord (HashMap Text Text)
-mfmrExtractedValues = lens _mfmrExtractedValues (\ s a -> s{_mfmrExtractedValues = a}) . _Default . _Map;
+mfmrExtractedValues = lens _mfmrExtractedValues (\ s a -> s{_mfmrExtractedValues = a}) . _Default . _Map
 
 -- | The event number.
 mfmrEventNumber :: Lens' MetricFilterMatchRecord (Maybe Integer)
-mfmrEventNumber = lens _mfmrEventNumber (\ s a -> s{_mfmrEventNumber = a});
+mfmrEventNumber = lens _mfmrEventNumber (\ s a -> s{_mfmrEventNumber = a})
 
 -- | The raw event data.
 mfmrEventMessage :: Lens' MetricFilterMatchRecord (Maybe Text)
-mfmrEventMessage = lens _mfmrEventMessage (\ s a -> s{_mfmrEventMessage = a});
+mfmrEventMessage = lens _mfmrEventMessage (\ s a -> s{_mfmrEventMessage = a})
 
 instance FromJSON MetricFilterMatchRecord where
         parseJSON
@@ -769,28 +769,28 @@ metricTransformation
     -> MetricTransformation
 metricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ =
   MetricTransformation'
-  { _mtDefaultValue = Nothing
-  , _mtMetricName = pMetricName_
-  , _mtMetricNamespace = pMetricNamespace_
-  , _mtMetricValue = pMetricValue_
-  }
+    { _mtDefaultValue = Nothing
+    , _mtMetricName = pMetricName_
+    , _mtMetricNamespace = pMetricNamespace_
+    , _mtMetricValue = pMetricValue_
+    }
 
 
 -- | (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
 mtDefaultValue :: Lens' MetricTransformation (Maybe Double)
-mtDefaultValue = lens _mtDefaultValue (\ s a -> s{_mtDefaultValue = a});
+mtDefaultValue = lens _mtDefaultValue (\ s a -> s{_mtDefaultValue = a})
 
 -- | The name of the CloudWatch metric.
 mtMetricName :: Lens' MetricTransformation Text
-mtMetricName = lens _mtMetricName (\ s a -> s{_mtMetricName = a});
+mtMetricName = lens _mtMetricName (\ s a -> s{_mtMetricName = a})
 
 -- | The namespace of the CloudWatch metric.
 mtMetricNamespace :: Lens' MetricTransformation Text
-mtMetricNamespace = lens _mtMetricNamespace (\ s a -> s{_mtMetricNamespace = a});
+mtMetricNamespace = lens _mtMetricNamespace (\ s a -> s{_mtMetricNamespace = a})
 
 -- | The value to publish to the CloudWatch metric when a filter pattern matches a log event.
 mtMetricValue :: Lens' MetricTransformation Text
-mtMetricValue = lens _mtMetricValue (\ s a -> s{_mtMetricValue = a});
+mtMetricValue = lens _mtMetricValue (\ s a -> s{_mtMetricValue = a})
 
 instance FromJSON MetricTransformation where
         parseJSON
@@ -839,20 +839,23 @@ outputLogEvent
     :: OutputLogEvent
 outputLogEvent =
   OutputLogEvent'
-  {_oleIngestionTime = Nothing, _oleMessage = Nothing, _oleTimestamp = Nothing}
+    { _oleIngestionTime = Nothing
+    , _oleMessage = Nothing
+    , _oleTimestamp = Nothing
+    }
 
 
 -- | The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 oleIngestionTime :: Lens' OutputLogEvent (Maybe Natural)
-oleIngestionTime = lens _oleIngestionTime (\ s a -> s{_oleIngestionTime = a}) . mapping _Nat;
+oleIngestionTime = lens _oleIngestionTime (\ s a -> s{_oleIngestionTime = a}) . mapping _Nat
 
 -- | The data contained in the log event.
 oleMessage :: Lens' OutputLogEvent (Maybe Text)
-oleMessage = lens _oleMessage (\ s a -> s{_oleMessage = a});
+oleMessage = lens _oleMessage (\ s a -> s{_oleMessage = a})
 
 -- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 oleTimestamp :: Lens' OutputLogEvent (Maybe Natural)
-oleTimestamp = lens _oleTimestamp (\ s a -> s{_oleTimestamp = a}) . mapping _Nat;
+oleTimestamp = lens _oleTimestamp (\ s a -> s{_oleTimestamp = a}) . mapping _Nat
 
 instance FromJSON OutputLogEvent where
         parseJSON
@@ -891,23 +894,23 @@ rejectedLogEventsInfo
     :: RejectedLogEventsInfo
 rejectedLogEventsInfo =
   RejectedLogEventsInfo'
-  { _rleiTooOldLogEventEndIndex = Nothing
-  , _rleiTooNewLogEventStartIndex = Nothing
-  , _rleiExpiredLogEventEndIndex = Nothing
-  }
+    { _rleiTooOldLogEventEndIndex = Nothing
+    , _rleiTooNewLogEventStartIndex = Nothing
+    , _rleiExpiredLogEventEndIndex = Nothing
+    }
 
 
 -- | The log events that are too old.
 rleiTooOldLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
-rleiTooOldLogEventEndIndex = lens _rleiTooOldLogEventEndIndex (\ s a -> s{_rleiTooOldLogEventEndIndex = a});
+rleiTooOldLogEventEndIndex = lens _rleiTooOldLogEventEndIndex (\ s a -> s{_rleiTooOldLogEventEndIndex = a})
 
 -- | The log events that are too new.
 rleiTooNewLogEventStartIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
-rleiTooNewLogEventStartIndex = lens _rleiTooNewLogEventStartIndex (\ s a -> s{_rleiTooNewLogEventStartIndex = a});
+rleiTooNewLogEventStartIndex = lens _rleiTooNewLogEventStartIndex (\ s a -> s{_rleiTooNewLogEventStartIndex = a})
 
 -- | The expired log events.
 rleiExpiredLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
-rleiExpiredLogEventEndIndex = lens _rleiExpiredLogEventEndIndex (\ s a -> s{_rleiExpiredLogEventEndIndex = a});
+rleiExpiredLogEventEndIndex = lens _rleiExpiredLogEventEndIndex (\ s a -> s{_rleiExpiredLogEventEndIndex = a})
 
 instance FromJSON RejectedLogEventsInfo where
         parseJSON
@@ -947,23 +950,23 @@ resourcePolicy
     :: ResourcePolicy
 resourcePolicy =
   ResourcePolicy'
-  { _rpPolicyName = Nothing
-  , _rpPolicyDocument = Nothing
-  , _rpLastUpdatedTime = Nothing
-  }
+    { _rpPolicyName = Nothing
+    , _rpPolicyDocument = Nothing
+    , _rpLastUpdatedTime = Nothing
+    }
 
 
 -- | The name of the resource policy.
 rpPolicyName :: Lens' ResourcePolicy (Maybe Text)
-rpPolicyName = lens _rpPolicyName (\ s a -> s{_rpPolicyName = a});
+rpPolicyName = lens _rpPolicyName (\ s a -> s{_rpPolicyName = a})
 
 -- | The details of the policy.
 rpPolicyDocument :: Lens' ResourcePolicy (Maybe Text)
-rpPolicyDocument = lens _rpPolicyDocument (\ s a -> s{_rpPolicyDocument = a});
+rpPolicyDocument = lens _rpPolicyDocument (\ s a -> s{_rpPolicyDocument = a})
 
 -- | Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 rpLastUpdatedTime :: Lens' ResourcePolicy (Maybe Natural)
-rpLastUpdatedTime = lens _rpLastUpdatedTime (\ s a -> s{_rpLastUpdatedTime = a}) . mapping _Nat;
+rpLastUpdatedTime = lens _rpLastUpdatedTime (\ s a -> s{_rpLastUpdatedTime = a}) . mapping _Nat
 
 instance FromJSON ResourcePolicy where
         parseJSON
@@ -999,16 +1002,16 @@ searchedLogStream
     :: SearchedLogStream
 searchedLogStream =
   SearchedLogStream'
-  {_slsLogStreamName = Nothing, _slsSearchedCompletely = Nothing}
+    {_slsLogStreamName = Nothing, _slsSearchedCompletely = Nothing}
 
 
 -- | The name of the log stream.
 slsLogStreamName :: Lens' SearchedLogStream (Maybe Text)
-slsLogStreamName = lens _slsLogStreamName (\ s a -> s{_slsLogStreamName = a});
+slsLogStreamName = lens _slsLogStreamName (\ s a -> s{_slsLogStreamName = a})
 
 -- | Indicates whether all the events in this log stream were searched.
 slsSearchedCompletely :: Lens' SearchedLogStream (Maybe Bool)
-slsSearchedCompletely = lens _slsSearchedCompletely (\ s a -> s{_slsSearchedCompletely = a});
+slsSearchedCompletely = lens _slsSearchedCompletely (\ s a -> s{_slsSearchedCompletely = a})
 
 instance FromJSON SearchedLogStream where
         parseJSON
@@ -1059,43 +1062,43 @@ subscriptionFilter
     :: SubscriptionFilter
 subscriptionFilter =
   SubscriptionFilter'
-  { _sfCreationTime = Nothing
-  , _sfFilterName = Nothing
-  , _sfDistribution = Nothing
-  , _sfDestinationARN = Nothing
-  , _sfLogGroupName = Nothing
-  , _sfFilterPattern = Nothing
-  , _sfRoleARN = Nothing
-  }
+    { _sfCreationTime = Nothing
+    , _sfFilterName = Nothing
+    , _sfDistribution = Nothing
+    , _sfDestinationARN = Nothing
+    , _sfLogGroupName = Nothing
+    , _sfFilterPattern = Nothing
+    , _sfRoleARN = Nothing
+    }
 
 
 -- | The creation time of the subscription filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 sfCreationTime :: Lens' SubscriptionFilter (Maybe Natural)
-sfCreationTime = lens _sfCreationTime (\ s a -> s{_sfCreationTime = a}) . mapping _Nat;
+sfCreationTime = lens _sfCreationTime (\ s a -> s{_sfCreationTime = a}) . mapping _Nat
 
 -- | The name of the subscription filter.
 sfFilterName :: Lens' SubscriptionFilter (Maybe Text)
-sfFilterName = lens _sfFilterName (\ s a -> s{_sfFilterName = a});
+sfFilterName = lens _sfFilterName (\ s a -> s{_sfFilterName = a})
 
 -- | Undocumented member.
 sfDistribution :: Lens' SubscriptionFilter (Maybe Distribution)
-sfDistribution = lens _sfDistribution (\ s a -> s{_sfDistribution = a});
+sfDistribution = lens _sfDistribution (\ s a -> s{_sfDistribution = a})
 
 -- | The Amazon Resource Name (ARN) of the destination.
 sfDestinationARN :: Lens' SubscriptionFilter (Maybe Text)
-sfDestinationARN = lens _sfDestinationARN (\ s a -> s{_sfDestinationARN = a});
+sfDestinationARN = lens _sfDestinationARN (\ s a -> s{_sfDestinationARN = a})
 
 -- | The name of the log group.
 sfLogGroupName :: Lens' SubscriptionFilter (Maybe Text)
-sfLogGroupName = lens _sfLogGroupName (\ s a -> s{_sfLogGroupName = a});
+sfLogGroupName = lens _sfLogGroupName (\ s a -> s{_sfLogGroupName = a})
 
 -- | Undocumented member.
 sfFilterPattern :: Lens' SubscriptionFilter (Maybe Text)
-sfFilterPattern = lens _sfFilterPattern (\ s a -> s{_sfFilterPattern = a});
+sfFilterPattern = lens _sfFilterPattern (\ s a -> s{_sfFilterPattern = a})
 
 -- |
 sfRoleARN :: Lens' SubscriptionFilter (Maybe Text)
-sfRoleARN = lens _sfRoleARN (\ s a -> s{_sfRoleARN = a});
+sfRoleARN = lens _sfRoleARN (\ s a -> s{_sfRoleARN = a})
 
 instance FromJSON SubscriptionFilter where
         parseJSON

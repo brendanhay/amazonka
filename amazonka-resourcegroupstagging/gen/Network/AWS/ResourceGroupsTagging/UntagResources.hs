@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ResourceGroupsTagging.UntagResources
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,18 +71,18 @@ untagResources
     -> UntagResources
 untagResources pResourceARNList_ pTagKeys_ =
   UntagResources'
-  { _urResourceARNList = _List1 # pResourceARNList_
-  , _urTagKeys = _List1 # pTagKeys_
-  }
+    { _urResourceARNList = _List1 # pResourceARNList_
+    , _urTagKeys = _List1 # pTagKeys_
+    }
 
 
 -- | A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. You can specify a minimum of 1 and a maximum of 20 ARNs (resources) to untag. An ARN can be set to a maximum of 1600 characters. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 urResourceARNList :: Lens' UntagResources (NonEmpty Text)
-urResourceARNList = lens _urResourceARNList (\ s a -> s{_urResourceARNList = a}) . _List1;
+urResourceARNList = lens _urResourceARNList (\ s a -> s{_urResourceARNList = a}) . _List1
 
 -- | A list of the tag keys that you want to remove from the specified resources.
 urTagKeys :: Lens' UntagResources (NonEmpty Text)
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _List1;
+urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _List1
 
 instance AWSRequest UntagResources where
         type Rs UntagResources = UntagResourcesResponse
@@ -140,15 +140,15 @@ untagResourcesResponse
     -> UntagResourcesResponse
 untagResourcesResponse pResponseStatus_ =
   UntagResourcesResponse'
-  {_urrsFailedResourcesMap = Nothing, _urrsResponseStatus = pResponseStatus_}
+    {_urrsFailedResourcesMap = Nothing, _urrsResponseStatus = pResponseStatus_}
 
 
 -- | Details of resources that could not be untagged. An error code, status code, and error message are returned for each failed item.
 urrsFailedResourcesMap :: Lens' UntagResourcesResponse (HashMap Text FailureInfo)
-urrsFailedResourcesMap = lens _urrsFailedResourcesMap (\ s a -> s{_urrsFailedResourcesMap = a}) . _Default . _Map;
+urrsFailedResourcesMap = lens _urrsFailedResourcesMap (\ s a -> s{_urrsFailedResourcesMap = a}) . _Default . _Map
 
 -- | -- | The response status code.
 urrsResponseStatus :: Lens' UntagResourcesResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
 
 instance NFData UntagResourcesResponse where

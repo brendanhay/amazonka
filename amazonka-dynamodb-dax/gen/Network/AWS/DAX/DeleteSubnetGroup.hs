@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DeleteSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteSubnetGroup pSubnetGroupName_ =
 
 -- | The name of the subnet group to delete.
 dsgSubnetGroupName :: Lens' DeleteSubnetGroup Text
-dsgSubnetGroupName = lens _dsgSubnetGroupName (\ s a -> s{_dsgSubnetGroupName = a});
+dsgSubnetGroupName = lens _dsgSubnetGroupName (\ s a -> s{_dsgSubnetGroupName = a})
 
 instance AWSRequest DeleteSubnetGroup where
         type Rs DeleteSubnetGroup = DeleteSubnetGroupResponse
@@ -119,15 +119,15 @@ deleteSubnetGroupResponse
     -> DeleteSubnetGroupResponse
 deleteSubnetGroupResponse pResponseStatus_ =
   DeleteSubnetGroupResponse'
-  {_dsgrsDeletionMessage = Nothing, _dsgrsResponseStatus = pResponseStatus_}
+    {_dsgrsDeletionMessage = Nothing, _dsgrsResponseStatus = pResponseStatus_}
 
 
 -- | A user-specified message for this action (i.e., a reason for deleting the subnet group).
 dsgrsDeletionMessage :: Lens' DeleteSubnetGroupResponse (Maybe Text)
-dsgrsDeletionMessage = lens _dsgrsDeletionMessage (\ s a -> s{_dsgrsDeletionMessage = a});
+dsgrsDeletionMessage = lens _dsgrsDeletionMessage (\ s a -> s{_dsgrsDeletionMessage = a})
 
 -- | -- | The response status code.
 dsgrsResponseStatus :: Lens' DeleteSubnetGroupResponse Int
-dsgrsResponseStatus = lens _dsgrsResponseStatus (\ s a -> s{_dsgrsResponseStatus = a});
+dsgrsResponseStatus = lens _dsgrsResponseStatus (\ s a -> s{_dsgrsResponseStatus = a})
 
 instance NFData DeleteSubnetGroupResponse where

@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -18,6 +18,66 @@
 module Network.AWS.Config.Types.Sum where
 
 import Network.AWS.Prelude
+
+data AggregatedSourceStatusType
+  = Failed
+  | Outdated
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AggregatedSourceStatusType where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "outdated" -> pure Outdated
+        "succeeded" -> pure Succeeded
+        e -> fromTextError $ "Failure parsing AggregatedSourceStatusType from value: '" <> e
+           <> "'. Accepted values: failed, outdated, succeeded"
+
+instance ToText AggregatedSourceStatusType where
+    toText = \case
+        Failed -> "FAILED"
+        Outdated -> "OUTDATED"
+        Succeeded -> "SUCCEEDED"
+
+instance Hashable     AggregatedSourceStatusType
+instance NFData       AggregatedSourceStatusType
+instance ToByteString AggregatedSourceStatusType
+instance ToQuery      AggregatedSourceStatusType
+instance ToHeader     AggregatedSourceStatusType
+
+instance ToJSON AggregatedSourceStatusType where
+    toJSON = toJSONText
+
+instance FromJSON AggregatedSourceStatusType where
+    parseJSON = parseJSONText "AggregatedSourceStatusType"
+
+data AggregatedSourceType
+  = Account
+  | Organization
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AggregatedSourceType where
+    parser = takeLowerText >>= \case
+        "account" -> pure Account
+        "organization" -> pure Organization
+        e -> fromTextError $ "Failure parsing AggregatedSourceType from value: '" <> e
+           <> "'. Accepted values: account, organization"
+
+instance ToText AggregatedSourceType where
+    toText = \case
+        Account -> "ACCOUNT"
+        Organization -> "ORGANIZATION"
+
+instance Hashable     AggregatedSourceType
+instance NFData       AggregatedSourceType
+instance ToByteString AggregatedSourceType
+instance ToQuery      AggregatedSourceType
+instance ToHeader     AggregatedSourceType
+
+instance FromJSON AggregatedSourceType where
+    parseJSON = parseJSONText "AggregatedSourceType"
 
 data ChronologicalOrder
   = Forward
@@ -82,6 +142,33 @@ instance ToJSON ComplianceType where
 instance FromJSON ComplianceType where
     parseJSON = parseJSONText "ComplianceType"
 
+data ConfigRuleComplianceSummaryGroupKey
+  = AWSRegion
+  | AccountId
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ConfigRuleComplianceSummaryGroupKey where
+    parser = takeLowerText >>= \case
+        "aws_region" -> pure AWSRegion
+        "account_id" -> pure AccountId
+        e -> fromTextError $ "Failure parsing ConfigRuleComplianceSummaryGroupKey from value: '" <> e
+           <> "'. Accepted values: aws_region, account_id"
+
+instance ToText ConfigRuleComplianceSummaryGroupKey where
+    toText = \case
+        AWSRegion -> "AWS_REGION"
+        AccountId -> "ACCOUNT_ID"
+
+instance Hashable     ConfigRuleComplianceSummaryGroupKey
+instance NFData       ConfigRuleComplianceSummaryGroupKey
+instance ToByteString ConfigRuleComplianceSummaryGroupKey
+instance ToQuery      ConfigRuleComplianceSummaryGroupKey
+instance ToHeader     ConfigRuleComplianceSummaryGroupKey
+
+instance ToJSON ConfigRuleComplianceSummaryGroupKey where
+    toJSON = toJSONText
+
 data ConfigRuleState
   = Active
   | Deleting
@@ -119,28 +206,31 @@ instance FromJSON ConfigRuleState where
     parseJSON = parseJSONText "ConfigRuleState"
 
 data ConfigurationItemStatus
-  = Deleted
-  | Discovered
-  | Failed
-  | OK
+  = OK
+  | ResourceDeleted
+  | ResourceDeletedNotRecorded
+  | ResourceDiscovered
+  | ResourceNotRecorded
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ConfigurationItemStatus where
     parser = takeLowerText >>= \case
-        "deleted" -> pure Deleted
-        "discovered" -> pure Discovered
-        "failed" -> pure Failed
         "ok" -> pure OK
+        "resourcedeleted" -> pure ResourceDeleted
+        "resourcedeletednotrecorded" -> pure ResourceDeletedNotRecorded
+        "resourcediscovered" -> pure ResourceDiscovered
+        "resourcenotrecorded" -> pure ResourceNotRecorded
         e -> fromTextError $ "Failure parsing ConfigurationItemStatus from value: '" <> e
-           <> "'. Accepted values: deleted, discovered, failed, ok"
+           <> "'. Accepted values: ok, resourcedeleted, resourcedeletednotrecorded, resourcediscovered, resourcenotrecorded"
 
 instance ToText ConfigurationItemStatus where
     toText = \case
-        Deleted -> "Deleted"
-        Discovered -> "Discovered"
-        Failed -> "Failed"
-        OK -> "Ok"
+        OK -> "OK"
+        ResourceDeleted -> "ResourceDeleted"
+        ResourceDeletedNotRecorded -> "ResourceDeletedNotRecorded"
+        ResourceDiscovered -> "ResourceDiscovered"
+        ResourceNotRecorded -> "ResourceNotRecorded"
 
 instance Hashable     ConfigurationItemStatus
 instance NFData       ConfigurationItemStatus
@@ -350,6 +440,8 @@ data ResourceType
   | AWSAutoScalingScalingPolicy
   | AWSAutoScalingScheduledAction
   | AWSCloudFormationStack
+  | AWSCloudFrontDistribution
+  | AWSCloudFrontStreamingDistribution
   | AWSCloudTrailTrail
   | AWSCloudWatchAlarm
   | AWSCodeBuildProject
@@ -369,10 +461,15 @@ data ResourceType
   | AWSEC2VPNGateway
   | AWSEC2Volume
   | AWSELASTICLOADBALANCINGV2LoadBalancer
+  | AWSElasticBeanstalkApplication
+  | AWSElasticBeanstalkApplicationVersion
+  | AWSElasticBeanstalkEnvironment
+  | AWSElasticLoadBalancingLoadBalancer
   | AWSIAMGroup
   | AWSIAMPolicy
   | AWSIAMRole
   | AWSIAMUser
+  | AWSLambdaFunction
   | AWSRDSDBInstance
   | AWSRDSDBSecurityGroup
   | AWSRDSDBSnapshot
@@ -386,6 +483,14 @@ data ResourceType
   | AWSRedshiftEventSubscription
   | AWSS3Bucket
   | AWSSsmManagedInstanceInventory
+  | AWSWAFRegionalRateBasedRule
+  | AWSWAFRegionalRule
+  | AWSWAFRegionalRuleGroup
+  | AWSWAFRegionalWebACL
+  | AWSWafRateBasedRule
+  | AWSWafRule
+  | AWSWafRuleGroup
+  | AWSWafWebACL
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -397,6 +502,8 @@ instance FromText ResourceType where
         "aws::autoscaling::scalingpolicy" -> pure AWSAutoScalingScalingPolicy
         "aws::autoscaling::scheduledaction" -> pure AWSAutoScalingScheduledAction
         "aws::cloudformation::stack" -> pure AWSCloudFormationStack
+        "aws::cloudfront::distribution" -> pure AWSCloudFrontDistribution
+        "aws::cloudfront::streamingdistribution" -> pure AWSCloudFrontStreamingDistribution
         "aws::cloudtrail::trail" -> pure AWSCloudTrailTrail
         "aws::cloudwatch::alarm" -> pure AWSCloudWatchAlarm
         "aws::codebuild::project" -> pure AWSCodeBuildProject
@@ -416,10 +523,15 @@ instance FromText ResourceType where
         "aws::ec2::vpngateway" -> pure AWSEC2VPNGateway
         "aws::ec2::volume" -> pure AWSEC2Volume
         "aws::elasticloadbalancingv2::loadbalancer" -> pure AWSELASTICLOADBALANCINGV2LoadBalancer
+        "aws::elasticbeanstalk::application" -> pure AWSElasticBeanstalkApplication
+        "aws::elasticbeanstalk::applicationversion" -> pure AWSElasticBeanstalkApplicationVersion
+        "aws::elasticbeanstalk::environment" -> pure AWSElasticBeanstalkEnvironment
+        "aws::elasticloadbalancing::loadbalancer" -> pure AWSElasticLoadBalancingLoadBalancer
         "aws::iam::group" -> pure AWSIAMGroup
         "aws::iam::policy" -> pure AWSIAMPolicy
         "aws::iam::role" -> pure AWSIAMRole
         "aws::iam::user" -> pure AWSIAMUser
+        "aws::lambda::function" -> pure AWSLambdaFunction
         "aws::rds::dbinstance" -> pure AWSRDSDBInstance
         "aws::rds::dbsecuritygroup" -> pure AWSRDSDBSecurityGroup
         "aws::rds::dbsnapshot" -> pure AWSRDSDBSnapshot
@@ -433,8 +545,16 @@ instance FromText ResourceType where
         "aws::redshift::eventsubscription" -> pure AWSRedshiftEventSubscription
         "aws::s3::bucket" -> pure AWSS3Bucket
         "aws::ssm::managedinstanceinventory" -> pure AWSSsmManagedInstanceInventory
+        "aws::wafregional::ratebasedrule" -> pure AWSWAFRegionalRateBasedRule
+        "aws::wafregional::rule" -> pure AWSWAFRegionalRule
+        "aws::wafregional::rulegroup" -> pure AWSWAFRegionalRuleGroup
+        "aws::wafregional::webacl" -> pure AWSWAFRegionalWebACL
+        "aws::waf::ratebasedrule" -> pure AWSWafRateBasedRule
+        "aws::waf::rule" -> pure AWSWafRule
+        "aws::waf::rulegroup" -> pure AWSWafRuleGroup
+        "aws::waf::webacl" -> pure AWSWafWebACL
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: aws::acm::certificate, aws::autoscaling::autoscalinggroup, aws::autoscaling::launchconfiguration, aws::autoscaling::scalingpolicy, aws::autoscaling::scheduledaction, aws::cloudformation::stack, aws::cloudtrail::trail, aws::cloudwatch::alarm, aws::codebuild::project, aws::dynamodb::table, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::elasticloadbalancingv2::loadbalancer, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription, aws::redshift::cluster, aws::redshift::clusterparametergroup, aws::redshift::clustersecuritygroup, aws::redshift::clustersnapshot, aws::redshift::clustersubnetgroup, aws::redshift::eventsubscription, aws::s3::bucket, aws::ssm::managedinstanceinventory"
+           <> "'. Accepted values: aws::acm::certificate, aws::autoscaling::autoscalinggroup, aws::autoscaling::launchconfiguration, aws::autoscaling::scalingpolicy, aws::autoscaling::scheduledaction, aws::cloudformation::stack, aws::cloudfront::distribution, aws::cloudfront::streamingdistribution, aws::cloudtrail::trail, aws::cloudwatch::alarm, aws::codebuild::project, aws::dynamodb::table, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::elasticloadbalancingv2::loadbalancer, aws::elasticbeanstalk::application, aws::elasticbeanstalk::applicationversion, aws::elasticbeanstalk::environment, aws::elasticloadbalancing::loadbalancer, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::lambda::function, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription, aws::redshift::cluster, aws::redshift::clusterparametergroup, aws::redshift::clustersecuritygroup, aws::redshift::clustersnapshot, aws::redshift::clustersubnetgroup, aws::redshift::eventsubscription, aws::s3::bucket, aws::ssm::managedinstanceinventory, aws::wafregional::ratebasedrule, aws::wafregional::rule, aws::wafregional::rulegroup, aws::wafregional::webacl, aws::waf::ratebasedrule, aws::waf::rule, aws::waf::rulegroup, aws::waf::webacl"
 
 instance ToText ResourceType where
     toText = \case
@@ -444,6 +564,8 @@ instance ToText ResourceType where
         AWSAutoScalingScalingPolicy -> "AWS::AutoScaling::ScalingPolicy"
         AWSAutoScalingScheduledAction -> "AWS::AutoScaling::ScheduledAction"
         AWSCloudFormationStack -> "AWS::CloudFormation::Stack"
+        AWSCloudFrontDistribution -> "AWS::CloudFront::Distribution"
+        AWSCloudFrontStreamingDistribution -> "AWS::CloudFront::StreamingDistribution"
         AWSCloudTrailTrail -> "AWS::CloudTrail::Trail"
         AWSCloudWatchAlarm -> "AWS::CloudWatch::Alarm"
         AWSCodeBuildProject -> "AWS::CodeBuild::Project"
@@ -463,10 +585,15 @@ instance ToText ResourceType where
         AWSEC2VPNGateway -> "AWS::EC2::VPNGateway"
         AWSEC2Volume -> "AWS::EC2::Volume"
         AWSELASTICLOADBALANCINGV2LoadBalancer -> "AWS::ElasticLoadBalancingV2::LoadBalancer"
+        AWSElasticBeanstalkApplication -> "AWS::ElasticBeanstalk::Application"
+        AWSElasticBeanstalkApplicationVersion -> "AWS::ElasticBeanstalk::ApplicationVersion"
+        AWSElasticBeanstalkEnvironment -> "AWS::ElasticBeanstalk::Environment"
+        AWSElasticLoadBalancingLoadBalancer -> "AWS::ElasticLoadBalancing::LoadBalancer"
         AWSIAMGroup -> "AWS::IAM::Group"
         AWSIAMPolicy -> "AWS::IAM::Policy"
         AWSIAMRole -> "AWS::IAM::Role"
         AWSIAMUser -> "AWS::IAM::User"
+        AWSLambdaFunction -> "AWS::Lambda::Function"
         AWSRDSDBInstance -> "AWS::RDS::DBInstance"
         AWSRDSDBSecurityGroup -> "AWS::RDS::DBSecurityGroup"
         AWSRDSDBSnapshot -> "AWS::RDS::DBSnapshot"
@@ -480,6 +607,14 @@ instance ToText ResourceType where
         AWSRedshiftEventSubscription -> "AWS::Redshift::EventSubscription"
         AWSS3Bucket -> "AWS::S3::Bucket"
         AWSSsmManagedInstanceInventory -> "AWS::SSM::ManagedInstanceInventory"
+        AWSWAFRegionalRateBasedRule -> "AWS::WAFRegional::RateBasedRule"
+        AWSWAFRegionalRule -> "AWS::WAFRegional::Rule"
+        AWSWAFRegionalRuleGroup -> "AWS::WAFRegional::RuleGroup"
+        AWSWAFRegionalWebACL -> "AWS::WAFRegional::WebACL"
+        AWSWafRateBasedRule -> "AWS::WAF::RateBasedRule"
+        AWSWafRule -> "AWS::WAF::Rule"
+        AWSWafRuleGroup -> "AWS::WAF::RuleGroup"
+        AWSWafWebACL -> "AWS::WAF::WebACL"
 
 instance Hashable     ResourceType
 instance NFData       ResourceType

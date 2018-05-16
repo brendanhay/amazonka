@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteSAMLProvider
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteSAMLProvider pSAMLProviderARN_ =
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
 dsamlpSAMLProviderARN :: Lens' DeleteSAMLProvider Text
-dsamlpSAMLProviderARN = lens _dsamlpSAMLProviderARN (\ s a -> s{_dsamlpSAMLProviderARN = a});
+dsamlpSAMLProviderARN = lens _dsamlpSAMLProviderARN (\ s a -> s{_dsamlpSAMLProviderARN = a})
 
 instance AWSRequest DeleteSAMLProvider where
         type Rs DeleteSAMLProvider =

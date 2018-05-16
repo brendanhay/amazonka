@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSegments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,23 +66,23 @@ getSegments
     -> GetSegments
 getSegments pApplicationId_ =
   GetSegments'
-  { _gssToken = Nothing
-  , _gssPageSize = Nothing
-  , _gssApplicationId = pApplicationId_
-  }
+    { _gssToken = Nothing
+    , _gssPageSize = Nothing
+    , _gssApplicationId = pApplicationId_
+    }
 
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gssToken :: Lens' GetSegments (Maybe Text)
-gssToken = lens _gssToken (\ s a -> s{_gssToken = a});
+gssToken = lens _gssToken (\ s a -> s{_gssToken = a})
 
 -- | The number of entries you want on each page in the response.
 gssPageSize :: Lens' GetSegments (Maybe Text)
-gssPageSize = lens _gssPageSize (\ s a -> s{_gssPageSize = a});
+gssPageSize = lens _gssPageSize (\ s a -> s{_gssPageSize = a})
 
 -- | Undocumented member.
 gssApplicationId :: Lens' GetSegments Text
-gssApplicationId = lens _gssApplicationId (\ s a -> s{_gssApplicationId = a});
+gssApplicationId = lens _gssApplicationId (\ s a -> s{_gssApplicationId = a})
 
 instance AWSRequest GetSegments where
         type Rs GetSegments = GetSegmentsResponse
@@ -134,17 +134,17 @@ getSegmentsResponse
     -> GetSegmentsResponse
 getSegmentsResponse pResponseStatus_ pSegmentsResponse_ =
   GetSegmentsResponse'
-  { _gsrsResponseStatus = pResponseStatus_
-  , _gsrsSegmentsResponse = pSegmentsResponse_
-  }
+    { _gsrsResponseStatus = pResponseStatus_
+    , _gsrsSegmentsResponse = pSegmentsResponse_
+    }
 
 
 -- | -- | The response status code.
 gsrsResponseStatus :: Lens' GetSegmentsResponse Int
-gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
+gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a})
 
 -- | Undocumented member.
 gsrsSegmentsResponse :: Lens' GetSegmentsResponse SegmentsResponse
-gsrsSegmentsResponse = lens _gsrsSegmentsResponse (\ s a -> s{_gsrsSegmentsResponse = a});
+gsrsSegmentsResponse = lens _gsrsSegmentsResponse (\ s a -> s{_gsrsSegmentsResponse = a})
 
 instance NFData GetSegmentsResponse where

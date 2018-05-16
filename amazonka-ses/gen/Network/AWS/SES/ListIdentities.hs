@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListIdentities
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,20 +77,20 @@ listIdentities
     :: ListIdentities
 listIdentities =
   ListIdentities'
-  {_liIdentityType = Nothing, _liNextToken = Nothing, _liMaxItems = Nothing}
+    {_liIdentityType = Nothing, _liNextToken = Nothing, _liMaxItems = Nothing}
 
 
 -- | The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
 liIdentityType :: Lens' ListIdentities (Maybe IdentityType)
-liIdentityType = lens _liIdentityType (\ s a -> s{_liIdentityType = a});
+liIdentityType = lens _liIdentityType (\ s a -> s{_liIdentityType = a})
 
 -- | The token to use for pagination.
 liNextToken :: Lens' ListIdentities (Maybe Text)
-liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
+liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a})
 
 -- | The maximum number of identities per page. Possible values are 1-1000 inclusive.
 liMaxItems :: Lens' ListIdentities (Maybe Int)
-liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
+liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a})
 
 instance AWSPager ListIdentities where
         page rq rs
@@ -155,22 +155,22 @@ listIdentitiesResponse
     -> ListIdentitiesResponse
 listIdentitiesResponse pResponseStatus_ =
   ListIdentitiesResponse'
-  { _lirsNextToken = Nothing
-  , _lirsResponseStatus = pResponseStatus_
-  , _lirsIdentities = mempty
-  }
+    { _lirsNextToken = Nothing
+    , _lirsResponseStatus = pResponseStatus_
+    , _lirsIdentities = mempty
+    }
 
 
 -- | The token used for pagination.
 lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
+lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a})
 
 -- | -- | The response status code.
 lirsResponseStatus :: Lens' ListIdentitiesResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a})
 
 -- | A list of identities.
 lirsIdentities :: Lens' ListIdentitiesResponse [Text]
-lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Coerce;
+lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Coerce
 
 instance NFData ListIdentitiesResponse where

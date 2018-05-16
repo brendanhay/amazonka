@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.GetOperationDetail
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,7 +73,7 @@ getOperationDetail pOperationId_ =
 
 -- | The identifier for the operation for which you want to get the status. Amazon Route 53 returned the identifier in the response to the original request.
 godOperationId :: Lens' GetOperationDetail Text
-godOperationId = lens _godOperationId (\ s a -> s{_godOperationId = a});
+godOperationId = lens _godOperationId (\ s a -> s{_godOperationId = a})
 
 instance AWSRequest GetOperationDetail where
         type Rs GetOperationDetail =
@@ -153,42 +153,42 @@ getOperationDetailResponse
     -> GetOperationDetailResponse
 getOperationDetailResponse pResponseStatus_ =
   GetOperationDetailResponse'
-  { _godrsStatus = Nothing
-  , _godrsSubmittedDate = Nothing
-  , _godrsDomainName = Nothing
-  , _godrsOperationId = Nothing
-  , _godrsType = Nothing
-  , _godrsMessage = Nothing
-  , _godrsResponseStatus = pResponseStatus_
-  }
+    { _godrsStatus = Nothing
+    , _godrsSubmittedDate = Nothing
+    , _godrsDomainName = Nothing
+    , _godrsOperationId = Nothing
+    , _godrsType = Nothing
+    , _godrsMessage = Nothing
+    , _godrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current status of the requested operation in the system.
 godrsStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
-godrsStatus = lens _godrsStatus (\ s a -> s{_godrsStatus = a});
+godrsStatus = lens _godrsStatus (\ s a -> s{_godrsStatus = a})
 
 -- | The date when the request was submitted.
 godrsSubmittedDate :: Lens' GetOperationDetailResponse (Maybe UTCTime)
-godrsSubmittedDate = lens _godrsSubmittedDate (\ s a -> s{_godrsSubmittedDate = a}) . mapping _Time;
+godrsSubmittedDate = lens _godrsSubmittedDate (\ s a -> s{_godrsSubmittedDate = a}) . mapping _Time
 
 -- | The name of a domain.
 godrsDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
-godrsDomainName = lens _godrsDomainName (\ s a -> s{_godrsDomainName = a});
+godrsDomainName = lens _godrsDomainName (\ s a -> s{_godrsDomainName = a})
 
 -- | The identifier for the operation.
 godrsOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
-godrsOperationId = lens _godrsOperationId (\ s a -> s{_godrsOperationId = a});
+godrsOperationId = lens _godrsOperationId (\ s a -> s{_godrsOperationId = a})
 
 -- | The type of operation that was requested.
 godrsType :: Lens' GetOperationDetailResponse (Maybe OperationType)
-godrsType = lens _godrsType (\ s a -> s{_godrsType = a});
+godrsType = lens _godrsType (\ s a -> s{_godrsType = a})
 
 -- | Detailed information on the status including possible errors.
 godrsMessage :: Lens' GetOperationDetailResponse (Maybe Text)
-godrsMessage = lens _godrsMessage (\ s a -> s{_godrsMessage = a});
+godrsMessage = lens _godrsMessage (\ s a -> s{_godrsMessage = a})
 
 -- | -- | The response status code.
 godrsResponseStatus :: Lens' GetOperationDetailResponse Int
-godrsResponseStatus = lens _godrsResponseStatus (\ s a -> s{_godrsResponseStatus = a});
+godrsResponseStatus = lens _godrsResponseStatus (\ s a -> s{_godrsResponseStatus = a})
 
 instance NFData GetOperationDetailResponse where

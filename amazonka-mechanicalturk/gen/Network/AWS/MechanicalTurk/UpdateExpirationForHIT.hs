@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.UpdateExpirationForHIT
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ updateExpirationForHIT
     -> UpdateExpirationForHIT
 updateExpirationForHIT pHITId_ pExpireAt_ =
   UpdateExpirationForHIT'
-  {_uefhitHITId = pHITId_, _uefhitExpireAt = _Time # pExpireAt_}
+    {_uefhitHITId = pHITId_, _uefhitExpireAt = _Time # pExpireAt_}
 
 
 -- | The HIT to update.
 uefhitHITId :: Lens' UpdateExpirationForHIT Text
-uefhitHITId = lens _uefhitHITId (\ s a -> s{_uefhitHITId = a});
+uefhitHITId = lens _uefhitHITId (\ s a -> s{_uefhitHITId = a})
 
 -- | The date and time at which you want the HIT to expire
 uefhitExpireAt :: Lens' UpdateExpirationForHIT UTCTime
-uefhitExpireAt = lens _uefhitExpireAt (\ s a -> s{_uefhitExpireAt = a}) . _Time;
+uefhitExpireAt = lens _uefhitExpireAt (\ s a -> s{_uefhitExpireAt = a}) . _Time
 
 instance AWSRequest UpdateExpirationForHIT where
         type Rs UpdateExpirationForHIT =
@@ -132,6 +132,6 @@ updateExpirationForHITResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 uefhitrsResponseStatus :: Lens' UpdateExpirationForHITResponse Int
-uefhitrsResponseStatus = lens _uefhitrsResponseStatus (\ s a -> s{_uefhitrsResponseStatus = a});
+uefhitrsResponseStatus = lens _uefhitrsResponseStatus (\ s a -> s{_uefhitrsResponseStatus = a})
 
 instance NFData UpdateExpirationForHITResponse where

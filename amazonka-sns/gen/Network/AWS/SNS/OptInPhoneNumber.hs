@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.OptInPhoneNumber
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ optInPhoneNumber pPhoneNumber_ =
 
 -- | The phone number to opt in.
 oipnPhoneNumber :: Lens' OptInPhoneNumber Text
-oipnPhoneNumber = lens _oipnPhoneNumber (\ s a -> s{_oipnPhoneNumber = a});
+oipnPhoneNumber = lens _oipnPhoneNumber (\ s a -> s{_oipnPhoneNumber = a})
 
 instance AWSRequest OptInPhoneNumber where
         type Rs OptInPhoneNumber = OptInPhoneNumberResponse
@@ -120,6 +120,6 @@ optInPhoneNumberResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 oipnrsResponseStatus :: Lens' OptInPhoneNumberResponse Int
-oipnrsResponseStatus = lens _oipnrsResponseStatus (\ s a -> s{_oipnrsResponseStatus = a});
+oipnrsResponseStatus = lens _oipnrsResponseStatus (\ s a -> s{_oipnrsResponseStatus = a})
 
 instance NFData OptInPhoneNumberResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DeleteProgressUpdateStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 --
 --     * The only parameter needed for @DeleteProgressUpdateStream@ is the stream name (same as a @CreateProgressUpdateStream@ call).
 --
---     * The call will return, and a background process will asynchronously be doing the actual delete of the stream and all of its resources (tasks, associated resources, resource attributes, created artifacts).
+--     * The call will return, and a background process will asynchronously delete the stream and all of its resources (tasks, associated resources, resource attributes, created artifacts).
 --
 --     * If the stream takes time to be deleted, it might still show up on a @ListProgressUpdateStreams@ call.
 --
@@ -75,18 +75,18 @@ deleteProgressUpdateStream
     -> DeleteProgressUpdateStream
 deleteProgressUpdateStream pProgressUpdateStreamName_ =
   DeleteProgressUpdateStream'
-  { _dpusDryRun = Nothing
-  , _dpusProgressUpdateStreamName = pProgressUpdateStreamName_
-  }
+    { _dpusDryRun = Nothing
+    , _dpusProgressUpdateStreamName = pProgressUpdateStreamName_
+    }
 
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 dpusDryRun :: Lens' DeleteProgressUpdateStream (Maybe Bool)
-dpusDryRun = lens _dpusDryRun (\ s a -> s{_dpusDryRun = a});
+dpusDryRun = lens _dpusDryRun (\ s a -> s{_dpusDryRun = a})
 
 -- | The name of the ProgressUpdateStream.
 dpusProgressUpdateStreamName :: Lens' DeleteProgressUpdateStream Text
-dpusProgressUpdateStreamName = lens _dpusProgressUpdateStreamName (\ s a -> s{_dpusProgressUpdateStreamName = a});
+dpusProgressUpdateStreamName = lens _dpusProgressUpdateStreamName (\ s a -> s{_dpusProgressUpdateStreamName = a})
 
 instance AWSRequest DeleteProgressUpdateStream where
         type Rs DeleteProgressUpdateStream =
@@ -147,7 +147,7 @@ deleteProgressUpdateStreamResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dpusrsResponseStatus :: Lens' DeleteProgressUpdateStreamResponse Int
-dpusrsResponseStatus = lens _dpusrsResponseStatus (\ s a -> s{_dpusrsResponseStatus = a});
+dpusrsResponseStatus = lens _dpusrsResponseStatus (\ s a -> s{_dpusrsResponseStatus = a})
 
 instance NFData DeleteProgressUpdateStreamResponse
          where

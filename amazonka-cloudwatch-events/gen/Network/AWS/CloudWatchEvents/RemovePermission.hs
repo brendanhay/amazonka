@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.RemovePermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ removePermission pStatementId_ =
 
 -- | The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.
 rpStatementId :: Lens' RemovePermission Text
-rpStatementId = lens _rpStatementId (\ s a -> s{_rpStatementId = a});
+rpStatementId = lens _rpStatementId (\ s a -> s{_rpStatementId = a})
 
 instance AWSRequest RemovePermission where
         type Rs RemovePermission = RemovePermissionResponse

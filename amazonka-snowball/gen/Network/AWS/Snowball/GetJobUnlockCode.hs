@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.GetJobUnlockCode
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getJobUnlockCode pJobId_ = GetJobUnlockCode' {_gjucJobId = pJobId_}
 
 -- | The ID for the job that you want to get the @UnlockCode@ value for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 gjucJobId :: Lens' GetJobUnlockCode Text
-gjucJobId = lens _gjucJobId (\ s a -> s{_gjucJobId = a});
+gjucJobId = lens _gjucJobId (\ s a -> s{_gjucJobId = a})
 
 instance AWSRequest GetJobUnlockCode where
         type Rs GetJobUnlockCode = GetJobUnlockCodeResponse
@@ -121,15 +121,15 @@ getJobUnlockCodeResponse
     -> GetJobUnlockCodeResponse
 getJobUnlockCodeResponse pResponseStatus_ =
   GetJobUnlockCodeResponse'
-  {_gjucrsUnlockCode = Nothing, _gjucrsResponseStatus = pResponseStatus_}
+    {_gjucrsUnlockCode = Nothing, _gjucrsResponseStatus = pResponseStatus_}
 
 
 -- | The @UnlockCode@ value for the specified job. The @UnlockCode@ value can be accessed for up to 90 days after the job has been created.
 gjucrsUnlockCode :: Lens' GetJobUnlockCodeResponse (Maybe Text)
-gjucrsUnlockCode = lens _gjucrsUnlockCode (\ s a -> s{_gjucrsUnlockCode = a});
+gjucrsUnlockCode = lens _gjucrsUnlockCode (\ s a -> s{_gjucrsUnlockCode = a})
 
 -- | -- | The response status code.
 gjucrsResponseStatus :: Lens' GetJobUnlockCodeResponse Int
-gjucrsResponseStatus = lens _gjucrsResponseStatus (\ s a -> s{_gjucrsResponseStatus = a});
+gjucrsResponseStatus = lens _gjucrsResponseStatus (\ s a -> s{_gjucrsResponseStatus = a})
 
 instance NFData GetJobUnlockCodeResponse where

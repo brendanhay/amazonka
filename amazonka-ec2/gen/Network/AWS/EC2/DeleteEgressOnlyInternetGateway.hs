@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteEgressOnlyInternetGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,18 +64,18 @@ deleteEgressOnlyInternetGateway
     -> DeleteEgressOnlyInternetGateway
 deleteEgressOnlyInternetGateway pEgressOnlyInternetGatewayId_ =
   DeleteEgressOnlyInternetGateway'
-  { _deoigeDryRun = Nothing
-  , _deoigeEgressOnlyInternetGatewayId = pEgressOnlyInternetGatewayId_
-  }
+    { _deoigeDryRun = Nothing
+    , _deoigeEgressOnlyInternetGatewayId = pEgressOnlyInternetGatewayId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 deoigeDryRun :: Lens' DeleteEgressOnlyInternetGateway (Maybe Bool)
-deoigeDryRun = lens _deoigeDryRun (\ s a -> s{_deoigeDryRun = a});
+deoigeDryRun = lens _deoigeDryRun (\ s a -> s{_deoigeDryRun = a})
 
 -- | The ID of the egress-only Internet gateway.
 deoigeEgressOnlyInternetGatewayId :: Lens' DeleteEgressOnlyInternetGateway Text
-deoigeEgressOnlyInternetGatewayId = lens _deoigeEgressOnlyInternetGatewayId (\ s a -> s{_deoigeEgressOnlyInternetGatewayId = a});
+deoigeEgressOnlyInternetGatewayId = lens _deoigeEgressOnlyInternetGatewayId (\ s a -> s{_deoigeEgressOnlyInternetGatewayId = a})
 
 instance AWSRequest DeleteEgressOnlyInternetGateway
          where
@@ -130,16 +130,16 @@ deleteEgressOnlyInternetGatewayResponse
     -> DeleteEgressOnlyInternetGatewayResponse
 deleteEgressOnlyInternetGatewayResponse pResponseStatus_ =
   DeleteEgressOnlyInternetGatewayResponse'
-  {_deoigersReturnCode = Nothing, _deoigersResponseStatus = pResponseStatus_}
+    {_deoigersReturnCode = Nothing, _deoigersResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 deoigersReturnCode :: Lens' DeleteEgressOnlyInternetGatewayResponse (Maybe Bool)
-deoigersReturnCode = lens _deoigersReturnCode (\ s a -> s{_deoigersReturnCode = a});
+deoigersReturnCode = lens _deoigersReturnCode (\ s a -> s{_deoigersReturnCode = a})
 
 -- | -- | The response status code.
 deoigersResponseStatus :: Lens' DeleteEgressOnlyInternetGatewayResponse Int
-deoigersResponseStatus = lens _deoigersResponseStatus (\ s a -> s{_deoigersResponseStatus = a});
+deoigersResponseStatus = lens _deoigersResponseStatus (\ s a -> s{_deoigersResponseStatus = a})
 
 instance NFData
            DeleteEgressOnlyInternetGatewayResponse

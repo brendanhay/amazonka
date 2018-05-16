@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.UnassignIPv6Addresses
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ unassignIPv6Addresses
     -> UnassignIPv6Addresses
 unassignIPv6Addresses pNetworkInterfaceId_ =
   UnassignIPv6Addresses'
-  {_uiaIPv6Addresses = mempty, _uiaNetworkInterfaceId = pNetworkInterfaceId_}
+    {_uiaIPv6Addresses = mempty, _uiaNetworkInterfaceId = pNetworkInterfaceId_}
 
 
 -- | The IPv6 addresses to unassign from the network interface.
 uiaIPv6Addresses :: Lens' UnassignIPv6Addresses [Text]
-uiaIPv6Addresses = lens _uiaIPv6Addresses (\ s a -> s{_uiaIPv6Addresses = a}) . _Coerce;
+uiaIPv6Addresses = lens _uiaIPv6Addresses (\ s a -> s{_uiaIPv6Addresses = a}) . _Coerce
 
 -- | The ID of the network interface.
 uiaNetworkInterfaceId :: Lens' UnassignIPv6Addresses Text
-uiaNetworkInterfaceId = lens _uiaNetworkInterfaceId (\ s a -> s{_uiaNetworkInterfaceId = a});
+uiaNetworkInterfaceId = lens _uiaNetworkInterfaceId (\ s a -> s{_uiaNetworkInterfaceId = a})
 
 instance AWSRequest UnassignIPv6Addresses where
         type Rs UnassignIPv6Addresses =
@@ -129,22 +129,22 @@ unassignIPv6AddressesResponse
     -> UnassignIPv6AddressesResponse
 unassignIPv6AddressesResponse pResponseStatus_ =
   UnassignIPv6AddressesResponse'
-  { _uiarsNetworkInterfaceId = Nothing
-  , _uiarsUnassignedIPv6Addresses = Nothing
-  , _uiarsResponseStatus = pResponseStatus_
-  }
+    { _uiarsNetworkInterfaceId = Nothing
+    , _uiarsUnassignedIPv6Addresses = Nothing
+    , _uiarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the network interface.
 uiarsNetworkInterfaceId :: Lens' UnassignIPv6AddressesResponse (Maybe Text)
-uiarsNetworkInterfaceId = lens _uiarsNetworkInterfaceId (\ s a -> s{_uiarsNetworkInterfaceId = a});
+uiarsNetworkInterfaceId = lens _uiarsNetworkInterfaceId (\ s a -> s{_uiarsNetworkInterfaceId = a})
 
 -- | The IPv6 addresses that have been unassigned from the network interface.
 uiarsUnassignedIPv6Addresses :: Lens' UnassignIPv6AddressesResponse [Text]
-uiarsUnassignedIPv6Addresses = lens _uiarsUnassignedIPv6Addresses (\ s a -> s{_uiarsUnassignedIPv6Addresses = a}) . _Default . _Coerce;
+uiarsUnassignedIPv6Addresses = lens _uiarsUnassignedIPv6Addresses (\ s a -> s{_uiarsUnassignedIPv6Addresses = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 uiarsResponseStatus :: Lens' UnassignIPv6AddressesResponse Int
-uiarsResponseStatus = lens _uiarsResponseStatus (\ s a -> s{_uiarsResponseStatus = a});
+uiarsResponseStatus = lens _uiarsResponseStatus (\ s a -> s{_uiarsResponseStatus = a})
 
 instance NFData UnassignIPv6AddressesResponse where

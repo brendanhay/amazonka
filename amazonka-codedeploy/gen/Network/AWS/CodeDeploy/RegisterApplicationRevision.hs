@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.RegisterApplicationRevision
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ registerApplicationRevision
     -> RegisterApplicationRevision
 registerApplicationRevision pApplicationName_ pRevision_ =
   RegisterApplicationRevision'
-  { _rarDescription = Nothing
-  , _rarApplicationName = pApplicationName_
-  , _rarRevision = pRevision_
-  }
+    { _rarDescription = Nothing
+    , _rarApplicationName = pApplicationName_
+    , _rarRevision = pRevision_
+    }
 
 
 -- | A comment about the revision.
 rarDescription :: Lens' RegisterApplicationRevision (Maybe Text)
-rarDescription = lens _rarDescription (\ s a -> s{_rarDescription = a});
+rarDescription = lens _rarDescription (\ s a -> s{_rarDescription = a})
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 rarApplicationName :: Lens' RegisterApplicationRevision Text
-rarApplicationName = lens _rarApplicationName (\ s a -> s{_rarApplicationName = a});
+rarApplicationName = lens _rarApplicationName (\ s a -> s{_rarApplicationName = a})
 
 -- | Information about the application revision to register, including type and location.
 rarRevision :: Lens' RegisterApplicationRevision RevisionLocation
-rarRevision = lens _rarRevision (\ s a -> s{_rarRevision = a});
+rarRevision = lens _rarRevision (\ s a -> s{_rarRevision = a})
 
 instance AWSRequest RegisterApplicationRevision where
         type Rs RegisterApplicationRevision =

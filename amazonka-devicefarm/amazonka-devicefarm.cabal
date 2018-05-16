@@ -1,5 +1,5 @@
 name:                  amazonka-devicefarm
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Device Farm SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -46,20 +46,26 @@ library
     exposed-modules:
           Network.AWS.DeviceFarm
         , Network.AWS.DeviceFarm.CreateDevicePool
+        , Network.AWS.DeviceFarm.CreateInstanceProfile
         , Network.AWS.DeviceFarm.CreateNetworkProfile
         , Network.AWS.DeviceFarm.CreateProject
         , Network.AWS.DeviceFarm.CreateRemoteAccessSession
         , Network.AWS.DeviceFarm.CreateUpload
+        , Network.AWS.DeviceFarm.CreateVPCEConfiguration
         , Network.AWS.DeviceFarm.DeleteDevicePool
+        , Network.AWS.DeviceFarm.DeleteInstanceProfile
         , Network.AWS.DeviceFarm.DeleteNetworkProfile
         , Network.AWS.DeviceFarm.DeleteProject
         , Network.AWS.DeviceFarm.DeleteRemoteAccessSession
         , Network.AWS.DeviceFarm.DeleteRun
         , Network.AWS.DeviceFarm.DeleteUpload
+        , Network.AWS.DeviceFarm.DeleteVPCEConfiguration
         , Network.AWS.DeviceFarm.GetAccountSettings
         , Network.AWS.DeviceFarm.GetDevice
+        , Network.AWS.DeviceFarm.GetDeviceInstance
         , Network.AWS.DeviceFarm.GetDevicePool
         , Network.AWS.DeviceFarm.GetDevicePoolCompatibility
+        , Network.AWS.DeviceFarm.GetInstanceProfile
         , Network.AWS.DeviceFarm.GetJob
         , Network.AWS.DeviceFarm.GetNetworkProfile
         , Network.AWS.DeviceFarm.GetOfferingStatus
@@ -69,10 +75,13 @@ library
         , Network.AWS.DeviceFarm.GetSuite
         , Network.AWS.DeviceFarm.GetTest
         , Network.AWS.DeviceFarm.GetUpload
+        , Network.AWS.DeviceFarm.GetVPCEConfiguration
         , Network.AWS.DeviceFarm.InstallToRemoteAccessSession
         , Network.AWS.DeviceFarm.ListArtifacts
+        , Network.AWS.DeviceFarm.ListDeviceInstances
         , Network.AWS.DeviceFarm.ListDevicePools
         , Network.AWS.DeviceFarm.ListDevices
+        , Network.AWS.DeviceFarm.ListInstanceProfiles
         , Network.AWS.DeviceFarm.ListJobs
         , Network.AWS.DeviceFarm.ListNetworkProfiles
         , Network.AWS.DeviceFarm.ListOfferingPromotions
@@ -86,15 +95,19 @@ library
         , Network.AWS.DeviceFarm.ListTests
         , Network.AWS.DeviceFarm.ListUniqueProblems
         , Network.AWS.DeviceFarm.ListUploads
+        , Network.AWS.DeviceFarm.ListVPCEConfigurations
         , Network.AWS.DeviceFarm.PurchaseOffering
         , Network.AWS.DeviceFarm.RenewOffering
         , Network.AWS.DeviceFarm.ScheduleRun
         , Network.AWS.DeviceFarm.StopRemoteAccessSession
         , Network.AWS.DeviceFarm.StopRun
         , Network.AWS.DeviceFarm.Types
+        , Network.AWS.DeviceFarm.UpdateDeviceInstance
         , Network.AWS.DeviceFarm.UpdateDevicePool
+        , Network.AWS.DeviceFarm.UpdateInstanceProfile
         , Network.AWS.DeviceFarm.UpdateNetworkProfile
         , Network.AWS.DeviceFarm.UpdateProject
+        , Network.AWS.DeviceFarm.UpdateVPCEConfiguration
         , Network.AWS.DeviceFarm.Waiters
 
     other-modules:
@@ -102,7 +115,7 @@ library
         , Network.AWS.DeviceFarm.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-devicefarm-test
@@ -122,8 +135,8 @@ test-suite amazonka-devicefarm-test
         , Test.AWS.DeviceFarm.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-devicefarm
         , base
         , bytestring

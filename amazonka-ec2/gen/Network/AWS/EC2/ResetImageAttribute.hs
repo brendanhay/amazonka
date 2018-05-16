@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetImageAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,20 +70,20 @@ resetImageAttribute
     -> ResetImageAttribute
 resetImageAttribute pAttribute_ pImageId_ =
   ResetImageAttribute'
-  {_resDryRun = Nothing, _resAttribute = pAttribute_, _resImageId = pImageId_}
+    {_resDryRun = Nothing, _resAttribute = pAttribute_, _resImageId = pImageId_}
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 resDryRun :: Lens' ResetImageAttribute (Maybe Bool)
-resDryRun = lens _resDryRun (\ s a -> s{_resDryRun = a});
+resDryRun = lens _resDryRun (\ s a -> s{_resDryRun = a})
 
 -- | The attribute to reset (currently you can only reset the launch permission attribute).
 resAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
-resAttribute = lens _resAttribute (\ s a -> s{_resAttribute = a});
+resAttribute = lens _resAttribute (\ s a -> s{_resAttribute = a})
 
 -- | The ID of the AMI.
 resImageId :: Lens' ResetImageAttribute Text
-resImageId = lens _resImageId (\ s a -> s{_resImageId = a});
+resImageId = lens _resImageId (\ s a -> s{_resImageId = a})
 
 instance AWSRequest ResetImageAttribute where
         type Rs ResetImageAttribute =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListTaskDefinitionFamilies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,35 +70,35 @@ data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
 --
 -- * 'ltdfFamilyPrefix' - The @familyPrefix@ is a string that is used to filter the results of @ListTaskDefinitionFamilies@ . If you specify a @familyPrefix@ , only task definition family names that begin with the @familyPrefix@ string are returned.
 --
--- * 'ltdfNextToken' - The @nextToken@ value returned from a previous paginated @ListTaskDefinitionFamilies@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- * 'ltdfNextToken' - The @nextToken@ value returned from a previous paginated @ListTaskDefinitionFamilies@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value.
 --
 -- * 'ltdfMaxResults' - The maximum number of task definition family results returned by @ListTaskDefinitionFamilies@ in paginated output. When this parameter is used, @ListTaskDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListTaskDefinitionFamilies@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListTaskDefinitionFamilies@ returns up to 100 results and a @nextToken@ value if applicable.
 listTaskDefinitionFamilies
     :: ListTaskDefinitionFamilies
 listTaskDefinitionFamilies =
   ListTaskDefinitionFamilies'
-  { _ltdfStatus = Nothing
-  , _ltdfFamilyPrefix = Nothing
-  , _ltdfNextToken = Nothing
-  , _ltdfMaxResults = Nothing
-  }
+    { _ltdfStatus = Nothing
+    , _ltdfFamilyPrefix = Nothing
+    , _ltdfNextToken = Nothing
+    , _ltdfMaxResults = Nothing
+    }
 
 
 -- | The task definition family status with which to filter the @ListTaskDefinitionFamilies@ results. By default, both @ACTIVE@ and @INACTIVE@ task definition families are listed. If this parameter is set to @ACTIVE@ , only task definition families that have an @ACTIVE@ task definition revision are returned. If this parameter is set to @INACTIVE@ , only task definition families that do not have any @ACTIVE@ task definition revisions are returned. If you paginate the resulting output, be sure to keep the @status@ value constant in each subsequent request.
 ltdfStatus :: Lens' ListTaskDefinitionFamilies (Maybe TaskDefinitionFamilyStatus)
-ltdfStatus = lens _ltdfStatus (\ s a -> s{_ltdfStatus = a});
+ltdfStatus = lens _ltdfStatus (\ s a -> s{_ltdfStatus = a})
 
 -- | The @familyPrefix@ is a string that is used to filter the results of @ListTaskDefinitionFamilies@ . If you specify a @familyPrefix@ , only task definition family names that begin with the @familyPrefix@ string are returned.
 ltdfFamilyPrefix :: Lens' ListTaskDefinitionFamilies (Maybe Text)
-ltdfFamilyPrefix = lens _ltdfFamilyPrefix (\ s a -> s{_ltdfFamilyPrefix = a});
+ltdfFamilyPrefix = lens _ltdfFamilyPrefix (\ s a -> s{_ltdfFamilyPrefix = a})
 
--- | The @nextToken@ value returned from a previous paginated @ListTaskDefinitionFamilies@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- | The @nextToken@ value returned from a previous paginated @ListTaskDefinitionFamilies@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value.
 ltdfNextToken :: Lens' ListTaskDefinitionFamilies (Maybe Text)
-ltdfNextToken = lens _ltdfNextToken (\ s a -> s{_ltdfNextToken = a});
+ltdfNextToken = lens _ltdfNextToken (\ s a -> s{_ltdfNextToken = a})
 
 -- | The maximum number of task definition family results returned by @ListTaskDefinitionFamilies@ in paginated output. When this parameter is used, @ListTaskDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListTaskDefinitionFamilies@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListTaskDefinitionFamilies@ returns up to 100 results and a @nextToken@ value if applicable.
 ltdfMaxResults :: Lens' ListTaskDefinitionFamilies (Maybe Int)
-ltdfMaxResults = lens _ltdfMaxResults (\ s a -> s{_ltdfMaxResults = a});
+ltdfMaxResults = lens _ltdfMaxResults (\ s a -> s{_ltdfMaxResults = a})
 
 instance AWSPager ListTaskDefinitionFamilies where
         page rq rs
@@ -169,23 +169,23 @@ listTaskDefinitionFamiliesResponse
     -> ListTaskDefinitionFamiliesResponse
 listTaskDefinitionFamiliesResponse pResponseStatus_ =
   ListTaskDefinitionFamiliesResponse'
-  { _ltdfrsFamilies = Nothing
-  , _ltdfrsNextToken = Nothing
-  , _ltdfrsResponseStatus = pResponseStatus_
-  }
+    { _ltdfrsFamilies = Nothing
+    , _ltdfrsNextToken = Nothing
+    , _ltdfrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of task definition family names that match the @ListTaskDefinitionFamilies@ request.
 ltdfrsFamilies :: Lens' ListTaskDefinitionFamiliesResponse [Text]
-ltdfrsFamilies = lens _ltdfrsFamilies (\ s a -> s{_ltdfrsFamilies = a}) . _Default . _Coerce;
+ltdfrsFamilies = lens _ltdfrsFamilies (\ s a -> s{_ltdfrsFamilies = a}) . _Default . _Coerce
 
 -- | The @nextToken@ value to include in a future @ListTaskDefinitionFamilies@ request. When the results of a @ListTaskDefinitionFamilies@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 ltdfrsNextToken :: Lens' ListTaskDefinitionFamiliesResponse (Maybe Text)
-ltdfrsNextToken = lens _ltdfrsNextToken (\ s a -> s{_ltdfrsNextToken = a});
+ltdfrsNextToken = lens _ltdfrsNextToken (\ s a -> s{_ltdfrsNextToken = a})
 
 -- | -- | The response status code.
 ltdfrsResponseStatus :: Lens' ListTaskDefinitionFamiliesResponse Int
-ltdfrsResponseStatus = lens _ltdfrsResponseStatus (\ s a -> s{_ltdfrsResponseStatus = a});
+ltdfrsResponseStatus = lens _ltdfrsResponseStatus (\ s a -> s{_ltdfrsResponseStatus = a})
 
 instance NFData ListTaskDefinitionFamiliesResponse
          where

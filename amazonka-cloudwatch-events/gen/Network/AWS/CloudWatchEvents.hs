@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -106,6 +106,24 @@ module Network.AWS.CloudWatchEvents
     -- ** RuleState
     , RuleState (..)
 
+    -- ** BatchArrayProperties
+    , BatchArrayProperties
+    , batchArrayProperties
+    , bapSize
+
+    -- ** BatchParameters
+    , BatchParameters
+    , batchParameters
+    , bpRetryStrategy
+    , bpArrayProperties
+    , bpJobDefinition
+    , bpJobName
+
+    -- ** BatchRetryStrategy
+    , BatchRetryStrategy
+    , batchRetryStrategy
+    , brsAttempts
+
     -- ** EcsParameters
     , EcsParameters
     , ecsParameters
@@ -175,13 +193,20 @@ module Network.AWS.CloudWatchEvents
     , rctKey
     , rctValues
 
+    -- ** SqsParameters
+    , SqsParameters
+    , sqsParameters
+    , spMessageGroupId
+
     -- ** Target
     , Target
     , target
     , tRunCommandParameters
     , tKinesisParameters
     , tInputTransformer
+    , tSqsParameters
     , tInput
+    , tBatchParameters
     , tEcsParameters
     , tInputPath
     , tRoleARN

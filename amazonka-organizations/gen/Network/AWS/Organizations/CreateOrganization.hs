@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.CreateOrganization
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ createOrganization = CreateOrganization' {_coFeatureSet = Nothing}
 
 -- | Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.     * /CONSOLIDATED_BILLING/ : All member accounts have their bills consolidated to and paid by the master account. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated Billing> in the /AWS Organizations User Guide/ .     * /ALL/ : In addition to all the features supported by the consolidated billing feature set, the master account can also apply any type of policy to any member account in the organization. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features> in the /AWS Organizations User Guide/ .
 coFeatureSet :: Lens' CreateOrganization (Maybe OrganizationFeatureSet)
-coFeatureSet = lens _coFeatureSet (\ s a -> s{_coFeatureSet = a});
+coFeatureSet = lens _coFeatureSet (\ s a -> s{_coFeatureSet = a})
 
 instance AWSRequest CreateOrganization where
         type Rs CreateOrganization =
@@ -122,15 +122,15 @@ createOrganizationResponse
     -> CreateOrganizationResponse
 createOrganizationResponse pResponseStatus_ =
   CreateOrganizationResponse'
-  {_corsOrganization = Nothing, _corsResponseStatus = pResponseStatus_}
+    {_corsOrganization = Nothing, _corsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that contains details about the newly created organization.
 corsOrganization :: Lens' CreateOrganizationResponse (Maybe Organization)
-corsOrganization = lens _corsOrganization (\ s a -> s{_corsOrganization = a});
+corsOrganization = lens _corsOrganization (\ s a -> s{_corsOrganization = a})
 
 -- | -- | The response status code.
 corsResponseStatus :: Lens' CreateOrganizationResponse Int
-corsResponseStatus = lens _corsResponseStatus (\ s a -> s{_corsResponseStatus = a});
+corsResponseStatus = lens _corsResponseStatus (\ s a -> s{_corsResponseStatus = a})
 
 instance NFData CreateOrganizationResponse where

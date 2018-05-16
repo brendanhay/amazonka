@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,24 +61,24 @@ data AttachLoadBalancerTargetGroups = AttachLoadBalancerTargetGroups'
 --
 -- * 'albtgAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'albtgTargetGroupARNs' - The Amazon Resource Names (ARN) of the target groups.
+-- * 'albtgTargetGroupARNs' - The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
 attachLoadBalancerTargetGroups
     :: Text -- ^ 'albtgAutoScalingGroupName'
     -> AttachLoadBalancerTargetGroups
 attachLoadBalancerTargetGroups pAutoScalingGroupName_ =
   AttachLoadBalancerTargetGroups'
-  { _albtgAutoScalingGroupName = pAutoScalingGroupName_
-  , _albtgTargetGroupARNs = mempty
-  }
+    { _albtgAutoScalingGroupName = pAutoScalingGroupName_
+    , _albtgTargetGroupARNs = mempty
+    }
 
 
 -- | The name of the Auto Scaling group.
 albtgAutoScalingGroupName :: Lens' AttachLoadBalancerTargetGroups Text
-albtgAutoScalingGroupName = lens _albtgAutoScalingGroupName (\ s a -> s{_albtgAutoScalingGroupName = a});
+albtgAutoScalingGroupName = lens _albtgAutoScalingGroupName (\ s a -> s{_albtgAutoScalingGroupName = a})
 
--- | The Amazon Resource Names (ARN) of the target groups.
+-- | The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
 albtgTargetGroupARNs :: Lens' AttachLoadBalancerTargetGroups [Text]
-albtgTargetGroupARNs = lens _albtgTargetGroupARNs (\ s a -> s{_albtgTargetGroupARNs = a}) . _Coerce;
+albtgTargetGroupARNs = lens _albtgTargetGroupARNs (\ s a -> s{_albtgTargetGroupARNs = a}) . _Coerce
 
 instance AWSRequest AttachLoadBalancerTargetGroups
          where
@@ -130,12 +130,12 @@ attachLoadBalancerTargetGroupsResponse
     -> AttachLoadBalancerTargetGroupsResponse
 attachLoadBalancerTargetGroupsResponse pResponseStatus_ =
   AttachLoadBalancerTargetGroupsResponse'
-  {_albtgrsResponseStatus = pResponseStatus_}
+    {_albtgrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 albtgrsResponseStatus :: Lens' AttachLoadBalancerTargetGroupsResponse Int
-albtgrsResponseStatus = lens _albtgrsResponseStatus (\ s a -> s{_albtgrsResponseStatus = a});
+albtgrsResponseStatus = lens _albtgrsResponseStatus (\ s a -> s{_albtgrsResponseStatus = a})
 
 instance NFData
            AttachLoadBalancerTargetGroupsResponse

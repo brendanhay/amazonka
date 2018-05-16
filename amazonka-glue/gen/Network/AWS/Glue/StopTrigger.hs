@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StopTrigger
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ stopTrigger pName_ = StopTrigger' {_stName = pName_}
 
 -- | The name of the trigger to stop.
 stName :: Lens' StopTrigger Text
-stName = lens _stName (\ s a -> s{_stName = a});
+stName = lens _stName (\ s a -> s{_stName = a})
 
 instance AWSRequest StopTrigger where
         type Rs StopTrigger = StopTriggerResponse
@@ -116,15 +116,15 @@ stopTriggerResponse
     -> StopTriggerResponse
 stopTriggerResponse pResponseStatus_ =
   StopTriggerResponse'
-  {_strsName = Nothing, _strsResponseStatus = pResponseStatus_}
+    {_strsName = Nothing, _strsResponseStatus = pResponseStatus_}
 
 
 -- | The name of the trigger that was stopped.
 strsName :: Lens' StopTriggerResponse (Maybe Text)
-strsName = lens _strsName (\ s a -> s{_strsName = a});
+strsName = lens _strsName (\ s a -> s{_strsName = a})
 
 -- | -- | The response status code.
 strsResponseStatus :: Lens' StopTriggerResponse Int
-strsResponseStatus = lens _strsResponseStatus (\ s a -> s{_strsResponseStatus = a});
+strsResponseStatus = lens _strsResponseStatus (\ s a -> s{_strsResponseStatus = a})
 
 instance NFData StopTriggerResponse where

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreateConstraint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new constraint. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints.html Using Constraints> .
+-- Creates a constraint.
 --
 --
 module Network.AWS.ServiceCatalog.CreateConstraint
@@ -70,17 +70,17 @@ data CreateConstraint = CreateConstraint'
 --
 -- * 'ccAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'ccDescription' - The text description of the constraint.
+-- * 'ccDescription' - The description of the constraint.
 --
 -- * 'ccPortfolioId' - The portfolio identifier.
 --
 -- * 'ccProductId' - The product identifier.
 --
--- * 'ccParameters' - The constraint parameters. Expected values vary depending on which __Type__ is specified. For more information, see the Examples section. For Type @LAUNCH@ , the @RoleArn@ property is required.  For Type @NOTIFICATION@ , the @NotificationArns@ property is required. For Type @TEMPLATE@ , the @Rules@ property is required.
+-- * 'ccParameters' - The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:     * LAUNCH    * Specify the @RoleArn@ property as follows: \"RoleArn\" : \"arn:aws:iam::123456789012:role/LaunchRole\"     * NOTIFICATION    * Specify the @NotificationArns@ property as follows: \"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]     * TEMPLATE    * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
 --
--- * 'ccType' - The type of the constraint. Case-sensitive valid values are: @LAUNCH@ , @NOTIFICATION@ , or @TEMPLATE@ .
+-- * 'ccType' - The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @TEMPLATE@
 --
--- * 'ccIdempotencyToken' - A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- * 'ccIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 createConstraint
     :: Text -- ^ 'ccPortfolioId'
     -> Text -- ^ 'ccProductId'
@@ -90,43 +90,43 @@ createConstraint
     -> CreateConstraint
 createConstraint pPortfolioId_ pProductId_ pParameters_ pType_ pIdempotencyToken_ =
   CreateConstraint'
-  { _ccAcceptLanguage = Nothing
-  , _ccDescription = Nothing
-  , _ccPortfolioId = pPortfolioId_
-  , _ccProductId = pProductId_
-  , _ccParameters = pParameters_
-  , _ccType = pType_
-  , _ccIdempotencyToken = pIdempotencyToken_
-  }
+    { _ccAcceptLanguage = Nothing
+    , _ccDescription = Nothing
+    , _ccPortfolioId = pPortfolioId_
+    , _ccProductId = pProductId_
+    , _ccParameters = pParameters_
+    , _ccType = pType_
+    , _ccIdempotencyToken = pIdempotencyToken_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 ccAcceptLanguage :: Lens' CreateConstraint (Maybe Text)
-ccAcceptLanguage = lens _ccAcceptLanguage (\ s a -> s{_ccAcceptLanguage = a});
+ccAcceptLanguage = lens _ccAcceptLanguage (\ s a -> s{_ccAcceptLanguage = a})
 
--- | The text description of the constraint.
+-- | The description of the constraint.
 ccDescription :: Lens' CreateConstraint (Maybe Text)
-ccDescription = lens _ccDescription (\ s a -> s{_ccDescription = a});
+ccDescription = lens _ccDescription (\ s a -> s{_ccDescription = a})
 
 -- | The portfolio identifier.
 ccPortfolioId :: Lens' CreateConstraint Text
-ccPortfolioId = lens _ccPortfolioId (\ s a -> s{_ccPortfolioId = a});
+ccPortfolioId = lens _ccPortfolioId (\ s a -> s{_ccPortfolioId = a})
 
 -- | The product identifier.
 ccProductId :: Lens' CreateConstraint Text
-ccProductId = lens _ccProductId (\ s a -> s{_ccProductId = a});
+ccProductId = lens _ccProductId (\ s a -> s{_ccProductId = a})
 
--- | The constraint parameters. Expected values vary depending on which __Type__ is specified. For more information, see the Examples section. For Type @LAUNCH@ , the @RoleArn@ property is required.  For Type @NOTIFICATION@ , the @NotificationArns@ property is required. For Type @TEMPLATE@ , the @Rules@ property is required.
+-- | The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:     * LAUNCH    * Specify the @RoleArn@ property as follows: \"RoleArn\" : \"arn:aws:iam::123456789012:role/LaunchRole\"     * NOTIFICATION    * Specify the @NotificationArns@ property as follows: \"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]     * TEMPLATE    * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
 ccParameters :: Lens' CreateConstraint Text
-ccParameters = lens _ccParameters (\ s a -> s{_ccParameters = a});
+ccParameters = lens _ccParameters (\ s a -> s{_ccParameters = a})
 
--- | The type of the constraint. Case-sensitive valid values are: @LAUNCH@ , @NOTIFICATION@ , or @TEMPLATE@ .
+-- | The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @TEMPLATE@
 ccType :: Lens' CreateConstraint Text
-ccType = lens _ccType (\ s a -> s{_ccType = a});
+ccType = lens _ccType (\ s a -> s{_ccType = a})
 
--- | A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 ccIdempotencyToken :: Lens' CreateConstraint Text
-ccIdempotencyToken = lens _ccIdempotencyToken (\ s a -> s{_ccIdempotencyToken = a});
+ccIdempotencyToken = lens _ccIdempotencyToken (\ s a -> s{_ccIdempotencyToken = a})
 
 instance AWSRequest CreateConstraint where
         type Rs CreateConstraint = CreateConstraintResponse
@@ -186,9 +186,9 @@ data CreateConstraintResponse = CreateConstraintResponse'
 --
 -- * 'ccrsStatus' - The status of the current request.
 --
--- * 'ccrsConstraintDetail' - The resulting detailed constraint information.
+-- * 'ccrsConstraintDetail' - Information about the constraint.
 --
--- * 'ccrsConstraintParameters' - The resulting constraint parameters.
+-- * 'ccrsConstraintParameters' - The constraint parameters.
 --
 -- * 'ccrsResponseStatus' - -- | The response status code.
 createConstraintResponse
@@ -196,27 +196,27 @@ createConstraintResponse
     -> CreateConstraintResponse
 createConstraintResponse pResponseStatus_ =
   CreateConstraintResponse'
-  { _ccrsStatus = Nothing
-  , _ccrsConstraintDetail = Nothing
-  , _ccrsConstraintParameters = Nothing
-  , _ccrsResponseStatus = pResponseStatus_
-  }
+    { _ccrsStatus = Nothing
+    , _ccrsConstraintDetail = Nothing
+    , _ccrsConstraintParameters = Nothing
+    , _ccrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the current request.
 ccrsStatus :: Lens' CreateConstraintResponse (Maybe RequestStatus)
-ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});
+ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a})
 
--- | The resulting detailed constraint information.
+-- | Information about the constraint.
 ccrsConstraintDetail :: Lens' CreateConstraintResponse (Maybe ConstraintDetail)
-ccrsConstraintDetail = lens _ccrsConstraintDetail (\ s a -> s{_ccrsConstraintDetail = a});
+ccrsConstraintDetail = lens _ccrsConstraintDetail (\ s a -> s{_ccrsConstraintDetail = a})
 
--- | The resulting constraint parameters.
+-- | The constraint parameters.
 ccrsConstraintParameters :: Lens' CreateConstraintResponse (Maybe Text)
-ccrsConstraintParameters = lens _ccrsConstraintParameters (\ s a -> s{_ccrsConstraintParameters = a});
+ccrsConstraintParameters = lens _ccrsConstraintParameters (\ s a -> s{_ccrsConstraintParameters = a})
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CreateConstraintResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
 
 instance NFData CreateConstraintResponse where

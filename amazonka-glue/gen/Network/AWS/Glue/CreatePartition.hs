@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreatePartition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ createPartition
     -> CreatePartition
 createPartition pDatabaseName_ pTableName_ pPartitionInput_ =
   CreatePartition'
-  { _cpCatalogId = Nothing
-  , _cpDatabaseName = pDatabaseName_
-  , _cpTableName = pTableName_
-  , _cpPartitionInput = pPartitionInput_
-  }
+    { _cpCatalogId = Nothing
+    , _cpDatabaseName = pDatabaseName_
+    , _cpTableName = pTableName_
+    , _cpPartitionInput = pPartitionInput_
+    }
 
 
 -- | The ID of the catalog in which the partion is to be created. Currently, this should be the AWS account ID.
 cpCatalogId :: Lens' CreatePartition (Maybe Text)
-cpCatalogId = lens _cpCatalogId (\ s a -> s{_cpCatalogId = a});
+cpCatalogId = lens _cpCatalogId (\ s a -> s{_cpCatalogId = a})
 
 -- | The name of the metadata database in which the partition is to be created.
 cpDatabaseName :: Lens' CreatePartition Text
-cpDatabaseName = lens _cpDatabaseName (\ s a -> s{_cpDatabaseName = a});
+cpDatabaseName = lens _cpDatabaseName (\ s a -> s{_cpDatabaseName = a})
 
 -- | The name of the metadata table in which the partition is to be created.
 cpTableName :: Lens' CreatePartition Text
-cpTableName = lens _cpTableName (\ s a -> s{_cpTableName = a});
+cpTableName = lens _cpTableName (\ s a -> s{_cpTableName = a})
 
 -- | A @PartitionInput@ structure defining the partition to be created.
 cpPartitionInput :: Lens' CreatePartition PartitionInput
-cpPartitionInput = lens _cpPartitionInput (\ s a -> s{_cpPartitionInput = a});
+cpPartitionInput = lens _cpPartitionInput (\ s a -> s{_cpPartitionInput = a})
 
 instance AWSRequest CreatePartition where
         type Rs CreatePartition = CreatePartitionResponse
@@ -152,6 +152,6 @@ createPartitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePartitionResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
 
 instance NFData CreatePartitionResponse where

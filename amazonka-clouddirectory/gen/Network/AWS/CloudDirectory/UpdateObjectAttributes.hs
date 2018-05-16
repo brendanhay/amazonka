@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.UpdateObjectAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ updateObjectAttributes
     -> UpdateObjectAttributes
 updateObjectAttributes pDirectoryARN_ pObjectReference_ =
   UpdateObjectAttributes'
-  { _uoaDirectoryARN = pDirectoryARN_
-  , _uoaObjectReference = pObjectReference_
-  , _uoaAttributeUpdates = mempty
-  }
+    { _uoaDirectoryARN = pDirectoryARN_
+    , _uoaObjectReference = pObjectReference_
+    , _uoaAttributeUpdates = mempty
+    }
 
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 uoaDirectoryARN :: Lens' UpdateObjectAttributes Text
-uoaDirectoryARN = lens _uoaDirectoryARN (\ s a -> s{_uoaDirectoryARN = a});
+uoaDirectoryARN = lens _uoaDirectoryARN (\ s a -> s{_uoaDirectoryARN = a})
 
 -- | The reference that identifies the object.
 uoaObjectReference :: Lens' UpdateObjectAttributes ObjectReference
-uoaObjectReference = lens _uoaObjectReference (\ s a -> s{_uoaObjectReference = a});
+uoaObjectReference = lens _uoaObjectReference (\ s a -> s{_uoaObjectReference = a})
 
 -- | The attributes update structure.
 uoaAttributeUpdates :: Lens' UpdateObjectAttributes [ObjectAttributeUpdate]
-uoaAttributeUpdates = lens _uoaAttributeUpdates (\ s a -> s{_uoaAttributeUpdates = a}) . _Coerce;
+uoaAttributeUpdates = lens _uoaAttributeUpdates (\ s a -> s{_uoaAttributeUpdates = a}) . _Coerce
 
 instance AWSRequest UpdateObjectAttributes where
         type Rs UpdateObjectAttributes =
@@ -140,15 +140,15 @@ updateObjectAttributesResponse
     -> UpdateObjectAttributesResponse
 updateObjectAttributesResponse pResponseStatus_ =
   UpdateObjectAttributesResponse'
-  {_uoarsObjectIdentifier = Nothing, _uoarsResponseStatus = pResponseStatus_}
+    {_uoarsObjectIdentifier = Nothing, _uoarsResponseStatus = pResponseStatus_}
 
 
 -- | The @ObjectIdentifier@ of the updated object.
 uoarsObjectIdentifier :: Lens' UpdateObjectAttributesResponse (Maybe Text)
-uoarsObjectIdentifier = lens _uoarsObjectIdentifier (\ s a -> s{_uoarsObjectIdentifier = a});
+uoarsObjectIdentifier = lens _uoarsObjectIdentifier (\ s a -> s{_uoarsObjectIdentifier = a})
 
 -- | -- | The response status code.
 uoarsResponseStatus :: Lens' UpdateObjectAttributesResponse Int
-uoarsResponseStatus = lens _uoarsResponseStatus (\ s a -> s{_uoarsResponseStatus = a});
+uoarsResponseStatus = lens _uoarsResponseStatus (\ s a -> s{_uoarsResponseStatus = a})
 
 instance NFData UpdateObjectAttributesResponse where

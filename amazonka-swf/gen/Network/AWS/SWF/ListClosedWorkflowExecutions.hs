@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.ListClosedWorkflowExecutions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -121,58 +121,58 @@ listClosedWorkflowExecutions
     -> ListClosedWorkflowExecutions
 listClosedWorkflowExecutions pDomain_ =
   ListClosedWorkflowExecutions'
-  { _lcweNextPageToken = Nothing
-  , _lcweExecutionFilter = Nothing
-  , _lcweCloseStatusFilter = Nothing
-  , _lcweTypeFilter = Nothing
-  , _lcweCloseTimeFilter = Nothing
-  , _lcweReverseOrder = Nothing
-  , _lcweTagFilter = Nothing
-  , _lcweStartTimeFilter = Nothing
-  , _lcweMaximumPageSize = Nothing
-  , _lcweDomain = pDomain_
-  }
+    { _lcweNextPageToken = Nothing
+    , _lcweExecutionFilter = Nothing
+    , _lcweCloseStatusFilter = Nothing
+    , _lcweTypeFilter = Nothing
+    , _lcweCloseTimeFilter = Nothing
+    , _lcweReverseOrder = Nothing
+    , _lcweTagFilter = Nothing
+    , _lcweStartTimeFilter = Nothing
+    , _lcweMaximumPageSize = Nothing
+    , _lcweDomain = pDomain_
+    }
 
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 lcweNextPageToken :: Lens' ListClosedWorkflowExecutions (Maybe Text)
-lcweNextPageToken = lens _lcweNextPageToken (\ s a -> s{_lcweNextPageToken = a});
+lcweNextPageToken = lens _lcweNextPageToken (\ s a -> s{_lcweNextPageToken = a})
 
 -- | If specified, only workflow executions matching the workflow ID specified in the filter are returned.
 lcweExecutionFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
-lcweExecutionFilter = lens _lcweExecutionFilter (\ s a -> s{_lcweExecutionFilter = a});
+lcweExecutionFilter = lens _lcweExecutionFilter (\ s a -> s{_lcweExecutionFilter = a})
 
 -- | If specified, only workflow executions that match this /close status/ are listed. For example, if TERMINATED is specified, then only TERMINATED workflow executions are listed.
 lcweCloseStatusFilter :: Lens' ListClosedWorkflowExecutions (Maybe CloseStatusFilter)
-lcweCloseStatusFilter = lens _lcweCloseStatusFilter (\ s a -> s{_lcweCloseStatusFilter = a});
+lcweCloseStatusFilter = lens _lcweCloseStatusFilter (\ s a -> s{_lcweCloseStatusFilter = a})
 
 -- | If specified, only executions of the type specified in the filter are returned.
 lcweTypeFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
-lcweTypeFilter = lens _lcweTypeFilter (\ s a -> s{_lcweTypeFilter = a});
+lcweTypeFilter = lens _lcweTypeFilter (\ s a -> s{_lcweTypeFilter = a})
 
 -- | If specified, the workflow executions are included in the returned results based on whether their close times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their close times.
 lcweCloseTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
-lcweCloseTimeFilter = lens _lcweCloseTimeFilter (\ s a -> s{_lcweCloseTimeFilter = a});
+lcweCloseTimeFilter = lens _lcweCloseTimeFilter (\ s a -> s{_lcweCloseTimeFilter = a})
 
 -- | When set to @true@ , returns the results in reverse order. By default the results are returned in descending order of the start or the close time of the executions.
 lcweReverseOrder :: Lens' ListClosedWorkflowExecutions (Maybe Bool)
-lcweReverseOrder = lens _lcweReverseOrder (\ s a -> s{_lcweReverseOrder = a});
+lcweReverseOrder = lens _lcweReverseOrder (\ s a -> s{_lcweReverseOrder = a})
 
 -- | If specified, only executions that have the matching tag are listed.
 lcweTagFilter :: Lens' ListClosedWorkflowExecutions (Maybe TagFilter)
-lcweTagFilter = lens _lcweTagFilter (\ s a -> s{_lcweTagFilter = a});
+lcweTagFilter = lens _lcweTagFilter (\ s a -> s{_lcweTagFilter = a})
 
 -- | If specified, the workflow executions are included in the returned results based on whether their start times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their start times.
 lcweStartTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
-lcweStartTimeFilter = lens _lcweStartTimeFilter (\ s a -> s{_lcweStartTimeFilter = a});
+lcweStartTimeFilter = lens _lcweStartTimeFilter (\ s a -> s{_lcweStartTimeFilter = a})
 
 -- | The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 lcweMaximumPageSize :: Lens' ListClosedWorkflowExecutions (Maybe Natural)
-lcweMaximumPageSize = lens _lcweMaximumPageSize (\ s a -> s{_lcweMaximumPageSize = a}) . mapping _Nat;
+lcweMaximumPageSize = lens _lcweMaximumPageSize (\ s a -> s{_lcweMaximumPageSize = a}) . mapping _Nat
 
 -- | The name of the domain that contains the workflow executions to list.
 lcweDomain :: Lens' ListClosedWorkflowExecutions Text
-lcweDomain = lens _lcweDomain (\ s a -> s{_lcweDomain = a});
+lcweDomain = lens _lcweDomain (\ s a -> s{_lcweDomain = a})
 
 instance AWSPager ListClosedWorkflowExecutions where
         page rq rs

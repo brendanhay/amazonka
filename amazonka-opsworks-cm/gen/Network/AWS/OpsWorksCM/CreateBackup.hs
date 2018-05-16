@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.CreateBackup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ createBackup pServerName_ =
 
 -- | A user-defined description of the backup.
 cbDescription :: Lens' CreateBackup (Maybe Text)
-cbDescription = lens _cbDescription (\ s a -> s{_cbDescription = a});
+cbDescription = lens _cbDescription (\ s a -> s{_cbDescription = a})
 
 -- | The name of the server that you want to back up.
 cbServerName :: Lens' CreateBackup Text
-cbServerName = lens _cbServerName (\ s a -> s{_cbServerName = a});
+cbServerName = lens _cbServerName (\ s a -> s{_cbServerName = a})
 
 instance AWSRequest CreateBackup where
         type Rs CreateBackup = CreateBackupResponse
@@ -135,15 +135,15 @@ createBackupResponse
     -> CreateBackupResponse
 createBackupResponse pResponseStatus_ =
   CreateBackupResponse'
-  {_cbrsBackup = Nothing, _cbrsResponseStatus = pResponseStatus_}
+    {_cbrsBackup = Nothing, _cbrsResponseStatus = pResponseStatus_}
 
 
 -- | Backup created by request.
 cbrsBackup :: Lens' CreateBackupResponse (Maybe Backup)
-cbrsBackup = lens _cbrsBackup (\ s a -> s{_cbrsBackup = a});
+cbrsBackup = lens _cbrsBackup (\ s a -> s{_cbrsBackup = a})
 
 -- | -- | The response status code.
 cbrsResponseStatus :: Lens' CreateBackupResponse Int
-cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a});
+cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a})
 
 instance NFData CreateBackupResponse where

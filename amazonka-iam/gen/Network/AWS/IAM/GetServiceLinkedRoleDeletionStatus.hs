@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the status of your service-linked role deletion. After you use the 'DeleteServiceLinkedRole' API operation to submit a service-linked role for deletion, you can use the @DeletionTaskId@ parameter in @GetServiceLinkedRoleDeletionStatus@ to check the status of the deletion. If the deletion fails, this operation returns the reason that it failed.
+-- Retrieves the status of your service-linked role deletion. After you use the 'DeleteServiceLinkedRole' API operation to submit a service-linked role for deletion, you can use the @DeletionTaskId@ parameter in @GetServiceLinkedRoleDeletionStatus@ to check the status of the deletion. If the deletion fails, this operation returns the reason that it failed, if that information is returned by the service.
 --
 --
 module Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
@@ -65,7 +65,7 @@ getServiceLinkedRoleDeletionStatus pDeletionTaskId_ =
 
 -- | The deletion task identifier. This identifier is returned by the 'DeleteServiceLinkedRole' operation in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
 gslrdsDeletionTaskId :: Lens' GetServiceLinkedRoleDeletionStatus Text
-gslrdsDeletionTaskId = lens _gslrdsDeletionTaskId (\ s a -> s{_gslrdsDeletionTaskId = a});
+gslrdsDeletionTaskId = lens _gslrdsDeletionTaskId (\ s a -> s{_gslrdsDeletionTaskId = a})
 
 instance AWSRequest
            GetServiceLinkedRoleDeletionStatus
@@ -127,23 +127,23 @@ getServiceLinkedRoleDeletionStatusResponse
     -> GetServiceLinkedRoleDeletionStatusResponse
 getServiceLinkedRoleDeletionStatusResponse pResponseStatus_ pStatus_ =
   GetServiceLinkedRoleDeletionStatusResponse'
-  { _gslrdsrsReason = Nothing
-  , _gslrdsrsResponseStatus = pResponseStatus_
-  , _gslrdsrsStatus = pStatus_
-  }
+    { _gslrdsrsReason = Nothing
+    , _gslrdsrsResponseStatus = pResponseStatus_
+    , _gslrdsrsStatus = pStatus_
+    }
 
 
 -- | An object that contains details about the reason the deletion failed.
 gslrdsrsReason :: Lens' GetServiceLinkedRoleDeletionStatusResponse (Maybe DeletionTaskFailureReasonType)
-gslrdsrsReason = lens _gslrdsrsReason (\ s a -> s{_gslrdsrsReason = a});
+gslrdsrsReason = lens _gslrdsrsReason (\ s a -> s{_gslrdsrsReason = a})
 
 -- | -- | The response status code.
 gslrdsrsResponseStatus :: Lens' GetServiceLinkedRoleDeletionStatusResponse Int
-gslrdsrsResponseStatus = lens _gslrdsrsResponseStatus (\ s a -> s{_gslrdsrsResponseStatus = a});
+gslrdsrsResponseStatus = lens _gslrdsrsResponseStatus (\ s a -> s{_gslrdsrsResponseStatus = a})
 
 -- | The status of the deletion.
 gslrdsrsStatus :: Lens' GetServiceLinkedRoleDeletionStatusResponse DeletionTaskStatusType
-gslrdsrsStatus = lens _gslrdsrsStatus (\ s a -> s{_gslrdsrsStatus = a});
+gslrdsrsStatus = lens _gslrdsrsStatus (\ s a -> s{_gslrdsrsStatus = a})
 
 instance NFData
            GetServiceLinkedRoleDeletionStatusResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBClusterSnapshotAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,12 +68,12 @@ describeDBClusterSnapshotAttributes
     -> DescribeDBClusterSnapshotAttributes
 describeDBClusterSnapshotAttributes pDBClusterSnapshotIdentifier_ =
   DescribeDBClusterSnapshotAttributes'
-  {_ddcsaDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_}
+    {_ddcsaDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_}
 
 
 -- | The identifier for the DB cluster snapshot to describe the attributes for.
 ddcsaDBClusterSnapshotIdentifier :: Lens' DescribeDBClusterSnapshotAttributes Text
-ddcsaDBClusterSnapshotIdentifier = lens _ddcsaDBClusterSnapshotIdentifier (\ s a -> s{_ddcsaDBClusterSnapshotIdentifier = a});
+ddcsaDBClusterSnapshotIdentifier = lens _ddcsaDBClusterSnapshotIdentifier (\ s a -> s{_ddcsaDBClusterSnapshotIdentifier = a})
 
 instance AWSRequest
            DescribeDBClusterSnapshotAttributes
@@ -134,18 +134,18 @@ describeDBClusterSnapshotAttributesResponse
     -> DescribeDBClusterSnapshotAttributesResponse
 describeDBClusterSnapshotAttributesResponse pResponseStatus_ =
   DescribeDBClusterSnapshotAttributesResponse'
-  { _ddcsarsDBClusterSnapshotAttributesResult = Nothing
-  , _ddcsarsResponseStatus = pResponseStatus_
-  }
+    { _ddcsarsDBClusterSnapshotAttributesResult = Nothing
+    , _ddcsarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ddcsarsDBClusterSnapshotAttributesResult :: Lens' DescribeDBClusterSnapshotAttributesResponse (Maybe DBClusterSnapshotAttributesResult)
-ddcsarsDBClusterSnapshotAttributesResult = lens _ddcsarsDBClusterSnapshotAttributesResult (\ s a -> s{_ddcsarsDBClusterSnapshotAttributesResult = a});
+ddcsarsDBClusterSnapshotAttributesResult = lens _ddcsarsDBClusterSnapshotAttributesResult (\ s a -> s{_ddcsarsDBClusterSnapshotAttributesResult = a})
 
 -- | -- | The response status code.
 ddcsarsResponseStatus :: Lens' DescribeDBClusterSnapshotAttributesResponse Int
-ddcsarsResponseStatus = lens _ddcsarsResponseStatus (\ s a -> s{_ddcsarsResponseStatus = a});
+ddcsarsResponseStatus = lens _ddcsarsResponseStatus (\ s a -> s{_ddcsarsResponseStatus = a})
 
 instance NFData
            DescribeDBClusterSnapshotAttributesResponse

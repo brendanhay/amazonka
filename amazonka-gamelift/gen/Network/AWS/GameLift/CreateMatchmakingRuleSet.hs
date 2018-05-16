@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateMatchmakingRuleSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,16 +91,16 @@ createMatchmakingRuleSet
     -> CreateMatchmakingRuleSet
 createMatchmakingRuleSet pName_ pRuleSetBody_ =
   CreateMatchmakingRuleSet'
-  {_cmrsName = pName_, _cmrsRuleSetBody = pRuleSetBody_}
+    {_cmrsName = pName_, _cmrsRuleSetBody = pRuleSetBody_}
 
 
 -- | Unique identifier for a matchmaking rule set. This name is used to identify the rule set associated with a matchmaking configuration.
 cmrsName :: Lens' CreateMatchmakingRuleSet Text
-cmrsName = lens _cmrsName (\ s a -> s{_cmrsName = a});
+cmrsName = lens _cmrsName (\ s a -> s{_cmrsName = a})
 
 -- | Collection of matchmaking rules, formatted as a JSON string. (Note that comments are not allowed in JSON, but most elements support a description field.)
 cmrsRuleSetBody :: Lens' CreateMatchmakingRuleSet Text
-cmrsRuleSetBody = lens _cmrsRuleSetBody (\ s a -> s{_cmrsRuleSetBody = a});
+cmrsRuleSetBody = lens _cmrsRuleSetBody (\ s a -> s{_cmrsRuleSetBody = a})
 
 instance AWSRequest CreateMatchmakingRuleSet where
         type Rs CreateMatchmakingRuleSet =
@@ -162,16 +162,16 @@ createMatchmakingRuleSetResponse
     -> CreateMatchmakingRuleSetResponse
 createMatchmakingRuleSetResponse pResponseStatus_ pRuleSet_ =
   CreateMatchmakingRuleSetResponse'
-  {_cmrsrsResponseStatus = pResponseStatus_, _cmrsrsRuleSet = pRuleSet_}
+    {_cmrsrsResponseStatus = pResponseStatus_, _cmrsrsRuleSet = pRuleSet_}
 
 
 -- | -- | The response status code.
 cmrsrsResponseStatus :: Lens' CreateMatchmakingRuleSetResponse Int
-cmrsrsResponseStatus = lens _cmrsrsResponseStatus (\ s a -> s{_cmrsrsResponseStatus = a});
+cmrsrsResponseStatus = lens _cmrsrsResponseStatus (\ s a -> s{_cmrsrsResponseStatus = a})
 
 -- | Object that describes the newly created matchmaking rule set.
 cmrsrsRuleSet :: Lens' CreateMatchmakingRuleSetResponse MatchmakingRuleSet
-cmrsrsRuleSet = lens _cmrsrsRuleSet (\ s a -> s{_cmrsrsRuleSet = a});
+cmrsrsRuleSet = lens _cmrsrsRuleSet (\ s a -> s{_cmrsrsRuleSet = a})
 
 instance NFData CreateMatchmakingRuleSetResponse
          where

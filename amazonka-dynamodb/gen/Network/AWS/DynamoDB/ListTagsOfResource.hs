@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.ListTagsOfResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ listTagsOfResource
     -> ListTagsOfResource
 listTagsOfResource pResourceARN_ =
   ListTagsOfResource'
-  {_ltorNextToken = Nothing, _ltorResourceARN = pResourceARN_}
+    {_ltorNextToken = Nothing, _ltorResourceARN = pResourceARN_}
 
 
 -- | An optional string that, if supplied, must be copied from the output of a previous call to ListTagOfResource. When provided in this manner, this API fetches the next page of results.
 ltorNextToken :: Lens' ListTagsOfResource (Maybe Text)
-ltorNextToken = lens _ltorNextToken (\ s a -> s{_ltorNextToken = a});
+ltorNextToken = lens _ltorNextToken (\ s a -> s{_ltorNextToken = a})
 
 -- | The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Resource Name (ARN).
 ltorResourceARN :: Lens' ListTagsOfResource Text
-ltorResourceARN = lens _ltorResourceARN (\ s a -> s{_ltorResourceARN = a});
+ltorResourceARN = lens _ltorResourceARN (\ s a -> s{_ltorResourceARN = a})
 
 instance AWSRequest ListTagsOfResource where
         type Rs ListTagsOfResource =
@@ -138,22 +138,22 @@ listTagsOfResourceResponse
     -> ListTagsOfResourceResponse
 listTagsOfResourceResponse pResponseStatus_ =
   ListTagsOfResourceResponse'
-  { _ltorrsNextToken = Nothing
-  , _ltorrsTags = Nothing
-  , _ltorrsResponseStatus = pResponseStatus_
-  }
+    { _ltorrsNextToken = Nothing
+    , _ltorrsTags = Nothing
+    , _ltorrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If this value is returned, there are additional results to be displayed. To retrieve them, call ListTagsOfResource again, with NextToken set to this value.
 ltorrsNextToken :: Lens' ListTagsOfResourceResponse (Maybe Text)
-ltorrsNextToken = lens _ltorrsNextToken (\ s a -> s{_ltorrsNextToken = a});
+ltorrsNextToken = lens _ltorrsNextToken (\ s a -> s{_ltorrsNextToken = a})
 
 -- | The tags currently associated with the Amazon DynamoDB resource.
 ltorrsTags :: Lens' ListTagsOfResourceResponse [Tag]
-ltorrsTags = lens _ltorrsTags (\ s a -> s{_ltorrsTags = a}) . _Default . _Coerce;
+ltorrsTags = lens _ltorrsTags (\ s a -> s{_ltorrsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ltorrsResponseStatus :: Lens' ListTagsOfResourceResponse Int
-ltorrsResponseStatus = lens _ltorrsResponseStatus (\ s a -> s{_ltorrsResponseStatus = a});
+ltorrsResponseStatus = lens _ltorrsResponseStatus (\ s a -> s{_ltorrsResponseStatus = a})
 
 instance NFData ListTagsOfResourceResponse where

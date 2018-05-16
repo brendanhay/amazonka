@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DeleteReplicationTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ deleteReplicationTask pReplicationTaskARN_ =
 
 -- | The Amazon Resource Name (ARN) of the replication task to be deleted.
 drtReplicationTaskARN :: Lens' DeleteReplicationTask Text
-drtReplicationTaskARN = lens _drtReplicationTaskARN (\ s a -> s{_drtReplicationTaskARN = a});
+drtReplicationTaskARN = lens _drtReplicationTaskARN (\ s a -> s{_drtReplicationTaskARN = a})
 
 instance AWSRequest DeleteReplicationTask where
         type Rs DeleteReplicationTask =
@@ -130,15 +130,15 @@ deleteReplicationTaskResponse
     -> DeleteReplicationTaskResponse
 deleteReplicationTaskResponse pResponseStatus_ =
   DeleteReplicationTaskResponse'
-  {_drtrsReplicationTask = Nothing, _drtrsResponseStatus = pResponseStatus_}
+    {_drtrsReplicationTask = Nothing, _drtrsResponseStatus = pResponseStatus_}
 
 
 -- | The deleted replication task.
 drtrsReplicationTask :: Lens' DeleteReplicationTaskResponse (Maybe ReplicationTask)
-drtrsReplicationTask = lens _drtrsReplicationTask (\ s a -> s{_drtrsReplicationTask = a});
+drtrsReplicationTask = lens _drtrsReplicationTask (\ s a -> s{_drtrsReplicationTask = a})
 
 -- | -- | The response status code.
 drtrsResponseStatus :: Lens' DeleteReplicationTaskResponse Int
-drtrsResponseStatus = lens _drtrsResponseStatus (\ s a -> s{_drtrsResponseStatus = a});
+drtrsResponseStatus = lens _drtrsResponseStatus (\ s a -> s{_drtrsResponseStatus = a})
 
 instance NFData DeleteReplicationTaskResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetNetworkInterfaceAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ resetNetworkInterfaceAttribute
     -> ResetNetworkInterfaceAttribute
 resetNetworkInterfaceAttribute pNetworkInterfaceId_ =
   ResetNetworkInterfaceAttribute'
-  { _rniaSourceDestCheck = Nothing
-  , _rniaDryRun = Nothing
-  , _rniaNetworkInterfaceId = pNetworkInterfaceId_
-  }
+    { _rniaSourceDestCheck = Nothing
+    , _rniaDryRun = Nothing
+    , _rniaNetworkInterfaceId = pNetworkInterfaceId_
+    }
 
 
 -- | The source/destination checking attribute. Resets the value to @true@ .
 rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
-rniaSourceDestCheck = lens _rniaSourceDestCheck (\ s a -> s{_rniaSourceDestCheck = a});
+rniaSourceDestCheck = lens _rniaSourceDestCheck (\ s a -> s{_rniaSourceDestCheck = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rniaDryRun :: Lens' ResetNetworkInterfaceAttribute (Maybe Bool)
-rniaDryRun = lens _rniaDryRun (\ s a -> s{_rniaDryRun = a});
+rniaDryRun = lens _rniaDryRun (\ s a -> s{_rniaDryRun = a})
 
 -- | The ID of the network interface.
 rniaNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
-rniaNetworkInterfaceId = lens _rniaNetworkInterfaceId (\ s a -> s{_rniaNetworkInterfaceId = a});
+rniaNetworkInterfaceId = lens _rniaNetworkInterfaceId (\ s a -> s{_rniaNetworkInterfaceId = a})
 
 instance AWSRequest ResetNetworkInterfaceAttribute
          where

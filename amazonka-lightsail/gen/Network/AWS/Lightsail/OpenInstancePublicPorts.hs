@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.OpenInstancePublicPorts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ openInstancePublicPorts
     -> OpenInstancePublicPorts
 openInstancePublicPorts pPortInfo_ pInstanceName_ =
   OpenInstancePublicPorts'
-  {_oippPortInfo = pPortInfo_, _oippInstanceName = pInstanceName_}
+    {_oippPortInfo = pPortInfo_, _oippInstanceName = pInstanceName_}
 
 
 -- | An array of key-value pairs containing information about the port mappings.
 oippPortInfo :: Lens' OpenInstancePublicPorts PortInfo
-oippPortInfo = lens _oippPortInfo (\ s a -> s{_oippPortInfo = a});
+oippPortInfo = lens _oippPortInfo (\ s a -> s{_oippPortInfo = a})
 
 -- | The name of the instance for which you want to open the public ports.
 oippInstanceName :: Lens' OpenInstancePublicPorts Text
-oippInstanceName = lens _oippInstanceName (\ s a -> s{_oippInstanceName = a});
+oippInstanceName = lens _oippInstanceName (\ s a -> s{_oippInstanceName = a})
 
 instance AWSRequest OpenInstancePublicPorts where
         type Rs OpenInstancePublicPorts =
@@ -132,15 +132,15 @@ openInstancePublicPortsResponse
     -> OpenInstancePublicPortsResponse
 openInstancePublicPortsResponse pResponseStatus_ =
   OpenInstancePublicPortsResponse'
-  {_oipprsOperation = Nothing, _oipprsResponseStatus = pResponseStatus_}
+    {_oipprsOperation = Nothing, _oipprsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the request operation.
 oipprsOperation :: Lens' OpenInstancePublicPortsResponse (Maybe Operation)
-oipprsOperation = lens _oipprsOperation (\ s a -> s{_oipprsOperation = a});
+oipprsOperation = lens _oipprsOperation (\ s a -> s{_oipprsOperation = a})
 
 -- | -- | The response status code.
 oipprsResponseStatus :: Lens' OpenInstancePublicPortsResponse Int
-oipprsResponseStatus = lens _oipprsResponseStatus (\ s a -> s{_oipprsResponseStatus = a});
+oipprsResponseStatus = lens _oipprsResponseStatus (\ s a -> s{_oipprsResponseStatus = a})
 
 instance NFData OpenInstancePublicPortsResponse where

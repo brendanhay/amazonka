@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListMFADevices
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the MFA devices for an IAM user. If the request includes a IAM user name, then this action lists all the MFA devices associated with the specified user. If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request for this API.
+-- Lists the MFA devices for an IAM user. If the request includes a IAM user name, then this operation lists all the MFA devices associated with the specified user. If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request for this API.
 --
 --
 -- You can paginate the results using the @MaxItems@ and @Marker@ parameters.
@@ -65,7 +65,7 @@ data ListMFADevices = ListMFADevices'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lmdUserName' - The name of the user whose MFA devices you want to list. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'lmdUserName' - The name of the user whose MFA devices you want to list. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'lmdMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
@@ -74,20 +74,20 @@ listMFADevices
     :: ListMFADevices
 listMFADevices =
   ListMFADevices'
-  {_lmdUserName = Nothing, _lmdMarker = Nothing, _lmdMaxItems = Nothing}
+    {_lmdUserName = Nothing, _lmdMarker = Nothing, _lmdMaxItems = Nothing}
 
 
--- | The name of the user whose MFA devices you want to list. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user whose MFA devices you want to list. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 lmdUserName :: Lens' ListMFADevices (Maybe Text)
-lmdUserName = lens _lmdUserName (\ s a -> s{_lmdUserName = a});
+lmdUserName = lens _lmdUserName (\ s a -> s{_lmdUserName = a})
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 lmdMarker :: Lens' ListMFADevices (Maybe Text)
-lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a});
+lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a})
 
 -- | (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 lmdMaxItems :: Lens' ListMFADevices (Maybe Natural)
-lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . mapping _Nat;
+lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . mapping _Nat
 
 instance AWSPager ListMFADevices where
         page rq rs
@@ -156,27 +156,27 @@ listMFADevicesResponse
     -> ListMFADevicesResponse
 listMFADevicesResponse pResponseStatus_ =
   ListMFADevicesResponse'
-  { _lmdrsMarker = Nothing
-  , _lmdrsIsTruncated = Nothing
-  , _lmdrsResponseStatus = pResponseStatus_
-  , _lmdrsMFADevices = mempty
-  }
+    { _lmdrsMarker = Nothing
+    , _lmdrsIsTruncated = Nothing
+    , _lmdrsResponseStatus = pResponseStatus_
+    , _lmdrsMFADevices = mempty
+    }
 
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lmdrsMarker :: Lens' ListMFADevicesResponse (Maybe Text)
-lmdrsMarker = lens _lmdrsMarker (\ s a -> s{_lmdrsMarker = a});
+lmdrsMarker = lens _lmdrsMarker (\ s a -> s{_lmdrsMarker = a})
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 lmdrsIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
-lmdrsIsTruncated = lens _lmdrsIsTruncated (\ s a -> s{_lmdrsIsTruncated = a});
+lmdrsIsTruncated = lens _lmdrsIsTruncated (\ s a -> s{_lmdrsIsTruncated = a})
 
 -- | -- | The response status code.
 lmdrsResponseStatus :: Lens' ListMFADevicesResponse Int
-lmdrsResponseStatus = lens _lmdrsResponseStatus (\ s a -> s{_lmdrsResponseStatus = a});
+lmdrsResponseStatus = lens _lmdrsResponseStatus (\ s a -> s{_lmdrsResponseStatus = a})
 
 -- | A list of MFA devices.
 lmdrsMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
-lmdrsMFADevices = lens _lmdrsMFADevices (\ s a -> s{_lmdrsMFADevices = a}) . _Coerce;
+lmdrsMFADevices = lens _lmdrsMFADevices (\ s a -> s{_lmdrsMFADevices = a}) . _Coerce
 
 instance NFData ListMFADevicesResponse where

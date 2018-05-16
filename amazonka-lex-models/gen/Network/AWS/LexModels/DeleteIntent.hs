@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteIntent
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteIntent pName_ = DeleteIntent' {_diName = pName_}
 
 -- | The name of the intent. The name is case sensitive.
 diName :: Lens' DeleteIntent Text
-diName = lens _diName (\ s a -> s{_diName = a});
+diName = lens _diName (\ s a -> s{_diName = a})
 
 instance AWSRequest DeleteIntent where
         type Rs DeleteIntent = DeleteIntentResponse

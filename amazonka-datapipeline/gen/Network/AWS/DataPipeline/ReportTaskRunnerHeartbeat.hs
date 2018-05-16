@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ reportTaskRunnerHeartbeat
     -> ReportTaskRunnerHeartbeat
 reportTaskRunnerHeartbeat pTaskrunnerId_ =
   ReportTaskRunnerHeartbeat'
-  { _rtrhHostname = Nothing
-  , _rtrhWorkerGroup = Nothing
-  , _rtrhTaskrunnerId = pTaskrunnerId_
-  }
+    { _rtrhHostname = Nothing
+    , _rtrhWorkerGroup = Nothing
+    , _rtrhTaskrunnerId = pTaskrunnerId_
+    }
 
 
 -- | The public DNS name of the task runner.
 rtrhHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhHostname = lens _rtrhHostname (\ s a -> s{_rtrhHostname = a});
+rtrhHostname = lens _rtrhHostname (\ s a -> s{_rtrhHostname = a})
 
 -- | The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
 rtrhWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhWorkerGroup = lens _rtrhWorkerGroup (\ s a -> s{_rtrhWorkerGroup = a});
+rtrhWorkerGroup = lens _rtrhWorkerGroup (\ s a -> s{_rtrhWorkerGroup = a})
 
 -- | The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.
 rtrhTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
-rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\ s a -> s{_rtrhTaskrunnerId = a});
+rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\ s a -> s{_rtrhTaskrunnerId = a})
 
 instance AWSRequest ReportTaskRunnerHeartbeat where
         type Rs ReportTaskRunnerHeartbeat =
@@ -152,16 +152,16 @@ reportTaskRunnerHeartbeatResponse
     -> ReportTaskRunnerHeartbeatResponse
 reportTaskRunnerHeartbeatResponse pResponseStatus_ pTerminate_ =
   ReportTaskRunnerHeartbeatResponse'
-  {_rtrhrsResponseStatus = pResponseStatus_, _rtrhrsTerminate = pTerminate_}
+    {_rtrhrsResponseStatus = pResponseStatus_, _rtrhrsTerminate = pTerminate_}
 
 
 -- | -- | The response status code.
 rtrhrsResponseStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
-rtrhrsResponseStatus = lens _rtrhrsResponseStatus (\ s a -> s{_rtrhrsResponseStatus = a});
+rtrhrsResponseStatus = lens _rtrhrsResponseStatus (\ s a -> s{_rtrhrsResponseStatus = a})
 
 -- | Indicates whether the calling task runner should terminate.
 rtrhrsTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
-rtrhrsTerminate = lens _rtrhrsTerminate (\ s a -> s{_rtrhrsTerminate = a});
+rtrhrsTerminate = lens _rtrhrsTerminate (\ s a -> s{_rtrhrsTerminate = a})
 
 instance NFData ReportTaskRunnerHeartbeatResponse
          where

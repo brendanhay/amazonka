@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.DeleteHSM
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,28 +72,28 @@ deleteHSM
     -> DeleteHSM
 deleteHSM pClusterId_ =
   DeleteHSM'
-  { _dhEniId = Nothing
-  , _dhHSMId = Nothing
-  , _dhEniIP = Nothing
-  , _dhClusterId = pClusterId_
-  }
+    { _dhEniId = Nothing
+    , _dhHSMId = Nothing
+    , _dhEniIP = Nothing
+    , _dhClusterId = pClusterId_
+    }
 
 
 -- | The identifier (ID) of the elastic network interface (ENI) of the HSM that you are deleting.
 dhEniId :: Lens' DeleteHSM (Maybe Text)
-dhEniId = lens _dhEniId (\ s a -> s{_dhEniId = a});
+dhEniId = lens _dhEniId (\ s a -> s{_dhEniId = a})
 
 -- | The identifier (ID) of the HSM that you are deleting.
 dhHSMId :: Lens' DeleteHSM (Maybe Text)
-dhHSMId = lens _dhHSMId (\ s a -> s{_dhHSMId = a});
+dhHSMId = lens _dhHSMId (\ s a -> s{_dhHSMId = a})
 
 -- | The IP address of the elastic network interface (ENI) of the HSM that you are deleting.
 dhEniIP :: Lens' DeleteHSM (Maybe Text)
-dhEniIP = lens _dhEniIP (\ s a -> s{_dhEniIP = a});
+dhEniIP = lens _dhEniIP (\ s a -> s{_dhEniIP = a})
 
 -- | The identifier (ID) of the cluster that contains the HSM that you are deleting.
 dhClusterId :: Lens' DeleteHSM Text
-dhClusterId = lens _dhClusterId (\ s a -> s{_dhClusterId = a});
+dhClusterId = lens _dhClusterId (\ s a -> s{_dhClusterId = a})
 
 instance AWSRequest DeleteHSM where
         type Rs DeleteHSM = DeleteHSMResponse
@@ -150,15 +150,15 @@ deleteHSMResponse
     -> DeleteHSMResponse
 deleteHSMResponse pResponseStatus_ =
   DeleteHSMResponse'
-  {_dhrsHSMId = Nothing, _dhrsResponseStatus = pResponseStatus_}
+    {_dhrsHSMId = Nothing, _dhrsResponseStatus = pResponseStatus_}
 
 
 -- | The identifier (ID) of the HSM that was deleted.
 dhrsHSMId :: Lens' DeleteHSMResponse (Maybe Text)
-dhrsHSMId = lens _dhrsHSMId (\ s a -> s{_dhrsHSMId = a});
+dhrsHSMId = lens _dhrsHSMId (\ s a -> s{_dhrsHSMId = a})
 
 -- | -- | The response status code.
 dhrsResponseStatus :: Lens' DeleteHSMResponse Int
-dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
+dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a})
 
 instance NFData DeleteHSMResponse where

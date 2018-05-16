@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteServiceLinkedRole
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Submits a service-linked role deletion request and returns a @DeletionTaskId@ , which you can use to check the status of the deletion. Before you call this operation, confirm that the role has no active sessions and that any resources used by the role in the linked service are deleted. If you call this operation more than once for the same service-linked role and an earlier deletion task is not complete, then the @DeletionTaskId@ of the earlier request is returned.
 --
 --
--- If you submit a deletion request for a service-linked role whose linked service is still accessing a resource, then the deletion task fails. If it fails, the 'GetServiceLinkedRoleDeletionStatus' API operation returns the reason for the failure, including the resources that must be deleted. To delete the service-linked role, you must first remove those resources from the linked service and then submit the deletion request again. Resources are specific to the service that is linked to the role. For more information about removing resources from a service, see the <http://docs.aws.amazon.com/ AWS documentation> for your service.
+-- If you submit a deletion request for a service-linked role whose linked service is still accessing a resource, then the deletion task fails. If it fails, the 'GetServiceLinkedRoleDeletionStatus' API operation returns the reason for the failure, usually including the resources that must be deleted. To delete the service-linked role, you must first remove those resources from the linked service and then submit the deletion request again. Resources are specific to the service that is linked to the role. For more information about removing resources from a service, see the <http://docs.aws.amazon.com/ AWS documentation> for your service.
 --
 -- For more information about service-linked roles, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role Roles Terms and Concepts: AWS Service-Linked Role> in the /IAM User Guide/ .
 --
@@ -68,7 +68,7 @@ deleteServiceLinkedRole pRoleName_ =
 
 -- | The name of the service-linked role to be deleted.
 dslrRoleName :: Lens' DeleteServiceLinkedRole Text
-dslrRoleName = lens _dslrRoleName (\ s a -> s{_dslrRoleName = a});
+dslrRoleName = lens _dslrRoleName (\ s a -> s{_dslrRoleName = a})
 
 instance AWSRequest DeleteServiceLinkedRole where
         type Rs DeleteServiceLinkedRole =
@@ -118,17 +118,17 @@ deleteServiceLinkedRoleResponse
     -> DeleteServiceLinkedRoleResponse
 deleteServiceLinkedRoleResponse pResponseStatus_ pDeletionTaskId_ =
   DeleteServiceLinkedRoleResponse'
-  { _dslrrsResponseStatus = pResponseStatus_
-  , _dslrrsDeletionTaskId = pDeletionTaskId_
-  }
+    { _dslrrsResponseStatus = pResponseStatus_
+    , _dslrrsDeletionTaskId = pDeletionTaskId_
+    }
 
 
 -- | -- | The response status code.
 dslrrsResponseStatus :: Lens' DeleteServiceLinkedRoleResponse Int
-dslrrsResponseStatus = lens _dslrrsResponseStatus (\ s a -> s{_dslrrsResponseStatus = a});
+dslrrsResponseStatus = lens _dslrrsResponseStatus (\ s a -> s{_dslrrsResponseStatus = a})
 
 -- | The deletion task identifier that you can use to check the status of the deletion. This identifier is returned in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
 dslrrsDeletionTaskId :: Lens' DeleteServiceLinkedRoleResponse Text
-dslrrsDeletionTaskId = lens _dslrrsDeletionTaskId (\ s a -> s{_dslrrsDeletionTaskId = a});
+dslrrsDeletionTaskId = lens _dslrrsDeletionTaskId (\ s a -> s{_dslrrsDeletionTaskId = a})
 
 instance NFData DeleteServiceLinkedRoleResponse where

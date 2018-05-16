@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeletePartition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,28 +72,28 @@ deletePartition
     -> DeletePartition
 deletePartition pDatabaseName_ pTableName_ =
   DeletePartition'
-  { _dpCatalogId = Nothing
-  , _dpDatabaseName = pDatabaseName_
-  , _dpTableName = pTableName_
-  , _dpPartitionValues = mempty
-  }
+    { _dpCatalogId = Nothing
+    , _dpDatabaseName = pDatabaseName_
+    , _dpTableName = pTableName_
+    , _dpPartitionValues = mempty
+    }
 
 
 -- | The ID of the Data Catalog where the partition to be deleted resides. If none is supplied, the AWS account ID is used by default.
 dpCatalogId :: Lens' DeletePartition (Maybe Text)
-dpCatalogId = lens _dpCatalogId (\ s a -> s{_dpCatalogId = a});
+dpCatalogId = lens _dpCatalogId (\ s a -> s{_dpCatalogId = a})
 
 -- | The name of the catalog database in which the table in question resides.
 dpDatabaseName :: Lens' DeletePartition Text
-dpDatabaseName = lens _dpDatabaseName (\ s a -> s{_dpDatabaseName = a});
+dpDatabaseName = lens _dpDatabaseName (\ s a -> s{_dpDatabaseName = a})
 
 -- | The name of the table where the partition to be deleted is located.
 dpTableName :: Lens' DeletePartition Text
-dpTableName = lens _dpTableName (\ s a -> s{_dpTableName = a});
+dpTableName = lens _dpTableName (\ s a -> s{_dpTableName = a})
 
 -- | The values that define the partition.
 dpPartitionValues :: Lens' DeletePartition [Text]
-dpPartitionValues = lens _dpPartitionValues (\ s a -> s{_dpPartitionValues = a}) . _Coerce;
+dpPartitionValues = lens _dpPartitionValues (\ s a -> s{_dpPartitionValues = a}) . _Coerce
 
 instance AWSRequest DeletePartition where
         type Rs DeletePartition = DeletePartitionResponse
@@ -151,6 +151,6 @@ deletePartitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DeletePartitionResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DeletePartitionResponse where

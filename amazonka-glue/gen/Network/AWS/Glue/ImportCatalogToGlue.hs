@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.ImportCatalogToGlue
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ importCatalogToGlue = ImportCatalogToGlue' {_ictgCatalogId = Nothing}
 
 -- | The ID of the catalog to import. Currently, this should be the AWS account ID.
 ictgCatalogId :: Lens' ImportCatalogToGlue (Maybe Text)
-ictgCatalogId = lens _ictgCatalogId (\ s a -> s{_ictgCatalogId = a});
+ictgCatalogId = lens _ictgCatalogId (\ s a -> s{_ictgCatalogId = a})
 
 instance AWSRequest ImportCatalogToGlue where
         type Rs ImportCatalogToGlue =
@@ -116,6 +116,6 @@ importCatalogToGlueResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ictgrsResponseStatus :: Lens' ImportCatalogToGlueResponse Int
-ictgrsResponseStatus = lens _ictgrsResponseStatus (\ s a -> s{_ictgrsResponseStatus = a});
+ictgrsResponseStatus = lens _ictgrsResponseStatus (\ s a -> s{_ictgrsResponseStatus = a})
 
 instance NFData ImportCatalogToGlueResponse where

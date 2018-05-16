@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetCatalogImportStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getCatalogImportStatus = GetCatalogImportStatus' {_gcisCatalogId = Nothing}
 
 -- | The ID of the catalog to migrate. Currently, this should be the AWS account ID.
 gcisCatalogId :: Lens' GetCatalogImportStatus (Maybe Text)
-gcisCatalogId = lens _gcisCatalogId (\ s a -> s{_gcisCatalogId = a});
+gcisCatalogId = lens _gcisCatalogId (\ s a -> s{_gcisCatalogId = a})
 
 instance AWSRequest GetCatalogImportStatus where
         type Rs GetCatalogImportStatus =
@@ -117,15 +117,15 @@ getCatalogImportStatusResponse
     -> GetCatalogImportStatusResponse
 getCatalogImportStatusResponse pResponseStatus_ =
   GetCatalogImportStatusResponse'
-  {_gcisrsImportStatus = Nothing, _gcisrsResponseStatus = pResponseStatus_}
+    {_gcisrsImportStatus = Nothing, _gcisrsResponseStatus = pResponseStatus_}
 
 
 -- | The status of the specified catalog migration.
 gcisrsImportStatus :: Lens' GetCatalogImportStatusResponse (Maybe CatalogImportStatus)
-gcisrsImportStatus = lens _gcisrsImportStatus (\ s a -> s{_gcisrsImportStatus = a});
+gcisrsImportStatus = lens _gcisrsImportStatus (\ s a -> s{_gcisrsImportStatus = a})
 
 -- | -- | The response status code.
 gcisrsResponseStatus :: Lens' GetCatalogImportStatusResponse Int
-gcisrsResponseStatus = lens _gcisrsResponseStatus (\ s a -> s{_gcisrsResponseStatus = a});
+gcisrsResponseStatus = lens _gcisrsResponseStatus (\ s a -> s{_gcisrsResponseStatus = a})
 
 instance NFData GetCatalogImportStatusResponse where

@@ -1,5 +1,5 @@
 name:                  amazonka-waf-regional
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon WAF Regional SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -53,6 +53,7 @@ library
         , Network.AWS.WAFRegional.CreateRegexMatchSet
         , Network.AWS.WAFRegional.CreateRegexPatternSet
         , Network.AWS.WAFRegional.CreateRule
+        , Network.AWS.WAFRegional.CreateRuleGroup
         , Network.AWS.WAFRegional.CreateSizeConstraintSet
         , Network.AWS.WAFRegional.CreateSqlInjectionMatchSet
         , Network.AWS.WAFRegional.CreateWebACL
@@ -60,10 +61,12 @@ library
         , Network.AWS.WAFRegional.DeleteByteMatchSet
         , Network.AWS.WAFRegional.DeleteGeoMatchSet
         , Network.AWS.WAFRegional.DeleteIPSet
+        , Network.AWS.WAFRegional.DeletePermissionPolicy
         , Network.AWS.WAFRegional.DeleteRateBasedRule
         , Network.AWS.WAFRegional.DeleteRegexMatchSet
         , Network.AWS.WAFRegional.DeleteRegexPatternSet
         , Network.AWS.WAFRegional.DeleteRule
+        , Network.AWS.WAFRegional.DeleteRuleGroup
         , Network.AWS.WAFRegional.DeleteSizeConstraintSet
         , Network.AWS.WAFRegional.DeleteSqlInjectionMatchSet
         , Network.AWS.WAFRegional.DeleteWebACL
@@ -74,17 +77,20 @@ library
         , Network.AWS.WAFRegional.GetChangeTokenStatus
         , Network.AWS.WAFRegional.GetGeoMatchSet
         , Network.AWS.WAFRegional.GetIPSet
+        , Network.AWS.WAFRegional.GetPermissionPolicy
         , Network.AWS.WAFRegional.GetRateBasedRule
         , Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
         , Network.AWS.WAFRegional.GetRegexMatchSet
         , Network.AWS.WAFRegional.GetRegexPatternSet
         , Network.AWS.WAFRegional.GetRule
+        , Network.AWS.WAFRegional.GetRuleGroup
         , Network.AWS.WAFRegional.GetSampledRequests
         , Network.AWS.WAFRegional.GetSizeConstraintSet
         , Network.AWS.WAFRegional.GetSqlInjectionMatchSet
         , Network.AWS.WAFRegional.GetWebACL
         , Network.AWS.WAFRegional.GetWebACLForResource
         , Network.AWS.WAFRegional.GetXSSMatchSet
+        , Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup
         , Network.AWS.WAFRegional.ListByteMatchSets
         , Network.AWS.WAFRegional.ListGeoMatchSets
         , Network.AWS.WAFRegional.ListIPSets
@@ -92,11 +98,14 @@ library
         , Network.AWS.WAFRegional.ListRegexMatchSets
         , Network.AWS.WAFRegional.ListRegexPatternSets
         , Network.AWS.WAFRegional.ListResourcesForWebACL
+        , Network.AWS.WAFRegional.ListRuleGroups
         , Network.AWS.WAFRegional.ListRules
         , Network.AWS.WAFRegional.ListSizeConstraintSets
         , Network.AWS.WAFRegional.ListSqlInjectionMatchSets
+        , Network.AWS.WAFRegional.ListSubscribedRuleGroups
         , Network.AWS.WAFRegional.ListWebACLs
         , Network.AWS.WAFRegional.ListXSSMatchSets
+        , Network.AWS.WAFRegional.PutPermissionPolicy
         , Network.AWS.WAFRegional.Types
         , Network.AWS.WAFRegional.UpdateByteMatchSet
         , Network.AWS.WAFRegional.UpdateGeoMatchSet
@@ -105,6 +114,7 @@ library
         , Network.AWS.WAFRegional.UpdateRegexMatchSet
         , Network.AWS.WAFRegional.UpdateRegexPatternSet
         , Network.AWS.WAFRegional.UpdateRule
+        , Network.AWS.WAFRegional.UpdateRuleGroup
         , Network.AWS.WAFRegional.UpdateSizeConstraintSet
         , Network.AWS.WAFRegional.UpdateSqlInjectionMatchSet
         , Network.AWS.WAFRegional.UpdateWebACL
@@ -116,7 +126,7 @@ library
         , Network.AWS.WAFRegional.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-waf-regional-test
@@ -136,8 +146,8 @@ test-suite amazonka-waf-regional-test
         , Test.AWS.WAFRegional.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-waf-regional
         , base
         , bytestring

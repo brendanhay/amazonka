@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBuiltinSlotTypes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,8 @@
 --
 -- This operation requires permission for the @lex:GetBuiltInSlotTypes@ action.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.LexModels.GetBuiltinSlotTypes
     (
     -- * Creating a Request
@@ -48,6 +50,7 @@ module Network.AWS.LexModels.GetBuiltinSlotTypes
 import Network.AWS.Lens
 import Network.AWS.LexModels.Types
 import Network.AWS.LexModels.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -76,28 +79,35 @@ getBuiltinSlotTypes
     :: GetBuiltinSlotTypes
 getBuiltinSlotTypes =
   GetBuiltinSlotTypes'
-  { _gbstLocale = Nothing
-  , _gbstNextToken = Nothing
-  , _gbstSignatureContains = Nothing
-  , _gbstMaxResults = Nothing
-  }
+    { _gbstLocale = Nothing
+    , _gbstNextToken = Nothing
+    , _gbstSignatureContains = Nothing
+    , _gbstMaxResults = Nothing
+    }
 
 
 -- | A list of locales that the slot type supports.
 gbstLocale :: Lens' GetBuiltinSlotTypes (Maybe Locale)
-gbstLocale = lens _gbstLocale (\ s a -> s{_gbstLocale = a});
+gbstLocale = lens _gbstLocale (\ s a -> s{_gbstLocale = a})
 
 -- | A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of slot types, specify the pagination token in the next request.
 gbstNextToken :: Lens' GetBuiltinSlotTypes (Maybe Text)
-gbstNextToken = lens _gbstNextToken (\ s a -> s{_gbstNextToken = a});
+gbstNextToken = lens _gbstNextToken (\ s a -> s{_gbstNextToken = a})
 
 -- | Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 gbstSignatureContains :: Lens' GetBuiltinSlotTypes (Maybe Text)
-gbstSignatureContains = lens _gbstSignatureContains (\ s a -> s{_gbstSignatureContains = a});
+gbstSignatureContains = lens _gbstSignatureContains (\ s a -> s{_gbstSignatureContains = a})
 
 -- | The maximum number of slot types to return in the response. The default is 10.
 gbstMaxResults :: Lens' GetBuiltinSlotTypes (Maybe Natural)
-gbstMaxResults = lens _gbstMaxResults (\ s a -> s{_gbstMaxResults = a}) . mapping _Nat;
+gbstMaxResults = lens _gbstMaxResults (\ s a -> s{_gbstMaxResults = a}) . mapping _Nat
+
+instance AWSPager GetBuiltinSlotTypes where
+        page rq rs
+          | stop (rs ^. gbstrsNextToken) = Nothing
+          | stop (rs ^. gbstrsSlotTypes) = Nothing
+          | otherwise =
+            Just $ rq & gbstNextToken .~ rs ^. gbstrsNextToken
 
 instance AWSRequest GetBuiltinSlotTypes where
         type Rs GetBuiltinSlotTypes =
@@ -155,22 +165,22 @@ getBuiltinSlotTypesResponse
     -> GetBuiltinSlotTypesResponse
 getBuiltinSlotTypesResponse pResponseStatus_ =
   GetBuiltinSlotTypesResponse'
-  { _gbstrsNextToken = Nothing
-  , _gbstrsSlotTypes = Nothing
-  , _gbstrsResponseStatus = pResponseStatus_
-  }
+    { _gbstrsNextToken = Nothing
+    , _gbstrsSlotTypes = Nothing
+    , _gbstrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the response is truncated, the response includes a pagination token that you can use in your next request to fetch the next page of slot types.
 gbstrsNextToken :: Lens' GetBuiltinSlotTypesResponse (Maybe Text)
-gbstrsNextToken = lens _gbstrsNextToken (\ s a -> s{_gbstrsNextToken = a});
+gbstrsNextToken = lens _gbstrsNextToken (\ s a -> s{_gbstrsNextToken = a})
 
 -- | An array of @BuiltInSlotTypeMetadata@ objects, one entry for each slot type returned.
 gbstrsSlotTypes :: Lens' GetBuiltinSlotTypesResponse [BuiltinSlotTypeMetadata]
-gbstrsSlotTypes = lens _gbstrsSlotTypes (\ s a -> s{_gbstrsSlotTypes = a}) . _Default . _Coerce;
+gbstrsSlotTypes = lens _gbstrsSlotTypes (\ s a -> s{_gbstrsSlotTypes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gbstrsResponseStatus :: Lens' GetBuiltinSlotTypesResponse Int
-gbstrsResponseStatus = lens _gbstrsResponseStatus (\ s a -> s{_gbstrsResponseStatus = a});
+gbstrsResponseStatus = lens _gbstrsResponseStatus (\ s a -> s{_gbstrsResponseStatus = a})
 
 instance NFData GetBuiltinSlotTypesResponse where

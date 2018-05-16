@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.EnableTopicRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables the specified rule.
+-- Enables the rule.
 --
 --
 module Network.AWS.IoT.EnableTopicRule
@@ -64,7 +64,7 @@ enableTopicRule pRuleName_ = EnableTopicRule' {_etrRuleName = pRuleName_}
 
 -- | The name of the topic rule to enable.
 etrRuleName :: Lens' EnableTopicRule Text
-etrRuleName = lens _etrRuleName (\ s a -> s{_etrRuleName = a});
+etrRuleName = lens _etrRuleName (\ s a -> s{_etrRuleName = a})
 
 instance AWSRequest EnableTopicRule where
         type Rs EnableTopicRule = EnableTopicRuleResponse

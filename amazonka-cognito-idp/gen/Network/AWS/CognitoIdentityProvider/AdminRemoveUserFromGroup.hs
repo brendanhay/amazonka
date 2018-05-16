@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminRemoveUserFromGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ adminRemoveUserFromGroup
     -> AdminRemoveUserFromGroup
 adminRemoveUserFromGroup pUserPoolId_ pUsername_ pGroupName_ =
   AdminRemoveUserFromGroup'
-  { _arufgUserPoolId = pUserPoolId_
-  , _arufgUsername = _Sensitive # pUsername_
-  , _arufgGroupName = pGroupName_
-  }
+    { _arufgUserPoolId = pUserPoolId_
+    , _arufgUsername = _Sensitive # pUsername_
+    , _arufgGroupName = pGroupName_
+    }
 
 
 -- | The user pool ID for the user pool.
 arufgUserPoolId :: Lens' AdminRemoveUserFromGroup Text
-arufgUserPoolId = lens _arufgUserPoolId (\ s a -> s{_arufgUserPoolId = a});
+arufgUserPoolId = lens _arufgUserPoolId (\ s a -> s{_arufgUserPoolId = a})
 
 -- | The username for the user.
 arufgUsername :: Lens' AdminRemoveUserFromGroup Text
-arufgUsername = lens _arufgUsername (\ s a -> s{_arufgUsername = a}) . _Sensitive;
+arufgUsername = lens _arufgUsername (\ s a -> s{_arufgUsername = a}) . _Sensitive
 
 -- | The group name.
 arufgGroupName :: Lens' AdminRemoveUserFromGroup Text
-arufgGroupName = lens _arufgGroupName (\ s a -> s{_arufgGroupName = a});
+arufgGroupName = lens _arufgGroupName (\ s a -> s{_arufgGroupName = a})
 
 instance AWSRequest AdminRemoveUserFromGroup where
         type Rs AdminRemoveUserFromGroup =

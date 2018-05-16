@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteInternetGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ deleteInternetGateway
     -> DeleteInternetGateway
 deleteInternetGateway pInternetGatewayId_ =
   DeleteInternetGateway'
-  {_digiDryRun = Nothing, _digiInternetGatewayId = pInternetGatewayId_}
+    {_digiDryRun = Nothing, _digiInternetGatewayId = pInternetGatewayId_}
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 digiDryRun :: Lens' DeleteInternetGateway (Maybe Bool)
-digiDryRun = lens _digiDryRun (\ s a -> s{_digiDryRun = a});
+digiDryRun = lens _digiDryRun (\ s a -> s{_digiDryRun = a})
 
 -- | The ID of the Internet gateway.
 digiInternetGatewayId :: Lens' DeleteInternetGateway Text
-digiInternetGatewayId = lens _digiInternetGatewayId (\ s a -> s{_digiInternetGatewayId = a});
+digiInternetGatewayId = lens _digiInternetGatewayId (\ s a -> s{_digiInternetGatewayId = a})
 
 instance AWSRequest DeleteInternetGateway where
         type Rs DeleteInternetGateway =

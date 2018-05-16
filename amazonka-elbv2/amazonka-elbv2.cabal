@@ -1,5 +1,5 @@
 name:                  amazonka-elbv2
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Elastic Load Balancing SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -87,7 +87,7 @@ library
         , Network.AWS.ELBv2.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-elbv2-test
@@ -107,8 +107,8 @@ test-suite amazonka-elbv2-test
         , Test.AWS.ELBv2.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-elbv2
         , base
         , bytestring

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DeleteDirectory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ deleteDirectory pDirectoryId_ =
 
 -- | The identifier of the directory to delete.
 dddDirectoryId :: Lens' DeleteDirectory Text
-dddDirectoryId = lens _dddDirectoryId (\ s a -> s{_dddDirectoryId = a});
+dddDirectoryId = lens _dddDirectoryId (\ s a -> s{_dddDirectoryId = a})
 
 instance AWSRequest DeleteDirectory where
         type Rs DeleteDirectory = DeleteDirectoryResponse
@@ -129,15 +129,15 @@ deleteDirectoryResponse
     -> DeleteDirectoryResponse
 deleteDirectoryResponse pResponseStatus_ =
   DeleteDirectoryResponse'
-  {_delrsDirectoryId = Nothing, _delrsResponseStatus = pResponseStatus_}
+    {_delrsDirectoryId = Nothing, _delrsResponseStatus = pResponseStatus_}
 
 
 -- | The directory identifier.
 delrsDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
-delrsDirectoryId = lens _delrsDirectoryId (\ s a -> s{_delrsDirectoryId = a});
+delrsDirectoryId = lens _delrsDirectoryId (\ s a -> s{_delrsDirectoryId = a})
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteDirectoryResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteDirectoryResponse where

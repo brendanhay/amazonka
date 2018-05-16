@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Athena.GetNamedQuery
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getNamedQuery pNamedQueryId_ =
 
 -- | The unique ID of the query. Use 'ListNamedQueries' to get query IDs.
 gnqNamedQueryId :: Lens' GetNamedQuery Text
-gnqNamedQueryId = lens _gnqNamedQueryId (\ s a -> s{_gnqNamedQueryId = a});
+gnqNamedQueryId = lens _gnqNamedQueryId (\ s a -> s{_gnqNamedQueryId = a})
 
 instance AWSRequest GetNamedQuery where
         type Rs GetNamedQuery = GetNamedQueryResponse
@@ -119,15 +119,15 @@ getNamedQueryResponse
     -> GetNamedQueryResponse
 getNamedQueryResponse pResponseStatus_ =
   GetNamedQueryResponse'
-  {_gnqrsNamedQuery = Nothing, _gnqrsResponseStatus = pResponseStatus_}
+    {_gnqrsNamedQuery = Nothing, _gnqrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the query.
 gnqrsNamedQuery :: Lens' GetNamedQueryResponse (Maybe NamedQuery)
-gnqrsNamedQuery = lens _gnqrsNamedQuery (\ s a -> s{_gnqrsNamedQuery = a});
+gnqrsNamedQuery = lens _gnqrsNamedQuery (\ s a -> s{_gnqrsNamedQuery = a})
 
 -- | -- | The response status code.
 gnqrsResponseStatus :: Lens' GetNamedQueryResponse Int
-gnqrsResponseStatus = lens _gnqrsResponseStatus (\ s a -> s{_gnqrsResponseStatus = a});
+gnqrsResponseStatus = lens _gnqrsResponseStatus (\ s a -> s{_gnqrsResponseStatus = a})
 
 instance NFData GetNamedQueryResponse where

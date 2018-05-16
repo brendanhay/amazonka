@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.CreateRepository
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ createRepository pRepositoryName_ =
 
 -- | The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
 crRepositoryName :: Lens' CreateRepository Text
-crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a});
+crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a})
 
 instance AWSRequest CreateRepository where
         type Rs CreateRepository = CreateRepositoryResponse
@@ -120,15 +120,15 @@ createRepositoryResponse
     -> CreateRepositoryResponse
 createRepositoryResponse pResponseStatus_ =
   CreateRepositoryResponse'
-  {_crrsRepository = Nothing, _crrsResponseStatus = pResponseStatus_}
+    {_crrsRepository = Nothing, _crrsResponseStatus = pResponseStatus_}
 
 
 -- | The repository that was created.
 crrsRepository :: Lens' CreateRepositoryResponse (Maybe Repository)
-crrsRepository = lens _crrsRepository (\ s a -> s{_crrsRepository = a});
+crrsRepository = lens _crrsRepository (\ s a -> s{_crrsRepository = a})
 
 -- | -- | The response status code.
 crrsResponseStatus :: Lens' CreateRepositoryResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
+crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a})
 
 instance NFData CreateRepositoryResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeMaintenanceWindowTargets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ describeMaintenanceWindowTargets
     -> DescribeMaintenanceWindowTargets
 describeMaintenanceWindowTargets pWindowId_ =
   DescribeMaintenanceWindowTargets'
-  { _dmwtFilters = Nothing
-  , _dmwtNextToken = Nothing
-  , _dmwtMaxResults = Nothing
-  , _dmwtWindowId = pWindowId_
-  }
+    { _dmwtFilters = Nothing
+    , _dmwtNextToken = Nothing
+    , _dmwtMaxResults = Nothing
+    , _dmwtWindowId = pWindowId_
+    }
 
 
 -- | Optional filters that can be used to narrow down the scope of the returned window targets. The supported filter keys are Type, WindowTargetId and OwnerInformation.
 dmwtFilters :: Lens' DescribeMaintenanceWindowTargets [MaintenanceWindowFilter]
-dmwtFilters = lens _dmwtFilters (\ s a -> s{_dmwtFilters = a}) . _Default . _Coerce;
+dmwtFilters = lens _dmwtFilters (\ s a -> s{_dmwtFilters = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dmwtNextToken :: Lens' DescribeMaintenanceWindowTargets (Maybe Text)
-dmwtNextToken = lens _dmwtNextToken (\ s a -> s{_dmwtNextToken = a});
+dmwtNextToken = lens _dmwtNextToken (\ s a -> s{_dmwtNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 dmwtMaxResults :: Lens' DescribeMaintenanceWindowTargets (Maybe Natural)
-dmwtMaxResults = lens _dmwtMaxResults (\ s a -> s{_dmwtMaxResults = a}) . mapping _Nat;
+dmwtMaxResults = lens _dmwtMaxResults (\ s a -> s{_dmwtMaxResults = a}) . mapping _Nat
 
 -- | The ID of the Maintenance Window whose targets should be retrieved.
 dmwtWindowId :: Lens' DescribeMaintenanceWindowTargets Text
-dmwtWindowId = lens _dmwtWindowId (\ s a -> s{_dmwtWindowId = a});
+dmwtWindowId = lens _dmwtWindowId (\ s a -> s{_dmwtWindowId = a})
 
 instance AWSRequest DescribeMaintenanceWindowTargets
          where
@@ -165,23 +165,23 @@ describeMaintenanceWindowTargetsResponse
     -> DescribeMaintenanceWindowTargetsResponse
 describeMaintenanceWindowTargetsResponse pResponseStatus_ =
   DescribeMaintenanceWindowTargetsResponse'
-  { _dmwtrsNextToken = Nothing
-  , _dmwtrsTargets = Nothing
-  , _dmwtrsResponseStatus = pResponseStatus_
-  }
+    { _dmwtrsNextToken = Nothing
+    , _dmwtrsTargets = Nothing
+    , _dmwtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dmwtrsNextToken :: Lens' DescribeMaintenanceWindowTargetsResponse (Maybe Text)
-dmwtrsNextToken = lens _dmwtrsNextToken (\ s a -> s{_dmwtrsNextToken = a});
+dmwtrsNextToken = lens _dmwtrsNextToken (\ s a -> s{_dmwtrsNextToken = a})
 
 -- | Information about the targets in the Maintenance Window.
 dmwtrsTargets :: Lens' DescribeMaintenanceWindowTargetsResponse [MaintenanceWindowTarget]
-dmwtrsTargets = lens _dmwtrsTargets (\ s a -> s{_dmwtrsTargets = a}) . _Default . _Coerce;
+dmwtrsTargets = lens _dmwtrsTargets (\ s a -> s{_dmwtrsTargets = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dmwtrsResponseStatus :: Lens' DescribeMaintenanceWindowTargetsResponse Int
-dmwtrsResponseStatus = lens _dmwtrsResponseStatus (\ s a -> s{_dmwtrsResponseStatus = a});
+dmwtrsResponseStatus = lens _dmwtrsResponseStatus (\ s a -> s{_dmwtrsResponseStatus = a})
 
 instance NFData
            DescribeMaintenanceWindowTargetsResponse

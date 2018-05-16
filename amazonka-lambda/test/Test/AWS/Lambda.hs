@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Test.AWS.Lambda
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -15,12 +15,19 @@ module Test.AWS.Lambda
     , fixtures
     ) where
 
-import           Network.AWS.Lambda
-import           Test.AWS.Gen.Lambda
-import           Test.Tasty
+import Network.AWS.Lambda
+import Network.AWS.Lens   ((&), (?~))
+
+import Test.AWS.Gen.Lambda
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []
 
 fixtures :: [TestTree]
-fixtures = []
+fixtures =
+    [ testGroup "response"
+        [ responseInvoke $
+            invokeResponse 200 & irsPayload ?~ ""
+        ]
+    ]

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeMatchmakingConfigurations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,28 +94,28 @@ describeMatchmakingConfigurations
     :: DescribeMatchmakingConfigurations
 describeMatchmakingConfigurations =
   DescribeMatchmakingConfigurations'
-  { _dmcRuleSetName = Nothing
-  , _dmcNextToken = Nothing
-  , _dmcNames = Nothing
-  , _dmcLimit = Nothing
-  }
+    { _dmcRuleSetName = Nothing
+    , _dmcNextToken = Nothing
+    , _dmcNames = Nothing
+    , _dmcLimit = Nothing
+    }
 
 
 -- | Unique identifier for a matchmaking rule set. Use this parameter to retrieve all matchmaking configurations that use this rule set.
 dmcRuleSetName :: Lens' DescribeMatchmakingConfigurations (Maybe Text)
-dmcRuleSetName = lens _dmcRuleSetName (\ s a -> s{_dmcRuleSetName = a});
+dmcRuleSetName = lens _dmcRuleSetName (\ s a -> s{_dmcRuleSetName = a})
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dmcNextToken :: Lens' DescribeMatchmakingConfigurations (Maybe Text)
-dmcNextToken = lens _dmcNextToken (\ s a -> s{_dmcNextToken = a});
+dmcNextToken = lens _dmcNextToken (\ s a -> s{_dmcNextToken = a})
 
 -- | Unique identifier for a matchmaking configuration(s) to retrieve. To request all existing configurations, leave this parameter empty.
 dmcNames :: Lens' DescribeMatchmakingConfigurations [Text]
-dmcNames = lens _dmcNames (\ s a -> s{_dmcNames = a}) . _Default . _Coerce;
+dmcNames = lens _dmcNames (\ s a -> s{_dmcNames = a}) . _Default . _Coerce
 
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is limited to 10.
 dmcLimit :: Lens' DescribeMatchmakingConfigurations (Maybe Natural)
-dmcLimit = lens _dmcLimit (\ s a -> s{_dmcLimit = a}) . mapping _Nat;
+dmcLimit = lens _dmcLimit (\ s a -> s{_dmcLimit = a}) . mapping _Nat
 
 instance AWSRequest DescribeMatchmakingConfigurations
          where
@@ -191,23 +191,23 @@ describeMatchmakingConfigurationsResponse
     -> DescribeMatchmakingConfigurationsResponse
 describeMatchmakingConfigurationsResponse pResponseStatus_ =
   DescribeMatchmakingConfigurationsResponse'
-  { _dmcsrsConfigurations = Nothing
-  , _dmcsrsNextToken = Nothing
-  , _dmcsrsResponseStatus = pResponseStatus_
-  }
+    { _dmcsrsConfigurations = Nothing
+    , _dmcsrsNextToken = Nothing
+    , _dmcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Collection of requested matchmaking configuration objects.
 dmcsrsConfigurations :: Lens' DescribeMatchmakingConfigurationsResponse [MatchmakingConfiguration]
-dmcsrsConfigurations = lens _dmcsrsConfigurations (\ s a -> s{_dmcsrsConfigurations = a}) . _Default . _Coerce;
+dmcsrsConfigurations = lens _dmcsrsConfigurations (\ s a -> s{_dmcsrsConfigurations = a}) . _Default . _Coerce
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dmcsrsNextToken :: Lens' DescribeMatchmakingConfigurationsResponse (Maybe Text)
-dmcsrsNextToken = lens _dmcsrsNextToken (\ s a -> s{_dmcsrsNextToken = a});
+dmcsrsNextToken = lens _dmcsrsNextToken (\ s a -> s{_dmcsrsNextToken = a})
 
 -- | -- | The response status code.
 dmcsrsResponseStatus :: Lens' DescribeMatchmakingConfigurationsResponse Int
-dmcsrsResponseStatus = lens _dmcsrsResponseStatus (\ s a -> s{_dmcsrsResponseStatus = a});
+dmcsrsResponseStatus = lens _dmcsrsResponseStatus (\ s a -> s{_dmcsrsResponseStatus = a})
 
 instance NFData
            DescribeMatchmakingConfigurationsResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListEventSubscriptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Lists all the event subscriptions for the assessment template that is specified by the ARN of the assessment template. For more information, see 'SubscribeToEvent' and 'UnsubscribeFromEvent' .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Inspector.ListEventSubscriptions
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.Inspector.ListEventSubscriptions
 import Network.AWS.Inspector.Types
 import Network.AWS.Inspector.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -68,20 +71,30 @@ listEventSubscriptions
     :: ListEventSubscriptions
 listEventSubscriptions =
   ListEventSubscriptions'
-  {_lesNextToken = Nothing, _lesResourceARN = Nothing, _lesMaxResults = Nothing}
+    { _lesNextToken = Nothing
+    , _lesResourceARN = Nothing
+    , _lesMaxResults = Nothing
+    }
 
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListEventSubscriptions__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 lesNextToken :: Lens' ListEventSubscriptions (Maybe Text)
-lesNextToken = lens _lesNextToken (\ s a -> s{_lesNextToken = a});
+lesNextToken = lens _lesNextToken (\ s a -> s{_lesNextToken = a})
 
 -- | The ARN of the assessment template for which you want to list the existing event subscriptions.
 lesResourceARN :: Lens' ListEventSubscriptions (Maybe Text)
-lesResourceARN = lens _lesResourceARN (\ s a -> s{_lesResourceARN = a});
+lesResourceARN = lens _lesResourceARN (\ s a -> s{_lesResourceARN = a})
 
 -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 lesMaxResults :: Lens' ListEventSubscriptions (Maybe Int)
-lesMaxResults = lens _lesMaxResults (\ s a -> s{_lesMaxResults = a});
+lesMaxResults = lens _lesMaxResults (\ s a -> s{_lesMaxResults = a})
+
+instance AWSPager ListEventSubscriptions where
+        page rq rs
+          | stop (rs ^. lesrsNextToken) = Nothing
+          | stop (rs ^. lesrsSubscriptions) = Nothing
+          | otherwise =
+            Just $ rq & lesNextToken .~ rs ^. lesrsNextToken
 
 instance AWSRequest ListEventSubscriptions where
         type Rs ListEventSubscriptions =
@@ -144,22 +157,22 @@ listEventSubscriptionsResponse
     -> ListEventSubscriptionsResponse
 listEventSubscriptionsResponse pResponseStatus_ =
   ListEventSubscriptionsResponse'
-  { _lesrsNextToken = Nothing
-  , _lesrsResponseStatus = pResponseStatus_
-  , _lesrsSubscriptions = mempty
-  }
+    { _lesrsNextToken = Nothing
+    , _lesrsResponseStatus = pResponseStatus_
+    , _lesrsSubscriptions = mempty
+    }
 
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 lesrsNextToken :: Lens' ListEventSubscriptionsResponse (Maybe Text)
-lesrsNextToken = lens _lesrsNextToken (\ s a -> s{_lesrsNextToken = a});
+lesrsNextToken = lens _lesrsNextToken (\ s a -> s{_lesrsNextToken = a})
 
 -- | -- | The response status code.
 lesrsResponseStatus :: Lens' ListEventSubscriptionsResponse Int
-lesrsResponseStatus = lens _lesrsResponseStatus (\ s a -> s{_lesrsResponseStatus = a});
+lesrsResponseStatus = lens _lesrsResponseStatus (\ s a -> s{_lesrsResponseStatus = a})
 
 -- | Details of the returned event subscriptions.
 lesrsSubscriptions :: Lens' ListEventSubscriptionsResponse [Subscription]
-lesrsSubscriptions = lens _lesrsSubscriptions (\ s a -> s{_lesrsSubscriptions = a}) . _Coerce;
+lesrsSubscriptions = lens _lesrsSubscriptions (\ s a -> s{_lesrsSubscriptions = a}) . _Coerce
 
 instance NFData ListEventSubscriptionsResponse where

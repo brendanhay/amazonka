@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteVPCPeeringAuthorization
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,18 +84,18 @@ deleteVPCPeeringAuthorization
     -> DeleteVPCPeeringAuthorization
 deleteVPCPeeringAuthorization pGameLiftAWSAccountId_ pPeerVPCId_ =
   DeleteVPCPeeringAuthorization'
-  { _dvpaGameLiftAWSAccountId = pGameLiftAWSAccountId_
-  , _dvpaPeerVPCId = pPeerVPCId_
-  }
+    { _dvpaGameLiftAWSAccountId = pGameLiftAWSAccountId_
+    , _dvpaPeerVPCId = pPeerVPCId_
+    }
 
 
 -- | Unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
 dvpaGameLiftAWSAccountId :: Lens' DeleteVPCPeeringAuthorization Text
-dvpaGameLiftAWSAccountId = lens _dvpaGameLiftAWSAccountId (\ s a -> s{_dvpaGameLiftAWSAccountId = a});
+dvpaGameLiftAWSAccountId = lens _dvpaGameLiftAWSAccountId (\ s a -> s{_dvpaGameLiftAWSAccountId = a})
 
 -- | Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
 dvpaPeerVPCId :: Lens' DeleteVPCPeeringAuthorization Text
-dvpaPeerVPCId = lens _dvpaPeerVPCId (\ s a -> s{_dvpaPeerVPCId = a});
+dvpaPeerVPCId = lens _dvpaPeerVPCId (\ s a -> s{_dvpaPeerVPCId = a})
 
 instance AWSRequest DeleteVPCPeeringAuthorization
          where
@@ -154,12 +154,12 @@ deleteVPCPeeringAuthorizationResponse
     -> DeleteVPCPeeringAuthorizationResponse
 deleteVPCPeeringAuthorizationResponse pResponseStatus_ =
   DeleteVPCPeeringAuthorizationResponse'
-  {_dvparsResponseStatus = pResponseStatus_}
+    {_dvparsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dvparsResponseStatus :: Lens' DeleteVPCPeeringAuthorizationResponse Int
-dvparsResponseStatus = lens _dvparsResponseStatus (\ s a -> s{_dvparsResponseStatus = a});
+dvparsResponseStatus = lens _dvparsResponseStatus (\ s a -> s{_dvparsResponseStatus = a})
 
 instance NFData DeleteVPCPeeringAuthorizationResponse
          where

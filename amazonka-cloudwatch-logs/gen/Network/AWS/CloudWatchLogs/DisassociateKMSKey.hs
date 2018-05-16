@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DisassociateKMSKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ disassociateKMSKey pLogGroupName_ =
 
 -- | The name of the log group.
 dkkLogGroupName :: Lens' DisassociateKMSKey Text
-dkkLogGroupName = lens _dkkLogGroupName (\ s a -> s{_dkkLogGroupName = a});
+dkkLogGroupName = lens _dkkLogGroupName (\ s a -> s{_dkkLogGroupName = a})
 
 instance AWSRequest DisassociateKMSKey where
         type Rs DisassociateKMSKey =

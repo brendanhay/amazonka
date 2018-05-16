@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DescribeNotificationsForBudget
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get notifications of a budget
+-- Lists the notifications associated with a budget.
+--
+--
 module Network.AWS.Budgets.DescribeNotificationsForBudget
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import Network.AWS.Response
 
 -- | Request of DescribeNotificationsForBudget
 --
+--
+--
 -- /See:/ 'describeNotificationsForBudget' smart constructor.
 data DescribeNotificationsForBudget = DescribeNotificationsForBudget'
   { _dnfbNextToken  :: !(Maybe Text)
@@ -61,41 +65,41 @@ data DescribeNotificationsForBudget = DescribeNotificationsForBudget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnfbNextToken' - Undocumented member.
+-- * 'dnfbNextToken' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'dnfbMaxResults' - Undocumented member.
+-- * 'dnfbMaxResults' - Optional integer. Specifies the maximum number of results to return in response.
 --
--- * 'dnfbAccountId' - Undocumented member.
+-- * 'dnfbAccountId' - The @accountId@ that is associated with the budget whose notifications you want descriptions of.
 --
--- * 'dnfbBudgetName' - Undocumented member.
+-- * 'dnfbBudgetName' - The name of the budget whose notifications you want descriptions of.
 describeNotificationsForBudget
     :: Text -- ^ 'dnfbAccountId'
     -> Text -- ^ 'dnfbBudgetName'
     -> DescribeNotificationsForBudget
 describeNotificationsForBudget pAccountId_ pBudgetName_ =
   DescribeNotificationsForBudget'
-  { _dnfbNextToken = Nothing
-  , _dnfbMaxResults = Nothing
-  , _dnfbAccountId = pAccountId_
-  , _dnfbBudgetName = pBudgetName_
-  }
+    { _dnfbNextToken = Nothing
+    , _dnfbMaxResults = Nothing
+    , _dnfbAccountId = pAccountId_
+    , _dnfbBudgetName = pBudgetName_
+    }
 
 
--- | Undocumented member.
+-- | The pagination token that indicates the next set of results to retrieve.
 dnfbNextToken :: Lens' DescribeNotificationsForBudget (Maybe Text)
-dnfbNextToken = lens _dnfbNextToken (\ s a -> s{_dnfbNextToken = a});
+dnfbNextToken = lens _dnfbNextToken (\ s a -> s{_dnfbNextToken = a})
 
--- | Undocumented member.
+-- | Optional integer. Specifies the maximum number of results to return in response.
 dnfbMaxResults :: Lens' DescribeNotificationsForBudget (Maybe Natural)
-dnfbMaxResults = lens _dnfbMaxResults (\ s a -> s{_dnfbMaxResults = a}) . mapping _Nat;
+dnfbMaxResults = lens _dnfbMaxResults (\ s a -> s{_dnfbMaxResults = a}) . mapping _Nat
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budget whose notifications you want descriptions of.
 dnfbAccountId :: Lens' DescribeNotificationsForBudget Text
-dnfbAccountId = lens _dnfbAccountId (\ s a -> s{_dnfbAccountId = a});
+dnfbAccountId = lens _dnfbAccountId (\ s a -> s{_dnfbAccountId = a})
 
--- | Undocumented member.
+-- | The name of the budget whose notifications you want descriptions of.
 dnfbBudgetName :: Lens' DescribeNotificationsForBudget Text
-dnfbBudgetName = lens _dnfbBudgetName (\ s a -> s{_dnfbBudgetName = a});
+dnfbBudgetName = lens _dnfbBudgetName (\ s a -> s{_dnfbBudgetName = a})
 
 instance AWSRequest DescribeNotificationsForBudget
          where
@@ -143,6 +147,8 @@ instance ToQuery DescribeNotificationsForBudget where
 
 -- | Response of GetNotificationsForBudget
 --
+--
+--
 -- /See:/ 'describeNotificationsForBudgetResponse' smart constructor.
 data DescribeNotificationsForBudgetResponse = DescribeNotificationsForBudgetResponse'
   { _dnfbrsNextToken      :: !(Maybe Text)
@@ -155,9 +161,9 @@ data DescribeNotificationsForBudgetResponse = DescribeNotificationsForBudgetResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnfbrsNextToken' - Undocumented member.
+-- * 'dnfbrsNextToken' - The pagination token that indicates the next set of results that you can retrieve.
 --
--- * 'dnfbrsNotifications' - Undocumented member.
+-- * 'dnfbrsNotifications' - A list of notifications associated with a budget.
 --
 -- * 'dnfbrsResponseStatus' - -- | The response status code.
 describeNotificationsForBudgetResponse
@@ -165,23 +171,23 @@ describeNotificationsForBudgetResponse
     -> DescribeNotificationsForBudgetResponse
 describeNotificationsForBudgetResponse pResponseStatus_ =
   DescribeNotificationsForBudgetResponse'
-  { _dnfbrsNextToken = Nothing
-  , _dnfbrsNotifications = Nothing
-  , _dnfbrsResponseStatus = pResponseStatus_
-  }
+    { _dnfbrsNextToken = Nothing
+    , _dnfbrsNotifications = Nothing
+    , _dnfbrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Undocumented member.
+-- | The pagination token that indicates the next set of results that you can retrieve.
 dnfbrsNextToken :: Lens' DescribeNotificationsForBudgetResponse (Maybe Text)
-dnfbrsNextToken = lens _dnfbrsNextToken (\ s a -> s{_dnfbrsNextToken = a});
+dnfbrsNextToken = lens _dnfbrsNextToken (\ s a -> s{_dnfbrsNextToken = a})
 
--- | Undocumented member.
+-- | A list of notifications associated with a budget.
 dnfbrsNotifications :: Lens' DescribeNotificationsForBudgetResponse [Notification]
-dnfbrsNotifications = lens _dnfbrsNotifications (\ s a -> s{_dnfbrsNotifications = a}) . _Default . _Coerce;
+dnfbrsNotifications = lens _dnfbrsNotifications (\ s a -> s{_dnfbrsNotifications = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dnfbrsResponseStatus :: Lens' DescribeNotificationsForBudgetResponse Int
-dnfbrsResponseStatus = lens _dnfbrsResponseStatus (\ s a -> s{_dnfbrsResponseStatus = a});
+dnfbrsResponseStatus = lens _dnfbrsResponseStatus (\ s a -> s{_dnfbrsResponseStatus = a})
 
 instance NFData
            DescribeNotificationsForBudgetResponse

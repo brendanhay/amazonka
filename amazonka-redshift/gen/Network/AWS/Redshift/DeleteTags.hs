@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ deleteTags pResourceName_ =
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
 dtsResourceName :: Lens' DeleteTags Text
-dtsResourceName = lens _dtsResourceName (\ s a -> s{_dtsResourceName = a});
+dtsResourceName = lens _dtsResourceName (\ s a -> s{_dtsResourceName = a})
 
 -- | The tag key that you want to delete.
 dtsTagKeys :: Lens' DeleteTags [Text]
-dtsTagKeys = lens _dtsTagKeys (\ s a -> s{_dtsTagKeys = a}) . _Coerce;
+dtsTagKeys = lens _dtsTagKeys (\ s a -> s{_dtsTagKeys = a}) . _Coerce
 
 instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse

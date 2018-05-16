@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.RemoveAutoScalingPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ removeAutoScalingPolicy
     -> RemoveAutoScalingPolicy
 removeAutoScalingPolicy pClusterId_ pInstanceGroupId_ =
   RemoveAutoScalingPolicy'
-  {_raspClusterId = pClusterId_, _raspInstanceGroupId = pInstanceGroupId_}
+    {_raspClusterId = pClusterId_, _raspInstanceGroupId = pInstanceGroupId_}
 
 
 -- | Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
 raspClusterId :: Lens' RemoveAutoScalingPolicy Text
-raspClusterId = lens _raspClusterId (\ s a -> s{_raspClusterId = a});
+raspClusterId = lens _raspClusterId (\ s a -> s{_raspClusterId = a})
 
 -- | Specifies the ID of the instance group to which the scaling policy is applied.
 raspInstanceGroupId :: Lens' RemoveAutoScalingPolicy Text
-raspInstanceGroupId = lens _raspInstanceGroupId (\ s a -> s{_raspInstanceGroupId = a});
+raspInstanceGroupId = lens _raspInstanceGroupId (\ s a -> s{_raspInstanceGroupId = a})
 
 instance AWSRequest RemoveAutoScalingPolicy where
         type Rs RemoveAutoScalingPolicy =
@@ -132,6 +132,6 @@ removeAutoScalingPolicyResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rasprsResponseStatus :: Lens' RemoveAutoScalingPolicyResponse Int
-rasprsResponseStatus = lens _rasprsResponseStatus (\ s a -> s{_rasprsResponseStatus = a});
+rasprsResponseStatus = lens _rasprsResponseStatus (\ s a -> s{_rasprsResponseStatus = a})
 
 instance NFData RemoveAutoScalingPolicyResponse where

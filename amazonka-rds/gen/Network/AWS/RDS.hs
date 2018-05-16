@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -17,7 +17,7 @@
 --
 -- Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and scale a relational database in the cloud. It provides cost-efficient, resizable capacity for an industry-standard relational database and manages common database administration tasks, freeing up developers to focus on what makes their applications and businesses unique.
 --
--- Amazon RDS gives you access to the capabilities of a MySQL, MariaDB, PostgreSQL, Microsoft SQL Server, Oracle, or Amazon Aurora database server. These capabilities mean that the code, applications, and tools you already use today with your existing databases work with Amazon RDS without modification. Amazon RDS automatically backs up your database and maintains the database software that powers your DB instance. Amazon RDS is flexible: you can scale your database instance's compute resources and storage capacity to meet your application's demand. As with all Amazon Web Services, there are no up-front investments, and you pay only for the resources you use.
+-- Amazon RDS gives you access to the capabilities of a MySQL, MariaDB, PostgreSQL, Microsoft SQL Server, Oracle, or Amazon Aurora database server. These capabilities mean that the code, applications, and tools you already use today with your existing databases work with Amazon RDS without modification. Amazon RDS automatically backs up your database and maintains the database software that powers your DB instance. Amazon RDS is flexible: you can scale your DB instance's compute resources and storage capacity to meet your application's demand. As with all Amazon Web Services, there are no up-front investments, and you pay only for the resources you use.
 --
 -- This interface reference for Amazon RDS contains documentation for a programming or command line interface you can use to manage Amazon RDS. Note that Amazon RDS is asynchronous, which means that some interfaces might require techniques such as polling or callback functions to determine when a command has been applied. In this reference, the parameter descriptions indicate whether a command is applied immediately, on the next instance reboot, or during the maintenance window. The reference structure is as follows, and we list following some related topics from the user guide.
 --
@@ -169,6 +169,9 @@ module Network.AWS.RDS
     -- ** InstanceQuotaExceededFault
     , _InstanceQuotaExceededFault
 
+    -- ** DBClusterBacktrackNotFoundFault
+    , _DBClusterBacktrackNotFoundFault
+
     -- ** DomainNotFoundFault
     , _DomainNotFoundFault
 
@@ -286,8 +289,14 @@ module Network.AWS.RDS
     -- ** DBSnapshotCompleted
     , dbSnapshotCompleted
 
+    -- ** DBSnapshotDeleted
+    , dbSnapshotDeleted
+
     -- ** DBInstanceDeleted
     , dbInstanceDeleted
+
+    -- ** DBSnapshotAvailable
+    , dbSnapshotAvailable
 
     -- * Operations
     -- $operations
@@ -364,6 +373,9 @@ module Network.AWS.RDS
     -- ** DescribeDBSnapshotAttributes
     , module Network.AWS.RDS.DescribeDBSnapshotAttributes
 
+    -- ** BacktrackDBCluster
+    , module Network.AWS.RDS.BacktrackDBCluster
+
     -- ** PromoteReadReplicaDBCluster
     , module Network.AWS.RDS.PromoteReadReplicaDBCluster
 
@@ -408,6 +420,9 @@ module Network.AWS.RDS
 
     -- ** DeleteEventSubscription
     , module Network.AWS.RDS.DeleteEventSubscription
+
+    -- ** DescribeDBClusterBacktracks
+    , module Network.AWS.RDS.DescribeDBClusterBacktracks
 
     -- ** DescribeDBParameterGroups (Paginated)
     , module Network.AWS.RDS.DescribeDBParameterGroups
@@ -559,6 +574,9 @@ module Network.AWS.RDS
     -- ** DescribeDBInstances (Paginated)
     , module Network.AWS.RDS.DescribeDBInstances
 
+    -- ** RestoreDBInstanceFromS3
+    , module Network.AWS.RDS.RestoreDBInstanceFromS3
+
     -- ** DownloadDBLogFilePortion (Paginated)
     , module Network.AWS.RDS.DownloadDBLogFilePortion
 
@@ -598,9 +616,16 @@ module Network.AWS.RDS
     , csCharacterSetName
     , csCharacterSetDescription
 
+    -- ** CloudwatchLogsExportConfiguration
+    , CloudwatchLogsExportConfiguration
+    , cloudwatchLogsExportConfiguration
+    , clecDisableLogTypes
+    , clecEnableLogTypes
+
     -- ** DBCluster
     , DBCluster
     , dbCluster
+    , dcBacktrackConsumedChangeRecords
     , dcEngineVersion
     , dcStatus
     , dcStorageEncrypted
@@ -612,6 +637,8 @@ module Network.AWS.RDS
     , dcDBClusterParameterGroup
     , dcMasterUsername
     , dcIAMDatabaseAuthenticationEnabled
+    , dcEarliestBacktrackTime
+    , dcBacktrackWindow
     , dcDBClusterResourceId
     , dcEarliestRestorableTime
     , dcEngine
@@ -636,6 +663,16 @@ module Network.AWS.RDS
     , dcReaderEndpoint
     , dcPort
     , dcDBClusterOptionGroupMemberships
+
+    -- ** DBClusterBacktrack
+    , DBClusterBacktrack
+    , dbClusterBacktrack
+    , dcbStatus
+    , dcbBacktrackIdentifier
+    , dcbBacktrackTo
+    , dcbDBClusterIdentifier
+    , dcbBacktrackedFrom
+    , dcbBacktrackRequestCreationTime
 
     -- ** DBClusterMember
     , DBClusterMember
@@ -717,7 +754,10 @@ module Network.AWS.RDS
     , devSupportedCharacterSets
     , devDBEngineDescription
     , devValidUpgradeTarget
+    , devSupportsLogExportsToCloudwatchLogs
+    , devSupportsReadReplica
     , devSupportedTimezones
+    , devExportableLogTypes
 
     -- ** DBInstance
     , DBInstance
@@ -755,6 +795,7 @@ module Network.AWS.RDS
     , diDBSubnetGroup
     , diMultiAZ
     , diOptionGroupMemberships
+    , diEnabledCloudwatchLogsExports
     , diEnhancedMonitoringResourceARN
     , diSecondaryAvailabilityZone
     , diPerformanceInsightsEnabled
@@ -1083,6 +1124,12 @@ module Network.AWS.RDS
     , pParameterName
     , pDescription
 
+    -- ** PendingCloudwatchLogsExports
+    , PendingCloudwatchLogsExports
+    , pendingCloudwatchLogsExports
+    , pcleLogTypesToEnable
+    , pcleLogTypesToDisable
+
     -- ** PendingMaintenanceAction
     , PendingMaintenanceAction
     , pendingMaintenanceAction
@@ -1104,6 +1151,7 @@ module Network.AWS.RDS
     , pmvLicenseModel
     , pmvCACertificateIdentifier
     , pmvDBInstanceIdentifier
+    , pmvPendingCloudwatchLogsExports
     , pmvBackupRetentionPeriod
     , pmvMultiAZ
     , pmvAllocatedStorage
@@ -1221,6 +1269,7 @@ import Network.AWS.RDS.AddSourceIdentifierToSubscription
 import Network.AWS.RDS.AddTagsToResource
 import Network.AWS.RDS.ApplyPendingMaintenanceAction
 import Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
+import Network.AWS.RDS.BacktrackDBCluster
 import Network.AWS.RDS.CopyDBClusterParameterGroup
 import Network.AWS.RDS.CopyDBClusterSnapshot
 import Network.AWS.RDS.CopyDBParameterGroup
@@ -1249,6 +1298,7 @@ import Network.AWS.RDS.DeleteEventSubscription
 import Network.AWS.RDS.DeleteOptionGroup
 import Network.AWS.RDS.DescribeAccountAttributes
 import Network.AWS.RDS.DescribeCertificates
+import Network.AWS.RDS.DescribeDBClusterBacktracks
 import Network.AWS.RDS.DescribeDBClusterParameterGroups
 import Network.AWS.RDS.DescribeDBClusterParameters
 import Network.AWS.RDS.DescribeDBClusters
@@ -1302,6 +1352,7 @@ import Network.AWS.RDS.RestoreDBClusterFromS3
 import Network.AWS.RDS.RestoreDBClusterFromSnapshot
 import Network.AWS.RDS.RestoreDBClusterToPointInTime
 import Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
+import Network.AWS.RDS.RestoreDBInstanceFromS3
 import Network.AWS.RDS.RestoreDBInstanceToPointInTime
 import Network.AWS.RDS.RevokeDBSecurityGroupIngress
 import Network.AWS.RDS.StartDBInstance

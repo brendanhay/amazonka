@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DeleteArchive
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,23 +83,23 @@ deleteArchive
     -> DeleteArchive
 deleteArchive pAccountId_ pVaultName_ pArchiveId_ =
   DeleteArchive'
-  { _daAccountId = pAccountId_
-  , _daVaultName = pVaultName_
-  , _daArchiveId = pArchiveId_
-  }
+    { _daAccountId = pAccountId_
+    , _daVaultName = pVaultName_
+    , _daArchiveId = pArchiveId_
+    }
 
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 daAccountId :: Lens' DeleteArchive Text
-daAccountId = lens _daAccountId (\ s a -> s{_daAccountId = a});
+daAccountId = lens _daAccountId (\ s a -> s{_daAccountId = a})
 
 -- | The name of the vault.
 daVaultName :: Lens' DeleteArchive Text
-daVaultName = lens _daVaultName (\ s a -> s{_daVaultName = a});
+daVaultName = lens _daVaultName (\ s a -> s{_daVaultName = a})
 
 -- | The ID of the archive to delete.
 daArchiveId :: Lens' DeleteArchive Text
-daArchiveId = lens _daArchiveId (\ s a -> s{_daArchiveId = a});
+daArchiveId = lens _daArchiveId (\ s a -> s{_daArchiveId = a})
 
 instance AWSRequest DeleteArchive where
         type Rs DeleteArchive = DeleteArchiveResponse

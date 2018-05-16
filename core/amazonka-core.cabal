@@ -1,5 +1,5 @@
 name:                  amazonka-core
-version:               1.5.0
+version:               1.6.0
 synopsis:              Core data types and functionality for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -104,7 +104,7 @@ library
         , transformers         >= 0.2
         , transformers-compat  >= 0.3
         , unordered-containers >= 0.2.7
-        , xml-conduit          >= 1.2
+        , xml-conduit          >= 1.7.0.1
         , xml-types            >= 0.3.4
 
     if !impl(ghc>=7.9)

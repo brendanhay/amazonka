@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.EnableAlarmActions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ enableAlarmActions = EnableAlarmActions' {_eaaAlarmNames = mempty}
 
 -- | The names of the alarms.
 eaaAlarmNames :: Lens' EnableAlarmActions [Text]
-eaaAlarmNames = lens _eaaAlarmNames (\ s a -> s{_eaaAlarmNames = a}) . _Coerce;
+eaaAlarmNames = lens _eaaAlarmNames (\ s a -> s{_eaaAlarmNames = a}) . _Coerce
 
 instance AWSRequest EnableAlarmActions where
         type Rs EnableAlarmActions =

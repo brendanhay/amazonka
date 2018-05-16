@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListCertificatesByCA
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,28 +80,28 @@ listCertificatesByCA
     -> ListCertificatesByCA
 listCertificatesByCA pCaCertificateId_ =
   ListCertificatesByCA'
-  { _lcbcaMarker = Nothing
-  , _lcbcaAscendingOrder = Nothing
-  , _lcbcaPageSize = Nothing
-  , _lcbcaCaCertificateId = pCaCertificateId_
-  }
+    { _lcbcaMarker = Nothing
+    , _lcbcaAscendingOrder = Nothing
+    , _lcbcaPageSize = Nothing
+    , _lcbcaCaCertificateId = pCaCertificateId_
+    }
 
 
 -- | The marker for the next set of results.
 lcbcaMarker :: Lens' ListCertificatesByCA (Maybe Text)
-lcbcaMarker = lens _lcbcaMarker (\ s a -> s{_lcbcaMarker = a});
+lcbcaMarker = lens _lcbcaMarker (\ s a -> s{_lcbcaMarker = a})
 
 -- | Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 lcbcaAscendingOrder :: Lens' ListCertificatesByCA (Maybe Bool)
-lcbcaAscendingOrder = lens _lcbcaAscendingOrder (\ s a -> s{_lcbcaAscendingOrder = a});
+lcbcaAscendingOrder = lens _lcbcaAscendingOrder (\ s a -> s{_lcbcaAscendingOrder = a})
 
 -- | The result page size.
 lcbcaPageSize :: Lens' ListCertificatesByCA (Maybe Natural)
-lcbcaPageSize = lens _lcbcaPageSize (\ s a -> s{_lcbcaPageSize = a}) . mapping _Nat;
+lcbcaPageSize = lens _lcbcaPageSize (\ s a -> s{_lcbcaPageSize = a}) . mapping _Nat
 
 -- | The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate.
 lcbcaCaCertificateId :: Lens' ListCertificatesByCA Text
-lcbcaCaCertificateId = lens _lcbcaCaCertificateId (\ s a -> s{_lcbcaCaCertificateId = a});
+lcbcaCaCertificateId = lens _lcbcaCaCertificateId (\ s a -> s{_lcbcaCaCertificateId = a})
 
 instance AWSPager ListCertificatesByCA where
         page rq rs
@@ -167,22 +167,22 @@ listCertificatesByCAResponse
     -> ListCertificatesByCAResponse
 listCertificatesByCAResponse pResponseStatus_ =
   ListCertificatesByCAResponse'
-  { _lcbcarsCertificates = Nothing
-  , _lcbcarsNextMarker = Nothing
-  , _lcbcarsResponseStatus = pResponseStatus_
-  }
+    { _lcbcarsCertificates = Nothing
+    , _lcbcarsNextMarker = Nothing
+    , _lcbcarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The device certificates signed by the specified CA certificate.
 lcbcarsCertificates :: Lens' ListCertificatesByCAResponse [Certificate]
-lcbcarsCertificates = lens _lcbcarsCertificates (\ s a -> s{_lcbcarsCertificates = a}) . _Default . _Coerce;
+lcbcarsCertificates = lens _lcbcarsCertificates (\ s a -> s{_lcbcarsCertificates = a}) . _Default . _Coerce
 
 -- | The marker for the next set of results, or null if there are no additional results.
 lcbcarsNextMarker :: Lens' ListCertificatesByCAResponse (Maybe Text)
-lcbcarsNextMarker = lens _lcbcarsNextMarker (\ s a -> s{_lcbcarsNextMarker = a});
+lcbcarsNextMarker = lens _lcbcarsNextMarker (\ s a -> s{_lcbcarsNextMarker = a})
 
 -- | -- | The response status code.
 lcbcarsResponseStatus :: Lens' ListCertificatesByCAResponse Int
-lcbcarsResponseStatus = lens _lcbcarsResponseStatus (\ s a -> s{_lcbcarsResponseStatus = a});
+lcbcarsResponseStatus = lens _lcbcarsResponseStatus (\ s a -> s{_lcbcarsResponseStatus = a})
 
 instance NFData ListCertificatesByCAResponse where

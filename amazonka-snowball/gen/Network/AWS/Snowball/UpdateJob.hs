@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.UpdateJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,53 +91,53 @@ updateJob
     -> UpdateJob
 updateJob pJobId_ =
   UpdateJob'
-  { _ujNotification = Nothing
-  , _ujForwardingAddressId = Nothing
-  , _ujAddressId = Nothing
-  , _ujShippingOption = Nothing
-  , _ujResources = Nothing
-  , _ujDescription = Nothing
-  , _ujRoleARN = Nothing
-  , _ujSnowballCapacityPreference = Nothing
-  , _ujJobId = pJobId_
-  }
+    { _ujNotification = Nothing
+    , _ujForwardingAddressId = Nothing
+    , _ujAddressId = Nothing
+    , _ujShippingOption = Nothing
+    , _ujResources = Nothing
+    , _ujDescription = Nothing
+    , _ujRoleARN = Nothing
+    , _ujSnowballCapacityPreference = Nothing
+    , _ujJobId = pJobId_
+    }
 
 
 -- | The new or updated 'Notification' object.
 ujNotification :: Lens' UpdateJob (Maybe Notification)
-ujNotification = lens _ujNotification (\ s a -> s{_ujNotification = a});
+ujNotification = lens _ujNotification (\ s a -> s{_ujNotification = a})
 
 -- | The updated ID for the forwarding address for a job. This field is not supported in most regions.
 ujForwardingAddressId :: Lens' UpdateJob (Maybe Text)
-ujForwardingAddressId = lens _ujForwardingAddressId (\ s a -> s{_ujForwardingAddressId = a});
+ujForwardingAddressId = lens _ujForwardingAddressId (\ s a -> s{_ujForwardingAddressId = a})
 
 -- | The ID of the updated 'Address' object.
 ujAddressId :: Lens' UpdateJob (Maybe Text)
-ujAddressId = lens _ujAddressId (\ s a -> s{_ujAddressId = a});
+ujAddressId = lens _ujAddressId (\ s a -> s{_ujAddressId = a})
 
 -- | The updated shipping option value of this job's 'ShippingDetails' object.
 ujShippingOption :: Lens' UpdateJob (Maybe ShippingOption)
-ujShippingOption = lens _ujShippingOption (\ s a -> s{_ujShippingOption = a});
+ujShippingOption = lens _ujShippingOption (\ s a -> s{_ujShippingOption = a})
 
 -- | The updated 'S3Resource' object (for a single Amazon S3 bucket or key range), or the updated 'JobResource' object (for multiple buckets or key ranges).
 ujResources :: Lens' UpdateJob (Maybe JobResource)
-ujResources = lens _ujResources (\ s a -> s{_ujResources = a});
+ujResources = lens _ujResources (\ s a -> s{_ujResources = a})
 
 -- | The updated description of this job's 'JobMetadata' object.
 ujDescription :: Lens' UpdateJob (Maybe Text)
-ujDescription = lens _ujDescription (\ s a -> s{_ujDescription = a});
+ujDescription = lens _ujDescription (\ s a -> s{_ujDescription = a})
 
 -- | The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
 ujRoleARN :: Lens' UpdateJob (Maybe Text)
-ujRoleARN = lens _ujRoleARN (\ s a -> s{_ujRoleARN = a});
+ujRoleARN = lens _ujRoleARN (\ s a -> s{_ujRoleARN = a})
 
 -- | The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. The 50 TB Snowballs are only available in the US regions.
 ujSnowballCapacityPreference :: Lens' UpdateJob (Maybe SnowballCapacity)
-ujSnowballCapacityPreference = lens _ujSnowballCapacityPreference (\ s a -> s{_ujSnowballCapacityPreference = a});
+ujSnowballCapacityPreference = lens _ujSnowballCapacityPreference (\ s a -> s{_ujSnowballCapacityPreference = a})
 
 -- | The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 ujJobId :: Lens' UpdateJob Text
-ujJobId = lens _ujJobId (\ s a -> s{_ujJobId = a});
+ujJobId = lens _ujJobId (\ s a -> s{_ujJobId = a})
 
 instance AWSRequest UpdateJob where
         type Rs UpdateJob = UpdateJobResponse
@@ -203,6 +203,6 @@ updateJobResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ujrsResponseStatus :: Lens' UpdateJobResponse Int
-ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});
+ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a})
 
 instance NFData UpdateJobResponse where

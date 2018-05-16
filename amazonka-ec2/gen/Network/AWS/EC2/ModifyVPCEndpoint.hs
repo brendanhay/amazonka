@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVPCEndpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -104,63 +104,63 @@ modifyVPCEndpoint
     -> ModifyVPCEndpoint
 modifyVPCEndpoint pVPCEndpointId_ =
   ModifyVPCEndpoint'
-  { _mvePolicyDocument = Nothing
-  , _mveRemoveRouteTableIds = Nothing
-  , _mveResetPolicy = Nothing
-  , _mveAddRouteTableIds = Nothing
-  , _mvePrivateDNSEnabled = Nothing
-  , _mveAddSubnetIds = Nothing
-  , _mveRemoveSubnetIds = Nothing
-  , _mveAddSecurityGroupIds = Nothing
-  , _mveDryRun = Nothing
-  , _mveRemoveSecurityGroupIds = Nothing
-  , _mveVPCEndpointId = pVPCEndpointId_
-  }
+    { _mvePolicyDocument = Nothing
+    , _mveRemoveRouteTableIds = Nothing
+    , _mveResetPolicy = Nothing
+    , _mveAddRouteTableIds = Nothing
+    , _mvePrivateDNSEnabled = Nothing
+    , _mveAddSubnetIds = Nothing
+    , _mveRemoveSubnetIds = Nothing
+    , _mveAddSecurityGroupIds = Nothing
+    , _mveDryRun = Nothing
+    , _mveRemoveSecurityGroupIds = Nothing
+    , _mveVPCEndpointId = pVPCEndpointId_
+    }
 
 
 -- | (Gateway endpoint) A policy document to attach to the endpoint. The policy must be in valid JSON format.
 mvePolicyDocument :: Lens' ModifyVPCEndpoint (Maybe Text)
-mvePolicyDocument = lens _mvePolicyDocument (\ s a -> s{_mvePolicyDocument = a});
+mvePolicyDocument = lens _mvePolicyDocument (\ s a -> s{_mvePolicyDocument = a})
 
 -- | (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.
 mveRemoveRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
-mveRemoveRouteTableIds = lens _mveRemoveRouteTableIds (\ s a -> s{_mveRemoveRouteTableIds = a}) . _Default . _Coerce;
+mveRemoveRouteTableIds = lens _mveRemoveRouteTableIds (\ s a -> s{_mveRemoveRouteTableIds = a}) . _Default . _Coerce
 
 -- | (Gateway endpoint) Specify @true@ to reset the policy document to the default policy. The default policy allows full access to the service.
 mveResetPolicy :: Lens' ModifyVPCEndpoint (Maybe Bool)
-mveResetPolicy = lens _mveResetPolicy (\ s a -> s{_mveResetPolicy = a});
+mveResetPolicy = lens _mveResetPolicy (\ s a -> s{_mveResetPolicy = a})
 
 -- | (Gateway endpoint) One or more route tables IDs to associate with the endpoint.
 mveAddRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
-mveAddRouteTableIds = lens _mveAddRouteTableIds (\ s a -> s{_mveAddRouteTableIds = a}) . _Default . _Coerce;
+mveAddRouteTableIds = lens _mveAddRouteTableIds (\ s a -> s{_mveAddRouteTableIds = a}) . _Default . _Coerce
 
 -- | (Interface endpoint) Indicate whether a private hosted zone is associated with the VPC.
 mvePrivateDNSEnabled :: Lens' ModifyVPCEndpoint (Maybe Bool)
-mvePrivateDNSEnabled = lens _mvePrivateDNSEnabled (\ s a -> s{_mvePrivateDNSEnabled = a});
+mvePrivateDNSEnabled = lens _mvePrivateDNSEnabled (\ s a -> s{_mvePrivateDNSEnabled = a})
 
 -- | (Interface endpoint) One or more subnet IDs in which to serve the endpoint.
 mveAddSubnetIds :: Lens' ModifyVPCEndpoint [Text]
-mveAddSubnetIds = lens _mveAddSubnetIds (\ s a -> s{_mveAddSubnetIds = a}) . _Default . _Coerce;
+mveAddSubnetIds = lens _mveAddSubnetIds (\ s a -> s{_mveAddSubnetIds = a}) . _Default . _Coerce
 
 -- | (Interface endpoint) One or more subnets IDs in which to remove the endpoint.
 mveRemoveSubnetIds :: Lens' ModifyVPCEndpoint [Text]
-mveRemoveSubnetIds = lens _mveRemoveSubnetIds (\ s a -> s{_mveRemoveSubnetIds = a}) . _Default . _Coerce;
+mveRemoveSubnetIds = lens _mveRemoveSubnetIds (\ s a -> s{_mveRemoveSubnetIds = a}) . _Default . _Coerce
 
 -- | (Interface endpoint) One or more security group IDs to associate with the network interface.
 mveAddSecurityGroupIds :: Lens' ModifyVPCEndpoint [Text]
-mveAddSecurityGroupIds = lens _mveAddSecurityGroupIds (\ s a -> s{_mveAddSecurityGroupIds = a}) . _Default . _Coerce;
+mveAddSecurityGroupIds = lens _mveAddSecurityGroupIds (\ s a -> s{_mveAddSecurityGroupIds = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mveDryRun :: Lens' ModifyVPCEndpoint (Maybe Bool)
-mveDryRun = lens _mveDryRun (\ s a -> s{_mveDryRun = a});
+mveDryRun = lens _mveDryRun (\ s a -> s{_mveDryRun = a})
 
 -- | (Interface endpoint) One or more security group IDs to disassociate from the network interface.
 mveRemoveSecurityGroupIds :: Lens' ModifyVPCEndpoint [Text]
-mveRemoveSecurityGroupIds = lens _mveRemoveSecurityGroupIds (\ s a -> s{_mveRemoveSecurityGroupIds = a}) . _Default . _Coerce;
+mveRemoveSecurityGroupIds = lens _mveRemoveSecurityGroupIds (\ s a -> s{_mveRemoveSecurityGroupIds = a}) . _Default . _Coerce
 
 -- | The ID of the endpoint.
 mveVPCEndpointId :: Lens' ModifyVPCEndpoint Text
-mveVPCEndpointId = lens _mveVPCEndpointId (\ s a -> s{_mveVPCEndpointId = a});
+mveVPCEndpointId = lens _mveVPCEndpointId (\ s a -> s{_mveVPCEndpointId = a})
 
 instance AWSRequest ModifyVPCEndpoint where
         type Rs ModifyVPCEndpoint = ModifyVPCEndpointResponse
@@ -228,15 +228,15 @@ modifyVPCEndpointResponse
     -> ModifyVPCEndpointResponse
 modifyVPCEndpointResponse pResponseStatus_ =
   ModifyVPCEndpointResponse'
-  {_mversReturn = Nothing, _mversResponseStatus = pResponseStatus_}
+    {_mversReturn = Nothing, _mversResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 mversReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
-mversReturn = lens _mversReturn (\ s a -> s{_mversReturn = a});
+mversReturn = lens _mversReturn (\ s a -> s{_mversReturn = a})
 
 -- | -- | The response status code.
 mversResponseStatus :: Lens' ModifyVPCEndpointResponse Int
-mversResponseStatus = lens _mversResponseStatus (\ s a -> s{_mversResponseStatus = a});
+mversResponseStatus = lens _mversResponseStatus (\ s a -> s{_mversResponseStatus = a})
 
 instance NFData ModifyVPCEndpointResponse where

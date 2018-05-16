@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteScalingPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,55 +21,33 @@
 -- Deletes a fleet scaling policy. This action means that the policy is no longer in force and removes all record of it. To delete a scaling policy, specify both the scaling policy name and the fleet ID it is associated with.
 --
 --
--- Fleet-related operations include:
+-- To temporarily suspend scaling policies, call 'StopFleetActions' . This operation suspends all policies for the fleet.
 --
---     * 'CreateFleet'
---
---     * 'ListFleets'
---
---     * Describe fleets:
---
---     * 'DescribeFleetAttributes'
---
---     * 'DescribeFleetPortSettings'
---
---     * 'DescribeFleetUtilization'
---
---     * 'DescribeRuntimeConfiguration'
---
---     * 'DescribeFleetEvents'
---
---
---
---     * Update fleets:
---
---     * 'UpdateFleetAttributes'
---
---     * 'UpdateFleetCapacity'
---
---     * 'UpdateFleetPortSettings'
---
---     * 'UpdateRuntimeConfiguration'
---
---
---
---     * Manage fleet capacity:
+-- Operations related to fleet capacity scaling include:
 --
 --     * 'DescribeFleetCapacity'
 --
 --     * 'UpdateFleetCapacity'
 --
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
 --     * 'DescribeEC2InstanceLimits'
 --
+--     * Manage scaling policies:
+--
+--     * 'PutScalingPolicy' (auto-scaling)
+--
+--     * 'DescribeScalingPolicies' (auto-scaling)
+--
+--     * 'DeleteScalingPolicy' (auto-scaling)
 --
 --
---     * 'DeleteFleet'
+--
+--     * Manage fleet actions:
+--
+--     * 'StartFleetActions'
+--
+--     * 'StopFleetActions'
+--
+--
 --
 --
 --
@@ -122,11 +100,11 @@ deleteScalingPolicy pName_ pFleetId_ =
 
 -- | Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 dspName :: Lens' DeleteScalingPolicy Text
-dspName = lens _dspName (\ s a -> s{_dspName = a});
+dspName = lens _dspName (\ s a -> s{_dspName = a})
 
 -- | Unique identifier for a fleet to be deleted.
 dspFleetId :: Lens' DeleteScalingPolicy Text
-dspFleetId = lens _dspFleetId (\ s a -> s{_dspFleetId = a});
+dspFleetId = lens _dspFleetId (\ s a -> s{_dspFleetId = a})
 
 instance AWSRequest DeleteScalingPolicy where
         type Rs DeleteScalingPolicy =

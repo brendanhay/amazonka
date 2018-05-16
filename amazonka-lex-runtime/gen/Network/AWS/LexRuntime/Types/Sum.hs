@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.LexRuntime.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,3 +81,36 @@ instance ToHeader     DialogState
 
 instance FromJSON DialogState where
     parseJSON = parseJSONText "DialogState"
+
+data MessageFormatType
+  = Composite
+  | CustomPayload
+  | PlainText
+  | Ssml
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText MessageFormatType where
+    parser = takeLowerText >>= \case
+        "composite" -> pure Composite
+        "custompayload" -> pure CustomPayload
+        "plaintext" -> pure PlainText
+        "ssml" -> pure Ssml
+        e -> fromTextError $ "Failure parsing MessageFormatType from value: '" <> e
+           <> "'. Accepted values: composite, custompayload, plaintext, ssml"
+
+instance ToText MessageFormatType where
+    toText = \case
+        Composite -> "Composite"
+        CustomPayload -> "CustomPayload"
+        PlainText -> "PlainText"
+        Ssml -> "SSML"
+
+instance Hashable     MessageFormatType
+instance NFData       MessageFormatType
+instance ToByteString MessageFormatType
+instance ToQuery      MessageFormatType
+instance ToHeader     MessageFormatType
+
+instance FromJSON MessageFormatType where
+    parseJSON = parseJSONText "MessageFormatType"

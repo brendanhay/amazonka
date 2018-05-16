@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetSAMLProvider
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ getSAMLProvider pSAMLProviderARN_ =
 
 -- | The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 gsamlpSAMLProviderARN :: Lens' GetSAMLProvider Text
-gsamlpSAMLProviderARN = lens _gsamlpSAMLProviderARN (\ s a -> s{_gsamlpSAMLProviderARN = a});
+gsamlpSAMLProviderARN = lens _gsamlpSAMLProviderARN (\ s a -> s{_gsamlpSAMLProviderARN = a})
 
 instance AWSRequest GetSAMLProvider where
         type Rs GetSAMLProvider = GetSAMLProviderResponse
@@ -125,27 +125,27 @@ getSAMLProviderResponse
     -> GetSAMLProviderResponse
 getSAMLProviderResponse pResponseStatus_ =
   GetSAMLProviderResponse'
-  { _gsamlprsCreateDate = Nothing
-  , _gsamlprsValidUntil = Nothing
-  , _gsamlprsSAMLMetadataDocument = Nothing
-  , _gsamlprsResponseStatus = pResponseStatus_
-  }
+    { _gsamlprsCreateDate = Nothing
+    , _gsamlprsValidUntil = Nothing
+    , _gsamlprsSAMLMetadataDocument = Nothing
+    , _gsamlprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The date and time when the SAML provider was created.
 gsamlprsCreateDate :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
-gsamlprsCreateDate = lens _gsamlprsCreateDate (\ s a -> s{_gsamlprsCreateDate = a}) . mapping _Time;
+gsamlprsCreateDate = lens _gsamlprsCreateDate (\ s a -> s{_gsamlprsCreateDate = a}) . mapping _Time
 
 -- | The expiration date and time for the SAML provider.
 gsamlprsValidUntil :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
-gsamlprsValidUntil = lens _gsamlprsValidUntil (\ s a -> s{_gsamlprsValidUntil = a}) . mapping _Time;
+gsamlprsValidUntil = lens _gsamlprsValidUntil (\ s a -> s{_gsamlprsValidUntil = a}) . mapping _Time
 
 -- | The XML metadata document that includes information about an identity provider.
 gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
-gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\ s a -> s{_gsamlprsSAMLMetadataDocument = a});
+gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\ s a -> s{_gsamlprsSAMLMetadataDocument = a})
 
 -- | -- | The response status code.
 gsamlprsResponseStatus :: Lens' GetSAMLProviderResponse Int
-gsamlprsResponseStatus = lens _gsamlprsResponseStatus (\ s a -> s{_gsamlprsResponseStatus = a});
+gsamlprsResponseStatus = lens _gsamlprsResponseStatus (\ s a -> s{_gsamlprsResponseStatus = a})
 
 instance NFData GetSAMLProviderResponse where

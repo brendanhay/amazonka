@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateVPCCidrBlock
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ associateVPCCidrBlock
     -> AssociateVPCCidrBlock
 associateVPCCidrBlock pVPCId_ =
   AssociateVPCCidrBlock'
-  { _avcbCidrBlock = Nothing
-  , _avcbAmazonProvidedIPv6CidrBlock = Nothing
-  , _avcbVPCId = pVPCId_
-  }
+    { _avcbCidrBlock = Nothing
+    , _avcbAmazonProvidedIPv6CidrBlock = Nothing
+    , _avcbVPCId = pVPCId_
+    }
 
 
 -- | An IPv4 CIDR block to associate with the VPC.
 avcbCidrBlock :: Lens' AssociateVPCCidrBlock (Maybe Text)
-avcbCidrBlock = lens _avcbCidrBlock (\ s a -> s{_avcbCidrBlock = a});
+avcbCidrBlock = lens _avcbCidrBlock (\ s a -> s{_avcbCidrBlock = a})
 
 -- | Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
 avcbAmazonProvidedIPv6CidrBlock :: Lens' AssociateVPCCidrBlock (Maybe Bool)
-avcbAmazonProvidedIPv6CidrBlock = lens _avcbAmazonProvidedIPv6CidrBlock (\ s a -> s{_avcbAmazonProvidedIPv6CidrBlock = a});
+avcbAmazonProvidedIPv6CidrBlock = lens _avcbAmazonProvidedIPv6CidrBlock (\ s a -> s{_avcbAmazonProvidedIPv6CidrBlock = a})
 
 -- | The ID of the VPC.
 avcbVPCId :: Lens' AssociateVPCCidrBlock Text
-avcbVPCId = lens _avcbVPCId (\ s a -> s{_avcbVPCId = a});
+avcbVPCId = lens _avcbVPCId (\ s a -> s{_avcbVPCId = a})
 
 instance AWSRequest AssociateVPCCidrBlock where
         type Rs AssociateVPCCidrBlock =
@@ -147,27 +147,27 @@ associateVPCCidrBlockResponse
     -> AssociateVPCCidrBlockResponse
 associateVPCCidrBlockResponse pResponseStatus_ =
   AssociateVPCCidrBlockResponse'
-  { _avcbrsVPCId = Nothing
-  , _avcbrsCidrBlockAssociation = Nothing
-  , _avcbrsIPv6CidrBlockAssociation = Nothing
-  , _avcbrsResponseStatus = pResponseStatus_
-  }
+    { _avcbrsVPCId = Nothing
+    , _avcbrsCidrBlockAssociation = Nothing
+    , _avcbrsIPv6CidrBlockAssociation = Nothing
+    , _avcbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the VPC.
 avcbrsVPCId :: Lens' AssociateVPCCidrBlockResponse (Maybe Text)
-avcbrsVPCId = lens _avcbrsVPCId (\ s a -> s{_avcbrsVPCId = a});
+avcbrsVPCId = lens _avcbrsVPCId (\ s a -> s{_avcbrsVPCId = a})
 
 -- | Information about the IPv4 CIDR block association.
 avcbrsCidrBlockAssociation :: Lens' AssociateVPCCidrBlockResponse (Maybe VPCCidrBlockAssociation)
-avcbrsCidrBlockAssociation = lens _avcbrsCidrBlockAssociation (\ s a -> s{_avcbrsCidrBlockAssociation = a});
+avcbrsCidrBlockAssociation = lens _avcbrsCidrBlockAssociation (\ s a -> s{_avcbrsCidrBlockAssociation = a})
 
 -- | Information about the IPv6 CIDR block association.
 avcbrsIPv6CidrBlockAssociation :: Lens' AssociateVPCCidrBlockResponse (Maybe VPCIPv6CidrBlockAssociation)
-avcbrsIPv6CidrBlockAssociation = lens _avcbrsIPv6CidrBlockAssociation (\ s a -> s{_avcbrsIPv6CidrBlockAssociation = a});
+avcbrsIPv6CidrBlockAssociation = lens _avcbrsIPv6CidrBlockAssociation (\ s a -> s{_avcbrsIPv6CidrBlockAssociation = a})
 
 -- | -- | The response status code.
 avcbrsResponseStatus :: Lens' AssociateVPCCidrBlockResponse Int
-avcbrsResponseStatus = lens _avcbrsResponseStatus (\ s a -> s{_avcbrsResponseStatus = a});
+avcbrsResponseStatus = lens _avcbrsResponseStatus (\ s a -> s{_avcbrsResponseStatus = a})
 
 instance NFData AssociateVPCCidrBlockResponse where

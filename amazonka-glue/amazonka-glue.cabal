@@ -1,5 +1,5 @@
 name:                  amazonka-glue
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Glue SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -49,6 +49,7 @@ library
         , Network.AWS.Glue.BatchDeleteConnection
         , Network.AWS.Glue.BatchDeletePartition
         , Network.AWS.Glue.BatchDeleteTable
+        , Network.AWS.Glue.BatchDeleteTableVersion
         , Network.AWS.Glue.BatchGetPartition
         , Network.AWS.Glue.BatchStopJobRun
         , Network.AWS.Glue.CreateClassifier
@@ -70,6 +71,7 @@ library
         , Network.AWS.Glue.DeleteJob
         , Network.AWS.Glue.DeletePartition
         , Network.AWS.Glue.DeleteTable
+        , Network.AWS.Glue.DeleteTableVersion
         , Network.AWS.Glue.DeleteTrigger
         , Network.AWS.Glue.DeleteUserDefinedFunction
         , Network.AWS.Glue.GetCatalogImportStatus
@@ -94,6 +96,7 @@ library
         , Network.AWS.Glue.GetPartitions
         , Network.AWS.Glue.GetPlan
         , Network.AWS.Glue.GetTable
+        , Network.AWS.Glue.GetTableVersion
         , Network.AWS.Glue.GetTableVersions
         , Network.AWS.Glue.GetTables
         , Network.AWS.Glue.GetTrigger
@@ -128,7 +131,7 @@ library
         , Network.AWS.Glue.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-glue-test
@@ -148,8 +151,8 @@ test-suite amazonka-glue-test
         , Test.AWS.Glue.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-glue
         , base
         , bytestring

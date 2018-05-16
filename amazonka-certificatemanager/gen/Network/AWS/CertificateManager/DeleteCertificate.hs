@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.DeleteCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an ACM Certificate and its associated private key. If this action succeeds, the certificate no longer appears in the list of ACM Certificates that can be displayed by calling the 'ListCertificates' action or be retrieved by calling the 'GetCertificate' action. The certificate will not be available for use by other AWS services.
+-- Deletes a certificate and its associated private key. If this action succeeds, the certificate no longer appears in the list that can be displayed by calling the 'ListCertificates' action or be retrieved by calling the 'GetCertificate' action. The certificate will not be available for use by AWS services integrated with ACM.
 --
 --
 module Network.AWS.CertificateManager.DeleteCertificate
@@ -51,7 +51,7 @@ newtype DeleteCertificate = DeleteCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcCertificateARN' - String that contains the ARN of the ACM Certificate to be deleted. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'dcCertificateARN' - String that contains the ARN of the ACM certificate to be deleted. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 deleteCertificate
     :: Text -- ^ 'dcCertificateARN'
     -> DeleteCertificate
@@ -59,9 +59,9 @@ deleteCertificate pCertificateARN_ =
   DeleteCertificate' {_dcCertificateARN = pCertificateARN_}
 
 
--- | String that contains the ARN of the ACM Certificate to be deleted. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | String that contains the ARN of the ACM certificate to be deleted. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 dcCertificateARN :: Lens' DeleteCertificate Text
-dcCertificateARN = lens _dcCertificateARN (\ s a -> s{_dcCertificateARN = a});
+dcCertificateARN = lens _dcCertificateARN (\ s a -> s{_dcCertificateARN = a})
 
 instance AWSRequest DeleteCertificate where
         type Rs DeleteCertificate = DeleteCertificateResponse

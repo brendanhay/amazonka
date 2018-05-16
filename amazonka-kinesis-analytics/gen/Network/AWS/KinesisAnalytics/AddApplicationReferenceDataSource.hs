@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.AddApplicationReferenceDataSource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,23 +79,23 @@ addApplicationReferenceDataSource
     -> AddApplicationReferenceDataSource
 addApplicationReferenceDataSource pApplicationName_ pCurrentApplicationVersionId_ pReferenceDataSource_ =
   AddApplicationReferenceDataSource'
-  { _aardsApplicationName = pApplicationName_
-  , _aardsCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-  , _aardsReferenceDataSource = pReferenceDataSource_
-  }
+    { _aardsApplicationName = pApplicationName_
+    , _aardsCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+    , _aardsReferenceDataSource = pReferenceDataSource_
+    }
 
 
 -- | Name of an existing application.
 aardsApplicationName :: Lens' AddApplicationReferenceDataSource Text
-aardsApplicationName = lens _aardsApplicationName (\ s a -> s{_aardsApplicationName = a});
+aardsApplicationName = lens _aardsApplicationName (\ s a -> s{_aardsApplicationName = a})
 
 -- | Version of the application for which you are adding the reference data source. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 aardsCurrentApplicationVersionId :: Lens' AddApplicationReferenceDataSource Natural
-aardsCurrentApplicationVersionId = lens _aardsCurrentApplicationVersionId (\ s a -> s{_aardsCurrentApplicationVersionId = a}) . _Nat;
+aardsCurrentApplicationVersionId = lens _aardsCurrentApplicationVersionId (\ s a -> s{_aardsCurrentApplicationVersionId = a}) . _Nat
 
 -- | The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.
 aardsReferenceDataSource :: Lens' AddApplicationReferenceDataSource ReferenceDataSource
-aardsReferenceDataSource = lens _aardsReferenceDataSource (\ s a -> s{_aardsReferenceDataSource = a});
+aardsReferenceDataSource = lens _aardsReferenceDataSource (\ s a -> s{_aardsReferenceDataSource = a})
 
 instance AWSRequest AddApplicationReferenceDataSource
          where
@@ -166,12 +166,12 @@ addApplicationReferenceDataSourceResponse
     -> AddApplicationReferenceDataSourceResponse
 addApplicationReferenceDataSourceResponse pResponseStatus_ =
   AddApplicationReferenceDataSourceResponse'
-  {_aardsrsResponseStatus = pResponseStatus_}
+    {_aardsrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 aardsrsResponseStatus :: Lens' AddApplicationReferenceDataSourceResponse Int
-aardsrsResponseStatus = lens _aardsrsResponseStatus (\ s a -> s{_aardsrsResponseStatus = a});
+aardsrsResponseStatus = lens _aardsrsResponseStatus (\ s a -> s{_aardsrsResponseStatus = a})
 
 instance NFData
            AddApplicationReferenceDataSourceResponse

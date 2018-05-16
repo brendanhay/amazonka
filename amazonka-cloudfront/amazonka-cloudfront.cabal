@@ -1,5 +1,5 @@
 name:                  amazonka-cloudfront
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon CloudFront SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -48,24 +48,39 @@ library
         , Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.CreateDistribution
         , Network.AWS.CloudFront.CreateDistributionWithTags
+        , Network.AWS.CloudFront.CreateFieldLevelEncryptionConfig
+        , Network.AWS.CloudFront.CreateFieldLevelEncryptionProfile
         , Network.AWS.CloudFront.CreateInvalidation
+        , Network.AWS.CloudFront.CreatePublicKey
         , Network.AWS.CloudFront.CreateStreamingDistribution
         , Network.AWS.CloudFront.CreateStreamingDistributionWithTags
         , Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.DeleteDistribution
+        , Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
+        , Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
+        , Network.AWS.CloudFront.DeletePublicKey
         , Network.AWS.CloudFront.DeleteServiceLinkedRole
         , Network.AWS.CloudFront.DeleteStreamingDistribution
         , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
         , Network.AWS.CloudFront.GetDistribution
         , Network.AWS.CloudFront.GetDistributionConfig
+        , Network.AWS.CloudFront.GetFieldLevelEncryption
+        , Network.AWS.CloudFront.GetFieldLevelEncryptionConfig
+        , Network.AWS.CloudFront.GetFieldLevelEncryptionProfile
+        , Network.AWS.CloudFront.GetFieldLevelEncryptionProfileConfig
         , Network.AWS.CloudFront.GetInvalidation
+        , Network.AWS.CloudFront.GetPublicKey
+        , Network.AWS.CloudFront.GetPublicKeyConfig
         , Network.AWS.CloudFront.GetStreamingDistribution
         , Network.AWS.CloudFront.GetStreamingDistributionConfig
         , Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
         , Network.AWS.CloudFront.ListDistributions
         , Network.AWS.CloudFront.ListDistributionsByWebACLId
+        , Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
+        , Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles
         , Network.AWS.CloudFront.ListInvalidations
+        , Network.AWS.CloudFront.ListPublicKeys
         , Network.AWS.CloudFront.ListStreamingDistributions
         , Network.AWS.CloudFront.ListTagsForResource
         , Network.AWS.CloudFront.TagResource
@@ -73,6 +88,9 @@ library
         , Network.AWS.CloudFront.UntagResource
         , Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.UpdateDistribution
+        , Network.AWS.CloudFront.UpdateFieldLevelEncryptionConfig
+        , Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile
+        , Network.AWS.CloudFront.UpdatePublicKey
         , Network.AWS.CloudFront.UpdateStreamingDistribution
         , Network.AWS.CloudFront.Waiters
 
@@ -81,7 +99,7 @@ library
         , Network.AWS.CloudFront.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudfront-test
@@ -101,8 +119,8 @@ test-suite amazonka-cloudfront-test
         , Test.AWS.CloudFront.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-cloudfront
         , base
         , bytestring

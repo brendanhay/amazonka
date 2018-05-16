@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeTagOption
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a TagOption.
+-- Gets information about the specified TagOption.
 --
 --
 module Network.AWS.ServiceCatalog.DescribeTagOption
@@ -54,16 +54,16 @@ newtype DescribeTagOption = DescribeTagOption'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtoId' - The identifier of the TagOption.
+-- * 'dtoId' - The TagOption identifier.
 describeTagOption
     :: Text -- ^ 'dtoId'
     -> DescribeTagOption
 describeTagOption pId_ = DescribeTagOption' {_dtoId = pId_}
 
 
--- | The identifier of the TagOption.
+-- | The TagOption identifier.
 dtoId :: Lens' DescribeTagOption Text
-dtoId = lens _dtoId (\ s a -> s{_dtoId = a});
+dtoId = lens _dtoId (\ s a -> s{_dtoId = a})
 
 instance AWSRequest DescribeTagOption where
         type Rs DescribeTagOption = DescribeTagOptionResponse
@@ -109,7 +109,7 @@ data DescribeTagOptionResponse = DescribeTagOptionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtorsTagOptionDetail' - The resulting detailed TagOption information.
+-- * 'dtorsTagOptionDetail' - Information about the TagOption.
 --
 -- * 'dtorsResponseStatus' - -- | The response status code.
 describeTagOptionResponse
@@ -117,15 +117,15 @@ describeTagOptionResponse
     -> DescribeTagOptionResponse
 describeTagOptionResponse pResponseStatus_ =
   DescribeTagOptionResponse'
-  {_dtorsTagOptionDetail = Nothing, _dtorsResponseStatus = pResponseStatus_}
+    {_dtorsTagOptionDetail = Nothing, _dtorsResponseStatus = pResponseStatus_}
 
 
--- | The resulting detailed TagOption information.
+-- | Information about the TagOption.
 dtorsTagOptionDetail :: Lens' DescribeTagOptionResponse (Maybe TagOptionDetail)
-dtorsTagOptionDetail = lens _dtorsTagOptionDetail (\ s a -> s{_dtorsTagOptionDetail = a});
+dtorsTagOptionDetail = lens _dtorsTagOptionDetail (\ s a -> s{_dtorsTagOptionDetail = a})
 
 -- | -- | The response status code.
 dtorsResponseStatus :: Lens' DescribeTagOptionResponse Int
-dtorsResponseStatus = lens _dtorsResponseStatus (\ s a -> s{_dtorsResponseStatus = a});
+dtorsResponseStatus = lens _dtorsResponseStatus (\ s a -> s{_dtorsResponseStatus = a})
 
 instance NFData DescribeTagOptionResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ disassociateQualificationFromWorker
     -> DisassociateQualificationFromWorker
 disassociateQualificationFromWorker pWorkerId_ pQualificationTypeId_ =
   DisassociateQualificationFromWorker'
-  { _dqfwReason = Nothing
-  , _dqfwWorkerId = pWorkerId_
-  , _dqfwQualificationTypeId = pQualificationTypeId_
-  }
+    { _dqfwReason = Nothing
+    , _dqfwWorkerId = pWorkerId_
+    , _dqfwQualificationTypeId = pQualificationTypeId_
+    }
 
 
 -- | A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.
 dqfwReason :: Lens' DisassociateQualificationFromWorker (Maybe Text)
-dqfwReason = lens _dqfwReason (\ s a -> s{_dqfwReason = a});
+dqfwReason = lens _dqfwReason (\ s a -> s{_dqfwReason = a})
 
 -- | The ID of the Worker who possesses the Qualification to be revoked.
 dqfwWorkerId :: Lens' DisassociateQualificationFromWorker Text
-dqfwWorkerId = lens _dqfwWorkerId (\ s a -> s{_dqfwWorkerId = a});
+dqfwWorkerId = lens _dqfwWorkerId (\ s a -> s{_dqfwWorkerId = a})
 
 -- | The ID of the Qualification type of the Qualification to be revoked.
 dqfwQualificationTypeId :: Lens' DisassociateQualificationFromWorker Text
-dqfwQualificationTypeId = lens _dqfwQualificationTypeId (\ s a -> s{_dqfwQualificationTypeId = a});
+dqfwQualificationTypeId = lens _dqfwQualificationTypeId (\ s a -> s{_dqfwQualificationTypeId = a})
 
 instance AWSRequest
            DisassociateQualificationFromWorker
@@ -152,12 +152,12 @@ disassociateQualificationFromWorkerResponse
     -> DisassociateQualificationFromWorkerResponse
 disassociateQualificationFromWorkerResponse pResponseStatus_ =
   DisassociateQualificationFromWorkerResponse'
-  {_dqfwrsResponseStatus = pResponseStatus_}
+    {_dqfwrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dqfwrsResponseStatus :: Lens' DisassociateQualificationFromWorkerResponse Int
-dqfwrsResponseStatus = lens _dqfwrsResponseStatus (\ s a -> s{_dqfwrsResponseStatus = a});
+dqfwrsResponseStatus = lens _dqfwrsResponseStatus (\ s a -> s{_dqfwrsResponseStatus = a})
 
 instance NFData
            DisassociateQualificationFromWorkerResponse

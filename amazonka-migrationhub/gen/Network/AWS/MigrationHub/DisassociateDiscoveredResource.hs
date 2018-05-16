@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DisassociateDiscoveredResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ disassociateDiscoveredResource
     -> DisassociateDiscoveredResource
 disassociateDiscoveredResource pProgressUpdateStream_ pMigrationTaskName_ pConfigurationId_ =
   DisassociateDiscoveredResource'
-  { _ddrDryRun = Nothing
-  , _ddrProgressUpdateStream = pProgressUpdateStream_
-  , _ddrMigrationTaskName = pMigrationTaskName_
-  , _ddrConfigurationId = pConfigurationId_
-  }
+    { _ddrDryRun = Nothing
+    , _ddrProgressUpdateStream = pProgressUpdateStream_
+    , _ddrMigrationTaskName = pMigrationTaskName_
+    , _ddrConfigurationId = pConfigurationId_
+    }
 
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 ddrDryRun :: Lens' DisassociateDiscoveredResource (Maybe Bool)
-ddrDryRun = lens _ddrDryRun (\ s a -> s{_ddrDryRun = a});
+ddrDryRun = lens _ddrDryRun (\ s a -> s{_ddrDryRun = a})
 
 -- | The name of the ProgressUpdateStream.
 ddrProgressUpdateStream :: Lens' DisassociateDiscoveredResource Text
-ddrProgressUpdateStream = lens _ddrProgressUpdateStream (\ s a -> s{_ddrProgressUpdateStream = a});
+ddrProgressUpdateStream = lens _ddrProgressUpdateStream (\ s a -> s{_ddrProgressUpdateStream = a})
 
 -- | The identifier given to the MigrationTask.
 ddrMigrationTaskName :: Lens' DisassociateDiscoveredResource Text
-ddrMigrationTaskName = lens _ddrMigrationTaskName (\ s a -> s{_ddrMigrationTaskName = a});
+ddrMigrationTaskName = lens _ddrMigrationTaskName (\ s a -> s{_ddrMigrationTaskName = a})
 
 -- | ConfigurationId of the ADS resource to be disassociated.
 ddrConfigurationId :: Lens' DisassociateDiscoveredResource Text
-ddrConfigurationId = lens _ddrConfigurationId (\ s a -> s{_ddrConfigurationId = a});
+ddrConfigurationId = lens _ddrConfigurationId (\ s a -> s{_ddrConfigurationId = a})
 
 instance AWSRequest DisassociateDiscoveredResource
          where
@@ -155,12 +155,12 @@ disassociateDiscoveredResourceResponse
     -> DisassociateDiscoveredResourceResponse
 disassociateDiscoveredResourceResponse pResponseStatus_ =
   DisassociateDiscoveredResourceResponse'
-  {_ddrrsResponseStatus = pResponseStatus_}
+    {_ddrrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 ddrrsResponseStatus :: Lens' DisassociateDiscoveredResourceResponse Int
-ddrrsResponseStatus = lens _ddrrsResponseStatus (\ s a -> s{_ddrrsResponseStatus = a});
+ddrrsResponseStatus = lens _ddrrsResponseStatus (\ s a -> s{_ddrrsResponseStatus = a})
 
 instance NFData
            DisassociateDiscoveredResourceResponse

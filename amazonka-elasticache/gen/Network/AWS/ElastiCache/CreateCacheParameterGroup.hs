@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateCacheParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,23 +82,23 @@ createCacheParameterGroup
     -> CreateCacheParameterGroup
 createCacheParameterGroup pCacheParameterGroupName_ pCacheParameterGroupFamily_ pDescription_ =
   CreateCacheParameterGroup'
-  { _ccpgCacheParameterGroupName = pCacheParameterGroupName_
-  , _ccpgCacheParameterGroupFamily = pCacheParameterGroupFamily_
-  , _ccpgDescription = pDescription_
-  }
+    { _ccpgCacheParameterGroupName = pCacheParameterGroupName_
+    , _ccpgCacheParameterGroupFamily = pCacheParameterGroupFamily_
+    , _ccpgDescription = pDescription_
+    }
 
 
 -- | A user-specified name for the cache parameter group.
 ccpgCacheParameterGroupName :: Lens' CreateCacheParameterGroup Text
-ccpgCacheParameterGroupName = lens _ccpgCacheParameterGroupName (\ s a -> s{_ccpgCacheParameterGroupName = a});
+ccpgCacheParameterGroupName = lens _ccpgCacheParameterGroupName (\ s a -> s{_ccpgCacheParameterGroupName = a})
 
 -- | The name of the cache parameter group family that the cache parameter group can be used with. Valid values are: @memcached1.4@ | @redis2.6@ | @redis2.8@ | @redis3.2@
 ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
-ccpgCacheParameterGroupFamily = lens _ccpgCacheParameterGroupFamily (\ s a -> s{_ccpgCacheParameterGroupFamily = a});
+ccpgCacheParameterGroupFamily = lens _ccpgCacheParameterGroupFamily (\ s a -> s{_ccpgCacheParameterGroupFamily = a})
 
 -- | A user-specified description for the cache parameter group.
 ccpgDescription :: Lens' CreateCacheParameterGroup Text
-ccpgDescription = lens _ccpgDescription (\ s a -> s{_ccpgDescription = a});
+ccpgDescription = lens _ccpgDescription (\ s a -> s{_ccpgDescription = a})
 
 instance AWSRequest CreateCacheParameterGroup where
         type Rs CreateCacheParameterGroup =
@@ -152,18 +152,18 @@ createCacheParameterGroupResponse
     -> CreateCacheParameterGroupResponse
 createCacheParameterGroupResponse pResponseStatus_ =
   CreateCacheParameterGroupResponse'
-  { _ccpgrsCacheParameterGroup = Nothing
-  , _ccpgrsResponseStatus = pResponseStatus_
-  }
+    { _ccpgrsCacheParameterGroup = Nothing
+    , _ccpgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ccpgrsCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
-ccpgrsCacheParameterGroup = lens _ccpgrsCacheParameterGroup (\ s a -> s{_ccpgrsCacheParameterGroup = a});
+ccpgrsCacheParameterGroup = lens _ccpgrsCacheParameterGroup (\ s a -> s{_ccpgrsCacheParameterGroup = a})
 
 -- | -- | The response status code.
 ccpgrsResponseStatus :: Lens' CreateCacheParameterGroupResponse Int
-ccpgrsResponseStatus = lens _ccpgrsResponseStatus (\ s a -> s{_ccpgrsResponseStatus = a});
+ccpgrsResponseStatus = lens _ccpgrsResponseStatus (\ s a -> s{_ccpgrsResponseStatus = a})
 
 instance NFData CreateCacheParameterGroupResponse
          where

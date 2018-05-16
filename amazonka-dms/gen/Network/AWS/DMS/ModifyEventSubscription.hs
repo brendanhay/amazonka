@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.ModifyEventSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,33 +80,33 @@ modifyEventSubscription
     -> ModifyEventSubscription
 modifyEventSubscription pSubscriptionName_ =
   ModifyEventSubscription'
-  { _mesSNSTopicARN = Nothing
-  , _mesEnabled = Nothing
-  , _mesSourceType = Nothing
-  , _mesEventCategories = Nothing
-  , _mesSubscriptionName = pSubscriptionName_
-  }
+    { _mesSNSTopicARN = Nothing
+    , _mesEnabled = Nothing
+    , _mesSourceType = Nothing
+    , _mesEventCategories = Nothing
+    , _mesSubscriptionName = pSubscriptionName_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
 mesSNSTopicARN :: Lens' ModifyEventSubscription (Maybe Text)
-mesSNSTopicARN = lens _mesSNSTopicARN (\ s a -> s{_mesSNSTopicARN = a});
+mesSNSTopicARN = lens _mesSNSTopicARN (\ s a -> s{_mesSNSTopicARN = a})
 
 -- | A Boolean value; set to __true__ to activate the subscription.
 mesEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
-mesEnabled = lens _mesEnabled (\ s a -> s{_mesEnabled = a});
+mesEnabled = lens _mesEnabled (\ s a -> s{_mesEnabled = a})
 
 -- | The type of AWS DMS resource that generates the events you want to subscribe to.  Valid values: replication-instance | migration-task
 mesSourceType :: Lens' ModifyEventSubscription (Maybe Text)
-mesSourceType = lens _mesSourceType (\ s a -> s{_mesSourceType = a});
+mesSourceType = lens _mesSourceType (\ s a -> s{_mesSourceType = a})
 
 -- | A list of event categories for a source type that you want to subscribe to. Use the @DescribeEventCategories@ action to see a list of event categories.
 mesEventCategories :: Lens' ModifyEventSubscription [Text]
-mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a}) . _Default . _Coerce;
+mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a}) . _Default . _Coerce
 
 -- | The name of the AWS DMS event notification subscription to be modified.
 mesSubscriptionName :: Lens' ModifyEventSubscription Text
-mesSubscriptionName = lens _mesSubscriptionName (\ s a -> s{_mesSubscriptionName = a});
+mesSubscriptionName = lens _mesSubscriptionName (\ s a -> s{_mesSubscriptionName = a})
 
 instance AWSRequest ModifyEventSubscription where
         type Rs ModifyEventSubscription =
@@ -171,15 +171,15 @@ modifyEventSubscriptionResponse
     -> ModifyEventSubscriptionResponse
 modifyEventSubscriptionResponse pResponseStatus_ =
   ModifyEventSubscriptionResponse'
-  {_mesrsEventSubscription = Nothing, _mesrsResponseStatus = pResponseStatus_}
+    {_mesrsEventSubscription = Nothing, _mesrsResponseStatus = pResponseStatus_}
 
 
 -- | The modified event subscription.
 mesrsEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
-mesrsEventSubscription = lens _mesrsEventSubscription (\ s a -> s{_mesrsEventSubscription = a});
+mesrsEventSubscription = lens _mesrsEventSubscription (\ s a -> s{_mesrsEventSubscription = a})
 
 -- | -- | The response status code.
 mesrsResponseStatus :: Lens' ModifyEventSubscriptionResponse Int
-mesrsResponseStatus = lens _mesrsResponseStatus (\ s a -> s{_mesrsResponseStatus = a});
+mesrsResponseStatus = lens _mesrsResponseStatus (\ s a -> s{_mesrsResponseStatus = a})
 
 instance NFData ModifyEventSubscriptionResponse where

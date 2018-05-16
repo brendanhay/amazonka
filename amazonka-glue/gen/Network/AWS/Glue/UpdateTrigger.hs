@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateTrigger
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ updateTrigger pName_ pTriggerUpdate_ =
 
 -- | The name of the trigger to update.
 utName :: Lens' UpdateTrigger Text
-utName = lens _utName (\ s a -> s{_utName = a});
+utName = lens _utName (\ s a -> s{_utName = a})
 
 -- | The new values with which to update the trigger.
 utTriggerUpdate :: Lens' UpdateTrigger TriggerUpdate
-utTriggerUpdate = lens _utTriggerUpdate (\ s a -> s{_utTriggerUpdate = a});
+utTriggerUpdate = lens _utTriggerUpdate (\ s a -> s{_utTriggerUpdate = a})
 
 instance AWSRequest UpdateTrigger where
         type Rs UpdateTrigger = UpdateTriggerResponse
@@ -129,15 +129,15 @@ updateTriggerResponse
     -> UpdateTriggerResponse
 updateTriggerResponse pResponseStatus_ =
   UpdateTriggerResponse'
-  {_updrsTrigger = Nothing, _updrsResponseStatus = pResponseStatus_}
+    {_updrsTrigger = Nothing, _updrsResponseStatus = pResponseStatus_}
 
 
 -- | The resulting trigger definition.
 updrsTrigger :: Lens' UpdateTriggerResponse (Maybe Trigger)
-updrsTrigger = lens _updrsTrigger (\ s a -> s{_updrsTrigger = a});
+updrsTrigger = lens _updrsTrigger (\ s a -> s{_updrsTrigger = a})
 
 -- | -- | The response status code.
 updrsResponseStatus :: Lens' UpdateTriggerResponse Int
-updrsResponseStatus = lens _updrsResponseStatus (\ s a -> s{_updrsResponseStatus = a});
+updrsResponseStatus = lens _updrsResponseStatus (\ s a -> s{_updrsResponseStatus = a})
 
 instance NFData UpdateTriggerResponse where

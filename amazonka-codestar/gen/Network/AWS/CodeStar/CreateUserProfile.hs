@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.CreateUserProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ createUserProfile
     -> CreateUserProfile
 createUserProfile pUserARN_ pDisplayName_ pEmailAddress_ =
   CreateUserProfile'
-  { _cupSshPublicKey = Nothing
-  , _cupUserARN = pUserARN_
-  , _cupDisplayName = pDisplayName_
-  , _cupEmailAddress = _Sensitive # pEmailAddress_
-  }
+    { _cupSshPublicKey = Nothing
+    , _cupUserARN = pUserARN_
+    , _cupDisplayName = pDisplayName_
+    , _cupEmailAddress = _Sensitive # pEmailAddress_
+    }
 
 
 -- | The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
 cupSshPublicKey :: Lens' CreateUserProfile (Maybe Text)
-cupSshPublicKey = lens _cupSshPublicKey (\ s a -> s{_cupSshPublicKey = a});
+cupSshPublicKey = lens _cupSshPublicKey (\ s a -> s{_cupSshPublicKey = a})
 
 -- | The Amazon Resource Name (ARN) of the user in IAM.
 cupUserARN :: Lens' CreateUserProfile Text
-cupUserARN = lens _cupUserARN (\ s a -> s{_cupUserARN = a});
+cupUserARN = lens _cupUserARN (\ s a -> s{_cupUserARN = a})
 
 -- | The name that will be displayed as the friendly name for the user in AWS CodeStar.
 cupDisplayName :: Lens' CreateUserProfile Text
-cupDisplayName = lens _cupDisplayName (\ s a -> s{_cupDisplayName = a});
+cupDisplayName = lens _cupDisplayName (\ s a -> s{_cupDisplayName = a})
 
 -- | The email address that will be displayed as part of the user's profile in AWS CodeStar.
 cupEmailAddress :: Lens' CreateUserProfile Text
-cupEmailAddress = lens _cupEmailAddress (\ s a -> s{_cupEmailAddress = a}) . _Sensitive;
+cupEmailAddress = lens _cupEmailAddress (\ s a -> s{_cupEmailAddress = a}) . _Sensitive
 
 instance AWSRequest CreateUserProfile where
         type Rs CreateUserProfile = CreateUserProfileResponse
@@ -181,42 +181,42 @@ createUserProfileResponse
     -> CreateUserProfileResponse
 createUserProfileResponse pResponseStatus_ pUserARN_ =
   CreateUserProfileResponse'
-  { _cuprsLastModifiedTimestamp = Nothing
-  , _cuprsSshPublicKey = Nothing
-  , _cuprsEmailAddress = Nothing
-  , _cuprsDisplayName = Nothing
-  , _cuprsCreatedTimestamp = Nothing
-  , _cuprsResponseStatus = pResponseStatus_
-  , _cuprsUserARN = pUserARN_
-  }
+    { _cuprsLastModifiedTimestamp = Nothing
+    , _cuprsSshPublicKey = Nothing
+    , _cuprsEmailAddress = Nothing
+    , _cuprsDisplayName = Nothing
+    , _cuprsCreatedTimestamp = Nothing
+    , _cuprsResponseStatus = pResponseStatus_
+    , _cuprsUserARN = pUserARN_
+    }
 
 
 -- | The date the user profile was last modified, in timestamp format.
 cuprsLastModifiedTimestamp :: Lens' CreateUserProfileResponse (Maybe UTCTime)
-cuprsLastModifiedTimestamp = lens _cuprsLastModifiedTimestamp (\ s a -> s{_cuprsLastModifiedTimestamp = a}) . mapping _Time;
+cuprsLastModifiedTimestamp = lens _cuprsLastModifiedTimestamp (\ s a -> s{_cuprsLastModifiedTimestamp = a}) . mapping _Time
 
 -- | The SSH public key associated with the user in AWS CodeStar. This is the public portion of the public/private keypair the user can use to access project resources if a project owner allows the user remote access to those resources.
 cuprsSshPublicKey :: Lens' CreateUserProfileResponse (Maybe Text)
-cuprsSshPublicKey = lens _cuprsSshPublicKey (\ s a -> s{_cuprsSshPublicKey = a});
+cuprsSshPublicKey = lens _cuprsSshPublicKey (\ s a -> s{_cuprsSshPublicKey = a})
 
 -- | The email address that is displayed as part of the user's profile in AWS CodeStar.
 cuprsEmailAddress :: Lens' CreateUserProfileResponse (Maybe Text)
-cuprsEmailAddress = lens _cuprsEmailAddress (\ s a -> s{_cuprsEmailAddress = a}) . mapping _Sensitive;
+cuprsEmailAddress = lens _cuprsEmailAddress (\ s a -> s{_cuprsEmailAddress = a}) . mapping _Sensitive
 
 -- | The name that is displayed as the friendly name for the user in AWS CodeStar.
 cuprsDisplayName :: Lens' CreateUserProfileResponse (Maybe Text)
-cuprsDisplayName = lens _cuprsDisplayName (\ s a -> s{_cuprsDisplayName = a});
+cuprsDisplayName = lens _cuprsDisplayName (\ s a -> s{_cuprsDisplayName = a})
 
 -- | The date the user profile was created, in timestamp format.
 cuprsCreatedTimestamp :: Lens' CreateUserProfileResponse (Maybe UTCTime)
-cuprsCreatedTimestamp = lens _cuprsCreatedTimestamp (\ s a -> s{_cuprsCreatedTimestamp = a}) . mapping _Time;
+cuprsCreatedTimestamp = lens _cuprsCreatedTimestamp (\ s a -> s{_cuprsCreatedTimestamp = a}) . mapping _Time
 
 -- | -- | The response status code.
 cuprsResponseStatus :: Lens' CreateUserProfileResponse Int
-cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a});
+cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a})
 
 -- | The Amazon Resource Name (ARN) of the user in IAM.
 cuprsUserARN :: Lens' CreateUserProfileResponse Text
-cuprsUserARN = lens _cuprsUserARN (\ s a -> s{_cuprsUserARN = a});
+cuprsUserARN = lens _cuprsUserARN (\ s a -> s{_cuprsUserARN = a})
 
 instance NFData CreateUserProfileResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetDiscoveredResourceCounts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,11 +29,11 @@
 --
 --     * AWS Config returns the following:
 --
---     * The resource types (EC2 instances, IAM users, and S3 buckets)
+--     * The resource types (EC2 instances, IAM users, and S3 buckets).
 --
---     * The number of each resource type (25, 20, and 15)
+--     * The number of each resource type (25, 20, and 15).
 --
---     * The total number of all resources (60)
+--     * The total number of all resources (60).
 --
 --
 --
@@ -82,27 +82,30 @@ data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
 --
 -- * 'gdrcNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'gdrcLimit' - The maximum number of 'ResourceCount' objects returned on each page. The default is 100. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default.
+-- * 'gdrcLimit' - The maximum number of 'ResourceCount' objects returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 --
--- * 'gdrcResourceTypes' - The comma-separated list that specifies the resource types that you want the AWS Config to return. For example, (@"AWS::EC2::Instance"@ , @"AWS::IAM::User"@ ). If a value for @resourceTypes@ is not specified, AWS Config returns all resource types that AWS Config is recording in the region for your account.
+-- * 'gdrcResourceTypes' - The comma-separated list that specifies the resource types that you want AWS Config to return (for example, @"AWS::EC2::Instance"@ , @"AWS::IAM::User"@ ). If a value for @resourceTypes@ is not specified, AWS Config returns all resource types that AWS Config is recording in the region for your account.
 getDiscoveredResourceCounts
     :: GetDiscoveredResourceCounts
 getDiscoveredResourceCounts =
   GetDiscoveredResourceCounts'
-  {_gdrcNextToken = Nothing, _gdrcLimit = Nothing, _gdrcResourceTypes = Nothing}
+    { _gdrcNextToken = Nothing
+    , _gdrcLimit = Nothing
+    , _gdrcResourceTypes = Nothing
+    }
 
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 gdrcNextToken :: Lens' GetDiscoveredResourceCounts (Maybe Text)
-gdrcNextToken = lens _gdrcNextToken (\ s a -> s{_gdrcNextToken = a});
+gdrcNextToken = lens _gdrcNextToken (\ s a -> s{_gdrcNextToken = a})
 
--- | The maximum number of 'ResourceCount' objects returned on each page. The default is 100. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default.
+-- | The maximum number of 'ResourceCount' objects returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 gdrcLimit :: Lens' GetDiscoveredResourceCounts (Maybe Natural)
-gdrcLimit = lens _gdrcLimit (\ s a -> s{_gdrcLimit = a}) . mapping _Nat;
+gdrcLimit = lens _gdrcLimit (\ s a -> s{_gdrcLimit = a}) . mapping _Nat
 
--- | The comma-separated list that specifies the resource types that you want the AWS Config to return. For example, (@"AWS::EC2::Instance"@ , @"AWS::IAM::User"@ ). If a value for @resourceTypes@ is not specified, AWS Config returns all resource types that AWS Config is recording in the region for your account.
+-- | The comma-separated list that specifies the resource types that you want AWS Config to return (for example, @"AWS::EC2::Instance"@ , @"AWS::IAM::User"@ ). If a value for @resourceTypes@ is not specified, AWS Config returns all resource types that AWS Config is recording in the region for your account.
 gdrcResourceTypes :: Lens' GetDiscoveredResourceCounts [Text]
-gdrcResourceTypes = lens _gdrcResourceTypes (\ s a -> s{_gdrcResourceTypes = a}) . _Default . _Coerce;
+gdrcResourceTypes = lens _gdrcResourceTypes (\ s a -> s{_gdrcResourceTypes = a}) . _Default . _Coerce
 
 instance AWSRequest GetDiscoveredResourceCounts where
         type Rs GetDiscoveredResourceCounts =
@@ -158,7 +161,7 @@ data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrcrsTotalDiscoveredResources' - The total number of resources that AWS Config is recording in the region for your account. If you specify resource types in the request, AWS Config returns only the total number of resources for those resource types. __Example__      * AWS Config is recording three resource types in the US East (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3 buckets, for a total of 60 resources.     * You make a call to the @GetDiscoveredResourceCounts@ action and specify the resource type, @"AWS::EC2::Instances"@ in the request.     * AWS Config returns 25 for @totalDiscoveredResources@ .
+-- * 'gdrcrsTotalDiscoveredResources' - The total number of resources that AWS Config is recording in the region for your account. If you specify resource types in the request, AWS Config returns only the total number of resources for those resource types. __Example__      * AWS Config is recording three resource types in the US East (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3 buckets, for a total of 60 resources.     * You make a call to the @GetDiscoveredResourceCounts@ action and specify the resource type, @"AWS::EC2::Instances"@ , in the request.     * AWS Config returns 25 for @totalDiscoveredResources@ .
 --
 -- * 'gdrcrsNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
 --
@@ -170,28 +173,28 @@ getDiscoveredResourceCountsResponse
     -> GetDiscoveredResourceCountsResponse
 getDiscoveredResourceCountsResponse pResponseStatus_ =
   GetDiscoveredResourceCountsResponse'
-  { _gdrcrsTotalDiscoveredResources = Nothing
-  , _gdrcrsNextToken = Nothing
-  , _gdrcrsResourceCounts = Nothing
-  , _gdrcrsResponseStatus = pResponseStatus_
-  }
+    { _gdrcrsTotalDiscoveredResources = Nothing
+    , _gdrcrsNextToken = Nothing
+    , _gdrcrsResourceCounts = Nothing
+    , _gdrcrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The total number of resources that AWS Config is recording in the region for your account. If you specify resource types in the request, AWS Config returns only the total number of resources for those resource types. __Example__      * AWS Config is recording three resource types in the US East (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3 buckets, for a total of 60 resources.     * You make a call to the @GetDiscoveredResourceCounts@ action and specify the resource type, @"AWS::EC2::Instances"@ in the request.     * AWS Config returns 25 for @totalDiscoveredResources@ .
+-- | The total number of resources that AWS Config is recording in the region for your account. If you specify resource types in the request, AWS Config returns only the total number of resources for those resource types. __Example__      * AWS Config is recording three resource types in the US East (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3 buckets, for a total of 60 resources.     * You make a call to the @GetDiscoveredResourceCounts@ action and specify the resource type, @"AWS::EC2::Instances"@ , in the request.     * AWS Config returns 25 for @totalDiscoveredResources@ .
 gdrcrsTotalDiscoveredResources :: Lens' GetDiscoveredResourceCountsResponse (Maybe Integer)
-gdrcrsTotalDiscoveredResources = lens _gdrcrsTotalDiscoveredResources (\ s a -> s{_gdrcrsTotalDiscoveredResources = a});
+gdrcrsTotalDiscoveredResources = lens _gdrcrsTotalDiscoveredResources (\ s a -> s{_gdrcrsTotalDiscoveredResources = a})
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 gdrcrsNextToken :: Lens' GetDiscoveredResourceCountsResponse (Maybe Text)
-gdrcrsNextToken = lens _gdrcrsNextToken (\ s a -> s{_gdrcrsNextToken = a});
+gdrcrsNextToken = lens _gdrcrsNextToken (\ s a -> s{_gdrcrsNextToken = a})
 
 -- | The list of @ResourceCount@ objects. Each object is listed in descending order by the number of resources.
 gdrcrsResourceCounts :: Lens' GetDiscoveredResourceCountsResponse [ResourceCount]
-gdrcrsResourceCounts = lens _gdrcrsResourceCounts (\ s a -> s{_gdrcrsResourceCounts = a}) . _Default . _Coerce;
+gdrcrsResourceCounts = lens _gdrcrsResourceCounts (\ s a -> s{_gdrcrsResourceCounts = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gdrcrsResponseStatus :: Lens' GetDiscoveredResourceCountsResponse Int
-gdrcrsResponseStatus = lens _gdrcrsResponseStatus (\ s a -> s{_gdrcrsResponseStatus = a});
+gdrcrsResponseStatus = lens _gdrcrsResponseStatus (\ s a -> s{_gdrcrsResponseStatus = a})
 
 instance NFData GetDiscoveredResourceCountsResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.Decrypt
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,23 +79,23 @@ decrypt
     -> Decrypt
 decrypt pCiphertextBlob_ =
   Decrypt'
-  { _decEncryptionContext = Nothing
-  , _decGrantTokens = Nothing
-  , _decCiphertextBlob = _Base64 # pCiphertextBlob_
-  }
+    { _decEncryptionContext = Nothing
+    , _decGrantTokens = Nothing
+    , _decCiphertextBlob = _Base64 # pCiphertextBlob_
+    }
 
 
 -- | The encryption context. If this was specified in the 'Encrypt' function, it must be specified here or the decryption operation will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> .
 decEncryptionContext :: Lens' Decrypt (HashMap Text Text)
-decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . _Default . _Map;
+decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . _Default . _Map
 
 -- | A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 decGrantTokens :: Lens' Decrypt [Text]
-decGrantTokens = lens _decGrantTokens (\ s a -> s{_decGrantTokens = a}) . _Default . _Coerce;
+decGrantTokens = lens _decGrantTokens (\ s a -> s{_decGrantTokens = a}) . _Default . _Coerce
 
 -- | Ciphertext to be decrypted. The blob includes metadata.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 decCiphertextBlob :: Lens' Decrypt ByteString
-decCiphertextBlob = lens _decCiphertextBlob (\ s a -> s{_decCiphertextBlob = a}) . _Base64;
+decCiphertextBlob = lens _decCiphertextBlob (\ s a -> s{_decCiphertextBlob = a}) . _Base64
 
 instance AWSRequest Decrypt where
         type Rs Decrypt = DecryptResponse
@@ -156,22 +156,22 @@ decryptResponse
     -> DecryptResponse
 decryptResponse pResponseStatus_ =
   DecryptResponse'
-  { _drsKeyId = Nothing
-  , _drsPlaintext = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsKeyId = Nothing
+    , _drsPlaintext = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | ARN of the key used to perform the decryption. This value is returned if no errors are encountered during the operation.
 drsKeyId :: Lens' DecryptResponse (Maybe Text)
-drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a});
+drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a})
 
 -- | Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 drsPlaintext :: Lens' DecryptResponse (Maybe ByteString)
-drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping (_Sensitive . _Base64);
+drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping (_Sensitive . _Base64)
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DecryptResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DecryptResponse where

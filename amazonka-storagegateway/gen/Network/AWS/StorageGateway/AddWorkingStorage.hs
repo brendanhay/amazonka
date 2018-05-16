@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.AddWorkingStorage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures one or more gateway local disks as working storage for a gateway. This operation is only supported in the stored volume gateway architecture. This operation is deprecated in cached volume API version 20120630. Use 'AddUploadBuffer' instead.
+-- Configures one or more gateway local disks as working storage for a gateway. This operation is only supported in the stored volume gateway type. This operation is deprecated in cached volume API version 20120630. Use 'AddUploadBuffer' instead.
 --
 --
 -- In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to add working storage, and one or more disk IDs that you want to configure as working storage.
@@ -78,11 +78,11 @@ addWorkingStorage pGatewayARN_ =
 
 -- | Undocumented member.
 awsGatewayARN :: Lens' AddWorkingStorage Text
-awsGatewayARN = lens _awsGatewayARN (\ s a -> s{_awsGatewayARN = a});
+awsGatewayARN = lens _awsGatewayARN (\ s a -> s{_awsGatewayARN = a})
 
 -- | An array of strings that identify disks that are to be configured as working storage. Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
 awsDiskIds :: Lens' AddWorkingStorage [Text]
-awsDiskIds = lens _awsDiskIds (\ s a -> s{_awsDiskIds = a}) . _Coerce;
+awsDiskIds = lens _awsDiskIds (\ s a -> s{_awsDiskIds = a}) . _Coerce
 
 instance AWSRequest AddWorkingStorage where
         type Rs AddWorkingStorage = AddWorkingStorageResponse
@@ -143,15 +143,15 @@ addWorkingStorageResponse
     -> AddWorkingStorageResponse
 addWorkingStorageResponse pResponseStatus_ =
   AddWorkingStorageResponse'
-  {_awsrsGatewayARN = Nothing, _awsrsResponseStatus = pResponseStatus_}
+    {_awsrsGatewayARN = Nothing, _awsrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 awsrsGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
-awsrsGatewayARN = lens _awsrsGatewayARN (\ s a -> s{_awsrsGatewayARN = a});
+awsrsGatewayARN = lens _awsrsGatewayARN (\ s a -> s{_awsrsGatewayARN = a})
 
 -- | -- | The response status code.
 awsrsResponseStatus :: Lens' AddWorkingStorageResponse Int
-awsrsResponseStatus = lens _awsrsResponseStatus (\ s a -> s{_awsrsResponseStatus = a});
+awsrsResponseStatus = lens _awsrsResponseStatus (\ s a -> s{_awsrsResponseStatus = a})
 
 instance NFData AddWorkingStorageResponse where

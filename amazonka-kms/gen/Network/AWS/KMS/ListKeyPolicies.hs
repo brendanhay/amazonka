@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListKeyPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,20 +73,20 @@ listKeyPolicies
     -> ListKeyPolicies
 listKeyPolicies pKeyId_ =
   ListKeyPolicies'
-  {_lkpMarker = Nothing, _lkpLimit = Nothing, _lkpKeyId = pKeyId_}
+    {_lkpMarker = Nothing, _lkpLimit = Nothing, _lkpKeyId = pKeyId_}
 
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 lkpMarker :: Lens' ListKeyPolicies (Maybe Text)
-lkpMarker = lens _lkpMarker (\ s a -> s{_lkpMarker = a});
+lkpMarker = lens _lkpMarker (\ s a -> s{_lkpMarker = a})
 
 -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100. Currently only 1 policy can be attached to a key.
 lkpLimit :: Lens' ListKeyPolicies (Maybe Natural)
-lkpLimit = lens _lkpLimit (\ s a -> s{_lkpLimit = a}) . mapping _Nat;
+lkpLimit = lens _lkpLimit (\ s a -> s{_lkpLimit = a}) . mapping _Nat
 
 -- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 lkpKeyId :: Lens' ListKeyPolicies Text
-lkpKeyId = lens _lkpKeyId (\ s a -> s{_lkpKeyId = a});
+lkpKeyId = lens _lkpKeyId (\ s a -> s{_lkpKeyId = a})
 
 instance AWSPager ListKeyPolicies where
         page rq rs
@@ -147,7 +147,7 @@ data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lkprsPolicyNames' - A list of policy names. Currently, there is only one policy and it is named "Default".
+-- * 'lkprsPolicyNames' - A list of key policy names. Currently, there is only one key policy per CMK and it is always named @default@ .
 --
 -- * 'lkprsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 --
@@ -159,27 +159,27 @@ listKeyPoliciesResponse
     -> ListKeyPoliciesResponse
 listKeyPoliciesResponse pResponseStatus_ =
   ListKeyPoliciesResponse'
-  { _lkprsPolicyNames = Nothing
-  , _lkprsTruncated = Nothing
-  , _lkprsNextMarker = Nothing
-  , _lkprsResponseStatus = pResponseStatus_
-  }
+    { _lkprsPolicyNames = Nothing
+    , _lkprsTruncated = Nothing
+    , _lkprsNextMarker = Nothing
+    , _lkprsResponseStatus = pResponseStatus_
+    }
 
 
--- | A list of policy names. Currently, there is only one policy and it is named "Default".
+-- | A list of key policy names. Currently, there is only one key policy per CMK and it is always named @default@ .
 lkprsPolicyNames :: Lens' ListKeyPoliciesResponse [Text]
-lkprsPolicyNames = lens _lkprsPolicyNames (\ s a -> s{_lkprsPolicyNames = a}) . _Default . _Coerce;
+lkprsPolicyNames = lens _lkprsPolicyNames (\ s a -> s{_lkprsPolicyNames = a}) . _Default . _Coerce
 
 -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 lkprsTruncated :: Lens' ListKeyPoliciesResponse (Maybe Bool)
-lkprsTruncated = lens _lkprsTruncated (\ s a -> s{_lkprsTruncated = a});
+lkprsTruncated = lens _lkprsTruncated (\ s a -> s{_lkprsTruncated = a})
 
 -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 lkprsNextMarker :: Lens' ListKeyPoliciesResponse (Maybe Text)
-lkprsNextMarker = lens _lkprsNextMarker (\ s a -> s{_lkprsNextMarker = a});
+lkprsNextMarker = lens _lkprsNextMarker (\ s a -> s{_lkprsNextMarker = a})
 
 -- | -- | The response status code.
 lkprsResponseStatus :: Lens' ListKeyPoliciesResponse Int
-lkprsResponseStatus = lens _lkprsResponseStatus (\ s a -> s{_lkprsResponseStatus = a});
+lkprsResponseStatus = lens _lkprsResponseStatus (\ s a -> s{_lkprsResponseStatus = a})
 
 instance NFData ListKeyPoliciesResponse where

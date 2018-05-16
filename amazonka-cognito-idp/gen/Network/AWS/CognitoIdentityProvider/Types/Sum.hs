@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -18,6 +18,75 @@
 module Network.AWS.CognitoIdentityProvider.Types.Sum where
 
 import Network.AWS.Prelude
+
+data AccountTakeoverEventActionType
+  = ATEATBlock
+  | ATEATMFAIfConfigured
+  | ATEATMFARequired
+  | ATEATNoAction
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AccountTakeoverEventActionType where
+    parser = takeLowerText >>= \case
+        "block" -> pure ATEATBlock
+        "mfa_if_configured" -> pure ATEATMFAIfConfigured
+        "mfa_required" -> pure ATEATMFARequired
+        "no_action" -> pure ATEATNoAction
+        e -> fromTextError $ "Failure parsing AccountTakeoverEventActionType from value: '" <> e
+           <> "'. Accepted values: block, mfa_if_configured, mfa_required, no_action"
+
+instance ToText AccountTakeoverEventActionType where
+    toText = \case
+        ATEATBlock -> "BLOCK"
+        ATEATMFAIfConfigured -> "MFA_IF_CONFIGURED"
+        ATEATMFARequired -> "MFA_REQUIRED"
+        ATEATNoAction -> "NO_ACTION"
+
+instance Hashable     AccountTakeoverEventActionType
+instance NFData       AccountTakeoverEventActionType
+instance ToByteString AccountTakeoverEventActionType
+instance ToQuery      AccountTakeoverEventActionType
+instance ToHeader     AccountTakeoverEventActionType
+
+instance ToJSON AccountTakeoverEventActionType where
+    toJSON = toJSONText
+
+instance FromJSON AccountTakeoverEventActionType where
+    parseJSON = parseJSONText "AccountTakeoverEventActionType"
+
+data AdvancedSecurityModeType
+  = Audit
+  | Enforced
+  | Off
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AdvancedSecurityModeType where
+    parser = takeLowerText >>= \case
+        "audit" -> pure Audit
+        "enforced" -> pure Enforced
+        "off" -> pure Off
+        e -> fromTextError $ "Failure parsing AdvancedSecurityModeType from value: '" <> e
+           <> "'. Accepted values: audit, enforced, off"
+
+instance ToText AdvancedSecurityModeType where
+    toText = \case
+        Audit -> "AUDIT"
+        Enforced -> "ENFORCED"
+        Off -> "OFF"
+
+instance Hashable     AdvancedSecurityModeType
+instance NFData       AdvancedSecurityModeType
+instance ToByteString AdvancedSecurityModeType
+instance ToQuery      AdvancedSecurityModeType
+instance ToHeader     AdvancedSecurityModeType
+
+instance ToJSON AdvancedSecurityModeType where
+    toJSON = toJSONText
+
+instance FromJSON AdvancedSecurityModeType where
+    parseJSON = parseJSONText "AdvancedSecurityModeType"
 
 data AliasAttributeType
   = AATEmail
@@ -93,6 +162,7 @@ data AuthFlowType
   | CustomAuth
   | RefreshToken
   | RefreshTokenAuth
+  | UserPasswordAuth
   | UserSrpAuth
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -103,9 +173,10 @@ instance FromText AuthFlowType where
         "custom_auth" -> pure CustomAuth
         "refresh_token" -> pure RefreshToken
         "refresh_token_auth" -> pure RefreshTokenAuth
+        "user_password_auth" -> pure UserPasswordAuth
         "user_srp_auth" -> pure UserSrpAuth
         e -> fromTextError $ "Failure parsing AuthFlowType from value: '" <> e
-           <> "'. Accepted values: admin_no_srp_auth, custom_auth, refresh_token, refresh_token_auth, user_srp_auth"
+           <> "'. Accepted values: admin_no_srp_auth, custom_auth, refresh_token, refresh_token_auth, user_password_auth, user_srp_auth"
 
 instance ToText AuthFlowType where
     toText = \case
@@ -113,6 +184,7 @@ instance ToText AuthFlowType where
         CustomAuth -> "CUSTOM_AUTH"
         RefreshToken -> "REFRESH_TOKEN"
         RefreshTokenAuth -> "REFRESH_TOKEN_AUTH"
+        UserPasswordAuth -> "USER_PASSWORD_AUTH"
         UserSrpAuth -> "USER_SRP_AUTH"
 
 instance Hashable     AuthFlowType
@@ -124,14 +196,44 @@ instance ToHeader     AuthFlowType
 instance ToJSON AuthFlowType where
     toJSON = toJSONText
 
+data ChallengeName
+  = MFA
+  | Password
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ChallengeName where
+    parser = takeLowerText >>= \case
+        "mfa" -> pure MFA
+        "password" -> pure Password
+        e -> fromTextError $ "Failure parsing ChallengeName from value: '" <> e
+           <> "'. Accepted values: mfa, password"
+
+instance ToText ChallengeName where
+    toText = \case
+        MFA -> "Mfa"
+        Password -> "Password"
+
+instance Hashable     ChallengeName
+instance NFData       ChallengeName
+instance ToByteString ChallengeName
+instance ToQuery      ChallengeName
+instance ToHeader     ChallengeName
+
+instance FromJSON ChallengeName where
+    parseJSON = parseJSONText "ChallengeName"
+
 data ChallengeNameType
   = CNTAdminNoSrpAuth
   | CNTCustomChallenge
   | CNTDevicePasswordVerifier
   | CNTDeviceSrpAuth
+  | CNTMFASetup
   | CNTNewPasswordRequired
   | CNTPasswordVerifier
+  | CNTSelectMFAType
   | CNTSmsMFA
+  | CNTSoftwareTokenMFA
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -141,11 +243,14 @@ instance FromText ChallengeNameType where
         "custom_challenge" -> pure CNTCustomChallenge
         "device_password_verifier" -> pure CNTDevicePasswordVerifier
         "device_srp_auth" -> pure CNTDeviceSrpAuth
+        "mfa_setup" -> pure CNTMFASetup
         "new_password_required" -> pure CNTNewPasswordRequired
         "password_verifier" -> pure CNTPasswordVerifier
+        "select_mfa_type" -> pure CNTSelectMFAType
         "sms_mfa" -> pure CNTSmsMFA
+        "software_token_mfa" -> pure CNTSoftwareTokenMFA
         e -> fromTextError $ "Failure parsing ChallengeNameType from value: '" <> e
-           <> "'. Accepted values: admin_no_srp_auth, custom_challenge, device_password_verifier, device_srp_auth, new_password_required, password_verifier, sms_mfa"
+           <> "'. Accepted values: admin_no_srp_auth, custom_challenge, device_password_verifier, device_srp_auth, mfa_setup, new_password_required, password_verifier, select_mfa_type, sms_mfa, software_token_mfa"
 
 instance ToText ChallengeNameType where
     toText = \case
@@ -153,9 +258,12 @@ instance ToText ChallengeNameType where
         CNTCustomChallenge -> "CUSTOM_CHALLENGE"
         CNTDevicePasswordVerifier -> "DEVICE_PASSWORD_VERIFIER"
         CNTDeviceSrpAuth -> "DEVICE_SRP_AUTH"
+        CNTMFASetup -> "MFA_SETUP"
         CNTNewPasswordRequired -> "NEW_PASSWORD_REQUIRED"
         CNTPasswordVerifier -> "PASSWORD_VERIFIER"
+        CNTSelectMFAType -> "SELECT_MFA_TYPE"
         CNTSmsMFA -> "SMS_MFA"
+        CNTSoftwareTokenMFA -> "SOFTWARE_TOKEN_MFA"
 
 instance Hashable     ChallengeNameType
 instance NFData       ChallengeNameType
@@ -168,6 +276,63 @@ instance ToJSON ChallengeNameType where
 
 instance FromJSON ChallengeNameType where
     parseJSON = parseJSONText "ChallengeNameType"
+
+data ChallengeResponse
+  = CFailure
+  | CSuccess
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ChallengeResponse where
+    parser = takeLowerText >>= \case
+        "failure" -> pure CFailure
+        "success" -> pure CSuccess
+        e -> fromTextError $ "Failure parsing ChallengeResponse from value: '" <> e
+           <> "'. Accepted values: failure, success"
+
+instance ToText ChallengeResponse where
+    toText = \case
+        CFailure -> "Failure"
+        CSuccess -> "Success"
+
+instance Hashable     ChallengeResponse
+instance NFData       ChallengeResponse
+instance ToByteString ChallengeResponse
+instance ToQuery      ChallengeResponse
+instance ToHeader     ChallengeResponse
+
+instance FromJSON ChallengeResponse where
+    parseJSON = parseJSONText "ChallengeResponse"
+
+data CompromisedCredentialsEventActionType
+  = CCEATBlock
+  | CCEATNoAction
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CompromisedCredentialsEventActionType where
+    parser = takeLowerText >>= \case
+        "block" -> pure CCEATBlock
+        "no_action" -> pure CCEATNoAction
+        e -> fromTextError $ "Failure parsing CompromisedCredentialsEventActionType from value: '" <> e
+           <> "'. Accepted values: block, no_action"
+
+instance ToText CompromisedCredentialsEventActionType where
+    toText = \case
+        CCEATBlock -> "BLOCK"
+        CCEATNoAction -> "NO_ACTION"
+
+instance Hashable     CompromisedCredentialsEventActionType
+instance NFData       CompromisedCredentialsEventActionType
+instance ToByteString CompromisedCredentialsEventActionType
+instance ToQuery      CompromisedCredentialsEventActionType
+instance ToHeader     CompromisedCredentialsEventActionType
+
+instance ToJSON CompromisedCredentialsEventActionType where
+    toJSON = toJSONText
+
+instance FromJSON CompromisedCredentialsEventActionType where
+    parseJSON = parseJSONText "CompromisedCredentialsEventActionType"
 
 data DefaultEmailOptionType
   = ConfirmWithCode
@@ -292,9 +457,100 @@ instance ToHeader     DomainStatusType
 instance FromJSON DomainStatusType where
     parseJSON = parseJSONText "DomainStatusType"
 
+data EventFilterType
+  = PasswordChange
+  | SignIn
+  | SignUp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText EventFilterType where
+    parser = takeLowerText >>= \case
+        "password_change" -> pure PasswordChange
+        "sign_in" -> pure SignIn
+        "sign_up" -> pure SignUp
+        e -> fromTextError $ "Failure parsing EventFilterType from value: '" <> e
+           <> "'. Accepted values: password_change, sign_in, sign_up"
+
+instance ToText EventFilterType where
+    toText = \case
+        PasswordChange -> "PASSWORD_CHANGE"
+        SignIn -> "SIGN_IN"
+        SignUp -> "SIGN_UP"
+
+instance Hashable     EventFilterType
+instance NFData       EventFilterType
+instance ToByteString EventFilterType
+instance ToQuery      EventFilterType
+instance ToHeader     EventFilterType
+
+instance ToJSON EventFilterType where
+    toJSON = toJSONText
+
+instance FromJSON EventFilterType where
+    parseJSON = parseJSONText "EventFilterType"
+
+data EventResponseType
+  = Failure
+  | Success
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText EventResponseType where
+    parser = takeLowerText >>= \case
+        "failure" -> pure Failure
+        "success" -> pure Success
+        e -> fromTextError $ "Failure parsing EventResponseType from value: '" <> e
+           <> "'. Accepted values: failure, success"
+
+instance ToText EventResponseType where
+    toText = \case
+        Failure -> "Failure"
+        Success -> "Success"
+
+instance Hashable     EventResponseType
+instance NFData       EventResponseType
+instance ToByteString EventResponseType
+instance ToQuery      EventResponseType
+instance ToHeader     EventResponseType
+
+instance FromJSON EventResponseType where
+    parseJSON = parseJSONText "EventResponseType"
+
+data EventType
+  = ETForgotPassword
+  | ETSignIn
+  | ETSignUp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText EventType where
+    parser = takeLowerText >>= \case
+        "forgotpassword" -> pure ETForgotPassword
+        "signin" -> pure ETSignIn
+        "signup" -> pure ETSignUp
+        e -> fromTextError $ "Failure parsing EventType from value: '" <> e
+           <> "'. Accepted values: forgotpassword, signin, signup"
+
+instance ToText EventType where
+    toText = \case
+        ETForgotPassword -> "ForgotPassword"
+        ETSignIn -> "SignIn"
+        ETSignUp -> "SignUp"
+
+instance Hashable     EventType
+instance NFData       EventType
+instance ToByteString EventType
+instance ToQuery      EventType
+instance ToHeader     EventType
+
+instance FromJSON EventType where
+    parseJSON = parseJSONText "EventType"
+
 data ExplicitAuthFlowsType
   = EAFTAdminNoSrpAuth
   | EAFTCustomAuthFlowOnly
+  | EAFTUserPasswordAuth
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -302,13 +558,15 @@ instance FromText ExplicitAuthFlowsType where
     parser = takeLowerText >>= \case
         "admin_no_srp_auth" -> pure EAFTAdminNoSrpAuth
         "custom_auth_flow_only" -> pure EAFTCustomAuthFlowOnly
+        "user_password_auth" -> pure EAFTUserPasswordAuth
         e -> fromTextError $ "Failure parsing ExplicitAuthFlowsType from value: '" <> e
-           <> "'. Accepted values: admin_no_srp_auth, custom_auth_flow_only"
+           <> "'. Accepted values: admin_no_srp_auth, custom_auth_flow_only, user_password_auth"
 
 instance ToText ExplicitAuthFlowsType where
     toText = \case
         EAFTAdminNoSrpAuth -> "ADMIN_NO_SRP_AUTH"
         EAFTCustomAuthFlowOnly -> "CUSTOM_AUTH_FLOW_ONLY"
+        EAFTUserPasswordAuth -> "USER_PASSWORD_AUTH"
 
 instance Hashable     ExplicitAuthFlowsType
 instance NFData       ExplicitAuthFlowsType
@@ -321,6 +579,36 @@ instance ToJSON ExplicitAuthFlowsType where
 
 instance FromJSON ExplicitAuthFlowsType where
     parseJSON = parseJSONText "ExplicitAuthFlowsType"
+
+data FeedbackValueType
+  = Invalid
+  | Valid
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FeedbackValueType where
+    parser = takeLowerText >>= \case
+        "invalid" -> pure Invalid
+        "valid" -> pure Valid
+        e -> fromTextError $ "Failure parsing FeedbackValueType from value: '" <> e
+           <> "'. Accepted values: invalid, valid"
+
+instance ToText FeedbackValueType where
+    toText = \case
+        Invalid -> "Invalid"
+        Valid -> "Valid"
+
+instance Hashable     FeedbackValueType
+instance NFData       FeedbackValueType
+instance ToByteString FeedbackValueType
+instance ToQuery      FeedbackValueType
+instance ToHeader     FeedbackValueType
+
+instance ToJSON FeedbackValueType where
+    toJSON = toJSONText
+
+instance FromJSON FeedbackValueType where
+    parseJSON = parseJSONText "FeedbackValueType"
 
 data IdentityProviderTypeType
   = Facebook
@@ -418,6 +706,66 @@ instance ToJSON OAuthFlowType where
 instance FromJSON OAuthFlowType where
     parseJSON = parseJSONText "OAuthFlowType"
 
+data RiskDecisionType
+  = AccountTakeover
+  | Block
+  | NoRisk
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RiskDecisionType where
+    parser = takeLowerText >>= \case
+        "accounttakeover" -> pure AccountTakeover
+        "block" -> pure Block
+        "norisk" -> pure NoRisk
+        e -> fromTextError $ "Failure parsing RiskDecisionType from value: '" <> e
+           <> "'. Accepted values: accounttakeover, block, norisk"
+
+instance ToText RiskDecisionType where
+    toText = \case
+        AccountTakeover -> "AccountTakeover"
+        Block -> "Block"
+        NoRisk -> "NoRisk"
+
+instance Hashable     RiskDecisionType
+instance NFData       RiskDecisionType
+instance ToByteString RiskDecisionType
+instance ToQuery      RiskDecisionType
+instance ToHeader     RiskDecisionType
+
+instance FromJSON RiskDecisionType where
+    parseJSON = parseJSONText "RiskDecisionType"
+
+data RiskLevelType
+  = High
+  | Low
+  | Medium
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RiskLevelType where
+    parser = takeLowerText >>= \case
+        "high" -> pure High
+        "low" -> pure Low
+        "medium" -> pure Medium
+        e -> fromTextError $ "Failure parsing RiskLevelType from value: '" <> e
+           <> "'. Accepted values: high, low, medium"
+
+instance ToText RiskLevelType where
+    toText = \case
+        High -> "High"
+        Low -> "Low"
+        Medium -> "Medium"
+
+instance Hashable     RiskLevelType
+instance NFData       RiskLevelType
+instance ToByteString RiskLevelType
+instance ToQuery      RiskLevelType
+instance ToHeader     RiskLevelType
+
+instance FromJSON RiskLevelType where
+    parseJSON = parseJSONText "RiskLevelType"
+
 data StatusType
   = Disabled
   | Enabled
@@ -491,25 +839,25 @@ instance FromJSON UserImportJobStatusType where
     parseJSON = parseJSONText "UserImportJobStatusType"
 
 data UserPoolMFAType
-  = ON
-  | Off
-  | Optional
+  = UPMTON
+  | UPMTOff
+  | UPMTOptional
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText UserPoolMFAType where
     parser = takeLowerText >>= \case
-        "on" -> pure ON
-        "off" -> pure Off
-        "optional" -> pure Optional
+        "on" -> pure UPMTON
+        "off" -> pure UPMTOff
+        "optional" -> pure UPMTOptional
         e -> fromTextError $ "Failure parsing UserPoolMFAType from value: '" <> e
            <> "'. Accepted values: on, off, optional"
 
 instance ToText UserPoolMFAType where
     toText = \case
-        ON -> "ON"
-        Off -> "OFF"
-        Optional -> "OPTIONAL"
+        UPMTON -> "ON"
+        UPMTOff -> "OFF"
+        UPMTOptional -> "OPTIONAL"
 
 instance Hashable     UserPoolMFAType
 instance NFData       UserPoolMFAType
@@ -624,3 +972,30 @@ instance ToJSON VerifiedAttributeType where
 
 instance FromJSON VerifiedAttributeType where
     parseJSON = parseJSONText "VerifiedAttributeType"
+
+data VerifySoftwareTokenResponseType
+  = VSTRTError'
+  | VSTRTSuccess
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText VerifySoftwareTokenResponseType where
+    parser = takeLowerText >>= \case
+        "error" -> pure VSTRTError'
+        "success" -> pure VSTRTSuccess
+        e -> fromTextError $ "Failure parsing VerifySoftwareTokenResponseType from value: '" <> e
+           <> "'. Accepted values: error, success"
+
+instance ToText VerifySoftwareTokenResponseType where
+    toText = \case
+        VSTRTError' -> "ERROR"
+        VSTRTSuccess -> "SUCCESS"
+
+instance Hashable     VerifySoftwareTokenResponseType
+instance NFData       VerifySoftwareTokenResponseType
+instance ToByteString VerifySoftwareTokenResponseType
+instance ToQuery      VerifySoftwareTokenResponseType
+instance ToHeader     VerifySoftwareTokenResponseType
+
+instance FromJSON VerifySoftwareTokenResponseType where
+    parseJSON = parseJSONText "VerifySoftwareTokenResponseType"

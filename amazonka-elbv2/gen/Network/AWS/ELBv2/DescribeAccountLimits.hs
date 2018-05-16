@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeAccountLimits
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ describeAccountLimits =
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 dalMarker :: Lens' DescribeAccountLimits (Maybe Text)
-dalMarker = lens _dalMarker (\ s a -> s{_dalMarker = a});
+dalMarker = lens _dalMarker (\ s a -> s{_dalMarker = a})
 
 -- | The maximum number of results to return with this call.
 dalPageSize :: Lens' DescribeAccountLimits (Maybe Natural)
-dalPageSize = lens _dalPageSize (\ s a -> s{_dalPageSize = a}) . mapping _Nat;
+dalPageSize = lens _dalPageSize (\ s a -> s{_dalPageSize = a}) . mapping _Nat
 
 instance AWSRequest DescribeAccountLimits where
         type Rs DescribeAccountLimits =
@@ -128,22 +128,22 @@ describeAccountLimitsResponse
     -> DescribeAccountLimitsResponse
 describeAccountLimitsResponse pResponseStatus_ =
   DescribeAccountLimitsResponse'
-  { _dalrsLimits = Nothing
-  , _dalrsNextMarker = Nothing
-  , _dalrsResponseStatus = pResponseStatus_
-  }
+    { _dalrsLimits = Nothing
+    , _dalrsNextMarker = Nothing
+    , _dalrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the limits.
 dalrsLimits :: Lens' DescribeAccountLimitsResponse [Limit]
-dalrsLimits = lens _dalrsLimits (\ s a -> s{_dalrsLimits = a}) . _Default . _Coerce;
+dalrsLimits = lens _dalrsLimits (\ s a -> s{_dalrsLimits = a}) . _Default . _Coerce
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dalrsNextMarker :: Lens' DescribeAccountLimitsResponse (Maybe Text)
-dalrsNextMarker = lens _dalrsNextMarker (\ s a -> s{_dalrsNextMarker = a});
+dalrsNextMarker = lens _dalrsNextMarker (\ s a -> s{_dalrsNextMarker = a})
 
 -- | -- | The response status code.
 dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
-dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a});
+dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a})
 
 instance NFData DescribeAccountLimitsResponse where

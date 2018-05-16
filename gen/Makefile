@@ -18,7 +18,10 @@ MODELS ?= $(sort $(dir $(wildcard $(MODEL_DIR)/*/*)))
 
 .PHONY: gen format $(GENERATE)
 
-release: gen format
+all: gen format
+
+debug:
+	@echo $(MODELS)
 
 gen: $(MODEL_DIR) $(GENERATE)
 	$(GENERATE) \
@@ -37,22 +40,22 @@ format: $(STYLISH)
 	@echo -e '\nFormatting...'
 	@find \
 	$(wildcard $(OUT_DIR)/amazonka-*/gen) \
- 	$(wildcard $(OUT_DIR)/amazonka-*/test/Test/AWS/Gen) \
+	$(wildcard $(OUT_DIR)/amazonka-*/test/Test/AWS/Gen) \
 	-type f \
 	-name '*.hs' \
-	-exec sh -c "printf ' -> %s\n\' $1 {}; $(STYLISH) -i {}" \;
+	-exec sh -c "printf ' -> %s\n' $1 {}; $(STYLISH) -i {}" \;
 
 $(GENERATE): $(BIN_DIR)
-	stack install amazonka-gen
+	stack install --nix amazonka-gen
 
 $(STYLISH): $(BIN_DIR)
-	stack install stylish-haskell
+	stack install --nix stylish-haskell
 
 $(BIN_DIR):
 	mkdir $@
 
 clean:
-	stack clean
+	stack clean --nix
 	rm -rf $(MODEL_DIR) $(OUT_DIR)/amazonka-*/gen
 
 full-clean: clean

@@ -12,20 +12,20 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeliverConfigSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Schedules delivery of a configuration snapshot to the Amazon S3 bucket in the specified delivery channel. After the delivery has started, AWS Config sends following notifications using an Amazon SNS topic that you have specified.
+-- Schedules delivery of a configuration snapshot to the Amazon S3 bucket in the specified delivery channel. After the delivery has started, AWS Config sends the following notifications using an Amazon SNS topic that you have specified.
 --
 --
---     * Notification of starting the delivery.
+--     * Notification of the start of the delivery.
 --
---     * Notification of delivery completed, if the delivery was successfully completed.
+--     * Notification of the completion of the delivery, if the delivery was successfully completed.
 --
---     * Notification of delivery failure, if the delivery failed to complete.
+--     * Notification of delivery failure, if the delivery failed.
 --
 --
 --
@@ -76,7 +76,7 @@ deliverConfigSnapshot pDeliveryChannelName_ =
 
 -- | The name of the delivery channel through which the snapshot is delivered.
 dcsDeliveryChannelName :: Lens' DeliverConfigSnapshot Text
-dcsDeliveryChannelName = lens _dcsDeliveryChannelName (\ s a -> s{_dcsDeliveryChannelName = a});
+dcsDeliveryChannelName = lens _dcsDeliveryChannelName (\ s a -> s{_dcsDeliveryChannelName = a})
 
 instance AWSRequest DeliverConfigSnapshot where
         type Rs DeliverConfigSnapshot =
@@ -115,7 +115,7 @@ instance ToPath DeliverConfigSnapshot where
 instance ToQuery DeliverConfigSnapshot where
         toQuery = const mempty
 
--- | The output for the 'DeliverConfigSnapshot' action in JSON format.
+-- | The output for the 'DeliverConfigSnapshot' action, in JSON format.
 --
 --
 --
@@ -138,15 +138,15 @@ deliverConfigSnapshotResponse
     -> DeliverConfigSnapshotResponse
 deliverConfigSnapshotResponse pResponseStatus_ =
   DeliverConfigSnapshotResponse'
-  {_dcsrsConfigSnapshotId = Nothing, _dcsrsResponseStatus = pResponseStatus_}
+    {_dcsrsConfigSnapshotId = Nothing, _dcsrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the snapshot that is being created.
 dcsrsConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
-dcsrsConfigSnapshotId = lens _dcsrsConfigSnapshotId (\ s a -> s{_dcsrsConfigSnapshotId = a});
+dcsrsConfigSnapshotId = lens _dcsrsConfigSnapshotId (\ s a -> s{_dcsrsConfigSnapshotId = a})
 
 -- | -- | The response status code.
 dcsrsResponseStatus :: Lens' DeliverConfigSnapshotResponse Int
-dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
+dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a})
 
 instance NFData DeliverConfigSnapshotResponse where

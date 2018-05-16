@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeTargetGroupAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ describeTargetGroupAttributes pTargetGroupARN_ =
 
 -- | The Amazon Resource Name (ARN) of the target group.
 dtgaTargetGroupARN :: Lens' DescribeTargetGroupAttributes Text
-dtgaTargetGroupARN = lens _dtgaTargetGroupARN (\ s a -> s{_dtgaTargetGroupARN = a});
+dtgaTargetGroupARN = lens _dtgaTargetGroupARN (\ s a -> s{_dtgaTargetGroupARN = a})
 
 instance AWSRequest DescribeTargetGroupAttributes
          where
@@ -118,16 +118,16 @@ describeTargetGroupAttributesResponse
     -> DescribeTargetGroupAttributesResponse
 describeTargetGroupAttributesResponse pResponseStatus_ =
   DescribeTargetGroupAttributesResponse'
-  {_dtgarsAttributes = Nothing, _dtgarsResponseStatus = pResponseStatus_}
+    {_dtgarsAttributes = Nothing, _dtgarsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the target group attributes
 dtgarsAttributes :: Lens' DescribeTargetGroupAttributesResponse [TargetGroupAttribute]
-dtgarsAttributes = lens _dtgarsAttributes (\ s a -> s{_dtgarsAttributes = a}) . _Default . _Coerce;
+dtgarsAttributes = lens _dtgarsAttributes (\ s a -> s{_dtgarsAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtgarsResponseStatus :: Lens' DescribeTargetGroupAttributesResponse Int
-dtgarsResponseStatus = lens _dtgarsResponseStatus (\ s a -> s{_dtgarsResponseStatus = a});
+dtgarsResponseStatus = lens _dtgarsResponseStatus (\ s a -> s{_dtgarsResponseStatus = a})
 
 instance NFData DescribeTargetGroupAttributesResponse
          where

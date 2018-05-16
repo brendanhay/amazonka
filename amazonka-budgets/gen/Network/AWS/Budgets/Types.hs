@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,12 +46,12 @@ module Network.AWS.Budgets.Types
     , Budget
     , budget
     , bCalculatedSpend
+    , bBudgetLimit
+    , bTimePeriod
+    , bCostTypes
     , bCostFilters
     , bBudgetName
-    , bBudgetLimit
-    , bCostTypes
     , bTimeUnit
-    , bTimePeriod
     , bBudgetType
 
     -- * CalculatedSpend
@@ -63,9 +63,17 @@ module Network.AWS.Budgets.Types
     -- * CostTypes
     , CostTypes
     , costTypes
-    , ctIncludeTax
-    , ctIncludeSubscription
+    , ctUseAmortized
+    , ctIncludeRecurring
     , ctUseBlended
+    , ctIncludeSupport
+    , ctIncludeDiscount
+    , ctIncludeSubscription
+    , ctIncludeRefund
+    , ctIncludeUpfront
+    , ctIncludeOtherSubscription
+    , ctIncludeTax
+    , ctIncludeCredit
 
     -- * Notification
     , Notification
@@ -110,24 +118,24 @@ import Network.AWS.Sign.V4
 budgets :: Service
 budgets =
   Service
-  { _svcAbbrev = "Budgets"
-  , _svcSigner = v4
-  , _svcPrefix = "budgets"
-  , _svcVersion = "2016-10-20"
-  , _svcEndpoint = defaultEndpoint budgets
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Budgets"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "Budgets"
+    , _svcSigner = v4
+    , _svcPrefix = "budgets"
+    , _svcVersion = "2016-10-20"
+    , _svcEndpoint = defaultEndpoint budgets
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "Budgets"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -136,6 +144,8 @@ budgets =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -143,41 +153,55 @@ budgets =
       | otherwise = Nothing
 
 
--- | This exception is thrown if any request is given an invalid parameter. E.g., if a required Date field is null.
+-- | An error on the client occurred. Typically, the cause is an invalid input value.
+--
+--
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
   _MatchServiceError budgets "InvalidParameterException"
 
 
--- | This exception is thrown on an unknown internal failure.
+-- | An error on the server occurred during the processing of your request. Try again later.
+--
+--
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalErrorException = _MatchServiceError budgets "InternalErrorException"
 
 
--- | This exception is thrown if the paging token is expired - past its TTL
+-- | The pagination token expired.
+--
+--
 _ExpiredNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _ExpiredNextTokenException =
   _MatchServiceError budgets "ExpiredNextTokenException"
 
 
--- | This exception is thrown if a requested entity is not found. E.g., if a budget id doesn't exist for an account ID.
+-- | We can’t locate the resource that you specified.
+--
+--
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException = _MatchServiceError budgets "NotFoundException"
 
 
--- | This exception is thrown if paging token signature didn't match the token, or the paging token isn't for this request
+-- | The pagination token is invalid.
+--
+--
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
   _MatchServiceError budgets "InvalidNextTokenException"
 
 
--- | The exception is thrown when customer tries to create a record (e.g. budget) that already exists.
+-- | The budget name already exists. Budget names must be unique within an account.
+--
+--
 _DuplicateRecordException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateRecordException =
   _MatchServiceError budgets "DuplicateRecordException"
 
 
--- | The exception is thrown when customer tries to create a record (e.g. budget), but the number this record already exceeds the limitation.
+-- | You've exceeded the notification or subscriber limit.
+--
+--
 _CreationLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _CreationLimitExceededException =
   _MatchServiceError budgets "CreationLimitExceededException"

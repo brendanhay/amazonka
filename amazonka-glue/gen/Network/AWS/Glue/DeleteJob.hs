@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specified job.
+-- Deletes a specified job definition. If the job definition is not found, no exception is thrown.
 --
 --
 module Network.AWS.Glue.DeleteJob
@@ -54,16 +54,16 @@ newtype DeleteJob = DeleteJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'djJobName' - The name of the job to delete.
+-- * 'djJobName' - The name of the job definition to delete.
 deleteJob
     :: Text -- ^ 'djJobName'
     -> DeleteJob
 deleteJob pJobName_ = DeleteJob' {_djJobName = pJobName_}
 
 
--- | The name of the job to delete.
+-- | The name of the job definition to delete.
 djJobName :: Lens' DeleteJob Text
-djJobName = lens _djJobName (\ s a -> s{_djJobName = a});
+djJobName = lens _djJobName (\ s a -> s{_djJobName = a})
 
 instance AWSRequest DeleteJob where
         type Rs DeleteJob = DeleteJobResponse
@@ -108,7 +108,7 @@ data DeleteJobResponse = DeleteJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'djrsJobName' - The name of the job that was deleted.
+-- * 'djrsJobName' - The name of the job definition that was deleted.
 --
 -- * 'djrsResponseStatus' - -- | The response status code.
 deleteJobResponse
@@ -116,15 +116,15 @@ deleteJobResponse
     -> DeleteJobResponse
 deleteJobResponse pResponseStatus_ =
   DeleteJobResponse'
-  {_djrsJobName = Nothing, _djrsResponseStatus = pResponseStatus_}
+    {_djrsJobName = Nothing, _djrsResponseStatus = pResponseStatus_}
 
 
--- | The name of the job that was deleted.
+-- | The name of the job definition that was deleted.
 djrsJobName :: Lens' DeleteJobResponse (Maybe Text)
-djrsJobName = lens _djrsJobName (\ s a -> s{_djrsJobName = a});
+djrsJobName = lens _djrsJobName (\ s a -> s{_djrsJobName = a})
 
 -- | -- | The response status code.
 djrsResponseStatus :: Lens' DeleteJobResponse Int
-djrsResponseStatus = lens _djrsResponseStatus (\ s a -> s{_djrsResponseStatus = a});
+djrsResponseStatus = lens _djrsResponseStatus (\ s a -> s{_djrsResponseStatus = a})
 
 instance NFData DeleteJobResponse where

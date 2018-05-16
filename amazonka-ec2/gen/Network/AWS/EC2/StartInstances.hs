@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.StartInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,20 +79,20 @@ startInstances
     :: StartInstances
 startInstances =
   StartInstances'
-  {_sAdditionalInfo = Nothing, _sDryRun = Nothing, _sInstanceIds = mempty}
+    {_sAdditionalInfo = Nothing, _sDryRun = Nothing, _sInstanceIds = mempty}
 
 
 -- | Reserved.
 sAdditionalInfo :: Lens' StartInstances (Maybe Text)
-sAdditionalInfo = lens _sAdditionalInfo (\ s a -> s{_sAdditionalInfo = a});
+sAdditionalInfo = lens _sAdditionalInfo (\ s a -> s{_sAdditionalInfo = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 sDryRun :: Lens' StartInstances (Maybe Bool)
-sDryRun = lens _sDryRun (\ s a -> s{_sDryRun = a});
+sDryRun = lens _sDryRun (\ s a -> s{_sDryRun = a})
 
 -- | One or more instance IDs.
 sInstanceIds :: Lens' StartInstances [Text]
-sInstanceIds = lens _sInstanceIds (\ s a -> s{_sInstanceIds = a}) . _Coerce;
+sInstanceIds = lens _sInstanceIds (\ s a -> s{_sInstanceIds = a}) . _Coerce
 
 instance AWSRequest StartInstances where
         type Rs StartInstances = StartInstancesResponse
@@ -147,15 +147,15 @@ startInstancesResponse
     -> StartInstancesResponse
 startInstancesResponse pResponseStatus_ =
   StartInstancesResponse'
-  {_srsStartingInstances = Nothing, _srsResponseStatus = pResponseStatus_}
+    {_srsStartingInstances = Nothing, _srsResponseStatus = pResponseStatus_}
 
 
 -- | Information about one or more started instances.
 srsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
-srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstances = a}) . _Default . _Coerce;
+srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StartInstancesResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StartInstancesResponse where

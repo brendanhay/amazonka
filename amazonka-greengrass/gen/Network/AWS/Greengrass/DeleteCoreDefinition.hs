@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DeleteCoreDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a core definition. The core definition must not have been used in a deployment.
+-- Deletes a core definition.
 module Network.AWS.Greengrass.DeleteCoreDefinition
     (
     -- * Creating a Request
@@ -51,7 +51,7 @@ newtype DeleteCoreDefinition = DeleteCoreDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcdCoreDefinitionId' - core definition Id
+-- * 'dcdCoreDefinitionId' - The ID of the core definition.
 deleteCoreDefinition
     :: Text -- ^ 'dcdCoreDefinitionId'
     -> DeleteCoreDefinition
@@ -59,9 +59,9 @@ deleteCoreDefinition pCoreDefinitionId_ =
   DeleteCoreDefinition' {_dcdCoreDefinitionId = pCoreDefinitionId_}
 
 
--- | core definition Id
+-- | The ID of the core definition.
 dcdCoreDefinitionId :: Lens' DeleteCoreDefinition Text
-dcdCoreDefinitionId = lens _dcdCoreDefinitionId (\ s a -> s{_dcdCoreDefinitionId = a});
+dcdCoreDefinitionId = lens _dcdCoreDefinitionId (\ s a -> s{_dcdCoreDefinitionId = a})
 
 instance AWSRequest DeleteCoreDefinition where
         type Rs DeleteCoreDefinition =
@@ -113,6 +113,6 @@ deleteCoreDefinitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dcdrsResponseStatus :: Lens' DeleteCoreDefinitionResponse Int
-dcdrsResponseStatus = lens _dcdrsResponseStatus (\ s a -> s{_dcdrsResponseStatus = a});
+dcdrsResponseStatus = lens _dcdrsResponseStatus (\ s a -> s{_dcdrsResponseStatus = a})
 
 instance NFData DeleteCoreDefinitionResponse where

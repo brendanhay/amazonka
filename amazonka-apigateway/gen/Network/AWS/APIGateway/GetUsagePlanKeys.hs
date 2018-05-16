@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetUsagePlanKeys
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,38 +70,38 @@ data GetUsagePlanKeys = GetUsagePlanKeys'
 --
 -- * 'gupkNameQuery' - A query parameter specifying the name of the to-be-returned usage plan keys.
 --
--- * 'gupkLimit' - The maximum number of returned results per page.
+-- * 'gupkLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'gupkPosition' - The current pagination position in the paged result set.
 --
--- * 'gupkUsagePlanId' - The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
+-- * 'gupkUsagePlanId' - [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 getUsagePlanKeys
     :: Text -- ^ 'gupkUsagePlanId'
     -> GetUsagePlanKeys
 getUsagePlanKeys pUsagePlanId_ =
   GetUsagePlanKeys'
-  { _gupkNameQuery = Nothing
-  , _gupkLimit = Nothing
-  , _gupkPosition = Nothing
-  , _gupkUsagePlanId = pUsagePlanId_
-  }
+    { _gupkNameQuery = Nothing
+    , _gupkLimit = Nothing
+    , _gupkPosition = Nothing
+    , _gupkUsagePlanId = pUsagePlanId_
+    }
 
 
 -- | A query parameter specifying the name of the to-be-returned usage plan keys.
 gupkNameQuery :: Lens' GetUsagePlanKeys (Maybe Text)
-gupkNameQuery = lens _gupkNameQuery (\ s a -> s{_gupkNameQuery = a});
+gupkNameQuery = lens _gupkNameQuery (\ s a -> s{_gupkNameQuery = a})
 
--- | The maximum number of returned results per page.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 gupkLimit :: Lens' GetUsagePlanKeys (Maybe Int)
-gupkLimit = lens _gupkLimit (\ s a -> s{_gupkLimit = a});
+gupkLimit = lens _gupkLimit (\ s a -> s{_gupkLimit = a})
 
 -- | The current pagination position in the paged result set.
 gupkPosition :: Lens' GetUsagePlanKeys (Maybe Text)
-gupkPosition = lens _gupkPosition (\ s a -> s{_gupkPosition = a});
+gupkPosition = lens _gupkPosition (\ s a -> s{_gupkPosition = a})
 
--- | The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
+-- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 gupkUsagePlanId :: Lens' GetUsagePlanKeys Text
-gupkUsagePlanId = lens _gupkUsagePlanId (\ s a -> s{_gupkUsagePlanId = a});
+gupkUsagePlanId = lens _gupkUsagePlanId (\ s a -> s{_gupkUsagePlanId = a})
 
 instance AWSPager GetUsagePlanKeys where
         page rq rs
@@ -168,22 +168,22 @@ getUsagePlanKeysResponse
     -> GetUsagePlanKeysResponse
 getUsagePlanKeysResponse pResponseStatus_ =
   GetUsagePlanKeysResponse'
-  { _gupkrsItems = Nothing
-  , _gupkrsPosition = Nothing
-  , _gupkrsResponseStatus = pResponseStatus_
-  }
+    { _gupkrsItems = Nothing
+    , _gupkrsPosition = Nothing
+    , _gupkrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 gupkrsItems :: Lens' GetUsagePlanKeysResponse [UsagePlanKey]
-gupkrsItems = lens _gupkrsItems (\ s a -> s{_gupkrsItems = a}) . _Default . _Coerce;
+gupkrsItems = lens _gupkrsItems (\ s a -> s{_gupkrsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gupkrsPosition :: Lens' GetUsagePlanKeysResponse (Maybe Text)
-gupkrsPosition = lens _gupkrsPosition (\ s a -> s{_gupkrsPosition = a});
+gupkrsPosition = lens _gupkrsPosition (\ s a -> s{_gupkrsPosition = a})
 
 -- | -- | The response status code.
 gupkrsResponseStatus :: Lens' GetUsagePlanKeysResponse Int
-gupkrsResponseStatus = lens _gupkrsResponseStatus (\ s a -> s{_gupkrsResponseStatus = a});
+gupkrsResponseStatus = lens _gupkrsResponseStatus (\ s a -> s{_gupkrsResponseStatus = a})
 
 instance NFData GetUsagePlanKeysResponse where

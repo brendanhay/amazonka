@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteHostedZone
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,7 +81,7 @@ deleteHostedZone pId_ = DeleteHostedZone' {_dhzId = pId_}
 
 -- | The ID of the hosted zone you want to delete.
 dhzId :: Lens' DeleteHostedZone ResourceId
-dhzId = lens _dhzId (\ s a -> s{_dhzId = a});
+dhzId = lens _dhzId (\ s a -> s{_dhzId = a})
 
 instance AWSRequest DeleteHostedZone where
         type Rs DeleteHostedZone = DeleteHostedZoneResponse
@@ -130,15 +130,15 @@ deleteHostedZoneResponse
     -> DeleteHostedZoneResponse
 deleteHostedZoneResponse pResponseStatus_ pChangeInfo_ =
   DeleteHostedZoneResponse'
-  {_dhzrsResponseStatus = pResponseStatus_, _dhzrsChangeInfo = pChangeInfo_}
+    {_dhzrsResponseStatus = pResponseStatus_, _dhzrsChangeInfo = pChangeInfo_}
 
 
 -- | -- | The response status code.
 dhzrsResponseStatus :: Lens' DeleteHostedZoneResponse Int
-dhzrsResponseStatus = lens _dhzrsResponseStatus (\ s a -> s{_dhzrsResponseStatus = a});
+dhzrsResponseStatus = lens _dhzrsResponseStatus (\ s a -> s{_dhzrsResponseStatus = a})
 
 -- | A complex type that contains the ID, the status, and the date and time of a request to delete a hosted zone.
 dhzrsChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
-dhzrsChangeInfo = lens _dhzrsChangeInfo (\ s a -> s{_dhzrsChangeInfo = a});
+dhzrsChangeInfo = lens _dhzrsChangeInfo (\ s a -> s{_dhzrsChangeInfo = a})
 
 instance NFData DeleteHostedZoneResponse where

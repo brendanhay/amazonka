@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.SetTopicAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ setTopicAttributes
     -> SetTopicAttributes
 setTopicAttributes pTopicARN_ pAttributeName_ =
   SetTopicAttributes'
-  { _staAttributeValue = Nothing
-  , _staTopicARN = pTopicARN_
-  , _staAttributeName = pAttributeName_
-  }
+    { _staAttributeValue = Nothing
+    , _staTopicARN = pTopicARN_
+    , _staAttributeName = pAttributeName_
+    }
 
 
 -- | The new value for the attribute.
 staAttributeValue :: Lens' SetTopicAttributes (Maybe Text)
-staAttributeValue = lens _staAttributeValue (\ s a -> s{_staAttributeValue = a});
+staAttributeValue = lens _staAttributeValue (\ s a -> s{_staAttributeValue = a})
 
 -- | The ARN of the topic to modify.
 staTopicARN :: Lens' SetTopicAttributes Text
-staTopicARN = lens _staTopicARN (\ s a -> s{_staTopicARN = a});
+staTopicARN = lens _staTopicARN (\ s a -> s{_staTopicARN = a})
 
 -- | The name of the attribute you want to set. Only a subset of the topic's attributes are mutable. Valid values: @Policy@ | @DisplayName@ | @DeliveryPolicy@
 staAttributeName :: Lens' SetTopicAttributes Text
-staAttributeName = lens _staAttributeName (\ s a -> s{_staAttributeName = a});
+staAttributeName = lens _staAttributeName (\ s a -> s{_staAttributeName = a})
 
 instance AWSRequest SetTopicAttributes where
         type Rs SetTopicAttributes =

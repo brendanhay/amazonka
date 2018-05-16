@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListDirectories
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Lists directories created within an account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListDirectories
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CloudDirectory.ListDirectories
 import Network.AWS.CloudDirectory.Types
 import Network.AWS.CloudDirectory.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -68,20 +71,27 @@ listDirectories
     :: ListDirectories
 listDirectories =
   ListDirectories'
-  {_ldState = Nothing, _ldNextToken = Nothing, _ldMaxResults = Nothing}
+    {_ldState = Nothing, _ldNextToken = Nothing, _ldMaxResults = Nothing}
 
 
 -- | The state of the directories in the list. Can be either Enabled, Disabled, or Deleted.
 ldState :: Lens' ListDirectories (Maybe DirectoryState)
-ldState = lens _ldState (\ s a -> s{_ldState = a});
+ldState = lens _ldState (\ s a -> s{_ldState = a})
 
 -- | The pagination token.
 ldNextToken :: Lens' ListDirectories (Maybe Text)
-ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
+ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a})
 
 -- | The maximum number of results to retrieve.
 ldMaxResults :: Lens' ListDirectories (Maybe Natural)
-ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a}) . mapping _Nat;
+ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListDirectories where
+        page rq rs
+          | stop (rs ^. ldrsNextToken) = Nothing
+          | stop (rs ^. ldrsDirectories) = Nothing
+          | otherwise =
+            Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
 
 instance AWSRequest ListDirectories where
         type Rs ListDirectories = ListDirectoriesResponse
@@ -138,22 +148,22 @@ listDirectoriesResponse
     -> ListDirectoriesResponse
 listDirectoriesResponse pResponseStatus_ =
   ListDirectoriesResponse'
-  { _ldrsNextToken = Nothing
-  , _ldrsResponseStatus = pResponseStatus_
-  , _ldrsDirectories = mempty
-  }
+    { _ldrsNextToken = Nothing
+    , _ldrsResponseStatus = pResponseStatus_
+    , _ldrsDirectories = mempty
+    }
 
 
 -- | The pagination token.
 ldrsNextToken :: Lens' ListDirectoriesResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a})
 
 -- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDirectoriesResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
 
 -- | Lists all directories that are associated with your account in pagination fashion.
 ldrsDirectories :: Lens' ListDirectoriesResponse [Directory]
-ldrsDirectories = lens _ldrsDirectories (\ s a -> s{_ldrsDirectories = a}) . _Coerce;
+ldrsDirectories = lens _ldrsDirectories (\ s a -> s{_ldrsDirectories = a}) . _Coerce
 
 instance NFData ListDirectoriesResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateAPNSVoipChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ updateAPNSVoipChannel
     -> UpdateAPNSVoipChannel
 updateAPNSVoipChannel pApplicationId_ pAPNSVoipChannelRequest_ =
   UpdateAPNSVoipChannel'
-  { _uavcApplicationId = pApplicationId_
-  , _uavcAPNSVoipChannelRequest = pAPNSVoipChannelRequest_
-  }
+    { _uavcApplicationId = pApplicationId_
+    , _uavcAPNSVoipChannelRequest = pAPNSVoipChannelRequest_
+    }
 
 
 -- | Undocumented member.
 uavcApplicationId :: Lens' UpdateAPNSVoipChannel Text
-uavcApplicationId = lens _uavcApplicationId (\ s a -> s{_uavcApplicationId = a});
+uavcApplicationId = lens _uavcApplicationId (\ s a -> s{_uavcApplicationId = a})
 
 -- | Undocumented member.
 uavcAPNSVoipChannelRequest :: Lens' UpdateAPNSVoipChannel APNSVoipChannelRequest
-uavcAPNSVoipChannelRequest = lens _uavcAPNSVoipChannelRequest (\ s a -> s{_uavcAPNSVoipChannelRequest = a});
+uavcAPNSVoipChannelRequest = lens _uavcAPNSVoipChannelRequest (\ s a -> s{_uavcAPNSVoipChannelRequest = a})
 
 instance AWSRequest UpdateAPNSVoipChannel where
         type Rs UpdateAPNSVoipChannel =
@@ -134,17 +134,17 @@ updateAPNSVoipChannelResponse
     -> UpdateAPNSVoipChannelResponse
 updateAPNSVoipChannelResponse pResponseStatus_ pAPNSVoipChannelResponse_ =
   UpdateAPNSVoipChannelResponse'
-  { _uavcrsResponseStatus = pResponseStatus_
-  , _uavcrsAPNSVoipChannelResponse = pAPNSVoipChannelResponse_
-  }
+    { _uavcrsResponseStatus = pResponseStatus_
+    , _uavcrsAPNSVoipChannelResponse = pAPNSVoipChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 uavcrsResponseStatus :: Lens' UpdateAPNSVoipChannelResponse Int
-uavcrsResponseStatus = lens _uavcrsResponseStatus (\ s a -> s{_uavcrsResponseStatus = a});
+uavcrsResponseStatus = lens _uavcrsResponseStatus (\ s a -> s{_uavcrsResponseStatus = a})
 
 -- | Undocumented member.
 uavcrsAPNSVoipChannelResponse :: Lens' UpdateAPNSVoipChannelResponse APNSVoipChannelResponse
-uavcrsAPNSVoipChannelResponse = lens _uavcrsAPNSVoipChannelResponse (\ s a -> s{_uavcrsAPNSVoipChannelResponse = a});
+uavcrsAPNSVoipChannelResponse = lens _uavcrsAPNSVoipChannelResponse (\ s a -> s{_uavcrsAPNSVoipChannelResponse = a})
 
 instance NFData UpdateAPNSVoipChannelResponse where

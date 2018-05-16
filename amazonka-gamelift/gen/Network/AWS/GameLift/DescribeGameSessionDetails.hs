@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeGameSessionDetails
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -112,38 +112,38 @@ describeGameSessionDetails
     :: DescribeGameSessionDetails
 describeGameSessionDetails =
   DescribeGameSessionDetails'
-  { _dgsdGameSessionId = Nothing
-  , _dgsdAliasId = Nothing
-  , _dgsdNextToken = Nothing
-  , _dgsdStatusFilter = Nothing
-  , _dgsdLimit = Nothing
-  , _dgsdFleetId = Nothing
-  }
+    { _dgsdGameSessionId = Nothing
+    , _dgsdAliasId = Nothing
+    , _dgsdNextToken = Nothing
+    , _dgsdStatusFilter = Nothing
+    , _dgsdLimit = Nothing
+    , _dgsdFleetId = Nothing
+    }
 
 
 -- | Unique identifier for the game session to retrieve.
 dgsdGameSessionId :: Lens' DescribeGameSessionDetails (Maybe Text)
-dgsdGameSessionId = lens _dgsdGameSessionId (\ s a -> s{_dgsdGameSessionId = a});
+dgsdGameSessionId = lens _dgsdGameSessionId (\ s a -> s{_dgsdGameSessionId = a})
 
 -- | Unique identifier for an alias associated with the fleet to retrieve all game sessions for.
 dgsdAliasId :: Lens' DescribeGameSessionDetails (Maybe Text)
-dgsdAliasId = lens _dgsdAliasId (\ s a -> s{_dgsdAliasId = a});
+dgsdAliasId = lens _dgsdAliasId (\ s a -> s{_dgsdAliasId = a})
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dgsdNextToken :: Lens' DescribeGameSessionDetails (Maybe Text)
-dgsdNextToken = lens _dgsdNextToken (\ s a -> s{_dgsdNextToken = a});
+dgsdNextToken = lens _dgsdNextToken (\ s a -> s{_dgsdNextToken = a})
 
 -- | Game session status to filter results on. Possible game session statuses include @ACTIVE@ , @TERMINATED@ , @ACTIVATING@ and @TERMINATING@ (the last two are transitory).
 dgsdStatusFilter :: Lens' DescribeGameSessionDetails (Maybe Text)
-dgsdStatusFilter = lens _dgsdStatusFilter (\ s a -> s{_dgsdStatusFilter = a});
+dgsdStatusFilter = lens _dgsdStatusFilter (\ s a -> s{_dgsdStatusFilter = a})
 
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 dgsdLimit :: Lens' DescribeGameSessionDetails (Maybe Natural)
-dgsdLimit = lens _dgsdLimit (\ s a -> s{_dgsdLimit = a}) . mapping _Nat;
+dgsdLimit = lens _dgsdLimit (\ s a -> s{_dgsdLimit = a}) . mapping _Nat
 
 -- | Unique identifier for a fleet to retrieve all game sessions active on the fleet.
 dgsdFleetId :: Lens' DescribeGameSessionDetails (Maybe Text)
-dgsdFleetId = lens _dgsdFleetId (\ s a -> s{_dgsdFleetId = a});
+dgsdFleetId = lens _dgsdFleetId (\ s a -> s{_dgsdFleetId = a})
 
 instance AWSRequest DescribeGameSessionDetails where
         type Rs DescribeGameSessionDetails =
@@ -214,23 +214,23 @@ describeGameSessionDetailsResponse
     -> DescribeGameSessionDetailsResponse
 describeGameSessionDetailsResponse pResponseStatus_ =
   DescribeGameSessionDetailsResponse'
-  { _dgsdrsGameSessionDetails = Nothing
-  , _dgsdrsNextToken = Nothing
-  , _dgsdrsResponseStatus = pResponseStatus_
-  }
+    { _dgsdrsGameSessionDetails = Nothing
+    , _dgsdrsNextToken = Nothing
+    , _dgsdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Collection of objects containing game session properties and the protection policy currently in force for each session matching the request.
 dgsdrsGameSessionDetails :: Lens' DescribeGameSessionDetailsResponse [GameSessionDetail]
-dgsdrsGameSessionDetails = lens _dgsdrsGameSessionDetails (\ s a -> s{_dgsdrsGameSessionDetails = a}) . _Default . _Coerce;
+dgsdrsGameSessionDetails = lens _dgsdrsGameSessionDetails (\ s a -> s{_dgsdrsGameSessionDetails = a}) . _Default . _Coerce
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dgsdrsNextToken :: Lens' DescribeGameSessionDetailsResponse (Maybe Text)
-dgsdrsNextToken = lens _dgsdrsNextToken (\ s a -> s{_dgsdrsNextToken = a});
+dgsdrsNextToken = lens _dgsdrsNextToken (\ s a -> s{_dgsdrsNextToken = a})
 
 -- | -- | The response status code.
 dgsdrsResponseStatus :: Lens' DescribeGameSessionDetailsResponse Int
-dgsdrsResponseStatus = lens _dgsdrsResponseStatus (\ s a -> s{_dgsdrsResponseStatus = a});
+dgsdrsResponseStatus = lens _dgsdrsResponseStatus (\ s a -> s{_dgsdrsResponseStatus = a})
 
 instance NFData DescribeGameSessionDetailsResponse
          where

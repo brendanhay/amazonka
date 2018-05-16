@@ -1,5 +1,5 @@
 name:                  amazonka-servicecatalog
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Service Catalog SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -54,13 +54,16 @@ library
         , Network.AWS.ServiceCatalog.CreatePortfolio
         , Network.AWS.ServiceCatalog.CreatePortfolioShare
         , Network.AWS.ServiceCatalog.CreateProduct
+        , Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
         , Network.AWS.ServiceCatalog.CreateProvisioningArtifact
         , Network.AWS.ServiceCatalog.CreateTagOption
         , Network.AWS.ServiceCatalog.DeleteConstraint
         , Network.AWS.ServiceCatalog.DeletePortfolio
         , Network.AWS.ServiceCatalog.DeletePortfolioShare
         , Network.AWS.ServiceCatalog.DeleteProduct
+        , Network.AWS.ServiceCatalog.DeleteProvisionedProductPlan
         , Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
+        , Network.AWS.ServiceCatalog.DeleteTagOption
         , Network.AWS.ServiceCatalog.DescribeConstraint
         , Network.AWS.ServiceCatalog.DescribeCopyProductStatus
         , Network.AWS.ServiceCatalog.DescribePortfolio
@@ -68,6 +71,7 @@ library
         , Network.AWS.ServiceCatalog.DescribeProductAsAdmin
         , Network.AWS.ServiceCatalog.DescribeProductView
         , Network.AWS.ServiceCatalog.DescribeProvisionedProduct
+        , Network.AWS.ServiceCatalog.DescribeProvisionedProductPlan
         , Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
         , Network.AWS.ServiceCatalog.DescribeProvisioningParameters
         , Network.AWS.ServiceCatalog.DescribeRecord
@@ -75,6 +79,7 @@ library
         , Network.AWS.ServiceCatalog.DisassociatePrincipalFromPortfolio
         , Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
         , Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
+        , Network.AWS.ServiceCatalog.ExecuteProvisionedProductPlan
         , Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
         , Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
         , Network.AWS.ServiceCatalog.ListLaunchPaths
@@ -82,6 +87,7 @@ library
         , Network.AWS.ServiceCatalog.ListPortfolios
         , Network.AWS.ServiceCatalog.ListPortfoliosForProduct
         , Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
+        , Network.AWS.ServiceCatalog.ListProvisionedProductPlans
         , Network.AWS.ServiceCatalog.ListProvisioningArtifacts
         , Network.AWS.ServiceCatalog.ListRecordHistory
         , Network.AWS.ServiceCatalog.ListResourcesForTagOption
@@ -91,6 +97,7 @@ library
         , Network.AWS.ServiceCatalog.ScanProvisionedProducts
         , Network.AWS.ServiceCatalog.SearchProducts
         , Network.AWS.ServiceCatalog.SearchProductsAsAdmin
+        , Network.AWS.ServiceCatalog.SearchProvisionedProducts
         , Network.AWS.ServiceCatalog.TerminateProvisionedProduct
         , Network.AWS.ServiceCatalog.Types
         , Network.AWS.ServiceCatalog.UpdateConstraint
@@ -106,7 +113,7 @@ library
         , Network.AWS.ServiceCatalog.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-servicecatalog-test
@@ -126,8 +133,8 @@ test-suite amazonka-servicecatalog-test
         , Test.AWS.ServiceCatalog.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-servicecatalog
         , base
         , bytestring

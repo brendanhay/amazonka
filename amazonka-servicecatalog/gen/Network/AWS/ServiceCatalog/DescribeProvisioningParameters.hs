@@ -12,16 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeProvisioningParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information about parameters required to provision a specified product in a specified manner. Use this operation to obtain the list of @ProvisioningArtifactParameters@ parameters available to call the 'ProvisionProduct' operation for the specified product.
+-- Gets information about the configuration required to provision the specified product using the specified provisioning artifact.
 --
 --
--- If the output contains a TagOption key with an empty list of values, there is a TagOption conflict for that key. The end user cannot take action to fix the conflict, and launch is not blocked. In subsequent calls to the @ProvisionProduct@ operation, do not include conflicted TagOption keys as tags. Calls to @ProvisionProduct@ with empty TagOption values cause the error "Parameter validation failed: Missing required parameter in Tags[/N/ ]:/Value/ ". Calls to @ProvisionProduct@ with conflicted TagOption keys automatically tag the provisioned product with the conflicted keys with the value "@sc-tagoption-conflict-portfolioId-productId@ ".
+-- If the output contains a TagOption key with an empty list of values, there is a TagOption conflict for that key. The end user cannot take action to fix the conflict, and launch is not blocked. In subsequent calls to 'ProvisionProduct' , do not include conflicted TagOption keys as tags, or this causes the error "Parameter validation failed: Missing required parameter in Tags[/N/ ]:/Value/ ". Tag the provisioned product with the value @sc-tagoption-conflict-portfolioId-productId@ .
 --
 module Network.AWS.ServiceCatalog.DescribeProvisioningParameters
     (
@@ -67,39 +67,39 @@ data DescribeProvisioningParameters = DescribeProvisioningParameters'
 --
 -- * 'dppsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dppsPathId' - The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
+-- * 'dppsPathId' - The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
 --
 -- * 'dppsProductId' - The product identifier.
 --
--- * 'dppsProvisioningArtifactId' - The provisioning artifact identifier for this product. This is sometimes referred to as the product version.
+-- * 'dppsProvisioningArtifactId' - The identifier of the provisioning artifact.
 describeProvisioningParameters
     :: Text -- ^ 'dppsProductId'
     -> Text -- ^ 'dppsProvisioningArtifactId'
     -> DescribeProvisioningParameters
 describeProvisioningParameters pProductId_ pProvisioningArtifactId_ =
   DescribeProvisioningParameters'
-  { _dppsAcceptLanguage = Nothing
-  , _dppsPathId = Nothing
-  , _dppsProductId = pProductId_
-  , _dppsProvisioningArtifactId = pProvisioningArtifactId_
-  }
+    { _dppsAcceptLanguage = Nothing
+    , _dppsPathId = Nothing
+    , _dppsProductId = pProductId_
+    , _dppsProvisioningArtifactId = pProvisioningArtifactId_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dppsAcceptLanguage :: Lens' DescribeProvisioningParameters (Maybe Text)
-dppsAcceptLanguage = lens _dppsAcceptLanguage (\ s a -> s{_dppsAcceptLanguage = a});
+dppsAcceptLanguage = lens _dppsAcceptLanguage (\ s a -> s{_dppsAcceptLanguage = a})
 
--- | The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
+-- | The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
 dppsPathId :: Lens' DescribeProvisioningParameters (Maybe Text)
-dppsPathId = lens _dppsPathId (\ s a -> s{_dppsPathId = a});
+dppsPathId = lens _dppsPathId (\ s a -> s{_dppsPathId = a})
 
 -- | The product identifier.
 dppsProductId :: Lens' DescribeProvisioningParameters Text
-dppsProductId = lens _dppsProductId (\ s a -> s{_dppsProductId = a});
+dppsProductId = lens _dppsProductId (\ s a -> s{_dppsProductId = a})
 
--- | The provisioning artifact identifier for this product. This is sometimes referred to as the product version.
+-- | The identifier of the provisioning artifact.
 dppsProvisioningArtifactId :: Lens' DescribeProvisioningParameters Text
-dppsProvisioningArtifactId = lens _dppsProvisioningArtifactId (\ s a -> s{_dppsProvisioningArtifactId = a});
+dppsProvisioningArtifactId = lens _dppsProvisioningArtifactId (\ s a -> s{_dppsProvisioningArtifactId = a})
 
 instance AWSRequest DescribeProvisioningParameters
          where
@@ -163,13 +163,13 @@ data DescribeProvisioningParametersResponse = DescribeProvisioningParametersResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpprsProvisioningArtifactParameters' - The list of parameters used to successfully provision the product. Each parameter includes a list of allowable values and additional metadata about each parameter.
+-- * 'dpprsProvisioningArtifactParameters' - Information about the parameters used to provision the product.
 --
 -- * 'dpprsUsageInstructions' - Any additional metadata specifically related to the provisioning of the product. For example, see the @Version@ field of the CloudFormation template.
 --
--- * 'dpprsConstraintSummaries' - The list of constraint summaries that apply to provisioning this product.
+-- * 'dpprsConstraintSummaries' - Information about the constraints used to provision the product.
 --
--- * 'dpprsTagOptions' - List of TagOptions associated with the provisioned provisioning parameters.
+-- * 'dpprsTagOptions' - Information about the TagOptions associated with the resource.
 --
 -- * 'dpprsResponseStatus' - -- | The response status code.
 describeProvisioningParametersResponse
@@ -177,33 +177,33 @@ describeProvisioningParametersResponse
     -> DescribeProvisioningParametersResponse
 describeProvisioningParametersResponse pResponseStatus_ =
   DescribeProvisioningParametersResponse'
-  { _dpprsProvisioningArtifactParameters = Nothing
-  , _dpprsUsageInstructions = Nothing
-  , _dpprsConstraintSummaries = Nothing
-  , _dpprsTagOptions = Nothing
-  , _dpprsResponseStatus = pResponseStatus_
-  }
+    { _dpprsProvisioningArtifactParameters = Nothing
+    , _dpprsUsageInstructions = Nothing
+    , _dpprsConstraintSummaries = Nothing
+    , _dpprsTagOptions = Nothing
+    , _dpprsResponseStatus = pResponseStatus_
+    }
 
 
--- | The list of parameters used to successfully provision the product. Each parameter includes a list of allowable values and additional metadata about each parameter.
+-- | Information about the parameters used to provision the product.
 dpprsProvisioningArtifactParameters :: Lens' DescribeProvisioningParametersResponse [ProvisioningArtifactParameter]
-dpprsProvisioningArtifactParameters = lens _dpprsProvisioningArtifactParameters (\ s a -> s{_dpprsProvisioningArtifactParameters = a}) . _Default . _Coerce;
+dpprsProvisioningArtifactParameters = lens _dpprsProvisioningArtifactParameters (\ s a -> s{_dpprsProvisioningArtifactParameters = a}) . _Default . _Coerce
 
 -- | Any additional metadata specifically related to the provisioning of the product. For example, see the @Version@ field of the CloudFormation template.
 dpprsUsageInstructions :: Lens' DescribeProvisioningParametersResponse [UsageInstruction]
-dpprsUsageInstructions = lens _dpprsUsageInstructions (\ s a -> s{_dpprsUsageInstructions = a}) . _Default . _Coerce;
+dpprsUsageInstructions = lens _dpprsUsageInstructions (\ s a -> s{_dpprsUsageInstructions = a}) . _Default . _Coerce
 
--- | The list of constraint summaries that apply to provisioning this product.
+-- | Information about the constraints used to provision the product.
 dpprsConstraintSummaries :: Lens' DescribeProvisioningParametersResponse [ConstraintSummary]
-dpprsConstraintSummaries = lens _dpprsConstraintSummaries (\ s a -> s{_dpprsConstraintSummaries = a}) . _Default . _Coerce;
+dpprsConstraintSummaries = lens _dpprsConstraintSummaries (\ s a -> s{_dpprsConstraintSummaries = a}) . _Default . _Coerce
 
--- | List of TagOptions associated with the provisioned provisioning parameters.
+-- | Information about the TagOptions associated with the resource.
 dpprsTagOptions :: Lens' DescribeProvisioningParametersResponse [TagOptionSummary]
-dpprsTagOptions = lens _dpprsTagOptions (\ s a -> s{_dpprsTagOptions = a}) . _Default . _Coerce;
+dpprsTagOptions = lens _dpprsTagOptions (\ s a -> s{_dpprsTagOptions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dpprsResponseStatus :: Lens' DescribeProvisioningParametersResponse Int
-dpprsResponseStatus = lens _dpprsResponseStatus (\ s a -> s{_dpprsResponseStatus = a});
+dpprsResponseStatus = lens _dpprsResponseStatus (\ s a -> s{_dpprsResponseStatus = a})
 
 instance NFData
            DescribeProvisioningParametersResponse

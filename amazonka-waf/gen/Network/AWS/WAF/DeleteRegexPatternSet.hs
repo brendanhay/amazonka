@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.DeleteRegexPatternSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,18 +65,18 @@ deleteRegexPatternSet
     -> DeleteRegexPatternSet
 deleteRegexPatternSet pRegexPatternSetId_ pChangeToken_ =
   DeleteRegexPatternSet'
-  { _drpsRegexPatternSetId = pRegexPatternSetId_
-  , _drpsChangeToken = pChangeToken_
-  }
+    { _drpsRegexPatternSetId = pRegexPatternSetId_
+    , _drpsChangeToken = pChangeToken_
+    }
 
 
 -- | The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to delete. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
 drpsRegexPatternSetId :: Lens' DeleteRegexPatternSet Text
-drpsRegexPatternSetId = lens _drpsRegexPatternSetId (\ s a -> s{_drpsRegexPatternSetId = a});
+drpsRegexPatternSetId = lens _drpsRegexPatternSetId (\ s a -> s{_drpsRegexPatternSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 drpsChangeToken :: Lens' DeleteRegexPatternSet Text
-drpsChangeToken = lens _drpsChangeToken (\ s a -> s{_drpsChangeToken = a});
+drpsChangeToken = lens _drpsChangeToken (\ s a -> s{_drpsChangeToken = a})
 
 instance AWSRequest DeleteRegexPatternSet where
         type Rs DeleteRegexPatternSet =
@@ -135,15 +135,15 @@ deleteRegexPatternSetResponse
     -> DeleteRegexPatternSetResponse
 deleteRegexPatternSetResponse pResponseStatus_ =
   DeleteRegexPatternSetResponse'
-  {_drpsrsChangeToken = Nothing, _drpsrsResponseStatus = pResponseStatus_}
+    {_drpsrsChangeToken = Nothing, _drpsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 drpsrsChangeToken :: Lens' DeleteRegexPatternSetResponse (Maybe Text)
-drpsrsChangeToken = lens _drpsrsChangeToken (\ s a -> s{_drpsrsChangeToken = a});
+drpsrsChangeToken = lens _drpsrsChangeToken (\ s a -> s{_drpsrsChangeToken = a})
 
 -- | -- | The response status code.
 drpsrsResponseStatus :: Lens' DeleteRegexPatternSetResponse Int
-drpsrsResponseStatus = lens _drpsrsResponseStatus (\ s a -> s{_drpsrsResponseStatus = a});
+drpsrsResponseStatus = lens _drpsrsResponseStatus (\ s a -> s{_drpsrsResponseStatus = a})
 
 instance NFData DeleteRegexPatternSetResponse where

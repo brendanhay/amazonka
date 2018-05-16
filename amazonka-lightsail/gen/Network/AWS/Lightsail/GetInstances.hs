@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ getInstances = GetInstances' {_giPageToken = Nothing}
 
 -- | A token used for advancing to the next page of results from your get instances request.
 giPageToken :: Lens' GetInstances (Maybe Text)
-giPageToken = lens _giPageToken (\ s a -> s{_giPageToken = a});
+giPageToken = lens _giPageToken (\ s a -> s{_giPageToken = a})
 
 instance AWSPager GetInstances where
         page rq rs
@@ -132,22 +132,22 @@ getInstancesResponse
     -> GetInstancesResponse
 getInstancesResponse pResponseStatus_ =
   GetInstancesResponse'
-  { _grsNextPageToken = Nothing
-  , _grsInstances = Nothing
-  , _grsResponseStatus = pResponseStatus_
-  }
+    { _grsNextPageToken = Nothing
+    , _grsInstances = Nothing
+    , _grsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A token used for advancing to the next page of results from your get instances request.
 grsNextPageToken :: Lens' GetInstancesResponse (Maybe Text)
-grsNextPageToken = lens _grsNextPageToken (\ s a -> s{_grsNextPageToken = a});
+grsNextPageToken = lens _grsNextPageToken (\ s a -> s{_grsNextPageToken = a})
 
 -- | An array of key-value pairs containing information about your instances.
 grsInstances :: Lens' GetInstancesResponse [Instance]
-grsInstances = lens _grsInstances (\ s a -> s{_grsInstances = a}) . _Default . _Coerce;
+grsInstances = lens _grsInstances (\ s a -> s{_grsInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 grsResponseStatus :: Lens' GetInstancesResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
 
 instance NFData GetInstancesResponse where

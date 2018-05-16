@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.DeleteGeoMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,16 +77,16 @@ deleteGeoMatchSet
     -> DeleteGeoMatchSet
 deleteGeoMatchSet pGeoMatchSetId_ pChangeToken_ =
   DeleteGeoMatchSet'
-  {_dgmsGeoMatchSetId = pGeoMatchSetId_, _dgmsChangeToken = pChangeToken_}
+    {_dgmsGeoMatchSetId = pGeoMatchSetId_, _dgmsChangeToken = pChangeToken_}
 
 
 -- | The @GeoMatchSetID@ of the 'GeoMatchSet' that you want to delete. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
 dgmsGeoMatchSetId :: Lens' DeleteGeoMatchSet Text
-dgmsGeoMatchSetId = lens _dgmsGeoMatchSetId (\ s a -> s{_dgmsGeoMatchSetId = a});
+dgmsGeoMatchSetId = lens _dgmsGeoMatchSetId (\ s a -> s{_dgmsGeoMatchSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 dgmsChangeToken :: Lens' DeleteGeoMatchSet Text
-dgmsChangeToken = lens _dgmsChangeToken (\ s a -> s{_dgmsChangeToken = a});
+dgmsChangeToken = lens _dgmsChangeToken (\ s a -> s{_dgmsChangeToken = a})
 
 instance AWSRequest DeleteGeoMatchSet where
         type Rs DeleteGeoMatchSet = DeleteGeoMatchSetResponse
@@ -142,15 +142,15 @@ deleteGeoMatchSetResponse
     -> DeleteGeoMatchSetResponse
 deleteGeoMatchSetResponse pResponseStatus_ =
   DeleteGeoMatchSetResponse'
-  {_dgmsrsChangeToken = Nothing, _dgmsrsResponseStatus = pResponseStatus_}
+    {_dgmsrsChangeToken = Nothing, _dgmsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @DeleteGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dgmsrsChangeToken :: Lens' DeleteGeoMatchSetResponse (Maybe Text)
-dgmsrsChangeToken = lens _dgmsrsChangeToken (\ s a -> s{_dgmsrsChangeToken = a});
+dgmsrsChangeToken = lens _dgmsrsChangeToken (\ s a -> s{_dgmsrsChangeToken = a})
 
 -- | -- | The response status code.
 dgmsrsResponseStatus :: Lens' DeleteGeoMatchSetResponse Int
-dgmsrsResponseStatus = lens _dgmsrsResponseStatus (\ s a -> s{_dgmsrsResponseStatus = a});
+dgmsrsResponseStatus = lens _dgmsrsResponseStatus (\ s a -> s{_dgmsrsResponseStatus = a})
 
 instance NFData DeleteGeoMatchSetResponse where

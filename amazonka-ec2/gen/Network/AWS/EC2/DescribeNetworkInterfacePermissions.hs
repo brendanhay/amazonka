@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeNetworkInterfacePermissions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,9 +36,9 @@ module Network.AWS.EC2.DescribeNetworkInterfacePermissions
     , describeNetworkInterfacePermissionsResponse
     , DescribeNetworkInterfacePermissionsResponse
     -- * Response Lenses
-    , drsNetworkInterfacePermissions
-    , drsNextToken
-    , drsResponseStatus
+    , dnipsrsNetworkInterfacePermissions
+    , dnipsrsNextToken
+    , dnipsrsResponseStatus
     ) where
 
 import Network.AWS.EC2.Types
@@ -76,28 +76,28 @@ describeNetworkInterfacePermissions
     :: DescribeNetworkInterfacePermissions
 describeNetworkInterfacePermissions =
   DescribeNetworkInterfacePermissions'
-  { _dnipFilters = Nothing
-  , _dnipNextToken = Nothing
-  , _dnipNetworkInterfacePermissionIds = Nothing
-  , _dnipMaxResults = Nothing
-  }
+    { _dnipFilters = Nothing
+    , _dnipNextToken = Nothing
+    , _dnipNetworkInterfacePermissionIds = Nothing
+    , _dnipMaxResults = Nothing
+    }
 
 
 -- | One or more filters.     * @network-interface-permission.network-interface-permission-id@ - The ID of the permission.     * @network-interface-permission.network-interface-id@ - The ID of the network interface.     * @network-interface-permission.aws-account-id@ - The AWS account ID.     * @network-interface-permission.aws-service@ - The AWS service.     * @network-interface-permission.permission@ - The type of permission (@INSTANCE-ATTACH@ | @EIP-ASSOCIATE@ ).
 dnipFilters :: Lens' DescribeNetworkInterfacePermissions [Filter]
-dnipFilters = lens _dnipFilters (\ s a -> s{_dnipFilters = a}) . _Default . _Coerce;
+dnipFilters = lens _dnipFilters (\ s a -> s{_dnipFilters = a}) . _Default . _Coerce
 
 -- | The token to request the next page of results.
 dnipNextToken :: Lens' DescribeNetworkInterfacePermissions (Maybe Text)
-dnipNextToken = lens _dnipNextToken (\ s a -> s{_dnipNextToken = a});
+dnipNextToken = lens _dnipNextToken (\ s a -> s{_dnipNextToken = a})
 
 -- | One or more network interface permission IDs.
 dnipNetworkInterfacePermissionIds :: Lens' DescribeNetworkInterfacePermissions [Text]
-dnipNetworkInterfacePermissionIds = lens _dnipNetworkInterfacePermissionIds (\ s a -> s{_dnipNetworkInterfacePermissionIds = a}) . _Default . _Coerce;
+dnipNetworkInterfacePermissionIds = lens _dnipNetworkInterfacePermissionIds (\ s a -> s{_dnipNetworkInterfacePermissionIds = a}) . _Default . _Coerce
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. If this parameter is not specified, up to 50 results are returned by default.
 dnipMaxResults :: Lens' DescribeNetworkInterfacePermissions (Maybe Int)
-dnipMaxResults = lens _dnipMaxResults (\ s a -> s{_dnipMaxResults = a});
+dnipMaxResults = lens _dnipMaxResults (\ s a -> s{_dnipMaxResults = a})
 
 instance AWSRequest
            DescribeNetworkInterfacePermissions
@@ -150,9 +150,9 @@ instance ToQuery DescribeNetworkInterfacePermissions
 --
 -- /See:/ 'describeNetworkInterfacePermissionsResponse' smart constructor.
 data DescribeNetworkInterfacePermissionsResponse = DescribeNetworkInterfacePermissionsResponse'
-  { _drsNetworkInterfacePermissions :: !(Maybe [NetworkInterfacePermission])
-  , _drsNextToken                   :: !(Maybe Text)
-  , _drsResponseStatus              :: !Int
+  { _dnipsrsNetworkInterfacePermissions :: !(Maybe [NetworkInterfacePermission])
+  , _dnipsrsNextToken                   :: !(Maybe Text)
+  , _dnipsrsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,33 +160,33 @@ data DescribeNetworkInterfacePermissionsResponse = DescribeNetworkInterfacePermi
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsNetworkInterfacePermissions' - The network interface permissions.
+-- * 'dnipsrsNetworkInterfacePermissions' - The network interface permissions.
 --
--- * 'drsNextToken' - The token to use to retrieve the next page of results.
+-- * 'dnipsrsNextToken' - The token to use to retrieve the next page of results.
 --
--- * 'drsResponseStatus' - -- | The response status code.
+-- * 'dnipsrsResponseStatus' - -- | The response status code.
 describeNetworkInterfacePermissionsResponse
-    :: Int -- ^ 'drsResponseStatus'
+    :: Int -- ^ 'dnipsrsResponseStatus'
     -> DescribeNetworkInterfacePermissionsResponse
 describeNetworkInterfacePermissionsResponse pResponseStatus_ =
   DescribeNetworkInterfacePermissionsResponse'
-  { _drsNetworkInterfacePermissions = Nothing
-  , _drsNextToken = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _dnipsrsNetworkInterfacePermissions = Nothing
+    , _dnipsrsNextToken = Nothing
+    , _dnipsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The network interface permissions.
-drsNetworkInterfacePermissions :: Lens' DescribeNetworkInterfacePermissionsResponse [NetworkInterfacePermission]
-drsNetworkInterfacePermissions = lens _drsNetworkInterfacePermissions (\ s a -> s{_drsNetworkInterfacePermissions = a}) . _Default . _Coerce;
+dnipsrsNetworkInterfacePermissions :: Lens' DescribeNetworkInterfacePermissionsResponse [NetworkInterfacePermission]
+dnipsrsNetworkInterfacePermissions = lens _dnipsrsNetworkInterfacePermissions (\ s a -> s{_dnipsrsNetworkInterfacePermissions = a}) . _Default . _Coerce
 
 -- | The token to use to retrieve the next page of results.
-drsNextToken :: Lens' DescribeNetworkInterfacePermissionsResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
+dnipsrsNextToken :: Lens' DescribeNetworkInterfacePermissionsResponse (Maybe Text)
+dnipsrsNextToken = lens _dnipsrsNextToken (\ s a -> s{_dnipsrsNextToken = a})
 
 -- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeNetworkInterfacePermissionsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+dnipsrsResponseStatus :: Lens' DescribeNetworkInterfacePermissionsResponse Int
+dnipsrsResponseStatus = lens _dnipsrsResponseStatus (\ s a -> s{_dnipsrsResponseStatus = a})
 
 instance NFData
            DescribeNetworkInterfacePermissionsResponse

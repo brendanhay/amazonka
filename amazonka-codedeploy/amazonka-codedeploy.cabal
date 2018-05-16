@@ -1,5 +1,5 @@
 name:                  amazonka-codedeploy
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon CodeDeploy SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -60,6 +60,7 @@ library
         , Network.AWS.CodeDeploy.DeleteApplication
         , Network.AWS.CodeDeploy.DeleteDeploymentConfig
         , Network.AWS.CodeDeploy.DeleteDeploymentGroup
+        , Network.AWS.CodeDeploy.DeleteGitHubAccountToken
         , Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
         , Network.AWS.CodeDeploy.GetApplication
         , Network.AWS.CodeDeploy.GetApplicationRevision
@@ -76,6 +77,7 @@ library
         , Network.AWS.CodeDeploy.ListDeployments
         , Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
         , Network.AWS.CodeDeploy.ListOnPremisesInstances
+        , Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus
         , Network.AWS.CodeDeploy.RegisterApplicationRevision
         , Network.AWS.CodeDeploy.RegisterOnPremisesInstance
         , Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
@@ -91,7 +93,7 @@ library
         , Network.AWS.CodeDeploy.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-codedeploy-test
@@ -111,8 +113,8 @@ test-suite amazonka-codedeploy-test
         , Test.AWS.CodeDeploy.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-codedeploy
         , base
         , bytestring

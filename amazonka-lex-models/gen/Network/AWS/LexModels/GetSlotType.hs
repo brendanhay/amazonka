@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetSlotType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,15 +36,15 @@ module Network.AWS.LexModels.GetSlotType
     , getSlotTypeResponse
     , GetSlotTypeResponse
     -- * Response Lenses
-    , getrsChecksum
-    , getrsValueSelectionStrategy
-    , getrsCreatedDate
-    , getrsName
-    , getrsVersion
-    , getrsLastUpdatedDate
-    , getrsDescription
-    , getrsEnumerationValues
-    , getrsResponseStatus
+    , gstsrsChecksum
+    , gstsrsValueSelectionStrategy
+    , gstsrsCreatedDate
+    , gstsrsName
+    , gstsrsVersion
+    , gstsrsLastUpdatedDate
+    , gstsrsDescription
+    , gstsrsEnumerationValues
+    , gstsrsResponseStatus
     ) where
 
 import Network.AWS.Lens
@@ -78,11 +78,11 @@ getSlotType pName_ pVersion_ =
 
 -- | The name of the slot type. The name is case sensitive.
 gstName :: Lens' GetSlotType Text
-gstName = lens _gstName (\ s a -> s{_gstName = a});
+gstName = lens _gstName (\ s a -> s{_gstName = a})
 
 -- | The version of the slot type.
 gstVersion :: Lens' GetSlotType Text
-gstVersion = lens _gstVersion (\ s a -> s{_gstVersion = a});
+gstVersion = lens _gstVersion (\ s a -> s{_gstVersion = a})
 
 instance AWSRequest GetSlotType where
         type Rs GetSlotType = GetSlotTypeResponse
@@ -123,15 +123,15 @@ instance ToQuery GetSlotType where
 
 -- | /See:/ 'getSlotTypeResponse' smart constructor.
 data GetSlotTypeResponse = GetSlotTypeResponse'
-  { _getrsChecksum               :: !(Maybe Text)
-  , _getrsValueSelectionStrategy :: !(Maybe SlotValueSelectionStrategy)
-  , _getrsCreatedDate            :: !(Maybe POSIX)
-  , _getrsName                   :: !(Maybe Text)
-  , _getrsVersion                :: !(Maybe Text)
-  , _getrsLastUpdatedDate        :: !(Maybe POSIX)
-  , _getrsDescription            :: !(Maybe Text)
-  , _getrsEnumerationValues      :: !(Maybe (List1 EnumerationValue))
-  , _getrsResponseStatus         :: !Int
+  { _gstsrsChecksum               :: !(Maybe Text)
+  , _gstsrsValueSelectionStrategy :: !(Maybe SlotValueSelectionStrategy)
+  , _gstsrsCreatedDate            :: !(Maybe POSIX)
+  , _gstsrsName                   :: !(Maybe Text)
+  , _gstsrsVersion                :: !(Maybe Text)
+  , _gstsrsLastUpdatedDate        :: !(Maybe POSIX)
+  , _gstsrsDescription            :: !(Maybe Text)
+  , _gstsrsEnumerationValues      :: !(Maybe (List1 EnumerationValue))
+  , _gstsrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,74 +139,74 @@ data GetSlotTypeResponse = GetSlotTypeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getrsChecksum' - Checksum of the @> LATEST@ version of the slot type.
+-- * 'gstsrsChecksum' - Checksum of the @> LATEST@ version of the slot type.
 --
--- * 'getrsValueSelectionStrategy' - The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
+-- * 'gstsrsValueSelectionStrategy' - The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
 --
--- * 'getrsCreatedDate' - The date that the slot type was created.
+-- * 'gstsrsCreatedDate' - The date that the slot type was created.
 --
--- * 'getrsName' - The name of the slot type.
+-- * 'gstsrsName' - The name of the slot type.
 --
--- * 'getrsVersion' - The version of the slot type.
+-- * 'gstsrsVersion' - The version of the slot type.
 --
--- * 'getrsLastUpdatedDate' - The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
+-- * 'gstsrsLastUpdatedDate' - The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
 --
--- * 'getrsDescription' - A description of the slot type.
+-- * 'gstsrsDescription' - A description of the slot type.
 --
--- * 'getrsEnumerationValues' - A list of @EnumerationValue@ objects that defines the values that the slot type can take.
+-- * 'gstsrsEnumerationValues' - A list of @EnumerationValue@ objects that defines the values that the slot type can take.
 --
--- * 'getrsResponseStatus' - -- | The response status code.
+-- * 'gstsrsResponseStatus' - -- | The response status code.
 getSlotTypeResponse
-    :: Int -- ^ 'getrsResponseStatus'
+    :: Int -- ^ 'gstsrsResponseStatus'
     -> GetSlotTypeResponse
 getSlotTypeResponse pResponseStatus_ =
   GetSlotTypeResponse'
-  { _getrsChecksum = Nothing
-  , _getrsValueSelectionStrategy = Nothing
-  , _getrsCreatedDate = Nothing
-  , _getrsName = Nothing
-  , _getrsVersion = Nothing
-  , _getrsLastUpdatedDate = Nothing
-  , _getrsDescription = Nothing
-  , _getrsEnumerationValues = Nothing
-  , _getrsResponseStatus = pResponseStatus_
-  }
+    { _gstsrsChecksum = Nothing
+    , _gstsrsValueSelectionStrategy = Nothing
+    , _gstsrsCreatedDate = Nothing
+    , _gstsrsName = Nothing
+    , _gstsrsVersion = Nothing
+    , _gstsrsLastUpdatedDate = Nothing
+    , _gstsrsDescription = Nothing
+    , _gstsrsEnumerationValues = Nothing
+    , _gstsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Checksum of the @> LATEST@ version of the slot type.
-getrsChecksum :: Lens' GetSlotTypeResponse (Maybe Text)
-getrsChecksum = lens _getrsChecksum (\ s a -> s{_getrsChecksum = a});
+gstsrsChecksum :: Lens' GetSlotTypeResponse (Maybe Text)
+gstsrsChecksum = lens _gstsrsChecksum (\ s a -> s{_gstsrsChecksum = a})
 
 -- | The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
-getrsValueSelectionStrategy :: Lens' GetSlotTypeResponse (Maybe SlotValueSelectionStrategy)
-getrsValueSelectionStrategy = lens _getrsValueSelectionStrategy (\ s a -> s{_getrsValueSelectionStrategy = a});
+gstsrsValueSelectionStrategy :: Lens' GetSlotTypeResponse (Maybe SlotValueSelectionStrategy)
+gstsrsValueSelectionStrategy = lens _gstsrsValueSelectionStrategy (\ s a -> s{_gstsrsValueSelectionStrategy = a})
 
 -- | The date that the slot type was created.
-getrsCreatedDate :: Lens' GetSlotTypeResponse (Maybe UTCTime)
-getrsCreatedDate = lens _getrsCreatedDate (\ s a -> s{_getrsCreatedDate = a}) . mapping _Time;
+gstsrsCreatedDate :: Lens' GetSlotTypeResponse (Maybe UTCTime)
+gstsrsCreatedDate = lens _gstsrsCreatedDate (\ s a -> s{_gstsrsCreatedDate = a}) . mapping _Time
 
 -- | The name of the slot type.
-getrsName :: Lens' GetSlotTypeResponse (Maybe Text)
-getrsName = lens _getrsName (\ s a -> s{_getrsName = a});
+gstsrsName :: Lens' GetSlotTypeResponse (Maybe Text)
+gstsrsName = lens _gstsrsName (\ s a -> s{_gstsrsName = a})
 
 -- | The version of the slot type.
-getrsVersion :: Lens' GetSlotTypeResponse (Maybe Text)
-getrsVersion = lens _getrsVersion (\ s a -> s{_getrsVersion = a});
+gstsrsVersion :: Lens' GetSlotTypeResponse (Maybe Text)
+gstsrsVersion = lens _gstsrsVersion (\ s a -> s{_gstsrsVersion = a})
 
 -- | The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
-getrsLastUpdatedDate :: Lens' GetSlotTypeResponse (Maybe UTCTime)
-getrsLastUpdatedDate = lens _getrsLastUpdatedDate (\ s a -> s{_getrsLastUpdatedDate = a}) . mapping _Time;
+gstsrsLastUpdatedDate :: Lens' GetSlotTypeResponse (Maybe UTCTime)
+gstsrsLastUpdatedDate = lens _gstsrsLastUpdatedDate (\ s a -> s{_gstsrsLastUpdatedDate = a}) . mapping _Time
 
 -- | A description of the slot type.
-getrsDescription :: Lens' GetSlotTypeResponse (Maybe Text)
-getrsDescription = lens _getrsDescription (\ s a -> s{_getrsDescription = a});
+gstsrsDescription :: Lens' GetSlotTypeResponse (Maybe Text)
+gstsrsDescription = lens _gstsrsDescription (\ s a -> s{_gstsrsDescription = a})
 
 -- | A list of @EnumerationValue@ objects that defines the values that the slot type can take.
-getrsEnumerationValues :: Lens' GetSlotTypeResponse (Maybe (NonEmpty EnumerationValue))
-getrsEnumerationValues = lens _getrsEnumerationValues (\ s a -> s{_getrsEnumerationValues = a}) . mapping _List1;
+gstsrsEnumerationValues :: Lens' GetSlotTypeResponse (Maybe (NonEmpty EnumerationValue))
+gstsrsEnumerationValues = lens _gstsrsEnumerationValues (\ s a -> s{_gstsrsEnumerationValues = a}) . mapping _List1
 
 -- | -- | The response status code.
-getrsResponseStatus :: Lens' GetSlotTypeResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a});
+gstsrsResponseStatus :: Lens' GetSlotTypeResponse Int
+gstsrsResponseStatus = lens _gstsrsResponseStatus (\ s a -> s{_gstsrsResponseStatus = a})
 
 instance NFData GetSlotTypeResponse where

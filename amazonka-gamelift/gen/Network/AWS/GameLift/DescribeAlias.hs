@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,7 +85,7 @@ describeAlias pAliasId_ = DescribeAlias' {_dAliasId = pAliasId_}
 
 -- | Unique identifier for a fleet alias. Specify the alias you want to retrieve.
 dAliasId :: Lens' DescribeAlias Text
-dAliasId = lens _dAliasId (\ s a -> s{_dAliasId = a});
+dAliasId = lens _dAliasId (\ s a -> s{_dAliasId = a})
 
 instance AWSRequest DescribeAlias where
         type Rs DescribeAlias = DescribeAliasResponse
@@ -142,15 +142,15 @@ describeAliasResponse
     -> DescribeAliasResponse
 describeAliasResponse pResponseStatus_ =
   DescribeAliasResponse'
-  {_darsAlias = Nothing, _darsResponseStatus = pResponseStatus_}
+    {_darsAlias = Nothing, _darsResponseStatus = pResponseStatus_}
 
 
 -- | Object that contains the requested alias.
 darsAlias :: Lens' DescribeAliasResponse (Maybe Alias)
-darsAlias = lens _darsAlias (\ s a -> s{_darsAlias = a});
+darsAlias = lens _darsAlias (\ s a -> s{_darsAlias = a})
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAliasResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DescribeAliasResponse where

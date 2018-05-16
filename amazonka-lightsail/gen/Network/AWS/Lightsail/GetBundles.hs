@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetBundles
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,8 @@ module Network.AWS.Lightsail.GetBundles
       getBundles
     , GetBundles
     -- * Request Lenses
-    , gIncludeInactive
-    , gPageToken
+    , gbsIncludeInactive
+    , gbsPageToken
 
     -- * Destructuring the Response
     , getBundlesResponse
@@ -51,8 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getBundles' smart constructor.
 data GetBundles = GetBundles'
-  { _gIncludeInactive :: !(Maybe Bool)
-  , _gPageToken       :: !(Maybe Text)
+  { _gbsIncludeInactive :: !(Maybe Bool)
+  , _gbsPageToken       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -60,28 +60,29 @@ data GetBundles = GetBundles'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gIncludeInactive' - A Boolean value that indicates whether to include inactive bundle results in your request.
+-- * 'gbsIncludeInactive' - A Boolean value that indicates whether to include inactive bundle results in your request.
 --
--- * 'gPageToken' - A token used for advancing to the next page of results from your get bundles request.
+-- * 'gbsPageToken' - A token used for advancing to the next page of results from your get bundles request.
 getBundles
     :: GetBundles
-getBundles = GetBundles' {_gIncludeInactive = Nothing, _gPageToken = Nothing}
+getBundles =
+  GetBundles' {_gbsIncludeInactive = Nothing, _gbsPageToken = Nothing}
 
 
 -- | A Boolean value that indicates whether to include inactive bundle results in your request.
-gIncludeInactive :: Lens' GetBundles (Maybe Bool)
-gIncludeInactive = lens _gIncludeInactive (\ s a -> s{_gIncludeInactive = a});
+gbsIncludeInactive :: Lens' GetBundles (Maybe Bool)
+gbsIncludeInactive = lens _gbsIncludeInactive (\ s a -> s{_gbsIncludeInactive = a})
 
 -- | A token used for advancing to the next page of results from your get bundles request.
-gPageToken :: Lens' GetBundles (Maybe Text)
-gPageToken = lens _gPageToken (\ s a -> s{_gPageToken = a});
+gbsPageToken :: Lens' GetBundles (Maybe Text)
+gbsPageToken = lens _gbsPageToken (\ s a -> s{_gbsPageToken = a})
 
 instance AWSPager GetBundles where
         page rq rs
           | stop (rs ^. gbrsNextPageToken) = Nothing
           | stop (rs ^. gbrsBundles) = Nothing
           | otherwise =
-            Just $ rq & gPageToken .~ rs ^. gbrsNextPageToken
+            Just $ rq & gbsPageToken .~ rs ^. gbrsNextPageToken
 
 instance AWSRequest GetBundles where
         type Rs GetBundles = GetBundlesResponse
@@ -111,8 +112,8 @@ instance ToJSON GetBundles where
         toJSON GetBundles'{..}
           = object
               (catMaybes
-                 [("includeInactive" .=) <$> _gIncludeInactive,
-                  ("pageToken" .=) <$> _gPageToken])
+                 [("includeInactive" .=) <$> _gbsIncludeInactive,
+                  ("pageToken" .=) <$> _gbsPageToken])
 
 instance ToPath GetBundles where
         toPath = const "/"
@@ -142,22 +143,22 @@ getBundlesResponse
     -> GetBundlesResponse
 getBundlesResponse pResponseStatus_ =
   GetBundlesResponse'
-  { _gbrsNextPageToken = Nothing
-  , _gbrsBundles = Nothing
-  , _gbrsResponseStatus = pResponseStatus_
-  }
+    { _gbrsNextPageToken = Nothing
+    , _gbrsBundles = Nothing
+    , _gbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A token used for advancing to the next page of results from your get active names request.
 gbrsNextPageToken :: Lens' GetBundlesResponse (Maybe Text)
-gbrsNextPageToken = lens _gbrsNextPageToken (\ s a -> s{_gbrsNextPageToken = a});
+gbrsNextPageToken = lens _gbrsNextPageToken (\ s a -> s{_gbrsNextPageToken = a})
 
 -- | An array of key-value pairs that contains information about the available bundles.
 gbrsBundles :: Lens' GetBundlesResponse [Bundle]
-gbrsBundles = lens _gbrsBundles (\ s a -> s{_gbrsBundles = a}) . _Default . _Coerce;
+gbrsBundles = lens _gbrsBundles (\ s a -> s{_gbrsBundles = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gbrsResponseStatus :: Lens' GetBundlesResponse Int
-gbrsResponseStatus = lens _gbrsResponseStatus (\ s a -> s{_gbrsResponseStatus = a});
+gbrsResponseStatus = lens _gbrsResponseStatus (\ s a -> s{_gbrsResponseStatus = a})
 
 instance NFData GetBundlesResponse where

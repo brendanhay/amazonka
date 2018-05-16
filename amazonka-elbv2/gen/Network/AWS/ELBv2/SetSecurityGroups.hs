@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.SetSecurityGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ setSecurityGroups
     -> SetSecurityGroups
 setSecurityGroups pLoadBalancerARN_ =
   SetSecurityGroups'
-  {_ssgLoadBalancerARN = pLoadBalancerARN_, _ssgSecurityGroups = mempty}
+    {_ssgLoadBalancerARN = pLoadBalancerARN_, _ssgSecurityGroups = mempty}
 
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 ssgLoadBalancerARN :: Lens' SetSecurityGroups Text
-ssgLoadBalancerARN = lens _ssgLoadBalancerARN (\ s a -> s{_ssgLoadBalancerARN = a});
+ssgLoadBalancerARN = lens _ssgLoadBalancerARN (\ s a -> s{_ssgLoadBalancerARN = a})
 
 -- | The IDs of the security groups.
 ssgSecurityGroups :: Lens' SetSecurityGroups [Text]
-ssgSecurityGroups = lens _ssgSecurityGroups (\ s a -> s{_ssgSecurityGroups = a}) . _Coerce;
+ssgSecurityGroups = lens _ssgSecurityGroups (\ s a -> s{_ssgSecurityGroups = a}) . _Coerce
 
 instance AWSRequest SetSecurityGroups where
         type Rs SetSecurityGroups = SetSecurityGroupsResponse
@@ -126,15 +126,15 @@ setSecurityGroupsResponse
     -> SetSecurityGroupsResponse
 setSecurityGroupsResponse pResponseStatus_ =
   SetSecurityGroupsResponse'
-  {_ssgrsSecurityGroupIds = Nothing, _ssgrsResponseStatus = pResponseStatus_}
+    {_ssgrsSecurityGroupIds = Nothing, _ssgrsResponseStatus = pResponseStatus_}
 
 
 -- | The IDs of the security groups associated with the load balancer.
 ssgrsSecurityGroupIds :: Lens' SetSecurityGroupsResponse [Text]
-ssgrsSecurityGroupIds = lens _ssgrsSecurityGroupIds (\ s a -> s{_ssgrsSecurityGroupIds = a}) . _Default . _Coerce;
+ssgrsSecurityGroupIds = lens _ssgrsSecurityGroupIds (\ s a -> s{_ssgrsSecurityGroupIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ssgrsResponseStatus :: Lens' SetSecurityGroupsResponse Int
-ssgrsResponseStatus = lens _ssgrsResponseStatus (\ s a -> s{_ssgrsResponseStatus = a});
+ssgrsResponseStatus = lens _ssgrsResponseStatus (\ s a -> s{_ssgrsResponseStatus = a})
 
 instance NFData SetSecurityGroupsResponse where

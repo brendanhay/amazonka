@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.CreateIdentityPool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -109,43 +109,43 @@ createIdentityPool
     -> CreateIdentityPool
 createIdentityPool pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
   CreateIdentityPool'
-  { _cipSamlProviderARNs = Nothing
-  , _cipSupportedLoginProviders = Nothing
-  , _cipDeveloperProviderName = Nothing
-  , _cipOpenIdConnectProviderARNs = Nothing
-  , _cipCognitoIdentityProviders = Nothing
-  , _cipIdentityPoolName = pIdentityPoolName_
-  , _cipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
-  }
+    { _cipSamlProviderARNs = Nothing
+    , _cipSupportedLoginProviders = Nothing
+    , _cipDeveloperProviderName = Nothing
+    , _cipOpenIdConnectProviderARNs = Nothing
+    , _cipCognitoIdentityProviders = Nothing
+    , _cipIdentityPoolName = pIdentityPoolName_
+    , _cipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
+    }
 
 
 -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
 cipSamlProviderARNs :: Lens' CreateIdentityPool [Text]
-cipSamlProviderARNs = lens _cipSamlProviderARNs (\ s a -> s{_cipSamlProviderARNs = a}) . _Default . _Coerce;
+cipSamlProviderARNs = lens _cipSamlProviderARNs (\ s a -> s{_cipSamlProviderARNs = a}) . _Default . _Coerce
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
-cipSupportedLoginProviders = lens _cipSupportedLoginProviders (\ s a -> s{_cipSupportedLoginProviders = a}) . _Default . _Map;
+cipSupportedLoginProviders = lens _cipSupportedLoginProviders (\ s a -> s{_cipSupportedLoginProviders = a}) . _Default . _Map
 
 -- | The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the @DeveloperProviderName@ , you can use letters as well as period (@.@ ), underscore (@_@ ), and dash (@-@ ). Once you have set a developer provider name, you cannot change it. Please take care in setting this parameter.
 cipDeveloperProviderName :: Lens' CreateIdentityPool (Maybe Text)
-cipDeveloperProviderName = lens _cipDeveloperProviderName (\ s a -> s{_cipDeveloperProviderName = a});
+cipDeveloperProviderName = lens _cipDeveloperProviderName (\ s a -> s{_cipDeveloperProviderName = a})
 
 -- | A list of OpendID Connect provider ARNs.
 cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
-cipOpenIdConnectProviderARNs = lens _cipOpenIdConnectProviderARNs (\ s a -> s{_cipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
+cipOpenIdConnectProviderARNs = lens _cipOpenIdConnectProviderARNs (\ s a -> s{_cipOpenIdConnectProviderARNs = a}) . _Default . _Coerce
 
 -- | An array of Amazon Cognito Identity user pools and their client IDs.
 cipCognitoIdentityProviders :: Lens' CreateIdentityPool [CognitoIdentityProvider]
-cipCognitoIdentityProviders = lens _cipCognitoIdentityProviders (\ s a -> s{_cipCognitoIdentityProviders = a}) . _Default . _Coerce;
+cipCognitoIdentityProviders = lens _cipCognitoIdentityProviders (\ s a -> s{_cipCognitoIdentityProviders = a}) . _Default . _Coerce
 
 -- | A string that you provide.
 cipIdentityPoolName :: Lens' CreateIdentityPool Text
-cipIdentityPoolName = lens _cipIdentityPoolName (\ s a -> s{_cipIdentityPoolName = a});
+cipIdentityPoolName = lens _cipIdentityPoolName (\ s a -> s{_cipIdentityPoolName = a})
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 cipAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool Bool
-cipAllowUnauthenticatedIdentities = lens _cipAllowUnauthenticatedIdentities (\ s a -> s{_cipAllowUnauthenticatedIdentities = a});
+cipAllowUnauthenticatedIdentities = lens _cipAllowUnauthenticatedIdentities (\ s a -> s{_cipAllowUnauthenticatedIdentities = a})
 
 instance AWSRequest CreateIdentityPool where
         type Rs CreateIdentityPool = IdentityPool

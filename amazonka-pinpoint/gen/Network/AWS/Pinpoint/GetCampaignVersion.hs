@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetCampaignVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ getCampaignVersion
     -> GetCampaignVersion
 getCampaignVersion pVersion_ pApplicationId_ pCampaignId_ =
   GetCampaignVersion'
-  { _gcvcVersion = pVersion_
-  , _gcvcApplicationId = pApplicationId_
-  , _gcvcCampaignId = pCampaignId_
-  }
+    { _gcvcVersion = pVersion_
+    , _gcvcApplicationId = pApplicationId_
+    , _gcvcCampaignId = pCampaignId_
+    }
 
 
 -- | Undocumented member.
 gcvcVersion :: Lens' GetCampaignVersion Text
-gcvcVersion = lens _gcvcVersion (\ s a -> s{_gcvcVersion = a});
+gcvcVersion = lens _gcvcVersion (\ s a -> s{_gcvcVersion = a})
 
 -- | Undocumented member.
 gcvcApplicationId :: Lens' GetCampaignVersion Text
-gcvcApplicationId = lens _gcvcApplicationId (\ s a -> s{_gcvcApplicationId = a});
+gcvcApplicationId = lens _gcvcApplicationId (\ s a -> s{_gcvcApplicationId = a})
 
 -- | Undocumented member.
 gcvcCampaignId :: Lens' GetCampaignVersion Text
-gcvcCampaignId = lens _gcvcCampaignId (\ s a -> s{_gcvcCampaignId = a});
+gcvcCampaignId = lens _gcvcCampaignId (\ s a -> s{_gcvcCampaignId = a})
 
 instance AWSRequest GetCampaignVersion where
         type Rs GetCampaignVersion =
@@ -137,17 +137,17 @@ getCampaignVersionResponse
     -> GetCampaignVersionResponse
 getCampaignVersionResponse pResponseStatus_ pCampaignResponse_ =
   GetCampaignVersionResponse'
-  { _gcvcrsResponseStatus = pResponseStatus_
-  , _gcvcrsCampaignResponse = pCampaignResponse_
-  }
+    { _gcvcrsResponseStatus = pResponseStatus_
+    , _gcvcrsCampaignResponse = pCampaignResponse_
+    }
 
 
 -- | -- | The response status code.
 gcvcrsResponseStatus :: Lens' GetCampaignVersionResponse Int
-gcvcrsResponseStatus = lens _gcvcrsResponseStatus (\ s a -> s{_gcvcrsResponseStatus = a});
+gcvcrsResponseStatus = lens _gcvcrsResponseStatus (\ s a -> s{_gcvcrsResponseStatus = a})
 
 -- | Undocumented member.
 gcvcrsCampaignResponse :: Lens' GetCampaignVersionResponse CampaignResponse
-gcvcrsCampaignResponse = lens _gcvcrsCampaignResponse (\ s a -> s{_gcvcrsCampaignResponse = a});
+gcvcrsCampaignResponse = lens _gcvcrsCampaignResponse (\ s a -> s{_gcvcrsCampaignResponse = a})
 
 instance NFData GetCampaignVersionResponse where

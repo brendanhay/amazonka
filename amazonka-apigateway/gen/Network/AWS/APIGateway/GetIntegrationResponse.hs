@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetIntegrationResponse
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,13 +67,13 @@ data GetIntegrationResponse = GetIntegrationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giiRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'giiRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'giiResourceId' - Specifies a get integration response request's resource identifier.
+-- * 'giiResourceId' - [Required] Specifies a get integration response request's resource identifier.
 --
--- * 'giiHttpMethod' - Specifies a get integration response request's HTTP method.
+-- * 'giiHttpMethod' - [Required] Specifies a get integration response request's HTTP method.
 --
--- * 'giiStatusCode' - Specifies a get integration response request's status code.
+-- * 'giiStatusCode' - [Required] Specifies a get integration response request's status code.
 getIntegrationResponse
     :: Text -- ^ 'giiRestAPIId'
     -> Text -- ^ 'giiResourceId'
@@ -82,28 +82,28 @@ getIntegrationResponse
     -> GetIntegrationResponse
 getIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
   GetIntegrationResponse'
-  { _giiRestAPIId = pRestAPIId_
-  , _giiResourceId = pResourceId_
-  , _giiHttpMethod = pHttpMethod_
-  , _giiStatusCode = pStatusCode_
-  }
+    { _giiRestAPIId = pRestAPIId_
+    , _giiResourceId = pResourceId_
+    , _giiHttpMethod = pHttpMethod_
+    , _giiStatusCode = pStatusCode_
+    }
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 giiRestAPIId :: Lens' GetIntegrationResponse Text
-giiRestAPIId = lens _giiRestAPIId (\ s a -> s{_giiRestAPIId = a});
+giiRestAPIId = lens _giiRestAPIId (\ s a -> s{_giiRestAPIId = a})
 
--- | Specifies a get integration response request's resource identifier.
+-- | [Required] Specifies a get integration response request's resource identifier.
 giiResourceId :: Lens' GetIntegrationResponse Text
-giiResourceId = lens _giiResourceId (\ s a -> s{_giiResourceId = a});
+giiResourceId = lens _giiResourceId (\ s a -> s{_giiResourceId = a})
 
--- | Specifies a get integration response request's HTTP method.
+-- | [Required] Specifies a get integration response request's HTTP method.
 giiHttpMethod :: Lens' GetIntegrationResponse Text
-giiHttpMethod = lens _giiHttpMethod (\ s a -> s{_giiHttpMethod = a});
+giiHttpMethod = lens _giiHttpMethod (\ s a -> s{_giiHttpMethod = a})
 
--- | Specifies a get integration response request's status code.
+-- | [Required] Specifies a get integration response request's status code.
 giiStatusCode :: Lens' GetIntegrationResponse Text
-giiStatusCode = lens _giiStatusCode (\ s a -> s{_giiStatusCode = a});
+giiStatusCode = lens _giiStatusCode (\ s a -> s{_giiStatusCode = a})
 
 instance AWSRequest GetIntegrationResponse where
         type Rs GetIntegrationResponse = IntegrationResponse

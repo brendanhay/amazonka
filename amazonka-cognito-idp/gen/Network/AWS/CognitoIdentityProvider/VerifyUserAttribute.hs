@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.VerifyUserAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ verifyUserAttribute
     -> VerifyUserAttribute
 verifyUserAttribute pAccessToken_ pAttributeName_ pCode_ =
   VerifyUserAttribute'
-  { _vuaAccessToken = _Sensitive # pAccessToken_
-  , _vuaAttributeName = pAttributeName_
-  , _vuaCode = pCode_
-  }
+    { _vuaAccessToken = _Sensitive # pAccessToken_
+    , _vuaAttributeName = pAttributeName_
+    , _vuaCode = pCode_
+    }
 
 
 -- | Represents the access token of the request to verify user attributes.
 vuaAccessToken :: Lens' VerifyUserAttribute Text
-vuaAccessToken = lens _vuaAccessToken (\ s a -> s{_vuaAccessToken = a}) . _Sensitive;
+vuaAccessToken = lens _vuaAccessToken (\ s a -> s{_vuaAccessToken = a}) . _Sensitive
 
 -- | The attribute name in the request to verify user attributes.
 vuaAttributeName :: Lens' VerifyUserAttribute Text
-vuaAttributeName = lens _vuaAttributeName (\ s a -> s{_vuaAttributeName = a});
+vuaAttributeName = lens _vuaAttributeName (\ s a -> s{_vuaAttributeName = a})
 
 -- | The verification code in the request to verify user attributes.
 vuaCode :: Lens' VerifyUserAttribute Text
-vuaCode = lens _vuaCode (\ s a -> s{_vuaCode = a});
+vuaCode = lens _vuaCode (\ s a -> s{_vuaCode = a})
 
 instance AWSRequest VerifyUserAttribute where
         type Rs VerifyUserAttribute =
@@ -152,6 +152,6 @@ verifyUserAttributeResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 vuarsResponseStatus :: Lens' VerifyUserAttributeResponse Int
-vuarsResponseStatus = lens _vuarsResponseStatus (\ s a -> s{_vuarsResponseStatus = a});
+vuarsResponseStatus = lens _vuarsResponseStatus (\ s a -> s{_vuarsResponseStatus = a})
 
 instance NFData VerifyUserAttributeResponse where

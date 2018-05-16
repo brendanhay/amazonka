@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.UpdateDirectoryConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ updateDirectoryConfig
     -> UpdateDirectoryConfig
 updateDirectoryConfig pDirectoryName_ =
   UpdateDirectoryConfig'
-  { _udcServiceAccountCredentials = Nothing
-  , _udcOrganizationalUnitDistinguishedNames = Nothing
-  , _udcDirectoryName = pDirectoryName_
-  }
+    { _udcServiceAccountCredentials = Nothing
+    , _udcOrganizationalUnitDistinguishedNames = Nothing
+    , _udcDirectoryName = pDirectoryName_
+    }
 
 
 -- | The credentials for the service account used by the streaming instance to connect to the directory.
 udcServiceAccountCredentials :: Lens' UpdateDirectoryConfig (Maybe ServiceAccountCredentials)
-udcServiceAccountCredentials = lens _udcServiceAccountCredentials (\ s a -> s{_udcServiceAccountCredentials = a});
+udcServiceAccountCredentials = lens _udcServiceAccountCredentials (\ s a -> s{_udcServiceAccountCredentials = a})
 
 -- | The distinguished names of the organizational units for computer accounts.
 udcOrganizationalUnitDistinguishedNames :: Lens' UpdateDirectoryConfig [Text]
-udcOrganizationalUnitDistinguishedNames = lens _udcOrganizationalUnitDistinguishedNames (\ s a -> s{_udcOrganizationalUnitDistinguishedNames = a}) . _Default . _Coerce;
+udcOrganizationalUnitDistinguishedNames = lens _udcOrganizationalUnitDistinguishedNames (\ s a -> s{_udcOrganizationalUnitDistinguishedNames = a}) . _Default . _Coerce
 
 -- | The name of the directory configuration.
 udcDirectoryName :: Lens' UpdateDirectoryConfig Text
-udcDirectoryName = lens _udcDirectoryName (\ s a -> s{_udcDirectoryName = a});
+udcDirectoryName = lens _udcDirectoryName (\ s a -> s{_udcDirectoryName = a})
 
 instance AWSRequest UpdateDirectoryConfig where
         type Rs UpdateDirectoryConfig =
@@ -145,15 +145,15 @@ updateDirectoryConfigResponse
     -> UpdateDirectoryConfigResponse
 updateDirectoryConfigResponse pResponseStatus_ =
   UpdateDirectoryConfigResponse'
-  {_udcrsDirectoryConfig = Nothing, _udcrsResponseStatus = pResponseStatus_}
+    {_udcrsDirectoryConfig = Nothing, _udcrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the directory configuration.
 udcrsDirectoryConfig :: Lens' UpdateDirectoryConfigResponse (Maybe DirectoryConfig)
-udcrsDirectoryConfig = lens _udcrsDirectoryConfig (\ s a -> s{_udcrsDirectoryConfig = a});
+udcrsDirectoryConfig = lens _udcrsDirectoryConfig (\ s a -> s{_udcrsDirectoryConfig = a})
 
 -- | -- | The response status code.
 udcrsResponseStatus :: Lens' UpdateDirectoryConfigResponse Int
-udcrsResponseStatus = lens _udcrsResponseStatus (\ s a -> s{_udcrsResponseStatus = a});
+udcrsResponseStatus = lens _udcrsResponseStatus (\ s a -> s{_udcrsResponseStatus = a})
 
 instance NFData UpdateDirectoryConfigResponse where

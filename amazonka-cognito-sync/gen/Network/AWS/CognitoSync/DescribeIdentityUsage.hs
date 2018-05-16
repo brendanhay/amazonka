@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.DescribeIdentityUsage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ describeIdentityUsage
     -> DescribeIdentityUsage
 describeIdentityUsage pIdentityPoolId_ pIdentityId_ =
   DescribeIdentityUsage'
-  {_diuIdentityPoolId = pIdentityPoolId_, _diuIdentityId = pIdentityId_}
+    {_diuIdentityPoolId = pIdentityPoolId_, _diuIdentityId = pIdentityId_}
 
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 diuIdentityPoolId :: Lens' DescribeIdentityUsage Text
-diuIdentityPoolId = lens _diuIdentityPoolId (\ s a -> s{_diuIdentityPoolId = a});
+diuIdentityPoolId = lens _diuIdentityPoolId (\ s a -> s{_diuIdentityPoolId = a})
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 diuIdentityId :: Lens' DescribeIdentityUsage Text
-diuIdentityId = lens _diuIdentityId (\ s a -> s{_diuIdentityId = a});
+diuIdentityId = lens _diuIdentityId (\ s a -> s{_diuIdentityId = a})
 
 instance AWSRequest DescribeIdentityUsage where
         type Rs DescribeIdentityUsage =
@@ -131,15 +131,15 @@ describeIdentityUsageResponse
     -> DescribeIdentityUsageResponse
 describeIdentityUsageResponse pResponseStatus_ =
   DescribeIdentityUsageResponse'
-  {_diursIdentityUsage = Nothing, _diursResponseStatus = pResponseStatus_}
+    {_diursIdentityUsage = Nothing, _diursResponseStatus = pResponseStatus_}
 
 
 -- | Usage information for the identity.
 diursIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
-diursIdentityUsage = lens _diursIdentityUsage (\ s a -> s{_diursIdentityUsage = a});
+diursIdentityUsage = lens _diursIdentityUsage (\ s a -> s{_diursIdentityUsage = a})
 
 -- | -- | The response status code.
 diursResponseStatus :: Lens' DescribeIdentityUsageResponse Int
-diursResponseStatus = lens _diursResponseStatus (\ s a -> s{_diursResponseStatus = a});
+diursResponseStatus = lens _diursResponseStatus (\ s a -> s{_diursResponseStatus = a})
 
 instance NFData DescribeIdentityUsageResponse where

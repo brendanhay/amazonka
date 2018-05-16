@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetFolder
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ data GetFolder = GetFolder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'gfAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'gfIncludeCustomMetadata' - Set to TRUE to include custom metadata in the response.
 --
@@ -69,23 +69,23 @@ getFolder
     -> GetFolder
 getFolder pFolderId_ =
   GetFolder'
-  { _gfAuthenticationToken = Nothing
-  , _gfIncludeCustomMetadata = Nothing
-  , _gfFolderId = pFolderId_
-  }
+    { _gfAuthenticationToken = Nothing
+    , _gfIncludeCustomMetadata = Nothing
+    , _gfFolderId = pFolderId_
+    }
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 gfAuthenticationToken :: Lens' GetFolder (Maybe Text)
-gfAuthenticationToken = lens _gfAuthenticationToken (\ s a -> s{_gfAuthenticationToken = a}) . mapping _Sensitive;
+gfAuthenticationToken = lens _gfAuthenticationToken (\ s a -> s{_gfAuthenticationToken = a}) . mapping _Sensitive
 
 -- | Set to TRUE to include custom metadata in the response.
 gfIncludeCustomMetadata :: Lens' GetFolder (Maybe Bool)
-gfIncludeCustomMetadata = lens _gfIncludeCustomMetadata (\ s a -> s{_gfIncludeCustomMetadata = a});
+gfIncludeCustomMetadata = lens _gfIncludeCustomMetadata (\ s a -> s{_gfIncludeCustomMetadata = a})
 
 -- | The ID of the folder.
 gfFolderId :: Lens' GetFolder Text
-gfFolderId = lens _gfFolderId (\ s a -> s{_gfFolderId = a});
+gfFolderId = lens _gfFolderId (\ s a -> s{_gfFolderId = a})
 
 instance AWSRequest GetFolder where
         type Rs GetFolder = GetFolderResponse
@@ -140,22 +140,22 @@ getFolderResponse
     -> GetFolderResponse
 getFolderResponse pResponseStatus_ =
   GetFolderResponse'
-  { _gfrsCustomMetadata = Nothing
-  , _gfrsMetadata = Nothing
-  , _gfrsResponseStatus = pResponseStatus_
-  }
+    { _gfrsCustomMetadata = Nothing
+    , _gfrsMetadata = Nothing
+    , _gfrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The custom metadata on the folder.
 gfrsCustomMetadata :: Lens' GetFolderResponse (HashMap Text Text)
-gfrsCustomMetadata = lens _gfrsCustomMetadata (\ s a -> s{_gfrsCustomMetadata = a}) . _Default . _Map;
+gfrsCustomMetadata = lens _gfrsCustomMetadata (\ s a -> s{_gfrsCustomMetadata = a}) . _Default . _Map
 
 -- | The metadata of the folder.
 gfrsMetadata :: Lens' GetFolderResponse (Maybe FolderMetadata)
-gfrsMetadata = lens _gfrsMetadata (\ s a -> s{_gfrsMetadata = a});
+gfrsMetadata = lens _gfrsMetadata (\ s a -> s{_gfrsMetadata = a})
 
 -- | -- | The response status code.
 gfrsResponseStatus :: Lens' GetFolderResponse Int
-gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a});
+gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a})
 
 instance NFData GetFolderResponse where

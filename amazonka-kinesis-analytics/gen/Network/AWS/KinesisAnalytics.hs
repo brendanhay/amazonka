@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -356,6 +356,24 @@ module Network.AWS.KinesisAnalytics
     , ksouRoleARNUpdate
     , ksouResourceARNUpdate
 
+    -- ** LambdaOutput
+    , LambdaOutput
+    , lambdaOutput
+    , loResourceARN
+    , loRoleARN
+
+    -- ** LambdaOutputDescription
+    , LambdaOutputDescription
+    , lambdaOutputDescription
+    , lodResourceARN
+    , lodRoleARN
+
+    -- ** LambdaOutputUpdate
+    , LambdaOutputUpdate
+    , lambdaOutputUpdate
+    , louRoleARNUpdate
+    , louResourceARNUpdate
+
     -- ** MappingParameters
     , MappingParameters
     , mappingParameters
@@ -365,6 +383,7 @@ module Network.AWS.KinesisAnalytics
     -- ** Output
     , Output
     , output
+    , oLambdaOutput
     , oKinesisStreamsOutput
     , oKinesisFirehoseOutput
     , oName
@@ -378,6 +397,7 @@ module Network.AWS.KinesisAnalytics
     , odKinesisFirehoseOutputDescription
     , odKinesisStreamsOutputDescription
     , odName
+    , odLambdaOutputDescription
 
     -- ** OutputUpdate
     , OutputUpdate
@@ -386,6 +406,7 @@ module Network.AWS.KinesisAnalytics
     , ouDestinationSchemaUpdate
     , ouKinesisFirehoseOutputUpdate
     , ouNameUpdate
+    , ouLambdaOutputUpdate
     , ouOutputId
 
     -- ** RecordColumn

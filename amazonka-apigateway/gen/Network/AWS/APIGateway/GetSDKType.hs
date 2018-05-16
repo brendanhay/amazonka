@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetSDKType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,16 +58,16 @@ newtype GetSDKType = GetSDKType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gstId' - The identifier of the queried 'SdkType' instance.
+-- * 'gstId' - [Required] The identifier of the queried 'SdkType' instance.
 getSDKType
     :: Text -- ^ 'gstId'
     -> GetSDKType
 getSDKType pId_ = GetSDKType' {_gstId = pId_}
 
 
--- | The identifier of the queried 'SdkType' instance.
+-- | [Required] The identifier of the queried 'SdkType' instance.
 gstId :: Lens' GetSDKType Text
-gstId = lens _gstId (\ s a -> s{_gstId = a});
+gstId = lens _gstId (\ s a -> s{_gstId = a})
 
 instance AWSRequest GetSDKType where
         type Rs GetSDKType = SDKType

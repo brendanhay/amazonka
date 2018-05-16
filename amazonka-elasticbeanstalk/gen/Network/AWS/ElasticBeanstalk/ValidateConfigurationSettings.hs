@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,28 +78,28 @@ validateConfigurationSettings
     -> ValidateConfigurationSettings
 validateConfigurationSettings pApplicationName_ =
   ValidateConfigurationSettings'
-  { _vcsTemplateName = Nothing
-  , _vcsEnvironmentName = Nothing
-  , _vcsApplicationName = pApplicationName_
-  , _vcsOptionSettings = mempty
-  }
+    { _vcsTemplateName = Nothing
+    , _vcsEnvironmentName = Nothing
+    , _vcsApplicationName = pApplicationName_
+    , _vcsOptionSettings = mempty
+    }
 
 
 -- | The name of the configuration template to validate the settings against. Condition: You cannot specify both this and an environment name.
 vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
-vcsTemplateName = lens _vcsTemplateName (\ s a -> s{_vcsTemplateName = a});
+vcsTemplateName = lens _vcsTemplateName (\ s a -> s{_vcsTemplateName = a})
 
 -- | The name of the environment to validate the settings against. Condition: You cannot specify both this and a configuration template name.
 vcsEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
-vcsEnvironmentName = lens _vcsEnvironmentName (\ s a -> s{_vcsEnvironmentName = a});
+vcsEnvironmentName = lens _vcsEnvironmentName (\ s a -> s{_vcsEnvironmentName = a})
 
 -- | The name of the application that the configuration template or environment belongs to.
 vcsApplicationName :: Lens' ValidateConfigurationSettings Text
-vcsApplicationName = lens _vcsApplicationName (\ s a -> s{_vcsApplicationName = a});
+vcsApplicationName = lens _vcsApplicationName (\ s a -> s{_vcsApplicationName = a})
 
 -- | A list of the options and desired values to evaluate.
 vcsOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
-vcsOptionSettings = lens _vcsOptionSettings (\ s a -> s{_vcsOptionSettings = a}) . _Coerce;
+vcsOptionSettings = lens _vcsOptionSettings (\ s a -> s{_vcsOptionSettings = a}) . _Coerce
 
 instance AWSRequest ValidateConfigurationSettings
          where
@@ -161,16 +161,16 @@ validateConfigurationSettingsResponse
     -> ValidateConfigurationSettingsResponse
 validateConfigurationSettingsResponse pResponseStatus_ =
   ValidateConfigurationSettingsResponse'
-  {_vcsrsMessages = Nothing, _vcsrsResponseStatus = pResponseStatus_}
+    {_vcsrsMessages = Nothing, _vcsrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of 'ValidationMessage' .
 vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
-vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default . _Coerce;
+vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 vcsrsResponseStatus :: Lens' ValidateConfigurationSettingsResponse Int
-vcsrsResponseStatus = lens _vcsrsResponseStatus (\ s a -> s{_vcsrsResponseStatus = a});
+vcsrsResponseStatus = lens _vcsrsResponseStatus (\ s a -> s{_vcsrsResponseStatus = a})
 
 instance NFData ValidateConfigurationSettingsResponse
          where

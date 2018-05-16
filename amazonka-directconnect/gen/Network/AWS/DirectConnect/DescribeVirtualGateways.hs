@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualGateways
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -114,15 +114,15 @@ describeVirtualGatewaysResponse
     -> DescribeVirtualGatewaysResponse
 describeVirtualGatewaysResponse pResponseStatus_ =
   DescribeVirtualGatewaysResponse'
-  {_dvgrsVirtualGateways = Nothing, _dvgrsResponseStatus = pResponseStatus_}
+    {_dvgrsVirtualGateways = Nothing, _dvgrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of virtual private gateways.
 dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
-dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGateways = a}) . _Default . _Coerce;
+dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGateways = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dvgrsResponseStatus :: Lens' DescribeVirtualGatewaysResponse Int
-dvgrsResponseStatus = lens _dvgrsResponseStatus (\ s a -> s{_dvgrsResponseStatus = a});
+dvgrsResponseStatus = lens _dvgrsResponseStatus (\ s a -> s{_dvgrsResponseStatus = a})
 
 instance NFData DescribeVirtualGatewaysResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ getConnection pName_ = GetConnection' {_gCatalogId = Nothing, _gName = pName_}
 
 -- | The ID of the Data Catalog in which the connection resides. If none is supplied, the AWS account ID is used by default.
 gCatalogId :: Lens' GetConnection (Maybe Text)
-gCatalogId = lens _gCatalogId (\ s a -> s{_gCatalogId = a});
+gCatalogId = lens _gCatalogId (\ s a -> s{_gCatalogId = a})
 
 -- | The name of the connection definition to retrieve.
 gName :: Lens' GetConnection Text
-gName = lens _gName (\ s a -> s{_gName = a});
+gName = lens _gName (\ s a -> s{_gName = a})
 
 instance AWSRequest GetConnection where
         type Rs GetConnection = GetConnectionResponse
@@ -127,15 +127,15 @@ getConnectionResponse
     -> GetConnectionResponse
 getConnectionResponse pResponseStatus_ =
   GetConnectionResponse'
-  {_getrsConnection = Nothing, _getrsResponseStatus = pResponseStatus_}
+    {_getrsConnection = Nothing, _getrsResponseStatus = pResponseStatus_}
 
 
 -- | The requested connection definition.
 getrsConnection :: Lens' GetConnectionResponse (Maybe Connection)
-getrsConnection = lens _getrsConnection (\ s a -> s{_getrsConnection = a});
+getrsConnection = lens _getrsConnection (\ s a -> s{_getrsConnection = a})
 
 -- | -- | The response status code.
 getrsResponseStatus :: Lens' GetConnectionResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a});
+getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a})
 
 instance NFData GetConnectionResponse where

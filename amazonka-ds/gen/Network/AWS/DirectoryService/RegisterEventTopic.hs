@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.RegisterEventTopic
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ registerEventTopic
     -> RegisterEventTopic
 registerEventTopic pDirectoryId_ pTopicName_ =
   RegisterEventTopic'
-  {_retDirectoryId = pDirectoryId_, _retTopicName = pTopicName_}
+    {_retDirectoryId = pDirectoryId_, _retTopicName = pTopicName_}
 
 
 -- | The Directory ID that will publish status messages to the SNS topic.
 retDirectoryId :: Lens' RegisterEventTopic Text
-retDirectoryId = lens _retDirectoryId (\ s a -> s{_retDirectoryId = a});
+retDirectoryId = lens _retDirectoryId (\ s a -> s{_retDirectoryId = a})
 
 -- | The SNS topic name to which the directory will publish status messages. This SNS topic must be in the same region as the specified Directory ID.
 retTopicName :: Lens' RegisterEventTopic Text
-retTopicName = lens _retTopicName (\ s a -> s{_retTopicName = a});
+retTopicName = lens _retTopicName (\ s a -> s{_retTopicName = a})
 
 instance AWSRequest RegisterEventTopic where
         type Rs RegisterEventTopic =
@@ -139,6 +139,6 @@ registerEventTopicResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 retrsResponseStatus :: Lens' RegisterEventTopicResponse Int
-retrsResponseStatus = lens _retrsResponseStatus (\ s a -> s{_retrsResponseStatus = a});
+retrsResponseStatus = lens _retrsResponseStatus (\ s a -> s{_retrsResponseStatus = a})
 
 instance NFData RegisterEventTopicResponse where

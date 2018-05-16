@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateMLModel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ updateMLModel
     -> UpdateMLModel
 updateMLModel pMLModelId_ =
   UpdateMLModel'
-  { _umlmMLModelName = Nothing
-  , _umlmScoreThreshold = Nothing
-  , _umlmMLModelId = pMLModelId_
-  }
+    { _umlmMLModelName = Nothing
+    , _umlmScoreThreshold = Nothing
+    , _umlmMLModelId = pMLModelId_
+    }
 
 
 -- | A user-supplied name or description of the @MLModel@ .
 umlmMLModelName :: Lens' UpdateMLModel (Maybe Text)
-umlmMLModelName = lens _umlmMLModelName (\ s a -> s{_umlmMLModelName = a});
+umlmMLModelName = lens _umlmMLModelName (\ s a -> s{_umlmMLModelName = a})
 
 -- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks the boundary between a positive prediction and a negative prediction. Output values greater than or equal to the @ScoreThreshold@ receive a positive result from the @MLModel@ , such as @true@ . Output values less than the @ScoreThreshold@ receive a negative response from the @MLModel@ , such as @false@ .
 umlmScoreThreshold :: Lens' UpdateMLModel (Maybe Double)
-umlmScoreThreshold = lens _umlmScoreThreshold (\ s a -> s{_umlmScoreThreshold = a});
+umlmScoreThreshold = lens _umlmScoreThreshold (\ s a -> s{_umlmScoreThreshold = a})
 
 -- | The ID assigned to the @MLModel@ during creation.
 umlmMLModelId :: Lens' UpdateMLModel Text
-umlmMLModelId = lens _umlmMLModelId (\ s a -> s{_umlmMLModelId = a});
+umlmMLModelId = lens _umlmMLModelId (\ s a -> s{_umlmMLModelId = a})
 
 instance AWSRequest UpdateMLModel where
         type Rs UpdateMLModel = UpdateMLModelResponse
@@ -149,15 +149,15 @@ updateMLModelResponse
     -> UpdateMLModelResponse
 updateMLModelResponse pResponseStatus_ =
   UpdateMLModelResponse'
-  {_umlmrsMLModelId = Nothing, _umlmrsResponseStatus = pResponseStatus_}
+    {_umlmrsMLModelId = Nothing, _umlmrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID assigned to the @MLModel@ during creation. This value should be identical to the value of the @MLModelID@ in the request.
 umlmrsMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
-umlmrsMLModelId = lens _umlmrsMLModelId (\ s a -> s{_umlmrsMLModelId = a});
+umlmrsMLModelId = lens _umlmrsMLModelId (\ s a -> s{_umlmrsMLModelId = a})
 
 -- | -- | The response status code.
 umlmrsResponseStatus :: Lens' UpdateMLModelResponse Int
-umlmrsResponseStatus = lens _umlmrsResponseStatus (\ s a -> s{_umlmrsResponseStatus = a});
+umlmrsResponseStatus = lens _umlmrsResponseStatus (\ s a -> s{_umlmrsResponseStatus = a})
 
 instance NFData UpdateMLModelResponse where

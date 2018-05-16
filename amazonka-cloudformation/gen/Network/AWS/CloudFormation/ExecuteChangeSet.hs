@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ExecuteChangeSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ executeChangeSet
     -> ExecuteChangeSet
 executeChangeSet pChangeSetName_ =
   ExecuteChangeSet'
-  { _ecsClientRequestToken = Nothing
-  , _ecsStackName = Nothing
-  , _ecsChangeSetName = pChangeSetName_
-  }
+    { _ecsClientRequestToken = Nothing
+    , _ecsStackName = Nothing
+    , _ecsChangeSetName = pChangeSetName_
+    }
 
 
 -- | A unique identifier for this @ExecuteChangeSet@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to execute a change set to update a stack with the same name. You might retry @ExecuteChangeSet@ requests to ensure that AWS CloudFormation successfully received them.
 ecsClientRequestToken :: Lens' ExecuteChangeSet (Maybe Text)
-ecsClientRequestToken = lens _ecsClientRequestToken (\ s a -> s{_ecsClientRequestToken = a});
+ecsClientRequestToken = lens _ecsClientRequestToken (\ s a -> s{_ecsClientRequestToken = a})
 
 -- | If you specified the name of a change set, specify the stack name or ID (ARN) that is associated with the change set you want to execute.
 ecsStackName :: Lens' ExecuteChangeSet (Maybe Text)
-ecsStackName = lens _ecsStackName (\ s a -> s{_ecsStackName = a});
+ecsStackName = lens _ecsStackName (\ s a -> s{_ecsStackName = a})
 
 -- | The name or ARN of the change set that you want use to update the specified stack.
 ecsChangeSetName :: Lens' ExecuteChangeSet Text
-ecsChangeSetName = lens _ecsChangeSetName (\ s a -> s{_ecsChangeSetName = a});
+ecsChangeSetName = lens _ecsChangeSetName (\ s a -> s{_ecsChangeSetName = a})
 
 instance AWSRequest ExecuteChangeSet where
         type Rs ExecuteChangeSet = ExecuteChangeSetResponse
@@ -144,6 +144,6 @@ executeChangeSetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ecsrsResponseStatus :: Lens' ExecuteChangeSetResponse Int
-ecsrsResponseStatus = lens _ecsrsResponseStatus (\ s a -> s{_ecsrsResponseStatus = a});
+ecsrsResponseStatus = lens _ecsrsResponseStatus (\ s a -> s{_ecsrsResponseStatus = a})
 
 instance NFData ExecuteChangeSetResponse where

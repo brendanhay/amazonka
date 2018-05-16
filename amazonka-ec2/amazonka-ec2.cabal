@@ -1,5 +1,5 @@
 name:                  amazonka-ec2
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -46,6 +46,7 @@ library
     exposed-modules:
           Network.AWS.EC2
         , Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
+        , Network.AWS.EC2.AcceptVPCEndpointConnections
         , Network.AWS.EC2.AcceptVPCPeeringConnection
         , Network.AWS.EC2.AllocateAddress
         , Network.AWS.EC2.AllocateHosts
@@ -81,12 +82,15 @@ library
         , Network.AWS.EC2.CreateDefaultSubnet
         , Network.AWS.EC2.CreateDefaultVPC
         , Network.AWS.EC2.CreateEgressOnlyInternetGateway
+        , Network.AWS.EC2.CreateFleet
         , Network.AWS.EC2.CreateFlowLogs
         , Network.AWS.EC2.CreateFpgaImage
         , Network.AWS.EC2.CreateImage
         , Network.AWS.EC2.CreateInstanceExportTask
         , Network.AWS.EC2.CreateInternetGateway
         , Network.AWS.EC2.CreateKeyPair
+        , Network.AWS.EC2.CreateLaunchTemplate
+        , Network.AWS.EC2.CreateLaunchTemplateVersion
         , Network.AWS.EC2.CreateNatGateway
         , Network.AWS.EC2.CreateNetworkACL
         , Network.AWS.EC2.CreateNetworkACLEntry
@@ -103,6 +107,8 @@ library
         , Network.AWS.EC2.CreateTags
         , Network.AWS.EC2.CreateVPC
         , Network.AWS.EC2.CreateVPCEndpoint
+        , Network.AWS.EC2.CreateVPCEndpointConnectionNotification
+        , Network.AWS.EC2.CreateVPCEndpointServiceConfiguration
         , Network.AWS.EC2.CreateVPCPeeringConnection
         , Network.AWS.EC2.CreateVPNConnection
         , Network.AWS.EC2.CreateVPNConnectionRoute
@@ -111,10 +117,13 @@ library
         , Network.AWS.EC2.DeleteCustomerGateway
         , Network.AWS.EC2.DeleteDHCPOptions
         , Network.AWS.EC2.DeleteEgressOnlyInternetGateway
+        , Network.AWS.EC2.DeleteFleets
         , Network.AWS.EC2.DeleteFlowLogs
         , Network.AWS.EC2.DeleteFpgaImage
         , Network.AWS.EC2.DeleteInternetGateway
         , Network.AWS.EC2.DeleteKeyPair
+        , Network.AWS.EC2.DeleteLaunchTemplate
+        , Network.AWS.EC2.DeleteLaunchTemplateVersions
         , Network.AWS.EC2.DeleteNatGateway
         , Network.AWS.EC2.DeleteNetworkACL
         , Network.AWS.EC2.DeleteNetworkACLEntry
@@ -129,6 +138,8 @@ library
         , Network.AWS.EC2.DeleteSubnet
         , Network.AWS.EC2.DeleteTags
         , Network.AWS.EC2.DeleteVPC
+        , Network.AWS.EC2.DeleteVPCEndpointConnectionNotifications
+        , Network.AWS.EC2.DeleteVPCEndpointServiceConfigurations
         , Network.AWS.EC2.DeleteVPCEndpoints
         , Network.AWS.EC2.DeleteVPCPeeringConnection
         , Network.AWS.EC2.DeleteVPNConnection
@@ -138,6 +149,7 @@ library
         , Network.AWS.EC2.DeregisterImage
         , Network.AWS.EC2.DescribeAccountAttributes
         , Network.AWS.EC2.DescribeAddresses
+        , Network.AWS.EC2.DescribeAggregateIdFormat
         , Network.AWS.EC2.DescribeAvailabilityZones
         , Network.AWS.EC2.DescribeBundleTasks
         , Network.AWS.EC2.DescribeClassicLinkInstances
@@ -147,6 +159,9 @@ library
         , Network.AWS.EC2.DescribeEgressOnlyInternetGateways
         , Network.AWS.EC2.DescribeElasticGpus
         , Network.AWS.EC2.DescribeExportTasks
+        , Network.AWS.EC2.DescribeFleetHistory
+        , Network.AWS.EC2.DescribeFleetInstances
+        , Network.AWS.EC2.DescribeFleets
         , Network.AWS.EC2.DescribeFlowLogs
         , Network.AWS.EC2.DescribeFpgaImageAttribute
         , Network.AWS.EC2.DescribeFpgaImages
@@ -161,10 +176,13 @@ library
         , Network.AWS.EC2.DescribeImportImageTasks
         , Network.AWS.EC2.DescribeImportSnapshotTasks
         , Network.AWS.EC2.DescribeInstanceAttribute
+        , Network.AWS.EC2.DescribeInstanceCreditSpecifications
         , Network.AWS.EC2.DescribeInstanceStatus
         , Network.AWS.EC2.DescribeInstances
         , Network.AWS.EC2.DescribeInternetGateways
         , Network.AWS.EC2.DescribeKeyPairs
+        , Network.AWS.EC2.DescribeLaunchTemplateVersions
+        , Network.AWS.EC2.DescribeLaunchTemplates
         , Network.AWS.EC2.DescribeMovingAddresses
         , Network.AWS.EC2.DescribeNatGateways
         , Network.AWS.EC2.DescribeNetworkACLs
@@ -173,6 +191,7 @@ library
         , Network.AWS.EC2.DescribeNetworkInterfaces
         , Network.AWS.EC2.DescribePlacementGroups
         , Network.AWS.EC2.DescribePrefixLists
+        , Network.AWS.EC2.DescribePrincipalIdFormat
         , Network.AWS.EC2.DescribeRegions
         , Network.AWS.EC2.DescribeReservedInstances
         , Network.AWS.EC2.DescribeReservedInstancesListings
@@ -197,6 +216,10 @@ library
         , Network.AWS.EC2.DescribeVPCAttribute
         , Network.AWS.EC2.DescribeVPCClassicLink
         , Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
+        , Network.AWS.EC2.DescribeVPCEndpointConnectionNotifications
+        , Network.AWS.EC2.DescribeVPCEndpointConnections
+        , Network.AWS.EC2.DescribeVPCEndpointServiceConfigurations
+        , Network.AWS.EC2.DescribeVPCEndpointServicePermissions
         , Network.AWS.EC2.DescribeVPCEndpointServices
         , Network.AWS.EC2.DescribeVPCEndpoints
         , Network.AWS.EC2.DescribeVPCPeeringConnections
@@ -227,6 +250,7 @@ library
         , Network.AWS.EC2.GetConsoleOutput
         , Network.AWS.EC2.GetConsoleScreenshot
         , Network.AWS.EC2.GetHostReservationPurchasePreview
+        , Network.AWS.EC2.GetLaunchTemplateData
         , Network.AWS.EC2.GetPasswordData
         , Network.AWS.EC2.GetReservedInstancesExchangeQuote
         , Network.AWS.EC2.ImportImage
@@ -234,13 +258,16 @@ library
         , Network.AWS.EC2.ImportKeyPair
         , Network.AWS.EC2.ImportSnapshot
         , Network.AWS.EC2.ImportVolume
+        , Network.AWS.EC2.ModifyFleet
         , Network.AWS.EC2.ModifyFpgaImageAttribute
         , Network.AWS.EC2.ModifyHosts
         , Network.AWS.EC2.ModifyIdFormat
         , Network.AWS.EC2.ModifyIdentityIdFormat
         , Network.AWS.EC2.ModifyImageAttribute
         , Network.AWS.EC2.ModifyInstanceAttribute
+        , Network.AWS.EC2.ModifyInstanceCreditSpecification
         , Network.AWS.EC2.ModifyInstancePlacement
+        , Network.AWS.EC2.ModifyLaunchTemplate
         , Network.AWS.EC2.ModifyNetworkInterfaceAttribute
         , Network.AWS.EC2.ModifyReservedInstances
         , Network.AWS.EC2.ModifySnapshotAttribute
@@ -248,6 +275,9 @@ library
         , Network.AWS.EC2.ModifySubnetAttribute
         , Network.AWS.EC2.ModifyVPCAttribute
         , Network.AWS.EC2.ModifyVPCEndpoint
+        , Network.AWS.EC2.ModifyVPCEndpointConnectionNotification
+        , Network.AWS.EC2.ModifyVPCEndpointServiceConfiguration
+        , Network.AWS.EC2.ModifyVPCEndpointServicePermissions
         , Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
         , Network.AWS.EC2.ModifyVPCTenancy
         , Network.AWS.EC2.ModifyVolume
@@ -259,6 +289,7 @@ library
         , Network.AWS.EC2.PurchaseScheduledInstances
         , Network.AWS.EC2.RebootInstances
         , Network.AWS.EC2.RegisterImage
+        , Network.AWS.EC2.RejectVPCEndpointConnections
         , Network.AWS.EC2.RejectVPCPeeringConnection
         , Network.AWS.EC2.ReleaseAddress
         , Network.AWS.EC2.ReleaseHosts
@@ -297,7 +328,7 @@ library
         , Network.AWS.EC2.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ec2-test
@@ -317,8 +348,8 @@ test-suite amazonka-ec2-test
         , Test.AWS.EC2.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-ec2
         , base
         , bytestring

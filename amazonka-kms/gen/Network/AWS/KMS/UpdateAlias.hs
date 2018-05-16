@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.UpdateAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ updateAlias pAliasName_ pTargetKeyId_ =
 
 -- | String that contains the name of the alias to be modified. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws" are reserved.
 uaAliasName :: Lens' UpdateAlias Text
-uaAliasName = lens _uaAliasName (\ s a -> s{_uaAliasName = a});
+uaAliasName = lens _uaAliasName (\ s a -> s{_uaAliasName = a})
 
 -- | Unique identifier of the customer master key to be mapped to the alias. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To verify that the alias is mapped to the correct CMK, use 'ListAliases' .
 uaTargetKeyId :: Lens' UpdateAlias Text
-uaTargetKeyId = lens _uaTargetKeyId (\ s a -> s{_uaTargetKeyId = a});
+uaTargetKeyId = lens _uaTargetKeyId (\ s a -> s{_uaTargetKeyId = a})
 
 instance AWSRequest UpdateAlias where
         type Rs UpdateAlias = UpdateAliasResponse

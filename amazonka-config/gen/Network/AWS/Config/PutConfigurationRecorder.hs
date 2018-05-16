@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.PutConfigurationRecorder
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Creates a new configuration recorder to record the selected resource configurations.
 --
 --
--- You can use this action to change the role @roleARN@ and/or the @recordingGroup@ of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.
+-- You can use this action to change the role @roleARN@ or the @recordingGroup@ of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.
 --
 module Network.AWS.Config.PutConfigurationRecorder
     (
@@ -63,12 +63,12 @@ putConfigurationRecorder
     -> PutConfigurationRecorder
 putConfigurationRecorder pConfigurationRecorder_ =
   PutConfigurationRecorder'
-  {_pcrConfigurationRecorder = pConfigurationRecorder_}
+    {_pcrConfigurationRecorder = pConfigurationRecorder_}
 
 
 -- | The configuration recorder object that records each configuration change made to the resources.
 pcrConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
-pcrConfigurationRecorder = lens _pcrConfigurationRecorder (\ s a -> s{_pcrConfigurationRecorder = a});
+pcrConfigurationRecorder = lens _pcrConfigurationRecorder (\ s a -> s{_pcrConfigurationRecorder = a})
 
 instance AWSRequest PutConfigurationRecorder where
         type Rs PutConfigurationRecorder =

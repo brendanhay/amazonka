@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DeleteOrganizationalUnit
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteOrganizationalUnit pOrganizationalUnitId_ =
 
 -- | The unique identifier (ID) of the organizational unit that you want to delete. You can get the ID from the 'ListOrganizationalUnitsForParent' operation. The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 dOrganizationalUnitId :: Lens' DeleteOrganizationalUnit Text
-dOrganizationalUnitId = lens _dOrganizationalUnitId (\ s a -> s{_dOrganizationalUnitId = a});
+dOrganizationalUnitId = lens _dOrganizationalUnitId (\ s a -> s{_dOrganizationalUnitId = a})
 
 instance AWSRequest DeleteOrganizationalUnit where
         type Rs DeleteOrganizationalUnit =

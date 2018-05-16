@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AttachPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,7 +47,7 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachPolicy' smart constructor.
 data AttachPolicy = AttachPolicy'
-  { _apDirectoryARN    :: !(Maybe Text)
+  { _apDirectoryARN    :: !Text
   , _apPolicyReference :: !ObjectReference
   , _apObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -63,28 +63,29 @@ data AttachPolicy = AttachPolicy'
 --
 -- * 'apObjectReference' - The reference that identifies the object to which the policy will be attached.
 attachPolicy
-    :: ObjectReference -- ^ 'apPolicyReference'
+    :: Text -- ^ 'apDirectoryARN'
+    -> ObjectReference -- ^ 'apPolicyReference'
     -> ObjectReference -- ^ 'apObjectReference'
     -> AttachPolicy
-attachPolicy pPolicyReference_ pObjectReference_ =
+attachPolicy pDirectoryARN_ pPolicyReference_ pObjectReference_ =
   AttachPolicy'
-  { _apDirectoryARN = Nothing
-  , _apPolicyReference = pPolicyReference_
-  , _apObjectReference = pObjectReference_
-  }
+    { _apDirectoryARN = pDirectoryARN_
+    , _apPolicyReference = pPolicyReference_
+    , _apObjectReference = pObjectReference_
+    }
 
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
-apDirectoryARN :: Lens' AttachPolicy (Maybe Text)
-apDirectoryARN = lens _apDirectoryARN (\ s a -> s{_apDirectoryARN = a});
+apDirectoryARN :: Lens' AttachPolicy Text
+apDirectoryARN = lens _apDirectoryARN (\ s a -> s{_apDirectoryARN = a})
 
 -- | The reference that is associated with the policy object.
 apPolicyReference :: Lens' AttachPolicy ObjectReference
-apPolicyReference = lens _apPolicyReference (\ s a -> s{_apPolicyReference = a});
+apPolicyReference = lens _apPolicyReference (\ s a -> s{_apPolicyReference = a})
 
 -- | The reference that identifies the object to which the policy will be attached.
 apObjectReference :: Lens' AttachPolicy ObjectReference
-apObjectReference = lens _apObjectReference (\ s a -> s{_apObjectReference = a});
+apObjectReference = lens _apObjectReference (\ s a -> s{_apObjectReference = a})
 
 instance AWSRequest AttachPolicy where
         type Rs AttachPolicy = AttachPolicyResponse
@@ -137,6 +138,6 @@ attachPolicyResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 aprsResponseStatus :: Lens' AttachPolicyResponse Int
-aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});
+aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a})
 
 instance NFData AttachPolicyResponse where

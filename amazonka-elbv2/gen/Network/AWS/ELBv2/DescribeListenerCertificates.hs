@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeListenerCertificates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ describeListenerCertificates
     -> DescribeListenerCertificates
 describeListenerCertificates pListenerARN_ =
   DescribeListenerCertificates'
-  { _dlcMarker = Nothing
-  , _dlcPageSize = Nothing
-  , _dlcListenerARN = pListenerARN_
-  }
+    { _dlcMarker = Nothing
+    , _dlcPageSize = Nothing
+    , _dlcListenerARN = pListenerARN_
+    }
 
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 dlcMarker :: Lens' DescribeListenerCertificates (Maybe Text)
-dlcMarker = lens _dlcMarker (\ s a -> s{_dlcMarker = a});
+dlcMarker = lens _dlcMarker (\ s a -> s{_dlcMarker = a})
 
 -- | The maximum number of results to return with this call.
 dlcPageSize :: Lens' DescribeListenerCertificates (Maybe Natural)
-dlcPageSize = lens _dlcPageSize (\ s a -> s{_dlcPageSize = a}) . mapping _Nat;
+dlcPageSize = lens _dlcPageSize (\ s a -> s{_dlcPageSize = a}) . mapping _Nat
 
 -- | The Amazon Resource Names (ARN) of the listener.
 dlcListenerARN :: Lens' DescribeListenerCertificates Text
-dlcListenerARN = lens _dlcListenerARN (\ s a -> s{_dlcListenerARN = a});
+dlcListenerARN = lens _dlcListenerARN (\ s a -> s{_dlcListenerARN = a})
 
 instance AWSRequest DescribeListenerCertificates
          where
@@ -143,23 +143,23 @@ describeListenerCertificatesResponse
     -> DescribeListenerCertificatesResponse
 describeListenerCertificatesResponse pResponseStatus_ =
   DescribeListenerCertificatesResponse'
-  { _dlcrsCertificates = Nothing
-  , _dlcrsNextMarker = Nothing
-  , _dlcrsResponseStatus = pResponseStatus_
-  }
+    { _dlcrsCertificates = Nothing
+    , _dlcrsNextMarker = Nothing
+    , _dlcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the certificates.
 dlcrsCertificates :: Lens' DescribeListenerCertificatesResponse [Certificate]
-dlcrsCertificates = lens _dlcrsCertificates (\ s a -> s{_dlcrsCertificates = a}) . _Default . _Coerce;
+dlcrsCertificates = lens _dlcrsCertificates (\ s a -> s{_dlcrsCertificates = a}) . _Default . _Coerce
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dlcrsNextMarker :: Lens' DescribeListenerCertificatesResponse (Maybe Text)
-dlcrsNextMarker = lens _dlcrsNextMarker (\ s a -> s{_dlcrsNextMarker = a});
+dlcrsNextMarker = lens _dlcrsNextMarker (\ s a -> s{_dlcrsNextMarker = a})
 
 -- | -- | The response status code.
 dlcrsResponseStatus :: Lens' DescribeListenerCertificatesResponse Int
-dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus = a});
+dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus = a})
 
 instance NFData DescribeListenerCertificatesResponse
          where

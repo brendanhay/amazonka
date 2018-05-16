@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.RemoveTagsFromResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ removeTagsFromResource
     -> RemoveTagsFromResource
 removeTagsFromResource pResourceARN_ =
   RemoveTagsFromResource'
-  {_rtfrResourceARN = pResourceARN_, _rtfrTagKeys = mempty}
+    {_rtfrResourceARN = pResourceARN_, _rtfrTagKeys = mempty}
 
 
 -- | >The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be removed from.
 rtfrResourceARN :: Lens' RemoveTagsFromResource Text
-rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
+rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a})
 
 -- | The tag key (name) of the tag to be removed.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
+rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce
 
 instance AWSRequest RemoveTagsFromResource where
         type Rs RemoveTagsFromResource =
@@ -139,6 +139,6 @@ removeTagsFromResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
-rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
+rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a})
 
 instance NFData RemoveTagsFromResourceResponse where

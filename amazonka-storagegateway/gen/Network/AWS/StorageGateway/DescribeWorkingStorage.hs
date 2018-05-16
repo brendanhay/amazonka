@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeWorkingStorage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the working storage of a gateway. This operation is only supported in the stored volumes gateway architecture. This operation is deprecated in cached volumes API version (20120630). Use DescribeUploadBuffer instead.
+-- Returns information about the working storage of a gateway. This operation is only supported in the stored volumes gateway type. This operation is deprecated in cached volumes API version (20120630). Use DescribeUploadBuffer instead.
 --
 --
 -- The response includes disk IDs that are configured as working storage, and it includes the amount of working storage allocated and used.
@@ -73,7 +73,7 @@ describeWorkingStorage pGatewayARN_ =
 
 -- | Undocumented member.
 dwsGatewayARN :: Lens' DescribeWorkingStorage Text
-dwsGatewayARN = lens _dwsGatewayARN (\ s a -> s{_dwsGatewayARN = a});
+dwsGatewayARN = lens _dwsGatewayARN (\ s a -> s{_dwsGatewayARN = a})
 
 instance AWSRequest DescribeWorkingStorage where
         type Rs DescribeWorkingStorage =
@@ -145,32 +145,32 @@ describeWorkingStorageResponse
     -> DescribeWorkingStorageResponse
 describeWorkingStorageResponse pResponseStatus_ =
   DescribeWorkingStorageResponse'
-  { _dwsrsGatewayARN = Nothing
-  , _dwsrsDiskIds = Nothing
-  , _dwsrsWorkingStorageAllocatedInBytes = Nothing
-  , _dwsrsWorkingStorageUsedInBytes = Nothing
-  , _dwsrsResponseStatus = pResponseStatus_
-  }
+    { _dwsrsGatewayARN = Nothing
+    , _dwsrsDiskIds = Nothing
+    , _dwsrsWorkingStorageAllocatedInBytes = Nothing
+    , _dwsrsWorkingStorageUsedInBytes = Nothing
+    , _dwsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dwsrsGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
-dwsrsGatewayARN = lens _dwsrsGatewayARN (\ s a -> s{_dwsrsGatewayARN = a});
+dwsrsGatewayARN = lens _dwsrsGatewayARN (\ s a -> s{_dwsrsGatewayARN = a})
 
 -- | An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
 dwsrsDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
-dwsrsDiskIds = lens _dwsrsDiskIds (\ s a -> s{_dwsrsDiskIds = a}) . _Default . _Coerce;
+dwsrsDiskIds = lens _dwsrsDiskIds (\ s a -> s{_dwsrsDiskIds = a}) . _Default . _Coerce
 
 -- | The total working storage in bytes allocated for the gateway. If no working storage is configured for the gateway, this field returns 0.
 dwsrsWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
-dwsrsWorkingStorageAllocatedInBytes = lens _dwsrsWorkingStorageAllocatedInBytes (\ s a -> s{_dwsrsWorkingStorageAllocatedInBytes = a});
+dwsrsWorkingStorageAllocatedInBytes = lens _dwsrsWorkingStorageAllocatedInBytes (\ s a -> s{_dwsrsWorkingStorageAllocatedInBytes = a})
 
 -- | The total working storage in bytes in use by the gateway. If no working storage is configured for the gateway, this field returns 0.
 dwsrsWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
-dwsrsWorkingStorageUsedInBytes = lens _dwsrsWorkingStorageUsedInBytes (\ s a -> s{_dwsrsWorkingStorageUsedInBytes = a});
+dwsrsWorkingStorageUsedInBytes = lens _dwsrsWorkingStorageUsedInBytes (\ s a -> s{_dwsrsWorkingStorageUsedInBytes = a})
 
 -- | -- | The response status code.
 dwsrsResponseStatus :: Lens' DescribeWorkingStorageResponse Int
-dwsrsResponseStatus = lens _dwsrsResponseStatus (\ s a -> s{_dwsrsResponseStatus = a});
+dwsrsResponseStatus = lens _dwsrsResponseStatus (\ s a -> s{_dwsrsResponseStatus = a})
 
 instance NFData DescribeWorkingStorageResponse where

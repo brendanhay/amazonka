@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.SendBonus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,33 +78,33 @@ sendBonus
     -> SendBonus
 sendBonus pWorkerId_ pBonusAmount_ pAssignmentId_ pReason_ =
   SendBonus'
-  { _sbUniqueRequestToken = Nothing
-  , _sbWorkerId = pWorkerId_
-  , _sbBonusAmount = pBonusAmount_
-  , _sbAssignmentId = pAssignmentId_
-  , _sbReason = pReason_
-  }
+    { _sbUniqueRequestToken = Nothing
+    , _sbWorkerId = pWorkerId_
+    , _sbBonusAmount = pBonusAmount_
+    , _sbAssignmentId = pAssignmentId_
+    , _sbReason = pReason_
+    }
 
 
 -- | A unique identifier for this request, which allows you to retry the call on error without granting multiple bonuses. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the bonus already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return an error with a message containing the request ID.
 sbUniqueRequestToken :: Lens' SendBonus (Maybe Text)
-sbUniqueRequestToken = lens _sbUniqueRequestToken (\ s a -> s{_sbUniqueRequestToken = a});
+sbUniqueRequestToken = lens _sbUniqueRequestToken (\ s a -> s{_sbUniqueRequestToken = a})
 
 -- | The ID of the Worker being paid the bonus.
 sbWorkerId :: Lens' SendBonus Text
-sbWorkerId = lens _sbWorkerId (\ s a -> s{_sbWorkerId = a});
+sbWorkerId = lens _sbWorkerId (\ s a -> s{_sbWorkerId = a})
 
 -- | The Bonus amount is a US Dollar amount specified using a string (for example, "5" represents $5.00 USD and "101.42" represents $101.42 USD). Do not include currency symbols or currency codes.
 sbBonusAmount :: Lens' SendBonus Text
-sbBonusAmount = lens _sbBonusAmount (\ s a -> s{_sbBonusAmount = a});
+sbBonusAmount = lens _sbBonusAmount (\ s a -> s{_sbBonusAmount = a})
 
 -- | The ID of the assignment for which this bonus is paid.
 sbAssignmentId :: Lens' SendBonus Text
-sbAssignmentId = lens _sbAssignmentId (\ s a -> s{_sbAssignmentId = a});
+sbAssignmentId = lens _sbAssignmentId (\ s a -> s{_sbAssignmentId = a})
 
 -- | A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message.
 sbReason :: Lens' SendBonus Text
-sbReason = lens _sbReason (\ s a -> s{_sbReason = a});
+sbReason = lens _sbReason (\ s a -> s{_sbReason = a})
 
 instance AWSRequest SendBonus where
         type Rs SendBonus = SendBonusResponse
@@ -164,6 +164,6 @@ sendBonusResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 sbrsResponseStatus :: Lens' SendBonusResponse Int
-sbrsResponseStatus = lens _sbrsResponseStatus (\ s a -> s{_sbrsResponseStatus = a});
+sbrsResponseStatus = lens _sbrsResponseStatus (\ s a -> s{_sbrsResponseStatus = a})
 
 instance NFData SendBonusResponse where

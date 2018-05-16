@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetComplianceSummaryByResourceType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,16 +58,16 @@ newtype GetComplianceSummaryByResourceType = GetComplianceSummaryByResourceType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcsbrtResourceTypes' - Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type. For this request, you can specify an AWS resource type such as @AWS::EC2::Instance@ , and you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
+-- * 'gcsbrtResourceTypes' - Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type. For this request, you can specify an AWS resource type such as @AWS::EC2::Instance@ . You can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
 getComplianceSummaryByResourceType
     :: GetComplianceSummaryByResourceType
 getComplianceSummaryByResourceType =
   GetComplianceSummaryByResourceType' {_gcsbrtResourceTypes = Nothing}
 
 
--- | Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type. For this request, you can specify an AWS resource type such as @AWS::EC2::Instance@ , and you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
+-- | Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type. For this request, you can specify an AWS resource type such as @AWS::EC2::Instance@ . You can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
 gcsbrtResourceTypes :: Lens' GetComplianceSummaryByResourceType [Text]
-gcsbrtResourceTypes = lens _gcsbrtResourceTypes (\ s a -> s{_gcsbrtResourceTypes = a}) . _Default . _Coerce;
+gcsbrtResourceTypes = lens _gcsbrtResourceTypes (\ s a -> s{_gcsbrtResourceTypes = a}) . _Default . _Coerce
 
 instance AWSRequest
            GetComplianceSummaryByResourceType
@@ -138,18 +138,18 @@ getComplianceSummaryByResourceTypeResponse
     -> GetComplianceSummaryByResourceTypeResponse
 getComplianceSummaryByResourceTypeResponse pResponseStatus_ =
   GetComplianceSummaryByResourceTypeResponse'
-  { _gcsbrtrsComplianceSummariesByResourceType = Nothing
-  , _gcsbrtrsResponseStatus = pResponseStatus_
-  }
+    { _gcsbrtrsComplianceSummariesByResourceType = Nothing
+    , _gcsbrtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The number of resources that are compliant and the number that are noncompliant. If one or more resource types were provided with the request, the numbers are returned for each resource type. The maximum number returned is 100.
 gcsbrtrsComplianceSummariesByResourceType :: Lens' GetComplianceSummaryByResourceTypeResponse [ComplianceSummaryByResourceType]
-gcsbrtrsComplianceSummariesByResourceType = lens _gcsbrtrsComplianceSummariesByResourceType (\ s a -> s{_gcsbrtrsComplianceSummariesByResourceType = a}) . _Default . _Coerce;
+gcsbrtrsComplianceSummariesByResourceType = lens _gcsbrtrsComplianceSummariesByResourceType (\ s a -> s{_gcsbrtrsComplianceSummariesByResourceType = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gcsbrtrsResponseStatus :: Lens' GetComplianceSummaryByResourceTypeResponse Int
-gcsbrtrsResponseStatus = lens _gcsbrtrsResponseStatus (\ s a -> s{_gcsbrtrsResponseStatus = a});
+gcsbrtrsResponseStatus = lens _gcsbrtrsResponseStatus (\ s a -> s{_gcsbrtrsResponseStatus = a})
 
 instance NFData
            GetComplianceSummaryByResourceTypeResponse

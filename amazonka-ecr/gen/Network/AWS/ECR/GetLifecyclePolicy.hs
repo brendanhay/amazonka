@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.GetLifecyclePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,22 +61,22 @@ data GetLifecyclePolicy = GetLifecyclePolicy'
 --
 -- * 'glpRegistryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 --
--- * 'glpRepositoryName' - The name of the repository with the policy to retrieve.
+-- * 'glpRepositoryName' - The name of the repository.
 getLifecyclePolicy
     :: Text -- ^ 'glpRepositoryName'
     -> GetLifecyclePolicy
 getLifecyclePolicy pRepositoryName_ =
   GetLifecyclePolicy'
-  {_glpRegistryId = Nothing, _glpRepositoryName = pRepositoryName_}
+    {_glpRegistryId = Nothing, _glpRepositoryName = pRepositoryName_}
 
 
 -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 glpRegistryId :: Lens' GetLifecyclePolicy (Maybe Text)
-glpRegistryId = lens _glpRegistryId (\ s a -> s{_glpRegistryId = a});
+glpRegistryId = lens _glpRegistryId (\ s a -> s{_glpRegistryId = a})
 
--- | The name of the repository with the policy to retrieve.
+-- | The name of the repository.
 glpRepositoryName :: Lens' GetLifecyclePolicy Text
-glpRepositoryName = lens _glpRepositoryName (\ s a -> s{_glpRepositoryName = a});
+glpRepositoryName = lens _glpRepositoryName (\ s a -> s{_glpRepositoryName = a})
 
 instance AWSRequest GetLifecyclePolicy where
         type Rs GetLifecyclePolicy =
@@ -136,7 +136,7 @@ data GetLifecyclePolicyResponse = GetLifecyclePolicyResponse'
 --
 -- * 'glprsLastEvaluatedAt' - The time stamp of the last time that the lifecycle policy was run.
 --
--- * 'glprsLifecyclePolicyText' - The JSON repository policy text.
+-- * 'glprsLifecyclePolicyText' - The JSON lifecycle policy text.
 --
 -- * 'glprsRepositoryName' - The repository name associated with the request.
 --
@@ -146,32 +146,32 @@ getLifecyclePolicyResponse
     -> GetLifecyclePolicyResponse
 getLifecyclePolicyResponse pResponseStatus_ =
   GetLifecyclePolicyResponse'
-  { _glprsRegistryId = Nothing
-  , _glprsLastEvaluatedAt = Nothing
-  , _glprsLifecyclePolicyText = Nothing
-  , _glprsRepositoryName = Nothing
-  , _glprsResponseStatus = pResponseStatus_
-  }
+    { _glprsRegistryId = Nothing
+    , _glprsLastEvaluatedAt = Nothing
+    , _glprsLifecyclePolicyText = Nothing
+    , _glprsRepositoryName = Nothing
+    , _glprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The registry ID associated with the request.
 glprsRegistryId :: Lens' GetLifecyclePolicyResponse (Maybe Text)
-glprsRegistryId = lens _glprsRegistryId (\ s a -> s{_glprsRegistryId = a});
+glprsRegistryId = lens _glprsRegistryId (\ s a -> s{_glprsRegistryId = a})
 
 -- | The time stamp of the last time that the lifecycle policy was run.
 glprsLastEvaluatedAt :: Lens' GetLifecyclePolicyResponse (Maybe UTCTime)
-glprsLastEvaluatedAt = lens _glprsLastEvaluatedAt (\ s a -> s{_glprsLastEvaluatedAt = a}) . mapping _Time;
+glprsLastEvaluatedAt = lens _glprsLastEvaluatedAt (\ s a -> s{_glprsLastEvaluatedAt = a}) . mapping _Time
 
--- | The JSON repository policy text.
+-- | The JSON lifecycle policy text.
 glprsLifecyclePolicyText :: Lens' GetLifecyclePolicyResponse (Maybe Text)
-glprsLifecyclePolicyText = lens _glprsLifecyclePolicyText (\ s a -> s{_glprsLifecyclePolicyText = a});
+glprsLifecyclePolicyText = lens _glprsLifecyclePolicyText (\ s a -> s{_glprsLifecyclePolicyText = a})
 
 -- | The repository name associated with the request.
 glprsRepositoryName :: Lens' GetLifecyclePolicyResponse (Maybe Text)
-glprsRepositoryName = lens _glprsRepositoryName (\ s a -> s{_glprsRepositoryName = a});
+glprsRepositoryName = lens _glprsRepositoryName (\ s a -> s{_glprsRepositoryName = a})
 
 -- | -- | The response status code.
 glprsResponseStatus :: Lens' GetLifecyclePolicyResponse Int
-glprsResponseStatus = lens _glprsResponseStatus (\ s a -> s{_glprsResponseStatus = a});
+glprsResponseStatus = lens _glprsResponseStatus (\ s a -> s{_glprsResponseStatus = a})
 
 instance NFData GetLifecyclePolicyResponse where

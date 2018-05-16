@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Firehose
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,8 @@ import Test.Tasty
 --         [ requestPutRecord $
 --             putRecord
 --
---         , requestGetKinesisStream $
---             getKinesisStream
+--         , requestTagDeliveryStream $
+--             tagDeliveryStream
 --
 --         , requestUpdateDestination $
 --             updateDestination
@@ -40,11 +40,17 @@ import Test.Tasty
 --         , requestPutRecordBatch $
 --             putRecordBatch
 --
+--         , requestUntagDeliveryStream $
+--             untagDeliveryStream
+--
 --         , requestCreateDeliveryStream $
 --             createDeliveryStream
 --
 --         , requestDescribeDeliveryStream $
 --             describeDeliveryStream
+--
+--         , requestListTagsForDeliveryStream $
+--             listTagsForDeliveryStream
 --
 --         , requestListDeliveryStreams $
 --             listDeliveryStreams
@@ -58,8 +64,8 @@ import Test.Tasty
 --         [ responsePutRecord $
 --             putRecordResponse
 --
---         , responseGetKinesisStream $
---             getKinesisStreamResponse
+--         , responseTagDeliveryStream $
+--             tagDeliveryStreamResponse
 --
 --         , responseUpdateDestination $
 --             updateDestinationResponse
@@ -67,11 +73,17 @@ import Test.Tasty
 --         , responsePutRecordBatch $
 --             putRecordBatchResponse
 --
+--         , responseUntagDeliveryStream $
+--             untagDeliveryStreamResponse
+--
 --         , responseCreateDeliveryStream $
 --             createDeliveryStreamResponse
 --
 --         , responseDescribeDeliveryStream $
 --             describeDeliveryStreamResponse
+--
+--         , responseListTagsForDeliveryStream $
+--             listTagsForDeliveryStreamResponse
 --
 --         , responseListDeliveryStreams $
 --             listDeliveryStreamsResponse
@@ -89,10 +101,10 @@ requestPutRecord = req
     "PutRecord"
     "fixture/PutRecord.yaml"
 
-requestGetKinesisStream :: GetKinesisStream -> TestTree
-requestGetKinesisStream = req
-    "GetKinesisStream"
-    "fixture/GetKinesisStream.yaml"
+requestTagDeliveryStream :: TagDeliveryStream -> TestTree
+requestTagDeliveryStream = req
+    "TagDeliveryStream"
+    "fixture/TagDeliveryStream.yaml"
 
 requestUpdateDestination :: UpdateDestination -> TestTree
 requestUpdateDestination = req
@@ -104,6 +116,11 @@ requestPutRecordBatch = req
     "PutRecordBatch"
     "fixture/PutRecordBatch.yaml"
 
+requestUntagDeliveryStream :: UntagDeliveryStream -> TestTree
+requestUntagDeliveryStream = req
+    "UntagDeliveryStream"
+    "fixture/UntagDeliveryStream.yaml"
+
 requestCreateDeliveryStream :: CreateDeliveryStream -> TestTree
 requestCreateDeliveryStream = req
     "CreateDeliveryStream"
@@ -113,6 +130,11 @@ requestDescribeDeliveryStream :: DescribeDeliveryStream -> TestTree
 requestDescribeDeliveryStream = req
     "DescribeDeliveryStream"
     "fixture/DescribeDeliveryStream.yaml"
+
+requestListTagsForDeliveryStream :: ListTagsForDeliveryStream -> TestTree
+requestListTagsForDeliveryStream = req
+    "ListTagsForDeliveryStream"
+    "fixture/ListTagsForDeliveryStream.yaml"
 
 requestListDeliveryStreams :: ListDeliveryStreams -> TestTree
 requestListDeliveryStreams = req
@@ -133,12 +155,12 @@ responsePutRecord = res
     firehose
     (Proxy :: Proxy PutRecord)
 
-responseGetKinesisStream :: GetKinesisStreamResponse -> TestTree
-responseGetKinesisStream = res
-    "GetKinesisStreamResponse"
-    "fixture/GetKinesisStreamResponse.proto"
+responseTagDeliveryStream :: TagDeliveryStreamResponse -> TestTree
+responseTagDeliveryStream = res
+    "TagDeliveryStreamResponse"
+    "fixture/TagDeliveryStreamResponse.proto"
     firehose
-    (Proxy :: Proxy GetKinesisStream)
+    (Proxy :: Proxy TagDeliveryStream)
 
 responseUpdateDestination :: UpdateDestinationResponse -> TestTree
 responseUpdateDestination = res
@@ -154,6 +176,13 @@ responsePutRecordBatch = res
     firehose
     (Proxy :: Proxy PutRecordBatch)
 
+responseUntagDeliveryStream :: UntagDeliveryStreamResponse -> TestTree
+responseUntagDeliveryStream = res
+    "UntagDeliveryStreamResponse"
+    "fixture/UntagDeliveryStreamResponse.proto"
+    firehose
+    (Proxy :: Proxy UntagDeliveryStream)
+
 responseCreateDeliveryStream :: CreateDeliveryStreamResponse -> TestTree
 responseCreateDeliveryStream = res
     "CreateDeliveryStreamResponse"
@@ -167,6 +196,13 @@ responseDescribeDeliveryStream = res
     "fixture/DescribeDeliveryStreamResponse.proto"
     firehose
     (Proxy :: Proxy DescribeDeliveryStream)
+
+responseListTagsForDeliveryStream :: ListTagsForDeliveryStreamResponse -> TestTree
+responseListTagsForDeliveryStream = res
+    "ListTagsForDeliveryStreamResponse"
+    "fixture/ListTagsForDeliveryStreamResponse.proto"
+    firehose
+    (Proxy :: Proxy ListTagsForDeliveryStream)
 
 responseListDeliveryStreams :: ListDeliveryStreamsResponse -> TestTree
 responseListDeliveryStreams = res

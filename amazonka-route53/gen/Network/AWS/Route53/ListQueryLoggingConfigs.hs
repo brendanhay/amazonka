@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListQueryLoggingConfigs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ listQueryLoggingConfigs
     :: ListQueryLoggingConfigs
 listQueryLoggingConfigs =
   ListQueryLoggingConfigs'
-  { _lqlcHostedZoneId = Nothing
-  , _lqlcNextToken = Nothing
-  , _lqlcMaxResults = Nothing
-  }
+    { _lqlcHostedZoneId = Nothing
+    , _lqlcNextToken = Nothing
+    , _lqlcMaxResults = Nothing
+    }
 
 
 -- | (Optional) If you want to list the query logging configuration that is associated with a hosted zone, specify the ID in @HostedZoneId@ .  If you don't specify a hosted zone ID, @ListQueryLoggingConfigs@ returns all of the configurations that are associated with the current AWS account.
 lqlcHostedZoneId :: Lens' ListQueryLoggingConfigs (Maybe ResourceId)
-lqlcHostedZoneId = lens _lqlcHostedZoneId (\ s a -> s{_lqlcHostedZoneId = a});
+lqlcHostedZoneId = lens _lqlcHostedZoneId (\ s a -> s{_lqlcHostedZoneId = a})
 
 -- | (Optional) If the current AWS account has more than @MaxResults@ query logging configurations, use @NextToken@ to get the second and subsequent pages of results. For the first @ListQueryLoggingConfigs@ request, omit this value. For the second and subsequent requests, get the value of @NextToken@ from the previous response and specify that value for @NextToken@ in the request.
 lqlcNextToken :: Lens' ListQueryLoggingConfigs (Maybe Text)
-lqlcNextToken = lens _lqlcNextToken (\ s a -> s{_lqlcNextToken = a});
+lqlcNextToken = lens _lqlcNextToken (\ s a -> s{_lqlcNextToken = a})
 
 -- | (Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request. If the current AWS account has more than @MaxResults@ configurations, use the value of 'ListQueryLoggingConfigsResponse$NextToken' in the response to get the next page of results. If you don't specify a value for @MaxResults@ , Amazon Route 53 returns up to 100 configurations.
 lqlcMaxResults :: Lens' ListQueryLoggingConfigs (Maybe Text)
-lqlcMaxResults = lens _lqlcMaxResults (\ s a -> s{_lqlcMaxResults = a});
+lqlcMaxResults = lens _lqlcMaxResults (\ s a -> s{_lqlcMaxResults = a})
 
 instance AWSRequest ListQueryLoggingConfigs where
         type Rs ListQueryLoggingConfigs =
@@ -139,22 +139,22 @@ listQueryLoggingConfigsResponse
     -> ListQueryLoggingConfigsResponse
 listQueryLoggingConfigsResponse pResponseStatus_ =
   ListQueryLoggingConfigsResponse'
-  { _lqlcrsNextToken = Nothing
-  , _lqlcrsResponseStatus = pResponseStatus_
-  , _lqlcrsQueryLoggingConfigs = mempty
-  }
+    { _lqlcrsNextToken = Nothing
+    , _lqlcrsResponseStatus = pResponseStatus_
+    , _lqlcrsQueryLoggingConfigs = mempty
+    }
 
 
 -- | If a response includes the last of the query logging configurations that are associated with the current AWS account, @NextToken@ doesn't appear in the response. If a response doesn't include the last of the configurations, you can get more configurations by submitting another 'ListQueryLoggingConfigs' request. Get the value of @NextToken@ that Amazon Route 53 returned in the previous response and include it in @NextToken@ in the next request.
 lqlcrsNextToken :: Lens' ListQueryLoggingConfigsResponse (Maybe Text)
-lqlcrsNextToken = lens _lqlcrsNextToken (\ s a -> s{_lqlcrsNextToken = a});
+lqlcrsNextToken = lens _lqlcrsNextToken (\ s a -> s{_lqlcrsNextToken = a})
 
 -- | -- | The response status code.
 lqlcrsResponseStatus :: Lens' ListQueryLoggingConfigsResponse Int
-lqlcrsResponseStatus = lens _lqlcrsResponseStatus (\ s a -> s{_lqlcrsResponseStatus = a});
+lqlcrsResponseStatus = lens _lqlcrsResponseStatus (\ s a -> s{_lqlcrsResponseStatus = a})
 
 -- | An array that contains one 'QueryLoggingConfig' element for each configuration for DNS query logging that is associated with the current AWS account.
 lqlcrsQueryLoggingConfigs :: Lens' ListQueryLoggingConfigsResponse [QueryLoggingConfig]
-lqlcrsQueryLoggingConfigs = lens _lqlcrsQueryLoggingConfigs (\ s a -> s{_lqlcrsQueryLoggingConfigs = a}) . _Coerce;
+lqlcrsQueryLoggingConfigs = lens _lqlcrsQueryLoggingConfigs (\ s a -> s{_lqlcrsQueryLoggingConfigs = a}) . _Coerce
 
 instance NFData ListQueryLoggingConfigsResponse where

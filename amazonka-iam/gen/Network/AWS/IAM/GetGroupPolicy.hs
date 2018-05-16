@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetGroupPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,9 +62,9 @@ data GetGroupPolicy = GetGroupPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggpGroupName' - The name of the group the policy is associated with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'ggpGroupName' - The name of the group the policy is associated with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'ggpPolicyName' - The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
+-- * 'ggpPolicyName' - The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 getGroupPolicy
     :: Text -- ^ 'ggpGroupName'
     -> Text -- ^ 'ggpPolicyName'
@@ -73,13 +73,13 @@ getGroupPolicy pGroupName_ pPolicyName_ =
   GetGroupPolicy' {_ggpGroupName = pGroupName_, _ggpPolicyName = pPolicyName_}
 
 
--- | The name of the group the policy is associated with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the group the policy is associated with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 ggpGroupName :: Lens' GetGroupPolicy Text
-ggpGroupName = lens _ggpGroupName (\ s a -> s{_ggpGroupName = a});
+ggpGroupName = lens _ggpGroupName (\ s a -> s{_ggpGroupName = a})
 
--- | The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
+-- | The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 ggpPolicyName :: Lens' GetGroupPolicy Text
-ggpPolicyName = lens _ggpPolicyName (\ s a -> s{_ggpPolicyName = a});
+ggpPolicyName = lens _ggpPolicyName (\ s a -> s{_ggpPolicyName = a})
 
 instance AWSRequest GetGroupPolicy where
         type Rs GetGroupPolicy = GetGroupPolicyResponse
@@ -142,27 +142,27 @@ getGroupPolicyResponse
     -> GetGroupPolicyResponse
 getGroupPolicyResponse pResponseStatus_ pGroupName_ pPolicyName_ pPolicyDocument_ =
   GetGroupPolicyResponse'
-  { _ggprsResponseStatus = pResponseStatus_
-  , _ggprsGroupName = pGroupName_
-  , _ggprsPolicyName = pPolicyName_
-  , _ggprsPolicyDocument = pPolicyDocument_
-  }
+    { _ggprsResponseStatus = pResponseStatus_
+    , _ggprsGroupName = pGroupName_
+    , _ggprsPolicyName = pPolicyName_
+    , _ggprsPolicyDocument = pPolicyDocument_
+    }
 
 
 -- | -- | The response status code.
 ggprsResponseStatus :: Lens' GetGroupPolicyResponse Int
-ggprsResponseStatus = lens _ggprsResponseStatus (\ s a -> s{_ggprsResponseStatus = a});
+ggprsResponseStatus = lens _ggprsResponseStatus (\ s a -> s{_ggprsResponseStatus = a})
 
 -- | The group the policy is associated with.
 ggprsGroupName :: Lens' GetGroupPolicyResponse Text
-ggprsGroupName = lens _ggprsGroupName (\ s a -> s{_ggprsGroupName = a});
+ggprsGroupName = lens _ggprsGroupName (\ s a -> s{_ggprsGroupName = a})
 
 -- | The name of the policy.
 ggprsPolicyName :: Lens' GetGroupPolicyResponse Text
-ggprsPolicyName = lens _ggprsPolicyName (\ s a -> s{_ggprsPolicyName = a});
+ggprsPolicyName = lens _ggprsPolicyName (\ s a -> s{_ggprsPolicyName = a})
 
 -- | The policy document.
 ggprsPolicyDocument :: Lens' GetGroupPolicyResponse Text
-ggprsPolicyDocument = lens _ggprsPolicyDocument (\ s a -> s{_ggprsPolicyDocument = a});
+ggprsPolicyDocument = lens _ggprsPolicyDocument (\ s a -> s{_ggprsPolicyDocument = a})
 
 instance NFData GetGroupPolicyResponse where

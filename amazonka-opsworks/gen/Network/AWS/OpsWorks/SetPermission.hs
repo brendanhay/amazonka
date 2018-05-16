@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.SetPermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,33 +76,33 @@ setPermission
     -> SetPermission
 setPermission pStackId_ pIAMUserARN_ =
   SetPermission'
-  { _spAllowSudo = Nothing
-  , _spLevel = Nothing
-  , _spAllowSSH = Nothing
-  , _spStackId = pStackId_
-  , _spIAMUserARN = pIAMUserARN_
-  }
+    { _spAllowSudo = Nothing
+    , _spLevel = Nothing
+    , _spAllowSSH = Nothing
+    , _spStackId = pStackId_
+    , _spIAMUserARN = pIAMUserARN_
+    }
 
 
 -- | The user is allowed to use __sudo__ to elevate privileges.
 spAllowSudo :: Lens' SetPermission (Maybe Bool)
-spAllowSudo = lens _spAllowSudo (\ s a -> s{_spAllowSudo = a});
+spAllowSudo = lens _spAllowSudo (\ s a -> s{_spAllowSudo = a})
 
 -- | The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information on the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 spLevel :: Lens' SetPermission (Maybe Text)
-spLevel = lens _spLevel (\ s a -> s{_spLevel = a});
+spLevel = lens _spLevel (\ s a -> s{_spLevel = a})
 
 -- | The user is allowed to use SSH to communicate with the instance.
 spAllowSSH :: Lens' SetPermission (Maybe Bool)
-spAllowSSH = lens _spAllowSSH (\ s a -> s{_spAllowSSH = a});
+spAllowSSH = lens _spAllowSSH (\ s a -> s{_spAllowSSH = a})
 
 -- | The stack ID.
 spStackId :: Lens' SetPermission Text
-spStackId = lens _spStackId (\ s a -> s{_spStackId = a});
+spStackId = lens _spStackId (\ s a -> s{_spStackId = a})
 
 -- | The user's IAM ARN. This can also be a federated user's ARN.
 spIAMUserARN :: Lens' SetPermission Text
-spIAMUserARN = lens _spIAMUserARN (\ s a -> s{_spIAMUserARN = a});
+spIAMUserARN = lens _spIAMUserARN (\ s a -> s{_spIAMUserARN = a})
 
 instance AWSRequest SetPermission where
         type Rs SetPermission = SetPermissionResponse

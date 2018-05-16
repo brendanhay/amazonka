@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Network.AWS.Response
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -14,24 +14,29 @@
 --
 module Network.AWS.Response where
 
-import           Control.Applicative          (pure)
-import           Control.Monad.Catch
-import           Control.Monad.IO.Class
-import           Control.Monad.Trans.Resource
-import           Data.Aeson
-import           Data.Conduit
-import qualified Data.Conduit.Binary          as Conduit
-import           Data.Monoid
-import           Data.Proxy
-import           Data.Text                    (Text)
-import           Network.AWS.Data.Body
-import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Log
-import           Network.AWS.Data.XML
-import           Network.AWS.Types
-import           Network.HTTP.Conduit         hiding (Proxy, Request, Response)
-import           Network.HTTP.Types
-import           Text.XML                     (Node)
+import Control.Applicative          (pure)
+import Control.Monad.Catch
+import Control.Monad.IO.Class
+import Control.Monad.Trans.Resource
+
+import Data.Aeson
+import Data.Conduit
+import Data.Monoid
+import Data.Proxy
+import Data.Text    (Text)
+
+import Network.AWS.Data.Body
+import Network.AWS.Data.ByteString
+import Network.AWS.Data.Log
+import Network.AWS.Data.XML
+import Network.AWS.Types
+import Network.HTTP.Conduit        hiding (Proxy, Request, Response)
+import Network.HTTP.Types
+
+import Text.XML (Node)
+
+import qualified Data.ByteString.Lazy as LBS
+import qualified Data.Conduit.Binary  as Conduit
 
 receiveNull :: (MonadResource m, MonadThrow m)
             => Rs a
@@ -80,6 +85,15 @@ receiveJSON :: (MonadResource m, MonadThrow m)
             -> ClientResponse
             -> m (Response a)
 receiveJSON = deserialise eitherDecode'
+
+receiveBytes :: (MonadResource m, MonadThrow m)
+             => (Int -> ResponseHeaders -> ByteString -> Either String (Rs a))
+             -> Logger
+             -> Service
+             -> Proxy a
+             -> ClientResponse
+             -> m (Response a)
+receiveBytes = deserialise (Right . LBS.toStrict)
 
 receiveBody :: (MonadResource m, MonadThrow m)
             => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))

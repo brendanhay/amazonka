@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetAssociatedRole
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,16 +53,16 @@ newtype GetAssociatedRole = GetAssociatedRole'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'garGroupId' - The ID of the AWS Greengrass group.
 getAssociatedRole
     :: Text -- ^ 'garGroupId'
     -> GetAssociatedRole
 getAssociatedRole pGroupId_ = GetAssociatedRole' {_garGroupId = pGroupId_}
 
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 garGroupId :: Lens' GetAssociatedRole Text
-garGroupId = lens _garGroupId (\ s a -> s{_garGroupId = a});
+garGroupId = lens _garGroupId (\ s a -> s{_garGroupId = a})
 
 instance AWSRequest GetAssociatedRole where
         type Rs GetAssociatedRole = GetAssociatedRoleResponse
@@ -105,9 +105,9 @@ data GetAssociatedRoleResponse = GetAssociatedRoleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garrsAssociatedAt' - Time when the role was associated for the group.
+-- * 'garrsAssociatedAt' - The time when the role was associated with the group.
 --
--- * 'garrsRoleARN' - Arn of the role that is associated with the group.
+-- * 'garrsRoleARN' - The ARN of the role that is associated with the group.
 --
 -- * 'garrsResponseStatus' - -- | The response status code.
 getAssociatedRoleResponse
@@ -115,22 +115,22 @@ getAssociatedRoleResponse
     -> GetAssociatedRoleResponse
 getAssociatedRoleResponse pResponseStatus_ =
   GetAssociatedRoleResponse'
-  { _garrsAssociatedAt = Nothing
-  , _garrsRoleARN = Nothing
-  , _garrsResponseStatus = pResponseStatus_
-  }
+    { _garrsAssociatedAt = Nothing
+    , _garrsRoleARN = Nothing
+    , _garrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Time when the role was associated for the group.
+-- | The time when the role was associated with the group.
 garrsAssociatedAt :: Lens' GetAssociatedRoleResponse (Maybe Text)
-garrsAssociatedAt = lens _garrsAssociatedAt (\ s a -> s{_garrsAssociatedAt = a});
+garrsAssociatedAt = lens _garrsAssociatedAt (\ s a -> s{_garrsAssociatedAt = a})
 
--- | Arn of the role that is associated with the group.
+-- | The ARN of the role that is associated with the group.
 garrsRoleARN :: Lens' GetAssociatedRoleResponse (Maybe Text)
-garrsRoleARN = lens _garrsRoleARN (\ s a -> s{_garrsRoleARN = a});
+garrsRoleARN = lens _garrsRoleARN (\ s a -> s{_garrsRoleARN = a})
 
 -- | -- | The response status code.
 garrsResponseStatus :: Lens' GetAssociatedRoleResponse Int
-garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus = a});
+garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus = a})
 
 instance NFData GetAssociatedRoleResponse where

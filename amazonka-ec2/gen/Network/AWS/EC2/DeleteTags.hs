@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ data DeleteTags = DeleteTags'
 --
 -- * 'dtsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dtsTags' - One or more tags to delete. If you omit this parameter, we delete all tags for the specified resources. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
+-- * 'dtsTags' - One or more tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string. If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the @aws:@ prefix).
 --
 -- * 'dtsResources' - The IDs of one or more resources.
 deleteTags
@@ -74,15 +74,15 @@ deleteTags =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dtsDryRun :: Lens' DeleteTags (Maybe Bool)
-dtsDryRun = lens _dtsDryRun (\ s a -> s{_dtsDryRun = a});
+dtsDryRun = lens _dtsDryRun (\ s a -> s{_dtsDryRun = a})
 
--- | One or more tags to delete. If you omit this parameter, we delete all tags for the specified resources. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
+-- | One or more tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string. If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the @aws:@ prefix).
 dtsTags :: Lens' DeleteTags [Tag]
-dtsTags = lens _dtsTags (\ s a -> s{_dtsTags = a}) . _Default . _Coerce;
+dtsTags = lens _dtsTags (\ s a -> s{_dtsTags = a}) . _Default . _Coerce
 
 -- | The IDs of one or more resources.
 dtsResources :: Lens' DeleteTags [Text]
-dtsResources = lens _dtsResources (\ s a -> s{_dtsResources = a}) . _Coerce;
+dtsResources = lens _dtsResources (\ s a -> s{_dtsResources = a}) . _Coerce
 
 instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse

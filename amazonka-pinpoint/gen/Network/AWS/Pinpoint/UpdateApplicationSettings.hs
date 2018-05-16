@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateApplicationSettings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ updateApplicationSettings
     -> UpdateApplicationSettings
 updateApplicationSettings pApplicationId_ pWriteApplicationSettingsRequest_ =
   UpdateApplicationSettings'
-  { _uasApplicationId = pApplicationId_
-  , _uasWriteApplicationSettingsRequest = pWriteApplicationSettingsRequest_
-  }
+    { _uasApplicationId = pApplicationId_
+    , _uasWriteApplicationSettingsRequest = pWriteApplicationSettingsRequest_
+    }
 
 
 -- | Undocumented member.
 uasApplicationId :: Lens' UpdateApplicationSettings Text
-uasApplicationId = lens _uasApplicationId (\ s a -> s{_uasApplicationId = a});
+uasApplicationId = lens _uasApplicationId (\ s a -> s{_uasApplicationId = a})
 
 -- | Undocumented member.
 uasWriteApplicationSettingsRequest :: Lens' UpdateApplicationSettings WriteApplicationSettingsRequest
-uasWriteApplicationSettingsRequest = lens _uasWriteApplicationSettingsRequest (\ s a -> s{_uasWriteApplicationSettingsRequest = a});
+uasWriteApplicationSettingsRequest = lens _uasWriteApplicationSettingsRequest (\ s a -> s{_uasWriteApplicationSettingsRequest = a})
 
 instance AWSRequest UpdateApplicationSettings where
         type Rs UpdateApplicationSettings =
@@ -133,18 +133,18 @@ updateApplicationSettingsResponse
     -> UpdateApplicationSettingsResponse
 updateApplicationSettingsResponse pResponseStatus_ pApplicationSettingsResource_ =
   UpdateApplicationSettingsResponse'
-  { _uasrsResponseStatus = pResponseStatus_
-  , _uasrsApplicationSettingsResource = pApplicationSettingsResource_
-  }
+    { _uasrsResponseStatus = pResponseStatus_
+    , _uasrsApplicationSettingsResource = pApplicationSettingsResource_
+    }
 
 
 -- | -- | The response status code.
 uasrsResponseStatus :: Lens' UpdateApplicationSettingsResponse Int
-uasrsResponseStatus = lens _uasrsResponseStatus (\ s a -> s{_uasrsResponseStatus = a});
+uasrsResponseStatus = lens _uasrsResponseStatus (\ s a -> s{_uasrsResponseStatus = a})
 
 -- | Undocumented member.
 uasrsApplicationSettingsResource :: Lens' UpdateApplicationSettingsResponse ApplicationSettingsResource
-uasrsApplicationSettingsResource = lens _uasrsApplicationSettingsResource (\ s a -> s{_uasrsApplicationSettingsResource = a});
+uasrsApplicationSettingsResource = lens _uasrsApplicationSettingsResource (\ s a -> s{_uasrsApplicationSettingsResource = a})
 
 instance NFData UpdateApplicationSettingsResponse
          where

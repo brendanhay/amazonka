@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.CreateImageBuilder
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Creates an image builder.
+--
+--
+-- The initial state of the builder is @PENDING@ . When it is ready, the state is @RUNNING@ .
+--
 module Network.AWS.AppStream.CreateImageBuilder
     (
     -- * Creating a Request
@@ -30,6 +34,7 @@ module Network.AWS.AppStream.CreateImageBuilder
     , cibDisplayName
     , cibEnableDefaultInternetAccess
     , cibDescription
+    , cibAppstreamAgentVersion
     , cibName
     , cibImageName
     , cibInstanceType
@@ -56,6 +61,7 @@ data CreateImageBuilder = CreateImageBuilder'
   , _cibDisplayName                 :: !(Maybe Text)
   , _cibEnableDefaultInternetAccess :: !(Maybe Bool)
   , _cibDescription                 :: !(Maybe Text)
+  , _cibAppstreamAgentVersion       :: !(Maybe Text)
   , _cibName                        :: !Text
   , _cibImageName                   :: !Text
   , _cibInstanceType                :: !Text
@@ -66,21 +72,23 @@ data CreateImageBuilder = CreateImageBuilder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cibDomainJoinInfo' - Undocumented member.
+-- * 'cibDomainJoinInfo' - The information needed to join a Microsoft Active Directory domain.
 --
--- * 'cibVPCConfig' - Undocumented member.
+-- * 'cibVPCConfig' - The VPC configuration for the image builder. You can specify only one subnet.
 --
--- * 'cibDisplayName' - Undocumented member.
+-- * 'cibDisplayName' - The image builder name for display.
 --
--- * 'cibEnableDefaultInternetAccess' - Undocumented member.
+-- * 'cibEnableDefaultInternetAccess' - Enables or disables default internet access for the image builder.
 --
--- * 'cibDescription' - Undocumented member.
+-- * 'cibDescription' - The description for display.
 --
--- * 'cibName' - Undocumented member.
+-- * 'cibAppstreamAgentVersion' - The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
 --
--- * 'cibImageName' - Undocumented member.
+-- * 'cibName' - A unique name for the image builder.
 --
--- * 'cibInstanceType' - Undocumented member.
+-- * 'cibImageName' - The name of the image used to create the builder.
+--
+-- * 'cibInstanceType' - The instance type to use when launching the image builder.
 createImageBuilder
     :: Text -- ^ 'cibName'
     -> Text -- ^ 'cibImageName'
@@ -88,48 +96,53 @@ createImageBuilder
     -> CreateImageBuilder
 createImageBuilder pName_ pImageName_ pInstanceType_ =
   CreateImageBuilder'
-  { _cibDomainJoinInfo = Nothing
-  , _cibVPCConfig = Nothing
-  , _cibDisplayName = Nothing
-  , _cibEnableDefaultInternetAccess = Nothing
-  , _cibDescription = Nothing
-  , _cibName = pName_
-  , _cibImageName = pImageName_
-  , _cibInstanceType = pInstanceType_
-  }
+    { _cibDomainJoinInfo = Nothing
+    , _cibVPCConfig = Nothing
+    , _cibDisplayName = Nothing
+    , _cibEnableDefaultInternetAccess = Nothing
+    , _cibDescription = Nothing
+    , _cibAppstreamAgentVersion = Nothing
+    , _cibName = pName_
+    , _cibImageName = pImageName_
+    , _cibInstanceType = pInstanceType_
+    }
 
 
--- | Undocumented member.
+-- | The information needed to join a Microsoft Active Directory domain.
 cibDomainJoinInfo :: Lens' CreateImageBuilder (Maybe DomainJoinInfo)
-cibDomainJoinInfo = lens _cibDomainJoinInfo (\ s a -> s{_cibDomainJoinInfo = a});
+cibDomainJoinInfo = lens _cibDomainJoinInfo (\ s a -> s{_cibDomainJoinInfo = a})
 
--- | Undocumented member.
+-- | The VPC configuration for the image builder. You can specify only one subnet.
 cibVPCConfig :: Lens' CreateImageBuilder (Maybe VPCConfig)
-cibVPCConfig = lens _cibVPCConfig (\ s a -> s{_cibVPCConfig = a});
+cibVPCConfig = lens _cibVPCConfig (\ s a -> s{_cibVPCConfig = a})
 
--- | Undocumented member.
+-- | The image builder name for display.
 cibDisplayName :: Lens' CreateImageBuilder (Maybe Text)
-cibDisplayName = lens _cibDisplayName (\ s a -> s{_cibDisplayName = a});
+cibDisplayName = lens _cibDisplayName (\ s a -> s{_cibDisplayName = a})
 
--- | Undocumented member.
+-- | Enables or disables default internet access for the image builder.
 cibEnableDefaultInternetAccess :: Lens' CreateImageBuilder (Maybe Bool)
-cibEnableDefaultInternetAccess = lens _cibEnableDefaultInternetAccess (\ s a -> s{_cibEnableDefaultInternetAccess = a});
+cibEnableDefaultInternetAccess = lens _cibEnableDefaultInternetAccess (\ s a -> s{_cibEnableDefaultInternetAccess = a})
 
--- | Undocumented member.
+-- | The description for display.
 cibDescription :: Lens' CreateImageBuilder (Maybe Text)
-cibDescription = lens _cibDescription (\ s a -> s{_cibDescription = a});
+cibDescription = lens _cibDescription (\ s a -> s{_cibDescription = a})
 
--- | Undocumented member.
+-- | The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+cibAppstreamAgentVersion :: Lens' CreateImageBuilder (Maybe Text)
+cibAppstreamAgentVersion = lens _cibAppstreamAgentVersion (\ s a -> s{_cibAppstreamAgentVersion = a})
+
+-- | A unique name for the image builder.
 cibName :: Lens' CreateImageBuilder Text
-cibName = lens _cibName (\ s a -> s{_cibName = a});
+cibName = lens _cibName (\ s a -> s{_cibName = a})
 
--- | Undocumented member.
+-- | The name of the image used to create the builder.
 cibImageName :: Lens' CreateImageBuilder Text
-cibImageName = lens _cibImageName (\ s a -> s{_cibImageName = a});
+cibImageName = lens _cibImageName (\ s a -> s{_cibImageName = a})
 
--- | Undocumented member.
+-- | The instance type to use when launching the image builder.
 cibInstanceType :: Lens' CreateImageBuilder Text
-cibInstanceType = lens _cibInstanceType (\ s a -> s{_cibInstanceType = a});
+cibInstanceType = lens _cibInstanceType (\ s a -> s{_cibInstanceType = a})
 
 instance AWSRequest CreateImageBuilder where
         type Rs CreateImageBuilder =
@@ -165,6 +178,8 @@ instance ToJSON CreateImageBuilder where
                   ("EnableDefaultInternetAccess" .=) <$>
                     _cibEnableDefaultInternetAccess,
                   ("Description" .=) <$> _cibDescription,
+                  ("AppstreamAgentVersion" .=) <$>
+                    _cibAppstreamAgentVersion,
                   Just ("Name" .= _cibName),
                   Just ("ImageName" .= _cibImageName),
                   Just ("InstanceType" .= _cibInstanceType)])
@@ -186,7 +201,7 @@ data CreateImageBuilderResponse = CreateImageBuilderResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cibrsImageBuilder' - Undocumented member.
+-- * 'cibrsImageBuilder' - Information about the image builder.
 --
 -- * 'cibrsResponseStatus' - -- | The response status code.
 createImageBuilderResponse
@@ -194,15 +209,15 @@ createImageBuilderResponse
     -> CreateImageBuilderResponse
 createImageBuilderResponse pResponseStatus_ =
   CreateImageBuilderResponse'
-  {_cibrsImageBuilder = Nothing, _cibrsResponseStatus = pResponseStatus_}
+    {_cibrsImageBuilder = Nothing, _cibrsResponseStatus = pResponseStatus_}
 
 
--- | Undocumented member.
+-- | Information about the image builder.
 cibrsImageBuilder :: Lens' CreateImageBuilderResponse (Maybe ImageBuilder)
-cibrsImageBuilder = lens _cibrsImageBuilder (\ s a -> s{_cibrsImageBuilder = a});
+cibrsImageBuilder = lens _cibrsImageBuilder (\ s a -> s{_cibrsImageBuilder = a})
 
 -- | -- | The response status code.
 cibrsResponseStatus :: Lens' CreateImageBuilderResponse Int
-cibrsResponseStatus = lens _cibrsResponseStatus (\ s a -> s{_cibrsResponseStatus = a});
+cibrsResponseStatus = lens _cibrsResponseStatus (\ s a -> s{_cibrsResponseStatus = a})
 
 instance NFData CreateImageBuilderResponse where

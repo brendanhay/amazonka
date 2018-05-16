@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityNotificationTopic
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,23 +76,23 @@ setIdentityNotificationTopic
     -> SetIdentityNotificationTopic
 setIdentityNotificationTopic pIdentity_ pNotificationType_ =
   SetIdentityNotificationTopic'
-  { _sintSNSTopic = Nothing
-  , _sintIdentity = pIdentity_
-  , _sintNotificationType = pNotificationType_
-  }
+    { _sintSNSTopic = Nothing
+    , _sintIdentity = pIdentity_
+    , _sintNotificationType = pNotificationType_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, @SnsTopic@ is cleared and publishing is disabled.
 sintSNSTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
-sintSNSTopic = lens _sintSNSTopic (\ s a -> s{_sintSNSTopic = a});
+sintSNSTopic = lens _sintSNSTopic (\ s a -> s{_sintSNSTopic = a})
 
 -- | The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 sintIdentity :: Lens' SetIdentityNotificationTopic Text
-sintIdentity = lens _sintIdentity (\ s a -> s{_sintIdentity = a});
+sintIdentity = lens _sintIdentity (\ s a -> s{_sintIdentity = a})
 
 -- | The type of notifications that will be published to the specified Amazon SNS topic.
 sintNotificationType :: Lens' SetIdentityNotificationTopic NotificationType
-sintNotificationType = lens _sintNotificationType (\ s a -> s{_sintNotificationType = a});
+sintNotificationType = lens _sintNotificationType (\ s a -> s{_sintNotificationType = a})
 
 instance AWSRequest SetIdentityNotificationTopic
          where
@@ -146,12 +146,12 @@ setIdentityNotificationTopicResponse
     -> SetIdentityNotificationTopicResponse
 setIdentityNotificationTopicResponse pResponseStatus_ =
   SetIdentityNotificationTopicResponse'
-  {_sintrsResponseStatus = pResponseStatus_}
+    {_sintrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 sintrsResponseStatus :: Lens' SetIdentityNotificationTopicResponse Int
-sintrsResponseStatus = lens _sintrsResponseStatus (\ s a -> s{_sintrsResponseStatus = a});
+sintrsResponseStatus = lens _sintrsResponseStatus (\ s a -> s{_sintrsResponseStatus = a})
 
 instance NFData SetIdentityNotificationTopicResponse
          where

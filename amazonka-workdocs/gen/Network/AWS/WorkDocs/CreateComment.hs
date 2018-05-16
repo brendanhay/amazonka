@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateComment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ data CreateComment = CreateComment'
 --
 -- * 'ccNotifyCollaborators' - Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.
 --
--- * 'ccAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'ccAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'ccVisibility' - The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
 --
@@ -90,48 +90,48 @@ createComment
     -> CreateComment
 createComment pDocumentId_ pVersionId_ pText_ =
   CreateComment'
-  { _ccNotifyCollaborators = Nothing
-  , _ccAuthenticationToken = Nothing
-  , _ccVisibility = Nothing
-  , _ccThreadId = Nothing
-  , _ccParentId = Nothing
-  , _ccDocumentId = pDocumentId_
-  , _ccVersionId = pVersionId_
-  , _ccText = _Sensitive # pText_
-  }
+    { _ccNotifyCollaborators = Nothing
+    , _ccAuthenticationToken = Nothing
+    , _ccVisibility = Nothing
+    , _ccThreadId = Nothing
+    , _ccParentId = Nothing
+    , _ccDocumentId = pDocumentId_
+    , _ccVersionId = pVersionId_
+    , _ccText = _Sensitive # pText_
+    }
 
 
 -- | Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.
 ccNotifyCollaborators :: Lens' CreateComment (Maybe Bool)
-ccNotifyCollaborators = lens _ccNotifyCollaborators (\ s a -> s{_ccNotifyCollaborators = a});
+ccNotifyCollaborators = lens _ccNotifyCollaborators (\ s a -> s{_ccNotifyCollaborators = a})
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 ccAuthenticationToken :: Lens' CreateComment (Maybe Text)
-ccAuthenticationToken = lens _ccAuthenticationToken (\ s a -> s{_ccAuthenticationToken = a}) . mapping _Sensitive;
+ccAuthenticationToken = lens _ccAuthenticationToken (\ s a -> s{_ccAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
 ccVisibility :: Lens' CreateComment (Maybe CommentVisibilityType)
-ccVisibility = lens _ccVisibility (\ s a -> s{_ccVisibility = a});
+ccVisibility = lens _ccVisibility (\ s a -> s{_ccVisibility = a})
 
 -- | The ID of the root comment in the thread.
 ccThreadId :: Lens' CreateComment (Maybe Text)
-ccThreadId = lens _ccThreadId (\ s a -> s{_ccThreadId = a});
+ccThreadId = lens _ccThreadId (\ s a -> s{_ccThreadId = a})
 
 -- | The ID of the parent comment.
 ccParentId :: Lens' CreateComment (Maybe Text)
-ccParentId = lens _ccParentId (\ s a -> s{_ccParentId = a});
+ccParentId = lens _ccParentId (\ s a -> s{_ccParentId = a})
 
 -- | The ID of the document.
 ccDocumentId :: Lens' CreateComment Text
-ccDocumentId = lens _ccDocumentId (\ s a -> s{_ccDocumentId = a});
+ccDocumentId = lens _ccDocumentId (\ s a -> s{_ccDocumentId = a})
 
 -- | The ID of the document version.
 ccVersionId :: Lens' CreateComment Text
-ccVersionId = lens _ccVersionId (\ s a -> s{_ccVersionId = a});
+ccVersionId = lens _ccVersionId (\ s a -> s{_ccVersionId = a})
 
 -- | The text of the comment.
 ccText :: Lens' CreateComment Text
-ccText = lens _ccText (\ s a -> s{_ccText = a}) . _Sensitive;
+ccText = lens _ccText (\ s a -> s{_ccText = a}) . _Sensitive
 
 instance AWSRequest CreateComment where
         type Rs CreateComment = CreateCommentResponse
@@ -192,15 +192,15 @@ createCommentResponse
     -> CreateCommentResponse
 createCommentResponse pResponseStatus_ =
   CreateCommentResponse'
-  {_ccrsComment = Nothing, _ccrsResponseStatus = pResponseStatus_}
+    {_ccrsComment = Nothing, _ccrsResponseStatus = pResponseStatus_}
 
 
 -- | The comment that has been created.
 ccrsComment :: Lens' CreateCommentResponse (Maybe Comment)
-ccrsComment = lens _ccrsComment (\ s a -> s{_ccrsComment = a});
+ccrsComment = lens _ccrsComment (\ s a -> s{_ccrsComment = a})
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CreateCommentResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
 
 instance NFData CreateCommentResponse where

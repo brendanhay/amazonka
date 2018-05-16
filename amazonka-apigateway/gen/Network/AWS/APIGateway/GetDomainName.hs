@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDomainName
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,9 +33,11 @@ module Network.AWS.APIGateway.GetDomainName
     , domainName
     , DomainName
     -- * Response Lenses
+    , dnRegionalHostedZoneId
     , dnCertificateName
     , dnRegionalCertificateARN
     , dnCertificateARN
+    , dnDistributionHostedZoneId
     , dnDomainName
     , dnRegionalCertificateName
     , dnRegionalDomainName
@@ -65,16 +67,16 @@ newtype GetDomainName = GetDomainName'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdnDomainName' - The name of the 'DomainName' resource.
+-- * 'gdnDomainName' - [Required] The name of the 'DomainName' resource.
 getDomainName
     :: Text -- ^ 'gdnDomainName'
     -> GetDomainName
 getDomainName pDomainName_ = GetDomainName' {_gdnDomainName = pDomainName_}
 
 
--- | The name of the 'DomainName' resource.
+-- | [Required] The name of the 'DomainName' resource.
 gdnDomainName :: Lens' GetDomainName Text
-gdnDomainName = lens _gdnDomainName (\ s a -> s{_gdnDomainName = a});
+gdnDomainName = lens _gdnDomainName (\ s a -> s{_gdnDomainName = a})
 
 instance AWSRequest GetDomainName where
         type Rs GetDomainName = DomainName

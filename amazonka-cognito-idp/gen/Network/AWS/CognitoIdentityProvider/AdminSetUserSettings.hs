@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminSetUserSettings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ adminSetUserSettings
     -> AdminSetUserSettings
 adminSetUserSettings pUserPoolId_ pUsername_ =
   AdminSetUserSettings'
-  { _asusUserPoolId = pUserPoolId_
-  , _asusUsername = _Sensitive # pUsername_
-  , _asusMFAOptions = mempty
-  }
+    { _asusUserPoolId = pUserPoolId_
+    , _asusUsername = _Sensitive # pUsername_
+    , _asusMFAOptions = mempty
+    }
 
 
 -- | The user pool ID for the user pool where you want to set the user's settings, such as MFA options.
 asusUserPoolId :: Lens' AdminSetUserSettings Text
-asusUserPoolId = lens _asusUserPoolId (\ s a -> s{_asusUserPoolId = a});
+asusUserPoolId = lens _asusUserPoolId (\ s a -> s{_asusUserPoolId = a})
 
 -- | The user name of the user for whom you wish to set user settings.
 asusUsername :: Lens' AdminSetUserSettings Text
-asusUsername = lens _asusUsername (\ s a -> s{_asusUsername = a}) . _Sensitive;
+asusUsername = lens _asusUsername (\ s a -> s{_asusUsername = a}) . _Sensitive
 
 -- | Specifies the options for MFA (e.g., email or phone number).
 asusMFAOptions :: Lens' AdminSetUserSettings [MFAOptionType]
-asusMFAOptions = lens _asusMFAOptions (\ s a -> s{_asusMFAOptions = a}) . _Coerce;
+asusMFAOptions = lens _asusMFAOptions (\ s a -> s{_asusMFAOptions = a}) . _Coerce
 
 instance AWSRequest AdminSetUserSettings where
         type Rs AdminSetUserSettings =
@@ -154,6 +154,6 @@ adminSetUserSettingsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 asusrsResponseStatus :: Lens' AdminSetUserSettingsResponse Int
-asusrsResponseStatus = lens _asusrsResponseStatus (\ s a -> s{_asusrsResponseStatus = a});
+asusrsResponseStatus = lens _asusrsResponseStatus (\ s a -> s{_asusrsResponseStatus = a})
 
 instance NFData AdminSetUserSettingsResponse where

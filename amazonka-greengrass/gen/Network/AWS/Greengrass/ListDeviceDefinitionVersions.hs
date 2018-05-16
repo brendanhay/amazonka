@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListDeviceDefinitionVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,33 +57,33 @@ data ListDeviceDefinitionVersions = ListDeviceDefinitionVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lddvNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lddvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lddvMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lddvMaxResults' - The maximum number of results to be returned per request.
 --
--- * 'lddvDeviceDefinitionId' - device definition Id
+-- * 'lddvDeviceDefinitionId' - The ID of the device definition.
 listDeviceDefinitionVersions
     :: Text -- ^ 'lddvDeviceDefinitionId'
     -> ListDeviceDefinitionVersions
 listDeviceDefinitionVersions pDeviceDefinitionId_ =
   ListDeviceDefinitionVersions'
-  { _lddvNextToken = Nothing
-  , _lddvMaxResults = Nothing
-  , _lddvDeviceDefinitionId = pDeviceDefinitionId_
-  }
+    { _lddvNextToken = Nothing
+    , _lddvMaxResults = Nothing
+    , _lddvDeviceDefinitionId = pDeviceDefinitionId_
+    }
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lddvNextToken :: Lens' ListDeviceDefinitionVersions (Maybe Text)
-lddvNextToken = lens _lddvNextToken (\ s a -> s{_lddvNextToken = a});
+lddvNextToken = lens _lddvNextToken (\ s a -> s{_lddvNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lddvMaxResults :: Lens' ListDeviceDefinitionVersions (Maybe Text)
-lddvMaxResults = lens _lddvMaxResults (\ s a -> s{_lddvMaxResults = a});
+lddvMaxResults = lens _lddvMaxResults (\ s a -> s{_lddvMaxResults = a})
 
--- | device definition Id
+-- | The ID of the device definition.
 lddvDeviceDefinitionId :: Lens' ListDeviceDefinitionVersions Text
-lddvDeviceDefinitionId = lens _lddvDeviceDefinitionId (\ s a -> s{_lddvDeviceDefinitionId = a});
+lddvDeviceDefinitionId = lens _lddvDeviceDefinitionId (\ s a -> s{_lddvDeviceDefinitionId = a})
 
 instance AWSRequest ListDeviceDefinitionVersions
          where
@@ -132,7 +132,7 @@ data ListDeviceDefinitionVersionsResponse = ListDeviceDefinitionVersionsResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lddvrsVersions' - Versions
+-- * 'lddvrsVersions' - Information about a version.
 --
 -- * 'lddvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
@@ -142,23 +142,23 @@ listDeviceDefinitionVersionsResponse
     -> ListDeviceDefinitionVersionsResponse
 listDeviceDefinitionVersionsResponse pResponseStatus_ =
   ListDeviceDefinitionVersionsResponse'
-  { _lddvrsVersions = Nothing
-  , _lddvrsNextToken = Nothing
-  , _lddvrsResponseStatus = pResponseStatus_
-  }
+    { _lddvrsVersions = Nothing
+    , _lddvrsNextToken = Nothing
+    , _lddvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Versions
+-- | Information about a version.
 lddvrsVersions :: Lens' ListDeviceDefinitionVersionsResponse [VersionInformation]
-lddvrsVersions = lens _lddvrsVersions (\ s a -> s{_lddvrsVersions = a}) . _Default . _Coerce;
+lddvrsVersions = lens _lddvrsVersions (\ s a -> s{_lddvrsVersions = a}) . _Default . _Coerce
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lddvrsNextToken :: Lens' ListDeviceDefinitionVersionsResponse (Maybe Text)
-lddvrsNextToken = lens _lddvrsNextToken (\ s a -> s{_lddvrsNextToken = a});
+lddvrsNextToken = lens _lddvrsNextToken (\ s a -> s{_lddvrsNextToken = a})
 
 -- | -- | The response status code.
 lddvrsResponseStatus :: Lens' ListDeviceDefinitionVersionsResponse Int
-lddvrsResponseStatus = lens _lddvrsResponseStatus (\ s a -> s{_lddvrsResponseStatus = a});
+lddvrsResponseStatus = lens _lddvrsResponseStatus (\ s a -> s{_lddvrsResponseStatus = a})
 
 instance NFData ListDeviceDefinitionVersionsResponse
          where

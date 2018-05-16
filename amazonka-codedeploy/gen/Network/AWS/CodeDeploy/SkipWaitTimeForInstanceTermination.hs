@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.SkipWaitTimeForInstanceTermination
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,7 +60,7 @@ skipWaitTimeForInstanceTermination =
 
 -- | The ID of the blue/green deployment for which you want to skip the instance termination wait time.
 swtfitDeploymentId :: Lens' SkipWaitTimeForInstanceTermination (Maybe Text)
-swtfitDeploymentId = lens _swtfitDeploymentId (\ s a -> s{_swtfitDeploymentId = a});
+swtfitDeploymentId = lens _swtfitDeploymentId (\ s a -> s{_swtfitDeploymentId = a})
 
 instance AWSRequest
            SkipWaitTimeForInstanceTermination

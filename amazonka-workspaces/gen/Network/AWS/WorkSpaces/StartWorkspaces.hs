@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.StartWorkspaces
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts the specified WorkSpaces. The WorkSpaces must have a running mode of AutoStop and a state of STOPPED.
+-- Starts the specified WorkSpaces.
 --
+--
+-- You cannot start a WorkSpace unless it has a running mode of @AutoStop@ and a state of @STOPPED@ .
 --
 module Network.AWS.WorkSpaces.StartWorkspaces
     (
@@ -54,18 +56,18 @@ newtype StartWorkspaces = StartWorkspaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'swStartWorkspaceRequests' - The requests.
+-- * 'swStartWorkspaceRequests' - The WorkSpaces to start. You can specify up to 25 WorkSpaces.
 startWorkspaces
     :: NonEmpty StartRequest -- ^ 'swStartWorkspaceRequests'
     -> StartWorkspaces
 startWorkspaces pStartWorkspaceRequests_ =
   StartWorkspaces'
-  {_swStartWorkspaceRequests = _List1 # pStartWorkspaceRequests_}
+    {_swStartWorkspaceRequests = _List1 # pStartWorkspaceRequests_}
 
 
--- | The requests.
+-- | The WorkSpaces to start. You can specify up to 25 WorkSpaces.
 swStartWorkspaceRequests :: Lens' StartWorkspaces (NonEmpty StartRequest)
-swStartWorkspaceRequests = lens _swStartWorkspaceRequests (\ s a -> s{_swStartWorkspaceRequests = a}) . _List1;
+swStartWorkspaceRequests = lens _swStartWorkspaceRequests (\ s a -> s{_swStartWorkspaceRequests = a}) . _List1
 
 instance AWSRequest StartWorkspaces where
         type Rs StartWorkspaces = StartWorkspacesResponse
@@ -115,7 +117,7 @@ data StartWorkspacesResponse = StartWorkspacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'swrsFailedRequests' - The failed requests.
+-- * 'swrsFailedRequests' - Information about the WorkSpaces that could not be started.
 --
 -- * 'swrsResponseStatus' - -- | The response status code.
 startWorkspacesResponse
@@ -123,15 +125,15 @@ startWorkspacesResponse
     -> StartWorkspacesResponse
 startWorkspacesResponse pResponseStatus_ =
   StartWorkspacesResponse'
-  {_swrsFailedRequests = Nothing, _swrsResponseStatus = pResponseStatus_}
+    {_swrsFailedRequests = Nothing, _swrsResponseStatus = pResponseStatus_}
 
 
--- | The failed requests.
+-- | Information about the WorkSpaces that could not be started.
 swrsFailedRequests :: Lens' StartWorkspacesResponse [FailedWorkspaceChangeRequest]
-swrsFailedRequests = lens _swrsFailedRequests (\ s a -> s{_swrsFailedRequests = a}) . _Default . _Coerce;
+swrsFailedRequests = lens _swrsFailedRequests (\ s a -> s{_swrsFailedRequests = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 swrsResponseStatus :: Lens' StartWorkspacesResponse Int
-swrsResponseStatus = lens _swrsResponseStatus (\ s a -> s{_swrsResponseStatus = a});
+swrsResponseStatus = lens _swrsResponseStatus (\ s a -> s{_swrsResponseStatus = a})
 
 instance NFData StartWorkspacesResponse where

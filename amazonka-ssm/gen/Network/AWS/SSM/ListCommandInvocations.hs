@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListCommandInvocations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,38 +83,38 @@ listCommandInvocations
     :: ListCommandInvocations
 listCommandInvocations =
   ListCommandInvocations'
-  { _lciInstanceId = Nothing
-  , _lciFilters = Nothing
-  , _lciNextToken = Nothing
-  , _lciCommandId = Nothing
-  , _lciDetails = Nothing
-  , _lciMaxResults = Nothing
-  }
+    { _lciInstanceId = Nothing
+    , _lciFilters = Nothing
+    , _lciNextToken = Nothing
+    , _lciCommandId = Nothing
+    , _lciDetails = Nothing
+    , _lciMaxResults = Nothing
+    }
 
 
 -- | (Optional) The command execution details for a specific instance ID.
 lciInstanceId :: Lens' ListCommandInvocations (Maybe Text)
-lciInstanceId = lens _lciInstanceId (\ s a -> s{_lciInstanceId = a});
+lciInstanceId = lens _lciInstanceId (\ s a -> s{_lciInstanceId = a})
 
 -- | (Optional) One or more filters. Use a filter to return a more specific list of results.
 lciFilters :: Lens' ListCommandInvocations (Maybe (NonEmpty CommandFilter))
-lciFilters = lens _lciFilters (\ s a -> s{_lciFilters = a}) . mapping _List1;
+lciFilters = lens _lciFilters (\ s a -> s{_lciFilters = a}) . mapping _List1
 
 -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 lciNextToken :: Lens' ListCommandInvocations (Maybe Text)
-lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a});
+lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a})
 
 -- | (Optional) The invocations for a specific command ID.
 lciCommandId :: Lens' ListCommandInvocations (Maybe Text)
-lciCommandId = lens _lciCommandId (\ s a -> s{_lciCommandId = a});
+lciCommandId = lens _lciCommandId (\ s a -> s{_lciCommandId = a})
 
 -- | (Optional) If set this returns the response of the command executions and any command output. By default this is set to False.
 lciDetails :: Lens' ListCommandInvocations (Maybe Bool)
-lciDetails = lens _lciDetails (\ s a -> s{_lciDetails = a});
+lciDetails = lens _lciDetails (\ s a -> s{_lciDetails = a})
 
 -- | (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lciMaxResults :: Lens' ListCommandInvocations (Maybe Natural)
-lciMaxResults = lens _lciMaxResults (\ s a -> s{_lciMaxResults = a}) . mapping _Nat;
+lciMaxResults = lens _lciMaxResults (\ s a -> s{_lciMaxResults = a}) . mapping _Nat
 
 instance AWSPager ListCommandInvocations where
         page rq rs
@@ -187,22 +187,22 @@ listCommandInvocationsResponse
     -> ListCommandInvocationsResponse
 listCommandInvocationsResponse pResponseStatus_ =
   ListCommandInvocationsResponse'
-  { _lrsNextToken = Nothing
-  , _lrsCommandInvocations = Nothing
-  , _lrsResponseStatus = pResponseStatus_
-  }
+    { _lrsNextToken = Nothing
+    , _lrsCommandInvocations = Nothing
+    , _lrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 lrsNextToken :: Lens' ListCommandInvocationsResponse (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
+lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a})
 
 -- | (Optional) A list of all invocations.
 lrsCommandInvocations :: Lens' ListCommandInvocationsResponse [CommandInvocation]
-lrsCommandInvocations = lens _lrsCommandInvocations (\ s a -> s{_lrsCommandInvocations = a}) . _Default . _Coerce;
+lrsCommandInvocations = lens _lrsCommandInvocations (\ s a -> s{_lrsCommandInvocations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lrsResponseStatus :: Lens' ListCommandInvocationsResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
+lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a})
 
 instance NFData ListCommandInvocationsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteApp
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteApp pAppId_ = DeleteApp' {_daAppId = pAppId_}
 
 -- | The app ID.
 daAppId :: Lens' DeleteApp Text
-daAppId = lens _daAppId (\ s a -> s{_daAppId = a});
+daAppId = lens _daAppId (\ s a -> s{_daAppId = a})
 
 instance AWSRequest DeleteApp where
         type Rs DeleteApp = DeleteAppResponse

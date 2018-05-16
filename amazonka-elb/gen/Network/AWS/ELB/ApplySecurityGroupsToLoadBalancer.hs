@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,18 @@ applySecurityGroupsToLoadBalancer
     -> ApplySecurityGroupsToLoadBalancer
 applySecurityGroupsToLoadBalancer pLoadBalancerName_ =
   ApplySecurityGroupsToLoadBalancer'
-  {_asgtlbLoadBalancerName = pLoadBalancerName_, _asgtlbSecurityGroups = mempty}
+    { _asgtlbLoadBalancerName = pLoadBalancerName_
+    , _asgtlbSecurityGroups = mempty
+    }
 
 
 -- | The name of the load balancer.
 asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
-asgtlbLoadBalancerName = lens _asgtlbLoadBalancerName (\ s a -> s{_asgtlbLoadBalancerName = a});
+asgtlbLoadBalancerName = lens _asgtlbLoadBalancerName (\ s a -> s{_asgtlbLoadBalancerName = a})
 
 -- | The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
 asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
-asgtlbSecurityGroups = lens _asgtlbSecurityGroups (\ s a -> s{_asgtlbSecurityGroups = a}) . _Coerce;
+asgtlbSecurityGroups = lens _asgtlbSecurityGroups (\ s a -> s{_asgtlbSecurityGroups = a}) . _Coerce
 
 instance AWSRequest ApplySecurityGroupsToLoadBalancer
          where
@@ -143,18 +145,18 @@ applySecurityGroupsToLoadBalancerResponse
     -> ApplySecurityGroupsToLoadBalancerResponse
 applySecurityGroupsToLoadBalancerResponse pResponseStatus_ =
   ApplySecurityGroupsToLoadBalancerResponse'
-  { _asgtlbrsSecurityGroups = Nothing
-  , _asgtlbrsResponseStatus = pResponseStatus_
-  }
+    { _asgtlbrsSecurityGroups = Nothing
+    , _asgtlbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The IDs of the security groups associated with the load balancer.
 asgtlbrsSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
-asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecurityGroups = a}) . _Default . _Coerce;
+asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecurityGroups = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 asgtlbrsResponseStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
-asgtlbrsResponseStatus = lens _asgtlbrsResponseStatus (\ s a -> s{_asgtlbrsResponseStatus = a});
+asgtlbrsResponseStatus = lens _asgtlbrsResponseStatus (\ s a -> s{_asgtlbrsResponseStatus = a})
 
 instance NFData
            ApplySecurityGroupsToLoadBalancerResponse

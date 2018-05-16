@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.BatchRead
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ batchRead
     -> BatchRead
 batchRead pDirectoryARN_ =
   BatchRead'
-  { _brConsistencyLevel = Nothing
-  , _brDirectoryARN = pDirectoryARN_
-  , _brOperations = mempty
-  }
+    { _brConsistencyLevel = Nothing
+    , _brDirectoryARN = pDirectoryARN_
+    , _brOperations = mempty
+    }
 
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 brConsistencyLevel :: Lens' BatchRead (Maybe ConsistencyLevel)
-brConsistencyLevel = lens _brConsistencyLevel (\ s a -> s{_brConsistencyLevel = a});
+brConsistencyLevel = lens _brConsistencyLevel (\ s a -> s{_brConsistencyLevel = a})
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 brDirectoryARN :: Lens' BatchRead Text
-brDirectoryARN = lens _brDirectoryARN (\ s a -> s{_brDirectoryARN = a});
+brDirectoryARN = lens _brDirectoryARN (\ s a -> s{_brDirectoryARN = a})
 
 -- | A list of operations that are part of the batch.
 brOperations :: Lens' BatchRead [BatchReadOperation]
-brOperations = lens _brOperations (\ s a -> s{_brOperations = a}) . _Coerce;
+brOperations = lens _brOperations (\ s a -> s{_brOperations = a}) . _Coerce
 
 instance AWSRequest BatchRead where
         type Rs BatchRead = BatchReadResponse
@@ -137,15 +137,15 @@ batchReadResponse
     -> BatchReadResponse
 batchReadResponse pResponseStatus_ =
   BatchReadResponse'
-  {_brrsResponses = Nothing, _brrsResponseStatus = pResponseStatus_}
+    {_brrsResponses = Nothing, _brrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of all the responses for each batch read.
 brrsResponses :: Lens' BatchReadResponse [BatchReadOperationResponse]
-brrsResponses = lens _brrsResponses (\ s a -> s{_brrsResponses = a}) . _Default . _Coerce;
+brrsResponses = lens _brrsResponses (\ s a -> s{_brrsResponses = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 brrsResponseStatus :: Lens' BatchReadResponse Int
-brrsResponseStatus = lens _brrsResponseStatus (\ s a -> s{_brrsResponseStatus = a});
+brrsResponseStatus = lens _brrsResponseStatus (\ s a -> s{_brrsResponseStatus = a})
 
 instance NFData BatchReadResponse where

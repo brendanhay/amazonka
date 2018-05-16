@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateVolume
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,20 +67,20 @@ updateVolume
     -> UpdateVolume
 updateVolume pVolumeId_ =
   UpdateVolume'
-  {_uName = Nothing, _uMountPoint = Nothing, _uVolumeId = pVolumeId_}
+    {_uName = Nothing, _uMountPoint = Nothing, _uVolumeId = pVolumeId_}
 
 
 -- | The new name.
 uName :: Lens' UpdateVolume (Maybe Text)
-uName = lens _uName (\ s a -> s{_uName = a});
+uName = lens _uName (\ s a -> s{_uName = a})
 
 -- | The new mount point.
 uMountPoint :: Lens' UpdateVolume (Maybe Text)
-uMountPoint = lens _uMountPoint (\ s a -> s{_uMountPoint = a});
+uMountPoint = lens _uMountPoint (\ s a -> s{_uMountPoint = a})
 
 -- | The volume ID.
 uVolumeId :: Lens' UpdateVolume Text
-uVolumeId = lens _uVolumeId (\ s a -> s{_uVolumeId = a});
+uVolumeId = lens _uVolumeId (\ s a -> s{_uVolumeId = a})
 
 instance AWSRequest UpdateVolume where
         type Rs UpdateVolume = UpdateVolumeResponse

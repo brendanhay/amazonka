@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ listRuleNamesByTarget
     -> ListRuleNamesByTarget
 listRuleNamesByTarget pTargetARN_ =
   ListRuleNamesByTarget'
-  { _lrnbtNextToken = Nothing
-  , _lrnbtLimit = Nothing
-  , _lrnbtTargetARN = pTargetARN_
-  }
+    { _lrnbtNextToken = Nothing
+    , _lrnbtLimit = Nothing
+    , _lrnbtTargetARN = pTargetARN_
+    }
 
 
 -- | The token returned by a previous call to retrieve the next set of results.
 lrnbtNextToken :: Lens' ListRuleNamesByTarget (Maybe Text)
-lrnbtNextToken = lens _lrnbtNextToken (\ s a -> s{_lrnbtNextToken = a});
+lrnbtNextToken = lens _lrnbtNextToken (\ s a -> s{_lrnbtNextToken = a})
 
 -- | The maximum number of results to return.
 lrnbtLimit :: Lens' ListRuleNamesByTarget (Maybe Natural)
-lrnbtLimit = lens _lrnbtLimit (\ s a -> s{_lrnbtLimit = a}) . mapping _Nat;
+lrnbtLimit = lens _lrnbtLimit (\ s a -> s{_lrnbtLimit = a}) . mapping _Nat
 
 -- | The Amazon Resource Name (ARN) of the target resource.
 lrnbtTargetARN :: Lens' ListRuleNamesByTarget Text
-lrnbtTargetARN = lens _lrnbtTargetARN (\ s a -> s{_lrnbtTargetARN = a});
+lrnbtTargetARN = lens _lrnbtTargetARN (\ s a -> s{_lrnbtTargetARN = a})
 
 instance AWSRequest ListRuleNamesByTarget where
         type Rs ListRuleNamesByTarget =
@@ -148,22 +148,22 @@ listRuleNamesByTargetResponse
     -> ListRuleNamesByTargetResponse
 listRuleNamesByTargetResponse pResponseStatus_ =
   ListRuleNamesByTargetResponse'
-  { _lrnbtrsRuleNames = Nothing
-  , _lrnbtrsNextToken = Nothing
-  , _lrnbtrsResponseStatus = pResponseStatus_
-  }
+    { _lrnbtrsRuleNames = Nothing
+    , _lrnbtrsNextToken = Nothing
+    , _lrnbtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The names of the rules that can invoke the given target.
 lrnbtrsRuleNames :: Lens' ListRuleNamesByTargetResponse [Text]
-lrnbtrsRuleNames = lens _lrnbtrsRuleNames (\ s a -> s{_lrnbtrsRuleNames = a}) . _Default . _Coerce;
+lrnbtrsRuleNames = lens _lrnbtrsRuleNames (\ s a -> s{_lrnbtrsRuleNames = a}) . _Default . _Coerce
 
 -- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
 lrnbtrsNextToken :: Lens' ListRuleNamesByTargetResponse (Maybe Text)
-lrnbtrsNextToken = lens _lrnbtrsNextToken (\ s a -> s{_lrnbtrsNextToken = a});
+lrnbtrsNextToken = lens _lrnbtrsNextToken (\ s a -> s{_lrnbtrsNextToken = a})
 
 -- | -- | The response status code.
 lrnbtrsResponseStatus :: Lens' ListRuleNamesByTargetResponse Int
-lrnbtrsResponseStatus = lens _lrnbtrsResponseStatus (\ s a -> s{_lrnbtrsResponseStatus = a});
+lrnbtrsResponseStatus = lens _lrnbtrsResponseStatus (\ s a -> s{_lrnbtrsResponseStatus = a})
 
 instance NFData ListRuleNamesByTargetResponse where

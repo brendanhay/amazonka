@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,28 +51,28 @@ attribute
     -> Attribute
 attribute pName_ pValue_ =
   Attribute'
-  { _aAlternateValueEncoding = Nothing
-  , _aAlternateNameEncoding = Nothing
-  , _aName = pName_
-  , _aValue = pValue_
-  }
+    { _aAlternateValueEncoding = Nothing
+    , _aAlternateNameEncoding = Nothing
+    , _aName = pName_
+    , _aValue = pValue_
+    }
 
 
 -- |
 aAlternateValueEncoding :: Lens' Attribute (Maybe Text)
-aAlternateValueEncoding = lens _aAlternateValueEncoding (\ s a -> s{_aAlternateValueEncoding = a});
+aAlternateValueEncoding = lens _aAlternateValueEncoding (\ s a -> s{_aAlternateValueEncoding = a})
 
 -- |
 aAlternateNameEncoding :: Lens' Attribute (Maybe Text)
-aAlternateNameEncoding = lens _aAlternateNameEncoding (\ s a -> s{_aAlternateNameEncoding = a});
+aAlternateNameEncoding = lens _aAlternateNameEncoding (\ s a -> s{_aAlternateNameEncoding = a})
 
 -- | The name of the attribute.
 aName :: Lens' Attribute Text
-aName = lens _aName (\ s a -> s{_aName = a});
+aName = lens _aName (\ s a -> s{_aName = a})
 
 -- | The value of the attribute.
 aValue :: Lens' Attribute Text
-aValue = lens _aValue (\ s a -> s{_aValue = a});
+aValue = lens _aValue (\ s a -> s{_aValue = a})
 
 instance FromXML Attribute where
         parseXML x
@@ -117,11 +117,11 @@ deletableItem pName_ =
 
 -- | Undocumented member.
 diAttributes :: Lens' DeletableItem [Attribute]
-diAttributes = lens _diAttributes (\ s a -> s{_diAttributes = a}) . _Default . _Coerce;
+diAttributes = lens _diAttributes (\ s a -> s{_diAttributes = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 diName :: Lens' DeletableItem Text
-diName = lens _diName (\ s a -> s{_diName = a});
+diName = lens _diName (\ s a -> s{_diName = a})
 
 instance Hashable DeletableItem where
 
@@ -159,20 +159,20 @@ item
     -> Item
 item pName_ =
   Item'
-  {_iAlternateNameEncoding = Nothing, _iName = pName_, _iAttributes = mempty}
+    {_iAlternateNameEncoding = Nothing, _iName = pName_, _iAttributes = mempty}
 
 
 -- |
 iAlternateNameEncoding :: Lens' Item (Maybe Text)
-iAlternateNameEncoding = lens _iAlternateNameEncoding (\ s a -> s{_iAlternateNameEncoding = a});
+iAlternateNameEncoding = lens _iAlternateNameEncoding (\ s a -> s{_iAlternateNameEncoding = a})
 
 -- | The name of the item.
 iName :: Lens' Item Text
-iName = lens _iName (\ s a -> s{_iName = a});
+iName = lens _iName (\ s a -> s{_iName = a})
 
 -- | A list of attributes.
 iAttributes :: Lens' Item [Attribute]
-iAttributes = lens _iAttributes (\ s a -> s{_iAttributes = a}) . _Coerce;
+iAttributes = lens _iAttributes (\ s a -> s{_iAttributes = a}) . _Coerce
 
 instance FromXML Item where
         parseXML x
@@ -211,20 +211,20 @@ replaceableAttribute
     -> ReplaceableAttribute
 replaceableAttribute pName_ pValue_ =
   ReplaceableAttribute'
-  {_raReplace = Nothing, _raName = pName_, _raValue = pValue_}
+    {_raReplace = Nothing, _raName = pName_, _raValue = pValue_}
 
 
 -- | @false@
 raReplace :: Lens' ReplaceableAttribute (Maybe Bool)
-raReplace = lens _raReplace (\ s a -> s{_raReplace = a});
+raReplace = lens _raReplace (\ s a -> s{_raReplace = a})
 
 -- | The name of the replaceable attribute.
 raName :: Lens' ReplaceableAttribute Text
-raName = lens _raName (\ s a -> s{_raName = a});
+raName = lens _raName (\ s a -> s{_raName = a})
 
 -- | The value of the replaceable attribute.
 raValue :: Lens' ReplaceableAttribute Text
-raValue = lens _raValue (\ s a -> s{_raValue = a});
+raValue = lens _raValue (\ s a -> s{_raValue = a})
 
 instance Hashable ReplaceableAttribute where
 
@@ -263,11 +263,11 @@ replaceableItem pName_ =
 
 -- | The name of the replaceable item.
 riName :: Lens' ReplaceableItem Text
-riName = lens _riName (\ s a -> s{_riName = a});
+riName = lens _riName (\ s a -> s{_riName = a})
 
 -- | The list of attributes for a replaceable item.
 riAttributes :: Lens' ReplaceableItem [ReplaceableAttribute]
-riAttributes = lens _riAttributes (\ s a -> s{_riAttributes = a}) . _Coerce;
+riAttributes = lens _riAttributes (\ s a -> s{_riAttributes = a}) . _Coerce
 
 instance Hashable ReplaceableItem where
 
@@ -308,15 +308,15 @@ updateCondition =
 
 -- | A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify @true@ if the attribute must exist for the update condition to be satisfied. Specify @false@ if the attribute should not exist in order for the update condition to be satisfied.
 ucExists :: Lens' UpdateCondition (Maybe Bool)
-ucExists = lens _ucExists (\ s a -> s{_ucExists = a});
+ucExists = lens _ucExists (\ s a -> s{_ucExists = a})
 
 -- | The value of an attribute. This value can only be specified when the @Exists@ parameter is equal to @true@ .
 ucValue :: Lens' UpdateCondition (Maybe Text)
-ucValue = lens _ucValue (\ s a -> s{_ucValue = a});
+ucValue = lens _ucValue (\ s a -> s{_ucValue = a})
 
 -- | The name of the attribute involved in the condition.
 ucName :: Lens' UpdateCondition (Maybe Text)
-ucName = lens _ucName (\ s a -> s{_ucName = a});
+ucName = lens _ucName (\ s a -> s{_ucName = a})
 
 instance Hashable UpdateCondition where
 

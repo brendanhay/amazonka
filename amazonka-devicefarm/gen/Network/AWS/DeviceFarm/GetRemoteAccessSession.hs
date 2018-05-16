@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetRemoteAccessSession
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getRemoteAccessSession pArn_ = GetRemoteAccessSession' {_grasArn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the remote access session about which you want to get session information.
 grasArn :: Lens' GetRemoteAccessSession Text
-grasArn = lens _grasArn (\ s a -> s{_grasArn = a});
+grasArn = lens _grasArn (\ s a -> s{_grasArn = a})
 
 instance AWSRequest GetRemoteAccessSession where
         type Rs GetRemoteAccessSession =
@@ -127,17 +127,17 @@ getRemoteAccessSessionResponse
     -> GetRemoteAccessSessionResponse
 getRemoteAccessSessionResponse pResponseStatus_ =
   GetRemoteAccessSessionResponse'
-  { _grasrsRemoteAccessSession = Nothing
-  , _grasrsResponseStatus = pResponseStatus_
-  }
+    { _grasrsRemoteAccessSession = Nothing
+    , _grasrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A container that lists detailed information about the remote access session.
 grasrsRemoteAccessSession :: Lens' GetRemoteAccessSessionResponse (Maybe RemoteAccessSession)
-grasrsRemoteAccessSession = lens _grasrsRemoteAccessSession (\ s a -> s{_grasrsRemoteAccessSession = a});
+grasrsRemoteAccessSession = lens _grasrsRemoteAccessSession (\ s a -> s{_grasrsRemoteAccessSession = a})
 
 -- | -- | The response status code.
 grasrsResponseStatus :: Lens' GetRemoteAccessSessionResponse Int
-grasrsResponseStatus = lens _grasrsResponseStatus (\ s a -> s{_grasrsResponseStatus = a});
+grasrsResponseStatus = lens _grasrsResponseStatus (\ s a -> s{_grasrsResponseStatus = a})
 
 instance NFData GetRemoteAccessSessionResponse where

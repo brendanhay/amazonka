@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListInstanceFleets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ listInstanceFleets pClusterId_ =
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lifMarker :: Lens' ListInstanceFleets (Maybe Text)
-lifMarker = lens _lifMarker (\ s a -> s{_lifMarker = a});
+lifMarker = lens _lifMarker (\ s a -> s{_lifMarker = a})
 
 -- | The unique identifier of the cluster.
 lifClusterId :: Lens' ListInstanceFleets Text
-lifClusterId = lens _lifClusterId (\ s a -> s{_lifClusterId = a});
+lifClusterId = lens _lifClusterId (\ s a -> s{_lifClusterId = a})
 
 instance AWSPager ListInstanceFleets where
         page rq rs
@@ -146,22 +146,22 @@ listInstanceFleetsResponse
     -> ListInstanceFleetsResponse
 listInstanceFleetsResponse pResponseStatus_ =
   ListInstanceFleetsResponse'
-  { _lifrsInstanceFleets = Nothing
-  , _lifrsMarker = Nothing
-  , _lifrsResponseStatus = pResponseStatus_
-  }
+    { _lifrsInstanceFleets = Nothing
+    , _lifrsMarker = Nothing
+    , _lifrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of instance fleets for the cluster and given filters.
 lifrsInstanceFleets :: Lens' ListInstanceFleetsResponse [InstanceFleet]
-lifrsInstanceFleets = lens _lifrsInstanceFleets (\ s a -> s{_lifrsInstanceFleets = a}) . _Default . _Coerce;
+lifrsInstanceFleets = lens _lifrsInstanceFleets (\ s a -> s{_lifrsInstanceFleets = a}) . _Default . _Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lifrsMarker :: Lens' ListInstanceFleetsResponse (Maybe Text)
-lifrsMarker = lens _lifrsMarker (\ s a -> s{_lifrsMarker = a});
+lifrsMarker = lens _lifrsMarker (\ s a -> s{_lifrsMarker = a})
 
 -- | -- | The response status code.
 lifrsResponseStatus :: Lens' ListInstanceFleetsResponse Int
-lifrsResponseStatus = lens _lifrsResponseStatus (\ s a -> s{_lifrsResponseStatus = a});
+lifrsResponseStatus = lens _lifrsResponseStatus (\ s a -> s{_lifrsResponseStatus = a})
 
 instance NFData ListInstanceFleetsResponse where

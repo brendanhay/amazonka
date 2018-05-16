@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBSecurityGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deleteDBSecurityGroup pDBSecurityGroupName_ =
 
 -- | The name of the DB security group to delete. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Must not be "Default"
 ddsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
-ddsgDBSecurityGroupName = lens _ddsgDBSecurityGroupName (\ s a -> s{_ddsgDBSecurityGroupName = a});
+ddsgDBSecurityGroupName = lens _ddsgDBSecurityGroupName (\ s a -> s{_ddsgDBSecurityGroupName = a})
 
 instance AWSRequest DeleteDBSecurityGroup where
         type Rs DeleteDBSecurityGroup =

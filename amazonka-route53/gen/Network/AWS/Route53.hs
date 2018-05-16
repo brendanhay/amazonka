@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,9 @@ module Network.AWS.Route53
 
     -- ** NoSuchQueryLoggingConfig
     , _NoSuchQueryLoggingConfig
+
+    -- ** HostedZoneNotPrivate
+    , _HostedZoneNotPrivate
 
     -- ** InvalidInput
     , _InvalidInput
@@ -167,6 +170,9 @@ module Network.AWS.Route53
     -- ** HostedZoneAlreadyExists
     , _HostedZoneAlreadyExists
 
+    -- ** TooManyTrafficPolicyVersionsForCurrentPolicy
+    , _TooManyTrafficPolicyVersionsForCurrentPolicy
+
     -- * Waiters
     -- $waiters
 
@@ -175,6 +181,9 @@ module Network.AWS.Route53
 
     -- * Operations
     -- $operations
+
+    -- ** GetHostedZoneLimit
+    , module Network.AWS.Route53.GetHostedZoneLimit
 
     -- ** AssociateVPCWithHostedZone
     , module Network.AWS.Route53.AssociateVPCWithHostedZone
@@ -281,6 +290,9 @@ module Network.AWS.Route53
     -- ** GetHostedZoneCount
     , module Network.AWS.Route53.GetHostedZoneCount
 
+    -- ** GetAccountLimit
+    , module Network.AWS.Route53.GetAccountLimit
+
     -- ** DeleteQueryLoggingConfig
     , module Network.AWS.Route53.DeleteQueryLoggingConfig
 
@@ -301,6 +313,9 @@ module Network.AWS.Route53
 
     -- ** GetHealthCheckStatus
     , module Network.AWS.Route53.GetHealthCheckStatus
+
+    -- ** GetReusableDelegationSetLimit
+    , module Network.AWS.Route53.GetReusableDelegationSetLimit
 
     -- ** CreateTrafficPolicyVersion
     , module Network.AWS.Route53.CreateTrafficPolicyVersion
@@ -340,6 +355,9 @@ module Network.AWS.Route53
     -- ** Common
     , module Network.AWS.Route53.Internal
 
+    -- ** AccountLimitType
+    , AccountLimitType (..)
+
     -- ** ChangeAction
     , ChangeAction (..)
 
@@ -361,6 +379,9 @@ module Network.AWS.Route53
     -- ** HealthCheckType
     , HealthCheckType (..)
 
+    -- ** HostedZoneLimitType
+    , HostedZoneLimitType (..)
+
     -- ** InsufficientDataHealthStatus
     , InsufficientDataHealthStatus (..)
 
@@ -370,6 +391,9 @@ module Network.AWS.Route53
     -- ** ResettableElementName
     , ResettableElementName (..)
 
+    -- ** ReusableDelegationSetLimitType
+    , ReusableDelegationSetLimitType (..)
+
     -- ** Statistic
     , Statistic (..)
 
@@ -378,6 +402,12 @@ module Network.AWS.Route53
 
     -- ** VPCRegion
     , VPCRegion (..)
+
+    -- ** AccountLimit
+    , AccountLimit
+    , accountLimit
+    , alType
+    , alValue
 
     -- ** AlarmIdentifier
     , AlarmIdentifier
@@ -457,6 +487,7 @@ module Network.AWS.Route53
     -- ** HealthCheck
     , HealthCheck
     , healthCheck
+    , hcLinkedService
     , hcCloudWatchAlarmConfiguration
     , hcId
     , hcCallerReference
@@ -493,6 +524,7 @@ module Network.AWS.Route53
     -- ** HostedZone
     , HostedZone
     , hostedZone
+    , hzLinkedService
     , hzConfig
     , hzResourceRecordSetCount
     , hzId
@@ -504,6 +536,18 @@ module Network.AWS.Route53
     , hostedZoneConfig
     , hzcPrivateZone
     , hzcComment
+
+    -- ** HostedZoneLimit
+    , HostedZoneLimit
+    , hostedZoneLimit
+    , hzlType
+    , hzlValue
+
+    -- ** LinkedService
+    , LinkedService
+    , linkedService
+    , lsServicePrincipal
+    , lsDescription
 
     -- ** QueryLoggingConfig
     , QueryLoggingConfig
@@ -540,6 +584,12 @@ module Network.AWS.Route53
     , rtsResourceId
     , rtsResourceType
     , rtsTags
+
+    -- ** ReusableDelegationSetLimit
+    , ReusableDelegationSetLimit
+    , reusableDelegationSetLimit
+    , rdslType
+    , rdslValue
 
     -- ** StatusReport
     , StatusReport
@@ -611,6 +661,7 @@ import Network.AWS.Route53.DeleteTrafficPolicy
 import Network.AWS.Route53.DeleteTrafficPolicyInstance
 import Network.AWS.Route53.DeleteVPCAssociationAuthorization
 import Network.AWS.Route53.DisassociateVPCFromHostedZone
+import Network.AWS.Route53.GetAccountLimit
 import Network.AWS.Route53.GetChange
 import Network.AWS.Route53.GetCheckerIPRanges
 import Network.AWS.Route53.GetGeoLocation
@@ -620,8 +671,10 @@ import Network.AWS.Route53.GetHealthCheckLastFailureReason
 import Network.AWS.Route53.GetHealthCheckStatus
 import Network.AWS.Route53.GetHostedZone
 import Network.AWS.Route53.GetHostedZoneCount
+import Network.AWS.Route53.GetHostedZoneLimit
 import Network.AWS.Route53.GetQueryLoggingConfig
 import Network.AWS.Route53.GetReusableDelegationSet
+import Network.AWS.Route53.GetReusableDelegationSetLimit
 import Network.AWS.Route53.GetTrafficPolicy
 import Network.AWS.Route53.GetTrafficPolicyInstance
 import Network.AWS.Route53.GetTrafficPolicyInstanceCount

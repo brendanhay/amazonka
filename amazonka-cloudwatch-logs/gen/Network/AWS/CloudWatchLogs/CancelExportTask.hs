@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CancelExportTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ cancelExportTask pTaskId_ = CancelExportTask' {_cetTaskId = pTaskId_}
 
 -- | The ID of the export task.
 cetTaskId :: Lens' CancelExportTask Text
-cetTaskId = lens _cetTaskId (\ s a -> s{_cetTaskId = a});
+cetTaskId = lens _cetTaskId (\ s a -> s{_cetTaskId = a})
 
 instance AWSRequest CancelExportTask where
         type Rs CancelExportTask = CancelExportTaskResponse

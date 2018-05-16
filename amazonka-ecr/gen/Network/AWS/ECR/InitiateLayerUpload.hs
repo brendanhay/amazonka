@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.InitiateLayerUpload
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ initiateLayerUpload
     -> InitiateLayerUpload
 initiateLayerUpload pRepositoryName_ =
   InitiateLayerUpload'
-  {_iluRegistryId = Nothing, _iluRepositoryName = pRepositoryName_}
+    {_iluRegistryId = Nothing, _iluRepositoryName = pRepositoryName_}
 
 
 -- | The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
 iluRegistryId :: Lens' InitiateLayerUpload (Maybe Text)
-iluRegistryId = lens _iluRegistryId (\ s a -> s{_iluRegistryId = a});
+iluRegistryId = lens _iluRegistryId (\ s a -> s{_iluRegistryId = a})
 
 -- | The name of the repository to which you intend to upload layers.
 iluRepositoryName :: Lens' InitiateLayerUpload Text
-iluRepositoryName = lens _iluRepositoryName (\ s a -> s{_iluRepositoryName = a});
+iluRepositoryName = lens _iluRepositoryName (\ s a -> s{_iluRepositoryName = a})
 
 instance AWSRequest InitiateLayerUpload where
         type Rs InitiateLayerUpload =
@@ -136,22 +136,22 @@ initiateLayerUploadResponse
     -> InitiateLayerUploadResponse
 initiateLayerUploadResponse pResponseStatus_ =
   InitiateLayerUploadResponse'
-  { _ilursPartSize = Nothing
-  , _ilursUploadId = Nothing
-  , _ilursResponseStatus = pResponseStatus_
-  }
+    { _ilursPartSize = Nothing
+    , _ilursUploadId = Nothing
+    , _ilursResponseStatus = pResponseStatus_
+    }
 
 
 -- | The size, in bytes, that Amazon ECR expects future layer part uploads to be.
 ilursPartSize :: Lens' InitiateLayerUploadResponse (Maybe Natural)
-ilursPartSize = lens _ilursPartSize (\ s a -> s{_ilursPartSize = a}) . mapping _Nat;
+ilursPartSize = lens _ilursPartSize (\ s a -> s{_ilursPartSize = a}) . mapping _Nat
 
 -- | The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
 ilursUploadId :: Lens' InitiateLayerUploadResponse (Maybe Text)
-ilursUploadId = lens _ilursUploadId (\ s a -> s{_ilursUploadId = a});
+ilursUploadId = lens _ilursUploadId (\ s a -> s{_ilursUploadId = a})
 
 -- | -- | The response status code.
 ilursResponseStatus :: Lens' InitiateLayerUploadResponse Int
-ilursResponseStatus = lens _ilursResponseStatus (\ s a -> s{_ilursResponseStatus = a});
+ilursResponseStatus = lens _ilursResponseStatus (\ s a -> s{_ilursResponseStatus = a})
 
 instance NFData InitiateLayerUploadResponse where

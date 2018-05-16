@@ -1,5 +1,5 @@
 name:                  amazonka-dynamodb
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon DynamoDB SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -47,21 +47,35 @@ library
           Network.AWS.DynamoDB
         , Network.AWS.DynamoDB.BatchGetItem
         , Network.AWS.DynamoDB.BatchWriteItem
+        , Network.AWS.DynamoDB.CreateBackup
+        , Network.AWS.DynamoDB.CreateGlobalTable
         , Network.AWS.DynamoDB.CreateTable
+        , Network.AWS.DynamoDB.DeleteBackup
         , Network.AWS.DynamoDB.DeleteItem
         , Network.AWS.DynamoDB.DeleteTable
+        , Network.AWS.DynamoDB.DescribeBackup
+        , Network.AWS.DynamoDB.DescribeContinuousBackups
+        , Network.AWS.DynamoDB.DescribeGlobalTable
+        , Network.AWS.DynamoDB.DescribeGlobalTableSettings
         , Network.AWS.DynamoDB.DescribeLimits
         , Network.AWS.DynamoDB.DescribeTable
         , Network.AWS.DynamoDB.DescribeTimeToLive
         , Network.AWS.DynamoDB.GetItem
+        , Network.AWS.DynamoDB.ListBackups
+        , Network.AWS.DynamoDB.ListGlobalTables
         , Network.AWS.DynamoDB.ListTables
         , Network.AWS.DynamoDB.ListTagsOfResource
         , Network.AWS.DynamoDB.PutItem
         , Network.AWS.DynamoDB.Query
+        , Network.AWS.DynamoDB.RestoreTableFromBackup
+        , Network.AWS.DynamoDB.RestoreTableToPointInTime
         , Network.AWS.DynamoDB.Scan
         , Network.AWS.DynamoDB.TagResource
         , Network.AWS.DynamoDB.Types
         , Network.AWS.DynamoDB.UntagResource
+        , Network.AWS.DynamoDB.UpdateContinuousBackups
+        , Network.AWS.DynamoDB.UpdateGlobalTable
+        , Network.AWS.DynamoDB.UpdateGlobalTableSettings
         , Network.AWS.DynamoDB.UpdateItem
         , Network.AWS.DynamoDB.UpdateTable
         , Network.AWS.DynamoDB.UpdateTimeToLive
@@ -72,7 +86,7 @@ library
         , Network.AWS.DynamoDB.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-dynamodb-test
@@ -92,8 +106,8 @@ test-suite amazonka-dynamodb-test
         , Test.AWS.DynamoDB.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-dynamodb
         , base
         , bytestring

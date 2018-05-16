@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,23 +80,23 @@ describeConfigurationSettings
     -> DescribeConfigurationSettings
 describeConfigurationSettings pApplicationName_ =
   DescribeConfigurationSettings'
-  { _dcsTemplateName = Nothing
-  , _dcsEnvironmentName = Nothing
-  , _dcsApplicationName = pApplicationName_
-  }
+    { _dcsTemplateName = Nothing
+    , _dcsEnvironmentName = Nothing
+    , _dcsApplicationName = pApplicationName_
+    }
 
 
 -- | The name of the configuration template to describe. Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
 dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
-dcsTemplateName = lens _dcsTemplateName (\ s a -> s{_dcsTemplateName = a});
+dcsTemplateName = lens _dcsTemplateName (\ s a -> s{_dcsTemplateName = a})
 
 -- | The name of the environment to describe. Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 dcsEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
-dcsEnvironmentName = lens _dcsEnvironmentName (\ s a -> s{_dcsEnvironmentName = a});
+dcsEnvironmentName = lens _dcsEnvironmentName (\ s a -> s{_dcsEnvironmentName = a})
 
 -- | The application for the environment or configuration template.
 dcsApplicationName :: Lens' DescribeConfigurationSettings Text
-dcsApplicationName = lens _dcsApplicationName (\ s a -> s{_dcsApplicationName = a});
+dcsApplicationName = lens _dcsApplicationName (\ s a -> s{_dcsApplicationName = a})
 
 instance AWSRequest DescribeConfigurationSettings
          where
@@ -156,18 +156,18 @@ describeConfigurationSettingsResponse
     -> DescribeConfigurationSettingsResponse
 describeConfigurationSettingsResponse pResponseStatus_ =
   DescribeConfigurationSettingsResponse'
-  { _dcsrsConfigurationSettings = Nothing
-  , _dcsrsResponseStatus = pResponseStatus_
-  }
+    { _dcsrsConfigurationSettings = Nothing
+    , _dcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of 'ConfigurationSettingsDescription' .
 dcsrsConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
-dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrsConfigurationSettings = a}) . _Default . _Coerce;
+dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrsConfigurationSettings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcsrsResponseStatus :: Lens' DescribeConfigurationSettingsResponse Int
-dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
+dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a})
 
 instance NFData DescribeConfigurationSettingsResponse
          where

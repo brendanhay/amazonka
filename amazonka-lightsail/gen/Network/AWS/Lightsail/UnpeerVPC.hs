@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.UnpeerVPC
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -105,15 +105,15 @@ unpeerVPCResponse
     -> UnpeerVPCResponse
 unpeerVPCResponse pResponseStatus_ =
   UnpeerVPCResponse'
-  {_uvrsOperation = Nothing, _uvrsResponseStatus = pResponseStatus_}
+    {_uvrsOperation = Nothing, _uvrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the request operation.
 uvrsOperation :: Lens' UnpeerVPCResponse (Maybe Operation)
-uvrsOperation = lens _uvrsOperation (\ s a -> s{_uvrsOperation = a});
+uvrsOperation = lens _uvrsOperation (\ s a -> s{_uvrsOperation = a})
 
 -- | -- | The response status code.
 uvrsResponseStatus :: Lens' UnpeerVPCResponse Int
-uvrsResponseStatus = lens _uvrsResponseStatus (\ s a -> s{_uvrsResponseStatus = a});
+uvrsResponseStatus = lens _uvrsResponseStatus (\ s a -> s{_uvrsResponseStatus = a})
 
 instance NFData UnpeerVPCResponse where

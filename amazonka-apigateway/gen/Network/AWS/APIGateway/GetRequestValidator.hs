@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetRequestValidator
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ data GetRequestValidator = GetRequestValidator'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grvrRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'grvrRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'grvrRequestValidatorId' - [Required] The identifier of the 'RequestValidator' to be retrieved.
 getRequestValidator
@@ -71,16 +71,18 @@ getRequestValidator
     -> GetRequestValidator
 getRequestValidator pRestAPIId_ pRequestValidatorId_ =
   GetRequestValidator'
-  {_grvrRestAPIId = pRestAPIId_, _grvrRequestValidatorId = pRequestValidatorId_}
+    { _grvrRestAPIId = pRestAPIId_
+    , _grvrRequestValidatorId = pRequestValidatorId_
+    }
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 grvrRestAPIId :: Lens' GetRequestValidator Text
-grvrRestAPIId = lens _grvrRestAPIId (\ s a -> s{_grvrRestAPIId = a});
+grvrRestAPIId = lens _grvrRestAPIId (\ s a -> s{_grvrRestAPIId = a})
 
 -- | [Required] The identifier of the 'RequestValidator' to be retrieved.
 grvrRequestValidatorId :: Lens' GetRequestValidator Text
-grvrRequestValidatorId = lens _grvrRequestValidatorId (\ s a -> s{_grvrRequestValidatorId = a});
+grvrRequestValidatorId = lens _grvrRequestValidatorId (\ s a -> s{_grvrRequestValidatorId = a})
 
 instance AWSRequest GetRequestValidator where
         type Rs GetRequestValidator = RequestValidator

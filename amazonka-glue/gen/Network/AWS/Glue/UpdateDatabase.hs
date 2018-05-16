@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateDatabase
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ data UpdateDatabase = UpdateDatabase'
 --
 -- * 'udCatalogId' - The ID of the Data Catalog in which the metadata database resides. If none is supplied, the AWS account ID is used by default.
 --
--- * 'udName' - The name of the metadata database to update in the catalog.
+-- * 'udName' - The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.
 --
 -- * 'udDatabaseInput' - A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
 updateDatabase
@@ -68,20 +68,23 @@ updateDatabase
     -> UpdateDatabase
 updateDatabase pName_ pDatabaseInput_ =
   UpdateDatabase'
-  {_udCatalogId = Nothing, _udName = pName_, _udDatabaseInput = pDatabaseInput_}
+    { _udCatalogId = Nothing
+    , _udName = pName_
+    , _udDatabaseInput = pDatabaseInput_
+    }
 
 
 -- | The ID of the Data Catalog in which the metadata database resides. If none is supplied, the AWS account ID is used by default.
 udCatalogId :: Lens' UpdateDatabase (Maybe Text)
-udCatalogId = lens _udCatalogId (\ s a -> s{_udCatalogId = a});
+udCatalogId = lens _udCatalogId (\ s a -> s{_udCatalogId = a})
 
--- | The name of the metadata database to update in the catalog.
+-- | The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.
 udName :: Lens' UpdateDatabase Text
-udName = lens _udName (\ s a -> s{_udName = a});
+udName = lens _udName (\ s a -> s{_udName = a})
 
 -- | A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
 udDatabaseInput :: Lens' UpdateDatabase DatabaseInput
-udDatabaseInput = lens _udDatabaseInput (\ s a -> s{_udDatabaseInput = a});
+udDatabaseInput = lens _udDatabaseInput (\ s a -> s{_udDatabaseInput = a})
 
 instance AWSRequest UpdateDatabase where
         type Rs UpdateDatabase = UpdateDatabaseResponse
@@ -138,6 +141,6 @@ updateDatabaseResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 udrsResponseStatus :: Lens' UpdateDatabaseResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
+udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a})
 
 instance NFData UpdateDatabaseResponse where

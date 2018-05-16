@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -15,7 +15,7 @@
 --
 -- __Overview__
 --
--- This is the /AWS Lambda API Reference/ . The AWS Lambda Developer Guide provides additional information. For the service overview, see <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda> , and for information about how the service works, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the /AWS Lambda Developer Guide/ .
+-- This is the /AWS Lambda API Reference/ . The AWS Lambda Developer Guide provides additional information. For the service overview, see <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda> , and for information about how the service works, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the __AWS Lambda Developer Guide__ .
 --
 module Network.AWS.Lambda
     (
@@ -36,6 +36,9 @@ module Network.AWS.Lambda
 
     -- ** PolicyLengthExceededException
     , _PolicyLengthExceededException
+
+    -- ** PreconditionFailedException
+    , _PreconditionFailedException
 
     -- ** EC2AccessDeniedException
     , _EC2AccessDeniedException
@@ -115,7 +118,7 @@ module Network.AWS.Lambda
     -- ** ListVersionsByFunction
     , module Network.AWS.Lambda.ListVersionsByFunction
 
-    -- ** ListAliases
+    -- ** ListAliases (Paginated)
     , module Network.AWS.Lambda.ListAliases
 
     -- ** RemovePermission
@@ -130,8 +133,14 @@ module Network.AWS.Lambda
     -- ** GetEventSourceMapping
     , module Network.AWS.Lambda.GetEventSourceMapping
 
+    -- ** PutFunctionConcurrency
+    , module Network.AWS.Lambda.PutFunctionConcurrency
+
     -- ** CreateFunction
     , module Network.AWS.Lambda.CreateFunction
+
+    -- ** DeleteFunctionConcurrency
+    , module Network.AWS.Lambda.DeleteFunctionConcurrency
 
     -- ** CreateEventSourceMapping
     , module Network.AWS.Lambda.CreateEventSourceMapping
@@ -206,6 +215,7 @@ module Network.AWS.Lambda
     , accountLimit
     , alConcurrentExecutions
     , alTotalCodeSize
+    , alUnreservedConcurrentExecutions
     , alCodeSizeUnzipped
     , alCodeSizeZipped
 
@@ -218,10 +228,22 @@ module Network.AWS.Lambda
     -- ** AliasConfiguration
     , AliasConfiguration
     , aliasConfiguration
+    , acRoutingConfig
     , acName
     , acFunctionVersion
     , acAliasARN
     , acDescription
+    , acRevisionId
+
+    -- ** AliasRoutingConfiguration
+    , AliasRoutingConfiguration
+    , aliasRoutingConfiguration
+    , arcAdditionalVersionWeights
+
+    -- ** Concurrency
+    , Concurrency
+    , concurrency
+    , cReservedConcurrentExecutions
 
     -- ** DeadLetterConfig
     , DeadLetterConfig
@@ -291,6 +313,7 @@ module Network.AWS.Lambda
     , fcCodeSha256
     , fcTracingConfig
     , fcDescription
+    , fcRevisionId
     , fcMasterARN
 
     -- ** TracingConfig
@@ -324,6 +347,7 @@ import Network.AWS.Lambda.CreateFunction
 import Network.AWS.Lambda.DeleteAlias
 import Network.AWS.Lambda.DeleteEventSourceMapping
 import Network.AWS.Lambda.DeleteFunction
+import Network.AWS.Lambda.DeleteFunctionConcurrency
 import Network.AWS.Lambda.GetAccountSettings
 import Network.AWS.Lambda.GetAlias
 import Network.AWS.Lambda.GetEventSourceMapping
@@ -337,6 +361,7 @@ import Network.AWS.Lambda.ListFunctions
 import Network.AWS.Lambda.ListTags
 import Network.AWS.Lambda.ListVersionsByFunction
 import Network.AWS.Lambda.PublishVersion
+import Network.AWS.Lambda.PutFunctionConcurrency
 import Network.AWS.Lambda.RemovePermission
 import Network.AWS.Lambda.TagResource
 import Network.AWS.Lambda.Types

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribePatchBaselines
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,20 +68,20 @@ describePatchBaselines
     :: DescribePatchBaselines
 describePatchBaselines =
   DescribePatchBaselines'
-  {_dpbFilters = Nothing, _dpbNextToken = Nothing, _dpbMaxResults = Nothing}
+    {_dpbFilters = Nothing, _dpbNextToken = Nothing, _dpbMaxResults = Nothing}
 
 
 -- | Each element in the array is a structure containing:  Key: (string, "NAME_PREFIX" or "OWNER") Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
 dpbFilters :: Lens' DescribePatchBaselines [PatchOrchestratorFilter]
-dpbFilters = lens _dpbFilters (\ s a -> s{_dpbFilters = a}) . _Default . _Coerce;
+dpbFilters = lens _dpbFilters (\ s a -> s{_dpbFilters = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dpbNextToken :: Lens' DescribePatchBaselines (Maybe Text)
-dpbNextToken = lens _dpbNextToken (\ s a -> s{_dpbNextToken = a});
+dpbNextToken = lens _dpbNextToken (\ s a -> s{_dpbNextToken = a})
 
 -- | The maximum number of patch baselines to return (per page).
 dpbMaxResults :: Lens' DescribePatchBaselines (Maybe Natural)
-dpbMaxResults = lens _dpbMaxResults (\ s a -> s{_dpbMaxResults = a}) . mapping _Nat;
+dpbMaxResults = lens _dpbMaxResults (\ s a -> s{_dpbMaxResults = a}) . mapping _Nat
 
 instance AWSRequest DescribePatchBaselines where
         type Rs DescribePatchBaselines =
@@ -144,22 +144,22 @@ describePatchBaselinesResponse
     -> DescribePatchBaselinesResponse
 describePatchBaselinesResponse pResponseStatus_ =
   DescribePatchBaselinesResponse'
-  { _dpbsrsBaselineIdentities = Nothing
-  , _dpbsrsNextToken = Nothing
-  , _dpbsrsResponseStatus = pResponseStatus_
-  }
+    { _dpbsrsBaselineIdentities = Nothing
+    , _dpbsrsNextToken = Nothing
+    , _dpbsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of PatchBaselineIdentity elements.
 dpbsrsBaselineIdentities :: Lens' DescribePatchBaselinesResponse [PatchBaselineIdentity]
-dpbsrsBaselineIdentities = lens _dpbsrsBaselineIdentities (\ s a -> s{_dpbsrsBaselineIdentities = a}) . _Default . _Coerce;
+dpbsrsBaselineIdentities = lens _dpbsrsBaselineIdentities (\ s a -> s{_dpbsrsBaselineIdentities = a}) . _Default . _Coerce
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dpbsrsNextToken :: Lens' DescribePatchBaselinesResponse (Maybe Text)
-dpbsrsNextToken = lens _dpbsrsNextToken (\ s a -> s{_dpbsrsNextToken = a});
+dpbsrsNextToken = lens _dpbsrsNextToken (\ s a -> s{_dpbsrsNextToken = a})
 
 -- | -- | The response status code.
 dpbsrsResponseStatus :: Lens' DescribePatchBaselinesResponse Int
-dpbsrsResponseStatus = lens _dpbsrsResponseStatus (\ s a -> s{_dpbsrsResponseStatus = a});
+dpbsrsResponseStatus = lens _dpbsrsResponseStatus (\ s a -> s{_dpbsrsResponseStatus = a})
 
 instance NFData DescribePatchBaselinesResponse where

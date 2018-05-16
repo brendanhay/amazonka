@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.RegisterInstancesWithLoadBalancer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,16 +78,16 @@ registerInstancesWithLoadBalancer
     -> RegisterInstancesWithLoadBalancer
 registerInstancesWithLoadBalancer pLoadBalancerName_ =
   RegisterInstancesWithLoadBalancer'
-  {_riwlbLoadBalancerName = pLoadBalancerName_, _riwlbInstances = mempty}
+    {_riwlbLoadBalancerName = pLoadBalancerName_, _riwlbInstances = mempty}
 
 
 -- | The name of the load balancer.
 riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
-riwlbLoadBalancerName = lens _riwlbLoadBalancerName (\ s a -> s{_riwlbLoadBalancerName = a});
+riwlbLoadBalancerName = lens _riwlbLoadBalancerName (\ s a -> s{_riwlbLoadBalancerName = a})
 
 -- | The IDs of the instances.
 riwlbInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
-riwlbInstances = lens _riwlbInstances (\ s a -> s{_riwlbInstances = a}) . _Coerce;
+riwlbInstances = lens _riwlbInstances (\ s a -> s{_riwlbInstances = a}) . _Coerce
 
 instance AWSRequest RegisterInstancesWithLoadBalancer
          where
@@ -150,16 +150,16 @@ registerInstancesWithLoadBalancerResponse
     -> RegisterInstancesWithLoadBalancerResponse
 registerInstancesWithLoadBalancerResponse pResponseStatus_ =
   RegisterInstancesWithLoadBalancerResponse'
-  {_riwlbrsInstances = Nothing, _riwlbrsResponseStatus = pResponseStatus_}
+    {_riwlbrsInstances = Nothing, _riwlbrsResponseStatus = pResponseStatus_}
 
 
 -- | The updated list of instances for the load balancer.
 riwlbrsInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
-riwlbrsInstances = lens _riwlbrsInstances (\ s a -> s{_riwlbrsInstances = a}) . _Default . _Coerce;
+riwlbrsInstances = lens _riwlbrsInstances (\ s a -> s{_riwlbrsInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 riwlbrsResponseStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
-riwlbrsResponseStatus = lens _riwlbrsResponseStatus (\ s a -> s{_riwlbrsResponseStatus = a});
+riwlbrsResponseStatus = lens _riwlbrsResponseStatus (\ s a -> s{_riwlbrsResponseStatus = a})
 
 instance NFData
            RegisterInstancesWithLoadBalancerResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.DescribeAddress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ describeAddress pAddressId_ = DescribeAddress' {_daAddressId = pAddressId_}
 
 -- | The automatically generated ID for a specific address.
 daAddressId :: Lens' DescribeAddress Text
-daAddressId = lens _daAddressId (\ s a -> s{_daAddressId = a});
+daAddressId = lens _daAddressId (\ s a -> s{_daAddressId = a})
 
 instance AWSRequest DescribeAddress where
         type Rs DescribeAddress = DescribeAddressResponse
@@ -118,15 +118,15 @@ describeAddressResponse
     -> DescribeAddressResponse
 describeAddressResponse pResponseStatus_ =
   DescribeAddressResponse'
-  {_darsAddress = Nothing, _darsResponseStatus = pResponseStatus_}
+    {_darsAddress = Nothing, _darsResponseStatus = pResponseStatus_}
 
 
 -- | The address that you want the Snowball or Snowballs associated with a specific job to be shipped to.
 darsAddress :: Lens' DescribeAddressResponse (Maybe Address)
-darsAddress = lens _darsAddress (\ s a -> s{_darsAddress = a});
+darsAddress = lens _darsAddress (\ s a -> s{_darsAddress = a})
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAddressResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DescribeAddressResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateADMChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ updateADMChannel
     -> UpdateADMChannel
 updateADMChannel pApplicationId_ pADMChannelRequest_ =
   UpdateADMChannel'
-  { _uadmcApplicationId = pApplicationId_
-  , _uadmcADMChannelRequest = pADMChannelRequest_
-  }
+    { _uadmcApplicationId = pApplicationId_
+    , _uadmcADMChannelRequest = pADMChannelRequest_
+    }
 
 
 -- | Undocumented member.
 uadmcApplicationId :: Lens' UpdateADMChannel Text
-uadmcApplicationId = lens _uadmcApplicationId (\ s a -> s{_uadmcApplicationId = a});
+uadmcApplicationId = lens _uadmcApplicationId (\ s a -> s{_uadmcApplicationId = a})
 
 -- | Undocumented member.
 uadmcADMChannelRequest :: Lens' UpdateADMChannel ADMChannelRequest
-uadmcADMChannelRequest = lens _uadmcADMChannelRequest (\ s a -> s{_uadmcADMChannelRequest = a});
+uadmcADMChannelRequest = lens _uadmcADMChannelRequest (\ s a -> s{_uadmcADMChannelRequest = a})
 
 instance AWSRequest UpdateADMChannel where
         type Rs UpdateADMChannel = UpdateADMChannelResponse
@@ -132,17 +132,17 @@ updateADMChannelResponse
     -> UpdateADMChannelResponse
 updateADMChannelResponse pResponseStatus_ pADMChannelResponse_ =
   UpdateADMChannelResponse'
-  { _uadmcrsResponseStatus = pResponseStatus_
-  , _uadmcrsADMChannelResponse = pADMChannelResponse_
-  }
+    { _uadmcrsResponseStatus = pResponseStatus_
+    , _uadmcrsADMChannelResponse = pADMChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 uadmcrsResponseStatus :: Lens' UpdateADMChannelResponse Int
-uadmcrsResponseStatus = lens _uadmcrsResponseStatus (\ s a -> s{_uadmcrsResponseStatus = a});
+uadmcrsResponseStatus = lens _uadmcrsResponseStatus (\ s a -> s{_uadmcrsResponseStatus = a})
 
 -- | Undocumented member.
 uadmcrsADMChannelResponse :: Lens' UpdateADMChannelResponse ADMChannelResponse
-uadmcrsADMChannelResponse = lens _uadmcrsADMChannelResponse (\ s a -> s{_uadmcrsADMChannelResponse = a});
+uadmcrsADMChannelResponse = lens _uadmcrsADMChannelResponse (\ s a -> s{_uadmcrsADMChannelResponse = a})
 
 instance NFData UpdateADMChannelResponse where

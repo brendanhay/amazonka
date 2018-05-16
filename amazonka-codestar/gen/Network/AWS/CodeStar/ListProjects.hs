@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.ListProjects
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ listProjects = ListProjects' {_lpNextToken = Nothing, _lpMaxResults = Nothing}
 
 -- | The continuation token to be used to return the next set of results, if the results cannot be returned in one response.
 lpNextToken :: Lens' ListProjects (Maybe Text)
-lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
+lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a})
 
 -- | The maximum amount of data that can be contained in a single set of results.
 lpMaxResults :: Lens' ListProjects (Maybe Natural)
-lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a}) . mapping _Nat;
+lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a}) . mapping _Nat
 
 instance AWSRequest ListProjects where
         type Rs ListProjects = ListProjectsResponse
@@ -131,22 +131,22 @@ listProjectsResponse
     -> ListProjectsResponse
 listProjectsResponse pResponseStatus_ =
   ListProjectsResponse'
-  { _lprsNextToken = Nothing
-  , _lprsResponseStatus = pResponseStatus_
-  , _lprsProjects = mempty
-  }
+    { _lprsNextToken = Nothing
+    , _lprsResponseStatus = pResponseStatus_
+    , _lprsProjects = mempty
+    }
 
 
 -- | The continuation token to use when requesting the next set of results, if there are more results to be returned.
 lprsNextToken :: Lens' ListProjectsResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
+lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a})
 
 -- | -- | The response status code.
 lprsResponseStatus :: Lens' ListProjectsResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a})
 
 -- | A list of projects.
 lprsProjects :: Lens' ListProjectsResponse [ProjectSummary]
-lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Coerce;
+lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Coerce
 
 instance NFData ListProjectsResponse where

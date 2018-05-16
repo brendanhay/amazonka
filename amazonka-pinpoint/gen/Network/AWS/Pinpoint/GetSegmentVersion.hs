@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSegmentVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ getSegmentVersion
     -> GetSegmentVersion
 getSegmentVersion pSegmentId_ pVersion_ pApplicationId_ =
   GetSegmentVersion'
-  { _gSegmentId = pSegmentId_
-  , _gVersion = pVersion_
-  , _gApplicationId = pApplicationId_
-  }
+    { _gSegmentId = pSegmentId_
+    , _gVersion = pVersion_
+    , _gApplicationId = pApplicationId_
+    }
 
 
 -- | Undocumented member.
 gSegmentId :: Lens' GetSegmentVersion Text
-gSegmentId = lens _gSegmentId (\ s a -> s{_gSegmentId = a});
+gSegmentId = lens _gSegmentId (\ s a -> s{_gSegmentId = a})
 
 -- | Undocumented member.
 gVersion :: Lens' GetSegmentVersion Text
-gVersion = lens _gVersion (\ s a -> s{_gVersion = a});
+gVersion = lens _gVersion (\ s a -> s{_gVersion = a})
 
 -- | Undocumented member.
 gApplicationId :: Lens' GetSegmentVersion Text
-gApplicationId = lens _gApplicationId (\ s a -> s{_gApplicationId = a});
+gApplicationId = lens _gApplicationId (\ s a -> s{_gApplicationId = a})
 
 instance AWSRequest GetSegmentVersion where
         type Rs GetSegmentVersion = GetSegmentVersionResponse
@@ -135,17 +135,17 @@ getSegmentVersionResponse
     -> GetSegmentVersionResponse
 getSegmentVersionResponse pResponseStatus_ pSegmentResponse_ =
   GetSegmentVersionResponse'
-  { _gsvrsResponseStatus = pResponseStatus_
-  , _gsvrsSegmentResponse = pSegmentResponse_
-  }
+    { _gsvrsResponseStatus = pResponseStatus_
+    , _gsvrsSegmentResponse = pSegmentResponse_
+    }
 
 
 -- | -- | The response status code.
 gsvrsResponseStatus :: Lens' GetSegmentVersionResponse Int
-gsvrsResponseStatus = lens _gsvrsResponseStatus (\ s a -> s{_gsvrsResponseStatus = a});
+gsvrsResponseStatus = lens _gsvrsResponseStatus (\ s a -> s{_gsvrsResponseStatus = a})
 
 -- | Undocumented member.
 gsvrsSegmentResponse :: Lens' GetSegmentVersionResponse SegmentResponse
-gsvrsSegmentResponse = lens _gsvrsSegmentResponse (\ s a -> s{_gsvrsSegmentResponse = a});
+gsvrsSegmentResponse = lens _gsvrsSegmentResponse (\ s a -> s{_gsvrsSegmentResponse = a})
 
 instance NFData GetSegmentVersionResponse where

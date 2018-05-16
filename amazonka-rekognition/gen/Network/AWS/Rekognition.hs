@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,9 @@ module Network.AWS.Rekognition
 
     -- ** AccessDeniedException
     , _AccessDeniedException
+
+    -- ** VideoTooLargeException
+    , _VideoTooLargeException
 
     -- ** InvalidParameterException
     , _InvalidParameterException
@@ -49,17 +52,32 @@ module Network.AWS.Rekognition
     -- ** InternalServerError
     , _InternalServerError
 
+    -- ** IdempotentParameterMismatchException
+    , _IdempotentParameterMismatchException
+
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
 
     -- ** InvalidPaginationTokenException
     , _InvalidPaginationTokenException
 
+    -- ** LimitExceededException
+    , _LimitExceededException
+
+    -- ** ResourceInUseException
+    , _ResourceInUseException
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** StartCelebrityRecognition
+    , module Network.AWS.Rekognition.StartCelebrityRecognition
+
+    -- ** GetPersonTracking
+    , module Network.AWS.Rekognition.GetPersonTracking
 
     -- ** ListCollections (Paginated)
     , module Network.AWS.Rekognition.ListCollections
@@ -70,14 +88,29 @@ module Network.AWS.Rekognition
     -- ** CreateCollection
     , module Network.AWS.Rekognition.CreateCollection
 
+    -- ** StopStreamProcessor
+    , module Network.AWS.Rekognition.StopStreamProcessor
+
     -- ** DetectLabels
     , module Network.AWS.Rekognition.DetectLabels
+
+    -- ** StartContentModeration
+    , module Network.AWS.Rekognition.StartContentModeration
 
     -- ** SearchFacesByImage
     , module Network.AWS.Rekognition.SearchFacesByImage
 
+    -- ** ListStreamProcessors (Paginated)
+    , module Network.AWS.Rekognition.ListStreamProcessors
+
     -- ** RecognizeCelebrities
     , module Network.AWS.Rekognition.RecognizeCelebrities
+
+    -- ** GetFaceSearch
+    , module Network.AWS.Rekognition.GetFaceSearch
+
+    -- ** StartLabelDetection
+    , module Network.AWS.Rekognition.StartLabelDetection
 
     -- ** SearchFaces
     , module Network.AWS.Rekognition.SearchFaces
@@ -85,14 +118,41 @@ module Network.AWS.Rekognition
     -- ** IndexFaces
     , module Network.AWS.Rekognition.IndexFaces
 
+    -- ** GetLabelDetection
+    , module Network.AWS.Rekognition.GetLabelDetection
+
+    -- ** DescribeStreamProcessor
+    , module Network.AWS.Rekognition.DescribeStreamProcessor
+
+    -- ** StartFaceSearch
+    , module Network.AWS.Rekognition.StartFaceSearch
+
+    -- ** StartPersonTracking
+    , module Network.AWS.Rekognition.StartPersonTracking
+
+    -- ** GetCelebrityRecognition
+    , module Network.AWS.Rekognition.GetCelebrityRecognition
+
+    -- ** StartStreamProcessor
+    , module Network.AWS.Rekognition.StartStreamProcessor
+
+    -- ** DetectText
+    , module Network.AWS.Rekognition.DetectText
+
     -- ** CompareFaces
     , module Network.AWS.Rekognition.CompareFaces
 
     -- ** DetectFaces
     , module Network.AWS.Rekognition.DetectFaces
 
+    -- ** GetFaceDetection
+    , module Network.AWS.Rekognition.GetFaceDetection
+
     -- ** ListFaces (Paginated)
     , module Network.AWS.Rekognition.ListFaces
+
+    -- ** GetContentModeration
+    , module Network.AWS.Rekognition.GetContentModeration
 
     -- ** DeleteFaces
     , module Network.AWS.Rekognition.DeleteFaces
@@ -100,25 +160,61 @@ module Network.AWS.Rekognition
     -- ** GetCelebrityInfo
     , module Network.AWS.Rekognition.GetCelebrityInfo
 
+    -- ** DeleteStreamProcessor
+    , module Network.AWS.Rekognition.DeleteStreamProcessor
+
     -- ** DetectModerationLabels
     , module Network.AWS.Rekognition.DetectModerationLabels
+
+    -- ** CreateStreamProcessor
+    , module Network.AWS.Rekognition.CreateStreamProcessor
+
+    -- ** StartFaceDetection
+    , module Network.AWS.Rekognition.StartFaceDetection
 
     -- * Types
 
     -- ** Attribute
     , Attribute (..)
 
+    -- ** CelebrityRecognitionSortBy
+    , CelebrityRecognitionSortBy (..)
+
+    -- ** ContentModerationSortBy
+    , ContentModerationSortBy (..)
+
     -- ** EmotionName
     , EmotionName (..)
 
+    -- ** FaceAttributes
+    , FaceAttributes (..)
+
+    -- ** FaceSearchSortBy
+    , FaceSearchSortBy (..)
+
     -- ** GenderType
     , GenderType (..)
+
+    -- ** LabelDetectionSortBy
+    , LabelDetectionSortBy (..)
 
     -- ** LandmarkType
     , LandmarkType (..)
 
     -- ** OrientationCorrection
     , OrientationCorrection (..)
+
+    -- ** PersonTrackingSortBy
+    , PersonTrackingSortBy (..)
+
+    -- ** StreamProcessorStatus
+    , StreamProcessorStatus (..)
+
+    -- ** TextTypes
+    , TextTypes (..)
+
+    -- ** VideoJobStatus
+    , VideoJobStatus (..)
 
     -- ** AgeRange
     , AgeRange
@@ -149,6 +245,22 @@ module Network.AWS.Rekognition
     , cId
     , cFace
 
+    -- ** CelebrityDetail
+    , CelebrityDetail
+    , celebrityDetail
+    , cdBoundingBox
+    , cdURLs
+    , cdConfidence
+    , cdName
+    , cdId
+    , cdFace
+
+    -- ** CelebrityRecognition
+    , CelebrityRecognition
+    , celebrityRecognition
+    , crCelebrity
+    , crTimestamp
+
     -- ** CompareFacesMatch
     , CompareFacesMatch
     , compareFacesMatch
@@ -169,6 +281,12 @@ module Network.AWS.Rekognition
     , comparedSourceImageFace
     , csifBoundingBox
     , csifConfidence
+
+    -- ** ContentModerationDetection
+    , ContentModerationDetection
+    , contentModerationDetection
+    , cmdModerationLabel
+    , cmdTimestamp
 
     -- ** Emotion
     , Emotion
@@ -216,6 +334,12 @@ module Network.AWS.Rekognition
     , fdSmile
     , fdLandmarks
 
+    -- ** FaceDetection
+    , FaceDetection
+    , faceDetection
+    , fdTimestamp
+    , fdFace
+
     -- ** FaceMatch
     , FaceMatch
     , faceMatch
@@ -228,11 +352,23 @@ module Network.AWS.Rekognition
     , frFaceDetail
     , frFace
 
+    -- ** FaceSearchSettings
+    , FaceSearchSettings
+    , faceSearchSettings
+    , fssFaceMatchThreshold
+    , fssCollectionId
+
     -- ** Gender
     , Gender
     , gender
     , gValue
     , gConfidence
+
+    -- ** Geometry
+    , Geometry
+    , geometry
+    , gBoundingBox
+    , gPolygon
 
     -- ** Image
     , Image
@@ -246,11 +382,27 @@ module Network.AWS.Rekognition
     , iqSharpness
     , iqBrightness
 
+    -- ** KinesisDataStream
+    , KinesisDataStream
+    , kinesisDataStream
+    , kdsARN
+
+    -- ** KinesisVideoStream
+    , KinesisVideoStream
+    , kinesisVideoStream
+    , kvsARN
+
     -- ** Label
     , Label
     , label
     , lConfidence
     , lName
+
+    -- ** LabelDetection
+    , LabelDetection
+    , labelDetection
+    , ldLabel
+    , ldTimestamp
 
     -- ** Landmark
     , Landmark
@@ -278,6 +430,38 @@ module Network.AWS.Rekognition
     , mValue
     , mConfidence
 
+    -- ** NotificationChannel
+    , NotificationChannel
+    , notificationChannel
+    , ncSNSTopicARN
+    , ncRoleARN
+
+    -- ** PersonDetail
+    , PersonDetail
+    , personDetail
+    , pdBoundingBox
+    , pdIndex
+    , pdFace
+
+    -- ** PersonDetection
+    , PersonDetection
+    , personDetection
+    , pdPerson
+    , pdTimestamp
+
+    -- ** PersonMatch
+    , PersonMatch
+    , personMatch
+    , pmFaceMatches
+    , pmPerson
+    , pmTimestamp
+
+    -- ** Point
+    , Point
+    , point
+    , pX
+    , pY
+
     -- ** Pose
     , Pose
     , pose
@@ -298,27 +482,92 @@ module Network.AWS.Rekognition
     , smiValue
     , smiConfidence
 
+    -- ** StreamProcessor
+    , StreamProcessor
+    , streamProcessor
+    , spStatus
+    , spName
+
+    -- ** StreamProcessorInput
+    , StreamProcessorInput
+    , streamProcessorInput
+    , spiKinesisVideoStream
+
+    -- ** StreamProcessorOutput
+    , StreamProcessorOutput
+    , streamProcessorOutput
+    , spoKinesisDataStream
+
+    -- ** StreamProcessorSettings
+    , StreamProcessorSettings
+    , streamProcessorSettings
+    , spsFaceSearch
+
     -- ** Sunglasses
     , Sunglasses
     , sunglasses
     , sValue
     , sConfidence
+
+    -- ** TextDetection
+    , TextDetection
+    , textDetection
+    , tdDetectedText
+    , tdConfidence
+    , tdGeometry
+    , tdId
+    , tdType
+    , tdParentId
+
+    -- ** Video
+    , Video
+    , video
+    , vS3Object
+
+    -- ** VideoMetadata
+    , VideoMetadata
+    , videoMetadata
+    , vmFrameRate
+    , vmFormat
+    , vmCodec
+    , vmFrameHeight
+    , vmDurationMillis
+    , vmFrameWidth
     ) where
 
 import Network.AWS.Rekognition.CompareFaces
 import Network.AWS.Rekognition.CreateCollection
+import Network.AWS.Rekognition.CreateStreamProcessor
 import Network.AWS.Rekognition.DeleteCollection
 import Network.AWS.Rekognition.DeleteFaces
+import Network.AWS.Rekognition.DeleteStreamProcessor
+import Network.AWS.Rekognition.DescribeStreamProcessor
 import Network.AWS.Rekognition.DetectFaces
 import Network.AWS.Rekognition.DetectLabels
 import Network.AWS.Rekognition.DetectModerationLabels
+import Network.AWS.Rekognition.DetectText
 import Network.AWS.Rekognition.GetCelebrityInfo
+import Network.AWS.Rekognition.GetCelebrityRecognition
+import Network.AWS.Rekognition.GetContentModeration
+import Network.AWS.Rekognition.GetFaceDetection
+import Network.AWS.Rekognition.GetFaceSearch
+import Network.AWS.Rekognition.GetLabelDetection
+import Network.AWS.Rekognition.GetPersonTracking
 import Network.AWS.Rekognition.IndexFaces
 import Network.AWS.Rekognition.ListCollections
 import Network.AWS.Rekognition.ListFaces
+import Network.AWS.Rekognition.ListStreamProcessors
 import Network.AWS.Rekognition.RecognizeCelebrities
 import Network.AWS.Rekognition.SearchFaces
 import Network.AWS.Rekognition.SearchFacesByImage
+import Network.AWS.Rekognition.StartCelebrityRecognition
+import Network.AWS.Rekognition.StartContentModeration
+import Network.AWS.Rekognition.StartFaceDetection
+import Network.AWS.Rekognition.StartFaceSearch
+import Network.AWS.Rekognition.StartLabelDetection
+import Network.AWS.Rekognition.StartPersonTracking
+import Network.AWS.Rekognition.StartStreamProcessor
+import Network.AWS.Rekognition.StopStreamProcessor
 import Network.AWS.Rekognition.Types
 import Network.AWS.Rekognition.Waiters
 

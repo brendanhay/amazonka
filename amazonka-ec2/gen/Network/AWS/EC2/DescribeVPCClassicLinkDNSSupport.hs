@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ describeVPCClassicLinkDNSSupport
     :: DescribeVPCClassicLinkDNSSupport
 describeVPCClassicLinkDNSSupport =
   DescribeVPCClassicLinkDNSSupport'
-  { _dvcldsNextToken = Nothing
-  , _dvcldsVPCIds = Nothing
-  , _dvcldsMaxResults = Nothing
-  }
+    { _dvcldsNextToken = Nothing
+    , _dvcldsVPCIds = Nothing
+    , _dvcldsMaxResults = Nothing
+    }
 
 
 -- | The token for the next set of items to return. (You received this token from a prior call.)
 dvcldsNextToken :: Lens' DescribeVPCClassicLinkDNSSupport (Maybe Text)
-dvcldsNextToken = lens _dvcldsNextToken (\ s a -> s{_dvcldsNextToken = a});
+dvcldsNextToken = lens _dvcldsNextToken (\ s a -> s{_dvcldsNextToken = a})
 
 -- | One or more VPC IDs.
 dvcldsVPCIds :: Lens' DescribeVPCClassicLinkDNSSupport [Text]
-dvcldsVPCIds = lens _dvcldsVPCIds (\ s a -> s{_dvcldsVPCIds = a}) . _Default . _Coerce;
+dvcldsVPCIds = lens _dvcldsVPCIds (\ s a -> s{_dvcldsVPCIds = a}) . _Default . _Coerce
 
 -- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
 dvcldsMaxResults :: Lens' DescribeVPCClassicLinkDNSSupport (Maybe Natural)
-dvcldsMaxResults = lens _dvcldsMaxResults (\ s a -> s{_dvcldsMaxResults = a}) . mapping _Nat;
+dvcldsMaxResults = lens _dvcldsMaxResults (\ s a -> s{_dvcldsMaxResults = a}) . mapping _Nat
 
 instance AWSRequest DescribeVPCClassicLinkDNSSupport
          where
@@ -155,23 +155,23 @@ describeVPCClassicLinkDNSSupportResponse
     -> DescribeVPCClassicLinkDNSSupportResponse
 describeVPCClassicLinkDNSSupportResponse pResponseStatus_ =
   DescribeVPCClassicLinkDNSSupportResponse'
-  { _dvpccldnssrsVPCs = Nothing
-  , _dvpccldnssrsNextToken = Nothing
-  , _dvpccldnssrsResponseStatus = pResponseStatus_
-  }
+    { _dvpccldnssrsVPCs = Nothing
+    , _dvpccldnssrsNextToken = Nothing
+    , _dvpccldnssrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the ClassicLink DNS support status of the VPCs.
 dvpccldnssrsVPCs :: Lens' DescribeVPCClassicLinkDNSSupportResponse [ClassicLinkDNSSupport]
-dvpccldnssrsVPCs = lens _dvpccldnssrsVPCs (\ s a -> s{_dvpccldnssrsVPCs = a}) . _Default . _Coerce;
+dvpccldnssrsVPCs = lens _dvpccldnssrsVPCs (\ s a -> s{_dvpccldnssrsVPCs = a}) . _Default . _Coerce
 
 -- | The token to use when requesting the next set of items.
 dvpccldnssrsNextToken :: Lens' DescribeVPCClassicLinkDNSSupportResponse (Maybe Text)
-dvpccldnssrsNextToken = lens _dvpccldnssrsNextToken (\ s a -> s{_dvpccldnssrsNextToken = a});
+dvpccldnssrsNextToken = lens _dvpccldnssrsNextToken (\ s a -> s{_dvpccldnssrsNextToken = a})
 
 -- | -- | The response status code.
 dvpccldnssrsResponseStatus :: Lens' DescribeVPCClassicLinkDNSSupportResponse Int
-dvpccldnssrsResponseStatus = lens _dvpccldnssrsResponseStatus (\ s a -> s{_dvpccldnssrsResponseStatus = a});
+dvpccldnssrsResponseStatus = lens _dvpccldnssrsResponseStatus (\ s a -> s{_dvpccldnssrsResponseStatus = a})
 
 instance NFData
            DescribeVPCClassicLinkDNSSupportResponse

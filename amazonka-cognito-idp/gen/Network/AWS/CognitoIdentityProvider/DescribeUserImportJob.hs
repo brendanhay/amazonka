@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ describeUserImportJob pUserPoolId_ pJobId_ =
 
 -- | The user pool ID for the user pool that the users are being imported into.
 duijUserPoolId :: Lens' DescribeUserImportJob Text
-duijUserPoolId = lens _duijUserPoolId (\ s a -> s{_duijUserPoolId = a});
+duijUserPoolId = lens _duijUserPoolId (\ s a -> s{_duijUserPoolId = a})
 
 -- | The job ID for the user import job.
 duijJobId :: Lens' DescribeUserImportJob Text
-duijJobId = lens _duijJobId (\ s a -> s{_duijJobId = a});
+duijJobId = lens _duijJobId (\ s a -> s{_duijJobId = a})
 
 instance AWSRequest DescribeUserImportJob where
         type Rs DescribeUserImportJob =
@@ -139,15 +139,15 @@ describeUserImportJobResponse
     -> DescribeUserImportJobResponse
 describeUserImportJobResponse pResponseStatus_ =
   DescribeUserImportJobResponse'
-  {_duijrsUserImportJob = Nothing, _duijrsResponseStatus = pResponseStatus_}
+    {_duijrsUserImportJob = Nothing, _duijrsResponseStatus = pResponseStatus_}
 
 
 -- | The job object that represents the user import job.
 duijrsUserImportJob :: Lens' DescribeUserImportJobResponse (Maybe UserImportJobType)
-duijrsUserImportJob = lens _duijrsUserImportJob (\ s a -> s{_duijrsUserImportJob = a});
+duijrsUserImportJob = lens _duijrsUserImportJob (\ s a -> s{_duijrsUserImportJob = a})
 
 -- | -- | The response status code.
 duijrsResponseStatus :: Lens' DescribeUserImportJobResponse Int
-duijrsResponseStatus = lens _duijrsResponseStatus (\ s a -> s{_duijrsResponseStatus = a});
+duijrsResponseStatus = lens _duijrsResponseStatus (\ s a -> s{_duijrsResponseStatus = a})
 
 instance NFData DescribeUserImportJobResponse where

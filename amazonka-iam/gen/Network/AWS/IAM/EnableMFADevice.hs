@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.EnableMFADevice
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,13 +57,13 @@ data EnableMFADevice = EnableMFADevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'emdUserName' - The name of the IAM user for whom you want to enable the MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'emdUserName' - The name of the IAM user for whom you want to enable the MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'emdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 --
--- * 'emdAuthenticationCode1' - An authentication code emitted by the device.  The format for this parameter is a string of 6 digits. /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
+-- * 'emdAuthenticationCode1' - An authentication code emitted by the device.  The format for this parameter is a string of six digits. /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
 --
--- * 'emdAuthenticationCode2' - A subsequent authentication code emitted by the device. The format for this parameter is a string of 6 digits. /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
+-- * 'emdAuthenticationCode2' - A subsequent authentication code emitted by the device. The format for this parameter is a string of six digits. /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
 enableMFADevice
     :: Text -- ^ 'emdUserName'
     -> Text -- ^ 'emdSerialNumber'
@@ -72,28 +72,28 @@ enableMFADevice
     -> EnableMFADevice
 enableMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ =
   EnableMFADevice'
-  { _emdUserName = pUserName_
-  , _emdSerialNumber = pSerialNumber_
-  , _emdAuthenticationCode1 = pAuthenticationCode1_
-  , _emdAuthenticationCode2 = pAuthenticationCode2_
-  }
+    { _emdUserName = pUserName_
+    , _emdSerialNumber = pSerialNumber_
+    , _emdAuthenticationCode1 = pAuthenticationCode1_
+    , _emdAuthenticationCode2 = pAuthenticationCode2_
+    }
 
 
--- | The name of the IAM user for whom you want to enable the MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM user for whom you want to enable the MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 emdUserName :: Lens' EnableMFADevice Text
-emdUserName = lens _emdUserName (\ s a -> s{_emdUserName = a});
+emdUserName = lens _emdUserName (\ s a -> s{_emdUserName = a})
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 emdSerialNumber :: Lens' EnableMFADevice Text
-emdSerialNumber = lens _emdSerialNumber (\ s a -> s{_emdSerialNumber = a});
+emdSerialNumber = lens _emdSerialNumber (\ s a -> s{_emdSerialNumber = a})
 
--- | An authentication code emitted by the device.  The format for this parameter is a string of 6 digits. /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
+-- | An authentication code emitted by the device.  The format for this parameter is a string of six digits. /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
 emdAuthenticationCode1 :: Lens' EnableMFADevice Text
-emdAuthenticationCode1 = lens _emdAuthenticationCode1 (\ s a -> s{_emdAuthenticationCode1 = a});
+emdAuthenticationCode1 = lens _emdAuthenticationCode1 (\ s a -> s{_emdAuthenticationCode1 = a})
 
--- | A subsequent authentication code emitted by the device. The format for this parameter is a string of 6 digits. /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
+-- | A subsequent authentication code emitted by the device. The format for this parameter is a string of six digits. /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
 emdAuthenticationCode2 :: Lens' EnableMFADevice Text
-emdAuthenticationCode2 = lens _emdAuthenticationCode2 (\ s a -> s{_emdAuthenticationCode2 = a});
+emdAuthenticationCode2 = lens _emdAuthenticationCode2 (\ s a -> s{_emdAuthenticationCode2 = a})
 
 instance AWSRequest EnableMFADevice where
         type Rs EnableMFADevice = EnableMFADeviceResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.GetVaultNotifications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,16 +75,16 @@ getVaultNotifications
     -> GetVaultNotifications
 getVaultNotifications pAccountId_ pVaultName_ =
   GetVaultNotifications'
-  {_gvnAccountId = pAccountId_, _gvnVaultName = pVaultName_}
+    {_gvnAccountId = pAccountId_, _gvnVaultName = pVaultName_}
 
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 gvnAccountId :: Lens' GetVaultNotifications Text
-gvnAccountId = lens _gvnAccountId (\ s a -> s{_gvnAccountId = a});
+gvnAccountId = lens _gvnAccountId (\ s a -> s{_gvnAccountId = a})
 
 -- | The name of the vault.
 gvnVaultName :: Lens' GetVaultNotifications Text
-gvnVaultName = lens _gvnVaultName (\ s a -> s{_gvnVaultName = a});
+gvnVaultName = lens _gvnVaultName (\ s a -> s{_gvnVaultName = a})
 
 instance AWSRequest GetVaultNotifications where
         type Rs GetVaultNotifications =
@@ -135,17 +135,17 @@ getVaultNotificationsResponse
     -> GetVaultNotificationsResponse
 getVaultNotificationsResponse pResponseStatus_ =
   GetVaultNotificationsResponse'
-  { _gvnrsVaultNotificationConfig = Nothing
-  , _gvnrsResponseStatus = pResponseStatus_
-  }
+    { _gvnrsVaultNotificationConfig = Nothing
+    , _gvnrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Returns the notification configuration set on the vault.
 gvnrsVaultNotificationConfig :: Lens' GetVaultNotificationsResponse (Maybe VaultNotificationConfig)
-gvnrsVaultNotificationConfig = lens _gvnrsVaultNotificationConfig (\ s a -> s{_gvnrsVaultNotificationConfig = a});
+gvnrsVaultNotificationConfig = lens _gvnrsVaultNotificationConfig (\ s a -> s{_gvnrsVaultNotificationConfig = a})
 
 -- | -- | The response status code.
 gvnrsResponseStatus :: Lens' GetVaultNotificationsResponse Int
-gvnrsResponseStatus = lens _gvnrsResponseStatus (\ s a -> s{_gvnrsResponseStatus = a});
+gvnrsResponseStatus = lens _gvnrsResponseStatus (\ s a -> s{_gvnrsResponseStatus = a})
 
 instance NFData GetVaultNotificationsResponse where

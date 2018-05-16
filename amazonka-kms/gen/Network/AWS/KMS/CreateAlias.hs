@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.CreateAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,11 +76,11 @@ createAlias pAliasName_ pTargetKeyId_ =
 
 -- | String that contains the display name. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/AWS" are reserved.
 caAliasName :: Lens' CreateAlias Text
-caAliasName = lens _caAliasName (\ s a -> s{_caAliasName = a});
+caAliasName = lens _caAliasName (\ s a -> s{_caAliasName = a})
 
 -- | Identifies the CMK for which you are creating the alias. This value cannot be an alias. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 caTargetKeyId :: Lens' CreateAlias Text
-caTargetKeyId = lens _caTargetKeyId (\ s a -> s{_caTargetKeyId = a});
+caTargetKeyId = lens _caTargetKeyId (\ s a -> s{_caTargetKeyId = a})
 
 instance AWSRequest CreateAlias where
         type Rs CreateAlias = CreateAliasResponse

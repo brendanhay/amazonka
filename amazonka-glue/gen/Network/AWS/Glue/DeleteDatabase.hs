@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteDatabase
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ data DeleteDatabase = DeleteDatabase'
 --
 -- * 'ddCatalogId' - The ID of the Data Catalog in which the database resides. If none is supplied, the AWS account ID is used by default.
 --
--- * 'ddName' - The name of the Database to delete.
+-- * 'ddName' - The name of the Database to delete. For Hive compatibility, this must be all lowercase.
 deleteDatabase
     :: Text -- ^ 'ddName'
     -> DeleteDatabase
@@ -67,11 +67,11 @@ deleteDatabase pName_ =
 
 -- | The ID of the Data Catalog in which the database resides. If none is supplied, the AWS account ID is used by default.
 ddCatalogId :: Lens' DeleteDatabase (Maybe Text)
-ddCatalogId = lens _ddCatalogId (\ s a -> s{_ddCatalogId = a});
+ddCatalogId = lens _ddCatalogId (\ s a -> s{_ddCatalogId = a})
 
--- | The name of the Database to delete.
+-- | The name of the Database to delete. For Hive compatibility, this must be all lowercase.
 ddName :: Lens' DeleteDatabase Text
-ddName = lens _ddName (\ s a -> s{_ddName = a});
+ddName = lens _ddName (\ s a -> s{_ddName = a})
 
 instance AWSRequest DeleteDatabase where
         type Rs DeleteDatabase = DeleteDatabaseResponse
@@ -127,6 +127,6 @@ deleteDatabaseResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDatabaseResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 instance NFData DeleteDatabaseResponse where

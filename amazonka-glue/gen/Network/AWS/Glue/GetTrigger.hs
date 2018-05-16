@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetTrigger
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getTrigger pName_ = GetTrigger' {_gtName = pName_}
 
 -- | The name of the trigger to retrieve.
 gtName :: Lens' GetTrigger Text
-gtName = lens _gtName (\ s a -> s{_gtName = a});
+gtName = lens _gtName (\ s a -> s{_gtName = a})
 
 instance AWSRequest GetTrigger where
         type Rs GetTrigger = GetTriggerResponse
@@ -116,15 +116,15 @@ getTriggerResponse
     -> GetTriggerResponse
 getTriggerResponse pResponseStatus_ =
   GetTriggerResponse'
-  {_gtrsTrigger = Nothing, _gtrsResponseStatus = pResponseStatus_}
+    {_gtrsTrigger = Nothing, _gtrsResponseStatus = pResponseStatus_}
 
 
 -- | The requested trigger definition.
 gtrsTrigger :: Lens' GetTriggerResponse (Maybe Trigger)
-gtrsTrigger = lens _gtrsTrigger (\ s a -> s{_gtrsTrigger = a});
+gtrsTrigger = lens _gtrsTrigger (\ s a -> s{_gtrsTrigger = a})
 
 -- | -- | The response status code.
 gtrsResponseStatus :: Lens' GetTriggerResponse Int
-gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});
+gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a})
 
 instance NFData GetTriggerResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.StartInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ startInstance pInstanceId_ = StartInstance' {_sInstanceId = pInstanceId_}
 
 -- | The instance ID.
 sInstanceId :: Lens' StartInstance Text
-sInstanceId = lens _sInstanceId (\ s a -> s{_sInstanceId = a});
+sInstanceId = lens _sInstanceId (\ s a -> s{_sInstanceId = a})
 
 instance AWSRequest StartInstance where
         type Rs StartInstance = StartInstanceResponse

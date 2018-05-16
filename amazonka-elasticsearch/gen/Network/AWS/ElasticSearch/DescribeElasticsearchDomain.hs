@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ describeElasticsearchDomain pDomainName_ =
 
 -- | The name of the Elasticsearch domain for which you want information.
 dedDomainName :: Lens' DescribeElasticsearchDomain Text
-dedDomainName = lens _dedDomainName (\ s a -> s{_dedDomainName = a});
+dedDomainName = lens _dedDomainName (\ s a -> s{_dedDomainName = a})
 
 instance AWSRequest DescribeElasticsearchDomain where
         type Rs DescribeElasticsearchDomain =
@@ -119,16 +119,18 @@ describeElasticsearchDomainResponse
     -> DescribeElasticsearchDomainResponse
 describeElasticsearchDomainResponse pResponseStatus_ pDomainStatus_ =
   DescribeElasticsearchDomainResponse'
-  {_dedrsResponseStatus = pResponseStatus_, _dedrsDomainStatus = pDomainStatus_}
+    { _dedrsResponseStatus = pResponseStatus_
+    , _dedrsDomainStatus = pDomainStatus_
+    }
 
 
 -- | -- | The response status code.
 dedrsResponseStatus :: Lens' DescribeElasticsearchDomainResponse Int
-dedrsResponseStatus = lens _dedrsResponseStatus (\ s a -> s{_dedrsResponseStatus = a});
+dedrsResponseStatus = lens _dedrsResponseStatus (\ s a -> s{_dedrsResponseStatus = a})
 
 -- | The current status of the Elasticsearch domain.
 dedrsDomainStatus :: Lens' DescribeElasticsearchDomainResponse ElasticsearchDomainStatus
-dedrsDomainStatus = lens _dedrsDomainStatus (\ s a -> s{_dedrsDomainStatus = a});
+dedrsDomainStatus = lens _dedrsDomainStatus (\ s a -> s{_dedrsDomainStatus = a})
 
 instance NFData DescribeElasticsearchDomainResponse
          where

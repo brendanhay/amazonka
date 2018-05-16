@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeEventSubscriptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,28 +81,28 @@ describeEventSubscriptions
     :: DescribeEventSubscriptions
 describeEventSubscriptions =
   DescribeEventSubscriptions'
-  { _dSubscriptionName = Nothing
-  , _dFilters = Nothing
-  , _dMarker = Nothing
-  , _dMaxRecords = Nothing
-  }
+    { _dSubscriptionName = Nothing
+    , _dFilters = Nothing
+    , _dMarker = Nothing
+    , _dMaxRecords = Nothing
+    }
 
 
 -- | The name of the RDS event notification subscription you want to describe.
 dSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
-dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a});
+dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a})
 
 -- | This parameter is not currently supported.
 dFilters :: Lens' DescribeEventSubscriptions [Filter]
-dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
+dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
-dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
+dMarker = lens _dMarker (\ s a -> s{_dMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
-dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
+dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a})
 
 instance AWSPager DescribeEventSubscriptions where
         page rq rs
@@ -172,23 +172,23 @@ describeEventSubscriptionsResponse
     -> DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse pResponseStatus_ =
   DescribeEventSubscriptionsResponse'
-  { _desrsEventSubscriptionsList = Nothing
-  , _desrsMarker = Nothing
-  , _desrsResponseStatus = pResponseStatus_
-  }
+    { _desrsEventSubscriptionsList = Nothing
+    , _desrsMarker = Nothing
+    , _desrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of EventSubscriptions data types.
 desrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_desrsEventSubscriptionsList = a}) . _Default . _Coerce;
+desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_desrsEventSubscriptionsList = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
-desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a});
+desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a})
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeEventSubscriptionsResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 instance NFData DescribeEventSubscriptionsResponse
          where

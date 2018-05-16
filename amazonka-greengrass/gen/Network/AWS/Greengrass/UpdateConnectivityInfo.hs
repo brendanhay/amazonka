@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateConnectivityInfo
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | connectivity info request
+-- | Connectivity information.
 --
 -- /See:/ 'updateConnectivityInfo' smart constructor.
 data UpdateConnectivityInfo = UpdateConnectivityInfo'
@@ -57,24 +57,24 @@ data UpdateConnectivityInfo = UpdateConnectivityInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uciConnectivityInfo' - Connectivity info list
+-- * 'uciConnectivityInfo' - A list of connectivity info.
 --
--- * 'uciThingName' - Thing Name
+-- * 'uciThingName' - The thing name.
 updateConnectivityInfo
     :: Text -- ^ 'uciThingName'
     -> UpdateConnectivityInfo
 updateConnectivityInfo pThingName_ =
   UpdateConnectivityInfo'
-  {_uciConnectivityInfo = Nothing, _uciThingName = pThingName_}
+    {_uciConnectivityInfo = Nothing, _uciThingName = pThingName_}
 
 
--- | Connectivity info list
+-- | A list of connectivity info.
 uciConnectivityInfo :: Lens' UpdateConnectivityInfo [ConnectivityInfo]
-uciConnectivityInfo = lens _uciConnectivityInfo (\ s a -> s{_uciConnectivityInfo = a}) . _Default . _Coerce;
+uciConnectivityInfo = lens _uciConnectivityInfo (\ s a -> s{_uciConnectivityInfo = a}) . _Default . _Coerce
 
--- | Thing Name
+-- | The thing name.
 uciThingName :: Lens' UpdateConnectivityInfo Text
-uciThingName = lens _uciThingName (\ s a -> s{_uciThingName = a});
+uciThingName = lens _uciThingName (\ s a -> s{_uciThingName = a})
 
 instance AWSRequest UpdateConnectivityInfo where
         type Rs UpdateConnectivityInfo =
@@ -125,9 +125,9 @@ data UpdateConnectivityInfoResponse = UpdateConnectivityInfoResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucirsVersion' - New Version
+-- * 'ucirsVersion' - The new version of the connectivity info.
 --
--- * 'ucirsMessage' - Response Text
+-- * 'ucirsMessage' - A message about the connectivity info update request.
 --
 -- * 'ucirsResponseStatus' - -- | The response status code.
 updateConnectivityInfoResponse
@@ -135,22 +135,22 @@ updateConnectivityInfoResponse
     -> UpdateConnectivityInfoResponse
 updateConnectivityInfoResponse pResponseStatus_ =
   UpdateConnectivityInfoResponse'
-  { _ucirsVersion = Nothing
-  , _ucirsMessage = Nothing
-  , _ucirsResponseStatus = pResponseStatus_
-  }
+    { _ucirsVersion = Nothing
+    , _ucirsMessage = Nothing
+    , _ucirsResponseStatus = pResponseStatus_
+    }
 
 
--- | New Version
+-- | The new version of the connectivity info.
 ucirsVersion :: Lens' UpdateConnectivityInfoResponse (Maybe Text)
-ucirsVersion = lens _ucirsVersion (\ s a -> s{_ucirsVersion = a});
+ucirsVersion = lens _ucirsVersion (\ s a -> s{_ucirsVersion = a})
 
--- | Response Text
+-- | A message about the connectivity info update request.
 ucirsMessage :: Lens' UpdateConnectivityInfoResponse (Maybe Text)
-ucirsMessage = lens _ucirsMessage (\ s a -> s{_ucirsMessage = a});
+ucirsMessage = lens _ucirsMessage (\ s a -> s{_ucirsMessage = a})
 
 -- | -- | The response status code.
 ucirsResponseStatus :: Lens' UpdateConnectivityInfoResponse Int
-ucirsResponseStatus = lens _ucirsResponseStatus (\ s a -> s{_ucirsResponseStatus = a});
+ucirsResponseStatus = lens _ucirsResponseStatus (\ s a -> s{_ucirsResponseStatus = a})
 
 instance NFData UpdateConnectivityInfoResponse where

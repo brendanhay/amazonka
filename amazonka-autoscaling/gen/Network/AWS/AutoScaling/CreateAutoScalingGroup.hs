@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.CreateAutoScalingGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Creates an Auto Scaling group with the specified name and attributes.
 --
 --
--- If you exceed your maximum limit of Auto Scaling groups, which by default is 20 per region, the call fails. For information about viewing and updating this limit, see 'DescribeAccountLimits' .
+-- If you exceed your maximum limit of Auto Scaling groups, the call fails. For information about viewing this limit, see 'DescribeAccountLimits' . For information about updating this limit, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-account-limits.html Auto Scaling Limits> in the /Auto Scaling User Guide/ .
 --
 -- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroup.html Auto Scaling Groups> in the /Auto Scaling User Guide/ .
 --
@@ -34,6 +34,7 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     , casgInstanceId
     , casgTerminationPolicies
     , casgHealthCheckGracePeriod
+    , casgServiceLinkedRoleARN
     , casgNewInstancesProtectedFromScaleIn
     , casgVPCZoneIdentifier
     , casgTargetGroupARNs
@@ -43,6 +44,7 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     , casgLaunchConfigurationName
     , casgLifecycleHookSpecificationList
     , casgHealthCheckType
+    , casgLaunchTemplate
     , casgPlacementGroup
     , casgLoadBalancerNames
     , casgTags
@@ -67,6 +69,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
   { _casgInstanceId :: !(Maybe Text)
   , _casgTerminationPolicies :: !(Maybe [Text])
   , _casgHealthCheckGracePeriod :: !(Maybe Int)
+  , _casgServiceLinkedRoleARN :: !(Maybe Text)
   , _casgNewInstancesProtectedFromScaleIn :: !(Maybe Bool)
   , _casgVPCZoneIdentifier :: !(Maybe Text)
   , _casgTargetGroupARNs :: !(Maybe [Text])
@@ -76,6 +79,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
   , _casgLaunchConfigurationName :: !(Maybe Text)
   , _casgLifecycleHookSpecificationList :: !(Maybe [LifecycleHookSpecification])
   , _casgHealthCheckType :: !(Maybe Text)
+  , _casgLaunchTemplate :: !(Maybe LaunchTemplateSpecification)
   , _casgPlacementGroup :: !(Maybe Text)
   , _casgLoadBalancerNames :: !(Maybe [Text])
   , _casgTags :: !(Maybe [Tag])
@@ -89,11 +93,13 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'casgInstanceId' - The ID of the instance used to create a launch configuration for the group. Alternatively, specify a launch configuration instead of an EC2 instance. When you specify an ID of an instance, Auto Scaling creates a new launch configuration and associates it with the group. This launch configuration derives its attributes from the specified instance, with the exception of the block device mapping. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html Create an Auto Scaling Group Using an EC2 Instance> in the /Auto Scaling User Guide/ .
+-- * 'casgInstanceId' - The ID of the instance used to create a launch configuration for the group. You must specify one of the following: an EC2 instance, a launch configuration, or a launch template. When you specify an ID of an instance, Auto Scaling creates a new launch configuration and associates it with the group. This launch configuration derives its attributes from the specified instance, with the exception of the block device mapping. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html Create an Auto Scaling Group Using an EC2 Instance> in the /Auto Scaling User Guide/ .
 --
 -- * 'casgTerminationPolicies' - One or more termination policies used to select the instance to terminate. These policies are executed in the order that they are listed. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html Controlling Which Instances Auto Scaling Terminates During Scale In> in the /Auto Scaling User Guide/ .
 --
 -- * 'casgHealthCheckGracePeriod' - The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2 instance that has come into service. During this time, any health check failures for the instance are ignored. The default is 0. This parameter is required if you are adding an @ELB@ health check. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/ .
+--
+-- * 'casgServiceLinkedRoleARN' - The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. By default, Auto Scaling uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates if it does not exist.
 --
 -- * 'casgNewInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from termination by Auto Scaling when scaling in.
 --
@@ -107,11 +113,13 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 --
 -- * 'casgDesiredCapacity' - The number of EC2 instances that should be running in the group. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity, the default is the minimum size of the group.
 --
--- * 'casgLaunchConfigurationName' - The name of the launch configuration. Alternatively, specify an EC2 instance instead of a launch configuration.
+-- * 'casgLaunchConfigurationName' - The name of the launch configuration. You must specify one of the following: a launch configuration, a launch template, or an EC2 instance.
 --
 -- * 'casgLifecycleHookSpecificationList' - One or more lifecycle hooks.
 --
 -- * 'casgHealthCheckType' - The service to use for the health checks. The valid values are @EC2@ and @ELB@ . By default, health checks use Amazon EC2 instance status checks to determine the health of an instance. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/ .
+--
+-- * 'casgLaunchTemplate' - The launch template to use to launch instances. You must specify one of the following: a launch template, a launch configuration, or an EC2 instance.
 --
 -- * 'casgPlacementGroup' - The name of the placement group into which you'll launch your instances, if any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
@@ -119,7 +127,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 --
 -- * 'casgTags' - One or more tags. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/autoscaling-tagging.html Tagging Auto Scaling Groups and Instances> in the /Auto Scaling User Guide/ .
 --
--- * 'casgAutoScalingGroupName' - The name of the group. This name must be unique within the scope of your AWS account.
+-- * 'casgAutoScalingGroupName' - The name of the Auto Scaling group. This name must be unique within the scope of your AWS account.
 --
 -- * 'casgMinSize' - The minimum size of the group.
 --
@@ -131,98 +139,108 @@ createAutoScalingGroup
     -> CreateAutoScalingGroup
 createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
   CreateAutoScalingGroup'
-  { _casgInstanceId = Nothing
-  , _casgTerminationPolicies = Nothing
-  , _casgHealthCheckGracePeriod = Nothing
-  , _casgNewInstancesProtectedFromScaleIn = Nothing
-  , _casgVPCZoneIdentifier = Nothing
-  , _casgTargetGroupARNs = Nothing
-  , _casgDefaultCooldown = Nothing
-  , _casgAvailabilityZones = Nothing
-  , _casgDesiredCapacity = Nothing
-  , _casgLaunchConfigurationName = Nothing
-  , _casgLifecycleHookSpecificationList = Nothing
-  , _casgHealthCheckType = Nothing
-  , _casgPlacementGroup = Nothing
-  , _casgLoadBalancerNames = Nothing
-  , _casgTags = Nothing
-  , _casgAutoScalingGroupName = pAutoScalingGroupName_
-  , _casgMinSize = pMinSize_
-  , _casgMaxSize = pMaxSize_
-  }
+    { _casgInstanceId = Nothing
+    , _casgTerminationPolicies = Nothing
+    , _casgHealthCheckGracePeriod = Nothing
+    , _casgServiceLinkedRoleARN = Nothing
+    , _casgNewInstancesProtectedFromScaleIn = Nothing
+    , _casgVPCZoneIdentifier = Nothing
+    , _casgTargetGroupARNs = Nothing
+    , _casgDefaultCooldown = Nothing
+    , _casgAvailabilityZones = Nothing
+    , _casgDesiredCapacity = Nothing
+    , _casgLaunchConfigurationName = Nothing
+    , _casgLifecycleHookSpecificationList = Nothing
+    , _casgHealthCheckType = Nothing
+    , _casgLaunchTemplate = Nothing
+    , _casgPlacementGroup = Nothing
+    , _casgLoadBalancerNames = Nothing
+    , _casgTags = Nothing
+    , _casgAutoScalingGroupName = pAutoScalingGroupName_
+    , _casgMinSize = pMinSize_
+    , _casgMaxSize = pMaxSize_
+    }
 
 
--- | The ID of the instance used to create a launch configuration for the group. Alternatively, specify a launch configuration instead of an EC2 instance. When you specify an ID of an instance, Auto Scaling creates a new launch configuration and associates it with the group. This launch configuration derives its attributes from the specified instance, with the exception of the block device mapping. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html Create an Auto Scaling Group Using an EC2 Instance> in the /Auto Scaling User Guide/ .
+-- | The ID of the instance used to create a launch configuration for the group. You must specify one of the following: an EC2 instance, a launch configuration, or a launch template. When you specify an ID of an instance, Auto Scaling creates a new launch configuration and associates it with the group. This launch configuration derives its attributes from the specified instance, with the exception of the block device mapping. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html Create an Auto Scaling Group Using an EC2 Instance> in the /Auto Scaling User Guide/ .
 casgInstanceId :: Lens' CreateAutoScalingGroup (Maybe Text)
-casgInstanceId = lens _casgInstanceId (\ s a -> s{_casgInstanceId = a});
+casgInstanceId = lens _casgInstanceId (\ s a -> s{_casgInstanceId = a})
 
 -- | One or more termination policies used to select the instance to terminate. These policies are executed in the order that they are listed. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html Controlling Which Instances Auto Scaling Terminates During Scale In> in the /Auto Scaling User Guide/ .
 casgTerminationPolicies :: Lens' CreateAutoScalingGroup [Text]
-casgTerminationPolicies = lens _casgTerminationPolicies (\ s a -> s{_casgTerminationPolicies = a}) . _Default . _Coerce;
+casgTerminationPolicies = lens _casgTerminationPolicies (\ s a -> s{_casgTerminationPolicies = a}) . _Default . _Coerce
 
 -- | The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2 instance that has come into service. During this time, any health check failures for the instance are ignored. The default is 0. This parameter is required if you are adding an @ELB@ health check. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/ .
 casgHealthCheckGracePeriod :: Lens' CreateAutoScalingGroup (Maybe Int)
-casgHealthCheckGracePeriod = lens _casgHealthCheckGracePeriod (\ s a -> s{_casgHealthCheckGracePeriod = a});
+casgHealthCheckGracePeriod = lens _casgHealthCheckGracePeriod (\ s a -> s{_casgHealthCheckGracePeriod = a})
+
+-- | The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. By default, Auto Scaling uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates if it does not exist.
+casgServiceLinkedRoleARN :: Lens' CreateAutoScalingGroup (Maybe Text)
+casgServiceLinkedRoleARN = lens _casgServiceLinkedRoleARN (\ s a -> s{_casgServiceLinkedRoleARN = a})
 
 -- | Indicates whether newly launched instances are protected from termination by Auto Scaling when scaling in.
 casgNewInstancesProtectedFromScaleIn :: Lens' CreateAutoScalingGroup (Maybe Bool)
-casgNewInstancesProtectedFromScaleIn = lens _casgNewInstancesProtectedFromScaleIn (\ s a -> s{_casgNewInstancesProtectedFromScaleIn = a});
+casgNewInstancesProtectedFromScaleIn = lens _casgNewInstancesProtectedFromScaleIn (\ s a -> s{_casgNewInstancesProtectedFromScaleIn = a})
 
 -- | A comma-separated list of subnet identifiers for your virtual private cloud (VPC). If you specify subnets and Availability Zones with this call, ensure that the subnets' Availability Zones match the Availability Zones specified. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/ .
 casgVPCZoneIdentifier :: Lens' CreateAutoScalingGroup (Maybe Text)
-casgVPCZoneIdentifier = lens _casgVPCZoneIdentifier (\ s a -> s{_casgVPCZoneIdentifier = a});
+casgVPCZoneIdentifier = lens _casgVPCZoneIdentifier (\ s a -> s{_casgVPCZoneIdentifier = a})
 
 -- | The Amazon Resource Names (ARN) of the target groups.
 casgTargetGroupARNs :: Lens' CreateAutoScalingGroup [Text]
-casgTargetGroupARNs = lens _casgTargetGroupARNs (\ s a -> s{_casgTargetGroupARNs = a}) . _Default . _Coerce;
+casgTargetGroupARNs = lens _casgTargetGroupARNs (\ s a -> s{_casgTargetGroupARNs = a}) . _Default . _Coerce
 
 -- | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default is 300. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
 casgDefaultCooldown :: Lens' CreateAutoScalingGroup (Maybe Int)
-casgDefaultCooldown = lens _casgDefaultCooldown (\ s a -> s{_casgDefaultCooldown = a});
+casgDefaultCooldown = lens _casgDefaultCooldown (\ s a -> s{_casgDefaultCooldown = a})
 
 -- | One or more Availability Zones for the group. This parameter is optional if you specify one or more subnets.
 casgAvailabilityZones :: Lens' CreateAutoScalingGroup (Maybe (NonEmpty Text))
-casgAvailabilityZones = lens _casgAvailabilityZones (\ s a -> s{_casgAvailabilityZones = a}) . mapping _List1;
+casgAvailabilityZones = lens _casgAvailabilityZones (\ s a -> s{_casgAvailabilityZones = a}) . mapping _List1
 
 -- | The number of EC2 instances that should be running in the group. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity, the default is the minimum size of the group.
 casgDesiredCapacity :: Lens' CreateAutoScalingGroup (Maybe Int)
-casgDesiredCapacity = lens _casgDesiredCapacity (\ s a -> s{_casgDesiredCapacity = a});
+casgDesiredCapacity = lens _casgDesiredCapacity (\ s a -> s{_casgDesiredCapacity = a})
 
--- | The name of the launch configuration. Alternatively, specify an EC2 instance instead of a launch configuration.
+-- | The name of the launch configuration. You must specify one of the following: a launch configuration, a launch template, or an EC2 instance.
 casgLaunchConfigurationName :: Lens' CreateAutoScalingGroup (Maybe Text)
-casgLaunchConfigurationName = lens _casgLaunchConfigurationName (\ s a -> s{_casgLaunchConfigurationName = a});
+casgLaunchConfigurationName = lens _casgLaunchConfigurationName (\ s a -> s{_casgLaunchConfigurationName = a})
 
 -- | One or more lifecycle hooks.
 casgLifecycleHookSpecificationList :: Lens' CreateAutoScalingGroup [LifecycleHookSpecification]
-casgLifecycleHookSpecificationList = lens _casgLifecycleHookSpecificationList (\ s a -> s{_casgLifecycleHookSpecificationList = a}) . _Default . _Coerce;
+casgLifecycleHookSpecificationList = lens _casgLifecycleHookSpecificationList (\ s a -> s{_casgLifecycleHookSpecificationList = a}) . _Default . _Coerce
 
 -- | The service to use for the health checks. The valid values are @EC2@ and @ELB@ . By default, health checks use Amazon EC2 instance status checks to determine the health of an instance. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/ .
 casgHealthCheckType :: Lens' CreateAutoScalingGroup (Maybe Text)
-casgHealthCheckType = lens _casgHealthCheckType (\ s a -> s{_casgHealthCheckType = a});
+casgHealthCheckType = lens _casgHealthCheckType (\ s a -> s{_casgHealthCheckType = a})
+
+-- | The launch template to use to launch instances. You must specify one of the following: a launch template, a launch configuration, or an EC2 instance.
+casgLaunchTemplate :: Lens' CreateAutoScalingGroup (Maybe LaunchTemplateSpecification)
+casgLaunchTemplate = lens _casgLaunchTemplate (\ s a -> s{_casgLaunchTemplate = a})
 
 -- | The name of the placement group into which you'll launch your instances, if any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon Elastic Compute Cloud User Guide/ .
 casgPlacementGroup :: Lens' CreateAutoScalingGroup (Maybe Text)
-casgPlacementGroup = lens _casgPlacementGroup (\ s a -> s{_casgPlacementGroup = a});
+casgPlacementGroup = lens _casgPlacementGroup (\ s a -> s{_casgPlacementGroup = a})
 
 -- | One or more Classic Load Balancers. To specify an Application Load Balancer, use @TargetGroupARNs@ instead. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html Using a Load Balancer With an Auto Scaling Group> in the /Auto Scaling User Guide/ .
 casgLoadBalancerNames :: Lens' CreateAutoScalingGroup [Text]
-casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalancerNames = a}) . _Default . _Coerce;
+casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalancerNames = a}) . _Default . _Coerce
 
 -- | One or more tags. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/autoscaling-tagging.html Tagging Auto Scaling Groups and Instances> in the /Auto Scaling User Guide/ .
 casgTags :: Lens' CreateAutoScalingGroup [Tag]
-casgTags = lens _casgTags (\ s a -> s{_casgTags = a}) . _Default . _Coerce;
+casgTags = lens _casgTags (\ s a -> s{_casgTags = a}) . _Default . _Coerce
 
--- | The name of the group. This name must be unique within the scope of your AWS account.
+-- | The name of the Auto Scaling group. This name must be unique within the scope of your AWS account.
 casgAutoScalingGroupName :: Lens' CreateAutoScalingGroup Text
-casgAutoScalingGroupName = lens _casgAutoScalingGroupName (\ s a -> s{_casgAutoScalingGroupName = a});
+casgAutoScalingGroupName = lens _casgAutoScalingGroupName (\ s a -> s{_casgAutoScalingGroupName = a})
 
 -- | The minimum size of the group.
 casgMinSize :: Lens' CreateAutoScalingGroup Int
-casgMinSize = lens _casgMinSize (\ s a -> s{_casgMinSize = a});
+casgMinSize = lens _casgMinSize (\ s a -> s{_casgMinSize = a})
 
 -- | The maximum size of the group.
 casgMaxSize :: Lens' CreateAutoScalingGroup Int
-casgMaxSize = lens _casgMaxSize (\ s a -> s{_casgMaxSize = a});
+casgMaxSize = lens _casgMaxSize (\ s a -> s{_casgMaxSize = a})
 
 instance AWSRequest CreateAutoScalingGroup where
         type Rs CreateAutoScalingGroup =
@@ -253,6 +271,7 @@ instance ToQuery CreateAutoScalingGroup where
                    (toQueryList "member" <$> _casgTerminationPolicies),
                "HealthCheckGracePeriod" =:
                  _casgHealthCheckGracePeriod,
+               "ServiceLinkedRoleARN" =: _casgServiceLinkedRoleARN,
                "NewInstancesProtectedFromScaleIn" =:
                  _casgNewInstancesProtectedFromScaleIn,
                "VPCZoneIdentifier" =: _casgVPCZoneIdentifier,
@@ -271,6 +290,7 @@ instance ToQuery CreateAutoScalingGroup where
                    (toQueryList "member" <$>
                       _casgLifecycleHookSpecificationList),
                "HealthCheckType" =: _casgHealthCheckType,
+               "LaunchTemplate" =: _casgLaunchTemplate,
                "PlacementGroup" =: _casgPlacementGroup,
                "LoadBalancerNames" =:
                  toQuery

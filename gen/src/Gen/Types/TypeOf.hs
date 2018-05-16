@@ -6,7 +6,7 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.Types.TypeOf
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -62,10 +62,11 @@ instance HasId a => TypeOf (Shape a) where
             Lit i l              -> lit i l
 
         lit i = \case
-            Int                  -> natural i (TLit Int)
-            Long                 -> natural i (TLit Long)
-            Blob | isStreaming i -> TStream
-            l                    -> TLit l
+            Int                    -> natural i (TLit Int)
+            Long                   -> natural i (TLit Long)
+            Base64 | isStreaming i -> TStream
+            Bytes  | isStreaming i -> TStream
+            l                      -> TLit l
 
         struct st
             | isStreaming st = stream
@@ -114,7 +115,8 @@ derivingOf = uniq . typ . typeOf
         Long   -> derivingBase <> num
         Double -> derivingBase <> frac
         Text   -> derivingBase <> string
-        Blob   -> derivingBase
+        Base64 -> derivingBase
+        Bytes  -> derivingBase
         Time   -> DOrd : derivingBase
         Bool   -> derivingBase <> enum
         Json   -> [DEq, DShow, DData, DTypeable, DGeneric, DHashable, DNFData]

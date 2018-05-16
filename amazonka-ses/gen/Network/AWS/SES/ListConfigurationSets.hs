@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListConfigurationSets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ listConfigurationSets =
 
 -- | A token returned from a previous call to @ListConfigurationSets@ to indicate the position of the configuration set in the configuration set list.
 lcsNextToken :: Lens' ListConfigurationSets (Maybe Text)
-lcsNextToken = lens _lcsNextToken (\ s a -> s{_lcsNextToken = a});
+lcsNextToken = lens _lcsNextToken (\ s a -> s{_lcsNextToken = a})
 
 -- | The number of configuration sets to return.
 lcsMaxItems :: Lens' ListConfigurationSets (Maybe Int)
-lcsMaxItems = lens _lcsMaxItems (\ s a -> s{_lcsMaxItems = a});
+lcsMaxItems = lens _lcsMaxItems (\ s a -> s{_lcsMaxItems = a})
 
 instance AWSRequest ListConfigurationSets where
         type Rs ListConfigurationSets =
@@ -137,22 +137,22 @@ listConfigurationSetsResponse
     -> ListConfigurationSetsResponse
 listConfigurationSetsResponse pResponseStatus_ =
   ListConfigurationSetsResponse'
-  { _lcsrsConfigurationSets = Nothing
-  , _lcsrsNextToken = Nothing
-  , _lcsrsResponseStatus = pResponseStatus_
-  }
+    { _lcsrsConfigurationSets = Nothing
+    , _lcsrsNextToken = Nothing
+    , _lcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of configuration sets.
 lcsrsConfigurationSets :: Lens' ListConfigurationSetsResponse [ConfigurationSet]
-lcsrsConfigurationSets = lens _lcsrsConfigurationSets (\ s a -> s{_lcsrsConfigurationSets = a}) . _Default . _Coerce;
+lcsrsConfigurationSets = lens _lcsrsConfigurationSets (\ s a -> s{_lcsrsConfigurationSets = a}) . _Default . _Coerce
 
 -- | A token indicating that there are additional configuration sets available to be listed. Pass this token to successive calls of @ListConfigurationSets@ .
 lcsrsNextToken :: Lens' ListConfigurationSetsResponse (Maybe Text)
-lcsrsNextToken = lens _lcsrsNextToken (\ s a -> s{_lcsrsNextToken = a});
+lcsrsNextToken = lens _lcsrsNextToken (\ s a -> s{_lcsrsNextToken = a})
 
 -- | -- | The response status code.
 lcsrsResponseStatus :: Lens' ListConfigurationSetsResponse Int
-lcsrsResponseStatus = lens _lcsrsResponseStatus (\ s a -> s{_lcsrsResponseStatus = a});
+lcsrsResponseStatus = lens _lcsrsResponseStatus (\ s a -> s{_lcsrsResponseStatus = a})
 
 instance NFData ListConfigurationSetsResponse where

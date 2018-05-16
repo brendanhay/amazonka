@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.RetryStageExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ retryStageExecution
     -> RetryStageExecution
 retryStageExecution pPipelineName_ pStageName_ pPipelineExecutionId_ pRetryMode_ =
   RetryStageExecution'
-  { _rsePipelineName = pPipelineName_
-  , _rseStageName = pStageName_
-  , _rsePipelineExecutionId = pPipelineExecutionId_
-  , _rseRetryMode = pRetryMode_
-  }
+    { _rsePipelineName = pPipelineName_
+    , _rseStageName = pStageName_
+    , _rsePipelineExecutionId = pPipelineExecutionId_
+    , _rseRetryMode = pRetryMode_
+    }
 
 
 -- | The name of the pipeline that contains the failed stage.
 rsePipelineName :: Lens' RetryStageExecution Text
-rsePipelineName = lens _rsePipelineName (\ s a -> s{_rsePipelineName = a});
+rsePipelineName = lens _rsePipelineName (\ s a -> s{_rsePipelineName = a})
 
 -- | The name of the failed stage to be retried.
 rseStageName :: Lens' RetryStageExecution Text
-rseStageName = lens _rseStageName (\ s a -> s{_rseStageName = a});
+rseStageName = lens _rseStageName (\ s a -> s{_rseStageName = a})
 
 -- | The ID of the pipeline execution in the failed stage to be retried. Use the 'GetPipelineState' action to retrieve the current pipelineExecutionId of the failed stage
 rsePipelineExecutionId :: Lens' RetryStageExecution Text
-rsePipelineExecutionId = lens _rsePipelineExecutionId (\ s a -> s{_rsePipelineExecutionId = a});
+rsePipelineExecutionId = lens _rsePipelineExecutionId (\ s a -> s{_rsePipelineExecutionId = a})
 
 -- | The scope of the retry attempt. Currently, the only supported value is FAILED_ACTIONS.
 rseRetryMode :: Lens' RetryStageExecution StageRetryMode
-rseRetryMode = lens _rseRetryMode (\ s a -> s{_rseRetryMode = a});
+rseRetryMode = lens _rseRetryMode (\ s a -> s{_rseRetryMode = a})
 
 instance AWSRequest RetryStageExecution where
         type Rs RetryStageExecution =
@@ -166,15 +166,17 @@ retryStageExecutionResponse
     -> RetryStageExecutionResponse
 retryStageExecutionResponse pResponseStatus_ =
   RetryStageExecutionResponse'
-  {_rsersPipelineExecutionId = Nothing, _rsersResponseStatus = pResponseStatus_}
+    { _rsersPipelineExecutionId = Nothing
+    , _rsersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the current workflow execution in the failed stage.
 rsersPipelineExecutionId :: Lens' RetryStageExecutionResponse (Maybe Text)
-rsersPipelineExecutionId = lens _rsersPipelineExecutionId (\ s a -> s{_rsersPipelineExecutionId = a});
+rsersPipelineExecutionId = lens _rsersPipelineExecutionId (\ s a -> s{_rsersPipelineExecutionId = a})
 
 -- | -- | The response status code.
 rsersResponseStatus :: Lens' RetryStageExecutionResponse Int
-rsersResponseStatus = lens _rsersResponseStatus (\ s a -> s{_rsersResponseStatus = a});
+rsersResponseStatus = lens _rsersResponseStatus (\ s a -> s{_rsersResponseStatus = a})
 
 instance NFData RetryStageExecutionResponse where

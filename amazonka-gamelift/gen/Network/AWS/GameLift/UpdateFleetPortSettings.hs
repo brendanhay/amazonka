@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateFleetPortSettings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,15 +27,21 @@
 --
 --     * 'ListFleets'
 --
+--     * 'DeleteFleet'
+--
 --     * Describe fleets:
 --
 --     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetCapacity'
 --
 --     * 'DescribeFleetPortSettings'
 --
 --     * 'DescribeFleetUtilization'
 --
 --     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeEC2InstanceLimits'
 --
 --     * 'DescribeFleetEvents'
 --
@@ -53,23 +59,13 @@
 --
 --
 --
---     * Manage fleet capacity:
+--     * Manage fleet actions:
 --
---     * 'DescribeFleetCapacity'
+--     * 'StartFleetActions'
 --
---     * 'UpdateFleetCapacity'
---
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
---     * 'DescribeEC2InstanceLimits'
+--     * 'StopFleetActions'
 --
 --
---
---     * 'DeleteFleet'
 --
 --
 --
@@ -124,23 +120,23 @@ updateFleetPortSettings
     -> UpdateFleetPortSettings
 updateFleetPortSettings pFleetId_ =
   UpdateFleetPortSettings'
-  { _ufpsInboundPermissionRevocations = Nothing
-  , _ufpsInboundPermissionAuthorizations = Nothing
-  , _ufpsFleetId = pFleetId_
-  }
+    { _ufpsInboundPermissionRevocations = Nothing
+    , _ufpsInboundPermissionAuthorizations = Nothing
+    , _ufpsFleetId = pFleetId_
+    }
 
 
 -- | Collection of port settings to be removed from the fleet record.
 ufpsInboundPermissionRevocations :: Lens' UpdateFleetPortSettings [IPPermission]
-ufpsInboundPermissionRevocations = lens _ufpsInboundPermissionRevocations (\ s a -> s{_ufpsInboundPermissionRevocations = a}) . _Default . _Coerce;
+ufpsInboundPermissionRevocations = lens _ufpsInboundPermissionRevocations (\ s a -> s{_ufpsInboundPermissionRevocations = a}) . _Default . _Coerce
 
 -- | Collection of port settings to be added to the fleet record.
 ufpsInboundPermissionAuthorizations :: Lens' UpdateFleetPortSettings [IPPermission]
-ufpsInboundPermissionAuthorizations = lens _ufpsInboundPermissionAuthorizations (\ s a -> s{_ufpsInboundPermissionAuthorizations = a}) . _Default . _Coerce;
+ufpsInboundPermissionAuthorizations = lens _ufpsInboundPermissionAuthorizations (\ s a -> s{_ufpsInboundPermissionAuthorizations = a}) . _Default . _Coerce
 
 -- | Unique identifier for a fleet to update port settings for.
 ufpsFleetId :: Lens' UpdateFleetPortSettings Text
-ufpsFleetId = lens _ufpsFleetId (\ s a -> s{_ufpsFleetId = a});
+ufpsFleetId = lens _ufpsFleetId (\ s a -> s{_ufpsFleetId = a})
 
 instance AWSRequest UpdateFleetPortSettings where
         type Rs UpdateFleetPortSettings =
@@ -204,15 +200,15 @@ updateFleetPortSettingsResponse
     -> UpdateFleetPortSettingsResponse
 updateFleetPortSettingsResponse pResponseStatus_ =
   UpdateFleetPortSettingsResponse'
-  {_ufpsrsFleetId = Nothing, _ufpsrsResponseStatus = pResponseStatus_}
+    {_ufpsrsFleetId = Nothing, _ufpsrsResponseStatus = pResponseStatus_}
 
 
 -- | Unique identifier for a fleet that was updated.
 ufpsrsFleetId :: Lens' UpdateFleetPortSettingsResponse (Maybe Text)
-ufpsrsFleetId = lens _ufpsrsFleetId (\ s a -> s{_ufpsrsFleetId = a});
+ufpsrsFleetId = lens _ufpsrsFleetId (\ s a -> s{_ufpsrsFleetId = a})
 
 -- | -- | The response status code.
 ufpsrsResponseStatus :: Lens' UpdateFleetPortSettingsResponse Int
-ufpsrsResponseStatus = lens _ufpsrsResponseStatus (\ s a -> s{_ufpsrsResponseStatus = a});
+ufpsrsResponseStatus = lens _ufpsrsResponseStatus (\ s a -> s{_ufpsrsResponseStatus = a})
 
 instance NFData UpdateFleetPortSettingsResponse where

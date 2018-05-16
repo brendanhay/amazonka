@@ -12,24 +12,40 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.ImportCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports an SSL/TLS certificate into AWS Certificate Manager (ACM) to use with <http://docs.aws.amazon.com/acm/latest/userguide/acm-services.html ACM's integrated AWS services> .
+-- Imports a certificate into AWS Certificate Manager (ACM) to use with services that are integrated with ACM. Note that <http://docs.aws.amazon.com/acm/latest/userguide/acm-services.html integrated services> allow only certificate types and keys they support to be associated with their resources. Further, their support differs depending on whether the certificate is imported into IAM or into ACM. For more information, see the documentation for each service. For more information about importing certificates into ACM, see <http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
 --
 --
--- For more information about importing certificates into ACM, including the differences between certificates that you import and those that ACM provides, see <http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
+-- Note the following guidelines when importing third party certificates:
 --
--- To import a certificate, you must provide the certificate and the matching private key. When the certificate is not self-signed, you must also provide a certificate chain. You can omit the certificate chain when importing a self-signed certificate.
+--     * You must enter the private key that matches the certificate you are importing.
 --
--- The certificate, private key, and certificate chain must be PEM-encoded. For more information about converting these items to PEM format, see <http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html#import-certificate-troubleshooting Importing Certificates Troubleshooting> in the /AWS Certificate Manager User Guide/ .
+--     * The private key must be unencrypted. You cannot import a private key that is protected by a password or a passphrase.
 --
--- To import a new certificate, omit the @CertificateArn@ field. Include this field only when you want to replace a previously imported certificate.
+--     * If the certificate you are importing is not self-signed, you must enter its certificate chain.
 --
--- When you import a certificate by using the CLI or one of the SDKs, you must specify the certificate, chain, and private key parameters as file names preceded by @file://@ . For example, you can specify a certificate saved in the @C:\temp@ folder as @C:\temp\certificate_to_import.pem@ . If you are making an HTTP or HTTPS Query request, include these parameters as BLOBs.
+--     * If a certificate chain is included, the issuer must be the subject of one of the certificates in the chain.
+--
+--     * The certificate, private key, and certificate chain must be PEM-encoded.
+--
+--     * The current time must be between the @Not Before@ and @Not After@ certificate fields.
+--
+--     * The @Issuer@ field must not be empty.
+--
+--     * The OCSP authority URL, if present, must not exceed 1000 characters.
+--
+--     * To import a new certificate, omit the @CertificateArn@ argument. Include this argument only when you want to replace a previously imported certificate.
+--
+--     * When you import a certificate by using the CLI, you must specify the certificate, the certificate chain, and the private key by their file names preceded by @file://@ . For example, you can specify a certificate saved in the @C:\temp@ folder as @file://C:\temp\certificate_to_import.pem@ . If you are making an HTTP or HTTPS Query request, include these arguments as BLOBs.
+--
+--     * When you import a certificate by using an SDK, you must specify the certificate, the certificate chain, and the private key files in the manner required by the programming language you're using.
+--
+--
 --
 -- This operation returns the <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of the imported certificate.
 --
@@ -74,39 +90,39 @@ data ImportCertificate = ImportCertificate'
 --
 -- * 'icCertificateARN' - The <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an imported certificate to replace. To import a new certificate, omit this field.
 --
--- * 'icCertificateChain' - The certificate chain. It must be PEM-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'icCertificateChain' - The PEM encoded certificate chain.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'icCertificate' - The certificate to import. It must meet the following requirements:     * Must be PEM-encoded.     * Must contain a 1024-bit or 2048-bit RSA public key.     * Must be valid at the time of import. You cannot import a certificate before its validity period begins (the certificate's @NotBefore@ date) or after it expires (the certificate's @NotAfter@ date).-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'icCertificate' - The certificate to import.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'icPrivateKey' - The private key that matches the public key in the certificate. It must meet the following requirements:     * Must be PEM-encoded.     * Must be unencrypted. You cannot import a private key that is protected by a password or passphrase.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'icPrivateKey' - The private key that matches the public key in the certificate.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 importCertificate
     :: ByteString -- ^ 'icCertificate'
     -> ByteString -- ^ 'icPrivateKey'
     -> ImportCertificate
 importCertificate pCertificate_ pPrivateKey_ =
   ImportCertificate'
-  { _icCertificateARN = Nothing
-  , _icCertificateChain = Nothing
-  , _icCertificate = _Base64 # pCertificate_
-  , _icPrivateKey = _Sensitive . _Base64 # pPrivateKey_
-  }
+    { _icCertificateARN = Nothing
+    , _icCertificateChain = Nothing
+    , _icCertificate = _Base64 # pCertificate_
+    , _icPrivateKey = _Sensitive . _Base64 # pPrivateKey_
+    }
 
 
 -- | The <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an imported certificate to replace. To import a new certificate, omit this field.
 icCertificateARN :: Lens' ImportCertificate (Maybe Text)
-icCertificateARN = lens _icCertificateARN (\ s a -> s{_icCertificateARN = a});
+icCertificateARN = lens _icCertificateARN (\ s a -> s{_icCertificateARN = a})
 
--- | The certificate chain. It must be PEM-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The PEM encoded certificate chain.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 icCertificateChain :: Lens' ImportCertificate (Maybe ByteString)
-icCertificateChain = lens _icCertificateChain (\ s a -> s{_icCertificateChain = a}) . mapping _Base64;
+icCertificateChain = lens _icCertificateChain (\ s a -> s{_icCertificateChain = a}) . mapping _Base64
 
--- | The certificate to import. It must meet the following requirements:     * Must be PEM-encoded.     * Must contain a 1024-bit or 2048-bit RSA public key.     * Must be valid at the time of import. You cannot import a certificate before its validity period begins (the certificate's @NotBefore@ date) or after it expires (the certificate's @NotAfter@ date).-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The certificate to import.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 icCertificate :: Lens' ImportCertificate ByteString
-icCertificate = lens _icCertificate (\ s a -> s{_icCertificate = a}) . _Base64;
+icCertificate = lens _icCertificate (\ s a -> s{_icCertificate = a}) . _Base64
 
--- | The private key that matches the public key in the certificate. It must meet the following requirements:     * Must be PEM-encoded.     * Must be unencrypted. You cannot import a private key that is protected by a password or passphrase.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The private key that matches the public key in the certificate.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 icPrivateKey :: Lens' ImportCertificate ByteString
-icPrivateKey = lens _icPrivateKey (\ s a -> s{_icPrivateKey = a}) . _Sensitive . _Base64;
+icPrivateKey = lens _icPrivateKey (\ s a -> s{_icPrivateKey = a}) . _Sensitive . _Base64
 
 instance AWSRequest ImportCertificate where
         type Rs ImportCertificate = ImportCertificateResponse
@@ -165,15 +181,15 @@ importCertificateResponse
     -> ImportCertificateResponse
 importCertificateResponse pResponseStatus_ =
   ImportCertificateResponse'
-  {_icrsCertificateARN = Nothing, _icrsResponseStatus = pResponseStatus_}
+    {_icrsCertificateARN = Nothing, _icrsResponseStatus = pResponseStatus_}
 
 
 -- | The <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of the imported certificate.
 icrsCertificateARN :: Lens' ImportCertificateResponse (Maybe Text)
-icrsCertificateARN = lens _icrsCertificateARN (\ s a -> s{_icrsCertificateARN = a});
+icrsCertificateARN = lens _icrsCertificateARN (\ s a -> s{_icrsCertificateARN = a})
 
 -- | -- | The response status code.
 icrsResponseStatus :: Lens' ImportCertificateResponse Int
-icrsResponseStatus = lens _icrsResponseStatus (\ s a -> s{_icrsResponseStatus = a});
+icrsResponseStatus = lens _icrsResponseStatus (\ s a -> s{_icrsResponseStatus = a})
 
 instance NFData ImportCertificateResponse where

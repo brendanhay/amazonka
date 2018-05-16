@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeRulesPackages
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ describeRulesPackages
     -> DescribeRulesPackages
 describeRulesPackages pRulesPackageARNs_ =
   DescribeRulesPackages'
-  {_drpLocale = Nothing, _drpRulesPackageARNs = _List1 # pRulesPackageARNs_}
+    {_drpLocale = Nothing, _drpRulesPackageARNs = _List1 # pRulesPackageARNs_}
 
 
 -- | The locale that you want to translate a rules package description into.
 drpLocale :: Lens' DescribeRulesPackages (Maybe Locale)
-drpLocale = lens _drpLocale (\ s a -> s{_drpLocale = a});
+drpLocale = lens _drpLocale (\ s a -> s{_drpLocale = a})
 
 -- | The ARN that specifies the rules package that you want to describe.
 drpRulesPackageARNs :: Lens' DescribeRulesPackages (NonEmpty Text)
-drpRulesPackageARNs = lens _drpRulesPackageARNs (\ s a -> s{_drpRulesPackageARNs = a}) . _List1;
+drpRulesPackageARNs = lens _drpRulesPackageARNs (\ s a -> s{_drpRulesPackageARNs = a}) . _List1
 
 instance AWSRequest DescribeRulesPackages where
         type Rs DescribeRulesPackages =
@@ -137,22 +137,22 @@ describeRulesPackagesResponse
     -> DescribeRulesPackagesResponse
 describeRulesPackagesResponse pResponseStatus_ =
   DescribeRulesPackagesResponse'
-  { _drprsResponseStatus = pResponseStatus_
-  , _drprsRulesPackages = mempty
-  , _drprsFailedItems = mempty
-  }
+    { _drprsResponseStatus = pResponseStatus_
+    , _drprsRulesPackages = mempty
+    , _drprsFailedItems = mempty
+    }
 
 
 -- | -- | The response status code.
 drprsResponseStatus :: Lens' DescribeRulesPackagesResponse Int
-drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a});
+drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a})
 
 -- | Information about the rules package.
 drprsRulesPackages :: Lens' DescribeRulesPackagesResponse [RulesPackage]
-drprsRulesPackages = lens _drprsRulesPackages (\ s a -> s{_drprsRulesPackages = a}) . _Coerce;
+drprsRulesPackages = lens _drprsRulesPackages (\ s a -> s{_drprsRulesPackages = a}) . _Coerce
 
 -- | Rules package details that cannot be described. An error code is provided for each failed item.
 drprsFailedItems :: Lens' DescribeRulesPackagesResponse (HashMap Text FailedItemDetails)
-drprsFailedItems = lens _drprsFailedItems (\ s a -> s{_drprsFailedItems = a}) . _Map;
+drprsFailedItems = lens _drprsFailedItems (\ s a -> s{_drprsFailedItems = a}) . _Map
 
 instance NFData DescribeRulesPackagesResponse where

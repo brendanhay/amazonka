@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.Waiters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,18 +25,18 @@ import Network.AWS.Waiter
 nodeAssociated :: Wait DescribeNodeAssociationStatus
 nodeAssociated =
   Wait
-  { _waitName = "NodeAssociated"
-  , _waitAttempts = 15
-  , _waitDelay = 15
-  , _waitAcceptors =
-      [ matchAll
-          "SUCCESS"
-          AcceptSuccess
-          (dnasrsNodeAssociationStatus . to toTextCI)
-      , matchAll
-          "FAILED"
-          AcceptFailure
-          (dnasrsNodeAssociationStatus . to toTextCI)
-      ]
-  }
+    { _waitName = "NodeAssociated"
+    , _waitAttempts = 15
+    , _waitDelay = 15
+    , _waitAcceptors =
+        [ matchAll
+            "SUCCESS"
+            AcceptSuccess
+            (dnasrsNodeAssociationStatus . to toTextCI)
+        , matchAll
+            "FAILED"
+            AcceptFailure
+            (dnasrsNodeAssociationStatus . to toTextCI)
+        ]
+    }
 

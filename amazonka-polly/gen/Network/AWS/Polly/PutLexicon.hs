@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Polly.PutLexicon
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ putLexicon pName_ pContent_ =
 
 -- | Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long.
 plName :: Lens' PutLexicon Text
-plName = lens _plName (\ s a -> s{_plName = a}) . _Sensitive;
+plName = lens _plName (\ s a -> s{_plName = a}) . _Sensitive
 
 -- | Content of the PLS lexicon as string data.
 plContent :: Lens' PutLexicon Text
-plContent = lens _plContent (\ s a -> s{_plContent = a});
+plContent = lens _plContent (\ s a -> s{_plContent = a})
 
 instance AWSRequest PutLexicon where
         type Rs PutLexicon = PutLexiconResponse
@@ -122,6 +122,6 @@ putLexiconResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 plrsResponseStatus :: Lens' PutLexiconResponse Int
-plrsResponseStatus = lens _plrsResponseStatus (\ s a -> s{_plrsResponseStatus = a});
+plrsResponseStatus = lens _plrsResponseStatus (\ s a -> s{_plrsResponseStatus = a})
 
 instance NFData PutLexiconResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteIntegrationResponse
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,13 +61,13 @@ data DeleteIntegrationResponse = DeleteIntegrationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'diRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'diResourceId' - Specifies a delete integration response request's resource identifier.
+-- * 'diResourceId' - [Required] Specifies a delete integration response request's resource identifier.
 --
--- * 'diHttpMethod' - Specifies a delete integration response request's HTTP method.
+-- * 'diHttpMethod' - [Required] Specifies a delete integration response request's HTTP method.
 --
--- * 'diStatusCode' - Specifies a delete integration response request's status code.
+-- * 'diStatusCode' - [Required] Specifies a delete integration response request's status code.
 deleteIntegrationResponse
     :: Text -- ^ 'diRestAPIId'
     -> Text -- ^ 'diResourceId'
@@ -76,28 +76,28 @@ deleteIntegrationResponse
     -> DeleteIntegrationResponse
 deleteIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
   DeleteIntegrationResponse'
-  { _diRestAPIId = pRestAPIId_
-  , _diResourceId = pResourceId_
-  , _diHttpMethod = pHttpMethod_
-  , _diStatusCode = pStatusCode_
-  }
+    { _diRestAPIId = pRestAPIId_
+    , _diResourceId = pResourceId_
+    , _diHttpMethod = pHttpMethod_
+    , _diStatusCode = pStatusCode_
+    }
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 diRestAPIId :: Lens' DeleteIntegrationResponse Text
-diRestAPIId = lens _diRestAPIId (\ s a -> s{_diRestAPIId = a});
+diRestAPIId = lens _diRestAPIId (\ s a -> s{_diRestAPIId = a})
 
--- | Specifies a delete integration response request's resource identifier.
+-- | [Required] Specifies a delete integration response request's resource identifier.
 diResourceId :: Lens' DeleteIntegrationResponse Text
-diResourceId = lens _diResourceId (\ s a -> s{_diResourceId = a});
+diResourceId = lens _diResourceId (\ s a -> s{_diResourceId = a})
 
--- | Specifies a delete integration response request's HTTP method.
+-- | [Required] Specifies a delete integration response request's HTTP method.
 diHttpMethod :: Lens' DeleteIntegrationResponse Text
-diHttpMethod = lens _diHttpMethod (\ s a -> s{_diHttpMethod = a});
+diHttpMethod = lens _diHttpMethod (\ s a -> s{_diHttpMethod = a})
 
--- | Specifies a delete integration response request's status code.
+-- | [Required] Specifies a delete integration response request's status code.
 diStatusCode :: Lens' DeleteIntegrationResponse Text
-diStatusCode = lens _diStatusCode (\ s a -> s{_diStatusCode = a});
+diStatusCode = lens _diStatusCode (\ s a -> s{_diStatusCode = a})
 
 instance AWSRequest DeleteIntegrationResponse where
         type Rs DeleteIntegrationResponse =

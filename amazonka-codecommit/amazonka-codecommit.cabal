@@ -1,5 +1,5 @@
 name:                  amazonka-codecommit
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon CodeCommit SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -47,21 +47,39 @@ library
           Network.AWS.CodeCommit
         , Network.AWS.CodeCommit.BatchGetRepositories
         , Network.AWS.CodeCommit.CreateBranch
+        , Network.AWS.CodeCommit.CreatePullRequest
         , Network.AWS.CodeCommit.CreateRepository
         , Network.AWS.CodeCommit.DeleteBranch
+        , Network.AWS.CodeCommit.DeleteCommentContent
         , Network.AWS.CodeCommit.DeleteRepository
+        , Network.AWS.CodeCommit.DescribePullRequestEvents
         , Network.AWS.CodeCommit.GetBlob
         , Network.AWS.CodeCommit.GetBranch
+        , Network.AWS.CodeCommit.GetComment
+        , Network.AWS.CodeCommit.GetCommentsForComparedCommit
+        , Network.AWS.CodeCommit.GetCommentsForPullRequest
         , Network.AWS.CodeCommit.GetCommit
         , Network.AWS.CodeCommit.GetDifferences
+        , Network.AWS.CodeCommit.GetMergeConflicts
+        , Network.AWS.CodeCommit.GetPullRequest
         , Network.AWS.CodeCommit.GetRepository
         , Network.AWS.CodeCommit.GetRepositoryTriggers
         , Network.AWS.CodeCommit.ListBranches
+        , Network.AWS.CodeCommit.ListPullRequests
         , Network.AWS.CodeCommit.ListRepositories
+        , Network.AWS.CodeCommit.MergePullRequestByFastForward
+        , Network.AWS.CodeCommit.PostCommentForComparedCommit
+        , Network.AWS.CodeCommit.PostCommentForPullRequest
+        , Network.AWS.CodeCommit.PostCommentReply
+        , Network.AWS.CodeCommit.PutFile
         , Network.AWS.CodeCommit.PutRepositoryTriggers
         , Network.AWS.CodeCommit.TestRepositoryTriggers
         , Network.AWS.CodeCommit.Types
+        , Network.AWS.CodeCommit.UpdateComment
         , Network.AWS.CodeCommit.UpdateDefaultBranch
+        , Network.AWS.CodeCommit.UpdatePullRequestDescription
+        , Network.AWS.CodeCommit.UpdatePullRequestStatus
+        , Network.AWS.CodeCommit.UpdatePullRequestTitle
         , Network.AWS.CodeCommit.UpdateRepositoryDescription
         , Network.AWS.CodeCommit.UpdateRepositoryName
         , Network.AWS.CodeCommit.Waiters
@@ -71,7 +89,7 @@ library
         , Network.AWS.CodeCommit.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-codecommit-test
@@ -91,8 +109,8 @@ test-suite amazonka-codecommit-test
         , Test.AWS.CodeCommit.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-codecommit
         , base
         , bytestring

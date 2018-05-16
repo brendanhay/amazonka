@@ -1,5 +1,5 @@
 name:                  amazonka-workdocs
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon WorkDocs SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -67,6 +67,7 @@ library
         , Network.AWS.WorkDocs.DescribeComments
         , Network.AWS.WorkDocs.DescribeDocumentVersions
         , Network.AWS.WorkDocs.DescribeFolderContents
+        , Network.AWS.WorkDocs.DescribeGroups
         , Network.AWS.WorkDocs.DescribeNotificationSubscriptions
         , Network.AWS.WorkDocs.DescribeResourcePermissions
         , Network.AWS.WorkDocs.DescribeRootFolders
@@ -92,7 +93,7 @@ library
         , Network.AWS.WorkDocs.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-workdocs-test
@@ -112,8 +113,8 @@ test-suite amazonka-workdocs-test
         , Test.AWS.WorkDocs.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-workdocs
         , base
         , bytestring

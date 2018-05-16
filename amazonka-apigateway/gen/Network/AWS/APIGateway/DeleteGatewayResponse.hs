@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteGatewayResponse
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,25 +57,25 @@ data DeleteGatewayResponse = DeleteGatewayResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'dgRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'dgResponseType' - The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPES
+-- * 'dgResponseType' - [Required] The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPE
 deleteGatewayResponse
     :: Text -- ^ 'dgRestAPIId'
     -> GatewayResponseType -- ^ 'dgResponseType'
     -> DeleteGatewayResponse
 deleteGatewayResponse pRestAPIId_ pResponseType_ =
   DeleteGatewayResponse'
-  {_dgRestAPIId = pRestAPIId_, _dgResponseType = pResponseType_}
+    {_dgRestAPIId = pRestAPIId_, _dgResponseType = pResponseType_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 dgRestAPIId :: Lens' DeleteGatewayResponse Text
-dgRestAPIId = lens _dgRestAPIId (\ s a -> s{_dgRestAPIId = a});
+dgRestAPIId = lens _dgRestAPIId (\ s a -> s{_dgRestAPIId = a})
 
--- | The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPES
+-- | [Required] The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPE
 dgResponseType :: Lens' DeleteGatewayResponse GatewayResponseType
-dgResponseType = lens _dgResponseType (\ s a -> s{_dgResponseType = a});
+dgResponseType = lens _dgResponseType (\ s a -> s{_dgResponseType = a})
 
 instance AWSRequest DeleteGatewayResponse where
         type Rs DeleteGatewayResponse =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateBaiduChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ updateBaiduChannel
     -> UpdateBaiduChannel
 updateBaiduChannel pApplicationId_ pBaiduChannelRequest_ =
   UpdateBaiduChannel'
-  { _ubcApplicationId = pApplicationId_
-  , _ubcBaiduChannelRequest = pBaiduChannelRequest_
-  }
+    { _ubcApplicationId = pApplicationId_
+    , _ubcBaiduChannelRequest = pBaiduChannelRequest_
+    }
 
 
 -- | Undocumented member.
 ubcApplicationId :: Lens' UpdateBaiduChannel Text
-ubcApplicationId = lens _ubcApplicationId (\ s a -> s{_ubcApplicationId = a});
+ubcApplicationId = lens _ubcApplicationId (\ s a -> s{_ubcApplicationId = a})
 
 -- | Undocumented member.
 ubcBaiduChannelRequest :: Lens' UpdateBaiduChannel BaiduChannelRequest
-ubcBaiduChannelRequest = lens _ubcBaiduChannelRequest (\ s a -> s{_ubcBaiduChannelRequest = a});
+ubcBaiduChannelRequest = lens _ubcBaiduChannelRequest (\ s a -> s{_ubcBaiduChannelRequest = a})
 
 instance AWSRequest UpdateBaiduChannel where
         type Rs UpdateBaiduChannel =
@@ -133,17 +133,17 @@ updateBaiduChannelResponse
     -> UpdateBaiduChannelResponse
 updateBaiduChannelResponse pResponseStatus_ pBaiduChannelResponse_ =
   UpdateBaiduChannelResponse'
-  { _ubcrsResponseStatus = pResponseStatus_
-  , _ubcrsBaiduChannelResponse = pBaiduChannelResponse_
-  }
+    { _ubcrsResponseStatus = pResponseStatus_
+    , _ubcrsBaiduChannelResponse = pBaiduChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 ubcrsResponseStatus :: Lens' UpdateBaiduChannelResponse Int
-ubcrsResponseStatus = lens _ubcrsResponseStatus (\ s a -> s{_ubcrsResponseStatus = a});
+ubcrsResponseStatus = lens _ubcrsResponseStatus (\ s a -> s{_ubcrsResponseStatus = a})
 
 -- | Undocumented member.
 ubcrsBaiduChannelResponse :: Lens' UpdateBaiduChannelResponse BaiduChannelResponse
-ubcrsBaiduChannelResponse = lens _ubcrsBaiduChannelResponse (\ s a -> s{_ubcrsBaiduChannelResponse = a});
+ubcrsBaiduChannelResponse = lens _ubcrsBaiduChannelResponse (\ s a -> s{_ubcrsBaiduChannelResponse = a})
 
 instance NFData UpdateBaiduChannelResponse where

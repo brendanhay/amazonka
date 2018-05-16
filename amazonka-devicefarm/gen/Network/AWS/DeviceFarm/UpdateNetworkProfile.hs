@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.UpdateNetworkProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -98,74 +98,74 @@ data UpdateNetworkProfile = UpdateNetworkProfile'
 --
 -- * 'unpDownlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
 --
--- * 'unpArn' - The Amazon Resource Name (ARN) of the project that you wish to update network profile settings.
+-- * 'unpArn' - The Amazon Resource Name (ARN) of the project for which you want to update network profile settings.
 updateNetworkProfile
     :: Text -- ^ 'unpArn'
     -> UpdateNetworkProfile
 updateNetworkProfile pArn_ =
   UpdateNetworkProfile'
-  { _unpUplinkJitterMs = Nothing
-  , _unpUplinkLossPercent = Nothing
-  , _unpDownlinkJitterMs = Nothing
-  , _unpName = Nothing
-  , _unpDownlinkLossPercent = Nothing
-  , _unpType = Nothing
-  , _unpUplinkDelayMs = Nothing
-  , _unpUplinkBandwidthBits = Nothing
-  , _unpDescription = Nothing
-  , _unpDownlinkDelayMs = Nothing
-  , _unpDownlinkBandwidthBits = Nothing
-  , _unpArn = pArn_
-  }
+    { _unpUplinkJitterMs = Nothing
+    , _unpUplinkLossPercent = Nothing
+    , _unpDownlinkJitterMs = Nothing
+    , _unpName = Nothing
+    , _unpDownlinkLossPercent = Nothing
+    , _unpType = Nothing
+    , _unpUplinkDelayMs = Nothing
+    , _unpUplinkBandwidthBits = Nothing
+    , _unpDescription = Nothing
+    , _unpDownlinkDelayMs = Nothing
+    , _unpDownlinkBandwidthBits = Nothing
+    , _unpArn = pArn_
+    }
 
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
 unpUplinkJitterMs :: Lens' UpdateNetworkProfile (Maybe Integer)
-unpUplinkJitterMs = lens _unpUplinkJitterMs (\ s a -> s{_unpUplinkJitterMs = a});
+unpUplinkJitterMs = lens _unpUplinkJitterMs (\ s a -> s{_unpUplinkJitterMs = a})
 
 -- | Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
 unpUplinkLossPercent :: Lens' UpdateNetworkProfile (Maybe Natural)
-unpUplinkLossPercent = lens _unpUplinkLossPercent (\ s a -> s{_unpUplinkLossPercent = a}) . mapping _Nat;
+unpUplinkLossPercent = lens _unpUplinkLossPercent (\ s a -> s{_unpUplinkLossPercent = a}) . mapping _Nat
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
 unpDownlinkJitterMs :: Lens' UpdateNetworkProfile (Maybe Integer)
-unpDownlinkJitterMs = lens _unpDownlinkJitterMs (\ s a -> s{_unpDownlinkJitterMs = a});
+unpDownlinkJitterMs = lens _unpDownlinkJitterMs (\ s a -> s{_unpDownlinkJitterMs = a})
 
 -- | The name of the network profile about which you are returning information.
 unpName :: Lens' UpdateNetworkProfile (Maybe Text)
-unpName = lens _unpName (\ s a -> s{_unpName = a});
+unpName = lens _unpName (\ s a -> s{_unpName = a})
 
 -- | Proportion of received packets that fail to arrive from 0 to 100 percent.
 unpDownlinkLossPercent :: Lens' UpdateNetworkProfile (Maybe Natural)
-unpDownlinkLossPercent = lens _unpDownlinkLossPercent (\ s a -> s{_unpDownlinkLossPercent = a}) . mapping _Nat;
+unpDownlinkLossPercent = lens _unpDownlinkLossPercent (\ s a -> s{_unpDownlinkLossPercent = a}) . mapping _Nat
 
 -- | The type of network profile you wish to return information about. Valid values are listed below.
 unpType :: Lens' UpdateNetworkProfile (Maybe NetworkProfileType)
-unpType = lens _unpType (\ s a -> s{_unpType = a});
+unpType = lens _unpType (\ s a -> s{_unpType = a})
 
 -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
 unpUplinkDelayMs :: Lens' UpdateNetworkProfile (Maybe Integer)
-unpUplinkDelayMs = lens _unpUplinkDelayMs (\ s a -> s{_unpUplinkDelayMs = a});
+unpUplinkDelayMs = lens _unpUplinkDelayMs (\ s a -> s{_unpUplinkDelayMs = a})
 
 -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
 unpUplinkBandwidthBits :: Lens' UpdateNetworkProfile (Maybe Integer)
-unpUplinkBandwidthBits = lens _unpUplinkBandwidthBits (\ s a -> s{_unpUplinkBandwidthBits = a});
+unpUplinkBandwidthBits = lens _unpUplinkBandwidthBits (\ s a -> s{_unpUplinkBandwidthBits = a})
 
 -- | The descriptoin of the network profile about which you are returning information.
 unpDescription :: Lens' UpdateNetworkProfile (Maybe Text)
-unpDescription = lens _unpDescription (\ s a -> s{_unpDescription = a});
+unpDescription = lens _unpDescription (\ s a -> s{_unpDescription = a})
 
 -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
 unpDownlinkDelayMs :: Lens' UpdateNetworkProfile (Maybe Integer)
-unpDownlinkDelayMs = lens _unpDownlinkDelayMs (\ s a -> s{_unpDownlinkDelayMs = a});
+unpDownlinkDelayMs = lens _unpDownlinkDelayMs (\ s a -> s{_unpDownlinkDelayMs = a})
 
 -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
 unpDownlinkBandwidthBits :: Lens' UpdateNetworkProfile (Maybe Integer)
-unpDownlinkBandwidthBits = lens _unpDownlinkBandwidthBits (\ s a -> s{_unpDownlinkBandwidthBits = a});
+unpDownlinkBandwidthBits = lens _unpDownlinkBandwidthBits (\ s a -> s{_unpDownlinkBandwidthBits = a})
 
--- | The Amazon Resource Name (ARN) of the project that you wish to update network profile settings.
+-- | The Amazon Resource Name (ARN) of the project for which you want to update network profile settings.
 unpArn :: Lens' UpdateNetworkProfile Text
-unpArn = lens _unpArn (\ s a -> s{_unpArn = a});
+unpArn = lens _unpArn (\ s a -> s{_unpArn = a})
 
 instance AWSRequest UpdateNetworkProfile where
         type Rs UpdateNetworkProfile =
@@ -236,15 +236,15 @@ updateNetworkProfileResponse
     -> UpdateNetworkProfileResponse
 updateNetworkProfileResponse pResponseStatus_ =
   UpdateNetworkProfileResponse'
-  {_unprsNetworkProfile = Nothing, _unprsResponseStatus = pResponseStatus_}
+    {_unprsNetworkProfile = Nothing, _unprsResponseStatus = pResponseStatus_}
 
 
 -- | A list of the available network profiles.
 unprsNetworkProfile :: Lens' UpdateNetworkProfileResponse (Maybe NetworkProfile)
-unprsNetworkProfile = lens _unprsNetworkProfile (\ s a -> s{_unprsNetworkProfile = a});
+unprsNetworkProfile = lens _unprsNetworkProfile (\ s a -> s{_unprsNetworkProfile = a})
 
 -- | -- | The response status code.
 unprsResponseStatus :: Lens' UpdateNetworkProfileResponse Int
-unprsResponseStatus = lens _unprsResponseStatus (\ s a -> s{_unprsResponseStatus = a});
+unprsResponseStatus = lens _unprsResponseStatus (\ s a -> s{_unprsResponseStatus = a})
 
 instance NFData UpdateNetworkProfileResponse where

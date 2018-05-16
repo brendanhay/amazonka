@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DescribeBudgets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get all budgets for an account
+-- Lists the budgets associated with an account.
+--
+--
 module Network.AWS.Budgets.DescribeBudgets
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import Network.AWS.Response
 
 -- | Request of DescribeBudgets
 --
+--
+--
 -- /See:/ 'describeBudgets' smart constructor.
 data DescribeBudgets = DescribeBudgets'
   { _dbNextToken  :: !(Maybe Text)
@@ -59,30 +63,33 @@ data DescribeBudgets = DescribeBudgets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbNextToken' - Undocumented member.
+-- * 'dbNextToken' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'dbMaxResults' - Undocumented member.
+-- * 'dbMaxResults' - Optional integer. Specifies the maximum number of results to return in response.
 --
--- * 'dbAccountId' - Undocumented member.
+-- * 'dbAccountId' - The @accountId@ that is associated with the budgets that you want descriptions of.
 describeBudgets
     :: Text -- ^ 'dbAccountId'
     -> DescribeBudgets
 describeBudgets pAccountId_ =
   DescribeBudgets'
-  {_dbNextToken = Nothing, _dbMaxResults = Nothing, _dbAccountId = pAccountId_}
+    { _dbNextToken = Nothing
+    , _dbMaxResults = Nothing
+    , _dbAccountId = pAccountId_
+    }
 
 
--- | Undocumented member.
+-- | The pagination token that indicates the next set of results to retrieve.
 dbNextToken :: Lens' DescribeBudgets (Maybe Text)
-dbNextToken = lens _dbNextToken (\ s a -> s{_dbNextToken = a});
+dbNextToken = lens _dbNextToken (\ s a -> s{_dbNextToken = a})
 
--- | Undocumented member.
+-- | Optional integer. Specifies the maximum number of results to return in response.
 dbMaxResults :: Lens' DescribeBudgets (Maybe Natural)
-dbMaxResults = lens _dbMaxResults (\ s a -> s{_dbMaxResults = a}) . mapping _Nat;
+dbMaxResults = lens _dbMaxResults (\ s a -> s{_dbMaxResults = a}) . mapping _Nat
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budgets that you want descriptions of.
 dbAccountId :: Lens' DescribeBudgets Text
-dbAccountId = lens _dbAccountId (\ s a -> s{_dbAccountId = a});
+dbAccountId = lens _dbAccountId (\ s a -> s{_dbAccountId = a})
 
 instance AWSRequest DescribeBudgets where
         type Rs DescribeBudgets = DescribeBudgetsResponse
@@ -124,6 +131,8 @@ instance ToQuery DescribeBudgets where
 
 -- | Response of DescribeBudgets
 --
+--
+--
 -- /See:/ 'describeBudgetsResponse' smart constructor.
 data DescribeBudgetsResponse = DescribeBudgetsResponse'
   { _dbrsNextToken      :: !(Maybe Text)
@@ -136,9 +145,9 @@ data DescribeBudgetsResponse = DescribeBudgetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbrsNextToken' - Undocumented member.
+-- * 'dbrsNextToken' - The pagination token that indicates the next set of results that you can retrieve.
 --
--- * 'dbrsBudgets' - Undocumented member.
+-- * 'dbrsBudgets' - A list of budgets.
 --
 -- * 'dbrsResponseStatus' - -- | The response status code.
 describeBudgetsResponse
@@ -146,22 +155,22 @@ describeBudgetsResponse
     -> DescribeBudgetsResponse
 describeBudgetsResponse pResponseStatus_ =
   DescribeBudgetsResponse'
-  { _dbrsNextToken = Nothing
-  , _dbrsBudgets = Nothing
-  , _dbrsResponseStatus = pResponseStatus_
-  }
+    { _dbrsNextToken = Nothing
+    , _dbrsBudgets = Nothing
+    , _dbrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Undocumented member.
+-- | The pagination token that indicates the next set of results that you can retrieve.
 dbrsNextToken :: Lens' DescribeBudgetsResponse (Maybe Text)
-dbrsNextToken = lens _dbrsNextToken (\ s a -> s{_dbrsNextToken = a});
+dbrsNextToken = lens _dbrsNextToken (\ s a -> s{_dbrsNextToken = a})
 
--- | Undocumented member.
+-- | A list of budgets.
 dbrsBudgets :: Lens' DescribeBudgetsResponse [Budget]
-dbrsBudgets = lens _dbrsBudgets (\ s a -> s{_dbrsBudgets = a}) . _Default . _Coerce;
+dbrsBudgets = lens _dbrsBudgets (\ s a -> s{_dbrsBudgets = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dbrsResponseStatus :: Lens' DescribeBudgetsResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
+dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a})
 
 instance NFData DescribeBudgetsResponse where

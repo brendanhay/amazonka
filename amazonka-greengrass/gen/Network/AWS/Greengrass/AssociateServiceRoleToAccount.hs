@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.AssociateServiceRoleToAccount
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a role which is used by AWS Greengrass. AWS Greengrass uses the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. It needs to have minimum permissions in policy ``AWSGreengrassResourceAccessRolePolicy``
+-- Associates a role with your account. AWS Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.
 module Network.AWS.Greengrass.AssociateServiceRoleToAccount
     (
     -- * Creating a Request
@@ -52,16 +52,16 @@ newtype AssociateServiceRoleToAccount = AssociateServiceRoleToAccount'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asrtaRoleARN' - Role arn you wish to associate with this account.
+-- * 'asrtaRoleARN' - The ARN of the service role you wish to associate with your account.
 associateServiceRoleToAccount
     :: AssociateServiceRoleToAccount
 associateServiceRoleToAccount =
   AssociateServiceRoleToAccount' {_asrtaRoleARN = Nothing}
 
 
--- | Role arn you wish to associate with this account.
+-- | The ARN of the service role you wish to associate with your account.
 asrtaRoleARN :: Lens' AssociateServiceRoleToAccount (Maybe Text)
-asrtaRoleARN = lens _asrtaRoleARN (\ s a -> s{_asrtaRoleARN = a});
+asrtaRoleARN = lens _asrtaRoleARN (\ s a -> s{_asrtaRoleARN = a})
 
 instance AWSRequest AssociateServiceRoleToAccount
          where
@@ -108,7 +108,7 @@ data AssociateServiceRoleToAccountResponse = AssociateServiceRoleToAccountRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asrtarsAssociatedAt' - Time when the service role was associated to the account.
+-- * 'asrtarsAssociatedAt' - The time when the service role was associated with the account.
 --
 -- * 'asrtarsResponseStatus' - -- | The response status code.
 associateServiceRoleToAccountResponse
@@ -116,16 +116,16 @@ associateServiceRoleToAccountResponse
     -> AssociateServiceRoleToAccountResponse
 associateServiceRoleToAccountResponse pResponseStatus_ =
   AssociateServiceRoleToAccountResponse'
-  {_asrtarsAssociatedAt = Nothing, _asrtarsResponseStatus = pResponseStatus_}
+    {_asrtarsAssociatedAt = Nothing, _asrtarsResponseStatus = pResponseStatus_}
 
 
--- | Time when the service role was associated to the account.
+-- | The time when the service role was associated with the account.
 asrtarsAssociatedAt :: Lens' AssociateServiceRoleToAccountResponse (Maybe Text)
-asrtarsAssociatedAt = lens _asrtarsAssociatedAt (\ s a -> s{_asrtarsAssociatedAt = a});
+asrtarsAssociatedAt = lens _asrtarsAssociatedAt (\ s a -> s{_asrtarsAssociatedAt = a})
 
 -- | -- | The response status code.
 asrtarsResponseStatus :: Lens' AssociateServiceRoleToAccountResponse Int
-asrtarsResponseStatus = lens _asrtarsResponseStatus (\ s a -> s{_asrtarsResponseStatus = a});
+asrtarsResponseStatus = lens _asrtarsResponseStatus (\ s a -> s{_asrtarsResponseStatus = a})
 
 instance NFData AssociateServiceRoleToAccountResponse
          where

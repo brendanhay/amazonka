@@ -1,5 +1,5 @@
 name:                  amazonka-cognito-idp
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Cognito Identity Provider SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -61,13 +61,17 @@ library
         , Network.AWS.CognitoIdentityProvider.AdminLinkProviderForUser
         , Network.AWS.CognitoIdentityProvider.AdminListDevices
         , Network.AWS.CognitoIdentityProvider.AdminListGroupsForUser
+        , Network.AWS.CognitoIdentityProvider.AdminListUserAuthEvents
         , Network.AWS.CognitoIdentityProvider.AdminRemoveUserFromGroup
         , Network.AWS.CognitoIdentityProvider.AdminResetUserPassword
         , Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
+        , Network.AWS.CognitoIdentityProvider.AdminSetUserMFAPreference
         , Network.AWS.CognitoIdentityProvider.AdminSetUserSettings
+        , Network.AWS.CognitoIdentityProvider.AdminUpdateAuthEventFeedback
         , Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
         , Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
         , Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut
+        , Network.AWS.CognitoIdentityProvider.AssociateSoftwareToken
         , Network.AWS.CognitoIdentityProvider.ChangePassword
         , Network.AWS.CognitoIdentityProvider.ConfirmDevice
         , Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
@@ -89,6 +93,7 @@ library
         , Network.AWS.CognitoIdentityProvider.DeleteUserPoolDomain
         , Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider
         , Network.AWS.CognitoIdentityProvider.DescribeResourceServer
+        , Network.AWS.CognitoIdentityProvider.DescribeRiskConfiguration
         , Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
         , Network.AWS.CognitoIdentityProvider.DescribeUserPool
         , Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
@@ -99,9 +104,11 @@ library
         , Network.AWS.CognitoIdentityProvider.GetDevice
         , Network.AWS.CognitoIdentityProvider.GetGroup
         , Network.AWS.CognitoIdentityProvider.GetIdentityProviderByIdentifier
+        , Network.AWS.CognitoIdentityProvider.GetSigningCertificate
         , Network.AWS.CognitoIdentityProvider.GetUICustomization
         , Network.AWS.CognitoIdentityProvider.GetUser
         , Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
+        , Network.AWS.CognitoIdentityProvider.GetUserPoolMFAConfig
         , Network.AWS.CognitoIdentityProvider.GlobalSignOut
         , Network.AWS.CognitoIdentityProvider.InitiateAuth
         , Network.AWS.CognitoIdentityProvider.ListDevices
@@ -115,12 +122,16 @@ library
         , Network.AWS.CognitoIdentityProvider.ListUsersInGroup
         , Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
         , Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
+        , Network.AWS.CognitoIdentityProvider.SetRiskConfiguration
         , Network.AWS.CognitoIdentityProvider.SetUICustomization
+        , Network.AWS.CognitoIdentityProvider.SetUserMFAPreference
+        , Network.AWS.CognitoIdentityProvider.SetUserPoolMFAConfig
         , Network.AWS.CognitoIdentityProvider.SetUserSettings
         , Network.AWS.CognitoIdentityProvider.SignUp
         , Network.AWS.CognitoIdentityProvider.StartUserImportJob
         , Network.AWS.CognitoIdentityProvider.StopUserImportJob
         , Network.AWS.CognitoIdentityProvider.Types
+        , Network.AWS.CognitoIdentityProvider.UpdateAuthEventFeedback
         , Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
         , Network.AWS.CognitoIdentityProvider.UpdateGroup
         , Network.AWS.CognitoIdentityProvider.UpdateIdentityProvider
@@ -128,6 +139,7 @@ library
         , Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
         , Network.AWS.CognitoIdentityProvider.UpdateUserPool
         , Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
+        , Network.AWS.CognitoIdentityProvider.VerifySoftwareToken
         , Network.AWS.CognitoIdentityProvider.VerifyUserAttribute
         , Network.AWS.CognitoIdentityProvider.Waiters
 
@@ -136,7 +148,7 @@ library
         , Network.AWS.CognitoIdentityProvider.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cognito-idp-test
@@ -156,8 +168,8 @@ test-suite amazonka-cognito-idp-test
         , Test.AWS.CognitoIdentityProvider.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-cognito-idp
         , base
         , bytestring

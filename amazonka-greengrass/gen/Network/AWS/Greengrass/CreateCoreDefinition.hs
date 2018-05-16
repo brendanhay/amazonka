@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateCoreDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a core definition. You may optionally provide the initial version of the core definition or use ''CreateCoreDefinitionVersion'' at a later time. AWS Greengrass Groups must each contain exactly 1 AWS Greengrass Core.
+-- Creates a core definition. You may provide the initial version of the core definition now or use ''CreateCoreDefinitionVersion'' at a later time. AWS Greengrass groups must each contain exactly one AWS Greengrass core.
 module Network.AWS.Greengrass.CreateCoreDefinition
     (
     -- * Creating a Request
@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Information on the core definition request
+-- | Information needed to create a core definition.
 --
 -- /See:/ 'createCoreDefinition' smart constructor.
 data CreateCoreDefinition = CreateCoreDefinition'
@@ -64,32 +64,32 @@ data CreateCoreDefinition = CreateCoreDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccdAmznClientToken' - The client token used to request idempotent operations.
+-- * 'ccdAmznClientToken' - A client token used to correlate requests and responses.
 --
--- * 'ccdInitialVersion' - Information on the initial version
+-- * 'ccdInitialVersion' - Information about the initial version of the core definition.
 --
--- * 'ccdName' - name of the core definition
+-- * 'ccdName' - The name of the core definition.
 createCoreDefinition
     :: CreateCoreDefinition
 createCoreDefinition =
   CreateCoreDefinition'
-  { _ccdAmznClientToken = Nothing
-  , _ccdInitialVersion = Nothing
-  , _ccdName = Nothing
-  }
+    { _ccdAmznClientToken = Nothing
+    , _ccdInitialVersion = Nothing
+    , _ccdName = Nothing
+    }
 
 
--- | The client token used to request idempotent operations.
+-- | A client token used to correlate requests and responses.
 ccdAmznClientToken :: Lens' CreateCoreDefinition (Maybe Text)
-ccdAmznClientToken = lens _ccdAmznClientToken (\ s a -> s{_ccdAmznClientToken = a});
+ccdAmznClientToken = lens _ccdAmznClientToken (\ s a -> s{_ccdAmznClientToken = a})
 
--- | Information on the initial version
+-- | Information about the initial version of the core definition.
 ccdInitialVersion :: Lens' CreateCoreDefinition (Maybe CoreDefinitionVersion)
-ccdInitialVersion = lens _ccdInitialVersion (\ s a -> s{_ccdInitialVersion = a});
+ccdInitialVersion = lens _ccdInitialVersion (\ s a -> s{_ccdInitialVersion = a})
 
--- | name of the core definition
+-- | The name of the core definition.
 ccdName :: Lens' CreateCoreDefinition (Maybe Text)
-ccdName = lens _ccdName (\ s a -> s{_ccdName = a});
+ccdName = lens _ccdName (\ s a -> s{_ccdName = a})
 
 instance AWSRequest CreateCoreDefinition where
         type Rs CreateCoreDefinition =
@@ -148,19 +148,19 @@ data CreateCoreDefinitionResponse = CreateCoreDefinitionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccdrsLatestVersionARN' - Latest version arn of the definition.
+-- * 'ccdrsLatestVersionARN' - The ARN of the latest version of the definition.
 --
--- * 'ccdrsARN' - Arn of the definition.
+-- * 'ccdrsARN' - The ARN of the definition.
 --
--- * 'ccdrsName' - Name of the definition.
+-- * 'ccdrsName' - The name of the definition.
 --
--- * 'ccdrsCreationTimestamp' - Timestamp of when the definition was created.
+-- * 'ccdrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
 --
--- * 'ccdrsId' - Id of the definition.
+-- * 'ccdrsId' - The ID of the definition.
 --
--- * 'ccdrsLatestVersion' - Last version of the definition.
+-- * 'ccdrsLatestVersion' - The latest version of the definition.
 --
--- * 'ccdrsLastUpdatedTimestamp' - Last updated timestamp of the definition.
+-- * 'ccdrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- * 'ccdrsResponseStatus' - -- | The response status code.
 createCoreDefinitionResponse
@@ -168,47 +168,47 @@ createCoreDefinitionResponse
     -> CreateCoreDefinitionResponse
 createCoreDefinitionResponse pResponseStatus_ =
   CreateCoreDefinitionResponse'
-  { _ccdrsLatestVersionARN = Nothing
-  , _ccdrsARN = Nothing
-  , _ccdrsName = Nothing
-  , _ccdrsCreationTimestamp = Nothing
-  , _ccdrsId = Nothing
-  , _ccdrsLatestVersion = Nothing
-  , _ccdrsLastUpdatedTimestamp = Nothing
-  , _ccdrsResponseStatus = pResponseStatus_
-  }
+    { _ccdrsLatestVersionARN = Nothing
+    , _ccdrsARN = Nothing
+    , _ccdrsName = Nothing
+    , _ccdrsCreationTimestamp = Nothing
+    , _ccdrsId = Nothing
+    , _ccdrsLatestVersion = Nothing
+    , _ccdrsLastUpdatedTimestamp = Nothing
+    , _ccdrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Latest version arn of the definition.
+-- | The ARN of the latest version of the definition.
 ccdrsLatestVersionARN :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsLatestVersionARN = lens _ccdrsLatestVersionARN (\ s a -> s{_ccdrsLatestVersionARN = a});
+ccdrsLatestVersionARN = lens _ccdrsLatestVersionARN (\ s a -> s{_ccdrsLatestVersionARN = a})
 
--- | Arn of the definition.
+-- | The ARN of the definition.
 ccdrsARN :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsARN = lens _ccdrsARN (\ s a -> s{_ccdrsARN = a});
+ccdrsARN = lens _ccdrsARN (\ s a -> s{_ccdrsARN = a})
 
--- | Name of the definition.
+-- | The name of the definition.
 ccdrsName :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsName = lens _ccdrsName (\ s a -> s{_ccdrsName = a});
+ccdrsName = lens _ccdrsName (\ s a -> s{_ccdrsName = a})
 
--- | Timestamp of when the definition was created.
+-- | The time, in milliseconds since the epoch, when the definition was created.
 ccdrsCreationTimestamp :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsCreationTimestamp = lens _ccdrsCreationTimestamp (\ s a -> s{_ccdrsCreationTimestamp = a});
+ccdrsCreationTimestamp = lens _ccdrsCreationTimestamp (\ s a -> s{_ccdrsCreationTimestamp = a})
 
--- | Id of the definition.
+-- | The ID of the definition.
 ccdrsId :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsId = lens _ccdrsId (\ s a -> s{_ccdrsId = a});
+ccdrsId = lens _ccdrsId (\ s a -> s{_ccdrsId = a})
 
--- | Last version of the definition.
+-- | The latest version of the definition.
 ccdrsLatestVersion :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsLatestVersion = lens _ccdrsLatestVersion (\ s a -> s{_ccdrsLatestVersion = a});
+ccdrsLatestVersion = lens _ccdrsLatestVersion (\ s a -> s{_ccdrsLatestVersion = a})
 
--- | Last updated timestamp of the definition.
+-- | The time, in milliseconds since the epoch, when the definition was last updated.
 ccdrsLastUpdatedTimestamp :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsLastUpdatedTimestamp = lens _ccdrsLastUpdatedTimestamp (\ s a -> s{_ccdrsLastUpdatedTimestamp = a});
+ccdrsLastUpdatedTimestamp = lens _ccdrsLastUpdatedTimestamp (\ s a -> s{_ccdrsLastUpdatedTimestamp = a})
 
 -- | -- | The response status code.
 ccdrsResponseStatus :: Lens' CreateCoreDefinitionResponse Int
-ccdrsResponseStatus = lens _ccdrsResponseStatus (\ s a -> s{_ccdrsResponseStatus = a});
+ccdrsResponseStatus = lens _ccdrsResponseStatus (\ s a -> s{_ccdrsResponseStatus = a})
 
 instance NFData CreateCoreDefinitionResponse where

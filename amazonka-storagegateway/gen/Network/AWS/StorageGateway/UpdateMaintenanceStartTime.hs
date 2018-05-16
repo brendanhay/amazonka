@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateMaintenanceStartTime
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -87,28 +87,28 @@ updateMaintenanceStartTime
     -> UpdateMaintenanceStartTime
 updateMaintenanceStartTime pGatewayARN_ pHourOfDay_ pMinuteOfHour_ pDayOfWeek_ =
   UpdateMaintenanceStartTime'
-  { _umstGatewayARN = pGatewayARN_
-  , _umstHourOfDay = _Nat # pHourOfDay_
-  , _umstMinuteOfHour = _Nat # pMinuteOfHour_
-  , _umstDayOfWeek = _Nat # pDayOfWeek_
-  }
+    { _umstGatewayARN = pGatewayARN_
+    , _umstHourOfDay = _Nat # pHourOfDay_
+    , _umstMinuteOfHour = _Nat # pMinuteOfHour_
+    , _umstDayOfWeek = _Nat # pDayOfWeek_
+    }
 
 
 -- | Undocumented member.
 umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
-umstGatewayARN = lens _umstGatewayARN (\ s a -> s{_umstGatewayARN = a});
+umstGatewayARN = lens _umstGatewayARN (\ s a -> s{_umstGatewayARN = a})
 
 -- | The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
 umstHourOfDay :: Lens' UpdateMaintenanceStartTime Natural
-umstHourOfDay = lens _umstHourOfDay (\ s a -> s{_umstHourOfDay = a}) . _Nat;
+umstHourOfDay = lens _umstHourOfDay (\ s a -> s{_umstHourOfDay = a}) . _Nat
 
 -- | The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
 umstMinuteOfHour :: Lens' UpdateMaintenanceStartTime Natural
-umstMinuteOfHour = lens _umstMinuteOfHour (\ s a -> s{_umstMinuteOfHour = a}) . _Nat;
+umstMinuteOfHour = lens _umstMinuteOfHour (\ s a -> s{_umstMinuteOfHour = a}) . _Nat
 
 -- | The maintenance start time day of the week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
 umstDayOfWeek :: Lens' UpdateMaintenanceStartTime Natural
-umstDayOfWeek = lens _umstDayOfWeek (\ s a -> s{_umstDayOfWeek = a}) . _Nat;
+umstDayOfWeek = lens _umstDayOfWeek (\ s a -> s{_umstDayOfWeek = a}) . _Nat
 
 instance AWSRequest UpdateMaintenanceStartTime where
         type Rs UpdateMaintenanceStartTime =
@@ -172,16 +172,16 @@ updateMaintenanceStartTimeResponse
     -> UpdateMaintenanceStartTimeResponse
 updateMaintenanceStartTimeResponse pResponseStatus_ =
   UpdateMaintenanceStartTimeResponse'
-  {_umstrsGatewayARN = Nothing, _umstrsResponseStatus = pResponseStatus_}
+    {_umstrsGatewayARN = Nothing, _umstrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 umstrsGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
-umstrsGatewayARN = lens _umstrsGatewayARN (\ s a -> s{_umstrsGatewayARN = a});
+umstrsGatewayARN = lens _umstrsGatewayARN (\ s a -> s{_umstrsGatewayARN = a})
 
 -- | -- | The response status code.
 umstrsResponseStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
-umstrsResponseStatus = lens _umstrsResponseStatus (\ s a -> s{_umstrsResponseStatus = a});
+umstrsResponseStatus = lens _umstrsResponseStatus (\ s a -> s{_umstrsResponseStatus = a})
 
 instance NFData UpdateMaintenanceStartTimeResponse
          where

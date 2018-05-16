@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,15 +51,15 @@ field pKey_ =
 
 -- | The field value, expressed as the identifier of another object.
 fRefValue :: Lens' Field (Maybe Text)
-fRefValue = lens _fRefValue (\ s a -> s{_fRefValue = a});
+fRefValue = lens _fRefValue (\ s a -> s{_fRefValue = a})
 
 -- | The field value, expressed as a String.
 fStringValue :: Lens' Field (Maybe Text)
-fStringValue = lens _fStringValue (\ s a -> s{_fStringValue = a});
+fStringValue = lens _fStringValue (\ s a -> s{_fStringValue = a})
 
 -- | The field identifier.
 fKey :: Lens' Field Text
-fKey = lens _fKey (\ s a -> s{_fKey = a});
+fKey = lens _fKey (\ s a -> s{_fKey = a})
 
 instance FromJSON Field where
         parseJSON
@@ -109,11 +109,11 @@ instanceIdentity =
 
 -- | A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.
 iiSignature :: Lens' InstanceIdentity (Maybe Text)
-iiSignature = lens _iiSignature (\ s a -> s{_iiSignature = a});
+iiSignature = lens _iiSignature (\ s a -> s{_iiSignature = a})
 
 -- | A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.
 iiDocument :: Lens' InstanceIdentity (Maybe Text)
-iiDocument = lens _iiDocument (\ s a -> s{_iiDocument = a});
+iiDocument = lens _iiDocument (\ s a -> s{_iiDocument = a})
 
 instance Hashable InstanceIdentity where
 
@@ -151,11 +151,11 @@ operator = Operator' {_oValues = Nothing, _oType = Nothing}
 
 -- | The value that the actual field value will be compared with.
 oValues :: Lens' Operator [Text]
-oValues = lens _oValues (\ s a -> s{_oValues = a}) . _Default . _Coerce;
+oValues = lens _oValues (\ s a -> s{_oValues = a}) . _Default . _Coerce
 
 -- | The logical operation to be performed: equal (@EQ@ ), equal reference (@REF_EQ@ ), less than or equal (@LE@ ), greater than or equal (@GE@ ), or between (@BETWEEN@ ). Equal reference (@REF_EQ@ ) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below.  The comparison operators EQ and REF_EQ act on the following fields:      * name    * @sphere    * parent    * @componentParent    * @instanceParent    * @status    * @scheduledStartTime    * @scheduledEndTime    * @actualStartTime    * @actualEndTime The comparison operators @GE@ , @LE@ , and @BETWEEN@ act on the following fields:      * @scheduledStartTime    * @scheduledEndTime    * @actualStartTime    * @actualEndTime Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string "my".
 oType :: Lens' Operator (Maybe OperatorType)
-oType = lens _oType (\ s a -> s{_oType = a});
+oType = lens _oType (\ s a -> s{_oType = a})
 
 instance Hashable Operator where
 
@@ -195,11 +195,11 @@ parameterAttribute pKey_ pStringValue_ =
 
 -- | The field identifier.
 paKey :: Lens' ParameterAttribute Text
-paKey = lens _paKey (\ s a -> s{_paKey = a});
+paKey = lens _paKey (\ s a -> s{_paKey = a})
 
 -- | The field value, expressed as a String.
 paStringValue :: Lens' ParameterAttribute Text
-paStringValue = lens _paStringValue (\ s a -> s{_paStringValue = a});
+paStringValue = lens _paStringValue (\ s a -> s{_paStringValue = a})
 
 instance FromJSON ParameterAttribute where
         parseJSON
@@ -245,11 +245,11 @@ parameterObject pId_ = ParameterObject' {_poId = pId_, _poAttributes = mempty}
 
 -- | The ID of the parameter object.
 poId :: Lens' ParameterObject Text
-poId = lens _poId (\ s a -> s{_poId = a});
+poId = lens _poId (\ s a -> s{_poId = a})
 
 -- | The attributes of the parameter object.
 poAttributes :: Lens' ParameterObject [ParameterAttribute]
-poAttributes = lens _poAttributes (\ s a -> s{_poAttributes = a}) . _Coerce;
+poAttributes = lens _poAttributes (\ s a -> s{_poAttributes = a}) . _Coerce
 
 instance FromJSON ParameterObject where
         parseJSON
@@ -297,11 +297,11 @@ parameterValue pId_ pStringValue_ =
 
 -- | The ID of the parameter value.
 pvId :: Lens' ParameterValue Text
-pvId = lens _pvId (\ s a -> s{_pvId = a});
+pvId = lens _pvId (\ s a -> s{_pvId = a})
 
 -- | The field value, expressed as a String.
 pvStringValue :: Lens' ParameterValue Text
-pvStringValue = lens _pvStringValue (\ s a -> s{_pvStringValue = a});
+pvStringValue = lens _pvStringValue (\ s a -> s{_pvStringValue = a})
 
 instance FromJSON ParameterValue where
         parseJSON
@@ -354,33 +354,33 @@ pipelineDescription
     -> PipelineDescription
 pipelineDescription pPipelineId_ pName_ =
   PipelineDescription'
-  { _pdDescription = Nothing
-  , _pdTags = Nothing
-  , _pdPipelineId = pPipelineId_
-  , _pdName = pName_
-  , _pdFields = mempty
-  }
+    { _pdDescription = Nothing
+    , _pdTags = Nothing
+    , _pdPipelineId = pPipelineId_
+    , _pdName = pName_
+    , _pdFields = mempty
+    }
 
 
 -- | Description of the pipeline.
 pdDescription :: Lens' PipelineDescription (Maybe Text)
-pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a});
+pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a})
 
 -- | A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 pdTags :: Lens' PipelineDescription [Tag]
-pdTags = lens _pdTags (\ s a -> s{_pdTags = a}) . _Default . _Coerce;
+pdTags = lens _pdTags (\ s a -> s{_pdTags = a}) . _Default . _Coerce
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
 pdPipelineId :: Lens' PipelineDescription Text
-pdPipelineId = lens _pdPipelineId (\ s a -> s{_pdPipelineId = a});
+pdPipelineId = lens _pdPipelineId (\ s a -> s{_pdPipelineId = a})
 
 -- | The name of the pipeline.
 pdName :: Lens' PipelineDescription Text
-pdName = lens _pdName (\ s a -> s{_pdName = a});
+pdName = lens _pdName (\ s a -> s{_pdName = a})
 
 -- | A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.
 pdFields :: Lens' PipelineDescription [Field]
-pdFields = lens _pdFields (\ s a -> s{_pdFields = a}) . _Coerce;
+pdFields = lens _pdFields (\ s a -> s{_pdFields = a}) . _Coerce
 
 instance FromJSON PipelineDescription where
         parseJSON
@@ -421,11 +421,11 @@ pipelineIdName = PipelineIdName' {_pinName = Nothing, _pinId = Nothing}
 
 -- | The name of the pipeline.
 pinName :: Lens' PipelineIdName (Maybe Text)
-pinName = lens _pinName (\ s a -> s{_pinName = a});
+pinName = lens _pinName (\ s a -> s{_pinName = a})
 
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
 pinId :: Lens' PipelineIdName (Maybe Text)
-pinId = lens _pinId (\ s a -> s{_pinId = a});
+pinId = lens _pinId (\ s a -> s{_pinId = a})
 
 instance FromJSON PipelineIdName where
         parseJSON
@@ -468,15 +468,15 @@ pipelineObject pId_ pName_ =
 
 -- | The ID of the object.
 pId :: Lens' PipelineObject Text
-pId = lens _pId (\ s a -> s{_pId = a});
+pId = lens _pId (\ s a -> s{_pId = a})
 
 -- | The name of the object.
 pName :: Lens' PipelineObject Text
-pName = lens _pName (\ s a -> s{_pName = a});
+pName = lens _pName (\ s a -> s{_pName = a})
 
 -- | Key-value pairs that define the properties of the object.
 pFields :: Lens' PipelineObject [Field]
-pFields = lens _pFields (\ s a -> s{_pFields = a}) . _Coerce;
+pFields = lens _pFields (\ s a -> s{_pFields = a}) . _Coerce
 
 instance FromJSON PipelineObject where
         parseJSON
@@ -519,7 +519,7 @@ query = Query' {_qSelectors = Nothing}
 
 -- | List of selectors that define the query. An object must satisfy all of the selectors to match the query.
 qSelectors :: Lens' Query [Selector]
-qSelectors = lens _qSelectors (\ s a -> s{_qSelectors = a}) . _Default . _Coerce;
+qSelectors = lens _qSelectors (\ s a -> s{_qSelectors = a}) . _Default . _Coerce
 
 instance Hashable Query where
 
@@ -555,11 +555,11 @@ selector = Selector' {_sOperator = Nothing, _sFieldName = Nothing}
 
 -- | Undocumented member.
 sOperator :: Lens' Selector (Maybe Operator)
-sOperator = lens _sOperator (\ s a -> s{_sOperator = a});
+sOperator = lens _sOperator (\ s a -> s{_sOperator = a})
 
 -- | The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
 sFieldName :: Lens' Selector (Maybe Text)
-sFieldName = lens _sFieldName (\ s a -> s{_sFieldName = a});
+sFieldName = lens _sFieldName (\ s a -> s{_sFieldName = a})
 
 instance Hashable Selector where
 
@@ -599,11 +599,11 @@ tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
 
 -- | The key name of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 -- | The optional value portion of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 tagValue :: Lens' Tag Text
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 instance FromJSON Tag where
         parseJSON
@@ -649,28 +649,28 @@ taskObject
     :: TaskObject
 taskObject =
   TaskObject'
-  { _toPipelineId = Nothing
-  , _toAttemptId = Nothing
-  , _toTaskId = Nothing
-  , _toObjects = Nothing
-  }
+    { _toPipelineId = Nothing
+    , _toAttemptId = Nothing
+    , _toTaskId = Nothing
+    , _toObjects = Nothing
+    }
 
 
 -- | The ID of the pipeline that provided the task.
 toPipelineId :: Lens' TaskObject (Maybe Text)
-toPipelineId = lens _toPipelineId (\ s a -> s{_toPipelineId = a});
+toPipelineId = lens _toPipelineId (\ s a -> s{_toPipelineId = a})
 
 -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.
 toAttemptId :: Lens' TaskObject (Maybe Text)
-toAttemptId = lens _toAttemptId (\ s a -> s{_toAttemptId = a});
+toAttemptId = lens _toAttemptId (\ s a -> s{_toAttemptId = a})
 
 -- | An internal identifier for the task. This ID is passed to the 'SetTaskStatus' and 'ReportTaskProgress' actions.
 toTaskId :: Lens' TaskObject (Maybe Text)
-toTaskId = lens _toTaskId (\ s a -> s{_toTaskId = a});
+toTaskId = lens _toTaskId (\ s a -> s{_toTaskId = a})
 
 -- | Connection information for the location where the task runner will publish the output of the task.
 toObjects :: Lens' TaskObject (HashMap Text PipelineObject)
-toObjects = lens _toObjects (\ s a -> s{_toObjects = a}) . _Default . _Map;
+toObjects = lens _toObjects (\ s a -> s{_toObjects = a}) . _Default . _Map
 
 instance FromJSON TaskObject where
         parseJSON
@@ -710,11 +710,11 @@ validationError = ValidationError' {_veId = Nothing, _veErrors = Nothing}
 
 -- | The identifier of the object that contains the validation error.
 veId :: Lens' ValidationError (Maybe Text)
-veId = lens _veId (\ s a -> s{_veId = a});
+veId = lens _veId (\ s a -> s{_veId = a})
 
 -- | A description of the validation error.
 veErrors :: Lens' ValidationError [Text]
-veErrors = lens _veErrors (\ s a -> s{_veErrors = a}) . _Default . _Coerce;
+veErrors = lens _veErrors (\ s a -> s{_veErrors = a}) . _Default . _Coerce
 
 instance FromJSON ValidationError where
         parseJSON
@@ -752,11 +752,11 @@ validationWarning = ValidationWarning' {_vwWarnings = Nothing, _vwId = Nothing}
 
 -- | A description of the validation warning.
 vwWarnings :: Lens' ValidationWarning [Text]
-vwWarnings = lens _vwWarnings (\ s a -> s{_vwWarnings = a}) . _Default . _Coerce;
+vwWarnings = lens _vwWarnings (\ s a -> s{_vwWarnings = a}) . _Default . _Coerce
 
 -- | The identifier of the object that contains the validation warning.
 vwId :: Lens' ValidationWarning (Maybe Text)
-vwId = lens _vwId (\ s a -> s{_vwId = a});
+vwId = lens _vwId (\ s a -> s{_vwId = a})
 
 instance FromJSON ValidationWarning where
         parseJSON

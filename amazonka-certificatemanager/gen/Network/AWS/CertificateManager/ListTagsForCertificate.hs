@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.ListTagsForCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the tags that have been applied to the ACM Certificate. Use the certificate's Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM Certificate, use the 'AddTagsToCertificate' action. To delete a tag, use the 'RemoveTagsFromCertificate' action.
+-- Lists the tags that have been applied to the ACM certificate. Use the certificate's Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate, use the 'AddTagsToCertificate' action. To delete a tag, use the 'RemoveTagsFromCertificate' action.
 --
 --
 module Network.AWS.CertificateManager.ListTagsForCertificate
@@ -54,7 +54,7 @@ newtype ListTagsForCertificate = ListTagsForCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfcCertificateARN' - String that contains the ARN of the ACM Certificate for which you want to list the tags. This has the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'ltfcCertificateARN' - String that contains the ARN of the ACM certificate for which you want to list the tags. This must have the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 listTagsForCertificate
     :: Text -- ^ 'ltfcCertificateARN'
     -> ListTagsForCertificate
@@ -62,9 +62,9 @@ listTagsForCertificate pCertificateARN_ =
   ListTagsForCertificate' {_ltfcCertificateARN = pCertificateARN_}
 
 
--- | String that contains the ARN of the ACM Certificate for which you want to list the tags. This has the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | String that contains the ARN of the ACM certificate for which you want to list the tags. This must have the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 ltfcCertificateARN :: Lens' ListTagsForCertificate Text
-ltfcCertificateARN = lens _ltfcCertificateARN (\ s a -> s{_ltfcCertificateARN = a});
+ltfcCertificateARN = lens _ltfcCertificateARN (\ s a -> s{_ltfcCertificateARN = a})
 
 instance AWSRequest ListTagsForCertificate where
         type Rs ListTagsForCertificate =
@@ -121,15 +121,15 @@ listTagsForCertificateResponse
     -> ListTagsForCertificateResponse
 listTagsForCertificateResponse pResponseStatus_ =
   ListTagsForCertificateResponse'
-  {_ltfcrsTags = Nothing, _ltfcrsResponseStatus = pResponseStatus_}
+    {_ltfcrsTags = Nothing, _ltfcrsResponseStatus = pResponseStatus_}
 
 
 -- | The key-value pairs that define the applied tags.
 ltfcrsTags :: Lens' ListTagsForCertificateResponse (Maybe (NonEmpty Tag))
-ltfcrsTags = lens _ltfcrsTags (\ s a -> s{_ltfcrsTags = a}) . mapping _List1;
+ltfcrsTags = lens _ltfcrsTags (\ s a -> s{_ltfcrsTags = a}) . mapping _List1
 
 -- | -- | The response status code.
 ltfcrsResponseStatus :: Lens' ListTagsForCertificateResponse Int
-ltfcrsResponseStatus = lens _ltfcrsResponseStatus (\ s a -> s{_ltfcrsResponseStatus = a});
+ltfcrsResponseStatus = lens _ltfcrsResponseStatus (\ s a -> s{_ltfcrsResponseStatus = a})
 
 instance NFData ListTagsForCertificateResponse where

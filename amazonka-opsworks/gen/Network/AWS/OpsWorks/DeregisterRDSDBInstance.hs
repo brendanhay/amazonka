@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeregisterRDSDBInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deregisterRDSDBInstance pRDSDBInstanceARN_ =
 
 -- | The Amazon RDS instance's ARN.
 drdiRDSDBInstanceARN :: Lens' DeregisterRDSDBInstance Text
-drdiRDSDBInstanceARN = lens _drdiRDSDBInstanceARN (\ s a -> s{_drdiRDSDBInstanceARN = a});
+drdiRDSDBInstanceARN = lens _drdiRDSDBInstanceARN (\ s a -> s{_drdiRDSDBInstanceARN = a})
 
 instance AWSRequest DeregisterRDSDBInstance where
         type Rs DeregisterRDSDBInstance =

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetFunctionDefinitionVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about a Lambda function definition version, such as which Lambda functions are included in the version and their configurations.
+-- Retrieves information about a Lambda function definition version, including which Lambda functions are included in the version and their configurations.
 module Network.AWS.Greengrass.GetFunctionDefinitionVersion
     (
     -- * Creating a Request
@@ -58,27 +58,27 @@ data GetFunctionDefinitionVersion = GetFunctionDefinitionVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfdvFunctionDefinitionId' - the unique Id of the lambda definition
+-- * 'gfdvFunctionDefinitionId' - The ID of the Lambda function definition.
 --
--- * 'gfdvFunctionDefinitionVersionId' - Function definition version Id
+-- * 'gfdvFunctionDefinitionVersionId' - The ID of the function definition version.
 getFunctionDefinitionVersion
     :: Text -- ^ 'gfdvFunctionDefinitionId'
     -> Text -- ^ 'gfdvFunctionDefinitionVersionId'
     -> GetFunctionDefinitionVersion
 getFunctionDefinitionVersion pFunctionDefinitionId_ pFunctionDefinitionVersionId_ =
   GetFunctionDefinitionVersion'
-  { _gfdvFunctionDefinitionId = pFunctionDefinitionId_
-  , _gfdvFunctionDefinitionVersionId = pFunctionDefinitionVersionId_
-  }
+    { _gfdvFunctionDefinitionId = pFunctionDefinitionId_
+    , _gfdvFunctionDefinitionVersionId = pFunctionDefinitionVersionId_
+    }
 
 
--- | the unique Id of the lambda definition
+-- | The ID of the Lambda function definition.
 gfdvFunctionDefinitionId :: Lens' GetFunctionDefinitionVersion Text
-gfdvFunctionDefinitionId = lens _gfdvFunctionDefinitionId (\ s a -> s{_gfdvFunctionDefinitionId = a});
+gfdvFunctionDefinitionId = lens _gfdvFunctionDefinitionId (\ s a -> s{_gfdvFunctionDefinitionId = a})
 
--- | Function definition version Id
+-- | The ID of the function definition version.
 gfdvFunctionDefinitionVersionId :: Lens' GetFunctionDefinitionVersion Text
-gfdvFunctionDefinitionVersionId = lens _gfdvFunctionDefinitionVersionId (\ s a -> s{_gfdvFunctionDefinitionVersionId = a});
+gfdvFunctionDefinitionVersionId = lens _gfdvFunctionDefinitionVersionId (\ s a -> s{_gfdvFunctionDefinitionVersionId = a})
 
 instance AWSRequest GetFunctionDefinitionVersion
          where
@@ -133,13 +133,13 @@ data GetFunctionDefinitionVersionResponse = GetFunctionDefinitionVersionResponse
 --
 -- * 'gfdvrsDefinition' - Information on the definition.
 --
--- * 'gfdvrsARN' - Arn of the function definition version.
+-- * 'gfdvrsARN' - The ARN of the function definition version.
 --
--- * 'gfdvrsCreationTimestamp' - Timestamp when the funtion definition version was created.
+-- * 'gfdvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the function definition version was created.
 --
--- * 'gfdvrsVersion' - Version of the function definition version.
+-- * 'gfdvrsVersion' - The version of the function definition version.
 --
--- * 'gfdvrsId' - Id of the function definition the version belongs to.
+-- * 'gfdvrsId' - The ID of the function definition version.
 --
 -- * 'gfdvrsResponseStatus' - -- | The response status code.
 getFunctionDefinitionVersionResponse
@@ -147,38 +147,38 @@ getFunctionDefinitionVersionResponse
     -> GetFunctionDefinitionVersionResponse
 getFunctionDefinitionVersionResponse pResponseStatus_ =
   GetFunctionDefinitionVersionResponse'
-  { _gfdvrsDefinition = Nothing
-  , _gfdvrsARN = Nothing
-  , _gfdvrsCreationTimestamp = Nothing
-  , _gfdvrsVersion = Nothing
-  , _gfdvrsId = Nothing
-  , _gfdvrsResponseStatus = pResponseStatus_
-  }
+    { _gfdvrsDefinition = Nothing
+    , _gfdvrsARN = Nothing
+    , _gfdvrsCreationTimestamp = Nothing
+    , _gfdvrsVersion = Nothing
+    , _gfdvrsId = Nothing
+    , _gfdvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information on the definition.
 gfdvrsDefinition :: Lens' GetFunctionDefinitionVersionResponse (Maybe FunctionDefinitionVersion)
-gfdvrsDefinition = lens _gfdvrsDefinition (\ s a -> s{_gfdvrsDefinition = a});
+gfdvrsDefinition = lens _gfdvrsDefinition (\ s a -> s{_gfdvrsDefinition = a})
 
--- | Arn of the function definition version.
+-- | The ARN of the function definition version.
 gfdvrsARN :: Lens' GetFunctionDefinitionVersionResponse (Maybe Text)
-gfdvrsARN = lens _gfdvrsARN (\ s a -> s{_gfdvrsARN = a});
+gfdvrsARN = lens _gfdvrsARN (\ s a -> s{_gfdvrsARN = a})
 
--- | Timestamp when the funtion definition version was created.
+-- | The time, in milliseconds since the epoch, when the function definition version was created.
 gfdvrsCreationTimestamp :: Lens' GetFunctionDefinitionVersionResponse (Maybe Text)
-gfdvrsCreationTimestamp = lens _gfdvrsCreationTimestamp (\ s a -> s{_gfdvrsCreationTimestamp = a});
+gfdvrsCreationTimestamp = lens _gfdvrsCreationTimestamp (\ s a -> s{_gfdvrsCreationTimestamp = a})
 
--- | Version of the function definition version.
+-- | The version of the function definition version.
 gfdvrsVersion :: Lens' GetFunctionDefinitionVersionResponse (Maybe Text)
-gfdvrsVersion = lens _gfdvrsVersion (\ s a -> s{_gfdvrsVersion = a});
+gfdvrsVersion = lens _gfdvrsVersion (\ s a -> s{_gfdvrsVersion = a})
 
--- | Id of the function definition the version belongs to.
+-- | The ID of the function definition version.
 gfdvrsId :: Lens' GetFunctionDefinitionVersionResponse (Maybe Text)
-gfdvrsId = lens _gfdvrsId (\ s a -> s{_gfdvrsId = a});
+gfdvrsId = lens _gfdvrsId (\ s a -> s{_gfdvrsId = a})
 
 -- | -- | The response status code.
 gfdvrsResponseStatus :: Lens' GetFunctionDefinitionVersionResponse Int
-gfdvrsResponseStatus = lens _gfdvrsResponseStatus (\ s a -> s{_gfdvrsResponseStatus = a});
+gfdvrsResponseStatus = lens _gfdvrsResponseStatus (\ s a -> s{_gfdvrsResponseStatus = a})
 
 instance NFData GetFunctionDefinitionVersionResponse
          where

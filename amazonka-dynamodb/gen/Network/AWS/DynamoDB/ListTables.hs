@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.ListTables
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,11 +75,11 @@ listTables =
 
 -- | The first table name that this operation will evaluate. Use the value that was returned for @LastEvaluatedTableName@ in a previous operation, so that you can obtain the next page of results.
 ltExclusiveStartTableName :: Lens' ListTables (Maybe Text)
-ltExclusiveStartTableName = lens _ltExclusiveStartTableName (\ s a -> s{_ltExclusiveStartTableName = a});
+ltExclusiveStartTableName = lens _ltExclusiveStartTableName (\ s a -> s{_ltExclusiveStartTableName = a})
 
 -- | A maximum number of table names to return. If this parameter is not specified, the limit is 100.
 ltLimit :: Lens' ListTables (Maybe Natural)
-ltLimit = lens _ltLimit (\ s a -> s{_ltLimit = a}) . mapping _Nat;
+ltLimit = lens _ltLimit (\ s a -> s{_ltLimit = a}) . mapping _Nat
 
 instance AWSPager ListTables where
         page rq rs
@@ -154,22 +154,22 @@ listTablesResponse
     -> ListTablesResponse
 listTablesResponse pResponseStatus_ =
   ListTablesResponse'
-  { _ltrsLastEvaluatedTableName = Nothing
-  , _ltrsTableNames = Nothing
-  , _ltrsResponseStatus = pResponseStatus_
-  }
+    { _ltrsLastEvaluatedTableName = Nothing
+    , _ltrsTableNames = Nothing
+    , _ltrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The name of the last table in the current page of results. Use this value as the @ExclusiveStartTableName@ in a new request to obtain the next page of results, until all the table names are returned. If you do not receive a @LastEvaluatedTableName@ value in the response, this means that there are no more table names to be retrieved.
 ltrsLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
-ltrsLastEvaluatedTableName = lens _ltrsLastEvaluatedTableName (\ s a -> s{_ltrsLastEvaluatedTableName = a});
+ltrsLastEvaluatedTableName = lens _ltrsLastEvaluatedTableName (\ s a -> s{_ltrsLastEvaluatedTableName = a})
 
 -- | The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100. If @LastEvaluatedTableName@ also appears in the output, you can use this value as the @ExclusiveStartTableName@ parameter in a subsequent @ListTables@ request and obtain the next page of results.
 ltrsTableNames :: Lens' ListTablesResponse [Text]
-ltrsTableNames = lens _ltrsTableNames (\ s a -> s{_ltrsTableNames = a}) . _Default . _Coerce;
+ltrsTableNames = lens _ltrsTableNames (\ s a -> s{_ltrsTableNames = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTablesResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
 
 instance NFData ListTablesResponse where

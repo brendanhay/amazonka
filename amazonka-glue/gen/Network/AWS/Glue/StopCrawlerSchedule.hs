@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StopCrawlerSchedule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ stopCrawlerSchedule pCrawlerName_ =
 
 -- | Name of the crawler whose schedule state to set.
 sCrawlerName :: Lens' StopCrawlerSchedule Text
-sCrawlerName = lens _sCrawlerName (\ s a -> s{_sCrawlerName = a});
+sCrawlerName = lens _sCrawlerName (\ s a -> s{_sCrawlerName = a})
 
 instance AWSRequest StopCrawlerSchedule where
         type Rs StopCrawlerSchedule =
@@ -118,6 +118,6 @@ stopCrawlerScheduleResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 storsResponseStatus :: Lens' StopCrawlerScheduleResponse Int
-storsResponseStatus = lens _storsResponseStatus (\ s a -> s{_storsResponseStatus = a});
+storsResponseStatus = lens _storsResponseStatus (\ s a -> s{_storsResponseStatus = a})
 
 instance NFData StopCrawlerScheduleResponse where

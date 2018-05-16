@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ getDeployablePatchSnapshotForInstance
     -> GetDeployablePatchSnapshotForInstance
 getDeployablePatchSnapshotForInstance pInstanceId_ pSnapshotId_ =
   GetDeployablePatchSnapshotForInstance'
-  {_gdpsfiInstanceId = pInstanceId_, _gdpsfiSnapshotId = pSnapshotId_}
+    {_gdpsfiInstanceId = pInstanceId_, _gdpsfiSnapshotId = pSnapshotId_}
 
 
 -- | The ID of the instance for which the appropriate patch snapshot should be retrieved.
 gdpsfiInstanceId :: Lens' GetDeployablePatchSnapshotForInstance Text
-gdpsfiInstanceId = lens _gdpsfiInstanceId (\ s a -> s{_gdpsfiInstanceId = a});
+gdpsfiInstanceId = lens _gdpsfiInstanceId (\ s a -> s{_gdpsfiInstanceId = a})
 
 -- | The user-defined snapshot ID.
 gdpsfiSnapshotId :: Lens' GetDeployablePatchSnapshotForInstance Text
-gdpsfiSnapshotId = lens _gdpsfiSnapshotId (\ s a -> s{_gdpsfiSnapshotId = a});
+gdpsfiSnapshotId = lens _gdpsfiSnapshotId (\ s a -> s{_gdpsfiSnapshotId = a})
 
 instance AWSRequest
            GetDeployablePatchSnapshotForInstance
@@ -158,33 +158,33 @@ getDeployablePatchSnapshotForInstanceResponse
     -> GetDeployablePatchSnapshotForInstanceResponse
 getDeployablePatchSnapshotForInstanceResponse pResponseStatus_ =
   GetDeployablePatchSnapshotForInstanceResponse'
-  { _gdpsfirsInstanceId = Nothing
-  , _gdpsfirsProduct = Nothing
-  , _gdpsfirsSnapshotDownloadURL = Nothing
-  , _gdpsfirsSnapshotId = Nothing
-  , _gdpsfirsResponseStatus = pResponseStatus_
-  }
+    { _gdpsfirsInstanceId = Nothing
+    , _gdpsfirsProduct = Nothing
+    , _gdpsfirsSnapshotDownloadURL = Nothing
+    , _gdpsfirsSnapshotId = Nothing
+    , _gdpsfirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the instance.
 gdpsfirsInstanceId :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)
-gdpsfirsInstanceId = lens _gdpsfirsInstanceId (\ s a -> s{_gdpsfirsInstanceId = a});
+gdpsfirsInstanceId = lens _gdpsfirsInstanceId (\ s a -> s{_gdpsfirsInstanceId = a})
 
 -- | Returns the specific operating system (for example Windows Server 2012 or Amazon Linux 2015.09) on the instance for the specified patch snapshot.
 gdpsfirsProduct :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)
-gdpsfirsProduct = lens _gdpsfirsProduct (\ s a -> s{_gdpsfirsProduct = a});
+gdpsfirsProduct = lens _gdpsfirsProduct (\ s a -> s{_gdpsfirsProduct = a})
 
 -- | A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
 gdpsfirsSnapshotDownloadURL :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)
-gdpsfirsSnapshotDownloadURL = lens _gdpsfirsSnapshotDownloadURL (\ s a -> s{_gdpsfirsSnapshotDownloadURL = a});
+gdpsfirsSnapshotDownloadURL = lens _gdpsfirsSnapshotDownloadURL (\ s a -> s{_gdpsfirsSnapshotDownloadURL = a})
 
 -- | The user-defined snapshot ID.
 gdpsfirsSnapshotId :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)
-gdpsfirsSnapshotId = lens _gdpsfirsSnapshotId (\ s a -> s{_gdpsfirsSnapshotId = a});
+gdpsfirsSnapshotId = lens _gdpsfirsSnapshotId (\ s a -> s{_gdpsfirsSnapshotId = a})
 
 -- | -- | The response status code.
 gdpsfirsResponseStatus :: Lens' GetDeployablePatchSnapshotForInstanceResponse Int
-gdpsfirsResponseStatus = lens _gdpsfirsResponseStatus (\ s a -> s{_gdpsfirsResponseStatus = a});
+gdpsfirsResponseStatus = lens _gdpsfirsResponseStatus (\ s a -> s{_gdpsfirsResponseStatus = a})
 
 instance NFData
            GetDeployablePatchSnapshotForInstanceResponse

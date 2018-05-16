@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,11 +48,11 @@ tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
 
 -- | The key of the tag.
 tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 -- | The value of the tag.
 tagValue :: Lens' Tag Text
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 instance FromJSON Tag where
         parseJSON

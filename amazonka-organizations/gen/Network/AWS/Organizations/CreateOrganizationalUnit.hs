@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.CreateOrganizationalUnit
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ createOrganizationalUnit pParentId_ pName_ =
 
 -- | The unique identifier (ID) of the parent root or OU in which you want to create the new OU. The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:     * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 couParentId :: Lens' CreateOrganizationalUnit Text
-couParentId = lens _couParentId (\ s a -> s{_couParentId = a});
+couParentId = lens _couParentId (\ s a -> s{_couParentId = a})
 
 -- | The friendly name to assign to the new OU.
 couName :: Lens' CreateOrganizationalUnit Text
-couName = lens _couName (\ s a -> s{_couName = a});
+couName = lens _couName (\ s a -> s{_couName = a})
 
 instance AWSRequest CreateOrganizationalUnit where
         type Rs CreateOrganizationalUnit =
@@ -135,16 +135,18 @@ createOrganizationalUnitResponse
     -> CreateOrganizationalUnitResponse
 createOrganizationalUnitResponse pResponseStatus_ =
   CreateOrganizationalUnitResponse'
-  {_coursOrganizationalUnit = Nothing, _coursResponseStatus = pResponseStatus_}
+    { _coursOrganizationalUnit = Nothing
+    , _coursResponseStatus = pResponseStatus_
+    }
 
 
 -- | A structure that contains details about the newly created OU.
 coursOrganizationalUnit :: Lens' CreateOrganizationalUnitResponse (Maybe OrganizationalUnit)
-coursOrganizationalUnit = lens _coursOrganizationalUnit (\ s a -> s{_coursOrganizationalUnit = a});
+coursOrganizationalUnit = lens _coursOrganizationalUnit (\ s a -> s{_coursOrganizationalUnit = a})
 
 -- | -- | The response status code.
 coursResponseStatus :: Lens' CreateOrganizationalUnitResponse Int
-coursResponseStatus = lens _coursResponseStatus (\ s a -> s{_coursResponseStatus = a});
+coursResponseStatus = lens _coursResponseStatus (\ s a -> s{_coursResponseStatus = a})
 
 instance NFData CreateOrganizationalUnitResponse
          where

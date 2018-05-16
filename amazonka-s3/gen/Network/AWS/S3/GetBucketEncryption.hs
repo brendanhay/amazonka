@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketEncryption
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ getBucketEncryption pBucket_ = GetBucketEncryption' {_gbeBucket = pBucket_}
 
 -- | The name of the bucket from which the server-side encryption configuration is retrieved.
 gbeBucket :: Lens' GetBucketEncryption BucketName
-gbeBucket = lens _gbeBucket (\ s a -> s{_gbeBucket = a});
+gbeBucket = lens _gbeBucket (\ s a -> s{_gbeBucket = a})
 
 instance AWSRequest GetBucketEncryption where
         type Rs GetBucketEncryption =
@@ -106,17 +106,17 @@ getBucketEncryptionResponse
     -> GetBucketEncryptionResponse
 getBucketEncryptionResponse pResponseStatus_ =
   GetBucketEncryptionResponse'
-  { _gbersServerSideEncryptionConfiguration = Nothing
-  , _gbersResponseStatus = pResponseStatus_
-  }
+    { _gbersServerSideEncryptionConfiguration = Nothing
+    , _gbersResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 gbersServerSideEncryptionConfiguration :: Lens' GetBucketEncryptionResponse (Maybe ServerSideEncryptionConfiguration)
-gbersServerSideEncryptionConfiguration = lens _gbersServerSideEncryptionConfiguration (\ s a -> s{_gbersServerSideEncryptionConfiguration = a});
+gbersServerSideEncryptionConfiguration = lens _gbersServerSideEncryptionConfiguration (\ s a -> s{_gbersServerSideEncryptionConfiguration = a})
 
 -- | -- | The response status code.
 gbersResponseStatus :: Lens' GetBucketEncryptionResponse Int
-gbersResponseStatus = lens _gbersResponseStatus (\ s a -> s{_gbersResponseStatus = a});
+gbersResponseStatus = lens _gbersResponseStatus (\ s a -> s{_gbersResponseStatus = a})
 
 instance NFData GetBucketEncryptionResponse where

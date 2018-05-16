@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.EnableEnhancedMonitoring
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables enhanced Amazon Kinesis stream monitoring for shard-level metrics.
+-- Enables enhanced Kinesis data stream monitoring for shard-level metrics.
 --
 --
 module Network.AWS.Kinesis.EnableEnhancedMonitoring
@@ -63,22 +63,22 @@ data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
 --
 -- * 'eemStreamName' - The name of the stream for which to enable enhanced monitoring.
 --
--- * 'eemShardLevelMetrics' - List of shard-level metrics to enable. The following are the valid shard-level metrics. The value "@ALL@ " enables every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
+-- * 'eemShardLevelMetrics' - List of shard-level metrics to enable. The following are the valid shard-level metrics. The value "@ALL@ " enables every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Data Streams Developer Guide/ .
 enableEnhancedMonitoring
     :: Text -- ^ 'eemStreamName'
     -> EnableEnhancedMonitoring
 enableEnhancedMonitoring pStreamName_ =
   EnableEnhancedMonitoring'
-  {_eemStreamName = pStreamName_, _eemShardLevelMetrics = mempty}
+    {_eemStreamName = pStreamName_, _eemShardLevelMetrics = mempty}
 
 
 -- | The name of the stream for which to enable enhanced monitoring.
 eemStreamName :: Lens' EnableEnhancedMonitoring Text
-eemStreamName = lens _eemStreamName (\ s a -> s{_eemStreamName = a});
+eemStreamName = lens _eemStreamName (\ s a -> s{_eemStreamName = a})
 
--- | List of shard-level metrics to enable. The following are the valid shard-level metrics. The value "@ALL@ " enables every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
+-- | List of shard-level metrics to enable. The following are the valid shard-level metrics. The value "@ALL@ " enables every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Data Streams Developer Guide/ .
 eemShardLevelMetrics :: Lens' EnableEnhancedMonitoring [MetricsName]
-eemShardLevelMetrics = lens _eemShardLevelMetrics (\ s a -> s{_eemShardLevelMetrics = a}) . _Coerce;
+eemShardLevelMetrics = lens _eemShardLevelMetrics (\ s a -> s{_eemShardLevelMetrics = a}) . _Coerce
 
 instance AWSRequest EnableEnhancedMonitoring where
         type Rs EnableEnhancedMonitoring =

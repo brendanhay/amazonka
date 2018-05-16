@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ adminConfirmSignUp
     -> AdminConfirmSignUp
 adminConfirmSignUp pUserPoolId_ pUsername_ =
   AdminConfirmSignUp'
-  {_acsuUserPoolId = pUserPoolId_, _acsuUsername = _Sensitive # pUsername_}
+    {_acsuUserPoolId = pUserPoolId_, _acsuUsername = _Sensitive # pUsername_}
 
 
 -- | The user pool ID for which you want to confirm user registration.
 acsuUserPoolId :: Lens' AdminConfirmSignUp Text
-acsuUserPoolId = lens _acsuUserPoolId (\ s a -> s{_acsuUserPoolId = a});
+acsuUserPoolId = lens _acsuUserPoolId (\ s a -> s{_acsuUserPoolId = a})
 
 -- | The user name for which you want to confirm user registration.
 acsuUsername :: Lens' AdminConfirmSignUp Text
-acsuUsername = lens _acsuUsername (\ s a -> s{_acsuUsername = a}) . _Sensitive;
+acsuUsername = lens _acsuUsername (\ s a -> s{_acsuUsername = a}) . _Sensitive
 
 instance AWSRequest AdminConfirmSignUp where
         type Rs AdminConfirmSignUp =
@@ -141,6 +141,6 @@ adminConfirmSignUpResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 acsursResponseStatus :: Lens' AdminConfirmSignUpResponse Int
-acsursResponseStatus = lens _acsursResponseStatus (\ s a -> s{_acsursResponseStatus = a});
+acsursResponseStatus = lens _acsursResponseStatus (\ s a -> s{_acsursResponseStatus = a})
 
 instance NFData AdminConfirmSignUpResponse where

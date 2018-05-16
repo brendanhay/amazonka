@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.ModifyLoadBalancerAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ modifyLoadBalancerAttributes
     -> ModifyLoadBalancerAttributes
 modifyLoadBalancerAttributes pLoadBalancerARN_ =
   ModifyLoadBalancerAttributes'
-  {_mlbaLoadBalancerARN = pLoadBalancerARN_, _mlbaAttributes = mempty}
+    {_mlbaLoadBalancerARN = pLoadBalancerARN_, _mlbaAttributes = mempty}
 
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 mlbaLoadBalancerARN :: Lens' ModifyLoadBalancerAttributes Text
-mlbaLoadBalancerARN = lens _mlbaLoadBalancerARN (\ s a -> s{_mlbaLoadBalancerARN = a});
+mlbaLoadBalancerARN = lens _mlbaLoadBalancerARN (\ s a -> s{_mlbaLoadBalancerARN = a})
 
 -- | The load balancer attributes.
 mlbaAttributes :: Lens' ModifyLoadBalancerAttributes [LoadBalancerAttribute]
-mlbaAttributes = lens _mlbaAttributes (\ s a -> s{_mlbaAttributes = a}) . _Coerce;
+mlbaAttributes = lens _mlbaAttributes (\ s a -> s{_mlbaAttributes = a}) . _Coerce
 
 instance AWSRequest ModifyLoadBalancerAttributes
          where
@@ -129,16 +129,16 @@ modifyLoadBalancerAttributesResponse
     -> ModifyLoadBalancerAttributesResponse
 modifyLoadBalancerAttributesResponse pResponseStatus_ =
   ModifyLoadBalancerAttributesResponse'
-  {_mlbarsAttributes = Nothing, _mlbarsResponseStatus = pResponseStatus_}
+    {_mlbarsAttributes = Nothing, _mlbarsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the load balancer attributes.
 mlbarsAttributes :: Lens' ModifyLoadBalancerAttributesResponse [LoadBalancerAttribute]
-mlbarsAttributes = lens _mlbarsAttributes (\ s a -> s{_mlbarsAttributes = a}) . _Default . _Coerce;
+mlbarsAttributes = lens _mlbarsAttributes (\ s a -> s{_mlbarsAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 mlbarsResponseStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
-mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a});
+mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a})
 
 instance NFData ModifyLoadBalancerAttributesResponse
          where

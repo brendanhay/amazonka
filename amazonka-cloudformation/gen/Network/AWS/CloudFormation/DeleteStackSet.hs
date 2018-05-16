@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DeleteStackSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteStackSet pStackSetName_ =
 
 -- | The name or unique ID of the stack set that you're deleting. You can obtain this value by running 'ListStackSets' .
 dssStackSetName :: Lens' DeleteStackSet Text
-dssStackSetName = lens _dssStackSetName (\ s a -> s{_dssStackSetName = a});
+dssStackSetName = lens _dssStackSetName (\ s a -> s{_dssStackSetName = a})
 
 instance AWSRequest DeleteStackSet where
         type Rs DeleteStackSet = DeleteStackSetResponse
@@ -110,6 +110,6 @@ deleteStackSetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dssrsResponseStatus :: Lens' DeleteStackSetResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a})
 
 instance NFData DeleteStackSetResponse where

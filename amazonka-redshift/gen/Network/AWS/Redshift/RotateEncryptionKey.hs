@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RotateEncryptionKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ rotateEncryptionKey pClusterIdentifier_ =
 
 -- | The unique identifier of the cluster that you want to rotate the encryption keys for. Constraints: Must be the name of valid cluster that has encryption enabled.
 rekClusterIdentifier :: Lens' RotateEncryptionKey Text
-rekClusterIdentifier = lens _rekClusterIdentifier (\ s a -> s{_rekClusterIdentifier = a});
+rekClusterIdentifier = lens _rekClusterIdentifier (\ s a -> s{_rekClusterIdentifier = a})
 
 instance AWSRequest RotateEncryptionKey where
         type Rs RotateEncryptionKey =
@@ -116,15 +116,15 @@ rotateEncryptionKeyResponse
     -> RotateEncryptionKeyResponse
 rotateEncryptionKeyResponse pResponseStatus_ =
   RotateEncryptionKeyResponse'
-  {_rekrsCluster = Nothing, _rekrsResponseStatus = pResponseStatus_}
+    {_rekrsCluster = Nothing, _rekrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
-rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a});
+rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a})
 
 -- | -- | The response status code.
 rekrsResponseStatus :: Lens' RotateEncryptionKeyResponse Int
-rekrsResponseStatus = lens _rekrsResponseStatus (\ s a -> s{_rekrsResponseStatus = a});
+rekrsResponseStatus = lens _rekrsResponseStatus (\ s a -> s{_rekrsResponseStatus = a})
 
 instance NFData RotateEncryptionKeyResponse where

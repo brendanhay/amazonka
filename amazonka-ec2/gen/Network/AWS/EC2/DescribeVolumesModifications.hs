@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVolumesModifications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,33 +80,33 @@ describeVolumesModifications
     :: DescribeVolumesModifications
 describeVolumesModifications =
   DescribeVolumesModifications'
-  { _dvmFilters = Nothing
-  , _dvmVolumeIds = Nothing
-  , _dvmNextToken = Nothing
-  , _dvmDryRun = Nothing
-  , _dvmMaxResults = Nothing
-  }
+    { _dvmFilters = Nothing
+    , _dvmVolumeIds = Nothing
+    , _dvmNextToken = Nothing
+    , _dvmDryRun = Nothing
+    , _dvmMaxResults = Nothing
+    }
 
 
 -- | One or more filters. Supported filters: @volume-id@ , @modification-state@ , @target-size@ , @target-iops@ , @target-volume-type@ , @original-size@ , @original-iops@ , @original-volume-type@ , @start-time@ .
 dvmFilters :: Lens' DescribeVolumesModifications [Filter]
-dvmFilters = lens _dvmFilters (\ s a -> s{_dvmFilters = a}) . _Default . _Coerce;
+dvmFilters = lens _dvmFilters (\ s a -> s{_dvmFilters = a}) . _Default . _Coerce
 
 -- | One or more volume IDs for which in-progress modifications will be described.
 dvmVolumeIds :: Lens' DescribeVolumesModifications [Text]
-dvmVolumeIds = lens _dvmVolumeIds (\ s a -> s{_dvmVolumeIds = a}) . _Default . _Coerce;
+dvmVolumeIds = lens _dvmVolumeIds (\ s a -> s{_dvmVolumeIds = a}) . _Default . _Coerce
 
 -- | The @nextToken@ value returned by a previous paginated request.
 dvmNextToken :: Lens' DescribeVolumesModifications (Maybe Text)
-dvmNextToken = lens _dvmNextToken (\ s a -> s{_dvmNextToken = a});
+dvmNextToken = lens _dvmNextToken (\ s a -> s{_dvmNextToken = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvmDryRun :: Lens' DescribeVolumesModifications (Maybe Bool)
-dvmDryRun = lens _dvmDryRun (\ s a -> s{_dvmDryRun = a});
+dvmDryRun = lens _dvmDryRun (\ s a -> s{_dvmDryRun = a})
 
 -- | The maximum number of results (up to a limit of 500) to be returned in a paginated request.
 dvmMaxResults :: Lens' DescribeVolumesModifications (Maybe Int)
-dvmMaxResults = lens _dvmMaxResults (\ s a -> s{_dvmMaxResults = a});
+dvmMaxResults = lens _dvmMaxResults (\ s a -> s{_dvmMaxResults = a})
 
 instance AWSRequest DescribeVolumesModifications
          where
@@ -165,23 +165,23 @@ describeVolumesModificationsResponse
     -> DescribeVolumesModificationsResponse
 describeVolumesModificationsResponse pResponseStatus_ =
   DescribeVolumesModificationsResponse'
-  { _dvmrsVolumesModifications = Nothing
-  , _dvmrsNextToken = Nothing
-  , _dvmrsResponseStatus = pResponseStatus_
-  }
+    { _dvmrsVolumesModifications = Nothing
+    , _dvmrsNextToken = Nothing
+    , _dvmrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of returned 'VolumeModification' objects.
 dvmrsVolumesModifications :: Lens' DescribeVolumesModificationsResponse [VolumeModification]
-dvmrsVolumesModifications = lens _dvmrsVolumesModifications (\ s a -> s{_dvmrsVolumesModifications = a}) . _Default . _Coerce;
+dvmrsVolumesModifications = lens _dvmrsVolumesModifications (\ s a -> s{_dvmrsVolumesModifications = a}) . _Default . _Coerce
 
 -- | Token for pagination, null if there are no more results
 dvmrsNextToken :: Lens' DescribeVolumesModificationsResponse (Maybe Text)
-dvmrsNextToken = lens _dvmrsNextToken (\ s a -> s{_dvmrsNextToken = a});
+dvmrsNextToken = lens _dvmrsNextToken (\ s a -> s{_dvmrsNextToken = a})
 
 -- | -- | The response status code.
 dvmrsResponseStatus :: Lens' DescribeVolumesModificationsResponse Int
-dvmrsResponseStatus = lens _dvmrsResponseStatus (\ s a -> s{_dvmrsResponseStatus = a});
+dvmrsResponseStatus = lens _dvmrsResponseStatus (\ s a -> s{_dvmrsResponseStatus = a})
 
 instance NFData DescribeVolumesModificationsResponse
          where

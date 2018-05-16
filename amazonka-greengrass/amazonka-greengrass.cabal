@@ -1,5 +1,5 @@
 name:                  amazonka-greengrass
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Greengrass SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -59,6 +59,9 @@ library
         , Network.AWS.Greengrass.CreateGroupVersion
         , Network.AWS.Greengrass.CreateLoggerDefinition
         , Network.AWS.Greengrass.CreateLoggerDefinitionVersion
+        , Network.AWS.Greengrass.CreateResourceDefinition
+        , Network.AWS.Greengrass.CreateResourceDefinitionVersion
+        , Network.AWS.Greengrass.CreateSoftwareUpdateJob
         , Network.AWS.Greengrass.CreateSubscriptionDefinition
         , Network.AWS.Greengrass.CreateSubscriptionDefinitionVersion
         , Network.AWS.Greengrass.DeleteCoreDefinition
@@ -66,6 +69,7 @@ library
         , Network.AWS.Greengrass.DeleteFunctionDefinition
         , Network.AWS.Greengrass.DeleteGroup
         , Network.AWS.Greengrass.DeleteLoggerDefinition
+        , Network.AWS.Greengrass.DeleteResourceDefinition
         , Network.AWS.Greengrass.DeleteSubscriptionDefinition
         , Network.AWS.Greengrass.DisassociateRoleFromGroup
         , Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
@@ -84,6 +88,8 @@ library
         , Network.AWS.Greengrass.GetGroupVersion
         , Network.AWS.Greengrass.GetLoggerDefinition
         , Network.AWS.Greengrass.GetLoggerDefinitionVersion
+        , Network.AWS.Greengrass.GetResourceDefinition
+        , Network.AWS.Greengrass.GetResourceDefinitionVersion
         , Network.AWS.Greengrass.GetServiceRoleForAccount
         , Network.AWS.Greengrass.GetSubscriptionDefinition
         , Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
@@ -99,6 +105,8 @@ library
         , Network.AWS.Greengrass.ListGroups
         , Network.AWS.Greengrass.ListLoggerDefinitionVersions
         , Network.AWS.Greengrass.ListLoggerDefinitions
+        , Network.AWS.Greengrass.ListResourceDefinitionVersions
+        , Network.AWS.Greengrass.ListResourceDefinitions
         , Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
         , Network.AWS.Greengrass.ListSubscriptionDefinitions
         , Network.AWS.Greengrass.ResetDeployments
@@ -110,6 +118,7 @@ library
         , Network.AWS.Greengrass.UpdateGroup
         , Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
         , Network.AWS.Greengrass.UpdateLoggerDefinition
+        , Network.AWS.Greengrass.UpdateResourceDefinition
         , Network.AWS.Greengrass.UpdateSubscriptionDefinition
         , Network.AWS.Greengrass.Waiters
 
@@ -118,7 +127,7 @@ library
         , Network.AWS.Greengrass.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-greengrass-test
@@ -138,8 +147,8 @@ test-suite amazonka-greengrass-test
         , Test.AWS.Greengrass.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-greengrass
         , base
         , bytestring

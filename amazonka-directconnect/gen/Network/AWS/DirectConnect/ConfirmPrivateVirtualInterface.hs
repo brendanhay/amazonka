@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ confirmPrivateVirtualInterface
     -> ConfirmPrivateVirtualInterface
 confirmPrivateVirtualInterface pVirtualInterfaceId_ =
   ConfirmPrivateVirtualInterface'
-  { _cpviVirtualGatewayId = Nothing
-  , _cpviDirectConnectGatewayId = Nothing
-  , _cpviVirtualInterfaceId = pVirtualInterfaceId_
-  }
+    { _cpviVirtualGatewayId = Nothing
+    , _cpviDirectConnectGatewayId = Nothing
+    , _cpviVirtualInterfaceId = pVirtualInterfaceId_
+    }
 
 
 -- | ID of the virtual private gateway that will be attached to the virtual interface. A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action. Default: None
 cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface (Maybe Text)
-cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewayId = a});
+cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewayId = a})
 
 -- | ID of the direct connect gateway that will be attached to the virtual interface. A direct connect gateway can be managed via the AWS Direct Connect console or the 'CreateDirectConnectGateway' action. Default: None
 cpviDirectConnectGatewayId :: Lens' ConfirmPrivateVirtualInterface (Maybe Text)
-cpviDirectConnectGatewayId = lens _cpviDirectConnectGatewayId (\ s a -> s{_cpviDirectConnectGatewayId = a});
+cpviDirectConnectGatewayId = lens _cpviDirectConnectGatewayId (\ s a -> s{_cpviDirectConnectGatewayId = a})
 
 -- | Undocumented member.
 cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
-cpviVirtualInterfaceId = lens _cpviVirtualInterfaceId (\ s a -> s{_cpviVirtualInterfaceId = a});
+cpviVirtualInterfaceId = lens _cpviVirtualInterfaceId (\ s a -> s{_cpviVirtualInterfaceId = a})
 
 instance AWSRequest ConfirmPrivateVirtualInterface
          where
@@ -159,18 +159,18 @@ confirmPrivateVirtualInterfaceResponse
     -> ConfirmPrivateVirtualInterfaceResponse
 confirmPrivateVirtualInterfaceResponse pResponseStatus_ =
   ConfirmPrivateVirtualInterfaceResponse'
-  { _cpvirsVirtualInterfaceState = Nothing
-  , _cpvirsResponseStatus = pResponseStatus_
-  }
+    { _cpvirsVirtualInterfaceState = Nothing
+    , _cpvirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 cpvirsVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-cpvirsVirtualInterfaceState = lens _cpvirsVirtualInterfaceState (\ s a -> s{_cpvirsVirtualInterfaceState = a});
+cpvirsVirtualInterfaceState = lens _cpvirsVirtualInterfaceState (\ s a -> s{_cpvirsVirtualInterfaceState = a})
 
 -- | -- | The response status code.
 cpvirsResponseStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
-cpvirsResponseStatus = lens _cpvirsResponseStatus (\ s a -> s{_cpvirsResponseStatus = a});
+cpvirsResponseStatus = lens _cpvirsResponseStatus (\ s a -> s{_cpvirsResponseStatus = a})
 
 instance NFData
            ConfirmPrivateVirtualInterfaceResponse

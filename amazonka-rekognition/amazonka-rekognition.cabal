@@ -1,5 +1,5 @@
 name:                  amazonka-rekognition
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Rekognition SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -47,18 +47,37 @@ library
           Network.AWS.Rekognition
         , Network.AWS.Rekognition.CompareFaces
         , Network.AWS.Rekognition.CreateCollection
+        , Network.AWS.Rekognition.CreateStreamProcessor
         , Network.AWS.Rekognition.DeleteCollection
         , Network.AWS.Rekognition.DeleteFaces
+        , Network.AWS.Rekognition.DeleteStreamProcessor
+        , Network.AWS.Rekognition.DescribeStreamProcessor
         , Network.AWS.Rekognition.DetectFaces
         , Network.AWS.Rekognition.DetectLabels
         , Network.AWS.Rekognition.DetectModerationLabels
+        , Network.AWS.Rekognition.DetectText
         , Network.AWS.Rekognition.GetCelebrityInfo
+        , Network.AWS.Rekognition.GetCelebrityRecognition
+        , Network.AWS.Rekognition.GetContentModeration
+        , Network.AWS.Rekognition.GetFaceDetection
+        , Network.AWS.Rekognition.GetFaceSearch
+        , Network.AWS.Rekognition.GetLabelDetection
+        , Network.AWS.Rekognition.GetPersonTracking
         , Network.AWS.Rekognition.IndexFaces
         , Network.AWS.Rekognition.ListCollections
         , Network.AWS.Rekognition.ListFaces
+        , Network.AWS.Rekognition.ListStreamProcessors
         , Network.AWS.Rekognition.RecognizeCelebrities
         , Network.AWS.Rekognition.SearchFaces
         , Network.AWS.Rekognition.SearchFacesByImage
+        , Network.AWS.Rekognition.StartCelebrityRecognition
+        , Network.AWS.Rekognition.StartContentModeration
+        , Network.AWS.Rekognition.StartFaceDetection
+        , Network.AWS.Rekognition.StartFaceSearch
+        , Network.AWS.Rekognition.StartLabelDetection
+        , Network.AWS.Rekognition.StartPersonTracking
+        , Network.AWS.Rekognition.StartStreamProcessor
+        , Network.AWS.Rekognition.StopStreamProcessor
         , Network.AWS.Rekognition.Types
         , Network.AWS.Rekognition.Waiters
 
@@ -67,7 +86,7 @@ library
         , Network.AWS.Rekognition.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-rekognition-test
@@ -87,8 +106,8 @@ test-suite amazonka-rekognition-test
         , Test.AWS.Rekognition.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-rekognition
         , base
         , bytestring

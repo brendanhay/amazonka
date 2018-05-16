@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ createUserPoolDomain pDomain_ pUserPoolId_ =
 
 -- | The domain string.
 cupdDomain :: Lens' CreateUserPoolDomain Text
-cupdDomain = lens _cupdDomain (\ s a -> s{_cupdDomain = a});
+cupdDomain = lens _cupdDomain (\ s a -> s{_cupdDomain = a})
 
 -- | The user pool ID.
 cupdUserPoolId :: Lens' CreateUserPoolDomain Text
-cupdUserPoolId = lens _cupdUserPoolId (\ s a -> s{_cupdUserPoolId = a});
+cupdUserPoolId = lens _cupdUserPoolId (\ s a -> s{_cupdUserPoolId = a})
 
 instance AWSRequest CreateUserPoolDomain where
         type Rs CreateUserPoolDomain =
@@ -131,6 +131,6 @@ createUserPoolDomainResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cupdrsResponseStatus :: Lens' CreateUserPoolDomainResponse Int
-cupdrsResponseStatus = lens _cupdrsResponseStatus (\ s a -> s{_cupdrsResponseStatus = a});
+cupdrsResponseStatus = lens _cupdrsResponseStatus (\ s a -> s{_cupdrsResponseStatus = a})
 
 instance NFData CreateUserPoolDomainResponse where

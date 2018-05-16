@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.GetSnapshotLimits
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getSnapshotLimits pDirectoryId_ =
 
 -- | Contains the identifier of the directory to obtain the limits for.
 gslDirectoryId :: Lens' GetSnapshotLimits Text
-gslDirectoryId = lens _gslDirectoryId (\ s a -> s{_gslDirectoryId = a});
+gslDirectoryId = lens _gslDirectoryId (\ s a -> s{_gslDirectoryId = a})
 
 instance AWSRequest GetSnapshotLimits where
         type Rs GetSnapshotLimits = GetSnapshotLimitsResponse
@@ -127,15 +127,15 @@ getSnapshotLimitsResponse
     -> GetSnapshotLimitsResponse
 getSnapshotLimitsResponse pResponseStatus_ =
   GetSnapshotLimitsResponse'
-  {_gslrsSnapshotLimits = Nothing, _gslrsResponseStatus = pResponseStatus_}
+    {_gslrsSnapshotLimits = Nothing, _gslrsResponseStatus = pResponseStatus_}
 
 
 -- | A 'SnapshotLimits' object that contains the manual snapshot limits for the specified directory.
 gslrsSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
-gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a});
+gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a})
 
 -- | -- | The response status code.
 gslrsResponseStatus :: Lens' GetSnapshotLimitsResponse Int
-gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a});
+gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a})
 
 instance NFData GetSnapshotLimitsResponse where

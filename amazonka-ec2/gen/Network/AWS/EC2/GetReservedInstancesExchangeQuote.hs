@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.GetReservedInstancesExchangeQuote
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,23 +79,23 @@ getReservedInstancesExchangeQuote
     :: GetReservedInstancesExchangeQuote
 getReservedInstancesExchangeQuote =
   GetReservedInstancesExchangeQuote'
-  { _grieqTargetConfigurations = Nothing
-  , _grieqDryRun = Nothing
-  , _grieqReservedInstanceIds = mempty
-  }
+    { _grieqTargetConfigurations = Nothing
+    , _grieqDryRun = Nothing
+    , _grieqReservedInstanceIds = mempty
+    }
 
 
 -- | The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
 grieqTargetConfigurations :: Lens' GetReservedInstancesExchangeQuote [TargetConfigurationRequest]
-grieqTargetConfigurations = lens _grieqTargetConfigurations (\ s a -> s{_grieqTargetConfigurations = a}) . _Default . _Coerce;
+grieqTargetConfigurations = lens _grieqTargetConfigurations (\ s a -> s{_grieqTargetConfigurations = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 grieqDryRun :: Lens' GetReservedInstancesExchangeQuote (Maybe Bool)
-grieqDryRun = lens _grieqDryRun (\ s a -> s{_grieqDryRun = a});
+grieqDryRun = lens _grieqDryRun (\ s a -> s{_grieqDryRun = a})
 
 -- | The IDs of the Convertible Reserved Instances to exchange.
 grieqReservedInstanceIds :: Lens' GetReservedInstancesExchangeQuote [Text]
-grieqReservedInstanceIds = lens _grieqReservedInstanceIds (\ s a -> s{_grieqReservedInstanceIds = a}) . _Coerce;
+grieqReservedInstanceIds = lens _grieqReservedInstanceIds (\ s a -> s{_grieqReservedInstanceIds = a}) . _Coerce
 
 instance AWSRequest GetReservedInstancesExchangeQuote
          where
@@ -196,58 +196,58 @@ getReservedInstancesExchangeQuoteResponse
     -> GetReservedInstancesExchangeQuoteResponse
 getReservedInstancesExchangeQuoteResponse pResponseStatus_ =
   GetReservedInstancesExchangeQuoteResponse'
-  { _grieqrsValidationFailureReason = Nothing
-  , _grieqrsTargetConfigurationValueRollup = Nothing
-  , _grieqrsCurrencyCode = Nothing
-  , _grieqrsTargetConfigurationValueSet = Nothing
-  , _grieqrsReservedInstanceValueRollup = Nothing
-  , _grieqrsOutputReservedInstancesWillExpireAt = Nothing
-  , _grieqrsReservedInstanceValueSet = Nothing
-  , _grieqrsIsValidExchange = Nothing
-  , _grieqrsPaymentDue = Nothing
-  , _grieqrsResponseStatus = pResponseStatus_
-  }
+    { _grieqrsValidationFailureReason = Nothing
+    , _grieqrsTargetConfigurationValueRollup = Nothing
+    , _grieqrsCurrencyCode = Nothing
+    , _grieqrsTargetConfigurationValueSet = Nothing
+    , _grieqrsReservedInstanceValueRollup = Nothing
+    , _grieqrsOutputReservedInstancesWillExpireAt = Nothing
+    , _grieqrsReservedInstanceValueSet = Nothing
+    , _grieqrsIsValidExchange = Nothing
+    , _grieqrsPaymentDue = Nothing
+    , _grieqrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Describes the reason why the exchange cannot be completed.
 grieqrsValidationFailureReason :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Text)
-grieqrsValidationFailureReason = lens _grieqrsValidationFailureReason (\ s a -> s{_grieqrsValidationFailureReason = a});
+grieqrsValidationFailureReason = lens _grieqrsValidationFailureReason (\ s a -> s{_grieqrsValidationFailureReason = a})
 
 -- | The cost associated with the Reserved Instance.
 grieqrsTargetConfigurationValueRollup :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe ReservationValue)
-grieqrsTargetConfigurationValueRollup = lens _grieqrsTargetConfigurationValueRollup (\ s a -> s{_grieqrsTargetConfigurationValueRollup = a});
+grieqrsTargetConfigurationValueRollup = lens _grieqrsTargetConfigurationValueRollup (\ s a -> s{_grieqrsTargetConfigurationValueRollup = a})
 
 -- | The currency of the transaction.
 grieqrsCurrencyCode :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Text)
-grieqrsCurrencyCode = lens _grieqrsCurrencyCode (\ s a -> s{_grieqrsCurrencyCode = a});
+grieqrsCurrencyCode = lens _grieqrsCurrencyCode (\ s a -> s{_grieqrsCurrencyCode = a})
 
 -- | The values of the target Convertible Reserved Instances.
 grieqrsTargetConfigurationValueSet :: Lens' GetReservedInstancesExchangeQuoteResponse [TargetReservationValue]
-grieqrsTargetConfigurationValueSet = lens _grieqrsTargetConfigurationValueSet (\ s a -> s{_grieqrsTargetConfigurationValueSet = a}) . _Default . _Coerce;
+grieqrsTargetConfigurationValueSet = lens _grieqrsTargetConfigurationValueSet (\ s a -> s{_grieqrsTargetConfigurationValueSet = a}) . _Default . _Coerce
 
 -- | The cost associated with the Reserved Instance.
 grieqrsReservedInstanceValueRollup :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe ReservationValue)
-grieqrsReservedInstanceValueRollup = lens _grieqrsReservedInstanceValueRollup (\ s a -> s{_grieqrsReservedInstanceValueRollup = a});
+grieqrsReservedInstanceValueRollup = lens _grieqrsReservedInstanceValueRollup (\ s a -> s{_grieqrsReservedInstanceValueRollup = a})
 
 -- | The new end date of the reservation term.
 grieqrsOutputReservedInstancesWillExpireAt :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe UTCTime)
-grieqrsOutputReservedInstancesWillExpireAt = lens _grieqrsOutputReservedInstancesWillExpireAt (\ s a -> s{_grieqrsOutputReservedInstancesWillExpireAt = a}) . mapping _Time;
+grieqrsOutputReservedInstancesWillExpireAt = lens _grieqrsOutputReservedInstancesWillExpireAt (\ s a -> s{_grieqrsOutputReservedInstancesWillExpireAt = a}) . mapping _Time
 
 -- | The configuration of your Convertible Reserved Instances.
 grieqrsReservedInstanceValueSet :: Lens' GetReservedInstancesExchangeQuoteResponse [ReservedInstanceReservationValue]
-grieqrsReservedInstanceValueSet = lens _grieqrsReservedInstanceValueSet (\ s a -> s{_grieqrsReservedInstanceValueSet = a}) . _Default . _Coerce;
+grieqrsReservedInstanceValueSet = lens _grieqrsReservedInstanceValueSet (\ s a -> s{_grieqrsReservedInstanceValueSet = a}) . _Default . _Coerce
 
 -- | If @true@ , the exchange is valid. If @false@ , the exchange cannot be completed.
 grieqrsIsValidExchange :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Bool)
-grieqrsIsValidExchange = lens _grieqrsIsValidExchange (\ s a -> s{_grieqrsIsValidExchange = a});
+grieqrsIsValidExchange = lens _grieqrsIsValidExchange (\ s a -> s{_grieqrsIsValidExchange = a})
 
 -- | The total true upfront charge for the exchange.
 grieqrsPaymentDue :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Text)
-grieqrsPaymentDue = lens _grieqrsPaymentDue (\ s a -> s{_grieqrsPaymentDue = a});
+grieqrsPaymentDue = lens _grieqrsPaymentDue (\ s a -> s{_grieqrsPaymentDue = a})
 
 -- | -- | The response status code.
 grieqrsResponseStatus :: Lens' GetReservedInstancesExchangeQuoteResponse Int
-grieqrsResponseStatus = lens _grieqrsResponseStatus (\ s a -> s{_grieqrsResponseStatus = a});
+grieqrsResponseStatus = lens _grieqrsResponseStatus (\ s a -> s{_grieqrsResponseStatus = a})
 
 instance NFData
            GetReservedInstancesExchangeQuoteResponse

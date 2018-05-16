@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.ListIPSets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ listIPSets = ListIPSets' {_lisNextMarker = Nothing, _lisLimit = Nothing}
 
 -- | If you specify a value for @Limit@ and you have more @IPSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @IPSets@ . For the second and subsequent @ListIPSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @IPSets@ .
 lisNextMarker :: Lens' ListIPSets (Maybe Text)
-lisNextMarker = lens _lisNextMarker (\ s a -> s{_lisNextMarker = a});
+lisNextMarker = lens _lisNextMarker (\ s a -> s{_lisNextMarker = a})
 
 -- | Specifies the number of @IPSet@ objects that you want AWS WAF to return for this request. If you have more @IPSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @IPSet@ objects.
 lisLimit :: Lens' ListIPSets (Maybe Natural)
-lisLimit = lens _lisLimit (\ s a -> s{_lisLimit = a}) . mapping _Nat;
+lisLimit = lens _lisLimit (\ s a -> s{_lisLimit = a}) . mapping _Nat
 
 instance AWSPager ListIPSets where
         page rq rs
@@ -141,22 +141,22 @@ listIPSetsResponse
     -> ListIPSetsResponse
 listIPSetsResponse pResponseStatus_ =
   ListIPSetsResponse'
-  { _lisrsNextMarker = Nothing
-  , _lisrsIPSets = Nothing
-  , _lisrsResponseStatus = pResponseStatus_
-  }
+    { _lisrsNextMarker = Nothing
+    , _lisrsIPSets = Nothing
+    , _lisrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If you have more @IPSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @IPSet@ objects, submit another @ListIPSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 lisrsNextMarker :: Lens' ListIPSetsResponse (Maybe Text)
-lisrsNextMarker = lens _lisrsNextMarker (\ s a -> s{_lisrsNextMarker = a});
+lisrsNextMarker = lens _lisrsNextMarker (\ s a -> s{_lisrsNextMarker = a})
 
 -- | An array of 'IPSetSummary' objects.
 lisrsIPSets :: Lens' ListIPSetsResponse [IPSetSummary]
-lisrsIPSets = lens _lisrsIPSets (\ s a -> s{_lisrsIPSets = a}) . _Default . _Coerce;
+lisrsIPSets = lens _lisrsIPSets (\ s a -> s{_lisrsIPSets = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lisrsResponseStatus :: Lens' ListIPSetsResponse Int
-lisrsResponseStatus = lens _lisrsResponseStatus (\ s a -> s{_lisrsResponseStatus = a});
+lisrsResponseStatus = lens _lisrsResponseStatus (\ s a -> s{_lisrsResponseStatus = a})
 
 instance NFData ListIPSetsResponse where

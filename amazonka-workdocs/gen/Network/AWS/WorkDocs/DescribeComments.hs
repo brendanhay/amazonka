@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeComments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ data DescribeComments = DescribeComments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'dcAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'dcMarker' - The marker for the next set of results. This marker was received from a previous call.
 --
@@ -78,33 +78,33 @@ describeComments
     -> DescribeComments
 describeComments pDocumentId_ pVersionId_ =
   DescribeComments'
-  { _dcAuthenticationToken = Nothing
-  , _dcMarker = Nothing
-  , _dcLimit = Nothing
-  , _dcDocumentId = pDocumentId_
-  , _dcVersionId = pVersionId_
-  }
+    { _dcAuthenticationToken = Nothing
+    , _dcMarker = Nothing
+    , _dcLimit = Nothing
+    , _dcDocumentId = pDocumentId_
+    , _dcVersionId = pVersionId_
+    }
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 dcAuthenticationToken :: Lens' DescribeComments (Maybe Text)
-dcAuthenticationToken = lens _dcAuthenticationToken (\ s a -> s{_dcAuthenticationToken = a}) . mapping _Sensitive;
+dcAuthenticationToken = lens _dcAuthenticationToken (\ s a -> s{_dcAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The marker for the next set of results. This marker was received from a previous call.
 dcMarker :: Lens' DescribeComments (Maybe Text)
-dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
+dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a})
 
 -- | The maximum number of items to return.
 dcLimit :: Lens' DescribeComments (Maybe Natural)
-dcLimit = lens _dcLimit (\ s a -> s{_dcLimit = a}) . mapping _Nat;
+dcLimit = lens _dcLimit (\ s a -> s{_dcLimit = a}) . mapping _Nat
 
 -- | The ID of the document.
 dcDocumentId :: Lens' DescribeComments Text
-dcDocumentId = lens _dcDocumentId (\ s a -> s{_dcDocumentId = a});
+dcDocumentId = lens _dcDocumentId (\ s a -> s{_dcDocumentId = a})
 
 -- | The ID of the document version.
 dcVersionId :: Lens' DescribeComments Text
-dcVersionId = lens _dcVersionId (\ s a -> s{_dcVersionId = a});
+dcVersionId = lens _dcVersionId (\ s a -> s{_dcVersionId = a})
 
 instance AWSRequest DescribeComments where
         type Rs DescribeComments = DescribeCommentsResponse
@@ -160,22 +160,22 @@ describeCommentsResponse
     -> DescribeCommentsResponse
 describeCommentsResponse pResponseStatus_ =
   DescribeCommentsResponse'
-  { _dcrsMarker = Nothing
-  , _dcrsComments = Nothing
-  , _dcrsResponseStatus = pResponseStatus_
-  }
+    { _dcrsMarker = Nothing
+    , _dcrsComments = Nothing
+    , _dcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The marker for the next set of results. This marker was received from a previous call.
 dcrsMarker :: Lens' DescribeCommentsResponse (Maybe Text)
-dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
+dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a})
 
 -- | The list of comments for the specified document version.
 dcrsComments :: Lens' DescribeCommentsResponse [Comment]
-dcrsComments = lens _dcrsComments (\ s a -> s{_dcrsComments = a}) . _Default . _Coerce;
+dcrsComments = lens _dcrsComments (\ s a -> s{_dcrsComments = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCommentsResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DescribeCommentsResponse where

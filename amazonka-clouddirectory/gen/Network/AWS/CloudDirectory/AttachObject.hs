@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AttachObject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,28 +81,28 @@ attachObject
     -> AttachObject
 attachObject pDirectoryARN_ pParentReference_ pChildReference_ pLinkName_ =
   AttachObject'
-  { _aoDirectoryARN = pDirectoryARN_
-  , _aoParentReference = pParentReference_
-  , _aoChildReference = pChildReference_
-  , _aoLinkName = pLinkName_
-  }
+    { _aoDirectoryARN = pDirectoryARN_
+    , _aoParentReference = pParentReference_
+    , _aoChildReference = pChildReference_
+    , _aoLinkName = pLinkName_
+    }
 
 
 -- | Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 aoDirectoryARN :: Lens' AttachObject Text
-aoDirectoryARN = lens _aoDirectoryARN (\ s a -> s{_aoDirectoryARN = a});
+aoDirectoryARN = lens _aoDirectoryARN (\ s a -> s{_aoDirectoryARN = a})
 
 -- | The parent object reference.
 aoParentReference :: Lens' AttachObject ObjectReference
-aoParentReference = lens _aoParentReference (\ s a -> s{_aoParentReference = a});
+aoParentReference = lens _aoParentReference (\ s a -> s{_aoParentReference = a})
 
 -- | The child object reference to be attached to the object.
 aoChildReference :: Lens' AttachObject ObjectReference
-aoChildReference = lens _aoChildReference (\ s a -> s{_aoChildReference = a});
+aoChildReference = lens _aoChildReference (\ s a -> s{_aoChildReference = a})
 
 -- | The link name with which the child object is attached to the parent.
 aoLinkName :: Lens' AttachObject Text
-aoLinkName = lens _aoLinkName (\ s a -> s{_aoLinkName = a});
+aoLinkName = lens _aoLinkName (\ s a -> s{_aoLinkName = a})
 
 instance AWSRequest AttachObject where
         type Rs AttachObject = AttachObjectResponse
@@ -157,17 +157,17 @@ attachObjectResponse
     -> AttachObjectResponse
 attachObjectResponse pResponseStatus_ =
   AttachObjectResponse'
-  { _aorsAttachedObjectIdentifier = Nothing
-  , _aorsResponseStatus = pResponseStatus_
-  }
+    { _aorsAttachedObjectIdentifier = Nothing
+    , _aorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
 aorsAttachedObjectIdentifier :: Lens' AttachObjectResponse (Maybe Text)
-aorsAttachedObjectIdentifier = lens _aorsAttachedObjectIdentifier (\ s a -> s{_aorsAttachedObjectIdentifier = a});
+aorsAttachedObjectIdentifier = lens _aorsAttachedObjectIdentifier (\ s a -> s{_aorsAttachedObjectIdentifier = a})
 
 -- | -- | The response status code.
 aorsResponseStatus :: Lens' AttachObjectResponse Int
-aorsResponseStatus = lens _aorsResponseStatus (\ s a -> s{_aorsResponseStatus = a});
+aorsResponseStatus = lens _aorsResponseStatus (\ s a -> s{_aorsResponseStatus = a})
 
 instance NFData AttachObjectResponse where

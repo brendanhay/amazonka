@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSecurityGroupReferences
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,16 +63,16 @@ describeSecurityGroupReferences
     :: DescribeSecurityGroupReferences
 describeSecurityGroupReferences =
   DescribeSecurityGroupReferences'
-  {_dsgrDryRun = Nothing, _dsgrGroupId = mempty}
+    {_dsgrDryRun = Nothing, _dsgrGroupId = mempty}
 
 
 -- | Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 dsgrDryRun :: Lens' DescribeSecurityGroupReferences (Maybe Bool)
-dsgrDryRun = lens _dsgrDryRun (\ s a -> s{_dsgrDryRun = a});
+dsgrDryRun = lens _dsgrDryRun (\ s a -> s{_dsgrDryRun = a})
 
 -- | One or more security group IDs in your account.
 dsgrGroupId :: Lens' DescribeSecurityGroupReferences [Text]
-dsgrGroupId = lens _dsgrGroupId (\ s a -> s{_dsgrGroupId = a}) . _Coerce;
+dsgrGroupId = lens _dsgrGroupId (\ s a -> s{_dsgrGroupId = a}) . _Coerce
 
 instance AWSRequest DescribeSecurityGroupReferences
          where
@@ -128,18 +128,18 @@ describeSecurityGroupReferencesResponse
     -> DescribeSecurityGroupReferencesResponse
 describeSecurityGroupReferencesResponse pResponseStatus_ =
   DescribeSecurityGroupReferencesResponse'
-  { _dsgrrsSecurityGroupReferenceSet = Nothing
-  , _dsgrrsResponseStatus = pResponseStatus_
-  }
+    { _dsgrrsSecurityGroupReferenceSet = Nothing
+    , _dsgrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the VPCs with the referencing security groups.
 dsgrrsSecurityGroupReferenceSet :: Lens' DescribeSecurityGroupReferencesResponse [SecurityGroupReference]
-dsgrrsSecurityGroupReferenceSet = lens _dsgrrsSecurityGroupReferenceSet (\ s a -> s{_dsgrrsSecurityGroupReferenceSet = a}) . _Default . _Coerce;
+dsgrrsSecurityGroupReferenceSet = lens _dsgrrsSecurityGroupReferenceSet (\ s a -> s{_dsgrrsSecurityGroupReferenceSet = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsgrrsResponseStatus :: Lens' DescribeSecurityGroupReferencesResponse Int
-dsgrrsResponseStatus = lens _dsgrrsResponseStatus (\ s a -> s{_dsgrrsResponseStatus = a});
+dsgrrsResponseStatus = lens _dsgrrsResponseStatus (\ s a -> s{_dsgrrsResponseStatus = a})
 
 instance NFData
            DescribeSecurityGroupReferencesResponse

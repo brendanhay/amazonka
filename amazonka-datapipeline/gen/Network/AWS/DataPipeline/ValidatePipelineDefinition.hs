@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.ValidatePipelineDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,28 +78,28 @@ validatePipelineDefinition
     -> ValidatePipelineDefinition
 validatePipelineDefinition pPipelineId_ =
   ValidatePipelineDefinition'
-  { _vpdParameterObjects = Nothing
-  , _vpdParameterValues = Nothing
-  , _vpdPipelineId = pPipelineId_
-  , _vpdPipelineObjects = mempty
-  }
+    { _vpdParameterObjects = Nothing
+    , _vpdParameterValues = Nothing
+    , _vpdPipelineId = pPipelineId_
+    , _vpdPipelineObjects = mempty
+    }
 
 
 -- | The parameter objects used with the pipeline.
 vpdParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
-vpdParameterObjects = lens _vpdParameterObjects (\ s a -> s{_vpdParameterObjects = a}) . _Default . _Coerce;
+vpdParameterObjects = lens _vpdParameterObjects (\ s a -> s{_vpdParameterObjects = a}) . _Default . _Coerce
 
 -- | The parameter values used with the pipeline.
 vpdParameterValues :: Lens' ValidatePipelineDefinition [ParameterValue]
-vpdParameterValues = lens _vpdParameterValues (\ s a -> s{_vpdParameterValues = a}) . _Default . _Coerce;
+vpdParameterValues = lens _vpdParameterValues (\ s a -> s{_vpdParameterValues = a}) . _Default . _Coerce
 
 -- | The ID of the pipeline.
 vpdPipelineId :: Lens' ValidatePipelineDefinition Text
-vpdPipelineId = lens _vpdPipelineId (\ s a -> s{_vpdPipelineId = a});
+vpdPipelineId = lens _vpdPipelineId (\ s a -> s{_vpdPipelineId = a})
 
 -- | The objects that define the pipeline changes to validate against the pipeline.
 vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
-vpdPipelineObjects = lens _vpdPipelineObjects (\ s a -> s{_vpdPipelineObjects = a}) . _Coerce;
+vpdPipelineObjects = lens _vpdPipelineObjects (\ s a -> s{_vpdPipelineObjects = a}) . _Coerce
 
 instance AWSRequest ValidatePipelineDefinition where
         type Rs ValidatePipelineDefinition =
@@ -173,28 +173,28 @@ validatePipelineDefinitionResponse
     -> ValidatePipelineDefinitionResponse
 validatePipelineDefinitionResponse pResponseStatus_ pErrored_ =
   ValidatePipelineDefinitionResponse'
-  { _vpdrsValidationErrors = Nothing
-  , _vpdrsValidationWarnings = Nothing
-  , _vpdrsResponseStatus = pResponseStatus_
-  , _vpdrsErrored = pErrored_
-  }
+    { _vpdrsValidationErrors = Nothing
+    , _vpdrsValidationWarnings = Nothing
+    , _vpdrsResponseStatus = pResponseStatus_
+    , _vpdrsErrored = pErrored_
+    }
 
 
 -- | Any validation errors that were found.
 vpdrsValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
-vpdrsValidationErrors = lens _vpdrsValidationErrors (\ s a -> s{_vpdrsValidationErrors = a}) . _Default . _Coerce;
+vpdrsValidationErrors = lens _vpdrsValidationErrors (\ s a -> s{_vpdrsValidationErrors = a}) . _Default . _Coerce
 
 -- | Any validation warnings that were found.
 vpdrsValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
-vpdrsValidationWarnings = lens _vpdrsValidationWarnings (\ s a -> s{_vpdrsValidationWarnings = a}) . _Default . _Coerce;
+vpdrsValidationWarnings = lens _vpdrsValidationWarnings (\ s a -> s{_vpdrsValidationWarnings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 vpdrsResponseStatus :: Lens' ValidatePipelineDefinitionResponse Int
-vpdrsResponseStatus = lens _vpdrsResponseStatus (\ s a -> s{_vpdrsResponseStatus = a});
+vpdrsResponseStatus = lens _vpdrsResponseStatus (\ s a -> s{_vpdrsResponseStatus = a})
 
 -- | Indicates whether there were validation errors.
 vpdrsErrored :: Lens' ValidatePipelineDefinitionResponse Bool
-vpdrsErrored = lens _vpdrsErrored (\ s a -> s{_vpdrsErrored = a});
+vpdrsErrored = lens _vpdrsErrored (\ s a -> s{_vpdrsErrored = a})
 
 instance NFData ValidatePipelineDefinitionResponse
          where

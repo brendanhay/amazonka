@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PollForJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about any jobs for AWS CodePipeline to act upon.
+-- Returns information about any jobs for AWS CodePipeline to act upon. PollForJobs is only valid for action types with "Custom" in the owner field. If the action type contains "AWS" or "ThirdParty" in the owner field, the PollForJobs action returns an error.
 --
 --
 -- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
@@ -74,23 +74,23 @@ pollForJobs
     -> PollForJobs
 pollForJobs pActionTypeId_ =
   PollForJobs'
-  { _pfjMaxBatchSize = Nothing
-  , _pfjQueryParam = Nothing
-  , _pfjActionTypeId = pActionTypeId_
-  }
+    { _pfjMaxBatchSize = Nothing
+    , _pfjQueryParam = Nothing
+    , _pfjActionTypeId = pActionTypeId_
+    }
 
 
 -- | The maximum number of jobs to return in a poll for jobs call.
 pfjMaxBatchSize :: Lens' PollForJobs (Maybe Natural)
-pfjMaxBatchSize = lens _pfjMaxBatchSize (\ s a -> s{_pfjMaxBatchSize = a}) . mapping _Nat;
+pfjMaxBatchSize = lens _pfjMaxBatchSize (\ s a -> s{_pfjMaxBatchSize = a}) . mapping _Nat
 
 -- | A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value will be returned.
 pfjQueryParam :: Lens' PollForJobs (HashMap Text Text)
-pfjQueryParam = lens _pfjQueryParam (\ s a -> s{_pfjQueryParam = a}) . _Default . _Map;
+pfjQueryParam = lens _pfjQueryParam (\ s a -> s{_pfjQueryParam = a}) . _Default . _Map
 
 -- | Represents information about an action type.
 pfjActionTypeId :: Lens' PollForJobs ActionTypeId
-pfjActionTypeId = lens _pfjActionTypeId (\ s a -> s{_pfjActionTypeId = a});
+pfjActionTypeId = lens _pfjActionTypeId (\ s a -> s{_pfjActionTypeId = a})
 
 instance AWSRequest PollForJobs where
         type Rs PollForJobs = PollForJobsResponse
@@ -151,15 +151,15 @@ pollForJobsResponse
     -> PollForJobsResponse
 pollForJobsResponse pResponseStatus_ =
   PollForJobsResponse'
-  {_pfjrsJobs = Nothing, _pfjrsResponseStatus = pResponseStatus_}
+    {_pfjrsJobs = Nothing, _pfjrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the jobs to take action on.
 pfjrsJobs :: Lens' PollForJobsResponse [Job]
-pfjrsJobs = lens _pfjrsJobs (\ s a -> s{_pfjrsJobs = a}) . _Default . _Coerce;
+pfjrsJobs = lens _pfjrsJobs (\ s a -> s{_pfjrsJobs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 pfjrsResponseStatus :: Lens' PollForJobsResponse Int
-pfjrsResponseStatus = lens _pfjrsResponseStatus (\ s a -> s{_pfjrsResponseStatus = a});
+pfjrsResponseStatus = lens _pfjrsResponseStatus (\ s a -> s{_pfjrsResponseStatus = a})
 
 instance NFData PollForJobsResponse where

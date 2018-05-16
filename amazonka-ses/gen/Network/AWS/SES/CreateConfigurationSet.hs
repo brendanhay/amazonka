@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.CreateConfigurationSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ createConfigurationSet pConfigurationSet_ =
 
 -- | A data structure that contains the name of the configuration set.
 ccsConfigurationSet :: Lens' CreateConfigurationSet ConfigurationSet
-ccsConfigurationSet = lens _ccsConfigurationSet (\ s a -> s{_ccsConfigurationSet = a});
+ccsConfigurationSet = lens _ccsConfigurationSet (\ s a -> s{_ccsConfigurationSet = a})
 
 instance AWSRequest CreateConfigurationSet where
         type Rs CreateConfigurationSet =
@@ -125,6 +125,6 @@ createConfigurationSetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ccsrsResponseStatus :: Lens' CreateConfigurationSetResponse Int
-ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a});
+ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a})
 
 instance NFData CreateConfigurationSetResponse where

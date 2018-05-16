@@ -8,7 +8,7 @@
 
 ## Version
 
-`1.5.0`
+`1.6.0`
 
 
 ## Description
@@ -26,7 +26,7 @@ de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
-See [Network.AWS.IoTDataPlane](http://hackage.haskell.org/package/amazonka-iot-dataplane/docs/Network-AWS-IoTDataPlane.html)
+See [Network.AWS.IoTData](http://hackage.haskell.org/package/amazonka-iot-dataplane/docs/Network-AWS-IoTData.html)
 or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
 
 

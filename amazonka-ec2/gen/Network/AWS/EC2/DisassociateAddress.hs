@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisassociateAddress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,20 +72,20 @@ disassociateAddress
     :: DisassociateAddress
 disassociateAddress =
   DisassociateAddress'
-  {_dasAssociationId = Nothing, _dasPublicIP = Nothing, _dasDryRun = Nothing}
+    {_dasAssociationId = Nothing, _dasPublicIP = Nothing, _dasDryRun = Nothing}
 
 
 -- | [EC2-VPC] The association ID. Required for EC2-VPC.
 dasAssociationId :: Lens' DisassociateAddress (Maybe Text)
-dasAssociationId = lens _dasAssociationId (\ s a -> s{_dasAssociationId = a});
+dasAssociationId = lens _dasAssociationId (\ s a -> s{_dasAssociationId = a})
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
 dasPublicIP :: Lens' DisassociateAddress (Maybe Text)
-dasPublicIP = lens _dasPublicIP (\ s a -> s{_dasPublicIP = a});
+dasPublicIP = lens _dasPublicIP (\ s a -> s{_dasPublicIP = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dasDryRun :: Lens' DisassociateAddress (Maybe Bool)
-dasDryRun = lens _dasDryRun (\ s a -> s{_dasDryRun = a});
+dasDryRun = lens _dasDryRun (\ s a -> s{_dasDryRun = a})
 
 instance AWSRequest DisassociateAddress where
         type Rs DisassociateAddress =

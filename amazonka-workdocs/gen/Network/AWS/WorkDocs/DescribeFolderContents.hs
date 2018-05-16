@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeFolderContents
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,7 +77,7 @@ data DescribeFolderContents = DescribeFolderContents'
 --
 -- * 'dfcsInclude' - The contents to include. Specify "INITIALIZED" to include initialized documents.
 --
--- * 'dfcsAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'dfcsAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'dfcsSort' - The sorting criteria.
 --
@@ -95,48 +95,48 @@ describeFolderContents
     -> DescribeFolderContents
 describeFolderContents pFolderId_ =
   DescribeFolderContents'
-  { _dfcsInclude = Nothing
-  , _dfcsAuthenticationToken = Nothing
-  , _dfcsSort = Nothing
-  , _dfcsMarker = Nothing
-  , _dfcsLimit = Nothing
-  , _dfcsType = Nothing
-  , _dfcsOrder = Nothing
-  , _dfcsFolderId = pFolderId_
-  }
+    { _dfcsInclude = Nothing
+    , _dfcsAuthenticationToken = Nothing
+    , _dfcsSort = Nothing
+    , _dfcsMarker = Nothing
+    , _dfcsLimit = Nothing
+    , _dfcsType = Nothing
+    , _dfcsOrder = Nothing
+    , _dfcsFolderId = pFolderId_
+    }
 
 
 -- | The contents to include. Specify "INITIALIZED" to include initialized documents.
 dfcsInclude :: Lens' DescribeFolderContents (Maybe Text)
-dfcsInclude = lens _dfcsInclude (\ s a -> s{_dfcsInclude = a});
+dfcsInclude = lens _dfcsInclude (\ s a -> s{_dfcsInclude = a})
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 dfcsAuthenticationToken :: Lens' DescribeFolderContents (Maybe Text)
-dfcsAuthenticationToken = lens _dfcsAuthenticationToken (\ s a -> s{_dfcsAuthenticationToken = a}) . mapping _Sensitive;
+dfcsAuthenticationToken = lens _dfcsAuthenticationToken (\ s a -> s{_dfcsAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The sorting criteria.
 dfcsSort :: Lens' DescribeFolderContents (Maybe ResourceSortType)
-dfcsSort = lens _dfcsSort (\ s a -> s{_dfcsSort = a});
+dfcsSort = lens _dfcsSort (\ s a -> s{_dfcsSort = a})
 
 -- | The marker for the next set of results. This marker was received from a previous call.
 dfcsMarker :: Lens' DescribeFolderContents (Maybe Text)
-dfcsMarker = lens _dfcsMarker (\ s a -> s{_dfcsMarker = a});
+dfcsMarker = lens _dfcsMarker (\ s a -> s{_dfcsMarker = a})
 
 -- | The maximum number of items to return with this call.
 dfcsLimit :: Lens' DescribeFolderContents (Maybe Natural)
-dfcsLimit = lens _dfcsLimit (\ s a -> s{_dfcsLimit = a}) . mapping _Nat;
+dfcsLimit = lens _dfcsLimit (\ s a -> s{_dfcsLimit = a}) . mapping _Nat
 
 -- | The type of items.
 dfcsType :: Lens' DescribeFolderContents (Maybe FolderContentType)
-dfcsType = lens _dfcsType (\ s a -> s{_dfcsType = a});
+dfcsType = lens _dfcsType (\ s a -> s{_dfcsType = a})
 
 -- | The order for the contents of the folder.
 dfcsOrder :: Lens' DescribeFolderContents (Maybe OrderType)
-dfcsOrder = lens _dfcsOrder (\ s a -> s{_dfcsOrder = a});
+dfcsOrder = lens _dfcsOrder (\ s a -> s{_dfcsOrder = a})
 
 -- | The ID of the folder.
 dfcsFolderId :: Lens' DescribeFolderContents Text
-dfcsFolderId = lens _dfcsFolderId (\ s a -> s{_dfcsFolderId = a});
+dfcsFolderId = lens _dfcsFolderId (\ s a -> s{_dfcsFolderId = a})
 
 instance AWSPager DescribeFolderContents where
         page rq rs
@@ -207,27 +207,27 @@ describeFolderContentsResponse
     -> DescribeFolderContentsResponse
 describeFolderContentsResponse pResponseStatus_ =
   DescribeFolderContentsResponse'
-  { _dfcrsFolders = Nothing
-  , _dfcrsDocuments = Nothing
-  , _dfcrsMarker = Nothing
-  , _dfcrsResponseStatus = pResponseStatus_
-  }
+    { _dfcrsFolders = Nothing
+    , _dfcrsDocuments = Nothing
+    , _dfcrsMarker = Nothing
+    , _dfcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The subfolders in the specified folder.
 dfcrsFolders :: Lens' DescribeFolderContentsResponse [FolderMetadata]
-dfcrsFolders = lens _dfcrsFolders (\ s a -> s{_dfcrsFolders = a}) . _Default . _Coerce;
+dfcrsFolders = lens _dfcrsFolders (\ s a -> s{_dfcrsFolders = a}) . _Default . _Coerce
 
 -- | The documents in the specified folder.
 dfcrsDocuments :: Lens' DescribeFolderContentsResponse [DocumentMetadata]
-dfcrsDocuments = lens _dfcrsDocuments (\ s a -> s{_dfcrsDocuments = a}) . _Default . _Coerce;
+dfcrsDocuments = lens _dfcrsDocuments (\ s a -> s{_dfcrsDocuments = a}) . _Default . _Coerce
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dfcrsMarker :: Lens' DescribeFolderContentsResponse (Maybe Text)
-dfcrsMarker = lens _dfcrsMarker (\ s a -> s{_dfcrsMarker = a});
+dfcrsMarker = lens _dfcrsMarker (\ s a -> s{_dfcrsMarker = a})
 
 -- | -- | The response status code.
 dfcrsResponseStatus :: Lens' DescribeFolderContentsResponse Int
-dfcrsResponseStatus = lens _dfcrsResponseStatus (\ s a -> s{_dfcrsResponseStatus = a});
+dfcrsResponseStatus = lens _dfcrsResponseStatus (\ s a -> s{_dfcrsResponseStatus = a})
 
 instance NFData DescribeFolderContentsResponse where

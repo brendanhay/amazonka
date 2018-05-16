@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteHSMClientCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,12 +61,12 @@ deleteHSMClientCertificate
     -> DeleteHSMClientCertificate
 deleteHSMClientCertificate pHSMClientCertificateIdentifier_ =
   DeleteHSMClientCertificate'
-  {_dhsmccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_}
+    {_dhsmccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_}
 
 
 -- | The identifier of the HSM client certificate to be deleted.
 dhsmccHSMClientCertificateIdentifier :: Lens' DeleteHSMClientCertificate Text
-dhsmccHSMClientCertificateIdentifier = lens _dhsmccHSMClientCertificateIdentifier (\ s a -> s{_dhsmccHSMClientCertificateIdentifier = a});
+dhsmccHSMClientCertificateIdentifier = lens _dhsmccHSMClientCertificateIdentifier (\ s a -> s{_dhsmccHSMClientCertificateIdentifier = a})
 
 instance AWSRequest DeleteHSMClientCertificate where
         type Rs DeleteHSMClientCertificate =

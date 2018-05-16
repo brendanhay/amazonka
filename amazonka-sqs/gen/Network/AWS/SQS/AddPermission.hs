@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.AddPermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ addPermission
     -> AddPermission
 addPermission pQueueURL_ pLabel_ =
   AddPermission'
-  { _apQueueURL = pQueueURL_
-  , _apLabel = pLabel_
-  , _apAWSAccountIds = mempty
-  , _apActions = mempty
-  }
+    { _apQueueURL = pQueueURL_
+    , _apLabel = pLabel_
+    , _apAWSAccountIds = mempty
+    , _apActions = mempty
+    }
 
 
 -- | The URL of the Amazon SQS queue to which permissions are added. Queue URLs are case-sensitive.
 apQueueURL :: Lens' AddPermission Text
-apQueueURL = lens _apQueueURL (\ s a -> s{_apQueueURL = a});
+apQueueURL = lens _apQueueURL (\ s a -> s{_apQueueURL = a})
 
 -- | The unique identification of the permission you're setting (for example, @AliceSendMessage@ ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
 apLabel :: Lens' AddPermission Text
-apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
+apLabel = lens _apLabel (\ s a -> s{_apLabel = a})
 
 -- | The AWS account number of the <http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers> in the /Amazon Simple Queue Service Developer Guide/ .
 apAWSAccountIds :: Lens' AddPermission [Text]
-apAWSAccountIds = lens _apAWSAccountIds (\ s a -> s{_apAWSAccountIds = a}) . _Coerce;
+apAWSAccountIds = lens _apAWSAccountIds (\ s a -> s{_apAWSAccountIds = a}) . _Coerce
 
 -- | The action the client wants to allow for the specified principal. The following values are valid:     * @*@      * @ChangeMessageVisibility@      * @DeleteMessage@      * @GetQueueAttributes@      * @GetQueueUrl@      * @ReceiveMessage@      * @SendMessage@  For more information about these actions, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes Understanding Permissions> in the /Amazon Simple Queue Service Developer Guide/ . Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
 apActions :: Lens' AddPermission [Text]
-apActions = lens _apActions (\ s a -> s{_apActions = a}) . _Coerce;
+apActions = lens _apActions (\ s a -> s{_apActions = a}) . _Coerce
 
 instance AWSRequest AddPermission where
         type Rs AddPermission = AddPermissionResponse

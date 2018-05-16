@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetTables
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Retrieves the definitions of some or all of the tables in a given @Database@ .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Glue.GetTables
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.Glue.GetTables
 import Network.AWS.Glue.Types
 import Network.AWS.Glue.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -71,39 +74,46 @@ data GetTables = GetTables'
 --
 -- * 'gtMaxResults' - The maximum number of tables to return in a single response.
 --
--- * 'gtDatabaseName' - The database in the catalog whose tables to list.
+-- * 'gtDatabaseName' - The database in the catalog whose tables to list. For Hive compatibility, this name is entirely lowercase.
 getTables
     :: Text -- ^ 'gtDatabaseName'
     -> GetTables
 getTables pDatabaseName_ =
   GetTables'
-  { _gtCatalogId = Nothing
-  , _gtNextToken = Nothing
-  , _gtExpression = Nothing
-  , _gtMaxResults = Nothing
-  , _gtDatabaseName = pDatabaseName_
-  }
+    { _gtCatalogId = Nothing
+    , _gtNextToken = Nothing
+    , _gtExpression = Nothing
+    , _gtMaxResults = Nothing
+    , _gtDatabaseName = pDatabaseName_
+    }
 
 
 -- | The ID of the Data Catalog where the tables reside. If none is supplied, the AWS account ID is used by default.
 gtCatalogId :: Lens' GetTables (Maybe Text)
-gtCatalogId = lens _gtCatalogId (\ s a -> s{_gtCatalogId = a});
+gtCatalogId = lens _gtCatalogId (\ s a -> s{_gtCatalogId = a})
 
 -- | A continuation token, included if this is a continuation call.
 gtNextToken :: Lens' GetTables (Maybe Text)
-gtNextToken = lens _gtNextToken (\ s a -> s{_gtNextToken = a});
+gtNextToken = lens _gtNextToken (\ s a -> s{_gtNextToken = a})
 
 -- | A regular expression pattern. If present, only those tables whose names match the pattern are returned.
 gtExpression :: Lens' GetTables (Maybe Text)
-gtExpression = lens _gtExpression (\ s a -> s{_gtExpression = a});
+gtExpression = lens _gtExpression (\ s a -> s{_gtExpression = a})
 
 -- | The maximum number of tables to return in a single response.
 gtMaxResults :: Lens' GetTables (Maybe Natural)
-gtMaxResults = lens _gtMaxResults (\ s a -> s{_gtMaxResults = a}) . mapping _Nat;
+gtMaxResults = lens _gtMaxResults (\ s a -> s{_gtMaxResults = a}) . mapping _Nat
 
--- | The database in the catalog whose tables to list.
+-- | The database in the catalog whose tables to list. For Hive compatibility, this name is entirely lowercase.
 gtDatabaseName :: Lens' GetTables Text
-gtDatabaseName = lens _gtDatabaseName (\ s a -> s{_gtDatabaseName = a});
+gtDatabaseName = lens _gtDatabaseName (\ s a -> s{_gtDatabaseName = a})
+
+instance AWSPager GetTables where
+        page rq rs
+          | stop (rs ^. gtsrsNextToken) = Nothing
+          | stop (rs ^. gtsrsTableList) = Nothing
+          | otherwise =
+            Just $ rq & gtNextToken .~ rs ^. gtsrsNextToken
 
 instance AWSRequest GetTables where
         type Rs GetTables = GetTablesResponse
@@ -167,22 +177,22 @@ getTablesResponse
     -> GetTablesResponse
 getTablesResponse pResponseStatus_ =
   GetTablesResponse'
-  { _gtsrsTableList = Nothing
-  , _gtsrsNextToken = Nothing
-  , _gtsrsResponseStatus = pResponseStatus_
-  }
+    { _gtsrsTableList = Nothing
+    , _gtsrsNextToken = Nothing
+    , _gtsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of the requested @Table@ objects.
 gtsrsTableList :: Lens' GetTablesResponse [Table]
-gtsrsTableList = lens _gtsrsTableList (\ s a -> s{_gtsrsTableList = a}) . _Default . _Coerce;
+gtsrsTableList = lens _gtsrsTableList (\ s a -> s{_gtsrsTableList = a}) . _Default . _Coerce
 
 -- | A continuation token, present if the current list segment is not the last.
 gtsrsNextToken :: Lens' GetTablesResponse (Maybe Text)
-gtsrsNextToken = lens _gtsrsNextToken (\ s a -> s{_gtsrsNextToken = a});
+gtsrsNextToken = lens _gtsrsNextToken (\ s a -> s{_gtsrsNextToken = a})
 
 -- | -- | The response status code.
 gtsrsResponseStatus :: Lens' GetTablesResponse Int
-gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
+gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a})
 
 instance NFData GetTablesResponse where

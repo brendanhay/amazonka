@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateMyUserProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ updateMyUserProfile = UpdateMyUserProfile' {_umupSSHPublicKey = Nothing}
 
 -- | The user's SSH public key.
 umupSSHPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
-umupSSHPublicKey = lens _umupSSHPublicKey (\ s a -> s{_umupSSHPublicKey = a});
+umupSSHPublicKey = lens _umupSSHPublicKey (\ s a -> s{_umupSSHPublicKey = a})
 
 instance AWSRequest UpdateMyUserProfile where
         type Rs UpdateMyUserProfile =

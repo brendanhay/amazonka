@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CloudFront
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,14 +34,44 @@ import Test.Tasty
 --         , requestUpdateStreamingDistribution $
 --             updateStreamingDistribution
 --
+--         , requestListPublicKeys $
+--             listPublicKeys
+--
+--         , requestGetFieldLevelEncryptionConfig $
+--             getFieldLevelEncryptionConfig
+--
 --         , requestListTagsForResource $
 --             listTagsForResource
+--
+--         , requestCreatePublicKey $
+--             createPublicKey
+--
+--         , requestGetPublicKeyConfig $
+--             getPublicKeyConfig
 --
 --         , requestCreateDistributionWithTags $
 --             createDistributionWithTags
 --
+--         , requestCreateFieldLevelEncryptionConfig $
+--             createFieldLevelEncryptionConfig
+--
+--         , requestGetFieldLevelEncryption $
+--             getFieldLevelEncryption
+--
+--         , requestGetPublicKey $
+--             getPublicKey
+--
+--         , requestDeleteFieldLevelEncryptionConfig $
+--             deleteFieldLevelEncryptionConfig
+--
+--         , requestUpdateFieldLevelEncryptionConfig $
+--             updateFieldLevelEncryptionConfig
+--
 --         , requestCreateDistribution $
 --             createDistribution
+--
+--         , requestGetFieldLevelEncryptionProfile $
+--             getFieldLevelEncryptionProfile
 --
 --         , requestGetDistributionConfig $
 --             getDistributionConfig
@@ -49,11 +79,23 @@ import Test.Tasty
 --         , requestCreateStreamingDistributionWithTags $
 --             createStreamingDistributionWithTags
 --
+--         , requestDeleteFieldLevelEncryptionProfile $
+--             deleteFieldLevelEncryptionProfile
+--
+--         , requestUpdateFieldLevelEncryptionProfile $
+--             updateFieldLevelEncryptionProfile
+--
 --         , requestDeleteServiceLinkedRole $
 --             deleteServiceLinkedRole
 --
+--         , requestCreateFieldLevelEncryptionProfile $
+--             createFieldLevelEncryptionProfile
+--
 --         , requestGetDistribution $
 --             getDistribution
+--
+--         , requestGetFieldLevelEncryptionProfileConfig $
+--             getFieldLevelEncryptionProfileConfig
 --
 --         , requestUpdateCloudFrontOriginAccessIdentity $
 --             updateCloudFrontOriginAccessIdentity
@@ -63,6 +105,12 @@ import Test.Tasty
 --
 --         , requestListStreamingDistributions $
 --             listStreamingDistributions
+--
+--         , requestDeletePublicKey $
+--             deletePublicKey
+--
+--         , requestUpdatePublicKey $
+--             updatePublicKey
 --
 --         , requestGetStreamingDistributionConfig $
 --             getStreamingDistributionConfig
@@ -91,6 +139,9 @@ import Test.Tasty
 --         , requestGetCloudFrontOriginAccessIdentity $
 --             getCloudFrontOriginAccessIdentity
 --
+--         , requestListFieldLevelEncryptionConfigs $
+--             listFieldLevelEncryptionConfigs
+--
 --         , requestTagResource $
 --             tagResource
 --
@@ -112,6 +163,9 @@ import Test.Tasty
 --         , requestListDistributions $
 --             listDistributions
 --
+--         , requestListFieldLevelEncryptionProfiles $
+--             listFieldLevelEncryptionProfiles
+--
 --           ]
 
 --     , testGroup "response"
@@ -121,14 +175,44 @@ import Test.Tasty
 --         , responseUpdateStreamingDistribution $
 --             updateStreamingDistributionResponse
 --
+--         , responseListPublicKeys $
+--             listPublicKeysResponse
+--
+--         , responseGetFieldLevelEncryptionConfig $
+--             getFieldLevelEncryptionConfigResponse
+--
 --         , responseListTagsForResource $
 --             listTagsForResourceResponse
+--
+--         , responseCreatePublicKey $
+--             createPublicKeyResponse
+--
+--         , responseGetPublicKeyConfig $
+--             getPublicKeyConfigResponse
 --
 --         , responseCreateDistributionWithTags $
 --             createDistributionWithTagsResponse
 --
+--         , responseCreateFieldLevelEncryptionConfig $
+--             createFieldLevelEncryptionConfigResponse
+--
+--         , responseGetFieldLevelEncryption $
+--             getFieldLevelEncryptionResponse
+--
+--         , responseGetPublicKey $
+--             getPublicKeyResponse
+--
+--         , responseDeleteFieldLevelEncryptionConfig $
+--             deleteFieldLevelEncryptionConfigResponse
+--
+--         , responseUpdateFieldLevelEncryptionConfig $
+--             updateFieldLevelEncryptionConfigResponse
+--
 --         , responseCreateDistribution $
 --             createDistributionResponse
+--
+--         , responseGetFieldLevelEncryptionProfile $
+--             getFieldLevelEncryptionProfileResponse
 --
 --         , responseGetDistributionConfig $
 --             getDistributionConfigResponse
@@ -136,11 +220,23 @@ import Test.Tasty
 --         , responseCreateStreamingDistributionWithTags $
 --             createStreamingDistributionWithTagsResponse
 --
+--         , responseDeleteFieldLevelEncryptionProfile $
+--             deleteFieldLevelEncryptionProfileResponse
+--
+--         , responseUpdateFieldLevelEncryptionProfile $
+--             updateFieldLevelEncryptionProfileResponse
+--
 --         , responseDeleteServiceLinkedRole $
 --             deleteServiceLinkedRoleResponse
 --
+--         , responseCreateFieldLevelEncryptionProfile $
+--             createFieldLevelEncryptionProfileResponse
+--
 --         , responseGetDistribution $
 --             getDistributionResponse
+--
+--         , responseGetFieldLevelEncryptionProfileConfig $
+--             getFieldLevelEncryptionProfileConfigResponse
 --
 --         , responseUpdateCloudFrontOriginAccessIdentity $
 --             updateCloudFrontOriginAccessIdentityResponse
@@ -150,6 +246,12 @@ import Test.Tasty
 --
 --         , responseListStreamingDistributions $
 --             listStreamingDistributionsResponse
+--
+--         , responseDeletePublicKey $
+--             deletePublicKeyResponse
+--
+--         , responseUpdatePublicKey $
+--             updatePublicKeyResponse
 --
 --         , responseGetStreamingDistributionConfig $
 --             getStreamingDistributionConfigResponse
@@ -178,6 +280,9 @@ import Test.Tasty
 --         , responseGetCloudFrontOriginAccessIdentity $
 --             getCloudFrontOriginAccessIdentityResponse
 --
+--         , responseListFieldLevelEncryptionConfigs $
+--             listFieldLevelEncryptionConfigsResponse
+--
 --         , responseTagResource $
 --             tagResourceResponse
 --
@@ -199,6 +304,9 @@ import Test.Tasty
 --         , responseListDistributions $
 --             listDistributionsResponse
 --
+--         , responseListFieldLevelEncryptionProfiles $
+--             listFieldLevelEncryptionProfilesResponse
+--
 --           ]
 --     ]
 
@@ -214,20 +322,70 @@ requestUpdateStreamingDistribution = req
     "UpdateStreamingDistribution"
     "fixture/UpdateStreamingDistribution.yaml"
 
+requestListPublicKeys :: ListPublicKeys -> TestTree
+requestListPublicKeys = req
+    "ListPublicKeys"
+    "fixture/ListPublicKeys.yaml"
+
+requestGetFieldLevelEncryptionConfig :: GetFieldLevelEncryptionConfig -> TestTree
+requestGetFieldLevelEncryptionConfig = req
+    "GetFieldLevelEncryptionConfig"
+    "fixture/GetFieldLevelEncryptionConfig.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestCreatePublicKey :: CreatePublicKey -> TestTree
+requestCreatePublicKey = req
+    "CreatePublicKey"
+    "fixture/CreatePublicKey.yaml"
+
+requestGetPublicKeyConfig :: GetPublicKeyConfig -> TestTree
+requestGetPublicKeyConfig = req
+    "GetPublicKeyConfig"
+    "fixture/GetPublicKeyConfig.yaml"
 
 requestCreateDistributionWithTags :: CreateDistributionWithTags -> TestTree
 requestCreateDistributionWithTags = req
     "CreateDistributionWithTags"
     "fixture/CreateDistributionWithTags.yaml"
 
+requestCreateFieldLevelEncryptionConfig :: CreateFieldLevelEncryptionConfig -> TestTree
+requestCreateFieldLevelEncryptionConfig = req
+    "CreateFieldLevelEncryptionConfig"
+    "fixture/CreateFieldLevelEncryptionConfig.yaml"
+
+requestGetFieldLevelEncryption :: GetFieldLevelEncryption -> TestTree
+requestGetFieldLevelEncryption = req
+    "GetFieldLevelEncryption"
+    "fixture/GetFieldLevelEncryption.yaml"
+
+requestGetPublicKey :: GetPublicKey -> TestTree
+requestGetPublicKey = req
+    "GetPublicKey"
+    "fixture/GetPublicKey.yaml"
+
+requestDeleteFieldLevelEncryptionConfig :: DeleteFieldLevelEncryptionConfig -> TestTree
+requestDeleteFieldLevelEncryptionConfig = req
+    "DeleteFieldLevelEncryptionConfig"
+    "fixture/DeleteFieldLevelEncryptionConfig.yaml"
+
+requestUpdateFieldLevelEncryptionConfig :: UpdateFieldLevelEncryptionConfig -> TestTree
+requestUpdateFieldLevelEncryptionConfig = req
+    "UpdateFieldLevelEncryptionConfig"
+    "fixture/UpdateFieldLevelEncryptionConfig.yaml"
+
 requestCreateDistribution :: CreateDistribution -> TestTree
 requestCreateDistribution = req
     "CreateDistribution"
     "fixture/CreateDistribution.yaml"
+
+requestGetFieldLevelEncryptionProfile :: GetFieldLevelEncryptionProfile -> TestTree
+requestGetFieldLevelEncryptionProfile = req
+    "GetFieldLevelEncryptionProfile"
+    "fixture/GetFieldLevelEncryptionProfile.yaml"
 
 requestGetDistributionConfig :: GetDistributionConfig -> TestTree
 requestGetDistributionConfig = req
@@ -239,15 +397,35 @@ requestCreateStreamingDistributionWithTags = req
     "CreateStreamingDistributionWithTags"
     "fixture/CreateStreamingDistributionWithTags.yaml"
 
+requestDeleteFieldLevelEncryptionProfile :: DeleteFieldLevelEncryptionProfile -> TestTree
+requestDeleteFieldLevelEncryptionProfile = req
+    "DeleteFieldLevelEncryptionProfile"
+    "fixture/DeleteFieldLevelEncryptionProfile.yaml"
+
+requestUpdateFieldLevelEncryptionProfile :: UpdateFieldLevelEncryptionProfile -> TestTree
+requestUpdateFieldLevelEncryptionProfile = req
+    "UpdateFieldLevelEncryptionProfile"
+    "fixture/UpdateFieldLevelEncryptionProfile.yaml"
+
 requestDeleteServiceLinkedRole :: DeleteServiceLinkedRole -> TestTree
 requestDeleteServiceLinkedRole = req
     "DeleteServiceLinkedRole"
     "fixture/DeleteServiceLinkedRole.yaml"
 
+requestCreateFieldLevelEncryptionProfile :: CreateFieldLevelEncryptionProfile -> TestTree
+requestCreateFieldLevelEncryptionProfile = req
+    "CreateFieldLevelEncryptionProfile"
+    "fixture/CreateFieldLevelEncryptionProfile.yaml"
+
 requestGetDistribution :: GetDistribution -> TestTree
 requestGetDistribution = req
     "GetDistribution"
     "fixture/GetDistribution.yaml"
+
+requestGetFieldLevelEncryptionProfileConfig :: GetFieldLevelEncryptionProfileConfig -> TestTree
+requestGetFieldLevelEncryptionProfileConfig = req
+    "GetFieldLevelEncryptionProfileConfig"
+    "fixture/GetFieldLevelEncryptionProfileConfig.yaml"
 
 requestUpdateCloudFrontOriginAccessIdentity :: UpdateCloudFrontOriginAccessIdentity -> TestTree
 requestUpdateCloudFrontOriginAccessIdentity = req
@@ -263,6 +441,16 @@ requestListStreamingDistributions :: ListStreamingDistributions -> TestTree
 requestListStreamingDistributions = req
     "ListStreamingDistributions"
     "fixture/ListStreamingDistributions.yaml"
+
+requestDeletePublicKey :: DeletePublicKey -> TestTree
+requestDeletePublicKey = req
+    "DeletePublicKey"
+    "fixture/DeletePublicKey.yaml"
+
+requestUpdatePublicKey :: UpdatePublicKey -> TestTree
+requestUpdatePublicKey = req
+    "UpdatePublicKey"
+    "fixture/UpdatePublicKey.yaml"
 
 requestGetStreamingDistributionConfig :: GetStreamingDistributionConfig -> TestTree
 requestGetStreamingDistributionConfig = req
@@ -309,6 +497,11 @@ requestGetCloudFrontOriginAccessIdentity = req
     "GetCloudFrontOriginAccessIdentity"
     "fixture/GetCloudFrontOriginAccessIdentity.yaml"
 
+requestListFieldLevelEncryptionConfigs :: ListFieldLevelEncryptionConfigs -> TestTree
+requestListFieldLevelEncryptionConfigs = req
+    "ListFieldLevelEncryptionConfigs"
+    "fixture/ListFieldLevelEncryptionConfigs.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource = req
     "TagResource"
@@ -344,6 +537,11 @@ requestListDistributions = req
     "ListDistributions"
     "fixture/ListDistributions.yaml"
 
+requestListFieldLevelEncryptionProfiles :: ListFieldLevelEncryptionProfiles -> TestTree
+requestListFieldLevelEncryptionProfiles = req
+    "ListFieldLevelEncryptionProfiles"
+    "fixture/ListFieldLevelEncryptionProfiles.yaml"
+
 -- Responses
 
 responseDeleteStreamingDistribution :: DeleteStreamingDistributionResponse -> TestTree
@@ -360,12 +558,40 @@ responseUpdateStreamingDistribution = res
     cloudFront
     (Proxy :: Proxy UpdateStreamingDistribution)
 
+responseListPublicKeys :: ListPublicKeysResponse -> TestTree
+responseListPublicKeys = res
+    "ListPublicKeysResponse"
+    "fixture/ListPublicKeysResponse.proto"
+    cloudFront
+    (Proxy :: Proxy ListPublicKeys)
+
+responseGetFieldLevelEncryptionConfig :: GetFieldLevelEncryptionConfigResponse -> TestTree
+responseGetFieldLevelEncryptionConfig = res
+    "GetFieldLevelEncryptionConfigResponse"
+    "fixture/GetFieldLevelEncryptionConfigResponse.proto"
+    cloudFront
+    (Proxy :: Proxy GetFieldLevelEncryptionConfig)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     cloudFront
     (Proxy :: Proxy ListTagsForResource)
+
+responseCreatePublicKey :: CreatePublicKeyResponse -> TestTree
+responseCreatePublicKey = res
+    "CreatePublicKeyResponse"
+    "fixture/CreatePublicKeyResponse.proto"
+    cloudFront
+    (Proxy :: Proxy CreatePublicKey)
+
+responseGetPublicKeyConfig :: GetPublicKeyConfigResponse -> TestTree
+responseGetPublicKeyConfig = res
+    "GetPublicKeyConfigResponse"
+    "fixture/GetPublicKeyConfigResponse.proto"
+    cloudFront
+    (Proxy :: Proxy GetPublicKeyConfig)
 
 responseCreateDistributionWithTags :: CreateDistributionWithTagsResponse -> TestTree
 responseCreateDistributionWithTags = res
@@ -374,12 +600,54 @@ responseCreateDistributionWithTags = res
     cloudFront
     (Proxy :: Proxy CreateDistributionWithTags)
 
+responseCreateFieldLevelEncryptionConfig :: CreateFieldLevelEncryptionConfigResponse -> TestTree
+responseCreateFieldLevelEncryptionConfig = res
+    "CreateFieldLevelEncryptionConfigResponse"
+    "fixture/CreateFieldLevelEncryptionConfigResponse.proto"
+    cloudFront
+    (Proxy :: Proxy CreateFieldLevelEncryptionConfig)
+
+responseGetFieldLevelEncryption :: GetFieldLevelEncryptionResponse -> TestTree
+responseGetFieldLevelEncryption = res
+    "GetFieldLevelEncryptionResponse"
+    "fixture/GetFieldLevelEncryptionResponse.proto"
+    cloudFront
+    (Proxy :: Proxy GetFieldLevelEncryption)
+
+responseGetPublicKey :: GetPublicKeyResponse -> TestTree
+responseGetPublicKey = res
+    "GetPublicKeyResponse"
+    "fixture/GetPublicKeyResponse.proto"
+    cloudFront
+    (Proxy :: Proxy GetPublicKey)
+
+responseDeleteFieldLevelEncryptionConfig :: DeleteFieldLevelEncryptionConfigResponse -> TestTree
+responseDeleteFieldLevelEncryptionConfig = res
+    "DeleteFieldLevelEncryptionConfigResponse"
+    "fixture/DeleteFieldLevelEncryptionConfigResponse.proto"
+    cloudFront
+    (Proxy :: Proxy DeleteFieldLevelEncryptionConfig)
+
+responseUpdateFieldLevelEncryptionConfig :: UpdateFieldLevelEncryptionConfigResponse -> TestTree
+responseUpdateFieldLevelEncryptionConfig = res
+    "UpdateFieldLevelEncryptionConfigResponse"
+    "fixture/UpdateFieldLevelEncryptionConfigResponse.proto"
+    cloudFront
+    (Proxy :: Proxy UpdateFieldLevelEncryptionConfig)
+
 responseCreateDistribution :: CreateDistributionResponse -> TestTree
 responseCreateDistribution = res
     "CreateDistributionResponse"
     "fixture/CreateDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy CreateDistribution)
+
+responseGetFieldLevelEncryptionProfile :: GetFieldLevelEncryptionProfileResponse -> TestTree
+responseGetFieldLevelEncryptionProfile = res
+    "GetFieldLevelEncryptionProfileResponse"
+    "fixture/GetFieldLevelEncryptionProfileResponse.proto"
+    cloudFront
+    (Proxy :: Proxy GetFieldLevelEncryptionProfile)
 
 responseGetDistributionConfig :: GetDistributionConfigResponse -> TestTree
 responseGetDistributionConfig = res
@@ -395,6 +663,20 @@ responseCreateStreamingDistributionWithTags = res
     cloudFront
     (Proxy :: Proxy CreateStreamingDistributionWithTags)
 
+responseDeleteFieldLevelEncryptionProfile :: DeleteFieldLevelEncryptionProfileResponse -> TestTree
+responseDeleteFieldLevelEncryptionProfile = res
+    "DeleteFieldLevelEncryptionProfileResponse"
+    "fixture/DeleteFieldLevelEncryptionProfileResponse.proto"
+    cloudFront
+    (Proxy :: Proxy DeleteFieldLevelEncryptionProfile)
+
+responseUpdateFieldLevelEncryptionProfile :: UpdateFieldLevelEncryptionProfileResponse -> TestTree
+responseUpdateFieldLevelEncryptionProfile = res
+    "UpdateFieldLevelEncryptionProfileResponse"
+    "fixture/UpdateFieldLevelEncryptionProfileResponse.proto"
+    cloudFront
+    (Proxy :: Proxy UpdateFieldLevelEncryptionProfile)
+
 responseDeleteServiceLinkedRole :: DeleteServiceLinkedRoleResponse -> TestTree
 responseDeleteServiceLinkedRole = res
     "DeleteServiceLinkedRoleResponse"
@@ -402,12 +684,26 @@ responseDeleteServiceLinkedRole = res
     cloudFront
     (Proxy :: Proxy DeleteServiceLinkedRole)
 
+responseCreateFieldLevelEncryptionProfile :: CreateFieldLevelEncryptionProfileResponse -> TestTree
+responseCreateFieldLevelEncryptionProfile = res
+    "CreateFieldLevelEncryptionProfileResponse"
+    "fixture/CreateFieldLevelEncryptionProfileResponse.proto"
+    cloudFront
+    (Proxy :: Proxy CreateFieldLevelEncryptionProfile)
+
 responseGetDistribution :: GetDistributionResponse -> TestTree
 responseGetDistribution = res
     "GetDistributionResponse"
     "fixture/GetDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy GetDistribution)
+
+responseGetFieldLevelEncryptionProfileConfig :: GetFieldLevelEncryptionProfileConfigResponse -> TestTree
+responseGetFieldLevelEncryptionProfileConfig = res
+    "GetFieldLevelEncryptionProfileConfigResponse"
+    "fixture/GetFieldLevelEncryptionProfileConfigResponse.proto"
+    cloudFront
+    (Proxy :: Proxy GetFieldLevelEncryptionProfileConfig)
 
 responseUpdateCloudFrontOriginAccessIdentity :: UpdateCloudFrontOriginAccessIdentityResponse -> TestTree
 responseUpdateCloudFrontOriginAccessIdentity = res
@@ -429,6 +725,20 @@ responseListStreamingDistributions = res
     "fixture/ListStreamingDistributionsResponse.proto"
     cloudFront
     (Proxy :: Proxy ListStreamingDistributions)
+
+responseDeletePublicKey :: DeletePublicKeyResponse -> TestTree
+responseDeletePublicKey = res
+    "DeletePublicKeyResponse"
+    "fixture/DeletePublicKeyResponse.proto"
+    cloudFront
+    (Proxy :: Proxy DeletePublicKey)
+
+responseUpdatePublicKey :: UpdatePublicKeyResponse -> TestTree
+responseUpdatePublicKey = res
+    "UpdatePublicKeyResponse"
+    "fixture/UpdatePublicKeyResponse.proto"
+    cloudFront
+    (Proxy :: Proxy UpdatePublicKey)
 
 responseGetStreamingDistributionConfig :: GetStreamingDistributionConfigResponse -> TestTree
 responseGetStreamingDistributionConfig = res
@@ -493,6 +803,13 @@ responseGetCloudFrontOriginAccessIdentity = res
     cloudFront
     (Proxy :: Proxy GetCloudFrontOriginAccessIdentity)
 
+responseListFieldLevelEncryptionConfigs :: ListFieldLevelEncryptionConfigsResponse -> TestTree
+responseListFieldLevelEncryptionConfigs = res
+    "ListFieldLevelEncryptionConfigsResponse"
+    "fixture/ListFieldLevelEncryptionConfigsResponse.proto"
+    cloudFront
+    (Proxy :: Proxy ListFieldLevelEncryptionConfigs)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource = res
     "TagResourceResponse"
@@ -541,3 +858,10 @@ responseListDistributions = res
     "fixture/ListDistributionsResponse.proto"
     cloudFront
     (Proxy :: Proxy ListDistributions)
+
+responseListFieldLevelEncryptionProfiles :: ListFieldLevelEncryptionProfilesResponse -> TestTree
+responseListFieldLevelEncryptionProfiles = res
+    "ListFieldLevelEncryptionProfilesResponse"
+    "fixture/ListFieldLevelEncryptionProfilesResponse.proto"
+    cloudFront
+    (Proxy :: Proxy ListFieldLevelEncryptionProfiles)

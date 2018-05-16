@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.SetRulePriorities
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ setRulePriorities = SetRulePriorities' {_srpRulePriorities = mempty}
 
 -- | The rule priorities.
 srpRulePriorities :: Lens' SetRulePriorities [RulePriorityPair]
-srpRulePriorities = lens _srpRulePriorities (\ s a -> s{_srpRulePriorities = a}) . _Coerce;
+srpRulePriorities = lens _srpRulePriorities (\ s a -> s{_srpRulePriorities = a}) . _Coerce
 
 instance AWSRequest SetRulePriorities where
         type Rs SetRulePriorities = SetRulePrioritiesResponse
@@ -114,15 +114,15 @@ setRulePrioritiesResponse
     -> SetRulePrioritiesResponse
 setRulePrioritiesResponse pResponseStatus_ =
   SetRulePrioritiesResponse'
-  {_srprsRules = Nothing, _srprsResponseStatus = pResponseStatus_}
+    {_srprsRules = Nothing, _srprsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the rules.
 srprsRules :: Lens' SetRulePrioritiesResponse [Rule]
-srprsRules = lens _srprsRules (\ s a -> s{_srprsRules = a}) . _Default . _Coerce;
+srprsRules = lens _srprsRules (\ s a -> s{_srprsRules = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 srprsResponseStatus :: Lens' SetRulePrioritiesResponse Int
-srprsResponseStatus = lens _srprsResponseStatus (\ s a -> s{_srprsResponseStatus = a});
+srprsResponseStatus = lens _srprsResponseStatus (\ s a -> s{_srprsResponseStatus = a})
 
 instance NFData SetRulePrioritiesResponse where

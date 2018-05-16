@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPCEndpoints
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ data DeleteVPCEndpoints = DeleteVPCEndpoints'
 --
 -- * 'dveDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dveVPCEndpointIds' - One or more endpoint IDs.
+-- * 'dveVPCEndpointIds' - One or more VPC endpoint IDs.
 deleteVPCEndpoints
     :: DeleteVPCEndpoints
 deleteVPCEndpoints =
@@ -71,11 +71,11 @@ deleteVPCEndpoints =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dveDryRun :: Lens' DeleteVPCEndpoints (Maybe Bool)
-dveDryRun = lens _dveDryRun (\ s a -> s{_dveDryRun = a});
+dveDryRun = lens _dveDryRun (\ s a -> s{_dveDryRun = a})
 
--- | One or more endpoint IDs.
+-- | One or more VPC endpoint IDs.
 dveVPCEndpointIds :: Lens' DeleteVPCEndpoints [Text]
-dveVPCEndpointIds = lens _dveVPCEndpointIds (\ s a -> s{_dveVPCEndpointIds = a}) . _Coerce;
+dveVPCEndpointIds = lens _dveVPCEndpointIds (\ s a -> s{_dveVPCEndpointIds = a}) . _Coerce
 
 instance AWSRequest DeleteVPCEndpoints where
         type Rs DeleteVPCEndpoints =
@@ -122,7 +122,7 @@ data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dversUnsuccessful' - Information about the endpoints that were not successfully deleted.
+-- * 'dversUnsuccessful' - Information about the VPC endpoints that were not successfully deleted.
 --
 -- * 'dversResponseStatus' - -- | The response status code.
 deleteVPCEndpointsResponse
@@ -130,15 +130,15 @@ deleteVPCEndpointsResponse
     -> DeleteVPCEndpointsResponse
 deleteVPCEndpointsResponse pResponseStatus_ =
   DeleteVPCEndpointsResponse'
-  {_dversUnsuccessful = Nothing, _dversResponseStatus = pResponseStatus_}
+    {_dversUnsuccessful = Nothing, _dversResponseStatus = pResponseStatus_}
 
 
--- | Information about the endpoints that were not successfully deleted.
+-- | Information about the VPC endpoints that were not successfully deleted.
 dversUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
-dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a}) . _Default . _Coerce;
+dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dversResponseStatus :: Lens' DeleteVPCEndpointsResponse Int
-dversResponseStatus = lens _dversResponseStatus (\ s a -> s{_dversResponseStatus = a});
+dversResponseStatus = lens _dversResponseStatus (\ s a -> s{_dversResponseStatus = a})
 
 instance NFData DeleteVPCEndpointsResponse where

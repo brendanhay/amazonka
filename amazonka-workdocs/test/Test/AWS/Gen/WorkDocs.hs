@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.WorkDocs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -145,6 +145,9 @@ import Test.Tasty
 --         , requestDeleteDocument $
 --             deleteDocument
 --
+--         , requestDescribeGroups $
+--             describeGroups
+--
 --           ]
 
 --     , testGroup "response"
@@ -264,6 +267,9 @@ import Test.Tasty
 --
 --         , responseDeleteDocument $
 --             deleteDocumentResponse
+--
+--         , responseDescribeGroups $
+--             describeGroupsResponse
 --
 --           ]
 --     ]
@@ -464,6 +470,11 @@ requestDeleteDocument :: DeleteDocument -> TestTree
 requestDeleteDocument = req
     "DeleteDocument"
     "fixture/DeleteDocument.yaml"
+
+requestDescribeGroups :: DescribeGroups -> TestTree
+requestDescribeGroups = req
+    "DescribeGroups"
+    "fixture/DescribeGroups.yaml"
 
 -- Responses
 
@@ -739,3 +750,10 @@ responseDeleteDocument = res
     "fixture/DeleteDocumentResponse.proto"
     workDocs
     (Proxy :: Proxy DeleteDocument)
+
+responseDescribeGroups :: DescribeGroupsResponse -> TestTree
+responseDescribeGroups = res
+    "DescribeGroupsResponse"
+    "fixture/DescribeGroupsResponse.proto"
+    workDocs
+    (Proxy :: Proxy DescribeGroups)

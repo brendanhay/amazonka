@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.CreateSubscriber
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new Subscriber for a notification
+-- Creates a subscriber. You must create the associated budget and notification before you create the subscriber.
+--
+--
 module Network.AWS.Budgets.CreateSubscriber
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import Network.AWS.Response
 
 -- | Request of CreateSubscriber
 --
+--
+--
 -- /See:/ 'createSubscriber' smart constructor.
 data CreateSubscriber = CreateSubscriber'
   { _csAccountId    :: !Text
@@ -59,13 +63,13 @@ data CreateSubscriber = CreateSubscriber'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csAccountId' - Undocumented member.
+-- * 'csAccountId' - The @accountId@ associated with the budget that you want to create a subscriber for.
 --
--- * 'csBudgetName' - Undocumented member.
+-- * 'csBudgetName' - The name of the budget that you want to subscribe to. Budget names must be unique within an account.
 --
--- * 'csNotification' - Undocumented member.
+-- * 'csNotification' - The notification that you want to create a subscriber for.
 --
--- * 'csSubscriber' - Undocumented member.
+-- * 'csSubscriber' - The subscriber that you want to associate with a budget notification.
 createSubscriber
     :: Text -- ^ 'csAccountId'
     -> Text -- ^ 'csBudgetName'
@@ -74,28 +78,28 @@ createSubscriber
     -> CreateSubscriber
 createSubscriber pAccountId_ pBudgetName_ pNotification_ pSubscriber_ =
   CreateSubscriber'
-  { _csAccountId = pAccountId_
-  , _csBudgetName = pBudgetName_
-  , _csNotification = pNotification_
-  , _csSubscriber = pSubscriber_
-  }
+    { _csAccountId = pAccountId_
+    , _csBudgetName = pBudgetName_
+    , _csNotification = pNotification_
+    , _csSubscriber = pSubscriber_
+    }
 
 
--- | Undocumented member.
+-- | The @accountId@ associated with the budget that you want to create a subscriber for.
 csAccountId :: Lens' CreateSubscriber Text
-csAccountId = lens _csAccountId (\ s a -> s{_csAccountId = a});
+csAccountId = lens _csAccountId (\ s a -> s{_csAccountId = a})
 
--- | Undocumented member.
+-- | The name of the budget that you want to subscribe to. Budget names must be unique within an account.
 csBudgetName :: Lens' CreateSubscriber Text
-csBudgetName = lens _csBudgetName (\ s a -> s{_csBudgetName = a});
+csBudgetName = lens _csBudgetName (\ s a -> s{_csBudgetName = a})
 
--- | Undocumented member.
+-- | The notification that you want to create a subscriber for.
 csNotification :: Lens' CreateSubscriber Notification
-csNotification = lens _csNotification (\ s a -> s{_csNotification = a});
+csNotification = lens _csNotification (\ s a -> s{_csNotification = a})
 
--- | Undocumented member.
+-- | The subscriber that you want to associate with a budget notification.
 csSubscriber :: Lens' CreateSubscriber Subscriber
-csSubscriber = lens _csSubscriber (\ s a -> s{_csSubscriber = a});
+csSubscriber = lens _csSubscriber (\ s a -> s{_csSubscriber = a})
 
 instance AWSRequest CreateSubscriber where
         type Rs CreateSubscriber = CreateSubscriberResponse
@@ -136,6 +140,8 @@ instance ToQuery CreateSubscriber where
 
 -- | Response of CreateSubscriber
 --
+--
+--
 -- /See:/ 'createSubscriberResponse' smart constructor.
 newtype CreateSubscriberResponse = CreateSubscriberResponse'
   { _csrsResponseStatus :: Int
@@ -156,6 +162,6 @@ createSubscriberResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 csrsResponseStatus :: Lens' CreateSubscriberResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a})
 
 instance NFData CreateSubscriberResponse where

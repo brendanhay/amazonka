@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.CheckDomainAvailability
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ checkDomainAvailability
     -> CheckDomainAvailability
 checkDomainAvailability pDomainName_ =
   CheckDomainAvailability'
-  {_cdaIdNLangCode = Nothing, _cdaDomainName = pDomainName_}
+    {_cdaIdNLangCode = Nothing, _cdaDomainName = pDomainName_}
 
 
 -- | Reserved for future use.
 cdaIdNLangCode :: Lens' CheckDomainAvailability (Maybe Text)
-cdaIdNLangCode = lens _cdaIdNLangCode (\ s a -> s{_cdaIdNLangCode = a});
+cdaIdNLangCode = lens _cdaIdNLangCode (\ s a -> s{_cdaIdNLangCode = a})
 
 -- | The name of the domain that you want to get availability for. Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
 cdaDomainName :: Lens' CheckDomainAvailability Text
-cdaDomainName = lens _cdaDomainName (\ s a -> s{_cdaDomainName = a});
+cdaDomainName = lens _cdaDomainName (\ s a -> s{_cdaDomainName = a})
 
 instance AWSRequest CheckDomainAvailability where
         type Rs CheckDomainAvailability =
@@ -140,15 +140,17 @@ checkDomainAvailabilityResponse
     -> CheckDomainAvailabilityResponse
 checkDomainAvailabilityResponse pResponseStatus_ pAvailability_ =
   CheckDomainAvailabilityResponse'
-  {_cdarsResponseStatus = pResponseStatus_, _cdarsAvailability = pAvailability_}
+    { _cdarsResponseStatus = pResponseStatus_
+    , _cdarsAvailability = pAvailability_
+    }
 
 
 -- | -- | The response status code.
 cdarsResponseStatus :: Lens' CheckDomainAvailabilityResponse Int
-cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus = a});
+cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus = a})
 
 -- | Whether the domain name is available for registering. Valid values:     * AVAILABLE    * The domain name is available.     * AVAILABLE_RESERVED    * The domain name is reserved under specific conditions.     * AVAILABLE_PREORDER    * The domain name is available and can be preordered.     * DONT_KNOW    * The TLD registry didn't reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.     * PENDING    * The TLD registry didn't return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.     * RESERVED    * The domain name has been reserved for another person or organization.     * UNAVAILABLE    * The domain name is not available.     * UNAVAILABLE_PREMIUM    * The domain name is not available.     * UNAVAILABLE_RESTRICTED    * The domain name is forbidden.
 cdarsAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
-cdarsAvailability = lens _cdarsAvailability (\ s a -> s{_cdarsAvailability = a});
+cdarsAvailability = lens _cdarsAvailability (\ s a -> s{_cdarsAvailability = a})
 
 instance NFData CheckDomainAvailabilityResponse where

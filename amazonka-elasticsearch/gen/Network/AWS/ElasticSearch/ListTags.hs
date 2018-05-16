@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.ListTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ listTags pARN_ = ListTags' {_ltARN = pARN_}
 
 -- | Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view.
 ltARN :: Lens' ListTags Text
-ltARN = lens _ltARN (\ s a -> s{_ltARN = a});
+ltARN = lens _ltARN (\ s a -> s{_ltARN = a})
 
 instance AWSRequest ListTags where
         type Rs ListTags = ListTagsResponse
@@ -114,15 +114,15 @@ listTagsResponse
     -> ListTagsResponse
 listTagsResponse pResponseStatus_ =
   ListTagsResponse'
-  {_ltrsTagList = Nothing, _ltrsResponseStatus = pResponseStatus_}
+    {_ltrsTagList = Nothing, _ltrsResponseStatus = pResponseStatus_}
 
 
 -- | List of @Tag@ for the requested Elasticsearch domain.
 ltrsTagList :: Lens' ListTagsResponse [Tag]
-ltrsTagList = lens _ltrsTagList (\ s a -> s{_ltrsTagList = a}) . _Default . _Coerce;
+ltrsTagList = lens _ltrsTagList (\ s a -> s{_ltrsTagList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTagsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
 
 instance NFData ListTagsResponse where

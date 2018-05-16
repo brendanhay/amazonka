@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetXSSMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getXSSMatchSet pXSSMatchSetId_ =
 
 -- | The @XssMatchSetId@ of the 'XssMatchSet' that you want to get. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
 gxmsXSSMatchSetId :: Lens' GetXSSMatchSet Text
-gxmsXSSMatchSetId = lens _gxmsXSSMatchSetId (\ s a -> s{_gxmsXSSMatchSetId = a});
+gxmsXSSMatchSetId = lens _gxmsXSSMatchSetId (\ s a -> s{_gxmsXSSMatchSetId = a})
 
 instance AWSRequest GetXSSMatchSet where
         type Rs GetXSSMatchSet = GetXSSMatchSetResponse
@@ -128,15 +128,15 @@ getXSSMatchSetResponse
     -> GetXSSMatchSetResponse
 getXSSMatchSetResponse pResponseStatus_ =
   GetXSSMatchSetResponse'
-  {_gxmsrsXSSMatchSet = Nothing, _gxmsrsResponseStatus = pResponseStatus_}
+    {_gxmsrsXSSMatchSet = Nothing, _gxmsrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects     * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 gxmsrsXSSMatchSet :: Lens' GetXSSMatchSetResponse (Maybe XSSMatchSet)
-gxmsrsXSSMatchSet = lens _gxmsrsXSSMatchSet (\ s a -> s{_gxmsrsXSSMatchSet = a});
+gxmsrsXSSMatchSet = lens _gxmsrsXSSMatchSet (\ s a -> s{_gxmsrsXSSMatchSet = a})
 
 -- | -- | The response status code.
 gxmsrsResponseStatus :: Lens' GetXSSMatchSetResponse Int
-gxmsrsResponseStatus = lens _gxmsrsResponseStatus (\ s a -> s{_gxmsrsResponseStatus = a});
+gxmsrsResponseStatus = lens _gxmsrsResponseStatus (\ s a -> s{_gxmsrsResponseStatus = a})
 
 instance NFData GetXSSMatchSetResponse where

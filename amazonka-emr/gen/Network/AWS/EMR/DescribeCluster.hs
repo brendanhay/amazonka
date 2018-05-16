@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.DescribeCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ describeCluster pClusterId_ = DescribeCluster' {_dcClusterId = pClusterId_}
 
 -- | The identifier of the cluster to describe.
 dcClusterId :: Lens' DescribeCluster Text
-dcClusterId = lens _dcClusterId (\ s a -> s{_dcClusterId = a});
+dcClusterId = lens _dcClusterId (\ s a -> s{_dcClusterId = a})
 
 instance AWSRequest DescribeCluster where
         type Rs DescribeCluster = DescribeClusterResponse
@@ -126,15 +126,15 @@ describeClusterResponse
     -> DescribeClusterResponse
 describeClusterResponse pResponseStatus_ pCluster_ =
   DescribeClusterResponse'
-  {_dcrsResponseStatus = pResponseStatus_, _dcrsCluster = pCluster_}
+    {_dcrsResponseStatus = pResponseStatus_, _dcrsCluster = pCluster_}
 
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeClusterResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 -- | This output contains the details for the requested cluster.
 dcrsCluster :: Lens' DescribeClusterResponse Cluster
-dcrsCluster = lens _dcrsCluster (\ s a -> s{_dcrsCluster = a});
+dcrsCluster = lens _dcrsCluster (\ s a -> s{_dcrsCluster = a})
 
 instance NFData DescribeClusterResponse where

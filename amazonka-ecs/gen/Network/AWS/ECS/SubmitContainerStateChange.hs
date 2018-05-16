@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.SubmitContainerStateChange
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ data SubmitContainerStateChange = SubmitContainerStateChange'
 --
 -- * 'scscStatus' - The status of the state change request.
 --
--- * 'scscCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container.
+-- * 'scscCluster' - The short name or full ARN of the cluster that hosts the container.
 --
 -- * 'scscContainerName' - The name of the container.
 --
@@ -83,43 +83,43 @@ submitContainerStateChange
     :: SubmitContainerStateChange
 submitContainerStateChange =
   SubmitContainerStateChange'
-  { _scscNetworkBindings = Nothing
-  , _scscStatus = Nothing
-  , _scscCluster = Nothing
-  , _scscContainerName = Nothing
-  , _scscReason = Nothing
-  , _scscExitCode = Nothing
-  , _scscTask = Nothing
-  }
+    { _scscNetworkBindings = Nothing
+    , _scscStatus = Nothing
+    , _scscCluster = Nothing
+    , _scscContainerName = Nothing
+    , _scscReason = Nothing
+    , _scscExitCode = Nothing
+    , _scscTask = Nothing
+    }
 
 
 -- | The network bindings of the container.
 scscNetworkBindings :: Lens' SubmitContainerStateChange [NetworkBinding]
-scscNetworkBindings = lens _scscNetworkBindings (\ s a -> s{_scscNetworkBindings = a}) . _Default . _Coerce;
+scscNetworkBindings = lens _scscNetworkBindings (\ s a -> s{_scscNetworkBindings = a}) . _Default . _Coerce
 
 -- | The status of the state change request.
 scscStatus :: Lens' SubmitContainerStateChange (Maybe Text)
-scscStatus = lens _scscStatus (\ s a -> s{_scscStatus = a});
+scscStatus = lens _scscStatus (\ s a -> s{_scscStatus = a})
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container.
+-- | The short name or full ARN of the cluster that hosts the container.
 scscCluster :: Lens' SubmitContainerStateChange (Maybe Text)
-scscCluster = lens _scscCluster (\ s a -> s{_scscCluster = a});
+scscCluster = lens _scscCluster (\ s a -> s{_scscCluster = a})
 
 -- | The name of the container.
 scscContainerName :: Lens' SubmitContainerStateChange (Maybe Text)
-scscContainerName = lens _scscContainerName (\ s a -> s{_scscContainerName = a});
+scscContainerName = lens _scscContainerName (\ s a -> s{_scscContainerName = a})
 
 -- | The reason for the state change request.
 scscReason :: Lens' SubmitContainerStateChange (Maybe Text)
-scscReason = lens _scscReason (\ s a -> s{_scscReason = a});
+scscReason = lens _scscReason (\ s a -> s{_scscReason = a})
 
 -- | The exit code returned for the state change request.
 scscExitCode :: Lens' SubmitContainerStateChange (Maybe Int)
-scscExitCode = lens _scscExitCode (\ s a -> s{_scscExitCode = a});
+scscExitCode = lens _scscExitCode (\ s a -> s{_scscExitCode = a})
 
 -- | The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.
 scscTask :: Lens' SubmitContainerStateChange (Maybe Text)
-scscTask = lens _scscTask (\ s a -> s{_scscTask = a});
+scscTask = lens _scscTask (\ s a -> s{_scscTask = a})
 
 instance AWSRequest SubmitContainerStateChange where
         type Rs SubmitContainerStateChange =
@@ -182,16 +182,16 @@ submitContainerStateChangeResponse
     -> SubmitContainerStateChangeResponse
 submitContainerStateChangeResponse pResponseStatus_ =
   SubmitContainerStateChangeResponse'
-  {_scscrsAcknowledgment = Nothing, _scscrsResponseStatus = pResponseStatus_}
+    {_scscrsAcknowledgment = Nothing, _scscrsResponseStatus = pResponseStatus_}
 
 
 -- | Acknowledgement of the state change.
 scscrsAcknowledgment :: Lens' SubmitContainerStateChangeResponse (Maybe Text)
-scscrsAcknowledgment = lens _scscrsAcknowledgment (\ s a -> s{_scscrsAcknowledgment = a});
+scscrsAcknowledgment = lens _scscrsAcknowledgment (\ s a -> s{_scscrsAcknowledgment = a})
 
 -- | -- | The response status code.
 scscrsResponseStatus :: Lens' SubmitContainerStateChangeResponse Int
-scscrsResponseStatus = lens _scscrsResponseStatus (\ s a -> s{_scscrsResponseStatus = a});
+scscrsResponseStatus = lens _scscrsResponseStatus (\ s a -> s{_scscrsResponseStatus = a})
 
 instance NFData SubmitContainerStateChangeResponse
          where

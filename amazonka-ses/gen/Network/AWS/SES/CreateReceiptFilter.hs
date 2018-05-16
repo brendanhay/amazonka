@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.CreateReceiptFilter
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ createReceiptFilter pFilter_ = CreateReceiptFilter' {_crfFilter = pFilter_}
 
 -- | A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
 crfFilter :: Lens' CreateReceiptFilter ReceiptFilter
-crfFilter = lens _crfFilter (\ s a -> s{_crfFilter = a});
+crfFilter = lens _crfFilter (\ s a -> s{_crfFilter = a})
 
 instance AWSRequest CreateReceiptFilter where
         type Rs CreateReceiptFilter =
@@ -122,6 +122,6 @@ createReceiptFilterResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 crfrsResponseStatus :: Lens' CreateReceiptFilterResponse Int
-crfrsResponseStatus = lens _crfrsResponseStatus (\ s a -> s{_crfrsResponseStatus = a});
+crfrsResponseStatus = lens _crfrsResponseStatus (\ s a -> s{_crfrsResponseStatus = a})
 
 instance NFData CreateReceiptFilterResponse where

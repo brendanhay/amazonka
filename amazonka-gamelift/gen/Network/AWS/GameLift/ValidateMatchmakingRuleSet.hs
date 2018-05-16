@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.ValidateMatchmakingRuleSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,7 +86,7 @@ validateMatchmakingRuleSet pRuleSetBody_ =
 
 -- | Collection of matchmaking rules to validate, formatted as a JSON string.
 vmrsRuleSetBody :: Lens' ValidateMatchmakingRuleSet Text
-vmrsRuleSetBody = lens _vmrsRuleSetBody (\ s a -> s{_vmrsRuleSetBody = a});
+vmrsRuleSetBody = lens _vmrsRuleSetBody (\ s a -> s{_vmrsRuleSetBody = a})
 
 instance AWSRequest ValidateMatchmakingRuleSet where
         type Rs ValidateMatchmakingRuleSet =
@@ -147,16 +147,16 @@ validateMatchmakingRuleSetResponse
     -> ValidateMatchmakingRuleSetResponse
 validateMatchmakingRuleSetResponse pResponseStatus_ =
   ValidateMatchmakingRuleSetResponse'
-  {_vmrsrsValid = Nothing, _vmrsrsResponseStatus = pResponseStatus_}
+    {_vmrsrsValid = Nothing, _vmrsrsResponseStatus = pResponseStatus_}
 
 
 -- | Response indicating whether or not the rule set is valid.
 vmrsrsValid :: Lens' ValidateMatchmakingRuleSetResponse (Maybe Bool)
-vmrsrsValid = lens _vmrsrsValid (\ s a -> s{_vmrsrsValid = a});
+vmrsrsValid = lens _vmrsrsValid (\ s a -> s{_vmrsrsValid = a})
 
 -- | -- | The response status code.
 vmrsrsResponseStatus :: Lens' ValidateMatchmakingRuleSetResponse Int
-vmrsrsResponseStatus = lens _vmrsrsResponseStatus (\ s a -> s{_vmrsrsResponseStatus = a});
+vmrsrsResponseStatus = lens _vmrsrsResponseStatus (\ s a -> s{_vmrsrsResponseStatus = a})
 
 instance NFData ValidateMatchmakingRuleSetResponse
          where

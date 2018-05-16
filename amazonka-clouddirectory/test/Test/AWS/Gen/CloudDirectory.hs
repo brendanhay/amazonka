@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CloudDirectory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,6 +36,9 @@ import Test.Tasty
 --
 --         , requestListIndex $
 --             listIndex
+--
+--         , requestUpgradeAppliedSchema $
+--             upgradeAppliedSchema
 --
 --         , requestGetDirectory $
 --             getDirectory
@@ -82,6 +85,9 @@ import Test.Tasty
 --         , requestDeleteTypedLinkFacet $
 --             deleteTypedLinkFacet
 --
+--         , requestGetAppliedSchemaVersion $
+--             getAppliedSchemaVersion
+--
 --         , requestRemoveFacetFromObject $
 --             removeFacetFromObject
 --
@@ -115,8 +121,14 @@ import Test.Tasty
 --         , requestCreateObject $
 --             createObject
 --
+--         , requestUpgradePublishedSchema $
+--             upgradePublishedSchema
+--
 --         , requestCreateFacet $
 --             createFacet
+--
+--         , requestGetObjectAttributes $
+--             getObjectAttributes
 --
 --         , requestDeleteFacet $
 --             deleteFacet
@@ -217,6 +229,9 @@ import Test.Tasty
 --         , responseListIndex $
 --             listIndexResponse
 --
+--         , responseUpgradeAppliedSchema $
+--             upgradeAppliedSchemaResponse
+--
 --         , responseGetDirectory $
 --             getDirectoryResponse
 --
@@ -262,6 +277,9 @@ import Test.Tasty
 --         , responseDeleteTypedLinkFacet $
 --             deleteTypedLinkFacetResponse
 --
+--         , responseGetAppliedSchemaVersion $
+--             getAppliedSchemaVersionResponse
+--
 --         , responseRemoveFacetFromObject $
 --             removeFacetFromObjectResponse
 --
@@ -295,8 +313,14 @@ import Test.Tasty
 --         , responseCreateObject $
 --             createObjectResponse
 --
+--         , responseUpgradePublishedSchema $
+--             upgradePublishedSchemaResponse
+--
 --         , responseCreateFacet $
 --             createFacetResponse
+--
+--         , responseGetObjectAttributes $
+--             getObjectAttributesResponse
 --
 --         , responseDeleteFacet $
 --             deleteFacetResponse
@@ -405,6 +429,11 @@ requestListIndex = req
     "ListIndex"
     "fixture/ListIndex.yaml"
 
+requestUpgradeAppliedSchema :: UpgradeAppliedSchema -> TestTree
+requestUpgradeAppliedSchema = req
+    "UpgradeAppliedSchema"
+    "fixture/UpgradeAppliedSchema.yaml"
+
 requestGetDirectory :: GetDirectory -> TestTree
 requestGetDirectory = req
     "GetDirectory"
@@ -480,6 +509,11 @@ requestDeleteTypedLinkFacet = req
     "DeleteTypedLinkFacet"
     "fixture/DeleteTypedLinkFacet.yaml"
 
+requestGetAppliedSchemaVersion :: GetAppliedSchemaVersion -> TestTree
+requestGetAppliedSchemaVersion = req
+    "GetAppliedSchemaVersion"
+    "fixture/GetAppliedSchemaVersion.yaml"
+
 requestRemoveFacetFromObject :: RemoveFacetFromObject -> TestTree
 requestRemoveFacetFromObject = req
     "RemoveFacetFromObject"
@@ -535,10 +569,20 @@ requestCreateObject = req
     "CreateObject"
     "fixture/CreateObject.yaml"
 
+requestUpgradePublishedSchema :: UpgradePublishedSchema -> TestTree
+requestUpgradePublishedSchema = req
+    "UpgradePublishedSchema"
+    "fixture/UpgradePublishedSchema.yaml"
+
 requestCreateFacet :: CreateFacet -> TestTree
 requestCreateFacet = req
     "CreateFacet"
     "fixture/CreateFacet.yaml"
+
+requestGetObjectAttributes :: GetObjectAttributes -> TestTree
+requestGetObjectAttributes = req
+    "GetObjectAttributes"
+    "fixture/GetObjectAttributes.yaml"
 
 requestDeleteFacet :: DeleteFacet -> TestTree
 requestDeleteFacet = req
@@ -708,6 +752,13 @@ responseListIndex = res
     cloudDirectory
     (Proxy :: Proxy ListIndex)
 
+responseUpgradeAppliedSchema :: UpgradeAppliedSchemaResponse -> TestTree
+responseUpgradeAppliedSchema = res
+    "UpgradeAppliedSchemaResponse"
+    "fixture/UpgradeAppliedSchemaResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy UpgradeAppliedSchema)
+
 responseGetDirectory :: GetDirectoryResponse -> TestTree
 responseGetDirectory = res
     "GetDirectoryResponse"
@@ -813,6 +864,13 @@ responseDeleteTypedLinkFacet = res
     cloudDirectory
     (Proxy :: Proxy DeleteTypedLinkFacet)
 
+responseGetAppliedSchemaVersion :: GetAppliedSchemaVersionResponse -> TestTree
+responseGetAppliedSchemaVersion = res
+    "GetAppliedSchemaVersionResponse"
+    "fixture/GetAppliedSchemaVersionResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy GetAppliedSchemaVersion)
+
 responseRemoveFacetFromObject :: RemoveFacetFromObjectResponse -> TestTree
 responseRemoveFacetFromObject = res
     "RemoveFacetFromObjectResponse"
@@ -890,12 +948,26 @@ responseCreateObject = res
     cloudDirectory
     (Proxy :: Proxy CreateObject)
 
+responseUpgradePublishedSchema :: UpgradePublishedSchemaResponse -> TestTree
+responseUpgradePublishedSchema = res
+    "UpgradePublishedSchemaResponse"
+    "fixture/UpgradePublishedSchemaResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy UpgradePublishedSchema)
+
 responseCreateFacet :: CreateFacetResponse -> TestTree
 responseCreateFacet = res
     "CreateFacetResponse"
     "fixture/CreateFacetResponse.proto"
     cloudDirectory
     (Proxy :: Proxy CreateFacet)
+
+responseGetObjectAttributes :: GetObjectAttributesResponse -> TestTree
+responseGetObjectAttributes = res
+    "GetObjectAttributesResponse"
+    "fixture/GetObjectAttributesResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy GetObjectAttributes)
 
 responseDeleteFacet :: DeleteFacetResponse -> TestTree
 responseDeleteFacet = res

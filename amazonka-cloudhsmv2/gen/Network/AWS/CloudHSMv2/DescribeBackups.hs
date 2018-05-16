@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.DescribeBackups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@
 --
 -- This is a paginated operation, which means that each response might contain only a subset of all the backups. When the response contains only a subset of backups, it includes a @NextToken@ value. Use this value in a subsequent @DescribeBackups@ request to get more backups. When you receive a response with no @NextToken@ (or an empty or null value), that means there are no more backups to get.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudHSMv2.DescribeBackups
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.CloudHSMv2.DescribeBackups
 import Network.AWS.CloudHSMv2.Types
 import Network.AWS.CloudHSMv2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -70,20 +73,27 @@ describeBackups
     :: DescribeBackups
 describeBackups =
   DescribeBackups'
-  {_dbFilters = Nothing, _dbNextToken = Nothing, _dbMaxResults = Nothing}
+    {_dbFilters = Nothing, _dbNextToken = Nothing, _dbMaxResults = Nothing}
 
 
 -- | One or more filters to limit the items returned in the response. Use the @backupIds@ filter to return only the specified backups. Specify backups by their backup identifier (ID). Use the @clusterIds@ filter to return only the backups for the specified clusters. Specify clusters by their cluster identifier (ID). Use the @states@ filter to return only backups that match the specified state.
 dbFilters :: Lens' DescribeBackups (HashMap Text [Text])
-dbFilters = lens _dbFilters (\ s a -> s{_dbFilters = a}) . _Default . _Map;
+dbFilters = lens _dbFilters (\ s a -> s{_dbFilters = a}) . _Default . _Map
 
 -- | The @NextToken@ value that you received in the previous response. Use this value to get more backups.
 dbNextToken :: Lens' DescribeBackups (Maybe Text)
-dbNextToken = lens _dbNextToken (\ s a -> s{_dbNextToken = a});
+dbNextToken = lens _dbNextToken (\ s a -> s{_dbNextToken = a})
 
 -- | The maximum number of backups to return in the response. When there are more backups than the number you specify, the response contains a @NextToken@ value.
 dbMaxResults :: Lens' DescribeBackups (Maybe Natural)
-dbMaxResults = lens _dbMaxResults (\ s a -> s{_dbMaxResults = a}) . mapping _Nat;
+dbMaxResults = lens _dbMaxResults (\ s a -> s{_dbMaxResults = a}) . mapping _Nat
+
+instance AWSPager DescribeBackups where
+        page rq rs
+          | stop (rs ^. dbrsNextToken) = Nothing
+          | stop (rs ^. dbrsBackups) = Nothing
+          | otherwise =
+            Just $ rq & dbNextToken .~ rs ^. dbrsNextToken
 
 instance AWSRequest DescribeBackups where
         type Rs DescribeBackups = DescribeBackupsResponse
@@ -144,22 +154,22 @@ describeBackupsResponse
     -> DescribeBackupsResponse
 describeBackupsResponse pResponseStatus_ =
   DescribeBackupsResponse'
-  { _dbrsBackups = Nothing
-  , _dbrsNextToken = Nothing
-  , _dbrsResponseStatus = pResponseStatus_
-  }
+    { _dbrsBackups = Nothing
+    , _dbrsNextToken = Nothing
+    , _dbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of backups.
 dbrsBackups :: Lens' DescribeBackupsResponse [Backup]
-dbrsBackups = lens _dbrsBackups (\ s a -> s{_dbrsBackups = a}) . _Default . _Coerce;
+dbrsBackups = lens _dbrsBackups (\ s a -> s{_dbrsBackups = a}) . _Default . _Coerce
 
 -- | An opaque string that indicates that the response contains only a subset of backups. Use this value in a subsequent @DescribeBackups@ request to get more backups.
 dbrsNextToken :: Lens' DescribeBackupsResponse (Maybe Text)
-dbrsNextToken = lens _dbrsNextToken (\ s a -> s{_dbrsNextToken = a});
+dbrsNextToken = lens _dbrsNextToken (\ s a -> s{_dbrsNextToken = a})
 
 -- | -- | The response status code.
 dbrsResponseStatus :: Lens' DescribeBackupsResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
+dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a})
 
 instance NFData DescribeBackupsResponse where

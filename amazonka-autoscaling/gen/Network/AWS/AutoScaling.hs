@@ -5,15 +5,15 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Auto Scaling__
+-- __Amazon EC2 Auto Scaling__
 --
--- Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service in conjunction with the Amazon CloudWatch and Elastic Load Balancing services.
+-- Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service in conjunction with the AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing services.
 --
 module Network.AWS.AutoScaling
     (
@@ -40,6 +40,9 @@ module Network.AWS.AutoScaling
 
     -- ** ResourceContentionFault
     , _ResourceContentionFault
+
+    -- ** ServiceLinkedRoleFailure
+    , _ServiceLinkedRoleFailure
 
     -- * Waiters
     -- $waiters
@@ -248,12 +251,14 @@ module Network.AWS.AutoScaling
     , asgStatus
     , asgTerminationPolicies
     , asgHealthCheckGracePeriod
+    , asgServiceLinkedRoleARN
     , asgNewInstancesProtectedFromScaleIn
     , asgVPCZoneIdentifier
     , asgTargetGroupARNs
     , asgEnabledMetrics
     , asgLaunchConfigurationName
     , asgInstances
+    , asgLaunchTemplate
     , asgAutoScalingGroupARN
     , asgPlacementGroup
     , asgSuspendedProcesses
@@ -272,6 +277,7 @@ module Network.AWS.AutoScaling
     , AutoScalingInstanceDetails
     , autoScalingInstanceDetails
     , asidLaunchConfigurationName
+    , asidLaunchTemplate
     , asidInstanceId
     , asidAutoScalingGroupName
     , asidAvailabilityZone
@@ -322,6 +328,7 @@ module Network.AWS.AutoScaling
     , Instance
     , instance'
     , iLaunchConfigurationName
+    , iLaunchTemplate
     , iInstanceId
     , iAvailabilityZone
     , iLifecycleState
@@ -356,6 +363,13 @@ module Network.AWS.AutoScaling
     , lcInstanceType
     , lcCreatedTime
 
+    -- ** LaunchTemplateSpecification
+    , LaunchTemplateSpecification
+    , launchTemplateSpecification
+    , ltsLaunchTemplateName
+    , ltsLaunchTemplateId
+    , ltsVersion
+
     -- ** LifecycleHook
     , LifecycleHook
     , lifecycleHook
@@ -376,9 +390,9 @@ module Network.AWS.AutoScaling
     , lhsHeartbeatTimeout
     , lhsNotificationMetadata
     , lhsNotificationTargetARN
-    , lhsLifecycleTransition
     , lhsRoleARN
     , lhsLifecycleHookName
+    , lhsLifecycleTransition
 
     -- ** LoadBalancerState
     , LoadBalancerState

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.DisableStageTransition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ disableStageTransition
     -> DisableStageTransition
 disableStageTransition pPipelineName_ pStageName_ pTransitionType_ pReason_ =
   DisableStageTransition'
-  { _dstPipelineName = pPipelineName_
-  , _dstStageName = pStageName_
-  , _dstTransitionType = pTransitionType_
-  , _dstReason = pReason_
-  }
+    { _dstPipelineName = pPipelineName_
+    , _dstStageName = pStageName_
+    , _dstTransitionType = pTransitionType_
+    , _dstReason = pReason_
+    }
 
 
 -- | The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
 dstPipelineName :: Lens' DisableStageTransition Text
-dstPipelineName = lens _dstPipelineName (\ s a -> s{_dstPipelineName = a});
+dstPipelineName = lens _dstPipelineName (\ s a -> s{_dstPipelineName = a})
 
 -- | The name of the stage where you want to disable the inbound or outbound transition of artifacts.
 dstStageName :: Lens' DisableStageTransition Text
-dstStageName = lens _dstStageName (\ s a -> s{_dstStageName = a});
+dstStageName = lens _dstStageName (\ s a -> s{_dstStageName = a})
 
 -- | Specifies whether artifacts will be prevented from transitioning into the stage and being processed by the actions in that stage (inbound), or prevented from transitioning from the stage after they have been processed by the actions in that stage (outbound).
 dstTransitionType :: Lens' DisableStageTransition StageTransitionType
-dstTransitionType = lens _dstTransitionType (\ s a -> s{_dstTransitionType = a});
+dstTransitionType = lens _dstTransitionType (\ s a -> s{_dstTransitionType = a})
 
 -- | The reason given to the user why a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI.
 dstReason :: Lens' DisableStageTransition Text
-dstReason = lens _dstReason (\ s a -> s{_dstReason = a});
+dstReason = lens _dstReason (\ s a -> s{_dstReason = a})
 
 instance AWSRequest DisableStageTransition where
         type Rs DisableStageTransition =

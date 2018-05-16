@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.PutDeliveryChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ newtype PutDeliveryChannel = PutDeliveryChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdcDeliveryChannel' - The configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket, and to an Amazon SNS topic.
+-- * 'pdcDeliveryChannel' - The configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket and to an Amazon SNS topic.
 putDeliveryChannel
     :: DeliveryChannel -- ^ 'pdcDeliveryChannel'
     -> PutDeliveryChannel
@@ -67,9 +67,9 @@ putDeliveryChannel pDeliveryChannel_ =
   PutDeliveryChannel' {_pdcDeliveryChannel = pDeliveryChannel_}
 
 
--- | The configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket, and to an Amazon SNS topic.
+-- | The configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket and to an Amazon SNS topic.
 pdcDeliveryChannel :: Lens' PutDeliveryChannel DeliveryChannel
-pdcDeliveryChannel = lens _pdcDeliveryChannel (\ s a -> s{_pdcDeliveryChannel = a});
+pdcDeliveryChannel = lens _pdcDeliveryChannel (\ s a -> s{_pdcDeliveryChannel = a})
 
 instance AWSRequest PutDeliveryChannel where
         type Rs PutDeliveryChannel =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CancelCommand
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ cancelCommand pCommandId_ =
 
 -- | (Optional) A list of instance IDs on which you want to cancel the command. If not provided, the command is canceled on every instance on which it was requested.
 ccInstanceIds :: Lens' CancelCommand [Text]
-ccInstanceIds = lens _ccInstanceIds (\ s a -> s{_ccInstanceIds = a}) . _Default . _Coerce;
+ccInstanceIds = lens _ccInstanceIds (\ s a -> s{_ccInstanceIds = a}) . _Default . _Coerce
 
 -- | The ID of the command you want to cancel.
 ccCommandId :: Lens' CancelCommand Text
-ccCommandId = lens _ccCommandId (\ s a -> s{_ccCommandId = a});
+ccCommandId = lens _ccCommandId (\ s a -> s{_ccCommandId = a})
 
 instance AWSRequest CancelCommand where
         type Rs CancelCommand = CancelCommandResponse
@@ -135,6 +135,6 @@ cancelCommandResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CancelCommandResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
 
 instance NFData CancelCommandResponse where

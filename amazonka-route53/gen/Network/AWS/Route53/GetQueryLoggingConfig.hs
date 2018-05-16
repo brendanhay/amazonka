@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetQueryLoggingConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ getQueryLoggingConfig pId_ = GetQueryLoggingConfig' {_gqlcId = pId_}
 
 -- | The ID of the configuration for DNS query logging that you want to get information about.
 gqlcId :: Lens' GetQueryLoggingConfig Text
-gqlcId = lens _gqlcId (\ s a -> s{_gqlcId = a});
+gqlcId = lens _gqlcId (\ s a -> s{_gqlcId = a})
 
 instance AWSRequest GetQueryLoggingConfig where
         type Rs GetQueryLoggingConfig =
@@ -112,17 +112,17 @@ getQueryLoggingConfigResponse
     -> GetQueryLoggingConfigResponse
 getQueryLoggingConfigResponse pResponseStatus_ pQueryLoggingConfig_ =
   GetQueryLoggingConfigResponse'
-  { _gqlcrsResponseStatus = pResponseStatus_
-  , _gqlcrsQueryLoggingConfig = pQueryLoggingConfig_
-  }
+    { _gqlcrsResponseStatus = pResponseStatus_
+    , _gqlcrsQueryLoggingConfig = pQueryLoggingConfig_
+    }
 
 
 -- | -- | The response status code.
 gqlcrsResponseStatus :: Lens' GetQueryLoggingConfigResponse Int
-gqlcrsResponseStatus = lens _gqlcrsResponseStatus (\ s a -> s{_gqlcrsResponseStatus = a});
+gqlcrsResponseStatus = lens _gqlcrsResponseStatus (\ s a -> s{_gqlcrsResponseStatus = a})
 
 -- | A complex type that contains information about the query logging configuration that you specified in a 'GetQueryLoggingConfig' request.
 gqlcrsQueryLoggingConfig :: Lens' GetQueryLoggingConfigResponse QueryLoggingConfig
-gqlcrsQueryLoggingConfig = lens _gqlcrsQueryLoggingConfig (\ s a -> s{_gqlcrsQueryLoggingConfig = a});
+gqlcrsQueryLoggingConfig = lens _gqlcrsQueryLoggingConfig (\ s a -> s{_gqlcrsQueryLoggingConfig = a})
 
 instance NFData GetQueryLoggingConfigResponse where

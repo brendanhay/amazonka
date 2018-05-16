@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.DescribeCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ describeCluster pClusterId_ = DescribeCluster' {_dcClusterId = pClusterId_}
 
 -- | The automatically generated ID for a cluster.
 dcClusterId :: Lens' DescribeCluster Text
-dcClusterId = lens _dcClusterId (\ s a -> s{_dcClusterId = a});
+dcClusterId = lens _dcClusterId (\ s a -> s{_dcClusterId = a})
 
 instance AWSRequest DescribeCluster where
         type Rs DescribeCluster = DescribeClusterResponse
@@ -118,15 +118,15 @@ describeClusterResponse
     -> DescribeClusterResponse
 describeClusterResponse pResponseStatus_ =
   DescribeClusterResponse'
-  {_dcrsClusterMetadata = Nothing, _dcrsResponseStatus = pResponseStatus_}
+    {_dcrsClusterMetadata = Nothing, _dcrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about a specific cluster, including shipping information, cluster status, and other important metadata.
 dcrsClusterMetadata :: Lens' DescribeClusterResponse (Maybe ClusterMetadata)
-dcrsClusterMetadata = lens _dcrsClusterMetadata (\ s a -> s{_dcrsClusterMetadata = a});
+dcrsClusterMetadata = lens _dcrsClusterMetadata (\ s a -> s{_dcrsClusterMetadata = a})
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeClusterResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DescribeClusterResponse where

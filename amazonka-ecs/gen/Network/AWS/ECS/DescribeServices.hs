@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeServices
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ describeServices = DescribeServices' {_dCluster = Nothing, _dServices = mempty}
 
 -- | The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed.
 dCluster :: Lens' DescribeServices (Maybe Text)
-dCluster = lens _dCluster (\ s a -> s{_dCluster = a});
+dCluster = lens _dCluster (\ s a -> s{_dCluster = a})
 
 -- | A list of services to describe. You may specify up to 10 services to describe in a single operation.
 dServices :: Lens' DescribeServices [Text]
-dServices = lens _dServices (\ s a -> s{_dServices = a}) . _Coerce;
+dServices = lens _dServices (\ s a -> s{_dServices = a}) . _Coerce
 
 instance AWSRequest DescribeServices where
         type Rs DescribeServices = DescribeServicesResponse
@@ -133,22 +133,22 @@ describeServicesResponse
     -> DescribeServicesResponse
 describeServicesResponse pResponseStatus_ =
   DescribeServicesResponse'
-  { _dssrsFailures = Nothing
-  , _dssrsServices = Nothing
-  , _dssrsResponseStatus = pResponseStatus_
-  }
+    { _dssrsFailures = Nothing
+    , _dssrsServices = Nothing
+    , _dssrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Any failures associated with the call.
 dssrsFailures :: Lens' DescribeServicesResponse [Failure]
-dssrsFailures = lens _dssrsFailures (\ s a -> s{_dssrsFailures = a}) . _Default . _Coerce;
+dssrsFailures = lens _dssrsFailures (\ s a -> s{_dssrsFailures = a}) . _Default . _Coerce
 
 -- | The list of services described.
 dssrsServices :: Lens' DescribeServicesResponse [ContainerService]
-dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default . _Coerce;
+dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeServicesResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a})
 
 instance NFData DescribeServicesResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.ListActionTypes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ listActionTypes =
 
 -- | Filters the list of action types to those created by a specified entity.
 latActionOwnerFilter :: Lens' ListActionTypes (Maybe ActionOwner)
-latActionOwnerFilter = lens _latActionOwnerFilter (\ s a -> s{_latActionOwnerFilter = a});
+latActionOwnerFilter = lens _latActionOwnerFilter (\ s a -> s{_latActionOwnerFilter = a})
 
 -- | An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list.
 latNextToken :: Lens' ListActionTypes (Maybe Text)
-latNextToken = lens _latNextToken (\ s a -> s{_latNextToken = a});
+latNextToken = lens _latNextToken (\ s a -> s{_latNextToken = a})
 
 instance AWSRequest ListActionTypes where
         type Rs ListActionTypes = ListActionTypesResponse
@@ -141,22 +141,22 @@ listActionTypesResponse
     -> ListActionTypesResponse
 listActionTypesResponse pResponseStatus_ =
   ListActionTypesResponse'
-  { _latrsNextToken = Nothing
-  , _latrsResponseStatus = pResponseStatus_
-  , _latrsActionTypes = mempty
-  }
+    { _latrsNextToken = Nothing
+    , _latrsResponseStatus = pResponseStatus_
+    , _latrsActionTypes = mempty
+    }
 
 
 -- | If the amount of returned information is significantly large, an identifier is also returned which can be used in a subsequent list action types call to return the next set of action types in the list.
 latrsNextToken :: Lens' ListActionTypesResponse (Maybe Text)
-latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a});
+latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a})
 
 -- | -- | The response status code.
 latrsResponseStatus :: Lens' ListActionTypesResponse Int
-latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus = a});
+latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus = a})
 
 -- | Provides details of the action types.
 latrsActionTypes :: Lens' ListActionTypesResponse [ActionType]
-latrsActionTypes = lens _latrsActionTypes (\ s a -> s{_latrsActionTypes = a}) . _Coerce;
+latrsActionTypes = lens _latrsActionTypes (\ s a -> s{_latrsActionTypes = a}) . _Coerce
 
 instance NFData ListActionTypesResponse where

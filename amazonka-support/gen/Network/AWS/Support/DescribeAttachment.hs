@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeAttachment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ describeAttachment pAttachmentId_ =
 
 -- | The ID of the attachment to return. Attachment IDs are returned by the 'DescribeCommunications' operation.
 daAttachmentId :: Lens' DescribeAttachment Text
-daAttachmentId = lens _daAttachmentId (\ s a -> s{_daAttachmentId = a});
+daAttachmentId = lens _daAttachmentId (\ s a -> s{_daAttachmentId = a})
 
 instance AWSRequest DescribeAttachment where
         type Rs DescribeAttachment =
@@ -125,15 +125,15 @@ describeAttachmentResponse
     -> DescribeAttachmentResponse
 describeAttachmentResponse pResponseStatus_ =
   DescribeAttachmentResponse'
-  {_darsAttachment = Nothing, _darsResponseStatus = pResponseStatus_}
+    {_darsAttachment = Nothing, _darsResponseStatus = pResponseStatus_}
 
 
 -- | The attachment content and file name.
 darsAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
-darsAttachment = lens _darsAttachment (\ s a -> s{_darsAttachment = a});
+darsAttachment = lens _darsAttachment (\ s a -> s{_darsAttachment = a})
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAttachmentResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DescribeAttachmentResponse where

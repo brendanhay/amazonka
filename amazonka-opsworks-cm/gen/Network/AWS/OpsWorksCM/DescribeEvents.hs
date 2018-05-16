@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DescribeEvents
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ describeEvents
     -> DescribeEvents
 describeEvents pServerName_ =
   DescribeEvents'
-  { _deNextToken = Nothing
-  , _deMaxResults = Nothing
-  , _deServerName = pServerName_
-  }
+    { _deNextToken = Nothing
+    , _deMaxResults = Nothing
+    , _deServerName = pServerName_
+    }
 
 
 -- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeEvents@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
 deNextToken :: Lens' DescribeEvents (Maybe Text)
-deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
+deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a})
 
 -- | To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 deMaxResults :: Lens' DescribeEvents (Maybe Natural)
-deMaxResults = lens _deMaxResults (\ s a -> s{_deMaxResults = a}) . mapping _Nat;
+deMaxResults = lens _deMaxResults (\ s a -> s{_deMaxResults = a}) . mapping _Nat
 
 -- | The name of the server for which you want to view events.
 deServerName :: Lens' DescribeEvents Text
-deServerName = lens _deServerName (\ s a -> s{_deServerName = a});
+deServerName = lens _deServerName (\ s a -> s{_deServerName = a})
 
 instance AWSRequest DescribeEvents where
         type Rs DescribeEvents = DescribeEventsResponse
@@ -152,22 +152,22 @@ describeEventsResponse
     -> DescribeEventsResponse
 describeEventsResponse pResponseStatus_ =
   DescribeEventsResponse'
-  { _dersServerEvents = Nothing
-  , _dersNextToken = Nothing
-  , _dersResponseStatus = pResponseStatus_
-  }
+    { _dersServerEvents = Nothing
+    , _dersNextToken = Nothing
+    , _dersResponseStatus = pResponseStatus_
+    }
 
 
 -- | Contains the response to a @DescribeEvents@ request.
 dersServerEvents :: Lens' DescribeEventsResponse [ServerEvent]
-dersServerEvents = lens _dersServerEvents (\ s a -> s{_dersServerEvents = a}) . _Default . _Coerce;
+dersServerEvents = lens _dersServerEvents (\ s a -> s{_dersServerEvents = a}) . _Default . _Coerce
 
 -- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeEvents@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
 dersNextToken :: Lens' DescribeEventsResponse (Maybe Text)
-dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a});
+dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a})
 
 -- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeEventsResponse Int
-dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a})
 
 instance NFData DescribeEventsResponse where

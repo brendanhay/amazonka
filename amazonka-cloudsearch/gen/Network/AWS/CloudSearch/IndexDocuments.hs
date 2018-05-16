@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.IndexDocuments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ indexDocuments pDomainName_ = IndexDocuments' {_idDomainName = pDomainName_}
 
 -- | Undocumented member.
 idDomainName :: Lens' IndexDocuments Text
-idDomainName = lens _idDomainName (\ s a -> s{_idDomainName = a});
+idDomainName = lens _idDomainName (\ s a -> s{_idDomainName = a})
 
 instance AWSRequest IndexDocuments where
         type Rs IndexDocuments = IndexDocumentsResponse
@@ -120,15 +120,15 @@ indexDocumentsResponse
     -> IndexDocumentsResponse
 indexDocumentsResponse pResponseStatus_ =
   IndexDocumentsResponse'
-  {_idrsFieldNames = Nothing, _idrsResponseStatus = pResponseStatus_}
+    {_idrsFieldNames = Nothing, _idrsResponseStatus = pResponseStatus_}
 
 
 -- | The names of the fields that are currently being indexed.
 idrsFieldNames :: Lens' IndexDocumentsResponse [Text]
-idrsFieldNames = lens _idrsFieldNames (\ s a -> s{_idrsFieldNames = a}) . _Default . _Coerce;
+idrsFieldNames = lens _idrsFieldNames (\ s a -> s{_idrsFieldNames = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 idrsResponseStatus :: Lens' IndexDocumentsResponse Int
-idrsResponseStatus = lens _idrsResponseStatus (\ s a -> s{_idrsResponseStatus = a});
+idrsResponseStatus = lens _idrsResponseStatus (\ s a -> s{_idrsResponseStatus = a})
 
 instance NFData IndexDocumentsResponse where

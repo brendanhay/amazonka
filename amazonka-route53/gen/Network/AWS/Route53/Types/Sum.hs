@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -19,6 +19,45 @@ module Network.AWS.Route53.Types.Sum where
 
 import Network.AWS.Prelude
 import Network.AWS.Route53.Internal
+
+data AccountLimitType
+  = MaxHealthChecksByOwner
+  | MaxHostedZonesByOwner
+  | MaxReusableDelegationSetsByOwner
+  | MaxTrafficPoliciesByOwner
+  | MaxTrafficPolicyInstancesByOwner
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AccountLimitType where
+    parser = takeLowerText >>= \case
+        "max_health_checks_by_owner" -> pure MaxHealthChecksByOwner
+        "max_hosted_zones_by_owner" -> pure MaxHostedZonesByOwner
+        "max_reusable_delegation_sets_by_owner" -> pure MaxReusableDelegationSetsByOwner
+        "max_traffic_policies_by_owner" -> pure MaxTrafficPoliciesByOwner
+        "max_traffic_policy_instances_by_owner" -> pure MaxTrafficPolicyInstancesByOwner
+        e -> fromTextError $ "Failure parsing AccountLimitType from value: '" <> e
+           <> "'. Accepted values: max_health_checks_by_owner, max_hosted_zones_by_owner, max_reusable_delegation_sets_by_owner, max_traffic_policies_by_owner, max_traffic_policy_instances_by_owner"
+
+instance ToText AccountLimitType where
+    toText = \case
+        MaxHealthChecksByOwner -> "MAX_HEALTH_CHECKS_BY_OWNER"
+        MaxHostedZonesByOwner -> "MAX_HOSTED_ZONES_BY_OWNER"
+        MaxReusableDelegationSetsByOwner -> "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
+        MaxTrafficPoliciesByOwner -> "MAX_TRAFFIC_POLICIES_BY_OWNER"
+        MaxTrafficPolicyInstancesByOwner -> "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
+
+instance Hashable     AccountLimitType
+instance NFData       AccountLimitType
+instance ToByteString AccountLimitType
+instance ToQuery      AccountLimitType
+instance ToHeader     AccountLimitType
+
+instance FromXML AccountLimitType where
+    parseXML = parseXMLText "AccountLimitType"
+
+instance ToXML AccountLimitType where
+    toXML = toXMLText
 
 data ChangeAction
   = Create
@@ -80,6 +119,7 @@ instance FromXML ChangeStatus where
 data CloudWatchRegion
   = CWRApNortheast1
   | CWRApNortheast2
+  | CWRApNortheast3
   | CWRApSouth1
   | CWRApSoutheast1
   | CWRApSoutheast2
@@ -87,6 +127,7 @@ data CloudWatchRegion
   | CWREuCentral1
   | CWREuWest1
   | CWREuWest2
+  | CWREuWest3
   | CWRSaEast1
   | CWRUsEast1
   | CWRUsEast2
@@ -99,6 +140,7 @@ instance FromText CloudWatchRegion where
     parser = takeLowerText >>= \case
         "ap-northeast-1" -> pure CWRApNortheast1
         "ap-northeast-2" -> pure CWRApNortheast2
+        "ap-northeast-3" -> pure CWRApNortheast3
         "ap-south-1" -> pure CWRApSouth1
         "ap-southeast-1" -> pure CWRApSoutheast1
         "ap-southeast-2" -> pure CWRApSoutheast2
@@ -106,18 +148,20 @@ instance FromText CloudWatchRegion where
         "eu-central-1" -> pure CWREuCentral1
         "eu-west-1" -> pure CWREuWest1
         "eu-west-2" -> pure CWREuWest2
+        "eu-west-3" -> pure CWREuWest3
         "sa-east-1" -> pure CWRSaEast1
         "us-east-1" -> pure CWRUsEast1
         "us-east-2" -> pure CWRUsEast2
         "us-west-1" -> pure CWRUsWest1
         "us-west-2" -> pure CWRUsWest2
         e -> fromTextError $ "Failure parsing CloudWatchRegion from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2, eu-west-3, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2"
 
 instance ToText CloudWatchRegion where
     toText = \case
         CWRApNortheast1 -> "ap-northeast-1"
         CWRApNortheast2 -> "ap-northeast-2"
+        CWRApNortheast3 -> "ap-northeast-3"
         CWRApSouth1 -> "ap-south-1"
         CWRApSoutheast1 -> "ap-southeast-1"
         CWRApSoutheast2 -> "ap-southeast-2"
@@ -125,6 +169,7 @@ instance ToText CloudWatchRegion where
         CWREuCentral1 -> "eu-central-1"
         CWREuWest1 -> "eu-west-1"
         CWREuWest2 -> "eu-west-2"
+        CWREuWest3 -> "eu-west-3"
         CWRSaEast1 -> "sa-east-1"
         CWRUsEast1 -> "us-east-1"
         CWRUsEast2 -> "us-east-2"
@@ -299,6 +344,36 @@ instance FromXML HealthCheckType where
 instance ToXML HealthCheckType where
     toXML = toXMLText
 
+data HostedZoneLimitType
+  = MaxRrsetsByZone
+  | MaxVPCsAssociatedByZone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText HostedZoneLimitType where
+    parser = takeLowerText >>= \case
+        "max_rrsets_by_zone" -> pure MaxRrsetsByZone
+        "max_vpcs_associated_by_zone" -> pure MaxVPCsAssociatedByZone
+        e -> fromTextError $ "Failure parsing HostedZoneLimitType from value: '" <> e
+           <> "'. Accepted values: max_rrsets_by_zone, max_vpcs_associated_by_zone"
+
+instance ToText HostedZoneLimitType where
+    toText = \case
+        MaxRrsetsByZone -> "MAX_RRSETS_BY_ZONE"
+        MaxVPCsAssociatedByZone -> "MAX_VPCS_ASSOCIATED_BY_ZONE"
+
+instance Hashable     HostedZoneLimitType
+instance NFData       HostedZoneLimitType
+instance ToByteString HostedZoneLimitType
+instance ToQuery      HostedZoneLimitType
+instance ToHeader     HostedZoneLimitType
+
+instance FromXML HostedZoneLimitType where
+    parseXML = parseXMLText "HostedZoneLimitType"
+
+instance ToXML HostedZoneLimitType where
+    toXML = toXMLText
+
 data InsufficientDataHealthStatus
   = Healthy
   | LastKnownStatus
@@ -425,6 +500,33 @@ instance ToHeader     ResettableElementName
 instance ToXML ResettableElementName where
     toXML = toXMLText
 
+data ReusableDelegationSetLimitType =
+  MaxZonesByReusableDelegationSet
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ReusableDelegationSetLimitType where
+    parser = takeLowerText >>= \case
+        "max_zones_by_reusable_delegation_set" -> pure MaxZonesByReusableDelegationSet
+        e -> fromTextError $ "Failure parsing ReusableDelegationSetLimitType from value: '" <> e
+           <> "'. Accepted values: max_zones_by_reusable_delegation_set"
+
+instance ToText ReusableDelegationSetLimitType where
+    toText = \case
+        MaxZonesByReusableDelegationSet -> "MAX_ZONES_BY_REUSABLE_DELEGATION_SET"
+
+instance Hashable     ReusableDelegationSetLimitType
+instance NFData       ReusableDelegationSetLimitType
+instance ToByteString ReusableDelegationSetLimitType
+instance ToQuery      ReusableDelegationSetLimitType
+instance ToHeader     ReusableDelegationSetLimitType
+
+instance FromXML ReusableDelegationSetLimitType where
+    parseXML = parseXMLText "ReusableDelegationSetLimitType"
+
+instance ToXML ReusableDelegationSetLimitType where
+    toXML = toXMLText
+
 data Statistic
   = Average
   | Maximum
@@ -494,6 +596,7 @@ instance ToXML TagResourceType where
 data VPCRegion
   = ApNortheast1
   | ApNortheast2
+  | ApNortheast3
   | ApSouth1
   | ApSoutheast1
   | ApSoutheast2
@@ -502,6 +605,7 @@ data VPCRegion
   | EuCentral1
   | EuWest1
   | EuWest2
+  | EuWest3
   | SaEast1
   | UsEast1
   | UsEast2
@@ -514,6 +618,7 @@ instance FromText VPCRegion where
     parser = takeLowerText >>= \case
         "ap-northeast-1" -> pure ApNortheast1
         "ap-northeast-2" -> pure ApNortheast2
+        "ap-northeast-3" -> pure ApNortheast3
         "ap-south-1" -> pure ApSouth1
         "ap-southeast-1" -> pure ApSoutheast1
         "ap-southeast-2" -> pure ApSoutheast2
@@ -522,18 +627,20 @@ instance FromText VPCRegion where
         "eu-central-1" -> pure EuCentral1
         "eu-west-1" -> pure EuWest1
         "eu-west-2" -> pure EuWest2
+        "eu-west-3" -> pure EuWest3
         "sa-east-1" -> pure SaEast1
         "us-east-1" -> pure UsEast1
         "us-east-2" -> pure UsEast2
         "us-west-1" -> pure UsWest1
         "us-west-2" -> pure UsWest2
         e -> fromTextError $ "Failure parsing VPCRegion from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ca-central-1, cn-north-1, eu-central-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ca-central-1, cn-north-1, eu-central-1, eu-west-1, eu-west-2, eu-west-3, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2"
 
 instance ToText VPCRegion where
     toText = \case
         ApNortheast1 -> "ap-northeast-1"
         ApNortheast2 -> "ap-northeast-2"
+        ApNortheast3 -> "ap-northeast-3"
         ApSouth1 -> "ap-south-1"
         ApSoutheast1 -> "ap-southeast-1"
         ApSoutheast2 -> "ap-southeast-2"
@@ -542,6 +649,7 @@ instance ToText VPCRegion where
         EuCentral1 -> "eu-central-1"
         EuWest1 -> "eu-west-1"
         EuWest2 -> "eu-west-2"
+        EuWest3 -> "eu-west-3"
         SaEast1 -> "sa-east-1"
         UsEast1 -> "us-east-1"
         UsEast2 -> "us-east-2"

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListRemoteAccessSessions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ listRemoteAccessSessions pArn_ =
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lrasNextToken :: Lens' ListRemoteAccessSessions (Maybe Text)
-lrasNextToken = lens _lrasNextToken (\ s a -> s{_lrasNextToken = a});
+lrasNextToken = lens _lrasNextToken (\ s a -> s{_lrasNextToken = a})
 
 -- | The Amazon Resource Name (ARN) of the remote access session about which you are requesting information.
 lrasArn :: Lens' ListRemoteAccessSessions Text
-lrasArn = lens _lrasArn (\ s a -> s{_lrasArn = a});
+lrasArn = lens _lrasArn (\ s a -> s{_lrasArn = a})
 
 instance AWSRequest ListRemoteAccessSessions where
         type Rs ListRemoteAccessSessions =
@@ -144,23 +144,23 @@ listRemoteAccessSessionsResponse
     -> ListRemoteAccessSessionsResponse
 listRemoteAccessSessionsResponse pResponseStatus_ =
   ListRemoteAccessSessionsResponse'
-  { _lrasrsNextToken = Nothing
-  , _lrasrsRemoteAccessSessions = Nothing
-  , _lrasrsResponseStatus = pResponseStatus_
-  }
+    { _lrasrsNextToken = Nothing
+    , _lrasrsRemoteAccessSessions = Nothing
+    , _lrasrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lrasrsNextToken :: Lens' ListRemoteAccessSessionsResponse (Maybe Text)
-lrasrsNextToken = lens _lrasrsNextToken (\ s a -> s{_lrasrsNextToken = a});
+lrasrsNextToken = lens _lrasrsNextToken (\ s a -> s{_lrasrsNextToken = a})
 
 -- | A container representing the metadata from the service about each remote access session you are requesting.
 lrasrsRemoteAccessSessions :: Lens' ListRemoteAccessSessionsResponse [RemoteAccessSession]
-lrasrsRemoteAccessSessions = lens _lrasrsRemoteAccessSessions (\ s a -> s{_lrasrsRemoteAccessSessions = a}) . _Default . _Coerce;
+lrasrsRemoteAccessSessions = lens _lrasrsRemoteAccessSessions (\ s a -> s{_lrasrsRemoteAccessSessions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lrasrsResponseStatus :: Lens' ListRemoteAccessSessionsResponse Int
-lrasrsResponseStatus = lens _lrasrsResponseStatus (\ s a -> s{_lrasrsResponseStatus = a});
+lrasrsResponseStatus = lens _lrasrsResponseStatus (\ s a -> s{_lrasrsResponseStatus = a})
 
 instance NFData ListRemoteAccessSessionsResponse
          where

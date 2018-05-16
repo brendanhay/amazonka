@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.AssociateDiscoveredResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ associateDiscoveredResource
     -> AssociateDiscoveredResource
 associateDiscoveredResource pProgressUpdateStream_ pMigrationTaskName_ pDiscoveredResource_ =
   AssociateDiscoveredResource'
-  { _adrDryRun = Nothing
-  , _adrProgressUpdateStream = pProgressUpdateStream_
-  , _adrMigrationTaskName = pMigrationTaskName_
-  , _adrDiscoveredResource = pDiscoveredResource_
-  }
+    { _adrDryRun = Nothing
+    , _adrProgressUpdateStream = pProgressUpdateStream_
+    , _adrMigrationTaskName = pMigrationTaskName_
+    , _adrDiscoveredResource = pDiscoveredResource_
+    }
 
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 adrDryRun :: Lens' AssociateDiscoveredResource (Maybe Bool)
-adrDryRun = lens _adrDryRun (\ s a -> s{_adrDryRun = a});
+adrDryRun = lens _adrDryRun (\ s a -> s{_adrDryRun = a})
 
 -- | The name of the ProgressUpdateStream.
 adrProgressUpdateStream :: Lens' AssociateDiscoveredResource Text
-adrProgressUpdateStream = lens _adrProgressUpdateStream (\ s a -> s{_adrProgressUpdateStream = a});
+adrProgressUpdateStream = lens _adrProgressUpdateStream (\ s a -> s{_adrProgressUpdateStream = a})
 
 -- | The identifier given to the MigrationTask.
 adrMigrationTaskName :: Lens' AssociateDiscoveredResource Text
-adrMigrationTaskName = lens _adrMigrationTaskName (\ s a -> s{_adrMigrationTaskName = a});
+adrMigrationTaskName = lens _adrMigrationTaskName (\ s a -> s{_adrMigrationTaskName = a})
 
 -- | Object representing a Resource.
 adrDiscoveredResource :: Lens' AssociateDiscoveredResource DiscoveredResource
-adrDiscoveredResource = lens _adrDiscoveredResource (\ s a -> s{_adrDiscoveredResource = a});
+adrDiscoveredResource = lens _adrDiscoveredResource (\ s a -> s{_adrDiscoveredResource = a})
 
 instance AWSRequest AssociateDiscoveredResource where
         type Rs AssociateDiscoveredResource =
@@ -157,7 +157,7 @@ associateDiscoveredResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 adrrsResponseStatus :: Lens' AssociateDiscoveredResourceResponse Int
-adrrsResponseStatus = lens _adrrsResponseStatus (\ s a -> s{_adrrsResponseStatus = a});
+adrrsResponseStatus = lens _adrrsResponseStatus (\ s a -> s{_adrrsResponseStatus = a})
 
 instance NFData AssociateDiscoveredResourceResponse
          where

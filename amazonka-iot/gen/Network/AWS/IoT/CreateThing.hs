@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateThing
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a thing record in the thing registry.
+-- Creates a thing record in the registry.
 --
 --
 module Network.AWS.IoT.CreateThing
@@ -37,6 +37,7 @@ module Network.AWS.IoT.CreateThing
     -- * Response Lenses
     , ctrsThingARN
     , ctrsThingName
+    , ctrsThingId
     , ctrsResponseStatus
     ) where
 
@@ -73,23 +74,23 @@ createThing
     -> CreateThing
 createThing pThingName_ =
   CreateThing'
-  { _ctThingTypeName = Nothing
-  , _ctAttributePayload = Nothing
-  , _ctThingName = pThingName_
-  }
+    { _ctThingTypeName = Nothing
+    , _ctAttributePayload = Nothing
+    , _ctThingName = pThingName_
+    }
 
 
 -- | The name of the thing type associated with the new thing.
 ctThingTypeName :: Lens' CreateThing (Maybe Text)
-ctThingTypeName = lens _ctThingTypeName (\ s a -> s{_ctThingTypeName = a});
+ctThingTypeName = lens _ctThingTypeName (\ s a -> s{_ctThingTypeName = a})
 
 -- | The attribute payload, which consists of up to three name/value pairs in a JSON document. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
 ctAttributePayload :: Lens' CreateThing (Maybe AttributePayload)
-ctAttributePayload = lens _ctAttributePayload (\ s a -> s{_ctAttributePayload = a});
+ctAttributePayload = lens _ctAttributePayload (\ s a -> s{_ctAttributePayload = a})
 
 -- | The name of the thing to create.
 ctThingName :: Lens' CreateThing Text
-ctThingName = lens _ctThingName (\ s a -> s{_ctThingName = a});
+ctThingName = lens _ctThingName (\ s a -> s{_ctThingName = a})
 
 instance AWSRequest CreateThing where
         type Rs CreateThing = CreateThingResponse
@@ -99,7 +100,8 @@ instance AWSRequest CreateThing where
               (\ s h x ->
                  CreateThingResponse' <$>
                    (x .?> "thingArn") <*> (x .?> "thingName") <*>
-                     (pure (fromEnum s)))
+                     (x .?> "thingId")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable CreateThing where
 
@@ -130,6 +132,7 @@ instance ToQuery CreateThing where
 data CreateThingResponse = CreateThingResponse'
   { _ctrsThingARN       :: !(Maybe Text)
   , _ctrsThingName      :: !(Maybe Text)
+  , _ctrsThingId        :: !(Maybe Text)
   , _ctrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -142,28 +145,35 @@ data CreateThingResponse = CreateThingResponse'
 --
 -- * 'ctrsThingName' - The name of the new thing.
 --
+-- * 'ctrsThingId' - The thing ID.
+--
 -- * 'ctrsResponseStatus' - -- | The response status code.
 createThingResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateThingResponse
 createThingResponse pResponseStatus_ =
   CreateThingResponse'
-  { _ctrsThingARN = Nothing
-  , _ctrsThingName = Nothing
-  , _ctrsResponseStatus = pResponseStatus_
-  }
+    { _ctrsThingARN = Nothing
+    , _ctrsThingName = Nothing
+    , _ctrsThingId = Nothing
+    , _ctrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ARN of the new thing.
 ctrsThingARN :: Lens' CreateThingResponse (Maybe Text)
-ctrsThingARN = lens _ctrsThingARN (\ s a -> s{_ctrsThingARN = a});
+ctrsThingARN = lens _ctrsThingARN (\ s a -> s{_ctrsThingARN = a})
 
 -- | The name of the new thing.
 ctrsThingName :: Lens' CreateThingResponse (Maybe Text)
-ctrsThingName = lens _ctrsThingName (\ s a -> s{_ctrsThingName = a});
+ctrsThingName = lens _ctrsThingName (\ s a -> s{_ctrsThingName = a})
+
+-- | The thing ID.
+ctrsThingId :: Lens' CreateThingResponse (Maybe Text)
+ctrsThingId = lens _ctrsThingId (\ s a -> s{_ctrsThingId = a})
 
 -- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateThingResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a})
 
 instance NFData CreateThingResponse where

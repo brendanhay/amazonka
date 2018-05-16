@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListRuns
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,11 +75,11 @@ listRuns pArn_ = ListRuns' {_lrNextToken = Nothing, _lrArn = pArn_}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lrNextToken :: Lens' ListRuns (Maybe Text)
-lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
+lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a})
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to list runs.
 lrArn :: Lens' ListRuns Text
-lrArn = lens _lrArn (\ s a -> s{_lrArn = a});
+lrArn = lens _lrArn (\ s a -> s{_lrArn = a})
 
 instance AWSPager ListRuns where
         page rq rs
@@ -150,22 +150,22 @@ listRunsResponse
     -> ListRunsResponse
 listRunsResponse pResponseStatus_ =
   ListRunsResponse'
-  { _lrrsRuns = Nothing
-  , _lrrsNextToken = Nothing
-  , _lrrsResponseStatus = pResponseStatus_
-  }
+    { _lrrsRuns = Nothing
+    , _lrrsNextToken = Nothing
+    , _lrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the runs.
 lrrsRuns :: Lens' ListRunsResponse [Run]
-lrrsRuns = lens _lrrsRuns (\ s a -> s{_lrrsRuns = a}) . _Default . _Coerce;
+lrrsRuns = lens _lrrsRuns (\ s a -> s{_lrrsRuns = a}) . _Default . _Coerce
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 lrrsNextToken :: Lens' ListRunsResponse (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
+lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a})
 
 -- | -- | The response status code.
 lrrsResponseStatus :: Lens' ListRunsResponse Int
-lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
+lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a})
 
 instance NFData ListRunsResponse where

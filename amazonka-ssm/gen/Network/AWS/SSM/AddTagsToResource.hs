@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.AddTagsToResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Adds or overwrites one or more tags for the specified resource. Tags are metadata that you can assign to your documents, managed instances, Maintenance Windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test.
 --
 --
--- Each resource can have a maximum of 10 tags.
+-- Each resource can have a maximum of 50 tags.
 --
 -- We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters.
 --
@@ -65,32 +65,32 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- * 'attrResourceType' - Specifies the type of resource you are tagging.
 --
--- * 'attrResourceId' - The resource ID you want to tag. For the ManagedInstance, MaintenanceWindow, and PatchBaseline values, use the ID of the resource, such as mw-01234361858c9b57b for a Maintenance Window. For the Document and Parameter values, use the name of the resource.
+-- * 'attrResourceId' - The resource ID you want to tag. Use the ID of the resource. Here are some examples: ManagedInstance: mi-012345abcde MaintenanceWindow: mw-012345abcde PatchBaseline: pb-012345abcde For the Document and Parameter values, use the name of the resource.
 --
--- * 'attrTags' - One or more tags. The value parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+-- * 'attrTags' - One or more tags. The value parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.  /Important:/ Do not enter personally identifiable information in this field.
 addTagsToResource
     :: ResourceTypeForTagging -- ^ 'attrResourceType'
     -> Text -- ^ 'attrResourceId'
     -> AddTagsToResource
 addTagsToResource pResourceType_ pResourceId_ =
   AddTagsToResource'
-  { _attrResourceType = pResourceType_
-  , _attrResourceId = pResourceId_
-  , _attrTags = mempty
-  }
+    { _attrResourceType = pResourceType_
+    , _attrResourceId = pResourceId_
+    , _attrTags = mempty
+    }
 
 
 -- | Specifies the type of resource you are tagging.
 attrResourceType :: Lens' AddTagsToResource ResourceTypeForTagging
-attrResourceType = lens _attrResourceType (\ s a -> s{_attrResourceType = a});
+attrResourceType = lens _attrResourceType (\ s a -> s{_attrResourceType = a})
 
--- | The resource ID you want to tag. For the ManagedInstance, MaintenanceWindow, and PatchBaseline values, use the ID of the resource, such as mw-01234361858c9b57b for a Maintenance Window. For the Document and Parameter values, use the name of the resource.
+-- | The resource ID you want to tag. Use the ID of the resource. Here are some examples: ManagedInstance: mi-012345abcde MaintenanceWindow: mw-012345abcde PatchBaseline: pb-012345abcde For the Document and Parameter values, use the name of the resource.
 attrResourceId :: Lens' AddTagsToResource Text
-attrResourceId = lens _attrResourceId (\ s a -> s{_attrResourceId = a});
+attrResourceId = lens _attrResourceId (\ s a -> s{_attrResourceId = a})
 
--- | One or more tags. The value parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+-- | One or more tags. The value parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.  /Important:/ Do not enter personally identifiable information in this field.
 attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce
 
 instance AWSRequest AddTagsToResource where
         type Rs AddTagsToResource = AddTagsToResourceResponse
@@ -147,6 +147,6 @@ addTagsToResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
-attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
+attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a})
 
 instance NFData AddTagsToResourceResponse where

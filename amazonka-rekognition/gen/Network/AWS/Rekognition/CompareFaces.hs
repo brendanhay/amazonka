@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.CompareFaces
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Compares a face in the /source/ input image with each face detected in the /target/ input image.
+-- Compares a face in the /source/ input image with each of the 100 largest faces detected in the /target/ input image.
 --
+--
+-- You pass the input and target images either as base64-encoded image bytes or as a references to images in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
 --
 -- In response, the operation returns an array of face matches ordered by similarity score in descending order. For each face match, the response provides a bounding box of the face, facial landmarks, pose details (pitch, role, and yaw), quality (brightness and sharpness), and confidence value (indicating the level of confidence that the bounding box contains a face). The response also provides a similarity score, which indicates how closely the faces match.
 --
@@ -27,7 +29,9 @@
 --
 -- If the image doesn't contain Exif metadata, @CompareFaces@ returns orientation information for the source and target images. Use these values to display the images with the correct image orientation.
 --
--- For an example, see 'get-started-exercise-compare-faces' .
+-- If no faces are detected in the source or target images, @CompareFaces@ returns an @InvalidParameterException@ error.
+--
+-- For an example, see 'faces-compare-images' .
 --
 -- This operation requires permissions to perform the @rekognition:CompareFaces@ action.
 --
@@ -74,32 +78,32 @@ data CompareFaces = CompareFaces'
 --
 -- * 'cfSimilarityThreshold' - The minimum level of confidence in the face matches that a match must meet to be included in the @FaceMatches@ array.
 --
--- * 'cfSourceImage' - The source image, either as bytes or as an S3 object.
+-- * 'cfSourceImage' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
 --
--- * 'cfTargetImage' - The target image, either as bytes or as an S3 object.
+-- * 'cfTargetImage' - The target image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
 compareFaces
     :: Image -- ^ 'cfSourceImage'
     -> Image -- ^ 'cfTargetImage'
     -> CompareFaces
 compareFaces pSourceImage_ pTargetImage_ =
   CompareFaces'
-  { _cfSimilarityThreshold = Nothing
-  , _cfSourceImage = pSourceImage_
-  , _cfTargetImage = pTargetImage_
-  }
+    { _cfSimilarityThreshold = Nothing
+    , _cfSourceImage = pSourceImage_
+    , _cfTargetImage = pTargetImage_
+    }
 
 
 -- | The minimum level of confidence in the face matches that a match must meet to be included in the @FaceMatches@ array.
 cfSimilarityThreshold :: Lens' CompareFaces (Maybe Double)
-cfSimilarityThreshold = lens _cfSimilarityThreshold (\ s a -> s{_cfSimilarityThreshold = a});
+cfSimilarityThreshold = lens _cfSimilarityThreshold (\ s a -> s{_cfSimilarityThreshold = a})
 
--- | The source image, either as bytes or as an S3 object.
+-- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
 cfSourceImage :: Lens' CompareFaces Image
-cfSourceImage = lens _cfSourceImage (\ s a -> s{_cfSourceImage = a});
+cfSourceImage = lens _cfSourceImage (\ s a -> s{_cfSourceImage = a})
 
--- | The target image, either as bytes or as an S3 object.
+-- | The target image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
 cfTargetImage :: Lens' CompareFaces Image
-cfTargetImage = lens _cfTargetImage (\ s a -> s{_cfTargetImage = a});
+cfTargetImage = lens _cfTargetImage (\ s a -> s{_cfTargetImage = a})
 
 instance AWSRequest CompareFaces where
         type Rs CompareFaces = CompareFacesResponse
@@ -174,37 +178,37 @@ compareFacesResponse
     -> CompareFacesResponse
 compareFacesResponse pResponseStatus_ =
   CompareFacesResponse'
-  { _cfrsFaceMatches = Nothing
-  , _cfrsUnmatchedFaces = Nothing
-  , _cfrsTargetImageOrientationCorrection = Nothing
-  , _cfrsSourceImageOrientationCorrection = Nothing
-  , _cfrsSourceImageFace = Nothing
-  , _cfrsResponseStatus = pResponseStatus_
-  }
+    { _cfrsFaceMatches = Nothing
+    , _cfrsUnmatchedFaces = Nothing
+    , _cfrsTargetImageOrientationCorrection = Nothing
+    , _cfrsSourceImageOrientationCorrection = Nothing
+    , _cfrsSourceImageFace = Nothing
+    , _cfrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of faces in the target image that match the source image face. Each @CompareFacesMatch@ object provides the bounding box, the confidence level that the bounding box contains a face, and the similarity score for the face in the bounding box and the face in the source image.
 cfrsFaceMatches :: Lens' CompareFacesResponse [CompareFacesMatch]
-cfrsFaceMatches = lens _cfrsFaceMatches (\ s a -> s{_cfrsFaceMatches = a}) . _Default . _Coerce;
+cfrsFaceMatches = lens _cfrsFaceMatches (\ s a -> s{_cfrsFaceMatches = a}) . _Default . _Coerce
 
 -- | An array of faces in the target image that did not match the source image face.
 cfrsUnmatchedFaces :: Lens' CompareFacesResponse [ComparedFace]
-cfrsUnmatchedFaces = lens _cfrsUnmatchedFaces (\ s a -> s{_cfrsUnmatchedFaces = a}) . _Default . _Coerce;
+cfrsUnmatchedFaces = lens _cfrsUnmatchedFaces (\ s a -> s{_cfrsUnmatchedFaces = a}) . _Default . _Coerce
 
 -- | The orientation of the target image (in counterclockwise direction). If your application displays the target image, you can use this value to correct the orientation of the image. The bounding box coordinates returned in @FaceMatches@ and @UnmatchedFaces@ represent face locations before the image orientation is corrected.
 cfrsTargetImageOrientationCorrection :: Lens' CompareFacesResponse (Maybe OrientationCorrection)
-cfrsTargetImageOrientationCorrection = lens _cfrsTargetImageOrientationCorrection (\ s a -> s{_cfrsTargetImageOrientationCorrection = a});
+cfrsTargetImageOrientationCorrection = lens _cfrsTargetImageOrientationCorrection (\ s a -> s{_cfrsTargetImageOrientationCorrection = a})
 
 -- | The orientation of the source image (counterclockwise direction). If your application displays the source image, you can use this value to correct image orientation. The bounding box coordinates returned in @SourceImageFace@ represent the location of the face before the image orientation is corrected.
 cfrsSourceImageOrientationCorrection :: Lens' CompareFacesResponse (Maybe OrientationCorrection)
-cfrsSourceImageOrientationCorrection = lens _cfrsSourceImageOrientationCorrection (\ s a -> s{_cfrsSourceImageOrientationCorrection = a});
+cfrsSourceImageOrientationCorrection = lens _cfrsSourceImageOrientationCorrection (\ s a -> s{_cfrsSourceImageOrientationCorrection = a})
 
 -- | The face in the source image that was used for comparison.
 cfrsSourceImageFace :: Lens' CompareFacesResponse (Maybe ComparedSourceImageFace)
-cfrsSourceImageFace = lens _cfrsSourceImageFace (\ s a -> s{_cfrsSourceImageFace = a});
+cfrsSourceImageFace = lens _cfrsSourceImageFace (\ s a -> s{_cfrsSourceImageFace = a})
 
 -- | -- | The response status code.
 cfrsResponseStatus :: Lens' CompareFacesResponse Int
-cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a});
+cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a})
 
 instance NFData CompareFacesResponse where

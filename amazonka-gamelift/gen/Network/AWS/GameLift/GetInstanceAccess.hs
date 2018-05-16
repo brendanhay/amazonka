@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.GetInstanceAccess
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,11 +77,11 @@ getInstanceAccess pFleetId_ pInstanceId_ =
 
 -- | Unique identifier for a fleet that contains the instance you want access to. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
 giaFleetId :: Lens' GetInstanceAccess Text
-giaFleetId = lens _giaFleetId (\ s a -> s{_giaFleetId = a});
+giaFleetId = lens _giaFleetId (\ s a -> s{_giaFleetId = a})
 
 -- | Unique identifier for an instance you want to get access to. You can access an instance in any status.
 giaInstanceId :: Lens' GetInstanceAccess Text
-giaInstanceId = lens _giaInstanceId (\ s a -> s{_giaInstanceId = a});
+giaInstanceId = lens _giaInstanceId (\ s a -> s{_giaInstanceId = a})
 
 instance AWSRequest GetInstanceAccess where
         type Rs GetInstanceAccess = GetInstanceAccessResponse
@@ -141,15 +141,15 @@ getInstanceAccessResponse
     -> GetInstanceAccessResponse
 getInstanceAccessResponse pResponseStatus_ =
   GetInstanceAccessResponse'
-  {_giarsInstanceAccess = Nothing, _giarsResponseStatus = pResponseStatus_}
+    {_giarsInstanceAccess = Nothing, _giarsResponseStatus = pResponseStatus_}
 
 
 -- | Object that contains connection information for a fleet instance, including IP address and access credentials.
 giarsInstanceAccess :: Lens' GetInstanceAccessResponse (Maybe InstanceAccess)
-giarsInstanceAccess = lens _giarsInstanceAccess (\ s a -> s{_giarsInstanceAccess = a});
+giarsInstanceAccess = lens _giarsInstanceAccess (\ s a -> s{_giarsInstanceAccess = a})
 
 -- | -- | The response status code.
 giarsResponseStatus :: Lens' GetInstanceAccessResponse Int
-giarsResponseStatus = lens _giarsResponseStatus (\ s a -> s{_giarsResponseStatus = a});
+giarsResponseStatus = lens _giarsResponseStatus (\ s a -> s{_giarsResponseStatus = a})
 
 instance NFData GetInstanceAccessResponse where

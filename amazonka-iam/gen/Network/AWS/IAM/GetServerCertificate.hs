@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetServerCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Retrieves information about the specified server certificate stored in IAM.
 --
 --
--- For more information about working with server certificates, including a list of AWS services that can use the server certificates that you manage with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/ .
+-- For more information about working with server certificates, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/ . This topic includes a list of AWS services that can use the server certificates that you manage with IAM.
 --
 module Network.AWS.IAM.GetServerCertificate
     (
@@ -56,7 +56,7 @@ newtype GetServerCertificate = GetServerCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gscServerCertificateName' - The name of the server certificate you want to retrieve information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'gscServerCertificateName' - The name of the server certificate you want to retrieve information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 getServerCertificate
     :: Text -- ^ 'gscServerCertificateName'
     -> GetServerCertificate
@@ -64,9 +64,9 @@ getServerCertificate pServerCertificateName_ =
   GetServerCertificate' {_gscServerCertificateName = pServerCertificateName_}
 
 
--- | The name of the server certificate you want to retrieve information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the server certificate you want to retrieve information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 gscServerCertificateName :: Lens' GetServerCertificate Text
-gscServerCertificateName = lens _gscServerCertificateName (\ s a -> s{_gscServerCertificateName = a});
+gscServerCertificateName = lens _gscServerCertificateName (\ s a -> s{_gscServerCertificateName = a})
 
 instance AWSRequest GetServerCertificate where
         type Rs GetServerCertificate =
@@ -119,17 +119,17 @@ getServerCertificateResponse
     -> GetServerCertificateResponse
 getServerCertificateResponse pResponseStatus_ pServerCertificate_ =
   GetServerCertificateResponse'
-  { _gscrsResponseStatus = pResponseStatus_
-  , _gscrsServerCertificate = pServerCertificate_
-  }
+    { _gscrsResponseStatus = pResponseStatus_
+    , _gscrsServerCertificate = pServerCertificate_
+    }
 
 
 -- | -- | The response status code.
 gscrsResponseStatus :: Lens' GetServerCertificateResponse Int
-gscrsResponseStatus = lens _gscrsResponseStatus (\ s a -> s{_gscrsResponseStatus = a});
+gscrsResponseStatus = lens _gscrsResponseStatus (\ s a -> s{_gscrsResponseStatus = a})
 
 -- | A structure containing details about the server certificate.
 gscrsServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
-gscrsServerCertificate = lens _gscrsServerCertificate (\ s a -> s{_gscrsServerCertificate = a});
+gscrsServerCertificate = lens _gscrsServerCertificate (\ s a -> s{_gscrsServerCertificate = a})
 
 instance NFData GetServerCertificateResponse where

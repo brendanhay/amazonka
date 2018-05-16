@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchDomains
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ describeElasticsearchDomains =
 
 -- | The Elasticsearch domains for which you want information.
 dedDomainNames :: Lens' DescribeElasticsearchDomains [Text]
-dedDomainNames = lens _dedDomainNames (\ s a -> s{_dedDomainNames = a}) . _Coerce;
+dedDomainNames = lens _dedDomainNames (\ s a -> s{_dedDomainNames = a}) . _Coerce
 
 instance AWSRequest DescribeElasticsearchDomains
          where
@@ -122,16 +122,16 @@ describeElasticsearchDomainsResponse
     -> DescribeElasticsearchDomainsResponse
 describeElasticsearchDomainsResponse pResponseStatus_ =
   DescribeElasticsearchDomainsResponse'
-  {_drsResponseStatus = pResponseStatus_, _drsDomainStatusList = mempty}
+    {_drsResponseStatus = pResponseStatus_, _drsDomainStatusList = mempty}
 
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeElasticsearchDomainsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 -- | The status of the domains requested in the @DescribeElasticsearchDomains@ request.
 drsDomainStatusList :: Lens' DescribeElasticsearchDomainsResponse [ElasticsearchDomainStatus]
-drsDomainStatusList = lens _drsDomainStatusList (\ s a -> s{_drsDomainStatusList = a}) . _Coerce;
+drsDomainStatusList = lens _drsDomainStatusList (\ s a -> s{_drsDomainStatusList = a}) . _Coerce
 
 instance NFData DescribeElasticsearchDomainsResponse
          where

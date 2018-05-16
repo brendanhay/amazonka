@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Batch.CreateJobQueue
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,35 +69,35 @@ data CreateJobQueue = CreateJobQueue'
 --
 -- * 'cjqPriority' - The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
 --
--- * 'cjqComputeEnvironmentOrder' - The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment should execute a given job. Compute environments must be in the @VALID@ state before you can associate them with a job queue. You can associate up to 3 compute environments with a job queue.
+-- * 'cjqComputeEnvironmentOrder' - The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment should execute a given job. Compute environments must be in the @VALID@ state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 createJobQueue
     :: Text -- ^ 'cjqJobQueueName'
     -> Int -- ^ 'cjqPriority'
     -> CreateJobQueue
 createJobQueue pJobQueueName_ pPriority_ =
   CreateJobQueue'
-  { _cjqState = Nothing
-  , _cjqJobQueueName = pJobQueueName_
-  , _cjqPriority = pPriority_
-  , _cjqComputeEnvironmentOrder = mempty
-  }
+    { _cjqState = Nothing
+    , _cjqJobQueueName = pJobQueueName_
+    , _cjqPriority = pPriority_
+    , _cjqComputeEnvironmentOrder = mempty
+    }
 
 
 -- | The state of the job queue. If the job queue state is @ENABLED@ , it is able to accept jobs.
 cjqState :: Lens' CreateJobQueue (Maybe JQState)
-cjqState = lens _cjqState (\ s a -> s{_cjqState = a});
+cjqState = lens _cjqState (\ s a -> s{_cjqState = a})
 
 -- | The name of the job queue.
 cjqJobQueueName :: Lens' CreateJobQueue Text
-cjqJobQueueName = lens _cjqJobQueueName (\ s a -> s{_cjqJobQueueName = a});
+cjqJobQueueName = lens _cjqJobQueueName (\ s a -> s{_cjqJobQueueName = a})
 
 -- | The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
 cjqPriority :: Lens' CreateJobQueue Int
-cjqPriority = lens _cjqPriority (\ s a -> s{_cjqPriority = a});
+cjqPriority = lens _cjqPriority (\ s a -> s{_cjqPriority = a})
 
--- | The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment should execute a given job. Compute environments must be in the @VALID@ state before you can associate them with a job queue. You can associate up to 3 compute environments with a job queue.
+-- | The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment should execute a given job. Compute environments must be in the @VALID@ state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 cjqComputeEnvironmentOrder :: Lens' CreateJobQueue [ComputeEnvironmentOrder]
-cjqComputeEnvironmentOrder = lens _cjqComputeEnvironmentOrder (\ s a -> s{_cjqComputeEnvironmentOrder = a}) . _Coerce;
+cjqComputeEnvironmentOrder = lens _cjqComputeEnvironmentOrder (\ s a -> s{_cjqComputeEnvironmentOrder = a}) . _Coerce
 
 instance AWSRequest CreateJobQueue where
         type Rs CreateJobQueue = CreateJobQueueResponse
@@ -161,22 +161,22 @@ createJobQueueResponse
     -> CreateJobQueueResponse
 createJobQueueResponse pResponseStatus_ pJobQueueName_ pJobQueueARN_ =
   CreateJobQueueResponse'
-  { _cjqrsResponseStatus = pResponseStatus_
-  , _cjqrsJobQueueName = pJobQueueName_
-  , _cjqrsJobQueueARN = pJobQueueARN_
-  }
+    { _cjqrsResponseStatus = pResponseStatus_
+    , _cjqrsJobQueueName = pJobQueueName_
+    , _cjqrsJobQueueARN = pJobQueueARN_
+    }
 
 
 -- | -- | The response status code.
 cjqrsResponseStatus :: Lens' CreateJobQueueResponse Int
-cjqrsResponseStatus = lens _cjqrsResponseStatus (\ s a -> s{_cjqrsResponseStatus = a});
+cjqrsResponseStatus = lens _cjqrsResponseStatus (\ s a -> s{_cjqrsResponseStatus = a})
 
 -- | The name of the job queue.
 cjqrsJobQueueName :: Lens' CreateJobQueueResponse Text
-cjqrsJobQueueName = lens _cjqrsJobQueueName (\ s a -> s{_cjqrsJobQueueName = a});
+cjqrsJobQueueName = lens _cjqrsJobQueueName (\ s a -> s{_cjqrsJobQueueName = a})
 
 -- | The Amazon Resource Name (ARN) of the job queue.
 cjqrsJobQueueARN :: Lens' CreateJobQueueResponse Text
-cjqrsJobQueueARN = lens _cjqrsJobQueueARN (\ s a -> s{_cjqrsJobQueueARN = a});
+cjqrsJobQueueARN = lens _cjqrsJobQueueARN (\ s a -> s{_cjqrsJobQueueARN = a})
 
 instance NFData CreateJobQueueResponse where

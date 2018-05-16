@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackResources
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ describeStackResources
     :: DescribeStackResources
 describeStackResources =
   DescribeStackResources'
-  { _dsrLogicalResourceId = Nothing
-  , _dsrPhysicalResourceId = Nothing
-  , _dsrStackName = Nothing
-  }
+    { _dsrLogicalResourceId = Nothing
+    , _dsrPhysicalResourceId = Nothing
+    , _dsrStackName = Nothing
+    }
 
 
 -- | The logical name of the resource as specified in the template. Default: There is no default value.
 dsrLogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsrLogicalResourceId = lens _dsrLogicalResourceId (\ s a -> s{_dsrLogicalResourceId = a});
+dsrLogicalResourceId = lens _dsrLogicalResourceId (\ s a -> s{_dsrLogicalResourceId = a})
 
 -- | The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation. For example, for an Amazon Elastic Compute Cloud (EC2) instance, @PhysicalResourceId@ corresponds to the @InstanceId@ . You can pass the EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the instance belongs to and what other resources are part of the stack. Required: Conditional. If you do not specify @PhysicalResourceId@ , you must specify @StackName@ . Default: There is no default value.
 dsrPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsrPhysicalResourceId = lens _dsrPhysicalResourceId (\ s a -> s{_dsrPhysicalResourceId = a});
+dsrPhysicalResourceId = lens _dsrPhysicalResourceId (\ s a -> s{_dsrPhysicalResourceId = a})
 
 -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value. Required: Conditional. If you do not specify @StackName@ , you must specify @PhysicalResourceId@ .
 dsrStackName :: Lens' DescribeStackResources (Maybe Text)
-dsrStackName = lens _dsrStackName (\ s a -> s{_dsrStackName = a});
+dsrStackName = lens _dsrStackName (\ s a -> s{_dsrStackName = a})
 
 instance AWSRequest DescribeStackResources where
         type Rs DescribeStackResources =
@@ -148,15 +148,15 @@ describeStackResourcesResponse
     -> DescribeStackResourcesResponse
 describeStackResourcesResponse pResponseStatus_ =
   DescribeStackResourcesResponse'
-  {_dsrsrsStackResources = Nothing, _dsrsrsResponseStatus = pResponseStatus_}
+    {_dsrsrsStackResources = Nothing, _dsrsrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of @StackResource@ structures.
 dsrsrsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
-dsrsrsStackResources = lens _dsrsrsStackResources (\ s a -> s{_dsrsrsStackResources = a}) . _Default . _Coerce;
+dsrsrsStackResources = lens _dsrsrsStackResources (\ s a -> s{_dsrsrsStackResources = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsrsrsResponseStatus :: Lens' DescribeStackResourcesResponse Int
-dsrsrsResponseStatus = lens _dsrsrsResponseStatus (\ s a -> s{_dsrsrsResponseStatus = a});
+dsrsrsResponseStatus = lens _dsrsrsResponseStatus (\ s a -> s{_dsrsrsResponseStatus = a})
 
 instance NFData DescribeStackResourcesResponse where

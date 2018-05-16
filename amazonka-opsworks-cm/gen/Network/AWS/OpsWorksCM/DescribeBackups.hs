@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DescribeBackups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ describeBackups
     :: DescribeBackups
 describeBackups =
   DescribeBackups'
-  { _dServerName = Nothing
-  , _dBackupId = Nothing
-  , _dNextToken = Nothing
-  , _dMaxResults = Nothing
-  }
+    { _dServerName = Nothing
+    , _dBackupId = Nothing
+    , _dNextToken = Nothing
+    , _dMaxResults = Nothing
+    }
 
 
 -- | Returns backups for the server with the specified ServerName.
 dServerName :: Lens' DescribeBackups (Maybe Text)
-dServerName = lens _dServerName (\ s a -> s{_dServerName = a});
+dServerName = lens _dServerName (\ s a -> s{_dServerName = a})
 
 -- | Describes a single backup.
 dBackupId :: Lens' DescribeBackups (Maybe Text)
-dBackupId = lens _dBackupId (\ s a -> s{_dBackupId = a});
+dBackupId = lens _dBackupId (\ s a -> s{_dBackupId = a})
 
 -- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeBackups@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
 dNextToken :: Lens' DescribeBackups (Maybe Text)
-dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a})
 
 -- | To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 dMaxResults :: Lens' DescribeBackups (Maybe Natural)
-dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat;
+dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat
 
 instance AWSRequest DescribeBackups where
         type Rs DescribeBackups = DescribeBackupsResponse
@@ -160,22 +160,22 @@ describeBackupsResponse
     -> DescribeBackupsResponse
 describeBackupsResponse pResponseStatus_ =
   DescribeBackupsResponse'
-  { _drsBackups = Nothing
-  , _drsNextToken = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsBackups = Nothing
+    , _drsNextToken = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Contains the response to a @DescribeBackups@ request.
 drsBackups :: Lens' DescribeBackupsResponse [Backup]
-drsBackups = lens _drsBackups (\ s a -> s{_drsBackups = a}) . _Default . _Coerce;
+drsBackups = lens _drsBackups (\ s a -> s{_drsBackups = a}) . _Default . _Coerce
 
 -- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeBackups@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
 drsNextToken :: Lens' DescribeBackupsResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
+drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeBackupsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeBackupsResponse where

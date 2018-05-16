@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListTagsForResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,16 +71,16 @@ listTagsForResource
     -> ListTagsForResource
 listTagsForResource pResourceType_ pResourceId_ =
   ListTagsForResource'
-  {_ltfrResourceType = pResourceType_, _ltfrResourceId = pResourceId_}
+    {_ltfrResourceType = pResourceType_, _ltfrResourceId = pResourceId_}
 
 
 -- | The type of the resource.     * The resource type for health checks is @healthcheck@ .     * The resource type for hosted zones is @hostedzone@ .
 ltfrResourceType :: Lens' ListTagsForResource TagResourceType
-ltfrResourceType = lens _ltfrResourceType (\ s a -> s{_ltfrResourceType = a});
+ltfrResourceType = lens _ltfrResourceType (\ s a -> s{_ltfrResourceType = a})
 
 -- | The ID of the resource for which you want to retrieve tags.
 ltfrResourceId :: Lens' ListTagsForResource Text
-ltfrResourceId = lens _ltfrResourceId (\ s a -> s{_ltfrResourceId = a});
+ltfrResourceId = lens _ltfrResourceId (\ s a -> s{_ltfrResourceId = a})
 
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource =
@@ -132,17 +132,17 @@ listTagsForResourceResponse
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ pResourceTagSet_ =
   ListTagsForResourceResponse'
-  { _ltfrrsResponseStatus = pResponseStatus_
-  , _ltfrrsResourceTagSet = pResourceTagSet_
-  }
+    { _ltfrrsResponseStatus = pResponseStatus_
+    , _ltfrrsResourceTagSet = pResourceTagSet_
+    }
 
 
 -- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a})
 
 -- | A @ResourceTagSet@ containing tags associated with the specified resource.
 ltfrrsResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
-ltfrrsResourceTagSet = lens _ltfrrsResourceTagSet (\ s a -> s{_ltfrrsResourceTagSet = a});
+ltfrrsResourceTagSet = lens _ltfrrsResourceTagSet (\ s a -> s{_ltfrrsResourceTagSet = a})
 
 instance NFData ListTagsForResourceResponse where

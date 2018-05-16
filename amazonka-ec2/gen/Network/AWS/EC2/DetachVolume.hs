@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachVolume
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,33 +88,33 @@ detachVolume
     -> DetachVolume
 detachVolume pVolumeId_ =
   DetachVolume'
-  { _dvInstanceId = Nothing
-  , _dvForce = Nothing
-  , _dvDevice = Nothing
-  , _dvDryRun = Nothing
-  , _dvVolumeId = pVolumeId_
-  }
+    { _dvInstanceId = Nothing
+    , _dvForce = Nothing
+    , _dvDevice = Nothing
+    , _dvDryRun = Nothing
+    , _dvVolumeId = pVolumeId_
+    }
 
 
 -- | The ID of the instance.
 dvInstanceId :: Lens' DetachVolume (Maybe Text)
-dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a});
+dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a})
 
 -- | Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
 dvForce :: Lens' DetachVolume (Maybe Bool)
-dvForce = lens _dvForce (\ s a -> s{_dvForce = a});
+dvForce = lens _dvForce (\ s a -> s{_dvForce = a})
 
 -- | The device name.
 dvDevice :: Lens' DetachVolume (Maybe Text)
-dvDevice = lens _dvDevice (\ s a -> s{_dvDevice = a});
+dvDevice = lens _dvDevice (\ s a -> s{_dvDevice = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvDryRun :: Lens' DetachVolume (Maybe Bool)
-dvDryRun = lens _dvDryRun (\ s a -> s{_dvDryRun = a});
+dvDryRun = lens _dvDryRun (\ s a -> s{_dvDryRun = a})
 
 -- | The ID of the volume.
 dvVolumeId :: Lens' DetachVolume Text
-dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a});
+dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a})
 
 instance AWSRequest DetachVolume where
         type Rs DetachVolume = VolumeAttachment

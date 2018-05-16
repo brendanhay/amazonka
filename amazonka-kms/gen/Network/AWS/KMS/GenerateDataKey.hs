@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GenerateDataKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -104,33 +104,33 @@ generateDataKey
     -> GenerateDataKey
 generateDataKey pKeyId_ =
   GenerateDataKey'
-  { _gdkKeySpec = Nothing
-  , _gdkEncryptionContext = Nothing
-  , _gdkNumberOfBytes = Nothing
-  , _gdkGrantTokens = Nothing
-  , _gdkKeyId = pKeyId_
-  }
+    { _gdkKeySpec = Nothing
+    , _gdkEncryptionContext = Nothing
+    , _gdkNumberOfBytes = Nothing
+    , _gdkGrantTokens = Nothing
+    , _gdkKeyId = pKeyId_
+    }
 
 
 -- | The length of the data encryption key. Use @AES_128@ to generate a 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
 gdkKeySpec :: Lens' GenerateDataKey (Maybe DataKeySpec)
-gdkKeySpec = lens _gdkKeySpec (\ s a -> s{_gdkKeySpec = a});
+gdkKeySpec = lens _gdkKeySpec (\ s a -> s{_gdkKeySpec = a})
 
 -- | A set of key-value pairs that represents additional authenticated data. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 gdkEncryptionContext :: Lens' GenerateDataKey (HashMap Text Text)
-gdkEncryptionContext = lens _gdkEncryptionContext (\ s a -> s{_gdkEncryptionContext = a}) . _Default . _Map;
+gdkEncryptionContext = lens _gdkEncryptionContext (\ s a -> s{_gdkEncryptionContext = a}) . _Default . _Map
 
 -- | The length of the data encryption key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the @KeySpec@ field instead of this one.
 gdkNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
-gdkNumberOfBytes = lens _gdkNumberOfBytes (\ s a -> s{_gdkNumberOfBytes = a}) . mapping _Nat;
+gdkNumberOfBytes = lens _gdkNumberOfBytes (\ s a -> s{_gdkNumberOfBytes = a}) . mapping _Nat
 
 -- | A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 gdkGrantTokens :: Lens' GenerateDataKey [Text]
-gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a}) . _Default . _Coerce;
+gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a}) . _Default . _Coerce
 
 -- | The identifier of the CMK under which to generate and encrypt the data encryption key. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with "alias/". To specify a CMK in a different AWS account, you must use the key ARN or alias ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@      * Alias name: @alias/ExampleAlias@      * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
 gdkKeyId :: Lens' GenerateDataKey Text
-gdkKeyId = lens _gdkKeyId (\ s a -> s{_gdkKeyId = a});
+gdkKeyId = lens _gdkKeyId (\ s a -> s{_gdkKeyId = a})
 
 instance AWSRequest GenerateDataKey where
         type Rs GenerateDataKey = GenerateDataKeyResponse
@@ -200,27 +200,27 @@ generateDataKeyResponse
     -> GenerateDataKeyResponse
 generateDataKeyResponse pResponseStatus_ pKeyId_ pPlaintext_ pCiphertextBlob_ =
   GenerateDataKeyResponse'
-  { _gdkrsResponseStatus = pResponseStatus_
-  , _gdkrsKeyId = pKeyId_
-  , _gdkrsPlaintext = _Sensitive . _Base64 # pPlaintext_
-  , _gdkrsCiphertextBlob = _Base64 # pCiphertextBlob_
-  }
+    { _gdkrsResponseStatus = pResponseStatus_
+    , _gdkrsKeyId = pKeyId_
+    , _gdkrsPlaintext = _Sensitive . _Base64 # pPlaintext_
+    , _gdkrsCiphertextBlob = _Base64 # pCiphertextBlob_
+    }
 
 
 -- | -- | The response status code.
 gdkrsResponseStatus :: Lens' GenerateDataKeyResponse Int
-gdkrsResponseStatus = lens _gdkrsResponseStatus (\ s a -> s{_gdkrsResponseStatus = a});
+gdkrsResponseStatus = lens _gdkrsResponseStatus (\ s a -> s{_gdkrsResponseStatus = a})
 
 -- | The identifier of the CMK under which the data encryption key was generated and encrypted.
 gdkrsKeyId :: Lens' GenerateDataKeyResponse Text
-gdkrsKeyId = lens _gdkrsKeyId (\ s a -> s{_gdkrsKeyId = a});
+gdkrsKeyId = lens _gdkrsKeyId (\ s a -> s{_gdkrsKeyId = a})
 
 -- | The data encryption key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded. Use this data key for local encryption and decryption, then remove it from memory as soon as possible.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 gdkrsPlaintext :: Lens' GenerateDataKeyResponse ByteString
-gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . _Sensitive . _Base64;
+gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . _Sensitive . _Base64
 
 -- | The encrypted data encryption key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 gdkrsCiphertextBlob :: Lens' GenerateDataKeyResponse ByteString
-gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a}) . _Base64;
+gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a}) . _Base64
 
 instance NFData GenerateDataKeyResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetDocumentPath
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ data GetDocumentPath = GetDocumentPath'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdpAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'gdpAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'gdpMarker' - This value is not supported.
 --
@@ -78,33 +78,33 @@ getDocumentPath
     -> GetDocumentPath
 getDocumentPath pDocumentId_ =
   GetDocumentPath'
-  { _gdpAuthenticationToken = Nothing
-  , _gdpMarker = Nothing
-  , _gdpLimit = Nothing
-  , _gdpFields = Nothing
-  , _gdpDocumentId = pDocumentId_
-  }
+    { _gdpAuthenticationToken = Nothing
+    , _gdpMarker = Nothing
+    , _gdpLimit = Nothing
+    , _gdpFields = Nothing
+    , _gdpDocumentId = pDocumentId_
+    }
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 gdpAuthenticationToken :: Lens' GetDocumentPath (Maybe Text)
-gdpAuthenticationToken = lens _gdpAuthenticationToken (\ s a -> s{_gdpAuthenticationToken = a}) . mapping _Sensitive;
+gdpAuthenticationToken = lens _gdpAuthenticationToken (\ s a -> s{_gdpAuthenticationToken = a}) . mapping _Sensitive
 
 -- | This value is not supported.
 gdpMarker :: Lens' GetDocumentPath (Maybe Text)
-gdpMarker = lens _gdpMarker (\ s a -> s{_gdpMarker = a});
+gdpMarker = lens _gdpMarker (\ s a -> s{_gdpMarker = a})
 
 -- | The maximum number of levels in the hierarchy to return.
 gdpLimit :: Lens' GetDocumentPath (Maybe Natural)
-gdpLimit = lens _gdpLimit (\ s a -> s{_gdpLimit = a}) . mapping _Nat;
+gdpLimit = lens _gdpLimit (\ s a -> s{_gdpLimit = a}) . mapping _Nat
 
 -- | A comma-separated list of values. Specify @NAME@ to include the names of the parent folders.
 gdpFields :: Lens' GetDocumentPath (Maybe Text)
-gdpFields = lens _gdpFields (\ s a -> s{_gdpFields = a});
+gdpFields = lens _gdpFields (\ s a -> s{_gdpFields = a})
 
 -- | The ID of the document.
 gdpDocumentId :: Lens' GetDocumentPath Text
-gdpDocumentId = lens _gdpDocumentId (\ s a -> s{_gdpDocumentId = a});
+gdpDocumentId = lens _gdpDocumentId (\ s a -> s{_gdpDocumentId = a})
 
 instance AWSRequest GetDocumentPath where
         type Rs GetDocumentPath = GetDocumentPathResponse
@@ -156,15 +156,15 @@ getDocumentPathResponse
     -> GetDocumentPathResponse
 getDocumentPathResponse pResponseStatus_ =
   GetDocumentPathResponse'
-  {_gdprsPath = Nothing, _gdprsResponseStatus = pResponseStatus_}
+    {_gdprsPath = Nothing, _gdprsResponseStatus = pResponseStatus_}
 
 
 -- | The path information.
 gdprsPath :: Lens' GetDocumentPathResponse (Maybe ResourcePath)
-gdprsPath = lens _gdprsPath (\ s a -> s{_gdprsPath = a});
+gdprsPath = lens _gdprsPath (\ s a -> s{_gdprsPath = a})
 
 -- | -- | The response status code.
 gdprsResponseStatus :: Lens' GetDocumentPathResponse Int
-gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a});
+gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a})
 
 instance NFData GetDocumentPathResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribeAccount
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ describeAccount pAccountId_ = DescribeAccount' {_daAccountId = pAccountId_}
 
 -- | The unique identifier (ID) of the AWS account that you want information about. You can get the ID from the 'ListAccounts' or 'ListAccountsForParent' operations. The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
 daAccountId :: Lens' DescribeAccount Text
-daAccountId = lens _daAccountId (\ s a -> s{_daAccountId = a});
+daAccountId = lens _daAccountId (\ s a -> s{_daAccountId = a})
 
 instance AWSRequest DescribeAccount where
         type Rs DescribeAccount = DescribeAccountResponse
@@ -120,15 +120,15 @@ describeAccountResponse
     -> DescribeAccountResponse
 describeAccountResponse pResponseStatus_ =
   DescribeAccountResponse'
-  {_darsAccount = Nothing, _darsResponseStatus = pResponseStatus_}
+    {_darsAccount = Nothing, _darsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that contains information about the requested account.
 darsAccount :: Lens' DescribeAccountResponse (Maybe Account)
-darsAccount = lens _darsAccount (\ s a -> s{_darsAccount = a});
+darsAccount = lens _darsAccount (\ s a -> s{_darsAccount = a})
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAccountResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DescribeAccountResponse where

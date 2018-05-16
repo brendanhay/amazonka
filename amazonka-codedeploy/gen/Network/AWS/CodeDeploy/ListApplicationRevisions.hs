@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListApplicationRevisions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,43 +92,43 @@ listApplicationRevisions
     -> ListApplicationRevisions
 listApplicationRevisions pApplicationName_ =
   ListApplicationRevisions'
-  { _larS3KeyPrefix = Nothing
-  , _larDeployed = Nothing
-  , _larSortOrder = Nothing
-  , _larNextToken = Nothing
-  , _larS3Bucket = Nothing
-  , _larSortBy = Nothing
-  , _larApplicationName = pApplicationName_
-  }
+    { _larS3KeyPrefix = Nothing
+    , _larDeployed = Nothing
+    , _larSortOrder = Nothing
+    , _larNextToken = Nothing
+    , _larS3Bucket = Nothing
+    , _larSortBy = Nothing
+    , _larApplicationName = pApplicationName_
+    }
 
 
 -- | A key prefix for the set of Amazon S3 objects to limit the search for revisions.
 larS3KeyPrefix :: Lens' ListApplicationRevisions (Maybe Text)
-larS3KeyPrefix = lens _larS3KeyPrefix (\ s a -> s{_larS3KeyPrefix = a});
+larS3KeyPrefix = lens _larS3KeyPrefix (\ s a -> s{_larS3KeyPrefix = a})
 
 -- | Whether to list revisions based on whether the revision is the target revision of an deployment group:     * include: List revisions that are target revisions of a deployment group.     * exclude: Do not list revisions that are target revisions of a deployment group.     * ignore: List all revisions.
 larDeployed :: Lens' ListApplicationRevisions (Maybe ListStateFilterAction)
-larDeployed = lens _larDeployed (\ s a -> s{_larDeployed = a});
+larDeployed = lens _larDeployed (\ s a -> s{_larDeployed = a})
 
 -- | The order in which to sort the list results:     * ascending: ascending order.     * descending: descending order. If not specified, the results will be sorted in ascending order. If set to null, the results will be sorted in an arbitrary order.
 larSortOrder :: Lens' ListApplicationRevisions (Maybe SortOrder)
-larSortOrder = lens _larSortOrder (\ s a -> s{_larSortOrder = a});
+larSortOrder = lens _larSortOrder (\ s a -> s{_larSortOrder = a})
 
 -- | An identifier returned from the previous list application revisions call. It can be used to return the next set of applications in the list.
 larNextToken :: Lens' ListApplicationRevisions (Maybe Text)
-larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
+larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a})
 
 -- | An Amazon S3 bucket name to limit the search for revisions. If set to null, all of the user's buckets will be searched.
 larS3Bucket :: Lens' ListApplicationRevisions (Maybe Text)
-larS3Bucket = lens _larS3Bucket (\ s a -> s{_larS3Bucket = a});
+larS3Bucket = lens _larS3Bucket (\ s a -> s{_larS3Bucket = a})
 
 -- | The column name to use to sort the list results:     * registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.     * firstUsedTime: Sort by the time the revisions were first used in a deployment.     * lastUsedTime: Sort by the time the revisions were last used in a deployment. If not specified or set to null, the results will be returned in an arbitrary order.
 larSortBy :: Lens' ListApplicationRevisions (Maybe ApplicationRevisionSortBy)
-larSortBy = lens _larSortBy (\ s a -> s{_larSortBy = a});
+larSortBy = lens _larSortBy (\ s a -> s{_larSortBy = a})
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 larApplicationName :: Lens' ListApplicationRevisions Text
-larApplicationName = lens _larApplicationName (\ s a -> s{_larApplicationName = a});
+larApplicationName = lens _larApplicationName (\ s a -> s{_larApplicationName = a})
 
 instance AWSPager ListApplicationRevisions where
         page rq rs
@@ -207,23 +207,23 @@ listApplicationRevisionsResponse
     -> ListApplicationRevisionsResponse
 listApplicationRevisionsResponse pResponseStatus_ =
   ListApplicationRevisionsResponse'
-  { _larrsNextToken = Nothing
-  , _larrsRevisions = Nothing
-  , _larrsResponseStatus = pResponseStatus_
-  }
+    { _larrsNextToken = Nothing
+    , _larrsRevisions = Nothing
+    , _larrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If a large amount of information is returned, an identifier will also be returned. It can be used in a subsequent list application revisions call to return the next set of application revisions in the list.
 larrsNextToken :: Lens' ListApplicationRevisionsResponse (Maybe Text)
-larrsNextToken = lens _larrsNextToken (\ s a -> s{_larrsNextToken = a});
+larrsNextToken = lens _larrsNextToken (\ s a -> s{_larrsNextToken = a})
 
 -- | A list of locations that contain the matching revisions.
 larrsRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
-larrsRevisions = lens _larrsRevisions (\ s a -> s{_larrsRevisions = a}) . _Default . _Coerce;
+larrsRevisions = lens _larrsRevisions (\ s a -> s{_larrsRevisions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 larrsResponseStatus :: Lens' ListApplicationRevisionsResponse Int
-larrsResponseStatus = lens _larrsResponseStatus (\ s a -> s{_larrsResponseStatus = a});
+larrsResponseStatus = lens _larrsResponseStatus (\ s a -> s{_larrsResponseStatus = a})
 
 instance NFData ListApplicationRevisionsResponse
          where

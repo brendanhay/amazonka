@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AttachToIndex
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ attachToIndex
     -> AttachToIndex
 attachToIndex pDirectoryARN_ pIndexReference_ pTargetReference_ =
   AttachToIndex'
-  { _atiDirectoryARN = pDirectoryARN_
-  , _atiIndexReference = pIndexReference_
-  , _atiTargetReference = pTargetReference_
-  }
+    { _atiDirectoryARN = pDirectoryARN_
+    , _atiIndexReference = pIndexReference_
+    , _atiTargetReference = pTargetReference_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the directory where the object and index exist.
 atiDirectoryARN :: Lens' AttachToIndex Text
-atiDirectoryARN = lens _atiDirectoryARN (\ s a -> s{_atiDirectoryARN = a});
+atiDirectoryARN = lens _atiDirectoryARN (\ s a -> s{_atiDirectoryARN = a})
 
 -- | A reference to the index that you are attaching the object to.
 atiIndexReference :: Lens' AttachToIndex ObjectReference
-atiIndexReference = lens _atiIndexReference (\ s a -> s{_atiIndexReference = a});
+atiIndexReference = lens _atiIndexReference (\ s a -> s{_atiIndexReference = a})
 
 -- | A reference to the object that you are attaching to the index.
 atiTargetReference :: Lens' AttachToIndex ObjectReference
-atiTargetReference = lens _atiTargetReference (\ s a -> s{_atiTargetReference = a});
+atiTargetReference = lens _atiTargetReference (\ s a -> s{_atiTargetReference = a})
 
 instance AWSRequest AttachToIndex where
         type Rs AttachToIndex = AttachToIndexResponse
@@ -141,17 +141,17 @@ attachToIndexResponse
     -> AttachToIndexResponse
 attachToIndexResponse pResponseStatus_ =
   AttachToIndexResponse'
-  { _atirsAttachedObjectIdentifier = Nothing
-  , _atirsResponseStatus = pResponseStatus_
-  }
+    { _atirsAttachedObjectIdentifier = Nothing
+    , _atirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The @ObjectIdentifier@ of the object that was attached to the index.
 atirsAttachedObjectIdentifier :: Lens' AttachToIndexResponse (Maybe Text)
-atirsAttachedObjectIdentifier = lens _atirsAttachedObjectIdentifier (\ s a -> s{_atirsAttachedObjectIdentifier = a});
+atirsAttachedObjectIdentifier = lens _atirsAttachedObjectIdentifier (\ s a -> s{_atirsAttachedObjectIdentifier = a})
 
 -- | -- | The response status code.
 atirsResponseStatus :: Lens' AttachToIndexResponse Int
-atirsResponseStatus = lens _atirsResponseStatus (\ s a -> s{_atirsResponseStatus = a});
+atirsResponseStatus = lens _atirsResponseStatus (\ s a -> s{_atirsResponseStatus = a})
 
 instance NFData AttachToIndexResponse where

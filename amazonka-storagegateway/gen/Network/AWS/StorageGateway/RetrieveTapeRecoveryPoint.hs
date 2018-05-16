@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the recovery point for the specified virtual tape. This operation is only supported in the tape gateway architecture.
+-- Retrieves the recovery point for the specified virtual tape. This operation is only supported in the tape gateway type.
 --
 --
 -- A recovery point is a point in time view of a virtual tape at which all the data on the tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be recovered to a new gateway.
@@ -71,16 +71,16 @@ retrieveTapeRecoveryPoint
     -> RetrieveTapeRecoveryPoint
 retrieveTapeRecoveryPoint pTapeARN_ pGatewayARN_ =
   RetrieveTapeRecoveryPoint'
-  {_rtrpTapeARN = pTapeARN_, _rtrpGatewayARN = pGatewayARN_}
+    {_rtrpTapeARN = pTapeARN_, _rtrpGatewayARN = pGatewayARN_}
 
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the recovery point.
 rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
-rtrpTapeARN = lens _rtrpTapeARN (\ s a -> s{_rtrpTapeARN = a});
+rtrpTapeARN = lens _rtrpTapeARN (\ s a -> s{_rtrpTapeARN = a})
 
 -- | Undocumented member.
 rtrpGatewayARN :: Lens' RetrieveTapeRecoveryPoint Text
-rtrpGatewayARN = lens _rtrpGatewayARN (\ s a -> s{_rtrpGatewayARN = a});
+rtrpGatewayARN = lens _rtrpGatewayARN (\ s a -> s{_rtrpGatewayARN = a})
 
 instance AWSRequest RetrieveTapeRecoveryPoint where
         type Rs RetrieveTapeRecoveryPoint =
@@ -142,16 +142,16 @@ retrieveTapeRecoveryPointResponse
     -> RetrieveTapeRecoveryPointResponse
 retrieveTapeRecoveryPointResponse pResponseStatus_ =
   RetrieveTapeRecoveryPointResponse'
-  {_rtrprsTapeARN = Nothing, _rtrprsResponseStatus = pResponseStatus_}
+    {_rtrprsTapeARN = Nothing, _rtrprsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved.
 rtrprsTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
-rtrprsTapeARN = lens _rtrprsTapeARN (\ s a -> s{_rtrprsTapeARN = a});
+rtrprsTapeARN = lens _rtrprsTapeARN (\ s a -> s{_rtrprsTapeARN = a})
 
 -- | -- | The response status code.
 rtrprsResponseStatus :: Lens' RetrieveTapeRecoveryPointResponse Int
-rtrprsResponseStatus = lens _rtrprsResponseStatus (\ s a -> s{_rtrprsResponseStatus = a});
+rtrprsResponseStatus = lens _rtrprsResponseStatus (\ s a -> s{_rtrprsResponseStatus = a})
 
 instance NFData RetrieveTapeRecoveryPointResponse
          where

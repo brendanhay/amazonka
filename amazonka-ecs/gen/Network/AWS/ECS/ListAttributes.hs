@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ data ListAttributes = ListAttributes'
 --
 -- * 'laCluster' - The short name or full Amazon Resource Name (ARN) of the cluster to list attributes. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'laNextToken' - The @nextToken@ value returned from a previous paginated @ListAttributes@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- * 'laNextToken' - The @nextToken@ value returned from a previous paginated @ListAttributes@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value.
 --
 -- * 'laAttributeName' - The name of the attribute with which to filter the results.
 --
@@ -81,38 +81,38 @@ listAttributes
     -> ListAttributes
 listAttributes pTargetType_ =
   ListAttributes'
-  { _laAttributeValue = Nothing
-  , _laCluster = Nothing
-  , _laNextToken = Nothing
-  , _laAttributeName = Nothing
-  , _laMaxResults = Nothing
-  , _laTargetType = pTargetType_
-  }
+    { _laAttributeValue = Nothing
+    , _laCluster = Nothing
+    , _laNextToken = Nothing
+    , _laAttributeName = Nothing
+    , _laMaxResults = Nothing
+    , _laTargetType = pTargetType_
+    }
 
 
 -- | The value of the attribute with which to filter results. You must also specify an attribute name to use this parameter.
 laAttributeValue :: Lens' ListAttributes (Maybe Text)
-laAttributeValue = lens _laAttributeValue (\ s a -> s{_laAttributeValue = a});
+laAttributeValue = lens _laAttributeValue (\ s a -> s{_laAttributeValue = a})
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster to list attributes. If you do not specify a cluster, the default cluster is assumed.
 laCluster :: Lens' ListAttributes (Maybe Text)
-laCluster = lens _laCluster (\ s a -> s{_laCluster = a});
+laCluster = lens _laCluster (\ s a -> s{_laCluster = a})
 
--- | The @nextToken@ value returned from a previous paginated @ListAttributes@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- | The @nextToken@ value returned from a previous paginated @ListAttributes@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value.
 laNextToken :: Lens' ListAttributes (Maybe Text)
-laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
+laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a})
 
 -- | The name of the attribute with which to filter the results.
 laAttributeName :: Lens' ListAttributes (Maybe Text)
-laAttributeName = lens _laAttributeName (\ s a -> s{_laAttributeName = a});
+laAttributeName = lens _laAttributeName (\ s a -> s{_laAttributeName = a})
 
 -- | The maximum number of cluster results returned by @ListAttributes@ in paginated output. When this parameter is used, @ListAttributes@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListAttributes@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListAttributes@ returns up to 100 results and a @nextToken@ value if applicable.
 laMaxResults :: Lens' ListAttributes (Maybe Int)
-laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a});
+laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a})
 
 -- | The type of the target with which to list attributes.
 laTargetType :: Lens' ListAttributes TargetType
-laTargetType = lens _laTargetType (\ s a -> s{_laTargetType = a});
+laTargetType = lens _laTargetType (\ s a -> s{_laTargetType = a})
 
 instance AWSRequest ListAttributes where
         type Rs ListAttributes = ListAttributesResponse
@@ -178,22 +178,22 @@ listAttributesResponse
     -> ListAttributesResponse
 listAttributesResponse pResponseStatus_ =
   ListAttributesResponse'
-  { _larsNextToken = Nothing
-  , _larsAttributes = Nothing
-  , _larsResponseStatus = pResponseStatus_
-  }
+    { _larsNextToken = Nothing
+    , _larsAttributes = Nothing
+    , _larsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The @nextToken@ value to include in a future @ListAttributes@ request. When the results of a @ListAttributes@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 larsNextToken :: Lens' ListAttributesResponse (Maybe Text)
-larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
+larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a})
 
 -- | A list of attribute objects that meet the criteria of the request.
 larsAttributes :: Lens' ListAttributesResponse [Attribute]
-larsAttributes = lens _larsAttributes (\ s a -> s{_larsAttributes = a}) . _Default . _Coerce;
+larsAttributes = lens _larsAttributes (\ s a -> s{_larsAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 larsResponseStatus :: Lens' ListAttributesResponse Int
-larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a})
 
 instance NFData ListAttributesResponse where

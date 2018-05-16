@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Decreases the Amazon Kinesis stream's retention period, which is the length of time data records are accessible after they are added to the stream. The minimum value of a stream's retention period is 24 hours.
+-- Decreases the Kinesis data stream's retention period, which is the length of time data records are accessible after they are added to the stream. The minimum value of a stream's retention period is 24 hours.
 --
 --
 -- This operation may result in lost data. For example, if the stream's retention period is 48 hours and is decreased to 24 hours, any data already in the stream that is older than 24 hours is inaccessible.
@@ -68,18 +68,18 @@ decreaseStreamRetentionPeriod
     -> DecreaseStreamRetentionPeriod
 decreaseStreamRetentionPeriod pStreamName_ pRetentionPeriodHours_ =
   DecreaseStreamRetentionPeriod'
-  { _dsrpStreamName = pStreamName_
-  , _dsrpRetentionPeriodHours = _Nat # pRetentionPeriodHours_
-  }
+    { _dsrpStreamName = pStreamName_
+    , _dsrpRetentionPeriodHours = _Nat # pRetentionPeriodHours_
+    }
 
 
 -- | The name of the stream to modify.
 dsrpStreamName :: Lens' DecreaseStreamRetentionPeriod Text
-dsrpStreamName = lens _dsrpStreamName (\ s a -> s{_dsrpStreamName = a});
+dsrpStreamName = lens _dsrpStreamName (\ s a -> s{_dsrpStreamName = a})
 
 -- | The new retention period of the stream, in hours. Must be less than the current retention period.
 dsrpRetentionPeriodHours :: Lens' DecreaseStreamRetentionPeriod Natural
-dsrpRetentionPeriodHours = lens _dsrpRetentionPeriodHours (\ s a -> s{_dsrpRetentionPeriodHours = a}) . _Nat;
+dsrpRetentionPeriodHours = lens _dsrpRetentionPeriodHours (\ s a -> s{_dsrpRetentionPeriodHours = a}) . _Nat
 
 instance AWSRequest DecreaseStreamRetentionPeriod
          where

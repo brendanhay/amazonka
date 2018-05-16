@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetOperationsForResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ getOperationsForResource
     -> GetOperationsForResource
 getOperationsForResource pResourceName_ =
   GetOperationsForResource'
-  {_gofrPageToken = Nothing, _gofrResourceName = pResourceName_}
+    {_gofrPageToken = Nothing, _gofrResourceName = pResourceName_}
 
 
 -- | A token used for advancing to the next page of results from your get operations for resource request.
 gofrPageToken :: Lens' GetOperationsForResource (Maybe Text)
-gofrPageToken = lens _gofrPageToken (\ s a -> s{_gofrPageToken = a});
+gofrPageToken = lens _gofrPageToken (\ s a -> s{_gofrPageToken = a})
 
 -- | The name of the resource for which you are requesting information.
 gofrResourceName :: Lens' GetOperationsForResource Text
-gofrResourceName = lens _gofrResourceName (\ s a -> s{_gofrResourceName = a});
+gofrResourceName = lens _gofrResourceName (\ s a -> s{_gofrResourceName = a})
 
 instance AWSRequest GetOperationsForResource where
         type Rs GetOperationsForResource =
@@ -141,28 +141,28 @@ getOperationsForResourceResponse
     -> GetOperationsForResourceResponse
 getOperationsForResourceResponse pResponseStatus_ =
   GetOperationsForResourceResponse'
-  { _gofrrsNextPageCount = Nothing
-  , _gofrrsNextPageToken = Nothing
-  , _gofrrsOperations = Nothing
-  , _gofrrsResponseStatus = pResponseStatus_
-  }
+    { _gofrrsNextPageCount = Nothing
+    , _gofrrsNextPageToken = Nothing
+    , _gofrrsOperations = Nothing
+    , _gofrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | (Deprecated) Returns the number of pages of results that remain.
 gofrrsNextPageCount :: Lens' GetOperationsForResourceResponse (Maybe Text)
-gofrrsNextPageCount = lens _gofrrsNextPageCount (\ s a -> s{_gofrrsNextPageCount = a});
+gofrrsNextPageCount = lens _gofrrsNextPageCount (\ s a -> s{_gofrrsNextPageCount = a})
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 gofrrsNextPageToken :: Lens' GetOperationsForResourceResponse (Maybe Text)
-gofrrsNextPageToken = lens _gofrrsNextPageToken (\ s a -> s{_gofrrsNextPageToken = a});
+gofrrsNextPageToken = lens _gofrrsNextPageToken (\ s a -> s{_gofrrsNextPageToken = a})
 
 -- | An array of key-value pairs containing information about the results of your get operations for resource request.
 gofrrsOperations :: Lens' GetOperationsForResourceResponse [Operation]
-gofrrsOperations = lens _gofrrsOperations (\ s a -> s{_gofrrsOperations = a}) . _Default . _Coerce;
+gofrrsOperations = lens _gofrrsOperations (\ s a -> s{_gofrrsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gofrrsResponseStatus :: Lens' GetOperationsForResourceResponse Int
-gofrrsResponseStatus = lens _gofrrsResponseStatus (\ s a -> s{_gofrrsResponseStatus = a});
+gofrrsResponseStatus = lens _gofrrsResponseStatus (\ s a -> s{_gofrrsResponseStatus = a})
 
 instance NFData GetOperationsForResourceResponse
          where

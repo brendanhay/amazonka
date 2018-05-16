@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.AddApplicationOutput
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Adds an external destination to your Amazon Kinesis Analytics application.
 --
 --
--- If you want Amazon Kinesis Analytics to deliver data from an in-application stream within your application to an external destination (such as an Amazon Kinesis stream or a Firehose delivery stream), you add the relevant configuration to your application using this operation. You can configure one or more outputs for your application. Each output configuration maps an in-application stream and an external destination.
+-- If you want Amazon Kinesis Analytics to deliver data from an in-application stream within your application to an external destination (such as an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an Amazon Lambda function), you add the relevant configuration to your application using this operation. You can configure one or more outputs for your application. Each output configuration maps an in-application stream and an external destination.
 --
 -- You can use one of the output configurations to deliver data from your in-application error stream to an external destination so that you can analyze the errors. For conceptual information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Understanding Application Output (Destination)> .
 --
@@ -73,9 +73,9 @@ data AddApplicationOutput = AddApplicationOutput'
 --
 -- * 'aaoApplicationName' - Name of the application to which you want to add the output configuration.
 --
--- * 'aaoCurrentApplicationVersionId' - Version of the application to which you want add the output configuration. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
+-- * 'aaoCurrentApplicationVersionId' - Version of the application to which you want to add the output configuration. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 --
--- * 'aaoOutput' - An array of objects, each describing one output configuration. In the output configuration, you specify the name of an in-application stream, a destination (that is, an Amazon Kinesis stream or an Amazon Kinesis Firehose delivery stream), and record the formation to use when writing to the destination.
+-- * 'aaoOutput' - An array of objects, each describing one output configuration. In the output configuration, you specify the name of an in-application stream, a destination (that is, an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an Amazon Lambda function), and record the formation to use when writing to the destination.
 addApplicationOutput
     :: Text -- ^ 'aaoApplicationName'
     -> Natural -- ^ 'aaoCurrentApplicationVersionId'
@@ -83,23 +83,23 @@ addApplicationOutput
     -> AddApplicationOutput
 addApplicationOutput pApplicationName_ pCurrentApplicationVersionId_ pOutput_ =
   AddApplicationOutput'
-  { _aaoApplicationName = pApplicationName_
-  , _aaoCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-  , _aaoOutput = pOutput_
-  }
+    { _aaoApplicationName = pApplicationName_
+    , _aaoCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+    , _aaoOutput = pOutput_
+    }
 
 
 -- | Name of the application to which you want to add the output configuration.
 aaoApplicationName :: Lens' AddApplicationOutput Text
-aaoApplicationName = lens _aaoApplicationName (\ s a -> s{_aaoApplicationName = a});
+aaoApplicationName = lens _aaoApplicationName (\ s a -> s{_aaoApplicationName = a})
 
--- | Version of the application to which you want add the output configuration. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
+-- | Version of the application to which you want to add the output configuration. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 aaoCurrentApplicationVersionId :: Lens' AddApplicationOutput Natural
-aaoCurrentApplicationVersionId = lens _aaoCurrentApplicationVersionId (\ s a -> s{_aaoCurrentApplicationVersionId = a}) . _Nat;
+aaoCurrentApplicationVersionId = lens _aaoCurrentApplicationVersionId (\ s a -> s{_aaoCurrentApplicationVersionId = a}) . _Nat
 
--- | An array of objects, each describing one output configuration. In the output configuration, you specify the name of an in-application stream, a destination (that is, an Amazon Kinesis stream or an Amazon Kinesis Firehose delivery stream), and record the formation to use when writing to the destination.
+-- | An array of objects, each describing one output configuration. In the output configuration, you specify the name of an in-application stream, a destination (that is, an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an Amazon Lambda function), and record the formation to use when writing to the destination.
 aaoOutput :: Lens' AddApplicationOutput Output
-aaoOutput = lens _aaoOutput (\ s a -> s{_aaoOutput = a});
+aaoOutput = lens _aaoOutput (\ s a -> s{_aaoOutput = a})
 
 instance AWSRequest AddApplicationOutput where
         type Rs AddApplicationOutput =
@@ -165,6 +165,6 @@ addApplicationOutputResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 aaorsResponseStatus :: Lens' AddApplicationOutputResponse Int
-aaorsResponseStatus = lens _aaorsResponseStatus (\ s a -> s{_aaorsResponseStatus = a});
+aaorsResponseStatus = lens _aaorsResponseStatus (\ s a -> s{_aaorsResponseStatus = a})
 
 instance NFData AddApplicationOutputResponse where

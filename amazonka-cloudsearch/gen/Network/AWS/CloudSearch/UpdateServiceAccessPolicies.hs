@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.UpdateServiceAccessPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ updateServiceAccessPolicies
     -> UpdateServiceAccessPolicies
 updateServiceAccessPolicies pDomainName_ pAccessPolicies_ =
   UpdateServiceAccessPolicies'
-  {_usapDomainName = pDomainName_, _usapAccessPolicies = pAccessPolicies_}
+    {_usapDomainName = pDomainName_, _usapAccessPolicies = pAccessPolicies_}
 
 
 -- | Undocumented member.
 usapDomainName :: Lens' UpdateServiceAccessPolicies Text
-usapDomainName = lens _usapDomainName (\ s a -> s{_usapDomainName = a});
+usapDomainName = lens _usapDomainName (\ s a -> s{_usapDomainName = a})
 
 -- | The access rules you want to configure. These rules replace any existing rules.
 usapAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
-usapAccessPolicies = lens _usapAccessPolicies (\ s a -> s{_usapAccessPolicies = a});
+usapAccessPolicies = lens _usapAccessPolicies (\ s a -> s{_usapAccessPolicies = a})
 
 instance AWSRequest UpdateServiceAccessPolicies where
         type Rs UpdateServiceAccessPolicies =
@@ -134,18 +134,18 @@ updateServiceAccessPoliciesResponse
     -> UpdateServiceAccessPoliciesResponse
 updateServiceAccessPoliciesResponse pResponseStatus_ pAccessPolicies_ =
   UpdateServiceAccessPoliciesResponse'
-  { _usaprsResponseStatus = pResponseStatus_
-  , _usaprsAccessPolicies = pAccessPolicies_
-  }
+    { _usaprsResponseStatus = pResponseStatus_
+    , _usaprsAccessPolicies = pAccessPolicies_
+    }
 
 
 -- | -- | The response status code.
 usaprsResponseStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
-usaprsResponseStatus = lens _usaprsResponseStatus (\ s a -> s{_usaprsResponseStatus = a});
+usaprsResponseStatus = lens _usaprsResponseStatus (\ s a -> s{_usaprsResponseStatus = a})
 
 -- | The access rules configured for the domain.
 usaprsAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
-usaprsAccessPolicies = lens _usaprsAccessPolicies (\ s a -> s{_usaprsAccessPolicies = a});
+usaprsAccessPolicies = lens _usaprsAccessPolicies (\ s a -> s{_usaprsAccessPolicies = a})
 
 instance NFData UpdateServiceAccessPoliciesResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.CreateHITType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ data CreateHITType = CreateHITType'
 --
 -- * 'chittKeywords' - One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs.
 --
--- * 'chittQualificationRequirements' - A condition that a Worker's Qualifications must meet before the Worker is allowed to accept and complete the HIT.
+-- * 'chittQualificationRequirements' - Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
 --
 -- * 'chittAssignmentDurationInSeconds' - The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept.
 --
@@ -87,43 +87,43 @@ createHITType
     -> CreateHITType
 createHITType pAssignmentDurationInSeconds_ pReward_ pTitle_ pDescription_ =
   CreateHITType'
-  { _chittAutoApprovalDelayInSeconds = Nothing
-  , _chittKeywords = Nothing
-  , _chittQualificationRequirements = Nothing
-  , _chittAssignmentDurationInSeconds = pAssignmentDurationInSeconds_
-  , _chittReward = pReward_
-  , _chittTitle = pTitle_
-  , _chittDescription = pDescription_
-  }
+    { _chittAutoApprovalDelayInSeconds = Nothing
+    , _chittKeywords = Nothing
+    , _chittQualificationRequirements = Nothing
+    , _chittAssignmentDurationInSeconds = pAssignmentDurationInSeconds_
+    , _chittReward = pReward_
+    , _chittTitle = pTitle_
+    , _chittDescription = pDescription_
+    }
 
 
 -- | The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it.
 chittAutoApprovalDelayInSeconds :: Lens' CreateHITType (Maybe Integer)
-chittAutoApprovalDelayInSeconds = lens _chittAutoApprovalDelayInSeconds (\ s a -> s{_chittAutoApprovalDelayInSeconds = a});
+chittAutoApprovalDelayInSeconds = lens _chittAutoApprovalDelayInSeconds (\ s a -> s{_chittAutoApprovalDelayInSeconds = a})
 
 -- | One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs.
 chittKeywords :: Lens' CreateHITType (Maybe Text)
-chittKeywords = lens _chittKeywords (\ s a -> s{_chittKeywords = a});
+chittKeywords = lens _chittKeywords (\ s a -> s{_chittKeywords = a})
 
--- | A condition that a Worker's Qualifications must meet before the Worker is allowed to accept and complete the HIT.
+-- | Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
 chittQualificationRequirements :: Lens' CreateHITType [QualificationRequirement]
-chittQualificationRequirements = lens _chittQualificationRequirements (\ s a -> s{_chittQualificationRequirements = a}) . _Default . _Coerce;
+chittQualificationRequirements = lens _chittQualificationRequirements (\ s a -> s{_chittQualificationRequirements = a}) . _Default . _Coerce
 
 -- | The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept.
 chittAssignmentDurationInSeconds :: Lens' CreateHITType Integer
-chittAssignmentDurationInSeconds = lens _chittAssignmentDurationInSeconds (\ s a -> s{_chittAssignmentDurationInSeconds = a});
+chittAssignmentDurationInSeconds = lens _chittAssignmentDurationInSeconds (\ s a -> s{_chittAssignmentDurationInSeconds = a})
 
 -- | The amount of money the Requester will pay a Worker for successfully completing the HIT.
 chittReward :: Lens' CreateHITType Text
-chittReward = lens _chittReward (\ s a -> s{_chittReward = a});
+chittReward = lens _chittReward (\ s a -> s{_chittReward = a})
 
 -- | The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT title appears in search results, and everywhere the HIT is mentioned.
 chittTitle :: Lens' CreateHITType Text
-chittTitle = lens _chittTitle (\ s a -> s{_chittTitle = a});
+chittTitle = lens _chittTitle (\ s a -> s{_chittTitle = a})
 
 -- | A general description of the HIT. A description includes detailed information about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded view of search results, and in the HIT and assignment screens. A good description gives the user enough information to evaluate the HIT before accepting it.
 chittDescription :: Lens' CreateHITType Text
-chittDescription = lens _chittDescription (\ s a -> s{_chittDescription = a});
+chittDescription = lens _chittDescription (\ s a -> s{_chittDescription = a})
 
 instance AWSRequest CreateHITType where
         type Rs CreateHITType = CreateHITTypeResponse
@@ -189,15 +189,15 @@ createHITTypeResponse
     -> CreateHITTypeResponse
 createHITTypeResponse pResponseStatus_ =
   CreateHITTypeResponse'
-  {_chittrsHITTypeId = Nothing, _chittrsResponseStatus = pResponseStatus_}
+    {_chittrsHITTypeId = Nothing, _chittrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the newly registered HIT type.
 chittrsHITTypeId :: Lens' CreateHITTypeResponse (Maybe Text)
-chittrsHITTypeId = lens _chittrsHITTypeId (\ s a -> s{_chittrsHITTypeId = a});
+chittrsHITTypeId = lens _chittrsHITTypeId (\ s a -> s{_chittrsHITTypeId = a})
 
 -- | -- | The response status code.
 chittrsResponseStatus :: Lens' CreateHITTypeResponse Int
-chittrsResponseStatus = lens _chittrsResponseStatus (\ s a -> s{_chittrsResponseStatus = a});
+chittrsResponseStatus = lens _chittrsResponseStatus (\ s a -> s{_chittrsResponseStatus = a})
 
 instance NFData CreateHITTypeResponse where

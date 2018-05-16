@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeKeyPairs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,20 +73,20 @@ describeKeyPairs
     :: DescribeKeyPairs
 describeKeyPairs =
   DescribeKeyPairs'
-  {_dkpsFilters = Nothing, _dkpsKeyNames = Nothing, _dkpsDryRun = Nothing}
+    {_dkpsFilters = Nothing, _dkpsKeyNames = Nothing, _dkpsDryRun = Nothing}
 
 
 -- | One or more filters.     * @fingerprint@ - The fingerprint of the key pair.     * @key-name@ - The name of the key pair.
 dkpsFilters :: Lens' DescribeKeyPairs [Filter]
-dkpsFilters = lens _dkpsFilters (\ s a -> s{_dkpsFilters = a}) . _Default . _Coerce;
+dkpsFilters = lens _dkpsFilters (\ s a -> s{_dkpsFilters = a}) . _Default . _Coerce
 
 -- | One or more key pair names. Default: Describes all your key pairs.
 dkpsKeyNames :: Lens' DescribeKeyPairs [Text]
-dkpsKeyNames = lens _dkpsKeyNames (\ s a -> s{_dkpsKeyNames = a}) . _Default . _Coerce;
+dkpsKeyNames = lens _dkpsKeyNames (\ s a -> s{_dkpsKeyNames = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dkpsDryRun :: Lens' DescribeKeyPairs (Maybe Bool)
-dkpsDryRun = lens _dkpsDryRun (\ s a -> s{_dkpsDryRun = a});
+dkpsDryRun = lens _dkpsDryRun (\ s a -> s{_dkpsDryRun = a})
 
 instance AWSRequest DescribeKeyPairs where
         type Rs DescribeKeyPairs = DescribeKeyPairsResponse
@@ -141,15 +141,15 @@ describeKeyPairsResponse
     -> DescribeKeyPairsResponse
 describeKeyPairsResponse pResponseStatus_ =
   DescribeKeyPairsResponse'
-  {_dkprsKeyPairs = Nothing, _dkprsResponseStatus = pResponseStatus_}
+    {_dkprsKeyPairs = Nothing, _dkprsResponseStatus = pResponseStatus_}
 
 
 -- | Information about one or more key pairs.
 dkprsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
-dkprsKeyPairs = lens _dkprsKeyPairs (\ s a -> s{_dkprsKeyPairs = a}) . _Default . _Coerce;
+dkprsKeyPairs = lens _dkprsKeyPairs (\ s a -> s{_dkprsKeyPairs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dkprsResponseStatus :: Lens' DescribeKeyPairsResponse Int
-dkprsResponseStatus = lens _dkprsResponseStatus (\ s a -> s{_dkprsResponseStatus = a});
+dkprsResponseStatus = lens _dkprsResponseStatus (\ s a -> s{_dkprsResponseStatus = a})
 
 instance NFData DescribeKeyPairsResponse where

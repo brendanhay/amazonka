@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeleteConfigRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ deleteConfigRule pConfigRuleName_ =
 
 -- | The name of the AWS Config rule that you want to delete.
 dcrConfigRuleName :: Lens' DeleteConfigRule Text
-dcrConfigRuleName = lens _dcrConfigRuleName (\ s a -> s{_dcrConfigRuleName = a});
+dcrConfigRuleName = lens _dcrConfigRuleName (\ s a -> s{_dcrConfigRuleName = a})
 
 instance AWSRequest DeleteConfigRule where
         type Rs DeleteConfigRule = DeleteConfigRuleResponse

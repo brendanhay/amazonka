@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.CreateRegexMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,11 +84,11 @@ createRegexMatchSet pName_ pChangeToken_ =
 
 -- | A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
 crmsName :: Lens' CreateRegexMatchSet Text
-crmsName = lens _crmsName (\ s a -> s{_crmsName = a});
+crmsName = lens _crmsName (\ s a -> s{_crmsName = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 crmsChangeToken :: Lens' CreateRegexMatchSet Text
-crmsChangeToken = lens _crmsChangeToken (\ s a -> s{_crmsChangeToken = a});
+crmsChangeToken = lens _crmsChangeToken (\ s a -> s{_crmsChangeToken = a})
 
 instance AWSRequest CreateRegexMatchSet where
         type Rs CreateRegexMatchSet =
@@ -150,22 +150,22 @@ createRegexMatchSetResponse
     -> CreateRegexMatchSetResponse
 createRegexMatchSetResponse pResponseStatus_ =
   CreateRegexMatchSetResponse'
-  { _crmsrsRegexMatchSet = Nothing
-  , _crmsrsChangeToken = Nothing
-  , _crmsrsResponseStatus = pResponseStatus_
-  }
+    { _crmsrsRegexMatchSet = Nothing
+    , _crmsrsChangeToken = Nothing
+    , _crmsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A 'RegexMatchSet' that contains no @RegexMatchTuple@ objects.
 crmsrsRegexMatchSet :: Lens' CreateRegexMatchSetResponse (Maybe RegexMatchSet)
-crmsrsRegexMatchSet = lens _crmsrsRegexMatchSet (\ s a -> s{_crmsrsRegexMatchSet = a});
+crmsrsRegexMatchSet = lens _crmsrsRegexMatchSet (\ s a -> s{_crmsrsRegexMatchSet = a})
 
 -- | The @ChangeToken@ that you used to submit the @CreateRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 crmsrsChangeToken :: Lens' CreateRegexMatchSetResponse (Maybe Text)
-crmsrsChangeToken = lens _crmsrsChangeToken (\ s a -> s{_crmsrsChangeToken = a});
+crmsrsChangeToken = lens _crmsrsChangeToken (\ s a -> s{_crmsrsChangeToken = a})
 
 -- | -- | The response status code.
 crmsrsResponseStatus :: Lens' CreateRegexMatchSetResponse Int
-crmsrsResponseStatus = lens _crmsrsResponseStatus (\ s a -> s{_crmsrsResponseStatus = a});
+crmsrsResponseStatus = lens _crmsrsResponseStatus (\ s a -> s{_crmsrsResponseStatus = a})
 
 instance NFData CreateRegexMatchSetResponse where

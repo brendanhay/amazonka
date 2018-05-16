@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteMethod
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,11 +59,11 @@ data DeleteMethod = DeleteMethod'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmmRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'dmmRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'dmmResourceId' - The 'Resource' identifier for the 'Method' resource.
+-- * 'dmmResourceId' - [Required] The 'Resource' identifier for the 'Method' resource.
 --
--- * 'dmmHttpMethod' - The HTTP verb of the 'Method' resource.
+-- * 'dmmHttpMethod' - [Required] The HTTP verb of the 'Method' resource.
 deleteMethod
     :: Text -- ^ 'dmmRestAPIId'
     -> Text -- ^ 'dmmResourceId'
@@ -71,23 +71,23 @@ deleteMethod
     -> DeleteMethod
 deleteMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
   DeleteMethod'
-  { _dmmRestAPIId = pRestAPIId_
-  , _dmmResourceId = pResourceId_
-  , _dmmHttpMethod = pHttpMethod_
-  }
+    { _dmmRestAPIId = pRestAPIId_
+    , _dmmResourceId = pResourceId_
+    , _dmmHttpMethod = pHttpMethod_
+    }
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 dmmRestAPIId :: Lens' DeleteMethod Text
-dmmRestAPIId = lens _dmmRestAPIId (\ s a -> s{_dmmRestAPIId = a});
+dmmRestAPIId = lens _dmmRestAPIId (\ s a -> s{_dmmRestAPIId = a})
 
--- | The 'Resource' identifier for the 'Method' resource.
+-- | [Required] The 'Resource' identifier for the 'Method' resource.
 dmmResourceId :: Lens' DeleteMethod Text
-dmmResourceId = lens _dmmResourceId (\ s a -> s{_dmmResourceId = a});
+dmmResourceId = lens _dmmResourceId (\ s a -> s{_dmmResourceId = a})
 
--- | The HTTP verb of the 'Method' resource.
+-- | [Required] The HTTP verb of the 'Method' resource.
 dmmHttpMethod :: Lens' DeleteMethod Text
-dmmHttpMethod = lens _dmmHttpMethod (\ s a -> s{_dmmHttpMethod = a});
+dmmHttpMethod = lens _dmmHttpMethod (\ s a -> s{_dmmHttpMethod = a})
 
 instance AWSRequest DeleteMethod where
         type Rs DeleteMethod = DeleteMethodResponse'

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetEndpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,16 +63,16 @@ getEndpoint
     -> GetEndpoint
 getEndpoint pApplicationId_ pEndpointId_ =
   GetEndpoint'
-  {_geApplicationId = pApplicationId_, _geEndpointId = pEndpointId_}
+    {_geApplicationId = pApplicationId_, _geEndpointId = pEndpointId_}
 
 
 -- | Undocumented member.
 geApplicationId :: Lens' GetEndpoint Text
-geApplicationId = lens _geApplicationId (\ s a -> s{_geApplicationId = a});
+geApplicationId = lens _geApplicationId (\ s a -> s{_geApplicationId = a})
 
 -- | Undocumented member.
 geEndpointId :: Lens' GetEndpoint Text
-geEndpointId = lens _geEndpointId (\ s a -> s{_geEndpointId = a});
+geEndpointId = lens _geEndpointId (\ s a -> s{_geEndpointId = a})
 
 instance AWSRequest GetEndpoint where
         type Rs GetEndpoint = GetEndpointResponse
@@ -123,17 +123,17 @@ getEndpointResponse
     -> GetEndpointResponse
 getEndpointResponse pResponseStatus_ pEndpointResponse_ =
   GetEndpointResponse'
-  { _gersResponseStatus = pResponseStatus_
-  , _gersEndpointResponse = pEndpointResponse_
-  }
+    { _gersResponseStatus = pResponseStatus_
+    , _gersEndpointResponse = pEndpointResponse_
+    }
 
 
 -- | -- | The response status code.
 gersResponseStatus :: Lens' GetEndpointResponse Int
-gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a});
+gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a})
 
 -- | Undocumented member.
 gersEndpointResponse :: Lens' GetEndpointResponse EndpointResponse
-gersEndpointResponse = lens _gersEndpointResponse (\ s a -> s{_gersEndpointResponse = a});
+gersEndpointResponse = lens _gersEndpointResponse (\ s a -> s{_gersEndpointResponse = a})
 
 instance NFData GetEndpointResponse where

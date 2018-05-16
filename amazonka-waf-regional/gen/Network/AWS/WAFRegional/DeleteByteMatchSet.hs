@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteByteMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,16 +77,16 @@ deleteByteMatchSet
     -> DeleteByteMatchSet
 deleteByteMatchSet pByteMatchSetId_ pChangeToken_ =
   DeleteByteMatchSet'
-  {_dbmsByteMatchSetId = pByteMatchSetId_, _dbmsChangeToken = pChangeToken_}
+    {_dbmsByteMatchSetId = pByteMatchSetId_, _dbmsChangeToken = pChangeToken_}
 
 
 -- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to delete. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
 dbmsByteMatchSetId :: Lens' DeleteByteMatchSet Text
-dbmsByteMatchSetId = lens _dbmsByteMatchSetId (\ s a -> s{_dbmsByteMatchSetId = a});
+dbmsByteMatchSetId = lens _dbmsByteMatchSetId (\ s a -> s{_dbmsByteMatchSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 dbmsChangeToken :: Lens' DeleteByteMatchSet Text
-dbmsChangeToken = lens _dbmsChangeToken (\ s a -> s{_dbmsChangeToken = a});
+dbmsChangeToken = lens _dbmsChangeToken (\ s a -> s{_dbmsChangeToken = a})
 
 instance AWSRequest DeleteByteMatchSet where
         type Rs DeleteByteMatchSet =
@@ -144,15 +144,15 @@ deleteByteMatchSetResponse
     -> DeleteByteMatchSetResponse
 deleteByteMatchSetResponse pResponseStatus_ =
   DeleteByteMatchSetResponse'
-  {_dbmsrsChangeToken = Nothing, _dbmsrsResponseStatus = pResponseStatus_}
+    {_dbmsrsChangeToken = Nothing, _dbmsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @DeleteByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dbmsrsChangeToken :: Lens' DeleteByteMatchSetResponse (Maybe Text)
-dbmsrsChangeToken = lens _dbmsrsChangeToken (\ s a -> s{_dbmsrsChangeToken = a});
+dbmsrsChangeToken = lens _dbmsrsChangeToken (\ s a -> s{_dbmsrsChangeToken = a})
 
 -- | -- | The response status code.
 dbmsrsResponseStatus :: Lens' DeleteByteMatchSetResponse Int
-dbmsrsResponseStatus = lens _dbmsrsResponseStatus (\ s a -> s{_dbmsrsResponseStatus = a});
+dbmsrsResponseStatus = lens _dbmsrsResponseStatus (\ s a -> s{_dbmsrsResponseStatus = a})
 
 instance NFData DeleteByteMatchSetResponse where

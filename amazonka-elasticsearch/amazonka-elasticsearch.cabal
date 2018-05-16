@@ -1,5 +1,5 @@
 name:                  amazonka-elasticsearch
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Elasticsearch Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -53,10 +53,13 @@ library
         , Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
         , Network.AWS.ElasticSearch.DescribeElasticsearchDomains
         , Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
+        , Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
+        , Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
         , Network.AWS.ElasticSearch.ListDomainNames
         , Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
         , Network.AWS.ElasticSearch.ListElasticsearchVersions
         , Network.AWS.ElasticSearch.ListTags
+        , Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
         , Network.AWS.ElasticSearch.RemoveTags
         , Network.AWS.ElasticSearch.Types
         , Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
@@ -67,7 +70,7 @@ library
         , Network.AWS.ElasticSearch.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-elasticsearch-test
@@ -87,8 +90,8 @@ test-suite amazonka-elasticsearch-test
         , Test.AWS.ElasticSearch.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-elasticsearch
         , base
         , bytestring

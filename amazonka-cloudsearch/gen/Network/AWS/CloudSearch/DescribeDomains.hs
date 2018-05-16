@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeDomains
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ describeDomains = DescribeDomains' {_ddDomainNames = Nothing}
 
 -- | The names of the domains you want to include in the response.
 ddDomainNames :: Lens' DescribeDomains [Text]
-ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a}) . _Default . _Coerce;
+ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeDomains where
         type Rs DescribeDomains = DescribeDomainsResponse
@@ -120,15 +120,15 @@ describeDomainsResponse
     -> DescribeDomainsResponse
 describeDomainsResponse pResponseStatus_ =
   DescribeDomainsResponse'
-  {_ddsrsResponseStatus = pResponseStatus_, _ddsrsDomainStatusList = mempty}
+    {_ddsrsResponseStatus = pResponseStatus_, _ddsrsDomainStatusList = mempty}
 
 
 -- | -- | The response status code.
 ddsrsResponseStatus :: Lens' DescribeDomainsResponse Int
-ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});
+ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a})
 
 -- | Undocumented member.
 ddsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-ddsrsDomainStatusList = lens _ddsrsDomainStatusList (\ s a -> s{_ddsrsDomainStatusList = a}) . _Coerce;
+ddsrsDomainStatusList = lens _ddsrsDomainStatusList (\ s a -> s{_ddsrsDomainStatusList = a}) . _Coerce
 
 instance NFData DescribeDomainsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeScalingPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,55 +23,33 @@
 --
 -- To get a fleet's scaling policies, specify the fleet ID. You can filter this request by policy status, such as to retrieve only active scaling policies. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, set of 'ScalingPolicy' objects is returned for the fleet.
 --
--- Fleet-related operations include:
+-- A fleet may have all of its scaling policies suspended ('StopFleetActions' ). This action does not affect the status of the scaling policies, which remains ACTIVE. To see whether a fleet's scaling policies are in force or suspended, call 'DescribeFleetAttributes' and check the stopped actions.
 --
---     * 'CreateFleet'
---
---     * 'ListFleets'
---
---     * Describe fleets:
---
---     * 'DescribeFleetAttributes'
---
---     * 'DescribeFleetPortSettings'
---
---     * 'DescribeFleetUtilization'
---
---     * 'DescribeRuntimeConfiguration'
---
---     * 'DescribeFleetEvents'
---
---
---
---     * Update fleets:
---
---     * 'UpdateFleetAttributes'
---
---     * 'UpdateFleetCapacity'
---
---     * 'UpdateFleetPortSettings'
---
---     * 'UpdateRuntimeConfiguration'
---
---
---
---     * Manage fleet capacity:
+-- Operations related to fleet capacity scaling include:
 --
 --     * 'DescribeFleetCapacity'
 --
 --     * 'UpdateFleetCapacity'
 --
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
 --     * 'DescribeEC2InstanceLimits'
 --
+--     * Manage scaling policies:
+--
+--     * 'PutScalingPolicy' (auto-scaling)
+--
+--     * 'DescribeScalingPolicies' (auto-scaling)
+--
+--     * 'DeleteScalingPolicy' (auto-scaling)
 --
 --
---     * 'DeleteFleet'
+--
+--     * Manage fleet actions:
+--
+--     * 'StartFleetActions'
+--
+--     * 'StopFleetActions'
+--
+--
 --
 --
 --
@@ -131,28 +109,28 @@ describeScalingPolicies
     -> DescribeScalingPolicies
 describeScalingPolicies pFleetId_ =
   DescribeScalingPolicies'
-  { _dNextToken = Nothing
-  , _dStatusFilter = Nothing
-  , _dLimit = Nothing
-  , _dFleetId = pFleetId_
-  }
+    { _dNextToken = Nothing
+    , _dStatusFilter = Nothing
+    , _dLimit = Nothing
+    , _dFleetId = pFleetId_
+    }
 
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dNextToken :: Lens' DescribeScalingPolicies (Maybe Text)
-dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a})
 
 -- | Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ -- The scaling policy is currently in force.     * __UPDATEREQUESTED__ -- A request to update the scaling policy has been received.     * __UPDATING__ -- A change is being made to the scaling policy.     * __DELETEREQUESTED__ -- A request to delete the scaling policy has been received.     * __DELETING__ -- The scaling policy is being deleted.     * __DELETED__ -- The scaling policy has been deleted.     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
 dStatusFilter :: Lens' DescribeScalingPolicies (Maybe ScalingStatusType)
-dStatusFilter = lens _dStatusFilter (\ s a -> s{_dStatusFilter = a});
+dStatusFilter = lens _dStatusFilter (\ s a -> s{_dStatusFilter = a})
 
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 dLimit :: Lens' DescribeScalingPolicies (Maybe Natural)
-dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat;
+dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat
 
 -- | Unique identifier for a fleet to retrieve scaling policies for.
 dFleetId :: Lens' DescribeScalingPolicies Text
-dFleetId = lens _dFleetId (\ s a -> s{_dFleetId = a});
+dFleetId = lens _dFleetId (\ s a -> s{_dFleetId = a})
 
 instance AWSRequest DescribeScalingPolicies where
         type Rs DescribeScalingPolicies =
@@ -220,22 +198,22 @@ describeScalingPoliciesResponse
     -> DescribeScalingPoliciesResponse
 describeScalingPoliciesResponse pResponseStatus_ =
   DescribeScalingPoliciesResponse'
-  { _dsprsNextToken = Nothing
-  , _dsprsScalingPolicies = Nothing
-  , _dsprsResponseStatus = pResponseStatus_
-  }
+    { _dsprsNextToken = Nothing
+    , _dsprsScalingPolicies = Nothing
+    , _dsprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dsprsNextToken :: Lens' DescribeScalingPoliciesResponse (Maybe Text)
-dsprsNextToken = lens _dsprsNextToken (\ s a -> s{_dsprsNextToken = a});
+dsprsNextToken = lens _dsprsNextToken (\ s a -> s{_dsprsNextToken = a})
 
 -- | Collection of objects containing the scaling policies matching the request.
 dsprsScalingPolicies :: Lens' DescribeScalingPoliciesResponse [ScalingPolicy]
-dsprsScalingPolicies = lens _dsprsScalingPolicies (\ s a -> s{_dsprsScalingPolicies = a}) . _Default . _Coerce;
+dsprsScalingPolicies = lens _dsprsScalingPolicies (\ s a -> s{_dsprsScalingPolicies = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsprsResponseStatus :: Lens' DescribeScalingPoliciesResponse Int
-dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a});
+dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a})
 
 instance NFData DescribeScalingPoliciesResponse where

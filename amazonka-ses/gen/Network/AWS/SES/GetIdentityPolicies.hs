@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetIdentityPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,11 +76,11 @@ getIdentityPolicies pIdentity_ =
 
 -- | The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
 gipIdentity :: Lens' GetIdentityPolicies Text
-gipIdentity = lens _gipIdentity (\ s a -> s{_gipIdentity = a});
+gipIdentity = lens _gipIdentity (\ s a -> s{_gipIdentity = a})
 
 -- | A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use @ListIdentityPolicies@ .
 gipPolicyNames :: Lens' GetIdentityPolicies [Text]
-gipPolicyNames = lens _gipPolicyNames (\ s a -> s{_gipPolicyNames = a}) . _Coerce;
+gipPolicyNames = lens _gipPolicyNames (\ s a -> s{_gipPolicyNames = a}) . _Coerce
 
 instance AWSRequest GetIdentityPolicies where
         type Rs GetIdentityPolicies =
@@ -136,15 +136,15 @@ getIdentityPoliciesResponse
     -> GetIdentityPoliciesResponse
 getIdentityPoliciesResponse pResponseStatus_ =
   GetIdentityPoliciesResponse'
-  {_giprsResponseStatus = pResponseStatus_, _giprsPolicies = mempty}
+    {_giprsResponseStatus = pResponseStatus_, _giprsPolicies = mempty}
 
 
 -- | -- | The response status code.
 giprsResponseStatus :: Lens' GetIdentityPoliciesResponse Int
-giprsResponseStatus = lens _giprsResponseStatus (\ s a -> s{_giprsResponseStatus = a});
+giprsResponseStatus = lens _giprsResponseStatus (\ s a -> s{_giprsResponseStatus = a})
 
 -- | A map of policy names to policies.
 giprsPolicies :: Lens' GetIdentityPoliciesResponse (HashMap Text Text)
-giprsPolicies = lens _giprsPolicies (\ s a -> s{_giprsPolicies = a}) . _Map;
+giprsPolicies = lens _giprsPolicies (\ s a -> s{_giprsPolicies = a}) . _Map
 
 instance NFData GetIdentityPoliciesResponse where

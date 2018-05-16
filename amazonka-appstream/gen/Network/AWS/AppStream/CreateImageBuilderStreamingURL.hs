@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.CreateImageBuilderStreamingURL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Creates a URL to start an image builder streaming session.
+--
+--
 module Network.AWS.AppStream.CreateImageBuilderStreamingURL
     (
     -- * Creating a Request
@@ -55,24 +57,24 @@ data CreateImageBuilderStreamingURL = CreateImageBuilderStreamingURL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cibsuValidity' - Undocumented member.
+-- * 'cibsuValidity' - The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
 --
--- * 'cibsuName' - Undocumented member.
+-- * 'cibsuName' - The name of the image builder.
 createImageBuilderStreamingURL
     :: Text -- ^ 'cibsuName'
     -> CreateImageBuilderStreamingURL
 createImageBuilderStreamingURL pName_ =
   CreateImageBuilderStreamingURL'
-  {_cibsuValidity = Nothing, _cibsuName = pName_}
+    {_cibsuValidity = Nothing, _cibsuName = pName_}
 
 
--- | Undocumented member.
+-- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
 cibsuValidity :: Lens' CreateImageBuilderStreamingURL (Maybe Integer)
-cibsuValidity = lens _cibsuValidity (\ s a -> s{_cibsuValidity = a});
+cibsuValidity = lens _cibsuValidity (\ s a -> s{_cibsuValidity = a})
 
--- | Undocumented member.
+-- | The name of the image builder.
 cibsuName :: Lens' CreateImageBuilderStreamingURL Text
-cibsuName = lens _cibsuName (\ s a -> s{_cibsuName = a});
+cibsuName = lens _cibsuName (\ s a -> s{_cibsuName = a})
 
 instance AWSRequest CreateImageBuilderStreamingURL
          where
@@ -127,9 +129,9 @@ data CreateImageBuilderStreamingURLResponse = CreateImageBuilderStreamingURLResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cibsursStreamingURL' - Undocumented member.
+-- * 'cibsursStreamingURL' - The URL to start the AppStream 2.0 streaming session.
 --
--- * 'cibsursExpires' - Undocumented member.
+-- * 'cibsursExpires' - The elapsed time, in seconds after the Unix epoch, when this URL expires.
 --
 -- * 'cibsursResponseStatus' - -- | The response status code.
 createImageBuilderStreamingURLResponse
@@ -137,23 +139,23 @@ createImageBuilderStreamingURLResponse
     -> CreateImageBuilderStreamingURLResponse
 createImageBuilderStreamingURLResponse pResponseStatus_ =
   CreateImageBuilderStreamingURLResponse'
-  { _cibsursStreamingURL = Nothing
-  , _cibsursExpires = Nothing
-  , _cibsursResponseStatus = pResponseStatus_
-  }
+    { _cibsursStreamingURL = Nothing
+    , _cibsursExpires = Nothing
+    , _cibsursResponseStatus = pResponseStatus_
+    }
 
 
--- | Undocumented member.
+-- | The URL to start the AppStream 2.0 streaming session.
 cibsursStreamingURL :: Lens' CreateImageBuilderStreamingURLResponse (Maybe Text)
-cibsursStreamingURL = lens _cibsursStreamingURL (\ s a -> s{_cibsursStreamingURL = a});
+cibsursStreamingURL = lens _cibsursStreamingURL (\ s a -> s{_cibsursStreamingURL = a})
 
--- | Undocumented member.
+-- | The elapsed time, in seconds after the Unix epoch, when this URL expires.
 cibsursExpires :: Lens' CreateImageBuilderStreamingURLResponse (Maybe UTCTime)
-cibsursExpires = lens _cibsursExpires (\ s a -> s{_cibsursExpires = a}) . mapping _Time;
+cibsursExpires = lens _cibsursExpires (\ s a -> s{_cibsursExpires = a}) . mapping _Time
 
 -- | -- | The response status code.
 cibsursResponseStatus :: Lens' CreateImageBuilderStreamingURLResponse Int
-cibsursResponseStatus = lens _cibsursResponseStatus (\ s a -> s{_cibsursResponseStatus = a});
+cibsursResponseStatus = lens _cibsursResponseStatus (\ s a -> s{_cibsursResponseStatus = a})
 
 instance NFData
            CreateImageBuilderStreamingURLResponse

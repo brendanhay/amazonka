@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeStacks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ describeStacks = DescribeStacks' {_dNextToken = Nothing, _dNames = Nothing}
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 dNextToken :: Lens' DescribeStacks (Maybe Text)
-dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a})
 
 -- | The names of the stacks to describe.
 dNames :: Lens' DescribeStacks [Text]
-dNames = lens _dNames (\ s a -> s{_dNames = a}) . _Default . _Coerce;
+dNames = lens _dNames (\ s a -> s{_dNames = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeStacks where
         type Rs DescribeStacks = DescribeStacksResponse
@@ -132,22 +132,22 @@ describeStacksResponse
     -> DescribeStacksResponse
 describeStacksResponse pResponseStatus_ =
   DescribeStacksResponse'
-  { _desrsNextToken = Nothing
-  , _desrsStacks = Nothing
-  , _desrsResponseStatus = pResponseStatus_
-  }
+    { _desrsNextToken = Nothing
+    , _desrsStacks = Nothing
+    , _desrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 desrsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
-desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
+desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a})
 
 -- | Information about the stacks.
 desrsStacks :: Lens' DescribeStacksResponse [Stack]
-desrsStacks = lens _desrsStacks (\ s a -> s{_desrsStacks = a}) . _Default . _Coerce;
+desrsStacks = lens _desrsStacks (\ s a -> s{_desrsStacks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeStacksResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 instance NFData DescribeStacksResponse where

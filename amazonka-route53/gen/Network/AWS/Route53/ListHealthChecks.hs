@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListHealthChecks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,11 +78,11 @@ listHealthChecks =
 
 -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more health checks. To get another group, submit another @ListHealthChecks@ request.  For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first health check that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more health checks to get.
 lhcMarker :: Lens' ListHealthChecks (Maybe Text)
-lhcMarker = lens _lhcMarker (\ s a -> s{_lhcMarker = a});
+lhcMarker = lens _lhcMarker (\ s a -> s{_lhcMarker = a})
 
 -- | The maximum number of health checks that you want @ListHealthChecks@ to return in response to the current request. Amazon Route 53 returns a maximum of 100 items. If you set @MaxItems@ to a value greater than 100, Amazon Route 53 returns only the first 100 health checks.
 lhcMaxItems :: Lens' ListHealthChecks (Maybe Text)
-lhcMaxItems = lens _lhcMaxItems (\ s a -> s{_lhcMaxItems = a});
+lhcMaxItems = lens _lhcMaxItems (\ s a -> s{_lhcMaxItems = a})
 
 instance AWSPager ListHealthChecks where
         page rq rs
@@ -158,37 +158,37 @@ listHealthChecksResponse
     -> ListHealthChecksResponse
 listHealthChecksResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
   ListHealthChecksResponse'
-  { _lhcrsNextMarker = Nothing
-  , _lhcrsResponseStatus = pResponseStatus_
-  , _lhcrsHealthChecks = mempty
-  , _lhcrsMarker = pMarker_
-  , _lhcrsIsTruncated = pIsTruncated_
-  , _lhcrsMaxItems = pMaxItems_
-  }
+    { _lhcrsNextMarker = Nothing
+    , _lhcrsResponseStatus = pResponseStatus_
+    , _lhcrsHealthChecks = mempty
+    , _lhcrsMarker = pMarker_
+    , _lhcrsIsTruncated = pIsTruncated_
+    , _lhcrsMaxItems = pMaxItems_
+    }
 
 
 -- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first health check that Amazon Route 53 returns if you submit another @ListHealthChecks@ request and specify the value of @NextMarker@ in the @marker@ parameter.
 lhcrsNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
-lhcrsNextMarker = lens _lhcrsNextMarker (\ s a -> s{_lhcrsNextMarker = a});
+lhcrsNextMarker = lens _lhcrsNextMarker (\ s a -> s{_lhcrsNextMarker = a})
 
 -- | -- | The response status code.
 lhcrsResponseStatus :: Lens' ListHealthChecksResponse Int
-lhcrsResponseStatus = lens _lhcrsResponseStatus (\ s a -> s{_lhcrsResponseStatus = a});
+lhcrsResponseStatus = lens _lhcrsResponseStatus (\ s a -> s{_lhcrsResponseStatus = a})
 
 -- | A complex type that contains one @HealthCheck@ element for each health check that is associated with the current AWS account.
 lhcrsHealthChecks :: Lens' ListHealthChecksResponse [HealthCheck]
-lhcrsHealthChecks = lens _lhcrsHealthChecks (\ s a -> s{_lhcrsHealthChecks = a}) . _Coerce;
+lhcrsHealthChecks = lens _lhcrsHealthChecks (\ s a -> s{_lhcrsHealthChecks = a}) . _Coerce
 
 -- | For the second and subsequent calls to @ListHealthChecks@ , @Marker@ is the value that you specified for the @marker@ parameter in the previous request.
 lhcrsMarker :: Lens' ListHealthChecksResponse Text
-lhcrsMarker = lens _lhcrsMarker (\ s a -> s{_lhcrsMarker = a});
+lhcrsMarker = lens _lhcrsMarker (\ s a -> s{_lhcrsMarker = a})
 
 -- | A flag that indicates whether there are more health checks to be listed. If the response was truncated, you can get the next group of health checks by submitting another @ListHealthChecks@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
 lhcrsIsTruncated :: Lens' ListHealthChecksResponse Bool
-lhcrsIsTruncated = lens _lhcrsIsTruncated (\ s a -> s{_lhcrsIsTruncated = a});
+lhcrsIsTruncated = lens _lhcrsIsTruncated (\ s a -> s{_lhcrsIsTruncated = a})
 
 -- | The value that you specified for the @maxitems@ parameter in the call to @ListHealthChecks@ that produced the current response.
 lhcrsMaxItems :: Lens' ListHealthChecksResponse Text
-lhcrsMaxItems = lens _lhcrsMaxItems (\ s a -> s{_lhcrsMaxItems = a});
+lhcrsMaxItems = lens _lhcrsMaxItems (\ s a -> s{_lhcrsMaxItems = a})
 
 instance NFData ListHealthChecksResponse where

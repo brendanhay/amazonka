@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.RestoreServer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ restoreServer
     -> RestoreServer
 restoreServer pBackupId_ pServerName_ =
   RestoreServer'
-  { _rsKeyPair = Nothing
-  , _rsInstanceType = Nothing
-  , _rsBackupId = pBackupId_
-  , _rsServerName = pServerName_
-  }
+    { _rsKeyPair = Nothing
+    , _rsInstanceType = Nothing
+    , _rsBackupId = pBackupId_
+    , _rsServerName = pServerName_
+    }
 
 
 -- | The name of the key pair to set on the new EC2 instance. This can be helpful if the administrator no longer has the SSH key.
 rsKeyPair :: Lens' RestoreServer (Maybe Text)
-rsKeyPair = lens _rsKeyPair (\ s a -> s{_rsKeyPair = a});
+rsKeyPair = lens _rsKeyPair (\ s a -> s{_rsKeyPair = a})
 
 -- | The type of the instance to create. Valid values must be specified in the following format: @^([cm][34]|t2).*@ For example, @m4.large@ . Valid values are @t2.medium@ , @m4.large@ , and @m4.2xlarge@ . If you do not specify this parameter, RestoreServer uses the instance type from the specified backup.
 rsInstanceType :: Lens' RestoreServer (Maybe Text)
-rsInstanceType = lens _rsInstanceType (\ s a -> s{_rsInstanceType = a});
+rsInstanceType = lens _rsInstanceType (\ s a -> s{_rsInstanceType = a})
 
 -- | The ID of the backup that you want to use to restore a server.
 rsBackupId :: Lens' RestoreServer Text
-rsBackupId = lens _rsBackupId (\ s a -> s{_rsBackupId = a});
+rsBackupId = lens _rsBackupId (\ s a -> s{_rsBackupId = a})
 
 -- | The name of the server that you want to restore.
 rsServerName :: Lens' RestoreServer Text
-rsServerName = lens _rsServerName (\ s a -> s{_rsServerName = a});
+rsServerName = lens _rsServerName (\ s a -> s{_rsServerName = a})
 
 instance AWSRequest RestoreServer where
         type Rs RestoreServer = RestoreServerResponse
@@ -156,6 +156,6 @@ restoreServerResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rsrsResponseStatus :: Lens' RestoreServerResponse Int
-rsrsResponseStatus = lens _rsrsResponseStatus (\ s a -> s{_rsrsResponseStatus = a});
+rsrsResponseStatus = lens _rsrsResponseStatus (\ s a -> s{_rsrsResponseStatus = a})
 
 instance NFData RestoreServerResponse where

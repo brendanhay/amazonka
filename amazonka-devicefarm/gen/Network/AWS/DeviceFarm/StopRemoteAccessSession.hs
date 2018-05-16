@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.StopRemoteAccessSession
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ stopRemoteAccessSession pArn_ = StopRemoteAccessSession' {_srasArn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the remote access session you wish to stop.
 srasArn :: Lens' StopRemoteAccessSession Text
-srasArn = lens _srasArn (\ s a -> s{_srasArn = a});
+srasArn = lens _srasArn (\ s a -> s{_srasArn = a})
 
 instance AWSRequest StopRemoteAccessSession where
         type Rs StopRemoteAccessSession =
@@ -127,17 +127,17 @@ stopRemoteAccessSessionResponse
     -> StopRemoteAccessSessionResponse
 stopRemoteAccessSessionResponse pResponseStatus_ =
   StopRemoteAccessSessionResponse'
-  { _srasrsRemoteAccessSession = Nothing
-  , _srasrsResponseStatus = pResponseStatus_
-  }
+    { _srasrsRemoteAccessSession = Nothing
+    , _srasrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A container representing the metadata from the service about the remote access session you are stopping.
 srasrsRemoteAccessSession :: Lens' StopRemoteAccessSessionResponse (Maybe RemoteAccessSession)
-srasrsRemoteAccessSession = lens _srasrsRemoteAccessSession (\ s a -> s{_srasrsRemoteAccessSession = a});
+srasrsRemoteAccessSession = lens _srasrsRemoteAccessSession (\ s a -> s{_srasrsRemoteAccessSession = a})
 
 -- | -- | The response status code.
 srasrsResponseStatus :: Lens' StopRemoteAccessSessionResponse Int
-srasrsResponseStatus = lens _srasrsResponseStatus (\ s a -> s{_srasrsResponseStatus = a});
+srasrsResponseStatus = lens _srasrsResponseStatus (\ s a -> s{_srasrsResponseStatus = a})
 
 instance NFData StopRemoteAccessSessionResponse where

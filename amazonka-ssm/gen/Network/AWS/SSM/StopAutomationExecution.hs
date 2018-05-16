@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.StopAutomationExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,7 @@ module Network.AWS.SSM.StopAutomationExecution
       stopAutomationExecution
     , StopAutomationExecution
     -- * Request Lenses
+    , saeType
     , saeAutomationExecutionId
 
     -- * Destructuring the Response
@@ -44,8 +45,9 @@ import Network.AWS.SSM.Types
 import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'stopAutomationExecution' smart constructor.
-newtype StopAutomationExecution = StopAutomationExecution'
-  { _saeAutomationExecutionId :: Text
+data StopAutomationExecution = StopAutomationExecution'
+  { _saeType                  :: !(Maybe StopType)
+  , _saeAutomationExecutionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -53,17 +55,24 @@ newtype StopAutomationExecution = StopAutomationExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'saeType' - The stop request type. Valid types include the following: Cancel and Complete. The default type is Cancel.
+--
 -- * 'saeAutomationExecutionId' - The execution ID of the Automation to stop.
 stopAutomationExecution
     :: Text -- ^ 'saeAutomationExecutionId'
     -> StopAutomationExecution
 stopAutomationExecution pAutomationExecutionId_ =
-  StopAutomationExecution' {_saeAutomationExecutionId = pAutomationExecutionId_}
+  StopAutomationExecution'
+    {_saeType = Nothing, _saeAutomationExecutionId = pAutomationExecutionId_}
 
+
+-- | The stop request type. Valid types include the following: Cancel and Complete. The default type is Cancel.
+saeType :: Lens' StopAutomationExecution (Maybe StopType)
+saeType = lens _saeType (\ s a -> s{_saeType = a})
 
 -- | The execution ID of the Automation to stop.
 saeAutomationExecutionId :: Lens' StopAutomationExecution Text
-saeAutomationExecutionId = lens _saeAutomationExecutionId (\ s a -> s{_saeAutomationExecutionId = a});
+saeAutomationExecutionId = lens _saeAutomationExecutionId (\ s a -> s{_saeAutomationExecutionId = a})
 
 instance AWSRequest StopAutomationExecution where
         type Rs StopAutomationExecution =
@@ -92,7 +101,8 @@ instance ToJSON StopAutomationExecution where
         toJSON StopAutomationExecution'{..}
           = object
               (catMaybes
-                 [Just
+                 [("Type" .=) <$> _saeType,
+                  Just
                     ("AutomationExecutionId" .=
                        _saeAutomationExecutionId)])
 
@@ -122,6 +132,6 @@ stopAutomationExecutionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 saersResponseStatus :: Lens' StopAutomationExecutionResponse Int
-saersResponseStatus = lens _saersResponseStatus (\ s a -> s{_saersResponseStatus = a});
+saersResponseStatus = lens _saersResponseStatus (\ s a -> s{_saersResponseStatus = a})
 
 instance NFData StopAutomationExecutionResponse where

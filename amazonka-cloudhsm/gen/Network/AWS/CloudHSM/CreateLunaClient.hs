@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.CreateLunaClient
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,11 +76,11 @@ createLunaClient pCertificate_ =
 
 -- | The label for the client.
 clcLabel :: Lens' CreateLunaClient (Maybe Text)
-clcLabel = lens _clcLabel (\ s a -> s{_clcLabel = a});
+clcLabel = lens _clcLabel (\ s a -> s{_clcLabel = a})
 
 -- | The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.
 clcCertificate :: Lens' CreateLunaClient Text
-clcCertificate = lens _clcCertificate (\ s a -> s{_clcCertificate = a});
+clcCertificate = lens _clcCertificate (\ s a -> s{_clcCertificate = a})
 
 instance AWSRequest CreateLunaClient where
         type Rs CreateLunaClient = CreateLunaClientResponse
@@ -141,15 +141,15 @@ createLunaClientResponse
     -> CreateLunaClientResponse
 createLunaClientResponse pResponseStatus_ =
   CreateLunaClientResponse'
-  {_clcrsClientARN = Nothing, _clcrsResponseStatus = pResponseStatus_}
+    {_clcrsClientARN = Nothing, _clcrsResponseStatus = pResponseStatus_}
 
 
 -- | The ARN of the client.
 clcrsClientARN :: Lens' CreateLunaClientResponse (Maybe Text)
-clcrsClientARN = lens _clcrsClientARN (\ s a -> s{_clcrsClientARN = a});
+clcrsClientARN = lens _clcrsClientARN (\ s a -> s{_clcrsClientARN = a})
 
 -- | -- | The response status code.
 clcrsResponseStatus :: Lens' CreateLunaClientResponse Int
-clcrsResponseStatus = lens _clcrsResponseStatus (\ s a -> s{_clcrsResponseStatus = a});
+clcrsResponseStatus = lens _clcrsResponseStatus (\ s a -> s{_clcrsResponseStatus = a})
 
 instance NFData CreateLunaClientResponse where

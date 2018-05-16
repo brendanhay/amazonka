@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,7 @@ module Network.AWS.IoT.DeleteCertificate
       deleteCertificate
     , DeleteCertificate
     -- * Request Lenses
+    , dcForceDelete
     , dcCertificateId
 
     -- * Destructuring the Response
@@ -48,8 +49,9 @@ import Network.AWS.Response
 --
 --
 -- /See:/ 'deleteCertificate' smart constructor.
-newtype DeleteCertificate = DeleteCertificate'
-  { _dcCertificateId :: Text
+data DeleteCertificate = DeleteCertificate'
+  { _dcForceDelete   :: !(Maybe Bool)
+  , _dcCertificateId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,17 +59,24 @@ newtype DeleteCertificate = DeleteCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcCertificateId' - The ID of the certificate.
+-- * 'dcForceDelete' - Forces a certificate request to be deleted.
+--
+-- * 'dcCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 deleteCertificate
     :: Text -- ^ 'dcCertificateId'
     -> DeleteCertificate
 deleteCertificate pCertificateId_ =
-  DeleteCertificate' {_dcCertificateId = pCertificateId_}
+  DeleteCertificate'
+    {_dcForceDelete = Nothing, _dcCertificateId = pCertificateId_}
 
 
--- | The ID of the certificate.
+-- | Forces a certificate request to be deleted.
+dcForceDelete :: Lens' DeleteCertificate (Maybe Bool)
+dcForceDelete = lens _dcForceDelete (\ s a -> s{_dcForceDelete = a})
+
+-- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 dcCertificateId :: Lens' DeleteCertificate Text
-dcCertificateId = lens _dcCertificateId (\ s a -> s{_dcCertificateId = a});
+dcCertificateId = lens _dcCertificateId (\ s a -> s{_dcCertificateId = a})
 
 instance AWSRequest DeleteCertificate where
         type Rs DeleteCertificate = DeleteCertificateResponse
@@ -86,7 +95,8 @@ instance ToPath DeleteCertificate where
           = mconcat ["/certificates/", toBS _dcCertificateId]
 
 instance ToQuery DeleteCertificate where
-        toQuery = const mempty
+        toQuery DeleteCertificate'{..}
+          = mconcat ["forceDelete" =: _dcForceDelete]
 
 -- | /See:/ 'deleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse =

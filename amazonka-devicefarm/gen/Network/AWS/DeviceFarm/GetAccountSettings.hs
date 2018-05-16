@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetAccountSettings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -115,15 +115,15 @@ getAccountSettingsResponse
     -> GetAccountSettingsResponse
 getAccountSettingsResponse pResponseStatus_ =
   GetAccountSettingsResponse'
-  {_gasrsAccountSettings = Nothing, _gasrsResponseStatus = pResponseStatus_}
+    {_gasrsAccountSettings = Nothing, _gasrsResponseStatus = pResponseStatus_}
 
 
 -- | The account settings.
 gasrsAccountSettings :: Lens' GetAccountSettingsResponse (Maybe AccountSettings)
-gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSettings = a});
+gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSettings = a})
 
 -- | -- | The response status code.
 gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
-gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
+gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a})
 
 instance NFData GetAccountSettingsResponse where

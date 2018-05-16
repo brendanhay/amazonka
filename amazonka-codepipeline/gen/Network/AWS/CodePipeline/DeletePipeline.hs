@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.DeletePipeline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deletePipeline pName_ = DeletePipeline' {_dpName = pName_}
 
 -- | The name of the pipeline to be deleted.
 dpName :: Lens' DeletePipeline Text
-dpName = lens _dpName (\ s a -> s{_dpName = a});
+dpName = lens _dpName (\ s a -> s{_dpName = a})
 
 instance AWSRequest DeletePipeline where
         type Rs DeletePipeline = DeletePipelineResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.ConnectDirectory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -89,38 +89,38 @@ connectDirectory
     -> ConnectDirectory
 connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ =
   ConnectDirectory'
-  { _cdShortName = Nothing
-  , _cdDescription = Nothing
-  , _cdName = pName_
-  , _cdPassword = _Sensitive # pPassword_
-  , _cdSize = pSize_
-  , _cdConnectSettings = pConnectSettings_
-  }
+    { _cdShortName = Nothing
+    , _cdDescription = Nothing
+    , _cdName = pName_
+    , _cdPassword = _Sensitive # pPassword_
+    , _cdSize = pSize_
+    , _cdConnectSettings = pConnectSettings_
+    }
 
 
 -- | The NetBIOS name of the on-premises directory, such as @CORP@ .
 cdShortName :: Lens' ConnectDirectory (Maybe Text)
-cdShortName = lens _cdShortName (\ s a -> s{_cdShortName = a});
+cdShortName = lens _cdShortName (\ s a -> s{_cdShortName = a})
 
 -- | A textual description for the directory.
 cdDescription :: Lens' ConnectDirectory (Maybe Text)
-cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
+cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a})
 
 -- | The fully-qualified name of the on-premises directory, such as @corp.example.com@ .
 cdName :: Lens' ConnectDirectory Text
-cdName = lens _cdName (\ s a -> s{_cdName = a});
+cdName = lens _cdName (\ s a -> s{_cdName = a})
 
 -- | The password for the on-premises user account.
 cdPassword :: Lens' ConnectDirectory Text
-cdPassword = lens _cdPassword (\ s a -> s{_cdPassword = a}) . _Sensitive;
+cdPassword = lens _cdPassword (\ s a -> s{_cdPassword = a}) . _Sensitive
 
 -- | The size of the directory.
 cdSize :: Lens' ConnectDirectory DirectorySize
-cdSize = lens _cdSize (\ s a -> s{_cdSize = a});
+cdSize = lens _cdSize (\ s a -> s{_cdSize = a})
 
 -- | A 'DirectoryConnectSettings' object that contains additional information for the operation.
 cdConnectSettings :: Lens' ConnectDirectory DirectoryConnectSettings
-cdConnectSettings = lens _cdConnectSettings (\ s a -> s{_cdConnectSettings = a});
+cdConnectSettings = lens _cdConnectSettings (\ s a -> s{_cdConnectSettings = a})
 
 instance AWSRequest ConnectDirectory where
         type Rs ConnectDirectory = ConnectDirectoryResponse
@@ -185,15 +185,15 @@ connectDirectoryResponse
     -> ConnectDirectoryResponse
 connectDirectoryResponse pResponseStatus_ =
   ConnectDirectoryResponse'
-  {_cdrsDirectoryId = Nothing, _cdrsResponseStatus = pResponseStatus_}
+    {_cdrsDirectoryId = Nothing, _cdrsResponseStatus = pResponseStatus_}
 
 
 -- | The identifier of the new directory.
 cdrsDirectoryId :: Lens' ConnectDirectoryResponse (Maybe Text)
-cdrsDirectoryId = lens _cdrsDirectoryId (\ s a -> s{_cdrsDirectoryId = a});
+cdrsDirectoryId = lens _cdrsDirectoryId (\ s a -> s{_cdrsDirectoryId = a})
 
 -- | -- | The response status code.
 cdrsResponseStatus :: Lens' ConnectDirectoryResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a})
 
 instance NFData ConnectDirectoryResponse where

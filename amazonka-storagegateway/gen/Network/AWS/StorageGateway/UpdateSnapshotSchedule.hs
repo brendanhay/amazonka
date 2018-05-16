@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateSnapshotSchedule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a snapshot schedule configured for a gateway volume. This operation is only supported in the cached volume and stored volume gateway architectures.
+-- Updates a snapshot schedule configured for a gateway volume. This operation is only supported in the cached volume and stored volume gateway types.
 --
 --
 -- The default snapshot schedule for volume is once every 24 hours, starting at the creation time of the volume. You can use this API to change the snapshot schedule configured for the volume.
@@ -92,28 +92,28 @@ updateSnapshotSchedule
     -> UpdateSnapshotSchedule
 updateSnapshotSchedule pVolumeARN_ pStartAt_ pRecurrenceInHours_ =
   UpdateSnapshotSchedule'
-  { _ussDescription = Nothing
-  , _ussVolumeARN = pVolumeARN_
-  , _ussStartAt = _Nat # pStartAt_
-  , _ussRecurrenceInHours = _Nat # pRecurrenceInHours_
-  }
+    { _ussDescription = Nothing
+    , _ussVolumeARN = pVolumeARN_
+    , _ussStartAt = _Nat # pStartAt_
+    , _ussRecurrenceInHours = _Nat # pRecurrenceInHours_
+    }
 
 
 -- | Optional description of the snapshot that overwrites the existing description.
 ussDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
-ussDescription = lens _ussDescription (\ s a -> s{_ussDescription = a});
+ussDescription = lens _ussDescription (\ s a -> s{_ussDescription = a})
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
-ussVolumeARN = lens _ussVolumeARN (\ s a -> s{_ussVolumeARN = a});
+ussVolumeARN = lens _ussVolumeARN (\ s a -> s{_ussVolumeARN = a})
 
 -- | The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 ussStartAt :: Lens' UpdateSnapshotSchedule Natural
-ussStartAt = lens _ussStartAt (\ s a -> s{_ussStartAt = a}) . _Nat;
+ussStartAt = lens _ussStartAt (\ s a -> s{_ussStartAt = a}) . _Nat
 
 -- | Frequency of snapshots. Specify the number of hours between snapshots.
 ussRecurrenceInHours :: Lens' UpdateSnapshotSchedule Natural
-ussRecurrenceInHours = lens _ussRecurrenceInHours (\ s a -> s{_ussRecurrenceInHours = a}) . _Nat;
+ussRecurrenceInHours = lens _ussRecurrenceInHours (\ s a -> s{_ussRecurrenceInHours = a}) . _Nat
 
 instance AWSRequest UpdateSnapshotSchedule where
         type Rs UpdateSnapshotSchedule =
@@ -177,15 +177,15 @@ updateSnapshotScheduleResponse
     -> UpdateSnapshotScheduleResponse
 updateSnapshotScheduleResponse pResponseStatus_ =
   UpdateSnapshotScheduleResponse'
-  {_ussrsVolumeARN = Nothing, _ussrsResponseStatus = pResponseStatus_}
+    {_ussrsVolumeARN = Nothing, _ussrsResponseStatus = pResponseStatus_}
 
 
 -- |
 ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
-ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a});
+ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a})
 
 -- | -- | The response status code.
 ussrsResponseStatus :: Lens' UpdateSnapshotScheduleResponse Int
-ussrsResponseStatus = lens _ussrsResponseStatus (\ s a -> s{_ussrsResponseStatus = a});
+ussrsResponseStatus = lens _ussrsResponseStatus (\ s a -> s{_ussrsResponseStatus = a})
 
 instance NFData UpdateSnapshotScheduleResponse where

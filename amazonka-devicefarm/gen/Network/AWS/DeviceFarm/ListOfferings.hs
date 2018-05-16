@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListOfferings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ listOfferings = ListOfferings' {_loNextToken = Nothing}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 loNextToken :: Lens' ListOfferings (Maybe Text)
-loNextToken = lens _loNextToken (\ s a -> s{_loNextToken = a});
+loNextToken = lens _loNextToken (\ s a -> s{_loNextToken = a})
 
 instance AWSPager ListOfferings where
         page rq rs
@@ -140,22 +140,22 @@ listOfferingsResponse
     -> ListOfferingsResponse
 listOfferingsResponse pResponseStatus_ =
   ListOfferingsResponse'
-  { _lorsNextToken = Nothing
-  , _lorsOfferings = Nothing
-  , _lorsResponseStatus = pResponseStatus_
-  }
+    { _lorsNextToken = Nothing
+    , _lorsOfferings = Nothing
+    , _lorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lorsNextToken :: Lens' ListOfferingsResponse (Maybe Text)
-lorsNextToken = lens _lorsNextToken (\ s a -> s{_lorsNextToken = a});
+lorsNextToken = lens _lorsNextToken (\ s a -> s{_lorsNextToken = a})
 
 -- | A value representing the list offering results.
 lorsOfferings :: Lens' ListOfferingsResponse [Offering]
-lorsOfferings = lens _lorsOfferings (\ s a -> s{_lorsOfferings = a}) . _Default . _Coerce;
+lorsOfferings = lens _lorsOfferings (\ s a -> s{_lorsOfferings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lorsResponseStatus :: Lens' ListOfferingsResponse Int
-lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});
+lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a})
 
 instance NFData ListOfferingsResponse where

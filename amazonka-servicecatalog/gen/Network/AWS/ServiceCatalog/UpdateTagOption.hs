@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.UpdateTagOption
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing TagOption.
+-- Updates the specified TagOption.
 --
 --
 module Network.AWS.ServiceCatalog.UpdateTagOption
@@ -62,7 +62,7 @@ data UpdateTagOption = UpdateTagOption'
 --
 -- * 'utoActive' - The updated active state.
 --
--- * 'utoId' - The identifier of the constraint to update.
+-- * 'utoId' - The TagOption identifier.
 updateTagOption
     :: Text -- ^ 'utoId'
     -> UpdateTagOption
@@ -72,15 +72,15 @@ updateTagOption pId_ =
 
 -- | The updated value.
 utoValue :: Lens' UpdateTagOption (Maybe Text)
-utoValue = lens _utoValue (\ s a -> s{_utoValue = a});
+utoValue = lens _utoValue (\ s a -> s{_utoValue = a})
 
 -- | The updated active state.
 utoActive :: Lens' UpdateTagOption (Maybe Bool)
-utoActive = lens _utoActive (\ s a -> s{_utoActive = a});
+utoActive = lens _utoActive (\ s a -> s{_utoActive = a})
 
--- | The identifier of the constraint to update.
+-- | The TagOption identifier.
 utoId :: Lens' UpdateTagOption Text
-utoId = lens _utoId (\ s a -> s{_utoId = a});
+utoId = lens _utoId (\ s a -> s{_utoId = a})
 
 instance AWSRequest UpdateTagOption where
         type Rs UpdateTagOption = UpdateTagOptionResponse
@@ -129,7 +129,7 @@ data UpdateTagOptionResponse = UpdateTagOptionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utorsTagOptionDetail' - The resulting detailed TagOption information.
+-- * 'utorsTagOptionDetail' - Information about the TagOption.
 --
 -- * 'utorsResponseStatus' - -- | The response status code.
 updateTagOptionResponse
@@ -137,15 +137,15 @@ updateTagOptionResponse
     -> UpdateTagOptionResponse
 updateTagOptionResponse pResponseStatus_ =
   UpdateTagOptionResponse'
-  {_utorsTagOptionDetail = Nothing, _utorsResponseStatus = pResponseStatus_}
+    {_utorsTagOptionDetail = Nothing, _utorsResponseStatus = pResponseStatus_}
 
 
--- | The resulting detailed TagOption information.
+-- | Information about the TagOption.
 utorsTagOptionDetail :: Lens' UpdateTagOptionResponse (Maybe TagOptionDetail)
-utorsTagOptionDetail = lens _utorsTagOptionDetail (\ s a -> s{_utorsTagOptionDetail = a});
+utorsTagOptionDetail = lens _utorsTagOptionDetail (\ s a -> s{_utorsTagOptionDetail = a})
 
 -- | -- | The response status code.
 utorsResponseStatus :: Lens' UpdateTagOptionResponse Int
-utorsResponseStatus = lens _utorsResponseStatus (\ s a -> s{_utorsResponseStatus = a});
+utorsResponseStatus = lens _utorsResponseStatus (\ s a -> s{_utorsResponseStatus = a})
 
 instance NFData UpdateTagOptionResponse where

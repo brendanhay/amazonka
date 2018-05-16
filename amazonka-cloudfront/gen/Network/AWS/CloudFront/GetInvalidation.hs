@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetInvalidation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ getInvalidation pDistributionId_ pId_ =
 
 -- | The distribution's ID.
 giDistributionId :: Lens' GetInvalidation Text
-giDistributionId = lens _giDistributionId (\ s a -> s{_giDistributionId = a});
+giDistributionId = lens _giDistributionId (\ s a -> s{_giDistributionId = a})
 
 -- | The identifier for the invalidation request, for example, @IDFDVBD632BHDS5@ .
 giId :: Lens' GetInvalidation Text
-giId = lens _giId (\ s a -> s{_giId = a});
+giId = lens _giId (\ s a -> s{_giId = a})
 
 instance AWSRequest GetInvalidation where
         type Rs GetInvalidation = GetInvalidationResponse
@@ -98,7 +98,7 @@ instance ToHeaders GetInvalidation where
 instance ToPath GetInvalidation where
         toPath GetInvalidation'{..}
           = mconcat
-              ["/2017-03-25/distribution/", toBS _giDistributionId,
+              ["/2017-10-30/distribution/", toBS _giDistributionId,
                "/invalidation/", toBS _giId]
 
 instance ToQuery GetInvalidation where
@@ -127,15 +127,15 @@ getInvalidationResponse
     -> GetInvalidationResponse
 getInvalidationResponse pResponseStatus_ =
   GetInvalidationResponse'
-  {_girsInvalidation = Nothing, _girsResponseStatus = pResponseStatus_}
+    {_girsInvalidation = Nothing, _girsResponseStatus = pResponseStatus_}
 
 
 -- | The invalidation's information. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html Invalidation Complex Type> .
 girsInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
-girsInvalidation = lens _girsInvalidation (\ s a -> s{_girsInvalidation = a});
+girsInvalidation = lens _girsInvalidation (\ s a -> s{_girsInvalidation = a})
 
 -- | -- | The response status code.
 girsResponseStatus :: Lens' GetInvalidationResponse Int
-girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
+girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a})
 
 instance NFData GetInvalidationResponse where

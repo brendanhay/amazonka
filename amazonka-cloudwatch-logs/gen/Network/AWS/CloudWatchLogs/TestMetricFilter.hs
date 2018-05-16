@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.TestMetricFilter
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,18 +65,18 @@ testMetricFilter
     -> TestMetricFilter
 testMetricFilter pFilterPattern_ pLogEventMessages_ =
   TestMetricFilter'
-  { _tmfFilterPattern = pFilterPattern_
-  , _tmfLogEventMessages = _List1 # pLogEventMessages_
-  }
+    { _tmfFilterPattern = pFilterPattern_
+    , _tmfLogEventMessages = _List1 # pLogEventMessages_
+    }
 
 
 -- | Undocumented member.
 tmfFilterPattern :: Lens' TestMetricFilter Text
-tmfFilterPattern = lens _tmfFilterPattern (\ s a -> s{_tmfFilterPattern = a});
+tmfFilterPattern = lens _tmfFilterPattern (\ s a -> s{_tmfFilterPattern = a})
 
 -- | The log event messages to test.
 tmfLogEventMessages :: Lens' TestMetricFilter (NonEmpty Text)
-tmfLogEventMessages = lens _tmfLogEventMessages (\ s a -> s{_tmfLogEventMessages = a}) . _List1;
+tmfLogEventMessages = lens _tmfLogEventMessages (\ s a -> s{_tmfLogEventMessages = a}) . _List1
 
 instance AWSRequest TestMetricFilter where
         type Rs TestMetricFilter = TestMetricFilterResponse
@@ -132,15 +132,15 @@ testMetricFilterResponse
     -> TestMetricFilterResponse
 testMetricFilterResponse pResponseStatus_ =
   TestMetricFilterResponse'
-  {_tmfrsMatches = Nothing, _tmfrsResponseStatus = pResponseStatus_}
+    {_tmfrsMatches = Nothing, _tmfrsResponseStatus = pResponseStatus_}
 
 
 -- | The matched events.
 tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
-tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default . _Coerce;
+tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 tmfrsResponseStatus :: Lens' TestMetricFilterResponse Int
-tmfrsResponseStatus = lens _tmfrsResponseStatus (\ s a -> s{_tmfrsResponseStatus = a});
+tmfrsResponseStatus = lens _tmfrsResponseStatus (\ s a -> s{_tmfrsResponseStatus = a})
 
 instance NFData TestMetricFilterResponse where

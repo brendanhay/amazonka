@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreatePublicVirtualInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,18 +88,18 @@ createPublicVirtualInterface
     -> CreatePublicVirtualInterface
 createPublicVirtualInterface pConnectionId_ pNewPublicVirtualInterface_ =
   CreatePublicVirtualInterface'
-  { _cpviConnectionId = pConnectionId_
-  , _cpviNewPublicVirtualInterface = pNewPublicVirtualInterface_
-  }
+    { _cpviConnectionId = pConnectionId_
+    , _cpviNewPublicVirtualInterface = pNewPublicVirtualInterface_
+    }
 
 
 -- | Undocumented member.
 cpviConnectionId :: Lens' CreatePublicVirtualInterface Text
-cpviConnectionId = lens _cpviConnectionId (\ s a -> s{_cpviConnectionId = a});
+cpviConnectionId = lens _cpviConnectionId (\ s a -> s{_cpviConnectionId = a})
 
 -- | Detailed information for the public virtual interface to be created. Default: None
 cpviNewPublicVirtualInterface :: Lens' CreatePublicVirtualInterface NewPublicVirtualInterface
-cpviNewPublicVirtualInterface = lens _cpviNewPublicVirtualInterface (\ s a -> s{_cpviNewPublicVirtualInterface = a});
+cpviNewPublicVirtualInterface = lens _cpviNewPublicVirtualInterface (\ s a -> s{_cpviNewPublicVirtualInterface = a})
 
 instance AWSRequest CreatePublicVirtualInterface
          where

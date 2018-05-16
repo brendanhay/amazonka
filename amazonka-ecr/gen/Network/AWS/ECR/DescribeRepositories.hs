@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.DescribeRepositories
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,35 +68,35 @@ data DescribeRepositories = DescribeRepositories'
 --
 -- * 'drRepositoryNames' - A list of repositories to describe. If this parameter is omitted, then all repositories in a registry are described.
 --
--- * 'drNextToken' - The @nextToken@ value returned from a previous paginated @DescribeRepositories@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- * 'drNextToken' - The @nextToken@ value returned from a previous paginated @DescribeRepositories@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return. This option cannot be used when you specify repositories with @repositoryNames@ .
 --
--- * 'drMaxResults' - The maximum number of repository results returned by @DescribeRepositories@ in paginated output. When this parameter is used, @DescribeRepositories@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeRepositories@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeRepositories@ returns up to 100 results and a @nextToken@ value, if applicable.
+-- * 'drMaxResults' - The maximum number of repository results returned by @DescribeRepositories@ in paginated output. When this parameter is used, @DescribeRepositories@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeRepositories@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeRepositories@ returns up to 100 results and a @nextToken@ value, if applicable. This option cannot be used when you specify repositories with @repositoryNames@ .
 describeRepositories
     :: DescribeRepositories
 describeRepositories =
   DescribeRepositories'
-  { _drRegistryId = Nothing
-  , _drRepositoryNames = Nothing
-  , _drNextToken = Nothing
-  , _drMaxResults = Nothing
-  }
+    { _drRegistryId = Nothing
+    , _drRepositoryNames = Nothing
+    , _drNextToken = Nothing
+    , _drMaxResults = Nothing
+    }
 
 
 -- | The AWS account ID associated with the registry that contains the repositories to be described. If you do not specify a registry, the default registry is assumed.
 drRegistryId :: Lens' DescribeRepositories (Maybe Text)
-drRegistryId = lens _drRegistryId (\ s a -> s{_drRegistryId = a});
+drRegistryId = lens _drRegistryId (\ s a -> s{_drRegistryId = a})
 
 -- | A list of repositories to describe. If this parameter is omitted, then all repositories in a registry are described.
 drRepositoryNames :: Lens' DescribeRepositories (Maybe (NonEmpty Text))
-drRepositoryNames = lens _drRepositoryNames (\ s a -> s{_drRepositoryNames = a}) . mapping _List1;
+drRepositoryNames = lens _drRepositoryNames (\ s a -> s{_drRepositoryNames = a}) . mapping _List1
 
--- | The @nextToken@ value returned from a previous paginated @DescribeRepositories@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- | The @nextToken@ value returned from a previous paginated @DescribeRepositories@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return. This option cannot be used when you specify repositories with @repositoryNames@ .
 drNextToken :: Lens' DescribeRepositories (Maybe Text)
-drNextToken = lens _drNextToken (\ s a -> s{_drNextToken = a});
+drNextToken = lens _drNextToken (\ s a -> s{_drNextToken = a})
 
--- | The maximum number of repository results returned by @DescribeRepositories@ in paginated output. When this parameter is used, @DescribeRepositories@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeRepositories@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeRepositories@ returns up to 100 results and a @nextToken@ value, if applicable.
+-- | The maximum number of repository results returned by @DescribeRepositories@ in paginated output. When this parameter is used, @DescribeRepositories@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeRepositories@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeRepositories@ returns up to 100 results and a @nextToken@ value, if applicable. This option cannot be used when you specify repositories with @repositoryNames@ .
 drMaxResults :: Lens' DescribeRepositories (Maybe Natural)
-drMaxResults = lens _drMaxResults (\ s a -> s{_drMaxResults = a}) . mapping _Nat;
+drMaxResults = lens _drMaxResults (\ s a -> s{_drMaxResults = a}) . mapping _Nat
 
 instance AWSPager DescribeRepositories where
         page rq rs
@@ -168,22 +168,22 @@ describeRepositoriesResponse
     -> DescribeRepositoriesResponse
 describeRepositoriesResponse pResponseStatus_ =
   DescribeRepositoriesResponse'
-  { _drrsRepositories = Nothing
-  , _drrsNextToken = Nothing
-  , _drrsResponseStatus = pResponseStatus_
-  }
+    { _drrsRepositories = Nothing
+    , _drrsNextToken = Nothing
+    , _drrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of repository objects corresponding to valid repositories.
 drrsRepositories :: Lens' DescribeRepositoriesResponse [Repository]
-drrsRepositories = lens _drrsRepositories (\ s a -> s{_drrsRepositories = a}) . _Default . _Coerce;
+drrsRepositories = lens _drrsRepositories (\ s a -> s{_drrsRepositories = a}) . _Default . _Coerce
 
 -- | The @nextToken@ value to include in a future @DescribeRepositories@ request. When the results of a @DescribeRepositories@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 drrsNextToken :: Lens' DescribeRepositoriesResponse (Maybe Text)
-drrsNextToken = lens _drrsNextToken (\ s a -> s{_drrsNextToken = a});
+drrsNextToken = lens _drrsNextToken (\ s a -> s{_drrsNextToken = a})
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRepositoriesResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a})
 
 instance NFData DescribeRepositoriesResponse where

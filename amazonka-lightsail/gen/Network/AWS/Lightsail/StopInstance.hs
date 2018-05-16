@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.StopInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,7 @@ module Network.AWS.Lightsail.StopInstance
       stopInstance
     , StopInstance
     -- * Request Lenses
+    , siForce
     , siInstanceName
 
     -- * Destructuring the Response
@@ -45,8 +46,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'stopInstance' smart constructor.
-newtype StopInstance = StopInstance'
-  { _siInstanceName :: Text
+data StopInstance = StopInstance'
+  { _siForce        :: !(Maybe Bool)
+  , _siInstanceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,16 +56,23 @@ newtype StopInstance = StopInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'siForce' - When set to @True@ , forces a Lightsail instance that is stuck in a @stopping@ state to stop. /Important:/ Only use the @force@ parameter if your instance is stuck in the @stopping@ state. In any other state, your instance should stop normally without adding this parameter to your API request.
+--
 -- * 'siInstanceName' - The name of the instance (a virtual private server) to stop.
 stopInstance
     :: Text -- ^ 'siInstanceName'
     -> StopInstance
-stopInstance pInstanceName_ = StopInstance' {_siInstanceName = pInstanceName_}
+stopInstance pInstanceName_ =
+  StopInstance' {_siForce = Nothing, _siInstanceName = pInstanceName_}
 
+
+-- | When set to @True@ , forces a Lightsail instance that is stuck in a @stopping@ state to stop. /Important:/ Only use the @force@ parameter if your instance is stuck in the @stopping@ state. In any other state, your instance should stop normally without adding this parameter to your API request.
+siForce :: Lens' StopInstance (Maybe Bool)
+siForce = lens _siForce (\ s a -> s{_siForce = a})
 
 -- | The name of the instance (a virtual private server) to stop.
 siInstanceName :: Lens' StopInstance Text
-siInstanceName = lens _siInstanceName (\ s a -> s{_siInstanceName = a});
+siInstanceName = lens _siInstanceName (\ s a -> s{_siInstanceName = a})
 
 instance AWSRequest StopInstance where
         type Rs StopInstance = StopInstanceResponse
@@ -92,7 +101,8 @@ instance ToJSON StopInstance where
         toJSON StopInstance'{..}
           = object
               (catMaybes
-                 [Just ("instanceName" .= _siInstanceName)])
+                 [("force" .=) <$> _siForce,
+                  Just ("instanceName" .= _siInstanceName)])
 
 instance ToPath StopInstance where
         toPath = const "/"
@@ -119,15 +129,15 @@ stopInstanceResponse
     -> StopInstanceResponse
 stopInstanceResponse pResponseStatus_ =
   StopInstanceResponse'
-  {_sirsOperations = Nothing, _sirsResponseStatus = pResponseStatus_}
+    {_sirsOperations = Nothing, _sirsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the request operation.
 sirsOperations :: Lens' StopInstanceResponse [Operation]
-sirsOperations = lens _sirsOperations (\ s a -> s{_sirsOperations = a}) . _Default . _Coerce;
+sirsOperations = lens _sirsOperations (\ s a -> s{_sirsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 sirsResponseStatus :: Lens' StopInstanceResponse Int
-sirsResponseStatus = lens _sirsResponseStatus (\ s a -> s{_sirsResponseStatus = a});
+sirsResponseStatus = lens _sirsResponseStatus (\ s a -> s{_sirsResponseStatus = a})
 
 instance NFData StopInstanceResponse where

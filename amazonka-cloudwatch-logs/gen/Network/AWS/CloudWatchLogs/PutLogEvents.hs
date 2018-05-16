@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutLogEvents
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,28 +93,28 @@ putLogEvents
     -> PutLogEvents
 putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
   PutLogEvents'
-  { _pleSequenceToken = Nothing
-  , _pleLogGroupName = pLogGroupName_
-  , _pleLogStreamName = pLogStreamName_
-  , _pleLogEvents = _List1 # pLogEvents_
-  }
+    { _pleSequenceToken = Nothing
+    , _pleLogGroupName = pLogGroupName_
+    , _pleLogStreamName = pLogStreamName_
+    , _pleLogEvents = _List1 # pLogEvents_
+    }
 
 
 -- | The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using 'DescribeLogStreams' . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls may be successful, or one may be rejected.
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
-pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a});
+pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a})
 
 -- | The name of the log group.
 pleLogGroupName :: Lens' PutLogEvents Text
-pleLogGroupName = lens _pleLogGroupName (\ s a -> s{_pleLogGroupName = a});
+pleLogGroupName = lens _pleLogGroupName (\ s a -> s{_pleLogGroupName = a})
 
 -- | The name of the log stream.
 pleLogStreamName :: Lens' PutLogEvents Text
-pleLogStreamName = lens _pleLogStreamName (\ s a -> s{_pleLogStreamName = a});
+pleLogStreamName = lens _pleLogStreamName (\ s a -> s{_pleLogStreamName = a})
 
 -- | The log events.
 pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
-pleLogEvents = lens _pleLogEvents (\ s a -> s{_pleLogEvents = a}) . _List1;
+pleLogEvents = lens _pleLogEvents (\ s a -> s{_pleLogEvents = a}) . _List1
 
 instance AWSRequest PutLogEvents where
         type Rs PutLogEvents = PutLogEventsResponse
@@ -177,22 +177,22 @@ putLogEventsResponse
     -> PutLogEventsResponse
 putLogEventsResponse pResponseStatus_ =
   PutLogEventsResponse'
-  { _plersRejectedLogEventsInfo = Nothing
-  , _plersNextSequenceToken = Nothing
-  , _plersResponseStatus = pResponseStatus_
-  }
+    { _plersRejectedLogEventsInfo = Nothing
+    , _plersNextSequenceToken = Nothing
+    , _plersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The rejected events.
 plersRejectedLogEventsInfo :: Lens' PutLogEventsResponse (Maybe RejectedLogEventsInfo)
-plersRejectedLogEventsInfo = lens _plersRejectedLogEventsInfo (\ s a -> s{_plersRejectedLogEventsInfo = a});
+plersRejectedLogEventsInfo = lens _plersRejectedLogEventsInfo (\ s a -> s{_plersRejectedLogEventsInfo = a})
 
 -- | The next sequence token.
 plersNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
-plersNextSequenceToken = lens _plersNextSequenceToken (\ s a -> s{_plersNextSequenceToken = a});
+plersNextSequenceToken = lens _plersNextSequenceToken (\ s a -> s{_plersNextSequenceToken = a})
 
 -- | -- | The response status code.
 plersResponseStatus :: Lens' PutLogEventsResponse Int
-plersResponseStatus = lens _plersResponseStatus (\ s a -> s{_plersResponseStatus = a});
+plersResponseStatus = lens _plersResponseStatus (\ s a -> s{_plersResponseStatus = a})
 
 instance NFData PutLogEventsResponse where

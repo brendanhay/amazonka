@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DeleteService
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ deleteService pService_ =
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete. If you do not specify a cluster, the default cluster is assumed.
 dsCluster :: Lens' DeleteService (Maybe Text)
-dsCluster = lens _dsCluster (\ s a -> s{_dsCluster = a});
+dsCluster = lens _dsCluster (\ s a -> s{_dsCluster = a})
 
 -- | The name of the service to delete.
 dsService :: Lens' DeleteService Text
-dsService = lens _dsService (\ s a -> s{_dsService = a});
+dsService = lens _dsService (\ s a -> s{_dsService = a})
 
 instance AWSRequest DeleteService where
         type Rs DeleteService = DeleteServiceResponse
@@ -129,15 +129,15 @@ deleteServiceResponse
     -> DeleteServiceResponse
 deleteServiceResponse pResponseStatus_ =
   DeleteServiceResponse'
-  {_dsrsService = Nothing, _dsrsResponseStatus = pResponseStatus_}
+    {_dsrsService = Nothing, _dsrsResponseStatus = pResponseStatus_}
 
 
 -- | The full description of the deleted service.
 dsrsService :: Lens' DeleteServiceResponse (Maybe ContainerService)
-dsrsService = lens _dsrsService (\ s a -> s{_dsrsService = a});
+dsrsService = lens _dsrsService (\ s a -> s{_dsrsService = a})
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteServiceResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DeleteServiceResponse where

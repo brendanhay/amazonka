@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeDocument
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ describeDocument pName_ =
 
 -- | The document version for which you want information. Can be a specific version or the default version.
 ddDocumentVersion :: Lens' DescribeDocument (Maybe Text)
-ddDocumentVersion = lens _ddDocumentVersion (\ s a -> s{_ddDocumentVersion = a});
+ddDocumentVersion = lens _ddDocumentVersion (\ s a -> s{_ddDocumentVersion = a})
 
 -- | The name of the Systems Manager document.
 ddName :: Lens' DescribeDocument Text
-ddName = lens _ddName (\ s a -> s{_ddName = a});
+ddName = lens _ddName (\ s a -> s{_ddName = a})
 
 instance AWSRequest DescribeDocument where
         type Rs DescribeDocument = DescribeDocumentResponse
@@ -128,15 +128,15 @@ describeDocumentResponse
     -> DescribeDocumentResponse
 describeDocumentResponse pResponseStatus_ =
   DescribeDocumentResponse'
-  {_desrsDocument = Nothing, _desrsResponseStatus = pResponseStatus_}
+    {_desrsDocument = Nothing, _desrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the Systems Manager document.
 desrsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
-desrsDocument = lens _desrsDocument (\ s a -> s{_desrsDocument = a});
+desrsDocument = lens _desrsDocument (\ s a -> s{_desrsDocument = a})
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeDocumentResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 instance NFData DescribeDocumentResponse where

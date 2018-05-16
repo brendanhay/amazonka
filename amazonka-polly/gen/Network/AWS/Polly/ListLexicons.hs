@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Polly.ListLexicons
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ listLexicons = ListLexicons' {_llNextToken = Nothing}
 
 -- | An opaque pagination token returned from previous @ListLexicons@ operation. If present, indicates where to continue the list of lexicons.
 llNextToken :: Lens' ListLexicons (Maybe Text)
-llNextToken = lens _llNextToken (\ s a -> s{_llNextToken = a});
+llNextToken = lens _llNextToken (\ s a -> s{_llNextToken = a})
 
 instance AWSRequest ListLexicons where
         type Rs ListLexicons = ListLexiconsResponse
@@ -111,22 +111,22 @@ listLexiconsResponse
     -> ListLexiconsResponse
 listLexiconsResponse pResponseStatus_ =
   ListLexiconsResponse'
-  { _llrsLexicons = Nothing
-  , _llrsNextToken = Nothing
-  , _llrsResponseStatus = pResponseStatus_
-  }
+    { _llrsLexicons = Nothing
+    , _llrsNextToken = Nothing
+    , _llrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of lexicon names and attributes.
 llrsLexicons :: Lens' ListLexiconsResponse [LexiconDescription]
-llrsLexicons = lens _llrsLexicons (\ s a -> s{_llrsLexicons = a}) . _Default . _Coerce;
+llrsLexicons = lens _llrsLexicons (\ s a -> s{_llrsLexicons = a}) . _Default . _Coerce
 
 -- | The pagination token to use in the next request to continue the listing of lexicons. @NextToken@ is returned only if the response is truncated.
 llrsNextToken :: Lens' ListLexiconsResponse (Maybe Text)
-llrsNextToken = lens _llrsNextToken (\ s a -> s{_llrsNextToken = a});
+llrsNextToken = lens _llrsNextToken (\ s a -> s{_llrsNextToken = a})
 
 -- | -- | The response status code.
 llrsResponseStatus :: Lens' ListLexiconsResponse Int
-llrsResponseStatus = lens _llrsResponseStatus (\ s a -> s{_llrsResponseStatus = a});
+llrsResponseStatus = lens _llrsResponseStatus (\ s a -> s{_llrsResponseStatus = a})
 
 instance NFData ListLexiconsResponse where

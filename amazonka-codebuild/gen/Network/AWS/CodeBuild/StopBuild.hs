@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.StopBuild
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ stopBuild pId_ = StopBuild' {_sbId = pId_}
 
 -- | The ID of the build.
 sbId :: Lens' StopBuild Text
-sbId = lens _sbId (\ s a -> s{_sbId = a});
+sbId = lens _sbId (\ s a -> s{_sbId = a})
 
 instance AWSRequest StopBuild where
         type Rs StopBuild = StopBuildResponse
@@ -116,15 +116,15 @@ stopBuildResponse
     -> StopBuildResponse
 stopBuildResponse pResponseStatus_ =
   StopBuildResponse'
-  {_sbrsBuild = Nothing, _sbrsResponseStatus = pResponseStatus_}
+    {_sbrsBuild = Nothing, _sbrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the build.
 sbrsBuild :: Lens' StopBuildResponse (Maybe Build)
-sbrsBuild = lens _sbrsBuild (\ s a -> s{_sbrsBuild = a});
+sbrsBuild = lens _sbrsBuild (\ s a -> s{_sbrsBuild = a})
 
 -- | -- | The response status code.
 sbrsResponseStatus :: Lens' StopBuildResponse Int
-sbrsResponseStatus = lens _sbrsResponseStatus (\ s a -> s{_sbrsResponseStatus = a});
+sbrsResponseStatus = lens _sbrsResponseStatus (\ s a -> s{_sbrsResponseStatus = a})
 
 instance NFData StopBuildResponse where

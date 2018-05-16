@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheckCount
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -106,17 +106,17 @@ getHealthCheckCountResponse
     -> GetHealthCheckCountResponse
 getHealthCheckCountResponse pResponseStatus_ pHealthCheckCount_ =
   GetHealthCheckCountResponse'
-  { _ghccrsResponseStatus = pResponseStatus_
-  , _ghccrsHealthCheckCount = pHealthCheckCount_
-  }
+    { _ghccrsResponseStatus = pResponseStatus_
+    , _ghccrsHealthCheckCount = pHealthCheckCount_
+    }
 
 
 -- | -- | The response status code.
 ghccrsResponseStatus :: Lens' GetHealthCheckCountResponse Int
-ghccrsResponseStatus = lens _ghccrsResponseStatus (\ s a -> s{_ghccrsResponseStatus = a});
+ghccrsResponseStatus = lens _ghccrsResponseStatus (\ s a -> s{_ghccrsResponseStatus = a})
 
 -- | The number of health checks associated with the current AWS account.
 ghccrsHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
-ghccrsHealthCheckCount = lens _ghccrsHealthCheckCount (\ s a -> s{_ghccrsHealthCheckCount = a});
+ghccrsHealthCheckCount = lens _ghccrsHealthCheckCount (\ s a -> s{_ghccrsHealthCheckCount = a})
 
 instance NFData GetHealthCheckCountResponse where

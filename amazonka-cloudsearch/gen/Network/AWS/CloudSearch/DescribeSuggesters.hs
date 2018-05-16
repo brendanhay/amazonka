@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeSuggesters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ describeSuggesters
     -> DescribeSuggesters
 describeSuggesters pDomainName_ =
   DescribeSuggesters'
-  { _dssDeployed = Nothing
-  , _dssSuggesterNames = Nothing
-  , _dssDomainName = pDomainName_
-  }
+    { _dssDeployed = Nothing
+    , _dssSuggesterNames = Nothing
+    , _dssDomainName = pDomainName_
+    }
 
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 dssDeployed :: Lens' DescribeSuggesters (Maybe Bool)
-dssDeployed = lens _dssDeployed (\ s a -> s{_dssDeployed = a});
+dssDeployed = lens _dssDeployed (\ s a -> s{_dssDeployed = a})
 
 -- | The suggesters you want to describe.
 dssSuggesterNames :: Lens' DescribeSuggesters [Text]
-dssSuggesterNames = lens _dssSuggesterNames (\ s a -> s{_dssSuggesterNames = a}) . _Default . _Coerce;
+dssSuggesterNames = lens _dssSuggesterNames (\ s a -> s{_dssSuggesterNames = a}) . _Default . _Coerce
 
 -- | The name of the domain you want to describe.
 dssDomainName :: Lens' DescribeSuggesters Text
-dssDomainName = lens _dssDomainName (\ s a -> s{_dssDomainName = a});
+dssDomainName = lens _dssDomainName (\ s a -> s{_dssDomainName = a})
 
 instance AWSRequest DescribeSuggesters where
         type Rs DescribeSuggesters =
@@ -146,15 +146,15 @@ describeSuggestersResponse
     -> DescribeSuggestersResponse
 describeSuggestersResponse pResponseStatus_ =
   DescribeSuggestersResponse'
-  {_dssrsResponseStatus = pResponseStatus_, _dssrsSuggesters = mempty}
+    {_dssrsResponseStatus = pResponseStatus_, _dssrsSuggesters = mempty}
 
 
 -- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSuggestersResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a})
 
 -- | The suggesters configured for the domain specified in the request.
 dssrsSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
-dssrsSuggesters = lens _dssrsSuggesters (\ s a -> s{_dssrsSuggesters = a}) . _Coerce;
+dssrsSuggesters = lens _dssrsSuggesters (\ s a -> s{_dssrsSuggesters = a}) . _Coerce
 
 instance NFData DescribeSuggestersResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.UpdateQualificationType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -104,53 +104,53 @@ updateQualificationType
     -> UpdateQualificationType
 updateQualificationType pQualificationTypeId_ =
   UpdateQualificationType'
-  { _uqtTestDurationInSeconds = Nothing
-  , _uqtQualificationTypeStatus = Nothing
-  , _uqtAnswerKey = Nothing
-  , _uqtTest = Nothing
-  , _uqtAutoGranted = Nothing
-  , _uqtAutoGrantedValue = Nothing
-  , _uqtDescription = Nothing
-  , _uqtRetryDelayInSeconds = Nothing
-  , _uqtQualificationTypeId = pQualificationTypeId_
-  }
+    { _uqtTestDurationInSeconds = Nothing
+    , _uqtQualificationTypeStatus = Nothing
+    , _uqtAnswerKey = Nothing
+    , _uqtTest = Nothing
+    , _uqtAutoGranted = Nothing
+    , _uqtAutoGrantedValue = Nothing
+    , _uqtDescription = Nothing
+    , _uqtRetryDelayInSeconds = Nothing
+    , _uqtQualificationTypeId = pQualificationTypeId_
+    }
 
 
 -- | The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
 uqtTestDurationInSeconds :: Lens' UpdateQualificationType (Maybe Integer)
-uqtTestDurationInSeconds = lens _uqtTestDurationInSeconds (\ s a -> s{_uqtTestDurationInSeconds = a});
+uqtTestDurationInSeconds = lens _uqtTestDurationInSeconds (\ s a -> s{_uqtTestDurationInSeconds = a})
 
 -- | The new status of the Qualification type - Active | Inactive
 uqtQualificationTypeStatus :: Lens' UpdateQualificationType (Maybe QualificationTypeStatus)
-uqtQualificationTypeStatus = lens _uqtQualificationTypeStatus (\ s a -> s{_uqtQualificationTypeStatus = a});
+uqtQualificationTypeStatus = lens _uqtQualificationTypeStatus (\ s a -> s{_uqtQualificationTypeStatus = a})
 
 -- | The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.
 uqtAnswerKey :: Lens' UpdateQualificationType (Maybe Text)
-uqtAnswerKey = lens _uqtAnswerKey (\ s a -> s{_uqtAnswerKey = a});
+uqtAnswerKey = lens _uqtAnswerKey (\ s a -> s{_uqtAnswerKey = a})
 
 -- | The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, @TestDurationInSeconds@ must also be specified. Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true. Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.
 uqtTest :: Lens' UpdateQualificationType (Maybe Text)
-uqtTest = lens _uqtTest (\ s a -> s{_uqtTest = a});
+uqtTest = lens _uqtTest (\ s a -> s{_uqtTest = a})
 
 -- | Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test. Constraints: If the Test parameter is specified, this parameter cannot be true.
 uqtAutoGranted :: Lens' UpdateQualificationType (Maybe Bool)
-uqtAutoGranted = lens _uqtAutoGranted (\ s a -> s{_uqtAutoGranted = a});
+uqtAutoGranted = lens _uqtAutoGranted (\ s a -> s{_uqtAutoGranted = a})
 
 -- | The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
 uqtAutoGrantedValue :: Lens' UpdateQualificationType (Maybe Int)
-uqtAutoGrantedValue = lens _uqtAutoGrantedValue (\ s a -> s{_uqtAutoGrantedValue = a});
+uqtAutoGrantedValue = lens _uqtAutoGrantedValue (\ s a -> s{_uqtAutoGrantedValue = a})
 
 -- | The new description of the Qualification type.
 uqtDescription :: Lens' UpdateQualificationType (Maybe Text)
-uqtDescription = lens _uqtDescription (\ s a -> s{_uqtDescription = a});
+uqtDescription = lens _uqtDescription (\ s a -> s{_uqtDescription = a})
 
 -- | The amount of time, in seconds, that Workers must wait after requesting a Qualification of the specified Qualification type before they can retry the Qualification request. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must dispose of the existing retry-enabled Qualification type using DisposeQualificationType and then create a new Qualification type with retries disabled using CreateQualificationType.
 uqtRetryDelayInSeconds :: Lens' UpdateQualificationType (Maybe Integer)
-uqtRetryDelayInSeconds = lens _uqtRetryDelayInSeconds (\ s a -> s{_uqtRetryDelayInSeconds = a});
+uqtRetryDelayInSeconds = lens _uqtRetryDelayInSeconds (\ s a -> s{_uqtRetryDelayInSeconds = a})
 
 -- | The ID of the Qualification type to update.
 uqtQualificationTypeId :: Lens' UpdateQualificationType Text
-uqtQualificationTypeId = lens _uqtQualificationTypeId (\ s a -> s{_uqtQualificationTypeId = a});
+uqtQualificationTypeId = lens _uqtQualificationTypeId (\ s a -> s{_uqtQualificationTypeId = a})
 
 instance AWSRequest UpdateQualificationType where
         type Rs UpdateQualificationType =
@@ -219,15 +219,15 @@ updateQualificationTypeResponse
     -> UpdateQualificationTypeResponse
 updateQualificationTypeResponse pResponseStatus_ =
   UpdateQualificationTypeResponse'
-  {_uqtrsQualificationType = Nothing, _uqtrsResponseStatus = pResponseStatus_}
+    {_uqtrsQualificationType = Nothing, _uqtrsResponseStatus = pResponseStatus_}
 
 
 -- | Contains a QualificationType data structure.
 uqtrsQualificationType :: Lens' UpdateQualificationTypeResponse (Maybe QualificationType)
-uqtrsQualificationType = lens _uqtrsQualificationType (\ s a -> s{_uqtrsQualificationType = a});
+uqtrsQualificationType = lens _uqtrsQualificationType (\ s a -> s{_uqtrsQualificationType = a})
 
 -- | -- | The response status code.
 uqtrsResponseStatus :: Lens' UpdateQualificationTypeResponse Int
-uqtrsResponseStatus = lens _uqtrsResponseStatus (\ s a -> s{_uqtrsResponseStatus = a});
+uqtrsResponseStatus = lens _uqtrsResponseStatus (\ s a -> s{_uqtrsResponseStatus = a})
 
 instance NFData UpdateQualificationTypeResponse where

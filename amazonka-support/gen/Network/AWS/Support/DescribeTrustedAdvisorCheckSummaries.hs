@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ describeTrustedAdvisorCheckSummaries =
 
 -- | The IDs of the Trusted Advisor checks.
 dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
-dtacsCheckIds = lens _dtacsCheckIds (\ s a -> s{_dtacsCheckIds = a}) . _Coerce;
+dtacsCheckIds = lens _dtacsCheckIds (\ s a -> s{_dtacsCheckIds = a}) . _Coerce
 
 instance AWSRequest
            DescribeTrustedAdvisorCheckSummaries
@@ -140,16 +140,16 @@ describeTrustedAdvisorCheckSummariesResponse
     -> DescribeTrustedAdvisorCheckSummariesResponse
 describeTrustedAdvisorCheckSummariesResponse pResponseStatus_ =
   DescribeTrustedAdvisorCheckSummariesResponse'
-  {_dtacsrsResponseStatus = pResponseStatus_, _dtacsrsSummaries = mempty}
+    {_dtacsrsResponseStatus = pResponseStatus_, _dtacsrsSummaries = mempty}
 
 
 -- | -- | The response status code.
 dtacsrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
-dtacsrsResponseStatus = lens _dtacsrsResponseStatus (\ s a -> s{_dtacsrsResponseStatus = a});
+dtacsrsResponseStatus = lens _dtacsrsResponseStatus (\ s a -> s{_dtacsrsResponseStatus = a})
 
 -- | The summary information for the requested Trusted Advisor checks.
 dtacsrsSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
-dtacsrsSummaries = lens _dtacsrsSummaries (\ s a -> s{_dtacsrsSummaries = a}) . _Coerce;
+dtacsrsSummaries = lens _dtacsrsSummaries (\ s a -> s{_dtacsrsSummaries = a}) . _Coerce
 
 instance NFData
            DescribeTrustedAdvisorCheckSummariesResponse

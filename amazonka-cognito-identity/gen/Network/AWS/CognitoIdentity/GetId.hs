@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetId
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ getId
     -> GetId
 getId pIdentityPoolId_ =
   GetId'
-  { _giAccountId = Nothing
-  , _giLogins = Nothing
-  , _giIdentityPoolId = pIdentityPoolId_
-  }
+    { _giAccountId = Nothing
+    , _giLogins = Nothing
+    , _giIdentityPoolId = pIdentityPoolId_
+    }
 
 
 -- | A standard AWS account ID (9+ digits).
 giAccountId :: Lens' GetId (Maybe Text)
-giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
+giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a})
 
 -- | A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:     * Facebook: @graph.facebook.com@      * Amazon Cognito Identity Provider: @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@      * Google: @accounts.google.com@      * Amazon: @www.amazon.com@      * Twitter: @api.twitter.com@      * Digits: @www.digits.com@
 giLogins :: Lens' GetId (HashMap Text Text)
-giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map;
+giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map
 
 -- | An identity pool ID in the format REGION:GUID.
 giIdentityPoolId :: Lens' GetId Text
-giIdentityPoolId = lens _giIdentityPoolId (\ s a -> s{_giIdentityPoolId = a});
+giIdentityPoolId = lens _giIdentityPoolId (\ s a -> s{_giIdentityPoolId = a})
 
 instance AWSRequest GetId where
         type Rs GetId = GetIdResponse
@@ -151,15 +151,15 @@ getIdResponse
     -> GetIdResponse
 getIdResponse pResponseStatus_ =
   GetIdResponse'
-  {_girsIdentityId = Nothing, _girsResponseStatus = pResponseStatus_}
+    {_girsIdentityId = Nothing, _girsResponseStatus = pResponseStatus_}
 
 
 -- | A unique identifier in the format REGION:GUID.
 girsIdentityId :: Lens' GetIdResponse (Maybe Text)
-girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a});
+girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a})
 
 -- | -- | The response status code.
 girsResponseStatus :: Lens' GetIdResponse Int
-girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
+girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a})
 
 instance NFData GetIdResponse where

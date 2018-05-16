@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisassociateSubnetCidrBlock
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ disassociateSubnetCidrBlock pAssociationId_ =
 
 -- | The association ID for the CIDR block.
 dscbAssociationId :: Lens' DisassociateSubnetCidrBlock Text
-dscbAssociationId = lens _dscbAssociationId (\ s a -> s{_dscbAssociationId = a});
+dscbAssociationId = lens _dscbAssociationId (\ s a -> s{_dscbAssociationId = a})
 
 instance AWSRequest DisassociateSubnetCidrBlock where
         type Rs DisassociateSubnetCidrBlock =
@@ -119,23 +119,23 @@ disassociateSubnetCidrBlockResponse
     -> DisassociateSubnetCidrBlockResponse
 disassociateSubnetCidrBlockResponse pResponseStatus_ =
   DisassociateSubnetCidrBlockResponse'
-  { _dscbrsSubnetId = Nothing
-  , _dscbrsIPv6CidrBlockAssociation = Nothing
-  , _dscbrsResponseStatus = pResponseStatus_
-  }
+    { _dscbrsSubnetId = Nothing
+    , _dscbrsIPv6CidrBlockAssociation = Nothing
+    , _dscbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the subnet.
 dscbrsSubnetId :: Lens' DisassociateSubnetCidrBlockResponse (Maybe Text)
-dscbrsSubnetId = lens _dscbrsSubnetId (\ s a -> s{_dscbrsSubnetId = a});
+dscbrsSubnetId = lens _dscbrsSubnetId (\ s a -> s{_dscbrsSubnetId = a})
 
 -- | Information about the IPv6 CIDR block association.
 dscbrsIPv6CidrBlockAssociation :: Lens' DisassociateSubnetCidrBlockResponse (Maybe SubnetIPv6CidrBlockAssociation)
-dscbrsIPv6CidrBlockAssociation = lens _dscbrsIPv6CidrBlockAssociation (\ s a -> s{_dscbrsIPv6CidrBlockAssociation = a});
+dscbrsIPv6CidrBlockAssociation = lens _dscbrsIPv6CidrBlockAssociation (\ s a -> s{_dscbrsIPv6CidrBlockAssociation = a})
 
 -- | -- | The response status code.
 dscbrsResponseStatus :: Lens' DisassociateSubnetCidrBlockResponse Int
-dscbrsResponseStatus = lens _dscbrsResponseStatus (\ s a -> s{_dscbrsResponseStatus = a});
+dscbrsResponseStatus = lens _dscbrsResponseStatus (\ s a -> s{_dscbrsResponseStatus = a})
 
 instance NFData DisassociateSubnetCidrBlockResponse
          where

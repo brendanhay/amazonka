@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DisableEnhancedMonitoring
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,24 +61,24 @@ data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'demStreamName' - The name of the Amazon Kinesis stream for which to disable enhanced monitoring.
+-- * 'demStreamName' - The name of the Kinesis data stream for which to disable enhanced monitoring.
 --
--- * 'demShardLevelMetrics' - List of shard-level metrics to disable. The following are the valid shard-level metrics. The value "@ALL@ " disables every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
+-- * 'demShardLevelMetrics' - List of shard-level metrics to disable. The following are the valid shard-level metrics. The value "@ALL@ " disables every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Data Streams Developer Guide/ .
 disableEnhancedMonitoring
     :: Text -- ^ 'demStreamName'
     -> DisableEnhancedMonitoring
 disableEnhancedMonitoring pStreamName_ =
   DisableEnhancedMonitoring'
-  {_demStreamName = pStreamName_, _demShardLevelMetrics = mempty}
+    {_demStreamName = pStreamName_, _demShardLevelMetrics = mempty}
 
 
--- | The name of the Amazon Kinesis stream for which to disable enhanced monitoring.
+-- | The name of the Kinesis data stream for which to disable enhanced monitoring.
 demStreamName :: Lens' DisableEnhancedMonitoring Text
-demStreamName = lens _demStreamName (\ s a -> s{_demStreamName = a});
+demStreamName = lens _demStreamName (\ s a -> s{_demStreamName = a})
 
--- | List of shard-level metrics to disable. The following are the valid shard-level metrics. The value "@ALL@ " disables every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
+-- | List of shard-level metrics to disable. The following are the valid shard-level metrics. The value "@ALL@ " disables every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Data Streams Developer Guide/ .
 demShardLevelMetrics :: Lens' DisableEnhancedMonitoring [MetricsName]
-demShardLevelMetrics = lens _demShardLevelMetrics (\ s a -> s{_demShardLevelMetrics = a}) . _Coerce;
+demShardLevelMetrics = lens _demShardLevelMetrics (\ s a -> s{_demShardLevelMetrics = a}) . _Coerce
 
 instance AWSRequest DisableEnhancedMonitoring where
         type Rs DisableEnhancedMonitoring =

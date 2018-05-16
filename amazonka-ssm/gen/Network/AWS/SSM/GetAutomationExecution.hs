@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetAutomationExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getAutomationExecution pAutomationExecutionId_ =
 
 -- | The unique identifier for an existing automation execution to examine. The execution ID is returned by StartAutomationExecution when the execution of an Automation document is initiated.
 gaeAutomationExecutionId :: Lens' GetAutomationExecution Text
-gaeAutomationExecutionId = lens _gaeAutomationExecutionId (\ s a -> s{_gaeAutomationExecutionId = a});
+gaeAutomationExecutionId = lens _gaeAutomationExecutionId (\ s a -> s{_gaeAutomationExecutionId = a})
 
 instance AWSRequest GetAutomationExecution where
         type Rs GetAutomationExecution =
@@ -123,15 +123,17 @@ getAutomationExecutionResponse
     -> GetAutomationExecutionResponse
 getAutomationExecutionResponse pResponseStatus_ =
   GetAutomationExecutionResponse'
-  {_gaersAutomationExecution = Nothing, _gaersResponseStatus = pResponseStatus_}
+    { _gaersAutomationExecution = Nothing
+    , _gaersResponseStatus = pResponseStatus_
+    }
 
 
 -- | Detailed information about the current state of an automation execution.
 gaersAutomationExecution :: Lens' GetAutomationExecutionResponse (Maybe AutomationExecution)
-gaersAutomationExecution = lens _gaersAutomationExecution (\ s a -> s{_gaersAutomationExecution = a});
+gaersAutomationExecution = lens _gaersAutomationExecution (\ s a -> s{_gaersAutomationExecution = a})
 
 -- | -- | The response status code.
 gaersResponseStatus :: Lens' GetAutomationExecutionResponse Int
-gaersResponseStatus = lens _gaersResponseStatus (\ s a -> s{_gaersResponseStatus = a});
+gaersResponseStatus = lens _gaersResponseStatus (\ s a -> s{_gaersResponseStatus = a})
 
 instance NFData GetAutomationExecutionResponse where

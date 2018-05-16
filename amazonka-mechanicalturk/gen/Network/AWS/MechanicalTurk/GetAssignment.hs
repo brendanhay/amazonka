@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetAssignment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getAssignment pAssignmentId_ = GetAssignment' {_gaAssignmentId = pAssignmentId_}
 
 -- | The ID of the Assignment to be retrieved.
 gaAssignmentId :: Lens' GetAssignment Text
-gaAssignmentId = lens _gaAssignmentId (\ s a -> s{_gaAssignmentId = a});
+gaAssignmentId = lens _gaAssignmentId (\ s a -> s{_gaAssignmentId = a})
 
 instance AWSRequest GetAssignment where
         type Rs GetAssignment = GetAssignmentResponse
@@ -124,22 +124,22 @@ getAssignmentResponse
     -> GetAssignmentResponse
 getAssignmentResponse pResponseStatus_ =
   GetAssignmentResponse'
-  { _garsHIT = Nothing
-  , _garsAssignment = Nothing
-  , _garsResponseStatus = pResponseStatus_
-  }
+    { _garsHIT = Nothing
+    , _garsAssignment = Nothing
+    , _garsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The HIT associated with this assignment. The response includes one HIT element.
 garsHIT :: Lens' GetAssignmentResponse (Maybe HIT)
-garsHIT = lens _garsHIT (\ s a -> s{_garsHIT = a});
+garsHIT = lens _garsHIT (\ s a -> s{_garsHIT = a})
 
 -- | The assignment. The response includes one Assignment element.
 garsAssignment :: Lens' GetAssignmentResponse (Maybe Assignment)
-garsAssignment = lens _garsAssignment (\ s a -> s{_garsAssignment = a});
+garsAssignment = lens _garsAssignment (\ s a -> s{_garsAssignment = a})
 
 -- | -- | The response status code.
 garsResponseStatus :: Lens' GetAssignmentResponse Int
-garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a})
 
 instance NFData GetAssignmentResponse where

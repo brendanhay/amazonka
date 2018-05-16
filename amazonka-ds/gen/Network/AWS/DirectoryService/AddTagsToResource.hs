@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.AddTagsToResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ addTagsToResource pResourceId_ =
 
 -- | Identifier (ID) for the directory to which to add the tag.
 attrResourceId :: Lens' AddTagsToResource Text
-attrResourceId = lens _attrResourceId (\ s a -> s{_attrResourceId = a});
+attrResourceId = lens _attrResourceId (\ s a -> s{_attrResourceId = a})
 
 -- | The tags to be assigned to the directory.
 attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce
 
 instance AWSRequest AddTagsToResource where
         type Rs AddTagsToResource = AddTagsToResourceResponse
@@ -128,6 +128,6 @@ addTagsToResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
-attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
+attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a})
 
 instance NFData AddTagsToResourceResponse where

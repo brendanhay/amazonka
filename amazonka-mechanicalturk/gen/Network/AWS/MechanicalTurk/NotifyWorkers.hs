@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.NotifyWorkers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ notifyWorkers
     -> NotifyWorkers
 notifyWorkers pSubject_ pMessageText_ =
   NotifyWorkers'
-  { _nwSubject = pSubject_
-  , _nwMessageText = pMessageText_
-  , _nwWorkerIds = mempty
-  }
+    { _nwSubject = pSubject_
+    , _nwMessageText = pMessageText_
+    , _nwWorkerIds = mempty
+    }
 
 
 -- | The subject line of the email message to send. Can include up to 200 characters.
 nwSubject :: Lens' NotifyWorkers Text
-nwSubject = lens _nwSubject (\ s a -> s{_nwSubject = a});
+nwSubject = lens _nwSubject (\ s a -> s{_nwSubject = a})
 
 -- | The text of the email message to send. Can include up to 4,096 characters
 nwMessageText :: Lens' NotifyWorkers Text
-nwMessageText = lens _nwMessageText (\ s a -> s{_nwMessageText = a});
+nwMessageText = lens _nwMessageText (\ s a -> s{_nwMessageText = a})
 
 -- | A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.
 nwWorkerIds :: Lens' NotifyWorkers [Text]
-nwWorkerIds = lens _nwWorkerIds (\ s a -> s{_nwWorkerIds = a}) . _Coerce;
+nwWorkerIds = lens _nwWorkerIds (\ s a -> s{_nwWorkerIds = a}) . _Coerce
 
 instance AWSRequest NotifyWorkers where
         type Rs NotifyWorkers = NotifyWorkersResponse
@@ -144,17 +144,17 @@ notifyWorkersResponse
     -> NotifyWorkersResponse
 notifyWorkersResponse pResponseStatus_ =
   NotifyWorkersResponse'
-  { _nwrsNotifyWorkersFailureStatuses = Nothing
-  , _nwrsResponseStatus = pResponseStatus_
-  }
+    { _nwrsNotifyWorkersFailureStatuses = Nothing
+    , _nwrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects.
 nwrsNotifyWorkersFailureStatuses :: Lens' NotifyWorkersResponse [NotifyWorkersFailureStatus]
-nwrsNotifyWorkersFailureStatuses = lens _nwrsNotifyWorkersFailureStatuses (\ s a -> s{_nwrsNotifyWorkersFailureStatuses = a}) . _Default . _Coerce;
+nwrsNotifyWorkersFailureStatuses = lens _nwrsNotifyWorkersFailureStatuses (\ s a -> s{_nwrsNotifyWorkersFailureStatuses = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 nwrsResponseStatus :: Lens' NotifyWorkersResponse Int
-nwrsResponseStatus = lens _nwrsResponseStatus (\ s a -> s{_nwrsResponseStatus = a});
+nwrsResponseStatus = lens _nwrsResponseStatus (\ s a -> s{_nwrsResponseStatus = a})
 
 instance NFData NotifyWorkersResponse where

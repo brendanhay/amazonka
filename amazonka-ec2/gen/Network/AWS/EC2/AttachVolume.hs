@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachVolume
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -102,28 +102,28 @@ attachVolume
     -> AttachVolume
 attachVolume pDevice_ pInstanceId_ pVolumeId_ =
   AttachVolume'
-  { _avDryRun = Nothing
-  , _avDevice = pDevice_
-  , _avInstanceId = pInstanceId_
-  , _avVolumeId = pVolumeId_
-  }
+    { _avDryRun = Nothing
+    , _avDevice = pDevice_
+    , _avInstanceId = pInstanceId_
+    , _avVolumeId = pVolumeId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 avDryRun :: Lens' AttachVolume (Maybe Bool)
-avDryRun = lens _avDryRun (\ s a -> s{_avDryRun = a});
+avDryRun = lens _avDryRun (\ s a -> s{_avDryRun = a})
 
 -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
 avDevice :: Lens' AttachVolume Text
-avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
+avDevice = lens _avDevice (\ s a -> s{_avDevice = a})
 
 -- | The ID of the instance.
 avInstanceId :: Lens' AttachVolume Text
-avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a});
+avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a})
 
 -- | The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
 avVolumeId :: Lens' AttachVolume Text
-avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
+avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a})
 
 instance AWSRequest AttachVolume where
         type Rs AttachVolume = VolumeAttachment

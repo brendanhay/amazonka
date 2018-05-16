@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetQualificationScore
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ getQualificationScore
     -> GetQualificationScore
 getQualificationScore pQualificationTypeId_ pWorkerId_ =
   GetQualificationScore'
-  {_gqsQualificationTypeId = pQualificationTypeId_, _gqsWorkerId = pWorkerId_}
+    {_gqsQualificationTypeId = pQualificationTypeId_, _gqsWorkerId = pWorkerId_}
 
 
 -- | The ID of the QualificationType.
 gqsQualificationTypeId :: Lens' GetQualificationScore Text
-gqsQualificationTypeId = lens _gqsQualificationTypeId (\ s a -> s{_gqsQualificationTypeId = a});
+gqsQualificationTypeId = lens _gqsQualificationTypeId (\ s a -> s{_gqsQualificationTypeId = a})
 
 -- | The ID of the Worker whose Qualification is being updated.
 gqsWorkerId :: Lens' GetQualificationScore Text
-gqsWorkerId = lens _gqsWorkerId (\ s a -> s{_gqsWorkerId = a});
+gqsWorkerId = lens _gqsWorkerId (\ s a -> s{_gqsWorkerId = a})
 
 instance AWSRequest GetQualificationScore where
         type Rs GetQualificationScore =
@@ -137,15 +137,15 @@ getQualificationScoreResponse
     -> GetQualificationScoreResponse
 getQualificationScoreResponse pResponseStatus_ =
   GetQualificationScoreResponse'
-  {_gqsrsQualification = Nothing, _gqsrsResponseStatus = pResponseStatus_}
+    {_gqsrsQualification = Nothing, _gqsrsResponseStatus = pResponseStatus_}
 
 
 -- | The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score).
 gqsrsQualification :: Lens' GetQualificationScoreResponse (Maybe Qualification)
-gqsrsQualification = lens _gqsrsQualification (\ s a -> s{_gqsrsQualification = a});
+gqsrsQualification = lens _gqsrsQualification (\ s a -> s{_gqsrsQualification = a})
 
 -- | -- | The response status code.
 gqsrsResponseStatus :: Lens' GetQualificationScoreResponse Int
-gqsrsResponseStatus = lens _gqsrsResponseStatus (\ s a -> s{_gqsrsResponseStatus = a});
+gqsrsResponseStatus = lens _gqsrsResponseStatus (\ s a -> s{_gqsrsResponseStatus = a})
 
 instance NFData GetQualificationScoreResponse where

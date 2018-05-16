@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteReplicationGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ deleteReplicationGroup
     -> DeleteReplicationGroup
 deleteReplicationGroup pReplicationGroupId_ =
   DeleteReplicationGroup'
-  { _drgFinalSnapshotIdentifier = Nothing
-  , _drgRetainPrimaryCluster = Nothing
-  , _drgReplicationGroupId = pReplicationGroupId_
-  }
+    { _drgFinalSnapshotIdentifier = Nothing
+    , _drgRetainPrimaryCluster = Nothing
+    , _drgReplicationGroupId = pReplicationGroupId_
+    }
 
 
 -- | The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.
 drgFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
-drgFinalSnapshotIdentifier = lens _drgFinalSnapshotIdentifier (\ s a -> s{_drgFinalSnapshotIdentifier = a});
+drgFinalSnapshotIdentifier = lens _drgFinalSnapshotIdentifier (\ s a -> s{_drgFinalSnapshotIdentifier = a})
 
 -- | If set to @true@ , all of the read replicas are deleted, but the primary node is retained.
 drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
-drgRetainPrimaryCluster = lens _drgRetainPrimaryCluster (\ s a -> s{_drgRetainPrimaryCluster = a});
+drgRetainPrimaryCluster = lens _drgRetainPrimaryCluster (\ s a -> s{_drgRetainPrimaryCluster = a})
 
 -- | The identifier for the cluster to be deleted. This parameter is not case sensitive.
 drgReplicationGroupId :: Lens' DeleteReplicationGroup Text
-drgReplicationGroupId = lens _drgReplicationGroupId (\ s a -> s{_drgReplicationGroupId = a});
+drgReplicationGroupId = lens _drgReplicationGroupId (\ s a -> s{_drgReplicationGroupId = a})
 
 instance AWSRequest DeleteReplicationGroup where
         type Rs DeleteReplicationGroup =
@@ -142,15 +142,15 @@ deleteReplicationGroupResponse
     -> DeleteReplicationGroupResponse
 deleteReplicationGroupResponse pResponseStatus_ =
   DeleteReplicationGroupResponse'
-  {_delrsReplicationGroup = Nothing, _delrsResponseStatus = pResponseStatus_}
+    {_delrsReplicationGroup = Nothing, _delrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 delrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
-delrsReplicationGroup = lens _delrsReplicationGroup (\ s a -> s{_delrsReplicationGroup = a});
+delrsReplicationGroup = lens _delrsReplicationGroup (\ s a -> s{_delrsReplicationGroup = a})
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteReplicationGroupResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteReplicationGroupResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.BatchCreatePartition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ batchCreatePartition
     -> BatchCreatePartition
 batchCreatePartition pDatabaseName_ pTableName_ =
   BatchCreatePartition'
-  { _bcpCatalogId = Nothing
-  , _bcpDatabaseName = pDatabaseName_
-  , _bcpTableName = pTableName_
-  , _bcpPartitionInputList = mempty
-  }
+    { _bcpCatalogId = Nothing
+    , _bcpDatabaseName = pDatabaseName_
+    , _bcpTableName = pTableName_
+    , _bcpPartitionInputList = mempty
+    }
 
 
 -- | The ID of the catalog in which the partion is to be created. Currently, this should be the AWS account ID.
 bcpCatalogId :: Lens' BatchCreatePartition (Maybe Text)
-bcpCatalogId = lens _bcpCatalogId (\ s a -> s{_bcpCatalogId = a});
+bcpCatalogId = lens _bcpCatalogId (\ s a -> s{_bcpCatalogId = a})
 
 -- | The name of the metadata database in which the partition is to be created.
 bcpDatabaseName :: Lens' BatchCreatePartition Text
-bcpDatabaseName = lens _bcpDatabaseName (\ s a -> s{_bcpDatabaseName = a});
+bcpDatabaseName = lens _bcpDatabaseName (\ s a -> s{_bcpDatabaseName = a})
 
 -- | The name of the metadata table in which the partition is to be created.
 bcpTableName :: Lens' BatchCreatePartition Text
-bcpTableName = lens _bcpTableName (\ s a -> s{_bcpTableName = a});
+bcpTableName = lens _bcpTableName (\ s a -> s{_bcpTableName = a})
 
 -- | A list of @PartitionInput@ structures that define the partitions to be created.
 bcpPartitionInputList :: Lens' BatchCreatePartition [PartitionInput]
-bcpPartitionInputList = lens _bcpPartitionInputList (\ s a -> s{_bcpPartitionInputList = a}) . _Coerce;
+bcpPartitionInputList = lens _bcpPartitionInputList (\ s a -> s{_bcpPartitionInputList = a}) . _Coerce
 
 instance AWSRequest BatchCreatePartition where
         type Rs BatchCreatePartition =
@@ -154,15 +154,15 @@ batchCreatePartitionResponse
     -> BatchCreatePartitionResponse
 batchCreatePartitionResponse pResponseStatus_ =
   BatchCreatePartitionResponse'
-  {_bcprsErrors = Nothing, _bcprsResponseStatus = pResponseStatus_}
+    {_bcprsErrors = Nothing, _bcprsResponseStatus = pResponseStatus_}
 
 
 -- | Errors encountered when trying to create the requested partitions.
 bcprsErrors :: Lens' BatchCreatePartitionResponse [PartitionError]
-bcprsErrors = lens _bcprsErrors (\ s a -> s{_bcprsErrors = a}) . _Default . _Coerce;
+bcprsErrors = lens _bcprsErrors (\ s a -> s{_bcprsErrors = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bcprsResponseStatus :: Lens' BatchCreatePartitionResponse Int
-bcprsResponseStatus = lens _bcprsResponseStatus (\ s a -> s{_bcprsResponseStatus = a});
+bcprsResponseStatus = lens _bcprsResponseStatus (\ s a -> s{_bcprsResponseStatus = a})
 
 instance NFData BatchCreatePartitionResponse where

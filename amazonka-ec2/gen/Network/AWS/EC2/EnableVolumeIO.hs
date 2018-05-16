@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.EnableVolumeIO
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ enableVolumeIO pVolumeId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 evioDryRun :: Lens' EnableVolumeIO (Maybe Bool)
-evioDryRun = lens _evioDryRun (\ s a -> s{_evioDryRun = a});
+evioDryRun = lens _evioDryRun (\ s a -> s{_evioDryRun = a})
 
 -- | The ID of the volume.
 evioVolumeId :: Lens' EnableVolumeIO Text
-evioVolumeId = lens _evioVolumeId (\ s a -> s{_evioVolumeId = a});
+evioVolumeId = lens _evioVolumeId (\ s a -> s{_evioVolumeId = a})
 
 instance AWSRequest EnableVolumeIO where
         type Rs EnableVolumeIO = EnableVolumeIOResponse

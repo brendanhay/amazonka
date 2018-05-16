@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.AttachStaticIP
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ attachStaticIP
     -> AttachStaticIP
 attachStaticIP pStaticIPName_ pInstanceName_ =
   AttachStaticIP'
-  {_asipStaticIPName = pStaticIPName_, _asipInstanceName = pInstanceName_}
+    {_asipStaticIPName = pStaticIPName_, _asipInstanceName = pInstanceName_}
 
 
 -- | The name of the static IP.
 asipStaticIPName :: Lens' AttachStaticIP Text
-asipStaticIPName = lens _asipStaticIPName (\ s a -> s{_asipStaticIPName = a});
+asipStaticIPName = lens _asipStaticIPName (\ s a -> s{_asipStaticIPName = a})
 
 -- | The instance name to which you want to attach the static IP address.
 asipInstanceName :: Lens' AttachStaticIP Text
-asipInstanceName = lens _asipInstanceName (\ s a -> s{_asipInstanceName = a});
+asipInstanceName = lens _asipInstanceName (\ s a -> s{_asipInstanceName = a})
 
 instance AWSRequest AttachStaticIP where
         type Rs AttachStaticIP = AttachStaticIPResponse
@@ -131,15 +131,15 @@ attachStaticIPResponse
     -> AttachStaticIPResponse
 attachStaticIPResponse pResponseStatus_ =
   AttachStaticIPResponse'
-  {_asiprsOperations = Nothing, _asiprsResponseStatus = pResponseStatus_}
+    {_asiprsOperations = Nothing, _asiprsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about your API operations.
 asiprsOperations :: Lens' AttachStaticIPResponse [Operation]
-asiprsOperations = lens _asiprsOperations (\ s a -> s{_asiprsOperations = a}) . _Default . _Coerce;
+asiprsOperations = lens _asiprsOperations (\ s a -> s{_asiprsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 asiprsResponseStatus :: Lens' AttachStaticIPResponse Int
-asiprsResponseStatus = lens _asiprsResponseStatus (\ s a -> s{_asiprsResponseStatus = a});
+asiprsResponseStatus = lens _asiprsResponseStatus (\ s a -> s{_asiprsResponseStatus = a})
 
 instance NFData AttachStaticIPResponse where

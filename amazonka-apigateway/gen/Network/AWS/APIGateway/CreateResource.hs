@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Requests Amazon API Gateway to create a 'Resource' resource.
+-- | Requests API Gateway to create a 'Resource' resource.
 --
 --
 --
@@ -65,9 +65,9 @@ data CreateResource = CreateResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'crRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'crParentId' - The parent resource's identifier.
+-- * 'crParentId' - [Required] The parent resource's identifier.
 --
 -- * 'crPathPart' - The last path segment for this resource.
 createResource
@@ -77,23 +77,23 @@ createResource
     -> CreateResource
 createResource pRestAPIId_ pParentId_ pPathPart_ =
   CreateResource'
-  { _crRestAPIId = pRestAPIId_
-  , _crParentId = pParentId_
-  , _crPathPart = pPathPart_
-  }
+    { _crRestAPIId = pRestAPIId_
+    , _crParentId = pParentId_
+    , _crPathPart = pPathPart_
+    }
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 crRestAPIId :: Lens' CreateResource Text
-crRestAPIId = lens _crRestAPIId (\ s a -> s{_crRestAPIId = a});
+crRestAPIId = lens _crRestAPIId (\ s a -> s{_crRestAPIId = a})
 
--- | The parent resource's identifier.
+-- | [Required] The parent resource's identifier.
 crParentId :: Lens' CreateResource Text
-crParentId = lens _crParentId (\ s a -> s{_crParentId = a});
+crParentId = lens _crParentId (\ s a -> s{_crParentId = a})
 
 -- | The last path segment for this resource.
 crPathPart :: Lens' CreateResource Text
-crPathPart = lens _crPathPart (\ s a -> s{_crPathPart = a});
+crPathPart = lens _crPathPart (\ s a -> s{_crPathPart = a})
 
 instance AWSRequest CreateResource where
         type Rs CreateResource = Resource

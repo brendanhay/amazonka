@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketMetricsConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ getBucketMetricsConfiguration pBucket_ pId_ =
 
 -- | The name of the bucket containing the metrics configuration to retrieve.
 gbmcBucket :: Lens' GetBucketMetricsConfiguration BucketName
-gbmcBucket = lens _gbmcBucket (\ s a -> s{_gbmcBucket = a});
+gbmcBucket = lens _gbmcBucket (\ s a -> s{_gbmcBucket = a})
 
 -- | The ID used to identify the metrics configuration.
 gbmcId :: Lens' GetBucketMetricsConfiguration Text
-gbmcId = lens _gbmcId (\ s a -> s{_gbmcId = a});
+gbmcId = lens _gbmcId (\ s a -> s{_gbmcId = a})
 
 instance AWSRequest GetBucketMetricsConfiguration
          where
@@ -119,18 +119,18 @@ getBucketMetricsConfigurationResponse
     -> GetBucketMetricsConfigurationResponse
 getBucketMetricsConfigurationResponse pResponseStatus_ =
   GetBucketMetricsConfigurationResponse'
-  { _gbmcrsMetricsConfiguration = Nothing
-  , _gbmcrsResponseStatus = pResponseStatus_
-  }
+    { _gbmcrsMetricsConfiguration = Nothing
+    , _gbmcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Specifies the metrics configuration.
 gbmcrsMetricsConfiguration :: Lens' GetBucketMetricsConfigurationResponse (Maybe MetricsConfiguration)
-gbmcrsMetricsConfiguration = lens _gbmcrsMetricsConfiguration (\ s a -> s{_gbmcrsMetricsConfiguration = a});
+gbmcrsMetricsConfiguration = lens _gbmcrsMetricsConfiguration (\ s a -> s{_gbmcrsMetricsConfiguration = a})
 
 -- | -- | The response status code.
 gbmcrsResponseStatus :: Lens' GetBucketMetricsConfigurationResponse Int
-gbmcrsResponseStatus = lens _gbmcrsResponseStatus (\ s a -> s{_gbmcrsResponseStatus = a});
+gbmcrsResponseStatus = lens _gbmcrsResponseStatus (\ s a -> s{_gbmcrsResponseStatus = a})
 
 instance NFData GetBucketMetricsConfigurationResponse
          where

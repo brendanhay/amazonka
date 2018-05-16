@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListGateways
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,11 +84,11 @@ listGateways = ListGateways' {_lgMarker = Nothing, _lgLimit = Nothing}
 
 -- | An opaque string that indicates the position at which to begin the returned list of gateways.
 lgMarker :: Lens' ListGateways (Maybe Text)
-lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
+lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a})
 
 -- | Specifies that the list of gateways returned be limited to the specified number of items.
 lgLimit :: Lens' ListGateways (Maybe Natural)
-lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
+lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat
 
 instance AWSPager ListGateways where
         page rq rs
@@ -156,22 +156,22 @@ listGatewaysResponse
     -> ListGatewaysResponse
 listGatewaysResponse pResponseStatus_ =
   ListGatewaysResponse'
-  { _lgrsMarker = Nothing
-  , _lgrsGateways = Nothing
-  , _lgrsResponseStatus = pResponseStatus_
-  }
+    { _lgrsMarker = Nothing
+    , _lgrsGateways = Nothing
+    , _lgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 lgrsMarker :: Lens' ListGatewaysResponse (Maybe Text)
-lgrsMarker = lens _lgrsMarker (\ s a -> s{_lgrsMarker = a});
+lgrsMarker = lens _lgrsMarker (\ s a -> s{_lgrsMarker = a})
 
 -- | Undocumented member.
 lgrsGateways :: Lens' ListGatewaysResponse [GatewayInfo]
-lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _Coerce;
+lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lgrsResponseStatus :: Lens' ListGatewaysResponse Int
-lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});
+lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a})
 
 instance NFData ListGatewaysResponse where

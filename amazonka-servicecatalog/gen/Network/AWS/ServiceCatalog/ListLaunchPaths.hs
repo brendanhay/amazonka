@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListLaunchPaths
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a paginated list of all paths to a specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
+-- Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListLaunchPaths
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.ServiceCatalog.ListLaunchPaths
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -63,38 +66,45 @@ data ListLaunchPaths = ListLaunchPaths'
 --
 -- * 'llpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'llpPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- * 'llpPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
 --
--- * 'llpPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- * 'llpPageSize' - The maximum number of items to return with this call.
 --
--- * 'llpProductId' - The product identifier. Identifies the product for which to retrieve @LaunchPathSummaries@ information.
+-- * 'llpProductId' - The product identifier.
 listLaunchPaths
     :: Text -- ^ 'llpProductId'
     -> ListLaunchPaths
 listLaunchPaths pProductId_ =
   ListLaunchPaths'
-  { _llpAcceptLanguage = Nothing
-  , _llpPageToken = Nothing
-  , _llpPageSize = Nothing
-  , _llpProductId = pProductId_
-  }
+    { _llpAcceptLanguage = Nothing
+    , _llpPageToken = Nothing
+    , _llpPageSize = Nothing
+    , _llpProductId = pProductId_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 llpAcceptLanguage :: Lens' ListLaunchPaths (Maybe Text)
-llpAcceptLanguage = lens _llpAcceptLanguage (\ s a -> s{_llpAcceptLanguage = a});
+llpAcceptLanguage = lens _llpAcceptLanguage (\ s a -> s{_llpAcceptLanguage = a})
 
--- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
 llpPageToken :: Lens' ListLaunchPaths (Maybe Text)
-llpPageToken = lens _llpPageToken (\ s a -> s{_llpPageToken = a});
+llpPageToken = lens _llpPageToken (\ s a -> s{_llpPageToken = a})
 
--- | The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- | The maximum number of items to return with this call.
 llpPageSize :: Lens' ListLaunchPaths (Maybe Natural)
-llpPageSize = lens _llpPageSize (\ s a -> s{_llpPageSize = a}) . mapping _Nat;
+llpPageSize = lens _llpPageSize (\ s a -> s{_llpPageSize = a}) . mapping _Nat
 
--- | The product identifier. Identifies the product for which to retrieve @LaunchPathSummaries@ information.
+-- | The product identifier.
 llpProductId :: Lens' ListLaunchPaths Text
-llpProductId = lens _llpProductId (\ s a -> s{_llpProductId = a});
+llpProductId = lens _llpProductId (\ s a -> s{_llpProductId = a})
+
+instance AWSPager ListLaunchPaths where
+        page rq rs
+          | stop (rs ^. llprsNextPageToken) = Nothing
+          | stop (rs ^. llprsLaunchPathSummaries) = Nothing
+          | otherwise =
+            Just $ rq & llpPageToken .~ rs ^. llprsNextPageToken
 
 instance AWSRequest ListLaunchPaths where
         type Rs ListLaunchPaths = ListLaunchPathsResponse
@@ -148,9 +158,9 @@ data ListLaunchPathsResponse = ListLaunchPathsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'llprsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'llprsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
--- * 'llprsLaunchPathSummaries' - List of launch path information summaries for the specified @PageToken@ .
+-- * 'llprsLaunchPathSummaries' - Information about the launch path.
 --
 -- * 'llprsResponseStatus' - -- | The response status code.
 listLaunchPathsResponse
@@ -158,22 +168,22 @@ listLaunchPathsResponse
     -> ListLaunchPathsResponse
 listLaunchPathsResponse pResponseStatus_ =
   ListLaunchPathsResponse'
-  { _llprsNextPageToken = Nothing
-  , _llprsLaunchPathSummaries = Nothing
-  , _llprsResponseStatus = pResponseStatus_
-  }
+    { _llprsNextPageToken = Nothing
+    , _llprsLaunchPathSummaries = Nothing
+    , _llprsResponseStatus = pResponseStatus_
+    }
 
 
--- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 llprsNextPageToken :: Lens' ListLaunchPathsResponse (Maybe Text)
-llprsNextPageToken = lens _llprsNextPageToken (\ s a -> s{_llprsNextPageToken = a});
+llprsNextPageToken = lens _llprsNextPageToken (\ s a -> s{_llprsNextPageToken = a})
 
--- | List of launch path information summaries for the specified @PageToken@ .
+-- | Information about the launch path.
 llprsLaunchPathSummaries :: Lens' ListLaunchPathsResponse [LaunchPathSummary]
-llprsLaunchPathSummaries = lens _llprsLaunchPathSummaries (\ s a -> s{_llprsLaunchPathSummaries = a}) . _Default . _Coerce;
+llprsLaunchPathSummaries = lens _llprsLaunchPathSummaries (\ s a -> s{_llprsLaunchPathSummaries = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 llprsResponseStatus :: Lens' ListLaunchPathsResponse Int
-llprsResponseStatus = lens _llprsResponseStatus (\ s a -> s{_llprsResponseStatus = a});
+llprsResponseStatus = lens _llprsResponseStatus (\ s a -> s{_llprsResponseStatus = a})
 
 instance NFData ListLaunchPathsResponse where

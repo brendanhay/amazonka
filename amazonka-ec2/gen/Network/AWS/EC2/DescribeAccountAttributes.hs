@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeAccountAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +25,7 @@
 --
 --     * @default-vpc@ : The ID of the default VPC for your account, or @none@ .
 --
---     * @max-instances@ : The maximum number of On-Demand instances that you can run.
+--     * @max-instances@ : The maximum number of On-Demand Instances that you can run.
 --
 --     * @vpc-max-security-groups-per-interface@ : The maximum number of security groups that you can assign to a network interface.
 --
@@ -81,16 +81,16 @@ describeAccountAttributes
     :: DescribeAccountAttributes
 describeAccountAttributes =
   DescribeAccountAttributes'
-  {_daaAttributeNames = Nothing, _daaDryRun = Nothing}
+    {_daaAttributeNames = Nothing, _daaDryRun = Nothing}
 
 
 -- | One or more account attribute names.
 daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
-daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a}) . _Default . _Coerce;
+daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
-daaDryRun = lens _daaDryRun (\ s a -> s{_daaDryRun = a});
+daaDryRun = lens _daaDryRun (\ s a -> s{_daaDryRun = a})
 
 instance AWSRequest DescribeAccountAttributes where
         type Rs DescribeAccountAttributes =
@@ -147,16 +147,16 @@ describeAccountAttributesResponse
     -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pResponseStatus_ =
   DescribeAccountAttributesResponse'
-  {_daarsAccountAttributes = Nothing, _daarsResponseStatus = pResponseStatus_}
+    {_daarsAccountAttributes = Nothing, _daarsResponseStatus = pResponseStatus_}
 
 
 -- | Information about one or more account attributes.
 daarsAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
-daarsAccountAttributes = lens _daarsAccountAttributes (\ s a -> s{_daarsAccountAttributes = a}) . _Default . _Coerce;
+daarsAccountAttributes = lens _daarsAccountAttributes (\ s a -> s{_daarsAccountAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
+daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a})
 
 instance NFData DescribeAccountAttributesResponse
          where

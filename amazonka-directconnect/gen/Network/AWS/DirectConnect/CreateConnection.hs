@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,28 +94,28 @@ createConnection
     -> CreateConnection
 createConnection pLocation_ pBandwidth_ pConnectionName_ =
   CreateConnection'
-  { _ccLagId = Nothing
-  , _ccLocation = pLocation_
-  , _ccBandwidth = pBandwidth_
-  , _ccConnectionName = pConnectionName_
-  }
+    { _ccLagId = Nothing
+    , _ccLocation = pLocation_
+    , _ccBandwidth = pBandwidth_
+    , _ccConnectionName = pConnectionName_
+    }
 
 
 -- | Undocumented member.
 ccLagId :: Lens' CreateConnection (Maybe Text)
-ccLagId = lens _ccLagId (\ s a -> s{_ccLagId = a});
+ccLagId = lens _ccLagId (\ s a -> s{_ccLagId = a})
 
 -- | Undocumented member.
 ccLocation :: Lens' CreateConnection Text
-ccLocation = lens _ccLocation (\ s a -> s{_ccLocation = a});
+ccLocation = lens _ccLocation (\ s a -> s{_ccLocation = a})
 
 -- | Undocumented member.
 ccBandwidth :: Lens' CreateConnection Text
-ccBandwidth = lens _ccBandwidth (\ s a -> s{_ccBandwidth = a});
+ccBandwidth = lens _ccBandwidth (\ s a -> s{_ccBandwidth = a})
 
 -- | Undocumented member.
 ccConnectionName :: Lens' CreateConnection Text
-ccConnectionName = lens _ccConnectionName (\ s a -> s{_ccConnectionName = a});
+ccConnectionName = lens _ccConnectionName (\ s a -> s{_ccConnectionName = a})
 
 instance AWSRequest CreateConnection where
         type Rs CreateConnection = Connection

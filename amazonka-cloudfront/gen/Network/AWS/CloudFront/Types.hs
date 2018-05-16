@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -19,7 +19,10 @@ module Network.AWS.CloudFront.Types
     , _TooManyOriginCustomHeaders
     , _InvalidTagging
     , _InvalidErrorCode
+    , _NoSuchFieldLevelEncryptionProfile
+    , _FieldLevelEncryptionProfileInUse
     , _InvalidOriginReadTimeout
+    , _TooManyFieldLevelEncryptionProfiles
     , _TooManyCacheBehaviors
     , _TooManyCloudFrontOriginAccessIdentities
     , _InvalidOriginAccessIdentity
@@ -31,47 +34,65 @@ module Network.AWS.CloudFront.Types
     , _TooManyInvalidationsInProgress
     , _InvalidWebACLId
     , _TooManyQueryStringParameters
+    , _TooManyFieldLevelEncryptionQueryArgProfiles
     , _TooManyDistributionCNAMEs
     , _NoSuchCloudFrontOriginAccessIdentity
     , _CloudFrontOriginAccessIdentityInUse
     , _TooManyStreamingDistributions
+    , _CannotChangeImmutablePublicKeyFields
     , _BatchTooLarge
     , _TooManyCookieNamesInWhiteList
     , _InvalidLambdaFunctionAssociation
     , _InvalidForwardCookies
+    , _FieldLevelEncryptionConfigInUse
     , _TooManyTrustedSigners
     , _InvalidOrigin
     , _NoSuchInvalidation
+    , _PublicKeyAlreadyExists
     , _NoSuchOrigin
     , _InvalidTTLOrder
     , _StreamingDistributionNotDisabled
     , _TooManyHeadersInForwardedValues
     , _NoSuchResource
+    , _TooManyFieldLevelEncryptionEncryptionEntities
     , _TooManyStreamingDistributionCNAMEs
+    , _FieldLevelEncryptionProfileAlreadyExists
     , _ResourceInUse
     , _InvalidRequiredProtocol
     , _TooManyDistributions
     , _TooManyCertificates
     , _DistributionAlreadyExists
+    , _TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
     , _InvalidQueryStringParameters
     , _MissingBody
+    , _IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
     , _IllegalUpdate
     , _InvalidIfMatchVersion
+    , _FieldLevelEncryptionConfigAlreadyExists
     , _PreconditionFailed
     , _InvalidResponseCode
     , _InvalidHeadersForS3Origin
     , _CNAMEAlreadyExists
+    , _NoSuchPublicKey
+    , _PublicKeyInUse
     , _TrustedSignerDoesNotExist
     , _InvalidProtocolSettings
+    , _TooManyPublicKeys
+    , _NoSuchFieldLevelEncryptionConfig
+    , _TooManyFieldLevelEncryptionContentTypeProfiles
+    , _TooManyFieldLevelEncryptionFieldPatterns
+    , _TooManyFieldLevelEncryptionConfigs
     , _TooManyLambdaFunctionAssociations
     , _CloudFrontOriginAccessIdentityAlreadyExists
     , _TooManyOrigins
     , _InvalidRelativePath
     , _StreamingDistributionAlreadyExists
+    , _QueryArgProfileEmpty
     , _InvalidMinimumProtocolVersion
     , _AccessDenied
     , _InvalidViewerCertificate
     , _NoSuchDistribution
+    , _FieldLevelEncryptionProfileSizeExceeded
     , _InvalidDefaultRootObject
     , _TooManyDistributionsWithLambdaAssociations
     , _InvalidGeoRestrictionParameter
@@ -82,6 +103,9 @@ module Network.AWS.CloudFront.Types
 
     -- * EventType
     , EventType (..)
+
+    -- * Format
+    , Format (..)
 
     -- * GeoRestrictionType
     , GeoRestrictionType (..)
@@ -142,6 +166,7 @@ module Network.AWS.CloudFront.Types
     , cbCompress
     , cbSmoothStreaming
     , cbDefaultTTL
+    , cbFieldLevelEncryptionId
     , cbPathPattern
     , cbTargetOriginId
     , cbForwardedValues
@@ -190,6 +215,25 @@ module Network.AWS.CloudFront.Types
     , cfoaisId
     , cfoaisS3CanonicalUserId
     , cfoaisComment
+
+    -- * ContentTypeProfile
+    , ContentTypeProfile
+    , contentTypeProfile
+    , ctpProfileId
+    , ctpFormat
+    , ctpContentType
+
+    -- * ContentTypeProfileConfig
+    , ContentTypeProfileConfig
+    , contentTypeProfileConfig
+    , ctpcContentTypeProfiles
+    , ctpcForwardWhenContentTypeIsUnknown
+
+    -- * ContentTypeProfiles
+    , ContentTypeProfiles
+    , contentTypeProfiles
+    , ctpItems
+    , ctpQuantity
 
     -- * CookieNames
     , CookieNames
@@ -242,6 +286,7 @@ module Network.AWS.CloudFront.Types
     , dcbCompress
     , dcbSmoothStreaming
     , dcbDefaultTTL
+    , dcbFieldLevelEncryptionId
     , dcbTargetOriginId
     , dcbForwardedValues
     , dcbTrustedSigners
@@ -317,6 +362,89 @@ module Network.AWS.CloudFront.Types
     , dsWebACLId
     , dsHTTPVersion
     , dsIsIPV6Enabled
+
+    -- * EncryptionEntities
+    , EncryptionEntities
+    , encryptionEntities
+    , eeItems
+    , eeQuantity
+
+    -- * EncryptionEntity
+    , EncryptionEntity
+    , encryptionEntity
+    , eePublicKeyId
+    , eeProviderId
+    , eeFieldPatterns
+
+    -- * FieldLevelEncryption
+    , FieldLevelEncryption
+    , fieldLevelEncryption
+    , fleId
+    , fleLastModifiedTime
+    , fleFieldLevelEncryptionConfig
+
+    -- * FieldLevelEncryptionConfig
+    , FieldLevelEncryptionConfig
+    , fieldLevelEncryptionConfig
+    , flecQueryArgProfileConfig
+    , flecContentTypeProfileConfig
+    , flecComment
+    , flecCallerReference
+
+    -- * FieldLevelEncryptionList
+    , FieldLevelEncryptionList
+    , fieldLevelEncryptionList
+    , flelItems
+    , flelNextMarker
+    , flelMaxItems
+    , flelQuantity
+
+    -- * FieldLevelEncryptionProfile
+    , FieldLevelEncryptionProfile
+    , fieldLevelEncryptionProfile
+    , flepId
+    , flepLastModifiedTime
+    , flepFieldLevelEncryptionProfileConfig
+
+    -- * FieldLevelEncryptionProfileConfig
+    , FieldLevelEncryptionProfileConfig
+    , fieldLevelEncryptionProfileConfig
+    , flepcComment
+    , flepcName
+    , flepcCallerReference
+    , flepcEncryptionEntities
+
+    -- * FieldLevelEncryptionProfileList
+    , FieldLevelEncryptionProfileList
+    , fieldLevelEncryptionProfileList
+    , fleplItems
+    , fleplNextMarker
+    , fleplMaxItems
+    , fleplQuantity
+
+    -- * FieldLevelEncryptionProfileSummary
+    , FieldLevelEncryptionProfileSummary
+    , fieldLevelEncryptionProfileSummary
+    , flepsComment
+    , flepsId
+    , flepsLastModifiedTime
+    , flepsName
+    , flepsEncryptionEntities
+
+    -- * FieldLevelEncryptionSummary
+    , FieldLevelEncryptionSummary
+    , fieldLevelEncryptionSummary
+    , flesQueryArgProfileConfig
+    , flesContentTypeProfileConfig
+    , flesComment
+    , flesId
+    , flesLastModifiedTime
+
+    -- * FieldPatterns
+    , FieldPatterns
+    , fieldPatterns
+    , fpItems
+    , fpQuantity
 
     -- * ForwardedValues
     , ForwardedValues
@@ -429,6 +557,56 @@ module Network.AWS.CloudFront.Types
     , paths
     , pItems
     , pQuantity
+
+    -- * PublicKey
+    , PublicKey
+    , publicKey
+    , pkId
+    , pkCreatedTime
+    , pkPublicKeyConfig
+
+    -- * PublicKeyConfig
+    , PublicKeyConfig
+    , publicKeyConfig
+    , pkcComment
+    , pkcCallerReference
+    , pkcName
+    , pkcEncodedKey
+
+    -- * PublicKeyList
+    , PublicKeyList
+    , publicKeyList
+    , pklItems
+    , pklNextMarker
+    , pklMaxItems
+    , pklQuantity
+
+    -- * PublicKeySummary
+    , PublicKeySummary
+    , publicKeySummary
+    , pksComment
+    , pksId
+    , pksName
+    , pksCreatedTime
+    , pksEncodedKey
+
+    -- * QueryArgProfile
+    , QueryArgProfile
+    , queryArgProfile
+    , qapQueryArg
+    , qapProfileId
+
+    -- * QueryArgProfileConfig
+    , QueryArgProfileConfig
+    , queryArgProfileConfig
+    , qapcQueryArgProfiles
+    , qapcForwardWhenQueryArgProfileIsUnknown
+
+    -- * QueryArgProfiles
+    , QueryArgProfiles
+    , queryArgProfiles
+    , qapItems
+    , qapQuantity
 
     -- * QueryStringCacheKeys
     , QueryStringCacheKeys
@@ -560,28 +738,28 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Sign.V4
 
--- | API version @2017-03-25@ of the Amazon CloudFront SDK configuration.
+-- | API version @2017-10-30@ of the Amazon CloudFront SDK configuration.
 cloudFront :: Service
 cloudFront =
   Service
-  { _svcAbbrev = "CloudFront"
-  , _svcSigner = v4
-  , _svcPrefix = "cloudfront"
-  , _svcVersion = "2017-03-25"
-  , _svcEndpoint = defaultEndpoint cloudFront
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "CloudFront"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "CloudFront"
+    , _svcSigner = v4
+    , _svcPrefix = "cloudfront"
+    , _svcVersion = "2017-10-30"
+    , _svcEndpoint = defaultEndpoint cloudFront
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError "CloudFront"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -590,6 +768,8 @@ cloudFront =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -614,10 +794,37 @@ _InvalidErrorCode =
   _MatchServiceError cloudFront "InvalidErrorCode" . hasStatus 400
 
 
+-- | The specified profile for field-level encryption doesn't exist.
+--
+--
+_NoSuchFieldLevelEncryptionProfile :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchFieldLevelEncryptionProfile =
+  _MatchServiceError cloudFront "NoSuchFieldLevelEncryptionProfile" .
+  hasStatus 404
+
+
+-- | The specified profile for field-level encryption is in use.
+--
+--
+_FieldLevelEncryptionProfileInUse :: AsError a => Getting (First ServiceError) a ServiceError
+_FieldLevelEncryptionProfileInUse =
+  _MatchServiceError cloudFront "FieldLevelEncryptionProfileInUse" .
+  hasStatus 409
+
+
 -- | Prism for InvalidOriginReadTimeout' errors.
 _InvalidOriginReadTimeout :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOriginReadTimeout =
   _MatchServiceError cloudFront "InvalidOriginReadTimeout" . hasStatus 400
+
+
+-- | The maximum number of profiles for field-level encryption have been created.
+--
+--
+_TooManyFieldLevelEncryptionProfiles :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyFieldLevelEncryptionProfiles =
+  _MatchServiceError cloudFront "TooManyFieldLevelEncryptionProfiles" .
+  hasStatus 400
 
 
 -- | You cannot create more cache behaviors for the distribution.
@@ -701,6 +908,15 @@ _TooManyQueryStringParameters =
   _MatchServiceError cloudFront "TooManyQueryStringParameters" . hasStatus 400
 
 
+-- | The maximum number of query arg profiles for field-level encryption have been created.
+--
+--
+_TooManyFieldLevelEncryptionQueryArgProfiles :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyFieldLevelEncryptionQueryArgProfiles =
+  _MatchServiceError cloudFront "TooManyFieldLevelEncryptionQueryArgProfiles" .
+  hasStatus 400
+
+
 -- | Your request contains more CNAMEs than are allowed per distribution.
 --
 --
@@ -733,6 +949,15 @@ _TooManyStreamingDistributions =
   _MatchServiceError cloudFront "TooManyStreamingDistributions" . hasStatus 400
 
 
+-- | You can't change the value of a public key.
+--
+--
+_CannotChangeImmutablePublicKeyFields :: AsError a => Getting (First ServiceError) a ServiceError
+_CannotChangeImmutablePublicKeyFields =
+  _MatchServiceError cloudFront "CannotChangeImmutablePublicKeyFields" .
+  hasStatus 400
+
+
 -- | Prism for BatchTooLarge' errors.
 _BatchTooLarge :: AsError a => Getting (First ServiceError) a ServiceError
 _BatchTooLarge = _MatchServiceError cloudFront "BatchTooLarge" . hasStatus 413
@@ -763,6 +988,15 @@ _InvalidForwardCookies =
   _MatchServiceError cloudFront "InvalidForwardCookies" . hasStatus 400
 
 
+-- | The specified configuration for field-level encryption is in use.
+--
+--
+_FieldLevelEncryptionConfigInUse :: AsError a => Getting (First ServiceError) a ServiceError
+_FieldLevelEncryptionConfigInUse =
+  _MatchServiceError cloudFront "FieldLevelEncryptionConfigInUse" .
+  hasStatus 409
+
+
 -- | Your request contains more trusted signers than are allowed per distribution.
 --
 --
@@ -784,6 +1018,14 @@ _InvalidOrigin = _MatchServiceError cloudFront "InvalidOrigin" . hasStatus 400
 _NoSuchInvalidation :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchInvalidation =
   _MatchServiceError cloudFront "NoSuchInvalidation" . hasStatus 404
+
+
+-- | The specified public key already exists.
+--
+--
+_PublicKeyAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
+_PublicKeyAlreadyExists =
+  _MatchServiceError cloudFront "PublicKeyAlreadyExists" . hasStatus 409
 
 
 -- | No origin exists with the specified @Origin Id@ .
@@ -818,11 +1060,29 @@ _NoSuchResource :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchResource = _MatchServiceError cloudFront "NoSuchResource" . hasStatus 404
 
 
+-- | The maximum number of encryption entities for field-level encryption have been created.
+--
+--
+_TooManyFieldLevelEncryptionEncryptionEntities :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyFieldLevelEncryptionEncryptionEntities =
+  _MatchServiceError cloudFront "TooManyFieldLevelEncryptionEncryptionEntities" .
+  hasStatus 400
+
+
 -- | Prism for TooManyStreamingDistributionCNAMEs' errors.
 _TooManyStreamingDistributionCNAMEs :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyStreamingDistributionCNAMEs =
   _MatchServiceError cloudFront "TooManyStreamingDistributionCNAMEs" .
   hasStatus 400
+
+
+-- | The specified profile for field-level encryption already exists.
+--
+--
+_FieldLevelEncryptionProfileAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
+_FieldLevelEncryptionProfileAlreadyExists =
+  _MatchServiceError cloudFront "FieldLevelEncryptionProfileAlreadyExists" .
+  hasStatus 409
 
 
 -- | Prism for ResourceInUse' errors.
@@ -862,6 +1122,17 @@ _DistributionAlreadyExists =
   _MatchServiceError cloudFront "DistributionAlreadyExists" . hasStatus 409
 
 
+-- | The maximum number of distributions have been associated with the specified configuration for field-level encryption.
+--
+--
+_TooManyDistributionsAssociatedToFieldLevelEncryptionConfig :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyDistributionsAssociatedToFieldLevelEncryptionConfig =
+  _MatchServiceError
+    cloudFront
+    "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig" .
+  hasStatus 400
+
+
 -- | Prism for InvalidQueryStringParameters' errors.
 _InvalidQueryStringParameters :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidQueryStringParameters =
@@ -873,6 +1144,17 @@ _InvalidQueryStringParameters =
 --
 _MissingBody :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingBody = _MatchServiceError cloudFront "MissingBody" . hasStatus 400
+
+
+-- | The specified configuration for field-level encryption can't be associated with the specified cache behavior.
+--
+--
+_IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior :: AsError a => Getting (First ServiceError) a ServiceError
+_IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior =
+  _MatchServiceError
+    cloudFront
+    "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior" .
+  hasStatus 400
 
 
 -- | Origin and @CallerReference@ cannot be updated.
@@ -888,6 +1170,15 @@ _IllegalUpdate = _MatchServiceError cloudFront "IllegalUpdate" . hasStatus 400
 _InvalidIfMatchVersion :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidIfMatchVersion =
   _MatchServiceError cloudFront "InvalidIfMatchVersion" . hasStatus 400
+
+
+-- | The specified configuration for field-level encryption already exists.
+--
+--
+_FieldLevelEncryptionConfigAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
+_FieldLevelEncryptionConfigAlreadyExists =
+  _MatchServiceError cloudFront "FieldLevelEncryptionConfigAlreadyExists" .
+  hasStatus 409
 
 
 -- | The precondition given in one or more of the request-header fields evaluated to @false@ .
@@ -916,6 +1207,21 @@ _CNAMEAlreadyExists =
   _MatchServiceError cloudFront "CNAMEAlreadyExists" . hasStatus 409
 
 
+-- | The specified public key doesn't exist.
+--
+--
+_NoSuchPublicKey :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchPublicKey =
+  _MatchServiceError cloudFront "NoSuchPublicKey" . hasStatus 404
+
+
+-- | The specified public key is in use.
+--
+--
+_PublicKeyInUse :: AsError a => Getting (First ServiceError) a ServiceError
+_PublicKeyInUse = _MatchServiceError cloudFront "PublicKeyInUse" . hasStatus 409
+
+
 -- | One or more of your trusted signers don't exist.
 --
 --
@@ -930,6 +1236,50 @@ _TrustedSignerDoesNotExist =
 _InvalidProtocolSettings :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidProtocolSettings =
   _MatchServiceError cloudFront "InvalidProtocolSettings" . hasStatus 400
+
+
+-- | The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.
+--
+--
+_TooManyPublicKeys :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyPublicKeys =
+  _MatchServiceError cloudFront "TooManyPublicKeys" . hasStatus 400
+
+
+-- | The specified configuration for field-level encryption doesn't exist.
+--
+--
+_NoSuchFieldLevelEncryptionConfig :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchFieldLevelEncryptionConfig =
+  _MatchServiceError cloudFront "NoSuchFieldLevelEncryptionConfig" .
+  hasStatus 404
+
+
+-- | The maximum number of content type profiles for field-level encryption have been created.
+--
+--
+_TooManyFieldLevelEncryptionContentTypeProfiles :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyFieldLevelEncryptionContentTypeProfiles =
+  _MatchServiceError cloudFront "TooManyFieldLevelEncryptionContentTypeProfiles" .
+  hasStatus 400
+
+
+-- | The maximum number of field patterns for field-level encryption have been created.
+--
+--
+_TooManyFieldLevelEncryptionFieldPatterns :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyFieldLevelEncryptionFieldPatterns =
+  _MatchServiceError cloudFront "TooManyFieldLevelEncryptionFieldPatterns" .
+  hasStatus 400
+
+
+-- | The maximum number of configurations for field-level encryption have been created.
+--
+--
+_TooManyFieldLevelEncryptionConfigs :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyFieldLevelEncryptionConfigs =
+  _MatchServiceError cloudFront "TooManyFieldLevelEncryptionConfigs" .
+  hasStatus 400
 
 
 -- | Your request contains more Lambda function associations than are allowed per distribution.
@@ -972,6 +1322,14 @@ _StreamingDistributionAlreadyExists =
   hasStatus 409
 
 
+-- | No profile specified for the field-level encryption query argument.
+--
+--
+_QueryArgProfileEmpty :: AsError a => Getting (First ServiceError) a ServiceError
+_QueryArgProfileEmpty =
+  _MatchServiceError cloudFront "QueryArgProfileEmpty" . hasStatus 400
+
+
 -- | Prism for InvalidMinimumProtocolVersion' errors.
 _InvalidMinimumProtocolVersion :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidMinimumProtocolVersion =
@@ -997,6 +1355,15 @@ _InvalidViewerCertificate =
 _NoSuchDistribution :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDistribution =
   _MatchServiceError cloudFront "NoSuchDistribution" . hasStatus 404
+
+
+-- | The maximum size of a profile for field-level encryption was exceeded.
+--
+--
+_FieldLevelEncryptionProfileSizeExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+_FieldLevelEncryptionProfileSizeExceeded =
+  _MatchServiceError cloudFront "FieldLevelEncryptionProfileSizeExceeded" .
+  hasStatus 400
 
 
 -- | The default root object file name is too big or contains an invalid character.

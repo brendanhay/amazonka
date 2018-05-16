@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBLogFiles
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,43 +92,43 @@ describeDBLogFiles
     -> DescribeDBLogFiles
 describeDBLogFiles pDBInstanceIdentifier_ =
   DescribeDBLogFiles'
-  { _ddlfFilenameContains = Nothing
-  , _ddlfFilters = Nothing
-  , _ddlfFileSize = Nothing
-  , _ddlfFileLastWritten = Nothing
-  , _ddlfMarker = Nothing
-  , _ddlfMaxRecords = Nothing
-  , _ddlfDBInstanceIdentifier = pDBInstanceIdentifier_
-  }
+    { _ddlfFilenameContains = Nothing
+    , _ddlfFilters = Nothing
+    , _ddlfFileSize = Nothing
+    , _ddlfFileLastWritten = Nothing
+    , _ddlfMarker = Nothing
+    , _ddlfMaxRecords = Nothing
+    , _ddlfDBInstanceIdentifier = pDBInstanceIdentifier_
+    }
 
 
 -- | Filters the available log files for log file names that contain the specified string.
 ddlfFilenameContains :: Lens' DescribeDBLogFiles (Maybe Text)
-ddlfFilenameContains = lens _ddlfFilenameContains (\ s a -> s{_ddlfFilenameContains = a});
+ddlfFilenameContains = lens _ddlfFilenameContains (\ s a -> s{_ddlfFilenameContains = a})
 
 -- | This parameter is not currently supported.
 ddlfFilters :: Lens' DescribeDBLogFiles [Filter]
-ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a}) . _Default . _Coerce;
+ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a}) . _Default . _Coerce
 
 -- | Filters the available log files for files larger than the specified size.
 ddlfFileSize :: Lens' DescribeDBLogFiles (Maybe Integer)
-ddlfFileSize = lens _ddlfFileSize (\ s a -> s{_ddlfFileSize = a});
+ddlfFileSize = lens _ddlfFileSize (\ s a -> s{_ddlfFileSize = a})
 
 -- | Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
 ddlfFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
-ddlfFileLastWritten = lens _ddlfFileLastWritten (\ s a -> s{_ddlfFileLastWritten = a});
+ddlfFileLastWritten = lens _ddlfFileLastWritten (\ s a -> s{_ddlfFileLastWritten = a})
 
 -- | The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
 ddlfMarker :: Lens' DescribeDBLogFiles (Maybe Text)
-ddlfMarker = lens _ddlfMarker (\ s a -> s{_ddlfMarker = a});
+ddlfMarker = lens _ddlfMarker (\ s a -> s{_ddlfMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 ddlfMaxRecords :: Lens' DescribeDBLogFiles (Maybe Int)
-ddlfMaxRecords = lens _ddlfMaxRecords (\ s a -> s{_ddlfMaxRecords = a});
+ddlfMaxRecords = lens _ddlfMaxRecords (\ s a -> s{_ddlfMaxRecords = a})
 
 -- | The customer-assigned name of the DB instance that contains the log files you want to list. Constraints:     * Must match the identifier of an existing DBInstance.
 ddlfDBInstanceIdentifier :: Lens' DescribeDBLogFiles Text
-ddlfDBInstanceIdentifier = lens _ddlfDBInstanceIdentifier (\ s a -> s{_ddlfDBInstanceIdentifier = a});
+ddlfDBInstanceIdentifier = lens _ddlfDBInstanceIdentifier (\ s a -> s{_ddlfDBInstanceIdentifier = a})
 
 instance AWSPager DescribeDBLogFiles where
         page rq rs
@@ -200,22 +200,22 @@ describeDBLogFilesResponse
     -> DescribeDBLogFilesResponse
 describeDBLogFilesResponse pResponseStatus_ =
   DescribeDBLogFilesResponse'
-  { _ddlfrsDescribeDBLogFiles = Nothing
-  , _ddlfrsMarker = Nothing
-  , _ddlfrsResponseStatus = pResponseStatus_
-  }
+    { _ddlfrsDescribeDBLogFiles = Nothing
+    , _ddlfrsMarker = Nothing
+    , _ddlfrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The DB log files returned.
 ddlfrsDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
-ddlfrsDescribeDBLogFiles = lens _ddlfrsDescribeDBLogFiles (\ s a -> s{_ddlfrsDescribeDBLogFiles = a}) . _Default . _Coerce;
+ddlfrsDescribeDBLogFiles = lens _ddlfrsDescribeDBLogFiles (\ s a -> s{_ddlfrsDescribeDBLogFiles = a}) . _Default . _Coerce
 
 -- | A pagination token that can be used in a subsequent DescribeDBLogFiles request.
 ddlfrsMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
-ddlfrsMarker = lens _ddlfrsMarker (\ s a -> s{_ddlfrsMarker = a});
+ddlfrsMarker = lens _ddlfrsMarker (\ s a -> s{_ddlfrsMarker = a})
 
 -- | -- | The response status code.
 ddlfrsResponseStatus :: Lens' DescribeDBLogFilesResponse Int
-ddlfrsResponseStatus = lens _ddlfrsResponseStatus (\ s a -> s{_ddlfrsResponseStatus = a});
+ddlfrsResponseStatus = lens _ddlfrsResponseStatus (\ s a -> s{_ddlfrsResponseStatus = a})
 
 instance NFData DescribeDBLogFilesResponse where

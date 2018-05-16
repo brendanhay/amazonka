@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListPhoneNumbersOptedOut
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ listPhoneNumbersOptedOut = ListPhoneNumbersOptedOut' {_lpnooNextToken = Nothing}
 
 -- | A @NextToken@ string is used when you call the @ListPhoneNumbersOptedOut@ action to retrieve additional records that are available after the first page of results.
 lpnooNextToken :: Lens' ListPhoneNumbersOptedOut (Maybe Text)
-lpnooNextToken = lens _lpnooNextToken (\ s a -> s{_lpnooNextToken = a});
+lpnooNextToken = lens _lpnooNextToken (\ s a -> s{_lpnooNextToken = a})
 
 instance AWSRequest ListPhoneNumbersOptedOut where
         type Rs ListPhoneNumbersOptedOut =
@@ -128,23 +128,23 @@ listPhoneNumbersOptedOutResponse
     -> ListPhoneNumbersOptedOutResponse
 listPhoneNumbersOptedOutResponse pResponseStatus_ =
   ListPhoneNumbersOptedOutResponse'
-  { _lpnoorsPhoneNumbers = Nothing
-  , _lpnoorsNextToken = Nothing
-  , _lpnoorsResponseStatus = pResponseStatus_
-  }
+    { _lpnoorsPhoneNumbers = Nothing
+    , _lpnoorsNextToken = Nothing
+    , _lpnoorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.
 lpnoorsPhoneNumbers :: Lens' ListPhoneNumbersOptedOutResponse [Text]
-lpnoorsPhoneNumbers = lens _lpnoorsPhoneNumbers (\ s a -> s{_lpnoorsPhoneNumbers = a}) . _Default . _Coerce;
+lpnoorsPhoneNumbers = lens _lpnoorsPhoneNumbers (\ s a -> s{_lpnoorsPhoneNumbers = a}) . _Default . _Coerce
 
 -- | A @NextToken@ string is returned when you call the @ListPhoneNumbersOptedOut@ action if additional records are available after the first page of results.
 lpnoorsNextToken :: Lens' ListPhoneNumbersOptedOutResponse (Maybe Text)
-lpnoorsNextToken = lens _lpnoorsNextToken (\ s a -> s{_lpnoorsNextToken = a});
+lpnoorsNextToken = lens _lpnoorsNextToken (\ s a -> s{_lpnoorsNextToken = a})
 
 -- | -- | The response status code.
 lpnoorsResponseStatus :: Lens' ListPhoneNumbersOptedOutResponse Int
-lpnoorsResponseStatus = lens _lpnoorsResponseStatus (\ s a -> s{_lpnoorsResponseStatus = a});
+lpnoorsResponseStatus = lens _lpnoorsResponseStatus (\ s a -> s{_lpnoorsResponseStatus = a})
 
 instance NFData ListPhoneNumbersOptedOutResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstanceSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getInstanceSnapshot pInstanceSnapshotName_ =
 
 -- | The name of the snapshot for which you are requesting information.
 gisInstanceSnapshotName :: Lens' GetInstanceSnapshot Text
-gisInstanceSnapshotName = lens _gisInstanceSnapshotName (\ s a -> s{_gisInstanceSnapshotName = a});
+gisInstanceSnapshotName = lens _gisInstanceSnapshotName (\ s a -> s{_gisInstanceSnapshotName = a})
 
 instance AWSRequest GetInstanceSnapshot where
         type Rs GetInstanceSnapshot =
@@ -123,15 +123,15 @@ getInstanceSnapshotResponse
     -> GetInstanceSnapshotResponse
 getInstanceSnapshotResponse pResponseStatus_ =
   GetInstanceSnapshotResponse'
-  {_gisrsInstanceSnapshot = Nothing, _gisrsResponseStatus = pResponseStatus_}
+    {_gisrsInstanceSnapshot = Nothing, _gisrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the results of your get instance snapshot request.
 gisrsInstanceSnapshot :: Lens' GetInstanceSnapshotResponse (Maybe InstanceSnapshot)
-gisrsInstanceSnapshot = lens _gisrsInstanceSnapshot (\ s a -> s{_gisrsInstanceSnapshot = a});
+gisrsInstanceSnapshot = lens _gisrsInstanceSnapshot (\ s a -> s{_gisrsInstanceSnapshot = a})
 
 -- | -- | The response status code.
 gisrsResponseStatus :: Lens' GetInstanceSnapshotResponse Int
-gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a});
+gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a})
 
 instance NFData GetInstanceSnapshotResponse where

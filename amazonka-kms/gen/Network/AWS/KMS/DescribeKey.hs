@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.DescribeKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ describeKey pKeyId_ = DescribeKey' {_dGrantTokens = Nothing, _dKeyId = pKeyId_}
 
 -- | A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 dGrantTokens :: Lens' DescribeKey [Text]
-dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default . _Coerce;
+dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default . _Coerce
 
 -- | A unique identifier for the customer master key (CMK). To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with "alias/". To specify a CMK in a different AWS account, you must use the key ARN or alias ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@      * Alias name: @alias/ExampleAlias@      * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
 dKeyId :: Lens' DescribeKey Text
-dKeyId = lens _dKeyId (\ s a -> s{_dKeyId = a});
+dKeyId = lens _dKeyId (\ s a -> s{_dKeyId = a})
 
 instance AWSRequest DescribeKey where
         type Rs DescribeKey = DescribeKeyResponse
@@ -129,15 +129,15 @@ describeKeyResponse
     -> DescribeKeyResponse
 describeKeyResponse pResponseStatus_ =
   DescribeKeyResponse'
-  {_dkrsKeyMetadata = Nothing, _dkrsResponseStatus = pResponseStatus_}
+    {_dkrsKeyMetadata = Nothing, _dkrsResponseStatus = pResponseStatus_}
 
 
 -- | Metadata associated with the key.
 dkrsKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
-dkrsKeyMetadata = lens _dkrsKeyMetadata (\ s a -> s{_dkrsKeyMetadata = a});
+dkrsKeyMetadata = lens _dkrsKeyMetadata (\ s a -> s{_dkrsKeyMetadata = a})
 
 -- | -- | The response status code.
 dkrsResponseStatus :: Lens' DescribeKeyResponse Int
-dkrsResponseStatus = lens _dkrsResponseStatus (\ s a -> s{_dkrsResponseStatus = a});
+dkrsResponseStatus = lens _dkrsResponseStatus (\ s a -> s{_dkrsResponseStatus = a})
 
 instance NFData DescribeKeyResponse where

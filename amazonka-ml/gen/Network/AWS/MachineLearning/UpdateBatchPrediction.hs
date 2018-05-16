@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateBatchPrediction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,18 +67,18 @@ updateBatchPrediction
     -> UpdateBatchPrediction
 updateBatchPrediction pBatchPredictionId_ pBatchPredictionName_ =
   UpdateBatchPrediction'
-  { _ubpBatchPredictionId = pBatchPredictionId_
-  , _ubpBatchPredictionName = pBatchPredictionName_
-  }
+    { _ubpBatchPredictionId = pBatchPredictionId_
+    , _ubpBatchPredictionName = pBatchPredictionName_
+    }
 
 
 -- | The ID assigned to the @BatchPrediction@ during creation.
 ubpBatchPredictionId :: Lens' UpdateBatchPrediction Text
-ubpBatchPredictionId = lens _ubpBatchPredictionId (\ s a -> s{_ubpBatchPredictionId = a});
+ubpBatchPredictionId = lens _ubpBatchPredictionId (\ s a -> s{_ubpBatchPredictionId = a})
 
 -- | A new user-supplied name or description of the @BatchPrediction@ .
 ubpBatchPredictionName :: Lens' UpdateBatchPrediction Text
-ubpBatchPredictionName = lens _ubpBatchPredictionName (\ s a -> s{_ubpBatchPredictionName = a});
+ubpBatchPredictionName = lens _ubpBatchPredictionName (\ s a -> s{_ubpBatchPredictionName = a})
 
 instance AWSRequest UpdateBatchPrediction where
         type Rs UpdateBatchPrediction =
@@ -143,15 +143,15 @@ updateBatchPredictionResponse
     -> UpdateBatchPredictionResponse
 updateBatchPredictionResponse pResponseStatus_ =
   UpdateBatchPredictionResponse'
-  {_ubprsBatchPredictionId = Nothing, _ubprsResponseStatus = pResponseStatus_}
+    {_ubprsBatchPredictionId = Nothing, _ubprsResponseStatus = pResponseStatus_}
 
 
 -- | The ID assigned to the @BatchPrediction@ during creation. This value should be identical to the value of the @BatchPredictionId@ in the request.
 ubprsBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
-ubprsBatchPredictionId = lens _ubprsBatchPredictionId (\ s a -> s{_ubprsBatchPredictionId = a});
+ubprsBatchPredictionId = lens _ubprsBatchPredictionId (\ s a -> s{_ubprsBatchPredictionId = a})
 
 -- | -- | The response status code.
 ubprsResponseStatus :: Lens' UpdateBatchPredictionResponse Int
-ubprsResponseStatus = lens _ubprsResponseStatus (\ s a -> s{_ubprsResponseStatus = a});
+ubprsResponseStatus = lens _ubprsResponseStatus (\ s a -> s{_ubprsResponseStatus = a})
 
 instance NFData UpdateBatchPredictionResponse where

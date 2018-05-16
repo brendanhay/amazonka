@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteUsagePlanKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,9 +57,9 @@ data DeleteUsagePlanKey = DeleteUsagePlanKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupkUsagePlanId' - The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-deleted 'UsagePlanKey' resource representing a plan customer.
+-- * 'dupkUsagePlanId' - [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-deleted 'UsagePlanKey' resource representing a plan customer.
 --
--- * 'dupkKeyId' - The Id of the 'UsagePlanKey' resource to be deleted.
+-- * 'dupkKeyId' - [Required] The Id of the 'UsagePlanKey' resource to be deleted.
 deleteUsagePlanKey
     :: Text -- ^ 'dupkUsagePlanId'
     -> Text -- ^ 'dupkKeyId'
@@ -68,13 +68,13 @@ deleteUsagePlanKey pUsagePlanId_ pKeyId_ =
   DeleteUsagePlanKey' {_dupkUsagePlanId = pUsagePlanId_, _dupkKeyId = pKeyId_}
 
 
--- | The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-deleted 'UsagePlanKey' resource representing a plan customer.
+-- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-deleted 'UsagePlanKey' resource representing a plan customer.
 dupkUsagePlanId :: Lens' DeleteUsagePlanKey Text
-dupkUsagePlanId = lens _dupkUsagePlanId (\ s a -> s{_dupkUsagePlanId = a});
+dupkUsagePlanId = lens _dupkUsagePlanId (\ s a -> s{_dupkUsagePlanId = a})
 
--- | The Id of the 'UsagePlanKey' resource to be deleted.
+-- | [Required] The Id of the 'UsagePlanKey' resource to be deleted.
 dupkKeyId :: Lens' DeleteUsagePlanKey Text
-dupkKeyId = lens _dupkKeyId (\ s a -> s{_dupkKeyId = a});
+dupkKeyId = lens _dupkKeyId (\ s a -> s{_dupkKeyId = a})
 
 instance AWSRequest DeleteUsagePlanKey where
         type Rs DeleteUsagePlanKey =

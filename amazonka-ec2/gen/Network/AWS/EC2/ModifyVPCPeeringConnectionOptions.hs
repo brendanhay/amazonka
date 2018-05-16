@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +25,7 @@
 --
 --     * Enable/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that's linked to the peer VPC.
 --
---     * Enable/disable a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+--     * Enable/disable the ability to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 --
 --
 --
@@ -83,28 +83,28 @@ modifyVPCPeeringConnectionOptions
     -> ModifyVPCPeeringConnectionOptions
 modifyVPCPeeringConnectionOptions pVPCPeeringConnectionId_ =
   ModifyVPCPeeringConnectionOptions'
-  { _mvpcoRequesterPeeringConnectionOptions = Nothing
-  , _mvpcoAccepterPeeringConnectionOptions = Nothing
-  , _mvpcoDryRun = Nothing
-  , _mvpcoVPCPeeringConnectionId = pVPCPeeringConnectionId_
-  }
+    { _mvpcoRequesterPeeringConnectionOptions = Nothing
+    , _mvpcoAccepterPeeringConnectionOptions = Nothing
+    , _mvpcoDryRun = Nothing
+    , _mvpcoVPCPeeringConnectionId = pVPCPeeringConnectionId_
+    }
 
 
 -- | The VPC peering connection options for the requester VPC.
 mvpcoRequesterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptions (Maybe PeeringConnectionOptionsRequest)
-mvpcoRequesterPeeringConnectionOptions = lens _mvpcoRequesterPeeringConnectionOptions (\ s a -> s{_mvpcoRequesterPeeringConnectionOptions = a});
+mvpcoRequesterPeeringConnectionOptions = lens _mvpcoRequesterPeeringConnectionOptions (\ s a -> s{_mvpcoRequesterPeeringConnectionOptions = a})
 
 -- | The VPC peering connection options for the accepter VPC.
 mvpcoAccepterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptions (Maybe PeeringConnectionOptionsRequest)
-mvpcoAccepterPeeringConnectionOptions = lens _mvpcoAccepterPeeringConnectionOptions (\ s a -> s{_mvpcoAccepterPeeringConnectionOptions = a});
+mvpcoAccepterPeeringConnectionOptions = lens _mvpcoAccepterPeeringConnectionOptions (\ s a -> s{_mvpcoAccepterPeeringConnectionOptions = a})
 
 -- | Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mvpcoDryRun :: Lens' ModifyVPCPeeringConnectionOptions (Maybe Bool)
-mvpcoDryRun = lens _mvpcoDryRun (\ s a -> s{_mvpcoDryRun = a});
+mvpcoDryRun = lens _mvpcoDryRun (\ s a -> s{_mvpcoDryRun = a})
 
 -- | The ID of the VPC peering connection.
 mvpcoVPCPeeringConnectionId :: Lens' ModifyVPCPeeringConnectionOptions Text
-mvpcoVPCPeeringConnectionId = lens _mvpcoVPCPeeringConnectionId (\ s a -> s{_mvpcoVPCPeeringConnectionId = a});
+mvpcoVPCPeeringConnectionId = lens _mvpcoVPCPeeringConnectionId (\ s a -> s{_mvpcoVPCPeeringConnectionId = a})
 
 instance AWSRequest ModifyVPCPeeringConnectionOptions
          where
@@ -170,23 +170,23 @@ modifyVPCPeeringConnectionOptionsResponse
     -> ModifyVPCPeeringConnectionOptionsResponse
 modifyVPCPeeringConnectionOptionsResponse pResponseStatus_ =
   ModifyVPCPeeringConnectionOptionsResponse'
-  { _mvpcorsRequesterPeeringConnectionOptions = Nothing
-  , _mvpcorsAccepterPeeringConnectionOptions = Nothing
-  , _mvpcorsResponseStatus = pResponseStatus_
-  }
+    { _mvpcorsRequesterPeeringConnectionOptions = Nothing
+    , _mvpcorsAccepterPeeringConnectionOptions = Nothing
+    , _mvpcorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the VPC peering connection options for the requester VPC.
 mvpcorsRequesterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptionsResponse (Maybe PeeringConnectionOptions)
-mvpcorsRequesterPeeringConnectionOptions = lens _mvpcorsRequesterPeeringConnectionOptions (\ s a -> s{_mvpcorsRequesterPeeringConnectionOptions = a});
+mvpcorsRequesterPeeringConnectionOptions = lens _mvpcorsRequesterPeeringConnectionOptions (\ s a -> s{_mvpcorsRequesterPeeringConnectionOptions = a})
 
 -- | Information about the VPC peering connection options for the accepter VPC.
 mvpcorsAccepterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptionsResponse (Maybe PeeringConnectionOptions)
-mvpcorsAccepterPeeringConnectionOptions = lens _mvpcorsAccepterPeeringConnectionOptions (\ s a -> s{_mvpcorsAccepterPeeringConnectionOptions = a});
+mvpcorsAccepterPeeringConnectionOptions = lens _mvpcorsAccepterPeeringConnectionOptions (\ s a -> s{_mvpcorsAccepterPeeringConnectionOptions = a})
 
 -- | -- | The response status code.
 mvpcorsResponseStatus :: Lens' ModifyVPCPeeringConnectionOptionsResponse Int
-mvpcorsResponseStatus = lens _mvpcorsResponseStatus (\ s a -> s{_mvpcorsResponseStatus = a});
+mvpcorsResponseStatus = lens _mvpcorsResponseStatus (\ s a -> s{_mvpcorsResponseStatus = a})
 
 instance NFData
            ModifyVPCPeeringConnectionOptionsResponse

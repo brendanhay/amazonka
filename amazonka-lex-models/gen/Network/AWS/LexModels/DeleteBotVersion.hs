@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteBotVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ deleteBotVersion pName_ pVersion_ =
 
 -- | The name of the bot.
 dbvName :: Lens' DeleteBotVersion Text
-dbvName = lens _dbvName (\ s a -> s{_dbvName = a});
+dbvName = lens _dbvName (\ s a -> s{_dbvName = a})
 
 -- | The version of the bot to delete. You cannot delete the @> LATEST@ version of the bot. To delete the @> LATEST@ version, use the 'DeleteBot' operation.
 dbvVersion :: Lens' DeleteBotVersion Text
-dbvVersion = lens _dbvVersion (\ s a -> s{_dbvVersion = a});
+dbvVersion = lens _dbvVersion (\ s a -> s{_dbvVersion = a})
 
 instance AWSRequest DeleteBotVersion where
         type Rs DeleteBotVersion = DeleteBotVersionResponse

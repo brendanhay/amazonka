@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DeleteVaultAccessPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ deleteVaultAccessPolicy
     -> DeleteVaultAccessPolicy
 deleteVaultAccessPolicy pAccountId_ pVaultName_ =
   DeleteVaultAccessPolicy'
-  {_dvapAccountId = pAccountId_, _dvapVaultName = pVaultName_}
+    {_dvapAccountId = pAccountId_, _dvapVaultName = pVaultName_}
 
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 dvapAccountId :: Lens' DeleteVaultAccessPolicy Text
-dvapAccountId = lens _dvapAccountId (\ s a -> s{_dvapAccountId = a});
+dvapAccountId = lens _dvapAccountId (\ s a -> s{_dvapAccountId = a})
 
 -- | The name of the vault.
 dvapVaultName :: Lens' DeleteVaultAccessPolicy Text
-dvapVaultName = lens _dvapVaultName (\ s a -> s{_dvapVaultName = a});
+dvapVaultName = lens _dvapVaultName (\ s a -> s{_dvapVaultName = a})
 
 instance AWSRequest DeleteVaultAccessPolicy where
         type Rs DeleteVaultAccessPolicy =

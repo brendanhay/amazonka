@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.UntagLogGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ untagLogGroup pLogGroupName_ pTags_ =
 
 -- | The name of the log group.
 ulgLogGroupName :: Lens' UntagLogGroup Text
-ulgLogGroupName = lens _ulgLogGroupName (\ s a -> s{_ulgLogGroupName = a});
+ulgLogGroupName = lens _ulgLogGroupName (\ s a -> s{_ulgLogGroupName = a})
 
 -- | The tag keys. The corresponding tags are removed from the log group.
 ulgTags :: Lens' UntagLogGroup (NonEmpty Text)
-ulgTags = lens _ulgTags (\ s a -> s{_ulgTags = a}) . _List1;
+ulgTags = lens _ulgTags (\ s a -> s{_ulgTags = a}) . _List1
 
 instance AWSRequest UntagLogGroup where
         type Rs UntagLogGroup = UntagLogGroupResponse

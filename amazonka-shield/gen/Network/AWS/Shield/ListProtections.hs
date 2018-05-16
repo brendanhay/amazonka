@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Shield.ListProtections
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Lists all 'Protection' objects for the account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Shield.ListProtections
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.Shield.ListProtections
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -68,11 +71,18 @@ listProtections =
 
 -- | The @ListProtectionsRequest.NextToken@ value from a previous call to @ListProtections@ . Pass null if this is the first call.
 lpNextToken :: Lens' ListProtections (Maybe Text)
-lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
+lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a})
 
 -- | The maximum number of 'Protection' objects to be returned. If this is left blank the first 20 results will be returned.
 lpMaxResults :: Lens' ListProtections (Maybe Natural)
-lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a}) . mapping _Nat;
+lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListProtections where
+        page rq rs
+          | stop (rs ^. lprsNextToken) = Nothing
+          | stop (rs ^. lprsProtections) = Nothing
+          | otherwise =
+            Just $ rq & lpNextToken .~ rs ^. lprsNextToken
 
 instance AWSRequest ListProtections where
         type Rs ListProtections = ListProtectionsResponse
@@ -133,22 +143,22 @@ listProtectionsResponse
     -> ListProtectionsResponse
 listProtectionsResponse pResponseStatus_ =
   ListProtectionsResponse'
-  { _lprsProtections = Nothing
-  , _lprsNextToken = Nothing
-  , _lprsResponseStatus = pResponseStatus_
-  }
+    { _lprsProtections = Nothing
+    , _lprsNextToken = Nothing
+    , _lprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The array of enabled 'Protection' objects.
 lprsProtections :: Lens' ListProtectionsResponse [Protection]
-lprsProtections = lens _lprsProtections (\ s a -> s{_lprsProtections = a}) . _Default . _Coerce;
+lprsProtections = lens _lprsProtections (\ s a -> s{_lprsProtections = a}) . _Default . _Coerce
 
 -- | If you specify a value for @MaxResults@ and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.
 lprsNextToken :: Lens' ListProtectionsResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
+lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a})
 
 -- | -- | The response status code.
 lprsResponseStatus :: Lens' ListProtectionsResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a})
 
 instance NFData ListProtectionsResponse where

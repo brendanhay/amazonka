@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeleteEvaluationResults
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the evaluation results for the specified Config rule. You can specify one Config rule per request. After you delete the evaluation results, you can call the 'StartConfigRulesEvaluation' API to start evaluating your AWS resources against the rule.
+-- Deletes the evaluation results for the specified AWS Config rule. You can specify one AWS Config rule per request. After you delete the evaluation results, you can call the 'StartConfigRulesEvaluation' API to start evaluating your AWS resources against the rule.
 --
 --
 module Network.AWS.Config.DeleteEvaluationResults
@@ -57,7 +57,7 @@ newtype DeleteEvaluationResults = DeleteEvaluationResults'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derConfigRuleName' - The name of the Config rule for which you want to delete the evaluation results.
+-- * 'derConfigRuleName' - The name of the AWS Config rule for which you want to delete the evaluation results.
 deleteEvaluationResults
     :: Text -- ^ 'derConfigRuleName'
     -> DeleteEvaluationResults
@@ -65,9 +65,9 @@ deleteEvaluationResults pConfigRuleName_ =
   DeleteEvaluationResults' {_derConfigRuleName = pConfigRuleName_}
 
 
--- | The name of the Config rule for which you want to delete the evaluation results.
+-- | The name of the AWS Config rule for which you want to delete the evaluation results.
 derConfigRuleName :: Lens' DeleteEvaluationResults Text
-derConfigRuleName = lens _derConfigRuleName (\ s a -> s{_derConfigRuleName = a});
+derConfigRuleName = lens _derConfigRuleName (\ s a -> s{_derConfigRuleName = a})
 
 instance AWSRequest DeleteEvaluationResults where
         type Rs DeleteEvaluationResults =
@@ -105,7 +105,7 @@ instance ToPath DeleteEvaluationResults where
 instance ToQuery DeleteEvaluationResults where
         toQuery = const mempty
 
--- | The output when you delete the evaluation results for the specified Config rule.
+-- | The output when you delete the evaluation results for the specified AWS Config rule.
 --
 --
 --
@@ -129,6 +129,6 @@ deleteEvaluationResultsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 derrsResponseStatus :: Lens' DeleteEvaluationResultsResponse Int
-derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
+derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a})
 
 instance NFData DeleteEvaluationResultsResponse where

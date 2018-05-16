@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListGroupVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the versions of a group.
+-- Lists the versions of a group.
 module Network.AWS.Greengrass.ListGroupVersions
     (
     -- * Creating a Request
@@ -57,30 +57,30 @@ data ListGroupVersions = ListGroupVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgvNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lgvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lgvMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lgvMaxResults' - The maximum number of results to be returned per request.
 --
--- * 'lgvGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'lgvGroupId' - The ID of the AWS Greengrass group.
 listGroupVersions
     :: Text -- ^ 'lgvGroupId'
     -> ListGroupVersions
 listGroupVersions pGroupId_ =
   ListGroupVersions'
-  {_lgvNextToken = Nothing, _lgvMaxResults = Nothing, _lgvGroupId = pGroupId_}
+    {_lgvNextToken = Nothing, _lgvMaxResults = Nothing, _lgvGroupId = pGroupId_}
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lgvNextToken :: Lens' ListGroupVersions (Maybe Text)
-lgvNextToken = lens _lgvNextToken (\ s a -> s{_lgvNextToken = a});
+lgvNextToken = lens _lgvNextToken (\ s a -> s{_lgvNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lgvMaxResults :: Lens' ListGroupVersions (Maybe Text)
-lgvMaxResults = lens _lgvMaxResults (\ s a -> s{_lgvMaxResults = a});
+lgvMaxResults = lens _lgvMaxResults (\ s a -> s{_lgvMaxResults = a})
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 lgvGroupId :: Lens' ListGroupVersions Text
-lgvGroupId = lens _lgvGroupId (\ s a -> s{_lgvGroupId = a});
+lgvGroupId = lens _lgvGroupId (\ s a -> s{_lgvGroupId = a})
 
 instance AWSRequest ListGroupVersions where
         type Rs ListGroupVersions = ListGroupVersionsResponse
@@ -127,7 +127,7 @@ data ListGroupVersionsResponse = ListGroupVersionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgvrsVersions' - Versions
+-- * 'lgvrsVersions' - Information about a version.
 --
 -- * 'lgvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
@@ -137,22 +137,22 @@ listGroupVersionsResponse
     -> ListGroupVersionsResponse
 listGroupVersionsResponse pResponseStatus_ =
   ListGroupVersionsResponse'
-  { _lgvrsVersions = Nothing
-  , _lgvrsNextToken = Nothing
-  , _lgvrsResponseStatus = pResponseStatus_
-  }
+    { _lgvrsVersions = Nothing
+    , _lgvrsNextToken = Nothing
+    , _lgvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Versions
+-- | Information about a version.
 lgvrsVersions :: Lens' ListGroupVersionsResponse [VersionInformation]
-lgvrsVersions = lens _lgvrsVersions (\ s a -> s{_lgvrsVersions = a}) . _Default . _Coerce;
+lgvrsVersions = lens _lgvrsVersions (\ s a -> s{_lgvrsVersions = a}) . _Default . _Coerce
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lgvrsNextToken :: Lens' ListGroupVersionsResponse (Maybe Text)
-lgvrsNextToken = lens _lgvrsNextToken (\ s a -> s{_lgvrsNextToken = a});
+lgvrsNextToken = lens _lgvrsNextToken (\ s a -> s{_lgvrsNextToken = a})
 
 -- | -- | The response status code.
 lgvrsResponseStatus :: Lens' ListGroupVersionsResponse Int
-lgvrsResponseStatus = lens _lgvrsResponseStatus (\ s a -> s{_lgvrsResponseStatus = a});
+lgvrsResponseStatus = lens _lgvrsResponseStatus (\ s a -> s{_lgvrsResponseStatus = a})
 
 instance NFData ListGroupVersionsResponse where

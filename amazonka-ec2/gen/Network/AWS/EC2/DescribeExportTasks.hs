@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeExportTasks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ describeExportTasks = DescribeExportTasks' {_detExportTaskIds = Nothing}
 
 -- | One or more export task IDs.
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
-detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a}) . _Default . _Coerce;
+detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeExportTasks where
         type Rs DescribeExportTasks =
@@ -121,15 +121,15 @@ describeExportTasksResponse
     -> DescribeExportTasksResponse
 describeExportTasksResponse pResponseStatus_ =
   DescribeExportTasksResponse'
-  {_detrsExportTasks = Nothing, _detrsResponseStatus = pResponseStatus_}
+    {_detrsExportTasks = Nothing, _detrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the export tasks.
 detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
-detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce;
+detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
+detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a})
 
 instance NFData DescribeExportTasksResponse where

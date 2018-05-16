@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ReEncrypt
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,33 +83,33 @@ reEncrypt
     -> ReEncrypt
 reEncrypt pCiphertextBlob_ pDestinationKeyId_ =
   ReEncrypt'
-  { _reDestinationEncryptionContext = Nothing
-  , _reSourceEncryptionContext = Nothing
-  , _reGrantTokens = Nothing
-  , _reCiphertextBlob = _Base64 # pCiphertextBlob_
-  , _reDestinationKeyId = pDestinationKeyId_
-  }
+    { _reDestinationEncryptionContext = Nothing
+    , _reSourceEncryptionContext = Nothing
+    , _reGrantTokens = Nothing
+    , _reCiphertextBlob = _Base64 # pCiphertextBlob_
+    , _reDestinationKeyId = pDestinationKeyId_
+    }
 
 
 -- | Encryption context to use when the data is reencrypted.
 reDestinationEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
-reDestinationEncryptionContext = lens _reDestinationEncryptionContext (\ s a -> s{_reDestinationEncryptionContext = a}) . _Default . _Map;
+reDestinationEncryptionContext = lens _reDestinationEncryptionContext (\ s a -> s{_reDestinationEncryptionContext = a}) . _Default . _Map
 
 -- | Encryption context used to encrypt and decrypt the data specified in the @CiphertextBlob@ parameter.
 reSourceEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
-reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourceEncryptionContext = a}) . _Default . _Map;
+reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourceEncryptionContext = a}) . _Default . _Map
 
 -- | A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 reGrantTokens :: Lens' ReEncrypt [Text]
-reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a}) . _Default . _Coerce;
+reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a}) . _Default . _Coerce
 
 -- | Ciphertext of the data to reencrypt.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 reCiphertextBlob :: Lens' ReEncrypt ByteString
-reCiphertextBlob = lens _reCiphertextBlob (\ s a -> s{_reCiphertextBlob = a}) . _Base64;
+reCiphertextBlob = lens _reCiphertextBlob (\ s a -> s{_reCiphertextBlob = a}) . _Base64
 
 -- | A unique identifier for the CMK that is used to reencrypt the data. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with "alias/". To specify a CMK in a different AWS account, you must use the key ARN or alias ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@      * Alias name: @alias/ExampleAlias@      * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
 reDestinationKeyId :: Lens' ReEncrypt Text
-reDestinationKeyId = lens _reDestinationKeyId (\ s a -> s{_reDestinationKeyId = a});
+reDestinationKeyId = lens _reDestinationKeyId (\ s a -> s{_reDestinationKeyId = a})
 
 instance AWSRequest ReEncrypt where
         type Rs ReEncrypt = ReEncryptResponse
@@ -178,27 +178,27 @@ reEncryptResponse
     -> ReEncryptResponse
 reEncryptResponse pResponseStatus_ =
   ReEncryptResponse'
-  { _rersSourceKeyId = Nothing
-  , _rersKeyId = Nothing
-  , _rersCiphertextBlob = Nothing
-  , _rersResponseStatus = pResponseStatus_
-  }
+    { _rersSourceKeyId = Nothing
+    , _rersKeyId = Nothing
+    , _rersCiphertextBlob = Nothing
+    , _rersResponseStatus = pResponseStatus_
+    }
 
 
 -- | Unique identifier of the CMK used to originally encrypt the data.
 rersSourceKeyId :: Lens' ReEncryptResponse (Maybe Text)
-rersSourceKeyId = lens _rersSourceKeyId (\ s a -> s{_rersSourceKeyId = a});
+rersSourceKeyId = lens _rersSourceKeyId (\ s a -> s{_rersSourceKeyId = a})
 
 -- | Unique identifier of the CMK used to reencrypt the data.
 rersKeyId :: Lens' ReEncryptResponse (Maybe Text)
-rersKeyId = lens _rersKeyId (\ s a -> s{_rersKeyId = a});
+rersKeyId = lens _rersKeyId (\ s a -> s{_rersKeyId = a})
 
 -- | The reencrypted data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rersCiphertextBlob :: Lens' ReEncryptResponse (Maybe ByteString)
-rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = a}) . mapping _Base64;
+rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = a}) . mapping _Base64
 
 -- | -- | The response status code.
 rersResponseStatus :: Lens' ReEncryptResponse Int
-rersResponseStatus = lens _rersResponseStatus (\ s a -> s{_rersResponseStatus = a});
+rersResponseStatus = lens _rersResponseStatus (\ s a -> s{_rersResponseStatus = a})
 
 instance NFData ReEncryptResponse where

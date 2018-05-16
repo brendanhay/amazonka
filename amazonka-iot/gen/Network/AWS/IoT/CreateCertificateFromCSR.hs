@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateCertificateFromCSR
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -96,18 +96,18 @@ createCertificateFromCSR
     -> CreateCertificateFromCSR
 createCertificateFromCSR pCertificateSigningRequest_ =
   CreateCertificateFromCSR'
-  { _ccfcsrSetAsActive = Nothing
-  , _ccfcsrCertificateSigningRequest = pCertificateSigningRequest_
-  }
+    { _ccfcsrSetAsActive = Nothing
+    , _ccfcsrCertificateSigningRequest = pCertificateSigningRequest_
+    }
 
 
 -- | Specifies whether the certificate is active.
 ccfcsrSetAsActive :: Lens' CreateCertificateFromCSR (Maybe Bool)
-ccfcsrSetAsActive = lens _ccfcsrSetAsActive (\ s a -> s{_ccfcsrSetAsActive = a});
+ccfcsrSetAsActive = lens _ccfcsrSetAsActive (\ s a -> s{_ccfcsrSetAsActive = a})
 
 -- | The certificate signing request (CSR).
 ccfcsrCertificateSigningRequest :: Lens' CreateCertificateFromCSR Text
-ccfcsrCertificateSigningRequest = lens _ccfcsrCertificateSigningRequest (\ s a -> s{_ccfcsrCertificateSigningRequest = a});
+ccfcsrCertificateSigningRequest = lens _ccfcsrCertificateSigningRequest (\ s a -> s{_ccfcsrCertificateSigningRequest = a})
 
 instance AWSRequest CreateCertificateFromCSR where
         type Rs CreateCertificateFromCSR =
@@ -172,28 +172,28 @@ createCertificateFromCSRResponse
     -> CreateCertificateFromCSRResponse
 createCertificateFromCSRResponse pResponseStatus_ =
   CreateCertificateFromCSRResponse'
-  { _ccfcsrrsCertificatePem = Nothing
-  , _ccfcsrrsCertificateARN = Nothing
-  , _ccfcsrrsCertificateId = Nothing
-  , _ccfcsrrsResponseStatus = pResponseStatus_
-  }
+    { _ccfcsrrsCertificatePem = Nothing
+    , _ccfcsrrsCertificateARN = Nothing
+    , _ccfcsrrsCertificateId = Nothing
+    , _ccfcsrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The certificate data, in PEM format.
 ccfcsrrsCertificatePem :: Lens' CreateCertificateFromCSRResponse (Maybe Text)
-ccfcsrrsCertificatePem = lens _ccfcsrrsCertificatePem (\ s a -> s{_ccfcsrrsCertificatePem = a});
+ccfcsrrsCertificatePem = lens _ccfcsrrsCertificatePem (\ s a -> s{_ccfcsrrsCertificatePem = a})
 
 -- | The Amazon Resource Name (ARN) of the certificate. You can use the ARN as a principal for policy operations.
 ccfcsrrsCertificateARN :: Lens' CreateCertificateFromCSRResponse (Maybe Text)
-ccfcsrrsCertificateARN = lens _ccfcsrrsCertificateARN (\ s a -> s{_ccfcsrrsCertificateARN = a});
+ccfcsrrsCertificateARN = lens _ccfcsrrsCertificateARN (\ s a -> s{_ccfcsrrsCertificateARN = a})
 
 -- | The ID of the certificate. Certificate management operations only take a certificateId.
 ccfcsrrsCertificateId :: Lens' CreateCertificateFromCSRResponse (Maybe Text)
-ccfcsrrsCertificateId = lens _ccfcsrrsCertificateId (\ s a -> s{_ccfcsrrsCertificateId = a});
+ccfcsrrsCertificateId = lens _ccfcsrrsCertificateId (\ s a -> s{_ccfcsrrsCertificateId = a})
 
 -- | -- | The response status code.
 ccfcsrrsResponseStatus :: Lens' CreateCertificateFromCSRResponse Int
-ccfcsrrsResponseStatus = lens _ccfcsrrsResponseStatus (\ s a -> s{_ccfcsrrsResponseStatus = a});
+ccfcsrrsResponseStatus = lens _ccfcsrrsResponseStatus (\ s a -> s{_ccfcsrrsResponseStatus = a})
 
 instance NFData CreateCertificateFromCSRResponse
          where

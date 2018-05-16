@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAuthorizer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,25 +69,25 @@ data GetAuthorizer = GetAuthorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaaRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'gaaRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'gaaAuthorizerId' - The identifier of the 'Authorizer' resource.
+-- * 'gaaAuthorizerId' - [Required] The identifier of the 'Authorizer' resource.
 getAuthorizer
     :: Text -- ^ 'gaaRestAPIId'
     -> Text -- ^ 'gaaAuthorizerId'
     -> GetAuthorizer
 getAuthorizer pRestAPIId_ pAuthorizerId_ =
   GetAuthorizer'
-  {_gaaRestAPIId = pRestAPIId_, _gaaAuthorizerId = pAuthorizerId_}
+    {_gaaRestAPIId = pRestAPIId_, _gaaAuthorizerId = pAuthorizerId_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 gaaRestAPIId :: Lens' GetAuthorizer Text
-gaaRestAPIId = lens _gaaRestAPIId (\ s a -> s{_gaaRestAPIId = a});
+gaaRestAPIId = lens _gaaRestAPIId (\ s a -> s{_gaaRestAPIId = a})
 
--- | The identifier of the 'Authorizer' resource.
+-- | [Required] The identifier of the 'Authorizer' resource.
 gaaAuthorizerId :: Lens' GetAuthorizer Text
-gaaAuthorizerId = lens _gaaAuthorizerId (\ s a -> s{_gaaAuthorizerId = a});
+gaaAuthorizerId = lens _gaaAuthorizerId (\ s a -> s{_gaaAuthorizerId = a})
 
 instance AWSRequest GetAuthorizer where
         type Rs GetAuthorizer = Authorizer

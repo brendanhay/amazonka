@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,21 +55,21 @@ data ListGroups = ListGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lgNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lgMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lgMaxResults' - The maximum number of results to be returned per request.
 listGroups
     :: ListGroups
 listGroups = ListGroups' {_lgNextToken = Nothing, _lgMaxResults = Nothing}
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lgNextToken :: Lens' ListGroups (Maybe Text)
-lgNextToken = lens _lgNextToken (\ s a -> s{_lgNextToken = a});
+lgNextToken = lens _lgNextToken (\ s a -> s{_lgNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lgMaxResults :: Lens' ListGroups (Maybe Text)
-lgMaxResults = lens _lgMaxResults (\ s a -> s{_lgMaxResults = a});
+lgMaxResults = lens _lgMaxResults (\ s a -> s{_lgMaxResults = a})
 
 instance AWSRequest ListGroups where
         type Rs ListGroups = ListGroupsResponse
@@ -113,7 +113,7 @@ data ListGroupsResponse = ListGroupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgrsGroups' - Groups
+-- * 'lgrsGroups' - Information about a group.
 --
 -- * 'lgrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
@@ -123,22 +123,22 @@ listGroupsResponse
     -> ListGroupsResponse
 listGroupsResponse pResponseStatus_ =
   ListGroupsResponse'
-  { _lgrsGroups = Nothing
-  , _lgrsNextToken = Nothing
-  , _lgrsResponseStatus = pResponseStatus_
-  }
+    { _lgrsGroups = Nothing
+    , _lgrsNextToken = Nothing
+    , _lgrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Groups
+-- | Information about a group.
 lgrsGroups :: Lens' ListGroupsResponse [GroupInformation]
-lgrsGroups = lens _lgrsGroups (\ s a -> s{_lgrsGroups = a}) . _Default . _Coerce;
+lgrsGroups = lens _lgrsGroups (\ s a -> s{_lgrsGroups = a}) . _Default . _Coerce
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lgrsNextToken :: Lens' ListGroupsResponse (Maybe Text)
-lgrsNextToken = lens _lgrsNextToken (\ s a -> s{_lgrsNextToken = a});
+lgrsNextToken = lens _lgrsNextToken (\ s a -> s{_lgrsNextToken = a})
 
 -- | -- | The response status code.
 lgrsResponseStatus :: Lens' ListGroupsResponse Int
-lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});
+lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a})
 
 instance NFData ListGroupsResponse where

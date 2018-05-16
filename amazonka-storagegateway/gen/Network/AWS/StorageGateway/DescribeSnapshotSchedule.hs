@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeSnapshotSchedule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the snapshot schedule for the specified gateway volume. The snapshot schedule information includes intervals at which snapshots are automatically initiated on the volume. This operation is only supported in the cached volume and stored volume architectures.
+-- Describes the snapshot schedule for the specified gateway volume. The snapshot schedule information includes intervals at which snapshots are automatically initiated on the volume. This operation is only supported in the cached volume and stored volume types.
 --
 --
 module Network.AWS.StorageGateway.DescribeSnapshotSchedule
@@ -72,7 +72,7 @@ describeSnapshotSchedule pVolumeARN_ =
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 dssVolumeARN :: Lens' DescribeSnapshotSchedule Text
-dssVolumeARN = lens _dssVolumeARN (\ s a -> s{_dssVolumeARN = a});
+dssVolumeARN = lens _dssVolumeARN (\ s a -> s{_dssVolumeARN = a})
 
 instance AWSRequest DescribeSnapshotSchedule where
         type Rs DescribeSnapshotSchedule =
@@ -144,38 +144,38 @@ describeSnapshotScheduleResponse
     -> DescribeSnapshotScheduleResponse
 describeSnapshotScheduleResponse pResponseStatus_ =
   DescribeSnapshotScheduleResponse'
-  { _dssrsStartAt = Nothing
-  , _dssrsVolumeARN = Nothing
-  , _dssrsRecurrenceInHours = Nothing
-  , _dssrsTimezone = Nothing
-  , _dssrsDescription = Nothing
-  , _dssrsResponseStatus = pResponseStatus_
-  }
+    { _dssrsStartAt = Nothing
+    , _dssrsVolumeARN = Nothing
+    , _dssrsRecurrenceInHours = Nothing
+    , _dssrsTimezone = Nothing
+    , _dssrsDescription = Nothing
+    , _dssrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dssrsStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
-dssrsStartAt = lens _dssrsStartAt (\ s a -> s{_dssrsStartAt = a}) . mapping _Nat;
+dssrsStartAt = lens _dssrsStartAt (\ s a -> s{_dssrsStartAt = a}) . mapping _Nat
 
 -- | Undocumented member.
 dssrsVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrsVolumeARN = lens _dssrsVolumeARN (\ s a -> s{_dssrsVolumeARN = a});
+dssrsVolumeARN = lens _dssrsVolumeARN (\ s a -> s{_dssrsVolumeARN = a})
 
 -- | Undocumented member.
 dssrsRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
-dssrsRecurrenceInHours = lens _dssrsRecurrenceInHours (\ s a -> s{_dssrsRecurrenceInHours = a}) . mapping _Nat;
+dssrsRecurrenceInHours = lens _dssrsRecurrenceInHours (\ s a -> s{_dssrsRecurrenceInHours = a}) . mapping _Nat
 
 -- | Undocumented member.
 dssrsTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrsTimezone = lens _dssrsTimezone (\ s a -> s{_dssrsTimezone = a});
+dssrsTimezone = lens _dssrsTimezone (\ s a -> s{_dssrsTimezone = a})
 
 -- | Undocumented member.
 dssrsDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrsDescription = lens _dssrsDescription (\ s a -> s{_dssrsDescription = a});
+dssrsDescription = lens _dssrsDescription (\ s a -> s{_dssrsDescription = a})
 
 -- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSnapshotScheduleResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a})
 
 instance NFData DescribeSnapshotScheduleResponse
          where

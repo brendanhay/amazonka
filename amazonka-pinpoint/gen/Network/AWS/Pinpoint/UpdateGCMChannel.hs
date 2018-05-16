@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateGCMChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,18 +63,18 @@ updateGCMChannel
     -> UpdateGCMChannel
 updateGCMChannel pApplicationId_ pGCMChannelRequest_ =
   UpdateGCMChannel'
-  { _ugcApplicationId = pApplicationId_
-  , _ugcGCMChannelRequest = pGCMChannelRequest_
-  }
+    { _ugcApplicationId = pApplicationId_
+    , _ugcGCMChannelRequest = pGCMChannelRequest_
+    }
 
 
 -- | Undocumented member.
 ugcApplicationId :: Lens' UpdateGCMChannel Text
-ugcApplicationId = lens _ugcApplicationId (\ s a -> s{_ugcApplicationId = a});
+ugcApplicationId = lens _ugcApplicationId (\ s a -> s{_ugcApplicationId = a})
 
 -- | Undocumented member.
 ugcGCMChannelRequest :: Lens' UpdateGCMChannel GCMChannelRequest
-ugcGCMChannelRequest = lens _ugcGCMChannelRequest (\ s a -> s{_ugcGCMChannelRequest = a});
+ugcGCMChannelRequest = lens _ugcGCMChannelRequest (\ s a -> s{_ugcGCMChannelRequest = a})
 
 instance AWSRequest UpdateGCMChannel where
         type Rs UpdateGCMChannel = UpdateGCMChannelResponse
@@ -132,17 +132,17 @@ updateGCMChannelResponse
     -> UpdateGCMChannelResponse
 updateGCMChannelResponse pResponseStatus_ pGCMChannelResponse_ =
   UpdateGCMChannelResponse'
-  { _ugcrsResponseStatus = pResponseStatus_
-  , _ugcrsGCMChannelResponse = pGCMChannelResponse_
-  }
+    { _ugcrsResponseStatus = pResponseStatus_
+    , _ugcrsGCMChannelResponse = pGCMChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 ugcrsResponseStatus :: Lens' UpdateGCMChannelResponse Int
-ugcrsResponseStatus = lens _ugcrsResponseStatus (\ s a -> s{_ugcrsResponseStatus = a});
+ugcrsResponseStatus = lens _ugcrsResponseStatus (\ s a -> s{_ugcrsResponseStatus = a})
 
 -- | Undocumented member.
 ugcrsGCMChannelResponse :: Lens' UpdateGCMChannelResponse GCMChannelResponse
-ugcrsGCMChannelResponse = lens _ugcrsGCMChannelResponse (\ s a -> s{_ugcrsGCMChannelResponse = a});
+ugcrsGCMChannelResponse = lens _ugcrsGCMChannelResponse (\ s a -> s{_ugcrsGCMChannelResponse = a})
 
 instance NFData UpdateGCMChannelResponse where

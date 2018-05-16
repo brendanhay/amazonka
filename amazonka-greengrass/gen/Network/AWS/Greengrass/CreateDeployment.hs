@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateDeployment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,47 +61,47 @@ data CreateDeployment = CreateDeployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdDeploymentId' - Id of the deployment if you wish to redeploy a previous deployment.
+-- * 'cdDeploymentId' - The ID of the deployment if you wish to redeploy a previous deployment.
 --
--- * 'cdAmznClientToken' - The client token used to request idempotent operations.
+-- * 'cdAmznClientToken' - A client token used to correlate requests and responses.
 --
--- * 'cdDeploymentType' - Type of deployment. When used in CreateDeployment, only NewDeployment and Redeployment are valid.
+-- * 'cdDeploymentType' - The type of deployment. When used in ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
 --
--- * 'cdGroupVersionId' - Group Version you wish to deploy.
+-- * 'cdGroupVersionId' - The ID of the group version to be deployed.
 --
--- * 'cdGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'cdGroupId' - The ID of the AWS Greengrass group.
 createDeployment
     :: Text -- ^ 'cdGroupId'
     -> CreateDeployment
 createDeployment pGroupId_ =
   CreateDeployment'
-  { _cdDeploymentId = Nothing
-  , _cdAmznClientToken = Nothing
-  , _cdDeploymentType = Nothing
-  , _cdGroupVersionId = Nothing
-  , _cdGroupId = pGroupId_
-  }
+    { _cdDeploymentId = Nothing
+    , _cdAmznClientToken = Nothing
+    , _cdDeploymentType = Nothing
+    , _cdGroupVersionId = Nothing
+    , _cdGroupId = pGroupId_
+    }
 
 
--- | Id of the deployment if you wish to redeploy a previous deployment.
+-- | The ID of the deployment if you wish to redeploy a previous deployment.
 cdDeploymentId :: Lens' CreateDeployment (Maybe Text)
-cdDeploymentId = lens _cdDeploymentId (\ s a -> s{_cdDeploymentId = a});
+cdDeploymentId = lens _cdDeploymentId (\ s a -> s{_cdDeploymentId = a})
 
--- | The client token used to request idempotent operations.
+-- | A client token used to correlate requests and responses.
 cdAmznClientToken :: Lens' CreateDeployment (Maybe Text)
-cdAmznClientToken = lens _cdAmznClientToken (\ s a -> s{_cdAmznClientToken = a});
+cdAmznClientToken = lens _cdAmznClientToken (\ s a -> s{_cdAmznClientToken = a})
 
--- | Type of deployment. When used in CreateDeployment, only NewDeployment and Redeployment are valid.
+-- | The type of deployment. When used in ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
 cdDeploymentType :: Lens' CreateDeployment (Maybe DeploymentType)
-cdDeploymentType = lens _cdDeploymentType (\ s a -> s{_cdDeploymentType = a});
+cdDeploymentType = lens _cdDeploymentType (\ s a -> s{_cdDeploymentType = a})
 
--- | Group Version you wish to deploy.
+-- | The ID of the group version to be deployed.
 cdGroupVersionId :: Lens' CreateDeployment (Maybe Text)
-cdGroupVersionId = lens _cdGroupVersionId (\ s a -> s{_cdGroupVersionId = a});
+cdGroupVersionId = lens _cdGroupVersionId (\ s a -> s{_cdGroupVersionId = a})
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 cdGroupId :: Lens' CreateDeployment Text
-cdGroupId = lens _cdGroupId (\ s a -> s{_cdGroupId = a});
+cdGroupId = lens _cdGroupId (\ s a -> s{_cdGroupId = a})
 
 instance AWSRequest CreateDeployment where
         type Rs CreateDeployment = CreateDeploymentResponse
@@ -153,9 +153,9 @@ data CreateDeploymentResponse = CreateDeploymentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsDeploymentId' - The id of the deployment.
+-- * 'cdrsDeploymentId' - The ID of the deployment.
 --
--- * 'cdrsDeploymentARN' - The arn of the deployment.
+-- * 'cdrsDeploymentARN' - The ARN of the deployment.
 --
 -- * 'cdrsResponseStatus' - -- | The response status code.
 createDeploymentResponse
@@ -163,22 +163,22 @@ createDeploymentResponse
     -> CreateDeploymentResponse
 createDeploymentResponse pResponseStatus_ =
   CreateDeploymentResponse'
-  { _cdrsDeploymentId = Nothing
-  , _cdrsDeploymentARN = Nothing
-  , _cdrsResponseStatus = pResponseStatus_
-  }
+    { _cdrsDeploymentId = Nothing
+    , _cdrsDeploymentARN = Nothing
+    , _cdrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The id of the deployment.
+-- | The ID of the deployment.
 cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
-cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
+cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a})
 
--- | The arn of the deployment.
+-- | The ARN of the deployment.
 cdrsDeploymentARN :: Lens' CreateDeploymentResponse (Maybe Text)
-cdrsDeploymentARN = lens _cdrsDeploymentARN (\ s a -> s{_cdrsDeploymentARN = a});
+cdrsDeploymentARN = lens _cdrsDeploymentARN (\ s a -> s{_cdrsDeploymentARN = a})
 
 -- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDeploymentResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a})
 
 instance NFData CreateDeploymentResponse where

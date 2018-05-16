@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateUsage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,32 +67,32 @@ data UpdateUsage = UpdateUsage'
 --
 -- * 'uuPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uuUsagePlanId' - The Id of the usage plan associated with the usage data.
+-- * 'uuUsagePlanId' - [Required] The Id of the usage plan associated with the usage data.
 --
--- * 'uuKeyId' - The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
+-- * 'uuKeyId' - [Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
 updateUsage
     :: Text -- ^ 'uuUsagePlanId'
     -> Text -- ^ 'uuKeyId'
     -> UpdateUsage
 updateUsage pUsagePlanId_ pKeyId_ =
   UpdateUsage'
-  { _uuPatchOperations = Nothing
-  , _uuUsagePlanId = pUsagePlanId_
-  , _uuKeyId = pKeyId_
-  }
+    { _uuPatchOperations = Nothing
+    , _uuUsagePlanId = pUsagePlanId_
+    , _uuKeyId = pKeyId_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uuPatchOperations :: Lens' UpdateUsage [PatchOperation]
-uuPatchOperations = lens _uuPatchOperations (\ s a -> s{_uuPatchOperations = a}) . _Default . _Coerce;
+uuPatchOperations = lens _uuPatchOperations (\ s a -> s{_uuPatchOperations = a}) . _Default . _Coerce
 
--- | The Id of the usage plan associated with the usage data.
+-- | [Required] The Id of the usage plan associated with the usage data.
 uuUsagePlanId :: Lens' UpdateUsage Text
-uuUsagePlanId = lens _uuUsagePlanId (\ s a -> s{_uuUsagePlanId = a});
+uuUsagePlanId = lens _uuUsagePlanId (\ s a -> s{_uuUsagePlanId = a})
 
--- | The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
+-- | [Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
 uuKeyId :: Lens' UpdateUsage Text
-uuKeyId = lens _uuKeyId (\ s a -> s{_uuKeyId = a});
+uuKeyId = lens _uuKeyId (\ s a -> s{_uuKeyId = a})
 
 instance AWSRequest UpdateUsage where
         type Rs UpdateUsage = Usage

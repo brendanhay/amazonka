@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.EnableMetricsCollection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ data EnableMetricsCollection = EnableMetricsCollection'
 --
 -- * 'emcMetrics' - One or more of the following metrics. If you omit this parameter, all metrics are enabled.     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 --
--- * 'emcAutoScalingGroupName' - The name or ARN of the Auto Scaling group.
+-- * 'emcAutoScalingGroupName' - The name of the Auto Scaling group.
 --
 -- * 'emcGranularity' - The granularity to associate with the metrics to collect. The only valid value is @1Minute@ .
 enableMetricsCollection
@@ -66,23 +66,23 @@ enableMetricsCollection
     -> EnableMetricsCollection
 enableMetricsCollection pAutoScalingGroupName_ pGranularity_ =
   EnableMetricsCollection'
-  { _emcMetrics = Nothing
-  , _emcAutoScalingGroupName = pAutoScalingGroupName_
-  , _emcGranularity = pGranularity_
-  }
+    { _emcMetrics = Nothing
+    , _emcAutoScalingGroupName = pAutoScalingGroupName_
+    , _emcGranularity = pGranularity_
+    }
 
 
 -- | One or more of the following metrics. If you omit this parameter, all metrics are enabled.     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 emcMetrics :: Lens' EnableMetricsCollection [Text]
-emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default . _Coerce;
+emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default . _Coerce
 
--- | The name or ARN of the Auto Scaling group.
+-- | The name of the Auto Scaling group.
 emcAutoScalingGroupName :: Lens' EnableMetricsCollection Text
-emcAutoScalingGroupName = lens _emcAutoScalingGroupName (\ s a -> s{_emcAutoScalingGroupName = a});
+emcAutoScalingGroupName = lens _emcAutoScalingGroupName (\ s a -> s{_emcAutoScalingGroupName = a})
 
 -- | The granularity to associate with the metrics to collect. The only valid value is @1Minute@ .
 emcGranularity :: Lens' EnableMetricsCollection Text
-emcGranularity = lens _emcGranularity (\ s a -> s{_emcGranularity = a});
+emcGranularity = lens _emcGranularity (\ s a -> s{_emcGranularity = a})
 
 instance AWSRequest EnableMetricsCollection where
         type Rs EnableMetricsCollection =

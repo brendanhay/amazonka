@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.AcceptQualificationRequest
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,18 +67,18 @@ acceptQualificationRequest
     -> AcceptQualificationRequest
 acceptQualificationRequest pQualificationRequestId_ =
   AcceptQualificationRequest'
-  { _aqrIntegerValue = Nothing
-  , _aqrQualificationRequestId = pQualificationRequestId_
-  }
+    { _aqrIntegerValue = Nothing
+    , _aqrQualificationRequestId = pQualificationRequestId_
+    }
 
 
 -- | The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement.
 aqrIntegerValue :: Lens' AcceptQualificationRequest (Maybe Int)
-aqrIntegerValue = lens _aqrIntegerValue (\ s a -> s{_aqrIntegerValue = a});
+aqrIntegerValue = lens _aqrIntegerValue (\ s a -> s{_aqrIntegerValue = a})
 
 -- | The ID of the Qualification request, as returned by the @GetQualificationRequests@ operation.
 aqrQualificationRequestId :: Lens' AcceptQualificationRequest Text
-aqrQualificationRequestId = lens _aqrQualificationRequestId (\ s a -> s{_aqrQualificationRequestId = a});
+aqrQualificationRequestId = lens _aqrQualificationRequestId (\ s a -> s{_aqrQualificationRequestId = a})
 
 instance AWSRequest AcceptQualificationRequest where
         type Rs AcceptQualificationRequest =
@@ -139,7 +139,7 @@ acceptQualificationRequestResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 aqrrsResponseStatus :: Lens' AcceptQualificationRequestResponse Int
-aqrrsResponseStatus = lens _aqrrsResponseStatus (\ s a -> s{_aqrrsResponseStatus = a});
+aqrrsResponseStatus = lens _aqrrsResponseStatus (\ s a -> s{_aqrrsResponseStatus = a})
 
 instance NFData AcceptQualificationRequestResponse
          where

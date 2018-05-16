@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheckLastFailureReason
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getHealthCheckLastFailureReason pHealthCheckId_ =
 
 -- | The ID for the health check for which you want the last failure reason. When you created the health check, @CreateHealthCheck@ returned the ID in the response, in the @HealthCheckId@ element.
 ghclfrHealthCheckId :: Lens' GetHealthCheckLastFailureReason Text
-ghclfrHealthCheckId = lens _ghclfrHealthCheckId (\ s a -> s{_ghclfrHealthCheckId = a});
+ghclfrHealthCheckId = lens _ghclfrHealthCheckId (\ s a -> s{_ghclfrHealthCheckId = a})
 
 instance AWSRequest GetHealthCheckLastFailureReason
          where
@@ -125,18 +125,18 @@ getHealthCheckLastFailureReasonResponse
     -> GetHealthCheckLastFailureReasonResponse
 getHealthCheckLastFailureReasonResponse pResponseStatus_ =
   GetHealthCheckLastFailureReasonResponse'
-  { _ghclfrrsResponseStatus = pResponseStatus_
-  , _ghclfrrsHealthCheckObservations = mempty
-  }
+    { _ghclfrrsResponseStatus = pResponseStatus_
+    , _ghclfrrsHealthCheckObservations = mempty
+    }
 
 
 -- | -- | The response status code.
 ghclfrrsResponseStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
-ghclfrrsResponseStatus = lens _ghclfrrsResponseStatus (\ s a -> s{_ghclfrrsResponseStatus = a});
+ghclfrrsResponseStatus = lens _ghclfrrsResponseStatus (\ s a -> s{_ghclfrrsResponseStatus = a})
 
 -- | A list that contains one @Observation@ element for each Amazon Route 53 health checker that is reporting a last failure reason.
 ghclfrrsHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
-ghclfrrsHealthCheckObservations = lens _ghclfrrsHealthCheckObservations (\ s a -> s{_ghclfrrsHealthCheckObservations = a}) . _Coerce;
+ghclfrrsHealthCheckObservations = lens _ghclfrrsHealthCheckObservations (\ s a -> s{_ghclfrrsHealthCheckObservations = a}) . _Coerce
 
 instance NFData
            GetHealthCheckLastFailureReasonResponse

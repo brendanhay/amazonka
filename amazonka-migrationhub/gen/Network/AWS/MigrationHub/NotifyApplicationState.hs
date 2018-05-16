@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.NotifyApplicationState
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ notifyApplicationState
     -> NotifyApplicationState
 notifyApplicationState pApplicationId_ pStatus_ =
   NotifyApplicationState'
-  { _nasDryRun = Nothing
-  , _nasApplicationId = pApplicationId_
-  , _nasStatus = pStatus_
-  }
+    { _nasDryRun = Nothing
+    , _nasApplicationId = pApplicationId_
+    , _nasStatus = pStatus_
+    }
 
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 nasDryRun :: Lens' NotifyApplicationState (Maybe Bool)
-nasDryRun = lens _nasDryRun (\ s a -> s{_nasDryRun = a});
+nasDryRun = lens _nasDryRun (\ s a -> s{_nasDryRun = a})
 
 -- | The configurationId in ADS that uniquely identifies the grouped application.
 nasApplicationId :: Lens' NotifyApplicationState Text
-nasApplicationId = lens _nasApplicationId (\ s a -> s{_nasApplicationId = a});
+nasApplicationId = lens _nasApplicationId (\ s a -> s{_nasApplicationId = a})
 
 -- | Status of the application - Not Started, In-Progress, Complete.
 nasStatus :: Lens' NotifyApplicationState ApplicationStatus
-nasStatus = lens _nasStatus (\ s a -> s{_nasStatus = a});
+nasStatus = lens _nasStatus (\ s a -> s{_nasStatus = a})
 
 instance AWSRequest NotifyApplicationState where
         type Rs NotifyApplicationState =
@@ -144,6 +144,6 @@ notifyApplicationStateResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 nasrsResponseStatus :: Lens' NotifyApplicationStateResponse Int
-nasrsResponseStatus = lens _nasrsResponseStatus (\ s a -> s{_nasrsResponseStatus = a});
+nasrsResponseStatus = lens _nasrsResponseStatus (\ s a -> s{_nasrsResponseStatus = a})
 
 instance NFData NotifyApplicationStateResponse where

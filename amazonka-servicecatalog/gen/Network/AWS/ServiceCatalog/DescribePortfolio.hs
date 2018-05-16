@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribePortfolio
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves detailed information and any tags associated with the specified portfolio.
+-- Gets information about the specified portfolio.
 --
 --
 module Network.AWS.ServiceCatalog.DescribePortfolio
@@ -60,7 +60,7 @@ data DescribePortfolio = DescribePortfolio'
 --
 -- * 'desAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'desId' - The identifier of the portfolio for which to retrieve information.
+-- * 'desId' - The portfolio identifier.
 describePortfolio
     :: Text -- ^ 'desId'
     -> DescribePortfolio
@@ -70,11 +70,11 @@ describePortfolio pId_ =
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 desAcceptLanguage :: Lens' DescribePortfolio (Maybe Text)
-desAcceptLanguage = lens _desAcceptLanguage (\ s a -> s{_desAcceptLanguage = a});
+desAcceptLanguage = lens _desAcceptLanguage (\ s a -> s{_desAcceptLanguage = a})
 
--- | The identifier of the portfolio for which to retrieve information.
+-- | The portfolio identifier.
 desId :: Lens' DescribePortfolio Text
-desId = lens _desId (\ s a -> s{_desId = a});
+desId = lens _desId (\ s a -> s{_desId = a})
 
 instance AWSRequest DescribePortfolio where
         type Rs DescribePortfolio = DescribePortfolioResponse
@@ -128,11 +128,11 @@ data DescribePortfolioResponse = DescribePortfolioResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dprsPortfolioDetail' - Detailed portfolio information.
+-- * 'dprsPortfolioDetail' - Information about the portfolio.
 --
--- * 'dprsTagOptions' - TagOptions associated with the portfolio.
+-- * 'dprsTagOptions' - Information about the TagOptions associated with the portfolio.
 --
--- * 'dprsTags' - Tags associated with the portfolio.
+-- * 'dprsTags' - Information about the tags associated with the portfolio.
 --
 -- * 'dprsResponseStatus' - -- | The response status code.
 describePortfolioResponse
@@ -140,27 +140,27 @@ describePortfolioResponse
     -> DescribePortfolioResponse
 describePortfolioResponse pResponseStatus_ =
   DescribePortfolioResponse'
-  { _dprsPortfolioDetail = Nothing
-  , _dprsTagOptions = Nothing
-  , _dprsTags = Nothing
-  , _dprsResponseStatus = pResponseStatus_
-  }
+    { _dprsPortfolioDetail = Nothing
+    , _dprsTagOptions = Nothing
+    , _dprsTags = Nothing
+    , _dprsResponseStatus = pResponseStatus_
+    }
 
 
--- | Detailed portfolio information.
+-- | Information about the portfolio.
 dprsPortfolioDetail :: Lens' DescribePortfolioResponse (Maybe PortfolioDetail)
-dprsPortfolioDetail = lens _dprsPortfolioDetail (\ s a -> s{_dprsPortfolioDetail = a});
+dprsPortfolioDetail = lens _dprsPortfolioDetail (\ s a -> s{_dprsPortfolioDetail = a})
 
--- | TagOptions associated with the portfolio.
+-- | Information about the TagOptions associated with the portfolio.
 dprsTagOptions :: Lens' DescribePortfolioResponse [TagOptionDetail]
-dprsTagOptions = lens _dprsTagOptions (\ s a -> s{_dprsTagOptions = a}) . _Default . _Coerce;
+dprsTagOptions = lens _dprsTagOptions (\ s a -> s{_dprsTagOptions = a}) . _Default . _Coerce
 
--- | Tags associated with the portfolio.
+-- | Information about the tags associated with the portfolio.
 dprsTags :: Lens' DescribePortfolioResponse [Tag]
-dprsTags = lens _dprsTags (\ s a -> s{_dprsTags = a}) . _Default . _Coerce;
+dprsTags = lens _dprsTags (\ s a -> s{_dprsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DescribePortfolioResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DescribePortfolioResponse where

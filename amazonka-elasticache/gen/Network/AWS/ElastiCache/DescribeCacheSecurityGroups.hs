@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheSecurityGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ describeCacheSecurityGroups
     :: DescribeCacheSecurityGroups
 describeCacheSecurityGroups =
   DescribeCacheSecurityGroups'
-  { _dcsgsCacheSecurityGroupName = Nothing
-  , _dcsgsMarker = Nothing
-  , _dcsgsMaxRecords = Nothing
-  }
+    { _dcsgsCacheSecurityGroupName = Nothing
+    , _dcsgsMarker = Nothing
+    , _dcsgsMaxRecords = Nothing
+    }
 
 
 -- | The name of the cache security group to return details for.
 dcsgsCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
-dcsgsCacheSecurityGroupName = lens _dcsgsCacheSecurityGroupName (\ s a -> s{_dcsgsCacheSecurityGroupName = a});
+dcsgsCacheSecurityGroupName = lens _dcsgsCacheSecurityGroupName (\ s a -> s{_dcsgsCacheSecurityGroupName = a})
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dcsgsMarker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
-dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a});
+dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 dcsgsMaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
-dcsgsMaxRecords = lens _dcsgsMaxRecords (\ s a -> s{_dcsgsMaxRecords = a});
+dcsgsMaxRecords = lens _dcsgsMaxRecords (\ s a -> s{_dcsgsMaxRecords = a})
 
 instance AWSPager DescribeCacheSecurityGroups where
         page rq rs
@@ -161,23 +161,23 @@ describeCacheSecurityGroupsResponse
     -> DescribeCacheSecurityGroupsResponse
 describeCacheSecurityGroupsResponse pResponseStatus_ =
   DescribeCacheSecurityGroupsResponse'
-  { _dcsgsrsCacheSecurityGroups = Nothing
-  , _dcsgsrsMarker = Nothing
-  , _dcsgsrsResponseStatus = pResponseStatus_
-  }
+    { _dcsgsrsCacheSecurityGroups = Nothing
+    , _dcsgsrsMarker = Nothing
+    , _dcsgsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of cache security groups. Each element in the list contains detailed information about one group.
 dcsgsrsCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
-dcsgsrsCacheSecurityGroups = lens _dcsgsrsCacheSecurityGroups (\ s a -> s{_dcsgsrsCacheSecurityGroups = a}) . _Default . _Coerce;
+dcsgsrsCacheSecurityGroups = lens _dcsgsrsCacheSecurityGroups (\ s a -> s{_dcsgsrsCacheSecurityGroups = a}) . _Default . _Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgsrsMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
-dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
+dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a})
 
 -- | -- | The response status code.
 dcsgsrsResponseStatus :: Lens' DescribeCacheSecurityGroupsResponse Int
-dcsgsrsResponseStatus = lens _dcsgsrsResponseStatus (\ s a -> s{_dcsgsrsResponseStatus = a});
+dcsgsrsResponseStatus = lens _dcsgsrsResponseStatus (\ s a -> s{_dcsgsrsResponseStatus = a})
 
 instance NFData DescribeCacheSecurityGroupsResponse
          where

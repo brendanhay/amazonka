@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DeleteVaultNotifications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- This operation deletes the notification configuration set for a vault. The operation is eventually consistent; that is, it might take some time for Amazon Glacier to completely disable the notifications and you might still receive some notifications for a short time after you send the delete request.
 --
 --
--- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
+-- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
 --
 -- For conceptual information and underlying REST API, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring Vault Notifications in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html Delete Vault Notification Configuration > in the Amazon Glacier Developer Guide.
 --
@@ -70,16 +70,16 @@ deleteVaultNotifications
     -> DeleteVaultNotifications
 deleteVaultNotifications pAccountId_ pVaultName_ =
   DeleteVaultNotifications'
-  {_dvnAccountId = pAccountId_, _dvnVaultName = pVaultName_}
+    {_dvnAccountId = pAccountId_, _dvnVaultName = pVaultName_}
 
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 dvnAccountId :: Lens' DeleteVaultNotifications Text
-dvnAccountId = lens _dvnAccountId (\ s a -> s{_dvnAccountId = a});
+dvnAccountId = lens _dvnAccountId (\ s a -> s{_dvnAccountId = a})
 
 -- | The name of the vault.
 dvnVaultName :: Lens' DeleteVaultNotifications Text
-dvnVaultName = lens _dvnVaultName (\ s a -> s{_dvnVaultName = a});
+dvnVaultName = lens _dvnVaultName (\ s a -> s{_dvnVaultName = a})
 
 instance AWSRequest DeleteVaultNotifications where
         type Rs DeleteVaultNotifications =

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetAPNSVoipSandboxChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get an APNS VoipSandbox channel
+-- Get an APNS VoIPSandbox channel
 module Network.AWS.Pinpoint.GetAPNSVoipSandboxChannel
     (
     -- * Creating a Request
@@ -62,7 +62,7 @@ getAPNSVoipSandboxChannel pApplicationId_ =
 
 -- | Undocumented member.
 gavscApplicationId :: Lens' GetAPNSVoipSandboxChannel Text
-gavscApplicationId = lens _gavscApplicationId (\ s a -> s{_gavscApplicationId = a});
+gavscApplicationId = lens _gavscApplicationId (\ s a -> s{_gavscApplicationId = a})
 
 instance AWSRequest GetAPNSVoipSandboxChannel where
         type Rs GetAPNSVoipSandboxChannel =
@@ -114,18 +114,18 @@ getAPNSVoipSandboxChannelResponse
     -> GetAPNSVoipSandboxChannelResponse
 getAPNSVoipSandboxChannelResponse pResponseStatus_ pAPNSVoipSandboxChannelResponse_ =
   GetAPNSVoipSandboxChannelResponse'
-  { _gavscrsResponseStatus = pResponseStatus_
-  , _gavscrsAPNSVoipSandboxChannelResponse = pAPNSVoipSandboxChannelResponse_
-  }
+    { _gavscrsResponseStatus = pResponseStatus_
+    , _gavscrsAPNSVoipSandboxChannelResponse = pAPNSVoipSandboxChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 gavscrsResponseStatus :: Lens' GetAPNSVoipSandboxChannelResponse Int
-gavscrsResponseStatus = lens _gavscrsResponseStatus (\ s a -> s{_gavscrsResponseStatus = a});
+gavscrsResponseStatus = lens _gavscrsResponseStatus (\ s a -> s{_gavscrsResponseStatus = a})
 
 -- | Undocumented member.
 gavscrsAPNSVoipSandboxChannelResponse :: Lens' GetAPNSVoipSandboxChannelResponse APNSVoipSandboxChannelResponse
-gavscrsAPNSVoipSandboxChannelResponse = lens _gavscrsAPNSVoipSandboxChannelResponse (\ s a -> s{_gavscrsAPNSVoipSandboxChannelResponse = a});
+gavscrsAPNSVoipSandboxChannelResponse = lens _gavscrsAPNSVoipSandboxChannelResponse (\ s a -> s{_gavscrsAPNSVoipSandboxChannelResponse = a})
 
 instance NFData GetAPNSVoipSandboxChannelResponse
          where

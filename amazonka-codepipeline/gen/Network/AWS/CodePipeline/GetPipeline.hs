@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.GetPipeline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ getPipeline pName_ = GetPipeline' {_gpVersion = Nothing, _gpName = pName_}
 
 -- | The version number of the pipeline. If you do not specify a version, defaults to the most current version.
 gpVersion :: Lens' GetPipeline (Maybe Natural)
-gpVersion = lens _gpVersion (\ s a -> s{_gpVersion = a}) . mapping _Nat;
+gpVersion = lens _gpVersion (\ s a -> s{_gpVersion = a}) . mapping _Nat
 
 -- | The name of the pipeline for which you want to get information. Pipeline names must be unique under an Amazon Web Services (AWS) user account.
 gpName :: Lens' GetPipeline Text
-gpName = lens _gpName (\ s a -> s{_gpName = a});
+gpName = lens _gpName (\ s a -> s{_gpName = a})
 
 instance AWSRequest GetPipeline where
         type Rs GetPipeline = GetPipelineResponse
@@ -140,22 +140,22 @@ getPipelineResponse
     -> GetPipelineResponse
 getPipelineResponse pResponseStatus_ =
   GetPipelineResponse'
-  { _gprsPipeline = Nothing
-  , _gprsMetadata = Nothing
-  , _gprsResponseStatus = pResponseStatus_
-  }
+    { _gprsPipeline = Nothing
+    , _gprsMetadata = Nothing
+    , _gprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Represents the structure of actions and stages to be performed in the pipeline.
 gprsPipeline :: Lens' GetPipelineResponse (Maybe PipelineDeclaration)
-gprsPipeline = lens _gprsPipeline (\ s a -> s{_gprsPipeline = a});
+gprsPipeline = lens _gprsPipeline (\ s a -> s{_gprsPipeline = a})
 
 -- | Represents the pipeline metadata information returned as part of the output of a GetPipeline action.
 gprsMetadata :: Lens' GetPipelineResponse (Maybe PipelineMetadata)
-gprsMetadata = lens _gprsMetadata (\ s a -> s{_gprsMetadata = a});
+gprsMetadata = lens _gprsMetadata (\ s a -> s{_gprsMetadata = a})
 
 -- | -- | The response status code.
 gprsResponseStatus :: Lens' GetPipelineResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a})
 
 instance NFData GetPipelineResponse where

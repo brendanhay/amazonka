@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ describeParameters
     -> DescribeParameters
 describeParameters pParameterGroupName_ =
   DescribeParameters'
-  { _dpNextToken = Nothing
-  , _dpSource = Nothing
-  , _dpMaxResults = Nothing
-  , _dpParameterGroupName = pParameterGroupName_
-  }
+    { _dpNextToken = Nothing
+    , _dpSource = Nothing
+    , _dpMaxResults = Nothing
+    , _dpParameterGroupName = pParameterGroupName_
+    }
 
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 dpNextToken :: Lens' DescribeParameters (Maybe Text)
-dpNextToken = lens _dpNextToken (\ s a -> s{_dpNextToken = a});
+dpNextToken = lens _dpNextToken (\ s a -> s{_dpNextToken = a})
 
 -- | How the parameter is defined. For example, @system@ denotes a system-defined parameter.
 dpSource :: Lens' DescribeParameters (Maybe Text)
-dpSource = lens _dpSource (\ s a -> s{_dpSource = a});
+dpSource = lens _dpSource (\ s a -> s{_dpSource = a})
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
 dpMaxResults :: Lens' DescribeParameters (Maybe Int)
-dpMaxResults = lens _dpMaxResults (\ s a -> s{_dpMaxResults = a});
+dpMaxResults = lens _dpMaxResults (\ s a -> s{_dpMaxResults = a})
 
 -- | The name of the parameter group.
 dpParameterGroupName :: Lens' DescribeParameters Text
-dpParameterGroupName = lens _dpParameterGroupName (\ s a -> s{_dpParameterGroupName = a});
+dpParameterGroupName = lens _dpParameterGroupName (\ s a -> s{_dpParameterGroupName = a})
 
 instance AWSRequest DescribeParameters where
         type Rs DescribeParameters =
@@ -159,22 +159,22 @@ describeParametersResponse
     -> DescribeParametersResponse
 describeParametersResponse pResponseStatus_ =
   DescribeParametersResponse'
-  { _dprsNextToken = Nothing
-  , _dprsParameters = Nothing
-  , _dprsResponseStatus = pResponseStatus_
-  }
+    { _dprsNextToken = Nothing
+    , _dprsParameters = Nothing
+    , _dprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dprsNextToken :: Lens' DescribeParametersResponse (Maybe Text)
-dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a});
+dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a})
 
 -- | A list of parameters within a parameter group. Each element in the list represents one parameter.
 dprsParameters :: Lens' DescribeParametersResponse [Parameter]
-dprsParameters = lens _dprsParameters (\ s a -> s{_dprsParameters = a}) . _Default . _Coerce;
+dprsParameters = lens _dprsParameters (\ s a -> s{_dprsParameters = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DescribeParametersResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DescribeParametersResponse where

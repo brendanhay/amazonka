@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.StartLifecyclePolicyPreview
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ startLifecyclePolicyPreview
     -> StartLifecyclePolicyPreview
 startLifecyclePolicyPreview pRepositoryName_ =
   StartLifecyclePolicyPreview'
-  { _slppRegistryId = Nothing
-  , _slppLifecyclePolicyText = Nothing
-  , _slppRepositoryName = pRepositoryName_
-  }
+    { _slppRegistryId = Nothing
+    , _slppLifecyclePolicyText = Nothing
+    , _slppRepositoryName = pRepositoryName_
+    }
 
 
 -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 slppRegistryId :: Lens' StartLifecyclePolicyPreview (Maybe Text)
-slppRegistryId = lens _slppRegistryId (\ s a -> s{_slppRegistryId = a});
+slppRegistryId = lens _slppRegistryId (\ s a -> s{_slppRegistryId = a})
 
 -- | The policy to be evaluated against. If you do not specify a policy, the current policy for the repository is used.
 slppLifecyclePolicyText :: Lens' StartLifecyclePolicyPreview (Maybe Text)
-slppLifecyclePolicyText = lens _slppLifecyclePolicyText (\ s a -> s{_slppLifecyclePolicyText = a});
+slppLifecyclePolicyText = lens _slppLifecyclePolicyText (\ s a -> s{_slppLifecyclePolicyText = a})
 
 -- | The name of the repository to be evaluated.
 slppRepositoryName :: Lens' StartLifecyclePolicyPreview Text
-slppRepositoryName = lens _slppRepositoryName (\ s a -> s{_slppRepositoryName = a});
+slppRepositoryName = lens _slppRepositoryName (\ s a -> s{_slppRepositoryName = a})
 
 instance AWSRequest StartLifecyclePolicyPreview where
         type Rs StartLifecyclePolicyPreview =
@@ -159,33 +159,33 @@ startLifecyclePolicyPreviewResponse
     -> StartLifecyclePolicyPreviewResponse
 startLifecyclePolicyPreviewResponse pResponseStatus_ =
   StartLifecyclePolicyPreviewResponse'
-  { _slpprsStatus = Nothing
-  , _slpprsRegistryId = Nothing
-  , _slpprsLifecyclePolicyText = Nothing
-  , _slpprsRepositoryName = Nothing
-  , _slpprsResponseStatus = pResponseStatus_
-  }
+    { _slpprsStatus = Nothing
+    , _slpprsRegistryId = Nothing
+    , _slpprsLifecyclePolicyText = Nothing
+    , _slpprsRepositoryName = Nothing
+    , _slpprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the lifecycle policy preview request.
 slpprsStatus :: Lens' StartLifecyclePolicyPreviewResponse (Maybe LifecyclePolicyPreviewStatus)
-slpprsStatus = lens _slpprsStatus (\ s a -> s{_slpprsStatus = a});
+slpprsStatus = lens _slpprsStatus (\ s a -> s{_slpprsStatus = a})
 
 -- | The registry ID associated with the request.
 slpprsRegistryId :: Lens' StartLifecyclePolicyPreviewResponse (Maybe Text)
-slpprsRegistryId = lens _slpprsRegistryId (\ s a -> s{_slpprsRegistryId = a});
+slpprsRegistryId = lens _slpprsRegistryId (\ s a -> s{_slpprsRegistryId = a})
 
 -- | The JSON repository policy text.
 slpprsLifecyclePolicyText :: Lens' StartLifecyclePolicyPreviewResponse (Maybe Text)
-slpprsLifecyclePolicyText = lens _slpprsLifecyclePolicyText (\ s a -> s{_slpprsLifecyclePolicyText = a});
+slpprsLifecyclePolicyText = lens _slpprsLifecyclePolicyText (\ s a -> s{_slpprsLifecyclePolicyText = a})
 
 -- | The repository name associated with the request.
 slpprsRepositoryName :: Lens' StartLifecyclePolicyPreviewResponse (Maybe Text)
-slpprsRepositoryName = lens _slpprsRepositoryName (\ s a -> s{_slpprsRepositoryName = a});
+slpprsRepositoryName = lens _slpprsRepositoryName (\ s a -> s{_slpprsRepositoryName = a})
 
 -- | -- | The response status code.
 slpprsResponseStatus :: Lens' StartLifecyclePolicyPreviewResponse Int
-slpprsResponseStatus = lens _slpprsResponseStatus (\ s a -> s{_slpprsResponseStatus = a});
+slpprsResponseStatus = lens _slpprsResponseStatus (\ s a -> s{_slpprsResponseStatus = a})
 
 instance NFData StartLifecyclePolicyPreviewResponse
          where

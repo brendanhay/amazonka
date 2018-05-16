@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.ListDomains
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ listDomains =
 
 -- | The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.
 ldMaxNumberOfDomains :: Lens' ListDomains (Maybe Int)
-ldMaxNumberOfDomains = lens _ldMaxNumberOfDomains (\ s a -> s{_ldMaxNumberOfDomains = a});
+ldMaxNumberOfDomains = lens _ldMaxNumberOfDomains (\ s a -> s{_ldMaxNumberOfDomains = a})
 
 -- | A string informing Amazon SimpleDB where to start the next list of domain names.
 ldNextToken :: Lens' ListDomains (Maybe Text)
-ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
+ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a})
 
 instance AWSPager ListDomains where
         page rq rs
@@ -135,22 +135,22 @@ listDomainsResponse
     -> ListDomainsResponse
 listDomainsResponse pResponseStatus_ =
   ListDomainsResponse'
-  { _ldrsDomainNames = Nothing
-  , _ldrsNextToken = Nothing
-  , _ldrsResponseStatus = pResponseStatus_
-  }
+    { _ldrsDomainNames = Nothing
+    , _ldrsNextToken = Nothing
+    , _ldrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of domain names that match the expression.
 ldrsDomainNames :: Lens' ListDomainsResponse [Text]
-ldrsDomainNames = lens _ldrsDomainNames (\ s a -> s{_ldrsDomainNames = a}) . _Default . _Coerce;
+ldrsDomainNames = lens _ldrsDomainNames (\ s a -> s{_ldrsDomainNames = a}) . _Default . _Coerce
 
 -- | @MaxNumberOfDomains@
 ldrsNextToken :: Lens' ListDomainsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a})
 
 -- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDomainsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
 
 instance NFData ListDomainsResponse where

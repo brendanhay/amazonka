@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPNConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,33 +92,33 @@ createVPNConnection
     -> CreateVPNConnection
 createVPNConnection pCustomerGatewayId_ pType_ pVPNGatewayId_ =
   CreateVPNConnection'
-  { _cvcOptions = Nothing
-  , _cvcDryRun = Nothing
-  , _cvcCustomerGatewayId = pCustomerGatewayId_
-  , _cvcType = pType_
-  , _cvcVPNGatewayId = pVPNGatewayId_
-  }
+    { _cvcOptions = Nothing
+    , _cvcDryRun = Nothing
+    , _cvcCustomerGatewayId = pCustomerGatewayId_
+    , _cvcType = pType_
+    , _cvcVPNGatewayId = pVPNGatewayId_
+    }
 
 
 -- | The options for the VPN connection.
 cvcOptions :: Lens' CreateVPNConnection (Maybe VPNConnectionOptionsSpecification)
-cvcOptions = lens _cvcOptions (\ s a -> s{_cvcOptions = a});
+cvcOptions = lens _cvcOptions (\ s a -> s{_cvcOptions = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cvcDryRun :: Lens' CreateVPNConnection (Maybe Bool)
-cvcDryRun = lens _cvcDryRun (\ s a -> s{_cvcDryRun = a});
+cvcDryRun = lens _cvcDryRun (\ s a -> s{_cvcDryRun = a})
 
 -- | The ID of the customer gateway.
 cvcCustomerGatewayId :: Lens' CreateVPNConnection Text
-cvcCustomerGatewayId = lens _cvcCustomerGatewayId (\ s a -> s{_cvcCustomerGatewayId = a});
+cvcCustomerGatewayId = lens _cvcCustomerGatewayId (\ s a -> s{_cvcCustomerGatewayId = a})
 
 -- | The type of VPN connection (@ipsec.1@ ).
 cvcType :: Lens' CreateVPNConnection Text
-cvcType = lens _cvcType (\ s a -> s{_cvcType = a});
+cvcType = lens _cvcType (\ s a -> s{_cvcType = a})
 
 -- | The ID of the virtual private gateway.
 cvcVPNGatewayId :: Lens' CreateVPNConnection Text
-cvcVPNGatewayId = lens _cvcVPNGatewayId (\ s a -> s{_cvcVPNGatewayId = a});
+cvcVPNGatewayId = lens _cvcVPNGatewayId (\ s a -> s{_cvcVPNGatewayId = a})
 
 instance AWSRequest CreateVPNConnection where
         type Rs CreateVPNConnection =
@@ -173,15 +173,15 @@ createVPNConnectionResponse
     -> CreateVPNConnectionResponse
 createVPNConnectionResponse pResponseStatus_ =
   CreateVPNConnectionResponse'
-  {_cvcrsVPNConnection = Nothing, _cvcrsResponseStatus = pResponseStatus_}
+    {_cvcrsVPNConnection = Nothing, _cvcrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the VPN connection.
 cvcrsVPNConnection :: Lens' CreateVPNConnectionResponse (Maybe VPNConnection)
-cvcrsVPNConnection = lens _cvcrsVPNConnection (\ s a -> s{_cvcrsVPNConnection = a});
+cvcrsVPNConnection = lens _cvcrsVPNConnection (\ s a -> s{_cvcrsVPNConnection = a})
 
 -- | -- | The response status code.
 cvcrsResponseStatus :: Lens' CreateVPNConnectionResponse Int
-cvcrsResponseStatus = lens _cvcrsResponseStatus (\ s a -> s{_cvcrsResponseStatus = a});
+cvcrsResponseStatus = lens _cvcrsResponseStatus (\ s a -> s{_cvcrsResponseStatus = a})
 
 instance NFData CreateVPNConnectionResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListGroupCertificateAuthorities
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,7 +52,7 @@ newtype ListGroupCertificateAuthorities = ListGroupCertificateAuthorities'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgcaGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'lgcaGroupId' - The ID of the AWS Greengrass group.
 listGroupCertificateAuthorities
     :: Text -- ^ 'lgcaGroupId'
     -> ListGroupCertificateAuthorities
@@ -60,9 +60,9 @@ listGroupCertificateAuthorities pGroupId_ =
   ListGroupCertificateAuthorities' {_lgcaGroupId = pGroupId_}
 
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 lgcaGroupId :: Lens' ListGroupCertificateAuthorities Text
-lgcaGroupId = lens _lgcaGroupId (\ s a -> s{_lgcaGroupId = a});
+lgcaGroupId = lens _lgcaGroupId (\ s a -> s{_lgcaGroupId = a})
 
 instance AWSRequest ListGroupCertificateAuthorities
          where
@@ -110,7 +110,7 @@ data ListGroupCertificateAuthoritiesResponse = ListGroupCertificateAuthoritiesRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgcarsGroupCertificateAuthorities' - List of certificate authorities associated with the group.
+-- * 'lgcarsGroupCertificateAuthorities' - A list of certificate authorities associated with the group.
 --
 -- * 'lgcarsResponseStatus' - -- | The response status code.
 listGroupCertificateAuthoritiesResponse
@@ -118,18 +118,18 @@ listGroupCertificateAuthoritiesResponse
     -> ListGroupCertificateAuthoritiesResponse
 listGroupCertificateAuthoritiesResponse pResponseStatus_ =
   ListGroupCertificateAuthoritiesResponse'
-  { _lgcarsGroupCertificateAuthorities = Nothing
-  , _lgcarsResponseStatus = pResponseStatus_
-  }
+    { _lgcarsGroupCertificateAuthorities = Nothing
+    , _lgcarsResponseStatus = pResponseStatus_
+    }
 
 
--- | List of certificate authorities associated with the group.
+-- | A list of certificate authorities associated with the group.
 lgcarsGroupCertificateAuthorities :: Lens' ListGroupCertificateAuthoritiesResponse [GroupCertificateAuthorityProperties]
-lgcarsGroupCertificateAuthorities = lens _lgcarsGroupCertificateAuthorities (\ s a -> s{_lgcarsGroupCertificateAuthorities = a}) . _Default . _Coerce;
+lgcarsGroupCertificateAuthorities = lens _lgcarsGroupCertificateAuthorities (\ s a -> s{_lgcarsGroupCertificateAuthorities = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lgcarsResponseStatus :: Lens' ListGroupCertificateAuthoritiesResponse Int
-lgcarsResponseStatus = lens _lgcarsResponseStatus (\ s a -> s{_lgcarsResponseStatus = a});
+lgcarsResponseStatus = lens _lgcarsResponseStatus (\ s a -> s{_lgcarsResponseStatus = a})
 
 instance NFData
            ListGroupCertificateAuthoritiesResponse

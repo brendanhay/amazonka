@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DeleteHSM
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ deleteHSM pHSMARN_ = DeleteHSM' {_dhHSMARN = pHSMARN_}
 
 -- | The ARN of the HSM to delete.
 dhHSMARN :: Lens' DeleteHSM Text
-dhHSMARN = lens _dhHSMARN (\ s a -> s{_dhHSMARN = a});
+dhHSMARN = lens _dhHSMARN (\ s a -> s{_dhHSMARN = a})
 
 instance AWSRequest DeleteHSM where
         type Rs DeleteHSM = DeleteHSMResponse
@@ -129,15 +129,15 @@ deleteHSMResponse
     -> DeleteHSMResponse
 deleteHSMResponse pResponseStatus_ pStatus_ =
   DeleteHSMResponse'
-  {_dhsmrsResponseStatus = pResponseStatus_, _dhsmrsStatus = pStatus_}
+    {_dhsmrsResponseStatus = pResponseStatus_, _dhsmrsStatus = pStatus_}
 
 
 -- | -- | The response status code.
 dhsmrsResponseStatus :: Lens' DeleteHSMResponse Int
-dhsmrsResponseStatus = lens _dhsmrsResponseStatus (\ s a -> s{_dhsmrsResponseStatus = a});
+dhsmrsResponseStatus = lens _dhsmrsResponseStatus (\ s a -> s{_dhsmrsResponseStatus = a})
 
 -- | The status of the operation.
 dhsmrsStatus :: Lens' DeleteHSMResponse Text
-dhsmrsStatus = lens _dhsmrsStatus (\ s a -> s{_dhsmrsStatus = a});
+dhsmrsStatus = lens _dhsmrsStatus (\ s a -> s{_dhsmrsStatus = a})
 
 instance NFData DeleteHSMResponse where

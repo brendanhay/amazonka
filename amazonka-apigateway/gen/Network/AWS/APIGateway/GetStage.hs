@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetStage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,6 +36,7 @@ module Network.AWS.APIGateway.GetStage
     -- * Response Lenses
     , sDeploymentId
     , sVariables
+    , sAccessLogSettings
     , sDocumentationVersion
     , sClientCertificateId
     , sCreatedDate
@@ -43,9 +44,11 @@ module Network.AWS.APIGateway.GetStage
     , sMethodSettings
     , sLastUpdatedDate
     , sCacheClusterSize
+    , sCanarySettings
     , sCacheClusterEnabled
     , sStageName
     , sDescription
+    , sTags
     ) where
 
 import Network.AWS.APIGateway.Types
@@ -55,7 +58,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a 'Stage' resource.
+-- | Requests API Gateway to get information about a 'Stage' resource.
 --
 --
 --
@@ -70,9 +73,9 @@ data GetStage = GetStage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gssRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'gssRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'gssStageName' - The name of the 'Stage' resource to get information about.
+-- * 'gssStageName' - [Required] The name of the 'Stage' resource to get information about.
 getStage
     :: Text -- ^ 'gssRestAPIId'
     -> Text -- ^ 'gssStageName'
@@ -81,13 +84,13 @@ getStage pRestAPIId_ pStageName_ =
   GetStage' {_gssRestAPIId = pRestAPIId_, _gssStageName = pStageName_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 gssRestAPIId :: Lens' GetStage Text
-gssRestAPIId = lens _gssRestAPIId (\ s a -> s{_gssRestAPIId = a});
+gssRestAPIId = lens _gssRestAPIId (\ s a -> s{_gssRestAPIId = a})
 
--- | The name of the 'Stage' resource to get information about.
+-- | [Required] The name of the 'Stage' resource to get information about.
 gssStageName :: Lens' GetStage Text
-gssStageName = lens _gssStageName (\ s a -> s{_gssStageName = a});
+gssStageName = lens _gssStageName (\ s a -> s{_gssStageName = a})
 
 instance AWSRequest GetStage where
         type Rs GetStage = Stage

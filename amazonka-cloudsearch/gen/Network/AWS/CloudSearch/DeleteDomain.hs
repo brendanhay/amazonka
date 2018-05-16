@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ deleteDomain pDomainName_ = DeleteDomain' {_dddDomainName = pDomainName_}
 
 -- | The name of the domain you want to permanently delete.
 dddDomainName :: Lens' DeleteDomain Text
-dddDomainName = lens _dddDomainName (\ s a -> s{_dddDomainName = a});
+dddDomainName = lens _dddDomainName (\ s a -> s{_dddDomainName = a})
 
 instance AWSRequest DeleteDomain where
         type Rs DeleteDomain = DeleteDomainResponse
@@ -118,15 +118,15 @@ deleteDomainResponse
     -> DeleteDomainResponse
 deleteDomainResponse pResponseStatus_ =
   DeleteDomainResponse'
-  {_ddrsDomainStatus = Nothing, _ddrsResponseStatus = pResponseStatus_}
+    {_ddrsDomainStatus = Nothing, _ddrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 ddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
-ddrsDomainStatus = lens _ddrsDomainStatus (\ s a -> s{_ddrsDomainStatus = a});
+ddrsDomainStatus = lens _ddrsDomainStatus (\ s a -> s{_ddrsDomainStatus = a})
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDomainResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 instance NFData DeleteDomainResponse where

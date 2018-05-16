@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateEvaluation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ updateEvaluation
     -> UpdateEvaluation
 updateEvaluation pEvaluationId_ pEvaluationName_ =
   UpdateEvaluation'
-  {_ueEvaluationId = pEvaluationId_, _ueEvaluationName = pEvaluationName_}
+    {_ueEvaluationId = pEvaluationId_, _ueEvaluationName = pEvaluationName_}
 
 
 -- | The ID assigned to the @Evaluation@ during creation.
 ueEvaluationId :: Lens' UpdateEvaluation Text
-ueEvaluationId = lens _ueEvaluationId (\ s a -> s{_ueEvaluationId = a});
+ueEvaluationId = lens _ueEvaluationId (\ s a -> s{_ueEvaluationId = a})
 
 -- | A new user-supplied name or description of the @Evaluation@ that will replace the current content.
 ueEvaluationName :: Lens' UpdateEvaluation Text
-ueEvaluationName = lens _ueEvaluationName (\ s a -> s{_ueEvaluationName = a});
+ueEvaluationName = lens _ueEvaluationName (\ s a -> s{_ueEvaluationName = a})
 
 instance AWSRequest UpdateEvaluation where
         type Rs UpdateEvaluation = UpdateEvaluationResponse
@@ -138,15 +138,15 @@ updateEvaluationResponse
     -> UpdateEvaluationResponse
 updateEvaluationResponse pResponseStatus_ =
   UpdateEvaluationResponse'
-  {_uersEvaluationId = Nothing, _uersResponseStatus = pResponseStatus_}
+    {_uersEvaluationId = Nothing, _uersResponseStatus = pResponseStatus_}
 
 
 -- | The ID assigned to the @Evaluation@ during creation. This value should be identical to the value of the @Evaluation@ in the request.
 uersEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
-uersEvaluationId = lens _uersEvaluationId (\ s a -> s{_uersEvaluationId = a});
+uersEvaluationId = lens _uersEvaluationId (\ s a -> s{_uersEvaluationId = a})
 
 -- | -- | The response status code.
 uersResponseStatus :: Lens' UpdateEvaluationResponse Int
-uersResponseStatus = lens _uersResponseStatus (\ s a -> s{_uersResponseStatus = a});
+uersResponseStatus = lens _uersResponseStatus (\ s a -> s{_uersResponseStatus = a})
 
 instance NFData UpdateEvaluationResponse where

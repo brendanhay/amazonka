@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.StopMatchmaking
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,6 +30,8 @@
 --     * 'StopMatchmaking'
 --
 --     * 'AcceptMatch'
+--
+--     * 'StartMatchBackfill'
 --
 --
 --
@@ -78,7 +80,7 @@ stopMatchmaking pTicketId_ = StopMatchmaking' {_smTicketId = pTicketId_}
 
 -- | Unique identifier for a matchmaking ticket.
 smTicketId :: Lens' StopMatchmaking Text
-smTicketId = lens _smTicketId (\ s a -> s{_smTicketId = a});
+smTicketId = lens _smTicketId (\ s a -> s{_smTicketId = a})
 
 instance AWSRequest StopMatchmaking where
         type Rs StopMatchmaking = StopMatchmakingResponse
@@ -132,6 +134,6 @@ stopMatchmakingResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 smrsResponseStatus :: Lens' StopMatchmakingResponse Int
-smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a});
+smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a})
 
 instance NFData StopMatchmakingResponse where

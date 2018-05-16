@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeResize
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,7 +81,7 @@ describeResize pClusterIdentifier_ =
 
 -- | The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive. By default, resize operations for all clusters defined for an AWS account are returned.
 drClusterIdentifier :: Lens' DescribeResize Text
-drClusterIdentifier = lens _drClusterIdentifier (\ s a -> s{_drClusterIdentifier = a});
+drClusterIdentifier = lens _drClusterIdentifier (\ s a -> s{_drClusterIdentifier = a})
 
 instance AWSRequest DescribeResize where
         type Rs DescribeResize = DescribeResizeResponse
@@ -182,72 +182,72 @@ describeResizeResponse
     -> DescribeResizeResponse
 describeResizeResponse pResponseStatus_ =
   DescribeResizeResponse'
-  { _drrsImportTablesNotStarted = Nothing
-  , _drrsStatus = Nothing
-  , _drrsEstimatedTimeToCompletionInSeconds = Nothing
-  , _drrsAvgResizeRateInMegaBytesPerSecond = Nothing
-  , _drrsTargetNumberOfNodes = Nothing
-  , _drrsTargetNodeType = Nothing
-  , _drrsImportTablesInProgress = Nothing
-  , _drrsImportTablesCompleted = Nothing
-  , _drrsProgressInMegaBytes = Nothing
-  , _drrsTotalResizeDataInMegaBytes = Nothing
-  , _drrsTargetClusterType = Nothing
-  , _drrsElapsedTimeInSeconds = Nothing
-  , _drrsResponseStatus = pResponseStatus_
-  }
+    { _drrsImportTablesNotStarted = Nothing
+    , _drrsStatus = Nothing
+    , _drrsEstimatedTimeToCompletionInSeconds = Nothing
+    , _drrsAvgResizeRateInMegaBytesPerSecond = Nothing
+    , _drrsTargetNumberOfNodes = Nothing
+    , _drrsTargetNodeType = Nothing
+    , _drrsImportTablesInProgress = Nothing
+    , _drrsImportTablesCompleted = Nothing
+    , _drrsProgressInMegaBytes = Nothing
+    , _drrsTotalResizeDataInMegaBytes = Nothing
+    , _drrsTargetClusterType = Nothing
+    , _drrsElapsedTimeInSeconds = Nothing
+    , _drrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The names of tables that have not been yet imported. Valid Values: List of table names
 drrsImportTablesNotStarted :: Lens' DescribeResizeResponse [Text]
-drrsImportTablesNotStarted = lens _drrsImportTablesNotStarted (\ s a -> s{_drrsImportTablesNotStarted = a}) . _Default . _Coerce;
+drrsImportTablesNotStarted = lens _drrsImportTablesNotStarted (\ s a -> s{_drrsImportTablesNotStarted = a}) . _Default . _Coerce
 
 -- | The status of the resize operation. Valid Values: @NONE@ | @IN_PROGRESS@ | @FAILED@ | @SUCCEEDED@
 drrsStatus :: Lens' DescribeResizeResponse (Maybe Text)
-drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});
+drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a})
 
 -- | The estimated time remaining, in seconds, until the resize operation is complete. This value is calculated based on the average resize rate and the estimated amount of data remaining to be processed. Once the resize operation is complete, this value will be 0.
 drrsEstimatedTimeToCompletionInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
-drrsEstimatedTimeToCompletionInSeconds = lens _drrsEstimatedTimeToCompletionInSeconds (\ s a -> s{_drrsEstimatedTimeToCompletionInSeconds = a});
+drrsEstimatedTimeToCompletionInSeconds = lens _drrsEstimatedTimeToCompletionInSeconds (\ s a -> s{_drrsEstimatedTimeToCompletionInSeconds = a})
 
 -- | The average rate of the resize operation over the last few minutes, measured in megabytes per second. After the resize operation completes, this value shows the average rate of the entire resize operation.
 drrsAvgResizeRateInMegaBytesPerSecond :: Lens' DescribeResizeResponse (Maybe Double)
-drrsAvgResizeRateInMegaBytesPerSecond = lens _drrsAvgResizeRateInMegaBytesPerSecond (\ s a -> s{_drrsAvgResizeRateInMegaBytesPerSecond = a});
+drrsAvgResizeRateInMegaBytesPerSecond = lens _drrsAvgResizeRateInMegaBytesPerSecond (\ s a -> s{_drrsAvgResizeRateInMegaBytesPerSecond = a})
 
 -- | The number of nodes that the cluster will have after the resize operation is complete.
 drrsTargetNumberOfNodes :: Lens' DescribeResizeResponse (Maybe Int)
-drrsTargetNumberOfNodes = lens _drrsTargetNumberOfNodes (\ s a -> s{_drrsTargetNumberOfNodes = a});
+drrsTargetNumberOfNodes = lens _drrsTargetNumberOfNodes (\ s a -> s{_drrsTargetNumberOfNodes = a})
 
 -- | The node type that the cluster will have after the resize operation is complete.
 drrsTargetNodeType :: Lens' DescribeResizeResponse (Maybe Text)
-drrsTargetNodeType = lens _drrsTargetNodeType (\ s a -> s{_drrsTargetNodeType = a});
+drrsTargetNodeType = lens _drrsTargetNodeType (\ s a -> s{_drrsTargetNodeType = a})
 
 -- | The names of tables that are being currently imported. Valid Values: List of table names.
 drrsImportTablesInProgress :: Lens' DescribeResizeResponse [Text]
-drrsImportTablesInProgress = lens _drrsImportTablesInProgress (\ s a -> s{_drrsImportTablesInProgress = a}) . _Default . _Coerce;
+drrsImportTablesInProgress = lens _drrsImportTablesInProgress (\ s a -> s{_drrsImportTablesInProgress = a}) . _Default . _Coerce
 
 -- | The names of tables that have been completely imported . Valid Values: List of table names.
 drrsImportTablesCompleted :: Lens' DescribeResizeResponse [Text]
-drrsImportTablesCompleted = lens _drrsImportTablesCompleted (\ s a -> s{_drrsImportTablesCompleted = a}) . _Default . _Coerce;
+drrsImportTablesCompleted = lens _drrsImportTablesCompleted (\ s a -> s{_drrsImportTablesCompleted = a}) . _Default . _Coerce
 
 -- | While the resize operation is in progress, this value shows the current amount of data, in megabytes, that has been processed so far. When the resize operation is complete, this value shows the total amount of data, in megabytes, on the cluster, which may be more or less than TotalResizeDataInMegaBytes (the estimated total amount of data before resize).
 drrsProgressInMegaBytes :: Lens' DescribeResizeResponse (Maybe Integer)
-drrsProgressInMegaBytes = lens _drrsProgressInMegaBytes (\ s a -> s{_drrsProgressInMegaBytes = a});
+drrsProgressInMegaBytes = lens _drrsProgressInMegaBytes (\ s a -> s{_drrsProgressInMegaBytes = a})
 
 -- | The estimated total amount of data, in megabytes, on the cluster before the resize operation began.
 drrsTotalResizeDataInMegaBytes :: Lens' DescribeResizeResponse (Maybe Integer)
-drrsTotalResizeDataInMegaBytes = lens _drrsTotalResizeDataInMegaBytes (\ s a -> s{_drrsTotalResizeDataInMegaBytes = a});
+drrsTotalResizeDataInMegaBytes = lens _drrsTotalResizeDataInMegaBytes (\ s a -> s{_drrsTotalResizeDataInMegaBytes = a})
 
 -- | The cluster type after the resize operation is complete. Valid Values: @multi-node@ | @single-node@
 drrsTargetClusterType :: Lens' DescribeResizeResponse (Maybe Text)
-drrsTargetClusterType = lens _drrsTargetClusterType (\ s a -> s{_drrsTargetClusterType = a});
+drrsTargetClusterType = lens _drrsTargetClusterType (\ s a -> s{_drrsTargetClusterType = a})
 
 -- | The amount of seconds that have elapsed since the resize operation began. After the resize operation completes, this value shows the total actual time, in seconds, for the resize operation.
 drrsElapsedTimeInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
-drrsElapsedTimeInSeconds = lens _drrsElapsedTimeInSeconds (\ s a -> s{_drrsElapsedTimeInSeconds = a});
+drrsElapsedTimeInSeconds = lens _drrsElapsedTimeInSeconds (\ s a -> s{_drrsElapsedTimeInSeconds = a})
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DescribeResizeResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a})
 
 instance NFData DescribeResizeResponse where

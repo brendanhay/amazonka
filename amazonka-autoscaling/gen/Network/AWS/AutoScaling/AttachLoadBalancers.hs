@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.AttachLoadBalancers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,26 +61,26 @@ data AttachLoadBalancers = AttachLoadBalancers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albAutoScalingGroupName' - The name of the group.
+-- * 'albAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'albLoadBalancerNames' - One or more load balancer names.
+-- * 'albLoadBalancerNames' - The names of the load balancers. You can specify up to 10 load balancers.
 attachLoadBalancers
     :: Text -- ^ 'albAutoScalingGroupName'
     -> AttachLoadBalancers
 attachLoadBalancers pAutoScalingGroupName_ =
   AttachLoadBalancers'
-  { _albAutoScalingGroupName = pAutoScalingGroupName_
-  , _albLoadBalancerNames = mempty
-  }
+    { _albAutoScalingGroupName = pAutoScalingGroupName_
+    , _albLoadBalancerNames = mempty
+    }
 
 
--- | The name of the group.
+-- | The name of the Auto Scaling group.
 albAutoScalingGroupName :: Lens' AttachLoadBalancers Text
-albAutoScalingGroupName = lens _albAutoScalingGroupName (\ s a -> s{_albAutoScalingGroupName = a});
+albAutoScalingGroupName = lens _albAutoScalingGroupName (\ s a -> s{_albAutoScalingGroupName = a})
 
--- | One or more load balancer names.
+-- | The names of the load balancers. You can specify up to 10 load balancers.
 albLoadBalancerNames :: Lens' AttachLoadBalancers [Text]
-albLoadBalancerNames = lens _albLoadBalancerNames (\ s a -> s{_albLoadBalancerNames = a}) . _Coerce;
+albLoadBalancerNames = lens _albLoadBalancerNames (\ s a -> s{_albLoadBalancerNames = a}) . _Coerce
 
 instance AWSRequest AttachLoadBalancers where
         type Rs AttachLoadBalancers =
@@ -130,6 +130,6 @@ attachLoadBalancersResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 albrsResponseStatus :: Lens' AttachLoadBalancersResponse Int
-albrsResponseStatus = lens _albrsResponseStatus (\ s a -> s{_albrsResponseStatus = a});
+albrsResponseStatus = lens _albrsResponseStatus (\ s a -> s{_albrsResponseStatus = a})
 
 instance NFData AttachLoadBalancersResponse where

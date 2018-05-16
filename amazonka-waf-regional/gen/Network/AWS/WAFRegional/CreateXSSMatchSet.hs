@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.CreateXSSMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,11 +88,11 @@ createXSSMatchSet pName_ pChangeToken_ =
 
 -- | A friendly name or description for the 'XssMatchSet' that you're creating. You can't change @Name@ after you create the @XssMatchSet@ .
 cxmsName :: Lens' CreateXSSMatchSet Text
-cxmsName = lens _cxmsName (\ s a -> s{_cxmsName = a});
+cxmsName = lens _cxmsName (\ s a -> s{_cxmsName = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 cxmsChangeToken :: Lens' CreateXSSMatchSet Text
-cxmsChangeToken = lens _cxmsChangeToken (\ s a -> s{_cxmsChangeToken = a});
+cxmsChangeToken = lens _cxmsChangeToken (\ s a -> s{_cxmsChangeToken = a})
 
 instance AWSRequest CreateXSSMatchSet where
         type Rs CreateXSSMatchSet = CreateXSSMatchSetResponse
@@ -157,22 +157,22 @@ createXSSMatchSetResponse
     -> CreateXSSMatchSetResponse
 createXSSMatchSetResponse pResponseStatus_ =
   CreateXSSMatchSetResponse'
-  { _cxmsrsXSSMatchSet = Nothing
-  , _cxmsrsChangeToken = Nothing
-  , _cxmsrsResponseStatus = pResponseStatus_
-  }
+    { _cxmsrsXSSMatchSet = Nothing
+    , _cxmsrsChangeToken = Nothing
+    , _cxmsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An 'XssMatchSet' .
 cxmsrsXSSMatchSet :: Lens' CreateXSSMatchSetResponse (Maybe XSSMatchSet)
-cxmsrsXSSMatchSet = lens _cxmsrsXSSMatchSet (\ s a -> s{_cxmsrsXSSMatchSet = a});
+cxmsrsXSSMatchSet = lens _cxmsrsXSSMatchSet (\ s a -> s{_cxmsrsXSSMatchSet = a})
 
 -- | The @ChangeToken@ that you used to submit the @CreateXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 cxmsrsChangeToken :: Lens' CreateXSSMatchSetResponse (Maybe Text)
-cxmsrsChangeToken = lens _cxmsrsChangeToken (\ s a -> s{_cxmsrsChangeToken = a});
+cxmsrsChangeToken = lens _cxmsrsChangeToken (\ s a -> s{_cxmsrsChangeToken = a})
 
 -- | -- | The response status code.
 cxmsrsResponseStatus :: Lens' CreateXSSMatchSetResponse Int
-cxmsrsResponseStatus = lens _cxmsrsResponseStatus (\ s a -> s{_cxmsrsResponseStatus = a});
+cxmsrsResponseStatus = lens _cxmsrsResponseStatus (\ s a -> s{_cxmsrsResponseStatus = a})
 
 instance NFData CreateXSSMatchSetResponse where

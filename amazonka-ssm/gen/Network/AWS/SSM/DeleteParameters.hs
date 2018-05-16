@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteParameters pNames_ = DeleteParameters' {_dpNames = _List1 # pNames_}
 
 -- | The names of the parameters to delete.
 dpNames :: Lens' DeleteParameters (NonEmpty Text)
-dpNames = lens _dpNames (\ s a -> s{_dpNames = a}) . _List1;
+dpNames = lens _dpNames (\ s a -> s{_dpNames = a}) . _List1
 
 instance AWSRequest DeleteParameters where
         type Rs DeleteParameters = DeleteParametersResponse
@@ -122,22 +122,22 @@ deleteParametersResponse
     -> DeleteParametersResponse
 deleteParametersResponse pResponseStatus_ =
   DeleteParametersResponse'
-  { _drsDeletedParameters = Nothing
-  , _drsInvalidParameters = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsDeletedParameters = Nothing
+    , _drsInvalidParameters = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The names of the deleted parameters.
 drsDeletedParameters :: Lens' DeleteParametersResponse (Maybe (NonEmpty Text))
-drsDeletedParameters = lens _drsDeletedParameters (\ s a -> s{_drsDeletedParameters = a}) . mapping _List1;
+drsDeletedParameters = lens _drsDeletedParameters (\ s a -> s{_drsDeletedParameters = a}) . mapping _List1
 
 -- | The names of parameters that weren't deleted because the parameters are not valid.
 drsInvalidParameters :: Lens' DeleteParametersResponse (Maybe (NonEmpty Text))
-drsInvalidParameters = lens _drsInvalidParameters (\ s a -> s{_drsInvalidParameters = a}) . mapping _List1;
+drsInvalidParameters = lens _drsInvalidParameters (\ s a -> s{_drsInvalidParameters = a}) . mapping _List1
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteParametersResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteParametersResponse where

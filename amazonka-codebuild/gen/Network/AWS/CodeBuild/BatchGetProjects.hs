@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.BatchGetProjects
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ batchGetProjects pNames_ = BatchGetProjects' {_bgpNames = _List1 # pNames_}
 
 -- | The names of the build projects.
 bgpNames :: Lens' BatchGetProjects (NonEmpty Text)
-bgpNames = lens _bgpNames (\ s a -> s{_bgpNames = a}) . _List1;
+bgpNames = lens _bgpNames (\ s a -> s{_bgpNames = a}) . _List1
 
 instance AWSRequest BatchGetProjects where
         type Rs BatchGetProjects = BatchGetProjectsResponse
@@ -123,22 +123,22 @@ batchGetProjectsResponse
     -> BatchGetProjectsResponse
 batchGetProjectsResponse pResponseStatus_ =
   BatchGetProjectsResponse'
-  { _bgprsProjectsNotFound = Nothing
-  , _bgprsProjects = Nothing
-  , _bgprsResponseStatus = pResponseStatus_
-  }
+    { _bgprsProjectsNotFound = Nothing
+    , _bgprsProjects = Nothing
+    , _bgprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The names of build projects for which information could not be found.
 bgprsProjectsNotFound :: Lens' BatchGetProjectsResponse (Maybe (NonEmpty Text))
-bgprsProjectsNotFound = lens _bgprsProjectsNotFound (\ s a -> s{_bgprsProjectsNotFound = a}) . mapping _List1;
+bgprsProjectsNotFound = lens _bgprsProjectsNotFound (\ s a -> s{_bgprsProjectsNotFound = a}) . mapping _List1
 
 -- | Information about the requested build projects.
 bgprsProjects :: Lens' BatchGetProjectsResponse [Project]
-bgprsProjects = lens _bgprsProjects (\ s a -> s{_bgprsProjects = a}) . _Default . _Coerce;
+bgprsProjects = lens _bgprsProjects (\ s a -> s{_bgprsProjects = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bgprsResponseStatus :: Lens' BatchGetProjectsResponse Int
-bgprsResponseStatus = lens _bgprsResponseStatus (\ s a -> s{_bgprsResponseStatus = a});
+bgprsResponseStatus = lens _bgprsResponseStatus (\ s a -> s{_bgprsResponseStatus = a})
 
 instance NFData BatchGetProjectsResponse where

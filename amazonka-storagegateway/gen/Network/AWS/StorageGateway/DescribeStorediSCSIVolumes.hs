@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the description of the gateway volumes specified in the request. The list of gateway volumes in the request must be from one gateway. In the response Amazon Storage Gateway returns volume information sorted by volume ARNs. This operation is only supported in stored volume gateway architecture.
+-- Returns the description of the gateway volumes specified in the request. The list of gateway volumes in the request must be from one gateway. In the response Amazon Storage Gateway returns volume information sorted by volume ARNs. This operation is only supported in stored volume gateway type.
 --
 --
 module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
@@ -67,7 +67,7 @@ describeStorediSCSIVolumes =
 
 -- | An array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must from the same gateway. Use 'ListVolumes' to get volume ARNs for a gateway.
 dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
-dsscsivVolumeARNs = lens _dsscsivVolumeARNs (\ s a -> s{_dsscsivVolumeARNs = a}) . _Coerce;
+dsscsivVolumeARNs = lens _dsscsivVolumeARNs (\ s a -> s{_dsscsivVolumeARNs = a}) . _Coerce
 
 instance AWSRequest DescribeStorediSCSIVolumes where
         type Rs DescribeStorediSCSIVolumes =
@@ -125,18 +125,18 @@ describeStorediSCSIVolumesResponse
     -> DescribeStorediSCSIVolumesResponse
 describeStorediSCSIVolumesResponse pResponseStatus_ =
   DescribeStorediSCSIVolumesResponse'
-  { _dsscsivrsStorediSCSIVolumes = Nothing
-  , _dsscsivrsResponseStatus = pResponseStatus_
-  }
+    { _dsscsivrsStorediSCSIVolumes = Nothing
+    , _dsscsivrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dsscsivrsStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolume]
-dsscsivrsStorediSCSIVolumes = lens _dsscsivrsStorediSCSIVolumes (\ s a -> s{_dsscsivrsStorediSCSIVolumes = a}) . _Default . _Coerce;
+dsscsivrsStorediSCSIVolumes = lens _dsscsivrsStorediSCSIVolumes (\ s a -> s{_dsscsivrsStorediSCSIVolumes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsscsivrsResponseStatus :: Lens' DescribeStorediSCSIVolumesResponse Int
-dsscsivrsResponseStatus = lens _dsscsivrsResponseStatus (\ s a -> s{_dsscsivrsResponseStatus = a});
+dsscsivrsResponseStatus = lens _dsscsivrsResponseStatus (\ s a -> s{_dsscsivrsResponseStatus = a})
 
 instance NFData DescribeStorediSCSIVolumesResponse
          where

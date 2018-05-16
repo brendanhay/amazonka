@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteIntegration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,11 +59,11 @@ data DeleteIntegration = DeleteIntegration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'delRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'delResourceId' - Specifies a delete integration request's resource identifier.
+-- * 'delResourceId' - [Required] Specifies a delete integration request's resource identifier.
 --
--- * 'delHttpMethod' - Specifies a delete integration request's HTTP method.
+-- * 'delHttpMethod' - [Required] Specifies a delete integration request's HTTP method.
 deleteIntegration
     :: Text -- ^ 'delRestAPIId'
     -> Text -- ^ 'delResourceId'
@@ -71,23 +71,23 @@ deleteIntegration
     -> DeleteIntegration
 deleteIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
   DeleteIntegration'
-  { _delRestAPIId = pRestAPIId_
-  , _delResourceId = pResourceId_
-  , _delHttpMethod = pHttpMethod_
-  }
+    { _delRestAPIId = pRestAPIId_
+    , _delResourceId = pResourceId_
+    , _delHttpMethod = pHttpMethod_
+    }
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 delRestAPIId :: Lens' DeleteIntegration Text
-delRestAPIId = lens _delRestAPIId (\ s a -> s{_delRestAPIId = a});
+delRestAPIId = lens _delRestAPIId (\ s a -> s{_delRestAPIId = a})
 
--- | Specifies a delete integration request's resource identifier.
+-- | [Required] Specifies a delete integration request's resource identifier.
 delResourceId :: Lens' DeleteIntegration Text
-delResourceId = lens _delResourceId (\ s a -> s{_delResourceId = a});
+delResourceId = lens _delResourceId (\ s a -> s{_delResourceId = a})
 
--- | Specifies a delete integration request's HTTP method.
+-- | [Required] Specifies a delete integration request's HTTP method.
 delHttpMethod :: Lens' DeleteIntegration Text
-delHttpMethod = lens _delHttpMethod (\ s a -> s{_delHttpMethod = a});
+delHttpMethod = lens _delHttpMethod (\ s a -> s{_delHttpMethod = a})
 
 instance AWSRequest DeleteIntegration where
         type Rs DeleteIntegration =

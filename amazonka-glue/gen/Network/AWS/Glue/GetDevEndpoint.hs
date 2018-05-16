@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetDevEndpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getDevEndpoint pEndpointName_ =
 
 -- | Name of the DevEndpoint for which to retrieve information.
 gdeEndpointName :: Lens' GetDevEndpoint Text
-gdeEndpointName = lens _gdeEndpointName (\ s a -> s{_gdeEndpointName = a});
+gdeEndpointName = lens _gdeEndpointName (\ s a -> s{_gdeEndpointName = a})
 
 instance AWSRequest GetDevEndpoint where
         type Rs GetDevEndpoint = GetDevEndpointResponse
@@ -119,15 +119,15 @@ getDevEndpointResponse
     -> GetDevEndpointResponse
 getDevEndpointResponse pResponseStatus_ =
   GetDevEndpointResponse'
-  {_gdedrsDevEndpoint = Nothing, _gdedrsResponseStatus = pResponseStatus_}
+    {_gdedrsDevEndpoint = Nothing, _gdedrsResponseStatus = pResponseStatus_}
 
 
 -- | A DevEndpoint definition.
 gdedrsDevEndpoint :: Lens' GetDevEndpointResponse (Maybe DevEndpoint)
-gdedrsDevEndpoint = lens _gdedrsDevEndpoint (\ s a -> s{_gdedrsDevEndpoint = a});
+gdedrsDevEndpoint = lens _gdedrsDevEndpoint (\ s a -> s{_gdedrsDevEndpoint = a})
 
 -- | -- | The response status code.
 gdedrsResponseStatus :: Lens' GetDevEndpointResponse Int
-gdedrsResponseStatus = lens _gdedrsResponseStatus (\ s a -> s{_gdedrsResponseStatus = a});
+gdedrsResponseStatus = lens _gdedrsResponseStatus (\ s a -> s{_gdedrsResponseStatus = a})
 
 instance NFData GetDevEndpointResponse where

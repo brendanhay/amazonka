@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeleteApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deleteApplication pApplicationName_ =
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 daApplicationName :: Lens' DeleteApplication Text
-daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a});
+daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a})
 
 instance AWSRequest DeleteApplication where
         type Rs DeleteApplication = DeleteApplicationResponse

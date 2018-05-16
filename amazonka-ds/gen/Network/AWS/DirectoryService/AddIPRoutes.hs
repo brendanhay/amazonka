@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.AddIPRoutes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ addIPRoutes
     -> AddIPRoutes
 addIPRoutes pDirectoryId_ =
   AddIPRoutes'
-  { _airUpdateSecurityGroupForDirectoryControllers = Nothing
-  , _airDirectoryId = pDirectoryId_
-  , _airIPRoutes = mempty
-  }
+    { _airUpdateSecurityGroupForDirectoryControllers = Nothing
+    , _airDirectoryId = pDirectoryId_
+    , _airIPRoutes = mempty
+    }
 
 
 -- | If set to true, updates the inbound and outbound rules of the security group that has the description: "AWS created security group for /directory ID/ directory controllers." Following are the new rules:  Inbound:     * Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0     * Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0     * Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0     * Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0     * Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0     * Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: 0.0.0.0/0     * Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0     * Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0     * Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0     * Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0 Outbound:     * Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0 These security rules impact an internal network interface that is not exposed publicly.
 airUpdateSecurityGroupForDirectoryControllers :: Lens' AddIPRoutes (Maybe Bool)
-airUpdateSecurityGroupForDirectoryControllers = lens _airUpdateSecurityGroupForDirectoryControllers (\ s a -> s{_airUpdateSecurityGroupForDirectoryControllers = a});
+airUpdateSecurityGroupForDirectoryControllers = lens _airUpdateSecurityGroupForDirectoryControllers (\ s a -> s{_airUpdateSecurityGroupForDirectoryControllers = a})
 
 -- | Identifier (ID) of the directory to which to add the address block.
 airDirectoryId :: Lens' AddIPRoutes Text
-airDirectoryId = lens _airDirectoryId (\ s a -> s{_airDirectoryId = a});
+airDirectoryId = lens _airDirectoryId (\ s a -> s{_airDirectoryId = a})
 
 -- | IP address blocks, using CIDR format, of the traffic to route. This is often the IP address block of the DNS server used for your on-premises domain.
 airIPRoutes :: Lens' AddIPRoutes [IPRoute]
-airIPRoutes = lens _airIPRoutes (\ s a -> s{_airIPRoutes = a}) . _Coerce;
+airIPRoutes = lens _airIPRoutes (\ s a -> s{_airIPRoutes = a}) . _Coerce
 
 instance AWSRequest AddIPRoutes where
         type Rs AddIPRoutes = AddIPRoutesResponse
@@ -144,6 +144,6 @@ addIPRoutesResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 airrsResponseStatus :: Lens' AddIPRoutesResponse Int
-airrsResponseStatus = lens _airrsResponseStatus (\ s a -> s{_airrsResponseStatus = a});
+airrsResponseStatus = lens _airrsResponseStatus (\ s a -> s{_airrsResponseStatus = a})
 
 instance NFData AddIPRoutesResponse where

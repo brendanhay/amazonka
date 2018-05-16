@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DetachPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ detachPolicy
     -> DetachPolicy
 detachPolicy pDirectoryARN_ pPolicyReference_ pObjectReference_ =
   DetachPolicy'
-  { _dpDirectoryARN = pDirectoryARN_
-  , _dpPolicyReference = pPolicyReference_
-  , _dpObjectReference = pObjectReference_
-  }
+    { _dpDirectoryARN = pDirectoryARN_
+    , _dpPolicyReference = pPolicyReference_
+    , _dpObjectReference = pObjectReference_
+    }
 
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 dpDirectoryARN :: Lens' DetachPolicy Text
-dpDirectoryARN = lens _dpDirectoryARN (\ s a -> s{_dpDirectoryARN = a});
+dpDirectoryARN = lens _dpDirectoryARN (\ s a -> s{_dpDirectoryARN = a})
 
 -- | Reference that identifies the policy object.
 dpPolicyReference :: Lens' DetachPolicy ObjectReference
-dpPolicyReference = lens _dpPolicyReference (\ s a -> s{_dpPolicyReference = a});
+dpPolicyReference = lens _dpPolicyReference (\ s a -> s{_dpPolicyReference = a})
 
 -- | Reference that identifies the object whose policy object will be detached.
 dpObjectReference :: Lens' DetachPolicy ObjectReference
-dpObjectReference = lens _dpObjectReference (\ s a -> s{_dpObjectReference = a});
+dpObjectReference = lens _dpObjectReference (\ s a -> s{_dpObjectReference = a})
 
 instance AWSRequest DetachPolicy where
         type Rs DetachPolicy = DetachPolicyResponse
@@ -138,6 +138,6 @@ detachPolicyResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DetachPolicyResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DetachPolicyResponse where

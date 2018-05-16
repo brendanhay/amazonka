@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.TagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ tagResource pResourceARN_ =
 
 -- | The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
 trResourceARN :: Lens' TagResource Text
-trResourceARN = lens _trResourceARN (\ s a -> s{_trResourceARN = a});
+trResourceARN = lens _trResourceARN (\ s a -> s{_trResourceARN = a})
 
 -- | A list of tag key-value pairs.
 trTags :: Lens' TagResource [Tag]
-trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Coerce;
+trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Coerce
 
 instance AWSRequest TagResource where
         type Rs TagResource = TagResourceResponse
@@ -122,6 +122,6 @@ tagResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 trrsResponseStatus :: Lens' TagResourceResponse Int
-trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
+trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a})
 
 instance NFData TagResourceResponse where

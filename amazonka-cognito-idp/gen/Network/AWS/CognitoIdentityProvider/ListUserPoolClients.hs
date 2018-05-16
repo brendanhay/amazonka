@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListUserPoolClients
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ listUserPoolClients
     -> ListUserPoolClients
 listUserPoolClients pUserPoolId_ =
   ListUserPoolClients'
-  { _lupcNextToken = Nothing
-  , _lupcMaxResults = Nothing
-  , _lupcUserPoolId = pUserPoolId_
-  }
+    { _lupcNextToken = Nothing
+    , _lupcMaxResults = Nothing
+    , _lupcUserPoolId = pUserPoolId_
+    }
 
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lupcNextToken :: Lens' ListUserPoolClients (Maybe Text)
-lupcNextToken = lens _lupcNextToken (\ s a -> s{_lupcNextToken = a});
+lupcNextToken = lens _lupcNextToken (\ s a -> s{_lupcNextToken = a})
 
 -- | The maximum number of results you want the request to return when listing the user pool clients.
 lupcMaxResults :: Lens' ListUserPoolClients (Maybe Natural)
-lupcMaxResults = lens _lupcMaxResults (\ s a -> s{_lupcMaxResults = a}) . mapping _Nat;
+lupcMaxResults = lens _lupcMaxResults (\ s a -> s{_lupcMaxResults = a}) . mapping _Nat
 
 -- | The user pool ID for the user pool where you want to list user pool clients.
 lupcUserPoolId :: Lens' ListUserPoolClients Text
-lupcUserPoolId = lens _lupcUserPoolId (\ s a -> s{_lupcUserPoolId = a});
+lupcUserPoolId = lens _lupcUserPoolId (\ s a -> s{_lupcUserPoolId = a})
 
 instance AWSRequest ListUserPoolClients where
         type Rs ListUserPoolClients =
@@ -157,22 +157,22 @@ listUserPoolClientsResponse
     -> ListUserPoolClientsResponse
 listUserPoolClientsResponse pResponseStatus_ =
   ListUserPoolClientsResponse'
-  { _lupcrsNextToken = Nothing
-  , _lupcrsUserPoolClients = Nothing
-  , _lupcrsResponseStatus = pResponseStatus_
-  }
+    { _lupcrsNextToken = Nothing
+    , _lupcrsUserPoolClients = Nothing
+    , _lupcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lupcrsNextToken :: Lens' ListUserPoolClientsResponse (Maybe Text)
-lupcrsNextToken = lens _lupcrsNextToken (\ s a -> s{_lupcrsNextToken = a});
+lupcrsNextToken = lens _lupcrsNextToken (\ s a -> s{_lupcrsNextToken = a})
 
 -- | The user pool clients in the response that lists user pool clients.
 lupcrsUserPoolClients :: Lens' ListUserPoolClientsResponse [UserPoolClientDescription]
-lupcrsUserPoolClients = lens _lupcrsUserPoolClients (\ s a -> s{_lupcrsUserPoolClients = a}) . _Default . _Coerce;
+lupcrsUserPoolClients = lens _lupcrsUserPoolClients (\ s a -> s{_lupcrsUserPoolClients = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lupcrsResponseStatus :: Lens' ListUserPoolClientsResponse Int
-lupcrsResponseStatus = lens _lupcrsResponseStatus (\ s a -> s{_lupcrsResponseStatus = a});
+lupcrsResponseStatus = lens _lupcrsResponseStatus (\ s a -> s{_lupcrsResponseStatus = a})
 
 instance NFData ListUserPoolClientsResponse where

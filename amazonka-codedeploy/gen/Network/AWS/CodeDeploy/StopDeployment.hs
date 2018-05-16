@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.StopDeployment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ stopDeployment
     -> StopDeployment
 stopDeployment pDeploymentId_ =
   StopDeployment'
-  {_sdAutoRollbackEnabled = Nothing, _sdDeploymentId = pDeploymentId_}
+    {_sdAutoRollbackEnabled = Nothing, _sdDeploymentId = pDeploymentId_}
 
 
 -- | Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision.
 sdAutoRollbackEnabled :: Lens' StopDeployment (Maybe Bool)
-sdAutoRollbackEnabled = lens _sdAutoRollbackEnabled (\ s a -> s{_sdAutoRollbackEnabled = a});
+sdAutoRollbackEnabled = lens _sdAutoRollbackEnabled (\ s a -> s{_sdAutoRollbackEnabled = a})
 
 -- | The unique ID of a deployment.
 sdDeploymentId :: Lens' StopDeployment Text
-sdDeploymentId = lens _sdDeploymentId (\ s a -> s{_sdDeploymentId = a});
+sdDeploymentId = lens _sdDeploymentId (\ s a -> s{_sdDeploymentId = a})
 
 instance AWSRequest StopDeployment where
         type Rs StopDeployment = StopDeploymentResponse
@@ -143,22 +143,22 @@ stopDeploymentResponse
     -> StopDeploymentResponse
 stopDeploymentResponse pResponseStatus_ =
   StopDeploymentResponse'
-  { _sdrsStatus = Nothing
-  , _sdrsStatusMessage = Nothing
-  , _sdrsResponseStatus = pResponseStatus_
-  }
+    { _sdrsStatus = Nothing
+    , _sdrsStatusMessage = Nothing
+    , _sdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the stop deployment operation:     * Pending: The stop operation is pending.     * Succeeded: The stop operation was successful.
 sdrsStatus :: Lens' StopDeploymentResponse (Maybe StopStatus)
-sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});
+sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a})
 
 -- | An accompanying status message.
 sdrsStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
-sdrsStatusMessage = lens _sdrsStatusMessage (\ s a -> s{_sdrsStatusMessage = a});
+sdrsStatusMessage = lens _sdrsStatusMessage (\ s a -> s{_sdrsStatusMessage = a})
 
 -- | -- | The response status code.
 sdrsResponseStatus :: Lens' StopDeploymentResponse Int
-sdrsResponseStatus = lens _sdrsResponseStatus (\ s a -> s{_sdrsResponseStatus = a});
+sdrsResponseStatus = lens _sdrsResponseStatus (\ s a -> s{_sdrsResponseStatus = a})
 
 instance NFData StopDeploymentResponse where

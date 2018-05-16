@@ -12,20 +12,20 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateKeyPair
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public key and displays the private key for you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#8 private key. If a key with the specified name already exists, Amazon EC2 returns an error.
+-- Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public key and displays the private key for you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#1 private key. If a key with the specified name already exists, Amazon EC2 returns an error.
 --
 --
 -- You can have up to five thousand key pairs per region.
 --
--- The key pair returned to you is available only in the region in which you create it. To create a key pair that is available in all regions, use 'ImportKeyPair' .
+-- The key pair returned to you is available only in the region in which you create it. If you prefer, you can create your own key pair using a third-party tool and upload it to any region using 'ImportKeyPair' .
 --
--- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.CreateKeyPair
     (
@@ -80,11 +80,11 @@ createKeyPair pKeyName_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ckpDryRun :: Lens' CreateKeyPair (Maybe Bool)
-ckpDryRun = lens _ckpDryRun (\ s a -> s{_ckpDryRun = a});
+ckpDryRun = lens _ckpDryRun (\ s a -> s{_ckpDryRun = a})
 
 -- | A unique name for the key pair. Constraints: Up to 255 ASCII characters
 ckpKeyName :: Lens' CreateKeyPair Text
-ckpKeyName = lens _ckpKeyName (\ s a -> s{_ckpKeyName = a});
+ckpKeyName = lens _ckpKeyName (\ s a -> s{_ckpKeyName = a})
 
 instance AWSRequest CreateKeyPair where
         type Rs CreateKeyPair = CreateKeyPairResponse
@@ -146,27 +146,27 @@ createKeyPairResponse
     -> CreateKeyPairResponse
 createKeyPairResponse pResponseStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ =
   CreateKeyPairResponse'
-  { _ckprsResponseStatus = pResponseStatus_
-  , _ckprsKeyName = pKeyName_
-  , _ckprsKeyFingerprint = pKeyFingerprint_
-  , _ckprsKeyMaterial = pKeyMaterial_
-  }
+    { _ckprsResponseStatus = pResponseStatus_
+    , _ckprsKeyName = pKeyName_
+    , _ckprsKeyFingerprint = pKeyFingerprint_
+    , _ckprsKeyMaterial = pKeyMaterial_
+    }
 
 
 -- | -- | The response status code.
 ckprsResponseStatus :: Lens' CreateKeyPairResponse Int
-ckprsResponseStatus = lens _ckprsResponseStatus (\ s a -> s{_ckprsResponseStatus = a});
+ckprsResponseStatus = lens _ckprsResponseStatus (\ s a -> s{_ckprsResponseStatus = a})
 
 -- | The name of the key pair.
 ckprsKeyName :: Lens' CreateKeyPairResponse Text
-ckprsKeyName = lens _ckprsKeyName (\ s a -> s{_ckprsKeyName = a});
+ckprsKeyName = lens _ckprsKeyName (\ s a -> s{_ckprsKeyName = a})
 
 -- | The SHA-1 digest of the DER encoded private key.
 ckprsKeyFingerprint :: Lens' CreateKeyPairResponse Text
-ckprsKeyFingerprint = lens _ckprsKeyFingerprint (\ s a -> s{_ckprsKeyFingerprint = a});
+ckprsKeyFingerprint = lens _ckprsKeyFingerprint (\ s a -> s{_ckprsKeyFingerprint = a})
 
 -- | An unencrypted PEM encoded RSA private key.
 ckprsKeyMaterial :: Lens' CreateKeyPairResponse Text
-ckprsKeyMaterial = lens _ckprsKeyMaterial (\ s a -> s{_ckprsKeyMaterial = a});
+ckprsKeyMaterial = lens _ckprsKeyMaterial (\ s a -> s{_ckprsKeyMaterial = a})
 
 instance NFData CreateKeyPairResponse where

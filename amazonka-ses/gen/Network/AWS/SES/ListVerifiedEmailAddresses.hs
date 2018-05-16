@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListVerifiedEmailAddresses
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -109,18 +109,18 @@ listVerifiedEmailAddressesResponse
     -> ListVerifiedEmailAddressesResponse
 listVerifiedEmailAddressesResponse pResponseStatus_ =
   ListVerifiedEmailAddressesResponse'
-  { _lvearsVerifiedEmailAddresses = Nothing
-  , _lvearsResponseStatus = pResponseStatus_
-  }
+    { _lvearsVerifiedEmailAddresses = Nothing
+    , _lvearsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of email addresses that have been verified.
 lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
-lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default . _Coerce;
+lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lvearsResponseStatus :: Lens' ListVerifiedEmailAddressesResponse Int
-lvearsResponseStatus = lens _lvearsResponseStatus (\ s a -> s{_lvearsResponseStatus = a});
+lvearsResponseStatus = lens _lvearsResponseStatus (\ s a -> s{_lvearsResponseStatus = a})
 
 instance NFData ListVerifiedEmailAddressesResponse
          where

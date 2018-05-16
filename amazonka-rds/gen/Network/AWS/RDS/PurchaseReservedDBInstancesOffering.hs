@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.PurchaseReservedDBInstancesOffering
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ purchaseReservedDBInstancesOffering
     -> PurchaseReservedDBInstancesOffering
 purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId_ =
   PurchaseReservedDBInstancesOffering'
-  { _prdioDBInstanceCount = Nothing
-  , _prdioReservedDBInstanceId = Nothing
-  , _prdioTags = Nothing
-  , _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId_
-  }
+    { _prdioDBInstanceCount = Nothing
+    , _prdioReservedDBInstanceId = Nothing
+    , _prdioTags = Nothing
+    , _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId_
+    }
 
 
 -- | The number of instances to reserve. Default: @1@
 prdioDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Int)
-prdioDBInstanceCount = lens _prdioDBInstanceCount (\ s a -> s{_prdioDBInstanceCount = a});
+prdioDBInstanceCount = lens _prdioDBInstanceCount (\ s a -> s{_prdioDBInstanceCount = a})
 
 -- | Customer-specified identifier to track this reservation. Example: myreservationID
 prdioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
-prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioReservedDBInstanceId = a});
+prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioReservedDBInstanceId = a})
 
 -- | Undocumented member.
 prdioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
-prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a}) . _Default . _Coerce;
+prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a}) . _Default . _Coerce
 
 -- | The ID of the Reserved DB instance offering to purchase. Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
 prdioReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering Text
-prdioReservedDBInstancesOfferingId = lens _prdioReservedDBInstancesOfferingId (\ s a -> s{_prdioReservedDBInstancesOfferingId = a});
+prdioReservedDBInstancesOfferingId = lens _prdioReservedDBInstancesOfferingId (\ s a -> s{_prdioReservedDBInstancesOfferingId = a})
 
 instance AWSRequest
            PurchaseReservedDBInstancesOffering
@@ -160,18 +160,18 @@ purchaseReservedDBInstancesOfferingResponse
     -> PurchaseReservedDBInstancesOfferingResponse
 purchaseReservedDBInstancesOfferingResponse pResponseStatus_ =
   PurchaseReservedDBInstancesOfferingResponse'
-  { _prdiorsReservedDBInstance = Nothing
-  , _prdiorsResponseStatus = pResponseStatus_
-  }
+    { _prdiorsReservedDBInstance = Nothing
+    , _prdiorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 prdiorsReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
-prdiorsReservedDBInstance = lens _prdiorsReservedDBInstance (\ s a -> s{_prdiorsReservedDBInstance = a});
+prdiorsReservedDBInstance = lens _prdiorsReservedDBInstance (\ s a -> s{_prdiorsReservedDBInstance = a})
 
 -- | -- | The response status code.
 prdiorsResponseStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
-prdiorsResponseStatus = lens _prdiorsResponseStatus (\ s a -> s{_prdiorsResponseStatus = a});
+prdiorsResponseStatus = lens _prdiorsResponseStatus (\ s a -> s{_prdiorsResponseStatus = a})
 
 instance NFData
            PurchaseReservedDBInstancesOfferingResponse

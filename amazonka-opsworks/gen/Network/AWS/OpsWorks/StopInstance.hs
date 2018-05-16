@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.StopInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,7 @@ module Network.AWS.OpsWorks.StopInstance
       stopInstance
     , StopInstance
     -- * Request Lenses
+    , siForce
     , siInstanceId
 
     -- * Destructuring the Response
@@ -44,8 +45,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'stopInstance' smart constructor.
-newtype StopInstance = StopInstance'
-  { _siInstanceId :: Text
+data StopInstance = StopInstance'
+  { _siForce      :: !(Maybe Bool)
+  , _siInstanceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -53,16 +55,23 @@ newtype StopInstance = StopInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'siForce' - Undocumented member.
+--
 -- * 'siInstanceId' - The instance ID.
 stopInstance
     :: Text -- ^ 'siInstanceId'
     -> StopInstance
-stopInstance pInstanceId_ = StopInstance' {_siInstanceId = pInstanceId_}
+stopInstance pInstanceId_ =
+  StopInstance' {_siForce = Nothing, _siInstanceId = pInstanceId_}
 
+
+-- | Undocumented member.
+siForce :: Lens' StopInstance (Maybe Bool)
+siForce = lens _siForce (\ s a -> s{_siForce = a})
 
 -- | The instance ID.
 siInstanceId :: Lens' StopInstance Text
-siInstanceId = lens _siInstanceId (\ s a -> s{_siInstanceId = a});
+siInstanceId = lens _siInstanceId (\ s a -> s{_siInstanceId = a})
 
 instance AWSRequest StopInstance where
         type Rs StopInstance = StopInstanceResponse
@@ -85,7 +94,9 @@ instance ToHeaders StopInstance where
 instance ToJSON StopInstance where
         toJSON StopInstance'{..}
           = object
-              (catMaybes [Just ("InstanceId" .= _siInstanceId)])
+              (catMaybes
+                 [("Force" .=) <$> _siForce,
+                  Just ("InstanceId" .= _siInstanceId)])
 
 instance ToPath StopInstance where
         toPath = const "/"

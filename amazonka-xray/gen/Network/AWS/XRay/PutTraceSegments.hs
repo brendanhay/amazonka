@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.XRay.PutTraceSegments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Uploads segment documents to AWS X-Ray. The X-Ray SDK generates segment documents and sends them to the X-Ray daemon, which uploads them in batches. A segment document can be a completed segment, an in-progress segment, or an array of subsegments.
 --
 --
--- Segments must include the following fields. For the full segment document schema, see <http://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html AWS X-Ray Segment Documents> in the /AWS X-Ray Developer Guide/ .
+-- Segments must include the following fields. For the full segment document schema, see <https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html AWS X-Ray Segment Documents> in the /AWS X-Ray Developer Guide/ .
 --
 -- __Required Segment Document Fields__
 --
@@ -92,7 +92,7 @@ putTraceSegments = PutTraceSegments' {_ptsTraceSegmentDocuments = mempty}
 
 -- | A string containing a JSON document defining one or more segments or subsegments.
 ptsTraceSegmentDocuments :: Lens' PutTraceSegments [Text]
-ptsTraceSegmentDocuments = lens _ptsTraceSegmentDocuments (\ s a -> s{_ptsTraceSegmentDocuments = a}) . _Coerce;
+ptsTraceSegmentDocuments = lens _ptsTraceSegmentDocuments (\ s a -> s{_ptsTraceSegmentDocuments = a}) . _Coerce
 
 instance AWSRequest PutTraceSegments where
         type Rs PutTraceSegments = PutTraceSegmentsResponse
@@ -144,17 +144,17 @@ putTraceSegmentsResponse
     -> PutTraceSegmentsResponse
 putTraceSegmentsResponse pResponseStatus_ =
   PutTraceSegmentsResponse'
-  { _ptsrsUnprocessedTraceSegments = Nothing
-  , _ptsrsResponseStatus = pResponseStatus_
-  }
+    { _ptsrsUnprocessedTraceSegments = Nothing
+    , _ptsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Segments that failed processing.
 ptsrsUnprocessedTraceSegments :: Lens' PutTraceSegmentsResponse [UnprocessedTraceSegment]
-ptsrsUnprocessedTraceSegments = lens _ptsrsUnprocessedTraceSegments (\ s a -> s{_ptsrsUnprocessedTraceSegments = a}) . _Default . _Coerce;
+ptsrsUnprocessedTraceSegments = lens _ptsrsUnprocessedTraceSegments (\ s a -> s{_ptsrsUnprocessedTraceSegments = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ptsrsResponseStatus :: Lens' PutTraceSegmentsResponse Int
-ptsrsResponseStatus = lens _ptsrsResponseStatus (\ s a -> s{_ptsrsResponseStatus = a});
+ptsrsResponseStatus = lens _ptsrsResponseStatus (\ s a -> s{_ptsrsResponseStatus = a})
 
 instance NFData PutTraceSegmentsResponse where

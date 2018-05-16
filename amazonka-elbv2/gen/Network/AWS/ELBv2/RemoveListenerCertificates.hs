@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.RemoveListenerCertificates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ removeListenerCertificates
     -> RemoveListenerCertificates
 removeListenerCertificates pListenerARN_ =
   RemoveListenerCertificates'
-  {_rlcListenerARN = pListenerARN_, _rlcCertificates = mempty}
+    {_rlcListenerARN = pListenerARN_, _rlcCertificates = mempty}
 
 
 -- | The Amazon Resource Name (ARN) of the listener.
 rlcListenerARN :: Lens' RemoveListenerCertificates Text
-rlcListenerARN = lens _rlcListenerARN (\ s a -> s{_rlcListenerARN = a});
+rlcListenerARN = lens _rlcListenerARN (\ s a -> s{_rlcListenerARN = a})
 
 -- | The certificate to remove. You can specify one certificate per call.
 rlcCertificates :: Lens' RemoveListenerCertificates [Certificate]
-rlcCertificates = lens _rlcCertificates (\ s a -> s{_rlcCertificates = a}) . _Coerce;
+rlcCertificates = lens _rlcCertificates (\ s a -> s{_rlcCertificates = a}) . _Coerce
 
 instance AWSRequest RemoveListenerCertificates where
         type Rs RemoveListenerCertificates =
@@ -129,7 +129,7 @@ removeListenerCertificatesResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rlcrsResponseStatus :: Lens' RemoveListenerCertificatesResponse Int
-rlcrsResponseStatus = lens _rlcrsResponseStatus (\ s a -> s{_rlcrsResponseStatus = a});
+rlcrsResponseStatus = lens _rlcrsResponseStatus (\ s a -> s{_rlcrsResponseStatus = a})
 
 instance NFData RemoveListenerCertificatesResponse
          where

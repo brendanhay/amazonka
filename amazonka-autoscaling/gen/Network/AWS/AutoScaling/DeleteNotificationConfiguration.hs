@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteNotificationConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,16 +62,18 @@ deleteNotificationConfiguration
     -> DeleteNotificationConfiguration
 deleteNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
   DeleteNotificationConfiguration'
-  {_dncAutoScalingGroupName = pAutoScalingGroupName_, _dncTopicARN = pTopicARN_}
+    { _dncAutoScalingGroupName = pAutoScalingGroupName_
+    , _dncTopicARN = pTopicARN_
+    }
 
 
 -- | The name of the Auto Scaling group.
 dncAutoScalingGroupName :: Lens' DeleteNotificationConfiguration Text
-dncAutoScalingGroupName = lens _dncAutoScalingGroupName (\ s a -> s{_dncAutoScalingGroupName = a});
+dncAutoScalingGroupName = lens _dncAutoScalingGroupName (\ s a -> s{_dncAutoScalingGroupName = a})
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.
 dncTopicARN :: Lens' DeleteNotificationConfiguration Text
-dncTopicARN = lens _dncTopicARN (\ s a -> s{_dncTopicARN = a});
+dncTopicARN = lens _dncTopicARN (\ s a -> s{_dncTopicARN = a})
 
 instance AWSRequest DeleteNotificationConfiguration
          where

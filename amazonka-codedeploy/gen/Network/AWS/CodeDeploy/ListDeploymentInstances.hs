@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,28 +80,28 @@ listDeploymentInstances
     -> ListDeploymentInstances
 listDeploymentInstances pDeploymentId_ =
   ListDeploymentInstances'
-  { _lInstanceStatusFilter = Nothing
-  , _lNextToken = Nothing
-  , _lInstanceTypeFilter = Nothing
-  , _lDeploymentId = pDeploymentId_
-  }
+    { _lInstanceStatusFilter = Nothing
+    , _lNextToken = Nothing
+    , _lInstanceTypeFilter = Nothing
+    , _lDeploymentId = pDeploymentId_
+    }
 
 
 -- | A subset of instances to list by status:     * Pending: Include those instance with pending deployments.     * InProgress: Include those instance where deployments are still in progress.     * Succeeded: Include those instances with successful deployments.     * Failed: Include those instance with failed deployments.     * Skipped: Include those instance with skipped deployments.     * Unknown: Include those instance with deployments in an unknown state.
 lInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
-lInstanceStatusFilter = lens _lInstanceStatusFilter (\ s a -> s{_lInstanceStatusFilter = a}) . _Default . _Coerce;
+lInstanceStatusFilter = lens _lInstanceStatusFilter (\ s a -> s{_lInstanceStatusFilter = a}) . _Default . _Coerce
 
 -- | An identifier returned from the previous list deployment instances call. It can be used to return the next set of deployment instances in the list.
 lNextToken :: Lens' ListDeploymentInstances (Maybe Text)
-lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
+lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a})
 
 -- | The set of instances in a blue/green deployment, either those in the original environment ("BLUE") or those in the replacement environment ("GREEN"), for which you want to view instance information.
 lInstanceTypeFilter :: Lens' ListDeploymentInstances [InstanceType]
-lInstanceTypeFilter = lens _lInstanceTypeFilter (\ s a -> s{_lInstanceTypeFilter = a}) . _Default . _Coerce;
+lInstanceTypeFilter = lens _lInstanceTypeFilter (\ s a -> s{_lInstanceTypeFilter = a}) . _Default . _Coerce
 
 -- | The unique ID of a deployment.
 lDeploymentId :: Lens' ListDeploymentInstances Text
-lDeploymentId = lens _lDeploymentId (\ s a -> s{_lDeploymentId = a});
+lDeploymentId = lens _lDeploymentId (\ s a -> s{_lDeploymentId = a})
 
 instance AWSPager ListDeploymentInstances where
         page rq rs
@@ -178,22 +178,22 @@ listDeploymentInstancesResponse
     -> ListDeploymentInstancesResponse
 listDeploymentInstancesResponse pResponseStatus_ =
   ListDeploymentInstancesResponse'
-  { _ldirsNextToken = Nothing
-  , _ldirsInstancesList = Nothing
-  , _ldirsResponseStatus = pResponseStatus_
-  }
+    { _ldirsNextToken = Nothing
+    , _ldirsInstancesList = Nothing
+    , _ldirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment instances call to return the next set of deployment instances in the list.
 ldirsNextToken :: Lens' ListDeploymentInstancesResponse (Maybe Text)
-ldirsNextToken = lens _ldirsNextToken (\ s a -> s{_ldirsNextToken = a});
+ldirsNextToken = lens _ldirsNextToken (\ s a -> s{_ldirsNextToken = a})
 
 -- | A list of instance IDs.
 ldirsInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
-ldirsInstancesList = lens _ldirsInstancesList (\ s a -> s{_ldirsInstancesList = a}) . _Default . _Coerce;
+ldirsInstancesList = lens _ldirsInstancesList (\ s a -> s{_ldirsInstancesList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ldirsResponseStatus :: Lens' ListDeploymentInstancesResponse Int
-ldirsResponseStatus = lens _ldirsResponseStatus (\ s a -> s{_ldirsResponseStatus = a});
+ldirsResponseStatus = lens _ldirsResponseStatus (\ s a -> s{_ldirsResponseStatus = a})
 
 instance NFData ListDeploymentInstancesResponse where

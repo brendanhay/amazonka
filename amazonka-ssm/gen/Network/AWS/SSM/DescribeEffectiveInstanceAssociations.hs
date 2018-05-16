@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeEffectiveInstanceAssociations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ describeEffectiveInstanceAssociations
     -> DescribeEffectiveInstanceAssociations
 describeEffectiveInstanceAssociations pInstanceId_ =
   DescribeEffectiveInstanceAssociations'
-  { _deiaNextToken = Nothing
-  , _deiaMaxResults = Nothing
-  , _deiaInstanceId = pInstanceId_
-  }
+    { _deiaNextToken = Nothing
+    , _deiaMaxResults = Nothing
+    , _deiaInstanceId = pInstanceId_
+    }
 
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 deiaNextToken :: Lens' DescribeEffectiveInstanceAssociations (Maybe Text)
-deiaNextToken = lens _deiaNextToken (\ s a -> s{_deiaNextToken = a});
+deiaNextToken = lens _deiaNextToken (\ s a -> s{_deiaNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 deiaMaxResults :: Lens' DescribeEffectiveInstanceAssociations (Maybe Natural)
-deiaMaxResults = lens _deiaMaxResults (\ s a -> s{_deiaMaxResults = a}) . mapping _Nat;
+deiaMaxResults = lens _deiaMaxResults (\ s a -> s{_deiaMaxResults = a}) . mapping _Nat
 
 -- | The instance ID for which you want to view all associations.
 deiaInstanceId :: Lens' DescribeEffectiveInstanceAssociations Text
-deiaInstanceId = lens _deiaInstanceId (\ s a -> s{_deiaInstanceId = a});
+deiaInstanceId = lens _deiaInstanceId (\ s a -> s{_deiaInstanceId = a})
 
 instance AWSRequest
            DescribeEffectiveInstanceAssociations
@@ -160,23 +160,23 @@ describeEffectiveInstanceAssociationsResponse
     -> DescribeEffectiveInstanceAssociationsResponse
 describeEffectiveInstanceAssociationsResponse pResponseStatus_ =
   DescribeEffectiveInstanceAssociationsResponse'
-  { _deiarsNextToken = Nothing
-  , _deiarsAssociations = Nothing
-  , _deiarsResponseStatus = pResponseStatus_
-  }
+    { _deiarsNextToken = Nothing
+    , _deiarsAssociations = Nothing
+    , _deiarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 deiarsNextToken :: Lens' DescribeEffectiveInstanceAssociationsResponse (Maybe Text)
-deiarsNextToken = lens _deiarsNextToken (\ s a -> s{_deiarsNextToken = a});
+deiarsNextToken = lens _deiarsNextToken (\ s a -> s{_deiarsNextToken = a})
 
 -- | The associations for the requested instance.
 deiarsAssociations :: Lens' DescribeEffectiveInstanceAssociationsResponse [InstanceAssociation]
-deiarsAssociations = lens _deiarsAssociations (\ s a -> s{_deiarsAssociations = a}) . _Default . _Coerce;
+deiarsAssociations = lens _deiarsAssociations (\ s a -> s{_deiarsAssociations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 deiarsResponseStatus :: Lens' DescribeEffectiveInstanceAssociationsResponse Int
-deiarsResponseStatus = lens _deiarsResponseStatus (\ s a -> s{_deiarsResponseStatus = a});
+deiarsResponseStatus = lens _deiarsResponseStatus (\ s a -> s{_deiarsResponseStatus = a})
 
 instance NFData
            DescribeEffectiveInstanceAssociationsResponse

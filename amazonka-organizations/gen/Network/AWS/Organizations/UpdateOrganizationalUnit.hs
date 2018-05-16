@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.UpdateOrganizationalUnit
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ updateOrganizationalUnit
     -> UpdateOrganizationalUnit
 updateOrganizationalUnit pOrganizationalUnitId_ =
   UpdateOrganizationalUnit'
-  {_uouName = Nothing, _uouOrganizationalUnitId = pOrganizationalUnitId_}
+    {_uouName = Nothing, _uouOrganizationalUnitId = pOrganizationalUnitId_}
 
 
 -- | The new name that you want to assign to the OU. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 uouName :: Lens' UpdateOrganizationalUnit (Maybe Text)
-uouName = lens _uouName (\ s a -> s{_uouName = a});
+uouName = lens _uouName (\ s a -> s{_uouName = a})
 
 -- | The unique identifier (ID) of the OU that you want to rename. You can get the ID from the 'ListOrganizationalUnitsForParent' operation. The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 uouOrganizationalUnitId :: Lens' UpdateOrganizationalUnit Text
-uouOrganizationalUnitId = lens _uouOrganizationalUnitId (\ s a -> s{_uouOrganizationalUnitId = a});
+uouOrganizationalUnitId = lens _uouOrganizationalUnitId (\ s a -> s{_uouOrganizationalUnitId = a})
 
 instance AWSRequest UpdateOrganizationalUnit where
         type Rs UpdateOrganizationalUnit =
@@ -135,16 +135,18 @@ updateOrganizationalUnitResponse
     -> UpdateOrganizationalUnitResponse
 updateOrganizationalUnitResponse pResponseStatus_ =
   UpdateOrganizationalUnitResponse'
-  {_uoursOrganizationalUnit = Nothing, _uoursResponseStatus = pResponseStatus_}
+    { _uoursOrganizationalUnit = Nothing
+    , _uoursResponseStatus = pResponseStatus_
+    }
 
 
 -- | A structure that contains the details about the specified OU, including its new name.
 uoursOrganizationalUnit :: Lens' UpdateOrganizationalUnitResponse (Maybe OrganizationalUnit)
-uoursOrganizationalUnit = lens _uoursOrganizationalUnit (\ s a -> s{_uoursOrganizationalUnit = a});
+uoursOrganizationalUnit = lens _uoursOrganizationalUnit (\ s a -> s{_uoursOrganizationalUnit = a})
 
 -- | -- | The response status code.
 uoursResponseStatus :: Lens' UpdateOrganizationalUnitResponse Int
-uoursResponseStatus = lens _uoursResponseStatus (\ s a -> s{_uoursResponseStatus = a});
+uoursResponseStatus = lens _uoursResponseStatus (\ s a -> s{_uoursResponseStatus = a})
 
 instance NFData UpdateOrganizationalUnitResponse
          where

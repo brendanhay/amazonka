@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateDHCPOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ associateDHCPOptions
     -> AssociateDHCPOptions
 associateDHCPOptions pDHCPOptionsId_ pVPCId_ =
   AssociateDHCPOptions'
-  { _adoDryRun = Nothing
-  , _adoDHCPOptionsId = pDHCPOptionsId_
-  , _adoVPCId = pVPCId_
-  }
+    { _adoDryRun = Nothing
+    , _adoDHCPOptionsId = pDHCPOptionsId_
+    , _adoVPCId = pVPCId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 adoDryRun :: Lens' AssociateDHCPOptions (Maybe Bool)
-adoDryRun = lens _adoDryRun (\ s a -> s{_adoDryRun = a});
+adoDryRun = lens _adoDryRun (\ s a -> s{_adoDryRun = a})
 
 -- | The ID of the DHCP options set, or @default@ to associate no DHCP options with the VPC.
 adoDHCPOptionsId :: Lens' AssociateDHCPOptions Text
-adoDHCPOptionsId = lens _adoDHCPOptionsId (\ s a -> s{_adoDHCPOptionsId = a});
+adoDHCPOptionsId = lens _adoDHCPOptionsId (\ s a -> s{_adoDHCPOptionsId = a})
 
 -- | The ID of the VPC.
 adoVPCId :: Lens' AssociateDHCPOptions Text
-adoVPCId = lens _adoVPCId (\ s a -> s{_adoVPCId = a});
+adoVPCId = lens _adoVPCId (\ s a -> s{_adoVPCId = a})
 
 instance AWSRequest AssociateDHCPOptions where
         type Rs AssociateDHCPOptions =

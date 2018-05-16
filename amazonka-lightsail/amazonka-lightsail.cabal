@@ -1,5 +1,5 @@
 name:                  amazonka-lightsail
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Lightsail SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -46,24 +46,42 @@ library
     exposed-modules:
           Network.AWS.Lightsail
         , Network.AWS.Lightsail.AllocateStaticIP
+        , Network.AWS.Lightsail.AttachDisk
+        , Network.AWS.Lightsail.AttachInstancesToLoadBalancer
+        , Network.AWS.Lightsail.AttachLoadBalancerTLSCertificate
         , Network.AWS.Lightsail.AttachStaticIP
         , Network.AWS.Lightsail.CloseInstancePublicPorts
+        , Network.AWS.Lightsail.CreateDisk
+        , Network.AWS.Lightsail.CreateDiskFromSnapshot
+        , Network.AWS.Lightsail.CreateDiskSnapshot
         , Network.AWS.Lightsail.CreateDomain
         , Network.AWS.Lightsail.CreateDomainEntry
         , Network.AWS.Lightsail.CreateInstanceSnapshot
         , Network.AWS.Lightsail.CreateInstances
         , Network.AWS.Lightsail.CreateInstancesFromSnapshot
         , Network.AWS.Lightsail.CreateKeyPair
+        , Network.AWS.Lightsail.CreateLoadBalancer
+        , Network.AWS.Lightsail.CreateLoadBalancerTLSCertificate
+        , Network.AWS.Lightsail.DeleteDisk
+        , Network.AWS.Lightsail.DeleteDiskSnapshot
         , Network.AWS.Lightsail.DeleteDomain
         , Network.AWS.Lightsail.DeleteDomainEntry
         , Network.AWS.Lightsail.DeleteInstance
         , Network.AWS.Lightsail.DeleteInstanceSnapshot
         , Network.AWS.Lightsail.DeleteKeyPair
+        , Network.AWS.Lightsail.DeleteLoadBalancer
+        , Network.AWS.Lightsail.DeleteLoadBalancerTLSCertificate
+        , Network.AWS.Lightsail.DetachDisk
+        , Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
         , Network.AWS.Lightsail.DetachStaticIP
         , Network.AWS.Lightsail.DownloadDefaultKeyPair
         , Network.AWS.Lightsail.GetActiveNames
         , Network.AWS.Lightsail.GetBlueprints
         , Network.AWS.Lightsail.GetBundles
+        , Network.AWS.Lightsail.GetDisk
+        , Network.AWS.Lightsail.GetDiskSnapshot
+        , Network.AWS.Lightsail.GetDiskSnapshots
+        , Network.AWS.Lightsail.GetDisks
         , Network.AWS.Lightsail.GetDomain
         , Network.AWS.Lightsail.GetDomains
         , Network.AWS.Lightsail.GetInstance
@@ -76,6 +94,10 @@ library
         , Network.AWS.Lightsail.GetInstances
         , Network.AWS.Lightsail.GetKeyPair
         , Network.AWS.Lightsail.GetKeyPairs
+        , Network.AWS.Lightsail.GetLoadBalancer
+        , Network.AWS.Lightsail.GetLoadBalancerMetricData
+        , Network.AWS.Lightsail.GetLoadBalancerTLSCertificates
+        , Network.AWS.Lightsail.GetLoadBalancers
         , Network.AWS.Lightsail.GetOperation
         , Network.AWS.Lightsail.GetOperations
         , Network.AWS.Lightsail.GetOperationsForResource
@@ -94,6 +116,7 @@ library
         , Network.AWS.Lightsail.Types
         , Network.AWS.Lightsail.UnpeerVPC
         , Network.AWS.Lightsail.UpdateDomainEntry
+        , Network.AWS.Lightsail.UpdateLoadBalancerAttribute
         , Network.AWS.Lightsail.Waiters
 
     other-modules:
@@ -101,7 +124,7 @@ library
         , Network.AWS.Lightsail.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-lightsail-test
@@ -121,8 +144,8 @@ test-suite amazonka-lightsail-test
         , Test.AWS.Lightsail.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-lightsail
         , base
         , bytestring

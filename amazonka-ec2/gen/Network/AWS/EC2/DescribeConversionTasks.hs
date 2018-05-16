@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeConversionTasks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ describeConversionTasks
     :: DescribeConversionTasks
 describeConversionTasks =
   DescribeConversionTasks'
-  {_dctConversionTaskIds = Nothing, _dctDryRun = Nothing}
+    {_dctConversionTaskIds = Nothing, _dctDryRun = Nothing}
 
 
 -- | One or more conversion task IDs.
 dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
-dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default . _Coerce;
+dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
-dctDryRun = lens _dctDryRun (\ s a -> s{_dctDryRun = a});
+dctDryRun = lens _dctDryRun (\ s a -> s{_dctDryRun = a})
 
 instance AWSRequest DescribeConversionTasks where
         type Rs DescribeConversionTasks =
@@ -136,15 +136,15 @@ describeConversionTasksResponse
     -> DescribeConversionTasksResponse
 describeConversionTasksResponse pResponseStatus_ =
   DescribeConversionTasksResponse'
-  {_dctrsConversionTasks = Nothing, _dctrsResponseStatus = pResponseStatus_}
+    {_dctrsConversionTasks = Nothing, _dctrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the conversion tasks.
 dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
-dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default . _Coerce;
+dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dctrsResponseStatus :: Lens' DescribeConversionTasksResponse Int
-dctrsResponseStatus = lens _dctrsResponseStatus (\ s a -> s{_dctrsResponseStatus = a});
+dctrsResponseStatus = lens _dctrsResponseStatus (\ s a -> s{_dctrsResponseStatus = a})
 
 instance NFData DescribeConversionTasksResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.UpdateServer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,33 +78,33 @@ updateServer
     -> UpdateServer
 updateServer pServerName_ =
   UpdateServer'
-  { _usDisableAutomatedBackup = Nothing
-  , _usPreferredMaintenanceWindow = Nothing
-  , _usPreferredBackupWindow = Nothing
-  , _usBackupRetentionCount = Nothing
-  , _usServerName = pServerName_
-  }
+    { _usDisableAutomatedBackup = Nothing
+    , _usPreferredMaintenanceWindow = Nothing
+    , _usPreferredBackupWindow = Nothing
+    , _usBackupRetentionCount = Nothing
+    , _usServerName = pServerName_
+    }
 
 
 -- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
 usDisableAutomatedBackup :: Lens' UpdateServer (Maybe Bool)
-usDisableAutomatedBackup = lens _usDisableAutomatedBackup (\ s a -> s{_usDisableAutomatedBackup = a});
+usDisableAutomatedBackup = lens _usDisableAutomatedBackup (\ s a -> s{_usDisableAutomatedBackup = a})
 
 -- | Undocumented member.
 usPreferredMaintenanceWindow :: Lens' UpdateServer (Maybe Text)
-usPreferredMaintenanceWindow = lens _usPreferredMaintenanceWindow (\ s a -> s{_usPreferredMaintenanceWindow = a});
+usPreferredMaintenanceWindow = lens _usPreferredMaintenanceWindow (\ s a -> s{_usPreferredMaintenanceWindow = a})
 
 -- | Undocumented member.
 usPreferredBackupWindow :: Lens' UpdateServer (Maybe Text)
-usPreferredBackupWindow = lens _usPreferredBackupWindow (\ s a -> s{_usPreferredBackupWindow = a});
+usPreferredBackupWindow = lens _usPreferredBackupWindow (\ s a -> s{_usPreferredBackupWindow = a})
 
 -- | Sets the number of automated backups that you want to keep.
 usBackupRetentionCount :: Lens' UpdateServer (Maybe Int)
-usBackupRetentionCount = lens _usBackupRetentionCount (\ s a -> s{_usBackupRetentionCount = a});
+usBackupRetentionCount = lens _usBackupRetentionCount (\ s a -> s{_usBackupRetentionCount = a})
 
 -- | The name of the server to update.
 usServerName :: Lens' UpdateServer Text
-usServerName = lens _usServerName (\ s a -> s{_usServerName = a});
+usServerName = lens _usServerName (\ s a -> s{_usServerName = a})
 
 instance AWSRequest UpdateServer where
         type Rs UpdateServer = UpdateServerResponse
@@ -168,15 +168,15 @@ updateServerResponse
     -> UpdateServerResponse
 updateServerResponse pResponseStatus_ =
   UpdateServerResponse'
-  {_usrsServer = Nothing, _usrsResponseStatus = pResponseStatus_}
+    {_usrsServer = Nothing, _usrsResponseStatus = pResponseStatus_}
 
 
 -- | Contains the response to a @UpdateServer@ request.
 usrsServer :: Lens' UpdateServerResponse (Maybe Server)
-usrsServer = lens _usrsServer (\ s a -> s{_usrsServer = a});
+usrsServer = lens _usrsServer (\ s a -> s{_usrsServer = a})
 
 -- | -- | The response status code.
 usrsResponseStatus :: Lens' UpdateServerResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
+usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a})
 
 instance NFData UpdateServerResponse where

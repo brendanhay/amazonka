@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetApplicationRevision
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,16 +71,16 @@ getApplicationRevision
     -> GetApplicationRevision
 getApplicationRevision pApplicationName_ pRevision_ =
   GetApplicationRevision'
-  {_garApplicationName = pApplicationName_, _garRevision = pRevision_}
+    {_garApplicationName = pApplicationName_, _garRevision = pRevision_}
 
 
 -- | The name of the application that corresponds to the revision.
 garApplicationName :: Lens' GetApplicationRevision Text
-garApplicationName = lens _garApplicationName (\ s a -> s{_garApplicationName = a});
+garApplicationName = lens _garApplicationName (\ s a -> s{_garApplicationName = a})
 
 -- | Information about the application revision to get, including type and location.
 garRevision :: Lens' GetApplicationRevision RevisionLocation
-garRevision = lens _garRevision (\ s a -> s{_garRevision = a});
+garRevision = lens _garRevision (\ s a -> s{_garRevision = a})
 
 instance AWSRequest GetApplicationRevision where
         type Rs GetApplicationRevision =
@@ -150,27 +150,27 @@ getApplicationRevisionResponse
     -> GetApplicationRevisionResponse
 getApplicationRevisionResponse pResponseStatus_ =
   GetApplicationRevisionResponse'
-  { _garrsApplicationName = Nothing
-  , _garrsRevisionInfo = Nothing
-  , _garrsRevision = Nothing
-  , _garrsResponseStatus = pResponseStatus_
-  }
+    { _garrsApplicationName = Nothing
+    , _garrsRevisionInfo = Nothing
+    , _garrsRevision = Nothing
+    , _garrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The name of the application that corresponds to the revision.
 garrsApplicationName :: Lens' GetApplicationRevisionResponse (Maybe Text)
-garrsApplicationName = lens _garrsApplicationName (\ s a -> s{_garrsApplicationName = a});
+garrsApplicationName = lens _garrsApplicationName (\ s a -> s{_garrsApplicationName = a})
 
 -- | General information about the revision.
 garrsRevisionInfo :: Lens' GetApplicationRevisionResponse (Maybe GenericRevisionInfo)
-garrsRevisionInfo = lens _garrsRevisionInfo (\ s a -> s{_garrsRevisionInfo = a});
+garrsRevisionInfo = lens _garrsRevisionInfo (\ s a -> s{_garrsRevisionInfo = a})
 
 -- | Additional information about the revision, including type and location.
 garrsRevision :: Lens' GetApplicationRevisionResponse (Maybe RevisionLocation)
-garrsRevision = lens _garrsRevision (\ s a -> s{_garrsRevision = a});
+garrsRevision = lens _garrsRevision (\ s a -> s{_garrsRevision = a})
 
 -- | -- | The response status code.
 garrsResponseStatus :: Lens' GetApplicationRevisionResponse Int
-garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus = a});
+garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus = a})
 
 instance NFData GetApplicationRevisionResponse where

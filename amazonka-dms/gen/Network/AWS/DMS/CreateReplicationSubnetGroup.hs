@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.CreateReplicationSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,29 @@ createReplicationSubnetGroup
     -> CreateReplicationSubnetGroup
 createReplicationSubnetGroup pReplicationSubnetGroupIdentifier_ pReplicationSubnetGroupDescription_ =
   CreateReplicationSubnetGroup'
-  { _crsgTags = Nothing
-  , _crsgReplicationSubnetGroupIdentifier = pReplicationSubnetGroupIdentifier_
-  , _crsgReplicationSubnetGroupDescription = pReplicationSubnetGroupDescription_
-  , _crsgSubnetIds = mempty
-  }
+    { _crsgTags = Nothing
+    , _crsgReplicationSubnetGroupIdentifier = pReplicationSubnetGroupIdentifier_
+    , _crsgReplicationSubnetGroupDescription =
+        pReplicationSubnetGroupDescription_
+    , _crsgSubnetIds = mempty
+    }
 
 
 -- | The tag to be assigned to the subnet group.
 crsgTags :: Lens' CreateReplicationSubnetGroup [Tag]
-crsgTags = lens _crsgTags (\ s a -> s{_crsgTags = a}) . _Default . _Coerce;
+crsgTags = lens _crsgTags (\ s a -> s{_crsgTags = a}) . _Default . _Coerce
 
 -- | The name for the replication subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens. Must not be "default". Example: @mySubnetgroup@
 crsgReplicationSubnetGroupIdentifier :: Lens' CreateReplicationSubnetGroup Text
-crsgReplicationSubnetGroupIdentifier = lens _crsgReplicationSubnetGroupIdentifier (\ s a -> s{_crsgReplicationSubnetGroupIdentifier = a});
+crsgReplicationSubnetGroupIdentifier = lens _crsgReplicationSubnetGroupIdentifier (\ s a -> s{_crsgReplicationSubnetGroupIdentifier = a})
 
 -- | The description for the subnet group.
 crsgReplicationSubnetGroupDescription :: Lens' CreateReplicationSubnetGroup Text
-crsgReplicationSubnetGroupDescription = lens _crsgReplicationSubnetGroupDescription (\ s a -> s{_crsgReplicationSubnetGroupDescription = a});
+crsgReplicationSubnetGroupDescription = lens _crsgReplicationSubnetGroupDescription (\ s a -> s{_crsgReplicationSubnetGroupDescription = a})
 
 -- | The EC2 subnet IDs for the subnet group.
 crsgSubnetIds :: Lens' CreateReplicationSubnetGroup [Text]
-crsgSubnetIds = lens _crsgSubnetIds (\ s a -> s{_crsgSubnetIds = a}) . _Coerce;
+crsgSubnetIds = lens _crsgSubnetIds (\ s a -> s{_crsgSubnetIds = a}) . _Coerce
 
 instance AWSRequest CreateReplicationSubnetGroup
          where
@@ -168,18 +169,18 @@ createReplicationSubnetGroupResponse
     -> CreateReplicationSubnetGroupResponse
 createReplicationSubnetGroupResponse pResponseStatus_ =
   CreateReplicationSubnetGroupResponse'
-  { _crsgrsReplicationSubnetGroup = Nothing
-  , _crsgrsResponseStatus = pResponseStatus_
-  }
+    { _crsgrsReplicationSubnetGroup = Nothing
+    , _crsgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The replication subnet group that was created.
 crsgrsReplicationSubnetGroup :: Lens' CreateReplicationSubnetGroupResponse (Maybe ReplicationSubnetGroup)
-crsgrsReplicationSubnetGroup = lens _crsgrsReplicationSubnetGroup (\ s a -> s{_crsgrsReplicationSubnetGroup = a});
+crsgrsReplicationSubnetGroup = lens _crsgrsReplicationSubnetGroup (\ s a -> s{_crsgrsReplicationSubnetGroup = a})
 
 -- | -- | The response status code.
 crsgrsResponseStatus :: Lens' CreateReplicationSubnetGroupResponse Int
-crsgrsResponseStatus = lens _crsgrsResponseStatus (\ s a -> s{_crsgrsResponseStatus = a});
+crsgrsResponseStatus = lens _crsgrsResponseStatus (\ s a -> s{_crsgrsResponseStatus = a})
 
 instance NFData CreateReplicationSubnetGroupResponse
          where

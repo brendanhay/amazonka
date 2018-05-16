@@ -12,13 +12,47 @@
 
 -- |
 -- Module      : Network.AWS.SSM.PutComplianceItems
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers a compliance type and other compliance details on a designated resource. This action lets you register custom compliance details with a resource. This call overwrites existing compliance information on the resource, so you must provide a full list of compliance items each time that you send the request.
+--
+--
+-- ComplianceType can be one of the following:
+--
+--     * ExecutionId: The execution ID when the patch, association, or custom compliance item was applied.
+--
+--     * ExecutionType: Specify patch, association, or Custom:@string@ .
+--
+--     * ExecutionTime. The time the patch, association, or custom compliance item was applied to the instance.
+--
+--     * Id: The patch, association, or custom compliance ID.
+--
+--     * Title: A title.
+--
+--     * Status: The status of the compliance item. For example, @approved@ for patches, or @Failed@ for associations.
+--
+--     * Severity: A patch severity. For example, @critical@ .
+--
+--     * DocumentName: A SSM document name. For example, AWS-RunPatchBaseline.
+--
+--     * DocumentVersion: An SSM document version number. For example, 4.
+--
+--     * Classification: A patch classification. For example, @security updates@ .
+--
+--     * PatchBaselineId: A patch baseline ID.
+--
+--     * PatchSeverity: A patch severity. For example, @Critical@ .
+--
+--     * PatchState: A patch state. For example, @InstancesWithFailedPatches@ .
+--
+--     * PatchGroup: The name of a patch group.
+--
+--     * InstalledTime: The time the association, patch, or custom compliance item was applied to the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'
+--
 --
 --
 module Network.AWS.SSM.PutComplianceItems
@@ -82,38 +116,38 @@ putComplianceItems
     -> PutComplianceItems
 putComplianceItems pResourceId_ pResourceType_ pComplianceType_ pExecutionSummary_ =
   PutComplianceItems'
-  { _pciItemContentHash = Nothing
-  , _pciResourceId = pResourceId_
-  , _pciResourceType = pResourceType_
-  , _pciComplianceType = pComplianceType_
-  , _pciExecutionSummary = pExecutionSummary_
-  , _pciItems = mempty
-  }
+    { _pciItemContentHash = Nothing
+    , _pciResourceId = pResourceId_
+    , _pciResourceType = pResourceType_
+    , _pciComplianceType = pComplianceType_
+    , _pciExecutionSummary = pExecutionSummary_
+    , _pciItems = mempty
+    }
 
 
 -- | MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
 pciItemContentHash :: Lens' PutComplianceItems (Maybe Text)
-pciItemContentHash = lens _pciItemContentHash (\ s a -> s{_pciItemContentHash = a});
+pciItemContentHash = lens _pciItemContentHash (\ s a -> s{_pciItemContentHash = a})
 
 -- | Specify an ID for this resource. For a managed instance, this is the instance ID.
 pciResourceId :: Lens' PutComplianceItems Text
-pciResourceId = lens _pciResourceId (\ s a -> s{_pciResourceId = a});
+pciResourceId = lens _pciResourceId (\ s a -> s{_pciResourceId = a})
 
 -- | Specify the type of resource. @ManagedInstance@ is currently the only supported resource type.
 pciResourceType :: Lens' PutComplianceItems Text
-pciResourceType = lens _pciResourceType (\ s a -> s{_pciResourceType = a});
+pciResourceType = lens _pciResourceType (\ s a -> s{_pciResourceType = a})
 
 -- | Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
 pciComplianceType :: Lens' PutComplianceItems Text
-pciComplianceType = lens _pciComplianceType (\ s a -> s{_pciComplianceType = a});
+pciComplianceType = lens _pciComplianceType (\ s a -> s{_pciComplianceType = a})
 
 -- | A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
 pciExecutionSummary :: Lens' PutComplianceItems ComplianceExecutionSummary
-pciExecutionSummary = lens _pciExecutionSummary (\ s a -> s{_pciExecutionSummary = a});
+pciExecutionSummary = lens _pciExecutionSummary (\ s a -> s{_pciExecutionSummary = a})
 
 -- | Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, etc.
 pciItems :: Lens' PutComplianceItems [ComplianceItemEntry]
-pciItems = lens _pciItems (\ s a -> s{_pciItems = a}) . _Coerce;
+pciItems = lens _pciItems (\ s a -> s{_pciItems = a}) . _Coerce
 
 instance AWSRequest PutComplianceItems where
         type Rs PutComplianceItems =
@@ -174,6 +208,6 @@ putComplianceItemsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 pcirsResponseStatus :: Lens' PutComplianceItemsResponse Int
-pcirsResponseStatus = lens _pcirsResponseStatus (\ s a -> s{_pcirsResponseStatus = a});
+pcirsResponseStatus = lens _pcirsResponseStatus (\ s a -> s{_pcirsResponseStatus = a})
 
 instance NFData PutComplianceItemsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteAccountAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ deleteAccountAlias pAccountAlias_ =
 
 -- | The name of the account alias to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 daaAccountAlias :: Lens' DeleteAccountAlias Text
-daaAccountAlias = lens _daaAccountAlias (\ s a -> s{_daaAccountAlias = a});
+daaAccountAlias = lens _daaAccountAlias (\ s a -> s{_daaAccountAlias = a})
 
 instance AWSRequest DeleteAccountAlias where
         type Rs DeleteAccountAlias =

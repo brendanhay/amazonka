@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ acceptReservedInstancesExchangeQuote
     :: AcceptReservedInstancesExchangeQuote
 acceptReservedInstancesExchangeQuote =
   AcceptReservedInstancesExchangeQuote'
-  { _arieqTargetConfigurations = Nothing
-  , _arieqDryRun = Nothing
-  , _arieqReservedInstanceIds = mempty
-  }
+    { _arieqTargetConfigurations = Nothing
+    , _arieqDryRun = Nothing
+    , _arieqReservedInstanceIds = mempty
+    }
 
 
 -- | The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
 arieqTargetConfigurations :: Lens' AcceptReservedInstancesExchangeQuote [TargetConfigurationRequest]
-arieqTargetConfigurations = lens _arieqTargetConfigurations (\ s a -> s{_arieqTargetConfigurations = a}) . _Default . _Coerce;
+arieqTargetConfigurations = lens _arieqTargetConfigurations (\ s a -> s{_arieqTargetConfigurations = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 arieqDryRun :: Lens' AcceptReservedInstancesExchangeQuote (Maybe Bool)
-arieqDryRun = lens _arieqDryRun (\ s a -> s{_arieqDryRun = a});
+arieqDryRun = lens _arieqDryRun (\ s a -> s{_arieqDryRun = a})
 
 -- | The IDs of the Convertible Reserved Instances to exchange for another Convertible Reserved Instance of the same or higher value.
 arieqReservedInstanceIds :: Lens' AcceptReservedInstancesExchangeQuote [Text]
-arieqReservedInstanceIds = lens _arieqReservedInstanceIds (\ s a -> s{_arieqReservedInstanceIds = a}) . _Coerce;
+arieqReservedInstanceIds = lens _arieqReservedInstanceIds (\ s a -> s{_arieqReservedInstanceIds = a}) . _Coerce
 
 instance AWSRequest
            AcceptReservedInstancesExchangeQuote
@@ -155,16 +155,16 @@ acceptReservedInstancesExchangeQuoteResponse
     -> AcceptReservedInstancesExchangeQuoteResponse
 acceptReservedInstancesExchangeQuoteResponse pResponseStatus_ =
   AcceptReservedInstancesExchangeQuoteResponse'
-  {_arieqrsExchangeId = Nothing, _arieqrsResponseStatus = pResponseStatus_}
+    {_arieqrsExchangeId = Nothing, _arieqrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the successful exchange.
 arieqrsExchangeId :: Lens' AcceptReservedInstancesExchangeQuoteResponse (Maybe Text)
-arieqrsExchangeId = lens _arieqrsExchangeId (\ s a -> s{_arieqrsExchangeId = a});
+arieqrsExchangeId = lens _arieqrsExchangeId (\ s a -> s{_arieqrsExchangeId = a})
 
 -- | -- | The response status code.
 arieqrsResponseStatus :: Lens' AcceptReservedInstancesExchangeQuoteResponse Int
-arieqrsResponseStatus = lens _arieqrsResponseStatus (\ s a -> s{_arieqrsResponseStatus = a});
+arieqrsResponseStatus = lens _arieqrsResponseStatus (\ s a -> s{_arieqrsResponseStatus = a})
 
 instance NFData
            AcceptReservedInstancesExchangeQuoteResponse

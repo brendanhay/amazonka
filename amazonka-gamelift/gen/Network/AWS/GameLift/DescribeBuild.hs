@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeBuild
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties for a build. To get a build record, specify a build ID. If successful, an object containing the build properties is returned.
+-- Retrieves properties for a build. To request a build record, specify a build ID. If successful, an object containing the build properties is returned.
 --
 --
 -- Build-related operations include:
@@ -81,7 +81,7 @@ describeBuild pBuildId_ = DescribeBuild' {_dBuildId = pBuildId_}
 
 -- | Unique identifier for a build to retrieve properties for.
 dBuildId :: Lens' DescribeBuild Text
-dBuildId = lens _dBuildId (\ s a -> s{_dBuildId = a});
+dBuildId = lens _dBuildId (\ s a -> s{_dBuildId = a})
 
 instance AWSRequest DescribeBuild where
         type Rs DescribeBuild = DescribeBuildResponse
@@ -138,15 +138,15 @@ describeBuildResponse
     -> DescribeBuildResponse
 describeBuildResponse pResponseStatus_ =
   DescribeBuildResponse'
-  {_dbrsBuild = Nothing, _dbrsResponseStatus = pResponseStatus_}
+    {_dbrsBuild = Nothing, _dbrsResponseStatus = pResponseStatus_}
 
 
 -- | Set of properties describing the requested build.
 dbrsBuild :: Lens' DescribeBuildResponse (Maybe Build)
-dbrsBuild = lens _dbrsBuild (\ s a -> s{_dbrsBuild = a});
+dbrsBuild = lens _dbrsBuild (\ s a -> s{_dbrsBuild = a})
 
 -- | -- | The response status code.
 dbrsResponseStatus :: Lens' DescribeBuildResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
+dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a})
 
 instance NFData DescribeBuildResponse where

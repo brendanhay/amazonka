@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ data DescribeLoadBalancerTargetGroups = DescribeLoadBalancerTargetGroups'
 --
 -- * 'dlbtgsNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlbtgsMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
+-- * 'dlbtgsMaxRecords' - The maximum number of items to return with this call. The default value is 100 and the maximum value is 100.
 --
 -- * 'dlbtgsAutoScalingGroupName' - The name of the Auto Scaling group.
 describeLoadBalancerTargetGroups
@@ -69,23 +69,23 @@ describeLoadBalancerTargetGroups
     -> DescribeLoadBalancerTargetGroups
 describeLoadBalancerTargetGroups pAutoScalingGroupName_ =
   DescribeLoadBalancerTargetGroups'
-  { _dlbtgsNextToken = Nothing
-  , _dlbtgsMaxRecords = Nothing
-  , _dlbtgsAutoScalingGroupName = pAutoScalingGroupName_
-  }
+    { _dlbtgsNextToken = Nothing
+    , _dlbtgsMaxRecords = Nothing
+    , _dlbtgsAutoScalingGroupName = pAutoScalingGroupName_
+    }
 
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dlbtgsNextToken :: Lens' DescribeLoadBalancerTargetGroups (Maybe Text)
-dlbtgsNextToken = lens _dlbtgsNextToken (\ s a -> s{_dlbtgsNextToken = a});
+dlbtgsNextToken = lens _dlbtgsNextToken (\ s a -> s{_dlbtgsNextToken = a})
 
--- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
+-- | The maximum number of items to return with this call. The default value is 100 and the maximum value is 100.
 dlbtgsMaxRecords :: Lens' DescribeLoadBalancerTargetGroups (Maybe Int)
-dlbtgsMaxRecords = lens _dlbtgsMaxRecords (\ s a -> s{_dlbtgsMaxRecords = a});
+dlbtgsMaxRecords = lens _dlbtgsMaxRecords (\ s a -> s{_dlbtgsMaxRecords = a})
 
 -- | The name of the Auto Scaling group.
 dlbtgsAutoScalingGroupName :: Lens' DescribeLoadBalancerTargetGroups Text
-dlbtgsAutoScalingGroupName = lens _dlbtgsAutoScalingGroupName (\ s a -> s{_dlbtgsAutoScalingGroupName = a});
+dlbtgsAutoScalingGroupName = lens _dlbtgsAutoScalingGroupName (\ s a -> s{_dlbtgsAutoScalingGroupName = a})
 
 instance AWSRequest DescribeLoadBalancerTargetGroups
          where
@@ -150,23 +150,23 @@ describeLoadBalancerTargetGroupsResponse
     -> DescribeLoadBalancerTargetGroupsResponse
 describeLoadBalancerTargetGroupsResponse pResponseStatus_ =
   DescribeLoadBalancerTargetGroupsResponse'
-  { _dlbtgsrsLoadBalancerTargetGroups = Nothing
-  , _dlbtgsrsNextToken = Nothing
-  , _dlbtgsrsResponseStatus = pResponseStatus_
-  }
+    { _dlbtgsrsLoadBalancerTargetGroups = Nothing
+    , _dlbtgsrsNextToken = Nothing
+    , _dlbtgsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the target groups.
 dlbtgsrsLoadBalancerTargetGroups :: Lens' DescribeLoadBalancerTargetGroupsResponse [LoadBalancerTargetGroupState]
-dlbtgsrsLoadBalancerTargetGroups = lens _dlbtgsrsLoadBalancerTargetGroups (\ s a -> s{_dlbtgsrsLoadBalancerTargetGroups = a}) . _Default . _Coerce;
+dlbtgsrsLoadBalancerTargetGroups = lens _dlbtgsrsLoadBalancerTargetGroups (\ s a -> s{_dlbtgsrsLoadBalancerTargetGroups = a}) . _Default . _Coerce
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dlbtgsrsNextToken :: Lens' DescribeLoadBalancerTargetGroupsResponse (Maybe Text)
-dlbtgsrsNextToken = lens _dlbtgsrsNextToken (\ s a -> s{_dlbtgsrsNextToken = a});
+dlbtgsrsNextToken = lens _dlbtgsrsNextToken (\ s a -> s{_dlbtgsrsNextToken = a})
 
 -- | -- | The response status code.
 dlbtgsrsResponseStatus :: Lens' DescribeLoadBalancerTargetGroupsResponse Int
-dlbtgsrsResponseStatus = lens _dlbtgsrsResponseStatus (\ s a -> s{_dlbtgsrsResponseStatus = a});
+dlbtgsrsResponseStatus = lens _dlbtgsrsResponseStatus (\ s a -> s{_dlbtgsrsResponseStatus = a})
 
 instance NFData
            DescribeLoadBalancerTargetGroupsResponse

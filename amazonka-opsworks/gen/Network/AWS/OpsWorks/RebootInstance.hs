@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RebootInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ rebootInstance pInstanceId_ = RebootInstance' {_riInstanceId = pInstanceId_}
 
 -- | The instance ID.
 riInstanceId :: Lens' RebootInstance Text
-riInstanceId = lens _riInstanceId (\ s a -> s{_riInstanceId = a});
+riInstanceId = lens _riInstanceId (\ s a -> s{_riInstanceId = a})
 
 instance AWSRequest RebootInstance where
         type Rs RebootInstance = RebootInstanceResponse

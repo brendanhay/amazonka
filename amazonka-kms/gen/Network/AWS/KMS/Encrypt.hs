@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.Encrypt
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,28 +86,28 @@ encrypt
     -> Encrypt
 encrypt pKeyId_ pPlaintext_ =
   Encrypt'
-  { _eEncryptionContext = Nothing
-  , _eGrantTokens = Nothing
-  , _eKeyId = pKeyId_
-  , _ePlaintext = _Sensitive . _Base64 # pPlaintext_
-  }
+    { _eEncryptionContext = Nothing
+    , _eGrantTokens = Nothing
+    , _eKeyId = pKeyId_
+    , _ePlaintext = _Sensitive . _Base64 # pPlaintext_
+    }
 
 
 -- | Name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the @Decrypt@ API or decryption will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> .
 eEncryptionContext :: Lens' Encrypt (HashMap Text Text)
-eEncryptionContext = lens _eEncryptionContext (\ s a -> s{_eEncryptionContext = a}) . _Default . _Map;
+eEncryptionContext = lens _eEncryptionContext (\ s a -> s{_eEncryptionContext = a}) . _Default . _Map
 
 -- | A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 eGrantTokens :: Lens' Encrypt [Text]
-eGrantTokens = lens _eGrantTokens (\ s a -> s{_eGrantTokens = a}) . _Default . _Coerce;
+eGrantTokens = lens _eGrantTokens (\ s a -> s{_eGrantTokens = a}) . _Default . _Coerce
 
 -- | A unique identifier for the customer master key (CMK). To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with "alias/". To specify a CMK in a different AWS account, you must use the key ARN or alias ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@      * Alias name: @alias/ExampleAlias@      * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
 eKeyId :: Lens' Encrypt Text
-eKeyId = lens _eKeyId (\ s a -> s{_eKeyId = a});
+eKeyId = lens _eKeyId (\ s a -> s{_eKeyId = a})
 
 -- | Data to be encrypted.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 ePlaintext :: Lens' Encrypt ByteString
-ePlaintext = lens _ePlaintext (\ s a -> s{_ePlaintext = a}) . _Sensitive . _Base64;
+ePlaintext = lens _ePlaintext (\ s a -> s{_ePlaintext = a}) . _Sensitive . _Base64
 
 instance AWSRequest Encrypt where
         type Rs Encrypt = EncryptResponse
@@ -169,22 +169,22 @@ encryptResponse
     -> EncryptResponse
 encryptResponse pResponseStatus_ =
   EncryptResponse'
-  { _ersKeyId = Nothing
-  , _ersCiphertextBlob = Nothing
-  , _ersResponseStatus = pResponseStatus_
-  }
+    { _ersKeyId = Nothing
+    , _ersCiphertextBlob = Nothing
+    , _ersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the key used during encryption.
 ersKeyId :: Lens' EncryptResponse (Maybe Text)
-ersKeyId = lens _ersKeyId (\ s a -> s{_ersKeyId = a});
+ersKeyId = lens _ersKeyId (\ s a -> s{_ersKeyId = a})
 
 -- | The encrypted plaintext. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 ersCiphertextBlob :: Lens' EncryptResponse (Maybe ByteString)
-ersCiphertextBlob = lens _ersCiphertextBlob (\ s a -> s{_ersCiphertextBlob = a}) . mapping _Base64;
+ersCiphertextBlob = lens _ersCiphertextBlob (\ s a -> s{_ersCiphertextBlob = a}) . mapping _Base64
 
 -- | -- | The response status code.
 ersResponseStatus :: Lens' EncryptResponse Int
-ersResponseStatus = lens _ersResponseStatus (\ s a -> s{_ersResponseStatus = a});
+ersResponseStatus = lens _ersResponseStatus (\ s a -> s{_ersResponseStatus = a})
 
 instance NFData EncryptResponse where

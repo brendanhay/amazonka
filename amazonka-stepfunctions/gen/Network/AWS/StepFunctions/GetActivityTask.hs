@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.GetActivityTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used by workers to retrieve a task (with the specified activity ARN) which has been scheduled for execution by a running state machine. This initiates a long poll, where the service holds the HTTP connection open and responds as soon as a task becomes available (i.e. an execution of a task of this type is needed.) The maximum time the service holds on to the request before responding is 60 seconds. If no task is available within 60 seconds, the poll will return a @taskToken@ with a null string.
+-- Used by workers to retrieve a task (with the specified activity ARN) which has been scheduled for execution by a running state machine. This initiates a long poll, where the service holds the HTTP connection open and responds as soon as a task becomes available (i.e. an execution of a task of this type is needed.) The maximum time the service holds on to the request before responding is 60 seconds. If no task is available within 60 seconds, the poll returns a @taskToken@ with a null string.
 --
 --
 -- /Important:/ Workers should set their client side socket timeout to at least 65 seconds (5 seconds higher than the maximum time the service may hold the poll request).
@@ -59,7 +59,7 @@ data GetActivityTask = GetActivityTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gatWorkerName' - You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name will be used when it is logged in the execution history.
+-- * 'gatWorkerName' - You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name is used when it is logged in the execution history.
 --
 -- * 'gatActivityARN' - The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task using 'CreateActivity' .)
 getActivityTask
@@ -69,13 +69,13 @@ getActivityTask pActivityARN_ =
   GetActivityTask' {_gatWorkerName = Nothing, _gatActivityARN = pActivityARN_}
 
 
--- | You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name will be used when it is logged in the execution history.
+-- | You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name is used when it is logged in the execution history.
 gatWorkerName :: Lens' GetActivityTask (Maybe Text)
-gatWorkerName = lens _gatWorkerName (\ s a -> s{_gatWorkerName = a});
+gatWorkerName = lens _gatWorkerName (\ s a -> s{_gatWorkerName = a})
 
 -- | The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task using 'CreateActivity' .)
 gatActivityARN :: Lens' GetActivityTask Text
-gatActivityARN = lens _gatActivityARN (\ s a -> s{_gatActivityARN = a});
+gatActivityARN = lens _gatActivityARN (\ s a -> s{_gatActivityARN = a})
 
 instance AWSRequest GetActivityTask where
         type Rs GetActivityTask = GetActivityTaskResponse
@@ -135,22 +135,22 @@ getActivityTaskResponse
     -> GetActivityTaskResponse
 getActivityTaskResponse pResponseStatus_ =
   GetActivityTaskResponse'
-  { _gatrsInput = Nothing
-  , _gatrsTaskToken = Nothing
-  , _gatrsResponseStatus = pResponseStatus_
-  }
+    { _gatrsInput = Nothing
+    , _gatrsTaskToken = Nothing
+    , _gatrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The string that contains the JSON input data for the task.
 gatrsInput :: Lens' GetActivityTaskResponse (Maybe Text)
-gatrsInput = lens _gatrsInput (\ s a -> s{_gatrsInput = a});
+gatrsInput = lens _gatrsInput (\ s a -> s{_gatrsInput = a})
 
 -- | A token that identifies the scheduled task. This token must be copied and included in subsequent calls to 'SendTaskHeartbeat' , 'SendTaskSuccess' or 'SendTaskFailure' in order to report the progress or completion of the task.
 gatrsTaskToken :: Lens' GetActivityTaskResponse (Maybe Text)
-gatrsTaskToken = lens _gatrsTaskToken (\ s a -> s{_gatrsTaskToken = a});
+gatrsTaskToken = lens _gatrsTaskToken (\ s a -> s{_gatrsTaskToken = a})
 
 -- | -- | The response status code.
 gatrsResponseStatus :: Lens' GetActivityTaskResponse Int
-gatrsResponseStatus = lens _gatrsResponseStatus (\ s a -> s{_gatrsResponseStatus = a});
+gatrsResponseStatus = lens _gatrsResponseStatus (\ s a -> s{_gatrsResponseStatus = a})
 
 instance NFData GetActivityTaskResponse where

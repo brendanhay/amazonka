@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.DescribeEventBus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -114,27 +114,27 @@ describeEventBusResponse
     -> DescribeEventBusResponse
 describeEventBusResponse pResponseStatus_ =
   DescribeEventBusResponse'
-  { _debrsARN = Nothing
-  , _debrsName = Nothing
-  , _debrsPolicy = Nothing
-  , _debrsResponseStatus = pResponseStatus_
-  }
+    { _debrsARN = Nothing
+    , _debrsName = Nothing
+    , _debrsPolicy = Nothing
+    , _debrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the account permitted to write events to the current account.
 debrsARN :: Lens' DescribeEventBusResponse (Maybe Text)
-debrsARN = lens _debrsARN (\ s a -> s{_debrsARN = a});
+debrsARN = lens _debrsARN (\ s a -> s{_debrsARN = a})
 
 -- | The name of the event bus. Currently, this is always @default@ .
 debrsName :: Lens' DescribeEventBusResponse (Maybe Text)
-debrsName = lens _debrsName (\ s a -> s{_debrsName = a});
+debrsName = lens _debrsName (\ s a -> s{_debrsName = a})
 
 -- | The policy that enables the external account to send events to your account.
 debrsPolicy :: Lens' DescribeEventBusResponse (Maybe Text)
-debrsPolicy = lens _debrsPolicy (\ s a -> s{_debrsPolicy = a});
+debrsPolicy = lens _debrsPolicy (\ s a -> s{_debrsPolicy = a})
 
 -- | -- | The response status code.
 debrsResponseStatus :: Lens' DescribeEventBusResponse Int
-debrsResponseStatus = lens _debrsResponseStatus (\ s a -> s{_debrsResponseStatus = a});
+debrsResponseStatus = lens _debrsResponseStatus (\ s a -> s{_debrsResponseStatus = a})
 
 instance NFData DescribeEventBusResponse where

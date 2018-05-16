@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,156 @@ module Network.AWS.CloudWatchEvents.Types.Product where
 import Network.AWS.CloudWatchEvents.Types.Sum
 import Network.AWS.Lens
 import Network.AWS.Prelude
+
+-- | The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
+--
+--
+--
+-- /See:/ 'batchArrayProperties' smart constructor.
+newtype BatchArrayProperties = BatchArrayProperties'
+  { _bapSize :: Maybe Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BatchArrayProperties' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bapSize' - The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+batchArrayProperties
+    :: BatchArrayProperties
+batchArrayProperties = BatchArrayProperties' {_bapSize = Nothing}
+
+
+-- | The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+bapSize :: Lens' BatchArrayProperties (Maybe Int)
+bapSize = lens _bapSize (\ s a -> s{_bapSize = a})
+
+instance FromJSON BatchArrayProperties where
+        parseJSON
+          = withObject "BatchArrayProperties"
+              (\ x -> BatchArrayProperties' <$> (x .:? "Size"))
+
+instance Hashable BatchArrayProperties where
+
+instance NFData BatchArrayProperties where
+
+instance ToJSON BatchArrayProperties where
+        toJSON BatchArrayProperties'{..}
+          = object (catMaybes [("Size" .=) <$> _bapSize])
+
+-- | The custom parameters to be used when the target is an AWS Batch job.
+--
+--
+--
+-- /See:/ 'batchParameters' smart constructor.
+data BatchParameters = BatchParameters'
+  { _bpRetryStrategy   :: !(Maybe BatchRetryStrategy)
+  , _bpArrayProperties :: !(Maybe BatchArrayProperties)
+  , _bpJobDefinition   :: !Text
+  , _bpJobName         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BatchParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bpRetryStrategy' - The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1 to 10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+--
+-- * 'bpArrayProperties' - The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
+--
+-- * 'bpJobDefinition' - The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
+--
+-- * 'bpJobName' - The name to use for this execution of the job, if the target is an AWS Batch job.
+batchParameters
+    :: Text -- ^ 'bpJobDefinition'
+    -> Text -- ^ 'bpJobName'
+    -> BatchParameters
+batchParameters pJobDefinition_ pJobName_ =
+  BatchParameters'
+    { _bpRetryStrategy = Nothing
+    , _bpArrayProperties = Nothing
+    , _bpJobDefinition = pJobDefinition_
+    , _bpJobName = pJobName_
+    }
+
+
+-- | The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1 to 10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+bpRetryStrategy :: Lens' BatchParameters (Maybe BatchRetryStrategy)
+bpRetryStrategy = lens _bpRetryStrategy (\ s a -> s{_bpRetryStrategy = a})
+
+-- | The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
+bpArrayProperties :: Lens' BatchParameters (Maybe BatchArrayProperties)
+bpArrayProperties = lens _bpArrayProperties (\ s a -> s{_bpArrayProperties = a})
+
+-- | The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
+bpJobDefinition :: Lens' BatchParameters Text
+bpJobDefinition = lens _bpJobDefinition (\ s a -> s{_bpJobDefinition = a})
+
+-- | The name to use for this execution of the job, if the target is an AWS Batch job.
+bpJobName :: Lens' BatchParameters Text
+bpJobName = lens _bpJobName (\ s a -> s{_bpJobName = a})
+
+instance FromJSON BatchParameters where
+        parseJSON
+          = withObject "BatchParameters"
+              (\ x ->
+                 BatchParameters' <$>
+                   (x .:? "RetryStrategy") <*> (x .:? "ArrayProperties")
+                     <*> (x .: "JobDefinition")
+                     <*> (x .: "JobName"))
+
+instance Hashable BatchParameters where
+
+instance NFData BatchParameters where
+
+instance ToJSON BatchParameters where
+        toJSON BatchParameters'{..}
+          = object
+              (catMaybes
+                 [("RetryStrategy" .=) <$> _bpRetryStrategy,
+                  ("ArrayProperties" .=) <$> _bpArrayProperties,
+                  Just ("JobDefinition" .= _bpJobDefinition),
+                  Just ("JobName" .= _bpJobName)])
+
+-- | The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+--
+--
+--
+-- /See:/ 'batchRetryStrategy' smart constructor.
+newtype BatchRetryStrategy = BatchRetryStrategy'
+  { _brsAttempts :: Maybe Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BatchRetryStrategy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'brsAttempts' - The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
+batchRetryStrategy
+    :: BatchRetryStrategy
+batchRetryStrategy = BatchRetryStrategy' {_brsAttempts = Nothing}
+
+
+-- | The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
+brsAttempts :: Lens' BatchRetryStrategy (Maybe Int)
+brsAttempts = lens _brsAttempts (\ s a -> s{_brsAttempts = a})
+
+instance FromJSON BatchRetryStrategy where
+        parseJSON
+          = withObject "BatchRetryStrategy"
+              (\ x -> BatchRetryStrategy' <$> (x .:? "Attempts"))
+
+instance Hashable BatchRetryStrategy where
+
+instance NFData BatchRetryStrategy where
+
+instance ToJSON BatchRetryStrategy where
+        toJSON BatchRetryStrategy'{..}
+          = object
+              (catMaybes [("Attempts" .=) <$> _brsAttempts])
 
 -- | The custom parameters to be used when the target is an Amazon ECS cluster.
 --
@@ -44,16 +194,16 @@ ecsParameters
     -> EcsParameters
 ecsParameters pTaskDefinitionARN_ =
   EcsParameters'
-  {_epTaskCount = Nothing, _epTaskDefinitionARN = pTaskDefinitionARN_}
+    {_epTaskCount = Nothing, _epTaskDefinitionARN = pTaskDefinitionARN_}
 
 
 -- | The number of tasks to create based on the @TaskDefinition@ . The default is one.
 epTaskCount :: Lens' EcsParameters (Maybe Natural)
-epTaskCount = lens _epTaskCount (\ s a -> s{_epTaskCount = a}) . mapping _Nat;
+epTaskCount = lens _epTaskCount (\ s a -> s{_epTaskCount = a}) . mapping _Nat
 
 -- | The ARN of the task definition to use if the event target is an Amazon ECS cluster.
 epTaskDefinitionARN :: Lens' EcsParameters Text
-epTaskDefinitionARN = lens _epTaskDefinitionARN (\ s a -> s{_epTaskDefinitionARN = a});
+epTaskDefinitionARN = lens _epTaskDefinitionARN (\ s a -> s{_epTaskDefinitionARN = a})
 
 instance FromJSON EcsParameters where
         parseJSON
@@ -96,16 +246,16 @@ inputTransformer
     -> InputTransformer
 inputTransformer pInputTemplate_ =
   InputTransformer'
-  {_itInputPathsMap = Nothing, _itInputTemplate = pInputTemplate_}
+    {_itInputPathsMap = Nothing, _itInputTemplate = pInputTemplate_}
 
 
 -- | Map of JSON paths to be extracted from the event. These are key-value pairs, where each value is a JSON path. You must use JSON dot notation, not bracket notation.
 itInputPathsMap :: Lens' InputTransformer (HashMap Text Text)
-itInputPathsMap = lens _itInputPathsMap (\ s a -> s{_itInputPathsMap = a}) . _Default . _Map;
+itInputPathsMap = lens _itInputPathsMap (\ s a -> s{_itInputPathsMap = a}) . _Default . _Map
 
 -- | Input template where you can use the values of the keys from @InputPathsMap@ to customize the data sent to the target.
 itInputTemplate :: Lens' InputTransformer Text
-itInputTemplate = lens _itInputTemplate (\ s a -> s{_itInputTemplate = a});
+itInputTemplate = lens _itInputTemplate (\ s a -> s{_itInputTemplate = a})
 
 instance FromJSON InputTransformer where
         parseJSON
@@ -150,7 +300,7 @@ kinesisParameters pPartitionKeyPath_ =
 
 -- | The JSON path to be extracted from the event and used as the partition key. For more information, see <http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key Amazon Kinesis Streams Key Concepts> in the /Amazon Kinesis Streams Developer Guide/ .
 kpPartitionKeyPath :: Lens' KinesisParameters Text
-kpPartitionKeyPath = lens _kpPartitionKeyPath (\ s a -> s{_kpPartitionKeyPath = a});
+kpPartitionKeyPath = lens _kpPartitionKeyPath (\ s a -> s{_kpPartitionKeyPath = a})
 
 instance FromJSON KinesisParameters where
         parseJSON
@@ -194,38 +344,38 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
 --
 -- * 'pereSource' - The source of the event.
 --
--- * 'pereDetail' - In the JSON sense, an object containing fields, which may also contain nested subobjects. No constraints are imposed on its contents.
+-- * 'pereDetail' - A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.
 putEventsRequestEntry
     :: PutEventsRequestEntry
 putEventsRequestEntry =
   PutEventsRequestEntry'
-  { _pereTime = Nothing
-  , _pereDetailType = Nothing
-  , _pereResources = Nothing
-  , _pereSource = Nothing
-  , _pereDetail = Nothing
-  }
+    { _pereTime = Nothing
+    , _pereDetailType = Nothing
+    , _pereResources = Nothing
+    , _pereSource = Nothing
+    , _pereDetail = Nothing
+    }
 
 
 -- | The timestamp of the event, per <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339> . If no timestamp is provided, the timestamp of the 'PutEvents' call is used.
 pereTime :: Lens' PutEventsRequestEntry (Maybe UTCTime)
-pereTime = lens _pereTime (\ s a -> s{_pereTime = a}) . mapping _Time;
+pereTime = lens _pereTime (\ s a -> s{_pereTime = a}) . mapping _Time
 
 -- | Free-form string used to decide what fields to expect in the event detail.
 pereDetailType :: Lens' PutEventsRequestEntry (Maybe Text)
-pereDetailType = lens _pereDetailType (\ s a -> s{_pereDetailType = a});
+pereDetailType = lens _pereDetailType (\ s a -> s{_pereDetailType = a})
 
 -- | AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
 pereResources :: Lens' PutEventsRequestEntry [Text]
-pereResources = lens _pereResources (\ s a -> s{_pereResources = a}) . _Default . _Coerce;
+pereResources = lens _pereResources (\ s a -> s{_pereResources = a}) . _Default . _Coerce
 
 -- | The source of the event.
 pereSource :: Lens' PutEventsRequestEntry (Maybe Text)
-pereSource = lens _pereSource (\ s a -> s{_pereSource = a});
+pereSource = lens _pereSource (\ s a -> s{_pereSource = a})
 
--- | In the JSON sense, an object containing fields, which may also contain nested subobjects. No constraints are imposed on its contents.
+-- | A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.
 pereDetail :: Lens' PutEventsRequestEntry (Maybe Text)
-pereDetail = lens _pereDetail (\ s a -> s{_pereDetail = a});
+pereDetail = lens _pereDetail (\ s a -> s{_pereDetail = a})
 
 instance Hashable PutEventsRequestEntry where
 
@@ -266,23 +416,23 @@ putEventsResultEntry
     :: PutEventsResultEntry
 putEventsResultEntry =
   PutEventsResultEntry'
-  { _pereErrorCode = Nothing
-  , _pereErrorMessage = Nothing
-  , _pereEventId = Nothing
-  }
+    { _pereErrorCode = Nothing
+    , _pereErrorMessage = Nothing
+    , _pereEventId = Nothing
+    }
 
 
 -- | The error code that indicates why the event submission failed.
 pereErrorCode :: Lens' PutEventsResultEntry (Maybe Text)
-pereErrorCode = lens _pereErrorCode (\ s a -> s{_pereErrorCode = a});
+pereErrorCode = lens _pereErrorCode (\ s a -> s{_pereErrorCode = a})
 
 -- | The error message that explains why the event submission failed.
 pereErrorMessage :: Lens' PutEventsResultEntry (Maybe Text)
-pereErrorMessage = lens _pereErrorMessage (\ s a -> s{_pereErrorMessage = a});
+pereErrorMessage = lens _pereErrorMessage (\ s a -> s{_pereErrorMessage = a})
 
 -- | The ID of the event.
 pereEventId :: Lens' PutEventsResultEntry (Maybe Text)
-pereEventId = lens _pereEventId (\ s a -> s{_pereEventId = a});
+pereEventId = lens _pereEventId (\ s a -> s{_pereEventId = a})
 
 instance FromJSON PutEventsResultEntry where
         parseJSON
@@ -321,23 +471,23 @@ putTargetsResultEntry
     :: PutTargetsResultEntry
 putTargetsResultEntry =
   PutTargetsResultEntry'
-  { _ptreTargetId = Nothing
-  , _ptreErrorCode = Nothing
-  , _ptreErrorMessage = Nothing
-  }
+    { _ptreTargetId = Nothing
+    , _ptreErrorCode = Nothing
+    , _ptreErrorMessage = Nothing
+    }
 
 
 -- | The ID of the target.
 ptreTargetId :: Lens' PutTargetsResultEntry (Maybe Text)
-ptreTargetId = lens _ptreTargetId (\ s a -> s{_ptreTargetId = a});
+ptreTargetId = lens _ptreTargetId (\ s a -> s{_ptreTargetId = a})
 
 -- | The error code that indicates why the target addition failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
 ptreErrorCode :: Lens' PutTargetsResultEntry (Maybe Text)
-ptreErrorCode = lens _ptreErrorCode (\ s a -> s{_ptreErrorCode = a});
+ptreErrorCode = lens _ptreErrorCode (\ s a -> s{_ptreErrorCode = a})
 
 -- | The error message that explains why the target addition failed.
 ptreErrorMessage :: Lens' PutTargetsResultEntry (Maybe Text)
-ptreErrorMessage = lens _ptreErrorMessage (\ s a -> s{_ptreErrorMessage = a});
+ptreErrorMessage = lens _ptreErrorMessage (\ s a -> s{_ptreErrorMessage = a})
 
 instance FromJSON PutTargetsResultEntry where
         parseJSON
@@ -376,23 +526,23 @@ removeTargetsResultEntry
     :: RemoveTargetsResultEntry
 removeTargetsResultEntry =
   RemoveTargetsResultEntry'
-  { _rtreTargetId = Nothing
-  , _rtreErrorCode = Nothing
-  , _rtreErrorMessage = Nothing
-  }
+    { _rtreTargetId = Nothing
+    , _rtreErrorCode = Nothing
+    , _rtreErrorMessage = Nothing
+    }
 
 
 -- | The ID of the target.
 rtreTargetId :: Lens' RemoveTargetsResultEntry (Maybe Text)
-rtreTargetId = lens _rtreTargetId (\ s a -> s{_rtreTargetId = a});
+rtreTargetId = lens _rtreTargetId (\ s a -> s{_rtreTargetId = a})
 
 -- | The error code that indicates why the target removal failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
 rtreErrorCode :: Lens' RemoveTargetsResultEntry (Maybe Text)
-rtreErrorCode = lens _rtreErrorCode (\ s a -> s{_rtreErrorCode = a});
+rtreErrorCode = lens _rtreErrorCode (\ s a -> s{_rtreErrorCode = a})
 
 -- | The error message that explains why the target removal failed.
 rtreErrorMessage :: Lens' RemoveTargetsResultEntry (Maybe Text)
-rtreErrorMessage = lens _rtreErrorMessage (\ s a -> s{_rtreErrorMessage = a});
+rtreErrorMessage = lens _rtreErrorMessage (\ s a -> s{_rtreErrorMessage = a})
 
 instance FromJSON RemoveTargetsResultEntry where
         parseJSON
@@ -443,43 +593,43 @@ rule
     :: Rule
 rule =
   Rule'
-  { _rEventPattern = Nothing
-  , _rState = Nothing
-  , _rARN = Nothing
-  , _rScheduleExpression = Nothing
-  , _rName = Nothing
-  , _rDescription = Nothing
-  , _rRoleARN = Nothing
-  }
+    { _rEventPattern = Nothing
+    , _rState = Nothing
+    , _rARN = Nothing
+    , _rScheduleExpression = Nothing
+    , _rName = Nothing
+    , _rDescription = Nothing
+    , _rRoleARN = Nothing
+    }
 
 
 -- | The event pattern of the rule. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 rEventPattern :: Lens' Rule (Maybe Text)
-rEventPattern = lens _rEventPattern (\ s a -> s{_rEventPattern = a});
+rEventPattern = lens _rEventPattern (\ s a -> s{_rEventPattern = a})
 
 -- | The state of the rule.
 rState :: Lens' Rule (Maybe RuleState)
-rState = lens _rState (\ s a -> s{_rState = a});
+rState = lens _rState (\ s a -> s{_rState = a})
 
 -- | The Amazon Resource Name (ARN) of the rule.
 rARN :: Lens' Rule (Maybe Text)
-rARN = lens _rARN (\ s a -> s{_rARN = a});
+rARN = lens _rARN (\ s a -> s{_rARN = a})
 
 -- | The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
 rScheduleExpression :: Lens' Rule (Maybe Text)
-rScheduleExpression = lens _rScheduleExpression (\ s a -> s{_rScheduleExpression = a});
+rScheduleExpression = lens _rScheduleExpression (\ s a -> s{_rScheduleExpression = a})
 
 -- | The name of the rule.
 rName :: Lens' Rule (Maybe Text)
-rName = lens _rName (\ s a -> s{_rName = a});
+rName = lens _rName (\ s a -> s{_rName = a})
 
 -- | The description of the rule.
 rDescription :: Lens' Rule (Maybe Text)
-rDescription = lens _rDescription (\ s a -> s{_rDescription = a});
+rDescription = lens _rDescription (\ s a -> s{_rDescription = a})
 
 -- | The Amazon Resource Name (ARN) of the role that is used for target invocation.
 rRoleARN :: Lens' Rule (Maybe Text)
-rRoleARN = lens _rRoleARN (\ s a -> s{_rRoleARN = a});
+rRoleARN = lens _rRoleARN (\ s a -> s{_rRoleARN = a})
 
 instance FromJSON Rule where
         parseJSON
@@ -521,7 +671,7 @@ runCommandParameters pRunCommandTargets_ =
 
 -- | Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
 rcpRunCommandTargets :: Lens' RunCommandParameters (NonEmpty RunCommandTarget)
-rcpRunCommandTargets = lens _rcpRunCommandTargets (\ s a -> s{_rcpRunCommandTargets = a}) . _List1;
+rcpRunCommandTargets = lens _rcpRunCommandTargets (\ s a -> s{_rcpRunCommandTargets = a}) . _List1
 
 instance FromJSON RunCommandParameters where
         parseJSON
@@ -568,11 +718,11 @@ runCommandTarget pKey_ pValues_ =
 
 -- | Can be either @tag:@ /tag-key/ or @InstanceIds@ .
 rctKey :: Lens' RunCommandTarget Text
-rctKey = lens _rctKey (\ s a -> s{_rctKey = a});
+rctKey = lens _rctKey (\ s a -> s{_rctKey = a})
 
 -- | If @Key@ is @tag:@ /tag-key/ , @Values@ is a list of tag values. If @Key@ is @InstanceIds@ , @Values@ is a list of Amazon EC2 instance IDs.
 rctValues :: Lens' RunCommandTarget (NonEmpty Text)
-rctValues = lens _rctValues (\ s a -> s{_rctValues = a}) . _List1;
+rctValues = lens _rctValues (\ s a -> s{_rctValues = a}) . _List1
 
 instance FromJSON RunCommandTarget where
         parseJSON
@@ -592,6 +742,45 @@ instance ToJSON RunCommandTarget where
                  [Just ("Key" .= _rctKey),
                   Just ("Values" .= _rctValues)])
 
+-- | This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+--
+--
+--
+-- /See:/ 'sqsParameters' smart constructor.
+newtype SqsParameters = SqsParameters'
+  { _spMessageGroupId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SqsParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spMessageGroupId' - The FIFO message group ID to use as the target.
+sqsParameters
+    :: SqsParameters
+sqsParameters = SqsParameters' {_spMessageGroupId = Nothing}
+
+
+-- | The FIFO message group ID to use as the target.
+spMessageGroupId :: Lens' SqsParameters (Maybe Text)
+spMessageGroupId = lens _spMessageGroupId (\ s a -> s{_spMessageGroupId = a})
+
+instance FromJSON SqsParameters where
+        parseJSON
+          = withObject "SqsParameters"
+              (\ x -> SqsParameters' <$> (x .:? "MessageGroupId"))
+
+instance Hashable SqsParameters where
+
+instance NFData SqsParameters where
+
+instance ToJSON SqsParameters where
+        toJSON SqsParameters'{..}
+          = object
+              (catMaybes
+                 [("MessageGroupId" .=) <$> _spMessageGroupId])
+
 -- | Targets are the resources to be invoked when a rule is triggered. Target types include EC2 instances, AWS Lambda functions, Amazon Kinesis streams, Amazon ECS tasks, AWS Step Functions state machines, Run Command, and built-in targets.
 --
 --
@@ -601,7 +790,9 @@ data Target = Target'
   { _tRunCommandParameters :: !(Maybe RunCommandParameters)
   , _tKinesisParameters    :: !(Maybe KinesisParameters)
   , _tInputTransformer     :: !(Maybe InputTransformer)
+  , _tSqsParameters        :: !(Maybe SqsParameters)
   , _tInput                :: !(Maybe Text)
+  , _tBatchParameters      :: !(Maybe BatchParameters)
   , _tEcsParameters        :: !(Maybe EcsParameters)
   , _tInputPath            :: !(Maybe Text)
   , _tRoleARN              :: !(Maybe Text)
@@ -620,7 +811,11 @@ data Target = Target'
 --
 -- * 'tInputTransformer' - Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
 --
--- * 'tInput' - Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. You must use JSON dot notation, not bracket notation. For more information, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format> .
+-- * 'tSqsParameters' - Contains the message group ID to use when the target is a FIFO queue.
+--
+-- * 'tInput' - Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format> .
+--
+-- * 'tBatchParameters' - Contains the job definition, job name, and other parameters if the event target is an AWS Batch job. For more information about AWS Batch, see <http://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in the /AWS Batch User Guide/ .
 --
 -- * 'tEcsParameters' - Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Task Definitions > in the /Amazon EC2 Container Service Developer Guide/ .
 --
@@ -637,53 +832,63 @@ target
     -> Target
 target pId_ pARN_ =
   Target'
-  { _tRunCommandParameters = Nothing
-  , _tKinesisParameters = Nothing
-  , _tInputTransformer = Nothing
-  , _tInput = Nothing
-  , _tEcsParameters = Nothing
-  , _tInputPath = Nothing
-  , _tRoleARN = Nothing
-  , _tId = pId_
-  , _tARN = pARN_
-  }
+    { _tRunCommandParameters = Nothing
+    , _tKinesisParameters = Nothing
+    , _tInputTransformer = Nothing
+    , _tSqsParameters = Nothing
+    , _tInput = Nothing
+    , _tBatchParameters = Nothing
+    , _tEcsParameters = Nothing
+    , _tInputPath = Nothing
+    , _tRoleARN = Nothing
+    , _tId = pId_
+    , _tARN = pARN_
+    }
 
 
 -- | Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
 tRunCommandParameters :: Lens' Target (Maybe RunCommandParameters)
-tRunCommandParameters = lens _tRunCommandParameters (\ s a -> s{_tRunCommandParameters = a});
+tRunCommandParameters = lens _tRunCommandParameters (\ s a -> s{_tRunCommandParameters = a})
 
 -- | The custom parameter you can use to control shard assignment, when the target is an Amazon Kinesis stream. If you do not include this parameter, the default is to use the @eventId@ as the partition key.
 tKinesisParameters :: Lens' Target (Maybe KinesisParameters)
-tKinesisParameters = lens _tKinesisParameters (\ s a -> s{_tKinesisParameters = a});
+tKinesisParameters = lens _tKinesisParameters (\ s a -> s{_tKinesisParameters = a})
 
 -- | Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
 tInputTransformer :: Lens' Target (Maybe InputTransformer)
-tInputTransformer = lens _tInputTransformer (\ s a -> s{_tInputTransformer = a});
+tInputTransformer = lens _tInputTransformer (\ s a -> s{_tInputTransformer = a})
 
--- | Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. You must use JSON dot notation, not bracket notation. For more information, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format> .
+-- | Contains the message group ID to use when the target is a FIFO queue.
+tSqsParameters :: Lens' Target (Maybe SqsParameters)
+tSqsParameters = lens _tSqsParameters (\ s a -> s{_tSqsParameters = a})
+
+-- | Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format> .
 tInput :: Lens' Target (Maybe Text)
-tInput = lens _tInput (\ s a -> s{_tInput = a});
+tInput = lens _tInput (\ s a -> s{_tInput = a})
+
+-- | Contains the job definition, job name, and other parameters if the event target is an AWS Batch job. For more information about AWS Batch, see <http://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in the /AWS Batch User Guide/ .
+tBatchParameters :: Lens' Target (Maybe BatchParameters)
+tBatchParameters = lens _tBatchParameters (\ s a -> s{_tBatchParameters = a})
 
 -- | Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Task Definitions > in the /Amazon EC2 Container Service Developer Guide/ .
 tEcsParameters :: Lens' Target (Maybe EcsParameters)
-tEcsParameters = lens _tEcsParameters (\ s a -> s{_tEcsParameters = a});
+tEcsParameters = lens _tEcsParameters (\ s a -> s{_tEcsParameters = a})
 
 -- | The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON paths, see <http://goessner.net/articles/JsonPath/ JSONPath> .
 tInputPath :: Lens' Target (Maybe Text)
-tInputPath = lens _tInputPath (\ s a -> s{_tInputPath = a});
+tInputPath = lens _tInputPath (\ s a -> s{_tInputPath = a})
 
 -- | The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
 tRoleARN :: Lens' Target (Maybe Text)
-tRoleARN = lens _tRoleARN (\ s a -> s{_tRoleARN = a});
+tRoleARN = lens _tRoleARN (\ s a -> s{_tRoleARN = a})
 
 -- | The ID of the target.
 tId :: Lens' Target Text
-tId = lens _tId (\ s a -> s{_tId = a});
+tId = lens _tId (\ s a -> s{_tId = a})
 
 -- | The Amazon Resource Name (ARN) of the target.
 tARN :: Lens' Target Text
-tARN = lens _tARN (\ s a -> s{_tARN = a});
+tARN = lens _tARN (\ s a -> s{_tARN = a})
 
 instance FromJSON Target where
         parseJSON
@@ -693,7 +898,9 @@ instance FromJSON Target where
                    (x .:? "RunCommandParameters") <*>
                      (x .:? "KinesisParameters")
                      <*> (x .:? "InputTransformer")
+                     <*> (x .:? "SqsParameters")
                      <*> (x .:? "Input")
+                     <*> (x .:? "BatchParameters")
                      <*> (x .:? "EcsParameters")
                      <*> (x .:? "InputPath")
                      <*> (x .:? "RoleArn")
@@ -712,7 +919,9 @@ instance ToJSON Target where
                     _tRunCommandParameters,
                   ("KinesisParameters" .=) <$> _tKinesisParameters,
                   ("InputTransformer" .=) <$> _tInputTransformer,
+                  ("SqsParameters" .=) <$> _tSqsParameters,
                   ("Input" .=) <$> _tInput,
+                  ("BatchParameters" .=) <$> _tBatchParameters,
                   ("EcsParameters" .=) <$> _tEcsParameters,
                   ("InputPath" .=) <$> _tInputPath,
                   ("RoleArn" .=) <$> _tRoleARN, Just ("Id" .= _tId),

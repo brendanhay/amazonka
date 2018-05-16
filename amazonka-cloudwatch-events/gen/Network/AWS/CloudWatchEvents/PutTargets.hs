@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.PutTargets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,13 +37,15 @@
 --
 --     * AWS Step Functions state machines
 --
+--     * AWS Batch jobs
+--
 --     * Pipelines in Amazon Code Pipeline
 --
 --     * Amazon Inspector assessment templates
 --
 --     * Amazon SNS topics
 --
---     * Amazon SQS queues
+--     * Amazon SQS queues, including FIFO queues
 --
 --     * The default event bus of another AWS account
 --
@@ -71,7 +73,7 @@
 --
 --
 --
--- When you specify @Input@ , @InputPath@ , or @InputTransformer@ , you must use JSON dot notation, not bracket notation.
+-- When you specify @InputPath@ or @InputTransformer@ , you must use JSON dot notation, not bracket notation.
 --
 -- When you add targets to a rule and the associated rule triggers soon after, new or updated targets might not be immediately invoked. Please allow a short period of time for changes to take effect.
 --
@@ -126,11 +128,11 @@ putTargets pRule_ pTargets_ =
 
 -- | The name of the rule.
 ptRule :: Lens' PutTargets Text
-ptRule = lens _ptRule (\ s a -> s{_ptRule = a});
+ptRule = lens _ptRule (\ s a -> s{_ptRule = a})
 
 -- | The targets to update or add to the rule.
 ptTargets :: Lens' PutTargets (NonEmpty Target)
-ptTargets = lens _ptTargets (\ s a -> s{_ptTargets = a}) . _List1;
+ptTargets = lens _ptTargets (\ s a -> s{_ptTargets = a}) . _List1
 
 instance AWSRequest PutTargets where
         type Rs PutTargets = PutTargetsResponse
@@ -191,22 +193,22 @@ putTargetsResponse
     -> PutTargetsResponse
 putTargetsResponse pResponseStatus_ =
   PutTargetsResponse'
-  { _ptrsFailedEntryCount = Nothing
-  , _ptrsFailedEntries = Nothing
-  , _ptrsResponseStatus = pResponseStatus_
-  }
+    { _ptrsFailedEntryCount = Nothing
+    , _ptrsFailedEntries = Nothing
+    , _ptrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The number of failed entries.
 ptrsFailedEntryCount :: Lens' PutTargetsResponse (Maybe Int)
-ptrsFailedEntryCount = lens _ptrsFailedEntryCount (\ s a -> s{_ptrsFailedEntryCount = a});
+ptrsFailedEntryCount = lens _ptrsFailedEntryCount (\ s a -> s{_ptrsFailedEntryCount = a})
 
 -- | The failed target entries.
 ptrsFailedEntries :: Lens' PutTargetsResponse [PutTargetsResultEntry]
-ptrsFailedEntries = lens _ptrsFailedEntries (\ s a -> s{_ptrsFailedEntries = a}) . _Default . _Coerce;
+ptrsFailedEntries = lens _ptrsFailedEntries (\ s a -> s{_ptrsFailedEntries = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ptrsResponseStatus :: Lens' PutTargetsResponse Int
-ptrsResponseStatus = lens _ptrsResponseStatus (\ s a -> s{_ptrsResponseStatus = a});
+ptrsResponseStatus = lens _ptrsResponseStatus (\ s a -> s{_ptrsResponseStatus = a})
 
 instance NFData PutTargetsResponse where

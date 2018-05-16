@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ImportKeyMaterial
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -95,33 +95,33 @@ importKeyMaterial
     -> ImportKeyMaterial
 importKeyMaterial pKeyId_ pImportToken_ pEncryptedKeyMaterial_ =
   ImportKeyMaterial'
-  { _ikmExpirationModel = Nothing
-  , _ikmValidTo = Nothing
-  , _ikmKeyId = pKeyId_
-  , _ikmImportToken = _Base64 # pImportToken_
-  , _ikmEncryptedKeyMaterial = _Base64 # pEncryptedKeyMaterial_
-  }
+    { _ikmExpirationModel = Nothing
+    , _ikmValidTo = Nothing
+    , _ikmKeyId = pKeyId_
+    , _ikmImportToken = _Base64 # pImportToken_
+    , _ikmEncryptedKeyMaterial = _Base64 # pEncryptedKeyMaterial_
+    }
 
 
 -- | Specifies whether the key material expires. The default is @KEY_MATERIAL_EXPIRES@ , in which case you must include the @ValidTo@ parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@ , you must omit the @ValidTo@ parameter.
 ikmExpirationModel :: Lens' ImportKeyMaterial (Maybe ExpirationModelType)
-ikmExpirationModel = lens _ikmExpirationModel (\ s a -> s{_ikmExpirationModel = a});
+ikmExpirationModel = lens _ikmExpirationModel (\ s a -> s{_ikmExpirationModel = a})
 
 -- | The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the @ExpirationModel@ parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@ . Otherwise it is required.
 ikmValidTo :: Lens' ImportKeyMaterial (Maybe UTCTime)
-ikmValidTo = lens _ikmValidTo (\ s a -> s{_ikmValidTo = a}) . mapping _Time;
+ikmValidTo = lens _ikmValidTo (\ s a -> s{_ikmValidTo = a}) . mapping _Time
 
 -- | The identifier of the CMK to import the key material into. The CMK's @Origin@ must be @EXTERNAL@ . Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 ikmKeyId :: Lens' ImportKeyMaterial Text
-ikmKeyId = lens _ikmKeyId (\ s a -> s{_ikmKeyId = a});
+ikmKeyId = lens _ikmKeyId (\ s a -> s{_ikmKeyId = a})
 
 -- | The import token that you received in the response to a previous 'GetParametersForImport' request. It must be from the same response that contained the public key that you used to encrypt the key material.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 ikmImportToken :: Lens' ImportKeyMaterial ByteString
-ikmImportToken = lens _ikmImportToken (\ s a -> s{_ikmImportToken = a}) . _Base64;
+ikmImportToken = lens _ikmImportToken (\ s a -> s{_ikmImportToken = a}) . _Base64
 
 -- | The encrypted key material to import. It must be encrypted with the public key that you received in the response to a previous 'GetParametersForImport' request, using the wrapping algorithm that you specified in that request.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 ikmEncryptedKeyMaterial :: Lens' ImportKeyMaterial ByteString
-ikmEncryptedKeyMaterial = lens _ikmEncryptedKeyMaterial (\ s a -> s{_ikmEncryptedKeyMaterial = a}) . _Base64;
+ikmEncryptedKeyMaterial = lens _ikmEncryptedKeyMaterial (\ s a -> s{_ikmEncryptedKeyMaterial = a}) . _Base64
 
 instance AWSRequest ImportKeyMaterial where
         type Rs ImportKeyMaterial = ImportKeyMaterialResponse
@@ -182,6 +182,6 @@ importKeyMaterialResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ikmrsResponseStatus :: Lens' ImportKeyMaterialResponse Int
-ikmrsResponseStatus = lens _ikmrsResponseStatus (\ s a -> s{_ikmrsResponseStatus = a});
+ikmrsResponseStatus = lens _ikmrsResponseStatus (\ s a -> s{_ikmrsResponseStatus = a})
 
 instance NFData ImportKeyMaterialResponse where

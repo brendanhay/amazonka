@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeResourceGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ describeResourceGroups pResourceGroupARNs_ =
 
 -- | The ARN that specifies the resource group that you want to describe.
 drgResourceGroupARNs :: Lens' DescribeResourceGroups (NonEmpty Text)
-drgResourceGroupARNs = lens _drgResourceGroupARNs (\ s a -> s{_drgResourceGroupARNs = a}) . _List1;
+drgResourceGroupARNs = lens _drgResourceGroupARNs (\ s a -> s{_drgResourceGroupARNs = a}) . _List1
 
 instance AWSRequest DescribeResourceGroups where
         type Rs DescribeResourceGroups =
@@ -128,22 +128,22 @@ describeResourceGroupsResponse
     -> DescribeResourceGroupsResponse
 describeResourceGroupsResponse pResponseStatus_ =
   DescribeResourceGroupsResponse'
-  { _drgrsResponseStatus = pResponseStatus_
-  , _drgrsResourceGroups = mempty
-  , _drgrsFailedItems = mempty
-  }
+    { _drgrsResponseStatus = pResponseStatus_
+    , _drgrsResourceGroups = mempty
+    , _drgrsFailedItems = mempty
+    }
 
 
 -- | -- | The response status code.
 drgrsResponseStatus :: Lens' DescribeResourceGroupsResponse Int
-drgrsResponseStatus = lens _drgrsResponseStatus (\ s a -> s{_drgrsResponseStatus = a});
+drgrsResponseStatus = lens _drgrsResponseStatus (\ s a -> s{_drgrsResponseStatus = a})
 
 -- | Information about a resource group.
 drgrsResourceGroups :: Lens' DescribeResourceGroupsResponse [ResourceGroup]
-drgrsResourceGroups = lens _drgrsResourceGroups (\ s a -> s{_drgrsResourceGroups = a}) . _Coerce;
+drgrsResourceGroups = lens _drgrsResourceGroups (\ s a -> s{_drgrsResourceGroups = a}) . _Coerce
 
 -- | Resource group details that cannot be described. An error code is provided for each failed item.
 drgrsFailedItems :: Lens' DescribeResourceGroupsResponse (HashMap Text FailedItemDetails)
-drgrsFailedItems = lens _drgrsFailedItems (\ s a -> s{_drgrsFailedItems = a}) . _Map;
+drgrsFailedItems = lens _drgrsFailedItems (\ s a -> s{_drgrsFailedItems = a}) . _Map
 
 instance NFData DescribeResourceGroupsResponse where

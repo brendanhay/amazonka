@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetPolicyVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,10 +34,13 @@ module Network.AWS.IoT.GetPolicyVersion
     , getPolicyVersionResponse
     , GetPolicyVersionResponse
     -- * Response Lenses
+    , gpvrsLastModifiedDate
     , gpvrsPolicyName
     , gpvrsPolicyDocument
     , gpvrsPolicyVersionId
     , gpvrsPolicyARN
+    , gpvrsCreationDate
+    , gpvrsGenerationId
     , gpvrsIsDefaultVersion
     , gpvrsResponseStatus
     ) where
@@ -73,16 +76,16 @@ getPolicyVersion
     -> GetPolicyVersion
 getPolicyVersion pPolicyName_ pPolicyVersionId_ =
   GetPolicyVersion'
-  {_gpvPolicyName = pPolicyName_, _gpvPolicyVersionId = pPolicyVersionId_}
+    {_gpvPolicyName = pPolicyName_, _gpvPolicyVersionId = pPolicyVersionId_}
 
 
 -- | The name of the policy.
 gpvPolicyName :: Lens' GetPolicyVersion Text
-gpvPolicyName = lens _gpvPolicyName (\ s a -> s{_gpvPolicyName = a});
+gpvPolicyName = lens _gpvPolicyName (\ s a -> s{_gpvPolicyName = a})
 
 -- | The policy version ID.
 gpvPolicyVersionId :: Lens' GetPolicyVersion Text
-gpvPolicyVersionId = lens _gpvPolicyVersionId (\ s a -> s{_gpvPolicyVersionId = a});
+gpvPolicyVersionId = lens _gpvPolicyVersionId (\ s a -> s{_gpvPolicyVersionId = a})
 
 instance AWSRequest GetPolicyVersion where
         type Rs GetPolicyVersion = GetPolicyVersionResponse
@@ -91,9 +94,12 @@ instance AWSRequest GetPolicyVersion where
           = receiveJSON
               (\ s h x ->
                  GetPolicyVersionResponse' <$>
-                   (x .?> "policyName") <*> (x .?> "policyDocument") <*>
-                     (x .?> "policyVersionId")
+                   (x .?> "lastModifiedDate") <*> (x .?> "policyName")
+                     <*> (x .?> "policyDocument")
+                     <*> (x .?> "policyVersionId")
                      <*> (x .?> "policyArn")
+                     <*> (x .?> "creationDate")
+                     <*> (x .?> "generationId")
                      <*> (x .?> "isDefaultVersion")
                      <*> (pure (fromEnum s)))
 
@@ -119,10 +125,13 @@ instance ToQuery GetPolicyVersion where
 --
 -- /See:/ 'getPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
-  { _gpvrsPolicyName       :: !(Maybe Text)
+  { _gpvrsLastModifiedDate :: !(Maybe POSIX)
+  , _gpvrsPolicyName       :: !(Maybe Text)
   , _gpvrsPolicyDocument   :: !(Maybe Text)
   , _gpvrsPolicyVersionId  :: !(Maybe Text)
   , _gpvrsPolicyARN        :: !(Maybe Text)
+  , _gpvrsCreationDate     :: !(Maybe POSIX)
+  , _gpvrsGenerationId     :: !(Maybe Text)
   , _gpvrsIsDefaultVersion :: !(Maybe Bool)
   , _gpvrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -132,6 +141,8 @@ data GetPolicyVersionResponse = GetPolicyVersionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'gpvrsLastModifiedDate' - The date the policy version was last modified.
+--
 -- * 'gpvrsPolicyName' - The policy name.
 --
 -- * 'gpvrsPolicyDocument' - The JSON document that describes the policy.
@@ -139,6 +150,10 @@ data GetPolicyVersionResponse = GetPolicyVersionResponse'
 -- * 'gpvrsPolicyVersionId' - The policy version ID.
 --
 -- * 'gpvrsPolicyARN' - The policy ARN.
+--
+-- * 'gpvrsCreationDate' - The date the policy version was created.
+--
+-- * 'gpvrsGenerationId' - The generation ID of the policy version.
 --
 -- * 'gpvrsIsDefaultVersion' - Specifies whether the policy version is the default.
 --
@@ -148,37 +163,52 @@ getPolicyVersionResponse
     -> GetPolicyVersionResponse
 getPolicyVersionResponse pResponseStatus_ =
   GetPolicyVersionResponse'
-  { _gpvrsPolicyName = Nothing
-  , _gpvrsPolicyDocument = Nothing
-  , _gpvrsPolicyVersionId = Nothing
-  , _gpvrsPolicyARN = Nothing
-  , _gpvrsIsDefaultVersion = Nothing
-  , _gpvrsResponseStatus = pResponseStatus_
-  }
+    { _gpvrsLastModifiedDate = Nothing
+    , _gpvrsPolicyName = Nothing
+    , _gpvrsPolicyDocument = Nothing
+    , _gpvrsPolicyVersionId = Nothing
+    , _gpvrsPolicyARN = Nothing
+    , _gpvrsCreationDate = Nothing
+    , _gpvrsGenerationId = Nothing
+    , _gpvrsIsDefaultVersion = Nothing
+    , _gpvrsResponseStatus = pResponseStatus_
+    }
 
+
+-- | The date the policy version was last modified.
+gpvrsLastModifiedDate :: Lens' GetPolicyVersionResponse (Maybe UTCTime)
+gpvrsLastModifiedDate = lens _gpvrsLastModifiedDate (\ s a -> s{_gpvrsLastModifiedDate = a}) . mapping _Time
 
 -- | The policy name.
 gpvrsPolicyName :: Lens' GetPolicyVersionResponse (Maybe Text)
-gpvrsPolicyName = lens _gpvrsPolicyName (\ s a -> s{_gpvrsPolicyName = a});
+gpvrsPolicyName = lens _gpvrsPolicyName (\ s a -> s{_gpvrsPolicyName = a})
 
 -- | The JSON document that describes the policy.
 gpvrsPolicyDocument :: Lens' GetPolicyVersionResponse (Maybe Text)
-gpvrsPolicyDocument = lens _gpvrsPolicyDocument (\ s a -> s{_gpvrsPolicyDocument = a});
+gpvrsPolicyDocument = lens _gpvrsPolicyDocument (\ s a -> s{_gpvrsPolicyDocument = a})
 
 -- | The policy version ID.
 gpvrsPolicyVersionId :: Lens' GetPolicyVersionResponse (Maybe Text)
-gpvrsPolicyVersionId = lens _gpvrsPolicyVersionId (\ s a -> s{_gpvrsPolicyVersionId = a});
+gpvrsPolicyVersionId = lens _gpvrsPolicyVersionId (\ s a -> s{_gpvrsPolicyVersionId = a})
 
 -- | The policy ARN.
 gpvrsPolicyARN :: Lens' GetPolicyVersionResponse (Maybe Text)
-gpvrsPolicyARN = lens _gpvrsPolicyARN (\ s a -> s{_gpvrsPolicyARN = a});
+gpvrsPolicyARN = lens _gpvrsPolicyARN (\ s a -> s{_gpvrsPolicyARN = a})
+
+-- | The date the policy version was created.
+gpvrsCreationDate :: Lens' GetPolicyVersionResponse (Maybe UTCTime)
+gpvrsCreationDate = lens _gpvrsCreationDate (\ s a -> s{_gpvrsCreationDate = a}) . mapping _Time
+
+-- | The generation ID of the policy version.
+gpvrsGenerationId :: Lens' GetPolicyVersionResponse (Maybe Text)
+gpvrsGenerationId = lens _gpvrsGenerationId (\ s a -> s{_gpvrsGenerationId = a})
 
 -- | Specifies whether the policy version is the default.
 gpvrsIsDefaultVersion :: Lens' GetPolicyVersionResponse (Maybe Bool)
-gpvrsIsDefaultVersion = lens _gpvrsIsDefaultVersion (\ s a -> s{_gpvrsIsDefaultVersion = a});
+gpvrsIsDefaultVersion = lens _gpvrsIsDefaultVersion (\ s a -> s{_gpvrsIsDefaultVersion = a})
 
 -- | -- | The response status code.
 gpvrsResponseStatus :: Lens' GetPolicyVersionResponse Int
-gpvrsResponseStatus = lens _gpvrsResponseStatus (\ s a -> s{_gpvrsResponseStatus = a});
+gpvrsResponseStatus = lens _gpvrsResponseStatus (\ s a -> s{_gpvrsResponseStatus = a})
 
 instance NFData GetPolicyVersionResponse where

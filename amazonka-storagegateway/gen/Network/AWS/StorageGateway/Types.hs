@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,9 @@ module Network.AWS.StorageGateway.Types
     , _ServiceUnavailableError
     , _InternalServerError
 
+    -- * ObjectACL
+    , ObjectACL (..)
+
     -- * CachediSCSIVolume
     , CachediSCSIVolume
     , cachediSCSIVolume
@@ -29,6 +32,7 @@ module Network.AWS.StorageGateway.Types
     , cscsivVolumeARN
     , cscsivVolumeProgress
     , cscsivVolumeSizeInBytes
+    , cscsivVolumeUsedInBytes
     , cscsivCreatedDate
     , cscsivVolumeId
     , cscsivVolumeType
@@ -92,15 +96,18 @@ module Network.AWS.StorageGateway.Types
     , nfsfsiKMSKey
     , nfsfsiGatewayARN
     , nfsfsiPath
+    , nfsfsiObjectACL
     , nfsfsiKMSEncrypted
     , nfsfsiFileShareId
     , nfsfsiFileShareARN
     , nfsfsiDefaultStorageClass
     , nfsfsiRole
     , nfsfsiSquash
+    , nfsfsiRequesterPays
     , nfsfsiNFSFileShareDefaults
     , nfsfsiLocationARN
     , nfsfsiClientList
+    , nfsfsiGuessMIMETypeEnabled
     , nfsfsiReadOnly
 
     -- * NetworkInterface
@@ -120,6 +127,7 @@ module Network.AWS.StorageGateway.Types
     , sscsivVolumeARN
     , sscsivVolumeProgress
     , sscsivVolumeSizeInBytes
+    , sscsivVolumeUsedInBytes
     , sscsivCreatedDate
     , sscsivVolumeId
     , sscsivVolumeDiskId
@@ -219,24 +227,24 @@ import Network.AWS.StorageGateway.Types.Sum
 storageGateway :: Service
 storageGateway =
   Service
-  { _svcAbbrev = "StorageGateway"
-  , _svcSigner = v4
-  , _svcPrefix = "storagegateway"
-  , _svcVersion = "2013-06-30"
-  , _svcEndpoint = defaultEndpoint storageGateway
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "StorageGateway"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "StorageGateway"
+    , _svcSigner = v4
+    , _svcPrefix = "storagegateway"
+    , _svcVersion = "2013-06-30"
+    , _svcEndpoint = defaultEndpoint storageGateway
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "StorageGateway"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -245,6 +253,8 @@ storageGateway =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

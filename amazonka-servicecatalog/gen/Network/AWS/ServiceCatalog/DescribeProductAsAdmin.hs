@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeProductAsAdmin
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about a specified product, run with administrator access.
+-- Gets information about the specified product. This operation is run with administrator access.
 --
 --
 module Network.AWS.ServiceCatalog.DescribeProductAsAdmin
@@ -61,7 +61,7 @@ data DescribeProductAsAdmin = DescribeProductAsAdmin'
 --
 -- * 'dpaaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dpaaId' - The identifier of the product for which to retrieve information.
+-- * 'dpaaId' - The product identifier.
 describeProductAsAdmin
     :: Text -- ^ 'dpaaId'
     -> DescribeProductAsAdmin
@@ -71,11 +71,11 @@ describeProductAsAdmin pId_ =
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpaaAcceptLanguage :: Lens' DescribeProductAsAdmin (Maybe Text)
-dpaaAcceptLanguage = lens _dpaaAcceptLanguage (\ s a -> s{_dpaaAcceptLanguage = a});
+dpaaAcceptLanguage = lens _dpaaAcceptLanguage (\ s a -> s{_dpaaAcceptLanguage = a})
 
--- | The identifier of the product for which to retrieve information.
+-- | The product identifier.
 dpaaId :: Lens' DescribeProductAsAdmin Text
-dpaaId = lens _dpaaId (\ s a -> s{_dpaaId = a});
+dpaaId = lens _dpaaId (\ s a -> s{_dpaaId = a})
 
 instance AWSRequest DescribeProductAsAdmin where
         type Rs DescribeProductAsAdmin =
@@ -133,13 +133,13 @@ data DescribeProductAsAdminResponse = DescribeProductAsAdminResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpaarsProductViewDetail' - Detailed product view information.
+-- * 'dpaarsProductViewDetail' - Information about the product view.
 --
--- * 'dpaarsTagOptions' - List of TagOptions associated with the product.
+-- * 'dpaarsTagOptions' - Information about the TagOptions associated with the product.
 --
--- * 'dpaarsProvisioningArtifactSummaries' - A list of provisioning artifact summaries for the product.
+-- * 'dpaarsProvisioningArtifactSummaries' - Information about the provisioning artifacts (also known as versions) for the specified product.
 --
--- * 'dpaarsTags' - Tags associated with the product.
+-- * 'dpaarsTags' - Information about the tags associated with the product.
 --
 -- * 'dpaarsResponseStatus' - -- | The response status code.
 describeProductAsAdminResponse
@@ -147,32 +147,32 @@ describeProductAsAdminResponse
     -> DescribeProductAsAdminResponse
 describeProductAsAdminResponse pResponseStatus_ =
   DescribeProductAsAdminResponse'
-  { _dpaarsProductViewDetail = Nothing
-  , _dpaarsTagOptions = Nothing
-  , _dpaarsProvisioningArtifactSummaries = Nothing
-  , _dpaarsTags = Nothing
-  , _dpaarsResponseStatus = pResponseStatus_
-  }
+    { _dpaarsProductViewDetail = Nothing
+    , _dpaarsTagOptions = Nothing
+    , _dpaarsProvisioningArtifactSummaries = Nothing
+    , _dpaarsTags = Nothing
+    , _dpaarsResponseStatus = pResponseStatus_
+    }
 
 
--- | Detailed product view information.
+-- | Information about the product view.
 dpaarsProductViewDetail :: Lens' DescribeProductAsAdminResponse (Maybe ProductViewDetail)
-dpaarsProductViewDetail = lens _dpaarsProductViewDetail (\ s a -> s{_dpaarsProductViewDetail = a});
+dpaarsProductViewDetail = lens _dpaarsProductViewDetail (\ s a -> s{_dpaarsProductViewDetail = a})
 
--- | List of TagOptions associated with the product.
+-- | Information about the TagOptions associated with the product.
 dpaarsTagOptions :: Lens' DescribeProductAsAdminResponse [TagOptionDetail]
-dpaarsTagOptions = lens _dpaarsTagOptions (\ s a -> s{_dpaarsTagOptions = a}) . _Default . _Coerce;
+dpaarsTagOptions = lens _dpaarsTagOptions (\ s a -> s{_dpaarsTagOptions = a}) . _Default . _Coerce
 
--- | A list of provisioning artifact summaries for the product.
+-- | Information about the provisioning artifacts (also known as versions) for the specified product.
 dpaarsProvisioningArtifactSummaries :: Lens' DescribeProductAsAdminResponse [ProvisioningArtifactSummary]
-dpaarsProvisioningArtifactSummaries = lens _dpaarsProvisioningArtifactSummaries (\ s a -> s{_dpaarsProvisioningArtifactSummaries = a}) . _Default . _Coerce;
+dpaarsProvisioningArtifactSummaries = lens _dpaarsProvisioningArtifactSummaries (\ s a -> s{_dpaarsProvisioningArtifactSummaries = a}) . _Default . _Coerce
 
--- | Tags associated with the product.
+-- | Information about the tags associated with the product.
 dpaarsTags :: Lens' DescribeProductAsAdminResponse [Tag]
-dpaarsTags = lens _dpaarsTags (\ s a -> s{_dpaarsTags = a}) . _Default . _Coerce;
+dpaarsTags = lens _dpaarsTags (\ s a -> s{_dpaarsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dpaarsResponseStatus :: Lens' DescribeProductAsAdminResponse Int
-dpaarsResponseStatus = lens _dpaarsResponseStatus (\ s a -> s{_dpaarsResponseStatus = a});
+dpaarsResponseStatus = lens _dpaarsResponseStatus (\ s a -> s{_dpaarsResponseStatus = a})
 
 instance NFData DescribeProductAsAdminResponse where

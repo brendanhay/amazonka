@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetMaintenanceWindowTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,16 +78,16 @@ getMaintenanceWindowTask
     -> GetMaintenanceWindowTask
 getMaintenanceWindowTask pWindowId_ pWindowTaskId_ =
   GetMaintenanceWindowTask'
-  {_gmwtWindowId = pWindowId_, _gmwtWindowTaskId = pWindowTaskId_}
+    {_gmwtWindowId = pWindowId_, _gmwtWindowTaskId = pWindowTaskId_}
 
 
 -- | The Maintenance Window ID that includes the task to retrieve.
 gmwtWindowId :: Lens' GetMaintenanceWindowTask Text
-gmwtWindowId = lens _gmwtWindowId (\ s a -> s{_gmwtWindowId = a});
+gmwtWindowId = lens _gmwtWindowId (\ s a -> s{_gmwtWindowId = a})
 
 -- | The Maintenance Window task ID to retrieve.
 gmwtWindowTaskId :: Lens' GetMaintenanceWindowTask Text
-gmwtWindowTaskId = lens _gmwtWindowTaskId (\ s a -> s{_gmwtWindowTaskId = a});
+gmwtWindowTaskId = lens _gmwtWindowTaskId (\ s a -> s{_gmwtWindowTaskId = a})
 
 instance AWSRequest GetMaintenanceWindowTask where
         type Rs GetMaintenanceWindowTask =
@@ -196,83 +196,83 @@ getMaintenanceWindowTaskResponse
     -> GetMaintenanceWindowTaskResponse
 getMaintenanceWindowTaskResponse pResponseStatus_ =
   GetMaintenanceWindowTaskResponse'
-  { _gmwtrsServiceRoleARN = Nothing
-  , _gmwtrsWindowTaskId = Nothing
-  , _gmwtrsTaskParameters = Nothing
-  , _gmwtrsPriority = Nothing
-  , _gmwtrsTaskType = Nothing
-  , _gmwtrsTaskARN = Nothing
-  , _gmwtrsMaxErrors = Nothing
-  , _gmwtrsTaskInvocationParameters = Nothing
-  , _gmwtrsName = Nothing
-  , _gmwtrsTargets = Nothing
-  , _gmwtrsLoggingInfo = Nothing
-  , _gmwtrsDescription = Nothing
-  , _gmwtrsMaxConcurrency = Nothing
-  , _gmwtrsWindowId = Nothing
-  , _gmwtrsResponseStatus = pResponseStatus_
-  }
+    { _gmwtrsServiceRoleARN = Nothing
+    , _gmwtrsWindowTaskId = Nothing
+    , _gmwtrsTaskParameters = Nothing
+    , _gmwtrsPriority = Nothing
+    , _gmwtrsTaskType = Nothing
+    , _gmwtrsTaskARN = Nothing
+    , _gmwtrsMaxErrors = Nothing
+    , _gmwtrsTaskInvocationParameters = Nothing
+    , _gmwtrsName = Nothing
+    , _gmwtrsTargets = Nothing
+    , _gmwtrsLoggingInfo = Nothing
+    , _gmwtrsDescription = Nothing
+    , _gmwtrsMaxConcurrency = Nothing
+    , _gmwtrsWindowId = Nothing
+    , _gmwtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The IAM service role to assume during task execution.
 gmwtrsServiceRoleARN :: Lens' GetMaintenanceWindowTaskResponse (Maybe Text)
-gmwtrsServiceRoleARN = lens _gmwtrsServiceRoleARN (\ s a -> s{_gmwtrsServiceRoleARN = a});
+gmwtrsServiceRoleARN = lens _gmwtrsServiceRoleARN (\ s a -> s{_gmwtrsServiceRoleARN = a})
 
 -- | The retrieved Maintenance Window task ID.
 gmwtrsWindowTaskId :: Lens' GetMaintenanceWindowTaskResponse (Maybe Text)
-gmwtrsWindowTaskId = lens _gmwtrsWindowTaskId (\ s a -> s{_gmwtrsWindowTaskId = a});
+gmwtrsWindowTaskId = lens _gmwtrsWindowTaskId (\ s a -> s{_gmwtrsWindowTaskId = a})
 
 -- | The parameters to pass to the task when it executes.
 gmwtrsTaskParameters :: Lens' GetMaintenanceWindowTaskResponse (Maybe (HashMap Text MaintenanceWindowTaskParameterValueExpression))
-gmwtrsTaskParameters = lens _gmwtrsTaskParameters (\ s a -> s{_gmwtrsTaskParameters = a}) . mapping (_Sensitive . _Map);
+gmwtrsTaskParameters = lens _gmwtrsTaskParameters (\ s a -> s{_gmwtrsTaskParameters = a}) . mapping (_Sensitive . _Map)
 
 -- | The priority of the task when it executes. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
 gmwtrsPriority :: Lens' GetMaintenanceWindowTaskResponse (Maybe Natural)
-gmwtrsPriority = lens _gmwtrsPriority (\ s a -> s{_gmwtrsPriority = a}) . mapping _Nat;
+gmwtrsPriority = lens _gmwtrsPriority (\ s a -> s{_gmwtrsPriority = a}) . mapping _Nat
 
 -- | The type of task to execute.
 gmwtrsTaskType :: Lens' GetMaintenanceWindowTaskResponse (Maybe MaintenanceWindowTaskType)
-gmwtrsTaskType = lens _gmwtrsTaskType (\ s a -> s{_gmwtrsTaskType = a});
+gmwtrsTaskType = lens _gmwtrsTaskType (\ s a -> s{_gmwtrsTaskType = a})
 
 -- | The resource that the task used during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the Systems Manager Document name/ARN. For LAMBDA tasks, the value is the function name/ARN. For STEP_FUNCTION tasks, the value is the state machine ARN.
 gmwtrsTaskARN :: Lens' GetMaintenanceWindowTaskResponse (Maybe Text)
-gmwtrsTaskARN = lens _gmwtrsTaskARN (\ s a -> s{_gmwtrsTaskARN = a});
+gmwtrsTaskARN = lens _gmwtrsTaskARN (\ s a -> s{_gmwtrsTaskARN = a})
 
 -- | The maximum number of errors allowed before the task stops being scheduled.
 gmwtrsMaxErrors :: Lens' GetMaintenanceWindowTaskResponse (Maybe Text)
-gmwtrsMaxErrors = lens _gmwtrsMaxErrors (\ s a -> s{_gmwtrsMaxErrors = a});
+gmwtrsMaxErrors = lens _gmwtrsMaxErrors (\ s a -> s{_gmwtrsMaxErrors = a})
 
 -- | The parameters to pass to the task when it executes.
 gmwtrsTaskInvocationParameters :: Lens' GetMaintenanceWindowTaskResponse (Maybe MaintenanceWindowTaskInvocationParameters)
-gmwtrsTaskInvocationParameters = lens _gmwtrsTaskInvocationParameters (\ s a -> s{_gmwtrsTaskInvocationParameters = a});
+gmwtrsTaskInvocationParameters = lens _gmwtrsTaskInvocationParameters (\ s a -> s{_gmwtrsTaskInvocationParameters = a})
 
 -- | The retrieved task name.
 gmwtrsName :: Lens' GetMaintenanceWindowTaskResponse (Maybe Text)
-gmwtrsName = lens _gmwtrsName (\ s a -> s{_gmwtrsName = a});
+gmwtrsName = lens _gmwtrsName (\ s a -> s{_gmwtrsName = a})
 
 -- | The targets where the task should execute.
 gmwtrsTargets :: Lens' GetMaintenanceWindowTaskResponse [Target]
-gmwtrsTargets = lens _gmwtrsTargets (\ s a -> s{_gmwtrsTargets = a}) . _Default . _Coerce;
+gmwtrsTargets = lens _gmwtrsTargets (\ s a -> s{_gmwtrsTargets = a}) . _Default . _Coerce
 
 -- | The location in Amazon S3 where the task results are logged.
 gmwtrsLoggingInfo :: Lens' GetMaintenanceWindowTaskResponse (Maybe LoggingInfo)
-gmwtrsLoggingInfo = lens _gmwtrsLoggingInfo (\ s a -> s{_gmwtrsLoggingInfo = a});
+gmwtrsLoggingInfo = lens _gmwtrsLoggingInfo (\ s a -> s{_gmwtrsLoggingInfo = a})
 
 -- | The retrieved task description.
 gmwtrsDescription :: Lens' GetMaintenanceWindowTaskResponse (Maybe Text)
-gmwtrsDescription = lens _gmwtrsDescription (\ s a -> s{_gmwtrsDescription = a}) . mapping _Sensitive;
+gmwtrsDescription = lens _gmwtrsDescription (\ s a -> s{_gmwtrsDescription = a}) . mapping _Sensitive
 
 -- | The maximum number of targets allowed to run this task in parallel.
 gmwtrsMaxConcurrency :: Lens' GetMaintenanceWindowTaskResponse (Maybe Text)
-gmwtrsMaxConcurrency = lens _gmwtrsMaxConcurrency (\ s a -> s{_gmwtrsMaxConcurrency = a});
+gmwtrsMaxConcurrency = lens _gmwtrsMaxConcurrency (\ s a -> s{_gmwtrsMaxConcurrency = a})
 
 -- | The retrieved Maintenance Window ID.
 gmwtrsWindowId :: Lens' GetMaintenanceWindowTaskResponse (Maybe Text)
-gmwtrsWindowId = lens _gmwtrsWindowId (\ s a -> s{_gmwtrsWindowId = a});
+gmwtrsWindowId = lens _gmwtrsWindowId (\ s a -> s{_gmwtrsWindowId = a})
 
 -- | -- | The response status code.
 gmwtrsResponseStatus :: Lens' GetMaintenanceWindowTaskResponse Int
-gmwtrsResponseStatus = lens _gmwtrsResponseStatus (\ s a -> s{_gmwtrsResponseStatus = a});
+gmwtrsResponseStatus = lens _gmwtrsResponseStatus (\ s a -> s{_gmwtrsResponseStatus = a})
 
 instance NFData GetMaintenanceWindowTaskResponse
          where

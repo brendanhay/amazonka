@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeComplianceByResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,44 +84,44 @@ data DescribeComplianceByResource = DescribeComplianceByResource'
 --
 -- * 'dcbrResourceId' - The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
 --
--- * 'dcbrResourceType' - The types of AWS resources for which you want compliance information; for example, @AWS::EC2::Instance@ . For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
+-- * 'dcbrResourceType' - The types of AWS resources for which you want compliance information (for example, @AWS::EC2::Instance@ ). For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
 --
--- * 'dcbrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
+-- * 'dcbrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
 --
--- * 'dcbrNextToken' - The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'dcbrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'dcbrLimit' - The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default.
+-- * 'dcbrLimit' - The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 describeComplianceByResource
     :: DescribeComplianceByResource
 describeComplianceByResource =
   DescribeComplianceByResource'
-  { _dcbrResourceId = Nothing
-  , _dcbrResourceType = Nothing
-  , _dcbrComplianceTypes = Nothing
-  , _dcbrNextToken = Nothing
-  , _dcbrLimit = Nothing
-  }
+    { _dcbrResourceId = Nothing
+    , _dcbrResourceType = Nothing
+    , _dcbrComplianceTypes = Nothing
+    , _dcbrNextToken = Nothing
+    , _dcbrLimit = Nothing
+    }
 
 
 -- | The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
 dcbrResourceId :: Lens' DescribeComplianceByResource (Maybe Text)
-dcbrResourceId = lens _dcbrResourceId (\ s a -> s{_dcbrResourceId = a});
+dcbrResourceId = lens _dcbrResourceId (\ s a -> s{_dcbrResourceId = a})
 
--- | The types of AWS resources for which you want compliance information; for example, @AWS::EC2::Instance@ . For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
+-- | The types of AWS resources for which you want compliance information (for example, @AWS::EC2::Instance@ ). For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
 dcbrResourceType :: Lens' DescribeComplianceByResource (Maybe Text)
-dcbrResourceType = lens _dcbrResourceType (\ s a -> s{_dcbrResourceType = a});
+dcbrResourceType = lens _dcbrResourceType (\ s a -> s{_dcbrResourceType = a})
 
--- | Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
+-- | Filters the results by compliance. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
 dcbrComplianceTypes :: Lens' DescribeComplianceByResource [ComplianceType]
-dcbrComplianceTypes = lens _dcbrComplianceTypes (\ s a -> s{_dcbrComplianceTypes = a}) . _Default . _Coerce;
+dcbrComplianceTypes = lens _dcbrComplianceTypes (\ s a -> s{_dcbrComplianceTypes = a}) . _Default . _Coerce
 
--- | The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 dcbrNextToken :: Lens' DescribeComplianceByResource (Maybe Text)
-dcbrNextToken = lens _dcbrNextToken (\ s a -> s{_dcbrNextToken = a});
+dcbrNextToken = lens _dcbrNextToken (\ s a -> s{_dcbrNextToken = a})
 
--- | The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default.
+-- | The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 dcbrLimit :: Lens' DescribeComplianceByResource (Maybe Natural)
-dcbrLimit = lens _dcbrLimit (\ s a -> s{_dcbrLimit = a}) . mapping _Nat;
+dcbrLimit = lens _dcbrLimit (\ s a -> s{_dcbrLimit = a}) . mapping _Nat
 
 instance AWSPager DescribeComplianceByResource where
         page rq rs
@@ -199,23 +199,23 @@ describeComplianceByResourceResponse
     -> DescribeComplianceByResourceResponse
 describeComplianceByResourceResponse pResponseStatus_ =
   DescribeComplianceByResourceResponse'
-  { _dcbrrsComplianceByResources = Nothing
-  , _dcbrrsNextToken = Nothing
-  , _dcbrrsResponseStatus = pResponseStatus_
-  }
+    { _dcbrrsComplianceByResources = Nothing
+    , _dcbrrsNextToken = Nothing
+    , _dcbrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Indicates whether the specified AWS resource complies with all of the AWS Config rules that evaluate it.
 dcbrrsComplianceByResources :: Lens' DescribeComplianceByResourceResponse [ComplianceByResource]
-dcbrrsComplianceByResources = lens _dcbrrsComplianceByResources (\ s a -> s{_dcbrrsComplianceByResources = a}) . _Default . _Coerce;
+dcbrrsComplianceByResources = lens _dcbrrsComplianceByResources (\ s a -> s{_dcbrrsComplianceByResources = a}) . _Default . _Coerce
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 dcbrrsNextToken :: Lens' DescribeComplianceByResourceResponse (Maybe Text)
-dcbrrsNextToken = lens _dcbrrsNextToken (\ s a -> s{_dcbrrsNextToken = a});
+dcbrrsNextToken = lens _dcbrrsNextToken (\ s a -> s{_dcbrrsNextToken = a})
 
 -- | -- | The response status code.
 dcbrrsResponseStatus :: Lens' DescribeComplianceByResourceResponse Int
-dcbrrsResponseStatus = lens _dcbrrsResponseStatus (\ s a -> s{_dcbrrsResponseStatus = a});
+dcbrrsResponseStatus = lens _dcbrrsResponseStatus (\ s a -> s{_dcbrrsResponseStatus = a})
 
 instance NFData DescribeComplianceByResourceResponse
          where

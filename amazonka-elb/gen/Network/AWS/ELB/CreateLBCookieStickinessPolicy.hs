@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.CreateLBCookieStickinessPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,23 +78,23 @@ createLBCookieStickinessPolicy
     -> CreateLBCookieStickinessPolicy
 createLBCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ =
   CreateLBCookieStickinessPolicy'
-  { _clbcspCookieExpirationPeriod = Nothing
-  , _clbcspLoadBalancerName = pLoadBalancerName_
-  , _clbcspPolicyName = pPolicyName_
-  }
+    { _clbcspCookieExpirationPeriod = Nothing
+    , _clbcspLoadBalancerName = pLoadBalancerName_
+    , _clbcspPolicyName = pPolicyName_
+    }
 
 
 -- | The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.
 clbcspCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Integer)
-clbcspCookieExpirationPeriod = lens _clbcspCookieExpirationPeriod (\ s a -> s{_clbcspCookieExpirationPeriod = a});
+clbcspCookieExpirationPeriod = lens _clbcspCookieExpirationPeriod (\ s a -> s{_clbcspCookieExpirationPeriod = a})
 
 -- | The name of the load balancer.
 clbcspLoadBalancerName :: Lens' CreateLBCookieStickinessPolicy Text
-clbcspLoadBalancerName = lens _clbcspLoadBalancerName (\ s a -> s{_clbcspLoadBalancerName = a});
+clbcspLoadBalancerName = lens _clbcspLoadBalancerName (\ s a -> s{_clbcspLoadBalancerName = a})
 
 -- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
 clbcspPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
-clbcspPolicyName = lens _clbcspPolicyName (\ s a -> s{_clbcspPolicyName = a});
+clbcspPolicyName = lens _clbcspPolicyName (\ s a -> s{_clbcspPolicyName = a})
 
 instance AWSRequest CreateLBCookieStickinessPolicy
          where
@@ -151,12 +151,12 @@ createLBCookieStickinessPolicyResponse
     -> CreateLBCookieStickinessPolicyResponse
 createLBCookieStickinessPolicyResponse pResponseStatus_ =
   CreateLBCookieStickinessPolicyResponse'
-  {_clbcsprsResponseStatus = pResponseStatus_}
+    {_clbcsprsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 clbcsprsResponseStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
-clbcsprsResponseStatus = lens _clbcsprsResponseStatus (\ s a -> s{_clbcsprsResponseStatus = a});
+clbcsprsResponseStatus = lens _clbcsprsResponseStatus (\ s a -> s{_clbcsprsResponseStatus = a})
 
 instance NFData
            CreateLBCookieStickinessPolicyResponse

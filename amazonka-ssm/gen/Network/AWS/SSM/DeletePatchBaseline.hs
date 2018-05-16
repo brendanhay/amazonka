@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeletePatchBaseline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deletePatchBaseline pBaselineId_ =
 
 -- | The ID of the patch baseline to delete.
 dpbBaselineId :: Lens' DeletePatchBaseline Text
-dpbBaselineId = lens _dpbBaselineId (\ s a -> s{_dpbBaselineId = a});
+dpbBaselineId = lens _dpbBaselineId (\ s a -> s{_dpbBaselineId = a})
 
 instance AWSRequest DeletePatchBaseline where
         type Rs DeletePatchBaseline =
@@ -119,15 +119,15 @@ deletePatchBaselineResponse
     -> DeletePatchBaselineResponse
 deletePatchBaselineResponse pResponseStatus_ =
   DeletePatchBaselineResponse'
-  {_dpbrsBaselineId = Nothing, _dpbrsResponseStatus = pResponseStatus_}
+    {_dpbrsBaselineId = Nothing, _dpbrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the deleted patch baseline.
 dpbrsBaselineId :: Lens' DeletePatchBaselineResponse (Maybe Text)
-dpbrsBaselineId = lens _dpbrsBaselineId (\ s a -> s{_dpbrsBaselineId = a});
+dpbrsBaselineId = lens _dpbrsBaselineId (\ s a -> s{_dpbrsBaselineId = a})
 
 -- | -- | The response status code.
 dpbrsResponseStatus :: Lens' DeletePatchBaselineResponse Int
-dpbrsResponseStatus = lens _dpbrsResponseStatus (\ s a -> s{_dpbrsResponseStatus = a});
+dpbrsResponseStatus = lens _dpbrsResponseStatus (\ s a -> s{_dpbrsResponseStatus = a})
 
 instance NFData DeletePatchBaselineResponse where

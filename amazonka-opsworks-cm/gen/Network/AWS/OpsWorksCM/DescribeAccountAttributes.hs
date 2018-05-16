@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DescribeAccountAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -110,16 +110,16 @@ describeAccountAttributesResponse
     -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pResponseStatus_ =
   DescribeAccountAttributesResponse'
-  {_daarsAttributes = Nothing, _daarsResponseStatus = pResponseStatus_}
+    {_daarsAttributes = Nothing, _daarsResponseStatus = pResponseStatus_}
 
 
 -- | The attributes that are currently set for the account.
 daarsAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
-daarsAttributes = lens _daarsAttributes (\ s a -> s{_daarsAttributes = a}) . _Default . _Coerce;
+daarsAttributes = lens _daarsAttributes (\ s a -> s{_daarsAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
+daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a})
 
 instance NFData DescribeAccountAttributesResponse
          where

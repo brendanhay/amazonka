@@ -12,16 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateSigningCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the status of the specified user signing certificate from active to disabled, or vice versa. This action can be used to disable an IAM user's signing certificate as part of a certificate rotation work flow.
+-- Changes the status of the specified user signing certificate from active to disabled, or vice versa. This operation can be used to disable an IAM user's signing certificate as part of a certificate rotation work flow.
 --
 --
--- If the @UserName@ field is not specified, the UserName is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
+-- If the @UserName@ field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
 --
 module Network.AWS.IAM.UpdateSigningCertificate
     (
@@ -57,34 +57,34 @@ data UpdateSigningCertificate = UpdateSigningCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uscUserName' - The name of the IAM user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'uscUserName' - The name of the IAM user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'uscCertificateId' - The ID of the signing certificate you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 --
--- * 'uscStatus' - The status you want to assign to the certificate. @Active@ means the certificate can be used for API calls to AWS, while @Inactive@ means the certificate cannot be used.
+-- * 'uscStatus' - The status you want to assign to the certificate. @Active@ means that the certificate can be used for API calls to AWS @Inactive@ means that the certificate cannot be used.
 updateSigningCertificate
     :: Text -- ^ 'uscCertificateId'
     -> StatusType -- ^ 'uscStatus'
     -> UpdateSigningCertificate
 updateSigningCertificate pCertificateId_ pStatus_ =
   UpdateSigningCertificate'
-  { _uscUserName = Nothing
-  , _uscCertificateId = pCertificateId_
-  , _uscStatus = pStatus_
-  }
+    { _uscUserName = Nothing
+    , _uscCertificateId = pCertificateId_
+    , _uscStatus = pStatus_
+    }
 
 
--- | The name of the IAM user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
-uscUserName = lens _uscUserName (\ s a -> s{_uscUserName = a});
+uscUserName = lens _uscUserName (\ s a -> s{_uscUserName = a})
 
 -- | The ID of the signing certificate you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 uscCertificateId :: Lens' UpdateSigningCertificate Text
-uscCertificateId = lens _uscCertificateId (\ s a -> s{_uscCertificateId = a});
+uscCertificateId = lens _uscCertificateId (\ s a -> s{_uscCertificateId = a})
 
--- | The status you want to assign to the certificate. @Active@ means the certificate can be used for API calls to AWS, while @Inactive@ means the certificate cannot be used.
+-- | The status you want to assign to the certificate. @Active@ means that the certificate can be used for API calls to AWS @Inactive@ means that the certificate cannot be used.
 uscStatus :: Lens' UpdateSigningCertificate StatusType
-uscStatus = lens _uscStatus (\ s a -> s{_uscStatus = a});
+uscStatus = lens _uscStatus (\ s a -> s{_uscStatus = a})
 
 instance AWSRequest UpdateSigningCertificate where
         type Rs UpdateSigningCertificate =

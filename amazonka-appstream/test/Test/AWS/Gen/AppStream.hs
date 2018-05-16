@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.AppStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,6 +61,9 @@ import Test.Tasty
 --         , requestCreateImageBuilder $
 --             createImageBuilder
 --
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
 --         , requestDescribeDirectoryConfigs $
 --             describeDirectoryConfigs
 --
@@ -97,11 +100,20 @@ import Test.Tasty
 --         , requestCreateStack $
 --             createStack
 --
+--         , requestCopyImage $
+--             copyImage
+--
 --         , requestExpireSession $
 --             expireSession
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestCreateStreamingURL $
 --             createStreamingURL
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestStartFleet $
 --             startFleet
@@ -151,6 +163,9 @@ import Test.Tasty
 --         , responseCreateImageBuilder $
 --             createImageBuilderResponse
 --
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
+--
 --         , responseDescribeDirectoryConfigs $
 --             describeDirectoryConfigsResponse
 --
@@ -187,11 +202,20 @@ import Test.Tasty
 --         , responseCreateStack $
 --             createStackResponse
 --
+--         , responseCopyImage $
+--             copyImageResponse
+--
 --         , responseExpireSession $
 --             expireSessionResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseCreateStreamingURL $
 --             createStreamingURLResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseStartFleet $
 --             startFleetResponse
@@ -265,6 +289,11 @@ requestCreateImageBuilder = req
     "CreateImageBuilder"
     "fixture/CreateImageBuilder.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestDescribeDirectoryConfigs :: DescribeDirectoryConfigs -> TestTree
 requestDescribeDirectoryConfigs = req
     "DescribeDirectoryConfigs"
@@ -325,15 +354,30 @@ requestCreateStack = req
     "CreateStack"
     "fixture/CreateStack.yaml"
 
+requestCopyImage :: CopyImage -> TestTree
+requestCopyImage = req
+    "CopyImage"
+    "fixture/CopyImage.yaml"
+
 requestExpireSession :: ExpireSession -> TestTree
 requestExpireSession = req
     "ExpireSession"
     "fixture/ExpireSession.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestCreateStreamingURL :: CreateStreamingURL -> TestTree
 requestCreateStreamingURL = req
     "CreateStreamingURL"
     "fixture/CreateStreamingURL.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestStartFleet :: StartFleet -> TestTree
 requestStartFleet = req
@@ -434,6 +478,13 @@ responseCreateImageBuilder = res
     appStream
     (Proxy :: Proxy CreateImageBuilder)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    appStream
+    (Proxy :: Proxy ListTagsForResource)
+
 responseDescribeDirectoryConfigs :: DescribeDirectoryConfigsResponse -> TestTree
 responseDescribeDirectoryConfigs = res
     "DescribeDirectoryConfigsResponse"
@@ -518,6 +569,13 @@ responseCreateStack = res
     appStream
     (Proxy :: Proxy CreateStack)
 
+responseCopyImage :: CopyImageResponse -> TestTree
+responseCopyImage = res
+    "CopyImageResponse"
+    "fixture/CopyImageResponse.proto"
+    appStream
+    (Proxy :: Proxy CopyImage)
+
 responseExpireSession :: ExpireSessionResponse -> TestTree
 responseExpireSession = res
     "ExpireSessionResponse"
@@ -525,12 +583,26 @@ responseExpireSession = res
     appStream
     (Proxy :: Proxy ExpireSession)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    appStream
+    (Proxy :: Proxy TagResource)
+
 responseCreateStreamingURL :: CreateStreamingURLResponse -> TestTree
 responseCreateStreamingURL = res
     "CreateStreamingURLResponse"
     "fixture/CreateStreamingURLResponse.proto"
     appStream
     (Proxy :: Proxy CreateStreamingURL)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    appStream
+    (Proxy :: Proxy UntagResource)
 
 responseStartFleet :: StartFleetResponse -> TestTree
 responseStartFleet = res

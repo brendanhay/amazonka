@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -162,6 +162,36 @@ instance ToHeader     BuildPhaseType
 
 instance FromJSON BuildPhaseType where
     parseJSON = parseJSONText "BuildPhaseType"
+
+data CacheType
+  = CTNoCache
+  | CTS3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CacheType where
+    parser = takeLowerText >>= \case
+        "no_cache" -> pure CTNoCache
+        "s3" -> pure CTS3
+        e -> fromTextError $ "Failure parsing CacheType from value: '" <> e
+           <> "'. Accepted values: no_cache, s3"
+
+instance ToText CacheType where
+    toText = \case
+        CTNoCache -> "NO_CACHE"
+        CTS3 -> "S3"
+
+instance Hashable     CacheType
+instance NFData       CacheType
+instance ToByteString CacheType
+instance ToQuery      CacheType
+instance ToHeader     CacheType
+
+instance ToJSON CacheType where
+    toJSON = toJSONText
+
+instance FromJSON CacheType where
+    parseJSON = parseJSONText "CacheType"
 
 data ComputeType
   = BuildGENERAL1Large
@@ -420,6 +450,7 @@ data SourceType
   | STCodecommit
   | STCodepipeline
   | STGithub
+  | STGithubEnterprise
   | STS3
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -430,9 +461,10 @@ instance FromText SourceType where
         "codecommit" -> pure STCodecommit
         "codepipeline" -> pure STCodepipeline
         "github" -> pure STGithub
+        "github_enterprise" -> pure STGithubEnterprise
         "s3" -> pure STS3
         e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
-           <> "'. Accepted values: bitbucket, codecommit, codepipeline, github, s3"
+           <> "'. Accepted values: bitbucket, codecommit, codepipeline, github, github_enterprise, s3"
 
 instance ToText SourceType where
     toText = \case
@@ -440,6 +472,7 @@ instance ToText SourceType where
         STCodecommit -> "CODECOMMIT"
         STCodepipeline -> "CODEPIPELINE"
         STGithub -> "GITHUB"
+        STGithubEnterprise -> "GITHUB_ENTERPRISE"
         STS3 -> "S3"
 
 instance Hashable     SourceType

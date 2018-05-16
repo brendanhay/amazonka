@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPNConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ deleteVPNConnection
     -> DeleteVPNConnection
 deleteVPNConnection pVPNConnectionId_ =
   DeleteVPNConnection'
-  {_dvcDryRun = Nothing, _dvcVPNConnectionId = pVPNConnectionId_}
+    {_dvcDryRun = Nothing, _dvcVPNConnectionId = pVPNConnectionId_}
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvcDryRun :: Lens' DeleteVPNConnection (Maybe Bool)
-dvcDryRun = lens _dvcDryRun (\ s a -> s{_dvcDryRun = a});
+dvcDryRun = lens _dvcDryRun (\ s a -> s{_dvcDryRun = a})
 
 -- | The ID of the VPN connection.
 dvcVPNConnectionId :: Lens' DeleteVPNConnection Text
-dvcVPNConnectionId = lens _dvcVPNConnectionId (\ s a -> s{_dvcVPNConnectionId = a});
+dvcVPNConnectionId = lens _dvcVPNConnectionId (\ s a -> s{_dvcVPNConnectionId = a})
 
 instance AWSRequest DeleteVPNConnection where
         type Rs DeleteVPNConnection =

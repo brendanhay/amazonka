@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetLoggingOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -109,22 +109,22 @@ getLoggingOptionsResponse
     -> GetLoggingOptionsResponse
 getLoggingOptionsResponse pResponseStatus_ =
   GetLoggingOptionsResponse'
-  { _glorsLogLevel = Nothing
-  , _glorsRoleARN = Nothing
-  , _glorsResponseStatus = pResponseStatus_
-  }
+    { _glorsLogLevel = Nothing
+    , _glorsRoleARN = Nothing
+    , _glorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The logging level.
 glorsLogLevel :: Lens' GetLoggingOptionsResponse (Maybe LogLevel)
-glorsLogLevel = lens _glorsLogLevel (\ s a -> s{_glorsLogLevel = a});
+glorsLogLevel = lens _glorsLogLevel (\ s a -> s{_glorsLogLevel = a})
 
 -- | The ARN of the IAM role that grants access.
 glorsRoleARN :: Lens' GetLoggingOptionsResponse (Maybe Text)
-glorsRoleARN = lens _glorsRoleARN (\ s a -> s{_glorsRoleARN = a});
+glorsRoleARN = lens _glorsRoleARN (\ s a -> s{_glorsRoleARN = a})
 
 -- | -- | The response status code.
 glorsResponseStatus :: Lens' GetLoggingOptionsResponse Int
-glorsResponseStatus = lens _glorsResponseStatus (\ s a -> s{_glorsResponseStatus = a});
+glorsResponseStatus = lens _glorsResponseStatus (\ s a -> s{_glorsResponseStatus = a})
 
 instance NFData GetLoggingOptionsResponse where

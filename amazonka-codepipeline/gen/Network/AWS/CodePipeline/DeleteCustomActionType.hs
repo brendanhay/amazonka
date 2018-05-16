@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.DeleteCustomActionType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Marks a custom action as deleted. PollForJobs for the custom action will fail after the action is marked for deletion. Only used for custom actions.
 --
 --
--- /Important:/ You cannot recreate a custom action after it has been deleted unless you increase the version number of the action.
+-- /Important:/ To re-create a custom action after it has been deleted you must use a string in the version field that has never been used before. This string can be an incremented version number, for example. To restore a deleted custom action, use a JSON file that is identical to the deleted action, including the original string in the version field.
 --
 module Network.AWS.CodePipeline.DeleteCustomActionType
     (
@@ -73,23 +73,23 @@ deleteCustomActionType
     -> DeleteCustomActionType
 deleteCustomActionType pCategory_ pProvider_ pVersion_ =
   DeleteCustomActionType'
-  { _dcatCategory = pCategory_
-  , _dcatProvider = pProvider_
-  , _dcatVersion = pVersion_
-  }
+    { _dcatCategory = pCategory_
+    , _dcatProvider = pProvider_
+    , _dcatVersion = pVersion_
+    }
 
 
 -- | The category of the custom action that you want to delete, such as source or deploy.
 dcatCategory :: Lens' DeleteCustomActionType ActionCategory
-dcatCategory = lens _dcatCategory (\ s a -> s{_dcatCategory = a});
+dcatCategory = lens _dcatCategory (\ s a -> s{_dcatCategory = a})
 
 -- | The provider of the service used in the custom action, such as AWS CodeDeploy.
 dcatProvider :: Lens' DeleteCustomActionType Text
-dcatProvider = lens _dcatProvider (\ s a -> s{_dcatProvider = a});
+dcatProvider = lens _dcatProvider (\ s a -> s{_dcatProvider = a})
 
 -- | The version of the custom action to delete.
 dcatVersion :: Lens' DeleteCustomActionType Text
-dcatVersion = lens _dcatVersion (\ s a -> s{_dcatVersion = a});
+dcatVersion = lens _dcatVersion (\ s a -> s{_dcatVersion = a})
 
 instance AWSRequest DeleteCustomActionType where
         type Rs DeleteCustomActionType =

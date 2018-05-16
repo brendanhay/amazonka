@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeNFSFileShares
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a description for one or more file shares from a file gateway. This operation is only supported in file gateways.
+-- Gets a description for one or more file shares from a file gateway. This operation is only supported in the file gateway type.
 --
 --
 module Network.AWS.StorageGateway.DescribeNFSFileShares
@@ -68,7 +68,7 @@ describeNFSFileShares pFileShareARNList_ =
 
 -- | An array containing the Amazon Resource Name (ARN) of each file share to be described.
 dnfsfsFileShareARNList :: Lens' DescribeNFSFileShares (NonEmpty Text)
-dnfsfsFileShareARNList = lens _dnfsfsFileShareARNList (\ s a -> s{_dnfsfsFileShareARNList = a}) . _List1;
+dnfsfsFileShareARNList = lens _dnfsfsFileShareARNList (\ s a -> s{_dnfsfsFileShareARNList = a}) . _List1
 
 instance AWSRequest DescribeNFSFileShares where
         type Rs DescribeNFSFileShares =
@@ -131,17 +131,17 @@ describeNFSFileSharesResponse
     -> DescribeNFSFileSharesResponse
 describeNFSFileSharesResponse pResponseStatus_ =
   DescribeNFSFileSharesResponse'
-  { _dnfsfsrsNFSFileShareInfoList = Nothing
-  , _dnfsfsrsResponseStatus = pResponseStatus_
-  }
+    { _dnfsfsrsNFSFileShareInfoList = Nothing
+    , _dnfsfsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array containing a description for each requested file share.
 dnfsfsrsNFSFileShareInfoList :: Lens' DescribeNFSFileSharesResponse [NFSFileShareInfo]
-dnfsfsrsNFSFileShareInfoList = lens _dnfsfsrsNFSFileShareInfoList (\ s a -> s{_dnfsfsrsNFSFileShareInfoList = a}) . _Default . _Coerce;
+dnfsfsrsNFSFileShareInfoList = lens _dnfsfsrsNFSFileShareInfoList (\ s a -> s{_dnfsfsrsNFSFileShareInfoList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dnfsfsrsResponseStatus :: Lens' DescribeNFSFileSharesResponse Int
-dnfsfsrsResponseStatus = lens _dnfsfsrsResponseStatus (\ s a -> s{_dnfsfsrsResponseStatus = a});
+dnfsfsrsResponseStatus = lens _dnfsfsrsResponseStatus (\ s a -> s{_dnfsfsrsResponseStatus = a})
 
 instance NFData DescribeNFSFileSharesResponse where

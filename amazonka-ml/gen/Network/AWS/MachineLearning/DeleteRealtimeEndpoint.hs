@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DeleteRealtimeEndpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deleteRealtimeEndpoint pMLModelId_ =
 
 -- | The ID assigned to the @MLModel@ during creation.
 dreMLModelId :: Lens' DeleteRealtimeEndpoint Text
-dreMLModelId = lens _dreMLModelId (\ s a -> s{_dreMLModelId = a});
+dreMLModelId = lens _dreMLModelId (\ s a -> s{_dreMLModelId = a})
 
 instance AWSRequest DeleteRealtimeEndpoint where
         type Rs DeleteRealtimeEndpoint =
@@ -132,22 +132,22 @@ deleteRealtimeEndpointResponse
     -> DeleteRealtimeEndpointResponse
 deleteRealtimeEndpointResponse pResponseStatus_ =
   DeleteRealtimeEndpointResponse'
-  { _drersRealtimeEndpointInfo = Nothing
-  , _drersMLModelId = Nothing
-  , _drersResponseStatus = pResponseStatus_
-  }
+    { _drersRealtimeEndpointInfo = Nothing
+    , _drersMLModelId = Nothing
+    , _drersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The endpoint information of the @MLModel@
 drersRealtimeEndpointInfo :: Lens' DeleteRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
-drersRealtimeEndpointInfo = lens _drersRealtimeEndpointInfo (\ s a -> s{_drersRealtimeEndpointInfo = a});
+drersRealtimeEndpointInfo = lens _drersRealtimeEndpointInfo (\ s a -> s{_drersRealtimeEndpointInfo = a})
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
 drersMLModelId :: Lens' DeleteRealtimeEndpointResponse (Maybe Text)
-drersMLModelId = lens _drersMLModelId (\ s a -> s{_drersMLModelId = a});
+drersMLModelId = lens _drersMLModelId (\ s a -> s{_drersMLModelId = a})
 
 -- | -- | The response status code.
 drersResponseStatus :: Lens' DeleteRealtimeEndpointResponse Int
-drersResponseStatus = lens _drersResponseStatus (\ s a -> s{_drersResponseStatus = a});
+drersResponseStatus = lens _drersResponseStatus (\ s a -> s{_drersResponseStatus = a})
 
 instance NFData DeleteRealtimeEndpointResponse where

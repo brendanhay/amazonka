@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetChangeTokenStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ getChangeTokenStatus pChangeToken_ =
 
 -- | The change token for which you want to get the status. This change token was previously returned in the @GetChangeToken@ response.
 gctsChangeToken :: Lens' GetChangeTokenStatus Text
-gctsChangeToken = lens _gctsChangeToken (\ s a -> s{_gctsChangeToken = a});
+gctsChangeToken = lens _gctsChangeToken (\ s a -> s{_gctsChangeToken = a})
 
 instance AWSRequest GetChangeTokenStatus where
         type Rs GetChangeTokenStatus =
@@ -129,15 +129,17 @@ getChangeTokenStatusResponse
     -> GetChangeTokenStatusResponse
 getChangeTokenStatusResponse pResponseStatus_ =
   GetChangeTokenStatusResponse'
-  {_gctsrsChangeTokenStatus = Nothing, _gctsrsResponseStatus = pResponseStatus_}
+    { _gctsrsChangeTokenStatus = Nothing
+    , _gctsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the change token.
 gctsrsChangeTokenStatus :: Lens' GetChangeTokenStatusResponse (Maybe ChangeTokenStatus)
-gctsrsChangeTokenStatus = lens _gctsrsChangeTokenStatus (\ s a -> s{_gctsrsChangeTokenStatus = a});
+gctsrsChangeTokenStatus = lens _gctsrsChangeTokenStatus (\ s a -> s{_gctsrsChangeTokenStatus = a})
 
 -- | -- | The response status code.
 gctsrsResponseStatus :: Lens' GetChangeTokenStatusResponse Int
-gctsrsResponseStatus = lens _gctsrsResponseStatus (\ s a -> s{_gctsrsResponseStatus = a});
+gctsrsResponseStatus = lens _gctsrsResponseStatus (\ s a -> s{_gctsrsResponseStatus = a})
 
 instance NFData GetChangeTokenStatusResponse where

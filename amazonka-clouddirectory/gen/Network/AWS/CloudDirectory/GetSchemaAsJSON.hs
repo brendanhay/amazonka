@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.GetSchemaAsJSON
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getSchemaAsJSON pSchemaARN_ = GetSchemaAsJSON' {_gsajSchemaARN = pSchemaARN_}
 
 -- | The ARN of the schema to retrieve.
 gsajSchemaARN :: Lens' GetSchemaAsJSON Text
-gsajSchemaARN = lens _gsajSchemaARN (\ s a -> s{_gsajSchemaARN = a});
+gsajSchemaARN = lens _gsajSchemaARN (\ s a -> s{_gsajSchemaARN = a})
 
 instance AWSRequest GetSchemaAsJSON where
         type Rs GetSchemaAsJSON = GetSchemaAsJSONResponse
@@ -117,22 +117,22 @@ getSchemaAsJSONResponse
     -> GetSchemaAsJSONResponse
 getSchemaAsJSONResponse pResponseStatus_ =
   GetSchemaAsJSONResponse'
-  { _gsajrsDocument = Nothing
-  , _gsajrsName = Nothing
-  , _gsajrsResponseStatus = pResponseStatus_
-  }
+    { _gsajrsDocument = Nothing
+    , _gsajrsName = Nothing
+    , _gsajrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The JSON representation of the schema document.
 gsajrsDocument :: Lens' GetSchemaAsJSONResponse (Maybe Text)
-gsajrsDocument = lens _gsajrsDocument (\ s a -> s{_gsajrsDocument = a});
+gsajrsDocument = lens _gsajrsDocument (\ s a -> s{_gsajrsDocument = a})
 
 -- | The name of the retrieved schema.
 gsajrsName :: Lens' GetSchemaAsJSONResponse (Maybe Text)
-gsajrsName = lens _gsajrsName (\ s a -> s{_gsajrsName = a});
+gsajrsName = lens _gsajrsName (\ s a -> s{_gsajrsName = a})
 
 -- | -- | The response status code.
 gsajrsResponseStatus :: Lens' GetSchemaAsJSONResponse Int
-gsajrsResponseStatus = lens _gsajrsResponseStatus (\ s a -> s{_gsajrsResponseStatus = a});
+gsajrsResponseStatus = lens _gsajrsResponseStatus (\ s a -> s{_gsajrsResponseStatus = a})
 
 instance NFData GetSchemaAsJSONResponse where

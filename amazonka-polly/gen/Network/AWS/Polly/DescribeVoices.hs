@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Polly.DescribeVoices
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,8 @@
 --
 -- This operation requires permissions to perform the @polly:DescribeVoices@ action.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Polly.DescribeVoices
     (
     -- * Creating a Request
@@ -48,6 +50,7 @@ module Network.AWS.Polly.DescribeVoices
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Polly.Types
 import Network.AWS.Polly.Types.Product
 import Network.AWS.Prelude
@@ -76,11 +79,18 @@ describeVoices =
 
 -- | The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned.
 dvLanguageCode :: Lens' DescribeVoices (Maybe LanguageCode)
-dvLanguageCode = lens _dvLanguageCode (\ s a -> s{_dvLanguageCode = a});
+dvLanguageCode = lens _dvLanguageCode (\ s a -> s{_dvLanguageCode = a})
 
 -- | An opaque pagination token returned from the previous @DescribeVoices@ operation. If present, this indicates where to continue the listing.
 dvNextToken :: Lens' DescribeVoices (Maybe Text)
-dvNextToken = lens _dvNextToken (\ s a -> s{_dvNextToken = a});
+dvNextToken = lens _dvNextToken (\ s a -> s{_dvNextToken = a})
+
+instance AWSPager DescribeVoices where
+        page rq rs
+          | stop (rs ^. dvrsNextToken) = Nothing
+          | stop (rs ^. dvrsVoices) = Nothing
+          | otherwise =
+            Just $ rq & dvNextToken .~ rs ^. dvrsNextToken
 
 instance AWSRequest DescribeVoices where
         type Rs DescribeVoices = DescribeVoicesResponse
@@ -130,22 +140,22 @@ describeVoicesResponse
     -> DescribeVoicesResponse
 describeVoicesResponse pResponseStatus_ =
   DescribeVoicesResponse'
-  { _dvrsNextToken = Nothing
-  , _dvrsVoices = Nothing
-  , _dvrsResponseStatus = pResponseStatus_
-  }
+    { _dvrsNextToken = Nothing
+    , _dvrsVoices = Nothing
+    , _dvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token to use in the next request to continue the listing of voices. @NextToken@ is returned only if the response is truncated.
 dvrsNextToken :: Lens' DescribeVoicesResponse (Maybe Text)
-dvrsNextToken = lens _dvrsNextToken (\ s a -> s{_dvrsNextToken = a});
+dvrsNextToken = lens _dvrsNextToken (\ s a -> s{_dvrsNextToken = a})
 
 -- | A list of voices with their properties.
 dvrsVoices :: Lens' DescribeVoicesResponse [Voice]
-dvrsVoices = lens _dvrsVoices (\ s a -> s{_dvrsVoices = a}) . _Default . _Coerce;
+dvrsVoices = lens _dvrsVoices (\ s a -> s{_dvrsVoices = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dvrsResponseStatus :: Lens' DescribeVoicesResponse Int
-dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});
+dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a})
 
 instance NFData DescribeVoicesResponse where

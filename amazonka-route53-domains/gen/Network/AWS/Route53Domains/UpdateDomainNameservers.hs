@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateDomainNameservers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,23 +76,23 @@ updateDomainNameservers
     -> UpdateDomainNameservers
 updateDomainNameservers pDomainName_ =
   UpdateDomainNameservers'
-  { _udnFIAuthKey = Nothing
-  , _udnDomainName = pDomainName_
-  , _udnNameservers = mempty
-  }
+    { _udnFIAuthKey = Nothing
+    , _udnDomainName = pDomainName_
+    , _udnNameservers = mempty
+    }
 
 
 -- | The authorization key for .fi domains
 udnFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
-udnFIAuthKey = lens _udnFIAuthKey (\ s a -> s{_udnFIAuthKey = a});
+udnFIAuthKey = lens _udnFIAuthKey (\ s a -> s{_udnFIAuthKey = a})
 
 -- | The name of the domain that you want to change name servers for.
 udnDomainName :: Lens' UpdateDomainNameservers Text
-udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
+udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a})
 
 -- | A list of new name servers for the domain.
 udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
-udnNameservers = lens _udnNameservers (\ s a -> s{_udnNameservers = a}) . _Coerce;
+udnNameservers = lens _udnNameservers (\ s a -> s{_udnNameservers = a}) . _Coerce
 
 instance AWSRequest UpdateDomainNameservers where
         type Rs UpdateDomainNameservers =
@@ -156,15 +156,15 @@ updateDomainNameserversResponse
     -> UpdateDomainNameserversResponse
 updateDomainNameserversResponse pResponseStatus_ pOperationId_ =
   UpdateDomainNameserversResponse'
-  {_udnrsResponseStatus = pResponseStatus_, _udnrsOperationId = pOperationId_}
+    {_udnrsResponseStatus = pResponseStatus_, _udnrsOperationId = pOperationId_}
 
 
 -- | -- | The response status code.
 udnrsResponseStatus :: Lens' UpdateDomainNameserversResponse Int
-udnrsResponseStatus = lens _udnrsResponseStatus (\ s a -> s{_udnrsResponseStatus = a});
+udnrsResponseStatus = lens _udnrsResponseStatus (\ s a -> s{_udnrsResponseStatus = a})
 
 -- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 udnrsOperationId :: Lens' UpdateDomainNameserversResponse Text
-udnrsOperationId = lens _udnrsOperationId (\ s a -> s{_udnrsOperationId = a});
+udnrsOperationId = lens _udnrsOperationId (\ s a -> s{_udnrsOperationId = a})
 
 instance NFData UpdateDomainNameserversResponse where

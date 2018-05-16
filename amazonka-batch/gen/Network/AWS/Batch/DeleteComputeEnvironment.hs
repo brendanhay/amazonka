@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Batch.DeleteComputeEnvironment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deleteComputeEnvironment pComputeEnvironment_ =
 
 -- | The name or Amazon Resource Name (ARN) of the compute environment to delete.
 dceComputeEnvironment :: Lens' DeleteComputeEnvironment Text
-dceComputeEnvironment = lens _dceComputeEnvironment (\ s a -> s{_dceComputeEnvironment = a});
+dceComputeEnvironment = lens _dceComputeEnvironment (\ s a -> s{_dceComputeEnvironment = a})
 
 instance AWSRequest DeleteComputeEnvironment where
         type Rs DeleteComputeEnvironment =
@@ -121,7 +121,7 @@ deleteComputeEnvironmentResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dcersResponseStatus :: Lens' DeleteComputeEnvironmentResponse Int
-dcersResponseStatus = lens _dcersResponseStatus (\ s a -> s{_dcersResponseStatus = a});
+dcersResponseStatus = lens _dcersResponseStatus (\ s a -> s{_dcersResponseStatus = a})
 
 instance NFData DeleteComputeEnvironmentResponse
          where

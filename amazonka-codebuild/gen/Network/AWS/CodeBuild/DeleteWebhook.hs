@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.DeleteWebhook
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,16 +53,16 @@ newtype DeleteWebhook = DeleteWebhook'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwProjectName' - The name of the build project.
+-- * 'dwProjectName' - The name of the AWS CodeBuild project.
 deleteWebhook
     :: Text -- ^ 'dwProjectName'
     -> DeleteWebhook
 deleteWebhook pProjectName_ = DeleteWebhook' {_dwProjectName = pProjectName_}
 
 
--- | The name of the build project.
+-- | The name of the AWS CodeBuild project.
 dwProjectName :: Lens' DeleteWebhook Text
-dwProjectName = lens _dwProjectName (\ s a -> s{_dwProjectName = a});
+dwProjectName = lens _dwProjectName (\ s a -> s{_dwProjectName = a})
 
 instance AWSRequest DeleteWebhook where
         type Rs DeleteWebhook = DeleteWebhookResponse
@@ -116,6 +116,6 @@ deleteWebhookResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dwrsResponseStatus :: Lens' DeleteWebhookResponse Int
-dwrsResponseStatus = lens _dwrsResponseStatus (\ s a -> s{_dwrsResponseStatus = a});
+dwrsResponseStatus = lens _dwrsResponseStatus (\ s a -> s{_dwrsResponseStatus = a})
 
 instance NFData DeleteWebhookResponse where

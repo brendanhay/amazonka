@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeLags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ describeLags = DescribeLags' {_dlLagId = Nothing}
 
 -- | The ID of the LAG. Example: dxlag-abc123 Default: None
 dlLagId :: Lens' DescribeLags (Maybe Text)
-dlLagId = lens _dlLagId (\ s a -> s{_dlLagId = a});
+dlLagId = lens _dlLagId (\ s a -> s{_dlLagId = a})
 
 instance AWSRequest DescribeLags where
         type Rs DescribeLags = DescribeLagsResponse
@@ -125,15 +125,15 @@ describeLagsResponse
     -> DescribeLagsResponse
 describeLagsResponse pResponseStatus_ =
   DescribeLagsResponse'
-  {_desrsLags = Nothing, _desrsResponseStatus = pResponseStatus_}
+    {_desrsLags = Nothing, _desrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of LAGs.
 desrsLags :: Lens' DescribeLagsResponse [Lag]
-desrsLags = lens _desrsLags (\ s a -> s{_desrsLags = a}) . _Default . _Coerce;
+desrsLags = lens _desrsLags (\ s a -> s{_desrsLags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeLagsResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 instance NFData DescribeLagsResponse where

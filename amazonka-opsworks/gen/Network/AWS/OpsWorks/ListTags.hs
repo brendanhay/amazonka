@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.ListTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ listTags
     -> ListTags
 listTags pResourceARN_ =
   ListTags'
-  { _ltNextToken = Nothing
-  , _ltMaxResults = Nothing
-  , _ltResourceARN = pResourceARN_
-  }
+    { _ltNextToken = Nothing
+    , _ltMaxResults = Nothing
+    , _ltResourceARN = pResourceARN_
+    }
 
 
 -- | Do not use. A validation exception occurs if you add a @NextToken@ parameter to a @ListTagsRequest@ call.
 ltNextToken :: Lens' ListTags (Maybe Text)
-ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
+ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
 
 -- | Do not use. A validation exception occurs if you add a @MaxResults@ parameter to a @ListTagsRequest@ call.
 ltMaxResults :: Lens' ListTags (Maybe Int)
-ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a});
+ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a})
 
 -- | The stack or layer's Amazon Resource Number (ARN).
 ltResourceARN :: Lens' ListTags Text
-ltResourceARN = lens _ltResourceARN (\ s a -> s{_ltResourceARN = a});
+ltResourceARN = lens _ltResourceARN (\ s a -> s{_ltResourceARN = a})
 
 instance AWSRequest ListTags where
         type Rs ListTags = ListTagsResponse
@@ -150,22 +150,22 @@ listTagsResponse
     -> ListTagsResponse
 listTagsResponse pResponseStatus_ =
   ListTagsResponse'
-  { _ltrsNextToken = Nothing
-  , _ltrsTags = Nothing
-  , _ltrsResponseStatus = pResponseStatus_
-  }
+    { _ltrsNextToken = Nothing
+    , _ltrsTags = Nothing
+    , _ltrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to get the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
 ltrsNextToken :: Lens' ListTagsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
+ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a})
 
 -- | A set of key-value pairs that contain tag keys and tag values that are attached to a stack or layer.
 ltrsTags :: Lens' ListTagsResponse (HashMap Text Text)
-ltrsTags = lens _ltrsTags (\ s a -> s{_ltrsTags = a}) . _Default . _Map;
+ltrsTags = lens _ltrsTags (\ s a -> s{_ltrsTags = a}) . _Default . _Map
 
 -- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTagsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
 
 instance NFData ListTagsResponse where

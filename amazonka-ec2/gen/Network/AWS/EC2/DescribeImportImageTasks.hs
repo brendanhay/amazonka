@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeImportImageTasks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,33 +80,33 @@ describeImportImageTasks
     :: DescribeImportImageTasks
 describeImportImageTasks =
   DescribeImportImageTasks'
-  { _diitFilters = Nothing
-  , _diitImportTaskIds = Nothing
-  , _diitNextToken = Nothing
-  , _diitDryRun = Nothing
-  , _diitMaxResults = Nothing
-  }
+    { _diitFilters = Nothing
+    , _diitImportTaskIds = Nothing
+    , _diitNextToken = Nothing
+    , _diitDryRun = Nothing
+    , _diitMaxResults = Nothing
+    }
 
 
 -- | Filter tasks using the @task-state@ filter and one of the following values: active, completed, deleting, deleted.
 diitFilters :: Lens' DescribeImportImageTasks [Filter]
-diitFilters = lens _diitFilters (\ s a -> s{_diitFilters = a}) . _Default . _Coerce;
+diitFilters = lens _diitFilters (\ s a -> s{_diitFilters = a}) . _Default . _Coerce
 
 -- | A list of import image task IDs.
 diitImportTaskIds :: Lens' DescribeImportImageTasks [Text]
-diitImportTaskIds = lens _diitImportTaskIds (\ s a -> s{_diitImportTaskIds = a}) . _Default . _Coerce;
+diitImportTaskIds = lens _diitImportTaskIds (\ s a -> s{_diitImportTaskIds = a}) . _Default . _Coerce
 
 -- | A token that indicates the next page of results.
 diitNextToken :: Lens' DescribeImportImageTasks (Maybe Text)
-diitNextToken = lens _diitNextToken (\ s a -> s{_diitNextToken = a});
+diitNextToken = lens _diitNextToken (\ s a -> s{_diitNextToken = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 diitDryRun :: Lens' DescribeImportImageTasks (Maybe Bool)
-diitDryRun = lens _diitDryRun (\ s a -> s{_diitDryRun = a});
+diitDryRun = lens _diitDryRun (\ s a -> s{_diitDryRun = a})
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 diitMaxResults :: Lens' DescribeImportImageTasks (Maybe Int)
-diitMaxResults = lens _diitMaxResults (\ s a -> s{_diitMaxResults = a});
+diitMaxResults = lens _diitMaxResults (\ s a -> s{_diitMaxResults = a})
 
 instance AWSRequest DescribeImportImageTasks where
         type Rs DescribeImportImageTasks =
@@ -170,23 +170,23 @@ describeImportImageTasksResponse
     -> DescribeImportImageTasksResponse
 describeImportImageTasksResponse pResponseStatus_ =
   DescribeImportImageTasksResponse'
-  { _diitrsNextToken = Nothing
-  , _diitrsImportImageTasks = Nothing
-  , _diitrsResponseStatus = pResponseStatus_
-  }
+    { _diitrsNextToken = Nothing
+    , _diitrsImportImageTasks = Nothing
+    , _diitrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use to get the next page of results. This value is @null@ when there are no more results to return.
 diitrsNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
-diitrsNextToken = lens _diitrsNextToken (\ s a -> s{_diitrsNextToken = a});
+diitrsNextToken = lens _diitrsNextToken (\ s a -> s{_diitrsNextToken = a})
 
 -- | A list of zero or more import image tasks that are currently active or were completed or canceled in the previous 7 days.
 diitrsImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTask]
-diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportImageTasks = a}) . _Default . _Coerce;
+diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportImageTasks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 diitrsResponseStatus :: Lens' DescribeImportImageTasksResponse Int
-diitrsResponseStatus = lens _diitrsResponseStatus (\ s a -> s{_diitrsResponseStatus = a});
+diitrsResponseStatus = lens _diitrsResponseStatus (\ s a -> s{_diitrsResponseStatus = a})
 
 instance NFData DescribeImportImageTasksResponse
          where

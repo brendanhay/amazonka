@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ChangeMessageVisibility
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,23 +79,23 @@ changeMessageVisibility
     -> ChangeMessageVisibility
 changeMessageVisibility pQueueURL_ pReceiptHandle_ pVisibilityTimeout_ =
   ChangeMessageVisibility'
-  { _cmvQueueURL = pQueueURL_
-  , _cmvReceiptHandle = pReceiptHandle_
-  , _cmvVisibilityTimeout = pVisibilityTimeout_
-  }
+    { _cmvQueueURL = pQueueURL_
+    , _cmvReceiptHandle = pReceiptHandle_
+    , _cmvVisibilityTimeout = pVisibilityTimeout_
+    }
 
 
 -- | The URL of the Amazon SQS queue whose message's visibility is changed. Queue URLs are case-sensitive.
 cmvQueueURL :: Lens' ChangeMessageVisibility Text
-cmvQueueURL = lens _cmvQueueURL (\ s a -> s{_cmvQueueURL = a});
+cmvQueueURL = lens _cmvQueueURL (\ s a -> s{_cmvQueueURL = a})
 
 -- | The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the @'ReceiveMessage' @ action.
 cmvReceiptHandle :: Lens' ChangeMessageVisibility Text
-cmvReceiptHandle = lens _cmvReceiptHandle (\ s a -> s{_cmvReceiptHandle = a});
+cmvReceiptHandle = lens _cmvReceiptHandle (\ s a -> s{_cmvReceiptHandle = a})
 
 -- | The new value for the message's visibility timeout (in seconds). Values values: @0@ to @43200@ . Maximum: 12 hours.
 cmvVisibilityTimeout :: Lens' ChangeMessageVisibility Int
-cmvVisibilityTimeout = lens _cmvVisibilityTimeout (\ s a -> s{_cmvVisibilityTimeout = a});
+cmvVisibilityTimeout = lens _cmvVisibilityTimeout (\ s a -> s{_cmvVisibilityTimeout = a})
 
 instance AWSRequest ChangeMessageVisibility where
         type Rs ChangeMessageVisibility =

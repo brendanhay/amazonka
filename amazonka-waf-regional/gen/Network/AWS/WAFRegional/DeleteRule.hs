@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,11 +81,11 @@ deleteRule pRuleId_ pChangeToken_ =
 
 -- | The @RuleId@ of the 'Rule' that you want to delete. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 drRuleId :: Lens' DeleteRule Text
-drRuleId = lens _drRuleId (\ s a -> s{_drRuleId = a});
+drRuleId = lens _drRuleId (\ s a -> s{_drRuleId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 drChangeToken :: Lens' DeleteRule Text
-drChangeToken = lens _drChangeToken (\ s a -> s{_drChangeToken = a});
+drChangeToken = lens _drChangeToken (\ s a -> s{_drChangeToken = a})
 
 instance AWSRequest DeleteRule where
         type Rs DeleteRule = DeleteRuleResponse
@@ -142,15 +142,15 @@ deleteRuleResponse
     -> DeleteRuleResponse
 deleteRuleResponse pResponseStatus_ =
   DeleteRuleResponse'
-  {_drrsChangeToken = Nothing, _drrsResponseStatus = pResponseStatus_}
+    {_drrsChangeToken = Nothing, _drrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 drrsChangeToken :: Lens' DeleteRuleResponse (Maybe Text)
-drrsChangeToken = lens _drrsChangeToken (\ s a -> s{_drrsChangeToken = a});
+drrsChangeToken = lens _drrsChangeToken (\ s a -> s{_drrsChangeToken = a})
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRuleResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a})
 
 instance NFData DeleteRuleResponse where

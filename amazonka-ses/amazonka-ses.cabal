@@ -1,5 +1,5 @@
 name:                  amazonka-ses
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Simple Email Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -49,6 +49,7 @@ library
         , Network.AWS.SES.CreateConfigurationSet
         , Network.AWS.SES.CreateConfigurationSetEventDestination
         , Network.AWS.SES.CreateConfigurationSetTrackingOptions
+        , Network.AWS.SES.CreateCustomVerificationEmailTemplate
         , Network.AWS.SES.CreateReceiptFilter
         , Network.AWS.SES.CreateReceiptRule
         , Network.AWS.SES.CreateReceiptRuleSet
@@ -56,6 +57,7 @@ library
         , Network.AWS.SES.DeleteConfigurationSet
         , Network.AWS.SES.DeleteConfigurationSetEventDestination
         , Network.AWS.SES.DeleteConfigurationSetTrackingOptions
+        , Network.AWS.SES.DeleteCustomVerificationEmailTemplate
         , Network.AWS.SES.DeleteIdentity
         , Network.AWS.SES.DeleteIdentityPolicy
         , Network.AWS.SES.DeleteReceiptFilter
@@ -67,6 +69,8 @@ library
         , Network.AWS.SES.DescribeConfigurationSet
         , Network.AWS.SES.DescribeReceiptRule
         , Network.AWS.SES.DescribeReceiptRuleSet
+        , Network.AWS.SES.GetAccountSendingEnabled
+        , Network.AWS.SES.GetCustomVerificationEmailTemplate
         , Network.AWS.SES.GetIdentityDkimAttributes
         , Network.AWS.SES.GetIdentityMailFromDomainAttributes
         , Network.AWS.SES.GetIdentityNotificationAttributes
@@ -76,6 +80,7 @@ library
         , Network.AWS.SES.GetSendStatistics
         , Network.AWS.SES.GetTemplate
         , Network.AWS.SES.ListConfigurationSets
+        , Network.AWS.SES.ListCustomVerificationEmailTemplates
         , Network.AWS.SES.ListIdentities
         , Network.AWS.SES.ListIdentityPolicies
         , Network.AWS.SES.ListReceiptFilters
@@ -86,6 +91,7 @@ library
         , Network.AWS.SES.ReorderReceiptRuleSet
         , Network.AWS.SES.SendBounce
         , Network.AWS.SES.SendBulkTemplatedEmail
+        , Network.AWS.SES.SendCustomVerificationEmail
         , Network.AWS.SES.SendEmail
         , Network.AWS.SES.SendRawEmail
         , Network.AWS.SES.SendTemplatedEmail
@@ -98,8 +104,12 @@ library
         , Network.AWS.SES.SetReceiptRulePosition
         , Network.AWS.SES.TestRenderTemplate
         , Network.AWS.SES.Types
+        , Network.AWS.SES.UpdateAccountSendingEnabled
         , Network.AWS.SES.UpdateConfigurationSetEventDestination
+        , Network.AWS.SES.UpdateConfigurationSetReputationMetricsEnabled
+        , Network.AWS.SES.UpdateConfigurationSetSendingEnabled
         , Network.AWS.SES.UpdateConfigurationSetTrackingOptions
+        , Network.AWS.SES.UpdateCustomVerificationEmailTemplate
         , Network.AWS.SES.UpdateReceiptRule
         , Network.AWS.SES.UpdateTemplate
         , Network.AWS.SES.VerifyDomainDkim
@@ -113,7 +123,7 @@ library
         , Network.AWS.SES.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ses-test
@@ -133,8 +143,8 @@ test-suite amazonka-ses-test
         , Test.AWS.SES.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-ses
         , base
         , bytestring

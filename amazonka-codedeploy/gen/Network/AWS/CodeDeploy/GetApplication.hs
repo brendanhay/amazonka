@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getApplication pApplicationName_ =
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 gaApplicationName :: Lens' GetApplication Text
-gaApplicationName = lens _gaApplicationName (\ s a -> s{_gaApplicationName = a});
+gaApplicationName = lens _gaApplicationName (\ s a -> s{_gaApplicationName = a})
 
 instance AWSRequest GetApplication where
         type Rs GetApplication = GetApplicationResponse
@@ -127,15 +127,15 @@ getApplicationResponse
     -> GetApplicationResponse
 getApplicationResponse pResponseStatus_ =
   GetApplicationResponse'
-  {_garsApplication = Nothing, _garsResponseStatus = pResponseStatus_}
+    {_garsApplication = Nothing, _garsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the application.
 garsApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
-garsApplication = lens _garsApplication (\ s a -> s{_garsApplication = a});
+garsApplication = lens _garsApplication (\ s a -> s{_garsApplication = a})
 
 -- | -- | The response status code.
 garsResponseStatus :: Lens' GetApplicationResponse Int
-garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a})
 
 instance NFData GetApplicationResponse where

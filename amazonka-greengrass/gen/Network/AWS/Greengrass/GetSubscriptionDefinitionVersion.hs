@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,27 +58,27 @@ data GetSubscriptionDefinitionVersion = GetSubscriptionDefinitionVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdvSubscriptionDefinitionId' - subscription definition Id
+-- * 'gsdvSubscriptionDefinitionId' - The ID of the subscription definition.
 --
--- * 'gsdvSubscriptionDefinitionVersionId' - subscription definition version Id
+-- * 'gsdvSubscriptionDefinitionVersionId' - The ID of the subscription definition version.
 getSubscriptionDefinitionVersion
     :: Text -- ^ 'gsdvSubscriptionDefinitionId'
     -> Text -- ^ 'gsdvSubscriptionDefinitionVersionId'
     -> GetSubscriptionDefinitionVersion
 getSubscriptionDefinitionVersion pSubscriptionDefinitionId_ pSubscriptionDefinitionVersionId_ =
   GetSubscriptionDefinitionVersion'
-  { _gsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
-  , _gsdvSubscriptionDefinitionVersionId = pSubscriptionDefinitionVersionId_
-  }
+    { _gsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
+    , _gsdvSubscriptionDefinitionVersionId = pSubscriptionDefinitionVersionId_
+    }
 
 
--- | subscription definition Id
+-- | The ID of the subscription definition.
 gsdvSubscriptionDefinitionId :: Lens' GetSubscriptionDefinitionVersion Text
-gsdvSubscriptionDefinitionId = lens _gsdvSubscriptionDefinitionId (\ s a -> s{_gsdvSubscriptionDefinitionId = a});
+gsdvSubscriptionDefinitionId = lens _gsdvSubscriptionDefinitionId (\ s a -> s{_gsdvSubscriptionDefinitionId = a})
 
--- | subscription definition version Id
+-- | The ID of the subscription definition version.
 gsdvSubscriptionDefinitionVersionId :: Lens' GetSubscriptionDefinitionVersion Text
-gsdvSubscriptionDefinitionVersionId = lens _gsdvSubscriptionDefinitionVersionId (\ s a -> s{_gsdvSubscriptionDefinitionVersionId = a});
+gsdvSubscriptionDefinitionVersionId = lens _gsdvSubscriptionDefinitionVersionId (\ s a -> s{_gsdvSubscriptionDefinitionVersionId = a})
 
 instance AWSRequest GetSubscriptionDefinitionVersion
          where
@@ -136,15 +136,15 @@ data GetSubscriptionDefinitionVersionResponse = GetSubscriptionDefinitionVersion
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdvrsDefinition' - Information on the definition
+-- * 'gsdvrsDefinition' - Information about the subscription definition version.
 --
--- * 'gsdvrsARN' - Arn of the subscription definition version.
+-- * 'gsdvrsARN' - The ARN of the subscription definition version.
 --
--- * 'gsdvrsCreationTimestamp' - Timestamp of when the subscription definition version was created.
+-- * 'gsdvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the subscription definition version was created.
 --
--- * 'gsdvrsVersion' - Version of the subscription definition version.
+-- * 'gsdvrsVersion' - The version of the subscription definition version.
 --
--- * 'gsdvrsId' - Id of the subscription definition the version belongs to.
+-- * 'gsdvrsId' - The ID of the subscription definition version.
 --
 -- * 'gsdvrsResponseStatus' - -- | The response status code.
 getSubscriptionDefinitionVersionResponse
@@ -152,38 +152,38 @@ getSubscriptionDefinitionVersionResponse
     -> GetSubscriptionDefinitionVersionResponse
 getSubscriptionDefinitionVersionResponse pResponseStatus_ =
   GetSubscriptionDefinitionVersionResponse'
-  { _gsdvrsDefinition = Nothing
-  , _gsdvrsARN = Nothing
-  , _gsdvrsCreationTimestamp = Nothing
-  , _gsdvrsVersion = Nothing
-  , _gsdvrsId = Nothing
-  , _gsdvrsResponseStatus = pResponseStatus_
-  }
+    { _gsdvrsDefinition = Nothing
+    , _gsdvrsARN = Nothing
+    , _gsdvrsCreationTimestamp = Nothing
+    , _gsdvrsVersion = Nothing
+    , _gsdvrsId = Nothing
+    , _gsdvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Information on the definition
+-- | Information about the subscription definition version.
 gsdvrsDefinition :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe SubscriptionDefinitionVersion)
-gsdvrsDefinition = lens _gsdvrsDefinition (\ s a -> s{_gsdvrsDefinition = a});
+gsdvrsDefinition = lens _gsdvrsDefinition (\ s a -> s{_gsdvrsDefinition = a})
 
--- | Arn of the subscription definition version.
+-- | The ARN of the subscription definition version.
 gsdvrsARN :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)
-gsdvrsARN = lens _gsdvrsARN (\ s a -> s{_gsdvrsARN = a});
+gsdvrsARN = lens _gsdvrsARN (\ s a -> s{_gsdvrsARN = a})
 
--- | Timestamp of when the subscription definition version was created.
+-- | The time, in milliseconds since the epoch, when the subscription definition version was created.
 gsdvrsCreationTimestamp :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)
-gsdvrsCreationTimestamp = lens _gsdvrsCreationTimestamp (\ s a -> s{_gsdvrsCreationTimestamp = a});
+gsdvrsCreationTimestamp = lens _gsdvrsCreationTimestamp (\ s a -> s{_gsdvrsCreationTimestamp = a})
 
--- | Version of the subscription definition version.
+-- | The version of the subscription definition version.
 gsdvrsVersion :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)
-gsdvrsVersion = lens _gsdvrsVersion (\ s a -> s{_gsdvrsVersion = a});
+gsdvrsVersion = lens _gsdvrsVersion (\ s a -> s{_gsdvrsVersion = a})
 
--- | Id of the subscription definition the version belongs to.
+-- | The ID of the subscription definition version.
 gsdvrsId :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)
-gsdvrsId = lens _gsdvrsId (\ s a -> s{_gsdvrsId = a});
+gsdvrsId = lens _gsdvrsId (\ s a -> s{_gsdvrsId = a})
 
 -- | -- | The response status code.
 gsdvrsResponseStatus :: Lens' GetSubscriptionDefinitionVersionResponse Int
-gsdvrsResponseStatus = lens _gsdvrsResponseStatus (\ s a -> s{_gsdvrsResponseStatus = a});
+gsdvrsResponseStatus = lens _gsdvrsResponseStatus (\ s a -> s{_gsdvrsResponseStatus = a})
 
 instance NFData
            GetSubscriptionDefinitionVersionResponse

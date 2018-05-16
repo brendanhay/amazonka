@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DeleteApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,18 +70,18 @@ deleteApplication
     -> DeleteApplication
 deleteApplication pApplicationName_ pCreateTimestamp_ =
   DeleteApplication'
-  { _dApplicationName = pApplicationName_
-  , _dCreateTimestamp = _Time # pCreateTimestamp_
-  }
+    { _dApplicationName = pApplicationName_
+    , _dCreateTimestamp = _Time # pCreateTimestamp_
+    }
 
 
 -- | Name of the Amazon Kinesis Analytics application to delete.
 dApplicationName :: Lens' DeleteApplication Text
-dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
+dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a})
 
 -- | You can use the @DescribeApplication@ operation to get this value.
 dCreateTimestamp :: Lens' DeleteApplication UTCTime
-dCreateTimestamp = lens _dCreateTimestamp (\ s a -> s{_dCreateTimestamp = a}) . _Time;
+dCreateTimestamp = lens _dCreateTimestamp (\ s a -> s{_dCreateTimestamp = a}) . _Time
 
 instance AWSRequest DeleteApplication where
         type Rs DeleteApplication = DeleteApplicationResponse
@@ -142,6 +142,6 @@ deleteApplicationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteApplicationResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteApplicationResponse where

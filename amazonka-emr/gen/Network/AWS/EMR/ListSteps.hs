@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListSteps
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,28 +80,28 @@ listSteps
     -> ListSteps
 listSteps pClusterId_ =
   ListSteps'
-  { _lsStepIds = Nothing
-  , _lsStepStates = Nothing
-  , _lsMarker = Nothing
-  , _lsClusterId = pClusterId_
-  }
+    { _lsStepIds = Nothing
+    , _lsStepStates = Nothing
+    , _lsMarker = Nothing
+    , _lsClusterId = pClusterId_
+    }
 
 
 -- | The filter to limit the step list based on the identifier of the steps.
 lsStepIds :: Lens' ListSteps [Text]
-lsStepIds = lens _lsStepIds (\ s a -> s{_lsStepIds = a}) . _Default . _Coerce;
+lsStepIds = lens _lsStepIds (\ s a -> s{_lsStepIds = a}) . _Default . _Coerce
 
 -- | The filter to limit the step list based on certain states.
 lsStepStates :: Lens' ListSteps [StepState]
-lsStepStates = lens _lsStepStates (\ s a -> s{_lsStepStates = a}) . _Default . _Coerce;
+lsStepStates = lens _lsStepStates (\ s a -> s{_lsStepStates = a}) . _Default . _Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lsMarker :: Lens' ListSteps (Maybe Text)
-lsMarker = lens _lsMarker (\ s a -> s{_lsMarker = a});
+lsMarker = lens _lsMarker (\ s a -> s{_lsMarker = a})
 
 -- | The identifier of the cluster for which to list the steps.
 lsClusterId :: Lens' ListSteps Text
-lsClusterId = lens _lsClusterId (\ s a -> s{_lsClusterId = a});
+lsClusterId = lens _lsClusterId (\ s a -> s{_lsClusterId = a})
 
 instance AWSPager ListSteps where
         page rq rs
@@ -174,22 +174,22 @@ listStepsResponse
     -> ListStepsResponse
 listStepsResponse pResponseStatus_ =
   ListStepsResponse'
-  { _lsrsSteps = Nothing
-  , _lsrsMarker = Nothing
-  , _lsrsResponseStatus = pResponseStatus_
-  }
+    { _lsrsSteps = Nothing
+    , _lsrsMarker = Nothing
+    , _lsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The filtered list of steps for the cluster.
 lsrsSteps :: Lens' ListStepsResponse [StepSummary]
-lsrsSteps = lens _lsrsSteps (\ s a -> s{_lsrsSteps = a}) . _Default . _Coerce;
+lsrsSteps = lens _lsrsSteps (\ s a -> s{_lsrsSteps = a}) . _Default . _Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lsrsMarker :: Lens' ListStepsResponse (Maybe Text)
-lsrsMarker = lens _lsrsMarker (\ s a -> s{_lsrsMarker = a});
+lsrsMarker = lens _lsrsMarker (\ s a -> s{_lsrsMarker = a})
 
 -- | -- | The response status code.
 lsrsResponseStatus :: Lens' ListStepsResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
+lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a})
 
 instance NFData ListStepsResponse where

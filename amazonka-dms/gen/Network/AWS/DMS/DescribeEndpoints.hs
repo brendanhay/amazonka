@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeEndpoints
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Returns information about the endpoints for your account in the current region.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DMS.DescribeEndpoints
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.DMS.DescribeEndpoints
 import Network.AWS.DMS.Types
 import Network.AWS.DMS.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,20 +75,27 @@ describeEndpoints
     :: DescribeEndpoints
 describeEndpoints =
   DescribeEndpoints'
-  {_desFilters = Nothing, _desMarker = Nothing, _desMaxRecords = Nothing}
+    {_desFilters = Nothing, _desMarker = Nothing, _desMaxRecords = Nothing}
 
 
 -- | Filters applied to the describe action. Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
 desFilters :: Lens' DescribeEndpoints [Filter]
-desFilters = lens _desFilters (\ s a -> s{_desFilters = a}) . _Default . _Coerce;
+desFilters = lens _desFilters (\ s a -> s{_desFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 desMarker :: Lens' DescribeEndpoints (Maybe Text)
-desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
+desMarker = lens _desMarker (\ s a -> s{_desMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 desMaxRecords :: Lens' DescribeEndpoints (Maybe Int)
-desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
+desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a})
+
+instance AWSPager DescribeEndpoints where
+        page rq rs
+          | stop (rs ^. dersMarker) = Nothing
+          | stop (rs ^. dersEndpoints) = Nothing
+          | otherwise =
+            Just $ rq & desMarker .~ rs ^. dersMarker
 
 instance AWSRequest DescribeEndpoints where
         type Rs DescribeEndpoints = DescribeEndpointsResponse
@@ -151,22 +161,22 @@ describeEndpointsResponse
     -> DescribeEndpointsResponse
 describeEndpointsResponse pResponseStatus_ =
   DescribeEndpointsResponse'
-  { _dersMarker = Nothing
-  , _dersEndpoints = Nothing
-  , _dersResponseStatus = pResponseStatus_
-  }
+    { _dersMarker = Nothing
+    , _dersEndpoints = Nothing
+    , _dersResponseStatus = pResponseStatus_
+    }
 
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dersMarker :: Lens' DescribeEndpointsResponse (Maybe Text)
-dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
+dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a})
 
 -- | Endpoint description.
 dersEndpoints :: Lens' DescribeEndpointsResponse [Endpoint]
-dersEndpoints = lens _dersEndpoints (\ s a -> s{_dersEndpoints = a}) . _Default . _Coerce;
+dersEndpoints = lens _dersEndpoints (\ s a -> s{_dersEndpoints = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeEndpointsResponse Int
-dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a})
 
 instance NFData DescribeEndpointsResponse where

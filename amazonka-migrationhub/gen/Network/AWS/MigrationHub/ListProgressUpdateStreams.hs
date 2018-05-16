@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.ListProgressUpdateStreams
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ listProgressUpdateStreams
     :: ListProgressUpdateStreams
 listProgressUpdateStreams =
   ListProgressUpdateStreams'
-  {_lpusNextToken = Nothing, _lpusMaxResults = Nothing}
+    {_lpusNextToken = Nothing, _lpusMaxResults = Nothing}
 
 
 -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
 lpusNextToken :: Lens' ListProgressUpdateStreams (Maybe Text)
-lpusNextToken = lens _lpusNextToken (\ s a -> s{_lpusNextToken = a});
+lpusNextToken = lens _lpusNextToken (\ s a -> s{_lpusNextToken = a})
 
 -- | Filter to limit the maximum number of results to list per page.
 lpusMaxResults :: Lens' ListProgressUpdateStreams (Maybe Natural)
-lpusMaxResults = lens _lpusMaxResults (\ s a -> s{_lpusMaxResults = a}) . mapping _Nat;
+lpusMaxResults = lens _lpusMaxResults (\ s a -> s{_lpusMaxResults = a}) . mapping _Nat
 
 instance AWSRequest ListProgressUpdateStreams where
         type Rs ListProgressUpdateStreams =
@@ -136,23 +136,23 @@ listProgressUpdateStreamsResponse
     -> ListProgressUpdateStreamsResponse
 listProgressUpdateStreamsResponse pResponseStatus_ =
   ListProgressUpdateStreamsResponse'
-  { _lpusrsProgressUpdateStreamSummaryList = Nothing
-  , _lpusrsNextToken = Nothing
-  , _lpusrsResponseStatus = pResponseStatus_
-  }
+    { _lpusrsProgressUpdateStreamSummaryList = Nothing
+    , _lpusrsNextToken = Nothing
+    , _lpusrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | List of progress update streams up to the max number of results passed in the input.
 lpusrsProgressUpdateStreamSummaryList :: Lens' ListProgressUpdateStreamsResponse [ProgressUpdateStreamSummary]
-lpusrsProgressUpdateStreamSummaryList = lens _lpusrsProgressUpdateStreamSummaryList (\ s a -> s{_lpusrsProgressUpdateStreamSummaryList = a}) . _Default . _Coerce;
+lpusrsProgressUpdateStreamSummaryList = lens _lpusrsProgressUpdateStreamSummaryList (\ s a -> s{_lpusrsProgressUpdateStreamSummaryList = a}) . _Default . _Coerce
 
 -- | If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
 lpusrsNextToken :: Lens' ListProgressUpdateStreamsResponse (Maybe Text)
-lpusrsNextToken = lens _lpusrsNextToken (\ s a -> s{_lpusrsNextToken = a});
+lpusrsNextToken = lens _lpusrsNextToken (\ s a -> s{_lpusrsNextToken = a})
 
 -- | -- | The response status code.
 lpusrsResponseStatus :: Lens' ListProgressUpdateStreamsResponse Int
-lpusrsResponseStatus = lens _lpusrsResponseStatus (\ s a -> s{_lpusrsResponseStatus = a});
+lpusrsResponseStatus = lens _lpusrsResponseStatus (\ s a -> s{_lpusrsResponseStatus = a})
 
 instance NFData ListProgressUpdateStreamsResponse
          where

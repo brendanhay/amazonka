@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetResourceConfigHistory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,15 +76,15 @@ data GetResourceConfigHistory = GetResourceConfigHistory'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grchChronologicalOrder' - The chronological order for configuration items listed. By default the results are listed in reverse chronological order.
+-- * 'grchChronologicalOrder' - The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.
 --
 -- * 'grchNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'grchLimit' - The maximum number of configuration items returned on each page. The default is 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default.
+-- * 'grchLimit' - The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 --
 -- * 'grchLaterTime' - The time stamp that indicates a later time. If not specified, current time is taken.
 --
--- * 'grchEarlierTime' - The time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start from when the first configuration item was recorded.
+-- * 'grchEarlierTime' - The time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start when the first configuration item was recorded.
 --
 -- * 'grchResourceType' - The resource type.
 --
@@ -95,43 +95,43 @@ getResourceConfigHistory
     -> GetResourceConfigHistory
 getResourceConfigHistory pResourceType_ pResourceId_ =
   GetResourceConfigHistory'
-  { _grchChronologicalOrder = Nothing
-  , _grchNextToken = Nothing
-  , _grchLimit = Nothing
-  , _grchLaterTime = Nothing
-  , _grchEarlierTime = Nothing
-  , _grchResourceType = pResourceType_
-  , _grchResourceId = pResourceId_
-  }
+    { _grchChronologicalOrder = Nothing
+    , _grchNextToken = Nothing
+    , _grchLimit = Nothing
+    , _grchLaterTime = Nothing
+    , _grchEarlierTime = Nothing
+    , _grchResourceType = pResourceType_
+    , _grchResourceId = pResourceId_
+    }
 
 
--- | The chronological order for configuration items listed. By default the results are listed in reverse chronological order.
+-- | The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.
 grchChronologicalOrder :: Lens' GetResourceConfigHistory (Maybe ChronologicalOrder)
-grchChronologicalOrder = lens _grchChronologicalOrder (\ s a -> s{_grchChronologicalOrder = a});
+grchChronologicalOrder = lens _grchChronologicalOrder (\ s a -> s{_grchChronologicalOrder = a})
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 grchNextToken :: Lens' GetResourceConfigHistory (Maybe Text)
-grchNextToken = lens _grchNextToken (\ s a -> s{_grchNextToken = a});
+grchNextToken = lens _grchNextToken (\ s a -> s{_grchNextToken = a})
 
--- | The maximum number of configuration items returned on each page. The default is 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default.
+-- | The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 grchLimit :: Lens' GetResourceConfigHistory (Maybe Natural)
-grchLimit = lens _grchLimit (\ s a -> s{_grchLimit = a}) . mapping _Nat;
+grchLimit = lens _grchLimit (\ s a -> s{_grchLimit = a}) . mapping _Nat
 
 -- | The time stamp that indicates a later time. If not specified, current time is taken.
 grchLaterTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
-grchLaterTime = lens _grchLaterTime (\ s a -> s{_grchLaterTime = a}) . mapping _Time;
+grchLaterTime = lens _grchLaterTime (\ s a -> s{_grchLaterTime = a}) . mapping _Time
 
--- | The time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start from when the first configuration item was recorded.
+-- | The time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start when the first configuration item was recorded.
 grchEarlierTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
-grchEarlierTime = lens _grchEarlierTime (\ s a -> s{_grchEarlierTime = a}) . mapping _Time;
+grchEarlierTime = lens _grchEarlierTime (\ s a -> s{_grchEarlierTime = a}) . mapping _Time
 
 -- | The resource type.
 grchResourceType :: Lens' GetResourceConfigHistory ResourceType
-grchResourceType = lens _grchResourceType (\ s a -> s{_grchResourceType = a});
+grchResourceType = lens _grchResourceType (\ s a -> s{_grchResourceType = a})
 
 -- | The ID of the resource (for example., @sg-xxxxxx@ ).
 grchResourceId :: Lens' GetResourceConfigHistory Text
-grchResourceId = lens _grchResourceId (\ s a -> s{_grchResourceId = a});
+grchResourceId = lens _grchResourceId (\ s a -> s{_grchResourceId = a})
 
 instance AWSPager GetResourceConfigHistory where
         page rq rs
@@ -211,23 +211,23 @@ getResourceConfigHistoryResponse
     -> GetResourceConfigHistoryResponse
 getResourceConfigHistoryResponse pResponseStatus_ =
   GetResourceConfigHistoryResponse'
-  { _grchrsNextToken = Nothing
-  , _grchrsConfigurationItems = Nothing
-  , _grchrsResponseStatus = pResponseStatus_
-  }
+    { _grchrsNextToken = Nothing
+    , _grchrsConfigurationItems = Nothing
+    , _grchrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 grchrsNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
-grchrsNextToken = lens _grchrsNextToken (\ s a -> s{_grchrsNextToken = a});
+grchrsNextToken = lens _grchrsNextToken (\ s a -> s{_grchrsNextToken = a})
 
 -- | A list that contains the configuration history of one or more resources.
 grchrsConfigurationItems :: Lens' GetResourceConfigHistoryResponse [ConfigurationItem]
-grchrsConfigurationItems = lens _grchrsConfigurationItems (\ s a -> s{_grchrsConfigurationItems = a}) . _Default . _Coerce;
+grchrsConfigurationItems = lens _grchrsConfigurationItems (\ s a -> s{_grchrsConfigurationItems = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 grchrsResponseStatus :: Lens' GetResourceConfigHistoryResponse Int
-grchrsResponseStatus = lens _grchrsResponseStatus (\ s a -> s{_grchrsResponseStatus = a});
+grchrsResponseStatus = lens _grchrsResponseStatus (\ s a -> s{_grchrsResponseStatus = a})
 
 instance NFData GetResourceConfigHistoryResponse
          where

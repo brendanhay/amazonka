@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateLoggerDefinitionVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,33 +59,33 @@ data CreateLoggerDefinitionVersion = CreateLoggerDefinitionVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cldvLoggers' - List of loggers.
+-- * 'cldvLoggers' - A list of loggers.
 --
--- * 'cldvAmznClientToken' - The client token used to request idempotent operations.
+-- * 'cldvAmznClientToken' - A client token used to correlate requests and responses.
 --
--- * 'cldvLoggerDefinitionId' - logger definition Id
+-- * 'cldvLoggerDefinitionId' - The ID of the logger definition.
 createLoggerDefinitionVersion
     :: Text -- ^ 'cldvLoggerDefinitionId'
     -> CreateLoggerDefinitionVersion
 createLoggerDefinitionVersion pLoggerDefinitionId_ =
   CreateLoggerDefinitionVersion'
-  { _cldvLoggers = Nothing
-  , _cldvAmznClientToken = Nothing
-  , _cldvLoggerDefinitionId = pLoggerDefinitionId_
-  }
+    { _cldvLoggers = Nothing
+    , _cldvAmznClientToken = Nothing
+    , _cldvLoggerDefinitionId = pLoggerDefinitionId_
+    }
 
 
--- | List of loggers.
+-- | A list of loggers.
 cldvLoggers :: Lens' CreateLoggerDefinitionVersion [GreengrassLogger]
-cldvLoggers = lens _cldvLoggers (\ s a -> s{_cldvLoggers = a}) . _Default . _Coerce;
+cldvLoggers = lens _cldvLoggers (\ s a -> s{_cldvLoggers = a}) . _Default . _Coerce
 
--- | The client token used to request idempotent operations.
+-- | A client token used to correlate requests and responses.
 cldvAmznClientToken :: Lens' CreateLoggerDefinitionVersion (Maybe Text)
-cldvAmznClientToken = lens _cldvAmznClientToken (\ s a -> s{_cldvAmznClientToken = a});
+cldvAmznClientToken = lens _cldvAmznClientToken (\ s a -> s{_cldvAmznClientToken = a})
 
--- | logger definition Id
+-- | The ID of the logger definition.
 cldvLoggerDefinitionId :: Lens' CreateLoggerDefinitionVersion Text
-cldvLoggerDefinitionId = lens _cldvLoggerDefinitionId (\ s a -> s{_cldvLoggerDefinitionId = a});
+cldvLoggerDefinitionId = lens _cldvLoggerDefinitionId (\ s a -> s{_cldvLoggerDefinitionId = a})
 
 instance AWSRequest CreateLoggerDefinitionVersion
          where
@@ -141,13 +141,13 @@ data CreateLoggerDefinitionVersionResponse = CreateLoggerDefinitionVersionRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cldvrsARN' - Arn of the version.
+-- * 'cldvrsARN' - The ARN of the version.
 --
--- * 'cldvrsCreationTimestamp' - Timestamp of when the version was created.
+-- * 'cldvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
 --
--- * 'cldvrsVersion' - Unique Id of a version.
+-- * 'cldvrsVersion' - The unique ID of the version.
 --
--- * 'cldvrsId' - Id of the resource container.
+-- * 'cldvrsId' - The ID of the version.
 --
 -- * 'cldvrsResponseStatus' - -- | The response status code.
 createLoggerDefinitionVersionResponse
@@ -155,33 +155,33 @@ createLoggerDefinitionVersionResponse
     -> CreateLoggerDefinitionVersionResponse
 createLoggerDefinitionVersionResponse pResponseStatus_ =
   CreateLoggerDefinitionVersionResponse'
-  { _cldvrsARN = Nothing
-  , _cldvrsCreationTimestamp = Nothing
-  , _cldvrsVersion = Nothing
-  , _cldvrsId = Nothing
-  , _cldvrsResponseStatus = pResponseStatus_
-  }
+    { _cldvrsARN = Nothing
+    , _cldvrsCreationTimestamp = Nothing
+    , _cldvrsVersion = Nothing
+    , _cldvrsId = Nothing
+    , _cldvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Arn of the version.
+-- | The ARN of the version.
 cldvrsARN :: Lens' CreateLoggerDefinitionVersionResponse (Maybe Text)
-cldvrsARN = lens _cldvrsARN (\ s a -> s{_cldvrsARN = a});
+cldvrsARN = lens _cldvrsARN (\ s a -> s{_cldvrsARN = a})
 
--- | Timestamp of when the version was created.
+-- | The time, in milliseconds since the epoch, when the version was created.
 cldvrsCreationTimestamp :: Lens' CreateLoggerDefinitionVersionResponse (Maybe Text)
-cldvrsCreationTimestamp = lens _cldvrsCreationTimestamp (\ s a -> s{_cldvrsCreationTimestamp = a});
+cldvrsCreationTimestamp = lens _cldvrsCreationTimestamp (\ s a -> s{_cldvrsCreationTimestamp = a})
 
--- | Unique Id of a version.
+-- | The unique ID of the version.
 cldvrsVersion :: Lens' CreateLoggerDefinitionVersionResponse (Maybe Text)
-cldvrsVersion = lens _cldvrsVersion (\ s a -> s{_cldvrsVersion = a});
+cldvrsVersion = lens _cldvrsVersion (\ s a -> s{_cldvrsVersion = a})
 
--- | Id of the resource container.
+-- | The ID of the version.
 cldvrsId :: Lens' CreateLoggerDefinitionVersionResponse (Maybe Text)
-cldvrsId = lens _cldvrsId (\ s a -> s{_cldvrsId = a});
+cldvrsId = lens _cldvrsId (\ s a -> s{_cldvrsId = a})
 
 -- | -- | The response status code.
 cldvrsResponseStatus :: Lens' CreateLoggerDefinitionVersionResponse Int
-cldvrsResponseStatus = lens _cldvrsResponseStatus (\ s a -> s{_cldvrsResponseStatus = a});
+cldvrsResponseStatus = lens _cldvrsResponseStatus (\ s a -> s{_cldvrsResponseStatus = a})
 
 instance NFData CreateLoggerDefinitionVersionResponse
          where

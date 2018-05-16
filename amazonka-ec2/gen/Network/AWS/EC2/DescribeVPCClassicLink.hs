@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVPCClassicLink
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,20 +71,20 @@ describeVPCClassicLink
     :: DescribeVPCClassicLink
 describeVPCClassicLink =
   DescribeVPCClassicLink'
-  {_dvclFilters = Nothing, _dvclVPCIds = Nothing, _dvclDryRun = Nothing}
+    {_dvclFilters = Nothing, _dvclVPCIds = Nothing, _dvclDryRun = Nothing}
 
 
 -- | One or more filters.     * @is-classic-link-enabled@ - Whether the VPC is enabled for ClassicLink (@true@ | @false@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.
 dvclFilters :: Lens' DescribeVPCClassicLink [Filter]
-dvclFilters = lens _dvclFilters (\ s a -> s{_dvclFilters = a}) . _Default . _Coerce;
+dvclFilters = lens _dvclFilters (\ s a -> s{_dvclFilters = a}) . _Default . _Coerce
 
 -- | One or more VPCs for which you want to describe the ClassicLink status.
 dvclVPCIds :: Lens' DescribeVPCClassicLink [Text]
-dvclVPCIds = lens _dvclVPCIds (\ s a -> s{_dvclVPCIds = a}) . _Default . _Coerce;
+dvclVPCIds = lens _dvclVPCIds (\ s a -> s{_dvclVPCIds = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvclDryRun :: Lens' DescribeVPCClassicLink (Maybe Bool)
-dvclDryRun = lens _dvclDryRun (\ s a -> s{_dvclDryRun = a});
+dvclDryRun = lens _dvclDryRun (\ s a -> s{_dvclDryRun = a})
 
 instance AWSRequest DescribeVPCClassicLink where
         type Rs DescribeVPCClassicLink =
@@ -141,15 +141,15 @@ describeVPCClassicLinkResponse
     -> DescribeVPCClassicLinkResponse
 describeVPCClassicLinkResponse pResponseStatus_ =
   DescribeVPCClassicLinkResponse'
-  {_dvclrsVPCs = Nothing, _dvclrsResponseStatus = pResponseStatus_}
+    {_dvclrsVPCs = Nothing, _dvclrsResponseStatus = pResponseStatus_}
 
 
 -- | The ClassicLink status of one or more VPCs.
 dvclrsVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
-dvclrsVPCs = lens _dvclrsVPCs (\ s a -> s{_dvclrsVPCs = a}) . _Default . _Coerce;
+dvclrsVPCs = lens _dvclrsVPCs (\ s a -> s{_dvclrsVPCs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dvclrsResponseStatus :: Lens' DescribeVPCClassicLinkResponse Int
-dvclrsResponseStatus = lens _dvclrsResponseStatus (\ s a -> s{_dvclrsResponseStatus = a});
+dvclrsResponseStatus = lens _dvclrsResponseStatus (\ s a -> s{_dvclrsResponseStatus = a})
 
 instance NFData DescribeVPCClassicLinkResponse where

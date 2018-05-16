@@ -1,5 +1,5 @@
 name:                  amazonka-dms
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Database Migration Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -67,8 +67,10 @@ library
         , Network.AWS.DMS.DescribeEvents
         , Network.AWS.DMS.DescribeOrderableReplicationInstances
         , Network.AWS.DMS.DescribeRefreshSchemasStatus
+        , Network.AWS.DMS.DescribeReplicationInstanceTaskLogs
         , Network.AWS.DMS.DescribeReplicationInstances
         , Network.AWS.DMS.DescribeReplicationSubnetGroups
+        , Network.AWS.DMS.DescribeReplicationTaskAssessmentResults
         , Network.AWS.DMS.DescribeReplicationTasks
         , Network.AWS.DMS.DescribeSchemas
         , Network.AWS.DMS.DescribeTableStatistics
@@ -79,10 +81,12 @@ library
         , Network.AWS.DMS.ModifyReplicationInstance
         , Network.AWS.DMS.ModifyReplicationSubnetGroup
         , Network.AWS.DMS.ModifyReplicationTask
+        , Network.AWS.DMS.RebootReplicationInstance
         , Network.AWS.DMS.RefreshSchemas
         , Network.AWS.DMS.ReloadTables
         , Network.AWS.DMS.RemoveTagsFromResource
         , Network.AWS.DMS.StartReplicationTask
+        , Network.AWS.DMS.StartReplicationTaskAssessment
         , Network.AWS.DMS.StopReplicationTask
         , Network.AWS.DMS.TestConnection
         , Network.AWS.DMS.Types
@@ -93,7 +97,7 @@ library
         , Network.AWS.DMS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-dms-test
@@ -113,8 +117,8 @@ test-suite amazonka-dms-test
         , Test.AWS.DMS.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-dms
         , base
         , bytestring

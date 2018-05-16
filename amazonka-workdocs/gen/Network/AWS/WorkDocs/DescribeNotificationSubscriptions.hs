@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeNotificationSubscriptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,20 +69,20 @@ describeNotificationSubscriptions
     -> DescribeNotificationSubscriptions
 describeNotificationSubscriptions pOrganizationId_ =
   DescribeNotificationSubscriptions'
-  {_dMarker = Nothing, _dLimit = Nothing, _dOrganizationId = pOrganizationId_}
+    {_dMarker = Nothing, _dLimit = Nothing, _dOrganizationId = pOrganizationId_}
 
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 dMarker :: Lens' DescribeNotificationSubscriptions (Maybe Text)
-dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
+dMarker = lens _dMarker (\ s a -> s{_dMarker = a})
 
 -- | The maximum number of items to return with this call.
 dLimit :: Lens' DescribeNotificationSubscriptions (Maybe Natural)
-dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat;
+dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat
 
 -- | The ID of the organization.
 dOrganizationId :: Lens' DescribeNotificationSubscriptions Text
-dOrganizationId = lens _dOrganizationId (\ s a -> s{_dOrganizationId = a});
+dOrganizationId = lens _dOrganizationId (\ s a -> s{_dOrganizationId = a})
 
 instance AWSRequest DescribeNotificationSubscriptions
          where
@@ -145,23 +145,23 @@ describeNotificationSubscriptionsResponse
     -> DescribeNotificationSubscriptionsResponse
 describeNotificationSubscriptionsResponse pResponseStatus_ =
   DescribeNotificationSubscriptionsResponse'
-  { _dnsrsMarker = Nothing
-  , _dnsrsSubscriptions = Nothing
-  , _dnsrsResponseStatus = pResponseStatus_
-  }
+    { _dnsrsMarker = Nothing
+    , _dnsrsSubscriptions = Nothing
+    , _dnsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dnsrsMarker :: Lens' DescribeNotificationSubscriptionsResponse (Maybe Text)
-dnsrsMarker = lens _dnsrsMarker (\ s a -> s{_dnsrsMarker = a});
+dnsrsMarker = lens _dnsrsMarker (\ s a -> s{_dnsrsMarker = a})
 
 -- | The subscriptions.
 dnsrsSubscriptions :: Lens' DescribeNotificationSubscriptionsResponse [Subscription]
-dnsrsSubscriptions = lens _dnsrsSubscriptions (\ s a -> s{_dnsrsSubscriptions = a}) . _Default . _Coerce;
+dnsrsSubscriptions = lens _dnsrsSubscriptions (\ s a -> s{_dnsrsSubscriptions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dnsrsResponseStatus :: Lens' DescribeNotificationSubscriptionsResponse Int
-dnsrsResponseStatus = lens _dnsrsResponseStatus (\ s a -> s{_dnsrsResponseStatus = a});
+dnsrsResponseStatus = lens _dnsrsResponseStatus (\ s a -> s{_dnsrsResponseStatus = a})
 
 instance NFData
            DescribeNotificationSubscriptionsResponse

@@ -1,5 +1,5 @@
 name:                  amazonka-iot
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon IoT SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -46,63 +46,125 @@ library
     exposed-modules:
           Network.AWS.IoT
         , Network.AWS.IoT.AcceptCertificateTransfer
-        , Network.AWS.IoT.AttachPrincipalPolicy
+        , Network.AWS.IoT.AddThingToThingGroup
+        , Network.AWS.IoT.AssociateTargetsWithJob
+        , Network.AWS.IoT.AttachPolicy
         , Network.AWS.IoT.AttachThingPrincipal
         , Network.AWS.IoT.CancelCertificateTransfer
+        , Network.AWS.IoT.CancelJob
+        , Network.AWS.IoT.ClearDefaultAuthorizer
+        , Network.AWS.IoT.CreateAuthorizer
         , Network.AWS.IoT.CreateCertificateFromCSR
+        , Network.AWS.IoT.CreateJob
         , Network.AWS.IoT.CreateKeysAndCertificate
+        , Network.AWS.IoT.CreateOTAUpdate
         , Network.AWS.IoT.CreatePolicy
         , Network.AWS.IoT.CreatePolicyVersion
+        , Network.AWS.IoT.CreateRoleAlias
+        , Network.AWS.IoT.CreateStream
         , Network.AWS.IoT.CreateThing
+        , Network.AWS.IoT.CreateThingGroup
         , Network.AWS.IoT.CreateThingType
         , Network.AWS.IoT.CreateTopicRule
+        , Network.AWS.IoT.DeleteAuthorizer
         , Network.AWS.IoT.DeleteCACertificate
         , Network.AWS.IoT.DeleteCertificate
+        , Network.AWS.IoT.DeleteOTAUpdate
         , Network.AWS.IoT.DeletePolicy
         , Network.AWS.IoT.DeletePolicyVersion
         , Network.AWS.IoT.DeleteRegistrationCode
+        , Network.AWS.IoT.DeleteRoleAlias
+        , Network.AWS.IoT.DeleteStream
         , Network.AWS.IoT.DeleteThing
+        , Network.AWS.IoT.DeleteThingGroup
         , Network.AWS.IoT.DeleteThingType
         , Network.AWS.IoT.DeleteTopicRule
+        , Network.AWS.IoT.DeleteV2LoggingLevel
         , Network.AWS.IoT.DeprecateThingType
+        , Network.AWS.IoT.DescribeAuthorizer
         , Network.AWS.IoT.DescribeCACertificate
         , Network.AWS.IoT.DescribeCertificate
+        , Network.AWS.IoT.DescribeDefaultAuthorizer
         , Network.AWS.IoT.DescribeEndpoint
+        , Network.AWS.IoT.DescribeEventConfigurations
+        , Network.AWS.IoT.DescribeIndex
+        , Network.AWS.IoT.DescribeJob
+        , Network.AWS.IoT.DescribeJobExecution
+        , Network.AWS.IoT.DescribeRoleAlias
+        , Network.AWS.IoT.DescribeStream
         , Network.AWS.IoT.DescribeThing
+        , Network.AWS.IoT.DescribeThingGroup
+        , Network.AWS.IoT.DescribeThingRegistrationTask
         , Network.AWS.IoT.DescribeThingType
-        , Network.AWS.IoT.DetachPrincipalPolicy
+        , Network.AWS.IoT.DetachPolicy
         , Network.AWS.IoT.DetachThingPrincipal
         , Network.AWS.IoT.DisableTopicRule
         , Network.AWS.IoT.EnableTopicRule
+        , Network.AWS.IoT.GetEffectivePolicies
+        , Network.AWS.IoT.GetIndexingConfiguration
+        , Network.AWS.IoT.GetJobDocument
         , Network.AWS.IoT.GetLoggingOptions
+        , Network.AWS.IoT.GetOTAUpdate
         , Network.AWS.IoT.GetPolicy
         , Network.AWS.IoT.GetPolicyVersion
         , Network.AWS.IoT.GetRegistrationCode
         , Network.AWS.IoT.GetTopicRule
+        , Network.AWS.IoT.GetV2LoggingOptions
+        , Network.AWS.IoT.ListAttachedPolicies
+        , Network.AWS.IoT.ListAuthorizers
         , Network.AWS.IoT.ListCACertificates
         , Network.AWS.IoT.ListCertificates
         , Network.AWS.IoT.ListCertificatesByCA
+        , Network.AWS.IoT.ListIndices
+        , Network.AWS.IoT.ListJobExecutionsForJob
+        , Network.AWS.IoT.ListJobExecutionsForThing
+        , Network.AWS.IoT.ListJobs
+        , Network.AWS.IoT.ListOTAUpdates
         , Network.AWS.IoT.ListOutgoingCertificates
         , Network.AWS.IoT.ListPolicies
-        , Network.AWS.IoT.ListPolicyPrincipals
         , Network.AWS.IoT.ListPolicyVersions
-        , Network.AWS.IoT.ListPrincipalPolicies
         , Network.AWS.IoT.ListPrincipalThings
+        , Network.AWS.IoT.ListRoleAliases
+        , Network.AWS.IoT.ListStreams
+        , Network.AWS.IoT.ListTargetsForPolicy
+        , Network.AWS.IoT.ListThingGroups
+        , Network.AWS.IoT.ListThingGroupsForThing
         , Network.AWS.IoT.ListThingPrincipals
+        , Network.AWS.IoT.ListThingRegistrationTaskReports
+        , Network.AWS.IoT.ListThingRegistrationTasks
         , Network.AWS.IoT.ListThingTypes
         , Network.AWS.IoT.ListThings
+        , Network.AWS.IoT.ListThingsInThingGroup
         , Network.AWS.IoT.ListTopicRules
+        , Network.AWS.IoT.ListV2LoggingLevels
         , Network.AWS.IoT.RegisterCACertificate
         , Network.AWS.IoT.RegisterCertificate
+        , Network.AWS.IoT.RegisterThing
         , Network.AWS.IoT.RejectCertificateTransfer
+        , Network.AWS.IoT.RemoveThingFromThingGroup
         , Network.AWS.IoT.ReplaceTopicRule
+        , Network.AWS.IoT.SearchIndex
+        , Network.AWS.IoT.SetDefaultAuthorizer
         , Network.AWS.IoT.SetDefaultPolicyVersion
         , Network.AWS.IoT.SetLoggingOptions
+        , Network.AWS.IoT.SetV2LoggingLevel
+        , Network.AWS.IoT.SetV2LoggingOptions
+        , Network.AWS.IoT.StartThingRegistrationTask
+        , Network.AWS.IoT.StopThingRegistrationTask
+        , Network.AWS.IoT.TestAuthorization
+        , Network.AWS.IoT.TestInvokeAuthorizer
         , Network.AWS.IoT.TransferCertificate
         , Network.AWS.IoT.Types
+        , Network.AWS.IoT.UpdateAuthorizer
         , Network.AWS.IoT.UpdateCACertificate
         , Network.AWS.IoT.UpdateCertificate
+        , Network.AWS.IoT.UpdateEventConfigurations
+        , Network.AWS.IoT.UpdateIndexingConfiguration
+        , Network.AWS.IoT.UpdateRoleAlias
+        , Network.AWS.IoT.UpdateStream
         , Network.AWS.IoT.UpdateThing
+        , Network.AWS.IoT.UpdateThingGroup
+        , Network.AWS.IoT.UpdateThingGroupsForThing
         , Network.AWS.IoT.Waiters
 
     other-modules:
@@ -110,7 +172,7 @@ library
         , Network.AWS.IoT.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-iot-test
@@ -130,8 +192,8 @@ test-suite amazonka-iot-test
         , Test.AWS.IoT.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-iot
         , base
         , bytestring

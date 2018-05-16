@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.UpdateAssessmentTarget
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,23 +67,23 @@ updateAssessmentTarget
     -> UpdateAssessmentTarget
 updateAssessmentTarget pAssessmentTargetARN_ pAssessmentTargetName_ pResourceGroupARN_ =
   UpdateAssessmentTarget'
-  { _uatAssessmentTargetARN = pAssessmentTargetARN_
-  , _uatAssessmentTargetName = pAssessmentTargetName_
-  , _uatResourceGroupARN = pResourceGroupARN_
-  }
+    { _uatAssessmentTargetARN = pAssessmentTargetARN_
+    , _uatAssessmentTargetName = pAssessmentTargetName_
+    , _uatResourceGroupARN = pResourceGroupARN_
+    }
 
 
 -- | The ARN of the assessment target that you want to update.
 uatAssessmentTargetARN :: Lens' UpdateAssessmentTarget Text
-uatAssessmentTargetARN = lens _uatAssessmentTargetARN (\ s a -> s{_uatAssessmentTargetARN = a});
+uatAssessmentTargetARN = lens _uatAssessmentTargetARN (\ s a -> s{_uatAssessmentTargetARN = a})
 
 -- | The name of the assessment target that you want to update.
 uatAssessmentTargetName :: Lens' UpdateAssessmentTarget Text
-uatAssessmentTargetName = lens _uatAssessmentTargetName (\ s a -> s{_uatAssessmentTargetName = a});
+uatAssessmentTargetName = lens _uatAssessmentTargetName (\ s a -> s{_uatAssessmentTargetName = a})
 
 -- | The ARN of the resource group that is used to specify the new resource group to associate with the assessment target.
 uatResourceGroupARN :: Lens' UpdateAssessmentTarget Text
-uatResourceGroupARN = lens _uatResourceGroupARN (\ s a -> s{_uatResourceGroupARN = a});
+uatResourceGroupARN = lens _uatResourceGroupARN (\ s a -> s{_uatResourceGroupARN = a})
 
 instance AWSRequest UpdateAssessmentTarget where
         type Rs UpdateAssessmentTarget =

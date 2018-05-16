@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,16 +72,18 @@ deleteCacheCluster
     -> DeleteCacheCluster
 deleteCacheCluster pCacheClusterId_ =
   DeleteCacheCluster'
-  {_dccFinalSnapshotIdentifier = Nothing, _dccCacheClusterId = pCacheClusterId_}
+    { _dccFinalSnapshotIdentifier = Nothing
+    , _dccCacheClusterId = pCacheClusterId_
+    }
 
 
 -- | The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cluster immediately afterward.
 dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
-dccFinalSnapshotIdentifier = lens _dccFinalSnapshotIdentifier (\ s a -> s{_dccFinalSnapshotIdentifier = a});
+dccFinalSnapshotIdentifier = lens _dccFinalSnapshotIdentifier (\ s a -> s{_dccFinalSnapshotIdentifier = a})
 
 -- | The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
 dccCacheClusterId :: Lens' DeleteCacheCluster Text
-dccCacheClusterId = lens _dccCacheClusterId (\ s a -> s{_dccCacheClusterId = a});
+dccCacheClusterId = lens _dccCacheClusterId (\ s a -> s{_dccCacheClusterId = a})
 
 instance AWSRequest DeleteCacheCluster where
         type Rs DeleteCacheCluster =
@@ -131,15 +133,15 @@ deleteCacheClusterResponse
     -> DeleteCacheClusterResponse
 deleteCacheClusterResponse pResponseStatus_ =
   DeleteCacheClusterResponse'
-  {_dccrsCacheCluster = Nothing, _dccrsResponseStatus = pResponseStatus_}
+    {_dccrsCacheCluster = Nothing, _dccrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
-dccrsCacheCluster = lens _dccrsCacheCluster (\ s a -> s{_dccrsCacheCluster = a});
+dccrsCacheCluster = lens _dccrsCacheCluster (\ s a -> s{_dccrsCacheCluster = a})
 
 -- | -- | The response status code.
 dccrsResponseStatus :: Lens' DeleteCacheClusterResponse Int
-dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
+dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a})
 
 instance NFData DeleteCacheClusterResponse where

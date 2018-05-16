@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,23 +78,23 @@ describeEnvironmentHealth
     :: DescribeEnvironmentHealth
 describeEnvironmentHealth =
   DescribeEnvironmentHealth'
-  { _dehEnvironmentName = Nothing
-  , _dehAttributeNames = Nothing
-  , _dehEnvironmentId = Nothing
-  }
+    { _dehEnvironmentName = Nothing
+    , _dehAttributeNames = Nothing
+    , _dehEnvironmentId = Nothing
+    }
 
 
 -- | Specify the environment by name. You must specify either this or an EnvironmentName, or both.
 dehEnvironmentName :: Lens' DescribeEnvironmentHealth (Maybe Text)
-dehEnvironmentName = lens _dehEnvironmentName (\ s a -> s{_dehEnvironmentName = a});
+dehEnvironmentName = lens _dehEnvironmentName (\ s a -> s{_dehEnvironmentName = a})
 
 -- | Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
 dehAttributeNames :: Lens' DescribeEnvironmentHealth [EnvironmentHealthAttribute]
-dehAttributeNames = lens _dehAttributeNames (\ s a -> s{_dehAttributeNames = a}) . _Default . _Coerce;
+dehAttributeNames = lens _dehAttributeNames (\ s a -> s{_dehAttributeNames = a}) . _Default . _Coerce
 
 -- | Specify the environment by ID. You must specify either this or an EnvironmentName, or both.
 dehEnvironmentId :: Lens' DescribeEnvironmentHealth (Maybe Text)
-dehEnvironmentId = lens _dehEnvironmentId (\ s a -> s{_dehEnvironmentId = a});
+dehEnvironmentId = lens _dehEnvironmentId (\ s a -> s{_dehEnvironmentId = a})
 
 instance AWSRequest DescribeEnvironmentHealth where
         type Rs DescribeEnvironmentHealth =
@@ -181,53 +181,53 @@ describeEnvironmentHealthResponse
     -> DescribeEnvironmentHealthResponse
 describeEnvironmentHealthResponse pResponseStatus_ =
   DescribeEnvironmentHealthResponse'
-  { _dehrsStatus = Nothing
-  , _dehrsCauses = Nothing
-  , _dehrsApplicationMetrics = Nothing
-  , _dehrsColor = Nothing
-  , _dehrsEnvironmentName = Nothing
-  , _dehrsHealthStatus = Nothing
-  , _dehrsInstancesHealth = Nothing
-  , _dehrsRefreshedAt = Nothing
-  , _dehrsResponseStatus = pResponseStatus_
-  }
+    { _dehrsStatus = Nothing
+    , _dehrsCauses = Nothing
+    , _dehrsApplicationMetrics = Nothing
+    , _dehrsColor = Nothing
+    , _dehrsEnvironmentName = Nothing
+    , _dehrsHealthStatus = Nothing
+    , _dehrsInstancesHealth = Nothing
+    , _dehrsRefreshedAt = Nothing
+    , _dehrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
 dehrsStatus :: Lens' DescribeEnvironmentHealthResponse (Maybe EnvironmentHealth)
-dehrsStatus = lens _dehrsStatus (\ s a -> s{_dehrsStatus = a});
+dehrsStatus = lens _dehrsStatus (\ s a -> s{_dehrsStatus = a})
 
 -- | Descriptions of the data that contributed to the environment's current health status.
 dehrsCauses :: Lens' DescribeEnvironmentHealthResponse [Text]
-dehrsCauses = lens _dehrsCauses (\ s a -> s{_dehrsCauses = a}) . _Default . _Coerce;
+dehrsCauses = lens _dehrsCauses (\ s a -> s{_dehrsCauses = a}) . _Default . _Coerce
 
 -- | Application request metrics for the environment.
 dehrsApplicationMetrics :: Lens' DescribeEnvironmentHealthResponse (Maybe ApplicationMetrics)
-dehrsApplicationMetrics = lens _dehrsApplicationMetrics (\ s a -> s{_dehrsApplicationMetrics = a});
+dehrsApplicationMetrics = lens _dehrsApplicationMetrics (\ s a -> s{_dehrsApplicationMetrics = a})
 
 -- | The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
 dehrsColor :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
-dehrsColor = lens _dehrsColor (\ s a -> s{_dehrsColor = a});
+dehrsColor = lens _dehrsColor (\ s a -> s{_dehrsColor = a})
 
 -- | The environment's name.
 dehrsEnvironmentName :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
-dehrsEnvironmentName = lens _dehrsEnvironmentName (\ s a -> s{_dehrsEnvironmentName = a});
+dehrsEnvironmentName = lens _dehrsEnvironmentName (\ s a -> s{_dehrsEnvironmentName = a})
 
 -- | The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
 dehrsHealthStatus :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
-dehrsHealthStatus = lens _dehrsHealthStatus (\ s a -> s{_dehrsHealthStatus = a});
+dehrsHealthStatus = lens _dehrsHealthStatus (\ s a -> s{_dehrsHealthStatus = a})
 
 -- | Summary health information for the instances in the environment.
 dehrsInstancesHealth :: Lens' DescribeEnvironmentHealthResponse (Maybe InstanceHealthSummary)
-dehrsInstancesHealth = lens _dehrsInstancesHealth (\ s a -> s{_dehrsInstancesHealth = a});
+dehrsInstancesHealth = lens _dehrsInstancesHealth (\ s a -> s{_dehrsInstancesHealth = a})
 
 -- | The date and time that the health information was retrieved.
 dehrsRefreshedAt :: Lens' DescribeEnvironmentHealthResponse (Maybe UTCTime)
-dehrsRefreshedAt = lens _dehrsRefreshedAt (\ s a -> s{_dehrsRefreshedAt = a}) . mapping _Time;
+dehrsRefreshedAt = lens _dehrsRefreshedAt (\ s a -> s{_dehrsRefreshedAt = a}) . mapping _Time
 
 -- | -- | The response status code.
 dehrsResponseStatus :: Lens' DescribeEnvironmentHealthResponse Int
-dehrsResponseStatus = lens _dehrsResponseStatus (\ s a -> s{_dehrsResponseStatus = a});
+dehrsResponseStatus = lens _dehrsResponseStatus (\ s a -> s{_dehrsResponseStatus = a})
 
 instance NFData DescribeEnvironmentHealthResponse
          where

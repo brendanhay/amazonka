@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.UpdateStreamingDistribution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ updateStreamingDistribution
     -> UpdateStreamingDistribution
 updateStreamingDistribution pStreamingDistributionConfig_ pId_ =
   UpdateStreamingDistribution'
-  { _usdIfMatch = Nothing
-  , _usdStreamingDistributionConfig = pStreamingDistributionConfig_
-  , _usdId = pId_
-  }
+    { _usdIfMatch = Nothing
+    , _usdStreamingDistributionConfig = pStreamingDistributionConfig_
+    , _usdId = pId_
+    }
 
 
 -- | The value of the @ETag@ header that you received when retrieving the streaming distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
 usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
-usdIfMatch = lens _usdIfMatch (\ s a -> s{_usdIfMatch = a});
+usdIfMatch = lens _usdIfMatch (\ s a -> s{_usdIfMatch = a})
 
 -- | The streaming distribution's configuration information.
 usdStreamingDistributionConfig :: Lens' UpdateStreamingDistribution StreamingDistributionConfig
-usdStreamingDistributionConfig = lens _usdStreamingDistributionConfig (\ s a -> s{_usdStreamingDistributionConfig = a});
+usdStreamingDistributionConfig = lens _usdStreamingDistributionConfig (\ s a -> s{_usdStreamingDistributionConfig = a})
 
 -- | The streaming distribution's id.
 usdId :: Lens' UpdateStreamingDistribution Text
-usdId = lens _usdId (\ s a -> s{_usdId = a});
+usdId = lens _usdId (\ s a -> s{_usdId = a})
 
 instance AWSRequest UpdateStreamingDistribution where
         type Rs UpdateStreamingDistribution =
@@ -110,7 +110,7 @@ instance NFData UpdateStreamingDistribution where
 instance ToElement UpdateStreamingDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}StreamingDistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}StreamingDistributionConfig"
               .
               _usdStreamingDistributionConfig
 
@@ -121,7 +121,7 @@ instance ToHeaders UpdateStreamingDistribution where
 instance ToPath UpdateStreamingDistribution where
         toPath UpdateStreamingDistribution'{..}
           = mconcat
-              ["/2017-03-25/streaming-distribution/", toBS _usdId,
+              ["/2017-10-30/streaming-distribution/", toBS _usdId,
                "/config"]
 
 instance ToQuery UpdateStreamingDistribution where
@@ -153,23 +153,23 @@ updateStreamingDistributionResponse
     -> UpdateStreamingDistributionResponse
 updateStreamingDistributionResponse pResponseStatus_ =
   UpdateStreamingDistributionResponse'
-  { _usdrsETag = Nothing
-  , _usdrsStreamingDistribution = Nothing
-  , _usdrsResponseStatus = pResponseStatus_
-  }
+    { _usdrsETag = Nothing
+    , _usdrsStreamingDistribution = Nothing
+    , _usdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 usdrsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
-usdrsETag = lens _usdrsETag (\ s a -> s{_usdrsETag = a});
+usdrsETag = lens _usdrsETag (\ s a -> s{_usdrsETag = a})
 
 -- | The streaming distribution's information.
 usdrsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
-usdrsStreamingDistribution = lens _usdrsStreamingDistribution (\ s a -> s{_usdrsStreamingDistribution = a});
+usdrsStreamingDistribution = lens _usdrsStreamingDistribution (\ s a -> s{_usdrsStreamingDistribution = a})
 
 -- | -- | The response status code.
 usdrsResponseStatus :: Lens' UpdateStreamingDistributionResponse Int
-usdrsResponseStatus = lens _usdrsResponseStatus (\ s a -> s{_usdrsResponseStatus = a});
+usdrsResponseStatus = lens _usdrsResponseStatus (\ s a -> s{_usdrsResponseStatus = a})
 
 instance NFData UpdateStreamingDistributionResponse
          where

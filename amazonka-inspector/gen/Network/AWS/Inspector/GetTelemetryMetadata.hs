@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.GetTelemetryMetadata
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getTelemetryMetadata pAssessmentRunARN_ =
 
 -- | The ARN that specifies the assessment run that has the telemetry data that you want to obtain.
 gtmAssessmentRunARN :: Lens' GetTelemetryMetadata Text
-gtmAssessmentRunARN = lens _gtmAssessmentRunARN (\ s a -> s{_gtmAssessmentRunARN = a});
+gtmAssessmentRunARN = lens _gtmAssessmentRunARN (\ s a -> s{_gtmAssessmentRunARN = a})
 
 instance AWSRequest GetTelemetryMetadata where
         type Rs GetTelemetryMetadata =
@@ -122,15 +122,15 @@ getTelemetryMetadataResponse
     -> GetTelemetryMetadataResponse
 getTelemetryMetadataResponse pResponseStatus_ =
   GetTelemetryMetadataResponse'
-  {_gtmrsResponseStatus = pResponseStatus_, _gtmrsTelemetryMetadata = mempty}
+    {_gtmrsResponseStatus = pResponseStatus_, _gtmrsTelemetryMetadata = mempty}
 
 
 -- | -- | The response status code.
 gtmrsResponseStatus :: Lens' GetTelemetryMetadataResponse Int
-gtmrsResponseStatus = lens _gtmrsResponseStatus (\ s a -> s{_gtmrsResponseStatus = a});
+gtmrsResponseStatus = lens _gtmrsResponseStatus (\ s a -> s{_gtmrsResponseStatus = a})
 
 -- | Telemetry details.
 gtmrsTelemetryMetadata :: Lens' GetTelemetryMetadataResponse [TelemetryMetadata]
-gtmrsTelemetryMetadata = lens _gtmrsTelemetryMetadata (\ s a -> s{_gtmrsTelemetryMetadata = a}) . _Coerce;
+gtmrsTelemetryMetadata = lens _gtmrsTelemetryMetadata (\ s a -> s{_gtmrsTelemetryMetadata = a}) . _Coerce
 
 instance NFData GetTelemetryMetadataResponse where

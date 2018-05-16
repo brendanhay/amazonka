@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Lambda
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,8 +58,14 @@ import Test.Tasty
 --         , requestGetEventSourceMapping $
 --             getEventSourceMapping
 --
+--         , requestPutFunctionConcurrency $
+--             putFunctionConcurrency
+--
 --         , requestCreateFunction $
 --             createFunction
+--
+--         , requestDeleteFunctionConcurrency $
+--             deleteFunctionConcurrency
 --
 --         , requestCreateEventSourceMapping $
 --             createEventSourceMapping
@@ -142,8 +148,14 @@ import Test.Tasty
 --         , responseGetEventSourceMapping $
 --             eventSourceMappingConfiguration
 --
+--         , responsePutFunctionConcurrency $
+--             concurrency
+--
 --         , responseCreateFunction $
 --             functionConfiguration
+--
+--         , responseDeleteFunctionConcurrency $
+--             deleteFunctionConcurrencyResponse
 --
 --         , responseCreateEventSourceMapping $
 --             eventSourceMappingConfiguration
@@ -248,10 +260,20 @@ requestGetEventSourceMapping = req
     "GetEventSourceMapping"
     "fixture/GetEventSourceMapping.yaml"
 
+requestPutFunctionConcurrency :: PutFunctionConcurrency -> TestTree
+requestPutFunctionConcurrency = req
+    "PutFunctionConcurrency"
+    "fixture/PutFunctionConcurrency.yaml"
+
 requestCreateFunction :: CreateFunction -> TestTree
 requestCreateFunction = req
     "CreateFunction"
     "fixture/CreateFunction.yaml"
+
+requestDeleteFunctionConcurrency :: DeleteFunctionConcurrency -> TestTree
+requestDeleteFunctionConcurrency = req
+    "DeleteFunctionConcurrency"
+    "fixture/DeleteFunctionConcurrency.yaml"
 
 requestCreateEventSourceMapping :: CreateEventSourceMapping -> TestTree
 requestCreateEventSourceMapping = req
@@ -405,12 +427,26 @@ responseGetEventSourceMapping = res
     lambda
     (Proxy :: Proxy GetEventSourceMapping)
 
+responsePutFunctionConcurrency :: Concurrency -> TestTree
+responsePutFunctionConcurrency = res
+    "PutFunctionConcurrencyResponse"
+    "fixture/PutFunctionConcurrencyResponse.proto"
+    lambda
+    (Proxy :: Proxy PutFunctionConcurrency)
+
 responseCreateFunction :: FunctionConfiguration -> TestTree
 responseCreateFunction = res
     "CreateFunctionResponse"
     "fixture/CreateFunctionResponse.proto"
     lambda
     (Proxy :: Proxy CreateFunction)
+
+responseDeleteFunctionConcurrency :: DeleteFunctionConcurrencyResponse -> TestTree
+responseDeleteFunctionConcurrency = res
+    "DeleteFunctionConcurrencyResponse"
+    "fixture/DeleteFunctionConcurrencyResponse.proto"
+    lambda
+    (Proxy :: Proxy DeleteFunctionConcurrency)
 
 responseCreateEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
 responseCreateEventSourceMapping = res

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DeleteAlarms
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ deleteAlarms = DeleteAlarms' {_dAlarmNames = mempty}
 
 -- | The alarms to be deleted.
 dAlarmNames :: Lens' DeleteAlarms [Text]
-dAlarmNames = lens _dAlarmNames (\ s a -> s{_dAlarmNames = a}) . _Coerce;
+dAlarmNames = lens _dAlarmNames (\ s a -> s{_dAlarmNames = a}) . _Coerce
 
 instance AWSRequest DeleteAlarms where
         type Rs DeleteAlarms = DeleteAlarmsResponse

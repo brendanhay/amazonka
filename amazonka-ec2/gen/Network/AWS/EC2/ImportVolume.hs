@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportVolume
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,33 +84,33 @@ importVolume
     -> ImportVolume
 importVolume pAvailabilityZone_ pImage_ pVolume_ =
   ImportVolume'
-  { _ivDescription = Nothing
-  , _ivDryRun = Nothing
-  , _ivAvailabilityZone = pAvailabilityZone_
-  , _ivImage = pImage_
-  , _ivVolume = pVolume_
-  }
+    { _ivDescription = Nothing
+    , _ivDryRun = Nothing
+    , _ivAvailabilityZone = pAvailabilityZone_
+    , _ivImage = pImage_
+    , _ivVolume = pVolume_
+    }
 
 
 -- | A description of the volume.
 ivDescription :: Lens' ImportVolume (Maybe Text)
-ivDescription = lens _ivDescription (\ s a -> s{_ivDescription = a});
+ivDescription = lens _ivDescription (\ s a -> s{_ivDescription = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ivDryRun :: Lens' ImportVolume (Maybe Bool)
-ivDryRun = lens _ivDryRun (\ s a -> s{_ivDryRun = a});
+ivDryRun = lens _ivDryRun (\ s a -> s{_ivDryRun = a})
 
 -- | The Availability Zone for the resulting EBS volume.
 ivAvailabilityZone :: Lens' ImportVolume Text
-ivAvailabilityZone = lens _ivAvailabilityZone (\ s a -> s{_ivAvailabilityZone = a});
+ivAvailabilityZone = lens _ivAvailabilityZone (\ s a -> s{_ivAvailabilityZone = a})
 
 -- | The disk image.
 ivImage :: Lens' ImportVolume DiskImageDetail
-ivImage = lens _ivImage (\ s a -> s{_ivImage = a});
+ivImage = lens _ivImage (\ s a -> s{_ivImage = a})
 
 -- | The volume size.
 ivVolume :: Lens' ImportVolume VolumeDetail
-ivVolume = lens _ivVolume (\ s a -> s{_ivVolume = a});
+ivVolume = lens _ivVolume (\ s a -> s{_ivVolume = a})
 
 instance AWSRequest ImportVolume where
         type Rs ImportVolume = ImportVolumeResponse
@@ -164,15 +164,15 @@ importVolumeResponse
     -> ImportVolumeResponse
 importVolumeResponse pResponseStatus_ =
   ImportVolumeResponse'
-  {_ivrsConversionTask = Nothing, _ivrsResponseStatus = pResponseStatus_}
+    {_ivrsConversionTask = Nothing, _ivrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the conversion task.
 ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
-ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = a});
+ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = a})
 
 -- | -- | The response status code.
 ivrsResponseStatus :: Lens' ImportVolumeResponse Int
-ivrsResponseStatus = lens _ivrsResponseStatus (\ s a -> s{_ivrsResponseStatus = a});
+ivrsResponseStatus = lens _ivrsResponseStatus (\ s a -> s{_ivrsResponseStatus = a})
 
 instance NFData ImportVolumeResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListThingTypes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ listThingTypes
     :: ListThingTypes
 listThingTypes =
   ListThingTypes'
-  { _lttThingTypeName = Nothing
-  , _lttNextToken = Nothing
-  , _lttMaxResults = Nothing
-  }
+    { _lttThingTypeName = Nothing
+    , _lttNextToken = Nothing
+    , _lttMaxResults = Nothing
+    }
 
 
 -- | The name of the thing type.
 lttThingTypeName :: Lens' ListThingTypes (Maybe Text)
-lttThingTypeName = lens _lttThingTypeName (\ s a -> s{_lttThingTypeName = a});
+lttThingTypeName = lens _lttThingTypeName (\ s a -> s{_lttThingTypeName = a})
 
 -- | The token for the next set of results, or __null__ if there are no additional results.
 lttNextToken :: Lens' ListThingTypes (Maybe Text)
-lttNextToken = lens _lttNextToken (\ s a -> s{_lttNextToken = a});
+lttNextToken = lens _lttNextToken (\ s a -> s{_lttNextToken = a})
 
 -- | The maximum number of results to return in this operation.
 lttMaxResults :: Lens' ListThingTypes (Maybe Natural)
-lttMaxResults = lens _lttMaxResults (\ s a -> s{_lttMaxResults = a}) . mapping _Nat;
+lttMaxResults = lens _lttMaxResults (\ s a -> s{_lttMaxResults = a}) . mapping _Nat
 
 instance AWSPager ListThingTypes where
         page rq rs
@@ -154,22 +154,22 @@ listThingTypesResponse
     -> ListThingTypesResponse
 listThingTypesResponse pResponseStatus_ =
   ListThingTypesResponse'
-  { _lttrsThingTypes = Nothing
-  , _lttrsNextToken = Nothing
-  , _lttrsResponseStatus = pResponseStatus_
-  }
+    { _lttrsThingTypes = Nothing
+    , _lttrsNextToken = Nothing
+    , _lttrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The thing types.
 lttrsThingTypes :: Lens' ListThingTypesResponse [ThingTypeDefinition]
-lttrsThingTypes = lens _lttrsThingTypes (\ s a -> s{_lttrsThingTypes = a}) . _Default . _Coerce;
+lttrsThingTypes = lens _lttrsThingTypes (\ s a -> s{_lttrsThingTypes = a}) . _Default . _Coerce
 
 -- | The token for the next set of results, or __null__ if there are no additional results.
 lttrsNextToken :: Lens' ListThingTypesResponse (Maybe Text)
-lttrsNextToken = lens _lttrsNextToken (\ s a -> s{_lttrsNextToken = a});
+lttrsNextToken = lens _lttrsNextToken (\ s a -> s{_lttrsNextToken = a})
 
 -- | -- | The response status code.
 lttrsResponseStatus :: Lens' ListThingTypesResponse Int
-lttrsResponseStatus = lens _lttrsResponseStatus (\ s a -> s{_lttrsResponseStatus = a});
+lttrsResponseStatus = lens _lttrsResponseStatus (\ s a -> s{_lttrsResponseStatus = a})
 
 instance NFData ListThingTypesResponse where

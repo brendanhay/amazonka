@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigurationRecorders
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ describeConfigurationRecorders =
 
 -- | A list of configuration recorder names.
 dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
-dcrConfigurationRecorderNames = lens _dcrConfigurationRecorderNames (\ s a -> s{_dcrConfigurationRecorderNames = a}) . _Default . _Coerce;
+dcrConfigurationRecorderNames = lens _dcrConfigurationRecorderNames (\ s a -> s{_dcrConfigurationRecorderNames = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeConfigurationRecorders
          where
@@ -133,16 +133,18 @@ describeConfigurationRecordersResponse
     -> DescribeConfigurationRecordersResponse
 describeConfigurationRecordersResponse pResponseStatus_ =
   DescribeConfigurationRecordersResponse'
-  {_drsConfigurationRecorders = Nothing, _drsResponseStatus = pResponseStatus_}
+    { _drsConfigurationRecorders = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list that contains the descriptions of the specified configuration recorders.
 drsConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [ConfigurationRecorder]
-drsConfigurationRecorders = lens _drsConfigurationRecorders (\ s a -> s{_drsConfigurationRecorders = a}) . _Default . _Coerce;
+drsConfigurationRecorders = lens _drsConfigurationRecorders (\ s a -> s{_drsConfigurationRecorders = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeConfigurationRecordersResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData
            DescribeConfigurationRecordersResponse

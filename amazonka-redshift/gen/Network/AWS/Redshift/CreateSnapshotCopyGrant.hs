@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateSnapshotCopyGrant
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ createSnapshotCopyGrant
     -> CreateSnapshotCopyGrant
 createSnapshotCopyGrant pSnapshotCopyGrantName_ =
   CreateSnapshotCopyGrant'
-  { _cscgKMSKeyId = Nothing
-  , _cscgTags = Nothing
-  , _cscgSnapshotCopyGrantName = pSnapshotCopyGrantName_
-  }
+    { _cscgKMSKeyId = Nothing
+    , _cscgTags = Nothing
+    , _cscgSnapshotCopyGrantName = pSnapshotCopyGrantName_
+    }
 
 
 -- | The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift permission. If no key is specified, the default key is used.
 cscgKMSKeyId :: Lens' CreateSnapshotCopyGrant (Maybe Text)
-cscgKMSKeyId = lens _cscgKMSKeyId (\ s a -> s{_cscgKMSKeyId = a});
+cscgKMSKeyId = lens _cscgKMSKeyId (\ s a -> s{_cscgKMSKeyId = a})
 
 -- | A list of tag instances.
 cscgTags :: Lens' CreateSnapshotCopyGrant [Tag]
-cscgTags = lens _cscgTags (\ s a -> s{_cscgTags = a}) . _Default . _Coerce;
+cscgTags = lens _cscgTags (\ s a -> s{_cscgTags = a}) . _Default . _Coerce
 
 -- | The name of the snapshot copy grant. This name must be unique in the region for the AWS account. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * Alphabetic characters must be lowercase.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for all clusters within an AWS account.
 cscgSnapshotCopyGrantName :: Lens' CreateSnapshotCopyGrant Text
-cscgSnapshotCopyGrantName = lens _cscgSnapshotCopyGrantName (\ s a -> s{_cscgSnapshotCopyGrantName = a});
+cscgSnapshotCopyGrantName = lens _cscgSnapshotCopyGrantName (\ s a -> s{_cscgSnapshotCopyGrantName = a})
 
 instance AWSRequest CreateSnapshotCopyGrant where
         type Rs CreateSnapshotCopyGrant =
@@ -142,15 +142,17 @@ createSnapshotCopyGrantResponse
     -> CreateSnapshotCopyGrantResponse
 createSnapshotCopyGrantResponse pResponseStatus_ =
   CreateSnapshotCopyGrantResponse'
-  {_cscgrsSnapshotCopyGrant = Nothing, _cscgrsResponseStatus = pResponseStatus_}
+    { _cscgrsSnapshotCopyGrant = Nothing
+    , _cscgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 cscgrsSnapshotCopyGrant :: Lens' CreateSnapshotCopyGrantResponse (Maybe SnapshotCopyGrant)
-cscgrsSnapshotCopyGrant = lens _cscgrsSnapshotCopyGrant (\ s a -> s{_cscgrsSnapshotCopyGrant = a});
+cscgrsSnapshotCopyGrant = lens _cscgrsSnapshotCopyGrant (\ s a -> s{_cscgrsSnapshotCopyGrant = a})
 
 -- | -- | The response status code.
 cscgrsResponseStatus :: Lens' CreateSnapshotCopyGrantResponse Int
-cscgrsResponseStatus = lens _cscgrsResponseStatus (\ s a -> s{_cscgrsResponseStatus = a});
+cscgrsResponseStatus = lens _cscgrsResponseStatus (\ s a -> s{_cscgrsResponseStatus = a})
 
 instance NFData CreateSnapshotCopyGrantResponse where

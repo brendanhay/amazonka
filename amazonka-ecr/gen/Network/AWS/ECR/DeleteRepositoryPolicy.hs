@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.DeleteRepositoryPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ deleteRepositoryPolicy
     -> DeleteRepositoryPolicy
 deleteRepositoryPolicy pRepositoryName_ =
   DeleteRepositoryPolicy'
-  {_drpRegistryId = Nothing, _drpRepositoryName = pRepositoryName_}
+    {_drpRegistryId = Nothing, _drpRepositoryName = pRepositoryName_}
 
 
 -- | The AWS account ID associated with the registry that contains the repository policy to delete. If you do not specify a registry, the default registry is assumed.
 drpRegistryId :: Lens' DeleteRepositoryPolicy (Maybe Text)
-drpRegistryId = lens _drpRegistryId (\ s a -> s{_drpRegistryId = a});
+drpRegistryId = lens _drpRegistryId (\ s a -> s{_drpRegistryId = a})
 
 -- | The name of the repository that is associated with the repository policy to delete.
 drpRepositoryName :: Lens' DeleteRepositoryPolicy Text
-drpRepositoryName = lens _drpRepositoryName (\ s a -> s{_drpRepositoryName = a});
+drpRepositoryName = lens _drpRepositoryName (\ s a -> s{_drpRepositoryName = a})
 
 instance AWSRequest DeleteRepositoryPolicy where
         type Rs DeleteRepositoryPolicy =
@@ -141,27 +141,27 @@ deleteRepositoryPolicyResponse
     -> DeleteRepositoryPolicyResponse
 deleteRepositoryPolicyResponse pResponseStatus_ =
   DeleteRepositoryPolicyResponse'
-  { _drprsRegistryId = Nothing
-  , _drprsRepositoryName = Nothing
-  , _drprsPolicyText = Nothing
-  , _drprsResponseStatus = pResponseStatus_
-  }
+    { _drprsRegistryId = Nothing
+    , _drprsRepositoryName = Nothing
+    , _drprsPolicyText = Nothing
+    , _drprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The registry ID associated with the request.
 drprsRegistryId :: Lens' DeleteRepositoryPolicyResponse (Maybe Text)
-drprsRegistryId = lens _drprsRegistryId (\ s a -> s{_drprsRegistryId = a});
+drprsRegistryId = lens _drprsRegistryId (\ s a -> s{_drprsRegistryId = a})
 
 -- | The repository name associated with the request.
 drprsRepositoryName :: Lens' DeleteRepositoryPolicyResponse (Maybe Text)
-drprsRepositoryName = lens _drprsRepositoryName (\ s a -> s{_drprsRepositoryName = a});
+drprsRepositoryName = lens _drprsRepositoryName (\ s a -> s{_drprsRepositoryName = a})
 
 -- | The JSON repository policy that was deleted from the repository.
 drprsPolicyText :: Lens' DeleteRepositoryPolicyResponse (Maybe Text)
-drprsPolicyText = lens _drprsPolicyText (\ s a -> s{_drprsPolicyText = a});
+drprsPolicyText = lens _drprsPolicyText (\ s a -> s{_drprsPolicyText = a})
 
 -- | -- | The response status code.
 drprsResponseStatus :: Lens' DeleteRepositoryPolicyResponse Int
-drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a});
+drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a})
 
 instance NFData DeleteRepositoryPolicyResponse where

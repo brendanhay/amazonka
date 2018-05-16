@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.StopReplicationTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,7 +60,7 @@ newtype StopReplicationTask = StopReplicationTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sReplicationTaskARN' - The Amazon Resource Number(ARN) of the replication task to be stopped.
+-- * 'sReplicationTaskARN' - The Amazon Resource Name(ARN) of the replication task to be stopped.
 stopReplicationTask
     :: Text -- ^ 'sReplicationTaskARN'
     -> StopReplicationTask
@@ -68,9 +68,9 @@ stopReplicationTask pReplicationTaskARN_ =
   StopReplicationTask' {_sReplicationTaskARN = pReplicationTaskARN_}
 
 
--- | The Amazon Resource Number(ARN) of the replication task to be stopped.
+-- | The Amazon Resource Name(ARN) of the replication task to be stopped.
 sReplicationTaskARN :: Lens' StopReplicationTask Text
-sReplicationTaskARN = lens _sReplicationTaskARN (\ s a -> s{_sReplicationTaskARN = a});
+sReplicationTaskARN = lens _sReplicationTaskARN (\ s a -> s{_sReplicationTaskARN = a})
 
 instance AWSRequest StopReplicationTask where
         type Rs StopReplicationTask =
@@ -132,15 +132,15 @@ stopReplicationTaskResponse
     -> StopReplicationTaskResponse
 stopReplicationTaskResponse pResponseStatus_ =
   StopReplicationTaskResponse'
-  {_srsReplicationTask = Nothing, _srsResponseStatus = pResponseStatus_}
+    {_srsReplicationTask = Nothing, _srsResponseStatus = pResponseStatus_}
 
 
 -- | The replication task stopped.
 srsReplicationTask :: Lens' StopReplicationTaskResponse (Maybe ReplicationTask)
-srsReplicationTask = lens _srsReplicationTask (\ s a -> s{_srsReplicationTask = a});
+srsReplicationTask = lens _srsReplicationTask (\ s a -> s{_srsReplicationTask = a})
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StopReplicationTaskResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StopReplicationTaskResponse where

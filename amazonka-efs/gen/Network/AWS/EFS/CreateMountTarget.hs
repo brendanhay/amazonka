@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.CreateMountTarget
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -144,28 +144,28 @@ createMountTarget
     -> CreateMountTarget
 createMountTarget pFileSystemId_ pSubnetId_ =
   CreateMountTarget'
-  { _cmtIPAddress = Nothing
-  , _cmtSecurityGroups = Nothing
-  , _cmtFileSystemId = pFileSystemId_
-  , _cmtSubnetId = pSubnetId_
-  }
+    { _cmtIPAddress = Nothing
+    , _cmtSecurityGroups = Nothing
+    , _cmtFileSystemId = pFileSystemId_
+    , _cmtSubnetId = pSubnetId_
+    }
 
 
 -- | Valid IPv4 address within the address range of the specified subnet.
 cmtIPAddress :: Lens' CreateMountTarget (Maybe Text)
-cmtIPAddress = lens _cmtIPAddress (\ s a -> s{_cmtIPAddress = a});
+cmtIPAddress = lens _cmtIPAddress (\ s a -> s{_cmtIPAddress = a})
 
 -- | Up to five VPC security group IDs, of the form @sg-xxxxxxxx@ . These must be for the same VPC as subnet specified.
 cmtSecurityGroups :: Lens' CreateMountTarget [Text]
-cmtSecurityGroups = lens _cmtSecurityGroups (\ s a -> s{_cmtSecurityGroups = a}) . _Default . _Coerce;
+cmtSecurityGroups = lens _cmtSecurityGroups (\ s a -> s{_cmtSecurityGroups = a}) . _Default . _Coerce
 
 -- | ID of the file system for which to create the mount target.
 cmtFileSystemId :: Lens' CreateMountTarget Text
-cmtFileSystemId = lens _cmtFileSystemId (\ s a -> s{_cmtFileSystemId = a});
+cmtFileSystemId = lens _cmtFileSystemId (\ s a -> s{_cmtFileSystemId = a})
 
 -- | ID of the subnet to add the mount target in.
 cmtSubnetId :: Lens' CreateMountTarget Text
-cmtSubnetId = lens _cmtSubnetId (\ s a -> s{_cmtSubnetId = a});
+cmtSubnetId = lens _cmtSubnetId (\ s a -> s{_cmtSubnetId = a})
 
 instance AWSRequest CreateMountTarget where
         type Rs CreateMountTarget = MountTargetDescription

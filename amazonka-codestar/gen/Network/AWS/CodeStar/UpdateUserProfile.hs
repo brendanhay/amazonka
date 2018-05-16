@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.UpdateUserProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ updateUserProfile
     -> UpdateUserProfile
 updateUserProfile pUserARN_ =
   UpdateUserProfile'
-  { _uupSshPublicKey = Nothing
-  , _uupEmailAddress = Nothing
-  , _uupDisplayName = Nothing
-  , _uupUserARN = pUserARN_
-  }
+    { _uupSshPublicKey = Nothing
+    , _uupEmailAddress = Nothing
+    , _uupDisplayName = Nothing
+    , _uupUserARN = pUserARN_
+    }
 
 
 -- | The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
 uupSshPublicKey :: Lens' UpdateUserProfile (Maybe Text)
-uupSshPublicKey = lens _uupSshPublicKey (\ s a -> s{_uupSshPublicKey = a});
+uupSshPublicKey = lens _uupSshPublicKey (\ s a -> s{_uupSshPublicKey = a})
 
 -- | The email address that is displayed as part of the user's profile in AWS CodeStar.
 uupEmailAddress :: Lens' UpdateUserProfile (Maybe Text)
-uupEmailAddress = lens _uupEmailAddress (\ s a -> s{_uupEmailAddress = a}) . mapping _Sensitive;
+uupEmailAddress = lens _uupEmailAddress (\ s a -> s{_uupEmailAddress = a}) . mapping _Sensitive
 
 -- | The name that is displayed as the friendly name for the user in AWS CodeStar.
 uupDisplayName :: Lens' UpdateUserProfile (Maybe Text)
-uupDisplayName = lens _uupDisplayName (\ s a -> s{_uupDisplayName = a});
+uupDisplayName = lens _uupDisplayName (\ s a -> s{_uupDisplayName = a})
 
 -- | The name that will be displayed as the friendly name for the user in AWS CodeStar.
 uupUserARN :: Lens' UpdateUserProfile Text
-uupUserARN = lens _uupUserARN (\ s a -> s{_uupUserARN = a});
+uupUserARN = lens _uupUserARN (\ s a -> s{_uupUserARN = a})
 
 instance AWSRequest UpdateUserProfile where
         type Rs UpdateUserProfile = UpdateUserProfileResponse
@@ -179,42 +179,42 @@ updateUserProfileResponse
     -> UpdateUserProfileResponse
 updateUserProfileResponse pResponseStatus_ pUserARN_ =
   UpdateUserProfileResponse'
-  { _uuprsLastModifiedTimestamp = Nothing
-  , _uuprsSshPublicKey = Nothing
-  , _uuprsEmailAddress = Nothing
-  , _uuprsDisplayName = Nothing
-  , _uuprsCreatedTimestamp = Nothing
-  , _uuprsResponseStatus = pResponseStatus_
-  , _uuprsUserARN = pUserARN_
-  }
+    { _uuprsLastModifiedTimestamp = Nothing
+    , _uuprsSshPublicKey = Nothing
+    , _uuprsEmailAddress = Nothing
+    , _uuprsDisplayName = Nothing
+    , _uuprsCreatedTimestamp = Nothing
+    , _uuprsResponseStatus = pResponseStatus_
+    , _uuprsUserARN = pUserARN_
+    }
 
 
 -- | The date the user profile was last modified, in timestamp format.
 uuprsLastModifiedTimestamp :: Lens' UpdateUserProfileResponse (Maybe UTCTime)
-uuprsLastModifiedTimestamp = lens _uuprsLastModifiedTimestamp (\ s a -> s{_uuprsLastModifiedTimestamp = a}) . mapping _Time;
+uuprsLastModifiedTimestamp = lens _uuprsLastModifiedTimestamp (\ s a -> s{_uuprsLastModifiedTimestamp = a}) . mapping _Time
 
 -- | The SSH public key associated with the user in AWS CodeStar. This is the public portion of the public/private keypair the user can use to access project resources if a project owner allows the user remote access to those resources.
 uuprsSshPublicKey :: Lens' UpdateUserProfileResponse (Maybe Text)
-uuprsSshPublicKey = lens _uuprsSshPublicKey (\ s a -> s{_uuprsSshPublicKey = a});
+uuprsSshPublicKey = lens _uuprsSshPublicKey (\ s a -> s{_uuprsSshPublicKey = a})
 
 -- | The email address that is displayed as part of the user's profile in AWS CodeStar.
 uuprsEmailAddress :: Lens' UpdateUserProfileResponse (Maybe Text)
-uuprsEmailAddress = lens _uuprsEmailAddress (\ s a -> s{_uuprsEmailAddress = a}) . mapping _Sensitive;
+uuprsEmailAddress = lens _uuprsEmailAddress (\ s a -> s{_uuprsEmailAddress = a}) . mapping _Sensitive
 
 -- | The name that is displayed as the friendly name for the user in AWS CodeStar.
 uuprsDisplayName :: Lens' UpdateUserProfileResponse (Maybe Text)
-uuprsDisplayName = lens _uuprsDisplayName (\ s a -> s{_uuprsDisplayName = a});
+uuprsDisplayName = lens _uuprsDisplayName (\ s a -> s{_uuprsDisplayName = a})
 
 -- | The date the user profile was created, in timestamp format.
 uuprsCreatedTimestamp :: Lens' UpdateUserProfileResponse (Maybe UTCTime)
-uuprsCreatedTimestamp = lens _uuprsCreatedTimestamp (\ s a -> s{_uuprsCreatedTimestamp = a}) . mapping _Time;
+uuprsCreatedTimestamp = lens _uuprsCreatedTimestamp (\ s a -> s{_uuprsCreatedTimestamp = a}) . mapping _Time
 
 -- | -- | The response status code.
 uuprsResponseStatus :: Lens' UpdateUserProfileResponse Int
-uuprsResponseStatus = lens _uuprsResponseStatus (\ s a -> s{_uuprsResponseStatus = a});
+uuprsResponseStatus = lens _uuprsResponseStatus (\ s a -> s{_uuprsResponseStatus = a})
 
 -- | The Amazon Resource Name (ARN) of the user in IAM.
 uuprsUserARN :: Lens' UpdateUserProfileResponse Text
-uuprsUserARN = lens _uuprsUserARN (\ s a -> s{_uuprsUserARN = a});
+uuprsUserARN = lens _uuprsUserARN (\ s a -> s{_uuprsUserARN = a})
 
 instance NFData UpdateUserProfileResponse where

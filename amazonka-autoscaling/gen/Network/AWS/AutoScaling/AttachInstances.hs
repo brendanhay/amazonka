@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.AttachInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,24 +59,24 @@ data AttachInstances = AttachInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aiInstanceIds' - One or more instance IDs.
+-- * 'aiInstanceIds' - The IDs of the instances. You can specify up to 20 instances.
 --
--- * 'aiAutoScalingGroupName' - The name of the group.
+-- * 'aiAutoScalingGroupName' - The name of the Auto Scaling group.
 attachInstances
     :: Text -- ^ 'aiAutoScalingGroupName'
     -> AttachInstances
 attachInstances pAutoScalingGroupName_ =
   AttachInstances'
-  {_aiInstanceIds = Nothing, _aiAutoScalingGroupName = pAutoScalingGroupName_}
+    {_aiInstanceIds = Nothing, _aiAutoScalingGroupName = pAutoScalingGroupName_}
 
 
--- | One or more instance IDs.
+-- | The IDs of the instances. You can specify up to 20 instances.
 aiInstanceIds :: Lens' AttachInstances [Text]
-aiInstanceIds = lens _aiInstanceIds (\ s a -> s{_aiInstanceIds = a}) . _Default . _Coerce;
+aiInstanceIds = lens _aiInstanceIds (\ s a -> s{_aiInstanceIds = a}) . _Default . _Coerce
 
--- | The name of the group.
+-- | The name of the Auto Scaling group.
 aiAutoScalingGroupName :: Lens' AttachInstances Text
-aiAutoScalingGroupName = lens _aiAutoScalingGroupName (\ s a -> s{_aiAutoScalingGroupName = a});
+aiAutoScalingGroupName = lens _aiAutoScalingGroupName (\ s a -> s{_aiAutoScalingGroupName = a})
 
 instance AWSRequest AttachInstances where
         type Rs AttachInstances = AttachInstancesResponse

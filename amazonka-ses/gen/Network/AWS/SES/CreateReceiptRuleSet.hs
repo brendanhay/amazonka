@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.CreateReceiptRuleSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ newtype CreateReceiptRuleSet = CreateReceiptRuleSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsRuleSetName' - The name of the rule set to create. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
+-- * 'crrsRuleSetName' - The name of the rule set to create. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 createReceiptRuleSet
     :: Text -- ^ 'crrsRuleSetName'
     -> CreateReceiptRuleSet
@@ -69,9 +69,9 @@ createReceiptRuleSet pRuleSetName_ =
   CreateReceiptRuleSet' {_crrsRuleSetName = pRuleSetName_}
 
 
--- | The name of the rule set to create. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
+-- | The name of the rule set to create. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 crrsRuleSetName :: Lens' CreateReceiptRuleSet Text
-crrsRuleSetName = lens _crrsRuleSetName (\ s a -> s{_crrsRuleSetName = a});
+crrsRuleSetName = lens _crrsRuleSetName (\ s a -> s{_crrsRuleSetName = a})
 
 instance AWSRequest CreateReceiptRuleSet where
         type Rs CreateReceiptRuleSet =
@@ -124,6 +124,6 @@ createReceiptRuleSetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 crrsrsResponseStatus :: Lens' CreateReceiptRuleSetResponse Int
-crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseStatus = a});
+crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseStatus = a})
 
 instance NFData CreateReceiptRuleSetResponse where

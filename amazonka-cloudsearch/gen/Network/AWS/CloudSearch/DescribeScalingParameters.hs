@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeScalingParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ describeScalingParameters pDomainName_ =
 
 -- | Undocumented member.
 dspDomainName :: Lens' DescribeScalingParameters Text
-dspDomainName = lens _dspDomainName (\ s a -> s{_dspDomainName = a});
+dspDomainName = lens _dspDomainName (\ s a -> s{_dspDomainName = a})
 
 instance AWSRequest DescribeScalingParameters where
         type Rs DescribeScalingParameters =
@@ -122,18 +122,18 @@ describeScalingParametersResponse
     -> DescribeScalingParametersResponse
 describeScalingParametersResponse pResponseStatus_ pScalingParameters_ =
   DescribeScalingParametersResponse'
-  { _dsprsResponseStatus = pResponseStatus_
-  , _dsprsScalingParameters = pScalingParameters_
-  }
+    { _dsprsResponseStatus = pResponseStatus_
+    , _dsprsScalingParameters = pScalingParameters_
+    }
 
 
 -- | -- | The response status code.
 dsprsResponseStatus :: Lens' DescribeScalingParametersResponse Int
-dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a});
+dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a})
 
 -- | Undocumented member.
 dsprsScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
-dsprsScalingParameters = lens _dsprsScalingParameters (\ s a -> s{_dsprsScalingParameters = a});
+dsprsScalingParameters = lens _dsprsScalingParameters (\ s a -> s{_dsprsScalingParameters = a})
 
 instance NFData DescribeScalingParametersResponse
          where

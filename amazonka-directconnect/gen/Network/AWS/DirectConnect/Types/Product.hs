@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,43 +58,43 @@ bgpPeer
     :: BGPPeer
 bgpPeer =
   BGPPeer'
-  { _bpCustomerAddress = Nothing
-  , _bpAmazonAddress = Nothing
-  , _bpAddressFamily = Nothing
-  , _bpBgpStatus = Nothing
-  , _bpAsn = Nothing
-  , _bpAuthKey = Nothing
-  , _bpBgpPeerState = Nothing
-  }
+    { _bpCustomerAddress = Nothing
+    , _bpAmazonAddress = Nothing
+    , _bpAddressFamily = Nothing
+    , _bpBgpStatus = Nothing
+    , _bpAsn = Nothing
+    , _bpAuthKey = Nothing
+    , _bpBgpPeerState = Nothing
+    }
 
 
 -- | Undocumented member.
 bpCustomerAddress :: Lens' BGPPeer (Maybe Text)
-bpCustomerAddress = lens _bpCustomerAddress (\ s a -> s{_bpCustomerAddress = a});
+bpCustomerAddress = lens _bpCustomerAddress (\ s a -> s{_bpCustomerAddress = a})
 
 -- | Undocumented member.
 bpAmazonAddress :: Lens' BGPPeer (Maybe Text)
-bpAmazonAddress = lens _bpAmazonAddress (\ s a -> s{_bpAmazonAddress = a});
+bpAmazonAddress = lens _bpAmazonAddress (\ s a -> s{_bpAmazonAddress = a})
 
 -- | Undocumented member.
 bpAddressFamily :: Lens' BGPPeer (Maybe AddressFamily)
-bpAddressFamily = lens _bpAddressFamily (\ s a -> s{_bpAddressFamily = a});
+bpAddressFamily = lens _bpAddressFamily (\ s a -> s{_bpAddressFamily = a})
 
 -- | Undocumented member.
 bpBgpStatus :: Lens' BGPPeer (Maybe BGPStatus)
-bpBgpStatus = lens _bpBgpStatus (\ s a -> s{_bpBgpStatus = a});
+bpBgpStatus = lens _bpBgpStatus (\ s a -> s{_bpBgpStatus = a})
 
 -- | Undocumented member.
 bpAsn :: Lens' BGPPeer (Maybe Int)
-bpAsn = lens _bpAsn (\ s a -> s{_bpAsn = a});
+bpAsn = lens _bpAsn (\ s a -> s{_bpAsn = a})
 
 -- | Undocumented member.
 bpAuthKey :: Lens' BGPPeer (Maybe Text)
-bpAuthKey = lens _bpAuthKey (\ s a -> s{_bpAuthKey = a});
+bpAuthKey = lens _bpAuthKey (\ s a -> s{_bpAuthKey = a})
 
 -- | Undocumented member.
 bpBgpPeerState :: Lens' BGPPeer (Maybe BGPPeerState)
-bpBgpPeerState = lens _bpBgpPeerState (\ s a -> s{_bpBgpPeerState = a});
+bpBgpPeerState = lens _bpBgpPeerState (\ s a -> s{_bpBgpPeerState = a})
 
 instance FromJSON BGPPeer where
         parseJSON
@@ -164,68 +164,68 @@ connection
     :: Connection
 connection =
   Connection'
-  { _cLagId = Nothing
-  , _cVlan = Nothing
-  , _cLocation = Nothing
-  , _cAwsDevice = Nothing
-  , _cConnectionId = Nothing
-  , _cLoaIssueTime = Nothing
-  , _cPartnerName = Nothing
-  , _cConnectionName = Nothing
-  , _cBandwidth = Nothing
-  , _cOwnerAccount = Nothing
-  , _cRegion = Nothing
-  , _cConnectionState = Nothing
-  }
+    { _cLagId = Nothing
+    , _cVlan = Nothing
+    , _cLocation = Nothing
+    , _cAwsDevice = Nothing
+    , _cConnectionId = Nothing
+    , _cLoaIssueTime = Nothing
+    , _cPartnerName = Nothing
+    , _cConnectionName = Nothing
+    , _cBandwidth = Nothing
+    , _cOwnerAccount = Nothing
+    , _cRegion = Nothing
+    , _cConnectionState = Nothing
+    }
 
 
 -- | Undocumented member.
 cLagId :: Lens' Connection (Maybe Text)
-cLagId = lens _cLagId (\ s a -> s{_cLagId = a});
+cLagId = lens _cLagId (\ s a -> s{_cLagId = a})
 
 -- | Undocumented member.
 cVlan :: Lens' Connection (Maybe Int)
-cVlan = lens _cVlan (\ s a -> s{_cVlan = a});
+cVlan = lens _cVlan (\ s a -> s{_cVlan = a})
 
 -- | Undocumented member.
 cLocation :: Lens' Connection (Maybe Text)
-cLocation = lens _cLocation (\ s a -> s{_cLocation = a});
+cLocation = lens _cLocation (\ s a -> s{_cLocation = a})
 
 -- | The Direct Connection endpoint which the physical connection terminates on.
 cAwsDevice :: Lens' Connection (Maybe Text)
-cAwsDevice = lens _cAwsDevice (\ s a -> s{_cAwsDevice = a});
+cAwsDevice = lens _cAwsDevice (\ s a -> s{_cAwsDevice = a})
 
 -- | Undocumented member.
 cConnectionId :: Lens' Connection (Maybe Text)
-cConnectionId = lens _cConnectionId (\ s a -> s{_cConnectionId = a});
+cConnectionId = lens _cConnectionId (\ s a -> s{_cConnectionId = a})
 
 -- | The time of the most recent call to 'DescribeLoa' for this connection.
 cLoaIssueTime :: Lens' Connection (Maybe UTCTime)
-cLoaIssueTime = lens _cLoaIssueTime (\ s a -> s{_cLoaIssueTime = a}) . mapping _Time;
+cLoaIssueTime = lens _cLoaIssueTime (\ s a -> s{_cLoaIssueTime = a}) . mapping _Time
 
 -- | The name of the AWS Direct Connect service provider associated with the connection.
 cPartnerName :: Lens' Connection (Maybe Text)
-cPartnerName = lens _cPartnerName (\ s a -> s{_cPartnerName = a});
+cPartnerName = lens _cPartnerName (\ s a -> s{_cPartnerName = a})
 
 -- | Undocumented member.
 cConnectionName :: Lens' Connection (Maybe Text)
-cConnectionName = lens _cConnectionName (\ s a -> s{_cConnectionName = a});
+cConnectionName = lens _cConnectionName (\ s a -> s{_cConnectionName = a})
 
 -- | Bandwidth of the connection. Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections) Default: None
 cBandwidth :: Lens' Connection (Maybe Text)
-cBandwidth = lens _cBandwidth (\ s a -> s{_cBandwidth = a});
+cBandwidth = lens _cBandwidth (\ s a -> s{_cBandwidth = a})
 
 -- | The AWS account that will own the new connection.
 cOwnerAccount :: Lens' Connection (Maybe Text)
-cOwnerAccount = lens _cOwnerAccount (\ s a -> s{_cOwnerAccount = a});
+cOwnerAccount = lens _cOwnerAccount (\ s a -> s{_cOwnerAccount = a})
 
 -- | Undocumented member.
 cRegion :: Lens' Connection (Maybe Text)
-cRegion = lens _cRegion (\ s a -> s{_cRegion = a});
+cRegion = lens _cRegion (\ s a -> s{_cRegion = a})
 
 -- | Undocumented member.
 cConnectionState :: Lens' Connection (Maybe ConnectionState)
-cConnectionState = lens _cConnectionState (\ s a -> s{_cConnectionState = a});
+cConnectionState = lens _cConnectionState (\ s a -> s{_cConnectionState = a})
 
 instance FromJSON Connection where
         parseJSON
@@ -270,7 +270,7 @@ connections = Connections' {_cConnections = Nothing}
 
 -- | A list of connections.
 cConnections :: Lens' Connections [Connection]
-cConnections = lens _cConnections (\ s a -> s{_cConnections = a}) . _Default . _Coerce;
+cConnections = lens _cConnections (\ s a -> s{_cConnections = a}) . _Default . _Coerce
 
 instance FromJSON Connections where
         parseJSON
@@ -316,38 +316,38 @@ directConnectGateway
     :: DirectConnectGateway
 directConnectGateway =
   DirectConnectGateway'
-  { _dcgDirectConnectGatewayId = Nothing
-  , _dcgStateChangeError = Nothing
-  , _dcgAmazonSideASN = Nothing
-  , _dcgDirectConnectGatewayName = Nothing
-  , _dcgDirectConnectGatewayState = Nothing
-  , _dcgOwnerAccount = Nothing
-  }
+    { _dcgDirectConnectGatewayId = Nothing
+    , _dcgStateChangeError = Nothing
+    , _dcgAmazonSideASN = Nothing
+    , _dcgDirectConnectGatewayName = Nothing
+    , _dcgDirectConnectGatewayState = Nothing
+    , _dcgOwnerAccount = Nothing
+    }
 
 
 -- | Undocumented member.
 dcgDirectConnectGatewayId :: Lens' DirectConnectGateway (Maybe Text)
-dcgDirectConnectGatewayId = lens _dcgDirectConnectGatewayId (\ s a -> s{_dcgDirectConnectGatewayId = a});
+dcgDirectConnectGatewayId = lens _dcgDirectConnectGatewayId (\ s a -> s{_dcgDirectConnectGatewayId = a})
 
 -- | Undocumented member.
 dcgStateChangeError :: Lens' DirectConnectGateway (Maybe Text)
-dcgStateChangeError = lens _dcgStateChangeError (\ s a -> s{_dcgStateChangeError = a});
+dcgStateChangeError = lens _dcgStateChangeError (\ s a -> s{_dcgStateChangeError = a})
 
 -- | The autonomous system number (ASN) for the Amazon side of the connection.
 dcgAmazonSideASN :: Lens' DirectConnectGateway (Maybe Integer)
-dcgAmazonSideASN = lens _dcgAmazonSideASN (\ s a -> s{_dcgAmazonSideASN = a});
+dcgAmazonSideASN = lens _dcgAmazonSideASN (\ s a -> s{_dcgAmazonSideASN = a})
 
 -- | Undocumented member.
 dcgDirectConnectGatewayName :: Lens' DirectConnectGateway (Maybe Text)
-dcgDirectConnectGatewayName = lens _dcgDirectConnectGatewayName (\ s a -> s{_dcgDirectConnectGatewayName = a});
+dcgDirectConnectGatewayName = lens _dcgDirectConnectGatewayName (\ s a -> s{_dcgDirectConnectGatewayName = a})
 
 -- | Undocumented member.
 dcgDirectConnectGatewayState :: Lens' DirectConnectGateway (Maybe DirectConnectGatewayState)
-dcgDirectConnectGatewayState = lens _dcgDirectConnectGatewayState (\ s a -> s{_dcgDirectConnectGatewayState = a});
+dcgDirectConnectGatewayState = lens _dcgDirectConnectGatewayState (\ s a -> s{_dcgDirectConnectGatewayState = a})
 
 -- | The AWS account ID of the owner of the direct connect gateway.
 dcgOwnerAccount :: Lens' DirectConnectGateway (Maybe Text)
-dcgOwnerAccount = lens _dcgOwnerAccount (\ s a -> s{_dcgOwnerAccount = a});
+dcgOwnerAccount = lens _dcgOwnerAccount (\ s a -> s{_dcgOwnerAccount = a})
 
 instance FromJSON DirectConnectGateway where
         parseJSON
@@ -399,38 +399,38 @@ directConnectGatewayAssociation
     :: DirectConnectGatewayAssociation
 directConnectGatewayAssociation =
   DirectConnectGatewayAssociation'
-  { _dcgaVirtualGatewayId = Nothing
-  , _dcgaDirectConnectGatewayId = Nothing
-  , _dcgaVirtualGatewayOwnerAccount = Nothing
-  , _dcgaStateChangeError = Nothing
-  , _dcgaVirtualGatewayRegion = Nothing
-  , _dcgaAssociationState = Nothing
-  }
+    { _dcgaVirtualGatewayId = Nothing
+    , _dcgaDirectConnectGatewayId = Nothing
+    , _dcgaVirtualGatewayOwnerAccount = Nothing
+    , _dcgaStateChangeError = Nothing
+    , _dcgaVirtualGatewayRegion = Nothing
+    , _dcgaAssociationState = Nothing
+    }
 
 
 -- | Undocumented member.
 dcgaVirtualGatewayId :: Lens' DirectConnectGatewayAssociation (Maybe Text)
-dcgaVirtualGatewayId = lens _dcgaVirtualGatewayId (\ s a -> s{_dcgaVirtualGatewayId = a});
+dcgaVirtualGatewayId = lens _dcgaVirtualGatewayId (\ s a -> s{_dcgaVirtualGatewayId = a})
 
 -- | Undocumented member.
 dcgaDirectConnectGatewayId :: Lens' DirectConnectGatewayAssociation (Maybe Text)
-dcgaDirectConnectGatewayId = lens _dcgaDirectConnectGatewayId (\ s a -> s{_dcgaDirectConnectGatewayId = a});
+dcgaDirectConnectGatewayId = lens _dcgaDirectConnectGatewayId (\ s a -> s{_dcgaDirectConnectGatewayId = a})
 
 -- | The AWS account ID of the owner of the virtual private gateway.
 dcgaVirtualGatewayOwnerAccount :: Lens' DirectConnectGatewayAssociation (Maybe Text)
-dcgaVirtualGatewayOwnerAccount = lens _dcgaVirtualGatewayOwnerAccount (\ s a -> s{_dcgaVirtualGatewayOwnerAccount = a});
+dcgaVirtualGatewayOwnerAccount = lens _dcgaVirtualGatewayOwnerAccount (\ s a -> s{_dcgaVirtualGatewayOwnerAccount = a})
 
 -- | Undocumented member.
 dcgaStateChangeError :: Lens' DirectConnectGatewayAssociation (Maybe Text)
-dcgaStateChangeError = lens _dcgaStateChangeError (\ s a -> s{_dcgaStateChangeError = a});
+dcgaStateChangeError = lens _dcgaStateChangeError (\ s a -> s{_dcgaStateChangeError = a})
 
 -- | Undocumented member.
 dcgaVirtualGatewayRegion :: Lens' DirectConnectGatewayAssociation (Maybe Text)
-dcgaVirtualGatewayRegion = lens _dcgaVirtualGatewayRegion (\ s a -> s{_dcgaVirtualGatewayRegion = a});
+dcgaVirtualGatewayRegion = lens _dcgaVirtualGatewayRegion (\ s a -> s{_dcgaVirtualGatewayRegion = a})
 
 -- | Undocumented member.
 dcgaAssociationState :: Lens' DirectConnectGatewayAssociation (Maybe DirectConnectGatewayAssociationState)
-dcgaAssociationState = lens _dcgaAssociationState (\ s a -> s{_dcgaAssociationState = a});
+dcgaAssociationState = lens _dcgaAssociationState (\ s a -> s{_dcgaAssociationState = a})
 
 instance FromJSON DirectConnectGatewayAssociation
          where
@@ -484,38 +484,38 @@ directConnectGatewayAttachment
     :: DirectConnectGatewayAttachment
 directConnectGatewayAttachment =
   DirectConnectGatewayAttachment'
-  { _dDirectConnectGatewayId = Nothing
-  , _dAttachmentState = Nothing
-  , _dStateChangeError = Nothing
-  , _dVirtualInterfaceRegion = Nothing
-  , _dVirtualInterfaceOwnerAccount = Nothing
-  , _dVirtualInterfaceId = Nothing
-  }
+    { _dDirectConnectGatewayId = Nothing
+    , _dAttachmentState = Nothing
+    , _dStateChangeError = Nothing
+    , _dVirtualInterfaceRegion = Nothing
+    , _dVirtualInterfaceOwnerAccount = Nothing
+    , _dVirtualInterfaceId = Nothing
+    }
 
 
 -- | Undocumented member.
 dDirectConnectGatewayId :: Lens' DirectConnectGatewayAttachment (Maybe Text)
-dDirectConnectGatewayId = lens _dDirectConnectGatewayId (\ s a -> s{_dDirectConnectGatewayId = a});
+dDirectConnectGatewayId = lens _dDirectConnectGatewayId (\ s a -> s{_dDirectConnectGatewayId = a})
 
 -- | Undocumented member.
 dAttachmentState :: Lens' DirectConnectGatewayAttachment (Maybe DirectConnectGatewayAttachmentState)
-dAttachmentState = lens _dAttachmentState (\ s a -> s{_dAttachmentState = a});
+dAttachmentState = lens _dAttachmentState (\ s a -> s{_dAttachmentState = a})
 
 -- | Undocumented member.
 dStateChangeError :: Lens' DirectConnectGatewayAttachment (Maybe Text)
-dStateChangeError = lens _dStateChangeError (\ s a -> s{_dStateChangeError = a});
+dStateChangeError = lens _dStateChangeError (\ s a -> s{_dStateChangeError = a})
 
 -- | Undocumented member.
 dVirtualInterfaceRegion :: Lens' DirectConnectGatewayAttachment (Maybe Text)
-dVirtualInterfaceRegion = lens _dVirtualInterfaceRegion (\ s a -> s{_dVirtualInterfaceRegion = a});
+dVirtualInterfaceRegion = lens _dVirtualInterfaceRegion (\ s a -> s{_dVirtualInterfaceRegion = a})
 
 -- | The AWS account ID of the owner of the virtual interface.
 dVirtualInterfaceOwnerAccount :: Lens' DirectConnectGatewayAttachment (Maybe Text)
-dVirtualInterfaceOwnerAccount = lens _dVirtualInterfaceOwnerAccount (\ s a -> s{_dVirtualInterfaceOwnerAccount = a});
+dVirtualInterfaceOwnerAccount = lens _dVirtualInterfaceOwnerAccount (\ s a -> s{_dVirtualInterfaceOwnerAccount = a})
 
 -- | Undocumented member.
 dVirtualInterfaceId :: Lens' DirectConnectGatewayAttachment (Maybe Text)
-dVirtualInterfaceId = lens _dVirtualInterfaceId (\ s a -> s{_dVirtualInterfaceId = a});
+dVirtualInterfaceId = lens _dVirtualInterfaceId (\ s a -> s{_dVirtualInterfaceId = a})
 
 instance FromJSON DirectConnectGatewayAttachment
          where
@@ -582,53 +582,53 @@ interconnect
     :: Interconnect
 interconnect =
   Interconnect'
-  { _iLagId = Nothing
-  , _iInterconnectId = Nothing
-  , _iLocation = Nothing
-  , _iInterconnectName = Nothing
-  , _iAwsDevice = Nothing
-  , _iLoaIssueTime = Nothing
-  , _iBandwidth = Nothing
-  , _iInterconnectState = Nothing
-  , _iRegion = Nothing
-  }
+    { _iLagId = Nothing
+    , _iInterconnectId = Nothing
+    , _iLocation = Nothing
+    , _iInterconnectName = Nothing
+    , _iAwsDevice = Nothing
+    , _iLoaIssueTime = Nothing
+    , _iBandwidth = Nothing
+    , _iInterconnectState = Nothing
+    , _iRegion = Nothing
+    }
 
 
 -- | Undocumented member.
 iLagId :: Lens' Interconnect (Maybe Text)
-iLagId = lens _iLagId (\ s a -> s{_iLagId = a});
+iLagId = lens _iLagId (\ s a -> s{_iLagId = a})
 
 -- | Undocumented member.
 iInterconnectId :: Lens' Interconnect (Maybe Text)
-iInterconnectId = lens _iInterconnectId (\ s a -> s{_iInterconnectId = a});
+iInterconnectId = lens _iInterconnectId (\ s a -> s{_iInterconnectId = a})
 
 -- | Undocumented member.
 iLocation :: Lens' Interconnect (Maybe Text)
-iLocation = lens _iLocation (\ s a -> s{_iLocation = a});
+iLocation = lens _iLocation (\ s a -> s{_iLocation = a})
 
 -- | Undocumented member.
 iInterconnectName :: Lens' Interconnect (Maybe Text)
-iInterconnectName = lens _iInterconnectName (\ s a -> s{_iInterconnectName = a});
+iInterconnectName = lens _iInterconnectName (\ s a -> s{_iInterconnectName = a})
 
 -- | The Direct Connection endpoint which the physical connection terminates on.
 iAwsDevice :: Lens' Interconnect (Maybe Text)
-iAwsDevice = lens _iAwsDevice (\ s a -> s{_iAwsDevice = a});
+iAwsDevice = lens _iAwsDevice (\ s a -> s{_iAwsDevice = a})
 
 -- | The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
 iLoaIssueTime :: Lens' Interconnect (Maybe UTCTime)
-iLoaIssueTime = lens _iLoaIssueTime (\ s a -> s{_iLoaIssueTime = a}) . mapping _Time;
+iLoaIssueTime = lens _iLoaIssueTime (\ s a -> s{_iLoaIssueTime = a}) . mapping _Time
 
 -- | Undocumented member.
 iBandwidth :: Lens' Interconnect (Maybe Text)
-iBandwidth = lens _iBandwidth (\ s a -> s{_iBandwidth = a});
+iBandwidth = lens _iBandwidth (\ s a -> s{_iBandwidth = a})
 
 -- | Undocumented member.
 iInterconnectState :: Lens' Interconnect (Maybe InterconnectState)
-iInterconnectState = lens _iInterconnectState (\ s a -> s{_iInterconnectState = a});
+iInterconnectState = lens _iInterconnectState (\ s a -> s{_iInterconnectState = a})
 
 -- | Undocumented member.
 iRegion :: Lens' Interconnect (Maybe Text)
-iRegion = lens _iRegion (\ s a -> s{_iRegion = a});
+iRegion = lens _iRegion (\ s a -> s{_iRegion = a})
 
 instance FromJSON Interconnect where
         parseJSON
@@ -700,68 +700,68 @@ lag
     :: Lag
 lag =
   Lag'
-  { _lagLagId = Nothing
-  , _lagConnectionsBandwidth = Nothing
-  , _lagMinimumLinks = Nothing
-  , _lagLagName = Nothing
-  , _lagLocation = Nothing
-  , _lagConnections = Nothing
-  , _lagAwsDevice = Nothing
-  , _lagAllowsHostedConnections = Nothing
-  , _lagNumberOfConnections = Nothing
-  , _lagLagState = Nothing
-  , _lagOwnerAccount = Nothing
-  , _lagRegion = Nothing
-  }
+    { _lagLagId = Nothing
+    , _lagConnectionsBandwidth = Nothing
+    , _lagMinimumLinks = Nothing
+    , _lagLagName = Nothing
+    , _lagLocation = Nothing
+    , _lagConnections = Nothing
+    , _lagAwsDevice = Nothing
+    , _lagAllowsHostedConnections = Nothing
+    , _lagNumberOfConnections = Nothing
+    , _lagLagState = Nothing
+    , _lagOwnerAccount = Nothing
+    , _lagRegion = Nothing
+    }
 
 
 -- | Undocumented member.
 lagLagId :: Lens' Lag (Maybe Text)
-lagLagId = lens _lagLagId (\ s a -> s{_lagLagId = a});
+lagLagId = lens _lagLagId (\ s a -> s{_lagLagId = a})
 
 -- | The individual bandwidth of the physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps
 lagConnectionsBandwidth :: Lens' Lag (Maybe Text)
-lagConnectionsBandwidth = lens _lagConnectionsBandwidth (\ s a -> s{_lagConnectionsBandwidth = a});
+lagConnectionsBandwidth = lens _lagConnectionsBandwidth (\ s a -> s{_lagConnectionsBandwidth = a})
 
 -- | The minimum number of physical connections that must be operational for the LAG itself to be operational. If the number of operational connections drops below this setting, the LAG state changes to @down@ . This value can help to ensure that a LAG is not overutilized if a significant number of its bundled connections go down.
 lagMinimumLinks :: Lens' Lag (Maybe Int)
-lagMinimumLinks = lens _lagMinimumLinks (\ s a -> s{_lagMinimumLinks = a});
+lagMinimumLinks = lens _lagMinimumLinks (\ s a -> s{_lagMinimumLinks = a})
 
 -- | The name of the LAG.
 lagLagName :: Lens' Lag (Maybe Text)
-lagLagName = lens _lagLagName (\ s a -> s{_lagLagName = a});
+lagLagName = lens _lagLagName (\ s a -> s{_lagLagName = a})
 
 -- | Undocumented member.
 lagLocation :: Lens' Lag (Maybe Text)
-lagLocation = lens _lagLocation (\ s a -> s{_lagLocation = a});
+lagLocation = lens _lagLocation (\ s a -> s{_lagLocation = a})
 
 -- | A list of connections bundled by this LAG.
 lagConnections :: Lens' Lag [Connection]
-lagConnections = lens _lagConnections (\ s a -> s{_lagConnections = a}) . _Default . _Coerce;
+lagConnections = lens _lagConnections (\ s a -> s{_lagConnections = a}) . _Default . _Coerce
 
 -- | The AWS Direct Connection endpoint that hosts the LAG.
 lagAwsDevice :: Lens' Lag (Maybe Text)
-lagAwsDevice = lens _lagAwsDevice (\ s a -> s{_lagAwsDevice = a});
+lagAwsDevice = lens _lagAwsDevice (\ s a -> s{_lagAwsDevice = a})
 
 -- | Indicates whether the LAG can host other connections.
 lagAllowsHostedConnections :: Lens' Lag (Maybe Bool)
-lagAllowsHostedConnections = lens _lagAllowsHostedConnections (\ s a -> s{_lagAllowsHostedConnections = a});
+lagAllowsHostedConnections = lens _lagAllowsHostedConnections (\ s a -> s{_lagAllowsHostedConnections = a})
 
 -- | The number of physical connections bundled by the LAG, up to a maximum of 10.
 lagNumberOfConnections :: Lens' Lag (Maybe Int)
-lagNumberOfConnections = lens _lagNumberOfConnections (\ s a -> s{_lagNumberOfConnections = a});
+lagNumberOfConnections = lens _lagNumberOfConnections (\ s a -> s{_lagNumberOfConnections = a})
 
 -- | Undocumented member.
 lagLagState :: Lens' Lag (Maybe LagState)
-lagLagState = lens _lagLagState (\ s a -> s{_lagLagState = a});
+lagLagState = lens _lagLagState (\ s a -> s{_lagLagState = a})
 
 -- | The owner of the LAG.
 lagOwnerAccount :: Lens' Lag (Maybe Text)
-lagOwnerAccount = lens _lagOwnerAccount (\ s a -> s{_lagOwnerAccount = a});
+lagOwnerAccount = lens _lagOwnerAccount (\ s a -> s{_lagOwnerAccount = a})
 
 -- | Undocumented member.
 lagRegion :: Lens' Lag (Maybe Text)
-lagRegion = lens _lagRegion (\ s a -> s{_lagRegion = a});
+lagRegion = lens _lagRegion (\ s a -> s{_lagRegion = a})
 
 instance FromJSON Lag where
         parseJSON
@@ -809,11 +809,11 @@ location = Location' {_lLocationName = Nothing, _lLocationCode = Nothing}
 
 -- | The name of the AWS Direct Connect location. The name includes the colocation partner name and the physical site of the lit building.
 lLocationName :: Lens' Location (Maybe Text)
-lLocationName = lens _lLocationName (\ s a -> s{_lLocationName = a});
+lLocationName = lens _lLocationName (\ s a -> s{_lLocationName = a})
 
 -- | The code used to indicate the AWS Direct Connect location.
 lLocationCode :: Lens' Location (Maybe Text)
-lLocationCode = lens _lLocationCode (\ s a -> s{_lLocationCode = a});
+lLocationCode = lens _lLocationCode (\ s a -> s{_lLocationCode = a})
 
 instance FromJSON Location where
         parseJSON
@@ -857,33 +857,33 @@ newBGPPeer
     :: NewBGPPeer
 newBGPPeer =
   NewBGPPeer'
-  { _nbpCustomerAddress = Nothing
-  , _nbpAmazonAddress = Nothing
-  , _nbpAddressFamily = Nothing
-  , _nbpAsn = Nothing
-  , _nbpAuthKey = Nothing
-  }
+    { _nbpCustomerAddress = Nothing
+    , _nbpAmazonAddress = Nothing
+    , _nbpAddressFamily = Nothing
+    , _nbpAsn = Nothing
+    , _nbpAuthKey = Nothing
+    }
 
 
 -- | Undocumented member.
 nbpCustomerAddress :: Lens' NewBGPPeer (Maybe Text)
-nbpCustomerAddress = lens _nbpCustomerAddress (\ s a -> s{_nbpCustomerAddress = a});
+nbpCustomerAddress = lens _nbpCustomerAddress (\ s a -> s{_nbpCustomerAddress = a})
 
 -- | Undocumented member.
 nbpAmazonAddress :: Lens' NewBGPPeer (Maybe Text)
-nbpAmazonAddress = lens _nbpAmazonAddress (\ s a -> s{_nbpAmazonAddress = a});
+nbpAmazonAddress = lens _nbpAmazonAddress (\ s a -> s{_nbpAmazonAddress = a})
 
 -- | Undocumented member.
 nbpAddressFamily :: Lens' NewBGPPeer (Maybe AddressFamily)
-nbpAddressFamily = lens _nbpAddressFamily (\ s a -> s{_nbpAddressFamily = a});
+nbpAddressFamily = lens _nbpAddressFamily (\ s a -> s{_nbpAddressFamily = a})
 
 -- | Undocumented member.
 nbpAsn :: Lens' NewBGPPeer (Maybe Int)
-nbpAsn = lens _nbpAsn (\ s a -> s{_nbpAsn = a});
+nbpAsn = lens _nbpAsn (\ s a -> s{_nbpAsn = a})
 
 -- | Undocumented member.
 nbpAuthKey :: Lens' NewBGPPeer (Maybe Text)
-nbpAuthKey = lens _nbpAuthKey (\ s a -> s{_nbpAuthKey = a});
+nbpAuthKey = lens _nbpAuthKey (\ s a -> s{_nbpAuthKey = a})
 
 instance Hashable NewBGPPeer where
 
@@ -945,53 +945,53 @@ newPrivateVirtualInterface
     -> NewPrivateVirtualInterface
 newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ =
   NewPrivateVirtualInterface'
-  { _nVirtualGatewayId = Nothing
-  , _nCustomerAddress = Nothing
-  , _nAmazonAddress = Nothing
-  , _nAddressFamily = Nothing
-  , _nDirectConnectGatewayId = Nothing
-  , _nAuthKey = Nothing
-  , _nVirtualInterfaceName = pVirtualInterfaceName_
-  , _nVlan = pVlan_
-  , _nAsn = pAsn_
-  }
+    { _nVirtualGatewayId = Nothing
+    , _nCustomerAddress = Nothing
+    , _nAmazonAddress = Nothing
+    , _nAddressFamily = Nothing
+    , _nDirectConnectGatewayId = Nothing
+    , _nAuthKey = Nothing
+    , _nVirtualInterfaceName = pVirtualInterfaceName_
+    , _nVlan = pVlan_
+    , _nAsn = pAsn_
+    }
 
 
 -- | Undocumented member.
 nVirtualGatewayId :: Lens' NewPrivateVirtualInterface (Maybe Text)
-nVirtualGatewayId = lens _nVirtualGatewayId (\ s a -> s{_nVirtualGatewayId = a});
+nVirtualGatewayId = lens _nVirtualGatewayId (\ s a -> s{_nVirtualGatewayId = a})
 
 -- | Undocumented member.
 nCustomerAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
-nCustomerAddress = lens _nCustomerAddress (\ s a -> s{_nCustomerAddress = a});
+nCustomerAddress = lens _nCustomerAddress (\ s a -> s{_nCustomerAddress = a})
 
 -- | Undocumented member.
 nAmazonAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
-nAmazonAddress = lens _nAmazonAddress (\ s a -> s{_nAmazonAddress = a});
+nAmazonAddress = lens _nAmazonAddress (\ s a -> s{_nAmazonAddress = a})
 
 -- | Undocumented member.
 nAddressFamily :: Lens' NewPrivateVirtualInterface (Maybe AddressFamily)
-nAddressFamily = lens _nAddressFamily (\ s a -> s{_nAddressFamily = a});
+nAddressFamily = lens _nAddressFamily (\ s a -> s{_nAddressFamily = a})
 
 -- | Undocumented member.
 nDirectConnectGatewayId :: Lens' NewPrivateVirtualInterface (Maybe Text)
-nDirectConnectGatewayId = lens _nDirectConnectGatewayId (\ s a -> s{_nDirectConnectGatewayId = a});
+nDirectConnectGatewayId = lens _nDirectConnectGatewayId (\ s a -> s{_nDirectConnectGatewayId = a})
 
 -- | Undocumented member.
 nAuthKey :: Lens' NewPrivateVirtualInterface (Maybe Text)
-nAuthKey = lens _nAuthKey (\ s a -> s{_nAuthKey = a});
+nAuthKey = lens _nAuthKey (\ s a -> s{_nAuthKey = a})
 
 -- | Undocumented member.
 nVirtualInterfaceName :: Lens' NewPrivateVirtualInterface Text
-nVirtualInterfaceName = lens _nVirtualInterfaceName (\ s a -> s{_nVirtualInterfaceName = a});
+nVirtualInterfaceName = lens _nVirtualInterfaceName (\ s a -> s{_nVirtualInterfaceName = a})
 
 -- | Undocumented member.
 nVlan :: Lens' NewPrivateVirtualInterface Int
-nVlan = lens _nVlan (\ s a -> s{_nVlan = a});
+nVlan = lens _nVlan (\ s a -> s{_nVlan = a})
 
 -- | Undocumented member.
 nAsn :: Lens' NewPrivateVirtualInterface Int
-nAsn = lens _nAsn (\ s a -> s{_nAsn = a});
+nAsn = lens _nAsn (\ s a -> s{_nAsn = a})
 
 instance Hashable NewPrivateVirtualInterface where
 
@@ -1052,43 +1052,43 @@ newPrivateVirtualInterfaceAllocation
     -> NewPrivateVirtualInterfaceAllocation
 newPrivateVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
   NewPrivateVirtualInterfaceAllocation'
-  { _npviaCustomerAddress = Nothing
-  , _npviaAmazonAddress = Nothing
-  , _npviaAddressFamily = Nothing
-  , _npviaAuthKey = Nothing
-  , _npviaVirtualInterfaceName = pVirtualInterfaceName_
-  , _npviaVlan = pVlan_
-  , _npviaAsn = pAsn_
-  }
+    { _npviaCustomerAddress = Nothing
+    , _npviaAmazonAddress = Nothing
+    , _npviaAddressFamily = Nothing
+    , _npviaAuthKey = Nothing
+    , _npviaVirtualInterfaceName = pVirtualInterfaceName_
+    , _npviaVlan = pVlan_
+    , _npviaAsn = pAsn_
+    }
 
 
 -- | Undocumented member.
 npviaCustomerAddress :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
-npviaCustomerAddress = lens _npviaCustomerAddress (\ s a -> s{_npviaCustomerAddress = a});
+npviaCustomerAddress = lens _npviaCustomerAddress (\ s a -> s{_npviaCustomerAddress = a})
 
 -- | Undocumented member.
 npviaAmazonAddress :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
-npviaAmazonAddress = lens _npviaAmazonAddress (\ s a -> s{_npviaAmazonAddress = a});
+npviaAmazonAddress = lens _npviaAmazonAddress (\ s a -> s{_npviaAmazonAddress = a})
 
 -- | Undocumented member.
 npviaAddressFamily :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe AddressFamily)
-npviaAddressFamily = lens _npviaAddressFamily (\ s a -> s{_npviaAddressFamily = a});
+npviaAddressFamily = lens _npviaAddressFamily (\ s a -> s{_npviaAddressFamily = a})
 
 -- | Undocumented member.
 npviaAuthKey :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
-npviaAuthKey = lens _npviaAuthKey (\ s a -> s{_npviaAuthKey = a});
+npviaAuthKey = lens _npviaAuthKey (\ s a -> s{_npviaAuthKey = a})
 
 -- | Undocumented member.
 npviaVirtualInterfaceName :: Lens' NewPrivateVirtualInterfaceAllocation Text
-npviaVirtualInterfaceName = lens _npviaVirtualInterfaceName (\ s a -> s{_npviaVirtualInterfaceName = a});
+npviaVirtualInterfaceName = lens _npviaVirtualInterfaceName (\ s a -> s{_npviaVirtualInterfaceName = a})
 
 -- | Undocumented member.
 npviaVlan :: Lens' NewPrivateVirtualInterfaceAllocation Int
-npviaVlan = lens _npviaVlan (\ s a -> s{_npviaVlan = a});
+npviaVlan = lens _npviaVlan (\ s a -> s{_npviaVlan = a})
 
 -- | Undocumented member.
 npviaAsn :: Lens' NewPrivateVirtualInterfaceAllocation Int
-npviaAsn = lens _npviaAsn (\ s a -> s{_npviaAsn = a});
+npviaAsn = lens _npviaAsn (\ s a -> s{_npviaAsn = a})
 
 instance Hashable
            NewPrivateVirtualInterfaceAllocation
@@ -1155,48 +1155,48 @@ newPublicVirtualInterface
     -> NewPublicVirtualInterface
 newPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ =
   NewPublicVirtualInterface'
-  { _npviRouteFilterPrefixes = Nothing
-  , _npviCustomerAddress = Nothing
-  , _npviAmazonAddress = Nothing
-  , _npviAddressFamily = Nothing
-  , _npviAuthKey = Nothing
-  , _npviVirtualInterfaceName = pVirtualInterfaceName_
-  , _npviVlan = pVlan_
-  , _npviAsn = pAsn_
-  }
+    { _npviRouteFilterPrefixes = Nothing
+    , _npviCustomerAddress = Nothing
+    , _npviAmazonAddress = Nothing
+    , _npviAddressFamily = Nothing
+    , _npviAuthKey = Nothing
+    , _npviVirtualInterfaceName = pVirtualInterfaceName_
+    , _npviVlan = pVlan_
+    , _npviAsn = pAsn_
+    }
 
 
 -- | Undocumented member.
 npviRouteFilterPrefixes :: Lens' NewPublicVirtualInterface [RouteFilterPrefix]
-npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\ s a -> s{_npviRouteFilterPrefixes = a}) . _Default . _Coerce;
+npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\ s a -> s{_npviRouteFilterPrefixes = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 npviCustomerAddress :: Lens' NewPublicVirtualInterface (Maybe Text)
-npviCustomerAddress = lens _npviCustomerAddress (\ s a -> s{_npviCustomerAddress = a});
+npviCustomerAddress = lens _npviCustomerAddress (\ s a -> s{_npviCustomerAddress = a})
 
 -- | Undocumented member.
 npviAmazonAddress :: Lens' NewPublicVirtualInterface (Maybe Text)
-npviAmazonAddress = lens _npviAmazonAddress (\ s a -> s{_npviAmazonAddress = a});
+npviAmazonAddress = lens _npviAmazonAddress (\ s a -> s{_npviAmazonAddress = a})
 
 -- | Undocumented member.
 npviAddressFamily :: Lens' NewPublicVirtualInterface (Maybe AddressFamily)
-npviAddressFamily = lens _npviAddressFamily (\ s a -> s{_npviAddressFamily = a});
+npviAddressFamily = lens _npviAddressFamily (\ s a -> s{_npviAddressFamily = a})
 
 -- | Undocumented member.
 npviAuthKey :: Lens' NewPublicVirtualInterface (Maybe Text)
-npviAuthKey = lens _npviAuthKey (\ s a -> s{_npviAuthKey = a});
+npviAuthKey = lens _npviAuthKey (\ s a -> s{_npviAuthKey = a})
 
 -- | Undocumented member.
 npviVirtualInterfaceName :: Lens' NewPublicVirtualInterface Text
-npviVirtualInterfaceName = lens _npviVirtualInterfaceName (\ s a -> s{_npviVirtualInterfaceName = a});
+npviVirtualInterfaceName = lens _npviVirtualInterfaceName (\ s a -> s{_npviVirtualInterfaceName = a})
 
 -- | Undocumented member.
 npviVlan :: Lens' NewPublicVirtualInterface Int
-npviVlan = lens _npviVlan (\ s a -> s{_npviVlan = a});
+npviVlan = lens _npviVlan (\ s a -> s{_npviVlan = a})
 
 -- | Undocumented member.
 npviAsn :: Lens' NewPublicVirtualInterface Int
-npviAsn = lens _npviAsn (\ s a -> s{_npviAsn = a});
+npviAsn = lens _npviAsn (\ s a -> s{_npviAsn = a})
 
 instance Hashable NewPublicVirtualInterface where
 
@@ -1261,48 +1261,48 @@ newPublicVirtualInterfaceAllocation
     -> NewPublicVirtualInterfaceAllocation
 newPublicVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
   NewPublicVirtualInterfaceAllocation'
-  { _newRouteFilterPrefixes = Nothing
-  , _newCustomerAddress = Nothing
-  , _newAmazonAddress = Nothing
-  , _newAddressFamily = Nothing
-  , _newAuthKey = Nothing
-  , _newVirtualInterfaceName = pVirtualInterfaceName_
-  , _newVlan = pVlan_
-  , _newAsn = pAsn_
-  }
+    { _newRouteFilterPrefixes = Nothing
+    , _newCustomerAddress = Nothing
+    , _newAmazonAddress = Nothing
+    , _newAddressFamily = Nothing
+    , _newAuthKey = Nothing
+    , _newVirtualInterfaceName = pVirtualInterfaceName_
+    , _newVlan = pVlan_
+    , _newAsn = pAsn_
+    }
 
 
 -- | Undocumented member.
 newRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFilterPrefix]
-newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\ s a -> s{_newRouteFilterPrefixes = a}) . _Default . _Coerce;
+newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\ s a -> s{_newRouteFilterPrefixes = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 newCustomerAddress :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
-newCustomerAddress = lens _newCustomerAddress (\ s a -> s{_newCustomerAddress = a});
+newCustomerAddress = lens _newCustomerAddress (\ s a -> s{_newCustomerAddress = a})
 
 -- | Undocumented member.
 newAmazonAddress :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
-newAmazonAddress = lens _newAmazonAddress (\ s a -> s{_newAmazonAddress = a});
+newAmazonAddress = lens _newAmazonAddress (\ s a -> s{_newAmazonAddress = a})
 
 -- | Undocumented member.
 newAddressFamily :: Lens' NewPublicVirtualInterfaceAllocation (Maybe AddressFamily)
-newAddressFamily = lens _newAddressFamily (\ s a -> s{_newAddressFamily = a});
+newAddressFamily = lens _newAddressFamily (\ s a -> s{_newAddressFamily = a})
 
 -- | Undocumented member.
 newAuthKey :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
-newAuthKey = lens _newAuthKey (\ s a -> s{_newAuthKey = a});
+newAuthKey = lens _newAuthKey (\ s a -> s{_newAuthKey = a})
 
 -- | Undocumented member.
 newVirtualInterfaceName :: Lens' NewPublicVirtualInterfaceAllocation Text
-newVirtualInterfaceName = lens _newVirtualInterfaceName (\ s a -> s{_newVirtualInterfaceName = a});
+newVirtualInterfaceName = lens _newVirtualInterfaceName (\ s a -> s{_newVirtualInterfaceName = a})
 
 -- | Undocumented member.
 newVlan :: Lens' NewPublicVirtualInterfaceAllocation Int
-newVlan = lens _newVlan (\ s a -> s{_newVlan = a});
+newVlan = lens _newVlan (\ s a -> s{_newVlan = a})
 
 -- | Undocumented member.
 newAsn :: Lens' NewPublicVirtualInterfaceAllocation Int
-newAsn = lens _newAsn (\ s a -> s{_newAsn = a});
+newAsn = lens _newAsn (\ s a -> s{_newAsn = a})
 
 instance Hashable NewPublicVirtualInterfaceAllocation
          where
@@ -1350,11 +1350,11 @@ resourceTag = ResourceTag' {_rtResourceARN = Nothing, _rtTags = Nothing}
 
 -- | The Amazon Resource Name (ARN) of the Direct Connect resource.
 rtResourceARN :: Lens' ResourceTag (Maybe Text)
-rtResourceARN = lens _rtResourceARN (\ s a -> s{_rtResourceARN = a});
+rtResourceARN = lens _rtResourceARN (\ s a -> s{_rtResourceARN = a})
 
 -- | The tags.
 rtTags :: Lens' ResourceTag (Maybe (NonEmpty Tag))
-rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . mapping _List1;
+rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . mapping _List1
 
 instance FromJSON ResourceTag where
         parseJSON
@@ -1389,7 +1389,7 @@ routeFilterPrefix = RouteFilterPrefix' {_rfpCidr = Nothing}
 
 -- | CIDR notation for the advertised route. Multiple routes are separated by commas. IPv6 CIDRs must be at least a /64 or shorter Example: 10.10.10.0/24,10.10.11.0/24,2001:db8::/64
 rfpCidr :: Lens' RouteFilterPrefix (Maybe Text)
-rfpCidr = lens _rfpCidr (\ s a -> s{_rfpCidr = a});
+rfpCidr = lens _rfpCidr (\ s a -> s{_rfpCidr = a})
 
 instance FromJSON RouteFilterPrefix where
         parseJSON
@@ -1430,11 +1430,11 @@ tag pKey_ = Tag' {_tagValue = Nothing, _tagKey = pKey_}
 
 -- | The value of the tag.
 tagValue :: Lens' Tag (Maybe Text)
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 -- | The key of the tag.
 tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 instance FromJSON Tag where
         parseJSON
@@ -1476,16 +1476,16 @@ virtualGateway
     :: VirtualGateway
 virtualGateway =
   VirtualGateway'
-  {_vgVirtualGatewayId = Nothing, _vgVirtualGatewayState = Nothing}
+    {_vgVirtualGatewayId = Nothing, _vgVirtualGatewayState = Nothing}
 
 
 -- | Undocumented member.
 vgVirtualGatewayId :: Lens' VirtualGateway (Maybe Text)
-vgVirtualGatewayId = lens _vgVirtualGatewayId (\ s a -> s{_vgVirtualGatewayId = a});
+vgVirtualGatewayId = lens _vgVirtualGatewayId (\ s a -> s{_vgVirtualGatewayId = a})
 
 -- | Undocumented member.
 vgVirtualGatewayState :: Lens' VirtualGateway (Maybe Text)
-vgVirtualGatewayState = lens _vgVirtualGatewayState (\ s a -> s{_vgVirtualGatewayState = a});
+vgVirtualGatewayState = lens _vgVirtualGatewayState (\ s a -> s{_vgVirtualGatewayState = a})
 
 instance FromJSON VirtualGateway where
         parseJSON
@@ -1572,103 +1572,103 @@ virtualInterface
     :: VirtualInterface
 virtualInterface =
   VirtualInterface'
-  { _viBgpPeers = Nothing
-  , _viVirtualGatewayId = Nothing
-  , _viRouteFilterPrefixes = Nothing
-  , _viCustomerAddress = Nothing
-  , _viVlan = Nothing
-  , _viLocation = Nothing
-  , _viAmazonAddress = Nothing
-  , _viAddressFamily = Nothing
-  , _viVirtualInterfaceState = Nothing
-  , _viConnectionId = Nothing
-  , _viDirectConnectGatewayId = Nothing
-  , _viAmazonSideASN = Nothing
-  , _viVirtualInterfaceType = Nothing
-  , _viAsn = Nothing
-  , _viAuthKey = Nothing
-  , _viCustomerRouterConfig = Nothing
-  , _viOwnerAccount = Nothing
-  , _viVirtualInterfaceName = Nothing
-  , _viVirtualInterfaceId = Nothing
-  }
+    { _viBgpPeers = Nothing
+    , _viVirtualGatewayId = Nothing
+    , _viRouteFilterPrefixes = Nothing
+    , _viCustomerAddress = Nothing
+    , _viVlan = Nothing
+    , _viLocation = Nothing
+    , _viAmazonAddress = Nothing
+    , _viAddressFamily = Nothing
+    , _viVirtualInterfaceState = Nothing
+    , _viConnectionId = Nothing
+    , _viDirectConnectGatewayId = Nothing
+    , _viAmazonSideASN = Nothing
+    , _viVirtualInterfaceType = Nothing
+    , _viAsn = Nothing
+    , _viAuthKey = Nothing
+    , _viCustomerRouterConfig = Nothing
+    , _viOwnerAccount = Nothing
+    , _viVirtualInterfaceName = Nothing
+    , _viVirtualInterfaceId = Nothing
+    }
 
 
 -- | Undocumented member.
 viBgpPeers :: Lens' VirtualInterface [BGPPeer]
-viBgpPeers = lens _viBgpPeers (\ s a -> s{_viBgpPeers = a}) . _Default . _Coerce;
+viBgpPeers = lens _viBgpPeers (\ s a -> s{_viBgpPeers = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 viVirtualGatewayId :: Lens' VirtualInterface (Maybe Text)
-viVirtualGatewayId = lens _viVirtualGatewayId (\ s a -> s{_viVirtualGatewayId = a});
+viVirtualGatewayId = lens _viVirtualGatewayId (\ s a -> s{_viVirtualGatewayId = a})
 
 -- | Undocumented member.
 viRouteFilterPrefixes :: Lens' VirtualInterface [RouteFilterPrefix]
-viRouteFilterPrefixes = lens _viRouteFilterPrefixes (\ s a -> s{_viRouteFilterPrefixes = a}) . _Default . _Coerce;
+viRouteFilterPrefixes = lens _viRouteFilterPrefixes (\ s a -> s{_viRouteFilterPrefixes = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 viCustomerAddress :: Lens' VirtualInterface (Maybe Text)
-viCustomerAddress = lens _viCustomerAddress (\ s a -> s{_viCustomerAddress = a});
+viCustomerAddress = lens _viCustomerAddress (\ s a -> s{_viCustomerAddress = a})
 
 -- | Undocumented member.
 viVlan :: Lens' VirtualInterface (Maybe Int)
-viVlan = lens _viVlan (\ s a -> s{_viVlan = a});
+viVlan = lens _viVlan (\ s a -> s{_viVlan = a})
 
 -- | Undocumented member.
 viLocation :: Lens' VirtualInterface (Maybe Text)
-viLocation = lens _viLocation (\ s a -> s{_viLocation = a});
+viLocation = lens _viLocation (\ s a -> s{_viLocation = a})
 
 -- | Undocumented member.
 viAmazonAddress :: Lens' VirtualInterface (Maybe Text)
-viAmazonAddress = lens _viAmazonAddress (\ s a -> s{_viAmazonAddress = a});
+viAmazonAddress = lens _viAmazonAddress (\ s a -> s{_viAmazonAddress = a})
 
 -- | Undocumented member.
 viAddressFamily :: Lens' VirtualInterface (Maybe AddressFamily)
-viAddressFamily = lens _viAddressFamily (\ s a -> s{_viAddressFamily = a});
+viAddressFamily = lens _viAddressFamily (\ s a -> s{_viAddressFamily = a})
 
 -- | Undocumented member.
 viVirtualInterfaceState :: Lens' VirtualInterface (Maybe VirtualInterfaceState)
-viVirtualInterfaceState = lens _viVirtualInterfaceState (\ s a -> s{_viVirtualInterfaceState = a});
+viVirtualInterfaceState = lens _viVirtualInterfaceState (\ s a -> s{_viVirtualInterfaceState = a})
 
 -- | Undocumented member.
 viConnectionId :: Lens' VirtualInterface (Maybe Text)
-viConnectionId = lens _viConnectionId (\ s a -> s{_viConnectionId = a});
+viConnectionId = lens _viConnectionId (\ s a -> s{_viConnectionId = a})
 
 -- | Undocumented member.
 viDirectConnectGatewayId :: Lens' VirtualInterface (Maybe Text)
-viDirectConnectGatewayId = lens _viDirectConnectGatewayId (\ s a -> s{_viDirectConnectGatewayId = a});
+viDirectConnectGatewayId = lens _viDirectConnectGatewayId (\ s a -> s{_viDirectConnectGatewayId = a})
 
 -- | The autonomous system number (ASN) for the Amazon side of the connection.
 viAmazonSideASN :: Lens' VirtualInterface (Maybe Integer)
-viAmazonSideASN = lens _viAmazonSideASN (\ s a -> s{_viAmazonSideASN = a});
+viAmazonSideASN = lens _viAmazonSideASN (\ s a -> s{_viAmazonSideASN = a})
 
 -- | Undocumented member.
 viVirtualInterfaceType :: Lens' VirtualInterface (Maybe Text)
-viVirtualInterfaceType = lens _viVirtualInterfaceType (\ s a -> s{_viVirtualInterfaceType = a});
+viVirtualInterfaceType = lens _viVirtualInterfaceType (\ s a -> s{_viVirtualInterfaceType = a})
 
 -- | Undocumented member.
 viAsn :: Lens' VirtualInterface (Maybe Int)
-viAsn = lens _viAsn (\ s a -> s{_viAsn = a});
+viAsn = lens _viAsn (\ s a -> s{_viAsn = a})
 
 -- | Undocumented member.
 viAuthKey :: Lens' VirtualInterface (Maybe Text)
-viAuthKey = lens _viAuthKey (\ s a -> s{_viAuthKey = a});
+viAuthKey = lens _viAuthKey (\ s a -> s{_viAuthKey = a})
 
 -- | Information for generating the customer router configuration.
 viCustomerRouterConfig :: Lens' VirtualInterface (Maybe Text)
-viCustomerRouterConfig = lens _viCustomerRouterConfig (\ s a -> s{_viCustomerRouterConfig = a});
+viCustomerRouterConfig = lens _viCustomerRouterConfig (\ s a -> s{_viCustomerRouterConfig = a})
 
 -- | The AWS account that will own the new virtual interface.
 viOwnerAccount :: Lens' VirtualInterface (Maybe Text)
-viOwnerAccount = lens _viOwnerAccount (\ s a -> s{_viOwnerAccount = a});
+viOwnerAccount = lens _viOwnerAccount (\ s a -> s{_viOwnerAccount = a})
 
 -- | Undocumented member.
 viVirtualInterfaceName :: Lens' VirtualInterface (Maybe Text)
-viVirtualInterfaceName = lens _viVirtualInterfaceName (\ s a -> s{_viVirtualInterfaceName = a});
+viVirtualInterfaceName = lens _viVirtualInterfaceName (\ s a -> s{_viVirtualInterfaceName = a})
 
 -- | Undocumented member.
 viVirtualInterfaceId :: Lens' VirtualInterface (Maybe Text)
-viVirtualInterfaceId = lens _viVirtualInterfaceId (\ s a -> s{_viVirtualInterfaceId = a});
+viVirtualInterfaceId = lens _viVirtualInterfaceId (\ s a -> s{_viVirtualInterfaceId = a})
 
 instance FromJSON VirtualInterface where
         parseJSON

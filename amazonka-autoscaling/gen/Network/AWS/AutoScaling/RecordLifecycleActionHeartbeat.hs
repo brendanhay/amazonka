@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,35 +81,35 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
 --
 -- * 'rlahLifecycleHookName' - The name of the lifecycle hook.
 --
--- * 'rlahAutoScalingGroupName' - The name of the Auto Scaling group for the hook.
+-- * 'rlahAutoScalingGroupName' - The name of the Auto Scaling group.
 recordLifecycleActionHeartbeat
     :: Text -- ^ 'rlahLifecycleHookName'
     -> Text -- ^ 'rlahAutoScalingGroupName'
     -> RecordLifecycleActionHeartbeat
 recordLifecycleActionHeartbeat pLifecycleHookName_ pAutoScalingGroupName_ =
   RecordLifecycleActionHeartbeat'
-  { _rlahInstanceId = Nothing
-  , _rlahLifecycleActionToken = Nothing
-  , _rlahLifecycleHookName = pLifecycleHookName_
-  , _rlahAutoScalingGroupName = pAutoScalingGroupName_
-  }
+    { _rlahInstanceId = Nothing
+    , _rlahLifecycleActionToken = Nothing
+    , _rlahLifecycleHookName = pLifecycleHookName_
+    , _rlahAutoScalingGroupName = pAutoScalingGroupName_
+    }
 
 
 -- | The ID of the instance.
 rlahInstanceId :: Lens' RecordLifecycleActionHeartbeat (Maybe Text)
-rlahInstanceId = lens _rlahInstanceId (\ s a -> s{_rlahInstanceId = a});
+rlahInstanceId = lens _rlahInstanceId (\ s a -> s{_rlahInstanceId = a})
 
 -- | A token that uniquely identifies a specific lifecycle action associated with an instance. Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.
 rlahLifecycleActionToken :: Lens' RecordLifecycleActionHeartbeat (Maybe Text)
-rlahLifecycleActionToken = lens _rlahLifecycleActionToken (\ s a -> s{_rlahLifecycleActionToken = a});
+rlahLifecycleActionToken = lens _rlahLifecycleActionToken (\ s a -> s{_rlahLifecycleActionToken = a})
 
 -- | The name of the lifecycle hook.
 rlahLifecycleHookName :: Lens' RecordLifecycleActionHeartbeat Text
-rlahLifecycleHookName = lens _rlahLifecycleHookName (\ s a -> s{_rlahLifecycleHookName = a});
+rlahLifecycleHookName = lens _rlahLifecycleHookName (\ s a -> s{_rlahLifecycleHookName = a})
 
--- | The name of the Auto Scaling group for the hook.
+-- | The name of the Auto Scaling group.
 rlahAutoScalingGroupName :: Lens' RecordLifecycleActionHeartbeat Text
-rlahAutoScalingGroupName = lens _rlahAutoScalingGroupName (\ s a -> s{_rlahAutoScalingGroupName = a});
+rlahAutoScalingGroupName = lens _rlahAutoScalingGroupName (\ s a -> s{_rlahAutoScalingGroupName = a})
 
 instance AWSRequest RecordLifecycleActionHeartbeat
          where
@@ -162,12 +162,12 @@ recordLifecycleActionHeartbeatResponse
     -> RecordLifecycleActionHeartbeatResponse
 recordLifecycleActionHeartbeatResponse pResponseStatus_ =
   RecordLifecycleActionHeartbeatResponse'
-  {_rlahrsResponseStatus = pResponseStatus_}
+    {_rlahrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 rlahrsResponseStatus :: Lens' RecordLifecycleActionHeartbeatResponse Int
-rlahrsResponseStatus = lens _rlahrsResponseStatus (\ s a -> s{_rlahrsResponseStatus = a});
+rlahrsResponseStatus = lens _rlahrsResponseStatus (\ s a -> s{_rlahrsResponseStatus = a})
 
 instance NFData
            RecordLifecycleActionHeartbeatResponse

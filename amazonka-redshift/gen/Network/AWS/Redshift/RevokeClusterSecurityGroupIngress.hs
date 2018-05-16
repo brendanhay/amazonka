@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ revokeClusterSecurityGroupIngress
     -> RevokeClusterSecurityGroupIngress
 revokeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
   RevokeClusterSecurityGroupIngress'
-  { _rcsgiEC2SecurityGroupOwnerId = Nothing
-  , _rcsgiEC2SecurityGroupName = Nothing
-  , _rcsgiCIdRIP = Nothing
-  , _rcsgiClusterSecurityGroupName = pClusterSecurityGroupName_
-  }
+    { _rcsgiEC2SecurityGroupOwnerId = Nothing
+    , _rcsgiEC2SecurityGroupName = Nothing
+    , _rcsgiCIdRIP = Nothing
+    , _rcsgiClusterSecurityGroupName = pClusterSecurityGroupName_
+    }
 
 
 -- | The AWS account number of the owner of the security group specified in the @EC2SecurityGroupName@ parameter. The AWS access key ID is not an acceptable value. If @EC2SecurityGroupOwnerId@ is specified, @EC2SecurityGroupName@ must also be provided. and @CIDRIP@ cannot be provided.  Example: @111122223333@
 rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
-rcsgiEC2SecurityGroupOwnerId = lens _rcsgiEC2SecurityGroupOwnerId (\ s a -> s{_rcsgiEC2SecurityGroupOwnerId = a});
+rcsgiEC2SecurityGroupOwnerId = lens _rcsgiEC2SecurityGroupOwnerId (\ s a -> s{_rcsgiEC2SecurityGroupOwnerId = a})
 
 -- | The name of the EC2 Security Group whose access is to be revoked. If @EC2SecurityGroupName@ is specified, @EC2SecurityGroupOwnerId@ must also be provided and @CIDRIP@ cannot be provided.
 rcsgiEC2SecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
-rcsgiEC2SecurityGroupName = lens _rcsgiEC2SecurityGroupName (\ s a -> s{_rcsgiEC2SecurityGroupName = a});
+rcsgiEC2SecurityGroupName = lens _rcsgiEC2SecurityGroupName (\ s a -> s{_rcsgiEC2SecurityGroupName = a})
 
 -- | The IP range for which to revoke access. This range must be a valid Classless Inter-Domain Routing (CIDR) block of IP addresses. If @CIDRIP@ is specified, @EC2SecurityGroupName@ and @EC2SecurityGroupOwnerId@ cannot be provided.
 rcsgiCIdRIP :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
-rcsgiCIdRIP = lens _rcsgiCIdRIP (\ s a -> s{_rcsgiCIdRIP = a});
+rcsgiCIdRIP = lens _rcsgiCIdRIP (\ s a -> s{_rcsgiCIdRIP = a})
 
 -- | The name of the security Group from which to revoke the ingress rule.
 rcsgiClusterSecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress Text
-rcsgiClusterSecurityGroupName = lens _rcsgiClusterSecurityGroupName (\ s a -> s{_rcsgiClusterSecurityGroupName = a});
+rcsgiClusterSecurityGroupName = lens _rcsgiClusterSecurityGroupName (\ s a -> s{_rcsgiClusterSecurityGroupName = a})
 
 instance AWSRequest RevokeClusterSecurityGroupIngress
          where
@@ -159,18 +159,18 @@ revokeClusterSecurityGroupIngressResponse
     -> RevokeClusterSecurityGroupIngressResponse
 revokeClusterSecurityGroupIngressResponse pResponseStatus_ =
   RevokeClusterSecurityGroupIngressResponse'
-  { _rcsgirsClusterSecurityGroup = Nothing
-  , _rcsgirsResponseStatus = pResponseStatus_
-  }
+    { _rcsgirsClusterSecurityGroup = Nothing
+    , _rcsgirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 rcsgirsClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
-rcsgirsClusterSecurityGroup = lens _rcsgirsClusterSecurityGroup (\ s a -> s{_rcsgirsClusterSecurityGroup = a});
+rcsgirsClusterSecurityGroup = lens _rcsgirsClusterSecurityGroup (\ s a -> s{_rcsgirsClusterSecurityGroup = a})
 
 -- | -- | The response status code.
 rcsgirsResponseStatus :: Lens' RevokeClusterSecurityGroupIngressResponse Int
-rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\ s a -> s{_rcsgirsResponseStatus = a});
+rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\ s a -> s{_rcsgirsResponseStatus = a})
 
 instance NFData
            RevokeClusterSecurityGroupIngressResponse

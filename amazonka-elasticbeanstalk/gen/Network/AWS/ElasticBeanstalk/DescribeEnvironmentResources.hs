@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ describeEnvironmentResources
     :: DescribeEnvironmentResources
 describeEnvironmentResources =
   DescribeEnvironmentResources'
-  {_derEnvironmentName = Nothing, _derEnvironmentId = Nothing}
+    {_derEnvironmentName = Nothing, _derEnvironmentId = Nothing}
 
 
 -- | The name of the environment to retrieve AWS resource usage data. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
-derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = a});
+derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = a})
 
 -- | The ID of the environment to retrieve AWS resource usage data. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
-derEnvironmentId = lens _derEnvironmentId (\ s a -> s{_derEnvironmentId = a});
+derEnvironmentId = lens _derEnvironmentId (\ s a -> s{_derEnvironmentId = a})
 
 instance AWSRequest DescribeEnvironmentResources
          where
@@ -133,18 +133,18 @@ describeEnvironmentResourcesResponse
     -> DescribeEnvironmentResourcesResponse
 describeEnvironmentResourcesResponse pResponseStatus_ =
   DescribeEnvironmentResourcesResponse'
-  { _derrsEnvironmentResources = Nothing
-  , _derrsResponseStatus = pResponseStatus_
-  }
+    { _derrsEnvironmentResources = Nothing
+    , _derrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of 'EnvironmentResourceDescription' .
 derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
-derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEnvironmentResources = a});
+derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEnvironmentResources = a})
 
 -- | -- | The response status code.
 derrsResponseStatus :: Lens' DescribeEnvironmentResourcesResponse Int
-derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
+derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a})
 
 instance NFData DescribeEnvironmentResourcesResponse
          where

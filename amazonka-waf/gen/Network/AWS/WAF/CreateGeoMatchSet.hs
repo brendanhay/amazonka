@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.CreateGeoMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,11 +84,11 @@ createGeoMatchSet pName_ pChangeToken_ =
 
 -- | A friendly name or description of the 'GeoMatchSet' . You can't change @Name@ after you create the @GeoMatchSet@ .
 cgmsName :: Lens' CreateGeoMatchSet Text
-cgmsName = lens _cgmsName (\ s a -> s{_cgmsName = a});
+cgmsName = lens _cgmsName (\ s a -> s{_cgmsName = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 cgmsChangeToken :: Lens' CreateGeoMatchSet Text
-cgmsChangeToken = lens _cgmsChangeToken (\ s a -> s{_cgmsChangeToken = a});
+cgmsChangeToken = lens _cgmsChangeToken (\ s a -> s{_cgmsChangeToken = a})
 
 instance AWSRequest CreateGeoMatchSet where
         type Rs CreateGeoMatchSet = CreateGeoMatchSetResponse
@@ -148,22 +148,22 @@ createGeoMatchSetResponse
     -> CreateGeoMatchSetResponse
 createGeoMatchSetResponse pResponseStatus_ =
   CreateGeoMatchSetResponse'
-  { _cgmsrsGeoMatchSet = Nothing
-  , _cgmsrsChangeToken = Nothing
-  , _cgmsrsResponseStatus = pResponseStatus_
-  }
+    { _cgmsrsGeoMatchSet = Nothing
+    , _cgmsrsChangeToken = Nothing
+    , _cgmsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The 'GeoMatchSet' returned in the @CreateGeoMatchSet@ response. The @GeoMatchSet@ contains no @GeoMatchConstraints@ .
 cgmsrsGeoMatchSet :: Lens' CreateGeoMatchSetResponse (Maybe GeoMatchSet)
-cgmsrsGeoMatchSet = lens _cgmsrsGeoMatchSet (\ s a -> s{_cgmsrsGeoMatchSet = a});
+cgmsrsGeoMatchSet = lens _cgmsrsGeoMatchSet (\ s a -> s{_cgmsrsGeoMatchSet = a})
 
 -- | The @ChangeToken@ that you used to submit the @CreateGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 cgmsrsChangeToken :: Lens' CreateGeoMatchSetResponse (Maybe Text)
-cgmsrsChangeToken = lens _cgmsrsChangeToken (\ s a -> s{_cgmsrsChangeToken = a});
+cgmsrsChangeToken = lens _cgmsrsChangeToken (\ s a -> s{_cgmsrsChangeToken = a})
 
 -- | -- | The response status code.
 cgmsrsResponseStatus :: Lens' CreateGeoMatchSetResponse Int
-cgmsrsResponseStatus = lens _cgmsrsResponseStatus (\ s a -> s{_cgmsrsResponseStatus = a});
+cgmsrsResponseStatus = lens _cgmsrsResponseStatus (\ s a -> s{_cgmsrsResponseStatus = a})
 
 instance NFData CreateGeoMatchSetResponse where

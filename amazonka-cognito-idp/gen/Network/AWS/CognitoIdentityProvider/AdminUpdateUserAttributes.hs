@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,23 +78,23 @@ adminUpdateUserAttributes
     -> AdminUpdateUserAttributes
 adminUpdateUserAttributes pUserPoolId_ pUsername_ =
   AdminUpdateUserAttributes'
-  { _auuaUserPoolId = pUserPoolId_
-  , _auuaUsername = _Sensitive # pUsername_
-  , _auuaUserAttributes = mempty
-  }
+    { _auuaUserPoolId = pUserPoolId_
+    , _auuaUsername = _Sensitive # pUsername_
+    , _auuaUserAttributes = mempty
+    }
 
 
 -- | The user pool ID for the user pool where you want to update user attributes.
 auuaUserPoolId :: Lens' AdminUpdateUserAttributes Text
-auuaUserPoolId = lens _auuaUserPoolId (\ s a -> s{_auuaUserPoolId = a});
+auuaUserPoolId = lens _auuaUserPoolId (\ s a -> s{_auuaUserPoolId = a})
 
 -- | The user name of the user for whom you want to update user attributes.
 auuaUsername :: Lens' AdminUpdateUserAttributes Text
-auuaUsername = lens _auuaUsername (\ s a -> s{_auuaUsername = a}) . _Sensitive;
+auuaUsername = lens _auuaUsername (\ s a -> s{_auuaUsername = a}) . _Sensitive
 
 -- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 auuaUserAttributes :: Lens' AdminUpdateUserAttributes [AttributeType]
-auuaUserAttributes = lens _auuaUserAttributes (\ s a -> s{_auuaUserAttributes = a}) . _Coerce;
+auuaUserAttributes = lens _auuaUserAttributes (\ s a -> s{_auuaUserAttributes = a}) . _Coerce
 
 instance AWSRequest AdminUpdateUserAttributes where
         type Rs AdminUpdateUserAttributes =
@@ -158,7 +158,7 @@ adminUpdateUserAttributesResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 auuarsResponseStatus :: Lens' AdminUpdateUserAttributesResponse Int
-auuarsResponseStatus = lens _auuarsResponseStatus (\ s a -> s{_auuarsResponseStatus = a});
+auuarsResponseStatus = lens _auuarsResponseStatus (\ s a -> s{_auuarsResponseStatus = a})
 
 instance NFData AdminUpdateUserAttributesResponse
          where

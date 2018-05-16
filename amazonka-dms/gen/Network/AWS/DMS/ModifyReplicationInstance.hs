@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.ModifyReplicationInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -108,63 +108,63 @@ modifyReplicationInstance
     -> ModifyReplicationInstance
 modifyReplicationInstance pReplicationInstanceARN_ =
   ModifyReplicationInstance'
-  { _mriEngineVersion = Nothing
-  , _mriAutoMinorVersionUpgrade = Nothing
-  , _mriAllowMajorVersionUpgrade = Nothing
-  , _mriPreferredMaintenanceWindow = Nothing
-  , _mriVPCSecurityGroupIds = Nothing
-  , _mriMultiAZ = Nothing
-  , _mriAllocatedStorage = Nothing
-  , _mriApplyImmediately = Nothing
-  , _mriReplicationInstanceClass = Nothing
-  , _mriReplicationInstanceIdentifier = Nothing
-  , _mriReplicationInstanceARN = pReplicationInstanceARN_
-  }
+    { _mriEngineVersion = Nothing
+    , _mriAutoMinorVersionUpgrade = Nothing
+    , _mriAllowMajorVersionUpgrade = Nothing
+    , _mriPreferredMaintenanceWindow = Nothing
+    , _mriVPCSecurityGroupIds = Nothing
+    , _mriMultiAZ = Nothing
+    , _mriAllocatedStorage = Nothing
+    , _mriApplyImmediately = Nothing
+    , _mriReplicationInstanceClass = Nothing
+    , _mriReplicationInstanceIdentifier = Nothing
+    , _mriReplicationInstanceARN = pReplicationInstanceARN_
+    }
 
 
 -- | The engine version number of the replication instance.
 mriEngineVersion :: Lens' ModifyReplicationInstance (Maybe Text)
-mriEngineVersion = lens _mriEngineVersion (\ s a -> s{_mriEngineVersion = a});
+mriEngineVersion = lens _mriEngineVersion (\ s a -> s{_mriEngineVersion = a})
 
 -- | Indicates that minor version upgrades will be applied automatically to the replication instance during the maintenance window. Changing this parameter does not result in an outage except in the following case and the change is asynchronously applied as soon as possible. An outage will result if this parameter is set to @true@ during the maintenance window, and a newer minor version is available, and AWS DMS has enabled auto patching for that engine version.
 mriAutoMinorVersionUpgrade :: Lens' ModifyReplicationInstance (Maybe Bool)
-mriAutoMinorVersionUpgrade = lens _mriAutoMinorVersionUpgrade (\ s a -> s{_mriAutoMinorVersionUpgrade = a});
+mriAutoMinorVersionUpgrade = lens _mriAutoMinorVersionUpgrade (\ s a -> s{_mriAutoMinorVersionUpgrade = a})
 
 -- | Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible. Constraints: This parameter must be set to true when specifying a value for the @EngineVersion@ parameter that is a different major version than the replication instance's current version.
 mriAllowMajorVersionUpgrade :: Lens' ModifyReplicationInstance (Maybe Bool)
-mriAllowMajorVersionUpgrade = lens _mriAllowMajorVersionUpgrade (\ s a -> s{_mriAllowMajorVersionUpgrade = a});
+mriAllowMajorVersionUpgrade = lens _mriAllowMajorVersionUpgrade (\ s a -> s{_mriAllowMajorVersionUpgrade = a})
 
 -- | The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter does not result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied. Default: Uses existing setting Format: ddd:hh24:mi-ddd:hh24:mi Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Must be at least 30 minutes
 mriPreferredMaintenanceWindow :: Lens' ModifyReplicationInstance (Maybe Text)
-mriPreferredMaintenanceWindow = lens _mriPreferredMaintenanceWindow (\ s a -> s{_mriPreferredMaintenanceWindow = a});
+mriPreferredMaintenanceWindow = lens _mriPreferredMaintenanceWindow (\ s a -> s{_mriPreferredMaintenanceWindow = a})
 
 -- | Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
 mriVPCSecurityGroupIds :: Lens' ModifyReplicationInstance [Text]
-mriVPCSecurityGroupIds = lens _mriVPCSecurityGroupIds (\ s a -> s{_mriVPCSecurityGroupIds = a}) . _Default . _Coerce;
+mriVPCSecurityGroupIds = lens _mriVPCSecurityGroupIds (\ s a -> s{_mriVPCSecurityGroupIds = a}) . _Default . _Coerce
 
 -- | Specifies if the replication instance is a Multi-AZ deployment. You cannot set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
 mriMultiAZ :: Lens' ModifyReplicationInstance (Maybe Bool)
-mriMultiAZ = lens _mriMultiAZ (\ s a -> s{_mriMultiAZ = a});
+mriMultiAZ = lens _mriMultiAZ (\ s a -> s{_mriMultiAZ = a})
 
 -- | The amount of storage (in gigabytes) to be allocated for the replication instance.
 mriAllocatedStorage :: Lens' ModifyReplicationInstance (Maybe Int)
-mriAllocatedStorage = lens _mriAllocatedStorage (\ s a -> s{_mriAllocatedStorage = a});
+mriAllocatedStorage = lens _mriAllocatedStorage (\ s a -> s{_mriAllocatedStorage = a})
 
 -- | Indicates whether the changes should be applied immediately or during the next maintenance window.
 mriApplyImmediately :: Lens' ModifyReplicationInstance (Maybe Bool)
-mriApplyImmediately = lens _mriApplyImmediately (\ s a -> s{_mriApplyImmediately = a});
+mriApplyImmediately = lens _mriApplyImmediately (\ s a -> s{_mriApplyImmediately = a})
 
 -- | The compute and memory capacity of the replication instance. Valid Values: @dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge @
 mriReplicationInstanceClass :: Lens' ModifyReplicationInstance (Maybe Text)
-mriReplicationInstanceClass = lens _mriReplicationInstanceClass (\ s a -> s{_mriReplicationInstanceClass = a});
+mriReplicationInstanceClass = lens _mriReplicationInstanceClass (\ s a -> s{_mriReplicationInstanceClass = a})
 
 -- | The replication instance identifier. This parameter is stored as a lowercase string.
 mriReplicationInstanceIdentifier :: Lens' ModifyReplicationInstance (Maybe Text)
-mriReplicationInstanceIdentifier = lens _mriReplicationInstanceIdentifier (\ s a -> s{_mriReplicationInstanceIdentifier = a});
+mriReplicationInstanceIdentifier = lens _mriReplicationInstanceIdentifier (\ s a -> s{_mriReplicationInstanceIdentifier = a})
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 mriReplicationInstanceARN :: Lens' ModifyReplicationInstance Text
-mriReplicationInstanceARN = lens _mriReplicationInstanceARN (\ s a -> s{_mriReplicationInstanceARN = a});
+mriReplicationInstanceARN = lens _mriReplicationInstanceARN (\ s a -> s{_mriReplicationInstanceARN = a})
 
 instance AWSRequest ModifyReplicationInstance where
         type Rs ModifyReplicationInstance =
@@ -244,16 +244,18 @@ modifyReplicationInstanceResponse
     -> ModifyReplicationInstanceResponse
 modifyReplicationInstanceResponse pResponseStatus_ =
   ModifyReplicationInstanceResponse'
-  {_mrirsReplicationInstance = Nothing, _mrirsResponseStatus = pResponseStatus_}
+    { _mrirsReplicationInstance = Nothing
+    , _mrirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The modified replication instance.
 mrirsReplicationInstance :: Lens' ModifyReplicationInstanceResponse (Maybe ReplicationInstance)
-mrirsReplicationInstance = lens _mrirsReplicationInstance (\ s a -> s{_mrirsReplicationInstance = a});
+mrirsReplicationInstance = lens _mrirsReplicationInstance (\ s a -> s{_mrirsReplicationInstance = a})
 
 -- | -- | The response status code.
 mrirsResponseStatus :: Lens' ModifyReplicationInstanceResponse Int
-mrirsResponseStatus = lens _mrirsResponseStatus (\ s a -> s{_mrirsResponseStatus = a});
+mrirsResponseStatus = lens _mrirsResponseStatus (\ s a -> s{_mrirsResponseStatus = a})
 
 instance NFData ModifyReplicationInstanceResponse
          where

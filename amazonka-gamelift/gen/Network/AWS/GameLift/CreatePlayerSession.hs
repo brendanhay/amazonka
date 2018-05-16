@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreatePlayerSession
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -97,23 +97,23 @@ createPlayerSession
     -> CreatePlayerSession
 createPlayerSession pGameSessionId_ pPlayerId_ =
   CreatePlayerSession'
-  { _cPlayerData = Nothing
-  , _cGameSessionId = pGameSessionId_
-  , _cPlayerId = pPlayerId_
-  }
+    { _cPlayerData = Nothing
+    , _cGameSessionId = pGameSessionId_
+    , _cPlayerId = pPlayerId_
+    }
 
 
 -- | Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
 cPlayerData :: Lens' CreatePlayerSession (Maybe Text)
-cPlayerData = lens _cPlayerData (\ s a -> s{_cPlayerData = a});
+cPlayerData = lens _cPlayerData (\ s a -> s{_cPlayerData = a})
 
 -- | Unique identifier for the game session to add a player to.
 cGameSessionId :: Lens' CreatePlayerSession Text
-cGameSessionId = lens _cGameSessionId (\ s a -> s{_cGameSessionId = a});
+cGameSessionId = lens _cGameSessionId (\ s a -> s{_cGameSessionId = a})
 
 -- | Unique identifier for a player. Player IDs are developer-defined.
 cPlayerId :: Lens' CreatePlayerSession Text
-cPlayerId = lens _cPlayerId (\ s a -> s{_cPlayerId = a});
+cPlayerId = lens _cPlayerId (\ s a -> s{_cPlayerId = a})
 
 instance AWSRequest CreatePlayerSession where
         type Rs CreatePlayerSession =
@@ -175,15 +175,15 @@ createPlayerSessionResponse
     -> CreatePlayerSessionResponse
 createPlayerSessionResponse pResponseStatus_ =
   CreatePlayerSessionResponse'
-  {_cpsrsPlayerSession = Nothing, _cpsrsResponseStatus = pResponseStatus_}
+    {_cpsrsPlayerSession = Nothing, _cpsrsResponseStatus = pResponseStatus_}
 
 
 -- | Object that describes the newly created player session record.
 cpsrsPlayerSession :: Lens' CreatePlayerSessionResponse (Maybe PlayerSession)
-cpsrsPlayerSession = lens _cpsrsPlayerSession (\ s a -> s{_cpsrsPlayerSession = a});
+cpsrsPlayerSession = lens _cpsrsPlayerSession (\ s a -> s{_cpsrsPlayerSession = a})
 
 -- | -- | The response status code.
 cpsrsResponseStatus :: Lens' CreatePlayerSessionResponse Int
-cpsrsResponseStatus = lens _cpsrsResponseStatus (\ s a -> s{_cpsrsResponseStatus = a});
+cpsrsResponseStatus = lens _cpsrsResponseStatus (\ s a -> s{_cpsrsResponseStatus = a})
 
 instance NFData CreatePlayerSessionResponse where

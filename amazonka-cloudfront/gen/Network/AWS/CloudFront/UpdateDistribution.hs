@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.UpdateDistribution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -100,23 +100,23 @@ updateDistribution
     -> UpdateDistribution
 updateDistribution pDistributionConfig_ pId_ =
   UpdateDistribution'
-  { _udIfMatch = Nothing
-  , _udDistributionConfig = pDistributionConfig_
-  , _udId = pId_
-  }
+    { _udIfMatch = Nothing
+    , _udDistributionConfig = pDistributionConfig_
+    , _udId = pId_
+    }
 
 
 -- | The value of the @ETag@ header that you received when retrieving the distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
 udIfMatch :: Lens' UpdateDistribution (Maybe Text)
-udIfMatch = lens _udIfMatch (\ s a -> s{_udIfMatch = a});
+udIfMatch = lens _udIfMatch (\ s a -> s{_udIfMatch = a})
 
 -- | The distribution's configuration information.
 udDistributionConfig :: Lens' UpdateDistribution DistributionConfig
-udDistributionConfig = lens _udDistributionConfig (\ s a -> s{_udDistributionConfig = a});
+udDistributionConfig = lens _udDistributionConfig (\ s a -> s{_udDistributionConfig = a})
 
 -- | The distribution's id.
 udId :: Lens' UpdateDistribution Text
-udId = lens _udId (\ s a -> s{_udId = a});
+udId = lens _udId (\ s a -> s{_udId = a})
 
 instance AWSRequest UpdateDistribution where
         type Rs UpdateDistribution =
@@ -136,7 +136,7 @@ instance NFData UpdateDistribution where
 instance ToElement UpdateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}DistributionConfig"
               .
               _udDistributionConfig
 
@@ -147,7 +147,7 @@ instance ToHeaders UpdateDistribution where
 instance ToPath UpdateDistribution where
         toPath UpdateDistribution'{..}
           = mconcat
-              ["/2017-03-25/distribution/", toBS _udId, "/config"]
+              ["/2017-10-30/distribution/", toBS _udId, "/config"]
 
 instance ToQuery UpdateDistribution where
         toQuery = const mempty
@@ -178,22 +178,22 @@ updateDistributionResponse
     -> UpdateDistributionResponse
 updateDistributionResponse pResponseStatus_ =
   UpdateDistributionResponse'
-  { _udrsETag = Nothing
-  , _udrsDistribution = Nothing
-  , _udrsResponseStatus = pResponseStatus_
-  }
+    { _udrsETag = Nothing
+    , _udrsDistribution = Nothing
+    , _udrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 udrsETag :: Lens' UpdateDistributionResponse (Maybe Text)
-udrsETag = lens _udrsETag (\ s a -> s{_udrsETag = a});
+udrsETag = lens _udrsETag (\ s a -> s{_udrsETag = a})
 
 -- | The distribution's information.
 udrsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
-udrsDistribution = lens _udrsDistribution (\ s a -> s{_udrsDistribution = a});
+udrsDistribution = lens _udrsDistribution (\ s a -> s{_udrsDistribution = a})
 
 -- | -- | The response status code.
 udrsResponseStatus :: Lens' UpdateDistributionResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
+udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a})
 
 instance NFData UpdateDistributionResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteGameSessionQueue
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,7 +78,7 @@ deleteGameSessionQueue pName_ = DeleteGameSessionQueue' {_dgsqName = pName_}
 
 -- | Descriptive label that is associated with game session queue. Queue names must be unique within each region.
 dgsqName :: Lens' DeleteGameSessionQueue Text
-dgsqName = lens _dgsqName (\ s a -> s{_dgsqName = a});
+dgsqName = lens _dgsqName (\ s a -> s{_dgsqName = a})
 
 instance AWSRequest DeleteGameSessionQueue where
         type Rs DeleteGameSessionQueue =
@@ -133,6 +133,6 @@ deleteGameSessionQueueResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dgsqrsResponseStatus :: Lens' DeleteGameSessionQueueResponse Int
-dgsqrsResponseStatus = lens _dgsqrsResponseStatus (\ s a -> s{_dgsqrsResponseStatus = a});
+dgsqrsResponseStatus = lens _dgsqrsResponseStatus (\ s a -> s{_dgsqrsResponseStatus = a})
 
 instance NFData DeleteGameSessionQueueResponse where

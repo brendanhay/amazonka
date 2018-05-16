@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.XRay
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,7 +28,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetServiceGraph $
+--         [ requestPutEncryptionConfig $
+--             putEncryptionConfig
+--
+--         , requestGetServiceGraph $
 --             getServiceGraph
 --
 --         , requestGetTraceSummaries $
@@ -40,6 +43,9 @@ import Test.Tasty
 --         , requestBatchGetTraces $
 --             batchGetTraces
 --
+--         , requestGetEncryptionConfig $
+--             getEncryptionConfig
+--
 --         , requestPutTelemetryRecords $
 --             putTelemetryRecords
 --
@@ -49,7 +55,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseGetServiceGraph $
+--         [ responsePutEncryptionConfig $
+--             putEncryptionConfigResponse
+--
+--         , responseGetServiceGraph $
 --             getServiceGraphResponse
 --
 --         , responseGetTraceSummaries $
@@ -61,6 +70,9 @@ import Test.Tasty
 --         , responseBatchGetTraces $
 --             batchGetTracesResponse
 --
+--         , responseGetEncryptionConfig $
+--             getEncryptionConfigResponse
+--
 --         , responsePutTelemetryRecords $
 --             putTelemetryRecordsResponse
 --
@@ -71,6 +83,11 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestPutEncryptionConfig :: PutEncryptionConfig -> TestTree
+requestPutEncryptionConfig = req
+    "PutEncryptionConfig"
+    "fixture/PutEncryptionConfig.yaml"
 
 requestGetServiceGraph :: GetServiceGraph -> TestTree
 requestGetServiceGraph = req
@@ -92,6 +109,11 @@ requestBatchGetTraces = req
     "BatchGetTraces"
     "fixture/BatchGetTraces.yaml"
 
+requestGetEncryptionConfig :: GetEncryptionConfig -> TestTree
+requestGetEncryptionConfig = req
+    "GetEncryptionConfig"
+    "fixture/GetEncryptionConfig.yaml"
+
 requestPutTelemetryRecords :: PutTelemetryRecords -> TestTree
 requestPutTelemetryRecords = req
     "PutTelemetryRecords"
@@ -103,6 +125,13 @@ requestGetTraceGraph = req
     "fixture/GetTraceGraph.yaml"
 
 -- Responses
+
+responsePutEncryptionConfig :: PutEncryptionConfigResponse -> TestTree
+responsePutEncryptionConfig = res
+    "PutEncryptionConfigResponse"
+    "fixture/PutEncryptionConfigResponse.proto"
+    xRay
+    (Proxy :: Proxy PutEncryptionConfig)
 
 responseGetServiceGraph :: GetServiceGraphResponse -> TestTree
 responseGetServiceGraph = res
@@ -131,6 +160,13 @@ responseBatchGetTraces = res
     "fixture/BatchGetTracesResponse.proto"
     xRay
     (Proxy :: Proxy BatchGetTraces)
+
+responseGetEncryptionConfig :: GetEncryptionConfigResponse -> TestTree
+responseGetEncryptionConfig = res
+    "GetEncryptionConfigResponse"
+    "fixture/GetEncryptionConfigResponse.proto"
+    xRay
+    (Proxy :: Proxy GetEncryptionConfig)
 
 responsePutTelemetryRecords :: PutTelemetryRecordsResponse -> TestTree
 responsePutTelemetryRecords = res

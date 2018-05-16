@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeSeverityLevels
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ describeSeverityLevels = DescribeSeverityLevels' {_dslLanguage = Nothing}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
-dslLanguage = lens _dslLanguage (\ s a -> s{_dslLanguage = a});
+dslLanguage = lens _dslLanguage (\ s a -> s{_dslLanguage = a})
 
 instance AWSRequest DescribeSeverityLevels where
         type Rs DescribeSeverityLevels =
@@ -127,15 +127,15 @@ describeSeverityLevelsResponse
     -> DescribeSeverityLevelsResponse
 describeSeverityLevelsResponse pResponseStatus_ =
   DescribeSeverityLevelsResponse'
-  {_dslrsSeverityLevels = Nothing, _dslrsResponseStatus = pResponseStatus_}
+    {_dslrsSeverityLevels = Nothing, _dslrsResponseStatus = pResponseStatus_}
 
 
 -- | The available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.
 dslrsSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
-dslrsSeverityLevels = lens _dslrsSeverityLevels (\ s a -> s{_dslrsSeverityLevels = a}) . _Default . _Coerce;
+dslrsSeverityLevels = lens _dslrsSeverityLevels (\ s a -> s{_dslrsSeverityLevels = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dslrsResponseStatus :: Lens' DescribeSeverityLevelsResponse Int
-dslrsResponseStatus = lens _dslrsResponseStatus (\ s a -> s{_dslrsResponseStatus = a});
+dslrsResponseStatus = lens _dslrsResponseStatus (\ s a -> s{_dslrsResponseStatus = a})
 
 instance NFData DescribeSeverityLevelsResponse where

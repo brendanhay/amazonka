@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListParts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -97,33 +97,33 @@ listParts
     -> ListParts
 listParts pAccountId_ pVaultName_ pUploadId_ =
   ListParts'
-  { _lpMarker = Nothing
-  , _lpLimit = Nothing
-  , _lpAccountId = pAccountId_
-  , _lpVaultName = pVaultName_
-  , _lpUploadId = pUploadId_
-  }
+    { _lpMarker = Nothing
+    , _lpLimit = Nothing
+    , _lpAccountId = pAccountId_
+    , _lpVaultName = pVaultName_
+    , _lpUploadId = pUploadId_
+    }
 
 
 -- | An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
 lpMarker :: Lens' ListParts (Maybe Text)
-lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
+lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a})
 
 -- | The maximum number of parts to be returned. The default limit is 1000. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.
 lpLimit :: Lens' ListParts (Maybe Text)
-lpLimit = lens _lpLimit (\ s a -> s{_lpLimit = a});
+lpLimit = lens _lpLimit (\ s a -> s{_lpLimit = a})
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 lpAccountId :: Lens' ListParts Text
-lpAccountId = lens _lpAccountId (\ s a -> s{_lpAccountId = a});
+lpAccountId = lens _lpAccountId (\ s a -> s{_lpAccountId = a})
 
 -- | The name of the vault.
 lpVaultName :: Lens' ListParts Text
-lpVaultName = lens _lpVaultName (\ s a -> s{_lpVaultName = a});
+lpVaultName = lens _lpVaultName (\ s a -> s{_lpVaultName = a})
 
 -- | The upload ID of the multipart upload.
 lpUploadId :: Lens' ListParts Text
-lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a});
+lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a})
 
 instance AWSPager ListParts where
         page rq rs
@@ -208,47 +208,47 @@ listPartsResponse
     -> ListPartsResponse
 listPartsResponse pResponseStatus_ =
   ListPartsResponse'
-  { _lprsParts = Nothing
-  , _lprsMultipartUploadId = Nothing
-  , _lprsPartSizeInBytes = Nothing
-  , _lprsArchiveDescription = Nothing
-  , _lprsVaultARN = Nothing
-  , _lprsMarker = Nothing
-  , _lprsCreationDate = Nothing
-  , _lprsResponseStatus = pResponseStatus_
-  }
+    { _lprsParts = Nothing
+    , _lprsMultipartUploadId = Nothing
+    , _lprsPartSizeInBytes = Nothing
+    , _lprsArchiveDescription = Nothing
+    , _lprsVaultARN = Nothing
+    , _lprsMarker = Nothing
+    , _lprsCreationDate = Nothing
+    , _lprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
 lprsParts :: Lens' ListPartsResponse [PartListElement]
-lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default . _Coerce;
+lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default . _Coerce
 
 -- | The ID of the upload to which the parts are associated.
 lprsMultipartUploadId :: Lens' ListPartsResponse (Maybe Text)
-lprsMultipartUploadId = lens _lprsMultipartUploadId (\ s a -> s{_lprsMultipartUploadId = a});
+lprsMultipartUploadId = lens _lprsMultipartUploadId (\ s a -> s{_lprsMultipartUploadId = a})
 
 -- | The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request.
 lprsPartSizeInBytes :: Lens' ListPartsResponse (Maybe Integer)
-lprsPartSizeInBytes = lens _lprsPartSizeInBytes (\ s a -> s{_lprsPartSizeInBytes = a});
+lprsPartSizeInBytes = lens _lprsPartSizeInBytes (\ s a -> s{_lprsPartSizeInBytes = a})
 
 -- | The description of the archive that was specified in the Initiate Multipart Upload request.
 lprsArchiveDescription :: Lens' ListPartsResponse (Maybe Text)
-lprsArchiveDescription = lens _lprsArchiveDescription (\ s a -> s{_lprsArchiveDescription = a});
+lprsArchiveDescription = lens _lprsArchiveDescription (\ s a -> s{_lprsArchiveDescription = a})
 
 -- | The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated.
 lprsVaultARN :: Lens' ListPartsResponse (Maybe Text)
-lprsVaultARN = lens _lprsVaultARN (\ s a -> s{_lprsVaultARN = a});
+lprsVaultARN = lens _lprsVaultARN (\ s a -> s{_lprsVaultARN = a})
 
 -- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is @null@ .
 lprsMarker :: Lens' ListPartsResponse (Maybe Text)
-lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
+lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a})
 
 -- | The UTC time at which the multipart upload was initiated.
 lprsCreationDate :: Lens' ListPartsResponse (Maybe Text)
-lprsCreationDate = lens _lprsCreationDate (\ s a -> s{_lprsCreationDate = a});
+lprsCreationDate = lens _lprsCreationDate (\ s a -> s{_lprsCreationDate = a})
 
 -- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPartsResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a})
 
 instance NFData ListPartsResponse where

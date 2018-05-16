@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteEmailChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteEmailChannel pApplicationId_ =
 
 -- | Undocumented member.
 decApplicationId :: Lens' DeleteEmailChannel Text
-decApplicationId = lens _decApplicationId (\ s a -> s{_decApplicationId = a});
+decApplicationId = lens _decApplicationId (\ s a -> s{_decApplicationId = a})
 
 instance AWSRequest DeleteEmailChannel where
         type Rs DeleteEmailChannel =
@@ -114,17 +114,17 @@ deleteEmailChannelResponse
     -> DeleteEmailChannelResponse
 deleteEmailChannelResponse pResponseStatus_ pEmailChannelResponse_ =
   DeleteEmailChannelResponse'
-  { _decrsResponseStatus = pResponseStatus_
-  , _decrsEmailChannelResponse = pEmailChannelResponse_
-  }
+    { _decrsResponseStatus = pResponseStatus_
+    , _decrsEmailChannelResponse = pEmailChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 decrsResponseStatus :: Lens' DeleteEmailChannelResponse Int
-decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
+decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a})
 
 -- | Undocumented member.
 decrsEmailChannelResponse :: Lens' DeleteEmailChannelResponse EmailChannelResponse
-decrsEmailChannelResponse = lens _decrsEmailChannelResponse (\ s a -> s{_decrsEmailChannelResponse = a});
+decrsEmailChannelResponse = lens _decrsEmailChannelResponse (\ s a -> s{_decrsEmailChannelResponse = a})
 
 instance NFData DeleteEmailChannelResponse where

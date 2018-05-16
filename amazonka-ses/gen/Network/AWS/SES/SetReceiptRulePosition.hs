@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetReceiptRulePosition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,23 +76,23 @@ setReceiptRulePosition
     -> SetReceiptRulePosition
 setReceiptRulePosition pRuleSetName_ pRuleName_ =
   SetReceiptRulePosition'
-  { _srrpAfter = Nothing
-  , _srrpRuleSetName = pRuleSetName_
-  , _srrpRuleName = pRuleName_
-  }
+    { _srrpAfter = Nothing
+    , _srrpRuleSetName = pRuleSetName_
+    , _srrpRuleName = pRuleName_
+    }
 
 
 -- | The name of the receipt rule after which to place the specified receipt rule.
 srrpAfter :: Lens' SetReceiptRulePosition (Maybe Text)
-srrpAfter = lens _srrpAfter (\ s a -> s{_srrpAfter = a});
+srrpAfter = lens _srrpAfter (\ s a -> s{_srrpAfter = a})
 
 -- | The name of the receipt rule set that contains the receipt rule to reposition.
 srrpRuleSetName :: Lens' SetReceiptRulePosition Text
-srrpRuleSetName = lens _srrpRuleSetName (\ s a -> s{_srrpRuleSetName = a});
+srrpRuleSetName = lens _srrpRuleSetName (\ s a -> s{_srrpRuleSetName = a})
 
 -- | The name of the receipt rule to reposition.
 srrpRuleName :: Lens' SetReceiptRulePosition Text
-srrpRuleName = lens _srrpRuleName (\ s a -> s{_srrpRuleName = a});
+srrpRuleName = lens _srrpRuleName (\ s a -> s{_srrpRuleName = a})
 
 instance AWSRequest SetReceiptRulePosition where
         type Rs SetReceiptRulePosition =
@@ -148,6 +148,6 @@ setReceiptRulePositionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 srrprsResponseStatus :: Lens' SetReceiptRulePositionResponse Int
-srrprsResponseStatus = lens _srrprsResponseStatus (\ s a -> s{_srrprsResponseStatus = a});
+srrprsResponseStatus = lens _srrprsResponseStatus (\ s a -> s{_srrprsResponseStatus = a})
 
 instance NFData SetReceiptRulePositionResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DescribeConfigurations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ describeConfigurations = DescribeConfigurations' {_dcConfigurationIds = mempty}
 
 -- | One or more configuration IDs.
 dcConfigurationIds :: Lens' DescribeConfigurations [Text]
-dcConfigurationIds = lens _dcConfigurationIds (\ s a -> s{_dcConfigurationIds = a}) . _Coerce;
+dcConfigurationIds = lens _dcConfigurationIds (\ s a -> s{_dcConfigurationIds = a}) . _Coerce
 
 instance AWSRequest DescribeConfigurations where
         type Rs DescribeConfigurations =
@@ -122,15 +122,15 @@ describeConfigurationsResponse
     -> DescribeConfigurationsResponse
 describeConfigurationsResponse pResponseStatus_ =
   DescribeConfigurationsResponse'
-  {_dcrsConfigurations = Nothing, _dcrsResponseStatus = pResponseStatus_}
+    {_dcrsConfigurations = Nothing, _dcrsResponseStatus = pResponseStatus_}
 
 
 -- | A key in the response map. The value is an array of data.
 dcrsConfigurations :: Lens' DescribeConfigurationsResponse [HashMap Text Text]
-dcrsConfigurations = lens _dcrsConfigurations (\ s a -> s{_dcrsConfigurations = a}) . _Default . _Coerce;
+dcrsConfigurations = lens _dcrsConfigurations (\ s a -> s{_dcrsConfigurations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeConfigurationsResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DescribeConfigurationsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DisableSnapshotCopy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ disableSnapshotCopy pClusterIdentifier_ =
 
 -- | The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region. Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
 dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
-dscClusterIdentifier = lens _dscClusterIdentifier (\ s a -> s{_dscClusterIdentifier = a});
+dscClusterIdentifier = lens _dscClusterIdentifier (\ s a -> s{_dscClusterIdentifier = a})
 
 instance AWSRequest DisableSnapshotCopy where
         type Rs DisableSnapshotCopy =
@@ -118,15 +118,15 @@ disableSnapshotCopyResponse
     -> DisableSnapshotCopyResponse
 disableSnapshotCopyResponse pResponseStatus_ =
   DisableSnapshotCopyResponse'
-  {_dscrsCluster = Nothing, _dscrsResponseStatus = pResponseStatus_}
+    {_dscrsCluster = Nothing, _dscrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 dscrsCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
-dscrsCluster = lens _dscrsCluster (\ s a -> s{_dscrsCluster = a});
+dscrsCluster = lens _dscrsCluster (\ s a -> s{_dscrsCluster = a})
 
 -- | -- | The response status code.
 dscrsResponseStatus :: Lens' DisableSnapshotCopyResponse Int
-dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a});
+dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a})
 
 instance NFData DisableSnapshotCopyResponse where

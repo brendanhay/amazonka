@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.AbortMultipartUpload
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,23 +81,23 @@ abortMultipartUpload
     -> AbortMultipartUpload
 abortMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
   AbortMultipartUpload'
-  { _amuAccountId = pAccountId_
-  , _amuVaultName = pVaultName_
-  , _amuUploadId = pUploadId_
-  }
+    { _amuAccountId = pAccountId_
+    , _amuVaultName = pVaultName_
+    , _amuUploadId = pUploadId_
+    }
 
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 amuAccountId :: Lens' AbortMultipartUpload Text
-amuAccountId = lens _amuAccountId (\ s a -> s{_amuAccountId = a});
+amuAccountId = lens _amuAccountId (\ s a -> s{_amuAccountId = a})
 
 -- | The name of the vault.
 amuVaultName :: Lens' AbortMultipartUpload Text
-amuVaultName = lens _amuVaultName (\ s a -> s{_amuVaultName = a});
+amuVaultName = lens _amuVaultName (\ s a -> s{_amuVaultName = a})
 
 -- | The upload ID of the multipart upload to delete.
 amuUploadId :: Lens' AbortMultipartUpload Text
-amuUploadId = lens _amuUploadId (\ s a -> s{_amuUploadId = a});
+amuUploadId = lens _amuUploadId (\ s a -> s{_amuUploadId = a})
 
 instance AWSRequest AbortMultipartUpload where
         type Rs AbortMultipartUpload =

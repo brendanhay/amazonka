@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.StartStack
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ startStack pStackId_ = StartStack' {_staStackId = pStackId_}
 
 -- | The stack ID.
 staStackId :: Lens' StartStack Text
-staStackId = lens _staStackId (\ s a -> s{_staStackId = a});
+staStackId = lens _staStackId (\ s a -> s{_staStackId = a})
 
 instance AWSRequest StartStack where
         type Rs StartStack = StartStackResponse

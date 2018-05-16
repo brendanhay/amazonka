@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeLayers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ describeLayers = DescribeLayers' {_dlLayerIds = Nothing, _dlStackId = Nothing}
 
 -- | An array of layer IDs that specify the layers to be described. If you omit this parameter, @DescribeLayers@ returns a description of every layer in the specified stack.
 dlLayerIds :: Lens' DescribeLayers [Text]
-dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a}) . _Default . _Coerce;
+dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a}) . _Default . _Coerce
 
 -- | The stack ID.
 dlStackId :: Lens' DescribeLayers (Maybe Text)
-dlStackId = lens _dlStackId (\ s a -> s{_dlStackId = a});
+dlStackId = lens _dlStackId (\ s a -> s{_dlStackId = a})
 
 instance AWSRequest DescribeLayers where
         type Rs DescribeLayers = DescribeLayersResponse
@@ -132,15 +132,15 @@ describeLayersResponse
     -> DescribeLayersResponse
 describeLayersResponse pResponseStatus_ =
   DescribeLayersResponse'
-  {_dlrsLayers = Nothing, _dlrsResponseStatus = pResponseStatus_}
+    {_dlrsLayers = Nothing, _dlrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of @Layer@ objects that describe the layers.
 dlrsLayers :: Lens' DescribeLayersResponse [Layer]
-dlrsLayers = lens _dlrsLayers (\ s a -> s{_dlrsLayers = a}) . _Default . _Coerce;
+dlrsLayers = lens _dlrsLayers (\ s a -> s{_dlrsLayers = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLayersResponse Int
-dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a})
 
 instance NFData DescribeLayersResponse where

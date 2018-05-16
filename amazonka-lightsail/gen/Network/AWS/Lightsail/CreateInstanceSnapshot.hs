@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateInstanceSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,18 +65,18 @@ createInstanceSnapshot
     -> CreateInstanceSnapshot
 createInstanceSnapshot pInstanceSnapshotName_ pInstanceName_ =
   CreateInstanceSnapshot'
-  { _cisInstanceSnapshotName = pInstanceSnapshotName_
-  , _cisInstanceName = pInstanceName_
-  }
+    { _cisInstanceSnapshotName = pInstanceSnapshotName_
+    , _cisInstanceName = pInstanceName_
+    }
 
 
 -- | The name for your new snapshot.
 cisInstanceSnapshotName :: Lens' CreateInstanceSnapshot Text
-cisInstanceSnapshotName = lens _cisInstanceSnapshotName (\ s a -> s{_cisInstanceSnapshotName = a});
+cisInstanceSnapshotName = lens _cisInstanceSnapshotName (\ s a -> s{_cisInstanceSnapshotName = a})
 
 -- | The Lightsail instance on which to base your snapshot.
 cisInstanceName :: Lens' CreateInstanceSnapshot Text
-cisInstanceName = lens _cisInstanceName (\ s a -> s{_cisInstanceName = a});
+cisInstanceName = lens _cisInstanceName (\ s a -> s{_cisInstanceName = a})
 
 instance AWSRequest CreateInstanceSnapshot where
         type Rs CreateInstanceSnapshot =
@@ -136,15 +136,15 @@ createInstanceSnapshotResponse
     -> CreateInstanceSnapshotResponse
 createInstanceSnapshotResponse pResponseStatus_ =
   CreateInstanceSnapshotResponse'
-  {_cisrsOperations = Nothing, _cisrsResponseStatus = pResponseStatus_}
+    {_cisrsOperations = Nothing, _cisrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the results of your create instances snapshot request.
 cisrsOperations :: Lens' CreateInstanceSnapshotResponse [Operation]
-cisrsOperations = lens _cisrsOperations (\ s a -> s{_cisrsOperations = a}) . _Default . _Coerce;
+cisrsOperations = lens _cisrsOperations (\ s a -> s{_cisrsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 cisrsResponseStatus :: Lens' CreateInstanceSnapshotResponse Int
-cisrsResponseStatus = lens _cisrsResponseStatus (\ s a -> s{_cisrsResponseStatus = a});
+cisrsResponseStatus = lens _cisrsResponseStatus (\ s a -> s{_cisrsResponseStatus = a})
 
 instance NFData CreateInstanceSnapshotResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DownloadDefaultKeyPair
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -113,22 +113,22 @@ downloadDefaultKeyPairResponse
     -> DownloadDefaultKeyPairResponse
 downloadDefaultKeyPairResponse pResponseStatus_ =
   DownloadDefaultKeyPairResponse'
-  { _ddkprsPublicKeyBase64 = Nothing
-  , _ddkprsPrivateKeyBase64 = Nothing
-  , _ddkprsResponseStatus = pResponseStatus_
-  }
+    { _ddkprsPublicKeyBase64 = Nothing
+    , _ddkprsPrivateKeyBase64 = Nothing
+    , _ddkprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A base64-encoded public key of the @ssh-rsa@ type.
 ddkprsPublicKeyBase64 :: Lens' DownloadDefaultKeyPairResponse (Maybe Text)
-ddkprsPublicKeyBase64 = lens _ddkprsPublicKeyBase64 (\ s a -> s{_ddkprsPublicKeyBase64 = a});
+ddkprsPublicKeyBase64 = lens _ddkprsPublicKeyBase64 (\ s a -> s{_ddkprsPublicKeyBase64 = a})
 
 -- | A base64-encoded RSA private key.
 ddkprsPrivateKeyBase64 :: Lens' DownloadDefaultKeyPairResponse (Maybe Text)
-ddkprsPrivateKeyBase64 = lens _ddkprsPrivateKeyBase64 (\ s a -> s{_ddkprsPrivateKeyBase64 = a});
+ddkprsPrivateKeyBase64 = lens _ddkprsPrivateKeyBase64 (\ s a -> s{_ddkprsPrivateKeyBase64 = a})
 
 -- | -- | The response status code.
 ddkprsResponseStatus :: Lens' DownloadDefaultKeyPairResponse Int
-ddkprsResponseStatus = lens _ddkprsResponseStatus (\ s a -> s{_ddkprsResponseStatus = a});
+ddkprsResponseStatus = lens _ddkprsResponseStatus (\ s a -> s{_ddkprsResponseStatus = a})
 
 instance NFData DownloadDefaultKeyPairResponse where

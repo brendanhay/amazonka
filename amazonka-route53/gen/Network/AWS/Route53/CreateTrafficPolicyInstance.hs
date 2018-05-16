@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateTrafficPolicyInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,33 +85,33 @@ createTrafficPolicyInstance
     -> CreateTrafficPolicyInstance
 createTrafficPolicyInstance pHostedZoneId_ pName_ pTTL_ pTrafficPolicyId_ pTrafficPolicyVersion_ =
   CreateTrafficPolicyInstance'
-  { _ctpiHostedZoneId = pHostedZoneId_
-  , _ctpiName = pName_
-  , _ctpiTTL = _Nat # pTTL_
-  , _ctpiTrafficPolicyId = pTrafficPolicyId_
-  , _ctpiTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
-  }
+    { _ctpiHostedZoneId = pHostedZoneId_
+    , _ctpiName = pName_
+    , _ctpiTTL = _Nat # pTTL_
+    , _ctpiTrafficPolicyId = pTrafficPolicyId_
+    , _ctpiTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
+    }
 
 
 -- | The ID of the hosted zone in which you want Amazon Route 53 to create resource record sets by using the configuration in a traffic policy.
 ctpiHostedZoneId :: Lens' CreateTrafficPolicyInstance ResourceId
-ctpiHostedZoneId = lens _ctpiHostedZoneId (\ s a -> s{_ctpiHostedZoneId = a});
+ctpiHostedZoneId = lens _ctpiHostedZoneId (\ s a -> s{_ctpiHostedZoneId = a})
 
 -- | The domain name (such as example.com) or subdomain name (such as www.example.com) for which Amazon Route 53 responds to DNS queries by using the resource record sets that Amazon Route 53 creates for this traffic policy instance.
 ctpiName :: Lens' CreateTrafficPolicyInstance Text
-ctpiName = lens _ctpiName (\ s a -> s{_ctpiName = a});
+ctpiName = lens _ctpiName (\ s a -> s{_ctpiName = a})
 
 -- | (Optional) The TTL that you want Amazon Route 53 to assign to all of the resource record sets that it creates in the specified hosted zone.
 ctpiTTL :: Lens' CreateTrafficPolicyInstance Natural
-ctpiTTL = lens _ctpiTTL (\ s a -> s{_ctpiTTL = a}) . _Nat;
+ctpiTTL = lens _ctpiTTL (\ s a -> s{_ctpiTTL = a}) . _Nat
 
 -- | The ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
 ctpiTrafficPolicyId :: Lens' CreateTrafficPolicyInstance Text
-ctpiTrafficPolicyId = lens _ctpiTrafficPolicyId (\ s a -> s{_ctpiTrafficPolicyId = a});
+ctpiTrafficPolicyId = lens _ctpiTrafficPolicyId (\ s a -> s{_ctpiTrafficPolicyId = a})
 
 -- | The version of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
 ctpiTrafficPolicyVersion :: Lens' CreateTrafficPolicyInstance Natural
-ctpiTrafficPolicyVersion = lens _ctpiTrafficPolicyVersion (\ s a -> s{_ctpiTrafficPolicyVersion = a}) . _Nat;
+ctpiTrafficPolicyVersion = lens _ctpiTrafficPolicyVersion (\ s a -> s{_ctpiTrafficPolicyVersion = a}) . _Nat
 
 instance AWSRequest CreateTrafficPolicyInstance where
         type Rs CreateTrafficPolicyInstance =
@@ -179,23 +179,23 @@ createTrafficPolicyInstanceResponse
     -> CreateTrafficPolicyInstanceResponse
 createTrafficPolicyInstanceResponse pResponseStatus_ pTrafficPolicyInstance_ pLocation_ =
   CreateTrafficPolicyInstanceResponse'
-  { _ctpirsResponseStatus = pResponseStatus_
-  , _ctpirsTrafficPolicyInstance = pTrafficPolicyInstance_
-  , _ctpirsLocation = pLocation_
-  }
+    { _ctpirsResponseStatus = pResponseStatus_
+    , _ctpirsTrafficPolicyInstance = pTrafficPolicyInstance_
+    , _ctpirsLocation = pLocation_
+    }
 
 
 -- | -- | The response status code.
 ctpirsResponseStatus :: Lens' CreateTrafficPolicyInstanceResponse Int
-ctpirsResponseStatus = lens _ctpirsResponseStatus (\ s a -> s{_ctpirsResponseStatus = a});
+ctpirsResponseStatus = lens _ctpirsResponseStatus (\ s a -> s{_ctpirsResponseStatus = a})
 
 -- | A complex type that contains settings for the new traffic policy instance.
 ctpirsTrafficPolicyInstance :: Lens' CreateTrafficPolicyInstanceResponse TrafficPolicyInstance
-ctpirsTrafficPolicyInstance = lens _ctpirsTrafficPolicyInstance (\ s a -> s{_ctpirsTrafficPolicyInstance = a});
+ctpirsTrafficPolicyInstance = lens _ctpirsTrafficPolicyInstance (\ s a -> s{_ctpirsTrafficPolicyInstance = a})
 
 -- | A unique URL that represents a new traffic policy instance.
 ctpirsLocation :: Lens' CreateTrafficPolicyInstanceResponse Text
-ctpirsLocation = lens _ctpirsLocation (\ s a -> s{_ctpirsLocation = a});
+ctpirsLocation = lens _ctpirsLocation (\ s a -> s{_ctpirsLocation = a})
 
 instance NFData CreateTrafficPolicyInstanceResponse
          where

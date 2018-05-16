@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.UpdateShardCount
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,29 +21,27 @@
 -- Updates the shard count of the specified stream to the specified number of shards.
 --
 --
--- Updating the shard count is an asynchronous operation. Upon receiving the request, Amazon Kinesis returns immediately and sets the status of the stream to @UPDATING@ . After the update is complete, Amazon Kinesis sets the status of the stream back to @ACTIVE@ . Depending on the size of the stream, the scaling action could take a few minutes to complete. You can continue to read and write data to your stream while its status is @UPDATING@ .
+-- Updating the shard count is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns immediately and sets the status of the stream to @UPDATING@ . After the update is complete, Kinesis Data Streams sets the status of the stream back to @ACTIVE@ . Depending on the size of the stream, the scaling action could take a few minutes to complete. You can continue to read and write data to your stream while its status is @UPDATING@ .
 --
--- To update the shard count, Amazon Kinesis performs splits or merges on individual shards. This can cause short-lived shards to be created, in addition to the final shards. We recommend that you double or halve the shard count, as this results in the fewest number of splits or merges.
+-- To update the shard count, Kinesis Data Streams performs splits or merges on individual shards. This can cause short-lived shards to be created, in addition to the final shards. We recommend that you double or halve the shard count, as this results in the fewest number of splits or merges.
 --
--- This operation has the following limits, which are per region per account unless otherwise noted:
+-- This operation has the following limits. You cannot do the following:
 --
---     * scale more than twice per rolling 24 hour period
+--     * Scale more than twice per rolling 24-hour period per stream
 --
---     * scale up above double your current shard count
+--     * Scale up to more than double your current shard count for a stream
 --
---     * scale down below half your current shard count
+--     * Scale down below half your current shard count for a stream
 --
---     * scale up above 200 shards in a stream
+--     * Scale up to more than 500 shards in a stream
 --
---     * scale a stream with more than 200 shards down unless the result is less than 200 shards
+--     * Scale a stream with more than 500 shards down unless the result is less than 500 shards
 --
---     * scale up above the shard limits for your account
---
---     *
+--     * Scale up to more than the shard limit for your account
 --
 --
 --
--- For the default limits for an AWS account, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits> in the /Amazon Kinesis Streams Developer Guide/ . If you need to increase a limit, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support> .
+-- For the default limits for an AWS account, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits> in the /Amazon Kinesis Data Streams Developer Guide/ . To request an increase in the call rate limit, the shard limit for this API, or your overall shard limit, use the <https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase&amp;limitType=service-code-kinesis limits form> .
 --
 module Network.AWS.Kinesis.UpdateShardCount
     (
@@ -96,23 +94,23 @@ updateShardCount
     -> UpdateShardCount
 updateShardCount pStreamName_ pTargetShardCount_ pScalingType_ =
   UpdateShardCount'
-  { _uscStreamName = pStreamName_
-  , _uscTargetShardCount = _Nat # pTargetShardCount_
-  , _uscScalingType = pScalingType_
-  }
+    { _uscStreamName = pStreamName_
+    , _uscTargetShardCount = _Nat # pTargetShardCount_
+    , _uscScalingType = pScalingType_
+    }
 
 
 -- | The name of the stream.
 uscStreamName :: Lens' UpdateShardCount Text
-uscStreamName = lens _uscStreamName (\ s a -> s{_uscStreamName = a});
+uscStreamName = lens _uscStreamName (\ s a -> s{_uscStreamName = a})
 
 -- | The new number of shards.
 uscTargetShardCount :: Lens' UpdateShardCount Natural
-uscTargetShardCount = lens _uscTargetShardCount (\ s a -> s{_uscTargetShardCount = a}) . _Nat;
+uscTargetShardCount = lens _uscTargetShardCount (\ s a -> s{_uscTargetShardCount = a}) . _Nat
 
 -- | The scaling type. Uniform scaling creates shards of equal size.
 uscScalingType :: Lens' UpdateShardCount ScalingType
-uscScalingType = lens _uscScalingType (\ s a -> s{_uscScalingType = a});
+uscScalingType = lens _uscScalingType (\ s a -> s{_uscScalingType = a})
 
 instance AWSRequest UpdateShardCount where
         type Rs UpdateShardCount = UpdateShardCountResponse
@@ -177,27 +175,27 @@ updateShardCountResponse
     -> UpdateShardCountResponse
 updateShardCountResponse pResponseStatus_ =
   UpdateShardCountResponse'
-  { _uscrsTargetShardCount = Nothing
-  , _uscrsStreamName = Nothing
-  , _uscrsCurrentShardCount = Nothing
-  , _uscrsResponseStatus = pResponseStatus_
-  }
+    { _uscrsTargetShardCount = Nothing
+    , _uscrsStreamName = Nothing
+    , _uscrsCurrentShardCount = Nothing
+    , _uscrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The updated number of shards.
 uscrsTargetShardCount :: Lens' UpdateShardCountResponse (Maybe Natural)
-uscrsTargetShardCount = lens _uscrsTargetShardCount (\ s a -> s{_uscrsTargetShardCount = a}) . mapping _Nat;
+uscrsTargetShardCount = lens _uscrsTargetShardCount (\ s a -> s{_uscrsTargetShardCount = a}) . mapping _Nat
 
 -- | The name of the stream.
 uscrsStreamName :: Lens' UpdateShardCountResponse (Maybe Text)
-uscrsStreamName = lens _uscrsStreamName (\ s a -> s{_uscrsStreamName = a});
+uscrsStreamName = lens _uscrsStreamName (\ s a -> s{_uscrsStreamName = a})
 
 -- | The current number of shards.
 uscrsCurrentShardCount :: Lens' UpdateShardCountResponse (Maybe Natural)
-uscrsCurrentShardCount = lens _uscrsCurrentShardCount (\ s a -> s{_uscrsCurrentShardCount = a}) . mapping _Nat;
+uscrsCurrentShardCount = lens _uscrsCurrentShardCount (\ s a -> s{_uscrsCurrentShardCount = a}) . mapping _Nat
 
 -- | -- | The response status code.
 uscrsResponseStatus :: Lens' UpdateShardCountResponse Int
-uscrsResponseStatus = lens _uscrsResponseStatus (\ s a -> s{_uscrsResponseStatus = a});
+uscrsResponseStatus = lens _uscrsResponseStatus (\ s a -> s{_uscrsResponseStatus = a})
 
 instance NFData UpdateShardCountResponse where

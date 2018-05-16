@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Batch.DeregisterJobDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deregisterJobDefinition pJobDefinition_ =
 
 -- | The name and revision (@name:revision@ ) or full Amazon Resource Name (ARN) of the job definition to deregister.
 djdJobDefinition :: Lens' DeregisterJobDefinition Text
-djdJobDefinition = lens _djdJobDefinition (\ s a -> s{_djdJobDefinition = a});
+djdJobDefinition = lens _djdJobDefinition (\ s a -> s{_djdJobDefinition = a})
 
 instance AWSRequest DeregisterJobDefinition where
         type Rs DeregisterJobDefinition =
@@ -118,6 +118,6 @@ deregisterJobDefinitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 derrsResponseStatus :: Lens' DeregisterJobDefinitionResponse Int
-derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
+derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a})
 
 instance NFData DeregisterJobDefinitionResponse where

@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,6 +32,7 @@ module Network.AWS.ELB.Types
     , _InvalidSecurityGroupException
     , _ListenerNotFoundException
     , _InvalidEndPointException
+    , _OperationNotPermittedException
     , _DependencyThrottleException
     , _InvalidSchemeException
     , _TooManyAccessPointsException
@@ -238,24 +239,24 @@ import Network.AWS.Sign.V4
 elb :: Service
 elb =
   Service
-  { _svcAbbrev = "ELB"
-  , _svcSigner = v4
-  , _svcPrefix = "elasticloadbalancing"
-  , _svcVersion = "2012-06-01"
-  , _svcEndpoint = defaultEndpoint elb
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "ELB"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "ELB"
+    , _svcSigner = v4
+    , _svcPrefix = "elasticloadbalancing"
+    , _svcVersion = "2012-06-01"
+    , _svcEndpoint = defaultEndpoint elb
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError "ELB"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -264,6 +265,8 @@ elb =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -395,6 +398,14 @@ _ListenerNotFoundException =
 _InvalidEndPointException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidEndPointException =
   _MatchServiceError elb "InvalidInstance" . hasStatus 400
+
+
+-- | This operation is not allowed.
+--
+--
+_OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
+_OperationNotPermittedException =
+  _MatchServiceError elb "OperationNotPermitted" . hasStatus 400
 
 
 -- | Prism for DependencyThrottleException' errors.

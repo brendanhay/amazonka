@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.SetUserSettings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ setUserSettings
     -> SetUserSettings
 setUserSettings pAccessToken_ =
   SetUserSettings'
-  {_susAccessToken = _Sensitive # pAccessToken_, _susMFAOptions = mempty}
+    {_susAccessToken = _Sensitive # pAccessToken_, _susMFAOptions = mempty}
 
 
 -- | The access token for the set user settings request.
 susAccessToken :: Lens' SetUserSettings Text
-susAccessToken = lens _susAccessToken (\ s a -> s{_susAccessToken = a}) . _Sensitive;
+susAccessToken = lens _susAccessToken (\ s a -> s{_susAccessToken = a}) . _Sensitive
 
 -- | Specifies the options for MFA (e.g., email or phone number).
 susMFAOptions :: Lens' SetUserSettings [MFAOptionType]
-susMFAOptions = lens _susMFAOptions (\ s a -> s{_susMFAOptions = a}) . _Coerce;
+susMFAOptions = lens _susMFAOptions (\ s a -> s{_susMFAOptions = a}) . _Coerce
 
 instance AWSRequest SetUserSettings where
         type Rs SetUserSettings = SetUserSettingsResponse
@@ -137,6 +137,6 @@ setUserSettingsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 susrsResponseStatus :: Lens' SetUserSettingsResponse Int
-susrsResponseStatus = lens _susrsResponseStatus (\ s a -> s{_susrsResponseStatus = a});
+susrsResponseStatus = lens _susrsResponseStatus (\ s a -> s{_susrsResponseStatus = a})
 
 instance NFData SetUserSettingsResponse where

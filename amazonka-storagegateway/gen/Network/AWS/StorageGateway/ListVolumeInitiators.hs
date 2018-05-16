@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListVolumeInitiators
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists iSCSI initiators that are connected to a volume. You can use this operation to determine whether a volume is being used or not. This operation is only supported in the cached volume and stored volume gateway architecture.
+-- Lists iSCSI initiators that are connected to a volume. You can use this operation to determine whether a volume is being used or not. This operation is only supported in the cached volume and stored volume gateway types.
 --
 --
 module Network.AWS.StorageGateway.ListVolumeInitiators
@@ -68,7 +68,7 @@ listVolumeInitiators pVolumeARN_ =
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes for the gateway.
 lviVolumeARN :: Lens' ListVolumeInitiators Text
-lviVolumeARN = lens _lviVolumeARN (\ s a -> s{_lviVolumeARN = a});
+lviVolumeARN = lens _lviVolumeARN (\ s a -> s{_lviVolumeARN = a})
 
 instance AWSRequest ListVolumeInitiators where
         type Rs ListVolumeInitiators =
@@ -129,15 +129,15 @@ listVolumeInitiatorsResponse
     -> ListVolumeInitiatorsResponse
 listVolumeInitiatorsResponse pResponseStatus_ =
   ListVolumeInitiatorsResponse'
-  {_lvirsInitiators = Nothing, _lvirsResponseStatus = pResponseStatus_}
+    {_lvirsInitiators = Nothing, _lvirsResponseStatus = pResponseStatus_}
 
 
 -- | The host names and port numbers of all iSCSI initiators that are connected to the gateway.
 lvirsInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
-lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _Default . _Coerce;
+lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lvirsResponseStatus :: Lens' ListVolumeInitiatorsResponse Int
-lvirsResponseStatus = lens _lvirsResponseStatus (\ s a -> s{_lvirsResponseStatus = a});
+lvirsResponseStatus = lens _lvirsResponseStatus (\ s a -> s{_lvirsResponseStatus = a})
 
 instance NFData ListVolumeInitiatorsResponse where

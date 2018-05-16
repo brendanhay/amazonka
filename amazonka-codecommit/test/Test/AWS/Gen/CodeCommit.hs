@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CodeCommit
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,14 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateRepositoryName $
+--         [ requestMergePullRequestByFastForward $
+--             mergePullRequestByFastForward
+--
+--         , requestUpdateRepositoryName $
 --             updateRepositoryName
+--
+--         , requestPostCommentForPullRequest $
+--             postCommentForPullRequest
 --
 --         , requestGetCommit $
 --             getCommit
@@ -40,6 +46,15 @@ import Test.Tasty
 --         , requestGetDifferences $
 --             getDifferences
 --
+--         , requestGetPullRequest $
+--             getPullRequest
+--
+--         , requestListPullRequests $
+--             listPullRequests
+--
+--         , requestGetComment $
+--             getComment
+--
 --         , requestDeleteBranch $
 --             deleteBranch
 --
@@ -49,8 +64,14 @@ import Test.Tasty
 --         , requestCreateBranch $
 --             createBranch
 --
+--         , requestCreatePullRequest $
+--             createPullRequest
+--
 --         , requestListBranches $
 --             listBranches
+--
+--         , requestUpdatePullRequestDescription $
+--             updatePullRequestDescription
 --
 --         , requestListRepositories $
 --             listRepositories
@@ -61,14 +82,32 @@ import Test.Tasty
 --         , requestUpdateDefaultBranch $
 --             updateDefaultBranch
 --
+--         , requestPostCommentReply $
+--             postCommentReply
+--
 --         , requestGetRepository $
 --             getRepository
 --
 --         , requestGetRepositoryTriggers $
 --             getRepositoryTriggers
 --
+--         , requestPutFile $
+--             putFile
+--
+--         , requestGetCommentsForComparedCommit $
+--             getCommentsForComparedCommit
+--
 --         , requestTestRepositoryTriggers $
 --             testRepositoryTriggers
+--
+--         , requestUpdateComment $
+--             updateComment
+--
+--         , requestPostCommentForComparedCommit $
+--             postCommentForComparedCommit
+--
+--         , requestUpdatePullRequestTitle $
+--             updatePullRequestTitle
 --
 --         , requestGetBlob $
 --             getBlob
@@ -76,17 +115,38 @@ import Test.Tasty
 --         , requestPutRepositoryTriggers $
 --             putRepositoryTriggers
 --
+--         , requestGetMergeConflicts $
+--             getMergeConflicts
+--
 --         , requestDeleteRepository $
 --             deleteRepository
+--
+--         , requestDeleteCommentContent $
+--             deleteCommentContent
+--
+--         , requestDescribePullRequestEvents $
+--             describePullRequestEvents
 --
 --         , requestBatchGetRepositories $
 --             batchGetRepositories
 --
+--         , requestGetCommentsForPullRequest $
+--             getCommentsForPullRequest
+--
+--         , requestUpdatePullRequestStatus $
+--             updatePullRequestStatus
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateRepositoryName $
+--         [ responseMergePullRequestByFastForward $
+--             mergePullRequestByFastForwardResponse
+--
+--         , responseUpdateRepositoryName $
 --             updateRepositoryNameResponse
+--
+--         , responsePostCommentForPullRequest $
+--             postCommentForPullRequestResponse
 --
 --         , responseGetCommit $
 --             getCommitResponse
@@ -97,6 +157,15 @@ import Test.Tasty
 --         , responseGetDifferences $
 --             getDifferencesResponse
 --
+--         , responseGetPullRequest $
+--             getPullRequestResponse
+--
+--         , responseListPullRequests $
+--             listPullRequestsResponse
+--
+--         , responseGetComment $
+--             getCommentResponse
+--
 --         , responseDeleteBranch $
 --             deleteBranchResponse
 --
@@ -106,8 +175,14 @@ import Test.Tasty
 --         , responseCreateBranch $
 --             createBranchResponse
 --
+--         , responseCreatePullRequest $
+--             createPullRequestResponse
+--
 --         , responseListBranches $
 --             listBranchesResponse
+--
+--         , responseUpdatePullRequestDescription $
+--             updatePullRequestDescriptionResponse
 --
 --         , responseListRepositories $
 --             listRepositoriesResponse
@@ -118,14 +193,32 @@ import Test.Tasty
 --         , responseUpdateDefaultBranch $
 --             updateDefaultBranchResponse
 --
+--         , responsePostCommentReply $
+--             postCommentReplyResponse
+--
 --         , responseGetRepository $
 --             getRepositoryResponse
 --
 --         , responseGetRepositoryTriggers $
 --             getRepositoryTriggersResponse
 --
+--         , responsePutFile $
+--             putFileResponse
+--
+--         , responseGetCommentsForComparedCommit $
+--             getCommentsForComparedCommitResponse
+--
 --         , responseTestRepositoryTriggers $
 --             testRepositoryTriggersResponse
+--
+--         , responseUpdateComment $
+--             updateCommentResponse
+--
+--         , responsePostCommentForComparedCommit $
+--             postCommentForComparedCommitResponse
+--
+--         , responseUpdatePullRequestTitle $
+--             updatePullRequestTitleResponse
 --
 --         , responseGetBlob $
 --             getBlobResponse
@@ -133,21 +226,46 @@ import Test.Tasty
 --         , responsePutRepositoryTriggers $
 --             putRepositoryTriggersResponse
 --
+--         , responseGetMergeConflicts $
+--             getMergeConflictsResponse
+--
 --         , responseDeleteRepository $
 --             deleteRepositoryResponse
 --
+--         , responseDeleteCommentContent $
+--             deleteCommentContentResponse
+--
+--         , responseDescribePullRequestEvents $
+--             describePullRequestEventsResponse
+--
 --         , responseBatchGetRepositories $
 --             batchGetRepositoriesResponse
+--
+--         , responseGetCommentsForPullRequest $
+--             getCommentsForPullRequestResponse
+--
+--         , responseUpdatePullRequestStatus $
+--             updatePullRequestStatusResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
+requestMergePullRequestByFastForward :: MergePullRequestByFastForward -> TestTree
+requestMergePullRequestByFastForward = req
+    "MergePullRequestByFastForward"
+    "fixture/MergePullRequestByFastForward.yaml"
+
 requestUpdateRepositoryName :: UpdateRepositoryName -> TestTree
 requestUpdateRepositoryName = req
     "UpdateRepositoryName"
     "fixture/UpdateRepositoryName.yaml"
+
+requestPostCommentForPullRequest :: PostCommentForPullRequest -> TestTree
+requestPostCommentForPullRequest = req
+    "PostCommentForPullRequest"
+    "fixture/PostCommentForPullRequest.yaml"
 
 requestGetCommit :: GetCommit -> TestTree
 requestGetCommit = req
@@ -164,6 +282,21 @@ requestGetDifferences = req
     "GetDifferences"
     "fixture/GetDifferences.yaml"
 
+requestGetPullRequest :: GetPullRequest -> TestTree
+requestGetPullRequest = req
+    "GetPullRequest"
+    "fixture/GetPullRequest.yaml"
+
+requestListPullRequests :: ListPullRequests -> TestTree
+requestListPullRequests = req
+    "ListPullRequests"
+    "fixture/ListPullRequests.yaml"
+
+requestGetComment :: GetComment -> TestTree
+requestGetComment = req
+    "GetComment"
+    "fixture/GetComment.yaml"
+
 requestDeleteBranch :: DeleteBranch -> TestTree
 requestDeleteBranch = req
     "DeleteBranch"
@@ -179,10 +312,20 @@ requestCreateBranch = req
     "CreateBranch"
     "fixture/CreateBranch.yaml"
 
+requestCreatePullRequest :: CreatePullRequest -> TestTree
+requestCreatePullRequest = req
+    "CreatePullRequest"
+    "fixture/CreatePullRequest.yaml"
+
 requestListBranches :: ListBranches -> TestTree
 requestListBranches = req
     "ListBranches"
     "fixture/ListBranches.yaml"
+
+requestUpdatePullRequestDescription :: UpdatePullRequestDescription -> TestTree
+requestUpdatePullRequestDescription = req
+    "UpdatePullRequestDescription"
+    "fixture/UpdatePullRequestDescription.yaml"
 
 requestListRepositories :: ListRepositories -> TestTree
 requestListRepositories = req
@@ -199,6 +342,11 @@ requestUpdateDefaultBranch = req
     "UpdateDefaultBranch"
     "fixture/UpdateDefaultBranch.yaml"
 
+requestPostCommentReply :: PostCommentReply -> TestTree
+requestPostCommentReply = req
+    "PostCommentReply"
+    "fixture/PostCommentReply.yaml"
+
 requestGetRepository :: GetRepository -> TestTree
 requestGetRepository = req
     "GetRepository"
@@ -209,10 +357,35 @@ requestGetRepositoryTriggers = req
     "GetRepositoryTriggers"
     "fixture/GetRepositoryTriggers.yaml"
 
+requestPutFile :: PutFile -> TestTree
+requestPutFile = req
+    "PutFile"
+    "fixture/PutFile.yaml"
+
+requestGetCommentsForComparedCommit :: GetCommentsForComparedCommit -> TestTree
+requestGetCommentsForComparedCommit = req
+    "GetCommentsForComparedCommit"
+    "fixture/GetCommentsForComparedCommit.yaml"
+
 requestTestRepositoryTriggers :: TestRepositoryTriggers -> TestTree
 requestTestRepositoryTriggers = req
     "TestRepositoryTriggers"
     "fixture/TestRepositoryTriggers.yaml"
+
+requestUpdateComment :: UpdateComment -> TestTree
+requestUpdateComment = req
+    "UpdateComment"
+    "fixture/UpdateComment.yaml"
+
+requestPostCommentForComparedCommit :: PostCommentForComparedCommit -> TestTree
+requestPostCommentForComparedCommit = req
+    "PostCommentForComparedCommit"
+    "fixture/PostCommentForComparedCommit.yaml"
+
+requestUpdatePullRequestTitle :: UpdatePullRequestTitle -> TestTree
+requestUpdatePullRequestTitle = req
+    "UpdatePullRequestTitle"
+    "fixture/UpdatePullRequestTitle.yaml"
 
 requestGetBlob :: GetBlob -> TestTree
 requestGetBlob = req
@@ -224,17 +397,49 @@ requestPutRepositoryTriggers = req
     "PutRepositoryTriggers"
     "fixture/PutRepositoryTriggers.yaml"
 
+requestGetMergeConflicts :: GetMergeConflicts -> TestTree
+requestGetMergeConflicts = req
+    "GetMergeConflicts"
+    "fixture/GetMergeConflicts.yaml"
+
 requestDeleteRepository :: DeleteRepository -> TestTree
 requestDeleteRepository = req
     "DeleteRepository"
     "fixture/DeleteRepository.yaml"
+
+requestDeleteCommentContent :: DeleteCommentContent -> TestTree
+requestDeleteCommentContent = req
+    "DeleteCommentContent"
+    "fixture/DeleteCommentContent.yaml"
+
+requestDescribePullRequestEvents :: DescribePullRequestEvents -> TestTree
+requestDescribePullRequestEvents = req
+    "DescribePullRequestEvents"
+    "fixture/DescribePullRequestEvents.yaml"
 
 requestBatchGetRepositories :: BatchGetRepositories -> TestTree
 requestBatchGetRepositories = req
     "BatchGetRepositories"
     "fixture/BatchGetRepositories.yaml"
 
+requestGetCommentsForPullRequest :: GetCommentsForPullRequest -> TestTree
+requestGetCommentsForPullRequest = req
+    "GetCommentsForPullRequest"
+    "fixture/GetCommentsForPullRequest.yaml"
+
+requestUpdatePullRequestStatus :: UpdatePullRequestStatus -> TestTree
+requestUpdatePullRequestStatus = req
+    "UpdatePullRequestStatus"
+    "fixture/UpdatePullRequestStatus.yaml"
+
 -- Responses
+
+responseMergePullRequestByFastForward :: MergePullRequestByFastForwardResponse -> TestTree
+responseMergePullRequestByFastForward = res
+    "MergePullRequestByFastForwardResponse"
+    "fixture/MergePullRequestByFastForwardResponse.proto"
+    codeCommit
+    (Proxy :: Proxy MergePullRequestByFastForward)
 
 responseUpdateRepositoryName :: UpdateRepositoryNameResponse -> TestTree
 responseUpdateRepositoryName = res
@@ -242,6 +447,13 @@ responseUpdateRepositoryName = res
     "fixture/UpdateRepositoryNameResponse.proto"
     codeCommit
     (Proxy :: Proxy UpdateRepositoryName)
+
+responsePostCommentForPullRequest :: PostCommentForPullRequestResponse -> TestTree
+responsePostCommentForPullRequest = res
+    "PostCommentForPullRequestResponse"
+    "fixture/PostCommentForPullRequestResponse.proto"
+    codeCommit
+    (Proxy :: Proxy PostCommentForPullRequest)
 
 responseGetCommit :: GetCommitResponse -> TestTree
 responseGetCommit = res
@@ -264,6 +476,27 @@ responseGetDifferences = res
     codeCommit
     (Proxy :: Proxy GetDifferences)
 
+responseGetPullRequest :: GetPullRequestResponse -> TestTree
+responseGetPullRequest = res
+    "GetPullRequestResponse"
+    "fixture/GetPullRequestResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetPullRequest)
+
+responseListPullRequests :: ListPullRequestsResponse -> TestTree
+responseListPullRequests = res
+    "ListPullRequestsResponse"
+    "fixture/ListPullRequestsResponse.proto"
+    codeCommit
+    (Proxy :: Proxy ListPullRequests)
+
+responseGetComment :: GetCommentResponse -> TestTree
+responseGetComment = res
+    "GetCommentResponse"
+    "fixture/GetCommentResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetComment)
+
 responseDeleteBranch :: DeleteBranchResponse -> TestTree
 responseDeleteBranch = res
     "DeleteBranchResponse"
@@ -285,12 +518,26 @@ responseCreateBranch = res
     codeCommit
     (Proxy :: Proxy CreateBranch)
 
+responseCreatePullRequest :: CreatePullRequestResponse -> TestTree
+responseCreatePullRequest = res
+    "CreatePullRequestResponse"
+    "fixture/CreatePullRequestResponse.proto"
+    codeCommit
+    (Proxy :: Proxy CreatePullRequest)
+
 responseListBranches :: ListBranchesResponse -> TestTree
 responseListBranches = res
     "ListBranchesResponse"
     "fixture/ListBranchesResponse.proto"
     codeCommit
     (Proxy :: Proxy ListBranches)
+
+responseUpdatePullRequestDescription :: UpdatePullRequestDescriptionResponse -> TestTree
+responseUpdatePullRequestDescription = res
+    "UpdatePullRequestDescriptionResponse"
+    "fixture/UpdatePullRequestDescriptionResponse.proto"
+    codeCommit
+    (Proxy :: Proxy UpdatePullRequestDescription)
 
 responseListRepositories :: ListRepositoriesResponse -> TestTree
 responseListRepositories = res
@@ -313,6 +560,13 @@ responseUpdateDefaultBranch = res
     codeCommit
     (Proxy :: Proxy UpdateDefaultBranch)
 
+responsePostCommentReply :: PostCommentReplyResponse -> TestTree
+responsePostCommentReply = res
+    "PostCommentReplyResponse"
+    "fixture/PostCommentReplyResponse.proto"
+    codeCommit
+    (Proxy :: Proxy PostCommentReply)
+
 responseGetRepository :: GetRepositoryResponse -> TestTree
 responseGetRepository = res
     "GetRepositoryResponse"
@@ -327,12 +581,47 @@ responseGetRepositoryTriggers = res
     codeCommit
     (Proxy :: Proxy GetRepositoryTriggers)
 
+responsePutFile :: PutFileResponse -> TestTree
+responsePutFile = res
+    "PutFileResponse"
+    "fixture/PutFileResponse.proto"
+    codeCommit
+    (Proxy :: Proxy PutFile)
+
+responseGetCommentsForComparedCommit :: GetCommentsForComparedCommitResponse -> TestTree
+responseGetCommentsForComparedCommit = res
+    "GetCommentsForComparedCommitResponse"
+    "fixture/GetCommentsForComparedCommitResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetCommentsForComparedCommit)
+
 responseTestRepositoryTriggers :: TestRepositoryTriggersResponse -> TestTree
 responseTestRepositoryTriggers = res
     "TestRepositoryTriggersResponse"
     "fixture/TestRepositoryTriggersResponse.proto"
     codeCommit
     (Proxy :: Proxy TestRepositoryTriggers)
+
+responseUpdateComment :: UpdateCommentResponse -> TestTree
+responseUpdateComment = res
+    "UpdateCommentResponse"
+    "fixture/UpdateCommentResponse.proto"
+    codeCommit
+    (Proxy :: Proxy UpdateComment)
+
+responsePostCommentForComparedCommit :: PostCommentForComparedCommitResponse -> TestTree
+responsePostCommentForComparedCommit = res
+    "PostCommentForComparedCommitResponse"
+    "fixture/PostCommentForComparedCommitResponse.proto"
+    codeCommit
+    (Proxy :: Proxy PostCommentForComparedCommit)
+
+responseUpdatePullRequestTitle :: UpdatePullRequestTitleResponse -> TestTree
+responseUpdatePullRequestTitle = res
+    "UpdatePullRequestTitleResponse"
+    "fixture/UpdatePullRequestTitleResponse.proto"
+    codeCommit
+    (Proxy :: Proxy UpdatePullRequestTitle)
 
 responseGetBlob :: GetBlobResponse -> TestTree
 responseGetBlob = res
@@ -348,6 +637,13 @@ responsePutRepositoryTriggers = res
     codeCommit
     (Proxy :: Proxy PutRepositoryTriggers)
 
+responseGetMergeConflicts :: GetMergeConflictsResponse -> TestTree
+responseGetMergeConflicts = res
+    "GetMergeConflictsResponse"
+    "fixture/GetMergeConflictsResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetMergeConflicts)
+
 responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
 responseDeleteRepository = res
     "DeleteRepositoryResponse"
@@ -355,9 +651,37 @@ responseDeleteRepository = res
     codeCommit
     (Proxy :: Proxy DeleteRepository)
 
+responseDeleteCommentContent :: DeleteCommentContentResponse -> TestTree
+responseDeleteCommentContent = res
+    "DeleteCommentContentResponse"
+    "fixture/DeleteCommentContentResponse.proto"
+    codeCommit
+    (Proxy :: Proxy DeleteCommentContent)
+
+responseDescribePullRequestEvents :: DescribePullRequestEventsResponse -> TestTree
+responseDescribePullRequestEvents = res
+    "DescribePullRequestEventsResponse"
+    "fixture/DescribePullRequestEventsResponse.proto"
+    codeCommit
+    (Proxy :: Proxy DescribePullRequestEvents)
+
 responseBatchGetRepositories :: BatchGetRepositoriesResponse -> TestTree
 responseBatchGetRepositories = res
     "BatchGetRepositoriesResponse"
     "fixture/BatchGetRepositoriesResponse.proto"
     codeCommit
     (Proxy :: Proxy BatchGetRepositories)
+
+responseGetCommentsForPullRequest :: GetCommentsForPullRequestResponse -> TestTree
+responseGetCommentsForPullRequest = res
+    "GetCommentsForPullRequestResponse"
+    "fixture/GetCommentsForPullRequestResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetCommentsForPullRequest)
+
+responseUpdatePullRequestStatus :: UpdatePullRequestStatusResponse -> TestTree
+responseUpdatePullRequestStatus = res
+    "UpdatePullRequestStatusResponse"
+    "fixture/UpdatePullRequestStatusResponse.proto"
+    codeCommit
+    (Proxy :: Proxy UpdatePullRequestStatus)

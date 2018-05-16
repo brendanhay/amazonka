@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.ListJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ listJobs = ListJobs' {_ljNextToken = Nothing, _ljMaxResults = Nothing}
 
 -- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
 ljNextToken :: Lens' ListJobs (Maybe Text)
-ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a});
+ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a})
 
 -- | The number of @JobListEntry@ objects to return.
 ljMaxResults :: Lens' ListJobs (Maybe Natural)
-ljMaxResults = lens _ljMaxResults (\ s a -> s{_ljMaxResults = a}) . mapping _Nat;
+ljMaxResults = lens _ljMaxResults (\ s a -> s{_ljMaxResults = a}) . mapping _Nat
 
 instance AWSPager ListJobs where
         page rq rs
@@ -143,22 +143,22 @@ listJobsResponse
     -> ListJobsResponse
 listJobsResponse pResponseStatus_ =
   ListJobsResponse'
-  { _ljrsJobListEntries = Nothing
-  , _ljrsNextToken = Nothing
-  , _ljrsResponseStatus = pResponseStatus_
-  }
+    { _ljrsJobListEntries = Nothing
+    , _ljrsNextToken = Nothing
+    , _ljrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
 ljrsJobListEntries :: Lens' ListJobsResponse [JobListEntry]
-ljrsJobListEntries = lens _ljrsJobListEntries (\ s a -> s{_ljrsJobListEntries = a}) . _Default . _Coerce;
+ljrsJobListEntries = lens _ljrsJobListEntries (\ s a -> s{_ljrsJobListEntries = a}) . _Default . _Coerce
 
 -- | HTTP requests are stateless. If you use this automatically generated @NextToken@ value in your next @ListJobs@ call, your returned @JobListEntry@ objects will start from this point in the array.
 ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
-ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a});
+ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a})
 
 -- | -- | The response status code.
 ljrsResponseStatus :: Lens' ListJobsResponse Int
-ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
+ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a})
 
 instance NFData ListJobsResponse where

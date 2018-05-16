@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.UpdateDomainEntry
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ updateDomainEntry
     -> UpdateDomainEntry
 updateDomainEntry pDomainName_ pDomainEntry_ =
   UpdateDomainEntry'
-  {_udeDomainName = pDomainName_, _udeDomainEntry = pDomainEntry_}
+    {_udeDomainName = pDomainName_, _udeDomainEntry = pDomainEntry_}
 
 
 -- | The name of the domain recordset to update.
 udeDomainName :: Lens' UpdateDomainEntry Text
-udeDomainName = lens _udeDomainName (\ s a -> s{_udeDomainName = a});
+udeDomainName = lens _udeDomainName (\ s a -> s{_udeDomainName = a})
 
 -- | An array of key-value pairs containing information about the domain entry.
 udeDomainEntry :: Lens' UpdateDomainEntry DomainEntry
-udeDomainEntry = lens _udeDomainEntry (\ s a -> s{_udeDomainEntry = a});
+udeDomainEntry = lens _udeDomainEntry (\ s a -> s{_udeDomainEntry = a})
 
 instance AWSRequest UpdateDomainEntry where
         type Rs UpdateDomainEntry = UpdateDomainEntryResponse
@@ -132,15 +132,15 @@ updateDomainEntryResponse
     -> UpdateDomainEntryResponse
 updateDomainEntryResponse pResponseStatus_ =
   UpdateDomainEntryResponse'
-  {_udersOperations = Nothing, _udersResponseStatus = pResponseStatus_}
+    {_udersOperations = Nothing, _udersResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the request operation.
 udersOperations :: Lens' UpdateDomainEntryResponse [Operation]
-udersOperations = lens _udersOperations (\ s a -> s{_udersOperations = a}) . _Default . _Coerce;
+udersOperations = lens _udersOperations (\ s a -> s{_udersOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 udersResponseStatus :: Lens' UpdateDomainEntryResponse Int
-udersResponseStatus = lens _udersResponseStatus (\ s a -> s{_udersResponseStatus = a});
+udersResponseStatus = lens _udersResponseStatus (\ s a -> s{_udersResponseStatus = a})
 
 instance NFData UpdateDomainEntryResponse where

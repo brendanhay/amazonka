@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateFacet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ createFacet
     -> CreateFacet
 createFacet pSchemaARN_ pName_ pObjectType_ =
   CreateFacet'
-  { _cfAttributes = Nothing
-  , _cfSchemaARN = pSchemaARN_
-  , _cfName = pName_
-  , _cfObjectType = pObjectType_
-  }
+    { _cfAttributes = Nothing
+    , _cfSchemaARN = pSchemaARN_
+    , _cfName = pName_
+    , _cfObjectType = pObjectType_
+    }
 
 
 -- | The attributes that are associated with the 'Facet' .
 cfAttributes :: Lens' CreateFacet [FacetAttribute]
-cfAttributes = lens _cfAttributes (\ s a -> s{_cfAttributes = a}) . _Default . _Coerce;
+cfAttributes = lens _cfAttributes (\ s a -> s{_cfAttributes = a}) . _Default . _Coerce
 
 -- | The schema ARN in which the new 'Facet' will be created. For more information, see 'arns' .
 cfSchemaARN :: Lens' CreateFacet Text
-cfSchemaARN = lens _cfSchemaARN (\ s a -> s{_cfSchemaARN = a});
+cfSchemaARN = lens _cfSchemaARN (\ s a -> s{_cfSchemaARN = a})
 
 -- | The name of the 'Facet' , which is unique for a given schema.
 cfName :: Lens' CreateFacet Text
-cfName = lens _cfName (\ s a -> s{_cfName = a});
+cfName = lens _cfName (\ s a -> s{_cfName = a})
 
 -- | Specifies whether a given object created from this facet is of type node, leaf node, policy or index.     * Node: Can have multiple children but one parent.     * Leaf node: Cannot have children but can have multiple parents.     * Policy: Allows you to store a policy document and policy type. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies Policies> .     * Index: Can be created with the Index API.
 cfObjectType :: Lens' CreateFacet ObjectType
-cfObjectType = lens _cfObjectType (\ s a -> s{_cfObjectType = a});
+cfObjectType = lens _cfObjectType (\ s a -> s{_cfObjectType = a})
 
 instance AWSRequest CreateFacet where
         type Rs CreateFacet = CreateFacetResponse
@@ -148,6 +148,6 @@ createFacetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cfrsResponseStatus :: Lens' CreateFacetResponse Int
-cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a});
+cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a})
 
 instance NFData CreateFacetResponse where

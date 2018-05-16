@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,50 +78,50 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
 --
 -- * 'rResourceType' - The type of target being registered with the Maintenance Window.
 --
--- * 'rTargets' - The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
+-- * 'rTargets' - The targets (either instances or tags).  Specify instances using the following format: @Key=InstanceIds,Values=<instance-id-1>,<instance-id-2>@  Specify tags using either of the following formats: @Key=tag:<tag-key>,Values=<tag-value-1>,<tag-value-2>@  @Key=tag-key,Values=<tag-key-1>,<tag-key-2>@
 registerTargetWithMaintenanceWindow
     :: Text -- ^ 'rWindowId'
     -> MaintenanceWindowResourceType -- ^ 'rResourceType'
     -> RegisterTargetWithMaintenanceWindow
 registerTargetWithMaintenanceWindow pWindowId_ pResourceType_ =
   RegisterTargetWithMaintenanceWindow'
-  { _rClientToken = Nothing
-  , _rOwnerInformation = Nothing
-  , _rName = Nothing
-  , _rDescription = Nothing
-  , _rWindowId = pWindowId_
-  , _rResourceType = pResourceType_
-  , _rTargets = mempty
-  }
+    { _rClientToken = Nothing
+    , _rOwnerInformation = Nothing
+    , _rName = Nothing
+    , _rDescription = Nothing
+    , _rWindowId = pWindowId_
+    , _rResourceType = pResourceType_
+    , _rTargets = mempty
+    }
 
 
 -- | User-provided idempotency token.
 rClientToken :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
-rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a});
+rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a})
 
 -- | User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 rOwnerInformation :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
-rOwnerInformation = lens _rOwnerInformation (\ s a -> s{_rOwnerInformation = a}) . mapping _Sensitive;
+rOwnerInformation = lens _rOwnerInformation (\ s a -> s{_rOwnerInformation = a}) . mapping _Sensitive
 
 -- | An optional name for the target.
 rName :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
-rName = lens _rName (\ s a -> s{_rName = a});
+rName = lens _rName (\ s a -> s{_rName = a})
 
 -- | An optional description for the target.
 rDescription :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
-rDescription = lens _rDescription (\ s a -> s{_rDescription = a}) . mapping _Sensitive;
+rDescription = lens _rDescription (\ s a -> s{_rDescription = a}) . mapping _Sensitive
 
 -- | The ID of the Maintenance Window the target should be registered with.
 rWindowId :: Lens' RegisterTargetWithMaintenanceWindow Text
-rWindowId = lens _rWindowId (\ s a -> s{_rWindowId = a});
+rWindowId = lens _rWindowId (\ s a -> s{_rWindowId = a})
 
 -- | The type of target being registered with the Maintenance Window.
 rResourceType :: Lens' RegisterTargetWithMaintenanceWindow MaintenanceWindowResourceType
-rResourceType = lens _rResourceType (\ s a -> s{_rResourceType = a});
+rResourceType = lens _rResourceType (\ s a -> s{_rResourceType = a})
 
--- | The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
+-- | The targets (either instances or tags).  Specify instances using the following format: @Key=InstanceIds,Values=<instance-id-1>,<instance-id-2>@  Specify tags using either of the following formats: @Key=tag:<tag-key>,Values=<tag-value-1>,<tag-value-2>@  @Key=tag-key,Values=<tag-key-1>,<tag-key-2>@
 rTargets :: Lens' RegisterTargetWithMaintenanceWindow [Target]
-rTargets = lens _rTargets (\ s a -> s{_rTargets = a}) . _Coerce;
+rTargets = lens _rTargets (\ s a -> s{_rTargets = a}) . _Coerce
 
 instance AWSRequest
            RegisterTargetWithMaintenanceWindow
@@ -193,16 +193,16 @@ registerTargetWithMaintenanceWindowResponse
     -> RegisterTargetWithMaintenanceWindowResponse
 registerTargetWithMaintenanceWindowResponse pResponseStatus_ =
   RegisterTargetWithMaintenanceWindowResponse'
-  {_rrsWindowTargetId = Nothing, _rrsResponseStatus = pResponseStatus_}
+    {_rrsWindowTargetId = Nothing, _rrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the target definition in this Maintenance Window.
 rrsWindowTargetId :: Lens' RegisterTargetWithMaintenanceWindowResponse (Maybe Text)
-rrsWindowTargetId = lens _rrsWindowTargetId (\ s a -> s{_rrsWindowTargetId = a});
+rrsWindowTargetId = lens _rrsWindowTargetId (\ s a -> s{_rrsWindowTargetId = a})
 
 -- | -- | The response status code.
 rrsResponseStatus :: Lens' RegisterTargetWithMaintenanceWindowResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
+rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a})
 
 instance NFData
            RegisterTargetWithMaintenanceWindowResponse

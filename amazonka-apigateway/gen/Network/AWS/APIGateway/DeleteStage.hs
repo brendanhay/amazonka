@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteStage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Requests Amazon API Gateway to delete a 'Stage' resource.
+-- | Requests API Gateway to delete a 'Stage' resource.
 --
 --
 --
@@ -57,9 +57,9 @@ data DeleteStage = DeleteStage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'dsRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'dsStageName' - The name of the 'Stage' resource to delete.
+-- * 'dsStageName' - [Required] The name of the 'Stage' resource to delete.
 deleteStage
     :: Text -- ^ 'dsRestAPIId'
     -> Text -- ^ 'dsStageName'
@@ -68,13 +68,13 @@ deleteStage pRestAPIId_ pStageName_ =
   DeleteStage' {_dsRestAPIId = pRestAPIId_, _dsStageName = pStageName_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 dsRestAPIId :: Lens' DeleteStage Text
-dsRestAPIId = lens _dsRestAPIId (\ s a -> s{_dsRestAPIId = a});
+dsRestAPIId = lens _dsRestAPIId (\ s a -> s{_dsRestAPIId = a})
 
--- | The name of the 'Stage' resource to delete.
+-- | [Required] The name of the 'Stage' resource to delete.
 dsStageName :: Lens' DeleteStage Text
-dsStageName = lens _dsStageName (\ s a -> s{_dsStageName = a});
+dsStageName = lens _dsStageName (\ s a -> s{_dsStageName = a})
 
 instance AWSRequest DeleteStage where
         type Rs DeleteStage = DeleteStageResponse

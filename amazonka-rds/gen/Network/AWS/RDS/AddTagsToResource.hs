@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.AddTagsToResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ addTagsToResource pResourceName_ =
 
 -- | The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
 attrResourceName :: Lens' AddTagsToResource Text
-attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
+attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a})
 
 -- | The tags to be assigned to the Amazon RDS resource.
 attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce
 
 instance AWSRequest AddTagsToResource where
         type Rs AddTagsToResource = AddTagsToResourceResponse

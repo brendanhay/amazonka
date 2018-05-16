@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.RegisterTargets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,11 +75,11 @@ registerTargets pTargetGroupARN_ =
 
 -- | The Amazon Resource Name (ARN) of the target group.
 rtTargetGroupARN :: Lens' RegisterTargets Text
-rtTargetGroupARN = lens _rtTargetGroupARN (\ s a -> s{_rtTargetGroupARN = a});
+rtTargetGroupARN = lens _rtTargetGroupARN (\ s a -> s{_rtTargetGroupARN = a})
 
 -- | The targets.
 rtTargets :: Lens' RegisterTargets [TargetDescription]
-rtTargets = lens _rtTargets (\ s a -> s{_rtTargets = a}) . _Coerce;
+rtTargets = lens _rtTargets (\ s a -> s{_rtTargets = a}) . _Coerce
 
 instance AWSRequest RegisterTargets where
         type Rs RegisterTargets = RegisterTargetsResponse
@@ -127,6 +127,6 @@ registerTargetsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rrsResponseStatus :: Lens' RegisterTargetsResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
+rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a})
 
 instance NFData RegisterTargetsResponse where

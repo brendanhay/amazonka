@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateUsagePlanKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,11 +64,11 @@ data CreateUsagePlanKey = CreateUsagePlanKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupkUsagePlanId' - The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-created 'UsagePlanKey' resource representing a plan customer.
+-- * 'cupkUsagePlanId' - [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-created 'UsagePlanKey' resource representing a plan customer.
 --
--- * 'cupkKeyId' - The identifier of a 'UsagePlanKey' resource for a plan customer.
+-- * 'cupkKeyId' - [Required] The identifier of a 'UsagePlanKey' resource for a plan customer.
 --
--- * 'cupkKeyType' - The type of a 'UsagePlanKey' resource for a plan customer.
+-- * 'cupkKeyType' - [Required] The type of a 'UsagePlanKey' resource for a plan customer.
 createUsagePlanKey
     :: Text -- ^ 'cupkUsagePlanId'
     -> Text -- ^ 'cupkKeyId'
@@ -76,23 +76,23 @@ createUsagePlanKey
     -> CreateUsagePlanKey
 createUsagePlanKey pUsagePlanId_ pKeyId_ pKeyType_ =
   CreateUsagePlanKey'
-  { _cupkUsagePlanId = pUsagePlanId_
-  , _cupkKeyId = pKeyId_
-  , _cupkKeyType = pKeyType_
-  }
+    { _cupkUsagePlanId = pUsagePlanId_
+    , _cupkKeyId = pKeyId_
+    , _cupkKeyType = pKeyType_
+    }
 
 
--- | The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-created 'UsagePlanKey' resource representing a plan customer.
+-- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-created 'UsagePlanKey' resource representing a plan customer.
 cupkUsagePlanId :: Lens' CreateUsagePlanKey Text
-cupkUsagePlanId = lens _cupkUsagePlanId (\ s a -> s{_cupkUsagePlanId = a});
+cupkUsagePlanId = lens _cupkUsagePlanId (\ s a -> s{_cupkUsagePlanId = a})
 
--- | The identifier of a 'UsagePlanKey' resource for a plan customer.
+-- | [Required] The identifier of a 'UsagePlanKey' resource for a plan customer.
 cupkKeyId :: Lens' CreateUsagePlanKey Text
-cupkKeyId = lens _cupkKeyId (\ s a -> s{_cupkKeyId = a});
+cupkKeyId = lens _cupkKeyId (\ s a -> s{_cupkKeyId = a})
 
--- | The type of a 'UsagePlanKey' resource for a plan customer.
+-- | [Required] The type of a 'UsagePlanKey' resource for a plan customer.
 cupkKeyType :: Lens' CreateUsagePlanKey Text
-cupkKeyType = lens _cupkKeyType (\ s a -> s{_cupkKeyType = a});
+cupkKeyType = lens _cupkKeyType (\ s a -> s{_cupkKeyType = a})
 
 instance AWSRequest CreateUsagePlanKey where
         type Rs CreateUsagePlanKey = UsagePlanKey

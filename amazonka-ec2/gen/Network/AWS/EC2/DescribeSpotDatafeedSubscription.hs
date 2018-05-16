@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSpotDatafeedSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the data feed for Spot instances. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Describes the data feed for Spot Instances. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
 --
 module Network.AWS.EC2.DescribeSpotDatafeedSubscription
@@ -67,7 +67,7 @@ describeSpotDatafeedSubscription =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsdsDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
-dsdsDryRun = lens _dsdsDryRun (\ s a -> s{_dsdsDryRun = a});
+dsdsDryRun = lens _dsdsDryRun (\ s a -> s{_dsdsDryRun = a})
 
 instance AWSRequest DescribeSpotDatafeedSubscription
          where
@@ -119,7 +119,7 @@ data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscription
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsdsrsSpotDatafeedSubscription' - The Spot instance data feed subscription.
+-- * 'dsdsrsSpotDatafeedSubscription' - The Spot Instance data feed subscription.
 --
 -- * 'dsdsrsResponseStatus' - -- | The response status code.
 describeSpotDatafeedSubscriptionResponse
@@ -127,18 +127,18 @@ describeSpotDatafeedSubscriptionResponse
     -> DescribeSpotDatafeedSubscriptionResponse
 describeSpotDatafeedSubscriptionResponse pResponseStatus_ =
   DescribeSpotDatafeedSubscriptionResponse'
-  { _dsdsrsSpotDatafeedSubscription = Nothing
-  , _dsdsrsResponseStatus = pResponseStatus_
-  }
+    { _dsdsrsSpotDatafeedSubscription = Nothing
+    , _dsdsrsResponseStatus = pResponseStatus_
+    }
 
 
--- | The Spot instance data feed subscription.
+-- | The Spot Instance data feed subscription.
 dsdsrsSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
-dsdsrsSpotDatafeedSubscription = lens _dsdsrsSpotDatafeedSubscription (\ s a -> s{_dsdsrsSpotDatafeedSubscription = a});
+dsdsrsSpotDatafeedSubscription = lens _dsdsrsSpotDatafeedSubscription (\ s a -> s{_dsdsrsSpotDatafeedSubscription = a})
 
 -- | -- | The response status code.
 dsdsrsResponseStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
-dsdsrsResponseStatus = lens _dsdsrsResponseStatus (\ s a -> s{_dsdsrsResponseStatus = a});
+dsdsrsResponseStatus = lens _dsdsrsResponseStatus (\ s a -> s{_dsdsrsResponseStatus = a})
 
 instance NFData
            DescribeSpotDatafeedSubscriptionResponse

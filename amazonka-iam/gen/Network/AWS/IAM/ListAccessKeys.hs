@@ -12,18 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListAccessKeys
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the access key IDs associated with the specified IAM user. If there are none, the action returns an empty list.
+-- Returns information about the access key IDs associated with the specified IAM user. If there are none, the operation returns an empty list.
 --
 --
 -- Although each user is limited to a small number of keys, you can still paginate the results using the @MaxItems@ and @Marker@ parameters.
 --
--- If the @UserName@ field is not specified, the UserName is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
+-- If the @UserName@ field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
 --
 --
 -- This operation returns paginated results.
@@ -67,7 +67,7 @@ data ListAccessKeys = ListAccessKeys'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lakUserName' - The name of the user. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'lakUserName' - The name of the user. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'lakMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
@@ -76,20 +76,20 @@ listAccessKeys
     :: ListAccessKeys
 listAccessKeys =
   ListAccessKeys'
-  {_lakUserName = Nothing, _lakMarker = Nothing, _lakMaxItems = Nothing}
+    {_lakUserName = Nothing, _lakMarker = Nothing, _lakMaxItems = Nothing}
 
 
--- | The name of the user. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 lakUserName :: Lens' ListAccessKeys (Maybe Text)
-lakUserName = lens _lakUserName (\ s a -> s{_lakUserName = a});
+lakUserName = lens _lakUserName (\ s a -> s{_lakUserName = a})
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 lakMarker :: Lens' ListAccessKeys (Maybe Text)
-lakMarker = lens _lakMarker (\ s a -> s{_lakMarker = a});
+lakMarker = lens _lakMarker (\ s a -> s{_lakMarker = a})
 
 -- | (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 lakMaxItems :: Lens' ListAccessKeys (Maybe Natural)
-lakMaxItems = lens _lakMaxItems (\ s a -> s{_lakMaxItems = a}) . mapping _Nat;
+lakMaxItems = lens _lakMaxItems (\ s a -> s{_lakMaxItems = a}) . mapping _Nat
 
 instance AWSPager ListAccessKeys where
         page rq rs
@@ -158,27 +158,27 @@ listAccessKeysResponse
     -> ListAccessKeysResponse
 listAccessKeysResponse pResponseStatus_ =
   ListAccessKeysResponse'
-  { _lakrsMarker = Nothing
-  , _lakrsIsTruncated = Nothing
-  , _lakrsResponseStatus = pResponseStatus_
-  , _lakrsAccessKeyMetadata = mempty
-  }
+    { _lakrsMarker = Nothing
+    , _lakrsIsTruncated = Nothing
+    , _lakrsResponseStatus = pResponseStatus_
+    , _lakrsAccessKeyMetadata = mempty
+    }
 
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lakrsMarker :: Lens' ListAccessKeysResponse (Maybe Text)
-lakrsMarker = lens _lakrsMarker (\ s a -> s{_lakrsMarker = a});
+lakrsMarker = lens _lakrsMarker (\ s a -> s{_lakrsMarker = a})
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 lakrsIsTruncated :: Lens' ListAccessKeysResponse (Maybe Bool)
-lakrsIsTruncated = lens _lakrsIsTruncated (\ s a -> s{_lakrsIsTruncated = a});
+lakrsIsTruncated = lens _lakrsIsTruncated (\ s a -> s{_lakrsIsTruncated = a})
 
 -- | -- | The response status code.
 lakrsResponseStatus :: Lens' ListAccessKeysResponse Int
-lakrsResponseStatus = lens _lakrsResponseStatus (\ s a -> s{_lakrsResponseStatus = a});
+lakrsResponseStatus = lens _lakrsResponseStatus (\ s a -> s{_lakrsResponseStatus = a})
 
 -- | A list of objects containing metadata about the access keys.
 lakrsAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
-lakrsAccessKeyMetadata = lens _lakrsAccessKeyMetadata (\ s a -> s{_lakrsAccessKeyMetadata = a}) . _Coerce;
+lakrsAccessKeyMetadata = lens _lakrsAccessKeyMetadata (\ s a -> s{_lakrsAccessKeyMetadata = a}) . _Coerce
 
 instance NFData ListAccessKeysResponse where

@@ -1,5 +1,5 @@
 name:                  amazonka-cloudwatch
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon CloudWatch SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -53,6 +53,7 @@ library
         , Network.AWS.CloudWatch.DisableAlarmActions
         , Network.AWS.CloudWatch.EnableAlarmActions
         , Network.AWS.CloudWatch.GetDashboard
+        , Network.AWS.CloudWatch.GetMetricData
         , Network.AWS.CloudWatch.GetMetricStatistics
         , Network.AWS.CloudWatch.ListDashboards
         , Network.AWS.CloudWatch.ListMetrics
@@ -68,7 +69,7 @@ library
         , Network.AWS.CloudWatch.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudwatch-test
@@ -88,8 +89,8 @@ test-suite amazonka-cloudwatch-test
         , Test.AWS.CloudWatch.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-cloudwatch
         , base
         , bytestring

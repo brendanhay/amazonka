@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.ListDomains
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,28 +90,28 @@ listDomains
     -> ListDomains
 listDomains pRegistrationStatus_ =
   ListDomains'
-  { _ldNextPageToken = Nothing
-  , _ldReverseOrder = Nothing
-  , _ldMaximumPageSize = Nothing
-  , _ldRegistrationStatus = pRegistrationStatus_
-  }
+    { _ldNextPageToken = Nothing
+    , _ldReverseOrder = Nothing
+    , _ldMaximumPageSize = Nothing
+    , _ldRegistrationStatus = pRegistrationStatus_
+    }
 
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 ldNextPageToken :: Lens' ListDomains (Maybe Text)
-ldNextPageToken = lens _ldNextPageToken (\ s a -> s{_ldNextPageToken = a});
+ldNextPageToken = lens _ldNextPageToken (\ s a -> s{_ldNextPageToken = a})
 
 -- | When set to @true@ , returns the results in reverse order. By default, the results are returned in ascending alphabetical order by @name@ of the domains.
 ldReverseOrder :: Lens' ListDomains (Maybe Bool)
-ldReverseOrder = lens _ldReverseOrder (\ s a -> s{_ldReverseOrder = a});
+ldReverseOrder = lens _ldReverseOrder (\ s a -> s{_ldReverseOrder = a})
 
 -- | The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 ldMaximumPageSize :: Lens' ListDomains (Maybe Natural)
-ldMaximumPageSize = lens _ldMaximumPageSize (\ s a -> s{_ldMaximumPageSize = a}) . mapping _Nat;
+ldMaximumPageSize = lens _ldMaximumPageSize (\ s a -> s{_ldMaximumPageSize = a}) . mapping _Nat
 
 -- | Specifies the registration status of the domains to list.
 ldRegistrationStatus :: Lens' ListDomains RegistrationStatus
-ldRegistrationStatus = lens _ldRegistrationStatus (\ s a -> s{_ldRegistrationStatus = a});
+ldRegistrationStatus = lens _ldRegistrationStatus (\ s a -> s{_ldRegistrationStatus = a})
 
 instance AWSPager ListDomains where
         page rq rs
@@ -186,22 +186,22 @@ listDomainsResponse
     -> ListDomainsResponse
 listDomainsResponse pResponseStatus_ =
   ListDomainsResponse'
-  { _ldrsNextPageToken = Nothing
-  , _ldrsResponseStatus = pResponseStatus_
-  , _ldrsDomainInfos = mempty
-  }
+    { _ldrsNextPageToken = Nothing
+    , _ldrsResponseStatus = pResponseStatus_
+    , _ldrsDomainInfos = mempty
+    }
 
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 ldrsNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
-ldrsNextPageToken = lens _ldrsNextPageToken (\ s a -> s{_ldrsNextPageToken = a});
+ldrsNextPageToken = lens _ldrsNextPageToken (\ s a -> s{_ldrsNextPageToken = a})
 
 -- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDomainsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
 
 -- | A list of DomainInfo structures.
 ldrsDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
-ldrsDomainInfos = lens _ldrsDomainInfos (\ s a -> s{_ldrsDomainInfos = a}) . _Coerce;
+ldrsDomainInfos = lens _ldrsDomainInfos (\ s a -> s{_ldrsDomainInfos = a}) . _Coerce
 
 instance NFData ListDomainsResponse where

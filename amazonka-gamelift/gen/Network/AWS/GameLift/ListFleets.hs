@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.ListFleets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,15 +27,21 @@
 --
 --     * 'ListFleets'
 --
+--     * 'DeleteFleet'
+--
 --     * Describe fleets:
 --
 --     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetCapacity'
 --
 --     * 'DescribeFleetPortSettings'
 --
 --     * 'DescribeFleetUtilization'
 --
 --     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeEC2InstanceLimits'
 --
 --     * 'DescribeFleetEvents'
 --
@@ -53,23 +59,13 @@
 --
 --
 --
---     * Manage fleet capacity:
+--     * Manage fleet actions:
 --
---     * 'DescribeFleetCapacity'
+--     * 'StartFleetActions'
 --
---     * 'UpdateFleetCapacity'
---
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
---     * 'DescribeEC2InstanceLimits'
+--     * 'StopFleetActions'
 --
 --
---
---     * 'DeleteFleet'
 --
 --
 --
@@ -128,15 +124,15 @@ listFleets =
 
 -- | Unique identifier for a build to return fleets for. Use this parameter to return only fleets using the specified build. To retrieve all fleets, leave this parameter empty.
 lfBuildId :: Lens' ListFleets (Maybe Text)
-lfBuildId = lens _lfBuildId (\ s a -> s{_lfBuildId = a});
+lfBuildId = lens _lfBuildId (\ s a -> s{_lfBuildId = a})
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 lfNextToken :: Lens' ListFleets (Maybe Text)
-lfNextToken = lens _lfNextToken (\ s a -> s{_lfNextToken = a});
+lfNextToken = lens _lfNextToken (\ s a -> s{_lfNextToken = a})
 
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 lfLimit :: Lens' ListFleets (Maybe Natural)
-lfLimit = lens _lfLimit (\ s a -> s{_lfLimit = a}) . mapping _Nat;
+lfLimit = lens _lfLimit (\ s a -> s{_lfLimit = a}) . mapping _Nat
 
 instance AWSRequest ListFleets where
         type Rs ListFleets = ListFleetsResponse
@@ -201,22 +197,22 @@ listFleetsResponse
     -> ListFleetsResponse
 listFleetsResponse pResponseStatus_ =
   ListFleetsResponse'
-  { _lfrsNextToken = Nothing
-  , _lfrsFleetIds = Nothing
-  , _lfrsResponseStatus = pResponseStatus_
-  }
+    { _lfrsNextToken = Nothing
+    , _lfrsFleetIds = Nothing
+    , _lfrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 lfrsNextToken :: Lens' ListFleetsResponse (Maybe Text)
-lfrsNextToken = lens _lfrsNextToken (\ s a -> s{_lfrsNextToken = a});
+lfrsNextToken = lens _lfrsNextToken (\ s a -> s{_lfrsNextToken = a})
 
 -- | Set of fleet IDs matching the list request. You can retrieve additional information about all returned fleets by passing this result set to a call to 'DescribeFleetAttributes' , 'DescribeFleetCapacity' , or 'DescribeFleetUtilization' .
 lfrsFleetIds :: Lens' ListFleetsResponse (Maybe (NonEmpty Text))
-lfrsFleetIds = lens _lfrsFleetIds (\ s a -> s{_lfrsFleetIds = a}) . mapping _List1;
+lfrsFleetIds = lens _lfrsFleetIds (\ s a -> s{_lfrsFleetIds = a}) . mapping _List1
 
 -- | -- | The response status code.
 lfrsResponseStatus :: Lens' ListFleetsResponse Int
-lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a});
+lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a})
 
 instance NFData ListFleetsResponse where

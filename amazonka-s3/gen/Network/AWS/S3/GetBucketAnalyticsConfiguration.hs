@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketAnalyticsConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ getBucketAnalyticsConfiguration pBucket_ pId_ =
 
 -- | The name of the bucket from which an analytics configuration is retrieved.
 getBucket :: Lens' GetBucketAnalyticsConfiguration BucketName
-getBucket = lens _getBucket (\ s a -> s{_getBucket = a});
+getBucket = lens _getBucket (\ s a -> s{_getBucket = a})
 
 -- | The identifier used to represent an analytics configuration.
 getId :: Lens' GetBucketAnalyticsConfiguration Text
-getId = lens _getId (\ s a -> s{_getId = a});
+getId = lens _getId (\ s a -> s{_getId = a})
 
 instance AWSRequest GetBucketAnalyticsConfiguration
          where
@@ -121,18 +121,18 @@ getBucketAnalyticsConfigurationResponse
     -> GetBucketAnalyticsConfigurationResponse
 getBucketAnalyticsConfigurationResponse pResponseStatus_ =
   GetBucketAnalyticsConfigurationResponse'
-  { _gbacrsAnalyticsConfiguration = Nothing
-  , _gbacrsResponseStatus = pResponseStatus_
-  }
+    { _gbacrsAnalyticsConfiguration = Nothing
+    , _gbacrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The configuration and any analyses for the analytics filter.
 gbacrsAnalyticsConfiguration :: Lens' GetBucketAnalyticsConfigurationResponse (Maybe AnalyticsConfiguration)
-gbacrsAnalyticsConfiguration = lens _gbacrsAnalyticsConfiguration (\ s a -> s{_gbacrsAnalyticsConfiguration = a});
+gbacrsAnalyticsConfiguration = lens _gbacrsAnalyticsConfiguration (\ s a -> s{_gbacrsAnalyticsConfiguration = a})
 
 -- | -- | The response status code.
 gbacrsResponseStatus :: Lens' GetBucketAnalyticsConfigurationResponse Int
-gbacrsResponseStatus = lens _gbacrsResponseStatus (\ s a -> s{_gbacrsResponseStatus = a});
+gbacrsResponseStatus = lens _gbacrsResponseStatus (\ s a -> s{_gbacrsResponseStatus = a})
 
 instance NFData
            GetBucketAnalyticsConfigurationResponse

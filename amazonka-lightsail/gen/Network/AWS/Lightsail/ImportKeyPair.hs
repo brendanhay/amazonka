@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.ImportKeyPair
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ importKeyPair
     -> ImportKeyPair
 importKeyPair pKeyPairName_ pPublicKeyBase64_ =
   ImportKeyPair'
-  {_ikpKeyPairName = pKeyPairName_, _ikpPublicKeyBase64 = pPublicKeyBase64_}
+    {_ikpKeyPairName = pKeyPairName_, _ikpPublicKeyBase64 = pPublicKeyBase64_}
 
 
 -- | The name of the key pair for which you want to import the public key.
 ikpKeyPairName :: Lens' ImportKeyPair Text
-ikpKeyPairName = lens _ikpKeyPairName (\ s a -> s{_ikpKeyPairName = a});
+ikpKeyPairName = lens _ikpKeyPairName (\ s a -> s{_ikpKeyPairName = a})
 
 -- | A base64-encoded public key of the @ssh-rsa@ type.
 ikpPublicKeyBase64 :: Lens' ImportKeyPair Text
-ikpPublicKeyBase64 = lens _ikpPublicKeyBase64 (\ s a -> s{_ikpPublicKeyBase64 = a});
+ikpPublicKeyBase64 = lens _ikpPublicKeyBase64 (\ s a -> s{_ikpPublicKeyBase64 = a})
 
 instance AWSRequest ImportKeyPair where
         type Rs ImportKeyPair = ImportKeyPairResponse
@@ -130,15 +130,15 @@ importKeyPairResponse
     -> ImportKeyPairResponse
 importKeyPairResponse pResponseStatus_ =
   ImportKeyPairResponse'
-  {_ikprsOperation = Nothing, _ikprsResponseStatus = pResponseStatus_}
+    {_ikprsOperation = Nothing, _ikprsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the request operation.
 ikprsOperation :: Lens' ImportKeyPairResponse (Maybe Operation)
-ikprsOperation = lens _ikprsOperation (\ s a -> s{_ikprsOperation = a});
+ikprsOperation = lens _ikprsOperation (\ s a -> s{_ikprsOperation = a})
 
 -- | -- | The response status code.
 ikprsResponseStatus :: Lens' ImportKeyPairResponse Int
-ikprsResponseStatus = lens _ikprsResponseStatus (\ s a -> s{_ikprsResponseStatus = a});
+ikprsResponseStatus = lens _ikprsResponseStatus (\ s a -> s{_ikprsResponseStatus = a})
 
 instance NFData ImportKeyPairResponse where

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CancelArchival
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated. This operation is only supported in the tape gateway architecture.
+-- Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated. This operation is only supported in the tape gateway type.
 --
 --
 module Network.AWS.StorageGateway.CancelArchival
@@ -73,11 +73,11 @@ cancelArchival pGatewayARN_ pTapeARN_ =
 
 -- | Undocumented member.
 caGatewayARN :: Lens' CancelArchival Text
-caGatewayARN = lens _caGatewayARN (\ s a -> s{_caGatewayARN = a});
+caGatewayARN = lens _caGatewayARN (\ s a -> s{_caGatewayARN = a})
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel archiving for.
 caTapeARN :: Lens' CancelArchival Text
-caTapeARN = lens _caTapeARN (\ s a -> s{_caTapeARN = a});
+caTapeARN = lens _caTapeARN (\ s a -> s{_caTapeARN = a})
 
 instance AWSRequest CancelArchival where
         type Rs CancelArchival = CancelArchivalResponse
@@ -138,15 +138,15 @@ cancelArchivalResponse
     -> CancelArchivalResponse
 cancelArchivalResponse pResponseStatus_ =
   CancelArchivalResponse'
-  {_carsTapeARN = Nothing, _carsResponseStatus = pResponseStatus_}
+    {_carsTapeARN = Nothing, _carsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving was canceled.
 carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
-carsTapeARN = lens _carsTapeARN (\ s a -> s{_carsTapeARN = a});
+carsTapeARN = lens _carsTapeARN (\ s a -> s{_carsTapeARN = a})
 
 -- | -- | The response status code.
 carsResponseStatus :: Lens' CancelArchivalResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
 
 instance NFData CancelArchivalResponse where

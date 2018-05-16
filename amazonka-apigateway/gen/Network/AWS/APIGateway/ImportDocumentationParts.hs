@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.ImportDocumentationParts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,7 +55,7 @@ data ImportDocumentationParts = ImportDocumentationParts'
   { _idpMode           :: !(Maybe PutMode)
   , _idpFailOnWarnings :: !(Maybe Bool)
   , _idpRestAPIId      :: !Text
-  , _idpBody           :: !(HashMap Text Value)
+  , _idpBody           :: !ByteString
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -72,32 +72,32 @@ data ImportDocumentationParts = ImportDocumentationParts'
 -- * 'idpBody' - [Required] Raw byte array representing the to-be-imported documentation parts. To import from a Swagger file, this is a JSON object.
 importDocumentationParts
     :: Text -- ^ 'idpRestAPIId'
-    -> HashMap Text Value -- ^ 'idpBody'
+    -> ByteString -- ^ 'idpBody'
     -> ImportDocumentationParts
 importDocumentationParts pRestAPIId_ pBody_ =
   ImportDocumentationParts'
-  { _idpMode = Nothing
-  , _idpFailOnWarnings = Nothing
-  , _idpRestAPIId = pRestAPIId_
-  , _idpBody = pBody_
-  }
+    { _idpMode = Nothing
+    , _idpFailOnWarnings = Nothing
+    , _idpRestAPIId = pRestAPIId_
+    , _idpBody = pBody_
+    }
 
 
 -- | A query parameter to indicate whether to overwrite (@OVERWRITE@ ) any existing 'DocumentationParts' definition or to merge (@MERGE@ ) the new definition into the existing one. The default value is @MERGE@ .
 idpMode :: Lens' ImportDocumentationParts (Maybe PutMode)
-idpMode = lens _idpMode (\ s a -> s{_idpMode = a});
+idpMode = lens _idpMode (\ s a -> s{_idpMode = a})
 
 -- | A query parameter to specify whether to rollback the documentation importation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 idpFailOnWarnings :: Lens' ImportDocumentationParts (Maybe Bool)
-idpFailOnWarnings = lens _idpFailOnWarnings (\ s a -> s{_idpFailOnWarnings = a});
+idpFailOnWarnings = lens _idpFailOnWarnings (\ s a -> s{_idpFailOnWarnings = a})
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 idpRestAPIId :: Lens' ImportDocumentationParts Text
-idpRestAPIId = lens _idpRestAPIId (\ s a -> s{_idpRestAPIId = a});
+idpRestAPIId = lens _idpRestAPIId (\ s a -> s{_idpRestAPIId = a})
 
 -- | [Required] Raw byte array representing the to-be-imported documentation parts. To import from a Swagger file, this is a JSON object.
-idpBody :: Lens' ImportDocumentationParts (HashMap Text Value)
-idpBody = lens _idpBody (\ s a -> s{_idpBody = a});
+idpBody :: Lens' ImportDocumentationParts ByteString
+idpBody = lens _idpBody (\ s a -> s{_idpBody = a})
 
 instance AWSRequest ImportDocumentationParts where
         type Rs ImportDocumentationParts =
@@ -139,7 +139,7 @@ instance ToQuery ImportDocumentationParts where
 -- | A collection of the imported 'DocumentationPart' identifiers.
 --
 --
--- This is used to return the result when documentation parts in an external (e.g., Swagger) file are imported into Amazon API Gateway<http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , <http://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/ documentationpart:import> , 'DocumentationPart'
+-- This is used to return the result when documentation parts in an external (e.g., Swagger) file are imported into API Gateway<http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , <http://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/ documentationpart:import> , 'DocumentationPart'
 --
 -- /See:/ 'importDocumentationPartsResponse' smart constructor.
 data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'
@@ -163,23 +163,23 @@ importDocumentationPartsResponse
     -> ImportDocumentationPartsResponse
 importDocumentationPartsResponse pResponseStatus_ =
   ImportDocumentationPartsResponse'
-  { _idprsIds = Nothing
-  , _idprsWarnings = Nothing
-  , _idprsResponseStatus = pResponseStatus_
-  }
+    { _idprsIds = Nothing
+    , _idprsWarnings = Nothing
+    , _idprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of the returned documentation part identifiers.
 idprsIds :: Lens' ImportDocumentationPartsResponse [Text]
-idprsIds = lens _idprsIds (\ s a -> s{_idprsIds = a}) . _Default . _Coerce;
+idprsIds = lens _idprsIds (\ s a -> s{_idprsIds = a}) . _Default . _Coerce
 
 -- | A list of warning messages reported during import of documentation parts.
 idprsWarnings :: Lens' ImportDocumentationPartsResponse [Text]
-idprsWarnings = lens _idprsWarnings (\ s a -> s{_idprsWarnings = a}) . _Default . _Coerce;
+idprsWarnings = lens _idprsWarnings (\ s a -> s{_idprsWarnings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 idprsResponseStatus :: Lens' ImportDocumentationPartsResponse Int
-idprsResponseStatus = lens _idprsResponseStatus (\ s a -> s{_idprsResponseStatus = a});
+idprsResponseStatus = lens _idprsResponseStatus (\ s a -> s{_idprsResponseStatus = a})
 
 instance NFData ImportDocumentationPartsResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ describeElasticsearchDomainConfig pDomainName_ =
 
 -- | The Elasticsearch domain that you want to get information about.
 dedcDomainName :: Lens' DescribeElasticsearchDomainConfig Text
-dedcDomainName = lens _dedcDomainName (\ s a -> s{_dedcDomainName = a});
+dedcDomainName = lens _dedcDomainName (\ s a -> s{_dedcDomainName = a})
 
 instance AWSRequest DescribeElasticsearchDomainConfig
          where
@@ -126,18 +126,18 @@ describeElasticsearchDomainConfigResponse
     -> DescribeElasticsearchDomainConfigResponse
 describeElasticsearchDomainConfigResponse pResponseStatus_ pDomainConfig_ =
   DescribeElasticsearchDomainConfigResponse'
-  { _dedcrsResponseStatus = pResponseStatus_
-  , _dedcrsDomainConfig = pDomainConfig_
-  }
+    { _dedcrsResponseStatus = pResponseStatus_
+    , _dedcrsDomainConfig = pDomainConfig_
+    }
 
 
 -- | -- | The response status code.
 dedcrsResponseStatus :: Lens' DescribeElasticsearchDomainConfigResponse Int
-dedcrsResponseStatus = lens _dedcrsResponseStatus (\ s a -> s{_dedcrsResponseStatus = a});
+dedcrsResponseStatus = lens _dedcrsResponseStatus (\ s a -> s{_dedcrsResponseStatus = a})
 
 -- | The configuration information of the domain requested in the @DescribeElasticsearchDomainConfig@ request.
 dedcrsDomainConfig :: Lens' DescribeElasticsearchDomainConfigResponse ElasticsearchDomainConfig
-dedcrsDomainConfig = lens _dedcrsDomainConfig (\ s a -> s{_dedcrsDomainConfig = a});
+dedcrsDomainConfig = lens _dedcrsDomainConfig (\ s a -> s{_dedcrsDomainConfig = a})
 
 instance NFData
            DescribeElasticsearchDomainConfigResponse

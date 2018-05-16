@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteUtterances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Deletes stored utterances.
 --
 --
--- Amazon Lex stores the utterances that users send to your bot unless the @childDirected@ field in the bot is set to @true@ . Utterances are stored for 15 days for use with the 'GetUtterancesView' operation, and then stored indefinately for use in improving the ability of your bot to respond to user input.
+-- Amazon Lex stores the utterances that users send to your bot. Utterances are stored for 15 days for use with the 'GetUtterancesView' operation, and then stored indefinitely for use in improving the ability of your bot to respond to user input.
 --
 -- Use the @DeleteStoredUtterances@ operation to manually delete stored utterances for a specific user.
 --
@@ -72,11 +72,11 @@ deleteUtterances pBotName_ pUserId_ =
 
 -- | The name of the bot that stored the utterances.
 duBotName :: Lens' DeleteUtterances Text
-duBotName = lens _duBotName (\ s a -> s{_duBotName = a});
+duBotName = lens _duBotName (\ s a -> s{_duBotName = a})
 
 -- | The unique identifier for the user that made the utterances. This is the user ID that was sent in the <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html PostContent> or <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> operation request that contained the utterance.
 duUserId :: Lens' DeleteUtterances Text
-duUserId = lens _duUserId (\ s a -> s{_duUserId = a});
+duUserId = lens _duUserId (\ s a -> s{_duUserId = a})
 
 instance AWSRequest DeleteUtterances where
         type Rs DeleteUtterances = DeleteUtterancesResponse

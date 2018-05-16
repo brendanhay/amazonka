@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutObjectTagging
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,33 +76,33 @@ putObjectTagging
     -> PutObjectTagging
 putObjectTagging pBucket_ pKey_ pTagging_ =
   PutObjectTagging'
-  { _potVersionId = Nothing
-  , _potContentMD5 = Nothing
-  , _potBucket = pBucket_
-  , _potKey = pKey_
-  , _potTagging = pTagging_
-  }
+    { _potVersionId = Nothing
+    , _potContentMD5 = Nothing
+    , _potBucket = pBucket_
+    , _potKey = pKey_
+    , _potTagging = pTagging_
+    }
 
 
 -- | Undocumented member.
 potVersionId :: Lens' PutObjectTagging (Maybe ObjectVersionId)
-potVersionId = lens _potVersionId (\ s a -> s{_potVersionId = a});
+potVersionId = lens _potVersionId (\ s a -> s{_potVersionId = a})
 
 -- | Undocumented member.
 potContentMD5 :: Lens' PutObjectTagging (Maybe Text)
-potContentMD5 = lens _potContentMD5 (\ s a -> s{_potContentMD5 = a});
+potContentMD5 = lens _potContentMD5 (\ s a -> s{_potContentMD5 = a})
 
 -- | Undocumented member.
 potBucket :: Lens' PutObjectTagging BucketName
-potBucket = lens _potBucket (\ s a -> s{_potBucket = a});
+potBucket = lens _potBucket (\ s a -> s{_potBucket = a})
 
 -- | Undocumented member.
 potKey :: Lens' PutObjectTagging ObjectKey
-potKey = lens _potKey (\ s a -> s{_potKey = a});
+potKey = lens _potKey (\ s a -> s{_potKey = a})
 
 -- | Undocumented member.
 potTagging :: Lens' PutObjectTagging Tagging
-potTagging = lens _potTagging (\ s a -> s{_potTagging = a});
+potTagging = lens _potTagging (\ s a -> s{_potTagging = a})
 
 instance AWSRequest PutObjectTagging where
         type Rs PutObjectTagging = PutObjectTaggingResponse
@@ -155,15 +155,15 @@ putObjectTaggingResponse
     -> PutObjectTaggingResponse
 putObjectTaggingResponse pResponseStatus_ =
   PutObjectTaggingResponse'
-  {_potrsVersionId = Nothing, _potrsResponseStatus = pResponseStatus_}
+    {_potrsVersionId = Nothing, _potrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 potrsVersionId :: Lens' PutObjectTaggingResponse (Maybe ObjectVersionId)
-potrsVersionId = lens _potrsVersionId (\ s a -> s{_potrsVersionId = a});
+potrsVersionId = lens _potrsVersionId (\ s a -> s{_potrsVersionId = a})
 
 -- | -- | The response status code.
 potrsResponseStatus :: Lens' PutObjectTaggingResponse Int
-potrsResponseStatus = lens _potrsResponseStatus (\ s a -> s{_potrsResponseStatus = a});
+potrsResponseStatus = lens _potrsResponseStatus (\ s a -> s{_potrsResponseStatus = a})
 
 instance NFData PutObjectTaggingResponse where

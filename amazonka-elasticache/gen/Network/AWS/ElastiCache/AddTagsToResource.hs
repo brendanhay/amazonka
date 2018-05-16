@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.AddTagsToResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ addTagsToResource pResourceName_ =
 
 -- | The Amazon Resource Name (ARN) of the resource to which the tags are to be added, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . ElastiCache resources are /cluster/ and /snapshot/ . For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 attrResourceName :: Lens' AddTagsToResource Text
-attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
+attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a})
 
 -- | A list of cost allocation tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value.
 attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce
 
 instance AWSRequest AddTagsToResource where
         type Rs AddTagsToResource = TagListMessage

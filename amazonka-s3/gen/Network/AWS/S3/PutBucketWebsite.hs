@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketWebsite
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,23 +64,23 @@ putBucketWebsite
     -> PutBucketWebsite
 putBucketWebsite pBucket_ pWebsiteConfiguration_ =
   PutBucketWebsite'
-  { _pbwContentMD5 = Nothing
-  , _pbwBucket = pBucket_
-  , _pbwWebsiteConfiguration = pWebsiteConfiguration_
-  }
+    { _pbwContentMD5 = Nothing
+    , _pbwBucket = pBucket_
+    , _pbwWebsiteConfiguration = pWebsiteConfiguration_
+    }
 
 
 -- | Undocumented member.
 pbwContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
-pbwContentMD5 = lens _pbwContentMD5 (\ s a -> s{_pbwContentMD5 = a});
+pbwContentMD5 = lens _pbwContentMD5 (\ s a -> s{_pbwContentMD5 = a})
 
 -- | Undocumented member.
 pbwBucket :: Lens' PutBucketWebsite BucketName
-pbwBucket = lens _pbwBucket (\ s a -> s{_pbwBucket = a});
+pbwBucket = lens _pbwBucket (\ s a -> s{_pbwBucket = a})
 
 -- | Undocumented member.
 pbwWebsiteConfiguration :: Lens' PutBucketWebsite WebsiteConfiguration
-pbwWebsiteConfiguration = lens _pbwWebsiteConfiguration (\ s a -> s{_pbwWebsiteConfiguration = a});
+pbwWebsiteConfiguration = lens _pbwWebsiteConfiguration (\ s a -> s{_pbwWebsiteConfiguration = a})
 
 instance AWSRequest PutBucketWebsite where
         type Rs PutBucketWebsite = PutBucketWebsiteResponse

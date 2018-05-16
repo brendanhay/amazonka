@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.CloneReceiptRuleSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ data CloneReceiptRuleSet = CloneReceiptRuleSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cRuleSetName' - The name of the rule set to create. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
+-- * 'cRuleSetName' - The name of the rule set to create. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 --
 -- * 'cOriginalRuleSetName' - The name of the rule set to clone.
 cloneReceiptRuleSet
@@ -72,16 +72,18 @@ cloneReceiptRuleSet
     -> CloneReceiptRuleSet
 cloneReceiptRuleSet pRuleSetName_ pOriginalRuleSetName_ =
   CloneReceiptRuleSet'
-  {_cRuleSetName = pRuleSetName_, _cOriginalRuleSetName = pOriginalRuleSetName_}
+    { _cRuleSetName = pRuleSetName_
+    , _cOriginalRuleSetName = pOriginalRuleSetName_
+    }
 
 
--- | The name of the rule set to create. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
+-- | The name of the rule set to create. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 cRuleSetName :: Lens' CloneReceiptRuleSet Text
-cRuleSetName = lens _cRuleSetName (\ s a -> s{_cRuleSetName = a});
+cRuleSetName = lens _cRuleSetName (\ s a -> s{_cRuleSetName = a})
 
 -- | The name of the rule set to clone.
 cOriginalRuleSetName :: Lens' CloneReceiptRuleSet Text
-cOriginalRuleSetName = lens _cOriginalRuleSetName (\ s a -> s{_cOriginalRuleSetName = a});
+cOriginalRuleSetName = lens _cOriginalRuleSetName (\ s a -> s{_cOriginalRuleSetName = a})
 
 instance AWSRequest CloneReceiptRuleSet where
         type Rs CloneReceiptRuleSet =
@@ -134,6 +136,6 @@ cloneReceiptRuleSetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 crsResponseStatus :: Lens' CloneReceiptRuleSetResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
 
 instance NFData CloneReceiptRuleSetResponse where

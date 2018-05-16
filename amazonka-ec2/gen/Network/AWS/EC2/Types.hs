@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,6 +62,12 @@ module Network.AWS.EC2.Types
     -- * CancelSpotInstanceRequestState
     , CancelSpotInstanceRequestState (..)
 
+    -- * ConnectionNotificationState
+    , ConnectionNotificationState (..)
+
+    -- * ConnectionNotificationType
+    , ConnectionNotificationType (..)
+
     -- * ContainerFormat
     , ContainerFormat (..)
 
@@ -73,6 +79,12 @@ module Network.AWS.EC2.Types
 
     -- * DatafeedSubscriptionState
     , DatafeedSubscriptionState (..)
+
+    -- * DefaultTargetCapacityType
+    , DefaultTargetCapacityType (..)
+
+    -- * DeleteFleetErrorCode
+    , DeleteFleetErrorCode (..)
 
     -- * DeviceType
     , DeviceType (..)
@@ -103,6 +115,18 @@ module Network.AWS.EC2.Types
 
     -- * ExportTaskState
     , ExportTaskState (..)
+
+    -- * FleetActivityStatus
+    , FleetActivityStatus (..)
+
+    -- * FleetEventType
+    , FleetEventType (..)
+
+    -- * FleetExcessCapacityTerminationPolicy
+    , FleetExcessCapacityTerminationPolicy (..)
+
+    -- * FleetStateCode
+    , FleetStateCode (..)
 
     -- * FleetType
     , FleetType (..)
@@ -158,11 +182,17 @@ module Network.AWS.EC2.Types
     -- * InterfacePermissionType
     , InterfacePermissionType (..)
 
+    -- * LaunchTemplateErrorCode
+    , LaunchTemplateErrorCode (..)
+
     -- * ListingState
     , ListingState (..)
 
     -- * ListingStatus
     , ListingStatus (..)
+
+    -- * MarketType
+    , MarketType (..)
 
     -- * MonitoringState
     , MonitoringState (..)
@@ -209,6 +239,9 @@ module Network.AWS.EC2.Types
     -- * PlatformValues
     , PlatformValues (..)
 
+    -- * PrincipalType
+    , PrincipalType (..)
+
     -- * ProductCodeValues
     , ProductCodeValues (..)
 
@@ -251,6 +284,9 @@ module Network.AWS.EC2.Types
     -- * Scope
     , Scope (..)
 
+    -- * ServiceState
+    , ServiceState (..)
+
     -- * ServiceType
     , ServiceType (..)
 
@@ -262,6 +298,12 @@ module Network.AWS.EC2.Types
 
     -- * SnapshotState
     , SnapshotState (..)
+
+    -- * SpotAllocationStrategy
+    , SpotAllocationStrategy (..)
+
+    -- * SpotInstanceInterruptionBehavior
+    , SpotInstanceInterruptionBehavior (..)
 
     -- * SpotInstanceState
     , SpotInstanceState (..)
@@ -295,6 +337,9 @@ module Network.AWS.EC2.Types
 
     -- * TrafficType
     , TrafficType (..)
+
+    -- * UnsuccessfulInstanceCreditSpecificationErrorCode
+    , UnsuccessfulInstanceCreditSpecificationErrorCode (..)
 
     -- * VPCAttributeName
     , VPCAttributeName (..)
@@ -374,6 +419,13 @@ module Network.AWS.EC2.Types
     , aNetworkInterfaceId
     , aPrivateIPAddress
     , aPublicIP
+    , aTags
+
+    -- * AllowedPrincipal
+    , AllowedPrincipal
+    , allowedPrincipal
+    , apPrincipalType
+    , apPrincipal
 
     -- * AttributeBooleanValue
     , AttributeBooleanValue
@@ -434,6 +486,18 @@ module Network.AWS.EC2.Types
     , bundleTaskError
     , bteCode
     , bteMessage
+
+    -- * CPUOptions
+    , CPUOptions
+    , cpuOptions
+    , coCoreCount
+    , coThreadsPerCore
+
+    -- * CPUOptionsRequest
+    , CPUOptionsRequest
+    , cpuOptionsRequest
+    , corCoreCount
+    , corThreadsPerCore
 
     -- * CancelSpotFleetRequestsError
     , CancelSpotFleetRequestsError
@@ -497,16 +561,27 @@ module Network.AWS.EC2.Types
     , cdUploadEnd
     , cdComment
 
+    -- * ConnectionNotification
+    , ConnectionNotification
+    , connectionNotification
+    , cnConnectionNotificationState
+    , cnConnectionNotificationType
+    , cnConnectionEvents
+    , cnServiceId
+    , cnVPCEndpointId
+    , cnConnectionNotificationId
+    , cnConnectionNotificationARN
+
     -- * ConversionTask
     , ConversionTask
     , conversionTask
     , ctImportInstance
+    , ctState
     , ctStatusMessage
     , ctImportVolume
+    , ctConversionTaskId
     , ctExpirationTime
     , ctTags
-    , ctConversionTaskId
-    , ctState
 
     -- * CreateVolumePermission
     , CreateVolumePermission
@@ -519,6 +594,16 @@ module Network.AWS.EC2.Types
     , createVolumePermissionModifications
     , cvpmRemove
     , cvpmAdd
+
+    -- * CreditSpecification
+    , CreditSpecification
+    , creditSpecification
+    , csCPUCredits
+
+    -- * CreditSpecificationRequest
+    , CreditSpecificationRequest
+    , creditSpecificationRequest
+    , csrCPUCredits
 
     -- * CustomerGateway
     , CustomerGateway
@@ -549,6 +634,40 @@ module Network.AWS.EC2.Types
     , deHostedZoneId
     , deDNSName
 
+    -- * DeleteFleetError
+    , DeleteFleetError
+    , deleteFleetError
+    , dfeCode
+    , dfeMessage
+
+    -- * DeleteFleetErrorItem
+    , DeleteFleetErrorItem
+    , deleteFleetErrorItem
+    , dfeiError
+    , dfeiFleetId
+
+    -- * DeleteFleetSuccessItem
+    , DeleteFleetSuccessItem
+    , deleteFleetSuccessItem
+    , dfsiCurrentFleetState
+    , dfsiPreviousFleetState
+    , dfsiFleetId
+
+    -- * DeleteLaunchTemplateVersionsResponseErrorItem
+    , DeleteLaunchTemplateVersionsResponseErrorItem
+    , deleteLaunchTemplateVersionsResponseErrorItem
+    , dltvreiLaunchTemplateName
+    , dltvreiLaunchTemplateId
+    , dltvreiVersionNumber
+    , dltvreiResponseError
+
+    -- * DeleteLaunchTemplateVersionsResponseSuccessItem
+    , DeleteLaunchTemplateVersionsResponseSuccessItem
+    , deleteLaunchTemplateVersionsResponseSuccessItem
+    , dltvrsiLaunchTemplateName
+    , dltvrsiLaunchTemplateId
+    , dltvrsiVersionNumber
+
     -- * DiskImage
     , DiskImage
     , diskImage
@@ -559,10 +678,10 @@ module Network.AWS.EC2.Types
     -- * DiskImageDescription
     , DiskImageDescription
     , diskImageDescription
+    , dSize
     , dChecksum
     , dFormat
     , dImportManifestURL
-    , dSize
 
     -- * DiskImageDetail
     , DiskImageDetail
@@ -584,6 +703,7 @@ module Network.AWS.EC2.Types
     , ebdVolumeSize
     , ebdIOPS
     , ebdEncrypted
+    , ebdKMSKeyId
     , ebdVolumeType
     , ebdSnapshotId
 
@@ -624,6 +744,11 @@ module Network.AWS.EC2.Types
     , ElasticGpuSpecification
     , elasticGpuSpecification
     , egsType
+
+    -- * ElasticGpuSpecificationResponse
+    , ElasticGpuSpecificationResponse
+    , elasticGpuSpecificationResponse
+    , eType
 
     -- * ElasticGpus
     , ElasticGpus
@@ -673,6 +798,71 @@ module Network.AWS.EC2.Types
     , filter'
     , fValues
     , fName
+
+    -- * FleetData
+    , FleetData
+    , fleetData
+    , fdClientToken
+    , fdTargetCapacitySpecification
+    , fdSpotOptions
+    , fdExcessCapacityTerminationPolicy
+    , fdFleetState
+    , fdLaunchTemplateConfigs
+    , fdValidUntil
+    , fdTerminateInstancesWithExpiration
+    , fdFulfilledCapacity
+    , fdType
+    , fdValidFrom
+    , fdReplaceUnhealthyInstances
+    , fdFulfilledOnDemandCapacity
+    , fdFleetId
+    , fdCreateTime
+    , fdTags
+    , fdActivityStatus
+
+    -- * FleetLaunchTemplateConfig
+    , FleetLaunchTemplateConfig
+    , fleetLaunchTemplateConfig
+    , fltcOverrides
+    , fltcLaunchTemplateSpecification
+
+    -- * FleetLaunchTemplateConfigRequest
+    , FleetLaunchTemplateConfigRequest
+    , fleetLaunchTemplateConfigRequest
+    , fltcrOverrides
+    , fltcrLaunchTemplateSpecification
+
+    -- * FleetLaunchTemplateOverrides
+    , FleetLaunchTemplateOverrides
+    , fleetLaunchTemplateOverrides
+    , fltoWeightedCapacity
+    , fltoSubnetId
+    , fltoInstanceType
+    , fltoAvailabilityZone
+    , fltoMaxPrice
+
+    -- * FleetLaunchTemplateOverridesRequest
+    , FleetLaunchTemplateOverridesRequest
+    , fleetLaunchTemplateOverridesRequest
+    , fltorWeightedCapacity
+    , fltorSubnetId
+    , fltorInstanceType
+    , fltorAvailabilityZone
+    , fltorMaxPrice
+
+    -- * FleetLaunchTemplateSpecification
+    , FleetLaunchTemplateSpecification
+    , fleetLaunchTemplateSpecification
+    , fltsLaunchTemplateName
+    , fltsLaunchTemplateId
+    , fltsVersion
+
+    -- * FleetLaunchTemplateSpecificationRequest
+    , FleetLaunchTemplateSpecificationRequest
+    , fleetLaunchTemplateSpecificationRequest
+    , fltsrLaunchTemplateName
+    , fltsrLaunchTemplateId
+    , fltsrVersion
 
     -- * FlowLog
     , FlowLog
@@ -733,9 +923,17 @@ module Network.AWS.EC2.Types
     , hrEventType
     , hrTimestamp
 
+    -- * HistoryRecordEntry
+    , HistoryRecordEntry
+    , historyRecordEntry
+    , hreEventType
+    , hreEventInformation
+    , hreTimestamp
+
     -- * Host
     , Host
     , host
+    , hReleaseTime
     , hState
     , hClientToken
     , hHostId
@@ -744,6 +942,7 @@ module Network.AWS.EC2.Types
     , hHostProperties
     , hAvailabilityZone
     , hInstances
+    , hAllocationTime
     , hAutoPlacement
 
     -- * HostInstance
@@ -923,8 +1122,8 @@ module Network.AWS.EC2.Types
     , importInstanceTaskDetails
     , iitdInstanceId
     , iitdPlatform
-    , iitdDescription
     , iitdVolumes
+    , iitdDescription
 
     -- * ImportInstanceVolumeDetailItem
     , ImportInstanceVolumeDetailItem
@@ -947,11 +1146,11 @@ module Network.AWS.EC2.Types
     -- * ImportVolumeTaskDetails
     , ImportVolumeTaskDetails
     , importVolumeTaskDetails
-    , ivtdDescription
-    , ivtdAvailabilityZone
     , ivtdBytesConverted
     , ivtdImage
     , ivtdVolume
+    , ivtdAvailabilityZone
+    , ivtdDescription
 
     -- * Instance
     , Instance
@@ -967,6 +1166,7 @@ module Network.AWS.EC2.Types
     , insKeyName
     , insNetworkInterfaces
     , insRAMDiskId
+    , insCPUOptions
     , insSubnetId
     , insKernelId
     , insRootDeviceName
@@ -1023,6 +1223,18 @@ module Network.AWS.EC2.Types
     , icState
     , icInstanceCount
 
+    -- * InstanceCreditSpecification
+    , InstanceCreditSpecification
+    , instanceCreditSpecification
+    , icsInstanceId
+    , icsCPUCredits
+
+    -- * InstanceCreditSpecificationRequest
+    , InstanceCreditSpecificationRequest
+    , instanceCreditSpecificationRequest
+    , icsrInstanceId
+    , icsrCPUCredits
+
     -- * InstanceExportDetails
     , InstanceExportDetails
     , instanceExportDetails
@@ -1033,6 +1245,17 @@ module Network.AWS.EC2.Types
     , InstanceIPv6Address
     , instanceIPv6Address
     , iiaIPv6Address
+
+    -- * InstanceIPv6AddressRequest
+    , InstanceIPv6AddressRequest
+    , instanceIPv6AddressRequest
+    , iiarIPv6Address
+
+    -- * InstanceMarketOptionsRequest
+    , InstanceMarketOptionsRequest
+    , instanceMarketOptionsRequest
+    , imorMarketType
+    , imorSpotOptions
 
     -- * InstanceMonitoring
     , InstanceMonitoring
@@ -1192,6 +1415,205 @@ module Network.AWS.EC2.Types
     , lsAddressingType
     , lsBlockDeviceMappings
     , lsPlacement
+
+    -- * LaunchTemplate
+    , LaunchTemplate
+    , launchTemplate
+    , ltLaunchTemplateName
+    , ltLatestVersionNumber
+    , ltLaunchTemplateId
+    , ltCreatedBy
+    , ltDefaultVersionNumber
+    , ltCreateTime
+    , ltTags
+
+    -- * LaunchTemplateBlockDeviceMapping
+    , LaunchTemplateBlockDeviceMapping
+    , launchTemplateBlockDeviceMapping
+    , ltbdmVirtualName
+    , ltbdmNoDevice
+    , ltbdmEBS
+    , ltbdmDeviceName
+
+    -- * LaunchTemplateBlockDeviceMappingRequest
+    , LaunchTemplateBlockDeviceMappingRequest
+    , launchTemplateBlockDeviceMappingRequest
+    , ltbdmrVirtualName
+    , ltbdmrNoDevice
+    , ltbdmrEBS
+    , ltbdmrDeviceName
+
+    -- * LaunchTemplateConfig
+    , LaunchTemplateConfig
+    , launchTemplateConfig
+    , ltcOverrides
+    , ltcLaunchTemplateSpecification
+
+    -- * LaunchTemplateEBSBlockDevice
+    , LaunchTemplateEBSBlockDevice
+    , launchTemplateEBSBlockDevice
+    , ltebdDeleteOnTermination
+    , ltebdVolumeSize
+    , ltebdIOPS
+    , ltebdEncrypted
+    , ltebdKMSKeyId
+    , ltebdVolumeType
+    , ltebdSnapshotId
+
+    -- * LaunchTemplateEBSBlockDeviceRequest
+    , LaunchTemplateEBSBlockDeviceRequest
+    , launchTemplateEBSBlockDeviceRequest
+    , ltebdrDeleteOnTermination
+    , ltebdrVolumeSize
+    , ltebdrIOPS
+    , ltebdrEncrypted
+    , ltebdrKMSKeyId
+    , ltebdrVolumeType
+    , ltebdrSnapshotId
+
+    -- * LaunchTemplateIAMInstanceProfileSpecification
+    , LaunchTemplateIAMInstanceProfileSpecification
+    , launchTemplateIAMInstanceProfileSpecification
+    , ltiapsARN
+    , ltiapsName
+
+    -- * LaunchTemplateIAMInstanceProfileSpecificationRequest
+    , LaunchTemplateIAMInstanceProfileSpecificationRequest
+    , launchTemplateIAMInstanceProfileSpecificationRequest
+    , ltiapsrARN
+    , ltiapsrName
+
+    -- * LaunchTemplateInstanceMarketOptions
+    , LaunchTemplateInstanceMarketOptions
+    , launchTemplateInstanceMarketOptions
+    , ltimoMarketType
+    , ltimoSpotOptions
+
+    -- * LaunchTemplateInstanceMarketOptionsRequest
+    , LaunchTemplateInstanceMarketOptionsRequest
+    , launchTemplateInstanceMarketOptionsRequest
+    , ltimorMarketType
+    , ltimorSpotOptions
+
+    -- * LaunchTemplateInstanceNetworkInterfaceSpecification
+    , LaunchTemplateInstanceNetworkInterfaceSpecification
+    , launchTemplateInstanceNetworkInterfaceSpecification
+    , ltinisGroups
+    , ltinisPrivateIPAddresses
+    , ltinisDeleteOnTermination
+    , ltinisAssociatePublicIPAddress
+    , ltinisNetworkInterfaceId
+    , ltinisSubnetId
+    , ltinisIPv6AddressCount
+    , ltinisPrivateIPAddress
+    , ltinisSecondaryPrivateIPAddressCount
+    , ltinisDescription
+    , ltinisDeviceIndex
+    , ltinisIPv6Addresses
+
+    -- * LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
+    , LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
+    , launchTemplateInstanceNetworkInterfaceSpecificationRequest
+    , ltinisrGroups
+    , ltinisrPrivateIPAddresses
+    , ltinisrDeleteOnTermination
+    , ltinisrAssociatePublicIPAddress
+    , ltinisrNetworkInterfaceId
+    , ltinisrSubnetId
+    , ltinisrIPv6AddressCount
+    , ltinisrPrivateIPAddress
+    , ltinisrSecondaryPrivateIPAddressCount
+    , ltinisrDescription
+    , ltinisrDeviceIndex
+    , ltinisrIPv6Addresses
+
+    -- * LaunchTemplateOverrides
+    , LaunchTemplateOverrides
+    , launchTemplateOverrides
+    , ltoSpotPrice
+    , ltoWeightedCapacity
+    , ltoSubnetId
+    , ltoInstanceType
+    , ltoAvailabilityZone
+
+    -- * LaunchTemplatePlacement
+    , LaunchTemplatePlacement
+    , launchTemplatePlacement
+    , ltpAffinity
+    , ltpHostId
+    , ltpSpreadDomain
+    , ltpAvailabilityZone
+    , ltpTenancy
+    , ltpGroupName
+
+    -- * LaunchTemplatePlacementRequest
+    , LaunchTemplatePlacementRequest
+    , launchTemplatePlacementRequest
+    , ltprAffinity
+    , ltprHostId
+    , ltprSpreadDomain
+    , ltprAvailabilityZone
+    , ltprTenancy
+    , ltprGroupName
+
+    -- * LaunchTemplateSpecification
+    , LaunchTemplateSpecification
+    , launchTemplateSpecification
+    , ltsLaunchTemplateName
+    , ltsLaunchTemplateId
+    , ltsVersion
+
+    -- * LaunchTemplateSpotMarketOptions
+    , LaunchTemplateSpotMarketOptions
+    , launchTemplateSpotMarketOptions
+    , ltsmoBlockDurationMinutes
+    , ltsmoInstanceInterruptionBehavior
+    , ltsmoValidUntil
+    , ltsmoSpotInstanceType
+    , ltsmoMaxPrice
+
+    -- * LaunchTemplateSpotMarketOptionsRequest
+    , LaunchTemplateSpotMarketOptionsRequest
+    , launchTemplateSpotMarketOptionsRequest
+    , ltsmorBlockDurationMinutes
+    , ltsmorInstanceInterruptionBehavior
+    , ltsmorValidUntil
+    , ltsmorSpotInstanceType
+    , ltsmorMaxPrice
+
+    -- * LaunchTemplateTagSpecification
+    , LaunchTemplateTagSpecification
+    , launchTemplateTagSpecification
+    , lttsResourceType
+    , lttsTags
+
+    -- * LaunchTemplateTagSpecificationRequest
+    , LaunchTemplateTagSpecificationRequest
+    , launchTemplateTagSpecificationRequest
+    , lttsrResourceType
+    , lttsrTags
+
+    -- * LaunchTemplateVersion
+    , LaunchTemplateVersion
+    , launchTemplateVersion
+    , ltvLaunchTemplateName
+    , ltvLaunchTemplateId
+    , ltvCreatedBy
+    , ltvDefaultVersion
+    , ltvVersionNumber
+    , ltvVersionDescription
+    , ltvLaunchTemplateData
+    , ltvCreateTime
+
+    -- * LaunchTemplatesMonitoring
+    , LaunchTemplatesMonitoring
+    , launchTemplatesMonitoring
+    , ltmEnabled
+
+    -- * LaunchTemplatesMonitoringRequest
+    , LaunchTemplatesMonitoringRequest
+    , launchTemplatesMonitoringRequest
+    , ltmrEnabled
 
     -- * LoadBalancersConfig
     , LoadBalancersConfig
@@ -1444,6 +1866,12 @@ module Network.AWS.EC2.Types
     , pdCount
     , pdPrice
 
+    -- * PrincipalIdFormat
+    , PrincipalIdFormat
+    , principalIdFormat
+    , pifARN
+    , pifStatuses
+
     -- * PrivateIPAddressSpecification
     , PrivateIPAddressSpecification
     , privateIPAddressSpecification
@@ -1499,6 +1927,30 @@ module Network.AWS.EC2.Types
     , regionInfo
     , riRegionName
     , riEndpoint
+
+    -- * RequestLaunchTemplateData
+    , RequestLaunchTemplateData
+    , requestLaunchTemplateData
+    , rltdSecurityGroupIds
+    , rltdSecurityGroups
+    , rltdInstanceMarketOptions
+    , rltdDisableAPITermination
+    , rltdKeyName
+    , rltdNetworkInterfaces
+    , rltdRamDiskId
+    , rltdKernelId
+    , rltdElasticGpuSpecifications
+    , rltdInstanceType
+    , rltdEBSOptimized
+    , rltdUserData
+    , rltdMonitoring
+    , rltdTagSpecifications
+    , rltdIAMInstanceProfile
+    , rltdImageId
+    , rltdInstanceInitiatedShutdownBehavior
+    , rltdCreditSpecification
+    , rltdBlockDeviceMappings
+    , rltdPlacement
 
     -- * RequestSpotLaunchSpecification
     , RequestSpotLaunchSpecification
@@ -1635,6 +2087,36 @@ module Network.AWS.EC2.Types
     , rioReservedInstancesOfferingId
     , rioOfferingClass
     , rioDuration
+
+    -- * ResponseError
+    , ResponseError
+    , responseError
+    , reCode
+    , reMessage
+
+    -- * ResponseLaunchTemplateData
+    , ResponseLaunchTemplateData
+    , responseLaunchTemplateData
+    , rSecurityGroupIds
+    , rSecurityGroups
+    , rInstanceMarketOptions
+    , rDisableAPITermination
+    , rKeyName
+    , rNetworkInterfaces
+    , rRamDiskId
+    , rKernelId
+    , rElasticGpuSpecifications
+    , rInstanceType
+    , rEBSOptimized
+    , rUserData
+    , rMonitoring
+    , rTagSpecifications
+    , rIAMInstanceProfile
+    , rImageId
+    , rInstanceInitiatedShutdownBehavior
+    , rCreditSpecification
+    , rBlockDeviceMappings
+    , rPlacement
 
     -- * Route
     , Route
@@ -1843,6 +2325,19 @@ module Network.AWS.EC2.Types
     , sgrGroupId
     , sgrReferencingVPCId
 
+    -- * ServiceConfiguration
+    , ServiceConfiguration
+    , serviceConfiguration
+    , scNetworkLoadBalancerARNs
+    , scBaseEndpointDNSNames
+    , scAvailabilityZones
+    , scServiceName
+    , scServiceState
+    , scServiceType
+    , scAcceptanceRequired
+    , scServiceId
+    , scPrivateDNSName
+
     -- * ServiceDetail
     , ServiceDetail
     , serviceDetail
@@ -1975,18 +2470,21 @@ module Network.AWS.EC2.Types
     , spotFleetRequestConfigData
     , sfrcdClientToken
     , sfrcdInstanceInterruptionBehavior
+    , sfrcdSpotPrice
     , sfrcdLoadBalancersConfig
     , sfrcdExcessCapacityTerminationPolicy
+    , sfrcdOnDemandTargetCapacity
+    , sfrcdLaunchTemplateConfigs
     , sfrcdValidUntil
     , sfrcdTerminateInstancesWithExpiration
     , sfrcdFulfilledCapacity
     , sfrcdType
     , sfrcdValidFrom
     , sfrcdReplaceUnhealthyInstances
+    , sfrcdLaunchSpecifications
+    , sfrcdOnDemandFulfilledCapacity
     , sfrcdAllocationStrategy
     , sfrcdIAMFleetRole
-    , sfrcdLaunchSpecifications
-    , sfrcdSpotPrice
     , sfrcdTargetCapacity
 
     -- * SpotFleetTagSpecification
@@ -2030,6 +2528,27 @@ module Network.AWS.EC2.Types
     , sisUpdateTime
     , sisCode
     , sisMessage
+
+    -- * SpotMarketOptions
+    , SpotMarketOptions
+    , spotMarketOptions
+    , smoBlockDurationMinutes
+    , smoInstanceInterruptionBehavior
+    , smoValidUntil
+    , smoSpotInstanceType
+    , smoMaxPrice
+
+    -- * SpotOptions
+    , SpotOptions
+    , spotOptions
+    , soInstanceInterruptionBehavior
+    , soAllocationStrategy
+
+    -- * SpotOptionsRequest
+    , SpotOptionsRequest
+    , spotOptionsRequest
+    , sorInstanceInterruptionBehavior
+    , sorAllocationStrategy
 
     -- * SpotPlacement
     , SpotPlacement
@@ -2112,6 +2631,11 @@ module Network.AWS.EC2.Types
     , sicbaIPv6CidrBlock
     , sicbaIPv6CidrBlockState
 
+    -- * SuccessfulInstanceCreditSpecificationItem
+    , SuccessfulInstanceCreditSpecificationItem
+    , successfulInstanceCreditSpecificationItem
+    , sicsiInstanceId
+
     -- * Tag
     , Tag
     , tag
@@ -2131,6 +2655,22 @@ module Network.AWS.EC2.Types
     , tagSpecification
     , tsResourceType
     , tsTags
+
+    -- * TargetCapacitySpecification
+    , TargetCapacitySpecification
+    , targetCapacitySpecification
+    , tcsOnDemandTargetCapacity
+    , tcsDefaultTargetCapacityType
+    , tcsTotalTargetCapacity
+    , tcsSpotTargetCapacity
+
+    -- * TargetCapacitySpecificationRequest
+    , TargetCapacitySpecificationRequest
+    , targetCapacitySpecificationRequest
+    , tcsrOnDemandTargetCapacity
+    , tcsrDefaultTargetCapacityType
+    , tcsrSpotTargetCapacity
+    , tcsrTotalTargetCapacity
 
     -- * TargetConfiguration
     , TargetConfiguration
@@ -2159,6 +2699,18 @@ module Network.AWS.EC2.Types
     , targetReservationValue
     , trvReservationValue
     , trvTargetConfiguration
+
+    -- * UnsuccessfulInstanceCreditSpecificationItem
+    , UnsuccessfulInstanceCreditSpecificationItem
+    , unsuccessfulInstanceCreditSpecificationItem
+    , uicsiInstanceId
+    , uicsiError
+
+    -- * UnsuccessfulInstanceCreditSpecificationItemError
+    , UnsuccessfulInstanceCreditSpecificationItemError
+    , unsuccessfulInstanceCreditSpecificationItemError
+    , uicsieCode
+    , uicsieMessage
 
     -- * UnsuccessfulItem
     , UnsuccessfulItem
@@ -2265,6 +2817,15 @@ module Network.AWS.EC2.Types
     , veVPCEndpointId
     , veRouteTableIds
 
+    -- * VPCEndpointConnection
+    , VPCEndpointConnection
+    , vpcEndpointConnection
+    , vecVPCEndpointOwner
+    , vecVPCEndpointState
+    , vecCreationTimestamp
+    , vecServiceId
+    , vecVPCEndpointId
+
     -- * VPCIPv6CidrBlockAssociation
     , VPCIPv6CidrBlockAssociation
     , vpcIPv6CidrBlockAssociation
@@ -2303,6 +2864,7 @@ module Network.AWS.EC2.Types
     , vpcviOwnerId
     , vpcviPeeringOptions
     , vpcviCidrBlock
+    , vpcviRegion
     , vpcviIPv6CidrBlockSet
 
     -- * VPNConnection
@@ -2452,24 +3014,24 @@ import Network.AWS.Sign.V4
 ec2 :: Service
 ec2 =
   Service
-  { _svcAbbrev = "EC2"
-  , _svcSigner = v4
-  , _svcPrefix = "ec2"
-  , _svcVersion = "2016-11-15"
-  , _svcEndpoint = defaultEndpoint ec2
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "EC2"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "EC2"
+    , _svcSigner = v4
+    , _svcPrefix = "ec2"
+    , _svcVersion = "2016-11-15"
+    , _svcEndpoint = defaultEndpoint ec2
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError "EC2"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -2480,6 +3042,8 @@ ec2 =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

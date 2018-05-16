@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ResetCache
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resets all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage. If your cache disk encounters a error, the gateway prevents read and write operations on virtual tapes in the gateway. For example, an error can occur when a disk is corrupted or removed from the gateway. When a cache is reset, the gateway loses its cache storage. At this point you can reconfigure the disks as cache disks. This operation is only supported in the cached volume,tape and file gateway architectures.
+-- Resets all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage. If your cache disk encounters a error, the gateway prevents read and write operations on virtual tapes in the gateway. For example, an error can occur when a disk is corrupted or removed from the gateway. When a cache is reset, the gateway loses its cache storage. At this point you can reconfigure the disks as cache disks. This operation is only supported in the cached volume and tape types.
 --
 --
 -- /Important:/ If the cache disk you are resetting contains data that has not been uploaded to Amazon S3 yet, that data can be lost. After you reset cache disks, there will be no configured cache disks left in the gateway, so you must configure at least one new cache disk for your gateway to function properly.
@@ -65,7 +65,7 @@ resetCache pGatewayARN_ = ResetCache' {_rcGatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
 rcGatewayARN :: Lens' ResetCache Text
-rcGatewayARN = lens _rcGatewayARN (\ s a -> s{_rcGatewayARN = a});
+rcGatewayARN = lens _rcGatewayARN (\ s a -> s{_rcGatewayARN = a})
 
 instance AWSRequest ResetCache where
         type Rs ResetCache = ResetCacheResponse
@@ -119,15 +119,15 @@ resetCacheResponse
     -> ResetCacheResponse
 resetCacheResponse pResponseStatus_ =
   ResetCacheResponse'
-  {_rrsGatewayARN = Nothing, _rrsResponseStatus = pResponseStatus_}
+    {_rrsGatewayARN = Nothing, _rrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 rrsGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
-rrsGatewayARN = lens _rrsGatewayARN (\ s a -> s{_rrsGatewayARN = a});
+rrsGatewayARN = lens _rrsGatewayARN (\ s a -> s{_rrsGatewayARN = a})
 
 -- | -- | The response status code.
 rrsResponseStatus :: Lens' ResetCacheResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
+rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a})
 
 instance NFData ResetCacheResponse where

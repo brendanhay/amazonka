@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.TerminateEnvironment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,28 +93,28 @@ terminateEnvironment
     :: TerminateEnvironment
 terminateEnvironment =
   TerminateEnvironment'
-  { _teForceTerminate = Nothing
-  , _teTerminateResources = Nothing
-  , _teEnvironmentName = Nothing
-  , _teEnvironmentId = Nothing
-  }
+    { _teForceTerminate = Nothing
+    , _teTerminateResources = Nothing
+    , _teEnvironmentName = Nothing
+    , _teEnvironmentId = Nothing
+    }
 
 
 -- | Terminates the target environment even if another environment in the same group is dependent on it.
 teForceTerminate :: Lens' TerminateEnvironment (Maybe Bool)
-teForceTerminate = lens _teForceTerminate (\ s a -> s{_teForceTerminate = a});
+teForceTerminate = lens _teForceTerminate (\ s a -> s{_teForceTerminate = a})
 
 -- | Indicates whether the associated AWS resources should shut down when the environment is terminated:     * @true@ : The specified environment as well as the associated AWS resources, such as Auto Scaling group and LoadBalancer, are terminated.     * @false@ : AWS Elastic Beanstalk resource management is removed from the environment, but the AWS resources continue to operate. For more information, see the <http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/ AWS Elastic Beanstalk User Guide. >  Default: @true@  Valid Values: @true@ | @false@
 teTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
-teTerminateResources = lens _teTerminateResources (\ s a -> s{_teTerminateResources = a});
+teTerminateResources = lens _teTerminateResources (\ s a -> s{_teTerminateResources = a})
 
 -- | The name of the environment to terminate. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 teEnvironmentName :: Lens' TerminateEnvironment (Maybe Text)
-teEnvironmentName = lens _teEnvironmentName (\ s a -> s{_teEnvironmentName = a});
+teEnvironmentName = lens _teEnvironmentName (\ s a -> s{_teEnvironmentName = a})
 
 -- | The ID of the environment to terminate. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 teEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
-teEnvironmentId = lens _teEnvironmentId (\ s a -> s{_teEnvironmentId = a});
+teEnvironmentId = lens _teEnvironmentId (\ s a -> s{_teEnvironmentId = a})
 
 instance AWSRequest TerminateEnvironment where
         type Rs TerminateEnvironment = EnvironmentDescription

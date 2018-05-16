@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DeleteEndpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ deleteEndpoint pEndpointARN_ = DeleteEndpoint' {_deEndpointARN = pEndpointARN_}
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 deEndpointARN :: Lens' DeleteEndpoint Text
-deEndpointARN = lens _deEndpointARN (\ s a -> s{_deEndpointARN = a});
+deEndpointARN = lens _deEndpointARN (\ s a -> s{_deEndpointARN = a})
 
 instance AWSRequest DeleteEndpoint where
         type Rs DeleteEndpoint = DeleteEndpointResponse
@@ -127,15 +127,15 @@ deleteEndpointResponse
     -> DeleteEndpointResponse
 deleteEndpointResponse pResponseStatus_ =
   DeleteEndpointResponse'
-  {_delrsEndpoint = Nothing, _delrsResponseStatus = pResponseStatus_}
+    {_delrsEndpoint = Nothing, _delrsResponseStatus = pResponseStatus_}
 
 
 -- | The endpoint that was deleted.
 delrsEndpoint :: Lens' DeleteEndpointResponse (Maybe Endpoint)
-delrsEndpoint = lens _delrsEndpoint (\ s a -> s{_delrsEndpoint = a});
+delrsEndpoint = lens _delrsEndpoint (\ s a -> s{_delrsEndpoint = a})
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteEndpointResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteEndpointResponse where

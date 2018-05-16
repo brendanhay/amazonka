@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.GetDownloadURLForLayer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ getDownloadURLForLayer
     -> GetDownloadURLForLayer
 getDownloadURLForLayer pRepositoryName_ pLayerDigest_ =
   GetDownloadURLForLayer'
-  { _gduflRegistryId = Nothing
-  , _gduflRepositoryName = pRepositoryName_
-  , _gduflLayerDigest = pLayerDigest_
-  }
+    { _gduflRegistryId = Nothing
+    , _gduflRepositoryName = pRepositoryName_
+    , _gduflLayerDigest = pLayerDigest_
+    }
 
 
 -- | The AWS account ID associated with the registry that contains the image layer to download. If you do not specify a registry, the default registry is assumed.
 gduflRegistryId :: Lens' GetDownloadURLForLayer (Maybe Text)
-gduflRegistryId = lens _gduflRegistryId (\ s a -> s{_gduflRegistryId = a});
+gduflRegistryId = lens _gduflRegistryId (\ s a -> s{_gduflRegistryId = a})
 
 -- | The name of the repository that is associated with the image layer to download.
 gduflRepositoryName :: Lens' GetDownloadURLForLayer Text
-gduflRepositoryName = lens _gduflRepositoryName (\ s a -> s{_gduflRepositoryName = a});
+gduflRepositoryName = lens _gduflRepositoryName (\ s a -> s{_gduflRepositoryName = a})
 
 -- | The digest of the image layer to download.
 gduflLayerDigest :: Lens' GetDownloadURLForLayer Text
-gduflLayerDigest = lens _gduflLayerDigest (\ s a -> s{_gduflLayerDigest = a});
+gduflLayerDigest = lens _gduflLayerDigest (\ s a -> s{_gduflLayerDigest = a})
 
 instance AWSRequest GetDownloadURLForLayer where
         type Rs GetDownloadURLForLayer =
@@ -149,22 +149,22 @@ getDownloadURLForLayerResponse
     -> GetDownloadURLForLayerResponse
 getDownloadURLForLayerResponse pResponseStatus_ =
   GetDownloadURLForLayerResponse'
-  { _gduflrsLayerDigest = Nothing
-  , _gduflrsDownloadURL = Nothing
-  , _gduflrsResponseStatus = pResponseStatus_
-  }
+    { _gduflrsLayerDigest = Nothing
+    , _gduflrsDownloadURL = Nothing
+    , _gduflrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The digest of the image layer to download.
 gduflrsLayerDigest :: Lens' GetDownloadURLForLayerResponse (Maybe Text)
-gduflrsLayerDigest = lens _gduflrsLayerDigest (\ s a -> s{_gduflrsLayerDigest = a});
+gduflrsLayerDigest = lens _gduflrsLayerDigest (\ s a -> s{_gduflrsLayerDigest = a})
 
 -- | The pre-signed Amazon S3 download URL for the requested layer.
 gduflrsDownloadURL :: Lens' GetDownloadURLForLayerResponse (Maybe Text)
-gduflrsDownloadURL = lens _gduflrsDownloadURL (\ s a -> s{_gduflrsDownloadURL = a});
+gduflrsDownloadURL = lens _gduflrsDownloadURL (\ s a -> s{_gduflrsDownloadURL = a})
 
 -- | -- | The response status code.
 gduflrsResponseStatus :: Lens' GetDownloadURLForLayerResponse Int
-gduflrsResponseStatus = lens _gduflrsResponseStatus (\ s a -> s{_gduflrsResponseStatus = a});
+gduflrsResponseStatus = lens _gduflrsResponseStatus (\ s a -> s{_gduflrsResponseStatus = a})
 
 instance NFData GetDownloadURLForLayerResponse where

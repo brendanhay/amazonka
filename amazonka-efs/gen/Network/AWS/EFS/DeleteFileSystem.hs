@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DeleteFileSystem
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ deleteFileSystem pFileSystemId_ =
 
 -- | ID of the file system you want to delete.
 delFileSystemId :: Lens' DeleteFileSystem Text
-delFileSystemId = lens _delFileSystemId (\ s a -> s{_delFileSystemId = a});
+delFileSystemId = lens _delFileSystemId (\ s a -> s{_delFileSystemId = a})
 
 instance AWSRequest DeleteFileSystem where
         type Rs DeleteFileSystem = DeleteFileSystemResponse

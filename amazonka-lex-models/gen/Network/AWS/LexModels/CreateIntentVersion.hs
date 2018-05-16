@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.CreateIntentVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,11 +86,11 @@ createIntentVersion pName_ =
 
 -- | Checksum of the @> LATEST@ version of the intent that should be used to create the new version. If you specify a checksum and the @> LATEST@ version of the intent has a different checksum, Amazon Lex returns a @PreconditionFailedException@ exception and doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the @> LATEST@ version.
 civChecksum :: Lens' CreateIntentVersion (Maybe Text)
-civChecksum = lens _civChecksum (\ s a -> s{_civChecksum = a});
+civChecksum = lens _civChecksum (\ s a -> s{_civChecksum = a})
 
 -- | The name of the intent that you want to create a new version of. The name is case sensitive.
 civName :: Lens' CreateIntentVersion Text
-civName = lens _civName (\ s a -> s{_civName = a});
+civName = lens _civName (\ s a -> s{_civName = a})
 
 instance AWSRequest CreateIntentVersion where
         type Rs CreateIntentVersion =
@@ -201,87 +201,87 @@ createIntentVersionResponse
     -> CreateIntentVersionResponse
 createIntentVersionResponse pResponseStatus_ =
   CreateIntentVersionResponse'
-  { _civrsFulfillmentActivity = Nothing
-  , _civrsSlots = Nothing
-  , _civrsRejectionStatement = Nothing
-  , _civrsChecksum = Nothing
-  , _civrsConclusionStatement = Nothing
-  , _civrsSampleUtterances = Nothing
-  , _civrsParentIntentSignature = Nothing
-  , _civrsCreatedDate = Nothing
-  , _civrsName = Nothing
-  , _civrsVersion = Nothing
-  , _civrsFollowUpPrompt = Nothing
-  , _civrsLastUpdatedDate = Nothing
-  , _civrsConfirmationPrompt = Nothing
-  , _civrsDialogCodeHook = Nothing
-  , _civrsDescription = Nothing
-  , _civrsResponseStatus = pResponseStatus_
-  }
+    { _civrsFulfillmentActivity = Nothing
+    , _civrsSlots = Nothing
+    , _civrsRejectionStatement = Nothing
+    , _civrsChecksum = Nothing
+    , _civrsConclusionStatement = Nothing
+    , _civrsSampleUtterances = Nothing
+    , _civrsParentIntentSignature = Nothing
+    , _civrsCreatedDate = Nothing
+    , _civrsName = Nothing
+    , _civrsVersion = Nothing
+    , _civrsFollowUpPrompt = Nothing
+    , _civrsLastUpdatedDate = Nothing
+    , _civrsConfirmationPrompt = Nothing
+    , _civrsDialogCodeHook = Nothing
+    , _civrsDescription = Nothing
+    , _civrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Describes how the intent is fulfilled.
 civrsFulfillmentActivity :: Lens' CreateIntentVersionResponse (Maybe FulfillmentActivity)
-civrsFulfillmentActivity = lens _civrsFulfillmentActivity (\ s a -> s{_civrsFulfillmentActivity = a});
+civrsFulfillmentActivity = lens _civrsFulfillmentActivity (\ s a -> s{_civrsFulfillmentActivity = a})
 
 -- | An array of slot types that defines the information required to fulfill the intent.
 civrsSlots :: Lens' CreateIntentVersionResponse [Slot]
-civrsSlots = lens _civrsSlots (\ s a -> s{_civrsSlots = a}) . _Default . _Coerce;
+civrsSlots = lens _civrsSlots (\ s a -> s{_civrsSlots = a}) . _Default . _Coerce
 
 -- | If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
 civrsRejectionStatement :: Lens' CreateIntentVersionResponse (Maybe Statement)
-civrsRejectionStatement = lens _civrsRejectionStatement (\ s a -> s{_civrsRejectionStatement = a});
+civrsRejectionStatement = lens _civrsRejectionStatement (\ s a -> s{_civrsRejectionStatement = a})
 
 -- | Checksum of the intent version created.
 civrsChecksum :: Lens' CreateIntentVersionResponse (Maybe Text)
-civrsChecksum = lens _civrsChecksum (\ s a -> s{_civrsChecksum = a});
+civrsChecksum = lens _civrsChecksum (\ s a -> s{_civrsChecksum = a})
 
 -- | After the Lambda function specified in the @fulfillmentActivity@ field fulfills the intent, Amazon Lex conveys this statement to the user.
 civrsConclusionStatement :: Lens' CreateIntentVersionResponse (Maybe Statement)
-civrsConclusionStatement = lens _civrsConclusionStatement (\ s a -> s{_civrsConclusionStatement = a});
+civrsConclusionStatement = lens _civrsConclusionStatement (\ s a -> s{_civrsConclusionStatement = a})
 
 -- | An array of sample utterances configured for the intent.
 civrsSampleUtterances :: Lens' CreateIntentVersionResponse [Text]
-civrsSampleUtterances = lens _civrsSampleUtterances (\ s a -> s{_civrsSampleUtterances = a}) . _Default . _Coerce;
+civrsSampleUtterances = lens _civrsSampleUtterances (\ s a -> s{_civrsSampleUtterances = a}) . _Default . _Coerce
 
 -- | A unique identifier for a built-in intent.
 civrsParentIntentSignature :: Lens' CreateIntentVersionResponse (Maybe Text)
-civrsParentIntentSignature = lens _civrsParentIntentSignature (\ s a -> s{_civrsParentIntentSignature = a});
+civrsParentIntentSignature = lens _civrsParentIntentSignature (\ s a -> s{_civrsParentIntentSignature = a})
 
 -- | The date that the intent was created.
 civrsCreatedDate :: Lens' CreateIntentVersionResponse (Maybe UTCTime)
-civrsCreatedDate = lens _civrsCreatedDate (\ s a -> s{_civrsCreatedDate = a}) . mapping _Time;
+civrsCreatedDate = lens _civrsCreatedDate (\ s a -> s{_civrsCreatedDate = a}) . mapping _Time
 
 -- | The name of the intent.
 civrsName :: Lens' CreateIntentVersionResponse (Maybe Text)
-civrsName = lens _civrsName (\ s a -> s{_civrsName = a});
+civrsName = lens _civrsName (\ s a -> s{_civrsName = a})
 
 -- | The version number assigned to the new version of the intent.
 civrsVersion :: Lens' CreateIntentVersionResponse (Maybe Text)
-civrsVersion = lens _civrsVersion (\ s a -> s{_civrsVersion = a});
+civrsVersion = lens _civrsVersion (\ s a -> s{_civrsVersion = a})
 
 -- | If defined, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled.
 civrsFollowUpPrompt :: Lens' CreateIntentVersionResponse (Maybe FollowUpPrompt)
-civrsFollowUpPrompt = lens _civrsFollowUpPrompt (\ s a -> s{_civrsFollowUpPrompt = a});
+civrsFollowUpPrompt = lens _civrsFollowUpPrompt (\ s a -> s{_civrsFollowUpPrompt = a})
 
 -- | The date that the intent was updated.
 civrsLastUpdatedDate :: Lens' CreateIntentVersionResponse (Maybe UTCTime)
-civrsLastUpdatedDate = lens _civrsLastUpdatedDate (\ s a -> s{_civrsLastUpdatedDate = a}) . mapping _Time;
+civrsLastUpdatedDate = lens _civrsLastUpdatedDate (\ s a -> s{_civrsLastUpdatedDate = a}) . mapping _Time
 
 -- | If defined, the prompt that Amazon Lex uses to confirm the user's intent before fulfilling it.
 civrsConfirmationPrompt :: Lens' CreateIntentVersionResponse (Maybe Prompt)
-civrsConfirmationPrompt = lens _civrsConfirmationPrompt (\ s a -> s{_civrsConfirmationPrompt = a});
+civrsConfirmationPrompt = lens _civrsConfirmationPrompt (\ s a -> s{_civrsConfirmationPrompt = a})
 
 -- | If defined, Amazon Lex invokes this Lambda function for each user input.
 civrsDialogCodeHook :: Lens' CreateIntentVersionResponse (Maybe CodeHook)
-civrsDialogCodeHook = lens _civrsDialogCodeHook (\ s a -> s{_civrsDialogCodeHook = a});
+civrsDialogCodeHook = lens _civrsDialogCodeHook (\ s a -> s{_civrsDialogCodeHook = a})
 
 -- | A description of the intent.
 civrsDescription :: Lens' CreateIntentVersionResponse (Maybe Text)
-civrsDescription = lens _civrsDescription (\ s a -> s{_civrsDescription = a});
+civrsDescription = lens _civrsDescription (\ s a -> s{_civrsDescription = a})
 
 -- | -- | The response status code.
 civrsResponseStatus :: Lens' CreateIntentVersionResponse Int
-civrsResponseStatus = lens _civrsResponseStatus (\ s a -> s{_civrsResponseStatus = a});
+civrsResponseStatus = lens _civrsResponseStatus (\ s a -> s{_civrsResponseStatus = a})
 
 instance NFData CreateIntentVersionResponse where

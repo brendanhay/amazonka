@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelConversionTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ cancelConversionTask
     -> CancelConversionTask
 cancelConversionTask pConversionTaskId_ =
   CancelConversionTask'
-  { _cctReasonMessage = Nothing
-  , _cctDryRun = Nothing
-  , _cctConversionTaskId = pConversionTaskId_
-  }
+    { _cctReasonMessage = Nothing
+    , _cctDryRun = Nothing
+    , _cctConversionTaskId = pConversionTaskId_
+    }
 
 
 -- | The reason for canceling the conversion task.
 cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
-cctReasonMessage = lens _cctReasonMessage (\ s a -> s{_cctReasonMessage = a});
+cctReasonMessage = lens _cctReasonMessage (\ s a -> s{_cctReasonMessage = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cctDryRun :: Lens' CancelConversionTask (Maybe Bool)
-cctDryRun = lens _cctDryRun (\ s a -> s{_cctDryRun = a});
+cctDryRun = lens _cctDryRun (\ s a -> s{_cctDryRun = a})
 
 -- | The ID of the conversion task.
 cctConversionTaskId :: Lens' CancelConversionTask Text
-cctConversionTaskId = lens _cctConversionTaskId (\ s a -> s{_cctConversionTaskId = a});
+cctConversionTaskId = lens _cctConversionTaskId (\ s a -> s{_cctConversionTaskId = a})
 
 instance AWSRequest CancelConversionTask where
         type Rs CancelConversionTask =

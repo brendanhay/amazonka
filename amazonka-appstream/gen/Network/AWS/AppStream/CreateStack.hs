@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.CreateStack
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,9 +27,11 @@ module Network.AWS.AppStream.CreateStack
       createStack
     , CreateStack
     -- * Request Lenses
+    , csFeedbackURL
     , csStorageConnectors
     , csDisplayName
     , csDescription
+    , csRedirectURL
     , csName
 
     -- * Destructuring the Response
@@ -49,9 +51,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
-  { _csStorageConnectors :: !(Maybe [StorageConnector])
+  { _csFeedbackURL       :: !(Maybe Text)
+  , _csStorageConnectors :: !(Maybe [StorageConnector])
   , _csDisplayName       :: !(Maybe Text)
   , _csDescription       :: !(Maybe Text)
+  , _csRedirectURL       :: !(Maybe Text)
   , _csName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -60,11 +64,15 @@ data CreateStack = CreateStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'csFeedbackURL' - The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+--
 -- * 'csStorageConnectors' - The storage connectors to enable.
 --
--- * 'csDisplayName' - The stack name displayed to end users.
+-- * 'csDisplayName' - The stack name for display.
 --
--- * 'csDescription' - The description displayed to end users.
+-- * 'csDescription' - The description for display.
+--
+-- * 'csRedirectURL' - The URL that users are redirected to after their streaming session ends.
 --
 -- * 'csName' - The name of the stack.
 createStack
@@ -72,28 +80,38 @@ createStack
     -> CreateStack
 createStack pName_ =
   CreateStack'
-  { _csStorageConnectors = Nothing
-  , _csDisplayName = Nothing
-  , _csDescription = Nothing
-  , _csName = pName_
-  }
+    { _csFeedbackURL = Nothing
+    , _csStorageConnectors = Nothing
+    , _csDisplayName = Nothing
+    , _csDescription = Nothing
+    , _csRedirectURL = Nothing
+    , _csName = pName_
+    }
 
+
+-- | The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+csFeedbackURL :: Lens' CreateStack (Maybe Text)
+csFeedbackURL = lens _csFeedbackURL (\ s a -> s{_csFeedbackURL = a})
 
 -- | The storage connectors to enable.
 csStorageConnectors :: Lens' CreateStack [StorageConnector]
-csStorageConnectors = lens _csStorageConnectors (\ s a -> s{_csStorageConnectors = a}) . _Default . _Coerce;
+csStorageConnectors = lens _csStorageConnectors (\ s a -> s{_csStorageConnectors = a}) . _Default . _Coerce
 
--- | The stack name displayed to end users.
+-- | The stack name for display.
 csDisplayName :: Lens' CreateStack (Maybe Text)
-csDisplayName = lens _csDisplayName (\ s a -> s{_csDisplayName = a});
+csDisplayName = lens _csDisplayName (\ s a -> s{_csDisplayName = a})
 
--- | The description displayed to end users.
+-- | The description for display.
 csDescription :: Lens' CreateStack (Maybe Text)
-csDescription = lens _csDescription (\ s a -> s{_csDescription = a});
+csDescription = lens _csDescription (\ s a -> s{_csDescription = a})
+
+-- | The URL that users are redirected to after their streaming session ends.
+csRedirectURL :: Lens' CreateStack (Maybe Text)
+csRedirectURL = lens _csRedirectURL (\ s a -> s{_csRedirectURL = a})
 
 -- | The name of the stack.
 csName :: Lens' CreateStack Text
-csName = lens _csName (\ s a -> s{_csName = a});
+csName = lens _csName (\ s a -> s{_csName = a})
 
 instance AWSRequest CreateStack where
         type Rs CreateStack = CreateStackResponse
@@ -122,9 +140,11 @@ instance ToJSON CreateStack where
         toJSON CreateStack'{..}
           = object
               (catMaybes
-                 [("StorageConnectors" .=) <$> _csStorageConnectors,
+                 [("FeedbackURL" .=) <$> _csFeedbackURL,
+                  ("StorageConnectors" .=) <$> _csStorageConnectors,
                   ("DisplayName" .=) <$> _csDisplayName,
                   ("Description" .=) <$> _csDescription,
+                  ("RedirectURL" .=) <$> _csRedirectURL,
                   Just ("Name" .= _csName)])
 
 instance ToPath CreateStack where
@@ -152,15 +172,15 @@ createStackResponse
     -> CreateStackResponse
 createStackResponse pResponseStatus_ =
   CreateStackResponse'
-  {_csrsStack = Nothing, _csrsResponseStatus = pResponseStatus_}
+    {_csrsStack = Nothing, _csrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the stack.
 csrsStack :: Lens' CreateStackResponse (Maybe Stack)
-csrsStack = lens _csrsStack (\ s a -> s{_csrsStack = a});
+csrsStack = lens _csrsStack (\ s a -> s{_csrsStack = a})
 
 -- | -- | The response status code.
 csrsResponseStatus :: Lens' CreateStackResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a})
 
 instance NFData CreateStackResponse where

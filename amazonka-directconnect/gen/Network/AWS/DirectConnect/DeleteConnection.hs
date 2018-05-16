@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,7 +80,7 @@ deleteConnection pConnectionId_ =
 
 -- | Undocumented member.
 dcConnectionId :: Lens' DeleteConnection Text
-dcConnectionId = lens _dcConnectionId (\ s a -> s{_dcConnectionId = a});
+dcConnectionId = lens _dcConnectionId (\ s a -> s{_dcConnectionId = a})
 
 instance AWSRequest DeleteConnection where
         type Rs DeleteConnection = Connection

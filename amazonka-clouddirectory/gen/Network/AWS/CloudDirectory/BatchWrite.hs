@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.BatchWrite
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Performs all the write operations in a batch. Either all the operations succeed or none. Batch writes supports only object-related operations.
+-- Performs all the write operations in a batch. Either all the operations succeed or none.
 --
 --
 module Network.AWS.CloudDirectory.BatchWrite
@@ -68,11 +68,11 @@ batchWrite pDirectoryARN_ =
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 bwDirectoryARN :: Lens' BatchWrite Text
-bwDirectoryARN = lens _bwDirectoryARN (\ s a -> s{_bwDirectoryARN = a});
+bwDirectoryARN = lens _bwDirectoryARN (\ s a -> s{_bwDirectoryARN = a})
 
 -- | A list of operations that are part of the batch.
 bwOperations :: Lens' BatchWrite [BatchWriteOperation]
-bwOperations = lens _bwOperations (\ s a -> s{_bwOperations = a}) . _Coerce;
+bwOperations = lens _bwOperations (\ s a -> s{_bwOperations = a}) . _Coerce
 
 instance AWSRequest BatchWrite where
         type Rs BatchWrite = BatchWriteResponse
@@ -123,15 +123,15 @@ batchWriteResponse
     -> BatchWriteResponse
 batchWriteResponse pResponseStatus_ =
   BatchWriteResponse'
-  {_bwrsResponses = Nothing, _bwrsResponseStatus = pResponseStatus_}
+    {_bwrsResponses = Nothing, _bwrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of all the responses for each batch write.
 bwrsResponses :: Lens' BatchWriteResponse [BatchWriteOperationResponse]
-bwrsResponses = lens _bwrsResponses (\ s a -> s{_bwrsResponses = a}) . _Default . _Coerce;
+bwrsResponses = lens _bwrsResponses (\ s a -> s{_bwrsResponses = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bwrsResponseStatus :: Lens' BatchWriteResponse Int
-bwrsResponseStatus = lens _bwrsResponseStatus (\ s a -> s{_bwrsResponseStatus = a});
+bwrsResponseStatus = lens _bwrsResponseStatus (\ s a -> s{_bwrsResponseStatus = a})
 
 instance NFData BatchWriteResponse where

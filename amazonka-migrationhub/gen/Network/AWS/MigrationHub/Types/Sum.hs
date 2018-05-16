@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,7 +93,6 @@ data ResourceAttributeType
   | Fqdn
   | IPV4Address
   | IPV6Address
-  | Label
   | MACAddress
   | MotherboardSerialNumber
   | VMManagedObjectReference
@@ -109,7 +108,6 @@ instance FromText ResourceAttributeType where
         "fqdn" -> pure Fqdn
         "ipv4_address" -> pure IPV4Address
         "ipv6_address" -> pure IPV6Address
-        "label" -> pure Label
         "mac_address" -> pure MACAddress
         "motherboard_serial_number" -> pure MotherboardSerialNumber
         "vm_managed_object_reference" -> pure VMManagedObjectReference
@@ -117,7 +115,7 @@ instance FromText ResourceAttributeType where
         "vm_name" -> pure VMName
         "vm_path" -> pure VMPath
         e -> fromTextError $ "Failure parsing ResourceAttributeType from value: '" <> e
-           <> "'. Accepted values: bios_id, fqdn, ipv4_address, ipv6_address, label, mac_address, motherboard_serial_number, vm_managed_object_reference, vm_manager_id, vm_name, vm_path"
+           <> "'. Accepted values: bios_id, fqdn, ipv4_address, ipv6_address, mac_address, motherboard_serial_number, vm_managed_object_reference, vm_manager_id, vm_name, vm_path"
 
 instance ToText ResourceAttributeType where
     toText = \case
@@ -125,7 +123,6 @@ instance ToText ResourceAttributeType where
         Fqdn -> "FQDN"
         IPV4Address -> "IPV4_ADDRESS"
         IPV6Address -> "IPV6_ADDRESS"
-        Label -> "LABEL"
         MACAddress -> "MAC_ADDRESS"
         MotherboardSerialNumber -> "MOTHERBOARD_SERIAL_NUMBER"
         VMManagedObjectReference -> "VM_MANAGED_OBJECT_REFERENCE"

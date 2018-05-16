@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.XRay.BatchGetTraces
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request. Use @GetTraceSummaries@ to get a list of trace IDs.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.XRay.BatchGetTraces
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.XRay.BatchGetTraces
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -69,11 +72,18 @@ batchGetTraces =
 
 -- | Pagination token. Not used.
 bgtNextToken :: Lens' BatchGetTraces (Maybe Text)
-bgtNextToken = lens _bgtNextToken (\ s a -> s{_bgtNextToken = a});
+bgtNextToken = lens _bgtNextToken (\ s a -> s{_bgtNextToken = a})
 
 -- | Specify the trace IDs of requests for which to retrieve segments.
 bgtTraceIds :: Lens' BatchGetTraces [Text]
-bgtTraceIds = lens _bgtTraceIds (\ s a -> s{_bgtTraceIds = a}) . _Coerce;
+bgtTraceIds = lens _bgtTraceIds (\ s a -> s{_bgtTraceIds = a}) . _Coerce
+
+instance AWSPager BatchGetTraces where
+        page rq rs
+          | stop (rs ^. bgtrsNextToken) = Nothing
+          | stop (rs ^. bgtrsTraces) = Nothing
+          | otherwise =
+            Just $ rq & bgtNextToken .~ rs ^. bgtrsNextToken
 
 instance AWSRequest BatchGetTraces where
         type Rs BatchGetTraces = BatchGetTracesResponse
@@ -131,27 +141,27 @@ batchGetTracesResponse
     -> BatchGetTracesResponse
 batchGetTracesResponse pResponseStatus_ =
   BatchGetTracesResponse'
-  { _bgtrsNextToken = Nothing
-  , _bgtrsTraces = Nothing
-  , _bgtrsUnprocessedTraceIds = Nothing
-  , _bgtrsResponseStatus = pResponseStatus_
-  }
+    { _bgtrsNextToken = Nothing
+    , _bgtrsTraces = Nothing
+    , _bgtrsUnprocessedTraceIds = Nothing
+    , _bgtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Pagination token. Not used.
 bgtrsNextToken :: Lens' BatchGetTracesResponse (Maybe Text)
-bgtrsNextToken = lens _bgtrsNextToken (\ s a -> s{_bgtrsNextToken = a});
+bgtrsNextToken = lens _bgtrsNextToken (\ s a -> s{_bgtrsNextToken = a})
 
 -- | Full traces for the specified requests.
 bgtrsTraces :: Lens' BatchGetTracesResponse [Trace]
-bgtrsTraces = lens _bgtrsTraces (\ s a -> s{_bgtrsTraces = a}) . _Default . _Coerce;
+bgtrsTraces = lens _bgtrsTraces (\ s a -> s{_bgtrsTraces = a}) . _Default . _Coerce
 
 -- | Trace IDs of requests that haven't been processed.
 bgtrsUnprocessedTraceIds :: Lens' BatchGetTracesResponse [Text]
-bgtrsUnprocessedTraceIds = lens _bgtrsUnprocessedTraceIds (\ s a -> s{_bgtrsUnprocessedTraceIds = a}) . _Default . _Coerce;
+bgtrsUnprocessedTraceIds = lens _bgtrsUnprocessedTraceIds (\ s a -> s{_bgtrsUnprocessedTraceIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bgtrsResponseStatus :: Lens' BatchGetTracesResponse Int
-bgtrsResponseStatus = lens _bgtrsResponseStatus (\ s a -> s{_bgtrsResponseStatus = a});
+bgtrsResponseStatus = lens _bgtrsResponseStatus (\ s a -> s{_bgtrsResponseStatus = a})
 
 instance NFData BatchGetTracesResponse where

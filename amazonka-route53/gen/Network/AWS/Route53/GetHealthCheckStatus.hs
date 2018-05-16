@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheckStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getHealthCheckStatus pHealthCheckId_ =
 
 -- | The ID for the health check that you want the current status for. When you created the health check, @CreateHealthCheck@ returned the ID in the response, in the @HealthCheckId@ element.
 ghcsHealthCheckId :: Lens' GetHealthCheckStatus Text
-ghcsHealthCheckId = lens _ghcsHealthCheckId (\ s a -> s{_ghcsHealthCheckId = a});
+ghcsHealthCheckId = lens _ghcsHealthCheckId (\ s a -> s{_ghcsHealthCheckId = a})
 
 instance AWSRequest GetHealthCheckStatus where
         type Rs GetHealthCheckStatus =
@@ -121,17 +121,17 @@ getHealthCheckStatusResponse
     -> GetHealthCheckStatusResponse
 getHealthCheckStatusResponse pResponseStatus_ =
   GetHealthCheckStatusResponse'
-  { _ghcsrsResponseStatus = pResponseStatus_
-  , _ghcsrsHealthCheckObservations = mempty
-  }
+    { _ghcsrsResponseStatus = pResponseStatus_
+    , _ghcsrsHealthCheckObservations = mempty
+    }
 
 
 -- | -- | The response status code.
 ghcsrsResponseStatus :: Lens' GetHealthCheckStatusResponse Int
-ghcsrsResponseStatus = lens _ghcsrsResponseStatus (\ s a -> s{_ghcsrsResponseStatus = a});
+ghcsrsResponseStatus = lens _ghcsrsResponseStatus (\ s a -> s{_ghcsrsResponseStatus = a})
 
 -- | A list that contains one @HealthCheckObservation@ element for each Amazon Route 53 health checker that is reporting a status about the health check endpoint.
 ghcsrsHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
-ghcsrsHealthCheckObservations = lens _ghcsrsHealthCheckObservations (\ s a -> s{_ghcsrsHealthCheckObservations = a}) . _Coerce;
+ghcsrsHealthCheckObservations = lens _ghcsrsHealthCheckObservations (\ s a -> s{_ghcsrsHealthCheckObservations = a}) . _Coerce
 
 instance NFData GetHealthCheckStatusResponse where

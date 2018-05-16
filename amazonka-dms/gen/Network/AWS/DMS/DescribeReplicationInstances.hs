@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeReplicationInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Returns information about replication instances for your account in the current region.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DMS.DescribeReplicationInstances
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.DMS.DescribeReplicationInstances
 import Network.AWS.DMS.Types
 import Network.AWS.DMS.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,20 +75,27 @@ describeReplicationInstances
     :: DescribeReplicationInstances
 describeReplicationInstances =
   DescribeReplicationInstances'
-  {_driFilters = Nothing, _driMarker = Nothing, _driMaxRecords = Nothing}
+    {_driFilters = Nothing, _driMarker = Nothing, _driMaxRecords = Nothing}
 
 
 -- | Filters applied to the describe action. Valid filter names: replication-instance-arn | replication-instance-id | replication-instance-class | engine-version
 driFilters :: Lens' DescribeReplicationInstances [Filter]
-driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default . _Coerce;
+driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 driMarker :: Lens' DescribeReplicationInstances (Maybe Text)
-driMarker = lens _driMarker (\ s a -> s{_driMarker = a});
+driMarker = lens _driMarker (\ s a -> s{_driMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 driMaxRecords :: Lens' DescribeReplicationInstances (Maybe Int)
-driMaxRecords = lens _driMaxRecords (\ s a -> s{_driMaxRecords = a});
+driMaxRecords = lens _driMaxRecords (\ s a -> s{_driMaxRecords = a})
+
+instance AWSPager DescribeReplicationInstances where
+        page rq rs
+          | stop (rs ^. drisrsMarker) = Nothing
+          | stop (rs ^. drisrsReplicationInstances) = Nothing
+          | otherwise =
+            Just $ rq & driMarker .~ rs ^. drisrsMarker
 
 instance AWSRequest DescribeReplicationInstances
          where
@@ -154,23 +164,23 @@ describeReplicationInstancesResponse
     -> DescribeReplicationInstancesResponse
 describeReplicationInstancesResponse pResponseStatus_ =
   DescribeReplicationInstancesResponse'
-  { _drisrsMarker = Nothing
-  , _drisrsReplicationInstances = Nothing
-  , _drisrsResponseStatus = pResponseStatus_
-  }
+    { _drisrsMarker = Nothing
+    , _drisrsReplicationInstances = Nothing
+    , _drisrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drisrsMarker :: Lens' DescribeReplicationInstancesResponse (Maybe Text)
-drisrsMarker = lens _drisrsMarker (\ s a -> s{_drisrsMarker = a});
+drisrsMarker = lens _drisrsMarker (\ s a -> s{_drisrsMarker = a})
 
 -- | The replication instances described.
 drisrsReplicationInstances :: Lens' DescribeReplicationInstancesResponse [ReplicationInstance]
-drisrsReplicationInstances = lens _drisrsReplicationInstances (\ s a -> s{_drisrsReplicationInstances = a}) . _Default . _Coerce;
+drisrsReplicationInstances = lens _drisrsReplicationInstances (\ s a -> s{_drisrsReplicationInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drisrsResponseStatus :: Lens' DescribeReplicationInstancesResponse Int
-drisrsResponseStatus = lens _drisrsResponseStatus (\ s a -> s{_drisrsResponseStatus = a});
+drisrsResponseStatus = lens _drisrsResponseStatus (\ s a -> s{_drisrsResponseStatus = a})
 
 instance NFData DescribeReplicationInstancesResponse
          where

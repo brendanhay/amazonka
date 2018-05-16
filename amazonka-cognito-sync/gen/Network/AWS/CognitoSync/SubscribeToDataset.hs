@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.SubscribeToDataset
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,28 +80,28 @@ subscribeToDataset
     -> SubscribeToDataset
 subscribeToDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
   SubscribeToDataset'
-  { _stdIdentityPoolId = pIdentityPoolId_
-  , _stdIdentityId = pIdentityId_
-  , _stdDatasetName = pDatasetName_
-  , _stdDeviceId = pDeviceId_
-  }
+    { _stdIdentityPoolId = pIdentityPoolId_
+    , _stdIdentityId = pIdentityId_
+    , _stdDatasetName = pDatasetName_
+    , _stdDeviceId = pDeviceId_
+    }
 
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.
 stdIdentityPoolId :: Lens' SubscribeToDataset Text
-stdIdentityPoolId = lens _stdIdentityPoolId (\ s a -> s{_stdIdentityPoolId = a});
+stdIdentityPoolId = lens _stdIdentityPoolId (\ s a -> s{_stdIdentityPoolId = a})
 
 -- | Unique ID for this identity.
 stdIdentityId :: Lens' SubscribeToDataset Text
-stdIdentityId = lens _stdIdentityId (\ s a -> s{_stdIdentityId = a});
+stdIdentityId = lens _stdIdentityId (\ s a -> s{_stdIdentityId = a})
 
 -- | The name of the dataset to subcribe to.
 stdDatasetName :: Lens' SubscribeToDataset Text
-stdDatasetName = lens _stdDatasetName (\ s a -> s{_stdDatasetName = a});
+stdDatasetName = lens _stdDatasetName (\ s a -> s{_stdDatasetName = a})
 
 -- | The unique ID generated for this device by Cognito.
 stdDeviceId :: Lens' SubscribeToDataset Text
-stdDeviceId = lens _stdDeviceId (\ s a -> s{_stdDeviceId = a});
+stdDeviceId = lens _stdDeviceId (\ s a -> s{_stdDeviceId = a})
 
 instance AWSRequest SubscribeToDataset where
         type Rs SubscribeToDataset =
@@ -161,6 +161,6 @@ subscribeToDatasetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 stdrsResponseStatus :: Lens' SubscribeToDatasetResponse Int
-stdrsResponseStatus = lens _stdrsResponseStatus (\ s a -> s{_stdrsResponseStatus = a});
+stdrsResponseStatus = lens _stdrsResponseStatus (\ s a -> s{_stdrsResponseStatus = a})
 
 instance NFData SubscribeToDatasetResponse where

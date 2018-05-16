@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,8 @@
 --     * @CreateProject@ : Creates a build project.
 --
 --     * @CreateWebhook@ : For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, enables AWS CodeBuild to begin automatically rebuilding the source code every time a code change is pushed to the repository.
+--
+--     * @UpdateWebhook@ : Changes the settings of an existing webhook.
 --
 --     * @DeleteProject@ : Deletes a build project.
 --
@@ -103,8 +105,14 @@ module Network.AWS.CodeBuild
     -- ** BatchGetBuilds
     , module Network.AWS.CodeBuild.BatchGetBuilds
 
+    -- ** UpdateWebhook
+    , module Network.AWS.CodeBuild.UpdateWebhook
+
     -- ** DeleteWebhook
     , module Network.AWS.CodeBuild.DeleteWebhook
+
+    -- ** InvalidateProjectCache
+    , module Network.AWS.CodeBuild.InvalidateProjectCache
 
     -- ** BatchDeleteBuilds
     , module Network.AWS.CodeBuild.BatchDeleteBuilds
@@ -131,6 +139,9 @@ module Network.AWS.CodeBuild
 
     -- ** BuildPhaseType
     , BuildPhaseType (..)
+
+    -- ** CacheType
+    , CacheType (..)
 
     -- ** ComputeType
     , ComputeType (..)
@@ -172,9 +183,12 @@ module Network.AWS.CodeBuild
     , bArtifacts
     , bEnvironment
     , bInitiator
+    , bNetworkInterface
     , bCurrentPhase
+    , bCache
     , bSourceVersion
     , bLogs
+    , bVpcConfig
     , bEndTime
     , bProjectName
     , bBuildStatus
@@ -208,6 +222,7 @@ module Network.AWS.CodeBuild
     -- ** EnvironmentImage
     , EnvironmentImage
     , environmentImage
+    , eiVersions
     , eiName
     , eiDescription
 
@@ -237,6 +252,12 @@ module Network.AWS.CodeBuild
     , llGroupName
     , llStreamName
 
+    -- ** NetworkInterface
+    , NetworkInterface
+    , networkInterface
+    , niSubnetId
+    , niNetworkInterfaceId
+
     -- ** PhaseContext
     , PhaseContext
     , phaseContext
@@ -250,8 +271,11 @@ module Network.AWS.CodeBuild
     , pArtifacts
     , pEnvironment
     , pCreated
+    , pCache
     , pName
+    , pVpcConfig
     , pSource
+    , pBadge
     , pEncryptionKey
     , pLastModified
     , pWebhook
@@ -270,10 +294,23 @@ module Network.AWS.CodeBuild
     , paNamespaceType
     , paType
 
+    -- ** ProjectBadge
+    , ProjectBadge
+    , projectBadge
+    , pbBadgeEnabled
+    , pbBadgeRequestURL
+
+    -- ** ProjectCache
+    , ProjectCache
+    , projectCache
+    , pcLocation
+    , pcType
+
     -- ** ProjectEnvironment
     , ProjectEnvironment
     , projectEnvironment
     , pePrivilegedMode
+    , peCertificate
     , peEnvironmentVariables
     , peType
     , peImage
@@ -282,9 +319,11 @@ module Network.AWS.CodeBuild
     -- ** ProjectSource
     , ProjectSource
     , projectSource
+    , psInsecureSSL
     , psLocation
     , psAuth
     , psBuildspec
+    , psGitCloneDepth
     , psType
 
     -- ** SourceAuth
@@ -299,10 +338,21 @@ module Network.AWS.CodeBuild
     , tagValue
     , tagKey
 
+    -- ** VPCConfig
+    , VPCConfig
+    , vpcConfig
+    , vcSecurityGroupIds
+    , vcVpcId
+    , vcSubnets
+
     -- ** Webhook
     , Webhook
     , webhook
+    , wBranchFilter
+    , wLastModifiedSecret
     , wUrl
+    , wSecret
+    , wPayloadURL
     ) where
 
 import Network.AWS.CodeBuild.BatchDeleteBuilds
@@ -312,6 +362,7 @@ import Network.AWS.CodeBuild.CreateProject
 import Network.AWS.CodeBuild.CreateWebhook
 import Network.AWS.CodeBuild.DeleteProject
 import Network.AWS.CodeBuild.DeleteWebhook
+import Network.AWS.CodeBuild.InvalidateProjectCache
 import Network.AWS.CodeBuild.ListBuilds
 import Network.AWS.CodeBuild.ListBuildsForProject
 import Network.AWS.CodeBuild.ListCuratedEnvironmentImages
@@ -320,6 +371,7 @@ import Network.AWS.CodeBuild.StartBuild
 import Network.AWS.CodeBuild.StopBuild
 import Network.AWS.CodeBuild.Types
 import Network.AWS.CodeBuild.UpdateProject
+import Network.AWS.CodeBuild.UpdateWebhook
 import Network.AWS.CodeBuild.Waiters
 
 {- $errors

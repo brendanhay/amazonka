@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateTopicRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ createTopicRule
     -> CreateTopicRule
 createTopicRule pRuleName_ pTopicRulePayload_ =
   CreateTopicRule'
-  {_ctrRuleName = pRuleName_, _ctrTopicRulePayload = pTopicRulePayload_}
+    {_ctrRuleName = pRuleName_, _ctrTopicRulePayload = pTopicRulePayload_}
 
 
 -- | The name of the rule.
 ctrRuleName :: Lens' CreateTopicRule Text
-ctrRuleName = lens _ctrRuleName (\ s a -> s{_ctrRuleName = a});
+ctrRuleName = lens _ctrRuleName (\ s a -> s{_ctrRuleName = a})
 
 -- | The rule payload.
 ctrTopicRulePayload :: Lens' CreateTopicRule TopicRulePayload
-ctrTopicRulePayload = lens _ctrTopicRulePayload (\ s a -> s{_ctrTopicRulePayload = a});
+ctrTopicRulePayload = lens _ctrTopicRulePayload (\ s a -> s{_ctrTopicRulePayload = a})
 
 instance AWSRequest CreateTopicRule where
         type Rs CreateTopicRule = CreateTopicRuleResponse

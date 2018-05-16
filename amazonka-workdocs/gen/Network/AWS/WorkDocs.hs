@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -14,15 +14,15 @@
 -- The WorkDocs API is designed for the following use cases:
 --
 --
---     * File Migration: File migration applications are supported for users who want to migrate their files from an on-premise or off-premise file system or service. Users can insert files into a user directory structure, as well as allow for basic metadata changes, such as modifications to the permissions of files.
+--     * File Migration: File migration applications are supported for users who want to migrate their files from an on-premises or off-premises file system or service. Users can insert files into a user directory structure, as well as allow for basic metadata changes, such as modifications to the permissions of files.
 --
---     * Security: Support security applications are supported for users who have additional security needs, such as anti-virus or data loss prevention. The APIs, in conjunction with Amazon CloudTrail, allow these applications to detect when changes occur in Amazon WorkDocs, so the application can take the necessary actions and replace the target file. The application can also choose to email the user if the target file violates the policy.
+--     * Security: Support security applications are supported for users who have additional security needs, such as antivirus or data loss prevention. The API actions, along with AWS CloudTrail, allow these applications to detect when changes occur in Amazon WorkDocs. Then, the application can take the necessary actions and replace the target file. If the target file violates the policy, the application can also choose to email the user.
 --
---     * eDiscovery/Analytics: General administrative applications are supported, such as eDiscovery and analytics. These applications can choose to mimic and/or record the actions in an Amazon WorkDocs site, in conjunction with Amazon CloudTrails, to replicate data for eDiscovery, backup, or analytical applications.
+--     * eDiscovery/Analytics: General administrative applications are supported, such as eDiscovery and analytics. These applications can choose to mimic or record the actions in an Amazon WorkDocs site, along with AWS CloudTrail, to replicate data for eDiscovery, backup, or analytical applications.
 --
 --
 --
--- All Amazon WorkDocs APIs are Amazon authenticated, certificate-signed APIs. They not only require the use of the AWS SDK, but also allow for the exclusive use of IAM users and roles to help facilitate access, trust, and permission policies. By creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM user gains full administrative visibility into the entire Amazon WorkDocs site (or as set in the IAM policy). This includes, but is not limited to, the ability to modify file permissions and upload any file to any user. This allows developers to perform the three use cases above, as well as give users the ability to grant access on a selective basis using the IAM model.
+-- All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed. They not only require the use of the AWS SDK, but also allow for the exclusive use of IAM users and roles to help facilitate access, trust, and permission policies. By creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM user gains full administrative visibility into the entire Amazon WorkDocs site (or as set in the IAM policy). This includes, but is not limited to, the ability to modify file permissions and upload any file to any user. This allows developers to perform the three use cases above, as well as give users the ability to grant access on a selective basis using the IAM model.
 --
 module Network.AWS.WorkDocs
     (
@@ -94,6 +94,9 @@ module Network.AWS.WorkDocs
 
     -- ** LimitExceededException
     , _LimitExceededException
+
+    -- ** InvalidPasswordException
+    , _InvalidPasswordException
 
     -- * Waiters
     -- $waiters
@@ -218,10 +221,16 @@ module Network.AWS.WorkDocs
     -- ** DeleteDocument
     , module Network.AWS.WorkDocs.DeleteDocument
 
+    -- ** DescribeGroups
+    , module Network.AWS.WorkDocs.DescribeGroups
+
     -- * Types
 
     -- ** ActivityType
     , ActivityType (..)
+
+    -- ** BooleanEnumType
+    , BooleanEnumType (..)
 
     -- ** CommentStatusType
     , CommentStatusType (..)
@@ -376,6 +385,12 @@ module Network.AWS.WorkDocs
     , gmName
     , gmId
 
+    -- ** NotificationOptions
+    , NotificationOptions
+    , notificationOptions
+    , noEmailMessage
+    , noSendEmail
+
     -- ** Participants
     , Participants
     , participants
@@ -509,6 +524,7 @@ import Network.AWS.WorkDocs.DescribeActivities
 import Network.AWS.WorkDocs.DescribeComments
 import Network.AWS.WorkDocs.DescribeDocumentVersions
 import Network.AWS.WorkDocs.DescribeFolderContents
+import Network.AWS.WorkDocs.DescribeGroups
 import Network.AWS.WorkDocs.DescribeNotificationSubscriptions
 import Network.AWS.WorkDocs.DescribeResourcePermissions
 import Network.AWS.WorkDocs.DescribeRootFolders

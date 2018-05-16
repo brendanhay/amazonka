@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateSegment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ updateSegment
     -> UpdateSegment
 updateSegment pSegmentId_ pApplicationId_ pWriteSegmentRequest_ =
   UpdateSegment'
-  { _usSegmentId = pSegmentId_
-  , _usApplicationId = pApplicationId_
-  , _usWriteSegmentRequest = pWriteSegmentRequest_
-  }
+    { _usSegmentId = pSegmentId_
+    , _usApplicationId = pApplicationId_
+    , _usWriteSegmentRequest = pWriteSegmentRequest_
+    }
 
 
 -- | Undocumented member.
 usSegmentId :: Lens' UpdateSegment Text
-usSegmentId = lens _usSegmentId (\ s a -> s{_usSegmentId = a});
+usSegmentId = lens _usSegmentId (\ s a -> s{_usSegmentId = a})
 
 -- | Undocumented member.
 usApplicationId :: Lens' UpdateSegment Text
-usApplicationId = lens _usApplicationId (\ s a -> s{_usApplicationId = a});
+usApplicationId = lens _usApplicationId (\ s a -> s{_usApplicationId = a})
 
 -- | Undocumented member.
 usWriteSegmentRequest :: Lens' UpdateSegment WriteSegmentRequest
-usWriteSegmentRequest = lens _usWriteSegmentRequest (\ s a -> s{_usWriteSegmentRequest = a});
+usWriteSegmentRequest = lens _usWriteSegmentRequest (\ s a -> s{_usWriteSegmentRequest = a})
 
 instance AWSRequest UpdateSegment where
         type Rs UpdateSegment = UpdateSegmentResponse
@@ -142,17 +142,17 @@ updateSegmentResponse
     -> UpdateSegmentResponse
 updateSegmentResponse pResponseStatus_ pSegmentResponse_ =
   UpdateSegmentResponse'
-  { _usrsResponseStatus = pResponseStatus_
-  , _usrsSegmentResponse = pSegmentResponse_
-  }
+    { _usrsResponseStatus = pResponseStatus_
+    , _usrsSegmentResponse = pSegmentResponse_
+    }
 
 
 -- | -- | The response status code.
 usrsResponseStatus :: Lens' UpdateSegmentResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
+usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a})
 
 -- | Undocumented member.
 usrsSegmentResponse :: Lens' UpdateSegmentResponse SegmentResponse
-usrsSegmentResponse = lens _usrsSegmentResponse (\ s a -> s{_usrsSegmentResponse = a});
+usrsSegmentResponse = lens _usrsSegmentResponse (\ s a -> s{_usrsSegmentResponse = a})
 
 instance NFData UpdateSegmentResponse where

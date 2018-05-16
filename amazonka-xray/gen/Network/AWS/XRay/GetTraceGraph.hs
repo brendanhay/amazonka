@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.XRay.GetTraceGraph
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Retrieves a service graph for one or more specific trace IDs.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.XRay.GetTraceGraph
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.XRay.GetTraceGraph
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -67,11 +70,18 @@ getTraceGraph = GetTraceGraph' {_gtgNextToken = Nothing, _gtgTraceIds = mempty}
 
 -- | Pagination token. Not used.
 gtgNextToken :: Lens' GetTraceGraph (Maybe Text)
-gtgNextToken = lens _gtgNextToken (\ s a -> s{_gtgNextToken = a});
+gtgNextToken = lens _gtgNextToken (\ s a -> s{_gtgNextToken = a})
 
 -- | Trace IDs of requests for which to generate a service graph.
 gtgTraceIds :: Lens' GetTraceGraph [Text]
-gtgTraceIds = lens _gtgTraceIds (\ s a -> s{_gtgTraceIds = a}) . _Coerce;
+gtgTraceIds = lens _gtgTraceIds (\ s a -> s{_gtgTraceIds = a}) . _Coerce
+
+instance AWSPager GetTraceGraph where
+        page rq rs
+          | stop (rs ^. gtgrsNextToken) = Nothing
+          | stop (rs ^. gtgrsServices) = Nothing
+          | otherwise =
+            Just $ rq & gtgNextToken .~ rs ^. gtgrsNextToken
 
 instance AWSRequest GetTraceGraph where
         type Rs GetTraceGraph = GetTraceGraphResponse
@@ -125,22 +135,22 @@ getTraceGraphResponse
     -> GetTraceGraphResponse
 getTraceGraphResponse pResponseStatus_ =
   GetTraceGraphResponse'
-  { _gtgrsNextToken = Nothing
-  , _gtgrsServices = Nothing
-  , _gtgrsResponseStatus = pResponseStatus_
-  }
+    { _gtgrsNextToken = Nothing
+    , _gtgrsServices = Nothing
+    , _gtgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Pagination token. Not used.
 gtgrsNextToken :: Lens' GetTraceGraphResponse (Maybe Text)
-gtgrsNextToken = lens _gtgrsNextToken (\ s a -> s{_gtgrsNextToken = a});
+gtgrsNextToken = lens _gtgrsNextToken (\ s a -> s{_gtgrsNextToken = a})
 
 -- | The services that have processed one of the specified requests.
 gtgrsServices :: Lens' GetTraceGraphResponse [ServiceInfo]
-gtgrsServices = lens _gtgrsServices (\ s a -> s{_gtgrsServices = a}) . _Default . _Coerce;
+gtgrsServices = lens _gtgrsServices (\ s a -> s{_gtgrsServices = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gtgrsResponseStatus :: Lens' GetTraceGraphResponse Int
-gtgrsResponseStatus = lens _gtgrsResponseStatus (\ s a -> s{_gtgrsResponseStatus = a});
+gtgrsResponseStatus = lens _gtgrsResponseStatus (\ s a -> s{_gtgrsResponseStatus = a})
 
 instance NFData GetTraceGraphResponse where

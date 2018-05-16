@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.CreateConfigurationSetTrackingOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,18 +70,18 @@ createConfigurationSetTrackingOptions
     -> CreateConfigurationSetTrackingOptions
 createConfigurationSetTrackingOptions pConfigurationSetName_ pTrackingOptions_ =
   CreateConfigurationSetTrackingOptions'
-  { _ccstoConfigurationSetName = pConfigurationSetName_
-  , _ccstoTrackingOptions = pTrackingOptions_
-  }
+    { _ccstoConfigurationSetName = pConfigurationSetName_
+    , _ccstoTrackingOptions = pTrackingOptions_
+    }
 
 
 -- | The name of the configuration set that the tracking options should be associated with.
 ccstoConfigurationSetName :: Lens' CreateConfigurationSetTrackingOptions Text
-ccstoConfigurationSetName = lens _ccstoConfigurationSetName (\ s a -> s{_ccstoConfigurationSetName = a});
+ccstoConfigurationSetName = lens _ccstoConfigurationSetName (\ s a -> s{_ccstoConfigurationSetName = a})
 
 -- | Undocumented member.
 ccstoTrackingOptions :: Lens' CreateConfigurationSetTrackingOptions TrackingOptions
-ccstoTrackingOptions = lens _ccstoTrackingOptions (\ s a -> s{_ccstoTrackingOptions = a});
+ccstoTrackingOptions = lens _ccstoTrackingOptions (\ s a -> s{_ccstoTrackingOptions = a})
 
 instance AWSRequest
            CreateConfigurationSetTrackingOptions
@@ -144,12 +144,12 @@ createConfigurationSetTrackingOptionsResponse
     -> CreateConfigurationSetTrackingOptionsResponse
 createConfigurationSetTrackingOptionsResponse pResponseStatus_ =
   CreateConfigurationSetTrackingOptionsResponse'
-  {_ccstorsResponseStatus = pResponseStatus_}
+    {_ccstorsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 ccstorsResponseStatus :: Lens' CreateConfigurationSetTrackingOptionsResponse Int
-ccstorsResponseStatus = lens _ccstorsResponseStatus (\ s a -> s{_ccstorsResponseStatus = a});
+ccstorsResponseStatus = lens _ccstorsResponseStatus (\ s a -> s{_ccstorsResponseStatus = a})
 
 instance NFData
            CreateConfigurationSetTrackingOptionsResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ confirmPublicVirtualInterface pVirtualInterfaceId_ =
 
 -- | Undocumented member.
 cVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
-cVirtualInterfaceId = lens _cVirtualInterfaceId (\ s a -> s{_cVirtualInterfaceId = a});
+cVirtualInterfaceId = lens _cVirtualInterfaceId (\ s a -> s{_cVirtualInterfaceId = a})
 
 instance AWSRequest ConfirmPublicVirtualInterface
          where
@@ -135,16 +135,16 @@ confirmPublicVirtualInterfaceResponse
     -> ConfirmPublicVirtualInterfaceResponse
 confirmPublicVirtualInterfaceResponse pResponseStatus_ =
   ConfirmPublicVirtualInterfaceResponse'
-  {_crsVirtualInterfaceState = Nothing, _crsResponseStatus = pResponseStatus_}
+    {_crsVirtualInterfaceState = Nothing, _crsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 crsVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-crsVirtualInterfaceState = lens _crsVirtualInterfaceState (\ s a -> s{_crsVirtualInterfaceState = a});
+crsVirtualInterfaceState = lens _crsVirtualInterfaceState (\ s a -> s{_crsVirtualInterfaceState = a})
 
 -- | -- | The response status code.
 crsResponseStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
 
 instance NFData ConfirmPublicVirtualInterfaceResponse
          where

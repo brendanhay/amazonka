@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.ListResources
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,20 +69,23 @@ listResources
     -> ListResources
 listResources pProjectId_ =
   ListResources'
-  {_lrNextToken = Nothing, _lrMaxResults = Nothing, _lrProjectId = pProjectId_}
+    { _lrNextToken = Nothing
+    , _lrMaxResults = Nothing
+    , _lrProjectId = pProjectId_
+    }
 
 
 -- | The continuation token for the next set of results, if the results cannot be returned in one response.
 lrNextToken :: Lens' ListResources (Maybe Text)
-lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
+lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a})
 
 -- | The maximum amount of data that can be contained in a single set of results.
 lrMaxResults :: Lens' ListResources (Maybe Natural)
-lrMaxResults = lens _lrMaxResults (\ s a -> s{_lrMaxResults = a}) . mapping _Nat;
+lrMaxResults = lens _lrMaxResults (\ s a -> s{_lrMaxResults = a}) . mapping _Nat
 
 -- | The ID of the project.
 lrProjectId :: Lens' ListResources Text
-lrProjectId = lens _lrProjectId (\ s a -> s{_lrProjectId = a});
+lrProjectId = lens _lrProjectId (\ s a -> s{_lrProjectId = a})
 
 instance AWSRequest ListResources where
         type Rs ListResources = ListResourcesResponse
@@ -144,22 +147,22 @@ listResourcesResponse
     -> ListResourcesResponse
 listResourcesResponse pResponseStatus_ =
   ListResourcesResponse'
-  { _lrrsResources = Nothing
-  , _lrrsNextToken = Nothing
-  , _lrrsResponseStatus = pResponseStatus_
-  }
+    { _lrrsResources = Nothing
+    , _lrrsNextToken = Nothing
+    , _lrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of resources associated with the project.
 lrrsResources :: Lens' ListResourcesResponse [Resource]
-lrrsResources = lens _lrrsResources (\ s a -> s{_lrrsResources = a}) . _Default . _Coerce;
+lrrsResources = lens _lrrsResources (\ s a -> s{_lrrsResources = a}) . _Default . _Coerce
 
 -- | The continuation token to use when requesting the next set of results, if there are more results to be returned.
 lrrsNextToken :: Lens' ListResourcesResponse (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
+lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a})
 
 -- | -- | The response status code.
 lrrsResponseStatus :: Lens' ListResourcesResponse Int
-lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
+lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a})
 
 instance NFData ListResourcesResponse where

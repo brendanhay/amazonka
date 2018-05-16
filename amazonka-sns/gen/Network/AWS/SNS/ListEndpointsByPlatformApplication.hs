@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListEndpointsByPlatformApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,18 +72,18 @@ listEndpointsByPlatformApplication
     -> ListEndpointsByPlatformApplication
 listEndpointsByPlatformApplication pPlatformApplicationARN_ =
   ListEndpointsByPlatformApplication'
-  { _lebpaNextToken = Nothing
-  , _lebpaPlatformApplicationARN = pPlatformApplicationARN_
-  }
+    { _lebpaNextToken = Nothing
+    , _lebpaPlatformApplicationARN = pPlatformApplicationARN_
+    }
 
 
 -- | NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
 lebpaNextToken :: Lens' ListEndpointsByPlatformApplication (Maybe Text)
-lebpaNextToken = lens _lebpaNextToken (\ s a -> s{_lebpaNextToken = a});
+lebpaNextToken = lens _lebpaNextToken (\ s a -> s{_lebpaNextToken = a})
 
 -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
 lebpaPlatformApplicationARN :: Lens' ListEndpointsByPlatformApplication Text
-lebpaPlatformApplicationARN = lens _lebpaPlatformApplicationARN (\ s a -> s{_lebpaPlatformApplicationARN = a});
+lebpaPlatformApplicationARN = lens _lebpaPlatformApplicationARN (\ s a -> s{_lebpaPlatformApplicationARN = a})
 
 instance AWSPager ListEndpointsByPlatformApplication
          where
@@ -160,23 +160,23 @@ listEndpointsByPlatformApplicationResponse
     -> ListEndpointsByPlatformApplicationResponse
 listEndpointsByPlatformApplicationResponse pResponseStatus_ =
   ListEndpointsByPlatformApplicationResponse'
-  { _lebparsNextToken = Nothing
-  , _lebparsEndpoints = Nothing
-  , _lebparsResponseStatus = pResponseStatus_
-  }
+    { _lebparsNextToken = Nothing
+    , _lebparsEndpoints = Nothing
+    , _lebparsResponseStatus = pResponseStatus_
+    }
 
 
 -- | NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
 lebparsNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
-lebparsNextToken = lens _lebparsNextToken (\ s a -> s{_lebparsNextToken = a});
+lebparsNextToken = lens _lebparsNextToken (\ s a -> s{_lebparsNextToken = a})
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
 lebparsEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
-lebparsEndpoints = lens _lebparsEndpoints (\ s a -> s{_lebparsEndpoints = a}) . _Default . _Coerce;
+lebparsEndpoints = lens _lebparsEndpoints (\ s a -> s{_lebparsEndpoints = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lebparsResponseStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int
-lebparsResponseStatus = lens _lebparsResponseStatus (\ s a -> s{_lebparsResponseStatus = a});
+lebparsResponseStatus = lens _lebparsResponseStatus (\ s a -> s{_lebparsResponseStatus = a})
 
 instance NFData
            ListEndpointsByPlatformApplicationResponse

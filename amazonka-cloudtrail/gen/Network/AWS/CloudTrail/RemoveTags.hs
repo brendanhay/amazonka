@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.RemoveTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ removeTags pResourceId_ =
 
 -- | Specifies a list of tags to be removed.
 rtTagsList :: Lens' RemoveTags [Tag]
-rtTagsList = lens _rtTagsList (\ s a -> s{_rtTagsList = a}) . _Default . _Coerce;
+rtTagsList = lens _rtTagsList (\ s a -> s{_rtTagsList = a}) . _Default . _Coerce
 
 -- | Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 rtResourceId :: Lens' RemoveTags Text
-rtResourceId = lens _rtResourceId (\ s a -> s{_rtResourceId = a});
+rtResourceId = lens _rtResourceId (\ s a -> s{_rtResourceId = a})
 
 instance AWSRequest RemoveTags where
         type Rs RemoveTags = RemoveTagsResponse
@@ -136,6 +136,6 @@ removeTagsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTagsResponse Int
-rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
+rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a})
 
 instance NFData RemoveTagsResponse where

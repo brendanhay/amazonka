@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AttachTypedLink
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,33 +79,33 @@ attachTypedLink
     -> AttachTypedLink
 attachTypedLink pDirectoryARN_ pSourceObjectReference_ pTargetObjectReference_ pTypedLinkFacet_ =
   AttachTypedLink'
-  { _atlDirectoryARN = pDirectoryARN_
-  , _atlSourceObjectReference = pSourceObjectReference_
-  , _atlTargetObjectReference = pTargetObjectReference_
-  , _atlTypedLinkFacet = pTypedLinkFacet_
-  , _atlAttributes = mempty
-  }
+    { _atlDirectoryARN = pDirectoryARN_
+    , _atlSourceObjectReference = pSourceObjectReference_
+    , _atlTargetObjectReference = pTargetObjectReference_
+    , _atlTypedLinkFacet = pTypedLinkFacet_
+    , _atlAttributes = mempty
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to attach the typed link.
 atlDirectoryARN :: Lens' AttachTypedLink Text
-atlDirectoryARN = lens _atlDirectoryARN (\ s a -> s{_atlDirectoryARN = a});
+atlDirectoryARN = lens _atlDirectoryARN (\ s a -> s{_atlDirectoryARN = a})
 
 -- | Identifies the source object that the typed link will attach to.
 atlSourceObjectReference :: Lens' AttachTypedLink ObjectReference
-atlSourceObjectReference = lens _atlSourceObjectReference (\ s a -> s{_atlSourceObjectReference = a});
+atlSourceObjectReference = lens _atlSourceObjectReference (\ s a -> s{_atlSourceObjectReference = a})
 
 -- | Identifies the target object that the typed link will attach to.
 atlTargetObjectReference :: Lens' AttachTypedLink ObjectReference
-atlTargetObjectReference = lens _atlTargetObjectReference (\ s a -> s{_atlTargetObjectReference = a});
+atlTargetObjectReference = lens _atlTargetObjectReference (\ s a -> s{_atlTargetObjectReference = a})
 
 -- | Identifies the typed link facet that is associated with the typed link.
 atlTypedLinkFacet :: Lens' AttachTypedLink TypedLinkSchemaAndFacetName
-atlTypedLinkFacet = lens _atlTypedLinkFacet (\ s a -> s{_atlTypedLinkFacet = a});
+atlTypedLinkFacet = lens _atlTypedLinkFacet (\ s a -> s{_atlTypedLinkFacet = a})
 
 -- | A set of attributes that are associated with the typed link.
 atlAttributes :: Lens' AttachTypedLink [AttributeNameAndValue]
-atlAttributes = lens _atlAttributes (\ s a -> s{_atlAttributes = a}) . _Coerce;
+atlAttributes = lens _atlAttributes (\ s a -> s{_atlAttributes = a}) . _Coerce
 
 instance AWSRequest AttachTypedLink where
         type Rs AttachTypedLink = AttachTypedLinkResponse
@@ -165,15 +165,17 @@ attachTypedLinkResponse
     -> AttachTypedLinkResponse
 attachTypedLinkResponse pResponseStatus_ =
   AttachTypedLinkResponse'
-  {_atlrsTypedLinkSpecifier = Nothing, _atlrsResponseStatus = pResponseStatus_}
+    { _atlrsTypedLinkSpecifier = Nothing
+    , _atlrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Returns a typed link specifier as output.
 atlrsTypedLinkSpecifier :: Lens' AttachTypedLinkResponse (Maybe TypedLinkSpecifier)
-atlrsTypedLinkSpecifier = lens _atlrsTypedLinkSpecifier (\ s a -> s{_atlrsTypedLinkSpecifier = a});
+atlrsTypedLinkSpecifier = lens _atlrsTypedLinkSpecifier (\ s a -> s{_atlrsTypedLinkSpecifier = a})
 
 -- | -- | The response status code.
 atlrsResponseStatus :: Lens' AttachTypedLinkResponse Int
-atlrsResponseStatus = lens _atlrsResponseStatus (\ s a -> s{_atlrsResponseStatus = a});
+atlrsResponseStatus = lens _atlrsResponseStatus (\ s a -> s{_atlrsResponseStatus = a})
 
 instance NFData AttachTypedLinkResponse where

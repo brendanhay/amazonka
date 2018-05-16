@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.InstallToRemoteAccessSession
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,18 +69,18 @@ installToRemoteAccessSession
     -> InstallToRemoteAccessSession
 installToRemoteAccessSession pRemoteAccessSessionARN_ pAppARN_ =
   InstallToRemoteAccessSession'
-  { _itrasRemoteAccessSessionARN = pRemoteAccessSessionARN_
-  , _itrasAppARN = pAppARN_
-  }
+    { _itrasRemoteAccessSessionARN = pRemoteAccessSessionARN_
+    , _itrasAppARN = pAppARN_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the remote access session about which you are requesting information.
 itrasRemoteAccessSessionARN :: Lens' InstallToRemoteAccessSession Text
-itrasRemoteAccessSessionARN = lens _itrasRemoteAccessSessionARN (\ s a -> s{_itrasRemoteAccessSessionARN = a});
+itrasRemoteAccessSessionARN = lens _itrasRemoteAccessSessionARN (\ s a -> s{_itrasRemoteAccessSessionARN = a})
 
 -- | The Amazon Resource Name (ARN) of the app about which you are requesting information.
 itrasAppARN :: Lens' InstallToRemoteAccessSession Text
-itrasAppARN = lens _itrasAppARN (\ s a -> s{_itrasAppARN = a});
+itrasAppARN = lens _itrasAppARN (\ s a -> s{_itrasAppARN = a})
 
 instance AWSRequest InstallToRemoteAccessSession
          where
@@ -145,16 +145,16 @@ installToRemoteAccessSessionResponse
     -> InstallToRemoteAccessSessionResponse
 installToRemoteAccessSessionResponse pResponseStatus_ =
   InstallToRemoteAccessSessionResponse'
-  {_itrasrsAppUpload = Nothing, _itrasrsResponseStatus = pResponseStatus_}
+    {_itrasrsAppUpload = Nothing, _itrasrsResponseStatus = pResponseStatus_}
 
 
 -- | An app to upload or that has been uploaded.
 itrasrsAppUpload :: Lens' InstallToRemoteAccessSessionResponse (Maybe Upload)
-itrasrsAppUpload = lens _itrasrsAppUpload (\ s a -> s{_itrasrsAppUpload = a});
+itrasrsAppUpload = lens _itrasrsAppUpload (\ s a -> s{_itrasrsAppUpload = a})
 
 -- | -- | The response status code.
 itrasrsResponseStatus :: Lens' InstallToRemoteAccessSessionResponse Int
-itrasrsResponseStatus = lens _itrasrsResponseStatus (\ s a -> s{_itrasrsResponseStatus = a});
+itrasrsResponseStatus = lens _itrasrsResponseStatus (\ s a -> s{_itrasrsResponseStatus = a})
 
 instance NFData InstallToRemoteAccessSessionResponse
          where

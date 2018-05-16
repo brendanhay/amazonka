@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisableVGWRoutePropagation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ disableVGWRoutePropagation
     -> DisableVGWRoutePropagation
 disableVGWRoutePropagation pGatewayId_ pRouteTableId_ =
   DisableVGWRoutePropagation'
-  {_dvrpGatewayId = pGatewayId_, _dvrpRouteTableId = pRouteTableId_}
+    {_dvrpGatewayId = pGatewayId_, _dvrpRouteTableId = pRouteTableId_}
 
 
 -- | The ID of the virtual private gateway.
 dvrpGatewayId :: Lens' DisableVGWRoutePropagation Text
-dvrpGatewayId = lens _dvrpGatewayId (\ s a -> s{_dvrpGatewayId = a});
+dvrpGatewayId = lens _dvrpGatewayId (\ s a -> s{_dvrpGatewayId = a})
 
 -- | The ID of the route table.
 dvrpRouteTableId :: Lens' DisableVGWRoutePropagation Text
-dvrpRouteTableId = lens _dvrpRouteTableId (\ s a -> s{_dvrpRouteTableId = a});
+dvrpRouteTableId = lens _dvrpRouteTableId (\ s a -> s{_dvrpRouteTableId = a})
 
 instance AWSRequest DisableVGWRoutePropagation where
         type Rs DisableVGWRoutePropagation =

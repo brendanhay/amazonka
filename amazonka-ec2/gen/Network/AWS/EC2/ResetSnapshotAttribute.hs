@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetSnapshotAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ resetSnapshotAttribute
     -> ResetSnapshotAttribute
 resetSnapshotAttribute pAttribute_ pSnapshotId_ =
   ResetSnapshotAttribute'
-  { _rsaDryRun = Nothing
-  , _rsaAttribute = pAttribute_
-  , _rsaSnapshotId = pSnapshotId_
-  }
+    { _rsaDryRun = Nothing
+    , _rsaAttribute = pAttribute_
+    , _rsaSnapshotId = pSnapshotId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rsaDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)
-rsaDryRun = lens _rsaDryRun (\ s a -> s{_rsaDryRun = a});
+rsaDryRun = lens _rsaDryRun (\ s a -> s{_rsaDryRun = a})
 
 -- | The attribute to reset. Currently, only the attribute for permission to create volumes can be reset.
 rsaAttribute :: Lens' ResetSnapshotAttribute SnapshotAttributeName
-rsaAttribute = lens _rsaAttribute (\ s a -> s{_rsaAttribute = a});
+rsaAttribute = lens _rsaAttribute (\ s a -> s{_rsaAttribute = a})
 
 -- | The ID of the snapshot.
 rsaSnapshotId :: Lens' ResetSnapshotAttribute Text
-rsaSnapshotId = lens _rsaSnapshotId (\ s a -> s{_rsaSnapshotId = a});
+rsaSnapshotId = lens _rsaSnapshotId (\ s a -> s{_rsaSnapshotId = a})
 
 instance AWSRequest ResetSnapshotAttribute where
         type Rs ResetSnapshotAttribute =

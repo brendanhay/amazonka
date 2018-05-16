@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AcceptVPCPeeringConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,8 @@
 --
 -- Accept a VPC peering connection request. To accept a request, the VPC peering connection must be in the @pending-acceptance@ state, and you must be the owner of the peer VPC. Use 'DescribeVpcPeeringConnections' to view your outstanding VPC peering connection requests.
 --
+--
+-- For an inter-region VPC peering connection request, you must accept the VPC peering connection in the region of the accepter VPC.
 --
 module Network.AWS.EC2.AcceptVPCPeeringConnection
     (
@@ -60,23 +62,23 @@ data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avpcVPCPeeringConnectionId' - The ID of the VPC peering connection.
+-- * 'avpcVPCPeeringConnectionId' - The ID of the VPC peering connection. You must specify this parameter in the request.
 --
 -- * 'avpcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 acceptVPCPeeringConnection
     :: AcceptVPCPeeringConnection
 acceptVPCPeeringConnection =
   AcceptVPCPeeringConnection'
-  {_avpcVPCPeeringConnectionId = Nothing, _avpcDryRun = Nothing}
+    {_avpcVPCPeeringConnectionId = Nothing, _avpcDryRun = Nothing}
 
 
--- | The ID of the VPC peering connection.
+-- | The ID of the VPC peering connection. You must specify this parameter in the request.
 avpcVPCPeeringConnectionId :: Lens' AcceptVPCPeeringConnection (Maybe Text)
-avpcVPCPeeringConnectionId = lens _avpcVPCPeeringConnectionId (\ s a -> s{_avpcVPCPeeringConnectionId = a});
+avpcVPCPeeringConnectionId = lens _avpcVPCPeeringConnectionId (\ s a -> s{_avpcVPCPeeringConnectionId = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 avpcDryRun :: Lens' AcceptVPCPeeringConnection (Maybe Bool)
-avpcDryRun = lens _avpcDryRun (\ s a -> s{_avpcDryRun = a});
+avpcDryRun = lens _avpcDryRun (\ s a -> s{_avpcDryRun = a})
 
 instance AWSRequest AcceptVPCPeeringConnection where
         type Rs AcceptVPCPeeringConnection =
@@ -132,18 +134,18 @@ acceptVPCPeeringConnectionResponse
     -> AcceptVPCPeeringConnectionResponse
 acceptVPCPeeringConnectionResponse pResponseStatus_ =
   AcceptVPCPeeringConnectionResponse'
-  { _avpcrsVPCPeeringConnection = Nothing
-  , _avpcrsResponseStatus = pResponseStatus_
-  }
+    { _avpcrsVPCPeeringConnection = Nothing
+    , _avpcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the VPC peering connection.
 avpcrsVPCPeeringConnection :: Lens' AcceptVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
-avpcrsVPCPeeringConnection = lens _avpcrsVPCPeeringConnection (\ s a -> s{_avpcrsVPCPeeringConnection = a});
+avpcrsVPCPeeringConnection = lens _avpcrsVPCPeeringConnection (\ s a -> s{_avpcrsVPCPeeringConnection = a})
 
 -- | -- | The response status code.
 avpcrsResponseStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
-avpcrsResponseStatus = lens _avpcrsResponseStatus (\ s a -> s{_avpcrsResponseStatus = a});
+avpcrsResponseStatus = lens _avpcrsResponseStatus (\ s a -> s{_avpcrsResponseStatus = a})
 
 instance NFData AcceptVPCPeeringConnectionResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateDocument
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,8 @@ module Network.AWS.SSM.UpdateDocument
       updateDocument
     , UpdateDocument
     -- * Request Lenses
+    , udTargetType
+    , udDocumentFormat
     , udDocumentVersion
     , udContent
     , udName
@@ -48,7 +50,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-  { _udDocumentVersion :: !(Maybe Text)
+  { _udTargetType      :: !(Maybe Text)
+  , _udDocumentFormat  :: !(Maybe DocumentFormat)
+  , _udDocumentVersion :: !(Maybe Text)
   , _udContent         :: !Text
   , _udName            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -57,6 +61,10 @@ data UpdateDocument = UpdateDocument'
 -- | Creates a value of 'UpdateDocument' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udTargetType' - Specify a new target type for the document.
+--
+-- * 'udDocumentFormat' - Specify the document format for the new document version. Systems Manager supports JSON and YAML documents. JSON is the default format.
 --
 -- * 'udDocumentVersion' - The version of the document that you want to update.
 --
@@ -69,20 +77,33 @@ updateDocument
     -> UpdateDocument
 updateDocument pContent_ pName_ =
   UpdateDocument'
-  {_udDocumentVersion = Nothing, _udContent = pContent_, _udName = pName_}
+    { _udTargetType = Nothing
+    , _udDocumentFormat = Nothing
+    , _udDocumentVersion = Nothing
+    , _udContent = pContent_
+    , _udName = pName_
+    }
 
+
+-- | Specify a new target type for the document.
+udTargetType :: Lens' UpdateDocument (Maybe Text)
+udTargetType = lens _udTargetType (\ s a -> s{_udTargetType = a})
+
+-- | Specify the document format for the new document version. Systems Manager supports JSON and YAML documents. JSON is the default format.
+udDocumentFormat :: Lens' UpdateDocument (Maybe DocumentFormat)
+udDocumentFormat = lens _udDocumentFormat (\ s a -> s{_udDocumentFormat = a})
 
 -- | The version of the document that you want to update.
 udDocumentVersion :: Lens' UpdateDocument (Maybe Text)
-udDocumentVersion = lens _udDocumentVersion (\ s a -> s{_udDocumentVersion = a});
+udDocumentVersion = lens _udDocumentVersion (\ s a -> s{_udDocumentVersion = a})
 
 -- | The content in a document that you want to update.
 udContent :: Lens' UpdateDocument Text
-udContent = lens _udContent (\ s a -> s{_udContent = a});
+udContent = lens _udContent (\ s a -> s{_udContent = a})
 
 -- | The name of the document that you want to update.
 udName :: Lens' UpdateDocument Text
-udName = lens _udName (\ s a -> s{_udName = a});
+udName = lens _udName (\ s a -> s{_udName = a})
 
 instance AWSRequest UpdateDocument where
         type Rs UpdateDocument = UpdateDocumentResponse
@@ -111,7 +132,9 @@ instance ToJSON UpdateDocument where
         toJSON UpdateDocument'{..}
           = object
               (catMaybes
-                 [("DocumentVersion" .=) <$> _udDocumentVersion,
+                 [("TargetType" .=) <$> _udTargetType,
+                  ("DocumentFormat" .=) <$> _udDocumentFormat,
+                  ("DocumentVersion" .=) <$> _udDocumentVersion,
                   Just ("Content" .= _udContent),
                   Just ("Name" .= _udName)])
 
@@ -140,15 +163,15 @@ updateDocumentResponse
     -> UpdateDocumentResponse
 updateDocumentResponse pResponseStatus_ =
   UpdateDocumentResponse'
-  {_udrsDocumentDescription = Nothing, _udrsResponseStatus = pResponseStatus_}
+    {_udrsDocumentDescription = Nothing, _udrsResponseStatus = pResponseStatus_}
 
 
 -- | A description of the document that was updated.
 udrsDocumentDescription :: Lens' UpdateDocumentResponse (Maybe DocumentDescription)
-udrsDocumentDescription = lens _udrsDocumentDescription (\ s a -> s{_udrsDocumentDescription = a});
+udrsDocumentDescription = lens _udrsDocumentDescription (\ s a -> s{_udrsDocumentDescription = a})
 
 -- | -- | The response status code.
 udrsResponseStatus :: Lens' UpdateDocumentResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
+udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a})
 
 instance NFData UpdateDocumentResponse where

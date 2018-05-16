@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetStreamingDistributionConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ getStreamingDistributionConfig pId_ =
 
 -- | The streaming distribution's ID.
 gsdcId :: Lens' GetStreamingDistributionConfig Text
-gsdcId = lens _gsdcId (\ s a -> s{_gsdcId = a});
+gsdcId = lens _gsdcId (\ s a -> s{_gsdcId = a})
 
 instance AWSRequest GetStreamingDistributionConfig
          where
@@ -95,7 +95,7 @@ instance ToHeaders GetStreamingDistributionConfig
 instance ToPath GetStreamingDistributionConfig where
         toPath GetStreamingDistributionConfig'{..}
           = mconcat
-              ["/2017-03-25/streaming-distribution/", toBS _gsdcId,
+              ["/2017-10-30/streaming-distribution/", toBS _gsdcId,
                "/config"]
 
 instance ToQuery GetStreamingDistributionConfig where
@@ -127,23 +127,23 @@ getStreamingDistributionConfigResponse
     -> GetStreamingDistributionConfigResponse
 getStreamingDistributionConfigResponse pResponseStatus_ =
   GetStreamingDistributionConfigResponse'
-  { _gsdcrsStreamingDistributionConfig = Nothing
-  , _gsdcrsETag = Nothing
-  , _gsdcrsResponseStatus = pResponseStatus_
-  }
+    { _gsdcrsStreamingDistributionConfig = Nothing
+    , _gsdcrsETag = Nothing
+    , _gsdcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The streaming distribution's configuration information.
 gsdcrsStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
-gsdcrsStreamingDistributionConfig = lens _gsdcrsStreamingDistributionConfig (\ s a -> s{_gsdcrsStreamingDistributionConfig = a});
+gsdcrsStreamingDistributionConfig = lens _gsdcrsStreamingDistributionConfig (\ s a -> s{_gsdcrsStreamingDistributionConfig = a})
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 gsdcrsETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
-gsdcrsETag = lens _gsdcrsETag (\ s a -> s{_gsdcrsETag = a});
+gsdcrsETag = lens _gsdcrsETag (\ s a -> s{_gsdcrsETag = a})
 
 -- | -- | The response status code.
 gsdcrsResponseStatus :: Lens' GetStreamingDistributionConfigResponse Int
-gsdcrsResponseStatus = lens _gsdcrsResponseStatus (\ s a -> s{_gsdcrsResponseStatus = a});
+gsdcrsResponseStatus = lens _gsdcrsResponseStatus (\ s a -> s{_gsdcrsResponseStatus = a})
 
 instance NFData
            GetStreamingDistributionConfigResponse

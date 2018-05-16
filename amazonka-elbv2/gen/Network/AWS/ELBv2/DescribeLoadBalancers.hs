@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeLoadBalancers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ describeLoadBalancers
     :: DescribeLoadBalancers
 describeLoadBalancers =
   DescribeLoadBalancers'
-  { _dlbNames = Nothing
-  , _dlbLoadBalancerARNs = Nothing
-  , _dlbMarker = Nothing
-  , _dlbPageSize = Nothing
-  }
+    { _dlbNames = Nothing
+    , _dlbLoadBalancerARNs = Nothing
+    , _dlbMarker = Nothing
+    , _dlbPageSize = Nothing
+    }
 
 
 -- | The names of the load balancers.
 dlbNames :: Lens' DescribeLoadBalancers [Text]
-dlbNames = lens _dlbNames (\ s a -> s{_dlbNames = a}) . _Default . _Coerce;
+dlbNames = lens _dlbNames (\ s a -> s{_dlbNames = a}) . _Default . _Coerce
 
 -- | The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
 dlbLoadBalancerARNs :: Lens' DescribeLoadBalancers [Text]
-dlbLoadBalancerARNs = lens _dlbLoadBalancerARNs (\ s a -> s{_dlbLoadBalancerARNs = a}) . _Default . _Coerce;
+dlbLoadBalancerARNs = lens _dlbLoadBalancerARNs (\ s a -> s{_dlbLoadBalancerARNs = a}) . _Default . _Coerce
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 dlbMarker :: Lens' DescribeLoadBalancers (Maybe Text)
-dlbMarker = lens _dlbMarker (\ s a -> s{_dlbMarker = a});
+dlbMarker = lens _dlbMarker (\ s a -> s{_dlbMarker = a})
 
 -- | The maximum number of results to return with this call.
 dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
-dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat;
+dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat
 
 instance AWSPager DescribeLoadBalancers where
         page rq rs
@@ -164,22 +164,22 @@ describeLoadBalancersResponse
     -> DescribeLoadBalancersResponse
 describeLoadBalancersResponse pResponseStatus_ =
   DescribeLoadBalancersResponse'
-  { _dlbrsLoadBalancers = Nothing
-  , _dlbrsNextMarker = Nothing
-  , _dlbrsResponseStatus = pResponseStatus_
-  }
+    { _dlbrsLoadBalancers = Nothing
+    , _dlbrsNextMarker = Nothing
+    , _dlbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the load balancers.
 dlbrsLoadBalancers :: Lens' DescribeLoadBalancersResponse [LoadBalancer]
-dlbrsLoadBalancers = lens _dlbrsLoadBalancers (\ s a -> s{_dlbrsLoadBalancers = a}) . _Default . _Coerce;
+dlbrsLoadBalancers = lens _dlbrsLoadBalancers (\ s a -> s{_dlbrsLoadBalancers = a}) . _Default . _Coerce
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dlbrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
-dlbrsNextMarker = lens _dlbrsNextMarker (\ s a -> s{_dlbrsNextMarker = a});
+dlbrsNextMarker = lens _dlbrsNextMarker (\ s a -> s{_dlbrsNextMarker = a})
 
 -- | -- | The response status code.
 dlbrsResponseStatus :: Lens' DescribeLoadBalancersResponse Int
-dlbrsResponseStatus = lens _dlbrsResponseStatus (\ s a -> s{_dlbrsResponseStatus = a});
+dlbrsResponseStatus = lens _dlbrsResponseStatus (\ s a -> s{_dlbrsResponseStatus = a})
 
 instance NFData DescribeLoadBalancersResponse where

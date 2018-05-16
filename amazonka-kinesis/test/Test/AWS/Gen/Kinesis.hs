@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Kinesis
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,6 +37,9 @@ import Test.Tasty
 --         , requestMergeShards $
 --             mergeShards
 --
+--         , requestDescribeStreamSummary $
+--             describeStreamSummary
+--
 --         , requestGetShardIterator $
 --             getShardIterator
 --
@@ -66,6 +69,9 @@ import Test.Tasty
 --
 --         , requestPutRecords $
 --             putRecords
+--
+--         , requestListShards $
+--             listShards
 --
 --         , requestDeleteStream $
 --             deleteStream
@@ -103,6 +109,9 @@ import Test.Tasty
 --         , responseMergeShards $
 --             mergeShardsResponse
 --
+--         , responseDescribeStreamSummary $
+--             describeStreamSummaryResponse
+--
 --         , responseGetShardIterator $
 --             getShardIteratorResponse
 --
@@ -132,6 +141,9 @@ import Test.Tasty
 --
 --         , responsePutRecords $
 --             putRecordsResponse
+--
+--         , responseListShards $
+--             listShardsResponse
 --
 --         , responseDeleteStream $
 --             deleteStreamResponse
@@ -176,6 +188,11 @@ requestMergeShards :: MergeShards -> TestTree
 requestMergeShards = req
     "MergeShards"
     "fixture/MergeShards.yaml"
+
+requestDescribeStreamSummary :: DescribeStreamSummary -> TestTree
+requestDescribeStreamSummary = req
+    "DescribeStreamSummary"
+    "fixture/DescribeStreamSummary.yaml"
 
 requestGetShardIterator :: GetShardIterator -> TestTree
 requestGetShardIterator = req
@@ -226,6 +243,11 @@ requestPutRecords :: PutRecords -> TestTree
 requestPutRecords = req
     "PutRecords"
     "fixture/PutRecords.yaml"
+
+requestListShards :: ListShards -> TestTree
+requestListShards = req
+    "ListShards"
+    "fixture/ListShards.yaml"
 
 requestDeleteStream :: DeleteStream -> TestTree
 requestDeleteStream = req
@@ -289,6 +311,13 @@ responseMergeShards = res
     "fixture/MergeShardsResponse.proto"
     kinesis
     (Proxy :: Proxy MergeShards)
+
+responseDescribeStreamSummary :: DescribeStreamSummaryResponse -> TestTree
+responseDescribeStreamSummary = res
+    "DescribeStreamSummaryResponse"
+    "fixture/DescribeStreamSummaryResponse.proto"
+    kinesis
+    (Proxy :: Proxy DescribeStreamSummary)
 
 responseGetShardIterator :: GetShardIteratorResponse -> TestTree
 responseGetShardIterator = res
@@ -359,6 +388,13 @@ responsePutRecords = res
     "fixture/PutRecordsResponse.proto"
     kinesis
     (Proxy :: Proxy PutRecords)
+
+responseListShards :: ListShardsResponse -> TestTree
+responseListShards = res
+    "ListShardsResponse"
+    "fixture/ListShardsResponse.proto"
+    kinesis
+    (Proxy :: Proxy ListShards)
 
 responseDeleteStream :: DeleteStreamResponse -> TestTree
 responseDeleteStream = res

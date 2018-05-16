@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.CancelCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ cancelCluster pClusterId_ = CancelCluster' {_ccClusterId = pClusterId_}
 
 -- | The 39-character ID for the cluster that you want to cancel, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 ccClusterId :: Lens' CancelCluster Text
-ccClusterId = lens _ccClusterId (\ s a -> s{_ccClusterId = a});
+ccClusterId = lens _ccClusterId (\ s a -> s{_ccClusterId = a})
 
 instance AWSRequest CancelCluster where
         type Rs CancelCluster = CancelClusterResponse
@@ -117,6 +117,6 @@ cancelClusterResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CancelClusterResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
 
 instance NFData CancelClusterResponse where

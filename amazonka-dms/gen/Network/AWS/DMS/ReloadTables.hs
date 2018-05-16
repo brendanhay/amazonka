@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.ReloadTables
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ reloadTables
     -> ReloadTables
 reloadTables pReplicationTaskARN_ =
   ReloadTables'
-  {_rtReplicationTaskARN = pReplicationTaskARN_, _rtTablesToReload = mempty}
+    {_rtReplicationTaskARN = pReplicationTaskARN_, _rtTablesToReload = mempty}
 
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 rtReplicationTaskARN :: Lens' ReloadTables Text
-rtReplicationTaskARN = lens _rtReplicationTaskARN (\ s a -> s{_rtReplicationTaskARN = a});
+rtReplicationTaskARN = lens _rtReplicationTaskARN (\ s a -> s{_rtReplicationTaskARN = a})
 
 -- | The name and schema of the table to be reloaded.
 rtTablesToReload :: Lens' ReloadTables [TableToReload]
-rtTablesToReload = lens _rtTablesToReload (\ s a -> s{_rtTablesToReload = a}) . _Coerce;
+rtTablesToReload = lens _rtTablesToReload (\ s a -> s{_rtTablesToReload = a}) . _Coerce
 
 instance AWSRequest ReloadTables where
         type Rs ReloadTables = ReloadTablesResponse
@@ -130,15 +130,15 @@ reloadTablesResponse
     -> ReloadTablesResponse
 reloadTablesResponse pResponseStatus_ =
   ReloadTablesResponse'
-  {_rtrsReplicationTaskARN = Nothing, _rtrsResponseStatus = pResponseStatus_}
+    {_rtrsReplicationTaskARN = Nothing, _rtrsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon Resource Name (ARN) of the replication task.
 rtrsReplicationTaskARN :: Lens' ReloadTablesResponse (Maybe Text)
-rtrsReplicationTaskARN = lens _rtrsReplicationTaskARN (\ s a -> s{_rtrsReplicationTaskARN = a});
+rtrsReplicationTaskARN = lens _rtrsReplicationTaskARN (\ s a -> s{_rtrsReplicationTaskARN = a})
 
 -- | -- | The response status code.
 rtrsResponseStatus :: Lens' ReloadTablesResponse Int
-rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
+rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a})
 
 instance NFData ReloadTablesResponse where

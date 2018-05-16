@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListDistributions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ listDistributions =
 
 -- | Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
 ldMarker :: Lens' ListDistributions (Maybe Text)
-ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
+ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a})
 
 -- | The maximum number of distributions you want in the response body.
 ldMaxItems :: Lens' ListDistributions (Maybe Text)
-ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
+ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a})
 
 instance AWSPager ListDistributions where
         page rq rs
@@ -109,7 +109,7 @@ instance ToHeaders ListDistributions where
         toHeaders = const mempty
 
 instance ToPath ListDistributions where
-        toPath = const "/2017-03-25/distribution"
+        toPath = const "/2017-10-30/distribution"
 
 instance ToQuery ListDistributions where
         toQuery ListDistributions'{..}
@@ -140,17 +140,17 @@ listDistributionsResponse
     -> ListDistributionsResponse
 listDistributionsResponse pResponseStatus_ pDistributionList_ =
   ListDistributionsResponse'
-  { _ldrsResponseStatus = pResponseStatus_
-  , _ldrsDistributionList = pDistributionList_
-  }
+    { _ldrsResponseStatus = pResponseStatus_
+    , _ldrsDistributionList = pDistributionList_
+    }
 
 
 -- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDistributionsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
 
 -- | The @DistributionList@ type.
 ldrsDistributionList :: Lens' ListDistributionsResponse DistributionList
-ldrsDistributionList = lens _ldrsDistributionList (\ s a -> s{_ldrsDistributionList = a});
+ldrsDistributionList = lens _ldrsDistributionList (\ s a -> s{_ldrsDistributionList = a})
 
 instance NFData ListDistributionsResponse where

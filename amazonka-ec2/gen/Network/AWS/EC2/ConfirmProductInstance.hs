@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ConfirmProductInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,23 +74,23 @@ confirmProductInstance
     -> ConfirmProductInstance
 confirmProductInstance pInstanceId_ pProductCode_ =
   ConfirmProductInstance'
-  { _cpiDryRun = Nothing
-  , _cpiInstanceId = pInstanceId_
-  , _cpiProductCode = pProductCode_
-  }
+    { _cpiDryRun = Nothing
+    , _cpiInstanceId = pInstanceId_
+    , _cpiProductCode = pProductCode_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cpiDryRun :: Lens' ConfirmProductInstance (Maybe Bool)
-cpiDryRun = lens _cpiDryRun (\ s a -> s{_cpiDryRun = a});
+cpiDryRun = lens _cpiDryRun (\ s a -> s{_cpiDryRun = a})
 
 -- | The ID of the instance.
 cpiInstanceId :: Lens' ConfirmProductInstance Text
-cpiInstanceId = lens _cpiInstanceId (\ s a -> s{_cpiInstanceId = a});
+cpiInstanceId = lens _cpiInstanceId (\ s a -> s{_cpiInstanceId = a})
 
 -- | The product code. This must be a product code that you own.
 cpiProductCode :: Lens' ConfirmProductInstance Text
-cpiProductCode = lens _cpiProductCode (\ s a -> s{_cpiProductCode = a});
+cpiProductCode = lens _cpiProductCode (\ s a -> s{_cpiProductCode = a})
 
 instance AWSRequest ConfirmProductInstance where
         type Rs ConfirmProductInstance =
@@ -149,22 +149,22 @@ confirmProductInstanceResponse
     -> ConfirmProductInstanceResponse
 confirmProductInstanceResponse pResponseStatus_ =
   ConfirmProductInstanceResponse'
-  { _cpirsReturn = Nothing
-  , _cpirsOwnerId = Nothing
-  , _cpirsResponseStatus = pResponseStatus_
-  }
+    { _cpirsReturn = Nothing
+    , _cpirsOwnerId = Nothing
+    , _cpirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The return value of the request. Returns @true@ if the specified product code is owned by the requester and associated with the specified instance.
 cpirsReturn :: Lens' ConfirmProductInstanceResponse (Maybe Bool)
-cpirsReturn = lens _cpirsReturn (\ s a -> s{_cpirsReturn = a});
+cpirsReturn = lens _cpirsReturn (\ s a -> s{_cpirsReturn = a})
 
 -- | The AWS account ID of the instance owner. This is only present if the product code is attached to the instance.
 cpirsOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
-cpirsOwnerId = lens _cpirsOwnerId (\ s a -> s{_cpirsOwnerId = a});
+cpirsOwnerId = lens _cpirsOwnerId (\ s a -> s{_cpirsOwnerId = a})
 
 -- | -- | The response status code.
 cpirsResponseStatus :: Lens' ConfirmProductInstanceResponse Int
-cpirsResponseStatus = lens _cpirsResponseStatus (\ s a -> s{_cpirsResponseStatus = a});
+cpirsResponseStatus = lens _cpirsResponseStatus (\ s a -> s{_cpirsResponseStatus = a})
 
 instance NFData ConfirmProductInstanceResponse where

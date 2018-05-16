@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateClassifier
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies an existing @Classifier@ .
+-- Modifies an existing classifier (a @GrokClassifier@ , @XMLClassifier@ , or @JsonClassifier@ , depending on which field is present).
 --
 --
 module Network.AWS.Glue.UpdateClassifier
@@ -28,6 +28,8 @@ module Network.AWS.Glue.UpdateClassifier
     , UpdateClassifier
     -- * Request Lenses
     , ucGrokClassifier
+    , ucXMLClassifier
+    , ucJSONClassifier
 
     -- * Destructuring the Response
     , updateClassifierResponse
@@ -44,8 +46,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'updateClassifier' smart constructor.
-newtype UpdateClassifier = UpdateClassifier'
-  { _ucGrokClassifier :: Maybe UpdateGrokClassifierRequest
+data UpdateClassifier = UpdateClassifier'
+  { _ucGrokClassifier :: !(Maybe UpdateGrokClassifierRequest)
+  , _ucXMLClassifier  :: !(Maybe UpdateXMLClassifierRequest)
+  , _ucJSONClassifier :: !(Maybe UpdateJSONClassifierRequest)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,14 +58,31 @@ newtype UpdateClassifier = UpdateClassifier'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ucGrokClassifier' - A @GrokClassifier@ object with updated fields.
+--
+-- * 'ucXMLClassifier' - An @XMLClassifier@ object with updated fields.
+--
+-- * 'ucJSONClassifier' - A @JsonClassifier@ object with updated fields.
 updateClassifier
     :: UpdateClassifier
-updateClassifier = UpdateClassifier' {_ucGrokClassifier = Nothing}
+updateClassifier =
+  UpdateClassifier'
+    { _ucGrokClassifier = Nothing
+    , _ucXMLClassifier = Nothing
+    , _ucJSONClassifier = Nothing
+    }
 
 
 -- | A @GrokClassifier@ object with updated fields.
 ucGrokClassifier :: Lens' UpdateClassifier (Maybe UpdateGrokClassifierRequest)
-ucGrokClassifier = lens _ucGrokClassifier (\ s a -> s{_ucGrokClassifier = a});
+ucGrokClassifier = lens _ucGrokClassifier (\ s a -> s{_ucGrokClassifier = a})
+
+-- | An @XMLClassifier@ object with updated fields.
+ucXMLClassifier :: Lens' UpdateClassifier (Maybe UpdateXMLClassifierRequest)
+ucXMLClassifier = lens _ucXMLClassifier (\ s a -> s{_ucXMLClassifier = a})
+
+-- | A @JsonClassifier@ object with updated fields.
+ucJSONClassifier :: Lens' UpdateClassifier (Maybe UpdateJSONClassifierRequest)
+ucJSONClassifier = lens _ucJSONClassifier (\ s a -> s{_ucJSONClassifier = a})
 
 instance AWSRequest UpdateClassifier where
         type Rs UpdateClassifier = UpdateClassifierResponse
@@ -88,7 +109,9 @@ instance ToJSON UpdateClassifier where
         toJSON UpdateClassifier'{..}
           = object
               (catMaybes
-                 [("GrokClassifier" .=) <$> _ucGrokClassifier])
+                 [("GrokClassifier" .=) <$> _ucGrokClassifier,
+                  ("XMLClassifier" .=) <$> _ucXMLClassifier,
+                  ("JsonClassifier" .=) <$> _ucJSONClassifier])
 
 instance ToPath UpdateClassifier where
         toPath = const "/"
@@ -116,6 +139,6 @@ updateClassifierResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ursResponseStatus :: Lens' UpdateClassifierResponse Int
-ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a});
+ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a})
 
 instance NFData UpdateClassifierResponse where

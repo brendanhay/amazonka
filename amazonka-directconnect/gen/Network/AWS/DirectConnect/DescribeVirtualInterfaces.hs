@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualInterfaces
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ describeVirtualInterfaces
     :: DescribeVirtualInterfaces
 describeVirtualInterfaces =
   DescribeVirtualInterfaces'
-  {_dviConnectionId = Nothing, _dviVirtualInterfaceId = Nothing}
+    {_dviConnectionId = Nothing, _dviVirtualInterfaceId = Nothing}
 
 
 -- | Undocumented member.
 dviConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dviConnectionId = lens _dviConnectionId (\ s a -> s{_dviConnectionId = a});
+dviConnectionId = lens _dviConnectionId (\ s a -> s{_dviConnectionId = a})
 
 -- | Undocumented member.
 dviVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dviVirtualInterfaceId = lens _dviVirtualInterfaceId (\ s a -> s{_dviVirtualInterfaceId = a});
+dviVirtualInterfaceId = lens _dviVirtualInterfaceId (\ s a -> s{_dviVirtualInterfaceId = a})
 
 instance AWSRequest DescribeVirtualInterfaces where
         type Rs DescribeVirtualInterfaces =
@@ -142,16 +142,18 @@ describeVirtualInterfacesResponse
     -> DescribeVirtualInterfacesResponse
 describeVirtualInterfacesResponse pResponseStatus_ =
   DescribeVirtualInterfacesResponse'
-  {_dvisrsVirtualInterfaces = Nothing, _dvisrsResponseStatus = pResponseStatus_}
+    { _dvisrsVirtualInterfaces = Nothing
+    , _dvisrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of virtual interfaces.
 dvisrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
-dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtualInterfaces = a}) . _Default . _Coerce;
+dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtualInterfaces = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dvisrsResponseStatus :: Lens' DescribeVirtualInterfacesResponse Int
-dvisrsResponseStatus = lens _dvisrsResponseStatus (\ s a -> s{_dvisrsResponseStatus = a});
+dvisrsResponseStatus = lens _dvisrsResponseStatus (\ s a -> s{_dvisrsResponseStatus = a})
 
 instance NFData DescribeVirtualInterfacesResponse
          where

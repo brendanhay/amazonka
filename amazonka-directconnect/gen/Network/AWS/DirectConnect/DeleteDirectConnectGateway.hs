@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteDirectConnectGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,12 +64,12 @@ deleteDirectConnectGateway
     -> DeleteDirectConnectGateway
 deleteDirectConnectGateway pDirectConnectGatewayId_ =
   DeleteDirectConnectGateway'
-  {_ddcgdDirectConnectGatewayId = pDirectConnectGatewayId_}
+    {_ddcgdDirectConnectGatewayId = pDirectConnectGatewayId_}
 
 
 -- | The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
 ddcgdDirectConnectGatewayId :: Lens' DeleteDirectConnectGateway Text
-ddcgdDirectConnectGatewayId = lens _ddcgdDirectConnectGatewayId (\ s a -> s{_ddcgdDirectConnectGatewayId = a});
+ddcgdDirectConnectGatewayId = lens _ddcgdDirectConnectGatewayId (\ s a -> s{_ddcgdDirectConnectGatewayId = a})
 
 instance AWSRequest DeleteDirectConnectGateway where
         type Rs DeleteDirectConnectGateway =
@@ -133,18 +133,18 @@ deleteDirectConnectGatewayResponse
     -> DeleteDirectConnectGatewayResponse
 deleteDirectConnectGatewayResponse pResponseStatus_ =
   DeleteDirectConnectGatewayResponse'
-  { _ddcgdrsDirectConnectGateway = Nothing
-  , _ddcgdrsResponseStatus = pResponseStatus_
-  }
+    { _ddcgdrsDirectConnectGateway = Nothing
+    , _ddcgdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The direct connect gateway to be deleted.
 ddcgdrsDirectConnectGateway :: Lens' DeleteDirectConnectGatewayResponse (Maybe DirectConnectGateway)
-ddcgdrsDirectConnectGateway = lens _ddcgdrsDirectConnectGateway (\ s a -> s{_ddcgdrsDirectConnectGateway = a});
+ddcgdrsDirectConnectGateway = lens _ddcgdrsDirectConnectGateway (\ s a -> s{_ddcgdrsDirectConnectGateway = a})
 
 -- | -- | The response status code.
 ddcgdrsResponseStatus :: Lens' DeleteDirectConnectGatewayResponse Int
-ddcgdrsResponseStatus = lens _ddcgdrsResponseStatus (\ s a -> s{_ddcgdrsResponseStatus = a});
+ddcgdrsResponseStatus = lens _ddcgdrsResponseStatus (\ s a -> s{_ddcgdrsResponseStatus = a})
 
 instance NFData DeleteDirectConnectGatewayResponse
          where

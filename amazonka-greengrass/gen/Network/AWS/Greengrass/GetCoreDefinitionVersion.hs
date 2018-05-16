@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetCoreDefinitionVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,27 +58,27 @@ data GetCoreDefinitionVersion = GetCoreDefinitionVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcdvCoreDefinitionId' - core definition Id
+-- * 'gcdvCoreDefinitionId' - The ID of the core definition.
 --
--- * 'gcdvCoreDefinitionVersionId' - core definition version Id
+-- * 'gcdvCoreDefinitionVersionId' - The ID of the core definition version.
 getCoreDefinitionVersion
     :: Text -- ^ 'gcdvCoreDefinitionId'
     -> Text -- ^ 'gcdvCoreDefinitionVersionId'
     -> GetCoreDefinitionVersion
 getCoreDefinitionVersion pCoreDefinitionId_ pCoreDefinitionVersionId_ =
   GetCoreDefinitionVersion'
-  { _gcdvCoreDefinitionId = pCoreDefinitionId_
-  , _gcdvCoreDefinitionVersionId = pCoreDefinitionVersionId_
-  }
+    { _gcdvCoreDefinitionId = pCoreDefinitionId_
+    , _gcdvCoreDefinitionVersionId = pCoreDefinitionVersionId_
+    }
 
 
--- | core definition Id
+-- | The ID of the core definition.
 gcdvCoreDefinitionId :: Lens' GetCoreDefinitionVersion Text
-gcdvCoreDefinitionId = lens _gcdvCoreDefinitionId (\ s a -> s{_gcdvCoreDefinitionId = a});
+gcdvCoreDefinitionId = lens _gcdvCoreDefinitionId (\ s a -> s{_gcdvCoreDefinitionId = a})
 
--- | core definition version Id
+-- | The ID of the core definition version.
 gcdvCoreDefinitionVersionId :: Lens' GetCoreDefinitionVersion Text
-gcdvCoreDefinitionVersionId = lens _gcdvCoreDefinitionVersionId (\ s a -> s{_gcdvCoreDefinitionVersionId = a});
+gcdvCoreDefinitionVersionId = lens _gcdvCoreDefinitionVersionId (\ s a -> s{_gcdvCoreDefinitionVersionId = a})
 
 instance AWSRequest GetCoreDefinitionVersion where
         type Rs GetCoreDefinitionVersion =
@@ -130,15 +130,15 @@ data GetCoreDefinitionVersionResponse = GetCoreDefinitionVersionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcdvrsDefinition' - Information on definition
+-- * 'gcdvrsDefinition' - Information about the core definition version.
 --
--- * 'gcdvrsARN' - Arn of the core definition version.
+-- * 'gcdvrsARN' - The ARN of the core definition version.
 --
--- * 'gcdvrsCreationTimestamp' - Timestamp of when the core definition version was created.
+-- * 'gcdvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the core definition version was created.
 --
--- * 'gcdvrsVersion' - Version of the core definition version.
+-- * 'gcdvrsVersion' - The version of the core definition version.
 --
--- * 'gcdvrsId' - Id of the core definition the version belongs to.
+-- * 'gcdvrsId' - The ID of the core definition version.
 --
 -- * 'gcdvrsResponseStatus' - -- | The response status code.
 getCoreDefinitionVersionResponse
@@ -146,38 +146,38 @@ getCoreDefinitionVersionResponse
     -> GetCoreDefinitionVersionResponse
 getCoreDefinitionVersionResponse pResponseStatus_ =
   GetCoreDefinitionVersionResponse'
-  { _gcdvrsDefinition = Nothing
-  , _gcdvrsARN = Nothing
-  , _gcdvrsCreationTimestamp = Nothing
-  , _gcdvrsVersion = Nothing
-  , _gcdvrsId = Nothing
-  , _gcdvrsResponseStatus = pResponseStatus_
-  }
+    { _gcdvrsDefinition = Nothing
+    , _gcdvrsARN = Nothing
+    , _gcdvrsCreationTimestamp = Nothing
+    , _gcdvrsVersion = Nothing
+    , _gcdvrsId = Nothing
+    , _gcdvrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Information on definition
+-- | Information about the core definition version.
 gcdvrsDefinition :: Lens' GetCoreDefinitionVersionResponse (Maybe CoreDefinitionVersion)
-gcdvrsDefinition = lens _gcdvrsDefinition (\ s a -> s{_gcdvrsDefinition = a});
+gcdvrsDefinition = lens _gcdvrsDefinition (\ s a -> s{_gcdvrsDefinition = a})
 
--- | Arn of the core definition version.
+-- | The ARN of the core definition version.
 gcdvrsARN :: Lens' GetCoreDefinitionVersionResponse (Maybe Text)
-gcdvrsARN = lens _gcdvrsARN (\ s a -> s{_gcdvrsARN = a});
+gcdvrsARN = lens _gcdvrsARN (\ s a -> s{_gcdvrsARN = a})
 
--- | Timestamp of when the core definition version was created.
+-- | The time, in milliseconds since the epoch, when the core definition version was created.
 gcdvrsCreationTimestamp :: Lens' GetCoreDefinitionVersionResponse (Maybe Text)
-gcdvrsCreationTimestamp = lens _gcdvrsCreationTimestamp (\ s a -> s{_gcdvrsCreationTimestamp = a});
+gcdvrsCreationTimestamp = lens _gcdvrsCreationTimestamp (\ s a -> s{_gcdvrsCreationTimestamp = a})
 
--- | Version of the core definition version.
+-- | The version of the core definition version.
 gcdvrsVersion :: Lens' GetCoreDefinitionVersionResponse (Maybe Text)
-gcdvrsVersion = lens _gcdvrsVersion (\ s a -> s{_gcdvrsVersion = a});
+gcdvrsVersion = lens _gcdvrsVersion (\ s a -> s{_gcdvrsVersion = a})
 
--- | Id of the core definition the version belongs to.
+-- | The ID of the core definition version.
 gcdvrsId :: Lens' GetCoreDefinitionVersionResponse (Maybe Text)
-gcdvrsId = lens _gcdvrsId (\ s a -> s{_gcdvrsId = a});
+gcdvrsId = lens _gcdvrsId (\ s a -> s{_gcdvrsId = a})
 
 -- | -- | The response status code.
 gcdvrsResponseStatus :: Lens' GetCoreDefinitionVersionResponse Int
-gcdvrsResponseStatus = lens _gcdvrsResponseStatus (\ s a -> s{_gcdvrsResponseStatus = a});
+gcdvrsResponseStatus = lens _gcdvrsResponseStatus (\ s a -> s{_gcdvrsResponseStatus = a})
 
 instance NFData GetCoreDefinitionVersionResponse
          where

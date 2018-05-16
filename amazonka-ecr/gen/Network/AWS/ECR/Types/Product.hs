@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,23 +46,23 @@ authorizationData
     :: AuthorizationData
 authorizationData =
   AuthorizationData'
-  { _adExpiresAt = Nothing
-  , _adProxyEndpoint = Nothing
-  , _adAuthorizationToken = Nothing
-  }
+    { _adExpiresAt = Nothing
+    , _adProxyEndpoint = Nothing
+    , _adAuthorizationToken = Nothing
+    }
 
 
 -- | The Unix time in seconds and milliseconds when the authorization token expires. Authorization tokens are valid for 12 hours.
 adExpiresAt :: Lens' AuthorizationData (Maybe UTCTime)
-adExpiresAt = lens _adExpiresAt (\ s a -> s{_adExpiresAt = a}) . mapping _Time;
+adExpiresAt = lens _adExpiresAt (\ s a -> s{_adExpiresAt = a}) . mapping _Time
 
 -- | The registry URL to use for this authorization token in a @docker login@ command. The Amazon ECR registry URL format is @https://aws_account_id.dkr.ecr.region.amazonaws.com@ . For example, @https://012345678910.dkr.ecr.us-east-1.amazonaws.com@ ..
 adProxyEndpoint :: Lens' AuthorizationData (Maybe Text)
-adProxyEndpoint = lens _adProxyEndpoint (\ s a -> s{_adProxyEndpoint = a});
+adProxyEndpoint = lens _adProxyEndpoint (\ s a -> s{_adProxyEndpoint = a})
 
 -- | A base64-encoded string that contains authorization data for the specified Amazon ECR registry. When the string is decoded, it is presented in the format @user:password@ for private registry authentication using @docker login@ .
 adAuthorizationToken :: Lens' AuthorizationData (Maybe Text)
-adAuthorizationToken = lens _adAuthorizationToken (\ s a -> s{_adAuthorizationToken = a});
+adAuthorizationToken = lens _adAuthorizationToken (\ s a -> s{_adAuthorizationToken = a})
 
 instance FromJSON AuthorizationData where
         parseJSON
@@ -98,7 +98,7 @@ describeImagesFilter = DescribeImagesFilter' {_difTagStatus = Nothing}
 
 -- | The tag status with which to filter your 'DescribeImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
 difTagStatus :: Lens' DescribeImagesFilter (Maybe TagStatus)
-difTagStatus = lens _difTagStatus (\ s a -> s{_difTagStatus = a});
+difTagStatus = lens _difTagStatus (\ s a -> s{_difTagStatus = a})
 
 instance Hashable DescribeImagesFilter where
 
@@ -137,28 +137,28 @@ image
     :: Image
 image =
   Image'
-  { _iRegistryId = Nothing
-  , _iImageId = Nothing
-  , _iRepositoryName = Nothing
-  , _iImageManifest = Nothing
-  }
+    { _iRegistryId = Nothing
+    , _iImageId = Nothing
+    , _iRepositoryName = Nothing
+    , _iImageManifest = Nothing
+    }
 
 
 -- | The AWS account ID associated with the registry containing the image.
 iRegistryId :: Lens' Image (Maybe Text)
-iRegistryId = lens _iRegistryId (\ s a -> s{_iRegistryId = a});
+iRegistryId = lens _iRegistryId (\ s a -> s{_iRegistryId = a})
 
 -- | An object containing the image tag and image digest associated with an image.
 iImageId :: Lens' Image (Maybe ImageIdentifier)
-iImageId = lens _iImageId (\ s a -> s{_iImageId = a});
+iImageId = lens _iImageId (\ s a -> s{_iImageId = a})
 
 -- | The name of the repository associated with the image.
 iRepositoryName :: Lens' Image (Maybe Text)
-iRepositoryName = lens _iRepositoryName (\ s a -> s{_iRepositoryName = a});
+iRepositoryName = lens _iRepositoryName (\ s a -> s{_iRepositoryName = a})
 
 -- | The image manifest associated with the image.
 iImageManifest :: Lens' Image (Maybe Text)
-iImageManifest = lens _iImageManifest (\ s a -> s{_iImageManifest = a});
+iImageManifest = lens _iImageManifest (\ s a -> s{_iImageManifest = a})
 
 instance FromJSON Image where
         parseJSON
@@ -207,38 +207,38 @@ imageDetail
     :: ImageDetail
 imageDetail =
   ImageDetail'
-  { _idRegistryId = Nothing
-  , _idImageTags = Nothing
-  , _idImageSizeInBytes = Nothing
-  , _idImageDigest = Nothing
-  , _idImagePushedAt = Nothing
-  , _idRepositoryName = Nothing
-  }
+    { _idRegistryId = Nothing
+    , _idImageTags = Nothing
+    , _idImageSizeInBytes = Nothing
+    , _idImageDigest = Nothing
+    , _idImagePushedAt = Nothing
+    , _idRepositoryName = Nothing
+    }
 
 
 -- | The AWS account ID associated with the registry to which this image belongs.
 idRegistryId :: Lens' ImageDetail (Maybe Text)
-idRegistryId = lens _idRegistryId (\ s a -> s{_idRegistryId = a});
+idRegistryId = lens _idRegistryId (\ s a -> s{_idRegistryId = a})
 
 -- | The list of tags associated with this image.
 idImageTags :: Lens' ImageDetail [Text]
-idImageTags = lens _idImageTags (\ s a -> s{_idImageTags = a}) . _Default . _Coerce;
+idImageTags = lens _idImageTags (\ s a -> s{_idImageTags = a}) . _Default . _Coerce
 
 -- | The size, in bytes, of the image in the repository.
 idImageSizeInBytes :: Lens' ImageDetail (Maybe Integer)
-idImageSizeInBytes = lens _idImageSizeInBytes (\ s a -> s{_idImageSizeInBytes = a});
+idImageSizeInBytes = lens _idImageSizeInBytes (\ s a -> s{_idImageSizeInBytes = a})
 
 -- | The @sha256@ digest of the image manifest.
 idImageDigest :: Lens' ImageDetail (Maybe Text)
-idImageDigest = lens _idImageDigest (\ s a -> s{_idImageDigest = a});
+idImageDigest = lens _idImageDigest (\ s a -> s{_idImageDigest = a})
 
 -- | The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
 idImagePushedAt :: Lens' ImageDetail (Maybe UTCTime)
-idImagePushedAt = lens _idImagePushedAt (\ s a -> s{_idImagePushedAt = a}) . mapping _Time;
+idImagePushedAt = lens _idImagePushedAt (\ s a -> s{_idImagePushedAt = a}) . mapping _Time
 
 -- | The name of the repository to which this image belongs.
 idRepositoryName :: Lens' ImageDetail (Maybe Text)
-idRepositoryName = lens _idRepositoryName (\ s a -> s{_idRepositoryName = a});
+idRepositoryName = lens _idRepositoryName (\ s a -> s{_idRepositoryName = a})
 
 instance FromJSON ImageDetail where
         parseJSON
@@ -281,20 +281,20 @@ imageFailure
     :: ImageFailure
 imageFailure =
   ImageFailure'
-  {_ifFailureReason = Nothing, _ifFailureCode = Nothing, _ifImageId = Nothing}
+    {_ifFailureReason = Nothing, _ifFailureCode = Nothing, _ifImageId = Nothing}
 
 
 -- | The reason for the failure.
 ifFailureReason :: Lens' ImageFailure (Maybe Text)
-ifFailureReason = lens _ifFailureReason (\ s a -> s{_ifFailureReason = a});
+ifFailureReason = lens _ifFailureReason (\ s a -> s{_ifFailureReason = a})
 
 -- | The code associated with the failure.
 ifFailureCode :: Lens' ImageFailure (Maybe ImageFailureCode)
-ifFailureCode = lens _ifFailureCode (\ s a -> s{_ifFailureCode = a});
+ifFailureCode = lens _ifFailureCode (\ s a -> s{_ifFailureCode = a})
 
 -- | The image ID associated with the failure.
 ifImageId :: Lens' ImageFailure (Maybe ImageIdentifier)
-ifImageId = lens _ifImageId (\ s a -> s{_ifImageId = a});
+ifImageId = lens _ifImageId (\ s a -> s{_ifImageId = a})
 
 instance FromJSON ImageFailure where
         parseJSON
@@ -334,11 +334,11 @@ imageIdentifier =
 
 -- | The @sha256@ digest of the image manifest.
 iiImageDigest :: Lens' ImageIdentifier (Maybe Text)
-iiImageDigest = lens _iiImageDigest (\ s a -> s{_iiImageDigest = a});
+iiImageDigest = lens _iiImageDigest (\ s a -> s{_iiImageDigest = a})
 
 -- | The tag used for the image.
 iiImageTag :: Lens' ImageIdentifier (Maybe Text)
-iiImageTag = lens _iiImageTag (\ s a -> s{_iiImageTag = a});
+iiImageTag = lens _iiImageTag (\ s a -> s{_iiImageTag = a})
 
 instance FromJSON ImageIdentifier where
         parseJSON
@@ -386,28 +386,28 @@ layer
     :: Layer
 layer =
   Layer'
-  { _lMediaType = Nothing
-  , _lLayerDigest = Nothing
-  , _lLayerSize = Nothing
-  , _lLayerAvailability = Nothing
-  }
+    { _lMediaType = Nothing
+    , _lLayerDigest = Nothing
+    , _lLayerSize = Nothing
+    , _lLayerAvailability = Nothing
+    }
 
 
 -- | The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
 lMediaType :: Lens' Layer (Maybe Text)
-lMediaType = lens _lMediaType (\ s a -> s{_lMediaType = a});
+lMediaType = lens _lMediaType (\ s a -> s{_lMediaType = a})
 
 -- | The @sha256@ digest of the image layer.
 lLayerDigest :: Lens' Layer (Maybe Text)
-lLayerDigest = lens _lLayerDigest (\ s a -> s{_lLayerDigest = a});
+lLayerDigest = lens _lLayerDigest (\ s a -> s{_lLayerDigest = a})
 
 -- | The size, in bytes, of the image layer.
 lLayerSize :: Lens' Layer (Maybe Integer)
-lLayerSize = lens _lLayerSize (\ s a -> s{_lLayerSize = a});
+lLayerSize = lens _lLayerSize (\ s a -> s{_lLayerSize = a})
 
 -- | The availability status of the image layer.
 lLayerAvailability :: Lens' Layer (Maybe LayerAvailability)
-lLayerAvailability = lens _lLayerAvailability (\ s a -> s{_lLayerAvailability = a});
+lLayerAvailability = lens _lLayerAvailability (\ s a -> s{_lLayerAvailability = a})
 
 instance FromJSON Layer where
         parseJSON
@@ -447,23 +447,23 @@ layerFailure
     :: LayerFailure
 layerFailure =
   LayerFailure'
-  { _lfFailureReason = Nothing
-  , _lfFailureCode = Nothing
-  , _lfLayerDigest = Nothing
-  }
+    { _lfFailureReason = Nothing
+    , _lfFailureCode = Nothing
+    , _lfLayerDigest = Nothing
+    }
 
 
 -- | The reason for the failure.
 lfFailureReason :: Lens' LayerFailure (Maybe Text)
-lfFailureReason = lens _lfFailureReason (\ s a -> s{_lfFailureReason = a});
+lfFailureReason = lens _lfFailureReason (\ s a -> s{_lfFailureReason = a})
 
 -- | The failure code associated with the failure.
 lfFailureCode :: Lens' LayerFailure (Maybe LayerFailureCode)
-lfFailureCode = lens _lfFailureCode (\ s a -> s{_lfFailureCode = a});
+lfFailureCode = lens _lfFailureCode (\ s a -> s{_lfFailureCode = a})
 
 -- | The layer digest associated with the failure.
 lfLayerDigest :: Lens' LayerFailure (Maybe Text)
-lfLayerDigest = lens _lfLayerDigest (\ s a -> s{_lfLayerDigest = a});
+lfLayerDigest = lens _lfLayerDigest (\ s a -> s{_lfLayerDigest = a})
 
 instance FromJSON LayerFailure where
         parseJSON
@@ -500,7 +500,7 @@ lifecyclePolicyPreviewFilter =
 
 -- | The tag status of the image.
 lppfTagStatus :: Lens' LifecyclePolicyPreviewFilter (Maybe TagStatus)
-lppfTagStatus = lens _lppfTagStatus (\ s a -> s{_lppfTagStatus = a});
+lppfTagStatus = lens _lppfTagStatus (\ s a -> s{_lppfTagStatus = a})
 
 instance Hashable LifecyclePolicyPreviewFilter where
 
@@ -542,33 +542,33 @@ lifecyclePolicyPreviewResult
     :: LifecyclePolicyPreviewResult
 lifecyclePolicyPreviewResult =
   LifecyclePolicyPreviewResult'
-  { _lpprImageTags = Nothing
-  , _lpprAction = Nothing
-  , _lpprImageDigest = Nothing
-  , _lpprImagePushedAt = Nothing
-  , _lpprAppliedRulePriority = Nothing
-  }
+    { _lpprImageTags = Nothing
+    , _lpprAction = Nothing
+    , _lpprImageDigest = Nothing
+    , _lpprImagePushedAt = Nothing
+    , _lpprAppliedRulePriority = Nothing
+    }
 
 
 -- | The list of tags associated with this image.
 lpprImageTags :: Lens' LifecyclePolicyPreviewResult [Text]
-lpprImageTags = lens _lpprImageTags (\ s a -> s{_lpprImageTags = a}) . _Default . _Coerce;
+lpprImageTags = lens _lpprImageTags (\ s a -> s{_lpprImageTags = a}) . _Default . _Coerce
 
 -- | The type of action to be taken.
 lpprAction :: Lens' LifecyclePolicyPreviewResult (Maybe LifecyclePolicyRuleAction)
-lpprAction = lens _lpprAction (\ s a -> s{_lpprAction = a});
+lpprAction = lens _lpprAction (\ s a -> s{_lpprAction = a})
 
 -- | The @sha256@ digest of the image manifest.
 lpprImageDigest :: Lens' LifecyclePolicyPreviewResult (Maybe Text)
-lpprImageDigest = lens _lpprImageDigest (\ s a -> s{_lpprImageDigest = a});
+lpprImageDigest = lens _lpprImageDigest (\ s a -> s{_lpprImageDigest = a})
 
 -- | The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
 lpprImagePushedAt :: Lens' LifecyclePolicyPreviewResult (Maybe UTCTime)
-lpprImagePushedAt = lens _lpprImagePushedAt (\ s a -> s{_lpprImagePushedAt = a}) . mapping _Time;
+lpprImagePushedAt = lens _lpprImagePushedAt (\ s a -> s{_lpprImagePushedAt = a}) . mapping _Time
 
 -- | The priority of the applied rule.
 lpprAppliedRulePriority :: Lens' LifecyclePolicyPreviewResult (Maybe Natural)
-lpprAppliedRulePriority = lens _lpprAppliedRulePriority (\ s a -> s{_lpprAppliedRulePriority = a}) . mapping _Nat;
+lpprAppliedRulePriority = lens _lpprAppliedRulePriority (\ s a -> s{_lpprAppliedRulePriority = a}) . mapping _Nat
 
 instance FromJSON LifecyclePolicyPreviewResult where
         parseJSON
@@ -607,7 +607,7 @@ lifecyclePolicyPreviewSummary =
 
 -- | The number of expiring images.
 lppsExpiringImageTotalCount :: Lens' LifecyclePolicyPreviewSummary (Maybe Natural)
-lppsExpiringImageTotalCount = lens _lppsExpiringImageTotalCount (\ s a -> s{_lppsExpiringImageTotalCount = a}) . mapping _Nat;
+lppsExpiringImageTotalCount = lens _lppsExpiringImageTotalCount (\ s a -> s{_lppsExpiringImageTotalCount = a}) . mapping _Nat
 
 instance FromJSON LifecyclePolicyPreviewSummary where
         parseJSON
@@ -642,7 +642,7 @@ lifecyclePolicyRuleAction = LifecyclePolicyRuleAction' {_lpraType = Nothing}
 
 -- | The type of action to be taken.
 lpraType :: Lens' LifecyclePolicyRuleAction (Maybe ImageActionType)
-lpraType = lens _lpraType (\ s a -> s{_lpraType = a});
+lpraType = lens _lpraType (\ s a -> s{_lpraType = a})
 
 instance FromJSON LifecyclePolicyRuleAction where
         parseJSON
@@ -676,7 +676,7 @@ listImagesFilter = ListImagesFilter' {_lifTagStatus = Nothing}
 
 -- | The tag status with which to filter your 'ListImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
 lifTagStatus :: Lens' ListImagesFilter (Maybe TagStatus)
-lifTagStatus = lens _lifTagStatus (\ s a -> s{_lifTagStatus = a});
+lifTagStatus = lens _lifTagStatus (\ s a -> s{_lifTagStatus = a})
 
 instance Hashable ListImagesFilter where
 
@@ -718,33 +718,33 @@ repository
     :: Repository
 repository =
   Repository'
-  { _rRepositoryARN = Nothing
-  , _rCreatedAt = Nothing
-  , _rRegistryId = Nothing
-  , _rRepositoryURI = Nothing
-  , _rRepositoryName = Nothing
-  }
+    { _rRepositoryARN = Nothing
+    , _rCreatedAt = Nothing
+    , _rRegistryId = Nothing
+    , _rRepositoryURI = Nothing
+    , _rRepositoryName = Nothing
+    }
 
 
 -- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
 rRepositoryARN :: Lens' Repository (Maybe Text)
-rRepositoryARN = lens _rRepositoryARN (\ s a -> s{_rRepositoryARN = a});
+rRepositoryARN = lens _rRepositoryARN (\ s a -> s{_rRepositoryARN = a})
 
 -- | The date and time, in JavaScript date format, when the repository was created.
 rCreatedAt :: Lens' Repository (Maybe UTCTime)
-rCreatedAt = lens _rCreatedAt (\ s a -> s{_rCreatedAt = a}) . mapping _Time;
+rCreatedAt = lens _rCreatedAt (\ s a -> s{_rCreatedAt = a}) . mapping _Time
 
 -- | The AWS account ID associated with the registry that contains the repository.
 rRegistryId :: Lens' Repository (Maybe Text)
-rRegistryId = lens _rRegistryId (\ s a -> s{_rRegistryId = a});
+rRegistryId = lens _rRegistryId (\ s a -> s{_rRegistryId = a})
 
 -- | The URI for the repository. You can use this URI for Docker @push@ or @pull@ operations.
 rRepositoryURI :: Lens' Repository (Maybe Text)
-rRepositoryURI = lens _rRepositoryURI (\ s a -> s{_rRepositoryURI = a});
+rRepositoryURI = lens _rRepositoryURI (\ s a -> s{_rRepositoryURI = a})
 
 -- | The name of the repository.
 rRepositoryName :: Lens' Repository (Maybe Text)
-rRepositoryName = lens _rRepositoryName (\ s a -> s{_rRepositoryName = a});
+rRepositoryName = lens _rRepositoryName (\ s a -> s{_rRepositoryName = a})
 
 instance FromJSON Repository where
         parseJSON

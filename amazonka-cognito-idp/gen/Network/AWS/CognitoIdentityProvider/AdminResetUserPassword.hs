@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminResetUserPassword
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,16 +72,16 @@ adminResetUserPassword
     -> AdminResetUserPassword
 adminResetUserPassword pUserPoolId_ pUsername_ =
   AdminResetUserPassword'
-  {_arupUserPoolId = pUserPoolId_, _arupUsername = _Sensitive # pUsername_}
+    {_arupUserPoolId = pUserPoolId_, _arupUsername = _Sensitive # pUsername_}
 
 
 -- | The user pool ID for the user pool where you want to reset the user's password.
 arupUserPoolId :: Lens' AdminResetUserPassword Text
-arupUserPoolId = lens _arupUserPoolId (\ s a -> s{_arupUserPoolId = a});
+arupUserPoolId = lens _arupUserPoolId (\ s a -> s{_arupUserPoolId = a})
 
 -- | The user name of the user whose password you wish to reset.
 arupUsername :: Lens' AdminResetUserPassword Text
-arupUsername = lens _arupUsername (\ s a -> s{_arupUsername = a}) . _Sensitive;
+arupUsername = lens _arupUsername (\ s a -> s{_arupUsername = a}) . _Sensitive
 
 instance AWSRequest AdminResetUserPassword where
         type Rs AdminResetUserPassword =
@@ -144,6 +144,6 @@ adminResetUserPasswordResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 aruprsResponseStatus :: Lens' AdminResetUserPasswordResponse Int
-aruprsResponseStatus = lens _aruprsResponseStatus (\ s a -> s{_aruprsResponseStatus = a});
+aruprsResponseStatus = lens _aruprsResponseStatus (\ s a -> s{_aruprsResponseStatus = a})
 
 instance NFData AdminResetUserPasswordResponse where

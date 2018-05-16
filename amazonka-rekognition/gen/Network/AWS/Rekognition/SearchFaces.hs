@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.SearchFaces
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 --
 -- The operation response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match that is found. Along with the metadata, the response also includes a @confidence@ value for each face match, indicating the confidence that the specific face matches the input face.
 --
--- For an example, see 'example3' .
+-- For an example, see 'search-face-with-id-procedure' .
 --
 -- This operation requires permissions to perform the @rekognition:SearchFaces@ action.
 --
@@ -43,6 +43,7 @@ module Network.AWS.Rekognition.SearchFaces
     , SearchFacesResponse
     -- * Response Lenses
     , sfrsFaceMatches
+    , sfrsFaceModelVersion
     , sfrsSearchedFaceId
     , sfrsResponseStatus
     ) where
@@ -80,28 +81,28 @@ searchFaces
     -> SearchFaces
 searchFaces pCollectionId_ pFaceId_ =
   SearchFaces'
-  { _sfFaceMatchThreshold = Nothing
-  , _sfMaxFaces = Nothing
-  , _sfCollectionId = pCollectionId_
-  , _sfFaceId = pFaceId_
-  }
+    { _sfFaceMatchThreshold = Nothing
+    , _sfMaxFaces = Nothing
+    , _sfCollectionId = pCollectionId_
+    , _sfFaceId = pFaceId_
+    }
 
 
 -- | Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%.
 sfFaceMatchThreshold :: Lens' SearchFaces (Maybe Double)
-sfFaceMatchThreshold = lens _sfFaceMatchThreshold (\ s a -> s{_sfFaceMatchThreshold = a});
+sfFaceMatchThreshold = lens _sfFaceMatchThreshold (\ s a -> s{_sfFaceMatchThreshold = a})
 
 -- | Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.
 sfMaxFaces :: Lens' SearchFaces (Maybe Natural)
-sfMaxFaces = lens _sfMaxFaces (\ s a -> s{_sfMaxFaces = a}) . mapping _Nat;
+sfMaxFaces = lens _sfMaxFaces (\ s a -> s{_sfMaxFaces = a}) . mapping _Nat
 
 -- | ID of the collection the face belongs to.
 sfCollectionId :: Lens' SearchFaces Text
-sfCollectionId = lens _sfCollectionId (\ s a -> s{_sfCollectionId = a});
+sfCollectionId = lens _sfCollectionId (\ s a -> s{_sfCollectionId = a})
 
 -- | ID of a face to find matches for in the collection.
 sfFaceId :: Lens' SearchFaces Text
-sfFaceId = lens _sfFaceId (\ s a -> s{_sfFaceId = a});
+sfFaceId = lens _sfFaceId (\ s a -> s{_sfFaceId = a})
 
 instance AWSRequest SearchFaces where
         type Rs SearchFaces = SearchFacesResponse
@@ -111,7 +112,8 @@ instance AWSRequest SearchFaces where
               (\ s h x ->
                  SearchFacesResponse' <$>
                    (x .?> "FaceMatches" .!@ mempty) <*>
-                     (x .?> "SearchedFaceId")
+                     (x .?> "FaceModelVersion")
+                     <*> (x .?> "SearchedFaceId")
                      <*> (pure (fromEnum s)))
 
 instance Hashable SearchFaces where
@@ -144,9 +146,10 @@ instance ToQuery SearchFaces where
 
 -- | /See:/ 'searchFacesResponse' smart constructor.
 data SearchFacesResponse = SearchFacesResponse'
-  { _sfrsFaceMatches    :: !(Maybe [FaceMatch])
-  , _sfrsSearchedFaceId :: !(Maybe Text)
-  , _sfrsResponseStatus :: !Int
+  { _sfrsFaceMatches      :: !(Maybe [FaceMatch])
+  , _sfrsFaceModelVersion :: !(Maybe Text)
+  , _sfrsSearchedFaceId   :: !(Maybe Text)
+  , _sfrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,6 +159,8 @@ data SearchFacesResponse = SearchFacesResponse'
 --
 -- * 'sfrsFaceMatches' - An array of faces that matched the input face, along with the confidence in the match.
 --
+-- * 'sfrsFaceModelVersion' - Version number of the face detection model associated with the input collection (@CollectionId@ ).
+--
 -- * 'sfrsSearchedFaceId' - ID of the face that was searched for matches in a collection.
 --
 -- * 'sfrsResponseStatus' - -- | The response status code.
@@ -164,22 +169,27 @@ searchFacesResponse
     -> SearchFacesResponse
 searchFacesResponse pResponseStatus_ =
   SearchFacesResponse'
-  { _sfrsFaceMatches = Nothing
-  , _sfrsSearchedFaceId = Nothing
-  , _sfrsResponseStatus = pResponseStatus_
-  }
+    { _sfrsFaceMatches = Nothing
+    , _sfrsFaceModelVersion = Nothing
+    , _sfrsSearchedFaceId = Nothing
+    , _sfrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of faces that matched the input face, along with the confidence in the match.
 sfrsFaceMatches :: Lens' SearchFacesResponse [FaceMatch]
-sfrsFaceMatches = lens _sfrsFaceMatches (\ s a -> s{_sfrsFaceMatches = a}) . _Default . _Coerce;
+sfrsFaceMatches = lens _sfrsFaceMatches (\ s a -> s{_sfrsFaceMatches = a}) . _Default . _Coerce
+
+-- | Version number of the face detection model associated with the input collection (@CollectionId@ ).
+sfrsFaceModelVersion :: Lens' SearchFacesResponse (Maybe Text)
+sfrsFaceModelVersion = lens _sfrsFaceModelVersion (\ s a -> s{_sfrsFaceModelVersion = a})
 
 -- | ID of the face that was searched for matches in a collection.
 sfrsSearchedFaceId :: Lens' SearchFacesResponse (Maybe Text)
-sfrsSearchedFaceId = lens _sfrsSearchedFaceId (\ s a -> s{_sfrsSearchedFaceId = a});
+sfrsSearchedFaceId = lens _sfrsSearchedFaceId (\ s a -> s{_sfrsSearchedFaceId = a})
 
 -- | -- | The response status code.
 sfrsResponseStatus :: Lens' SearchFacesResponse Int
-sfrsResponseStatus = lens _sfrsResponseStatus (\ s a -> s{_sfrsResponseStatus = a});
+sfrsResponseStatus = lens _sfrsResponseStatus (\ s a -> s{_sfrsResponseStatus = a})
 
 instance NFData SearchFacesResponse where

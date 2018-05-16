@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetWebACL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getWebACL pWebACLId_ = GetWebACL' {_gwaWebACLId = pWebACLId_}
 
 -- | The @WebACLId@ of the 'WebACL' that you want to get. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
 gwaWebACLId :: Lens' GetWebACL Text
-gwaWebACLId = lens _gwaWebACLId (\ s a -> s{_gwaWebACLId = a});
+gwaWebACLId = lens _gwaWebACLId (\ s a -> s{_gwaWebACLId = a})
 
 instance AWSRequest GetWebACL where
         type Rs GetWebACL = GetWebACLResponse
@@ -117,15 +117,15 @@ getWebACLResponse
     -> GetWebACLResponse
 getWebACLResponse pResponseStatus_ =
   GetWebACLResponse'
-  {_gwarsWebACL = Nothing, _gwarsResponseStatus = pResponseStatus_}
+    {_gwarsWebACL = Nothing, _gwarsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the 'WebACL' that you specified in the @GetWebACL@ request. For more information, see the following topics:     * 'WebACL' : Contains @DefaultAction@ , @MetricName@ , @Name@ , an array of @Rule@ objects, and @WebACLId@      * @DefaultAction@ (Data type is 'WafAction' ): Contains @Type@      * @Rules@ : Contains an array of @ActivatedRule@ objects, which contain @Action@ , @Priority@ , and @RuleId@      * @Action@ : Contains @Type@
 gwarsWebACL :: Lens' GetWebACLResponse (Maybe WebACL)
-gwarsWebACL = lens _gwarsWebACL (\ s a -> s{_gwarsWebACL = a});
+gwarsWebACL = lens _gwarsWebACL (\ s a -> s{_gwarsWebACL = a})
 
 -- | -- | The response status code.
 gwarsResponseStatus :: Lens' GetWebACLResponse Int
-gwarsResponseStatus = lens _gwarsResponseStatus (\ s a -> s{_gwarsResponseStatus = a});
+gwarsResponseStatus = lens _gwarsResponseStatus (\ s a -> s{_gwarsResponseStatus = a})
 
 instance NFData GetWebACLResponse where

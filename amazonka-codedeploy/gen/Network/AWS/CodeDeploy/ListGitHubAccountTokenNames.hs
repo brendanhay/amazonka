@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ listGitHubAccountTokenNames =
 
 -- | An identifier returned from the previous ListGitHubAccountTokenNames call. It can be used to return the next set of names in the list.
 lghatnNextToken :: Lens' ListGitHubAccountTokenNames (Maybe Text)
-lghatnNextToken = lens _lghatnNextToken (\ s a -> s{_lghatnNextToken = a});
+lghatnNextToken = lens _lghatnNextToken (\ s a -> s{_lghatnNextToken = a})
 
 instance AWSRequest ListGitHubAccountTokenNames where
         type Rs ListGitHubAccountTokenNames =
@@ -133,23 +133,23 @@ listGitHubAccountTokenNamesResponse
     -> ListGitHubAccountTokenNamesResponse
 listGitHubAccountTokenNamesResponse pResponseStatus_ =
   ListGitHubAccountTokenNamesResponse'
-  { _lghatnrsTokenNameList = Nothing
-  , _lghatnrsNextToken = Nothing
-  , _lghatnrsResponseStatus = pResponseStatus_
-  }
+    { _lghatnrsTokenNameList = Nothing
+    , _lghatnrsNextToken = Nothing
+    , _lghatnrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of names of connections to GitHub accounts.
 lghatnrsTokenNameList :: Lens' ListGitHubAccountTokenNamesResponse [Text]
-lghatnrsTokenNameList = lens _lghatnrsTokenNameList (\ s a -> s{_lghatnrsTokenNameList = a}) . _Default . _Coerce;
+lghatnrsTokenNameList = lens _lghatnrsTokenNameList (\ s a -> s{_lghatnrsTokenNameList = a}) . _Default . _Coerce
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent ListGitHubAccountTokenNames call to return the next set of names in the list.
 lghatnrsNextToken :: Lens' ListGitHubAccountTokenNamesResponse (Maybe Text)
-lghatnrsNextToken = lens _lghatnrsNextToken (\ s a -> s{_lghatnrsNextToken = a});
+lghatnrsNextToken = lens _lghatnrsNextToken (\ s a -> s{_lghatnrsNextToken = a})
 
 -- | -- | The response status code.
 lghatnrsResponseStatus :: Lens' ListGitHubAccountTokenNamesResponse Int
-lghatnrsResponseStatus = lens _lghatnrsResponseStatus (\ s a -> s{_lghatnrsResponseStatus = a});
+lghatnrsResponseStatus = lens _lghatnrsResponseStatus (\ s a -> s{_lghatnrsResponseStatus = a})
 
 instance NFData ListGitHubAccountTokenNamesResponse
          where

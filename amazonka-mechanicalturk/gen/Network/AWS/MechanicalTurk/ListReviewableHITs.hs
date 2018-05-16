@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListReviewableHITs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- The @ListReviewableHITs@ operation retrieves the HITs with Status equal to Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListReviewableHITs
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.MechanicalTurk.ListReviewableHITs
 import Network.AWS.Lens
 import Network.AWS.MechanicalTurk.Types
 import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,28 +76,35 @@ listReviewableHITs
     :: ListReviewableHITs
 listReviewableHITs =
   ListReviewableHITs'
-  { _lrhitStatus = Nothing
-  , _lrhitHITTypeId = Nothing
-  , _lrhitNextToken = Nothing
-  , _lrhitMaxResults = Nothing
-  }
+    { _lrhitStatus = Nothing
+    , _lrhitHITTypeId = Nothing
+    , _lrhitNextToken = Nothing
+    , _lrhitMaxResults = Nothing
+    }
 
 
 -- | Can be either @Reviewable@ or @Reviewing@ . Reviewable is the default value.
 lrhitStatus :: Lens' ListReviewableHITs (Maybe ReviewableHITStatus)
-lrhitStatus = lens _lrhitStatus (\ s a -> s{_lrhitStatus = a});
+lrhitStatus = lens _lrhitStatus (\ s a -> s{_lrhitStatus = a})
 
 -- | The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered
 lrhitHITTypeId :: Lens' ListReviewableHITs (Maybe Text)
-lrhitHITTypeId = lens _lrhitHITTypeId (\ s a -> s{_lrhitHITTypeId = a});
+lrhitHITTypeId = lens _lrhitHITTypeId (\ s a -> s{_lrhitHITTypeId = a})
 
 -- | Pagination Token
 lrhitNextToken :: Lens' ListReviewableHITs (Maybe Text)
-lrhitNextToken = lens _lrhitNextToken (\ s a -> s{_lrhitNextToken = a});
+lrhitNextToken = lens _lrhitNextToken (\ s a -> s{_lrhitNextToken = a})
 
 -- | Limit the number of results returned.
 lrhitMaxResults :: Lens' ListReviewableHITs (Maybe Natural)
-lrhitMaxResults = lens _lrhitMaxResults (\ s a -> s{_lrhitMaxResults = a}) . mapping _Nat;
+lrhitMaxResults = lens _lrhitMaxResults (\ s a -> s{_lrhitMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListReviewableHITs where
+        page rq rs
+          | stop (rs ^. lrhitrsNextToken) = Nothing
+          | stop (rs ^. lrhitrsHITs) = Nothing
+          | otherwise =
+            Just $ rq & lrhitNextToken .~ rs ^. lrhitrsNextToken
 
 instance AWSRequest ListReviewableHITs where
         type Rs ListReviewableHITs =
@@ -162,27 +172,27 @@ listReviewableHITsResponse
     -> ListReviewableHITsResponse
 listReviewableHITsResponse pResponseStatus_ =
   ListReviewableHITsResponse'
-  { _lrhitrsNextToken = Nothing
-  , _lrhitrsNumResults = Nothing
-  , _lrhitrsHITs = Nothing
-  , _lrhitrsResponseStatus = pResponseStatus_
-  }
+    { _lrhitrsNextToken = Nothing
+    , _lrhitrsNumResults = Nothing
+    , _lrhitrsHITs = Nothing
+    , _lrhitrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 lrhitrsNextToken :: Lens' ListReviewableHITsResponse (Maybe Text)
-lrhitrsNextToken = lens _lrhitrsNextToken (\ s a -> s{_lrhitrsNextToken = a});
+lrhitrsNextToken = lens _lrhitrsNextToken (\ s a -> s{_lrhitrsNextToken = a})
 
 -- | The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
 lrhitrsNumResults :: Lens' ListReviewableHITsResponse (Maybe Int)
-lrhitrsNumResults = lens _lrhitrsNumResults (\ s a -> s{_lrhitrsNumResults = a});
+lrhitrsNumResults = lens _lrhitrsNumResults (\ s a -> s{_lrhitrsNumResults = a})
 
 -- | The list of HIT elements returned by the query.
 lrhitrsHITs :: Lens' ListReviewableHITsResponse [HIT]
-lrhitrsHITs = lens _lrhitrsHITs (\ s a -> s{_lrhitrsHITs = a}) . _Default . _Coerce;
+lrhitrsHITs = lens _lrhitrsHITs (\ s a -> s{_lrhitrsHITs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lrhitrsResponseStatus :: Lens' ListReviewableHITsResponse Int
-lrhitrsResponseStatus = lens _lrhitrsResponseStatus (\ s a -> s{_lrhitrsResponseStatus = a});
+lrhitrsResponseStatus = lens _lrhitrsResponseStatus (\ s a -> s{_lrhitrsResponseStatus = a})
 
 instance NFData ListReviewableHITsResponse where

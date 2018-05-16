@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.DeleteFunction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ deleteFunction pFunctionName_ =
 
 -- | Using this optional parameter you can specify a function version (but not the @> LATEST@ version) to direct AWS Lambda to delete a specific function version. If the function version has one or more aliases pointing to it, you will get an error because you cannot have aliases pointing to it. You can delete any function version but not the @> LATEST@ , that is, you cannot specify @> LATEST@ as the value of this parameter. The @> LATEST@ version can be deleted only when you want to delete all the function versions and aliases. You can only specify a function version, not an alias name, using this parameter. You cannot delete a function version using its alias. If you don't specify this parameter, AWS Lambda will delete the function, including all of its versions and aliases.
 dfQualifier :: Lens' DeleteFunction (Maybe Text)
-dfQualifier = lens _dfQualifier (\ s a -> s{_dfQualifier = a});
+dfQualifier = lens _dfQualifier (\ s a -> s{_dfQualifier = a})
 
 -- | The Lambda function to delete. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 dfFunctionName :: Lens' DeleteFunction Text
-dfFunctionName = lens _dfFunctionName (\ s a -> s{_dfFunctionName = a});
+dfFunctionName = lens _dfFunctionName (\ s a -> s{_dfFunctionName = a})
 
 instance AWSRequest DeleteFunction where
         type Rs DeleteFunction = DeleteFunctionResponse

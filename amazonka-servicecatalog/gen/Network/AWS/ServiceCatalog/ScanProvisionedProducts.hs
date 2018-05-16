@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ScanProvisionedProducts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a paginated list of all the ProvisionedProduct objects that are currently available (not terminated).
+-- Lists the provisioned products that are available (not terminated).
 --
+--
+-- To use additional filtering, see 'SearchProvisionedProducts' .
 --
 module Network.AWS.ServiceCatalog.ScanProvisionedProducts
     (
@@ -27,10 +29,10 @@ module Network.AWS.ServiceCatalog.ScanProvisionedProducts
       scanProvisionedProducts
     , ScanProvisionedProducts
     -- * Request Lenses
-    , sppAcceptLanguage
-    , sppAccessLevelFilter
-    , sppPageToken
-    , sppPageSize
+    , sAcceptLanguage
+    , sAccessLevelFilter
+    , sPageToken
+    , sPageSize
 
     -- * Destructuring the Response
     , scanProvisionedProductsResponse
@@ -50,10 +52,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'scanProvisionedProducts' smart constructor.
 data ScanProvisionedProducts = ScanProvisionedProducts'
-  { _sppAcceptLanguage    :: !(Maybe Text)
-  , _sppAccessLevelFilter :: !(Maybe AccessLevelFilter)
-  , _sppPageToken         :: !(Maybe Text)
-  , _sppPageSize          :: !(Maybe Nat)
+  { _sAcceptLanguage    :: !(Maybe Text)
+  , _sAccessLevelFilter :: !(Maybe AccessLevelFilter)
+  , _sPageToken         :: !(Maybe Text)
+  , _sPageSize          :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -61,39 +63,39 @@ data ScanProvisionedProducts = ScanProvisionedProducts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- * 'sAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'sppAccessLevelFilter' - The access level for obtaining results. If left unspecified, @User@ level access is used.
+-- * 'sAccessLevelFilter' - The access level to use to obtain results. The default is @User@ .
 --
--- * 'sppPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- * 'sPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
 --
--- * 'sppPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- * 'sPageSize' - The maximum number of items to return with this call.
 scanProvisionedProducts
     :: ScanProvisionedProducts
 scanProvisionedProducts =
   ScanProvisionedProducts'
-  { _sppAcceptLanguage = Nothing
-  , _sppAccessLevelFilter = Nothing
-  , _sppPageToken = Nothing
-  , _sppPageSize = Nothing
-  }
+    { _sAcceptLanguage = Nothing
+    , _sAccessLevelFilter = Nothing
+    , _sPageToken = Nothing
+    , _sPageSize = Nothing
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-sppAcceptLanguage :: Lens' ScanProvisionedProducts (Maybe Text)
-sppAcceptLanguage = lens _sppAcceptLanguage (\ s a -> s{_sppAcceptLanguage = a});
+sAcceptLanguage :: Lens' ScanProvisionedProducts (Maybe Text)
+sAcceptLanguage = lens _sAcceptLanguage (\ s a -> s{_sAcceptLanguage = a})
 
--- | The access level for obtaining results. If left unspecified, @User@ level access is used.
-sppAccessLevelFilter :: Lens' ScanProvisionedProducts (Maybe AccessLevelFilter)
-sppAccessLevelFilter = lens _sppAccessLevelFilter (\ s a -> s{_sppAccessLevelFilter = a});
+-- | The access level to use to obtain results. The default is @User@ .
+sAccessLevelFilter :: Lens' ScanProvisionedProducts (Maybe AccessLevelFilter)
+sAccessLevelFilter = lens _sAccessLevelFilter (\ s a -> s{_sAccessLevelFilter = a})
 
--- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
-sppPageToken :: Lens' ScanProvisionedProducts (Maybe Text)
-sppPageToken = lens _sppPageToken (\ s a -> s{_sppPageToken = a});
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
+sPageToken :: Lens' ScanProvisionedProducts (Maybe Text)
+sPageToken = lens _sPageToken (\ s a -> s{_sPageToken = a})
 
--- | The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
-sppPageSize :: Lens' ScanProvisionedProducts (Maybe Natural)
-sppPageSize = lens _sppPageSize (\ s a -> s{_sppPageSize = a}) . mapping _Nat;
+-- | The maximum number of items to return with this call.
+sPageSize :: Lens' ScanProvisionedProducts (Maybe Natural)
+sPageSize = lens _sPageSize (\ s a -> s{_sPageSize = a}) . mapping _Nat
 
 instance AWSRequest ScanProvisionedProducts where
         type Rs ScanProvisionedProducts =
@@ -125,10 +127,10 @@ instance ToJSON ScanProvisionedProducts where
         toJSON ScanProvisionedProducts'{..}
           = object
               (catMaybes
-                 [("AcceptLanguage" .=) <$> _sppAcceptLanguage,
-                  ("AccessLevelFilter" .=) <$> _sppAccessLevelFilter,
-                  ("PageToken" .=) <$> _sppPageToken,
-                  ("PageSize" .=) <$> _sppPageSize])
+                 [("AcceptLanguage" .=) <$> _sAcceptLanguage,
+                  ("AccessLevelFilter" .=) <$> _sAccessLevelFilter,
+                  ("PageToken" .=) <$> _sPageToken,
+                  ("PageSize" .=) <$> _sPageSize])
 
 instance ToPath ScanProvisionedProducts where
         toPath = const "/"
@@ -148,9 +150,9 @@ data ScanProvisionedProductsResponse = ScanProvisionedProductsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spprsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'spprsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
--- * 'spprsProvisionedProducts' - A list of ProvisionedProduct detail objects.
+-- * 'spprsProvisionedProducts' - Information about the provisioned products.
 --
 -- * 'spprsResponseStatus' - -- | The response status code.
 scanProvisionedProductsResponse
@@ -158,22 +160,22 @@ scanProvisionedProductsResponse
     -> ScanProvisionedProductsResponse
 scanProvisionedProductsResponse pResponseStatus_ =
   ScanProvisionedProductsResponse'
-  { _spprsNextPageToken = Nothing
-  , _spprsProvisionedProducts = Nothing
-  , _spprsResponseStatus = pResponseStatus_
-  }
+    { _spprsNextPageToken = Nothing
+    , _spprsProvisionedProducts = Nothing
+    , _spprsResponseStatus = pResponseStatus_
+    }
 
 
--- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 spprsNextPageToken :: Lens' ScanProvisionedProductsResponse (Maybe Text)
-spprsNextPageToken = lens _spprsNextPageToken (\ s a -> s{_spprsNextPageToken = a});
+spprsNextPageToken = lens _spprsNextPageToken (\ s a -> s{_spprsNextPageToken = a})
 
--- | A list of ProvisionedProduct detail objects.
+-- | Information about the provisioned products.
 spprsProvisionedProducts :: Lens' ScanProvisionedProductsResponse [ProvisionedProductDetail]
-spprsProvisionedProducts = lens _spprsProvisionedProducts (\ s a -> s{_spprsProvisionedProducts = a}) . _Default . _Coerce;
+spprsProvisionedProducts = lens _spprsProvisionedProducts (\ s a -> s{_spprsProvisionedProducts = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 spprsResponseStatus :: Lens' ScanProvisionedProductsResponse Int
-spprsResponseStatus = lens _spprsResponseStatus (\ s a -> s{_spprsResponseStatus = a});
+spprsResponseStatus = lens _spprsResponseStatus (\ s a -> s{_spprsResponseStatus = a})
 
 instance NFData ScanProvisionedProductsResponse where

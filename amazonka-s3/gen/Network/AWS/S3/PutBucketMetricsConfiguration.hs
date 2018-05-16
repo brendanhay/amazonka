@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketMetricsConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,23 +65,23 @@ putBucketMetricsConfiguration
     -> PutBucketMetricsConfiguration
 putBucketMetricsConfiguration pBucket_ pId_ pMetricsConfiguration_ =
   PutBucketMetricsConfiguration'
-  { _pbmcBucket = pBucket_
-  , _pbmcId = pId_
-  , _pbmcMetricsConfiguration = pMetricsConfiguration_
-  }
+    { _pbmcBucket = pBucket_
+    , _pbmcId = pId_
+    , _pbmcMetricsConfiguration = pMetricsConfiguration_
+    }
 
 
 -- | The name of the bucket for which the metrics configuration is set.
 pbmcBucket :: Lens' PutBucketMetricsConfiguration BucketName
-pbmcBucket = lens _pbmcBucket (\ s a -> s{_pbmcBucket = a});
+pbmcBucket = lens _pbmcBucket (\ s a -> s{_pbmcBucket = a})
 
 -- | The ID used to identify the metrics configuration.
 pbmcId :: Lens' PutBucketMetricsConfiguration Text
-pbmcId = lens _pbmcId (\ s a -> s{_pbmcId = a});
+pbmcId = lens _pbmcId (\ s a -> s{_pbmcId = a})
 
 -- | Specifies the metrics configuration.
 pbmcMetricsConfiguration :: Lens' PutBucketMetricsConfiguration MetricsConfiguration
-pbmcMetricsConfiguration = lens _pbmcMetricsConfiguration (\ s a -> s{_pbmcMetricsConfiguration = a});
+pbmcMetricsConfiguration = lens _pbmcMetricsConfiguration (\ s a -> s{_pbmcMetricsConfiguration = a})
 
 instance AWSRequest PutBucketMetricsConfiguration
          where

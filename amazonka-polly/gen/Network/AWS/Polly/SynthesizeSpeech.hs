@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Polly.SynthesizeSpeech
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,43 +88,43 @@ synthesizeSpeech
     -> SynthesizeSpeech
 synthesizeSpeech pOutputFormat_ pText_ pVoiceId_ =
   SynthesizeSpeech'
-  { _ssSpeechMarkTypes = Nothing
-  , _ssSampleRate = Nothing
-  , _ssTextType = Nothing
-  , _ssLexiconNames = Nothing
-  , _ssOutputFormat = pOutputFormat_
-  , _ssText = pText_
-  , _ssVoiceId = pVoiceId_
-  }
+    { _ssSpeechMarkTypes = Nothing
+    , _ssSampleRate = Nothing
+    , _ssTextType = Nothing
+    , _ssLexiconNames = Nothing
+    , _ssOutputFormat = pOutputFormat_
+    , _ssText = pText_
+    , _ssVoiceId = pVoiceId_
+    }
 
 
 -- | The type of speech marks returned for the input text.
 ssSpeechMarkTypes :: Lens' SynthesizeSpeech [SpeechMarkType]
-ssSpeechMarkTypes = lens _ssSpeechMarkTypes (\ s a -> s{_ssSpeechMarkTypes = a}) . _Default . _Coerce;
+ssSpeechMarkTypes = lens _ssSpeechMarkTypes (\ s a -> s{_ssSpeechMarkTypes = a}) . _Default . _Coerce
 
 -- | The audio frequency specified in Hz.  The valid values for @mp3@ and @ogg_vorbis@ are "8000", "16000", and "22050". The default value is "22050".  Valid values for @pcm@ are "8000" and "16000" The default value is "16000".
 ssSampleRate :: Lens' SynthesizeSpeech (Maybe Text)
-ssSampleRate = lens _ssSampleRate (\ s a -> s{_ssSampleRate = a});
+ssSampleRate = lens _ssSampleRate (\ s a -> s{_ssSampleRate = a})
 
 -- | Specifies whether the input text is plain text or SSML. The default value is plain text. For more information, see <http://docs.aws.amazon.com/polly/latest/dg/ssml.html Using SSML> .
 ssTextType :: Lens' SynthesizeSpeech (Maybe TextType)
-ssTextType = lens _ssTextType (\ s a -> s{_ssTextType = a});
+ssTextType = lens _ssTextType (\ s a -> s{_ssTextType = a})
 
 -- | List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. For information about storing lexicons, see <http://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html PutLexicon> .
 ssLexiconNames :: Lens' SynthesizeSpeech [Text]
-ssLexiconNames = lens _ssLexiconNames (\ s a -> s{_ssLexiconNames = a}) . _Default . _Coerce;
+ssLexiconNames = lens _ssLexiconNames (\ s a -> s{_ssLexiconNames = a}) . _Default . _Coerce
 
 -- | The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
 ssOutputFormat :: Lens' SynthesizeSpeech OutputFormat
-ssOutputFormat = lens _ssOutputFormat (\ s a -> s{_ssOutputFormat = a});
+ssOutputFormat = lens _ssOutputFormat (\ s a -> s{_ssOutputFormat = a})
 
 -- | Input text to synthesize. If you specify @ssml@ as the @TextType@ , follow the SSML format for the input text.
 ssText :: Lens' SynthesizeSpeech Text
-ssText = lens _ssText (\ s a -> s{_ssText = a});
+ssText = lens _ssText (\ s a -> s{_ssText = a})
 
 -- | Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the <http://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices> operation.
 ssVoiceId :: Lens' SynthesizeSpeech VoiceId
-ssVoiceId = lens _ssVoiceId (\ s a -> s{_ssVoiceId = a});
+ssVoiceId = lens _ssVoiceId (\ s a -> s{_ssVoiceId = a})
 
 instance AWSRequest SynthesizeSpeech where
         type Rs SynthesizeSpeech = SynthesizeSpeechResponse
@@ -189,25 +189,25 @@ synthesizeSpeechResponse
     -> SynthesizeSpeechResponse
 synthesizeSpeechResponse pResponseStatus_ pAudioStream_ =
   SynthesizeSpeechResponse'
-  { _ssrsRequestCharacters = Nothing
-  , _ssrsContentType = Nothing
-  , _ssrsResponseStatus = pResponseStatus_
-  , _ssrsAudioStream = pAudioStream_
-  }
+    { _ssrsRequestCharacters = Nothing
+    , _ssrsContentType = Nothing
+    , _ssrsResponseStatus = pResponseStatus_
+    , _ssrsAudioStream = pAudioStream_
+    }
 
 
 -- | Number of characters synthesized.
 ssrsRequestCharacters :: Lens' SynthesizeSpeechResponse (Maybe Int)
-ssrsRequestCharacters = lens _ssrsRequestCharacters (\ s a -> s{_ssrsRequestCharacters = a});
+ssrsRequestCharacters = lens _ssrsRequestCharacters (\ s a -> s{_ssrsRequestCharacters = a})
 
 -- | Specifies the type audio stream. This should reflect the @OutputFormat@ parameter in your request.      * If you request @mp3@ as the @OutputFormat@ , the @ContentType@ returned is audio/mpeg.      * If you request @ogg_vorbis@ as the @OutputFormat@ , the @ContentType@ returned is audio/ogg.      * If you request @pcm@ as the @OutputFormat@ , the @ContentType@ returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format.      * If you request @json@ as the @OutputFormat@ , the @ContentType@ returned is audio/json.
 ssrsContentType :: Lens' SynthesizeSpeechResponse (Maybe Text)
-ssrsContentType = lens _ssrsContentType (\ s a -> s{_ssrsContentType = a});
+ssrsContentType = lens _ssrsContentType (\ s a -> s{_ssrsContentType = a})
 
 -- | -- | The response status code.
 ssrsResponseStatus :: Lens' SynthesizeSpeechResponse Int
-ssrsResponseStatus = lens _ssrsResponseStatus (\ s a -> s{_ssrsResponseStatus = a});
+ssrsResponseStatus = lens _ssrsResponseStatus (\ s a -> s{_ssrsResponseStatus = a})
 
 -- | Stream containing the synthesized speech.
 ssrsAudioStream :: Lens' SynthesizeSpeechResponse RsBody
-ssrsAudioStream = lens _ssrsAudioStream (\ s a -> s{_ssrsAudioStream = a});
+ssrsAudioStream = lens _ssrsAudioStream (\ s a -> s{_ssrsAudioStream = a})

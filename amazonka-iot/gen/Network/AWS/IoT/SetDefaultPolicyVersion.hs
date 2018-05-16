@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.SetDefaultPolicyVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ setDefaultPolicyVersion
     -> SetDefaultPolicyVersion
 setDefaultPolicyVersion pPolicyName_ pPolicyVersionId_ =
   SetDefaultPolicyVersion'
-  {_sdpvPolicyName = pPolicyName_, _sdpvPolicyVersionId = pPolicyVersionId_}
+    {_sdpvPolicyName = pPolicyName_, _sdpvPolicyVersionId = pPolicyVersionId_}
 
 
 -- | The policy name.
 sdpvPolicyName :: Lens' SetDefaultPolicyVersion Text
-sdpvPolicyName = lens _sdpvPolicyName (\ s a -> s{_sdpvPolicyName = a});
+sdpvPolicyName = lens _sdpvPolicyName (\ s a -> s{_sdpvPolicyName = a})
 
 -- | The policy version ID.
 sdpvPolicyVersionId :: Lens' SetDefaultPolicyVersion Text
-sdpvPolicyVersionId = lens _sdpvPolicyVersionId (\ s a -> s{_sdpvPolicyVersionId = a});
+sdpvPolicyVersionId = lens _sdpvPolicyVersionId (\ s a -> s{_sdpvPolicyVersionId = a})
 
 instance AWSRequest SetDefaultPolicyVersion where
         type Rs SetDefaultPolicyVersion =

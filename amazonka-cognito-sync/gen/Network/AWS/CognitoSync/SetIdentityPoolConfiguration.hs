@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.SetIdentityPoolConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,23 +76,23 @@ setIdentityPoolConfiguration
     -> SetIdentityPoolConfiguration
 setIdentityPoolConfiguration pIdentityPoolId_ =
   SetIdentityPoolConfiguration'
-  { _sipcCognitoStreams = Nothing
-  , _sipcPushSync = Nothing
-  , _sipcIdentityPoolId = pIdentityPoolId_
-  }
+    { _sipcCognitoStreams = Nothing
+    , _sipcPushSync = Nothing
+    , _sipcIdentityPoolId = pIdentityPoolId_
+    }
 
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 sipcCognitoStreams :: Lens' SetIdentityPoolConfiguration (Maybe CognitoStreams)
-sipcCognitoStreams = lens _sipcCognitoStreams (\ s a -> s{_sipcCognitoStreams = a});
+sipcCognitoStreams = lens _sipcCognitoStreams (\ s a -> s{_sipcCognitoStreams = a})
 
 -- | Options to apply to this identity pool for push synchronization.
 sipcPushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
-sipcPushSync = lens _sipcPushSync (\ s a -> s{_sipcPushSync = a});
+sipcPushSync = lens _sipcPushSync (\ s a -> s{_sipcPushSync = a})
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.
 sipcIdentityPoolId :: Lens' SetIdentityPoolConfiguration Text
-sipcIdentityPoolId = lens _sipcIdentityPoolId (\ s a -> s{_sipcIdentityPoolId = a});
+sipcIdentityPoolId = lens _sipcIdentityPoolId (\ s a -> s{_sipcIdentityPoolId = a})
 
 instance AWSRequest SetIdentityPoolConfiguration
          where
@@ -163,28 +163,28 @@ setIdentityPoolConfigurationResponse
     -> SetIdentityPoolConfigurationResponse
 setIdentityPoolConfigurationResponse pResponseStatus_ =
   SetIdentityPoolConfigurationResponse'
-  { _sipcrsIdentityPoolId = Nothing
-  , _sipcrsCognitoStreams = Nothing
-  , _sipcrsPushSync = Nothing
-  , _sipcrsResponseStatus = pResponseStatus_
-  }
+    { _sipcrsIdentityPoolId = Nothing
+    , _sipcrsCognitoStreams = Nothing
+    , _sipcrsPushSync = Nothing
+    , _sipcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
 sipcrsIdentityPoolId :: Lens' SetIdentityPoolConfigurationResponse (Maybe Text)
-sipcrsIdentityPoolId = lens _sipcrsIdentityPoolId (\ s a -> s{_sipcrsIdentityPoolId = a});
+sipcrsIdentityPoolId = lens _sipcrsIdentityPoolId (\ s a -> s{_sipcrsIdentityPoolId = a})
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 sipcrsCognitoStreams :: Lens' SetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
-sipcrsCognitoStreams = lens _sipcrsCognitoStreams (\ s a -> s{_sipcrsCognitoStreams = a});
+sipcrsCognitoStreams = lens _sipcrsCognitoStreams (\ s a -> s{_sipcrsCognitoStreams = a})
 
 -- | Options to apply to this identity pool for push synchronization.
 sipcrsPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
-sipcrsPushSync = lens _sipcrsPushSync (\ s a -> s{_sipcrsPushSync = a});
+sipcrsPushSync = lens _sipcrsPushSync (\ s a -> s{_sipcrsPushSync = a})
 
 -- | -- | The response status code.
 sipcrsResponseStatus :: Lens' SetIdentityPoolConfigurationResponse Int
-sipcrsResponseStatus = lens _sipcrsResponseStatus (\ s a -> s{_sipcrsResponseStatus = a});
+sipcrsResponseStatus = lens _sipcrsResponseStatus (\ s a -> s{_sipcrsResponseStatus = a})
 
 instance NFData SetIdentityPoolConfigurationResponse
          where

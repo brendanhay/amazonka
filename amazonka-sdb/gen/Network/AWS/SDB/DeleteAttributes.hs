@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.DeleteAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ deleteAttributes
     -> DeleteAttributes
 deleteAttributes pDomainName_ pItemName_ =
   DeleteAttributes'
-  { _daAttributes = Nothing
-  , _daExpected = Nothing
-  , _daDomainName = pDomainName_
-  , _daItemName = pItemName_
-  }
+    { _daAttributes = Nothing
+    , _daExpected = Nothing
+    , _daDomainName = pDomainName_
+    , _daItemName = pItemName_
+    }
 
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
 daAttributes :: Lens' DeleteAttributes [Attribute]
-daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a}) . _Default . _Coerce;
+daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a}) . _Default . _Coerce
 
 -- | The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.
 daExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
-daExpected = lens _daExpected (\ s a -> s{_daExpected = a});
+daExpected = lens _daExpected (\ s a -> s{_daExpected = a})
 
 -- | The name of the domain in which to perform the operation.
 daDomainName :: Lens' DeleteAttributes Text
-daDomainName = lens _daDomainName (\ s a -> s{_daDomainName = a});
+daDomainName = lens _daDomainName (\ s a -> s{_daDomainName = a})
 
 -- | The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.
 daItemName :: Lens' DeleteAttributes Text
-daItemName = lens _daItemName (\ s a -> s{_daItemName = a});
+daItemName = lens _daItemName (\ s a -> s{_daItemName = a})
 
 instance AWSRequest DeleteAttributes where
         type Rs DeleteAttributes = DeleteAttributesResponse

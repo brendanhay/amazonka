@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeSourceRegions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the source AWS regions where the current AWS Region can create a Read Replica or copy a DB snapshot from. This API action supports pagination.
+-- Returns a list of the source AWS Regions where the current AWS Region can create a Read Replica or copy a DB snapshot from. This API action supports pagination.
 --
 --
 module Network.AWS.RDS.DescribeSourceRegions
@@ -76,28 +76,28 @@ describeSourceRegions
     :: DescribeSourceRegions
 describeSourceRegions =
   DescribeSourceRegions'
-  { _dsrRegionName = Nothing
-  , _dsrFilters = Nothing
-  , _dsrMarker = Nothing
-  , _dsrMaxRecords = Nothing
-  }
+    { _dsrRegionName = Nothing
+    , _dsrFilters = Nothing
+    , _dsrMarker = Nothing
+    , _dsrMaxRecords = Nothing
+    }
 
 
 -- | The source AWS Region name. For example, @us-east-1@ . Constraints:     * Must specify a valid AWS Region name.
 dsrRegionName :: Lens' DescribeSourceRegions (Maybe Text)
-dsrRegionName = lens _dsrRegionName (\ s a -> s{_dsrRegionName = a});
+dsrRegionName = lens _dsrRegionName (\ s a -> s{_dsrRegionName = a})
 
 -- | This parameter is not currently supported.
 dsrFilters :: Lens' DescribeSourceRegions [Filter]
-dsrFilters = lens _dsrFilters (\ s a -> s{_dsrFilters = a}) . _Default . _Coerce;
+dsrFilters = lens _dsrFilters (\ s a -> s{_dsrFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous 'DescribeSourceRegions' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dsrMarker :: Lens' DescribeSourceRegions (Maybe Text)
-dsrMarker = lens _dsrMarker (\ s a -> s{_dsrMarker = a});
+dsrMarker = lens _dsrMarker (\ s a -> s{_dsrMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dsrMaxRecords :: Lens' DescribeSourceRegions (Maybe Int)
-dsrMaxRecords = lens _dsrMaxRecords (\ s a -> s{_dsrMaxRecords = a});
+dsrMaxRecords = lens _dsrMaxRecords (\ s a -> s{_dsrMaxRecords = a})
 
 instance AWSRequest DescribeSourceRegions where
         type Rs DescribeSourceRegions =
@@ -159,22 +159,22 @@ describeSourceRegionsResponse
     -> DescribeSourceRegionsResponse
 describeSourceRegionsResponse pResponseStatus_ =
   DescribeSourceRegionsResponse'
-  { _dsrrsMarker = Nothing
-  , _dsrrsSourceRegions = Nothing
-  , _dsrrsResponseStatus = pResponseStatus_
-  }
+    { _dsrrsMarker = Nothing
+    , _dsrrsSourceRegions = Nothing
+    , _dsrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dsrrsMarker :: Lens' DescribeSourceRegionsResponse (Maybe Text)
-dsrrsMarker = lens _dsrrsMarker (\ s a -> s{_dsrrsMarker = a});
+dsrrsMarker = lens _dsrrsMarker (\ s a -> s{_dsrrsMarker = a})
 
 -- | A list of SourceRegion instances that contains each source AWS Region that the current AWS Region can get a Read Replica or a DB snapshot from.
 dsrrsSourceRegions :: Lens' DescribeSourceRegionsResponse [SourceRegion]
-dsrrsSourceRegions = lens _dsrrsSourceRegions (\ s a -> s{_dsrrsSourceRegions = a}) . _Default . _Coerce;
+dsrrsSourceRegions = lens _dsrrsSourceRegions (\ s a -> s{_dsrrsSourceRegions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsrrsResponseStatus :: Lens' DescribeSourceRegionsResponse Int
-dsrrsResponseStatus = lens _dsrrsResponseStatus (\ s a -> s{_dsrrsResponseStatus = a});
+dsrrsResponseStatus = lens _dsrrsResponseStatus (\ s a -> s{_dsrrsResponseStatus = a})
 
 instance NFData DescribeSourceRegionsResponse where

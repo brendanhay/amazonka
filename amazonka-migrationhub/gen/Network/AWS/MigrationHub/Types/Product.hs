@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,11 +48,11 @@ createdArtifact pName_ =
 
 -- | A description that can be free-form text to record additional detail about the artifact for clarity or for later reference.
 caDescription :: Lens' CreatedArtifact (Maybe Text)
-caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
+caDescription = lens _caDescription (\ s a -> s{_caDescription = a})
 
 -- | An ARN that uniquely identifies the result of a migration task.
 caName :: Lens' CreatedArtifact Text
-caName = lens _caName (\ s a -> s{_caName = a});
+caName = lens _caName (\ s a -> s{_caName = a})
 
 instance FromJSON CreatedArtifact where
         parseJSON
@@ -95,16 +95,16 @@ discoveredResource
     -> DiscoveredResource
 discoveredResource pConfigurationId_ =
   DiscoveredResource'
-  {_drDescription = Nothing, _drConfigurationId = pConfigurationId_}
+    {_drDescription = Nothing, _drConfigurationId = pConfigurationId_}
 
 
 -- | A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference.
 drDescription :: Lens' DiscoveredResource (Maybe Text)
-drDescription = lens _drDescription (\ s a -> s{_drDescription = a});
+drDescription = lens _drDescription (\ s a -> s{_drDescription = a})
 
 -- | The configurationId in ADS that uniquely identifies the on-premise resource.
 drConfigurationId :: Lens' DiscoveredResource Text
-drConfigurationId = lens _drConfigurationId (\ s a -> s{_drConfigurationId = a});
+drConfigurationId = lens _drConfigurationId (\ s a -> s{_drConfigurationId = a})
 
 instance FromJSON DiscoveredResource where
         parseJSON
@@ -155,33 +155,33 @@ migrationTask
     :: MigrationTask
 migrationTask =
   MigrationTask'
-  { _mtUpdateDateTime = Nothing
-  , _mtResourceAttributeList = Nothing
-  , _mtTask = Nothing
-  , _mtProgressUpdateStream = Nothing
-  , _mtMigrationTaskName = Nothing
-  }
+    { _mtUpdateDateTime = Nothing
+    , _mtResourceAttributeList = Nothing
+    , _mtTask = Nothing
+    , _mtProgressUpdateStream = Nothing
+    , _mtMigrationTaskName = Nothing
+    }
 
 
 -- | The timestamp when the task was gathered.
 mtUpdateDateTime :: Lens' MigrationTask (Maybe UTCTime)
-mtUpdateDateTime = lens _mtUpdateDateTime (\ s a -> s{_mtUpdateDateTime = a}) . mapping _Time;
+mtUpdateDateTime = lens _mtUpdateDateTime (\ s a -> s{_mtUpdateDateTime = a}) . mapping _Time
 
 -- |
 mtResourceAttributeList :: Lens' MigrationTask [ResourceAttribute]
-mtResourceAttributeList = lens _mtResourceAttributeList (\ s a -> s{_mtResourceAttributeList = a}) . _Default . _Coerce;
+mtResourceAttributeList = lens _mtResourceAttributeList (\ s a -> s{_mtResourceAttributeList = a}) . _Default . _Coerce
 
 -- | Task object encapsulating task information.
 mtTask :: Lens' MigrationTask (Maybe Task)
-mtTask = lens _mtTask (\ s a -> s{_mtTask = a});
+mtTask = lens _mtTask (\ s a -> s{_mtTask = a})
 
 -- | A name that identifies the vendor of the migration tool being used.
 mtProgressUpdateStream :: Lens' MigrationTask (Maybe Text)
-mtProgressUpdateStream = lens _mtProgressUpdateStream (\ s a -> s{_mtProgressUpdateStream = a});
+mtProgressUpdateStream = lens _mtProgressUpdateStream (\ s a -> s{_mtProgressUpdateStream = a})
 
 -- | Unique identifier that references the migration task.
 mtMigrationTaskName :: Lens' MigrationTask (Maybe Text)
-mtMigrationTaskName = lens _mtMigrationTaskName (\ s a -> s{_mtMigrationTaskName = a});
+mtMigrationTaskName = lens _mtMigrationTaskName (\ s a -> s{_mtMigrationTaskName = a})
 
 instance FromJSON MigrationTask where
         parseJSON
@@ -232,38 +232,38 @@ migrationTaskSummary
     :: MigrationTaskSummary
 migrationTaskSummary =
   MigrationTaskSummary'
-  { _mtsStatus = Nothing
-  , _mtsUpdateDateTime = Nothing
-  , _mtsProgressPercent = Nothing
-  , _mtsStatusDetail = Nothing
-  , _mtsProgressUpdateStream = Nothing
-  , _mtsMigrationTaskName = Nothing
-  }
+    { _mtsStatus = Nothing
+    , _mtsUpdateDateTime = Nothing
+    , _mtsProgressPercent = Nothing
+    , _mtsStatusDetail = Nothing
+    , _mtsProgressUpdateStream = Nothing
+    , _mtsMigrationTaskName = Nothing
+    }
 
 
 -- | Status of the task.
 mtsStatus :: Lens' MigrationTaskSummary (Maybe MigrationStatus)
-mtsStatus = lens _mtsStatus (\ s a -> s{_mtsStatus = a});
+mtsStatus = lens _mtsStatus (\ s a -> s{_mtsStatus = a})
 
 -- | The timestamp when the task was gathered.
 mtsUpdateDateTime :: Lens' MigrationTaskSummary (Maybe UTCTime)
-mtsUpdateDateTime = lens _mtsUpdateDateTime (\ s a -> s{_mtsUpdateDateTime = a}) . mapping _Time;
+mtsUpdateDateTime = lens _mtsUpdateDateTime (\ s a -> s{_mtsUpdateDateTime = a}) . mapping _Time
 
 -- |
 mtsProgressPercent :: Lens' MigrationTaskSummary (Maybe Natural)
-mtsProgressPercent = lens _mtsProgressPercent (\ s a -> s{_mtsProgressPercent = a}) . mapping _Nat;
+mtsProgressPercent = lens _mtsProgressPercent (\ s a -> s{_mtsProgressPercent = a}) . mapping _Nat
 
 -- | Detail information of what is being done within the overall status state.
 mtsStatusDetail :: Lens' MigrationTaskSummary (Maybe Text)
-mtsStatusDetail = lens _mtsStatusDetail (\ s a -> s{_mtsStatusDetail = a});
+mtsStatusDetail = lens _mtsStatusDetail (\ s a -> s{_mtsStatusDetail = a})
 
 -- | An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool.
 mtsProgressUpdateStream :: Lens' MigrationTaskSummary (Maybe Text)
-mtsProgressUpdateStream = lens _mtsProgressUpdateStream (\ s a -> s{_mtsProgressUpdateStream = a});
+mtsProgressUpdateStream = lens _mtsProgressUpdateStream (\ s a -> s{_mtsProgressUpdateStream = a})
 
 -- | Unique identifier that references the migration task.
 mtsMigrationTaskName :: Lens' MigrationTaskSummary (Maybe Text)
-mtsMigrationTaskName = lens _mtsMigrationTaskName (\ s a -> s{_mtsMigrationTaskName = a});
+mtsMigrationTaskName = lens _mtsMigrationTaskName (\ s a -> s{_mtsMigrationTaskName = a})
 
 instance FromJSON MigrationTaskSummary where
         parseJSON
@@ -303,7 +303,7 @@ progressUpdateStreamSummary =
 
 -- | The name of the ProgressUpdateStream.
 pussProgressUpdateStreamName :: Lens' ProgressUpdateStreamSummary (Maybe Text)
-pussProgressUpdateStreamName = lens _pussProgressUpdateStreamName (\ s a -> s{_pussProgressUpdateStreamName = a});
+pussProgressUpdateStreamName = lens _pussProgressUpdateStreamName (\ s a -> s{_pussProgressUpdateStreamName = a})
 
 instance FromJSON ProgressUpdateStreamSummary where
         parseJSON
@@ -317,6 +317,22 @@ instance Hashable ProgressUpdateStreamSummary where
 instance NFData ProgressUpdateStreamSummary where
 
 -- | Attribute associated with a resource.
+--
+--
+-- Note the corresponding format required per type listed below:
+--
+--     * IPV4    * @x.x.x.x@
+--
+-- /where x is an integer in the range [0,255]/
+--
+--     * IPV6    * @y : y : y : y : y : y : y : y@
+--
+-- /where y is a hexadecimal between 0 and FFFF. [0, FFFF]/
+--
+--     * MAC_ADDRESS    * @^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$@
+--
+--     * FQDN    * @^[^<>{}\\\\/?,=\\p{Cntrl}]{1,256}$@
+--
 --
 --
 --
@@ -344,11 +360,11 @@ resourceAttribute pType_ pValue_ =
 
 -- | Type of resource.
 raType :: Lens' ResourceAttribute ResourceAttributeType
-raType = lens _raType (\ s a -> s{_raType = a});
+raType = lens _raType (\ s a -> s{_raType = a})
 
 -- | Value of the resource type.
 raValue :: Lens' ResourceAttribute Text
-raValue = lens _raValue (\ s a -> s{_raValue = a});
+raValue = lens _raValue (\ s a -> s{_raValue = a})
 
 instance FromJSON ResourceAttribute where
         parseJSON
@@ -394,20 +410,20 @@ task
     -> Task
 task pStatus_ =
   Task'
-  {_tProgressPercent = Nothing, _tStatusDetail = Nothing, _tStatus = pStatus_}
+    {_tProgressPercent = Nothing, _tStatusDetail = Nothing, _tStatus = pStatus_}
 
 
 -- | Indication of the percentage completion of the task.
 tProgressPercent :: Lens' Task (Maybe Natural)
-tProgressPercent = lens _tProgressPercent (\ s a -> s{_tProgressPercent = a}) . mapping _Nat;
+tProgressPercent = lens _tProgressPercent (\ s a -> s{_tProgressPercent = a}) . mapping _Nat
 
 -- | Details of task status as notified by a migration tool. A tool might use this field to provide clarifying information about the status that is unique to that tool or that explains an error state.
 tStatusDetail :: Lens' Task (Maybe Text)
-tStatusDetail = lens _tStatusDetail (\ s a -> s{_tStatusDetail = a});
+tStatusDetail = lens _tStatusDetail (\ s a -> s{_tStatusDetail = a})
 
 -- | Status of the task - Not Started, In-Progress, Complete.
 tStatus :: Lens' Task MigrationStatus
-tStatus = lens _tStatus (\ s a -> s{_tStatus = a});
+tStatus = lens _tStatus (\ s a -> s{_tStatus = a})
 
 instance FromJSON Task where
         parseJSON

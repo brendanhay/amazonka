@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.CreateWebACL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -96,28 +96,28 @@ createWebACL
     -> CreateWebACL
 createWebACL pName_ pMetricName_ pDefaultAction_ pChangeToken_ =
   CreateWebACL'
-  { _cwaName = pName_
-  , _cwaMetricName = pMetricName_
-  , _cwaDefaultAction = pDefaultAction_
-  , _cwaChangeToken = pChangeToken_
-  }
+    { _cwaName = pName_
+    , _cwaMetricName = pMetricName_
+    , _cwaDefaultAction = pDefaultAction_
+    , _cwaChangeToken = pChangeToken_
+    }
 
 
 -- | A friendly name or description of the 'WebACL' . You can't change @Name@ after you create the @WebACL@ .
 cwaName :: Lens' CreateWebACL Text
-cwaName = lens _cwaName (\ s a -> s{_cwaName = a});
+cwaName = lens _cwaName (\ s a -> s{_cwaName = a})
 
 -- | A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @WebACL@ .
 cwaMetricName :: Lens' CreateWebACL Text
-cwaMetricName = lens _cwaMetricName (\ s a -> s{_cwaMetricName = a});
+cwaMetricName = lens _cwaMetricName (\ s a -> s{_cwaMetricName = a})
 
 -- | The action that you want AWS WAF to take when a request doesn't match the criteria specified in any of the @Rule@ objects that are associated with the @WebACL@ .
 cwaDefaultAction :: Lens' CreateWebACL WafAction
-cwaDefaultAction = lens _cwaDefaultAction (\ s a -> s{_cwaDefaultAction = a});
+cwaDefaultAction = lens _cwaDefaultAction (\ s a -> s{_cwaDefaultAction = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 cwaChangeToken :: Lens' CreateWebACL Text
-cwaChangeToken = lens _cwaChangeToken (\ s a -> s{_cwaChangeToken = a});
+cwaChangeToken = lens _cwaChangeToken (\ s a -> s{_cwaChangeToken = a})
 
 instance AWSRequest CreateWebACL where
         type Rs CreateWebACL = CreateWebACLResponse
@@ -180,22 +180,22 @@ createWebACLResponse
     -> CreateWebACLResponse
 createWebACLResponse pResponseStatus_ =
   CreateWebACLResponse'
-  { _cwarsWebACL = Nothing
-  , _cwarsChangeToken = Nothing
-  , _cwarsResponseStatus = pResponseStatus_
-  }
+    { _cwarsWebACL = Nothing
+    , _cwarsChangeToken = Nothing
+    , _cwarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The 'WebACL' returned in the @CreateWebACL@ response.
 cwarsWebACL :: Lens' CreateWebACLResponse (Maybe WebACL)
-cwarsWebACL = lens _cwarsWebACL (\ s a -> s{_cwarsWebACL = a});
+cwarsWebACL = lens _cwarsWebACL (\ s a -> s{_cwarsWebACL = a})
 
 -- | The @ChangeToken@ that you used to submit the @CreateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 cwarsChangeToken :: Lens' CreateWebACLResponse (Maybe Text)
-cwarsChangeToken = lens _cwarsChangeToken (\ s a -> s{_cwarsChangeToken = a});
+cwarsChangeToken = lens _cwarsChangeToken (\ s a -> s{_cwarsChangeToken = a})
 
 -- | -- | The response status code.
 cwarsResponseStatus :: Lens' CreateWebACLResponse Int
-cwarsResponseStatus = lens _cwarsResponseStatus (\ s a -> s{_cwarsResponseStatus = a});
+cwarsResponseStatus = lens _cwarsResponseStatus (\ s a -> s{_cwarsResponseStatus = a})
 
 instance NFData CreateWebACLResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.ListDomains
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ listDomains = ListDomains' {_ldMarker = Nothing, _ldMaxItems = Nothing}
 
 -- | For an initial request for a list of domains, omit this element. If the number of domains that are associated with the current AWS account is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional domains. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element. Constraints: The marker must match the value specified in the previous request.
 ldMarker :: Lens' ListDomains (Maybe Text)
-ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
+ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a})
 
 -- | Number of domains to be returned. Default: 20
 ldMaxItems :: Lens' ListDomains (Maybe Int)
-ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
+ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a})
 
 instance AWSPager ListDomains where
         page rq rs
@@ -150,22 +150,22 @@ listDomainsResponse
     -> ListDomainsResponse
 listDomainsResponse pResponseStatus_ =
   ListDomainsResponse'
-  { _ldrsNextPageMarker = Nothing
-  , _ldrsResponseStatus = pResponseStatus_
-  , _ldrsDomains = mempty
-  }
+    { _ldrsNextPageMarker = Nothing
+    , _ldrsResponseStatus = pResponseStatus_
+    , _ldrsDomains = mempty
+    }
 
 
 -- | If there are more domains than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
 ldrsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
-ldrsNextPageMarker = lens _ldrsNextPageMarker (\ s a -> s{_ldrsNextPageMarker = a});
+ldrsNextPageMarker = lens _ldrsNextPageMarker (\ s a -> s{_ldrsNextPageMarker = a})
 
 -- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDomainsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
 
 -- | A summary of domains.
 ldrsDomains :: Lens' ListDomainsResponse [DomainSummary]
-ldrsDomains = lens _ldrsDomains (\ s a -> s{_ldrsDomains = a}) . _Coerce;
+ldrsDomains = lens _ldrsDomains (\ s a -> s{_ldrsDomains = a}) . _Coerce
 
 instance NFData ListDomainsResponse where

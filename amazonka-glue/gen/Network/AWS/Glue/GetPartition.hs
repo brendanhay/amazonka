@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetPartition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ getPartition
     -> GetPartition
 getPartition pDatabaseName_ pTableName_ =
   GetPartition'
-  { _gpCatalogId = Nothing
-  , _gpDatabaseName = pDatabaseName_
-  , _gpTableName = pTableName_
-  , _gpPartitionValues = mempty
-  }
+    { _gpCatalogId = Nothing
+    , _gpDatabaseName = pDatabaseName_
+    , _gpTableName = pTableName_
+    , _gpPartitionValues = mempty
+    }
 
 
 -- | The ID of the Data Catalog where the partition in question resides. If none is supplied, the AWS account ID is used by default.
 gpCatalogId :: Lens' GetPartition (Maybe Text)
-gpCatalogId = lens _gpCatalogId (\ s a -> s{_gpCatalogId = a});
+gpCatalogId = lens _gpCatalogId (\ s a -> s{_gpCatalogId = a})
 
 -- | The name of the catalog database where the partition resides.
 gpDatabaseName :: Lens' GetPartition Text
-gpDatabaseName = lens _gpDatabaseName (\ s a -> s{_gpDatabaseName = a});
+gpDatabaseName = lens _gpDatabaseName (\ s a -> s{_gpDatabaseName = a})
 
 -- | The name of the partition's table.
 gpTableName :: Lens' GetPartition Text
-gpTableName = lens _gpTableName (\ s a -> s{_gpTableName = a});
+gpTableName = lens _gpTableName (\ s a -> s{_gpTableName = a})
 
 -- | The values that define the partition.
 gpPartitionValues :: Lens' GetPartition [Text]
-gpPartitionValues = lens _gpPartitionValues (\ s a -> s{_gpPartitionValues = a}) . _Coerce;
+gpPartitionValues = lens _gpPartitionValues (\ s a -> s{_gpPartitionValues = a}) . _Coerce
 
 instance AWSRequest GetPartition where
         type Rs GetPartition = GetPartitionResponse
@@ -152,15 +152,15 @@ getPartitionResponse
     -> GetPartitionResponse
 getPartitionResponse pResponseStatus_ =
   GetPartitionResponse'
-  {_gprsPartition = Nothing, _gprsResponseStatus = pResponseStatus_}
+    {_gprsPartition = Nothing, _gprsResponseStatus = pResponseStatus_}
 
 
 -- | The requested information, in the form of a @Partition@ object.
 gprsPartition :: Lens' GetPartitionResponse (Maybe Partition)
-gprsPartition = lens _gprsPartition (\ s a -> s{_gprsPartition = a});
+gprsPartition = lens _gprsPartition (\ s a -> s{_gprsPartition = a})
 
 -- | -- | The response status code.
 gprsResponseStatus :: Lens' GetPartitionResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a})
 
 instance NFData GetPartitionResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,6 +39,7 @@ module Network.AWS.Lambda.GetPolicy
     , GetPolicyResponse
     -- * Response Lenses
     , gprsPolicy
+    , gprsRevisionId
     , gprsResponseStatus
     ) where
 
@@ -76,11 +77,11 @@ getPolicy pFunctionName_ =
 
 -- | You can specify this optional query parameter to specify a function version or an alias name in which case this API will return all permissions associated with the specific qualified ARN. If you don't provide this parameter, the API will return permissions that apply to the unqualified function ARN.
 gpQualifier :: Lens' GetPolicy (Maybe Text)
-gpQualifier = lens _gpQualifier (\ s a -> s{_gpQualifier = a});
+gpQualifier = lens _gpQualifier (\ s a -> s{_gpQualifier = a})
 
 -- | Function name whose resource policy you want to retrieve. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 gpFunctionName :: Lens' GetPolicy Text
-gpFunctionName = lens _gpFunctionName (\ s a -> s{_gpFunctionName = a});
+gpFunctionName = lens _gpFunctionName (\ s a -> s{_gpFunctionName = a})
 
 instance AWSRequest GetPolicy where
         type Rs GetPolicy = GetPolicyResponse
@@ -89,7 +90,8 @@ instance AWSRequest GetPolicy where
           = receiveJSON
               (\ s h x ->
                  GetPolicyResponse' <$>
-                   (x .?> "Policy") <*> (pure (fromEnum s)))
+                   (x .?> "Policy") <*> (x .?> "RevisionId") <*>
+                     (pure (fromEnum s)))
 
 instance Hashable GetPolicy where
 
@@ -115,6 +117,7 @@ instance ToQuery GetPolicy where
 -- /See:/ 'getPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
   { _gprsPolicy         :: !(Maybe Text)
+  , _gprsRevisionId     :: !(Maybe Text)
   , _gprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -125,21 +128,30 @@ data GetPolicyResponse = GetPolicyResponse'
 --
 -- * 'gprsPolicy' - The resource policy associated with the specified function. The response returns the same as a string using a backslash ("\") as an escape character in the JSON.
 --
+-- * 'gprsRevisionId' - Represents the latest updated revision of the function or alias.
+--
 -- * 'gprsResponseStatus' - -- | The response status code.
 getPolicyResponse
     :: Int -- ^ 'gprsResponseStatus'
     -> GetPolicyResponse
 getPolicyResponse pResponseStatus_ =
   GetPolicyResponse'
-  {_gprsPolicy = Nothing, _gprsResponseStatus = pResponseStatus_}
+    { _gprsPolicy = Nothing
+    , _gprsRevisionId = Nothing
+    , _gprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The resource policy associated with the specified function. The response returns the same as a string using a backslash ("\") as an escape character in the JSON.
 gprsPolicy :: Lens' GetPolicyResponse (Maybe Text)
-gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
+gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a})
+
+-- | Represents the latest updated revision of the function or alias.
+gprsRevisionId :: Lens' GetPolicyResponse (Maybe Text)
+gprsRevisionId = lens _gprsRevisionId (\ s a -> s{_gprsRevisionId = a})
 
 -- | -- | The response status code.
 gprsResponseStatus :: Lens' GetPolicyResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a})
 
 instance NFData GetPolicyResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribeOrganization
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -109,15 +109,15 @@ describeOrganizationResponse
     -> DescribeOrganizationResponse
 describeOrganizationResponse pResponseStatus_ =
   DescribeOrganizationResponse'
-  {_dorsOrganization = Nothing, _dorsResponseStatus = pResponseStatus_}
+    {_dorsOrganization = Nothing, _dorsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that contains information about the organization.
 dorsOrganization :: Lens' DescribeOrganizationResponse (Maybe Organization)
-dorsOrganization = lens _dorsOrganization (\ s a -> s{_dorsOrganization = a});
+dorsOrganization = lens _dorsOrganization (\ s a -> s{_dorsOrganization = a})
 
 -- | -- | The response status code.
 dorsResponseStatus :: Lens' DescribeOrganizationResponse Int
-dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a});
+dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a})
 
 instance NFData DescribeOrganizationResponse where

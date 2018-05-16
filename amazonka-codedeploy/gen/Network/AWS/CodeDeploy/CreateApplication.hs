@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.CreateApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,7 @@ module Network.AWS.CodeDeploy.CreateApplication
       createApplication
     , CreateApplication
     -- * Request Lenses
+    , caComputePlatform
     , caApplicationName
 
     -- * Destructuring the Response
@@ -49,8 +50,9 @@ import Network.AWS.Response
 --
 --
 -- /See:/ 'createApplication' smart constructor.
-newtype CreateApplication = CreateApplication'
-  { _caApplicationName :: Text
+data CreateApplication = CreateApplication'
+  { _caComputePlatform :: !(Maybe ComputePlatform)
+  , _caApplicationName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -58,17 +60,24 @@ newtype CreateApplication = CreateApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'caComputePlatform' - The destination platform type for the deployment (@Lambda@ or @Server@ ).
+--
 -- * 'caApplicationName' - The name of the application. This name must be unique with the applicable IAM user or AWS account.
 createApplication
     :: Text -- ^ 'caApplicationName'
     -> CreateApplication
 createApplication pApplicationName_ =
-  CreateApplication' {_caApplicationName = pApplicationName_}
+  CreateApplication'
+    {_caComputePlatform = Nothing, _caApplicationName = pApplicationName_}
 
+
+-- | The destination platform type for the deployment (@Lambda@ or @Server@ ).
+caComputePlatform :: Lens' CreateApplication (Maybe ComputePlatform)
+caComputePlatform = lens _caComputePlatform (\ s a -> s{_caComputePlatform = a})
 
 -- | The name of the application. This name must be unique with the applicable IAM user or AWS account.
 caApplicationName :: Lens' CreateApplication Text
-caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
+caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a})
 
 instance AWSRequest CreateApplication where
         type Rs CreateApplication = CreateApplicationResponse
@@ -97,7 +106,8 @@ instance ToJSON CreateApplication where
         toJSON CreateApplication'{..}
           = object
               (catMaybes
-                 [Just ("applicationName" .= _caApplicationName)])
+                 [("computePlatform" .=) <$> _caComputePlatform,
+                  Just ("applicationName" .= _caApplicationName)])
 
 instance ToPath CreateApplication where
         toPath = const "/"
@@ -128,15 +138,15 @@ createApplicationResponse
     -> CreateApplicationResponse
 createApplicationResponse pResponseStatus_ =
   CreateApplicationResponse'
-  {_carsApplicationId = Nothing, _carsResponseStatus = pResponseStatus_}
+    {_carsApplicationId = Nothing, _carsResponseStatus = pResponseStatus_}
 
 
 -- | A unique application ID.
 carsApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
-carsApplicationId = lens _carsApplicationId (\ s a -> s{_carsApplicationId = a});
+carsApplicationId = lens _carsApplicationId (\ s a -> s{_carsApplicationId = a})
 
 -- | -- | The response status code.
 carsResponseStatus :: Lens' CreateApplicationResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
 
 instance NFData CreateApplicationResponse where

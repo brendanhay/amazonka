@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeEvents
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,43 +86,43 @@ describeEvents
     :: DescribeEvents
 describeEvents =
   DescribeEvents'
-  { _deSourceName = Nothing
-  , _deStartTime = Nothing
-  , _deSourceType = Nothing
-  , _deNextToken = Nothing
-  , _deEndTime = Nothing
-  , _deDuration = Nothing
-  , _deMaxResults = Nothing
-  }
+    { _deSourceName = Nothing
+    , _deStartTime = Nothing
+    , _deSourceType = Nothing
+    , _deNextToken = Nothing
+    , _deEndTime = Nothing
+    , _deDuration = Nothing
+    , _deMaxResults = Nothing
+    }
 
 
 -- | The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response.
 deSourceName :: Lens' DescribeEvents (Maybe Text)
-deSourceName = lens _deSourceName (\ s a -> s{_deSourceName = a});
+deSourceName = lens _deSourceName (\ s a -> s{_deSourceName = a})
 
 -- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
-deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
+deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time
 
 -- | The event source to retrieve events for. If no value is specified, all events are returned.
 deSourceType :: Lens' DescribeEvents (Maybe SourceType)
-deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
+deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a})
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 deNextToken :: Lens' DescribeEvents (Maybe Text)
-deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
+deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a})
 
 -- | The end of the time interval for which to retrieve events, specified in ISO 8601 format.
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
-deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
+deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time
 
 -- | The number of minutes' worth of events to retrieve.
 deDuration :: Lens' DescribeEvents (Maybe Int)
-deDuration = lens _deDuration (\ s a -> s{_deDuration = a});
+deDuration = lens _deDuration (\ s a -> s{_deDuration = a})
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
 deMaxResults :: Lens' DescribeEvents (Maybe Int)
-deMaxResults = lens _deMaxResults (\ s a -> s{_deMaxResults = a});
+deMaxResults = lens _deMaxResults (\ s a -> s{_deMaxResults = a})
 
 instance AWSRequest DescribeEvents where
         type Rs DescribeEvents = DescribeEventsResponse
@@ -187,22 +187,22 @@ describeEventsResponse
     -> DescribeEventsResponse
 describeEventsResponse pResponseStatus_ =
   DescribeEventsResponse'
-  { _dersNextToken = Nothing
-  , _dersEvents = Nothing
-  , _dersResponseStatus = pResponseStatus_
-  }
+    { _dersNextToken = Nothing
+    , _dersEvents = Nothing
+    , _dersResponseStatus = pResponseStatus_
+    }
 
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dersNextToken :: Lens' DescribeEventsResponse (Maybe Text)
-dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a});
+dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a})
 
 -- | An array of events. Each element in the array represents one event.
 dersEvents :: Lens' DescribeEventsResponse [Event]
-dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
+dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeEventsResponse Int
-dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a})
 
 instance NFData DescribeEventsResponse where

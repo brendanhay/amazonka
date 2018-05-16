@@ -1,5 +1,5 @@
 name:                  amazonka-organizations
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Organizations SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -63,11 +63,14 @@ library
         , Network.AWS.Organizations.DescribeOrganizationalUnit
         , Network.AWS.Organizations.DescribePolicy
         , Network.AWS.Organizations.DetachPolicy
+        , Network.AWS.Organizations.DisableAWSServiceAccess
         , Network.AWS.Organizations.DisablePolicyType
+        , Network.AWS.Organizations.EnableAWSServiceAccess
         , Network.AWS.Organizations.EnableAllFeatures
         , Network.AWS.Organizations.EnablePolicyType
         , Network.AWS.Organizations.InviteAccountToOrganization
         , Network.AWS.Organizations.LeaveOrganization
+        , Network.AWS.Organizations.ListAWSServiceAccessForOrganization
         , Network.AWS.Organizations.ListAccounts
         , Network.AWS.Organizations.ListAccountsForParent
         , Network.AWS.Organizations.ListChildren
@@ -92,7 +95,7 @@ library
         , Network.AWS.Organizations.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-organizations-test
@@ -112,8 +115,8 @@ test-suite amazonka-organizations-test
         , Test.AWS.Organizations.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-organizations
         , base
         , bytestring

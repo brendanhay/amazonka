@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ListHAPGs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ listHAPGs = ListHAPGs' {_lhNextToken = Nothing}
 
 -- | The @NextToken@ value from a previous call to @ListHapgs@ . Pass null if this is the first call.
 lhNextToken :: Lens' ListHAPGs (Maybe Text)
-lhNextToken = lens _lhNextToken (\ s a -> s{_lhNextToken = a});
+lhNextToken = lens _lhNextToken (\ s a -> s{_lhNextToken = a})
 
 instance AWSRequest ListHAPGs where
         type Rs ListHAPGs = ListHAPGsResponse
@@ -127,22 +127,22 @@ listHAPGsResponse
     -> ListHAPGsResponse
 listHAPGsResponse pResponseStatus_ =
   ListHAPGsResponse'
-  { _lhrsNextToken = Nothing
-  , _lhrsResponseStatus = pResponseStatus_
-  , _lhrsHAPGList = mempty
-  }
+    { _lhrsNextToken = Nothing
+    , _lhrsResponseStatus = pResponseStatus_
+    , _lhrsHAPGList = mempty
+    }
 
 
 -- | If not null, more results are available. Pass this value to @ListHapgs@ to retrieve the next set of items.
 lhrsNextToken :: Lens' ListHAPGsResponse (Maybe Text)
-lhrsNextToken = lens _lhrsNextToken (\ s a -> s{_lhrsNextToken = a});
+lhrsNextToken = lens _lhrsNextToken (\ s a -> s{_lhrsNextToken = a})
 
 -- | -- | The response status code.
 lhrsResponseStatus :: Lens' ListHAPGsResponse Int
-lhrsResponseStatus = lens _lhrsResponseStatus (\ s a -> s{_lhrsResponseStatus = a});
+lhrsResponseStatus = lens _lhrsResponseStatus (\ s a -> s{_lhrsResponseStatus = a})
 
 -- | The list of high-availability partition groups.
 lhrsHAPGList :: Lens' ListHAPGsResponse [Text]
-lhrsHAPGList = lens _lhrsHAPGList (\ s a -> s{_lhrsHAPGList = a}) . _Coerce;
+lhrsHAPGList = lens _lhrsHAPGList (\ s a -> s{_lhrsHAPGList = a}) . _Coerce
 
 instance NFData ListHAPGsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.ListOperations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,7 @@ module Network.AWS.Route53Domains.ListOperations
     -- * Request Lenses
     , loMarker
     , loMaxItems
+    , loSubmittedSince
 
     -- * Destructuring the Response
     , listOperationsResponse
@@ -55,8 +56,9 @@ import Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'listOperations' smart constructor.
 data ListOperations = ListOperations'
-  { _loMarker   :: !(Maybe Text)
-  , _loMaxItems :: !(Maybe Int)
+  { _loMarker         :: !(Maybe Text)
+  , _loMaxItems       :: !(Maybe Int)
+  , _loSubmittedSince :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -67,18 +69,26 @@ data ListOperations = ListOperations'
 -- * 'loMarker' - For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional operations. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.
 --
 -- * 'loMaxItems' - Number of domains to be returned. Default: 20
+--
+-- * 'loSubmittedSince' - An optional parameter that lets you get information about all the operations that you submitted after a specified date and time. Specify the date and time in Coordinated Universal time (UTC).
 listOperations
     :: ListOperations
-listOperations = ListOperations' {_loMarker = Nothing, _loMaxItems = Nothing}
+listOperations =
+  ListOperations'
+    {_loMarker = Nothing, _loMaxItems = Nothing, _loSubmittedSince = Nothing}
 
 
 -- | For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional operations. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.
 loMarker :: Lens' ListOperations (Maybe Text)
-loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
+loMarker = lens _loMarker (\ s a -> s{_loMarker = a})
 
 -- | Number of domains to be returned. Default: 20
 loMaxItems :: Lens' ListOperations (Maybe Int)
-loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
+loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a})
+
+-- | An optional parameter that lets you get information about all the operations that you submitted after a specified date and time. Specify the date and time in Coordinated Universal time (UTC).
+loSubmittedSince :: Lens' ListOperations (Maybe UTCTime)
+loSubmittedSince = lens _loSubmittedSince (\ s a -> s{_loSubmittedSince = a}) . mapping _Time
 
 instance AWSPager ListOperations where
         page rq rs
@@ -116,7 +126,8 @@ instance ToJSON ListOperations where
           = object
               (catMaybes
                  [("Marker" .=) <$> _loMarker,
-                  ("MaxItems" .=) <$> _loMaxItems])
+                  ("MaxItems" .=) <$> _loMaxItems,
+                  ("SubmittedSince" .=) <$> _loSubmittedSince])
 
 instance ToPath ListOperations where
         toPath = const "/"
@@ -150,22 +161,22 @@ listOperationsResponse
     -> ListOperationsResponse
 listOperationsResponse pResponseStatus_ =
   ListOperationsResponse'
-  { _lorsNextPageMarker = Nothing
-  , _lorsResponseStatus = pResponseStatus_
-  , _lorsOperations = mempty
-  }
+    { _lorsNextPageMarker = Nothing
+    , _lorsResponseStatus = pResponseStatus_
+    , _lorsOperations = mempty
+    }
 
 
 -- | If there are more operations than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
 lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
-lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = a});
+lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = a})
 
 -- | -- | The response status code.
 lorsResponseStatus :: Lens' ListOperationsResponse Int
-lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});
+lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a})
 
 -- | Lists summaries of the operations.
 lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
-lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a}) . _Coerce;
+lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a}) . _Coerce
 
 instance NFData ListOperationsResponse where

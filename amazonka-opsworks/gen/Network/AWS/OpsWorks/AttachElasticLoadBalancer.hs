@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.AttachElasticLoadBalancer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,18 +64,18 @@ attachElasticLoadBalancer
     -> AttachElasticLoadBalancer
 attachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
   AttachElasticLoadBalancer'
-  { _aelbElasticLoadBalancerName = pElasticLoadBalancerName_
-  , _aelbLayerId = pLayerId_
-  }
+    { _aelbElasticLoadBalancerName = pElasticLoadBalancerName_
+    , _aelbLayerId = pLayerId_
+    }
 
 
 -- | The Elastic Load Balancing instance's name.
 aelbElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer Text
-aelbElasticLoadBalancerName = lens _aelbElasticLoadBalancerName (\ s a -> s{_aelbElasticLoadBalancerName = a});
+aelbElasticLoadBalancerName = lens _aelbElasticLoadBalancerName (\ s a -> s{_aelbElasticLoadBalancerName = a})
 
 -- | The ID of the layer that the Elastic Load Balancing instance is to be attached to.
 aelbLayerId :: Lens' AttachElasticLoadBalancer Text
-aelbLayerId = lens _aelbLayerId (\ s a -> s{_aelbLayerId = a});
+aelbLayerId = lens _aelbLayerId (\ s a -> s{_aelbLayerId = a})
 
 instance AWSRequest AttachElasticLoadBalancer where
         type Rs AttachElasticLoadBalancer =

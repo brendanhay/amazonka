@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.AddInstanceGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ addInstanceGroups pJobFlowId_ =
 
 -- | Instance groups to add.
 aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
-aigInstanceGroups = lens _aigInstanceGroups (\ s a -> s{_aigInstanceGroups = a}) . _Coerce;
+aigInstanceGroups = lens _aigInstanceGroups (\ s a -> s{_aigInstanceGroups = a}) . _Coerce
 
 -- | Job flow in which to add the instance groups.
 aigJobFlowId :: Lens' AddInstanceGroups Text
-aigJobFlowId = lens _aigJobFlowId (\ s a -> s{_aigJobFlowId = a});
+aigJobFlowId = lens _aigJobFlowId (\ s a -> s{_aigJobFlowId = a})
 
 instance AWSRequest AddInstanceGroups where
         type Rs AddInstanceGroups = AddInstanceGroupsResponse
@@ -142,22 +142,22 @@ addInstanceGroupsResponse
     -> AddInstanceGroupsResponse
 addInstanceGroupsResponse pResponseStatus_ =
   AddInstanceGroupsResponse'
-  { _aigrsJobFlowId = Nothing
-  , _aigrsInstanceGroupIds = Nothing
-  , _aigrsResponseStatus = pResponseStatus_
-  }
+    { _aigrsJobFlowId = Nothing
+    , _aigrsInstanceGroupIds = Nothing
+    , _aigrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The job flow ID in which the instance groups are added.
 aigrsJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
-aigrsJobFlowId = lens _aigrsJobFlowId (\ s a -> s{_aigrsJobFlowId = a});
+aigrsJobFlowId = lens _aigrsJobFlowId (\ s a -> s{_aigrsJobFlowId = a})
 
 -- | Instance group IDs of the newly created instance groups.
 aigrsInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
-aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\ s a -> s{_aigrsInstanceGroupIds = a}) . _Default . _Coerce;
+aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\ s a -> s{_aigrsInstanceGroupIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 aigrsResponseStatus :: Lens' AddInstanceGroupsResponse Int
-aigrsResponseStatus = lens _aigrsResponseStatus (\ s a -> s{_aigrsResponseStatus = a});
+aigrsResponseStatus = lens _aigrsResponseStatus (\ s a -> s{_aigrsResponseStatus = a})
 
 instance NFData AddInstanceGroupsResponse where

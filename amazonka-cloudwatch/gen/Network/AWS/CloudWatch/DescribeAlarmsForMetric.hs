@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmsForMetric
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,43 +85,43 @@ describeAlarmsForMetric
     -> DescribeAlarmsForMetric
 describeAlarmsForMetric pMetricName_ pNamespace_ =
   DescribeAlarmsForMetric'
-  { _dafmPeriod = Nothing
-  , _dafmDimensions = Nothing
-  , _dafmUnit = Nothing
-  , _dafmStatistic = Nothing
-  , _dafmExtendedStatistic = Nothing
-  , _dafmMetricName = pMetricName_
-  , _dafmNamespace = pNamespace_
-  }
+    { _dafmPeriod = Nothing
+    , _dafmDimensions = Nothing
+    , _dafmUnit = Nothing
+    , _dafmStatistic = Nothing
+    , _dafmExtendedStatistic = Nothing
+    , _dafmMetricName = pMetricName_
+    , _dafmNamespace = pNamespace_
+    }
 
 
 -- | The period, in seconds, over which the statistic is applied.
 dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
-dafmPeriod = lens _dafmPeriod (\ s a -> s{_dafmPeriod = a}) . mapping _Nat;
+dafmPeriod = lens _dafmPeriod (\ s a -> s{_dafmPeriod = a}) . mapping _Nat
 
 -- | The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed.
 dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
-dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a}) . _Default . _Coerce;
+dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a}) . _Default . _Coerce
 
 -- | The unit for the metric.
 dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
-dafmUnit = lens _dafmUnit (\ s a -> s{_dafmUnit = a});
+dafmUnit = lens _dafmUnit (\ s a -> s{_dafmUnit = a})
 
 -- | The statistic for the metric, other than percentiles. For percentile statistics, use @ExtendedStatistics@ .
 dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
-dafmStatistic = lens _dafmStatistic (\ s a -> s{_dafmStatistic = a});
+dafmStatistic = lens _dafmStatistic (\ s a -> s{_dafmStatistic = a})
 
 -- | The percentile statistic for the metric. Specify a value between p0.0 and p100.
 dafmExtendedStatistic :: Lens' DescribeAlarmsForMetric (Maybe Text)
-dafmExtendedStatistic = lens _dafmExtendedStatistic (\ s a -> s{_dafmExtendedStatistic = a});
+dafmExtendedStatistic = lens _dafmExtendedStatistic (\ s a -> s{_dafmExtendedStatistic = a})
 
 -- | The name of the metric.
 dafmMetricName :: Lens' DescribeAlarmsForMetric Text
-dafmMetricName = lens _dafmMetricName (\ s a -> s{_dafmMetricName = a});
+dafmMetricName = lens _dafmMetricName (\ s a -> s{_dafmMetricName = a})
 
 -- | The namespace of the metric.
 dafmNamespace :: Lens' DescribeAlarmsForMetric Text
-dafmNamespace = lens _dafmNamespace (\ s a -> s{_dafmNamespace = a});
+dafmNamespace = lens _dafmNamespace (\ s a -> s{_dafmNamespace = a})
 
 instance AWSRequest DescribeAlarmsForMetric where
         type Rs DescribeAlarmsForMetric =
@@ -178,15 +178,15 @@ describeAlarmsForMetricResponse
     -> DescribeAlarmsForMetricResponse
 describeAlarmsForMetricResponse pResponseStatus_ =
   DescribeAlarmsForMetricResponse'
-  {_dafmrsMetricAlarms = Nothing, _dafmrsResponseStatus = pResponseStatus_}
+    {_dafmrsMetricAlarms = Nothing, _dafmrsResponseStatus = pResponseStatus_}
 
 
 -- | The information for each alarm with the specified metric.
 dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
-dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\ s a -> s{_dafmrsMetricAlarms = a}) . _Default . _Coerce;
+dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\ s a -> s{_dafmrsMetricAlarms = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dafmrsResponseStatus :: Lens' DescribeAlarmsForMetricResponse Int
-dafmrsResponseStatus = lens _dafmrsResponseStatus (\ s a -> s{_dafmrsResponseStatus = a});
+dafmrsResponseStatus = lens _dafmrsResponseStatus (\ s a -> s{_dafmrsResponseStatus = a})
 
 instance NFData DescribeAlarmsForMetricResponse where

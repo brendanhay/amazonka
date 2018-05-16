@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ListPipelines
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ listPipelines = ListPipelines' {_lpAscending = Nothing, _lpPageToken = Nothing}
 
 -- | To list pipelines in chronological order by the date and time that they were created, enter @true@ . To list pipelines in reverse chronological order, enter @false@ .
 lpAscending :: Lens' ListPipelines (Maybe Text)
-lpAscending = lens _lpAscending (\ s a -> s{_lpAscending = a});
+lpAscending = lens _lpAscending (\ s a -> s{_lpAscending = a})
 
 -- | When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
 lpPageToken :: Lens' ListPipelines (Maybe Text)
-lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a});
+lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a})
 
 instance AWSPager ListPipelines where
         page rq rs
@@ -140,22 +140,22 @@ listPipelinesResponse
     -> ListPipelinesResponse
 listPipelinesResponse pResponseStatus_ =
   ListPipelinesResponse'
-  { _lprsNextPageToken = Nothing
-  , _lprsPipelines = Nothing
-  , _lprsResponseStatus = pResponseStatus_
-  }
+    { _lprsNextPageToken = Nothing
+    , _lprsPipelines = Nothing
+    , _lprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
 lprsNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
-lprsNextPageToken = lens _lprsNextPageToken (\ s a -> s{_lprsNextPageToken = a});
+lprsNextPageToken = lens _lprsNextPageToken (\ s a -> s{_lprsNextPageToken = a})
 
 -- | An array of @Pipeline@ objects.
 lprsPipelines :: Lens' ListPipelinesResponse [Pipeline]
-lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default . _Coerce;
+lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPipelinesResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a})
 
 instance NFData ListPipelinesResponse where

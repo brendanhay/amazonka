@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ getRateBasedRuleManagedKeys
     -> GetRateBasedRuleManagedKeys
 getRateBasedRuleManagedKeys pRuleId_ =
   GetRateBasedRuleManagedKeys'
-  {_grbrmkNextMarker = Nothing, _grbrmkRuleId = pRuleId_}
+    {_grbrmkNextMarker = Nothing, _grbrmkRuleId = pRuleId_}
 
 
 -- | A null value and not currently used. Do not include this in your request.
 grbrmkNextMarker :: Lens' GetRateBasedRuleManagedKeys (Maybe Text)
-grbrmkNextMarker = lens _grbrmkNextMarker (\ s a -> s{_grbrmkNextMarker = a});
+grbrmkNextMarker = lens _grbrmkNextMarker (\ s a -> s{_grbrmkNextMarker = a})
 
 -- | The @RuleId@ of the 'RateBasedRule' for which you want to get a list of @ManagedKeys@ . @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
 grbrmkRuleId :: Lens' GetRateBasedRuleManagedKeys Text
-grbrmkRuleId = lens _grbrmkRuleId (\ s a -> s{_grbrmkRuleId = a});
+grbrmkRuleId = lens _grbrmkRuleId (\ s a -> s{_grbrmkRuleId = a})
 
 instance AWSRequest GetRateBasedRuleManagedKeys where
         type Rs GetRateBasedRuleManagedKeys =
@@ -137,23 +137,23 @@ getRateBasedRuleManagedKeysResponse
     -> GetRateBasedRuleManagedKeysResponse
 getRateBasedRuleManagedKeysResponse pResponseStatus_ =
   GetRateBasedRuleManagedKeysResponse'
-  { _grbrmkrsNextMarker = Nothing
-  , _grbrmkrsManagedKeys = Nothing
-  , _grbrmkrsResponseStatus = pResponseStatus_
-  }
+    { _grbrmkrsNextMarker = Nothing
+    , _grbrmkrsManagedKeys = Nothing
+    , _grbrmkrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A null value and not currently used.
 grbrmkrsNextMarker :: Lens' GetRateBasedRuleManagedKeysResponse (Maybe Text)
-grbrmkrsNextMarker = lens _grbrmkrsNextMarker (\ s a -> s{_grbrmkrsNextMarker = a});
+grbrmkrsNextMarker = lens _grbrmkrsNextMarker (\ s a -> s{_grbrmkrsNextMarker = a})
 
 -- | An array of IP addresses that currently are blocked by the specified 'RateBasedRule' .
 grbrmkrsManagedKeys :: Lens' GetRateBasedRuleManagedKeysResponse [Text]
-grbrmkrsManagedKeys = lens _grbrmkrsManagedKeys (\ s a -> s{_grbrmkrsManagedKeys = a}) . _Default . _Coerce;
+grbrmkrsManagedKeys = lens _grbrmkrsManagedKeys (\ s a -> s{_grbrmkrsManagedKeys = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 grbrmkrsResponseStatus :: Lens' GetRateBasedRuleManagedKeysResponse Int
-grbrmkrsResponseStatus = lens _grbrmkrsResponseStatus (\ s a -> s{_grbrmkrsResponseStatus = a});
+grbrmkrsResponseStatus = lens _grbrmkrsResponseStatus (\ s a -> s{_grbrmkrsResponseStatus = a})
 
 instance NFData GetRateBasedRuleManagedKeysResponse
          where

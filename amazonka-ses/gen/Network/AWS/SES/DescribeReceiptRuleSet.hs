@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DescribeReceiptRuleSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,7 +73,7 @@ describeReceiptRuleSet pRuleSetName_ =
 
 -- | The name of the receipt rule set to describe.
 drrsRuleSetName :: Lens' DescribeReceiptRuleSet Text
-drrsRuleSetName = lens _drrsRuleSetName (\ s a -> s{_drrsRuleSetName = a});
+drrsRuleSetName = lens _drrsRuleSetName (\ s a -> s{_drrsRuleSetName = a})
 
 instance AWSRequest DescribeReceiptRuleSet where
         type Rs DescribeReceiptRuleSet =
@@ -132,22 +132,22 @@ describeReceiptRuleSetResponse
     -> DescribeReceiptRuleSetResponse
 describeReceiptRuleSetResponse pResponseStatus_ =
   DescribeReceiptRuleSetResponse'
-  { _desrsRules = Nothing
-  , _desrsMetadata = Nothing
-  , _desrsResponseStatus = pResponseStatus_
-  }
+    { _desrsRules = Nothing
+    , _desrsMetadata = Nothing
+    , _desrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of the receipt rules that belong to the specified receipt rule set.
 desrsRules :: Lens' DescribeReceiptRuleSetResponse [ReceiptRule]
-desrsRules = lens _desrsRules (\ s a -> s{_desrsRules = a}) . _Default . _Coerce;
+desrsRules = lens _desrsRules (\ s a -> s{_desrsRules = a}) . _Default . _Coerce
 
 -- | The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
 desrsMetadata :: Lens' DescribeReceiptRuleSetResponse (Maybe ReceiptRuleSetMetadata)
-desrsMetadata = lens _desrsMetadata (\ s a -> s{_desrsMetadata = a});
+desrsMetadata = lens _desrsMetadata (\ s a -> s{_desrsMetadata = a})
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeReceiptRuleSetResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 instance NFData DescribeReceiptRuleSetResponse where

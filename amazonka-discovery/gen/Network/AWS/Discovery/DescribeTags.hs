@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DescribeTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,20 +68,20 @@ describeTags
     :: DescribeTags
 describeTags =
   DescribeTags'
-  {_dtFilters = Nothing, _dtNextToken = Nothing, _dtMaxResults = Nothing}
+    {_dtFilters = Nothing, _dtNextToken = Nothing, _dtMaxResults = Nothing}
 
 
 -- | You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
 dtFilters :: Lens' DescribeTags [TagFilter]
-dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
+dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce
 
 -- | A token to start the list. Use this token to get the next set of results.
 dtNextToken :: Lens' DescribeTags (Maybe Text)
-dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
+dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a})
 
 -- | The total number of items to return in a single page of output. The maximum value is 100.
 dtMaxResults :: Lens' DescribeTags (Maybe Int)
-dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a});
+dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a})
 
 instance AWSRequest DescribeTags where
         type Rs DescribeTags = DescribeTagsResponse
@@ -143,22 +143,22 @@ describeTagsResponse
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
   DescribeTagsResponse'
-  { _dtrsNextToken = Nothing
-  , _dtrsTags = Nothing
-  , _dtrsResponseStatus = pResponseStatus_
-  }
+    { _dtrsNextToken = Nothing
+    , _dtrsTags = Nothing
+    , _dtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The call returns a token. Use this token to get the next set of results.
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
+dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a})
 
 -- | Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item.
 dtrsTags :: Lens' DescribeTagsResponse [ConfigurationTag]
-dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
+dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
 
 instance NFData DescribeTagsResponse where

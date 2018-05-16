@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.AddSourceIdentifierToSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,18 +69,18 @@ addSourceIdentifierToSubscription
     -> AddSourceIdentifierToSubscription
 addSourceIdentifierToSubscription pSubscriptionName_ pSourceIdentifier_ =
   AddSourceIdentifierToSubscription'
-  { _asitsSubscriptionName = pSubscriptionName_
-  , _asitsSourceIdentifier = pSourceIdentifier_
-  }
+    { _asitsSubscriptionName = pSubscriptionName_
+    , _asitsSourceIdentifier = pSourceIdentifier_
+    }
 
 
 -- | The name of the RDS event notification subscription you want to add a source identifier to.
 asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
-asitsSubscriptionName = lens _asitsSubscriptionName (\ s a -> s{_asitsSubscriptionName = a});
+asitsSubscriptionName = lens _asitsSubscriptionName (\ s a -> s{_asitsSubscriptionName = a})
 
 -- | The identifier of the event source to be added. Constraints:     * If the source type is a DB instance, then a @DBInstanceIdentifier@ must be supplied.     * If the source type is a DB security group, a @DBSecurityGroupName@ must be supplied.     * If the source type is a DB parameter group, a @DBParameterGroupName@ must be supplied.     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must be supplied.
 asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
-asitsSourceIdentifier = lens _asitsSourceIdentifier (\ s a -> s{_asitsSourceIdentifier = a});
+asitsSourceIdentifier = lens _asitsSourceIdentifier (\ s a -> s{_asitsSourceIdentifier = a})
 
 instance AWSRequest AddSourceIdentifierToSubscription
          where
@@ -137,18 +137,18 @@ addSourceIdentifierToSubscriptionResponse
     -> AddSourceIdentifierToSubscriptionResponse
 addSourceIdentifierToSubscriptionResponse pResponseStatus_ =
   AddSourceIdentifierToSubscriptionResponse'
-  { _asitsrsEventSubscription = Nothing
-  , _asitsrsResponseStatus = pResponseStatus_
-  }
+    { _asitsrsEventSubscription = Nothing
+    , _asitsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 asitsrsEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
-asitsrsEventSubscription = lens _asitsrsEventSubscription (\ s a -> s{_asitsrsEventSubscription = a});
+asitsrsEventSubscription = lens _asitsrsEventSubscription (\ s a -> s{_asitsrsEventSubscription = a})
 
 -- | -- | The response status code.
 asitsrsResponseStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
-asitsrsResponseStatus = lens _asitsrsResponseStatus (\ s a -> s{_asitsrsResponseStatus = a});
+asitsrsResponseStatus = lens _asitsrsResponseStatus (\ s a -> s{_asitsrsResponseStatus = a})
 
 instance NFData
            AddSourceIdentifierToSubscriptionResponse

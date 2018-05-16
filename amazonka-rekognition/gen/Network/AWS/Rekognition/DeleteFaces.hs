@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.DeleteFaces
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,8 +36,8 @@ module Network.AWS.Rekognition.DeleteFaces
     , deleteFacesResponse
     , DeleteFacesResponse
     -- * Response Lenses
-    , drsDeletedFaces
-    , drsResponseStatus
+    , dfsrsDeletedFaces
+    , dfsrsResponseStatus
     ) where
 
 import Network.AWS.Lens
@@ -67,16 +67,16 @@ deleteFaces
     -> DeleteFaces
 deleteFaces pCollectionId_ pFaceIds_ =
   DeleteFaces'
-  {_dfCollectionId = pCollectionId_, _dfFaceIds = _List1 # pFaceIds_}
+    {_dfCollectionId = pCollectionId_, _dfFaceIds = _List1 # pFaceIds_}
 
 
 -- | Collection from which to remove the specific faces.
 dfCollectionId :: Lens' DeleteFaces Text
-dfCollectionId = lens _dfCollectionId (\ s a -> s{_dfCollectionId = a});
+dfCollectionId = lens _dfCollectionId (\ s a -> s{_dfCollectionId = a})
 
 -- | An array of face IDs to delete.
 dfFaceIds :: Lens' DeleteFaces (NonEmpty Text)
-dfFaceIds = lens _dfFaceIds (\ s a -> s{_dfFaceIds = a}) . _List1;
+dfFaceIds = lens _dfFaceIds (\ s a -> s{_dfFaceIds = a}) . _List1
 
 instance AWSRequest DeleteFaces where
         type Rs DeleteFaces = DeleteFacesResponse
@@ -115,8 +115,8 @@ instance ToQuery DeleteFaces where
 
 -- | /See:/ 'deleteFacesResponse' smart constructor.
 data DeleteFacesResponse = DeleteFacesResponse'
-  { _drsDeletedFaces   :: !(Maybe (List1 Text))
-  , _drsResponseStatus :: !Int
+  { _dfsrsDeletedFaces   :: !(Maybe (List1 Text))
+  , _dfsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,23 +124,23 @@ data DeleteFacesResponse = DeleteFacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsDeletedFaces' - An array of strings (face IDs) of the faces that were deleted.
+-- * 'dfsrsDeletedFaces' - An array of strings (face IDs) of the faces that were deleted.
 --
--- * 'drsResponseStatus' - -- | The response status code.
+-- * 'dfsrsResponseStatus' - -- | The response status code.
 deleteFacesResponse
-    :: Int -- ^ 'drsResponseStatus'
+    :: Int -- ^ 'dfsrsResponseStatus'
     -> DeleteFacesResponse
 deleteFacesResponse pResponseStatus_ =
   DeleteFacesResponse'
-  {_drsDeletedFaces = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_dfsrsDeletedFaces = Nothing, _dfsrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of strings (face IDs) of the faces that were deleted.
-drsDeletedFaces :: Lens' DeleteFacesResponse (Maybe (NonEmpty Text))
-drsDeletedFaces = lens _drsDeletedFaces (\ s a -> s{_drsDeletedFaces = a}) . mapping _List1;
+dfsrsDeletedFaces :: Lens' DeleteFacesResponse (Maybe (NonEmpty Text))
+dfsrsDeletedFaces = lens _dfsrsDeletedFaces (\ s a -> s{_dfsrsDeletedFaces = a}) . mapping _List1
 
 -- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteFacesResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+dfsrsResponseStatus :: Lens' DeleteFacesResponse Int
+dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a})
 
 instance NFData DeleteFacesResponse where

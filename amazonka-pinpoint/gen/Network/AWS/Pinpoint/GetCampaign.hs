@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetCampaign
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,16 +63,16 @@ getCampaign
     -> GetCampaign
 getCampaign pCampaignId_ pApplicationId_ =
   GetCampaign'
-  {_getCampaignId = pCampaignId_, _getApplicationId = pApplicationId_}
+    {_getCampaignId = pCampaignId_, _getApplicationId = pApplicationId_}
 
 
 -- | Undocumented member.
 getCampaignId :: Lens' GetCampaign Text
-getCampaignId = lens _getCampaignId (\ s a -> s{_getCampaignId = a});
+getCampaignId = lens _getCampaignId (\ s a -> s{_getCampaignId = a})
 
 -- | Undocumented member.
 getApplicationId :: Lens' GetCampaign Text
-getApplicationId = lens _getApplicationId (\ s a -> s{_getApplicationId = a});
+getApplicationId = lens _getApplicationId (\ s a -> s{_getApplicationId = a})
 
 instance AWSRequest GetCampaign where
         type Rs GetCampaign = GetCampaignResponse
@@ -123,17 +123,17 @@ getCampaignResponse
     -> GetCampaignResponse
 getCampaignResponse pResponseStatus_ pCampaignResponse_ =
   GetCampaignResponse'
-  { _gcrsResponseStatus = pResponseStatus_
-  , _gcrsCampaignResponse = pCampaignResponse_
-  }
+    { _gcrsResponseStatus = pResponseStatus_
+    , _gcrsCampaignResponse = pCampaignResponse_
+    }
 
 
 -- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetCampaignResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
+gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a})
 
 -- | Undocumented member.
 gcrsCampaignResponse :: Lens' GetCampaignResponse CampaignResponse
-gcrsCampaignResponse = lens _gcrsCampaignResponse (\ s a -> s{_gcrsCampaignResponse = a});
+gcrsCampaignResponse = lens _gcrsCampaignResponse (\ s a -> s{_gcrsCampaignResponse = a})
 
 instance NFData GetCampaignResponse where

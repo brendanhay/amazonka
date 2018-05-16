@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.UpdateAvailabilityOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ updateAvailabilityOptions
     -> UpdateAvailabilityOptions
 updateAvailabilityOptions pDomainName_ pMultiAZ_ =
   UpdateAvailabilityOptions'
-  {_uaoDomainName = pDomainName_, _uaoMultiAZ = pMultiAZ_}
+    {_uaoDomainName = pDomainName_, _uaoMultiAZ = pMultiAZ_}
 
 
 -- | Undocumented member.
 uaoDomainName :: Lens' UpdateAvailabilityOptions Text
-uaoDomainName = lens _uaoDomainName (\ s a -> s{_uaoDomainName = a});
+uaoDomainName = lens _uaoDomainName (\ s a -> s{_uaoDomainName = a})
 
 -- | You expand an existing search domain to a second Availability Zone by setting the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to downgrade the domain to a single Availability Zone by setting the Multi-AZ option to @false@ .
 uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
-uaoMultiAZ = lens _uaoMultiAZ (\ s a -> s{_uaoMultiAZ = a});
+uaoMultiAZ = lens _uaoMultiAZ (\ s a -> s{_uaoMultiAZ = a})
 
 instance AWSRequest UpdateAvailabilityOptions where
         type Rs UpdateAvailabilityOptions =
@@ -133,16 +133,18 @@ updateAvailabilityOptionsResponse
     -> UpdateAvailabilityOptionsResponse
 updateAvailabilityOptionsResponse pResponseStatus_ =
   UpdateAvailabilityOptionsResponse'
-  {_uaorsAvailabilityOptions = Nothing, _uaorsResponseStatus = pResponseStatus_}
+    { _uaorsAvailabilityOptions = Nothing
+    , _uaorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is enabled for the domain.
 uaorsAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
-uaorsAvailabilityOptions = lens _uaorsAvailabilityOptions (\ s a -> s{_uaorsAvailabilityOptions = a});
+uaorsAvailabilityOptions = lens _uaorsAvailabilityOptions (\ s a -> s{_uaorsAvailabilityOptions = a})
 
 -- | -- | The response status code.
 uaorsResponseStatus :: Lens' UpdateAvailabilityOptionsResponse Int
-uaorsResponseStatus = lens _uaorsResponseStatus (\ s a -> s{_uaorsResponseStatus = a});
+uaorsResponseStatus = lens _uaorsResponseStatus (\ s a -> s{_uaorsResponseStatus = a})
 
 instance NFData UpdateAvailabilityOptionsResponse
          where

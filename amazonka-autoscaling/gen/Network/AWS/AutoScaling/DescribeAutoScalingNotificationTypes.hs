@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -115,18 +115,18 @@ describeAutoScalingNotificationTypesResponse
     -> DescribeAutoScalingNotificationTypesResponse
 describeAutoScalingNotificationTypesResponse pResponseStatus_ =
   DescribeAutoScalingNotificationTypesResponse'
-  { _dasntrsAutoScalingNotificationTypes = Nothing
-  , _dasntrsResponseStatus = pResponseStatus_
-  }
+    { _dasntrsAutoScalingNotificationTypes = Nothing
+    , _dasntrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The notification types.
 dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
-dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default . _Coerce;
+dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dasntrsResponseStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
-dasntrsResponseStatus = lens _dasntrsResponseStatus (\ s a -> s{_dasntrsResponseStatus = a});
+dasntrsResponseStatus = lens _dasntrsResponseStatus (\ s a -> s{_dasntrsResponseStatus = a})
 
 instance NFData
            DescribeAutoScalingNotificationTypesResponse

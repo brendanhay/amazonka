@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ data DeleteApplicationCloudWatchLoggingOption = DeleteApplicationCloudWatchLoggi
 --
 -- * 'dacwloCurrentApplicationVersionId' - The version ID of the Kinesis Analytics application.
 --
--- * 'dacwloCloudWatchLoggingOptionId' - The @CloudWatchLoggingOptionId@ of the CloudWatch logging option to delete. You can use the 'DescribeApplication' operation to get the @CloudWatchLoggingOptionId@ .
+-- * 'dacwloCloudWatchLoggingOptionId' - The @CloudWatchLoggingOptionId@ of the CloudWatch logging option to delete. You can get the @CloudWatchLoggingOptionId@ by using the 'DescribeApplication' operation.
 deleteApplicationCloudWatchLoggingOption
     :: Text -- ^ 'dacwloApplicationName'
     -> Natural -- ^ 'dacwloCurrentApplicationVersionId'
@@ -69,23 +69,23 @@ deleteApplicationCloudWatchLoggingOption
     -> DeleteApplicationCloudWatchLoggingOption
 deleteApplicationCloudWatchLoggingOption pApplicationName_ pCurrentApplicationVersionId_ pCloudWatchLoggingOptionId_ =
   DeleteApplicationCloudWatchLoggingOption'
-  { _dacwloApplicationName = pApplicationName_
-  , _dacwloCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-  , _dacwloCloudWatchLoggingOptionId = pCloudWatchLoggingOptionId_
-  }
+    { _dacwloApplicationName = pApplicationName_
+    , _dacwloCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+    , _dacwloCloudWatchLoggingOptionId = pCloudWatchLoggingOptionId_
+    }
 
 
 -- | The Kinesis Analytics application name.
 dacwloApplicationName :: Lens' DeleteApplicationCloudWatchLoggingOption Text
-dacwloApplicationName = lens _dacwloApplicationName (\ s a -> s{_dacwloApplicationName = a});
+dacwloApplicationName = lens _dacwloApplicationName (\ s a -> s{_dacwloApplicationName = a})
 
 -- | The version ID of the Kinesis Analytics application.
 dacwloCurrentApplicationVersionId :: Lens' DeleteApplicationCloudWatchLoggingOption Natural
-dacwloCurrentApplicationVersionId = lens _dacwloCurrentApplicationVersionId (\ s a -> s{_dacwloCurrentApplicationVersionId = a}) . _Nat;
+dacwloCurrentApplicationVersionId = lens _dacwloCurrentApplicationVersionId (\ s a -> s{_dacwloCurrentApplicationVersionId = a}) . _Nat
 
--- | The @CloudWatchLoggingOptionId@ of the CloudWatch logging option to delete. You can use the 'DescribeApplication' operation to get the @CloudWatchLoggingOptionId@ .
+-- | The @CloudWatchLoggingOptionId@ of the CloudWatch logging option to delete. You can get the @CloudWatchLoggingOptionId@ by using the 'DescribeApplication' operation.
 dacwloCloudWatchLoggingOptionId :: Lens' DeleteApplicationCloudWatchLoggingOption Text
-dacwloCloudWatchLoggingOptionId = lens _dacwloCloudWatchLoggingOptionId (\ s a -> s{_dacwloCloudWatchLoggingOptionId = a});
+dacwloCloudWatchLoggingOptionId = lens _dacwloCloudWatchLoggingOptionId (\ s a -> s{_dacwloCloudWatchLoggingOptionId = a})
 
 instance AWSRequest
            DeleteApplicationCloudWatchLoggingOption
@@ -159,12 +159,12 @@ deleteApplicationCloudWatchLoggingOptionResponse
     -> DeleteApplicationCloudWatchLoggingOptionResponse
 deleteApplicationCloudWatchLoggingOptionResponse pResponseStatus_ =
   DeleteApplicationCloudWatchLoggingOptionResponse'
-  {_dacwlorsResponseStatus = pResponseStatus_}
+    {_dacwlorsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dacwlorsResponseStatus :: Lens' DeleteApplicationCloudWatchLoggingOptionResponse Int
-dacwlorsResponseStatus = lens _dacwlorsResponseStatus (\ s a -> s{_dacwlorsResponseStatus = a});
+dacwlorsResponseStatus = lens _dacwlorsResponseStatus (\ s a -> s{_dacwlorsResponseStatus = a})
 
 instance NFData
            DeleteApplicationCloudWatchLoggingOptionResponse

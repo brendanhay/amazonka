@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHostedZoneCount
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -106,17 +106,17 @@ getHostedZoneCountResponse
     -> GetHostedZoneCountResponse
 getHostedZoneCountResponse pResponseStatus_ pHostedZoneCount_ =
   GetHostedZoneCountResponse'
-  { _ghzcrsResponseStatus = pResponseStatus_
-  , _ghzcrsHostedZoneCount = pHostedZoneCount_
-  }
+    { _ghzcrsResponseStatus = pResponseStatus_
+    , _ghzcrsHostedZoneCount = pHostedZoneCount_
+    }
 
 
 -- | -- | The response status code.
 ghzcrsResponseStatus :: Lens' GetHostedZoneCountResponse Int
-ghzcrsResponseStatus = lens _ghzcrsResponseStatus (\ s a -> s{_ghzcrsResponseStatus = a});
+ghzcrsResponseStatus = lens _ghzcrsResponseStatus (\ s a -> s{_ghzcrsResponseStatus = a})
 
 -- | The total number of public and private hosted zones that are associated with the current AWS account.
 ghzcrsHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
-ghzcrsHostedZoneCount = lens _ghzcrsHostedZoneCount (\ s a -> s{_ghzcrsHostedZoneCount = a});
+ghzcrsHostedZoneCount = lens _ghzcrsHostedZoneCount (\ s a -> s{_ghzcrsHostedZoneCount = a})
 
 instance NFData GetHostedZoneCountResponse where

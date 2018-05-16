@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,17 +68,29 @@ module Network.AWS.Lightsail
     -- ** GetInstances (Paginated)
     , module Network.AWS.Lightsail.GetInstances
 
+    -- ** GetLoadBalancer
+    , module Network.AWS.Lightsail.GetLoadBalancer
+
     -- ** GetInstance
     , module Network.AWS.Lightsail.GetInstance
 
     -- ** AttachStaticIP
     , module Network.AWS.Lightsail.AttachStaticIP
 
+    -- ** DetachDisk
+    , module Network.AWS.Lightsail.DetachDisk
+
     -- ** DownloadDefaultKeyPair
     , module Network.AWS.Lightsail.DownloadDefaultKeyPair
 
+    -- ** DeleteLoadBalancerTLSCertificate
+    , module Network.AWS.Lightsail.DeleteLoadBalancerTLSCertificate
+
     -- ** GetDomains (Paginated)
     , module Network.AWS.Lightsail.GetDomains
+
+    -- ** CreateLoadBalancerTLSCertificate
+    , module Network.AWS.Lightsail.CreateLoadBalancerTLSCertificate
 
     -- ** CreateDomainEntry
     , module Network.AWS.Lightsail.CreateDomainEntry
@@ -98,6 +110,12 @@ module Network.AWS.Lightsail
     -- ** RebootInstance
     , module Network.AWS.Lightsail.RebootInstance
 
+    -- ** DeleteLoadBalancer
+    , module Network.AWS.Lightsail.DeleteLoadBalancer
+
+    -- ** CreateDiskFromSnapshot
+    , module Network.AWS.Lightsail.CreateDiskFromSnapshot
+
     -- ** GetInstanceSnapshot
     , module Network.AWS.Lightsail.GetInstanceSnapshot
 
@@ -113,6 +131,9 @@ module Network.AWS.Lightsail
     -- ** StopInstance
     , module Network.AWS.Lightsail.StopInstance
 
+    -- ** DetachInstancesFromLoadBalancer
+    , module Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
+
     -- ** CreateInstanceSnapshot
     , module Network.AWS.Lightsail.CreateInstanceSnapshot
 
@@ -125,14 +146,32 @@ module Network.AWS.Lightsail
     -- ** UnpeerVPC
     , module Network.AWS.Lightsail.UnpeerVPC
 
+    -- ** DeleteDisk
+    , module Network.AWS.Lightsail.DeleteDisk
+
     -- ** CreateInstancesFromSnapshot
     , module Network.AWS.Lightsail.CreateInstancesFromSnapshot
 
     -- ** CreateDomain
     , module Network.AWS.Lightsail.CreateDomain
 
+    -- ** GetDiskSnapshots
+    , module Network.AWS.Lightsail.GetDiskSnapshots
+
     -- ** PeerVPC
     , module Network.AWS.Lightsail.PeerVPC
+
+    -- ** GetLoadBalancers
+    , module Network.AWS.Lightsail.GetLoadBalancers
+
+    -- ** AttachLoadBalancerTLSCertificate
+    , module Network.AWS.Lightsail.AttachLoadBalancerTLSCertificate
+
+    -- ** UpdateLoadBalancerAttribute
+    , module Network.AWS.Lightsail.UpdateLoadBalancerAttribute
+
+    -- ** GetDiskSnapshot
+    , module Network.AWS.Lightsail.GetDiskSnapshot
 
     -- ** GetStaticIP
     , module Network.AWS.Lightsail.GetStaticIP
@@ -143,6 +182,9 @@ module Network.AWS.Lightsail
     -- ** GetInstancePortStates
     , module Network.AWS.Lightsail.GetInstancePortStates
 
+    -- ** CreateDiskSnapshot
+    , module Network.AWS.Lightsail.CreateDiskSnapshot
+
     -- ** DeleteDomainEntry
     , module Network.AWS.Lightsail.DeleteDomainEntry
 
@@ -152,6 +194,12 @@ module Network.AWS.Lightsail
     -- ** GetRegions
     , module Network.AWS.Lightsail.GetRegions
 
+    -- ** DeleteDiskSnapshot
+    , module Network.AWS.Lightsail.DeleteDiskSnapshot
+
+    -- ** GetLoadBalancerMetricData
+    , module Network.AWS.Lightsail.GetLoadBalancerMetricData
+
     -- ** GetInstanceState
     , module Network.AWS.Lightsail.GetInstanceState
 
@@ -160,6 +208,12 @@ module Network.AWS.Lightsail
 
     -- ** GetOperations (Paginated)
     , module Network.AWS.Lightsail.GetOperations
+
+    -- ** GetDisks
+    , module Network.AWS.Lightsail.GetDisks
+
+    -- ** AttachInstancesToLoadBalancer
+    , module Network.AWS.Lightsail.AttachInstancesToLoadBalancer
 
     -- ** GetOperation
     , module Network.AWS.Lightsail.GetOperation
@@ -172,6 +226,15 @@ module Network.AWS.Lightsail
 
     -- ** PutInstancePublicPorts
     , module Network.AWS.Lightsail.PutInstancePublicPorts
+
+    -- ** GetDisk
+    , module Network.AWS.Lightsail.GetDisk
+
+    -- ** CreateLoadBalancer
+    , module Network.AWS.Lightsail.CreateLoadBalancer
+
+    -- ** AttachDisk
+    , module Network.AWS.Lightsail.AttachDisk
 
     -- ** DetachStaticIP
     , module Network.AWS.Lightsail.DetachStaticIP
@@ -187,6 +250,12 @@ module Network.AWS.Lightsail
 
     -- ** DeleteDomain
     , module Network.AWS.Lightsail.DeleteDomain
+
+    -- ** GetLoadBalancerTLSCertificates
+    , module Network.AWS.Lightsail.GetLoadBalancerTLSCertificates
+
+    -- ** CreateDisk
+    , module Network.AWS.Lightsail.CreateDisk
 
     -- ** GetOperationsForResource
     , module Network.AWS.Lightsail.GetOperationsForResource
@@ -205,8 +274,20 @@ module Network.AWS.Lightsail
     -- ** BlueprintType
     , BlueprintType (..)
 
+    -- ** DiskSnapshotState
+    , DiskSnapshotState (..)
+
+    -- ** DiskState
+    , DiskState (..)
+
     -- ** InstanceAccessProtocol
     , InstanceAccessProtocol (..)
+
+    -- ** InstanceHealthReason
+    , InstanceHealthReason (..)
+
+    -- ** InstanceHealthState
+    , InstanceHealthState (..)
 
     -- ** InstanceMetricName
     , InstanceMetricName (..)
@@ -216,6 +297,33 @@ module Network.AWS.Lightsail
 
     -- ** InstanceSnapshotState
     , InstanceSnapshotState (..)
+
+    -- ** LoadBalancerAttributeName
+    , LoadBalancerAttributeName (..)
+
+    -- ** LoadBalancerMetricName
+    , LoadBalancerMetricName (..)
+
+    -- ** LoadBalancerProtocol
+    , LoadBalancerProtocol (..)
+
+    -- ** LoadBalancerState
+    , LoadBalancerState (..)
+
+    -- ** LoadBalancerTLSCertificateDomainStatus
+    , LoadBalancerTLSCertificateDomainStatus (..)
+
+    -- ** LoadBalancerTLSCertificateFailureReason
+    , LoadBalancerTLSCertificateFailureReason (..)
+
+    -- ** LoadBalancerTLSCertificateRenewalStatus
+    , LoadBalancerTLSCertificateRenewalStatus (..)
+
+    -- ** LoadBalancerTLSCertificateRevocationReason
+    , LoadBalancerTLSCertificateRevocationReason (..)
+
+    -- ** LoadBalancerTLSCertificateStatus
+    , LoadBalancerTLSCertificateStatus (..)
 
     -- ** MetricStatistic
     , MetricStatistic (..)
@@ -284,6 +392,7 @@ module Network.AWS.Lightsail
     -- ** Disk
     , Disk
     , disk
+    , dState
     , dResourceType
     , dArn
     , dPath
@@ -299,6 +408,27 @@ module Network.AWS.Lightsail
     , dAttachedTo
     , dGbInUse
 
+    -- ** DiskMap
+    , DiskMap
+    , diskMap
+    , dmNewDiskName
+    , dmOriginalDiskPath
+
+    -- ** DiskSnapshot
+    , DiskSnapshot
+    , diskSnapshot
+    , dsFromDiskName
+    , dsState
+    , dsResourceType
+    , dsArn
+    , dsCreatedAt
+    , dsLocation
+    , dsProgress
+    , dsName
+    , dsSizeInGb
+    , dsSupportCode
+    , dsFromDiskARN
+
     -- ** Domain
     , Domain
     , domain
@@ -313,6 +443,7 @@ module Network.AWS.Lightsail
     -- ** DomainEntry
     , DomainEntry
     , domainEntry
+    , deIsAlias
     , deName
     , deId
     , deOptions
@@ -361,6 +492,13 @@ module Network.AWS.Lightsail
     , ihDisks
     , ihRamSizeInGb
 
+    -- ** InstanceHealthSummary
+    , InstanceHealthSummary
+    , instanceHealthSummary
+    , ihsInstanceHealth
+    , ihsInstanceName
+    , ihsInstanceHealthReason
+
     -- ** InstanceNetworking
     , InstanceNetworking
     , instanceNetworking
@@ -392,6 +530,7 @@ module Network.AWS.Lightsail
     , insFromBlueprintId
     , insState
     , insResourceType
+    , insFromAttachedDisks
     , insArn
     , insCreatedAt
     , insLocation
@@ -419,6 +558,80 @@ module Network.AWS.Lightsail
     , kpFingerprint
     , kpName
     , kpSupportCode
+
+    -- ** LoadBalancer
+    , LoadBalancer
+    , loadBalancer
+    , lbHealthCheckPath
+    , lbState
+    , lbResourceType
+    , lbArn
+    , lbCreatedAt
+    , lbLocation
+    , lbInstancePort
+    , lbConfigurationOptions
+    , lbProtocol
+    , lbTlsCertificateSummaries
+    , lbName
+    , lbSupportCode
+    , lbPublicPorts
+    , lbDnsName
+    , lbInstanceHealthSummary
+
+    -- ** LoadBalancerTLSCertificate
+    , LoadBalancerTLSCertificate
+    , loadBalancerTLSCertificate
+    , lbtcFailureReason
+    , lbtcSubject
+    , lbtcStatus
+    , lbtcSubjectAlternativeNames
+    , lbtcResourceType
+    , lbtcArn
+    , lbtcCreatedAt
+    , lbtcLocation
+    , lbtcLoadBalancerName
+    , lbtcSerial
+    , lbtcIsAttached
+    , lbtcRevokedAt
+    , lbtcNotBefore
+    , lbtcRevocationReason
+    , lbtcDomainName
+    , lbtcName
+    , lbtcRenewalSummary
+    , lbtcSupportCode
+    , lbtcDomainValidationRecords
+    , lbtcIssuedAt
+    , lbtcKeyAlgorithm
+    , lbtcSignatureAlgorithm
+    , lbtcIssuer
+    , lbtcNotAfter
+
+    -- ** LoadBalancerTLSCertificateDomainValidationOption
+    , LoadBalancerTLSCertificateDomainValidationOption
+    , loadBalancerTLSCertificateDomainValidationOption
+    , lbtcdvoDomainName
+    , lbtcdvoValidationStatus
+
+    -- ** LoadBalancerTLSCertificateDomainValidationRecord
+    , LoadBalancerTLSCertificateDomainValidationRecord
+    , loadBalancerTLSCertificateDomainValidationRecord
+    , lbtcdvrValue
+    , lbtcdvrDomainName
+    , lbtcdvrName
+    , lbtcdvrValidationStatus
+    , lbtcdvrType
+
+    -- ** LoadBalancerTLSCertificateRenewalSummary
+    , LoadBalancerTLSCertificateRenewalSummary
+    , loadBalancerTLSCertificateRenewalSummary
+    , lbtcrsRenewalStatus
+    , lbtcrsDomainValidationOptions
+
+    -- ** LoadBalancerTLSCertificateSummary
+    , LoadBalancerTLSCertificateSummary
+    , loadBalancerTLSCertificateSummary
+    , lbtcsIsAttached
+    , lbtcsName
 
     -- ** MetricDatapoint
     , MetricDatapoint
@@ -495,24 +708,42 @@ module Network.AWS.Lightsail
     ) where
 
 import Network.AWS.Lightsail.AllocateStaticIP
+import Network.AWS.Lightsail.AttachDisk
+import Network.AWS.Lightsail.AttachInstancesToLoadBalancer
+import Network.AWS.Lightsail.AttachLoadBalancerTLSCertificate
 import Network.AWS.Lightsail.AttachStaticIP
 import Network.AWS.Lightsail.CloseInstancePublicPorts
+import Network.AWS.Lightsail.CreateDisk
+import Network.AWS.Lightsail.CreateDiskFromSnapshot
+import Network.AWS.Lightsail.CreateDiskSnapshot
 import Network.AWS.Lightsail.CreateDomain
 import Network.AWS.Lightsail.CreateDomainEntry
 import Network.AWS.Lightsail.CreateInstances
 import Network.AWS.Lightsail.CreateInstancesFromSnapshot
 import Network.AWS.Lightsail.CreateInstanceSnapshot
 import Network.AWS.Lightsail.CreateKeyPair
+import Network.AWS.Lightsail.CreateLoadBalancer
+import Network.AWS.Lightsail.CreateLoadBalancerTLSCertificate
+import Network.AWS.Lightsail.DeleteDisk
+import Network.AWS.Lightsail.DeleteDiskSnapshot
 import Network.AWS.Lightsail.DeleteDomain
 import Network.AWS.Lightsail.DeleteDomainEntry
 import Network.AWS.Lightsail.DeleteInstance
 import Network.AWS.Lightsail.DeleteInstanceSnapshot
 import Network.AWS.Lightsail.DeleteKeyPair
+import Network.AWS.Lightsail.DeleteLoadBalancer
+import Network.AWS.Lightsail.DeleteLoadBalancerTLSCertificate
+import Network.AWS.Lightsail.DetachDisk
+import Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
 import Network.AWS.Lightsail.DetachStaticIP
 import Network.AWS.Lightsail.DownloadDefaultKeyPair
 import Network.AWS.Lightsail.GetActiveNames
 import Network.AWS.Lightsail.GetBlueprints
 import Network.AWS.Lightsail.GetBundles
+import Network.AWS.Lightsail.GetDisk
+import Network.AWS.Lightsail.GetDisks
+import Network.AWS.Lightsail.GetDiskSnapshot
+import Network.AWS.Lightsail.GetDiskSnapshots
 import Network.AWS.Lightsail.GetDomain
 import Network.AWS.Lightsail.GetDomains
 import Network.AWS.Lightsail.GetInstance
@@ -525,6 +756,10 @@ import Network.AWS.Lightsail.GetInstanceSnapshots
 import Network.AWS.Lightsail.GetInstanceState
 import Network.AWS.Lightsail.GetKeyPair
 import Network.AWS.Lightsail.GetKeyPairs
+import Network.AWS.Lightsail.GetLoadBalancer
+import Network.AWS.Lightsail.GetLoadBalancerMetricData
+import Network.AWS.Lightsail.GetLoadBalancers
+import Network.AWS.Lightsail.GetLoadBalancerTLSCertificates
 import Network.AWS.Lightsail.GetOperation
 import Network.AWS.Lightsail.GetOperations
 import Network.AWS.Lightsail.GetOperationsForResource
@@ -543,6 +778,7 @@ import Network.AWS.Lightsail.StopInstance
 import Network.AWS.Lightsail.Types
 import Network.AWS.Lightsail.UnpeerVPC
 import Network.AWS.Lightsail.UpdateDomainEntry
+import Network.AWS.Lightsail.UpdateLoadBalancerAttribute
 import Network.AWS.Lightsail.Waiters
 
 {- $errors

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteBGPPeer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ deleteBGPPeer
     :: DeleteBGPPeer
 deleteBGPPeer =
   DeleteBGPPeer'
-  { _dbpCustomerAddress = Nothing
-  , _dbpAsn = Nothing
-  , _dbpVirtualInterfaceId = Nothing
-  }
+    { _dbpCustomerAddress = Nothing
+    , _dbpAsn = Nothing
+    , _dbpVirtualInterfaceId = Nothing
+    }
 
 
 -- | Undocumented member.
 dbpCustomerAddress :: Lens' DeleteBGPPeer (Maybe Text)
-dbpCustomerAddress = lens _dbpCustomerAddress (\ s a -> s{_dbpCustomerAddress = a});
+dbpCustomerAddress = lens _dbpCustomerAddress (\ s a -> s{_dbpCustomerAddress = a})
 
 -- | Undocumented member.
 dbpAsn :: Lens' DeleteBGPPeer (Maybe Int)
-dbpAsn = lens _dbpAsn (\ s a -> s{_dbpAsn = a});
+dbpAsn = lens _dbpAsn (\ s a -> s{_dbpAsn = a})
 
 -- | The ID of the virtual interface from which the BGP peer will be deleted. Example: dxvif-456abc78 Default: None
 dbpVirtualInterfaceId :: Lens' DeleteBGPPeer (Maybe Text)
-dbpVirtualInterfaceId = lens _dbpVirtualInterfaceId (\ s a -> s{_dbpVirtualInterfaceId = a});
+dbpVirtualInterfaceId = lens _dbpVirtualInterfaceId (\ s a -> s{_dbpVirtualInterfaceId = a})
 
 instance AWSRequest DeleteBGPPeer where
         type Rs DeleteBGPPeer = DeleteBGPPeerResponse
@@ -149,15 +149,15 @@ deleteBGPPeerResponse
     -> DeleteBGPPeerResponse
 deleteBGPPeerResponse pResponseStatus_ =
   DeleteBGPPeerResponse'
-  {_dbprsVirtualInterface = Nothing, _dbprsResponseStatus = pResponseStatus_}
+    {_dbprsVirtualInterface = Nothing, _dbprsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 dbprsVirtualInterface :: Lens' DeleteBGPPeerResponse (Maybe VirtualInterface)
-dbprsVirtualInterface = lens _dbprsVirtualInterface (\ s a -> s{_dbprsVirtualInterface = a});
+dbprsVirtualInterface = lens _dbprsVirtualInterface (\ s a -> s{_dbprsVirtualInterface = a})
 
 -- | -- | The response status code.
 dbprsResponseStatus :: Lens' DeleteBGPPeerResponse Int
-dbprsResponseStatus = lens _dbprsResponseStatus (\ s a -> s{_dbprsResponseStatus = a});
+dbprsResponseStatus = lens _dbprsResponseStatus (\ s a -> s{_dbprsResponseStatus = a})
 
 instance NFData DeleteBGPPeerResponse where

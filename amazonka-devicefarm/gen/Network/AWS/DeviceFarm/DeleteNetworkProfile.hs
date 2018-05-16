@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteNetworkProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteNetworkProfile pArn_ = DeleteNetworkProfile' {_dnpArn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the network profile you want to delete.
 dnpArn :: Lens' DeleteNetworkProfile Text
-dnpArn = lens _dnpArn (\ s a -> s{_dnpArn = a});
+dnpArn = lens _dnpArn (\ s a -> s{_dnpArn = a})
 
 instance AWSRequest DeleteNetworkProfile where
         type Rs DeleteNetworkProfile =
@@ -118,6 +118,6 @@ deleteNetworkProfileResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dnprsResponseStatus :: Lens' DeleteNetworkProfileResponse Int
-dnprsResponseStatus = lens _dnprsResponseStatus (\ s a -> s{_dnprsResponseStatus = a});
+dnprsResponseStatus = lens _dnprsResponseStatus (\ s a -> s{_dnprsResponseStatus = a})
 
 instance NFData DeleteNetworkProfileResponse where

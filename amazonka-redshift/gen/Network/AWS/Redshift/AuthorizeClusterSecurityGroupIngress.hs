@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,28 +82,28 @@ authorizeClusterSecurityGroupIngress
     -> AuthorizeClusterSecurityGroupIngress
 authorizeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
   AuthorizeClusterSecurityGroupIngress'
-  { _acsgiEC2SecurityGroupOwnerId = Nothing
-  , _acsgiEC2SecurityGroupName = Nothing
-  , _acsgiCIdRIP = Nothing
-  , _acsgiClusterSecurityGroupName = pClusterSecurityGroupName_
-  }
+    { _acsgiEC2SecurityGroupOwnerId = Nothing
+    , _acsgiEC2SecurityGroupName = Nothing
+    , _acsgiCIdRIP = Nothing
+    , _acsgiClusterSecurityGroupName = pClusterSecurityGroupName_
+    }
 
 
 -- | The AWS account number of the owner of the security group specified by the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an acceptable value.  Example: @111122223333@
 acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgiEC2SecurityGroupOwnerId = lens _acsgiEC2SecurityGroupOwnerId (\ s a -> s{_acsgiEC2SecurityGroupOwnerId = a});
+acsgiEC2SecurityGroupOwnerId = lens _acsgiEC2SecurityGroupOwnerId (\ s a -> s{_acsgiEC2SecurityGroupOwnerId = a})
 
 -- | The EC2 security group to be added the Amazon Redshift security group.
 acsgiEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgiEC2SecurityGroupName = lens _acsgiEC2SecurityGroupName (\ s a -> s{_acsgiEC2SecurityGroupName = a});
+acsgiEC2SecurityGroupName = lens _acsgiEC2SecurityGroupName (\ s a -> s{_acsgiEC2SecurityGroupName = a})
 
 -- | The IP range to be added the Amazon Redshift security group.
 acsgiCIdRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgiCIdRIP = lens _acsgiCIdRIP (\ s a -> s{_acsgiCIdRIP = a});
+acsgiCIdRIP = lens _acsgiCIdRIP (\ s a -> s{_acsgiCIdRIP = a})
 
 -- | The name of the security group to which the ingress rule is added.
 acsgiClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
-acsgiClusterSecurityGroupName = lens _acsgiClusterSecurityGroupName (\ s a -> s{_acsgiClusterSecurityGroupName = a});
+acsgiClusterSecurityGroupName = lens _acsgiClusterSecurityGroupName (\ s a -> s{_acsgiClusterSecurityGroupName = a})
 
 instance AWSRequest
            AuthorizeClusterSecurityGroupIngress
@@ -169,18 +169,18 @@ authorizeClusterSecurityGroupIngressResponse
     -> AuthorizeClusterSecurityGroupIngressResponse
 authorizeClusterSecurityGroupIngressResponse pResponseStatus_ =
   AuthorizeClusterSecurityGroupIngressResponse'
-  { _acsgirsClusterSecurityGroup = Nothing
-  , _acsgirsResponseStatus = pResponseStatus_
-  }
+    { _acsgirsClusterSecurityGroup = Nothing
+    , _acsgirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 acsgirsClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
-acsgirsClusterSecurityGroup = lens _acsgirsClusterSecurityGroup (\ s a -> s{_acsgirsClusterSecurityGroup = a});
+acsgirsClusterSecurityGroup = lens _acsgirsClusterSecurityGroup (\ s a -> s{_acsgirsClusterSecurityGroup = a})
 
 -- | -- | The response status code.
 acsgirsResponseStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
-acsgirsResponseStatus = lens _acsgirsResponseStatus (\ s a -> s{_acsgirsResponseStatus = a});
+acsgirsResponseStatus = lens _acsgirsResponseStatus (\ s a -> s{_acsgirsResponseStatus = a})
 
 instance NFData
            AuthorizeClusterSecurityGroupIngressResponse

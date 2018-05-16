@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeOrderableClusterOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ describeOrderableClusterOptions
     :: DescribeOrderableClusterOptions
 describeOrderableClusterOptions =
   DescribeOrderableClusterOptions'
-  { _docoMarker = Nothing
-  , _docoMaxRecords = Nothing
-  , _docoClusterVersion = Nothing
-  , _docoNodeType = Nothing
-  }
+    { _docoMarker = Nothing
+    , _docoMaxRecords = Nothing
+    , _docoClusterVersion = Nothing
+    , _docoNodeType = Nothing
+    }
 
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeOrderableClusterOptions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 docoMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docoMarker = lens _docoMarker (\ s a -> s{_docoMarker = a});
+docoMarker = lens _docoMarker (\ s a -> s{_docoMarker = a})
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
 docoMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Int)
-docoMaxRecords = lens _docoMaxRecords (\ s a -> s{_docoMaxRecords = a});
+docoMaxRecords = lens _docoMaxRecords (\ s a -> s{_docoMaxRecords = a})
 
 -- | The version filter value. Specify this parameter to show only the available offerings matching the specified version. Default: All versions. Constraints: Must be one of the version returned from 'DescribeClusterVersions' .
 docoClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docoClusterVersion = lens _docoClusterVersion (\ s a -> s{_docoClusterVersion = a});
+docoClusterVersion = lens _docoClusterVersion (\ s a -> s{_docoClusterVersion = a})
 
 -- | The node type filter value. Specify this parameter to show only the available offerings matching the specified node type.
 docoNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docoNodeType = lens _docoNodeType (\ s a -> s{_docoNodeType = a});
+docoNodeType = lens _docoNodeType (\ s a -> s{_docoNodeType = a})
 
 instance AWSPager DescribeOrderableClusterOptions
          where
@@ -176,23 +176,23 @@ describeOrderableClusterOptionsResponse
     -> DescribeOrderableClusterOptionsResponse
 describeOrderableClusterOptionsResponse pResponseStatus_ =
   DescribeOrderableClusterOptionsResponse'
-  { _docorsMarker = Nothing
-  , _docorsOrderableClusterOptions = Nothing
-  , _docorsResponseStatus = pResponseStatus_
-  }
+    { _docorsMarker = Nothing
+    , _docorsOrderableClusterOptions = Nothing
+    , _docorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 docorsMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
-docorsMarker = lens _docorsMarker (\ s a -> s{_docorsMarker = a});
+docorsMarker = lens _docorsMarker (\ s a -> s{_docorsMarker = a})
 
 -- | An @OrderableClusterOption@ structure containing information about orderable options for the cluster.
 docorsOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
-docorsOrderableClusterOptions = lens _docorsOrderableClusterOptions (\ s a -> s{_docorsOrderableClusterOptions = a}) . _Default . _Coerce;
+docorsOrderableClusterOptions = lens _docorsOrderableClusterOptions (\ s a -> s{_docorsOrderableClusterOptions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 docorsResponseStatus :: Lens' DescribeOrderableClusterOptionsResponse Int
-docorsResponseStatus = lens _docorsResponseStatus (\ s a -> s{_docorsResponseStatus = a});
+docorsResponseStatus = lens _docorsResponseStatus (\ s a -> s{_docorsResponseStatus = a})
 
 instance NFData
            DescribeOrderableClusterOptionsResponse

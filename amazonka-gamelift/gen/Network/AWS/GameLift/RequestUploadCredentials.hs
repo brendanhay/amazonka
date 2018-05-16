@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.RequestUploadCredentials
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- /This API call is not currently in use. / Retrieves a fresh set of upload credentials and the assigned Amazon S3 storage location for a specific build. Valid credentials are required to upload your game build files to Amazon S3.
+-- Retrieves a fresh set of credentials for use when uploading a new set of game build files to Amazon GameLift's Amazon S3. This is done as part of the build creation process; see 'CreateBuild' .
 --
+--
+-- To request new credentials, specify the build ID as returned with an initial @CreateBuild@ request. If successful, a new set of credentials are returned, along with the S3 storage location associated with the build ID.
 --
 module Network.AWS.GameLift.RequestUploadCredentials
     (
@@ -69,7 +71,7 @@ requestUploadCredentials pBuildId_ =
 
 -- | Unique identifier for a build to get credentials for.
 rucBuildId :: Lens' RequestUploadCredentials Text
-rucBuildId = lens _rucBuildId (\ s a -> s{_rucBuildId = a});
+rucBuildId = lens _rucBuildId (\ s a -> s{_rucBuildId = a})
 
 instance AWSRequest RequestUploadCredentials where
         type Rs RequestUploadCredentials =
@@ -133,23 +135,23 @@ requestUploadCredentialsResponse
     -> RequestUploadCredentialsResponse
 requestUploadCredentialsResponse pResponseStatus_ =
   RequestUploadCredentialsResponse'
-  { _rucrsStorageLocation = Nothing
-  , _rucrsUploadCredentials = Nothing
-  , _rucrsResponseStatus = pResponseStatus_
-  }
+    { _rucrsStorageLocation = Nothing
+    , _rucrsUploadCredentials = Nothing
+    , _rucrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Amazon S3 path and key, identifying where the game build files are stored.
 rucrsStorageLocation :: Lens' RequestUploadCredentialsResponse (Maybe S3Location)
-rucrsStorageLocation = lens _rucrsStorageLocation (\ s a -> s{_rucrsStorageLocation = a});
+rucrsStorageLocation = lens _rucrsStorageLocation (\ s a -> s{_rucrsStorageLocation = a})
 
 -- | AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for.
 rucrsUploadCredentials :: Lens' RequestUploadCredentialsResponse (Maybe AWSCredentials)
-rucrsUploadCredentials = lens _rucrsUploadCredentials (\ s a -> s{_rucrsUploadCredentials = a}) . mapping _Sensitive;
+rucrsUploadCredentials = lens _rucrsUploadCredentials (\ s a -> s{_rucrsUploadCredentials = a}) . mapping _Sensitive
 
 -- | -- | The response status code.
 rucrsResponseStatus :: Lens' RequestUploadCredentialsResponse Int
-rucrsResponseStatus = lens _rucrsResponseStatus (\ s a -> s{_rucrsResponseStatus = a});
+rucrsResponseStatus = lens _rucrsResponseStatus (\ s a -> s{_rucrsResponseStatus = a})
 
 instance NFData RequestUploadCredentialsResponse
          where

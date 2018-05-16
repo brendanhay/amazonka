@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListPortfolioAccess
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the account IDs that have been authorized sharing of the specified portfolio.
+-- Lists the account IDs that have access to the specified portfolio.
 --
 --
 module Network.AWS.ServiceCatalog.ListPortfolioAccess
@@ -65,16 +65,16 @@ listPortfolioAccess
     -> ListPortfolioAccess
 listPortfolioAccess pPortfolioId_ =
   ListPortfolioAccess'
-  {_lAcceptLanguage = Nothing, _lPortfolioId = pPortfolioId_}
+    {_lAcceptLanguage = Nothing, _lPortfolioId = pPortfolioId_}
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lAcceptLanguage :: Lens' ListPortfolioAccess (Maybe Text)
-lAcceptLanguage = lens _lAcceptLanguage (\ s a -> s{_lAcceptLanguage = a});
+lAcceptLanguage = lens _lAcceptLanguage (\ s a -> s{_lAcceptLanguage = a})
 
 -- | The portfolio identifier.
 lPortfolioId :: Lens' ListPortfolioAccess Text
-lPortfolioId = lens _lPortfolioId (\ s a -> s{_lPortfolioId = a});
+lPortfolioId = lens _lPortfolioId (\ s a -> s{_lPortfolioId = a})
 
 instance AWSRequest ListPortfolioAccess where
         type Rs ListPortfolioAccess =
@@ -127,9 +127,9 @@ data ListPortfolioAccessResponse = ListPortfolioAccessResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lparsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'lparsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
--- * 'lparsAccountIds' - List of account IDs associated with access to the portfolio.
+-- * 'lparsAccountIds' - Information about the AWS accounts with access to the portfolio.
 --
 -- * 'lparsResponseStatus' - -- | The response status code.
 listPortfolioAccessResponse
@@ -137,22 +137,22 @@ listPortfolioAccessResponse
     -> ListPortfolioAccessResponse
 listPortfolioAccessResponse pResponseStatus_ =
   ListPortfolioAccessResponse'
-  { _lparsNextPageToken = Nothing
-  , _lparsAccountIds = Nothing
-  , _lparsResponseStatus = pResponseStatus_
-  }
+    { _lparsNextPageToken = Nothing
+    , _lparsAccountIds = Nothing
+    , _lparsResponseStatus = pResponseStatus_
+    }
 
 
--- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 lparsNextPageToken :: Lens' ListPortfolioAccessResponse (Maybe Text)
-lparsNextPageToken = lens _lparsNextPageToken (\ s a -> s{_lparsNextPageToken = a});
+lparsNextPageToken = lens _lparsNextPageToken (\ s a -> s{_lparsNextPageToken = a})
 
--- | List of account IDs associated with access to the portfolio.
+-- | Information about the AWS accounts with access to the portfolio.
 lparsAccountIds :: Lens' ListPortfolioAccessResponse [Text]
-lparsAccountIds = lens _lparsAccountIds (\ s a -> s{_lparsAccountIds = a}) . _Default . _Coerce;
+lparsAccountIds = lens _lparsAccountIds (\ s a -> s{_lparsAccountIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lparsResponseStatus :: Lens' ListPortfolioAccessResponse Int
-lparsResponseStatus = lens _lparsResponseStatus (\ s a -> s{_lparsResponseStatus = a});
+lparsResponseStatus = lens _lparsResponseStatus (\ s a -> s{_lparsResponseStatus = a})
 
 instance NFData ListPortfolioAccessResponse where

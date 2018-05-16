@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.UpdateTerminationProtection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,18 +67,18 @@ updateTerminationProtection
     -> UpdateTerminationProtection
 updateTerminationProtection pEnableTerminationProtection_ pStackName_ =
   UpdateTerminationProtection'
-  { _utpEnableTerminationProtection = pEnableTerminationProtection_
-  , _utpStackName = pStackName_
-  }
+    { _utpEnableTerminationProtection = pEnableTerminationProtection_
+    , _utpStackName = pStackName_
+    }
 
 
 -- | Whether to enable termination protection on the specified stack.
 utpEnableTerminationProtection :: Lens' UpdateTerminationProtection Bool
-utpEnableTerminationProtection = lens _utpEnableTerminationProtection (\ s a -> s{_utpEnableTerminationProtection = a});
+utpEnableTerminationProtection = lens _utpEnableTerminationProtection (\ s a -> s{_utpEnableTerminationProtection = a})
 
 -- | The name or unique ID of the stack for which you want to set termination protection.
 utpStackName :: Lens' UpdateTerminationProtection Text
-utpStackName = lens _utpStackName (\ s a -> s{_utpStackName = a});
+utpStackName = lens _utpStackName (\ s a -> s{_utpStackName = a})
 
 instance AWSRequest UpdateTerminationProtection where
         type Rs UpdateTerminationProtection =
@@ -130,16 +130,16 @@ updateTerminationProtectionResponse
     -> UpdateTerminationProtectionResponse
 updateTerminationProtectionResponse pResponseStatus_ =
   UpdateTerminationProtectionResponse'
-  {_utprsStackId = Nothing, _utprsResponseStatus = pResponseStatus_}
+    {_utprsStackId = Nothing, _utprsResponseStatus = pResponseStatus_}
 
 
 -- | The unique ID of the stack.
 utprsStackId :: Lens' UpdateTerminationProtectionResponse (Maybe Text)
-utprsStackId = lens _utprsStackId (\ s a -> s{_utprsStackId = a});
+utprsStackId = lens _utprsStackId (\ s a -> s{_utprsStackId = a})
 
 -- | -- | The response status code.
 utprsResponseStatus :: Lens' UpdateTerminationProtectionResponse Int
-utprsResponseStatus = lens _utprsResponseStatus (\ s a -> s{_utprsResponseStatus = a});
+utprsResponseStatus = lens _utprsResponseStatus (\ s a -> s{_utprsResponseStatus = a})
 
 instance NFData UpdateTerminationProtectionResponse
          where

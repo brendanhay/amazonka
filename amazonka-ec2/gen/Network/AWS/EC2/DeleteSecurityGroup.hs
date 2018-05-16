@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteSecurityGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,20 +70,20 @@ deleteSecurityGroup
     :: DeleteSecurityGroup
 deleteSecurityGroup =
   DeleteSecurityGroup'
-  {_dsgGroupId = Nothing, _dsgGroupName = Nothing, _dsgDryRun = Nothing}
+    {_dsgGroupId = Nothing, _dsgGroupName = Nothing, _dsgDryRun = Nothing}
 
 
 -- | The ID of the security group. Required for a nondefault VPC.
 dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgGroupId = lens _dsgGroupId (\ s a -> s{_dsgGroupId = a});
+dsgGroupId = lens _dsgGroupId (\ s a -> s{_dsgGroupId = a})
 
 -- | [EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.
 dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgGroupName = lens _dsgGroupName (\ s a -> s{_dsgGroupName = a});
+dsgGroupName = lens _dsgGroupName (\ s a -> s{_dsgGroupName = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
-dsgDryRun = lens _dsgDryRun (\ s a -> s{_dsgDryRun = a});
+dsgDryRun = lens _dsgDryRun (\ s a -> s{_dsgDryRun = a})
 
 instance AWSRequest DeleteSecurityGroup where
         type Rs DeleteSecurityGroup =

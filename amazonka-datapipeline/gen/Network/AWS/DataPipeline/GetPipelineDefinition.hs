@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.GetPipelineDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ getPipelineDefinition pPipelineId_ =
 
 -- | The version of the pipeline definition to retrieve. Set this parameter to @latest@ (default) to use the last definition saved to the pipeline or @active@ to use the last definition that was activated.
 gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
-gpdVersion = lens _gpdVersion (\ s a -> s{_gpdVersion = a});
+gpdVersion = lens _gpdVersion (\ s a -> s{_gpdVersion = a})
 
 -- | The ID of the pipeline.
 gpdPipelineId :: Lens' GetPipelineDefinition Text
-gpdPipelineId = lens _gpdPipelineId (\ s a -> s{_gpdPipelineId = a});
+gpdPipelineId = lens _gpdPipelineId (\ s a -> s{_gpdPipelineId = a})
 
 instance AWSRequest GetPipelineDefinition where
         type Rs GetPipelineDefinition =
@@ -148,27 +148,27 @@ getPipelineDefinitionResponse
     -> GetPipelineDefinitionResponse
 getPipelineDefinitionResponse pResponseStatus_ =
   GetPipelineDefinitionResponse'
-  { _gpdrsPipelineObjects = Nothing
-  , _gpdrsParameterObjects = Nothing
-  , _gpdrsParameterValues = Nothing
-  , _gpdrsResponseStatus = pResponseStatus_
-  }
+    { _gpdrsPipelineObjects = Nothing
+    , _gpdrsParameterObjects = Nothing
+    , _gpdrsParameterValues = Nothing
+    , _gpdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The objects defined in the pipeline.
 gpdrsPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
-gpdrsPipelineObjects = lens _gpdrsPipelineObjects (\ s a -> s{_gpdrsPipelineObjects = a}) . _Default . _Coerce;
+gpdrsPipelineObjects = lens _gpdrsPipelineObjects (\ s a -> s{_gpdrsPipelineObjects = a}) . _Default . _Coerce
 
 -- | The parameter objects used in the pipeline definition.
 gpdrsParameterObjects :: Lens' GetPipelineDefinitionResponse [ParameterObject]
-gpdrsParameterObjects = lens _gpdrsParameterObjects (\ s a -> s{_gpdrsParameterObjects = a}) . _Default . _Coerce;
+gpdrsParameterObjects = lens _gpdrsParameterObjects (\ s a -> s{_gpdrsParameterObjects = a}) . _Default . _Coerce
 
 -- | The parameter values used in the pipeline definition.
 gpdrsParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
-gpdrsParameterValues = lens _gpdrsParameterValues (\ s a -> s{_gpdrsParameterValues = a}) . _Default . _Coerce;
+gpdrsParameterValues = lens _gpdrsParameterValues (\ s a -> s{_gpdrsParameterValues = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gpdrsResponseStatus :: Lens' GetPipelineDefinitionResponse Int
-gpdrsResponseStatus = lens _gpdrsResponseStatus (\ s a -> s{_gpdrsResponseStatus = a});
+gpdrsResponseStatus = lens _gpdrsResponseStatus (\ s a -> s{_gpdrsResponseStatus = a})
 
 instance NFData GetPipelineDefinitionResponse where

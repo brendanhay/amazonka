@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.DescribeTrails
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ describeTrails =
 
 -- | Specifies whether to include shadow trails in the response. A shadow trail is the replication in a region of a trail that was created in a different region. The default is true.
 dtIncludeShadowTrails :: Lens' DescribeTrails (Maybe Bool)
-dtIncludeShadowTrails = lens _dtIncludeShadowTrails (\ s a -> s{_dtIncludeShadowTrails = a});
+dtIncludeShadowTrails = lens _dtIncludeShadowTrails (\ s a -> s{_dtIncludeShadowTrails = a})
 
 -- | Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@  If an empty list is specified, information for the trail in the current region is returned.     * If an empty list is specified and @IncludeShadowTrails@ is false, then information for all trails in the current region is returned.     * If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.
 dtTrailNameList :: Lens' DescribeTrails [Text]
-dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default . _Coerce;
+dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeTrails where
         type Rs DescribeTrails = DescribeTrailsResponse
@@ -138,15 +138,15 @@ describeTrailsResponse
     -> DescribeTrailsResponse
 describeTrailsResponse pResponseStatus_ =
   DescribeTrailsResponse'
-  {_dtrsTrailList = Nothing, _dtrsResponseStatus = pResponseStatus_}
+    {_dtrsTrailList = Nothing, _dtrsResponseStatus = pResponseStatus_}
 
 
 -- | The list of trail objects.
 dtrsTrailList :: Lens' DescribeTrailsResponse [Trail]
-dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default . _Coerce;
+dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTrailsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
 
 instance NFData DescribeTrailsResponse where

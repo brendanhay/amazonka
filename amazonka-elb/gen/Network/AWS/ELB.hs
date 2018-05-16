@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -13,11 +13,11 @@
 --
 -- __Elastic Load Balancing__
 --
--- A load balancer distributes incoming traffic across your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered instances and ensures that it routes traffic only to healthy instances. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer and a protocol and port number for connections from the load balancer to the instances.
+-- A load balancer can distribute incoming traffic across your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered instances and ensures that it routes traffic only to healthy instances. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer and a protocol and port number for connections from the load balancer to the instances.
 --
--- Elastic Load Balancing supports two types of load balancers: Classic Load Balancers and Application Load Balancers (new). A Classic Load Balancer makes routing and load balancing decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. An Application Load Balancer makes routing and load balancing decisions at the application layer (HTTP/HTTPS), supports path-based routing, and can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC). For more information, see the <http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html Elastic Load Balancing User Guide> .
+-- Elastic Load Balancing supports three types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers. You can select a load balancer based on your application needs. For more information, see the <http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/ Elastic Load Balancing User Guide> .
 --
--- This reference covers the 2012-06-01 API, which supports Classic Load Balancers. The 2015-12-01 API supports Application Load Balancers.
+-- This reference covers the 2012-06-01 API, which supports Classic Load Balancers. The 2015-12-01 API supports Application Load Balancers and Network Load Balancers.
 --
 -- To get started, create a load balancer with one or more listeners using 'CreateLoadBalancer' . Register your instances with the load balancer using 'RegisterInstancesWithLoadBalancer' .
 --
@@ -79,6 +79,9 @@ module Network.AWS.ELB
     -- ** InvalidEndPointException
     , _InvalidEndPointException
 
+    -- ** OperationNotPermittedException
+    , _OperationNotPermittedException
+
     -- ** DependencyThrottleException
     , _DependencyThrottleException
 
@@ -99,6 +102,9 @@ module Network.AWS.ELB
 
     -- ** AnyInstanceInService
     , anyInstanceInService
+
+    -- ** InstanceDeregistered
+    , instanceDeregistered
 
     -- ** InstanceInService
     , instanceInService

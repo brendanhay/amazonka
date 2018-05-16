@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.ListRateBasedRules
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ listRateBasedRules =
 
 -- | If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRateBasedRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
 lrbrNextMarker :: Lens' ListRateBasedRules (Maybe Text)
-lrbrNextMarker = lens _lrbrNextMarker (\ s a -> s{_lrbrNextMarker = a});
+lrbrNextMarker = lens _lrbrNextMarker (\ s a -> s{_lrbrNextMarker = a})
 
 -- | Specifies the number of @Rules@ that you want AWS WAF to return for this request. If you have more @Rules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 lrbrLimit :: Lens' ListRateBasedRules (Maybe Natural)
-lrbrLimit = lens _lrbrLimit (\ s a -> s{_lrbrLimit = a}) . mapping _Nat;
+lrbrLimit = lens _lrbrLimit (\ s a -> s{_lrbrLimit = a}) . mapping _Nat
 
 instance AWSRequest ListRateBasedRules where
         type Rs ListRateBasedRules =
@@ -133,22 +133,22 @@ listRateBasedRulesResponse
     -> ListRateBasedRulesResponse
 listRateBasedRulesResponse pResponseStatus_ =
   ListRateBasedRulesResponse'
-  { _lrbrrsRules = Nothing
-  , _lrbrrsNextMarker = Nothing
-  , _lrbrrsResponseStatus = pResponseStatus_
-  }
+    { _lrbrrsRules = Nothing
+    , _lrbrrsNextMarker = Nothing
+    , _lrbrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of 'RuleSummary' objects.
 lrbrrsRules :: Lens' ListRateBasedRulesResponse [RuleSummary]
-lrbrrsRules = lens _lrbrrsRules (\ s a -> s{_lrbrrsRules = a}) . _Default . _Coerce;
+lrbrrsRules = lens _lrbrrsRules (\ s a -> s{_lrbrrsRules = a}) . _Default . _Coerce
 
 -- | If you have more @Rules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @Rules@ , submit another @ListRateBasedRules@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 lrbrrsNextMarker :: Lens' ListRateBasedRulesResponse (Maybe Text)
-lrbrrsNextMarker = lens _lrbrrsNextMarker (\ s a -> s{_lrbrrsNextMarker = a});
+lrbrrsNextMarker = lens _lrbrrsNextMarker (\ s a -> s{_lrbrrsNextMarker = a})
 
 -- | -- | The response status code.
 lrbrrsResponseStatus :: Lens' ListRateBasedRulesResponse Int
-lrbrrsResponseStatus = lens _lrbrrsResponseStatus (\ s a -> s{_lrbrrsResponseStatus = a});
+lrbrrsResponseStatus = lens _lrbrrsResponseStatus (\ s a -> s{_lrbrrsResponseStatus = a})
 
 instance NFData ListRateBasedRulesResponse where

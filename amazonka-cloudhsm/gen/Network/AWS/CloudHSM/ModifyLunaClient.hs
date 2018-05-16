@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ModifyLunaClient
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,16 +71,16 @@ modifyLunaClient
     -> ModifyLunaClient
 modifyLunaClient pClientARN_ pCertificate_ =
   ModifyLunaClient'
-  {_mlcClientARN = pClientARN_, _mlcCertificate = pCertificate_}
+    {_mlcClientARN = pClientARN_, _mlcCertificate = pCertificate_}
 
 
 -- | The ARN of the client.
 mlcClientARN :: Lens' ModifyLunaClient Text
-mlcClientARN = lens _mlcClientARN (\ s a -> s{_mlcClientARN = a});
+mlcClientARN = lens _mlcClientARN (\ s a -> s{_mlcClientARN = a})
 
 -- | The new certificate for the client.
 mlcCertificate :: Lens' ModifyLunaClient Text
-mlcCertificate = lens _mlcCertificate (\ s a -> s{_mlcCertificate = a});
+mlcCertificate = lens _mlcCertificate (\ s a -> s{_mlcCertificate = a})
 
 instance AWSRequest ModifyLunaClient where
         type Rs ModifyLunaClient = ModifyLunaClientResponse
@@ -137,15 +137,15 @@ modifyLunaClientResponse
     -> ModifyLunaClientResponse
 modifyLunaClientResponse pResponseStatus_ =
   ModifyLunaClientResponse'
-  {_mlcrsClientARN = Nothing, _mlcrsResponseStatus = pResponseStatus_}
+    {_mlcrsClientARN = Nothing, _mlcrsResponseStatus = pResponseStatus_}
 
 
 -- | The ARN of the client.
 mlcrsClientARN :: Lens' ModifyLunaClientResponse (Maybe Text)
-mlcrsClientARN = lens _mlcrsClientARN (\ s a -> s{_mlcrsClientARN = a});
+mlcrsClientARN = lens _mlcrsClientARN (\ s a -> s{_mlcrsClientARN = a})
 
 -- | -- | The response status code.
 mlcrsResponseStatus :: Lens' ModifyLunaClientResponse Int
-mlcrsResponseStatus = lens _mlcrsResponseStatus (\ s a -> s{_mlcrsResponseStatus = a});
+mlcrsResponseStatus = lens _mlcrsResponseStatus (\ s a -> s{_mlcrsResponseStatus = a})
 
 instance NFData ModifyLunaClientResponse where

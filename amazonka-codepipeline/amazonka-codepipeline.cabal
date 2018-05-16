@@ -1,5 +1,5 @@
 name:                  amazonka-codepipeline
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon CodePipeline SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -51,6 +51,8 @@ library
         , Network.AWS.CodePipeline.CreatePipeline
         , Network.AWS.CodePipeline.DeleteCustomActionType
         , Network.AWS.CodePipeline.DeletePipeline
+        , Network.AWS.CodePipeline.DeleteWebhook
+        , Network.AWS.CodePipeline.DeregisterWebhookWithThirdParty
         , Network.AWS.CodePipeline.DisableStageTransition
         , Network.AWS.CodePipeline.EnableStageTransition
         , Network.AWS.CodePipeline.GetJobDetails
@@ -61,6 +63,7 @@ library
         , Network.AWS.CodePipeline.ListActionTypes
         , Network.AWS.CodePipeline.ListPipelineExecutions
         , Network.AWS.CodePipeline.ListPipelines
+        , Network.AWS.CodePipeline.ListWebhooks
         , Network.AWS.CodePipeline.PollForJobs
         , Network.AWS.CodePipeline.PollForThirdPartyJobs
         , Network.AWS.CodePipeline.PutActionRevision
@@ -69,6 +72,8 @@ library
         , Network.AWS.CodePipeline.PutJobSuccessResult
         , Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
         , Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
+        , Network.AWS.CodePipeline.PutWebhook
+        , Network.AWS.CodePipeline.RegisterWebhookWithThirdParty
         , Network.AWS.CodePipeline.RetryStageExecution
         , Network.AWS.CodePipeline.StartPipelineExecution
         , Network.AWS.CodePipeline.Types
@@ -80,7 +85,7 @@ library
         , Network.AWS.CodePipeline.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-codepipeline-test
@@ -100,8 +105,8 @@ test-suite amazonka-codepipeline-test
         , Test.AWS.CodePipeline.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-codepipeline
         , base
         , bytestring

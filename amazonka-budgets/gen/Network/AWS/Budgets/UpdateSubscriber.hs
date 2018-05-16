@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.UpdateSubscriber
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update a subscriber
+-- Updates a subscriber.
+--
+--
 module Network.AWS.Budgets.UpdateSubscriber
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import Network.AWS.Response
 
 -- | Request of UpdateSubscriber
 --
+--
+--
 -- /See:/ 'updateSubscriber' smart constructor.
 data UpdateSubscriber = UpdateSubscriber'
   { _usAccountId     :: !Text
@@ -61,15 +65,15 @@ data UpdateSubscriber = UpdateSubscriber'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usAccountId' - Undocumented member.
+-- * 'usAccountId' - The @accountId@ that is associated with the budget whose subscriber you want to update.
 --
--- * 'usBudgetName' - Undocumented member.
+-- * 'usBudgetName' - The name of the budget whose subscriber you want to update.
 --
--- * 'usNotification' - Undocumented member.
+-- * 'usNotification' - The notification whose subscriber you want to update.
 --
--- * 'usOldSubscriber' - Undocumented member.
+-- * 'usOldSubscriber' - The previous subscriber associated with a budget notification.
 --
--- * 'usNewSubscriber' - Undocumented member.
+-- * 'usNewSubscriber' - The updated subscriber associated with a budget notification.
 updateSubscriber
     :: Text -- ^ 'usAccountId'
     -> Text -- ^ 'usBudgetName'
@@ -79,33 +83,33 @@ updateSubscriber
     -> UpdateSubscriber
 updateSubscriber pAccountId_ pBudgetName_ pNotification_ pOldSubscriber_ pNewSubscriber_ =
   UpdateSubscriber'
-  { _usAccountId = pAccountId_
-  , _usBudgetName = pBudgetName_
-  , _usNotification = pNotification_
-  , _usOldSubscriber = pOldSubscriber_
-  , _usNewSubscriber = pNewSubscriber_
-  }
+    { _usAccountId = pAccountId_
+    , _usBudgetName = pBudgetName_
+    , _usNotification = pNotification_
+    , _usOldSubscriber = pOldSubscriber_
+    , _usNewSubscriber = pNewSubscriber_
+    }
 
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budget whose subscriber you want to update.
 usAccountId :: Lens' UpdateSubscriber Text
-usAccountId = lens _usAccountId (\ s a -> s{_usAccountId = a});
+usAccountId = lens _usAccountId (\ s a -> s{_usAccountId = a})
 
--- | Undocumented member.
+-- | The name of the budget whose subscriber you want to update.
 usBudgetName :: Lens' UpdateSubscriber Text
-usBudgetName = lens _usBudgetName (\ s a -> s{_usBudgetName = a});
+usBudgetName = lens _usBudgetName (\ s a -> s{_usBudgetName = a})
 
--- | Undocumented member.
+-- | The notification whose subscriber you want to update.
 usNotification :: Lens' UpdateSubscriber Notification
-usNotification = lens _usNotification (\ s a -> s{_usNotification = a});
+usNotification = lens _usNotification (\ s a -> s{_usNotification = a})
 
--- | Undocumented member.
+-- | The previous subscriber associated with a budget notification.
 usOldSubscriber :: Lens' UpdateSubscriber Subscriber
-usOldSubscriber = lens _usOldSubscriber (\ s a -> s{_usOldSubscriber = a});
+usOldSubscriber = lens _usOldSubscriber (\ s a -> s{_usOldSubscriber = a})
 
--- | Undocumented member.
+-- | The updated subscriber associated with a budget notification.
 usNewSubscriber :: Lens' UpdateSubscriber Subscriber
-usNewSubscriber = lens _usNewSubscriber (\ s a -> s{_usNewSubscriber = a});
+usNewSubscriber = lens _usNewSubscriber (\ s a -> s{_usNewSubscriber = a})
 
 instance AWSRequest UpdateSubscriber where
         type Rs UpdateSubscriber = UpdateSubscriberResponse
@@ -147,6 +151,8 @@ instance ToQuery UpdateSubscriber where
 
 -- | Response of UpdateSubscriber
 --
+--
+--
 -- /See:/ 'updateSubscriberResponse' smart constructor.
 newtype UpdateSubscriberResponse = UpdateSubscriberResponse'
   { _usrsResponseStatus :: Int
@@ -167,6 +173,6 @@ updateSubscriberResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 usrsResponseStatus :: Lens' UpdateSubscriberResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
+usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a})
 
 instance NFData UpdateSubscriberResponse where

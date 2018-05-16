@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListAssociations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ listAssociations
     :: ListAssociations
 listAssociations =
   ListAssociations'
-  { _laAssociationFilterList = Nothing
-  , _laNextToken = Nothing
-  , _laMaxResults = Nothing
-  }
+    { _laAssociationFilterList = Nothing
+    , _laNextToken = Nothing
+    , _laMaxResults = Nothing
+    }
 
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 laAssociationFilterList :: Lens' ListAssociations (Maybe (NonEmpty AssociationFilter))
-laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . mapping _List1;
+laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . mapping _List1
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 laNextToken :: Lens' ListAssociations (Maybe Text)
-laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
+laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 laMaxResults :: Lens' ListAssociations (Maybe Natural)
-laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat;
+laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat
 
 instance AWSPager ListAssociations where
         page rq rs
@@ -157,22 +157,22 @@ listAssociationsResponse
     -> ListAssociationsResponse
 listAssociationsResponse pResponseStatus_ =
   ListAssociationsResponse'
-  { _larsNextToken = Nothing
-  , _larsAssociations = Nothing
-  , _larsResponseStatus = pResponseStatus_
-  }
+    { _larsNextToken = Nothing
+    , _larsAssociations = Nothing
+    , _larsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 larsNextToken :: Lens' ListAssociationsResponse (Maybe Text)
-larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
+larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a})
 
 -- | The associations.
 larsAssociations :: Lens' ListAssociationsResponse [Association]
-larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . _Default . _Coerce;
+larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 larsResponseStatus :: Lens' ListAssociationsResponse Int
-larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a})
 
 instance NFData ListAssociationsResponse where

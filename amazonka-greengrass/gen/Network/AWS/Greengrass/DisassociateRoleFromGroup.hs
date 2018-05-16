@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DisassociateRoleFromGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,7 +52,7 @@ newtype DisassociateRoleFromGroup = DisassociateRoleFromGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drfgGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'drfgGroupId' - The ID of the AWS Greengrass group.
 disassociateRoleFromGroup
     :: Text -- ^ 'drfgGroupId'
     -> DisassociateRoleFromGroup
@@ -60,9 +60,9 @@ disassociateRoleFromGroup pGroupId_ =
   DisassociateRoleFromGroup' {_drfgGroupId = pGroupId_}
 
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 drfgGroupId :: Lens' DisassociateRoleFromGroup Text
-drfgGroupId = lens _drfgGroupId (\ s a -> s{_drfgGroupId = a});
+drfgGroupId = lens _drfgGroupId (\ s a -> s{_drfgGroupId = a})
 
 instance AWSRequest DisassociateRoleFromGroup where
         type Rs DisassociateRoleFromGroup =
@@ -104,7 +104,7 @@ data DisassociateRoleFromGroupResponse = DisassociateRoleFromGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drfgrsDisassociatedAt' - Time when the role was disassociated from the group.
+-- * 'drfgrsDisassociatedAt' - The time, in milliseconds since the epoch, when the role was disassociated from the group.
 --
 -- * 'drfgrsResponseStatus' - -- | The response status code.
 disassociateRoleFromGroupResponse
@@ -112,16 +112,16 @@ disassociateRoleFromGroupResponse
     -> DisassociateRoleFromGroupResponse
 disassociateRoleFromGroupResponse pResponseStatus_ =
   DisassociateRoleFromGroupResponse'
-  {_drfgrsDisassociatedAt = Nothing, _drfgrsResponseStatus = pResponseStatus_}
+    {_drfgrsDisassociatedAt = Nothing, _drfgrsResponseStatus = pResponseStatus_}
 
 
--- | Time when the role was disassociated from the group.
+-- | The time, in milliseconds since the epoch, when the role was disassociated from the group.
 drfgrsDisassociatedAt :: Lens' DisassociateRoleFromGroupResponse (Maybe Text)
-drfgrsDisassociatedAt = lens _drfgrsDisassociatedAt (\ s a -> s{_drfgrsDisassociatedAt = a});
+drfgrsDisassociatedAt = lens _drfgrsDisassociatedAt (\ s a -> s{_drfgrsDisassociatedAt = a})
 
 -- | -- | The response status code.
 drfgrsResponseStatus :: Lens' DisassociateRoleFromGroupResponse Int
-drfgrsResponseStatus = lens _drfgrsResponseStatus (\ s a -> s{_drfgrsResponseStatus = a});
+drfgrsResponseStatus = lens _drfgrsResponseStatus (\ s a -> s{_drfgrsResponseStatus = a})
 
 instance NFData DisassociateRoleFromGroupResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteObject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,33 +77,33 @@ deleteObject
     -> DeleteObject
 deleteObject pBucket_ pKey_ =
   DeleteObject'
-  { _doVersionId = Nothing
-  , _doMFA = Nothing
-  , _doRequestPayer = Nothing
-  , _doBucket = pBucket_
-  , _doKey = pKey_
-  }
+    { _doVersionId = Nothing
+    , _doMFA = Nothing
+    , _doRequestPayer = Nothing
+    , _doBucket = pBucket_
+    , _doKey = pKey_
+    }
 
 
 -- | VersionId used to reference a specific version of the object.
 doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
-doVersionId = lens _doVersionId (\ s a -> s{_doVersionId = a});
+doVersionId = lens _doVersionId (\ s a -> s{_doVersionId = a})
 
 -- | The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 doMFA :: Lens' DeleteObject (Maybe Text)
-doMFA = lens _doMFA (\ s a -> s{_doMFA = a});
+doMFA = lens _doMFA (\ s a -> s{_doMFA = a})
 
 -- | Undocumented member.
 doRequestPayer :: Lens' DeleteObject (Maybe RequestPayer)
-doRequestPayer = lens _doRequestPayer (\ s a -> s{_doRequestPayer = a});
+doRequestPayer = lens _doRequestPayer (\ s a -> s{_doRequestPayer = a})
 
 -- | Undocumented member.
 doBucket :: Lens' DeleteObject BucketName
-doBucket = lens _doBucket (\ s a -> s{_doBucket = a});
+doBucket = lens _doBucket (\ s a -> s{_doBucket = a})
 
 -- | Undocumented member.
 doKey :: Lens' DeleteObject ObjectKey
-doKey = lens _doKey (\ s a -> s{_doKey = a});
+doKey = lens _doKey (\ s a -> s{_doKey = a})
 
 instance AWSRequest DeleteObject where
         type Rs DeleteObject = DeleteObjectResponse
@@ -160,27 +160,27 @@ deleteObjectResponse
     -> DeleteObjectResponse
 deleteObjectResponse pResponseStatus_ =
   DeleteObjectResponse'
-  { _dorsRequestCharged = Nothing
-  , _dorsVersionId = Nothing
-  , _dorsDeleteMarker = Nothing
-  , _dorsResponseStatus = pResponseStatus_
-  }
+    { _dorsRequestCharged = Nothing
+    , _dorsVersionId = Nothing
+    , _dorsDeleteMarker = Nothing
+    , _dorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dorsRequestCharged :: Lens' DeleteObjectResponse (Maybe RequestCharged)
-dorsRequestCharged = lens _dorsRequestCharged (\ s a -> s{_dorsRequestCharged = a});
+dorsRequestCharged = lens _dorsRequestCharged (\ s a -> s{_dorsRequestCharged = a})
 
 -- | Returns the version ID of the delete marker created as a result of the DELETE operation.
 dorsVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
-dorsVersionId = lens _dorsVersionId (\ s a -> s{_dorsVersionId = a});
+dorsVersionId = lens _dorsVersionId (\ s a -> s{_dorsVersionId = a})
 
 -- | Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.
 dorsDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
-dorsDeleteMarker = lens _dorsDeleteMarker (\ s a -> s{_dorsDeleteMarker = a});
+dorsDeleteMarker = lens _dorsDeleteMarker (\ s a -> s{_dorsDeleteMarker = a})
 
 -- | -- | The response status code.
 dorsResponseStatus :: Lens' DeleteObjectResponse Int
-dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a});
+dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a})
 
 instance NFData DeleteObjectResponse where

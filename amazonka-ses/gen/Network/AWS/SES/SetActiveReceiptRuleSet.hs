@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetActiveReceiptRuleSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ setActiveReceiptRuleSet = SetActiveReceiptRuleSet' {_sarrsRuleSetName = Nothing}
 
 -- | The name of the receipt rule set to make active. Setting this value to null disables all email receiving.
 sarrsRuleSetName :: Lens' SetActiveReceiptRuleSet (Maybe Text)
-sarrsRuleSetName = lens _sarrsRuleSetName (\ s a -> s{_sarrsRuleSetName = a});
+sarrsRuleSetName = lens _sarrsRuleSetName (\ s a -> s{_sarrsRuleSetName = a})
 
 instance AWSRequest SetActiveReceiptRuleSet where
         type Rs SetActiveReceiptRuleSet =
@@ -123,6 +123,6 @@ setActiveReceiptRuleSetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 sarrsrsResponseStatus :: Lens' SetActiveReceiptRuleSetResponse Int
-sarrsrsResponseStatus = lens _sarrsrsResponseStatus (\ s a -> s{_sarrsrsResponseStatus = a});
+sarrsrsResponseStatus = lens _sarrsrsResponseStatus (\ s a -> s{_sarrsrsResponseStatus = a})
 
 instance NFData SetActiveReceiptRuleSetResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetRestAPIs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ data GetRestAPIs = GetRestAPIs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'graLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- * 'graLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'graPosition' - The current pagination position in the paged result set.
 getRestAPIs
@@ -72,13 +72,13 @@ getRestAPIs
 getRestAPIs = GetRestAPIs' {_graLimit = Nothing, _graPosition = Nothing}
 
 
--- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 graLimit :: Lens' GetRestAPIs (Maybe Int)
-graLimit = lens _graLimit (\ s a -> s{_graLimit = a});
+graLimit = lens _graLimit (\ s a -> s{_graLimit = a})
 
 -- | The current pagination position in the paged result set.
 graPosition :: Lens' GetRestAPIs (Maybe Text)
-graPosition = lens _graPosition (\ s a -> s{_graPosition = a});
+graPosition = lens _graPosition (\ s a -> s{_graPosition = a})
 
 instance AWSPager GetRestAPIs where
         page rq rs
@@ -142,22 +142,22 @@ getRestAPIsResponse
     -> GetRestAPIsResponse
 getRestAPIsResponse pResponseStatus_ =
   GetRestAPIsResponse'
-  { _grarsItems = Nothing
-  , _grarsPosition = Nothing
-  , _grarsResponseStatus = pResponseStatus_
-  }
+    { _grarsItems = Nothing
+    , _grarsPosition = Nothing
+    , _grarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 grarsItems :: Lens' GetRestAPIsResponse [RestAPI]
-grarsItems = lens _grarsItems (\ s a -> s{_grarsItems = a}) . _Default . _Coerce;
+grarsItems = lens _grarsItems (\ s a -> s{_grarsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 grarsPosition :: Lens' GetRestAPIsResponse (Maybe Text)
-grarsPosition = lens _grarsPosition (\ s a -> s{_grarsPosition = a});
+grarsPosition = lens _grarsPosition (\ s a -> s{_grarsPosition = a})
 
 -- | -- | The response status code.
 grarsResponseStatus :: Lens' GetRestAPIsResponse Int
-grarsResponseStatus = lens _grarsResponseStatus (\ s a -> s{_grarsResponseStatus = a});
+grarsResponseStatus = lens _grarsResponseStatus (\ s a -> s{_grarsResponseStatus = a})
 
 instance NFData GetRestAPIsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeStaleSecurityGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ describeStaleSecurityGroups
     -> DescribeStaleSecurityGroups
 describeStaleSecurityGroups pVPCId_ =
   DescribeStaleSecurityGroups'
-  { _dssgNextToken = Nothing
-  , _dssgDryRun = Nothing
-  , _dssgMaxResults = Nothing
-  , _dssgVPCId = pVPCId_
-  }
+    { _dssgNextToken = Nothing
+    , _dssgDryRun = Nothing
+    , _dssgMaxResults = Nothing
+    , _dssgVPCId = pVPCId_
+    }
 
 
 -- | The token for the next set of items to return. (You received this token from a prior call.)
 dssgNextToken :: Lens' DescribeStaleSecurityGroups (Maybe Text)
-dssgNextToken = lens _dssgNextToken (\ s a -> s{_dssgNextToken = a});
+dssgNextToken = lens _dssgNextToken (\ s a -> s{_dssgNextToken = a})
 
 -- | Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 dssgDryRun :: Lens' DescribeStaleSecurityGroups (Maybe Bool)
-dssgDryRun = lens _dssgDryRun (\ s a -> s{_dssgDryRun = a});
+dssgDryRun = lens _dssgDryRun (\ s a -> s{_dssgDryRun = a})
 
 -- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
 dssgMaxResults :: Lens' DescribeStaleSecurityGroups (Maybe Natural)
-dssgMaxResults = lens _dssgMaxResults (\ s a -> s{_dssgMaxResults = a}) . mapping _Nat;
+dssgMaxResults = lens _dssgMaxResults (\ s a -> s{_dssgMaxResults = a}) . mapping _Nat
 
 -- | The ID of the VPC.
 dssgVPCId :: Lens' DescribeStaleSecurityGroups Text
-dssgVPCId = lens _dssgVPCId (\ s a -> s{_dssgVPCId = a});
+dssgVPCId = lens _dssgVPCId (\ s a -> s{_dssgVPCId = a})
 
 instance AWSRequest DescribeStaleSecurityGroups where
         type Rs DescribeStaleSecurityGroups =
@@ -152,23 +152,23 @@ describeStaleSecurityGroupsResponse
     -> DescribeStaleSecurityGroupsResponse
 describeStaleSecurityGroupsResponse pResponseStatus_ =
   DescribeStaleSecurityGroupsResponse'
-  { _dssgrsStaleSecurityGroupSet = Nothing
-  , _dssgrsNextToken = Nothing
-  , _dssgrsResponseStatus = pResponseStatus_
-  }
+    { _dssgrsStaleSecurityGroupSet = Nothing
+    , _dssgrsNextToken = Nothing
+    , _dssgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the stale security groups.
 dssgrsStaleSecurityGroupSet :: Lens' DescribeStaleSecurityGroupsResponse [StaleSecurityGroup]
-dssgrsStaleSecurityGroupSet = lens _dssgrsStaleSecurityGroupSet (\ s a -> s{_dssgrsStaleSecurityGroupSet = a}) . _Default . _Coerce;
+dssgrsStaleSecurityGroupSet = lens _dssgrsStaleSecurityGroupSet (\ s a -> s{_dssgrsStaleSecurityGroupSet = a}) . _Default . _Coerce
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dssgrsNextToken :: Lens' DescribeStaleSecurityGroupsResponse (Maybe Text)
-dssgrsNextToken = lens _dssgrsNextToken (\ s a -> s{_dssgrsNextToken = a});
+dssgrsNextToken = lens _dssgrsNextToken (\ s a -> s{_dssgrsNextToken = a})
 
 -- | -- | The response status code.
 dssgrsResponseStatus :: Lens' DescribeStaleSecurityGroupsResponse Int
-dssgrsResponseStatus = lens _dssgrsResponseStatus (\ s a -> s{_dssgrsResponseStatus = a});
+dssgrsResponseStatus = lens _dssgrsResponseStatus (\ s a -> s{_dssgrsResponseStatus = a})
 
 instance NFData DescribeStaleSecurityGroupsResponse
          where

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.RDS
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -100,6 +100,9 @@ import Test.Tasty
 --         , requestDescribeDBSnapshotAttributes $
 --             describeDBSnapshotAttributes
 --
+--         , requestBacktrackDBCluster $
+--             backtrackDBCluster
+--
 --         , requestPromoteReadReplicaDBCluster $
 --             promoteReadReplicaDBCluster
 --
@@ -144,6 +147,9 @@ import Test.Tasty
 --
 --         , requestDeleteEventSubscription $
 --             deleteEventSubscription
+--
+--         , requestDescribeDBClusterBacktracks $
+--             describeDBClusterBacktracks
 --
 --         , requestDescribeDBParameterGroups $
 --             describeDBParameterGroups
@@ -295,6 +301,9 @@ import Test.Tasty
 --         , requestDescribeDBInstances $
 --             describeDBInstances
 --
+--         , requestRestoreDBInstanceFromS3 $
+--             restoreDBInstanceFromS3
+--
 --         , requestDownloadDBLogFilePortion $
 --             downloadDBLogFilePortion
 --
@@ -373,6 +382,9 @@ import Test.Tasty
 --         , responseDescribeDBSnapshotAttributes $
 --             describeDBSnapshotAttributesResponse
 --
+--         , responseBacktrackDBCluster $
+--             dbClusterBacktrack
+--
 --         , responsePromoteReadReplicaDBCluster $
 --             promoteReadReplicaDBClusterResponse
 --
@@ -417,6 +429,9 @@ import Test.Tasty
 --
 --         , responseDeleteEventSubscription $
 --             deleteEventSubscriptionResponse
+--
+--         , responseDescribeDBClusterBacktracks $
+--             describeDBClusterBacktracksResponse
 --
 --         , responseDescribeDBParameterGroups $
 --             describeDBParameterGroupsResponse
@@ -568,6 +583,9 @@ import Test.Tasty
 --         , responseDescribeDBInstances $
 --             describeDBInstancesResponse
 --
+--         , responseRestoreDBInstanceFromS3 $
+--             restoreDBInstanceFromS3Response
+--
 --         , responseDownloadDBLogFilePortion $
 --             downloadDBLogFilePortionResponse
 --
@@ -696,6 +714,11 @@ requestDescribeDBSnapshotAttributes = req
     "DescribeDBSnapshotAttributes"
     "fixture/DescribeDBSnapshotAttributes.yaml"
 
+requestBacktrackDBCluster :: BacktrackDBCluster -> TestTree
+requestBacktrackDBCluster = req
+    "BacktrackDBCluster"
+    "fixture/BacktrackDBCluster.yaml"
+
 requestPromoteReadReplicaDBCluster :: PromoteReadReplicaDBCluster -> TestTree
 requestPromoteReadReplicaDBCluster = req
     "PromoteReadReplicaDBCluster"
@@ -770,6 +793,11 @@ requestDeleteEventSubscription :: DeleteEventSubscription -> TestTree
 requestDeleteEventSubscription = req
     "DeleteEventSubscription"
     "fixture/DeleteEventSubscription.yaml"
+
+requestDescribeDBClusterBacktracks :: DescribeDBClusterBacktracks -> TestTree
+requestDescribeDBClusterBacktracks = req
+    "DescribeDBClusterBacktracks"
+    "fixture/DescribeDBClusterBacktracks.yaml"
 
 requestDescribeDBParameterGroups :: DescribeDBParameterGroups -> TestTree
 requestDescribeDBParameterGroups = req
@@ -1021,6 +1049,11 @@ requestDescribeDBInstances = req
     "DescribeDBInstances"
     "fixture/DescribeDBInstances.yaml"
 
+requestRestoreDBInstanceFromS3 :: RestoreDBInstanceFromS3 -> TestTree
+requestRestoreDBInstanceFromS3 = req
+    "RestoreDBInstanceFromS3"
+    "fixture/RestoreDBInstanceFromS3.yaml"
+
 requestDownloadDBLogFilePortion :: DownloadDBLogFilePortion -> TestTree
 requestDownloadDBLogFilePortion = req
     "DownloadDBLogFilePortion"
@@ -1196,6 +1229,13 @@ responseDescribeDBSnapshotAttributes = res
     rds
     (Proxy :: Proxy DescribeDBSnapshotAttributes)
 
+responseBacktrackDBCluster :: DBClusterBacktrack -> TestTree
+responseBacktrackDBCluster = res
+    "BacktrackDBClusterResponse"
+    "fixture/BacktrackDBClusterResponse.proto"
+    rds
+    (Proxy :: Proxy BacktrackDBCluster)
+
 responsePromoteReadReplicaDBCluster :: PromoteReadReplicaDBClusterResponse -> TestTree
 responsePromoteReadReplicaDBCluster = res
     "PromoteReadReplicaDBClusterResponse"
@@ -1300,6 +1340,13 @@ responseDeleteEventSubscription = res
     "fixture/DeleteEventSubscriptionResponse.proto"
     rds
     (Proxy :: Proxy DeleteEventSubscription)
+
+responseDescribeDBClusterBacktracks :: DescribeDBClusterBacktracksResponse -> TestTree
+responseDescribeDBClusterBacktracks = res
+    "DescribeDBClusterBacktracksResponse"
+    "fixture/DescribeDBClusterBacktracksResponse.proto"
+    rds
+    (Proxy :: Proxy DescribeDBClusterBacktracks)
 
 responseDescribeDBParameterGroups :: DescribeDBParameterGroupsResponse -> TestTree
 responseDescribeDBParameterGroups = res
@@ -1650,6 +1697,13 @@ responseDescribeDBInstances = res
     "fixture/DescribeDBInstancesResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBInstances)
+
+responseRestoreDBInstanceFromS3 :: RestoreDBInstanceFromS3Response -> TestTree
+responseRestoreDBInstanceFromS3 = res
+    "RestoreDBInstanceFromS3Response"
+    "fixture/RestoreDBInstanceFromS3Response.proto"
+    rds
+    (Proxy :: Proxy RestoreDBInstanceFromS3)
 
 responseDownloadDBLogFilePortion :: DownloadDBLogFilePortionResponse -> TestTree
 responseDownloadDBLogFilePortion = res

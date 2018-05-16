@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.UpdateByteMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -96,23 +96,23 @@ updateByteMatchSet
     -> UpdateByteMatchSet
 updateByteMatchSet pByteMatchSetId_ pChangeToken_ pUpdates_ =
   UpdateByteMatchSet'
-  { _ubmsByteMatchSetId = pByteMatchSetId_
-  , _ubmsChangeToken = pChangeToken_
-  , _ubmsUpdates = _List1 # pUpdates_
-  }
+    { _ubmsByteMatchSetId = pByteMatchSetId_
+    , _ubmsChangeToken = pChangeToken_
+    , _ubmsUpdates = _List1 # pUpdates_
+    }
 
 
 -- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to update. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
 ubmsByteMatchSetId :: Lens' UpdateByteMatchSet Text
-ubmsByteMatchSetId = lens _ubmsByteMatchSetId (\ s a -> s{_ubmsByteMatchSetId = a});
+ubmsByteMatchSetId = lens _ubmsByteMatchSetId (\ s a -> s{_ubmsByteMatchSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 ubmsChangeToken :: Lens' UpdateByteMatchSet Text
-ubmsChangeToken = lens _ubmsChangeToken (\ s a -> s{_ubmsChangeToken = a});
+ubmsChangeToken = lens _ubmsChangeToken (\ s a -> s{_ubmsChangeToken = a})
 
 -- | An array of @ByteMatchSetUpdate@ objects that you want to insert into or delete from a 'ByteMatchSet' . For more information, see the applicable data types:     * 'ByteMatchSetUpdate' : Contains @Action@ and @ByteMatchTuple@      * 'ByteMatchTuple' : Contains @FieldToMatch@ , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 ubmsUpdates :: Lens' UpdateByteMatchSet (NonEmpty ByteMatchSetUpdate)
-ubmsUpdates = lens _ubmsUpdates (\ s a -> s{_ubmsUpdates = a}) . _List1;
+ubmsUpdates = lens _ubmsUpdates (\ s a -> s{_ubmsUpdates = a}) . _List1
 
 instance AWSRequest UpdateByteMatchSet where
         type Rs UpdateByteMatchSet =
@@ -171,15 +171,15 @@ updateByteMatchSetResponse
     -> UpdateByteMatchSetResponse
 updateByteMatchSetResponse pResponseStatus_ =
   UpdateByteMatchSetResponse'
-  {_ubmsrsChangeToken = Nothing, _ubmsrsResponseStatus = pResponseStatus_}
+    {_ubmsrsChangeToken = Nothing, _ubmsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @UpdateByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 ubmsrsChangeToken :: Lens' UpdateByteMatchSetResponse (Maybe Text)
-ubmsrsChangeToken = lens _ubmsrsChangeToken (\ s a -> s{_ubmsrsChangeToken = a});
+ubmsrsChangeToken = lens _ubmsrsChangeToken (\ s a -> s{_ubmsrsChangeToken = a})
 
 -- | -- | The response status code.
 ubmsrsResponseStatus :: Lens' UpdateByteMatchSetResponse Int
-ubmsrsResponseStatus = lens _ubmsrsResponseStatus (\ s a -> s{_ubmsrsResponseStatus = a});
+ubmsrsResponseStatus = lens _ubmsrsResponseStatus (\ s a -> s{_ubmsrsResponseStatus = a})
 
 instance NFData UpdateByteMatchSetResponse where

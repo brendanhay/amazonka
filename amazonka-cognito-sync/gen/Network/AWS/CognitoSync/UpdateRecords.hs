@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.UpdateRecords
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -95,43 +95,43 @@ updateRecords
     -> UpdateRecords
 updateRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ pSyncSessionToken_ =
   UpdateRecords'
-  { _urRecordPatches = Nothing
-  , _urDeviceId = Nothing
-  , _urClientContext = Nothing
-  , _urIdentityPoolId = pIdentityPoolId_
-  , _urIdentityId = pIdentityId_
-  , _urDatasetName = pDatasetName_
-  , _urSyncSessionToken = pSyncSessionToken_
-  }
+    { _urRecordPatches = Nothing
+    , _urDeviceId = Nothing
+    , _urClientContext = Nothing
+    , _urIdentityPoolId = pIdentityPoolId_
+    , _urIdentityId = pIdentityId_
+    , _urDatasetName = pDatasetName_
+    , _urSyncSessionToken = pSyncSessionToken_
+    }
 
 
 -- | A list of patch operations.
 urRecordPatches :: Lens' UpdateRecords [RecordPatch]
-urRecordPatches = lens _urRecordPatches (\ s a -> s{_urRecordPatches = a}) . _Default . _Coerce;
+urRecordPatches = lens _urRecordPatches (\ s a -> s{_urRecordPatches = a}) . _Default . _Coerce
 
 -- | The unique ID generated for this device by Cognito.
 urDeviceId :: Lens' UpdateRecords (Maybe Text)
-urDeviceId = lens _urDeviceId (\ s a -> s{_urDeviceId = a});
+urDeviceId = lens _urDeviceId (\ s a -> s{_urDeviceId = a})
 
 -- | Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.
 urClientContext :: Lens' UpdateRecords (Maybe Text)
-urClientContext = lens _urClientContext (\ s a -> s{_urClientContext = a});
+urClientContext = lens _urClientContext (\ s a -> s{_urClientContext = a})
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 urIdentityPoolId :: Lens' UpdateRecords Text
-urIdentityPoolId = lens _urIdentityPoolId (\ s a -> s{_urIdentityPoolId = a});
+urIdentityPoolId = lens _urIdentityPoolId (\ s a -> s{_urIdentityPoolId = a})
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 urIdentityId :: Lens' UpdateRecords Text
-urIdentityId = lens _urIdentityId (\ s a -> s{_urIdentityId = a});
+urIdentityId = lens _urIdentityId (\ s a -> s{_urIdentityId = a})
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 urDatasetName :: Lens' UpdateRecords Text
-urDatasetName = lens _urDatasetName (\ s a -> s{_urDatasetName = a});
+urDatasetName = lens _urDatasetName (\ s a -> s{_urDatasetName = a})
 
 -- | The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.
 urSyncSessionToken :: Lens' UpdateRecords Text
-urSyncSessionToken = lens _urSyncSessionToken (\ s a -> s{_urSyncSessionToken = a});
+urSyncSessionToken = lens _urSyncSessionToken (\ s a -> s{_urSyncSessionToken = a})
 
 instance AWSRequest UpdateRecords where
         type Rs UpdateRecords = UpdateRecordsResponse
@@ -192,15 +192,15 @@ updateRecordsResponse
     -> UpdateRecordsResponse
 updateRecordsResponse pResponseStatus_ =
   UpdateRecordsResponse'
-  {_urrsRecords = Nothing, _urrsResponseStatus = pResponseStatus_}
+    {_urrsRecords = Nothing, _urrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of records that have been updated.
 urrsRecords :: Lens' UpdateRecordsResponse [Record]
-urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default . _Coerce;
+urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 urrsResponseStatus :: Lens' UpdateRecordsResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
 
 instance NFData UpdateRecordsResponse where

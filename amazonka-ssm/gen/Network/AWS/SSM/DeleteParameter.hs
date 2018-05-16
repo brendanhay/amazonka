@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteParameter
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteParameter pName_ = DeleteParameter' {_delName = pName_}
 
 -- | The name of the parameter to delete.
 delName :: Lens' DeleteParameter Text
-delName = lens _delName (\ s a -> s{_delName = a});
+delName = lens _delName (\ s a -> s{_delName = a})
 
 instance AWSRequest DeleteParameter where
         type Rs DeleteParameter = DeleteParameterResponse
@@ -115,6 +115,6 @@ deleteParameterResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dpprsResponseStatus :: Lens' DeleteParameterResponse Int
-dpprsResponseStatus = lens _dpprsResponseStatus (\ s a -> s{_dpprsResponseStatus = a});
+dpprsResponseStatus = lens _dpprsResponseStatus (\ s a -> s{_dpprsResponseStatus = a})
 
 instance NFData DeleteParameterResponse where

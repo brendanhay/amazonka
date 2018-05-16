@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.XRay
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,25 +34,37 @@ module Network.AWS.XRay
     -- * Operations
     -- $operations
 
-    -- ** GetServiceGraph
+    -- ** PutEncryptionConfig
+    , module Network.AWS.XRay.PutEncryptionConfig
+
+    -- ** GetServiceGraph (Paginated)
     , module Network.AWS.XRay.GetServiceGraph
 
-    -- ** GetTraceSummaries
+    -- ** GetTraceSummaries (Paginated)
     , module Network.AWS.XRay.GetTraceSummaries
 
     -- ** PutTraceSegments
     , module Network.AWS.XRay.PutTraceSegments
 
-    -- ** BatchGetTraces
+    -- ** BatchGetTraces (Paginated)
     , module Network.AWS.XRay.BatchGetTraces
+
+    -- ** GetEncryptionConfig
+    , module Network.AWS.XRay.GetEncryptionConfig
 
     -- ** PutTelemetryRecords
     , module Network.AWS.XRay.PutTelemetryRecords
 
-    -- ** GetTraceGraph
+    -- ** GetTraceGraph (Paginated)
     , module Network.AWS.XRay.GetTraceGraph
 
     -- * Types
+
+    -- ** EncryptionStatus
+    , EncryptionStatus (..)
+
+    -- ** EncryptionType
+    , EncryptionType (..)
 
     -- ** Alias
     , Alias
@@ -96,6 +108,13 @@ module Network.AWS.XRay
     , esTotalResponseTime
     , esErrorStatistics
     , esTotalCount
+
+    -- ** EncryptionConfig
+    , EncryptionConfig
+    , encryptionConfig
+    , ecStatus
+    , ecKeyId
+    , ecType
 
     -- ** ErrorStatistics
     , ErrorStatistics
@@ -172,8 +191,8 @@ module Network.AWS.XRay
     , trSegmentsSentCount
     , trSegmentsSpilloverCount
     , trSegmentsRejectedCount
-    , trTimestamp
     , trBackendConnectionErrors
+    , trTimestamp
 
     -- ** Trace
     , Trace
@@ -218,9 +237,11 @@ module Network.AWS.XRay
     ) where
 
 import Network.AWS.XRay.BatchGetTraces
+import Network.AWS.XRay.GetEncryptionConfig
 import Network.AWS.XRay.GetServiceGraph
 import Network.AWS.XRay.GetTraceGraph
 import Network.AWS.XRay.GetTraceSummaries
+import Network.AWS.XRay.PutEncryptionConfig
 import Network.AWS.XRay.PutTelemetryRecords
 import Network.AWS.XRay.PutTraceSegments
 import Network.AWS.XRay.Types

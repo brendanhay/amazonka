@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,11 +76,11 @@ createAlias pDirectoryId_ pAlias_ =
 
 -- | The identifier of the directory for which to create the alias.
 caDirectoryId :: Lens' CreateAlias Text
-caDirectoryId = lens _caDirectoryId (\ s a -> s{_caDirectoryId = a});
+caDirectoryId = lens _caDirectoryId (\ s a -> s{_caDirectoryId = a})
 
 -- | The requested alias. The alias must be unique amongst all aliases in AWS. This operation throws an @EntityAlreadyExistsException@ error if the alias already exists.
 caAlias :: Lens' CreateAlias Text
-caAlias = lens _caAlias (\ s a -> s{_caAlias = a});
+caAlias = lens _caAlias (\ s a -> s{_caAlias = a})
 
 instance AWSRequest CreateAlias where
         type Rs CreateAlias = CreateAliasResponse
@@ -145,22 +145,22 @@ createAliasResponse
     -> CreateAliasResponse
 createAliasResponse pResponseStatus_ =
   CreateAliasResponse'
-  { _carsDirectoryId = Nothing
-  , _carsAlias = Nothing
-  , _carsResponseStatus = pResponseStatus_
-  }
+    { _carsDirectoryId = Nothing
+    , _carsAlias = Nothing
+    , _carsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The identifier of the directory.
 carsDirectoryId :: Lens' CreateAliasResponse (Maybe Text)
-carsDirectoryId = lens _carsDirectoryId (\ s a -> s{_carsDirectoryId = a});
+carsDirectoryId = lens _carsDirectoryId (\ s a -> s{_carsDirectoryId = a})
 
 -- | The alias for the directory.
 carsAlias :: Lens' CreateAliasResponse (Maybe Text)
-carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a});
+carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a})
 
 -- | -- | The response status code.
 carsResponseStatus :: Lens' CreateAliasResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
 
 instance NFData CreateAliasResponse where

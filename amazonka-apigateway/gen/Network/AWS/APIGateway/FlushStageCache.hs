@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.FlushStageCache
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Requests Amazon API Gateway to flush a stage's cache.
+-- | Requests API Gateway to flush a stage's cache.
 --
 --
 --
@@ -57,9 +57,9 @@ data FlushStageCache = FlushStageCache'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fscRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'fscRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'fscStageName' - The name of the stage to flush its cache.
+-- * 'fscStageName' - [Required] The name of the stage to flush its cache.
 flushStageCache
     :: Text -- ^ 'fscRestAPIId'
     -> Text -- ^ 'fscStageName'
@@ -68,13 +68,13 @@ flushStageCache pRestAPIId_ pStageName_ =
   FlushStageCache' {_fscRestAPIId = pRestAPIId_, _fscStageName = pStageName_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 fscRestAPIId :: Lens' FlushStageCache Text
-fscRestAPIId = lens _fscRestAPIId (\ s a -> s{_fscRestAPIId = a});
+fscRestAPIId = lens _fscRestAPIId (\ s a -> s{_fscRestAPIId = a})
 
--- | The name of the stage to flush its cache.
+-- | [Required] The name of the stage to flush its cache.
 fscStageName :: Lens' FlushStageCache Text
-fscStageName = lens _fscStageName (\ s a -> s{_fscStageName = a});
+fscStageName = lens _fscStageName (\ s a -> s{_fscStageName = a})
 
 instance AWSRequest FlushStageCache where
         type Rs FlushStageCache = FlushStageCacheResponse

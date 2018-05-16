@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetCampaigns
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,23 +66,23 @@ getCampaigns
     -> GetCampaigns
 getCampaigns pApplicationId_ =
   GetCampaigns'
-  { _gcsToken = Nothing
-  , _gcsPageSize = Nothing
-  , _gcsApplicationId = pApplicationId_
-  }
+    { _gcsToken = Nothing
+    , _gcsPageSize = Nothing
+    , _gcsApplicationId = pApplicationId_
+    }
 
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gcsToken :: Lens' GetCampaigns (Maybe Text)
-gcsToken = lens _gcsToken (\ s a -> s{_gcsToken = a});
+gcsToken = lens _gcsToken (\ s a -> s{_gcsToken = a})
 
 -- | The number of entries you want on each page in the response.
 gcsPageSize :: Lens' GetCampaigns (Maybe Text)
-gcsPageSize = lens _gcsPageSize (\ s a -> s{_gcsPageSize = a});
+gcsPageSize = lens _gcsPageSize (\ s a -> s{_gcsPageSize = a})
 
 -- | Undocumented member.
 gcsApplicationId :: Lens' GetCampaigns Text
-gcsApplicationId = lens _gcsApplicationId (\ s a -> s{_gcsApplicationId = a});
+gcsApplicationId = lens _gcsApplicationId (\ s a -> s{_gcsApplicationId = a})
 
 instance AWSRequest GetCampaigns where
         type Rs GetCampaigns = GetCampaignsResponse
@@ -134,17 +134,17 @@ getCampaignsResponse
     -> GetCampaignsResponse
 getCampaignsResponse pResponseStatus_ pCampaignsResponse_ =
   GetCampaignsResponse'
-  { _gcsrsResponseStatus = pResponseStatus_
-  , _gcsrsCampaignsResponse = pCampaignsResponse_
-  }
+    { _gcsrsResponseStatus = pResponseStatus_
+    , _gcsrsCampaignsResponse = pCampaignsResponse_
+    }
 
 
 -- | -- | The response status code.
 gcsrsResponseStatus :: Lens' GetCampaignsResponse Int
-gcsrsResponseStatus = lens _gcsrsResponseStatus (\ s a -> s{_gcsrsResponseStatus = a});
+gcsrsResponseStatus = lens _gcsrsResponseStatus (\ s a -> s{_gcsrsResponseStatus = a})
 
 -- | Undocumented member.
 gcsrsCampaignsResponse :: Lens' GetCampaignsResponse CampaignsResponse
-gcsrsCampaignsResponse = lens _gcsrsCampaignsResponse (\ s a -> s{_gcsrsCampaignsResponse = a});
+gcsrsCampaignsResponse = lens _gcsrsCampaignsResponse (\ s a -> s{_gcsrsCampaignsResponse = a})
 
 instance NFData GetCampaignsResponse where

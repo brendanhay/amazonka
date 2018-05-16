@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeValidDBInstanceModifications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,12 +64,12 @@ describeValidDBInstanceModifications
     -> DescribeValidDBInstanceModifications
 describeValidDBInstanceModifications pDBInstanceIdentifier_ =
   DescribeValidDBInstanceModifications'
-  {_dvdimDBInstanceIdentifier = pDBInstanceIdentifier_}
+    {_dvdimDBInstanceIdentifier = pDBInstanceIdentifier_}
 
 
 -- | The customer identifier or the ARN of your DB instance.
 dvdimDBInstanceIdentifier :: Lens' DescribeValidDBInstanceModifications Text
-dvdimDBInstanceIdentifier = lens _dvdimDBInstanceIdentifier (\ s a -> s{_dvdimDBInstanceIdentifier = a});
+dvdimDBInstanceIdentifier = lens _dvdimDBInstanceIdentifier (\ s a -> s{_dvdimDBInstanceIdentifier = a})
 
 instance AWSRequest
            DescribeValidDBInstanceModifications
@@ -130,18 +130,18 @@ describeValidDBInstanceModificationsResponse
     -> DescribeValidDBInstanceModificationsResponse
 describeValidDBInstanceModificationsResponse pResponseStatus_ =
   DescribeValidDBInstanceModificationsResponse'
-  { _dvdimrsValidDBInstanceModificationsMessage = Nothing
-  , _dvdimrsResponseStatus = pResponseStatus_
-  }
+    { _dvdimrsValidDBInstanceModificationsMessage = Nothing
+    , _dvdimrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dvdimrsValidDBInstanceModificationsMessage :: Lens' DescribeValidDBInstanceModificationsResponse (Maybe ValidDBInstanceModificationsMessage)
-dvdimrsValidDBInstanceModificationsMessage = lens _dvdimrsValidDBInstanceModificationsMessage (\ s a -> s{_dvdimrsValidDBInstanceModificationsMessage = a});
+dvdimrsValidDBInstanceModificationsMessage = lens _dvdimrsValidDBInstanceModificationsMessage (\ s a -> s{_dvdimrsValidDBInstanceModificationsMessage = a})
 
 -- | -- | The response status code.
 dvdimrsResponseStatus :: Lens' DescribeValidDBInstanceModificationsResponse Int
-dvdimrsResponseStatus = lens _dvdimrsResponseStatus (\ s a -> s{_dvdimrsResponseStatus = a});
+dvdimrsResponseStatus = lens _dvdimrsResponseStatus (\ s a -> s{_dvdimrsResponseStatus = a})
 
 instance NFData
            DescribeValidDBInstanceModificationsResponse

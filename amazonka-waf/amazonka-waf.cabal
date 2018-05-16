@@ -1,5 +1,5 @@
 name:                  amazonka-waf
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon WAF SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -52,6 +52,7 @@ library
         , Network.AWS.WAF.CreateRegexMatchSet
         , Network.AWS.WAF.CreateRegexPatternSet
         , Network.AWS.WAF.CreateRule
+        , Network.AWS.WAF.CreateRuleGroup
         , Network.AWS.WAF.CreateSizeConstraintSet
         , Network.AWS.WAF.CreateSqlInjectionMatchSet
         , Network.AWS.WAF.CreateWebACL
@@ -59,10 +60,12 @@ library
         , Network.AWS.WAF.DeleteByteMatchSet
         , Network.AWS.WAF.DeleteGeoMatchSet
         , Network.AWS.WAF.DeleteIPSet
+        , Network.AWS.WAF.DeletePermissionPolicy
         , Network.AWS.WAF.DeleteRateBasedRule
         , Network.AWS.WAF.DeleteRegexMatchSet
         , Network.AWS.WAF.DeleteRegexPatternSet
         , Network.AWS.WAF.DeleteRule
+        , Network.AWS.WAF.DeleteRuleGroup
         , Network.AWS.WAF.DeleteSizeConstraintSet
         , Network.AWS.WAF.DeleteSqlInjectionMatchSet
         , Network.AWS.WAF.DeleteWebACL
@@ -72,27 +75,33 @@ library
         , Network.AWS.WAF.GetChangeTokenStatus
         , Network.AWS.WAF.GetGeoMatchSet
         , Network.AWS.WAF.GetIPSet
+        , Network.AWS.WAF.GetPermissionPolicy
         , Network.AWS.WAF.GetRateBasedRule
         , Network.AWS.WAF.GetRateBasedRuleManagedKeys
         , Network.AWS.WAF.GetRegexMatchSet
         , Network.AWS.WAF.GetRegexPatternSet
         , Network.AWS.WAF.GetRule
+        , Network.AWS.WAF.GetRuleGroup
         , Network.AWS.WAF.GetSampledRequests
         , Network.AWS.WAF.GetSizeConstraintSet
         , Network.AWS.WAF.GetSqlInjectionMatchSet
         , Network.AWS.WAF.GetWebACL
         , Network.AWS.WAF.GetXSSMatchSet
+        , Network.AWS.WAF.ListActivatedRulesInRuleGroup
         , Network.AWS.WAF.ListByteMatchSets
         , Network.AWS.WAF.ListGeoMatchSets
         , Network.AWS.WAF.ListIPSets
         , Network.AWS.WAF.ListRateBasedRules
         , Network.AWS.WAF.ListRegexMatchSets
         , Network.AWS.WAF.ListRegexPatternSets
+        , Network.AWS.WAF.ListRuleGroups
         , Network.AWS.WAF.ListRules
         , Network.AWS.WAF.ListSizeConstraintSets
         , Network.AWS.WAF.ListSqlInjectionMatchSets
+        , Network.AWS.WAF.ListSubscribedRuleGroups
         , Network.AWS.WAF.ListWebACLs
         , Network.AWS.WAF.ListXSSMatchSets
+        , Network.AWS.WAF.PutPermissionPolicy
         , Network.AWS.WAF.Types
         , Network.AWS.WAF.UpdateByteMatchSet
         , Network.AWS.WAF.UpdateGeoMatchSet
@@ -101,6 +110,7 @@ library
         , Network.AWS.WAF.UpdateRegexMatchSet
         , Network.AWS.WAF.UpdateRegexPatternSet
         , Network.AWS.WAF.UpdateRule
+        , Network.AWS.WAF.UpdateRuleGroup
         , Network.AWS.WAF.UpdateSizeConstraintSet
         , Network.AWS.WAF.UpdateSqlInjectionMatchSet
         , Network.AWS.WAF.UpdateWebACL
@@ -112,7 +122,7 @@ library
         , Network.AWS.WAF.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-waf-test
@@ -132,8 +142,8 @@ test-suite amazonka-waf-test
         , Test.AWS.WAF.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-waf
         , base
         , bytestring

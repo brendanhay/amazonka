@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.CreatePipeline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ createPipeline pPipeline_ = CreatePipeline' {_cpPipeline = pPipeline_}
 
 -- | Represents the structure of actions and stages to be performed in the pipeline.
 cpPipeline :: Lens' CreatePipeline PipelineDeclaration
-cpPipeline = lens _cpPipeline (\ s a -> s{_cpPipeline = a});
+cpPipeline = lens _cpPipeline (\ s a -> s{_cpPipeline = a})
 
 instance AWSRequest CreatePipeline where
         type Rs CreatePipeline = CreatePipelineResponse
@@ -126,15 +126,15 @@ createPipelineResponse
     -> CreatePipelineResponse
 createPipelineResponse pResponseStatus_ =
   CreatePipelineResponse'
-  {_cprsPipeline = Nothing, _cprsResponseStatus = pResponseStatus_}
+    {_cprsPipeline = Nothing, _cprsResponseStatus = pResponseStatus_}
 
 
 -- | Represents the structure of actions and stages to be performed in the pipeline.
 cprsPipeline :: Lens' CreatePipelineResponse (Maybe PipelineDeclaration)
-cprsPipeline = lens _cprsPipeline (\ s a -> s{_cprsPipeline = a});
+cprsPipeline = lens _cprsPipeline (\ s a -> s{_cprsPipeline = a})
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePipelineResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
 
 instance NFData CreatePipelineResponse where

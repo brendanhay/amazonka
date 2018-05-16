@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.AddListenerCertificates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ addListenerCertificates
     -> AddListenerCertificates
 addListenerCertificates pListenerARN_ =
   AddListenerCertificates'
-  {_alcListenerARN = pListenerARN_, _alcCertificates = mempty}
+    {_alcListenerARN = pListenerARN_, _alcCertificates = mempty}
 
 
 -- | The Amazon Resource Name (ARN) of the listener.
 alcListenerARN :: Lens' AddListenerCertificates Text
-alcListenerARN = lens _alcListenerARN (\ s a -> s{_alcListenerARN = a});
+alcListenerARN = lens _alcListenerARN (\ s a -> s{_alcListenerARN = a})
 
 -- | The certificate to add. You can specify one certificate per call.
 alcCertificates :: Lens' AddListenerCertificates [Certificate]
-alcCertificates = lens _alcCertificates (\ s a -> s{_alcCertificates = a}) . _Coerce;
+alcCertificates = lens _alcCertificates (\ s a -> s{_alcCertificates = a}) . _Coerce
 
 instance AWSRequest AddListenerCertificates where
         type Rs AddListenerCertificates =
@@ -130,15 +130,15 @@ addListenerCertificatesResponse
     -> AddListenerCertificatesResponse
 addListenerCertificatesResponse pResponseStatus_ =
   AddListenerCertificatesResponse'
-  {_alcrsCertificates = Nothing, _alcrsResponseStatus = pResponseStatus_}
+    {_alcrsCertificates = Nothing, _alcrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the certificates.
 alcrsCertificates :: Lens' AddListenerCertificatesResponse [Certificate]
-alcrsCertificates = lens _alcrsCertificates (\ s a -> s{_alcrsCertificates = a}) . _Default . _Coerce;
+alcrsCertificates = lens _alcrsCertificates (\ s a -> s{_alcrsCertificates = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 alcrsResponseStatus :: Lens' AddListenerCertificatesResponse Int
-alcrsResponseStatus = lens _alcrsResponseStatus (\ s a -> s{_alcrsResponseStatus = a});
+alcrsResponseStatus = lens _alcrsResponseStatus (\ s a -> s{_alcrsResponseStatus = a})
 
 instance NFData AddListenerCertificatesResponse where

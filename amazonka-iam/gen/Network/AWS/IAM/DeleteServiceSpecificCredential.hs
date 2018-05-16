@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteServiceSpecificCredential
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,7 @@ data DeleteServiceSpecificCredential = DeleteServiceSpecificCredential'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsscUserName' - The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'dsscUserName' - The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'dsscServiceSpecificCredentialId' - The unique identifier of the service-specific credential. You can get this value by calling 'ListServiceSpecificCredentials' . This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 deleteServiceSpecificCredential
@@ -61,18 +61,18 @@ deleteServiceSpecificCredential
     -> DeleteServiceSpecificCredential
 deleteServiceSpecificCredential pServiceSpecificCredentialId_ =
   DeleteServiceSpecificCredential'
-  { _dsscUserName = Nothing
-  , _dsscServiceSpecificCredentialId = pServiceSpecificCredentialId_
-  }
+    { _dsscUserName = Nothing
+    , _dsscServiceSpecificCredentialId = pServiceSpecificCredentialId_
+    }
 
 
--- | The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 dsscUserName :: Lens' DeleteServiceSpecificCredential (Maybe Text)
-dsscUserName = lens _dsscUserName (\ s a -> s{_dsscUserName = a});
+dsscUserName = lens _dsscUserName (\ s a -> s{_dsscUserName = a})
 
 -- | The unique identifier of the service-specific credential. You can get this value by calling 'ListServiceSpecificCredentials' . This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 dsscServiceSpecificCredentialId :: Lens' DeleteServiceSpecificCredential Text
-dsscServiceSpecificCredentialId = lens _dsscServiceSpecificCredentialId (\ s a -> s{_dsscServiceSpecificCredentialId = a});
+dsscServiceSpecificCredentialId = lens _dsscServiceSpecificCredentialId (\ s a -> s{_dsscServiceSpecificCredentialId = a})
 
 instance AWSRequest DeleteServiceSpecificCredential
          where

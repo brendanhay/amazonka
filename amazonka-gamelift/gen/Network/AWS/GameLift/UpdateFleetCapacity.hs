@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateFleetCapacity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Updates capacity settings for a fleet. Use this action to specify the number of EC2 instances (hosts) that you want this fleet to contain. Before calling this action, you may want to call 'DescribeEC2InstanceLimits' to get the maximum capacity based on the fleet's EC2 instance type.
 --
 --
--- If you're using autoscaling (see 'PutScalingPolicy' ), you may want to specify a minimum and/or maximum capacity. If you don't provide these, autoscaling can set capacity anywhere between zero and the <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift service limits> .
+-- Specify minimum and maximum number of instances. Amazon GameLift will not change fleet capacity to values fall outside of this range. This is particularly important when using auto-scaling (see 'PutScalingPolicy' ) to allow capacity to adjust based on player demand while imposing limits on automatic adjustments.
 --
 -- To update fleet capacity, specify the fleet ID and the number of instances you want the fleet to host. If successful, Amazon GameLift starts or terminates instances so that the fleet's active instance count matches the desired instance count. You can view a fleet's current capacity information by calling 'DescribeFleetCapacity' . If the desired instance count is higher than the instance type's limit, the "Limit Exceeded" exception occurs.
 --
@@ -31,15 +31,21 @@
 --
 --     * 'ListFleets'
 --
+--     * 'DeleteFleet'
+--
 --     * Describe fleets:
 --
 --     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetCapacity'
 --
 --     * 'DescribeFleetPortSettings'
 --
 --     * 'DescribeFleetUtilization'
 --
 --     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeEC2InstanceLimits'
 --
 --     * 'DescribeFleetEvents'
 --
@@ -57,23 +63,13 @@
 --
 --
 --
---     * Manage fleet capacity:
+--     * Manage fleet actions:
 --
---     * 'DescribeFleetCapacity'
+--     * 'StartFleetActions'
 --
---     * 'UpdateFleetCapacity'
---
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
---     * 'DescribeEC2InstanceLimits'
+--     * 'StopFleetActions'
 --
 --
---
---     * 'DeleteFleet'
 --
 --
 --
@@ -132,28 +128,28 @@ updateFleetCapacity
     -> UpdateFleetCapacity
 updateFleetCapacity pFleetId_ =
   UpdateFleetCapacity'
-  { _ufcMaxSize = Nothing
-  , _ufcMinSize = Nothing
-  , _ufcDesiredInstances = Nothing
-  , _ufcFleetId = pFleetId_
-  }
+    { _ufcMaxSize = Nothing
+    , _ufcMinSize = Nothing
+    , _ufcDesiredInstances = Nothing
+    , _ufcFleetId = pFleetId_
+    }
 
 
 -- | Maximum value allowed for the fleet's instance count. Default if not set is 1.
 ufcMaxSize :: Lens' UpdateFleetCapacity (Maybe Natural)
-ufcMaxSize = lens _ufcMaxSize (\ s a -> s{_ufcMaxSize = a}) . mapping _Nat;
+ufcMaxSize = lens _ufcMaxSize (\ s a -> s{_ufcMaxSize = a}) . mapping _Nat
 
 -- | Minimum value allowed for the fleet's instance count. Default if not set is 0.
 ufcMinSize :: Lens' UpdateFleetCapacity (Maybe Natural)
-ufcMinSize = lens _ufcMinSize (\ s a -> s{_ufcMinSize = a}) . mapping _Nat;
+ufcMinSize = lens _ufcMinSize (\ s a -> s{_ufcMinSize = a}) . mapping _Nat
 
 -- | Number of EC2 instances you want this fleet to host.
 ufcDesiredInstances :: Lens' UpdateFleetCapacity (Maybe Natural)
-ufcDesiredInstances = lens _ufcDesiredInstances (\ s a -> s{_ufcDesiredInstances = a}) . mapping _Nat;
+ufcDesiredInstances = lens _ufcDesiredInstances (\ s a -> s{_ufcDesiredInstances = a}) . mapping _Nat
 
 -- | Unique identifier for a fleet to update capacity for.
 ufcFleetId :: Lens' UpdateFleetCapacity Text
-ufcFleetId = lens _ufcFleetId (\ s a -> s{_ufcFleetId = a});
+ufcFleetId = lens _ufcFleetId (\ s a -> s{_ufcFleetId = a})
 
 instance AWSRequest UpdateFleetCapacity where
         type Rs UpdateFleetCapacity =
@@ -216,15 +212,15 @@ updateFleetCapacityResponse
     -> UpdateFleetCapacityResponse
 updateFleetCapacityResponse pResponseStatus_ =
   UpdateFleetCapacityResponse'
-  {_ufcrsFleetId = Nothing, _ufcrsResponseStatus = pResponseStatus_}
+    {_ufcrsFleetId = Nothing, _ufcrsResponseStatus = pResponseStatus_}
 
 
 -- | Unique identifier for a fleet that was updated.
 ufcrsFleetId :: Lens' UpdateFleetCapacityResponse (Maybe Text)
-ufcrsFleetId = lens _ufcrsFleetId (\ s a -> s{_ufcrsFleetId = a});
+ufcrsFleetId = lens _ufcrsFleetId (\ s a -> s{_ufcrsFleetId = a})
 
 -- | -- | The response status code.
 ufcrsResponseStatus :: Lens' UpdateFleetCapacityResponse Int
-ufcrsResponseStatus = lens _ufcrsResponseStatus (\ s a -> s{_ufcrsResponseStatus = a});
+ufcrsResponseStatus = lens _ufcrsResponseStatus (\ s a -> s{_ufcrsResponseStatus = a})
 
 instance NFData UpdateFleetCapacityResponse where

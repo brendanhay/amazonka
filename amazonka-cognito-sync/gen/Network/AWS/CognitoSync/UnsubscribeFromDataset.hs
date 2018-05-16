@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.UnsubscribeFromDataset
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,28 +80,28 @@ unsubscribeFromDataset
     -> UnsubscribeFromDataset
 unsubscribeFromDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
   UnsubscribeFromDataset'
-  { _ufdIdentityPoolId = pIdentityPoolId_
-  , _ufdIdentityId = pIdentityId_
-  , _ufdDatasetName = pDatasetName_
-  , _ufdDeviceId = pDeviceId_
-  }
+    { _ufdIdentityPoolId = pIdentityPoolId_
+    , _ufdIdentityId = pIdentityId_
+    , _ufdDatasetName = pDatasetName_
+    , _ufdDeviceId = pDeviceId_
+    }
 
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.
 ufdIdentityPoolId :: Lens' UnsubscribeFromDataset Text
-ufdIdentityPoolId = lens _ufdIdentityPoolId (\ s a -> s{_ufdIdentityPoolId = a});
+ufdIdentityPoolId = lens _ufdIdentityPoolId (\ s a -> s{_ufdIdentityPoolId = a})
 
 -- | Unique ID for this identity.
 ufdIdentityId :: Lens' UnsubscribeFromDataset Text
-ufdIdentityId = lens _ufdIdentityId (\ s a -> s{_ufdIdentityId = a});
+ufdIdentityId = lens _ufdIdentityId (\ s a -> s{_ufdIdentityId = a})
 
 -- | The name of the dataset from which to unsubcribe.
 ufdDatasetName :: Lens' UnsubscribeFromDataset Text
-ufdDatasetName = lens _ufdDatasetName (\ s a -> s{_ufdDatasetName = a});
+ufdDatasetName = lens _ufdDatasetName (\ s a -> s{_ufdDatasetName = a})
 
 -- | The unique ID generated for this device by Cognito.
 ufdDeviceId :: Lens' UnsubscribeFromDataset Text
-ufdDeviceId = lens _ufdDeviceId (\ s a -> s{_ufdDeviceId = a});
+ufdDeviceId = lens _ufdDeviceId (\ s a -> s{_ufdDeviceId = a})
 
 instance AWSRequest UnsubscribeFromDataset where
         type Rs UnsubscribeFromDataset =
@@ -159,6 +159,6 @@ unsubscribeFromDatasetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ufdrsResponseStatus :: Lens' UnsubscribeFromDatasetResponse Int
-ufdrsResponseStatus = lens _ufdrsResponseStatus (\ s a -> s{_ufdrsResponseStatus = a});
+ufdrsResponseStatus = lens _ufdrsResponseStatus (\ s a -> s{_ufdrsResponseStatus = a})
 
 instance NFData UnsubscribeFromDatasetResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.UpdateConfigurationSetTrackingOptions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,18 +70,18 @@ updateConfigurationSetTrackingOptions
     -> UpdateConfigurationSetTrackingOptions
 updateConfigurationSetTrackingOptions pConfigurationSetName_ pTrackingOptions_ =
   UpdateConfigurationSetTrackingOptions'
-  { _ucstoConfigurationSetName = pConfigurationSetName_
-  , _ucstoTrackingOptions = pTrackingOptions_
-  }
+    { _ucstoConfigurationSetName = pConfigurationSetName_
+    , _ucstoTrackingOptions = pTrackingOptions_
+    }
 
 
 -- | The name of the configuration set for which you want to update the custom tracking domain.
 ucstoConfigurationSetName :: Lens' UpdateConfigurationSetTrackingOptions Text
-ucstoConfigurationSetName = lens _ucstoConfigurationSetName (\ s a -> s{_ucstoConfigurationSetName = a});
+ucstoConfigurationSetName = lens _ucstoConfigurationSetName (\ s a -> s{_ucstoConfigurationSetName = a})
 
 -- | Undocumented member.
 ucstoTrackingOptions :: Lens' UpdateConfigurationSetTrackingOptions TrackingOptions
-ucstoTrackingOptions = lens _ucstoTrackingOptions (\ s a -> s{_ucstoTrackingOptions = a});
+ucstoTrackingOptions = lens _ucstoTrackingOptions (\ s a -> s{_ucstoTrackingOptions = a})
 
 instance AWSRequest
            UpdateConfigurationSetTrackingOptions
@@ -144,12 +144,12 @@ updateConfigurationSetTrackingOptionsResponse
     -> UpdateConfigurationSetTrackingOptionsResponse
 updateConfigurationSetTrackingOptionsResponse pResponseStatus_ =
   UpdateConfigurationSetTrackingOptionsResponse'
-  {_ucstorsResponseStatus = pResponseStatus_}
+    {_ucstorsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 ucstorsResponseStatus :: Lens' UpdateConfigurationSetTrackingOptionsResponse Int
-ucstorsResponseStatus = lens _ucstorsResponseStatus (\ s a -> s{_ucstorsResponseStatus = a});
+ucstorsResponseStatus = lens _ucstorsResponseStatus (\ s a -> s{_ucstorsResponseStatus = a})
 
 instance NFData
            UpdateConfigurationSetTrackingOptionsResponse

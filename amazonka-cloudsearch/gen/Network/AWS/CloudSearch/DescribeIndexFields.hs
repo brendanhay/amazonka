@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeIndexFields
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ describeIndexFields
     -> DescribeIndexFields
 describeIndexFields pDomainName_ =
   DescribeIndexFields'
-  { _difDeployed = Nothing
-  , _difFieldNames = Nothing
-  , _difDomainName = pDomainName_
-  }
+    { _difDeployed = Nothing
+    , _difFieldNames = Nothing
+    , _difDomainName = pDomainName_
+    }
 
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 difDeployed :: Lens' DescribeIndexFields (Maybe Bool)
-difDeployed = lens _difDeployed (\ s a -> s{_difDeployed = a});
+difDeployed = lens _difDeployed (\ s a -> s{_difDeployed = a})
 
 -- | A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.
 difFieldNames :: Lens' DescribeIndexFields [Text]
-difFieldNames = lens _difFieldNames (\ s a -> s{_difFieldNames = a}) . _Default . _Coerce;
+difFieldNames = lens _difFieldNames (\ s a -> s{_difFieldNames = a}) . _Default . _Coerce
 
 -- | The name of the domain you want to describe.
 difDomainName :: Lens' DescribeIndexFields Text
-difDomainName = lens _difDomainName (\ s a -> s{_difDomainName = a});
+difDomainName = lens _difDomainName (\ s a -> s{_difDomainName = a})
 
 instance AWSRequest DescribeIndexFields where
         type Rs DescribeIndexFields =
@@ -145,15 +145,15 @@ describeIndexFieldsResponse
     -> DescribeIndexFieldsResponse
 describeIndexFieldsResponse pResponseStatus_ =
   DescribeIndexFieldsResponse'
-  {_difsrsResponseStatus = pResponseStatus_, _difsrsIndexFields = mempty}
+    {_difsrsResponseStatus = pResponseStatus_, _difsrsIndexFields = mempty}
 
 
 -- | -- | The response status code.
 difsrsResponseStatus :: Lens' DescribeIndexFieldsResponse Int
-difsrsResponseStatus = lens _difsrsResponseStatus (\ s a -> s{_difsrsResponseStatus = a});
+difsrsResponseStatus = lens _difsrsResponseStatus (\ s a -> s{_difsrsResponseStatus = a})
 
 -- | The index fields configured for the domain.
 difsrsIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-difsrsIndexFields = lens _difsrsIndexFields (\ s a -> s{_difsrsIndexFields = a}) . _Coerce;
+difsrsIndexFields = lens _difsrsIndexFields (\ s a -> s{_difsrsIndexFields = a}) . _Coerce
 
 instance NFData DescribeIndexFieldsResponse where

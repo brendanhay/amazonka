@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarms
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,38 +83,38 @@ describeAlarms
     :: DescribeAlarms
 describeAlarms =
   DescribeAlarms'
-  { _daAlarmNamePrefix = Nothing
-  , _daActionPrefix = Nothing
-  , _daNextToken = Nothing
-  , _daStateValue = Nothing
-  , _daAlarmNames = Nothing
-  , _daMaxRecords = Nothing
-  }
+    { _daAlarmNamePrefix = Nothing
+    , _daActionPrefix = Nothing
+    , _daNextToken = Nothing
+    , _daStateValue = Nothing
+    , _daAlarmNames = Nothing
+    , _daMaxRecords = Nothing
+    }
 
 
 -- | The alarm name prefix. If this parameter is specified, you cannot specify @AlarmNames@ .
 daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
-daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a});
+daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a})
 
 -- | The action name prefix.
 daActionPrefix :: Lens' DescribeAlarms (Maybe Text)
-daActionPrefix = lens _daActionPrefix (\ s a -> s{_daActionPrefix = a});
+daActionPrefix = lens _daActionPrefix (\ s a -> s{_daActionPrefix = a})
 
 -- | The token returned by a previous call to indicate that there is more data available.
 daNextToken :: Lens' DescribeAlarms (Maybe Text)
-daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
+daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a})
 
 -- | The state value to be used in matching alarms.
 daStateValue :: Lens' DescribeAlarms (Maybe StateValue)
-daStateValue = lens _daStateValue (\ s a -> s{_daStateValue = a});
+daStateValue = lens _daStateValue (\ s a -> s{_daStateValue = a})
 
 -- | The names of the alarms.
 daAlarmNames :: Lens' DescribeAlarms [Text]
-daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default . _Coerce;
+daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default . _Coerce
 
 -- | The maximum number of alarm descriptions to retrieve.
 daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
-daMaxRecords = lens _daMaxRecords (\ s a -> s{_daMaxRecords = a}) . mapping _Nat;
+daMaxRecords = lens _daMaxRecords (\ s a -> s{_daMaxRecords = a}) . mapping _Nat
 
 instance AWSPager DescribeAlarms where
         page rq rs
@@ -180,22 +180,22 @@ describeAlarmsResponse
     -> DescribeAlarmsResponse
 describeAlarmsResponse pResponseStatus_ =
   DescribeAlarmsResponse'
-  { _darsMetricAlarms = Nothing
-  , _darsNextToken = Nothing
-  , _darsResponseStatus = pResponseStatus_
-  }
+    { _darsMetricAlarms = Nothing
+    , _darsNextToken = Nothing
+    , _darsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The information for the specified alarms.
 darsMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
-darsMetricAlarms = lens _darsMetricAlarms (\ s a -> s{_darsMetricAlarms = a}) . _Default . _Coerce;
+darsMetricAlarms = lens _darsMetricAlarms (\ s a -> s{_darsMetricAlarms = a}) . _Default . _Coerce
 
 -- | The token that marks the start of the next batch of returned results.
 darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
-darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
+darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a})
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAlarmsResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DescribeAlarmsResponse where

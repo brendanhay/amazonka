@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetUICustomization
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ getUICustomization pUserPoolId_ =
 
 -- | The client ID for the client app.
 guicClientId :: Lens' GetUICustomization (Maybe Text)
-guicClientId = lens _guicClientId (\ s a -> s{_guicClientId = a}) . mapping _Sensitive;
+guicClientId = lens _guicClientId (\ s a -> s{_guicClientId = a}) . mapping _Sensitive
 
 -- | The user pool ID for the user pool.
 guicUserPoolId :: Lens' GetUICustomization Text
-guicUserPoolId = lens _guicUserPoolId (\ s a -> s{_guicUserPoolId = a});
+guicUserPoolId = lens _guicUserPoolId (\ s a -> s{_guicUserPoolId = a})
 
 instance AWSRequest GetUICustomization where
         type Rs GetUICustomization =
@@ -131,17 +131,17 @@ getUICustomizationResponse
     -> GetUICustomizationResponse
 getUICustomizationResponse pResponseStatus_ pUICustomization_ =
   GetUICustomizationResponse'
-  { _guicrsResponseStatus = pResponseStatus_
-  , _guicrsUICustomization = pUICustomization_
-  }
+    { _guicrsResponseStatus = pResponseStatus_
+    , _guicrsUICustomization = pUICustomization_
+    }
 
 
 -- | -- | The response status code.
 guicrsResponseStatus :: Lens' GetUICustomizationResponse Int
-guicrsResponseStatus = lens _guicrsResponseStatus (\ s a -> s{_guicrsResponseStatus = a});
+guicrsResponseStatus = lens _guicrsResponseStatus (\ s a -> s{_guicrsResponseStatus = a})
 
 -- | The UI customization information.
 guicrsUICustomization :: Lens' GetUICustomizationResponse UICustomizationType
-guicrsUICustomization = lens _guicrsUICustomization (\ s a -> s{_guicrsUICustomization = a});
+guicrsUICustomization = lens _guicrsUICustomization (\ s a -> s{_guicrsUICustomization = a})
 
 instance NFData GetUICustomizationResponse where

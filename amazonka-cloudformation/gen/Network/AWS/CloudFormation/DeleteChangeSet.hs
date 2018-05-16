@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DeleteChangeSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ deleteChangeSet
     -> DeleteChangeSet
 deleteChangeSet pChangeSetName_ =
   DeleteChangeSet'
-  {_dcsStackName = Nothing, _dcsChangeSetName = pChangeSetName_}
+    {_dcsStackName = Nothing, _dcsChangeSetName = pChangeSetName_}
 
 
 -- | If you specified the name of a change set to delete, specify the stack name or ID (ARN) that is associated with it.
 dcsStackName :: Lens' DeleteChangeSet (Maybe Text)
-dcsStackName = lens _dcsStackName (\ s a -> s{_dcsStackName = a});
+dcsStackName = lens _dcsStackName (\ s a -> s{_dcsStackName = a})
 
 -- | The name or Amazon Resource Name (ARN) of the change set that you want to delete.
 dcsChangeSetName :: Lens' DeleteChangeSet Text
-dcsChangeSetName = lens _dcsChangeSetName (\ s a -> s{_dcsChangeSetName = a});
+dcsChangeSetName = lens _dcsChangeSetName (\ s a -> s{_dcsChangeSetName = a})
 
 instance AWSRequest DeleteChangeSet where
         type Rs DeleteChangeSet = DeleteChangeSetResponse
@@ -130,6 +130,6 @@ deleteChangeSetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dcsrsResponseStatus :: Lens' DeleteChangeSetResponse Int
-dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
+dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a})
 
 instance NFData DeleteChangeSetResponse where

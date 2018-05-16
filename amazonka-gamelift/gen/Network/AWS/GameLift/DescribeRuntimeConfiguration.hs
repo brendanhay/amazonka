@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeRuntimeConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,15 +27,21 @@
 --
 --     * 'ListFleets'
 --
+--     * 'DeleteFleet'
+--
 --     * Describe fleets:
 --
 --     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetCapacity'
 --
 --     * 'DescribeFleetPortSettings'
 --
 --     * 'DescribeFleetUtilization'
 --
 --     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeEC2InstanceLimits'
 --
 --     * 'DescribeFleetEvents'
 --
@@ -53,23 +59,13 @@
 --
 --
 --
---     * Manage fleet capacity:
+--     * Manage fleet actions:
 --
---     * 'DescribeFleetCapacity'
+--     * 'StartFleetActions'
 --
---     * 'UpdateFleetCapacity'
---
---     * 'PutScalingPolicy' (automatic scaling)
---
---     * 'DescribeScalingPolicies' (automatic scaling)
---
---     * 'DeleteScalingPolicy' (automatic scaling)
---
---     * 'DescribeEC2InstanceLimits'
+--     * 'StopFleetActions'
 --
 --
---
---     * 'DeleteFleet'
 --
 --
 --
@@ -120,7 +116,7 @@ describeRuntimeConfiguration pFleetId_ =
 
 -- | Unique identifier for a fleet to get the run-time configuration for.
 drcFleetId :: Lens' DescribeRuntimeConfiguration Text
-drcFleetId = lens _drcFleetId (\ s a -> s{_drcFleetId = a});
+drcFleetId = lens _drcFleetId (\ s a -> s{_drcFleetId = a})
 
 instance AWSRequest DescribeRuntimeConfiguration
          where
@@ -182,18 +178,18 @@ describeRuntimeConfigurationResponse
     -> DescribeRuntimeConfigurationResponse
 describeRuntimeConfigurationResponse pResponseStatus_ =
   DescribeRuntimeConfigurationResponse'
-  { _drcrsRuntimeConfiguration = Nothing
-  , _drcrsResponseStatus = pResponseStatus_
-  }
+    { _drcrsRuntimeConfiguration = Nothing
+    , _drcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Instructions describing how server processes should be launched and maintained on each instance in the fleet.
 drcrsRuntimeConfiguration :: Lens' DescribeRuntimeConfigurationResponse (Maybe RuntimeConfiguration)
-drcrsRuntimeConfiguration = lens _drcrsRuntimeConfiguration (\ s a -> s{_drcrsRuntimeConfiguration = a});
+drcrsRuntimeConfiguration = lens _drcrsRuntimeConfiguration (\ s a -> s{_drcrsRuntimeConfiguration = a})
 
 -- | -- | The response status code.
 drcrsResponseStatus :: Lens' DescribeRuntimeConfigurationResponse Int
-drcrsResponseStatus = lens _drcrsResponseStatus (\ s a -> s{_drcrsResponseStatus = a});
+drcrsResponseStatus = lens _drcrsResponseStatus (\ s a -> s{_drcrsResponseStatus = a})
 
 instance NFData DescribeRuntimeConfigurationResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.ResumeProcesses
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,24 +57,24 @@ data ResumeProcesses = ResumeProcesses'
 --
 -- * 'rpScalingProcesses' - One or more of the following processes. If you omit this parameter, all processes are specified.     * @Launch@      * @Terminate@      * @HealthCheck@      * @ReplaceUnhealthy@      * @AZRebalance@      * @AlarmNotification@      * @ScheduledActions@      * @AddToLoadBalancer@
 --
--- * 'rpAutoScalingGroupName' - The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+-- * 'rpAutoScalingGroupName' - The name of the Auto Scaling group.
 resumeProcesses
     :: Text -- ^ 'rpAutoScalingGroupName'
     -> ResumeProcesses
 resumeProcesses pAutoScalingGroupName_ =
   ResumeProcesses'
-  { _rpScalingProcesses = Nothing
-  , _rpAutoScalingGroupName = pAutoScalingGroupName_
-  }
+    { _rpScalingProcesses = Nothing
+    , _rpAutoScalingGroupName = pAutoScalingGroupName_
+    }
 
 
 -- | One or more of the following processes. If you omit this parameter, all processes are specified.     * @Launch@      * @Terminate@      * @HealthCheck@      * @ReplaceUnhealthy@      * @AZRebalance@      * @AlarmNotification@      * @ScheduledActions@      * @AddToLoadBalancer@
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
-rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a}) . _Default . _Coerce;
+rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a}) . _Default . _Coerce
 
--- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+-- | The name of the Auto Scaling group.
 rpAutoScalingGroupName :: Lens' ResumeProcesses Text
-rpAutoScalingGroupName = lens _rpAutoScalingGroupName (\ s a -> s{_rpAutoScalingGroupName = a});
+rpAutoScalingGroupName = lens _rpAutoScalingGroupName (\ s a -> s{_rpAutoScalingGroupName = a})
 
 instance AWSRequest ResumeProcesses where
         type Rs ResumeProcesses = ResumeProcessesResponse

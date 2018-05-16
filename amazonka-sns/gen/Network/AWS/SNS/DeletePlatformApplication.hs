@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.DeletePlatformApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,12 +61,12 @@ deletePlatformApplication
     -> DeletePlatformApplication
 deletePlatformApplication pPlatformApplicationARN_ =
   DeletePlatformApplication'
-  {_dpaPlatformApplicationARN = pPlatformApplicationARN_}
+    {_dpaPlatformApplicationARN = pPlatformApplicationARN_}
 
 
 -- | PlatformApplicationArn of platform application object to delete.
 dpaPlatformApplicationARN :: Lens' DeletePlatformApplication Text
-dpaPlatformApplicationARN = lens _dpaPlatformApplicationARN (\ s a -> s{_dpaPlatformApplicationARN = a});
+dpaPlatformApplicationARN = lens _dpaPlatformApplicationARN (\ s a -> s{_dpaPlatformApplicationARN = a})
 
 instance AWSRequest DeletePlatformApplication where
         type Rs DeletePlatformApplication =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteSigningCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Deletes a signing certificate associated with the specified IAM user.
 --
 --
--- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated IAM users.
+-- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated IAM users.
 --
 module Network.AWS.IAM.DeleteSigningCertificate
     (
@@ -55,7 +55,7 @@ data DeleteSigningCertificate = DeleteSigningCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscUserName' - The name of the user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'dscUserName' - The name of the user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'dscCertificateId' - The ID of the signing certificate to delete. The format of this parameter, as described by its <http://wikipedia.org/wiki/regex regex> pattern, is a string of characters that can be upper- or lower-cased letters or digits.
 deleteSigningCertificate
@@ -63,16 +63,16 @@ deleteSigningCertificate
     -> DeleteSigningCertificate
 deleteSigningCertificate pCertificateId_ =
   DeleteSigningCertificate'
-  {_dscUserName = Nothing, _dscCertificateId = pCertificateId_}
+    {_dscUserName = Nothing, _dscCertificateId = pCertificateId_}
 
 
--- | The name of the user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
-dscUserName = lens _dscUserName (\ s a -> s{_dscUserName = a});
+dscUserName = lens _dscUserName (\ s a -> s{_dscUserName = a})
 
 -- | The ID of the signing certificate to delete. The format of this parameter, as described by its <http://wikipedia.org/wiki/regex regex> pattern, is a string of characters that can be upper- or lower-cased letters or digits.
 dscCertificateId :: Lens' DeleteSigningCertificate Text
-dscCertificateId = lens _dscCertificateId (\ s a -> s{_dscCertificateId = a});
+dscCertificateId = lens _dscCertificateId (\ s a -> s{_dscCertificateId = a})
 
 instance AWSRequest DeleteSigningCertificate where
         type Rs DeleteSigningCertificate =

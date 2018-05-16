@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListRulesPackages
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Lists all available Amazon Inspector rules packages.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Inspector.ListRulesPackages
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.Inspector.ListRulesPackages
 import Network.AWS.Inspector.Types
 import Network.AWS.Inspector.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -68,11 +71,18 @@ listRulesPackages =
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListRulesPackages__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 lrpNextToken :: Lens' ListRulesPackages (Maybe Text)
-lrpNextToken = lens _lrpNextToken (\ s a -> s{_lrpNextToken = a});
+lrpNextToken = lens _lrpNextToken (\ s a -> s{_lrpNextToken = a})
 
 -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 lrpMaxResults :: Lens' ListRulesPackages (Maybe Int)
-lrpMaxResults = lens _lrpMaxResults (\ s a -> s{_lrpMaxResults = a});
+lrpMaxResults = lens _lrpMaxResults (\ s a -> s{_lrpMaxResults = a})
+
+instance AWSPager ListRulesPackages where
+        page rq rs
+          | stop (rs ^. lrprsNextToken) = Nothing
+          | stop (rs ^. lrprsRulesPackageARNs) = Nothing
+          | otherwise =
+            Just $ rq & lrpNextToken .~ rs ^. lrprsNextToken
 
 instance AWSRequest ListRulesPackages where
         type Rs ListRulesPackages = ListRulesPackagesResponse
@@ -132,22 +142,22 @@ listRulesPackagesResponse
     -> ListRulesPackagesResponse
 listRulesPackagesResponse pResponseStatus_ =
   ListRulesPackagesResponse'
-  { _lrprsNextToken = Nothing
-  , _lrprsResponseStatus = pResponseStatus_
-  , _lrprsRulesPackageARNs = mempty
-  }
+    { _lrprsNextToken = Nothing
+    , _lrprsResponseStatus = pResponseStatus_
+    , _lrprsRulesPackageARNs = mempty
+    }
 
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 lrprsNextToken :: Lens' ListRulesPackagesResponse (Maybe Text)
-lrprsNextToken = lens _lrprsNextToken (\ s a -> s{_lrprsNextToken = a});
+lrprsNextToken = lens _lrprsNextToken (\ s a -> s{_lrprsNextToken = a})
 
 -- | -- | The response status code.
 lrprsResponseStatus :: Lens' ListRulesPackagesResponse Int
-lrprsResponseStatus = lens _lrprsResponseStatus (\ s a -> s{_lrprsResponseStatus = a});
+lrprsResponseStatus = lens _lrprsResponseStatus (\ s a -> s{_lrprsResponseStatus = a})
 
 -- | The list of ARNs that specifies the rules packages returned by the action.
 lrprsRulesPackageARNs :: Lens' ListRulesPackagesResponse [Text]
-lrprsRulesPackageARNs = lens _lrprsRulesPackageARNs (\ s a -> s{_lrprsRulesPackageARNs = a}) . _Coerce;
+lrprsRulesPackageARNs = lens _lrprsRulesPackageARNs (\ s a -> s{_lrprsRulesPackageARNs = a}) . _Coerce
 
 instance NFData ListRulesPackagesResponse where

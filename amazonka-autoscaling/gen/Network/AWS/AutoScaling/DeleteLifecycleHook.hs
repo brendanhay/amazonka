@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteLifecycleHook
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,25 +59,25 @@ data DeleteLifecycleHook = DeleteLifecycleHook'
 --
 -- * 'delLifecycleHookName' - The name of the lifecycle hook.
 --
--- * 'delAutoScalingGroupName' - The name of the Auto Scaling group for the lifecycle hook.
+-- * 'delAutoScalingGroupName' - The name of the Auto Scaling group.
 deleteLifecycleHook
     :: Text -- ^ 'delLifecycleHookName'
     -> Text -- ^ 'delAutoScalingGroupName'
     -> DeleteLifecycleHook
 deleteLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
   DeleteLifecycleHook'
-  { _delLifecycleHookName = pLifecycleHookName_
-  , _delAutoScalingGroupName = pAutoScalingGroupName_
-  }
+    { _delLifecycleHookName = pLifecycleHookName_
+    , _delAutoScalingGroupName = pAutoScalingGroupName_
+    }
 
 
 -- | The name of the lifecycle hook.
 delLifecycleHookName :: Lens' DeleteLifecycleHook Text
-delLifecycleHookName = lens _delLifecycleHookName (\ s a -> s{_delLifecycleHookName = a});
+delLifecycleHookName = lens _delLifecycleHookName (\ s a -> s{_delLifecycleHookName = a})
 
--- | The name of the Auto Scaling group for the lifecycle hook.
+-- | The name of the Auto Scaling group.
 delAutoScalingGroupName :: Lens' DeleteLifecycleHook Text
-delAutoScalingGroupName = lens _delAutoScalingGroupName (\ s a -> s{_delAutoScalingGroupName = a});
+delAutoScalingGroupName = lens _delAutoScalingGroupName (\ s a -> s{_delAutoScalingGroupName = a})
 
 instance AWSRequest DeleteLifecycleHook where
         type Rs DeleteLifecycleHook =
@@ -126,6 +126,6 @@ deleteLifecycleHookResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteLifecycleHookResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteLifecycleHookResponse where

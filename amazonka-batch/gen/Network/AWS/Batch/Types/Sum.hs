@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Batch.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -18,6 +18,36 @@
 module Network.AWS.Batch.Types.Sum where
 
 import Network.AWS.Prelude
+
+data ArrayJobDependency
+  = NToN
+  | Sequential
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ArrayJobDependency where
+    parser = takeLowerText >>= \case
+        "n_to_n" -> pure NToN
+        "sequential" -> pure Sequential
+        e -> fromTextError $ "Failure parsing ArrayJobDependency from value: '" <> e
+           <> "'. Accepted values: n_to_n, sequential"
+
+instance ToText ArrayJobDependency where
+    toText = \case
+        NToN -> "N_TO_N"
+        Sequential -> "SEQUENTIAL"
+
+instance Hashable     ArrayJobDependency
+instance NFData       ArrayJobDependency
+instance ToByteString ArrayJobDependency
+instance ToQuery      ArrayJobDependency
+instance ToHeader     ArrayJobDependency
+
+instance ToJSON ArrayJobDependency where
+    toJSON = toJSONText
+
+instance FromJSON ArrayJobDependency where
+    parseJSON = parseJSONText "ArrayJobDependency"
 
 data CEState
   = Disabled

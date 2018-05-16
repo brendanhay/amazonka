@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.CreateLoadBalancerPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ createLoadBalancerPolicy
     -> CreateLoadBalancerPolicy
 createLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ pPolicyTypeName_ =
   CreateLoadBalancerPolicy'
-  { _clbpPolicyAttributes = Nothing
-  , _clbpLoadBalancerName = pLoadBalancerName_
-  , _clbpPolicyName = pPolicyName_
-  , _clbpPolicyTypeName = pPolicyTypeName_
-  }
+    { _clbpPolicyAttributes = Nothing
+    , _clbpLoadBalancerName = pLoadBalancerName_
+    , _clbpPolicyName = pPolicyName_
+    , _clbpPolicyTypeName = pPolicyTypeName_
+    }
 
 
 -- | The policy attributes.
 clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
-clbpPolicyAttributes = lens _clbpPolicyAttributes (\ s a -> s{_clbpPolicyAttributes = a}) . _Default . _Coerce;
+clbpPolicyAttributes = lens _clbpPolicyAttributes (\ s a -> s{_clbpPolicyAttributes = a}) . _Default . _Coerce
 
 -- | The name of the load balancer.
 clbpLoadBalancerName :: Lens' CreateLoadBalancerPolicy Text
-clbpLoadBalancerName = lens _clbpLoadBalancerName (\ s a -> s{_clbpLoadBalancerName = a});
+clbpLoadBalancerName = lens _clbpLoadBalancerName (\ s a -> s{_clbpLoadBalancerName = a})
 
 -- | The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.
 clbpPolicyName :: Lens' CreateLoadBalancerPolicy Text
-clbpPolicyName = lens _clbpPolicyName (\ s a -> s{_clbpPolicyName = a});
+clbpPolicyName = lens _clbpPolicyName (\ s a -> s{_clbpPolicyName = a})
 
 -- | The name of the base policy type. To get the list of policy types, use 'DescribeLoadBalancerPolicyTypes' .
 clbpPolicyTypeName :: Lens' CreateLoadBalancerPolicy Text
-clbpPolicyTypeName = lens _clbpPolicyTypeName (\ s a -> s{_clbpPolicyTypeName = a});
+clbpPolicyTypeName = lens _clbpPolicyTypeName (\ s a -> s{_clbpPolicyTypeName = a})
 
 instance AWSRequest CreateLoadBalancerPolicy where
         type Rs CreateLoadBalancerPolicy =
@@ -159,7 +159,7 @@ createLoadBalancerPolicyResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 clbprsResponseStatus :: Lens' CreateLoadBalancerPolicyResponse Int
-clbprsResponseStatus = lens _clbprsResponseStatus (\ s a -> s{_clbprsResponseStatus = a});
+clbprsResponseStatus = lens _clbprsResponseStatus (\ s a -> s{_clbprsResponseStatus = a})
 
 instance NFData CreateLoadBalancerPolicyResponse
          where

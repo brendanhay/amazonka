@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteEventSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deleteEventSubscription pSubscriptionName_ =
 
 -- | The name of the Amazon Redshift event notification subscription to be deleted.
 desSubscriptionName :: Lens' DeleteEventSubscription Text
-desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName = a});
+desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName = a})
 
 instance AWSRequest DeleteEventSubscription where
         type Rs DeleteEventSubscription =

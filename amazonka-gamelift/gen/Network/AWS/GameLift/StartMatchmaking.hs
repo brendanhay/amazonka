@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.StartMatchmaking
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,6 +54,8 @@
 --     * 'StopMatchmaking'
 --
 --     * 'AcceptMatch'
+--
+--     * 'StartMatchBackfill'
 --
 --
 --
@@ -98,7 +100,7 @@ data StartMatchmaking = StartMatchmaking'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sTicketId' - Unique identifier for a matchmaking ticket. Use this identifier to track the matchmaking ticket status and retrieve match results.
+-- * 'sTicketId' - Unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a UUID. Use this identifier to track the matchmaking ticket status and retrieve match results.
 --
 -- * 'sConfigurationName' - Name of the matchmaking configuration to use for this request. Matchmaking configurations must exist in the same region as this request.
 --
@@ -108,23 +110,23 @@ startMatchmaking
     -> StartMatchmaking
 startMatchmaking pConfigurationName_ =
   StartMatchmaking'
-  { _sTicketId = Nothing
-  , _sConfigurationName = pConfigurationName_
-  , _sPlayers = mempty
-  }
+    { _sTicketId = Nothing
+    , _sConfigurationName = pConfigurationName_
+    , _sPlayers = mempty
+    }
 
 
--- | Unique identifier for a matchmaking ticket. Use this identifier to track the matchmaking ticket status and retrieve match results.
+-- | Unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a UUID. Use this identifier to track the matchmaking ticket status and retrieve match results.
 sTicketId :: Lens' StartMatchmaking (Maybe Text)
-sTicketId = lens _sTicketId (\ s a -> s{_sTicketId = a});
+sTicketId = lens _sTicketId (\ s a -> s{_sTicketId = a})
 
 -- | Name of the matchmaking configuration to use for this request. Matchmaking configurations must exist in the same region as this request.
 sConfigurationName :: Lens' StartMatchmaking Text
-sConfigurationName = lens _sConfigurationName (\ s a -> s{_sConfigurationName = a});
+sConfigurationName = lens _sConfigurationName (\ s a -> s{_sConfigurationName = a})
 
 -- | Information on each player to be matched. This information must include a player ID, and may contain player attributes and latency data to be used in the matchmaking process. After a successful match, @Player@ objects contain the name of the team the player is assigned to.
 sPlayers :: Lens' StartMatchmaking [Player]
-sPlayers = lens _sPlayers (\ s a -> s{_sPlayers = a}) . _Coerce;
+sPlayers = lens _sPlayers (\ s a -> s{_sPlayers = a}) . _Coerce
 
 instance AWSRequest StartMatchmaking where
         type Rs StartMatchmaking = StartMatchmakingResponse
@@ -185,15 +187,15 @@ startMatchmakingResponse
     -> StartMatchmakingResponse
 startMatchmakingResponse pResponseStatus_ =
   StartMatchmakingResponse'
-  {_srsMatchmakingTicket = Nothing, _srsResponseStatus = pResponseStatus_}
+    {_srsMatchmakingTicket = Nothing, _srsResponseStatus = pResponseStatus_}
 
 
 -- | Ticket representing the matchmaking request. This object include the information included in the request, ticket status, and match results as generated during the matchmaking process.
 srsMatchmakingTicket :: Lens' StartMatchmakingResponse (Maybe MatchmakingTicket)
-srsMatchmakingTicket = lens _srsMatchmakingTicket (\ s a -> s{_srsMatchmakingTicket = a});
+srsMatchmakingTicket = lens _srsMatchmakingTicket (\ s a -> s{_srsMatchmakingTicket = a})
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StartMatchmakingResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StartMatchmakingResponse where

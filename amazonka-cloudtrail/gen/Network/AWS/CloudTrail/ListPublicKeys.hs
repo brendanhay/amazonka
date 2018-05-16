@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.ListPublicKeys
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,20 +72,20 @@ listPublicKeys
     :: ListPublicKeys
 listPublicKeys =
   ListPublicKeys'
-  {_lpkStartTime = Nothing, _lpkNextToken = Nothing, _lpkEndTime = Nothing}
+    {_lpkStartTime = Nothing, _lpkNextToken = Nothing, _lpkEndTime = Nothing}
 
 
 -- | Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.
 lpkStartTime :: Lens' ListPublicKeys (Maybe UTCTime)
-lpkStartTime = lens _lpkStartTime (\ s a -> s{_lpkStartTime = a}) . mapping _Time;
+lpkStartTime = lens _lpkStartTime (\ s a -> s{_lpkStartTime = a}) . mapping _Time
 
 -- | Reserved for future use.
 lpkNextToken :: Lens' ListPublicKeys (Maybe Text)
-lpkNextToken = lens _lpkNextToken (\ s a -> s{_lpkNextToken = a});
+lpkNextToken = lens _lpkNextToken (\ s a -> s{_lpkNextToken = a})
 
 -- | Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.
 lpkEndTime :: Lens' ListPublicKeys (Maybe UTCTime)
-lpkEndTime = lens _lpkEndTime (\ s a -> s{_lpkEndTime = a}) . mapping _Time;
+lpkEndTime = lens _lpkEndTime (\ s a -> s{_lpkEndTime = a}) . mapping _Time
 
 instance AWSRequest ListPublicKeys where
         type Rs ListPublicKeys = ListPublicKeysResponse
@@ -152,22 +152,22 @@ listPublicKeysResponse
     -> ListPublicKeysResponse
 listPublicKeysResponse pResponseStatus_ =
   ListPublicKeysResponse'
-  { _lpkrsPublicKeyList = Nothing
-  , _lpkrsNextToken = Nothing
-  , _lpkrsResponseStatus = pResponseStatus_
-  }
+    { _lpkrsPublicKeyList = Nothing
+    , _lpkrsNextToken = Nothing
+    , _lpkrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Contains an array of PublicKey objects.
 lpkrsPublicKeyList :: Lens' ListPublicKeysResponse [PublicKey]
-lpkrsPublicKeyList = lens _lpkrsPublicKeyList (\ s a -> s{_lpkrsPublicKeyList = a}) . _Default . _Coerce;
+lpkrsPublicKeyList = lens _lpkrsPublicKeyList (\ s a -> s{_lpkrsPublicKeyList = a}) . _Default . _Coerce
 
 -- | Reserved for future use.
 lpkrsNextToken :: Lens' ListPublicKeysResponse (Maybe Text)
-lpkrsNextToken = lens _lpkrsNextToken (\ s a -> s{_lpkrsNextToken = a});
+lpkrsNextToken = lens _lpkrsNextToken (\ s a -> s{_lpkrsNextToken = a})
 
 -- | -- | The response status code.
 lpkrsResponseStatus :: Lens' ListPublicKeysResponse Int
-lpkrsResponseStatus = lens _lpkrsResponseStatus (\ s a -> s{_lpkrsResponseStatus = a});
+lpkrsResponseStatus = lens _lpkrsResponseStatus (\ s a -> s{_lpkrsResponseStatus = a})
 
 instance NFData ListPublicKeysResponse where

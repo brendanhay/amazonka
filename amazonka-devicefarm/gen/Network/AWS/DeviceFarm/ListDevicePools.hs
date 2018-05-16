@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListDevicePools
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,20 +76,20 @@ listDevicePools
     -> ListDevicePools
 listDevicePools pArn_ =
   ListDevicePools'
-  {_ldpNextToken = Nothing, _ldpType = Nothing, _ldpArn = pArn_}
+    {_ldpNextToken = Nothing, _ldpType = Nothing, _ldpArn = pArn_}
 
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 ldpNextToken :: Lens' ListDevicePools (Maybe Text)
-ldpNextToken = lens _ldpNextToken (\ s a -> s{_ldpNextToken = a});
+ldpNextToken = lens _ldpNextToken (\ s a -> s{_ldpNextToken = a})
 
 -- | The device pools' type. Allowed values include:     * CURATED: A device pool that is created and managed by AWS Device Farm.     * PRIVATE: A device pool that is created and managed by the device pool developer.
 ldpType :: Lens' ListDevicePools (Maybe DevicePoolType)
-ldpType = lens _ldpType (\ s a -> s{_ldpType = a});
+ldpType = lens _ldpType (\ s a -> s{_ldpType = a})
 
 -- | The project ARN.
 ldpArn :: Lens' ListDevicePools Text
-ldpArn = lens _ldpArn (\ s a -> s{_ldpArn = a});
+ldpArn = lens _ldpArn (\ s a -> s{_ldpArn = a})
 
 instance AWSPager ListDevicePools where
         page rq rs
@@ -162,22 +162,22 @@ listDevicePoolsResponse
     -> ListDevicePoolsResponse
 listDevicePoolsResponse pResponseStatus_ =
   ListDevicePoolsResponse'
-  { _ldprsDevicePools = Nothing
-  , _ldprsNextToken = Nothing
-  , _ldprsResponseStatus = pResponseStatus_
-  }
+    { _ldprsDevicePools = Nothing
+    , _ldprsNextToken = Nothing
+    , _ldprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the device pools.
 ldprsDevicePools :: Lens' ListDevicePoolsResponse [DevicePool]
-ldprsDevicePools = lens _ldprsDevicePools (\ s a -> s{_ldprsDevicePools = a}) . _Default . _Coerce;
+ldprsDevicePools = lens _ldprsDevicePools (\ s a -> s{_ldprsDevicePools = a}) . _Default . _Coerce
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 ldprsNextToken :: Lens' ListDevicePoolsResponse (Maybe Text)
-ldprsNextToken = lens _ldprsNextToken (\ s a -> s{_ldprsNextToken = a});
+ldprsNextToken = lens _ldprsNextToken (\ s a -> s{_ldprsNextToken = a})
 
 -- | -- | The response status code.
 ldprsResponseStatus :: Lens' ListDevicePoolsResponse Int
-ldprsResponseStatus = lens _ldprsResponseStatus (\ s a -> s{_ldprsResponseStatus = a});
+ldprsResponseStatus = lens _ldprsResponseStatus (\ s a -> s{_ldprsResponseStatus = a})
 
 instance NFData ListDevicePoolsResponse where

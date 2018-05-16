@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Shield.DescribeAttack
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ describeAttack pAttackId_ = DescribeAttack' {_daAttackId = pAttackId_}
 
 -- | The unique identifier (ID) for the attack that to be described.
 daAttackId :: Lens' DescribeAttack Text
-daAttackId = lens _daAttackId (\ s a -> s{_daAttackId = a});
+daAttackId = lens _daAttackId (\ s a -> s{_daAttackId = a})
 
 instance AWSRequest DescribeAttack where
         type Rs DescribeAttack = DescribeAttackResponse
@@ -117,15 +117,15 @@ describeAttackResponse
     -> DescribeAttackResponse
 describeAttackResponse pResponseStatus_ =
   DescribeAttackResponse'
-  {_darsAttack = Nothing, _darsResponseStatus = pResponseStatus_}
+    {_darsAttack = Nothing, _darsResponseStatus = pResponseStatus_}
 
 
 -- | The attack that is described.
 darsAttack :: Lens' DescribeAttackResponse (Maybe AttackDetail)
-darsAttack = lens _darsAttack (\ s a -> s{_darsAttack = a});
+darsAttack = lens _darsAttack (\ s a -> s{_darsAttack = a})
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAttackResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DescribeAttackResponse where

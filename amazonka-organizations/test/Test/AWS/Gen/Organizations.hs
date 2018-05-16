@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Organizations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,6 +61,9 @@ import Test.Tasty
 --         , requestDescribePolicy $
 --             describePolicy
 --
+--         , requestDisableAWSServiceAccess $
+--             disableAWSServiceAccess
+--
 --         , requestLeaveOrganization $
 --             leaveOrganization
 --
@@ -72,6 +75,9 @@ import Test.Tasty
 --
 --         , requestInviteAccountToOrganization $
 --             inviteAccountToOrganization
+--
+--         , requestListAWSServiceAccessForOrganization $
+--             listAWSServiceAccessForOrganization
 --
 --         , requestListOrganizationalUnitsForParent $
 --             listOrganizationalUnitsForParent
@@ -108,6 +114,9 @@ import Test.Tasty
 --
 --         , requestRemoveAccountFromOrganization $
 --             removeAccountFromOrganization
+--
+--         , requestEnableAWSServiceAccess $
+--             enableAWSServiceAccess
 --
 --         , requestDescribeOrganizationalUnit $
 --             describeOrganizationalUnit
@@ -181,6 +190,9 @@ import Test.Tasty
 --         , responseDescribePolicy $
 --             describePolicyResponse
 --
+--         , responseDisableAWSServiceAccess $
+--             disableAWSServiceAccessResponse
+--
 --         , responseLeaveOrganization $
 --             leaveOrganizationResponse
 --
@@ -192,6 +204,9 @@ import Test.Tasty
 --
 --         , responseInviteAccountToOrganization $
 --             inviteAccountToOrganizationResponse
+--
+--         , responseListAWSServiceAccessForOrganization $
+--             listAWSServiceAccessForOrganizationResponse
 --
 --         , responseListOrganizationalUnitsForParent $
 --             listOrganizationalUnitsForParentResponse
@@ -228,6 +243,9 @@ import Test.Tasty
 --
 --         , responseRemoveAccountFromOrganization $
 --             removeAccountFromOrganizationResponse
+--
+--         , responseEnableAWSServiceAccess $
+--             enableAWSServiceAccessResponse
 --
 --         , responseDescribeOrganizationalUnit $
 --             describeOrganizationalUnitResponse
@@ -325,6 +343,11 @@ requestDescribePolicy = req
     "DescribePolicy"
     "fixture/DescribePolicy.yaml"
 
+requestDisableAWSServiceAccess :: DisableAWSServiceAccess -> TestTree
+requestDisableAWSServiceAccess = req
+    "DisableAWSServiceAccess"
+    "fixture/DisableAWSServiceAccess.yaml"
+
 requestLeaveOrganization :: LeaveOrganization -> TestTree
 requestLeaveOrganization = req
     "LeaveOrganization"
@@ -344,6 +367,11 @@ requestInviteAccountToOrganization :: InviteAccountToOrganization -> TestTree
 requestInviteAccountToOrganization = req
     "InviteAccountToOrganization"
     "fixture/InviteAccountToOrganization.yaml"
+
+requestListAWSServiceAccessForOrganization :: ListAWSServiceAccessForOrganization -> TestTree
+requestListAWSServiceAccessForOrganization = req
+    "ListAWSServiceAccessForOrganization"
+    "fixture/ListAWSServiceAccessForOrganization.yaml"
 
 requestListOrganizationalUnitsForParent :: ListOrganizationalUnitsForParent -> TestTree
 requestListOrganizationalUnitsForParent = req
@@ -404,6 +432,11 @@ requestRemoveAccountFromOrganization :: RemoveAccountFromOrganization -> TestTre
 requestRemoveAccountFromOrganization = req
     "RemoveAccountFromOrganization"
     "fixture/RemoveAccountFromOrganization.yaml"
+
+requestEnableAWSServiceAccess :: EnableAWSServiceAccess -> TestTree
+requestEnableAWSServiceAccess = req
+    "EnableAWSServiceAccess"
+    "fixture/EnableAWSServiceAccess.yaml"
 
 requestDescribeOrganizationalUnit :: DescribeOrganizationalUnit -> TestTree
 requestDescribeOrganizationalUnit = req
@@ -544,6 +577,13 @@ responseDescribePolicy = res
     organizations
     (Proxy :: Proxy DescribePolicy)
 
+responseDisableAWSServiceAccess :: DisableAWSServiceAccessResponse -> TestTree
+responseDisableAWSServiceAccess = res
+    "DisableAWSServiceAccessResponse"
+    "fixture/DisableAWSServiceAccessResponse.proto"
+    organizations
+    (Proxy :: Proxy DisableAWSServiceAccess)
+
 responseLeaveOrganization :: LeaveOrganizationResponse -> TestTree
 responseLeaveOrganization = res
     "LeaveOrganizationResponse"
@@ -571,6 +611,13 @@ responseInviteAccountToOrganization = res
     "fixture/InviteAccountToOrganizationResponse.proto"
     organizations
     (Proxy :: Proxy InviteAccountToOrganization)
+
+responseListAWSServiceAccessForOrganization :: ListAWSServiceAccessForOrganizationResponse -> TestTree
+responseListAWSServiceAccessForOrganization = res
+    "ListAWSServiceAccessForOrganizationResponse"
+    "fixture/ListAWSServiceAccessForOrganizationResponse.proto"
+    organizations
+    (Proxy :: Proxy ListAWSServiceAccessForOrganization)
 
 responseListOrganizationalUnitsForParent :: ListOrganizationalUnitsForParentResponse -> TestTree
 responseListOrganizationalUnitsForParent = res
@@ -655,6 +702,13 @@ responseRemoveAccountFromOrganization = res
     "fixture/RemoveAccountFromOrganizationResponse.proto"
     organizations
     (Proxy :: Proxy RemoveAccountFromOrganization)
+
+responseEnableAWSServiceAccess :: EnableAWSServiceAccessResponse -> TestTree
+responseEnableAWSServiceAccess = res
+    "EnableAWSServiceAccessResponse"
+    "fixture/EnableAWSServiceAccessResponse.proto"
+    organizations
+    (Proxy :: Proxy EnableAWSServiceAccess)
 
 responseDescribeOrganizationalUnit :: DescribeOrganizationalUnitResponse -> TestTree
 responseDescribeOrganizationalUnit = res

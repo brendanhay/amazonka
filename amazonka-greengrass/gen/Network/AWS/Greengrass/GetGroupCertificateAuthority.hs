@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetGroupCertificateAuthority
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -56,27 +56,27 @@ data GetGroupCertificateAuthority = GetGroupCertificateAuthority'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggcaCertificateAuthorityId' - certificate authority Id
+-- * 'ggcaCertificateAuthorityId' - The ID of the certificate authority.
 --
--- * 'ggcaGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'ggcaGroupId' - The ID of the AWS Greengrass group.
 getGroupCertificateAuthority
     :: Text -- ^ 'ggcaCertificateAuthorityId'
     -> Text -- ^ 'ggcaGroupId'
     -> GetGroupCertificateAuthority
 getGroupCertificateAuthority pCertificateAuthorityId_ pGroupId_ =
   GetGroupCertificateAuthority'
-  { _ggcaCertificateAuthorityId = pCertificateAuthorityId_
-  , _ggcaGroupId = pGroupId_
-  }
+    { _ggcaCertificateAuthorityId = pCertificateAuthorityId_
+    , _ggcaGroupId = pGroupId_
+    }
 
 
--- | certificate authority Id
+-- | The ID of the certificate authority.
 ggcaCertificateAuthorityId :: Lens' GetGroupCertificateAuthority Text
-ggcaCertificateAuthorityId = lens _ggcaCertificateAuthorityId (\ s a -> s{_ggcaCertificateAuthorityId = a});
+ggcaCertificateAuthorityId = lens _ggcaCertificateAuthorityId (\ s a -> s{_ggcaCertificateAuthorityId = a})
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 ggcaGroupId :: Lens' GetGroupCertificateAuthority Text
-ggcaGroupId = lens _ggcaGroupId (\ s a -> s{_ggcaGroupId = a});
+ggcaGroupId = lens _ggcaGroupId (\ s a -> s{_ggcaGroupId = a})
 
 instance AWSRequest GetGroupCertificateAuthority
          where
@@ -126,11 +126,11 @@ data GetGroupCertificateAuthorityResponse = GetGroupCertificateAuthorityResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggcarsPemEncodedCertificate' - PEM encoded certificate for the group.
+-- * 'ggcarsPemEncodedCertificate' - The PEM encoded certificate for the group.
 --
--- * 'ggcarsGroupCertificateAuthorityARN' - Arn of the certificate authority for the group.
+-- * 'ggcarsGroupCertificateAuthorityARN' - The ARN of the certificate authority for the group.
 --
--- * 'ggcarsGroupCertificateAuthorityId' - Id of the certificate authority for the group.
+-- * 'ggcarsGroupCertificateAuthorityId' - The ID of the certificate authority for the group.
 --
 -- * 'ggcarsResponseStatus' - -- | The response status code.
 getGroupCertificateAuthorityResponse
@@ -138,28 +138,28 @@ getGroupCertificateAuthorityResponse
     -> GetGroupCertificateAuthorityResponse
 getGroupCertificateAuthorityResponse pResponseStatus_ =
   GetGroupCertificateAuthorityResponse'
-  { _ggcarsPemEncodedCertificate = Nothing
-  , _ggcarsGroupCertificateAuthorityARN = Nothing
-  , _ggcarsGroupCertificateAuthorityId = Nothing
-  , _ggcarsResponseStatus = pResponseStatus_
-  }
+    { _ggcarsPemEncodedCertificate = Nothing
+    , _ggcarsGroupCertificateAuthorityARN = Nothing
+    , _ggcarsGroupCertificateAuthorityId = Nothing
+    , _ggcarsResponseStatus = pResponseStatus_
+    }
 
 
--- | PEM encoded certificate for the group.
+-- | The PEM encoded certificate for the group.
 ggcarsPemEncodedCertificate :: Lens' GetGroupCertificateAuthorityResponse (Maybe Text)
-ggcarsPemEncodedCertificate = lens _ggcarsPemEncodedCertificate (\ s a -> s{_ggcarsPemEncodedCertificate = a});
+ggcarsPemEncodedCertificate = lens _ggcarsPemEncodedCertificate (\ s a -> s{_ggcarsPemEncodedCertificate = a})
 
--- | Arn of the certificate authority for the group.
+-- | The ARN of the certificate authority for the group.
 ggcarsGroupCertificateAuthorityARN :: Lens' GetGroupCertificateAuthorityResponse (Maybe Text)
-ggcarsGroupCertificateAuthorityARN = lens _ggcarsGroupCertificateAuthorityARN (\ s a -> s{_ggcarsGroupCertificateAuthorityARN = a});
+ggcarsGroupCertificateAuthorityARN = lens _ggcarsGroupCertificateAuthorityARN (\ s a -> s{_ggcarsGroupCertificateAuthorityARN = a})
 
--- | Id of the certificate authority for the group.
+-- | The ID of the certificate authority for the group.
 ggcarsGroupCertificateAuthorityId :: Lens' GetGroupCertificateAuthorityResponse (Maybe Text)
-ggcarsGroupCertificateAuthorityId = lens _ggcarsGroupCertificateAuthorityId (\ s a -> s{_ggcarsGroupCertificateAuthorityId = a});
+ggcarsGroupCertificateAuthorityId = lens _ggcarsGroupCertificateAuthorityId (\ s a -> s{_ggcarsGroupCertificateAuthorityId = a})
 
 -- | -- | The response status code.
 ggcarsResponseStatus :: Lens' GetGroupCertificateAuthorityResponse Int
-ggcarsResponseStatus = lens _ggcarsResponseStatus (\ s a -> s{_ggcarsResponseStatus = a});
+ggcarsResponseStatus = lens _ggcarsResponseStatus (\ s a -> s{_ggcarsResponseStatus = a})
 
 instance NFData GetGroupCertificateAuthorityResponse
          where

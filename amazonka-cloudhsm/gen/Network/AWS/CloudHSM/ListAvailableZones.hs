@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ListAvailableZones
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -115,15 +115,15 @@ listAvailableZonesResponse
     -> ListAvailableZonesResponse
 listAvailableZonesResponse pResponseStatus_ =
   ListAvailableZonesResponse'
-  {_lazrsAZList = Nothing, _lazrsResponseStatus = pResponseStatus_}
+    {_lazrsAZList = Nothing, _lazrsResponseStatus = pResponseStatus_}
 
 
 -- | The list of Availability Zones that have available AWS CloudHSM capacity.
 lazrsAZList :: Lens' ListAvailableZonesResponse [Text]
-lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default . _Coerce;
+lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lazrsResponseStatus :: Lens' ListAvailableZonesResponse Int
-lazrsResponseStatus = lens _lazrsResponseStatus (\ s a -> s{_lazrsResponseStatus = a});
+lazrsResponseStatus = lens _lazrsResponseStatus (\ s a -> s{_lazrsResponseStatus = a})
 
 instance NFData ListAvailableZonesResponse where

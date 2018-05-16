@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DeleteVault
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,11 +76,11 @@ deleteVault pAccountId_ pVaultName_ =
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 dAccountId :: Lens' DeleteVault Text
-dAccountId = lens _dAccountId (\ s a -> s{_dAccountId = a});
+dAccountId = lens _dAccountId (\ s a -> s{_dAccountId = a})
 
 -- | The name of the vault.
 dVaultName :: Lens' DeleteVault Text
-dVaultName = lens _dVaultName (\ s a -> s{_dVaultName = a});
+dVaultName = lens _dVaultName (\ s a -> s{_dVaultName = a})
 
 instance AWSRequest DeleteVault where
         type Rs DeleteVault = DeleteVaultResponse

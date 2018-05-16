@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DeleteAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ deleteAttributes =
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete attributes. If you do not specify a cluster, the default cluster is assumed.
 daCluster :: Lens' DeleteAttributes (Maybe Text)
-daCluster = lens _daCluster (\ s a -> s{_daCluster = a});
+daCluster = lens _daCluster (\ s a -> s{_daCluster = a})
 
 -- | The attributes to delete from your resource. You can specify up to 10 attributes per request. For custom attributes, specify the attribute name and target ID, but do not specify the value. If you specify the target ID using the short form, you must also specify the target type.
 daAttributes :: Lens' DeleteAttributes [Attribute]
-daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a}) . _Coerce;
+daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a}) . _Coerce
 
 instance AWSRequest DeleteAttributes where
         type Rs DeleteAttributes = DeleteAttributesResponse
@@ -129,15 +129,15 @@ deleteAttributesResponse
     -> DeleteAttributesResponse
 deleteAttributesResponse pResponseStatus_ =
   DeleteAttributesResponse'
-  {_darsAttributes = Nothing, _darsResponseStatus = pResponseStatus_}
+    {_darsAttributes = Nothing, _darsResponseStatus = pResponseStatus_}
 
 
 -- | A list of attribute objects that were successfully deleted from your resource.
 darsAttributes :: Lens' DeleteAttributesResponse [Attribute]
-darsAttributes = lens _darsAttributes (\ s a -> s{_darsAttributes = a}) . _Default . _Coerce;
+darsAttributes = lens _darsAttributes (\ s a -> s{_darsAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DeleteAttributesResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DeleteAttributesResponse where

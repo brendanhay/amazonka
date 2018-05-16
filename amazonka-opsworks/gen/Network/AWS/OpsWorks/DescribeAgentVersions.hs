@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeAgentVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,16 +63,16 @@ describeAgentVersions
     :: DescribeAgentVersions
 describeAgentVersions =
   DescribeAgentVersions'
-  {_davConfigurationManager = Nothing, _davStackId = Nothing}
+    {_davConfigurationManager = Nothing, _davStackId = Nothing}
 
 
 -- | The configuration manager.
 davConfigurationManager :: Lens' DescribeAgentVersions (Maybe StackConfigurationManager)
-davConfigurationManager = lens _davConfigurationManager (\ s a -> s{_davConfigurationManager = a});
+davConfigurationManager = lens _davConfigurationManager (\ s a -> s{_davConfigurationManager = a})
 
 -- | The stack ID.
 davStackId :: Lens' DescribeAgentVersions (Maybe Text)
-davStackId = lens _davStackId (\ s a -> s{_davStackId = a});
+davStackId = lens _davStackId (\ s a -> s{_davStackId = a})
 
 instance AWSRequest DescribeAgentVersions where
         type Rs DescribeAgentVersions =
@@ -136,15 +136,15 @@ describeAgentVersionsResponse
     -> DescribeAgentVersionsResponse
 describeAgentVersionsResponse pResponseStatus_ =
   DescribeAgentVersionsResponse'
-  {_davrsAgentVersions = Nothing, _davrsResponseStatus = pResponseStatus_}
+    {_davrsAgentVersions = Nothing, _davrsResponseStatus = pResponseStatus_}
 
 
 -- | The agent versions for the specified stack or configuration manager. Note that this value is the complete version number, not the abbreviated number used by the console.
 davrsAgentVersions :: Lens' DescribeAgentVersionsResponse [AgentVersion]
-davrsAgentVersions = lens _davrsAgentVersions (\ s a -> s{_davrsAgentVersions = a}) . _Default . _Coerce;
+davrsAgentVersions = lens _davrsAgentVersions (\ s a -> s{_davrsAgentVersions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 davrsResponseStatus :: Lens' DescribeAgentVersionsResponse Int
-davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a});
+davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a})
 
 instance NFData DescribeAgentVersionsResponse where

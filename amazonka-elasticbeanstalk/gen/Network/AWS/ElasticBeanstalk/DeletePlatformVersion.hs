@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeletePlatformVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deletePlatformVersion = DeletePlatformVersion' {_dpvPlatformARN = Nothing}
 
 -- | The ARN of the version of the custom platform.
 dpvPlatformARN :: Lens' DeletePlatformVersion (Maybe Text)
-dpvPlatformARN = lens _dpvPlatformARN (\ s a -> s{_dpvPlatformARN = a});
+dpvPlatformARN = lens _dpvPlatformARN (\ s a -> s{_dpvPlatformARN = a})
 
 instance AWSRequest DeletePlatformVersion where
         type Rs DeletePlatformVersion =
@@ -110,15 +110,15 @@ deletePlatformVersionResponse
     -> DeletePlatformVersionResponse
 deletePlatformVersionResponse pResponseStatus_ =
   DeletePlatformVersionResponse'
-  {_dpvrsPlatformSummary = Nothing, _dpvrsResponseStatus = pResponseStatus_}
+    {_dpvrsPlatformSummary = Nothing, _dpvrsResponseStatus = pResponseStatus_}
 
 
 -- | Detailed information about the version of the custom platform.
 dpvrsPlatformSummary :: Lens' DeletePlatformVersionResponse (Maybe PlatformSummary)
-dpvrsPlatformSummary = lens _dpvrsPlatformSummary (\ s a -> s{_dpvrsPlatformSummary = a});
+dpvrsPlatformSummary = lens _dpvrsPlatformSummary (\ s a -> s{_dpvrsPlatformSummary = a})
 
 -- | -- | The response status code.
 dpvrsResponseStatus :: Lens' DeletePlatformVersionResponse Int
-dpvrsResponseStatus = lens _dpvrsResponseStatus (\ s a -> s{_dpvrsResponseStatus = a});
+dpvrsResponseStatus = lens _dpvrsResponseStatus (\ s a -> s{_dpvrsResponseStatus = a})
 
 instance NFData DeletePlatformVersionResponse where

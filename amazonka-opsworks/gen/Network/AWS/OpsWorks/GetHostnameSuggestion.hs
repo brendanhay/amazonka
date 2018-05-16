@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.GetHostnameSuggestion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getHostnameSuggestion pLayerId_ =
 
 -- | The layer ID.
 ghsLayerId :: Lens' GetHostnameSuggestion Text
-ghsLayerId = lens _ghsLayerId (\ s a -> s{_ghsLayerId = a});
+ghsLayerId = lens _ghsLayerId (\ s a -> s{_ghsLayerId = a})
 
 instance AWSRequest GetHostnameSuggestion where
         type Rs GetHostnameSuggestion =
@@ -131,22 +131,22 @@ getHostnameSuggestionResponse
     -> GetHostnameSuggestionResponse
 getHostnameSuggestionResponse pResponseStatus_ =
   GetHostnameSuggestionResponse'
-  { _ghsrsHostname = Nothing
-  , _ghsrsLayerId = Nothing
-  , _ghsrsResponseStatus = pResponseStatus_
-  }
+    { _ghsrsHostname = Nothing
+    , _ghsrsLayerId = Nothing
+    , _ghsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The generated host name.
 ghsrsHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghsrsHostname = lens _ghsrsHostname (\ s a -> s{_ghsrsHostname = a});
+ghsrsHostname = lens _ghsrsHostname (\ s a -> s{_ghsrsHostname = a})
 
 -- | The layer ID.
 ghsrsLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghsrsLayerId = lens _ghsrsLayerId (\ s a -> s{_ghsrsLayerId = a});
+ghsrsLayerId = lens _ghsrsLayerId (\ s a -> s{_ghsrsLayerId = a})
 
 -- | -- | The response status code.
 ghsrsResponseStatus :: Lens' GetHostnameSuggestionResponse Int
-ghsrsResponseStatus = lens _ghsrsResponseStatus (\ s a -> s{_ghsrsResponseStatus = a});
+ghsrsResponseStatus = lens _ghsrsResponseStatus (\ s a -> s{_ghsrsResponseStatus = a})
 
 instance NFData GetHostnameSuggestionResponse where

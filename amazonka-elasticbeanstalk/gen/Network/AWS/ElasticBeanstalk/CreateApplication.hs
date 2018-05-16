@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateApplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ createApplication
     -> CreateApplication
 createApplication pApplicationName_ =
   CreateApplication'
-  { _caResourceLifecycleConfig = Nothing
-  , _caDescription = Nothing
-  , _caApplicationName = pApplicationName_
-  }
+    { _caResourceLifecycleConfig = Nothing
+    , _caDescription = Nothing
+    , _caApplicationName = pApplicationName_
+    }
 
 
 -- | Specify an application resource lifecycle configuration to prevent your application from accumulating too many versions.
 caResourceLifecycleConfig :: Lens' CreateApplication (Maybe ApplicationResourceLifecycleConfig)
-caResourceLifecycleConfig = lens _caResourceLifecycleConfig (\ s a -> s{_caResourceLifecycleConfig = a});
+caResourceLifecycleConfig = lens _caResourceLifecycleConfig (\ s a -> s{_caResourceLifecycleConfig = a})
 
 -- | Describes the application.
 caDescription :: Lens' CreateApplication (Maybe Text)
-caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
+caDescription = lens _caDescription (\ s a -> s{_caDescription = a})
 
 -- | The name of the application. Constraint: This name must be unique within your account. If the specified name already exists, the action returns an @InvalidParameterValue@ error.
 caApplicationName :: Lens' CreateApplication Text
-caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
+caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a})
 
 instance AWSRequest CreateApplication where
         type Rs CreateApplication =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,7 +80,7 @@ deleteAlias pAliasId_ = DeleteAlias' {_daAliasId = pAliasId_}
 
 -- | Unique identifier for a fleet alias. Specify the alias you want to delete.
 daAliasId :: Lens' DeleteAlias Text
-daAliasId = lens _daAliasId (\ s a -> s{_daAliasId = a});
+daAliasId = lens _daAliasId (\ s a -> s{_daAliasId = a})
 
 instance AWSRequest DeleteAlias where
         type Rs DeleteAlias = DeleteAliasResponse

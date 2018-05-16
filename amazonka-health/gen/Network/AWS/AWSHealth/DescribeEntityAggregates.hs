@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeEntityAggregates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ describeEntityAggregates = DescribeEntityAggregates' {_deaEventARNs = Nothing}
 
 -- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
 deaEventARNs :: Lens' DescribeEntityAggregates (Maybe (NonEmpty Text))
-deaEventARNs = lens _deaEventARNs (\ s a -> s{_deaEventARNs = a}) . mapping _List1;
+deaEventARNs = lens _deaEventARNs (\ s a -> s{_deaEventARNs = a}) . mapping _List1
 
 instance AWSRequest DescribeEntityAggregates where
         type Rs DescribeEntityAggregates =
@@ -119,16 +119,16 @@ describeEntityAggregatesResponse
     -> DescribeEntityAggregatesResponse
 describeEntityAggregatesResponse pResponseStatus_ =
   DescribeEntityAggregatesResponse'
-  {_dearsEntityAggregates = Nothing, _dearsResponseStatus = pResponseStatus_}
+    {_dearsEntityAggregates = Nothing, _dearsResponseStatus = pResponseStatus_}
 
 
 -- | The number of entities that are affected by each of the specified events.
 dearsEntityAggregates :: Lens' DescribeEntityAggregatesResponse [EntityAggregate]
-dearsEntityAggregates = lens _dearsEntityAggregates (\ s a -> s{_dearsEntityAggregates = a}) . _Default . _Coerce;
+dearsEntityAggregates = lens _dearsEntityAggregates (\ s a -> s{_dearsEntityAggregates = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dearsResponseStatus :: Lens' DescribeEntityAggregatesResponse Int
-dearsResponseStatus = lens _dearsResponseStatus (\ s a -> s{_dearsResponseStatus = a});
+dearsResponseStatus = lens _dearsResponseStatus (\ s a -> s{_dearsResponseStatus = a})
 
 instance NFData DescribeEntityAggregatesResponse
          where

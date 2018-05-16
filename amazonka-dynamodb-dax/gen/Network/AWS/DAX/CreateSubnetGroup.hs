@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.CreateSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ createSubnetGroup
     -> CreateSubnetGroup
 createSubnetGroup pSubnetGroupName_ =
   CreateSubnetGroup'
-  { _csgDescription = Nothing
-  , _csgSubnetGroupName = pSubnetGroupName_
-  , _csgSubnetIds = mempty
-  }
+    { _csgDescription = Nothing
+    , _csgSubnetGroupName = pSubnetGroupName_
+    , _csgSubnetIds = mempty
+    }
 
 
 -- | A description for the subnet group
 csgDescription :: Lens' CreateSubnetGroup (Maybe Text)
-csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
+csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a})
 
 -- | A name for the subnet group. This value is stored as a lowercase string.
 csgSubnetGroupName :: Lens' CreateSubnetGroup Text
-csgSubnetGroupName = lens _csgSubnetGroupName (\ s a -> s{_csgSubnetGroupName = a});
+csgSubnetGroupName = lens _csgSubnetGroupName (\ s a -> s{_csgSubnetGroupName = a})
 
 -- | A list of VPC subnet IDs for the subnet group.
 csgSubnetIds :: Lens' CreateSubnetGroup [Text]
-csgSubnetIds = lens _csgSubnetIds (\ s a -> s{_csgSubnetIds = a}) . _Coerce;
+csgSubnetIds = lens _csgSubnetIds (\ s a -> s{_csgSubnetIds = a}) . _Coerce
 
 instance AWSRequest CreateSubnetGroup where
         type Rs CreateSubnetGroup = CreateSubnetGroupResponse
@@ -141,15 +141,15 @@ createSubnetGroupResponse
     -> CreateSubnetGroupResponse
 createSubnetGroupResponse pResponseStatus_ =
   CreateSubnetGroupResponse'
-  {_csgrsSubnetGroup = Nothing, _csgrsResponseStatus = pResponseStatus_}
+    {_csgrsSubnetGroup = Nothing, _csgrsResponseStatus = pResponseStatus_}
 
 
 -- | Represents the output of a /CreateSubnetGroup/ operation.
 csgrsSubnetGroup :: Lens' CreateSubnetGroupResponse (Maybe SubnetGroup)
-csgrsSubnetGroup = lens _csgrsSubnetGroup (\ s a -> s{_csgrsSubnetGroup = a});
+csgrsSubnetGroup = lens _csgrsSubnetGroup (\ s a -> s{_csgrsSubnetGroup = a})
 
 -- | -- | The response status code.
 csgrsResponseStatus :: Lens' CreateSubnetGroupResponse Int
-csgrsResponseStatus = lens _csgrsResponseStatus (\ s a -> s{_csgrsResponseStatus = a});
+csgrsResponseStatus = lens _csgrsResponseStatus (\ s a -> s{_csgrsResponseStatus = a})
 
 instance NFData CreateSubnetGroupResponse where

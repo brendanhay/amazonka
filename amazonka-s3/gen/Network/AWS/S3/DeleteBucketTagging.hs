@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketTagging
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ deleteBucketTagging pBucket_ = DeleteBucketTagging' {_dbtBucket = pBucket_}
 
 -- | Undocumented member.
 dbtBucket :: Lens' DeleteBucketTagging BucketName
-dbtBucket = lens _dbtBucket (\ s a -> s{_dbtBucket = a});
+dbtBucket = lens _dbtBucket (\ s a -> s{_dbtBucket = a})
 
 instance AWSRequest DeleteBucketTagging where
         type Rs DeleteBucketTagging =

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.DeleteStateMachine
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a state machine. This is an asynchronous operation-- it sets the state machine's status to "DELETING" and begins the delete process. Each state machine execution will be deleted the next time it makes a state transition. After all executions have completed or been deleted, the state machine itself will be deleted.
+-- Deletes a state machine. This is an asynchronous operation: It sets the state machine's status to @DELETING@ and begins the deletion process. Each state machine execution is deleted the next time it makes a state transition.
 --
 --
 module Network.AWS.StepFunctions.DeleteStateMachine
@@ -63,7 +63,7 @@ deleteStateMachine pStateMachineARN_ =
 
 -- | The Amazon Resource Name (ARN) of the state machine to delete.
 dStateMachineARN :: Lens' DeleteStateMachine Text
-dStateMachineARN = lens _dStateMachineARN (\ s a -> s{_dStateMachineARN = a});
+dStateMachineARN = lens _dStateMachineARN (\ s a -> s{_dStateMachineARN = a})
 
 instance AWSRequest DeleteStateMachine where
         type Rs DeleteStateMachine =
@@ -120,6 +120,6 @@ deleteStateMachineResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteStateMachineResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteStateMachineResponse where

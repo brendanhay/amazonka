@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateIdentityProvider
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,38 +82,38 @@ createIdentityProvider
     -> CreateIdentityProvider
 createIdentityProvider pUserPoolId_ pProviderName_ pProviderType_ =
   CreateIdentityProvider'
-  { _cipIdpIdentifiers = Nothing
-  , _cipAttributeMapping = Nothing
-  , _cipUserPoolId = pUserPoolId_
-  , _cipProviderName = pProviderName_
-  , _cipProviderType = pProviderType_
-  , _cipProviderDetails = mempty
-  }
+    { _cipIdpIdentifiers = Nothing
+    , _cipAttributeMapping = Nothing
+    , _cipUserPoolId = pUserPoolId_
+    , _cipProviderName = pProviderName_
+    , _cipProviderType = pProviderType_
+    , _cipProviderDetails = mempty
+    }
 
 
 -- | A list of identity provider identifiers.
 cipIdpIdentifiers :: Lens' CreateIdentityProvider [Text]
-cipIdpIdentifiers = lens _cipIdpIdentifiers (\ s a -> s{_cipIdpIdentifiers = a}) . _Default . _Coerce;
+cipIdpIdentifiers = lens _cipIdpIdentifiers (\ s a -> s{_cipIdpIdentifiers = a}) . _Default . _Coerce
 
 -- | A mapping of identity provider attributes to standard and custom user pool attributes.
 cipAttributeMapping :: Lens' CreateIdentityProvider (HashMap Text Text)
-cipAttributeMapping = lens _cipAttributeMapping (\ s a -> s{_cipAttributeMapping = a}) . _Default . _Map;
+cipAttributeMapping = lens _cipAttributeMapping (\ s a -> s{_cipAttributeMapping = a}) . _Default . _Map
 
 -- | The user pool ID.
 cipUserPoolId :: Lens' CreateIdentityProvider Text
-cipUserPoolId = lens _cipUserPoolId (\ s a -> s{_cipUserPoolId = a});
+cipUserPoolId = lens _cipUserPoolId (\ s a -> s{_cipUserPoolId = a})
 
 -- | The identity provider name.
 cipProviderName :: Lens' CreateIdentityProvider Text
-cipProviderName = lens _cipProviderName (\ s a -> s{_cipProviderName = a});
+cipProviderName = lens _cipProviderName (\ s a -> s{_cipProviderName = a})
 
 -- | The identity provider type.
 cipProviderType :: Lens' CreateIdentityProvider IdentityProviderTypeType
-cipProviderType = lens _cipProviderType (\ s a -> s{_cipProviderType = a});
+cipProviderType = lens _cipProviderType (\ s a -> s{_cipProviderType = a})
 
 -- | The identity provider details, such as @MetadataURL@ and @MetadataFile@ .
 cipProviderDetails :: Lens' CreateIdentityProvider (HashMap Text Text)
-cipProviderDetails = lens _cipProviderDetails (\ s a -> s{_cipProviderDetails = a}) . _Map;
+cipProviderDetails = lens _cipProviderDetails (\ s a -> s{_cipProviderDetails = a}) . _Map
 
 instance AWSRequest CreateIdentityProvider where
         type Rs CreateIdentityProvider =
@@ -176,17 +176,17 @@ createIdentityProviderResponse
     -> CreateIdentityProviderResponse
 createIdentityProviderResponse pResponseStatus_ pIdentityProvider_ =
   CreateIdentityProviderResponse'
-  { _ciprsResponseStatus = pResponseStatus_
-  , _ciprsIdentityProvider = pIdentityProvider_
-  }
+    { _ciprsResponseStatus = pResponseStatus_
+    , _ciprsIdentityProvider = pIdentityProvider_
+    }
 
 
 -- | -- | The response status code.
 ciprsResponseStatus :: Lens' CreateIdentityProviderResponse Int
-ciprsResponseStatus = lens _ciprsResponseStatus (\ s a -> s{_ciprsResponseStatus = a});
+ciprsResponseStatus = lens _ciprsResponseStatus (\ s a -> s{_ciprsResponseStatus = a})
 
 -- | The newly created identity provider object.
 ciprsIdentityProvider :: Lens' CreateIdentityProviderResponse IdentityProviderType
-ciprsIdentityProvider = lens _ciprsIdentityProvider (\ s a -> s{_ciprsIdentityProvider = a});
+ciprsIdentityProvider = lens _ciprsIdentityProvider (\ s a -> s{_ciprsIdentityProvider = a})
 
 instance NFData CreateIdentityProviderResponse where

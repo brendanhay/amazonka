@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketLogging
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ getBucketLogging pBucket_ = GetBucketLogging' {_gBucket = pBucket_}
 
 -- | Undocumented member.
 gBucket :: Lens' GetBucketLogging BucketName
-gBucket = lens _gBucket (\ s a -> s{_gBucket = a});
+gBucket = lens _gBucket (\ s a -> s{_gBucket = a})
 
 instance AWSRequest GetBucketLogging where
         type Rs GetBucketLogging = GetBucketLoggingResponse
@@ -105,15 +105,15 @@ getBucketLoggingResponse
     -> GetBucketLoggingResponse
 getBucketLoggingResponse pResponseStatus_ =
   GetBucketLoggingResponse'
-  {_gblrsLoggingEnabled = Nothing, _gblrsResponseStatus = pResponseStatus_}
+    {_gblrsLoggingEnabled = Nothing, _gblrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 gblrsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
-gblrsLoggingEnabled = lens _gblrsLoggingEnabled (\ s a -> s{_gblrsLoggingEnabled = a});
+gblrsLoggingEnabled = lens _gblrsLoggingEnabled (\ s a -> s{_gblrsLoggingEnabled = a})
 
 -- | -- | The response status code.
 gblrsResponseStatus :: Lens' GetBucketLoggingResponse Int
-gblrsResponseStatus = lens _gblrsResponseStatus (\ s a -> s{_gblrsResponseStatus = a});
+gblrsResponseStatus = lens _gblrsResponseStatus (\ s a -> s{_gblrsResponseStatus = a})
 
 instance NFData GetBucketLoggingResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ deleteRetentionPolicy pLogGroupName_ =
 
 -- | The name of the log group.
 drpLogGroupName :: Lens' DeleteRetentionPolicy Text
-drpLogGroupName = lens _drpLogGroupName (\ s a -> s{_drpLogGroupName = a});
+drpLogGroupName = lens _drpLogGroupName (\ s a -> s{_drpLogGroupName = a})
 
 instance AWSRequest DeleteRetentionPolicy where
         type Rs DeleteRetentionPolicy =

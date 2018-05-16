@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteInstance pInstanceName_ =
 
 -- | The name of the instance to delete.
 diInstanceName :: Lens' DeleteInstance Text
-diInstanceName = lens _diInstanceName (\ s a -> s{_diInstanceName = a});
+diInstanceName = lens _diInstanceName (\ s a -> s{_diInstanceName = a})
 
 instance AWSRequest DeleteInstance where
         type Rs DeleteInstance = DeleteInstanceResponse
@@ -120,15 +120,15 @@ deleteInstanceResponse
     -> DeleteInstanceResponse
 deleteInstanceResponse pResponseStatus_ =
   DeleteInstanceResponse'
-  {_dirsOperations = Nothing, _dirsResponseStatus = pResponseStatus_}
+    {_dirsOperations = Nothing, _dirsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the results of your delete instance request.
 dirsOperations :: Lens' DeleteInstanceResponse [Operation]
-dirsOperations = lens _dirsOperations (\ s a -> s{_dirsOperations = a}) . _Default . _Coerce;
+dirsOperations = lens _dirsOperations (\ s a -> s{_dirsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dirsResponseStatus :: Lens' DeleteInstanceResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
 
 instance NFData DeleteInstanceResponse where

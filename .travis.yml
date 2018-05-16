@@ -83,6 +83,9 @@ matrix:
       addons: {apt: {packages: [ghc-7.10.3], sources: [hvr-ghc]}}
 
     # Remainder
+    - env: LIBRARY=amazonka-alexa-business GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-alexa-business-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-apigateway GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-apigateway-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
@@ -92,10 +95,16 @@ matrix:
     - env: LIBRARY=amazonka-appstream GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-appstream-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-appsync GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-appsync-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-athena GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-athena-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-autoscaling GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-autoscaling-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-autoscaling-plans GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-autoscaling-plans-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-batch GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-batch-8.2.2
@@ -105,6 +114,12 @@ matrix:
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-certificatemanager GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-certificatemanager-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-certificatemanager-pca GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-certificatemanager-pca-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-cloud9 GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-cloud9-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-clouddirectory GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-clouddirectory-8.2.2
@@ -164,7 +179,16 @@ matrix:
     - env: LIBRARY=amazonka-cognito-sync GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-cognito-sync-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-comprehend GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-comprehend-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-config GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-config-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-connect GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-connect-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-cost-explorer GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-cost-explorer-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-cur GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-cur-8.2.2
@@ -224,6 +248,9 @@ matrix:
     - env: LIBRARY=amazonka-elbv2 GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-elbv2-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-fms GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-fms-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-gamelift GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-gamelift-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
@@ -234,6 +261,9 @@ matrix:
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-greengrass GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-greengrass-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-guardduty GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-guardduty-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-health GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-health-8.2.2
@@ -251,7 +281,13 @@ matrix:
     - env: LIBRARY=amazonka-iot GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-iot-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-iot-analytics GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-iot-analytics-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-iot-dataplane GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-iot-dataplane-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-iot-jobs-dataplane GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-iot-jobs-dataplane-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-kinesis GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-kinesis-8.2.2
@@ -261,6 +297,15 @@ matrix:
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-kinesis-firehose GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-kinesis-firehose-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-kinesis-video GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-kinesis-video-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-kinesis-video-archived-media GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-kinesis-video-archived-media-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-kinesis-video-media GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-kinesis-video-media-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-kms GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-kms-8.2.2
@@ -290,6 +335,21 @@ matrix:
     - env: LIBRARY=amazonka-mechanicalturk GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-mechanicalturk-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-mediaconvert GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-mediaconvert-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-medialive GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-medialive-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-mediapackage GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-mediapackage-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-mediastore GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-mediastore-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-mediastore-dataplane GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-mediastore-dataplane-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-migrationhub GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-migrationhub-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
@@ -297,6 +357,9 @@ matrix:
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-mobile GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-mobile-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-mq GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-mq-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-opsworks GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-opsworks-8.2.2
@@ -326,10 +389,16 @@ matrix:
     - env: LIBRARY=amazonka-rekognition GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-rekognition-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-resourcegroups GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-resourcegroups-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-resourcegroupstagging GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-resourcegroupstagging-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-route53 GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-route53-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-route53-autonaming GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-route53-autonaming-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-route53-domains GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-route53-domains-8.2.2
@@ -338,7 +407,19 @@ matrix:
     - env: LIBRARY=amazonka-s3-encryption GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-s3-encryption-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-sagemaker GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-sagemaker-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-sagemaker-runtime GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-sagemaker-runtime-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-sdb GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-sdb-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-secretsmanager GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-secretsmanager-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-serverlessrepo GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-serverlessrepo-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-servicecatalog GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-servicecatalog-8.2.2
@@ -380,6 +461,12 @@ matrix:
     - env: LIBRARY=amazonka-swf GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-swf-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-transcribe GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-transcribe-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-translate GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-translate-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-waf GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-waf-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
@@ -387,6 +474,9 @@ matrix:
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-workdocs GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-workdocs-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-workmail GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-workmail-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-workspaces GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-workspaces-8.2.2

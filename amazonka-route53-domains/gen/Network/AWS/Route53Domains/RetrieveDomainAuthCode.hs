@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.RetrieveDomainAuthCode
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ retrieveDomainAuthCode pDomainName_ =
 
 -- | The name of the domain that you want to get an authorization code for.
 rdacDomainName :: Lens' RetrieveDomainAuthCode Text
-rdacDomainName = lens _rdacDomainName (\ s a -> s{_rdacDomainName = a});
+rdacDomainName = lens _rdacDomainName (\ s a -> s{_rdacDomainName = a})
 
 instance AWSRequest RetrieveDomainAuthCode where
         type Rs RetrieveDomainAuthCode =
@@ -129,17 +129,17 @@ retrieveDomainAuthCodeResponse
     -> RetrieveDomainAuthCodeResponse
 retrieveDomainAuthCodeResponse pResponseStatus_ pAuthCode_ =
   RetrieveDomainAuthCodeResponse'
-  { _rdacrsResponseStatus = pResponseStatus_
-  , _rdacrsAuthCode = _Sensitive # pAuthCode_
-  }
+    { _rdacrsResponseStatus = pResponseStatus_
+    , _rdacrsAuthCode = _Sensitive # pAuthCode_
+    }
 
 
 -- | -- | The response status code.
 rdacrsResponseStatus :: Lens' RetrieveDomainAuthCodeResponse Int
-rdacrsResponseStatus = lens _rdacrsResponseStatus (\ s a -> s{_rdacrsResponseStatus = a});
+rdacrsResponseStatus = lens _rdacrsResponseStatus (\ s a -> s{_rdacrsResponseStatus = a})
 
 -- | The authorization code for the domain.
 rdacrsAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
-rdacrsAuthCode = lens _rdacrsAuthCode (\ s a -> s{_rdacrsAuthCode = a}) . _Sensitive;
+rdacrsAuthCode = lens _rdacrsAuthCode (\ s a -> s{_rdacrsAuthCode = a}) . _Sensitive
 
 instance NFData RetrieveDomainAuthCodeResponse where

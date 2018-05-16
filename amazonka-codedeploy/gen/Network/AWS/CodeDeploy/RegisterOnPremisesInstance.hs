@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.RegisterOnPremisesInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ registerOnPremisesInstance
     -> RegisterOnPremisesInstance
 registerOnPremisesInstance pInstanceName_ =
   RegisterOnPremisesInstance'
-  { _ropiIamUserARN = Nothing
-  , _ropiIamSessionARN = Nothing
-  , _ropiInstanceName = pInstanceName_
-  }
+    { _ropiIamUserARN = Nothing
+    , _ropiIamSessionARN = Nothing
+    , _ropiInstanceName = pInstanceName_
+    }
 
 
 -- | The ARN of the IAM user to associate with the on-premises instance.
 ropiIamUserARN :: Lens' RegisterOnPremisesInstance (Maybe Text)
-ropiIamUserARN = lens _ropiIamUserARN (\ s a -> s{_ropiIamUserARN = a});
+ropiIamUserARN = lens _ropiIamUserARN (\ s a -> s{_ropiIamUserARN = a})
 
 -- | The ARN of the IAM session to associate with the on-premises instance.
 ropiIamSessionARN :: Lens' RegisterOnPremisesInstance (Maybe Text)
-ropiIamSessionARN = lens _ropiIamSessionARN (\ s a -> s{_ropiIamSessionARN = a});
+ropiIamSessionARN = lens _ropiIamSessionARN (\ s a -> s{_ropiIamSessionARN = a})
 
 -- | The name of the on-premises instance to register.
 ropiInstanceName :: Lens' RegisterOnPremisesInstance Text
-ropiInstanceName = lens _ropiInstanceName (\ s a -> s{_ropiInstanceName = a});
+ropiInstanceName = lens _ropiInstanceName (\ s a -> s{_ropiInstanceName = a})
 
 instance AWSRequest RegisterOnPremisesInstance where
         type Rs RegisterOnPremisesInstance =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteVPCAssociationAuthorization
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ deleteVPCAssociationAuthorization
     -> DeleteVPCAssociationAuthorization
 deleteVPCAssociationAuthorization pHostedZoneId_ pVPC_ =
   DeleteVPCAssociationAuthorization'
-  {_dvaaHostedZoneId = pHostedZoneId_, _dvaaVPC = pVPC_}
+    {_dvaaHostedZoneId = pHostedZoneId_, _dvaaVPC = pVPC_}
 
 
 -- | When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, the ID of the hosted zone.
 dvaaHostedZoneId :: Lens' DeleteVPCAssociationAuthorization ResourceId
-dvaaHostedZoneId = lens _dvaaHostedZoneId (\ s a -> s{_dvaaHostedZoneId = a});
+dvaaHostedZoneId = lens _dvaaHostedZoneId (\ s a -> s{_dvaaHostedZoneId = a})
 
 -- | When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, a complex type that includes the ID and region of the VPC.
 dvaaVPC :: Lens' DeleteVPCAssociationAuthorization VPC
-dvaaVPC = lens _dvaaVPC (\ s a -> s{_dvaaVPC = a});
+dvaaVPC = lens _dvaaVPC (\ s a -> s{_dvaaVPC = a})
 
 instance AWSRequest DeleteVPCAssociationAuthorization
          where
@@ -144,12 +144,12 @@ deleteVPCAssociationAuthorizationResponse
     -> DeleteVPCAssociationAuthorizationResponse
 deleteVPCAssociationAuthorizationResponse pResponseStatus_ =
   DeleteVPCAssociationAuthorizationResponse'
-  {_dvaarsResponseStatus = pResponseStatus_}
+    {_dvaarsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dvaarsResponseStatus :: Lens' DeleteVPCAssociationAuthorizationResponse Int
-dvaarsResponseStatus = lens _dvaarsResponseStatus (\ s a -> s{_dvaarsResponseStatus = a});
+dvaarsResponseStatus = lens _dvaarsResponseStatus (\ s a -> s{_dvaarsResponseStatus = a})
 
 instance NFData
            DeleteVPCAssociationAuthorizationResponse

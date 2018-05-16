@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetObjectTorrent
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,20 +68,20 @@ getObjectTorrent
     -> GetObjectTorrent
 getObjectTorrent pBucket_ pKey_ =
   GetObjectTorrent'
-  {_gotRequestPayer = Nothing, _gotBucket = pBucket_, _gotKey = pKey_}
+    {_gotRequestPayer = Nothing, _gotBucket = pBucket_, _gotKey = pKey_}
 
 
 -- | Undocumented member.
 gotRequestPayer :: Lens' GetObjectTorrent (Maybe RequestPayer)
-gotRequestPayer = lens _gotRequestPayer (\ s a -> s{_gotRequestPayer = a});
+gotRequestPayer = lens _gotRequestPayer (\ s a -> s{_gotRequestPayer = a})
 
 -- | Undocumented member.
 gotBucket :: Lens' GetObjectTorrent BucketName
-gotBucket = lens _gotBucket (\ s a -> s{_gotBucket = a});
+gotBucket = lens _gotBucket (\ s a -> s{_gotBucket = a})
 
 -- | Undocumented member.
 gotKey :: Lens' GetObjectTorrent ObjectKey
-gotKey = lens _gotKey (\ s a -> s{_gotKey = a});
+gotKey = lens _gotKey (\ s a -> s{_gotKey = a})
 
 instance AWSRequest GetObjectTorrent where
         type Rs GetObjectTorrent = GetObjectTorrentResponse
@@ -132,20 +132,20 @@ getObjectTorrentResponse
     -> GetObjectTorrentResponse
 getObjectTorrentResponse pResponseStatus_ pBody_ =
   GetObjectTorrentResponse'
-  { _getrsRequestCharged = Nothing
-  , _getrsResponseStatus = pResponseStatus_
-  , _getrsBody = pBody_
-  }
+    { _getrsRequestCharged = Nothing
+    , _getrsResponseStatus = pResponseStatus_
+    , _getrsBody = pBody_
+    }
 
 
 -- | Undocumented member.
 getrsRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
-getrsRequestCharged = lens _getrsRequestCharged (\ s a -> s{_getrsRequestCharged = a});
+getrsRequestCharged = lens _getrsRequestCharged (\ s a -> s{_getrsRequestCharged = a})
 
 -- | -- | The response status code.
 getrsResponseStatus :: Lens' GetObjectTorrentResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a});
+getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a})
 
 -- | Undocumented member.
 getrsBody :: Lens' GetObjectTorrentResponse RsBody
-getrsBody = lens _getrsBody (\ s a -> s{_getrsBody = a});
+getrsBody = lens _getrsBody (\ s a -> s{_getrsBody = a})

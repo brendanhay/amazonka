@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DeleteApplicationOutput
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ deleteApplicationOutput
     -> DeleteApplicationOutput
 deleteApplicationOutput pApplicationName_ pCurrentApplicationVersionId_ pOutputId_ =
   DeleteApplicationOutput'
-  { _daoApplicationName = pApplicationName_
-  , _daoCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-  , _daoOutputId = pOutputId_
-  }
+    { _daoApplicationName = pApplicationName_
+    , _daoCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+    , _daoOutputId = pOutputId_
+    }
 
 
 -- | Amazon Kinesis Analytics application name.
 daoApplicationName :: Lens' DeleteApplicationOutput Text
-daoApplicationName = lens _daoApplicationName (\ s a -> s{_daoApplicationName = a});
+daoApplicationName = lens _daoApplicationName (\ s a -> s{_daoApplicationName = a})
 
 -- | Amazon Kinesis Analytics application version. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 daoCurrentApplicationVersionId :: Lens' DeleteApplicationOutput Natural
-daoCurrentApplicationVersionId = lens _daoCurrentApplicationVersionId (\ s a -> s{_daoCurrentApplicationVersionId = a}) . _Nat;
+daoCurrentApplicationVersionId = lens _daoCurrentApplicationVersionId (\ s a -> s{_daoCurrentApplicationVersionId = a}) . _Nat
 
 -- | The ID of the configuration to delete. Each output configuration that is added to the application, either when the application is created or later using the 'AddApplicationOutput' operation, has a unique ID. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration. You can use the 'DescribeApplication' operation to get the specific @OutputId@ .
 daoOutputId :: Lens' DeleteApplicationOutput Text
-daoOutputId = lens _daoOutputId (\ s a -> s{_daoOutputId = a});
+daoOutputId = lens _daoOutputId (\ s a -> s{_daoOutputId = a})
 
 instance AWSRequest DeleteApplicationOutput where
         type Rs DeleteApplicationOutput =
@@ -157,6 +157,6 @@ deleteApplicationOutputResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 daorsResponseStatus :: Lens' DeleteApplicationOutputResponse Int
-daorsResponseStatus = lens _daorsResponseStatus (\ s a -> s{_daorsResponseStatus = a});
+daorsResponseStatus = lens _daorsResponseStatus (\ s a -> s{_daorsResponseStatus = a})
 
 instance NFData DeleteApplicationOutputResponse where

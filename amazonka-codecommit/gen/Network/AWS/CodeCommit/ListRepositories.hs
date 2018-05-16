@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.ListRepositories
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,20 +75,20 @@ listRepositories
     :: ListRepositories
 listRepositories =
   ListRepositories'
-  {_lrNextToken = Nothing, _lrOrder = Nothing, _lrSortBy = Nothing}
+    {_lrNextToken = Nothing, _lrOrder = Nothing, _lrSortBy = Nothing}
 
 
 -- | An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 lrNextToken :: Lens' ListRepositories (Maybe Text)
-lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
+lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a})
 
 -- | The order in which to sort the results of a list repositories operation.
 lrOrder :: Lens' ListRepositories (Maybe OrderEnum)
-lrOrder = lens _lrOrder (\ s a -> s{_lrOrder = a});
+lrOrder = lens _lrOrder (\ s a -> s{_lrOrder = a})
 
 -- | The criteria used to sort the results of a list repositories operation.
 lrSortBy :: Lens' ListRepositories (Maybe SortByEnum)
-lrSortBy = lens _lrSortBy (\ s a -> s{_lrSortBy = a});
+lrSortBy = lens _lrSortBy (\ s a -> s{_lrSortBy = a})
 
 instance AWSPager ListRepositories where
         page rq rs
@@ -162,22 +162,22 @@ listRepositoriesResponse
     -> ListRepositoriesResponse
 listRepositoriesResponse pResponseStatus_ =
   ListRepositoriesResponse'
-  { _lrrsRepositories = Nothing
-  , _lrrsNextToken = Nothing
-  , _lrrsResponseStatus = pResponseStatus_
-  }
+    { _lrrsRepositories = Nothing
+    , _lrrsNextToken = Nothing
+    , _lrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Lists the repositories called by the list repositories operation.
 lrrsRepositories :: Lens' ListRepositoriesResponse [RepositoryNameIdPair]
-lrrsRepositories = lens _lrrsRepositories (\ s a -> s{_lrrsRepositories = a}) . _Default . _Coerce;
+lrrsRepositories = lens _lrrsRepositories (\ s a -> s{_lrrsRepositories = a}) . _Default . _Coerce
 
 -- | An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 lrrsNextToken :: Lens' ListRepositoriesResponse (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
+lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a})
 
 -- | -- | The response status code.
 lrrsResponseStatus :: Lens' ListRepositoriesResponse Int
-lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
+lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a})
 
 instance NFData ListRepositoriesResponse where

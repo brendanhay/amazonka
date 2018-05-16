@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ModifyInstanceGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ modifyInstanceGroups =
 
 -- | The ID of the cluster to which the instance group belongs.
 migClusterId :: Lens' ModifyInstanceGroups (Maybe Text)
-migClusterId = lens _migClusterId (\ s a -> s{_migClusterId = a});
+migClusterId = lens _migClusterId (\ s a -> s{_migClusterId = a})
 
 -- | Instance groups to change.
 migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
-migInstanceGroups = lens _migInstanceGroups (\ s a -> s{_migInstanceGroups = a}) . _Default . _Coerce;
+migInstanceGroups = lens _migInstanceGroups (\ s a -> s{_migInstanceGroups = a}) . _Default . _Coerce
 
 instance AWSRequest ModifyInstanceGroups where
         type Rs ModifyInstanceGroups =

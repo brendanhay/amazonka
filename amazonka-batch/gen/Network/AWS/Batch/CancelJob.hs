@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Batch.CancelJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ data CancelJob = CancelJob'
 --
 -- * 'cjJobId' - The AWS Batch job ID of the job to cancel.
 --
--- * 'cjReason' - A message to attach to the job that explains the reason for cancelling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
+-- * 'cjReason' - A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
 cancelJob
     :: Text -- ^ 'cjJobId'
     -> Text -- ^ 'cjReason'
@@ -68,11 +68,11 @@ cancelJob pJobId_ pReason_ =
 
 -- | The AWS Batch job ID of the job to cancel.
 cjJobId :: Lens' CancelJob Text
-cjJobId = lens _cjJobId (\ s a -> s{_cjJobId = a});
+cjJobId = lens _cjJobId (\ s a -> s{_cjJobId = a})
 
--- | A message to attach to the job that explains the reason for cancelling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
+-- | A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
 cjReason :: Lens' CancelJob Text
-cjReason = lens _cjReason (\ s a -> s{_cjReason = a});
+cjReason = lens _cjReason (\ s a -> s{_cjReason = a})
 
 instance AWSRequest CancelJob where
         type Rs CancelJob = CancelJobResponse
@@ -126,6 +126,6 @@ cancelJobResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cjrsResponseStatus :: Lens' CancelJobResponse Int
-cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
+cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a})
 
 instance NFData CancelJobResponse where

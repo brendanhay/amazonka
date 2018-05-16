@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,11 +44,11 @@ artifact = Artifact' {_aURL = Nothing, _aDescription = Nothing}
 
 -- | Undocumented member.
 aURL :: Lens' Artifact (Maybe Text)
-aURL = lens _aURL (\ s a -> s{_aURL = a});
+aURL = lens _aURL (\ s a -> s{_aURL = a})
 
 -- | Undocumented member.
 aDescription :: Lens' Artifact (Maybe Text)
-aDescription = lens _aDescription (\ s a -> s{_aDescription = a});
+aDescription = lens _aDescription (\ s a -> s{_aDescription = a})
 
 instance FromXML Artifact where
         parseXML x
@@ -89,28 +89,28 @@ job
     -> Job
 job pJobType_ pJobId_ pIsCanceled_ pCreationDate_ =
   Job'
-  { _jobJobType = pJobType_
-  , _jobJobId = pJobId_
-  , _jobIsCanceled = pIsCanceled_
-  , _jobCreationDate = _Time # pCreationDate_
-  }
+    { _jobJobType = pJobType_
+    , _jobJobId = pJobId_
+    , _jobIsCanceled = pIsCanceled_
+    , _jobCreationDate = _Time # pCreationDate_
+    }
 
 
 -- | Undocumented member.
 jobJobType :: Lens' Job JobType
-jobJobType = lens _jobJobType (\ s a -> s{_jobJobType = a});
+jobJobType = lens _jobJobType (\ s a -> s{_jobJobType = a})
 
 -- | Undocumented member.
 jobJobId :: Lens' Job Text
-jobJobId = lens _jobJobId (\ s a -> s{_jobJobId = a});
+jobJobId = lens _jobJobId (\ s a -> s{_jobJobId = a})
 
 -- | Undocumented member.
 jobIsCanceled :: Lens' Job Bool
-jobIsCanceled = lens _jobIsCanceled (\ s a -> s{_jobIsCanceled = a});
+jobIsCanceled = lens _jobIsCanceled (\ s a -> s{_jobIsCanceled = a})
 
 -- | Undocumented member.
 jobCreationDate :: Lens' Job UTCTime
-jobCreationDate = lens _jobCreationDate (\ s a -> s{_jobCreationDate = a}) . _Time;
+jobCreationDate = lens _jobCreationDate (\ s a -> s{_jobCreationDate = a}) . _Time
 
 instance FromXML Job where
         parseXML x

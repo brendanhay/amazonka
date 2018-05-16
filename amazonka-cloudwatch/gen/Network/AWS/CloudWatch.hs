@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,10 +71,13 @@ module Network.AWS.CloudWatch
     -- ** GetDashboard
     , module Network.AWS.CloudWatch.GetDashboard
 
+    -- ** GetMetricData
+    , module Network.AWS.CloudWatch.GetMetricData
+
     -- ** PutMetricData
     , module Network.AWS.CloudWatch.PutMetricData
 
-    -- ** ListDashboards
+    -- ** ListDashboards (Paginated)
     , module Network.AWS.CloudWatch.ListDashboards
 
     -- ** DescribeAlarms (Paginated)
@@ -118,6 +121,9 @@ module Network.AWS.CloudWatch
     -- ** HistoryItemType
     , HistoryItemType (..)
 
+    -- ** ScanBy
+    , ScanBy (..)
+
     -- ** StandardUnit
     , StandardUnit (..)
 
@@ -126,6 +132,9 @@ module Network.AWS.CloudWatch
 
     -- ** Statistic
     , Statistic (..)
+
+    -- ** StatusCode
+    , StatusCode (..)
 
     -- ** AlarmHistoryItem
     , AlarmHistoryItem
@@ -174,6 +183,12 @@ module Network.AWS.CloudWatch
     , dfValue
     , dfName
 
+    -- ** MessageData
+    , MessageData
+    , messageData
+    , mValue
+    , mCode
+
     -- ** Metric
     , Metric
     , metric
@@ -196,6 +211,7 @@ module Network.AWS.CloudWatch
     , maOKActions
     , maEvaluateLowSampleCountPercentile
     , maStateValue
+    , maDatapointsToAlarm
     , maThreshold
     , maAlarmConfigurationUpdatedTimestamp
     , maActionsEnabled
@@ -209,6 +225,25 @@ module Network.AWS.CloudWatch
     , maStatistic
     , maExtendedStatistic
 
+    -- ** MetricDataQuery
+    , MetricDataQuery
+    , metricDataQuery
+    , mdqReturnData
+    , mdqExpression
+    , mdqLabel
+    , mdqMetricStat
+    , mdqId
+
+    -- ** MetricDataResult
+    , MetricDataResult
+    , metricDataResult
+    , mdrValues
+    , mdrId
+    , mdrTimestamps
+    , mdrMessages
+    , mdrLabel
+    , mdrStatusCode
+
     -- ** MetricDatum
     , MetricDatum
     , metricDatum
@@ -219,6 +254,14 @@ module Network.AWS.CloudWatch
     , mdTimestamp
     , mdStatisticValues
     , mdMetricName
+
+    -- ** MetricStat
+    , MetricStat
+    , metricStat
+    , msUnit
+    , msMetric
+    , msPeriod
+    , msStat
 
     -- ** StatisticSet
     , StatisticSet
@@ -237,6 +280,7 @@ import Network.AWS.CloudWatch.DescribeAlarmsForMetric
 import Network.AWS.CloudWatch.DisableAlarmActions
 import Network.AWS.CloudWatch.EnableAlarmActions
 import Network.AWS.CloudWatch.GetDashboard
+import Network.AWS.CloudWatch.GetMetricData
 import Network.AWS.CloudWatch.GetMetricStatistics
 import Network.AWS.CloudWatch.ListDashboards
 import Network.AWS.CloudWatch.ListMetrics

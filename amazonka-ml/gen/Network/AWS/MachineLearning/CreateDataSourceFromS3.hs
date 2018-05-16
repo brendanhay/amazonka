@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromS3
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,28 +81,28 @@ createDataSourceFromS3
     -> CreateDataSourceFromS3
 createDataSourceFromS3 pDataSourceId_ pDataSpec_ =
   CreateDataSourceFromS3'
-  { _cdsfsDataSourceName = Nothing
-  , _cdsfsComputeStatistics = Nothing
-  , _cdsfsDataSourceId = pDataSourceId_
-  , _cdsfsDataSpec = pDataSpec_
-  }
+    { _cdsfsDataSourceName = Nothing
+    , _cdsfsComputeStatistics = Nothing
+    , _cdsfsDataSourceId = pDataSourceId_
+    , _cdsfsDataSpec = pDataSpec_
+    }
 
 
 -- | A user-supplied name or description of the @DataSource@ .
 cdsfsDataSourceName :: Lens' CreateDataSourceFromS3 (Maybe Text)
-cdsfsDataSourceName = lens _cdsfsDataSourceName (\ s a -> s{_cdsfsDataSourceName = a});
+cdsfsDataSourceName = lens _cdsfsDataSourceName (\ s a -> s{_cdsfsDataSourceName = a})
 
 -- | The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the DataSourceneeds to be used for @MLModel@ training.
 cdsfsComputeStatistics :: Lens' CreateDataSourceFromS3 (Maybe Bool)
-cdsfsComputeStatistics = lens _cdsfsComputeStatistics (\ s a -> s{_cdsfsComputeStatistics = a});
+cdsfsComputeStatistics = lens _cdsfsComputeStatistics (\ s a -> s{_cdsfsComputeStatistics = a})
 
 -- | A user-supplied identifier that uniquely identifies the @DataSource@ .
 cdsfsDataSourceId :: Lens' CreateDataSourceFromS3 Text
-cdsfsDataSourceId = lens _cdsfsDataSourceId (\ s a -> s{_cdsfsDataSourceId = a});
+cdsfsDataSourceId = lens _cdsfsDataSourceId (\ s a -> s{_cdsfsDataSourceId = a})
 
 -- | The data specification of a @DataSource@ :     * DataLocationS3 - The Amazon S3 location of the observation data.     * DataSchemaLocationS3 - The Amazon S3 location of the @DataSchema@ .     * DataSchema - A JSON string representing the schema. This is not required if @DataSchemaUri@ is specified.      * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the @Datasource@ .  Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@
 cdsfsDataSpec :: Lens' CreateDataSourceFromS3 S3DataSpec
-cdsfsDataSpec = lens _cdsfsDataSpec (\ s a -> s{_cdsfsDataSpec = a});
+cdsfsDataSpec = lens _cdsfsDataSpec (\ s a -> s{_cdsfsDataSpec = a})
 
 instance AWSRequest CreateDataSourceFromS3 where
         type Rs CreateDataSourceFromS3 =
@@ -168,15 +168,15 @@ createDataSourceFromS3Response
     -> CreateDataSourceFromS3Response
 createDataSourceFromS3Response pResponseStatus_ =
   CreateDataSourceFromS3Response'
-  {_cdsfsrsDataSourceId = Nothing, _cdsfsrsResponseStatus = pResponseStatus_}
+    {_cdsfsrsDataSourceId = Nothing, _cdsfsrsResponseStatus = pResponseStatus_}
 
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@ . This value should be identical to the value of the @DataSourceID@ in the request.
 cdsfsrsDataSourceId :: Lens' CreateDataSourceFromS3Response (Maybe Text)
-cdsfsrsDataSourceId = lens _cdsfsrsDataSourceId (\ s a -> s{_cdsfsrsDataSourceId = a});
+cdsfsrsDataSourceId = lens _cdsfsrsDataSourceId (\ s a -> s{_cdsfsrsDataSourceId = a})
 
 -- | -- | The response status code.
 cdsfsrsResponseStatus :: Lens' CreateDataSourceFromS3Response Int
-cdsfsrsResponseStatus = lens _cdsfsrsResponseStatus (\ s a -> s{_cdsfsrsResponseStatus = a});
+cdsfsrsResponseStatus = lens _cdsfsrsResponseStatus (\ s a -> s{_cdsfsrsResponseStatus = a})
 
 instance NFData CreateDataSourceFromS3Response where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DeleteConstraint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,7 @@ data DeleteConstraint = DeleteConstraint'
 --
 -- * 'dcAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dcId' - The identifier of the constraint to delete.
+-- * 'dcId' - The identifier of the constraint.
 deleteConstraint
     :: Text -- ^ 'dcId'
     -> DeleteConstraint
@@ -67,11 +67,11 @@ deleteConstraint pId_ =
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dcAcceptLanguage :: Lens' DeleteConstraint (Maybe Text)
-dcAcceptLanguage = lens _dcAcceptLanguage (\ s a -> s{_dcAcceptLanguage = a});
+dcAcceptLanguage = lens _dcAcceptLanguage (\ s a -> s{_dcAcceptLanguage = a})
 
--- | The identifier of the constraint to delete.
+-- | The identifier of the constraint.
 dcId :: Lens' DeleteConstraint Text
-dcId = lens _dcId (\ s a -> s{_dcId = a});
+dcId = lens _dcId (\ s a -> s{_dcId = a})
 
 instance AWSRequest DeleteConstraint where
         type Rs DeleteConstraint = DeleteConstraintResponse
@@ -128,6 +128,6 @@ deleteConstraintResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DeleteConstraintResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DeleteConstraintResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DeleteLoadBalancer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ deleteLoadBalancer pLoadBalancerARN_ =
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 dlbLoadBalancerARN :: Lens' DeleteLoadBalancer Text
-dlbLoadBalancerARN = lens _dlbLoadBalancerARN (\ s a -> s{_dlbLoadBalancerARN = a});
+dlbLoadBalancerARN = lens _dlbLoadBalancerARN (\ s a -> s{_dlbLoadBalancerARN = a})
 
 instance AWSRequest DeleteLoadBalancer where
         type Rs DeleteLoadBalancer =
@@ -115,6 +115,6 @@ deleteLoadBalancerResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteLoadBalancerResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteLoadBalancerResponse where

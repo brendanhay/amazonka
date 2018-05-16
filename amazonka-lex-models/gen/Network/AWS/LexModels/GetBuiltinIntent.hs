@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBuiltinIntent
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getBuiltinIntent pSignature_ = GetBuiltinIntent' {_gbiSignature = pSignature_}
 
 -- | The unique identifier for a built-in intent. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
 gbiSignature :: Lens' GetBuiltinIntent Text
-gbiSignature = lens _gbiSignature (\ s a -> s{_gbiSignature = a});
+gbiSignature = lens _gbiSignature (\ s a -> s{_gbiSignature = a})
 
 instance AWSRequest GetBuiltinIntent where
         type Rs GetBuiltinIntent = GetBuiltinIntentResponse
@@ -123,27 +123,27 @@ getBuiltinIntentResponse
     -> GetBuiltinIntentResponse
 getBuiltinIntentResponse pResponseStatus_ =
   GetBuiltinIntentResponse'
-  { _gbirsSignature = Nothing
-  , _gbirsSlots = Nothing
-  , _gbirsSupportedLocales = Nothing
-  , _gbirsResponseStatus = pResponseStatus_
-  }
+    { _gbirsSignature = Nothing
+    , _gbirsSlots = Nothing
+    , _gbirsSupportedLocales = Nothing
+    , _gbirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The unique identifier for a built-in intent.
 gbirsSignature :: Lens' GetBuiltinIntentResponse (Maybe Text)
-gbirsSignature = lens _gbirsSignature (\ s a -> s{_gbirsSignature = a});
+gbirsSignature = lens _gbirsSignature (\ s a -> s{_gbirsSignature = a})
 
 -- | An array of @BuiltinIntentSlot@ objects, one entry for each slot type in the intent.
 gbirsSlots :: Lens' GetBuiltinIntentResponse [BuiltinIntentSlot]
-gbirsSlots = lens _gbirsSlots (\ s a -> s{_gbirsSlots = a}) . _Default . _Coerce;
+gbirsSlots = lens _gbirsSlots (\ s a -> s{_gbirsSlots = a}) . _Default . _Coerce
 
 -- | A list of locales that the intent supports.
 gbirsSupportedLocales :: Lens' GetBuiltinIntentResponse [Locale]
-gbirsSupportedLocales = lens _gbirsSupportedLocales (\ s a -> s{_gbirsSupportedLocales = a}) . _Default . _Coerce;
+gbirsSupportedLocales = lens _gbirsSupportedLocales (\ s a -> s{_gbirsSupportedLocales = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gbirsResponseStatus :: Lens' GetBuiltinIntentResponse Int
-gbirsResponseStatus = lens _gbirsResponseStatus (\ s a -> s{_gbirsResponseStatus = a});
+gbirsResponseStatus = lens _gbirsResponseStatus (\ s a -> s{_gbirsResponseStatus = a})
 
 instance NFData GetBuiltinIntentResponse where

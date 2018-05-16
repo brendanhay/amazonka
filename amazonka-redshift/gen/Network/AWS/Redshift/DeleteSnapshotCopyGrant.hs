@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteSnapshotCopyGrant
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,12 +61,12 @@ deleteSnapshotCopyGrant
     -> DeleteSnapshotCopyGrant
 deleteSnapshotCopyGrant pSnapshotCopyGrantName_ =
   DeleteSnapshotCopyGrant'
-  {_dscgSnapshotCopyGrantName = pSnapshotCopyGrantName_}
+    {_dscgSnapshotCopyGrantName = pSnapshotCopyGrantName_}
 
 
 -- | The name of the snapshot copy grant to delete.
 dscgSnapshotCopyGrantName :: Lens' DeleteSnapshotCopyGrant Text
-dscgSnapshotCopyGrantName = lens _dscgSnapshotCopyGrantName (\ s a -> s{_dscgSnapshotCopyGrantName = a});
+dscgSnapshotCopyGrantName = lens _dscgSnapshotCopyGrantName (\ s a -> s{_dscgSnapshotCopyGrantName = a})
 
 instance AWSRequest DeleteSnapshotCopyGrant where
         type Rs DeleteSnapshotCopyGrant =

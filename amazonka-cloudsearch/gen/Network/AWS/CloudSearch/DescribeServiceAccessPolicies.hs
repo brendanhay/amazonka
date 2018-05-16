@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeServiceAccessPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ describeServiceAccessPolicies
     -> DescribeServiceAccessPolicies
 describeServiceAccessPolicies pDomainName_ =
   DescribeServiceAccessPolicies'
-  {_dsapDeployed = Nothing, _dsapDomainName = pDomainName_}
+    {_dsapDeployed = Nothing, _dsapDomainName = pDomainName_}
 
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 dsapDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
-dsapDeployed = lens _dsapDeployed (\ s a -> s{_dsapDeployed = a});
+dsapDeployed = lens _dsapDeployed (\ s a -> s{_dsapDeployed = a})
 
 -- | The name of the domain you want to describe.
 dsapDomainName :: Lens' DescribeServiceAccessPolicies Text
-dsapDomainName = lens _dsapDomainName (\ s a -> s{_dsapDomainName = a});
+dsapDomainName = lens _dsapDomainName (\ s a -> s{_dsapDomainName = a})
 
 instance AWSRequest DescribeServiceAccessPolicies
          where
@@ -135,18 +135,18 @@ describeServiceAccessPoliciesResponse
     -> DescribeServiceAccessPoliciesResponse
 describeServiceAccessPoliciesResponse pResponseStatus_ pAccessPolicies_ =
   DescribeServiceAccessPoliciesResponse'
-  { _dsaprsResponseStatus = pResponseStatus_
-  , _dsaprsAccessPolicies = pAccessPolicies_
-  }
+    { _dsaprsResponseStatus = pResponseStatus_
+    , _dsaprsAccessPolicies = pAccessPolicies_
+    }
 
 
 -- | -- | The response status code.
 dsaprsResponseStatus :: Lens' DescribeServiceAccessPoliciesResponse Int
-dsaprsResponseStatus = lens _dsaprsResponseStatus (\ s a -> s{_dsaprsResponseStatus = a});
+dsaprsResponseStatus = lens _dsaprsResponseStatus (\ s a -> s{_dsaprsResponseStatus = a})
 
 -- | The access rules configured for the domain specified in the request.
 dsaprsAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
-dsaprsAccessPolicies = lens _dsaprsAccessPolicies (\ s a -> s{_dsaprsAccessPolicies = a});
+dsaprsAccessPolicies = lens _dsaprsAccessPolicies (\ s a -> s{_dsaprsAccessPolicies = a})
 
 instance NFData DescribeServiceAccessPoliciesResponse
          where

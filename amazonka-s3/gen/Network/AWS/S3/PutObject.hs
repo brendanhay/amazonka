@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutObject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -167,138 +167,138 @@ putObject
     -> PutObject
 putObject pBucket_ pKey_ pBody_ =
   PutObject'
-  { _poContentLength = Nothing
-  , _poExpires = Nothing
-  , _poGrantReadACP = Nothing
-  , _poSSECustomerAlgorithm = Nothing
-  , _poSSECustomerKey = Nothing
-  , _poRequestPayer = Nothing
-  , _poGrantWriteACP = Nothing
-  , _poWebsiteRedirectLocation = Nothing
-  , _poGrantRead = Nothing
-  , _poStorageClass = Nothing
-  , _poSSECustomerKeyMD5 = Nothing
-  , _poSSEKMSKeyId = Nothing
-  , _poGrantFullControl = Nothing
-  , _poContentEncoding = Nothing
-  , _poTagging = Nothing
-  , _poContentMD5 = Nothing
-  , _poMetadata = mempty
-  , _poCacheControl = Nothing
-  , _poContentLanguage = Nothing
-  , _poACL = Nothing
-  , _poContentDisposition = Nothing
-  , _poServerSideEncryption = Nothing
-  , _poContentType = Nothing
-  , _poBucket = pBucket_
-  , _poKey = pKey_
-  , _poBody = pBody_
-  }
+    { _poContentLength = Nothing
+    , _poExpires = Nothing
+    , _poGrantReadACP = Nothing
+    , _poSSECustomerAlgorithm = Nothing
+    , _poSSECustomerKey = Nothing
+    , _poRequestPayer = Nothing
+    , _poGrantWriteACP = Nothing
+    , _poWebsiteRedirectLocation = Nothing
+    , _poGrantRead = Nothing
+    , _poStorageClass = Nothing
+    , _poSSECustomerKeyMD5 = Nothing
+    , _poSSEKMSKeyId = Nothing
+    , _poGrantFullControl = Nothing
+    , _poContentEncoding = Nothing
+    , _poTagging = Nothing
+    , _poContentMD5 = Nothing
+    , _poMetadata = mempty
+    , _poCacheControl = Nothing
+    , _poContentLanguage = Nothing
+    , _poACL = Nothing
+    , _poContentDisposition = Nothing
+    , _poServerSideEncryption = Nothing
+    , _poContentType = Nothing
+    , _poBucket = pBucket_
+    , _poKey = pKey_
+    , _poBody = pBody_
+    }
 
 
 -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
 poContentLength :: Lens' PutObject (Maybe Integer)
-poContentLength = lens _poContentLength (\ s a -> s{_poContentLength = a});
+poContentLength = lens _poContentLength (\ s a -> s{_poContentLength = a})
 
 -- | The date and time at which the object is no longer cacheable.
 poExpires :: Lens' PutObject (Maybe UTCTime)
-poExpires = lens _poExpires (\ s a -> s{_poExpires = a}) . mapping _Time;
+poExpires = lens _poExpires (\ s a -> s{_poExpires = a}) . mapping _Time
 
 -- | Allows grantee to read the object ACL.
 poGrantReadACP :: Lens' PutObject (Maybe Text)
-poGrantReadACP = lens _poGrantReadACP (\ s a -> s{_poGrantReadACP = a});
+poGrantReadACP = lens _poGrantReadACP (\ s a -> s{_poGrantReadACP = a})
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 poSSECustomerAlgorithm :: Lens' PutObject (Maybe Text)
-poSSECustomerAlgorithm = lens _poSSECustomerAlgorithm (\ s a -> s{_poSSECustomerAlgorithm = a});
+poSSECustomerAlgorithm = lens _poSSECustomerAlgorithm (\ s a -> s{_poSSECustomerAlgorithm = a})
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
 poSSECustomerKey :: Lens' PutObject (Maybe Text)
-poSSECustomerKey = lens _poSSECustomerKey (\ s a -> s{_poSSECustomerKey = a}) . mapping _Sensitive;
+poSSECustomerKey = lens _poSSECustomerKey (\ s a -> s{_poSSECustomerKey = a}) . mapping _Sensitive
 
 -- | Undocumented member.
 poRequestPayer :: Lens' PutObject (Maybe RequestPayer)
-poRequestPayer = lens _poRequestPayer (\ s a -> s{_poRequestPayer = a});
+poRequestPayer = lens _poRequestPayer (\ s a -> s{_poRequestPayer = a})
 
 -- | Allows grantee to write the ACL for the applicable object.
 poGrantWriteACP :: Lens' PutObject (Maybe Text)
-poGrantWriteACP = lens _poGrantWriteACP (\ s a -> s{_poGrantWriteACP = a});
+poGrantWriteACP = lens _poGrantWriteACP (\ s a -> s{_poGrantWriteACP = a})
 
 -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 poWebsiteRedirectLocation :: Lens' PutObject (Maybe Text)
-poWebsiteRedirectLocation = lens _poWebsiteRedirectLocation (\ s a -> s{_poWebsiteRedirectLocation = a});
+poWebsiteRedirectLocation = lens _poWebsiteRedirectLocation (\ s a -> s{_poWebsiteRedirectLocation = a})
 
 -- | Allows grantee to read the object data and its metadata.
 poGrantRead :: Lens' PutObject (Maybe Text)
-poGrantRead = lens _poGrantRead (\ s a -> s{_poGrantRead = a});
+poGrantRead = lens _poGrantRead (\ s a -> s{_poGrantRead = a})
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
 poStorageClass :: Lens' PutObject (Maybe StorageClass)
-poStorageClass = lens _poStorageClass (\ s a -> s{_poStorageClass = a});
+poStorageClass = lens _poStorageClass (\ s a -> s{_poStorageClass = a})
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
-poSSECustomerKeyMD5 = lens _poSSECustomerKeyMD5 (\ s a -> s{_poSSECustomerKeyMD5 = a});
+poSSECustomerKeyMD5 = lens _poSSECustomerKeyMD5 (\ s a -> s{_poSSECustomerKeyMD5 = a})
 
 -- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
 poSSEKMSKeyId :: Lens' PutObject (Maybe Text)
-poSSEKMSKeyId = lens _poSSEKMSKeyId (\ s a -> s{_poSSEKMSKeyId = a}) . mapping _Sensitive;
+poSSEKMSKeyId = lens _poSSEKMSKeyId (\ s a -> s{_poSSEKMSKeyId = a}) . mapping _Sensitive
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 poGrantFullControl :: Lens' PutObject (Maybe Text)
-poGrantFullControl = lens _poGrantFullControl (\ s a -> s{_poGrantFullControl = a});
+poGrantFullControl = lens _poGrantFullControl (\ s a -> s{_poGrantFullControl = a})
 
 -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 poContentEncoding :: Lens' PutObject (Maybe Text)
-poContentEncoding = lens _poContentEncoding (\ s a -> s{_poContentEncoding = a});
+poContentEncoding = lens _poContentEncoding (\ s a -> s{_poContentEncoding = a})
 
 -- | The tag-set for the object. The tag-set must be encoded as URL Query parameters
 poTagging :: Lens' PutObject (Maybe Text)
-poTagging = lens _poTagging (\ s a -> s{_poTagging = a});
+poTagging = lens _poTagging (\ s a -> s{_poTagging = a})
 
 -- | The base64-encoded 128-bit MD5 digest of the part data.
 poContentMD5 :: Lens' PutObject (Maybe Text)
-poContentMD5 = lens _poContentMD5 (\ s a -> s{_poContentMD5 = a});
+poContentMD5 = lens _poContentMD5 (\ s a -> s{_poContentMD5 = a})
 
 -- | A map of metadata to store with the object in S3.
 poMetadata :: Lens' PutObject (HashMap Text Text)
-poMetadata = lens _poMetadata (\ s a -> s{_poMetadata = a}) . _Map;
+poMetadata = lens _poMetadata (\ s a -> s{_poMetadata = a}) . _Map
 
 -- | Specifies caching behavior along the request/reply chain.
 poCacheControl :: Lens' PutObject (Maybe Text)
-poCacheControl = lens _poCacheControl (\ s a -> s{_poCacheControl = a});
+poCacheControl = lens _poCacheControl (\ s a -> s{_poCacheControl = a})
 
 -- | The language the content is in.
 poContentLanguage :: Lens' PutObject (Maybe Text)
-poContentLanguage = lens _poContentLanguage (\ s a -> s{_poContentLanguage = a});
+poContentLanguage = lens _poContentLanguage (\ s a -> s{_poContentLanguage = a})
 
 -- | The canned ACL to apply to the object.
 poACL :: Lens' PutObject (Maybe ObjectCannedACL)
-poACL = lens _poACL (\ s a -> s{_poACL = a});
+poACL = lens _poACL (\ s a -> s{_poACL = a})
 
 -- | Specifies presentational information for the object.
 poContentDisposition :: Lens' PutObject (Maybe Text)
-poContentDisposition = lens _poContentDisposition (\ s a -> s{_poContentDisposition = a});
+poContentDisposition = lens _poContentDisposition (\ s a -> s{_poContentDisposition = a})
 
 -- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 poServerSideEncryption :: Lens' PutObject (Maybe ServerSideEncryption)
-poServerSideEncryption = lens _poServerSideEncryption (\ s a -> s{_poServerSideEncryption = a});
+poServerSideEncryption = lens _poServerSideEncryption (\ s a -> s{_poServerSideEncryption = a})
 
 -- | A standard MIME type describing the format of the object data.
 poContentType :: Lens' PutObject (Maybe Text)
-poContentType = lens _poContentType (\ s a -> s{_poContentType = a});
+poContentType = lens _poContentType (\ s a -> s{_poContentType = a})
 
 -- | Name of the bucket to which the PUT operation was initiated.
 poBucket :: Lens' PutObject BucketName
-poBucket = lens _poBucket (\ s a -> s{_poBucket = a});
+poBucket = lens _poBucket (\ s a -> s{_poBucket = a})
 
 -- | Object key for which the PUT operation was initiated.
 poKey :: Lens' PutObject ObjectKey
-poKey = lens _poKey (\ s a -> s{_poKey = a});
+poKey = lens _poKey (\ s a -> s{_poKey = a})
 
 -- | Object data.
 poBody :: Lens' PutObject RqBody
-poBody = lens _poBody (\ s a -> s{_poBody = a});
+poBody = lens _poBody (\ s a -> s{_poBody = a})
 
 instance AWSRequest PutObject where
         type Rs PutObject = PutObjectResponse
@@ -404,52 +404,52 @@ putObjectResponse
     -> PutObjectResponse
 putObjectResponse pResponseStatus_ =
   PutObjectResponse'
-  { _porsRequestCharged = Nothing
-  , _porsETag = Nothing
-  , _porsVersionId = Nothing
-  , _porsExpiration = Nothing
-  , _porsSSECustomerAlgorithm = Nothing
-  , _porsSSECustomerKeyMD5 = Nothing
-  , _porsSSEKMSKeyId = Nothing
-  , _porsServerSideEncryption = Nothing
-  , _porsResponseStatus = pResponseStatus_
-  }
+    { _porsRequestCharged = Nothing
+    , _porsETag = Nothing
+    , _porsVersionId = Nothing
+    , _porsExpiration = Nothing
+    , _porsSSECustomerAlgorithm = Nothing
+    , _porsSSECustomerKeyMD5 = Nothing
+    , _porsSSEKMSKeyId = Nothing
+    , _porsServerSideEncryption = Nothing
+    , _porsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 porsRequestCharged :: Lens' PutObjectResponse (Maybe RequestCharged)
-porsRequestCharged = lens _porsRequestCharged (\ s a -> s{_porsRequestCharged = a});
+porsRequestCharged = lens _porsRequestCharged (\ s a -> s{_porsRequestCharged = a})
 
 -- | Entity tag for the uploaded object.
 porsETag :: Lens' PutObjectResponse (Maybe ETag)
-porsETag = lens _porsETag (\ s a -> s{_porsETag = a});
+porsETag = lens _porsETag (\ s a -> s{_porsETag = a})
 
 -- | Version of the object.
 porsVersionId :: Lens' PutObjectResponse (Maybe ObjectVersionId)
-porsVersionId = lens _porsVersionId (\ s a -> s{_porsVersionId = a});
+porsVersionId = lens _porsVersionId (\ s a -> s{_porsVersionId = a})
 
 -- | If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 porsExpiration :: Lens' PutObjectResponse (Maybe Text)
-porsExpiration = lens _porsExpiration (\ s a -> s{_porsExpiration = a});
+porsExpiration = lens _porsExpiration (\ s a -> s{_porsExpiration = a})
 
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 porsSSECustomerAlgorithm :: Lens' PutObjectResponse (Maybe Text)
-porsSSECustomerAlgorithm = lens _porsSSECustomerAlgorithm (\ s a -> s{_porsSSECustomerAlgorithm = a});
+porsSSECustomerAlgorithm = lens _porsSSECustomerAlgorithm (\ s a -> s{_porsSSECustomerAlgorithm = a})
 
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 porsSSECustomerKeyMD5 :: Lens' PutObjectResponse (Maybe Text)
-porsSSECustomerKeyMD5 = lens _porsSSECustomerKeyMD5 (\ s a -> s{_porsSSECustomerKeyMD5 = a});
+porsSSECustomerKeyMD5 = lens _porsSSECustomerKeyMD5 (\ s a -> s{_porsSSECustomerKeyMD5 = a})
 
 -- | If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 porsSSEKMSKeyId :: Lens' PutObjectResponse (Maybe Text)
-porsSSEKMSKeyId = lens _porsSSEKMSKeyId (\ s a -> s{_porsSSEKMSKeyId = a}) . mapping _Sensitive;
+porsSSEKMSKeyId = lens _porsSSEKMSKeyId (\ s a -> s{_porsSSEKMSKeyId = a}) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 porsServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
-porsServerSideEncryption = lens _porsServerSideEncryption (\ s a -> s{_porsServerSideEncryption = a});
+porsServerSideEncryption = lens _porsServerSideEncryption (\ s a -> s{_porsServerSideEncryption = a})
 
 -- | -- | The response status code.
 porsResponseStatus :: Lens' PutObjectResponse Int
-porsResponseStatus = lens _porsResponseStatus (\ s a -> s{_porsResponseStatus = a});
+porsResponseStatus = lens _porsResponseStatus (\ s a -> s{_porsResponseStatus = a})
 
 instance NFData PutObjectResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListTopicRules
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ listTopicRules
     :: ListTopicRules
 listTopicRules =
   ListTopicRules'
-  { _ltrRuleDisabled = Nothing
-  , _ltrTopic = Nothing
-  , _ltrNextToken = Nothing
-  , _ltrMaxResults = Nothing
-  }
+    { _ltrRuleDisabled = Nothing
+    , _ltrTopic = Nothing
+    , _ltrNextToken = Nothing
+    , _ltrMaxResults = Nothing
+    }
 
 
 -- | Specifies whether the rule is disabled.
 ltrRuleDisabled :: Lens' ListTopicRules (Maybe Bool)
-ltrRuleDisabled = lens _ltrRuleDisabled (\ s a -> s{_ltrRuleDisabled = a});
+ltrRuleDisabled = lens _ltrRuleDisabled (\ s a -> s{_ltrRuleDisabled = a})
 
 -- | The topic.
 ltrTopic :: Lens' ListTopicRules (Maybe Text)
-ltrTopic = lens _ltrTopic (\ s a -> s{_ltrTopic = a});
+ltrTopic = lens _ltrTopic (\ s a -> s{_ltrTopic = a})
 
 -- | A token used to retrieve the next value.
 ltrNextToken :: Lens' ListTopicRules (Maybe Text)
-ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a});
+ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a})
 
 -- | The maximum number of results to return.
 ltrMaxResults :: Lens' ListTopicRules (Maybe Natural)
-ltrMaxResults = lens _ltrMaxResults (\ s a -> s{_ltrMaxResults = a}) . mapping _Nat;
+ltrMaxResults = lens _ltrMaxResults (\ s a -> s{_ltrMaxResults = a}) . mapping _Nat
 
 instance AWSPager ListTopicRules where
         page rq rs
@@ -162,22 +162,22 @@ listTopicRulesResponse
     -> ListTopicRulesResponse
 listTopicRulesResponse pResponseStatus_ =
   ListTopicRulesResponse'
-  { _ltrrsRules = Nothing
-  , _ltrrsNextToken = Nothing
-  , _ltrrsResponseStatus = pResponseStatus_
-  }
+    { _ltrrsRules = Nothing
+    , _ltrrsNextToken = Nothing
+    , _ltrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The rules.
 ltrrsRules :: Lens' ListTopicRulesResponse [TopicRuleListItem]
-ltrrsRules = lens _ltrrsRules (\ s a -> s{_ltrrsRules = a}) . _Default . _Coerce;
+ltrrsRules = lens _ltrrsRules (\ s a -> s{_ltrrsRules = a}) . _Default . _Coerce
 
 -- | A token used to retrieve the next value.
 ltrrsNextToken :: Lens' ListTopicRulesResponse (Maybe Text)
-ltrrsNextToken = lens _ltrrsNextToken (\ s a -> s{_ltrrsNextToken = a});
+ltrrsNextToken = lens _ltrrsNextToken (\ s a -> s{_ltrrsNextToken = a})
 
 -- | -- | The response status code.
 ltrrsResponseStatus :: Lens' ListTopicRulesResponse Int
-ltrrsResponseStatus = lens _ltrrsResponseStatus (\ s a -> s{_ltrrsResponseStatus = a});
+ltrrsResponseStatus = lens _ltrrsResponseStatus (\ s a -> s{_ltrrsResponseStatus = a})
 
 instance NFData ListTopicRulesResponse where

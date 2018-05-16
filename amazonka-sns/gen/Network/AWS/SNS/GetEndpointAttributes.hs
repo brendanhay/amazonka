@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.GetEndpointAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getEndpointAttributes pEndpointARN_ =
 
 -- | EndpointArn for GetEndpointAttributes input.
 geaEndpointARN :: Lens' GetEndpointAttributes Text
-geaEndpointARN = lens _geaEndpointARN (\ s a -> s{_geaEndpointARN = a});
+geaEndpointARN = lens _geaEndpointARN (\ s a -> s{_geaEndpointARN = a})
 
 instance AWSRequest GetEndpointAttributes where
         type Rs GetEndpointAttributes =
@@ -122,15 +122,15 @@ getEndpointAttributesResponse
     -> GetEndpointAttributesResponse
 getEndpointAttributesResponse pResponseStatus_ =
   GetEndpointAttributesResponse'
-  {_gearsAttributes = Nothing, _gearsResponseStatus = pResponseStatus_}
+    {_gearsAttributes = Nothing, _gearsResponseStatus = pResponseStatus_}
 
 
 -- | Attributes include the following:     * @CustomUserData@ -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.     * @Enabled@ -- flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.     * @Token@ -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.
 gearsAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
-gearsAttributes = lens _gearsAttributes (\ s a -> s{_gearsAttributes = a}) . _Default . _Map;
+gearsAttributes = lens _gearsAttributes (\ s a -> s{_gearsAttributes = a}) . _Default . _Map
 
 -- | -- | The response status code.
 gearsResponseStatus :: Lens' GetEndpointAttributesResponse Int
-gearsResponseStatus = lens _gearsResponseStatus (\ s a -> s{_gearsResponseStatus = a});
+gearsResponseStatus = lens _gearsResponseStatus (\ s a -> s{_gearsResponseStatus = a})
 
 instance NFData GetEndpointAttributesResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.UpdateWebACL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,7 +88,7 @@ data UpdateWebACL = UpdateWebACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uwaUpdates' - An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @Priority@ , @RuleId@ , and @Type@      * 'WafAction' : Contains @Type@
+-- * 'uwaUpdates' - An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @OverrideAction@ , @Priority@ , @RuleId@ , and @Type@ . @ActivatedRule|OverrideAction@ applies only when updating or adding a @RuleGroup@ to a @WebACL@ . In this case you do not use @ActivatedRule|Action@ . For all other update requests, @ActivatedRule|Action@ is used instead of @ActivatedRule|OverrideAction@ .      * 'WafAction' : Contains @Type@
 --
 -- * 'uwaDefaultAction' - A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn't match the criteria in any of the rules in a web ACL.
 --
@@ -101,28 +101,28 @@ updateWebACL
     -> UpdateWebACL
 updateWebACL pWebACLId_ pChangeToken_ =
   UpdateWebACL'
-  { _uwaUpdates = Nothing
-  , _uwaDefaultAction = Nothing
-  , _uwaWebACLId = pWebACLId_
-  , _uwaChangeToken = pChangeToken_
-  }
+    { _uwaUpdates = Nothing
+    , _uwaDefaultAction = Nothing
+    , _uwaWebACLId = pWebACLId_
+    , _uwaChangeToken = pChangeToken_
+    }
 
 
--- | An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @Priority@ , @RuleId@ , and @Type@      * 'WafAction' : Contains @Type@
+-- | An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @OverrideAction@ , @Priority@ , @RuleId@ , and @Type@ . @ActivatedRule|OverrideAction@ applies only when updating or adding a @RuleGroup@ to a @WebACL@ . In this case you do not use @ActivatedRule|Action@ . For all other update requests, @ActivatedRule|Action@ is used instead of @ActivatedRule|OverrideAction@ .      * 'WafAction' : Contains @Type@
 uwaUpdates :: Lens' UpdateWebACL [WebACLUpdate]
-uwaUpdates = lens _uwaUpdates (\ s a -> s{_uwaUpdates = a}) . _Default . _Coerce;
+uwaUpdates = lens _uwaUpdates (\ s a -> s{_uwaUpdates = a}) . _Default . _Coerce
 
 -- | A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn't match the criteria in any of the rules in a web ACL.
 uwaDefaultAction :: Lens' UpdateWebACL (Maybe WafAction)
-uwaDefaultAction = lens _uwaDefaultAction (\ s a -> s{_uwaDefaultAction = a});
+uwaDefaultAction = lens _uwaDefaultAction (\ s a -> s{_uwaDefaultAction = a})
 
 -- | The @WebACLId@ of the 'WebACL' that you want to update. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
 uwaWebACLId :: Lens' UpdateWebACL Text
-uwaWebACLId = lens _uwaWebACLId (\ s a -> s{_uwaWebACLId = a});
+uwaWebACLId = lens _uwaWebACLId (\ s a -> s{_uwaWebACLId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 uwaChangeToken :: Lens' UpdateWebACL Text
-uwaChangeToken = lens _uwaChangeToken (\ s a -> s{_uwaChangeToken = a});
+uwaChangeToken = lens _uwaChangeToken (\ s a -> s{_uwaChangeToken = a})
 
 instance AWSRequest UpdateWebACL where
         type Rs UpdateWebACL = UpdateWebACLResponse
@@ -180,15 +180,15 @@ updateWebACLResponse
     -> UpdateWebACLResponse
 updateWebACLResponse pResponseStatus_ =
   UpdateWebACLResponse'
-  {_uwarsChangeToken = Nothing, _uwarsResponseStatus = pResponseStatus_}
+    {_uwarsChangeToken = Nothing, _uwarsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @UpdateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 uwarsChangeToken :: Lens' UpdateWebACLResponse (Maybe Text)
-uwarsChangeToken = lens _uwarsChangeToken (\ s a -> s{_uwarsChangeToken = a});
+uwarsChangeToken = lens _uwarsChangeToken (\ s a -> s{_uwarsChangeToken = a})
 
 -- | -- | The response status code.
 uwarsResponseStatus :: Lens' UpdateWebACLResponse Int
-uwarsResponseStatus = lens _uwarsResponseStatus (\ s a -> s{_uwarsResponseStatus = a});
+uwarsResponseStatus = lens _uwarsResponseStatus (\ s a -> s{_uwarsResponseStatus = a})
 
 instance NFData UpdateWebACLResponse where

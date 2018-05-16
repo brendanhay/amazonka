@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetCampaignVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,28 +71,28 @@ getCampaignVersions
     -> GetCampaignVersions
 getCampaignVersions pApplicationId_ pCampaignId_ =
   GetCampaignVersions'
-  { _gcvToken = Nothing
-  , _gcvPageSize = Nothing
-  , _gcvApplicationId = pApplicationId_
-  , _gcvCampaignId = pCampaignId_
-  }
+    { _gcvToken = Nothing
+    , _gcvPageSize = Nothing
+    , _gcvApplicationId = pApplicationId_
+    , _gcvCampaignId = pCampaignId_
+    }
 
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gcvToken :: Lens' GetCampaignVersions (Maybe Text)
-gcvToken = lens _gcvToken (\ s a -> s{_gcvToken = a});
+gcvToken = lens _gcvToken (\ s a -> s{_gcvToken = a})
 
 -- | The number of entries you want on each page in the response.
 gcvPageSize :: Lens' GetCampaignVersions (Maybe Text)
-gcvPageSize = lens _gcvPageSize (\ s a -> s{_gcvPageSize = a});
+gcvPageSize = lens _gcvPageSize (\ s a -> s{_gcvPageSize = a})
 
 -- | Undocumented member.
 gcvApplicationId :: Lens' GetCampaignVersions Text
-gcvApplicationId = lens _gcvApplicationId (\ s a -> s{_gcvApplicationId = a});
+gcvApplicationId = lens _gcvApplicationId (\ s a -> s{_gcvApplicationId = a})
 
 -- | Undocumented member.
 gcvCampaignId :: Lens' GetCampaignVersions Text
-gcvCampaignId = lens _gcvCampaignId (\ s a -> s{_gcvCampaignId = a});
+gcvCampaignId = lens _gcvCampaignId (\ s a -> s{_gcvCampaignId = a})
 
 instance AWSRequest GetCampaignVersions where
         type Rs GetCampaignVersions =
@@ -146,17 +146,17 @@ getCampaignVersionsResponse
     -> GetCampaignVersionsResponse
 getCampaignVersionsResponse pResponseStatus_ pCampaignsResponse_ =
   GetCampaignVersionsResponse'
-  { _gcvrsResponseStatus = pResponseStatus_
-  , _gcvrsCampaignsResponse = pCampaignsResponse_
-  }
+    { _gcvrsResponseStatus = pResponseStatus_
+    , _gcvrsCampaignsResponse = pCampaignsResponse_
+    }
 
 
 -- | -- | The response status code.
 gcvrsResponseStatus :: Lens' GetCampaignVersionsResponse Int
-gcvrsResponseStatus = lens _gcvrsResponseStatus (\ s a -> s{_gcvrsResponseStatus = a});
+gcvrsResponseStatus = lens _gcvrsResponseStatus (\ s a -> s{_gcvrsResponseStatus = a})
 
 -- | Undocumented member.
 gcvrsCampaignsResponse :: Lens' GetCampaignVersionsResponse CampaignsResponse
-gcvrsCampaignsResponse = lens _gcvrsCampaignsResponse (\ s a -> s{_gcvrsCampaignsResponse = a});
+gcvrsCampaignsResponse = lens _gcvrsCampaignsResponse (\ s a -> s{_gcvrsCampaignsResponse = a})
 
 instance NFData GetCampaignVersionsResponse where

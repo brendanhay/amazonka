@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteRoute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ deleteRoute
     -> DeleteRoute
 deleteRoute pRouteTableId_ =
   DeleteRoute'
-  { _drDestinationIPv6CidrBlock = Nothing
-  , _drDryRun = Nothing
-  , _drDestinationCidrBlock = Nothing
-  , _drRouteTableId = pRouteTableId_
-  }
+    { _drDestinationIPv6CidrBlock = Nothing
+    , _drDryRun = Nothing
+    , _drDestinationCidrBlock = Nothing
+    , _drRouteTableId = pRouteTableId_
+    }
 
 
 -- | The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
 drDestinationIPv6CidrBlock :: Lens' DeleteRoute (Maybe Text)
-drDestinationIPv6CidrBlock = lens _drDestinationIPv6CidrBlock (\ s a -> s{_drDestinationIPv6CidrBlock = a});
+drDestinationIPv6CidrBlock = lens _drDestinationIPv6CidrBlock (\ s a -> s{_drDestinationIPv6CidrBlock = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 drDryRun :: Lens' DeleteRoute (Maybe Bool)
-drDryRun = lens _drDryRun (\ s a -> s{_drDryRun = a});
+drDryRun = lens _drDryRun (\ s a -> s{_drDryRun = a})
 
 -- | The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
 drDestinationCidrBlock :: Lens' DeleteRoute (Maybe Text)
-drDestinationCidrBlock = lens _drDestinationCidrBlock (\ s a -> s{_drDestinationCidrBlock = a});
+drDestinationCidrBlock = lens _drDestinationCidrBlock (\ s a -> s{_drDestinationCidrBlock = a})
 
 -- | The ID of the route table.
 drRouteTableId :: Lens' DeleteRoute Text
-drRouteTableId = lens _drRouteTableId (\ s a -> s{_drRouteTableId = a});
+drRouteTableId = lens _drRouteTableId (\ s a -> s{_drRouteTableId = a})
 
 instance AWSRequest DeleteRoute where
         type Rs DeleteRoute = DeleteRouteResponse

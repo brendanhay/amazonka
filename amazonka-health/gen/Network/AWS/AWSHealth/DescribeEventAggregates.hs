@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeEventAggregates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ describeEventAggregates
     -> DescribeEventAggregates
 describeEventAggregates pAggregateField_ =
   DescribeEventAggregates'
-  { _deaNextToken = Nothing
-  , _deaFilter = Nothing
-  , _deaMaxResults = Nothing
-  , _deaAggregateField = pAggregateField_
-  }
+    { _deaNextToken = Nothing
+    , _deaFilter = Nothing
+    , _deaMaxResults = Nothing
+    , _deaAggregateField = pAggregateField_
+    }
 
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 deaNextToken :: Lens' DescribeEventAggregates (Maybe Text)
-deaNextToken = lens _deaNextToken (\ s a -> s{_deaNextToken = a});
+deaNextToken = lens _deaNextToken (\ s a -> s{_deaNextToken = a})
 
 -- | Values to narrow the results returned.
 deaFilter :: Lens' DescribeEventAggregates (Maybe EventFilter)
-deaFilter = lens _deaFilter (\ s a -> s{_deaFilter = a});
+deaFilter = lens _deaFilter (\ s a -> s{_deaFilter = a})
 
 -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
 deaMaxResults :: Lens' DescribeEventAggregates (Maybe Natural)
-deaMaxResults = lens _deaMaxResults (\ s a -> s{_deaMaxResults = a}) . mapping _Nat;
+deaMaxResults = lens _deaMaxResults (\ s a -> s{_deaMaxResults = a}) . mapping _Nat
 
 -- | The only currently supported value is @eventTypeCategory@ .
 deaAggregateField :: Lens' DescribeEventAggregates EventAggregateField
-deaAggregateField = lens _deaAggregateField (\ s a -> s{_deaAggregateField = a});
+deaAggregateField = lens _deaAggregateField (\ s a -> s{_deaAggregateField = a})
 
 instance AWSPager DescribeEventAggregates where
         page rq rs
@@ -169,22 +169,22 @@ describeEventAggregatesResponse
     -> DescribeEventAggregatesResponse
 describeEventAggregatesResponse pResponseStatus_ =
   DescribeEventAggregatesResponse'
-  { _drsNextToken = Nothing
-  , _drsEventAggregates = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsNextToken = Nothing
+    , _drsEventAggregates = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 drsNextToken :: Lens' DescribeEventAggregatesResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
+drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a})
 
 -- | The number of events in each category that meet the optional filter criteria.
 drsEventAggregates :: Lens' DescribeEventAggregatesResponse [EventAggregate]
-drsEventAggregates = lens _drsEventAggregates (\ s a -> s{_drsEventAggregates = a}) . _Default . _Coerce;
+drsEventAggregates = lens _drsEventAggregates (\ s a -> s{_drsEventAggregates = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeEventAggregatesResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeEventAggregatesResponse where

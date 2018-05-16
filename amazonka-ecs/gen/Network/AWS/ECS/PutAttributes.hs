@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ECS.PutAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create or update an attribute on an Amazon ECS resource. If the attribute does not exist, it is created. If the attribute exists, its value is replaced with the specified value. To delete an attribute, use 'DeleteAttributes' . For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes Attributes> in the /Amazon EC2 Container Service Developer Guide/ .
+-- Create or update an attribute on an Amazon ECS resource. If the attribute does not exist, it is created. If the attribute exists, its value is replaced with the specified value. To delete an attribute, use 'DeleteAttributes' . For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes Attributes> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 --
 module Network.AWS.ECS.PutAttributes
@@ -66,11 +66,11 @@ putAttributes = PutAttributes' {_paCluster = Nothing, _paAttributes = mempty}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply attributes. If you do not specify a cluster, the default cluster is assumed.
 paCluster :: Lens' PutAttributes (Maybe Text)
-paCluster = lens _paCluster (\ s a -> s{_paCluster = a});
+paCluster = lens _paCluster (\ s a -> s{_paCluster = a})
 
 -- | The attributes to apply to your resource. You can specify up to 10 custom attributes per resource. You can specify up to 10 attributes in a single call.
 paAttributes :: Lens' PutAttributes [Attribute]
-paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Coerce;
+paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Coerce
 
 instance AWSRequest PutAttributes where
         type Rs PutAttributes = PutAttributesResponse
@@ -128,15 +128,15 @@ putAttributesResponse
     -> PutAttributesResponse
 putAttributesResponse pResponseStatus_ =
   PutAttributesResponse'
-  {_parsAttributes = Nothing, _parsResponseStatus = pResponseStatus_}
+    {_parsAttributes = Nothing, _parsResponseStatus = pResponseStatus_}
 
 
 -- | The attributes applied to your resource.
 parsAttributes :: Lens' PutAttributesResponse [Attribute]
-parsAttributes = lens _parsAttributes (\ s a -> s{_parsAttributes = a}) . _Default . _Coerce;
+parsAttributes = lens _parsAttributes (\ s a -> s{_parsAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 parsResponseStatus :: Lens' PutAttributesResponse Int
-parsResponseStatus = lens _parsResponseStatus (\ s a -> s{_parsResponseStatus = a});
+parsResponseStatus = lens _parsResponseStatus (\ s a -> s{_parsResponseStatus = a})
 
 instance NFData PutAttributesResponse where

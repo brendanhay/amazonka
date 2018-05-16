@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBParameterGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ describeDBParameterGroups
     :: DescribeDBParameterGroups
 describeDBParameterGroups =
   DescribeDBParameterGroups'
-  { _ddpgFilters = Nothing
-  , _ddpgDBParameterGroupName = Nothing
-  , _ddpgMarker = Nothing
-  , _ddpgMaxRecords = Nothing
-  }
+    { _ddpgFilters = Nothing
+    , _ddpgDBParameterGroupName = Nothing
+    , _ddpgMarker = Nothing
+    , _ddpgMaxRecords = Nothing
+    }
 
 
 -- | This parameter is not currently supported.
 ddpgFilters :: Lens' DescribeDBParameterGroups [Filter]
-ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a}) . _Default . _Coerce;
+ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a}) . _Default . _Coerce
 
 -- | The name of a specific DB parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBClusterParameterGroup.
 ddpgDBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
-ddpgDBParameterGroupName = lens _ddpgDBParameterGroupName (\ s a -> s{_ddpgDBParameterGroupName = a});
+ddpgDBParameterGroupName = lens _ddpgDBParameterGroupName (\ s a -> s{_ddpgDBParameterGroupName = a})
 
 -- | An optional pagination token provided by a previous @DescribeDBParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
-ddpgMarker = lens _ddpgMarker (\ s a -> s{_ddpgMarker = a});
+ddpgMarker = lens _ddpgMarker (\ s a -> s{_ddpgMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddpgMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
-ddpgMaxRecords = lens _ddpgMaxRecords (\ s a -> s{_ddpgMaxRecords = a});
+ddpgMaxRecords = lens _ddpgMaxRecords (\ s a -> s{_ddpgMaxRecords = a})
 
 instance AWSPager DescribeDBParameterGroups where
         page rq rs
@@ -170,23 +170,23 @@ describeDBParameterGroupsResponse
     -> DescribeDBParameterGroupsResponse
 describeDBParameterGroupsResponse pResponseStatus_ =
   DescribeDBParameterGroupsResponse'
-  { _ddpgrsMarker = Nothing
-  , _ddpgrsDBParameterGroups = Nothing
-  , _ddpgrsResponseStatus = pResponseStatus_
-  }
+    { _ddpgrsMarker = Nothing
+    , _ddpgrsDBParameterGroups = Nothing
+    , _ddpgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddpgrsMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
-ddpgrsMarker = lens _ddpgrsMarker (\ s a -> s{_ddpgrsMarker = a});
+ddpgrsMarker = lens _ddpgrsMarker (\ s a -> s{_ddpgrsMarker = a})
 
 -- | A list of 'DBParameterGroup' instances.
 ddpgrsDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
-ddpgrsDBParameterGroups = lens _ddpgrsDBParameterGroups (\ s a -> s{_ddpgrsDBParameterGroups = a}) . _Default . _Coerce;
+ddpgrsDBParameterGroups = lens _ddpgrsDBParameterGroups (\ s a -> s{_ddpgrsDBParameterGroups = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddpgrsResponseStatus :: Lens' DescribeDBParameterGroupsResponse Int
-ddpgrsResponseStatus = lens _ddpgrsResponseStatus (\ s a -> s{_ddpgrsResponseStatus = a});
+ddpgrsResponseStatus = lens _ddpgrsResponseStatus (\ s a -> s{_ddpgrsResponseStatus = a})
 
 instance NFData DescribeDBParameterGroupsResponse
          where

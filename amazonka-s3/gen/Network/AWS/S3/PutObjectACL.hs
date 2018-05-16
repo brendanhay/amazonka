@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutObjectACL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -103,68 +103,68 @@ putObjectACL
     -> PutObjectACL
 putObjectACL pBucket_ pKey_ =
   PutObjectACL'
-  { _poaVersionId = Nothing
-  , _poaGrantReadACP = Nothing
-  , _poaRequestPayer = Nothing
-  , _poaGrantWriteACP = Nothing
-  , _poaGrantRead = Nothing
-  , _poaGrantFullControl = Nothing
-  , _poaContentMD5 = Nothing
-  , _poaAccessControlPolicy = Nothing
-  , _poaGrantWrite = Nothing
-  , _poaACL = Nothing
-  , _poaBucket = pBucket_
-  , _poaKey = pKey_
-  }
+    { _poaVersionId = Nothing
+    , _poaGrantReadACP = Nothing
+    , _poaRequestPayer = Nothing
+    , _poaGrantWriteACP = Nothing
+    , _poaGrantRead = Nothing
+    , _poaGrantFullControl = Nothing
+    , _poaContentMD5 = Nothing
+    , _poaAccessControlPolicy = Nothing
+    , _poaGrantWrite = Nothing
+    , _poaACL = Nothing
+    , _poaBucket = pBucket_
+    , _poaKey = pKey_
+    }
 
 
 -- | VersionId used to reference a specific version of the object.
 poaVersionId :: Lens' PutObjectACL (Maybe ObjectVersionId)
-poaVersionId = lens _poaVersionId (\ s a -> s{_poaVersionId = a});
+poaVersionId = lens _poaVersionId (\ s a -> s{_poaVersionId = a})
 
 -- | Allows grantee to read the bucket ACL.
 poaGrantReadACP :: Lens' PutObjectACL (Maybe Text)
-poaGrantReadACP = lens _poaGrantReadACP (\ s a -> s{_poaGrantReadACP = a});
+poaGrantReadACP = lens _poaGrantReadACP (\ s a -> s{_poaGrantReadACP = a})
 
 -- | Undocumented member.
 poaRequestPayer :: Lens' PutObjectACL (Maybe RequestPayer)
-poaRequestPayer = lens _poaRequestPayer (\ s a -> s{_poaRequestPayer = a});
+poaRequestPayer = lens _poaRequestPayer (\ s a -> s{_poaRequestPayer = a})
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 poaGrantWriteACP :: Lens' PutObjectACL (Maybe Text)
-poaGrantWriteACP = lens _poaGrantWriteACP (\ s a -> s{_poaGrantWriteACP = a});
+poaGrantWriteACP = lens _poaGrantWriteACP (\ s a -> s{_poaGrantWriteACP = a})
 
 -- | Allows grantee to list the objects in the bucket.
 poaGrantRead :: Lens' PutObjectACL (Maybe Text)
-poaGrantRead = lens _poaGrantRead (\ s a -> s{_poaGrantRead = a});
+poaGrantRead = lens _poaGrantRead (\ s a -> s{_poaGrantRead = a})
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 poaGrantFullControl :: Lens' PutObjectACL (Maybe Text)
-poaGrantFullControl = lens _poaGrantFullControl (\ s a -> s{_poaGrantFullControl = a});
+poaGrantFullControl = lens _poaGrantFullControl (\ s a -> s{_poaGrantFullControl = a})
 
 -- | Undocumented member.
 poaContentMD5 :: Lens' PutObjectACL (Maybe Text)
-poaContentMD5 = lens _poaContentMD5 (\ s a -> s{_poaContentMD5 = a});
+poaContentMD5 = lens _poaContentMD5 (\ s a -> s{_poaContentMD5 = a})
 
 -- | Undocumented member.
 poaAccessControlPolicy :: Lens' PutObjectACL (Maybe AccessControlPolicy)
-poaAccessControlPolicy = lens _poaAccessControlPolicy (\ s a -> s{_poaAccessControlPolicy = a});
+poaAccessControlPolicy = lens _poaAccessControlPolicy (\ s a -> s{_poaAccessControlPolicy = a})
 
 -- | Allows grantee to create, overwrite, and delete any object in the bucket.
 poaGrantWrite :: Lens' PutObjectACL (Maybe Text)
-poaGrantWrite = lens _poaGrantWrite (\ s a -> s{_poaGrantWrite = a});
+poaGrantWrite = lens _poaGrantWrite (\ s a -> s{_poaGrantWrite = a})
 
 -- | The canned ACL to apply to the object.
 poaACL :: Lens' PutObjectACL (Maybe ObjectCannedACL)
-poaACL = lens _poaACL (\ s a -> s{_poaACL = a});
+poaACL = lens _poaACL (\ s a -> s{_poaACL = a})
 
 -- | Undocumented member.
 poaBucket :: Lens' PutObjectACL BucketName
-poaBucket = lens _poaBucket (\ s a -> s{_poaBucket = a});
+poaBucket = lens _poaBucket (\ s a -> s{_poaBucket = a})
 
 -- | Undocumented member.
 poaKey :: Lens' PutObjectACL ObjectKey
-poaKey = lens _poaKey (\ s a -> s{_poaKey = a});
+poaKey = lens _poaKey (\ s a -> s{_poaKey = a})
 
 instance AWSRequest PutObjectACL where
         type Rs PutObjectACL = PutObjectACLResponse
@@ -226,15 +226,15 @@ putObjectACLResponse
     -> PutObjectACLResponse
 putObjectACLResponse pResponseStatus_ =
   PutObjectACLResponse'
-  {_poarsRequestCharged = Nothing, _poarsResponseStatus = pResponseStatus_}
+    {_poarsRequestCharged = Nothing, _poarsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 poarsRequestCharged :: Lens' PutObjectACLResponse (Maybe RequestCharged)
-poarsRequestCharged = lens _poarsRequestCharged (\ s a -> s{_poarsRequestCharged = a});
+poarsRequestCharged = lens _poarsRequestCharged (\ s a -> s{_poarsRequestCharged = a})
 
 -- | -- | The response status code.
 poarsResponseStatus :: Lens' PutObjectACLResponse Int
-poarsResponseStatus = lens _poarsResponseStatus (\ s a -> s{_poarsResponseStatus = a});
+poarsResponseStatus = lens _poarsResponseStatus (\ s a -> s{_poarsResponseStatus = a})
 
 instance NFData PutObjectACLResponse where

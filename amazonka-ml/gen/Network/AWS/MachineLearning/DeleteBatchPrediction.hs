@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DeleteBatchPrediction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ deleteBatchPrediction pBatchPredictionId_ =
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@ .
 dbpBatchPredictionId :: Lens' DeleteBatchPrediction Text
-dbpBatchPredictionId = lens _dbpBatchPredictionId (\ s a -> s{_dbpBatchPredictionId = a});
+dbpBatchPredictionId = lens _dbpBatchPredictionId (\ s a -> s{_dbpBatchPredictionId = a})
 
 instance AWSRequest DeleteBatchPrediction where
         type Rs DeleteBatchPrediction =
@@ -132,15 +132,15 @@ deleteBatchPredictionResponse
     -> DeleteBatchPredictionResponse
 deleteBatchPredictionResponse pResponseStatus_ =
   DeleteBatchPredictionResponse'
-  {_dbprsBatchPredictionId = Nothing, _dbprsResponseStatus = pResponseStatus_}
+    {_dbprsBatchPredictionId = Nothing, _dbprsResponseStatus = pResponseStatus_}
 
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@ . This value should be identical to the value of the @BatchPredictionID@ in the request.
 dbprsBatchPredictionId :: Lens' DeleteBatchPredictionResponse (Maybe Text)
-dbprsBatchPredictionId = lens _dbprsBatchPredictionId (\ s a -> s{_dbprsBatchPredictionId = a});
+dbprsBatchPredictionId = lens _dbprsBatchPredictionId (\ s a -> s{_dbprsBatchPredictionId = a})
 
 -- | -- | The response status code.
 dbprsResponseStatus :: Lens' DeleteBatchPredictionResponse Int
-dbprsResponseStatus = lens _dbprsResponseStatus (\ s a -> s{_dbprsResponseStatus = a});
+dbprsResponseStatus = lens _dbprsResponseStatus (\ s a -> s{_dbprsResponseStatus = a})
 
 instance NFData DeleteBatchPredictionResponse where

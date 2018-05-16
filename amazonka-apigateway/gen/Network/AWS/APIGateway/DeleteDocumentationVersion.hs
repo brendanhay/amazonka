@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteDocumentationVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,18 +64,18 @@ deleteDocumentationVersion
     -> DeleteDocumentationVersion
 deleteDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
   DeleteDocumentationVersion'
-  { _ddvRestAPIId = pRestAPIId_
-  , _ddvDocumentationVersion = pDocumentationVersion_
-  }
+    { _ddvRestAPIId = pRestAPIId_
+    , _ddvDocumentationVersion = pDocumentationVersion_
+    }
 
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 ddvRestAPIId :: Lens' DeleteDocumentationVersion Text
-ddvRestAPIId = lens _ddvRestAPIId (\ s a -> s{_ddvRestAPIId = a});
+ddvRestAPIId = lens _ddvRestAPIId (\ s a -> s{_ddvRestAPIId = a})
 
 -- | [Required] The version identifier of a to-be-deleted documentation snapshot.
 ddvDocumentationVersion :: Lens' DeleteDocumentationVersion Text
-ddvDocumentationVersion = lens _ddvDocumentationVersion (\ s a -> s{_ddvDocumentationVersion = a});
+ddvDocumentationVersion = lens _ddvDocumentationVersion (\ s a -> s{_ddvDocumentationVersion = a})
 
 instance AWSRequest DeleteDocumentationVersion where
         type Rs DeleteDocumentationVersion =

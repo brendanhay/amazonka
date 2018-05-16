@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.EnableAllFeatures
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,8 @@
 --
 --
 -- /Important:/ This operation is required only for organizations that were created explicitly with only the consolidated billing features enabled, or that were migrated from a Consolidated Billing account family to Organizations. Calling this operation sends a handshake to every invited account in the organization. The feature set change can be finalized and the additional features enabled only after all administrators in the invited accounts approve the change by accepting the handshake.
+--
+-- After you enable all features, you can separately enable or disable individual policy types in a root using 'EnablePolicyType' and 'DisablePolicyType' . To see the status of policy types in a root, use 'ListRoots' .
 --
 -- After all invited member accounts accept the handshake, you finalize the feature set change by accepting the handshake that contains @"Action": "ENABLE_ALL_FEATURES"@ . This completes the change.
 --
@@ -114,15 +116,15 @@ enableAllFeaturesResponse
     -> EnableAllFeaturesResponse
 enableAllFeaturesResponse pResponseStatus_ =
   EnableAllFeaturesResponse'
-  {_eafrsHandshake = Nothing, _eafrsResponseStatus = pResponseStatus_}
+    {_eafrsHandshake = Nothing, _eafrsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that contains details about the handshake created to support this request to enable all features in the organization.
 eafrsHandshake :: Lens' EnableAllFeaturesResponse (Maybe Handshake)
-eafrsHandshake = lens _eafrsHandshake (\ s a -> s{_eafrsHandshake = a});
+eafrsHandshake = lens _eafrsHandshake (\ s a -> s{_eafrsHandshake = a})
 
 -- | -- | The response status code.
 eafrsResponseStatus :: Lens' EnableAllFeaturesResponse Int
-eafrsResponseStatus = lens _eafrsResponseStatus (\ s a -> s{_eafrsResponseStatus = a});
+eafrsResponseStatus = lens _eafrsResponseStatus (\ s a -> s{_eafrsResponseStatus = a})
 
 instance NFData EnableAllFeaturesResponse where

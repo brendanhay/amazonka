@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteCampaign
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,16 +63,16 @@ deleteCampaign
     -> DeleteCampaign
 deleteCampaign pCampaignId_ pApplicationId_ =
   DeleteCampaign'
-  {_dcCampaignId = pCampaignId_, _dcApplicationId = pApplicationId_}
+    {_dcCampaignId = pCampaignId_, _dcApplicationId = pApplicationId_}
 
 
 -- | Undocumented member.
 dcCampaignId :: Lens' DeleteCampaign Text
-dcCampaignId = lens _dcCampaignId (\ s a -> s{_dcCampaignId = a});
+dcCampaignId = lens _dcCampaignId (\ s a -> s{_dcCampaignId = a})
 
 -- | Undocumented member.
 dcApplicationId :: Lens' DeleteCampaign Text
-dcApplicationId = lens _dcApplicationId (\ s a -> s{_dcApplicationId = a});
+dcApplicationId = lens _dcApplicationId (\ s a -> s{_dcApplicationId = a})
 
 instance AWSRequest DeleteCampaign where
         type Rs DeleteCampaign = DeleteCampaignResponse
@@ -123,17 +123,17 @@ deleteCampaignResponse
     -> DeleteCampaignResponse
 deleteCampaignResponse pResponseStatus_ pCampaignResponse_ =
   DeleteCampaignResponse'
-  { _dcrsResponseStatus = pResponseStatus_
-  , _dcrsCampaignResponse = pCampaignResponse_
-  }
+    { _dcrsResponseStatus = pResponseStatus_
+    , _dcrsCampaignResponse = pCampaignResponse_
+    }
 
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DeleteCampaignResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 -- | Undocumented member.
 dcrsCampaignResponse :: Lens' DeleteCampaignResponse CampaignResponse
-dcrsCampaignResponse = lens _dcrsCampaignResponse (\ s a -> s{_dcrsCampaignResponse = a});
+dcrsCampaignResponse = lens _dcrsCampaignResponse (\ s a -> s{_dcrsCampaignResponse = a})
 
 instance NFData DeleteCampaignResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetCSVHeader
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getCSVHeader pUserPoolId_ = GetCSVHeader' {_gchUserPoolId = pUserPoolId_}
 
 -- | The user pool ID for the user pool that the users are to be imported into.
 gchUserPoolId :: Lens' GetCSVHeader Text
-gchUserPoolId = lens _gchUserPoolId (\ s a -> s{_gchUserPoolId = a});
+gchUserPoolId = lens _gchUserPoolId (\ s a -> s{_gchUserPoolId = a})
 
 instance AWSRequest GetCSVHeader where
         type Rs GetCSVHeader = GetCSVHeaderResponse
@@ -132,22 +132,22 @@ getCSVHeaderResponse
     -> GetCSVHeaderResponse
 getCSVHeaderResponse pResponseStatus_ =
   GetCSVHeaderResponse'
-  { _gchrsUserPoolId = Nothing
-  , _gchrsCSVHeader = Nothing
-  , _gchrsResponseStatus = pResponseStatus_
-  }
+    { _gchrsUserPoolId = Nothing
+    , _gchrsCSVHeader = Nothing
+    , _gchrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The user pool ID for the user pool that the users are to be imported into.
 gchrsUserPoolId :: Lens' GetCSVHeaderResponse (Maybe Text)
-gchrsUserPoolId = lens _gchrsUserPoolId (\ s a -> s{_gchrsUserPoolId = a});
+gchrsUserPoolId = lens _gchrsUserPoolId (\ s a -> s{_gchrsUserPoolId = a})
 
 -- | The header information for the .csv file for the user import job.
 gchrsCSVHeader :: Lens' GetCSVHeaderResponse [Text]
-gchrsCSVHeader = lens _gchrsCSVHeader (\ s a -> s{_gchrsCSVHeader = a}) . _Default . _Coerce;
+gchrsCSVHeader = lens _gchrsCSVHeader (\ s a -> s{_gchrsCSVHeader = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gchrsResponseStatus :: Lens' GetCSVHeaderResponse Int
-gchrsResponseStatus = lens _gchrsResponseStatus (\ s a -> s{_gchrsResponseStatus = a});
+gchrsResponseStatus = lens _gchrsResponseStatus (\ s a -> s{_gchrsResponseStatus = a})
 
 instance NFData GetCSVHeaderResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,18 +66,18 @@ updateApplicationResourceLifecycle
     -> UpdateApplicationResourceLifecycle
 updateApplicationResourceLifecycle pApplicationName_ pResourceLifecycleConfig_ =
   UpdateApplicationResourceLifecycle'
-  { _uarlApplicationName = pApplicationName_
-  , _uarlResourceLifecycleConfig = pResourceLifecycleConfig_
-  }
+    { _uarlApplicationName = pApplicationName_
+    , _uarlResourceLifecycleConfig = pResourceLifecycleConfig_
+    }
 
 
 -- | The name of the application.
 uarlApplicationName :: Lens' UpdateApplicationResourceLifecycle Text
-uarlApplicationName = lens _uarlApplicationName (\ s a -> s{_uarlApplicationName = a});
+uarlApplicationName = lens _uarlApplicationName (\ s a -> s{_uarlApplicationName = a})
 
 -- | The lifecycle configuration.
 uarlResourceLifecycleConfig :: Lens' UpdateApplicationResourceLifecycle ApplicationResourceLifecycleConfig
-uarlResourceLifecycleConfig = lens _uarlResourceLifecycleConfig (\ s a -> s{_uarlResourceLifecycleConfig = a});
+uarlResourceLifecycleConfig = lens _uarlResourceLifecycleConfig (\ s a -> s{_uarlResourceLifecycleConfig = a})
 
 instance AWSRequest
            UpdateApplicationResourceLifecycle
@@ -141,23 +141,23 @@ updateApplicationResourceLifecycleResponse
     -> UpdateApplicationResourceLifecycleResponse
 updateApplicationResourceLifecycleResponse pResponseStatus_ =
   UpdateApplicationResourceLifecycleResponse'
-  { _uarlrsApplicationName = Nothing
-  , _uarlrsResourceLifecycleConfig = Nothing
-  , _uarlrsResponseStatus = pResponseStatus_
-  }
+    { _uarlrsApplicationName = Nothing
+    , _uarlrsResourceLifecycleConfig = Nothing
+    , _uarlrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The name of the application.
 uarlrsApplicationName :: Lens' UpdateApplicationResourceLifecycleResponse (Maybe Text)
-uarlrsApplicationName = lens _uarlrsApplicationName (\ s a -> s{_uarlrsApplicationName = a});
+uarlrsApplicationName = lens _uarlrsApplicationName (\ s a -> s{_uarlrsApplicationName = a})
 
 -- | The lifecycle configuration.
 uarlrsResourceLifecycleConfig :: Lens' UpdateApplicationResourceLifecycleResponse (Maybe ApplicationResourceLifecycleConfig)
-uarlrsResourceLifecycleConfig = lens _uarlrsResourceLifecycleConfig (\ s a -> s{_uarlrsResourceLifecycleConfig = a});
+uarlrsResourceLifecycleConfig = lens _uarlrsResourceLifecycleConfig (\ s a -> s{_uarlrsResourceLifecycleConfig = a})
 
 -- | -- | The response status code.
 uarlrsResponseStatus :: Lens' UpdateApplicationResourceLifecycleResponse Int
-uarlrsResponseStatus = lens _uarlrsResponseStatus (\ s a -> s{_uarlrsResponseStatus = a});
+uarlrsResponseStatus = lens _uarlrsResponseStatus (\ s a -> s{_uarlrsResponseStatus = a})
 
 instance NFData
            UpdateApplicationResourceLifecycleResponse

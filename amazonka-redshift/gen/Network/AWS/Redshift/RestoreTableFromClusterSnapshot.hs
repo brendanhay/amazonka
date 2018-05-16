@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RestoreTableFromClusterSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -98,48 +98,48 @@ restoreTableFromClusterSnapshot
     -> RestoreTableFromClusterSnapshot
 restoreTableFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ pSourceDatabaseName_ pSourceTableName_ pNewTableName_ =
   RestoreTableFromClusterSnapshot'
-  { _rtfcsTargetSchemaName = Nothing
-  , _rtfcsTargetDatabaseName = Nothing
-  , _rtfcsSourceSchemaName = Nothing
-  , _rtfcsClusterIdentifier = pClusterIdentifier_
-  , _rtfcsSnapshotIdentifier = pSnapshotIdentifier_
-  , _rtfcsSourceDatabaseName = pSourceDatabaseName_
-  , _rtfcsSourceTableName = pSourceTableName_
-  , _rtfcsNewTableName = pNewTableName_
-  }
+    { _rtfcsTargetSchemaName = Nothing
+    , _rtfcsTargetDatabaseName = Nothing
+    , _rtfcsSourceSchemaName = Nothing
+    , _rtfcsClusterIdentifier = pClusterIdentifier_
+    , _rtfcsSnapshotIdentifier = pSnapshotIdentifier_
+    , _rtfcsSourceDatabaseName = pSourceDatabaseName_
+    , _rtfcsSourceTableName = pSourceTableName_
+    , _rtfcsNewTableName = pNewTableName_
+    }
 
 
 -- | The name of the schema to restore the table to.
 rtfcsTargetSchemaName :: Lens' RestoreTableFromClusterSnapshot (Maybe Text)
-rtfcsTargetSchemaName = lens _rtfcsTargetSchemaName (\ s a -> s{_rtfcsTargetSchemaName = a});
+rtfcsTargetSchemaName = lens _rtfcsTargetSchemaName (\ s a -> s{_rtfcsTargetSchemaName = a})
 
 -- | The name of the database to restore the table to.
 rtfcsTargetDatabaseName :: Lens' RestoreTableFromClusterSnapshot (Maybe Text)
-rtfcsTargetDatabaseName = lens _rtfcsTargetDatabaseName (\ s a -> s{_rtfcsTargetDatabaseName = a});
+rtfcsTargetDatabaseName = lens _rtfcsTargetDatabaseName (\ s a -> s{_rtfcsTargetDatabaseName = a})
 
 -- | The name of the source schema that contains the table to restore from. If you do not specify a @SourceSchemaName@ value, the default is @public@ .
 rtfcsSourceSchemaName :: Lens' RestoreTableFromClusterSnapshot (Maybe Text)
-rtfcsSourceSchemaName = lens _rtfcsSourceSchemaName (\ s a -> s{_rtfcsSourceSchemaName = a});
+rtfcsSourceSchemaName = lens _rtfcsSourceSchemaName (\ s a -> s{_rtfcsSourceSchemaName = a})
 
 -- | The identifier of the Amazon Redshift cluster to restore the table to.
 rtfcsClusterIdentifier :: Lens' RestoreTableFromClusterSnapshot Text
-rtfcsClusterIdentifier = lens _rtfcsClusterIdentifier (\ s a -> s{_rtfcsClusterIdentifier = a});
+rtfcsClusterIdentifier = lens _rtfcsClusterIdentifier (\ s a -> s{_rtfcsClusterIdentifier = a})
 
 -- | The identifier of the snapshot to restore the table from. This snapshot must have been created from the Amazon Redshift cluster specified by the @ClusterIdentifier@ parameter.
 rtfcsSnapshotIdentifier :: Lens' RestoreTableFromClusterSnapshot Text
-rtfcsSnapshotIdentifier = lens _rtfcsSnapshotIdentifier (\ s a -> s{_rtfcsSnapshotIdentifier = a});
+rtfcsSnapshotIdentifier = lens _rtfcsSnapshotIdentifier (\ s a -> s{_rtfcsSnapshotIdentifier = a})
 
 -- | The name of the source database that contains the table to restore from.
 rtfcsSourceDatabaseName :: Lens' RestoreTableFromClusterSnapshot Text
-rtfcsSourceDatabaseName = lens _rtfcsSourceDatabaseName (\ s a -> s{_rtfcsSourceDatabaseName = a});
+rtfcsSourceDatabaseName = lens _rtfcsSourceDatabaseName (\ s a -> s{_rtfcsSourceDatabaseName = a})
 
 -- | The name of the source table to restore from.
 rtfcsSourceTableName :: Lens' RestoreTableFromClusterSnapshot Text
-rtfcsSourceTableName = lens _rtfcsSourceTableName (\ s a -> s{_rtfcsSourceTableName = a});
+rtfcsSourceTableName = lens _rtfcsSourceTableName (\ s a -> s{_rtfcsSourceTableName = a})
 
 -- | The name of the table to create as a result of the current request.
 rtfcsNewTableName :: Lens' RestoreTableFromClusterSnapshot Text
-rtfcsNewTableName = lens _rtfcsNewTableName (\ s a -> s{_rtfcsNewTableName = a});
+rtfcsNewTableName = lens _rtfcsNewTableName (\ s a -> s{_rtfcsNewTableName = a})
 
 instance AWSRequest RestoreTableFromClusterSnapshot
          where
@@ -200,18 +200,18 @@ restoreTableFromClusterSnapshotResponse
     -> RestoreTableFromClusterSnapshotResponse
 restoreTableFromClusterSnapshotResponse pResponseStatus_ =
   RestoreTableFromClusterSnapshotResponse'
-  { _rtfcsrsTableRestoreStatus = Nothing
-  , _rtfcsrsResponseStatus = pResponseStatus_
-  }
+    { _rtfcsrsTableRestoreStatus = Nothing
+    , _rtfcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 rtfcsrsTableRestoreStatus :: Lens' RestoreTableFromClusterSnapshotResponse (Maybe TableRestoreStatus)
-rtfcsrsTableRestoreStatus = lens _rtfcsrsTableRestoreStatus (\ s a -> s{_rtfcsrsTableRestoreStatus = a});
+rtfcsrsTableRestoreStatus = lens _rtfcsrsTableRestoreStatus (\ s a -> s{_rtfcsrsTableRestoreStatus = a})
 
 -- | -- | The response status code.
 rtfcsrsResponseStatus :: Lens' RestoreTableFromClusterSnapshotResponse Int
-rtfcsrsResponseStatus = lens _rtfcsrsResponseStatus (\ s a -> s{_rtfcsrsResponseStatus = a});
+rtfcsrsResponseStatus = lens _rtfcsrsResponseStatus (\ s a -> s{_rtfcsrsResponseStatus = a})
 
 instance NFData
            RestoreTableFromClusterSnapshotResponse

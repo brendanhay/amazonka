@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CreateExportTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,43 +91,43 @@ createExportTask
     -> CreateExportTask
 createExportTask pLogGroupName_ pFrom_ pTo_ pDestination_ =
   CreateExportTask'
-  { _cetDestinationPrefix = Nothing
-  , _cetTaskName = Nothing
-  , _cetLogStreamNamePrefix = Nothing
-  , _cetLogGroupName = pLogGroupName_
-  , _cetFrom = _Nat # pFrom_
-  , _cetTo = _Nat # pTo_
-  , _cetDestination = pDestination_
-  }
+    { _cetDestinationPrefix = Nothing
+    , _cetTaskName = Nothing
+    , _cetLogStreamNamePrefix = Nothing
+    , _cetLogGroupName = pLogGroupName_
+    , _cetFrom = _Nat # pFrom_
+    , _cetTo = _Nat # pTo_
+    , _cetDestination = pDestination_
+    }
 
 
 -- | The prefix used as the start of the key for every object exported. If you don't specify a value, the default is @exportedlogs@ .
 cetDestinationPrefix :: Lens' CreateExportTask (Maybe Text)
-cetDestinationPrefix = lens _cetDestinationPrefix (\ s a -> s{_cetDestinationPrefix = a});
+cetDestinationPrefix = lens _cetDestinationPrefix (\ s a -> s{_cetDestinationPrefix = a})
 
 -- | The name of the export task.
 cetTaskName :: Lens' CreateExportTask (Maybe Text)
-cetTaskName = lens _cetTaskName (\ s a -> s{_cetTaskName = a});
+cetTaskName = lens _cetTaskName (\ s a -> s{_cetTaskName = a})
 
 -- | Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied.
 cetLogStreamNamePrefix :: Lens' CreateExportTask (Maybe Text)
-cetLogStreamNamePrefix = lens _cetLogStreamNamePrefix (\ s a -> s{_cetLogStreamNamePrefix = a});
+cetLogStreamNamePrefix = lens _cetLogStreamNamePrefix (\ s a -> s{_cetLogStreamNamePrefix = a})
 
 -- | The name of the log group.
 cetLogGroupName :: Lens' CreateExportTask Text
-cetLogGroupName = lens _cetLogGroupName (\ s a -> s{_cetLogGroupName = a});
+cetLogGroupName = lens _cetLogGroupName (\ s a -> s{_cetLogGroupName = a})
 
 -- | The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not exported.
 cetFrom :: Lens' CreateExportTask Natural
-cetFrom = lens _cetFrom (\ s a -> s{_cetFrom = a}) . _Nat;
+cetFrom = lens _cetFrom (\ s a -> s{_cetFrom = a}) . _Nat
 
 -- | The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.
 cetTo :: Lens' CreateExportTask Natural
-cetTo = lens _cetTo (\ s a -> s{_cetTo = a}) . _Nat;
+cetTo = lens _cetTo (\ s a -> s{_cetTo = a}) . _Nat
 
 -- | The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.
 cetDestination :: Lens' CreateExportTask Text
-cetDestination = lens _cetDestination (\ s a -> s{_cetDestination = a});
+cetDestination = lens _cetDestination (\ s a -> s{_cetDestination = a})
 
 instance AWSRequest CreateExportTask where
         type Rs CreateExportTask = CreateExportTaskResponse
@@ -188,15 +188,15 @@ createExportTaskResponse
     -> CreateExportTaskResponse
 createExportTaskResponse pResponseStatus_ =
   CreateExportTaskResponse'
-  {_cetrsTaskId = Nothing, _cetrsResponseStatus = pResponseStatus_}
+    {_cetrsTaskId = Nothing, _cetrsResponseStatus = pResponseStatus_}
 
 
 -- | The ID of the export task.
 cetrsTaskId :: Lens' CreateExportTaskResponse (Maybe Text)
-cetrsTaskId = lens _cetrsTaskId (\ s a -> s{_cetrsTaskId = a});
+cetrsTaskId = lens _cetrsTaskId (\ s a -> s{_cetrsTaskId = a})
 
 -- | -- | The response status code.
 cetrsResponseStatus :: Lens' CreateExportTaskResponse Int
-cetrsResponseStatus = lens _cetrsResponseStatus (\ s a -> s{_cetrsResponseStatus = a});
+cetrsResponseStatus = lens _cetrsResponseStatus (\ s a -> s{_cetrsResponseStatus = a})
 
 instance NFData CreateExportTaskResponse where

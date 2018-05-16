@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetComplianceSummaryByConfigRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -118,18 +118,18 @@ getComplianceSummaryByConfigRuleResponse
     -> GetComplianceSummaryByConfigRuleResponse
 getComplianceSummaryByConfigRuleResponse pResponseStatus_ =
   GetComplianceSummaryByConfigRuleResponse'
-  { _gcsbcrrsComplianceSummary = Nothing
-  , _gcsbcrrsResponseStatus = pResponseStatus_
-  }
+    { _gcsbcrrsComplianceSummary = Nothing
+    , _gcsbcrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The number of AWS Config rules that are compliant and the number that are noncompliant, up to a maximum of 25 for each.
 gcsbcrrsComplianceSummary :: Lens' GetComplianceSummaryByConfigRuleResponse (Maybe ComplianceSummary)
-gcsbcrrsComplianceSummary = lens _gcsbcrrsComplianceSummary (\ s a -> s{_gcsbcrrsComplianceSummary = a});
+gcsbcrrsComplianceSummary = lens _gcsbcrrsComplianceSummary (\ s a -> s{_gcsbcrrsComplianceSummary = a})
 
 -- | -- | The response status code.
 gcsbcrrsResponseStatus :: Lens' GetComplianceSummaryByConfigRuleResponse Int
-gcsbcrrsResponseStatus = lens _gcsbcrrsResponseStatus (\ s a -> s{_gcsbcrrsResponseStatus = a});
+gcsbcrrsResponseStatus = lens _gcsbcrrsResponseStatus (\ s a -> s{_gcsbcrrsResponseStatus = a})
 
 instance NFData
            GetComplianceSummaryByConfigRuleResponse

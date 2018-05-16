@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.RejectQualificationRequest
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,18 @@ rejectQualificationRequest
     -> RejectQualificationRequest
 rejectQualificationRequest pQualificationRequestId_ =
   RejectQualificationRequest'
-  {_rqrReason = Nothing, _rqrQualificationRequestId = pQualificationRequestId_}
+    { _rqrReason = Nothing
+    , _rqrQualificationRequestId = pQualificationRequestId_
+    }
 
 
 -- | A text message explaining why the request was rejected, to be shown to the Worker who made the request.
 rqrReason :: Lens' RejectQualificationRequest (Maybe Text)
-rqrReason = lens _rqrReason (\ s a -> s{_rqrReason = a});
+rqrReason = lens _rqrReason (\ s a -> s{_rqrReason = a})
 
 -- | The ID of the Qualification request, as returned by the @ListQualificationRequests@ operation.
 rqrQualificationRequestId :: Lens' RejectQualificationRequest Text
-rqrQualificationRequestId = lens _rqrQualificationRequestId (\ s a -> s{_rqrQualificationRequestId = a});
+rqrQualificationRequestId = lens _rqrQualificationRequestId (\ s a -> s{_rqrQualificationRequestId = a})
 
 instance AWSRequest RejectQualificationRequest where
         type Rs RejectQualificationRequest =
@@ -135,7 +137,7 @@ rejectQualificationRequestResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rqrrsResponseStatus :: Lens' RejectQualificationRequestResponse Int
-rqrrsResponseStatus = lens _rqrrsResponseStatus (\ s a -> s{_rqrrsResponseStatus = a});
+rqrrsResponseStatus = lens _rqrrsResponseStatus (\ s a -> s{_rqrrsResponseStatus = a})
 
 instance NFData RejectQualificationRequestResponse
          where

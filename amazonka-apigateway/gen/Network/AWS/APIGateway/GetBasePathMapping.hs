@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetBasePathMapping
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,25 +61,25 @@ data GetBasePathMapping = GetBasePathMapping'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpmDomainName' - The domain name of the 'BasePathMapping' resource to be described.
+-- * 'gbpmDomainName' - [Required] The domain name of the 'BasePathMapping' resource to be described.
 --
--- * 'gbpmBasePath' - The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Leave this blank if you do not want callers to specify any base path name after the domain name.
+-- * 'gbpmBasePath' - [Required] The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Leave this blank if you do not want callers to specify any base path name after the domain name.
 getBasePathMapping
     :: Text -- ^ 'gbpmDomainName'
     -> Text -- ^ 'gbpmBasePath'
     -> GetBasePathMapping
 getBasePathMapping pDomainName_ pBasePath_ =
   GetBasePathMapping'
-  {_gbpmDomainName = pDomainName_, _gbpmBasePath = pBasePath_}
+    {_gbpmDomainName = pDomainName_, _gbpmBasePath = pBasePath_}
 
 
--- | The domain name of the 'BasePathMapping' resource to be described.
+-- | [Required] The domain name of the 'BasePathMapping' resource to be described.
 gbpmDomainName :: Lens' GetBasePathMapping Text
-gbpmDomainName = lens _gbpmDomainName (\ s a -> s{_gbpmDomainName = a});
+gbpmDomainName = lens _gbpmDomainName (\ s a -> s{_gbpmDomainName = a})
 
--- | The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Leave this blank if you do not want callers to specify any base path name after the domain name.
+-- | [Required] The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Leave this blank if you do not want callers to specify any base path name after the domain name.
 gbpmBasePath :: Lens' GetBasePathMapping Text
-gbpmBasePath = lens _gbpmBasePath (\ s a -> s{_gbpmBasePath = a});
+gbpmBasePath = lens _gbpmBasePath (\ s a -> s{_gbpmBasePath = a})
 
 instance AWSRequest GetBasePathMapping where
         type Rs GetBasePathMapping = BasePathMapping

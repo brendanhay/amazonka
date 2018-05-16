@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DeleteTargetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deleteTargetGroup pTargetGroupARN_ =
 
 -- | The Amazon Resource Name (ARN) of the target group.
 dtgTargetGroupARN :: Lens' DeleteTargetGroup Text
-dtgTargetGroupARN = lens _dtgTargetGroupARN (\ s a -> s{_dtgTargetGroupARN = a});
+dtgTargetGroupARN = lens _dtgTargetGroupARN (\ s a -> s{_dtgTargetGroupARN = a})
 
 instance AWSRequest DeleteTargetGroup where
         type Rs DeleteTargetGroup = DeleteTargetGroupResponse
@@ -112,6 +112,6 @@ deleteTargetGroupResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dtgrsResponseStatus :: Lens' DeleteTargetGroupResponse Int
-dtgrsResponseStatus = lens _dtgrsResponseStatus (\ s a -> s{_dtgrsResponseStatus = a});
+dtgrsResponseStatus = lens _dtgrsResponseStatus (\ s a -> s{_dtgrsResponseStatus = a})
 
 instance NFData DeleteTargetGroupResponse where

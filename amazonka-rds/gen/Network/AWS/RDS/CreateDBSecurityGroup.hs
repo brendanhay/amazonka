@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBSecurityGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ createDBSecurityGroup
     -> CreateDBSecurityGroup
 createDBSecurityGroup pDBSecurityGroupName_ pDBSecurityGroupDescription_ =
   CreateDBSecurityGroup'
-  { _cdsgTags = Nothing
-  , _cdsgDBSecurityGroupName = pDBSecurityGroupName_
-  , _cdsgDBSecurityGroupDescription = pDBSecurityGroupDescription_
-  }
+    { _cdsgTags = Nothing
+    , _cdsgDBSecurityGroupName = pDBSecurityGroupName_
+    , _cdsgDBSecurityGroupDescription = pDBSecurityGroupDescription_
+    }
 
 
 -- | Undocumented member.
 cdsgTags :: Lens' CreateDBSecurityGroup [Tag]
-cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default . _Coerce;
+cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default . _Coerce
 
 -- | The name for the DB security group. This value is stored as a lowercase string. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Must not be "Default" Example: @mysecuritygroup@
 cdsgDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text
-cdsgDBSecurityGroupName = lens _cdsgDBSecurityGroupName (\ s a -> s{_cdsgDBSecurityGroupName = a});
+cdsgDBSecurityGroupName = lens _cdsgDBSecurityGroupName (\ s a -> s{_cdsgDBSecurityGroupName = a})
 
 -- | The description for the DB security group.
 cdsgDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup Text
-cdsgDBSecurityGroupDescription = lens _cdsgDBSecurityGroupDescription (\ s a -> s{_cdsgDBSecurityGroupDescription = a});
+cdsgDBSecurityGroupDescription = lens _cdsgDBSecurityGroupDescription (\ s a -> s{_cdsgDBSecurityGroupDescription = a})
 
 instance AWSRequest CreateDBSecurityGroup where
         type Rs CreateDBSecurityGroup =
@@ -140,15 +140,17 @@ createDBSecurityGroupResponse
     -> CreateDBSecurityGroupResponse
 createDBSecurityGroupResponse pResponseStatus_ =
   CreateDBSecurityGroupResponse'
-  {_cdbsgrsDBSecurityGroup = Nothing, _cdbsgrsResponseStatus = pResponseStatus_}
+    { _cdbsgrsDBSecurityGroup = Nothing
+    , _cdbsgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 cdbsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
-cdbsgrsDBSecurityGroup = lens _cdbsgrsDBSecurityGroup (\ s a -> s{_cdbsgrsDBSecurityGroup = a});
+cdbsgrsDBSecurityGroup = lens _cdbsgrsDBSecurityGroup (\ s a -> s{_cdbsgrsDBSecurityGroup = a})
 
 -- | -- | The response status code.
 cdbsgrsResponseStatus :: Lens' CreateDBSecurityGroupResponse Int
-cdbsgrsResponseStatus = lens _cdbsgrsResponseStatus (\ s a -> s{_cdbsgrsResponseStatus = a});
+cdbsgrsResponseStatus = lens _cdbsgrsResponseStatus (\ s a -> s{_cdbsgrsResponseStatus = a})
 
 instance NFData CreateDBSecurityGroupResponse where

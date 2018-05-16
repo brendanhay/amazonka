@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateInstancesFromSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,7 @@ module Network.AWS.Lightsail.CreateInstancesFromSnapshot
     -- * Request Lenses
     , cifsUserData
     , cifsKeyPairName
+    , cifsAttachedDiskMapping
     , cifsInstanceNames
     , cifsAvailabilityZone
     , cifsInstanceSnapshotName
@@ -53,6 +54,7 @@ import Network.AWS.Response
 data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
   { _cifsUserData             :: !(Maybe Text)
   , _cifsKeyPairName          :: !(Maybe Text)
+  , _cifsAttachedDiskMapping  :: !(Maybe (Map Text [DiskMap]))
   , _cifsInstanceNames        :: ![Text]
   , _cifsAvailabilityZone     :: !Text
   , _cifsInstanceSnapshotName :: !Text
@@ -64,13 +66,15 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cifsUserData' - You can create a launch script that configures a server with additional user data. For example, @apt-get –y update@ .
+-- * 'cifsUserData' - You can create a launch script that configures a server with additional user data. For example, @apt-get -y update@ .
 --
 -- * 'cifsKeyPairName' - The name for your key pair.
 --
+-- * 'cifsAttachedDiskMapping' - An object containing information about one or more disk mappings.
+--
 -- * 'cifsInstanceNames' - The names for your new instances.
 --
--- * 'cifsAvailabilityZone' - The Availability Zone where you want to create your instances. Use the following formatting: @us-east-1a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
+-- * 'cifsAvailabilityZone' - The Availability Zone where you want to create your instances. Use the following formatting: @us-east-2a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
 --
 -- * 'cifsInstanceSnapshotName' - The name of the instance snapshot on which you are basing your new instances. Use the get instance snapshots operation to return information about your existing snapshots.
 --
@@ -82,38 +86,43 @@ createInstancesFromSnapshot
     -> CreateInstancesFromSnapshot
 createInstancesFromSnapshot pAvailabilityZone_ pInstanceSnapshotName_ pBundleId_ =
   CreateInstancesFromSnapshot'
-  { _cifsUserData = Nothing
-  , _cifsKeyPairName = Nothing
-  , _cifsInstanceNames = mempty
-  , _cifsAvailabilityZone = pAvailabilityZone_
-  , _cifsInstanceSnapshotName = pInstanceSnapshotName_
-  , _cifsBundleId = pBundleId_
-  }
+    { _cifsUserData = Nothing
+    , _cifsKeyPairName = Nothing
+    , _cifsAttachedDiskMapping = Nothing
+    , _cifsInstanceNames = mempty
+    , _cifsAvailabilityZone = pAvailabilityZone_
+    , _cifsInstanceSnapshotName = pInstanceSnapshotName_
+    , _cifsBundleId = pBundleId_
+    }
 
 
--- | You can create a launch script that configures a server with additional user data. For example, @apt-get –y update@ .
+-- | You can create a launch script that configures a server with additional user data. For example, @apt-get -y update@ .
 cifsUserData :: Lens' CreateInstancesFromSnapshot (Maybe Text)
-cifsUserData = lens _cifsUserData (\ s a -> s{_cifsUserData = a});
+cifsUserData = lens _cifsUserData (\ s a -> s{_cifsUserData = a})
 
 -- | The name for your key pair.
 cifsKeyPairName :: Lens' CreateInstancesFromSnapshot (Maybe Text)
-cifsKeyPairName = lens _cifsKeyPairName (\ s a -> s{_cifsKeyPairName = a});
+cifsKeyPairName = lens _cifsKeyPairName (\ s a -> s{_cifsKeyPairName = a})
+
+-- | An object containing information about one or more disk mappings.
+cifsAttachedDiskMapping :: Lens' CreateInstancesFromSnapshot (HashMap Text [DiskMap])
+cifsAttachedDiskMapping = lens _cifsAttachedDiskMapping (\ s a -> s{_cifsAttachedDiskMapping = a}) . _Default . _Map
 
 -- | The names for your new instances.
 cifsInstanceNames :: Lens' CreateInstancesFromSnapshot [Text]
-cifsInstanceNames = lens _cifsInstanceNames (\ s a -> s{_cifsInstanceNames = a}) . _Coerce;
+cifsInstanceNames = lens _cifsInstanceNames (\ s a -> s{_cifsInstanceNames = a}) . _Coerce
 
--- | The Availability Zone where you want to create your instances. Use the following formatting: @us-east-1a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
+-- | The Availability Zone where you want to create your instances. Use the following formatting: @us-east-2a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
 cifsAvailabilityZone :: Lens' CreateInstancesFromSnapshot Text
-cifsAvailabilityZone = lens _cifsAvailabilityZone (\ s a -> s{_cifsAvailabilityZone = a});
+cifsAvailabilityZone = lens _cifsAvailabilityZone (\ s a -> s{_cifsAvailabilityZone = a})
 
 -- | The name of the instance snapshot on which you are basing your new instances. Use the get instance snapshots operation to return information about your existing snapshots.
 cifsInstanceSnapshotName :: Lens' CreateInstancesFromSnapshot Text
-cifsInstanceSnapshotName = lens _cifsInstanceSnapshotName (\ s a -> s{_cifsInstanceSnapshotName = a});
+cifsInstanceSnapshotName = lens _cifsInstanceSnapshotName (\ s a -> s{_cifsInstanceSnapshotName = a})
 
 -- | The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
 cifsBundleId :: Lens' CreateInstancesFromSnapshot Text
-cifsBundleId = lens _cifsBundleId (\ s a -> s{_cifsBundleId = a});
+cifsBundleId = lens _cifsBundleId (\ s a -> s{_cifsBundleId = a})
 
 instance AWSRequest CreateInstancesFromSnapshot where
         type Rs CreateInstancesFromSnapshot =
@@ -146,6 +155,8 @@ instance ToJSON CreateInstancesFromSnapshot where
               (catMaybes
                  [("userData" .=) <$> _cifsUserData,
                   ("keyPairName" .=) <$> _cifsKeyPairName,
+                  ("attachedDiskMapping" .=) <$>
+                    _cifsAttachedDiskMapping,
                   Just ("instanceNames" .= _cifsInstanceNames),
                   Just ("availabilityZone" .= _cifsAvailabilityZone),
                   Just
@@ -178,16 +189,16 @@ createInstancesFromSnapshotResponse
     -> CreateInstancesFromSnapshotResponse
 createInstancesFromSnapshotResponse pResponseStatus_ =
   CreateInstancesFromSnapshotResponse'
-  {_cifsrsOperations = Nothing, _cifsrsResponseStatus = pResponseStatus_}
+    {_cifsrsOperations = Nothing, _cifsrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the results of your create instances from snapshot request.
 cifsrsOperations :: Lens' CreateInstancesFromSnapshotResponse [Operation]
-cifsrsOperations = lens _cifsrsOperations (\ s a -> s{_cifsrsOperations = a}) . _Default . _Coerce;
+cifsrsOperations = lens _cifsrsOperations (\ s a -> s{_cifsrsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 cifsrsResponseStatus :: Lens' CreateInstancesFromSnapshotResponse Int
-cifsrsResponseStatus = lens _cifsrsResponseStatus (\ s a -> s{_cifsrsResponseStatus = a});
+cifsrsResponseStatus = lens _cifsrsResponseStatus (\ s a -> s{_cifsrsResponseStatus = a})
 
 instance NFData CreateInstancesFromSnapshotResponse
          where

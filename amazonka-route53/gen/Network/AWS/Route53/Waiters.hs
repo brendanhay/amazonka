@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.Waiters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,14 +25,14 @@ import Network.AWS.Waiter
 resourceRecordSetsChanged :: Wait GetChange
 resourceRecordSetsChanged =
   Wait
-  { _waitName = "ResourceRecordSetsChanged"
-  , _waitAttempts = 60
-  , _waitDelay = 30
-  , _waitAcceptors =
-      [ matchAll
-          "INSYNC"
-          AcceptSuccess
-          (gcrsChangeInfo . ciStatus . to toTextCI)
-      ]
-  }
+    { _waitName = "ResourceRecordSetsChanged"
+    , _waitAttempts = 60
+    , _waitDelay = 30
+    , _waitAcceptors =
+        [ matchAll
+            "INSYNC"
+            AcceptSuccess
+            (gcrsChangeInfo . ciStatus . to toTextCI)
+        ]
+    }
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyReservedInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ modifyReservedInstances
     :: ModifyReservedInstances
 modifyReservedInstances =
   ModifyReservedInstances'
-  { _mriClientToken = Nothing
-  , _mriReservedInstancesIds = mempty
-  , _mriTargetConfigurations = mempty
-  }
+    { _mriClientToken = Nothing
+    , _mriReservedInstancesIds = mempty
+    , _mriTargetConfigurations = mempty
+    }
 
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 mriClientToken :: Lens' ModifyReservedInstances (Maybe Text)
-mriClientToken = lens _mriClientToken (\ s a -> s{_mriClientToken = a});
+mriClientToken = lens _mriClientToken (\ s a -> s{_mriClientToken = a})
 
 -- | The IDs of the Reserved Instances to modify.
 mriReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
-mriReservedInstancesIds = lens _mriReservedInstancesIds (\ s a -> s{_mriReservedInstancesIds = a}) . _Coerce;
+mriReservedInstancesIds = lens _mriReservedInstancesIds (\ s a -> s{_mriReservedInstancesIds = a}) . _Coerce
 
 -- | The configuration settings for the Reserved Instances to modify.
 mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
-mriTargetConfigurations = lens _mriTargetConfigurations (\ s a -> s{_mriTargetConfigurations = a}) . _Coerce;
+mriTargetConfigurations = lens _mriTargetConfigurations (\ s a -> s{_mriTargetConfigurations = a}) . _Coerce
 
 instance AWSRequest ModifyReservedInstances where
         type Rs ModifyReservedInstances =
@@ -148,17 +148,17 @@ modifyReservedInstancesResponse
     -> ModifyReservedInstancesResponse
 modifyReservedInstancesResponse pResponseStatus_ =
   ModifyReservedInstancesResponse'
-  { _mrirsReservedInstancesModificationId = Nothing
-  , _mrirsResponseStatus = pResponseStatus_
-  }
+    { _mrirsReservedInstancesModificationId = Nothing
+    , _mrirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID for the modification.
 mrirsReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
-mrirsReservedInstancesModificationId = lens _mrirsReservedInstancesModificationId (\ s a -> s{_mrirsReservedInstancesModificationId = a});
+mrirsReservedInstancesModificationId = lens _mrirsReservedInstancesModificationId (\ s a -> s{_mrirsReservedInstancesModificationId = a})
 
 -- | -- | The response status code.
 mrirsResponseStatus :: Lens' ModifyReservedInstancesResponse Int
-mrirsResponseStatus = lens _mrirsResponseStatus (\ s a -> s{_mrirsResponseStatus = a});
+mrirsResponseStatus = lens _mrirsResponseStatus (\ s a -> s{_mrirsResponseStatus = a})
 
 instance NFData ModifyReservedInstancesResponse where

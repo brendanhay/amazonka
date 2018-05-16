@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,23 +76,23 @@ setLoadBalancerPoliciesOfListener
     -> SetLoadBalancerPoliciesOfListener
 setLoadBalancerPoliciesOfListener pLoadBalancerName_ pLoadBalancerPort_ =
   SetLoadBalancerPoliciesOfListener'
-  { _slbpolLoadBalancerName = pLoadBalancerName_
-  , _slbpolLoadBalancerPort = pLoadBalancerPort_
-  , _slbpolPolicyNames = mempty
-  }
+    { _slbpolLoadBalancerName = pLoadBalancerName_
+    , _slbpolLoadBalancerPort = pLoadBalancerPort_
+    , _slbpolPolicyNames = mempty
+    }
 
 
 -- | The name of the load balancer.
 slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
-slbpolLoadBalancerName = lens _slbpolLoadBalancerName (\ s a -> s{_slbpolLoadBalancerName = a});
+slbpolLoadBalancerName = lens _slbpolLoadBalancerName (\ s a -> s{_slbpolLoadBalancerName = a})
 
 -- | The external port of the load balancer.
 slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
-slbpolLoadBalancerPort = lens _slbpolLoadBalancerPort (\ s a -> s{_slbpolLoadBalancerPort = a});
+slbpolLoadBalancerPort = lens _slbpolLoadBalancerPort (\ s a -> s{_slbpolLoadBalancerPort = a})
 
 -- | The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.
 slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
-slbpolPolicyNames = lens _slbpolPolicyNames (\ s a -> s{_slbpolPolicyNames = a}) . _Coerce;
+slbpolPolicyNames = lens _slbpolPolicyNames (\ s a -> s{_slbpolPolicyNames = a}) . _Coerce
 
 instance AWSRequest SetLoadBalancerPoliciesOfListener
          where
@@ -152,12 +152,12 @@ setLoadBalancerPoliciesOfListenerResponse
     -> SetLoadBalancerPoliciesOfListenerResponse
 setLoadBalancerPoliciesOfListenerResponse pResponseStatus_ =
   SetLoadBalancerPoliciesOfListenerResponse'
-  {_slbpolrsResponseStatus = pResponseStatus_}
+    {_slbpolrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 slbpolrsResponseStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
-slbpolrsResponseStatus = lens _slbpolrsResponseStatus (\ s a -> s{_slbpolrsResponseStatus = a});
+slbpolrsResponseStatus = lens _slbpolrsResponseStatus (\ s a -> s{_slbpolrsResponseStatus = a})
 
 instance NFData
            SetLoadBalancerPoliciesOfListenerResponse

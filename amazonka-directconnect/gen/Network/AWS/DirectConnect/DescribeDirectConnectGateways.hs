@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeDirectConnectGateways
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ describeDirectConnectGateways
     :: DescribeDirectConnectGateways
 describeDirectConnectGateways =
   DescribeDirectConnectGateways'
-  { _ddcgDirectConnectGatewayId = Nothing
-  , _ddcgNextToken = Nothing
-  , _ddcgMaxResults = Nothing
-  }
+    { _ddcgDirectConnectGatewayId = Nothing
+    , _ddcgNextToken = Nothing
+    , _ddcgMaxResults = Nothing
+    }
 
 
 -- | The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
 ddcgDirectConnectGatewayId :: Lens' DescribeDirectConnectGateways (Maybe Text)
-ddcgDirectConnectGatewayId = lens _ddcgDirectConnectGatewayId (\ s a -> s{_ddcgDirectConnectGatewayId = a});
+ddcgDirectConnectGatewayId = lens _ddcgDirectConnectGatewayId (\ s a -> s{_ddcgDirectConnectGatewayId = a})
 
 -- | The token provided in the previous describe result to retrieve the next page of the result. Default: None
 ddcgNextToken :: Lens' DescribeDirectConnectGateways (Maybe Text)
-ddcgNextToken = lens _ddcgNextToken (\ s a -> s{_ddcgNextToken = a});
+ddcgNextToken = lens _ddcgNextToken (\ s a -> s{_ddcgNextToken = a})
 
 -- | The maximum number of direct connect gateways to return per page. Example: 15 Default: None
 ddcgMaxResults :: Lens' DescribeDirectConnectGateways (Maybe Int)
-ddcgMaxResults = lens _ddcgMaxResults (\ s a -> s{_ddcgMaxResults = a});
+ddcgMaxResults = lens _ddcgMaxResults (\ s a -> s{_ddcgMaxResults = a})
 
 instance AWSRequest DescribeDirectConnectGateways
          where
@@ -159,23 +159,23 @@ describeDirectConnectGatewaysResponse
     -> DescribeDirectConnectGatewaysResponse
 describeDirectConnectGatewaysResponse pResponseStatus_ =
   DescribeDirectConnectGatewaysResponse'
-  { _ddcgrsDirectConnectGateways = Nothing
-  , _ddcgrsNextToken = Nothing
-  , _ddcgrsResponseStatus = pResponseStatus_
-  }
+    { _ddcgrsDirectConnectGateways = Nothing
+    , _ddcgrsNextToken = Nothing
+    , _ddcgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the direct connect gateways.
 ddcgrsDirectConnectGateways :: Lens' DescribeDirectConnectGatewaysResponse [DirectConnectGateway]
-ddcgrsDirectConnectGateways = lens _ddcgrsDirectConnectGateways (\ s a -> s{_ddcgrsDirectConnectGateways = a}) . _Default . _Coerce;
+ddcgrsDirectConnectGateways = lens _ddcgrsDirectConnectGateways (\ s a -> s{_ddcgrsDirectConnectGateways = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 ddcgrsNextToken :: Lens' DescribeDirectConnectGatewaysResponse (Maybe Text)
-ddcgrsNextToken = lens _ddcgrsNextToken (\ s a -> s{_ddcgrsNextToken = a});
+ddcgrsNextToken = lens _ddcgrsNextToken (\ s a -> s{_ddcgrsNextToken = a})
 
 -- | -- | The response status code.
 ddcgrsResponseStatus :: Lens' DescribeDirectConnectGatewaysResponse Int
-ddcgrsResponseStatus = lens _ddcgrsResponseStatus (\ s a -> s{_ddcgrsResponseStatus = a});
+ddcgrsResponseStatus = lens _ddcgrsResponseStatus (\ s a -> s{_ddcgrsResponseStatus = a})
 
 instance NFData DescribeDirectConnectGatewaysResponse
          where

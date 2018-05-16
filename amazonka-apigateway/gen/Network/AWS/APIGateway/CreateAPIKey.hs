@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateAPIKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -95,43 +95,43 @@ createAPIKey
     :: CreateAPIKey
 createAPIKey =
   CreateAPIKey'
-  { _cakEnabled = Nothing
-  , _cakValue = Nothing
-  , _cakCustomerId = Nothing
-  , _cakGenerateDistinctId = Nothing
-  , _cakName = Nothing
-  , _cakStageKeys = Nothing
-  , _cakDescription = Nothing
-  }
+    { _cakEnabled = Nothing
+    , _cakValue = Nothing
+    , _cakCustomerId = Nothing
+    , _cakGenerateDistinctId = Nothing
+    , _cakName = Nothing
+    , _cakStageKeys = Nothing
+    , _cakDescription = Nothing
+    }
 
 
 -- | Specifies whether the 'ApiKey' can be used by callers.
 cakEnabled :: Lens' CreateAPIKey (Maybe Bool)
-cakEnabled = lens _cakEnabled (\ s a -> s{_cakEnabled = a});
+cakEnabled = lens _cakEnabled (\ s a -> s{_cakEnabled = a})
 
 -- | Specifies a value of the API key.
 cakValue :: Lens' CreateAPIKey (Maybe Text)
-cakValue = lens _cakValue (\ s a -> s{_cakValue = a});
+cakValue = lens _cakValue (\ s a -> s{_cakValue = a})
 
 -- | An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
 cakCustomerId :: Lens' CreateAPIKey (Maybe Text)
-cakCustomerId = lens _cakCustomerId (\ s a -> s{_cakCustomerId = a});
+cakCustomerId = lens _cakCustomerId (\ s a -> s{_cakCustomerId = a})
 
 -- | Specifies whether (@true@ ) or not (@false@ ) the key identifier is distinct from the created API key value.
 cakGenerateDistinctId :: Lens' CreateAPIKey (Maybe Bool)
-cakGenerateDistinctId = lens _cakGenerateDistinctId (\ s a -> s{_cakGenerateDistinctId = a});
+cakGenerateDistinctId = lens _cakGenerateDistinctId (\ s a -> s{_cakGenerateDistinctId = a})
 
 -- | The name of the 'ApiKey' .
 cakName :: Lens' CreateAPIKey (Maybe Text)
-cakName = lens _cakName (\ s a -> s{_cakName = a});
+cakName = lens _cakName (\ s a -> s{_cakName = a})
 
 -- | DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 cakStageKeys :: Lens' CreateAPIKey [StageKey]
-cakStageKeys = lens _cakStageKeys (\ s a -> s{_cakStageKeys = a}) . _Default . _Coerce;
+cakStageKeys = lens _cakStageKeys (\ s a -> s{_cakStageKeys = a}) . _Default . _Coerce
 
 -- | The description of the 'ApiKey' .
 cakDescription :: Lens' CreateAPIKey (Maybe Text)
-cakDescription = lens _cakDescription (\ s a -> s{_cakDescription = a});
+cakDescription = lens _cakDescription (\ s a -> s{_cakDescription = a})
 
 instance AWSRequest CreateAPIKey where
         type Rs CreateAPIKey = APIKey

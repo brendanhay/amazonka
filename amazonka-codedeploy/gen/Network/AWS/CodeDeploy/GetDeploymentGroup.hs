@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,18 +69,18 @@ getDeploymentGroup
     -> GetDeploymentGroup
 getDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
   GetDeploymentGroup'
-  { _gdgApplicationName = pApplicationName_
-  , _gdgDeploymentGroupName = pDeploymentGroupName_
-  }
+    { _gdgApplicationName = pApplicationName_
+    , _gdgDeploymentGroupName = pDeploymentGroupName_
+    }
 
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 gdgApplicationName :: Lens' GetDeploymentGroup Text
-gdgApplicationName = lens _gdgApplicationName (\ s a -> s{_gdgApplicationName = a});
+gdgApplicationName = lens _gdgApplicationName (\ s a -> s{_gdgApplicationName = a})
 
 -- | The name of an existing deployment group for the specified application.
 gdgDeploymentGroupName :: Lens' GetDeploymentGroup Text
-gdgDeploymentGroupName = lens _gdgDeploymentGroupName (\ s a -> s{_gdgDeploymentGroupName = a});
+gdgDeploymentGroupName = lens _gdgDeploymentGroupName (\ s a -> s{_gdgDeploymentGroupName = a})
 
 instance AWSRequest GetDeploymentGroup where
         type Rs GetDeploymentGroup =
@@ -144,15 +144,17 @@ getDeploymentGroupResponse
     -> GetDeploymentGroupResponse
 getDeploymentGroupResponse pResponseStatus_ =
   GetDeploymentGroupResponse'
-  {_gdgrsDeploymentGroupInfo = Nothing, _gdgrsResponseStatus = pResponseStatus_}
+    { _gdgrsDeploymentGroupInfo = Nothing
+    , _gdgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the deployment group.
 gdgrsDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
-gdgrsDeploymentGroupInfo = lens _gdgrsDeploymentGroupInfo (\ s a -> s{_gdgrsDeploymentGroupInfo = a});
+gdgrsDeploymentGroupInfo = lens _gdgrsDeploymentGroupInfo (\ s a -> s{_gdgrsDeploymentGroupInfo = a})
 
 -- | -- | The response status code.
 gdgrsResponseStatus :: Lens' GetDeploymentGroupResponse Int
-gdgrsResponseStatus = lens _gdgrsResponseStatus (\ s a -> s{_gdgrsResponseStatus = a});
+gdgrsResponseStatus = lens _gdgrsResponseStatus (\ s a -> s{_gdgrsResponseStatus = a})
 
 instance NFData GetDeploymentGroupResponse where

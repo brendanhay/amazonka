@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListStreamingDistributions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ listStreamingDistributions =
 
 -- | The value that you provided for the @Marker@ request parameter.
 lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
-lsdMarker = lens _lsdMarker (\ s a -> s{_lsdMarker = a});
+lsdMarker = lens _lsdMarker (\ s a -> s{_lsdMarker = a})
 
 -- | The value that you provided for the @MaxItems@ request parameter.
 lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
-lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a});
+lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a})
 
 instance AWSPager ListStreamingDistributions where
         page rq rs
@@ -116,7 +116,7 @@ instance ToHeaders ListStreamingDistributions where
         toHeaders = const mempty
 
 instance ToPath ListStreamingDistributions where
-        toPath = const "/2017-03-25/streaming-distribution"
+        toPath = const "/2017-10-30/streaming-distribution"
 
 instance ToQuery ListStreamingDistributions where
         toQuery ListStreamingDistributions'{..}
@@ -147,18 +147,18 @@ listStreamingDistributionsResponse
     -> ListStreamingDistributionsResponse
 listStreamingDistributionsResponse pResponseStatus_ pStreamingDistributionList_ =
   ListStreamingDistributionsResponse'
-  { _lsdrsResponseStatus = pResponseStatus_
-  , _lsdrsStreamingDistributionList = pStreamingDistributionList_
-  }
+    { _lsdrsResponseStatus = pResponseStatus_
+    , _lsdrsStreamingDistributionList = pStreamingDistributionList_
+    }
 
 
 -- | -- | The response status code.
 lsdrsResponseStatus :: Lens' ListStreamingDistributionsResponse Int
-lsdrsResponseStatus = lens _lsdrsResponseStatus (\ s a -> s{_lsdrsResponseStatus = a});
+lsdrsResponseStatus = lens _lsdrsResponseStatus (\ s a -> s{_lsdrsResponseStatus = a})
 
 -- | The @StreamingDistributionList@ type.
 lsdrsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
-lsdrsStreamingDistributionList = lens _lsdrsStreamingDistributionList (\ s a -> s{_lsdrsStreamingDistributionList = a});
+lsdrsStreamingDistributionList = lens _lsdrsStreamingDistributionList (\ s a -> s{_lsdrsStreamingDistributionList = a})
 
 instance NFData ListStreamingDistributionsResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.PutBotAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,33 +86,33 @@ putBotAlias
     -> PutBotAlias
 putBotAlias pName_ pBotVersion_ pBotName_ =
   PutBotAlias'
-  { _pbaChecksum = Nothing
-  , _pbaDescription = Nothing
-  , _pbaName = pName_
-  , _pbaBotVersion = pBotVersion_
-  , _pbaBotName = pBotName_
-  }
+    { _pbaChecksum = Nothing
+    , _pbaDescription = Nothing
+    , _pbaName = pName_
+    , _pbaBotVersion = pBotVersion_
+    , _pbaBotName = pBotName_
+    }
 
 
 -- | Identifies a specific revision of the @> LATEST@ version. When you create a new bot alias, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception. When you want to update a bot alias, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
 pbaChecksum :: Lens' PutBotAlias (Maybe Text)
-pbaChecksum = lens _pbaChecksum (\ s a -> s{_pbaChecksum = a});
+pbaChecksum = lens _pbaChecksum (\ s a -> s{_pbaChecksum = a})
 
 -- | A description of the alias.
 pbaDescription :: Lens' PutBotAlias (Maybe Text)
-pbaDescription = lens _pbaDescription (\ s a -> s{_pbaDescription = a});
+pbaDescription = lens _pbaDescription (\ s a -> s{_pbaDescription = a})
 
 -- | The name of the alias. The name is /not/ case sensitive.
 pbaName :: Lens' PutBotAlias Text
-pbaName = lens _pbaName (\ s a -> s{_pbaName = a});
+pbaName = lens _pbaName (\ s a -> s{_pbaName = a})
 
 -- | The version of the bot.
 pbaBotVersion :: Lens' PutBotAlias Text
-pbaBotVersion = lens _pbaBotVersion (\ s a -> s{_pbaBotVersion = a});
+pbaBotVersion = lens _pbaBotVersion (\ s a -> s{_pbaBotVersion = a})
 
 -- | The name of the bot.
 pbaBotName :: Lens' PutBotAlias Text
-pbaBotName = lens _pbaBotName (\ s a -> s{_pbaBotName = a});
+pbaBotName = lens _pbaBotName (\ s a -> s{_pbaBotName = a})
 
 instance AWSRequest PutBotAlias where
         type Rs PutBotAlias = PutBotAliasResponse
@@ -194,47 +194,47 @@ putBotAliasResponse
     -> PutBotAliasResponse
 putBotAliasResponse pResponseStatus_ =
   PutBotAliasResponse'
-  { _pbarsChecksum = Nothing
-  , _pbarsBotVersion = Nothing
-  , _pbarsBotName = Nothing
-  , _pbarsCreatedDate = Nothing
-  , _pbarsName = Nothing
-  , _pbarsLastUpdatedDate = Nothing
-  , _pbarsDescription = Nothing
-  , _pbarsResponseStatus = pResponseStatus_
-  }
+    { _pbarsChecksum = Nothing
+    , _pbarsBotVersion = Nothing
+    , _pbarsBotName = Nothing
+    , _pbarsCreatedDate = Nothing
+    , _pbarsName = Nothing
+    , _pbarsLastUpdatedDate = Nothing
+    , _pbarsDescription = Nothing
+    , _pbarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The checksum for the current version of the alias.
 pbarsChecksum :: Lens' PutBotAliasResponse (Maybe Text)
-pbarsChecksum = lens _pbarsChecksum (\ s a -> s{_pbarsChecksum = a});
+pbarsChecksum = lens _pbarsChecksum (\ s a -> s{_pbarsChecksum = a})
 
 -- | The version of the bot that the alias points to.
 pbarsBotVersion :: Lens' PutBotAliasResponse (Maybe Text)
-pbarsBotVersion = lens _pbarsBotVersion (\ s a -> s{_pbarsBotVersion = a});
+pbarsBotVersion = lens _pbarsBotVersion (\ s a -> s{_pbarsBotVersion = a})
 
 -- | The name of the bot that the alias points to.
 pbarsBotName :: Lens' PutBotAliasResponse (Maybe Text)
-pbarsBotName = lens _pbarsBotName (\ s a -> s{_pbarsBotName = a});
+pbarsBotName = lens _pbarsBotName (\ s a -> s{_pbarsBotName = a})
 
 -- | The date that the bot alias was created.
 pbarsCreatedDate :: Lens' PutBotAliasResponse (Maybe UTCTime)
-pbarsCreatedDate = lens _pbarsCreatedDate (\ s a -> s{_pbarsCreatedDate = a}) . mapping _Time;
+pbarsCreatedDate = lens _pbarsCreatedDate (\ s a -> s{_pbarsCreatedDate = a}) . mapping _Time
 
 -- | The name of the alias.
 pbarsName :: Lens' PutBotAliasResponse (Maybe Text)
-pbarsName = lens _pbarsName (\ s a -> s{_pbarsName = a});
+pbarsName = lens _pbarsName (\ s a -> s{_pbarsName = a})
 
 -- | The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 pbarsLastUpdatedDate :: Lens' PutBotAliasResponse (Maybe UTCTime)
-pbarsLastUpdatedDate = lens _pbarsLastUpdatedDate (\ s a -> s{_pbarsLastUpdatedDate = a}) . mapping _Time;
+pbarsLastUpdatedDate = lens _pbarsLastUpdatedDate (\ s a -> s{_pbarsLastUpdatedDate = a}) . mapping _Time
 
 -- | A description of the alias.
 pbarsDescription :: Lens' PutBotAliasResponse (Maybe Text)
-pbarsDescription = lens _pbarsDescription (\ s a -> s{_pbarsDescription = a});
+pbarsDescription = lens _pbarsDescription (\ s a -> s{_pbarsDescription = a})
 
 -- | -- | The response status code.
 pbarsResponseStatus :: Lens' PutBotAliasResponse Int
-pbarsResponseStatus = lens _pbarsResponseStatus (\ s a -> s{_pbarsResponseStatus = a});
+pbarsResponseStatus = lens _pbarsResponseStatus (\ s a -> s{_pbarsResponseStatus = a})
 
 instance NFData PutBotAliasResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Athena.DeleteNamedQuery
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deleteNamedQuery pNamedQueryId_ =
 
 -- | The unique ID of the query to delete.
 dnqNamedQueryId :: Lens' DeleteNamedQuery Text
-dnqNamedQueryId = lens _dnqNamedQueryId (\ s a -> s{_dnqNamedQueryId = a});
+dnqNamedQueryId = lens _dnqNamedQueryId (\ s a -> s{_dnqNamedQueryId = a})
 
 instance AWSRequest DeleteNamedQuery where
         type Rs DeleteNamedQuery = DeleteNamedQueryResponse
@@ -120,6 +120,6 @@ deleteNamedQueryResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dnqrsResponseStatus :: Lens' DeleteNamedQueryResponse Int
-dnqrsResponseStatus = lens _dnqrsResponseStatus (\ s a -> s{_dnqrsResponseStatus = a});
+dnqrsResponseStatus = lens _dnqrsResponseStatus (\ s a -> s{_dnqrsResponseStatus = a})
 
 instance NFData DeleteNamedQueryResponse where

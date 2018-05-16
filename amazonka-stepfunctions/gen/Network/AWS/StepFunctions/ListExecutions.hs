@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.ListExecutions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the executions of a state machine that meet the filtering criteria. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the @nextToken@ returned by the previous call.
+-- Lists the executions of a state machine that meet the filtering criteria.
 --
+--
+-- If a @nextToken@ is returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged.
 --
 --
 -- This operation returns paginated results.
@@ -66,38 +68,38 @@ data ListExecutions = ListExecutions'
 --
 -- * 'leStatusFilter' - If specified, only list the executions whose current execution status matches the given filter.
 --
--- * 'leNextToken' - If a @nextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
+-- * 'leNextToken' - If a @nextToken@ is returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 --
--- * 'leMaxResults' - The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 means to use the default. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- * 'leMaxResults' - The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 uses the default. This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
 --
--- * 'leStateMachineARN' - The Amazon Resource Name (ARN) of the state machine whose executions will be listed.
+-- * 'leStateMachineARN' - The Amazon Resource Name (ARN) of the state machine whose executions is listed.
 listExecutions
     :: Text -- ^ 'leStateMachineARN'
     -> ListExecutions
 listExecutions pStateMachineARN_ =
   ListExecutions'
-  { _leStatusFilter = Nothing
-  , _leNextToken = Nothing
-  , _leMaxResults = Nothing
-  , _leStateMachineARN = pStateMachineARN_
-  }
+    { _leStatusFilter = Nothing
+    , _leNextToken = Nothing
+    , _leMaxResults = Nothing
+    , _leStateMachineARN = pStateMachineARN_
+    }
 
 
 -- | If specified, only list the executions whose current execution status matches the given filter.
 leStatusFilter :: Lens' ListExecutions (Maybe ExecutionStatus)
-leStatusFilter = lens _leStatusFilter (\ s a -> s{_leStatusFilter = a});
+leStatusFilter = lens _leStatusFilter (\ s a -> s{_leStatusFilter = a})
 
--- | If a @nextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
+-- | If a @nextToken@ is returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 leNextToken :: Lens' ListExecutions (Maybe Text)
-leNextToken = lens _leNextToken (\ s a -> s{_leNextToken = a});
+leNextToken = lens _leNextToken (\ s a -> s{_leNextToken = a})
 
--- | The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 means to use the default. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- | The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 uses the default. This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
 leMaxResults :: Lens' ListExecutions (Maybe Natural)
-leMaxResults = lens _leMaxResults (\ s a -> s{_leMaxResults = a}) . mapping _Nat;
+leMaxResults = lens _leMaxResults (\ s a -> s{_leMaxResults = a}) . mapping _Nat
 
--- | The Amazon Resource Name (ARN) of the state machine whose executions will be listed.
+-- | The Amazon Resource Name (ARN) of the state machine whose executions is listed.
 leStateMachineARN :: Lens' ListExecutions Text
-leStateMachineARN = lens _leStateMachineARN (\ s a -> s{_leStateMachineARN = a});
+leStateMachineARN = lens _leStateMachineARN (\ s a -> s{_leStateMachineARN = a})
 
 instance AWSPager ListExecutions where
         page rq rs
@@ -156,7 +158,7 @@ data ListExecutionsResponse = ListExecutionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lersNextToken' - If a @nextToken@ is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
+-- * 'lersNextToken' - If a @nextToken@ is returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 --
 -- * 'lersResponseStatus' - -- | The response status code.
 --
@@ -166,22 +168,22 @@ listExecutionsResponse
     -> ListExecutionsResponse
 listExecutionsResponse pResponseStatus_ =
   ListExecutionsResponse'
-  { _lersNextToken = Nothing
-  , _lersResponseStatus = pResponseStatus_
-  , _lersExecutions = mempty
-  }
+    { _lersNextToken = Nothing
+    , _lersResponseStatus = pResponseStatus_
+    , _lersExecutions = mempty
+    }
 
 
--- | If a @nextToken@ is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
+-- | If a @nextToken@ is returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 lersNextToken :: Lens' ListExecutionsResponse (Maybe Text)
-lersNextToken = lens _lersNextToken (\ s a -> s{_lersNextToken = a});
+lersNextToken = lens _lersNextToken (\ s a -> s{_lersNextToken = a})
 
 -- | -- | The response status code.
 lersResponseStatus :: Lens' ListExecutionsResponse Int
-lersResponseStatus = lens _lersResponseStatus (\ s a -> s{_lersResponseStatus = a});
+lersResponseStatus = lens _lersResponseStatus (\ s a -> s{_lersResponseStatus = a})
 
 -- | The list of matching executions.
 lersExecutions :: Lens' ListExecutionsResponse [ExecutionListItem]
-lersExecutions = lens _lersExecutions (\ s a -> s{_lersExecutions = a}) . _Coerce;
+lersExecutions = lens _lersExecutions (\ s a -> s{_lersExecutions = a}) . _Coerce
 
 instance NFData ListExecutionsResponse where

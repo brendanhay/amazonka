@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.GetStackPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getStackPolicy pStackName_ = GetStackPolicy' {_gspStackName = pStackName_}
 
 -- | The name or unique stack ID that is associated with the stack whose policy you want to get.
 gspStackName :: Lens' GetStackPolicy Text
-gspStackName = lens _gspStackName (\ s a -> s{_gspStackName = a});
+gspStackName = lens _gspStackName (\ s a -> s{_gspStackName = a})
 
 instance AWSRequest GetStackPolicy where
         type Rs GetStackPolicy = GetStackPolicyResponse
@@ -118,15 +118,15 @@ getStackPolicyResponse
     -> GetStackPolicyResponse
 getStackPolicyResponse pResponseStatus_ =
   GetStackPolicyResponse'
-  {_gsprsStackPolicyBody = Nothing, _gsprsResponseStatus = pResponseStatus_}
+    {_gsprsStackPolicyBody = Nothing, _gsprsResponseStatus = pResponseStatus_}
 
 
 -- | Structure containing the stack policy body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.)
 gsprsStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
-gsprsStackPolicyBody = lens _gsprsStackPolicyBody (\ s a -> s{_gsprsStackPolicyBody = a});
+gsprsStackPolicyBody = lens _gsprsStackPolicyBody (\ s a -> s{_gsprsStackPolicyBody = a})
 
 -- | -- | The response status code.
 gsprsResponseStatus :: Lens' GetStackPolicyResponse Int
-gsprsResponseStatus = lens _gsprsResponseStatus (\ s a -> s{_gsprsResponseStatus = a});
+gsprsResponseStatus = lens _gsprsResponseStatus (\ s a -> s{_gsprsResponseStatus = a})
 
 instance NFData GetStackPolicyResponse where

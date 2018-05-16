@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeLoa
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ describeLoa
     -> DescribeLoa
 describeLoa pConnectionId_ =
   DescribeLoa'
-  { _dlLoaContentType = Nothing
-  , _dlProviderName = Nothing
-  , _dlConnectionId = pConnectionId_
-  }
+    { _dlLoaContentType = Nothing
+    , _dlProviderName = Nothing
+    , _dlConnectionId = pConnectionId_
+    }
 
 
 -- | A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is "application/pdf". Default: application/pdf
 dlLoaContentType :: Lens' DescribeLoa (Maybe LoaContentType)
-dlLoaContentType = lens _dlLoaContentType (\ s a -> s{_dlLoaContentType = a});
+dlLoaContentType = lens _dlLoaContentType (\ s a -> s{_dlLoaContentType = a})
 
 -- | The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect. Default: None
 dlProviderName :: Lens' DescribeLoa (Maybe Text)
-dlProviderName = lens _dlProviderName (\ s a -> s{_dlProviderName = a});
+dlProviderName = lens _dlProviderName (\ s a -> s{_dlProviderName = a})
 
 -- | The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information. Example: dxcon-abc123 or dxlag-abc123 Default: None
 dlConnectionId :: Lens' DescribeLoa Text
-dlConnectionId = lens _dlConnectionId (\ s a -> s{_dlConnectionId = a});
+dlConnectionId = lens _dlConnectionId (\ s a -> s{_dlConnectionId = a})
 
 instance AWSRequest DescribeLoa where
         type Rs DescribeLoa = DescribeLoaResponse
@@ -156,22 +156,22 @@ describeLoaResponse
     -> DescribeLoaResponse
 describeLoaResponse pResponseStatus_ =
   DescribeLoaResponse'
-  { _dlrsLoaContent = Nothing
-  , _dlrsLoaContentType = Nothing
-  , _dlrsResponseStatus = pResponseStatus_
-  }
+    { _dlrsLoaContent = Nothing
+    , _dlrsLoaContentType = Nothing
+    , _dlrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 dlrsLoaContent :: Lens' DescribeLoaResponse (Maybe ByteString)
-dlrsLoaContent = lens _dlrsLoaContent (\ s a -> s{_dlrsLoaContent = a}) . mapping _Base64;
+dlrsLoaContent = lens _dlrsLoaContent (\ s a -> s{_dlrsLoaContent = a}) . mapping _Base64
 
 -- | Undocumented member.
 dlrsLoaContentType :: Lens' DescribeLoaResponse (Maybe LoaContentType)
-dlrsLoaContentType = lens _dlrsLoaContentType (\ s a -> s{_dlrsLoaContentType = a});
+dlrsLoaContentType = lens _dlrsLoaContentType (\ s a -> s{_dlrsLoaContentType = a})
 
 -- | -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLoaResponse Int
-dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a})
 
 instance NFData DescribeLoaResponse where

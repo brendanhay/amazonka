@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListDeployments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,30 +57,30 @@ data ListDeployments = ListDeployments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lMaxResults' - The maximum number of results to be returned per request.
 --
--- * 'lGroupId' - The unique Id of the AWS Greengrass Group
+-- * 'lGroupId' - The ID of the AWS Greengrass group.
 listDeployments
     :: Text -- ^ 'lGroupId'
     -> ListDeployments
 listDeployments pGroupId_ =
   ListDeployments'
-  {_lNextToken = Nothing, _lMaxResults = Nothing, _lGroupId = pGroupId_}
+    {_lNextToken = Nothing, _lMaxResults = Nothing, _lGroupId = pGroupId_}
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lNextToken :: Lens' ListDeployments (Maybe Text)
-lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
+lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lMaxResults :: Lens' ListDeployments (Maybe Text)
-lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a});
+lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a})
 
--- | The unique Id of the AWS Greengrass Group
+-- | The ID of the AWS Greengrass group.
 lGroupId :: Lens' ListDeployments Text
-lGroupId = lens _lGroupId (\ s a -> s{_lGroupId = a});
+lGroupId = lens _lGroupId (\ s a -> s{_lGroupId = a})
 
 instance AWSRequest ListDeployments where
         type Rs ListDeployments = ListDeploymentsResponse
@@ -130,7 +130,7 @@ data ListDeploymentsResponse = ListDeploymentsResponse'
 --
 -- * 'ldrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'ldrsDeployments' - List of deployments for the requested groups
+-- * 'ldrsDeployments' - A list of deployments for the requested groups.
 --
 -- * 'ldrsResponseStatus' - -- | The response status code.
 listDeploymentsResponse
@@ -138,22 +138,22 @@ listDeploymentsResponse
     -> ListDeploymentsResponse
 listDeploymentsResponse pResponseStatus_ =
   ListDeploymentsResponse'
-  { _ldrsNextToken = Nothing
-  , _ldrsDeployments = Nothing
-  , _ldrsResponseStatus = pResponseStatus_
-  }
+    { _ldrsNextToken = Nothing
+    , _ldrsDeployments = Nothing
+    , _ldrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 ldrsNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a})
 
--- | List of deployments for the requested groups
+-- | A list of deployments for the requested groups.
 ldrsDeployments :: Lens' ListDeploymentsResponse [Deployment]
-ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default . _Coerce;
+ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDeploymentsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
 
 instance NFData ListDeploymentsResponse where

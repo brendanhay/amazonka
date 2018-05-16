@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,20 +69,20 @@ describeInstances
     :: DescribeInstances
 describeInstances =
   DescribeInstances'
-  {_diInstanceIds = Nothing, _diStackId = Nothing, _diLayerId = Nothing}
+    {_diInstanceIds = Nothing, _diStackId = Nothing, _diLayerId = Nothing}
 
 
 -- | An array of instance IDs to be described. If you use this parameter, @DescribeInstances@ returns a description of the specified instances. Otherwise, it returns a description of every instance.
 diInstanceIds :: Lens' DescribeInstances [Text]
-diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default . _Coerce;
+diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default . _Coerce
 
 -- | A stack ID. If you use this parameter, @DescribeInstances@ returns descriptions of the instances associated with the specified stack.
 diStackId :: Lens' DescribeInstances (Maybe Text)
-diStackId = lens _diStackId (\ s a -> s{_diStackId = a});
+diStackId = lens _diStackId (\ s a -> s{_diStackId = a})
 
 -- | A layer ID. If you use this parameter, @DescribeInstances@ returns descriptions of the instances associated with the specified layer.
 diLayerId :: Lens' DescribeInstances (Maybe Text)
-diLayerId = lens _diLayerId (\ s a -> s{_diLayerId = a});
+diLayerId = lens _diLayerId (\ s a -> s{_diLayerId = a})
 
 instance AWSRequest DescribeInstances where
         type Rs DescribeInstances = DescribeInstancesResponse
@@ -145,15 +145,15 @@ describeInstancesResponse
     -> DescribeInstancesResponse
 describeInstancesResponse pResponseStatus_ =
   DescribeInstancesResponse'
-  {_dirsInstances = Nothing, _dirsResponseStatus = pResponseStatus_}
+    {_dirsInstances = Nothing, _dirsResponseStatus = pResponseStatus_}
 
 
 -- | An array of @Instance@ objects that describe the instances.
 dirsInstances :: Lens' DescribeInstancesResponse [Instance]
-dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default . _Coerce;
+dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dirsResponseStatus :: Lens' DescribeInstancesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
 
 instance NFData DescribeInstancesResponse where

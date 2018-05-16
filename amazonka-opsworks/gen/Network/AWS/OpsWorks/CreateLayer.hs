@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateLayer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -133,98 +133,98 @@ createLayer
     -> CreateLayer
 createLayer pStackId_ pType_ pName_ pShortname_ =
   CreateLayer'
-  { _clCustomInstanceProfileARN = Nothing
-  , _clCustomSecurityGroupIds = Nothing
-  , _clInstallUpdatesOnBoot = Nothing
-  , _clCloudWatchLogsConfiguration = Nothing
-  , _clLifecycleEventConfiguration = Nothing
-  , _clCustomRecipes = Nothing
-  , _clCustomJSON = Nothing
-  , _clVolumeConfigurations = Nothing
-  , _clEnableAutoHealing = Nothing
-  , _clPackages = Nothing
-  , _clAttributes = Nothing
-  , _clAutoAssignPublicIPs = Nothing
-  , _clUseEBSOptimizedInstances = Nothing
-  , _clAutoAssignElasticIPs = Nothing
-  , _clStackId = pStackId_
-  , _clType = pType_
-  , _clName = pName_
-  , _clShortname = pShortname_
-  }
+    { _clCustomInstanceProfileARN = Nothing
+    , _clCustomSecurityGroupIds = Nothing
+    , _clInstallUpdatesOnBoot = Nothing
+    , _clCloudWatchLogsConfiguration = Nothing
+    , _clLifecycleEventConfiguration = Nothing
+    , _clCustomRecipes = Nothing
+    , _clCustomJSON = Nothing
+    , _clVolumeConfigurations = Nothing
+    , _clEnableAutoHealing = Nothing
+    , _clPackages = Nothing
+    , _clAttributes = Nothing
+    , _clAutoAssignPublicIPs = Nothing
+    , _clUseEBSOptimizedInstances = Nothing
+    , _clAutoAssignElasticIPs = Nothing
+    , _clStackId = pStackId_
+    , _clType = pType_
+    , _clName = pName_
+    , _clShortname = pShortname_
+    }
 
 
 -- | The ARN of an IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 clCustomInstanceProfileARN :: Lens' CreateLayer (Maybe Text)
-clCustomInstanceProfileARN = lens _clCustomInstanceProfileARN (\ s a -> s{_clCustomInstanceProfileARN = a});
+clCustomInstanceProfileARN = lens _clCustomInstanceProfileARN (\ s a -> s{_clCustomInstanceProfileARN = a})
 
 -- | An array containing the layer custom security group IDs.
 clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
-clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a}) . _Default . _Coerce;
+clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a}) . _Default . _Coerce
 
 -- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
-clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpdatesOnBoot = a});
+clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpdatesOnBoot = a})
 
 -- | Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
 clCloudWatchLogsConfiguration :: Lens' CreateLayer (Maybe CloudWatchLogsConfiguration)
-clCloudWatchLogsConfiguration = lens _clCloudWatchLogsConfiguration (\ s a -> s{_clCloudWatchLogsConfiguration = a});
+clCloudWatchLogsConfiguration = lens _clCloudWatchLogsConfiguration (\ s a -> s{_clCloudWatchLogsConfiguration = a})
 
 -- | A @LifeCycleEventConfiguration@ object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.
 clLifecycleEventConfiguration :: Lens' CreateLayer (Maybe LifecycleEventConfiguration)
-clLifecycleEventConfiguration = lens _clLifecycleEventConfiguration (\ s a -> s{_clLifecycleEventConfiguration = a});
+clLifecycleEventConfiguration = lens _clLifecycleEventConfiguration (\ s a -> s{_clLifecycleEventConfiguration = a})
 
 -- | A @LayerCustomRecipes@ object that specifies the layer custom recipes.
 clCustomRecipes :: Lens' CreateLayer (Maybe Recipes)
-clCustomRecipes = lens _clCustomRecipes (\ s a -> s{_clCustomRecipes = a});
+clCustomRecipes = lens _clCustomRecipes (\ s a -> s{_clCustomRecipes = a})
 
 -- | A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON> . This feature is supported as of version 1.7.42 of the AWS CLI.
 clCustomJSON :: Lens' CreateLayer (Maybe Text)
-clCustomJSON = lens _clCustomJSON (\ s a -> s{_clCustomJSON = a});
+clCustomJSON = lens _clCustomJSON (\ s a -> s{_clCustomJSON = a})
 
 -- | A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
 clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
-clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a}) . _Default . _Coerce;
+clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a}) . _Default . _Coerce
 
 -- | Whether to disable auto healing for the layer.
 clEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
-clEnableAutoHealing = lens _clEnableAutoHealing (\ s a -> s{_clEnableAutoHealing = a});
+clEnableAutoHealing = lens _clEnableAutoHealing (\ s a -> s{_clEnableAutoHealing = a})
 
 -- | An array of @Package@ objects that describes the layer packages.
 clPackages :: Lens' CreateLayer [Text]
-clPackages = lens _clPackages (\ s a -> s{_clPackages = a}) . _Default . _Coerce;
+clPackages = lens _clPackages (\ s a -> s{_clPackages = a}) . _Default . _Coerce
 
 -- | One or more user-defined key-value pairs to be added to the stack attributes. To create a cluster layer, set the @EcsClusterArn@ attribute to the cluster's ARN.
 clAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys (Maybe Text))
-clAttributes = lens _clAttributes (\ s a -> s{_clAttributes = a}) . _Default . _Map;
+clAttributes = lens _clAttributes (\ s a -> s{_clAttributes = a}) . _Default . _Map
 
 -- | For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 clAutoAssignPublicIPs :: Lens' CreateLayer (Maybe Bool)
-clAutoAssignPublicIPs = lens _clAutoAssignPublicIPs (\ s a -> s{_clAutoAssignPublicIPs = a});
+clAutoAssignPublicIPs = lens _clAutoAssignPublicIPs (\ s a -> s{_clAutoAssignPublicIPs = a})
 
 -- | Whether to use Amazon EBS-optimized instances.
 clUseEBSOptimizedInstances :: Lens' CreateLayer (Maybe Bool)
-clUseEBSOptimizedInstances = lens _clUseEBSOptimizedInstances (\ s a -> s{_clUseEBSOptimizedInstances = a});
+clUseEBSOptimizedInstances = lens _clUseEBSOptimizedInstances (\ s a -> s{_clUseEBSOptimizedInstances = a})
 
 -- | Whether to automatically assign an <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 clAutoAssignElasticIPs :: Lens' CreateLayer (Maybe Bool)
-clAutoAssignElasticIPs = lens _clAutoAssignElasticIPs (\ s a -> s{_clAutoAssignElasticIPs = a});
+clAutoAssignElasticIPs = lens _clAutoAssignElasticIPs (\ s a -> s{_clAutoAssignElasticIPs = a})
 
 -- | The layer stack ID.
 clStackId :: Lens' CreateLayer Text
-clStackId = lens _clStackId (\ s a -> s{_clStackId = a});
+clStackId = lens _clStackId (\ s a -> s{_clStackId = a})
 
 -- | The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.
 clType :: Lens' CreateLayer LayerType
-clType = lens _clType (\ s a -> s{_clType = a});
+clType = lens _clType (\ s a -> s{_clType = a})
 
 -- | The layer name, which is used by the console.
 clName :: Lens' CreateLayer Text
-clName = lens _clName (\ s a -> s{_clName = a});
+clName = lens _clName (\ s a -> s{_clName = a})
 
 -- | For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'. The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference> .
 clShortname :: Lens' CreateLayer Text
-clShortname = lens _clShortname (\ s a -> s{_clShortname = a});
+clShortname = lens _clShortname (\ s a -> s{_clShortname = a})
 
 instance AWSRequest CreateLayer where
         type Rs CreateLayer = CreateLayerResponse
@@ -308,15 +308,15 @@ createLayerResponse
     -> CreateLayerResponse
 createLayerResponse pResponseStatus_ =
   CreateLayerResponse'
-  {_clrsLayerId = Nothing, _clrsResponseStatus = pResponseStatus_}
+    {_clrsLayerId = Nothing, _clrsResponseStatus = pResponseStatus_}
 
 
 -- | The layer ID.
 clrsLayerId :: Lens' CreateLayerResponse (Maybe Text)
-clrsLayerId = lens _clrsLayerId (\ s a -> s{_clrsLayerId = a});
+clrsLayerId = lens _clrsLayerId (\ s a -> s{_clrsLayerId = a})
 
 -- | -- | The response status code.
 clrsResponseStatus :: Lens' CreateLayerResponse Int
-clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a});
+clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a})
 
 instance NFData CreateLayerResponse where

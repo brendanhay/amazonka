@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBClusterSnapshots
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,11 +78,11 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbcsDBClusterIdentifier' - The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter cannot be used in conjunction with the @DBClusterSnapshotIdentifier@ parameter. This parameter is not case-sensitive.  Constraints:     * If supplied, must match the identifier of an existing DBCluster.
+-- * 'ddbcsDBClusterIdentifier' - The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter can't be used in conjunction with the @DBClusterSnapshotIdentifier@ parameter. This parameter is not case-sensitive.  Constraints:     * If supplied, must match the identifier of an existing DBCluster.
 --
--- * 'ddbcsIncludeShared' - Set this value to @true@ to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to @false@ . The default is @false@ . You can give an AWS account permission to restore a manual DB cluster snapshot from another AWS account by the 'ModifyDBClusterSnapshotAttribute' API action.
+-- * 'ddbcsIncludeShared' - True to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, and otherwise false. The default is @false@ . You can give an AWS account permission to restore a manual DB cluster snapshot from another AWS account by the 'ModifyDBClusterSnapshotAttribute' API action.
 --
--- * 'ddbcsDBClusterSnapshotIdentifier' - A specific DB cluster snapshot identifier to describe. This parameter cannot be used in conjunction with the @DBClusterIdentifier@ parameter. This value is stored as a lowercase string.  Constraints:     * If supplied, must match the identifier of an existing DBClusterSnapshot.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
+-- * 'ddbcsDBClusterSnapshotIdentifier' - A specific DB cluster snapshot identifier to describe. This parameter can't be used in conjunction with the @DBClusterIdentifier@ parameter. This value is stored as a lowercase string.  Constraints:     * If supplied, must match the identifier of an existing DBClusterSnapshot.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
 --
 -- * 'ddbcsFilters' - This parameter is not currently supported.
 --
@@ -92,53 +92,53 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
 --
 -- * 'ddbcsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'ddbcsIncludePublic' - Set this value to @true@ to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to @false@ . The default is @false@ . The default is false. You can share a manual DB cluster snapshot as public by using the 'ModifyDBClusterSnapshotAttribute' API action.
+-- * 'ddbcsIncludePublic' - True to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account, and otherwise false. The default is @false@ . The default is false. You can share a manual DB cluster snapshot as public by using the 'ModifyDBClusterSnapshotAttribute' API action.
 describeDBClusterSnapshots
     :: DescribeDBClusterSnapshots
 describeDBClusterSnapshots =
   DescribeDBClusterSnapshots'
-  { _ddbcsDBClusterIdentifier = Nothing
-  , _ddbcsIncludeShared = Nothing
-  , _ddbcsDBClusterSnapshotIdentifier = Nothing
-  , _ddbcsFilters = Nothing
-  , _ddbcsSnapshotType = Nothing
-  , _ddbcsMarker = Nothing
-  , _ddbcsMaxRecords = Nothing
-  , _ddbcsIncludePublic = Nothing
-  }
+    { _ddbcsDBClusterIdentifier = Nothing
+    , _ddbcsIncludeShared = Nothing
+    , _ddbcsDBClusterSnapshotIdentifier = Nothing
+    , _ddbcsFilters = Nothing
+    , _ddbcsSnapshotType = Nothing
+    , _ddbcsMarker = Nothing
+    , _ddbcsMaxRecords = Nothing
+    , _ddbcsIncludePublic = Nothing
+    }
 
 
--- | The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter cannot be used in conjunction with the @DBClusterSnapshotIdentifier@ parameter. This parameter is not case-sensitive.  Constraints:     * If supplied, must match the identifier of an existing DBCluster.
+-- | The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter can't be used in conjunction with the @DBClusterSnapshotIdentifier@ parameter. This parameter is not case-sensitive.  Constraints:     * If supplied, must match the identifier of an existing DBCluster.
 ddbcsDBClusterIdentifier :: Lens' DescribeDBClusterSnapshots (Maybe Text)
-ddbcsDBClusterIdentifier = lens _ddbcsDBClusterIdentifier (\ s a -> s{_ddbcsDBClusterIdentifier = a});
+ddbcsDBClusterIdentifier = lens _ddbcsDBClusterIdentifier (\ s a -> s{_ddbcsDBClusterIdentifier = a})
 
--- | Set this value to @true@ to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to @false@ . The default is @false@ . You can give an AWS account permission to restore a manual DB cluster snapshot from another AWS account by the 'ModifyDBClusterSnapshotAttribute' API action.
+-- | True to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, and otherwise false. The default is @false@ . You can give an AWS account permission to restore a manual DB cluster snapshot from another AWS account by the 'ModifyDBClusterSnapshotAttribute' API action.
 ddbcsIncludeShared :: Lens' DescribeDBClusterSnapshots (Maybe Bool)
-ddbcsIncludeShared = lens _ddbcsIncludeShared (\ s a -> s{_ddbcsIncludeShared = a});
+ddbcsIncludeShared = lens _ddbcsIncludeShared (\ s a -> s{_ddbcsIncludeShared = a})
 
--- | A specific DB cluster snapshot identifier to describe. This parameter cannot be used in conjunction with the @DBClusterIdentifier@ parameter. This value is stored as a lowercase string.  Constraints:     * If supplied, must match the identifier of an existing DBClusterSnapshot.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
+-- | A specific DB cluster snapshot identifier to describe. This parameter can't be used in conjunction with the @DBClusterIdentifier@ parameter. This value is stored as a lowercase string.  Constraints:     * If supplied, must match the identifier of an existing DBClusterSnapshot.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
 ddbcsDBClusterSnapshotIdentifier :: Lens' DescribeDBClusterSnapshots (Maybe Text)
-ddbcsDBClusterSnapshotIdentifier = lens _ddbcsDBClusterSnapshotIdentifier (\ s a -> s{_ddbcsDBClusterSnapshotIdentifier = a});
+ddbcsDBClusterSnapshotIdentifier = lens _ddbcsDBClusterSnapshotIdentifier (\ s a -> s{_ddbcsDBClusterSnapshotIdentifier = a})
 
 -- | This parameter is not currently supported.
 ddbcsFilters :: Lens' DescribeDBClusterSnapshots [Filter]
-ddbcsFilters = lens _ddbcsFilters (\ s a -> s{_ddbcsFilters = a}) . _Default . _Coerce;
+ddbcsFilters = lens _ddbcsFilters (\ s a -> s{_ddbcsFilters = a}) . _Default . _Coerce
 
 -- | The type of DB cluster snapshots to be returned. You can specify one of the following values:     * @automated@ - Return all DB cluster snapshots that have been automatically taken by Amazon RDS for my AWS account.     * @manual@ - Return all DB cluster snapshots that have been taken by my AWS account.     * @shared@ - Return all manual DB cluster snapshots that have been shared to my AWS account.     * @public@ - Return all DB cluster snapshots that have been marked as public. If you don't specify a @SnapshotType@ value, then both automated and manual DB cluster snapshots are returned. You can include shared DB cluster snapshots with these results by setting the @IncludeShared@ parameter to @true@ . You can include public DB cluster snapshots with these results by setting the @IncludePublic@ parameter to @true@ . The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
 ddbcsSnapshotType :: Lens' DescribeDBClusterSnapshots (Maybe Text)
-ddbcsSnapshotType = lens _ddbcsSnapshotType (\ s a -> s{_ddbcsSnapshotType = a});
+ddbcsSnapshotType = lens _ddbcsSnapshotType (\ s a -> s{_ddbcsSnapshotType = a})
 
 -- | An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddbcsMarker :: Lens' DescribeDBClusterSnapshots (Maybe Text)
-ddbcsMarker = lens _ddbcsMarker (\ s a -> s{_ddbcsMarker = a});
+ddbcsMarker = lens _ddbcsMarker (\ s a -> s{_ddbcsMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddbcsMaxRecords :: Lens' DescribeDBClusterSnapshots (Maybe Int)
-ddbcsMaxRecords = lens _ddbcsMaxRecords (\ s a -> s{_ddbcsMaxRecords = a});
+ddbcsMaxRecords = lens _ddbcsMaxRecords (\ s a -> s{_ddbcsMaxRecords = a})
 
--- | Set this value to @true@ to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to @false@ . The default is @false@ . The default is false. You can share a manual DB cluster snapshot as public by using the 'ModifyDBClusterSnapshotAttribute' API action.
+-- | True to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account, and otherwise false. The default is @false@ . The default is false. You can share a manual DB cluster snapshot as public by using the 'ModifyDBClusterSnapshotAttribute' API action.
 ddbcsIncludePublic :: Lens' DescribeDBClusterSnapshots (Maybe Bool)
-ddbcsIncludePublic = lens _ddbcsIncludePublic (\ s a -> s{_ddbcsIncludePublic = a});
+ddbcsIncludePublic = lens _ddbcsIncludePublic (\ s a -> s{_ddbcsIncludePublic = a})
 
 instance AWSPager DescribeDBClusterSnapshots where
         page rq rs
@@ -214,23 +214,23 @@ describeDBClusterSnapshotsResponse
     -> DescribeDBClusterSnapshotsResponse
 describeDBClusterSnapshotsResponse pResponseStatus_ =
   DescribeDBClusterSnapshotsResponse'
-  { _ddbcsrsMarker = Nothing
-  , _ddbcsrsDBClusterSnapshots = Nothing
-  , _ddbcsrsResponseStatus = pResponseStatus_
-  }
+    { _ddbcsrsMarker = Nothing
+    , _ddbcsrsDBClusterSnapshots = Nothing
+    , _ddbcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An optional pagination token provided by a previous 'DescribeDBClusterSnapshots' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddbcsrsMarker :: Lens' DescribeDBClusterSnapshotsResponse (Maybe Text)
-ddbcsrsMarker = lens _ddbcsrsMarker (\ s a -> s{_ddbcsrsMarker = a});
+ddbcsrsMarker = lens _ddbcsrsMarker (\ s a -> s{_ddbcsrsMarker = a})
 
 -- | Provides a list of DB cluster snapshots for the user.
 ddbcsrsDBClusterSnapshots :: Lens' DescribeDBClusterSnapshotsResponse [DBClusterSnapshot]
-ddbcsrsDBClusterSnapshots = lens _ddbcsrsDBClusterSnapshots (\ s a -> s{_ddbcsrsDBClusterSnapshots = a}) . _Default . _Coerce;
+ddbcsrsDBClusterSnapshots = lens _ddbcsrsDBClusterSnapshots (\ s a -> s{_ddbcsrsDBClusterSnapshots = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddbcsrsResponseStatus :: Lens' DescribeDBClusterSnapshotsResponse Int
-ddbcsrsResponseStatus = lens _ddbcsrsResponseStatus (\ s a -> s{_ddbcsrsResponseStatus = a});
+ddbcsrsResponseStatus = lens _ddbcsrsResponseStatus (\ s a -> s{_ddbcsrsResponseStatus = a})
 
 instance NFData DescribeDBClusterSnapshotsResponse
          where

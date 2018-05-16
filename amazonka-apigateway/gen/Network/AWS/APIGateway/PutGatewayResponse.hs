@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.PutGatewayResponse
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,42 +75,42 @@ data PutGatewayResponse = PutGatewayResponse'
 --
 -- * 'pgResponseParameters' - Response parameters (paths, query strings and headers) of the 'GatewayResponse' as a string-to-string map of key-value pairs.
 --
--- * 'pgRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'pgRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'pgResponseType' - The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPES
+-- * 'pgResponseType' - [Required] The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPE
 putGatewayResponse
     :: Text -- ^ 'pgRestAPIId'
     -> GatewayResponseType -- ^ 'pgResponseType'
     -> PutGatewayResponse
 putGatewayResponse pRestAPIId_ pResponseType_ =
   PutGatewayResponse'
-  { _pgResponseTemplates = Nothing
-  , _pgStatusCode = Nothing
-  , _pgResponseParameters = Nothing
-  , _pgRestAPIId = pRestAPIId_
-  , _pgResponseType = pResponseType_
-  }
+    { _pgResponseTemplates = Nothing
+    , _pgStatusCode = Nothing
+    , _pgResponseParameters = Nothing
+    , _pgRestAPIId = pRestAPIId_
+    , _pgResponseType = pResponseType_
+    }
 
 
 -- | Response templates of the 'GatewayResponse' as a string-to-string map of key-value pairs.
 pgResponseTemplates :: Lens' PutGatewayResponse (HashMap Text Text)
-pgResponseTemplates = lens _pgResponseTemplates (\ s a -> s{_pgResponseTemplates = a}) . _Default . _Map;
+pgResponseTemplates = lens _pgResponseTemplates (\ s a -> s{_pgResponseTemplates = a}) . _Default . _Map
 
 -- | 'GatewayResponse'
 pgStatusCode :: Lens' PutGatewayResponse (Maybe Text)
-pgStatusCode = lens _pgStatusCode (\ s a -> s{_pgStatusCode = a});
+pgStatusCode = lens _pgStatusCode (\ s a -> s{_pgStatusCode = a})
 
 -- | Response parameters (paths, query strings and headers) of the 'GatewayResponse' as a string-to-string map of key-value pairs.
 pgResponseParameters :: Lens' PutGatewayResponse (HashMap Text Text)
-pgResponseParameters = lens _pgResponseParameters (\ s a -> s{_pgResponseParameters = a}) . _Default . _Map;
+pgResponseParameters = lens _pgResponseParameters (\ s a -> s{_pgResponseParameters = a}) . _Default . _Map
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 pgRestAPIId :: Lens' PutGatewayResponse Text
-pgRestAPIId = lens _pgRestAPIId (\ s a -> s{_pgRestAPIId = a});
+pgRestAPIId = lens _pgRestAPIId (\ s a -> s{_pgRestAPIId = a})
 
--- | The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPES
+-- | [Required] The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPE
 pgResponseType :: Lens' PutGatewayResponse GatewayResponseType
-pgResponseType = lens _pgResponseType (\ s a -> s{_pgResponseType = a});
+pgResponseType = lens _pgResponseType (\ s a -> s{_pgResponseType = a})
 
 instance AWSRequest PutGatewayResponse where
         type Rs PutGatewayResponse = GatewayResponse

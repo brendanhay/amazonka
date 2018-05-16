@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.CreatePreset
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,38 +90,38 @@ createPreset
     -> CreatePreset
 createPreset pName_ pContainer_ =
   CreatePreset'
-  { _cpVideo = Nothing
-  , _cpThumbnails = Nothing
-  , _cpDescription = Nothing
-  , _cpAudio = Nothing
-  , _cpName = pName_
-  , _cpContainer = pContainer_
-  }
+    { _cpVideo = Nothing
+    , _cpThumbnails = Nothing
+    , _cpDescription = Nothing
+    , _cpAudio = Nothing
+    , _cpName = pName_
+    , _cpContainer = pContainer_
+    }
 
 
 -- | A section of the request body that specifies the video parameters.
 cpVideo :: Lens' CreatePreset (Maybe VideoParameters)
-cpVideo = lens _cpVideo (\ s a -> s{_cpVideo = a});
+cpVideo = lens _cpVideo (\ s a -> s{_cpVideo = a})
 
 -- | A section of the request body that specifies the thumbnail parameters, if any.
 cpThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
-cpThumbnails = lens _cpThumbnails (\ s a -> s{_cpThumbnails = a});
+cpThumbnails = lens _cpThumbnails (\ s a -> s{_cpThumbnails = a})
 
 -- | A description of the preset.
 cpDescription :: Lens' CreatePreset (Maybe Text)
-cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
+cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a})
 
 -- | A section of the request body that specifies the audio parameters.
 cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
-cpAudio = lens _cpAudio (\ s a -> s{_cpAudio = a});
+cpAudio = lens _cpAudio (\ s a -> s{_cpAudio = a})
 
 -- | The name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.
 cpName :: Lens' CreatePreset Text
-cpName = lens _cpName (\ s a -> s{_cpName = a});
+cpName = lens _cpName (\ s a -> s{_cpName = a})
 
 -- | The container type for the output file. Valid values include @flac@ , @flv@ , @fmp4@ , @gif@ , @mp3@ , @mp4@ , @mpg@ , @mxf@ , @oga@ , @ogg@ , @ts@ , and @webm@ .
 cpContainer :: Lens' CreatePreset Text
-cpContainer = lens _cpContainer (\ s a -> s{_cpContainer = a});
+cpContainer = lens _cpContainer (\ s a -> s{_cpContainer = a})
 
 instance AWSRequest CreatePreset where
         type Rs CreatePreset = CreatePresetResponse
@@ -182,22 +182,22 @@ createPresetResponse
     -> CreatePresetResponse
 createPresetResponse pResponseStatus_ =
   CreatePresetResponse'
-  { _cprsWarning = Nothing
-  , _cprsPreset = Nothing
-  , _cprsResponseStatus = pResponseStatus_
-  }
+    { _cprsWarning = Nothing
+    , _cprsPreset = Nothing
+    , _cprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the preset settings don't comply with the standards for the video codec but Elastic Transcoder created the preset, this message explains the reason the preset settings don't meet the standard. Elastic Transcoder created the preset because the settings might produce acceptable output.
 cprsWarning :: Lens' CreatePresetResponse (Maybe Text)
-cprsWarning = lens _cprsWarning (\ s a -> s{_cprsWarning = a});
+cprsWarning = lens _cprsWarning (\ s a -> s{_cprsWarning = a})
 
 -- | A section of the response body that provides information about the preset that is created.
 cprsPreset :: Lens' CreatePresetResponse (Maybe Preset)
-cprsPreset = lens _cprsPreset (\ s a -> s{_cprsPreset = a});
+cprsPreset = lens _cprsPreset (\ s a -> s{_cprsPreset = a})
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePresetResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
 
 instance NFData CreatePresetResponse where

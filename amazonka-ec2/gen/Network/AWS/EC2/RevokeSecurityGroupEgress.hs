@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RevokeSecurityGroupEgress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -97,53 +97,53 @@ revokeSecurityGroupEgress
     -> RevokeSecurityGroupEgress
 revokeSecurityGroupEgress pGroupId_ =
   RevokeSecurityGroupEgress'
-  { _rsgeFromPort = Nothing
-  , _rsgeIPPermissions = Nothing
-  , _rsgeIPProtocol = Nothing
-  , _rsgeToPort = Nothing
-  , _rsgeCidrIP = Nothing
-  , _rsgeSourceSecurityGroupOwnerId = Nothing
-  , _rsgeSourceSecurityGroupName = Nothing
-  , _rsgeDryRun = Nothing
-  , _rsgeGroupId = pGroupId_
-  }
+    { _rsgeFromPort = Nothing
+    , _rsgeIPPermissions = Nothing
+    , _rsgeIPProtocol = Nothing
+    , _rsgeToPort = Nothing
+    , _rsgeCidrIP = Nothing
+    , _rsgeSourceSecurityGroupOwnerId = Nothing
+    , _rsgeSourceSecurityGroupName = Nothing
+    , _rsgeDryRun = Nothing
+    , _rsgeGroupId = pGroupId_
+    }
 
 
 -- | Not supported. Use a set of IP permissions to specify the port.
 rsgeFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
-rsgeFromPort = lens _rsgeFromPort (\ s a -> s{_rsgeFromPort = a});
+rsgeFromPort = lens _rsgeFromPort (\ s a -> s{_rsgeFromPort = a})
 
 -- | One or more sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
 rsgeIPPermissions :: Lens' RevokeSecurityGroupEgress [IPPermission]
-rsgeIPPermissions = lens _rsgeIPPermissions (\ s a -> s{_rsgeIPPermissions = a}) . _Default . _Coerce;
+rsgeIPPermissions = lens _rsgeIPPermissions (\ s a -> s{_rsgeIPPermissions = a}) . _Default . _Coerce
 
 -- | Not supported. Use a set of IP permissions to specify the protocol name or number.
 rsgeIPProtocol :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgeIPProtocol = lens _rsgeIPProtocol (\ s a -> s{_rsgeIPProtocol = a});
+rsgeIPProtocol = lens _rsgeIPProtocol (\ s a -> s{_rsgeIPProtocol = a})
 
 -- | Not supported. Use a set of IP permissions to specify the port.
 rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
-rsgeToPort = lens _rsgeToPort (\ s a -> s{_rsgeToPort = a});
+rsgeToPort = lens _rsgeToPort (\ s a -> s{_rsgeToPort = a})
 
 -- | Not supported. Use a set of IP permissions to specify the CIDR.
 rsgeCidrIP :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgeCidrIP = lens _rsgeCidrIP (\ s a -> s{_rsgeCidrIP = a});
+rsgeCidrIP = lens _rsgeCidrIP (\ s a -> s{_rsgeCidrIP = a})
 
 -- | Not supported. Use a set of IP permissions to specify a destination security group.
 rsgeSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgeSourceSecurityGroupOwnerId = lens _rsgeSourceSecurityGroupOwnerId (\ s a -> s{_rsgeSourceSecurityGroupOwnerId = a});
+rsgeSourceSecurityGroupOwnerId = lens _rsgeSourceSecurityGroupOwnerId (\ s a -> s{_rsgeSourceSecurityGroupOwnerId = a})
 
 -- | Not supported. Use a set of IP permissions to specify a destination security group.
 rsgeSourceSecurityGroupName :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgeSourceSecurityGroupName = lens _rsgeSourceSecurityGroupName (\ s a -> s{_rsgeSourceSecurityGroupName = a});
+rsgeSourceSecurityGroupName = lens _rsgeSourceSecurityGroupName (\ s a -> s{_rsgeSourceSecurityGroupName = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rsgeDryRun :: Lens' RevokeSecurityGroupEgress (Maybe Bool)
-rsgeDryRun = lens _rsgeDryRun (\ s a -> s{_rsgeDryRun = a});
+rsgeDryRun = lens _rsgeDryRun (\ s a -> s{_rsgeDryRun = a})
 
 -- | The ID of the security group.
 rsgeGroupId :: Lens' RevokeSecurityGroupEgress Text
-rsgeGroupId = lens _rsgeGroupId (\ s a -> s{_rsgeGroupId = a});
+rsgeGroupId = lens _rsgeGroupId (\ s a -> s{_rsgeGroupId = a})
 
 instance AWSRequest RevokeSecurityGroupEgress where
         type Rs RevokeSecurityGroupEgress =

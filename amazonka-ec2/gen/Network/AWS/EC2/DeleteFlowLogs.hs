@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteFlowLogs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ deleteFlowLogs = DeleteFlowLogs' {_dflFlowLogIds = mempty}
 
 -- | One or more flow log IDs.
 dflFlowLogIds :: Lens' DeleteFlowLogs [Text]
-dflFlowLogIds = lens _dflFlowLogIds (\ s a -> s{_dflFlowLogIds = a}) . _Coerce;
+dflFlowLogIds = lens _dflFlowLogIds (\ s a -> s{_dflFlowLogIds = a}) . _Coerce
 
 instance AWSRequest DeleteFlowLogs where
         type Rs DeleteFlowLogs = DeleteFlowLogsResponse
@@ -119,15 +119,15 @@ deleteFlowLogsResponse
     -> DeleteFlowLogsResponse
 deleteFlowLogsResponse pResponseStatus_ =
   DeleteFlowLogsResponse'
-  {_dflrsUnsuccessful = Nothing, _dflrsResponseStatus = pResponseStatus_}
+    {_dflrsUnsuccessful = Nothing, _dflrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the flow logs that could not be deleted successfully.
 dflrsUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
-dflrsUnsuccessful = lens _dflrsUnsuccessful (\ s a -> s{_dflrsUnsuccessful = a}) . _Default . _Coerce;
+dflrsUnsuccessful = lens _dflrsUnsuccessful (\ s a -> s{_dflrsUnsuccessful = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dflrsResponseStatus :: Lens' DeleteFlowLogsResponse Int
-dflrsResponseStatus = lens _dflrsResponseStatus (\ s a -> s{_dflrsResponseStatus = a});
+dflrsResponseStatus = lens _dflrsResponseStatus (\ s a -> s{_dflrsResponseStatus = a})
 
 instance NFData DeleteFlowLogsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucket
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ deleteBucket pBucket_ = DeleteBucket' {_dbBucket = pBucket_}
 
 -- | Undocumented member.
 dbBucket :: Lens' DeleteBucket BucketName
-dbBucket = lens _dbBucket (\ s a -> s{_dbBucket = a});
+dbBucket = lens _dbBucket (\ s a -> s{_dbBucket = a})
 
 instance AWSRequest DeleteBucket where
         type Rs DeleteBucket = DeleteBucketResponse

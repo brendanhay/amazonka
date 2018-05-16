@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.UpdateJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,33 +81,33 @@ updateJob
     -> UpdateJob
 updateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
   UpdateJob'
-  { _ujAPIVersion = Nothing
-  , _ujJobId = pJobId_
-  , _ujManifest = pManifest_
-  , _ujJobType = pJobType_
-  , _ujValidateOnly = pValidateOnly_
-  }
+    { _ujAPIVersion = Nothing
+    , _ujJobId = pJobId_
+    , _ujManifest = pManifest_
+    , _ujJobType = pJobType_
+    , _ujValidateOnly = pValidateOnly_
+    }
 
 
 -- | Undocumented member.
 ujAPIVersion :: Lens' UpdateJob (Maybe Text)
-ujAPIVersion = lens _ujAPIVersion (\ s a -> s{_ujAPIVersion = a});
+ujAPIVersion = lens _ujAPIVersion (\ s a -> s{_ujAPIVersion = a})
 
 -- | Undocumented member.
 ujJobId :: Lens' UpdateJob Text
-ujJobId = lens _ujJobId (\ s a -> s{_ujJobId = a});
+ujJobId = lens _ujJobId (\ s a -> s{_ujJobId = a})
 
 -- | Undocumented member.
 ujManifest :: Lens' UpdateJob Text
-ujManifest = lens _ujManifest (\ s a -> s{_ujManifest = a});
+ujManifest = lens _ujManifest (\ s a -> s{_ujManifest = a})
 
 -- | Undocumented member.
 ujJobType :: Lens' UpdateJob JobType
-ujJobType = lens _ujJobType (\ s a -> s{_ujJobType = a});
+ujJobType = lens _ujJobType (\ s a -> s{_ujJobType = a})
 
 -- | Undocumented member.
 ujValidateOnly :: Lens' UpdateJob Bool
-ujValidateOnly = lens _ujValidateOnly (\ s a -> s{_ujValidateOnly = a});
+ujValidateOnly = lens _ujValidateOnly (\ s a -> s{_ujValidateOnly = a})
 
 instance AWSRequest UpdateJob where
         type Rs UpdateJob = UpdateJobResponse
@@ -168,27 +168,27 @@ updateJobResponse
     -> UpdateJobResponse
 updateJobResponse pResponseStatus_ =
   UpdateJobResponse'
-  { _ujrsSuccess = Nothing
-  , _ujrsWarningMessage = Nothing
-  , _ujrsArtifactList = Nothing
-  , _ujrsResponseStatus = pResponseStatus_
-  }
+    { _ujrsSuccess = Nothing
+    , _ujrsWarningMessage = Nothing
+    , _ujrsArtifactList = Nothing
+    , _ujrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ujrsSuccess :: Lens' UpdateJobResponse (Maybe Bool)
-ujrsSuccess = lens _ujrsSuccess (\ s a -> s{_ujrsSuccess = a});
+ujrsSuccess = lens _ujrsSuccess (\ s a -> s{_ujrsSuccess = a})
 
 -- | Undocumented member.
 ujrsWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
-ujrsWarningMessage = lens _ujrsWarningMessage (\ s a -> s{_ujrsWarningMessage = a});
+ujrsWarningMessage = lens _ujrsWarningMessage (\ s a -> s{_ujrsWarningMessage = a})
 
 -- | Undocumented member.
 ujrsArtifactList :: Lens' UpdateJobResponse [Artifact]
-ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default . _Coerce;
+ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ujrsResponseStatus :: Lens' UpdateJobResponse Int
-ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});
+ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a})
 
 instance NFData UpdateJobResponse where

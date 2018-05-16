@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteReceiptFilter
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ deleteReceiptFilter pFilterName_ =
 
 -- | The name of the IP address filter to delete.
 drfFilterName :: Lens' DeleteReceiptFilter Text
-drfFilterName = lens _drfFilterName (\ s a -> s{_drfFilterName = a});
+drfFilterName = lens _drfFilterName (\ s a -> s{_drfFilterName = a})
 
 instance AWSRequest DeleteReceiptFilter where
         type Rs DeleteReceiptFilter =
@@ -123,6 +123,6 @@ deleteReceiptFilterResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drfrsResponseStatus :: Lens' DeleteReceiptFilterResponse Int
-drfrsResponseStatus = lens _drfrsResponseStatus (\ s a -> s{_drfrsResponseStatus = a});
+drfrsResponseStatus = lens _drfrsResponseStatus (\ s a -> s{_drfrsResponseStatus = a})
 
 instance NFData DeleteReceiptFilterResponse where

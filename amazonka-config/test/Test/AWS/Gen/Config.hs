@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Config
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,14 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetResourceConfigHistory $
+--         [ requestDescribePendingAggregationRequests $
+--             describePendingAggregationRequests
+--
+--         , requestGetResourceConfigHistory $
 --             getResourceConfigHistory
+--
+--         , requestDescribeConfigurationAggregators $
+--             describeConfigurationAggregators
 --
 --         , requestDescribeComplianceByConfigRule $
 --             describeComplianceByConfigRule
@@ -37,8 +43,17 @@ import Test.Tasty
 --         , requestStopConfigurationRecorder $
 --             stopConfigurationRecorder
 --
+--         , requestGetAggregateConfigRuleComplianceSummary $
+--             getAggregateConfigRuleComplianceSummary
+--
+--         , requestBatchGetResourceConfig $
+--             batchGetResourceConfig
+--
 --         , requestDescribeConfigRules $
 --             describeConfigRules
+--
+--         , requestDescribeAggregateComplianceByConfigRules $
+--             describeAggregateComplianceByConfigRules
 --
 --         , requestDeleteEvaluationResults $
 --             deleteEvaluationResults
@@ -51,6 +66,9 @@ import Test.Tasty
 --
 --         , requestGetComplianceDetailsByResource $
 --             getComplianceDetailsByResource
+--
+--         , requestDeletePendingAggregationRequest $
+--             deletePendingAggregationRequest
 --
 --         , requestDeliverConfigSnapshot $
 --             deliverConfigSnapshot
@@ -73,11 +91,20 @@ import Test.Tasty
 --         , requestDescribeConfigurationRecorders $
 --             describeConfigurationRecorders
 --
+--         , requestGetAggregateComplianceDetailsByConfigRule $
+--             getAggregateComplianceDetailsByConfigRule
+--
 --         , requestStartConfigurationRecorder $
 --             startConfigurationRecorder
 --
 --         , requestGetComplianceSummaryByConfigRule $
 --             getComplianceSummaryByConfigRule
+--
+--         , requestPutConfigurationAggregator $
+--             putConfigurationAggregator
+--
+--         , requestDeleteConfigurationAggregator $
+--             deleteConfigurationAggregator
 --
 --         , requestDescribeConfigurationRecorderStatus $
 --             describeConfigurationRecorderStatus
@@ -100,8 +127,17 @@ import Test.Tasty
 --         , requestGetComplianceDetailsByConfigRule $
 --             getComplianceDetailsByConfigRule
 --
+--         , requestDeleteAggregationAuthorization $
+--             deleteAggregationAuthorization
+--
 --         , requestDeleteDeliveryChannel $
 --             deleteDeliveryChannel
+--
+--         , requestPutAggregationAuthorization $
+--             putAggregationAuthorization
+--
+--         , requestDescribeConfigurationAggregatorSourcesStatus $
+--             describeConfigurationAggregatorSourcesStatus
 --
 --         , requestListDiscoveredResources $
 --             listDiscoveredResources
@@ -109,11 +145,20 @@ import Test.Tasty
 --         , requestDescribeDeliveryChannels $
 --             describeDeliveryChannels
 --
+--         , requestDescribeAggregationAuthorizations $
+--             describeAggregationAuthorizations
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseGetResourceConfigHistory $
+--         [ responseDescribePendingAggregationRequests $
+--             describePendingAggregationRequestsResponse
+--
+--         , responseGetResourceConfigHistory $
 --             getResourceConfigHistoryResponse
+--
+--         , responseDescribeConfigurationAggregators $
+--             describeConfigurationAggregatorsResponse
 --
 --         , responseDescribeComplianceByConfigRule $
 --             describeComplianceByConfigRuleResponse
@@ -121,8 +166,17 @@ import Test.Tasty
 --         , responseStopConfigurationRecorder $
 --             stopConfigurationRecorderResponse
 --
+--         , responseGetAggregateConfigRuleComplianceSummary $
+--             getAggregateConfigRuleComplianceSummaryResponse
+--
+--         , responseBatchGetResourceConfig $
+--             batchGetResourceConfigResponse
+--
 --         , responseDescribeConfigRules $
 --             describeConfigRulesResponse
+--
+--         , responseDescribeAggregateComplianceByConfigRules $
+--             describeAggregateComplianceByConfigRulesResponse
 --
 --         , responseDeleteEvaluationResults $
 --             deleteEvaluationResultsResponse
@@ -135,6 +189,9 @@ import Test.Tasty
 --
 --         , responseGetComplianceDetailsByResource $
 --             getComplianceDetailsByResourceResponse
+--
+--         , responseDeletePendingAggregationRequest $
+--             deletePendingAggregationRequestResponse
 --
 --         , responseDeliverConfigSnapshot $
 --             deliverConfigSnapshotResponse
@@ -157,11 +214,20 @@ import Test.Tasty
 --         , responseDescribeConfigurationRecorders $
 --             describeConfigurationRecordersResponse
 --
+--         , responseGetAggregateComplianceDetailsByConfigRule $
+--             getAggregateComplianceDetailsByConfigRuleResponse
+--
 --         , responseStartConfigurationRecorder $
 --             startConfigurationRecorderResponse
 --
 --         , responseGetComplianceSummaryByConfigRule $
 --             getComplianceSummaryByConfigRuleResponse
+--
+--         , responsePutConfigurationAggregator $
+--             putConfigurationAggregatorResponse
+--
+--         , responseDeleteConfigurationAggregator $
+--             deleteConfigurationAggregatorResponse
 --
 --         , responseDescribeConfigurationRecorderStatus $
 --             describeConfigurationRecorderStatusResponse
@@ -184,8 +250,17 @@ import Test.Tasty
 --         , responseGetComplianceDetailsByConfigRule $
 --             getComplianceDetailsByConfigRuleResponse
 --
+--         , responseDeleteAggregationAuthorization $
+--             deleteAggregationAuthorizationResponse
+--
 --         , responseDeleteDeliveryChannel $
 --             deleteDeliveryChannelResponse
+--
+--         , responsePutAggregationAuthorization $
+--             putAggregationAuthorizationResponse
+--
+--         , responseDescribeConfigurationAggregatorSourcesStatus $
+--             describeConfigurationAggregatorSourcesStatusResponse
 --
 --         , responseListDiscoveredResources $
 --             listDiscoveredResourcesResponse
@@ -193,15 +268,28 @@ import Test.Tasty
 --         , responseDescribeDeliveryChannels $
 --             describeDeliveryChannelsResponse
 --
+--         , responseDescribeAggregationAuthorizations $
+--             describeAggregationAuthorizationsResponse
+--
 --           ]
 --     ]
 
 -- Requests
 
+requestDescribePendingAggregationRequests :: DescribePendingAggregationRequests -> TestTree
+requestDescribePendingAggregationRequests = req
+    "DescribePendingAggregationRequests"
+    "fixture/DescribePendingAggregationRequests.yaml"
+
 requestGetResourceConfigHistory :: GetResourceConfigHistory -> TestTree
 requestGetResourceConfigHistory = req
     "GetResourceConfigHistory"
     "fixture/GetResourceConfigHistory.yaml"
+
+requestDescribeConfigurationAggregators :: DescribeConfigurationAggregators -> TestTree
+requestDescribeConfigurationAggregators = req
+    "DescribeConfigurationAggregators"
+    "fixture/DescribeConfigurationAggregators.yaml"
 
 requestDescribeComplianceByConfigRule :: DescribeComplianceByConfigRule -> TestTree
 requestDescribeComplianceByConfigRule = req
@@ -213,10 +301,25 @@ requestStopConfigurationRecorder = req
     "StopConfigurationRecorder"
     "fixture/StopConfigurationRecorder.yaml"
 
+requestGetAggregateConfigRuleComplianceSummary :: GetAggregateConfigRuleComplianceSummary -> TestTree
+requestGetAggregateConfigRuleComplianceSummary = req
+    "GetAggregateConfigRuleComplianceSummary"
+    "fixture/GetAggregateConfigRuleComplianceSummary.yaml"
+
+requestBatchGetResourceConfig :: BatchGetResourceConfig -> TestTree
+requestBatchGetResourceConfig = req
+    "BatchGetResourceConfig"
+    "fixture/BatchGetResourceConfig.yaml"
+
 requestDescribeConfigRules :: DescribeConfigRules -> TestTree
 requestDescribeConfigRules = req
     "DescribeConfigRules"
     "fixture/DescribeConfigRules.yaml"
+
+requestDescribeAggregateComplianceByConfigRules :: DescribeAggregateComplianceByConfigRules -> TestTree
+requestDescribeAggregateComplianceByConfigRules = req
+    "DescribeAggregateComplianceByConfigRules"
+    "fixture/DescribeAggregateComplianceByConfigRules.yaml"
 
 requestDeleteEvaluationResults :: DeleteEvaluationResults -> TestTree
 requestDeleteEvaluationResults = req
@@ -237,6 +340,11 @@ requestGetComplianceDetailsByResource :: GetComplianceDetailsByResource -> TestT
 requestGetComplianceDetailsByResource = req
     "GetComplianceDetailsByResource"
     "fixture/GetComplianceDetailsByResource.yaml"
+
+requestDeletePendingAggregationRequest :: DeletePendingAggregationRequest -> TestTree
+requestDeletePendingAggregationRequest = req
+    "DeletePendingAggregationRequest"
+    "fixture/DeletePendingAggregationRequest.yaml"
 
 requestDeliverConfigSnapshot :: DeliverConfigSnapshot -> TestTree
 requestDeliverConfigSnapshot = req
@@ -273,6 +381,11 @@ requestDescribeConfigurationRecorders = req
     "DescribeConfigurationRecorders"
     "fixture/DescribeConfigurationRecorders.yaml"
 
+requestGetAggregateComplianceDetailsByConfigRule :: GetAggregateComplianceDetailsByConfigRule -> TestTree
+requestGetAggregateComplianceDetailsByConfigRule = req
+    "GetAggregateComplianceDetailsByConfigRule"
+    "fixture/GetAggregateComplianceDetailsByConfigRule.yaml"
+
 requestStartConfigurationRecorder :: StartConfigurationRecorder -> TestTree
 requestStartConfigurationRecorder = req
     "StartConfigurationRecorder"
@@ -282,6 +395,16 @@ requestGetComplianceSummaryByConfigRule :: GetComplianceSummaryByConfigRule -> T
 requestGetComplianceSummaryByConfigRule = req
     "GetComplianceSummaryByConfigRule"
     "fixture/GetComplianceSummaryByConfigRule.yaml"
+
+requestPutConfigurationAggregator :: PutConfigurationAggregator -> TestTree
+requestPutConfigurationAggregator = req
+    "PutConfigurationAggregator"
+    "fixture/PutConfigurationAggregator.yaml"
+
+requestDeleteConfigurationAggregator :: DeleteConfigurationAggregator -> TestTree
+requestDeleteConfigurationAggregator = req
+    "DeleteConfigurationAggregator"
+    "fixture/DeleteConfigurationAggregator.yaml"
 
 requestDescribeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus -> TestTree
 requestDescribeConfigurationRecorderStatus = req
@@ -318,10 +441,25 @@ requestGetComplianceDetailsByConfigRule = req
     "GetComplianceDetailsByConfigRule"
     "fixture/GetComplianceDetailsByConfigRule.yaml"
 
+requestDeleteAggregationAuthorization :: DeleteAggregationAuthorization -> TestTree
+requestDeleteAggregationAuthorization = req
+    "DeleteAggregationAuthorization"
+    "fixture/DeleteAggregationAuthorization.yaml"
+
 requestDeleteDeliveryChannel :: DeleteDeliveryChannel -> TestTree
 requestDeleteDeliveryChannel = req
     "DeleteDeliveryChannel"
     "fixture/DeleteDeliveryChannel.yaml"
+
+requestPutAggregationAuthorization :: PutAggregationAuthorization -> TestTree
+requestPutAggregationAuthorization = req
+    "PutAggregationAuthorization"
+    "fixture/PutAggregationAuthorization.yaml"
+
+requestDescribeConfigurationAggregatorSourcesStatus :: DescribeConfigurationAggregatorSourcesStatus -> TestTree
+requestDescribeConfigurationAggregatorSourcesStatus = req
+    "DescribeConfigurationAggregatorSourcesStatus"
+    "fixture/DescribeConfigurationAggregatorSourcesStatus.yaml"
 
 requestListDiscoveredResources :: ListDiscoveredResources -> TestTree
 requestListDiscoveredResources = req
@@ -333,7 +471,19 @@ requestDescribeDeliveryChannels = req
     "DescribeDeliveryChannels"
     "fixture/DescribeDeliveryChannels.yaml"
 
+requestDescribeAggregationAuthorizations :: DescribeAggregationAuthorizations -> TestTree
+requestDescribeAggregationAuthorizations = req
+    "DescribeAggregationAuthorizations"
+    "fixture/DescribeAggregationAuthorizations.yaml"
+
 -- Responses
+
+responseDescribePendingAggregationRequests :: DescribePendingAggregationRequestsResponse -> TestTree
+responseDescribePendingAggregationRequests = res
+    "DescribePendingAggregationRequestsResponse"
+    "fixture/DescribePendingAggregationRequestsResponse.proto"
+    config
+    (Proxy :: Proxy DescribePendingAggregationRequests)
 
 responseGetResourceConfigHistory :: GetResourceConfigHistoryResponse -> TestTree
 responseGetResourceConfigHistory = res
@@ -341,6 +491,13 @@ responseGetResourceConfigHistory = res
     "fixture/GetResourceConfigHistoryResponse.proto"
     config
     (Proxy :: Proxy GetResourceConfigHistory)
+
+responseDescribeConfigurationAggregators :: DescribeConfigurationAggregatorsResponse -> TestTree
+responseDescribeConfigurationAggregators = res
+    "DescribeConfigurationAggregatorsResponse"
+    "fixture/DescribeConfigurationAggregatorsResponse.proto"
+    config
+    (Proxy :: Proxy DescribeConfigurationAggregators)
 
 responseDescribeComplianceByConfigRule :: DescribeComplianceByConfigRuleResponse -> TestTree
 responseDescribeComplianceByConfigRule = res
@@ -356,12 +513,33 @@ responseStopConfigurationRecorder = res
     config
     (Proxy :: Proxy StopConfigurationRecorder)
 
+responseGetAggregateConfigRuleComplianceSummary :: GetAggregateConfigRuleComplianceSummaryResponse -> TestTree
+responseGetAggregateConfigRuleComplianceSummary = res
+    "GetAggregateConfigRuleComplianceSummaryResponse"
+    "fixture/GetAggregateConfigRuleComplianceSummaryResponse.proto"
+    config
+    (Proxy :: Proxy GetAggregateConfigRuleComplianceSummary)
+
+responseBatchGetResourceConfig :: BatchGetResourceConfigResponse -> TestTree
+responseBatchGetResourceConfig = res
+    "BatchGetResourceConfigResponse"
+    "fixture/BatchGetResourceConfigResponse.proto"
+    config
+    (Proxy :: Proxy BatchGetResourceConfig)
+
 responseDescribeConfigRules :: DescribeConfigRulesResponse -> TestTree
 responseDescribeConfigRules = res
     "DescribeConfigRulesResponse"
     "fixture/DescribeConfigRulesResponse.proto"
     config
     (Proxy :: Proxy DescribeConfigRules)
+
+responseDescribeAggregateComplianceByConfigRules :: DescribeAggregateComplianceByConfigRulesResponse -> TestTree
+responseDescribeAggregateComplianceByConfigRules = res
+    "DescribeAggregateComplianceByConfigRulesResponse"
+    "fixture/DescribeAggregateComplianceByConfigRulesResponse.proto"
+    config
+    (Proxy :: Proxy DescribeAggregateComplianceByConfigRules)
 
 responseDeleteEvaluationResults :: DeleteEvaluationResultsResponse -> TestTree
 responseDeleteEvaluationResults = res
@@ -390,6 +568,13 @@ responseGetComplianceDetailsByResource = res
     "fixture/GetComplianceDetailsByResourceResponse.proto"
     config
     (Proxy :: Proxy GetComplianceDetailsByResource)
+
+responseDeletePendingAggregationRequest :: DeletePendingAggregationRequestResponse -> TestTree
+responseDeletePendingAggregationRequest = res
+    "DeletePendingAggregationRequestResponse"
+    "fixture/DeletePendingAggregationRequestResponse.proto"
+    config
+    (Proxy :: Proxy DeletePendingAggregationRequest)
 
 responseDeliverConfigSnapshot :: DeliverConfigSnapshotResponse -> TestTree
 responseDeliverConfigSnapshot = res
@@ -440,6 +625,13 @@ responseDescribeConfigurationRecorders = res
     config
     (Proxy :: Proxy DescribeConfigurationRecorders)
 
+responseGetAggregateComplianceDetailsByConfigRule :: GetAggregateComplianceDetailsByConfigRuleResponse -> TestTree
+responseGetAggregateComplianceDetailsByConfigRule = res
+    "GetAggregateComplianceDetailsByConfigRuleResponse"
+    "fixture/GetAggregateComplianceDetailsByConfigRuleResponse.proto"
+    config
+    (Proxy :: Proxy GetAggregateComplianceDetailsByConfigRule)
+
 responseStartConfigurationRecorder :: StartConfigurationRecorderResponse -> TestTree
 responseStartConfigurationRecorder = res
     "StartConfigurationRecorderResponse"
@@ -453,6 +645,20 @@ responseGetComplianceSummaryByConfigRule = res
     "fixture/GetComplianceSummaryByConfigRuleResponse.proto"
     config
     (Proxy :: Proxy GetComplianceSummaryByConfigRule)
+
+responsePutConfigurationAggregator :: PutConfigurationAggregatorResponse -> TestTree
+responsePutConfigurationAggregator = res
+    "PutConfigurationAggregatorResponse"
+    "fixture/PutConfigurationAggregatorResponse.proto"
+    config
+    (Proxy :: Proxy PutConfigurationAggregator)
+
+responseDeleteConfigurationAggregator :: DeleteConfigurationAggregatorResponse -> TestTree
+responseDeleteConfigurationAggregator = res
+    "DeleteConfigurationAggregatorResponse"
+    "fixture/DeleteConfigurationAggregatorResponse.proto"
+    config
+    (Proxy :: Proxy DeleteConfigurationAggregator)
 
 responseDescribeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatusResponse -> TestTree
 responseDescribeConfigurationRecorderStatus = res
@@ -503,12 +709,33 @@ responseGetComplianceDetailsByConfigRule = res
     config
     (Proxy :: Proxy GetComplianceDetailsByConfigRule)
 
+responseDeleteAggregationAuthorization :: DeleteAggregationAuthorizationResponse -> TestTree
+responseDeleteAggregationAuthorization = res
+    "DeleteAggregationAuthorizationResponse"
+    "fixture/DeleteAggregationAuthorizationResponse.proto"
+    config
+    (Proxy :: Proxy DeleteAggregationAuthorization)
+
 responseDeleteDeliveryChannel :: DeleteDeliveryChannelResponse -> TestTree
 responseDeleteDeliveryChannel = res
     "DeleteDeliveryChannelResponse"
     "fixture/DeleteDeliveryChannelResponse.proto"
     config
     (Proxy :: Proxy DeleteDeliveryChannel)
+
+responsePutAggregationAuthorization :: PutAggregationAuthorizationResponse -> TestTree
+responsePutAggregationAuthorization = res
+    "PutAggregationAuthorizationResponse"
+    "fixture/PutAggregationAuthorizationResponse.proto"
+    config
+    (Proxy :: Proxy PutAggregationAuthorization)
+
+responseDescribeConfigurationAggregatorSourcesStatus :: DescribeConfigurationAggregatorSourcesStatusResponse -> TestTree
+responseDescribeConfigurationAggregatorSourcesStatus = res
+    "DescribeConfigurationAggregatorSourcesStatusResponse"
+    "fixture/DescribeConfigurationAggregatorSourcesStatusResponse.proto"
+    config
+    (Proxy :: Proxy DescribeConfigurationAggregatorSourcesStatus)
 
 responseListDiscoveredResources :: ListDiscoveredResourcesResponse -> TestTree
 responseListDiscoveredResources = res
@@ -523,3 +750,10 @@ responseDescribeDeliveryChannels = res
     "fixture/DescribeDeliveryChannelsResponse.proto"
     config
     (Proxy :: Proxy DescribeDeliveryChannels)
+
+responseDescribeAggregationAuthorizations :: DescribeAggregationAuthorizationsResponse -> TestTree
+responseDescribeAggregationAuthorizations = res
+    "DescribeAggregationAuthorizationsResponse"
+    "fixture/DescribeAggregationAuthorizationsResponse.proto"
+    config
+    (Proxy :: Proxy DescribeAggregationAuthorizations)

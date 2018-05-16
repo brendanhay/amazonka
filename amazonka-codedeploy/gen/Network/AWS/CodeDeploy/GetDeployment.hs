@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetDeployment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getDeployment pDeploymentId_ = GetDeployment' {_gdDeploymentId = pDeploymentId_}
 
 -- | A deployment ID associated with the applicable IAM user or AWS account.
 gdDeploymentId :: Lens' GetDeployment Text
-gdDeploymentId = lens _gdDeploymentId (\ s a -> s{_gdDeploymentId = a});
+gdDeploymentId = lens _gdDeploymentId (\ s a -> s{_gdDeploymentId = a})
 
 instance AWSRequest GetDeployment where
         type Rs GetDeployment = GetDeploymentResponse
@@ -126,15 +126,15 @@ getDeploymentResponse
     -> GetDeploymentResponse
 getDeploymentResponse pResponseStatus_ =
   GetDeploymentResponse'
-  {_gdrsDeploymentInfo = Nothing, _gdrsResponseStatus = pResponseStatus_}
+    {_gdrsDeploymentInfo = Nothing, _gdrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the deployment.
 gdrsDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
-gdrsDeploymentInfo = lens _gdrsDeploymentInfo (\ s a -> s{_gdrsDeploymentInfo = a});
+gdrsDeploymentInfo = lens _gdrsDeploymentInfo (\ s a -> s{_gdrsDeploymentInfo = a})
 
 -- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeploymentResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a})
 
 instance NFData GetDeploymentResponse where

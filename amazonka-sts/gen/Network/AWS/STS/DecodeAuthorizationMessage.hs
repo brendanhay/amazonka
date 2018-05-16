@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.STS.DecodeAuthorizationMessage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,7 +82,7 @@ decodeAuthorizationMessage pEncodedMessage_ =
 
 -- | The encoded message that was returned with the response.
 damEncodedMessage :: Lens' DecodeAuthorizationMessage Text
-damEncodedMessage = lens _damEncodedMessage (\ s a -> s{_damEncodedMessage = a});
+damEncodedMessage = lens _damEncodedMessage (\ s a -> s{_damEncodedMessage = a})
 
 instance AWSRequest DecodeAuthorizationMessage where
         type Rs DecodeAuthorizationMessage =
@@ -136,16 +136,16 @@ decodeAuthorizationMessageResponse
     -> DecodeAuthorizationMessageResponse
 decodeAuthorizationMessageResponse pResponseStatus_ =
   DecodeAuthorizationMessageResponse'
-  {_damrsDecodedMessage = Nothing, _damrsResponseStatus = pResponseStatus_}
+    {_damrsDecodedMessage = Nothing, _damrsResponseStatus = pResponseStatus_}
 
 
 -- | An XML document that contains the decoded message.
 damrsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
-damrsDecodedMessage = lens _damrsDecodedMessage (\ s a -> s{_damrsDecodedMessage = a});
+damrsDecodedMessage = lens _damrsDecodedMessage (\ s a -> s{_damrsDecodedMessage = a})
 
 -- | -- | The response status code.
 damrsResponseStatus :: Lens' DecodeAuthorizationMessageResponse Int
-damrsResponseStatus = lens _damrsResponseStatus (\ s a -> s{_damrsResponseStatus = a});
+damrsResponseStatus = lens _damrsResponseStatus (\ s a -> s{_damrsResponseStatus = a})
 
 instance NFData DecodeAuthorizationMessageResponse
          where

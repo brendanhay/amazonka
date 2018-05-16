@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteBasePathMapping
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,25 +57,25 @@ data DeleteBasePathMapping = DeleteBasePathMapping'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbpmDomainName' - The domain name of the 'BasePathMapping' resource to delete.
+-- * 'dbpmDomainName' - [Required] The domain name of the 'BasePathMapping' resource to delete.
 --
--- * 'dbpmBasePath' - The base path name of the 'BasePathMapping' resource to delete.
+-- * 'dbpmBasePath' - [Required] The base path name of the 'BasePathMapping' resource to delete.
 deleteBasePathMapping
     :: Text -- ^ 'dbpmDomainName'
     -> Text -- ^ 'dbpmBasePath'
     -> DeleteBasePathMapping
 deleteBasePathMapping pDomainName_ pBasePath_ =
   DeleteBasePathMapping'
-  {_dbpmDomainName = pDomainName_, _dbpmBasePath = pBasePath_}
+    {_dbpmDomainName = pDomainName_, _dbpmBasePath = pBasePath_}
 
 
--- | The domain name of the 'BasePathMapping' resource to delete.
+-- | [Required] The domain name of the 'BasePathMapping' resource to delete.
 dbpmDomainName :: Lens' DeleteBasePathMapping Text
-dbpmDomainName = lens _dbpmDomainName (\ s a -> s{_dbpmDomainName = a});
+dbpmDomainName = lens _dbpmDomainName (\ s a -> s{_dbpmDomainName = a})
 
--- | The base path name of the 'BasePathMapping' resource to delete.
+-- | [Required] The base path name of the 'BasePathMapping' resource to delete.
 dbpmBasePath :: Lens' DeleteBasePathMapping Text
-dbpmBasePath = lens _dbpmBasePath (\ s a -> s{_dbpmBasePath = a});
+dbpmBasePath = lens _dbpmBasePath (\ s a -> s{_dbpmBasePath = a})
 
 instance AWSRequest DeleteBasePathMapping where
         type Rs DeleteBasePathMapping =

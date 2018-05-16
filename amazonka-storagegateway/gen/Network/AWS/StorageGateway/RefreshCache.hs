@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RefreshCache
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Refreshes the cache for the specified file share. This operation finds objects in the Amazon S3 bucket that were added, removed or replaced since the gateway last listed the bucket's contents and cached the results.
+-- Refreshes the cache for the specified file share. This operation finds objects in the Amazon S3 bucket that were added, removed or replaced since the gateway last listed the bucket's contents and cached the results. This operation is only supported in the file gateway type.
 --
 --
 module Network.AWS.StorageGateway.RefreshCache
@@ -63,7 +63,7 @@ refreshCache pFileShareARN_ = RefreshCache' {_rcFileShareARN = pFileShareARN_}
 
 -- | Undocumented member.
 rcFileShareARN :: Lens' RefreshCache Text
-rcFileShareARN = lens _rcFileShareARN (\ s a -> s{_rcFileShareARN = a});
+rcFileShareARN = lens _rcFileShareARN (\ s a -> s{_rcFileShareARN = a})
 
 instance AWSRequest RefreshCache where
         type Rs RefreshCache = RefreshCacheResponse
@@ -119,15 +119,15 @@ refreshCacheResponse
     -> RefreshCacheResponse
 refreshCacheResponse pResponseStatus_ =
   RefreshCacheResponse'
-  {_rcrsFileShareARN = Nothing, _rcrsResponseStatus = pResponseStatus_}
+    {_rcrsFileShareARN = Nothing, _rcrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 rcrsFileShareARN :: Lens' RefreshCacheResponse (Maybe Text)
-rcrsFileShareARN = lens _rcrsFileShareARN (\ s a -> s{_rcrsFileShareARN = a});
+rcrsFileShareARN = lens _rcrsFileShareARN (\ s a -> s{_rcrsFileShareARN = a})
 
 -- | -- | The response status code.
 rcrsResponseStatus :: Lens' RefreshCacheResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a})
 
 instance NFData RefreshCacheResponse where

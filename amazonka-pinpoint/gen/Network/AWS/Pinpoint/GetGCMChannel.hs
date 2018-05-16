@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetGCMChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getGCMChannel pApplicationId_ =
 
 -- | Undocumented member.
 ggcApplicationId :: Lens' GetGCMChannel Text
-ggcApplicationId = lens _ggcApplicationId (\ s a -> s{_ggcApplicationId = a});
+ggcApplicationId = lens _ggcApplicationId (\ s a -> s{_ggcApplicationId = a})
 
 instance AWSRequest GetGCMChannel where
         type Rs GetGCMChannel = GetGCMChannelResponse
@@ -113,17 +113,17 @@ getGCMChannelResponse
     -> GetGCMChannelResponse
 getGCMChannelResponse pResponseStatus_ pGCMChannelResponse_ =
   GetGCMChannelResponse'
-  { _ggcrsResponseStatus = pResponseStatus_
-  , _ggcrsGCMChannelResponse = pGCMChannelResponse_
-  }
+    { _ggcrsResponseStatus = pResponseStatus_
+    , _ggcrsGCMChannelResponse = pGCMChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 ggcrsResponseStatus :: Lens' GetGCMChannelResponse Int
-ggcrsResponseStatus = lens _ggcrsResponseStatus (\ s a -> s{_ggcrsResponseStatus = a});
+ggcrsResponseStatus = lens _ggcrsResponseStatus (\ s a -> s{_ggcrsResponseStatus = a})
 
 -- | Undocumented member.
 ggcrsGCMChannelResponse :: Lens' GetGCMChannelResponse GCMChannelResponse
-ggcrsGCMChannelResponse = lens _ggcrsGCMChannelResponse (\ s a -> s{_ggcrsGCMChannelResponse = a});
+ggcrsGCMChannelResponse = lens _ggcrsGCMChannelResponse (\ s a -> s{_ggcrsGCMChannelResponse = a})
 
 instance NFData GetGCMChannelResponse where

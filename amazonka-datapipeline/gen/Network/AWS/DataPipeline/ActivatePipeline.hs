@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.ActivatePipeline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ activatePipeline
     -> ActivatePipeline
 activatePipeline pPipelineId_ =
   ActivatePipeline'
-  { _apStartTimestamp = Nothing
-  , _apParameterValues = Nothing
-  , _apPipelineId = pPipelineId_
-  }
+    { _apStartTimestamp = Nothing
+    , _apParameterValues = Nothing
+    , _apPipelineId = pPipelineId_
+    }
 
 
 -- | The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.
 apStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
-apStartTimestamp = lens _apStartTimestamp (\ s a -> s{_apStartTimestamp = a}) . mapping _Time;
+apStartTimestamp = lens _apStartTimestamp (\ s a -> s{_apStartTimestamp = a}) . mapping _Time
 
 -- | A list of parameter values to pass to the pipeline at activation.
 apParameterValues :: Lens' ActivatePipeline [ParameterValue]
-apParameterValues = lens _apParameterValues (\ s a -> s{_apParameterValues = a}) . _Default . _Coerce;
+apParameterValues = lens _apParameterValues (\ s a -> s{_apParameterValues = a}) . _Default . _Coerce
 
 -- | The ID of the pipeline.
 apPipelineId :: Lens' ActivatePipeline Text
-apPipelineId = lens _apPipelineId (\ s a -> s{_apPipelineId = a});
+apPipelineId = lens _apPipelineId (\ s a -> s{_apPipelineId = a})
 
 instance AWSRequest ActivatePipeline where
         type Rs ActivatePipeline = ActivatePipelineResponse
@@ -152,6 +152,6 @@ activatePipelineResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 aprsResponseStatus :: Lens' ActivatePipelineResponse Int
-aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});
+aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a})
 
 instance NFData ActivatePipelineResponse where

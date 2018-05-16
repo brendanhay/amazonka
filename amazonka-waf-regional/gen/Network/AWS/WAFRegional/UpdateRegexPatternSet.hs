@@ -12,18 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.UpdateRegexPatternSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inserts or deletes 'RegexMatchSetUpdate' objects (filters) in a 'RegexPatternSet' . For each @RegexPatternSet@ object, you specify the following values:
+-- Inserts or deletes @RegexPatternString@ objects in a 'RegexPatternSet' . For each @RegexPatternString@ object, you specify the following values:
 --
 --
---     * Whether to insert or delete the object from the array. If you want to change a @RegexPatternSet@ object, you delete the existing object and add a new one.
+--     * Whether to insert or delete the @RegexPatternString@ .
 --
---     * The regular expression pattern that you want AWS WAF to look for. For more information, see 'RegexPatternSet' .
+--     * The regular expression pattern that you want to insert or delete. For more information, see 'RegexPatternSet' .
 --
 --
 --
@@ -100,23 +100,23 @@ updateRegexPatternSet
     -> UpdateRegexPatternSet
 updateRegexPatternSet pRegexPatternSetId_ pUpdates_ pChangeToken_ =
   UpdateRegexPatternSet'
-  { _urpsRegexPatternSetId = pRegexPatternSetId_
-  , _urpsUpdates = _List1 # pUpdates_
-  , _urpsChangeToken = pChangeToken_
-  }
+    { _urpsRegexPatternSetId = pRegexPatternSetId_
+    , _urpsUpdates = _List1 # pUpdates_
+    , _urpsChangeToken = pChangeToken_
+    }
 
 
 -- | The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to update. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
 urpsRegexPatternSetId :: Lens' UpdateRegexPatternSet Text
-urpsRegexPatternSetId = lens _urpsRegexPatternSetId (\ s a -> s{_urpsRegexPatternSetId = a});
+urpsRegexPatternSetId = lens _urpsRegexPatternSetId (\ s a -> s{_urpsRegexPatternSetId = a})
 
 -- | An array of @RegexPatternSetUpdate@ objects that you want to insert into or delete from a 'RegexPatternSet' .
 urpsUpdates :: Lens' UpdateRegexPatternSet (NonEmpty RegexPatternSetUpdate)
-urpsUpdates = lens _urpsUpdates (\ s a -> s{_urpsUpdates = a}) . _List1;
+urpsUpdates = lens _urpsUpdates (\ s a -> s{_urpsUpdates = a}) . _List1
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 urpsChangeToken :: Lens' UpdateRegexPatternSet Text
-urpsChangeToken = lens _urpsChangeToken (\ s a -> s{_urpsChangeToken = a});
+urpsChangeToken = lens _urpsChangeToken (\ s a -> s{_urpsChangeToken = a})
 
 instance AWSRequest UpdateRegexPatternSet where
         type Rs UpdateRegexPatternSet =
@@ -176,15 +176,15 @@ updateRegexPatternSetResponse
     -> UpdateRegexPatternSetResponse
 updateRegexPatternSetResponse pResponseStatus_ =
   UpdateRegexPatternSetResponse'
-  {_urpsrsChangeToken = Nothing, _urpsrsResponseStatus = pResponseStatus_}
+    {_urpsrsChangeToken = Nothing, _urpsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 urpsrsChangeToken :: Lens' UpdateRegexPatternSetResponse (Maybe Text)
-urpsrsChangeToken = lens _urpsrsChangeToken (\ s a -> s{_urpsrsChangeToken = a});
+urpsrsChangeToken = lens _urpsrsChangeToken (\ s a -> s{_urpsrsChangeToken = a})
 
 -- | -- | The response status code.
 urpsrsResponseStatus :: Lens' UpdateRegexPatternSetResponse Int
-urpsrsResponseStatus = lens _urpsrsResponseStatus (\ s a -> s{_urpsrsResponseStatus = a});
+urpsrsResponseStatus = lens _urpsrsResponseStatus (\ s a -> s{_urpsrsResponseStatus = a})
 
 instance NFData UpdateRegexPatternSetResponse where

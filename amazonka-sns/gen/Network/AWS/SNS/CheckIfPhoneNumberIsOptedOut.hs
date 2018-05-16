@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ checkIfPhoneNumberIsOptedOut pPhoneNumber_ =
 
 -- | The phone number for which you want to check the opt out status.
 cipniooPhoneNumber :: Lens' CheckIfPhoneNumberIsOptedOut Text
-cipniooPhoneNumber = lens _cipniooPhoneNumber (\ s a -> s{_cipniooPhoneNumber = a});
+cipniooPhoneNumber = lens _cipniooPhoneNumber (\ s a -> s{_cipniooPhoneNumber = a})
 
 instance AWSRequest CheckIfPhoneNumberIsOptedOut
          where
@@ -125,16 +125,18 @@ checkIfPhoneNumberIsOptedOutResponse
     -> CheckIfPhoneNumberIsOptedOutResponse
 checkIfPhoneNumberIsOptedOutResponse pResponseStatus_ =
   CheckIfPhoneNumberIsOptedOutResponse'
-  {_cipnioorsIsOptedOut = Nothing, _cipnioorsResponseStatus = pResponseStatus_}
+    { _cipnioorsIsOptedOut = Nothing
+    , _cipnioorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Indicates whether the phone number is opted out:     * @true@ – The phone number is opted out, meaning you cannot publish SMS messages to it.     * @false@ – The phone number is opted in, meaning you can publish SMS messages to it.
 cipnioorsIsOptedOut :: Lens' CheckIfPhoneNumberIsOptedOutResponse (Maybe Bool)
-cipnioorsIsOptedOut = lens _cipnioorsIsOptedOut (\ s a -> s{_cipnioorsIsOptedOut = a});
+cipnioorsIsOptedOut = lens _cipnioorsIsOptedOut (\ s a -> s{_cipnioorsIsOptedOut = a})
 
 -- | -- | The response status code.
 cipnioorsResponseStatus :: Lens' CheckIfPhoneNumberIsOptedOutResponse Int
-cipnioorsResponseStatus = lens _cipnioorsResponseStatus (\ s a -> s{_cipnioorsResponseStatus = a});
+cipnioorsResponseStatus = lens _cipnioorsResponseStatus (\ s a -> s{_cipnioorsResponseStatus = a})
 
 instance NFData CheckIfPhoneNumberIsOptedOutResponse
          where

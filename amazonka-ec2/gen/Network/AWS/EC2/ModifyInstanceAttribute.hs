@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyInstanceAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,8 @@
 --
 -- Modifies the specified attribute of the specified instance. You can specify only one attribute at a time.
 --
+--
+-- __Note: __ Using this action to change the security groups associated with an elastic network interface (ENI) attached to an instance in a VPC can result in an error if the instance has more than one ENI. To change the security groups associated with an ENI attached to an instance that has multiple ENIs, we recommend that you use the 'ModifyNetworkInterfaceAttribute' action.
 --
 -- To modify some attributes, the instance must be stopped. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html Modifying Attributes of a Stopped Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
@@ -123,88 +125,88 @@ modifyInstanceAttribute
     -> ModifyInstanceAttribute
 modifyInstanceAttribute pInstanceId_ =
   ModifyInstanceAttribute'
-  { _mGroups = Nothing
-  , _mAttribute = Nothing
-  , _mEnaSupport = Nothing
-  , _mSourceDestCheck = Nothing
-  , _mDisableAPITermination = Nothing
-  , _mKernel = Nothing
-  , _mRAMDisk = Nothing
-  , _mValue = Nothing
-  , _mInstanceType = Nothing
-  , _mSRIOVNetSupport = Nothing
-  , _mEBSOptimized = Nothing
-  , _mUserData = Nothing
-  , _mInstanceInitiatedShutdownBehavior = Nothing
-  , _mBlockDeviceMappings = Nothing
-  , _mDryRun = Nothing
-  , _mInstanceId = pInstanceId_
-  }
+    { _mGroups = Nothing
+    , _mAttribute = Nothing
+    , _mEnaSupport = Nothing
+    , _mSourceDestCheck = Nothing
+    , _mDisableAPITermination = Nothing
+    , _mKernel = Nothing
+    , _mRAMDisk = Nothing
+    , _mValue = Nothing
+    , _mInstanceType = Nothing
+    , _mSRIOVNetSupport = Nothing
+    , _mEBSOptimized = Nothing
+    , _mUserData = Nothing
+    , _mInstanceInitiatedShutdownBehavior = Nothing
+    , _mBlockDeviceMappings = Nothing
+    , _mDryRun = Nothing
+    , _mInstanceId = pInstanceId_
+    }
 
 
 -- | [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
 mGroups :: Lens' ModifyInstanceAttribute [Text]
-mGroups = lens _mGroups (\ s a -> s{_mGroups = a}) . _Default . _Coerce;
+mGroups = lens _mGroups (\ s a -> s{_mGroups = a}) . _Default . _Coerce
 
 -- | The name of the attribute.
 mAttribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
-mAttribute = lens _mAttribute (\ s a -> s{_mAttribute = a});
+mAttribute = lens _mAttribute (\ s a -> s{_mAttribute = a})
 
 -- | Set to @true@ to enable enhanced networking with ENA for the instance. This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
 mEnaSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
-mEnaSupport = lens _mEnaSupport (\ s a -> s{_mEnaSupport = a});
+mEnaSupport = lens _mEnaSupport (\ s a -> s{_mEnaSupport = a})
 
 -- | Specifies whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
 mSourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
-mSourceDestCheck = lens _mSourceDestCheck (\ s a -> s{_mSourceDestCheck = a});
+mSourceDestCheck = lens _mSourceDestCheck (\ s a -> s{_mSourceDestCheck = a})
 
 -- | If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
 mDisableAPITermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
-mDisableAPITermination = lens _mDisableAPITermination (\ s a -> s{_mDisableAPITermination = a});
+mDisableAPITermination = lens _mDisableAPITermination (\ s a -> s{_mDisableAPITermination = a})
 
 -- | Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
 mKernel :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mKernel = lens _mKernel (\ s a -> s{_mKernel = a});
+mKernel = lens _mKernel (\ s a -> s{_mKernel = a})
 
 -- | Changes the instance's RAM disk to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
 mRAMDisk :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mRAMDisk = lens _mRAMDisk (\ s a -> s{_mRAMDisk = a});
+mRAMDisk = lens _mRAMDisk (\ s a -> s{_mRAMDisk = a})
 
 -- | A new value for the attribute. Use only with the @kernel@ , @ramdisk@ , @userData@ , @disableApiTermination@ , or @instanceInitiatedShutdownBehavior@ attribute.
 mValue :: Lens' ModifyInstanceAttribute (Maybe Text)
-mValue = lens _mValue (\ s a -> s{_mValue = a});
+mValue = lens _mValue (\ s a -> s{_mValue = a})
 
 -- | Changes the instance type to the specified value. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> . If the instance type is not valid, the error returned is @InvalidInstanceAttributeValue@ .
 mInstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mInstanceType = lens _mInstanceType (\ s a -> s{_mInstanceType = a});
+mInstanceType = lens _mInstanceType (\ s a -> s{_mInstanceType = a})
 
 -- | Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the instance. There is no way to disable enhanced networking with the Intel 82599 Virtual Function interface at this time. This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
 mSRIOVNetSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mSRIOVNetSupport = lens _mSRIOVNetSupport (\ s a -> s{_mSRIOVNetSupport = a});
+mSRIOVNetSupport = lens _mSRIOVNetSupport (\ s a -> s{_mSRIOVNetSupport = a})
 
 -- | Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 mEBSOptimized :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
-mEBSOptimized = lens _mEBSOptimized (\ s a -> s{_mEBSOptimized = a});
+mEBSOptimized = lens _mEBSOptimized (\ s a -> s{_mEBSOptimized = a})
 
 -- | Changes the instance's user data to the specified value. If you are using an AWS SDK or command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
 mUserData :: Lens' ModifyInstanceAttribute (Maybe BlobAttributeValue)
-mUserData = lens _mUserData (\ s a -> s{_mUserData = a});
+mUserData = lens _mUserData (\ s a -> s{_mUserData = a})
 
 -- | Specifies whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 mInstanceInitiatedShutdownBehavior :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mInstanceInitiatedShutdownBehavior = lens _mInstanceInitiatedShutdownBehavior (\ s a -> s{_mInstanceInitiatedShutdownBehavior = a});
+mInstanceInitiatedShutdownBehavior = lens _mInstanceInitiatedShutdownBehavior (\ s a -> s{_mInstanceInitiatedShutdownBehavior = a})
 
 -- | Modifies the @DeleteOnTermination@ attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for @DeleteOnTermination@ , the default is @true@ and the volume is deleted when the instance is terminated. To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the Block Device Mapping when Launching an Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
 mBlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
-mBlockDeviceMappings = lens _mBlockDeviceMappings (\ s a -> s{_mBlockDeviceMappings = a}) . _Default . _Coerce;
+mBlockDeviceMappings = lens _mBlockDeviceMappings (\ s a -> s{_mBlockDeviceMappings = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mDryRun :: Lens' ModifyInstanceAttribute (Maybe Bool)
-mDryRun = lens _mDryRun (\ s a -> s{_mDryRun = a});
+mDryRun = lens _mDryRun (\ s a -> s{_mDryRun = a})
 
 -- | The ID of the instance.
 mInstanceId :: Lens' ModifyInstanceAttribute Text
-mInstanceId = lens _mInstanceId (\ s a -> s{_mInstanceId = a});
+mInstanceId = lens _mInstanceId (\ s a -> s{_mInstanceId = a})
 
 instance AWSRequest ModifyInstanceAttribute where
         type Rs ModifyInstanceAttribute =

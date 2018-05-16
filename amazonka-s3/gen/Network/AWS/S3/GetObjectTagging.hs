@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetObjectTagging
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,20 +68,20 @@ getObjectTagging
     -> GetObjectTagging
 getObjectTagging pBucket_ pKey_ =
   GetObjectTagging'
-  {_gotoVersionId = Nothing, _gotoBucket = pBucket_, _gotoKey = pKey_}
+    {_gotoVersionId = Nothing, _gotoBucket = pBucket_, _gotoKey = pKey_}
 
 
 -- | Undocumented member.
 gotoVersionId :: Lens' GetObjectTagging (Maybe ObjectVersionId)
-gotoVersionId = lens _gotoVersionId (\ s a -> s{_gotoVersionId = a});
+gotoVersionId = lens _gotoVersionId (\ s a -> s{_gotoVersionId = a})
 
 -- | Undocumented member.
 gotoBucket :: Lens' GetObjectTagging BucketName
-gotoBucket = lens _gotoBucket (\ s a -> s{_gotoBucket = a});
+gotoBucket = lens _gotoBucket (\ s a -> s{_gotoBucket = a})
 
 -- | Undocumented member.
 gotoKey :: Lens' GetObjectTagging ObjectKey
-gotoKey = lens _gotoKey (\ s a -> s{_gotoKey = a});
+gotoKey = lens _gotoKey (\ s a -> s{_gotoKey = a})
 
 instance AWSRequest GetObjectTagging where
         type Rs GetObjectTagging = GetObjectTaggingResponse
@@ -131,22 +131,22 @@ getObjectTaggingResponse
     -> GetObjectTaggingResponse
 getObjectTaggingResponse pResponseStatus_ =
   GetObjectTaggingResponse'
-  { _gotrsVersionId = Nothing
-  , _gotrsResponseStatus = pResponseStatus_
-  , _gotrsTagSet = mempty
-  }
+    { _gotrsVersionId = Nothing
+    , _gotrsResponseStatus = pResponseStatus_
+    , _gotrsTagSet = mempty
+    }
 
 
 -- | Undocumented member.
 gotrsVersionId :: Lens' GetObjectTaggingResponse (Maybe ObjectVersionId)
-gotrsVersionId = lens _gotrsVersionId (\ s a -> s{_gotrsVersionId = a});
+gotrsVersionId = lens _gotrsVersionId (\ s a -> s{_gotrsVersionId = a})
 
 -- | -- | The response status code.
 gotrsResponseStatus :: Lens' GetObjectTaggingResponse Int
-gotrsResponseStatus = lens _gotrsResponseStatus (\ s a -> s{_gotrsResponseStatus = a});
+gotrsResponseStatus = lens _gotrsResponseStatus (\ s a -> s{_gotrsResponseStatus = a})
 
 -- | Undocumented member.
 gotrsTagSet :: Lens' GetObjectTaggingResponse [Tag]
-gotrsTagSet = lens _gotrsTagSet (\ s a -> s{_gotrsTagSet = a}) . _Coerce;
+gotrsTagSet = lens _gotrsTagSet (\ s a -> s{_gotrsTagSet = a}) . _Coerce
 
 instance NFData GetObjectTaggingResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListCoreDefinitions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,22 +55,22 @@ data ListCoreDefinitions = ListCoreDefinitions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcdNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lcdNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lcdMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lcdMaxResults' - The maximum number of results to be returned per request.
 listCoreDefinitions
     :: ListCoreDefinitions
 listCoreDefinitions =
   ListCoreDefinitions' {_lcdNextToken = Nothing, _lcdMaxResults = Nothing}
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lcdNextToken :: Lens' ListCoreDefinitions (Maybe Text)
-lcdNextToken = lens _lcdNextToken (\ s a -> s{_lcdNextToken = a});
+lcdNextToken = lens _lcdNextToken (\ s a -> s{_lcdNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lcdMaxResults :: Lens' ListCoreDefinitions (Maybe Text)
-lcdMaxResults = lens _lcdMaxResults (\ s a -> s{_lcdMaxResults = a});
+lcdMaxResults = lens _lcdMaxResults (\ s a -> s{_lcdMaxResults = a})
 
 instance AWSRequest ListCoreDefinitions where
         type Rs ListCoreDefinitions =
@@ -118,7 +118,7 @@ data ListCoreDefinitionsResponse = ListCoreDefinitionsResponse'
 --
 -- * 'lcdrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lcdrsDefinitions' - Definitions
+-- * 'lcdrsDefinitions' - Information about a definition.
 --
 -- * 'lcdrsResponseStatus' - -- | The response status code.
 listCoreDefinitionsResponse
@@ -126,22 +126,22 @@ listCoreDefinitionsResponse
     -> ListCoreDefinitionsResponse
 listCoreDefinitionsResponse pResponseStatus_ =
   ListCoreDefinitionsResponse'
-  { _lcdrsNextToken = Nothing
-  , _lcdrsDefinitions = Nothing
-  , _lcdrsResponseStatus = pResponseStatus_
-  }
+    { _lcdrsNextToken = Nothing
+    , _lcdrsDefinitions = Nothing
+    , _lcdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lcdrsNextToken :: Lens' ListCoreDefinitionsResponse (Maybe Text)
-lcdrsNextToken = lens _lcdrsNextToken (\ s a -> s{_lcdrsNextToken = a});
+lcdrsNextToken = lens _lcdrsNextToken (\ s a -> s{_lcdrsNextToken = a})
 
--- | Definitions
+-- | Information about a definition.
 lcdrsDefinitions :: Lens' ListCoreDefinitionsResponse [DefinitionInformation]
-lcdrsDefinitions = lens _lcdrsDefinitions (\ s a -> s{_lcdrsDefinitions = a}) . _Default . _Coerce;
+lcdrsDefinitions = lens _lcdrsDefinitions (\ s a -> s{_lcdrsDefinitions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lcdrsResponseStatus :: Lens' ListCoreDefinitionsResponse Int
-lcdrsResponseStatus = lens _lcdrsResponseStatus (\ s a -> s{_lcdrsResponseStatus = a});
+lcdrsResponseStatus = lens _lcdrsResponseStatus (\ s a -> s{_lcdrsResponseStatus = a})
 
 instance NFData ListCoreDefinitionsResponse where

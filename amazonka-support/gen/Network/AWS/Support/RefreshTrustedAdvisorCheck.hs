@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.RefreshTrustedAdvisorCheck
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,7 +78,7 @@ refreshTrustedAdvisorCheck pCheckId_ =
 
 -- | The unique identifier for the Trusted Advisor check to refresh. __Note:__ Specifying the check ID of a check that is automatically refreshed causes an @InvalidParameterValue@ error.
 rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
-rtacCheckId = lens _rtacCheckId (\ s a -> s{_rtacCheckId = a});
+rtacCheckId = lens _rtacCheckId (\ s a -> s{_rtacCheckId = a})
 
 instance AWSRequest RefreshTrustedAdvisorCheck where
         type Rs RefreshTrustedAdvisorCheck =
@@ -139,16 +139,16 @@ refreshTrustedAdvisorCheckResponse
     -> RefreshTrustedAdvisorCheckResponse
 refreshTrustedAdvisorCheckResponse pResponseStatus_ pStatus_ =
   RefreshTrustedAdvisorCheckResponse'
-  {_rtacrsResponseStatus = pResponseStatus_, _rtacrsStatus = pStatus_}
+    {_rtacrsResponseStatus = pResponseStatus_, _rtacrsStatus = pStatus_}
 
 
 -- | -- | The response status code.
 rtacrsResponseStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
-rtacrsResponseStatus = lens _rtacrsResponseStatus (\ s a -> s{_rtacrsResponseStatus = a});
+rtacrsResponseStatus = lens _rtacrsResponseStatus (\ s a -> s{_rtacrsResponseStatus = a})
 
 -- | The current refresh status for a check, including the amount of time until the check is eligible for refresh.
 rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
-rtacrsStatus = lens _rtacrsStatus (\ s a -> s{_rtacrsStatus = a});
+rtacrsStatus = lens _rtacrsStatus (\ s a -> s{_rtacrsStatus = a})
 
 instance NFData RefreshTrustedAdvisorCheckResponse
          where

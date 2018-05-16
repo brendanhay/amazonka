@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteTrigger
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specified trigger.
+-- Deletes a specified trigger. If the trigger is not found, no exception is thrown.
 --
 --
 module Network.AWS.Glue.DeleteTrigger
@@ -63,7 +63,7 @@ deleteTrigger pName_ = DeleteTrigger' {_dttName = pName_}
 
 -- | The name of the trigger to delete.
 dttName :: Lens' DeleteTrigger Text
-dttName = lens _dttName (\ s a -> s{_dttName = a});
+dttName = lens _dttName (\ s a -> s{_dttName = a})
 
 instance AWSRequest DeleteTrigger where
         type Rs DeleteTrigger = DeleteTriggerResponse
@@ -116,15 +116,15 @@ deleteTriggerResponse
     -> DeleteTriggerResponse
 deleteTriggerResponse pResponseStatus_ =
   DeleteTriggerResponse'
-  {_delrsName = Nothing, _delrsResponseStatus = pResponseStatus_}
+    {_delrsName = Nothing, _delrsResponseStatus = pResponseStatus_}
 
 
 -- | The name of the trigger that was deleted.
 delrsName :: Lens' DeleteTriggerResponse (Maybe Text)
-delrsName = lens _delrsName (\ s a -> s{_delrsName = a});
+delrsName = lens _delrsName (\ s a -> s{_delrsName = a})
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteTriggerResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteTriggerResponse where

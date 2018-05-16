@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportKeyPair
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,23 +76,23 @@ importKeyPair
     -> ImportKeyPair
 importKeyPair pKeyName_ pPublicKeyMaterial_ =
   ImportKeyPair'
-  { _ikpDryRun = Nothing
-  , _ikpKeyName = pKeyName_
-  , _ikpPublicKeyMaterial = _Base64 # pPublicKeyMaterial_
-  }
+    { _ikpDryRun = Nothing
+    , _ikpKeyName = pKeyName_
+    , _ikpPublicKeyMaterial = _Base64 # pPublicKeyMaterial_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ikpDryRun :: Lens' ImportKeyPair (Maybe Bool)
-ikpDryRun = lens _ikpDryRun (\ s a -> s{_ikpDryRun = a});
+ikpDryRun = lens _ikpDryRun (\ s a -> s{_ikpDryRun = a})
 
 -- | A unique name for the key pair.
 ikpKeyName :: Lens' ImportKeyPair Text
-ikpKeyName = lens _ikpKeyName (\ s a -> s{_ikpKeyName = a});
+ikpKeyName = lens _ikpKeyName (\ s a -> s{_ikpKeyName = a})
 
 -- | The public key. For API calls, the text must be base64-encoded. For command line tools, base64 encoding is performed for you.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 ikpPublicKeyMaterial :: Lens' ImportKeyPair ByteString
-ikpPublicKeyMaterial = lens _ikpPublicKeyMaterial (\ s a -> s{_ikpPublicKeyMaterial = a}) . _Base64;
+ikpPublicKeyMaterial = lens _ikpPublicKeyMaterial (\ s a -> s{_ikpPublicKeyMaterial = a}) . _Base64
 
 instance AWSRequest ImportKeyPair where
         type Rs ImportKeyPair = ImportKeyPairResponse
@@ -148,22 +148,22 @@ importKeyPairResponse
     -> ImportKeyPairResponse
 importKeyPairResponse pResponseStatus_ =
   ImportKeyPairResponse'
-  { _ikprsKeyFingerprint = Nothing
-  , _ikprsKeyName = Nothing
-  , _ikprsResponseStatus = pResponseStatus_
-  }
+    { _ikprsKeyFingerprint = Nothing
+    , _ikprsKeyName = Nothing
+    , _ikprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 ikprsKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
-ikprsKeyFingerprint = lens _ikprsKeyFingerprint (\ s a -> s{_ikprsKeyFingerprint = a});
+ikprsKeyFingerprint = lens _ikprsKeyFingerprint (\ s a -> s{_ikprsKeyFingerprint = a})
 
 -- | The key pair name you provided.
 ikprsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
-ikprsKeyName = lens _ikprsKeyName (\ s a -> s{_ikprsKeyName = a});
+ikprsKeyName = lens _ikprsKeyName (\ s a -> s{_ikprsKeyName = a})
 
 -- | -- | The response status code.
 ikprsResponseStatus :: Lens' ImportKeyPairResponse Int
-ikprsResponseStatus = lens _ikprsResponseStatus (\ s a -> s{_ikprsResponseStatus = a});
+ikprsResponseStatus = lens _ikprsResponseStatus (\ s a -> s{_ikprsResponseStatus = a})
 
 instance NFData ImportKeyPairResponse where

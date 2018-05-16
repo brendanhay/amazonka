@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.CancelJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ cancelJob pId_ = CancelJob' {_cjId = pId_}
 
 -- | The identifier of the job that you want to cancel. To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
 cjId :: Lens' CancelJob Text
-cjId = lens _cjId (\ s a -> s{_cjId = a});
+cjId = lens _cjId (\ s a -> s{_cjId = a})
 
 instance AWSRequest CancelJob where
         type Rs CancelJob = CancelJobResponse
@@ -114,6 +114,6 @@ cancelJobResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 canrsResponseStatus :: Lens' CancelJobResponse Int
-canrsResponseStatus = lens _canrsResponseStatus (\ s a -> s{_canrsResponseStatus = a});
+canrsResponseStatus = lens _canrsResponseStatus (\ s a -> s{_canrsResponseStatus = a})
 
 instance NFData CancelJobResponse where

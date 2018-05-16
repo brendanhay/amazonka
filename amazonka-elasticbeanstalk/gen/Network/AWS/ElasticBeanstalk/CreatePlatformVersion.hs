@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreatePlatformVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,33 +83,33 @@ createPlatformVersion
     -> CreatePlatformVersion
 createPlatformVersion pPlatformName_ pPlatformVersion_ pPlatformDefinitionBundle_ =
   CreatePlatformVersion'
-  { _cpvOptionSettings = Nothing
-  , _cpvEnvironmentName = Nothing
-  , _cpvPlatformName = pPlatformName_
-  , _cpvPlatformVersion = pPlatformVersion_
-  , _cpvPlatformDefinitionBundle = pPlatformDefinitionBundle_
-  }
+    { _cpvOptionSettings = Nothing
+    , _cpvEnvironmentName = Nothing
+    , _cpvPlatformName = pPlatformName_
+    , _cpvPlatformVersion = pPlatformVersion_
+    , _cpvPlatformDefinitionBundle = pPlatformDefinitionBundle_
+    }
 
 
 -- | The configuration option settings to apply to the builder environment.
 cpvOptionSettings :: Lens' CreatePlatformVersion [ConfigurationOptionSetting]
-cpvOptionSettings = lens _cpvOptionSettings (\ s a -> s{_cpvOptionSettings = a}) . _Default . _Coerce;
+cpvOptionSettings = lens _cpvOptionSettings (\ s a -> s{_cpvOptionSettings = a}) . _Default . _Coerce
 
 -- | The name of the builder environment.
 cpvEnvironmentName :: Lens' CreatePlatformVersion (Maybe Text)
-cpvEnvironmentName = lens _cpvEnvironmentName (\ s a -> s{_cpvEnvironmentName = a});
+cpvEnvironmentName = lens _cpvEnvironmentName (\ s a -> s{_cpvEnvironmentName = a})
 
 -- | The name of your custom platform.
 cpvPlatformName :: Lens' CreatePlatformVersion Text
-cpvPlatformName = lens _cpvPlatformName (\ s a -> s{_cpvPlatformName = a});
+cpvPlatformName = lens _cpvPlatformName (\ s a -> s{_cpvPlatformName = a})
 
 -- | The number, such as 1.0.2, for the new platform version.
 cpvPlatformVersion :: Lens' CreatePlatformVersion Text
-cpvPlatformVersion = lens _cpvPlatformVersion (\ s a -> s{_cpvPlatformVersion = a});
+cpvPlatformVersion = lens _cpvPlatformVersion (\ s a -> s{_cpvPlatformVersion = a})
 
 -- | The location of the platform definition archive in Amazon S3.
 cpvPlatformDefinitionBundle :: Lens' CreatePlatformVersion S3Location
-cpvPlatformDefinitionBundle = lens _cpvPlatformDefinitionBundle (\ s a -> s{_cpvPlatformDefinitionBundle = a});
+cpvPlatformDefinitionBundle = lens _cpvPlatformDefinitionBundle (\ s a -> s{_cpvPlatformDefinitionBundle = a})
 
 instance AWSRequest CreatePlatformVersion where
         type Rs CreatePlatformVersion =
@@ -168,22 +168,22 @@ createPlatformVersionResponse
     -> CreatePlatformVersionResponse
 createPlatformVersionResponse pResponseStatus_ =
   CreatePlatformVersionResponse'
-  { _cpvrsBuilder = Nothing
-  , _cpvrsPlatformSummary = Nothing
-  , _cpvrsResponseStatus = pResponseStatus_
-  }
+    { _cpvrsBuilder = Nothing
+    , _cpvrsPlatformSummary = Nothing
+    , _cpvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The builder used to create the custom platform.
 cpvrsBuilder :: Lens' CreatePlatformVersionResponse (Maybe Builder)
-cpvrsBuilder = lens _cpvrsBuilder (\ s a -> s{_cpvrsBuilder = a});
+cpvrsBuilder = lens _cpvrsBuilder (\ s a -> s{_cpvrsBuilder = a})
 
 -- | Detailed information about the new version of the custom platform.
 cpvrsPlatformSummary :: Lens' CreatePlatformVersionResponse (Maybe PlatformSummary)
-cpvrsPlatformSummary = lens _cpvrsPlatformSummary (\ s a -> s{_cpvrsPlatformSummary = a});
+cpvrsPlatformSummary = lens _cpvrsPlatformSummary (\ s a -> s{_cpvrsPlatformSummary = a})
 
 -- | -- | The response status code.
 cpvrsResponseStatus :: Lens' CreatePlatformVersionResponse Int
-cpvrsResponseStatus = lens _cpvrsResponseStatus (\ s a -> s{_cpvrsResponseStatus = a});
+cpvrsResponseStatus = lens _cpvrsResponseStatus (\ s a -> s{_cpvrsResponseStatus = a})
 
 instance NFData CreatePlatformVersionResponse where

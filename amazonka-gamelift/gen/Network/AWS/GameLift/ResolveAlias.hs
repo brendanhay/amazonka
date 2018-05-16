@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.ResolveAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,7 +83,7 @@ resolveAlias pAliasId_ = ResolveAlias' {_raAliasId = pAliasId_}
 
 -- | Unique identifier for the alias you want to resolve.
 raAliasId :: Lens' ResolveAlias Text
-raAliasId = lens _raAliasId (\ s a -> s{_raAliasId = a});
+raAliasId = lens _raAliasId (\ s a -> s{_raAliasId = a})
 
 instance AWSRequest ResolveAlias where
         type Rs ResolveAlias = ResolveAliasResponse
@@ -140,15 +140,15 @@ resolveAliasResponse
     -> ResolveAliasResponse
 resolveAliasResponse pResponseStatus_ =
   ResolveAliasResponse'
-  {_rarsFleetId = Nothing, _rarsResponseStatus = pResponseStatus_}
+    {_rarsFleetId = Nothing, _rarsResponseStatus = pResponseStatus_}
 
 
 -- | Fleet identifier that is associated with the requested alias.
 rarsFleetId :: Lens' ResolveAliasResponse (Maybe Text)
-rarsFleetId = lens _rarsFleetId (\ s a -> s{_rarsFleetId = a});
+rarsFleetId = lens _rarsFleetId (\ s a -> s{_rarsFleetId = a})
 
 -- | -- | The response status code.
 rarsResponseStatus :: Lens' ResolveAliasResponse Int
-rarsResponseStatus = lens _rarsResponseStatus (\ s a -> s{_rarsResponseStatus = a});
+rarsResponseStatus = lens _rarsResponseStatus (\ s a -> s{_rarsResponseStatus = a})
 
 instance NFData ResolveAliasResponse where

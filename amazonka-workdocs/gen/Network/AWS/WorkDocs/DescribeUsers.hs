@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeUsers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,7 +83,7 @@ data DescribeUsers = DescribeUsers'
 --
 -- * 'duUserIds' - The IDs of the users.
 --
--- * 'duAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'duAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'duSort' - The sorting criteria.
 --
@@ -102,58 +102,58 @@ describeUsers
     :: DescribeUsers
 describeUsers =
   DescribeUsers'
-  { _duInclude = Nothing
-  , _duUserIds = Nothing
-  , _duAuthenticationToken = Nothing
-  , _duSort = Nothing
-  , _duMarker = Nothing
-  , _duQuery = Nothing
-  , _duLimit = Nothing
-  , _duOrder = Nothing
-  , _duOrganizationId = Nothing
-  , _duFields = Nothing
-  }
+    { _duInclude = Nothing
+    , _duUserIds = Nothing
+    , _duAuthenticationToken = Nothing
+    , _duSort = Nothing
+    , _duMarker = Nothing
+    , _duQuery = Nothing
+    , _duLimit = Nothing
+    , _duOrder = Nothing
+    , _duOrganizationId = Nothing
+    , _duFields = Nothing
+    }
 
 
 -- | The state of the users. Specify "ALL" to include inactive users.
 duInclude :: Lens' DescribeUsers (Maybe UserFilterType)
-duInclude = lens _duInclude (\ s a -> s{_duInclude = a});
+duInclude = lens _duInclude (\ s a -> s{_duInclude = a})
 
 -- | The IDs of the users.
 duUserIds :: Lens' DescribeUsers (Maybe Text)
-duUserIds = lens _duUserIds (\ s a -> s{_duUserIds = a});
+duUserIds = lens _duUserIds (\ s a -> s{_duUserIds = a})
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 duAuthenticationToken :: Lens' DescribeUsers (Maybe Text)
-duAuthenticationToken = lens _duAuthenticationToken (\ s a -> s{_duAuthenticationToken = a}) . mapping _Sensitive;
+duAuthenticationToken = lens _duAuthenticationToken (\ s a -> s{_duAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The sorting criteria.
 duSort :: Lens' DescribeUsers (Maybe UserSortType)
-duSort = lens _duSort (\ s a -> s{_duSort = a});
+duSort = lens _duSort (\ s a -> s{_duSort = a})
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 duMarker :: Lens' DescribeUsers (Maybe Text)
-duMarker = lens _duMarker (\ s a -> s{_duMarker = a});
+duMarker = lens _duMarker (\ s a -> s{_duMarker = a})
 
 -- | A query to filter users by user name.
 duQuery :: Lens' DescribeUsers (Maybe Text)
-duQuery = lens _duQuery (\ s a -> s{_duQuery = a}) . mapping _Sensitive;
+duQuery = lens _duQuery (\ s a -> s{_duQuery = a}) . mapping _Sensitive
 
 -- | The maximum number of items to return.
 duLimit :: Lens' DescribeUsers (Maybe Natural)
-duLimit = lens _duLimit (\ s a -> s{_duLimit = a}) . mapping _Nat;
+duLimit = lens _duLimit (\ s a -> s{_duLimit = a}) . mapping _Nat
 
 -- | The order for the results.
 duOrder :: Lens' DescribeUsers (Maybe OrderType)
-duOrder = lens _duOrder (\ s a -> s{_duOrder = a});
+duOrder = lens _duOrder (\ s a -> s{_duOrder = a})
 
 -- | The ID of the organization.
 duOrganizationId :: Lens' DescribeUsers (Maybe Text)
-duOrganizationId = lens _duOrganizationId (\ s a -> s{_duOrganizationId = a});
+duOrganizationId = lens _duOrganizationId (\ s a -> s{_duOrganizationId = a})
 
 -- | A comma-separated list of values. Specify "STORAGE_METADATA" to include the user storage quota and utilization information.
 duFields :: Lens' DescribeUsers (Maybe Text)
-duFields = lens _duFields (\ s a -> s{_duFields = a});
+duFields = lens _duFields (\ s a -> s{_duFields = a})
 
 instance AWSPager DescribeUsers where
         page rq rs
@@ -223,27 +223,27 @@ describeUsersResponse
     -> DescribeUsersResponse
 describeUsersResponse pResponseStatus_ =
   DescribeUsersResponse'
-  { _dursUsers = Nothing
-  , _dursTotalNumberOfUsers = Nothing
-  , _dursMarker = Nothing
-  , _dursResponseStatus = pResponseStatus_
-  }
+    { _dursUsers = Nothing
+    , _dursTotalNumberOfUsers = Nothing
+    , _dursMarker = Nothing
+    , _dursResponseStatus = pResponseStatus_
+    }
 
 
 -- | The users.
 dursUsers :: Lens' DescribeUsersResponse [User]
-dursUsers = lens _dursUsers (\ s a -> s{_dursUsers = a}) . _Default . _Coerce;
+dursUsers = lens _dursUsers (\ s a -> s{_dursUsers = a}) . _Default . _Coerce
 
 -- | The total number of users included in the results.
 dursTotalNumberOfUsers :: Lens' DescribeUsersResponse (Maybe Integer)
-dursTotalNumberOfUsers = lens _dursTotalNumberOfUsers (\ s a -> s{_dursTotalNumberOfUsers = a});
+dursTotalNumberOfUsers = lens _dursTotalNumberOfUsers (\ s a -> s{_dursTotalNumberOfUsers = a})
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dursMarker :: Lens' DescribeUsersResponse (Maybe Text)
-dursMarker = lens _dursMarker (\ s a -> s{_dursMarker = a});
+dursMarker = lens _dursMarker (\ s a -> s{_dursMarker = a})
 
 -- | -- | The response status code.
 dursResponseStatus :: Lens' DescribeUsersResponse Int
-dursResponseStatus = lens _dursResponseStatus (\ s a -> s{_dursResponseStatus = a});
+dursResponseStatus = lens _dursResponseStatus (\ s a -> s{_dursResponseStatus = a})
 
 instance NFData DescribeUsersResponse where

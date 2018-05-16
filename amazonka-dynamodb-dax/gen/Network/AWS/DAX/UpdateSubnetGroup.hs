@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.UpdateSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,23 +68,23 @@ updateSubnetGroup
     -> UpdateSubnetGroup
 updateSubnetGroup pSubnetGroupName_ =
   UpdateSubnetGroup'
-  { _usgSubnetIds = Nothing
-  , _usgDescription = Nothing
-  , _usgSubnetGroupName = pSubnetGroupName_
-  }
+    { _usgSubnetIds = Nothing
+    , _usgDescription = Nothing
+    , _usgSubnetGroupName = pSubnetGroupName_
+    }
 
 
 -- | A list of subnet IDs in the subnet group.
 usgSubnetIds :: Lens' UpdateSubnetGroup [Text]
-usgSubnetIds = lens _usgSubnetIds (\ s a -> s{_usgSubnetIds = a}) . _Default . _Coerce;
+usgSubnetIds = lens _usgSubnetIds (\ s a -> s{_usgSubnetIds = a}) . _Default . _Coerce
 
 -- | A description of the subnet group.
 usgDescription :: Lens' UpdateSubnetGroup (Maybe Text)
-usgDescription = lens _usgDescription (\ s a -> s{_usgDescription = a});
+usgDescription = lens _usgDescription (\ s a -> s{_usgDescription = a})
 
 -- | The name of the subnet group.
 usgSubnetGroupName :: Lens' UpdateSubnetGroup Text
-usgSubnetGroupName = lens _usgSubnetGroupName (\ s a -> s{_usgSubnetGroupName = a});
+usgSubnetGroupName = lens _usgSubnetGroupName (\ s a -> s{_usgSubnetGroupName = a})
 
 instance AWSRequest UpdateSubnetGroup where
         type Rs UpdateSubnetGroup = UpdateSubnetGroupResponse
@@ -141,15 +141,15 @@ updateSubnetGroupResponse
     -> UpdateSubnetGroupResponse
 updateSubnetGroupResponse pResponseStatus_ =
   UpdateSubnetGroupResponse'
-  {_usgrsSubnetGroup = Nothing, _usgrsResponseStatus = pResponseStatus_}
+    {_usgrsSubnetGroup = Nothing, _usgrsResponseStatus = pResponseStatus_}
 
 
 -- | The subnet group that has been modified.
 usgrsSubnetGroup :: Lens' UpdateSubnetGroupResponse (Maybe SubnetGroup)
-usgrsSubnetGroup = lens _usgrsSubnetGroup (\ s a -> s{_usgrsSubnetGroup = a});
+usgrsSubnetGroup = lens _usgrsSubnetGroup (\ s a -> s{_usgrsSubnetGroup = a})
 
 -- | -- | The response status code.
 usgrsResponseStatus :: Lens' UpdateSubnetGroupResponse Int
-usgrsResponseStatus = lens _usgrsResponseStatus (\ s a -> s{_usgrsResponseStatus = a});
+usgrsResponseStatus = lens _usgrsResponseStatus (\ s a -> s{_usgrsResponseStatus = a})
 
 instance NFData UpdateSubnetGroupResponse where

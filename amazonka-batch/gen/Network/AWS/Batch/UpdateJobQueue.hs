@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Batch.UpdateJobQueue
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ updateJobQueue
     -> UpdateJobQueue
 updateJobQueue pJobQueue_ =
   UpdateJobQueue'
-  { _ujqState = Nothing
-  , _ujqPriority = Nothing
-  , _ujqComputeEnvironmentOrder = Nothing
-  , _ujqJobQueue = pJobQueue_
-  }
+    { _ujqState = Nothing
+    , _ujqPriority = Nothing
+    , _ujqComputeEnvironmentOrder = Nothing
+    , _ujqJobQueue = pJobQueue_
+    }
 
 
 -- | Describes the queue's ability to accept new jobs.
 ujqState :: Lens' UpdateJobQueue (Maybe JQState)
-ujqState = lens _ujqState (\ s a -> s{_ujqState = a});
+ujqState = lens _ujqState (\ s a -> s{_ujqState = a})
 
 -- | The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
 ujqPriority :: Lens' UpdateJobQueue (Maybe Int)
-ujqPriority = lens _ujqPriority (\ s a -> s{_ujqPriority = a});
+ujqPriority = lens _ujqPriority (\ s a -> s{_ujqPriority = a})
 
 -- | Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment should execute a given job.
 ujqComputeEnvironmentOrder :: Lens' UpdateJobQueue [ComputeEnvironmentOrder]
-ujqComputeEnvironmentOrder = lens _ujqComputeEnvironmentOrder (\ s a -> s{_ujqComputeEnvironmentOrder = a}) . _Default . _Coerce;
+ujqComputeEnvironmentOrder = lens _ujqComputeEnvironmentOrder (\ s a -> s{_ujqComputeEnvironmentOrder = a}) . _Default . _Coerce
 
 -- | The name or the Amazon Resource Name (ARN) of the job queue.
 ujqJobQueue :: Lens' UpdateJobQueue Text
-ujqJobQueue = lens _ujqJobQueue (\ s a -> s{_ujqJobQueue = a});
+ujqJobQueue = lens _ujqJobQueue (\ s a -> s{_ujqJobQueue = a})
 
 instance AWSRequest UpdateJobQueue where
         type Rs UpdateJobQueue = UpdateJobQueueResponse
@@ -155,22 +155,22 @@ updateJobQueueResponse
     -> UpdateJobQueueResponse
 updateJobQueueResponse pResponseStatus_ =
   UpdateJobQueueResponse'
-  { _ujqrsJobQueueARN = Nothing
-  , _ujqrsJobQueueName = Nothing
-  , _ujqrsResponseStatus = pResponseStatus_
-  }
+    { _ujqrsJobQueueARN = Nothing
+    , _ujqrsJobQueueName = Nothing
+    , _ujqrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the job queue.
 ujqrsJobQueueARN :: Lens' UpdateJobQueueResponse (Maybe Text)
-ujqrsJobQueueARN = lens _ujqrsJobQueueARN (\ s a -> s{_ujqrsJobQueueARN = a});
+ujqrsJobQueueARN = lens _ujqrsJobQueueARN (\ s a -> s{_ujqrsJobQueueARN = a})
 
 -- | The name of the job queue.
 ujqrsJobQueueName :: Lens' UpdateJobQueueResponse (Maybe Text)
-ujqrsJobQueueName = lens _ujqrsJobQueueName (\ s a -> s{_ujqrsJobQueueName = a});
+ujqrsJobQueueName = lens _ujqrsJobQueueName (\ s a -> s{_ujqrsJobQueueName = a})
 
 -- | -- | The response status code.
 ujqrsResponseStatus :: Lens' UpdateJobQueueResponse Int
-ujqrsResponseStatus = lens _ujqrsResponseStatus (\ s a -> s{_ujqrsResponseStatus = a});
+ujqrsResponseStatus = lens _ujqrsResponseStatus (\ s a -> s{_ujqrsResponseStatus = a})
 
 instance NFData UpdateJobQueueResponse where

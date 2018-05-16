@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketReplication
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,23 +64,23 @@ putBucketReplication
     -> PutBucketReplication
 putBucketReplication pBucket_ pReplicationConfiguration_ =
   PutBucketReplication'
-  { _pbrContentMD5 = Nothing
-  , _pbrBucket = pBucket_
-  , _pbrReplicationConfiguration = pReplicationConfiguration_
-  }
+    { _pbrContentMD5 = Nothing
+    , _pbrBucket = pBucket_
+    , _pbrReplicationConfiguration = pReplicationConfiguration_
+    }
 
 
 -- | Undocumented member.
 pbrContentMD5 :: Lens' PutBucketReplication (Maybe Text)
-pbrContentMD5 = lens _pbrContentMD5 (\ s a -> s{_pbrContentMD5 = a});
+pbrContentMD5 = lens _pbrContentMD5 (\ s a -> s{_pbrContentMD5 = a})
 
 -- | Undocumented member.
 pbrBucket :: Lens' PutBucketReplication BucketName
-pbrBucket = lens _pbrBucket (\ s a -> s{_pbrBucket = a});
+pbrBucket = lens _pbrBucket (\ s a -> s{_pbrBucket = a})
 
 -- | Undocumented member.
 pbrReplicationConfiguration :: Lens' PutBucketReplication ReplicationConfiguration
-pbrReplicationConfiguration = lens _pbrReplicationConfiguration (\ s a -> s{_pbrReplicationConfiguration = a});
+pbrReplicationConfiguration = lens _pbrReplicationConfiguration (\ s a -> s{_pbrReplicationConfiguration = a})
 
 instance AWSRequest PutBucketReplication where
         type Rs PutBucketReplication =

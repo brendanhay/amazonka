@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetDistributionConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getDistributionConfig pId_ = GetDistributionConfig' {_gdcId = pId_}
 
 -- | The distribution's ID.
 gdcId :: Lens' GetDistributionConfig Text
-gdcId = lens _gdcId (\ s a -> s{_gdcId = a});
+gdcId = lens _gdcId (\ s a -> s{_gdcId = a})
 
 instance AWSRequest GetDistributionConfig where
         type Rs GetDistributionConfig =
@@ -91,7 +91,7 @@ instance ToHeaders GetDistributionConfig where
 instance ToPath GetDistributionConfig where
         toPath GetDistributionConfig'{..}
           = mconcat
-              ["/2017-03-25/distribution/", toBS _gdcId, "/config"]
+              ["/2017-10-30/distribution/", toBS _gdcId, "/config"]
 
 instance ToQuery GetDistributionConfig where
         toQuery = const mempty
@@ -122,22 +122,22 @@ getDistributionConfigResponse
     -> GetDistributionConfigResponse
 getDistributionConfigResponse pResponseStatus_ =
   GetDistributionConfigResponse'
-  { _gdcrsETag = Nothing
-  , _gdcrsDistributionConfig = Nothing
-  , _gdcrsResponseStatus = pResponseStatus_
-  }
+    { _gdcrsETag = Nothing
+    , _gdcrsDistributionConfig = Nothing
+    , _gdcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 gdcrsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
-gdcrsETag = lens _gdcrsETag (\ s a -> s{_gdcrsETag = a});
+gdcrsETag = lens _gdcrsETag (\ s a -> s{_gdcrsETag = a})
 
 -- | The distribution's configuration information.
 gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
-gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\ s a -> s{_gdcrsDistributionConfig = a});
+gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\ s a -> s{_gdcrsDistributionConfig = a})
 
 -- | -- | The response status code.
 gdcrsResponseStatus :: Lens' GetDistributionConfigResponse Int
-gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a});
+gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a})
 
 instance NFData GetDistributionConfigResponse where

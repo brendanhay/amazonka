@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceNetworkACLEntry
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -101,58 +101,58 @@ replaceNetworkACLEntry
     -> ReplaceNetworkACLEntry
 replaceNetworkACLEntry pEgress_ pNetworkACLId_ pProtocol_ pRuleAction_ pRuleNumber_ =
   ReplaceNetworkACLEntry'
-  { _rnaeIPv6CidrBlock = Nothing
-  , _rnaeICMPTypeCode = Nothing
-  , _rnaePortRange = Nothing
-  , _rnaeCidrBlock = Nothing
-  , _rnaeDryRun = Nothing
-  , _rnaeEgress = pEgress_
-  , _rnaeNetworkACLId = pNetworkACLId_
-  , _rnaeProtocol = pProtocol_
-  , _rnaeRuleAction = pRuleAction_
-  , _rnaeRuleNumber = pRuleNumber_
-  }
+    { _rnaeIPv6CidrBlock = Nothing
+    , _rnaeICMPTypeCode = Nothing
+    , _rnaePortRange = Nothing
+    , _rnaeCidrBlock = Nothing
+    , _rnaeDryRun = Nothing
+    , _rnaeEgress = pEgress_
+    , _rnaeNetworkACLId = pNetworkACLId_
+    , _rnaeProtocol = pProtocol_
+    , _rnaeRuleAction = pRuleAction_
+    , _rnaeRuleNumber = pRuleNumber_
+    }
 
 
 -- | The IPv6 network range to allow or deny, in CIDR notation (for example @2001:bd8:1234:1a00::/64@ ).
 rnaeIPv6CidrBlock :: Lens' ReplaceNetworkACLEntry (Maybe Text)
-rnaeIPv6CidrBlock = lens _rnaeIPv6CidrBlock (\ s a -> s{_rnaeIPv6CidrBlock = a});
+rnaeIPv6CidrBlock = lens _rnaeIPv6CidrBlock (\ s a -> s{_rnaeIPv6CidrBlock = a})
 
 -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying the ICMP (1) protocol, or protocol 58 (ICMPv6) with an IPv6 CIDR block.
 rnaeICMPTypeCode :: Lens' ReplaceNetworkACLEntry (Maybe ICMPTypeCode)
-rnaeICMPTypeCode = lens _rnaeICMPTypeCode (\ s a -> s{_rnaeICMPTypeCode = a});
+rnaeICMPTypeCode = lens _rnaeICMPTypeCode (\ s a -> s{_rnaeICMPTypeCode = a})
 
 -- | TCP or UDP protocols: The range of ports the rule applies to. Required if specifying TCP (6) or UDP (17) for the protocol.
 rnaePortRange :: Lens' ReplaceNetworkACLEntry (Maybe PortRange)
-rnaePortRange = lens _rnaePortRange (\ s a -> s{_rnaePortRange = a});
+rnaePortRange = lens _rnaePortRange (\ s a -> s{_rnaePortRange = a})
 
 -- | The IPv4 network range to allow or deny, in CIDR notation (for example @172.16.0.0/24@ ).
 rnaeCidrBlock :: Lens' ReplaceNetworkACLEntry (Maybe Text)
-rnaeCidrBlock = lens _rnaeCidrBlock (\ s a -> s{_rnaeCidrBlock = a});
+rnaeCidrBlock = lens _rnaeCidrBlock (\ s a -> s{_rnaeCidrBlock = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rnaeDryRun :: Lens' ReplaceNetworkACLEntry (Maybe Bool)
-rnaeDryRun = lens _rnaeDryRun (\ s a -> s{_rnaeDryRun = a});
+rnaeDryRun = lens _rnaeDryRun (\ s a -> s{_rnaeDryRun = a})
 
 -- | Indicates whether to replace the egress rule. Default: If no value is specified, we replace the ingress rule.
 rnaeEgress :: Lens' ReplaceNetworkACLEntry Bool
-rnaeEgress = lens _rnaeEgress (\ s a -> s{_rnaeEgress = a});
+rnaeEgress = lens _rnaeEgress (\ s a -> s{_rnaeEgress = a})
 
 -- | The ID of the ACL.
 rnaeNetworkACLId :: Lens' ReplaceNetworkACLEntry Text
-rnaeNetworkACLId = lens _rnaeNetworkACLId (\ s a -> s{_rnaeNetworkACLId = a});
+rnaeNetworkACLId = lens _rnaeNetworkACLId (\ s a -> s{_rnaeNetworkACLId = a})
 
 -- | The IP protocol. You can specify @all@ or @-1@ to mean all protocols. If you specify @all@ , @-1@ , or a protocol number other than @tcp@ , @udp@ , or @icmp@ , traffic on all ports is allowed, regardless of any ports or ICMP types or codes you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
 rnaeProtocol :: Lens' ReplaceNetworkACLEntry Text
-rnaeProtocol = lens _rnaeProtocol (\ s a -> s{_rnaeProtocol = a});
+rnaeProtocol = lens _rnaeProtocol (\ s a -> s{_rnaeProtocol = a})
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
 rnaeRuleAction :: Lens' ReplaceNetworkACLEntry RuleAction
-rnaeRuleAction = lens _rnaeRuleAction (\ s a -> s{_rnaeRuleAction = a});
+rnaeRuleAction = lens _rnaeRuleAction (\ s a -> s{_rnaeRuleAction = a})
 
 -- | The rule number of the entry to replace.
 rnaeRuleNumber :: Lens' ReplaceNetworkACLEntry Int
-rnaeRuleNumber = lens _rnaeRuleNumber (\ s a -> s{_rnaeRuleNumber = a});
+rnaeRuleNumber = lens _rnaeRuleNumber (\ s a -> s{_rnaeRuleNumber = a})
 
 instance AWSRequest ReplaceNetworkACLEntry where
         type Rs ReplaceNetworkACLEntry =

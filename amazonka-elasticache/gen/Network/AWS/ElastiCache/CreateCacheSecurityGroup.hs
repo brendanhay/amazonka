@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateCacheSecurityGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,18 +71,18 @@ createCacheSecurityGroup
     -> CreateCacheSecurityGroup
 createCacheSecurityGroup pCacheSecurityGroupName_ pDescription_ =
   CreateCacheSecurityGroup'
-  { _ccsgCacheSecurityGroupName = pCacheSecurityGroupName_
-  , _ccsgDescription = pDescription_
-  }
+    { _ccsgCacheSecurityGroupName = pCacheSecurityGroupName_
+    , _ccsgDescription = pDescription_
+    }
 
 
 -- | A name for the cache security group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word "Default". Example: @mysecuritygroup@
 ccsgCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
-ccsgCacheSecurityGroupName = lens _ccsgCacheSecurityGroupName (\ s a -> s{_ccsgCacheSecurityGroupName = a});
+ccsgCacheSecurityGroupName = lens _ccsgCacheSecurityGroupName (\ s a -> s{_ccsgCacheSecurityGroupName = a})
 
 -- | A description for the cache security group.
 ccsgDescription :: Lens' CreateCacheSecurityGroup Text
-ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a});
+ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a})
 
 instance AWSRequest CreateCacheSecurityGroup where
         type Rs CreateCacheSecurityGroup =
@@ -133,18 +133,18 @@ createCacheSecurityGroupResponse
     -> CreateCacheSecurityGroupResponse
 createCacheSecurityGroupResponse pResponseStatus_ =
   CreateCacheSecurityGroupResponse'
-  { _ccsgrsCacheSecurityGroup = Nothing
-  , _ccsgrsResponseStatus = pResponseStatus_
-  }
+    { _ccsgrsCacheSecurityGroup = Nothing
+    , _ccsgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ccsgrsCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
-ccsgrsCacheSecurityGroup = lens _ccsgrsCacheSecurityGroup (\ s a -> s{_ccsgrsCacheSecurityGroup = a});
+ccsgrsCacheSecurityGroup = lens _ccsgrsCacheSecurityGroup (\ s a -> s{_ccsgrsCacheSecurityGroup = a})
 
 -- | -- | The response status code.
 ccsgrsResponseStatus :: Lens' CreateCacheSecurityGroupResponse Int
-ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a});
+ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a})
 
 instance NFData CreateCacheSecurityGroupResponse
          where

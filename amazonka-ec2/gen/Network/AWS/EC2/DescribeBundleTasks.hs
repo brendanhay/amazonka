@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeBundleTasks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,20 +71,20 @@ describeBundleTasks
     :: DescribeBundleTasks
 describeBundleTasks =
   DescribeBundleTasks'
-  {_dbtBundleIds = Nothing, _dbtFilters = Nothing, _dbtDryRun = Nothing}
+    {_dbtBundleIds = Nothing, _dbtFilters = Nothing, _dbtDryRun = Nothing}
 
 
 -- | One or more bundle task IDs. Default: Describes all your bundle tasks.
 dbtBundleIds :: Lens' DescribeBundleTasks [Text]
-dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a}) . _Default . _Coerce;
+dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a}) . _Default . _Coerce
 
 -- | One or more filters.     * @bundle-id@ - The ID of the bundle task.     * @error-code@ - If the task failed, the error code returned.     * @error-message@ - If the task failed, the error message returned.     * @instance-id@ - The ID of the instance.     * @progress@ - The level of task completion, as a percentage (for example, 20%).     * @s3-bucket@ - The Amazon S3 bucket to store the AMI.     * @s3-prefix@ - The beginning of the AMI name.     * @start-time@ - The time the task started (for example, 2013-09-15T17:15:20.000Z).     * @state@ - The state of the task (@pending@ | @waiting-for-shutdown@ | @bundling@ | @storing@ | @cancelling@ | @complete@ | @failed@ ).     * @update-time@ - The time of the most recent update for the task.
 dbtFilters :: Lens' DescribeBundleTasks [Filter]
-dbtFilters = lens _dbtFilters (\ s a -> s{_dbtFilters = a}) . _Default . _Coerce;
+dbtFilters = lens _dbtFilters (\ s a -> s{_dbtFilters = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dbtDryRun :: Lens' DescribeBundleTasks (Maybe Bool)
-dbtDryRun = lens _dbtDryRun (\ s a -> s{_dbtDryRun = a});
+dbtDryRun = lens _dbtDryRun (\ s a -> s{_dbtDryRun = a})
 
 instance AWSRequest DescribeBundleTasks where
         type Rs DescribeBundleTasks =
@@ -140,15 +140,15 @@ describeBundleTasksResponse
     -> DescribeBundleTasksResponse
 describeBundleTasksResponse pResponseStatus_ =
   DescribeBundleTasksResponse'
-  {_dbtrsBundleTasks = Nothing, _dbtrsResponseStatus = pResponseStatus_}
+    {_dbtrsBundleTasks = Nothing, _dbtrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about one or more bundle tasks.
 dbtrsBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
-dbtrsBundleTasks = lens _dbtrsBundleTasks (\ s a -> s{_dbtrsBundleTasks = a}) . _Default . _Coerce;
+dbtrsBundleTasks = lens _dbtrsBundleTasks (\ s a -> s{_dbtrsBundleTasks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dbtrsResponseStatus :: Lens' DescribeBundleTasksResponse Int
-dbtrsResponseStatus = lens _dbtrsResponseStatus (\ s a -> s{_dbtrsResponseStatus = a});
+dbtrsResponseStatus = lens _dbtrsResponseStatus (\ s a -> s{_dbtrsResponseStatus = a})
 
 instance NFData DescribeBundleTasksResponse where

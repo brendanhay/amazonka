@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.DeleteBranch
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ deleteBranch
     -> DeleteBranch
 deleteBranch pRepositoryName_ pBranchName_ =
   DeleteBranch'
-  {_dbRepositoryName = pRepositoryName_, _dbBranchName = pBranchName_}
+    {_dbRepositoryName = pRepositoryName_, _dbBranchName = pBranchName_}
 
 
 -- | The name of the repository that contains the branch to be deleted.
 dbRepositoryName :: Lens' DeleteBranch Text
-dbRepositoryName = lens _dbRepositoryName (\ s a -> s{_dbRepositoryName = a});
+dbRepositoryName = lens _dbRepositoryName (\ s a -> s{_dbRepositoryName = a})
 
 -- | The name of the branch to delete.
 dbBranchName :: Lens' DeleteBranch Text
-dbBranchName = lens _dbBranchName (\ s a -> s{_dbBranchName = a});
+dbBranchName = lens _dbBranchName (\ s a -> s{_dbBranchName = a})
 
 instance AWSRequest DeleteBranch where
         type Rs DeleteBranch = DeleteBranchResponse
@@ -138,15 +138,15 @@ deleteBranchResponse
     -> DeleteBranchResponse
 deleteBranchResponse pResponseStatus_ =
   DeleteBranchResponse'
-  {_dbrsDeletedBranch = Nothing, _dbrsResponseStatus = pResponseStatus_}
+    {_dbrsDeletedBranch = Nothing, _dbrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.
 dbrsDeletedBranch :: Lens' DeleteBranchResponse (Maybe BranchInfo)
-dbrsDeletedBranch = lens _dbrsDeletedBranch (\ s a -> s{_dbrsDeletedBranch = a});
+dbrsDeletedBranch = lens _dbrsDeletedBranch (\ s a -> s{_dbrsDeletedBranch = a})
 
 -- | -- | The response status code.
 dbrsResponseStatus :: Lens' DeleteBranchResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
+dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a})
 
 instance NFData DeleteBranchResponse where

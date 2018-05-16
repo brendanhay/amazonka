@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.UpdateReceiptRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,11 +76,11 @@ updateReceiptRule pRuleSetName_ pRule_ =
 
 -- | The name of the receipt rule set that the receipt rule belongs to.
 urrRuleSetName :: Lens' UpdateReceiptRule Text
-urrRuleSetName = lens _urrRuleSetName (\ s a -> s{_urrRuleSetName = a});
+urrRuleSetName = lens _urrRuleSetName (\ s a -> s{_urrRuleSetName = a})
 
 -- | A data structure that contains the updated receipt rule information.
 urrRule :: Lens' UpdateReceiptRule ReceiptRule
-urrRule = lens _urrRule (\ s a -> s{_urrRule = a});
+urrRule = lens _urrRule (\ s a -> s{_urrRule = a})
 
 instance AWSRequest UpdateReceiptRule where
         type Rs UpdateReceiptRule = UpdateReceiptRuleResponse
@@ -131,6 +131,6 @@ updateReceiptRuleResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 urrrsResponseStatus :: Lens' UpdateReceiptRuleResponse Int
-urrrsResponseStatus = lens _urrrsResponseStatus (\ s a -> s{_urrrsResponseStatus = a});
+urrrsResponseStatus = lens _urrrsResponseStatus (\ s a -> s{_urrrsResponseStatus = a})
 
 instance NFData UpdateReceiptRuleResponse where

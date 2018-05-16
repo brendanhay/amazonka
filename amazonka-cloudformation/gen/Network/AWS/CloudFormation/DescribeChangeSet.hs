@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeChangeSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -87,23 +87,23 @@ describeChangeSet
     -> DescribeChangeSet
 describeChangeSet pChangeSetName_ =
   DescribeChangeSet'
-  { _desNextToken = Nothing
-  , _desStackName = Nothing
-  , _desChangeSetName = pChangeSetName_
-  }
+    { _desNextToken = Nothing
+    , _desStackName = Nothing
+    , _desChangeSetName = pChangeSetName_
+    }
 
 
 -- | A string (provided by the 'DescribeChangeSet' response output) that identifies the next page of information that you want to retrieve.
 desNextToken :: Lens' DescribeChangeSet (Maybe Text)
-desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
+desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a})
 
 -- | If you specified the name of a change set, specify the stack name or ID (ARN) of the change set you want to describe.
 desStackName :: Lens' DescribeChangeSet (Maybe Text)
-desStackName = lens _desStackName (\ s a -> s{_desStackName = a});
+desStackName = lens _desStackName (\ s a -> s{_desStackName = a})
 
 -- | The name or Amazon Resource Name (ARN) of the change set that you want to describe.
 desChangeSetName :: Lens' DescribeChangeSet Text
-desChangeSetName = lens _desChangeSetName (\ s a -> s{_desChangeSetName = a});
+desChangeSetName = lens _desChangeSetName (\ s a -> s{_desChangeSetName = a})
 
 instance AWSRequest DescribeChangeSet where
         type Rs DescribeChangeSet = DescribeChangeSetResponse
@@ -227,92 +227,92 @@ describeChangeSetResponse
     -> DescribeChangeSetResponse
 describeChangeSetResponse pResponseStatus_ pStatus_ =
   DescribeChangeSetResponse'
-  { _desrsCreationTime = Nothing
-  , _desrsChanges = Nothing
-  , _desrsNotificationARNs = Nothing
-  , _desrsChangeSetName = Nothing
-  , _desrsExecutionStatus = Nothing
-  , _desrsChangeSetId = Nothing
-  , _desrsNextToken = Nothing
-  , _desrsParameters = Nothing
-  , _desrsStatusReason = Nothing
-  , _desrsStackId = Nothing
-  , _desrsDescription = Nothing
-  , _desrsCapabilities = Nothing
-  , _desrsRollbackConfiguration = Nothing
-  , _desrsTags = Nothing
-  , _desrsStackName = Nothing
-  , _desrsResponseStatus = pResponseStatus_
-  , _desrsStatus = pStatus_
-  }
+    { _desrsCreationTime = Nothing
+    , _desrsChanges = Nothing
+    , _desrsNotificationARNs = Nothing
+    , _desrsChangeSetName = Nothing
+    , _desrsExecutionStatus = Nothing
+    , _desrsChangeSetId = Nothing
+    , _desrsNextToken = Nothing
+    , _desrsParameters = Nothing
+    , _desrsStatusReason = Nothing
+    , _desrsStackId = Nothing
+    , _desrsDescription = Nothing
+    , _desrsCapabilities = Nothing
+    , _desrsRollbackConfiguration = Nothing
+    , _desrsTags = Nothing
+    , _desrsStackName = Nothing
+    , _desrsResponseStatus = pResponseStatus_
+    , _desrsStatus = pStatus_
+    }
 
 
 -- | The start time when the change set was created, in UTC.
 desrsCreationTime :: Lens' DescribeChangeSetResponse (Maybe UTCTime)
-desrsCreationTime = lens _desrsCreationTime (\ s a -> s{_desrsCreationTime = a}) . mapping _Time;
+desrsCreationTime = lens _desrsCreationTime (\ s a -> s{_desrsCreationTime = a}) . mapping _Time
 
 -- | A list of @Change@ structures that describes the resources AWS CloudFormation changes if you execute the change set.
 desrsChanges :: Lens' DescribeChangeSetResponse [Change]
-desrsChanges = lens _desrsChanges (\ s a -> s{_desrsChanges = a}) . _Default . _Coerce;
+desrsChanges = lens _desrsChanges (\ s a -> s{_desrsChanges = a}) . _Default . _Coerce
 
 -- | The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be associated with the stack if you execute the change set.
 desrsNotificationARNs :: Lens' DescribeChangeSetResponse [Text]
-desrsNotificationARNs = lens _desrsNotificationARNs (\ s a -> s{_desrsNotificationARNs = a}) . _Default . _Coerce;
+desrsNotificationARNs = lens _desrsNotificationARNs (\ s a -> s{_desrsNotificationARNs = a}) . _Default . _Coerce
 
 -- | The name of the change set.
 desrsChangeSetName :: Lens' DescribeChangeSetResponse (Maybe Text)
-desrsChangeSetName = lens _desrsChangeSetName (\ s a -> s{_desrsChangeSetName = a});
+desrsChangeSetName = lens _desrsChangeSetName (\ s a -> s{_desrsChangeSetName = a})
 
 -- | If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
 desrsExecutionStatus :: Lens' DescribeChangeSetResponse (Maybe ExecutionStatus)
-desrsExecutionStatus = lens _desrsExecutionStatus (\ s a -> s{_desrsExecutionStatus = a});
+desrsExecutionStatus = lens _desrsExecutionStatus (\ s a -> s{_desrsExecutionStatus = a})
 
 -- | The ARN of the change set.
 desrsChangeSetId :: Lens' DescribeChangeSetResponse (Maybe Text)
-desrsChangeSetId = lens _desrsChangeSetId (\ s a -> s{_desrsChangeSetId = a});
+desrsChangeSetId = lens _desrsChangeSetId (\ s a -> s{_desrsChangeSetId = a})
 
 -- | If the output exceeds 1 MB, a string that identifies the next page of changes. If there is no additional page, this value is null.
 desrsNextToken :: Lens' DescribeChangeSetResponse (Maybe Text)
-desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
+desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a})
 
 -- | A list of @Parameter@ structures that describes the input parameters and their values used to create the change set. For more information, see the <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
 desrsParameters :: Lens' DescribeChangeSetResponse [Parameter]
-desrsParameters = lens _desrsParameters (\ s a -> s{_desrsParameters = a}) . _Default . _Coerce;
+desrsParameters = lens _desrsParameters (\ s a -> s{_desrsParameters = a}) . _Default . _Coerce
 
 -- | A description of the change set's status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
 desrsStatusReason :: Lens' DescribeChangeSetResponse (Maybe Text)
-desrsStatusReason = lens _desrsStatusReason (\ s a -> s{_desrsStatusReason = a});
+desrsStatusReason = lens _desrsStatusReason (\ s a -> s{_desrsStatusReason = a})
 
 -- | The ARN of the stack that is associated with the change set.
 desrsStackId :: Lens' DescribeChangeSetResponse (Maybe Text)
-desrsStackId = lens _desrsStackId (\ s a -> s{_desrsStackId = a});
+desrsStackId = lens _desrsStackId (\ s a -> s{_desrsStackId = a})
 
 -- | Information about the change set.
 desrsDescription :: Lens' DescribeChangeSetResponse (Maybe Text)
-desrsDescription = lens _desrsDescription (\ s a -> s{_desrsDescription = a});
+desrsDescription = lens _desrsDescription (\ s a -> s{_desrsDescription = a})
 
 -- | If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created.
 desrsCapabilities :: Lens' DescribeChangeSetResponse [Capability]
-desrsCapabilities = lens _desrsCapabilities (\ s a -> s{_desrsCapabilities = a}) . _Default . _Coerce;
+desrsCapabilities = lens _desrsCapabilities (\ s a -> s{_desrsCapabilities = a}) . _Default . _Coerce
 
 -- | The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
 desrsRollbackConfiguration :: Lens' DescribeChangeSetResponse (Maybe RollbackConfiguration)
-desrsRollbackConfiguration = lens _desrsRollbackConfiguration (\ s a -> s{_desrsRollbackConfiguration = a});
+desrsRollbackConfiguration = lens _desrsRollbackConfiguration (\ s a -> s{_desrsRollbackConfiguration = a})
 
 -- | If you execute the change set, the tags that will be associated with the stack.
 desrsTags :: Lens' DescribeChangeSetResponse [Tag]
-desrsTags = lens _desrsTags (\ s a -> s{_desrsTags = a}) . _Default . _Coerce;
+desrsTags = lens _desrsTags (\ s a -> s{_desrsTags = a}) . _Default . _Coerce
 
 -- | The name of the stack that is associated with the change set.
 desrsStackName :: Lens' DescribeChangeSetResponse (Maybe Text)
-desrsStackName = lens _desrsStackName (\ s a -> s{_desrsStackName = a});
+desrsStackName = lens _desrsStackName (\ s a -> s{_desrsStackName = a})
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeChangeSetResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 -- | The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
 desrsStatus :: Lens' DescribeChangeSetResponse ChangeSetStatus
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a})
 
 instance NFData DescribeChangeSetResponse where

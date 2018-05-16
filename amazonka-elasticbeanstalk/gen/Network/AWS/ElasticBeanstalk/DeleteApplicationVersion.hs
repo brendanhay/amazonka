@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ deleteApplicationVersion
     -> DeleteApplicationVersion
 deleteApplicationVersion pApplicationName_ pVersionLabel_ =
   DeleteApplicationVersion'
-  { _davDeleteSourceBundle = Nothing
-  , _davApplicationName = pApplicationName_
-  , _davVersionLabel = pVersionLabel_
-  }
+    { _davDeleteSourceBundle = Nothing
+    , _davApplicationName = pApplicationName_
+    , _davVersionLabel = pVersionLabel_
+    }
 
 
 -- | Set to @true@ to delete the source bundle from your storage bucket. Otherwise, the application version is deleted only from Elastic Beanstalk and the source bundle remains in Amazon S3.
 davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
-davDeleteSourceBundle = lens _davDeleteSourceBundle (\ s a -> s{_davDeleteSourceBundle = a});
+davDeleteSourceBundle = lens _davDeleteSourceBundle (\ s a -> s{_davDeleteSourceBundle = a})
 
 -- | The name of the application to which the version belongs.
 davApplicationName :: Lens' DeleteApplicationVersion Text
-davApplicationName = lens _davApplicationName (\ s a -> s{_davApplicationName = a});
+davApplicationName = lens _davApplicationName (\ s a -> s{_davApplicationName = a})
 
 -- | The label of the version to delete.
 davVersionLabel :: Lens' DeleteApplicationVersion Text
-davVersionLabel = lens _davVersionLabel (\ s a -> s{_davVersionLabel = a});
+davVersionLabel = lens _davVersionLabel (\ s a -> s{_davVersionLabel = a})
 
 instance AWSRequest DeleteApplicationVersion where
         type Rs DeleteApplicationVersion =

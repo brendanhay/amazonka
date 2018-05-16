@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.UpdateXSSMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -96,23 +96,23 @@ updateXSSMatchSet
     -> UpdateXSSMatchSet
 updateXSSMatchSet pXSSMatchSetId_ pChangeToken_ pUpdates_ =
   UpdateXSSMatchSet'
-  { _uxmsXSSMatchSetId = pXSSMatchSetId_
-  , _uxmsChangeToken = pChangeToken_
-  , _uxmsUpdates = _List1 # pUpdates_
-  }
+    { _uxmsXSSMatchSetId = pXSSMatchSetId_
+    , _uxmsChangeToken = pChangeToken_
+    , _uxmsUpdates = _List1 # pUpdates_
+    }
 
 
 -- | The @XssMatchSetId@ of the @XssMatchSet@ that you want to update. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
 uxmsXSSMatchSetId :: Lens' UpdateXSSMatchSet Text
-uxmsXSSMatchSetId = lens _uxmsXSSMatchSetId (\ s a -> s{_uxmsXSSMatchSetId = a});
+uxmsXSSMatchSetId = lens _uxmsXSSMatchSetId (\ s a -> s{_uxmsXSSMatchSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 uxmsChangeToken :: Lens' UpdateXSSMatchSet Text
-uxmsChangeToken = lens _uxmsChangeToken (\ s a -> s{_uxmsChangeToken = a});
+uxmsChangeToken = lens _uxmsChangeToken (\ s a -> s{_uxmsChangeToken = a})
 
 -- | An array of @XssMatchSetUpdate@ objects that you want to insert into or delete from a 'XssMatchSet' . For more information, see the applicable data types:     * 'XssMatchSetUpdate' : Contains @Action@ and @XssMatchTuple@      * 'XssMatchTuple' : Contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 uxmsUpdates :: Lens' UpdateXSSMatchSet (NonEmpty XSSMatchSetUpdate)
-uxmsUpdates = lens _uxmsUpdates (\ s a -> s{_uxmsUpdates = a}) . _List1;
+uxmsUpdates = lens _uxmsUpdates (\ s a -> s{_uxmsUpdates = a}) . _List1
 
 instance AWSRequest UpdateXSSMatchSet where
         type Rs UpdateXSSMatchSet = UpdateXSSMatchSetResponse
@@ -174,15 +174,15 @@ updateXSSMatchSetResponse
     -> UpdateXSSMatchSetResponse
 updateXSSMatchSetResponse pResponseStatus_ =
   UpdateXSSMatchSetResponse'
-  {_uxmsrsChangeToken = Nothing, _uxmsrsResponseStatus = pResponseStatus_}
+    {_uxmsrsChangeToken = Nothing, _uxmsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @UpdateXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 uxmsrsChangeToken :: Lens' UpdateXSSMatchSetResponse (Maybe Text)
-uxmsrsChangeToken = lens _uxmsrsChangeToken (\ s a -> s{_uxmsrsChangeToken = a});
+uxmsrsChangeToken = lens _uxmsrsChangeToken (\ s a -> s{_uxmsrsChangeToken = a})
 
 -- | -- | The response status code.
 uxmsrsResponseStatus :: Lens' UpdateXSSMatchSetResponse Int
-uxmsrsResponseStatus = lens _uxmsrsResponseStatus (\ s a -> s{_uxmsrsResponseStatus = a});
+uxmsrsResponseStatus = lens _uxmsrsResponseStatus (\ s a -> s{_uxmsrsResponseStatus = a})
 
 instance NFData UpdateXSSMatchSetResponse where

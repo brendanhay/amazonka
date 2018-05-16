@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ScheduleKeyDeletion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,11 +75,11 @@ scheduleKeyDeletion pKeyId_ =
 
 -- | The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the customer master key (CMK). This value is optional. If you include a value, it must be between 7 and 30, inclusive. If you do not include a value, it defaults to 30.
 skdPendingWindowInDays :: Lens' ScheduleKeyDeletion (Maybe Natural)
-skdPendingWindowInDays = lens _skdPendingWindowInDays (\ s a -> s{_skdPendingWindowInDays = a}) . mapping _Nat;
+skdPendingWindowInDays = lens _skdPendingWindowInDays (\ s a -> s{_skdPendingWindowInDays = a}) . mapping _Nat
 
 -- | The unique identifier of the customer master key (CMK) to delete. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 skdKeyId :: Lens' ScheduleKeyDeletion Text
-skdKeyId = lens _skdKeyId (\ s a -> s{_skdKeyId = a});
+skdKeyId = lens _skdKeyId (\ s a -> s{_skdKeyId = a})
 
 instance AWSRequest ScheduleKeyDeletion where
         type Rs ScheduleKeyDeletion =
@@ -141,22 +141,22 @@ scheduleKeyDeletionResponse
     -> ScheduleKeyDeletionResponse
 scheduleKeyDeletionResponse pResponseStatus_ =
   ScheduleKeyDeletionResponse'
-  { _skdrsKeyId = Nothing
-  , _skdrsDeletionDate = Nothing
-  , _skdrsResponseStatus = pResponseStatus_
-  }
+    { _skdrsKeyId = Nothing
+    , _skdrsDeletionDate = Nothing
+    , _skdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The unique identifier of the customer master key (CMK) for which deletion is scheduled.
 skdrsKeyId :: Lens' ScheduleKeyDeletionResponse (Maybe Text)
-skdrsKeyId = lens _skdrsKeyId (\ s a -> s{_skdrsKeyId = a});
+skdrsKeyId = lens _skdrsKeyId (\ s a -> s{_skdrsKeyId = a})
 
 -- | The date and time after which AWS KMS deletes the customer master key (CMK).
 skdrsDeletionDate :: Lens' ScheduleKeyDeletionResponse (Maybe UTCTime)
-skdrsDeletionDate = lens _skdrsDeletionDate (\ s a -> s{_skdrsDeletionDate = a}) . mapping _Time;
+skdrsDeletionDate = lens _skdrsDeletionDate (\ s a -> s{_skdrsDeletionDate = a}) . mapping _Time
 
 -- | -- | The response status code.
 skdrsResponseStatus :: Lens' ScheduleKeyDeletionResponse Int
-skdrsResponseStatus = lens _skdrsResponseStatus (\ s a -> s{_skdrsResponseStatus = a});
+skdrsResponseStatus = lens _skdrsResponseStatus (\ s a -> s{_skdrsResponseStatus = a})
 
 instance NFData ScheduleKeyDeletionResponse where

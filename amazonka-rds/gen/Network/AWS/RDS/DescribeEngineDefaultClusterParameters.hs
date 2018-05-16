@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeEngineDefaultClusterParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,28 +78,28 @@ describeEngineDefaultClusterParameters
     -> DescribeEngineDefaultClusterParameters
 describeEngineDefaultClusterParameters pDBParameterGroupFamily_ =
   DescribeEngineDefaultClusterParameters'
-  { _dedcpFilters = Nothing
-  , _dedcpMarker = Nothing
-  , _dedcpMaxRecords = Nothing
-  , _dedcpDBParameterGroupFamily = pDBParameterGroupFamily_
-  }
+    { _dedcpFilters = Nothing
+    , _dedcpMarker = Nothing
+    , _dedcpMaxRecords = Nothing
+    , _dedcpDBParameterGroupFamily = pDBParameterGroupFamily_
+    }
 
 
 -- | This parameter is not currently supported.
 dedcpFilters :: Lens' DescribeEngineDefaultClusterParameters [Filter]
-dedcpFilters = lens _dedcpFilters (\ s a -> s{_dedcpFilters = a}) . _Default . _Coerce;
+dedcpFilters = lens _dedcpFilters (\ s a -> s{_dedcpFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous @DescribeEngineDefaultClusterParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dedcpMarker :: Lens' DescribeEngineDefaultClusterParameters (Maybe Text)
-dedcpMarker = lens _dedcpMarker (\ s a -> s{_dedcpMarker = a});
+dedcpMarker = lens _dedcpMarker (\ s a -> s{_dedcpMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dedcpMaxRecords :: Lens' DescribeEngineDefaultClusterParameters (Maybe Int)
-dedcpMaxRecords = lens _dedcpMaxRecords (\ s a -> s{_dedcpMaxRecords = a});
+dedcpMaxRecords = lens _dedcpMaxRecords (\ s a -> s{_dedcpMaxRecords = a})
 
 -- | The name of the DB cluster parameter group family to return engine parameter information for.
 dedcpDBParameterGroupFamily :: Lens' DescribeEngineDefaultClusterParameters Text
-dedcpDBParameterGroupFamily = lens _dedcpDBParameterGroupFamily (\ s a -> s{_dedcpDBParameterGroupFamily = a});
+dedcpDBParameterGroupFamily = lens _dedcpDBParameterGroupFamily (\ s a -> s{_dedcpDBParameterGroupFamily = a})
 
 instance AWSRequest
            DescribeEngineDefaultClusterParameters
@@ -167,16 +167,18 @@ describeEngineDefaultClusterParametersResponse
     -> DescribeEngineDefaultClusterParametersResponse
 describeEngineDefaultClusterParametersResponse pResponseStatus_ =
   DescribeEngineDefaultClusterParametersResponse'
-  {_dedcprsEngineDefaults = Nothing, _dedcprsResponseStatus = pResponseStatus_}
+    { _dedcprsEngineDefaults = Nothing
+    , _dedcprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dedcprsEngineDefaults :: Lens' DescribeEngineDefaultClusterParametersResponse (Maybe EngineDefaults)
-dedcprsEngineDefaults = lens _dedcprsEngineDefaults (\ s a -> s{_dedcprsEngineDefaults = a});
+dedcprsEngineDefaults = lens _dedcprsEngineDefaults (\ s a -> s{_dedcprsEngineDefaults = a})
 
 -- | -- | The response status code.
 dedcprsResponseStatus :: Lens' DescribeEngineDefaultClusterParametersResponse Int
-dedcprsResponseStatus = lens _dedcprsResponseStatus (\ s a -> s{_dedcprsResponseStatus = a});
+dedcprsResponseStatus = lens _dedcprsResponseStatus (\ s a -> s{_dedcprsResponseStatus = a})
 
 instance NFData
            DescribeEngineDefaultClusterParametersResponse

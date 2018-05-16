@@ -1,5 +1,5 @@
 name:                  amazonka-iot-dataplane
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon IoT Data Plane SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -25,7 +25,7 @@ description:
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.IoTDataPlane" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    See "Network.AWS.IoTData" or <https://aws.amazon.com/documentation/ the AWS documentation>
     to get started.
 
 source-repository head
@@ -44,20 +44,20 @@ library
         -funbox-strict-fields
 
     exposed-modules:
-          Network.AWS.IoTDataPlane
-        , Network.AWS.IoTDataPlane.DeleteThingShadow
-        , Network.AWS.IoTDataPlane.GetThingShadow
-        , Network.AWS.IoTDataPlane.Publish
-        , Network.AWS.IoTDataPlane.Types
-        , Network.AWS.IoTDataPlane.UpdateThingShadow
-        , Network.AWS.IoTDataPlane.Waiters
+          Network.AWS.IoTData
+        , Network.AWS.IoTData.DeleteThingShadow
+        , Network.AWS.IoTData.GetThingShadow
+        , Network.AWS.IoTData.Publish
+        , Network.AWS.IoTData.Types
+        , Network.AWS.IoTData.UpdateThingShadow
+        , Network.AWS.IoTData.Waiters
 
     other-modules:
-          Network.AWS.IoTDataPlane.Types.Product
-        , Network.AWS.IoTDataPlane.Types.Sum
+          Network.AWS.IoTData.Types.Product
+        , Network.AWS.IoTData.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-iot-dataplane-test
@@ -72,13 +72,13 @@ test-suite amazonka-iot-dataplane-test
     -- hand outside these namespaces will not correctly be added to the
     -- distribution package.
     other-modules:
-          Test.AWS.IoTDataPlane
-        , Test.AWS.Gen.IoTDataPlane
-        , Test.AWS.IoTDataPlane.Internal
+          Test.AWS.IoTData
+        , Test.AWS.Gen.IoTData
+        , Test.AWS.IoTData.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-iot-dataplane
         , base
         , bytestring

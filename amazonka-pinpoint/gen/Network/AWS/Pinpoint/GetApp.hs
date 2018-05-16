@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetApp
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ getApp pApplicationId_ = GetApp' {_gaApplicationId = pApplicationId_}
 
 -- | Undocumented member.
 gaApplicationId :: Lens' GetApp Text
-gaApplicationId = lens _gaApplicationId (\ s a -> s{_gaApplicationId = a});
+gaApplicationId = lens _gaApplicationId (\ s a -> s{_gaApplicationId = a})
 
 instance AWSRequest GetApp where
         type Rs GetApp = GetAppResponse
@@ -110,17 +110,17 @@ getAppResponse
     -> GetAppResponse
 getAppResponse pResponseStatus_ pApplicationResponse_ =
   GetAppResponse'
-  { _garsResponseStatus = pResponseStatus_
-  , _garsApplicationResponse = pApplicationResponse_
-  }
+    { _garsResponseStatus = pResponseStatus_
+    , _garsApplicationResponse = pApplicationResponse_
+    }
 
 
 -- | -- | The response status code.
 garsResponseStatus :: Lens' GetAppResponse Int
-garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a})
 
 -- | Undocumented member.
 garsApplicationResponse :: Lens' GetAppResponse ApplicationResponse
-garsApplicationResponse = lens _garsApplicationResponse (\ s a -> s{_garsApplicationResponse = a});
+garsApplicationResponse = lens _garsApplicationResponse (\ s a -> s{_garsApplicationResponse = a})
 
 instance NFData GetAppResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListKeys
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ listKeys = ListKeys' {_lkMarker = Nothing, _lkLimit = Nothing}
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 lkMarker :: Lens' ListKeys (Maybe Text)
-lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a});
+lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a})
 
 -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
 lkLimit :: Lens' ListKeys (Maybe Natural)
-lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat;
+lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat
 
 instance AWSPager ListKeys where
         page rq rs
@@ -146,27 +146,27 @@ listKeysResponse
     -> ListKeysResponse
 listKeysResponse pResponseStatus_ =
   ListKeysResponse'
-  { _lkrsTruncated = Nothing
-  , _lkrsKeys = Nothing
-  , _lkrsNextMarker = Nothing
-  , _lkrsResponseStatus = pResponseStatus_
-  }
+    { _lkrsTruncated = Nothing
+    , _lkrsKeys = Nothing
+    , _lkrsNextMarker = Nothing
+    , _lkrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 lkrsTruncated :: Lens' ListKeysResponse (Maybe Bool)
-lkrsTruncated = lens _lkrsTruncated (\ s a -> s{_lkrsTruncated = a});
+lkrsTruncated = lens _lkrsTruncated (\ s a -> s{_lkrsTruncated = a})
 
 -- | A list of customer master keys (CMKs).
 lkrsKeys :: Lens' ListKeysResponse [KeyListEntry]
-lkrsKeys = lens _lkrsKeys (\ s a -> s{_lkrsKeys = a}) . _Default . _Coerce;
+lkrsKeys = lens _lkrsKeys (\ s a -> s{_lkrsKeys = a}) . _Default . _Coerce
 
 -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 lkrsNextMarker :: Lens' ListKeysResponse (Maybe Text)
-lkrsNextMarker = lens _lkrsNextMarker (\ s a -> s{_lkrsNextMarker = a});
+lkrsNextMarker = lens _lkrsNextMarker (\ s a -> s{_lkrsNextMarker = a})
 
 -- | -- | The response status code.
 lkrsResponseStatus :: Lens' ListKeysResponse Int
-lkrsResponseStatus = lens _lkrsResponseStatus (\ s a -> s{_lkrsResponseStatus = a});
+lkrsResponseStatus = lens _lkrsResponseStatus (\ s a -> s{_lkrsResponseStatus = a})
 
 instance NFData ListKeysResponse where

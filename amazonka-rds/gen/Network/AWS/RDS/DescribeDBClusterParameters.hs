@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBClusterParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,33 +83,33 @@ describeDBClusterParameters
     -> DescribeDBClusterParameters
 describeDBClusterParameters pDBClusterParameterGroupName_ =
   DescribeDBClusterParameters'
-  { _ddcpFilters = Nothing
-  , _ddcpMarker = Nothing
-  , _ddcpMaxRecords = Nothing
-  , _ddcpSource = Nothing
-  , _ddcpDBClusterParameterGroupName = pDBClusterParameterGroupName_
-  }
+    { _ddcpFilters = Nothing
+    , _ddcpMarker = Nothing
+    , _ddcpMaxRecords = Nothing
+    , _ddcpSource = Nothing
+    , _ddcpDBClusterParameterGroupName = pDBClusterParameterGroupName_
+    }
 
 
 -- | This parameter is not currently supported.
 ddcpFilters :: Lens' DescribeDBClusterParameters [Filter]
-ddcpFilters = lens _ddcpFilters (\ s a -> s{_ddcpFilters = a}) . _Default . _Coerce;
+ddcpFilters = lens _ddcpFilters (\ s a -> s{_ddcpFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous @DescribeDBClusterParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddcpMarker :: Lens' DescribeDBClusterParameters (Maybe Text)
-ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a});
+ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddcpMaxRecords :: Lens' DescribeDBClusterParameters (Maybe Int)
-ddcpMaxRecords = lens _ddcpMaxRecords (\ s a -> s{_ddcpMaxRecords = a});
+ddcpMaxRecords = lens _ddcpMaxRecords (\ s a -> s{_ddcpMaxRecords = a})
 
 -- | A value that indicates to return only parameters for a specific source. Parameter sources can be @engine@ , @service@ , or @customer@ .
 ddcpSource :: Lens' DescribeDBClusterParameters (Maybe Text)
-ddcpSource = lens _ddcpSource (\ s a -> s{_ddcpSource = a});
+ddcpSource = lens _ddcpSource (\ s a -> s{_ddcpSource = a})
 
 -- | The name of a specific DB cluster parameter group to return parameter details for. Constraints:     * If supplied, must match the name of an existing DBClusterParameterGroup.
 ddcpDBClusterParameterGroupName :: Lens' DescribeDBClusterParameters Text
-ddcpDBClusterParameterGroupName = lens _ddcpDBClusterParameterGroupName (\ s a -> s{_ddcpDBClusterParameterGroupName = a});
+ddcpDBClusterParameterGroupName = lens _ddcpDBClusterParameterGroupName (\ s a -> s{_ddcpDBClusterParameterGroupName = a})
 
 instance AWSRequest DescribeDBClusterParameters where
         type Rs DescribeDBClusterParameters =
@@ -175,23 +175,23 @@ describeDBClusterParametersResponse
     -> DescribeDBClusterParametersResponse
 describeDBClusterParametersResponse pResponseStatus_ =
   DescribeDBClusterParametersResponse'
-  { _ddcprsMarker = Nothing
-  , _ddcprsParameters = Nothing
-  , _ddcprsResponseStatus = pResponseStatus_
-  }
+    { _ddcprsMarker = Nothing
+    , _ddcprsParameters = Nothing
+    , _ddcprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An optional pagination token provided by a previous DescribeDBClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddcprsMarker :: Lens' DescribeDBClusterParametersResponse (Maybe Text)
-ddcprsMarker = lens _ddcprsMarker (\ s a -> s{_ddcprsMarker = a});
+ddcprsMarker = lens _ddcprsMarker (\ s a -> s{_ddcprsMarker = a})
 
 -- | Provides a list of parameters for the DB cluster parameter group.
 ddcprsParameters :: Lens' DescribeDBClusterParametersResponse [Parameter]
-ddcprsParameters = lens _ddcprsParameters (\ s a -> s{_ddcprsParameters = a}) . _Default . _Coerce;
+ddcprsParameters = lens _ddcprsParameters (\ s a -> s{_ddcprsParameters = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddcprsResponseStatus :: Lens' DescribeDBClusterParametersResponse Int
-ddcprsResponseStatus = lens _ddcprsResponseStatus (\ s a -> s{_ddcprsResponseStatus = a});
+ddcprsResponseStatus = lens _ddcprsResponseStatus (\ s a -> s{_ddcprsResponseStatus = a})
 
 instance NFData DescribeDBClusterParametersResponse
          where

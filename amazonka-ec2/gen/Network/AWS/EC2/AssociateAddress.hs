@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateAddress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -95,43 +95,43 @@ associateAddress
     :: AssociateAddress
 associateAddress =
   AssociateAddress'
-  { _aasInstanceId = Nothing
-  , _aasAllocationId = Nothing
-  , _aasNetworkInterfaceId = Nothing
-  , _aasAllowReassociation = Nothing
-  , _aasPrivateIPAddress = Nothing
-  , _aasPublicIP = Nothing
-  , _aasDryRun = Nothing
-  }
+    { _aasInstanceId = Nothing
+    , _aasAllocationId = Nothing
+    , _aasNetworkInterfaceId = Nothing
+    , _aasAllowReassociation = Nothing
+    , _aasPrivateIPAddress = Nothing
+    , _aasPublicIP = Nothing
+    , _aasDryRun = Nothing
+    }
 
 
 -- | The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.
 aasInstanceId :: Lens' AssociateAddress (Maybe Text)
-aasInstanceId = lens _aasInstanceId (\ s a -> s{_aasInstanceId = a});
+aasInstanceId = lens _aasInstanceId (\ s a -> s{_aasInstanceId = a})
 
 -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
 aasAllocationId :: Lens' AssociateAddress (Maybe Text)
-aasAllocationId = lens _aasAllocationId (\ s a -> s{_aasAllocationId = a});
+aasAllocationId = lens _aasAllocationId (\ s a -> s{_aasAllocationId = a})
 
 -- | [EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
 aasNetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
-aasNetworkInterfaceId = lens _aasNetworkInterfaceId (\ s a -> s{_aasNetworkInterfaceId = a});
+aasNetworkInterfaceId = lens _aasNetworkInterfaceId (\ s a -> s{_aasNetworkInterfaceId = a})
 
 -- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.
 aasAllowReassociation :: Lens' AssociateAddress (Maybe Bool)
-aasAllowReassociation = lens _aasAllowReassociation (\ s a -> s{_aasAllowReassociation = a});
+aasAllowReassociation = lens _aasAllowReassociation (\ s a -> s{_aasAllowReassociation = a})
 
 -- | [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 aasPrivateIPAddress :: Lens' AssociateAddress (Maybe Text)
-aasPrivateIPAddress = lens _aasPrivateIPAddress (\ s a -> s{_aasPrivateIPAddress = a});
+aasPrivateIPAddress = lens _aasPrivateIPAddress (\ s a -> s{_aasPrivateIPAddress = a})
 
 -- | The Elastic IP address. This is required for EC2-Classic.
 aasPublicIP :: Lens' AssociateAddress (Maybe Text)
-aasPublicIP = lens _aasPublicIP (\ s a -> s{_aasPublicIP = a});
+aasPublicIP = lens _aasPublicIP (\ s a -> s{_aasPublicIP = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aasDryRun :: Lens' AssociateAddress (Maybe Bool)
-aasDryRun = lens _aasDryRun (\ s a -> s{_aasDryRun = a});
+aasDryRun = lens _aasDryRun (\ s a -> s{_aasDryRun = a})
 
 instance AWSRequest AssociateAddress where
         type Rs AssociateAddress = AssociateAddressResponse
@@ -187,15 +187,15 @@ associateAddressResponse
     -> AssociateAddressResponse
 associateAddressResponse pResponseStatus_ =
   AssociateAddressResponse'
-  {_arsAssociationId = Nothing, _arsResponseStatus = pResponseStatus_}
+    {_arsAssociationId = Nothing, _arsResponseStatus = pResponseStatus_}
 
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.
 arsAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
-arsAssociationId = lens _arsAssociationId (\ s a -> s{_arsAssociationId = a});
+arsAssociationId = lens _arsAssociationId (\ s a -> s{_arsAssociationId = a})
 
 -- | -- | The response status code.
 arsResponseStatus :: Lens' AssociateAddressResponse Int
-arsResponseStatus = lens _arsResponseStatus (\ s a -> s{_arsResponseStatus = a});
+arsResponseStatus = lens _arsResponseStatus (\ s a -> s{_arsResponseStatus = a})
 
 instance NFData AssociateAddressResponse where

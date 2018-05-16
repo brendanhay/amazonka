@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListTagsForResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ listTagsForResource pResourceARN_ =
 
 -- | The ARN that specifies the assessment template whose tags you want to list.
 ltfrResourceARN :: Lens' ListTagsForResource Text
-ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
+ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a})
 
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource =
@@ -121,15 +121,15 @@ listTagsForResourceResponse
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
   ListTagsForResourceResponse'
-  {_ltfrrsResponseStatus = pResponseStatus_, _ltfrrsTags = mempty}
+    {_ltfrrsResponseStatus = pResponseStatus_, _ltfrrsTags = mempty}
 
 
 -- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a})
 
 -- | A collection of key and value pairs.
 ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Coerce;
+ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Coerce
 
 instance NFData ListTagsForResourceResponse where

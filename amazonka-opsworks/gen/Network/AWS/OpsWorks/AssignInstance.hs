@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.AssignInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,11 +75,11 @@ assignInstance pInstanceId_ =
 
 -- | The instance ID.
 aiInstanceId :: Lens' AssignInstance Text
-aiInstanceId = lens _aiInstanceId (\ s a -> s{_aiInstanceId = a});
+aiInstanceId = lens _aiInstanceId (\ s a -> s{_aiInstanceId = a})
 
 -- | The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
 aiLayerIds :: Lens' AssignInstance [Text]
-aiLayerIds = lens _aiLayerIds (\ s a -> s{_aiLayerIds = a}) . _Coerce;
+aiLayerIds = lens _aiLayerIds (\ s a -> s{_aiLayerIds = a}) . _Coerce
 
 instance AWSRequest AssignInstance where
         type Rs AssignInstance = AssignInstanceResponse

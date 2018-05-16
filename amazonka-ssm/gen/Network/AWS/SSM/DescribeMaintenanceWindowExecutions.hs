@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeMaintenanceWindowExecutions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ describeMaintenanceWindowExecutions
     -> DescribeMaintenanceWindowExecutions
 describeMaintenanceWindowExecutions pWindowId_ =
   DescribeMaintenanceWindowExecutions'
-  { _dmweFilters = Nothing
-  , _dmweNextToken = Nothing
-  , _dmweMaxResults = Nothing
-  , _dmweWindowId = pWindowId_
-  }
+    { _dmweFilters = Nothing
+    , _dmweNextToken = Nothing
+    , _dmweMaxResults = Nothing
+    , _dmweWindowId = pWindowId_
+    }
 
 
 -- | Each entry in the array is a structure containing: Key (string, between 1 and 128 characters) Values (array of strings, each string is between 1 and 256 characters) The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time string such as 2016-11-04T05:00:00Z.
 dmweFilters :: Lens' DescribeMaintenanceWindowExecutions [MaintenanceWindowFilter]
-dmweFilters = lens _dmweFilters (\ s a -> s{_dmweFilters = a}) . _Default . _Coerce;
+dmweFilters = lens _dmweFilters (\ s a -> s{_dmweFilters = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dmweNextToken :: Lens' DescribeMaintenanceWindowExecutions (Maybe Text)
-dmweNextToken = lens _dmweNextToken (\ s a -> s{_dmweNextToken = a});
+dmweNextToken = lens _dmweNextToken (\ s a -> s{_dmweNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 dmweMaxResults :: Lens' DescribeMaintenanceWindowExecutions (Maybe Natural)
-dmweMaxResults = lens _dmweMaxResults (\ s a -> s{_dmweMaxResults = a}) . mapping _Nat;
+dmweMaxResults = lens _dmweMaxResults (\ s a -> s{_dmweMaxResults = a}) . mapping _Nat
 
 -- | The ID of the Maintenance Window whose executions should be retrieved.
 dmweWindowId :: Lens' DescribeMaintenanceWindowExecutions Text
-dmweWindowId = lens _dmweWindowId (\ s a -> s{_dmweWindowId = a});
+dmweWindowId = lens _dmweWindowId (\ s a -> s{_dmweWindowId = a})
 
 instance AWSRequest
            DescribeMaintenanceWindowExecutions
@@ -168,23 +168,23 @@ describeMaintenanceWindowExecutionsResponse
     -> DescribeMaintenanceWindowExecutionsResponse
 describeMaintenanceWindowExecutionsResponse pResponseStatus_ =
   DescribeMaintenanceWindowExecutionsResponse'
-  { _dmwersWindowExecutions = Nothing
-  , _dmwersNextToken = Nothing
-  , _dmwersResponseStatus = pResponseStatus_
-  }
+    { _dmwersWindowExecutions = Nothing
+    , _dmwersNextToken = Nothing
+    , _dmwersResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the Maintenance Windows execution.
 dmwersWindowExecutions :: Lens' DescribeMaintenanceWindowExecutionsResponse [MaintenanceWindowExecution]
-dmwersWindowExecutions = lens _dmwersWindowExecutions (\ s a -> s{_dmwersWindowExecutions = a}) . _Default . _Coerce;
+dmwersWindowExecutions = lens _dmwersWindowExecutions (\ s a -> s{_dmwersWindowExecutions = a}) . _Default . _Coerce
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dmwersNextToken :: Lens' DescribeMaintenanceWindowExecutionsResponse (Maybe Text)
-dmwersNextToken = lens _dmwersNextToken (\ s a -> s{_dmwersNextToken = a});
+dmwersNextToken = lens _dmwersNextToken (\ s a -> s{_dmwersNextToken = a})
 
 -- | -- | The response status code.
 dmwersResponseStatus :: Lens' DescribeMaintenanceWindowExecutionsResponse Int
-dmwersResponseStatus = lens _dmwersResponseStatus (\ s a -> s{_dmwersResponseStatus = a});
+dmwersResponseStatus = lens _dmwersResponseStatus (\ s a -> s{_dmwersResponseStatus = a})
 
 instance NFData
            DescribeMaintenanceWindowExecutionsResponse

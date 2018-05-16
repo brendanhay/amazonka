@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,20 +44,23 @@ cognitoStreams
     :: CognitoStreams
 cognitoStreams =
   CognitoStreams'
-  {_csStreamingStatus = Nothing, _csStreamName = Nothing, _csRoleARN = Nothing}
+    { _csStreamingStatus = Nothing
+    , _csStreamName = Nothing
+    , _csRoleARN = Nothing
+    }
 
 
 -- | Status of the Cognito streams. Valid values are: ENABLED - Streaming of updates to identity pool is enabled. DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
 csStreamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
-csStreamingStatus = lens _csStreamingStatus (\ s a -> s{_csStreamingStatus = a});
+csStreamingStatus = lens _csStreamingStatus (\ s a -> s{_csStreamingStatus = a})
 
 -- | The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.
 csStreamName :: Lens' CognitoStreams (Maybe Text)
-csStreamName = lens _csStreamName (\ s a -> s{_csStreamName = a});
+csStreamName = lens _csStreamName (\ s a -> s{_csStreamName = a})
 
 -- | The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.
 csRoleARN :: Lens' CognitoStreams (Maybe Text)
-csRoleARN = lens _csRoleARN (\ s a -> s{_csRoleARN = a});
+csRoleARN = lens _csRoleARN (\ s a -> s{_csRoleARN = a})
 
 instance FromJSON CognitoStreams where
         parseJSON
@@ -114,43 +117,43 @@ dataset
     :: Dataset
 dataset =
   Dataset'
-  { _dLastModifiedDate = Nothing
-  , _dNumRecords = Nothing
-  , _dDataStorage = Nothing
-  , _dDatasetName = Nothing
-  , _dCreationDate = Nothing
-  , _dLastModifiedBy = Nothing
-  , _dIdentityId = Nothing
-  }
+    { _dLastModifiedDate = Nothing
+    , _dNumRecords = Nothing
+    , _dDataStorage = Nothing
+    , _dDatasetName = Nothing
+    , _dCreationDate = Nothing
+    , _dLastModifiedBy = Nothing
+    , _dIdentityId = Nothing
+    }
 
 
 -- | Date when the dataset was last modified.
 dLastModifiedDate :: Lens' Dataset (Maybe UTCTime)
-dLastModifiedDate = lens _dLastModifiedDate (\ s a -> s{_dLastModifiedDate = a}) . mapping _Time;
+dLastModifiedDate = lens _dLastModifiedDate (\ s a -> s{_dLastModifiedDate = a}) . mapping _Time
 
 -- | Number of records in this dataset.
 dNumRecords :: Lens' Dataset (Maybe Integer)
-dNumRecords = lens _dNumRecords (\ s a -> s{_dNumRecords = a});
+dNumRecords = lens _dNumRecords (\ s a -> s{_dNumRecords = a})
 
 -- | Total size in bytes of the records in this dataset.
 dDataStorage :: Lens' Dataset (Maybe Integer)
-dDataStorage = lens _dDataStorage (\ s a -> s{_dDataStorage = a});
+dDataStorage = lens _dDataStorage (\ s a -> s{_dDataStorage = a})
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 dDatasetName :: Lens' Dataset (Maybe Text)
-dDatasetName = lens _dDatasetName (\ s a -> s{_dDatasetName = a});
+dDatasetName = lens _dDatasetName (\ s a -> s{_dDatasetName = a})
 
 -- | Date on which the dataset was created.
 dCreationDate :: Lens' Dataset (Maybe UTCTime)
-dCreationDate = lens _dCreationDate (\ s a -> s{_dCreationDate = a}) . mapping _Time;
+dCreationDate = lens _dCreationDate (\ s a -> s{_dCreationDate = a}) . mapping _Time
 
 -- | The device that made the last change to this dataset.
 dLastModifiedBy :: Lens' Dataset (Maybe Text)
-dLastModifiedBy = lens _dLastModifiedBy (\ s a -> s{_dLastModifiedBy = a});
+dLastModifiedBy = lens _dLastModifiedBy (\ s a -> s{_dLastModifiedBy = a})
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 dIdentityId :: Lens' Dataset (Maybe Text)
-dIdentityId = lens _dIdentityId (\ s a -> s{_dIdentityId = a});
+dIdentityId = lens _dIdentityId (\ s a -> s{_dIdentityId = a})
 
 instance FromJSON Dataset where
         parseJSON
@@ -194,28 +197,28 @@ identityPoolUsage
     :: IdentityPoolUsage
 identityPoolUsage =
   IdentityPoolUsage'
-  { _ipuLastModifiedDate = Nothing
-  , _ipuIdentityPoolId = Nothing
-  , _ipuDataStorage = Nothing
-  , _ipuSyncSessionsCount = Nothing
-  }
+    { _ipuLastModifiedDate = Nothing
+    , _ipuIdentityPoolId = Nothing
+    , _ipuDataStorage = Nothing
+    , _ipuSyncSessionsCount = Nothing
+    }
 
 
 -- | Date on which the identity pool was last modified.
 ipuLastModifiedDate :: Lens' IdentityPoolUsage (Maybe UTCTime)
-ipuLastModifiedDate = lens _ipuLastModifiedDate (\ s a -> s{_ipuLastModifiedDate = a}) . mapping _Time;
+ipuLastModifiedDate = lens _ipuLastModifiedDate (\ s a -> s{_ipuLastModifiedDate = a}) . mapping _Time
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 ipuIdentityPoolId :: Lens' IdentityPoolUsage (Maybe Text)
-ipuIdentityPoolId = lens _ipuIdentityPoolId (\ s a -> s{_ipuIdentityPoolId = a});
+ipuIdentityPoolId = lens _ipuIdentityPoolId (\ s a -> s{_ipuIdentityPoolId = a})
 
 -- | Data storage information for the identity pool.
 ipuDataStorage :: Lens' IdentityPoolUsage (Maybe Integer)
-ipuDataStorage = lens _ipuDataStorage (\ s a -> s{_ipuDataStorage = a});
+ipuDataStorage = lens _ipuDataStorage (\ s a -> s{_ipuDataStorage = a})
 
 -- | Number of sync sessions for the identity pool.
 ipuSyncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
-ipuSyncSessionsCount = lens _ipuSyncSessionsCount (\ s a -> s{_ipuSyncSessionsCount = a});
+ipuSyncSessionsCount = lens _ipuSyncSessionsCount (\ s a -> s{_ipuSyncSessionsCount = a})
 
 instance FromJSON IdentityPoolUsage where
         parseJSON
@@ -260,33 +263,33 @@ identityUsage
     :: IdentityUsage
 identityUsage =
   IdentityUsage'
-  { _iuLastModifiedDate = Nothing
-  , _iuIdentityPoolId = Nothing
-  , _iuDatasetCount = Nothing
-  , _iuDataStorage = Nothing
-  , _iuIdentityId = Nothing
-  }
+    { _iuLastModifiedDate = Nothing
+    , _iuIdentityPoolId = Nothing
+    , _iuDatasetCount = Nothing
+    , _iuDataStorage = Nothing
+    , _iuIdentityId = Nothing
+    }
 
 
 -- | Date on which the identity was last modified.
 iuLastModifiedDate :: Lens' IdentityUsage (Maybe UTCTime)
-iuLastModifiedDate = lens _iuLastModifiedDate (\ s a -> s{_iuLastModifiedDate = a}) . mapping _Time;
+iuLastModifiedDate = lens _iuLastModifiedDate (\ s a -> s{_iuLastModifiedDate = a}) . mapping _Time
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 iuIdentityPoolId :: Lens' IdentityUsage (Maybe Text)
-iuIdentityPoolId = lens _iuIdentityPoolId (\ s a -> s{_iuIdentityPoolId = a});
+iuIdentityPoolId = lens _iuIdentityPoolId (\ s a -> s{_iuIdentityPoolId = a})
 
 -- | Number of datasets for the identity.
 iuDatasetCount :: Lens' IdentityUsage (Maybe Int)
-iuDatasetCount = lens _iuDatasetCount (\ s a -> s{_iuDatasetCount = a});
+iuDatasetCount = lens _iuDatasetCount (\ s a -> s{_iuDatasetCount = a})
 
 -- | Total data storage for this identity.
 iuDataStorage :: Lens' IdentityUsage (Maybe Integer)
-iuDataStorage = lens _iuDataStorage (\ s a -> s{_iuDataStorage = a});
+iuDataStorage = lens _iuDataStorage (\ s a -> s{_iuDataStorage = a})
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 iuIdentityId :: Lens' IdentityUsage (Maybe Text)
-iuIdentityId = lens _iuIdentityId (\ s a -> s{_iuIdentityId = a});
+iuIdentityId = lens _iuIdentityId (\ s a -> s{_iuIdentityId = a})
 
 instance FromJSON IdentityUsage where
         parseJSON
@@ -328,11 +331,11 @@ pushSync = PushSync' {_psApplicationARNs = Nothing, _psRoleARN = Nothing}
 
 -- | List of SNS platform application ARNs that could be used by clients.
 psApplicationARNs :: Lens' PushSync [Text]
-psApplicationARNs = lens _psApplicationARNs (\ s a -> s{_psApplicationARNs = a}) . _Default . _Coerce;
+psApplicationARNs = lens _psApplicationARNs (\ s a -> s{_psApplicationARNs = a}) . _Default . _Coerce
 
 -- | A role configured to allow Cognito to call SNS on behalf of the developer.
 psRoleARN :: Lens' PushSync (Maybe Text)
-psRoleARN = lens _psRoleARN (\ s a -> s{_psRoleARN = a});
+psRoleARN = lens _psRoleARN (\ s a -> s{_psRoleARN = a})
 
 instance FromJSON PushSync where
         parseJSON
@@ -385,38 +388,38 @@ record
     :: Record
 record =
   Record'
-  { _rSyncCount = Nothing
-  , _rDeviceLastModifiedDate = Nothing
-  , _rLastModifiedDate = Nothing
-  , _rValue = Nothing
-  , _rKey = Nothing
-  , _rLastModifiedBy = Nothing
-  }
+    { _rSyncCount = Nothing
+    , _rDeviceLastModifiedDate = Nothing
+    , _rLastModifiedDate = Nothing
+    , _rValue = Nothing
+    , _rKey = Nothing
+    , _rLastModifiedBy = Nothing
+    }
 
 
 -- | The server sync count for this record.
 rSyncCount :: Lens' Record (Maybe Integer)
-rSyncCount = lens _rSyncCount (\ s a -> s{_rSyncCount = a});
+rSyncCount = lens _rSyncCount (\ s a -> s{_rSyncCount = a})
 
 -- | The last modified date of the client device.
 rDeviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
-rDeviceLastModifiedDate = lens _rDeviceLastModifiedDate (\ s a -> s{_rDeviceLastModifiedDate = a}) . mapping _Time;
+rDeviceLastModifiedDate = lens _rDeviceLastModifiedDate (\ s a -> s{_rDeviceLastModifiedDate = a}) . mapping _Time
 
 -- | The date on which the record was last modified.
 rLastModifiedDate :: Lens' Record (Maybe UTCTime)
-rLastModifiedDate = lens _rLastModifiedDate (\ s a -> s{_rLastModifiedDate = a}) . mapping _Time;
+rLastModifiedDate = lens _rLastModifiedDate (\ s a -> s{_rLastModifiedDate = a}) . mapping _Time
 
 -- | The value for the record.
 rValue :: Lens' Record (Maybe Text)
-rValue = lens _rValue (\ s a -> s{_rValue = a});
+rValue = lens _rValue (\ s a -> s{_rValue = a})
 
 -- | The key for the record.
 rKey :: Lens' Record (Maybe Text)
-rKey = lens _rKey (\ s a -> s{_rKey = a});
+rKey = lens _rKey (\ s a -> s{_rKey = a})
 
 -- | The user/device that made the last change to this record.
 rLastModifiedBy :: Lens' Record (Maybe Text)
-rLastModifiedBy = lens _rLastModifiedBy (\ s a -> s{_rLastModifiedBy = a});
+rLastModifiedBy = lens _rLastModifiedBy (\ s a -> s{_rLastModifiedBy = a})
 
 instance FromJSON Record where
         parseJSON
@@ -466,33 +469,33 @@ recordPatch
     -> RecordPatch
 recordPatch pOp_ pKey_ pSyncCount_ =
   RecordPatch'
-  { _rpDeviceLastModifiedDate = Nothing
-  , _rpValue = Nothing
-  , _rpOp = pOp_
-  , _rpKey = pKey_
-  , _rpSyncCount = pSyncCount_
-  }
+    { _rpDeviceLastModifiedDate = Nothing
+    , _rpValue = Nothing
+    , _rpOp = pOp_
+    , _rpKey = pKey_
+    , _rpSyncCount = pSyncCount_
+    }
 
 
 -- | The last modified date of the client device.
 rpDeviceLastModifiedDate :: Lens' RecordPatch (Maybe UTCTime)
-rpDeviceLastModifiedDate = lens _rpDeviceLastModifiedDate (\ s a -> s{_rpDeviceLastModifiedDate = a}) . mapping _Time;
+rpDeviceLastModifiedDate = lens _rpDeviceLastModifiedDate (\ s a -> s{_rpDeviceLastModifiedDate = a}) . mapping _Time
 
 -- | The value associated with the record patch.
 rpValue :: Lens' RecordPatch (Maybe Text)
-rpValue = lens _rpValue (\ s a -> s{_rpValue = a});
+rpValue = lens _rpValue (\ s a -> s{_rpValue = a})
 
 -- | An operation, either replace or remove.
 rpOp :: Lens' RecordPatch Operation
-rpOp = lens _rpOp (\ s a -> s{_rpOp = a});
+rpOp = lens _rpOp (\ s a -> s{_rpOp = a})
 
 -- | The key associated with the record patch.
 rpKey :: Lens' RecordPatch Text
-rpKey = lens _rpKey (\ s a -> s{_rpKey = a});
+rpKey = lens _rpKey (\ s a -> s{_rpKey = a})
 
 -- | Last known server sync count for this record. Set to 0 if unknown.
 rpSyncCount :: Lens' RecordPatch Integer
-rpSyncCount = lens _rpSyncCount (\ s a -> s{_rpSyncCount = a});
+rpSyncCount = lens _rpSyncCount (\ s a -> s{_rpSyncCount = a})
 
 instance Hashable RecordPatch where
 

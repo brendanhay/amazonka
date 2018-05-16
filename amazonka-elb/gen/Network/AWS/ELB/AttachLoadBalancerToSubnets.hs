@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.AttachLoadBalancerToSubnets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ attachLoadBalancerToSubnets
     -> AttachLoadBalancerToSubnets
 attachLoadBalancerToSubnets pLoadBalancerName_ =
   AttachLoadBalancerToSubnets'
-  {_albtsLoadBalancerName = pLoadBalancerName_, _albtsSubnets = mempty}
+    {_albtsLoadBalancerName = pLoadBalancerName_, _albtsSubnets = mempty}
 
 
 -- | The name of the load balancer.
 albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
-albtsLoadBalancerName = lens _albtsLoadBalancerName (\ s a -> s{_albtsLoadBalancerName = a});
+albtsLoadBalancerName = lens _albtsLoadBalancerName (\ s a -> s{_albtsLoadBalancerName = a})
 
 -- | The IDs of the subnets to add. You can add only one subnet per Availability Zone.
 albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
-albtsSubnets = lens _albtsSubnets (\ s a -> s{_albtsSubnets = a}) . _Coerce;
+albtsSubnets = lens _albtsSubnets (\ s a -> s{_albtsSubnets = a}) . _Coerce
 
 instance AWSRequest AttachLoadBalancerToSubnets where
         type Rs AttachLoadBalancerToSubnets =
@@ -136,16 +136,16 @@ attachLoadBalancerToSubnetsResponse
     -> AttachLoadBalancerToSubnetsResponse
 attachLoadBalancerToSubnetsResponse pResponseStatus_ =
   AttachLoadBalancerToSubnetsResponse'
-  {_albtsrsSubnets = Nothing, _albtsrsResponseStatus = pResponseStatus_}
+    {_albtsrsSubnets = Nothing, _albtsrsResponseStatus = pResponseStatus_}
 
 
 -- | The IDs of the subnets attached to the load balancer.
 albtsrsSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
-albtsrsSubnets = lens _albtsrsSubnets (\ s a -> s{_albtsrsSubnets = a}) . _Default . _Coerce;
+albtsrsSubnets = lens _albtsrsSubnets (\ s a -> s{_albtsrsSubnets = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 albtsrsResponseStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
-albtsrsResponseStatus = lens _albtsrsResponseStatus (\ s a -> s{_albtsrsResponseStatus = a});
+albtsrsResponseStatus = lens _albtsrsResponseStatus (\ s a -> s{_albtsrsResponseStatus = a})
 
 instance NFData AttachLoadBalancerToSubnetsResponse
          where

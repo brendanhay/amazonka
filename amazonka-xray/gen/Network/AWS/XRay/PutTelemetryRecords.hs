@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.XRay.PutTelemetryRecords
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,28 +70,28 @@ putTelemetryRecords
     :: PutTelemetryRecords
 putTelemetryRecords =
   PutTelemetryRecords'
-  { _ptrHostname = Nothing
-  , _ptrEC2InstanceId = Nothing
-  , _ptrResourceARN = Nothing
-  , _ptrTelemetryRecords = mempty
-  }
+    { _ptrHostname = Nothing
+    , _ptrEC2InstanceId = Nothing
+    , _ptrResourceARN = Nothing
+    , _ptrTelemetryRecords = mempty
+    }
 
 
 -- |
 ptrHostname :: Lens' PutTelemetryRecords (Maybe Text)
-ptrHostname = lens _ptrHostname (\ s a -> s{_ptrHostname = a});
+ptrHostname = lens _ptrHostname (\ s a -> s{_ptrHostname = a})
 
 -- |
 ptrEC2InstanceId :: Lens' PutTelemetryRecords (Maybe Text)
-ptrEC2InstanceId = lens _ptrEC2InstanceId (\ s a -> s{_ptrEC2InstanceId = a});
+ptrEC2InstanceId = lens _ptrEC2InstanceId (\ s a -> s{_ptrEC2InstanceId = a})
 
 -- |
 ptrResourceARN :: Lens' PutTelemetryRecords (Maybe Text)
-ptrResourceARN = lens _ptrResourceARN (\ s a -> s{_ptrResourceARN = a});
+ptrResourceARN = lens _ptrResourceARN (\ s a -> s{_ptrResourceARN = a})
 
 -- |
 ptrTelemetryRecords :: Lens' PutTelemetryRecords [TelemetryRecord]
-ptrTelemetryRecords = lens _ptrTelemetryRecords (\ s a -> s{_ptrTelemetryRecords = a}) . _Coerce;
+ptrTelemetryRecords = lens _ptrTelemetryRecords (\ s a -> s{_ptrTelemetryRecords = a}) . _Coerce
 
 instance AWSRequest PutTelemetryRecords where
         type Rs PutTelemetryRecords =
@@ -144,6 +144,6 @@ putTelemetryRecordsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ptrrsResponseStatus :: Lens' PutTelemetryRecordsResponse Int
-ptrrsResponseStatus = lens _ptrrsResponseStatus (\ s a -> s{_ptrrsResponseStatus = a});
+ptrrsResponseStatus = lens _ptrrsResponseStatus (\ s a -> s{_ptrrsResponseStatus = a})
 
 instance NFData PutTelemetryRecordsResponse where

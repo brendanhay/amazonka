@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.RemoveTagsFromResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,16 +63,16 @@ removeTagsFromResource
     -> RemoveTagsFromResource
 removeTagsFromResource pResourceId_ =
   RemoveTagsFromResource'
-  {_rtfrResourceId = pResourceId_, _rtfrTagKeys = mempty}
+    {_rtfrResourceId = pResourceId_, _rtfrTagKeys = mempty}
 
 
 -- | Identifier (ID) of the directory from which to remove the tag.
 rtfrResourceId :: Lens' RemoveTagsFromResource Text
-rtfrResourceId = lens _rtfrResourceId (\ s a -> s{_rtfrResourceId = a});
+rtfrResourceId = lens _rtfrResourceId (\ s a -> s{_rtfrResourceId = a})
 
 -- | The tag key (name) of the tag to be removed.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
+rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce
 
 instance AWSRequest RemoveTagsFromResource where
         type Rs RemoveTagsFromResource =
@@ -131,6 +131,6 @@ removeTagsFromResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
-rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
+rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a})
 
 instance NFData RemoveTagsFromResourceResponse where

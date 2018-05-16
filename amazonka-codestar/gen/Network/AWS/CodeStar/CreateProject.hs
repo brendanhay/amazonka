@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.CreateProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ createProject
     -> CreateProject
 createProject pName_ pId_ =
   CreateProject'
-  { _cpClientRequestToken = Nothing
-  , _cpDescription = Nothing
-  , _cpName = _Sensitive # pName_
-  , _cpId = pId_
-  }
+    { _cpClientRequestToken = Nothing
+    , _cpDescription = Nothing
+    , _cpName = _Sensitive # pName_
+    , _cpId = pId_
+    }
 
 
 -- | Reserved for future use.
 cpClientRequestToken :: Lens' CreateProject (Maybe Text)
-cpClientRequestToken = lens _cpClientRequestToken (\ s a -> s{_cpClientRequestToken = a});
+cpClientRequestToken = lens _cpClientRequestToken (\ s a -> s{_cpClientRequestToken = a})
 
 -- | Reserved for future use.
 cpDescription :: Lens' CreateProject (Maybe Text)
-cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a}) . mapping _Sensitive;
+cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a}) . mapping _Sensitive
 
 -- | Reserved for future use.
 cpName :: Lens' CreateProject Text
-cpName = lens _cpName (\ s a -> s{_cpName = a}) . _Sensitive;
+cpName = lens _cpName (\ s a -> s{_cpName = a}) . _Sensitive
 
 -- | Reserved for future use.
 cpId :: Lens' CreateProject Text
-cpId = lens _cpId (\ s a -> s{_cpId = a});
+cpId = lens _cpId (\ s a -> s{_cpId = a})
 
 instance AWSRequest CreateProject where
         type Rs CreateProject = CreateProjectResponse
@@ -169,32 +169,32 @@ createProjectResponse
     -> CreateProjectResponse
 createProjectResponse pResponseStatus_ pId_ pArn_ =
   CreateProjectResponse'
-  { _cprsProjectTemplateId = Nothing
-  , _cprsClientRequestToken = Nothing
-  , _cprsResponseStatus = pResponseStatus_
-  , _cprsId = pId_
-  , _cprsArn = pArn_
-  }
+    { _cprsProjectTemplateId = Nothing
+    , _cprsClientRequestToken = Nothing
+    , _cprsResponseStatus = pResponseStatus_
+    , _cprsId = pId_
+    , _cprsArn = pArn_
+    }
 
 
 -- | Reserved for future use.
 cprsProjectTemplateId :: Lens' CreateProjectResponse (Maybe Text)
-cprsProjectTemplateId = lens _cprsProjectTemplateId (\ s a -> s{_cprsProjectTemplateId = a});
+cprsProjectTemplateId = lens _cprsProjectTemplateId (\ s a -> s{_cprsProjectTemplateId = a})
 
 -- | Reserved for future use.
 cprsClientRequestToken :: Lens' CreateProjectResponse (Maybe Text)
-cprsClientRequestToken = lens _cprsClientRequestToken (\ s a -> s{_cprsClientRequestToken = a});
+cprsClientRequestToken = lens _cprsClientRequestToken (\ s a -> s{_cprsClientRequestToken = a})
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreateProjectResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
 
 -- | Reserved for future use.
 cprsId :: Lens' CreateProjectResponse Text
-cprsId = lens _cprsId (\ s a -> s{_cprsId = a});
+cprsId = lens _cprsId (\ s a -> s{_cprsId = a})
 
 -- | Reserved for future use.
 cprsArn :: Lens' CreateProjectResponse Text
-cprsArn = lens _cprsArn (\ s a -> s{_cprsArn = a});
+cprsArn = lens _cprsArn (\ s a -> s{_cprsArn = a})
 
 instance NFData CreateProjectResponse where

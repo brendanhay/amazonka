@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ getPolicy pPolicyARN_ = GetPolicy' {_gpPolicyARN = pPolicyARN_}
 
 -- | The Amazon Resource Name (ARN) of the managed policy that you want information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 gpPolicyARN :: Lens' GetPolicy Text
-gpPolicyARN = lens _gpPolicyARN (\ s a -> s{_gpPolicyARN = a});
+gpPolicyARN = lens _gpPolicyARN (\ s a -> s{_gpPolicyARN = a})
 
 instance AWSRequest GetPolicy where
         type Rs GetPolicy = GetPolicyResponse
@@ -118,15 +118,15 @@ getPolicyResponse
     -> GetPolicyResponse
 getPolicyResponse pResponseStatus_ =
   GetPolicyResponse'
-  {_gprsPolicy = Nothing, _gprsResponseStatus = pResponseStatus_}
+    {_gprsPolicy = Nothing, _gprsResponseStatus = pResponseStatus_}
 
 
 -- | A structure containing details about the policy.
 gprsPolicy :: Lens' GetPolicyResponse (Maybe Policy)
-gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
+gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a})
 
 -- | -- | The response status code.
 gprsResponseStatus :: Lens' GetPolicyResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a})
 
 instance NFData GetPolicyResponse where

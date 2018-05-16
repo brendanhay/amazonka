@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,23 +46,23 @@ cognitoIdentityProvider
     :: CognitoIdentityProvider
 cognitoIdentityProvider =
   CognitoIdentityProvider'
-  { _cipClientId = Nothing
-  , _cipServerSideTokenCheck = Nothing
-  , _cipProviderName = Nothing
-  }
+    { _cipClientId = Nothing
+    , _cipServerSideTokenCheck = Nothing
+    , _cipProviderName = Nothing
+    }
 
 
 -- | The client ID for the Amazon Cognito Identity User Pool.
 cipClientId :: Lens' CognitoIdentityProvider (Maybe Text)
-cipClientId = lens _cipClientId (\ s a -> s{_cipClientId = a});
+cipClientId = lens _cipClientId (\ s a -> s{_cipClientId = a})
 
 -- | TRUE if server-side token validation is enabled for the identity provider’s token.
 cipServerSideTokenCheck :: Lens' CognitoIdentityProvider (Maybe Bool)
-cipServerSideTokenCheck = lens _cipServerSideTokenCheck (\ s a -> s{_cipServerSideTokenCheck = a});
+cipServerSideTokenCheck = lens _cipServerSideTokenCheck (\ s a -> s{_cipServerSideTokenCheck = a})
 
 -- | The provider name for an Amazon Cognito Identity User Pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
 cipProviderName :: Lens' CognitoIdentityProvider (Maybe Text)
-cipProviderName = lens _cipProviderName (\ s a -> s{_cipProviderName = a});
+cipProviderName = lens _cipProviderName (\ s a -> s{_cipProviderName = a})
 
 instance FromJSON CognitoIdentityProvider where
         parseJSON
@@ -113,28 +113,28 @@ credentials
     :: Credentials
 credentials =
   Credentials'
-  { _cSessionToken = Nothing
-  , _cExpiration = Nothing
-  , _cSecretKey = Nothing
-  , _cAccessKeyId = Nothing
-  }
+    { _cSessionToken = Nothing
+    , _cExpiration = Nothing
+    , _cSecretKey = Nothing
+    , _cAccessKeyId = Nothing
+    }
 
 
 -- | The Session Token portion of the credentials
 cSessionToken :: Lens' Credentials (Maybe Text)
-cSessionToken = lens _cSessionToken (\ s a -> s{_cSessionToken = a});
+cSessionToken = lens _cSessionToken (\ s a -> s{_cSessionToken = a})
 
 -- | The date at which these credentials will expire.
 cExpiration :: Lens' Credentials (Maybe UTCTime)
-cExpiration = lens _cExpiration (\ s a -> s{_cExpiration = a}) . mapping _Time;
+cExpiration = lens _cExpiration (\ s a -> s{_cExpiration = a}) . mapping _Time
 
 -- | The Secret Access Key portion of the credentials
 cSecretKey :: Lens' Credentials (Maybe Text)
-cSecretKey = lens _cSecretKey (\ s a -> s{_cSecretKey = a});
+cSecretKey = lens _cSecretKey (\ s a -> s{_cSecretKey = a})
 
 -- | The Access Key portion of the credentials.
 cAccessKeyId :: Lens' Credentials (Maybe Text)
-cAccessKeyId = lens _cAccessKeyId (\ s a -> s{_cAccessKeyId = a});
+cAccessKeyId = lens _cAccessKeyId (\ s a -> s{_cAccessKeyId = a})
 
 instance FromJSON Credentials where
         parseJSON
@@ -177,28 +177,28 @@ identityDescription
     :: IdentityDescription
 identityDescription =
   IdentityDescription'
-  { _idLastModifiedDate = Nothing
-  , _idCreationDate = Nothing
-  , _idLogins = Nothing
-  , _idIdentityId = Nothing
-  }
+    { _idLastModifiedDate = Nothing
+    , _idCreationDate = Nothing
+    , _idLogins = Nothing
+    , _idIdentityId = Nothing
+    }
 
 
 -- | Date on which the identity was last modified.
 idLastModifiedDate :: Lens' IdentityDescription (Maybe UTCTime)
-idLastModifiedDate = lens _idLastModifiedDate (\ s a -> s{_idLastModifiedDate = a}) . mapping _Time;
+idLastModifiedDate = lens _idLastModifiedDate (\ s a -> s{_idLastModifiedDate = a}) . mapping _Time
 
 -- | Date on which the identity was created.
 idCreationDate :: Lens' IdentityDescription (Maybe UTCTime)
-idCreationDate = lens _idCreationDate (\ s a -> s{_idCreationDate = a}) . mapping _Time;
+idCreationDate = lens _idCreationDate (\ s a -> s{_idCreationDate = a}) . mapping _Time
 
 -- | A set of optional name-value pairs that map provider names to provider tokens.
 idLogins :: Lens' IdentityDescription [Text]
-idLogins = lens _idLogins (\ s a -> s{_idLogins = a}) . _Default . _Coerce;
+idLogins = lens _idLogins (\ s a -> s{_idLogins = a}) . _Default . _Coerce
 
 -- | A unique identifier in the format REGION:GUID.
 idIdentityId :: Lens' IdentityDescription (Maybe Text)
-idIdentityId = lens _idIdentityId (\ s a -> s{_idIdentityId = a});
+idIdentityId = lens _idIdentityId (\ s a -> s{_idIdentityId = a})
 
 instance FromJSON IdentityDescription where
         parseJSON
@@ -256,48 +256,48 @@ identityPool
     -> IdentityPool
 identityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
   IdentityPool'
-  { _ipSamlProviderARNs = Nothing
-  , _ipSupportedLoginProviders = Nothing
-  , _ipDeveloperProviderName = Nothing
-  , _ipOpenIdConnectProviderARNs = Nothing
-  , _ipCognitoIdentityProviders = Nothing
-  , _ipIdentityPoolId = pIdentityPoolId_
-  , _ipIdentityPoolName = pIdentityPoolName_
-  , _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
-  }
+    { _ipSamlProviderARNs = Nothing
+    , _ipSupportedLoginProviders = Nothing
+    , _ipDeveloperProviderName = Nothing
+    , _ipOpenIdConnectProviderARNs = Nothing
+    , _ipCognitoIdentityProviders = Nothing
+    , _ipIdentityPoolId = pIdentityPoolId_
+    , _ipIdentityPoolName = pIdentityPoolName_
+    , _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
+    }
 
 
 -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
 ipSamlProviderARNs :: Lens' IdentityPool [Text]
-ipSamlProviderARNs = lens _ipSamlProviderARNs (\ s a -> s{_ipSamlProviderARNs = a}) . _Default . _Coerce;
+ipSamlProviderARNs = lens _ipSamlProviderARNs (\ s a -> s{_ipSamlProviderARNs = a}) . _Default . _Coerce
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 ipSupportedLoginProviders :: Lens' IdentityPool (HashMap Text Text)
-ipSupportedLoginProviders = lens _ipSupportedLoginProviders (\ s a -> s{_ipSupportedLoginProviders = a}) . _Default . _Map;
+ipSupportedLoginProviders = lens _ipSupportedLoginProviders (\ s a -> s{_ipSupportedLoginProviders = a}) . _Default . _Map
 
 -- | The "domain" by which Cognito will refer to your users.
 ipDeveloperProviderName :: Lens' IdentityPool (Maybe Text)
-ipDeveloperProviderName = lens _ipDeveloperProviderName (\ s a -> s{_ipDeveloperProviderName = a});
+ipDeveloperProviderName = lens _ipDeveloperProviderName (\ s a -> s{_ipDeveloperProviderName = a})
 
 -- | A list of OpendID Connect provider ARNs.
 ipOpenIdConnectProviderARNs :: Lens' IdentityPool [Text]
-ipOpenIdConnectProviderARNs = lens _ipOpenIdConnectProviderARNs (\ s a -> s{_ipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
+ipOpenIdConnectProviderARNs = lens _ipOpenIdConnectProviderARNs (\ s a -> s{_ipOpenIdConnectProviderARNs = a}) . _Default . _Coerce
 
 -- | A list representing an Amazon Cognito Identity User Pool and its client ID.
 ipCognitoIdentityProviders :: Lens' IdentityPool [CognitoIdentityProvider]
-ipCognitoIdentityProviders = lens _ipCognitoIdentityProviders (\ s a -> s{_ipCognitoIdentityProviders = a}) . _Default . _Coerce;
+ipCognitoIdentityProviders = lens _ipCognitoIdentityProviders (\ s a -> s{_ipCognitoIdentityProviders = a}) . _Default . _Coerce
 
 -- | An identity pool ID in the format REGION:GUID.
 ipIdentityPoolId :: Lens' IdentityPool Text
-ipIdentityPoolId = lens _ipIdentityPoolId (\ s a -> s{_ipIdentityPoolId = a});
+ipIdentityPoolId = lens _ipIdentityPoolId (\ s a -> s{_ipIdentityPoolId = a})
 
 -- | A string that you provide.
 ipIdentityPoolName :: Lens' IdentityPool Text
-ipIdentityPoolName = lens _ipIdentityPoolName (\ s a -> s{_ipIdentityPoolName = a});
+ipIdentityPoolName = lens _ipIdentityPoolName (\ s a -> s{_ipIdentityPoolName = a})
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 ipAllowUnauthenticatedIdentities :: Lens' IdentityPool Bool
-ipAllowUnauthenticatedIdentities = lens _ipAllowUnauthenticatedIdentities (\ s a -> s{_ipAllowUnauthenticatedIdentities = a});
+ipAllowUnauthenticatedIdentities = lens _ipAllowUnauthenticatedIdentities (\ s a -> s{_ipAllowUnauthenticatedIdentities = a})
 
 instance FromJSON IdentityPool where
         parseJSON
@@ -358,16 +358,16 @@ identityPoolShortDescription
     :: IdentityPoolShortDescription
 identityPoolShortDescription =
   IdentityPoolShortDescription'
-  {_ipsdIdentityPoolId = Nothing, _ipsdIdentityPoolName = Nothing}
+    {_ipsdIdentityPoolId = Nothing, _ipsdIdentityPoolName = Nothing}
 
 
 -- | An identity pool ID in the format REGION:GUID.
 ipsdIdentityPoolId :: Lens' IdentityPoolShortDescription (Maybe Text)
-ipsdIdentityPoolId = lens _ipsdIdentityPoolId (\ s a -> s{_ipsdIdentityPoolId = a});
+ipsdIdentityPoolId = lens _ipsdIdentityPoolId (\ s a -> s{_ipsdIdentityPoolId = a})
 
 -- | A string that you provide.
 ipsdIdentityPoolName :: Lens' IdentityPoolShortDescription (Maybe Text)
-ipsdIdentityPoolName = lens _ipsdIdentityPoolName (\ s a -> s{_ipsdIdentityPoolName = a});
+ipsdIdentityPoolName = lens _ipsdIdentityPoolName (\ s a -> s{_ipsdIdentityPoolName = a})
 
 instance FromJSON IdentityPoolShortDescription where
         parseJSON
@@ -413,28 +413,28 @@ mappingRule
     -> MappingRule
 mappingRule pClaim_ pMatchType_ pValue_ pRoleARN_ =
   MappingRule'
-  { _mrClaim = pClaim_
-  , _mrMatchType = pMatchType_
-  , _mrValue = pValue_
-  , _mrRoleARN = pRoleARN_
-  }
+    { _mrClaim = pClaim_
+    , _mrMatchType = pMatchType_
+    , _mrValue = pValue_
+    , _mrRoleARN = pRoleARN_
+    }
 
 
 -- | The claim name that must be present in the token, for example, "isAdmin" or "paid".
 mrClaim :: Lens' MappingRule Text
-mrClaim = lens _mrClaim (\ s a -> s{_mrClaim = a});
+mrClaim = lens _mrClaim (\ s a -> s{_mrClaim = a})
 
 -- | The match condition that specifies how closely the claim value in the IdP token must match @Value@ .
 mrMatchType :: Lens' MappingRule MappingRuleMatchType
-mrMatchType = lens _mrMatchType (\ s a -> s{_mrMatchType = a});
+mrMatchType = lens _mrMatchType (\ s a -> s{_mrMatchType = a})
 
 -- | A brief string that the claim must match, for example, "paid" or "yes".
 mrValue :: Lens' MappingRule Text
-mrValue = lens _mrValue (\ s a -> s{_mrValue = a});
+mrValue = lens _mrValue (\ s a -> s{_mrValue = a})
 
 -- | The role ARN.
 mrRoleARN :: Lens' MappingRule Text
-mrRoleARN = lens _mrRoleARN (\ s a -> s{_mrRoleARN = a});
+mrRoleARN = lens _mrRoleARN (\ s a -> s{_mrRoleARN = a})
 
 instance FromJSON MappingRule where
         parseJSON
@@ -484,23 +484,23 @@ roleMapping
     -> RoleMapping
 roleMapping pType_ =
   RoleMapping'
-  { _rmRulesConfiguration = Nothing
-  , _rmAmbiguousRoleResolution = Nothing
-  , _rmType = pType_
-  }
+    { _rmRulesConfiguration = Nothing
+    , _rmAmbiguousRoleResolution = Nothing
+    , _rmType = pType_
+    }
 
 
 -- | The rules to be used for mapping users to roles. If you specify Rules as the role mapping type, @RulesConfiguration@ is required.
 rmRulesConfiguration :: Lens' RoleMapping (Maybe RulesConfigurationType)
-rmRulesConfiguration = lens _rmRulesConfiguration (\ s a -> s{_rmRulesConfiguration = a});
+rmRulesConfiguration = lens _rmRulesConfiguration (\ s a -> s{_rmRulesConfiguration = a})
 
 -- | If you specify Token or Rules as the @Type@ , @AmbiguousRoleResolution@ is required. Specifies the action to be taken if either no rules match the claim value for the @Rules@ type, or there is no @cognito:preferred_role@ claim and there are multiple @cognito:roles@ matches for the @Token@ type.
 rmAmbiguousRoleResolution :: Lens' RoleMapping (Maybe AmbiguousRoleResolutionType)
-rmAmbiguousRoleResolution = lens _rmAmbiguousRoleResolution (\ s a -> s{_rmAmbiguousRoleResolution = a});
+rmAmbiguousRoleResolution = lens _rmAmbiguousRoleResolution (\ s a -> s{_rmAmbiguousRoleResolution = a})
 
 -- | The role mapping type. Token will use @cognito:roles@ and @cognito:preferred_role@ claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.
 rmType :: Lens' RoleMapping RoleMappingType
-rmType = lens _rmType (\ s a -> s{_rmType = a});
+rmType = lens _rmType (\ s a -> s{_rmType = a})
 
 instance FromJSON RoleMapping where
         parseJSON
@@ -548,7 +548,7 @@ rulesConfigurationType pRules_ =
 
 -- | An array of rules. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
 rctRules :: Lens' RulesConfigurationType (NonEmpty MappingRule)
-rctRules = lens _rctRules (\ s a -> s{_rctRules = a}) . _List1;
+rctRules = lens _rctRules (\ s a -> s{_rctRules = a}) . _List1
 
 instance FromJSON RulesConfigurationType where
         parseJSON
@@ -589,11 +589,11 @@ unprocessedIdentityId =
 
 -- | The error code indicating the type of error that occurred.
 uiiErrorCode :: Lens' UnprocessedIdentityId (Maybe CognitoErrorCode)
-uiiErrorCode = lens _uiiErrorCode (\ s a -> s{_uiiErrorCode = a});
+uiiErrorCode = lens _uiiErrorCode (\ s a -> s{_uiiErrorCode = a})
 
 -- | A unique identifier in the format REGION:GUID.
 uiiIdentityId :: Lens' UnprocessedIdentityId (Maybe Text)
-uiiIdentityId = lens _uiiIdentityId (\ s a -> s{_uiiIdentityId = a});
+uiiIdentityId = lens _uiiIdentityId (\ s a -> s{_uiiIdentityId = a})
 
 instance FromJSON UnprocessedIdentityId where
         parseJSON

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.PollForActivityTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,20 +90,23 @@ pollForActivityTask
     -> PollForActivityTask
 pollForActivityTask pDomain_ pTaskList_ =
   PollForActivityTask'
-  {_pfatIdentity = Nothing, _pfatDomain = pDomain_, _pfatTaskList = pTaskList_}
+    { _pfatIdentity = Nothing
+    , _pfatDomain = pDomain_
+    , _pfatTaskList = pTaskList_
+    }
 
 
 -- | Identity of the worker making the request, recorded in the @ActivityTaskStarted@ event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
 pfatIdentity :: Lens' PollForActivityTask (Maybe Text)
-pfatIdentity = lens _pfatIdentity (\ s a -> s{_pfatIdentity = a});
+pfatIdentity = lens _pfatIdentity (\ s a -> s{_pfatIdentity = a})
 
 -- | The name of the domain that contains the task lists being polled.
 pfatDomain :: Lens' PollForActivityTask Text
-pfatDomain = lens _pfatDomain (\ s a -> s{_pfatDomain = a});
+pfatDomain = lens _pfatDomain (\ s a -> s{_pfatDomain = a})
 
 -- | Specifies the task list to poll for activity tasks. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 pfatTaskList :: Lens' PollForActivityTask TaskList
-pfatTaskList = lens _pfatTaskList (\ s a -> s{_pfatTaskList = a});
+pfatTaskList = lens _pfatTaskList (\ s a -> s{_pfatTaskList = a})
 
 instance AWSRequest PollForActivityTask where
         type Rs PollForActivityTask =
@@ -187,42 +190,42 @@ pollForActivityTaskResponse
     -> PollForActivityTaskResponse
 pollForActivityTaskResponse pResponseStatus_ pStartedEventId_ =
   PollForActivityTaskResponse'
-  { _pfatrsActivityType = Nothing
-  , _pfatrsActivityId = Nothing
-  , _pfatrsInput = Nothing
-  , _pfatrsTaskToken = Nothing
-  , _pfatrsWorkflowExecution = Nothing
-  , _pfatrsResponseStatus = pResponseStatus_
-  , _pfatrsStartedEventId = pStartedEventId_
-  }
+    { _pfatrsActivityType = Nothing
+    , _pfatrsActivityId = Nothing
+    , _pfatrsInput = Nothing
+    , _pfatrsTaskToken = Nothing
+    , _pfatrsWorkflowExecution = Nothing
+    , _pfatrsResponseStatus = pResponseStatus_
+    , _pfatrsStartedEventId = pStartedEventId_
+    }
 
 
 -- | The type of this activity task.
 pfatrsActivityType :: Lens' PollForActivityTaskResponse (Maybe ActivityType)
-pfatrsActivityType = lens _pfatrsActivityType (\ s a -> s{_pfatrsActivityType = a});
+pfatrsActivityType = lens _pfatrsActivityType (\ s a -> s{_pfatrsActivityType = a})
 
 -- | The unique ID of the task.
 pfatrsActivityId :: Lens' PollForActivityTaskResponse (Maybe Text)
-pfatrsActivityId = lens _pfatrsActivityId (\ s a -> s{_pfatrsActivityId = a});
+pfatrsActivityId = lens _pfatrsActivityId (\ s a -> s{_pfatrsActivityId = a})
 
 -- | The inputs provided when the activity task was scheduled. The form of the input is user defined and should be meaningful to the activity implementation.
 pfatrsInput :: Lens' PollForActivityTaskResponse (Maybe Text)
-pfatrsInput = lens _pfatrsInput (\ s a -> s{_pfatrsInput = a});
+pfatrsInput = lens _pfatrsInput (\ s a -> s{_pfatrsInput = a})
 
 -- | The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.
 pfatrsTaskToken :: Lens' PollForActivityTaskResponse (Maybe Text)
-pfatrsTaskToken = lens _pfatrsTaskToken (\ s a -> s{_pfatrsTaskToken = a});
+pfatrsTaskToken = lens _pfatrsTaskToken (\ s a -> s{_pfatrsTaskToken = a})
 
 -- | The workflow execution that started this activity task.
 pfatrsWorkflowExecution :: Lens' PollForActivityTaskResponse (Maybe WorkflowExecution)
-pfatrsWorkflowExecution = lens _pfatrsWorkflowExecution (\ s a -> s{_pfatrsWorkflowExecution = a});
+pfatrsWorkflowExecution = lens _pfatrsWorkflowExecution (\ s a -> s{_pfatrsWorkflowExecution = a})
 
 -- | -- | The response status code.
 pfatrsResponseStatus :: Lens' PollForActivityTaskResponse Int
-pfatrsResponseStatus = lens _pfatrsResponseStatus (\ s a -> s{_pfatrsResponseStatus = a});
+pfatrsResponseStatus = lens _pfatrsResponseStatus (\ s a -> s{_pfatrsResponseStatus = a})
 
 -- | The ID of the @ActivityTaskStarted@ event recorded in the history.
 pfatrsStartedEventId :: Lens' PollForActivityTaskResponse Integer
-pfatrsStartedEventId = lens _pfatrsStartedEventId (\ s a -> s{_pfatrsStartedEventId = a});
+pfatrsStartedEventId = lens _pfatrsStartedEventId (\ s a -> s{_pfatrsStartedEventId = a})
 
 instance NFData PollForActivityTaskResponse where

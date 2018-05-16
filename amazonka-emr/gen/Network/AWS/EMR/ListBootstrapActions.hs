@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListBootstrapActions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,11 +76,11 @@ listBootstrapActions pClusterId_ =
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
-lbaMarker = lens _lbaMarker (\ s a -> s{_lbaMarker = a});
+lbaMarker = lens _lbaMarker (\ s a -> s{_lbaMarker = a})
 
 -- | The cluster identifier for the bootstrap actions to list.
 lbaClusterId :: Lens' ListBootstrapActions Text
-lbaClusterId = lens _lbaClusterId (\ s a -> s{_lbaClusterId = a});
+lbaClusterId = lens _lbaClusterId (\ s a -> s{_lbaClusterId = a})
 
 instance AWSPager ListBootstrapActions where
         page rq rs
@@ -154,22 +154,22 @@ listBootstrapActionsResponse
     -> ListBootstrapActionsResponse
 listBootstrapActionsResponse pResponseStatus_ =
   ListBootstrapActionsResponse'
-  { _lbarsBootstrapActions = Nothing
-  , _lbarsMarker = Nothing
-  , _lbarsResponseStatus = pResponseStatus_
-  }
+    { _lbarsBootstrapActions = Nothing
+    , _lbarsMarker = Nothing
+    , _lbarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The bootstrap actions associated with the cluster.
 lbarsBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
-lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapActions = a}) . _Default . _Coerce;
+lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapActions = a}) . _Default . _Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
-lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a});
+lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a})
 
 -- | -- | The response status code.
 lbarsResponseStatus :: Lens' ListBootstrapActionsResponse Int
-lbarsResponseStatus = lens _lbarsResponseStatus (\ s a -> s{_lbarsResponseStatus = a});
+lbarsResponseStatus = lens _lbarsResponseStatus (\ s a -> s{_lbarsResponseStatus = a})
 
 instance NFData ListBootstrapActionsResponse where

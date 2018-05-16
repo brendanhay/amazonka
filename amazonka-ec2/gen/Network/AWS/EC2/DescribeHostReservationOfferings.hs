@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeHostReservationOfferings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,38 +82,38 @@ describeHostReservationOfferings
     :: DescribeHostReservationOfferings
 describeHostReservationOfferings =
   DescribeHostReservationOfferings'
-  { _dhroMaxDuration = Nothing
-  , _dhroNextToken = Nothing
-  , _dhroMinDuration = Nothing
-  , _dhroOfferingId = Nothing
-  , _dhroFilter = Nothing
-  , _dhroMaxResults = Nothing
-  }
+    { _dhroMaxDuration = Nothing
+    , _dhroNextToken = Nothing
+    , _dhroMinDuration = Nothing
+    , _dhroOfferingId = Nothing
+    , _dhroFilter = Nothing
+    , _dhroMaxResults = Nothing
+    }
 
 
 -- | This is the maximum duration of the reservation you'd like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 94608000 for three years.
 dhroMaxDuration :: Lens' DescribeHostReservationOfferings (Maybe Int)
-dhroMaxDuration = lens _dhroMaxDuration (\ s a -> s{_dhroMaxDuration = a});
+dhroMaxDuration = lens _dhroMaxDuration (\ s a -> s{_dhroMaxDuration = a})
 
 -- | The token to use to retrieve the next page of results.
 dhroNextToken :: Lens' DescribeHostReservationOfferings (Maybe Text)
-dhroNextToken = lens _dhroNextToken (\ s a -> s{_dhroNextToken = a});
+dhroNextToken = lens _dhroNextToken (\ s a -> s{_dhroNextToken = a})
 
 -- | This is the minimum duration of the reservation you'd like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 31536000 for one year.
 dhroMinDuration :: Lens' DescribeHostReservationOfferings (Maybe Int)
-dhroMinDuration = lens _dhroMinDuration (\ s a -> s{_dhroMinDuration = a});
+dhroMinDuration = lens _dhroMinDuration (\ s a -> s{_dhroMinDuration = a})
 
 -- | The ID of the reservation offering.
 dhroOfferingId :: Lens' DescribeHostReservationOfferings (Maybe Text)
-dhroOfferingId = lens _dhroOfferingId (\ s a -> s{_dhroOfferingId = a});
+dhroOfferingId = lens _dhroOfferingId (\ s a -> s{_dhroOfferingId = a})
 
 -- | One or more filters.     * @instance-family@ - The instance family of the offering (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
 dhroFilter :: Lens' DescribeHostReservationOfferings [Filter]
-dhroFilter = lens _dhroFilter (\ s a -> s{_dhroFilter = a}) . _Default . _Coerce;
+dhroFilter = lens _dhroFilter (\ s a -> s{_dhroFilter = a}) . _Default . _Coerce
 
 -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
 dhroMaxResults :: Lens' DescribeHostReservationOfferings (Maybe Int)
-dhroMaxResults = lens _dhroMaxResults (\ s a -> s{_dhroMaxResults = a});
+dhroMaxResults = lens _dhroMaxResults (\ s a -> s{_dhroMaxResults = a})
 
 instance AWSRequest DescribeHostReservationOfferings
          where
@@ -179,23 +179,23 @@ describeHostReservationOfferingsResponse
     -> DescribeHostReservationOfferingsResponse
 describeHostReservationOfferingsResponse pResponseStatus_ =
   DescribeHostReservationOfferingsResponse'
-  { _dhrorsOfferingSet = Nothing
-  , _dhrorsNextToken = Nothing
-  , _dhrorsResponseStatus = pResponseStatus_
-  }
+    { _dhrorsOfferingSet = Nothing
+    , _dhrorsNextToken = Nothing
+    , _dhrorsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the offerings.
 dhrorsOfferingSet :: Lens' DescribeHostReservationOfferingsResponse [HostOffering]
-dhrorsOfferingSet = lens _dhrorsOfferingSet (\ s a -> s{_dhrorsOfferingSet = a}) . _Default . _Coerce;
+dhrorsOfferingSet = lens _dhrorsOfferingSet (\ s a -> s{_dhrorsOfferingSet = a}) . _Default . _Coerce
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dhrorsNextToken :: Lens' DescribeHostReservationOfferingsResponse (Maybe Text)
-dhrorsNextToken = lens _dhrorsNextToken (\ s a -> s{_dhrorsNextToken = a});
+dhrorsNextToken = lens _dhrorsNextToken (\ s a -> s{_dhrorsNextToken = a})
 
 -- | -- | The response status code.
 dhrorsResponseStatus :: Lens' DescribeHostReservationOfferingsResponse Int
-dhrorsResponseStatus = lens _dhrorsResponseStatus (\ s a -> s{_dhrorsResponseStatus = a});
+dhrorsResponseStatus = lens _dhrorsResponseStatus (\ s a -> s{_dhrorsResponseStatus = a})
 
 instance NFData
            DescribeHostReservationOfferingsResponse

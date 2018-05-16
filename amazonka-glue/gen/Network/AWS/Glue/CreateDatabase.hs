@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateDatabase
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,11 +67,11 @@ createDatabase pDatabaseInput_ =
 
 -- | The ID of the Data Catalog in which to create the database. If none is supplied, the AWS account ID is used by default.
 cdCatalogId :: Lens' CreateDatabase (Maybe Text)
-cdCatalogId = lens _cdCatalogId (\ s a -> s{_cdCatalogId = a});
+cdCatalogId = lens _cdCatalogId (\ s a -> s{_cdCatalogId = a})
 
 -- | A @DatabaseInput@ object defining the metadata database to create in the catalog.
 cdDatabaseInput :: Lens' CreateDatabase DatabaseInput
-cdDatabaseInput = lens _cdDatabaseInput (\ s a -> s{_cdDatabaseInput = a});
+cdDatabaseInput = lens _cdDatabaseInput (\ s a -> s{_cdDatabaseInput = a})
 
 instance AWSRequest CreateDatabase where
         type Rs CreateDatabase = CreateDatabaseResponse
@@ -127,6 +127,6 @@ createDatabaseResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDatabaseResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a})
 
 instance NFData CreateDatabaseResponse where

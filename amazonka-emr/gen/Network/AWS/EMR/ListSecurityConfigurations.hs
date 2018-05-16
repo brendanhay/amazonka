@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListSecurityConfigurations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ listSecurityConfigurations = ListSecurityConfigurations' {_lscMarker = Nothing}
 
 -- | The pagination token that indicates the set of results to retrieve.
 lscMarker :: Lens' ListSecurityConfigurations (Maybe Text)
-lscMarker = lens _lscMarker (\ s a -> s{_lscMarker = a});
+lscMarker = lens _lscMarker (\ s a -> s{_lscMarker = a})
 
 instance AWSRequest ListSecurityConfigurations where
         type Rs ListSecurityConfigurations =
@@ -123,23 +123,23 @@ listSecurityConfigurationsResponse
     -> ListSecurityConfigurationsResponse
 listSecurityConfigurationsResponse pResponseStatus_ =
   ListSecurityConfigurationsResponse'
-  { _lscrsSecurityConfigurations = Nothing
-  , _lscrsMarker = Nothing
-  , _lscrsResponseStatus = pResponseStatus_
-  }
+    { _lscrsSecurityConfigurations = Nothing
+    , _lscrsMarker = Nothing
+    , _lscrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The creation date and time, and name, of each security configuration.
 lscrsSecurityConfigurations :: Lens' ListSecurityConfigurationsResponse [SecurityConfigurationSummary]
-lscrsSecurityConfigurations = lens _lscrsSecurityConfigurations (\ s a -> s{_lscrsSecurityConfigurations = a}) . _Default . _Coerce;
+lscrsSecurityConfigurations = lens _lscrsSecurityConfigurations (\ s a -> s{_lscrsSecurityConfigurations = a}) . _Default . _Coerce
 
 -- | A pagination token that indicates the next set of results to retrieve. Include the marker in the next ListSecurityConfiguration call to retrieve the next page of results, if required.
 lscrsMarker :: Lens' ListSecurityConfigurationsResponse (Maybe Text)
-lscrsMarker = lens _lscrsMarker (\ s a -> s{_lscrsMarker = a});
+lscrsMarker = lens _lscrsMarker (\ s a -> s{_lscrsMarker = a})
 
 -- | -- | The response status code.
 lscrsResponseStatus :: Lens' ListSecurityConfigurationsResponse Int
-lscrsResponseStatus = lens _lscrsResponseStatus (\ s a -> s{_lscrsResponseStatus = a});
+lscrsResponseStatus = lens _lscrsResponseStatus (\ s a -> s{_lscrsResponseStatus = a})
 
 instance NFData ListSecurityConfigurationsResponse
          where

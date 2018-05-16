@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -256,6 +256,7 @@ data ImageBuilderState
   | IBSSnapshotting
   | IBSStopped
   | IBSStopping
+  | IBSUpdatingAgent
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -269,8 +270,9 @@ instance FromText ImageBuilderState where
         "snapshotting" -> pure IBSSnapshotting
         "stopped" -> pure IBSStopped
         "stopping" -> pure IBSStopping
+        "updating_agent" -> pure IBSUpdatingAgent
         e -> fromTextError $ "Failure parsing ImageBuilderState from value: '" <> e
-           <> "'. Accepted values: deleting, failed, pending, rebooting, running, snapshotting, stopped, stopping"
+           <> "'. Accepted values: deleting, failed, pending, rebooting, running, snapshotting, stopped, stopping, updating_agent"
 
 instance ToText ImageBuilderState where
     toText = \case
@@ -282,6 +284,7 @@ instance ToText ImageBuilderState where
         IBSSnapshotting -> "SNAPSHOTTING"
         IBSStopped -> "STOPPED"
         IBSStopping -> "STOPPING"
+        IBSUpdatingAgent -> "UPDATING_AGENT"
 
 instance Hashable     ImageBuilderState
 instance NFData       ImageBuilderState
@@ -321,6 +324,7 @@ instance FromJSON ImageBuilderStateChangeReasonCode where
 
 data ImageState
   = ISAvailable
+  | ISCopying
   | ISDeleting
   | ISFailed
   | ISPending
@@ -330,15 +334,17 @@ data ImageState
 instance FromText ImageState where
     parser = takeLowerText >>= \case
         "available" -> pure ISAvailable
+        "copying" -> pure ISCopying
         "deleting" -> pure ISDeleting
         "failed" -> pure ISFailed
         "pending" -> pure ISPending
         e -> fromTextError $ "Failure parsing ImageState from value: '" <> e
-           <> "'. Accepted values: available, deleting, failed, pending"
+           <> "'. Accepted values: available, copying, deleting, failed, pending"
 
 instance ToText ImageState where
     toText = \case
         ISAvailable -> "AVAILABLE"
+        ISCopying -> "COPYING"
         ISDeleting -> "DELETING"
         ISFailed -> "FAILED"
         ISPending -> "PENDING"
@@ -354,6 +360,7 @@ instance FromJSON ImageState where
 
 data ImageStateChangeReasonCode
   = ISCRCImageBuilderNotAvailable
+  | ISCRCImageCopyFailure
   | ISCRCInternalError
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -361,13 +368,15 @@ data ImageStateChangeReasonCode
 instance FromText ImageStateChangeReasonCode where
     parser = takeLowerText >>= \case
         "image_builder_not_available" -> pure ISCRCImageBuilderNotAvailable
+        "image_copy_failure" -> pure ISCRCImageCopyFailure
         "internal_error" -> pure ISCRCInternalError
         e -> fromTextError $ "Failure parsing ImageStateChangeReasonCode from value: '" <> e
-           <> "'. Accepted values: image_builder_not_available, internal_error"
+           <> "'. Accepted values: image_builder_not_available, image_copy_failure, internal_error"
 
 instance ToText ImageStateChangeReasonCode where
     toText = \case
         ISCRCImageBuilderNotAvailable -> "IMAGE_BUILDER_NOT_AVAILABLE"
+        ISCRCImageCopyFailure -> "IMAGE_COPY_FAILURE"
         ISCRCInternalError -> "INTERNAL_ERROR"
 
 instance Hashable     ImageStateChangeReasonCode
@@ -435,6 +444,39 @@ instance ToHeader     SessionState
 
 instance FromJSON SessionState where
     parseJSON = parseJSONText "SessionState"
+
+data StackAttribute
+  = FeedbackURL
+  | RedirectURL
+  | StorageConnectors
+  | ThemeName
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StackAttribute where
+    parser = takeLowerText >>= \case
+        "feedback_url" -> pure FeedbackURL
+        "redirect_url" -> pure RedirectURL
+        "storage_connectors" -> pure StorageConnectors
+        "theme_name" -> pure ThemeName
+        e -> fromTextError $ "Failure parsing StackAttribute from value: '" <> e
+           <> "'. Accepted values: feedback_url, redirect_url, storage_connectors, theme_name"
+
+instance ToText StackAttribute where
+    toText = \case
+        FeedbackURL -> "FEEDBACK_URL"
+        RedirectURL -> "REDIRECT_URL"
+        StorageConnectors -> "STORAGE_CONNECTORS"
+        ThemeName -> "THEME_NAME"
+
+instance Hashable     StackAttribute
+instance NFData       StackAttribute
+instance ToByteString StackAttribute
+instance ToQuery      StackAttribute
+instance ToHeader     StackAttribute
+
+instance ToJSON StackAttribute where
+    toJSON = toJSONText
 
 data StackErrorCode
   = SECInternalServiceError

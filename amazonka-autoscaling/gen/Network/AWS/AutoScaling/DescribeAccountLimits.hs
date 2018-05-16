@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAccountLimits
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Describes the current Auto Scaling resource limits for your AWS account.
 --
 --
--- For information about requesting an increase in these limits, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits> in the /Amazon Web Services General Reference/ .
+-- For information about requesting an increase in these limits, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-account-limits.html Auto Scaling Limits> in the /Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.DescribeAccountLimits
     (
@@ -119,32 +119,32 @@ describeAccountLimitsResponse
     -> DescribeAccountLimitsResponse
 describeAccountLimitsResponse pResponseStatus_ =
   DescribeAccountLimitsResponse'
-  { _dalrsNumberOfLaunchConfigurations = Nothing
-  , _dalrsNumberOfAutoScalingGroups = Nothing
-  , _dalrsMaxNumberOfAutoScalingGroups = Nothing
-  , _dalrsMaxNumberOfLaunchConfigurations = Nothing
-  , _dalrsResponseStatus = pResponseStatus_
-  }
+    { _dalrsNumberOfLaunchConfigurations = Nothing
+    , _dalrsNumberOfAutoScalingGroups = Nothing
+    , _dalrsMaxNumberOfAutoScalingGroups = Nothing
+    , _dalrsMaxNumberOfLaunchConfigurations = Nothing
+    , _dalrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current number of launch configurations for your AWS account.
 dalrsNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Int)
-dalrsNumberOfLaunchConfigurations = lens _dalrsNumberOfLaunchConfigurations (\ s a -> s{_dalrsNumberOfLaunchConfigurations = a});
+dalrsNumberOfLaunchConfigurations = lens _dalrsNumberOfLaunchConfigurations (\ s a -> s{_dalrsNumberOfLaunchConfigurations = a})
 
 -- | The current number of groups for your AWS account.
 dalrsNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Int)
-dalrsNumberOfAutoScalingGroups = lens _dalrsNumberOfAutoScalingGroups (\ s a -> s{_dalrsNumberOfAutoScalingGroups = a});
+dalrsNumberOfAutoScalingGroups = lens _dalrsNumberOfAutoScalingGroups (\ s a -> s{_dalrsNumberOfAutoScalingGroups = a})
 
 -- | The maximum number of groups allowed for your AWS account. The default limit is 20 per region.
 dalrsMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Int)
-dalrsMaxNumberOfAutoScalingGroups = lens _dalrsMaxNumberOfAutoScalingGroups (\ s a -> s{_dalrsMaxNumberOfAutoScalingGroups = a});
+dalrsMaxNumberOfAutoScalingGroups = lens _dalrsMaxNumberOfAutoScalingGroups (\ s a -> s{_dalrsMaxNumberOfAutoScalingGroups = a})
 
 -- | The maximum number of launch configurations allowed for your AWS account. The default limit is 100 per region.
 dalrsMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Int)
-dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfigurations (\ s a -> s{_dalrsMaxNumberOfLaunchConfigurations = a});
+dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfigurations (\ s a -> s{_dalrsMaxNumberOfLaunchConfigurations = a})
 
 -- | -- | The response status code.
 dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
-dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a});
+dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a})
 
 instance NFData DescribeAccountLimitsResponse where

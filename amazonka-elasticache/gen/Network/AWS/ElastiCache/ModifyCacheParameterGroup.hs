@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ModifyCacheParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,18 +67,18 @@ modifyCacheParameterGroup
     -> ModifyCacheParameterGroup
 modifyCacheParameterGroup pCacheParameterGroupName_ =
   ModifyCacheParameterGroup'
-  { _mcpgCacheParameterGroupName = pCacheParameterGroupName_
-  , _mcpgParameterNameValues = mempty
-  }
+    { _mcpgCacheParameterGroupName = pCacheParameterGroupName_
+    , _mcpgParameterNameValues = mempty
+    }
 
 
 -- | The name of the cache parameter group to modify.
 mcpgCacheParameterGroupName :: Lens' ModifyCacheParameterGroup Text
-mcpgCacheParameterGroupName = lens _mcpgCacheParameterGroupName (\ s a -> s{_mcpgCacheParameterGroupName = a});
+mcpgCacheParameterGroupName = lens _mcpgCacheParameterGroupName (\ s a -> s{_mcpgCacheParameterGroupName = a})
 
 -- | An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.
 mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
-mcpgParameterNameValues = lens _mcpgParameterNameValues (\ s a -> s{_mcpgParameterNameValues = a}) . _Coerce;
+mcpgParameterNameValues = lens _mcpgParameterNameValues (\ s a -> s{_mcpgParameterNameValues = a}) . _Coerce
 
 instance AWSRequest ModifyCacheParameterGroup where
         type Rs ModifyCacheParameterGroup =

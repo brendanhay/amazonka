@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteTape
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified virtual tape. This operation is only supported in the tape gateway architecture.
+-- Deletes the specified virtual tape. This operation is only supported in the tape gateway type.
 --
 --
 module Network.AWS.StorageGateway.DeleteTape
@@ -73,11 +73,11 @@ deleteTape pGatewayARN_ pTapeARN_ =
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is associated with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 delGatewayARN :: Lens' DeleteTape Text
-delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});
+delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a})
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
 delTapeARN :: Lens' DeleteTape Text
-delTapeARN = lens _delTapeARN (\ s a -> s{_delTapeARN = a});
+delTapeARN = lens _delTapeARN (\ s a -> s{_delTapeARN = a})
 
 instance AWSRequest DeleteTape where
         type Rs DeleteTape = DeleteTapeResponse
@@ -137,15 +137,15 @@ deleteTapeResponse
     -> DeleteTapeResponse
 deleteTapeResponse pResponseStatus_ =
   DeleteTapeResponse'
-  {_dtrsTapeARN = Nothing, _dtrsResponseStatus = pResponseStatus_}
+    {_dtrsTapeARN = Nothing, _dtrsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon Resource Name (ARN) of the deleted virtual tape.
 dtrsTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
-dtrsTapeARN = lens _dtrsTapeARN (\ s a -> s{_dtrsTapeARN = a});
+dtrsTapeARN = lens _dtrsTapeARN (\ s a -> s{_dtrsTapeARN = a})
 
 -- | -- | The response status code.
 dtrsResponseStatus :: Lens' DeleteTapeResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
 
 instance NFData DeleteTapeResponse where

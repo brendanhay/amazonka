@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,16 @@ updateHITTypeOfHIT
     -> UpdateHITTypeOfHIT
 updateHITTypeOfHIT pHITId_ pHITTypeId_ =
   UpdateHITTypeOfHIT'
-  {_uhittohitHITId = pHITId_, _uhittohitHITTypeId = pHITTypeId_}
+    {_uhittohitHITId = pHITId_, _uhittohitHITTypeId = pHITTypeId_}
 
 
 -- | The HIT to update.
 uhittohitHITId :: Lens' UpdateHITTypeOfHIT Text
-uhittohitHITId = lens _uhittohitHITId (\ s a -> s{_uhittohitHITId = a});
+uhittohitHITId = lens _uhittohitHITId (\ s a -> s{_uhittohitHITId = a})
 
 -- | The ID of the new HIT type.
 uhittohitHITTypeId :: Lens' UpdateHITTypeOfHIT Text
-uhittohitHITTypeId = lens _uhittohitHITTypeId (\ s a -> s{_uhittohitHITTypeId = a});
+uhittohitHITTypeId = lens _uhittohitHITTypeId (\ s a -> s{_uhittohitHITTypeId = a})
 
 instance AWSRequest UpdateHITTypeOfHIT where
         type Rs UpdateHITTypeOfHIT =
@@ -131,6 +131,6 @@ updateHITTypeOfHITResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 uhittohitrsResponseStatus :: Lens' UpdateHITTypeOfHITResponse Int
-uhittohitrsResponseStatus = lens _uhittohitrsResponseStatus (\ s a -> s{_uhittohitrsResponseStatus = a});
+uhittohitrsResponseStatus = lens _uhittohitrsResponseStatus (\ s a -> s{_uhittohitrsResponseStatus = a})
 
 instance NFData UpdateHITTypeOfHITResponse where

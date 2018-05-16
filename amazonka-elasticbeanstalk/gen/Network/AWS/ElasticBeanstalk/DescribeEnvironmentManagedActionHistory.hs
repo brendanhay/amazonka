@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ describeEnvironmentManagedActionHistory
     :: DescribeEnvironmentManagedActionHistory
 describeEnvironmentManagedActionHistory =
   DescribeEnvironmentManagedActionHistory'
-  { _demahNextToken = Nothing
-  , _demahEnvironmentName = Nothing
-  , _demahMaxItems = Nothing
-  , _demahEnvironmentId = Nothing
-  }
+    { _demahNextToken = Nothing
+    , _demahEnvironmentName = Nothing
+    , _demahMaxItems = Nothing
+    , _demahEnvironmentId = Nothing
+    }
 
 
 -- | The pagination token returned by a previous request.
 demahNextToken :: Lens' DescribeEnvironmentManagedActionHistory (Maybe Text)
-demahNextToken = lens _demahNextToken (\ s a -> s{_demahNextToken = a});
+demahNextToken = lens _demahNextToken (\ s a -> s{_demahNextToken = a})
 
 -- | The name of the target environment.
 demahEnvironmentName :: Lens' DescribeEnvironmentManagedActionHistory (Maybe Text)
-demahEnvironmentName = lens _demahEnvironmentName (\ s a -> s{_demahEnvironmentName = a});
+demahEnvironmentName = lens _demahEnvironmentName (\ s a -> s{_demahEnvironmentName = a})
 
 -- | The maximum number of items to return for a single request.
 demahMaxItems :: Lens' DescribeEnvironmentManagedActionHistory (Maybe Int)
-demahMaxItems = lens _demahMaxItems (\ s a -> s{_demahMaxItems = a});
+demahMaxItems = lens _demahMaxItems (\ s a -> s{_demahMaxItems = a})
 
 -- | The environment ID of the target environment.
 demahEnvironmentId :: Lens' DescribeEnvironmentManagedActionHistory (Maybe Text)
-demahEnvironmentId = lens _demahEnvironmentId (\ s a -> s{_demahEnvironmentId = a});
+demahEnvironmentId = lens _demahEnvironmentId (\ s a -> s{_demahEnvironmentId = a})
 
 instance AWSRequest
            DescribeEnvironmentManagedActionHistory
@@ -173,23 +173,23 @@ describeEnvironmentManagedActionHistoryResponse
     -> DescribeEnvironmentManagedActionHistoryResponse
 describeEnvironmentManagedActionHistoryResponse pResponseStatus_ =
   DescribeEnvironmentManagedActionHistoryResponse'
-  { _demahrsManagedActionHistoryItems = Nothing
-  , _demahrsNextToken = Nothing
-  , _demahrsResponseStatus = pResponseStatus_
-  }
+    { _demahrsManagedActionHistoryItems = Nothing
+    , _demahrsNextToken = Nothing
+    , _demahrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of completed and failed managed actions.
 demahrsManagedActionHistoryItems :: Lens' DescribeEnvironmentManagedActionHistoryResponse (Maybe (NonEmpty ManagedActionHistoryItem))
-demahrsManagedActionHistoryItems = lens _demahrsManagedActionHistoryItems (\ s a -> s{_demahrsManagedActionHistoryItems = a}) . mapping _List1;
+demahrsManagedActionHistoryItems = lens _demahrsManagedActionHistoryItems (\ s a -> s{_demahrsManagedActionHistoryItems = a}) . mapping _List1
 
 -- | A pagination token that you pass to 'DescribeEnvironmentManagedActionHistory' to get the next page of results.
 demahrsNextToken :: Lens' DescribeEnvironmentManagedActionHistoryResponse (Maybe Text)
-demahrsNextToken = lens _demahrsNextToken (\ s a -> s{_demahrsNextToken = a});
+demahrsNextToken = lens _demahrsNextToken (\ s a -> s{_demahrsNextToken = a})
 
 -- | -- | The response status code.
 demahrsResponseStatus :: Lens' DescribeEnvironmentManagedActionHistoryResponse Int
-demahrsResponseStatus = lens _demahrsResponseStatus (\ s a -> s{_demahrsResponseStatus = a});
+demahrsResponseStatus = lens _demahrsResponseStatus (\ s a -> s{_demahrsResponseStatus = a})
 
 instance NFData
            DescribeEnvironmentManagedActionHistoryResponse

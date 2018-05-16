@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Athena.ListNamedQueries
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ listNamedQueries =
 
 -- | The token that specifies where to start pagination if a previous request was truncated.
 lnqNextToken :: Lens' ListNamedQueries (Maybe Text)
-lnqNextToken = lens _lnqNextToken (\ s a -> s{_lnqNextToken = a});
+lnqNextToken = lens _lnqNextToken (\ s a -> s{_lnqNextToken = a})
 
 -- | The maximum number of queries to return in this request.
 lnqMaxResults :: Lens' ListNamedQueries (Maybe Natural)
-lnqMaxResults = lens _lnqMaxResults (\ s a -> s{_lnqMaxResults = a}) . mapping _Nat;
+lnqMaxResults = lens _lnqMaxResults (\ s a -> s{_lnqMaxResults = a}) . mapping _Nat
 
 instance AWSPager ListNamedQueries where
         page rq rs
@@ -144,22 +144,22 @@ listNamedQueriesResponse
     -> ListNamedQueriesResponse
 listNamedQueriesResponse pResponseStatus_ =
   ListNamedQueriesResponse'
-  { _lnqrsNextToken = Nothing
-  , _lnqrsNamedQueryIds = Nothing
-  , _lnqrsResponseStatus = pResponseStatus_
-  }
+    { _lnqrsNextToken = Nothing
+    , _lnqrsNamedQueryIds = Nothing
+    , _lnqrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A token to be used by the next request if this request is truncated.
 lnqrsNextToken :: Lens' ListNamedQueriesResponse (Maybe Text)
-lnqrsNextToken = lens _lnqrsNextToken (\ s a -> s{_lnqrsNextToken = a});
+lnqrsNextToken = lens _lnqrsNextToken (\ s a -> s{_lnqrsNextToken = a})
 
 -- | The list of unique query IDs.
 lnqrsNamedQueryIds :: Lens' ListNamedQueriesResponse (Maybe (NonEmpty Text))
-lnqrsNamedQueryIds = lens _lnqrsNamedQueryIds (\ s a -> s{_lnqrsNamedQueryIds = a}) . mapping _List1;
+lnqrsNamedQueryIds = lens _lnqrsNamedQueryIds (\ s a -> s{_lnqrsNamedQueryIds = a}) . mapping _List1
 
 -- | -- | The response status code.
 lnqrsResponseStatus :: Lens' ListNamedQueriesResponse Int
-lnqrsResponseStatus = lens _lnqrsResponseStatus (\ s a -> s{_lnqrsResponseStatus = a});
+lnqrsResponseStatus = lens _lnqrsResponseStatus (\ s a -> s{_lnqrsResponseStatus = a})
 
 instance NFData ListNamedQueriesResponse where

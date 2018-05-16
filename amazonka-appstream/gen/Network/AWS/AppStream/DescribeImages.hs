@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeImages
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ describeImages = DescribeImages' {_diNames = Nothing}
 
 -- | The names of the images to describe.
 diNames :: Lens' DescribeImages [Text]
-diNames = lens _diNames (\ s a -> s{_diNames = a}) . _Default . _Coerce;
+diNames = lens _diNames (\ s a -> s{_diNames = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeImages where
         type Rs DescribeImages = DescribeImagesResponse
@@ -116,15 +116,15 @@ describeImagesResponse
     -> DescribeImagesResponse
 describeImagesResponse pResponseStatus_ =
   DescribeImagesResponse'
-  {_disrsImages = Nothing, _disrsResponseStatus = pResponseStatus_}
+    {_disrsImages = Nothing, _disrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the images.
 disrsImages :: Lens' DescribeImagesResponse [Image]
-disrsImages = lens _disrsImages (\ s a -> s{_disrsImages = a}) . _Default . _Coerce;
+disrsImages = lens _disrsImages (\ s a -> s{_disrsImages = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 disrsResponseStatus :: Lens' DescribeImagesResponse Int
-disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
+disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a})
 
 instance NFData DescribeImagesResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetDistribution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ getDistribution pId_ = GetDistribution' {_gdId = pId_}
 
 -- | The distribution's ID.
 gdId :: Lens' GetDistribution Text
-gdId = lens _gdId (\ s a -> s{_gdId = a});
+gdId = lens _gdId (\ s a -> s{_gdId = a})
 
 instance AWSRequest GetDistribution where
         type Rs GetDistribution = GetDistributionResponse
@@ -89,7 +89,7 @@ instance ToHeaders GetDistribution where
 
 instance ToPath GetDistribution where
         toPath GetDistribution'{..}
-          = mconcat ["/2017-03-25/distribution/", toBS _gdId]
+          = mconcat ["/2017-10-30/distribution/", toBS _gdId]
 
 instance ToQuery GetDistribution where
         toQuery = const mempty
@@ -120,22 +120,22 @@ getDistributionResponse
     -> GetDistributionResponse
 getDistributionResponse pResponseStatus_ =
   GetDistributionResponse'
-  { _gdrsETag = Nothing
-  , _gdrsDistribution = Nothing
-  , _gdrsResponseStatus = pResponseStatus_
-  }
+    { _gdrsETag = Nothing
+    , _gdrsDistribution = Nothing
+    , _gdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current version of the distribution's information. For example: @E2QWRUHAPOMQZL@ .
 gdrsETag :: Lens' GetDistributionResponse (Maybe Text)
-gdrsETag = lens _gdrsETag (\ s a -> s{_gdrsETag = a});
+gdrsETag = lens _gdrsETag (\ s a -> s{_gdrsETag = a})
 
 -- | The distribution's information.
 gdrsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
-gdrsDistribution = lens _gdrsDistribution (\ s a -> s{_gdrsDistribution = a});
+gdrsDistribution = lens _gdrsDistribution (\ s a -> s{_gdrsDistribution = a})
 
 -- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDistributionResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a})
 
 instance NFData GetDistributionResponse where

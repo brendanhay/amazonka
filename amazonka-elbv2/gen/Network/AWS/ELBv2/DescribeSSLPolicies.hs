@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeSSLPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,20 +70,20 @@ describeSSLPolicies
     :: DescribeSSLPolicies
 describeSSLPolicies =
   DescribeSSLPolicies'
-  {_dspNames = Nothing, _dspMarker = Nothing, _dspPageSize = Nothing}
+    {_dspNames = Nothing, _dspMarker = Nothing, _dspPageSize = Nothing}
 
 
 -- | The names of the policies.
 dspNames :: Lens' DescribeSSLPolicies [Text]
-dspNames = lens _dspNames (\ s a -> s{_dspNames = a}) . _Default . _Coerce;
+dspNames = lens _dspNames (\ s a -> s{_dspNames = a}) . _Default . _Coerce
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 dspMarker :: Lens' DescribeSSLPolicies (Maybe Text)
-dspMarker = lens _dspMarker (\ s a -> s{_dspMarker = a});
+dspMarker = lens _dspMarker (\ s a -> s{_dspMarker = a})
 
 -- | The maximum number of results to return with this call.
 dspPageSize :: Lens' DescribeSSLPolicies (Maybe Natural)
-dspPageSize = lens _dspPageSize (\ s a -> s{_dspPageSize = a}) . mapping _Nat;
+dspPageSize = lens _dspPageSize (\ s a -> s{_dspPageSize = a}) . mapping _Nat
 
 instance AWSRequest DescribeSSLPolicies where
         type Rs DescribeSSLPolicies =
@@ -139,22 +139,22 @@ describeSSLPoliciesResponse
     -> DescribeSSLPoliciesResponse
 describeSSLPoliciesResponse pResponseStatus_ =
   DescribeSSLPoliciesResponse'
-  { _dsprsSSLPolicies = Nothing
-  , _dsprsNextMarker = Nothing
-  , _dsprsResponseStatus = pResponseStatus_
-  }
+    { _dsprsSSLPolicies = Nothing
+    , _dsprsNextMarker = Nothing
+    , _dsprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the policies.
 dsprsSSLPolicies :: Lens' DescribeSSLPoliciesResponse [SSLPolicy]
-dsprsSSLPolicies = lens _dsprsSSLPolicies (\ s a -> s{_dsprsSSLPolicies = a}) . _Default . _Coerce;
+dsprsSSLPolicies = lens _dsprsSSLPolicies (\ s a -> s{_dsprsSSLPolicies = a}) . _Default . _Coerce
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dsprsNextMarker :: Lens' DescribeSSLPoliciesResponse (Maybe Text)
-dsprsNextMarker = lens _dsprsNextMarker (\ s a -> s{_dsprsNextMarker = a});
+dsprsNextMarker = lens _dsprsNextMarker (\ s a -> s{_dsprsNextMarker = a})
 
 -- | -- | The response status code.
 dsprsResponseStatus :: Lens' DescribeSSLPoliciesResponse Int
-dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a});
+dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a})
 
 instance NFData DescribeSSLPoliciesResponse where

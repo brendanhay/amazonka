@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyHosts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ modifyHosts pAutoPlacement_ =
 
 -- | Specify whether to enable or disable auto-placement.
 mhAutoPlacement :: Lens' ModifyHosts AutoPlacement
-mhAutoPlacement = lens _mhAutoPlacement (\ s a -> s{_mhAutoPlacement = a});
+mhAutoPlacement = lens _mhAutoPlacement (\ s a -> s{_mhAutoPlacement = a})
 
 -- | The host IDs of the Dedicated Hosts you want to modify.
 mhHostIds :: Lens' ModifyHosts [Text]
-mhHostIds = lens _mhHostIds (\ s a -> s{_mhHostIds = a}) . _Coerce;
+mhHostIds = lens _mhHostIds (\ s a -> s{_mhHostIds = a}) . _Coerce
 
 instance AWSRequest ModifyHosts where
         type Rs ModifyHosts = ModifyHostsResponse
@@ -137,22 +137,22 @@ modifyHostsResponse
     -> ModifyHostsResponse
 modifyHostsResponse pResponseStatus_ =
   ModifyHostsResponse'
-  { _mhrsUnsuccessful = Nothing
-  , _mhrsSuccessful = Nothing
-  , _mhrsResponseStatus = pResponseStatus_
-  }
+    { _mhrsUnsuccessful = Nothing
+    , _mhrsSuccessful = Nothing
+    , _mhrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The IDs of the Dedicated Hosts that could not be modified. Check whether the setting you requested can be used.
 mhrsUnsuccessful :: Lens' ModifyHostsResponse [UnsuccessfulItem]
-mhrsUnsuccessful = lens _mhrsUnsuccessful (\ s a -> s{_mhrsUnsuccessful = a}) . _Default . _Coerce;
+mhrsUnsuccessful = lens _mhrsUnsuccessful (\ s a -> s{_mhrsUnsuccessful = a}) . _Default . _Coerce
 
 -- | The IDs of the Dedicated Hosts that were successfully modified.
 mhrsSuccessful :: Lens' ModifyHostsResponse [Text]
-mhrsSuccessful = lens _mhrsSuccessful (\ s a -> s{_mhrsSuccessful = a}) . _Default . _Coerce;
+mhrsSuccessful = lens _mhrsSuccessful (\ s a -> s{_mhrsSuccessful = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 mhrsResponseStatus :: Lens' ModifyHostsResponse Int
-mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a});
+mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a})
 
 instance NFData ModifyHostsResponse where

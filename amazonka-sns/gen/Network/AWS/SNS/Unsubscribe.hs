@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.Unsubscribe
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ unsubscribe pSubscriptionARN_ =
 
 -- | The ARN of the subscription to be deleted.
 uSubscriptionARN :: Lens' Unsubscribe Text
-uSubscriptionARN = lens _uSubscriptionARN (\ s a -> s{_uSubscriptionARN = a});
+uSubscriptionARN = lens _uSubscriptionARN (\ s a -> s{_uSubscriptionARN = a})
 
 instance AWSRequest Unsubscribe where
         type Rs Unsubscribe = UnsubscribeResponse

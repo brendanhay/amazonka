@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.RemoveTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ removeTags pTags_ =
 
 -- | The name of the load balancer. You can specify a maximum of one load balancer name.
 rtLoadBalancerNames :: Lens' RemoveTags [Text]
-rtLoadBalancerNames = lens _rtLoadBalancerNames (\ s a -> s{_rtLoadBalancerNames = a}) . _Coerce;
+rtLoadBalancerNames = lens _rtLoadBalancerNames (\ s a -> s{_rtLoadBalancerNames = a}) . _Coerce
 
 -- | The list of tag keys to remove.
 rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
-rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . _List1;
+rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . _List1
 
 instance AWSRequest RemoveTags where
         type Rs RemoveTags = RemoveTagsResponse
@@ -128,6 +128,6 @@ removeTagsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTagsResponse Int
-rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
+rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a})
 
 instance NFData RemoveTagsResponse where

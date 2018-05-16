@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstanceSnapshots
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ getInstanceSnapshots = GetInstanceSnapshots' {_gisPageToken = Nothing}
 
 -- | A token used for advancing to the next page of results from your get instance snapshots request.
 gisPageToken :: Lens' GetInstanceSnapshots (Maybe Text)
-gisPageToken = lens _gisPageToken (\ s a -> s{_gisPageToken = a});
+gisPageToken = lens _gisPageToken (\ s a -> s{_gisPageToken = a})
 
 instance AWSPager GetInstanceSnapshots where
         page rq rs
@@ -134,22 +134,22 @@ getInstanceSnapshotsResponse
     -> GetInstanceSnapshotsResponse
 getInstanceSnapshotsResponse pResponseStatus_ =
   GetInstanceSnapshotsResponse'
-  { _gissrsNextPageToken = Nothing
-  , _gissrsInstanceSnapshots = Nothing
-  , _gissrsResponseStatus = pResponseStatus_
-  }
+    { _gissrsNextPageToken = Nothing
+    , _gissrsInstanceSnapshots = Nothing
+    , _gissrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A token used for advancing to the next page of results from your get instance snapshots request.
 gissrsNextPageToken :: Lens' GetInstanceSnapshotsResponse (Maybe Text)
-gissrsNextPageToken = lens _gissrsNextPageToken (\ s a -> s{_gissrsNextPageToken = a});
+gissrsNextPageToken = lens _gissrsNextPageToken (\ s a -> s{_gissrsNextPageToken = a})
 
 -- | An array of key-value pairs containing information about the results of your get instance snapshots request.
 gissrsInstanceSnapshots :: Lens' GetInstanceSnapshotsResponse [InstanceSnapshot]
-gissrsInstanceSnapshots = lens _gissrsInstanceSnapshots (\ s a -> s{_gissrsInstanceSnapshots = a}) . _Default . _Coerce;
+gissrsInstanceSnapshots = lens _gissrsInstanceSnapshots (\ s a -> s{_gissrsInstanceSnapshots = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gissrsResponseStatus :: Lens' GetInstanceSnapshotsResponse Int
-gissrsResponseStatus = lens _gissrsResponseStatus (\ s a -> s{_gissrsResponseStatus = a});
+gissrsResponseStatus = lens _gissrsResponseStatus (\ s a -> s{_gissrsResponseStatus = a})
 
 instance NFData GetInstanceSnapshotsResponse where

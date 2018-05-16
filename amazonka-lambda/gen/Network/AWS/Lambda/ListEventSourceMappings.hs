@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListEventSourceMappings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,28 +85,28 @@ listEventSourceMappings
     :: ListEventSourceMappings
 listEventSourceMappings =
   ListEventSourceMappings'
-  { _lesmEventSourceARN = Nothing
-  , _lesmMarker = Nothing
-  , _lesmMaxItems = Nothing
-  , _lesmFunctionName = Nothing
-  }
+    { _lesmEventSourceARN = Nothing
+    , _lesmMarker = Nothing
+    , _lesmMaxItems = Nothing
+    , _lesmFunctionName = Nothing
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
 lesmEventSourceARN :: Lens' ListEventSourceMappings (Maybe Text)
-lesmEventSourceARN = lens _lesmEventSourceARN (\ s a -> s{_lesmEventSourceARN = a});
+lesmEventSourceARN = lens _lesmEventSourceARN (\ s a -> s{_lesmEventSourceARN = a})
 
 -- | Optional string. An opaque pagination token returned from a previous @ListEventSourceMappings@ operation. If present, specifies to continue the list from where the returning call left off.
 lesmMarker :: Lens' ListEventSourceMappings (Maybe Text)
-lesmMarker = lens _lesmMarker (\ s a -> s{_lesmMarker = a});
+lesmMarker = lens _lesmMarker (\ s a -> s{_lesmMarker = a})
 
 -- | Optional integer. Specifies the maximum number of event sources to return in response. This value must be greater than 0.
 lesmMaxItems :: Lens' ListEventSourceMappings (Maybe Natural)
-lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . mapping _Nat;
+lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . mapping _Nat
 
 -- | The name of the Lambda function. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 lesmFunctionName :: Lens' ListEventSourceMappings (Maybe Text)
-lesmFunctionName = lens _lesmFunctionName (\ s a -> s{_lesmFunctionName = a});
+lesmFunctionName = lens _lesmFunctionName (\ s a -> s{_lesmFunctionName = a})
 
 instance AWSPager ListEventSourceMappings where
         page rq rs
@@ -170,22 +170,22 @@ listEventSourceMappingsResponse
     -> ListEventSourceMappingsResponse
 listEventSourceMappingsResponse pResponseStatus_ =
   ListEventSourceMappingsResponse'
-  { _lesmrsEventSourceMappings = Nothing
-  , _lesmrsNextMarker = Nothing
-  , _lesmrsResponseStatus = pResponseStatus_
-  }
+    { _lesmrsEventSourceMappings = Nothing
+    , _lesmrsNextMarker = Nothing
+    , _lesmrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of @EventSourceMappingConfiguration@ objects.
 lesmrsEventSourceMappings :: Lens' ListEventSourceMappingsResponse [EventSourceMappingConfiguration]
-lesmrsEventSourceMappings = lens _lesmrsEventSourceMappings (\ s a -> s{_lesmrsEventSourceMappings = a}) . _Default . _Coerce;
+lesmrsEventSourceMappings = lens _lesmrsEventSourceMappings (\ s a -> s{_lesmrsEventSourceMappings = a}) . _Default . _Coerce
 
 -- | A string, present if there are more event source mappings.
 lesmrsNextMarker :: Lens' ListEventSourceMappingsResponse (Maybe Text)
-lesmrsNextMarker = lens _lesmrsNextMarker (\ s a -> s{_lesmrsNextMarker = a});
+lesmrsNextMarker = lens _lesmrsNextMarker (\ s a -> s{_lesmrsNextMarker = a})
 
 -- | -- | The response status code.
 lesmrsResponseStatus :: Lens' ListEventSourceMappingsResponse Int
-lesmrsResponseStatus = lens _lesmrsResponseStatus (\ s a -> s{_lesmrsResponseStatus = a});
+lesmrsResponseStatus = lens _lesmrsResponseStatus (\ s a -> s{_lesmrsResponseStatus = a})
 
 instance NFData ListEventSourceMappingsResponse where

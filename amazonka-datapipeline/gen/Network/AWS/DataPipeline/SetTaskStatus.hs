@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.SetTaskStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,33 +80,33 @@ setTaskStatus
     -> SetTaskStatus
 setTaskStatus pTaskId_ pTaskStatus_ =
   SetTaskStatus'
-  { _stsErrorStackTrace = Nothing
-  , _stsErrorId = Nothing
-  , _stsErrorMessage = Nothing
-  , _stsTaskId = pTaskId_
-  , _stsTaskStatus = pTaskStatus_
-  }
+    { _stsErrorStackTrace = Nothing
+    , _stsErrorId = Nothing
+    , _stsErrorMessage = Nothing
+    , _stsTaskId = pTaskId_
+    , _stsTaskStatus = pTaskStatus_
+    }
 
 
 -- | If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
 stsErrorStackTrace :: Lens' SetTaskStatus (Maybe Text)
-stsErrorStackTrace = lens _stsErrorStackTrace (\ s a -> s{_stsErrorStackTrace = a});
+stsErrorStackTrace = lens _stsErrorStackTrace (\ s a -> s{_stsErrorStackTrace = a})
 
 -- | If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.
 stsErrorId :: Lens' SetTaskStatus (Maybe Text)
-stsErrorId = lens _stsErrorId (\ s a -> s{_stsErrorId = a});
+stsErrorId = lens _stsErrorId (\ s a -> s{_stsErrorId = a})
 
 -- | If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
 stsErrorMessage :: Lens' SetTaskStatus (Maybe Text)
-stsErrorMessage = lens _stsErrorMessage (\ s a -> s{_stsErrorMessage = a});
+stsErrorMessage = lens _stsErrorMessage (\ s a -> s{_stsErrorMessage = a})
 
 -- | The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
 stsTaskId :: Lens' SetTaskStatus Text
-stsTaskId = lens _stsTaskId (\ s a -> s{_stsTaskId = a});
+stsTaskId = lens _stsTaskId (\ s a -> s{_stsTaskId = a})
 
 -- | If @FINISHED@ , the task successfully completed. If @FAILED@ , the task ended unsuccessfully. Preconditions use false.
 stsTaskStatus :: Lens' SetTaskStatus TaskStatus
-stsTaskStatus = lens _stsTaskStatus (\ s a -> s{_stsTaskStatus = a});
+stsTaskStatus = lens _stsTaskStatus (\ s a -> s{_stsTaskStatus = a})
 
 instance AWSRequest SetTaskStatus where
         type Rs SetTaskStatus = SetTaskStatusResponse
@@ -169,6 +169,6 @@ setTaskStatusResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 stsrsResponseStatus :: Lens' SetTaskStatusResponse Int
-stsrsResponseStatus = lens _stsrsResponseStatus (\ s a -> s{_stsrsResponseStatus = a});
+stsrsResponseStatus = lens _stsrsResponseStatus (\ s a -> s{_stsrsResponseStatus = a})
 
 instance NFData SetTaskStatusResponse where

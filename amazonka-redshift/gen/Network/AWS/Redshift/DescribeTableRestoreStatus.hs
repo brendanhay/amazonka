@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeTableRestoreStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ describeTableRestoreStatus
     :: DescribeTableRestoreStatus
 describeTableRestoreStatus =
   DescribeTableRestoreStatus'
-  { _dtrssTableRestoreRequestId = Nothing
-  , _dtrssClusterIdentifier = Nothing
-  , _dtrssMarker = Nothing
-  , _dtrssMaxRecords = Nothing
-  }
+    { _dtrssTableRestoreRequestId = Nothing
+    , _dtrssClusterIdentifier = Nothing
+    , _dtrssMarker = Nothing
+    , _dtrssMaxRecords = Nothing
+    }
 
 
 -- | The identifier of the table restore request to return status for. If you don't specify a @TableRestoreRequestId@ value, then @DescribeTableRestoreStatus@ returns the status of all in-progress table restore requests.
 dtrssTableRestoreRequestId :: Lens' DescribeTableRestoreStatus (Maybe Text)
-dtrssTableRestoreRequestId = lens _dtrssTableRestoreRequestId (\ s a -> s{_dtrssTableRestoreRequestId = a});
+dtrssTableRestoreRequestId = lens _dtrssTableRestoreRequestId (\ s a -> s{_dtrssTableRestoreRequestId = a})
 
 -- | The Amazon Redshift cluster that the table is being restored to.
 dtrssClusterIdentifier :: Lens' DescribeTableRestoreStatus (Maybe Text)
-dtrssClusterIdentifier = lens _dtrssClusterIdentifier (\ s a -> s{_dtrssClusterIdentifier = a});
+dtrssClusterIdentifier = lens _dtrssClusterIdentifier (\ s a -> s{_dtrssClusterIdentifier = a})
 
 -- | An optional pagination token provided by a previous @DescribeTableRestoreStatus@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the @MaxRecords@ parameter.
 dtrssMarker :: Lens' DescribeTableRestoreStatus (Maybe Text)
-dtrssMarker = lens _dtrssMarker (\ s a -> s{_dtrssMarker = a});
+dtrssMarker = lens _dtrssMarker (\ s a -> s{_dtrssMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 dtrssMaxRecords :: Lens' DescribeTableRestoreStatus (Maybe Int)
-dtrssMaxRecords = lens _dtrssMaxRecords (\ s a -> s{_dtrssMaxRecords = a});
+dtrssMaxRecords = lens _dtrssMaxRecords (\ s a -> s{_dtrssMaxRecords = a})
 
 instance AWSRequest DescribeTableRestoreStatus where
         type Rs DescribeTableRestoreStatus =
@@ -161,23 +161,23 @@ describeTableRestoreStatusResponse
     -> DescribeTableRestoreStatusResponse
 describeTableRestoreStatusResponse pResponseStatus_ =
   DescribeTableRestoreStatusResponse'
-  { _dtrsrsMarker = Nothing
-  , _dtrsrsTableRestoreStatusDetails = Nothing
-  , _dtrsrsResponseStatus = pResponseStatus_
-  }
+    { _dtrsrsMarker = Nothing
+    , _dtrsrsTableRestoreStatusDetails = Nothing
+    , _dtrsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A pagination token that can be used in a subsequent 'DescribeTableRestoreStatus' request.
 dtrsrsMarker :: Lens' DescribeTableRestoreStatusResponse (Maybe Text)
-dtrsrsMarker = lens _dtrsrsMarker (\ s a -> s{_dtrsrsMarker = a});
+dtrsrsMarker = lens _dtrsrsMarker (\ s a -> s{_dtrsrsMarker = a})
 
 -- | A list of status details for one or more table restore requests.
 dtrsrsTableRestoreStatusDetails :: Lens' DescribeTableRestoreStatusResponse [TableRestoreStatus]
-dtrsrsTableRestoreStatusDetails = lens _dtrsrsTableRestoreStatusDetails (\ s a -> s{_dtrsrsTableRestoreStatusDetails = a}) . _Default . _Coerce;
+dtrsrsTableRestoreStatusDetails = lens _dtrsrsTableRestoreStatusDetails (\ s a -> s{_dtrsrsTableRestoreStatusDetails = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtrsrsResponseStatus :: Lens' DescribeTableRestoreStatusResponse Int
-dtrsrsResponseStatus = lens _dtrsrsResponseStatus (\ s a -> s{_dtrsrsResponseStatus = a});
+dtrsrsResponseStatus = lens _dtrsrsResponseStatus (\ s a -> s{_dtrsrsResponseStatus = a})
 
 instance NFData DescribeTableRestoreStatusResponse
          where

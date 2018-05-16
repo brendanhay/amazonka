@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdatePartition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,33 +77,33 @@ updatePartition
     -> UpdatePartition
 updatePartition pDatabaseName_ pTableName_ pPartitionInput_ =
   UpdatePartition'
-  { _upCatalogId = Nothing
-  , _upDatabaseName = pDatabaseName_
-  , _upTableName = pTableName_
-  , _upPartitionValueList = mempty
-  , _upPartitionInput = pPartitionInput_
-  }
+    { _upCatalogId = Nothing
+    , _upDatabaseName = pDatabaseName_
+    , _upTableName = pTableName_
+    , _upPartitionValueList = mempty
+    , _upPartitionInput = pPartitionInput_
+    }
 
 
 -- | The ID of the Data Catalog where the partition to be updated resides. If none is supplied, the AWS account ID is used by default.
 upCatalogId :: Lens' UpdatePartition (Maybe Text)
-upCatalogId = lens _upCatalogId (\ s a -> s{_upCatalogId = a});
+upCatalogId = lens _upCatalogId (\ s a -> s{_upCatalogId = a})
 
 -- | The name of the catalog database in which the table in question resides.
 upDatabaseName :: Lens' UpdatePartition Text
-upDatabaseName = lens _upDatabaseName (\ s a -> s{_upDatabaseName = a});
+upDatabaseName = lens _upDatabaseName (\ s a -> s{_upDatabaseName = a})
 
 -- | The name of the table where the partition to be updated is located.
 upTableName :: Lens' UpdatePartition Text
-upTableName = lens _upTableName (\ s a -> s{_upTableName = a});
+upTableName = lens _upTableName (\ s a -> s{_upTableName = a})
 
 -- | A list of the values defining the partition.
 upPartitionValueList :: Lens' UpdatePartition [Text]
-upPartitionValueList = lens _upPartitionValueList (\ s a -> s{_upPartitionValueList = a}) . _Coerce;
+upPartitionValueList = lens _upPartitionValueList (\ s a -> s{_upPartitionValueList = a}) . _Coerce
 
 -- | The new partition object to which to update the partition.
 upPartitionInput :: Lens' UpdatePartition PartitionInput
-upPartitionInput = lens _upPartitionInput (\ s a -> s{_upPartitionInput = a});
+upPartitionInput = lens _upPartitionInput (\ s a -> s{_upPartitionInput = a})
 
 instance AWSRequest UpdatePartition where
         type Rs UpdatePartition = UpdatePartitionResponse
@@ -162,6 +162,6 @@ updatePartitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 uprsResponseStatus :: Lens' UpdatePartitionResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
+uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a})
 
 instance NFData UpdatePartitionResponse where

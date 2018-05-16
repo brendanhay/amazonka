@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SMS.DeleteReplicationJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ deleteReplicationJob pReplicationJobId_ =
 
 -- | Undocumented member.
 drjReplicationJobId :: Lens' DeleteReplicationJob Text
-drjReplicationJobId = lens _drjReplicationJobId (\ s a -> s{_drjReplicationJobId = a});
+drjReplicationJobId = lens _drjReplicationJobId (\ s a -> s{_drjReplicationJobId = a})
 
 instance AWSRequest DeleteReplicationJob where
         type Rs DeleteReplicationJob =
@@ -119,6 +119,6 @@ deleteReplicationJobResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drjrsResponseStatus :: Lens' DeleteReplicationJobResponse Int
-drjrsResponseStatus = lens _drjrsResponseStatus (\ s a -> s{_drjrsResponseStatus = a});
+drjrsResponseStatus = lens _drjrsResponseStatus (\ s a -> s{_drjrsResponseStatus = a})
 
 instance NFData DeleteReplicationJobResponse where

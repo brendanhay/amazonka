@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,7 +48,7 @@ import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 import Network.AWS.StorageGateway.Types.Product
 
--- | A JSON object containing the id of the gateway to delete.
+-- | A JSON object containing the ID of the gateway to delete.
 --
 --
 --
@@ -71,7 +71,7 @@ deleteGateway pGatewayARN_ = DeleteGateway' {_dgGatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
 dgGatewayARN :: Lens' DeleteGateway Text
-dgGatewayARN = lens _dgGatewayARN (\ s a -> s{_dgGatewayARN = a});
+dgGatewayARN = lens _dgGatewayARN (\ s a -> s{_dgGatewayARN = a})
 
 instance AWSRequest DeleteGateway where
         type Rs DeleteGateway = DeleteGatewayResponse
@@ -107,7 +107,7 @@ instance ToPath DeleteGateway where
 instance ToQuery DeleteGateway where
         toQuery = const mempty
 
--- | A JSON object containing the id of the deleted gateway.
+-- | A JSON object containing the ID of the deleted gateway.
 --
 --
 --
@@ -130,15 +130,15 @@ deleteGatewayResponse
     -> DeleteGatewayResponse
 deleteGatewayResponse pResponseStatus_ =
   DeleteGatewayResponse'
-  {_dgrsGatewayARN = Nothing, _dgrsResponseStatus = pResponseStatus_}
+    {_dgrsGatewayARN = Nothing, _dgrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 dgrsGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
-dgrsGatewayARN = lens _dgrsGatewayARN (\ s a -> s{_dgrsGatewayARN = a});
+dgrsGatewayARN = lens _dgrsGatewayARN (\ s a -> s{_dgrsGatewayARN = a})
 
 -- | -- | The response status code.
 dgrsResponseStatus :: Lens' DeleteGatewayResponse Int
-dgrsResponseStatus = lens _dgrsResponseStatus (\ s a -> s{_dgrsResponseStatus = a});
+dgrsResponseStatus = lens _dgrsResponseStatus (\ s a -> s{_dgrsResponseStatus = a})
 
 instance NFData DeleteGatewayResponse where

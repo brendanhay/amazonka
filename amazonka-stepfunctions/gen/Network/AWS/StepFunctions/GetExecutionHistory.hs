@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.GetExecutionHistory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the history of the specified execution as a list of events. By default, the results are returned in ascending order of the @timeStamp@ of the events. Use the @reverseOrder@ parameter to get the latest events first. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the @nextToken@ returned by the previous call.
+-- Returns the history of the specified execution as a list of events. By default, the results are returned in ascending order of the @timeStamp@ of the events. Use the @reverseOrder@ parameter to get the latest events first.
 --
+--
+-- If a @nextToken@ is returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged.
 --
 --
 -- This operation returns paginated results.
@@ -66,9 +68,9 @@ data GetExecutionHistory = GetExecutionHistory'
 --
 -- * 'gehReverseOrder' - Lists events in descending order of their @timeStamp@ .
 --
--- * 'gehNextToken' - If a @nextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
+-- * 'gehNextToken' - If a @nextToken@ is returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 --
--- * 'gehMaxResults' - The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 means to use the default. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- * 'gehMaxResults' - The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 uses the default. This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
 --
 -- * 'gehExecutionARN' - The Amazon Resource Name (ARN) of the execution.
 getExecutionHistory
@@ -76,28 +78,28 @@ getExecutionHistory
     -> GetExecutionHistory
 getExecutionHistory pExecutionARN_ =
   GetExecutionHistory'
-  { _gehReverseOrder = Nothing
-  , _gehNextToken = Nothing
-  , _gehMaxResults = Nothing
-  , _gehExecutionARN = pExecutionARN_
-  }
+    { _gehReverseOrder = Nothing
+    , _gehNextToken = Nothing
+    , _gehMaxResults = Nothing
+    , _gehExecutionARN = pExecutionARN_
+    }
 
 
 -- | Lists events in descending order of their @timeStamp@ .
 gehReverseOrder :: Lens' GetExecutionHistory (Maybe Bool)
-gehReverseOrder = lens _gehReverseOrder (\ s a -> s{_gehReverseOrder = a});
+gehReverseOrder = lens _gehReverseOrder (\ s a -> s{_gehReverseOrder = a})
 
--- | If a @nextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
+-- | If a @nextToken@ is returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 gehNextToken :: Lens' GetExecutionHistory (Maybe Text)
-gehNextToken = lens _gehNextToken (\ s a -> s{_gehNextToken = a});
+gehNextToken = lens _gehNextToken (\ s a -> s{_gehNextToken = a})
 
--- | The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 means to use the default. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- | The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 uses the default. This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
 gehMaxResults :: Lens' GetExecutionHistory (Maybe Natural)
-gehMaxResults = lens _gehMaxResults (\ s a -> s{_gehMaxResults = a}) . mapping _Nat;
+gehMaxResults = lens _gehMaxResults (\ s a -> s{_gehMaxResults = a}) . mapping _Nat
 
 -- | The Amazon Resource Name (ARN) of the execution.
 gehExecutionARN :: Lens' GetExecutionHistory Text
-gehExecutionARN = lens _gehExecutionARN (\ s a -> s{_gehExecutionARN = a});
+gehExecutionARN = lens _gehExecutionARN (\ s a -> s{_gehExecutionARN = a})
 
 instance AWSPager GetExecutionHistory where
         page rq rs
@@ -158,7 +160,7 @@ data GetExecutionHistoryResponse = GetExecutionHistoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gehrsNextToken' - If a @nextToken@ is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
+-- * 'gehrsNextToken' - If a @nextToken@ is returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 --
 -- * 'gehrsResponseStatus' - -- | The response status code.
 --
@@ -168,22 +170,22 @@ getExecutionHistoryResponse
     -> GetExecutionHistoryResponse
 getExecutionHistoryResponse pResponseStatus_ =
   GetExecutionHistoryResponse'
-  { _gehrsNextToken = Nothing
-  , _gehrsResponseStatus = pResponseStatus_
-  , _gehrsEvents = mempty
-  }
+    { _gehrsNextToken = Nothing
+    , _gehrsResponseStatus = pResponseStatus_
+    , _gehrsEvents = mempty
+    }
 
 
--- | If a @nextToken@ is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
+-- | If a @nextToken@ is returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 gehrsNextToken :: Lens' GetExecutionHistoryResponse (Maybe Text)
-gehrsNextToken = lens _gehrsNextToken (\ s a -> s{_gehrsNextToken = a});
+gehrsNextToken = lens _gehrsNextToken (\ s a -> s{_gehrsNextToken = a})
 
 -- | -- | The response status code.
 gehrsResponseStatus :: Lens' GetExecutionHistoryResponse Int
-gehrsResponseStatus = lens _gehrsResponseStatus (\ s a -> s{_gehrsResponseStatus = a});
+gehrsResponseStatus = lens _gehrsResponseStatus (\ s a -> s{_gehrsResponseStatus = a})
 
 -- | The list of events that occurred in the execution.
 gehrsEvents :: Lens' GetExecutionHistoryResponse [HistoryEvent]
-gehrsEvents = lens _gehrsEvents (\ s a -> s{_gehrsEvents = a}) . _Coerce;
+gehrsEvents = lens _gehrsEvents (\ s a -> s{_gehrsEvents = a}) . _Coerce
 
 instance NFData GetExecutionHistoryResponse where

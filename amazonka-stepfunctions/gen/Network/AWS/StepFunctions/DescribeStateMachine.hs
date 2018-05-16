@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.DescribeStateMachine
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ describeStateMachine pStateMachineARN_ =
 
 -- | The Amazon Resource Name (ARN) of the state machine to describe.
 dsmStateMachineARN :: Lens' DescribeStateMachine Text
-dsmStateMachineARN = lens _dsmStateMachineARN (\ s a -> s{_dsmStateMachineARN = a});
+dsmStateMachineARN = lens _dsmStateMachineARN (\ s a -> s{_dsmStateMachineARN = a})
 
 instance AWSRequest DescribeStateMachine where
         type Rs DescribeStateMachine =
@@ -140,7 +140,7 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
 --
 -- * 'dsmrsRoleARN' - The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role maintains security by granting Step Functions access to AWS resources.)
 --
--- * 'dsmrsCreationDate' - The date the state machine was created.
+-- * 'dsmrsCreationDate' - The date the state machine is created.
 describeStateMachineResponse
     :: Int -- ^ 'dsmrsResponseStatus'
     -> Text -- ^ 'dsmrsStateMachineARN'
@@ -151,42 +151,42 @@ describeStateMachineResponse
     -> DescribeStateMachineResponse
 describeStateMachineResponse pResponseStatus_ pStateMachineARN_ pName_ pDefinition_ pRoleARN_ pCreationDate_ =
   DescribeStateMachineResponse'
-  { _dsmrsStatus = Nothing
-  , _dsmrsResponseStatus = pResponseStatus_
-  , _dsmrsStateMachineARN = pStateMachineARN_
-  , _dsmrsName = pName_
-  , _dsmrsDefinition = pDefinition_
-  , _dsmrsRoleARN = pRoleARN_
-  , _dsmrsCreationDate = _Time # pCreationDate_
-  }
+    { _dsmrsStatus = Nothing
+    , _dsmrsResponseStatus = pResponseStatus_
+    , _dsmrsStateMachineARN = pStateMachineARN_
+    , _dsmrsName = pName_
+    , _dsmrsDefinition = pDefinition_
+    , _dsmrsRoleARN = pRoleARN_
+    , _dsmrsCreationDate = _Time # pCreationDate_
+    }
 
 
 -- | The current status of the state machine.
 dsmrsStatus :: Lens' DescribeStateMachineResponse (Maybe StateMachineStatus)
-dsmrsStatus = lens _dsmrsStatus (\ s a -> s{_dsmrsStatus = a});
+dsmrsStatus = lens _dsmrsStatus (\ s a -> s{_dsmrsStatus = a})
 
 -- | -- | The response status code.
 dsmrsResponseStatus :: Lens' DescribeStateMachineResponse Int
-dsmrsResponseStatus = lens _dsmrsResponseStatus (\ s a -> s{_dsmrsResponseStatus = a});
+dsmrsResponseStatus = lens _dsmrsResponseStatus (\ s a -> s{_dsmrsResponseStatus = a})
 
 -- | The Amazon Resource Name (ARN) that identifies the state machine.
 dsmrsStateMachineARN :: Lens' DescribeStateMachineResponse Text
-dsmrsStateMachineARN = lens _dsmrsStateMachineARN (\ s a -> s{_dsmrsStateMachineARN = a});
+dsmrsStateMachineARN = lens _dsmrsStateMachineARN (\ s a -> s{_dsmrsStateMachineARN = a})
 
 -- | The name of the state machine. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 dsmrsName :: Lens' DescribeStateMachineResponse Text
-dsmrsName = lens _dsmrsName (\ s a -> s{_dsmrsName = a});
+dsmrsName = lens _dsmrsName (\ s a -> s{_dsmrsName = a})
 
 -- | The Amazon States Language definition of the state machine.
 dsmrsDefinition :: Lens' DescribeStateMachineResponse Text
-dsmrsDefinition = lens _dsmrsDefinition (\ s a -> s{_dsmrsDefinition = a});
+dsmrsDefinition = lens _dsmrsDefinition (\ s a -> s{_dsmrsDefinition = a})
 
 -- | The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role maintains security by granting Step Functions access to AWS resources.)
 dsmrsRoleARN :: Lens' DescribeStateMachineResponse Text
-dsmrsRoleARN = lens _dsmrsRoleARN (\ s a -> s{_dsmrsRoleARN = a});
+dsmrsRoleARN = lens _dsmrsRoleARN (\ s a -> s{_dsmrsRoleARN = a})
 
--- | The date the state machine was created.
+-- | The date the state machine is created.
 dsmrsCreationDate :: Lens' DescribeStateMachineResponse UTCTime
-dsmrsCreationDate = lens _dsmrsCreationDate (\ s a -> s{_dsmrsCreationDate = a}) . _Time;
+dsmrsCreationDate = lens _dsmrsCreationDate (\ s a -> s{_dsmrsCreationDate = a}) . _Time
 
 instance NFData DescribeStateMachineResponse where

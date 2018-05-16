@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachVPNGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ detachVPNGateway
     -> DetachVPNGateway
 detachVPNGateway pVPCId_ pVPNGatewayId_ =
   DetachVPNGateway'
-  { _dvpngDryRun = Nothing
-  , _dvpngVPCId = pVPCId_
-  , _dvpngVPNGatewayId = pVPNGatewayId_
-  }
+    { _dvpngDryRun = Nothing
+    , _dvpngVPCId = pVPCId_
+    , _dvpngVPNGatewayId = pVPNGatewayId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvpngDryRun :: Lens' DetachVPNGateway (Maybe Bool)
-dvpngDryRun = lens _dvpngDryRun (\ s a -> s{_dvpngDryRun = a});
+dvpngDryRun = lens _dvpngDryRun (\ s a -> s{_dvpngDryRun = a})
 
 -- | The ID of the VPC.
 dvpngVPCId :: Lens' DetachVPNGateway Text
-dvpngVPCId = lens _dvpngVPCId (\ s a -> s{_dvpngVPCId = a});
+dvpngVPCId = lens _dvpngVPCId (\ s a -> s{_dvpngVPCId = a})
 
 -- | The ID of the virtual private gateway.
 dvpngVPNGatewayId :: Lens' DetachVPNGateway Text
-dvpngVPNGatewayId = lens _dvpngVPNGatewayId (\ s a -> s{_dvpngVPNGatewayId = a});
+dvpngVPNGatewayId = lens _dvpngVPNGatewayId (\ s a -> s{_dvpngVPNGatewayId = a})
 
 instance AWSRequest DetachVPNGateway where
         type Rs DetachVPNGateway = DetachVPNGatewayResponse

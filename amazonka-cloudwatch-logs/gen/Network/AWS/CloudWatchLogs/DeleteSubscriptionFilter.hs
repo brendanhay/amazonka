@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,16 +62,16 @@ deleteSubscriptionFilter
     -> DeleteSubscriptionFilter
 deleteSubscriptionFilter pLogGroupName_ pFilterName_ =
   DeleteSubscriptionFilter'
-  {_dLogGroupName = pLogGroupName_, _dFilterName = pFilterName_}
+    {_dLogGroupName = pLogGroupName_, _dFilterName = pFilterName_}
 
 
 -- | The name of the log group.
 dLogGroupName :: Lens' DeleteSubscriptionFilter Text
-dLogGroupName = lens _dLogGroupName (\ s a -> s{_dLogGroupName = a});
+dLogGroupName = lens _dLogGroupName (\ s a -> s{_dLogGroupName = a})
 
 -- | The name of the subscription filter.
 dFilterName :: Lens' DeleteSubscriptionFilter Text
-dFilterName = lens _dFilterName (\ s a -> s{_dFilterName = a});
+dFilterName = lens _dFilterName (\ s a -> s{_dFilterName = a})
 
 instance AWSRequest DeleteSubscriptionFilter where
         type Rs DeleteSubscriptionFilter =

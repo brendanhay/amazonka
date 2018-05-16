@@ -1,5 +1,5 @@
 name:                  amazonka-s3
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Simple Storage Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -116,6 +116,7 @@ library
         , Network.AWS.S3.PutObjectACL
         , Network.AWS.S3.PutObjectTagging
         , Network.AWS.S3.RestoreObject
+        , Network.AWS.S3.SelectObjectContent
         , Network.AWS.S3.Types
         , Network.AWS.S3.UploadPart
         , Network.AWS.S3.UploadPartCopy
@@ -127,7 +128,7 @@ library
         , Network.AWS.S3.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
         , lens >= 4.4
         , text >= 1.1
@@ -149,8 +150,8 @@ test-suite amazonka-s3-test
         , Test.AWS.S3.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-s3
         , base
         , bytestring

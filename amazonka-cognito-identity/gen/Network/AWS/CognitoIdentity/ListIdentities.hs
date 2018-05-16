@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.ListIdentities
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,28 +81,28 @@ listIdentities
     -> ListIdentities
 listIdentities pIdentityPoolId_ pMaxResults_ =
   ListIdentities'
-  { _liHideDisabled = Nothing
-  , _liNextToken = Nothing
-  , _liIdentityPoolId = pIdentityPoolId_
-  , _liMaxResults = _Nat # pMaxResults_
-  }
+    { _liHideDisabled = Nothing
+    , _liNextToken = Nothing
+    , _liIdentityPoolId = pIdentityPoolId_
+    , _liMaxResults = _Nat # pMaxResults_
+    }
 
 
 -- | An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
 liHideDisabled :: Lens' ListIdentities (Maybe Bool)
-liHideDisabled = lens _liHideDisabled (\ s a -> s{_liHideDisabled = a});
+liHideDisabled = lens _liHideDisabled (\ s a -> s{_liHideDisabled = a})
 
 -- | A pagination token.
 liNextToken :: Lens' ListIdentities (Maybe Text)
-liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
+liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a})
 
 -- | An identity pool ID in the format REGION:GUID.
 liIdentityPoolId :: Lens' ListIdentities Text
-liIdentityPoolId = lens _liIdentityPoolId (\ s a -> s{_liIdentityPoolId = a});
+liIdentityPoolId = lens _liIdentityPoolId (\ s a -> s{_liIdentityPoolId = a})
 
 -- | The maximum number of identities to return.
 liMaxResults :: Lens' ListIdentities Natural
-liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . _Nat;
+liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . _Nat
 
 instance AWSRequest ListIdentities where
         type Rs ListIdentities = ListIdentitiesResponse
@@ -173,27 +173,27 @@ listIdentitiesResponse
     -> ListIdentitiesResponse
 listIdentitiesResponse pResponseStatus_ =
   ListIdentitiesResponse'
-  { _lirsIdentityPoolId = Nothing
-  , _lirsNextToken = Nothing
-  , _lirsIdentities = Nothing
-  , _lirsResponseStatus = pResponseStatus_
-  }
+    { _lirsIdentityPoolId = Nothing
+    , _lirsNextToken = Nothing
+    , _lirsIdentities = Nothing
+    , _lirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An identity pool ID in the format REGION:GUID.
 lirsIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
-lirsIdentityPoolId = lens _lirsIdentityPoolId (\ s a -> s{_lirsIdentityPoolId = a});
+lirsIdentityPoolId = lens _lirsIdentityPoolId (\ s a -> s{_lirsIdentityPoolId = a})
 
 -- | A pagination token.
 lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
+lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a})
 
 -- | An object containing a set of identities and associated mappings.
 lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
-lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default . _Coerce;
+lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lirsResponseStatus :: Lens' ListIdentitiesResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a})
 
 instance NFData ListIdentitiesResponse where

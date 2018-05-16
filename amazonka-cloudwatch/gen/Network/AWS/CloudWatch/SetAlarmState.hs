@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.SetAlarmState
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,28 +71,28 @@ setAlarmState
     -> SetAlarmState
 setAlarmState pAlarmName_ pStateValue_ pStateReason_ =
   SetAlarmState'
-  { _sasStateReasonData = Nothing
-  , _sasAlarmName = pAlarmName_
-  , _sasStateValue = pStateValue_
-  , _sasStateReason = pStateReason_
-  }
+    { _sasStateReasonData = Nothing
+    , _sasAlarmName = pAlarmName_
+    , _sasStateValue = pStateValue_
+    , _sasStateReason = pStateReason_
+    }
 
 
 -- | The reason that this alarm is set to this specific state, in JSON format.
 sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
-sasStateReasonData = lens _sasStateReasonData (\ s a -> s{_sasStateReasonData = a});
+sasStateReasonData = lens _sasStateReasonData (\ s a -> s{_sasStateReasonData = a})
 
 -- | The name for the alarm. This name must be unique within the AWS account. The maximum length is 255 characters.
 sasAlarmName :: Lens' SetAlarmState Text
-sasAlarmName = lens _sasAlarmName (\ s a -> s{_sasAlarmName = a});
+sasAlarmName = lens _sasAlarmName (\ s a -> s{_sasAlarmName = a})
 
 -- | The value of the state.
 sasStateValue :: Lens' SetAlarmState StateValue
-sasStateValue = lens _sasStateValue (\ s a -> s{_sasStateValue = a});
+sasStateValue = lens _sasStateValue (\ s a -> s{_sasStateValue = a})
 
 -- | The reason that this alarm is set to this specific state, in text format.
 sasStateReason :: Lens' SetAlarmState Text
-sasStateReason = lens _sasStateReason (\ s a -> s{_sasStateReason = a});
+sasStateReason = lens _sasStateReason (\ s a -> s{_sasStateReason = a})
 
 instance AWSRequest SetAlarmState where
         type Rs SetAlarmState = SetAlarmStateResponse

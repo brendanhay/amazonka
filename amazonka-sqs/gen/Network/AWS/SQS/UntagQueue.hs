@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.UntagQueue
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,11 +81,11 @@ untagQueue pQueueURL_ =
 
 -- | The URL of the queue.
 uqQueueURL :: Lens' UntagQueue Text
-uqQueueURL = lens _uqQueueURL (\ s a -> s{_uqQueueURL = a});
+uqQueueURL = lens _uqQueueURL (\ s a -> s{_uqQueueURL = a})
 
 -- | The list of tags to be removed from the specified queue.
 uqTagKeys :: Lens' UntagQueue [Text]
-uqTagKeys = lens _uqTagKeys (\ s a -> s{_uqTagKeys = a}) . _Coerce;
+uqTagKeys = lens _uqTagKeys (\ s a -> s{_uqTagKeys = a}) . _Coerce
 
 instance AWSRequest UntagQueue where
         type Rs UntagQueue = UntagQueueResponse

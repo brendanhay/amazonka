@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.MonitorInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ monitorInstances =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 miDryRun :: Lens' MonitorInstances (Maybe Bool)
-miDryRun = lens _miDryRun (\ s a -> s{_miDryRun = a});
+miDryRun = lens _miDryRun (\ s a -> s{_miDryRun = a})
 
 -- | One or more instance IDs.
 miInstanceIds :: Lens' MonitorInstances [Text]
-miInstanceIds = lens _miInstanceIds (\ s a -> s{_miInstanceIds = a}) . _Coerce;
+miInstanceIds = lens _miInstanceIds (\ s a -> s{_miInstanceIds = a}) . _Coerce
 
 instance AWSRequest MonitorInstances where
         type Rs MonitorInstances = MonitorInstancesResponse
@@ -131,15 +131,15 @@ monitorInstancesResponse
     -> MonitorInstancesResponse
 monitorInstancesResponse pResponseStatus_ =
   MonitorInstancesResponse'
-  {_mirsInstanceMonitorings = Nothing, _mirsResponseStatus = pResponseStatus_}
+    {_mirsInstanceMonitorings = Nothing, _mirsResponseStatus = pResponseStatus_}
 
 
 -- | The monitoring information.
 mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
-mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default . _Coerce;
+mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 mirsResponseStatus :: Lens' MonitorInstancesResponse Int
-mirsResponseStatus = lens _mirsResponseStatus (\ s a -> s{_mirsResponseStatus = a});
+mirsResponseStatus = lens _mirsResponseStatus (\ s a -> s{_mirsResponseStatus = a})
 
 instance NFData MonitorInstancesResponse where

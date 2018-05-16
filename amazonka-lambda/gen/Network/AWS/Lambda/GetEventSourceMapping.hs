@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetEventSourceMapping
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,7 +75,7 @@ getEventSourceMapping pUUId_ = GetEventSourceMapping' {_gesmUUId = pUUId_}
 
 -- | The AWS Lambda assigned ID of the event source mapping.
 gesmUUId :: Lens' GetEventSourceMapping Text
-gesmUUId = lens _gesmUUId (\ s a -> s{_gesmUUId = a});
+gesmUUId = lens _gesmUUId (\ s a -> s{_gesmUUId = a})
 
 instance AWSRequest GetEventSourceMapping where
         type Rs GetEventSourceMapping =

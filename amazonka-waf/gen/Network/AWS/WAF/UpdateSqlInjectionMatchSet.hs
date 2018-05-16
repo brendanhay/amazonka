@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.UpdateSqlInjectionMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -96,23 +96,23 @@ updateSqlInjectionMatchSet
     -> UpdateSqlInjectionMatchSet
 updateSqlInjectionMatchSet pSqlInjectionMatchSetId_ pChangeToken_ pUpdates_ =
   UpdateSqlInjectionMatchSet'
-  { _usimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
-  , _usimsChangeToken = pChangeToken_
-  , _usimsUpdates = _List1 # pUpdates_
-  }
+    { _usimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
+    , _usimsChangeToken = pChangeToken_
+    , _usimsUpdates = _List1 # pUpdates_
+    }
 
 
 -- | The @SqlInjectionMatchSetId@ of the @SqlInjectionMatchSet@ that you want to update. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 usimsSqlInjectionMatchSetId :: Lens' UpdateSqlInjectionMatchSet Text
-usimsSqlInjectionMatchSetId = lens _usimsSqlInjectionMatchSetId (\ s a -> s{_usimsSqlInjectionMatchSetId = a});
+usimsSqlInjectionMatchSetId = lens _usimsSqlInjectionMatchSetId (\ s a -> s{_usimsSqlInjectionMatchSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 usimsChangeToken :: Lens' UpdateSqlInjectionMatchSet Text
-usimsChangeToken = lens _usimsChangeToken (\ s a -> s{_usimsChangeToken = a});
+usimsChangeToken = lens _usimsChangeToken (\ s a -> s{_usimsChangeToken = a})
 
 -- | An array of @SqlInjectionMatchSetUpdate@ objects that you want to insert into or delete from a 'SqlInjectionMatchSet' . For more information, see the applicable data types:     * 'SqlInjectionMatchSetUpdate' : Contains @Action@ and @SqlInjectionMatchTuple@      * 'SqlInjectionMatchTuple' : Contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 usimsUpdates :: Lens' UpdateSqlInjectionMatchSet (NonEmpty SqlInjectionMatchSetUpdate)
-usimsUpdates = lens _usimsUpdates (\ s a -> s{_usimsUpdates = a}) . _List1;
+usimsUpdates = lens _usimsUpdates (\ s a -> s{_usimsUpdates = a}) . _List1
 
 instance AWSRequest UpdateSqlInjectionMatchSet where
         type Rs UpdateSqlInjectionMatchSet =
@@ -177,16 +177,16 @@ updateSqlInjectionMatchSetResponse
     -> UpdateSqlInjectionMatchSetResponse
 updateSqlInjectionMatchSetResponse pResponseStatus_ =
   UpdateSqlInjectionMatchSetResponse'
-  {_usimsrsChangeToken = Nothing, _usimsrsResponseStatus = pResponseStatus_}
+    {_usimsrsChangeToken = Nothing, _usimsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @UpdateSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 usimsrsChangeToken :: Lens' UpdateSqlInjectionMatchSetResponse (Maybe Text)
-usimsrsChangeToken = lens _usimsrsChangeToken (\ s a -> s{_usimsrsChangeToken = a});
+usimsrsChangeToken = lens _usimsrsChangeToken (\ s a -> s{_usimsrsChangeToken = a})
 
 -- | -- | The response status code.
 usimsrsResponseStatus :: Lens' UpdateSqlInjectionMatchSetResponse Int
-usimsrsResponseStatus = lens _usimsrsResponseStatus (\ s a -> s{_usimsrsResponseStatus = a});
+usimsrsResponseStatus = lens _usimsrsResponseStatus (\ s a -> s{_usimsrsResponseStatus = a})
 
 instance NFData UpdateSqlInjectionMatchSetResponse
          where

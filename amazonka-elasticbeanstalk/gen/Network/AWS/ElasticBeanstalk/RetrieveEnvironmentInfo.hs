@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,23 +78,23 @@ retrieveEnvironmentInfo
     -> RetrieveEnvironmentInfo
 retrieveEnvironmentInfo pInfoType_ =
   RetrieveEnvironmentInfo'
-  { _rEnvironmentName = Nothing
-  , _rEnvironmentId = Nothing
-  , _rInfoType = pInfoType_
-  }
+    { _rEnvironmentName = Nothing
+    , _rEnvironmentId = Nothing
+    , _rInfoType = pInfoType_
+    }
 
 
 -- | The name of the data's environment. If no such environment is found, returns an @InvalidParameterValue@ error.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 rEnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
-rEnvironmentName = lens _rEnvironmentName (\ s a -> s{_rEnvironmentName = a});
+rEnvironmentName = lens _rEnvironmentName (\ s a -> s{_rEnvironmentName = a})
 
 -- | The ID of the data's environment. If no such environment is found, returns an @InvalidParameterValue@ error. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 rEnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
-rEnvironmentId = lens _rEnvironmentId (\ s a -> s{_rEnvironmentId = a});
+rEnvironmentId = lens _rEnvironmentId (\ s a -> s{_rEnvironmentId = a})
 
 -- | The type of information to retrieve.
 rInfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
-rInfoType = lens _rInfoType (\ s a -> s{_rInfoType = a});
+rInfoType = lens _rInfoType (\ s a -> s{_rInfoType = a})
 
 instance AWSRequest RetrieveEnvironmentInfo where
         type Rs RetrieveEnvironmentInfo =
@@ -151,15 +151,15 @@ retrieveEnvironmentInfoResponse
     -> RetrieveEnvironmentInfoResponse
 retrieveEnvironmentInfoResponse pResponseStatus_ =
   RetrieveEnvironmentInfoResponse'
-  {_reirsEnvironmentInfo = Nothing, _reirsResponseStatus = pResponseStatus_}
+    {_reirsEnvironmentInfo = Nothing, _reirsResponseStatus = pResponseStatus_}
 
 
 -- | The 'EnvironmentInfoDescription' of the environment.
 reirsEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
-reirsEnvironmentInfo = lens _reirsEnvironmentInfo (\ s a -> s{_reirsEnvironmentInfo = a}) . _Default . _Coerce;
+reirsEnvironmentInfo = lens _reirsEnvironmentInfo (\ s a -> s{_reirsEnvironmentInfo = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 reirsResponseStatus :: Lens' RetrieveEnvironmentInfoResponse Int
-reirsResponseStatus = lens _reirsResponseStatus (\ s a -> s{_reirsResponseStatus = a});
+reirsResponseStatus = lens _reirsResponseStatus (\ s a -> s{_reirsResponseStatus = a})
 
 instance NFData RetrieveEnvironmentInfoResponse where

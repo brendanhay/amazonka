@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Returns a paginated list of all attribute definitions for a particular 'TypedLinkFacet' . For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
 import Network.AWS.CloudDirectory.Types
 import Network.AWS.CloudDirectory.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -74,28 +77,35 @@ listTypedLinkFacetAttributes
     -> ListTypedLinkFacetAttributes
 listTypedLinkFacetAttributes pSchemaARN_ pName_ =
   ListTypedLinkFacetAttributes'
-  { _ltlfaNextToken = Nothing
-  , _ltlfaMaxResults = Nothing
-  , _ltlfaSchemaARN = pSchemaARN_
-  , _ltlfaName = pName_
-  }
+    { _ltlfaNextToken = Nothing
+    , _ltlfaMaxResults = Nothing
+    , _ltlfaSchemaARN = pSchemaARN_
+    , _ltlfaName = pName_
+    }
 
 
 -- | The pagination token.
 ltlfaNextToken :: Lens' ListTypedLinkFacetAttributes (Maybe Text)
-ltlfaNextToken = lens _ltlfaNextToken (\ s a -> s{_ltlfaNextToken = a});
+ltlfaNextToken = lens _ltlfaNextToken (\ s a -> s{_ltlfaNextToken = a})
 
 -- | The maximum number of results to retrieve.
 ltlfaMaxResults :: Lens' ListTypedLinkFacetAttributes (Maybe Natural)
-ltlfaMaxResults = lens _ltlfaMaxResults (\ s a -> s{_ltlfaMaxResults = a}) . mapping _Nat;
+ltlfaMaxResults = lens _ltlfaMaxResults (\ s a -> s{_ltlfaMaxResults = a}) . mapping _Nat
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 ltlfaSchemaARN :: Lens' ListTypedLinkFacetAttributes Text
-ltlfaSchemaARN = lens _ltlfaSchemaARN (\ s a -> s{_ltlfaSchemaARN = a});
+ltlfaSchemaARN = lens _ltlfaSchemaARN (\ s a -> s{_ltlfaSchemaARN = a})
 
 -- | The unique name of the typed link facet.
 ltlfaName :: Lens' ListTypedLinkFacetAttributes Text
-ltlfaName = lens _ltlfaName (\ s a -> s{_ltlfaName = a});
+ltlfaName = lens _ltlfaName (\ s a -> s{_ltlfaName = a})
+
+instance AWSPager ListTypedLinkFacetAttributes where
+        page rq rs
+          | stop (rs ^. ltlfarsNextToken) = Nothing
+          | stop (rs ^. ltlfarsAttributes) = Nothing
+          | otherwise =
+            Just $ rq & ltlfaNextToken .~ rs ^. ltlfarsNextToken
 
 instance AWSRequest ListTypedLinkFacetAttributes
          where
@@ -156,23 +166,23 @@ listTypedLinkFacetAttributesResponse
     -> ListTypedLinkFacetAttributesResponse
 listTypedLinkFacetAttributesResponse pResponseStatus_ =
   ListTypedLinkFacetAttributesResponse'
-  { _ltlfarsNextToken = Nothing
-  , _ltlfarsAttributes = Nothing
-  , _ltlfarsResponseStatus = pResponseStatus_
-  }
+    { _ltlfarsNextToken = Nothing
+    , _ltlfarsAttributes = Nothing
+    , _ltlfarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token.
 ltlfarsNextToken :: Lens' ListTypedLinkFacetAttributesResponse (Maybe Text)
-ltlfarsNextToken = lens _ltlfarsNextToken (\ s a -> s{_ltlfarsNextToken = a});
+ltlfarsNextToken = lens _ltlfarsNextToken (\ s a -> s{_ltlfarsNextToken = a})
 
 -- | An ordered set of attributes associate with the typed link.
 ltlfarsAttributes :: Lens' ListTypedLinkFacetAttributesResponse [TypedLinkAttributeDefinition]
-ltlfarsAttributes = lens _ltlfarsAttributes (\ s a -> s{_ltlfarsAttributes = a}) . _Default . _Coerce;
+ltlfarsAttributes = lens _ltlfarsAttributes (\ s a -> s{_ltlfarsAttributes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ltlfarsResponseStatus :: Lens' ListTypedLinkFacetAttributesResponse Int
-ltlfarsResponseStatus = lens _ltlfarsResponseStatus (\ s a -> s{_ltlfarsResponseStatus = a});
+ltlfarsResponseStatus = lens _ltlfarsResponseStatus (\ s a -> s{_ltlfarsResponseStatus = a})
 
 instance NFData ListTypedLinkFacetAttributesResponse
          where

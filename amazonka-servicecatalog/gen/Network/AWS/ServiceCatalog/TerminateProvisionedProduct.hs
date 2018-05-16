@@ -12,18 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.TerminateProvisionedProduct
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests termination of an existing ProvisionedProduct object. If there are @Tags@ associated with the object, they are terminated when the ProvisionedProduct object is terminated.
+-- Terminates the specified provisioned product.
 --
 --
--- This operation does not delete any records associated with the ProvisionedProduct object.
+-- This operation does not delete any records associated with the provisioned product.
 --
--- You can check the status of this request using the 'DescribeRecord' operation.
+-- You can check the status of this request using 'DescribeRecord' .
 --
 module Network.AWS.ServiceCatalog.TerminateProvisionedProduct
     (
@@ -66,47 +66,47 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tppProvisionedProductName' - The name of the ProvisionedProduct object to terminate. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- * 'tppProvisionedProductName' - The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
 --
 -- * 'tppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'tppIgnoreErrors' - If set to true, AWS Service Catalog stops managing the specified ProvisionedProduct object even if it cannot delete the underlying resources.
+-- * 'tppIgnoreErrors' - If set to true, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.
 --
--- * 'tppProvisionedProductId' - The identifier of the ProvisionedProduct object to terminate. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- * 'tppProvisionedProductId' - The identifier of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
 --
--- * 'tppTerminateToken' - An idempotency token that uniquely identifies the termination request. This token is only valid during the termination process. After the ProvisionedProduct object is terminated, further requests to terminate the same ProvisionedProduct object always return __ResourceNotFound__ regardless of the value of @TerminateToken@ .
+-- * 'tppTerminateToken' - An idempotency token that uniquely identifies the termination request. This token is only valid during the termination process. After the provisioned product is terminated, subsequent requests to terminate the same provisioned product always return __ResourceNotFound__ .
 terminateProvisionedProduct
     :: Text -- ^ 'tppTerminateToken'
     -> TerminateProvisionedProduct
 terminateProvisionedProduct pTerminateToken_ =
   TerminateProvisionedProduct'
-  { _tppProvisionedProductName = Nothing
-  , _tppAcceptLanguage = Nothing
-  , _tppIgnoreErrors = Nothing
-  , _tppProvisionedProductId = Nothing
-  , _tppTerminateToken = pTerminateToken_
-  }
+    { _tppProvisionedProductName = Nothing
+    , _tppAcceptLanguage = Nothing
+    , _tppIgnoreErrors = Nothing
+    , _tppProvisionedProductId = Nothing
+    , _tppTerminateToken = pTerminateToken_
+    }
 
 
--- | The name of the ProvisionedProduct object to terminate. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- | The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
 tppProvisionedProductName :: Lens' TerminateProvisionedProduct (Maybe Text)
-tppProvisionedProductName = lens _tppProvisionedProductName (\ s a -> s{_tppProvisionedProductName = a});
+tppProvisionedProductName = lens _tppProvisionedProductName (\ s a -> s{_tppProvisionedProductName = a})
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 tppAcceptLanguage :: Lens' TerminateProvisionedProduct (Maybe Text)
-tppAcceptLanguage = lens _tppAcceptLanguage (\ s a -> s{_tppAcceptLanguage = a});
+tppAcceptLanguage = lens _tppAcceptLanguage (\ s a -> s{_tppAcceptLanguage = a})
 
--- | If set to true, AWS Service Catalog stops managing the specified ProvisionedProduct object even if it cannot delete the underlying resources.
+-- | If set to true, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.
 tppIgnoreErrors :: Lens' TerminateProvisionedProduct (Maybe Bool)
-tppIgnoreErrors = lens _tppIgnoreErrors (\ s a -> s{_tppIgnoreErrors = a});
+tppIgnoreErrors = lens _tppIgnoreErrors (\ s a -> s{_tppIgnoreErrors = a})
 
--- | The identifier of the ProvisionedProduct object to terminate. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- | The identifier of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
 tppProvisionedProductId :: Lens' TerminateProvisionedProduct (Maybe Text)
-tppProvisionedProductId = lens _tppProvisionedProductId (\ s a -> s{_tppProvisionedProductId = a});
+tppProvisionedProductId = lens _tppProvisionedProductId (\ s a -> s{_tppProvisionedProductId = a})
 
--- | An idempotency token that uniquely identifies the termination request. This token is only valid during the termination process. After the ProvisionedProduct object is terminated, further requests to terminate the same ProvisionedProduct object always return __ResourceNotFound__ regardless of the value of @TerminateToken@ .
+-- | An idempotency token that uniquely identifies the termination request. This token is only valid during the termination process. After the provisioned product is terminated, subsequent requests to terminate the same provisioned product always return __ResourceNotFound__ .
 tppTerminateToken :: Lens' TerminateProvisionedProduct Text
-tppTerminateToken = lens _tppTerminateToken (\ s a -> s{_tppTerminateToken = a});
+tppTerminateToken = lens _tppTerminateToken (\ s a -> s{_tppTerminateToken = a})
 
 instance AWSRequest TerminateProvisionedProduct where
         type Rs TerminateProvisionedProduct =
@@ -161,7 +161,7 @@ data TerminateProvisionedProductResponse = TerminateProvisionedProductResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tpprsRecordDetail' - The detailed result of the 'TerminateProvisionedProduct' request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered.
+-- * 'tpprsRecordDetail' - Information about the result of this request.
 --
 -- * 'tpprsResponseStatus' - -- | The response status code.
 terminateProvisionedProductResponse
@@ -169,16 +169,16 @@ terminateProvisionedProductResponse
     -> TerminateProvisionedProductResponse
 terminateProvisionedProductResponse pResponseStatus_ =
   TerminateProvisionedProductResponse'
-  {_tpprsRecordDetail = Nothing, _tpprsResponseStatus = pResponseStatus_}
+    {_tpprsRecordDetail = Nothing, _tpprsResponseStatus = pResponseStatus_}
 
 
--- | The detailed result of the 'TerminateProvisionedProduct' request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered.
+-- | Information about the result of this request.
 tpprsRecordDetail :: Lens' TerminateProvisionedProductResponse (Maybe RecordDetail)
-tpprsRecordDetail = lens _tpprsRecordDetail (\ s a -> s{_tpprsRecordDetail = a});
+tpprsRecordDetail = lens _tpprsRecordDetail (\ s a -> s{_tpprsRecordDetail = a})
 
 -- | -- | The response status code.
 tpprsResponseStatus :: Lens' TerminateProvisionedProductResponse Int
-tpprsResponseStatus = lens _tpprsResponseStatus (\ s a -> s{_tpprsResponseStatus = a});
+tpprsResponseStatus = lens _tpprsResponseStatus (\ s a -> s{_tpprsResponseStatus = a})
 
 instance NFData TerminateProvisionedProductResponse
          where

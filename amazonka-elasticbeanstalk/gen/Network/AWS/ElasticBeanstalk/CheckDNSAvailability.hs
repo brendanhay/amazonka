@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CheckDNSAvailability
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ checkDNSAvailability pCNAMEPrefix_ =
 
 -- | The prefix used when this CNAME is reserved.
 cdaCNAMEPrefix :: Lens' CheckDNSAvailability Text
-cdaCNAMEPrefix = lens _cdaCNAMEPrefix (\ s a -> s{_cdaCNAMEPrefix = a});
+cdaCNAMEPrefix = lens _cdaCNAMEPrefix (\ s a -> s{_cdaCNAMEPrefix = a})
 
 instance AWSRequest CheckDNSAvailability where
         type Rs CheckDNSAvailability =
@@ -125,22 +125,22 @@ checkDNSAvailabilityResponse
     -> CheckDNSAvailabilityResponse
 checkDNSAvailabilityResponse pResponseStatus_ =
   CheckDNSAvailabilityResponse'
-  { _cdarsFullyQualifiedCNAME = Nothing
-  , _cdarsAvailable = Nothing
-  , _cdarsResponseStatus = pResponseStatus_
-  }
+    { _cdarsFullyQualifiedCNAME = Nothing
+    , _cdarsAvailable = Nothing
+    , _cdarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
 cdarsFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
-cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFullyQualifiedCNAME = a});
+cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFullyQualifiedCNAME = a})
 
 -- | Indicates if the specified CNAME is available:     * @true@ : The CNAME is available.     * @false@ : The CNAME is not available.
 cdarsAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
-cdarsAvailable = lens _cdarsAvailable (\ s a -> s{_cdarsAvailable = a});
+cdarsAvailable = lens _cdarsAvailable (\ s a -> s{_cdarsAvailable = a})
 
 -- | -- | The response status code.
 cdarsResponseStatus :: Lens' CheckDNSAvailabilityResponse Int
-cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus = a});
+cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus = a})
 
 instance NFData CheckDNSAvailabilityResponse where

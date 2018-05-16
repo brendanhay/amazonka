@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetResources
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,38 +70,38 @@ data GetResources = GetResources'
 --
 -- * 'grsEmbed' - A query parameter used to retrieve the specified resources embedded in the returned 'Resources' resource in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources?embed=methods@ .
 --
--- * 'grsLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- * 'grsLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'grsPosition' - The current pagination position in the paged result set.
 --
--- * 'grsRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'grsRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 getResources
     :: Text -- ^ 'grsRestAPIId'
     -> GetResources
 getResources pRestAPIId_ =
   GetResources'
-  { _grsEmbed = Nothing
-  , _grsLimit = Nothing
-  , _grsPosition = Nothing
-  , _grsRestAPIId = pRestAPIId_
-  }
+    { _grsEmbed = Nothing
+    , _grsLimit = Nothing
+    , _grsPosition = Nothing
+    , _grsRestAPIId = pRestAPIId_
+    }
 
 
 -- | A query parameter used to retrieve the specified resources embedded in the returned 'Resources' resource in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources?embed=methods@ .
 grsEmbed :: Lens' GetResources [Text]
-grsEmbed = lens _grsEmbed (\ s a -> s{_grsEmbed = a}) . _Default . _Coerce;
+grsEmbed = lens _grsEmbed (\ s a -> s{_grsEmbed = a}) . _Default . _Coerce
 
--- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 grsLimit :: Lens' GetResources (Maybe Int)
-grsLimit = lens _grsLimit (\ s a -> s{_grsLimit = a});
+grsLimit = lens _grsLimit (\ s a -> s{_grsLimit = a})
 
 -- | The current pagination position in the paged result set.
 grsPosition :: Lens' GetResources (Maybe Text)
-grsPosition = lens _grsPosition (\ s a -> s{_grsPosition = a});
+grsPosition = lens _grsPosition (\ s a -> s{_grsPosition = a})
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 grsRestAPIId :: Lens' GetResources Text
-grsRestAPIId = lens _grsRestAPIId (\ s a -> s{_grsRestAPIId = a});
+grsRestAPIId = lens _grsRestAPIId (\ s a -> s{_grsRestAPIId = a})
 
 instance AWSPager GetResources where
         page rq rs
@@ -169,22 +169,22 @@ getResourcesResponse
     -> GetResourcesResponse
 getResourcesResponse pResponseStatus_ =
   GetResourcesResponse'
-  { _grrsItems = Nothing
-  , _grrsPosition = Nothing
-  , _grrsResponseStatus = pResponseStatus_
-  }
+    { _grrsItems = Nothing
+    , _grrsPosition = Nothing
+    , _grrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 grrsItems :: Lens' GetResourcesResponse [Resource]
-grrsItems = lens _grrsItems (\ s a -> s{_grrsItems = a}) . _Default . _Coerce;
+grrsItems = lens _grrsItems (\ s a -> s{_grrsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 grrsPosition :: Lens' GetResourcesResponse (Maybe Text)
-grrsPosition = lens _grrsPosition (\ s a -> s{_grrsPosition = a});
+grrsPosition = lens _grrsPosition (\ s a -> s{_grrsPosition = a})
 
 -- | -- | The response status code.
 grrsResponseStatus :: Lens' GetResourcesResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a})
 
 instance NFData GetResourcesResponse where

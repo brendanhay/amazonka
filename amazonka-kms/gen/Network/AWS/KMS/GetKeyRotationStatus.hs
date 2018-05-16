@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GetKeyRotationStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ getKeyRotationStatus pKeyId_ = GetKeyRotationStatus' {_gkrsKeyId = pKeyId_}
 
 -- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 gkrsKeyId :: Lens' GetKeyRotationStatus Text
-gkrsKeyId = lens _gkrsKeyId (\ s a -> s{_gkrsKeyId = a});
+gkrsKeyId = lens _gkrsKeyId (\ s a -> s{_gkrsKeyId = a})
 
 instance AWSRequest GetKeyRotationStatus where
         type Rs GetKeyRotationStatus =
@@ -119,17 +119,17 @@ getKeyRotationStatusResponse
     -> GetKeyRotationStatusResponse
 getKeyRotationStatusResponse pResponseStatus_ =
   GetKeyRotationStatusResponse'
-  { _gkrsrsKeyRotationEnabled = Nothing
-  , _gkrsrsResponseStatus = pResponseStatus_
-  }
+    { _gkrsrsKeyRotationEnabled = Nothing
+    , _gkrsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A Boolean value that specifies whether key rotation is enabled.
 gkrsrsKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
-gkrsrsKeyRotationEnabled = lens _gkrsrsKeyRotationEnabled (\ s a -> s{_gkrsrsKeyRotationEnabled = a});
+gkrsrsKeyRotationEnabled = lens _gkrsrsKeyRotationEnabled (\ s a -> s{_gkrsrsKeyRotationEnabled = a})
 
 -- | -- | The response status code.
 gkrsrsResponseStatus :: Lens' GetKeyRotationStatusResponse Int
-gkrsrsResponseStatus = lens _gkrsrsResponseStatus (\ s a -> s{_gkrsrsResponseStatus = a});
+gkrsrsResponseStatus = lens _gkrsrsResponseStatus (\ s a -> s{_gkrsrsResponseStatus = a})
 
 instance NFData GetKeyRotationStatusResponse where

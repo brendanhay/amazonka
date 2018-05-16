@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachNetworkInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,20 +69,23 @@ detachNetworkInterface
     -> DetachNetworkInterface
 detachNetworkInterface pAttachmentId_ =
   DetachNetworkInterface'
-  {_dniForce = Nothing, _dniDryRun = Nothing, _dniAttachmentId = pAttachmentId_}
+    { _dniForce = Nothing
+    , _dniDryRun = Nothing
+    , _dniAttachmentId = pAttachmentId_
+    }
 
 
 -- | Specifies whether to force a detachment.
 dniForce :: Lens' DetachNetworkInterface (Maybe Bool)
-dniForce = lens _dniForce (\ s a -> s{_dniForce = a});
+dniForce = lens _dniForce (\ s a -> s{_dniForce = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dniDryRun :: Lens' DetachNetworkInterface (Maybe Bool)
-dniDryRun = lens _dniDryRun (\ s a -> s{_dniDryRun = a});
+dniDryRun = lens _dniDryRun (\ s a -> s{_dniDryRun = a})
 
 -- | The ID of the attachment.
 dniAttachmentId :: Lens' DetachNetworkInterface Text
-dniAttachmentId = lens _dniAttachmentId (\ s a -> s{_dniAttachmentId = a});
+dniAttachmentId = lens _dniAttachmentId (\ s a -> s{_dniAttachmentId = a})
 
 instance AWSRequest DetachNetworkInterface where
         type Rs DetachNetworkInterface =

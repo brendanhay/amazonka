@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.DeletePreset
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ deletePreset pId_ = DeletePreset' {_dpId = pId_}
 
 -- | The identifier of the preset for which you want to get detailed information.
 dpId :: Lens' DeletePreset Text
-dpId = lens _dpId (\ s a -> s{_dpId = a});
+dpId = lens _dpId (\ s a -> s{_dpId = a})
 
 instance AWSRequest DeletePreset where
         type Rs DeletePreset = DeletePresetResponse
@@ -114,6 +114,6 @@ deletePresetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DeletePresetResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DeletePresetResponse where

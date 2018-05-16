@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.FlushStageAuthorizersCache
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ flushStageAuthorizersCache
     -> FlushStageAuthorizersCache
 flushStageAuthorizersCache pRestAPIId_ pStageName_ =
   FlushStageAuthorizersCache'
-  {_fsacRestAPIId = pRestAPIId_, _fsacStageName = pStageName_}
+    {_fsacRestAPIId = pRestAPIId_, _fsacStageName = pStageName_}
 
 
 -- | The string identifier of the associated 'RestApi' .
 fsacRestAPIId :: Lens' FlushStageAuthorizersCache Text
-fsacRestAPIId = lens _fsacRestAPIId (\ s a -> s{_fsacRestAPIId = a});
+fsacRestAPIId = lens _fsacRestAPIId (\ s a -> s{_fsacRestAPIId = a})
 
 -- | The name of the stage to flush.
 fsacStageName :: Lens' FlushStageAuthorizersCache Text
-fsacStageName = lens _fsacStageName (\ s a -> s{_fsacStageName = a});
+fsacStageName = lens _fsacStageName (\ s a -> s{_fsacStageName = a})
 
 instance AWSRequest FlushStageAuthorizersCache where
         type Rs FlushStageAuthorizersCache =

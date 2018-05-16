@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CreateResourceDataSync
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a resource data sync configuration to a single bucket in Amazon S3. This is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data to the Amazon S3 bucket. To check the status of the sync, use the <API_ListResourceDataSync.html ListResourceDataSync> operation.
+-- Creates a resource data sync configuration to a single bucket in Amazon S3. This is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data to the Amazon S3 bucket. To check the status of the sync, use the 'ListResourceDataSync' .
 --
 --
 -- By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a restrictive bucket policy. To view an example of a restrictive Amazon S3 bucket policy for Resource Data Sync, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-configuring.html#sysman-inventory-datasync Configuring Resource Data Sync for Inventory> .
@@ -66,16 +66,16 @@ createResourceDataSync
     -> CreateResourceDataSync
 createResourceDataSync pSyncName_ pS3Destination_ =
   CreateResourceDataSync'
-  {_crdsSyncName = pSyncName_, _crdsS3Destination = pS3Destination_}
+    {_crdsSyncName = pSyncName_, _crdsS3Destination = pS3Destination_}
 
 
 -- | A name for the configuration.
 crdsSyncName :: Lens' CreateResourceDataSync Text
-crdsSyncName = lens _crdsSyncName (\ s a -> s{_crdsSyncName = a});
+crdsSyncName = lens _crdsSyncName (\ s a -> s{_crdsSyncName = a})
 
 -- | Amazon S3 configuration details for the sync.
 crdsS3Destination :: Lens' CreateResourceDataSync ResourceDataSyncS3Destination
-crdsS3Destination = lens _crdsS3Destination (\ s a -> s{_crdsS3Destination = a});
+crdsS3Destination = lens _crdsS3Destination (\ s a -> s{_crdsS3Destination = a})
 
 instance AWSRequest CreateResourceDataSync where
         type Rs CreateResourceDataSync =
@@ -133,6 +133,6 @@ createResourceDataSyncResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 crdsrsResponseStatus :: Lens' CreateResourceDataSyncResponse Int
-crdsrsResponseStatus = lens _crdsrsResponseStatus (\ s a -> s{_crdsrsResponseStatus = a});
+crdsrsResponseStatus = lens _crdsrsResponseStatus (\ s a -> s{_crdsrsResponseStatus = a})
 
 instance NFData CreateResourceDataSyncResponse where

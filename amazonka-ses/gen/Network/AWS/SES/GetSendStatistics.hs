@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetSendStatistics
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -108,15 +108,15 @@ getSendStatisticsResponse
     -> GetSendStatisticsResponse
 getSendStatisticsResponse pResponseStatus_ =
   GetSendStatisticsResponse'
-  {_gssrsSendDataPoints = Nothing, _gssrsResponseStatus = pResponseStatus_}
+    {_gssrsSendDataPoints = Nothing, _gssrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of data points, each of which represents 15 minutes of activity.
 gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
-gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default . _Coerce;
+gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gssrsResponseStatus :: Lens' GetSendStatisticsResponse Int
-gssrsResponseStatus = lens _gssrsResponseStatus (\ s a -> s{_gssrsResponseStatus = a});
+gssrsResponseStatus = lens _gssrsResponseStatus (\ s a -> s{_gssrsResponseStatus = a})
 
 instance NFData GetSendStatisticsResponse where

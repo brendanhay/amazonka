@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.UploadMultipartPart
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -103,38 +103,38 @@ uploadMultipartPart
     -> UploadMultipartPart
 uploadMultipartPart pAccountId_ pVaultName_ pUploadId_ pBody_ =
   UploadMultipartPart'
-  { _umpChecksum = Nothing
-  , _umpRange = Nothing
-  , _umpAccountId = pAccountId_
-  , _umpVaultName = pVaultName_
-  , _umpUploadId = pUploadId_
-  , _umpBody = pBody_
-  }
+    { _umpChecksum = Nothing
+    , _umpRange = Nothing
+    , _umpAccountId = pAccountId_
+    , _umpVaultName = pVaultName_
+    , _umpUploadId = pUploadId_
+    , _umpBody = pBody_
+    }
 
 
 -- | The SHA256 tree hash of the data being uploaded.
 umpChecksum :: Lens' UploadMultipartPart (Maybe Text)
-umpChecksum = lens _umpChecksum (\ s a -> s{_umpChecksum = a});
+umpChecksum = lens _umpChecksum (\ s a -> s{_umpChecksum = a})
 
 -- | Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.
 umpRange :: Lens' UploadMultipartPart (Maybe Text)
-umpRange = lens _umpRange (\ s a -> s{_umpRange = a});
+umpRange = lens _umpRange (\ s a -> s{_umpRange = a})
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 umpAccountId :: Lens' UploadMultipartPart Text
-umpAccountId = lens _umpAccountId (\ s a -> s{_umpAccountId = a});
+umpAccountId = lens _umpAccountId (\ s a -> s{_umpAccountId = a})
 
 -- | The name of the vault.
 umpVaultName :: Lens' UploadMultipartPart Text
-umpVaultName = lens _umpVaultName (\ s a -> s{_umpVaultName = a});
+umpVaultName = lens _umpVaultName (\ s a -> s{_umpVaultName = a})
 
 -- | The upload ID of the multipart upload.
 umpUploadId :: Lens' UploadMultipartPart Text
-umpUploadId = lens _umpUploadId (\ s a -> s{_umpUploadId = a});
+umpUploadId = lens _umpUploadId (\ s a -> s{_umpUploadId = a})
 
 -- | The data to upload.
 umpBody :: Lens' UploadMultipartPart HashedBody
-umpBody = lens _umpBody (\ s a -> s{_umpBody = a});
+umpBody = lens _umpBody (\ s a -> s{_umpBody = a})
 
 instance AWSRequest UploadMultipartPart where
         type Rs UploadMultipartPart =
@@ -189,15 +189,15 @@ uploadMultipartPartResponse
     -> UploadMultipartPartResponse
 uploadMultipartPartResponse pResponseStatus_ =
   UploadMultipartPartResponse'
-  {_umprsChecksum = Nothing, _umprsResponseStatus = pResponseStatus_}
+    {_umprsChecksum = Nothing, _umprsResponseStatus = pResponseStatus_}
 
 
 -- | The SHA256 tree hash that Amazon Glacier computed for the uploaded part.
 umprsChecksum :: Lens' UploadMultipartPartResponse (Maybe Text)
-umprsChecksum = lens _umprsChecksum (\ s a -> s{_umprsChecksum = a});
+umprsChecksum = lens _umprsChecksum (\ s a -> s{_umprsChecksum = a})
 
 -- | -- | The response status code.
 umprsResponseStatus :: Lens' UploadMultipartPartResponse Int
-umprsResponseStatus = lens _umprsResponseStatus (\ s a -> s{_umprsResponseStatus = a});
+umprsResponseStatus = lens _umprsResponseStatus (\ s a -> s{_umprsResponseStatus = a})
 
 instance NFData UploadMultipartPartResponse where

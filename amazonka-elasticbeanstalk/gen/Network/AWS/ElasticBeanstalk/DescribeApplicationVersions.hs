@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ describeApplicationVersions
     :: DescribeApplicationVersions
 describeApplicationVersions =
   DescribeApplicationVersions'
-  { _dVersionLabels = Nothing
-  , _dNextToken = Nothing
-  , _dMaxRecords = Nothing
-  , _dApplicationName = Nothing
-  }
+    { _dVersionLabels = Nothing
+    , _dNextToken = Nothing
+    , _dMaxRecords = Nothing
+    , _dApplicationName = Nothing
+    }
 
 
 -- | Specify a version label to show a specific application version.
 dVersionLabels :: Lens' DescribeApplicationVersions [Text]
-dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a}) . _Default . _Coerce;
+dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a}) . _Default . _Coerce
 
 -- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request. If no @NextToken@ is specified, the first page is retrieved.
 dNextToken :: Lens' DescribeApplicationVersions (Maybe Text)
-dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a})
 
 -- | For a paginated request. Specify a maximum number of application versions to include in each response. If no @MaxRecords@ is specified, all available application versions are retrieved in a single response.
 dMaxRecords :: Lens' DescribeApplicationVersions (Maybe Natural)
-dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a}) . mapping _Nat;
+dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a}) . mapping _Nat
 
 -- | Specify an application name to show only application versions for that application.
 dApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
-dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
+dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a})
 
 instance AWSRequest DescribeApplicationVersions where
         type Rs DescribeApplicationVersions =
@@ -161,23 +161,23 @@ describeApplicationVersionsResponse
     -> DescribeApplicationVersionsResponse
 describeApplicationVersionsResponse pResponseStatus_ =
   DescribeApplicationVersionsResponse'
-  { _davrsApplicationVersions = Nothing
-  , _davrsNextToken = Nothing
-  , _davrsResponseStatus = pResponseStatus_
-  }
+    { _davrsApplicationVersions = Nothing
+    , _davrsNextToken = Nothing
+    , _davrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | List of @ApplicationVersionDescription@ objects sorted in order of creation.
 davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
-davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce;
+davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce
 
 -- | In a paginated request, the token that you can pass in a subsequent request to get the next response page.
 davrsNextToken :: Lens' DescribeApplicationVersionsResponse (Maybe Text)
-davrsNextToken = lens _davrsNextToken (\ s a -> s{_davrsNextToken = a});
+davrsNextToken = lens _davrsNextToken (\ s a -> s{_davrsNextToken = a})
 
 -- | -- | The response status code.
 davrsResponseStatus :: Lens' DescribeApplicationVersionsResponse Int
-davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a});
+davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a})
 
 instance NFData DescribeApplicationVersionsResponse
          where

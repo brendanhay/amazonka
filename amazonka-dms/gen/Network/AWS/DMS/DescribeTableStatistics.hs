@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeTableStatistics
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@
 --
 -- Note that the "last updated" column the DMS console only indicates the time that AWS DMS last updated the table statistics record for a table. It does not indicate the time of the last update to the table.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DMS.DescribeTableStatistics
     (
     -- * Creating a Request
@@ -47,6 +49,7 @@ module Network.AWS.DMS.DescribeTableStatistics
 import Network.AWS.DMS.Types
 import Network.AWS.DMS.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -80,28 +83,35 @@ describeTableStatistics
     -> DescribeTableStatistics
 describeTableStatistics pReplicationTaskARN_ =
   DescribeTableStatistics'
-  { _dtsFilters = Nothing
-  , _dtsMarker = Nothing
-  , _dtsMaxRecords = Nothing
-  , _dtsReplicationTaskARN = pReplicationTaskARN_
-  }
+    { _dtsFilters = Nothing
+    , _dtsMarker = Nothing
+    , _dtsMaxRecords = Nothing
+    , _dtsReplicationTaskARN = pReplicationTaskARN_
+    }
 
 
 -- | Filters applied to the describe table statistics action. Valid filter names: schema-name | table-name | table-state A combination of filters creates an AND condition where each record matches all specified filters.
 dtsFilters :: Lens' DescribeTableStatistics [Filter]
-dtsFilters = lens _dtsFilters (\ s a -> s{_dtsFilters = a}) . _Default . _Coerce;
+dtsFilters = lens _dtsFilters (\ s a -> s{_dtsFilters = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dtsMarker :: Lens' DescribeTableStatistics (Maybe Text)
-dtsMarker = lens _dtsMarker (\ s a -> s{_dtsMarker = a});
+dtsMarker = lens _dtsMarker (\ s a -> s{_dtsMarker = a})
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 500.
 dtsMaxRecords :: Lens' DescribeTableStatistics (Maybe Int)
-dtsMaxRecords = lens _dtsMaxRecords (\ s a -> s{_dtsMaxRecords = a});
+dtsMaxRecords = lens _dtsMaxRecords (\ s a -> s{_dtsMaxRecords = a})
 
 -- | The Amazon Resource Name (ARN) of the replication task.
 dtsReplicationTaskARN :: Lens' DescribeTableStatistics Text
-dtsReplicationTaskARN = lens _dtsReplicationTaskARN (\ s a -> s{_dtsReplicationTaskARN = a});
+dtsReplicationTaskARN = lens _dtsReplicationTaskARN (\ s a -> s{_dtsReplicationTaskARN = a})
+
+instance AWSPager DescribeTableStatistics where
+        page rq rs
+          | stop (rs ^. dtsrsMarker) = Nothing
+          | stop (rs ^. dtsrsTableStatistics) = Nothing
+          | otherwise =
+            Just $ rq & dtsMarker .~ rs ^. dtsrsMarker
 
 instance AWSRequest DescribeTableStatistics where
         type Rs DescribeTableStatistics =
@@ -174,27 +184,27 @@ describeTableStatisticsResponse
     -> DescribeTableStatisticsResponse
 describeTableStatisticsResponse pResponseStatus_ =
   DescribeTableStatisticsResponse'
-  { _dtsrsReplicationTaskARN = Nothing
-  , _dtsrsMarker = Nothing
-  , _dtsrsTableStatistics = Nothing
-  , _dtsrsResponseStatus = pResponseStatus_
-  }
+    { _dtsrsReplicationTaskARN = Nothing
+    , _dtsrsMarker = Nothing
+    , _dtsrsTableStatistics = Nothing
+    , _dtsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the replication task.
 dtsrsReplicationTaskARN :: Lens' DescribeTableStatisticsResponse (Maybe Text)
-dtsrsReplicationTaskARN = lens _dtsrsReplicationTaskARN (\ s a -> s{_dtsrsReplicationTaskARN = a});
+dtsrsReplicationTaskARN = lens _dtsrsReplicationTaskARN (\ s a -> s{_dtsrsReplicationTaskARN = a})
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dtsrsMarker :: Lens' DescribeTableStatisticsResponse (Maybe Text)
-dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a});
+dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a})
 
 -- | The table statistics.
 dtsrsTableStatistics :: Lens' DescribeTableStatisticsResponse [TableStatistics]
-dtsrsTableStatistics = lens _dtsrsTableStatistics (\ s a -> s{_dtsrsTableStatistics = a}) . _Default . _Coerce;
+dtsrsTableStatistics = lens _dtsrsTableStatistics (\ s a -> s{_dtsrsTableStatistics = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtsrsResponseStatus :: Lens' DescribeTableStatisticsResponse Int
-dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
+dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a})
 
 instance NFData DescribeTableStatisticsResponse where

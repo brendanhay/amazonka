@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteReceiptRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,16 +72,16 @@ deleteReceiptRule
     -> DeleteReceiptRule
 deleteReceiptRule pRuleSetName_ pRuleName_ =
   DeleteReceiptRule'
-  {_delRuleSetName = pRuleSetName_, _delRuleName = pRuleName_}
+    {_delRuleSetName = pRuleSetName_, _delRuleName = pRuleName_}
 
 
 -- | The name of the receipt rule set that contains the receipt rule to delete.
 delRuleSetName :: Lens' DeleteReceiptRule Text
-delRuleSetName = lens _delRuleSetName (\ s a -> s{_delRuleSetName = a});
+delRuleSetName = lens _delRuleSetName (\ s a -> s{_delRuleSetName = a})
 
 -- | The name of the receipt rule to delete.
 delRuleName :: Lens' DeleteReceiptRule Text
-delRuleName = lens _delRuleName (\ s a -> s{_delRuleName = a});
+delRuleName = lens _delRuleName (\ s a -> s{_delRuleName = a})
 
 instance AWSRequest DeleteReceiptRule where
         type Rs DeleteReceiptRule = DeleteReceiptRuleResponse
@@ -133,6 +133,6 @@ deleteReceiptRuleResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteReceiptRuleResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteReceiptRuleResponse where

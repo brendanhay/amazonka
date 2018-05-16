@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeMetricFilters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,38 +83,38 @@ describeMetricFilters
     :: DescribeMetricFilters
 describeMetricFilters =
   DescribeMetricFilters'
-  { _dmfFilterNamePrefix = Nothing
-  , _dmfMetricName = Nothing
-  , _dmfLogGroupName = Nothing
-  , _dmfNextToken = Nothing
-  , _dmfMetricNamespace = Nothing
-  , _dmfLimit = Nothing
-  }
+    { _dmfFilterNamePrefix = Nothing
+    , _dmfMetricName = Nothing
+    , _dmfLogGroupName = Nothing
+    , _dmfNextToken = Nothing
+    , _dmfMetricNamespace = Nothing
+    , _dmfLimit = Nothing
+    }
 
 
 -- | The prefix to match.
 dmfFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
-dmfFilterNamePrefix = lens _dmfFilterNamePrefix (\ s a -> s{_dmfFilterNamePrefix = a});
+dmfFilterNamePrefix = lens _dmfFilterNamePrefix (\ s a -> s{_dmfFilterNamePrefix = a})
 
 -- | Undocumented member.
 dmfMetricName :: Lens' DescribeMetricFilters (Maybe Text)
-dmfMetricName = lens _dmfMetricName (\ s a -> s{_dmfMetricName = a});
+dmfMetricName = lens _dmfMetricName (\ s a -> s{_dmfMetricName = a})
 
 -- | The name of the log group.
 dmfLogGroupName :: Lens' DescribeMetricFilters (Maybe Text)
-dmfLogGroupName = lens _dmfLogGroupName (\ s a -> s{_dmfLogGroupName = a});
+dmfLogGroupName = lens _dmfLogGroupName (\ s a -> s{_dmfLogGroupName = a})
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
-dmfNextToken = lens _dmfNextToken (\ s a -> s{_dmfNextToken = a});
+dmfNextToken = lens _dmfNextToken (\ s a -> s{_dmfNextToken = a})
 
 -- | The namespace of the CloudWatch metric.
 dmfMetricNamespace :: Lens' DescribeMetricFilters (Maybe Text)
-dmfMetricNamespace = lens _dmfMetricNamespace (\ s a -> s{_dmfMetricNamespace = a});
+dmfMetricNamespace = lens _dmfMetricNamespace (\ s a -> s{_dmfMetricNamespace = a})
 
 -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 dmfLimit :: Lens' DescribeMetricFilters (Maybe Natural)
-dmfLimit = lens _dmfLimit (\ s a -> s{_dmfLimit = a}) . mapping _Nat;
+dmfLimit = lens _dmfLimit (\ s a -> s{_dmfLimit = a}) . mapping _Nat
 
 instance AWSPager DescribeMetricFilters where
         page rq rs
@@ -188,22 +188,22 @@ describeMetricFiltersResponse
     -> DescribeMetricFiltersResponse
 describeMetricFiltersResponse pResponseStatus_ =
   DescribeMetricFiltersResponse'
-  { _dmfrsNextToken = Nothing
-  , _dmfrsMetricFilters = Nothing
-  , _dmfrsResponseStatus = pResponseStatus_
-  }
+    { _dmfrsNextToken = Nothing
+    , _dmfrsMetricFilters = Nothing
+    , _dmfrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dmfrsNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
-dmfrsNextToken = lens _dmfrsNextToken (\ s a -> s{_dmfrsNextToken = a});
+dmfrsNextToken = lens _dmfrsNextToken (\ s a -> s{_dmfrsNextToken = a})
 
 -- | The metric filters.
 dmfrsMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
-dmfrsMetricFilters = lens _dmfrsMetricFilters (\ s a -> s{_dmfrsMetricFilters = a}) . _Default . _Coerce;
+dmfrsMetricFilters = lens _dmfrsMetricFilters (\ s a -> s{_dmfrsMetricFilters = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dmfrsResponseStatus :: Lens' DescribeMetricFiltersResponse Int
-dmfrsResponseStatus = lens _dmfrsResponseStatus (\ s a -> s{_dmfrsResponseStatus = a});
+dmfrsResponseStatus = lens _dmfrsResponseStatus (\ s a -> s{_dmfrsResponseStatus = a})
 
 instance NFData DescribeMetricFiltersResponse where

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about jobs.
+-- Gets information about jobs for a given test run.
 --
 --
 --
@@ -66,7 +66,7 @@ data ListJobs = ListJobs'
 --
 -- * 'ljNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'ljArn' - The jobs' ARNs.
+-- * 'ljArn' - The run's Amazon Resource Name (ARN).
 listJobs
     :: Text -- ^ 'ljArn'
     -> ListJobs
@@ -75,11 +75,11 @@ listJobs pArn_ = ListJobs' {_ljNextToken = Nothing, _ljArn = pArn_}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 ljNextToken :: Lens' ListJobs (Maybe Text)
-ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a});
+ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a})
 
--- | The jobs' ARNs.
+-- | The run's Amazon Resource Name (ARN).
 ljArn :: Lens' ListJobs Text
-ljArn = lens _ljArn (\ s a -> s{_ljArn = a});
+ljArn = lens _ljArn (\ s a -> s{_ljArn = a})
 
 instance AWSPager ListJobs where
         page rq rs
@@ -150,22 +150,22 @@ listJobsResponse
     -> ListJobsResponse
 listJobsResponse pResponseStatus_ =
   ListJobsResponse'
-  { _ljrsJobs = Nothing
-  , _ljrsNextToken = Nothing
-  , _ljrsResponseStatus = pResponseStatus_
-  }
+    { _ljrsJobs = Nothing
+    , _ljrsNextToken = Nothing
+    , _ljrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the jobs.
 ljrsJobs :: Lens' ListJobsResponse [Job]
-ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
+ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
-ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a});
+ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a})
 
 -- | -- | The response status code.
 ljrsResponseStatus :: Lens' ListJobsResponse Int
-ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
+ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a})
 
 instance NFData ListJobsResponse where

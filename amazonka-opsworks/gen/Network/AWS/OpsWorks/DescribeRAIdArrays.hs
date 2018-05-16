@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeRAIdArrays
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ describeRAIdArrays
     :: DescribeRAIdArrays
 describeRAIdArrays =
   DescribeRAIdArrays'
-  { _draiaInstanceId = Nothing
-  , _draiaRAIdArrayIds = Nothing
-  , _draiaStackId = Nothing
-  }
+    { _draiaInstanceId = Nothing
+    , _draiaRAIdArrayIds = Nothing
+    , _draiaStackId = Nothing
+    }
 
 
 -- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns descriptions of the RAID arrays associated with the specified instance.
 draiaInstanceId :: Lens' DescribeRAIdArrays (Maybe Text)
-draiaInstanceId = lens _draiaInstanceId (\ s a -> s{_draiaInstanceId = a});
+draiaInstanceId = lens _draiaInstanceId (\ s a -> s{_draiaInstanceId = a})
 
 -- | An array of RAID array IDs. If you use this parameter, @DescribeRaidArrays@ returns descriptions of the specified arrays. Otherwise, it returns a description of every array.
 draiaRAIdArrayIds :: Lens' DescribeRAIdArrays [Text]
-draiaRAIdArrayIds = lens _draiaRAIdArrayIds (\ s a -> s{_draiaRAIdArrayIds = a}) . _Default . _Coerce;
+draiaRAIdArrayIds = lens _draiaRAIdArrayIds (\ s a -> s{_draiaRAIdArrayIds = a}) . _Default . _Coerce
 
 -- | The stack ID.
 draiaStackId :: Lens' DescribeRAIdArrays (Maybe Text)
-draiaStackId = lens _draiaStackId (\ s a -> s{_draiaStackId = a});
+draiaStackId = lens _draiaStackId (\ s a -> s{_draiaStackId = a})
 
 instance AWSRequest DescribeRAIdArrays where
         type Rs DescribeRAIdArrays =
@@ -149,15 +149,15 @@ describeRAIdArraysResponse
     -> DescribeRAIdArraysResponse
 describeRAIdArraysResponse pResponseStatus_ =
   DescribeRAIdArraysResponse'
-  {_draiarsRAIdArrays = Nothing, _draiarsResponseStatus = pResponseStatus_}
+    {_draiarsRAIdArrays = Nothing, _draiarsResponseStatus = pResponseStatus_}
 
 
 -- | A @RaidArrays@ object that describes the specified RAID arrays.
 draiarsRAIdArrays :: Lens' DescribeRAIdArraysResponse [RAIdArray]
-draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a}) . _Default . _Coerce;
+draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 draiarsResponseStatus :: Lens' DescribeRAIdArraysResponse Int
-draiarsResponseStatus = lens _draiarsResponseStatus (\ s a -> s{_draiarsResponseStatus = a});
+draiarsResponseStatus = lens _draiarsResponseStatus (\ s a -> s{_draiarsResponseStatus = a})
 
 instance NFData DescribeRAIdArraysResponse where

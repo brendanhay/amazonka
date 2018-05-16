@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DMS.CreateReplicationInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -113,73 +113,73 @@ createReplicationInstance
     -> CreateReplicationInstance
 createReplicationInstance pReplicationInstanceIdentifier_ pReplicationInstanceClass_ =
   CreateReplicationInstance'
-  { _criEngineVersion = Nothing
-  , _criPubliclyAccessible = Nothing
-  , _criAutoMinorVersionUpgrade = Nothing
-  , _criReplicationSubnetGroupIdentifier = Nothing
-  , _criPreferredMaintenanceWindow = Nothing
-  , _criKMSKeyId = Nothing
-  , _criAvailabilityZone = Nothing
-  , _criVPCSecurityGroupIds = Nothing
-  , _criMultiAZ = Nothing
-  , _criAllocatedStorage = Nothing
-  , _criTags = Nothing
-  , _criReplicationInstanceIdentifier = pReplicationInstanceIdentifier_
-  , _criReplicationInstanceClass = pReplicationInstanceClass_
-  }
+    { _criEngineVersion = Nothing
+    , _criPubliclyAccessible = Nothing
+    , _criAutoMinorVersionUpgrade = Nothing
+    , _criReplicationSubnetGroupIdentifier = Nothing
+    , _criPreferredMaintenanceWindow = Nothing
+    , _criKMSKeyId = Nothing
+    , _criAvailabilityZone = Nothing
+    , _criVPCSecurityGroupIds = Nothing
+    , _criMultiAZ = Nothing
+    , _criAllocatedStorage = Nothing
+    , _criTags = Nothing
+    , _criReplicationInstanceIdentifier = pReplicationInstanceIdentifier_
+    , _criReplicationInstanceClass = pReplicationInstanceClass_
+    }
 
 
 -- | The engine version number of the replication instance.
 criEngineVersion :: Lens' CreateReplicationInstance (Maybe Text)
-criEngineVersion = lens _criEngineVersion (\ s a -> s{_criEngineVersion = a});
+criEngineVersion = lens _criEngineVersion (\ s a -> s{_criEngineVersion = a})
 
 -- | Specifies the accessibility options for the replication instance. A value of @true@ represents an instance with a public IP address. A value of @false@ represents an instance with a private IP address. The default value is @true@ .
 criPubliclyAccessible :: Lens' CreateReplicationInstance (Maybe Bool)
-criPubliclyAccessible = lens _criPubliclyAccessible (\ s a -> s{_criPubliclyAccessible = a});
+criPubliclyAccessible = lens _criPubliclyAccessible (\ s a -> s{_criPubliclyAccessible = a})
 
 -- | Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window. Default: @true@
 criAutoMinorVersionUpgrade :: Lens' CreateReplicationInstance (Maybe Bool)
-criAutoMinorVersionUpgrade = lens _criAutoMinorVersionUpgrade (\ s a -> s{_criAutoMinorVersionUpgrade = a});
+criAutoMinorVersionUpgrade = lens _criAutoMinorVersionUpgrade (\ s a -> s{_criAutoMinorVersionUpgrade = a})
 
 -- | A subnet group to associate with the replication instance.
 criReplicationSubnetGroupIdentifier :: Lens' CreateReplicationInstance (Maybe Text)
-criReplicationSubnetGroupIdentifier = lens _criReplicationSubnetGroupIdentifier (\ s a -> s{_criReplicationSubnetGroupIdentifier = a});
+criReplicationSubnetGroupIdentifier = lens _criReplicationSubnetGroupIdentifier (\ s a -> s{_criReplicationSubnetGroupIdentifier = a})
 
 -- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
 criPreferredMaintenanceWindow :: Lens' CreateReplicationInstance (Maybe Text)
-criPreferredMaintenanceWindow = lens _criPreferredMaintenanceWindow (\ s a -> s{_criPreferredMaintenanceWindow = a});
+criPreferredMaintenanceWindow = lens _criPreferredMaintenanceWindow (\ s a -> s{_criPreferredMaintenanceWindow = a})
 
 -- | The KMS key identifier that will be used to encrypt the content on the replication instance. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 criKMSKeyId :: Lens' CreateReplicationInstance (Maybe Text)
-criKMSKeyId = lens _criKMSKeyId (\ s a -> s{_criKMSKeyId = a});
+criKMSKeyId = lens _criKMSKeyId (\ s a -> s{_criKMSKeyId = a})
 
 -- | The EC2 Availability Zone that the replication instance will be created in. Default: A random, system-chosen Availability Zone in the endpoint's region. Example: @us-east-1d@
 criAvailabilityZone :: Lens' CreateReplicationInstance (Maybe Text)
-criAvailabilityZone = lens _criAvailabilityZone (\ s a -> s{_criAvailabilityZone = a});
+criAvailabilityZone = lens _criAvailabilityZone (\ s a -> s{_criAvailabilityZone = a})
 
 -- | Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
 criVPCSecurityGroupIds :: Lens' CreateReplicationInstance [Text]
-criVPCSecurityGroupIds = lens _criVPCSecurityGroupIds (\ s a -> s{_criVPCSecurityGroupIds = a}) . _Default . _Coerce;
+criVPCSecurityGroupIds = lens _criVPCSecurityGroupIds (\ s a -> s{_criVPCSecurityGroupIds = a}) . _Default . _Coerce
 
 -- | Specifies if the replication instance is a Multi-AZ deployment. You cannot set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
 criMultiAZ :: Lens' CreateReplicationInstance (Maybe Bool)
-criMultiAZ = lens _criMultiAZ (\ s a -> s{_criMultiAZ = a});
+criMultiAZ = lens _criMultiAZ (\ s a -> s{_criMultiAZ = a})
 
 -- | The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 criAllocatedStorage :: Lens' CreateReplicationInstance (Maybe Int)
-criAllocatedStorage = lens _criAllocatedStorage (\ s a -> s{_criAllocatedStorage = a});
+criAllocatedStorage = lens _criAllocatedStorage (\ s a -> s{_criAllocatedStorage = a})
 
 -- | Tags to be associated with the replication instance.
 criTags :: Lens' CreateReplicationInstance [Tag]
-criTags = lens _criTags (\ s a -> s{_criTags = a}) . _Default . _Coerce;
+criTags = lens _criTags (\ s a -> s{_criTags = a}) . _Default . _Coerce
 
 -- | The replication instance identifier. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @myrepinstance@
 criReplicationInstanceIdentifier :: Lens' CreateReplicationInstance Text
-criReplicationInstanceIdentifier = lens _criReplicationInstanceIdentifier (\ s a -> s{_criReplicationInstanceIdentifier = a});
+criReplicationInstanceIdentifier = lens _criReplicationInstanceIdentifier (\ s a -> s{_criReplicationInstanceIdentifier = a})
 
 -- | The compute and memory capacity of the replication instance as specified by the replication instance class. Valid Values: @dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge @
 criReplicationInstanceClass :: Lens' CreateReplicationInstance Text
-criReplicationInstanceClass = lens _criReplicationInstanceClass (\ s a -> s{_criReplicationInstanceClass = a});
+criReplicationInstanceClass = lens _criReplicationInstanceClass (\ s a -> s{_criReplicationInstanceClass = a})
 
 instance AWSRequest CreateReplicationInstance where
         type Rs CreateReplicationInstance =
@@ -261,16 +261,18 @@ createReplicationInstanceResponse
     -> CreateReplicationInstanceResponse
 createReplicationInstanceResponse pResponseStatus_ =
   CreateReplicationInstanceResponse'
-  {_crirsReplicationInstance = Nothing, _crirsResponseStatus = pResponseStatus_}
+    { _crirsReplicationInstance = Nothing
+    , _crirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The replication instance that was created.
 crirsReplicationInstance :: Lens' CreateReplicationInstanceResponse (Maybe ReplicationInstance)
-crirsReplicationInstance = lens _crirsReplicationInstance (\ s a -> s{_crirsReplicationInstance = a});
+crirsReplicationInstance = lens _crirsReplicationInstance (\ s a -> s{_crirsReplicationInstance = a})
 
 -- | -- | The response status code.
 crirsResponseStatus :: Lens' CreateReplicationInstanceResponse Int
-crirsResponseStatus = lens _crirsResponseStatus (\ s a -> s{_crirsResponseStatus = a});
+crirsResponseStatus = lens _crirsResponseStatus (\ s a -> s{_crirsResponseStatus = a})
 
 instance NFData CreateReplicationInstanceResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.SetCognitoEvents
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,11 +71,11 @@ setCognitoEvents pIdentityPoolId_ =
 
 -- | The Cognito Identity Pool to use when configuring Cognito Events
 sceIdentityPoolId :: Lens' SetCognitoEvents Text
-sceIdentityPoolId = lens _sceIdentityPoolId (\ s a -> s{_sceIdentityPoolId = a});
+sceIdentityPoolId = lens _sceIdentityPoolId (\ s a -> s{_sceIdentityPoolId = a})
 
 -- | The events to configure
 sceEvents :: Lens' SetCognitoEvents (HashMap Text Text)
-sceEvents = lens _sceEvents (\ s a -> s{_sceEvents = a}) . _Map;
+sceEvents = lens _sceEvents (\ s a -> s{_sceEvents = a}) . _Map
 
 instance AWSRequest SetCognitoEvents where
         type Rs SetCognitoEvents = SetCognitoEventsResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.CreateReceiptRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,20 +76,20 @@ createReceiptRule
     -> CreateReceiptRule
 createReceiptRule pRuleSetName_ pRule_ =
   CreateReceiptRule'
-  {_crrAfter = Nothing, _crrRuleSetName = pRuleSetName_, _crrRule = pRule_}
+    {_crrAfter = Nothing, _crrRuleSetName = pRuleSetName_, _crrRule = pRule_}
 
 
 -- | The name of an existing rule after which the new rule will be placed. If this parameter is null, the new rule will be inserted at the beginning of the rule list.
 crrAfter :: Lens' CreateReceiptRule (Maybe Text)
-crrAfter = lens _crrAfter (\ s a -> s{_crrAfter = a});
+crrAfter = lens _crrAfter (\ s a -> s{_crrAfter = a})
 
 -- | The name of the rule set that the receipt rule will be added to.
 crrRuleSetName :: Lens' CreateReceiptRule Text
-crrRuleSetName = lens _crrRuleSetName (\ s a -> s{_crrRuleSetName = a});
+crrRuleSetName = lens _crrRuleSetName (\ s a -> s{_crrRuleSetName = a})
 
 -- | A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
 crrRule :: Lens' CreateReceiptRule ReceiptRule
-crrRule = lens _crrRule (\ s a -> s{_crrRule = a});
+crrRule = lens _crrRule (\ s a -> s{_crrRule = a})
 
 instance AWSRequest CreateReceiptRule where
         type Rs CreateReceiptRule = CreateReceiptRuleResponse
@@ -141,6 +141,6 @@ createReceiptRuleResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 crrrsResponseStatus :: Lens' CreateReceiptRuleResponse Int
-crrrsResponseStatus = lens _crrrsResponseStatus (\ s a -> s{_crrrsResponseStatus = a});
+crrrsResponseStatus = lens _crrrsResponseStatus (\ s a -> s{_crrrsResponseStatus = a})
 
 instance NFData CreateReceiptRuleResponse where

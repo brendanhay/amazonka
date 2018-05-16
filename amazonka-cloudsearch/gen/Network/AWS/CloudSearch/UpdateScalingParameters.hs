@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.UpdateScalingParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ updateScalingParameters
     -> UpdateScalingParameters
 updateScalingParameters pDomainName_ pScalingParameters_ =
   UpdateScalingParameters'
-  {_uspDomainName = pDomainName_, _uspScalingParameters = pScalingParameters_}
+    {_uspDomainName = pDomainName_, _uspScalingParameters = pScalingParameters_}
 
 
 -- | Undocumented member.
 uspDomainName :: Lens' UpdateScalingParameters Text
-uspDomainName = lens _uspDomainName (\ s a -> s{_uspDomainName = a});
+uspDomainName = lens _uspDomainName (\ s a -> s{_uspDomainName = a})
 
 -- | Undocumented member.
 uspScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
-uspScalingParameters = lens _uspScalingParameters (\ s a -> s{_uspScalingParameters = a});
+uspScalingParameters = lens _uspScalingParameters (\ s a -> s{_uspScalingParameters = a})
 
 instance AWSRequest UpdateScalingParameters where
         type Rs UpdateScalingParameters =
@@ -133,17 +133,17 @@ updateScalingParametersResponse
     -> UpdateScalingParametersResponse
 updateScalingParametersResponse pResponseStatus_ pScalingParameters_ =
   UpdateScalingParametersResponse'
-  { _usprsResponseStatus = pResponseStatus_
-  , _usprsScalingParameters = pScalingParameters_
-  }
+    { _usprsResponseStatus = pResponseStatus_
+    , _usprsScalingParameters = pScalingParameters_
+    }
 
 
 -- | -- | The response status code.
 usprsResponseStatus :: Lens' UpdateScalingParametersResponse Int
-usprsResponseStatus = lens _usprsResponseStatus (\ s a -> s{_usprsResponseStatus = a});
+usprsResponseStatus = lens _usprsResponseStatus (\ s a -> s{_usprsResponseStatus = a})
 
 -- | Undocumented member.
 usprsScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
-usprsScalingParameters = lens _usprsScalingParameters (\ s a -> s{_usprsScalingParameters = a});
+usprsScalingParameters = lens _usprsScalingParameters (\ s a -> s{_usprsScalingParameters = a})
 
 instance NFData UpdateScalingParametersResponse where

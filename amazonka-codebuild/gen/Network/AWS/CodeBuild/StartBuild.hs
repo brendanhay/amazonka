@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.StartBuild
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,7 @@ module Network.AWS.CodeBuild.StartBuild
     -- * Request Lenses
     , sbEnvironmentVariablesOverride
     , sbTimeoutInMinutesOverride
+    , sbGitCloneDepthOverride
     , sbSourceVersion
     , sbBuildspecOverride
     , sbArtifactsOverride
@@ -53,6 +54,7 @@ import Network.AWS.Response
 data StartBuild = StartBuild'
   { _sbEnvironmentVariablesOverride :: !(Maybe [EnvironmentVariable])
   , _sbTimeoutInMinutesOverride     :: !(Maybe Nat)
+  , _sbGitCloneDepthOverride        :: !(Maybe Nat)
   , _sbSourceVersion                :: !(Maybe Text)
   , _sbBuildspecOverride            :: !(Maybe Text)
   , _sbArtifactsOverride            :: !(Maybe ProjectArtifacts)
@@ -68,50 +70,57 @@ data StartBuild = StartBuild'
 --
 -- * 'sbTimeoutInMinutesOverride' - The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.
 --
+-- * 'sbGitCloneDepthOverride' - The user-defined depth of history, with a minimum value of 0, that overrides, for this build only, any previous depth of history defined in the build project.
+--
 -- * 'sbSourceVersion' - A version of the build input to be built, for this build only. If not specified, the latest version will be used. If specified, must be one of:     * For AWS CodeCommit: the commit ID to use.     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use.
 --
 -- * 'sbBuildspecOverride' - A build spec declaration that overrides, for this build only, the latest one already defined in the build project.
 --
 -- * 'sbArtifactsOverride' - Build output artifact settings that override, for this build only, the latest ones already defined in the build project.
 --
--- * 'sbProjectName' - The name of the build project to start running a build.
+-- * 'sbProjectName' - The name of the AWS CodeBuild build project to start running a build.
 startBuild
     :: Text -- ^ 'sbProjectName'
     -> StartBuild
 startBuild pProjectName_ =
   StartBuild'
-  { _sbEnvironmentVariablesOverride = Nothing
-  , _sbTimeoutInMinutesOverride = Nothing
-  , _sbSourceVersion = Nothing
-  , _sbBuildspecOverride = Nothing
-  , _sbArtifactsOverride = Nothing
-  , _sbProjectName = pProjectName_
-  }
+    { _sbEnvironmentVariablesOverride = Nothing
+    , _sbTimeoutInMinutesOverride = Nothing
+    , _sbGitCloneDepthOverride = Nothing
+    , _sbSourceVersion = Nothing
+    , _sbBuildspecOverride = Nothing
+    , _sbArtifactsOverride = Nothing
+    , _sbProjectName = pProjectName_
+    }
 
 
 -- | A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.
 sbEnvironmentVariablesOverride :: Lens' StartBuild [EnvironmentVariable]
-sbEnvironmentVariablesOverride = lens _sbEnvironmentVariablesOverride (\ s a -> s{_sbEnvironmentVariablesOverride = a}) . _Default . _Coerce;
+sbEnvironmentVariablesOverride = lens _sbEnvironmentVariablesOverride (\ s a -> s{_sbEnvironmentVariablesOverride = a}) . _Default . _Coerce
 
 -- | The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.
 sbTimeoutInMinutesOverride :: Lens' StartBuild (Maybe Natural)
-sbTimeoutInMinutesOverride = lens _sbTimeoutInMinutesOverride (\ s a -> s{_sbTimeoutInMinutesOverride = a}) . mapping _Nat;
+sbTimeoutInMinutesOverride = lens _sbTimeoutInMinutesOverride (\ s a -> s{_sbTimeoutInMinutesOverride = a}) . mapping _Nat
+
+-- | The user-defined depth of history, with a minimum value of 0, that overrides, for this build only, any previous depth of history defined in the build project.
+sbGitCloneDepthOverride :: Lens' StartBuild (Maybe Natural)
+sbGitCloneDepthOverride = lens _sbGitCloneDepthOverride (\ s a -> s{_sbGitCloneDepthOverride = a}) . mapping _Nat
 
 -- | A version of the build input to be built, for this build only. If not specified, the latest version will be used. If specified, must be one of:     * For AWS CodeCommit: the commit ID to use.     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use.
 sbSourceVersion :: Lens' StartBuild (Maybe Text)
-sbSourceVersion = lens _sbSourceVersion (\ s a -> s{_sbSourceVersion = a});
+sbSourceVersion = lens _sbSourceVersion (\ s a -> s{_sbSourceVersion = a})
 
 -- | A build spec declaration that overrides, for this build only, the latest one already defined in the build project.
 sbBuildspecOverride :: Lens' StartBuild (Maybe Text)
-sbBuildspecOverride = lens _sbBuildspecOverride (\ s a -> s{_sbBuildspecOverride = a});
+sbBuildspecOverride = lens _sbBuildspecOverride (\ s a -> s{_sbBuildspecOverride = a})
 
 -- | Build output artifact settings that override, for this build only, the latest ones already defined in the build project.
 sbArtifactsOverride :: Lens' StartBuild (Maybe ProjectArtifacts)
-sbArtifactsOverride = lens _sbArtifactsOverride (\ s a -> s{_sbArtifactsOverride = a});
+sbArtifactsOverride = lens _sbArtifactsOverride (\ s a -> s{_sbArtifactsOverride = a})
 
--- | The name of the build project to start running a build.
+-- | The name of the AWS CodeBuild build project to start running a build.
 sbProjectName :: Lens' StartBuild Text
-sbProjectName = lens _sbProjectName (\ s a -> s{_sbProjectName = a});
+sbProjectName = lens _sbProjectName (\ s a -> s{_sbProjectName = a})
 
 instance AWSRequest StartBuild where
         type Rs StartBuild = StartBuildResponse
@@ -143,6 +152,8 @@ instance ToJSON StartBuild where
                     _sbEnvironmentVariablesOverride,
                   ("timeoutInMinutesOverride" .=) <$>
                     _sbTimeoutInMinutesOverride,
+                  ("gitCloneDepthOverride" .=) <$>
+                    _sbGitCloneDepthOverride,
                   ("sourceVersion" .=) <$> _sbSourceVersion,
                   ("buildspecOverride" .=) <$> _sbBuildspecOverride,
                   ("artifactsOverride" .=) <$> _sbArtifactsOverride,
@@ -173,15 +184,15 @@ startBuildResponse
     -> StartBuildResponse
 startBuildResponse pResponseStatus_ =
   StartBuildResponse'
-  {_srsBuild = Nothing, _srsResponseStatus = pResponseStatus_}
+    {_srsBuild = Nothing, _srsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the build to be run.
 srsBuild :: Lens' StartBuildResponse (Maybe Build)
-srsBuild = lens _srsBuild (\ s a -> s{_srsBuild = a});
+srsBuild = lens _srsBuild (\ s a -> s{_srsBuild = a})
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StartBuildResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StartBuildResponse where

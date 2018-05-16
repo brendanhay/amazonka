@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.CreateDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ createDomain pDomainName_ = CreateDomain' {_cdDomainName = pDomainName_}
 
 -- | A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.
 cdDomainName :: Lens' CreateDomain Text
-cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
+cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a})
 
 instance AWSRequest CreateDomain where
         type Rs CreateDomain = CreateDomainResponse
@@ -118,15 +118,15 @@ createDomainResponse
     -> CreateDomainResponse
 createDomainResponse pResponseStatus_ =
   CreateDomainResponse'
-  {_cdrsDomainStatus = Nothing, _cdrsResponseStatus = pResponseStatus_}
+    {_cdrsDomainStatus = Nothing, _cdrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 cdrsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
-cdrsDomainStatus = lens _cdrsDomainStatus (\ s a -> s{_cdrsDomainStatus = a});
+cdrsDomainStatus = lens _cdrsDomainStatus (\ s a -> s{_cdrsDomainStatus = a})
 
 -- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDomainResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a})
 
 instance NFData CreateDomainResponse where

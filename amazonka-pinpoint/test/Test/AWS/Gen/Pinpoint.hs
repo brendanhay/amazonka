@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Pinpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,6 +55,9 @@ import Test.Tasty
 --         , requestGetSegmentVersion $
 --             getSegmentVersion
 --
+--         , requestCreateExportJob $
+--             createExportJob
+--
 --         , requestCreateSegment $
 --             createSegment
 --
@@ -64,11 +67,17 @@ import Test.Tasty
 --         , requestDeleteADMChannel $
 --             deleteADMChannel
 --
+--         , requestDeleteEndpoint $
+--             deleteEndpoint
+--
 --         , requestUpdateEndpoint $
 --             updateEndpoint
 --
 --         , requestCreateCampaign $
 --             createCampaign
+--
+--         , requestGetExportJob $
+--             getExportJob
 --
 --         , requestGetEndpoint $
 --             getEndpoint
@@ -163,6 +172,9 @@ import Test.Tasty
 --         , requestCreateApp $
 --             createApp
 --
+--         , requestGetSegmentExportJobs $
+--             getSegmentExportJobs
+--
 --         , requestGetSmsChannel $
 --             getSmsChannel
 --
@@ -180,6 +192,9 @@ import Test.Tasty
 --
 --         , requestGetSegments $
 --             getSegments
+--
+--         , requestGetExportJobs $
+--             getExportJobs
 --
 --         , requestCreateImportJob $
 --             createImportJob
@@ -238,6 +253,9 @@ import Test.Tasty
 --         , responseGetSegmentVersion $
 --             getSegmentVersionResponse
 --
+--         , responseCreateExportJob $
+--             createExportJobResponse
+--
 --         , responseCreateSegment $
 --             createSegmentResponse
 --
@@ -247,11 +265,17 @@ import Test.Tasty
 --         , responseDeleteADMChannel $
 --             deleteADMChannelResponse
 --
+--         , responseDeleteEndpoint $
+--             deleteEndpointResponse
+--
 --         , responseUpdateEndpoint $
 --             updateEndpointResponse
 --
 --         , responseCreateCampaign $
 --             createCampaignResponse
+--
+--         , responseGetExportJob $
+--             getExportJobResponse
 --
 --         , responseGetEndpoint $
 --             getEndpointResponse
@@ -346,6 +370,9 @@ import Test.Tasty
 --         , responseCreateApp $
 --             createAppResponse
 --
+--         , responseGetSegmentExportJobs $
+--             getSegmentExportJobsResponse
+--
 --         , responseGetSmsChannel $
 --             getSmsChannelResponse
 --
@@ -363,6 +390,9 @@ import Test.Tasty
 --
 --         , responseGetSegments $
 --             getSegmentsResponse
+--
+--         , responseGetExportJobs $
+--             getExportJobsResponse
 --
 --         , responseCreateImportJob $
 --             createImportJobResponse
@@ -441,6 +471,11 @@ requestGetSegmentVersion = req
     "GetSegmentVersion"
     "fixture/GetSegmentVersion.yaml"
 
+requestCreateExportJob :: CreateExportJob -> TestTree
+requestCreateExportJob = req
+    "CreateExportJob"
+    "fixture/CreateExportJob.yaml"
+
 requestCreateSegment :: CreateSegment -> TestTree
 requestCreateSegment = req
     "CreateSegment"
@@ -456,6 +491,11 @@ requestDeleteADMChannel = req
     "DeleteADMChannel"
     "fixture/DeleteADMChannel.yaml"
 
+requestDeleteEndpoint :: DeleteEndpoint -> TestTree
+requestDeleteEndpoint = req
+    "DeleteEndpoint"
+    "fixture/DeleteEndpoint.yaml"
+
 requestUpdateEndpoint :: UpdateEndpoint -> TestTree
 requestUpdateEndpoint = req
     "UpdateEndpoint"
@@ -465,6 +505,11 @@ requestCreateCampaign :: CreateCampaign -> TestTree
 requestCreateCampaign = req
     "CreateCampaign"
     "fixture/CreateCampaign.yaml"
+
+requestGetExportJob :: GetExportJob -> TestTree
+requestGetExportJob = req
+    "GetExportJob"
+    "fixture/GetExportJob.yaml"
 
 requestGetEndpoint :: GetEndpoint -> TestTree
 requestGetEndpoint = req
@@ -621,6 +666,11 @@ requestCreateApp = req
     "CreateApp"
     "fixture/CreateApp.yaml"
 
+requestGetSegmentExportJobs :: GetSegmentExportJobs -> TestTree
+requestGetSegmentExportJobs = req
+    "GetSegmentExportJobs"
+    "fixture/GetSegmentExportJobs.yaml"
+
 requestGetSmsChannel :: GetSmsChannel -> TestTree
 requestGetSmsChannel = req
     "GetSmsChannel"
@@ -650,6 +700,11 @@ requestGetSegments :: GetSegments -> TestTree
 requestGetSegments = req
     "GetSegments"
     "fixture/GetSegments.yaml"
+
+requestGetExportJobs :: GetExportJobs -> TestTree
+requestGetExportJobs = req
+    "GetExportJobs"
+    "fixture/GetExportJobs.yaml"
 
 requestCreateImportJob :: CreateImportJob -> TestTree
 requestCreateImportJob = req
@@ -761,6 +816,13 @@ responseGetSegmentVersion = res
     pinpoint
     (Proxy :: Proxy GetSegmentVersion)
 
+responseCreateExportJob :: CreateExportJobResponse -> TestTree
+responseCreateExportJob = res
+    "CreateExportJobResponse"
+    "fixture/CreateExportJobResponse.proto"
+    pinpoint
+    (Proxy :: Proxy CreateExportJob)
+
 responseCreateSegment :: CreateSegmentResponse -> TestTree
 responseCreateSegment = res
     "CreateSegmentResponse"
@@ -782,6 +844,13 @@ responseDeleteADMChannel = res
     pinpoint
     (Proxy :: Proxy DeleteADMChannel)
 
+responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
+responseDeleteEndpoint = res
+    "DeleteEndpointResponse"
+    "fixture/DeleteEndpointResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteEndpoint)
+
 responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
 responseUpdateEndpoint = res
     "UpdateEndpointResponse"
@@ -795,6 +864,13 @@ responseCreateCampaign = res
     "fixture/CreateCampaignResponse.proto"
     pinpoint
     (Proxy :: Proxy CreateCampaign)
+
+responseGetExportJob :: GetExportJobResponse -> TestTree
+responseGetExportJob = res
+    "GetExportJobResponse"
+    "fixture/GetExportJobResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetExportJob)
 
 responseGetEndpoint :: GetEndpointResponse -> TestTree
 responseGetEndpoint = res
@@ -1013,6 +1089,13 @@ responseCreateApp = res
     pinpoint
     (Proxy :: Proxy CreateApp)
 
+responseGetSegmentExportJobs :: GetSegmentExportJobsResponse -> TestTree
+responseGetSegmentExportJobs = res
+    "GetSegmentExportJobsResponse"
+    "fixture/GetSegmentExportJobsResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetSegmentExportJobs)
+
 responseGetSmsChannel :: GetSmsChannelResponse -> TestTree
 responseGetSmsChannel = res
     "GetSmsChannelResponse"
@@ -1054,6 +1137,13 @@ responseGetSegments = res
     "fixture/GetSegmentsResponse.proto"
     pinpoint
     (Proxy :: Proxy GetSegments)
+
+responseGetExportJobs :: GetExportJobsResponse -> TestTree
+responseGetExportJobs = res
+    "GetExportJobsResponse"
+    "fixture/GetExportJobsResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetExportJobs)
 
 responseCreateImportJob :: CreateImportJobResponse -> TestTree
 responseCreateImportJob = res

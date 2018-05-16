@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteCustomMetadata
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ data DeleteCustomMetadata = DeleteCustomMetadata'
 --
 -- * 'dcmDeleteAll' - Flag to indicate removal of all custom metadata properties from the specified resource.
 --
--- * 'dcmAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'dcmAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'dcmKeys' - List of properties to remove.
 --
@@ -75,33 +75,33 @@ deleteCustomMetadata
     -> DeleteCustomMetadata
 deleteCustomMetadata pResourceId_ =
   DeleteCustomMetadata'
-  { _dcmVersionId = Nothing
-  , _dcmDeleteAll = Nothing
-  , _dcmAuthenticationToken = Nothing
-  , _dcmKeys = Nothing
-  , _dcmResourceId = pResourceId_
-  }
+    { _dcmVersionId = Nothing
+    , _dcmDeleteAll = Nothing
+    , _dcmAuthenticationToken = Nothing
+    , _dcmKeys = Nothing
+    , _dcmResourceId = pResourceId_
+    }
 
 
 -- | The ID of the version, if the custom metadata is being deleted from a document version.
 dcmVersionId :: Lens' DeleteCustomMetadata (Maybe Text)
-dcmVersionId = lens _dcmVersionId (\ s a -> s{_dcmVersionId = a});
+dcmVersionId = lens _dcmVersionId (\ s a -> s{_dcmVersionId = a})
 
 -- | Flag to indicate removal of all custom metadata properties from the specified resource.
 dcmDeleteAll :: Lens' DeleteCustomMetadata (Maybe Bool)
-dcmDeleteAll = lens _dcmDeleteAll (\ s a -> s{_dcmDeleteAll = a});
+dcmDeleteAll = lens _dcmDeleteAll (\ s a -> s{_dcmDeleteAll = a})
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 dcmAuthenticationToken :: Lens' DeleteCustomMetadata (Maybe Text)
-dcmAuthenticationToken = lens _dcmAuthenticationToken (\ s a -> s{_dcmAuthenticationToken = a}) . mapping _Sensitive;
+dcmAuthenticationToken = lens _dcmAuthenticationToken (\ s a -> s{_dcmAuthenticationToken = a}) . mapping _Sensitive
 
 -- | List of properties to remove.
 dcmKeys :: Lens' DeleteCustomMetadata [Text]
-dcmKeys = lens _dcmKeys (\ s a -> s{_dcmKeys = a}) . _Default . _Coerce;
+dcmKeys = lens _dcmKeys (\ s a -> s{_dcmKeys = a}) . _Default . _Coerce
 
 -- | The ID of the resource, either a document or folder.
 dcmResourceId :: Lens' DeleteCustomMetadata Text
-dcmResourceId = lens _dcmResourceId (\ s a -> s{_dcmResourceId = a});
+dcmResourceId = lens _dcmResourceId (\ s a -> s{_dcmResourceId = a})
 
 instance AWSRequest DeleteCustomMetadata where
         type Rs DeleteCustomMetadata =
@@ -158,6 +158,6 @@ deleteCustomMetadataResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dcmrsResponseStatus :: Lens' DeleteCustomMetadataResponse Int
-dcmrsResponseStatus = lens _dcmrsResponseStatus (\ s a -> s{_dcmrsResponseStatus = a});
+dcmrsResponseStatus = lens _dcmrsResponseStatus (\ s a -> s{_dcmrsResponseStatus = a})
 
 instance NFData DeleteCustomMetadataResponse where

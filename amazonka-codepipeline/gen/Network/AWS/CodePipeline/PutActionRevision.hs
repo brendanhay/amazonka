@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PutActionRevision
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,28 +80,28 @@ putActionRevision
     -> PutActionRevision
 putActionRevision pPipelineName_ pStageName_ pActionName_ pActionRevision_ =
   PutActionRevision'
-  { _pPipelineName = pPipelineName_
-  , _pStageName = pStageName_
-  , _pActionName = pActionName_
-  , _pActionRevision = pActionRevision_
-  }
+    { _pPipelineName = pPipelineName_
+    , _pStageName = pStageName_
+    , _pActionName = pActionName_
+    , _pActionRevision = pActionRevision_
+    }
 
 
 -- | The name of the pipeline that will start processing the revision to the source.
 pPipelineName :: Lens' PutActionRevision Text
-pPipelineName = lens _pPipelineName (\ s a -> s{_pPipelineName = a});
+pPipelineName = lens _pPipelineName (\ s a -> s{_pPipelineName = a})
 
 -- | The name of the stage that contains the action that will act upon the revision.
 pStageName :: Lens' PutActionRevision Text
-pStageName = lens _pStageName (\ s a -> s{_pStageName = a});
+pStageName = lens _pStageName (\ s a -> s{_pStageName = a})
 
 -- | The name of the action that will process the revision.
 pActionName :: Lens' PutActionRevision Text
-pActionName = lens _pActionName (\ s a -> s{_pActionName = a});
+pActionName = lens _pActionName (\ s a -> s{_pActionName = a})
 
 -- | Represents information about the version (or revision) of an action.
 pActionRevision :: Lens' PutActionRevision ActionRevision
-pActionRevision = lens _pActionRevision (\ s a -> s{_pActionRevision = a});
+pActionRevision = lens _pActionRevision (\ s a -> s{_pActionRevision = a})
 
 instance AWSRequest PutActionRevision where
         type Rs PutActionRevision = PutActionRevisionResponse
@@ -169,22 +169,22 @@ putActionRevisionResponse
     -> PutActionRevisionResponse
 putActionRevisionResponse pResponseStatus_ =
   PutActionRevisionResponse'
-  { _prsNewRevision = Nothing
-  , _prsPipelineExecutionId = Nothing
-  , _prsResponseStatus = pResponseStatus_
-  }
+    { _prsNewRevision = Nothing
+    , _prsPipelineExecutionId = Nothing
+    , _prsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Indicates whether the artifact revision was previously used in an execution of the specified pipeline.
 prsNewRevision :: Lens' PutActionRevisionResponse (Maybe Bool)
-prsNewRevision = lens _prsNewRevision (\ s a -> s{_prsNewRevision = a});
+prsNewRevision = lens _prsNewRevision (\ s a -> s{_prsNewRevision = a})
 
 -- | The ID of the current workflow state of the pipeline.
 prsPipelineExecutionId :: Lens' PutActionRevisionResponse (Maybe Text)
-prsPipelineExecutionId = lens _prsPipelineExecutionId (\ s a -> s{_prsPipelineExecutionId = a});
+prsPipelineExecutionId = lens _prsPipelineExecutionId (\ s a -> s{_prsPipelineExecutionId = a})
 
 -- | -- | The response status code.
 prsResponseStatus :: Lens' PutActionRevisionResponse Int
-prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
+prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a})
 
 instance NFData PutActionRevisionResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeServices
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ describeServices =
 
 -- | A JSON-formatted list of service codes available for AWS services.
 dsServiceCodeList :: Lens' DescribeServices [Text]
-dsServiceCodeList = lens _dsServiceCodeList (\ s a -> s{_dsServiceCodeList = a}) . _Default . _Coerce;
+dsServiceCodeList = lens _dsServiceCodeList (\ s a -> s{_dsServiceCodeList = a}) . _Default . _Coerce
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 dsLanguage :: Lens' DescribeServices (Maybe Text)
-dsLanguage = lens _dsLanguage (\ s a -> s{_dsLanguage = a});
+dsLanguage = lens _dsLanguage (\ s a -> s{_dsLanguage = a})
 
 instance AWSRequest DescribeServices where
         type Rs DescribeServices = DescribeServicesResponse
@@ -139,15 +139,15 @@ describeServicesResponse
     -> DescribeServicesResponse
 describeServicesResponse pResponseStatus_ =
   DescribeServicesResponse'
-  {_dsrsServices = Nothing, _dsrsResponseStatus = pResponseStatus_}
+    {_dsrsServices = Nothing, _dsrsResponseStatus = pResponseStatus_}
 
 
 -- | A JSON-formatted list of AWS services.
 dsrsServices :: Lens' DescribeServicesResponse [SupportService]
-dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default . _Coerce;
+dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeServicesResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DescribeServicesResponse where

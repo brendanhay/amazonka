@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.RemoveUserFromGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,25 +53,25 @@ data RemoveUserFromGroup = RemoveUserFromGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rufgGroupName' - The name of the group to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'rufgGroupName' - The name of the group to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'rufgUserName' - The name of the user to remove. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'rufgUserName' - The name of the user to remove. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 removeUserFromGroup
     :: Text -- ^ 'rufgGroupName'
     -> Text -- ^ 'rufgUserName'
     -> RemoveUserFromGroup
 removeUserFromGroup pGroupName_ pUserName_ =
   RemoveUserFromGroup'
-  {_rufgGroupName = pGroupName_, _rufgUserName = pUserName_}
+    {_rufgGroupName = pGroupName_, _rufgUserName = pUserName_}
 
 
--- | The name of the group to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the group to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 rufgGroupName :: Lens' RemoveUserFromGroup Text
-rufgGroupName = lens _rufgGroupName (\ s a -> s{_rufgGroupName = a});
+rufgGroupName = lens _rufgGroupName (\ s a -> s{_rufgGroupName = a})
 
--- | The name of the user to remove. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user to remove. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 rufgUserName :: Lens' RemoveUserFromGroup Text
-rufgUserName = lens _rufgUserName (\ s a -> s{_rufgUserName = a});
+rufgUserName = lens _rufgUserName (\ s a -> s{_rufgUserName = a})
 
 instance AWSRequest RemoveUserFromGroup where
         type Rs RemoveUserFromGroup =

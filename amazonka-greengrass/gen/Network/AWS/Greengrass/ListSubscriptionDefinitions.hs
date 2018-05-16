@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListSubscriptionDefinitions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,23 +55,23 @@ data ListSubscriptionDefinitions = ListSubscriptionDefinitions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsdNextToken' - Specifies the pagination token used when iterating through a paginated request
+-- * 'lsdNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lsdMaxResults' - Specifies the maximum number of list results to be returned in this page
+-- * 'lsdMaxResults' - The maximum number of results to be returned per request.
 listSubscriptionDefinitions
     :: ListSubscriptionDefinitions
 listSubscriptionDefinitions =
   ListSubscriptionDefinitions'
-  {_lsdNextToken = Nothing, _lsdMaxResults = Nothing}
+    {_lsdNextToken = Nothing, _lsdMaxResults = Nothing}
 
 
--- | Specifies the pagination token used when iterating through a paginated request
+-- | The token for the next set of results, or ''null'' if there are no additional results.
 lsdNextToken :: Lens' ListSubscriptionDefinitions (Maybe Text)
-lsdNextToken = lens _lsdNextToken (\ s a -> s{_lsdNextToken = a});
+lsdNextToken = lens _lsdNextToken (\ s a -> s{_lsdNextToken = a})
 
--- | Specifies the maximum number of list results to be returned in this page
+-- | The maximum number of results to be returned per request.
 lsdMaxResults :: Lens' ListSubscriptionDefinitions (Maybe Text)
-lsdMaxResults = lens _lsdMaxResults (\ s a -> s{_lsdMaxResults = a});
+lsdMaxResults = lens _lsdMaxResults (\ s a -> s{_lsdMaxResults = a})
 
 instance AWSRequest ListSubscriptionDefinitions where
         type Rs ListSubscriptionDefinitions =
@@ -119,7 +119,7 @@ data ListSubscriptionDefinitionsResponse = ListSubscriptionDefinitionsResponse'
 --
 -- * 'lsdrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lsdrsDefinitions' - Definitions
+-- * 'lsdrsDefinitions' - Information about a definition.
 --
 -- * 'lsdrsResponseStatus' - -- | The response status code.
 listSubscriptionDefinitionsResponse
@@ -127,23 +127,23 @@ listSubscriptionDefinitionsResponse
     -> ListSubscriptionDefinitionsResponse
 listSubscriptionDefinitionsResponse pResponseStatus_ =
   ListSubscriptionDefinitionsResponse'
-  { _lsdrsNextToken = Nothing
-  , _lsdrsDefinitions = Nothing
-  , _lsdrsResponseStatus = pResponseStatus_
-  }
+    { _lsdrsNextToken = Nothing
+    , _lsdrsDefinitions = Nothing
+    , _lsdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lsdrsNextToken :: Lens' ListSubscriptionDefinitionsResponse (Maybe Text)
-lsdrsNextToken = lens _lsdrsNextToken (\ s a -> s{_lsdrsNextToken = a});
+lsdrsNextToken = lens _lsdrsNextToken (\ s a -> s{_lsdrsNextToken = a})
 
--- | Definitions
+-- | Information about a definition.
 lsdrsDefinitions :: Lens' ListSubscriptionDefinitionsResponse [DefinitionInformation]
-lsdrsDefinitions = lens _lsdrsDefinitions (\ s a -> s{_lsdrsDefinitions = a}) . _Default . _Coerce;
+lsdrsDefinitions = lens _lsdrsDefinitions (\ s a -> s{_lsdrsDefinitions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lsdrsResponseStatus :: Lens' ListSubscriptionDefinitionsResponse Int
-lsdrsResponseStatus = lens _lsdrsResponseStatus (\ s a -> s{_lsdrsResponseStatus = a});
+lsdrsResponseStatus = lens _lsdrsResponseStatus (\ s a -> s{_lsdrsResponseStatus = a})
 
 instance NFData ListSubscriptionDefinitionsResponse
          where

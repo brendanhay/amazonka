@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DeletePortfolio
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified portfolio. This operation does not work with a portfolio that has been shared with you or if it has products, users, constraints, or shared accounts associated with it.
+-- Deletes the specified portfolio.
 --
+--
+-- You cannot delete a portfolio if it was shared with you or if it has associated products, users, constraints, or shared accounts.
 --
 module Network.AWS.ServiceCatalog.DeletePortfolio
     (
@@ -27,8 +29,8 @@ module Network.AWS.ServiceCatalog.DeletePortfolio
       deletePortfolio
     , DeletePortfolio
     -- * Request Lenses
-    , dppAcceptLanguage
-    , dppId
+    , ddAcceptLanguage
+    , ddId
 
     -- * Destructuring the Response
     , deletePortfolioResponse
@@ -46,8 +48,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'deletePortfolio' smart constructor.
 data DeletePortfolio = DeletePortfolio'
-  { _dppAcceptLanguage :: !(Maybe Text)
-  , _dppId             :: !Text
+  { _ddAcceptLanguage :: !(Maybe Text)
+  , _ddId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -55,23 +57,23 @@ data DeletePortfolio = DeletePortfolio'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- * 'ddAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dppId' - The identifier of the portfolio for the delete request.
+-- * 'ddId' - The portfolio identifier.
 deletePortfolio
-    :: Text -- ^ 'dppId'
+    :: Text -- ^ 'ddId'
     -> DeletePortfolio
 deletePortfolio pId_ =
-  DeletePortfolio' {_dppAcceptLanguage = Nothing, _dppId = pId_}
+  DeletePortfolio' {_ddAcceptLanguage = Nothing, _ddId = pId_}
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-dppAcceptLanguage :: Lens' DeletePortfolio (Maybe Text)
-dppAcceptLanguage = lens _dppAcceptLanguage (\ s a -> s{_dppAcceptLanguage = a});
+ddAcceptLanguage :: Lens' DeletePortfolio (Maybe Text)
+ddAcceptLanguage = lens _ddAcceptLanguage (\ s a -> s{_ddAcceptLanguage = a})
 
--- | The identifier of the portfolio for the delete request.
-dppId :: Lens' DeletePortfolio Text
-dppId = lens _dppId (\ s a -> s{_dppId = a});
+-- | The portfolio identifier.
+ddId :: Lens' DeletePortfolio Text
+ddId = lens _ddId (\ s a -> s{_ddId = a})
 
 instance AWSRequest DeletePortfolio where
         type Rs DeletePortfolio = DeletePortfolioResponse
@@ -99,8 +101,8 @@ instance ToJSON DeletePortfolio where
         toJSON DeletePortfolio'{..}
           = object
               (catMaybes
-                 [("AcceptLanguage" .=) <$> _dppAcceptLanguage,
-                  Just ("Id" .= _dppId)])
+                 [("AcceptLanguage" .=) <$> _ddAcceptLanguage,
+                  Just ("Id" .= _ddId)])
 
 instance ToPath DeletePortfolio where
         toPath = const "/"
@@ -128,6 +130,6 @@ deletePortfolioResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeletePortfolioResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeletePortfolioResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.UpdateTable
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,33 +94,33 @@ updateTable
     -> UpdateTable
 updateTable pTableName_ =
   UpdateTable'
-  { _utAttributeDefinitions = Nothing
-  , _utProvisionedThroughput = Nothing
-  , _utGlobalSecondaryIndexUpdates = Nothing
-  , _utStreamSpecification = Nothing
-  , _utTableName = pTableName_
-  }
+    { _utAttributeDefinitions = Nothing
+    , _utProvisionedThroughput = Nothing
+    , _utGlobalSecondaryIndexUpdates = Nothing
+    , _utStreamSpecification = Nothing
+    , _utTableName = pTableName_
+    }
 
 
 -- | An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, @AttributeDefinitions@ must include the key element(s) of the new index.
 utAttributeDefinitions :: Lens' UpdateTable [AttributeDefinition]
-utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDefinitions = a}) . _Default . _Coerce;
+utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDefinitions = a}) . _Default . _Coerce
 
 -- | The new provisioned throughput settings for the specified table or index.
 utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
-utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvisionedThroughput = a});
+utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvisionedThroughput = a})
 
 -- | An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:     * @Create@ - add a new global secondary index to the table.     * @Update@ - modify the provisioned throughput settings of an existing global secondary index.     * @Delete@ - remove a global secondary index from the table. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes> in the /Amazon DynamoDB Developer Guide/ .
 utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
-utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a}) . _Default . _Coerce;
+utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a}) . _Default . _Coerce
 
 -- | Represents the DynamoDB Streams configuration for the table.
 utStreamSpecification :: Lens' UpdateTable (Maybe StreamSpecification)
-utStreamSpecification = lens _utStreamSpecification (\ s a -> s{_utStreamSpecification = a});
+utStreamSpecification = lens _utStreamSpecification (\ s a -> s{_utStreamSpecification = a})
 
 -- | The name of the table to be updated.
 utTableName :: Lens' UpdateTable Text
-utTableName = lens _utTableName (\ s a -> s{_utTableName = a});
+utTableName = lens _utTableName (\ s a -> s{_utTableName = a})
 
 instance AWSRequest UpdateTable where
         type Rs UpdateTable = UpdateTableResponse
@@ -187,15 +187,15 @@ updateTableResponse
     -> UpdateTableResponse
 updateTableResponse pResponseStatus_ =
   UpdateTableResponse'
-  {_utrsTableDescription = Nothing, _utrsResponseStatus = pResponseStatus_}
+    {_utrsTableDescription = Nothing, _utrsResponseStatus = pResponseStatus_}
 
 
 -- | Represents the properties of the table.
 utrsTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
-utrsTableDescription = lens _utrsTableDescription (\ s a -> s{_utrsTableDescription = a});
+utrsTableDescription = lens _utrsTableDescription (\ s a -> s{_utrsTableDescription = a})
 
 -- | -- | The response status code.
 utrsResponseStatus :: Lens' UpdateTableResponse Int
-utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});
+utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a})
 
 instance NFData UpdateTableResponse where

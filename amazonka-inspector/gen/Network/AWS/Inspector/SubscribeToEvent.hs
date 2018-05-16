@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.SubscribeToEvent
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,23 +67,23 @@ subscribeToEvent
     -> SubscribeToEvent
 subscribeToEvent pResourceARN_ pEvent_ pTopicARN_ =
   SubscribeToEvent'
-  { _steResourceARN = pResourceARN_
-  , _steEvent = pEvent_
-  , _steTopicARN = pTopicARN_
-  }
+    { _steResourceARN = pResourceARN_
+    , _steEvent = pEvent_
+    , _steTopicARN = pTopicARN_
+    }
 
 
 -- | The ARN of the assessment template that is used during the event for which you want to receive SNS notifications.
 steResourceARN :: Lens' SubscribeToEvent Text
-steResourceARN = lens _steResourceARN (\ s a -> s{_steResourceARN = a});
+steResourceARN = lens _steResourceARN (\ s a -> s{_steResourceARN = a})
 
 -- | The event for which you want to receive SNS notifications.
 steEvent :: Lens' SubscribeToEvent InspectorEvent
-steEvent = lens _steEvent (\ s a -> s{_steEvent = a});
+steEvent = lens _steEvent (\ s a -> s{_steEvent = a})
 
 -- | The ARN of the SNS topic to which the SNS notifications are sent.
 steTopicARN :: Lens' SubscribeToEvent Text
-steTopicARN = lens _steTopicARN (\ s a -> s{_steTopicARN = a});
+steTopicARN = lens _steTopicARN (\ s a -> s{_steTopicARN = a})
 
 instance AWSRequest SubscribeToEvent where
         type Rs SubscribeToEvent = SubscribeToEventResponse

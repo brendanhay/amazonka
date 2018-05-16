@@ -1,5 +1,5 @@
 name:                  amazonka-config
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Config SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -45,19 +45,30 @@ library
 
     exposed-modules:
           Network.AWS.Config
+        , Network.AWS.Config.BatchGetResourceConfig
+        , Network.AWS.Config.DeleteAggregationAuthorization
         , Network.AWS.Config.DeleteConfigRule
+        , Network.AWS.Config.DeleteConfigurationAggregator
         , Network.AWS.Config.DeleteConfigurationRecorder
         , Network.AWS.Config.DeleteDeliveryChannel
         , Network.AWS.Config.DeleteEvaluationResults
+        , Network.AWS.Config.DeletePendingAggregationRequest
         , Network.AWS.Config.DeliverConfigSnapshot
+        , Network.AWS.Config.DescribeAggregateComplianceByConfigRules
+        , Network.AWS.Config.DescribeAggregationAuthorizations
         , Network.AWS.Config.DescribeComplianceByConfigRule
         , Network.AWS.Config.DescribeComplianceByResource
         , Network.AWS.Config.DescribeConfigRuleEvaluationStatus
         , Network.AWS.Config.DescribeConfigRules
+        , Network.AWS.Config.DescribeConfigurationAggregatorSourcesStatus
+        , Network.AWS.Config.DescribeConfigurationAggregators
         , Network.AWS.Config.DescribeConfigurationRecorderStatus
         , Network.AWS.Config.DescribeConfigurationRecorders
         , Network.AWS.Config.DescribeDeliveryChannelStatus
         , Network.AWS.Config.DescribeDeliveryChannels
+        , Network.AWS.Config.DescribePendingAggregationRequests
+        , Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
+        , Network.AWS.Config.GetAggregateConfigRuleComplianceSummary
         , Network.AWS.Config.GetComplianceDetailsByConfigRule
         , Network.AWS.Config.GetComplianceDetailsByResource
         , Network.AWS.Config.GetComplianceSummaryByConfigRule
@@ -65,7 +76,9 @@ library
         , Network.AWS.Config.GetDiscoveredResourceCounts
         , Network.AWS.Config.GetResourceConfigHistory
         , Network.AWS.Config.ListDiscoveredResources
+        , Network.AWS.Config.PutAggregationAuthorization
         , Network.AWS.Config.PutConfigRule
+        , Network.AWS.Config.PutConfigurationAggregator
         , Network.AWS.Config.PutConfigurationRecorder
         , Network.AWS.Config.PutDeliveryChannel
         , Network.AWS.Config.PutEvaluations
@@ -80,7 +93,7 @@ library
         , Network.AWS.Config.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-config-test
@@ -100,8 +113,8 @@ test-suite amazonka-config-test
         , Test.AWS.Config.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-config
         , base
         , bytestring

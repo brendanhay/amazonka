@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetCrawler
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves metadata for a specified @Crawler@ .
+-- Retrieves metadata for a specified crawler.
 --
 --
 module Network.AWS.Glue.GetCrawler
@@ -54,16 +54,16 @@ newtype GetCrawler = GetCrawler'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gccName' - Name of the @Crawler@ to retrieve metadata for.
+-- * 'gccName' - Name of the crawler to retrieve metadata for.
 getCrawler
     :: Text -- ^ 'gccName'
     -> GetCrawler
 getCrawler pName_ = GetCrawler' {_gccName = pName_}
 
 
--- | Name of the @Crawler@ to retrieve metadata for.
+-- | Name of the crawler to retrieve metadata for.
 gccName :: Lens' GetCrawler Text
-gccName = lens _gccName (\ s a -> s{_gccName = a});
+gccName = lens _gccName (\ s a -> s{_gccName = a})
 
 instance AWSRequest GetCrawler where
         type Rs GetCrawler = GetCrawlerResponse
@@ -108,7 +108,7 @@ data GetCrawlerResponse = GetCrawlerResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getersCrawler' - The metadata for the specified @Crawler@ .
+-- * 'getersCrawler' - The metadata for the specified crawler.
 --
 -- * 'getersResponseStatus' - -- | The response status code.
 getCrawlerResponse
@@ -116,15 +116,15 @@ getCrawlerResponse
     -> GetCrawlerResponse
 getCrawlerResponse pResponseStatus_ =
   GetCrawlerResponse'
-  {_getersCrawler = Nothing, _getersResponseStatus = pResponseStatus_}
+    {_getersCrawler = Nothing, _getersResponseStatus = pResponseStatus_}
 
 
--- | The metadata for the specified @Crawler@ .
+-- | The metadata for the specified crawler.
 getersCrawler :: Lens' GetCrawlerResponse (Maybe Crawler)
-getersCrawler = lens _getersCrawler (\ s a -> s{_getersCrawler = a});
+getersCrawler = lens _getersCrawler (\ s a -> s{_getersCrawler = a})
 
 -- | -- | The response status code.
 getersResponseStatus :: Lens' GetCrawlerResponse Int
-getersResponseStatus = lens _getersResponseStatus (\ s a -> s{_getersResponseStatus = a});
+getersResponseStatus = lens _getersResponseStatus (\ s a -> s{_getersResponseStatus = a})
 
 instance NFData GetCrawlerResponse where

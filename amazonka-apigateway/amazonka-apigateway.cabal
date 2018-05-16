@@ -1,5 +1,5 @@
 name:                  amazonka-apigateway
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon API Gateway SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -59,6 +59,7 @@ library
         , Network.AWS.APIGateway.CreateStage
         , Network.AWS.APIGateway.CreateUsagePlan
         , Network.AWS.APIGateway.CreateUsagePlanKey
+        , Network.AWS.APIGateway.CreateVPCLink
         , Network.AWS.APIGateway.DeleteAPIKey
         , Network.AWS.APIGateway.DeleteAuthorizer
         , Network.AWS.APIGateway.DeleteBasePathMapping
@@ -79,6 +80,7 @@ library
         , Network.AWS.APIGateway.DeleteStage
         , Network.AWS.APIGateway.DeleteUsagePlan
         , Network.AWS.APIGateway.DeleteUsagePlanKey
+        , Network.AWS.APIGateway.DeleteVPCLink
         , Network.AWS.APIGateway.FlushStageAuthorizersCache
         , Network.AWS.APIGateway.FlushStageCache
         , Network.AWS.APIGateway.GenerateClientCertificate
@@ -120,11 +122,14 @@ library
         , Network.AWS.APIGateway.GetSDKTypes
         , Network.AWS.APIGateway.GetStage
         , Network.AWS.APIGateway.GetStages
+        , Network.AWS.APIGateway.GetTags
         , Network.AWS.APIGateway.GetUsage
         , Network.AWS.APIGateway.GetUsagePlan
         , Network.AWS.APIGateway.GetUsagePlanKey
         , Network.AWS.APIGateway.GetUsagePlanKeys
         , Network.AWS.APIGateway.GetUsagePlans
+        , Network.AWS.APIGateway.GetVPCLink
+        , Network.AWS.APIGateway.GetVPCLinks
         , Network.AWS.APIGateway.ImportAPIKeys
         , Network.AWS.APIGateway.ImportDocumentationParts
         , Network.AWS.APIGateway.ImportRestAPI
@@ -134,9 +139,11 @@ library
         , Network.AWS.APIGateway.PutMethod
         , Network.AWS.APIGateway.PutMethodResponse
         , Network.AWS.APIGateway.PutRestAPI
+        , Network.AWS.APIGateway.TagResource
         , Network.AWS.APIGateway.TestInvokeAuthorizer
         , Network.AWS.APIGateway.TestInvokeMethod
         , Network.AWS.APIGateway.Types
+        , Network.AWS.APIGateway.UntagResource
         , Network.AWS.APIGateway.UpdateAPIKey
         , Network.AWS.APIGateway.UpdateAccount
         , Network.AWS.APIGateway.UpdateAuthorizer
@@ -158,6 +165,7 @@ library
         , Network.AWS.APIGateway.UpdateStage
         , Network.AWS.APIGateway.UpdateUsage
         , Network.AWS.APIGateway.UpdateUsagePlan
+        , Network.AWS.APIGateway.UpdateVPCLink
         , Network.AWS.APIGateway.Waiters
 
     other-modules:
@@ -165,7 +173,7 @@ library
         , Network.AWS.APIGateway.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-apigateway-test
@@ -185,8 +193,8 @@ test-suite amazonka-apigateway-test
         , Test.AWS.APIGateway.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-apigateway
         , base
         , bytestring

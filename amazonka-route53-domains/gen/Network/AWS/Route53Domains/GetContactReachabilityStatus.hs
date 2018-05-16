@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.GetContactReachabilityStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ getContactReachabilityStatus =
 
 -- | The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.
 gcrsDomainName :: Lens' GetContactReachabilityStatus (Maybe Text)
-gcrsDomainName = lens _gcrsDomainName (\ s a -> s{_gcrsDomainName = a});
+gcrsDomainName = lens _gcrsDomainName (\ s a -> s{_gcrsDomainName = a})
 
 instance AWSRequest GetContactReachabilityStatus
          where
@@ -127,23 +127,23 @@ getContactReachabilityStatusResponse
     -> GetContactReachabilityStatusResponse
 getContactReachabilityStatusResponse pResponseStatus_ =
   GetContactReachabilityStatusResponse'
-  { _gcrsrsStatus = Nothing
-  , _gcrsrsDomainName = Nothing
-  , _gcrsrsResponseStatus = pResponseStatus_
-  }
+    { _gcrsrsStatus = Nothing
+    , _gcrsrsDomainName = Nothing
+    , _gcrsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Whether the registrant contact has responded. Values include the following:     * PENDING    * We sent the confirmation email and haven't received a response yet.     * DONE    * We sent the email and got confirmation from the registrant contact.     * EXPIRED    * The time limit expired before the registrant contact responded.
 gcrsrsStatus :: Lens' GetContactReachabilityStatusResponse (Maybe ReachabilityStatus)
-gcrsrsStatus = lens _gcrsrsStatus (\ s a -> s{_gcrsrsStatus = a});
+gcrsrsStatus = lens _gcrsrsStatus (\ s a -> s{_gcrsrsStatus = a})
 
 -- | The domain name for which you requested the reachability status.
 gcrsrsDomainName :: Lens' GetContactReachabilityStatusResponse (Maybe Text)
-gcrsrsDomainName = lens _gcrsrsDomainName (\ s a -> s{_gcrsrsDomainName = a});
+gcrsrsDomainName = lens _gcrsrsDomainName (\ s a -> s{_gcrsrsDomainName = a})
 
 -- | -- | The response status code.
 gcrsrsResponseStatus :: Lens' GetContactReachabilityStatusResponse Int
-gcrsrsResponseStatus = lens _gcrsrsResponseStatus (\ s a -> s{_gcrsrsResponseStatus = a});
+gcrsrsResponseStatus = lens _gcrsrsResponseStatus (\ s a -> s{_gcrsrsResponseStatus = a})
 
 instance NFData GetContactReachabilityStatusResponse
          where

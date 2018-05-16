@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.CreateNotification
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new Notification with subscribers for a budget
+-- Creates a notification. You must create the budget before you create the associated notification.
+--
+--
 module Network.AWS.Budgets.CreateNotification
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import Network.AWS.Response
 
 -- | Request of CreateNotification
 --
+--
+--
 -- /See:/ 'createNotification' smart constructor.
 data CreateNotification = CreateNotification'
   { _cnAccountId    :: !Text
@@ -59,13 +63,13 @@ data CreateNotification = CreateNotification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cnAccountId' - Undocumented member.
+-- * 'cnAccountId' - The @accountId@ that is associated with the budget that you want to create a notification for.
 --
--- * 'cnBudgetName' - Undocumented member.
+-- * 'cnBudgetName' - The name of the budget that you want AWS to notified you about. Budget names must be unique within an account.
 --
--- * 'cnNotification' - Undocumented member.
+-- * 'cnNotification' - The notification that you want to create.
 --
--- * 'cnSubscribers' - Undocumented member.
+-- * 'cnSubscribers' - A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to ten email subscribers.
 createNotification
     :: Text -- ^ 'cnAccountId'
     -> Text -- ^ 'cnBudgetName'
@@ -74,28 +78,28 @@ createNotification
     -> CreateNotification
 createNotification pAccountId_ pBudgetName_ pNotification_ pSubscribers_ =
   CreateNotification'
-  { _cnAccountId = pAccountId_
-  , _cnBudgetName = pBudgetName_
-  , _cnNotification = pNotification_
-  , _cnSubscribers = _List1 # pSubscribers_
-  }
+    { _cnAccountId = pAccountId_
+    , _cnBudgetName = pBudgetName_
+    , _cnNotification = pNotification_
+    , _cnSubscribers = _List1 # pSubscribers_
+    }
 
 
--- | Undocumented member.
+-- | The @accountId@ that is associated with the budget that you want to create a notification for.
 cnAccountId :: Lens' CreateNotification Text
-cnAccountId = lens _cnAccountId (\ s a -> s{_cnAccountId = a});
+cnAccountId = lens _cnAccountId (\ s a -> s{_cnAccountId = a})
 
--- | Undocumented member.
+-- | The name of the budget that you want AWS to notified you about. Budget names must be unique within an account.
 cnBudgetName :: Lens' CreateNotification Text
-cnBudgetName = lens _cnBudgetName (\ s a -> s{_cnBudgetName = a});
+cnBudgetName = lens _cnBudgetName (\ s a -> s{_cnBudgetName = a})
 
--- | Undocumented member.
+-- | The notification that you want to create.
 cnNotification :: Lens' CreateNotification Notification
-cnNotification = lens _cnNotification (\ s a -> s{_cnNotification = a});
+cnNotification = lens _cnNotification (\ s a -> s{_cnNotification = a})
 
--- | Undocumented member.
+-- | A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to ten email subscribers.
 cnSubscribers :: Lens' CreateNotification (NonEmpty Subscriber)
-cnSubscribers = lens _cnSubscribers (\ s a -> s{_cnSubscribers = a}) . _List1;
+cnSubscribers = lens _cnSubscribers (\ s a -> s{_cnSubscribers = a}) . _List1
 
 instance AWSRequest CreateNotification where
         type Rs CreateNotification =
@@ -137,6 +141,8 @@ instance ToQuery CreateNotification where
 
 -- | Response of CreateNotification
 --
+--
+--
 -- /See:/ 'createNotificationResponse' smart constructor.
 newtype CreateNotificationResponse = CreateNotificationResponse'
   { _cnrsResponseStatus :: Int
@@ -157,6 +163,6 @@ createNotificationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cnrsResponseStatus :: Lens' CreateNotificationResponse Int
-cnrsResponseStatus = lens _cnrsResponseStatus (\ s a -> s{_cnrsResponseStatus = a});
+cnrsResponseStatus = lens _cnrsResponseStatus (\ s a -> s{_cnrsResponseStatus = a})
 
 instance NFData CreateNotificationResponse where

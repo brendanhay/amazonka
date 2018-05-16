@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateModel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,32 +67,32 @@ data UpdateModel = UpdateModel'
 --
 -- * 'uPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'uRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'uModelName' - The name of the model to update.
+-- * 'uModelName' - [Required] The name of the model to update.
 updateModel
     :: Text -- ^ 'uRestAPIId'
     -> Text -- ^ 'uModelName'
     -> UpdateModel
 updateModel pRestAPIId_ pModelName_ =
   UpdateModel'
-  { _uPatchOperations = Nothing
-  , _uRestAPIId = pRestAPIId_
-  , _uModelName = pModelName_
-  }
+    { _uPatchOperations = Nothing
+    , _uRestAPIId = pRestAPIId_
+    , _uModelName = pModelName_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uPatchOperations :: Lens' UpdateModel [PatchOperation]
-uPatchOperations = lens _uPatchOperations (\ s a -> s{_uPatchOperations = a}) . _Default . _Coerce;
+uPatchOperations = lens _uPatchOperations (\ s a -> s{_uPatchOperations = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 uRestAPIId :: Lens' UpdateModel Text
-uRestAPIId = lens _uRestAPIId (\ s a -> s{_uRestAPIId = a});
+uRestAPIId = lens _uRestAPIId (\ s a -> s{_uRestAPIId = a})
 
--- | The name of the model to update.
+-- | [Required] The name of the model to update.
 uModelName :: Lens' UpdateModel Text
-uModelName = lens _uModelName (\ s a -> s{_uModelName = a});
+uModelName = lens _uModelName (\ s a -> s{_uModelName = a})
 
 instance AWSRequest UpdateModel where
         type Rs UpdateModel = Model

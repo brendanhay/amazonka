@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeactivateMFADevice
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,7 +55,7 @@ data DeactivateMFADevice = DeactivateMFADevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmdUserName' - The name of the user whose MFA device you want to deactivate. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'dmdUserName' - The name of the user whose MFA device you want to deactivate. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'dmdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 deactivateMFADevice
@@ -64,16 +64,16 @@ deactivateMFADevice
     -> DeactivateMFADevice
 deactivateMFADevice pUserName_ pSerialNumber_ =
   DeactivateMFADevice'
-  {_dmdUserName = pUserName_, _dmdSerialNumber = pSerialNumber_}
+    {_dmdUserName = pUserName_, _dmdSerialNumber = pSerialNumber_}
 
 
--- | The name of the user whose MFA device you want to deactivate. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user whose MFA device you want to deactivate. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 dmdUserName :: Lens' DeactivateMFADevice Text
-dmdUserName = lens _dmdUserName (\ s a -> s{_dmdUserName = a});
+dmdUserName = lens _dmdUserName (\ s a -> s{_dmdUserName = a})
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 dmdSerialNumber :: Lens' DeactivateMFADevice Text
-dmdSerialNumber = lens _dmdSerialNumber (\ s a -> s{_dmdSerialNumber = a});
+dmdSerialNumber = lens _dmdSerialNumber (\ s a -> s{_dmdSerialNumber = a})
 
 instance AWSRequest DeactivateMFADevice where
         type Rs DeactivateMFADevice =

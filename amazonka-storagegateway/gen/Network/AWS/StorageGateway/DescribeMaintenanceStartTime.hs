@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeMaintenanceStartTime
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ describeMaintenanceStartTime pGatewayARN_ =
 
 -- | Undocumented member.
 dmstGatewayARN :: Lens' DescribeMaintenanceStartTime Text
-dmstGatewayARN = lens _dmstGatewayARN (\ s a -> s{_dmstGatewayARN = a});
+dmstGatewayARN = lens _dmstGatewayARN (\ s a -> s{_dmstGatewayARN = a})
 
 instance AWSRequest DescribeMaintenanceStartTime
          where
@@ -159,38 +159,38 @@ describeMaintenanceStartTimeResponse
     -> DescribeMaintenanceStartTimeResponse
 describeMaintenanceStartTimeResponse pResponseStatus_ =
   DescribeMaintenanceStartTimeResponse'
-  { _dmstrsGatewayARN = Nothing
-  , _dmstrsMinuteOfHour = Nothing
-  , _dmstrsHourOfDay = Nothing
-  , _dmstrsTimezone = Nothing
-  , _dmstrsDayOfWeek = Nothing
-  , _dmstrsResponseStatus = pResponseStatus_
-  }
+    { _dmstrsGatewayARN = Nothing
+    , _dmstrsMinuteOfHour = Nothing
+    , _dmstrsHourOfDay = Nothing
+    , _dmstrsTimezone = Nothing
+    , _dmstrsDayOfWeek = Nothing
+    , _dmstrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dmstrsGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
-dmstrsGatewayARN = lens _dmstrsGatewayARN (\ s a -> s{_dmstrsGatewayARN = a});
+dmstrsGatewayARN = lens _dmstrsGatewayARN (\ s a -> s{_dmstrsGatewayARN = a})
 
 -- | The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (0 to 59). The minute of the hour is in the time zone of the gateway.
 dmstrsMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
-dmstrsMinuteOfHour = lens _dmstrsMinuteOfHour (\ s a -> s{_dmstrsMinuteOfHour = a}) . mapping _Nat;
+dmstrsMinuteOfHour = lens _dmstrsMinuteOfHour (\ s a -> s{_dmstrsMinuteOfHour = a}) . mapping _Nat
 
 -- | The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 dmstrsHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
-dmstrsHourOfDay = lens _dmstrsHourOfDay (\ s a -> s{_dmstrsHourOfDay = a}) . mapping _Nat;
+dmstrsHourOfDay = lens _dmstrsHourOfDay (\ s a -> s{_dmstrsHourOfDay = a}) . mapping _Nat
 
 -- | Undocumented member.
 dmstrsTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
-dmstrsTimezone = lens _dmstrsTimezone (\ s a -> s{_dmstrsTimezone = a});
+dmstrsTimezone = lens _dmstrsTimezone (\ s a -> s{_dmstrsTimezone = a})
 
 -- | An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday and 6 represents Saturday. The day of week is in the time zone of the gateway.
 dmstrsDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
-dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\ s a -> s{_dmstrsDayOfWeek = a}) . mapping _Nat;
+dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\ s a -> s{_dmstrsDayOfWeek = a}) . mapping _Nat
 
 -- | -- | The response status code.
 dmstrsResponseStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
-dmstrsResponseStatus = lens _dmstrsResponseStatus (\ s a -> s{_dmstrsResponseStatus = a});
+dmstrsResponseStatus = lens _dmstrsResponseStatus (\ s a -> s{_dmstrsResponseStatus = a})
 
 instance NFData DescribeMaintenanceStartTimeResponse
          where

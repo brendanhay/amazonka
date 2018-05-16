@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteRegexMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,16 +77,16 @@ deleteRegexMatchSet
     -> DeleteRegexMatchSet
 deleteRegexMatchSet pRegexMatchSetId_ pChangeToken_ =
   DeleteRegexMatchSet'
-  {_drmsRegexMatchSetId = pRegexMatchSetId_, _drmsChangeToken = pChangeToken_}
+    {_drmsRegexMatchSetId = pRegexMatchSetId_, _drmsChangeToken = pChangeToken_}
 
 
 -- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to delete. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
 drmsRegexMatchSetId :: Lens' DeleteRegexMatchSet Text
-drmsRegexMatchSetId = lens _drmsRegexMatchSetId (\ s a -> s{_drmsRegexMatchSetId = a});
+drmsRegexMatchSetId = lens _drmsRegexMatchSetId (\ s a -> s{_drmsRegexMatchSetId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 drmsChangeToken :: Lens' DeleteRegexMatchSet Text
-drmsChangeToken = lens _drmsChangeToken (\ s a -> s{_drmsChangeToken = a});
+drmsChangeToken = lens _drmsChangeToken (\ s a -> s{_drmsChangeToken = a})
 
 instance AWSRequest DeleteRegexMatchSet where
         type Rs DeleteRegexMatchSet =
@@ -144,15 +144,15 @@ deleteRegexMatchSetResponse
     -> DeleteRegexMatchSetResponse
 deleteRegexMatchSetResponse pResponseStatus_ =
   DeleteRegexMatchSetResponse'
-  {_drmsrsChangeToken = Nothing, _drmsrsResponseStatus = pResponseStatus_}
+    {_drmsrsChangeToken = Nothing, _drmsrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 drmsrsChangeToken :: Lens' DeleteRegexMatchSetResponse (Maybe Text)
-drmsrsChangeToken = lens _drmsrsChangeToken (\ s a -> s{_drmsrsChangeToken = a});
+drmsrsChangeToken = lens _drmsrsChangeToken (\ s a -> s{_drmsrsChangeToken = a})
 
 -- | -- | The response status code.
 drmsrsResponseStatus :: Lens' DeleteRegexMatchSetResponse Int
-drmsrsResponseStatus = lens _drmsrsResponseStatus (\ s a -> s{_drmsrsResponseStatus = a});
+drmsrsResponseStatus = lens _drmsrsResponseStatus (\ s a -> s{_drmsrsResponseStatus = a})
 
 instance NFData DeleteRegexMatchSetResponse where

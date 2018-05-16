@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RunScheduledInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -85,33 +85,33 @@ runScheduledInstances
     -> RunScheduledInstances
 runScheduledInstances pLaunchSpecification_ pScheduledInstanceId_ =
   RunScheduledInstances'
-  { _rsiClientToken = Nothing
-  , _rsiInstanceCount = Nothing
-  , _rsiDryRun = Nothing
-  , _rsiLaunchSpecification = pLaunchSpecification_
-  , _rsiScheduledInstanceId = pScheduledInstanceId_
-  }
+    { _rsiClientToken = Nothing
+    , _rsiInstanceCount = Nothing
+    , _rsiDryRun = Nothing
+    , _rsiLaunchSpecification = pLaunchSpecification_
+    , _rsiScheduledInstanceId = pScheduledInstanceId_
+    }
 
 
 -- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 rsiClientToken :: Lens' RunScheduledInstances (Maybe Text)
-rsiClientToken = lens _rsiClientToken (\ s a -> s{_rsiClientToken = a});
+rsiClientToken = lens _rsiClientToken (\ s a -> s{_rsiClientToken = a})
 
 -- | The number of instances. Default: 1
 rsiInstanceCount :: Lens' RunScheduledInstances (Maybe Int)
-rsiInstanceCount = lens _rsiInstanceCount (\ s a -> s{_rsiInstanceCount = a});
+rsiInstanceCount = lens _rsiInstanceCount (\ s a -> s{_rsiInstanceCount = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rsiDryRun :: Lens' RunScheduledInstances (Maybe Bool)
-rsiDryRun = lens _rsiDryRun (\ s a -> s{_rsiDryRun = a});
+rsiDryRun = lens _rsiDryRun (\ s a -> s{_rsiDryRun = a})
 
 -- | The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.
 rsiLaunchSpecification :: Lens' RunScheduledInstances ScheduledInstancesLaunchSpecification
-rsiLaunchSpecification = lens _rsiLaunchSpecification (\ s a -> s{_rsiLaunchSpecification = a});
+rsiLaunchSpecification = lens _rsiLaunchSpecification (\ s a -> s{_rsiLaunchSpecification = a})
 
 -- | The Scheduled Instance ID.
 rsiScheduledInstanceId :: Lens' RunScheduledInstances Text
-rsiScheduledInstanceId = lens _rsiScheduledInstanceId (\ s a -> s{_rsiScheduledInstanceId = a});
+rsiScheduledInstanceId = lens _rsiScheduledInstanceId (\ s a -> s{_rsiScheduledInstanceId = a})
 
 instance AWSRequest RunScheduledInstances where
         type Rs RunScheduledInstances =
@@ -169,15 +169,15 @@ runScheduledInstancesResponse
     -> RunScheduledInstancesResponse
 runScheduledInstancesResponse pResponseStatus_ =
   RunScheduledInstancesResponse'
-  {_rrsInstanceIdSet = Nothing, _rrsResponseStatus = pResponseStatus_}
+    {_rrsInstanceIdSet = Nothing, _rrsResponseStatus = pResponseStatus_}
 
 
 -- | The IDs of the newly launched instances.
 rrsInstanceIdSet :: Lens' RunScheduledInstancesResponse [Text]
-rrsInstanceIdSet = lens _rrsInstanceIdSet (\ s a -> s{_rrsInstanceIdSet = a}) . _Default . _Coerce;
+rrsInstanceIdSet = lens _rrsInstanceIdSet (\ s a -> s{_rrsInstanceIdSet = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 rrsResponseStatus :: Lens' RunScheduledInstancesResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
+rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a})
 
 instance NFData RunScheduledInstancesResponse where

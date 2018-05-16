@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateLag
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -101,33 +101,33 @@ createLag
     -> CreateLag
 createLag pNumberOfConnections_ pLocation_ pConnectionsBandwidth_ pLagName_ =
   CreateLag'
-  { _clConnectionId = Nothing
-  , _clNumberOfConnections = pNumberOfConnections_
-  , _clLocation = pLocation_
-  , _clConnectionsBandwidth = pConnectionsBandwidth_
-  , _clLagName = pLagName_
-  }
+    { _clConnectionId = Nothing
+    , _clNumberOfConnections = pNumberOfConnections_
+    , _clLocation = pLocation_
+    , _clConnectionsBandwidth = pConnectionsBandwidth_
+    , _clLagName = pLagName_
+    }
 
 
 -- | The ID of an existing connection to migrate to the LAG. Default: None
 clConnectionId :: Lens' CreateLag (Maybe Text)
-clConnectionId = lens _clConnectionId (\ s a -> s{_clConnectionId = a});
+clConnectionId = lens _clConnectionId (\ s a -> s{_clConnectionId = a})
 
 -- | The number of physical connections initially provisioned and bundled by the LAG. Default: None
 clNumberOfConnections :: Lens' CreateLag Int
-clNumberOfConnections = lens _clNumberOfConnections (\ s a -> s{_clNumberOfConnections = a});
+clNumberOfConnections = lens _clNumberOfConnections (\ s a -> s{_clNumberOfConnections = a})
 
 -- | The AWS Direct Connect location in which the LAG should be allocated. Example: EqSV5 Default: None
 clLocation :: Lens' CreateLag Text
-clLocation = lens _clLocation (\ s a -> s{_clLocation = a});
+clLocation = lens _clLocation (\ s a -> s{_clLocation = a})
 
 -- | The bandwidth of the individual physical connections bundled by the LAG. Default: None Available values: 1Gbps, 10Gbps
 clConnectionsBandwidth :: Lens' CreateLag Text
-clConnectionsBandwidth = lens _clConnectionsBandwidth (\ s a -> s{_clConnectionsBandwidth = a});
+clConnectionsBandwidth = lens _clConnectionsBandwidth (\ s a -> s{_clConnectionsBandwidth = a})
 
 -- | The name of the LAG. Example: "@3x10G LAG to AWS@ " Default: None
 clLagName :: Lens' CreateLag Text
-clLagName = lens _clLagName (\ s a -> s{_clLagName = a});
+clLagName = lens _clLagName (\ s a -> s{_clLagName = a})
 
 instance AWSRequest CreateLag where
         type Rs CreateLag = Lag

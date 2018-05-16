@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ describeEffectivePatchesForPatchBaseline
     -> DescribeEffectivePatchesForPatchBaseline
 describeEffectivePatchesForPatchBaseline pBaselineId_ =
   DescribeEffectivePatchesForPatchBaseline'
-  { _depfpbNextToken = Nothing
-  , _depfpbMaxResults = Nothing
-  , _depfpbBaselineId = pBaselineId_
-  }
+    { _depfpbNextToken = Nothing
+    , _depfpbMaxResults = Nothing
+    , _depfpbBaselineId = pBaselineId_
+    }
 
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 depfpbNextToken :: Lens' DescribeEffectivePatchesForPatchBaseline (Maybe Text)
-depfpbNextToken = lens _depfpbNextToken (\ s a -> s{_depfpbNextToken = a});
+depfpbNextToken = lens _depfpbNextToken (\ s a -> s{_depfpbNextToken = a})
 
 -- | The maximum number of patches to return (per page).
 depfpbMaxResults :: Lens' DescribeEffectivePatchesForPatchBaseline (Maybe Natural)
-depfpbMaxResults = lens _depfpbMaxResults (\ s a -> s{_depfpbMaxResults = a}) . mapping _Nat;
+depfpbMaxResults = lens _depfpbMaxResults (\ s a -> s{_depfpbMaxResults = a}) . mapping _Nat
 
 -- | The ID of the patch baseline to retrieve the effective patches for.
 depfpbBaselineId :: Lens' DescribeEffectivePatchesForPatchBaseline Text
-depfpbBaselineId = lens _depfpbBaselineId (\ s a -> s{_depfpbBaselineId = a});
+depfpbBaselineId = lens _depfpbBaselineId (\ s a -> s{_depfpbBaselineId = a})
 
 instance AWSRequest
            DescribeEffectivePatchesForPatchBaseline
@@ -163,23 +163,23 @@ describeEffectivePatchesForPatchBaselineResponse
     -> DescribeEffectivePatchesForPatchBaselineResponse
 describeEffectivePatchesForPatchBaselineResponse pResponseStatus_ =
   DescribeEffectivePatchesForPatchBaselineResponse'
-  { _depfpbrsEffectivePatches = Nothing
-  , _depfpbrsNextToken = Nothing
-  , _depfpbrsResponseStatus = pResponseStatus_
-  }
+    { _depfpbrsEffectivePatches = Nothing
+    , _depfpbrsNextToken = Nothing
+    , _depfpbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of patches and patch status.
 depfpbrsEffectivePatches :: Lens' DescribeEffectivePatchesForPatchBaselineResponse [EffectivePatch]
-depfpbrsEffectivePatches = lens _depfpbrsEffectivePatches (\ s a -> s{_depfpbrsEffectivePatches = a}) . _Default . _Coerce;
+depfpbrsEffectivePatches = lens _depfpbrsEffectivePatches (\ s a -> s{_depfpbrsEffectivePatches = a}) . _Default . _Coerce
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 depfpbrsNextToken :: Lens' DescribeEffectivePatchesForPatchBaselineResponse (Maybe Text)
-depfpbrsNextToken = lens _depfpbrsNextToken (\ s a -> s{_depfpbrsNextToken = a});
+depfpbrsNextToken = lens _depfpbrsNextToken (\ s a -> s{_depfpbrsNextToken = a})
 
 -- | -- | The response status code.
 depfpbrsResponseStatus :: Lens' DescribeEffectivePatchesForPatchBaselineResponse Int
-depfpbrsResponseStatus = lens _depfpbrsResponseStatus (\ s a -> s{_depfpbrsResponseStatus = a});
+depfpbrsResponseStatus = lens _depfpbrsResponseStatus (\ s a -> s{_depfpbrsResponseStatus = a})
 
 instance NFData
            DescribeEffectivePatchesForPatchBaselineResponse

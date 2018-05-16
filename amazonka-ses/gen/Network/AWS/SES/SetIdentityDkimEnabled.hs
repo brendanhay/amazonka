@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityDkimEnabled
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,16 +80,16 @@ setIdentityDkimEnabled
     -> SetIdentityDkimEnabled
 setIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
   SetIdentityDkimEnabled'
-  {_sideIdentity = pIdentity_, _sideDkimEnabled = pDkimEnabled_}
+    {_sideIdentity = pIdentity_, _sideDkimEnabled = pDkimEnabled_}
 
 
 -- | The identity for which DKIM signing should be enabled or disabled.
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
-sideIdentity = lens _sideIdentity (\ s a -> s{_sideIdentity = a});
+sideIdentity = lens _sideIdentity (\ s a -> s{_sideIdentity = a})
 
 -- | Sets whether DKIM signing is enabled for an identity. Set to @true@ to enable DKIM signing for this identity; @false@ to disable it.
 sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
-sideDkimEnabled = lens _sideDkimEnabled (\ s a -> s{_sideDkimEnabled = a});
+sideDkimEnabled = lens _sideDkimEnabled (\ s a -> s{_sideDkimEnabled = a})
 
 instance AWSRequest SetIdentityDkimEnabled where
         type Rs SetIdentityDkimEnabled =
@@ -144,6 +144,6 @@ setIdentityDkimEnabledResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 sidersResponseStatus :: Lens' SetIdentityDkimEnabledResponse Int
-sidersResponseStatus = lens _sidersResponseStatus (\ s a -> s{_sidersResponseStatus = a});
+sidersResponseStatus = lens _sidersResponseStatus (\ s a -> s{_sidersResponseStatus = a})
 
 instance NFData SetIdentityDkimEnabledResponse where

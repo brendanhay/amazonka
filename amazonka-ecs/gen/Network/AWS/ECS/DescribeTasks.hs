@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeTasks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ data DescribeTasks = DescribeTasks'
 --
 -- * 'dtCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to describe. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'dtTasks' - A list of up to 100 task IDs or full Amazon Resource Name (ARN) entries.
+-- * 'dtTasks' - A list of up to 100 task IDs or full ARN entries.
 describeTasks
     :: DescribeTasks
 describeTasks = DescribeTasks' {_dtCluster = Nothing, _dtTasks = mempty}
@@ -67,11 +67,11 @@ describeTasks = DescribeTasks' {_dtCluster = Nothing, _dtTasks = mempty}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to describe. If you do not specify a cluster, the default cluster is assumed.
 dtCluster :: Lens' DescribeTasks (Maybe Text)
-dtCluster = lens _dtCluster (\ s a -> s{_dtCluster = a});
+dtCluster = lens _dtCluster (\ s a -> s{_dtCluster = a})
 
--- | A list of up to 100 task IDs or full Amazon Resource Name (ARN) entries.
+-- | A list of up to 100 task IDs or full ARN entries.
 dtTasks :: Lens' DescribeTasks [Text]
-dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a}) . _Coerce;
+dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a}) . _Coerce
 
 instance AWSRequest DescribeTasks where
         type Rs DescribeTasks = DescribeTasksResponse
@@ -133,22 +133,22 @@ describeTasksResponse
     -> DescribeTasksResponse
 describeTasksResponse pResponseStatus_ =
   DescribeTasksResponse'
-  { _dtrsFailures = Nothing
-  , _dtrsTasks = Nothing
-  , _dtrsResponseStatus = pResponseStatus_
-  }
+    { _dtrsFailures = Nothing
+    , _dtrsTasks = Nothing
+    , _dtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Any failures associated with the call.
 dtrsFailures :: Lens' DescribeTasksResponse [Failure]
-dtrsFailures = lens _dtrsFailures (\ s a -> s{_dtrsFailures = a}) . _Default . _Coerce;
+dtrsFailures = lens _dtrsFailures (\ s a -> s{_dtrsFailures = a}) . _Default . _Coerce
 
 -- | The list of tasks.
 dtrsTasks :: Lens' DescribeTasksResponse [Task]
-dtrsTasks = lens _dtrsTasks (\ s a -> s{_dtrsTasks = a}) . _Default . _Coerce;
+dtrsTasks = lens _dtrsTasks (\ s a -> s{_dtrsTasks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTasksResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
 
 instance NFData DescribeTasksResponse where

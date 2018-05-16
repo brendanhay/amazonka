@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.CreatePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ createPolicy
     -> CreatePolicy
 createPolicy pContent_ pDescription_ pName_ pType_ =
   CreatePolicy'
-  { _cpContent = pContent_
-  , _cpDescription = pDescription_
-  , _cpName = pName_
-  , _cpType = pType_
-  }
+    { _cpContent = pContent_
+    , _cpDescription = pDescription_
+    , _cpName = pName_
+    , _cpType = pType_
+    }
 
 
 -- | The policy content to add to the new policy. For example, if you create a <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html service control policy> (SCP), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
 cpContent :: Lens' CreatePolicy Text
-cpContent = lens _cpContent (\ s a -> s{_cpContent = a});
+cpContent = lens _cpContent (\ s a -> s{_cpContent = a})
 
 -- | An optional description to assign to the policy.
 cpDescription :: Lens' CreatePolicy Text
-cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
+cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a})
 
 -- | The friendly name to assign to the policy. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 cpName :: Lens' CreatePolicy Text
-cpName = lens _cpName (\ s a -> s{_cpName = a});
+cpName = lens _cpName (\ s a -> s{_cpName = a})
 
 -- | The type of policy to create.
 cpType :: Lens' CreatePolicy PolicyType
-cpType = lens _cpType (\ s a -> s{_cpType = a});
+cpType = lens _cpType (\ s a -> s{_cpType = a})
 
 instance AWSRequest CreatePolicy where
         type Rs CreatePolicy = CreatePolicyResponse
@@ -158,15 +158,15 @@ createPolicyResponse
     -> CreatePolicyResponse
 createPolicyResponse pResponseStatus_ =
   CreatePolicyResponse'
-  {_cprsPolicy = Nothing, _cprsResponseStatus = pResponseStatus_}
+    {_cprsPolicy = Nothing, _cprsResponseStatus = pResponseStatus_}
 
 
 -- | A structure that contains details about the newly created policy.
 cprsPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
-cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a});
+cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a})
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePolicyResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
 
 instance NFData CreatePolicyResponse where

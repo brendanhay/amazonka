@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeFlowLogs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ describeFlowLogs
     :: DescribeFlowLogs
 describeFlowLogs =
   DescribeFlowLogs'
-  { _dNextToken = Nothing
-  , _dFlowLogIds = Nothing
-  , _dFilter = Nothing
-  , _dMaxResults = Nothing
-  }
+    { _dNextToken = Nothing
+    , _dFlowLogIds = Nothing
+    , _dFilter = Nothing
+    , _dMaxResults = Nothing
+    }
 
 
 -- | The token to retrieve the next page of results.
 dNextToken :: Lens' DescribeFlowLogs (Maybe Text)
-dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a})
 
 -- | One or more flow log IDs.
 dFlowLogIds :: Lens' DescribeFlowLogs [Text]
-dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default . _Coerce;
+dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default . _Coerce
 
 -- | One or more filters.     * @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).     * @flow-log-id@ - The ID of the flow log.     * @log-group-name@ - The name of the log group.     * @resource-id@ - The ID of the VPC, subnet, or network interface.     * @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@ )
 dFilter :: Lens' DescribeFlowLogs [Filter]
-dFilter = lens _dFilter (\ s a -> s{_dFilter = a}) . _Default . _Coerce;
+dFilter = lens _dFilter (\ s a -> s{_dFilter = a}) . _Default . _Coerce
 
 -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the flow log IDs parameter in the same request.
 dMaxResults :: Lens' DescribeFlowLogs (Maybe Int)
-dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a});
+dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a})
 
 instance AWSRequest DescribeFlowLogs where
         type Rs DescribeFlowLogs = DescribeFlowLogsResponse
@@ -157,22 +157,22 @@ describeFlowLogsResponse
     -> DescribeFlowLogsResponse
 describeFlowLogsResponse pResponseStatus_ =
   DescribeFlowLogsResponse'
-  { _dflsrsNextToken = Nothing
-  , _dflsrsFlowLogs = Nothing
-  , _dflsrsResponseStatus = pResponseStatus_
-  }
+    { _dflsrsNextToken = Nothing
+    , _dflsrsFlowLogs = Nothing
+    , _dflsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dflsrsNextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
-dflsrsNextToken = lens _dflsrsNextToken (\ s a -> s{_dflsrsNextToken = a});
+dflsrsNextToken = lens _dflsrsNextToken (\ s a -> s{_dflsrsNextToken = a})
 
 -- | Information about the flow logs.
 dflsrsFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
-dflsrsFlowLogs = lens _dflsrsFlowLogs (\ s a -> s{_dflsrsFlowLogs = a}) . _Default . _Coerce;
+dflsrsFlowLogs = lens _dflsrsFlowLogs (\ s a -> s{_dflsrsFlowLogs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dflsrsResponseStatus :: Lens' DescribeFlowLogsResponse Int
-dflsrsResponseStatus = lens _dflsrsResponseStatus (\ s a -> s{_dflsrsResponseStatus = a});
+dflsrsResponseStatus = lens _dflsrsResponseStatus (\ s a -> s{_dflsrsResponseStatus = a})
 
 instance NFData DescribeFlowLogsResponse where

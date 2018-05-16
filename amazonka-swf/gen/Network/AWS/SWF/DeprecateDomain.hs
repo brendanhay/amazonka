@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DeprecateDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,7 +74,7 @@ deprecateDomain pName_ = DeprecateDomain' {_dName = pName_}
 
 -- | The name of the domain to deprecate.
 dName :: Lens' DeprecateDomain Text
-dName = lens _dName (\ s a -> s{_dName = a});
+dName = lens _dName (\ s a -> s{_dName = a})
 
 instance AWSRequest DeprecateDomain where
         type Rs DeprecateDomain = DeprecateDomainResponse

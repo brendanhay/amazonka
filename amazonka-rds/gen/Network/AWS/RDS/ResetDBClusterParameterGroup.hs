@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ResetDBClusterParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,9 +65,9 @@ data ResetDBClusterParameterGroup = ResetDBClusterParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdcpgResetAllParameters' - A value that is set to @true@ to reset all parameters in the DB cluster parameter group to their default values, and @false@ otherwise. You cannot use this parameter if there is a list of parameter names specified for the @Parameters@ parameter.
+-- * 'rdcpgResetAllParameters' - A value that is set to @true@ to reset all parameters in the DB cluster parameter group to their default values, and @false@ otherwise. You can't use this parameter if there is a list of parameter names specified for the @Parameters@ parameter.
 --
--- * 'rdcpgParameters' - A list of parameter names in the DB cluster parameter group to reset to the default values. You cannot use this parameter if the @ResetAllParameters@ parameter is set to @true@ .
+-- * 'rdcpgParameters' - A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the @ResetAllParameters@ parameter is set to @true@ .
 --
 -- * 'rdcpgDBClusterParameterGroupName' - The name of the DB cluster parameter group to reset.
 resetDBClusterParameterGroup
@@ -75,23 +75,23 @@ resetDBClusterParameterGroup
     -> ResetDBClusterParameterGroup
 resetDBClusterParameterGroup pDBClusterParameterGroupName_ =
   ResetDBClusterParameterGroup'
-  { _rdcpgResetAllParameters = Nothing
-  , _rdcpgParameters = Nothing
-  , _rdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
-  }
+    { _rdcpgResetAllParameters = Nothing
+    , _rdcpgParameters = Nothing
+    , _rdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
+    }
 
 
--- | A value that is set to @true@ to reset all parameters in the DB cluster parameter group to their default values, and @false@ otherwise. You cannot use this parameter if there is a list of parameter names specified for the @Parameters@ parameter.
+-- | A value that is set to @true@ to reset all parameters in the DB cluster parameter group to their default values, and @false@ otherwise. You can't use this parameter if there is a list of parameter names specified for the @Parameters@ parameter.
 rdcpgResetAllParameters :: Lens' ResetDBClusterParameterGroup (Maybe Bool)
-rdcpgResetAllParameters = lens _rdcpgResetAllParameters (\ s a -> s{_rdcpgResetAllParameters = a});
+rdcpgResetAllParameters = lens _rdcpgResetAllParameters (\ s a -> s{_rdcpgResetAllParameters = a})
 
--- | A list of parameter names in the DB cluster parameter group to reset to the default values. You cannot use this parameter if the @ResetAllParameters@ parameter is set to @true@ .
+-- | A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the @ResetAllParameters@ parameter is set to @true@ .
 rdcpgParameters :: Lens' ResetDBClusterParameterGroup [Parameter]
-rdcpgParameters = lens _rdcpgParameters (\ s a -> s{_rdcpgParameters = a}) . _Default . _Coerce;
+rdcpgParameters = lens _rdcpgParameters (\ s a -> s{_rdcpgParameters = a}) . _Default . _Coerce
 
 -- | The name of the DB cluster parameter group to reset.
 rdcpgDBClusterParameterGroupName :: Lens' ResetDBClusterParameterGroup Text
-rdcpgDBClusterParameterGroupName = lens _rdcpgDBClusterParameterGroupName (\ s a -> s{_rdcpgDBClusterParameterGroupName = a});
+rdcpgDBClusterParameterGroupName = lens _rdcpgDBClusterParameterGroupName (\ s a -> s{_rdcpgDBClusterParameterGroupName = a})
 
 instance AWSRequest ResetDBClusterParameterGroup
          where

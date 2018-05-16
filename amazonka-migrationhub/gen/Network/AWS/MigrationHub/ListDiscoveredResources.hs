@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.ListDiscoveredResources
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ listDiscoveredResources
     -> ListDiscoveredResources
 listDiscoveredResources pProgressUpdateStream_ pMigrationTaskName_ =
   ListDiscoveredResources'
-  { _ldrNextToken = Nothing
-  , _ldrMaxResults = Nothing
-  , _ldrProgressUpdateStream = pProgressUpdateStream_
-  , _ldrMigrationTaskName = pMigrationTaskName_
-  }
+    { _ldrNextToken = Nothing
+    , _ldrMaxResults = Nothing
+    , _ldrProgressUpdateStream = pProgressUpdateStream_
+    , _ldrMigrationTaskName = pMigrationTaskName_
+    }
 
 
 -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
 ldrNextToken :: Lens' ListDiscoveredResources (Maybe Text)
-ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
+ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a})
 
 -- | The maximum number of results returned per page.
 ldrMaxResults :: Lens' ListDiscoveredResources (Maybe Natural)
-ldrMaxResults = lens _ldrMaxResults (\ s a -> s{_ldrMaxResults = a}) . mapping _Nat;
+ldrMaxResults = lens _ldrMaxResults (\ s a -> s{_ldrMaxResults = a}) . mapping _Nat
 
 -- | The name of the ProgressUpdateStream.
 ldrProgressUpdateStream :: Lens' ListDiscoveredResources Text
-ldrProgressUpdateStream = lens _ldrProgressUpdateStream (\ s a -> s{_ldrProgressUpdateStream = a});
+ldrProgressUpdateStream = lens _ldrProgressUpdateStream (\ s a -> s{_ldrProgressUpdateStream = a})
 
 -- | The name of the MigrationTask.
 ldrMigrationTaskName :: Lens' ListDiscoveredResources Text
-ldrMigrationTaskName = lens _ldrMigrationTaskName (\ s a -> s{_ldrMigrationTaskName = a});
+ldrMigrationTaskName = lens _ldrMigrationTaskName (\ s a -> s{_ldrMigrationTaskName = a})
 
 instance AWSRequest ListDiscoveredResources where
         type Rs ListDiscoveredResources =
@@ -161,22 +161,22 @@ listDiscoveredResourcesResponse
     -> ListDiscoveredResourcesResponse
 listDiscoveredResourcesResponse pResponseStatus_ =
   ListDiscoveredResourcesResponse'
-  { _ldrrsDiscoveredResourceList = Nothing
-  , _ldrrsNextToken = Nothing
-  , _ldrrsResponseStatus = pResponseStatus_
-  }
+    { _ldrrsDiscoveredResourceList = Nothing
+    , _ldrrsNextToken = Nothing
+    , _ldrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Returned list of discovered resources associated with the given MigrationTask.
 ldrrsDiscoveredResourceList :: Lens' ListDiscoveredResourcesResponse [DiscoveredResource]
-ldrrsDiscoveredResourceList = lens _ldrrsDiscoveredResourceList (\ s a -> s{_ldrrsDiscoveredResourceList = a}) . _Default . _Coerce;
+ldrrsDiscoveredResourceList = lens _ldrrsDiscoveredResourceList (\ s a -> s{_ldrrsDiscoveredResourceList = a}) . _Default . _Coerce
 
 -- | If there are more discovered resources than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
 ldrrsNextToken :: Lens' ListDiscoveredResourcesResponse (Maybe Text)
-ldrrsNextToken = lens _ldrrsNextToken (\ s a -> s{_ldrrsNextToken = a});
+ldrrsNextToken = lens _ldrrsNextToken (\ s a -> s{_ldrrsNextToken = a})
 
 -- | -- | The response status code.
 ldrrsResponseStatus :: Lens' ListDiscoveredResourcesResponse Int
-ldrrsResponseStatus = lens _ldrrsResponseStatus (\ s a -> s{_ldrrsResponseStatus = a});
+ldrrsResponseStatus = lens _ldrrsResponseStatus (\ s a -> s{_ldrrsResponseStatus = a})
 
 instance NFData ListDiscoveredResourcesResponse where

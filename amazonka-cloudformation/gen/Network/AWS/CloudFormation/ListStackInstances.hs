@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListStackInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,33 +77,33 @@ listStackInstances
     -> ListStackInstances
 listStackInstances pStackSetName_ =
   ListStackInstances'
-  { _lsiStackInstanceRegion = Nothing
-  , _lsiNextToken = Nothing
-  , _lsiStackInstanceAccount = Nothing
-  , _lsiMaxResults = Nothing
-  , _lsiStackSetName = pStackSetName_
-  }
+    { _lsiStackInstanceRegion = Nothing
+    , _lsiNextToken = Nothing
+    , _lsiStackInstanceAccount = Nothing
+    , _lsiMaxResults = Nothing
+    , _lsiStackSetName = pStackSetName_
+    }
 
 
 -- | The name of the region where you want to list stack instances.
 lsiStackInstanceRegion :: Lens' ListStackInstances (Maybe Text)
-lsiStackInstanceRegion = lens _lsiStackInstanceRegion (\ s a -> s{_lsiStackInstanceRegion = a});
+lsiStackInstanceRegion = lens _lsiStackInstanceRegion (\ s a -> s{_lsiStackInstanceRegion = a})
 
 -- | If the previous request didn't return all of the remaining results, the response's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
 lsiNextToken :: Lens' ListStackInstances (Maybe Text)
-lsiNextToken = lens _lsiNextToken (\ s a -> s{_lsiNextToken = a});
+lsiNextToken = lens _lsiNextToken (\ s a -> s{_lsiNextToken = a})
 
 -- | The name of the AWS account that you want to list stack instances for.
 lsiStackInstanceAccount :: Lens' ListStackInstances (Maybe Text)
-lsiStackInstanceAccount = lens _lsiStackInstanceAccount (\ s a -> s{_lsiStackInstanceAccount = a});
+lsiStackInstanceAccount = lens _lsiStackInstanceAccount (\ s a -> s{_lsiStackInstanceAccount = a})
 
 -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 lsiMaxResults :: Lens' ListStackInstances (Maybe Natural)
-lsiMaxResults = lens _lsiMaxResults (\ s a -> s{_lsiMaxResults = a}) . mapping _Nat;
+lsiMaxResults = lens _lsiMaxResults (\ s a -> s{_lsiMaxResults = a}) . mapping _Nat
 
 -- | The name or unique ID of the stack set that you want to list stack instances for.
 lsiStackSetName :: Lens' ListStackInstances Text
-lsiStackSetName = lens _lsiStackSetName (\ s a -> s{_lsiStackSetName = a});
+lsiStackSetName = lens _lsiStackSetName (\ s a -> s{_lsiStackSetName = a})
 
 instance AWSRequest ListStackInstances where
         type Rs ListStackInstances =
@@ -161,22 +161,22 @@ listStackInstancesResponse
     -> ListStackInstancesResponse
 listStackInstancesResponse pResponseStatus_ =
   ListStackInstancesResponse'
-  { _lsirsNextToken = Nothing
-  , _lsirsSummaries = Nothing
-  , _lsirsResponseStatus = pResponseStatus_
-  }
+    { _lsirsNextToken = Nothing
+    , _lsirsSummaries = Nothing
+    , _lsirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
 lsirsNextToken :: Lens' ListStackInstancesResponse (Maybe Text)
-lsirsNextToken = lens _lsirsNextToken (\ s a -> s{_lsirsNextToken = a});
+lsirsNextToken = lens _lsirsNextToken (\ s a -> s{_lsirsNextToken = a})
 
 -- | A list of @StackInstanceSummary@ structures that contain information about the specified stack instances.
 lsirsSummaries :: Lens' ListStackInstancesResponse [StackInstanceSummary]
-lsirsSummaries = lens _lsirsSummaries (\ s a -> s{_lsirsSummaries = a}) . _Default . _Coerce;
+lsirsSummaries = lens _lsirsSummaries (\ s a -> s{_lsirsSummaries = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lsirsResponseStatus :: Lens' ListStackInstancesResponse Int
-lsirsResponseStatus = lens _lsirsResponseStatus (\ s a -> s{_lsirsResponseStatus = a});
+lsirsResponseStatus = lens _lsirsResponseStatus (\ s a -> s{_lsirsResponseStatus = a})
 
 instance NFData ListStackInstancesResponse where

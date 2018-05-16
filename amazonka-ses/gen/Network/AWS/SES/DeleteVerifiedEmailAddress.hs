@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteVerifiedEmailAddress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deleteVerifiedEmailAddress pEmailAddress_ =
 
 -- | An email address to be removed from the list of verified addresses.
 dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
-dveaEmailAddress = lens _dveaEmailAddress (\ s a -> s{_dveaEmailAddress = a});
+dveaEmailAddress = lens _dveaEmailAddress (\ s a -> s{_dveaEmailAddress = a})
 
 instance AWSRequest DeleteVerifiedEmailAddress where
         type Rs DeleteVerifiedEmailAddress =

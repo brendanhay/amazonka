@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DeleteSubscriptionDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a subscription definition. The subscription definition must not have been used in a deployment.
+-- Deletes a subscription definition.
 module Network.AWS.Greengrass.DeleteSubscriptionDefinition
     (
     -- * Creating a Request
@@ -51,18 +51,18 @@ newtype DeleteSubscriptionDefinition = DeleteSubscriptionDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsdSubscriptionDefinitionId' - subscription definition Id
+-- * 'dsdSubscriptionDefinitionId' - The ID of the subscription definition.
 deleteSubscriptionDefinition
     :: Text -- ^ 'dsdSubscriptionDefinitionId'
     -> DeleteSubscriptionDefinition
 deleteSubscriptionDefinition pSubscriptionDefinitionId_ =
   DeleteSubscriptionDefinition'
-  {_dsdSubscriptionDefinitionId = pSubscriptionDefinitionId_}
+    {_dsdSubscriptionDefinitionId = pSubscriptionDefinitionId_}
 
 
--- | subscription definition Id
+-- | The ID of the subscription definition.
 dsdSubscriptionDefinitionId :: Lens' DeleteSubscriptionDefinition Text
-dsdSubscriptionDefinitionId = lens _dsdSubscriptionDefinitionId (\ s a -> s{_dsdSubscriptionDefinitionId = a});
+dsdSubscriptionDefinitionId = lens _dsdSubscriptionDefinitionId (\ s a -> s{_dsdSubscriptionDefinitionId = a})
 
 instance AWSRequest DeleteSubscriptionDefinition
          where
@@ -111,12 +111,12 @@ deleteSubscriptionDefinitionResponse
     -> DeleteSubscriptionDefinitionResponse
 deleteSubscriptionDefinitionResponse pResponseStatus_ =
   DeleteSubscriptionDefinitionResponse'
-  {_dsdrsResponseStatus = pResponseStatus_}
+    {_dsdrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dsdrsResponseStatus :: Lens' DeleteSubscriptionDefinitionResponse Int
-dsdrsResponseStatus = lens _dsdrsResponseStatus (\ s a -> s{_dsdrsResponseStatus = a});
+dsdrsResponseStatus = lens _dsdrsResponseStatus (\ s a -> s{_dsdrsResponseStatus = a})
 
 instance NFData DeleteSubscriptionDefinitionResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ deleteSnapshot pSnapshotName_ =
 
 -- | The name of the snapshot to be deleted.
 dSnapshotName :: Lens' DeleteSnapshot Text
-dSnapshotName = lens _dSnapshotName (\ s a -> s{_dSnapshotName = a});
+dSnapshotName = lens _dSnapshotName (\ s a -> s{_dSnapshotName = a})
 
 instance AWSRequest DeleteSnapshot where
         type Rs DeleteSnapshot = DeleteSnapshotResponse
@@ -115,15 +115,15 @@ deleteSnapshotResponse
     -> DeleteSnapshotResponse
 deleteSnapshotResponse pResponseStatus_ =
   DeleteSnapshotResponse'
-  {_dsrsSnapshot = Nothing, _dsrsResponseStatus = pResponseStatus_}
+    {_dsrsSnapshot = Nothing, _dsrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 dsrsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
-dsrsSnapshot = lens _dsrsSnapshot (\ s a -> s{_dsrsSnapshot = a});
+dsrsSnapshot = lens _dsrsSnapshot (\ s a -> s{_dsrsSnapshot = a})
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteSnapshotResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DeleteSnapshotResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DetachPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,11 +70,11 @@ detachPolicy pPolicyId_ pTargetId_ =
 
 -- | The unique identifier (ID) of the policy you want to detach. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
 detPolicyId :: Lens' DetachPolicy Text
-detPolicyId = lens _detPolicyId (\ s a -> s{_detPolicyId = a});
+detPolicyId = lens _detPolicyId (\ s a -> s{_detPolicyId = a})
 
 -- | The unique identifier (ID) of the root, OU, or account from which you want to detach the policy. You can get the ID from the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:     * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits.     * Account: a string that consists of exactly 12 digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 detTargetId :: Lens' DetachPolicy Text
-detTargetId = lens _detTargetId (\ s a -> s{_detTargetId = a});
+detTargetId = lens _detTargetId (\ s a -> s{_detTargetId = a})
 
 instance AWSRequest DetachPolicy where
         type Rs DetachPolicy = DetachPolicyResponse

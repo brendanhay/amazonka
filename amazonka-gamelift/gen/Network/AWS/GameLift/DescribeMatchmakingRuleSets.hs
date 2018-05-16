@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeMatchmakingRuleSets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,20 +90,20 @@ describeMatchmakingRuleSets
     :: DescribeMatchmakingRuleSets
 describeMatchmakingRuleSets =
   DescribeMatchmakingRuleSets'
-  {_dmrsNextToken = Nothing, _dmrsNames = Nothing, _dmrsLimit = Nothing}
+    {_dmrsNextToken = Nothing, _dmrsNames = Nothing, _dmrsLimit = Nothing}
 
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dmrsNextToken :: Lens' DescribeMatchmakingRuleSets (Maybe Text)
-dmrsNextToken = lens _dmrsNextToken (\ s a -> s{_dmrsNextToken = a});
+dmrsNextToken = lens _dmrsNextToken (\ s a -> s{_dmrsNextToken = a})
 
 -- | Unique identifier for a matchmaking rule set. This name is used to identify the rule set associated with a matchmaking configuration.
 dmrsNames :: Lens' DescribeMatchmakingRuleSets (Maybe (NonEmpty Text))
-dmrsNames = lens _dmrsNames (\ s a -> s{_dmrsNames = a}) . mapping _List1;
+dmrsNames = lens _dmrsNames (\ s a -> s{_dmrsNames = a}) . mapping _List1
 
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 dmrsLimit :: Lens' DescribeMatchmakingRuleSets (Maybe Natural)
-dmrsLimit = lens _dmrsLimit (\ s a -> s{_dmrsLimit = a}) . mapping _Nat;
+dmrsLimit = lens _dmrsLimit (\ s a -> s{_dmrsLimit = a}) . mapping _Nat
 
 instance AWSRequest DescribeMatchmakingRuleSets where
         type Rs DescribeMatchmakingRuleSets =
@@ -170,23 +170,23 @@ describeMatchmakingRuleSetsResponse
     -> DescribeMatchmakingRuleSetsResponse
 describeMatchmakingRuleSetsResponse pResponseStatus_ =
   DescribeMatchmakingRuleSetsResponse'
-  { _dmrsrsNextToken = Nothing
-  , _dmrsrsResponseStatus = pResponseStatus_
-  , _dmrsrsRuleSets = mempty
-  }
+    { _dmrsrsNextToken = Nothing
+    , _dmrsrsResponseStatus = pResponseStatus_
+    , _dmrsrsRuleSets = mempty
+    }
 
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dmrsrsNextToken :: Lens' DescribeMatchmakingRuleSetsResponse (Maybe Text)
-dmrsrsNextToken = lens _dmrsrsNextToken (\ s a -> s{_dmrsrsNextToken = a});
+dmrsrsNextToken = lens _dmrsrsNextToken (\ s a -> s{_dmrsrsNextToken = a})
 
 -- | -- | The response status code.
 dmrsrsResponseStatus :: Lens' DescribeMatchmakingRuleSetsResponse Int
-dmrsrsResponseStatus = lens _dmrsrsResponseStatus (\ s a -> s{_dmrsrsResponseStatus = a});
+dmrsrsResponseStatus = lens _dmrsrsResponseStatus (\ s a -> s{_dmrsrsResponseStatus = a})
 
 -- | Collection of requested matchmaking rule set objects.
 dmrsrsRuleSets :: Lens' DescribeMatchmakingRuleSetsResponse [MatchmakingRuleSet]
-dmrsrsRuleSets = lens _dmrsrsRuleSets (\ s a -> s{_dmrsrsRuleSets = a}) . _Coerce;
+dmrsrsRuleSets = lens _dmrsrsRuleSets (\ s a -> s{_dmrsrsRuleSets = a}) . _Coerce
 
 instance NFData DescribeMatchmakingRuleSetsResponse
          where

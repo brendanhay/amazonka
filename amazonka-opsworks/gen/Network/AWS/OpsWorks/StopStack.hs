@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.StopStack
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ stopStack pStackId_ = StopStack' {_stoStackId = pStackId_}
 
 -- | The stack ID.
 stoStackId :: Lens' StopStack Text
-stoStackId = lens _stoStackId (\ s a -> s{_stoStackId = a});
+stoStackId = lens _stoStackId (\ s a -> s{_stoStackId = a})
 
 instance AWSRequest StopStack where
         type Rs StopStack = StopStackResponse

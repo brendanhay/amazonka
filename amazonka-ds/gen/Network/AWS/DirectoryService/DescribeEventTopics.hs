@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DescribeEventTopics
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ describeEventTopics =
 
 -- | The Directory ID for which to get the list of associated SNS topics. If this member is null, associations for all Directory IDs are returned.
 dDirectoryId :: Lens' DescribeEventTopics (Maybe Text)
-dDirectoryId = lens _dDirectoryId (\ s a -> s{_dDirectoryId = a});
+dDirectoryId = lens _dDirectoryId (\ s a -> s{_dDirectoryId = a})
 
 -- | A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned. An empty list results in an @InvalidParameterException@ being thrown.
 dTopicNames :: Lens' DescribeEventTopics [Text]
-dTopicNames = lens _dTopicNames (\ s a -> s{_dTopicNames = a}) . _Default . _Coerce;
+dTopicNames = lens _dTopicNames (\ s a -> s{_dTopicNames = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeEventTopics where
         type Rs DescribeEventTopics =
@@ -140,15 +140,15 @@ describeEventTopicsResponse
     -> DescribeEventTopicsResponse
 describeEventTopicsResponse pResponseStatus_ =
   DescribeEventTopicsResponse'
-  {_detrsEventTopics = Nothing, _detrsResponseStatus = pResponseStatus_}
+    {_detrsEventTopics = Nothing, _detrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of SNS topic names that receive status messages from the specified Directory ID.
 detrsEventTopics :: Lens' DescribeEventTopicsResponse [EventTopic]
-detrsEventTopics = lens _detrsEventTopics (\ s a -> s{_detrsEventTopics = a}) . _Default . _Coerce;
+detrsEventTopics = lens _detrsEventTopics (\ s a -> s{_detrsEventTopics = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 detrsResponseStatus :: Lens' DescribeEventTopicsResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
+detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a})
 
 instance NFData DescribeEventTopicsResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachClassicLinkVPC
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,20 +73,23 @@ detachClassicLinkVPC
     -> DetachClassicLinkVPC
 detachClassicLinkVPC pInstanceId_ pVPCId_ =
   DetachClassicLinkVPC'
-  {_dclvDryRun = Nothing, _dclvInstanceId = pInstanceId_, _dclvVPCId = pVPCId_}
+    { _dclvDryRun = Nothing
+    , _dclvInstanceId = pInstanceId_
+    , _dclvVPCId = pVPCId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dclvDryRun :: Lens' DetachClassicLinkVPC (Maybe Bool)
-dclvDryRun = lens _dclvDryRun (\ s a -> s{_dclvDryRun = a});
+dclvDryRun = lens _dclvDryRun (\ s a -> s{_dclvDryRun = a})
 
 -- | The ID of the instance to unlink from the VPC.
 dclvInstanceId :: Lens' DetachClassicLinkVPC Text
-dclvInstanceId = lens _dclvInstanceId (\ s a -> s{_dclvInstanceId = a});
+dclvInstanceId = lens _dclvInstanceId (\ s a -> s{_dclvInstanceId = a})
 
 -- | The ID of the VPC to which the instance is linked.
 dclvVPCId :: Lens' DetachClassicLinkVPC Text
-dclvVPCId = lens _dclvVPCId (\ s a -> s{_dclvVPCId = a});
+dclvVPCId = lens _dclvVPCId (\ s a -> s{_dclvVPCId = a})
 
 instance AWSRequest DetachClassicLinkVPC where
         type Rs DetachClassicLinkVPC =
@@ -140,15 +143,15 @@ detachClassicLinkVPCResponse
     -> DetachClassicLinkVPCResponse
 detachClassicLinkVPCResponse pResponseStatus_ =
   DetachClassicLinkVPCResponse'
-  {_dclvrsReturn = Nothing, _dclvrsResponseStatus = pResponseStatus_}
+    {_dclvrsReturn = Nothing, _dclvrsResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dclvrsReturn :: Lens' DetachClassicLinkVPCResponse (Maybe Bool)
-dclvrsReturn = lens _dclvrsReturn (\ s a -> s{_dclvrsReturn = a});
+dclvrsReturn = lens _dclvrsReturn (\ s a -> s{_dclvrsReturn = a})
 
 -- | -- | The response status code.
 dclvrsResponseStatus :: Lens' DetachClassicLinkVPCResponse Int
-dclvrsResponseStatus = lens _dclvrsResponseStatus (\ s a -> s{_dclvrsResponseStatus = a});
+dclvrsResponseStatus = lens _dclvrsResponseStatus (\ s a -> s{_dclvrsResponseStatus = a})
 
 instance NFData DetachClassicLinkVPCResponse where

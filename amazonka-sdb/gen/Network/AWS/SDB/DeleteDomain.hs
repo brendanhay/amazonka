@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.DeleteDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,7 +60,7 @@ deleteDomain pDomainName_ = DeleteDomain' {_ddDomainName = pDomainName_}
 
 -- | The name of the domain to delete.
 ddDomainName :: Lens' DeleteDomain Text
-ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
+ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a})
 
 instance AWSRequest DeleteDomain where
         type Rs DeleteDomain = DeleteDomainResponse

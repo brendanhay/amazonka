@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.DeletePipeline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ deletePipeline pPipelineId_ = DeletePipeline' {_dpPipelineId = pPipelineId_}
 
 -- | The ID of the pipeline.
 dpPipelineId :: Lens' DeletePipeline Text
-dpPipelineId = lens _dpPipelineId (\ s a -> s{_dpPipelineId = a});
+dpPipelineId = lens _dpPipelineId (\ s a -> s{_dpPipelineId = a})
 
 instance AWSRequest DeletePipeline where
         type Rs DeletePipeline = DeletePipelineResponse

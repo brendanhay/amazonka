@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetTrafficPolicyInstanceCount
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -110,18 +110,18 @@ getTrafficPolicyInstanceCountResponse
     -> GetTrafficPolicyInstanceCountResponse
 getTrafficPolicyInstanceCountResponse pResponseStatus_ pTrafficPolicyInstanceCount_ =
   GetTrafficPolicyInstanceCountResponse'
-  { _gtpicrsResponseStatus = pResponseStatus_
-  , _gtpicrsTrafficPolicyInstanceCount = pTrafficPolicyInstanceCount_
-  }
+    { _gtpicrsResponseStatus = pResponseStatus_
+    , _gtpicrsTrafficPolicyInstanceCount = pTrafficPolicyInstanceCount_
+    }
 
 
 -- | -- | The response status code.
 gtpicrsResponseStatus :: Lens' GetTrafficPolicyInstanceCountResponse Int
-gtpicrsResponseStatus = lens _gtpicrsResponseStatus (\ s a -> s{_gtpicrsResponseStatus = a});
+gtpicrsResponseStatus = lens _gtpicrsResponseStatus (\ s a -> s{_gtpicrsResponseStatus = a})
 
 -- | The number of traffic policy instances that are associated with the current AWS account.
 gtpicrsTrafficPolicyInstanceCount :: Lens' GetTrafficPolicyInstanceCountResponse Int
-gtpicrsTrafficPolicyInstanceCount = lens _gtpicrsTrafficPolicyInstanceCount (\ s a -> s{_gtpicrsTrafficPolicyInstanceCount = a});
+gtpicrsTrafficPolicyInstanceCount = lens _gtpicrsTrafficPolicyInstanceCount (\ s a -> s{_gtpicrsTrafficPolicyInstanceCount = a})
 
 instance NFData GetTrafficPolicyInstanceCountResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListResourceComplianceSummaries
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,20 +68,23 @@ listResourceComplianceSummaries
     :: ListResourceComplianceSummaries
 listResourceComplianceSummaries =
   ListResourceComplianceSummaries'
-  {_lrcsFilters = Nothing, _lrcsNextToken = Nothing, _lrcsMaxResults = Nothing}
+    { _lrcsFilters = Nothing
+    , _lrcsNextToken = Nothing
+    , _lrcsMaxResults = Nothing
+    }
 
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 lrcsFilters :: Lens' ListResourceComplianceSummaries [ComplianceStringFilter]
-lrcsFilters = lens _lrcsFilters (\ s a -> s{_lrcsFilters = a}) . _Default . _Coerce;
+lrcsFilters = lens _lrcsFilters (\ s a -> s{_lrcsFilters = a}) . _Default . _Coerce
 
 -- | A token to start the list. Use this token to get the next set of results.
 lrcsNextToken :: Lens' ListResourceComplianceSummaries (Maybe Text)
-lrcsNextToken = lens _lrcsNextToken (\ s a -> s{_lrcsNextToken = a});
+lrcsNextToken = lens _lrcsNextToken (\ s a -> s{_lrcsNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lrcsMaxResults :: Lens' ListResourceComplianceSummaries (Maybe Natural)
-lrcsMaxResults = lens _lrcsMaxResults (\ s a -> s{_lrcsMaxResults = a}) . mapping _Nat;
+lrcsMaxResults = lens _lrcsMaxResults (\ s a -> s{_lrcsMaxResults = a}) . mapping _Nat
 
 instance AWSRequest ListResourceComplianceSummaries
          where
@@ -149,23 +152,23 @@ listResourceComplianceSummariesResponse
     -> ListResourceComplianceSummariesResponse
 listResourceComplianceSummariesResponse pResponseStatus_ =
   ListResourceComplianceSummariesResponse'
-  { _lrcsrsResourceComplianceSummaryItems = Nothing
-  , _lrcsrsNextToken = Nothing
-  , _lrcsrsResponseStatus = pResponseStatus_
-  }
+    { _lrcsrsResourceComplianceSummaryItems = Nothing
+    , _lrcsrsNextToken = Nothing
+    , _lrcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A summary count for specified or targeted managed instances. Summary count includes information about compliant and non-compliant State Manager associations, patch status, or custom items according to the filter criteria that you specify.
 lrcsrsResourceComplianceSummaryItems :: Lens' ListResourceComplianceSummariesResponse [ResourceComplianceSummaryItem]
-lrcsrsResourceComplianceSummaryItems = lens _lrcsrsResourceComplianceSummaryItems (\ s a -> s{_lrcsrsResourceComplianceSummaryItems = a}) . _Default . _Coerce;
+lrcsrsResourceComplianceSummaryItems = lens _lrcsrsResourceComplianceSummaryItems (\ s a -> s{_lrcsrsResourceComplianceSummaryItems = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
 lrcsrsNextToken :: Lens' ListResourceComplianceSummariesResponse (Maybe Text)
-lrcsrsNextToken = lens _lrcsrsNextToken (\ s a -> s{_lrcsrsNextToken = a});
+lrcsrsNextToken = lens _lrcsrsNextToken (\ s a -> s{_lrcsrsNextToken = a})
 
 -- | -- | The response status code.
 lrcsrsResponseStatus :: Lens' ListResourceComplianceSummariesResponse Int
-lrcsrsResponseStatus = lens _lrcsrsResponseStatus (\ s a -> s{_lrcsrsResponseStatus = a});
+lrcsrsResponseStatus = lens _lrcsrsResponseStatus (\ s a -> s{_lrcsrsResponseStatus = a})
 
 instance NFData
            ListResourceComplianceSummariesResponse

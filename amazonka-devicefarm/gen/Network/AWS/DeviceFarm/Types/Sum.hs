@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -208,7 +208,10 @@ instance FromJSON CurrencyCode where
 data DeviceAttribute
   = ARN
   | AppiumVersion
+  | FleetType
   | FormFactor
+  | InstanceARN
+  | InstanceLabels
   | Manufacturer
   | Platform
   | RemoteAccessEnabled
@@ -220,19 +223,25 @@ instance FromText DeviceAttribute where
     parser = takeLowerText >>= \case
         "arn" -> pure ARN
         "appium_version" -> pure AppiumVersion
+        "fleet_type" -> pure FleetType
         "form_factor" -> pure FormFactor
+        "instance_arn" -> pure InstanceARN
+        "instance_labels" -> pure InstanceLabels
         "manufacturer" -> pure Manufacturer
         "platform" -> pure Platform
         "remote_access_enabled" -> pure RemoteAccessEnabled
         "remote_debug_enabled" -> pure RemoteDebugEnabled
         e -> fromTextError $ "Failure parsing DeviceAttribute from value: '" <> e
-           <> "'. Accepted values: arn, appium_version, form_factor, manufacturer, platform, remote_access_enabled, remote_debug_enabled"
+           <> "'. Accepted values: arn, appium_version, fleet_type, form_factor, instance_arn, instance_labels, manufacturer, platform, remote_access_enabled, remote_debug_enabled"
 
 instance ToText DeviceAttribute where
     toText = \case
         ARN -> "ARN"
         AppiumVersion -> "APPIUM_VERSION"
+        FleetType -> "FLEET_TYPE"
         FormFactor -> "FORM_FACTOR"
+        InstanceARN -> "INSTANCE_ARN"
+        InstanceLabels -> "INSTANCE_LABELS"
         Manufacturer -> "MANUFACTURER"
         Platform -> "PLATFORM"
         RemoteAccessEnabled -> "REMOTE_ACCESS_ENABLED"
@@ -376,20 +385,23 @@ instance ToHeader     ExecutionResult
 instance FromJSON ExecutionResult where
     parseJSON = parseJSONText "ExecutionResult"
 
-data ExecutionResultCode =
-  ParsingFailed
+data ExecutionResultCode
+  = ParsingFailed
+  | VPCEndpointSetupFailed
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ExecutionResultCode where
     parser = takeLowerText >>= \case
         "parsing_failed" -> pure ParsingFailed
+        "vpc_endpoint_setup_failed" -> pure VPCEndpointSetupFailed
         e -> fromTextError $ "Failure parsing ExecutionResultCode from value: '" <> e
-           <> "'. Accepted values: parsing_failed"
+           <> "'. Accepted values: parsing_failed, vpc_endpoint_setup_failed"
 
 instance ToText ExecutionResultCode where
     toText = \case
         ParsingFailed -> "PARSING_FAILED"
+        VPCEndpointSetupFailed -> "VPC_ENDPOINT_SETUP_FAILED"
 
 instance Hashable     ExecutionResultCode
 instance NFData       ExecutionResultCode
@@ -447,6 +459,72 @@ instance ToHeader     ExecutionStatus
 
 instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
+
+data InstanceStatus
+  = ISAvailable
+  | ISInUse
+  | ISNotAvailable
+  | ISPreparing
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText InstanceStatus where
+    parser = takeLowerText >>= \case
+        "available" -> pure ISAvailable
+        "in_use" -> pure ISInUse
+        "not_available" -> pure ISNotAvailable
+        "preparing" -> pure ISPreparing
+        e -> fromTextError $ "Failure parsing InstanceStatus from value: '" <> e
+           <> "'. Accepted values: available, in_use, not_available, preparing"
+
+instance ToText InstanceStatus where
+    toText = \case
+        ISAvailable -> "AVAILABLE"
+        ISInUse -> "IN_USE"
+        ISNotAvailable -> "NOT_AVAILABLE"
+        ISPreparing -> "PREPARING"
+
+instance Hashable     InstanceStatus
+instance NFData       InstanceStatus
+instance ToByteString InstanceStatus
+instance ToQuery      InstanceStatus
+instance ToHeader     InstanceStatus
+
+instance FromJSON InstanceStatus where
+    parseJSON = parseJSONText "InstanceStatus"
+
+data InteractionMode
+  = Interactive
+  | NoVideo
+  | VideoOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText InteractionMode where
+    parser = takeLowerText >>= \case
+        "interactive" -> pure Interactive
+        "no_video" -> pure NoVideo
+        "video_only" -> pure VideoOnly
+        e -> fromTextError $ "Failure parsing InteractionMode from value: '" <> e
+           <> "'. Accepted values: interactive, no_video, video_only"
+
+instance ToText InteractionMode where
+    toText = \case
+        Interactive -> "INTERACTIVE"
+        NoVideo -> "NO_VIDEO"
+        VideoOnly -> "VIDEO_ONLY"
+
+instance Hashable     InteractionMode
+instance NFData       InteractionMode
+instance ToByteString InteractionMode
+instance ToQuery      InteractionMode
+instance ToHeader     InteractionMode
+
+instance ToJSON InteractionMode where
+    toJSON = toJSONText
+
+instance FromJSON InteractionMode where
+    parseJSON = parseJSONText "InteractionMode"
 
 data NetworkProfileType
   = Curated
@@ -681,8 +759,11 @@ data TestType
   | BuiltinFuzz
   | Calabash
   | Instrumentation
+  | RemoteAccessRecord
+  | RemoteAccessReplay
   | Uiautomation
   | Uiautomator
+  | WebPerformanceProfile
   | Xctest
   | XctestUi
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -700,12 +781,15 @@ instance FromText TestType where
         "builtin_fuzz" -> pure BuiltinFuzz
         "calabash" -> pure Calabash
         "instrumentation" -> pure Instrumentation
+        "remote_access_record" -> pure RemoteAccessRecord
+        "remote_access_replay" -> pure RemoteAccessReplay
         "uiautomation" -> pure Uiautomation
         "uiautomator" -> pure Uiautomator
+        "web_performance_profile" -> pure WebPerformanceProfile
         "xctest" -> pure Xctest
         "xctest_ui" -> pure XctestUi
         e -> fromTextError $ "Failure parsing TestType from value: '" <> e
-           <> "'. Accepted values: appium_java_junit, appium_java_testng, appium_python, appium_web_java_junit, appium_web_java_testng, appium_web_python, builtin_explorer, builtin_fuzz, calabash, instrumentation, uiautomation, uiautomator, xctest, xctest_ui"
+           <> "'. Accepted values: appium_java_junit, appium_java_testng, appium_python, appium_web_java_junit, appium_web_java_testng, appium_web_python, builtin_explorer, builtin_fuzz, calabash, instrumentation, remote_access_record, remote_access_replay, uiautomation, uiautomator, web_performance_profile, xctest, xctest_ui"
 
 instance ToText TestType where
     toText = \case
@@ -719,8 +803,11 @@ instance ToText TestType where
         BuiltinFuzz -> "BUILTIN_FUZZ"
         Calabash -> "CALABASH"
         Instrumentation -> "INSTRUMENTATION"
+        RemoteAccessRecord -> "REMOTE_ACCESS_RECORD"
+        RemoteAccessReplay -> "REMOTE_ACCESS_REPLAY"
         Uiautomation -> "UIAUTOMATION"
         Uiautomator -> "UIAUTOMATOR"
+        WebPerformanceProfile -> "WEB_PERFORMANCE_PROFILE"
         Xctest -> "XCTEST"
         XctestUi -> "XCTEST_UI"
 

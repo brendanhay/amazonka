@@ -1,5 +1,5 @@
 name:                  amazonka-appstream
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon AppStream SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
+copyright:             Copyright (c) 2013-2018 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -46,6 +46,7 @@ library
     exposed-modules:
           Network.AWS.AppStream
         , Network.AWS.AppStream.AssociateFleet
+        , Network.AWS.AppStream.CopyImage
         , Network.AWS.AppStream.CreateDirectoryConfig
         , Network.AWS.AppStream.CreateFleet
         , Network.AWS.AppStream.CreateImageBuilder
@@ -67,11 +68,14 @@ library
         , Network.AWS.AppStream.ExpireSession
         , Network.AWS.AppStream.ListAssociatedFleets
         , Network.AWS.AppStream.ListAssociatedStacks
+        , Network.AWS.AppStream.ListTagsForResource
         , Network.AWS.AppStream.StartFleet
         , Network.AWS.AppStream.StartImageBuilder
         , Network.AWS.AppStream.StopFleet
         , Network.AWS.AppStream.StopImageBuilder
+        , Network.AWS.AppStream.TagResource
         , Network.AWS.AppStream.Types
+        , Network.AWS.AppStream.UntagResource
         , Network.AWS.AppStream.UpdateDirectoryConfig
         , Network.AWS.AppStream.UpdateFleet
         , Network.AWS.AppStream.UpdateStack
@@ -82,7 +86,7 @@ library
         , Network.AWS.AppStream.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-appstream-test
@@ -102,8 +106,8 @@ test-suite amazonka-appstream-test
         , Test.AWS.AppStream.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-appstream
         , base
         , bytestring

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetComplianceDetailsByResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,7 +70,7 @@ data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
 --
 -- * 'gcdbrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ .
 --
--- * 'gcdbrNextToken' - The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'gcdbrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
 -- * 'gcdbrResourceType' - The type of the AWS resource for which you want compliance information.
 --
@@ -81,28 +81,28 @@ getComplianceDetailsByResource
     -> GetComplianceDetailsByResource
 getComplianceDetailsByResource pResourceType_ pResourceId_ =
   GetComplianceDetailsByResource'
-  { _gcdbrComplianceTypes = Nothing
-  , _gcdbrNextToken = Nothing
-  , _gcdbrResourceType = pResourceType_
-  , _gcdbrResourceId = pResourceId_
-  }
+    { _gcdbrComplianceTypes = Nothing
+    , _gcdbrNextToken = Nothing
+    , _gcdbrResourceType = pResourceType_
+    , _gcdbrResourceId = pResourceId_
+    }
 
 
 -- | Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ .
 gcdbrComplianceTypes :: Lens' GetComplianceDetailsByResource [ComplianceType]
-gcdbrComplianceTypes = lens _gcdbrComplianceTypes (\ s a -> s{_gcdbrComplianceTypes = a}) . _Default . _Coerce;
+gcdbrComplianceTypes = lens _gcdbrComplianceTypes (\ s a -> s{_gcdbrComplianceTypes = a}) . _Default . _Coerce
 
--- | The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 gcdbrNextToken :: Lens' GetComplianceDetailsByResource (Maybe Text)
-gcdbrNextToken = lens _gcdbrNextToken (\ s a -> s{_gcdbrNextToken = a});
+gcdbrNextToken = lens _gcdbrNextToken (\ s a -> s{_gcdbrNextToken = a})
 
 -- | The type of the AWS resource for which you want compliance information.
 gcdbrResourceType :: Lens' GetComplianceDetailsByResource Text
-gcdbrResourceType = lens _gcdbrResourceType (\ s a -> s{_gcdbrResourceType = a});
+gcdbrResourceType = lens _gcdbrResourceType (\ s a -> s{_gcdbrResourceType = a})
 
 -- | The ID of the AWS resource for which you want compliance information.
 gcdbrResourceId :: Lens' GetComplianceDetailsByResource Text
-gcdbrResourceId = lens _gcdbrResourceId (\ s a -> s{_gcdbrResourceId = a});
+gcdbrResourceId = lens _gcdbrResourceId (\ s a -> s{_gcdbrResourceId = a})
 
 instance AWSPager GetComplianceDetailsByResource
          where
@@ -182,23 +182,23 @@ getComplianceDetailsByResourceResponse
     -> GetComplianceDetailsByResourceResponse
 getComplianceDetailsByResourceResponse pResponseStatus_ =
   GetComplianceDetailsByResourceResponse'
-  { _gcdbrrsEvaluationResults = Nothing
-  , _gcdbrrsNextToken = Nothing
-  , _gcdbrrsResponseStatus = pResponseStatus_
-  }
+    { _gcdbrrsEvaluationResults = Nothing
+    , _gcdbrrsNextToken = Nothing
+    , _gcdbrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Indicates whether the specified AWS resource complies each AWS Config rule.
 gcdbrrsEvaluationResults :: Lens' GetComplianceDetailsByResourceResponse [EvaluationResult]
-gcdbrrsEvaluationResults = lens _gcdbrrsEvaluationResults (\ s a -> s{_gcdbrrsEvaluationResults = a}) . _Default . _Coerce;
+gcdbrrsEvaluationResults = lens _gcdbrrsEvaluationResults (\ s a -> s{_gcdbrrsEvaluationResults = a}) . _Default . _Coerce
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 gcdbrrsNextToken :: Lens' GetComplianceDetailsByResourceResponse (Maybe Text)
-gcdbrrsNextToken = lens _gcdbrrsNextToken (\ s a -> s{_gcdbrrsNextToken = a});
+gcdbrrsNextToken = lens _gcdbrrsNextToken (\ s a -> s{_gcdbrrsNextToken = a})
 
 -- | -- | The response status code.
 gcdbrrsResponseStatus :: Lens' GetComplianceDetailsByResourceResponse Int
-gcdbrrsResponseStatus = lens _gcdbrrsResponseStatus (\ s a -> s{_gcdbrrsResponseStatus = a});
+gcdbrrsResponseStatus = lens _gcdbrrsResponseStatus (\ s a -> s{_gcdbrrsResponseStatus = a})
 
 instance NFData
            GetComplianceDetailsByResourceResponse

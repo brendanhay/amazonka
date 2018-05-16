@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.RejectCertificateTransfer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,22 +63,22 @@ data RejectCertificateTransfer = RejectCertificateTransfer'
 --
 -- * 'rctRejectReason' - The reason the certificate transfer was rejected.
 --
--- * 'rctCertificateId' - The ID of the certificate.
+-- * 'rctCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 rejectCertificateTransfer
     :: Text -- ^ 'rctCertificateId'
     -> RejectCertificateTransfer
 rejectCertificateTransfer pCertificateId_ =
   RejectCertificateTransfer'
-  {_rctRejectReason = Nothing, _rctCertificateId = pCertificateId_}
+    {_rctRejectReason = Nothing, _rctCertificateId = pCertificateId_}
 
 
 -- | The reason the certificate transfer was rejected.
 rctRejectReason :: Lens' RejectCertificateTransfer (Maybe Text)
-rctRejectReason = lens _rctRejectReason (\ s a -> s{_rctRejectReason = a});
+rctRejectReason = lens _rctRejectReason (\ s a -> s{_rctRejectReason = a})
 
--- | The ID of the certificate.
+-- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 rctCertificateId :: Lens' RejectCertificateTransfer Text
-rctCertificateId = lens _rctCertificateId (\ s a -> s{_rctCertificateId = a});
+rctCertificateId = lens _rctCertificateId (\ s a -> s{_rctCertificateId = a})
 
 instance AWSRequest RejectCertificateTransfer where
         type Rs RejectCertificateTransfer =

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,38 +92,38 @@ listTrafficPolicyInstancesByPolicy
     -> ListTrafficPolicyInstancesByPolicy
 listTrafficPolicyInstancesByPolicy pTrafficPolicyId_ pTrafficPolicyVersion_ =
   ListTrafficPolicyInstancesByPolicy'
-  { _ltpibpTrafficPolicyInstanceTypeMarker = Nothing
-  , _ltpibpMaxItems = Nothing
-  , _ltpibpHostedZoneIdMarker = Nothing
-  , _ltpibpTrafficPolicyInstanceNameMarker = Nothing
-  , _ltpibpTrafficPolicyId = pTrafficPolicyId_
-  , _ltpibpTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
-  }
+    { _ltpibpTrafficPolicyInstanceTypeMarker = Nothing
+    , _ltpibpMaxItems = Nothing
+    , _ltpibpHostedZoneIdMarker = Nothing
+    , _ltpibpTrafficPolicyInstanceNameMarker = Nothing
+    , _ltpibpTrafficPolicyId = pTrafficPolicyId_
+    , _ltpibpTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
+    }
 
 
 -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request. For the value of @trafficpolicyinstancetype@ , specify the value of @TrafficPolicyInstanceTypeMarker@ from the previous response, which is the name of the first traffic policy instance that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
 ltpibpTrafficPolicyInstanceTypeMarker :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe RecordType)
-ltpibpTrafficPolicyInstanceTypeMarker = lens _ltpibpTrafficPolicyInstanceTypeMarker (\ s a -> s{_ltpibpTrafficPolicyInstanceTypeMarker = a});
+ltpibpTrafficPolicyInstanceTypeMarker = lens _ltpibpTrafficPolicyInstanceTypeMarker (\ s a -> s{_ltpibpTrafficPolicyInstanceTypeMarker = a})
 
 -- | The maximum number of traffic policy instances to be included in the response body for this request. If you have more than @MaxItems@ traffic policy instances, the value of the @IsTruncated@ element in the response is @true@ , and the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ represent the first traffic policy instance that Amazon Route 53 will return if you submit another request.
 ltpibpMaxItems :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe Text)
-ltpibpMaxItems = lens _ltpibpMaxItems (\ s a -> s{_ltpibpMaxItems = a});
+ltpibpMaxItems = lens _ltpibpMaxItems (\ s a -> s{_ltpibpMaxItems = a})
 
 -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.  For the value of @hostedzoneid@ , specify the value of @HostedZoneIdMarker@ from the previous response, which is the hosted zone ID of the first traffic policy instance that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
 ltpibpHostedZoneIdMarker :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe ResourceId)
-ltpibpHostedZoneIdMarker = lens _ltpibpHostedZoneIdMarker (\ s a -> s{_ltpibpHostedZoneIdMarker = a});
+ltpibpHostedZoneIdMarker = lens _ltpibpHostedZoneIdMarker (\ s a -> s{_ltpibpHostedZoneIdMarker = a})
 
 -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request. For the value of @trafficpolicyinstancename@ , specify the value of @TrafficPolicyInstanceNameMarker@ from the previous response, which is the name of the first traffic policy instance that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
 ltpibpTrafficPolicyInstanceNameMarker :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe Text)
-ltpibpTrafficPolicyInstanceNameMarker = lens _ltpibpTrafficPolicyInstanceNameMarker (\ s a -> s{_ltpibpTrafficPolicyInstanceNameMarker = a});
+ltpibpTrafficPolicyInstanceNameMarker = lens _ltpibpTrafficPolicyInstanceNameMarker (\ s a -> s{_ltpibpTrafficPolicyInstanceNameMarker = a})
 
 -- | The ID of the traffic policy for which you want to list traffic policy instances.
 ltpibpTrafficPolicyId :: Lens' ListTrafficPolicyInstancesByPolicy Text
-ltpibpTrafficPolicyId = lens _ltpibpTrafficPolicyId (\ s a -> s{_ltpibpTrafficPolicyId = a});
+ltpibpTrafficPolicyId = lens _ltpibpTrafficPolicyId (\ s a -> s{_ltpibpTrafficPolicyId = a})
 
 -- | The version of the traffic policy for which you want to list traffic policy instances. The version must be associated with the traffic policy that is specified by @TrafficPolicyId@ .
 ltpibpTrafficPolicyVersion :: Lens' ListTrafficPolicyInstancesByPolicy Natural
-ltpibpTrafficPolicyVersion = lens _ltpibpTrafficPolicyVersion (\ s a -> s{_ltpibpTrafficPolicyVersion = a}) . _Nat;
+ltpibpTrafficPolicyVersion = lens _ltpibpTrafficPolicyVersion (\ s a -> s{_ltpibpTrafficPolicyVersion = a}) . _Nat
 
 instance AWSRequest
            ListTrafficPolicyInstancesByPolicy
@@ -214,43 +214,43 @@ listTrafficPolicyInstancesByPolicyResponse
     -> ListTrafficPolicyInstancesByPolicyResponse
 listTrafficPolicyInstancesByPolicyResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
   ListTrafficPolicyInstancesByPolicyResponse'
-  { _ltpibprsTrafficPolicyInstanceTypeMarker = Nothing
-  , _ltpibprsHostedZoneIdMarker = Nothing
-  , _ltpibprsTrafficPolicyInstanceNameMarker = Nothing
-  , _ltpibprsResponseStatus = pResponseStatus_
-  , _ltpibprsTrafficPolicyInstances = mempty
-  , _ltpibprsIsTruncated = pIsTruncated_
-  , _ltpibprsMaxItems = pMaxItems_
-  }
+    { _ltpibprsTrafficPolicyInstanceTypeMarker = Nothing
+    , _ltpibprsHostedZoneIdMarker = Nothing
+    , _ltpibprsTrafficPolicyInstanceNameMarker = Nothing
+    , _ltpibprsResponseStatus = pResponseStatus_
+    , _ltpibprsTrafficPolicyInstances = mempty
+    , _ltpibprsIsTruncated = pIsTruncated_
+    , _ltpibprsMaxItems = pMaxItems_
+    }
 
 
 -- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceTypeMarker@ is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
 ltpibprsTrafficPolicyInstanceTypeMarker :: Lens' ListTrafficPolicyInstancesByPolicyResponse (Maybe RecordType)
-ltpibprsTrafficPolicyInstanceTypeMarker = lens _ltpibprsTrafficPolicyInstanceTypeMarker (\ s a -> s{_ltpibprsTrafficPolicyInstanceTypeMarker = a});
+ltpibprsTrafficPolicyInstanceTypeMarker = lens _ltpibprsTrafficPolicyInstanceTypeMarker (\ s a -> s{_ltpibprsTrafficPolicyInstanceTypeMarker = a})
 
 -- | If @IsTruncated@ is @true@ , @HostedZoneIdMarker@ is the ID of the hosted zone of the first traffic policy instance in the next group of traffic policy instances.
 ltpibprsHostedZoneIdMarker :: Lens' ListTrafficPolicyInstancesByPolicyResponse (Maybe ResourceId)
-ltpibprsHostedZoneIdMarker = lens _ltpibprsHostedZoneIdMarker (\ s a -> s{_ltpibprsHostedZoneIdMarker = a});
+ltpibprsHostedZoneIdMarker = lens _ltpibprsHostedZoneIdMarker (\ s a -> s{_ltpibprsHostedZoneIdMarker = a})
 
 -- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
 ltpibprsTrafficPolicyInstanceNameMarker :: Lens' ListTrafficPolicyInstancesByPolicyResponse (Maybe Text)
-ltpibprsTrafficPolicyInstanceNameMarker = lens _ltpibprsTrafficPolicyInstanceNameMarker (\ s a -> s{_ltpibprsTrafficPolicyInstanceNameMarker = a});
+ltpibprsTrafficPolicyInstanceNameMarker = lens _ltpibprsTrafficPolicyInstanceNameMarker (\ s a -> s{_ltpibprsTrafficPolicyInstanceNameMarker = a})
 
 -- | -- | The response status code.
 ltpibprsResponseStatus :: Lens' ListTrafficPolicyInstancesByPolicyResponse Int
-ltpibprsResponseStatus = lens _ltpibprsResponseStatus (\ s a -> s{_ltpibprsResponseStatus = a});
+ltpibprsResponseStatus = lens _ltpibprsResponseStatus (\ s a -> s{_ltpibprsResponseStatus = a})
 
 -- | A list that contains one @TrafficPolicyInstance@ element for each traffic policy instance that matches the elements in the request.
 ltpibprsTrafficPolicyInstances :: Lens' ListTrafficPolicyInstancesByPolicyResponse [TrafficPolicyInstance]
-ltpibprsTrafficPolicyInstances = lens _ltpibprsTrafficPolicyInstances (\ s a -> s{_ltpibprsTrafficPolicyInstances = a}) . _Coerce;
+ltpibprsTrafficPolicyInstances = lens _ltpibprsTrafficPolicyInstances (\ s a -> s{_ltpibprsTrafficPolicyInstances = a}) . _Coerce
 
 -- | A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the next group of traffic policy instances by calling @ListTrafficPolicyInstancesByPolicy@ again and specifying the values of the @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ elements in the corresponding request parameters.
 ltpibprsIsTruncated :: Lens' ListTrafficPolicyInstancesByPolicyResponse Bool
-ltpibprsIsTruncated = lens _ltpibprsIsTruncated (\ s a -> s{_ltpibprsIsTruncated = a});
+ltpibprsIsTruncated = lens _ltpibprsIsTruncated (\ s a -> s{_ltpibprsIsTruncated = a})
 
 -- | The value that you specified for the @MaxItems@ parameter in the call to @ListTrafficPolicyInstancesByPolicy@ that produced the current response.
 ltpibprsMaxItems :: Lens' ListTrafficPolicyInstancesByPolicyResponse Text
-ltpibprsMaxItems = lens _ltpibprsMaxItems (\ s a -> s{_ltpibprsMaxItems = a});
+ltpibprsMaxItems = lens _ltpibprsMaxItems (\ s a -> s{_ltpibprsMaxItems = a})
 
 instance NFData
            ListTrafficPolicyInstancesByPolicyResponse

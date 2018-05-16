@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeInterconnects
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ describeInterconnects = DescribeInterconnects' {_diInterconnectId = Nothing}
 
 -- | Undocumented member.
 diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
-diInterconnectId = lens _diInterconnectId (\ s a -> s{_diInterconnectId = a});
+diInterconnectId = lens _diInterconnectId (\ s a -> s{_diInterconnectId = a})
 
 instance AWSRequest DescribeInterconnects where
         type Rs DescribeInterconnects =
@@ -130,15 +130,15 @@ describeInterconnectsResponse
     -> DescribeInterconnectsResponse
 describeInterconnectsResponse pResponseStatus_ =
   DescribeInterconnectsResponse'
-  {_dirsInterconnects = Nothing, _dirsResponseStatus = pResponseStatus_}
+    {_dirsInterconnects = Nothing, _dirsResponseStatus = pResponseStatus_}
 
 
 -- | A list of interconnects.
 dirsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
-dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a}) . _Default . _Coerce;
+dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dirsResponseStatus :: Lens' DescribeInterconnectsResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
 
 instance NFData DescribeInterconnectsResponse where

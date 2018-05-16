@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.PutRepositoryTriggers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,8 @@ module Network.AWS.CodeCommit.PutRepositoryTriggers
       putRepositoryTriggers
     , PutRepositoryTriggers
     -- * Request Lenses
-    , prtRepositoryName
-    , prtTriggers
+    , pRepositoryName
+    , pTriggers
 
     -- * Destructuring the Response
     , putRepositoryTriggersResponse
@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'putRepositoryTriggers' smart constructor.
 data PutRepositoryTriggers = PutRepositoryTriggers'
-  { _prtRepositoryName :: !Text
-  , _prtTriggers       :: ![RepositoryTrigger]
+  { _pRepositoryName :: !Text
+  , _pTriggers       :: ![RepositoryTrigger]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -60,24 +60,24 @@ data PutRepositoryTriggers = PutRepositoryTriggers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prtRepositoryName' - The name of the repository where you want to create or update the trigger.
+-- * 'pRepositoryName' - The name of the repository where you want to create or update the trigger.
 --
--- * 'prtTriggers' - The JSON block of configuration information for each trigger.
+-- * 'pTriggers' - The JSON block of configuration information for each trigger.
 putRepositoryTriggers
-    :: Text -- ^ 'prtRepositoryName'
+    :: Text -- ^ 'pRepositoryName'
     -> PutRepositoryTriggers
 putRepositoryTriggers pRepositoryName_ =
   PutRepositoryTriggers'
-  {_prtRepositoryName = pRepositoryName_, _prtTriggers = mempty}
+    {_pRepositoryName = pRepositoryName_, _pTriggers = mempty}
 
 
 -- | The name of the repository where you want to create or update the trigger.
-prtRepositoryName :: Lens' PutRepositoryTriggers Text
-prtRepositoryName = lens _prtRepositoryName (\ s a -> s{_prtRepositoryName = a});
+pRepositoryName :: Lens' PutRepositoryTriggers Text
+pRepositoryName = lens _pRepositoryName (\ s a -> s{_pRepositoryName = a})
 
 -- | The JSON block of configuration information for each trigger.
-prtTriggers :: Lens' PutRepositoryTriggers [RepositoryTrigger]
-prtTriggers = lens _prtTriggers (\ s a -> s{_prtTriggers = a}) . _Coerce;
+pTriggers :: Lens' PutRepositoryTriggers [RepositoryTrigger]
+pTriggers = lens _pTriggers (\ s a -> s{_pTriggers = a}) . _Coerce
 
 instance AWSRequest PutRepositoryTriggers where
         type Rs PutRepositoryTriggers =
@@ -107,8 +107,8 @@ instance ToJSON PutRepositoryTriggers where
         toJSON PutRepositoryTriggers'{..}
           = object
               (catMaybes
-                 [Just ("repositoryName" .= _prtRepositoryName),
-                  Just ("triggers" .= _prtTriggers)])
+                 [Just ("repositoryName" .= _pRepositoryName),
+                  Just ("triggers" .= _pTriggers)])
 
 instance ToPath PutRepositoryTriggers where
         toPath = const "/"
@@ -139,15 +139,15 @@ putRepositoryTriggersResponse
     -> PutRepositoryTriggersResponse
 putRepositoryTriggersResponse pResponseStatus_ =
   PutRepositoryTriggersResponse'
-  {_prtrsConfigurationId = Nothing, _prtrsResponseStatus = pResponseStatus_}
+    {_prtrsConfigurationId = Nothing, _prtrsResponseStatus = pResponseStatus_}
 
 
 -- | The system-generated unique ID for the create or update operation.
 prtrsConfigurationId :: Lens' PutRepositoryTriggersResponse (Maybe Text)
-prtrsConfigurationId = lens _prtrsConfigurationId (\ s a -> s{_prtrsConfigurationId = a});
+prtrsConfigurationId = lens _prtrsConfigurationId (\ s a -> s{_prtrsConfigurationId = a})
 
 -- | -- | The response status code.
 prtrsResponseStatus :: Lens' PutRepositoryTriggersResponse Int
-prtrsResponseStatus = lens _prtrsResponseStatus (\ s a -> s{_prtrsResponseStatus = a});
+prtrsResponseStatus = lens _prtrsResponseStatus (\ s a -> s{_prtrsResponseStatus = a})
 
 instance NFData PutRepositoryTriggersResponse where

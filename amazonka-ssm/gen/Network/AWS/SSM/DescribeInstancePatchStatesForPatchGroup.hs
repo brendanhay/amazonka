@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ describeInstancePatchStatesForPatchGroup
     -> DescribeInstancePatchStatesForPatchGroup
 describeInstancePatchStatesForPatchGroup pPatchGroup_ =
   DescribeInstancePatchStatesForPatchGroup'
-  { _dipsfpgFilters = Nothing
-  , _dipsfpgNextToken = Nothing
-  , _dipsfpgMaxResults = Nothing
-  , _dipsfpgPatchGroup = pPatchGroup_
-  }
+    { _dipsfpgFilters = Nothing
+    , _dipsfpgNextToken = Nothing
+    , _dipsfpgMaxResults = Nothing
+    , _dipsfpgPatchGroup = pPatchGroup_
+    }
 
 
 -- | Each entry in the array is a structure containing: Key (string between 1 and 200 characters) Values (array containing a single string) Type (string "Equal", "NotEqual", "LessThan", "GreaterThan")
 dipsfpgFilters :: Lens' DescribeInstancePatchStatesForPatchGroup [InstancePatchStateFilter]
-dipsfpgFilters = lens _dipsfpgFilters (\ s a -> s{_dipsfpgFilters = a}) . _Default . _Coerce;
+dipsfpgFilters = lens _dipsfpgFilters (\ s a -> s{_dipsfpgFilters = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dipsfpgNextToken :: Lens' DescribeInstancePatchStatesForPatchGroup (Maybe Text)
-dipsfpgNextToken = lens _dipsfpgNextToken (\ s a -> s{_dipsfpgNextToken = a});
+dipsfpgNextToken = lens _dipsfpgNextToken (\ s a -> s{_dipsfpgNextToken = a})
 
 -- | The maximum number of patches to return (per page).
 dipsfpgMaxResults :: Lens' DescribeInstancePatchStatesForPatchGroup (Maybe Natural)
-dipsfpgMaxResults = lens _dipsfpgMaxResults (\ s a -> s{_dipsfpgMaxResults = a}) . mapping _Nat;
+dipsfpgMaxResults = lens _dipsfpgMaxResults (\ s a -> s{_dipsfpgMaxResults = a}) . mapping _Nat
 
 -- | The name of the patch group for which the patch state information should be retrieved.
 dipsfpgPatchGroup :: Lens' DescribeInstancePatchStatesForPatchGroup Text
-dipsfpgPatchGroup = lens _dipsfpgPatchGroup (\ s a -> s{_dipsfpgPatchGroup = a});
+dipsfpgPatchGroup = lens _dipsfpgPatchGroup (\ s a -> s{_dipsfpgPatchGroup = a})
 
 instance AWSRequest
            DescribeInstancePatchStatesForPatchGroup
@@ -172,23 +172,23 @@ describeInstancePatchStatesForPatchGroupResponse
     -> DescribeInstancePatchStatesForPatchGroupResponse
 describeInstancePatchStatesForPatchGroupResponse pResponseStatus_ =
   DescribeInstancePatchStatesForPatchGroupResponse'
-  { _dipsfpgrsNextToken = Nothing
-  , _dipsfpgrsInstancePatchStates = Nothing
-  , _dipsfpgrsResponseStatus = pResponseStatus_
-  }
+    { _dipsfpgrsNextToken = Nothing
+    , _dipsfpgrsInstancePatchStates = Nothing
+    , _dipsfpgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dipsfpgrsNextToken :: Lens' DescribeInstancePatchStatesForPatchGroupResponse (Maybe Text)
-dipsfpgrsNextToken = lens _dipsfpgrsNextToken (\ s a -> s{_dipsfpgrsNextToken = a});
+dipsfpgrsNextToken = lens _dipsfpgrsNextToken (\ s a -> s{_dipsfpgrsNextToken = a})
 
 -- | The high-level patch state for the requested instances.
 dipsfpgrsInstancePatchStates :: Lens' DescribeInstancePatchStatesForPatchGroupResponse (Maybe (NonEmpty InstancePatchState))
-dipsfpgrsInstancePatchStates = lens _dipsfpgrsInstancePatchStates (\ s a -> s{_dipsfpgrsInstancePatchStates = a}) . mapping _List1;
+dipsfpgrsInstancePatchStates = lens _dipsfpgrsInstancePatchStates (\ s a -> s{_dipsfpgrsInstancePatchStates = a}) . mapping _List1
 
 -- | -- | The response status code.
 dipsfpgrsResponseStatus :: Lens' DescribeInstancePatchStatesForPatchGroupResponse Int
-dipsfpgrsResponseStatus = lens _dipsfpgrsResponseStatus (\ s a -> s{_dipsfpgrsResponseStatus = a});
+dipsfpgrsResponseStatus = lens _dipsfpgrsResponseStatus (\ s a -> s{_dipsfpgrsResponseStatus = a})
 
 instance NFData
            DescribeInstancePatchStatesForPatchGroupResponse

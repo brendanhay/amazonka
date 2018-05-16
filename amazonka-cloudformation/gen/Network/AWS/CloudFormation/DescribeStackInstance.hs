@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ describeStackInstance
     -> DescribeStackInstance
 describeStackInstance pStackSetName_ pStackInstanceAccount_ pStackInstanceRegion_ =
   DescribeStackInstance'
-  { _dStackSetName = pStackSetName_
-  , _dStackInstanceAccount = pStackInstanceAccount_
-  , _dStackInstanceRegion = pStackInstanceRegion_
-  }
+    { _dStackSetName = pStackSetName_
+    , _dStackInstanceAccount = pStackInstanceAccount_
+    , _dStackInstanceRegion = pStackInstanceRegion_
+    }
 
 
 -- | The name or the unique stack ID of the stack set that you want to get stack instance information for.
 dStackSetName :: Lens' DescribeStackInstance Text
-dStackSetName = lens _dStackSetName (\ s a -> s{_dStackSetName = a});
+dStackSetName = lens _dStackSetName (\ s a -> s{_dStackSetName = a})
 
 -- | The ID of an AWS account that's associated with this stack instance.
 dStackInstanceAccount :: Lens' DescribeStackInstance Text
-dStackInstanceAccount = lens _dStackInstanceAccount (\ s a -> s{_dStackInstanceAccount = a});
+dStackInstanceAccount = lens _dStackInstanceAccount (\ s a -> s{_dStackInstanceAccount = a})
 
 -- | The name of a region that's associated with this stack instance.
 dStackInstanceRegion :: Lens' DescribeStackInstance Text
-dStackInstanceRegion = lens _dStackInstanceRegion (\ s a -> s{_dStackInstanceRegion = a});
+dStackInstanceRegion = lens _dStackInstanceRegion (\ s a -> s{_dStackInstanceRegion = a})
 
 instance AWSRequest DescribeStackInstance where
         type Rs DescribeStackInstance =
@@ -138,15 +138,15 @@ describeStackInstanceResponse
     -> DescribeStackInstanceResponse
 describeStackInstanceResponse pResponseStatus_ =
   DescribeStackInstanceResponse'
-  {_dsisrsStackInstance = Nothing, _dsisrsResponseStatus = pResponseStatus_}
+    {_dsisrsStackInstance = Nothing, _dsisrsResponseStatus = pResponseStatus_}
 
 
 -- | The stack instance that matches the specified request parameters.
 dsisrsStackInstance :: Lens' DescribeStackInstanceResponse (Maybe StackInstance)
-dsisrsStackInstance = lens _dsisrsStackInstance (\ s a -> s{_dsisrsStackInstance = a});
+dsisrsStackInstance = lens _dsisrsStackInstance (\ s a -> s{_dsisrsStackInstance = a})
 
 -- | -- | The response status code.
 dsisrsResponseStatus :: Lens' DescribeStackInstanceResponse Int
-dsisrsResponseStatus = lens _dsisrsResponseStatus (\ s a -> s{_dsisrsResponseStatus = a});
+dsisrsResponseStatus = lens _dsisrsResponseStatus (\ s a -> s{_dsisrsResponseStatus = a})
 
 instance NFData DescribeStackInstanceResponse where

@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.StopWorkspaces
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops the specified WorkSpaces. The WorkSpaces must have a running mode of AutoStop and a state of AVAILABLE, IMPAIRED, UNHEALTHY, or ERROR.
+-- Stops the specified WorkSpaces.
 --
+--
+-- You cannot stop a WorkSpace unless it has a running mode of @AutoStop@ and a state of @AVAILABLE@ , @IMPAIRED@ , @UNHEALTHY@ , or @ERROR@ .
 --
 module Network.AWS.WorkSpaces.StopWorkspaces
     (
@@ -54,7 +56,7 @@ newtype StopWorkspaces = StopWorkspaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'swStopWorkspaceRequests' - The requests.
+-- * 'swStopWorkspaceRequests' - The WorkSpaces to stop. You can specify up to 25 WorkSpaces.
 stopWorkspaces
     :: NonEmpty StopRequest -- ^ 'swStopWorkspaceRequests'
     -> StopWorkspaces
@@ -62,9 +64,9 @@ stopWorkspaces pStopWorkspaceRequests_ =
   StopWorkspaces' {_swStopWorkspaceRequests = _List1 # pStopWorkspaceRequests_}
 
 
--- | The requests.
+-- | The WorkSpaces to stop. You can specify up to 25 WorkSpaces.
 swStopWorkspaceRequests :: Lens' StopWorkspaces (NonEmpty StopRequest)
-swStopWorkspaceRequests = lens _swStopWorkspaceRequests (\ s a -> s{_swStopWorkspaceRequests = a}) . _List1;
+swStopWorkspaceRequests = lens _swStopWorkspaceRequests (\ s a -> s{_swStopWorkspaceRequests = a}) . _List1
 
 instance AWSRequest StopWorkspaces where
         type Rs StopWorkspaces = StopWorkspacesResponse
@@ -114,7 +116,7 @@ data StopWorkspacesResponse = StopWorkspacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsFailedRequests' - The failed requests.
+-- * 'srsFailedRequests' - Information about the WorkSpaces that could not be stopped.
 --
 -- * 'srsResponseStatus' - -- | The response status code.
 stopWorkspacesResponse
@@ -122,15 +124,15 @@ stopWorkspacesResponse
     -> StopWorkspacesResponse
 stopWorkspacesResponse pResponseStatus_ =
   StopWorkspacesResponse'
-  {_srsFailedRequests = Nothing, _srsResponseStatus = pResponseStatus_}
+    {_srsFailedRequests = Nothing, _srsResponseStatus = pResponseStatus_}
 
 
--- | The failed requests.
+-- | Information about the WorkSpaces that could not be stopped.
 srsFailedRequests :: Lens' StopWorkspacesResponse [FailedWorkspaceChangeRequest]
-srsFailedRequests = lens _srsFailedRequests (\ s a -> s{_srsFailedRequests = a}) . _Default . _Coerce;
+srsFailedRequests = lens _srsFailedRequests (\ s a -> s{_srsFailedRequests = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StopWorkspacesResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StopWorkspacesResponse where

@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,7 @@ module Network.AWS.DeviceFarm.Types
     , _ArgumentException
     , _NotFoundException
     , _ServiceAccountException
+    , _InvalidOperationException
     , _LimitExceededException
 
     -- * ArtifactCategory
@@ -56,6 +57,12 @@ module Network.AWS.DeviceFarm.Types
     -- * ExecutionStatus
     , ExecutionStatus (..)
 
+    -- * InstanceStatus
+    , InstanceStatus (..)
+
+    -- * InteractionMode
+    , InteractionMode (..)
+
     -- * NetworkProfileType
     , NetworkProfileType (..)
 
@@ -86,6 +93,7 @@ module Network.AWS.DeviceFarm.Types
     -- * AccountSettings
     , AccountSettings
     , accountSettings
+    , asSkipAppResign
     , asAwsAccountNumber
     , asMaxJobTimeoutMinutes
     , asMaxSlots
@@ -140,6 +148,7 @@ module Network.AWS.DeviceFarm.Types
     , devImage
     , devManufacturer
     , devPlatform
+    , devModelId
     , devRemoteAccessEnabled
     , devArn
     , devFormFactor
@@ -150,10 +159,21 @@ module Network.AWS.DeviceFarm.Types
     , devOs
     , devName
     , devModel
+    , devInstances
     , devRemoteDebugEnabled
     , devCpu
     , devHeapSize
     , devFleetName
+
+    -- * DeviceInstance
+    , DeviceInstance
+    , deviceInstance
+    , diStatus
+    , diUdid
+    , diInstanceProfile
+    , diArn
+    , diDeviceARN
+    , diLabels
 
     -- * DeviceMinutes
     , DeviceMinutes
@@ -181,6 +201,7 @@ module Network.AWS.DeviceFarm.Types
     -- * ExecutionConfiguration
     , ExecutionConfiguration
     , executionConfiguration
+    , ecSkipAppResign
     , ecAccountsCleanup
     , ecAppPackagesCleanup
     , ecJobTimeoutMinutes
@@ -191,9 +212,20 @@ module Network.AWS.DeviceFarm.Types
     , imType
     , imMessage
 
+    -- * InstanceProfile
+    , InstanceProfile
+    , instanceProfile
+    , ipArn
+    , ipRebootAfterUse
+    , ipName
+    , ipPackageCleanup
+    , ipExcludeAppPackagesFromCleanup
+    , ipDescription
+
     -- * Job
     , Job
     , job
+    , jobInstanceARN
     , jobStatus
     , jobCounters
     , jobArn
@@ -312,8 +344,12 @@ module Network.AWS.DeviceFarm.Types
     , rasBillingMethod
     , rasClientId
     , rasDeviceUdid
+    , rasSkipAppResign
+    , rasInstanceARN
     , rasStatus
+    , rasRemoteRecordEnabled
     , rasArn
+    , rasRemoteRecordAppARN
     , rasCreated
     , rasDevice
     , rasStopped
@@ -324,6 +360,7 @@ module Network.AWS.DeviceFarm.Types
     , rasEndpoint
     , rasMessage
     , rasHostAddress
+    , rasInteractionMode
     , rasStarted
 
     -- * Resolution
@@ -343,23 +380,33 @@ module Network.AWS.DeviceFarm.Types
     , Run
     , run
     , runBillingMethod
+    , runSkipAppResign
     , runStatus
     , runCustomerArtifactPaths
+    , runEventCount
     , runCounters
     , runPlatform
+    , runSeed
+    , runRadios
     , runArn
+    , runLocation
     , runCreated
+    , runLocale
     , runStopped
     , runResult
+    , runJobTimeoutMinutes
     , runCompletedJobs
     , runResultCode
     , runName
+    , runAppUpload
     , runParsingResultURL
     , runNetworkProfile
     , runDeviceMinutes
     , runType
     , runMessage
+    , runWebURL
     , runTotalJobs
+    , runDevicePoolARN
     , runStarted
 
     -- * Sample
@@ -380,6 +427,7 @@ module Network.AWS.DeviceFarm.Types
     , srcNetworkProfileARN
     , srcExtraDataPackageARN
     , srcAuxiliaryApps
+    , srcVpceConfigurationARNs
 
     -- * ScheduleRunTest
     , ScheduleRunTest
@@ -443,6 +491,15 @@ module Network.AWS.DeviceFarm.Types
     , uType
     , uMessage
     , uContentType
+
+    -- * VPCEConfiguration
+    , VPCEConfiguration
+    , vpcEConfiguration
+    , vecVpceServiceName
+    , vecArn
+    , vecVpceConfigurationName
+    , vecServiceDNSName
+    , vecVpceConfigurationDescription
     ) where
 
 import Network.AWS.DeviceFarm.Types.Product
@@ -455,24 +512,24 @@ import Network.AWS.Sign.V4
 deviceFarm :: Service
 deviceFarm =
   Service
-  { _svcAbbrev = "DeviceFarm"
-  , _svcSigner = v4
-  , _svcPrefix = "devicefarm"
-  , _svcVersion = "2015-06-23"
-  , _svcEndpoint = defaultEndpoint deviceFarm
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "DeviceFarm"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "DeviceFarm"
+    , _svcSigner = v4
+    , _svcPrefix = "devicefarm"
+    , _svcVersion = "2015-06-23"
+    , _svcEndpoint = defaultEndpoint deviceFarm
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "DeviceFarm"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -481,6 +538,8 @@ deviceFarm =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -522,6 +581,14 @@ _NotFoundException = _MatchServiceError deviceFarm "NotFoundException"
 _ServiceAccountException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceAccountException =
   _MatchServiceError deviceFarm "ServiceAccountException"
+
+
+-- | There was an error with the update request, or you do not have sufficient permissions to update this VPC endpoint configuration.
+--
+--
+_InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidOperationException =
+  _MatchServiceError deviceFarm "InvalidOperationException"
 
 
 -- | A limit was exceeded.

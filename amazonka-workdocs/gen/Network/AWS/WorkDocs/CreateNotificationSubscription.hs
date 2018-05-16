@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateNotificationSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ data CreateNotificationSubscription = CreateNotificationSubscription'
 --
 -- * 'cnsEndpoint' - The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with "https://".
 --
--- * 'cnsProtocol' - The protocol to use. The supported value is https, which delivers JSON-encoded messasges using HTTPS POST.
+-- * 'cnsProtocol' - The protocol to use. The supported value is https, which delivers JSON-encoded messages using HTTPS POST.
 --
 -- * 'cnsSubscriptionType' - The notification type.
 createNotificationSubscription
@@ -77,28 +77,28 @@ createNotificationSubscription
     -> CreateNotificationSubscription
 createNotificationSubscription pOrganizationId_ pEndpoint_ pProtocol_ pSubscriptionType_ =
   CreateNotificationSubscription'
-  { _cnsOrganizationId = pOrganizationId_
-  , _cnsEndpoint = pEndpoint_
-  , _cnsProtocol = pProtocol_
-  , _cnsSubscriptionType = pSubscriptionType_
-  }
+    { _cnsOrganizationId = pOrganizationId_
+    , _cnsEndpoint = pEndpoint_
+    , _cnsProtocol = pProtocol_
+    , _cnsSubscriptionType = pSubscriptionType_
+    }
 
 
 -- | The ID of the organization.
 cnsOrganizationId :: Lens' CreateNotificationSubscription Text
-cnsOrganizationId = lens _cnsOrganizationId (\ s a -> s{_cnsOrganizationId = a});
+cnsOrganizationId = lens _cnsOrganizationId (\ s a -> s{_cnsOrganizationId = a})
 
 -- | The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with "https://".
 cnsEndpoint :: Lens' CreateNotificationSubscription Text
-cnsEndpoint = lens _cnsEndpoint (\ s a -> s{_cnsEndpoint = a});
+cnsEndpoint = lens _cnsEndpoint (\ s a -> s{_cnsEndpoint = a})
 
--- | The protocol to use. The supported value is https, which delivers JSON-encoded messasges using HTTPS POST.
+-- | The protocol to use. The supported value is https, which delivers JSON-encoded messages using HTTPS POST.
 cnsProtocol :: Lens' CreateNotificationSubscription SubscriptionProtocolType
-cnsProtocol = lens _cnsProtocol (\ s a -> s{_cnsProtocol = a});
+cnsProtocol = lens _cnsProtocol (\ s a -> s{_cnsProtocol = a})
 
 -- | The notification type.
 cnsSubscriptionType :: Lens' CreateNotificationSubscription SubscriptionType
-cnsSubscriptionType = lens _cnsSubscriptionType (\ s a -> s{_cnsSubscriptionType = a});
+cnsSubscriptionType = lens _cnsSubscriptionType (\ s a -> s{_cnsSubscriptionType = a})
 
 instance AWSRequest CreateNotificationSubscription
          where
@@ -160,16 +160,16 @@ createNotificationSubscriptionResponse
     -> CreateNotificationSubscriptionResponse
 createNotificationSubscriptionResponse pResponseStatus_ =
   CreateNotificationSubscriptionResponse'
-  {_cnsrsSubscription = Nothing, _cnsrsResponseStatus = pResponseStatus_}
+    {_cnsrsSubscription = Nothing, _cnsrsResponseStatus = pResponseStatus_}
 
 
 -- | The subscription.
 cnsrsSubscription :: Lens' CreateNotificationSubscriptionResponse (Maybe Subscription)
-cnsrsSubscription = lens _cnsrsSubscription (\ s a -> s{_cnsrsSubscription = a});
+cnsrsSubscription = lens _cnsrsSubscription (\ s a -> s{_cnsrsSubscription = a})
 
 -- | -- | The response status code.
 cnsrsResponseStatus :: Lens' CreateNotificationSubscriptionResponse Int
-cnsrsResponseStatus = lens _cnsrsResponseStatus (\ s a -> s{_cnsrsResponseStatus = a});
+cnsrsResponseStatus = lens _cnsrsResponseStatus (\ s a -> s{_cnsrsResponseStatus = a})
 
 instance NFData
            CreateNotificationSubscriptionResponse

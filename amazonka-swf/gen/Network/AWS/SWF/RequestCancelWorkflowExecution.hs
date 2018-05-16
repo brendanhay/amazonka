@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RequestCancelWorkflowExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,20 +80,23 @@ requestCancelWorkflowExecution
     -> RequestCancelWorkflowExecution
 requestCancelWorkflowExecution pDomain_ pWorkflowId_ =
   RequestCancelWorkflowExecution'
-  {_rcweRunId = Nothing, _rcweDomain = pDomain_, _rcweWorkflowId = pWorkflowId_}
+    { _rcweRunId = Nothing
+    , _rcweDomain = pDomain_
+    , _rcweWorkflowId = pWorkflowId_
+    }
 
 
 -- | The runId of the workflow execution to cancel.
 rcweRunId :: Lens' RequestCancelWorkflowExecution (Maybe Text)
-rcweRunId = lens _rcweRunId (\ s a -> s{_rcweRunId = a});
+rcweRunId = lens _rcweRunId (\ s a -> s{_rcweRunId = a})
 
 -- | The name of the domain containing the workflow execution to cancel.
 rcweDomain :: Lens' RequestCancelWorkflowExecution Text
-rcweDomain = lens _rcweDomain (\ s a -> s{_rcweDomain = a});
+rcweDomain = lens _rcweDomain (\ s a -> s{_rcweDomain = a})
 
 -- | The workflowId of the workflow execution to cancel.
 rcweWorkflowId :: Lens' RequestCancelWorkflowExecution Text
-rcweWorkflowId = lens _rcweWorkflowId (\ s a -> s{_rcweWorkflowId = a});
+rcweWorkflowId = lens _rcweWorkflowId (\ s a -> s{_rcweWorkflowId = a})
 
 instance AWSRequest RequestCancelWorkflowExecution
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.TagQueue
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,11 +80,11 @@ tagQueue pQueueURL_ = TagQueue' {_tqQueueURL = pQueueURL_, _tqTags = mempty}
 
 -- | The URL of the queue.
 tqQueueURL :: Lens' TagQueue Text
-tqQueueURL = lens _tqQueueURL (\ s a -> s{_tqQueueURL = a});
+tqQueueURL = lens _tqQueueURL (\ s a -> s{_tqQueueURL = a})
 
 -- | The list of tags to be added to the specified queue.
 tqTags :: Lens' TagQueue (HashMap Text Text)
-tqTags = lens _tqTags (\ s a -> s{_tqTags = a}) . _Map;
+tqTags = lens _tqTags (\ s a -> s{_tqTags = a}) . _Map
 
 instance AWSRequest TagQueue where
         type Rs TagQueue = TagQueueResponse

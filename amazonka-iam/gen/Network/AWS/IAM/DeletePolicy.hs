@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeletePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,9 +21,9 @@
 -- Deletes the specified managed policy.
 --
 --
--- Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that it is attached to, and you must delete all of the policy's versions. The following steps describe the process for deleting a managed policy:
+-- Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that it is attached to. In addition you must delete all the policy's versions. The following steps describe the process for deleting a managed policy:
 --
---     * Detach the policy from all users, groups, and roles that the policy is attached to, using the 'DetachUserPolicy' , 'DetachGroupPolicy' , or 'DetachRolePolicy' APIs. To list all the users, groups, and roles that a policy is attached to, use 'ListEntitiesForPolicy' .
+--     * Detach the policy from all users, groups, and roles that the policy is attached to, using the 'DetachUserPolicy' , 'DetachGroupPolicy' , or 'DetachRolePolicy' API operations. To list all the users, groups, and roles that a policy is attached to, use 'ListEntitiesForPolicy' .
 --
 --     * Delete all versions of the policy using 'DeletePolicyVersion' . To list the policy's versions, use 'ListPolicyVersions' . You cannot use 'DeletePolicyVersion' to delete the version that is marked as the default version. You delete the policy's default version in the next step of the process.
 --
@@ -72,7 +72,7 @@ deletePolicy pPolicyARN_ = DeletePolicy' {_dpPolicyARN = pPolicyARN_}
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to delete. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 dpPolicyARN :: Lens' DeletePolicy Text
-dpPolicyARN = lens _dpPolicyARN (\ s a -> s{_dpPolicyARN = a});
+dpPolicyARN = lens _dpPolicyARN (\ s a -> s{_dpPolicyARN = a})
 
 instance AWSRequest DeletePolicy where
         type Rs DeletePolicy = DeletePolicyResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateResourceServer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,28 +74,28 @@ updateResourceServer
     -> UpdateResourceServer
 updateResourceServer pUserPoolId_ pIdentifier_ pName_ =
   UpdateResourceServer'
-  { _ursScopes = Nothing
-  , _ursUserPoolId = pUserPoolId_
-  , _ursIdentifier = pIdentifier_
-  , _ursName = pName_
-  }
+    { _ursScopes = Nothing
+    , _ursUserPoolId = pUserPoolId_
+    , _ursIdentifier = pIdentifier_
+    , _ursName = pName_
+    }
 
 
 -- | The scope values to be set for the resource server.
 ursScopes :: Lens' UpdateResourceServer [ResourceServerScopeType]
-ursScopes = lens _ursScopes (\ s a -> s{_ursScopes = a}) . _Default . _Coerce;
+ursScopes = lens _ursScopes (\ s a -> s{_ursScopes = a}) . _Default . _Coerce
 
 -- | The user pool ID for the user pool.
 ursUserPoolId :: Lens' UpdateResourceServer Text
-ursUserPoolId = lens _ursUserPoolId (\ s a -> s{_ursUserPoolId = a});
+ursUserPoolId = lens _ursUserPoolId (\ s a -> s{_ursUserPoolId = a})
 
 -- | The identifier for the resource server.
 ursIdentifier :: Lens' UpdateResourceServer Text
-ursIdentifier = lens _ursIdentifier (\ s a -> s{_ursIdentifier = a});
+ursIdentifier = lens _ursIdentifier (\ s a -> s{_ursIdentifier = a})
 
 -- | The name of the resource server.
 ursName :: Lens' UpdateResourceServer Text
-ursName = lens _ursName (\ s a -> s{_ursName = a});
+ursName = lens _ursName (\ s a -> s{_ursName = a})
 
 instance AWSRequest UpdateResourceServer where
         type Rs UpdateResourceServer =
@@ -156,17 +156,17 @@ updateResourceServerResponse
     -> UpdateResourceServerResponse
 updateResourceServerResponse pResponseStatus_ pResourceServer_ =
   UpdateResourceServerResponse'
-  { _ursrsResponseStatus = pResponseStatus_
-  , _ursrsResourceServer = pResourceServer_
-  }
+    { _ursrsResponseStatus = pResponseStatus_
+    , _ursrsResourceServer = pResourceServer_
+    }
 
 
 -- | -- | The response status code.
 ursrsResponseStatus :: Lens' UpdateResourceServerResponse Int
-ursrsResponseStatus = lens _ursrsResponseStatus (\ s a -> s{_ursrsResponseStatus = a});
+ursrsResponseStatus = lens _ursrsResponseStatus (\ s a -> s{_ursrsResponseStatus = a})
 
 -- | The resource server.
 ursrsResourceServer :: Lens' UpdateResourceServerResponse ResourceServerType
-ursrsResourceServer = lens _ursrsResourceServer (\ s a -> s{_ursrsResourceServer = a});
+ursrsResourceServer = lens _ursrsResourceServer (\ s a -> s{_ursrsResourceServer = a})
 
 instance NFData UpdateResourceServerResponse where

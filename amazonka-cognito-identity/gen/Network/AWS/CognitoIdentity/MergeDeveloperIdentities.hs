@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.MergeDeveloperIdentities
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,28 +81,28 @@ mergeDeveloperIdentities
     -> MergeDeveloperIdentities
 mergeDeveloperIdentities pSourceUserIdentifier_ pDestinationUserIdentifier_ pDeveloperProviderName_ pIdentityPoolId_ =
   MergeDeveloperIdentities'
-  { _mdiSourceUserIdentifier = pSourceUserIdentifier_
-  , _mdiDestinationUserIdentifier = pDestinationUserIdentifier_
-  , _mdiDeveloperProviderName = pDeveloperProviderName_
-  , _mdiIdentityPoolId = pIdentityPoolId_
-  }
+    { _mdiSourceUserIdentifier = pSourceUserIdentifier_
+    , _mdiDestinationUserIdentifier = pDestinationUserIdentifier_
+    , _mdiDeveloperProviderName = pDeveloperProviderName_
+    , _mdiIdentityPoolId = pIdentityPoolId_
+    }
 
 
 -- | User identifier for the source user. The value should be a @DeveloperUserIdentifier@ .
 mdiSourceUserIdentifier :: Lens' MergeDeveloperIdentities Text
-mdiSourceUserIdentifier = lens _mdiSourceUserIdentifier (\ s a -> s{_mdiSourceUserIdentifier = a});
+mdiSourceUserIdentifier = lens _mdiSourceUserIdentifier (\ s a -> s{_mdiSourceUserIdentifier = a})
 
 -- | User identifier for the destination user. The value should be a @DeveloperUserIdentifier@ .
 mdiDestinationUserIdentifier :: Lens' MergeDeveloperIdentities Text
-mdiDestinationUserIdentifier = lens _mdiDestinationUserIdentifier (\ s a -> s{_mdiDestinationUserIdentifier = a});
+mdiDestinationUserIdentifier = lens _mdiDestinationUserIdentifier (\ s a -> s{_mdiDestinationUserIdentifier = a})
 
 -- | The "domain" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the @DeveloperProviderName@ , you can use letters as well as period (.), underscore (_), and dash (-).
 mdiDeveloperProviderName :: Lens' MergeDeveloperIdentities Text
-mdiDeveloperProviderName = lens _mdiDeveloperProviderName (\ s a -> s{_mdiDeveloperProviderName = a});
+mdiDeveloperProviderName = lens _mdiDeveloperProviderName (\ s a -> s{_mdiDeveloperProviderName = a})
 
 -- | An identity pool ID in the format REGION:GUID.
 mdiIdentityPoolId :: Lens' MergeDeveloperIdentities Text
-mdiIdentityPoolId = lens _mdiIdentityPoolId (\ s a -> s{_mdiIdentityPoolId = a});
+mdiIdentityPoolId = lens _mdiIdentityPoolId (\ s a -> s{_mdiIdentityPoolId = a})
 
 instance AWSRequest MergeDeveloperIdentities where
         type Rs MergeDeveloperIdentities =
@@ -171,16 +171,16 @@ mergeDeveloperIdentitiesResponse
     -> MergeDeveloperIdentitiesResponse
 mergeDeveloperIdentitiesResponse pResponseStatus_ =
   MergeDeveloperIdentitiesResponse'
-  {_mdirsIdentityId = Nothing, _mdirsResponseStatus = pResponseStatus_}
+    {_mdirsIdentityId = Nothing, _mdirsResponseStatus = pResponseStatus_}
 
 
 -- | A unique identifier in the format REGION:GUID.
 mdirsIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
-mdirsIdentityId = lens _mdirsIdentityId (\ s a -> s{_mdirsIdentityId = a});
+mdirsIdentityId = lens _mdirsIdentityId (\ s a -> s{_mdirsIdentityId = a})
 
 -- | -- | The response status code.
 mdirsResponseStatus :: Lens' MergeDeveloperIdentitiesResponse Int
-mdirsResponseStatus = lens _mdirsResponseStatus (\ s a -> s{_mdirsResponseStatus = a});
+mdirsResponseStatus = lens _mdirsResponseStatus (\ s a -> s{_mdirsResponseStatus = a})
 
 instance NFData MergeDeveloperIdentitiesResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisassociateVPCCidrBlock
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ disassociateVPCCidrBlock pAssociationId_ =
 
 -- | The association ID for the CIDR block.
 dvcbAssociationId :: Lens' DisassociateVPCCidrBlock Text
-dvcbAssociationId = lens _dvcbAssociationId (\ s a -> s{_dvcbAssociationId = a});
+dvcbAssociationId = lens _dvcbAssociationId (\ s a -> s{_dvcbAssociationId = a})
 
 instance AWSRequest DisassociateVPCCidrBlock where
         type Rs DisassociateVPCCidrBlock =
@@ -125,28 +125,28 @@ disassociateVPCCidrBlockResponse
     -> DisassociateVPCCidrBlockResponse
 disassociateVPCCidrBlockResponse pResponseStatus_ =
   DisassociateVPCCidrBlockResponse'
-  { _dvcbrsVPCId = Nothing
-  , _dvcbrsCidrBlockAssociation = Nothing
-  , _dvcbrsIPv6CidrBlockAssociation = Nothing
-  , _dvcbrsResponseStatus = pResponseStatus_
-  }
+    { _dvcbrsVPCId = Nothing
+    , _dvcbrsCidrBlockAssociation = Nothing
+    , _dvcbrsIPv6CidrBlockAssociation = Nothing
+    , _dvcbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the VPC.
 dvcbrsVPCId :: Lens' DisassociateVPCCidrBlockResponse (Maybe Text)
-dvcbrsVPCId = lens _dvcbrsVPCId (\ s a -> s{_dvcbrsVPCId = a});
+dvcbrsVPCId = lens _dvcbrsVPCId (\ s a -> s{_dvcbrsVPCId = a})
 
 -- | Information about the IPv4 CIDR block association.
 dvcbrsCidrBlockAssociation :: Lens' DisassociateVPCCidrBlockResponse (Maybe VPCCidrBlockAssociation)
-dvcbrsCidrBlockAssociation = lens _dvcbrsCidrBlockAssociation (\ s a -> s{_dvcbrsCidrBlockAssociation = a});
+dvcbrsCidrBlockAssociation = lens _dvcbrsCidrBlockAssociation (\ s a -> s{_dvcbrsCidrBlockAssociation = a})
 
 -- | Information about the IPv6 CIDR block association.
 dvcbrsIPv6CidrBlockAssociation :: Lens' DisassociateVPCCidrBlockResponse (Maybe VPCIPv6CidrBlockAssociation)
-dvcbrsIPv6CidrBlockAssociation = lens _dvcbrsIPv6CidrBlockAssociation (\ s a -> s{_dvcbrsIPv6CidrBlockAssociation = a});
+dvcbrsIPv6CidrBlockAssociation = lens _dvcbrsIPv6CidrBlockAssociation (\ s a -> s{_dvcbrsIPv6CidrBlockAssociation = a})
 
 -- | -- | The response status code.
 dvcbrsResponseStatus :: Lens' DisassociateVPCCidrBlockResponse Int
-dvcbrsResponseStatus = lens _dvcbrsResponseStatus (\ s a -> s{_dvcbrsResponseStatus = a});
+dvcbrsResponseStatus = lens _dvcbrsResponseStatus (\ s a -> s{_dvcbrsResponseStatus = a})
 
 instance NFData DisassociateVPCCidrBlockResponse
          where

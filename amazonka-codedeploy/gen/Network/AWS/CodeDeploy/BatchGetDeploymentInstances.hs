@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetDeploymentInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,16 +69,16 @@ batchGetDeploymentInstances
     -> BatchGetDeploymentInstances
 batchGetDeploymentInstances pDeploymentId_ =
   BatchGetDeploymentInstances'
-  {_bgdiDeploymentId = pDeploymentId_, _bgdiInstanceIds = mempty}
+    {_bgdiDeploymentId = pDeploymentId_, _bgdiInstanceIds = mempty}
 
 
 -- | The unique ID of a deployment.
 bgdiDeploymentId :: Lens' BatchGetDeploymentInstances Text
-bgdiDeploymentId = lens _bgdiDeploymentId (\ s a -> s{_bgdiDeploymentId = a});
+bgdiDeploymentId = lens _bgdiDeploymentId (\ s a -> s{_bgdiDeploymentId = a})
 
 -- | The unique IDs of instances in the deployment group.
 bgdiInstanceIds :: Lens' BatchGetDeploymentInstances [Text]
-bgdiInstanceIds = lens _bgdiInstanceIds (\ s a -> s{_bgdiInstanceIds = a}) . _Coerce;
+bgdiInstanceIds = lens _bgdiInstanceIds (\ s a -> s{_bgdiInstanceIds = a}) . _Coerce
 
 instance AWSRequest BatchGetDeploymentInstances where
         type Rs BatchGetDeploymentInstances =
@@ -145,23 +145,23 @@ batchGetDeploymentInstancesResponse
     -> BatchGetDeploymentInstancesResponse
 batchGetDeploymentInstancesResponse pResponseStatus_ =
   BatchGetDeploymentInstancesResponse'
-  { _bgdirsInstancesSummary = Nothing
-  , _bgdirsErrorMessage = Nothing
-  , _bgdirsResponseStatus = pResponseStatus_
-  }
+    { _bgdirsInstancesSummary = Nothing
+    , _bgdirsErrorMessage = Nothing
+    , _bgdirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the instance.
 bgdirsInstancesSummary :: Lens' BatchGetDeploymentInstancesResponse [InstanceSummary]
-bgdirsInstancesSummary = lens _bgdirsInstancesSummary (\ s a -> s{_bgdirsInstancesSummary = a}) . _Default . _Coerce;
+bgdirsInstancesSummary = lens _bgdirsInstancesSummary (\ s a -> s{_bgdirsInstancesSummary = a}) . _Default . _Coerce
 
 -- | Information about errors that may have occurred during the API call.
 bgdirsErrorMessage :: Lens' BatchGetDeploymentInstancesResponse (Maybe Text)
-bgdirsErrorMessage = lens _bgdirsErrorMessage (\ s a -> s{_bgdirsErrorMessage = a});
+bgdirsErrorMessage = lens _bgdirsErrorMessage (\ s a -> s{_bgdirsErrorMessage = a})
 
 -- | -- | The response status code.
 bgdirsResponseStatus :: Lens' BatchGetDeploymentInstancesResponse Int
-bgdirsResponseStatus = lens _bgdirsResponseStatus (\ s a -> s{_bgdirsResponseStatus = a});
+bgdirsResponseStatus = lens _bgdirsResponseStatus (\ s a -> s{_bgdirsResponseStatus = a})
 
 instance NFData BatchGetDeploymentInstancesResponse
          where

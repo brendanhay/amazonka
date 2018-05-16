@@ -12,26 +12,26 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.PutRecord
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Writes a single data record into an Amazon Kinesis Firehose delivery stream. To write multiple data records into a delivery stream, use 'PutRecordBatch' . Applications using these operations are referred to as producers.
+-- Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To write multiple data records into a delivery stream, use 'PutRecordBatch' . Applications using these operations are referred to as producers.
 --
 --
--- By default, each delivery stream can take in up to 2,000 transactions per second, 5,000 records per second, or 5 MB per second. Note that if you use 'PutRecord' and 'PutRecordBatch' , the limits are an aggregate across these two operations for each delivery stream. For more information about limits and how to request an increase, see <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits> .
+-- By default, each delivery stream can take in up to 2,000 transactions per second, 5,000 records per second, or 5 MB per second. If you use 'PutRecord' and 'PutRecordBatch' , the limits are an aggregate across these two operations for each delivery stream. For more information about limits and how to request an increase, see <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Data Firehose Limits> .
 --
--- You must specify the name of the delivery stream and the data record when using 'PutRecord' . The data record consists of a data blob that can be up to 1,000 KB in size, and any kind of data, for example, a segment from a log file, geographic location data, website clickstream data, and so on.
+-- You must specify the name of the delivery stream and the data record when using 'PutRecord' . The data record consists of a data blob that can be up to 1,000 KB in size, and any kind of data. For example, it can be a segment from a log file, geographic location data, website clickstream data, and so on.
 --
--- Kinesis Firehose buffers records before delivering them to the destination. To disambiguate the data blobs at the destination, a common solution is to use delimiters in the data, such as a newline (@\n@ ) or some other character unique within the data. This allows the consumer application to parse individual data items when reading the data from the destination.
+-- Kinesis Data Firehose buffers records before delivering them to the destination. To disambiguate the data blobs at the destination, a common solution is to use delimiters in the data, such as a newline (@\n@ ) or some other character unique within the data. This allows the consumer application to parse individual data items when reading the data from the destination.
 --
--- The 'PutRecord' operation returns a __RecordId__ , which is a unique string assigned to each record. Producer applications can use this ID for purposes such as auditability and investigation.
+-- The @PutRecord@ operation returns a @RecordId@ , which is a unique string assigned to each record. Producer applications can use this ID for purposes such as auditability and investigation.
 --
--- If the 'PutRecord' operation throws a __ServiceUnavailableException__ , back off and retry. If the exception persists, it is possible that the throughput limits have been exceeded for the delivery stream.
+-- If the @PutRecord@ operation throws a @ServiceUnavailableException@ , back off and retry. If the exception persists, it is possible that the throughput limits have been exceeded for the delivery stream.
 --
--- Data records sent to Kinesis Firehose are stored for 24 hours from the time they are added to a delivery stream as it attempts to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.
+-- Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they are added to a delivery stream as it tries to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.
 --
 module Network.AWS.Firehose.PutRecord
     (
@@ -77,16 +77,16 @@ putRecord
     -> PutRecord
 putRecord pDeliveryStreamName_ pRecord_ =
   PutRecord'
-  {_prDeliveryStreamName = pDeliveryStreamName_, _prRecord = pRecord_}
+    {_prDeliveryStreamName = pDeliveryStreamName_, _prRecord = pRecord_}
 
 
 -- | The name of the delivery stream.
 prDeliveryStreamName :: Lens' PutRecord Text
-prDeliveryStreamName = lens _prDeliveryStreamName (\ s a -> s{_prDeliveryStreamName = a});
+prDeliveryStreamName = lens _prDeliveryStreamName (\ s a -> s{_prDeliveryStreamName = a})
 
 -- | The record.
 prRecord :: Lens' PutRecord Record
-prRecord = lens _prRecord (\ s a -> s{_prRecord = a});
+prRecord = lens _prRecord (\ s a -> s{_prRecord = a})
 
 instance AWSRequest PutRecord where
         type Rs PutRecord = PutRecordResponse
@@ -144,15 +144,15 @@ putRecordResponse
     -> PutRecordResponse
 putRecordResponse pResponseStatus_ pRecordId_ =
   PutRecordResponse'
-  {_prrsResponseStatus = pResponseStatus_, _prrsRecordId = pRecordId_}
+    {_prrsResponseStatus = pResponseStatus_, _prrsRecordId = pRecordId_}
 
 
 -- | -- | The response status code.
 prrsResponseStatus :: Lens' PutRecordResponse Int
-prrsResponseStatus = lens _prrsResponseStatus (\ s a -> s{_prrsResponseStatus = a});
+prrsResponseStatus = lens _prrsResponseStatus (\ s a -> s{_prrsResponseStatus = a})
 
 -- | The ID of the record.
 prrsRecordId :: Lens' PutRecordResponse Text
-prrsRecordId = lens _prrsRecordId (\ s a -> s{_prrsRecordId = a});
+prrsRecordId = lens _prrsRecordId (\ s a -> s{_prrsRecordId = a})
 
 instance NFData PutRecordResponse where

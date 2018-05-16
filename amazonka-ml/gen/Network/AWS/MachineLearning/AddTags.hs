@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.AddTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,23 +70,23 @@ addTags
     -> AddTags
 addTags pResourceId_ pResourceType_ =
   AddTags'
-  { _atTags = mempty
-  , _atResourceId = pResourceId_
-  , _atResourceType = pResourceType_
-  }
+    { _atTags = mempty
+    , _atResourceId = pResourceId_
+    , _atResourceType = pResourceType_
+    }
 
 
 -- | The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.
 atTags :: Lens' AddTags [Tag]
-atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce;
+atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce
 
 -- | The ID of the ML object to tag. For example, @exampleModelId@ .
 atResourceId :: Lens' AddTags Text
-atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a});
+atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a})
 
 -- | The type of the ML object to tag.
 atResourceType :: Lens' AddTags TaggableResourceType
-atResourceType = lens _atResourceType (\ s a -> s{_atResourceType = a});
+atResourceType = lens _atResourceType (\ s a -> s{_atResourceType = a})
 
 instance AWSRequest AddTags where
         type Rs AddTags = AddTagsResponse
@@ -151,22 +151,22 @@ addTagsResponse
     -> AddTagsResponse
 addTagsResponse pResponseStatus_ =
   AddTagsResponse'
-  { _atrsResourceId = Nothing
-  , _atrsResourceType = Nothing
-  , _atrsResponseStatus = pResponseStatus_
-  }
+    { _atrsResourceId = Nothing
+    , _atrsResourceType = Nothing
+    , _atrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the ML object that was tagged.
 atrsResourceId :: Lens' AddTagsResponse (Maybe Text)
-atrsResourceId = lens _atrsResourceId (\ s a -> s{_atrsResourceId = a});
+atrsResourceId = lens _atrsResourceId (\ s a -> s{_atrsResourceId = a})
 
 -- | The type of the ML object that was tagged.
 atrsResourceType :: Lens' AddTagsResponse (Maybe TaggableResourceType)
-atrsResourceType = lens _atrsResourceType (\ s a -> s{_atrsResourceType = a});
+atrsResourceType = lens _atrsResourceType (\ s a -> s{_atrsResourceType = a})
 
 -- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
-atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
+atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a})
 
 instance NFData AddTagsResponse where

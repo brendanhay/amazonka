@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteSmsChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteSmsChannel pApplicationId_ =
 
 -- | Undocumented member.
 dscApplicationId :: Lens' DeleteSmsChannel Text
-dscApplicationId = lens _dscApplicationId (\ s a -> s{_dscApplicationId = a});
+dscApplicationId = lens _dscApplicationId (\ s a -> s{_dscApplicationId = a})
 
 instance AWSRequest DeleteSmsChannel where
         type Rs DeleteSmsChannel = DeleteSmsChannelResponse
@@ -113,17 +113,17 @@ deleteSmsChannelResponse
     -> DeleteSmsChannelResponse
 deleteSmsChannelResponse pResponseStatus_ pSMSChannelResponse_ =
   DeleteSmsChannelResponse'
-  { _dscrsResponseStatus = pResponseStatus_
-  , _dscrsSMSChannelResponse = pSMSChannelResponse_
-  }
+    { _dscrsResponseStatus = pResponseStatus_
+    , _dscrsSMSChannelResponse = pSMSChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 dscrsResponseStatus :: Lens' DeleteSmsChannelResponse Int
-dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a});
+dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a})
 
 -- | Undocumented member.
 dscrsSMSChannelResponse :: Lens' DeleteSmsChannelResponse SMSChannelResponse
-dscrsSMSChannelResponse = lens _dscrsSMSChannelResponse (\ s a -> s{_dscrsSMSChannelResponse = a});
+dscrsSMSChannelResponse = lens _dscrsSMSChannelResponse (\ s a -> s{_dscrsSMSChannelResponse = a})
 
 instance NFData DeleteSmsChannelResponse where

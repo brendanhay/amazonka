@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateBatchPrediction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,33 +83,33 @@ createBatchPrediction
     -> CreateBatchPrediction
 createBatchPrediction pBatchPredictionId_ pMLModelId_ pBatchPredictionDataSourceId_ pOutputURI_ =
   CreateBatchPrediction'
-  { _cbpBatchPredictionName = Nothing
-  , _cbpBatchPredictionId = pBatchPredictionId_
-  , _cbpMLModelId = pMLModelId_
-  , _cbpBatchPredictionDataSourceId = pBatchPredictionDataSourceId_
-  , _cbpOutputURI = pOutputURI_
-  }
+    { _cbpBatchPredictionName = Nothing
+    , _cbpBatchPredictionId = pBatchPredictionId_
+    , _cbpMLModelId = pMLModelId_
+    , _cbpBatchPredictionDataSourceId = pBatchPredictionDataSourceId_
+    , _cbpOutputURI = pOutputURI_
+    }
 
 
 -- | A user-supplied name or description of the @BatchPrediction@ . @BatchPredictionName@ can only use the UTF-8 character set.
 cbpBatchPredictionName :: Lens' CreateBatchPrediction (Maybe Text)
-cbpBatchPredictionName = lens _cbpBatchPredictionName (\ s a -> s{_cbpBatchPredictionName = a});
+cbpBatchPredictionName = lens _cbpBatchPredictionName (\ s a -> s{_cbpBatchPredictionName = a})
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@ .
 cbpBatchPredictionId :: Lens' CreateBatchPrediction Text
-cbpBatchPredictionId = lens _cbpBatchPredictionId (\ s a -> s{_cbpBatchPredictionId = a});
+cbpBatchPredictionId = lens _cbpBatchPredictionId (\ s a -> s{_cbpBatchPredictionId = a})
 
 -- | The ID of the @MLModel@ that will generate predictions for the group of observations.
 cbpMLModelId :: Lens' CreateBatchPrediction Text
-cbpMLModelId = lens _cbpMLModelId (\ s a -> s{_cbpMLModelId = a});
+cbpMLModelId = lens _cbpMLModelId (\ s a -> s{_cbpMLModelId = a})
 
 -- | The ID of the @DataSource@ that points to the group of observations to predict.
 cbpBatchPredictionDataSourceId :: Lens' CreateBatchPrediction Text
-cbpBatchPredictionDataSourceId = lens _cbpBatchPredictionDataSourceId (\ s a -> s{_cbpBatchPredictionDataSourceId = a});
+cbpBatchPredictionDataSourceId = lens _cbpBatchPredictionDataSourceId (\ s a -> s{_cbpBatchPredictionDataSourceId = a})
 
 -- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'. Amazon ML needs permissions to store and retrieve the logs on your behalf. For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
 cbpOutputURI :: Lens' CreateBatchPrediction Text
-cbpOutputURI = lens _cbpOutputURI (\ s a -> s{_cbpOutputURI = a});
+cbpOutputURI = lens _cbpOutputURI (\ s a -> s{_cbpOutputURI = a})
 
 instance AWSRequest CreateBatchPrediction where
         type Rs CreateBatchPrediction =
@@ -179,15 +179,15 @@ createBatchPredictionResponse
     -> CreateBatchPredictionResponse
 createBatchPredictionResponse pResponseStatus_ =
   CreateBatchPredictionResponse'
-  {_cbprsBatchPredictionId = Nothing, _cbprsResponseStatus = pResponseStatus_}
+    {_cbprsBatchPredictionId = Nothing, _cbprsResponseStatus = pResponseStatus_}
 
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@ . This value is identical to the value of the @BatchPredictionId@ in the request.
 cbprsBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
-cbprsBatchPredictionId = lens _cbprsBatchPredictionId (\ s a -> s{_cbprsBatchPredictionId = a});
+cbprsBatchPredictionId = lens _cbprsBatchPredictionId (\ s a -> s{_cbprsBatchPredictionId = a})
 
 -- | -- | The response status code.
 cbprsResponseStatus :: Lens' CreateBatchPredictionResponse Int
-cbprsResponseStatus = lens _cbprsResponseStatus (\ s a -> s{_cbprsResponseStatus = a});
+cbprsResponseStatus = lens _cbprsResponseStatus (\ s a -> s{_cbprsResponseStatus = a})
 
 instance NFData CreateBatchPredictionResponse where

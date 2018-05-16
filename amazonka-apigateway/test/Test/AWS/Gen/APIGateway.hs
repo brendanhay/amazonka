@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.APIGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,6 +36,9 @@ import Test.Tasty
 --
 --         , requestGetDeployment $
 --             getDeployment
+--
+--         , requestGetTags $
+--             getTags
 --
 --         , requestDeleteGatewayResponse $
 --             deleteGatewayResponse
@@ -97,6 +100,9 @@ import Test.Tasty
 --         , requestCreateDeployment $
 --             createDeployment
 --
+--         , requestGetVPCLinks $
+--             getVPCLinks
+--
 --         , requestCreateBasePathMapping $
 --             createBasePathMapping
 --
@@ -135,6 +141,9 @@ import Test.Tasty
 --
 --         , requestGetUsage $
 --             getUsage
+--
+--         , requestGetVPCLink $
+--             getVPCLink
 --
 --         , requestCreateModel $
 --             createModel
@@ -202,6 +211,9 @@ import Test.Tasty
 --         , requestGetDomainName $
 --             getDomainName
 --
+--         , requestCreateVPCLink $
+--             createVPCLink
+--
 --         , requestDeleteDocumentationPart $
 --             deleteDocumentationPart
 --
@@ -219,6 +231,12 @@ import Test.Tasty
 --
 --         , requestGetUsagePlanKeys $
 --             getUsagePlanKeys
+--
+--         , requestDeleteVPCLink $
+--             deleteVPCLink
+--
+--         , requestUpdateVPCLink $
+--             updateVPCLink
 --
 --         , requestFlushStageCache $
 --             flushStageCache
@@ -307,11 +325,17 @@ import Test.Tasty
 --         , requestDeleteAuthorizer $
 --             deleteAuthorizer
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestCreateStage $
 --             createStage
 --
 --         , requestDeleteUsagePlanKey $
 --             deleteUsagePlanKey
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestCreateAPIKey $
 --             createAPIKey
@@ -376,6 +400,9 @@ import Test.Tasty
 --         , responseGetDeployment $
 --             deployment
 --
+--         , responseGetTags $
+--             getTagsResponse
+--
 --         , responseDeleteGatewayResponse $
 --             deleteGatewayResponseResponse
 --
@@ -436,6 +463,9 @@ import Test.Tasty
 --         , responseCreateDeployment $
 --             deployment
 --
+--         , responseGetVPCLinks $
+--             getVPCLinksResponse
+--
 --         , responseCreateBasePathMapping $
 --             basePathMapping
 --
@@ -474,6 +504,9 @@ import Test.Tasty
 --
 --         , responseGetUsage $
 --             usage
+--
+--         , responseGetVPCLink $
+--             vpcLink
 --
 --         , responseCreateModel $
 --             model
@@ -541,6 +574,9 @@ import Test.Tasty
 --         , responseGetDomainName $
 --             domainName
 --
+--         , responseCreateVPCLink $
+--             vpcLink
+--
 --         , responseDeleteDocumentationPart $
 --             deleteDocumentationPartResponse
 --
@@ -558,6 +594,12 @@ import Test.Tasty
 --
 --         , responseGetUsagePlanKeys $
 --             getUsagePlanKeysResponse
+--
+--         , responseDeleteVPCLink $
+--             deleteVPCLinkResponse
+--
+--         , responseUpdateVPCLink $
+--             vpcLink
 --
 --         , responseFlushStageCache $
 --             flushStageCacheResponse
@@ -646,11 +688,17 @@ import Test.Tasty
 --         , responseDeleteAuthorizer $
 --             deleteAuthorizerResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseCreateStage $
 --             stage
 --
 --         , responseDeleteUsagePlanKey $
 --             deleteUsagePlanKeyResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseCreateAPIKey $
 --             apiKey
@@ -722,6 +770,11 @@ requestGetDeployment :: GetDeployment -> TestTree
 requestGetDeployment = req
     "GetDeployment"
     "fixture/GetDeployment.yaml"
+
+requestGetTags :: GetTags -> TestTree
+requestGetTags = req
+    "GetTags"
+    "fixture/GetTags.yaml"
 
 requestDeleteGatewayResponse :: DeleteGatewayResponse -> TestTree
 requestDeleteGatewayResponse = req
@@ -823,6 +876,11 @@ requestCreateDeployment = req
     "CreateDeployment"
     "fixture/CreateDeployment.yaml"
 
+requestGetVPCLinks :: GetVPCLinks -> TestTree
+requestGetVPCLinks = req
+    "GetVPCLinks"
+    "fixture/GetVPCLinks.yaml"
+
 requestCreateBasePathMapping :: CreateBasePathMapping -> TestTree
 requestCreateBasePathMapping = req
     "CreateBasePathMapping"
@@ -887,6 +945,11 @@ requestGetUsage :: GetUsage -> TestTree
 requestGetUsage = req
     "GetUsage"
     "fixture/GetUsage.yaml"
+
+requestGetVPCLink :: GetVPCLink -> TestTree
+requestGetVPCLink = req
+    "GetVPCLink"
+    "fixture/GetVPCLink.yaml"
 
 requestCreateModel :: CreateModel -> TestTree
 requestCreateModel = req
@@ -998,6 +1061,11 @@ requestGetDomainName = req
     "GetDomainName"
     "fixture/GetDomainName.yaml"
 
+requestCreateVPCLink :: CreateVPCLink -> TestTree
+requestCreateVPCLink = req
+    "CreateVPCLink"
+    "fixture/CreateVPCLink.yaml"
+
 requestDeleteDocumentationPart :: DeleteDocumentationPart -> TestTree
 requestDeleteDocumentationPart = req
     "DeleteDocumentationPart"
@@ -1027,6 +1095,16 @@ requestGetUsagePlanKeys :: GetUsagePlanKeys -> TestTree
 requestGetUsagePlanKeys = req
     "GetUsagePlanKeys"
     "fixture/GetUsagePlanKeys.yaml"
+
+requestDeleteVPCLink :: DeleteVPCLink -> TestTree
+requestDeleteVPCLink = req
+    "DeleteVPCLink"
+    "fixture/DeleteVPCLink.yaml"
+
+requestUpdateVPCLink :: UpdateVPCLink -> TestTree
+requestUpdateVPCLink = req
+    "UpdateVPCLink"
+    "fixture/UpdateVPCLink.yaml"
 
 requestFlushStageCache :: FlushStageCache -> TestTree
 requestFlushStageCache = req
@@ -1173,6 +1251,11 @@ requestDeleteAuthorizer = req
     "DeleteAuthorizer"
     "fixture/DeleteAuthorizer.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestCreateStage :: CreateStage -> TestTree
 requestCreateStage = req
     "CreateStage"
@@ -1182,6 +1265,11 @@ requestDeleteUsagePlanKey :: DeleteUsagePlanKey -> TestTree
 requestDeleteUsagePlanKey = req
     "DeleteUsagePlanKey"
     "fixture/DeleteUsagePlanKey.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestCreateAPIKey :: CreateAPIKey -> TestTree
 requestCreateAPIKey = req
@@ -1290,6 +1378,13 @@ responseGetDeployment = res
     "fixture/GetDeploymentResponse.proto"
     apiGateway
     (Proxy :: Proxy GetDeployment)
+
+responseGetTags :: GetTagsResponse -> TestTree
+responseGetTags = res
+    "GetTagsResponse"
+    "fixture/GetTagsResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetTags)
 
 responseDeleteGatewayResponse :: DeleteGatewayResponseResponse -> TestTree
 responseDeleteGatewayResponse = res
@@ -1431,6 +1526,13 @@ responseCreateDeployment = res
     apiGateway
     (Proxy :: Proxy CreateDeployment)
 
+responseGetVPCLinks :: GetVPCLinksResponse -> TestTree
+responseGetVPCLinks = res
+    "GetVPCLinksResponse"
+    "fixture/GetVPCLinksResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetVPCLinks)
+
 responseCreateBasePathMapping :: BasePathMapping -> TestTree
 responseCreateBasePathMapping = res
     "CreateBasePathMappingResponse"
@@ -1521,6 +1623,13 @@ responseGetUsage = res
     "fixture/GetUsageResponse.proto"
     apiGateway
     (Proxy :: Proxy GetUsage)
+
+responseGetVPCLink :: VPCLink -> TestTree
+responseGetVPCLink = res
+    "GetVPCLinkResponse"
+    "fixture/GetVPCLinkResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetVPCLink)
 
 responseCreateModel :: Model -> TestTree
 responseCreateModel = res
@@ -1676,6 +1785,13 @@ responseGetDomainName = res
     apiGateway
     (Proxy :: Proxy GetDomainName)
 
+responseCreateVPCLink :: VPCLink -> TestTree
+responseCreateVPCLink = res
+    "CreateVPCLinkResponse"
+    "fixture/CreateVPCLinkResponse.proto"
+    apiGateway
+    (Proxy :: Proxy CreateVPCLink)
+
 responseDeleteDocumentationPart :: DeleteDocumentationPartResponse -> TestTree
 responseDeleteDocumentationPart = res
     "DeleteDocumentationPartResponse"
@@ -1717,6 +1833,20 @@ responseGetUsagePlanKeys = res
     "fixture/GetUsagePlanKeysResponse.proto"
     apiGateway
     (Proxy :: Proxy GetUsagePlanKeys)
+
+responseDeleteVPCLink :: DeleteVPCLinkResponse -> TestTree
+responseDeleteVPCLink = res
+    "DeleteVPCLinkResponse"
+    "fixture/DeleteVPCLinkResponse.proto"
+    apiGateway
+    (Proxy :: Proxy DeleteVPCLink)
+
+responseUpdateVPCLink :: VPCLink -> TestTree
+responseUpdateVPCLink = res
+    "UpdateVPCLinkResponse"
+    "fixture/UpdateVPCLinkResponse.proto"
+    apiGateway
+    (Proxy :: Proxy UpdateVPCLink)
 
 responseFlushStageCache :: FlushStageCacheResponse -> TestTree
 responseFlushStageCache = res
@@ -1921,6 +2051,13 @@ responseDeleteAuthorizer = res
     apiGateway
     (Proxy :: Proxy DeleteAuthorizer)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    apiGateway
+    (Proxy :: Proxy TagResource)
+
 responseCreateStage :: Stage -> TestTree
 responseCreateStage = res
     "CreateStageResponse"
@@ -1934,6 +2071,13 @@ responseDeleteUsagePlanKey = res
     "fixture/DeleteUsagePlanKeyResponse.proto"
     apiGateway
     (Proxy :: Proxy DeleteUsagePlanKey)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    apiGateway
+    (Proxy :: Proxy UntagResource)
 
 responseCreateAPIKey :: APIKey -> TestTree
 responseCreateAPIKey = res

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AllocateHostedConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -96,33 +96,33 @@ allocateHostedConnection
     -> AllocateHostedConnection
 allocateHostedConnection pConnectionId_ pOwnerAccount_ pBandwidth_ pConnectionName_ pVlan_ =
   AllocateHostedConnection'
-  { _ahcConnectionId = pConnectionId_
-  , _ahcOwnerAccount = pOwnerAccount_
-  , _ahcBandwidth = pBandwidth_
-  , _ahcConnectionName = pConnectionName_
-  , _ahcVlan = pVlan_
-  }
+    { _ahcConnectionId = pConnectionId_
+    , _ahcOwnerAccount = pOwnerAccount_
+    , _ahcBandwidth = pBandwidth_
+    , _ahcConnectionName = pConnectionName_
+    , _ahcVlan = pVlan_
+    }
 
 
 -- | The ID of the interconnect or LAG on which the connection will be provisioned. Example: dxcon-456abc78 or dxlag-abc123 Default: None
 ahcConnectionId :: Lens' AllocateHostedConnection Text
-ahcConnectionId = lens _ahcConnectionId (\ s a -> s{_ahcConnectionId = a});
+ahcConnectionId = lens _ahcConnectionId (\ s a -> s{_ahcConnectionId = a})
 
 -- | The numeric account ID of the customer for whom the connection will be provisioned. Example: 123443215678 Default: None
 ahcOwnerAccount :: Lens' AllocateHostedConnection Text
-ahcOwnerAccount = lens _ahcOwnerAccount (\ s a -> s{_ahcOwnerAccount = a});
+ahcOwnerAccount = lens _ahcOwnerAccount (\ s a -> s{_ahcOwnerAccount = a})
 
 -- | The bandwidth of the connection. Example: @500Mbps@  Default: None Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps
 ahcBandwidth :: Lens' AllocateHostedConnection Text
-ahcBandwidth = lens _ahcBandwidth (\ s a -> s{_ahcBandwidth = a});
+ahcBandwidth = lens _ahcBandwidth (\ s a -> s{_ahcBandwidth = a})
 
 -- | The name of the provisioned connection. Example: "@500M Connection to AWS@ " Default: None
 ahcConnectionName :: Lens' AllocateHostedConnection Text
-ahcConnectionName = lens _ahcConnectionName (\ s a -> s{_ahcConnectionName = a});
+ahcConnectionName = lens _ahcConnectionName (\ s a -> s{_ahcConnectionName = a})
 
 -- | The dedicated VLAN provisioned to the hosted connection. Example: 101 Default: None
 ahcVlan :: Lens' AllocateHostedConnection Int
-ahcVlan = lens _ahcVlan (\ s a -> s{_ahcVlan = a});
+ahcVlan = lens _ahcVlan (\ s a -> s{_ahcVlan = a})
 
 instance AWSRequest AllocateHostedConnection where
         type Rs AllocateHostedConnection = Connection

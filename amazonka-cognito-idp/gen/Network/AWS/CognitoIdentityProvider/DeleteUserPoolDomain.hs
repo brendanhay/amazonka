@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteUserPoolDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ deleteUserPoolDomain pDomain_ pUserPoolId_ =
 
 -- | The domain string.
 dupdDomain :: Lens' DeleteUserPoolDomain Text
-dupdDomain = lens _dupdDomain (\ s a -> s{_dupdDomain = a});
+dupdDomain = lens _dupdDomain (\ s a -> s{_dupdDomain = a})
 
 -- | The user pool ID.
 dupdUserPoolId :: Lens' DeleteUserPoolDomain Text
-dupdUserPoolId = lens _dupdUserPoolId (\ s a -> s{_dupdUserPoolId = a});
+dupdUserPoolId = lens _dupdUserPoolId (\ s a -> s{_dupdUserPoolId = a})
 
 instance AWSRequest DeleteUserPoolDomain where
         type Rs DeleteUserPoolDomain =
@@ -131,6 +131,6 @@ deleteUserPoolDomainResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dupdrsResponseStatus :: Lens' DeleteUserPoolDomainResponse Int
-dupdrsResponseStatus = lens _dupdrsResponseStatus (\ s a -> s{_dupdrsResponseStatus = a});
+dupdrsResponseStatus = lens _dupdrsResponseStatus (\ s a -> s{_dupdrsResponseStatus = a})
 
 instance NFData DeleteUserPoolDomainResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.ListStreams
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ listStreams
     :: ListStreams
 listStreams =
   ListStreams'
-  { _lsExclusiveStartStreamARN = Nothing
-  , _lsLimit = Nothing
-  , _lsTableName = Nothing
-  }
+    { _lsExclusiveStartStreamARN = Nothing
+    , _lsLimit = Nothing
+    , _lsTableName = Nothing
+    }
 
 
 -- | The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedStreamArn@ in the previous operation.
 lsExclusiveStartStreamARN :: Lens' ListStreams (Maybe Text)
-lsExclusiveStartStreamARN = lens _lsExclusiveStartStreamARN (\ s a -> s{_lsExclusiveStartStreamARN = a});
+lsExclusiveStartStreamARN = lens _lsExclusiveStartStreamARN (\ s a -> s{_lsExclusiveStartStreamARN = a})
 
 -- | The maximum number of streams to return. The upper limit is 100.
 lsLimit :: Lens' ListStreams (Maybe Natural)
-lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat;
+lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat
 
 -- | If this parameter is provided, then only the streams associated with this table name are returned.
 lsTableName :: Lens' ListStreams (Maybe Text)
-lsTableName = lens _lsTableName (\ s a -> s{_lsTableName = a});
+lsTableName = lens _lsTableName (\ s a -> s{_lsTableName = a})
 
 instance AWSRequest ListStreams where
         type Rs ListStreams = ListStreamsResponse
@@ -156,22 +156,22 @@ listStreamsResponse
     -> ListStreamsResponse
 listStreamsResponse pResponseStatus_ =
   ListStreamsResponse'
-  { _lsrsLastEvaluatedStreamARN = Nothing
-  , _lsrsStreams = Nothing
-  , _lsrsResponseStatus = pResponseStatus_
-  }
+    { _lsrsLastEvaluatedStreamARN = Nothing
+    , _lsrsStreams = Nothing
+    , _lsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If @LastEvaluatedStreamArn@ is empty, then the "last page" of results has been processed and there is no more data to be retrieved. If @LastEvaluatedStreamArn@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedStreamArn@ is empty.
 lsrsLastEvaluatedStreamARN :: Lens' ListStreamsResponse (Maybe Text)
-lsrsLastEvaluatedStreamARN = lens _lsrsLastEvaluatedStreamARN (\ s a -> s{_lsrsLastEvaluatedStreamARN = a});
+lsrsLastEvaluatedStreamARN = lens _lsrsLastEvaluatedStreamARN (\ s a -> s{_lsrsLastEvaluatedStreamARN = a})
 
 -- | A list of stream descriptors associated with the current account and endpoint.
 lsrsStreams :: Lens' ListStreamsResponse [Stream]
-lsrsStreams = lens _lsrsStreams (\ s a -> s{_lsrsStreams = a}) . _Default . _Coerce;
+lsrsStreams = lens _lsrsStreams (\ s a -> s{_lsrsStreams = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lsrsResponseStatus :: Lens' ListStreamsResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
+lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a})
 
 instance NFData ListStreamsResponse where

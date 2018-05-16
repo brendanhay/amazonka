@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,16 +68,16 @@ deleteLoadBalancerPolicy
     -> DeleteLoadBalancerPolicy
 deleteLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ =
   DeleteLoadBalancerPolicy'
-  {_dLoadBalancerName = pLoadBalancerName_, _dPolicyName = pPolicyName_}
+    {_dLoadBalancerName = pLoadBalancerName_, _dPolicyName = pPolicyName_}
 
 
 -- | The name of the load balancer.
 dLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
-dLoadBalancerName = lens _dLoadBalancerName (\ s a -> s{_dLoadBalancerName = a});
+dLoadBalancerName = lens _dLoadBalancerName (\ s a -> s{_dLoadBalancerName = a})
 
 -- | The name of the policy.
 dPolicyName :: Lens' DeleteLoadBalancerPolicy Text
-dPolicyName = lens _dPolicyName (\ s a -> s{_dPolicyName = a});
+dPolicyName = lens _dPolicyName (\ s a -> s{_dPolicyName = a})
 
 instance AWSRequest DeleteLoadBalancerPolicy where
         type Rs DeleteLoadBalancerPolicy =
@@ -132,7 +132,7 @@ deleteLoadBalancerPolicyResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteLoadBalancerPolicyResponse
          where

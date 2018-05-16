@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.BatchGetImage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ batchGetImage
     -> BatchGetImage
 batchGetImage pRepositoryName_ =
   BatchGetImage'
-  { _bgiRegistryId = Nothing
-  , _bgiAcceptedMediaTypes = Nothing
-  , _bgiRepositoryName = pRepositoryName_
-  , _bgiImageIds = mempty
-  }
+    { _bgiRegistryId = Nothing
+    , _bgiAcceptedMediaTypes = Nothing
+    , _bgiRepositoryName = pRepositoryName_
+    , _bgiImageIds = mempty
+    }
 
 
 -- | The AWS account ID associated with the registry that contains the images to describe. If you do not specify a registry, the default registry is assumed.
 bgiRegistryId :: Lens' BatchGetImage (Maybe Text)
-bgiRegistryId = lens _bgiRegistryId (\ s a -> s{_bgiRegistryId = a});
+bgiRegistryId = lens _bgiRegistryId (\ s a -> s{_bgiRegistryId = a})
 
 -- | The accepted media types for the request. Valid values: @application/vnd.docker.distribution.manifest.v1+json@ | @application/vnd.docker.distribution.manifest.v2+json@ | @application/vnd.oci.image.manifest.v1+json@
 bgiAcceptedMediaTypes :: Lens' BatchGetImage (Maybe (NonEmpty Text))
-bgiAcceptedMediaTypes = lens _bgiAcceptedMediaTypes (\ s a -> s{_bgiAcceptedMediaTypes = a}) . mapping _List1;
+bgiAcceptedMediaTypes = lens _bgiAcceptedMediaTypes (\ s a -> s{_bgiAcceptedMediaTypes = a}) . mapping _List1
 
 -- | The repository that contains the images to describe.
 bgiRepositoryName :: Lens' BatchGetImage Text
-bgiRepositoryName = lens _bgiRepositoryName (\ s a -> s{_bgiRepositoryName = a});
+bgiRepositoryName = lens _bgiRepositoryName (\ s a -> s{_bgiRepositoryName = a})
 
 -- | A list of image ID references that correspond to images to describe. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
 bgiImageIds :: Lens' BatchGetImage [ImageIdentifier]
-bgiImageIds = lens _bgiImageIds (\ s a -> s{_bgiImageIds = a}) . _Coerce;
+bgiImageIds = lens _bgiImageIds (\ s a -> s{_bgiImageIds = a}) . _Coerce
 
 instance AWSRequest BatchGetImage where
         type Rs BatchGetImage = BatchGetImageResponse
@@ -158,22 +158,22 @@ batchGetImageResponse
     -> BatchGetImageResponse
 batchGetImageResponse pResponseStatus_ =
   BatchGetImageResponse'
-  { _bgirsImages = Nothing
-  , _bgirsFailures = Nothing
-  , _bgirsResponseStatus = pResponseStatus_
-  }
+    { _bgirsImages = Nothing
+    , _bgirsFailures = Nothing
+    , _bgirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of image objects corresponding to the image references in the request.
 bgirsImages :: Lens' BatchGetImageResponse [Image]
-bgirsImages = lens _bgirsImages (\ s a -> s{_bgirsImages = a}) . _Default . _Coerce;
+bgirsImages = lens _bgirsImages (\ s a -> s{_bgirsImages = a}) . _Default . _Coerce
 
 -- | Any failures associated with the call.
 bgirsFailures :: Lens' BatchGetImageResponse [ImageFailure]
-bgirsFailures = lens _bgirsFailures (\ s a -> s{_bgirsFailures = a}) . _Default . _Coerce;
+bgirsFailures = lens _bgirsFailures (\ s a -> s{_bgirsFailures = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bgirsResponseStatus :: Lens' BatchGetImageResponse Int
-bgirsResponseStatus = lens _bgirsResponseStatus (\ s a -> s{_bgirsResponseStatus = a});
+bgirsResponseStatus = lens _bgirsResponseStatus (\ s a -> s{_bgirsResponseStatus = a})
 
 instance NFData BatchGetImageResponse where

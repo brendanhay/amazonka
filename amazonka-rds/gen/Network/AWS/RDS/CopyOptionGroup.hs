@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CopyOptionGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,28 +78,28 @@ copyOptionGroup
     -> CopyOptionGroup
 copyOptionGroup pSourceOptionGroupIdentifier_ pTargetOptionGroupIdentifier_ pTargetOptionGroupDescription_ =
   CopyOptionGroup'
-  { _cTags = Nothing
-  , _cSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier_
-  , _cTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier_
-  , _cTargetOptionGroupDescription = pTargetOptionGroupDescription_
-  }
+    { _cTags = Nothing
+    , _cSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier_
+    , _cTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier_
+    , _cTargetOptionGroupDescription = pTargetOptionGroupDescription_
+    }
 
 
 -- | Undocumented member.
 cTags :: Lens' CopyOptionGroup [Tag]
-cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce
 
 -- | The identifier or ARN for the source option group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .  Constraints:     * Must specify a valid option group.     * If the source option group is in the same AWS Region as the copy, specify a valid option group identifier, for example @my-option-group@ , or a valid ARN.     * If the source option group is in a different AWS Region than the copy, specify a valid option group ARN, for example @arn:aws:rds:us-west-2:123456789012:og:special-options@ .
 cSourceOptionGroupIdentifier :: Lens' CopyOptionGroup Text
-cSourceOptionGroupIdentifier = lens _cSourceOptionGroupIdentifier (\ s a -> s{_cSourceOptionGroupIdentifier = a});
+cSourceOptionGroupIdentifier = lens _cSourceOptionGroupIdentifier (\ s a -> s{_cSourceOptionGroupIdentifier = a})
 
 -- | The identifier for the copied option group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-option-group@
 cTargetOptionGroupIdentifier :: Lens' CopyOptionGroup Text
-cTargetOptionGroupIdentifier = lens _cTargetOptionGroupIdentifier (\ s a -> s{_cTargetOptionGroupIdentifier = a});
+cTargetOptionGroupIdentifier = lens _cTargetOptionGroupIdentifier (\ s a -> s{_cTargetOptionGroupIdentifier = a})
 
 -- | The description for the copied option group.
 cTargetOptionGroupDescription :: Lens' CopyOptionGroup Text
-cTargetOptionGroupDescription = lens _cTargetOptionGroupDescription (\ s a -> s{_cTargetOptionGroupDescription = a});
+cTargetOptionGroupDescription = lens _cTargetOptionGroupDescription (\ s a -> s{_cTargetOptionGroupDescription = a})
 
 instance AWSRequest CopyOptionGroup where
         type Rs CopyOptionGroup = CopyOptionGroupResponse
@@ -152,15 +152,15 @@ copyOptionGroupResponse
     -> CopyOptionGroupResponse
 copyOptionGroupResponse pResponseStatus_ =
   CopyOptionGroupResponse'
-  {_cogrsOptionGroup = Nothing, _cogrsResponseStatus = pResponseStatus_}
+    {_cogrsOptionGroup = Nothing, _cogrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 cogrsOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
-cogrsOptionGroup = lens _cogrsOptionGroup (\ s a -> s{_cogrsOptionGroup = a});
+cogrsOptionGroup = lens _cogrsOptionGroup (\ s a -> s{_cogrsOptionGroup = a})
 
 -- | -- | The response status code.
 cogrsResponseStatus :: Lens' CopyOptionGroupResponse Int
-cogrsResponseStatus = lens _cogrsResponseStatus (\ s a -> s{_cogrsResponseStatus = a});
+cogrsResponseStatus = lens _cogrsResponseStatus (\ s a -> s{_cogrsResponseStatus = a})
 
 instance NFData CopyOptionGroupResponse where

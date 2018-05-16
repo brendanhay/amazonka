@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesModifications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,23 +77,23 @@ describeReservedInstancesModifications
     :: DescribeReservedInstancesModifications
 describeReservedInstancesModifications =
   DescribeReservedInstancesModifications'
-  { _drimFilters = Nothing
-  , _drimReservedInstancesModificationIds = Nothing
-  , _drimNextToken = Nothing
-  }
+    { _drimFilters = Nothing
+    , _drimReservedInstancesModificationIds = Nothing
+    , _drimNextToken = Nothing
+    }
 
 
 -- | One or more filters.     * @client-token@ - The idempotency token for the modification request.     * @create-date@ - The time when the modification request was created.     * @effective-date@ - The time when the modification becomes effective.     * @modification-result.reserved-instances-id@ - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is @fulfilled@ .     * @modification-result.target-configuration.availability-zone@ - The Availability Zone for the new Reserved Instances.     * @modification-result.target-configuration.instance-count @ - The number of new Reserved Instances.     * @modification-result.target-configuration.instance-type@ - The instance type of the new Reserved Instances.     * @modification-result.target-configuration.platform@ - The network platform of the new Reserved Instances (@EC2-Classic@ | @EC2-VPC@ ).     * @reserved-instances-id@ - The ID of the Reserved Instances modified.     * @reserved-instances-modification-id@ - The ID of the modification request.     * @status@ - The status of the Reserved Instances modification request (@processing@ | @fulfilled@ | @failed@ ).     * @status-message@ - The reason for the status.     * @update-date@ - The time when the modification request was last updated.
 drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
-drimFilters = lens _drimFilters (\ s a -> s{_drimFilters = a}) . _Default . _Coerce;
+drimFilters = lens _drimFilters (\ s a -> s{_drimFilters = a}) . _Default . _Coerce
 
 -- | IDs for the submitted modification request.
 drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
-drimReservedInstancesModificationIds = lens _drimReservedInstancesModificationIds (\ s a -> s{_drimReservedInstancesModificationIds = a}) . _Default . _Coerce;
+drimReservedInstancesModificationIds = lens _drimReservedInstancesModificationIds (\ s a -> s{_drimReservedInstancesModificationIds = a}) . _Default . _Coerce
 
 -- | The token to retrieve the next page of results.
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
-drimNextToken = lens _drimNextToken (\ s a -> s{_drimNextToken = a});
+drimNextToken = lens _drimNextToken (\ s a -> s{_drimNextToken = a})
 
 instance AWSPager
            DescribeReservedInstancesModifications
@@ -179,23 +179,23 @@ describeReservedInstancesModificationsResponse
     -> DescribeReservedInstancesModificationsResponse
 describeReservedInstancesModificationsResponse pResponseStatus_ =
   DescribeReservedInstancesModificationsResponse'
-  { _drimrsNextToken = Nothing
-  , _drimrsReservedInstancesModifications = Nothing
-  , _drimrsResponseStatus = pResponseStatus_
-  }
+    { _drimrsNextToken = Nothing
+    , _drimrsReservedInstancesModifications = Nothing
+    , _drimrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 drimrsNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
-drimrsNextToken = lens _drimrsNextToken (\ s a -> s{_drimrsNextToken = a});
+drimrsNextToken = lens _drimrsNextToken (\ s a -> s{_drimrsNextToken = a})
 
 -- | The Reserved Instance modification information.
 drimrsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
-drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModifications (\ s a -> s{_drimrsReservedInstancesModifications = a}) . _Default . _Coerce;
+drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModifications (\ s a -> s{_drimrsReservedInstancesModifications = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drimrsResponseStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
-drimrsResponseStatus = lens _drimrsResponseStatus (\ s a -> s{_drimrsResponseStatus = a});
+drimrsResponseStatus = lens _drimrsResponseStatus (\ s a -> s{_drimrsResponseStatus = a})
 
 instance NFData
            DescribeReservedInstancesModificationsResponse

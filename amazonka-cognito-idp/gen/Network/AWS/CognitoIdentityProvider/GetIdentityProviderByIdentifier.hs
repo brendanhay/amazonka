@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetIdentityProviderByIdentifier
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ getIdentityProviderByIdentifier
     -> GetIdentityProviderByIdentifier
 getIdentityProviderByIdentifier pUserPoolId_ pIdpIdentifier_ =
   GetIdentityProviderByIdentifier'
-  {_gipbiUserPoolId = pUserPoolId_, _gipbiIdpIdentifier = pIdpIdentifier_}
+    {_gipbiUserPoolId = pUserPoolId_, _gipbiIdpIdentifier = pIdpIdentifier_}
 
 
 -- | The user pool ID.
 gipbiUserPoolId :: Lens' GetIdentityProviderByIdentifier Text
-gipbiUserPoolId = lens _gipbiUserPoolId (\ s a -> s{_gipbiUserPoolId = a});
+gipbiUserPoolId = lens _gipbiUserPoolId (\ s a -> s{_gipbiUserPoolId = a})
 
 -- | The identity provider ID.
 gipbiIdpIdentifier :: Lens' GetIdentityProviderByIdentifier Text
-gipbiIdpIdentifier = lens _gipbiIdpIdentifier (\ s a -> s{_gipbiIdpIdentifier = a});
+gipbiIdpIdentifier = lens _gipbiIdpIdentifier (\ s a -> s{_gipbiIdpIdentifier = a})
 
 instance AWSRequest GetIdentityProviderByIdentifier
          where
@@ -137,18 +137,18 @@ getIdentityProviderByIdentifierResponse
     -> GetIdentityProviderByIdentifierResponse
 getIdentityProviderByIdentifierResponse pResponseStatus_ pIdentityProvider_ =
   GetIdentityProviderByIdentifierResponse'
-  { _gipbirsResponseStatus = pResponseStatus_
-  , _gipbirsIdentityProvider = pIdentityProvider_
-  }
+    { _gipbirsResponseStatus = pResponseStatus_
+    , _gipbirsIdentityProvider = pIdentityProvider_
+    }
 
 
 -- | -- | The response status code.
 gipbirsResponseStatus :: Lens' GetIdentityProviderByIdentifierResponse Int
-gipbirsResponseStatus = lens _gipbirsResponseStatus (\ s a -> s{_gipbirsResponseStatus = a});
+gipbirsResponseStatus = lens _gipbirsResponseStatus (\ s a -> s{_gipbirsResponseStatus = a})
 
 -- | The identity provider object.
 gipbirsIdentityProvider :: Lens' GetIdentityProviderByIdentifierResponse IdentityProviderType
-gipbirsIdentityProvider = lens _gipbirsIdentityProvider (\ s a -> s{_gipbirsIdentityProvider = a});
+gipbirsIdentityProvider = lens _gipbirsIdentityProvider (\ s a -> s{_gipbirsIdentityProvider = a})
 
 instance NFData
            GetIdentityProviderByIdentifierResponse

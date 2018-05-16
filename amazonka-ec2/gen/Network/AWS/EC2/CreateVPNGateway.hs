@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPNGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,28 +78,28 @@ createVPNGateway
     -> CreateVPNGateway
 createVPNGateway pType_ =
   CreateVPNGateway'
-  { _cvgAmazonSideASN = Nothing
-  , _cvgAvailabilityZone = Nothing
-  , _cvgDryRun = Nothing
-  , _cvgType = pType_
-  }
+    { _cvgAmazonSideASN = Nothing
+    , _cvgAvailabilityZone = Nothing
+    , _cvgDryRun = Nothing
+    , _cvgType = pType_
+    }
 
 
 -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a 32-bit ASN, it must be in the 4200000000 to 4294967294 range. Default: 64512
 cvgAmazonSideASN :: Lens' CreateVPNGateway (Maybe Integer)
-cvgAmazonSideASN = lens _cvgAmazonSideASN (\ s a -> s{_cvgAmazonSideASN = a});
+cvgAmazonSideASN = lens _cvgAmazonSideASN (\ s a -> s{_cvgAmazonSideASN = a})
 
 -- | The Availability Zone for the virtual private gateway.
 cvgAvailabilityZone :: Lens' CreateVPNGateway (Maybe Text)
-cvgAvailabilityZone = lens _cvgAvailabilityZone (\ s a -> s{_cvgAvailabilityZone = a});
+cvgAvailabilityZone = lens _cvgAvailabilityZone (\ s a -> s{_cvgAvailabilityZone = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cvgDryRun :: Lens' CreateVPNGateway (Maybe Bool)
-cvgDryRun = lens _cvgDryRun (\ s a -> s{_cvgDryRun = a});
+cvgDryRun = lens _cvgDryRun (\ s a -> s{_cvgDryRun = a})
 
 -- | The type of VPN connection this virtual private gateway supports.
 cvgType :: Lens' CreateVPNGateway GatewayType
-cvgType = lens _cvgType (\ s a -> s{_cvgType = a});
+cvgType = lens _cvgType (\ s a -> s{_cvgType = a})
 
 instance AWSRequest CreateVPNGateway where
         type Rs CreateVPNGateway = CreateVPNGatewayResponse
@@ -152,15 +152,15 @@ createVPNGatewayResponse
     -> CreateVPNGatewayResponse
 createVPNGatewayResponse pResponseStatus_ =
   CreateVPNGatewayResponse'
-  {_cvgrsVPNGateway = Nothing, _cvgrsResponseStatus = pResponseStatus_}
+    {_cvgrsVPNGateway = Nothing, _cvgrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the virtual private gateway.
 cvgrsVPNGateway :: Lens' CreateVPNGatewayResponse (Maybe VPNGateway)
-cvgrsVPNGateway = lens _cvgrsVPNGateway (\ s a -> s{_cvgrsVPNGateway = a});
+cvgrsVPNGateway = lens _cvgrsVPNGateway (\ s a -> s{_cvgrsVPNGateway = a})
 
 -- | -- | The response status code.
 cvgrsResponseStatus :: Lens' CreateVPNGatewayResponse Int
-cvgrsResponseStatus = lens _cvgrsResponseStatus (\ s a -> s{_cvgrsResponseStatus = a});
+cvgrsResponseStatus = lens _cvgrsResponseStatus (\ s a -> s{_cvgrsResponseStatus = a})
 
 instance NFData CreateVPNGatewayResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketInventoryConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,23 +65,23 @@ putBucketInventoryConfiguration
     -> PutBucketInventoryConfiguration
 putBucketInventoryConfiguration pBucket_ pId_ pInventoryConfiguration_ =
   PutBucketInventoryConfiguration'
-  { _pbicBucket = pBucket_
-  , _pbicId = pId_
-  , _pbicInventoryConfiguration = pInventoryConfiguration_
-  }
+    { _pbicBucket = pBucket_
+    , _pbicId = pId_
+    , _pbicInventoryConfiguration = pInventoryConfiguration_
+    }
 
 
 -- | The name of the bucket where the inventory configuration will be stored.
 pbicBucket :: Lens' PutBucketInventoryConfiguration BucketName
-pbicBucket = lens _pbicBucket (\ s a -> s{_pbicBucket = a});
+pbicBucket = lens _pbicBucket (\ s a -> s{_pbicBucket = a})
 
 -- | The ID used to identify the inventory configuration.
 pbicId :: Lens' PutBucketInventoryConfiguration Text
-pbicId = lens _pbicId (\ s a -> s{_pbicId = a});
+pbicId = lens _pbicId (\ s a -> s{_pbicId = a})
 
 -- | Specifies the inventory configuration.
 pbicInventoryConfiguration :: Lens' PutBucketInventoryConfiguration InventoryConfiguration
-pbicInventoryConfiguration = lens _pbicInventoryConfiguration (\ s a -> s{_pbicInventoryConfiguration = a});
+pbicInventoryConfiguration = lens _pbicInventoryConfiguration (\ s a -> s{_pbicInventoryConfiguration = a})
 
 instance AWSRequest PutBucketInventoryConfiguration
          where

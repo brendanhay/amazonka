@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.ListServerNeighbors
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,33 +78,33 @@ listServerNeighbors
     -> ListServerNeighbors
 listServerNeighbors pConfigurationId_ =
   ListServerNeighbors'
-  { _lsnPortInformationNeeded = Nothing
-  , _lsnNeighborConfigurationIds = Nothing
-  , _lsnNextToken = Nothing
-  , _lsnMaxResults = Nothing
-  , _lsnConfigurationId = pConfigurationId_
-  }
+    { _lsnPortInformationNeeded = Nothing
+    , _lsnNeighborConfigurationIds = Nothing
+    , _lsnNextToken = Nothing
+    , _lsnMaxResults = Nothing
+    , _lsnConfigurationId = pConfigurationId_
+    }
 
 
 -- | Flag to indicate if port and protocol information is needed as part of the response.
 lsnPortInformationNeeded :: Lens' ListServerNeighbors (Maybe Bool)
-lsnPortInformationNeeded = lens _lsnPortInformationNeeded (\ s a -> s{_lsnPortInformationNeeded = a});
+lsnPortInformationNeeded = lens _lsnPortInformationNeeded (\ s a -> s{_lsnPortInformationNeeded = a})
 
 -- | List of configuration IDs to test for one-hop-away.
 lsnNeighborConfigurationIds :: Lens' ListServerNeighbors [Text]
-lsnNeighborConfigurationIds = lens _lsnNeighborConfigurationIds (\ s a -> s{_lsnNeighborConfigurationIds = a}) . _Default . _Coerce;
+lsnNeighborConfigurationIds = lens _lsnNeighborConfigurationIds (\ s a -> s{_lsnNeighborConfigurationIds = a}) . _Default . _Coerce
 
 -- | Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @ListServerNeighborsRequest$neighborConfigurationIds@ but set @ListServerNeighborsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
 lsnNextToken :: Lens' ListServerNeighbors (Maybe Text)
-lsnNextToken = lens _lsnNextToken (\ s a -> s{_lsnNextToken = a});
+lsnNextToken = lens _lsnNextToken (\ s a -> s{_lsnNextToken = a})
 
 -- | Maximum number of results to return in a single page of output.
 lsnMaxResults :: Lens' ListServerNeighbors (Maybe Int)
-lsnMaxResults = lens _lsnMaxResults (\ s a -> s{_lsnMaxResults = a});
+lsnMaxResults = lens _lsnMaxResults (\ s a -> s{_lsnMaxResults = a})
 
 -- | Configuration ID of the server for which neighbors are being listed.
 lsnConfigurationId :: Lens' ListServerNeighbors Text
-lsnConfigurationId = lens _lsnConfigurationId (\ s a -> s{_lsnConfigurationId = a});
+lsnConfigurationId = lens _lsnConfigurationId (\ s a -> s{_lsnConfigurationId = a})
 
 instance AWSRequest ListServerNeighbors where
         type Rs ListServerNeighbors =
@@ -176,27 +176,27 @@ listServerNeighborsResponse
     -> ListServerNeighborsResponse
 listServerNeighborsResponse pResponseStatus_ =
   ListServerNeighborsResponse'
-  { _lsnrsNextToken = Nothing
-  , _lsnrsKnownDependencyCount = Nothing
-  , _lsnrsResponseStatus = pResponseStatus_
-  , _lsnrsNeighbors = mempty
-  }
+    { _lsnrsNextToken = Nothing
+    , _lsnrsKnownDependencyCount = Nothing
+    , _lsnrsResponseStatus = pResponseStatus_
+    , _lsnrsNeighbors = mempty
+    }
 
 
 -- | Token to retrieve the next set of results. For example, if you specified 100 IDs for @ListServerNeighborsRequest$neighborConfigurationIds@ but set @ListServerNeighborsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
 lsnrsNextToken :: Lens' ListServerNeighborsResponse (Maybe Text)
-lsnrsNextToken = lens _lsnrsNextToken (\ s a -> s{_lsnrsNextToken = a});
+lsnrsNextToken = lens _lsnrsNextToken (\ s a -> s{_lsnrsNextToken = a})
 
 -- | Count of distinct servers that are one hop away from the given server.
 lsnrsKnownDependencyCount :: Lens' ListServerNeighborsResponse (Maybe Integer)
-lsnrsKnownDependencyCount = lens _lsnrsKnownDependencyCount (\ s a -> s{_lsnrsKnownDependencyCount = a});
+lsnrsKnownDependencyCount = lens _lsnrsKnownDependencyCount (\ s a -> s{_lsnrsKnownDependencyCount = a})
 
 -- | -- | The response status code.
 lsnrsResponseStatus :: Lens' ListServerNeighborsResponse Int
-lsnrsResponseStatus = lens _lsnrsResponseStatus (\ s a -> s{_lsnrsResponseStatus = a});
+lsnrsResponseStatus = lens _lsnrsResponseStatus (\ s a -> s{_lsnrsResponseStatus = a})
 
 -- | List of distinct servers that are one hop away from the given server.
 lsnrsNeighbors :: Lens' ListServerNeighborsResponse [NeighborConnectionDetail]
-lsnrsNeighbors = lens _lsnrsNeighbors (\ s a -> s{_lsnrsNeighbors = a}) . _Coerce;
+lsnrsNeighbors = lens _lsnrsNeighbors (\ s a -> s{_lsnrsNeighbors = a}) . _Coerce
 
 instance NFData ListServerNeighborsResponse where

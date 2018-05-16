@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteWebACL
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,11 +79,11 @@ deleteWebACL pWebACLId_ pChangeToken_ =
 
 -- | The @WebACLId@ of the 'WebACL' that you want to delete. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
 dwaWebACLId :: Lens' DeleteWebACL Text
-dwaWebACLId = lens _dwaWebACLId (\ s a -> s{_dwaWebACLId = a});
+dwaWebACLId = lens _dwaWebACLId (\ s a -> s{_dwaWebACLId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 dwaChangeToken :: Lens' DeleteWebACL Text
-dwaChangeToken = lens _dwaChangeToken (\ s a -> s{_dwaChangeToken = a});
+dwaChangeToken = lens _dwaChangeToken (\ s a -> s{_dwaChangeToken = a})
 
 instance AWSRequest DeleteWebACL where
         type Rs DeleteWebACL = DeleteWebACLResponse
@@ -140,15 +140,15 @@ deleteWebACLResponse
     -> DeleteWebACLResponse
 deleteWebACLResponse pResponseStatus_ =
   DeleteWebACLResponse'
-  {_dwarsChangeToken = Nothing, _dwarsResponseStatus = pResponseStatus_}
+    {_dwarsChangeToken = Nothing, _dwarsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @DeleteWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dwarsChangeToken :: Lens' DeleteWebACLResponse (Maybe Text)
-dwarsChangeToken = lens _dwarsChangeToken (\ s a -> s{_dwarsChangeToken = a});
+dwarsChangeToken = lens _dwarsChangeToken (\ s a -> s{_dwarsChangeToken = a})
 
 -- | -- | The response status code.
 dwarsResponseStatus :: Lens' DeleteWebACLResponse Int
-dwarsResponseStatus = lens _dwarsResponseStatus (\ s a -> s{_dwarsResponseStatus = a});
+dwarsResponseStatus = lens _dwarsResponseStatus (\ s a -> s{_dwarsResponseStatus = a})
 
 instance NFData DeleteWebACLResponse where

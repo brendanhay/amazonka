@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PutApprovalResult
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,33 +84,33 @@ putApprovalResult
     -> PutApprovalResult
 putApprovalResult pPipelineName_ pStageName_ pActionName_ pResult_ pToken_ =
   PutApprovalResult'
-  { _parPipelineName = pPipelineName_
-  , _parStageName = pStageName_
-  , _parActionName = pActionName_
-  , _parResult = pResult_
-  , _parToken = pToken_
-  }
+    { _parPipelineName = pPipelineName_
+    , _parStageName = pStageName_
+    , _parActionName = pActionName_
+    , _parResult = pResult_
+    , _parToken = pToken_
+    }
 
 
 -- | The name of the pipeline that contains the action.
 parPipelineName :: Lens' PutApprovalResult Text
-parPipelineName = lens _parPipelineName (\ s a -> s{_parPipelineName = a});
+parPipelineName = lens _parPipelineName (\ s a -> s{_parPipelineName = a})
 
 -- | The name of the stage that contains the action.
 parStageName :: Lens' PutApprovalResult Text
-parStageName = lens _parStageName (\ s a -> s{_parStageName = a});
+parStageName = lens _parStageName (\ s a -> s{_parStageName = a})
 
 -- | The name of the action for which approval is requested.
 parActionName :: Lens' PutApprovalResult Text
-parActionName = lens _parActionName (\ s a -> s{_parActionName = a});
+parActionName = lens _parActionName (\ s a -> s{_parActionName = a})
 
 -- | Represents information about the result of the approval request.
 parResult :: Lens' PutApprovalResult ApprovalResult
-parResult = lens _parResult (\ s a -> s{_parResult = a});
+parResult = lens _parResult (\ s a -> s{_parResult = a})
 
 -- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the 'GetPipelineState' action and is used to validate that the approval request corresponding to this token is still valid.
 parToken :: Lens' PutApprovalResult Text
-parToken = lens _parToken (\ s a -> s{_parToken = a});
+parToken = lens _parToken (\ s a -> s{_parToken = a})
 
 instance AWSRequest PutApprovalResult where
         type Rs PutApprovalResult = PutApprovalResultResponse
@@ -174,15 +174,15 @@ putApprovalResultResponse
     -> PutApprovalResultResponse
 putApprovalResultResponse pResponseStatus_ =
   PutApprovalResultResponse'
-  {_parrsApprovedAt = Nothing, _parrsResponseStatus = pResponseStatus_}
+    {_parrsApprovedAt = Nothing, _parrsResponseStatus = pResponseStatus_}
 
 
 -- | The timestamp showing when the approval or rejection was submitted.
 parrsApprovedAt :: Lens' PutApprovalResultResponse (Maybe UTCTime)
-parrsApprovedAt = lens _parrsApprovedAt (\ s a -> s{_parrsApprovedAt = a}) . mapping _Time;
+parrsApprovedAt = lens _parrsApprovedAt (\ s a -> s{_parrsApprovedAt = a}) . mapping _Time
 
 -- | -- | The response status code.
 parrsResponseStatus :: Lens' PutApprovalResultResponse Int
-parrsResponseStatus = lens _parrsResponseStatus (\ s a -> s{_parrsResponseStatus = a});
+parrsResponseStatus = lens _parrsResponseStatus (\ s a -> s{_parrsResponseStatus = a})
 
 instance NFData PutApprovalResultResponse where

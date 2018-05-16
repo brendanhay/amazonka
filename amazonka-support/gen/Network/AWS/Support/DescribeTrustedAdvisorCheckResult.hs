@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckResult
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,16 +88,16 @@ describeTrustedAdvisorCheckResult
     -> DescribeTrustedAdvisorCheckResult
 describeTrustedAdvisorCheckResult pCheckId_ =
   DescribeTrustedAdvisorCheckResult'
-  {_dtacrLanguage = Nothing, _dtacrCheckId = pCheckId_}
+    {_dtacrLanguage = Nothing, _dtacrCheckId = pCheckId_}
 
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
-dtacrLanguage = lens _dtacrLanguage (\ s a -> s{_dtacrLanguage = a});
+dtacrLanguage = lens _dtacrLanguage (\ s a -> s{_dtacrLanguage = a})
 
 -- | The unique identifier for the Trusted Advisor check.
 dtacrCheckId :: Lens' DescribeTrustedAdvisorCheckResult Text
-dtacrCheckId = lens _dtacrCheckId (\ s a -> s{_dtacrCheckId = a});
+dtacrCheckId = lens _dtacrCheckId (\ s a -> s{_dtacrCheckId = a})
 
 instance AWSRequest DescribeTrustedAdvisorCheckResult
          where
@@ -166,16 +166,16 @@ describeTrustedAdvisorCheckResultResponse
     -> DescribeTrustedAdvisorCheckResultResponse
 describeTrustedAdvisorCheckResultResponse pResponseStatus_ =
   DescribeTrustedAdvisorCheckResultResponse'
-  {_dtacrrsResult = Nothing, _dtacrrsResponseStatus = pResponseStatus_}
+    {_dtacrrsResult = Nothing, _dtacrrsResponseStatus = pResponseStatus_}
 
 
 -- | The detailed results of the Trusted Advisor check.
 dtacrrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
-dtacrrsResult = lens _dtacrrsResult (\ s a -> s{_dtacrrsResult = a});
+dtacrrsResult = lens _dtacrrsResult (\ s a -> s{_dtacrrsResult = a})
 
 -- | -- | The response status code.
 dtacrrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
-dtacrrsResponseStatus = lens _dtacrrsResponseStatus (\ s a -> s{_dtacrrsResponseStatus = a});
+dtacrrsResponseStatus = lens _dtacrrsResponseStatus (\ s a -> s{_dtacrrsResponseStatus = a})
 
 instance NFData
            DescribeTrustedAdvisorCheckResultResponse

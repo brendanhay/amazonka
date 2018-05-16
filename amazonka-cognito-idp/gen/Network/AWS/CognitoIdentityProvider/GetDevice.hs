@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetDevice
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,11 +72,11 @@ getDevice pDeviceKey_ =
 
 -- | The access token.
 gdAccessToken :: Lens' GetDevice (Maybe Text)
-gdAccessToken = lens _gdAccessToken (\ s a -> s{_gdAccessToken = a}) . mapping _Sensitive;
+gdAccessToken = lens _gdAccessToken (\ s a -> s{_gdAccessToken = a}) . mapping _Sensitive
 
 -- | The device key.
 gdDeviceKey :: Lens' GetDevice Text
-gdDeviceKey = lens _gdDeviceKey (\ s a -> s{_gdDeviceKey = a});
+gdDeviceKey = lens _gdDeviceKey (\ s a -> s{_gdDeviceKey = a})
 
 instance AWSRequest GetDevice where
         type Rs GetDevice = GetDeviceResponse
@@ -138,15 +138,15 @@ getDeviceResponse
     -> GetDeviceResponse
 getDeviceResponse pResponseStatus_ pDevice_ =
   GetDeviceResponse'
-  {_gdrsResponseStatus = pResponseStatus_, _gdrsDevice = pDevice_}
+    {_gdrsResponseStatus = pResponseStatus_, _gdrsDevice = pDevice_}
 
 
 -- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeviceResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a})
 
 -- | The device.
 gdrsDevice :: Lens' GetDeviceResponse DeviceType
-gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a});
+gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a})
 
 instance NFData GetDeviceResponse where

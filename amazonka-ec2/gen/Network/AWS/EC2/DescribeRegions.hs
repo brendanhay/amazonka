@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeRegions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,20 +73,20 @@ describeRegions
     :: DescribeRegions
 describeRegions =
   DescribeRegions'
-  {_drsRegionNames = Nothing, _drsFilters = Nothing, _drsDryRun = Nothing}
+    {_drsRegionNames = Nothing, _drsFilters = Nothing, _drsDryRun = Nothing}
 
 
 -- | The names of one or more regions.
 drsRegionNames :: Lens' DescribeRegions [Text]
-drsRegionNames = lens _drsRegionNames (\ s a -> s{_drsRegionNames = a}) . _Default . _Coerce;
+drsRegionNames = lens _drsRegionNames (\ s a -> s{_drsRegionNames = a}) . _Default . _Coerce
 
 -- | One or more filters.     * @endpoint@ - The endpoint of the region (for example, @ec2.us-east-1.amazonaws.com@ ).     * @region-name@ - The name of the region (for example, @us-east-1@ ).
 drsFilters :: Lens' DescribeRegions [Filter]
-drsFilters = lens _drsFilters (\ s a -> s{_drsFilters = a}) . _Default . _Coerce;
+drsFilters = lens _drsFilters (\ s a -> s{_drsFilters = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 drsDryRun :: Lens' DescribeRegions (Maybe Bool)
-drsDryRun = lens _drsDryRun (\ s a -> s{_drsDryRun = a});
+drsDryRun = lens _drsDryRun (\ s a -> s{_drsDryRun = a})
 
 instance AWSRequest DescribeRegions where
         type Rs DescribeRegions = DescribeRegionsResponse
@@ -142,15 +142,15 @@ describeRegionsResponse
     -> DescribeRegionsResponse
 describeRegionsResponse pResponseStatus_ =
   DescribeRegionsResponse'
-  {_drrsRegions = Nothing, _drrsResponseStatus = pResponseStatus_}
+    {_drrsRegions = Nothing, _drrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about one or more regions.
 drrsRegions :: Lens' DescribeRegionsResponse [RegionInfo]
-drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default . _Coerce;
+drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRegionsResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a})
 
 instance NFData DescribeRegionsResponse where

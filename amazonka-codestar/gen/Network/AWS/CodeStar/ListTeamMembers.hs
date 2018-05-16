@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.ListTeamMembers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ listTeamMembers
     -> ListTeamMembers
 listTeamMembers pProjectId_ =
   ListTeamMembers'
-  { _ltmNextToken = Nothing
-  , _ltmMaxResults = Nothing
-  , _ltmProjectId = pProjectId_
-  }
+    { _ltmNextToken = Nothing
+    , _ltmMaxResults = Nothing
+    , _ltmProjectId = pProjectId_
+    }
 
 
 -- | The continuation token for the next set of results, if the results cannot be returned in one response.
 ltmNextToken :: Lens' ListTeamMembers (Maybe Text)
-ltmNextToken = lens _ltmNextToken (\ s a -> s{_ltmNextToken = a});
+ltmNextToken = lens _ltmNextToken (\ s a -> s{_ltmNextToken = a})
 
 -- | The maximum number of team members you want returned in a response.
 ltmMaxResults :: Lens' ListTeamMembers (Maybe Natural)
-ltmMaxResults = lens _ltmMaxResults (\ s a -> s{_ltmMaxResults = a}) . mapping _Nat;
+ltmMaxResults = lens _ltmMaxResults (\ s a -> s{_ltmMaxResults = a}) . mapping _Nat
 
 -- | The ID of the project for which you want to list team members.
 ltmProjectId :: Lens' ListTeamMembers Text
-ltmProjectId = lens _ltmProjectId (\ s a -> s{_ltmProjectId = a});
+ltmProjectId = lens _ltmProjectId (\ s a -> s{_ltmProjectId = a})
 
 instance AWSRequest ListTeamMembers where
         type Rs ListTeamMembers = ListTeamMembersResponse
@@ -146,22 +146,22 @@ listTeamMembersResponse
     -> ListTeamMembersResponse
 listTeamMembersResponse pResponseStatus_ =
   ListTeamMembersResponse'
-  { _ltmrsNextToken = Nothing
-  , _ltmrsResponseStatus = pResponseStatus_
-  , _ltmrsTeamMembers = mempty
-  }
+    { _ltmrsNextToken = Nothing
+    , _ltmrsResponseStatus = pResponseStatus_
+    , _ltmrsTeamMembers = mempty
+    }
 
 
 -- | The continuation token to use when requesting the next set of results, if there are more results to be returned.
 ltmrsNextToken :: Lens' ListTeamMembersResponse (Maybe Text)
-ltmrsNextToken = lens _ltmrsNextToken (\ s a -> s{_ltmrsNextToken = a});
+ltmrsNextToken = lens _ltmrsNextToken (\ s a -> s{_ltmrsNextToken = a})
 
 -- | -- | The response status code.
 ltmrsResponseStatus :: Lens' ListTeamMembersResponse Int
-ltmrsResponseStatus = lens _ltmrsResponseStatus (\ s a -> s{_ltmrsResponseStatus = a});
+ltmrsResponseStatus = lens _ltmrsResponseStatus (\ s a -> s{_ltmrsResponseStatus = a})
 
 -- | A list of team member objects for the project.
 ltmrsTeamMembers :: Lens' ListTeamMembersResponse [TeamMember]
-ltmrsTeamMembers = lens _ltmrsTeamMembers (\ s a -> s{_ltmrsTeamMembers = a}) . _Coerce;
+ltmrsTeamMembers = lens _ltmrsTeamMembers (\ s a -> s{_ltmrsTeamMembers = a}) . _Coerce
 
 instance NFData ListTeamMembersResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CancelSchemaExtension
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,16 +64,18 @@ cancelSchemaExtension
     -> CancelSchemaExtension
 cancelSchemaExtension pDirectoryId_ pSchemaExtensionId_ =
   CancelSchemaExtension'
-  {_cseDirectoryId = pDirectoryId_, _cseSchemaExtensionId = pSchemaExtensionId_}
+    { _cseDirectoryId = pDirectoryId_
+    , _cseSchemaExtensionId = pSchemaExtensionId_
+    }
 
 
 -- | The identifier of the directory whose schema extension will be canceled.
 cseDirectoryId :: Lens' CancelSchemaExtension Text
-cseDirectoryId = lens _cseDirectoryId (\ s a -> s{_cseDirectoryId = a});
+cseDirectoryId = lens _cseDirectoryId (\ s a -> s{_cseDirectoryId = a})
 
 -- | The identifier of the schema extension that will be canceled.
 cseSchemaExtensionId :: Lens' CancelSchemaExtension Text
-cseSchemaExtensionId = lens _cseSchemaExtensionId (\ s a -> s{_cseSchemaExtensionId = a});
+cseSchemaExtensionId = lens _cseSchemaExtensionId (\ s a -> s{_cseSchemaExtensionId = a})
 
 instance AWSRequest CancelSchemaExtension where
         type Rs CancelSchemaExtension =
@@ -132,6 +134,6 @@ cancelSchemaExtensionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 csersResponseStatus :: Lens' CancelSchemaExtensionResponse Int
-csersResponseStatus = lens _csersResponseStatus (\ s a -> s{_csersResponseStatus = a});
+csersResponseStatus = lens _csersResponseStatus (\ s a -> s{_csersResponseStatus = a})
 
 instance NFData CancelSchemaExtensionResponse where

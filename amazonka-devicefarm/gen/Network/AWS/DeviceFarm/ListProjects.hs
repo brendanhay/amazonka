@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListProjects
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ listProjects = ListProjects' {_lpArn = Nothing, _lpNextToken = Nothing}
 
 -- | Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm returns a list of all projects for the AWS account. You can also specify a project ARN.
 lpArn :: Lens' ListProjects (Maybe Text)
-lpArn = lens _lpArn (\ s a -> s{_lpArn = a});
+lpArn = lens _lpArn (\ s a -> s{_lpArn = a})
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lpNextToken :: Lens' ListProjects (Maybe Text)
-lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
+lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a})
 
 instance AWSPager ListProjects where
         page rq rs
@@ -149,22 +149,22 @@ listProjectsResponse
     -> ListProjectsResponse
 listProjectsResponse pResponseStatus_ =
   ListProjectsResponse'
-  { _lprsNextToken = Nothing
-  , _lprsProjects = Nothing
-  , _lprsResponseStatus = pResponseStatus_
-  }
+    { _lprsNextToken = Nothing
+    , _lprsProjects = Nothing
+    , _lprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 lprsNextToken :: Lens' ListProjectsResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
+lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a})
 
 -- | Information about the projects.
 lprsProjects :: Lens' ListProjectsResponse [Project]
-lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default . _Coerce;
+lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lprsResponseStatus :: Lens' ListProjectsResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a})
 
 instance NFData ListProjectsResponse where

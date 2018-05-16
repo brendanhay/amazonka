@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeElasticLoadBalancers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,16 +65,16 @@ describeElasticLoadBalancers
     :: DescribeElasticLoadBalancers
 describeElasticLoadBalancers =
   DescribeElasticLoadBalancers'
-  {_delbLayerIds = Nothing, _delbStackId = Nothing}
+    {_delbLayerIds = Nothing, _delbStackId = Nothing}
 
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing instances for the specified layers.
 delbLayerIds :: Lens' DescribeElasticLoadBalancers [Text]
-delbLayerIds = lens _delbLayerIds (\ s a -> s{_delbLayerIds = a}) . _Default . _Coerce;
+delbLayerIds = lens _delbLayerIds (\ s a -> s{_delbLayerIds = a}) . _Default . _Coerce
 
 -- | A stack ID. The action describes the stack's Elastic Load Balancing instances.
 delbStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
-delbStackId = lens _delbStackId (\ s a -> s{_delbStackId = a});
+delbStackId = lens _delbStackId (\ s a -> s{_delbStackId = a})
 
 instance AWSRequest DescribeElasticLoadBalancers
          where
@@ -138,18 +138,18 @@ describeElasticLoadBalancersResponse
     -> DescribeElasticLoadBalancersResponse
 describeElasticLoadBalancersResponse pResponseStatus_ =
   DescribeElasticLoadBalancersResponse'
-  { _delbrsElasticLoadBalancers = Nothing
-  , _delbrsResponseStatus = pResponseStatus_
-  }
+    { _delbrsElasticLoadBalancers = Nothing
+    , _delbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of @ElasticLoadBalancer@ objects that describe the specified Elastic Load Balancing instances.
 delbrsElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
-delbrsElasticLoadBalancers = lens _delbrsElasticLoadBalancers (\ s a -> s{_delbrsElasticLoadBalancers = a}) . _Default . _Coerce;
+delbrsElasticLoadBalancers = lens _delbrsElasticLoadBalancers (\ s a -> s{_delbrsElasticLoadBalancers = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 delbrsResponseStatus :: Lens' DescribeElasticLoadBalancersResponse Int
-delbrsResponseStatus = lens _delbrsResponseStatus (\ s a -> s{_delbrsResponseStatus = a});
+delbrsResponseStatus = lens _delbrsResponseStatus (\ s a -> s{_delbrsResponseStatus = a})
 
 instance NFData DescribeElasticLoadBalancersResponse
          where

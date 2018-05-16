@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.ListClusterJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ listClusterJobs
     -> ListClusterJobs
 listClusterJobs pClusterId_ =
   ListClusterJobs'
-  { _lcjNextToken = Nothing
-  , _lcjMaxResults = Nothing
-  , _lcjClusterId = pClusterId_
-  }
+    { _lcjNextToken = Nothing
+    , _lcjMaxResults = Nothing
+    , _lcjClusterId = pClusterId_
+    }
 
 
 -- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
 lcjNextToken :: Lens' ListClusterJobs (Maybe Text)
-lcjNextToken = lens _lcjNextToken (\ s a -> s{_lcjNextToken = a});
+lcjNextToken = lens _lcjNextToken (\ s a -> s{_lcjNextToken = a})
 
 -- | The number of @JobListEntry@ objects to return.
 lcjMaxResults :: Lens' ListClusterJobs (Maybe Natural)
-lcjMaxResults = lens _lcjMaxResults (\ s a -> s{_lcjMaxResults = a}) . mapping _Nat;
+lcjMaxResults = lens _lcjMaxResults (\ s a -> s{_lcjMaxResults = a}) . mapping _Nat
 
 -- | The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 lcjClusterId :: Lens' ListClusterJobs Text
-lcjClusterId = lens _lcjClusterId (\ s a -> s{_lcjClusterId = a});
+lcjClusterId = lens _lcjClusterId (\ s a -> s{_lcjClusterId = a})
 
 instance AWSRequest ListClusterJobs where
         type Rs ListClusterJobs = ListClusterJobsResponse
@@ -148,22 +148,22 @@ listClusterJobsResponse
     -> ListClusterJobsResponse
 listClusterJobsResponse pResponseStatus_ =
   ListClusterJobsResponse'
-  { _lcjrsJobListEntries = Nothing
-  , _lcjrsNextToken = Nothing
-  , _lcjrsResponseStatus = pResponseStatus_
-  }
+    { _lcjrsJobListEntries = Nothing
+    , _lcjrsNextToken = Nothing
+    , _lcjrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
 lcjrsJobListEntries :: Lens' ListClusterJobsResponse [JobListEntry]
-lcjrsJobListEntries = lens _lcjrsJobListEntries (\ s a -> s{_lcjrsJobListEntries = a}) . _Default . _Coerce;
+lcjrsJobListEntries = lens _lcjrsJobListEntries (\ s a -> s{_lcjrsJobListEntries = a}) . _Default . _Coerce
 
 -- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @ListClusterJobsResult@ call, your list of returned jobs will start from this point in the array.
 lcjrsNextToken :: Lens' ListClusterJobsResponse (Maybe Text)
-lcjrsNextToken = lens _lcjrsNextToken (\ s a -> s{_lcjrsNextToken = a});
+lcjrsNextToken = lens _lcjrsNextToken (\ s a -> s{_lcjrsNextToken = a})
 
 -- | -- | The response status code.
 lcjrsResponseStatus :: Lens' ListClusterJobsResponse Int
-lcjrsResponseStatus = lens _lcjrsResponseStatus (\ s a -> s{_lcjrsResponseStatus = a});
+lcjrsResponseStatus = lens _lcjrsResponseStatus (\ s a -> s{_lcjrsResponseStatus = a})
 
 instance NFData ListClusterJobsResponse where

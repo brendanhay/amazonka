@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -17,12 +17,14 @@ module Network.AWS.WAF.Types
 
     -- * Errors
     , _WAFInvalidAccountException
+    , _WAFSubscriptionNotFoundException
     , _WAFReferencedItemException
     , _WAFInvalidRegexPatternException
     , _WAFInvalidOperationException
     , _WAFNonexistentItemException
     , _WAFInvalidParameterException
     , _WAFLimitsExceededException
+    , _WAFInvalidPermissionPolicyException
     , _WAFStaleDataException
     , _WAFInternalErrorException
     , _WAFNonexistentContainerException
@@ -65,16 +67,20 @@ module Network.AWS.WAF.Types
     -- * WafActionType
     , WafActionType (..)
 
+    -- * WafOverrideActionType
+    , WafOverrideActionType (..)
+
     -- * WafRuleType
     , WafRuleType (..)
 
     -- * ActivatedRule
     , ActivatedRule
     , activatedRule
+    , arOverrideAction
+    , arAction
     , arType
     , arPriority
     , arRuleId
-    , arAction
 
     -- * ByteMatchSet
     , ByteMatchSet
@@ -245,6 +251,25 @@ module Network.AWS.WAF.Types
     , rRuleId
     , rPredicates
 
+    -- * RuleGroup
+    , RuleGroup
+    , ruleGroup
+    , rgMetricName
+    , rgName
+    , rgRuleGroupId
+
+    -- * RuleGroupSummary
+    , RuleGroupSummary
+    , ruleGroupSummary
+    , rgsRuleGroupId
+    , rgsName
+
+    -- * RuleGroupUpdate
+    , RuleGroupUpdate
+    , ruleGroupUpdate
+    , rguAction
+    , rguActivatedRule
+
     -- * RuleSummary
     , RuleSummary
     , ruleSummary
@@ -260,6 +285,7 @@ module Network.AWS.WAF.Types
     -- * SampledHTTPRequest
     , SampledHTTPRequest
     , sampledHTTPRequest
+    , shttprRuleWithinRuleGroup
     , shttprAction
     , shttprTimestamp
     , shttprRequest
@@ -317,6 +343,13 @@ module Network.AWS.WAF.Types
     , simtFieldToMatch
     , simtTextTransformation
 
+    -- * SubscribedRuleGroupSummary
+    , SubscribedRuleGroupSummary
+    , subscribedRuleGroupSummary
+    , srgsRuleGroupId
+    , srgsName
+    , srgsMetricName
+
     -- * TimeWindow
     , TimeWindow
     , timeWindow
@@ -327,6 +360,11 @@ module Network.AWS.WAF.Types
     , WafAction
     , wafAction
     , waType
+
+    -- * WafOverrideAction
+    , WafOverrideAction
+    , wafOverrideAction
+    , woaType
 
     -- * WebACL
     , WebACL
@@ -385,24 +423,24 @@ import Network.AWS.WAF.Types.Sum
 waf :: Service
 waf =
   Service
-  { _svcAbbrev = "WAF"
-  , _svcSigner = v4
-  , _svcPrefix = "waf"
-  , _svcVersion = "2015-08-24"
-  , _svcEndpoint = defaultEndpoint waf
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "WAF"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "WAF"
+    , _svcSigner = v4
+    , _svcPrefix = "waf"
+    , _svcVersion = "2015-08-24"
+    , _svcEndpoint = defaultEndpoint waf
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "WAF"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -411,6 +449,8 @@ waf =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
@@ -424,6 +464,14 @@ waf =
 _WAFInvalidAccountException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFInvalidAccountException =
   _MatchServiceError waf "WAFInvalidAccountException"
+
+
+-- | The specified subscription does not exist.
+--
+--
+_WAFSubscriptionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_WAFSubscriptionNotFoundException =
+  _MatchServiceError waf "WAFSubscriptionNotFoundException"
 
 
 -- | The operation failed because you tried to delete an object that is still in use. For example:
@@ -512,6 +560,34 @@ _WAFInvalidParameterException =
 _WAFLimitsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFLimitsExceededException =
   _MatchServiceError waf "WAFLimitsExceededException"
+
+
+-- | The operation failed because the specified policy is not in the proper format.
+--
+--
+-- The policy is subject to the following restrictions:
+--
+--     * You can attach only one policy with each @PutPermissionPolicy@ request.
+--
+--     * The policy must include an @Effect@ , @Action@ and @Principal@ .
+--
+--     * @Effect@ must specify @Allow@ .
+--
+--     * The @Action@ in the policy must be @waf:UpdateWebACL@ or @waf-regional:UpdateWebACL@ . Any extra or wildcard actions in the policy will be rejected.
+--
+--     * The policy cannot include a @Resource@ parameter.
+--
+--     * The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist in the same region.
+--
+--     * The user making the request must be the owner of the RuleGroup.
+--
+--     * Your policy must be composed using IAM Policy version 2012-10-17.
+--
+--
+--
+_WAFInvalidPermissionPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
+_WAFInvalidPermissionPolicyException =
+  _MatchServiceError waf "WAFInvalidPermissionPolicyException"
 
 
 -- | The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.

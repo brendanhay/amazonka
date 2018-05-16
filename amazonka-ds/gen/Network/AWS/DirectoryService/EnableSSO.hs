@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.EnableSSO
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,20 +71,23 @@ enableSSO
     -> EnableSSO
 enableSSO pDirectoryId_ =
   EnableSSO'
-  {_esUserName = Nothing, _esPassword = Nothing, _esDirectoryId = pDirectoryId_}
+    { _esUserName = Nothing
+    , _esPassword = Nothing
+    , _esDirectoryId = pDirectoryId_
+    }
 
 
 -- | The username of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. This account must have privileges to add a service principal name. If the AD Connector service account does not have privileges to add a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to enable single sign-on and are not stored by the service. The AD Connector service account is not changed.
 esUserName :: Lens' EnableSSO (Maybe Text)
-esUserName = lens _esUserName (\ s a -> s{_esUserName = a});
+esUserName = lens _esUserName (\ s a -> s{_esUserName = a})
 
 -- | The password of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. For more information, see the /UserName/ parameter.
 esPassword :: Lens' EnableSSO (Maybe Text)
-esPassword = lens _esPassword (\ s a -> s{_esPassword = a}) . mapping _Sensitive;
+esPassword = lens _esPassword (\ s a -> s{_esPassword = a}) . mapping _Sensitive
 
 -- | The identifier of the directory for which to enable single-sign on.
 esDirectoryId :: Lens' EnableSSO Text
-esDirectoryId = lens _esDirectoryId (\ s a -> s{_esDirectoryId = a});
+esDirectoryId = lens _esDirectoryId (\ s a -> s{_esDirectoryId = a})
 
 instance AWSRequest EnableSSO where
         type Rs EnableSSO = EnableSSOResponse
@@ -146,6 +149,6 @@ enableSSOResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 esrsResponseStatus :: Lens' EnableSSOResponse Int
-esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});
+esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a})
 
 instance NFData EnableSSOResponse where

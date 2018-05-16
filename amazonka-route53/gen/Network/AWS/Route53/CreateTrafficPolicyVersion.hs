@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateTrafficPolicyVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,20 +74,20 @@ createTrafficPolicyVersion
     -> CreateTrafficPolicyVersion
 createTrafficPolicyVersion pId_ pDocument_ =
   CreateTrafficPolicyVersion'
-  {_ctpvComment = Nothing, _ctpvId = pId_, _ctpvDocument = pDocument_}
+    {_ctpvComment = Nothing, _ctpvId = pId_, _ctpvDocument = pDocument_}
 
 
 -- | The comment that you specified in the @CreateTrafficPolicyVersion@ request, if any.
 ctpvComment :: Lens' CreateTrafficPolicyVersion (Maybe Text)
-ctpvComment = lens _ctpvComment (\ s a -> s{_ctpvComment = a});
+ctpvComment = lens _ctpvComment (\ s a -> s{_ctpvComment = a})
 
 -- | The ID of the traffic policy for which you want to create a new version.
 ctpvId :: Lens' CreateTrafficPolicyVersion Text
-ctpvId = lens _ctpvId (\ s a -> s{_ctpvId = a});
+ctpvId = lens _ctpvId (\ s a -> s{_ctpvId = a})
 
 -- | The definition of this version of the traffic policy, in JSON format. You specified the JSON in the @CreateTrafficPolicyVersion@ request. For more information about the JSON format, see 'CreateTrafficPolicy' .
 ctpvDocument :: Lens' CreateTrafficPolicyVersion Text
-ctpvDocument = lens _ctpvDocument (\ s a -> s{_ctpvDocument = a});
+ctpvDocument = lens _ctpvDocument (\ s a -> s{_ctpvDocument = a})
 
 instance AWSRequest CreateTrafficPolicyVersion where
         type Rs CreateTrafficPolicyVersion =
@@ -154,23 +154,23 @@ createTrafficPolicyVersionResponse
     -> CreateTrafficPolicyVersionResponse
 createTrafficPolicyVersionResponse pResponseStatus_ pTrafficPolicy_ pLocation_ =
   CreateTrafficPolicyVersionResponse'
-  { _ctpvrsResponseStatus = pResponseStatus_
-  , _ctpvrsTrafficPolicy = pTrafficPolicy_
-  , _ctpvrsLocation = pLocation_
-  }
+    { _ctpvrsResponseStatus = pResponseStatus_
+    , _ctpvrsTrafficPolicy = pTrafficPolicy_
+    , _ctpvrsLocation = pLocation_
+    }
 
 
 -- | -- | The response status code.
 ctpvrsResponseStatus :: Lens' CreateTrafficPolicyVersionResponse Int
-ctpvrsResponseStatus = lens _ctpvrsResponseStatus (\ s a -> s{_ctpvrsResponseStatus = a});
+ctpvrsResponseStatus = lens _ctpvrsResponseStatus (\ s a -> s{_ctpvrsResponseStatus = a})
 
 -- | A complex type that contains settings for the new version of the traffic policy.
 ctpvrsTrafficPolicy :: Lens' CreateTrafficPolicyVersionResponse TrafficPolicy
-ctpvrsTrafficPolicy = lens _ctpvrsTrafficPolicy (\ s a -> s{_ctpvrsTrafficPolicy = a});
+ctpvrsTrafficPolicy = lens _ctpvrsTrafficPolicy (\ s a -> s{_ctpvrsTrafficPolicy = a})
 
 -- | A unique URL that represents a new traffic policy version.
 ctpvrsLocation :: Lens' CreateTrafficPolicyVersionResponse Text
-ctpvrsLocation = lens _ctpvrsLocation (\ s a -> s{_ctpvrsLocation = a});
+ctpvrsLocation = lens _ctpvrsLocation (\ s a -> s{_ctpvrsLocation = a})
 
 instance NFData CreateTrafficPolicyVersionResponse
          where

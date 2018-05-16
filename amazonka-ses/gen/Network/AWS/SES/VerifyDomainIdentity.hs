@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.VerifyDomainIdentity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ verifyDomainIdentity pDomain_ = VerifyDomainIdentity' {_vdiDomain = pDomain_}
 
 -- | The domain to be verified.
 vdiDomain :: Lens' VerifyDomainIdentity Text
-vdiDomain = lens _vdiDomain (\ s a -> s{_vdiDomain = a});
+vdiDomain = lens _vdiDomain (\ s a -> s{_vdiDomain = a})
 
 instance AWSRequest VerifyDomainIdentity where
         type Rs VerifyDomainIdentity =
@@ -122,17 +122,17 @@ verifyDomainIdentityResponse
     -> VerifyDomainIdentityResponse
 verifyDomainIdentityResponse pResponseStatus_ pVerificationToken_ =
   VerifyDomainIdentityResponse'
-  { _vdirsResponseStatus = pResponseStatus_
-  , _vdirsVerificationToken = pVerificationToken_
-  }
+    { _vdirsResponseStatus = pResponseStatus_
+    , _vdirsVerificationToken = pVerificationToken_
+    }
 
 
 -- | -- | The response status code.
 vdirsResponseStatus :: Lens' VerifyDomainIdentityResponse Int
-vdirsResponseStatus = lens _vdirsResponseStatus (\ s a -> s{_vdirsResponseStatus = a});
+vdirsResponseStatus = lens _vdirsResponseStatus (\ s a -> s{_vdirsResponseStatus = a})
 
 -- | A TXT record that you must place in the DNS settings of the domain to complete domain verification with Amazon SES. As Amazon SES searches for the TXT record, the domain's verification status is "Pending". When Amazon SES detects the record, the domain's verification status changes to "Success". If Amazon SES is unable to detect the record within 72 hours, the domain's verification status changes to "Failed." In that case, if you still want to verify the domain, you must restart the verification process from the beginning.
 vdirsVerificationToken :: Lens' VerifyDomainIdentityResponse Text
-vdirsVerificationToken = lens _vdirsVerificationToken (\ s a -> s{_vdirsVerificationToken = a});
+vdirsVerificationToken = lens _vdirsVerificationToken (\ s a -> s{_vdirsVerificationToken = a})
 
 instance NFData VerifyDomainIdentityResponse where

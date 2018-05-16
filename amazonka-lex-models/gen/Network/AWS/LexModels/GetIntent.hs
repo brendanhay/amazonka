@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetIntent
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,22 +36,22 @@ module Network.AWS.LexModels.GetIntent
     , getIntentResponse
     , GetIntentResponse
     -- * Response Lenses
-    , girsFulfillmentActivity
-    , girsSlots
-    , girsRejectionStatement
-    , girsChecksum
-    , girsConclusionStatement
-    , girsSampleUtterances
-    , girsParentIntentSignature
-    , girsCreatedDate
-    , girsName
-    , girsVersion
-    , girsFollowUpPrompt
-    , girsLastUpdatedDate
-    , girsConfirmationPrompt
-    , girsDialogCodeHook
-    , girsDescription
-    , girsResponseStatus
+    , getrsFulfillmentActivity
+    , getrsSlots
+    , getrsRejectionStatement
+    , getrsChecksum
+    , getrsConclusionStatement
+    , getrsSampleUtterances
+    , getrsParentIntentSignature
+    , getrsCreatedDate
+    , getrsName
+    , getrsVersion
+    , getrsFollowUpPrompt
+    , getrsLastUpdatedDate
+    , getrsConfirmationPrompt
+    , getrsDialogCodeHook
+    , getrsDescription
+    , getrsResponseStatus
     ) where
 
 import Network.AWS.Lens
@@ -85,11 +85,11 @@ getIntent pName_ pVersion_ =
 
 -- | The name of the intent. The name is case sensitive.
 giName :: Lens' GetIntent Text
-giName = lens _giName (\ s a -> s{_giName = a});
+giName = lens _giName (\ s a -> s{_giName = a})
 
 -- | The version of the intent.
 giVersion :: Lens' GetIntent Text
-giVersion = lens _giVersion (\ s a -> s{_giVersion = a});
+giVersion = lens _giVersion (\ s a -> s{_giVersion = a})
 
 instance AWSRequest GetIntent where
         type Rs GetIntent = GetIntentResponse
@@ -137,22 +137,22 @@ instance ToQuery GetIntent where
 
 -- | /See:/ 'getIntentResponse' smart constructor.
 data GetIntentResponse = GetIntentResponse'
-  { _girsFulfillmentActivity   :: !(Maybe FulfillmentActivity)
-  , _girsSlots                 :: !(Maybe [Slot])
-  , _girsRejectionStatement    :: !(Maybe Statement)
-  , _girsChecksum              :: !(Maybe Text)
-  , _girsConclusionStatement   :: !(Maybe Statement)
-  , _girsSampleUtterances      :: !(Maybe [Text])
-  , _girsParentIntentSignature :: !(Maybe Text)
-  , _girsCreatedDate           :: !(Maybe POSIX)
-  , _girsName                  :: !(Maybe Text)
-  , _girsVersion               :: !(Maybe Text)
-  , _girsFollowUpPrompt        :: !(Maybe FollowUpPrompt)
-  , _girsLastUpdatedDate       :: !(Maybe POSIX)
-  , _girsConfirmationPrompt    :: !(Maybe Prompt)
-  , _girsDialogCodeHook        :: !(Maybe CodeHook)
-  , _girsDescription           :: !(Maybe Text)
-  , _girsResponseStatus        :: !Int
+  { _getrsFulfillmentActivity   :: !(Maybe FulfillmentActivity)
+  , _getrsSlots                 :: !(Maybe [Slot])
+  , _getrsRejectionStatement    :: !(Maybe Statement)
+  , _getrsChecksum              :: !(Maybe Text)
+  , _getrsConclusionStatement   :: !(Maybe Statement)
+  , _getrsSampleUtterances      :: !(Maybe [Text])
+  , _getrsParentIntentSignature :: !(Maybe Text)
+  , _getrsCreatedDate           :: !(Maybe POSIX)
+  , _getrsName                  :: !(Maybe Text)
+  , _getrsVersion               :: !(Maybe Text)
+  , _getrsFollowUpPrompt        :: !(Maybe FollowUpPrompt)
+  , _getrsLastUpdatedDate       :: !(Maybe POSIX)
+  , _getrsConfirmationPrompt    :: !(Maybe Prompt)
+  , _getrsDialogCodeHook        :: !(Maybe CodeHook)
+  , _getrsDescription           :: !(Maybe Text)
+  , _getrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,123 +160,123 @@ data GetIntentResponse = GetIntentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'girsFulfillmentActivity' - Describes how the intent is fulfilled. For more information, see 'PutIntent' .
+-- * 'getrsFulfillmentActivity' - Describes how the intent is fulfilled. For more information, see 'PutIntent' .
 --
--- * 'girsSlots' - An array of intent slots configured for the intent.
+-- * 'getrsSlots' - An array of intent slots configured for the intent.
 --
--- * 'girsRejectionStatement' - If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
+-- * 'getrsRejectionStatement' - If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
 --
--- * 'girsChecksum' - Checksum of the intent.
+-- * 'getrsChecksum' - Checksum of the intent.
 --
--- * 'girsConclusionStatement' - After the Lambda function specified in the @fulfillmentActivity@ element fulfills the intent, Amazon Lex conveys this statement to the user.
+-- * 'getrsConclusionStatement' - After the Lambda function specified in the @fulfillmentActivity@ element fulfills the intent, Amazon Lex conveys this statement to the user.
 --
--- * 'girsSampleUtterances' - An array of sample utterances configured for the intent.
+-- * 'getrsSampleUtterances' - An array of sample utterances configured for the intent.
 --
--- * 'girsParentIntentSignature' - A unique identifier for a built-in intent.
+-- * 'getrsParentIntentSignature' - A unique identifier for a built-in intent.
 --
--- * 'girsCreatedDate' - The date that the intent was created.
+-- * 'getrsCreatedDate' - The date that the intent was created.
 --
--- * 'girsName' - The name of the intent.
+-- * 'getrsName' - The name of the intent.
 --
--- * 'girsVersion' - The version of the intent.
+-- * 'getrsVersion' - The version of the intent.
 --
--- * 'girsFollowUpPrompt' - If defined in the bot, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled. For more information, see 'PutIntent' .
+-- * 'getrsFollowUpPrompt' - If defined in the bot, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled. For more information, see 'PutIntent' .
 --
--- * 'girsLastUpdatedDate' - The date that the intent was updated. When you create a resource, the creation date and the last updated date are the same.
+-- * 'getrsLastUpdatedDate' - The date that the intent was updated. When you create a resource, the creation date and the last updated date are the same.
 --
--- * 'girsConfirmationPrompt' - If defined in the bot, Amazon Lex uses prompt to confirm the intent before fulfilling the user's request. For more information, see 'PutIntent' .
+-- * 'getrsConfirmationPrompt' - If defined in the bot, Amazon Lex uses prompt to confirm the intent before fulfilling the user's request. For more information, see 'PutIntent' .
 --
--- * 'girsDialogCodeHook' - If defined in the bot, Amazon Amazon Lex invokes this Lambda function for each user input. For more information, see 'PutIntent' .
+-- * 'getrsDialogCodeHook' - If defined in the bot, Amazon Amazon Lex invokes this Lambda function for each user input. For more information, see 'PutIntent' .
 --
--- * 'girsDescription' - A description of the intent.
+-- * 'getrsDescription' - A description of the intent.
 --
--- * 'girsResponseStatus' - -- | The response status code.
+-- * 'getrsResponseStatus' - -- | The response status code.
 getIntentResponse
-    :: Int -- ^ 'girsResponseStatus'
+    :: Int -- ^ 'getrsResponseStatus'
     -> GetIntentResponse
 getIntentResponse pResponseStatus_ =
   GetIntentResponse'
-  { _girsFulfillmentActivity = Nothing
-  , _girsSlots = Nothing
-  , _girsRejectionStatement = Nothing
-  , _girsChecksum = Nothing
-  , _girsConclusionStatement = Nothing
-  , _girsSampleUtterances = Nothing
-  , _girsParentIntentSignature = Nothing
-  , _girsCreatedDate = Nothing
-  , _girsName = Nothing
-  , _girsVersion = Nothing
-  , _girsFollowUpPrompt = Nothing
-  , _girsLastUpdatedDate = Nothing
-  , _girsConfirmationPrompt = Nothing
-  , _girsDialogCodeHook = Nothing
-  , _girsDescription = Nothing
-  , _girsResponseStatus = pResponseStatus_
-  }
+    { _getrsFulfillmentActivity = Nothing
+    , _getrsSlots = Nothing
+    , _getrsRejectionStatement = Nothing
+    , _getrsChecksum = Nothing
+    , _getrsConclusionStatement = Nothing
+    , _getrsSampleUtterances = Nothing
+    , _getrsParentIntentSignature = Nothing
+    , _getrsCreatedDate = Nothing
+    , _getrsName = Nothing
+    , _getrsVersion = Nothing
+    , _getrsFollowUpPrompt = Nothing
+    , _getrsLastUpdatedDate = Nothing
+    , _getrsConfirmationPrompt = Nothing
+    , _getrsDialogCodeHook = Nothing
+    , _getrsDescription = Nothing
+    , _getrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Describes how the intent is fulfilled. For more information, see 'PutIntent' .
-girsFulfillmentActivity :: Lens' GetIntentResponse (Maybe FulfillmentActivity)
-girsFulfillmentActivity = lens _girsFulfillmentActivity (\ s a -> s{_girsFulfillmentActivity = a});
+getrsFulfillmentActivity :: Lens' GetIntentResponse (Maybe FulfillmentActivity)
+getrsFulfillmentActivity = lens _getrsFulfillmentActivity (\ s a -> s{_getrsFulfillmentActivity = a})
 
 -- | An array of intent slots configured for the intent.
-girsSlots :: Lens' GetIntentResponse [Slot]
-girsSlots = lens _girsSlots (\ s a -> s{_girsSlots = a}) . _Default . _Coerce;
+getrsSlots :: Lens' GetIntentResponse [Slot]
+getrsSlots = lens _getrsSlots (\ s a -> s{_getrsSlots = a}) . _Default . _Coerce
 
 -- | If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
-girsRejectionStatement :: Lens' GetIntentResponse (Maybe Statement)
-girsRejectionStatement = lens _girsRejectionStatement (\ s a -> s{_girsRejectionStatement = a});
+getrsRejectionStatement :: Lens' GetIntentResponse (Maybe Statement)
+getrsRejectionStatement = lens _getrsRejectionStatement (\ s a -> s{_getrsRejectionStatement = a})
 
 -- | Checksum of the intent.
-girsChecksum :: Lens' GetIntentResponse (Maybe Text)
-girsChecksum = lens _girsChecksum (\ s a -> s{_girsChecksum = a});
+getrsChecksum :: Lens' GetIntentResponse (Maybe Text)
+getrsChecksum = lens _getrsChecksum (\ s a -> s{_getrsChecksum = a})
 
 -- | After the Lambda function specified in the @fulfillmentActivity@ element fulfills the intent, Amazon Lex conveys this statement to the user.
-girsConclusionStatement :: Lens' GetIntentResponse (Maybe Statement)
-girsConclusionStatement = lens _girsConclusionStatement (\ s a -> s{_girsConclusionStatement = a});
+getrsConclusionStatement :: Lens' GetIntentResponse (Maybe Statement)
+getrsConclusionStatement = lens _getrsConclusionStatement (\ s a -> s{_getrsConclusionStatement = a})
 
 -- | An array of sample utterances configured for the intent.
-girsSampleUtterances :: Lens' GetIntentResponse [Text]
-girsSampleUtterances = lens _girsSampleUtterances (\ s a -> s{_girsSampleUtterances = a}) . _Default . _Coerce;
+getrsSampleUtterances :: Lens' GetIntentResponse [Text]
+getrsSampleUtterances = lens _getrsSampleUtterances (\ s a -> s{_getrsSampleUtterances = a}) . _Default . _Coerce
 
 -- | A unique identifier for a built-in intent.
-girsParentIntentSignature :: Lens' GetIntentResponse (Maybe Text)
-girsParentIntentSignature = lens _girsParentIntentSignature (\ s a -> s{_girsParentIntentSignature = a});
+getrsParentIntentSignature :: Lens' GetIntentResponse (Maybe Text)
+getrsParentIntentSignature = lens _getrsParentIntentSignature (\ s a -> s{_getrsParentIntentSignature = a})
 
 -- | The date that the intent was created.
-girsCreatedDate :: Lens' GetIntentResponse (Maybe UTCTime)
-girsCreatedDate = lens _girsCreatedDate (\ s a -> s{_girsCreatedDate = a}) . mapping _Time;
+getrsCreatedDate :: Lens' GetIntentResponse (Maybe UTCTime)
+getrsCreatedDate = lens _getrsCreatedDate (\ s a -> s{_getrsCreatedDate = a}) . mapping _Time
 
 -- | The name of the intent.
-girsName :: Lens' GetIntentResponse (Maybe Text)
-girsName = lens _girsName (\ s a -> s{_girsName = a});
+getrsName :: Lens' GetIntentResponse (Maybe Text)
+getrsName = lens _getrsName (\ s a -> s{_getrsName = a})
 
 -- | The version of the intent.
-girsVersion :: Lens' GetIntentResponse (Maybe Text)
-girsVersion = lens _girsVersion (\ s a -> s{_girsVersion = a});
+getrsVersion :: Lens' GetIntentResponse (Maybe Text)
+getrsVersion = lens _getrsVersion (\ s a -> s{_getrsVersion = a})
 
 -- | If defined in the bot, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled. For more information, see 'PutIntent' .
-girsFollowUpPrompt :: Lens' GetIntentResponse (Maybe FollowUpPrompt)
-girsFollowUpPrompt = lens _girsFollowUpPrompt (\ s a -> s{_girsFollowUpPrompt = a});
+getrsFollowUpPrompt :: Lens' GetIntentResponse (Maybe FollowUpPrompt)
+getrsFollowUpPrompt = lens _getrsFollowUpPrompt (\ s a -> s{_getrsFollowUpPrompt = a})
 
 -- | The date that the intent was updated. When you create a resource, the creation date and the last updated date are the same.
-girsLastUpdatedDate :: Lens' GetIntentResponse (Maybe UTCTime)
-girsLastUpdatedDate = lens _girsLastUpdatedDate (\ s a -> s{_girsLastUpdatedDate = a}) . mapping _Time;
+getrsLastUpdatedDate :: Lens' GetIntentResponse (Maybe UTCTime)
+getrsLastUpdatedDate = lens _getrsLastUpdatedDate (\ s a -> s{_getrsLastUpdatedDate = a}) . mapping _Time
 
 -- | If defined in the bot, Amazon Lex uses prompt to confirm the intent before fulfilling the user's request. For more information, see 'PutIntent' .
-girsConfirmationPrompt :: Lens' GetIntentResponse (Maybe Prompt)
-girsConfirmationPrompt = lens _girsConfirmationPrompt (\ s a -> s{_girsConfirmationPrompt = a});
+getrsConfirmationPrompt :: Lens' GetIntentResponse (Maybe Prompt)
+getrsConfirmationPrompt = lens _getrsConfirmationPrompt (\ s a -> s{_getrsConfirmationPrompt = a})
 
 -- | If defined in the bot, Amazon Amazon Lex invokes this Lambda function for each user input. For more information, see 'PutIntent' .
-girsDialogCodeHook :: Lens' GetIntentResponse (Maybe CodeHook)
-girsDialogCodeHook = lens _girsDialogCodeHook (\ s a -> s{_girsDialogCodeHook = a});
+getrsDialogCodeHook :: Lens' GetIntentResponse (Maybe CodeHook)
+getrsDialogCodeHook = lens _getrsDialogCodeHook (\ s a -> s{_getrsDialogCodeHook = a})
 
 -- | A description of the intent.
-girsDescription :: Lens' GetIntentResponse (Maybe Text)
-girsDescription = lens _girsDescription (\ s a -> s{_girsDescription = a});
+getrsDescription :: Lens' GetIntentResponse (Maybe Text)
+getrsDescription = lens _getrsDescription (\ s a -> s{_getrsDescription = a})
 
 -- | -- | The response status code.
-girsResponseStatus :: Lens' GetIntentResponse Int
-girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
+getrsResponseStatus :: Lens' GetIntentResponse Int
+getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a})
 
 instance NFData GetIntentResponse where

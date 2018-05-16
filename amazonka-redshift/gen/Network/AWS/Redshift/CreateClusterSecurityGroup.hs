@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateClusterSecurityGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ createClusterSecurityGroup
     -> CreateClusterSecurityGroup
 createClusterSecurityGroup pClusterSecurityGroupName_ pDescription_ =
   CreateClusterSecurityGroup'
-  { _creTags = Nothing
-  , _creClusterSecurityGroupName = pClusterSecurityGroupName_
-  , _creDescription = pDescription_
-  }
+    { _creTags = Nothing
+    , _creClusterSecurityGroupName = pClusterSecurityGroupName_
+    , _creDescription = pDescription_
+    }
 
 
 -- | A list of tag instances.
 creTags :: Lens' CreateClusterSecurityGroup [Tag]
-creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default . _Coerce;
+creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default . _Coerce
 
 -- | The name for the security group. Amazon Redshift stores the value as a lowercase string. Constraints:     * Must contain no more than 255 alphanumeric characters or hyphens.     * Must not be "Default".     * Must be unique for all security groups that are created by your AWS account. Example: @examplesecuritygroup@
 creClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
-creClusterSecurityGroupName = lens _creClusterSecurityGroupName (\ s a -> s{_creClusterSecurityGroupName = a});
+creClusterSecurityGroupName = lens _creClusterSecurityGroupName (\ s a -> s{_creClusterSecurityGroupName = a})
 
 -- | A description for the security group.
 creDescription :: Lens' CreateClusterSecurityGroup Text
-creDescription = lens _creDescription (\ s a -> s{_creDescription = a});
+creDescription = lens _creDescription (\ s a -> s{_creDescription = a})
 
 instance AWSRequest CreateClusterSecurityGroup where
         type Rs CreateClusterSecurityGroup =
@@ -145,16 +145,16 @@ createClusterSecurityGroupResponse
     -> CreateClusterSecurityGroupResponse
 createClusterSecurityGroupResponse pResponseStatus_ =
   CreateClusterSecurityGroupResponse'
-  {_crsClusterSecurityGroup = Nothing, _crsResponseStatus = pResponseStatus_}
+    {_crsClusterSecurityGroup = Nothing, _crsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 crsClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
-crsClusterSecurityGroup = lens _crsClusterSecurityGroup (\ s a -> s{_crsClusterSecurityGroup = a});
+crsClusterSecurityGroup = lens _crsClusterSecurityGroup (\ s a -> s{_crsClusterSecurityGroup = a})
 
 -- | -- | The response status code.
 crsResponseStatus :: Lens' CreateClusterSecurityGroupResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
 
 instance NFData CreateClusterSecurityGroupResponse
          where

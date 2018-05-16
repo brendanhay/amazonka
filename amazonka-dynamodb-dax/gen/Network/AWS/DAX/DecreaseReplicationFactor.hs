@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DecreaseReplicationFactor
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,28 +73,28 @@ decreaseReplicationFactor
     -> DecreaseReplicationFactor
 decreaseReplicationFactor pClusterName_ pNewReplicationFactor_ =
   DecreaseReplicationFactor'
-  { _drfNodeIdsToRemove = Nothing
-  , _drfAvailabilityZones = Nothing
-  , _drfClusterName = pClusterName_
-  , _drfNewReplicationFactor = pNewReplicationFactor_
-  }
+    { _drfNodeIdsToRemove = Nothing
+    , _drfAvailabilityZones = Nothing
+    , _drfClusterName = pClusterName_
+    , _drfNewReplicationFactor = pNewReplicationFactor_
+    }
 
 
 -- | The unique identifiers of the nodes to be removed from the cluster.
 drfNodeIdsToRemove :: Lens' DecreaseReplicationFactor [Text]
-drfNodeIdsToRemove = lens _drfNodeIdsToRemove (\ s a -> s{_drfNodeIdsToRemove = a}) . _Default . _Coerce;
+drfNodeIdsToRemove = lens _drfNodeIdsToRemove (\ s a -> s{_drfNodeIdsToRemove = a}) . _Default . _Coerce
 
 -- | The Availability Zone(s) from which to remove nodes.
 drfAvailabilityZones :: Lens' DecreaseReplicationFactor [Text]
-drfAvailabilityZones = lens _drfAvailabilityZones (\ s a -> s{_drfAvailabilityZones = a}) . _Default . _Coerce;
+drfAvailabilityZones = lens _drfAvailabilityZones (\ s a -> s{_drfAvailabilityZones = a}) . _Default . _Coerce
 
 -- | The name of the DAX cluster from which you want to remove nodes.
 drfClusterName :: Lens' DecreaseReplicationFactor Text
-drfClusterName = lens _drfClusterName (\ s a -> s{_drfClusterName = a});
+drfClusterName = lens _drfClusterName (\ s a -> s{_drfClusterName = a})
 
 -- | The new number of nodes for the DAX cluster.
 drfNewReplicationFactor :: Lens' DecreaseReplicationFactor Int
-drfNewReplicationFactor = lens _drfNewReplicationFactor (\ s a -> s{_drfNewReplicationFactor = a});
+drfNewReplicationFactor = lens _drfNewReplicationFactor (\ s a -> s{_drfNewReplicationFactor = a})
 
 instance AWSRequest DecreaseReplicationFactor where
         type Rs DecreaseReplicationFactor =
@@ -156,16 +156,16 @@ decreaseReplicationFactorResponse
     -> DecreaseReplicationFactorResponse
 decreaseReplicationFactorResponse pResponseStatus_ =
   DecreaseReplicationFactorResponse'
-  {_drfrsCluster = Nothing, _drfrsResponseStatus = pResponseStatus_}
+    {_drfrsCluster = Nothing, _drfrsResponseStatus = pResponseStatus_}
 
 
 -- | A description of the DAX cluster, after you have decreased its replication factor.
 drfrsCluster :: Lens' DecreaseReplicationFactorResponse (Maybe Cluster)
-drfrsCluster = lens _drfrsCluster (\ s a -> s{_drfrsCluster = a});
+drfrsCluster = lens _drfrsCluster (\ s a -> s{_drfrsCluster = a})
 
 -- | -- | The response status code.
 drfrsResponseStatus :: Lens' DecreaseReplicationFactorResponse Int
-drfrsResponseStatus = lens _drfrsResponseStatus (\ s a -> s{_drfrsResponseStatus = a});
+drfrsResponseStatus = lens _drfrsResponseStatus (\ s a -> s{_drfrsResponseStatus = a})
 
 instance NFData DecreaseReplicationFactorResponse
          where

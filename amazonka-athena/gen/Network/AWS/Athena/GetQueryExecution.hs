@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Athena.GetQueryExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getQueryExecution pQueryExecutionId_ =
 
 -- | The unique ID of the query execution.
 gqeQueryExecutionId :: Lens' GetQueryExecution Text
-gqeQueryExecutionId = lens _gqeQueryExecutionId (\ s a -> s{_gqeQueryExecutionId = a});
+gqeQueryExecutionId = lens _gqeQueryExecutionId (\ s a -> s{_gqeQueryExecutionId = a})
 
 instance AWSRequest GetQueryExecution where
         type Rs GetQueryExecution = GetQueryExecutionResponse
@@ -119,15 +119,15 @@ getQueryExecutionResponse
     -> GetQueryExecutionResponse
 getQueryExecutionResponse pResponseStatus_ =
   GetQueryExecutionResponse'
-  {_gqersQueryExecution = Nothing, _gqersResponseStatus = pResponseStatus_}
+    {_gqersQueryExecution = Nothing, _gqersResponseStatus = pResponseStatus_}
 
 
 -- | Information about the query execution.
 gqersQueryExecution :: Lens' GetQueryExecutionResponse (Maybe QueryExecution)
-gqersQueryExecution = lens _gqersQueryExecution (\ s a -> s{_gqersQueryExecution = a});
+gqersQueryExecution = lens _gqersQueryExecution (\ s a -> s{_gqersQueryExecution = a})
 
 -- | -- | The response status code.
 gqersResponseStatus :: Lens' GetQueryExecutionResponse Int
-gqersResponseStatus = lens _gqersResponseStatus (\ s a -> s{_gqersResponseStatus = a});
+gqersResponseStatus = lens _gqersResponseStatus (\ s a -> s{_gqersResponseStatus = a})
 
 instance NFData GetQueryExecutionResponse where

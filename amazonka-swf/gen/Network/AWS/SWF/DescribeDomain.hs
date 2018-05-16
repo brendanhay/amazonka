@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,7 +78,7 @@ describeDomain pName_ = DescribeDomain' {_ddName = pName_}
 
 -- | The name of the domain to describe.
 ddName :: Lens' DescribeDomain Text
-ddName = lens _ddName (\ s a -> s{_ddName = a});
+ddName = lens _ddName (\ s a -> s{_ddName = a})
 
 instance AWSRequest DescribeDomain where
         type Rs DescribeDomain = DescribeDomainResponse
@@ -142,22 +142,22 @@ describeDomainResponse
     -> DescribeDomainResponse
 describeDomainResponse pResponseStatus_ pDomainInfo_ pConfiguration_ =
   DescribeDomainResponse'
-  { _ddrsResponseStatus = pResponseStatus_
-  , _ddrsDomainInfo = pDomainInfo_
-  , _ddrsConfiguration = pConfiguration_
-  }
+    { _ddrsResponseStatus = pResponseStatus_
+    , _ddrsDomainInfo = pDomainInfo_
+    , _ddrsConfiguration = pConfiguration_
+    }
 
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDomainResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 -- | The basic information about a domain, such as its name, status, and description.
 ddrsDomainInfo :: Lens' DescribeDomainResponse DomainInfo
-ddrsDomainInfo = lens _ddrsDomainInfo (\ s a -> s{_ddrsDomainInfo = a});
+ddrsDomainInfo = lens _ddrsDomainInfo (\ s a -> s{_ddrsDomainInfo = a})
 
 -- | The domain configuration. Currently, this includes only the domain's retention period.
 ddrsConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
-ddrsConfiguration = lens _ddrsConfiguration (\ s a -> s{_ddrsConfiguration = a});
+ddrsConfiguration = lens _ddrsConfiguration (\ s a -> s{_ddrsConfiguration = a})
 
 instance NFData DescribeDomainResponse where

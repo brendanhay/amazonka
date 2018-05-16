@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteReceiptRuleSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,7 +71,7 @@ deleteReceiptRuleSet pRuleSetName_ =
 
 -- | The name of the receipt rule set to delete.
 dRuleSetName :: Lens' DeleteReceiptRuleSet Text
-dRuleSetName = lens _dRuleSetName (\ s a -> s{_dRuleSetName = a});
+dRuleSetName = lens _dRuleSetName (\ s a -> s{_dRuleSetName = a})
 
 instance AWSRequest DeleteReceiptRuleSet where
         type Rs DeleteReceiptRuleSet =
@@ -124,6 +124,6 @@ deleteReceiptRuleSetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drrsrsResponseStatus :: Lens' DeleteReceiptRuleSetResponse Int
-drrsrsResponseStatus = lens _drrsrsResponseStatus (\ s a -> s{_drrsrsResponseStatus = a});
+drrsrsResponseStatus = lens _drrsrsResponseStatus (\ s a -> s{_drrsrsResponseStatus = a})
 
 instance NFData DeleteReceiptRuleSetResponse where

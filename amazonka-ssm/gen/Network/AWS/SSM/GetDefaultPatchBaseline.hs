@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetDefaultPatchBaseline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,8 @@
 --
 -- Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
 --
+--
+-- If you do not specify an operating system value, the default patch baseline for Windows is returned.
 --
 module Network.AWS.SSM.GetDefaultPatchBaseline
     (
@@ -64,7 +66,7 @@ getDefaultPatchBaseline =
 
 -- | Returns the default patch baseline for the specified operating system.
 gdpbOperatingSystem :: Lens' GetDefaultPatchBaseline (Maybe OperatingSystem)
-gdpbOperatingSystem = lens _gdpbOperatingSystem (\ s a -> s{_gdpbOperatingSystem = a});
+gdpbOperatingSystem = lens _gdpbOperatingSystem (\ s a -> s{_gdpbOperatingSystem = a})
 
 instance AWSRequest GetDefaultPatchBaseline where
         type Rs GetDefaultPatchBaseline =
@@ -124,22 +126,22 @@ getDefaultPatchBaselineResponse
     -> GetDefaultPatchBaselineResponse
 getDefaultPatchBaselineResponse pResponseStatus_ =
   GetDefaultPatchBaselineResponse'
-  { _gdpbrsOperatingSystem = Nothing
-  , _gdpbrsBaselineId = Nothing
-  , _gdpbrsResponseStatus = pResponseStatus_
-  }
+    { _gdpbrsOperatingSystem = Nothing
+    , _gdpbrsBaselineId = Nothing
+    , _gdpbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The operating system for the returned patch baseline.
 gdpbrsOperatingSystem :: Lens' GetDefaultPatchBaselineResponse (Maybe OperatingSystem)
-gdpbrsOperatingSystem = lens _gdpbrsOperatingSystem (\ s a -> s{_gdpbrsOperatingSystem = a});
+gdpbrsOperatingSystem = lens _gdpbrsOperatingSystem (\ s a -> s{_gdpbrsOperatingSystem = a})
 
 -- | The ID of the default patch baseline.
 gdpbrsBaselineId :: Lens' GetDefaultPatchBaselineResponse (Maybe Text)
-gdpbrsBaselineId = lens _gdpbrsBaselineId (\ s a -> s{_gdpbrsBaselineId = a});
+gdpbrsBaselineId = lens _gdpbrsBaselineId (\ s a -> s{_gdpbrsBaselineId = a})
 
 -- | -- | The response status code.
 gdpbrsResponseStatus :: Lens' GetDefaultPatchBaselineResponse Int
-gdpbrsResponseStatus = lens _gdpbrsResponseStatus (\ s a -> s{_gdpbrsResponseStatus = a});
+gdpbrsResponseStatus = lens _gdpbrsResponseStatus (\ s a -> s{_gdpbrsResponseStatus = a})
 
 instance NFData GetDefaultPatchBaselineResponse where

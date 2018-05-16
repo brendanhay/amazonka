@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetIntents
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,8 @@
 --
 -- The operation requires permission for the @lex:GetIntents@ action.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.LexModels.GetIntents
     (
     -- * Creating a Request
@@ -51,6 +53,7 @@ module Network.AWS.LexModels.GetIntents
 import Network.AWS.Lens
 import Network.AWS.LexModels.Types
 import Network.AWS.LexModels.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -76,20 +79,27 @@ getIntents
     :: GetIntents
 getIntents =
   GetIntents'
-  {_giNameContains = Nothing, _giNextToken = Nothing, _giMaxResults = Nothing}
+    {_giNameContains = Nothing, _giNextToken = Nothing, _giMaxResults = Nothing}
 
 
 -- | Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 giNameContains :: Lens' GetIntents (Maybe Text)
-giNameContains = lens _giNameContains (\ s a -> s{_giNameContains = a});
+giNameContains = lens _giNameContains (\ s a -> s{_giNameContains = a})
 
 -- | A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request.
 giNextToken :: Lens' GetIntents (Maybe Text)
-giNextToken = lens _giNextToken (\ s a -> s{_giNextToken = a});
+giNextToken = lens _giNextToken (\ s a -> s{_giNextToken = a})
 
 -- | The maximum number of intents to return in the response. The default is 10.
 giMaxResults :: Lens' GetIntents (Maybe Natural)
-giMaxResults = lens _giMaxResults (\ s a -> s{_giMaxResults = a}) . mapping _Nat;
+giMaxResults = lens _giMaxResults (\ s a -> s{_giMaxResults = a}) . mapping _Nat
+
+instance AWSPager GetIntents where
+        page rq rs
+          | stop (rs ^. gisrsNextToken) = Nothing
+          | stop (rs ^. gisrsIntents) = Nothing
+          | otherwise =
+            Just $ rq & giNextToken .~ rs ^. gisrsNextToken
 
 instance AWSRequest GetIntents where
         type Rs GetIntents = GetIntentsResponse
@@ -144,22 +154,22 @@ getIntentsResponse
     -> GetIntentsResponse
 getIntentsResponse pResponseStatus_ =
   GetIntentsResponse'
-  { _gisrsIntents = Nothing
-  , _gisrsNextToken = Nothing
-  , _gisrsResponseStatus = pResponseStatus_
-  }
+    { _gisrsIntents = Nothing
+    , _gisrsNextToken = Nothing
+    , _gisrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of @Intent@ objects. For more information, see 'PutBot' .
 gisrsIntents :: Lens' GetIntentsResponse [IntentMetadata]
-gisrsIntents = lens _gisrsIntents (\ s a -> s{_gisrsIntents = a}) . _Default . _Coerce;
+gisrsIntents = lens _gisrsIntents (\ s a -> s{_gisrsIntents = a}) . _Default . _Coerce
 
 -- | If the response is truncated, the response includes a pagination token that you can specify in your next request to fetch the next page of intents.
 gisrsNextToken :: Lens' GetIntentsResponse (Maybe Text)
-gisrsNextToken = lens _gisrsNextToken (\ s a -> s{_gisrsNextToken = a});
+gisrsNextToken = lens _gisrsNextToken (\ s a -> s{_gisrsNextToken = a})
 
 -- | -- | The response status code.
 gisrsResponseStatus :: Lens' GetIntentsResponse Int
-gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a});
+gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a})
 
 instance NFData GetIntentsResponse where

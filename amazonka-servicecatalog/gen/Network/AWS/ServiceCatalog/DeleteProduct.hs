@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DeleteProduct
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified product. This operation does not work with a product that has been shared with you or is associated with a portfolio.
+-- Deletes the specified product.
 --
+--
+-- You cannot delete a product if it was shared with you or is associated with a portfolio.
 --
 module Network.AWS.ServiceCatalog.DeleteProduct
     (
@@ -27,8 +29,8 @@ module Network.AWS.ServiceCatalog.DeleteProduct
       deleteProduct
     , DeleteProduct
     -- * Request Lenses
-    , delAcceptLanguage
-    , delId
+    , dppAcceptLanguage
+    , dppId
 
     -- * Destructuring the Response
     , deleteProductResponse
@@ -46,8 +48,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'deleteProduct' smart constructor.
 data DeleteProduct = DeleteProduct'
-  { _delAcceptLanguage :: !(Maybe Text)
-  , _delId             :: !Text
+  { _dppAcceptLanguage :: !(Maybe Text)
+  , _dppId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -55,23 +57,23 @@ data DeleteProduct = DeleteProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- * 'dppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'delId' - The identifier of the product for the delete request.
+-- * 'dppId' - The product identifier.
 deleteProduct
-    :: Text -- ^ 'delId'
+    :: Text -- ^ 'dppId'
     -> DeleteProduct
 deleteProduct pId_ =
-  DeleteProduct' {_delAcceptLanguage = Nothing, _delId = pId_}
+  DeleteProduct' {_dppAcceptLanguage = Nothing, _dppId = pId_}
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-delAcceptLanguage :: Lens' DeleteProduct (Maybe Text)
-delAcceptLanguage = lens _delAcceptLanguage (\ s a -> s{_delAcceptLanguage = a});
+dppAcceptLanguage :: Lens' DeleteProduct (Maybe Text)
+dppAcceptLanguage = lens _dppAcceptLanguage (\ s a -> s{_dppAcceptLanguage = a})
 
--- | The identifier of the product for the delete request.
-delId :: Lens' DeleteProduct Text
-delId = lens _delId (\ s a -> s{_delId = a});
+-- | The product identifier.
+dppId :: Lens' DeleteProduct Text
+dppId = lens _dppId (\ s a -> s{_dppId = a})
 
 instance AWSRequest DeleteProduct where
         type Rs DeleteProduct = DeleteProductResponse
@@ -99,8 +101,8 @@ instance ToJSON DeleteProduct where
         toJSON DeleteProduct'{..}
           = object
               (catMaybes
-                 [("AcceptLanguage" .=) <$> _delAcceptLanguage,
-                  Just ("Id" .= _delId)])
+                 [("AcceptLanguage" .=) <$> _dppAcceptLanguage,
+                  Just ("Id" .= _dppId)])
 
 instance ToPath DeleteProduct where
         toPath = const "/"
@@ -128,6 +130,6 @@ deleteProductResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 delersResponseStatus :: Lens' DeleteProductResponse Int
-delersResponseStatus = lens _delersResponseStatus (\ s a -> s{_delersResponseStatus = a});
+delersResponseStatus = lens _delersResponseStatus (\ s a -> s{_delersResponseStatus = a})
 
 instance NFData DeleteProductResponse where

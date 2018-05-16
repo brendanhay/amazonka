@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ deleteConfigurationTemplate
     -> DeleteConfigurationTemplate
 deleteConfigurationTemplate pApplicationName_ pTemplateName_ =
   DeleteConfigurationTemplate'
-  {_dctApplicationName = pApplicationName_, _dctTemplateName = pTemplateName_}
+    {_dctApplicationName = pApplicationName_, _dctTemplateName = pTemplateName_}
 
 
 -- | The name of the application to delete the configuration template from.
 dctApplicationName :: Lens' DeleteConfigurationTemplate Text
-dctApplicationName = lens _dctApplicationName (\ s a -> s{_dctApplicationName = a});
+dctApplicationName = lens _dctApplicationName (\ s a -> s{_dctApplicationName = a})
 
 -- | The name of the configuration template to delete.
 dctTemplateName :: Lens' DeleteConfigurationTemplate Text
-dctTemplateName = lens _dctTemplateName (\ s a -> s{_dctTemplateName = a});
+dctTemplateName = lens _dctTemplateName (\ s a -> s{_dctTemplateName = a})
 
 instance AWSRequest DeleteConfigurationTemplate where
         type Rs DeleteConfigurationTemplate =

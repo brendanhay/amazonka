@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineExpression
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,11 +73,11 @@ defineExpression pDomainName_ pExpression_ =
 
 -- | Undocumented member.
 dDomainName :: Lens' DefineExpression Text
-dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
+dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a})
 
 -- | Undocumented member.
 dExpression :: Lens' DefineExpression Expression
-dExpression = lens _dExpression (\ s a -> s{_dExpression = a});
+dExpression = lens _dExpression (\ s a -> s{_dExpression = a})
 
 instance AWSRequest DefineExpression where
         type Rs DefineExpression = DefineExpressionResponse
@@ -130,15 +130,15 @@ defineExpressionResponse
     -> DefineExpressionResponse
 defineExpressionResponse pResponseStatus_ pExpression_ =
   DefineExpressionResponse'
-  {_dersResponseStatus = pResponseStatus_, _dersExpression = pExpression_}
+    {_dersResponseStatus = pResponseStatus_, _dersExpression = pExpression_}
 
 
 -- | -- | The response status code.
 dersResponseStatus :: Lens' DefineExpressionResponse Int
-dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a})
 
 -- | Undocumented member.
 dersExpression :: Lens' DefineExpressionResponse ExpressionStatus
-dersExpression = lens _dersExpression (\ s a -> s{_dersExpression = a});
+dersExpression = lens _dersExpression (\ s a -> s{_dersExpression = a})
 
 instance NFData DefineExpressionResponse where

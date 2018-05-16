@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ModifyDocumentPermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,28 +72,28 @@ modifyDocumentPermission
     -> ModifyDocumentPermission
 modifyDocumentPermission pName_ pPermissionType_ =
   ModifyDocumentPermission'
-  { _mdpAccountIdsToAdd = Nothing
-  , _mdpAccountIdsToRemove = Nothing
-  , _mdpName = pName_
-  , _mdpPermissionType = pPermissionType_
-  }
+    { _mdpAccountIdsToAdd = Nothing
+    , _mdpAccountIdsToRemove = Nothing
+    , _mdpName = pName_
+    , _mdpPermissionType = pPermissionType_
+    }
 
 
 -- | The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
 mdpAccountIdsToAdd :: Lens' ModifyDocumentPermission [Text]
-mdpAccountIdsToAdd = lens _mdpAccountIdsToAdd (\ s a -> s{_mdpAccountIdsToAdd = a}) . _Default . _Coerce;
+mdpAccountIdsToAdd = lens _mdpAccountIdsToAdd (\ s a -> s{_mdpAccountIdsToAdd = a}) . _Default . _Coerce
 
 -- | The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
 mdpAccountIdsToRemove :: Lens' ModifyDocumentPermission [Text]
-mdpAccountIdsToRemove = lens _mdpAccountIdsToRemove (\ s a -> s{_mdpAccountIdsToRemove = a}) . _Default . _Coerce;
+mdpAccountIdsToRemove = lens _mdpAccountIdsToRemove (\ s a -> s{_mdpAccountIdsToRemove = a}) . _Default . _Coerce
 
 -- | The name of the document that you want to share.
 mdpName :: Lens' ModifyDocumentPermission Text
-mdpName = lens _mdpName (\ s a -> s{_mdpName = a});
+mdpName = lens _mdpName (\ s a -> s{_mdpName = a})
 
 -- | The permission type for the document. The permission type can be /Share/ .
 mdpPermissionType :: Lens' ModifyDocumentPermission DocumentPermissionType
-mdpPermissionType = lens _mdpPermissionType (\ s a -> s{_mdpPermissionType = a});
+mdpPermissionType = lens _mdpPermissionType (\ s a -> s{_mdpPermissionType = a})
 
 instance AWSRequest ModifyDocumentPermission where
         type Rs ModifyDocumentPermission =
@@ -153,7 +153,7 @@ modifyDocumentPermissionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 mdprsResponseStatus :: Lens' ModifyDocumentPermissionResponse Int
-mdprsResponseStatus = lens _mdprsResponseStatus (\ s a -> s{_mdprsResponseStatus = a});
+mdprsResponseStatus = lens _mdprsResponseStatus (\ s a -> s{_mdprsResponseStatus = a})
 
 instance NFData ModifyDocumentPermissionResponse
          where

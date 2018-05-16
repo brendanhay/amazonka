@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.SetIPAddressType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,18 +67,18 @@ setIPAddressType
     -> SetIPAddressType
 setIPAddressType pLoadBalancerARN_ pIPAddressType_ =
   SetIPAddressType'
-  { _siatLoadBalancerARN = pLoadBalancerARN_
-  , _siatIPAddressType = pIPAddressType_
-  }
+    { _siatLoadBalancerARN = pLoadBalancerARN_
+    , _siatIPAddressType = pIPAddressType_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 siatLoadBalancerARN :: Lens' SetIPAddressType Text
-siatLoadBalancerARN = lens _siatLoadBalancerARN (\ s a -> s{_siatLoadBalancerARN = a});
+siatLoadBalancerARN = lens _siatLoadBalancerARN (\ s a -> s{_siatLoadBalancerARN = a})
 
 -- | The IP address type. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@ .
 siatIPAddressType :: Lens' SetIPAddressType IPAddressType
-siatIPAddressType = lens _siatIPAddressType (\ s a -> s{_siatIPAddressType = a});
+siatIPAddressType = lens _siatIPAddressType (\ s a -> s{_siatIPAddressType = a})
 
 instance AWSRequest SetIPAddressType where
         type Rs SetIPAddressType = SetIPAddressTypeResponse
@@ -126,15 +126,15 @@ setIPAddressTypeResponse
     -> SetIPAddressTypeResponse
 setIPAddressTypeResponse pResponseStatus_ =
   SetIPAddressTypeResponse'
-  {_siatrsIPAddressType = Nothing, _siatrsResponseStatus = pResponseStatus_}
+    {_siatrsIPAddressType = Nothing, _siatrsResponseStatus = pResponseStatus_}
 
 
 -- | The IP address type.
 siatrsIPAddressType :: Lens' SetIPAddressTypeResponse (Maybe IPAddressType)
-siatrsIPAddressType = lens _siatrsIPAddressType (\ s a -> s{_siatrsIPAddressType = a});
+siatrsIPAddressType = lens _siatrsIPAddressType (\ s a -> s{_siatrsIPAddressType = a})
 
 -- | -- | The response status code.
 siatrsResponseStatus :: Lens' SetIPAddressTypeResponse Int
-siatrsResponseStatus = lens _siatrsResponseStatus (\ s a -> s{_siatrsResponseStatus = a});
+siatrsResponseStatus = lens _siatrsResponseStatus (\ s a -> s{_siatrsResponseStatus = a})
 
 instance NFData SetIPAddressTypeResponse where

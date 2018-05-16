@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeImageAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,23 +80,23 @@ describeImageAttribute
     -> DescribeImageAttribute
 describeImageAttribute pAttribute_ pImageId_ =
   DescribeImageAttribute'
-  { _diaiDryRun = Nothing
-  , _diaiAttribute = pAttribute_
-  , _diaiImageId = pImageId_
-  }
+    { _diaiDryRun = Nothing
+    , _diaiAttribute = pAttribute_
+    , _diaiImageId = pImageId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 diaiDryRun :: Lens' DescribeImageAttribute (Maybe Bool)
-diaiDryRun = lens _diaiDryRun (\ s a -> s{_diaiDryRun = a});
+diaiDryRun = lens _diaiDryRun (\ s a -> s{_diaiDryRun = a})
 
 -- | The AMI attribute. __Note__ : Depending on your account privileges, the @blockDeviceMapping@ attribute may return a @Client.AuthFailure@ error. If this happens, use 'DescribeImages' to get information about the block device mapping for the AMI.
 diaiAttribute :: Lens' DescribeImageAttribute ImageAttributeName
-diaiAttribute = lens _diaiAttribute (\ s a -> s{_diaiAttribute = a});
+diaiAttribute = lens _diaiAttribute (\ s a -> s{_diaiAttribute = a})
 
 -- | The ID of the AMI.
 diaiImageId :: Lens' DescribeImageAttribute Text
-diaiImageId = lens _diaiImageId (\ s a -> s{_diaiImageId = a});
+diaiImageId = lens _diaiImageId (\ s a -> s{_diaiImageId = a})
 
 instance AWSRequest DescribeImageAttribute where
         type Rs DescribeImageAttribute =
@@ -185,52 +185,52 @@ describeImageAttributeResponse
     -> DescribeImageAttributeResponse
 describeImageAttributeResponse pResponseStatus_ =
   DescribeImageAttributeResponse'
-  { _diarsLaunchPermissions = Nothing
-  , _diarsRAMDiskId = Nothing
-  , _diarsKernelId = Nothing
-  , _diarsSRIOVNetSupport = Nothing
-  , _diarsImageId = Nothing
-  , _diarsProductCodes = Nothing
-  , _diarsDescription = Nothing
-  , _diarsBlockDeviceMappings = Nothing
-  , _diarsResponseStatus = pResponseStatus_
-  }
+    { _diarsLaunchPermissions = Nothing
+    , _diarsRAMDiskId = Nothing
+    , _diarsKernelId = Nothing
+    , _diarsSRIOVNetSupport = Nothing
+    , _diarsImageId = Nothing
+    , _diarsProductCodes = Nothing
+    , _diarsDescription = Nothing
+    , _diarsBlockDeviceMappings = Nothing
+    , _diarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | One or more launch permissions.
 diarsLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
-diarsLaunchPermissions = lens _diarsLaunchPermissions (\ s a -> s{_diarsLaunchPermissions = a}) . _Default . _Coerce;
+diarsLaunchPermissions = lens _diarsLaunchPermissions (\ s a -> s{_diarsLaunchPermissions = a}) . _Default . _Coerce
 
 -- | The RAM disk ID.
 diarsRAMDiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsRAMDiskId = lens _diarsRAMDiskId (\ s a -> s{_diarsRAMDiskId = a});
+diarsRAMDiskId = lens _diarsRAMDiskId (\ s a -> s{_diarsRAMDiskId = a})
 
 -- | The kernel ID.
 diarsKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsKernelId = lens _diarsKernelId (\ s a -> s{_diarsKernelId = a});
+diarsKernelId = lens _diarsKernelId (\ s a -> s{_diarsKernelId = a})
 
 -- | Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 diarsSRIOVNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsSRIOVNetSupport = lens _diarsSRIOVNetSupport (\ s a -> s{_diarsSRIOVNetSupport = a});
+diarsSRIOVNetSupport = lens _diarsSRIOVNetSupport (\ s a -> s{_diarsSRIOVNetSupport = a})
 
 -- | The ID of the AMI.
 diarsImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
-diarsImageId = lens _diarsImageId (\ s a -> s{_diarsImageId = a});
+diarsImageId = lens _diarsImageId (\ s a -> s{_diarsImageId = a})
 
 -- | One or more product codes.
 diarsProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
-diarsProductCodes = lens _diarsProductCodes (\ s a -> s{_diarsProductCodes = a}) . _Default . _Coerce;
+diarsProductCodes = lens _diarsProductCodes (\ s a -> s{_diarsProductCodes = a}) . _Default . _Coerce
 
 -- | A description for the AMI.
 diarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsDescription = lens _diarsDescription (\ s a -> s{_diarsDescription = a});
+diarsDescription = lens _diarsDescription (\ s a -> s{_diarsDescription = a})
 
 -- | One or more block device mapping entries.
 diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
-diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default . _Coerce;
+diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 diarsResponseStatus :: Lens' DescribeImageAttributeResponse Int
-diarsResponseStatus = lens _diarsResponseStatus (\ s a -> s{_diarsResponseStatus = a});
+diarsResponseStatus = lens _diarsResponseStatus (\ s a -> s{_diarsResponseStatus = a})
 
 instance NFData DescribeImageAttributeResponse where

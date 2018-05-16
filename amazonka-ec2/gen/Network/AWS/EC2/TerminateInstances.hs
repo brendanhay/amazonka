@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.TerminateInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,11 +81,11 @@ terminateInstances =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 tiDryRun :: Lens' TerminateInstances (Maybe Bool)
-tiDryRun = lens _tiDryRun (\ s a -> s{_tiDryRun = a});
+tiDryRun = lens _tiDryRun (\ s a -> s{_tiDryRun = a})
 
 -- | One or more instance IDs. Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
 tiInstanceIds :: Lens' TerminateInstances [Text]
-tiInstanceIds = lens _tiInstanceIds (\ s a -> s{_tiInstanceIds = a}) . _Coerce;
+tiInstanceIds = lens _tiInstanceIds (\ s a -> s{_tiInstanceIds = a}) . _Coerce
 
 instance AWSRequest TerminateInstances where
         type Rs TerminateInstances =
@@ -140,15 +140,17 @@ terminateInstancesResponse
     -> TerminateInstancesResponse
 terminateInstancesResponse pResponseStatus_ =
   TerminateInstancesResponse'
-  {_tirsTerminatingInstances = Nothing, _tirsResponseStatus = pResponseStatus_}
+    { _tirsTerminatingInstances = Nothing
+    , _tirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about one or more terminated instances.
 tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
-tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTerminatingInstances = a}) . _Default . _Coerce;
+tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTerminatingInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 tirsResponseStatus :: Lens' TerminateInstancesResponse Int
-tirsResponseStatus = lens _tirsResponseStatus (\ s a -> s{_tirsResponseStatus = a});
+tirsResponseStatus = lens _tirsResponseStatus (\ s a -> s{_tirsResponseStatus = a})
 
 instance NFData TerminateInstancesResponse where

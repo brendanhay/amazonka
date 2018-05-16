@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.Types.Sum
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,6 +81,30 @@ instance ToHeader     HistoryItemType
 
 instance FromXML HistoryItemType where
     parseXML = parseXMLText "HistoryItemType"
+
+data ScanBy
+  = TimestampAscending
+  | TimestampDescending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ScanBy where
+    parser = takeLowerText >>= \case
+        "timestampascending" -> pure TimestampAscending
+        "timestampdescending" -> pure TimestampDescending
+        e -> fromTextError $ "Failure parsing ScanBy from value: '" <> e
+           <> "'. Accepted values: timestampascending, timestampdescending"
+
+instance ToText ScanBy where
+    toText = \case
+        TimestampAscending -> "TimestampAscending"
+        TimestampDescending -> "TimestampDescending"
+
+instance Hashable     ScanBy
+instance NFData       ScanBy
+instance ToByteString ScanBy
+instance ToQuery      ScanBy
+instance ToHeader     ScanBy
 
 data StandardUnit
   = Bits
@@ -249,3 +273,33 @@ instance ToHeader     Statistic
 
 instance FromXML Statistic where
     parseXML = parseXMLText "Statistic"
+
+data StatusCode
+  = Complete
+  | InternalError
+  | PartialData
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StatusCode where
+    parser = takeLowerText >>= \case
+        "complete" -> pure Complete
+        "internalerror" -> pure InternalError
+        "partialdata" -> pure PartialData
+        e -> fromTextError $ "Failure parsing StatusCode from value: '" <> e
+           <> "'. Accepted values: complete, internalerror, partialdata"
+
+instance ToText StatusCode where
+    toText = \case
+        Complete -> "Complete"
+        InternalError -> "InternalError"
+        PartialData -> "PartialData"
+
+instance Hashable     StatusCode
+instance NFData       StatusCode
+instance ToByteString StatusCode
+instance ToQuery      StatusCode
+instance ToHeader     StatusCode
+
+instance FromXML StatusCode where
+    parseXML = parseXMLText "StatusCode"

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.DeleteIdentityPool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ deleteIdentityPool pIdentityPoolId_ =
 
 -- | An identity pool ID in the format REGION:GUID.
 dIdentityPoolId :: Lens' DeleteIdentityPool Text
-dIdentityPoolId = lens _dIdentityPoolId (\ s a -> s{_dIdentityPoolId = a});
+dIdentityPoolId = lens _dIdentityPoolId (\ s a -> s{_dIdentityPoolId = a})
 
 instance AWSRequest DeleteIdentityPool where
         type Rs DeleteIdentityPool =

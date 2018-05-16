@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,23 +71,23 @@ putThirdPartyJobFailureResult
     -> PutThirdPartyJobFailureResult
 putThirdPartyJobFailureResult pJobId_ pClientToken_ pFailureDetails_ =
   PutThirdPartyJobFailureResult'
-  { _ptpjfrJobId = pJobId_
-  , _ptpjfrClientToken = pClientToken_
-  , _ptpjfrFailureDetails = pFailureDetails_
-  }
+    { _ptpjfrJobId = pJobId_
+    , _ptpjfrClientToken = pClientToken_
+    , _ptpjfrFailureDetails = pFailureDetails_
+    }
 
 
 -- | The ID of the job that failed. This is the same ID returned from PollForThirdPartyJobs.
 ptpjfrJobId :: Lens' PutThirdPartyJobFailureResult Text
-ptpjfrJobId = lens _ptpjfrJobId (\ s a -> s{_ptpjfrJobId = a});
+ptpjfrJobId = lens _ptpjfrJobId (\ s a -> s{_ptpjfrJobId = a})
 
 -- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 ptpjfrClientToken :: Lens' PutThirdPartyJobFailureResult Text
-ptpjfrClientToken = lens _ptpjfrClientToken (\ s a -> s{_ptpjfrClientToken = a});
+ptpjfrClientToken = lens _ptpjfrClientToken (\ s a -> s{_ptpjfrClientToken = a})
 
 -- | Represents information about failure details.
 ptpjfrFailureDetails :: Lens' PutThirdPartyJobFailureResult FailureDetails
-ptpjfrFailureDetails = lens _ptpjfrFailureDetails (\ s a -> s{_ptpjfrFailureDetails = a});
+ptpjfrFailureDetails = lens _ptpjfrFailureDetails (\ s a -> s{_ptpjfrFailureDetails = a})
 
 instance AWSRequest PutThirdPartyJobFailureResult
          where

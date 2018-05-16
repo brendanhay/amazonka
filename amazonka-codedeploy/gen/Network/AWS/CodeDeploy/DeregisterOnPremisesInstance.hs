@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ deregisterOnPremisesInstance pInstanceName_ =
 
 -- | The name of the on-premises instance to deregister.
 dopiInstanceName :: Lens' DeregisterOnPremisesInstance Text
-dopiInstanceName = lens _dopiInstanceName (\ s a -> s{_dopiInstanceName = a});
+dopiInstanceName = lens _dopiInstanceName (\ s a -> s{_dopiInstanceName = a})
 
 instance AWSRequest DeregisterOnPremisesInstance
          where

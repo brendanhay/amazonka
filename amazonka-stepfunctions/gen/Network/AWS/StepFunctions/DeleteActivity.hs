@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.DeleteActivity
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteActivity pActivityARN_ = DeleteActivity' {_daActivityARN = pActivityARN_}
 
 -- | The Amazon Resource Name (ARN) of the activity to delete.
 daActivityARN :: Lens' DeleteActivity Text
-daActivityARN = lens _daActivityARN (\ s a -> s{_daActivityARN = a});
+daActivityARN = lens _daActivityARN (\ s a -> s{_daActivityARN = a})
 
 instance AWSRequest DeleteActivity where
         type Rs DeleteActivity = DeleteActivityResponse
@@ -116,6 +116,6 @@ deleteActivityResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DeleteActivityResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a})
 
 instance NFData DeleteActivityResponse where

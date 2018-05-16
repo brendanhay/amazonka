@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DetachRolePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,11 +68,11 @@ detachRolePolicy pRoleName_ pPolicyARN_ =
 
 -- | The name (friendly name, not ARN) of the IAM role to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 drpRoleName :: Lens' DetachRolePolicy Text
-drpRoleName = lens _drpRoleName (\ s a -> s{_drpRoleName = a});
+drpRoleName = lens _drpRoleName (\ s a -> s{_drpRoleName = a})
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 drpPolicyARN :: Lens' DetachRolePolicy Text
-drpPolicyARN = lens _drpPolicyARN (\ s a -> s{_drpPolicyARN = a});
+drpPolicyARN = lens _drpPolicyARN (\ s a -> s{_drpPolicyARN = a})
 
 instance AWSRequest DetachRolePolicy where
         type Rs DetachRolePolicy = DetachRolePolicyResponse

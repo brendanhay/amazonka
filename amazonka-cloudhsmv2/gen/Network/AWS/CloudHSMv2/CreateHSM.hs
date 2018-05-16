@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.CreateHSM
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,23 +69,23 @@ createHSM
     -> CreateHSM
 createHSM pClusterId_ pAvailabilityZone_ =
   CreateHSM'
-  { _chIPAddress = Nothing
-  , _chClusterId = pClusterId_
-  , _chAvailabilityZone = pAvailabilityZone_
-  }
+    { _chIPAddress = Nothing
+    , _chClusterId = pClusterId_
+    , _chAvailabilityZone = pAvailabilityZone_
+    }
 
 
 -- | The HSM's IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don't specify an IP address, one is chosen for you from that subnet.
 chIPAddress :: Lens' CreateHSM (Maybe Text)
-chIPAddress = lens _chIPAddress (\ s a -> s{_chIPAddress = a});
+chIPAddress = lens _chIPAddress (\ s a -> s{_chIPAddress = a})
 
 -- | The identifier (ID) of the HSM's cluster. To find the cluster ID, use 'DescribeClusters' .
 chClusterId :: Lens' CreateHSM Text
-chClusterId = lens _chClusterId (\ s a -> s{_chClusterId = a});
+chClusterId = lens _chClusterId (\ s a -> s{_chClusterId = a})
 
 -- | The Availability Zone where you are creating the HSM. To find the cluster's Availability Zones, use 'DescribeClusters' .
 chAvailabilityZone :: Lens' CreateHSM Text
-chAvailabilityZone = lens _chAvailabilityZone (\ s a -> s{_chAvailabilityZone = a});
+chAvailabilityZone = lens _chAvailabilityZone (\ s a -> s{_chAvailabilityZone = a})
 
 instance AWSRequest CreateHSM where
         type Rs CreateHSM = CreateHSMResponse
@@ -142,15 +142,15 @@ createHSMResponse
     -> CreateHSMResponse
 createHSMResponse pResponseStatus_ =
   CreateHSMResponse'
-  {_chrsHSM = Nothing, _chrsResponseStatus = pResponseStatus_}
+    {_chrsHSM = Nothing, _chrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the HSM that was created.
 chrsHSM :: Lens' CreateHSMResponse (Maybe HSM)
-chrsHSM = lens _chrsHSM (\ s a -> s{_chrsHSM = a});
+chrsHSM = lens _chrsHSM (\ s a -> s{_chrsHSM = a})
 
 -- | -- | The response status code.
 chrsResponseStatus :: Lens' CreateHSMResponse Int
-chrsResponseStatus = lens _chrsResponseStatus (\ s a -> s{_chrsResponseStatus = a});
+chrsResponseStatus = lens _chrsResponseStatus (\ s a -> s{_chrsResponseStatus = a})
 
 instance NFData CreateHSMResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeprecateThingType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ deprecateThingType
     -> DeprecateThingType
 deprecateThingType pThingTypeName_ =
   DeprecateThingType'
-  {_depUndoDeprecate = Nothing, _depThingTypeName = pThingTypeName_}
+    {_depUndoDeprecate = Nothing, _depThingTypeName = pThingTypeName_}
 
 
 -- | Whether to undeprecate a deprecated thing type. If __true__ , the thing type will not be deprecated anymore and you can associate it with things.
 depUndoDeprecate :: Lens' DeprecateThingType (Maybe Bool)
-depUndoDeprecate = lens _depUndoDeprecate (\ s a -> s{_depUndoDeprecate = a});
+depUndoDeprecate = lens _depUndoDeprecate (\ s a -> s{_depUndoDeprecate = a})
 
 -- | The name of the thing type to deprecate.
 depThingTypeName :: Lens' DeprecateThingType Text
-depThingTypeName = lens _depThingTypeName (\ s a -> s{_depThingTypeName = a});
+depThingTypeName = lens _depThingTypeName (\ s a -> s{_depThingTypeName = a})
 
 instance AWSRequest DeprecateThingType where
         type Rs DeprecateThingType =
@@ -133,6 +133,6 @@ deprecateThingTypeResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 deprsResponseStatus :: Lens' DeprecateThingTypeResponse Int
-deprsResponseStatus = lens _deprsResponseStatus (\ s a -> s{_deprsResponseStatus = a});
+deprsResponseStatus = lens _deprsResponseStatus (\ s a -> s{_deprsResponseStatus = a})
 
 instance NFData DeprecateThingTypeResponse where

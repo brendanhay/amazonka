@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,33 +52,33 @@ billingRecord
     :: BillingRecord
 billingRecord =
   BillingRecord'
-  { _brOperation = Nothing
-  , _brInvoiceId = Nothing
-  , _brDomainName = Nothing
-  , _brBillDate = Nothing
-  , _brPrice = Nothing
-  }
+    { _brOperation = Nothing
+    , _brInvoiceId = Nothing
+    , _brDomainName = Nothing
+    , _brBillDate = Nothing
+    , _brPrice = Nothing
+    }
 
 
 -- | The operation that you were charged for.
 brOperation :: Lens' BillingRecord (Maybe OperationType)
-brOperation = lens _brOperation (\ s a -> s{_brOperation = a});
+brOperation = lens _brOperation (\ s a -> s{_brOperation = a})
 
 -- | The ID of the invoice that is associated with the billing record.
 brInvoiceId :: Lens' BillingRecord (Maybe Text)
-brInvoiceId = lens _brInvoiceId (\ s a -> s{_brInvoiceId = a});
+brInvoiceId = lens _brInvoiceId (\ s a -> s{_brInvoiceId = a})
 
 -- | The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html DNS Domain Name Format> in the /Amazon Route 53 Developer Guidezzz/ .
 brDomainName :: Lens' BillingRecord (Maybe Text)
-brDomainName = lens _brDomainName (\ s a -> s{_brDomainName = a});
+brDomainName = lens _brDomainName (\ s a -> s{_brDomainName = a})
 
 -- | The date that the operation was billed, in Unix format.
 brBillDate :: Lens' BillingRecord (Maybe UTCTime)
-brBillDate = lens _brBillDate (\ s a -> s{_brBillDate = a}) . mapping _Time;
+brBillDate = lens _brBillDate (\ s a -> s{_brBillDate = a}) . mapping _Time
 
 -- | The price that you were charged for the operation, in US dollars. Example value: 12.0
 brPrice :: Lens' BillingRecord (Maybe Double)
-brPrice = lens _brPrice (\ s a -> s{_brPrice = a});
+brPrice = lens _brPrice (\ s a -> s{_brPrice = a})
 
 instance FromJSON BillingRecord where
         parseJSON
@@ -152,78 +152,78 @@ contactDetail
     :: ContactDetail
 contactDetail =
   ContactDetail'
-  { _cdOrganizationName = Nothing
-  , _cdEmail = Nothing
-  , _cdState = Nothing
-  , _cdFax = Nothing
-  , _cdLastName = Nothing
-  , _cdExtraParams = Nothing
-  , _cdZipCode = Nothing
-  , _cdAddressLine1 = Nothing
-  , _cdCity = Nothing
-  , _cdPhoneNumber = Nothing
-  , _cdAddressLine2 = Nothing
-  , _cdFirstName = Nothing
-  , _cdCountryCode = Nothing
-  , _cdContactType = Nothing
-  }
+    { _cdOrganizationName = Nothing
+    , _cdEmail = Nothing
+    , _cdState = Nothing
+    , _cdFax = Nothing
+    , _cdLastName = Nothing
+    , _cdExtraParams = Nothing
+    , _cdZipCode = Nothing
+    , _cdAddressLine1 = Nothing
+    , _cdCity = Nothing
+    , _cdPhoneNumber = Nothing
+    , _cdAddressLine2 = Nothing
+    , _cdFirstName = Nothing
+    , _cdCountryCode = Nothing
+    , _cdContactType = Nothing
+    }
 
 
 -- | Name of the organization for contact types other than @PERSON@ .
 cdOrganizationName :: Lens' ContactDetail (Maybe Text)
-cdOrganizationName = lens _cdOrganizationName (\ s a -> s{_cdOrganizationName = a});
+cdOrganizationName = lens _cdOrganizationName (\ s a -> s{_cdOrganizationName = a})
 
 -- | Email address of the contact.
 cdEmail :: Lens' ContactDetail (Maybe Text)
-cdEmail = lens _cdEmail (\ s a -> s{_cdEmail = a});
+cdEmail = lens _cdEmail (\ s a -> s{_cdEmail = a})
 
 -- | The state or province of the contact's city.
 cdState :: Lens' ContactDetail (Maybe Text)
-cdState = lens _cdState (\ s a -> s{_cdState = a});
+cdState = lens _cdState (\ s a -> s{_cdState = a})
 
 -- | Fax number of the contact. Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as @"+1.1234567890"@ .
 cdFax :: Lens' ContactDetail (Maybe Text)
-cdFax = lens _cdFax (\ s a -> s{_cdFax = a});
+cdFax = lens _cdFax (\ s a -> s{_cdFax = a})
 
 -- | Last name of contact.
 cdLastName :: Lens' ContactDetail (Maybe Text)
-cdLastName = lens _cdLastName (\ s a -> s{_cdLastName = a});
+cdLastName = lens _cdLastName (\ s a -> s{_cdLastName = a})
 
 -- | A list of name-value pairs for parameters required by certain top-level domains.
 cdExtraParams :: Lens' ContactDetail [ExtraParam]
-cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a}) . _Default . _Coerce;
+cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a}) . _Default . _Coerce
 
 -- | The zip or postal code of the contact's address.
 cdZipCode :: Lens' ContactDetail (Maybe Text)
-cdZipCode = lens _cdZipCode (\ s a -> s{_cdZipCode = a});
+cdZipCode = lens _cdZipCode (\ s a -> s{_cdZipCode = a})
 
 -- | First line of the contact's address.
 cdAddressLine1 :: Lens' ContactDetail (Maybe Text)
-cdAddressLine1 = lens _cdAddressLine1 (\ s a -> s{_cdAddressLine1 = a});
+cdAddressLine1 = lens _cdAddressLine1 (\ s a -> s{_cdAddressLine1 = a})
 
 -- | The city of the contact's address.
 cdCity :: Lens' ContactDetail (Maybe Text)
-cdCity = lens _cdCity (\ s a -> s{_cdCity = a});
+cdCity = lens _cdCity (\ s a -> s{_cdCity = a})
 
 -- | The phone number of the contact. Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as @"+1.1234567890"@ .
 cdPhoneNumber :: Lens' ContactDetail (Maybe Text)
-cdPhoneNumber = lens _cdPhoneNumber (\ s a -> s{_cdPhoneNumber = a});
+cdPhoneNumber = lens _cdPhoneNumber (\ s a -> s{_cdPhoneNumber = a})
 
 -- | Second line of contact's address, if any.
 cdAddressLine2 :: Lens' ContactDetail (Maybe Text)
-cdAddressLine2 = lens _cdAddressLine2 (\ s a -> s{_cdAddressLine2 = a});
+cdAddressLine2 = lens _cdAddressLine2 (\ s a -> s{_cdAddressLine2 = a})
 
 -- | First name of contact.
 cdFirstName :: Lens' ContactDetail (Maybe Text)
-cdFirstName = lens _cdFirstName (\ s a -> s{_cdFirstName = a});
+cdFirstName = lens _cdFirstName (\ s a -> s{_cdFirstName = a})
 
 -- | Code for the country of the contact's address.
 cdCountryCode :: Lens' ContactDetail (Maybe CountryCode)
-cdCountryCode = lens _cdCountryCode (\ s a -> s{_cdCountryCode = a});
+cdCountryCode = lens _cdCountryCode (\ s a -> s{_cdCountryCode = a})
 
 -- | Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than @PERSON@ , you must enter an organization name, and you can't enable privacy protection for the contact.
 cdContactType :: Lens' ContactDetail (Maybe ContactType)
-cdContactType = lens _cdContactType (\ s a -> s{_cdContactType = a});
+cdContactType = lens _cdContactType (\ s a -> s{_cdContactType = a})
 
 instance FromJSON ContactDetail where
         parseJSON
@@ -292,11 +292,11 @@ domainSuggestion =
 
 -- | Whether the domain name is available for registering. Valid values:     * AVAILABLE    * The domain name is available.     * AVAILABLE_RESERVED    * The domain name is reserved under specific conditions.     * AVAILABLE_PREORDER    * The domain name is available and can be preordered.     * DONT_KNOW    * The TLD registry didn't reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.     * PENDING    * The TLD registry didn't return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.     * RESERVED    * The domain name has been reserved for another person or organization.     * UNAVAILABLE    * The domain name is not available.     * UNAVAILABLE_PREMIUM    * The domain name is not available.     * UNAVAILABLE_RESTRICTED    * The domain name is forbidden.
 dAvailability :: Lens' DomainSuggestion (Maybe Text)
-dAvailability = lens _dAvailability (\ s a -> s{_dAvailability = a});
+dAvailability = lens _dAvailability (\ s a -> s{_dAvailability = a})
 
 -- | A suggested domain name.
 dDomainName :: Lens' DomainSuggestion (Maybe Text)
-dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
+dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a})
 
 instance FromJSON DomainSuggestion where
         parseJSON
@@ -338,28 +338,28 @@ domainSummary
     -> DomainSummary
 domainSummary pDomainName_ =
   DomainSummary'
-  { _dsExpiry = Nothing
-  , _dsTransferLock = Nothing
-  , _dsAutoRenew = Nothing
-  , _dsDomainName = pDomainName_
-  }
+    { _dsExpiry = Nothing
+    , _dsTransferLock = Nothing
+    , _dsAutoRenew = Nothing
+    , _dsDomainName = pDomainName_
+    }
 
 
 -- | Expiration date of the domain in Coordinated Universal Time (UTC).
 dsExpiry :: Lens' DomainSummary (Maybe UTCTime)
-dsExpiry = lens _dsExpiry (\ s a -> s{_dsExpiry = a}) . mapping _Time;
+dsExpiry = lens _dsExpiry (\ s a -> s{_dsExpiry = a}) . mapping _Time
 
 -- | Indicates whether a domain is locked from unauthorized transfer to another party.
 dsTransferLock :: Lens' DomainSummary (Maybe Bool)
-dsTransferLock = lens _dsTransferLock (\ s a -> s{_dsTransferLock = a});
+dsTransferLock = lens _dsTransferLock (\ s a -> s{_dsTransferLock = a})
 
 -- | Indicates whether the domain is automatically renewed upon expiration.
 dsAutoRenew :: Lens' DomainSummary (Maybe Bool)
-dsAutoRenew = lens _dsAutoRenew (\ s a -> s{_dsAutoRenew = a});
+dsAutoRenew = lens _dsAutoRenew (\ s a -> s{_dsAutoRenew = a})
 
 -- | The name of the domain that the summary information applies to.
 dsDomainName :: Lens' DomainSummary Text
-dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a});
+dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a})
 
 instance FromJSON DomainSummary where
         parseJSON
@@ -374,7 +374,11 @@ instance Hashable DomainSummary where
 
 instance NFData DomainSummary where
 
--- | /See:/ 'domainTransferability' smart constructor.
+-- | A complex type that contains information about whether the specified domain can be transferred to Amazon Route 53.
+--
+--
+--
+-- /See:/ 'domainTransferability' smart constructor.
 newtype DomainTransferability = DomainTransferability'
   { _dtTransferable :: Maybe Transferable
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -392,7 +396,7 @@ domainTransferability = DomainTransferability' {_dtTransferable = Nothing}
 
 -- | Undocumented member.
 dtTransferable :: Lens' DomainTransferability (Maybe Transferable)
-dtTransferable = lens _dtTransferable (\ s a -> s{_dtTransferable = a});
+dtTransferable = lens _dtTransferable (\ s a -> s{_dtTransferable = a})
 
 instance FromJSON DomainTransferability where
         parseJSON
@@ -419,7 +423,7 @@ data ExtraParam = ExtraParam'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'epName' - Name of the additional parameter required by the top-level domain.
+-- * 'epName' - Name of the additional parameter required by the top-level domain. Here are the top-level domains that require additional parameters and which parameters they require:     * __.com.au and .net.au:__ @AU_ID_NUMBER@ and @AU_ID_TYPE@      * __.ca:__ @BRAND_NUMBER@ , @CA_LEGAL_TYPE@ , and @CA_BUSINESS_ENTITY_TYPE@      * __.es:__ @ES_IDENTIFICATION@ , @ES_IDENTIFICATION_TYPE@ , and @ES_LEGAL_FORM@      * __.fi:__ @BIRTH_DATE_IN_YYYY_MM_DD@ , @FI_BUSINESS_NUMBER@ , @FI_ID_NUMBER@ , @FI_NATIONALITY@ , and @FI_ORGANIZATION_TYPE@      * __.fr:__ @BRAND_NUMBER@ , @BIRTH_DEPARTMENT@ , @BIRTH_DATE_IN_YYYY_MM_DD@ , @BIRTH_COUNTRY@ , and @BIRTH_CITY@      * __.it:__ @BIRTH_COUNTRY@ , @IT_PIN@ , and @IT_REGISTRANT_ENTITY_TYPE@      * __.ru:__ @BIRTH_DATE_IN_YYYY_MM_DD@ and @RU_PASSPORT_DATA@      * __.se:__ @BIRTH_COUNTRY@ and @SE_ID_NUMBER@      * __.sg:__ @SG_ID_NUMBER@      * __.co.uk, .me.uk, and .org.uk:__ @UK_CONTACT_TYPE@ and @UK_COMPANY_NUMBER@  In addition, many TLDs require @VAT_NUMBER@ .
 --
 -- * 'epValue' - Values corresponding to the additional parameter names required by some top-level domains.
 extraParam
@@ -429,13 +433,13 @@ extraParam
 extraParam pName_ pValue_ = ExtraParam' {_epName = pName_, _epValue = pValue_}
 
 
--- | Name of the additional parameter required by the top-level domain.
+-- | Name of the additional parameter required by the top-level domain. Here are the top-level domains that require additional parameters and which parameters they require:     * __.com.au and .net.au:__ @AU_ID_NUMBER@ and @AU_ID_TYPE@      * __.ca:__ @BRAND_NUMBER@ , @CA_LEGAL_TYPE@ , and @CA_BUSINESS_ENTITY_TYPE@      * __.es:__ @ES_IDENTIFICATION@ , @ES_IDENTIFICATION_TYPE@ , and @ES_LEGAL_FORM@      * __.fi:__ @BIRTH_DATE_IN_YYYY_MM_DD@ , @FI_BUSINESS_NUMBER@ , @FI_ID_NUMBER@ , @FI_NATIONALITY@ , and @FI_ORGANIZATION_TYPE@      * __.fr:__ @BRAND_NUMBER@ , @BIRTH_DEPARTMENT@ , @BIRTH_DATE_IN_YYYY_MM_DD@ , @BIRTH_COUNTRY@ , and @BIRTH_CITY@      * __.it:__ @BIRTH_COUNTRY@ , @IT_PIN@ , and @IT_REGISTRANT_ENTITY_TYPE@      * __.ru:__ @BIRTH_DATE_IN_YYYY_MM_DD@ and @RU_PASSPORT_DATA@      * __.se:__ @BIRTH_COUNTRY@ and @SE_ID_NUMBER@      * __.sg:__ @SG_ID_NUMBER@      * __.co.uk, .me.uk, and .org.uk:__ @UK_CONTACT_TYPE@ and @UK_COMPANY_NUMBER@  In addition, many TLDs require @VAT_NUMBER@ .
 epName :: Lens' ExtraParam ExtraParamName
-epName = lens _epName (\ s a -> s{_epName = a});
+epName = lens _epName (\ s a -> s{_epName = a})
 
 -- | Values corresponding to the additional parameter names required by some top-level domains.
 epValue :: Lens' ExtraParam Text
-epValue = lens _epValue (\ s a -> s{_epValue = a});
+epValue = lens _epValue (\ s a -> s{_epValue = a})
 
 instance FromJSON ExtraParam where
         parseJSON
@@ -480,11 +484,11 @@ nameserver pName_ = Nameserver' {_nGlueIPs = Nothing, _nName = pName_}
 
 -- | Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com. Constraints: The list can contain only one IPv4 and one IPv6 address.
 nGlueIPs :: Lens' Nameserver [Text]
-nGlueIPs = lens _nGlueIPs (\ s a -> s{_nGlueIPs = a}) . _Default . _Coerce;
+nGlueIPs = lens _nGlueIPs (\ s a -> s{_nGlueIPs = a}) . _Default . _Coerce
 
 -- | The fully qualified host name of the name server. Constraint: Maximum 255 characters
 nName :: Lens' Nameserver Text
-nName = lens _nName (\ s a -> s{_nName = a});
+nName = lens _nName (\ s a -> s{_nName = a})
 
 instance FromJSON Nameserver where
         parseJSON
@@ -536,28 +540,28 @@ operationSummary
     -> OperationSummary
 operationSummary pOperationId_ pStatus_ pType_ pSubmittedDate_ =
   OperationSummary'
-  { _osOperationId = pOperationId_
-  , _osStatus = pStatus_
-  , _osType = pType_
-  , _osSubmittedDate = _Time # pSubmittedDate_
-  }
+    { _osOperationId = pOperationId_
+    , _osStatus = pStatus_
+    , _osType = pType_
+    , _osSubmittedDate = _Time # pSubmittedDate_
+    }
 
 
 -- | Identifier returned to track the requested action.
 osOperationId :: Lens' OperationSummary Text
-osOperationId = lens _osOperationId (\ s a -> s{_osOperationId = a});
+osOperationId = lens _osOperationId (\ s a -> s{_osOperationId = a})
 
 -- | The current status of the requested operation in the system.
 osStatus :: Lens' OperationSummary OperationStatus
-osStatus = lens _osStatus (\ s a -> s{_osStatus = a});
+osStatus = lens _osStatus (\ s a -> s{_osStatus = a})
 
 -- | Type of the action requested.
 osType :: Lens' OperationSummary OperationType
-osType = lens _osType (\ s a -> s{_osType = a});
+osType = lens _osType (\ s a -> s{_osType = a})
 
 -- | The date when the request was submitted.
 osSubmittedDate :: Lens' OperationSummary UTCTime
-osSubmittedDate = lens _osSubmittedDate (\ s a -> s{_osSubmittedDate = a}) . _Time;
+osSubmittedDate = lens _osSubmittedDate (\ s a -> s{_osSubmittedDate = a}) . _Time
 
 instance FromJSON OperationSummary where
         parseJSON
@@ -597,11 +601,11 @@ tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
 
 -- | The value of a tag. Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each value can be 0-256 characters long.
 tagValue :: Lens' Tag (Maybe Text)
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 -- | The key (name) of a tag. Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each key can be 1-128 characters long.
 tagKey :: Lens' Tag (Maybe Text)
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 instance FromJSON Tag where
         parseJSON

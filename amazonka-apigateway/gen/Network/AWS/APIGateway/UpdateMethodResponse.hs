@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateMethodResponse
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,13 +69,13 @@ data UpdateMethodResponse = UpdateMethodResponse'
 --
 -- * 'umPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'umRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'umRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'umResourceId' - The 'Resource' identifier for the 'MethodResponse' resource.
+-- * 'umResourceId' - [Required] The 'Resource' identifier for the 'MethodResponse' resource.
 --
--- * 'umHttpMethod' - The HTTP verb of the 'Method' resource.
+-- * 'umHttpMethod' - [Required] The HTTP verb of the 'Method' resource.
 --
--- * 'umStatusCode' - The status code for the 'MethodResponse' resource.
+-- * 'umStatusCode' - [Required] The status code for the 'MethodResponse' resource.
 updateMethodResponse
     :: Text -- ^ 'umRestAPIId'
     -> Text -- ^ 'umResourceId'
@@ -84,33 +84,33 @@ updateMethodResponse
     -> UpdateMethodResponse
 updateMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
   UpdateMethodResponse'
-  { _umPatchOperations = Nothing
-  , _umRestAPIId = pRestAPIId_
-  , _umResourceId = pResourceId_
-  , _umHttpMethod = pHttpMethod_
-  , _umStatusCode = pStatusCode_
-  }
+    { _umPatchOperations = Nothing
+    , _umRestAPIId = pRestAPIId_
+    , _umResourceId = pResourceId_
+    , _umHttpMethod = pHttpMethod_
+    , _umStatusCode = pStatusCode_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 umPatchOperations :: Lens' UpdateMethodResponse [PatchOperation]
-umPatchOperations = lens _umPatchOperations (\ s a -> s{_umPatchOperations = a}) . _Default . _Coerce;
+umPatchOperations = lens _umPatchOperations (\ s a -> s{_umPatchOperations = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 umRestAPIId :: Lens' UpdateMethodResponse Text
-umRestAPIId = lens _umRestAPIId (\ s a -> s{_umRestAPIId = a});
+umRestAPIId = lens _umRestAPIId (\ s a -> s{_umRestAPIId = a})
 
--- | The 'Resource' identifier for the 'MethodResponse' resource.
+-- | [Required] The 'Resource' identifier for the 'MethodResponse' resource.
 umResourceId :: Lens' UpdateMethodResponse Text
-umResourceId = lens _umResourceId (\ s a -> s{_umResourceId = a});
+umResourceId = lens _umResourceId (\ s a -> s{_umResourceId = a})
 
--- | The HTTP verb of the 'Method' resource.
+-- | [Required] The HTTP verb of the 'Method' resource.
 umHttpMethod :: Lens' UpdateMethodResponse Text
-umHttpMethod = lens _umHttpMethod (\ s a -> s{_umHttpMethod = a});
+umHttpMethod = lens _umHttpMethod (\ s a -> s{_umHttpMethod = a})
 
--- | The status code for the 'MethodResponse' resource.
+-- | [Required] The status code for the 'MethodResponse' resource.
 umStatusCode :: Lens' UpdateMethodResponse Text
-umStatusCode = lens _umStatusCode (\ s a -> s{_umStatusCode = a});
+umStatusCode = lens _umStatusCode (\ s a -> s{_umStatusCode = a})
 
 instance AWSRequest UpdateMethodResponse where
         type Rs UpdateMethodResponse = MethodResponse

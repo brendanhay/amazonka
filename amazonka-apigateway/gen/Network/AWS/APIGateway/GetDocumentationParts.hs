@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDocumentationParts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,7 @@ module Network.AWS.APIGateway.GetDocumentationParts
     , GetDocumentationParts
     -- * Request Lenses
     , gdpPath
+    , gdpLocationStatus
     , gdpNameQuery
     , gdpLimit
     , gdpType
@@ -54,12 +55,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDocumentationParts' smart constructor.
 data GetDocumentationParts = GetDocumentationParts'
-  { _gdpPath      :: !(Maybe Text)
-  , _gdpNameQuery :: !(Maybe Text)
-  , _gdpLimit     :: !(Maybe Int)
-  , _gdpType      :: !(Maybe DocumentationPartType)
-  , _gdpPosition  :: !(Maybe Text)
-  , _gdpRestAPIId :: !Text
+  { _gdpPath           :: !(Maybe Text)
+  , _gdpLocationStatus :: !(Maybe LocationStatusType)
+  , _gdpNameQuery      :: !(Maybe Text)
+  , _gdpLimit          :: !(Maybe Int)
+  , _gdpType           :: !(Maybe DocumentationPartType)
+  , _gdpPosition       :: !(Maybe Text)
+  , _gdpRestAPIId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -69,9 +71,11 @@ data GetDocumentationParts = GetDocumentationParts'
 --
 -- * 'gdpPath' - The path of API entities of the to-be-retrieved documentation parts.
 --
+-- * 'gdpLocationStatus' - The status of the API documentation parts to retrieve. Valid values are @DOCUMENTED@ for retrieving 'DocumentationPart' resources with content and @UNDOCUMENTED@ for 'DocumentationPart' resources without content.
+--
 -- * 'gdpNameQuery' - The name of API entities of the to-be-retrieved documentation parts.
 --
--- * 'gdpLimit' - The maximum number of returned results per page.
+-- * 'gdpLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'gdpType' - The type of API entities of the to-be-retrieved documentation parts.
 --
@@ -83,38 +87,43 @@ getDocumentationParts
     -> GetDocumentationParts
 getDocumentationParts pRestAPIId_ =
   GetDocumentationParts'
-  { _gdpPath = Nothing
-  , _gdpNameQuery = Nothing
-  , _gdpLimit = Nothing
-  , _gdpType = Nothing
-  , _gdpPosition = Nothing
-  , _gdpRestAPIId = pRestAPIId_
-  }
+    { _gdpPath = Nothing
+    , _gdpLocationStatus = Nothing
+    , _gdpNameQuery = Nothing
+    , _gdpLimit = Nothing
+    , _gdpType = Nothing
+    , _gdpPosition = Nothing
+    , _gdpRestAPIId = pRestAPIId_
+    }
 
 
 -- | The path of API entities of the to-be-retrieved documentation parts.
 gdpPath :: Lens' GetDocumentationParts (Maybe Text)
-gdpPath = lens _gdpPath (\ s a -> s{_gdpPath = a});
+gdpPath = lens _gdpPath (\ s a -> s{_gdpPath = a})
+
+-- | The status of the API documentation parts to retrieve. Valid values are @DOCUMENTED@ for retrieving 'DocumentationPart' resources with content and @UNDOCUMENTED@ for 'DocumentationPart' resources without content.
+gdpLocationStatus :: Lens' GetDocumentationParts (Maybe LocationStatusType)
+gdpLocationStatus = lens _gdpLocationStatus (\ s a -> s{_gdpLocationStatus = a})
 
 -- | The name of API entities of the to-be-retrieved documentation parts.
 gdpNameQuery :: Lens' GetDocumentationParts (Maybe Text)
-gdpNameQuery = lens _gdpNameQuery (\ s a -> s{_gdpNameQuery = a});
+gdpNameQuery = lens _gdpNameQuery (\ s a -> s{_gdpNameQuery = a})
 
--- | The maximum number of returned results per page.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 gdpLimit :: Lens' GetDocumentationParts (Maybe Int)
-gdpLimit = lens _gdpLimit (\ s a -> s{_gdpLimit = a});
+gdpLimit = lens _gdpLimit (\ s a -> s{_gdpLimit = a})
 
 -- | The type of API entities of the to-be-retrieved documentation parts.
 gdpType :: Lens' GetDocumentationParts (Maybe DocumentationPartType)
-gdpType = lens _gdpType (\ s a -> s{_gdpType = a});
+gdpType = lens _gdpType (\ s a -> s{_gdpType = a})
 
 -- | The current pagination position in the paged result set.
 gdpPosition :: Lens' GetDocumentationParts (Maybe Text)
-gdpPosition = lens _gdpPosition (\ s a -> s{_gdpPosition = a});
+gdpPosition = lens _gdpPosition (\ s a -> s{_gdpPosition = a})
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 gdpRestAPIId :: Lens' GetDocumentationParts Text
-gdpRestAPIId = lens _gdpRestAPIId (\ s a -> s{_gdpRestAPIId = a});
+gdpRestAPIId = lens _gdpRestAPIId (\ s a -> s{_gdpRestAPIId = a})
 
 instance AWSRequest GetDocumentationParts where
         type Rs GetDocumentationParts =
@@ -146,9 +155,10 @@ instance ToPath GetDocumentationParts where
 instance ToQuery GetDocumentationParts where
         toQuery GetDocumentationParts'{..}
           = mconcat
-              ["path" =: _gdpPath, "name" =: _gdpNameQuery,
-               "limit" =: _gdpLimit, "type" =: _gdpType,
-               "position" =: _gdpPosition]
+              ["path" =: _gdpPath,
+               "locationStatus" =: _gdpLocationStatus,
+               "name" =: _gdpNameQuery, "limit" =: _gdpLimit,
+               "type" =: _gdpType, "position" =: _gdpPosition]
 
 -- | The collection of documentation parts of an API.
 --
@@ -177,22 +187,22 @@ getDocumentationPartsResponse
     -> GetDocumentationPartsResponse
 getDocumentationPartsResponse pResponseStatus_ =
   GetDocumentationPartsResponse'
-  { _gdprsItems = Nothing
-  , _gdprsPosition = Nothing
-  , _gdprsResponseStatus = pResponseStatus_
-  }
+    { _gdprsItems = Nothing
+    , _gdprsPosition = Nothing
+    , _gdprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 gdprsItems :: Lens' GetDocumentationPartsResponse [DocumentationPart]
-gdprsItems = lens _gdprsItems (\ s a -> s{_gdprsItems = a}) . _Default . _Coerce;
+gdprsItems = lens _gdprsItems (\ s a -> s{_gdprsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gdprsPosition :: Lens' GetDocumentationPartsResponse (Maybe Text)
-gdprsPosition = lens _gdprsPosition (\ s a -> s{_gdprsPosition = a});
+gdprsPosition = lens _gdprsPosition (\ s a -> s{_gdprsPosition = a})
 
 -- | -- | The response status code.
 gdprsResponseStatus :: Lens' GetDocumentationPartsResponse Int
-gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a});
+gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a})
 
 instance NFData GetDocumentationPartsResponse where

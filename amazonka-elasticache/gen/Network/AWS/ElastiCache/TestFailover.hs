@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.TestFailover
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -101,16 +101,18 @@ testFailover
     -> TestFailover
 testFailover pReplicationGroupId_ pNodeGroupId_ =
   TestFailover'
-  {_tfReplicationGroupId = pReplicationGroupId_, _tfNodeGroupId = pNodeGroupId_}
+    { _tfReplicationGroupId = pReplicationGroupId_
+    , _tfNodeGroupId = pNodeGroupId_
+    }
 
 
 -- | The name of the replication group (console: cluster) whose automatic failover is being tested by this operation.
 tfReplicationGroupId :: Lens' TestFailover Text
-tfReplicationGroupId = lens _tfReplicationGroupId (\ s a -> s{_tfReplicationGroupId = a});
+tfReplicationGroupId = lens _tfReplicationGroupId (\ s a -> s{_tfReplicationGroupId = a})
 
 -- | The name of the node group (called shard in the console) in this replication group on which automatic failover is to be tested. You may test automatic failover on up to 5 node groups in any rolling 24-hour period.
 tfNodeGroupId :: Lens' TestFailover Text
-tfNodeGroupId = lens _tfNodeGroupId (\ s a -> s{_tfNodeGroupId = a});
+tfNodeGroupId = lens _tfNodeGroupId (\ s a -> s{_tfNodeGroupId = a})
 
 instance AWSRequest TestFailover where
         type Rs TestFailover = TestFailoverResponse
@@ -158,15 +160,15 @@ testFailoverResponse
     -> TestFailoverResponse
 testFailoverResponse pResponseStatus_ =
   TestFailoverResponse'
-  {_tfrsReplicationGroup = Nothing, _tfrsResponseStatus = pResponseStatus_}
+    {_tfrsReplicationGroup = Nothing, _tfrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 tfrsReplicationGroup :: Lens' TestFailoverResponse (Maybe ReplicationGroup)
-tfrsReplicationGroup = lens _tfrsReplicationGroup (\ s a -> s{_tfrsReplicationGroup = a});
+tfrsReplicationGroup = lens _tfrsReplicationGroup (\ s a -> s{_tfrsReplicationGroup = a})
 
 -- | -- | The response status code.
 tfrsResponseStatus :: Lens' TestFailoverResponse Int
-tfrsResponseStatus = lens _tfrsResponseStatus (\ s a -> s{_tfrsResponseStatus = a});
+tfrsResponseStatus = lens _tfrsResponseStatus (\ s a -> s{_tfrsResponseStatus = a})
 
 instance NFData TestFailoverResponse where

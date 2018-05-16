@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,28 +50,28 @@ backup
     -> Backup
 backup pBackupId_ =
   Backup'
-  { _bClusterId = Nothing
-  , _bCreateTimestamp = Nothing
-  , _bBackupState = Nothing
-  , _bBackupId = pBackupId_
-  }
+    { _bClusterId = Nothing
+    , _bCreateTimestamp = Nothing
+    , _bBackupState = Nothing
+    , _bBackupId = pBackupId_
+    }
 
 
 -- | The identifier (ID) of the cluster that was backed up.
 bClusterId :: Lens' Backup (Maybe Text)
-bClusterId = lens _bClusterId (\ s a -> s{_bClusterId = a});
+bClusterId = lens _bClusterId (\ s a -> s{_bClusterId = a})
 
 -- | The date and time when the backup was created.
 bCreateTimestamp :: Lens' Backup (Maybe UTCTime)
-bCreateTimestamp = lens _bCreateTimestamp (\ s a -> s{_bCreateTimestamp = a}) . mapping _Time;
+bCreateTimestamp = lens _bCreateTimestamp (\ s a -> s{_bCreateTimestamp = a}) . mapping _Time
 
 -- | The state of the backup.
 bBackupState :: Lens' Backup (Maybe BackupState)
-bBackupState = lens _bBackupState (\ s a -> s{_bBackupState = a});
+bBackupState = lens _bBackupState (\ s a -> s{_bBackupState = a})
 
 -- | The identifier (ID) of the backup.
 bBackupId :: Lens' Backup Text
-bBackupId = lens _bBackupId (\ s a -> s{_bBackupId = a});
+bBackupId = lens _bBackupId (\ s a -> s{_bBackupId = a})
 
 instance FromJSON Backup where
         parseJSON
@@ -117,33 +117,33 @@ certificates
     :: Certificates
 certificates =
   Certificates'
-  { _cManufacturerHardwareCertificate = Nothing
-  , _cClusterCSR = Nothing
-  , _cHSMCertificate = Nothing
-  , _cClusterCertificate = Nothing
-  , _cAWSHardwareCertificate = Nothing
-  }
+    { _cManufacturerHardwareCertificate = Nothing
+    , _cClusterCSR = Nothing
+    , _cHSMCertificate = Nothing
+    , _cClusterCertificate = Nothing
+    , _cAWSHardwareCertificate = Nothing
+    }
 
 
 -- | The HSM hardware certificate issued (signed) by the hardware manufacturer.
 cManufacturerHardwareCertificate :: Lens' Certificates (Maybe Text)
-cManufacturerHardwareCertificate = lens _cManufacturerHardwareCertificate (\ s a -> s{_cManufacturerHardwareCertificate = a});
+cManufacturerHardwareCertificate = lens _cManufacturerHardwareCertificate (\ s a -> s{_cManufacturerHardwareCertificate = a})
 
 -- | The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is @UNINITIALIZED@ .
 cClusterCSR :: Lens' Certificates (Maybe Text)
-cClusterCSR = lens _cClusterCSR (\ s a -> s{_cClusterCSR = a});
+cClusterCSR = lens _cClusterCSR (\ s a -> s{_cClusterCSR = a})
 
 -- | The HSM certificate issued (signed) by the HSM hardware.
 cHSMCertificate :: Lens' Certificates (Maybe Text)
-cHSMCertificate = lens _cHSMCertificate (\ s a -> s{_cHSMCertificate = a});
+cHSMCertificate = lens _cHSMCertificate (\ s a -> s{_cHSMCertificate = a})
 
 -- | The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
 cClusterCertificate :: Lens' Certificates (Maybe Text)
-cClusterCertificate = lens _cClusterCertificate (\ s a -> s{_cClusterCertificate = a});
+cClusterCertificate = lens _cClusterCertificate (\ s a -> s{_cClusterCertificate = a})
 
 -- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
 cAWSHardwareCertificate :: Lens' Certificates (Maybe Text)
-cAWSHardwareCertificate = lens _cAWSHardwareCertificate (\ s a -> s{_cAWSHardwareCertificate = a});
+cAWSHardwareCertificate = lens _cAWSHardwareCertificate (\ s a -> s{_cAWSHardwareCertificate = a})
 
 instance FromJSON Certificates where
         parseJSON
@@ -215,73 +215,73 @@ cluster
     :: Cluster
 cluster =
   Cluster'
-  { _cPreCoPassword = Nothing
-  , _cStateMessage = Nothing
-  , _cState = Nothing
-  , _cSubnetMapping = Nothing
-  , _cHSMs = Nothing
-  , _cVPCId = Nothing
-  , _cSourceBackupId = Nothing
-  , _cCertificates = Nothing
-  , _cSecurityGroup = Nothing
-  , _cClusterId = Nothing
-  , _cCreateTimestamp = Nothing
-  , _cBackupPolicy = Nothing
-  , _cHSMType = Nothing
-  }
+    { _cPreCoPassword = Nothing
+    , _cStateMessage = Nothing
+    , _cState = Nothing
+    , _cSubnetMapping = Nothing
+    , _cHSMs = Nothing
+    , _cVPCId = Nothing
+    , _cSourceBackupId = Nothing
+    , _cCertificates = Nothing
+    , _cSecurityGroup = Nothing
+    , _cClusterId = Nothing
+    , _cCreateTimestamp = Nothing
+    , _cBackupPolicy = Nothing
+    , _cHSMType = Nothing
+    }
 
 
 -- | The default password for the cluster's Pre-Crypto Officer (PRECO) user.
 cPreCoPassword :: Lens' Cluster (Maybe Text)
-cPreCoPassword = lens _cPreCoPassword (\ s a -> s{_cPreCoPassword = a});
+cPreCoPassword = lens _cPreCoPassword (\ s a -> s{_cPreCoPassword = a})
 
 -- | A description of the cluster's state.
 cStateMessage :: Lens' Cluster (Maybe Text)
-cStateMessage = lens _cStateMessage (\ s a -> s{_cStateMessage = a});
+cStateMessage = lens _cStateMessage (\ s a -> s{_cStateMessage = a})
 
 -- | The cluster's state.
 cState :: Lens' Cluster (Maybe ClusterState)
-cState = lens _cState (\ s a -> s{_cState = a});
+cState = lens _cState (\ s a -> s{_cState = a})
 
 -- | A map of the cluster's subnets and their corresponding Availability Zones.
 cSubnetMapping :: Lens' Cluster (HashMap Text Text)
-cSubnetMapping = lens _cSubnetMapping (\ s a -> s{_cSubnetMapping = a}) . _Default . _Map;
+cSubnetMapping = lens _cSubnetMapping (\ s a -> s{_cSubnetMapping = a}) . _Default . _Map
 
 -- | Contains information about the HSMs in the cluster.
 cHSMs :: Lens' Cluster [HSM]
-cHSMs = lens _cHSMs (\ s a -> s{_cHSMs = a}) . _Default . _Coerce;
+cHSMs = lens _cHSMs (\ s a -> s{_cHSMs = a}) . _Default . _Coerce
 
 -- | The identifier (ID) of the virtual private cloud (VPC) that contains the cluster.
 cVPCId :: Lens' Cluster (Maybe Text)
-cVPCId = lens _cVPCId (\ s a -> s{_cVPCId = a});
+cVPCId = lens _cVPCId (\ s a -> s{_cVPCId = a})
 
 -- | The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup.
 cSourceBackupId :: Lens' Cluster (Maybe Text)
-cSourceBackupId = lens _cSourceBackupId (\ s a -> s{_cSourceBackupId = a});
+cSourceBackupId = lens _cSourceBackupId (\ s a -> s{_cSourceBackupId = a})
 
 -- | Contains one or more certificates or a certificate signing request (CSR).
 cCertificates :: Lens' Cluster (Maybe Certificates)
-cCertificates = lens _cCertificates (\ s a -> s{_cCertificates = a});
+cCertificates = lens _cCertificates (\ s a -> s{_cCertificates = a})
 
 -- | The identifier (ID) of the cluster's security group.
 cSecurityGroup :: Lens' Cluster (Maybe Text)
-cSecurityGroup = lens _cSecurityGroup (\ s a -> s{_cSecurityGroup = a});
+cSecurityGroup = lens _cSecurityGroup (\ s a -> s{_cSecurityGroup = a})
 
 -- | The cluster's identifier (ID).
 cClusterId :: Lens' Cluster (Maybe Text)
-cClusterId = lens _cClusterId (\ s a -> s{_cClusterId = a});
+cClusterId = lens _cClusterId (\ s a -> s{_cClusterId = a})
 
 -- | The date and time when the cluster was created.
 cCreateTimestamp :: Lens' Cluster (Maybe UTCTime)
-cCreateTimestamp = lens _cCreateTimestamp (\ s a -> s{_cCreateTimestamp = a}) . mapping _Time;
+cCreateTimestamp = lens _cCreateTimestamp (\ s a -> s{_cCreateTimestamp = a}) . mapping _Time
 
 -- | The cluster's backup policy.
 cBackupPolicy :: Lens' Cluster (Maybe BackupPolicy)
-cBackupPolicy = lens _cBackupPolicy (\ s a -> s{_cBackupPolicy = a});
+cBackupPolicy = lens _cBackupPolicy (\ s a -> s{_cBackupPolicy = a})
 
 -- | The type of HSM that the cluster contains.
 cHSMType :: Lens' Cluster (Maybe Text)
-cHSMType = lens _cHSMType (\ s a -> s{_cHSMType = a});
+cHSMType = lens _cHSMType (\ s a -> s{_cHSMType = a})
 
 instance FromJSON Cluster where
         parseJSON
@@ -346,48 +346,48 @@ hsm
     -> HSM
 hsm pHSMId_ =
   HSM'
-  { _hsmStateMessage = Nothing
-  , _hsmState = Nothing
-  , _hsmEniId = Nothing
-  , _hsmSubnetId = Nothing
-  , _hsmAvailabilityZone = Nothing
-  , _hsmClusterId = Nothing
-  , _hsmEniIP = Nothing
-  , _hsmHSMId = pHSMId_
-  }
+    { _hsmStateMessage = Nothing
+    , _hsmState = Nothing
+    , _hsmEniId = Nothing
+    , _hsmSubnetId = Nothing
+    , _hsmAvailabilityZone = Nothing
+    , _hsmClusterId = Nothing
+    , _hsmEniIP = Nothing
+    , _hsmHSMId = pHSMId_
+    }
 
 
 -- | A description of the HSM's state.
 hsmStateMessage :: Lens' HSM (Maybe Text)
-hsmStateMessage = lens _hsmStateMessage (\ s a -> s{_hsmStateMessage = a});
+hsmStateMessage = lens _hsmStateMessage (\ s a -> s{_hsmStateMessage = a})
 
 -- | The HSM's state.
 hsmState :: Lens' HSM (Maybe HSMState)
-hsmState = lens _hsmState (\ s a -> s{_hsmState = a});
+hsmState = lens _hsmState (\ s a -> s{_hsmState = a})
 
 -- | The identifier (ID) of the HSM's elastic network interface (ENI).
 hsmEniId :: Lens' HSM (Maybe Text)
-hsmEniId = lens _hsmEniId (\ s a -> s{_hsmEniId = a});
+hsmEniId = lens _hsmEniId (\ s a -> s{_hsmEniId = a})
 
 -- | The subnet that contains the HSM's elastic network interface (ENI).
 hsmSubnetId :: Lens' HSM (Maybe Text)
-hsmSubnetId = lens _hsmSubnetId (\ s a -> s{_hsmSubnetId = a});
+hsmSubnetId = lens _hsmSubnetId (\ s a -> s{_hsmSubnetId = a})
 
 -- | The Availability Zone that contains the HSM.
 hsmAvailabilityZone :: Lens' HSM (Maybe Text)
-hsmAvailabilityZone = lens _hsmAvailabilityZone (\ s a -> s{_hsmAvailabilityZone = a});
+hsmAvailabilityZone = lens _hsmAvailabilityZone (\ s a -> s{_hsmAvailabilityZone = a})
 
 -- | The identifier (ID) of the cluster that contains the HSM.
 hsmClusterId :: Lens' HSM (Maybe Text)
-hsmClusterId = lens _hsmClusterId (\ s a -> s{_hsmClusterId = a});
+hsmClusterId = lens _hsmClusterId (\ s a -> s{_hsmClusterId = a})
 
 -- | The IP address of the HSM's elastic network interface (ENI).
 hsmEniIP :: Lens' HSM (Maybe Text)
-hsmEniIP = lens _hsmEniIP (\ s a -> s{_hsmEniIP = a});
+hsmEniIP = lens _hsmEniIP (\ s a -> s{_hsmEniIP = a})
 
 -- | The HSM's identifier (ID).
 hsmHSMId :: Lens' HSM Text
-hsmHSMId = lens _hsmHSMId (\ s a -> s{_hsmHSMId = a});
+hsmHSMId = lens _hsmHSMId (\ s a -> s{_hsmHSMId = a})
 
 instance FromJSON HSM where
         parseJSON
@@ -433,11 +433,11 @@ tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
 
 -- | The key of the tag.
 tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 -- | The value of the tag.
 tagValue :: Lens' Tag Text
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 instance FromJSON Tag where
         parseJSON

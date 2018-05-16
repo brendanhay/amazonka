@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,24 +93,24 @@ allocatePrivateVirtualInterface
     -> AllocatePrivateVirtualInterface
 allocatePrivateVirtualInterface pConnectionId_ pOwnerAccount_ pNewPrivateVirtualInterfaceAllocation_ =
   AllocatePrivateVirtualInterface'
-  { _apviConnectionId = pConnectionId_
-  , _apviOwnerAccount = pOwnerAccount_
-  , _apviNewPrivateVirtualInterfaceAllocation =
-      pNewPrivateVirtualInterfaceAllocation_
-  }
+    { _apviConnectionId = pConnectionId_
+    , _apviOwnerAccount = pOwnerAccount_
+    , _apviNewPrivateVirtualInterfaceAllocation =
+        pNewPrivateVirtualInterfaceAllocation_
+    }
 
 
 -- | The connection ID on which the private virtual interface is provisioned. Default: None
 apviConnectionId :: Lens' AllocatePrivateVirtualInterface Text
-apviConnectionId = lens _apviConnectionId (\ s a -> s{_apviConnectionId = a});
+apviConnectionId = lens _apviConnectionId (\ s a -> s{_apviConnectionId = a})
 
 -- | The AWS account that will own the new private virtual interface. Default: None
 apviOwnerAccount :: Lens' AllocatePrivateVirtualInterface Text
-apviOwnerAccount = lens _apviOwnerAccount (\ s a -> s{_apviOwnerAccount = a});
+apviOwnerAccount = lens _apviOwnerAccount (\ s a -> s{_apviOwnerAccount = a})
 
 -- | Detailed information for the private virtual interface to be provisioned. Default: None
 apviNewPrivateVirtualInterfaceAllocation :: Lens' AllocatePrivateVirtualInterface NewPrivateVirtualInterfaceAllocation
-apviNewPrivateVirtualInterfaceAllocation = lens _apviNewPrivateVirtualInterfaceAllocation (\ s a -> s{_apviNewPrivateVirtualInterfaceAllocation = a});
+apviNewPrivateVirtualInterfaceAllocation = lens _apviNewPrivateVirtualInterfaceAllocation (\ s a -> s{_apviNewPrivateVirtualInterfaceAllocation = a})
 
 instance AWSRequest AllocatePrivateVirtualInterface
          where

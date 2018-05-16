@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.SearchProducts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a paginated list all of the @Products@ objects to which the caller has access.
+-- Gets information about the products to which the caller has access.
 --
---
--- The output of this operation can be used as input for other operations, such as 'DescribeProductView' .
 --
 module Network.AWS.ServiceCatalog.SearchProducts
     (
@@ -68,53 +66,53 @@ data SearchProducts = SearchProducts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spFilters' - The list of filters with which to limit search results. If no search filters are specified, the output is all the products to which the calling user has access.
+-- * 'spFilters' - The search filters. If no search filters are specified, the output includes all products to which the caller has access.
 --
--- * 'spSortOrder' - The sort order specifier. If no value is specified, results are not sorted.
+-- * 'spSortOrder' - The sort order. If no value is specified, the results are not sorted.
 --
 -- * 'spAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'spPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- * 'spPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
 --
--- * 'spPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- * 'spPageSize' - The maximum number of items to return with this call.
 --
--- * 'spSortBy' - The sort field specifier. If no value is specified, results are not sorted.
+-- * 'spSortBy' - The sort field. If no value is specified, the results are not sorted.
 searchProducts
     :: SearchProducts
 searchProducts =
   SearchProducts'
-  { _spFilters = Nothing
-  , _spSortOrder = Nothing
-  , _spAcceptLanguage = Nothing
-  , _spPageToken = Nothing
-  , _spPageSize = Nothing
-  , _spSortBy = Nothing
-  }
+    { _spFilters = Nothing
+    , _spSortOrder = Nothing
+    , _spAcceptLanguage = Nothing
+    , _spPageToken = Nothing
+    , _spPageSize = Nothing
+    , _spSortBy = Nothing
+    }
 
 
--- | The list of filters with which to limit search results. If no search filters are specified, the output is all the products to which the calling user has access.
+-- | The search filters. If no search filters are specified, the output includes all products to which the caller has access.
 spFilters :: Lens' SearchProducts (HashMap ProductViewFilterBy [Text])
-spFilters = lens _spFilters (\ s a -> s{_spFilters = a}) . _Default . _Map;
+spFilters = lens _spFilters (\ s a -> s{_spFilters = a}) . _Default . _Map
 
--- | The sort order specifier. If no value is specified, results are not sorted.
+-- | The sort order. If no value is specified, the results are not sorted.
 spSortOrder :: Lens' SearchProducts (Maybe SortOrder)
-spSortOrder = lens _spSortOrder (\ s a -> s{_spSortOrder = a});
+spSortOrder = lens _spSortOrder (\ s a -> s{_spSortOrder = a})
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 spAcceptLanguage :: Lens' SearchProducts (Maybe Text)
-spAcceptLanguage = lens _spAcceptLanguage (\ s a -> s{_spAcceptLanguage = a});
+spAcceptLanguage = lens _spAcceptLanguage (\ s a -> s{_spAcceptLanguage = a})
 
--- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
 spPageToken :: Lens' SearchProducts (Maybe Text)
-spPageToken = lens _spPageToken (\ s a -> s{_spPageToken = a});
+spPageToken = lens _spPageToken (\ s a -> s{_spPageToken = a})
 
--- | The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- | The maximum number of items to return with this call.
 spPageSize :: Lens' SearchProducts (Maybe Natural)
-spPageSize = lens _spPageSize (\ s a -> s{_spPageSize = a}) . mapping _Nat;
+spPageSize = lens _spPageSize (\ s a -> s{_spPageSize = a}) . mapping _Nat
 
--- | The sort field specifier. If no value is specified, results are not sorted.
+-- | The sort field. If no value is specified, the results are not sorted.
 spSortBy :: Lens' SearchProducts (Maybe ProductViewSortBy)
-spSortBy = lens _spSortBy (\ s a -> s{_spSortBy = a});
+spSortBy = lens _spSortBy (\ s a -> s{_spSortBy = a})
 
 instance AWSRequest SearchProducts where
         type Rs SearchProducts = SearchProductsResponse
@@ -172,11 +170,11 @@ data SearchProductsResponse = SearchProductsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sprsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'sprsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
--- * 'sprsProductViewAggregations' - A list of the product view aggregation value objects.
+-- * 'sprsProductViewAggregations' - The product view aggregations.
 --
--- * 'sprsProductViewSummaries' - A list of the product view summary objects.
+-- * 'sprsProductViewSummaries' - Information about the product views.
 --
 -- * 'sprsResponseStatus' - -- | The response status code.
 searchProductsResponse
@@ -184,27 +182,27 @@ searchProductsResponse
     -> SearchProductsResponse
 searchProductsResponse pResponseStatus_ =
   SearchProductsResponse'
-  { _sprsNextPageToken = Nothing
-  , _sprsProductViewAggregations = Nothing
-  , _sprsProductViewSummaries = Nothing
-  , _sprsResponseStatus = pResponseStatus_
-  }
+    { _sprsNextPageToken = Nothing
+    , _sprsProductViewAggregations = Nothing
+    , _sprsProductViewSummaries = Nothing
+    , _sprsResponseStatus = pResponseStatus_
+    }
 
 
--- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 sprsNextPageToken :: Lens' SearchProductsResponse (Maybe Text)
-sprsNextPageToken = lens _sprsNextPageToken (\ s a -> s{_sprsNextPageToken = a});
+sprsNextPageToken = lens _sprsNextPageToken (\ s a -> s{_sprsNextPageToken = a})
 
--- | A list of the product view aggregation value objects.
+-- | The product view aggregations.
 sprsProductViewAggregations :: Lens' SearchProductsResponse (HashMap Text [ProductViewAggregationValue])
-sprsProductViewAggregations = lens _sprsProductViewAggregations (\ s a -> s{_sprsProductViewAggregations = a}) . _Default . _Map;
+sprsProductViewAggregations = lens _sprsProductViewAggregations (\ s a -> s{_sprsProductViewAggregations = a}) . _Default . _Map
 
--- | A list of the product view summary objects.
+-- | Information about the product views.
 sprsProductViewSummaries :: Lens' SearchProductsResponse [ProductViewSummary]
-sprsProductViewSummaries = lens _sprsProductViewSummaries (\ s a -> s{_sprsProductViewSummaries = a}) . _Default . _Coerce;
+sprsProductViewSummaries = lens _sprsProductViewSummaries (\ s a -> s{_sprsProductViewSummaries = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 sprsResponseStatus :: Lens' SearchProductsResponse Int
-sprsResponseStatus = lens _sprsResponseStatus (\ s a -> s{_sprsResponseStatus = a});
+sprsResponseStatus = lens _sprsResponseStatus (\ s a -> s{_sprsResponseStatus = a})
 
 instance NFData SearchProductsResponse where

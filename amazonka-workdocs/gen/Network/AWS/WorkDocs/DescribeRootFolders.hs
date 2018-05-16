@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeRootFolders
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the current user's special folders; the @RootFolder@ and the @RecyleBin@ . @RootFolder@ is the root of user's files and folders and @RecyleBin@ is the root of recycled items. This is not a valid action for SigV4 (administrative API) clients.
+-- Describes the current user's special folders; the @RootFolder@ and the @RecycleBin@ . @RootFolder@ is the root of user's files and folders and @RecycleBin@ is the root of recycled items. This is not a valid action for SigV4 (administrative API) clients.
 --
 --
 module Network.AWS.WorkDocs.DescribeRootFolders
@@ -63,29 +63,29 @@ data DescribeRootFolders = DescribeRootFolders'
 --
 -- * 'drfLimit' - The maximum number of items to return.
 --
--- * 'drfAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'drfAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 describeRootFolders
     :: Text -- ^ 'drfAuthenticationToken'
     -> DescribeRootFolders
 describeRootFolders pAuthenticationToken_ =
   DescribeRootFolders'
-  { _drfMarker = Nothing
-  , _drfLimit = Nothing
-  , _drfAuthenticationToken = _Sensitive # pAuthenticationToken_
-  }
+    { _drfMarker = Nothing
+    , _drfLimit = Nothing
+    , _drfAuthenticationToken = _Sensitive # pAuthenticationToken_
+    }
 
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 drfMarker :: Lens' DescribeRootFolders (Maybe Text)
-drfMarker = lens _drfMarker (\ s a -> s{_drfMarker = a});
+drfMarker = lens _drfMarker (\ s a -> s{_drfMarker = a})
 
 -- | The maximum number of items to return.
 drfLimit :: Lens' DescribeRootFolders (Maybe Natural)
-drfLimit = lens _drfLimit (\ s a -> s{_drfLimit = a}) . mapping _Nat;
+drfLimit = lens _drfLimit (\ s a -> s{_drfLimit = a}) . mapping _Nat
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 drfAuthenticationToken :: Lens' DescribeRootFolders Text
-drfAuthenticationToken = lens _drfAuthenticationToken (\ s a -> s{_drfAuthenticationToken = a}) . _Sensitive;
+drfAuthenticationToken = lens _drfAuthenticationToken (\ s a -> s{_drfAuthenticationToken = a}) . _Sensitive
 
 instance AWSRequest DescribeRootFolders where
         type Rs DescribeRootFolders =
@@ -139,22 +139,22 @@ describeRootFoldersResponse
     -> DescribeRootFoldersResponse
 describeRootFoldersResponse pResponseStatus_ =
   DescribeRootFoldersResponse'
-  { _drfrsFolders = Nothing
-  , _drfrsMarker = Nothing
-  , _drfrsResponseStatus = pResponseStatus_
-  }
+    { _drfrsFolders = Nothing
+    , _drfrsMarker = Nothing
+    , _drfrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The user's special folders.
 drfrsFolders :: Lens' DescribeRootFoldersResponse [FolderMetadata]
-drfrsFolders = lens _drfrsFolders (\ s a -> s{_drfrsFolders = a}) . _Default . _Coerce;
+drfrsFolders = lens _drfrsFolders (\ s a -> s{_drfrsFolders = a}) . _Default . _Coerce
 
 -- | The marker for the next set of results.
 drfrsMarker :: Lens' DescribeRootFoldersResponse (Maybe Text)
-drfrsMarker = lens _drfrsMarker (\ s a -> s{_drfrsMarker = a});
+drfrsMarker = lens _drfrsMarker (\ s a -> s{_drfrsMarker = a})
 
 -- | -- | The response status code.
 drfrsResponseStatus :: Lens' DescribeRootFoldersResponse Int
-drfrsResponseStatus = lens _drfrsResponseStatus (\ s a -> s{_drfrsResponseStatus = a});
+drfrsResponseStatus = lens _drfrsResponseStatus (\ s a -> s{_drfrsResponseStatus = a})
 
 instance NFData DescribeRootFoldersResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PollForThirdPartyJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ pollForThirdPartyJobs
     -> PollForThirdPartyJobs
 pollForThirdPartyJobs pActionTypeId_ =
   PollForThirdPartyJobs'
-  {_pftpjMaxBatchSize = Nothing, _pftpjActionTypeId = pActionTypeId_}
+    {_pftpjMaxBatchSize = Nothing, _pftpjActionTypeId = pActionTypeId_}
 
 
 -- | The maximum number of jobs to return in a poll for jobs call.
 pftpjMaxBatchSize :: Lens' PollForThirdPartyJobs (Maybe Natural)
-pftpjMaxBatchSize = lens _pftpjMaxBatchSize (\ s a -> s{_pftpjMaxBatchSize = a}) . mapping _Nat;
+pftpjMaxBatchSize = lens _pftpjMaxBatchSize (\ s a -> s{_pftpjMaxBatchSize = a}) . mapping _Nat
 
 -- | Represents information about an action type.
 pftpjActionTypeId :: Lens' PollForThirdPartyJobs ActionTypeId
-pftpjActionTypeId = lens _pftpjActionTypeId (\ s a -> s{_pftpjActionTypeId = a});
+pftpjActionTypeId = lens _pftpjActionTypeId (\ s a -> s{_pftpjActionTypeId = a})
 
 instance AWSRequest PollForThirdPartyJobs where
         type Rs PollForThirdPartyJobs =
@@ -141,15 +141,15 @@ pollForThirdPartyJobsResponse
     -> PollForThirdPartyJobsResponse
 pollForThirdPartyJobsResponse pResponseStatus_ =
   PollForThirdPartyJobsResponse'
-  {_pftpjrsJobs = Nothing, _pftpjrsResponseStatus = pResponseStatus_}
+    {_pftpjrsJobs = Nothing, _pftpjrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the jobs to take action on.
 pftpjrsJobs :: Lens' PollForThirdPartyJobsResponse [ThirdPartyJob]
-pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default . _Coerce;
+pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 pftpjrsResponseStatus :: Lens' PollForThirdPartyJobsResponse Int
-pftpjrsResponseStatus = lens _pftpjrsResponseStatus (\ s a -> s{_pftpjrsResponseStatus = a});
+pftpjrsResponseStatus = lens _pftpjrsResponseStatus (\ s a -> s{_pftpjrsResponseStatus = a})
 
 instance NFData PollForThirdPartyJobsResponse where

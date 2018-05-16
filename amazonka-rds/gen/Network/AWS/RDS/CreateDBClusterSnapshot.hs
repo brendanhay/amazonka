@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBClusterSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,23 +73,23 @@ createDBClusterSnapshot
     -> CreateDBClusterSnapshot
 createDBClusterSnapshot pDBClusterSnapshotIdentifier_ pDBClusterIdentifier_ =
   CreateDBClusterSnapshot'
-  { _cdcsTags = Nothing
-  , _cdcsDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_
-  , _cdcsDBClusterIdentifier = pDBClusterIdentifier_
-  }
+    { _cdcsTags = Nothing
+    , _cdcsDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_
+    , _cdcsDBClusterIdentifier = pDBClusterIdentifier_
+    }
 
 
 -- | The tags to be assigned to the DB cluster snapshot.
 cdcsTags :: Lens' CreateDBClusterSnapshot [Tag]
-cdcsTags = lens _cdcsTags (\ s a -> s{_cdcsTags = a}) . _Default . _Coerce;
+cdcsTags = lens _cdcsTags (\ s a -> s{_cdcsTags = a}) . _Default . _Coerce
 
 -- | The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1-snapshot1@
 cdcsDBClusterSnapshotIdentifier :: Lens' CreateDBClusterSnapshot Text
-cdcsDBClusterSnapshotIdentifier = lens _cdcsDBClusterSnapshotIdentifier (\ s a -> s{_cdcsDBClusterSnapshotIdentifier = a});
+cdcsDBClusterSnapshotIdentifier = lens _cdcsDBClusterSnapshotIdentifier (\ s a -> s{_cdcsDBClusterSnapshotIdentifier = a})
 
 -- | The identifier of the DB cluster to create a snapshot for. This parameter is not case-sensitive. Constraints:     * Must match the identifier of an existing DBCluster. Example: @my-cluster1@
 cdcsDBClusterIdentifier :: Lens' CreateDBClusterSnapshot Text
-cdcsDBClusterIdentifier = lens _cdcsDBClusterIdentifier (\ s a -> s{_cdcsDBClusterIdentifier = a});
+cdcsDBClusterIdentifier = lens _cdcsDBClusterIdentifier (\ s a -> s{_cdcsDBClusterIdentifier = a})
 
 instance AWSRequest CreateDBClusterSnapshot where
         type Rs CreateDBClusterSnapshot =
@@ -141,17 +141,17 @@ createDBClusterSnapshotResponse
     -> CreateDBClusterSnapshotResponse
 createDBClusterSnapshotResponse pResponseStatus_ =
   CreateDBClusterSnapshotResponse'
-  { _cdbcsrsDBClusterSnapshot = Nothing
-  , _cdbcsrsResponseStatus = pResponseStatus_
-  }
+    { _cdbcsrsDBClusterSnapshot = Nothing
+    , _cdbcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 cdbcsrsDBClusterSnapshot :: Lens' CreateDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
-cdbcsrsDBClusterSnapshot = lens _cdbcsrsDBClusterSnapshot (\ s a -> s{_cdbcsrsDBClusterSnapshot = a});
+cdbcsrsDBClusterSnapshot = lens _cdbcsrsDBClusterSnapshot (\ s a -> s{_cdbcsrsDBClusterSnapshot = a})
 
 -- | -- | The response status code.
 cdbcsrsResponseStatus :: Lens' CreateDBClusterSnapshotResponse Int
-cdbcsrsResponseStatus = lens _cdbcsrsResponseStatus (\ s a -> s{_cdbcsrsResponseStatus = a});
+cdbcsrsResponseStatus = lens _cdbcsrsResponseStatus (\ s a -> s{_cdbcsrsResponseStatus = a})
 
 instance NFData CreateDBClusterSnapshotResponse where

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Shield
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ module Network.AWS.Shield
     -- ** CreateSubscription
     , module Network.AWS.Shield.CreateSubscription
 
-    -- ** ListProtections
+    -- ** ListProtections (Paginated)
     , module Network.AWS.Shield.ListProtections
 
     -- ** DeleteSubscription
@@ -80,13 +80,28 @@ module Network.AWS.Shield
     -- ** DeleteProtection
     , module Network.AWS.Shield.DeleteProtection
 
+    -- ** GetSubscriptionState
+    , module Network.AWS.Shield.GetSubscriptionState
+
     -- ** DescribeSubscription
     , module Network.AWS.Shield.DescribeSubscription
 
     -- * Types
 
+    -- ** AttackLayer
+    , AttackLayer (..)
+
+    -- ** AttackPropertyIdentifier
+    , AttackPropertyIdentifier (..)
+
     -- ** SubResourceType
     , SubResourceType (..)
+
+    -- ** SubscriptionState
+    , SubscriptionState (..)
+
+    -- ** Unit
+    , Unit (..)
 
     -- ** AttackDetail
     , AttackDetail
@@ -95,9 +110,19 @@ module Network.AWS.Shield
     , adStartTime
     , adSubResources
     , adMitigations
+    , adAttackProperties
     , adAttackCounters
     , adResourceARN
     , adEndTime
+
+    -- ** AttackProperty
+    , AttackProperty
+    , attackProperty
+    , apAttackLayer
+    , apTopContributors
+    , apAttackPropertyIdentifier
+    , apTotal
+    , apUnit
 
     -- ** AttackSummary
     , AttackSummary
@@ -112,6 +137,12 @@ module Network.AWS.Shield
     , AttackVectorDescription
     , attackVectorDescription
     , avdVectorType
+
+    -- ** Contributor
+    , Contributor
+    , contributor
+    , cValue
+    , cName
 
     -- ** Mitigation
     , Mitigation
@@ -169,6 +200,7 @@ import Network.AWS.Shield.DeleteSubscription
 import Network.AWS.Shield.DescribeAttack
 import Network.AWS.Shield.DescribeProtection
 import Network.AWS.Shield.DescribeSubscription
+import Network.AWS.Shield.GetSubscriptionState
 import Network.AWS.Shield.ListAttacks
 import Network.AWS.Shield.ListProtections
 import Network.AWS.Shield.Types

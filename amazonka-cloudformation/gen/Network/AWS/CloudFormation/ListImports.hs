@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListImports
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,11 +74,11 @@ listImports pExportName_ =
 
 -- | A string (provided by the 'ListImports' response output) that identifies the next page of stacks that are importing the specified exported output value.
 liNextToken :: Lens' ListImports (Maybe Text)
-liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
+liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a})
 
 -- | The name of the exported output value. AWS CloudFormation returns the stack names that are importing this value.
 liExportName :: Lens' ListImports Text
-liExportName = lens _liExportName (\ s a -> s{_liExportName = a});
+liExportName = lens _liExportName (\ s a -> s{_liExportName = a})
 
 instance AWSPager ListImports where
         page rq rs
@@ -139,22 +139,22 @@ listImportsResponse
     -> ListImportsResponse
 listImportsResponse pResponseStatus_ =
   ListImportsResponse'
-  { _lirsImports = Nothing
-  , _lirsNextToken = Nothing
-  , _lirsResponseStatus = pResponseStatus_
-  }
+    { _lirsImports = Nothing
+    , _lirsNextToken = Nothing
+    , _lirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of stack names that are importing the specified exported output value.
 lirsImports :: Lens' ListImportsResponse [Text]
-lirsImports = lens _lirsImports (\ s a -> s{_lirsImports = a}) . _Default . _Coerce;
+lirsImports = lens _lirsImports (\ s a -> s{_lirsImports = a}) . _Default . _Coerce
 
 -- | A string that identifies the next page of exports. If there is no additional page, this value is null.
 lirsNextToken :: Lens' ListImportsResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
+lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a})
 
 -- | -- | The response status code.
 lirsResponseStatus :: Lens' ListImportsResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a})
 
 instance NFData ListImportsResponse where

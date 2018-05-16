@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified provisioning artifact. This operation does not work on a provisioning artifact associated with a product that has been shared with you, or on the last provisioning artifact associated with a product (a product must have at least one provisioning artifact).
+-- Deletes the specified provisioning artifact (also known as a version) for the specified product.
 --
+--
+-- You cannot delete a provisioning artifact associated with a product that was shared with you. You cannot delete the last provisioning artifact for a product, because a product must have at least one provisioning artifact.
 --
 module Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
     (
@@ -61,30 +63,30 @@ data DeleteProvisioningArtifact = DeleteProvisioningArtifact'
 --
 -- * 'dpapProductId' - The product identifier.
 --
--- * 'dpapProvisioningArtifactId' - The identifier of the provisioning artifact for the delete request. This is sometimes referred to as the product version.
+-- * 'dpapProvisioningArtifactId' - The identifier of the provisioning artifact.
 deleteProvisioningArtifact
     :: Text -- ^ 'dpapProductId'
     -> Text -- ^ 'dpapProvisioningArtifactId'
     -> DeleteProvisioningArtifact
 deleteProvisioningArtifact pProductId_ pProvisioningArtifactId_ =
   DeleteProvisioningArtifact'
-  { _dpapAcceptLanguage = Nothing
-  , _dpapProductId = pProductId_
-  , _dpapProvisioningArtifactId = pProvisioningArtifactId_
-  }
+    { _dpapAcceptLanguage = Nothing
+    , _dpapProductId = pProductId_
+    , _dpapProvisioningArtifactId = pProvisioningArtifactId_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpapAcceptLanguage :: Lens' DeleteProvisioningArtifact (Maybe Text)
-dpapAcceptLanguage = lens _dpapAcceptLanguage (\ s a -> s{_dpapAcceptLanguage = a});
+dpapAcceptLanguage = lens _dpapAcceptLanguage (\ s a -> s{_dpapAcceptLanguage = a})
 
 -- | The product identifier.
 dpapProductId :: Lens' DeleteProvisioningArtifact Text
-dpapProductId = lens _dpapProductId (\ s a -> s{_dpapProductId = a});
+dpapProductId = lens _dpapProductId (\ s a -> s{_dpapProductId = a})
 
--- | The identifier of the provisioning artifact for the delete request. This is sometimes referred to as the product version.
+-- | The identifier of the provisioning artifact.
 dpapProvisioningArtifactId :: Lens' DeleteProvisioningArtifact Text
-dpapProvisioningArtifactId = lens _dpapProvisioningArtifactId (\ s a -> s{_dpapProvisioningArtifactId = a});
+dpapProvisioningArtifactId = lens _dpapProvisioningArtifactId (\ s a -> s{_dpapProvisioningArtifactId = a})
 
 instance AWSRequest DeleteProvisioningArtifact where
         type Rs DeleteProvisioningArtifact =
@@ -146,7 +148,7 @@ deleteProvisioningArtifactResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dparsResponseStatus :: Lens' DeleteProvisioningArtifactResponse Int
-dparsResponseStatus = lens _dparsResponseStatus (\ s a -> s{_dparsResponseStatus = a});
+dparsResponseStatus = lens _dparsResponseStatus (\ s a -> s{_dparsResponseStatus = a})
 
 instance NFData DeleteProvisioningArtifactResponse
          where

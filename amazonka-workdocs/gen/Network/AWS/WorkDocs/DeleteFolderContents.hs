@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteFolderContents
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,7 @@ data DeleteFolderContents = DeleteFolderContents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfcAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'dfcAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'dfcFolderId' - The ID of the folder.
 deleteFolderContents
@@ -61,16 +61,16 @@ deleteFolderContents
     -> DeleteFolderContents
 deleteFolderContents pFolderId_ =
   DeleteFolderContents'
-  {_dfcAuthenticationToken = Nothing, _dfcFolderId = pFolderId_}
+    {_dfcAuthenticationToken = Nothing, _dfcFolderId = pFolderId_}
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 dfcAuthenticationToken :: Lens' DeleteFolderContents (Maybe Text)
-dfcAuthenticationToken = lens _dfcAuthenticationToken (\ s a -> s{_dfcAuthenticationToken = a}) . mapping _Sensitive;
+dfcAuthenticationToken = lens _dfcAuthenticationToken (\ s a -> s{_dfcAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the folder.
 dfcFolderId :: Lens' DeleteFolderContents Text
-dfcFolderId = lens _dfcFolderId (\ s a -> s{_dfcFolderId = a});
+dfcFolderId = lens _dfcFolderId (\ s a -> s{_dfcFolderId = a})
 
 instance AWSRequest DeleteFolderContents where
         type Rs DeleteFolderContents =

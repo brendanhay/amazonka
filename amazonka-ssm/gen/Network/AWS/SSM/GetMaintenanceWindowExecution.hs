@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetMaintenanceWindowExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ getMaintenanceWindowExecution pWindowExecutionId_ =
 
 -- | The ID of the Maintenance Window execution that includes the task.
 gmweWindowExecutionId :: Lens' GetMaintenanceWindowExecution Text
-gmweWindowExecutionId = lens _gmweWindowExecutionId (\ s a -> s{_gmweWindowExecutionId = a});
+gmweWindowExecutionId = lens _gmweWindowExecutionId (\ s a -> s{_gmweWindowExecutionId = a})
 
 instance AWSRequest GetMaintenanceWindowExecution
          where
@@ -149,43 +149,43 @@ getMaintenanceWindowExecutionResponse
     -> GetMaintenanceWindowExecutionResponse
 getMaintenanceWindowExecutionResponse pResponseStatus_ =
   GetMaintenanceWindowExecutionResponse'
-  { _gmwersStatus = Nothing
-  , _gmwersStartTime = Nothing
-  , _gmwersWindowExecutionId = Nothing
-  , _gmwersStatusDetails = Nothing
-  , _gmwersEndTime = Nothing
-  , _gmwersTaskIds = Nothing
-  , _gmwersResponseStatus = pResponseStatus_
-  }
+    { _gmwersStatus = Nothing
+    , _gmwersStartTime = Nothing
+    , _gmwersWindowExecutionId = Nothing
+    , _gmwersStatusDetails = Nothing
+    , _gmwersEndTime = Nothing
+    , _gmwersTaskIds = Nothing
+    , _gmwersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the Maintenance Window execution.
 gmwersStatus :: Lens' GetMaintenanceWindowExecutionResponse (Maybe MaintenanceWindowExecutionStatus)
-gmwersStatus = lens _gmwersStatus (\ s a -> s{_gmwersStatus = a});
+gmwersStatus = lens _gmwersStatus (\ s a -> s{_gmwersStatus = a})
 
 -- | The time the Maintenance Window started executing.
 gmwersStartTime :: Lens' GetMaintenanceWindowExecutionResponse (Maybe UTCTime)
-gmwersStartTime = lens _gmwersStartTime (\ s a -> s{_gmwersStartTime = a}) . mapping _Time;
+gmwersStartTime = lens _gmwersStartTime (\ s a -> s{_gmwersStartTime = a}) . mapping _Time
 
 -- | The ID of the Maintenance Window execution.
 gmwersWindowExecutionId :: Lens' GetMaintenanceWindowExecutionResponse (Maybe Text)
-gmwersWindowExecutionId = lens _gmwersWindowExecutionId (\ s a -> s{_gmwersWindowExecutionId = a});
+gmwersWindowExecutionId = lens _gmwersWindowExecutionId (\ s a -> s{_gmwersWindowExecutionId = a})
 
 -- | The details explaining the Status. Only available for certain status values.
 gmwersStatusDetails :: Lens' GetMaintenanceWindowExecutionResponse (Maybe Text)
-gmwersStatusDetails = lens _gmwersStatusDetails (\ s a -> s{_gmwersStatusDetails = a});
+gmwersStatusDetails = lens _gmwersStatusDetails (\ s a -> s{_gmwersStatusDetails = a})
 
 -- | The time the Maintenance Window finished executing.
 gmwersEndTime :: Lens' GetMaintenanceWindowExecutionResponse (Maybe UTCTime)
-gmwersEndTime = lens _gmwersEndTime (\ s a -> s{_gmwersEndTime = a}) . mapping _Time;
+gmwersEndTime = lens _gmwersEndTime (\ s a -> s{_gmwersEndTime = a}) . mapping _Time
 
 -- | The ID of the task executions from the Maintenance Window execution.
 gmwersTaskIds :: Lens' GetMaintenanceWindowExecutionResponse [Text]
-gmwersTaskIds = lens _gmwersTaskIds (\ s a -> s{_gmwersTaskIds = a}) . _Default . _Coerce;
+gmwersTaskIds = lens _gmwersTaskIds (\ s a -> s{_gmwersTaskIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gmwersResponseStatus :: Lens' GetMaintenanceWindowExecutionResponse Int
-gmwersResponseStatus = lens _gmwersResponseStatus (\ s a -> s{_gmwersResponseStatus = a});
+gmwersResponseStatus = lens _gmwersResponseStatus (\ s a -> s{_gmwersResponseStatus = a})
 
 instance NFData GetMaintenanceWindowExecutionResponse
          where

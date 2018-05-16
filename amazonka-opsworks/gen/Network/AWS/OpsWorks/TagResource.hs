@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.TagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,11 +65,11 @@ tagResource pResourceARN_ =
 
 -- | The stack or layer's Amazon Resource Number (ARN).
 trResourceARN :: Lens' TagResource Text
-trResourceARN = lens _trResourceARN (\ s a -> s{_trResourceARN = a});
+trResourceARN = lens _trResourceARN (\ s a -> s{_trResourceARN = a})
 
 -- | A map that contains tag keys and tag values that are attached to a stack or layer.     * The key cannot be empty.     * The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@      * The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@      * Leading and trailing white spaces are trimmed from both the key and value.     * A maximum of 40 tags is allowed for any resource.
 trTags :: Lens' TagResource (HashMap Text Text)
-trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Map;
+trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Map
 
 instance AWSRequest TagResource where
         type Rs TagResource = TagResourceResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateDomainName
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,9 +34,11 @@ module Network.AWS.APIGateway.UpdateDomainName
     , domainName
     , DomainName
     -- * Response Lenses
+    , dnRegionalHostedZoneId
     , dnCertificateName
     , dnRegionalCertificateARN
     , dnCertificateARN
+    , dnDistributionHostedZoneId
     , dnDomainName
     , dnRegionalCertificateName
     , dnRegionalDomainName
@@ -69,22 +71,22 @@ data UpdateDomainName = UpdateDomainName'
 --
 -- * 'udnPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'udnDomainName' - The name of the 'DomainName' resource to be changed.
+-- * 'udnDomainName' - [Required] The name of the 'DomainName' resource to be changed.
 updateDomainName
     :: Text -- ^ 'udnDomainName'
     -> UpdateDomainName
 updateDomainName pDomainName_ =
   UpdateDomainName'
-  {_udnPatchOperations = Nothing, _udnDomainName = pDomainName_}
+    {_udnPatchOperations = Nothing, _udnDomainName = pDomainName_}
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 udnPatchOperations :: Lens' UpdateDomainName [PatchOperation]
-udnPatchOperations = lens _udnPatchOperations (\ s a -> s{_udnPatchOperations = a}) . _Default . _Coerce;
+udnPatchOperations = lens _udnPatchOperations (\ s a -> s{_udnPatchOperations = a}) . _Default . _Coerce
 
--- | The name of the 'DomainName' resource to be changed.
+-- | [Required] The name of the 'DomainName' resource to be changed.
 udnDomainName :: Lens' UpdateDomainName Text
-udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
+udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a})
 
 instance AWSRequest UpdateDomainName where
         type Rs UpdateDomainName = DomainName

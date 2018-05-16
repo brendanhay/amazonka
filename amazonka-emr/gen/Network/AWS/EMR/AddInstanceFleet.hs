@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.AddInstanceFleet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,16 +66,16 @@ addInstanceFleet
     -> AddInstanceFleet
 addInstanceFleet pClusterId_ pInstanceFleet_ =
   AddInstanceFleet'
-  {_aifClusterId = pClusterId_, _aifInstanceFleet = pInstanceFleet_}
+    {_aifClusterId = pClusterId_, _aifInstanceFleet = pInstanceFleet_}
 
 
 -- | The unique identifier of the cluster.
 aifClusterId :: Lens' AddInstanceFleet Text
-aifClusterId = lens _aifClusterId (\ s a -> s{_aifClusterId = a});
+aifClusterId = lens _aifClusterId (\ s a -> s{_aifClusterId = a})
 
 -- | Specifies the configuration of the instance fleet.
 aifInstanceFleet :: Lens' AddInstanceFleet InstanceFleetConfig
-aifInstanceFleet = lens _aifInstanceFleet (\ s a -> s{_aifInstanceFleet = a});
+aifInstanceFleet = lens _aifInstanceFleet (\ s a -> s{_aifInstanceFleet = a})
 
 instance AWSRequest AddInstanceFleet where
         type Rs AddInstanceFleet = AddInstanceFleetResponse
@@ -135,22 +135,22 @@ addInstanceFleetResponse
     -> AddInstanceFleetResponse
 addInstanceFleetResponse pResponseStatus_ =
   AddInstanceFleetResponse'
-  { _aifrsClusterId = Nothing
-  , _aifrsInstanceFleetId = Nothing
-  , _aifrsResponseStatus = pResponseStatus_
-  }
+    { _aifrsClusterId = Nothing
+    , _aifrsInstanceFleetId = Nothing
+    , _aifrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The unique identifier of the cluster.
 aifrsClusterId :: Lens' AddInstanceFleetResponse (Maybe Text)
-aifrsClusterId = lens _aifrsClusterId (\ s a -> s{_aifrsClusterId = a});
+aifrsClusterId = lens _aifrsClusterId (\ s a -> s{_aifrsClusterId = a})
 
 -- | The unique identifier of the instance fleet.
 aifrsInstanceFleetId :: Lens' AddInstanceFleetResponse (Maybe Text)
-aifrsInstanceFleetId = lens _aifrsInstanceFleetId (\ s a -> s{_aifrsInstanceFleetId = a});
+aifrsInstanceFleetId = lens _aifrsInstanceFleetId (\ s a -> s{_aifrsInstanceFleetId = a})
 
 -- | -- | The response status code.
 aifrsResponseStatus :: Lens' AddInstanceFleetResponse Int
-aifrsResponseStatus = lens _aifrsResponseStatus (\ s a -> s{_aifrsResponseStatus = a});
+aifrsResponseStatus = lens _aifrsResponseStatus (\ s a -> s{_aifrsResponseStatus = a})
 
 instance NFData AddInstanceFleetResponse where

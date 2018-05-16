@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateRouteTable
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ associateRouteTable
     -> AssociateRouteTable
 associateRouteTable pRouteTableId_ pSubnetId_ =
   AssociateRouteTable'
-  { _artDryRun = Nothing
-  , _artRouteTableId = pRouteTableId_
-  , _artSubnetId = pSubnetId_
-  }
+    { _artDryRun = Nothing
+    , _artRouteTableId = pRouteTableId_
+    , _artSubnetId = pSubnetId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 artDryRun :: Lens' AssociateRouteTable (Maybe Bool)
-artDryRun = lens _artDryRun (\ s a -> s{_artDryRun = a});
+artDryRun = lens _artDryRun (\ s a -> s{_artDryRun = a})
 
 -- | The ID of the route table.
 artRouteTableId :: Lens' AssociateRouteTable Text
-artRouteTableId = lens _artRouteTableId (\ s a -> s{_artRouteTableId = a});
+artRouteTableId = lens _artRouteTableId (\ s a -> s{_artRouteTableId = a})
 
 -- | The ID of the subnet.
 artSubnetId :: Lens' AssociateRouteTable Text
-artSubnetId = lens _artSubnetId (\ s a -> s{_artSubnetId = a});
+artSubnetId = lens _artSubnetId (\ s a -> s{_artSubnetId = a})
 
 instance AWSRequest AssociateRouteTable where
         type Rs AssociateRouteTable =
@@ -145,15 +145,15 @@ associateRouteTableResponse
     -> AssociateRouteTableResponse
 associateRouteTableResponse pResponseStatus_ =
   AssociateRouteTableResponse'
-  {_artrsAssociationId = Nothing, _artrsResponseStatus = pResponseStatus_}
+    {_artrsAssociationId = Nothing, _artrsResponseStatus = pResponseStatus_}
 
 
 -- | The route table association ID (needed to disassociate the route table).
 artrsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
-artrsAssociationId = lens _artrsAssociationId (\ s a -> s{_artrsAssociationId = a});
+artrsAssociationId = lens _artrsAssociationId (\ s a -> s{_artrsAssociationId = a})
 
 -- | -- | The response status code.
 artrsResponseStatus :: Lens' AssociateRouteTableResponse Int
-artrsResponseStatus = lens _artrsResponseStatus (\ s a -> s{_artrsResponseStatus = a});
+artrsResponseStatus = lens _artrsResponseStatus (\ s a -> s{_artrsResponseStatus = a})
 
 instance NFData AssociateRouteTableResponse where

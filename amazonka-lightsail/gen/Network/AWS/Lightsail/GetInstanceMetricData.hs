@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstanceMetricData
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,43 +90,43 @@ getInstanceMetricData
     -> GetInstanceMetricData
 getInstanceMetricData pInstanceName_ pMetricName_ pPeriod_ pStartTime_ pEndTime_ pUnit_ =
   GetInstanceMetricData'
-  { _gimdInstanceName = pInstanceName_
-  , _gimdMetricName = pMetricName_
-  , _gimdPeriod = _Nat # pPeriod_
-  , _gimdStartTime = _Time # pStartTime_
-  , _gimdEndTime = _Time # pEndTime_
-  , _gimdUnit = pUnit_
-  , _gimdStatistics = mempty
-  }
+    { _gimdInstanceName = pInstanceName_
+    , _gimdMetricName = pMetricName_
+    , _gimdPeriod = _Nat # pPeriod_
+    , _gimdStartTime = _Time # pStartTime_
+    , _gimdEndTime = _Time # pEndTime_
+    , _gimdUnit = pUnit_
+    , _gimdStatistics = mempty
+    }
 
 
 -- | The name of the instance for which you want to get metrics data.
 gimdInstanceName :: Lens' GetInstanceMetricData Text
-gimdInstanceName = lens _gimdInstanceName (\ s a -> s{_gimdInstanceName = a});
+gimdInstanceName = lens _gimdInstanceName (\ s a -> s{_gimdInstanceName = a})
 
 -- | The metric name to get data about.
 gimdMetricName :: Lens' GetInstanceMetricData InstanceMetricName
-gimdMetricName = lens _gimdMetricName (\ s a -> s{_gimdMetricName = a});
+gimdMetricName = lens _gimdMetricName (\ s a -> s{_gimdMetricName = a})
 
 -- | The time period for which you are requesting data.
 gimdPeriod :: Lens' GetInstanceMetricData Natural
-gimdPeriod = lens _gimdPeriod (\ s a -> s{_gimdPeriod = a}) . _Nat;
+gimdPeriod = lens _gimdPeriod (\ s a -> s{_gimdPeriod = a}) . _Nat
 
 -- | The start time of the time period.
 gimdStartTime :: Lens' GetInstanceMetricData UTCTime
-gimdStartTime = lens _gimdStartTime (\ s a -> s{_gimdStartTime = a}) . _Time;
+gimdStartTime = lens _gimdStartTime (\ s a -> s{_gimdStartTime = a}) . _Time
 
 -- | The end time of the time period.
 gimdEndTime :: Lens' GetInstanceMetricData UTCTime
-gimdEndTime = lens _gimdEndTime (\ s a -> s{_gimdEndTime = a}) . _Time;
+gimdEndTime = lens _gimdEndTime (\ s a -> s{_gimdEndTime = a}) . _Time
 
 -- | The unit. The list of valid values is below.
 gimdUnit :: Lens' GetInstanceMetricData MetricUnit
-gimdUnit = lens _gimdUnit (\ s a -> s{_gimdUnit = a});
+gimdUnit = lens _gimdUnit (\ s a -> s{_gimdUnit = a})
 
 -- | The instance statistics.
 gimdStatistics :: Lens' GetInstanceMetricData [MetricStatistic]
-gimdStatistics = lens _gimdStatistics (\ s a -> s{_gimdStatistics = a}) . _Coerce;
+gimdStatistics = lens _gimdStatistics (\ s a -> s{_gimdStatistics = a}) . _Coerce
 
 instance AWSRequest GetInstanceMetricData where
         type Rs GetInstanceMetricData =
@@ -194,22 +194,22 @@ getInstanceMetricDataResponse
     -> GetInstanceMetricDataResponse
 getInstanceMetricDataResponse pResponseStatus_ =
   GetInstanceMetricDataResponse'
-  { _gimdrsMetricName = Nothing
-  , _gimdrsMetricData = Nothing
-  , _gimdrsResponseStatus = pResponseStatus_
-  }
+    { _gimdrsMetricName = Nothing
+    , _gimdrsMetricData = Nothing
+    , _gimdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The metric name to return data for.
 gimdrsMetricName :: Lens' GetInstanceMetricDataResponse (Maybe InstanceMetricName)
-gimdrsMetricName = lens _gimdrsMetricName (\ s a -> s{_gimdrsMetricName = a});
+gimdrsMetricName = lens _gimdrsMetricName (\ s a -> s{_gimdrsMetricName = a})
 
 -- | An array of key-value pairs containing information about the results of your get instance metric data request.
 gimdrsMetricData :: Lens' GetInstanceMetricDataResponse [MetricDatapoint]
-gimdrsMetricData = lens _gimdrsMetricData (\ s a -> s{_gimdrsMetricData = a}) . _Default . _Coerce;
+gimdrsMetricData = lens _gimdrsMetricData (\ s a -> s{_gimdrsMetricData = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gimdrsResponseStatus :: Lens' GetInstanceMetricDataResponse Int
-gimdrsResponseStatus = lens _gimdrsResponseStatus (\ s a -> s{_gimdrsResponseStatus = a});
+gimdrsResponseStatus = lens _gimdrsResponseStatus (\ s a -> s{_gimdrsResponseStatus = a})
 
 instance NFData GetInstanceMetricDataResponse where

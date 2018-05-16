@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeStackSummary
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ describeStackSummary pStackId_ = DescribeStackSummary' {_dssStackId = pStackId_}
 
 -- | The stack ID.
 dssStackId :: Lens' DescribeStackSummary Text
-dssStackId = lens _dssStackId (\ s a -> s{_dssStackId = a});
+dssStackId = lens _dssStackId (\ s a -> s{_dssStackId = a})
 
 instance AWSRequest DescribeStackSummary where
         type Rs DescribeStackSummary =
@@ -125,15 +125,15 @@ describeStackSummaryResponse
     -> DescribeStackSummaryResponse
 describeStackSummaryResponse pResponseStatus_ =
   DescribeStackSummaryResponse'
-  {_dssrsStackSummary = Nothing, _dssrsResponseStatus = pResponseStatus_}
+    {_dssrsStackSummary = Nothing, _dssrsResponseStatus = pResponseStatus_}
 
 
 -- | A @StackSummary@ object that contains the results.
 dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
-dssrsStackSummary = lens _dssrsStackSummary (\ s a -> s{_dssrsStackSummary = a});
+dssrsStackSummary = lens _dssrsStackSummary (\ s a -> s{_dssrsStackSummary = a})
 
 -- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeStackSummaryResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a})
 
 instance NFData DescribeStackSummaryResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListVaults
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,20 +82,20 @@ listVaults
     -> ListVaults
 listVaults pAccountId_ =
   ListVaults'
-  {_lvMarker = Nothing, _lvLimit = Nothing, _lvAccountId = pAccountId_}
+    {_lvMarker = Nothing, _lvLimit = Nothing, _lvAccountId = pAccountId_}
 
 
 -- | A string used for pagination. The marker specifies the vault ARN after which the listing of vaults should begin.
 lvMarker :: Lens' ListVaults (Maybe Text)
-lvMarker = lens _lvMarker (\ s a -> s{_lvMarker = a});
+lvMarker = lens _lvMarker (\ s a -> s{_lvMarker = a})
 
 -- | The maximum number of vaults to be returned. The default limit is 1000. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit.
 lvLimit :: Lens' ListVaults (Maybe Text)
-lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a});
+lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a})
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 lvAccountId :: Lens' ListVaults Text
-lvAccountId = lens _lvAccountId (\ s a -> s{_lvAccountId = a});
+lvAccountId = lens _lvAccountId (\ s a -> s{_lvAccountId = a})
 
 instance AWSPager ListVaults where
         page rq rs
@@ -156,22 +156,22 @@ listVaultsResponse
     -> ListVaultsResponse
 listVaultsResponse pResponseStatus_ =
   ListVaultsResponse'
-  { _lvrsMarker = Nothing
-  , _lvrsVaultList = Nothing
-  , _lvrsResponseStatus = pResponseStatus_
-  }
+    { _lvrsMarker = Nothing
+    , _lvrsVaultList = Nothing
+    , _lvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The vault ARN at which to continue pagination of the results. You use the marker in another List Vaults request to obtain more vaults in the list.
 lvrsMarker :: Lens' ListVaultsResponse (Maybe Text)
-lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a});
+lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a})
 
 -- | List of vaults.
 lvrsVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
-lvrsVaultList = lens _lvrsVaultList (\ s a -> s{_lvrsVaultList = a}) . _Default . _Coerce;
+lvrsVaultList = lens _lvrsVaultList (\ s a -> s{_lvrsVaultList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lvrsResponseStatus :: Lens' ListVaultsResponse Int
-lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a});
+lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a})
 
 instance NFData ListVaultsResponse where

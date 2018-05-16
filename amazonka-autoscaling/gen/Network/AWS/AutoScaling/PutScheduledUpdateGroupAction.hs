@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,7 +83,7 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 --
 -- * 'psugaEndTime' - The time for the recurring schedule to end. Auto Scaling does not perform the action after this time.
 --
--- * 'psugaAutoScalingGroupName' - The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+-- * 'psugaAutoScalingGroupName' - The name of the Auto Scaling group.
 --
 -- * 'psugaScheduledActionName' - The name of this scaling action.
 putScheduledUpdateGroupAction
@@ -92,53 +92,53 @@ putScheduledUpdateGroupAction
     -> PutScheduledUpdateGroupAction
 putScheduledUpdateGroupAction pAutoScalingGroupName_ pScheduledActionName_ =
   PutScheduledUpdateGroupAction'
-  { _psugaStartTime = Nothing
-  , _psugaTime = Nothing
-  , _psugaMaxSize = Nothing
-  , _psugaRecurrence = Nothing
-  , _psugaDesiredCapacity = Nothing
-  , _psugaMinSize = Nothing
-  , _psugaEndTime = Nothing
-  , _psugaAutoScalingGroupName = pAutoScalingGroupName_
-  , _psugaScheduledActionName = pScheduledActionName_
-  }
+    { _psugaStartTime = Nothing
+    , _psugaTime = Nothing
+    , _psugaMaxSize = Nothing
+    , _psugaRecurrence = Nothing
+    , _psugaDesiredCapacity = Nothing
+    , _psugaMinSize = Nothing
+    , _psugaEndTime = Nothing
+    , _psugaAutoScalingGroupName = pAutoScalingGroupName_
+    , _psugaScheduledActionName = pScheduledActionName_
+    }
 
 
 -- | The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, @2014-06-01T00:00:00Z@ ). If you specify @Recurrence@ and @StartTime@ , Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence. If you try to schedule your action in the past, Auto Scaling returns an error message.
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
-psugaStartTime = lens _psugaStartTime (\ s a -> s{_psugaStartTime = a}) . mapping _Time;
+psugaStartTime = lens _psugaStartTime (\ s a -> s{_psugaStartTime = a}) . mapping _Time
 
 -- | This parameter is deprecated.
 psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
-psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time;
+psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time
 
 -- | The maximum size for the Auto Scaling group.
 psugaMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
-psugaMaxSize = lens _psugaMaxSize (\ s a -> s{_psugaMaxSize = a});
+psugaMaxSize = lens _psugaMaxSize (\ s a -> s{_psugaMaxSize = a})
 
 -- | The recurring schedule for this action, in Unix cron syntax format. For more information, see <http://en.wikipedia.org/wiki/Cron Cron> in Wikipedia.
 psugaRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
-psugaRecurrence = lens _psugaRecurrence (\ s a -> s{_psugaRecurrence = a});
+psugaRecurrence = lens _psugaRecurrence (\ s a -> s{_psugaRecurrence = a})
 
 -- | The number of EC2 instances that should be running in the group.
 psugaDesiredCapacity :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
-psugaDesiredCapacity = lens _psugaDesiredCapacity (\ s a -> s{_psugaDesiredCapacity = a});
+psugaDesiredCapacity = lens _psugaDesiredCapacity (\ s a -> s{_psugaDesiredCapacity = a})
 
 -- | The minimum size for the Auto Scaling group.
 psugaMinSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
-psugaMinSize = lens _psugaMinSize (\ s a -> s{_psugaMinSize = a});
+psugaMinSize = lens _psugaMinSize (\ s a -> s{_psugaMinSize = a})
 
 -- | The time for the recurring schedule to end. Auto Scaling does not perform the action after this time.
 psugaEndTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
-psugaEndTime = lens _psugaEndTime (\ s a -> s{_psugaEndTime = a}) . mapping _Time;
+psugaEndTime = lens _psugaEndTime (\ s a -> s{_psugaEndTime = a}) . mapping _Time
 
--- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+-- | The name of the Auto Scaling group.
 psugaAutoScalingGroupName :: Lens' PutScheduledUpdateGroupAction Text
-psugaAutoScalingGroupName = lens _psugaAutoScalingGroupName (\ s a -> s{_psugaAutoScalingGroupName = a});
+psugaAutoScalingGroupName = lens _psugaAutoScalingGroupName (\ s a -> s{_psugaAutoScalingGroupName = a})
 
 -- | The name of this scaling action.
 psugaScheduledActionName :: Lens' PutScheduledUpdateGroupAction Text
-psugaScheduledActionName = lens _psugaScheduledActionName (\ s a -> s{_psugaScheduledActionName = a});
+psugaScheduledActionName = lens _psugaScheduledActionName (\ s a -> s{_psugaScheduledActionName = a})
 
 instance AWSRequest PutScheduledUpdateGroupAction
          where

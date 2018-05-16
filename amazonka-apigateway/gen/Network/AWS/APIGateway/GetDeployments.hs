@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDeployments
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a 'Deployments' collection.
+-- | Requests API Gateway to get information about a 'Deployments' collection.
 --
 --
 --
@@ -66,30 +66,30 @@ data GetDeployments = GetDeployments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- * 'gdLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- * 'gdPosition' - The current pagination position in the paged result set.
 --
--- * 'gdRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'gdRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 getDeployments
     :: Text -- ^ 'gdRestAPIId'
     -> GetDeployments
 getDeployments pRestAPIId_ =
   GetDeployments'
-  {_gdLimit = Nothing, _gdPosition = Nothing, _gdRestAPIId = pRestAPIId_}
+    {_gdLimit = Nothing, _gdPosition = Nothing, _gdRestAPIId = pRestAPIId_}
 
 
--- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 gdLimit :: Lens' GetDeployments (Maybe Int)
-gdLimit = lens _gdLimit (\ s a -> s{_gdLimit = a});
+gdLimit = lens _gdLimit (\ s a -> s{_gdLimit = a})
 
 -- | The current pagination position in the paged result set.
 gdPosition :: Lens' GetDeployments (Maybe Text)
-gdPosition = lens _gdPosition (\ s a -> s{_gdPosition = a});
+gdPosition = lens _gdPosition (\ s a -> s{_gdPosition = a})
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 gdRestAPIId :: Lens' GetDeployments Text
-gdRestAPIId = lens _gdRestAPIId (\ s a -> s{_gdRestAPIId = a});
+gdRestAPIId = lens _gdRestAPIId (\ s a -> s{_gdRestAPIId = a})
 
 instance AWSPager GetDeployments where
         page rq rs
@@ -155,22 +155,22 @@ getDeploymentsResponse
     -> GetDeploymentsResponse
 getDeploymentsResponse pResponseStatus_ =
   GetDeploymentsResponse'
-  { _gdrsItems = Nothing
-  , _gdrsPosition = Nothing
-  , _gdrsResponseStatus = pResponseStatus_
-  }
+    { _gdrsItems = Nothing
+    , _gdrsPosition = Nothing
+    , _gdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The current page of elements from this collection.
 gdrsItems :: Lens' GetDeploymentsResponse [Deployment]
-gdrsItems = lens _gdrsItems (\ s a -> s{_gdrsItems = a}) . _Default . _Coerce;
+gdrsItems = lens _gdrsItems (\ s a -> s{_gdrsItems = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 gdrsPosition :: Lens' GetDeploymentsResponse (Maybe Text)
-gdrsPosition = lens _gdrsPosition (\ s a -> s{_gdrsPosition = a});
+gdrsPosition = lens _gdrsPosition (\ s a -> s{_gdrsPosition = a})
 
 -- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeploymentsResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a})
 
 instance NFData GetDeploymentsResponse where

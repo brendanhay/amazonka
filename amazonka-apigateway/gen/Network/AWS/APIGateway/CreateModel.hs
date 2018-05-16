@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateModel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,15 +69,15 @@ data CreateModel = CreateModel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmSchema' - The schema for the model. For @application/json@ models, this should be <http://json-schema.org/documentation.html JSON-schema draft v4> model.
+-- * 'cmSchema' - The schema for the model. For @application/json@ models, this should be <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4> model.
 --
 -- * 'cmDescription' - The description of the model.
 --
--- * 'cmRestAPIId' - The 'RestApi' identifier under which the 'Model' will be created.
+-- * 'cmRestAPIId' - [Required] The 'RestApi' identifier under which the 'Model' will be created.
 --
--- * 'cmName' - The name of the model. Must be alphanumeric.
+-- * 'cmName' - [Required] The name of the model. Must be alphanumeric.
 --
--- * 'cmContentType' - The content-type for the model.
+-- * 'cmContentType' - [Required] The content-type for the model.
 createModel
     :: Text -- ^ 'cmRestAPIId'
     -> Text -- ^ 'cmName'
@@ -85,33 +85,33 @@ createModel
     -> CreateModel
 createModel pRestAPIId_ pName_ pContentType_ =
   CreateModel'
-  { _cmSchema = Nothing
-  , _cmDescription = Nothing
-  , _cmRestAPIId = pRestAPIId_
-  , _cmName = pName_
-  , _cmContentType = pContentType_
-  }
+    { _cmSchema = Nothing
+    , _cmDescription = Nothing
+    , _cmRestAPIId = pRestAPIId_
+    , _cmName = pName_
+    , _cmContentType = pContentType_
+    }
 
 
--- | The schema for the model. For @application/json@ models, this should be <http://json-schema.org/documentation.html JSON-schema draft v4> model.
+-- | The schema for the model. For @application/json@ models, this should be <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4> model.
 cmSchema :: Lens' CreateModel (Maybe Text)
-cmSchema = lens _cmSchema (\ s a -> s{_cmSchema = a});
+cmSchema = lens _cmSchema (\ s a -> s{_cmSchema = a})
 
 -- | The description of the model.
 cmDescription :: Lens' CreateModel (Maybe Text)
-cmDescription = lens _cmDescription (\ s a -> s{_cmDescription = a});
+cmDescription = lens _cmDescription (\ s a -> s{_cmDescription = a})
 
--- | The 'RestApi' identifier under which the 'Model' will be created.
+-- | [Required] The 'RestApi' identifier under which the 'Model' will be created.
 cmRestAPIId :: Lens' CreateModel Text
-cmRestAPIId = lens _cmRestAPIId (\ s a -> s{_cmRestAPIId = a});
+cmRestAPIId = lens _cmRestAPIId (\ s a -> s{_cmRestAPIId = a})
 
--- | The name of the model. Must be alphanumeric.
+-- | [Required] The name of the model. Must be alphanumeric.
 cmName :: Lens' CreateModel Text
-cmName = lens _cmName (\ s a -> s{_cmName = a});
+cmName = lens _cmName (\ s a -> s{_cmName = a})
 
--- | The content-type for the model.
+-- | [Required] The content-type for the model.
 cmContentType :: Lens' CreateModel Text
-cmContentType = lens _cmContentType (\ s a -> s{_cmContentType = a});
+cmContentType = lens _cmContentType (\ s a -> s{_cmContentType = a})
 
 instance AWSRequest CreateModel where
         type Rs CreateModel = Model

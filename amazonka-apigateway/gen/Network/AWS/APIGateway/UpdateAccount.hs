@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateAccount
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Requests Amazon API Gateway to change information about the current 'Account' resource.
+-- | Requests API Gateway to change information about the current 'Account' resource.
 --
 --
 --
@@ -68,7 +68,7 @@ updateAccount = UpdateAccount' {_uaPatchOperations = Nothing}
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uaPatchOperations :: Lens' UpdateAccount [PatchOperation]
-uaPatchOperations = lens _uaPatchOperations (\ s a -> s{_uaPatchOperations = a}) . _Default . _Coerce;
+uaPatchOperations = lens _uaPatchOperations (\ s a -> s{_uaPatchOperations = a}) . _Default . _Coerce
 
 instance AWSRequest UpdateAccount where
         type Rs UpdateAccount = Account

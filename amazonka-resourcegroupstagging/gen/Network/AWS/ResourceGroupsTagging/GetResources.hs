@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ResourceGroupsTagging.GetResources
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,33 +79,33 @@ getResources
     :: GetResources
 getResources =
   GetResources'
-  { _grPaginationToken = Nothing
-  , _grResourcesPerPage = Nothing
-  , _grResourceTypeFilters = Nothing
-  , _grTagFilters = Nothing
-  , _grTagsPerPage = Nothing
-  }
+    { _grPaginationToken = Nothing
+    , _grResourcesPerPage = Nothing
+    , _grResourceTypeFilters = Nothing
+    , _grTagFilters = Nothing
+    , _grTagsPerPage = Nothing
+    }
 
 
 -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
 grPaginationToken :: Lens' GetResources (Maybe Text)
-grPaginationToken = lens _grPaginationToken (\ s a -> s{_grPaginationToken = a});
+grPaginationToken = lens _grPaginationToken (\ s a -> s{_grPaginationToken = a})
 
 -- | A limit that restricts the number of resources returned by GetResources in paginated output. You can set ResourcesPerPage to a minimum of 1 item and the maximum of 50 items.
 grResourcesPerPage :: Lens' GetResources (Maybe Int)
-grResourcesPerPage = lens _grResourcesPerPage (\ s a -> s{_grResourcesPerPage = a});
+grResourcesPerPage = lens _grResourcesPerPage (\ s a -> s{_grResourcesPerPage = a})
 
 -- | The constraints on the resources that you want returned. The format of each resource type is @service[:resourceType]@ . For example, specifying a resource type of @ec2@ returns all tagged Amazon EC2 resources (which includes tagged EC2 instances). Specifying a resource type of @ec2:instance@ returns only EC2 instances.  The string for each service name and resource type is the same as that embedded in a resource's Amazon Resource Name (ARN). Consult the /AWS General Reference/ for the following:     * For a list of service name strings, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> .     * For resource type strings, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax Example ARNs> .     * For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 grResourceTypeFilters :: Lens' GetResources [Text]
-grResourceTypeFilters = lens _grResourceTypeFilters (\ s a -> s{_grResourceTypeFilters = a}) . _Default . _Coerce;
+grResourceTypeFilters = lens _grResourceTypeFilters (\ s a -> s{_grResourceTypeFilters = a}) . _Default . _Coerce
 
 -- | A list of tags (keys and values). A request can include up to 50 keys, and each key can include up to 20 values. If you specify multiple filters connected by an AND operator in a single request, the response returns only those resources that are associated with every specified filter. If you specify multiple filters connected by an OR operator in a single request, the response returns all resources that are associated with at least one or possibly more of the specified filters.
 grTagFilters :: Lens' GetResources [TagFilter]
-grTagFilters = lens _grTagFilters (\ s a -> s{_grTagFilters = a}) . _Default . _Coerce;
+grTagFilters = lens _grTagFilters (\ s a -> s{_grTagFilters = a}) . _Default . _Coerce
 
 -- | A limit that restricts the number of tags (key and value pairs) returned by GetResources in paginated output. A resource with no tags is counted as having one tag (one key and value pair). @GetResources@ does not split a resource and its associated tags across pages. If the specified @TagsPerPage@ would cause such a break, a @PaginationToken@ is returned in place of the affected resource and its tags. Use that token in another request to get the remaining data. For example, if you specify a @TagsPerPage@ of @100@ and the account has 22 resources with 10 tags each (meaning that each resource has 10 key and value pairs), the output will consist of 3 pages, with the first page displaying the first 10 resources, each with its 10 tags, the second page displaying the next 10 resources each with its 10 tags, and the third page displaying the remaining 2 resources, each with its 10 tags. You can set @TagsPerPage@ to a minimum of 100 items and the maximum of 500 items.
 grTagsPerPage :: Lens' GetResources (Maybe Int)
-grTagsPerPage = lens _grTagsPerPage (\ s a -> s{_grTagsPerPage = a});
+grTagsPerPage = lens _grTagsPerPage (\ s a -> s{_grTagsPerPage = a})
 
 instance AWSPager GetResources where
         page rq rs
@@ -179,22 +179,22 @@ getResourcesResponse
     -> GetResourcesResponse
 getResourcesResponse pResponseStatus_ =
   GetResourcesResponse'
-  { _grrsPaginationToken = Nothing
-  , _grrsResourceTagMappingList = Nothing
-  , _grrsResponseStatus = pResponseStatus_
-  }
+    { _grrsPaginationToken = Nothing
+    , _grrsResourceTagMappingList = Nothing
+    , _grrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
 grrsPaginationToken :: Lens' GetResourcesResponse (Maybe Text)
-grrsPaginationToken = lens _grrsPaginationToken (\ s a -> s{_grrsPaginationToken = a});
+grrsPaginationToken = lens _grrsPaginationToken (\ s a -> s{_grrsPaginationToken = a})
 
 -- | A list of resource ARNs and the tags (keys and values) associated with each.
 grrsResourceTagMappingList :: Lens' GetResourcesResponse [ResourceTagMapping]
-grrsResourceTagMappingList = lens _grrsResourceTagMappingList (\ s a -> s{_grrsResourceTagMappingList = a}) . _Default . _Coerce;
+grrsResourceTagMappingList = lens _grrsResourceTagMappingList (\ s a -> s{_grrsResourceTagMappingList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 grrsResponseStatus :: Lens' GetResourcesResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a})
 
 instance NFData GetResourcesResponse where

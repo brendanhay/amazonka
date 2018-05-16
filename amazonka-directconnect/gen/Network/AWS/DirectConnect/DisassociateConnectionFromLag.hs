@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DisassociateConnectionFromLag
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -81,16 +81,16 @@ disassociateConnectionFromLag
     -> DisassociateConnectionFromLag
 disassociateConnectionFromLag pConnectionId_ pLagId_ =
   DisassociateConnectionFromLag'
-  {_dcflConnectionId = pConnectionId_, _dcflLagId = pLagId_}
+    {_dcflConnectionId = pConnectionId_, _dcflLagId = pLagId_}
 
 
 -- | The ID of the connection to disassociate from the LAG. Example: dxcon-abc123 Default: None
 dcflConnectionId :: Lens' DisassociateConnectionFromLag Text
-dcflConnectionId = lens _dcflConnectionId (\ s a -> s{_dcflConnectionId = a});
+dcflConnectionId = lens _dcflConnectionId (\ s a -> s{_dcflConnectionId = a})
 
 -- | The ID of the LAG. Example: dxlag-abc123 Default: None
 dcflLagId :: Lens' DisassociateConnectionFromLag Text
-dcflLagId = lens _dcflLagId (\ s a -> s{_dcflLagId = a});
+dcflLagId = lens _dcflLagId (\ s a -> s{_dcflLagId = a})
 
 instance AWSRequest DisassociateConnectionFromLag
          where

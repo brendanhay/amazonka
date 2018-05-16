@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateStorageLocation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates the Amazon S3 storage location for the account.
+-- Creates a bucket in Amazon S3 to store application versions, logs, and other files used by Elastic Beanstalk environments. The Elastic Beanstalk console and EB CLI call this API the first time you create an environment in a region. If the storage location already exists, @CreateStorageLocation@ still returns the bucket name but does not create a new bucket.
 --
---
--- This location is used to store user log files.
 --
 module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     (
@@ -107,15 +105,15 @@ createStorageLocationResponse
     -> CreateStorageLocationResponse
 createStorageLocationResponse pResponseStatus_ =
   CreateStorageLocationResponse'
-  {_cslrsS3Bucket = Nothing, _cslrsResponseStatus = pResponseStatus_}
+    {_cslrsS3Bucket = Nothing, _cslrsResponseStatus = pResponseStatus_}
 
 
 -- | The name of the Amazon S3 bucket created.
 cslrsS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
-cslrsS3Bucket = lens _cslrsS3Bucket (\ s a -> s{_cslrsS3Bucket = a});
+cslrsS3Bucket = lens _cslrsS3Bucket (\ s a -> s{_cslrsS3Bucket = a})
 
 -- | -- | The response status code.
 cslrsResponseStatus :: Lens' CreateStorageLocationResponse Int
-cslrsResponseStatus = lens _cslrsResponseStatus (\ s a -> s{_cslrsResponseStatus = a});
+cslrsResponseStatus = lens _cslrsResponseStatus (\ s a -> s{_cslrsResponseStatus = a})
 
 instance NFData CreateStorageLocationResponse where

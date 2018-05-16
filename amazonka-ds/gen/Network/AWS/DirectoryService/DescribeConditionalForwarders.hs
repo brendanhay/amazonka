@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DescribeConditionalForwarders
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,16 +70,16 @@ describeConditionalForwarders
     -> DescribeConditionalForwarders
 describeConditionalForwarders pDirectoryId_ =
   DescribeConditionalForwarders'
-  {_dcfRemoteDomainNames = Nothing, _dcfDirectoryId = pDirectoryId_}
+    {_dcfRemoteDomainNames = Nothing, _dcfDirectoryId = pDirectoryId_}
 
 
 -- | The fully qualified domain names (FQDN) of the remote domains for which to get the list of associated conditional forwarders. If this member is null, all conditional forwarders are returned.
 dcfRemoteDomainNames :: Lens' DescribeConditionalForwarders [Text]
-dcfRemoteDomainNames = lens _dcfRemoteDomainNames (\ s a -> s{_dcfRemoteDomainNames = a}) . _Default . _Coerce;
+dcfRemoteDomainNames = lens _dcfRemoteDomainNames (\ s a -> s{_dcfRemoteDomainNames = a}) . _Default . _Coerce
 
 -- | The directory ID for which to get the list of associated conditional forwarders.
 dcfDirectoryId :: Lens' DescribeConditionalForwarders Text
-dcfDirectoryId = lens _dcfDirectoryId (\ s a -> s{_dcfDirectoryId = a});
+dcfDirectoryId = lens _dcfDirectoryId (\ s a -> s{_dcfDirectoryId = a})
 
 instance AWSRequest DescribeConditionalForwarders
          where
@@ -144,18 +144,18 @@ describeConditionalForwardersResponse
     -> DescribeConditionalForwardersResponse
 describeConditionalForwardersResponse pResponseStatus_ =
   DescribeConditionalForwardersResponse'
-  { _dcfrsConditionalForwarders = Nothing
-  , _dcfrsResponseStatus = pResponseStatus_
-  }
+    { _dcfrsConditionalForwarders = Nothing
+    , _dcfrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of conditional forwarders that have been created.
 dcfrsConditionalForwarders :: Lens' DescribeConditionalForwardersResponse [ConditionalForwarder]
-dcfrsConditionalForwarders = lens _dcfrsConditionalForwarders (\ s a -> s{_dcfrsConditionalForwarders = a}) . _Default . _Coerce;
+dcfrsConditionalForwarders = lens _dcfrsConditionalForwarders (\ s a -> s{_dcfrsConditionalForwarders = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcfrsResponseStatus :: Lens' DescribeConditionalForwardersResponse Int
-dcfrsResponseStatus = lens _dcfrsResponseStatus (\ s a -> s{_dcfrsResponseStatus = a});
+dcfrsResponseStatus = lens _dcfrsResponseStatus (\ s a -> s{_dcfrsResponseStatus = a})
 
 instance NFData DescribeConditionalForwardersResponse
          where

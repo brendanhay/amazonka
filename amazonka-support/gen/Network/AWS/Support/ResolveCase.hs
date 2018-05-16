@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.ResolveCase
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,7 +67,7 @@ resolveCase = ResolveCase' {_rcCaseId = Nothing}
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 rcCaseId :: Lens' ResolveCase (Maybe Text)
-rcCaseId = lens _rcCaseId (\ s a -> s{_rcCaseId = a});
+rcCaseId = lens _rcCaseId (\ s a -> s{_rcCaseId = a})
 
 instance AWSRequest ResolveCase where
         type Rs ResolveCase = ResolveCaseResponse
@@ -129,22 +129,22 @@ resolveCaseResponse
     -> ResolveCaseResponse
 resolveCaseResponse pResponseStatus_ =
   ResolveCaseResponse'
-  { _rcrsInitialCaseStatus = Nothing
-  , _rcrsFinalCaseStatus = Nothing
-  , _rcrsResponseStatus = pResponseStatus_
-  }
+    { _rcrsInitialCaseStatus = Nothing
+    , _rcrsFinalCaseStatus = Nothing
+    , _rcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The status of the case when the 'ResolveCase' request was sent.
 rcrsInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcrsInitialCaseStatus = lens _rcrsInitialCaseStatus (\ s a -> s{_rcrsInitialCaseStatus = a});
+rcrsInitialCaseStatus = lens _rcrsInitialCaseStatus (\ s a -> s{_rcrsInitialCaseStatus = a})
 
 -- | The status of the case after the 'ResolveCase' request was processed.
 rcrsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus = a});
+rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus = a})
 
 -- | -- | The response status code.
 rcrsResponseStatus :: Lens' ResolveCaseResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a})
 
 instance NFData ResolveCaseResponse where

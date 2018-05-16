@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigurationRecorderStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the current status of the specified configuration recorder. If a configuration recorder is not specified, this action returns the status of all configuration recorder associated with the account.
+-- Returns the current status of the specified configuration recorder. If a configuration recorder is not specified, this action returns the status of all configuration recorders associated with the account.
 --
 --
 module Network.AWS.Config.DescribeConfigurationRecorderStatus
@@ -63,12 +63,12 @@ describeConfigurationRecorderStatus
     :: DescribeConfigurationRecorderStatus
 describeConfigurationRecorderStatus =
   DescribeConfigurationRecorderStatus'
-  {_dcrsConfigurationRecorderNames = Nothing}
+    {_dcrsConfigurationRecorderNames = Nothing}
 
 
 -- | The name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account.
 dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
-dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a}) . _Default . _Coerce;
+dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a}) . _Default . _Coerce
 
 instance AWSRequest
            DescribeConfigurationRecorderStatus
@@ -117,7 +117,7 @@ instance ToQuery DescribeConfigurationRecorderStatus
          where
         toQuery = const mempty
 
--- | The output for the 'DescribeConfigurationRecorderStatus' action in JSON format.
+-- | The output for the 'DescribeConfigurationRecorderStatus' action, in JSON format.
 --
 --
 --
@@ -140,18 +140,18 @@ describeConfigurationRecorderStatusResponse
     -> DescribeConfigurationRecorderStatusResponse
 describeConfigurationRecorderStatusResponse pResponseStatus_ =
   DescribeConfigurationRecorderStatusResponse'
-  { _dcrsrsConfigurationRecordersStatus = Nothing
-  , _dcrsrsResponseStatus = pResponseStatus_
-  }
+    { _dcrsrsConfigurationRecordersStatus = Nothing
+    , _dcrsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list that contains status of the specified recorders.
 dcrsrsConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
-dcrsrsConfigurationRecordersStatus = lens _dcrsrsConfigurationRecordersStatus (\ s a -> s{_dcrsrsConfigurationRecordersStatus = a}) . _Default . _Coerce;
+dcrsrsConfigurationRecordersStatus = lens _dcrsrsConfigurationRecordersStatus (\ s a -> s{_dcrsrsConfigurationRecordersStatus = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dcrsrsResponseStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int
-dcrsrsResponseStatus = lens _dcrsrsResponseStatus (\ s a -> s{_dcrsrsResponseStatus = a});
+dcrsrsResponseStatus = lens _dcrsrsResponseStatus (\ s a -> s{_dcrsrsResponseStatus = a})
 
 instance NFData
            DescribeConfigurationRecorderStatusResponse

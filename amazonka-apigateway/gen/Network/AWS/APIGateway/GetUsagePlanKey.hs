@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetUsagePlanKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,9 +62,9 @@ data GetUsagePlanKey = GetUsagePlanKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gUsagePlanId' - The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
+-- * 'gUsagePlanId' - [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 --
--- * 'gKeyId' - The key Id of the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
+-- * 'gKeyId' - [Required] The key Id of the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 getUsagePlanKey
     :: Text -- ^ 'gUsagePlanId'
     -> Text -- ^ 'gKeyId'
@@ -73,13 +73,13 @@ getUsagePlanKey pUsagePlanId_ pKeyId_ =
   GetUsagePlanKey' {_gUsagePlanId = pUsagePlanId_, _gKeyId = pKeyId_}
 
 
--- | The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
+-- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 gUsagePlanId :: Lens' GetUsagePlanKey Text
-gUsagePlanId = lens _gUsagePlanId (\ s a -> s{_gUsagePlanId = a});
+gUsagePlanId = lens _gUsagePlanId (\ s a -> s{_gUsagePlanId = a})
 
--- | The key Id of the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
+-- | [Required] The key Id of the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 gKeyId :: Lens' GetUsagePlanKey Text
-gKeyId = lens _gKeyId (\ s a -> s{_gKeyId = a});
+gKeyId = lens _gKeyId (\ s a -> s{_gKeyId = a})
 
 instance AWSRequest GetUsagePlanKey where
         type Rs GetUsagePlanKey = UsagePlanKey

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketLifecycleConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ getBucketLifecycleConfiguration pBucket_ =
 
 -- | Undocumented member.
 gblcBucket :: Lens' GetBucketLifecycleConfiguration BucketName
-gblcBucket = lens _gblcBucket (\ s a -> s{_gblcBucket = a});
+gblcBucket = lens _gblcBucket (\ s a -> s{_gblcBucket = a})
 
 instance AWSRequest GetBucketLifecycleConfiguration
          where
@@ -112,16 +112,16 @@ getBucketLifecycleConfigurationResponse
     -> GetBucketLifecycleConfigurationResponse
 getBucketLifecycleConfigurationResponse pResponseStatus_ =
   GetBucketLifecycleConfigurationResponse'
-  {_gblcrsRules = Nothing, _gblcrsResponseStatus = pResponseStatus_}
+    {_gblcrsRules = Nothing, _gblcrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 gblcrsRules :: Lens' GetBucketLifecycleConfigurationResponse [LifecycleRule]
-gblcrsRules = lens _gblcrsRules (\ s a -> s{_gblcrsRules = a}) . _Default . _Coerce;
+gblcrsRules = lens _gblcrsRules (\ s a -> s{_gblcrsRules = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gblcrsResponseStatus :: Lens' GetBucketLifecycleConfigurationResponse Int
-gblcrsResponseStatus = lens _gblcrsResponseStatus (\ s a -> s{_gblcrsResponseStatus = a});
+gblcrsResponseStatus = lens _gblcrsResponseStatus (\ s a -> s{_gblcrsResponseStatus = a})
 
 instance NFData
            GetBucketLifecycleConfigurationResponse

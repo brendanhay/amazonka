@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Polly.GetLexicon
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getLexicon pName_ = GetLexicon' {_glName = _Sensitive # pName_}
 
 -- | Name of the lexicon.
 glName :: Lens' GetLexicon Text
-glName = lens _glName (\ s a -> s{_glName = a}) . _Sensitive;
+glName = lens _glName (\ s a -> s{_glName = a}) . _Sensitive
 
 instance AWSRequest GetLexicon where
         type Rs GetLexicon = GetLexiconResponse
@@ -112,22 +112,22 @@ getLexiconResponse
     -> GetLexiconResponse
 getLexiconResponse pResponseStatus_ =
   GetLexiconResponse'
-  { _glrsLexiconAttributes = Nothing
-  , _glrsLexicon = Nothing
-  , _glrsResponseStatus = pResponseStatus_
-  }
+    { _glrsLexiconAttributes = Nothing
+    , _glrsLexicon = Nothing
+    , _glrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.
 glrsLexiconAttributes :: Lens' GetLexiconResponse (Maybe LexiconAttributes)
-glrsLexiconAttributes = lens _glrsLexiconAttributes (\ s a -> s{_glrsLexiconAttributes = a});
+glrsLexiconAttributes = lens _glrsLexiconAttributes (\ s a -> s{_glrsLexiconAttributes = a})
 
 -- | Lexicon object that provides name and the string content of the lexicon.
 glrsLexicon :: Lens' GetLexiconResponse (Maybe Lexicon)
-glrsLexicon = lens _glrsLexicon (\ s a -> s{_glrsLexicon = a});
+glrsLexicon = lens _glrsLexicon (\ s a -> s{_glrsLexicon = a})
 
 -- | -- | The response status code.
 glrsResponseStatus :: Lens' GetLexiconResponse Int
-glrsResponseStatus = lens _glrsResponseStatus (\ s a -> s{_glrsResponseStatus = a});
+glrsResponseStatus = lens _glrsResponseStatus (\ s a -> s{_glrsResponseStatus = a})
 
 instance NFData GetLexiconResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.StopTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,9 +62,9 @@ data StopTask = StopTask'
 --
 -- * 'stCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'stReason' - An optional message specified when a task is stopped. For example, if you are using a custom scheduler, you can use this parameter to specify the reason for stopping the task here, and the message will appear in subsequent 'DescribeTasks' API operations on this task. Up to 255 characters are allowed in this message.
+-- * 'stReason' - An optional message specified when a task is stopped. For example, if you are using a custom scheduler, you can use this parameter to specify the reason for stopping the task here, and the message appears in subsequent 'DescribeTasks' API operations on this task. Up to 255 characters are allowed in this message.
 --
--- * 'stTask' - The task ID or full Amazon Resource Name (ARN) entry of the task to stop.
+-- * 'stTask' - The task ID or full ARN entry of the task to stop.
 stopTask
     :: Text -- ^ 'stTask'
     -> StopTask
@@ -74,15 +74,15 @@ stopTask pTask_ =
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed.
 stCluster :: Lens' StopTask (Maybe Text)
-stCluster = lens _stCluster (\ s a -> s{_stCluster = a});
+stCluster = lens _stCluster (\ s a -> s{_stCluster = a})
 
--- | An optional message specified when a task is stopped. For example, if you are using a custom scheduler, you can use this parameter to specify the reason for stopping the task here, and the message will appear in subsequent 'DescribeTasks' API operations on this task. Up to 255 characters are allowed in this message.
+-- | An optional message specified when a task is stopped. For example, if you are using a custom scheduler, you can use this parameter to specify the reason for stopping the task here, and the message appears in subsequent 'DescribeTasks' API operations on this task. Up to 255 characters are allowed in this message.
 stReason :: Lens' StopTask (Maybe Text)
-stReason = lens _stReason (\ s a -> s{_stReason = a});
+stReason = lens _stReason (\ s a -> s{_stReason = a})
 
--- | The task ID or full Amazon Resource Name (ARN) entry of the task to stop.
+-- | The task ID or full ARN entry of the task to stop.
 stTask :: Lens' StopTask Text
-stTask = lens _stTask (\ s a -> s{_stTask = a});
+stTask = lens _stTask (\ s a -> s{_stTask = a})
 
 instance AWSRequest StopTask where
         type Rs StopTask = StopTaskResponse
@@ -144,10 +144,10 @@ stopTaskResponse pResponseStatus_ =
 
 -- | The task that was stopped.
 srsTask :: Lens' StopTaskResponse (Maybe Task)
-srsTask = lens _srsTask (\ s a -> s{_srsTask = a});
+srsTask = lens _srsTask (\ s a -> s{_srsTask = a})
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StopTaskResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StopTaskResponse where

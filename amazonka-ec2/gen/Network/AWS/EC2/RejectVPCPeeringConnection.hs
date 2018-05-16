@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RejectVPCPeeringConnection
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,18 +68,18 @@ rejectVPCPeeringConnection
     -> RejectVPCPeeringConnection
 rejectVPCPeeringConnection pVPCPeeringConnectionId_ =
   RejectVPCPeeringConnection'
-  { _rvpcDryRun = Nothing
-  , _rvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
-  }
+    { _rvpcDryRun = Nothing
+    , _rvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rvpcDryRun :: Lens' RejectVPCPeeringConnection (Maybe Bool)
-rvpcDryRun = lens _rvpcDryRun (\ s a -> s{_rvpcDryRun = a});
+rvpcDryRun = lens _rvpcDryRun (\ s a -> s{_rvpcDryRun = a})
 
 -- | The ID of the VPC peering connection.
 rvpcVPCPeeringConnectionId :: Lens' RejectVPCPeeringConnection Text
-rvpcVPCPeeringConnectionId = lens _rvpcVPCPeeringConnectionId (\ s a -> s{_rvpcVPCPeeringConnectionId = a});
+rvpcVPCPeeringConnectionId = lens _rvpcVPCPeeringConnectionId (\ s a -> s{_rvpcVPCPeeringConnectionId = a})
 
 instance AWSRequest RejectVPCPeeringConnection where
         type Rs RejectVPCPeeringConnection =
@@ -134,16 +134,16 @@ rejectVPCPeeringConnectionResponse
     -> RejectVPCPeeringConnectionResponse
 rejectVPCPeeringConnectionResponse pResponseStatus_ =
   RejectVPCPeeringConnectionResponse'
-  {_rvpcrsReturn = Nothing, _rvpcrsResponseStatus = pResponseStatus_}
+    {_rvpcrsReturn = Nothing, _rvpcrsResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 rvpcrsReturn :: Lens' RejectVPCPeeringConnectionResponse (Maybe Bool)
-rvpcrsReturn = lens _rvpcrsReturn (\ s a -> s{_rvpcrsReturn = a});
+rvpcrsReturn = lens _rvpcrsReturn (\ s a -> s{_rvpcrsReturn = a})
 
 -- | -- | The response status code.
 rvpcrsResponseStatus :: Lens' RejectVPCPeeringConnectionResponse Int
-rvpcrsResponseStatus = lens _rvpcrsResponseStatus (\ s a -> s{_rvpcrsResponseStatus = a});
+rvpcrsResponseStatus = lens _rvpcrsResponseStatus (\ s a -> s{_rvpcrsResponseStatus = a})
 
 instance NFData RejectVPCPeeringConnectionResponse
          where

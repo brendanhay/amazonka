@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DescribeMigrationTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,18 +65,18 @@ describeMigrationTask
     -> DescribeMigrationTask
 describeMigrationTask pProgressUpdateStream_ pMigrationTaskName_ =
   DescribeMigrationTask'
-  { _dmtProgressUpdateStream = pProgressUpdateStream_
-  , _dmtMigrationTaskName = pMigrationTaskName_
-  }
+    { _dmtProgressUpdateStream = pProgressUpdateStream_
+    , _dmtMigrationTaskName = pMigrationTaskName_
+    }
 
 
 -- | The name of the ProgressUpdateStream.
 dmtProgressUpdateStream :: Lens' DescribeMigrationTask Text
-dmtProgressUpdateStream = lens _dmtProgressUpdateStream (\ s a -> s{_dmtProgressUpdateStream = a});
+dmtProgressUpdateStream = lens _dmtProgressUpdateStream (\ s a -> s{_dmtProgressUpdateStream = a})
 
 -- | The identifier given to the MigrationTask.
 dmtMigrationTaskName :: Lens' DescribeMigrationTask Text
-dmtMigrationTaskName = lens _dmtMigrationTaskName (\ s a -> s{_dmtMigrationTaskName = a});
+dmtMigrationTaskName = lens _dmtMigrationTaskName (\ s a -> s{_dmtMigrationTaskName = a})
 
 instance AWSRequest DescribeMigrationTask where
         type Rs DescribeMigrationTask =
@@ -135,15 +135,15 @@ describeMigrationTaskResponse
     -> DescribeMigrationTaskResponse
 describeMigrationTaskResponse pResponseStatus_ =
   DescribeMigrationTaskResponse'
-  {_dmtrsMigrationTask = Nothing, _dmtrsResponseStatus = pResponseStatus_}
+    {_dmtrsMigrationTask = Nothing, _dmtrsResponseStatus = pResponseStatus_}
 
 
 -- | Object encapsulating information about the migration task.
 dmtrsMigrationTask :: Lens' DescribeMigrationTaskResponse (Maybe MigrationTask)
-dmtrsMigrationTask = lens _dmtrsMigrationTask (\ s a -> s{_dmtrsMigrationTask = a});
+dmtrsMigrationTask = lens _dmtrsMigrationTask (\ s a -> s{_dmtrsMigrationTask = a})
 
 -- | -- | The response status code.
 dmtrsResponseStatus :: Lens' DescribeMigrationTaskResponse Int
-dmtrsResponseStatus = lens _dmtrsResponseStatus (\ s a -> s{_dmtrsResponseStatus = a});
+dmtrsResponseStatus = lens _dmtrsResponseStatus (\ s a -> s{_dmtrsResponseStatus = a})
 
 instance NFData DescribeMigrationTaskResponse where

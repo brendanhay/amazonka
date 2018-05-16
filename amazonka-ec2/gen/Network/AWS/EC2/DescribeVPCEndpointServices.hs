@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVPCEndpointServices
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes all supported AWS services that can be specified when creating a VPC endpoint.
+-- Describes available services to which you can create a VPC endpoint.
 --
 --
 module Network.AWS.EC2.DescribeVPCEndpointServices
@@ -81,33 +81,33 @@ describeVPCEndpointServices
     :: DescribeVPCEndpointServices
 describeVPCEndpointServices =
   DescribeVPCEndpointServices'
-  { _dvesFilters = Nothing
-  , _dvesServiceNames = Nothing
-  , _dvesNextToken = Nothing
-  , _dvesDryRun = Nothing
-  , _dvesMaxResults = Nothing
-  }
+    { _dvesFilters = Nothing
+    , _dvesServiceNames = Nothing
+    , _dvesNextToken = Nothing
+    , _dvesDryRun = Nothing
+    , _dvesMaxResults = Nothing
+    }
 
 
 -- | One or more filters.     * @service-name@ : The name of the service.
 dvesFilters :: Lens' DescribeVPCEndpointServices [Filter]
-dvesFilters = lens _dvesFilters (\ s a -> s{_dvesFilters = a}) . _Default . _Coerce;
+dvesFilters = lens _dvesFilters (\ s a -> s{_dvesFilters = a}) . _Default . _Coerce
 
 -- | One or more service names.
 dvesServiceNames :: Lens' DescribeVPCEndpointServices [Text]
-dvesServiceNames = lens _dvesServiceNames (\ s a -> s{_dvesServiceNames = a}) . _Default . _Coerce;
+dvesServiceNames = lens _dvesServiceNames (\ s a -> s{_dvesServiceNames = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a prior call.)
 dvesNextToken :: Lens' DescribeVPCEndpointServices (Maybe Text)
-dvesNextToken = lens _dvesNextToken (\ s a -> s{_dvesNextToken = a});
+dvesNextToken = lens _dvesNextToken (\ s a -> s{_dvesNextToken = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvesDryRun :: Lens' DescribeVPCEndpointServices (Maybe Bool)
-dvesDryRun = lens _dvesDryRun (\ s a -> s{_dvesDryRun = a});
+dvesDryRun = lens _dvesDryRun (\ s a -> s{_dvesDryRun = a})
 
 -- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. Constraint: If the value is greater than 1000, we return only 1000 items.
 dvesMaxResults :: Lens' DescribeVPCEndpointServices (Maybe Int)
-dvesMaxResults = lens _dvesMaxResults (\ s a -> s{_dvesMaxResults = a});
+dvesMaxResults = lens _dvesMaxResults (\ s a -> s{_dvesMaxResults = a})
 
 instance AWSRequest DescribeVPCEndpointServices where
         type Rs DescribeVPCEndpointServices =
@@ -167,7 +167,7 @@ data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
 --
 -- * 'dvesrsServiceDetails' - Information about the service.
 --
--- * 'dvesrsServiceNames' - A list of supported AWS services.
+-- * 'dvesrsServiceNames' - A list of supported services.
 --
 -- * 'dvesrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
@@ -177,28 +177,28 @@ describeVPCEndpointServicesResponse
     -> DescribeVPCEndpointServicesResponse
 describeVPCEndpointServicesResponse pResponseStatus_ =
   DescribeVPCEndpointServicesResponse'
-  { _dvesrsServiceDetails = Nothing
-  , _dvesrsServiceNames = Nothing
-  , _dvesrsNextToken = Nothing
-  , _dvesrsResponseStatus = pResponseStatus_
-  }
+    { _dvesrsServiceDetails = Nothing
+    , _dvesrsServiceNames = Nothing
+    , _dvesrsNextToken = Nothing
+    , _dvesrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the service.
 dvesrsServiceDetails :: Lens' DescribeVPCEndpointServicesResponse [ServiceDetail]
-dvesrsServiceDetails = lens _dvesrsServiceDetails (\ s a -> s{_dvesrsServiceDetails = a}) . _Default . _Coerce;
+dvesrsServiceDetails = lens _dvesrsServiceDetails (\ s a -> s{_dvesrsServiceDetails = a}) . _Default . _Coerce
 
--- | A list of supported AWS services.
+-- | A list of supported services.
 dvesrsServiceNames :: Lens' DescribeVPCEndpointServicesResponse [Text]
-dvesrsServiceNames = lens _dvesrsServiceNames (\ s a -> s{_dvesrsServiceNames = a}) . _Default . _Coerce;
+dvesrsServiceNames = lens _dvesrsServiceNames (\ s a -> s{_dvesrsServiceNames = a}) . _Default . _Coerce
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dvesrsNextToken :: Lens' DescribeVPCEndpointServicesResponse (Maybe Text)
-dvesrsNextToken = lens _dvesrsNextToken (\ s a -> s{_dvesrsNextToken = a});
+dvesrsNextToken = lens _dvesrsNextToken (\ s a -> s{_dvesrsNextToken = a})
 
 -- | -- | The response status code.
 dvesrsResponseStatus :: Lens' DescribeVPCEndpointServicesResponse Int
-dvesrsResponseStatus = lens _dvesrsResponseStatus (\ s a -> s{_dvesrsResponseStatus = a});
+dvesrsResponseStatus = lens _dvesrsResponseStatus (\ s a -> s{_dvesrsResponseStatus = a})
 
 instance NFData DescribeVPCEndpointServicesResponse
          where

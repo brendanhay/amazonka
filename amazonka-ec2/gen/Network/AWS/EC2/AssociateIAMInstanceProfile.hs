@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateIAMInstanceProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,18 +65,18 @@ associateIAMInstanceProfile
     -> AssociateIAMInstanceProfile
 associateIAMInstanceProfile pIAMInstanceProfile_ pInstanceId_ =
   AssociateIAMInstanceProfile'
-  { _aiapIAMInstanceProfile = pIAMInstanceProfile_
-  , _aiapInstanceId = pInstanceId_
-  }
+    { _aiapIAMInstanceProfile = pIAMInstanceProfile_
+    , _aiapInstanceId = pInstanceId_
+    }
 
 
 -- | The IAM instance profile.
 aiapIAMInstanceProfile :: Lens' AssociateIAMInstanceProfile IAMInstanceProfileSpecification
-aiapIAMInstanceProfile = lens _aiapIAMInstanceProfile (\ s a -> s{_aiapIAMInstanceProfile = a});
+aiapIAMInstanceProfile = lens _aiapIAMInstanceProfile (\ s a -> s{_aiapIAMInstanceProfile = a})
 
 -- | The ID of the instance.
 aiapInstanceId :: Lens' AssociateIAMInstanceProfile Text
-aiapInstanceId = lens _aiapInstanceId (\ s a -> s{_aiapInstanceId = a});
+aiapInstanceId = lens _aiapInstanceId (\ s a -> s{_aiapInstanceId = a})
 
 instance AWSRequest AssociateIAMInstanceProfile where
         type Rs AssociateIAMInstanceProfile =
@@ -127,18 +127,18 @@ associateIAMInstanceProfileResponse
     -> AssociateIAMInstanceProfileResponse
 associateIAMInstanceProfileResponse pResponseStatus_ =
   AssociateIAMInstanceProfileResponse'
-  { _aiaprsIAMInstanceProfileAssociation = Nothing
-  , _aiaprsResponseStatus = pResponseStatus_
-  }
+    { _aiaprsIAMInstanceProfileAssociation = Nothing
+    , _aiaprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the IAM instance profile association.
 aiaprsIAMInstanceProfileAssociation :: Lens' AssociateIAMInstanceProfileResponse (Maybe IAMInstanceProfileAssociation)
-aiaprsIAMInstanceProfileAssociation = lens _aiaprsIAMInstanceProfileAssociation (\ s a -> s{_aiaprsIAMInstanceProfileAssociation = a});
+aiaprsIAMInstanceProfileAssociation = lens _aiaprsIAMInstanceProfileAssociation (\ s a -> s{_aiaprsIAMInstanceProfileAssociation = a})
 
 -- | -- | The response status code.
 aiaprsResponseStatus :: Lens' AssociateIAMInstanceProfileResponse Int
-aiaprsResponseStatus = lens _aiaprsResponseStatus (\ s a -> s{_aiaprsResponseStatus = a});
+aiaprsResponseStatus = lens _aiaprsResponseStatus (\ s a -> s{_aiaprsResponseStatus = a})
 
 instance NFData AssociateIAMInstanceProfileResponse
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ describeLoadBasedAutoScaling =
 
 -- | An array of layer IDs.
 dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
-dlbasLayerIds = lens _dlbasLayerIds (\ s a -> s{_dlbasLayerIds = a}) . _Coerce;
+dlbasLayerIds = lens _dlbasLayerIds (\ s a -> s{_dlbasLayerIds = a}) . _Coerce
 
 instance AWSRequest DescribeLoadBasedAutoScaling
          where
@@ -128,18 +128,18 @@ describeLoadBasedAutoScalingResponse
     -> DescribeLoadBasedAutoScalingResponse
 describeLoadBasedAutoScalingResponse pResponseStatus_ =
   DescribeLoadBasedAutoScalingResponse'
-  { _dlbasrsLoadBasedAutoScalingConfigurations = Nothing
-  , _dlbasrsResponseStatus = pResponseStatus_
-  }
+    { _dlbasrsLoadBasedAutoScalingConfigurations = Nothing
+    , _dlbasrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe each layer's configuration.
 dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
-dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrsLoadBasedAutoScalingConfigurations = a}) . _Default . _Coerce;
+dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrsLoadBasedAutoScalingConfigurations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dlbasrsResponseStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
-dlbasrsResponseStatus = lens _dlbasrsResponseStatus (\ s a -> s{_dlbasrsResponseStatus = a});
+dlbasrsResponseStatus = lens _dlbasrsResponseStatus (\ s a -> s{_dlbasrsResponseStatus = a})
 
 instance NFData DescribeLoadBasedAutoScalingResponse
          where

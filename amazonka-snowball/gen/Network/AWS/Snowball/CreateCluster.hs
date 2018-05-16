@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.CreateCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,7 +86,7 @@ data CreateCluster = CreateCluster'
 --
 -- * 'ccResources' - The resources associated with the cluster job. These resources include Amazon S3 buckets and optional AWS Lambda functions written in the Python language.
 --
--- * 'ccAddressId' - The ID for the address that you want the cluster shipped to.>
+-- * 'ccAddressId' - The ID for the address that you want the cluster shipped to.
 --
 -- * 'ccRoleARN' - The @RoleARN@ that you want to associate with this cluster. @RoleArn@ values are created by using the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
 --
@@ -100,58 +100,58 @@ createCluster
     -> CreateCluster
 createCluster pJobType_ pResources_ pAddressId_ pRoleARN_ pShippingOption_ =
   CreateCluster'
-  { _ccKMSKeyARN = Nothing
-  , _ccNotification = Nothing
-  , _ccForwardingAddressId = Nothing
-  , _ccSnowballType = Nothing
-  , _ccDescription = Nothing
-  , _ccJobType = pJobType_
-  , _ccResources = pResources_
-  , _ccAddressId = pAddressId_
-  , _ccRoleARN = pRoleARN_
-  , _ccShippingOption = pShippingOption_
-  }
+    { _ccKMSKeyARN = Nothing
+    , _ccNotification = Nothing
+    , _ccForwardingAddressId = Nothing
+    , _ccSnowballType = Nothing
+    , _ccDescription = Nothing
+    , _ccJobType = pJobType_
+    , _ccResources = pResources_
+    , _ccAddressId = pAddressId_
+    , _ccRoleARN = pRoleARN_
+    , _ccShippingOption = pShippingOption_
+    }
 
 
 -- | The @KmsKeyARN@ value that you want to associate with this cluster. @KmsKeyARN@ values are created by using the <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS Key Management Service (AWS KMS).
 ccKMSKeyARN :: Lens' CreateCluster (Maybe Text)
-ccKMSKeyARN = lens _ccKMSKeyARN (\ s a -> s{_ccKMSKeyARN = a});
+ccKMSKeyARN = lens _ccKMSKeyARN (\ s a -> s{_ccKMSKeyARN = a})
 
 -- | The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.
 ccNotification :: Lens' CreateCluster (Maybe Notification)
-ccNotification = lens _ccNotification (\ s a -> s{_ccNotification = a});
+ccNotification = lens _ccNotification (\ s a -> s{_ccNotification = a})
 
 -- | The forwarding address ID for a cluster. This field is not supported in most regions.
 ccForwardingAddressId :: Lens' CreateCluster (Maybe Text)
-ccForwardingAddressId = lens _ccForwardingAddressId (\ s a -> s{_ccForwardingAddressId = a});
+ccForwardingAddressId = lens _ccForwardingAddressId (\ s a -> s{_ccForwardingAddressId = a})
 
 -- | The type of AWS Snowball appliance to use for this cluster. Currently, the only supported appliance type for cluster jobs is @EDGE@ .
 ccSnowballType :: Lens' CreateCluster (Maybe SnowballType)
-ccSnowballType = lens _ccSnowballType (\ s a -> s{_ccSnowballType = a});
+ccSnowballType = lens _ccSnowballType (\ s a -> s{_ccSnowballType = a})
 
 -- | An optional description of this specific cluster, for example @Environmental Data Cluster-01@ .
 ccDescription :: Lens' CreateCluster (Maybe Text)
-ccDescription = lens _ccDescription (\ s a -> s{_ccDescription = a});
+ccDescription = lens _ccDescription (\ s a -> s{_ccDescription = a})
 
 -- | The type of job for this cluster. Currently, the only job type supported for clusters is @LOCAL_USE@ .
 ccJobType :: Lens' CreateCluster JobType
-ccJobType = lens _ccJobType (\ s a -> s{_ccJobType = a});
+ccJobType = lens _ccJobType (\ s a -> s{_ccJobType = a})
 
 -- | The resources associated with the cluster job. These resources include Amazon S3 buckets and optional AWS Lambda functions written in the Python language.
 ccResources :: Lens' CreateCluster JobResource
-ccResources = lens _ccResources (\ s a -> s{_ccResources = a});
+ccResources = lens _ccResources (\ s a -> s{_ccResources = a})
 
--- | The ID for the address that you want the cluster shipped to.>
+-- | The ID for the address that you want the cluster shipped to.
 ccAddressId :: Lens' CreateCluster Text
-ccAddressId = lens _ccAddressId (\ s a -> s{_ccAddressId = a});
+ccAddressId = lens _ccAddressId (\ s a -> s{_ccAddressId = a})
 
 -- | The @RoleARN@ that you want to associate with this cluster. @RoleArn@ values are created by using the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
 ccRoleARN :: Lens' CreateCluster Text
-ccRoleARN = lens _ccRoleARN (\ s a -> s{_ccRoleARN = a});
+ccRoleARN = lens _ccRoleARN (\ s a -> s{_ccRoleARN = a})
 
 -- | The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge appliance, rather it represents how quickly each appliance moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, appliances shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowball Edges shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowball Edges are delivered in one to seven days.     * In the US, you have access to one-day shipping and two-day shipping.
 ccShippingOption :: Lens' CreateCluster ShippingOption
-ccShippingOption = lens _ccShippingOption (\ s a -> s{_ccShippingOption = a});
+ccShippingOption = lens _ccShippingOption (\ s a -> s{_ccShippingOption = a})
 
 instance AWSRequest CreateCluster where
         type Rs CreateCluster = CreateClusterResponse
@@ -217,15 +217,15 @@ createClusterResponse
     -> CreateClusterResponse
 createClusterResponse pResponseStatus_ =
   CreateClusterResponse'
-  {_crersClusterId = Nothing, _crersResponseStatus = pResponseStatus_}
+    {_crersClusterId = Nothing, _crersResponseStatus = pResponseStatus_}
 
 
 -- | The automatically generated ID for a cluster.
 crersClusterId :: Lens' CreateClusterResponse (Maybe Text)
-crersClusterId = lens _crersClusterId (\ s a -> s{_crersClusterId = a});
+crersClusterId = lens _crersClusterId (\ s a -> s{_crersClusterId = a})
 
 -- | -- | The response status code.
 crersResponseStatus :: Lens' CreateClusterResponse Int
-crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a})
 
 instance NFData CreateClusterResponse where

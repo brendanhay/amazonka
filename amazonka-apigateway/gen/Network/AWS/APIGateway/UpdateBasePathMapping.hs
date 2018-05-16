@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateBasePathMapping
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,32 +65,32 @@ data UpdateBasePathMapping = UpdateBasePathMapping'
 --
 -- * 'ubpmPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'ubpmDomainName' - The domain name of the 'BasePathMapping' resource to change.
+-- * 'ubpmDomainName' - [Required] The domain name of the 'BasePathMapping' resource to change.
 --
--- * 'ubpmBasePath' - The base path of the 'BasePathMapping' resource to change.
+-- * 'ubpmBasePath' - [Required] The base path of the 'BasePathMapping' resource to change.
 updateBasePathMapping
     :: Text -- ^ 'ubpmDomainName'
     -> Text -- ^ 'ubpmBasePath'
     -> UpdateBasePathMapping
 updateBasePathMapping pDomainName_ pBasePath_ =
   UpdateBasePathMapping'
-  { _ubpmPatchOperations = Nothing
-  , _ubpmDomainName = pDomainName_
-  , _ubpmBasePath = pBasePath_
-  }
+    { _ubpmPatchOperations = Nothing
+    , _ubpmDomainName = pDomainName_
+    , _ubpmBasePath = pBasePath_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 ubpmPatchOperations :: Lens' UpdateBasePathMapping [PatchOperation]
-ubpmPatchOperations = lens _ubpmPatchOperations (\ s a -> s{_ubpmPatchOperations = a}) . _Default . _Coerce;
+ubpmPatchOperations = lens _ubpmPatchOperations (\ s a -> s{_ubpmPatchOperations = a}) . _Default . _Coerce
 
--- | The domain name of the 'BasePathMapping' resource to change.
+-- | [Required] The domain name of the 'BasePathMapping' resource to change.
 ubpmDomainName :: Lens' UpdateBasePathMapping Text
-ubpmDomainName = lens _ubpmDomainName (\ s a -> s{_ubpmDomainName = a});
+ubpmDomainName = lens _ubpmDomainName (\ s a -> s{_ubpmDomainName = a})
 
--- | The base path of the 'BasePathMapping' resource to change.
+-- | [Required] The base path of the 'BasePathMapping' resource to change.
 ubpmBasePath :: Lens' UpdateBasePathMapping Text
-ubpmBasePath = lens _ubpmBasePath (\ s a -> s{_ubpmBasePath = a});
+ubpmBasePath = lens _ubpmBasePath (\ s a -> s{_ubpmBasePath = a})
 
 instance AWSRequest UpdateBasePathMapping where
         type Rs UpdateBasePathMapping = BasePathMapping

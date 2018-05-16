@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DMS.AddTagsToResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds metadata tags to a DMS resource, including replication instance, endpoint, security group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with DMS resources, or used in a Condition statement in an IAM policy for DMS.
+-- Adds metadata tags to an AWS DMS resource, including replication instance, endpoint, security group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with DMS resources, or used in a Condition statement in an IAM policy for DMS.
 --
 --
 module Network.AWS.DMS.AddTagsToResource
@@ -71,11 +71,11 @@ addTagsToResource pResourceARN_ =
 
 -- | The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be added to. AWS DMS resources include a replication instance, endpoint, and a replication task.
 attrResourceARN :: Lens' AddTagsToResource Text
-attrResourceARN = lens _attrResourceARN (\ s a -> s{_attrResourceARN = a});
+attrResourceARN = lens _attrResourceARN (\ s a -> s{_attrResourceARN = a})
 
 -- | The tag to be assigned to the DMS resource.
 attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce
 
 instance AWSRequest AddTagsToResource where
         type Rs AddTagsToResource = AddTagsToResourceResponse
@@ -136,6 +136,6 @@ addTagsToResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
-attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
+attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a})
 
 instance NFData AddTagsToResourceResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RevokeSnapshotAccess
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,23 +75,23 @@ revokeSnapshotAccess
     -> RevokeSnapshotAccess
 revokeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
   RevokeSnapshotAccess'
-  { _rsaSnapshotClusterIdentifier = Nothing
-  , _rsaSnapshotIdentifier = pSnapshotIdentifier_
-  , _rsaAccountWithRestoreAccess = pAccountWithRestoreAccess_
-  }
+    { _rsaSnapshotClusterIdentifier = Nothing
+    , _rsaSnapshotIdentifier = pSnapshotIdentifier_
+    , _rsaAccountWithRestoreAccess = pAccountWithRestoreAccess_
+    }
 
 
 -- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 rsaSnapshotClusterIdentifier :: Lens' RevokeSnapshotAccess (Maybe Text)
-rsaSnapshotClusterIdentifier = lens _rsaSnapshotClusterIdentifier (\ s a -> s{_rsaSnapshotClusterIdentifier = a});
+rsaSnapshotClusterIdentifier = lens _rsaSnapshotClusterIdentifier (\ s a -> s{_rsaSnapshotClusterIdentifier = a})
 
 -- | The identifier of the snapshot that the account can no longer access.
 rsaSnapshotIdentifier :: Lens' RevokeSnapshotAccess Text
-rsaSnapshotIdentifier = lens _rsaSnapshotIdentifier (\ s a -> s{_rsaSnapshotIdentifier = a});
+rsaSnapshotIdentifier = lens _rsaSnapshotIdentifier (\ s a -> s{_rsaSnapshotIdentifier = a})
 
 -- | The identifier of the AWS customer account that can no longer restore the specified snapshot.
 rsaAccountWithRestoreAccess :: Lens' RevokeSnapshotAccess Text
-rsaAccountWithRestoreAccess = lens _rsaAccountWithRestoreAccess (\ s a -> s{_rsaAccountWithRestoreAccess = a});
+rsaAccountWithRestoreAccess = lens _rsaAccountWithRestoreAccess (\ s a -> s{_rsaAccountWithRestoreAccess = a})
 
 instance AWSRequest RevokeSnapshotAccess where
         type Rs RevokeSnapshotAccess =
@@ -143,15 +143,15 @@ revokeSnapshotAccessResponse
     -> RevokeSnapshotAccessResponse
 revokeSnapshotAccessResponse pResponseStatus_ =
   RevokeSnapshotAccessResponse'
-  {_rsarsSnapshot = Nothing, _rsarsResponseStatus = pResponseStatus_}
+    {_rsarsSnapshot = Nothing, _rsarsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 rsarsSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
-rsarsSnapshot = lens _rsarsSnapshot (\ s a -> s{_rsarsSnapshot = a});
+rsarsSnapshot = lens _rsarsSnapshot (\ s a -> s{_rsarsSnapshot = a})
 
 -- | -- | The response status code.
 rsarsResponseStatus :: Lens' RevokeSnapshotAccessResponse Int
-rsarsResponseStatus = lens _rsarsResponseStatus (\ s a -> s{_rsarsResponseStatus = a});
+rsarsResponseStatus = lens _rsarsResponseStatus (\ s a -> s{_rsarsResponseStatus = a})
 
 instance NFData RevokeSnapshotAccessResponse where

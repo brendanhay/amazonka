@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,28 +79,28 @@ describeInstances
     -> DescribeInstances
 describeInstances pFleetId_ =
   DescribeInstances'
-  { _diInstanceId = Nothing
-  , _diNextToken = Nothing
-  , _diLimit = Nothing
-  , _diFleetId = pFleetId_
-  }
+    { _diInstanceId = Nothing
+    , _diNextToken = Nothing
+    , _diLimit = Nothing
+    , _diFleetId = pFleetId_
+    }
 
 
 -- | Unique identifier for an instance to retrieve. Specify an instance ID or leave blank to retrieve all instances in the fleet.
 diInstanceId :: Lens' DescribeInstances (Maybe Text)
-diInstanceId = lens _diInstanceId (\ s a -> s{_diInstanceId = a});
+diInstanceId = lens _diInstanceId (\ s a -> s{_diInstanceId = a})
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 diNextToken :: Lens' DescribeInstances (Maybe Text)
-diNextToken = lens _diNextToken (\ s a -> s{_diNextToken = a});
+diNextToken = lens _diNextToken (\ s a -> s{_diNextToken = a})
 
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 diLimit :: Lens' DescribeInstances (Maybe Natural)
-diLimit = lens _diLimit (\ s a -> s{_diLimit = a}) . mapping _Nat;
+diLimit = lens _diLimit (\ s a -> s{_diLimit = a}) . mapping _Nat
 
 -- | Unique identifier for a fleet to retrieve instance information for.
 diFleetId :: Lens' DescribeInstances Text
-diFleetId = lens _diFleetId (\ s a -> s{_diFleetId = a});
+diFleetId = lens _diFleetId (\ s a -> s{_diFleetId = a})
 
 instance AWSRequest DescribeInstances where
         type Rs DescribeInstances = DescribeInstancesResponse
@@ -167,22 +167,22 @@ describeInstancesResponse
     -> DescribeInstancesResponse
 describeInstancesResponse pResponseStatus_ =
   DescribeInstancesResponse'
-  { _dirsNextToken = Nothing
-  , _dirsInstances = Nothing
-  , _dirsResponseStatus = pResponseStatus_
-  }
+    { _dirsNextToken = Nothing
+    , _dirsInstances = Nothing
+    , _dirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dirsNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
-dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a});
+dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a})
 
 -- | Collection of objects containing properties for each instance returned.
 dirsInstances :: Lens' DescribeInstancesResponse [Instance]
-dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default . _Coerce;
+dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dirsResponseStatus :: Lens' DescribeInstancesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
 
 instance NFData DescribeInstancesResponse where

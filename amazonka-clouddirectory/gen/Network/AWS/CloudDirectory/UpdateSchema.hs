@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.UpdateSchema
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,11 +69,11 @@ updateSchema pSchemaARN_ pName_ =
 
 -- | The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
 usSchemaARN :: Lens' UpdateSchema Text
-usSchemaARN = lens _usSchemaARN (\ s a -> s{_usSchemaARN = a});
+usSchemaARN = lens _usSchemaARN (\ s a -> s{_usSchemaARN = a})
 
 -- | The name of the schema.
 usName :: Lens' UpdateSchema Text
-usName = lens _usName (\ s a -> s{_usName = a});
+usName = lens _usName (\ s a -> s{_usName = a})
 
 instance AWSRequest UpdateSchema where
         type Rs UpdateSchema = UpdateSchemaResponse
@@ -123,15 +123,15 @@ updateSchemaResponse
     -> UpdateSchemaResponse
 updateSchemaResponse pResponseStatus_ =
   UpdateSchemaResponse'
-  {_usrsSchemaARN = Nothing, _usrsResponseStatus = pResponseStatus_}
+    {_usrsSchemaARN = Nothing, _usrsResponseStatus = pResponseStatus_}
 
 
 -- | The ARN that is associated with the updated schema. For more information, see 'arns' .
 usrsSchemaARN :: Lens' UpdateSchemaResponse (Maybe Text)
-usrsSchemaARN = lens _usrsSchemaARN (\ s a -> s{_usrsSchemaARN = a});
+usrsSchemaARN = lens _usrsSchemaARN (\ s a -> s{_usrsSchemaARN = a})
 
 -- | -- | The response status code.
 usrsResponseStatus :: Lens' UpdateSchemaResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
+usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a})
 
 instance NFData UpdateSchemaResponse where

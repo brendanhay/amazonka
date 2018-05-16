@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Athena.BatchGetQueryExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,12 +61,12 @@ batchGetQueryExecution
     -> BatchGetQueryExecution
 batchGetQueryExecution pQueryExecutionIds_ =
   BatchGetQueryExecution'
-  {_bgqeQueryExecutionIds = _List1 # pQueryExecutionIds_}
+    {_bgqeQueryExecutionIds = _List1 # pQueryExecutionIds_}
 
 
 -- | An array of query execution IDs.
 bgqeQueryExecutionIds :: Lens' BatchGetQueryExecution (NonEmpty Text)
-bgqeQueryExecutionIds = lens _bgqeQueryExecutionIds (\ s a -> s{_bgqeQueryExecutionIds = a}) . _List1;
+bgqeQueryExecutionIds = lens _bgqeQueryExecutionIds (\ s a -> s{_bgqeQueryExecutionIds = a}) . _List1
 
 instance AWSRequest BatchGetQueryExecution where
         type Rs BatchGetQueryExecution =
@@ -129,22 +129,22 @@ batchGetQueryExecutionResponse
     -> BatchGetQueryExecutionResponse
 batchGetQueryExecutionResponse pResponseStatus_ =
   BatchGetQueryExecutionResponse'
-  { _bgqersUnprocessedQueryExecutionIds = Nothing
-  , _bgqersQueryExecutions = Nothing
-  , _bgqersResponseStatus = pResponseStatus_
-  }
+    { _bgqersUnprocessedQueryExecutionIds = Nothing
+    , _bgqersQueryExecutions = Nothing
+    , _bgqersResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the query executions that failed to run.
 bgqersUnprocessedQueryExecutionIds :: Lens' BatchGetQueryExecutionResponse [UnprocessedQueryExecutionId]
-bgqersUnprocessedQueryExecutionIds = lens _bgqersUnprocessedQueryExecutionIds (\ s a -> s{_bgqersUnprocessedQueryExecutionIds = a}) . _Default . _Coerce;
+bgqersUnprocessedQueryExecutionIds = lens _bgqersUnprocessedQueryExecutionIds (\ s a -> s{_bgqersUnprocessedQueryExecutionIds = a}) . _Default . _Coerce
 
 -- | Information about a query execution.
 bgqersQueryExecutions :: Lens' BatchGetQueryExecutionResponse [QueryExecution]
-bgqersQueryExecutions = lens _bgqersQueryExecutions (\ s a -> s{_bgqersQueryExecutions = a}) . _Default . _Coerce;
+bgqersQueryExecutions = lens _bgqersQueryExecutions (\ s a -> s{_bgqersQueryExecutions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 bgqersResponseStatus :: Lens' BatchGetQueryExecutionResponse Int
-bgqersResponseStatus = lens _bgqersResponseStatus (\ s a -> s{_bgqersResponseStatus = a});
+bgqersResponseStatus = lens _bgqersResponseStatus (\ s a -> s{_bgqersResponseStatus = a})
 
 instance NFData BatchGetQueryExecutionResponse where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.CreateCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ createCluster = CreateCluster' {_ccClusterName = Nothing}
 
 -- | The name of your cluster. If you do not specify a name for your cluster, you create a cluster named @default@ . Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 ccClusterName :: Lens' CreateCluster (Maybe Text)
-ccClusterName = lens _ccClusterName (\ s a -> s{_ccClusterName = a});
+ccClusterName = lens _ccClusterName (\ s a -> s{_ccClusterName = a})
 
 instance AWSRequest CreateCluster where
         type Rs CreateCluster = CreateClusterResponse
@@ -117,15 +117,15 @@ createClusterResponse
     -> CreateClusterResponse
 createClusterResponse pResponseStatus_ =
   CreateClusterResponse'
-  {_ccrsCluster = Nothing, _ccrsResponseStatus = pResponseStatus_}
+    {_ccrsCluster = Nothing, _ccrsResponseStatus = pResponseStatus_}
 
 
 -- | The full description of your new cluster.
 ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
-ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
+ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a})
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CreateClusterResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
 
 instance NFData CreateClusterResponse where

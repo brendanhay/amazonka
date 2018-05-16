@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.BatchPutAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,11 +77,11 @@ batchPutAttributes pDomainName_ =
 
 -- | The name of the domain in which the attributes are being stored.
 bpaDomainName :: Lens' BatchPutAttributes Text
-bpaDomainName = lens _bpaDomainName (\ s a -> s{_bpaDomainName = a});
+bpaDomainName = lens _bpaDomainName (\ s a -> s{_bpaDomainName = a})
 
 -- | A list of items on which to perform the operation.
 bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
-bpaItems = lens _bpaItems (\ s a -> s{_bpaItems = a}) . _Coerce;
+bpaItems = lens _bpaItems (\ s a -> s{_bpaItems = a}) . _Coerce
 
 instance AWSRequest BatchPutAttributes where
         type Rs BatchPutAttributes =

@@ -12,14 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeRecord
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a paginated list of the full details of a specific request. Use this operation after calling a request operation ('ProvisionProduct' , 'TerminateProvisionedProduct' , or 'UpdateProvisionedProduct' ).
+-- Gets information about the specified request operation.
 --
+--
+-- Use this operation after calling a request operation (for example, 'ProvisionProduct' , 'TerminateProvisionedProduct' , or 'UpdateProvisionedProduct' ).
 --
 module Network.AWS.ServiceCatalog.DescribeRecord
     (
@@ -64,38 +66,38 @@ data DescribeRecord = DescribeRecord'
 --
 -- * 'drAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'drPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- * 'drPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
 --
--- * 'drPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- * 'drPageSize' - The maximum number of items to return with this call.
 --
--- * 'drId' - The record identifier of the ProvisionedProduct object for which to retrieve output information. This is the @RecordDetail.RecordId@ obtained from the request operation's response.
+-- * 'drId' - The record identifier of the provisioned product. This identifier is returned by the request operation.
 describeRecord
     :: Text -- ^ 'drId'
     -> DescribeRecord
 describeRecord pId_ =
   DescribeRecord'
-  { _drAcceptLanguage = Nothing
-  , _drPageToken = Nothing
-  , _drPageSize = Nothing
-  , _drId = pId_
-  }
+    { _drAcceptLanguage = Nothing
+    , _drPageToken = Nothing
+    , _drPageSize = Nothing
+    , _drId = pId_
+    }
 
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 drAcceptLanguage :: Lens' DescribeRecord (Maybe Text)
-drAcceptLanguage = lens _drAcceptLanguage (\ s a -> s{_drAcceptLanguage = a});
+drAcceptLanguage = lens _drAcceptLanguage (\ s a -> s{_drAcceptLanguage = a})
 
--- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
 drPageToken :: Lens' DescribeRecord (Maybe Text)
-drPageToken = lens _drPageToken (\ s a -> s{_drPageToken = a});
+drPageToken = lens _drPageToken (\ s a -> s{_drPageToken = a})
 
--- | The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
+-- | The maximum number of items to return with this call.
 drPageSize :: Lens' DescribeRecord (Maybe Natural)
-drPageSize = lens _drPageSize (\ s a -> s{_drPageSize = a}) . mapping _Nat;
+drPageSize = lens _drPageSize (\ s a -> s{_drPageSize = a}) . mapping _Nat
 
--- | The record identifier of the ProvisionedProduct object for which to retrieve output information. This is the @RecordDetail.RecordId@ obtained from the request operation's response.
+-- | The record identifier of the provisioned product. This identifier is returned by the request operation.
 drId :: Lens' DescribeRecord Text
-drId = lens _drId (\ s a -> s{_drId = a});
+drId = lens _drId (\ s a -> s{_drId = a})
 
 instance AWSRequest DescribeRecord where
         type Rs DescribeRecord = DescribeRecordResponse
@@ -150,11 +152,11 @@ data DescribeRecordResponse = DescribeRecordResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsRecordDetail' - Detailed record information for the specified product.
+-- * 'drrsRecordDetail' - Information about the product.
 --
--- * 'drrsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'drrsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
--- * 'drrsRecordOutputs' - A list of outputs for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL.
+-- * 'drrsRecordOutputs' - Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
 --
 -- * 'drrsResponseStatus' - -- | The response status code.
 describeRecordResponse
@@ -162,27 +164,27 @@ describeRecordResponse
     -> DescribeRecordResponse
 describeRecordResponse pResponseStatus_ =
   DescribeRecordResponse'
-  { _drrsRecordDetail = Nothing
-  , _drrsNextPageToken = Nothing
-  , _drrsRecordOutputs = Nothing
-  , _drrsResponseStatus = pResponseStatus_
-  }
+    { _drrsRecordDetail = Nothing
+    , _drrsNextPageToken = Nothing
+    , _drrsRecordOutputs = Nothing
+    , _drrsResponseStatus = pResponseStatus_
+    }
 
 
--- | Detailed record information for the specified product.
+-- | Information about the product.
 drrsRecordDetail :: Lens' DescribeRecordResponse (Maybe RecordDetail)
-drrsRecordDetail = lens _drrsRecordDetail (\ s a -> s{_drrsRecordDetail = a});
+drrsRecordDetail = lens _drrsRecordDetail (\ s a -> s{_drrsRecordDetail = a})
 
--- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 drrsNextPageToken :: Lens' DescribeRecordResponse (Maybe Text)
-drrsNextPageToken = lens _drrsNextPageToken (\ s a -> s{_drrsNextPageToken = a});
+drrsNextPageToken = lens _drrsNextPageToken (\ s a -> s{_drrsNextPageToken = a})
 
--- | A list of outputs for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL.
+-- | Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
 drrsRecordOutputs :: Lens' DescribeRecordResponse [RecordOutput]
-drrsRecordOutputs = lens _drrsRecordOutputs (\ s a -> s{_drrsRecordOutputs = a}) . _Default . _Coerce;
+drrsRecordOutputs = lens _drrsRecordOutputs (\ s a -> s{_drrsRecordOutputs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRecordResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a})
 
 instance NFData DescribeRecordResponse where

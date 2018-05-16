@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVolumeAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,20 +73,23 @@ modifyVolumeAttribute
     -> ModifyVolumeAttribute
 modifyVolumeAttribute pVolumeId_ =
   ModifyVolumeAttribute'
-  {_mvaAutoEnableIO = Nothing, _mvaDryRun = Nothing, _mvaVolumeId = pVolumeId_}
+    { _mvaAutoEnableIO = Nothing
+    , _mvaDryRun = Nothing
+    , _mvaVolumeId = pVolumeId_
+    }
 
 
 -- | Indicates whether the volume should be auto-enabled for I/O operations.
 mvaAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
-mvaAutoEnableIO = lens _mvaAutoEnableIO (\ s a -> s{_mvaAutoEnableIO = a});
+mvaAutoEnableIO = lens _mvaAutoEnableIO (\ s a -> s{_mvaAutoEnableIO = a})
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mvaDryRun :: Lens' ModifyVolumeAttribute (Maybe Bool)
-mvaDryRun = lens _mvaDryRun (\ s a -> s{_mvaDryRun = a});
+mvaDryRun = lens _mvaDryRun (\ s a -> s{_mvaDryRun = a})
 
 -- | The ID of the volume.
 mvaVolumeId :: Lens' ModifyVolumeAttribute Text
-mvaVolumeId = lens _mvaVolumeId (\ s a -> s{_mvaVolumeId = a});
+mvaVolumeId = lens _mvaVolumeId (\ s a -> s{_mvaVolumeId = a})
 
 instance AWSRequest ModifyVolumeAttribute where
         type Rs ModifyVolumeAttribute =

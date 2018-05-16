@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.Types.Product
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,11 +49,11 @@ accessPoliciesStatus pOptions_ pStatus_ =
 
 -- | The access policy configured for the Elasticsearch domain. Access policies may be resource-based, IP-based, or IAM-based. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies Configuring Access Policies> for more information.
 apsOptions :: Lens' AccessPoliciesStatus Text
-apsOptions = lens _apsOptions (\ s a -> s{_apsOptions = a});
+apsOptions = lens _apsOptions (\ s a -> s{_apsOptions = a})
 
 -- | The status of the access policy for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
 apsStatus :: Lens' AccessPoliciesStatus OptionStatus
-apsStatus = lens _apsStatus (\ s a -> s{_apsStatus = a});
+apsStatus = lens _apsStatus (\ s a -> s{_apsStatus = a})
 
 instance FromJSON AccessPoliciesStatus where
         parseJSON
@@ -92,11 +92,11 @@ additionalLimit =
 
 -- | Name of Additional Limit is specific to a given InstanceType and for each of it's @'InstanceRole' @ etc.  Attributes and their details:      * MaximumNumberOfDataNodesSupportedThis attribute will be present in Master node only to specify how much data nodes upto which given @'ESPartitionInstanceType' @ can support as master node.     * MaximumNumberOfDataNodesWithoutMasterNodeThis attribute will be present in Data node only to specify how much data nodes of given @'ESPartitionInstanceType' @ upto which you don't need any master nodes to govern them.
 alLimitName :: Lens' AdditionalLimit (Maybe Text)
-alLimitName = lens _alLimitName (\ s a -> s{_alLimitName = a});
+alLimitName = lens _alLimitName (\ s a -> s{_alLimitName = a})
 
 -- | Value for given @'AdditionalLimit$LimitName' @ .
 alLimitValues :: Lens' AdditionalLimit [Text]
-alLimitValues = lens _alLimitValues (\ s a -> s{_alLimitValues = a}) . _Default . _Coerce;
+alLimitValues = lens _alLimitValues (\ s a -> s{_alLimitValues = a}) . _Default . _Coerce
 
 instance FromJSON AdditionalLimit where
         parseJSON
@@ -141,11 +141,11 @@ advancedOptionsStatus pStatus_ =
 
 -- | Specifies the status of advanced options for the specified Elasticsearch domain.
 aosOptions :: Lens' AdvancedOptionsStatus (HashMap Text Text)
-aosOptions = lens _aosOptions (\ s a -> s{_aosOptions = a}) . _Map;
+aosOptions = lens _aosOptions (\ s a -> s{_aosOptions = a}) . _Map
 
 -- | Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
 aosStatus :: Lens' AdvancedOptionsStatus OptionStatus
-aosStatus = lens _aosStatus (\ s a -> s{_aosStatus = a});
+aosStatus = lens _aosStatus (\ s a -> s{_aosStatus = a})
 
 instance FromJSON AdvancedOptionsStatus where
         parseJSON
@@ -157,6 +157,124 @@ instance FromJSON AdvancedOptionsStatus where
 instance Hashable AdvancedOptionsStatus where
 
 instance NFData AdvancedOptionsStatus where
+
+-- | Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+--
+--
+--
+-- /See:/ 'cognitoOptions' smart constructor.
+data CognitoOptions = CognitoOptions'
+  { _coIdentityPoolId :: !(Maybe Text)
+  , _coEnabled        :: !(Maybe Bool)
+  , _coUserPoolId     :: !(Maybe Text)
+  , _coRoleARN        :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CognitoOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'coIdentityPoolId' - Specifies the Cognito identity pool ID for Kibana authentication.
+--
+-- * 'coEnabled' - Specifies the option to enable Cognito for Kibana authentication.
+--
+-- * 'coUserPoolId' - Specifies the Cognito user pool ID for Kibana authentication.
+--
+-- * 'coRoleARN' - Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
+cognitoOptions
+    :: CognitoOptions
+cognitoOptions =
+  CognitoOptions'
+    { _coIdentityPoolId = Nothing
+    , _coEnabled = Nothing
+    , _coUserPoolId = Nothing
+    , _coRoleARN = Nothing
+    }
+
+
+-- | Specifies the Cognito identity pool ID for Kibana authentication.
+coIdentityPoolId :: Lens' CognitoOptions (Maybe Text)
+coIdentityPoolId = lens _coIdentityPoolId (\ s a -> s{_coIdentityPoolId = a})
+
+-- | Specifies the option to enable Cognito for Kibana authentication.
+coEnabled :: Lens' CognitoOptions (Maybe Bool)
+coEnabled = lens _coEnabled (\ s a -> s{_coEnabled = a})
+
+-- | Specifies the Cognito user pool ID for Kibana authentication.
+coUserPoolId :: Lens' CognitoOptions (Maybe Text)
+coUserPoolId = lens _coUserPoolId (\ s a -> s{_coUserPoolId = a})
+
+-- | Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
+coRoleARN :: Lens' CognitoOptions (Maybe Text)
+coRoleARN = lens _coRoleARN (\ s a -> s{_coRoleARN = a})
+
+instance FromJSON CognitoOptions where
+        parseJSON
+          = withObject "CognitoOptions"
+              (\ x ->
+                 CognitoOptions' <$>
+                   (x .:? "IdentityPoolId") <*> (x .:? "Enabled") <*>
+                     (x .:? "UserPoolId")
+                     <*> (x .:? "RoleArn"))
+
+instance Hashable CognitoOptions where
+
+instance NFData CognitoOptions where
+
+instance ToJSON CognitoOptions where
+        toJSON CognitoOptions'{..}
+          = object
+              (catMaybes
+                 [("IdentityPoolId" .=) <$> _coIdentityPoolId,
+                  ("Enabled" .=) <$> _coEnabled,
+                  ("UserPoolId" .=) <$> _coUserPoolId,
+                  ("RoleArn" .=) <$> _coRoleARN])
+
+-- | Status of the Cognito options for the specified Elasticsearch domain.
+--
+--
+--
+-- /See:/ 'cognitoOptionsStatus' smart constructor.
+data CognitoOptionsStatus = CognitoOptionsStatus'
+  { _cosOptions :: !CognitoOptions
+  , _cosStatus  :: !OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CognitoOptionsStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cosOptions' - Specifies the Cognito options for the specified Elasticsearch domain.
+--
+-- * 'cosStatus' - Specifies the status of the Cognito options for the specified Elasticsearch domain.
+cognitoOptionsStatus
+    :: CognitoOptions -- ^ 'cosOptions'
+    -> OptionStatus -- ^ 'cosStatus'
+    -> CognitoOptionsStatus
+cognitoOptionsStatus pOptions_ pStatus_ =
+  CognitoOptionsStatus' {_cosOptions = pOptions_, _cosStatus = pStatus_}
+
+
+-- | Specifies the Cognito options for the specified Elasticsearch domain.
+cosOptions :: Lens' CognitoOptionsStatus CognitoOptions
+cosOptions = lens _cosOptions (\ s a -> s{_cosOptions = a})
+
+-- | Specifies the status of the Cognito options for the specified Elasticsearch domain.
+cosStatus :: Lens' CognitoOptionsStatus OptionStatus
+cosStatus = lens _cosStatus (\ s a -> s{_cosStatus = a})
+
+instance FromJSON CognitoOptionsStatus where
+        parseJSON
+          = withObject "CognitoOptionsStatus"
+              (\ x ->
+                 CognitoOptionsStatus' <$>
+                   (x .: "Options") <*> (x .: "Status"))
+
+instance Hashable CognitoOptionsStatus where
+
+instance NFData CognitoOptionsStatus where
 
 -- | /See:/ 'domainInfo' smart constructor.
 newtype DomainInfo = DomainInfo'
@@ -176,7 +294,7 @@ domainInfo = DomainInfo' {_diDomainName = Nothing}
 
 -- | Specifies the @DomainName@ .
 diDomainName :: Lens' DomainInfo (Maybe Text)
-diDomainName = lens _diDomainName (\ s a -> s{_diDomainName = a});
+diDomainName = lens _diDomainName (\ s a -> s{_diDomainName = a})
 
 instance FromJSON DomainInfo where
         parseJSON
@@ -215,28 +333,28 @@ ebsOptions
     :: EBSOptions
 ebsOptions =
   EBSOptions'
-  { _eoVolumeSize = Nothing
-  , _eoIOPS = Nothing
-  , _eoVolumeType = Nothing
-  , _eoEBSEnabled = Nothing
-  }
+    { _eoVolumeSize = Nothing
+    , _eoIOPS = Nothing
+    , _eoVolumeType = Nothing
+    , _eoEBSEnabled = Nothing
+    }
 
 
 -- | Integer to specify the size of an EBS volume.
 eoVolumeSize :: Lens' EBSOptions (Maybe Int)
-eoVolumeSize = lens _eoVolumeSize (\ s a -> s{_eoVolumeSize = a});
+eoVolumeSize = lens _eoVolumeSize (\ s a -> s{_eoVolumeSize = a})
 
 -- | Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
 eoIOPS :: Lens' EBSOptions (Maybe Int)
-eoIOPS = lens _eoIOPS (\ s a -> s{_eoIOPS = a});
+eoIOPS = lens _eoIOPS (\ s a -> s{_eoIOPS = a})
 
 -- | Specifies the volume type for EBS-based storage.
 eoVolumeType :: Lens' EBSOptions (Maybe VolumeType)
-eoVolumeType = lens _eoVolumeType (\ s a -> s{_eoVolumeType = a});
+eoVolumeType = lens _eoVolumeType (\ s a -> s{_eoVolumeType = a})
 
 -- | Specifies whether EBS-based storage is enabled.
 eoEBSEnabled :: Lens' EBSOptions (Maybe Bool)
-eoEBSEnabled = lens _eoEBSEnabled (\ s a -> s{_eoEBSEnabled = a});
+eoEBSEnabled = lens _eoEBSEnabled (\ s a -> s{_eoEBSEnabled = a})
 
 instance FromJSON EBSOptions where
         parseJSON
@@ -288,11 +406,11 @@ ebsOptionsStatus pOptions_ pStatus_ =
 
 -- | Specifies the EBS options for the specified Elasticsearch domain.
 eosOptions :: Lens' EBSOptionsStatus EBSOptions
-eosOptions = lens _eosOptions (\ s a -> s{_eosOptions = a});
+eosOptions = lens _eosOptions (\ s a -> s{_eosOptions = a})
 
 -- | Specifies the status of the EBS options for the specified Elasticsearch domain.
 eosStatus :: Lens' EBSOptionsStatus OptionStatus
-eosStatus = lens _eosStatus (\ s a -> s{_eosStatus = a});
+eosStatus = lens _eosStatus (\ s a -> s{_eosStatus = a})
 
 instance FromJSON EBSOptionsStatus where
         parseJSON
@@ -339,38 +457,38 @@ elasticsearchClusterConfig
     :: ElasticsearchClusterConfig
 elasticsearchClusterConfig =
   ElasticsearchClusterConfig'
-  { _eccDedicatedMasterCount = Nothing
-  , _eccDedicatedMasterType = Nothing
-  , _eccDedicatedMasterEnabled = Nothing
-  , _eccInstanceCount = Nothing
-  , _eccZoneAwarenessEnabled = Nothing
-  , _eccInstanceType = Nothing
-  }
+    { _eccDedicatedMasterCount = Nothing
+    , _eccDedicatedMasterType = Nothing
+    , _eccDedicatedMasterEnabled = Nothing
+    , _eccInstanceCount = Nothing
+    , _eccZoneAwarenessEnabled = Nothing
+    , _eccInstanceType = Nothing
+    }
 
 
 -- | Total number of dedicated master nodes, active and on standby, for the cluster.
 eccDedicatedMasterCount :: Lens' ElasticsearchClusterConfig (Maybe Int)
-eccDedicatedMasterCount = lens _eccDedicatedMasterCount (\ s a -> s{_eccDedicatedMasterCount = a});
+eccDedicatedMasterCount = lens _eccDedicatedMasterCount (\ s a -> s{_eccDedicatedMasterCount = a})
 
 -- | The instance type for a dedicated master node.
 eccDedicatedMasterType :: Lens' ElasticsearchClusterConfig (Maybe ESPartitionInstanceType)
-eccDedicatedMasterType = lens _eccDedicatedMasterType (\ s a -> s{_eccDedicatedMasterType = a});
+eccDedicatedMasterType = lens _eccDedicatedMasterType (\ s a -> s{_eccDedicatedMasterType = a})
 
 -- | A boolean value to indicate whether a dedicated master node is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes> for more information.
 eccDedicatedMasterEnabled :: Lens' ElasticsearchClusterConfig (Maybe Bool)
-eccDedicatedMasterEnabled = lens _eccDedicatedMasterEnabled (\ s a -> s{_eccDedicatedMasterEnabled = a});
+eccDedicatedMasterEnabled = lens _eccDedicatedMasterEnabled (\ s a -> s{_eccDedicatedMasterEnabled = a})
 
 -- | The number of instances in the specified domain cluster.
 eccInstanceCount :: Lens' ElasticsearchClusterConfig (Maybe Int)
-eccInstanceCount = lens _eccInstanceCount (\ s a -> s{_eccInstanceCount = a});
+eccInstanceCount = lens _eccInstanceCount (\ s a -> s{_eccInstanceCount = a})
 
 -- | A boolean value to indicate whether zone awareness is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness> for more information.
 eccZoneAwarenessEnabled :: Lens' ElasticsearchClusterConfig (Maybe Bool)
-eccZoneAwarenessEnabled = lens _eccZoneAwarenessEnabled (\ s a -> s{_eccZoneAwarenessEnabled = a});
+eccZoneAwarenessEnabled = lens _eccZoneAwarenessEnabled (\ s a -> s{_eccZoneAwarenessEnabled = a})
 
 -- | The instance type for an Elasticsearch cluster.
 eccInstanceType :: Lens' ElasticsearchClusterConfig (Maybe ESPartitionInstanceType)
-eccInstanceType = lens _eccInstanceType (\ s a -> s{_eccInstanceType = a});
+eccInstanceType = lens _eccInstanceType (\ s a -> s{_eccInstanceType = a})
 
 instance FromJSON ElasticsearchClusterConfig where
         parseJSON
@@ -427,16 +545,16 @@ elasticsearchClusterConfigStatus
     -> ElasticsearchClusterConfigStatus
 elasticsearchClusterConfigStatus pOptions_ pStatus_ =
   ElasticsearchClusterConfigStatus'
-  {_eccsOptions = pOptions_, _eccsStatus = pStatus_}
+    {_eccsOptions = pOptions_, _eccsStatus = pStatus_}
 
 
 -- | Specifies the cluster configuration for the specified Elasticsearch domain.
 eccsOptions :: Lens' ElasticsearchClusterConfigStatus ElasticsearchClusterConfig
-eccsOptions = lens _eccsOptions (\ s a -> s{_eccsOptions = a});
+eccsOptions = lens _eccsOptions (\ s a -> s{_eccsOptions = a})
 
 -- | Specifies the status of the configuration for the specified Elasticsearch domain.
 eccsStatus :: Lens' ElasticsearchClusterConfigStatus OptionStatus
-eccsStatus = lens _eccsStatus (\ s a -> s{_eccsStatus = a});
+eccsStatus = lens _eccsStatus (\ s a -> s{_eccsStatus = a})
 
 instance FromJSON ElasticsearchClusterConfigStatus
          where
@@ -463,6 +581,8 @@ data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
   , _edcLogPublishingOptions       :: !(Maybe LogPublishingOptionsStatus)
   , _edcElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfigStatus)
   , _edcSnapshotOptions            :: !(Maybe SnapshotOptionsStatus)
+  , _edcCognitoOptions             :: !(Maybe CognitoOptionsStatus)
+  , _edcEncryptionAtRestOptions    :: !(Maybe EncryptionAtRestOptionsStatus)
   , _edcVPCOptions                 :: !(Maybe VPCDerivedInfoStatus)
   , _edcAdvancedOptions            :: !(Maybe AdvancedOptionsStatus)
   , _edcElasticsearchVersion       :: !(Maybe ElasticsearchVersionStatus)
@@ -483,6 +603,10 @@ data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
 --
 -- * 'edcSnapshotOptions' - Specifies the @SnapshotOptions@ for the Elasticsearch domain.
 --
+-- * 'edcCognitoOptions' - The @CognitoOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+--
+-- * 'edcEncryptionAtRestOptions' - Specifies the @EncryptionAtRestOptions@ for the Elasticsearch domain.
+--
 -- * 'edcVPCOptions' - The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
 --
 -- * 'edcAdvancedOptions' - Specifies the @AdvancedOptions@ for the domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options> for more information.
@@ -492,48 +616,58 @@ elasticsearchDomainConfig
     :: ElasticsearchDomainConfig
 elasticsearchDomainConfig =
   ElasticsearchDomainConfig'
-  { _edcEBSOptions = Nothing
-  , _edcAccessPolicies = Nothing
-  , _edcLogPublishingOptions = Nothing
-  , _edcElasticsearchClusterConfig = Nothing
-  , _edcSnapshotOptions = Nothing
-  , _edcVPCOptions = Nothing
-  , _edcAdvancedOptions = Nothing
-  , _edcElasticsearchVersion = Nothing
-  }
+    { _edcEBSOptions = Nothing
+    , _edcAccessPolicies = Nothing
+    , _edcLogPublishingOptions = Nothing
+    , _edcElasticsearchClusterConfig = Nothing
+    , _edcSnapshotOptions = Nothing
+    , _edcCognitoOptions = Nothing
+    , _edcEncryptionAtRestOptions = Nothing
+    , _edcVPCOptions = Nothing
+    , _edcAdvancedOptions = Nothing
+    , _edcElasticsearchVersion = Nothing
+    }
 
 
 -- | Specifies the @EBSOptions@ for the Elasticsearch domain.
 edcEBSOptions :: Lens' ElasticsearchDomainConfig (Maybe EBSOptionsStatus)
-edcEBSOptions = lens _edcEBSOptions (\ s a -> s{_edcEBSOptions = a});
+edcEBSOptions = lens _edcEBSOptions (\ s a -> s{_edcEBSOptions = a})
 
 -- | IAM access policy as a JSON-formatted string.
 edcAccessPolicies :: Lens' ElasticsearchDomainConfig (Maybe AccessPoliciesStatus)
-edcAccessPolicies = lens _edcAccessPolicies (\ s a -> s{_edcAccessPolicies = a});
+edcAccessPolicies = lens _edcAccessPolicies (\ s a -> s{_edcAccessPolicies = a})
 
 -- | Log publishing options for the given domain.
 edcLogPublishingOptions :: Lens' ElasticsearchDomainConfig (Maybe LogPublishingOptionsStatus)
-edcLogPublishingOptions = lens _edcLogPublishingOptions (\ s a -> s{_edcLogPublishingOptions = a});
+edcLogPublishingOptions = lens _edcLogPublishingOptions (\ s a -> s{_edcLogPublishingOptions = a})
 
 -- | Specifies the @ElasticsearchClusterConfig@ for the Elasticsearch domain.
 edcElasticsearchClusterConfig :: Lens' ElasticsearchDomainConfig (Maybe ElasticsearchClusterConfigStatus)
-edcElasticsearchClusterConfig = lens _edcElasticsearchClusterConfig (\ s a -> s{_edcElasticsearchClusterConfig = a});
+edcElasticsearchClusterConfig = lens _edcElasticsearchClusterConfig (\ s a -> s{_edcElasticsearchClusterConfig = a})
 
 -- | Specifies the @SnapshotOptions@ for the Elasticsearch domain.
 edcSnapshotOptions :: Lens' ElasticsearchDomainConfig (Maybe SnapshotOptionsStatus)
-edcSnapshotOptions = lens _edcSnapshotOptions (\ s a -> s{_edcSnapshotOptions = a});
+edcSnapshotOptions = lens _edcSnapshotOptions (\ s a -> s{_edcSnapshotOptions = a})
+
+-- | The @CognitoOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+edcCognitoOptions :: Lens' ElasticsearchDomainConfig (Maybe CognitoOptionsStatus)
+edcCognitoOptions = lens _edcCognitoOptions (\ s a -> s{_edcCognitoOptions = a})
+
+-- | Specifies the @EncryptionAtRestOptions@ for the Elasticsearch domain.
+edcEncryptionAtRestOptions :: Lens' ElasticsearchDomainConfig (Maybe EncryptionAtRestOptionsStatus)
+edcEncryptionAtRestOptions = lens _edcEncryptionAtRestOptions (\ s a -> s{_edcEncryptionAtRestOptions = a})
 
 -- | The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
 edcVPCOptions :: Lens' ElasticsearchDomainConfig (Maybe VPCDerivedInfoStatus)
-edcVPCOptions = lens _edcVPCOptions (\ s a -> s{_edcVPCOptions = a});
+edcVPCOptions = lens _edcVPCOptions (\ s a -> s{_edcVPCOptions = a})
 
 -- | Specifies the @AdvancedOptions@ for the domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options> for more information.
 edcAdvancedOptions :: Lens' ElasticsearchDomainConfig (Maybe AdvancedOptionsStatus)
-edcAdvancedOptions = lens _edcAdvancedOptions (\ s a -> s{_edcAdvancedOptions = a});
+edcAdvancedOptions = lens _edcAdvancedOptions (\ s a -> s{_edcAdvancedOptions = a})
 
 -- | String of format X.Y to specify version for the Elasticsearch domain.
 edcElasticsearchVersion :: Lens' ElasticsearchDomainConfig (Maybe ElasticsearchVersionStatus)
-edcElasticsearchVersion = lens _edcElasticsearchVersion (\ s a -> s{_edcElasticsearchVersion = a});
+edcElasticsearchVersion = lens _edcElasticsearchVersion (\ s a -> s{_edcElasticsearchVersion = a})
 
 instance FromJSON ElasticsearchDomainConfig where
         parseJSON
@@ -544,6 +678,8 @@ instance FromJSON ElasticsearchDomainConfig where
                      (x .:? "LogPublishingOptions")
                      <*> (x .:? "ElasticsearchClusterConfig")
                      <*> (x .:? "SnapshotOptions")
+                     <*> (x .:? "CognitoOptions")
+                     <*> (x .:? "EncryptionAtRestOptions")
                      <*> (x .:? "VPCOptions")
                      <*> (x .:? "AdvancedOptions")
                      <*> (x .:? "ElasticsearchVersion"))
@@ -563,6 +699,8 @@ data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
   , _edsLogPublishingOptions       :: !(Maybe (Map LogType LogPublishingOption))
   , _edsCreated                    :: !(Maybe Bool)
   , _edsSnapshotOptions            :: !(Maybe SnapshotOptions)
+  , _edsCognitoOptions             :: !(Maybe CognitoOptions)
+  , _edsEncryptionAtRestOptions    :: !(Maybe EncryptionAtRestOptions)
   , _edsDeleted                    :: !(Maybe Bool)
   , _edsVPCOptions                 :: !(Maybe VPCDerivedInfo)
   , _edsEndpoints                  :: !(Maybe (Map Text Text))
@@ -590,6 +728,10 @@ data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
 -- * 'edsCreated' - The domain creation status. @True@ if the creation of an Elasticsearch domain is complete. @False@ if domain creation is still in progress.
 --
 -- * 'edsSnapshotOptions' - Specifies the status of the @SnapshotOptions@
+--
+-- * 'edsCognitoOptions' - The @CognitoOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+--
+-- * 'edsEncryptionAtRestOptions' - Specifies the status of the @EncryptionAtRestOptions@ .
 --
 -- * 'edsDeleted' - The domain deletion status. @True@ if a delete request has been received for the domain but resource cleanup is still in progress. @False@ if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.
 --
@@ -620,88 +762,98 @@ elasticsearchDomainStatus
     -> ElasticsearchDomainStatus
 elasticsearchDomainStatus pDomainId_ pDomainName_ pARN_ pElasticsearchClusterConfig_ =
   ElasticsearchDomainStatus'
-  { _edsEBSOptions = Nothing
-  , _edsAccessPolicies = Nothing
-  , _edsLogPublishingOptions = Nothing
-  , _edsCreated = Nothing
-  , _edsSnapshotOptions = Nothing
-  , _edsDeleted = Nothing
-  , _edsVPCOptions = Nothing
-  , _edsEndpoints = Nothing
-  , _edsProcessing = Nothing
-  , _edsEndpoint = Nothing
-  , _edsAdvancedOptions = Nothing
-  , _edsElasticsearchVersion = Nothing
-  , _edsDomainId = pDomainId_
-  , _edsDomainName = pDomainName_
-  , _edsARN = pARN_
-  , _edsElasticsearchClusterConfig = pElasticsearchClusterConfig_
-  }
+    { _edsEBSOptions = Nothing
+    , _edsAccessPolicies = Nothing
+    , _edsLogPublishingOptions = Nothing
+    , _edsCreated = Nothing
+    , _edsSnapshotOptions = Nothing
+    , _edsCognitoOptions = Nothing
+    , _edsEncryptionAtRestOptions = Nothing
+    , _edsDeleted = Nothing
+    , _edsVPCOptions = Nothing
+    , _edsEndpoints = Nothing
+    , _edsProcessing = Nothing
+    , _edsEndpoint = Nothing
+    , _edsAdvancedOptions = Nothing
+    , _edsElasticsearchVersion = Nothing
+    , _edsDomainId = pDomainId_
+    , _edsDomainName = pDomainName_
+    , _edsARN = pARN_
+    , _edsElasticsearchClusterConfig = pElasticsearchClusterConfig_
+    }
 
 
 -- | The @EBSOptions@ for the specified domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> for more information.
 edsEBSOptions :: Lens' ElasticsearchDomainStatus (Maybe EBSOptions)
-edsEBSOptions = lens _edsEBSOptions (\ s a -> s{_edsEBSOptions = a});
+edsEBSOptions = lens _edsEBSOptions (\ s a -> s{_edsEBSOptions = a})
 
 -- | IAM access policy as a JSON-formatted string.
 edsAccessPolicies :: Lens' ElasticsearchDomainStatus (Maybe Text)
-edsAccessPolicies = lens _edsAccessPolicies (\ s a -> s{_edsAccessPolicies = a});
+edsAccessPolicies = lens _edsAccessPolicies (\ s a -> s{_edsAccessPolicies = a})
 
 -- | Log publishing options for the given domain.
 edsLogPublishingOptions :: Lens' ElasticsearchDomainStatus (HashMap LogType LogPublishingOption)
-edsLogPublishingOptions = lens _edsLogPublishingOptions (\ s a -> s{_edsLogPublishingOptions = a}) . _Default . _Map;
+edsLogPublishingOptions = lens _edsLogPublishingOptions (\ s a -> s{_edsLogPublishingOptions = a}) . _Default . _Map
 
 -- | The domain creation status. @True@ if the creation of an Elasticsearch domain is complete. @False@ if domain creation is still in progress.
 edsCreated :: Lens' ElasticsearchDomainStatus (Maybe Bool)
-edsCreated = lens _edsCreated (\ s a -> s{_edsCreated = a});
+edsCreated = lens _edsCreated (\ s a -> s{_edsCreated = a})
 
 -- | Specifies the status of the @SnapshotOptions@
 edsSnapshotOptions :: Lens' ElasticsearchDomainStatus (Maybe SnapshotOptions)
-edsSnapshotOptions = lens _edsSnapshotOptions (\ s a -> s{_edsSnapshotOptions = a});
+edsSnapshotOptions = lens _edsSnapshotOptions (\ s a -> s{_edsSnapshotOptions = a})
+
+-- | The @CognitoOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+edsCognitoOptions :: Lens' ElasticsearchDomainStatus (Maybe CognitoOptions)
+edsCognitoOptions = lens _edsCognitoOptions (\ s a -> s{_edsCognitoOptions = a})
+
+-- | Specifies the status of the @EncryptionAtRestOptions@ .
+edsEncryptionAtRestOptions :: Lens' ElasticsearchDomainStatus (Maybe EncryptionAtRestOptions)
+edsEncryptionAtRestOptions = lens _edsEncryptionAtRestOptions (\ s a -> s{_edsEncryptionAtRestOptions = a})
 
 -- | The domain deletion status. @True@ if a delete request has been received for the domain but resource cleanup is still in progress. @False@ if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.
 edsDeleted :: Lens' ElasticsearchDomainStatus (Maybe Bool)
-edsDeleted = lens _edsDeleted (\ s a -> s{_edsDeleted = a});
+edsDeleted = lens _edsDeleted (\ s a -> s{_edsDeleted = a})
 
 -- | The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
 edsVPCOptions :: Lens' ElasticsearchDomainStatus (Maybe VPCDerivedInfo)
-edsVPCOptions = lens _edsVPCOptions (\ s a -> s{_edsVPCOptions = a});
+edsVPCOptions = lens _edsVPCOptions (\ s a -> s{_edsVPCOptions = a})
 
 -- | Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example @key, value@ : @'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'@ .
 edsEndpoints :: Lens' ElasticsearchDomainStatus (HashMap Text Text)
-edsEndpoints = lens _edsEndpoints (\ s a -> s{_edsEndpoints = a}) . _Default . _Map;
+edsEndpoints = lens _edsEndpoints (\ s a -> s{_edsEndpoints = a}) . _Default . _Map
 
 -- | The status of the Elasticsearch domain configuration. @True@ if Amazon Elasticsearch Service is processing configuration changes. @False@ if the configuration is active.
 edsProcessing :: Lens' ElasticsearchDomainStatus (Maybe Bool)
-edsProcessing = lens _edsProcessing (\ s a -> s{_edsProcessing = a});
+edsProcessing = lens _edsProcessing (\ s a -> s{_edsProcessing = a})
 
 -- | The Elasticsearch domain endpoint that you use to submit index and search requests.
 edsEndpoint :: Lens' ElasticsearchDomainStatus (Maybe Text)
-edsEndpoint = lens _edsEndpoint (\ s a -> s{_edsEndpoint = a});
+edsEndpoint = lens _edsEndpoint (\ s a -> s{_edsEndpoint = a})
 
 -- | Specifies the status of the @AdvancedOptions@
 edsAdvancedOptions :: Lens' ElasticsearchDomainStatus (HashMap Text Text)
-edsAdvancedOptions = lens _edsAdvancedOptions (\ s a -> s{_edsAdvancedOptions = a}) . _Default . _Map;
+edsAdvancedOptions = lens _edsAdvancedOptions (\ s a -> s{_edsAdvancedOptions = a}) . _Default . _Map
 
 -- | Undocumented member.
 edsElasticsearchVersion :: Lens' ElasticsearchDomainStatus (Maybe Text)
-edsElasticsearchVersion = lens _edsElasticsearchVersion (\ s a -> s{_edsElasticsearchVersion = a});
+edsElasticsearchVersion = lens _edsElasticsearchVersion (\ s a -> s{_edsElasticsearchVersion = a})
 
 -- | The unique identifier for the specified Elasticsearch domain.
 edsDomainId :: Lens' ElasticsearchDomainStatus Text
-edsDomainId = lens _edsDomainId (\ s a -> s{_edsDomainId = a});
+edsDomainId = lens _edsDomainId (\ s a -> s{_edsDomainId = a})
 
 -- | The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
 edsDomainName :: Lens' ElasticsearchDomainStatus Text
-edsDomainName = lens _edsDomainName (\ s a -> s{_edsDomainName = a});
+edsDomainName = lens _edsDomainName (\ s a -> s{_edsDomainName = a})
 
 -- | The Amazon resource name (ARN) of an Elasticsearch domain. See <http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html Identifiers for IAM Entities> in /Using AWS Identity and Access Management/ for more information.
 edsARN :: Lens' ElasticsearchDomainStatus Text
-edsARN = lens _edsARN (\ s a -> s{_edsARN = a});
+edsARN = lens _edsARN (\ s a -> s{_edsARN = a})
 
 -- | The type and number of instances in the domain cluster.
 edsElasticsearchClusterConfig :: Lens' ElasticsearchDomainStatus ElasticsearchClusterConfig
-edsElasticsearchClusterConfig = lens _edsElasticsearchClusterConfig (\ s a -> s{_edsElasticsearchClusterConfig = a});
+edsElasticsearchClusterConfig = lens _edsElasticsearchClusterConfig (\ s a -> s{_edsElasticsearchClusterConfig = a})
 
 instance FromJSON ElasticsearchDomainStatus where
         parseJSON
@@ -712,6 +864,8 @@ instance FromJSON ElasticsearchDomainStatus where
                      (x .:? "LogPublishingOptions" .!= mempty)
                      <*> (x .:? "Created")
                      <*> (x .:? "SnapshotOptions")
+                     <*> (x .:? "CognitoOptions")
+                     <*> (x .:? "EncryptionAtRestOptions")
                      <*> (x .:? "Deleted")
                      <*> (x .:? "VPCOptions")
                      <*> (x .:? "Endpoints" .!= mempty)
@@ -756,11 +910,11 @@ elasticsearchVersionStatus pOptions_ pStatus_ =
 
 -- | Specifies the Elasticsearch version for the specified Elasticsearch domain.
 evsOptions :: Lens' ElasticsearchVersionStatus Text
-evsOptions = lens _evsOptions (\ s a -> s{_evsOptions = a});
+evsOptions = lens _evsOptions (\ s a -> s{_evsOptions = a})
 
 -- | Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
 evsStatus :: Lens' ElasticsearchVersionStatus OptionStatus
-evsStatus = lens _evsStatus (\ s a -> s{_evsStatus = a});
+evsStatus = lens _evsStatus (\ s a -> s{_evsStatus = a})
 
 instance FromJSON ElasticsearchVersionStatus where
         parseJSON
@@ -772,6 +926,102 @@ instance FromJSON ElasticsearchVersionStatus where
 instance Hashable ElasticsearchVersionStatus where
 
 instance NFData ElasticsearchVersionStatus where
+
+-- | Specifies the Encryption At Rest Options.
+--
+--
+--
+-- /See:/ 'encryptionAtRestOptions' smart constructor.
+data EncryptionAtRestOptions = EncryptionAtRestOptions'
+  { _earoEnabled  :: !(Maybe Bool)
+  , _earoKMSKeyId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EncryptionAtRestOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'earoEnabled' - Specifies the option to enable Encryption At Rest.
+--
+-- * 'earoKMSKeyId' - Specifies the KMS Key ID for Encryption At Rest options.
+encryptionAtRestOptions
+    :: EncryptionAtRestOptions
+encryptionAtRestOptions =
+  EncryptionAtRestOptions' {_earoEnabled = Nothing, _earoKMSKeyId = Nothing}
+
+
+-- | Specifies the option to enable Encryption At Rest.
+earoEnabled :: Lens' EncryptionAtRestOptions (Maybe Bool)
+earoEnabled = lens _earoEnabled (\ s a -> s{_earoEnabled = a})
+
+-- | Specifies the KMS Key ID for Encryption At Rest options.
+earoKMSKeyId :: Lens' EncryptionAtRestOptions (Maybe Text)
+earoKMSKeyId = lens _earoKMSKeyId (\ s a -> s{_earoKMSKeyId = a})
+
+instance FromJSON EncryptionAtRestOptions where
+        parseJSON
+          = withObject "EncryptionAtRestOptions"
+              (\ x ->
+                 EncryptionAtRestOptions' <$>
+                   (x .:? "Enabled") <*> (x .:? "KmsKeyId"))
+
+instance Hashable EncryptionAtRestOptions where
+
+instance NFData EncryptionAtRestOptions where
+
+instance ToJSON EncryptionAtRestOptions where
+        toJSON EncryptionAtRestOptions'{..}
+          = object
+              (catMaybes
+                 [("Enabled" .=) <$> _earoEnabled,
+                  ("KmsKeyId" .=) <$> _earoKMSKeyId])
+
+-- | Status of the Encryption At Rest options for the specified Elasticsearch domain.
+--
+--
+--
+-- /See:/ 'encryptionAtRestOptionsStatus' smart constructor.
+data EncryptionAtRestOptionsStatus = EncryptionAtRestOptionsStatus'
+  { _earosOptions :: !EncryptionAtRestOptions
+  , _earosStatus  :: !OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EncryptionAtRestOptionsStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'earosOptions' - Specifies the Encryption At Rest options for the specified Elasticsearch domain.
+--
+-- * 'earosStatus' - Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
+encryptionAtRestOptionsStatus
+    :: EncryptionAtRestOptions -- ^ 'earosOptions'
+    -> OptionStatus -- ^ 'earosStatus'
+    -> EncryptionAtRestOptionsStatus
+encryptionAtRestOptionsStatus pOptions_ pStatus_ =
+  EncryptionAtRestOptionsStatus'
+    {_earosOptions = pOptions_, _earosStatus = pStatus_}
+
+
+-- | Specifies the Encryption At Rest options for the specified Elasticsearch domain.
+earosOptions :: Lens' EncryptionAtRestOptionsStatus EncryptionAtRestOptions
+earosOptions = lens _earosOptions (\ s a -> s{_earosOptions = a})
+
+-- | Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
+earosStatus :: Lens' EncryptionAtRestOptionsStatus OptionStatus
+earosStatus = lens _earosStatus (\ s a -> s{_earosStatus = a})
+
+instance FromJSON EncryptionAtRestOptionsStatus where
+        parseJSON
+          = withObject "EncryptionAtRestOptionsStatus"
+              (\ x ->
+                 EncryptionAtRestOptionsStatus' <$>
+                   (x .: "Options") <*> (x .: "Status"))
+
+instance Hashable EncryptionAtRestOptionsStatus where
+
+instance NFData EncryptionAtRestOptionsStatus where
 
 -- | InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for given InstanceType.
 --
@@ -795,16 +1045,16 @@ instanceCountLimits
     :: InstanceCountLimits
 instanceCountLimits =
   InstanceCountLimits'
-  {_iclMaximumInstanceCount = Nothing, _iclMinimumInstanceCount = Nothing}
+    {_iclMaximumInstanceCount = Nothing, _iclMinimumInstanceCount = Nothing}
 
 
 -- | Undocumented member.
 iclMaximumInstanceCount :: Lens' InstanceCountLimits (Maybe Int)
-iclMaximumInstanceCount = lens _iclMaximumInstanceCount (\ s a -> s{_iclMaximumInstanceCount = a});
+iclMaximumInstanceCount = lens _iclMaximumInstanceCount (\ s a -> s{_iclMaximumInstanceCount = a})
 
 -- | Undocumented member.
 iclMinimumInstanceCount :: Lens' InstanceCountLimits (Maybe Int)
-iclMinimumInstanceCount = lens _iclMinimumInstanceCount (\ s a -> s{_iclMinimumInstanceCount = a});
+iclMinimumInstanceCount = lens _iclMinimumInstanceCount (\ s a -> s{_iclMinimumInstanceCount = a})
 
 instance FromJSON InstanceCountLimits where
         parseJSON
@@ -840,7 +1090,7 @@ instanceLimits = InstanceLimits' {_ilInstanceCountLimits = Nothing}
 
 -- | Undocumented member.
 ilInstanceCountLimits :: Lens' InstanceLimits (Maybe InstanceCountLimits)
-ilInstanceCountLimits = lens _ilInstanceCountLimits (\ s a -> s{_ilInstanceCountLimits = a});
+ilInstanceCountLimits = lens _ilInstanceCountLimits (\ s a -> s{_ilInstanceCountLimits = a})
 
 instance FromJSON InstanceLimits where
         parseJSON
@@ -878,23 +1128,23 @@ limits
     :: Limits
 limits =
   Limits'
-  { _lInstanceLimits = Nothing
-  , _lAdditionalLimits = Nothing
-  , _lStorageTypes = Nothing
-  }
+    { _lInstanceLimits = Nothing
+    , _lAdditionalLimits = Nothing
+    , _lStorageTypes = Nothing
+    }
 
 
 -- | Undocumented member.
 lInstanceLimits :: Lens' Limits (Maybe InstanceLimits)
-lInstanceLimits = lens _lInstanceLimits (\ s a -> s{_lInstanceLimits = a});
+lInstanceLimits = lens _lInstanceLimits (\ s a -> s{_lInstanceLimits = a})
 
 -- | List of additional limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
 lAdditionalLimits :: Lens' Limits [AdditionalLimit]
-lAdditionalLimits = lens _lAdditionalLimits (\ s a -> s{_lAdditionalLimits = a}) . _Default . _Coerce;
+lAdditionalLimits = lens _lAdditionalLimits (\ s a -> s{_lAdditionalLimits = a}) . _Default . _Coerce
 
 -- | StorageType represents the list of storage related types and attributes that are available for given InstanceType.
 lStorageTypes :: Lens' Limits [StorageType]
-lStorageTypes = lens _lStorageTypes (\ s a -> s{_lStorageTypes = a}) . _Default . _Coerce;
+lStorageTypes = lens _lStorageTypes (\ s a -> s{_lStorageTypes = a}) . _Default . _Coerce
 
 instance FromJSON Limits where
         parseJSON
@@ -934,16 +1184,16 @@ logPublishingOption
     :: LogPublishingOption
 logPublishingOption =
   LogPublishingOption'
-  {_lpoEnabled = Nothing, _lpoCloudWatchLogsLogGroupARN = Nothing}
+    {_lpoEnabled = Nothing, _lpoCloudWatchLogsLogGroupARN = Nothing}
 
 
 -- | Specifies whether given log publishing option is enabled or not.
 lpoEnabled :: Lens' LogPublishingOption (Maybe Bool)
-lpoEnabled = lens _lpoEnabled (\ s a -> s{_lpoEnabled = a});
+lpoEnabled = lens _lpoEnabled (\ s a -> s{_lpoEnabled = a})
 
 -- | Undocumented member.
 lpoCloudWatchLogsLogGroupARN :: Lens' LogPublishingOption (Maybe Text)
-lpoCloudWatchLogsLogGroupARN = lens _lpoCloudWatchLogsLogGroupARN (\ s a -> s{_lpoCloudWatchLogsLogGroupARN = a});
+lpoCloudWatchLogsLogGroupARN = lens _lpoCloudWatchLogsLogGroupARN (\ s a -> s{_lpoCloudWatchLogsLogGroupARN = a})
 
 instance FromJSON LogPublishingOption where
         parseJSON
@@ -991,11 +1241,11 @@ logPublishingOptionsStatus =
 
 -- | The status of the log publishing options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
 lposStatus :: Lens' LogPublishingOptionsStatus (Maybe OptionStatus)
-lposStatus = lens _lposStatus (\ s a -> s{_lposStatus = a});
+lposStatus = lens _lposStatus (\ s a -> s{_lposStatus = a})
 
 -- | The log publishing options configured for the Elasticsearch domain.
 lposOptions :: Lens' LogPublishingOptionsStatus (HashMap LogType LogPublishingOption)
-lposOptions = lens _lposOptions (\ s a -> s{_lposOptions = a}) . _Default . _Map;
+lposOptions = lens _lposOptions (\ s a -> s{_lposOptions = a}) . _Default . _Map
 
 instance FromJSON LogPublishingOptionsStatus where
         parseJSON
@@ -1042,33 +1292,33 @@ optionStatus
     -> OptionStatus
 optionStatus pCreationDate_ pUpdateDate_ pState_ =
   OptionStatus'
-  { _osPendingDeletion = Nothing
-  , _osUpdateVersion = Nothing
-  , _osCreationDate = _Time # pCreationDate_
-  , _osUpdateDate = _Time # pUpdateDate_
-  , _osState = pState_
-  }
+    { _osPendingDeletion = Nothing
+    , _osUpdateVersion = Nothing
+    , _osCreationDate = _Time # pCreationDate_
+    , _osUpdateDate = _Time # pUpdateDate_
+    , _osState = pState_
+    }
 
 
 -- | Indicates whether the Elasticsearch domain is being deleted.
 osPendingDeletion :: Lens' OptionStatus (Maybe Bool)
-osPendingDeletion = lens _osPendingDeletion (\ s a -> s{_osPendingDeletion = a});
+osPendingDeletion = lens _osPendingDeletion (\ s a -> s{_osPendingDeletion = a})
 
 -- | Specifies the latest version for the entity.
 osUpdateVersion :: Lens' OptionStatus (Maybe Natural)
-osUpdateVersion = lens _osUpdateVersion (\ s a -> s{_osUpdateVersion = a}) . mapping _Nat;
+osUpdateVersion = lens _osUpdateVersion (\ s a -> s{_osUpdateVersion = a}) . mapping _Nat
 
 -- | Timestamp which tells the creation date for the entity.
 osCreationDate :: Lens' OptionStatus UTCTime
-osCreationDate = lens _osCreationDate (\ s a -> s{_osCreationDate = a}) . _Time;
+osCreationDate = lens _osCreationDate (\ s a -> s{_osCreationDate = a}) . _Time
 
 -- | Timestamp which tells the last updated time for the entity.
 osUpdateDate :: Lens' OptionStatus UTCTime
-osUpdateDate = lens _osUpdateDate (\ s a -> s{_osUpdateDate = a}) . _Time;
+osUpdateDate = lens _osUpdateDate (\ s a -> s{_osUpdateDate = a}) . _Time
 
 -- | Provides the @OptionState@ for the Elasticsearch domain.
 osState :: Lens' OptionStatus OptionState
-osState = lens _osState (\ s a -> s{_osState = a});
+osState = lens _osState (\ s a -> s{_osState = a})
 
 instance FromJSON OptionStatus where
         parseJSON
@@ -1083,6 +1333,302 @@ instance FromJSON OptionStatus where
 instance Hashable OptionStatus where
 
 instance NFData OptionStatus where
+
+-- | Contains the specific price and frequency of a recurring charges for a reserved Elasticsearch instance, or for a reserved Elasticsearch instance offering.
+--
+--
+--
+-- /See:/ 'recurringCharge' smart constructor.
+data RecurringCharge = RecurringCharge'
+  { _rcRecurringChargeFrequency :: !(Maybe Text)
+  , _rcRecurringChargeAmount    :: !(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcRecurringChargeFrequency' - The frequency of the recurring charge.
+--
+-- * 'rcRecurringChargeAmount' - The monetary amount of the recurring charge.
+recurringCharge
+    :: RecurringCharge
+recurringCharge =
+  RecurringCharge'
+    {_rcRecurringChargeFrequency = Nothing, _rcRecurringChargeAmount = Nothing}
+
+
+-- | The frequency of the recurring charge.
+rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
+rcRecurringChargeFrequency = lens _rcRecurringChargeFrequency (\ s a -> s{_rcRecurringChargeFrequency = a})
+
+-- | The monetary amount of the recurring charge.
+rcRecurringChargeAmount :: Lens' RecurringCharge (Maybe Double)
+rcRecurringChargeAmount = lens _rcRecurringChargeAmount (\ s a -> s{_rcRecurringChargeAmount = a})
+
+instance FromJSON RecurringCharge where
+        parseJSON
+          = withObject "RecurringCharge"
+              (\ x ->
+                 RecurringCharge' <$>
+                   (x .:? "RecurringChargeFrequency") <*>
+                     (x .:? "RecurringChargeAmount"))
+
+instance Hashable RecurringCharge where
+
+instance NFData RecurringCharge where
+
+-- | Details of a reserved Elasticsearch instance.
+--
+--
+--
+-- /See:/ 'reservedElasticsearchInstance' smart constructor.
+data ReservedElasticsearchInstance = ReservedElasticsearchInstance'
+  { _reiState :: !(Maybe Text)
+  , _reiCurrencyCode :: !(Maybe Text)
+  , _reiStartTime :: !(Maybe POSIX)
+  , _reiReservedElasticsearchInstanceOfferingId :: !(Maybe Text)
+  , _reiReservedElasticsearchInstanceId :: !(Maybe Text)
+  , _reiElasticsearchInstanceCount :: !(Maybe Int)
+  , _reiReservationName :: !(Maybe Text)
+  , _reiElasticsearchInstanceType :: !(Maybe ESPartitionInstanceType)
+  , _reiRecurringCharges :: !(Maybe [RecurringCharge])
+  , _reiUsagePrice :: !(Maybe Double)
+  , _reiFixedPrice :: !(Maybe Double)
+  , _reiDuration :: !(Maybe Int)
+  , _reiPaymentOption :: !(Maybe ReservedElasticsearchInstancePaymentOption)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ReservedElasticsearchInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'reiState' - The state of the reserved Elasticsearch instance.
+--
+-- * 'reiCurrencyCode' - The currency code for the reserved Elasticsearch instance offering.
+--
+-- * 'reiStartTime' - The time the reservation started.
+--
+-- * 'reiReservedElasticsearchInstanceOfferingId' - The offering identifier.
+--
+-- * 'reiReservedElasticsearchInstanceId' - The unique identifier for the reservation.
+--
+-- * 'reiElasticsearchInstanceCount' - The number of Elasticsearch instances that have been reserved.
+--
+-- * 'reiReservationName' - The customer-specified identifier to track this reservation.
+--
+-- * 'reiElasticsearchInstanceType' - The Elasticsearch instance type offered by the reserved instance offering.
+--
+-- * 'reiRecurringCharges' - The charge to your account regardless of whether you are creating any domains using the instance offering.
+--
+-- * 'reiUsagePrice' - The rate you are charged for each hour for the domain that is using this reserved instance.
+--
+-- * 'reiFixedPrice' - The upfront fixed charge you will paid to purchase the specific reserved Elasticsearch instance offering.
+--
+-- * 'reiDuration' - The duration, in seconds, for which the Elasticsearch instance is reserved.
+--
+-- * 'reiPaymentOption' - The payment option as defined in the reserved Elasticsearch instance offering.
+reservedElasticsearchInstance
+    :: ReservedElasticsearchInstance
+reservedElasticsearchInstance =
+  ReservedElasticsearchInstance'
+    { _reiState = Nothing
+    , _reiCurrencyCode = Nothing
+    , _reiStartTime = Nothing
+    , _reiReservedElasticsearchInstanceOfferingId = Nothing
+    , _reiReservedElasticsearchInstanceId = Nothing
+    , _reiElasticsearchInstanceCount = Nothing
+    , _reiReservationName = Nothing
+    , _reiElasticsearchInstanceType = Nothing
+    , _reiRecurringCharges = Nothing
+    , _reiUsagePrice = Nothing
+    , _reiFixedPrice = Nothing
+    , _reiDuration = Nothing
+    , _reiPaymentOption = Nothing
+    }
+
+
+-- | The state of the reserved Elasticsearch instance.
+reiState :: Lens' ReservedElasticsearchInstance (Maybe Text)
+reiState = lens _reiState (\ s a -> s{_reiState = a})
+
+-- | The currency code for the reserved Elasticsearch instance offering.
+reiCurrencyCode :: Lens' ReservedElasticsearchInstance (Maybe Text)
+reiCurrencyCode = lens _reiCurrencyCode (\ s a -> s{_reiCurrencyCode = a})
+
+-- | The time the reservation started.
+reiStartTime :: Lens' ReservedElasticsearchInstance (Maybe UTCTime)
+reiStartTime = lens _reiStartTime (\ s a -> s{_reiStartTime = a}) . mapping _Time
+
+-- | The offering identifier.
+reiReservedElasticsearchInstanceOfferingId :: Lens' ReservedElasticsearchInstance (Maybe Text)
+reiReservedElasticsearchInstanceOfferingId = lens _reiReservedElasticsearchInstanceOfferingId (\ s a -> s{_reiReservedElasticsearchInstanceOfferingId = a})
+
+-- | The unique identifier for the reservation.
+reiReservedElasticsearchInstanceId :: Lens' ReservedElasticsearchInstance (Maybe Text)
+reiReservedElasticsearchInstanceId = lens _reiReservedElasticsearchInstanceId (\ s a -> s{_reiReservedElasticsearchInstanceId = a})
+
+-- | The number of Elasticsearch instances that have been reserved.
+reiElasticsearchInstanceCount :: Lens' ReservedElasticsearchInstance (Maybe Int)
+reiElasticsearchInstanceCount = lens _reiElasticsearchInstanceCount (\ s a -> s{_reiElasticsearchInstanceCount = a})
+
+-- | The customer-specified identifier to track this reservation.
+reiReservationName :: Lens' ReservedElasticsearchInstance (Maybe Text)
+reiReservationName = lens _reiReservationName (\ s a -> s{_reiReservationName = a})
+
+-- | The Elasticsearch instance type offered by the reserved instance offering.
+reiElasticsearchInstanceType :: Lens' ReservedElasticsearchInstance (Maybe ESPartitionInstanceType)
+reiElasticsearchInstanceType = lens _reiElasticsearchInstanceType (\ s a -> s{_reiElasticsearchInstanceType = a})
+
+-- | The charge to your account regardless of whether you are creating any domains using the instance offering.
+reiRecurringCharges :: Lens' ReservedElasticsearchInstance [RecurringCharge]
+reiRecurringCharges = lens _reiRecurringCharges (\ s a -> s{_reiRecurringCharges = a}) . _Default . _Coerce
+
+-- | The rate you are charged for each hour for the domain that is using this reserved instance.
+reiUsagePrice :: Lens' ReservedElasticsearchInstance (Maybe Double)
+reiUsagePrice = lens _reiUsagePrice (\ s a -> s{_reiUsagePrice = a})
+
+-- | The upfront fixed charge you will paid to purchase the specific reserved Elasticsearch instance offering.
+reiFixedPrice :: Lens' ReservedElasticsearchInstance (Maybe Double)
+reiFixedPrice = lens _reiFixedPrice (\ s a -> s{_reiFixedPrice = a})
+
+-- | The duration, in seconds, for which the Elasticsearch instance is reserved.
+reiDuration :: Lens' ReservedElasticsearchInstance (Maybe Int)
+reiDuration = lens _reiDuration (\ s a -> s{_reiDuration = a})
+
+-- | The payment option as defined in the reserved Elasticsearch instance offering.
+reiPaymentOption :: Lens' ReservedElasticsearchInstance (Maybe ReservedElasticsearchInstancePaymentOption)
+reiPaymentOption = lens _reiPaymentOption (\ s a -> s{_reiPaymentOption = a})
+
+instance FromJSON ReservedElasticsearchInstance where
+        parseJSON
+          = withObject "ReservedElasticsearchInstance"
+              (\ x ->
+                 ReservedElasticsearchInstance' <$>
+                   (x .:? "State") <*> (x .:? "CurrencyCode") <*>
+                     (x .:? "StartTime")
+                     <*> (x .:? "ReservedElasticsearchInstanceOfferingId")
+                     <*> (x .:? "ReservedElasticsearchInstanceId")
+                     <*> (x .:? "ElasticsearchInstanceCount")
+                     <*> (x .:? "ReservationName")
+                     <*> (x .:? "ElasticsearchInstanceType")
+                     <*> (x .:? "RecurringCharges" .!= mempty)
+                     <*> (x .:? "UsagePrice")
+                     <*> (x .:? "FixedPrice")
+                     <*> (x .:? "Duration")
+                     <*> (x .:? "PaymentOption"))
+
+instance Hashable ReservedElasticsearchInstance where
+
+instance NFData ReservedElasticsearchInstance where
+
+-- | Details of a reserved Elasticsearch instance offering.
+--
+--
+--
+-- /See:/ 'reservedElasticsearchInstanceOffering' smart constructor.
+data ReservedElasticsearchInstanceOffering = ReservedElasticsearchInstanceOffering'
+  { _reioCurrencyCode :: !(Maybe Text)
+  , _reioReservedElasticsearchInstanceOfferingId :: !(Maybe Text)
+  , _reioElasticsearchInstanceType :: !(Maybe ESPartitionInstanceType)
+  , _reioRecurringCharges :: !(Maybe [RecurringCharge])
+  , _reioUsagePrice :: !(Maybe Double)
+  , _reioFixedPrice :: !(Maybe Double)
+  , _reioDuration :: !(Maybe Int)
+  , _reioPaymentOption :: !(Maybe ReservedElasticsearchInstancePaymentOption)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ReservedElasticsearchInstanceOffering' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'reioCurrencyCode' - The currency code for the reserved Elasticsearch instance offering.
+--
+-- * 'reioReservedElasticsearchInstanceOfferingId' - The Elasticsearch reserved instance offering identifier.
+--
+-- * 'reioElasticsearchInstanceType' - The Elasticsearch instance type offered by the reserved instance offering.
+--
+-- * 'reioRecurringCharges' - The charge to your account regardless of whether you are creating any domains using the instance offering.
+--
+-- * 'reioUsagePrice' - The rate you are charged for each hour the domain that is using the offering is running.
+--
+-- * 'reioFixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch instance offering.
+--
+-- * 'reioDuration' - The duration, in seconds, for which the offering will reserve the Elasticsearch instance.
+--
+-- * 'reioPaymentOption' - Payment option for the reserved Elasticsearch instance offering
+reservedElasticsearchInstanceOffering
+    :: ReservedElasticsearchInstanceOffering
+reservedElasticsearchInstanceOffering =
+  ReservedElasticsearchInstanceOffering'
+    { _reioCurrencyCode = Nothing
+    , _reioReservedElasticsearchInstanceOfferingId = Nothing
+    , _reioElasticsearchInstanceType = Nothing
+    , _reioRecurringCharges = Nothing
+    , _reioUsagePrice = Nothing
+    , _reioFixedPrice = Nothing
+    , _reioDuration = Nothing
+    , _reioPaymentOption = Nothing
+    }
+
+
+-- | The currency code for the reserved Elasticsearch instance offering.
+reioCurrencyCode :: Lens' ReservedElasticsearchInstanceOffering (Maybe Text)
+reioCurrencyCode = lens _reioCurrencyCode (\ s a -> s{_reioCurrencyCode = a})
+
+-- | The Elasticsearch reserved instance offering identifier.
+reioReservedElasticsearchInstanceOfferingId :: Lens' ReservedElasticsearchInstanceOffering (Maybe Text)
+reioReservedElasticsearchInstanceOfferingId = lens _reioReservedElasticsearchInstanceOfferingId (\ s a -> s{_reioReservedElasticsearchInstanceOfferingId = a})
+
+-- | The Elasticsearch instance type offered by the reserved instance offering.
+reioElasticsearchInstanceType :: Lens' ReservedElasticsearchInstanceOffering (Maybe ESPartitionInstanceType)
+reioElasticsearchInstanceType = lens _reioElasticsearchInstanceType (\ s a -> s{_reioElasticsearchInstanceType = a})
+
+-- | The charge to your account regardless of whether you are creating any domains using the instance offering.
+reioRecurringCharges :: Lens' ReservedElasticsearchInstanceOffering [RecurringCharge]
+reioRecurringCharges = lens _reioRecurringCharges (\ s a -> s{_reioRecurringCharges = a}) . _Default . _Coerce
+
+-- | The rate you are charged for each hour the domain that is using the offering is running.
+reioUsagePrice :: Lens' ReservedElasticsearchInstanceOffering (Maybe Double)
+reioUsagePrice = lens _reioUsagePrice (\ s a -> s{_reioUsagePrice = a})
+
+-- | The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch instance offering.
+reioFixedPrice :: Lens' ReservedElasticsearchInstanceOffering (Maybe Double)
+reioFixedPrice = lens _reioFixedPrice (\ s a -> s{_reioFixedPrice = a})
+
+-- | The duration, in seconds, for which the offering will reserve the Elasticsearch instance.
+reioDuration :: Lens' ReservedElasticsearchInstanceOffering (Maybe Int)
+reioDuration = lens _reioDuration (\ s a -> s{_reioDuration = a})
+
+-- | Payment option for the reserved Elasticsearch instance offering
+reioPaymentOption :: Lens' ReservedElasticsearchInstanceOffering (Maybe ReservedElasticsearchInstancePaymentOption)
+reioPaymentOption = lens _reioPaymentOption (\ s a -> s{_reioPaymentOption = a})
+
+instance FromJSON
+           ReservedElasticsearchInstanceOffering
+         where
+        parseJSON
+          = withObject "ReservedElasticsearchInstanceOffering"
+              (\ x ->
+                 ReservedElasticsearchInstanceOffering' <$>
+                   (x .:? "CurrencyCode") <*>
+                     (x .:? "ReservedElasticsearchInstanceOfferingId")
+                     <*> (x .:? "ElasticsearchInstanceType")
+                     <*> (x .:? "RecurringCharges" .!= mempty)
+                     <*> (x .:? "UsagePrice")
+                     <*> (x .:? "FixedPrice")
+                     <*> (x .:? "Duration")
+                     <*> (x .:? "PaymentOption"))
+
+instance Hashable
+           ReservedElasticsearchInstanceOffering
+         where
+
+instance NFData ReservedElasticsearchInstanceOffering
+         where
 
 -- | Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is @0@ hours.
 --
@@ -1106,7 +1652,7 @@ snapshotOptions = SnapshotOptions' {_soAutomatedSnapshotStartHour = Nothing}
 
 -- | Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is @0@ hours.
 soAutomatedSnapshotStartHour :: Lens' SnapshotOptions (Maybe Int)
-soAutomatedSnapshotStartHour = lens _soAutomatedSnapshotStartHour (\ s a -> s{_soAutomatedSnapshotStartHour = a});
+soAutomatedSnapshotStartHour = lens _soAutomatedSnapshotStartHour (\ s a -> s{_soAutomatedSnapshotStartHour = a})
 
 instance FromJSON SnapshotOptions where
         parseJSON
@@ -1154,11 +1700,11 @@ snapshotOptionsStatus pOptions_ pStatus_ =
 
 -- | Specifies the daily snapshot options specified for the Elasticsearch domain.
 sosOptions :: Lens' SnapshotOptionsStatus SnapshotOptions
-sosOptions = lens _sosOptions (\ s a -> s{_sosOptions = a});
+sosOptions = lens _sosOptions (\ s a -> s{_sosOptions = a})
 
 -- | Specifies the status of a daily automated snapshot.
 sosStatus :: Lens' SnapshotOptionsStatus OptionStatus
-sosStatus = lens _sosStatus (\ s a -> s{_sosStatus = a});
+sosStatus = lens _sosStatus (\ s a -> s{_sosStatus = a})
 
 instance FromJSON SnapshotOptionsStatus where
         parseJSON
@@ -1196,23 +1742,23 @@ storageType
     :: StorageType
 storageType =
   StorageType'
-  { _stStorageTypeLimits = Nothing
-  , _stStorageSubTypeName = Nothing
-  , _stStorageTypeName = Nothing
-  }
+    { _stStorageTypeLimits = Nothing
+    , _stStorageSubTypeName = Nothing
+    , _stStorageTypeName = Nothing
+    }
 
 
 -- | List of limits that are applicable for given storage type.
 stStorageTypeLimits :: Lens' StorageType [StorageTypeLimit]
-stStorageTypeLimits = lens _stStorageTypeLimits (\ s a -> s{_stStorageTypeLimits = a}) . _Default . _Coerce;
+stStorageTypeLimits = lens _stStorageTypeLimits (\ s a -> s{_stStorageTypeLimits = a}) . _Default . _Coerce
 
 -- | Undocumented member.
 stStorageSubTypeName :: Lens' StorageType (Maybe Text)
-stStorageSubTypeName = lens _stStorageSubTypeName (\ s a -> s{_stStorageSubTypeName = a});
+stStorageSubTypeName = lens _stStorageSubTypeName (\ s a -> s{_stStorageSubTypeName = a})
 
 -- | Undocumented member.
 stStorageTypeName :: Lens' StorageType (Maybe Text)
-stStorageTypeName = lens _stStorageTypeName (\ s a -> s{_stStorageTypeName = a});
+stStorageTypeName = lens _stStorageTypeName (\ s a -> s{_stStorageTypeName = a})
 
 instance FromJSON StorageType where
         parseJSON
@@ -1253,11 +1799,11 @@ storageTypeLimit =
 
 -- | Name of storage limits that are applicable for given storage type. If @'StorageType' @ is ebs, following storage options are applicable     * MinimumVolumeSizeMinimum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumVolumeSizeMaximum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumIopsMaximum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.     * MinimumIopsMinimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
 stlLimitName :: Lens' StorageTypeLimit (Maybe Text)
-stlLimitName = lens _stlLimitName (\ s a -> s{_stlLimitName = a});
+stlLimitName = lens _stlLimitName (\ s a -> s{_stlLimitName = a})
 
 -- | Values for the @'StorageTypeLimit$LimitName' @ .
 stlLimitValues :: Lens' StorageTypeLimit [Text]
-stlLimitValues = lens _stlLimitValues (\ s a -> s{_stlLimitValues = a}) . _Default . _Coerce;
+stlLimitValues = lens _stlLimitValues (\ s a -> s{_stlLimitValues = a}) . _Default . _Coerce
 
 instance FromJSON StorageTypeLimit where
         parseJSON
@@ -1298,11 +1844,11 @@ tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
 
 -- | Specifies the @TagKey@ , the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.
 tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
 -- | Specifies the @TagValue@ , the value assigned to the corresponding tag key. Tag values can be null and do not have to be unique in a tag set. For example, you can have a key value pair in a tag set of @project : Trinity@ and @cost-center : Trinity@
 tagValue :: Lens' Tag Text
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
 instance FromJSON Tag where
         parseJSON
@@ -1348,28 +1894,28 @@ vpcDerivedInfo
     :: VPCDerivedInfo
 vpcDerivedInfo =
   VPCDerivedInfo'
-  { _vdiSecurityGroupIds = Nothing
-  , _vdiSubnetIds = Nothing
-  , _vdiVPCId = Nothing
-  , _vdiAvailabilityZones = Nothing
-  }
+    { _vdiSecurityGroupIds = Nothing
+    , _vdiSubnetIds = Nothing
+    , _vdiVPCId = Nothing
+    , _vdiAvailabilityZones = Nothing
+    }
 
 
 -- | Specifies the security groups for VPC endpoint.
 vdiSecurityGroupIds :: Lens' VPCDerivedInfo [Text]
-vdiSecurityGroupIds = lens _vdiSecurityGroupIds (\ s a -> s{_vdiSecurityGroupIds = a}) . _Default . _Coerce;
+vdiSecurityGroupIds = lens _vdiSecurityGroupIds (\ s a -> s{_vdiSecurityGroupIds = a}) . _Default . _Coerce
 
 -- | Specifies the subnets for VPC endpoint.
 vdiSubnetIds :: Lens' VPCDerivedInfo [Text]
-vdiSubnetIds = lens _vdiSubnetIds (\ s a -> s{_vdiSubnetIds = a}) . _Default . _Coerce;
+vdiSubnetIds = lens _vdiSubnetIds (\ s a -> s{_vdiSubnetIds = a}) . _Default . _Coerce
 
 -- | The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
 vdiVPCId :: Lens' VPCDerivedInfo (Maybe Text)
-vdiVPCId = lens _vdiVPCId (\ s a -> s{_vdiVPCId = a});
+vdiVPCId = lens _vdiVPCId (\ s a -> s{_vdiVPCId = a})
 
 -- | The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
 vdiAvailabilityZones :: Lens' VPCDerivedInfo [Text]
-vdiAvailabilityZones = lens _vdiAvailabilityZones (\ s a -> s{_vdiAvailabilityZones = a}) . _Default . _Coerce;
+vdiAvailabilityZones = lens _vdiAvailabilityZones (\ s a -> s{_vdiAvailabilityZones = a}) . _Default . _Coerce
 
 instance FromJSON VPCDerivedInfo where
         parseJSON
@@ -1413,11 +1959,11 @@ vpcDerivedInfoStatus pOptions_ pStatus_ =
 
 -- | Specifies the VPC options for the specified Elasticsearch domain.
 vdisOptions :: Lens' VPCDerivedInfoStatus VPCDerivedInfo
-vdisOptions = lens _vdisOptions (\ s a -> s{_vdisOptions = a});
+vdisOptions = lens _vdisOptions (\ s a -> s{_vdisOptions = a})
 
 -- | Specifies the status of the VPC options for the specified Elasticsearch domain.
 vdisStatus :: Lens' VPCDerivedInfoStatus OptionStatus
-vdisStatus = lens _vdisStatus (\ s a -> s{_vdisStatus = a});
+vdisStatus = lens _vdisStatus (\ s a -> s{_vdisStatus = a})
 
 instance FromJSON VPCDerivedInfoStatus where
         parseJSON
@@ -1455,11 +2001,11 @@ vpcOptions = VPCOptions' {_voSecurityGroupIds = Nothing, _voSubnetIds = Nothing}
 
 -- | Specifies the security groups for VPC endpoint.
 voSecurityGroupIds :: Lens' VPCOptions [Text]
-voSecurityGroupIds = lens _voSecurityGroupIds (\ s a -> s{_voSecurityGroupIds = a}) . _Default . _Coerce;
+voSecurityGroupIds = lens _voSecurityGroupIds (\ s a -> s{_voSecurityGroupIds = a}) . _Default . _Coerce
 
 -- | Specifies the subnets for VPC endpoint.
 voSubnetIds :: Lens' VPCOptions [Text]
-voSubnetIds = lens _voSubnetIds (\ s a -> s{_voSubnetIds = a}) . _Default . _Coerce;
+voSubnetIds = lens _voSubnetIds (\ s a -> s{_voSubnetIds = a}) . _Default . _Coerce
 
 instance Hashable VPCOptions where
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketNotificationConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,7 +63,7 @@ getBucketNotificationConfiguration pBucket_ =
 
 -- | Name of the bucket to get the notification configuration for.
 gbncBucket :: Lens' GetBucketNotificationConfiguration BucketName
-gbncBucket = lens _gbncBucket (\ s a -> s{_gbncBucket = a});
+gbncBucket = lens _gbncBucket (\ s a -> s{_gbncBucket = a})
 
 instance AWSRequest
            GetBucketNotificationConfiguration

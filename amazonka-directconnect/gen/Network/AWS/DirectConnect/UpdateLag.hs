@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.UpdateLag
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,20 +92,20 @@ updateLag
     -> UpdateLag
 updateLag pLagId_ =
   UpdateLag'
-  {_ulMinimumLinks = Nothing, _ulLagName = Nothing, _ulLagId = pLagId_}
+    {_ulMinimumLinks = Nothing, _ulLagName = Nothing, _ulLagId = pLagId_}
 
 
 -- | The minimum number of physical connections that must be operational for the LAG itself to be operational. Default: None
 ulMinimumLinks :: Lens' UpdateLag (Maybe Int)
-ulMinimumLinks = lens _ulMinimumLinks (\ s a -> s{_ulMinimumLinks = a});
+ulMinimumLinks = lens _ulMinimumLinks (\ s a -> s{_ulMinimumLinks = a})
 
 -- | The name for the LAG. Example: "@3x10G LAG to AWS@ " Default: None
 ulLagName :: Lens' UpdateLag (Maybe Text)
-ulLagName = lens _ulLagName (\ s a -> s{_ulLagName = a});
+ulLagName = lens _ulLagName (\ s a -> s{_ulLagName = a})
 
 -- | The ID of the LAG to update. Example: dxlag-abc123 Default: None
 ulLagId :: Lens' UpdateLag Text
-ulLagId = lens _ulLagId (\ s a -> s{_ulLagId = a});
+ulLagId = lens _ulLagId (\ s a -> s{_ulLagId = a})
 
 instance AWSRequest UpdateLag where
         type Rs UpdateLag = Lag

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteFileShare
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a file share from a file gateway. This operation is only supported in the file gateway architecture.
+-- Deletes a file share from a file gateway. This operation is only supported in the file gateway type.
 --
 --
 module Network.AWS.StorageGateway.DeleteFileShare
@@ -60,7 +60,7 @@ data DeleteFileShare = DeleteFileShare'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfsForceDelete' - If set to true, deletes a file share immediately and aborts all data uploads to AWS. Otherwise the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process and the file share enters the FORCE_DELETING status.
+-- * 'dfsForceDelete' - If this value is set to true, the operation deletes a file share immediately and aborts all data uploads to AWS. Otherwise, the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process, and the file share enters the FORCE_DELETING status.
 --
 -- * 'dfsFileShareARN' - The Amazon Resource Name (ARN) of the file share to be deleted.
 deleteFileShare
@@ -68,16 +68,16 @@ deleteFileShare
     -> DeleteFileShare
 deleteFileShare pFileShareARN_ =
   DeleteFileShare'
-  {_dfsForceDelete = Nothing, _dfsFileShareARN = pFileShareARN_}
+    {_dfsForceDelete = Nothing, _dfsFileShareARN = pFileShareARN_}
 
 
--- | If set to true, deletes a file share immediately and aborts all data uploads to AWS. Otherwise the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process and the file share enters the FORCE_DELETING status.
+-- | If this value is set to true, the operation deletes a file share immediately and aborts all data uploads to AWS. Otherwise, the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process, and the file share enters the FORCE_DELETING status.
 dfsForceDelete :: Lens' DeleteFileShare (Maybe Bool)
-dfsForceDelete = lens _dfsForceDelete (\ s a -> s{_dfsForceDelete = a});
+dfsForceDelete = lens _dfsForceDelete (\ s a -> s{_dfsForceDelete = a})
 
 -- | The Amazon Resource Name (ARN) of the file share to be deleted.
 dfsFileShareARN :: Lens' DeleteFileShare Text
-dfsFileShareARN = lens _dfsFileShareARN (\ s a -> s{_dfsFileShareARN = a});
+dfsFileShareARN = lens _dfsFileShareARN (\ s a -> s{_dfsFileShareARN = a})
 
 instance AWSRequest DeleteFileShare where
         type Rs DeleteFileShare = DeleteFileShareResponse
@@ -138,15 +138,15 @@ deleteFileShareResponse
     -> DeleteFileShareResponse
 deleteFileShareResponse pResponseStatus_ =
   DeleteFileShareResponse'
-  {_dfsrsFileShareARN = Nothing, _dfsrsResponseStatus = pResponseStatus_}
+    {_dfsrsFileShareARN = Nothing, _dfsrsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon Resource Name (ARN) of the deleted file share.
 dfsrsFileShareARN :: Lens' DeleteFileShareResponse (Maybe Text)
-dfsrsFileShareARN = lens _dfsrsFileShareARN (\ s a -> s{_dfsrsFileShareARN = a});
+dfsrsFileShareARN = lens _dfsrsFileShareARN (\ s a -> s{_dfsrsFileShareARN = a})
 
 -- | -- | The response status code.
 dfsrsResponseStatus :: Lens' DeleteFileShareResponse Int
-dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a});
+dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a})
 
 instance NFData DeleteFileShareResponse where

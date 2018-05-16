@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetSendQuota
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -116,27 +116,27 @@ getSendQuotaResponse
     -> GetSendQuotaResponse
 getSendQuotaResponse pResponseStatus_ =
   GetSendQuotaResponse'
-  { _gsqrsMaxSendRate = Nothing
-  , _gsqrsSentLast24Hours = Nothing
-  , _gsqrsMax24HourSend = Nothing
-  , _gsqrsResponseStatus = pResponseStatus_
-  }
+    { _gsqrsMaxSendRate = Nothing
+    , _gsqrsSentLast24Hours = Nothing
+    , _gsqrsMax24HourSend = Nothing
+    , _gsqrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The maximum number of emails that Amazon SES can accept from the user's account per second.
 gsqrsMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrsMaxSendRate = lens _gsqrsMaxSendRate (\ s a -> s{_gsqrsMaxSendRate = a});
+gsqrsMaxSendRate = lens _gsqrsMaxSendRate (\ s a -> s{_gsqrsMaxSendRate = a})
 
 -- | The number of emails sent during the previous 24 hours.
 gsqrsSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrsSentLast24Hours = lens _gsqrsSentLast24Hours (\ s a -> s{_gsqrsSentLast24Hours = a});
+gsqrsSentLast24Hours = lens _gsqrsSentLast24Hours (\ s a -> s{_gsqrsSentLast24Hours = a})
 
 -- | The maximum number of emails the user is allowed to send in a 24-hour interval. A value of -1 signifies an unlimited quota.
 gsqrsMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrsMax24HourSend = lens _gsqrsMax24HourSend (\ s a -> s{_gsqrsMax24HourSend = a});
+gsqrsMax24HourSend = lens _gsqrsMax24HourSend (\ s a -> s{_gsqrsMax24HourSend = a})
 
 -- | -- | The response status code.
 gsqrsResponseStatus :: Lens' GetSendQuotaResponse Int
-gsqrsResponseStatus = lens _gsqrsResponseStatus (\ s a -> s{_gsqrsResponseStatus = a});
+gsqrsResponseStatus = lens _gsqrsResponseStatus (\ s a -> s{_gsqrsResponseStatus = a})
 
 instance NFData GetSendQuotaResponse where

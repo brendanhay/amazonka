@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.ListDashboards
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,8 @@
 -- Returns a list of the dashboards for your account. If you include @DashboardNamePrefix@ , only those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are listed.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatch.ListDashboards
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.CloudWatch.ListDashboards
 import Network.AWS.CloudWatch.Types
 import Network.AWS.CloudWatch.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -68,11 +71,18 @@ listDashboards =
 
 -- | If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, ".", "-", and "_".
 ldDashboardNamePrefix :: Lens' ListDashboards (Maybe Text)
-ldDashboardNamePrefix = lens _ldDashboardNamePrefix (\ s a -> s{_ldDashboardNamePrefix = a});
+ldDashboardNamePrefix = lens _ldDashboardNamePrefix (\ s a -> s{_ldDashboardNamePrefix = a})
 
 -- | The token returned by a previous call to indicate that there is more data available.
 ldNextToken :: Lens' ListDashboards (Maybe Text)
-ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
+ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a})
+
+instance AWSPager ListDashboards where
+        page rq rs
+          | stop (rs ^. ldrsNextToken) = Nothing
+          | stop (rs ^. ldrsDashboardEntries) = Nothing
+          | otherwise =
+            Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
 
 instance AWSRequest ListDashboards where
         type Rs ListDashboards = ListDashboardsResponse
@@ -126,22 +136,22 @@ listDashboardsResponse
     -> ListDashboardsResponse
 listDashboardsResponse pResponseStatus_ =
   ListDashboardsResponse'
-  { _ldrsDashboardEntries = Nothing
-  , _ldrsNextToken = Nothing
-  , _ldrsResponseStatus = pResponseStatus_
-  }
+    { _ldrsDashboardEntries = Nothing
+    , _ldrsNextToken = Nothing
+    , _ldrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of matching dashboards.
 ldrsDashboardEntries :: Lens' ListDashboardsResponse [DashboardEntry]
-ldrsDashboardEntries = lens _ldrsDashboardEntries (\ s a -> s{_ldrsDashboardEntries = a}) . _Default . _Coerce;
+ldrsDashboardEntries = lens _ldrsDashboardEntries (\ s a -> s{_ldrsDashboardEntries = a}) . _Default . _Coerce
 
 -- | The token that marks the start of the next batch of returned results.
 ldrsNextToken :: Lens' ListDashboardsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a})
 
 -- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDashboardsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
 
 instance NFData ListDashboardsResponse where

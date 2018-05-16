@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteAPNSChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ deleteAPNSChannel pApplicationId_ =
 
 -- | Undocumented member.
 dacApplicationId :: Lens' DeleteAPNSChannel Text
-dacApplicationId = lens _dacApplicationId (\ s a -> s{_dacApplicationId = a});
+dacApplicationId = lens _dacApplicationId (\ s a -> s{_dacApplicationId = a})
 
 instance AWSRequest DeleteAPNSChannel where
         type Rs DeleteAPNSChannel = DeleteAPNSChannelResponse
@@ -113,17 +113,17 @@ deleteAPNSChannelResponse
     -> DeleteAPNSChannelResponse
 deleteAPNSChannelResponse pResponseStatus_ pAPNSChannelResponse_ =
   DeleteAPNSChannelResponse'
-  { _dacrsResponseStatus = pResponseStatus_
-  , _dacrsAPNSChannelResponse = pAPNSChannelResponse_
-  }
+    { _dacrsResponseStatus = pResponseStatus_
+    , _dacrsAPNSChannelResponse = pAPNSChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 dacrsResponseStatus :: Lens' DeleteAPNSChannelResponse Int
-dacrsResponseStatus = lens _dacrsResponseStatus (\ s a -> s{_dacrsResponseStatus = a});
+dacrsResponseStatus = lens _dacrsResponseStatus (\ s a -> s{_dacrsResponseStatus = a})
 
 -- | Undocumented member.
 dacrsAPNSChannelResponse :: Lens' DeleteAPNSChannelResponse APNSChannelResponse
-dacrsAPNSChannelResponse = lens _dacrsAPNSChannelResponse (\ s a -> s{_dacrsAPNSChannelResponse = a});
+dacrsAPNSChannelResponse = lens _dacrsAPNSChannelResponse (\ s a -> s{_dacrsAPNSChannelResponse = a})
 
 instance NFData DeleteAPNSChannelResponse where

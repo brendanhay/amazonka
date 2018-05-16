@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteInstanceSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ deleteInstanceSnapshot pInstanceSnapshotName_ =
 
 -- | The name of the snapshot to delete.
 disInstanceSnapshotName :: Lens' DeleteInstanceSnapshot Text
-disInstanceSnapshotName = lens _disInstanceSnapshotName (\ s a -> s{_disInstanceSnapshotName = a});
+disInstanceSnapshotName = lens _disInstanceSnapshotName (\ s a -> s{_disInstanceSnapshotName = a})
 
 instance AWSRequest DeleteInstanceSnapshot where
         type Rs DeleteInstanceSnapshot =
@@ -124,15 +124,15 @@ deleteInstanceSnapshotResponse
     -> DeleteInstanceSnapshotResponse
 deleteInstanceSnapshotResponse pResponseStatus_ =
   DeleteInstanceSnapshotResponse'
-  {_disrsOperations = Nothing, _disrsResponseStatus = pResponseStatus_}
+    {_disrsOperations = Nothing, _disrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the results of your delete instance snapshot request.
 disrsOperations :: Lens' DeleteInstanceSnapshotResponse [Operation]
-disrsOperations = lens _disrsOperations (\ s a -> s{_disrsOperations = a}) . _Default . _Coerce;
+disrsOperations = lens _disrsOperations (\ s a -> s{_disrsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 disrsResponseStatus :: Lens' DeleteInstanceSnapshotResponse Int
-disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
+disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a})
 
 instance NFData DeleteInstanceSnapshotResponse where

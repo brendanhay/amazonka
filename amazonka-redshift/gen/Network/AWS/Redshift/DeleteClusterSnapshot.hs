@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteClusterSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,18 +70,18 @@ deleteClusterSnapshot
     -> DeleteClusterSnapshot
 deleteClusterSnapshot pSnapshotIdentifier_ =
   DeleteClusterSnapshot'
-  { _dcsSnapshotClusterIdentifier = Nothing
-  , _dcsSnapshotIdentifier = pSnapshotIdentifier_
-  }
+    { _dcsSnapshotClusterIdentifier = Nothing
+    , _dcsSnapshotIdentifier = pSnapshotIdentifier_
+    }
 
 
 -- | The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints: Must be the name of valid cluster.
 dcsSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
-dcsSnapshotClusterIdentifier = lens _dcsSnapshotClusterIdentifier (\ s a -> s{_dcsSnapshotClusterIdentifier = a});
+dcsSnapshotClusterIdentifier = lens _dcsSnapshotClusterIdentifier (\ s a -> s{_dcsSnapshotClusterIdentifier = a})
 
 -- | The unique identifier of the manual snapshot to be deleted. Constraints: Must be the name of an existing snapshot that is in the @available@ state.
 dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
-dcsSnapshotIdentifier = lens _dcsSnapshotIdentifier (\ s a -> s{_dcsSnapshotIdentifier = a});
+dcsSnapshotIdentifier = lens _dcsSnapshotIdentifier (\ s a -> s{_dcsSnapshotIdentifier = a})
 
 instance AWSRequest DeleteClusterSnapshot where
         type Rs DeleteClusterSnapshot =
@@ -131,15 +131,15 @@ deleteClusterSnapshotResponse
     -> DeleteClusterSnapshotResponse
 deleteClusterSnapshotResponse pResponseStatus_ =
   DeleteClusterSnapshotResponse'
-  {_dcsrsSnapshot = Nothing, _dcsrsResponseStatus = pResponseStatus_}
+    {_dcsrsSnapshot = Nothing, _dcsrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 dcsrsSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
-dcsrsSnapshot = lens _dcsrsSnapshot (\ s a -> s{_dcsrsSnapshot = a});
+dcsrsSnapshot = lens _dcsrsSnapshot (\ s a -> s{_dcsrsSnapshot = a})
 
 -- | -- | The response status code.
 dcsrsResponseStatus :: Lens' DeleteClusterSnapshotResponse Int
-dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
+dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a})
 
 instance NFData DeleteClusterSnapshotResponse where

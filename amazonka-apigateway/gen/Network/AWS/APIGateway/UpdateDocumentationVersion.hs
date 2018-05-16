@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateDocumentationVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ updateDocumentationVersion
     -> UpdateDocumentationVersion
 updateDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
   UpdateDocumentationVersion'
-  { _udvPatchOperations = Nothing
-  , _udvRestAPIId = pRestAPIId_
-  , _udvDocumentationVersion = pDocumentationVersion_
-  }
+    { _udvPatchOperations = Nothing
+    , _udvRestAPIId = pRestAPIId_
+    , _udvDocumentationVersion = pDocumentationVersion_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 udvPatchOperations :: Lens' UpdateDocumentationVersion [PatchOperation]
-udvPatchOperations = lens _udvPatchOperations (\ s a -> s{_udvPatchOperations = a}) . _Default . _Coerce;
+udvPatchOperations = lens _udvPatchOperations (\ s a -> s{_udvPatchOperations = a}) . _Default . _Coerce
 
 -- | [Required] The string identifier of the associated 'RestApi' ..
 udvRestAPIId :: Lens' UpdateDocumentationVersion Text
-udvRestAPIId = lens _udvRestAPIId (\ s a -> s{_udvRestAPIId = a});
+udvRestAPIId = lens _udvRestAPIId (\ s a -> s{_udvRestAPIId = a})
 
 -- | [Required] The version identifier of the to-be-updated documentation version.
 udvDocumentationVersion :: Lens' UpdateDocumentationVersion Text
-udvDocumentationVersion = lens _udvDocumentationVersion (\ s a -> s{_udvDocumentationVersion = a});
+udvDocumentationVersion = lens _udvDocumentationVersion (\ s a -> s{_udvDocumentationVersion = a})
 
 instance AWSRequest UpdateDocumentationVersion where
         type Rs UpdateDocumentationVersion =

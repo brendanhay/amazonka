@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.StopDBInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,18 +64,18 @@ stopDBInstance
     -> StopDBInstance
 stopDBInstance pDBInstanceIdentifier_ =
   StopDBInstance'
-  { _sdiDBSnapshotIdentifier = Nothing
-  , _sdiDBInstanceIdentifier = pDBInstanceIdentifier_
-  }
+    { _sdiDBSnapshotIdentifier = Nothing
+    , _sdiDBInstanceIdentifier = pDBInstanceIdentifier_
+    }
 
 
 -- | The user-supplied instance identifier of the DB Snapshot created immediately before the DB instance is stopped.
 sdiDBSnapshotIdentifier :: Lens' StopDBInstance (Maybe Text)
-sdiDBSnapshotIdentifier = lens _sdiDBSnapshotIdentifier (\ s a -> s{_sdiDBSnapshotIdentifier = a});
+sdiDBSnapshotIdentifier = lens _sdiDBSnapshotIdentifier (\ s a -> s{_sdiDBSnapshotIdentifier = a})
 
 -- | The user-supplied instance identifier.
 sdiDBInstanceIdentifier :: Lens' StopDBInstance Text
-sdiDBInstanceIdentifier = lens _sdiDBInstanceIdentifier (\ s a -> s{_sdiDBInstanceIdentifier = a});
+sdiDBInstanceIdentifier = lens _sdiDBInstanceIdentifier (\ s a -> s{_sdiDBInstanceIdentifier = a})
 
 instance AWSRequest StopDBInstance where
         type Rs StopDBInstance = StopDBInstanceResponse
@@ -123,15 +123,15 @@ stopDBInstanceResponse
     -> StopDBInstanceResponse
 stopDBInstanceResponse pResponseStatus_ =
   StopDBInstanceResponse'
-  {_sdirsDBInstance = Nothing, _sdirsResponseStatus = pResponseStatus_}
+    {_sdirsDBInstance = Nothing, _sdirsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 sdirsDBInstance :: Lens' StopDBInstanceResponse (Maybe DBInstance)
-sdirsDBInstance = lens _sdirsDBInstance (\ s a -> s{_sdirsDBInstance = a});
+sdirsDBInstance = lens _sdirsDBInstance (\ s a -> s{_sdirsDBInstance = a})
 
 -- | -- | The response status code.
 sdirsResponseStatus :: Lens' StopDBInstanceResponse Int
-sdirsResponseStatus = lens _sdirsResponseStatus (\ s a -> s{_sdirsResponseStatus = a});
+sdirsResponseStatus = lens _sdirsResponseStatus (\ s a -> s{_sdirsResponseStatus = a})
 
 instance NFData StopDBInstanceResponse where

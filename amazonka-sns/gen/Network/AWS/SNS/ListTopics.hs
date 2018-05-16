@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListTopics
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ listTopics = ListTopics' {_ltNextToken = Nothing}
 
 -- | Token returned by the previous @ListTopics@ request.
 ltNextToken :: Lens' ListTopics (Maybe Text)
-ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
+ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
 
 instance AWSPager ListTopics where
         page rq rs
@@ -130,22 +130,22 @@ listTopicsResponse
     -> ListTopicsResponse
 listTopicsResponse pResponseStatus_ =
   ListTopicsResponse'
-  { _ltrsTopics = Nothing
-  , _ltrsNextToken = Nothing
-  , _ltrsResponseStatus = pResponseStatus_
-  }
+    { _ltrsTopics = Nothing
+    , _ltrsNextToken = Nothing
+    , _ltrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of topic ARNs.
 ltrsTopics :: Lens' ListTopicsResponse [Topic]
-ltrsTopics = lens _ltrsTopics (\ s a -> s{_ltrsTopics = a}) . _Default . _Coerce;
+ltrsTopics = lens _ltrsTopics (\ s a -> s{_ltrsTopics = a}) . _Default . _Coerce
 
 -- | Token to pass along to the next @ListTopics@ request. This element is returned if there are additional topics to retrieve.
 ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
+ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a})
 
 -- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTopicsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
 
 instance NFData ListTopicsResponse where

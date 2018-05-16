@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateFolder
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,7 @@ data CreateFolder = CreateFolder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'cfAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'cfName' - The name of the new folder.
 --
@@ -68,23 +68,23 @@ createFolder
     -> CreateFolder
 createFolder pParentFolderId_ =
   CreateFolder'
-  { _cfAuthenticationToken = Nothing
-  , _cfName = Nothing
-  , _cfParentFolderId = pParentFolderId_
-  }
+    { _cfAuthenticationToken = Nothing
+    , _cfName = Nothing
+    , _cfParentFolderId = pParentFolderId_
+    }
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 cfAuthenticationToken :: Lens' CreateFolder (Maybe Text)
-cfAuthenticationToken = lens _cfAuthenticationToken (\ s a -> s{_cfAuthenticationToken = a}) . mapping _Sensitive;
+cfAuthenticationToken = lens _cfAuthenticationToken (\ s a -> s{_cfAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The name of the new folder.
 cfName :: Lens' CreateFolder (Maybe Text)
-cfName = lens _cfName (\ s a -> s{_cfName = a});
+cfName = lens _cfName (\ s a -> s{_cfName = a})
 
 -- | The ID of the parent folder.
 cfParentFolderId :: Lens' CreateFolder Text
-cfParentFolderId = lens _cfParentFolderId (\ s a -> s{_cfParentFolderId = a});
+cfParentFolderId = lens _cfParentFolderId (\ s a -> s{_cfParentFolderId = a})
 
 instance AWSRequest CreateFolder where
         type Rs CreateFolder = CreateFolderResponse
@@ -138,15 +138,15 @@ createFolderResponse
     -> CreateFolderResponse
 createFolderResponse pResponseStatus_ =
   CreateFolderResponse'
-  {_cfrsMetadata = Nothing, _cfrsResponseStatus = pResponseStatus_}
+    {_cfrsMetadata = Nothing, _cfrsResponseStatus = pResponseStatus_}
 
 
 -- | The metadata of the folder.
 cfrsMetadata :: Lens' CreateFolderResponse (Maybe FolderMetadata)
-cfrsMetadata = lens _cfrsMetadata (\ s a -> s{_cfrsMetadata = a});
+cfrsMetadata = lens _cfrsMetadata (\ s a -> s{_cfrsMetadata = a})
 
 -- | -- | The response status code.
 cfrsResponseStatus :: Lens' CreateFolderResponse Int
-cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a});
+cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a})
 
 instance NFData CreateFolderResponse where

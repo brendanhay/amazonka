@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBotAliases
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@
 --
 -- This operation requires permissions for the @lex:GetBotAliases@ action.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.LexModels.GetBotAliases
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.LexModels.GetBotAliases
 import Network.AWS.Lens
 import Network.AWS.LexModels.Types
 import Network.AWS.LexModels.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,28 +78,35 @@ getBotAliases
     -> GetBotAliases
 getBotAliases pBotName_ =
   GetBotAliases'
-  { _gbaNameContains = Nothing
-  , _gbaNextToken = Nothing
-  , _gbaMaxResults = Nothing
-  , _gbaBotName = pBotName_
-  }
+    { _gbaNameContains = Nothing
+    , _gbaNextToken = Nothing
+    , _gbaMaxResults = Nothing
+    , _gbaBotName = pBotName_
+    }
 
 
 -- | Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 gbaNameContains :: Lens' GetBotAliases (Maybe Text)
-gbaNameContains = lens _gbaNameContains (\ s a -> s{_gbaNameContains = a});
+gbaNameContains = lens _gbaNameContains (\ s a -> s{_gbaNameContains = a})
 
 -- | A pagination token for fetching the next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
 gbaNextToken :: Lens' GetBotAliases (Maybe Text)
-gbaNextToken = lens _gbaNextToken (\ s a -> s{_gbaNextToken = a});
+gbaNextToken = lens _gbaNextToken (\ s a -> s{_gbaNextToken = a})
 
 -- | The maximum number of aliases to return in the response. The default is 50. .
 gbaMaxResults :: Lens' GetBotAliases (Maybe Natural)
-gbaMaxResults = lens _gbaMaxResults (\ s a -> s{_gbaMaxResults = a}) . mapping _Nat;
+gbaMaxResults = lens _gbaMaxResults (\ s a -> s{_gbaMaxResults = a}) . mapping _Nat
 
 -- | The name of the bot.
 gbaBotName :: Lens' GetBotAliases Text
-gbaBotName = lens _gbaBotName (\ s a -> s{_gbaBotName = a});
+gbaBotName = lens _gbaBotName (\ s a -> s{_gbaBotName = a})
+
+instance AWSPager GetBotAliases where
+        page rq rs
+          | stop (rs ^. gbarsNextToken) = Nothing
+          | stop (rs ^. gbarsBotAliases) = Nothing
+          | otherwise =
+            Just $ rq & gbaNextToken .~ rs ^. gbarsNextToken
 
 instance AWSRequest GetBotAliases where
         type Rs GetBotAliases = GetBotAliasesResponse
@@ -153,22 +163,22 @@ getBotAliasesResponse
     -> GetBotAliasesResponse
 getBotAliasesResponse pResponseStatus_ =
   GetBotAliasesResponse'
-  { _gbarsNextToken = Nothing
-  , _gbarsBotAliases = Nothing
-  , _gbarsResponseStatus = pResponseStatus_
-  }
+    { _gbarsNextToken = Nothing
+    , _gbarsBotAliases = Nothing
+    , _gbarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A pagination token for fetching next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
 gbarsNextToken :: Lens' GetBotAliasesResponse (Maybe Text)
-gbarsNextToken = lens _gbarsNextToken (\ s a -> s{_gbarsNextToken = a});
+gbarsNextToken = lens _gbarsNextToken (\ s a -> s{_gbarsNextToken = a})
 
 -- | An array of @BotAliasMetadata@ objects, each describing a bot alias.
 gbarsBotAliases :: Lens' GetBotAliasesResponse [BotAliasMetadata]
-gbarsBotAliases = lens _gbarsBotAliases (\ s a -> s{_gbarsBotAliases = a}) . _Default . _Coerce;
+gbarsBotAliases = lens _gbarsBotAliases (\ s a -> s{_gbarsBotAliases = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gbarsResponseStatus :: Lens' GetBotAliasesResponse Int
-gbarsResponseStatus = lens _gbarsResponseStatus (\ s a -> s{_gbarsResponseStatus = a});
+gbarsResponseStatus = lens _gbarsResponseStatus (\ s a -> s{_gbarsResponseStatus = a})
 
 instance NFData GetBotAliasesResponse where

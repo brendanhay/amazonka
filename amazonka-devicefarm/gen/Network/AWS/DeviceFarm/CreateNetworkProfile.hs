@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.CreateNetworkProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -105,68 +105,68 @@ createNetworkProfile
     -> CreateNetworkProfile
 createNetworkProfile pProjectARN_ pName_ =
   CreateNetworkProfile'
-  { _cnpUplinkJitterMs = Nothing
-  , _cnpUplinkLossPercent = Nothing
-  , _cnpDownlinkJitterMs = Nothing
-  , _cnpDownlinkLossPercent = Nothing
-  , _cnpType = Nothing
-  , _cnpUplinkDelayMs = Nothing
-  , _cnpUplinkBandwidthBits = Nothing
-  , _cnpDescription = Nothing
-  , _cnpDownlinkDelayMs = Nothing
-  , _cnpDownlinkBandwidthBits = Nothing
-  , _cnpProjectARN = pProjectARN_
-  , _cnpName = pName_
-  }
+    { _cnpUplinkJitterMs = Nothing
+    , _cnpUplinkLossPercent = Nothing
+    , _cnpDownlinkJitterMs = Nothing
+    , _cnpDownlinkLossPercent = Nothing
+    , _cnpType = Nothing
+    , _cnpUplinkDelayMs = Nothing
+    , _cnpUplinkBandwidthBits = Nothing
+    , _cnpDescription = Nothing
+    , _cnpDownlinkDelayMs = Nothing
+    , _cnpDownlinkBandwidthBits = Nothing
+    , _cnpProjectARN = pProjectARN_
+    , _cnpName = pName_
+    }
 
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
 cnpUplinkJitterMs :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpUplinkJitterMs = lens _cnpUplinkJitterMs (\ s a -> s{_cnpUplinkJitterMs = a});
+cnpUplinkJitterMs = lens _cnpUplinkJitterMs (\ s a -> s{_cnpUplinkJitterMs = a})
 
 -- | Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
 cnpUplinkLossPercent :: Lens' CreateNetworkProfile (Maybe Natural)
-cnpUplinkLossPercent = lens _cnpUplinkLossPercent (\ s a -> s{_cnpUplinkLossPercent = a}) . mapping _Nat;
+cnpUplinkLossPercent = lens _cnpUplinkLossPercent (\ s a -> s{_cnpUplinkLossPercent = a}) . mapping _Nat
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
 cnpDownlinkJitterMs :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpDownlinkJitterMs = lens _cnpDownlinkJitterMs (\ s a -> s{_cnpDownlinkJitterMs = a});
+cnpDownlinkJitterMs = lens _cnpDownlinkJitterMs (\ s a -> s{_cnpDownlinkJitterMs = a})
 
 -- | Proportion of received packets that fail to arrive from 0 to 100 percent.
 cnpDownlinkLossPercent :: Lens' CreateNetworkProfile (Maybe Natural)
-cnpDownlinkLossPercent = lens _cnpDownlinkLossPercent (\ s a -> s{_cnpDownlinkLossPercent = a}) . mapping _Nat;
+cnpDownlinkLossPercent = lens _cnpDownlinkLossPercent (\ s a -> s{_cnpDownlinkLossPercent = a}) . mapping _Nat
 
 -- | The type of network profile you wish to create. Valid values are listed below.
 cnpType :: Lens' CreateNetworkProfile (Maybe NetworkProfileType)
-cnpType = lens _cnpType (\ s a -> s{_cnpType = a});
+cnpType = lens _cnpType (\ s a -> s{_cnpType = a})
 
 -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
 cnpUplinkDelayMs :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpUplinkDelayMs = lens _cnpUplinkDelayMs (\ s a -> s{_cnpUplinkDelayMs = a});
+cnpUplinkDelayMs = lens _cnpUplinkDelayMs (\ s a -> s{_cnpUplinkDelayMs = a})
 
 -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
 cnpUplinkBandwidthBits :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpUplinkBandwidthBits = lens _cnpUplinkBandwidthBits (\ s a -> s{_cnpUplinkBandwidthBits = a});
+cnpUplinkBandwidthBits = lens _cnpUplinkBandwidthBits (\ s a -> s{_cnpUplinkBandwidthBits = a})
 
 -- | The description of the network profile.
 cnpDescription :: Lens' CreateNetworkProfile (Maybe Text)
-cnpDescription = lens _cnpDescription (\ s a -> s{_cnpDescription = a});
+cnpDescription = lens _cnpDescription (\ s a -> s{_cnpDescription = a})
 
 -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
 cnpDownlinkDelayMs :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpDownlinkDelayMs = lens _cnpDownlinkDelayMs (\ s a -> s{_cnpDownlinkDelayMs = a});
+cnpDownlinkDelayMs = lens _cnpDownlinkDelayMs (\ s a -> s{_cnpDownlinkDelayMs = a})
 
 -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
 cnpDownlinkBandwidthBits :: Lens' CreateNetworkProfile (Maybe Integer)
-cnpDownlinkBandwidthBits = lens _cnpDownlinkBandwidthBits (\ s a -> s{_cnpDownlinkBandwidthBits = a});
+cnpDownlinkBandwidthBits = lens _cnpDownlinkBandwidthBits (\ s a -> s{_cnpDownlinkBandwidthBits = a})
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to create a network profile.
 cnpProjectARN :: Lens' CreateNetworkProfile Text
-cnpProjectARN = lens _cnpProjectARN (\ s a -> s{_cnpProjectARN = a});
+cnpProjectARN = lens _cnpProjectARN (\ s a -> s{_cnpProjectARN = a})
 
 -- | The name you wish to specify for the new network profile.
 cnpName :: Lens' CreateNetworkProfile Text
-cnpName = lens _cnpName (\ s a -> s{_cnpName = a});
+cnpName = lens _cnpName (\ s a -> s{_cnpName = a})
 
 instance AWSRequest CreateNetworkProfile where
         type Rs CreateNetworkProfile =
@@ -237,15 +237,15 @@ createNetworkProfileResponse
     -> CreateNetworkProfileResponse
 createNetworkProfileResponse pResponseStatus_ =
   CreateNetworkProfileResponse'
-  {_cnprsNetworkProfile = Nothing, _cnprsResponseStatus = pResponseStatus_}
+    {_cnprsNetworkProfile = Nothing, _cnprsResponseStatus = pResponseStatus_}
 
 
 -- | The network profile that is returned by the create network profile request.
 cnprsNetworkProfile :: Lens' CreateNetworkProfileResponse (Maybe NetworkProfile)
-cnprsNetworkProfile = lens _cnprsNetworkProfile (\ s a -> s{_cnprsNetworkProfile = a});
+cnprsNetworkProfile = lens _cnprsNetworkProfile (\ s a -> s{_cnprsNetworkProfile = a})
 
 -- | -- | The response status code.
 cnprsResponseStatus :: Lens' CreateNetworkProfileResponse Int
-cnprsResponseStatus = lens _cnprsResponseStatus (\ s a -> s{_cnprsResponseStatus = a});
+cnprsResponseStatus = lens _cnprsResponseStatus (\ s a -> s{_cnprsResponseStatus = a})
 
 instance NFData CreateNetworkProfileResponse where

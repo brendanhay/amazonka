@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceMetering.ResolveCustomer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ resolveCustomer pRegistrationToken_ =
 
 -- | When a buyer visits your website during the registration process, the buyer submits a registration token through the browser. The registration token is resolved to obtain a CustomerIdentifier and product code.
 rcRegistrationToken :: Lens' ResolveCustomer Text
-rcRegistrationToken = lens _rcRegistrationToken (\ s a -> s{_rcRegistrationToken = a});
+rcRegistrationToken = lens _rcRegistrationToken (\ s a -> s{_rcRegistrationToken = a})
 
 instance AWSRequest ResolveCustomer where
         type Rs ResolveCustomer = ResolveCustomerResponse
@@ -134,22 +134,22 @@ resolveCustomerResponse
     -> ResolveCustomerResponse
 resolveCustomerResponse pResponseStatus_ =
   ResolveCustomerResponse'
-  { _rcrsCustomerIdentifier = Nothing
-  , _rcrsProductCode = Nothing
-  , _rcrsResponseStatus = pResponseStatus_
-  }
+    { _rcrsCustomerIdentifier = Nothing
+    , _rcrsProductCode = Nothing
+    , _rcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The CustomerIdentifier is used to identify an individual customer in your application. Calls to BatchMeterUsage require CustomerIdentifiers for each UsageRecord.
 rcrsCustomerIdentifier :: Lens' ResolveCustomerResponse (Maybe Text)
-rcrsCustomerIdentifier = lens _rcrsCustomerIdentifier (\ s a -> s{_rcrsCustomerIdentifier = a});
+rcrsCustomerIdentifier = lens _rcrsCustomerIdentifier (\ s a -> s{_rcrsCustomerIdentifier = a})
 
 -- | The product code is returned to confirm that the buyer is registering for your product. Subsequent BatchMeterUsage calls should be made using this product code.
 rcrsProductCode :: Lens' ResolveCustomerResponse (Maybe Text)
-rcrsProductCode = lens _rcrsProductCode (\ s a -> s{_rcrsProductCode = a});
+rcrsProductCode = lens _rcrsProductCode (\ s a -> s{_rcrsProductCode = a})
 
 -- | -- | The response status code.
 rcrsResponseStatus :: Lens' ResolveCustomerResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a})
 
 instance NFData ResolveCustomerResponse where

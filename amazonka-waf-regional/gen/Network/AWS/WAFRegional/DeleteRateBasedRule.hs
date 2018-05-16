@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteRateBasedRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,16 +77,16 @@ deleteRateBasedRule
     -> DeleteRateBasedRule
 deleteRateBasedRule pRuleId_ pChangeToken_ =
   DeleteRateBasedRule'
-  {_drbrRuleId = pRuleId_, _drbrChangeToken = pChangeToken_}
+    {_drbrRuleId = pRuleId_, _drbrChangeToken = pChangeToken_}
 
 
 -- | The @RuleId@ of the 'RateBasedRule' that you want to delete. @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
 drbrRuleId :: Lens' DeleteRateBasedRule Text
-drbrRuleId = lens _drbrRuleId (\ s a -> s{_drbrRuleId = a});
+drbrRuleId = lens _drbrRuleId (\ s a -> s{_drbrRuleId = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 drbrChangeToken :: Lens' DeleteRateBasedRule Text
-drbrChangeToken = lens _drbrChangeToken (\ s a -> s{_drbrChangeToken = a});
+drbrChangeToken = lens _drbrChangeToken (\ s a -> s{_drbrChangeToken = a})
 
 instance AWSRequest DeleteRateBasedRule where
         type Rs DeleteRateBasedRule =
@@ -144,15 +144,15 @@ deleteRateBasedRuleResponse
     -> DeleteRateBasedRuleResponse
 deleteRateBasedRuleResponse pResponseStatus_ =
   DeleteRateBasedRuleResponse'
-  {_drbrrsChangeToken = Nothing, _drbrrsResponseStatus = pResponseStatus_}
+    {_drbrrsChangeToken = Nothing, _drbrrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 drbrrsChangeToken :: Lens' DeleteRateBasedRuleResponse (Maybe Text)
-drbrrsChangeToken = lens _drbrrsChangeToken (\ s a -> s{_drbrrsChangeToken = a});
+drbrrsChangeToken = lens _drbrrsChangeToken (\ s a -> s{_drbrrsChangeToken = a})
 
 -- | -- | The response status code.
 drbrrsResponseStatus :: Lens' DeleteRateBasedRuleResponse Int
-drbrrsResponseStatus = lens _drbrrsResponseStatus (\ s a -> s{_drbrrsResponseStatus = a});
+drbrrsResponseStatus = lens _drbrrsResponseStatus (\ s a -> s{_drbrrsResponseStatus = a})
 
 instance NFData DeleteRateBasedRuleResponse where

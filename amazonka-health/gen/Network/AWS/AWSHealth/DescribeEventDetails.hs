@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeEventDetails
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,16 +67,16 @@ describeEventDetails
     -> DescribeEventDetails
 describeEventDetails pEventARNs_ =
   DescribeEventDetails'
-  {_dedLocale = Nothing, _dedEventARNs = _List1 # pEventARNs_}
+    {_dedLocale = Nothing, _dedEventARNs = _List1 # pEventARNs_}
 
 
 -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 dedLocale :: Lens' DescribeEventDetails (Maybe Text)
-dedLocale = lens _dedLocale (\ s a -> s{_dedLocale = a});
+dedLocale = lens _dedLocale (\ s a -> s{_dedLocale = a})
 
 -- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
 dedEventARNs :: Lens' DescribeEventDetails (NonEmpty Text)
-dedEventARNs = lens _dedEventARNs (\ s a -> s{_dedEventARNs = a}) . _List1;
+dedEventARNs = lens _dedEventARNs (\ s a -> s{_dedEventARNs = a}) . _List1
 
 instance AWSRequest DescribeEventDetails where
         type Rs DescribeEventDetails =
@@ -139,22 +139,22 @@ describeEventDetailsResponse
     -> DescribeEventDetailsResponse
 describeEventDetailsResponse pResponseStatus_ =
   DescribeEventDetailsResponse'
-  { _dedrsSuccessfulSet = Nothing
-  , _dedrsFailedSet = Nothing
-  , _dedrsResponseStatus = pResponseStatus_
-  }
+    { _dedrsSuccessfulSet = Nothing
+    , _dedrsFailedSet = Nothing
+    , _dedrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the events that could be retrieved.
 dedrsSuccessfulSet :: Lens' DescribeEventDetailsResponse [EventDetails]
-dedrsSuccessfulSet = lens _dedrsSuccessfulSet (\ s a -> s{_dedrsSuccessfulSet = a}) . _Default . _Coerce;
+dedrsSuccessfulSet = lens _dedrsSuccessfulSet (\ s a -> s{_dedrsSuccessfulSet = a}) . _Default . _Coerce
 
 -- | Error messages for any events that could not be retrieved.
 dedrsFailedSet :: Lens' DescribeEventDetailsResponse [EventDetailsErrorItem]
-dedrsFailedSet = lens _dedrsFailedSet (\ s a -> s{_dedrsFailedSet = a}) . _Default . _Coerce;
+dedrsFailedSet = lens _dedrsFailedSet (\ s a -> s{_dedrsFailedSet = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dedrsResponseStatus :: Lens' DescribeEventDetailsResponse Int
-dedrsResponseStatus = lens _dedrsResponseStatus (\ s a -> s{_dedrsResponseStatus = a});
+dedrsResponseStatus = lens _dedrsResponseStatus (\ s a -> s{_dedrsResponseStatus = a})
 
 instance NFData DescribeEventDetailsResponse where

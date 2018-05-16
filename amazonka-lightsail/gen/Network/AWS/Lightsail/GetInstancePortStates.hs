@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstancePortStates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ getInstancePortStates pInstanceName_ =
 
 -- | The name of the instance.
 gipsInstanceName :: Lens' GetInstancePortStates Text
-gipsInstanceName = lens _gipsInstanceName (\ s a -> s{_gipsInstanceName = a});
+gipsInstanceName = lens _gipsInstanceName (\ s a -> s{_gipsInstanceName = a})
 
 instance AWSRequest GetInstancePortStates where
         type Rs GetInstancePortStates =
@@ -122,15 +122,15 @@ getInstancePortStatesResponse
     -> GetInstancePortStatesResponse
 getInstancePortStatesResponse pResponseStatus_ =
   GetInstancePortStatesResponse'
-  {_gipsrsPortStates = Nothing, _gipsrsResponseStatus = pResponseStatus_}
+    {_gipsrsPortStates = Nothing, _gipsrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the port states resulting from your request.
 gipsrsPortStates :: Lens' GetInstancePortStatesResponse [InstancePortState]
-gipsrsPortStates = lens _gipsrsPortStates (\ s a -> s{_gipsrsPortStates = a}) . _Default . _Coerce;
+gipsrsPortStates = lens _gipsrsPortStates (\ s a -> s{_gipsrsPortStates = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gipsrsResponseStatus :: Lens' GetInstancePortStatesResponse Int
-gipsrsResponseStatus = lens _gipsrsResponseStatus (\ s a -> s{_gipsrsResponseStatus = a});
+gipsrsResponseStatus = lens _gipsrsResponseStatus (\ s a -> s{_gipsrsResponseStatus = a})
 
 instance NFData GetInstancePortStatesResponse where

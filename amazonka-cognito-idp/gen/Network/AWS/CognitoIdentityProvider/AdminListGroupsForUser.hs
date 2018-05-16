@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminListGroupsForUser
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,28 +76,28 @@ adminListGroupsForUser
     -> AdminListGroupsForUser
 adminListGroupsForUser pUsername_ pUserPoolId_ =
   AdminListGroupsForUser'
-  { _algfuNextToken = Nothing
-  , _algfuLimit = Nothing
-  , _algfuUsername = _Sensitive # pUsername_
-  , _algfuUserPoolId = pUserPoolId_
-  }
+    { _algfuNextToken = Nothing
+    , _algfuLimit = Nothing
+    , _algfuUsername = _Sensitive # pUsername_
+    , _algfuUserPoolId = pUserPoolId_
+    }
 
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 algfuNextToken :: Lens' AdminListGroupsForUser (Maybe Text)
-algfuNextToken = lens _algfuNextToken (\ s a -> s{_algfuNextToken = a});
+algfuNextToken = lens _algfuNextToken (\ s a -> s{_algfuNextToken = a})
 
 -- | The limit of the request to list groups.
 algfuLimit :: Lens' AdminListGroupsForUser (Maybe Natural)
-algfuLimit = lens _algfuLimit (\ s a -> s{_algfuLimit = a}) . mapping _Nat;
+algfuLimit = lens _algfuLimit (\ s a -> s{_algfuLimit = a}) . mapping _Nat
 
 -- | The username for the user.
 algfuUsername :: Lens' AdminListGroupsForUser Text
-algfuUsername = lens _algfuUsername (\ s a -> s{_algfuUsername = a}) . _Sensitive;
+algfuUsername = lens _algfuUsername (\ s a -> s{_algfuUsername = a}) . _Sensitive
 
 -- | The user pool ID for the user pool.
 algfuUserPoolId :: Lens' AdminListGroupsForUser Text
-algfuUserPoolId = lens _algfuUserPoolId (\ s a -> s{_algfuUserPoolId = a});
+algfuUserPoolId = lens _algfuUserPoolId (\ s a -> s{_algfuUserPoolId = a})
 
 instance AWSRequest AdminListGroupsForUser where
         type Rs AdminListGroupsForUser =
@@ -161,22 +161,22 @@ adminListGroupsForUserResponse
     -> AdminListGroupsForUserResponse
 adminListGroupsForUserResponse pResponseStatus_ =
   AdminListGroupsForUserResponse'
-  { _algfursGroups = Nothing
-  , _algfursNextToken = Nothing
-  , _algfursResponseStatus = pResponseStatus_
-  }
+    { _algfursGroups = Nothing
+    , _algfursNextToken = Nothing
+    , _algfursResponseStatus = pResponseStatus_
+    }
 
 
 -- | The groups that the user belongs to.
 algfursGroups :: Lens' AdminListGroupsForUserResponse [GroupType]
-algfursGroups = lens _algfursGroups (\ s a -> s{_algfursGroups = a}) . _Default . _Coerce;
+algfursGroups = lens _algfursGroups (\ s a -> s{_algfursGroups = a}) . _Default . _Coerce
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 algfursNextToken :: Lens' AdminListGroupsForUserResponse (Maybe Text)
-algfursNextToken = lens _algfursNextToken (\ s a -> s{_algfursNextToken = a});
+algfursNextToken = lens _algfursNextToken (\ s a -> s{_algfursNextToken = a})
 
 -- | -- | The response status code.
 algfursResponseStatus :: Lens' AdminListGroupsForUserResponse Int
-algfursResponseStatus = lens _algfursResponseStatus (\ s a -> s{_algfursResponseStatus = a});
+algfursResponseStatus = lens _algfursResponseStatus (\ s a -> s{_algfursResponseStatus = a})
 
 instance NFData AdminListGroupsForUserResponse where

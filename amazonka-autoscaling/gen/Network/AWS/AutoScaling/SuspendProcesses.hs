@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.SuspendProcesses
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,24 +61,24 @@ data SuspendProcesses = SuspendProcesses'
 --
 -- * 'spScalingProcesses' - One or more of the following processes. If you omit this parameter, all processes are specified.     * @Launch@      * @Terminate@      * @HealthCheck@      * @ReplaceUnhealthy@      * @AZRebalance@      * @AlarmNotification@      * @ScheduledActions@      * @AddToLoadBalancer@
 --
--- * 'spAutoScalingGroupName' - The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+-- * 'spAutoScalingGroupName' - The name of the Auto Scaling group.
 suspendProcesses
     :: Text -- ^ 'spAutoScalingGroupName'
     -> SuspendProcesses
 suspendProcesses pAutoScalingGroupName_ =
   SuspendProcesses'
-  { _spScalingProcesses = Nothing
-  , _spAutoScalingGroupName = pAutoScalingGroupName_
-  }
+    { _spScalingProcesses = Nothing
+    , _spAutoScalingGroupName = pAutoScalingGroupName_
+    }
 
 
 -- | One or more of the following processes. If you omit this parameter, all processes are specified.     * @Launch@      * @Terminate@      * @HealthCheck@      * @ReplaceUnhealthy@      * @AZRebalance@      * @AlarmNotification@      * @ScheduledActions@      * @AddToLoadBalancer@
 spScalingProcesses :: Lens' SuspendProcesses [Text]
-spScalingProcesses = lens _spScalingProcesses (\ s a -> s{_spScalingProcesses = a}) . _Default . _Coerce;
+spScalingProcesses = lens _spScalingProcesses (\ s a -> s{_spScalingProcesses = a}) . _Default . _Coerce
 
--- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+-- | The name of the Auto Scaling group.
 spAutoScalingGroupName :: Lens' SuspendProcesses Text
-spAutoScalingGroupName = lens _spAutoScalingGroupName (\ s a -> s{_spAutoScalingGroupName = a});
+spAutoScalingGroupName = lens _spAutoScalingGroupName (\ s a -> s{_spAutoScalingGroupName = a})
 
 instance AWSRequest SuspendProcesses where
         type Rs SuspendProcesses = SuspendProcessesResponse

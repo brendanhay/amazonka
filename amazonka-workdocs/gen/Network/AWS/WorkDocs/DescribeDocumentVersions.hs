@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeDocumentVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,7 +72,7 @@ data DescribeDocumentVersions = DescribeDocumentVersions'
 --
 -- * 'ddvInclude' - A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
 --
--- * 'ddvAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'ddvAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'ddvMarker' - The marker for the next set of results. (You received this marker from a previous call.)
 --
@@ -86,38 +86,38 @@ describeDocumentVersions
     -> DescribeDocumentVersions
 describeDocumentVersions pDocumentId_ =
   DescribeDocumentVersions'
-  { _ddvInclude = Nothing
-  , _ddvAuthenticationToken = Nothing
-  , _ddvMarker = Nothing
-  , _ddvLimit = Nothing
-  , _ddvFields = Nothing
-  , _ddvDocumentId = pDocumentId_
-  }
+    { _ddvInclude = Nothing
+    , _ddvAuthenticationToken = Nothing
+    , _ddvMarker = Nothing
+    , _ddvLimit = Nothing
+    , _ddvFields = Nothing
+    , _ddvDocumentId = pDocumentId_
+    }
 
 
 -- | A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
 ddvInclude :: Lens' DescribeDocumentVersions (Maybe Text)
-ddvInclude = lens _ddvInclude (\ s a -> s{_ddvInclude = a});
+ddvInclude = lens _ddvInclude (\ s a -> s{_ddvInclude = a})
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 ddvAuthenticationToken :: Lens' DescribeDocumentVersions (Maybe Text)
-ddvAuthenticationToken = lens _ddvAuthenticationToken (\ s a -> s{_ddvAuthenticationToken = a}) . mapping _Sensitive;
+ddvAuthenticationToken = lens _ddvAuthenticationToken (\ s a -> s{_ddvAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 ddvMarker :: Lens' DescribeDocumentVersions (Maybe Text)
-ddvMarker = lens _ddvMarker (\ s a -> s{_ddvMarker = a});
+ddvMarker = lens _ddvMarker (\ s a -> s{_ddvMarker = a})
 
 -- | The maximum number of versions to return with this call.
 ddvLimit :: Lens' DescribeDocumentVersions (Maybe Natural)
-ddvLimit = lens _ddvLimit (\ s a -> s{_ddvLimit = a}) . mapping _Nat;
+ddvLimit = lens _ddvLimit (\ s a -> s{_ddvLimit = a}) . mapping _Nat
 
 -- | Specify "SOURCE" to include initialized versions and a URL for the source document.
 ddvFields :: Lens' DescribeDocumentVersions (Maybe Text)
-ddvFields = lens _ddvFields (\ s a -> s{_ddvFields = a});
+ddvFields = lens _ddvFields (\ s a -> s{_ddvFields = a})
 
 -- | The ID of the document.
 ddvDocumentId :: Lens' DescribeDocumentVersions Text
-ddvDocumentId = lens _ddvDocumentId (\ s a -> s{_ddvDocumentId = a});
+ddvDocumentId = lens _ddvDocumentId (\ s a -> s{_ddvDocumentId = a})
 
 instance AWSPager DescribeDocumentVersions where
         page rq rs
@@ -183,23 +183,23 @@ describeDocumentVersionsResponse
     -> DescribeDocumentVersionsResponse
 describeDocumentVersionsResponse pResponseStatus_ =
   DescribeDocumentVersionsResponse'
-  { _ddvrsDocumentVersions = Nothing
-  , _ddvrsMarker = Nothing
-  , _ddvrsResponseStatus = pResponseStatus_
-  }
+    { _ddvrsDocumentVersions = Nothing
+    , _ddvrsMarker = Nothing
+    , _ddvrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The document versions.
 ddvrsDocumentVersions :: Lens' DescribeDocumentVersionsResponse [DocumentVersionMetadata]
-ddvrsDocumentVersions = lens _ddvrsDocumentVersions (\ s a -> s{_ddvrsDocumentVersions = a}) . _Default . _Coerce;
+ddvrsDocumentVersions = lens _ddvrsDocumentVersions (\ s a -> s{_ddvrsDocumentVersions = a}) . _Default . _Coerce
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 ddvrsMarker :: Lens' DescribeDocumentVersionsResponse (Maybe Text)
-ddvrsMarker = lens _ddvrsMarker (\ s a -> s{_ddvrsMarker = a});
+ddvrsMarker = lens _ddvrsMarker (\ s a -> s{_ddvrsMarker = a})
 
 -- | -- | The response status code.
 ddvrsResponseStatus :: Lens' DescribeDocumentVersionsResponse Int
-ddvrsResponseStatus = lens _ddvrsResponseStatus (\ s a -> s{_ddvrsResponseStatus = a});
+ddvrsResponseStatus = lens _ddvrsResponseStatus (\ s a -> s{_ddvrsResponseStatus = a})
 
 instance NFData DescribeDocumentVersionsResponse
          where

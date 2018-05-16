@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifyClusterSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,23 +72,23 @@ modifyClusterSubnetGroup
     -> ModifyClusterSubnetGroup
 modifyClusterSubnetGroup pClusterSubnetGroupName_ =
   ModifyClusterSubnetGroup'
-  { _mcsgDescription = Nothing
-  , _mcsgClusterSubnetGroupName = pClusterSubnetGroupName_
-  , _mcsgSubnetIds = mempty
-  }
+    { _mcsgDescription = Nothing
+    , _mcsgClusterSubnetGroupName = pClusterSubnetGroupName_
+    , _mcsgSubnetIds = mempty
+    }
 
 
 -- | A text description of the subnet group to be modified.
 mcsgDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
-mcsgDescription = lens _mcsgDescription (\ s a -> s{_mcsgDescription = a});
+mcsgDescription = lens _mcsgDescription (\ s a -> s{_mcsgDescription = a})
 
 -- | The name of the subnet group to be modified.
 mcsgClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup Text
-mcsgClusterSubnetGroupName = lens _mcsgClusterSubnetGroupName (\ s a -> s{_mcsgClusterSubnetGroupName = a});
+mcsgClusterSubnetGroupName = lens _mcsgClusterSubnetGroupName (\ s a -> s{_mcsgClusterSubnetGroupName = a})
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
 mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
-mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a}) . _Coerce;
+mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a}) . _Coerce
 
 instance AWSRequest ModifyClusterSubnetGroup where
         type Rs ModifyClusterSubnetGroup =
@@ -141,18 +141,18 @@ modifyClusterSubnetGroupResponse
     -> ModifyClusterSubnetGroupResponse
 modifyClusterSubnetGroupResponse pResponseStatus_ =
   ModifyClusterSubnetGroupResponse'
-  { _mcsgrsClusterSubnetGroup = Nothing
-  , _mcsgrsResponseStatus = pResponseStatus_
-  }
+    { _mcsgrsClusterSubnetGroup = Nothing
+    , _mcsgrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 mcsgrsClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
-mcsgrsClusterSubnetGroup = lens _mcsgrsClusterSubnetGroup (\ s a -> s{_mcsgrsClusterSubnetGroup = a});
+mcsgrsClusterSubnetGroup = lens _mcsgrsClusterSubnetGroup (\ s a -> s{_mcsgrsClusterSubnetGroup = a})
 
 -- | -- | The response status code.
 mcsgrsResponseStatus :: Lens' ModifyClusterSubnetGroupResponse Int
-mcsgrsResponseStatus = lens _mcsgrsResponseStatus (\ s a -> s{_mcsgrsResponseStatus = a});
+mcsgrsResponseStatus = lens _mcsgrsResponseStatus (\ s a -> s{_mcsgrsResponseStatus = a})
 
 instance NFData ModifyClusterSubnetGroupResponse
          where

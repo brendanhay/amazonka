@@ -12,20 +12,20 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and cannot be recovered. Manual DB snapshots of the DB instance to be deleted by @DeleteDBInstance@ are not deleted.
+-- The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered. Manual DB snapshots of the DB instance to be deleted by @DeleteDBInstance@ are not deleted.
 --
 --
--- If you request a final DB snapshot the status of the Amazon RDS DB instance is @deleting@ until the DB snapshot is created. The API action @DescribeDBInstance@ is used to monitor the status of this operation. The action cannot be canceled or reverted once submitted.
+-- If you request a final DB snapshot the status of the Amazon RDS DB instance is @deleting@ until the DB snapshot is created. The API action @DescribeDBInstance@ is used to monitor the status of this operation. The action can't be canceled or reverted once submitted.
 --
 -- Note that when a DB instance is in a failure state and has a status of @failed@ , @incompatible-restore@ , or @incompatible-network@ , you can only delete it when the @SkipFinalSnapshot@ parameter is set to @true@ .
 --
--- If the specified DB instance is part of an Amazon Aurora DB cluster, you cannot delete the DB instance if both of the following conditions are true:
+-- If the specified DB instance is part of an Amazon Aurora DB cluster, you can't delete the DB instance if both of the following conditions are true:
 --
 --     * The DB cluster is a Read Replica of another Amazon Aurora DB cluster.
 --
@@ -86,23 +86,23 @@ deleteDBInstance
     -> DeleteDBInstance
 deleteDBInstance pDBInstanceIdentifier_ =
   DeleteDBInstance'
-  { _ddiFinalDBSnapshotIdentifier = Nothing
-  , _ddiSkipFinalSnapshot = Nothing
-  , _ddiDBInstanceIdentifier = pDBInstanceIdentifier_
-  }
+    { _ddiFinalDBSnapshotIdentifier = Nothing
+    , _ddiSkipFinalSnapshot = Nothing
+    , _ddiDBInstanceIdentifier = pDBInstanceIdentifier_
+    }
 
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to @false@ .  Constraints:     * Must be 1 to 255 letters or numbers.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Cannot be specified when deleting a Read Replica.
 ddiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
-ddiFinalDBSnapshotIdentifier = lens _ddiFinalDBSnapshotIdentifier (\ s a -> s{_ddiFinalDBSnapshotIdentifier = a});
+ddiFinalDBSnapshotIdentifier = lens _ddiFinalDBSnapshotIdentifier (\ s a -> s{_ddiFinalDBSnapshotIdentifier = a})
 
 -- | Determines whether a final DB snapshot is created before the DB instance is deleted. If @true@ is specified, no DBSnapshot is created. If @false@ is specified, a DB snapshot is created before the DB instance is deleted.  Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when the SkipFinalSnapshot parameter is set to "true". Specify @true@ when deleting a Read Replica. Default: @false@
 ddiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
-ddiSkipFinalSnapshot = lens _ddiSkipFinalSnapshot (\ s a -> s{_ddiSkipFinalSnapshot = a});
+ddiSkipFinalSnapshot = lens _ddiSkipFinalSnapshot (\ s a -> s{_ddiSkipFinalSnapshot = a})
 
 -- | The DB instance identifier for the DB instance to be deleted. This parameter isn't case-sensitive. Constraints:     * Must match the name of an existing DB instance.
 ddiDBInstanceIdentifier :: Lens' DeleteDBInstance Text
-ddiDBInstanceIdentifier = lens _ddiDBInstanceIdentifier (\ s a -> s{_ddiDBInstanceIdentifier = a});
+ddiDBInstanceIdentifier = lens _ddiDBInstanceIdentifier (\ s a -> s{_ddiDBInstanceIdentifier = a})
 
 instance AWSRequest DeleteDBInstance where
         type Rs DeleteDBInstance = DeleteDBInstanceResponse
@@ -152,15 +152,15 @@ deleteDBInstanceResponse
     -> DeleteDBInstanceResponse
 deleteDBInstanceResponse pResponseStatus_ =
   DeleteDBInstanceResponse'
-  {_ddirsDBInstance = Nothing, _ddirsResponseStatus = pResponseStatus_}
+    {_ddirsDBInstance = Nothing, _ddirsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 ddirsDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
-ddirsDBInstance = lens _ddirsDBInstance (\ s a -> s{_ddirsDBInstance = a});
+ddirsDBInstance = lens _ddirsDBInstance (\ s a -> s{_ddirsDBInstance = a})
 
 -- | -- | The response status code.
 ddirsResponseStatus :: Lens' DeleteDBInstanceResponse Int
-ddirsResponseStatus = lens _ddirsResponseStatus (\ s a -> s{_ddirsResponseStatus = a});
+ddirsResponseStatus = lens _ddirsResponseStatus (\ s a -> s{_ddirsResponseStatus = a})
 
 instance NFData DeleteDBInstanceResponse where

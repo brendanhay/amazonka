@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.CreateDevicePool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ createDevicePool
     -> CreateDevicePool
 createDevicePool pProjectARN_ pName_ =
   CreateDevicePool'
-  { _cdpDescription = Nothing
-  , _cdpProjectARN = pProjectARN_
-  , _cdpName = pName_
-  , _cdpRules = mempty
-  }
+    { _cdpDescription = Nothing
+    , _cdpProjectARN = pProjectARN_
+    , _cdpName = pName_
+    , _cdpRules = mempty
+    }
 
 
 -- | The device pool's description.
 cdpDescription :: Lens' CreateDevicePool (Maybe Text)
-cdpDescription = lens _cdpDescription (\ s a -> s{_cdpDescription = a});
+cdpDescription = lens _cdpDescription (\ s a -> s{_cdpDescription = a})
 
 -- | The ARN of the project for the device pool.
 cdpProjectARN :: Lens' CreateDevicePool Text
-cdpProjectARN = lens _cdpProjectARN (\ s a -> s{_cdpProjectARN = a});
+cdpProjectARN = lens _cdpProjectARN (\ s a -> s{_cdpProjectARN = a})
 
 -- | The device pool's name.
 cdpName :: Lens' CreateDevicePool Text
-cdpName = lens _cdpName (\ s a -> s{_cdpName = a});
+cdpName = lens _cdpName (\ s a -> s{_cdpName = a})
 
 -- | The device pool's rules.
 cdpRules :: Lens' CreateDevicePool [Rule]
-cdpRules = lens _cdpRules (\ s a -> s{_cdpRules = a}) . _Coerce;
+cdpRules = lens _cdpRules (\ s a -> s{_cdpRules = a}) . _Coerce
 
 instance AWSRequest CreateDevicePool where
         type Rs CreateDevicePool = CreateDevicePoolResponse
@@ -161,15 +161,15 @@ createDevicePoolResponse
     -> CreateDevicePoolResponse
 createDevicePoolResponse pResponseStatus_ =
   CreateDevicePoolResponse'
-  {_cdprsDevicePool = Nothing, _cdprsResponseStatus = pResponseStatus_}
+    {_cdprsDevicePool = Nothing, _cdprsResponseStatus = pResponseStatus_}
 
 
 -- | The newly created device pool.
 cdprsDevicePool :: Lens' CreateDevicePoolResponse (Maybe DevicePool)
-cdprsDevicePool = lens _cdprsDevicePool (\ s a -> s{_cdprsDevicePool = a});
+cdprsDevicePool = lens _cdprsDevicePool (\ s a -> s{_cdprsDevicePool = a})
 
 -- | -- | The response status code.
 cdprsResponseStatus :: Lens' CreateDevicePoolResponse Int
-cdprsResponseStatus = lens _cdprsResponseStatus (\ s a -> s{_cdprsResponseStatus = a});
+cdprsResponseStatus = lens _cdprsResponseStatus (\ s a -> s{_cdprsResponseStatus = a})
 
 instance NFData CreateDevicePoolResponse where

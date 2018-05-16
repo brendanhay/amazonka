@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateEvaluation
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,28 +78,28 @@ createEvaluation
     -> CreateEvaluation
 createEvaluation pEvaluationId_ pMLModelId_ pEvaluationDataSourceId_ =
   CreateEvaluation'
-  { _ceEvaluationName = Nothing
-  , _ceEvaluationId = pEvaluationId_
-  , _ceMLModelId = pMLModelId_
-  , _ceEvaluationDataSourceId = pEvaluationDataSourceId_
-  }
+    { _ceEvaluationName = Nothing
+    , _ceEvaluationId = pEvaluationId_
+    , _ceMLModelId = pMLModelId_
+    , _ceEvaluationDataSourceId = pEvaluationDataSourceId_
+    }
 
 
 -- | A user-supplied name or description of the @Evaluation@ .
 ceEvaluationName :: Lens' CreateEvaluation (Maybe Text)
-ceEvaluationName = lens _ceEvaluationName (\ s a -> s{_ceEvaluationName = a});
+ceEvaluationName = lens _ceEvaluationName (\ s a -> s{_ceEvaluationName = a})
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ .
 ceEvaluationId :: Lens' CreateEvaluation Text
-ceEvaluationId = lens _ceEvaluationId (\ s a -> s{_ceEvaluationId = a});
+ceEvaluationId = lens _ceEvaluationId (\ s a -> s{_ceEvaluationId = a})
 
 -- | The ID of the @MLModel@ to evaluate. The schema used in creating the @MLModel@ must match the schema of the @DataSource@ used in the @Evaluation@ .
 ceMLModelId :: Lens' CreateEvaluation Text
-ceMLModelId = lens _ceMLModelId (\ s a -> s{_ceMLModelId = a});
+ceMLModelId = lens _ceMLModelId (\ s a -> s{_ceMLModelId = a})
 
 -- | The ID of the @DataSource@ for the evaluation. The schema of the @DataSource@ must match the schema used to create the @MLModel@ .
 ceEvaluationDataSourceId :: Lens' CreateEvaluation Text
-ceEvaluationDataSourceId = lens _ceEvaluationDataSourceId (\ s a -> s{_ceEvaluationDataSourceId = a});
+ceEvaluationDataSourceId = lens _ceEvaluationDataSourceId (\ s a -> s{_ceEvaluationDataSourceId = a})
 
 instance AWSRequest CreateEvaluation where
         type Rs CreateEvaluation = CreateEvaluationResponse
@@ -165,15 +165,15 @@ createEvaluationResponse
     -> CreateEvaluationResponse
 createEvaluationResponse pResponseStatus_ =
   CreateEvaluationResponse'
-  {_cersEvaluationId = Nothing, _cersResponseStatus = pResponseStatus_}
+    {_cersEvaluationId = Nothing, _cersResponseStatus = pResponseStatus_}
 
 
 -- | The user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
 cersEvaluationId :: Lens' CreateEvaluationResponse (Maybe Text)
-cersEvaluationId = lens _cersEvaluationId (\ s a -> s{_cersEvaluationId = a});
+cersEvaluationId = lens _cersEvaluationId (\ s a -> s{_cersEvaluationId = a})
 
 -- | -- | The response status code.
 cersResponseStatus :: Lens' CreateEvaluationResponse Int
-cersResponseStatus = lens _cersResponseStatus (\ s a -> s{_cersResponseStatus = a});
+cersResponseStatus = lens _cersResponseStatus (\ s a -> s{_cersResponseStatus = a})
 
 instance NFData CreateEvaluationResponse where

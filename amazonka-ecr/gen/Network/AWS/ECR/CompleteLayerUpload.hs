@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECR.CompleteLayerUpload
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2018 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,28 +77,28 @@ completeLayerUpload
     -> CompleteLayerUpload
 completeLayerUpload pRepositoryName_ pUploadId_ pLayerDigests_ =
   CompleteLayerUpload'
-  { _cluRegistryId = Nothing
-  , _cluRepositoryName = pRepositoryName_
-  , _cluUploadId = pUploadId_
-  , _cluLayerDigests = _List1 # pLayerDigests_
-  }
+    { _cluRegistryId = Nothing
+    , _cluRepositoryName = pRepositoryName_
+    , _cluUploadId = pUploadId_
+    , _cluLayerDigests = _List1 # pLayerDigests_
+    }
 
 
 -- | The AWS account ID associated with the registry to which to upload layers. If you do not specify a registry, the default registry is assumed.
 cluRegistryId :: Lens' CompleteLayerUpload (Maybe Text)
-cluRegistryId = lens _cluRegistryId (\ s a -> s{_cluRegistryId = a});
+cluRegistryId = lens _cluRegistryId (\ s a -> s{_cluRegistryId = a})
 
 -- | The name of the repository to associate with the image layer.
 cluRepositoryName :: Lens' CompleteLayerUpload Text
-cluRepositoryName = lens _cluRepositoryName (\ s a -> s{_cluRepositoryName = a});
+cluRepositoryName = lens _cluRepositoryName (\ s a -> s{_cluRepositoryName = a})
 
 -- | The upload ID from a previous 'InitiateLayerUpload' operation to associate with the image layer.
 cluUploadId :: Lens' CompleteLayerUpload Text
-cluUploadId = lens _cluUploadId (\ s a -> s{_cluUploadId = a});
+cluUploadId = lens _cluUploadId (\ s a -> s{_cluUploadId = a})
 
 -- | The @sha256@ digest of the image layer.
 cluLayerDigests :: Lens' CompleteLayerUpload (NonEmpty Text)
-cluLayerDigests = lens _cluLayerDigests (\ s a -> s{_cluLayerDigests = a}) . _List1;
+cluLayerDigests = lens _cluLayerDigests (\ s a -> s{_cluLayerDigests = a}) . _List1
 
 instance AWSRequest CompleteLayerUpload where
         type Rs CompleteLayerUpload =
@@ -170,32 +170,32 @@ completeLayerUploadResponse
     -> CompleteLayerUploadResponse
 completeLayerUploadResponse pResponseStatus_ =
   CompleteLayerUploadResponse'
-  { _clursRegistryId = Nothing
-  , _clursLayerDigest = Nothing
-  , _clursRepositoryName = Nothing
-  , _clursUploadId = Nothing
-  , _clursResponseStatus = pResponseStatus_
-  }
+    { _clursRegistryId = Nothing
+    , _clursLayerDigest = Nothing
+    , _clursRepositoryName = Nothing
+    , _clursUploadId = Nothing
+    , _clursResponseStatus = pResponseStatus_
+    }
 
 
 -- | The registry ID associated with the request.
 clursRegistryId :: Lens' CompleteLayerUploadResponse (Maybe Text)
-clursRegistryId = lens _clursRegistryId (\ s a -> s{_clursRegistryId = a});
+clursRegistryId = lens _clursRegistryId (\ s a -> s{_clursRegistryId = a})
 
 -- | The @sha256@ digest of the image layer.
 clursLayerDigest :: Lens' CompleteLayerUploadResponse (Maybe Text)
-clursLayerDigest = lens _clursLayerDigest (\ s a -> s{_clursLayerDigest = a});
+clursLayerDigest = lens _clursLayerDigest (\ s a -> s{_clursLayerDigest = a})
 
 -- | The repository name associated with the request.
 clursRepositoryName :: Lens' CompleteLayerUploadResponse (Maybe Text)
-clursRepositoryName = lens _clursRepositoryName (\ s a -> s{_clursRepositoryName = a});
+clursRepositoryName = lens _clursRepositoryName (\ s a -> s{_clursRepositoryName = a})
 
 -- | The upload ID associated with the layer.
 clursUploadId :: Lens' CompleteLayerUploadResponse (Maybe Text)
-clursUploadId = lens _clursUploadId (\ s a -> s{_clursUploadId = a});
+clursUploadId = lens _clursUploadId (\ s a -> s{_clursUploadId = a})
 
 -- | -- | The response status code.
 clursResponseStatus :: Lens' CompleteLayerUploadResponse Int
-clursResponseStatus = lens _clursResponseStatus (\ s a -> s{_clursResponseStatus = a});
+clursResponseStatus = lens _clursResponseStatus (\ s a -> s{_clursResponseStatus = a})
 
 instance NFData CompleteLayerUploadResponse where

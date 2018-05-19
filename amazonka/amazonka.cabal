@@ -81,6 +81,7 @@ library
         , transformers        >= 0.2
         , transformers-base   >= 0.4
         , transformers-compat >= 0.3
+        , unliftio-core       >= 0.1
         , void                >= 0.1
 
 test-suite tests

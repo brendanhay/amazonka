@@ -268,6 +268,7 @@ runAWST r (AWST' m) = runReaderT m r
 -- which 'AWST' implicitly fulfils.
 type AWSConstraint r m =
     ( MonadThrow     m
+    , MonadCatch     m
     , MonadResource  m
     , MonadReader  r m
     , HasEnv       r
@@ -291,7 +292,7 @@ paginate :: (AWSConstraint r m, AWSPager a)
 paginate = go
   where
     go !x = do
-        !y <- send x
+        !y <- lift $ send x
         yield y
         maybe (pure ()) go (page x y)
 

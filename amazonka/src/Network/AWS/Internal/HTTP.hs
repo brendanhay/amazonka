@@ -147,7 +147,7 @@ perform Env{..} x = catches go handlers
 #else
         rs'         <- liftResourceT (http rq _envManager)
         let resSrc   = responseBody rs'
-        (src', fin) <- unwrapResumable resSrc
+        (src', fin) <- liftResourceT (unwrapResumable resSrc)
         let src = addCleanup (const fin) src'
         let rs  = src <$ rs'
 #endif

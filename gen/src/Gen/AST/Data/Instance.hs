@@ -193,11 +193,12 @@ requestInsts m oname h r fs = do
     (listToMaybe -> stream, fields) = partition fieldStream (notLocated fs)
 
     protocolHeaders :: [(Text, Text)]
-    protocolHeaders = case p of
+    protocolHeaders = (case p of
         JSON       -> t ++ c
         RestJSON   -> c
         APIGateway -> j ++ c
-        _          -> []
+        _          -> [])
+        ++ m ^. extraHeaders
       where
         t = maybeToList $ ("X-Amz-Target",) <$> target
         c = maybeToList $ ("Content-Type",) <$> content

@@ -1,5 +1,8 @@
 {
     "metadata": {
-        "serviceAbbreviation": "Glacier"
+        "serviceAbbreviation": "Glacier",
+        "extraHeaders": {
+            "x-amz-glacier-version": "2012-06-01"
+        }
     }
 }

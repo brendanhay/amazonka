@@ -429,12 +429,17 @@ data Metadata f = Metadata
     , _xmlNamespace     :: Maybe Text
     , _jsonVersion      :: Maybe Text
     , _targetPrefix     :: Maybe Text
+    , _extraHeaders     :: [(Text, Text)]
     } deriving (Generic)
 
 deriving instance Show (Metadata Maybe)
 deriving instance Show (Metadata Identity)
 
 $(TH.makeClassy ''Metadata)
+
+extractExtraHeaders :: Maybe JSON.Value -> [(Text,Text)]
+extractExtraHeaders (Just (JSON.Object o)) = [(k,v) | (k, JSON.String v) <- Map.toList o]
+extractExtraHeaders _                      = []
 
 instance FromJSON (Metadata Maybe) where
     parseJSON = JSON.withObject "meta" $ \o -> Metadata
@@ -450,6 +455,7 @@ instance FromJSON (Metadata Maybe) where
         <*> o .:? "xmlNamespace"
         <*> o .:? "jsonVersion"
         <*> o .:? "targetPrefix"
+        <*> (o .:? "extraHeaders" <&> extractExtraHeaders)
 
 instance ToJSON (Metadata Identity) where
     toJSON = gToJSON' camel

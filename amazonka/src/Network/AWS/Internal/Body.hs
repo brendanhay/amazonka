@@ -26,8 +26,8 @@ getFileSize :: MonadIO m => FilePath -> m Integer
 getFileSize path = liftIO (withBinaryFile path ReadMode hFileSize)
 
 -- | Connect a 'Sink' to a response stream.
-sinkBody :: MonadIO m => RsBody -> ConduitM ByteString Void (ResourceT IO) a -> m a
-sinkBody (RsBody body) sink = liftIO $ runConduitRes $ body .| sink
+sinkBody :: (MonadResource m, MonadIO m) => RsBody -> ConduitM ByteString Void (ResourceT IO) a -> m a
+sinkBody (RsBody body) sink = liftResourceT $ runConduit $ body .| sink
 
 -- | Construct a 'HashedBody' from a 'FilePath', calculating the 'SHA256' hash
 -- and file size.

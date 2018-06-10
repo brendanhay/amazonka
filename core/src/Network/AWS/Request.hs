@@ -39,6 +39,7 @@ module Network.AWS.Request
     -- ** Operation Plugins
     , contentMD5Header
     , expectHeader
+    , glacierVersionHeader2012
 
     -- ** Lenses
     , requestHeaders
@@ -164,3 +165,6 @@ contentMD5Header rq
 
 expectHeader :: Request a -> Request a
 expectHeader = rqHeaders %~ hdr hExpect "100-continue"
+
+glacierVersionHeader2012 :: Request a -> Request a
+glacierVersionHeader2012 = rqHeaders %~ hdr "x-amz-glacier-version" "2012-06-01"

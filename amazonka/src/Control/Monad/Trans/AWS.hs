@@ -161,6 +161,7 @@ import Control.Monad.Base
 import Control.Monad.Catch
 import Control.Monad.Error.Class    (MonadError (..))
 import Control.Monad.IO.Unlift
+import Control.Monad.Primitive      (PrimMonad, PrimState, primitive)
 import Control.Monad.Morph
 import Control.Monad.Reader
 import Control.Monad.State.Class
@@ -234,6 +235,10 @@ instance MonadBaseControl b m => MonadBaseControl b (AWST' r m) where
 instance MonadUnliftIO m => MonadUnliftIO (AWST' r m) where
     askUnliftIO = AWST' $ (\(UnliftIO f) -> UnliftIO $ f . unAWST)
         <$> askUnliftIO
+
+instance PrimMonad m => PrimMonad (AWST' r m) where
+  type PrimState (AWST' r m) = PrimState m
+  primitive = lift . primitive
 
 instance MonadResource m => MonadResource (AWST' r m) where
     liftResourceT = lift . liftResourceT

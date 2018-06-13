@@ -19,6 +19,7 @@ module Gen.Types.Help
 
 import Data.Aeson
 import Data.Monoid ((<>))
+import Data.Semigroup (Semigroup)
 import Data.String
 import Data.Text   (Text)
 

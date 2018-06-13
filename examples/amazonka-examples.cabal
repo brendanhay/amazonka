@@ -47,7 +47,6 @@ library
         , conduit-extra
         , exceptions
         , lens
-        , semigroups
         , text
         , time
         , transformers

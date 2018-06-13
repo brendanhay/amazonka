@@ -89,7 +89,6 @@ executable amazonka-gen
         , optparse-applicative
         , parsec
         , scientific
-        , semigroups
         , system-fileio
         , system-filepath
         , template-haskell
@@ -102,3 +101,5 @@ executable amazonka-gen
         , unexceptionalio
         , unordered-containers
         , xml-conduit
+    if !impl(ghc >= 8.0)
+      build-depends: semigroups >= 0.12

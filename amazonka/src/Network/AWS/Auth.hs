@@ -40,6 +40,10 @@ module Network.AWS.Auth
     , credProfile
     , credFile
 
+    -- *** Configuration File
+    , confRegion
+    , confFile
+
     -- ** Credentials
     -- $credentials
 
@@ -155,6 +159,29 @@ credFile = catching_ _IOException dir err
     -- TODO: probably should be using System.FilePath above.
     p = "/.aws/credentials"
 
+-- | Credentials INI default profile section variable.
+confRegion :: Text -- ^ default
+confRegion = "region"
+
+-- | Default path for the configuration file. This looks in in the @HOME@ directory
+-- as determined by the <http://hackage.haskell.org/package/directory directory>
+-- library.
+--
+-- * UNIX/OSX: @$HOME/.aws/config@
+--
+-- * Windows: @C:\/Users\//\<user\>\.aws\config@
+--
+-- /Note:/ This does not match the default AWS SDK location of
+-- @%USERPROFILE%\.aws\config@ on Windows. (Sorry.)
+confFile :: (MonadCatch m, MonadIO m) => m FilePath
+confFile = catching_ _IOException dir err
+  where
+    dir = (++ p) `liftM` liftIO getHomeDirectory
+    err = throwM $ MissingFileError ("$HOME" ++ p)
+
+    -- TODO: probably should be using System.FilePath above.
+    p = "/.aws/config"
+
 {- $credentials
 'getAuth' is implemented using the following @from*@-styled functions below.
 Both 'fromKeys' and 'fromSession' can be used directly to avoid the 'MonadIO'
@@ -202,7 +229,7 @@ data Credentials
       -- Environment variables to lookup for the access key, secret key and
       -- optional session token.
 
-    | FromFile Text FilePath
+    | FromFile Text FilePath FilePath
       -- ^ A credentials profile name (the INI section) and the path to the AWS
       -- <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs credentials> file.
 
@@ -241,8 +268,8 @@ instance ToLog Credentials where
             "FromEnv " <> build a <> " " <> build s <> " " <> m t <> " " <> m r
         FromProfile n ->
             "FromProfile " <> build n
-        FromFile    n f ->
-            "FromFile " <> build n <> " " <> build f
+        FromFile    n f g ->
+            "FromFile " <> build n <> " " <> build f <> " " <> build g
         FromContainer ->
             "FromContainer"
         Discover ->
@@ -349,7 +376,7 @@ getAuth m = \case
     FromSession a s t   -> return (fromSession a s t, Nothing)
     FromEnv     a s t r -> fromEnvKeys a s t r
     FromProfile n       -> fromProfileName m n
-    FromFile    n f     -> fromFilePath n f
+    FromFile    n f g   -> fromFilePath n f g
     FromContainer       -> fromContainer m
     Discover            ->
         -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
@@ -429,30 +456,48 @@ fromEnvKeys access secret session region' =
 fromFile :: (Applicative m, MonadIO m, MonadCatch m) => m (Auth, Maybe Region)
 fromFile = do
   p <- liftIO (lookupEnv (Text.unpack envProfile))
-  fromFilePath (maybe credProfile Text.pack p)
-      =<< credFile
+  f <- credFile
+  g <- confFile
+  fromFilePath (maybe credProfile Text.pack p) f g
 
 -- | Retrieve the access, secret and session token from the specified section
 -- (profile) in a valid INI @credentials@ file.
 --
 -- Throws 'MissingFileError' if the specified file is missing, or 'InvalidFileError'
 -- if an error occurs during parsing.
+--    p'   <- liftIO (doesFileExist f')
+--    ini' <- bool (invalidErr Nothing) (either (invalidErr Nothing) return =<< liftIO (INI.readIniFile f')) p'
+
 fromFilePath :: (Applicative m, MonadIO m, MonadCatch m)
              => Text
              -> FilePath
+             -> FilePath
              -> m (Auth, Maybe Region)
-fromFilePath n f = do
-    p <- liftIO (doesFileExist f)
-    unless p $
-        throwM (MissingFileError f)
-    ini <- either (invalidErr Nothing) return =<< liftIO (INI.readIniFile f)
-    env <- AuthEnv
-        <$> (req credAccessKey    ini <&> AccessKey)
-        <*> (req credSecretKey    ini <&> Sensitive . SecretKey)
-        <*> (opt credSessionToken ini <&> fmap (Sensitive . SessionToken))
-        <*> return Nothing
-    return (Auth env, Nothing)
+fromFilePath n f g = do
+    (,) <$> fmap Auth lookupKeys <*> lookupRegion
   where
+    lookupKeys = do
+        p <- liftIO (doesFileExist f)
+        unless p $
+            throwM (MissingFileError f)
+        ini <- either (invalidErr Nothing) return =<< liftIO (INI.readIniFile f)
+        AuthEnv
+            <$> (req credAccessKey    ini <&> AccessKey)
+            <*> (req credSecretKey    ini <&> Sensitive . SecretKey)
+            <*> (opt credSessionToken ini <&> fmap (Sensitive . SessionToken))
+            <*> return Nothing
+
+    lookupRegion = do
+        p <- liftIO (doesFileExist g)
+        if not p then return Nothing else do
+            ini <- either (invalidErr Nothing) return =<< liftIO (INI.readIniFile g)
+            case INI.lookupValue n confRegion ini of
+                Left  _ -> return Nothing
+                Right r ->
+                    case fromText r of
+                        Right x -> return (Just x)
+                        Left  e -> invalidErr (Just confRegion) e
+
     req k i =
         case INI.lookupValue n k i of
             Left  e         -> invalidErr (Just k) e

@@ -223,7 +223,7 @@ sendEmailResponse pResponseStatus_ pMessageId_ =
     {_sersResponseStatus = pResponseStatus_, _sersMessageId = pMessageId_}
 
 
--- | -- | The response status code.
+-- | The response status code.
 sersResponseStatus :: Lens' SendEmailResponse Int
 sersResponseStatus = lens _sersResponseStatus (\ s a -> s{_sersResponseStatus = a})
 

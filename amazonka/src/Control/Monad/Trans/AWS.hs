@@ -285,9 +285,7 @@ askEnv = AWST' (asks (^. environment))
 -- | An alias for the constraints required to send requests,
 -- which 'AWST' implicitly fulfils.
 type AWSConstraint r m =
-  ( MonadThrow m,
-    MonadCatch m,
-    MonadResource m,
+  ( MonadResource m,
     MonadReader r m,
     HasEnv r
   )
@@ -382,7 +380,7 @@ isEC2 = do
 --
 -- Throws 'HttpException'.
 dynamic ::
-  (MonadIO m, MonadThrow m, MonadReader r m, HasEnv r) =>
+  (MonadIO m, MonadReader r m, HasEnv r) =>
   EC2.Dynamic ->
   m ByteString
 dynamic d = view envManager >>= flip EC2.dynamic d
@@ -391,7 +389,7 @@ dynamic d = view envManager >>= flip EC2.dynamic d
 --
 -- Throws 'HttpException'.
 metadata ::
-  (MonadIO m, MonadThrow m, MonadReader r m, HasEnv r) =>
+  (MonadIO m, MonadReader r m, HasEnv r) =>
   EC2.Metadata ->
   m ByteString
 metadata m = view envManager >>= flip EC2.metadata m
@@ -401,12 +399,12 @@ metadata m = view envManager >>= flip EC2.metadata m
 --
 -- Throws 'HttpException'.
 userdata ::
-  (MonadIO m, MonadCatch m, MonadReader r m, HasEnv r) =>
+  (MonadIO m, MonadReader r m, HasEnv r) =>
   m (Maybe ByteString)
 userdata = view envManager >>= EC2.userdata
 
-hoistError :: MonadThrow m => Either Error a -> m a
-hoistError = either (throwingM _Error) return
+hoistError :: MonadIO m => Either Error a -> m a
+hoistError = liftIO . either (throwingM _Error) return
 
 -- $discovery
 -- AuthN/AuthZ information is handled similarly to other AWS SDKs. You can read

@@ -22,8 +22,7 @@ where
 
 import Control.Arrow (first)
 import Control.Monad
-import Control.Monad.Catch (Handler (Handler), MonadCatch, catches)
-import Control.Monad.IO.Class
+import Control.Monad.Catch (Handler (Handler), catches)
 import Control.Monad.Reader
 import Control.Monad.Trans.Resource
 import Control.Retry
@@ -39,9 +38,7 @@ import Network.AWS.Waiter
 import Network.HTTP.Conduit hiding (Proxy, Request, Response)
 
 retrier ::
-  ( MonadThrow m,
-    MonadCatch m,
-    MonadResource m,
+  ( MonadResource m,
     MonadReader r m,
     HasEnv r,
     AWSRequest a
@@ -77,9 +74,7 @@ retrier x = do
           ]
 
 waiter ::
-  ( MonadThrow m,
-    MonadCatch m,
-    MonadResource m,
+  ( MonadResource m,
     MonadReader r m,
     HasEnv r,
     AWSRequest a
@@ -121,15 +116,13 @@ waiter w@Wait {..} x = do
 
 -- | The 'Service' is configured + unwrapped at this point.
 perform ::
-  ( MonadThrow m,
-    MonadCatch m,
-    MonadResource m,
+  ( MonadResource m,
     AWSRequest a
   ) =>
   Env ->
   Request a ->
   m (Either Error (Response a))
-perform Env {..} x = catches go handlers
+perform Env {..} x = liftResourceT $ catches go handlers
   where
     go = do
       t <- liftIO getCurrentTime

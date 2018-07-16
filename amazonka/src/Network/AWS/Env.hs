@@ -37,7 +37,6 @@ module Network.AWS.Env
   )
 where
 
-import Control.Monad.Catch
 import Control.Monad.IO.Class
 import Control.Monad.Reader
 import Data.Function (on)
@@ -185,7 +184,7 @@ timeout s = local (override (serviceTimeout ?~ s))
 --
 -- /See:/ 'newEnvWith'.
 newEnv ::
-  (Applicative m, MonadIO m, MonadCatch m) =>
+  (Applicative m, MonadIO m) =>
   -- | Credential discovery mechanism.
   Credentials ->
   m Env
@@ -201,7 +200,7 @@ newEnv c =
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 newEnvWith ::
-  (Applicative m, MonadIO m, MonadCatch m) =>
+  (Applicative m, MonadIO m) =>
   -- | Credential discovery mechanism.
   Credentials ->
   -- | Preload the EC2 instance check.

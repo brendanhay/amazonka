@@ -39,7 +39,6 @@ module Network.AWS.Env
     , retryConnectionFailure
     ) where
 
-import Control.Monad.Catch
 import Control.Monad.IO.Class
 import Control.Monad.Reader
 
@@ -188,7 +187,7 @@ timeout s = local (override (serviceTimeout ?~ s))
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 --
 -- /See:/ 'newEnvWith'.
-newEnv :: (Applicative m, MonadIO m, MonadCatch m)
+newEnv :: (Applicative m, MonadIO m)
        => Credentials -- ^ Credential discovery mechanism.
        -> m Env
 newEnv c =
@@ -202,7 +201,7 @@ newEnv c =
 -- the check to be skipped and the host treated as an EC2 instance.
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
-newEnvWith :: (Applicative m, MonadIO m, MonadCatch m)
+newEnvWith :: (Applicative m, MonadIO m)
            => Credentials -- ^ Credential discovery mechanism.
            -> Maybe Bool  -- ^ Preload the EC2 instance check.
            -> Manager

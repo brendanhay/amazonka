@@ -154,7 +154,6 @@ module Network.AWS
     , RsBody
     ) where
 
-import Control.Monad.Catch          (MonadCatch)
 import Control.Monad.IO.Class       (MonadIO)
 import Control.Monad.Trans.AWS      (AWST)
 import Control.Monad.Trans.Class    (lift)
@@ -195,7 +194,6 @@ class ( Functor     m
       , Applicative m
       , Monad       m
       , MonadIO     m
-      , MonadCatch  m
       ) => MonadAWS m where
     -- | Lift a computation to the 'AWS' monad.
     liftAWS :: AWS a -> m a

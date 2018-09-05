@@ -72,6 +72,9 @@ class FromText a where
 instance FromText Text where
     parser = A.takeText
 
+instance FromText String where
+    parser = Text.pack <$> A.takeText
+
 instance FromText ByteString where
     parser = Text.encodeUtf8 <$> A.takeText
 
@@ -82,6 +85,9 @@ instance FromText Char where
     parser = A.anyChar <* A.endOfInput
 
 instance FromText Int where
+    parser = A.signed A.decimal <* A.endOfInput
+
+instance FromText Int64 where
     parser = A.signed A.decimal <* A.endOfInput
 
 instance FromText Integer where

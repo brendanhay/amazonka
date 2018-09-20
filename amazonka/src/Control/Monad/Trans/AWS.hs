@@ -1,5 +1,6 @@
 {-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE ConstraintKinds            #-}
+{-# LANGUAGE CPP                        #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
@@ -215,6 +216,15 @@ instance MonadMask m => MonadMask (AWST' r m) where
 
     uninterruptibleMask a = AWST' $ uninterruptibleMask $ \u ->
         unAWST $ a (AWST' . u . unAWST)
+
+#if MIN_VERSION_exceptions(0,10,0)
+    generalBracket acquire rel action = AWST' $
+        generalBracket
+            (unAWST acquire)
+            (\a ex -> unAWST $ rel a ex)
+            (\a -> unAWST $ action a)
+#endif
+
 
 instance MonadBase b m => MonadBase b (AWST' r m) where
     liftBase = liftBaseDefault

@@ -40,7 +40,6 @@ import Control.Monad.Trans.Resource
 
 import Data.Aeson
 import Data.Conduit
-import Data.Conduit.List (sinkNull)
 import Data.Monoid
 import Data.Proxy
 import Data.Text    (Text)
@@ -51,6 +50,7 @@ import Network.AWS.Data.Log
 import Network.AWS.Data.XML
 import Network.AWS.Types
 import Network.HTTP.Conduit        hiding (Proxy, Request, Response)
+import Network.HTTP.Client.Conduit (responseClose)
 import Network.HTTP.Types
 
 import Text.XML (Node)
@@ -65,8 +65,8 @@ receiveNull :: (MonadResource m, MonadThrow m)
             -> Proxy a
             -> ClientResponse
             -> m (Response a)
-receiveNull rs _ = stream $ \_ _ x ->
-    liftResourceT (x `connect` sinkNull) *> pure (Right rs)
+receiveNull rs _ = stream $ \r _ _ _ ->
+    responseClose r *> pure (Right rs)
 
 receiveEmpty :: (MonadResource m, MonadThrow m)
              => (Int -> ResponseHeaders -> () -> Either String (Rs a))
@@ -75,8 +75,8 @@ receiveEmpty :: (MonadResource m, MonadThrow m)
              -> Proxy a
              -> ClientResponse
              -> m (Response a)
-receiveEmpty f _ = stream $ \s h x ->
-    liftResourceT (x `connect` sinkNull) *> pure (f s h ())
+receiveEmpty f _ = stream $ \r s h _ ->
+    responseClose r *> pure (f s h ())
 
 receiveXMLWrapper :: (MonadResource m, MonadThrow m)
                   => Text
@@ -122,7 +122,7 @@ receiveBody :: (MonadResource m, MonadThrow m)
             -> Proxy a
             -> ClientResponse
             -> m (Response a)
-receiveBody f _ = stream $ \s h x -> pure (f s h (RsBody x))
+receiveBody f _ = stream $ \_ s h x -> pure (f s h (RsBody x))
 
 -- | Deserialise an entire response body, such as an XML or JSON payload.
 deserialise :: (MonadResource m, MonadThrow m)
@@ -149,7 +149,11 @@ deserialise g f l Service{..} _ rs = do
 
 -- | Stream a raw response body, such as an S3 object payload.
 stream :: (MonadResource m, MonadThrow m)
-       => (Int -> ResponseHeaders -> ResponseBody -> m (Either String (Rs a)))
+       => (ClientResponse ->
+           Int ->
+           ResponseHeaders ->
+           ResponseBody ->
+           m (Either String (Rs a)))
        -> Service
        -> Proxy a
        -> ClientResponse
@@ -161,7 +165,7 @@ stream f Service{..} _ rs = do
     if not (_svcCheck s)
         then sinkLBS x >>= throwM . _svcError s h
         else do
-            e <- f (fromEnum s) h x
+            e <- f rs (fromEnum s) h x
             either (throwM . SerializeError . SerializeError' _svcAbbrev s Nothing)
                    (pure . (s,))
                    e

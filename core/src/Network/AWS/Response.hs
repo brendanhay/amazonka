@@ -12,7 +12,26 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Response where
+-- Functions contained in this module fully consume the body and thus close
+-- the connection. This is needed to avoid hitting this issue:
+-- <https://github.com/brendanhay/amazonka/issues/490>.
+--
+-- The only exception is 'receiveBody', which passes a streaming response
+-- body to a callback and thus is not allowed to close the connection. Users
+-- of streaming functions are advised to be careful and consume the response
+-- body manually if they want the connection to be closed promptly.
+--
+-- Note that using 'runResourceT' will always close the connection.
+--
+module Network.AWS.Response
+    ( receiveNull
+    , receiveEmpty
+    , receiveXMLWrapper
+    , receiveXML
+    , receiveJSON
+    , receiveBytes
+    , receiveBody
+    ) where
 
 import Control.Applicative          (pure)
 import Control.Monad.Catch
@@ -21,6 +40,7 @@ import Control.Monad.Trans.Resource
 
 import Data.Aeson
 import Data.Conduit
+import Data.Conduit.List (sinkNull)
 import Data.Monoid
 import Data.Proxy
 import Data.Text    (Text)
@@ -46,7 +66,7 @@ receiveNull :: (MonadResource m, MonadThrow m)
             -> ClientResponse
             -> m (Response a)
 receiveNull rs _ = stream $ \_ _ x ->
-    liftResourceT (x `connect` pure (Right rs))
+    liftResourceT (x `connect` sinkNull) *> pure (Right rs)
 
 receiveEmpty :: (MonadResource m, MonadThrow m)
              => (Int -> ResponseHeaders -> () -> Either String (Rs a))
@@ -56,7 +76,7 @@ receiveEmpty :: (MonadResource m, MonadThrow m)
              -> ClientResponse
              -> m (Response a)
 receiveEmpty f _ = stream $ \s h x ->
-    liftResourceT (x `connect` pure (f s h ()))
+    liftResourceT (x `connect` sinkNull) *> pure (f s h ())
 
 receiveXMLWrapper :: (MonadResource m, MonadThrow m)
                   => Text

@@ -37,7 +37,7 @@ tests = testGroup "time"
                 "Fri, 07 Nov 2014 04:42:13 GMT" (time :: RFC822)
 
             , testToText "iso8601"
-                "2014-11-07T04:42:13Z" (time :: ISO8601)
+                "2014-11-07T04:42:13.000000Z" (time :: ISO8601)
 
             , testToText "aws"
                 "20141107T044213Z" (time :: AWSTime)
@@ -50,7 +50,7 @@ tests = testGroup "time"
                 "x=Fri%2C%2007%20Nov%202014%2004%3A42%3A13%20GMT" (time :: RFC822)
 
             , testToQuery "iso8601"
-                "x=2014-11-07T04%3A42%3A13Z" (time :: ISO8601)
+                "x=2014-11-07T04%3A42%3A13.000000Z" (time :: ISO8601)
 
             , testToQuery "aws"
                 "x=20141107T044213Z" (time :: AWSTime)
@@ -74,7 +74,7 @@ tests = testGroup "time"
                 "Fri, 07 Nov 2014 04:42:13 GMT" (time :: RFC822)
 
             , testToXML "iso8601"
-                "2014-11-07T04:42:13Z" (time :: ISO8601)
+                "2014-11-07T04:42:13.000000Z" (time :: ISO8601)
 
             , testToXML "aws"
                 "20141107T044213Z" (time :: AWSTime)
@@ -109,7 +109,7 @@ tests = testGroup "time"
                 (str "Fri, 07 Nov 2014 04:42:13 GMT") (time :: RFC822)
 
             , testToJSON "iso8601"
-                (str "2014-11-07T04:42:13Z") (time :: ISO8601)
+                (str "2014-11-07T04:42:13.000000Z") (time :: ISO8601)
 
             , testToJSON "aws"
                 (str "20141107T044213Z") (time :: AWSTime)

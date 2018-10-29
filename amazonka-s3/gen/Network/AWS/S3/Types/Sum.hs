@@ -712,20 +712,23 @@ instance ToHeader     ObjectStorageClass
 instance FromXML ObjectStorageClass where
     parseXML = parseXMLText "ObjectStorageClass"
 
-data ObjectVersionStorageClass =
-  OVSCStandard
+data ObjectVersionStorageClass
+  = OVSCStandard
+  | OVSCStandardIA
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ObjectVersionStorageClass where
     parser = takeLowerText >>= \case
         "standard" -> pure OVSCStandard
+        "standard_ia" -> pure OVSCStandardIA
         e -> fromTextError $ "Failure parsing ObjectVersionStorageClass from value: '" <> e
            <> "'. Accepted values: standard"
 
 instance ToText ObjectVersionStorageClass where
     toText = \case
-        OVSCStandard -> "STANDARD"
+        OVSCStandard   -> "STANDARD"
+        OVSCStandardIA -> "STANDARD_IA"
 
 instance Hashable     ObjectVersionStorageClass
 instance NFData       ObjectVersionStorageClass

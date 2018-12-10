@@ -8,3 +8,6 @@ upload:
 
 upload-docs:
 	PACKAGE=$(NAME) ../script/hackage-documentation
+
+nix:
+	cabal2nix . > default.nix

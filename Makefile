@@ -29,3 +29,20 @@ core:
 
 $(SERVICES):
 	stack build --fast $@
+
+# Nix
+define clean-nix
+	rm -f $(strip $1)/default.nix;
+endef
+
+.PHONY: nix-clean
+nix-clean:
+	$(foreach l,$(LIBRARIES),$(call clean-nix, $l))
+
+define mk-nix
+  cd $(strip $1); make nix; cd ..;
+endef
+
+.PHONY: nix
+nix:
+	$(foreach l,$(LIBRARIES),$(call mk-nix, $l))

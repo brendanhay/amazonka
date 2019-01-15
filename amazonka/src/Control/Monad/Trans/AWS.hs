@@ -163,6 +163,7 @@ import Control.Monad.Catch
 import Control.Monad.Error.Class    (MonadError (..))
 import Control.Monad.IO.Unlift
 import Control.Monad.Morph
+import Control.Monad.Primitive
 import Control.Monad.Reader
 import Control.Monad.State.Class
 import Control.Monad.Trans.Control
@@ -275,6 +276,10 @@ instance MonadState s m => MonadState s (AWST' r m) where
 
 instance MFunctor (AWST' r) where
     hoist nat = AWST' . hoist nat . unAWST
+
+instance PrimMonad m => PrimMonad (AWST' r m) where
+    type PrimState (AWST' r m) = PrimState m
+    primitive f = AWST' (primitive f)
 
 -- | Run an 'AWST' action with the specified environment.
 runAWST :: HasEnv r => r -> AWST' r m a -> m a

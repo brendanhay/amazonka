@@ -273,7 +273,7 @@ instance MFunctor (AWST' r) where
 
 instance PrimMonad m => PrimMonad (AWST' r m) where
     type PrimState (AWST' r m) = PrimState m
-    primitive f = AWST' (primitive f)
+    primitive = AWST' . primitive
 
 -- | Run an 'AWST' action with the specified environment.
 runAWST :: HasEnv r => r -> AWST' r m a -> m a

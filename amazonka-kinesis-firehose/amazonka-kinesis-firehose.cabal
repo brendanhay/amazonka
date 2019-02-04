@@ -1,5 +1,5 @@
 name:                  amazonka-kinesis-firehose
-version:               1.6.0
+version:               1.6.1
 synopsis:              Amazon Kinesis Firehose SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -63,7 +63,7 @@ library
         , Network.AWS.Firehose.Types.Sum
 
     build-depends:
-          amazonka-core == 1.6.0.*
+          amazonka-core == 1.6.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-kinesis-firehose-test
@@ -83,8 +83,8 @@ test-suite amazonka-kinesis-firehose-test
         , Test.AWS.Firehose.Internal
 
     build-depends:
-          amazonka-core == 1.6.0.*
-        , amazonka-test == 1.6.0.*
+          amazonka-core == 1.6.1.*
+        , amazonka-test == 1.6.1.*
         , amazonka-kinesis-firehose
         , base
         , bytestring

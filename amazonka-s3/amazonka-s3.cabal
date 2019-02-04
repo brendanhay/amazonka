@@ -1,5 +1,5 @@
 name:                  amazonka-s3
-version:               1.6.0
+version:               1.6.1
 synopsis:              Amazon Simple Storage Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -128,7 +128,7 @@ library
         , Network.AWS.S3.Types.Sum
 
     build-depends:
-          amazonka-core == 1.6.0.*
+          amazonka-core == 1.6.1.*
         , base          >= 4.7     && < 5
         , lens >= 4.4
         , text >= 1.1
@@ -150,8 +150,8 @@ test-suite amazonka-s3-test
         , Test.AWS.S3.Internal
 
     build-depends:
-          amazonka-core == 1.6.0.*
-        , amazonka-test == 1.6.0.*
+          amazonka-core == 1.6.1.*
+        , amazonka-test == 1.6.1.*
         , amazonka-s3
         , base
         , bytestring

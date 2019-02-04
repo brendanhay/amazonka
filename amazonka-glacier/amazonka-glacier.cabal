@@ -1,5 +1,5 @@
 name:                  amazonka-glacier
-version:               1.6.0
+version:               1.6.1
 synopsis:              Amazon Glacier SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -86,7 +86,7 @@ library
         , Network.AWS.Glacier.Types.Sum
 
     build-depends:
-          amazonka-core == 1.6.0.*
+          amazonka-core == 1.6.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-glacier-test
@@ -106,8 +106,8 @@ test-suite amazonka-glacier-test
         , Test.AWS.Glacier.Internal
 
     build-depends:
-          amazonka-core == 1.6.0.*
-        , amazonka-test == 1.6.0.*
+          amazonka-core == 1.6.1.*
+        , amazonka-test == 1.6.1.*
         , amazonka-glacier
         , base
         , bytestring

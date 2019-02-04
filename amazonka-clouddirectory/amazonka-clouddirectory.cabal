@@ -1,5 +1,5 @@
 name:                  amazonka-clouddirectory
-version:               1.6.0
+version:               1.6.1
 synopsis:              Amazon CloudDirectory SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -116,7 +116,7 @@ library
         , Network.AWS.CloudDirectory.Types.Sum
 
     build-depends:
-          amazonka-core == 1.6.0.*
+          amazonka-core == 1.6.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-clouddirectory-test
@@ -136,8 +136,8 @@ test-suite amazonka-clouddirectory-test
         , Test.AWS.CloudDirectory.Internal
 
     build-depends:
-          amazonka-core == 1.6.0.*
-        , amazonka-test == 1.6.0.*
+          amazonka-core == 1.6.1.*
+        , amazonka-test == 1.6.1.*
         , amazonka-clouddirectory
         , base
         , bytestring

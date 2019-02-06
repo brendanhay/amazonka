@@ -1,5 +1,5 @@
 name:                  amazonka-guardduty
-version:               1.6.0
+version:               1.6.1
 synopsis:              Amazon GuardDuty SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -95,7 +95,7 @@ library
         , Network.AWS.GuardDuty.Types.Sum
 
     build-depends:
-          amazonka-core == 1.6.0.*
+          amazonka-core == 1.6.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-guardduty-test
@@ -115,8 +115,8 @@ test-suite amazonka-guardduty-test
         , Test.AWS.GuardDuty.Internal
 
     build-depends:
-          amazonka-core == 1.6.0.*
-        , amazonka-test == 1.6.0.*
+          amazonka-core == 1.6.1.*
+        , amazonka-test == 1.6.1.*
         , amazonka-guardduty
         , base
         , bytestring

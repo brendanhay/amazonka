@@ -1,5 +1,5 @@
 name:                  amazonka-iot-jobs-dataplane
-version:               1.6.0
+version:               1.6.1
 synopsis:              Amazon IoT Jobs Data Plane SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -57,7 +57,7 @@ library
         , Network.AWS.IoTJobsData.Types.Sum
 
     build-depends:
-          amazonka-core == 1.6.0.*
+          amazonka-core == 1.6.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-iot-jobs-dataplane-test
@@ -77,8 +77,8 @@ test-suite amazonka-iot-jobs-dataplane-test
         , Test.AWS.IoTJobsData.Internal
 
     build-depends:
-          amazonka-core == 1.6.0.*
-        , amazonka-test == 1.6.0.*
+          amazonka-core == 1.6.1.*
+        , amazonka-test == 1.6.1.*
         , amazonka-iot-jobs-dataplane
         , base
         , bytestring

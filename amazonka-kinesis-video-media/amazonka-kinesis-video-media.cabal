@@ -1,5 +1,5 @@
 name:                  amazonka-kinesis-video-media
-version:               1.6.0
+version:               1.6.1
 synopsis:              Amazon Kinesis Video Streams Media SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -54,7 +54,7 @@ library
         , Network.AWS.KinesisVideoMedia.Types.Sum
 
     build-depends:
-          amazonka-core == 1.6.0.*
+          amazonka-core == 1.6.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-kinesis-video-media-test
@@ -74,8 +74,8 @@ test-suite amazonka-kinesis-video-media-test
         , Test.AWS.KinesisVideoMedia.Internal
 
     build-depends:
-          amazonka-core == 1.6.0.*
-        , amazonka-test == 1.6.0.*
+          amazonka-core == 1.6.1.*
+        , amazonka-test == 1.6.1.*
         , amazonka-kinesis-video-media
         , base
         , bytestring

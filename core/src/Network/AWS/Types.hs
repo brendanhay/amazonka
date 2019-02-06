@@ -762,6 +762,7 @@ newtype Seconds = Seconds Int
         , ToQuery
         , ToByteString
         , ToText
+        , FromText
         )
 
 instance Hashable Seconds

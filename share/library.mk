@@ -1,14 +1,10 @@
-SHELL   := /usr/bin/env bash
-NAME    ?= $(notdir $(CURDIR:a/%=%))
-VERSION ?= $(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(NAME).cabal)
+SHELL := /usr/bin/env bash
+NAME  ?= $(notdir $(CURDIR:a/%=%))
 
 default:
 
-sdist:
-	cabal sdist
-
 upload:
-	cabal upload dist/$(NAME)-$(VERSION).tar.gz
+	stack upload .
 
 upload-docs:
 	PACKAGE=$(NAME) ../script/hackage-documentation

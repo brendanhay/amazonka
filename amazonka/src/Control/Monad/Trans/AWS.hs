@@ -1,5 +1,6 @@
 {-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE ConstraintKinds            #-}
+{-# LANGUAGE CPP                        #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
@@ -160,6 +161,7 @@ import Control.Applicative
 import Control.Monad.Base
 import Control.Monad.Catch
 import Control.Monad.Error.Class    (MonadError (..))
+import Control.Monad.IO.Unlift
 import Control.Monad.Morph
 import Control.Monad.Reader
 import Control.Monad.State.Class
@@ -215,6 +217,15 @@ instance MonadMask m => MonadMask (AWST' r m) where
     uninterruptibleMask a = AWST' $ uninterruptibleMask $ \u ->
         unAWST $ a (AWST' . u . unAWST)
 
+#if MIN_VERSION_exceptions(0,10,0)
+    generalBracket acquire rel action = AWST' $
+        generalBracket
+            (unAWST acquire)
+            (\a ex -> unAWST $ rel a ex)
+            (\a -> unAWST $ action a)
+#endif
+
+
 instance MonadBase b m => MonadBase b (AWST' r m) where
     liftBase = liftBaseDefault
 
@@ -229,6 +240,10 @@ instance MonadBaseControl b m => MonadBaseControl b (AWST' r m) where
 
     liftBaseWith = defaultLiftBaseWith
     restoreM     = defaultRestoreM
+
+instance MonadUnliftIO m => MonadUnliftIO (AWST' r m) where
+    askUnliftIO = AWST' $ (\(UnliftIO f) -> UnliftIO $ f . unAWST)
+        <$> askUnliftIO
 
 instance MonadResource m => MonadResource (AWST' r m) where
     liftResourceT = lift . liftResourceT
@@ -263,6 +278,7 @@ runAWST r (AWST' m) = runReaderT m r
 -- which 'AWST' implicitly fulfils.
 type AWSConstraint r m =
     ( MonadThrow     m
+    , MonadCatch     m
     , MonadResource  m
     , MonadReader  r m
     , HasEnv       r
@@ -286,7 +302,7 @@ paginate :: (AWSConstraint r m, AWSPager a)
 paginate = go
   where
     go !x = do
-        !y <- send x
+        !y <- lift $ send x
         yield y
         maybe (pure ()) go (page x y)
 

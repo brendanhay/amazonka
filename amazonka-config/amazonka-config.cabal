@@ -1,5 +1,5 @@
 name:                  amazonka-config
-version:               1.6.0
+version:               1.6.1
 synopsis:              Amazon Config SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -93,7 +93,7 @@ library
         , Network.AWS.Config.Types.Sum
 
     build-depends:
-          amazonka-core == 1.6.0.*
+          amazonka-core == 1.6.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-config-test
@@ -113,8 +113,8 @@ test-suite amazonka-config-test
         , Test.AWS.Config.Internal
 
     build-depends:
-          amazonka-core == 1.6.0.*
-        , amazonka-test == 1.6.0.*
+          amazonka-core == 1.6.1.*
+        , amazonka-test == 1.6.1.*
         , amazonka-config
         , base
         , bytestring

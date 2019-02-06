@@ -1,5 +1,5 @@
 name:                  amazonka
-version:               1.6.0
+version:               1.6.1
 synopsis:              Comprehensive Amazon Web Services SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -60,7 +60,7 @@ library
         , Network.AWS.Internal.Logger
 
     build-depends:
-          amazonka-core       == 1.6.0.*
+          amazonka-core       == 1.6.1.*
         , base                >= 4.7 && < 5
         , bytestring          >= 0.9
         , conduit             >= 1.1
@@ -81,6 +81,7 @@ library
         , transformers        >= 0.2
         , transformers-base   >= 0.4
         , transformers-compat >= 0.3
+        , unliftio-core       >= 0.1
         , void                >= 0.1
 
 test-suite tests

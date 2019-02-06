@@ -1,5 +1,20 @@
 # Change Log
 
+## [1.6.1](https://github.com/brendanhay/amazonka/tree/1.6.1)
+Released: **03 Feb, 2019**, Compare: [1.6.0](https://github.com/brendanhay/amazonka/compare/1.6.0...1.6.1)
+
+### Fixed
+
+- Correctly catch exceptions in perform. [\#464](https://github.com/brendanhay/amazonka/pull/464)
+
+### Changed
+
+- Add a `MonadUnliftIO` instance for `AWST'`. [\#461](https://github.com/brendanhay/amazonka/pull/461)
+- Add FromText instances for Int64, String and Seconds. [\#489](https://github.com/brendanhay/amazonka/pull/489)
+- Add generalBracket for MonadMask instance on AWST'. [\#492](https://github.com/brendanhay/amazonka/pull/492)
+- Remove fractional seconds from serialization of iso8601 timestamps [\#502](https://github.com/brendanhay/amazonka/pull/502)
+
+
 ## [1.6.0](https://github.com/brendanhay/amazonka/tree/1.6.0)
 Released: **16 May, 2018**, Compare: [1.5.0](https://github.com/brendanhay/amazonka/compare/1.5.0...1.6.0)
 

@@ -1,5 +1,5 @@
 name:                  amazonka-budgets
-version:               1.6.0
+version:               1.6.1
 synopsis:              Amazon Budgets SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -66,7 +66,7 @@ library
         , Network.AWS.Budgets.Types.Sum
 
     build-depends:
-          amazonka-core == 1.6.0.*
+          amazonka-core == 1.6.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-budgets-test
@@ -86,8 +86,8 @@ test-suite amazonka-budgets-test
         , Test.AWS.Budgets.Internal
 
     build-depends:
-          amazonka-core == 1.6.0.*
-        , amazonka-test == 1.6.0.*
+          amazonka-core == 1.6.1.*
+        , amazonka-test == 1.6.1.*
         , amazonka-budgets
         , base
         , bytestring

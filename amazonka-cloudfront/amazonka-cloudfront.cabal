@@ -59,7 +59,6 @@ library
         , Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
         , Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
         , Network.AWS.CloudFront.DeletePublicKey
-        , Network.AWS.CloudFront.DeleteServiceLinkedRole
         , Network.AWS.CloudFront.DeleteStreamingDistribution
         , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig

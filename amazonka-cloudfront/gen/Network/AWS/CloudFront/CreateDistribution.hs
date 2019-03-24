@@ -18,8 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new web distribution. Send a @POST@ request to the @//CloudFront API version/ /distribution@ /@distribution ID@ resource.
+-- Creates a new web distribution. You create a CloudFront distribution to tell CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery. Send a @POST@ request to the @//CloudFront API version/ /distribution@ /@distribution ID@ resource.
 --
+--
+-- /Important:/ When you update a distribution, there are more required fields than when you create a distribution. When you update your distribution by using 'UpdateDistribution' , follow the steps included in the documentation to get the current configuration and then make your updates. This helps to make sure that you include all of the required fields. To view a summary, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html Required Fields for Create Distribution and Update Distribution> in the /Amazon CloudFront Developer Guide/ .
+--
+-- If you are using Adobe Flash Media Server's RTMP protocol, you set up a different kind of CloudFront distribution. For more information, see 'CreateStreamingDistribution' .
 --
 module Network.AWS.CloudFront.CreateDistribution
     (
@@ -91,7 +95,7 @@ instance NFData CreateDistribution where
 instance ToElement CreateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2018-11-05/}DistributionConfig"
               .
               _cdDistributionConfig
 
@@ -99,7 +103,7 @@ instance ToHeaders CreateDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateDistribution where
-        toPath = const "/2017-10-30/distribution"
+        toPath = const "/2018-11-05/distribution"
 
 instance ToQuery CreateDistribution where
         toQuery = const mempty

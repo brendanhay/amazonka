@@ -95,7 +95,7 @@ instance ToHeaders ListFieldLevelEncryptionConfigs
         toHeaders = const mempty
 
 instance ToPath ListFieldLevelEncryptionConfigs where
-        toPath = const "/2017-10-30/field-level-encryption"
+        toPath = const "/2018-11-05/field-level-encryption"
 
 instance ToQuery ListFieldLevelEncryptionConfigs
          where

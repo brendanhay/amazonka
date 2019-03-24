@@ -85,7 +85,7 @@ instance ToHeaders GetPublicKey where
 
 instance ToPath GetPublicKey where
         toPath GetPublicKey'{..}
-          = mconcat ["/2017-10-30/public-key/", toBS _gpkId]
+          = mconcat ["/2018-11-05/public-key/", toBS _gpkId]
 
 instance ToQuery GetPublicKey where
         toQuery = const mempty

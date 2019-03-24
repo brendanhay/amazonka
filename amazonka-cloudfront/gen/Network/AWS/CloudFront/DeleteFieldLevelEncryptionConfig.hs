@@ -95,7 +95,7 @@ instance ToPath DeleteFieldLevelEncryptionConfig
          where
         toPath DeleteFieldLevelEncryptionConfig'{..}
           = mconcat
-              ["/2017-10-30/field-level-encryption/",
+              ["/2018-11-05/field-level-encryption/",
                toBS _dflecId]
 
 instance ToQuery DeleteFieldLevelEncryptionConfig

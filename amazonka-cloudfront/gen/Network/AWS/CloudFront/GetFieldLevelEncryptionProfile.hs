@@ -91,7 +91,7 @@ instance ToHeaders GetFieldLevelEncryptionProfile
 instance ToPath GetFieldLevelEncryptionProfile where
         toPath GetFieldLevelEncryptionProfile'{..}
           = mconcat
-              ["/2017-10-30/field-level-encryption-profile/",
+              ["/2018-11-05/field-level-encryption-profile/",
                toBS _gflepId]
 
 instance ToQuery GetFieldLevelEncryptionProfile where

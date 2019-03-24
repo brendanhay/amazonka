@@ -89,7 +89,7 @@ instance ToHeaders ListPublicKeys where
         toHeaders = const mempty
 
 instance ToPath ListPublicKeys where
-        toPath = const "/2017-10-30/public-key"
+        toPath = const "/2018-11-05/public-key"
 
 instance ToQuery ListPublicKeys where
         toQuery ListPublicKeys'{..}

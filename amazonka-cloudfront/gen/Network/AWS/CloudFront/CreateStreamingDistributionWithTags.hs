@@ -100,7 +100,7 @@ instance ToElement
          where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}StreamingDistributionConfigWithTags"
+              "{http://cloudfront.amazonaws.com/doc/2018-11-05/}StreamingDistributionConfigWithTags"
               .
               _csdwtStreamingDistributionConfigWithTags
 
@@ -111,7 +111,7 @@ instance ToHeaders
 
 instance ToPath CreateStreamingDistributionWithTags
          where
-        toPath = const "/2017-10-30/streaming-distribution"
+        toPath = const "/2018-11-05/streaming-distribution"
 
 instance ToQuery CreateStreamingDistributionWithTags
          where
@@ -134,7 +134,7 @@ data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWi
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csdwtrsETag' - Undocumented member.
+-- * 'csdwtrsETag' - The current version of the distribution created.
 --
 -- * 'csdwtrsLocation' - The fully qualified URI of the new streaming distribution resource just created. For example:@https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8@ .
 --
@@ -153,7 +153,7 @@ createStreamingDistributionWithTagsResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | The current version of the distribution created.
 csdwtrsETag :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe Text)
 csdwtrsETag = lens _csdwtrsETag (\ s a -> s{_csdwtrsETag = a})
 

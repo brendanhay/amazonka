@@ -246,11 +246,11 @@ data CacheBehavior = CacheBehavior'
 --
 -- * 'cbDefaultTTL' - The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as @Cache-Control max-age@ , @Cache-Control s-maxage@ , and @Expires@ to objects. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
 --
--- * 'cbFieldLevelEncryptionId' - Undocumented member.
+-- * 'cbFieldLevelEncryptionId' - The value of @ID@ for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for a cache behavior or for the default cache behavior in your distribution.
 --
 -- * 'cbPathPattern' - The pattern (for example, @images/*.jpg@ ) that specifies which requests to apply the behavior to. When CloudFront receives a viewer request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution. The path pattern for the default cache behavior is @*@ and cannot be changed. If the request for an object does not match the path pattern for any cache behaviors, CloudFront applies the behavior in the default cache behavior. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesPathPattern Path Pattern> in the /Amazon CloudFront Developer Guide/ .
 --
--- * 'cbTargetOriginId' - The value of @ID@ for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+-- * 'cbTargetOriginId' - The value of @ID@ for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior in your distribution.
 --
 -- * 'cbForwardedValues' - A complex type that specifies how CloudFront handles query strings and cookies.
 --
@@ -309,7 +309,7 @@ cbSmoothStreaming = lens _cbSmoothStreaming (\ s a -> s{_cbSmoothStreaming = a})
 cbDefaultTTL :: Lens' CacheBehavior (Maybe Integer)
 cbDefaultTTL = lens _cbDefaultTTL (\ s a -> s{_cbDefaultTTL = a})
 
--- | Undocumented member.
+-- | The value of @ID@ for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for a cache behavior or for the default cache behavior in your distribution.
 cbFieldLevelEncryptionId :: Lens' CacheBehavior (Maybe Text)
 cbFieldLevelEncryptionId = lens _cbFieldLevelEncryptionId (\ s a -> s{_cbFieldLevelEncryptionId = a})
 
@@ -317,7 +317,7 @@ cbFieldLevelEncryptionId = lens _cbFieldLevelEncryptionId (\ s a -> s{_cbFieldLe
 cbPathPattern :: Lens' CacheBehavior Text
 cbPathPattern = lens _cbPathPattern (\ s a -> s{_cbPathPattern = a})
 
--- | The value of @ID@ for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+-- | The value of @ID@ for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior in your distribution.
 cbTargetOriginId :: Lens' CacheBehavior Text
 cbTargetOriginId = lens _cbTargetOriginId (\ s a -> s{_cbTargetOriginId = a})
 
@@ -556,7 +556,7 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfoaicCallerReference' - A unique number that ensures the request can't be replayed. If the @CallerReference@ is new (no matter the content of the @CloudFrontOriginAccessIdentityConfig@ object), a new origin access identity is created. If the @CallerReference@ is a value already sent in a previous identity request, and the content of the @CloudFrontOriginAccessIdentityConfig@ is identical to the original request (ignoring white space), the response includes the same information returned to the original request.  If the @CallerReference@ is a value you already sent in a previous request to create an identity, but the content of the @CloudFrontOriginAccessIdentityConfig@ is different from the original request, CloudFront returns a @CloudFrontOriginAccessIdentityAlreadyExists@ error.
+-- * 'cfoaicCallerReference' - A unique value (for example, a date-time stamp) that ensures that the request can't be replayed. If the value of @CallerReference@ is new (regardless of the content of the @CloudFrontOriginAccessIdentityConfig@ object), a new origin access identity is created. If the @CallerReference@ is a value already sent in a previous identity request, and the content of the @CloudFrontOriginAccessIdentityConfig@ is identical to the original request (ignoring white space), the response includes the same information returned to the original request.  If the @CallerReference@ is a value you already sent in a previous request to create an identity, but the content of the @CloudFrontOriginAccessIdentityConfig@ is different from the original request, CloudFront returns a @CloudFrontOriginAccessIdentityAlreadyExists@ error.
 --
 -- * 'cfoaicComment' - Any comments you want to include about the origin access identity.
 cloudFrontOriginAccessIdentityConfig
@@ -568,7 +568,7 @@ cloudFrontOriginAccessIdentityConfig pCallerReference_ pComment_ =
     {_cfoaicCallerReference = pCallerReference_, _cfoaicComment = pComment_}
 
 
--- | A unique number that ensures the request can't be replayed. If the @CallerReference@ is new (no matter the content of the @CloudFrontOriginAccessIdentityConfig@ object), a new origin access identity is created. If the @CallerReference@ is a value already sent in a previous identity request, and the content of the @CloudFrontOriginAccessIdentityConfig@ is identical to the original request (ignoring white space), the response includes the same information returned to the original request.  If the @CallerReference@ is a value you already sent in a previous request to create an identity, but the content of the @CloudFrontOriginAccessIdentityConfig@ is different from the original request, CloudFront returns a @CloudFrontOriginAccessIdentityAlreadyExists@ error.
+-- | A unique value (for example, a date-time stamp) that ensures that the request can't be replayed. If the value of @CallerReference@ is new (regardless of the content of the @CloudFrontOriginAccessIdentityConfig@ object), a new origin access identity is created. If the @CallerReference@ is a value already sent in a previous identity request, and the content of the @CloudFrontOriginAccessIdentityConfig@ is identical to the original request (ignoring white space), the response includes the same information returned to the original request.  If the @CallerReference@ is a value you already sent in a previous request to create an identity, but the content of the @CloudFrontOriginAccessIdentityConfig@ is different from the original request, CloudFront returns a @CloudFrontOriginAccessIdentityAlreadyExists@ error.
 cfoaicCallerReference :: Lens' CloudFrontOriginAccessIdentityConfig Text
 cfoaicCallerReference = lens _cfoaicCallerReference (\ s a -> s{_cfoaicCallerReference = a})
 
@@ -1202,7 +1202,7 @@ instance ToXML CustomHeaders where
                  toXML (toXMLList "OriginCustomHeader" <$> _chItems),
                "Quantity" @= _chQuantity]
 
--- | A customer origin.
+-- | A customer origin or an Amazon S3 bucket configured as a website endpoint.
 --
 --
 --
@@ -1334,9 +1334,9 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
 --
 -- * 'dcbDefaultTTL' - The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as @Cache-Control max-age@ , @Cache-Control s-maxage@ , and @Expires@ to objects. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
 --
--- * 'dcbFieldLevelEncryptionId' - Undocumented member.
+-- * 'dcbFieldLevelEncryptionId' - The value of @ID@ for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for a cache behavior or for the default cache behavior in your distribution.
 --
--- * 'dcbTargetOriginId' - The value of @ID@ for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+-- * 'dcbTargetOriginId' - The value of @ID@ for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior in your distribution.
 --
 -- * 'dcbForwardedValues' - A complex type that specifies how CloudFront handles query strings and cookies.
 --
@@ -1393,11 +1393,11 @@ dcbSmoothStreaming = lens _dcbSmoothStreaming (\ s a -> s{_dcbSmoothStreaming = 
 dcbDefaultTTL :: Lens' DefaultCacheBehavior (Maybe Integer)
 dcbDefaultTTL = lens _dcbDefaultTTL (\ s a -> s{_dcbDefaultTTL = a})
 
--- | Undocumented member.
+-- | The value of @ID@ for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for a cache behavior or for the default cache behavior in your distribution.
 dcbFieldLevelEncryptionId :: Lens' DefaultCacheBehavior (Maybe Text)
 dcbFieldLevelEncryptionId = lens _dcbFieldLevelEncryptionId (\ s a -> s{_dcbFieldLevelEncryptionId = a})
 
--- | The value of @ID@ for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+-- | The value of @ID@ for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior in your distribution.
 dcbTargetOriginId :: Lens' DefaultCacheBehavior Text
 dcbTargetOriginId = lens _dcbTargetOriginId (\ s a -> s{_dcbTargetOriginId = a})
 
@@ -1566,6 +1566,7 @@ instance NFData Distribution where
 -- /See:/ 'distributionConfig' smart constructor.
 data DistributionConfig = DistributionConfig'
   { _dcHTTPVersion          :: !(Maybe HTTPVersion)
+  , _dcOriginGroups         :: !(Maybe OriginGroups)
   , _dcAliases              :: !(Maybe Aliases)
   , _dcDefaultRootObject    :: !(Maybe Text)
   , _dcPriceClass           :: !(Maybe PriceClass)
@@ -1590,19 +1591,21 @@ data DistributionConfig = DistributionConfig'
 --
 -- * 'dcHTTPVersion' - (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 automatically use an earlier HTTP version. For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support Server Name Identification (SNI). In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for "http/2 optimization."
 --
+-- * 'dcOriginGroups' - A complex type that contains information about origin groups for this distribution.
+--
 -- * 'dcAliases' - A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 --
 -- * 'dcDefaultRootObject' - The object that you want CloudFront to request from your origin (for example, @index.html@ ) when a viewer requests the root URL for your distribution (@http://www.example.com@ ) instead of an object in your distribution (@http://www.example.com/product-description.html@ ). Specifying a default root object avoids exposing the contents of your distribution. Specify only the object name, for example, @index.html@ . Don't add a @/@ before the object name. If you don't want to specify a default root object when you create a distribution, include an empty @DefaultRootObject@ element. To delete the default root object from an existing distribution, update the distribution configuration and include an empty @DefaultRootObject@ element. To replace the default root object, update the distribution configuration and specify the new object. For more information about the default root object, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html Creating a Default Root Object> in the /Amazon CloudFront Developer Guide/ .
 --
--- * 'dcPriceClass' - The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify @PriceClass_All@ , CloudFront responds to requests for your objects from all CloudFront edge locations. If you specify a price class other than @PriceClass_All@ , CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance. For more information about price classes, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html Choosing the Price Class for a CloudFront Distribution> in the /Amazon CloudFront Developer Guide/ . For information about CloudFront pricing, including how price classes map to CloudFront regions, see <https://aws.amazon.com/cloudfront/pricing/ Amazon CloudFront Pricing> .
+-- * 'dcPriceClass' - The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify @PriceClass_All@ , CloudFront responds to requests for your objects from all CloudFront edge locations. If you specify a price class other than @PriceClass_All@ , CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance. For more information about price classes, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html Choosing the Price Class for a CloudFront Distribution> in the /Amazon CloudFront Developer Guide/ . For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see <https://aws.amazon.com/cloudfront/pricing/ Amazon CloudFront Pricing> . For price class information, scroll down to see the table at the bottom of the page.
 --
 -- * 'dcCustomErrorResponses' - A complex type that controls the following:     * Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.     * How long CloudFront caches HTTP status codes in the 4xx and 5xx range. For more information about custom error pages, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html Customizing Error Responses> in the /Amazon CloudFront Developer Guide/ .
 --
 -- * 'dcWebACLId' - A unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. AWS WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about AWS WAF, see the <http://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html AWS WAF Developer Guide> .
 --
--- * 'dcViewerCertificate' - Undocumented member.
+-- * 'dcViewerCertificate' -
 --
--- * 'dcRestrictions' - Undocumented member.
+-- * 'dcRestrictions' -
 --
 -- * 'dcLogging' - A complex type that controls whether access logs are written for the distribution. For more information about logging, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html Access Logs> in the /Amazon CloudFront Developer Guide/ .
 --
@@ -1610,7 +1613,7 @@ data DistributionConfig = DistributionConfig'
 --
 -- * 'dcIsIPV6Enabled' - If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify @true@ . If you specify @false@ , CloudFront responds to IPv6 DNS requests with the DNS response code @NOERROR@ and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the @IpAddress@ parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html Creating a Signed URL Using a Custom Policy> in the /Amazon CloudFront Developer Guide/ . If you're using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:     * You enable IPv6 for the distribution     * You're using alternate domain names in the URLs for your objects For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name> in the /Amazon Route 53 Developer Guide/ . If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
 --
--- * 'dcCallerReference' - A unique value (for example, a date-time stamp) that ensures that the request can't be replayed. If the value of @CallerReference@ is new (regardless of the content of the @DistributionConfig@ object), CloudFront creates a new distribution. If @CallerReference@ is a value you already sent in a previous request to create a distribution, and if the content of the @DistributionConfig@ is identical to the original request (ignoring white space), CloudFront returns the same the response that it returned to the original request. If @CallerReference@ is a value you already sent in a previous request to create a distribution but the content of the @DistributionConfig@ is different from the original request, CloudFront returns a @DistributionAlreadyExists@ error.
+-- * 'dcCallerReference' - A unique value (for example, a date-time stamp) that ensures that the request can't be replayed. If the value of @CallerReference@ is new (regardless of the content of the @DistributionConfig@ object), CloudFront creates a new distribution. If @CallerReference@ is a value that you already sent in a previous request to create a distribution, CloudFront returns a @DistributionAlreadyExists@ error.
 --
 -- * 'dcOrigins' - A complex type that contains information about origins for this distribution.
 --
@@ -1618,7 +1621,7 @@ data DistributionConfig = DistributionConfig'
 --
 -- * 'dcComment' - Any comments you want to include about the distribution. If you don't want to specify a comment, include an empty @Comment@ element. To delete an existing comment, update the distribution configuration and include an empty @Comment@ element. To add or change a comment, update the distribution configuration and specify the new comment.
 --
--- * 'dcEnabled' - From this field, you can enable or disable the selected distribution. If you specify @false@ for @Enabled@ but you specify values for @Bucket@ and @Prefix@ , the values are automatically deleted.
+-- * 'dcEnabled' - From this field, you can enable or disable the selected distribution.
 distributionConfig
     :: Text -- ^ 'dcCallerReference'
     -> Origins -- ^ 'dcOrigins'
@@ -1629,6 +1632,7 @@ distributionConfig
 distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ pEnabled_ =
   DistributionConfig'
     { _dcHTTPVersion = Nothing
+    , _dcOriginGroups = Nothing
     , _dcAliases = Nothing
     , _dcDefaultRootObject = Nothing
     , _dcPriceClass = Nothing
@@ -1651,6 +1655,10 @@ distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ 
 dcHTTPVersion :: Lens' DistributionConfig (Maybe HTTPVersion)
 dcHTTPVersion = lens _dcHTTPVersion (\ s a -> s{_dcHTTPVersion = a})
 
+-- | A complex type that contains information about origin groups for this distribution.
+dcOriginGroups :: Lens' DistributionConfig (Maybe OriginGroups)
+dcOriginGroups = lens _dcOriginGroups (\ s a -> s{_dcOriginGroups = a})
+
 -- | A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 dcAliases :: Lens' DistributionConfig (Maybe Aliases)
 dcAliases = lens _dcAliases (\ s a -> s{_dcAliases = a})
@@ -1659,7 +1667,7 @@ dcAliases = lens _dcAliases (\ s a -> s{_dcAliases = a})
 dcDefaultRootObject :: Lens' DistributionConfig (Maybe Text)
 dcDefaultRootObject = lens _dcDefaultRootObject (\ s a -> s{_dcDefaultRootObject = a})
 
--- | The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify @PriceClass_All@ , CloudFront responds to requests for your objects from all CloudFront edge locations. If you specify a price class other than @PriceClass_All@ , CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance. For more information about price classes, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html Choosing the Price Class for a CloudFront Distribution> in the /Amazon CloudFront Developer Guide/ . For information about CloudFront pricing, including how price classes map to CloudFront regions, see <https://aws.amazon.com/cloudfront/pricing/ Amazon CloudFront Pricing> .
+-- | The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify @PriceClass_All@ , CloudFront responds to requests for your objects from all CloudFront edge locations. If you specify a price class other than @PriceClass_All@ , CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance. For more information about price classes, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html Choosing the Price Class for a CloudFront Distribution> in the /Amazon CloudFront Developer Guide/ . For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see <https://aws.amazon.com/cloudfront/pricing/ Amazon CloudFront Pricing> . For price class information, scroll down to see the table at the bottom of the page.
 dcPriceClass :: Lens' DistributionConfig (Maybe PriceClass)
 dcPriceClass = lens _dcPriceClass (\ s a -> s{_dcPriceClass = a})
 
@@ -1671,11 +1679,11 @@ dcCustomErrorResponses = lens _dcCustomErrorResponses (\ s a -> s{_dcCustomError
 dcWebACLId :: Lens' DistributionConfig (Maybe Text)
 dcWebACLId = lens _dcWebACLId (\ s a -> s{_dcWebACLId = a})
 
--- | Undocumented member.
+-- |
 dcViewerCertificate :: Lens' DistributionConfig (Maybe ViewerCertificate)
 dcViewerCertificate = lens _dcViewerCertificate (\ s a -> s{_dcViewerCertificate = a})
 
--- | Undocumented member.
+-- |
 dcRestrictions :: Lens' DistributionConfig (Maybe Restrictions)
 dcRestrictions = lens _dcRestrictions (\ s a -> s{_dcRestrictions = a})
 
@@ -1691,7 +1699,7 @@ dcCacheBehaviors = lens _dcCacheBehaviors (\ s a -> s{_dcCacheBehaviors = a})
 dcIsIPV6Enabled :: Lens' DistributionConfig (Maybe Bool)
 dcIsIPV6Enabled = lens _dcIsIPV6Enabled (\ s a -> s{_dcIsIPV6Enabled = a})
 
--- | A unique value (for example, a date-time stamp) that ensures that the request can't be replayed. If the value of @CallerReference@ is new (regardless of the content of the @DistributionConfig@ object), CloudFront creates a new distribution. If @CallerReference@ is a value you already sent in a previous request to create a distribution, and if the content of the @DistributionConfig@ is identical to the original request (ignoring white space), CloudFront returns the same the response that it returned to the original request. If @CallerReference@ is a value you already sent in a previous request to create a distribution but the content of the @DistributionConfig@ is different from the original request, CloudFront returns a @DistributionAlreadyExists@ error.
+-- | A unique value (for example, a date-time stamp) that ensures that the request can't be replayed. If the value of @CallerReference@ is new (regardless of the content of the @DistributionConfig@ object), CloudFront creates a new distribution. If @CallerReference@ is a value that you already sent in a previous request to create a distribution, CloudFront returns a @DistributionAlreadyExists@ error.
 dcCallerReference :: Lens' DistributionConfig Text
 dcCallerReference = lens _dcCallerReference (\ s a -> s{_dcCallerReference = a})
 
@@ -1707,15 +1715,16 @@ dcDefaultCacheBehavior = lens _dcDefaultCacheBehavior (\ s a -> s{_dcDefaultCach
 dcComment :: Lens' DistributionConfig Text
 dcComment = lens _dcComment (\ s a -> s{_dcComment = a})
 
--- | From this field, you can enable or disable the selected distribution. If you specify @false@ for @Enabled@ but you specify values for @Bucket@ and @Prefix@ , the values are automatically deleted.
+-- | From this field, you can enable or disable the selected distribution.
 dcEnabled :: Lens' DistributionConfig Bool
 dcEnabled = lens _dcEnabled (\ s a -> s{_dcEnabled = a})
 
 instance FromXML DistributionConfig where
         parseXML x
           = DistributionConfig' <$>
-              (x .@? "HttpVersion") <*> (x .@? "Aliases") <*>
-                (x .@? "DefaultRootObject")
+              (x .@? "HttpVersion") <*> (x .@? "OriginGroups") <*>
+                (x .@? "Aliases")
+                <*> (x .@? "DefaultRootObject")
                 <*> (x .@? "PriceClass")
                 <*> (x .@? "CustomErrorResponses")
                 <*> (x .@? "WebACLId")
@@ -1738,6 +1747,7 @@ instance ToXML DistributionConfig where
         toXML DistributionConfig'{..}
           = mconcat
               ["HttpVersion" @= _dcHTTPVersion,
+               "OriginGroups" @= _dcOriginGroups,
                "Aliases" @= _dcAliases,
                "DefaultRootObject" @= _dcDefaultRootObject,
                "PriceClass" @= _dcPriceClass,
@@ -1890,7 +1900,8 @@ instance NFData DistributionList where
 --
 -- /See:/ 'distributionSummary' smart constructor.
 data DistributionSummary = DistributionSummary'
-  { _dsId                   :: !Text
+  { _dsOriginGroups         :: !(Maybe OriginGroups)
+  , _dsId                   :: !Text
   , _dsARN                  :: !Text
   , _dsStatus               :: !Text
   , _dsLastModifiedTime     :: !ISO8601
@@ -1915,6 +1926,8 @@ data DistributionSummary = DistributionSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dsOriginGroups' - A complex type that contains information about origin groups for this distribution.
+--
 -- * 'dsId' - The identifier for the distribution. For example: @EDFDVBD632BHDS5@ .
 --
 -- * 'dsARN' - The ARN (Amazon Resource Name) for the distribution. For example: @arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5@ , where @123456789012@ is your AWS account ID.
@@ -1937,13 +1950,13 @@ data DistributionSummary = DistributionSummary'
 --
 -- * 'dsComment' - The comment originally specified when this distribution was created.
 --
--- * 'dsPriceClass' - Undocumented member.
+-- * 'dsPriceClass' - A complex type that contains information about price class for this streaming distribution.
 --
 -- * 'dsEnabled' - Whether the distribution is enabled to accept user requests for content.
 --
--- * 'dsViewerCertificate' - Undocumented member.
+-- * 'dsViewerCertificate' -
 --
--- * 'dsRestrictions' - Undocumented member.
+-- * 'dsRestrictions' -
 --
 -- * 'dsWebACLId' - The Web ACL Id (if any) associated with the distribution.
 --
@@ -1972,7 +1985,8 @@ distributionSummary
     -> DistributionSummary
 distributionSummary pId_ pARN_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ pWebACLId_ pHTTPVersion_ pIsIPV6Enabled_ =
   DistributionSummary'
-    { _dsId = pId_
+    { _dsOriginGroups = Nothing
+    , _dsId = pId_
     , _dsARN = pARN_
     , _dsStatus = pStatus_
     , _dsLastModifiedTime = _Time # pLastModifiedTime_
@@ -1992,6 +2006,10 @@ distributionSummary pId_ pARN_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases
     , _dsIsIPV6Enabled = pIsIPV6Enabled_
     }
 
+
+-- | A complex type that contains information about origin groups for this distribution.
+dsOriginGroups :: Lens' DistributionSummary (Maybe OriginGroups)
+dsOriginGroups = lens _dsOriginGroups (\ s a -> s{_dsOriginGroups = a})
 
 -- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@ .
 dsId :: Lens' DistributionSummary Text
@@ -2037,7 +2055,7 @@ dsCustomErrorResponses = lens _dsCustomErrorResponses (\ s a -> s{_dsCustomError
 dsComment :: Lens' DistributionSummary Text
 dsComment = lens _dsComment (\ s a -> s{_dsComment = a})
 
--- | Undocumented member.
+-- | A complex type that contains information about price class for this streaming distribution.
 dsPriceClass :: Lens' DistributionSummary PriceClass
 dsPriceClass = lens _dsPriceClass (\ s a -> s{_dsPriceClass = a})
 
@@ -2045,11 +2063,11 @@ dsPriceClass = lens _dsPriceClass (\ s a -> s{_dsPriceClass = a})
 dsEnabled :: Lens' DistributionSummary Bool
 dsEnabled = lens _dsEnabled (\ s a -> s{_dsEnabled = a})
 
--- | Undocumented member.
+-- |
 dsViewerCertificate :: Lens' DistributionSummary ViewerCertificate
 dsViewerCertificate = lens _dsViewerCertificate (\ s a -> s{_dsViewerCertificate = a})
 
--- | Undocumented member.
+-- |
 dsRestrictions :: Lens' DistributionSummary Restrictions
 dsRestrictions = lens _dsRestrictions (\ s a -> s{_dsRestrictions = a})
 
@@ -2068,8 +2086,10 @@ dsIsIPV6Enabled = lens _dsIsIPV6Enabled (\ s a -> s{_dsIsIPV6Enabled = a})
 instance FromXML DistributionSummary where
         parseXML x
           = DistributionSummary' <$>
-              (x .@ "Id") <*> (x .@ "ARN") <*> (x .@ "Status") <*>
-                (x .@ "LastModifiedTime")
+              (x .@? "OriginGroups") <*> (x .@ "Id") <*>
+                (x .@ "ARN")
+                <*> (x .@ "Status")
+                <*> (x .@ "LastModifiedTime")
                 <*> (x .@ "DomainName")
                 <*> (x .@ "Aliases")
                 <*> (x .@ "Origins")
@@ -2477,7 +2497,7 @@ data FieldLevelEncryptionProfileConfig = FieldLevelEncryptionProfileConfig'
 --
 -- * 'flepcName' - Profile name for the field-level encryption profile.
 --
--- * 'flepcCallerReference' - A unique number that ensures the request can't be replayed.
+-- * 'flepcCallerReference' - A unique number that ensures that the request can't be replayed.
 --
 -- * 'flepcEncryptionEntities' - A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and field patterns for specifying which fields to encrypt with this key.
 fieldLevelEncryptionProfileConfig
@@ -2502,7 +2522,7 @@ flepcComment = lens _flepcComment (\ s a -> s{_flepcComment = a})
 flepcName :: Lens' FieldLevelEncryptionProfileConfig Text
 flepcName = lens _flepcName (\ s a -> s{_flepcName = a})
 
--- | A unique number that ensures the request can't be replayed.
+-- | A unique number that ensures that the request can't be replayed.
 flepcCallerReference :: Lens' FieldLevelEncryptionProfileConfig Text
 flepcCallerReference = lens _flepcCallerReference (\ s a -> s{_flepcCallerReference = a})
 
@@ -3212,7 +3232,7 @@ data InvalidationSummary = InvalidationSummary'
 --
 -- * 'isId' - The unique ID for an invalidation request.
 --
--- * 'isCreateTime' - Undocumented member.
+-- * 'isCreateTime' - The time that an invalidation request was created.
 --
 -- * 'isStatus' - The status of an invalidation request.
 invalidationSummary
@@ -3229,7 +3249,7 @@ invalidationSummary pId_ pCreateTime_ pStatus_ =
 isId :: Lens' InvalidationSummary Text
 isId = lens _isId (\ s a -> s{_isId = a})
 
--- | Undocumented member.
+-- | The time that an invalidation request was created.
 isCreateTime :: Lens' InvalidationSummary UTCTime
 isCreateTime = lens _isCreateTime (\ s a -> s{_isCreateTime = a}) . _Time
 
@@ -3299,7 +3319,8 @@ instance NFData KeyPairIds where
 --
 -- /See:/ 'lambdaFunctionAssociation' smart constructor.
 data LambdaFunctionAssociation = LambdaFunctionAssociation'
-  { _lfaLambdaFunctionARN :: !Text
+  { _lfaIncludeBody       :: !(Maybe Bool)
+  , _lfaLambdaFunctionARN :: !Text
   , _lfaEventType         :: !EventType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -3308,30 +3329,40 @@ data LambdaFunctionAssociation = LambdaFunctionAssociation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'lfaIncludeBody' - A flag that allows a Lambda function to have read access to the body content. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option> in the Amazon CloudFront Developer Guide.
+--
 -- * 'lfaLambdaFunctionARN' - The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
 --
--- * 'lfaEventType' - Specifies the event type that triggers a Lambda function invocation. You can specify the following values:     * @viewer-request@ : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.      * @origin-request@ : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute.     * @origin-response@ : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.     * @viewer-response@ : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
+-- * 'lfaEventType' - Specifies the event type that triggers a Lambda function invocation. You can specify the following values:     * @viewer-request@ : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.      * @origin-request@ : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute.     * @origin-response@ : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.     * @viewer-response@ : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
 lambdaFunctionAssociation
     :: Text -- ^ 'lfaLambdaFunctionARN'
     -> EventType -- ^ 'lfaEventType'
     -> LambdaFunctionAssociation
 lambdaFunctionAssociation pLambdaFunctionARN_ pEventType_ =
   LambdaFunctionAssociation'
-    {_lfaLambdaFunctionARN = pLambdaFunctionARN_, _lfaEventType = pEventType_}
+    { _lfaIncludeBody = Nothing
+    , _lfaLambdaFunctionARN = pLambdaFunctionARN_
+    , _lfaEventType = pEventType_
+    }
 
+
+-- | A flag that allows a Lambda function to have read access to the body content. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option> in the Amazon CloudFront Developer Guide.
+lfaIncludeBody :: Lens' LambdaFunctionAssociation (Maybe Bool)
+lfaIncludeBody = lens _lfaIncludeBody (\ s a -> s{_lfaIncludeBody = a})
 
 -- | The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
 lfaLambdaFunctionARN :: Lens' LambdaFunctionAssociation Text
 lfaLambdaFunctionARN = lens _lfaLambdaFunctionARN (\ s a -> s{_lfaLambdaFunctionARN = a})
 
--- | Specifies the event type that triggers a Lambda function invocation. You can specify the following values:     * @viewer-request@ : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.      * @origin-request@ : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute.     * @origin-response@ : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.     * @viewer-response@ : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
+-- | Specifies the event type that triggers a Lambda function invocation. You can specify the following values:     * @viewer-request@ : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.      * @origin-request@ : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute.     * @origin-response@ : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.     * @viewer-response@ : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
 lfaEventType :: Lens' LambdaFunctionAssociation EventType
 lfaEventType = lens _lfaEventType (\ s a -> s{_lfaEventType = a})
 
 instance FromXML LambdaFunctionAssociation where
         parseXML x
           = LambdaFunctionAssociation' <$>
-              (x .@ "LambdaFunctionARN") <*> (x .@ "EventType")
+              (x .@? "IncludeBody") <*> (x .@ "LambdaFunctionARN")
+                <*> (x .@ "EventType")
 
 instance Hashable LambdaFunctionAssociation where
 
@@ -3340,7 +3371,8 @@ instance NFData LambdaFunctionAssociation where
 instance ToXML LambdaFunctionAssociation where
         toXML LambdaFunctionAssociation'{..}
           = mconcat
-              ["LambdaFunctionARN" @= _lfaLambdaFunctionARN,
+              ["IncludeBody" @= _lfaIncludeBody,
+               "LambdaFunctionARN" @= _lfaLambdaFunctionARN,
                "EventType" @= _lfaEventType]
 
 -- | A complex type that specifies a list of Lambda functions associations for a cache behavior.
@@ -3473,10 +3505,10 @@ instance ToXML LoggingConfig where
                "IncludeCookies" @= _lcIncludeCookies,
                "Bucket" @= _lcBucket, "Prefix" @= _lcPrefix]
 
--- | A complex type that describes the Amazon S3 bucket or the HTTP server (for example, a web server) from which CloudFront gets your files. You must create at least one origin.
+-- | A complex type that describes the Amazon S3 bucket, HTTP server (for example, a web server), Amazon MediaStore, or other server from which CloudFront gets your files. This can also be an origin group, if you've created an origin group. You must specify at least one origin or origin group.
 --
 --
--- For the current limit on the number of origins that you can create for a distribution, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront Amazon CloudFront Limits> in the /AWS General Reference/ .
+-- For the current limit on the number of origins or origin groups that you can specify for a distribution, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront Amazon CloudFront Limits> in the /AWS General Reference/ .
 --
 --
 -- /See:/ 'origin' smart constructor.
@@ -3502,9 +3534,9 @@ data Origin = Origin'
 --
 -- * 'oOriginPath' - An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the @OriginPath@ element, specify the directory name, beginning with a @/@ . CloudFront appends the directory name to the value of @DomainName@ , for example, @example.com/production@ . Do not include a @/@ at the end of the directory name. For example, suppose you've specified the following values for your distribution:     * @DomainName@ : An Amazon S3 bucket named @myawsbucket@ .     * @OriginPath@ : @/production@      * @CNAME@ : @example.com@  When a user enters @example.com/index.html@ in a browser, CloudFront sends a request to Amazon S3 for @myawsbucket/production/index.html@ . When a user enters @example.com/acme/index.html@ in a browser, CloudFront sends a request to Amazon S3 for @myawsbucket/production/acme/index.html@ .
 --
--- * 'oId' - A unique identifier for the origin. The value of @Id@ must be unique within the distribution. When you specify the value of @TargetOriginId@ for the default cache behavior or for another cache behavior, you indicate the origin to which you want the cache behavior to route requests by specifying the value of the @Id@ element for that origin. When a request matches the path pattern for that cache behavior, CloudFront routes the request to the specified origin. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior Cache Behavior Settings> in the /Amazon CloudFront Developer Guide/ .
+-- * 'oId' - A unique identifier for the origin or origin group. The value of @Id@ must be unique within the distribution. When you specify the value of @TargetOriginId@ for the default cache behavior or for another cache behavior, you indicate the origin to which you want the cache behavior to route requests by specifying the value of the @Id@ element for that origin. When a request matches the path pattern for that cache behavior, CloudFront routes the request to the specified origin. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior Cache Behavior Settings> in the /Amazon CloudFront Developer Guide/ .
 --
--- * 'oDomainName' - __Amazon S3 origins__ : The DNS name of the Amazon S3 bucket from which you want CloudFront to get objects for this origin, for example, @myawsbucket.s3.amazonaws.com@ . Constraints for Amazon S3 origins:      * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the @s3-accelerate@ endpoint for @DomainName@ .     * The bucket name must be between 3 and 63 characters long (inclusive).     * The bucket name must contain only lowercase characters, numbers, periods, underscores, and dashes.     * The bucket name must not contain adjacent periods. __Custom Origins__ : The DNS domain name for the HTTP server from which you want CloudFront to get objects for this origin, for example, @www.example.com@ .  Constraints for custom origins:     * @DomainName@ must be a valid DNS name that contains only a-z, A-Z, 0-9, dot (.), hyphen (-), or underscore (_) characters.     * The name cannot exceed 128 characters.
+-- * 'oDomainName' - __Amazon S3 origins__ : The DNS name of the Amazon S3 bucket from which you want CloudFront to get objects for this origin, for example, @myawsbucket.s3.amazonaws.com@ . If you set up your bucket to be configured as a website endpoint, enter the Amazon S3 static website hosting endpoint for the bucket. For more information about specifying this value for different types of origins, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesDomainName Origin Domain Name> in the /Amazon CloudFront Developer Guide/ . Constraints for Amazon S3 origins:      * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the @s3-accelerate@ endpoint for @DomainName@ .     * The bucket name must be between 3 and 63 characters long (inclusive).     * The bucket name must contain only lowercase characters, numbers, periods, underscores, and dashes.     * The bucket name must not contain adjacent periods. __Custom Origins__ : The DNS domain name for the HTTP server from which you want CloudFront to get objects for this origin, for example, @www.example.com@ .  Constraints for custom origins:     * @DomainName@ must be a valid DNS name that contains only a-z, A-Z, 0-9, dot (.), hyphen (-), or underscore (_) characters.     * The name cannot exceed 128 characters.
 origin
     :: Text -- ^ 'oId'
     -> Text -- ^ 'oDomainName'
@@ -3536,11 +3568,11 @@ oS3OriginConfig = lens _oS3OriginConfig (\ s a -> s{_oS3OriginConfig = a})
 oOriginPath :: Lens' Origin (Maybe Text)
 oOriginPath = lens _oOriginPath (\ s a -> s{_oOriginPath = a})
 
--- | A unique identifier for the origin. The value of @Id@ must be unique within the distribution. When you specify the value of @TargetOriginId@ for the default cache behavior or for another cache behavior, you indicate the origin to which you want the cache behavior to route requests by specifying the value of the @Id@ element for that origin. When a request matches the path pattern for that cache behavior, CloudFront routes the request to the specified origin. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior Cache Behavior Settings> in the /Amazon CloudFront Developer Guide/ .
+-- | A unique identifier for the origin or origin group. The value of @Id@ must be unique within the distribution. When you specify the value of @TargetOriginId@ for the default cache behavior or for another cache behavior, you indicate the origin to which you want the cache behavior to route requests by specifying the value of the @Id@ element for that origin. When a request matches the path pattern for that cache behavior, CloudFront routes the request to the specified origin. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior Cache Behavior Settings> in the /Amazon CloudFront Developer Guide/ .
 oId :: Lens' Origin Text
 oId = lens _oId (\ s a -> s{_oId = a})
 
--- | __Amazon S3 origins__ : The DNS name of the Amazon S3 bucket from which you want CloudFront to get objects for this origin, for example, @myawsbucket.s3.amazonaws.com@ . Constraints for Amazon S3 origins:      * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the @s3-accelerate@ endpoint for @DomainName@ .     * The bucket name must be between 3 and 63 characters long (inclusive).     * The bucket name must contain only lowercase characters, numbers, periods, underscores, and dashes.     * The bucket name must not contain adjacent periods. __Custom Origins__ : The DNS domain name for the HTTP server from which you want CloudFront to get objects for this origin, for example, @www.example.com@ .  Constraints for custom origins:     * @DomainName@ must be a valid DNS name that contains only a-z, A-Z, 0-9, dot (.), hyphen (-), or underscore (_) characters.     * The name cannot exceed 128 characters.
+-- | __Amazon S3 origins__ : The DNS name of the Amazon S3 bucket from which you want CloudFront to get objects for this origin, for example, @myawsbucket.s3.amazonaws.com@ . If you set up your bucket to be configured as a website endpoint, enter the Amazon S3 static website hosting endpoint for the bucket. For more information about specifying this value for different types of origins, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesDomainName Origin Domain Name> in the /Amazon CloudFront Developer Guide/ . Constraints for Amazon S3 origins:      * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the @s3-accelerate@ endpoint for @DomainName@ .     * The bucket name must be between 3 and 63 characters long (inclusive).     * The bucket name must contain only lowercase characters, numbers, periods, underscores, and dashes.     * The bucket name must not contain adjacent periods. __Custom Origins__ : The DNS domain name for the HTTP server from which you want CloudFront to get objects for this origin, for example, @www.example.com@ .  Constraints for custom origins:     * @DomainName@ must be a valid DNS name that contains only a-z, A-Z, 0-9, dot (.), hyphen (-), or underscore (_) characters.     * The name cannot exceed 128 characters.
 oDomainName :: Lens' Origin Text
 oDomainName = lens _oDomainName (\ s a -> s{_oDomainName = a})
 
@@ -3617,6 +3649,246 @@ instance ToXML OriginCustomHeader where
               ["HeaderName" @= _ochHeaderName,
                "HeaderValue" @= _ochHeaderValue]
 
+-- | An origin group includes two origins (a primary origin and a second origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specifiy the origin group instead of a single origin, and CloudFront will failover from the primary origin to the second origin under the failover conditions that you've chosen.
+--
+--
+--
+-- /See:/ 'originGroup' smart constructor.
+data OriginGroup = OriginGroup'
+  { _ogId               :: !Text
+  , _ogFailoverCriteria :: !OriginGroupFailoverCriteria
+  , _ogMembers          :: !OriginGroupMembers
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'OriginGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ogId' - The origin group's ID.
+--
+-- * 'ogFailoverCriteria' - A complex type that contains information about the failover criteria for an origin group.
+--
+-- * 'ogMembers' - A complex type that contains information about the origins in an origin group.
+originGroup
+    :: Text -- ^ 'ogId'
+    -> OriginGroupFailoverCriteria -- ^ 'ogFailoverCriteria'
+    -> OriginGroupMembers -- ^ 'ogMembers'
+    -> OriginGroup
+originGroup pId_ pFailoverCriteria_ pMembers_ =
+  OriginGroup'
+    { _ogId = pId_
+    , _ogFailoverCriteria = pFailoverCriteria_
+    , _ogMembers = pMembers_
+    }
+
+
+-- | The origin group's ID.
+ogId :: Lens' OriginGroup Text
+ogId = lens _ogId (\ s a -> s{_ogId = a})
+
+-- | A complex type that contains information about the failover criteria for an origin group.
+ogFailoverCriteria :: Lens' OriginGroup OriginGroupFailoverCriteria
+ogFailoverCriteria = lens _ogFailoverCriteria (\ s a -> s{_ogFailoverCriteria = a})
+
+-- | A complex type that contains information about the origins in an origin group.
+ogMembers :: Lens' OriginGroup OriginGroupMembers
+ogMembers = lens _ogMembers (\ s a -> s{_ogMembers = a})
+
+instance FromXML OriginGroup where
+        parseXML x
+          = OriginGroup' <$>
+              (x .@ "Id") <*> (x .@ "FailoverCriteria") <*>
+                (x .@ "Members")
+
+instance Hashable OriginGroup where
+
+instance NFData OriginGroup where
+
+instance ToXML OriginGroup where
+        toXML OriginGroup'{..}
+          = mconcat
+              ["Id" @= _ogId,
+               "FailoverCriteria" @= _ogFailoverCriteria,
+               "Members" @= _ogMembers]
+
+-- | A complex data type that includes information about the failover criteria for an origin group, including the status codes for which CloudFront will failover from the primary origin to the second origin.
+--
+--
+--
+-- /See:/ 'originGroupFailoverCriteria' smart constructor.
+newtype OriginGroupFailoverCriteria = OriginGroupFailoverCriteria'
+  { _ogfcStatusCodes :: StatusCodes
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'OriginGroupFailoverCriteria' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ogfcStatusCodes' - The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
+originGroupFailoverCriteria
+    :: StatusCodes -- ^ 'ogfcStatusCodes'
+    -> OriginGroupFailoverCriteria
+originGroupFailoverCriteria pStatusCodes_ =
+  OriginGroupFailoverCriteria' {_ogfcStatusCodes = pStatusCodes_}
+
+
+-- | The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
+ogfcStatusCodes :: Lens' OriginGroupFailoverCriteria StatusCodes
+ogfcStatusCodes = lens _ogfcStatusCodes (\ s a -> s{_ogfcStatusCodes = a})
+
+instance FromXML OriginGroupFailoverCriteria where
+        parseXML x
+          = OriginGroupFailoverCriteria' <$>
+              (x .@ "StatusCodes")
+
+instance Hashable OriginGroupFailoverCriteria where
+
+instance NFData OriginGroupFailoverCriteria where
+
+instance ToXML OriginGroupFailoverCriteria where
+        toXML OriginGroupFailoverCriteria'{..}
+          = mconcat ["StatusCodes" @= _ogfcStatusCodes]
+
+-- | An origin in an origin group.
+--
+--
+--
+-- /See:/ 'originGroupMember' smart constructor.
+newtype OriginGroupMember = OriginGroupMember'
+  { _ogmOriginId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'OriginGroupMember' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ogmOriginId' - The ID for an origin in an origin group.
+originGroupMember
+    :: Text -- ^ 'ogmOriginId'
+    -> OriginGroupMember
+originGroupMember pOriginId_ = OriginGroupMember' {_ogmOriginId = pOriginId_}
+
+
+-- | The ID for an origin in an origin group.
+ogmOriginId :: Lens' OriginGroupMember Text
+ogmOriginId = lens _ogmOriginId (\ s a -> s{_ogmOriginId = a})
+
+instance FromXML OriginGroupMember where
+        parseXML x = OriginGroupMember' <$> (x .@ "OriginId")
+
+instance Hashable OriginGroupMember where
+
+instance NFData OriginGroupMember where
+
+instance ToXML OriginGroupMember where
+        toXML OriginGroupMember'{..}
+          = mconcat ["OriginId" @= _ogmOriginId]
+
+-- | A complex data type for the origins included in an origin group.
+--
+--
+--
+-- /See:/ 'originGroupMembers' smart constructor.
+data OriginGroupMembers = OriginGroupMembers'
+  { _ogmQuantity :: !Int
+  , _ogmItems    :: !(List1 OriginGroupMember)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'OriginGroupMembers' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ogmQuantity' - The number of origins in an origin group.
+--
+-- * 'ogmItems' - Items (origins) in an origin group.
+originGroupMembers
+    :: Int -- ^ 'ogmQuantity'
+    -> NonEmpty OriginGroupMember -- ^ 'ogmItems'
+    -> OriginGroupMembers
+originGroupMembers pQuantity_ pItems_ =
+  OriginGroupMembers' {_ogmQuantity = pQuantity_, _ogmItems = _List1 # pItems_}
+
+
+-- | The number of origins in an origin group.
+ogmQuantity :: Lens' OriginGroupMembers Int
+ogmQuantity = lens _ogmQuantity (\ s a -> s{_ogmQuantity = a})
+
+-- | Items (origins) in an origin group.
+ogmItems :: Lens' OriginGroupMembers (NonEmpty OriginGroupMember)
+ogmItems = lens _ogmItems (\ s a -> s{_ogmItems = a}) . _List1
+
+instance FromXML OriginGroupMembers where
+        parseXML x
+          = OriginGroupMembers' <$>
+              (x .@ "Quantity") <*>
+                (x .@? "Items" .!@ mempty >>=
+                   parseXMLList1 "OriginGroupMember")
+
+instance Hashable OriginGroupMembers where
+
+instance NFData OriginGroupMembers where
+
+instance ToXML OriginGroupMembers where
+        toXML OriginGroupMembers'{..}
+          = mconcat
+              ["Quantity" @= _ogmQuantity,
+               "Items" @= toXMLList "OriginGroupMember" _ogmItems]
+
+-- | A complex data type for the origin groups specified for a distribution.
+--
+--
+--
+-- /See:/ 'originGroups' smart constructor.
+data OriginGroups = OriginGroups'
+  { _ogItems    :: !(Maybe [OriginGroup])
+  , _ogQuantity :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'OriginGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ogItems' - The items (origin groups) in a distribution.
+--
+-- * 'ogQuantity' - The number of origin groups.
+originGroups
+    :: Int -- ^ 'ogQuantity'
+    -> OriginGroups
+originGroups pQuantity_ =
+  OriginGroups' {_ogItems = Nothing, _ogQuantity = pQuantity_}
+
+
+-- | The items (origin groups) in a distribution.
+ogItems :: Lens' OriginGroups [OriginGroup]
+ogItems = lens _ogItems (\ s a -> s{_ogItems = a}) . _Default . _Coerce
+
+-- | The number of origin groups.
+ogQuantity :: Lens' OriginGroups Int
+ogQuantity = lens _ogQuantity (\ s a -> s{_ogQuantity = a})
+
+instance FromXML OriginGroups where
+        parseXML x
+          = OriginGroups' <$>
+              (x .@? "Items" .!@ mempty >>=
+                 may (parseXMLList "OriginGroup"))
+                <*> (x .@ "Quantity")
+
+instance Hashable OriginGroups where
+
+instance NFData OriginGroups where
+
+instance ToXML OriginGroups where
+        toXML OriginGroups'{..}
+          = mconcat
+              ["Items" @=
+                 toXML (toXMLList "OriginGroup" <$> _ogItems),
+               "Quantity" @= _ogQuantity]
+
 -- | A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
 --
 --
@@ -3667,14 +3939,14 @@ instance ToXML OriginSSLProtocols where
               ["Quantity" @= _ospQuantity,
                "Items" @= toXMLList "SslProtocol" _ospItems]
 
--- | A complex type that contains information about origins for this distribution.
+-- | A complex type that contains information about origins and origin groups for this distribution.
 --
 --
 --
 -- /See:/ 'origins' smart constructor.
 data Origins = Origins'
-  { _oItems    :: !(Maybe (List1 Origin))
-  , _oQuantity :: !Int
+  { _oQuantity :: !Int
+  , _oItems    :: !(List1 Origin)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3682,29 +3954,30 @@ data Origins = Origins'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oItems' - A complex type that contains origins for this distribution.
+-- * 'oQuantity' - The number of origins or origin groups for this distribution.
 --
--- * 'oQuantity' - The number of origins for this distribution.
+-- * 'oItems' - A complex type that contains origins or origin groups for this distribution.
 origins
     :: Int -- ^ 'oQuantity'
+    -> NonEmpty Origin -- ^ 'oItems'
     -> Origins
-origins pQuantity_ = Origins' {_oItems = Nothing, _oQuantity = pQuantity_}
+origins pQuantity_ pItems_ =
+  Origins' {_oQuantity = pQuantity_, _oItems = _List1 # pItems_}
 
 
--- | A complex type that contains origins for this distribution.
-oItems :: Lens' Origins (Maybe (NonEmpty Origin))
-oItems = lens _oItems (\ s a -> s{_oItems = a}) . mapping _List1
-
--- | The number of origins for this distribution.
+-- | The number of origins or origin groups for this distribution.
 oQuantity :: Lens' Origins Int
 oQuantity = lens _oQuantity (\ s a -> s{_oQuantity = a})
+
+-- | A complex type that contains origins or origin groups for this distribution.
+oItems :: Lens' Origins (NonEmpty Origin)
+oItems = lens _oItems (\ s a -> s{_oItems = a}) . _List1
 
 instance FromXML Origins where
         parseXML x
           = Origins' <$>
-              (x .@? "Items" .!@ mempty >>=
-                 may (parseXMLList1 "Origin"))
-                <*> (x .@ "Quantity")
+              (x .@ "Quantity") <*>
+                (x .@? "Items" .!@ mempty >>= parseXMLList1 "Origin")
 
 instance Hashable Origins where
 
@@ -3713,8 +3986,8 @@ instance NFData Origins where
 instance ToXML Origins where
         toXML Origins'{..}
           = mconcat
-              ["Items" @= toXML (toXMLList "Origin" <$> _oItems),
-               "Quantity" @= _oQuantity]
+              ["Quantity" @= _oQuantity,
+               "Items" @= toXMLList "Origin" _oItems]
 
 -- | A complex type that contains information about the objects that you want to invalidate. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects Specifying the Objects to Invalidate> in the /Amazon CloudFront Developer Guide/ .
 --
@@ -3840,7 +4113,7 @@ data PublicKeyConfig = PublicKeyConfig'
 --
 -- * 'pkcComment' - An optional comment about a public key.
 --
--- * 'pkcCallerReference' - A unique number that ensures the request can't be replayed.
+-- * 'pkcCallerReference' - A unique number that ensures that the request can't be replayed.
 --
 -- * 'pkcName' - The name for a public key you add to CloudFront to use with features like field-level encryption.
 --
@@ -3863,7 +4136,7 @@ publicKeyConfig pCallerReference_ pName_ pEncodedKey_ =
 pkcComment :: Lens' PublicKeyConfig (Maybe Text)
 pkcComment = lens _pkcComment (\ s a -> s{_pkcComment = a})
 
--- | A unique number that ensures the request can't be replayed.
+-- | A unique number that ensures that the request can't be replayed.
 pkcCallerReference :: Lens' PublicKeyConfig Text
 pkcCallerReference = lens _pkcCallerReference (\ s a -> s{_pkcCallerReference = a})
 
@@ -3959,7 +4232,7 @@ instance Hashable PublicKeyList where
 
 instance NFData PublicKeyList where
 
--- | Public key information summary.
+-- | A complex data type for public key information.
 --
 --
 --
@@ -4402,6 +4675,57 @@ instance Hashable Signer where
 
 instance NFData Signer where
 
+-- | A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
+--
+--
+--
+-- /See:/ 'statusCodes' smart constructor.
+data StatusCodes = StatusCodes'
+  { _scQuantity :: !Int
+  , _scItems    :: !(List1 Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'StatusCodes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scQuantity' - The number of status codes.
+--
+-- * 'scItems' - The items (status codes) for an origin group.
+statusCodes
+    :: Int -- ^ 'scQuantity'
+    -> NonEmpty Int -- ^ 'scItems'
+    -> StatusCodes
+statusCodes pQuantity_ pItems_ =
+  StatusCodes' {_scQuantity = pQuantity_, _scItems = _List1 # pItems_}
+
+
+-- | The number of status codes.
+scQuantity :: Lens' StatusCodes Int
+scQuantity = lens _scQuantity (\ s a -> s{_scQuantity = a})
+
+-- | The items (status codes) for an origin group.
+scItems :: Lens' StatusCodes (NonEmpty Int)
+scItems = lens _scItems (\ s a -> s{_scItems = a}) . _List1
+
+instance FromXML StatusCodes where
+        parseXML x
+          = StatusCodes' <$>
+              (x .@ "Quantity") <*>
+                (x .@? "Items" .!@ mempty >>=
+                   parseXMLList1 "StatusCode")
+
+instance Hashable StatusCodes where
+
+instance NFData StatusCodes where
+
+instance ToXML StatusCodes where
+        toXML StatusCodes'{..}
+          = mconcat
+              ["Quantity" @= _scQuantity,
+               "Items" @= toXMLList "StatusCode" _scItems]
+
 -- | A streaming distribution.
 --
 --
@@ -4426,7 +4750,7 @@ data StreamingDistribution = StreamingDistribution'
 --
 -- * 'sdId' - The identifier for the RTMP distribution. For example: @EGTXBD79EXAMPLE@ .
 --
--- * 'sdARN' - Undocumented member.
+-- * 'sdARN' - The ARN (Amazon Resource Name) for the distribution. For example: @arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5@ , where @123456789012@ is your AWS account ID.
 --
 -- * 'sdStatus' - The current status of the RTMP distribution. When the status is @Deployed@ , the distribution's information is propagated to all CloudFront edge locations.
 --
@@ -4463,7 +4787,7 @@ sdLastModifiedTime = lens _sdLastModifiedTime (\ s a -> s{_sdLastModifiedTime = 
 sdId :: Lens' StreamingDistribution Text
 sdId = lens _sdId (\ s a -> s{_sdId = a})
 
--- | Undocumented member.
+-- | The ARN (Amazon Resource Name) for the distribution. For example: @arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5@ , where @123456789012@ is your AWS account ID.
 sdARN :: Lens' StreamingDistribution Text
 sdARN = lens _sdARN (\ s a -> s{_sdARN = a})
 
@@ -4524,7 +4848,7 @@ data StreamingDistributionConfig = StreamingDistributionConfig'
 --
 -- * 'sdcLogging' - A complex type that controls whether access logs are written for the streaming distribution.
 --
--- * 'sdcCallerReference' - A unique number that ensures that the request can't be replayed. If the @CallerReference@ is new (no matter the content of the @StreamingDistributionConfig@ object), a new streaming distribution is created. If the @CallerReference@ is a value that you already sent in a previous request to create a streaming distribution, and the content of the @StreamingDistributionConfig@ is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the @CallerReference@ is a value that you already sent in a previous request to create a streaming distribution but the content of the @StreamingDistributionConfig@ is different from the original request, CloudFront returns a @DistributionAlreadyExists@ error.
+-- * 'sdcCallerReference' - A unique value (for example, a date-time stamp) that ensures that the request can't be replayed. If the value of @CallerReference@ is new (regardless of the content of the @StreamingDistributionConfig@ object), CloudFront creates a new distribution. If @CallerReference@ is a value that you already sent in a previous request to create a distribution, CloudFront returns a @DistributionAlreadyExists@ error.
 --
 -- * 'sdcS3Origin' - A complex type that contains information about the Amazon S3 bucket from which you want CloudFront to get your media files for distribution.
 --
@@ -4565,7 +4889,7 @@ sdcPriceClass = lens _sdcPriceClass (\ s a -> s{_sdcPriceClass = a})
 sdcLogging :: Lens' StreamingDistributionConfig (Maybe StreamingLoggingConfig)
 sdcLogging = lens _sdcLogging (\ s a -> s{_sdcLogging = a})
 
--- | A unique number that ensures that the request can't be replayed. If the @CallerReference@ is new (no matter the content of the @StreamingDistributionConfig@ object), a new streaming distribution is created. If the @CallerReference@ is a value that you already sent in a previous request to create a streaming distribution, and the content of the @StreamingDistributionConfig@ is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the @CallerReference@ is a value that you already sent in a previous request to create a streaming distribution but the content of the @StreamingDistributionConfig@ is different from the original request, CloudFront returns a @DistributionAlreadyExists@ error.
+-- | A unique value (for example, a date-time stamp) that ensures that the request can't be replayed. If the value of @CallerReference@ is new (regardless of the content of the @StreamingDistributionConfig@ object), CloudFront creates a new distribution. If @CallerReference@ is a value that you already sent in a previous request to create a distribution, CloudFront returns a @DistributionAlreadyExists@ error.
 sdcCallerReference :: Lens' StreamingDistributionConfig Text
 sdcCallerReference = lens _sdcCallerReference (\ s a -> s{_sdcCallerReference = a})
 
@@ -4790,7 +5114,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
 --
 -- * 'sdsComment' - The comment originally specified when this distribution was created.
 --
--- * 'sdsPriceClass' - Undocumented member.
+-- * 'sdsPriceClass' -
 --
 -- * 'sdsEnabled' - Whether the distribution is enabled to accept end user requests for content.
 streamingDistributionSummary
@@ -4858,7 +5182,7 @@ sdsTrustedSigners = lens _sdsTrustedSigners (\ s a -> s{_sdsTrustedSigners = a})
 sdsComment :: Lens' StreamingDistributionSummary Text
 sdsComment = lens _sdsComment (\ s a -> s{_sdsComment = a})
 
--- | Undocumented member.
+-- |
 sdsPriceClass :: Lens' StreamingDistributionSummary PriceClass
 sdsPriceClass = lens _sdsPriceClass (\ s a -> s{_sdsPriceClass = a})
 

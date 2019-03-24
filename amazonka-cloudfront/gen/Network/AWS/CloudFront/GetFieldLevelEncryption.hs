@@ -87,7 +87,7 @@ instance ToHeaders GetFieldLevelEncryption where
 instance ToPath GetFieldLevelEncryption where
         toPath GetFieldLevelEncryption'{..}
           = mconcat
-              ["/2017-10-30/field-level-encryption/", toBS _gfleId]
+              ["/2018-11-05/field-level-encryption/", toBS _gfleId]
 
 instance ToQuery GetFieldLevelEncryption where
         toQuery = const mempty

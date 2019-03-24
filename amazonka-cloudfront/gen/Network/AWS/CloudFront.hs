@@ -143,9 +143,6 @@ module Network.AWS.CloudFront
     -- ** FieldLevelEncryptionProfileAlreadyExists
     , _FieldLevelEncryptionProfileAlreadyExists
 
-    -- ** ResourceInUse
-    , _ResourceInUse
-
     -- ** InvalidRequiredProtocol
     , _InvalidRequiredProtocol
 
@@ -202,6 +199,9 @@ module Network.AWS.CloudFront
 
     -- ** InvalidProtocolSettings
     , _InvalidProtocolSettings
+
+    -- ** TooManyOriginGroupsPerDistribution
+    , _TooManyOriginGroupsPerDistribution
 
     -- ** TooManyPublicKeys
     , _TooManyPublicKeys
@@ -334,9 +334,6 @@ module Network.AWS.CloudFront
 
     -- ** UpdateFieldLevelEncryptionProfile
     , module Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile
-
-    -- ** DeleteServiceLinkedRole
-    , module Network.AWS.CloudFront.DeleteServiceLinkedRole
 
     -- ** CreateFieldLevelEncryptionProfile
     , module Network.AWS.CloudFront.CreateFieldLevelEncryptionProfile
@@ -629,6 +626,7 @@ module Network.AWS.CloudFront
     , DistributionConfig
     , distributionConfig
     , dcHTTPVersion
+    , dcOriginGroups
     , dcAliases
     , dcDefaultRootObject
     , dcPriceClass
@@ -664,6 +662,7 @@ module Network.AWS.CloudFront
     -- ** DistributionSummary
     , DistributionSummary
     , distributionSummary
+    , dsOriginGroups
     , dsId
     , dsARN
     , dsStatus
@@ -827,6 +826,7 @@ module Network.AWS.CloudFront
     -- ** LambdaFunctionAssociation
     , LambdaFunctionAssociation
     , lambdaFunctionAssociation
+    , lfaIncludeBody
     , lfaLambdaFunctionARN
     , lfaEventType
 
@@ -860,6 +860,35 @@ module Network.AWS.CloudFront
     , ochHeaderName
     , ochHeaderValue
 
+    -- ** OriginGroup
+    , OriginGroup
+    , originGroup
+    , ogId
+    , ogFailoverCriteria
+    , ogMembers
+
+    -- ** OriginGroupFailoverCriteria
+    , OriginGroupFailoverCriteria
+    , originGroupFailoverCriteria
+    , ogfcStatusCodes
+
+    -- ** OriginGroupMember
+    , OriginGroupMember
+    , originGroupMember
+    , ogmOriginId
+
+    -- ** OriginGroupMembers
+    , OriginGroupMembers
+    , originGroupMembers
+    , ogmQuantity
+    , ogmItems
+
+    -- ** OriginGroups
+    , OriginGroups
+    , originGroups
+    , ogItems
+    , ogQuantity
+
     -- ** OriginSSLProtocols
     , OriginSSLProtocols
     , originSSLProtocols
@@ -869,8 +898,8 @@ module Network.AWS.CloudFront
     -- ** Origins
     , Origins
     , origins
-    , oItems
     , oQuantity
+    , oItems
 
     -- ** Paths
     , Paths
@@ -955,6 +984,12 @@ module Network.AWS.CloudFront
     , signer
     , sAWSAccountNumber
     , sKeyPairIds
+
+    -- ** StatusCodes
+    , StatusCodes
+    , statusCodes
+    , scQuantity
+    , scItems
 
     -- ** StreamingDistribution
     , StreamingDistribution
@@ -1066,7 +1101,6 @@ import Network.AWS.CloudFront.DeleteDistribution
 import Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
 import Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
 import Network.AWS.CloudFront.DeletePublicKey
-import Network.AWS.CloudFront.DeleteServiceLinkedRole
 import Network.AWS.CloudFront.DeleteStreamingDistribution
 import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
 import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig

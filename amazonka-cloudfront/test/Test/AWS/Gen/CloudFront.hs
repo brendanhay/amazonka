@@ -85,9 +85,6 @@ import Test.Tasty
 --         , requestUpdateFieldLevelEncryptionProfile $
 --             updateFieldLevelEncryptionProfile
 --
---         , requestDeleteServiceLinkedRole $
---             deleteServiceLinkedRole
---
 --         , requestCreateFieldLevelEncryptionProfile $
 --             createFieldLevelEncryptionProfile
 --
@@ -225,9 +222,6 @@ import Test.Tasty
 --
 --         , responseUpdateFieldLevelEncryptionProfile $
 --             updateFieldLevelEncryptionProfileResponse
---
---         , responseDeleteServiceLinkedRole $
---             deleteServiceLinkedRoleResponse
 --
 --         , responseCreateFieldLevelEncryptionProfile $
 --             createFieldLevelEncryptionProfileResponse
@@ -406,11 +400,6 @@ requestUpdateFieldLevelEncryptionProfile :: UpdateFieldLevelEncryptionProfile ->
 requestUpdateFieldLevelEncryptionProfile = req
     "UpdateFieldLevelEncryptionProfile"
     "fixture/UpdateFieldLevelEncryptionProfile.yaml"
-
-requestDeleteServiceLinkedRole :: DeleteServiceLinkedRole -> TestTree
-requestDeleteServiceLinkedRole = req
-    "DeleteServiceLinkedRole"
-    "fixture/DeleteServiceLinkedRole.yaml"
 
 requestCreateFieldLevelEncryptionProfile :: CreateFieldLevelEncryptionProfile -> TestTree
 requestCreateFieldLevelEncryptionProfile = req
@@ -676,13 +665,6 @@ responseUpdateFieldLevelEncryptionProfile = res
     "fixture/UpdateFieldLevelEncryptionProfileResponse.proto"
     cloudFront
     (Proxy :: Proxy UpdateFieldLevelEncryptionProfile)
-
-responseDeleteServiceLinkedRole :: DeleteServiceLinkedRoleResponse -> TestTree
-responseDeleteServiceLinkedRole = res
-    "DeleteServiceLinkedRoleResponse"
-    "fixture/DeleteServiceLinkedRoleResponse.proto"
-    cloudFront
-    (Proxy :: Proxy DeleteServiceLinkedRole)
 
 responseCreateFieldLevelEncryptionProfile :: CreateFieldLevelEncryptionProfileResponse -> TestTree
 responseCreateFieldLevelEncryptionProfile = res

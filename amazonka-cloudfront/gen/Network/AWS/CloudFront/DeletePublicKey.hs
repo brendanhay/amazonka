@@ -85,7 +85,7 @@ instance ToHeaders DeletePublicKey where
 
 instance ToPath DeletePublicKey where
         toPath DeletePublicKey'{..}
-          = mconcat ["/2017-10-30/public-key/", toBS _dpkId]
+          = mconcat ["/2018-11-05/public-key/", toBS _dpkId]
 
 instance ToQuery DeletePublicKey where
         toQuery = const mempty

@@ -98,7 +98,7 @@ instance ToHeaders ListFieldLevelEncryptionProfiles
 instance ToPath ListFieldLevelEncryptionProfiles
          where
         toPath
-          = const "/2017-10-30/field-level-encryption-profile"
+          = const "/2018-11-05/field-level-encryption-profile"
 
 instance ToQuery ListFieldLevelEncryptionProfiles
          where

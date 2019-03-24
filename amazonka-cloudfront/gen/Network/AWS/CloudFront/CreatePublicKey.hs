@@ -86,7 +86,7 @@ instance NFData CreatePublicKey where
 instance ToElement CreatePublicKey where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}PublicKeyConfig"
+              "{http://cloudfront.amazonaws.com/doc/2018-11-05/}PublicKeyConfig"
               .
               _cpkPublicKeyConfig
 
@@ -94,7 +94,7 @@ instance ToHeaders CreatePublicKey where
         toHeaders = const mempty
 
 instance ToPath CreatePublicKey where
-        toPath = const "/2017-10-30/public-key"
+        toPath = const "/2018-11-05/public-key"
 
 instance ToQuery CreatePublicKey where
         toQuery = const mempty

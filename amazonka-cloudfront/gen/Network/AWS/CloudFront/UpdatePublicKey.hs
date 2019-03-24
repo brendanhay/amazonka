@@ -105,7 +105,7 @@ instance NFData UpdatePublicKey where
 instance ToElement UpdatePublicKey where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}PublicKeyConfig"
+              "{http://cloudfront.amazonaws.com/doc/2018-11-05/}PublicKeyConfig"
               .
               _upkPublicKeyConfig
 
@@ -116,7 +116,7 @@ instance ToHeaders UpdatePublicKey where
 instance ToPath UpdatePublicKey where
         toPath UpdatePublicKey'{..}
           = mconcat
-              ["/2017-10-30/public-key/", toBS _upkId, "/config"]
+              ["/2018-11-05/public-key/", toBS _upkId, "/config"]
 
 instance ToQuery UpdatePublicKey where
         toQuery = const mempty

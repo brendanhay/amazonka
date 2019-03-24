@@ -18,18 +18,32 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the configuration for a web distribution. Perform the following steps.
+-- Updates the configuration for a web distribution.
 --
 --
--- For information about updating a distribution using the CloudFront console, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html Creating or Updating a Web Distribution Using the CloudFront Console > in the /Amazon CloudFront Developer Guide/ .
+-- /Important:/ When you update a distribution, there are more required fields than when you create a distribution. When you update your distribution by using this API action, follow the steps here to get the current configuration and then make your updates, to make sure that you include all of the required fields. To view a summary, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html Required Fields for Create Distribution and Update Distribution> in the /Amazon CloudFront Developer Guide/ .
+--
+-- The update process includes getting the current distribution configuration, updating the XML document that is returned to make your changes, and then submitting an @UpdateDistribution@ request to make the updates.
+--
+-- For information about updating a distribution using the CloudFront console instead, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html Creating a Distribution> in the /Amazon CloudFront Developer Guide/ .
 --
 -- __To update a web distribution using the CloudFront API__
 --
 --     * Submit a 'GetDistributionConfig' request to get the current configuration and an @Etag@ header for the distribution.
 --
---     * Update the XML document that was returned in the response to your @GetDistributionConfig@ request to include the desired changes. You can't change the value of @CallerReference@ . If you try to change this value, CloudFront returns an @IllegalUpdate@ error.
+--     * Update the XML document that was returned in the response to your @GetDistributionConfig@ request to include your changes.
 --
--- /Important:/ The new configuration replaces the existing configuration; the values that you specify in an @UpdateDistribution@ request are not merged into the existing configuration. When you add, delete, or replace values in an element that allows multiple values (for example, @CNAME@ ), you must specify all of the values that you want to appear in the updated distribution. In addition, you must update the corresponding @Quantity@ element.
+-- /Important:/ When you edit the XML file, be aware of the following:
+--
+--     * You must strip out the ETag parameter that is returned.
+--
+--     * Additional fields are required when you update a distribution. There may be fields included in the XML file for features that you haven't configured for your distribution. This is expected and required to successfully update the distribution.
+--
+--     * You can't change the value of @CallerReference@ . If you try to change this value, CloudFront returns an @IllegalUpdate@ error.
+--
+--     * The new configuration replaces the existing configuration; the values that you specify in an @UpdateDistribution@ request are not merged into your existing configuration. When you add, delete, or replace values in an element that allows multiple values (for example, @CNAME@ ), you must specify all of the values that you want to appear in the updated distribution. In addition, you must update the corresponding @Quantity@ element.
+--
+--
 --
 --     * Submit an @UpdateDistribution@ request to update the configuration for your distribution:
 --
@@ -42,8 +56,6 @@
 --     * Review the response to the @UpdateDistribution@ request to confirm that the configuration was successfully updated.
 --
 --     * Optional: Submit a 'GetDistribution' request to confirm that your changes have propagated. When propagation is complete, the value of @Status@ is @Deployed@ .
---
--- /Important:/ Beginning with the 2012-05-05 version of the CloudFront API, we made substantial changes to the format of the XML document that you include in the request body when you create or update a distribution. With previous versions of the API, we discovered that it was too easy to accidentally delete one or more values for an element that accepts multiple values, for example, CNAMEs and trusted signers. Our changes for the 2012-05-05 release are intended to prevent these accidental deletions and to notify you when there's a mismatch between the number of values you say you're specifying in the @Quantity@ element and the number of values you're actually specifying.
 --
 --
 --
@@ -136,7 +148,7 @@ instance NFData UpdateDistribution where
 instance ToElement UpdateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2018-11-05/}DistributionConfig"
               .
               _udDistributionConfig
 
@@ -147,7 +159,7 @@ instance ToHeaders UpdateDistribution where
 instance ToPath UpdateDistribution where
         toPath UpdateDistribution'{..}
           = mconcat
-              ["/2017-10-30/distribution/", toBS _udId, "/config"]
+              ["/2018-11-05/distribution/", toBS _udId, "/config"]
 
 instance ToQuery UpdateDistribution where
         toQuery = const mempty

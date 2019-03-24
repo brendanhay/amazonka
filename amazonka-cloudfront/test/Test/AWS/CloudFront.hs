@@ -15,9 +15,9 @@ module Test.AWS.CloudFront
     , fixtures
     ) where
 
-import           Network.AWS.CloudFront
-import           Test.AWS.Gen.CloudFront
-import           Test.Tasty
+import Network.AWS.CloudFront
+import Test.AWS.Gen.CloudFront
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

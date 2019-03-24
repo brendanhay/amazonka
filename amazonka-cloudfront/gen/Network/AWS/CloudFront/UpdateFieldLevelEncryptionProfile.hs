@@ -111,7 +111,7 @@ instance ToElement UpdateFieldLevelEncryptionProfile
          where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}FieldLevelEncryptionProfileConfig"
+              "{http://cloudfront.amazonaws.com/doc/2018-11-05/}FieldLevelEncryptionProfileConfig"
               .
               _uflepFieldLevelEncryptionProfileConfig
 
@@ -124,7 +124,7 @@ instance ToPath UpdateFieldLevelEncryptionProfile
          where
         toPath UpdateFieldLevelEncryptionProfile'{..}
           = mconcat
-              ["/2017-10-30/field-level-encryption-profile/",
+              ["/2018-11-05/field-level-encryption-profile/",
                toBS _uflepId, "/config"]
 
 instance ToQuery UpdateFieldLevelEncryptionProfile

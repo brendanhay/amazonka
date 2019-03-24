@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.MediaPackage
 import Test.AWS.MediaPackage.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "MediaPackage"

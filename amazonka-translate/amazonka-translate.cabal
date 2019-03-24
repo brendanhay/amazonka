@@ -45,6 +45,10 @@ library
 
     exposed-modules:
           Network.AWS.Translate
+        , Network.AWS.Translate.DeleteTerminology
+        , Network.AWS.Translate.GetTerminology
+        , Network.AWS.Translate.ImportTerminology
+        , Network.AWS.Translate.ListTerminologies
         , Network.AWS.Translate.TranslateText
         , Network.AWS.Translate.Types
         , Network.AWS.Translate.Waiters

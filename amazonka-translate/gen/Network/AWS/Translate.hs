@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides translation between English and one of six languages, or between one of the six languages and English.
+-- Provides translation between one source language and another of the same set of languages.
 --
 --
 module Network.AWS.Translate
@@ -31,6 +31,9 @@ module Network.AWS.Translate
     -- ** DetectedLanguageLowConfidenceException
     , _DetectedLanguageLowConfidenceException
 
+    -- ** InvalidParameterValueException
+    , _InvalidParameterValueException
+
     -- ** TooManyRequestsException
     , _TooManyRequestsException
 
@@ -40,8 +43,14 @@ module Network.AWS.Translate
     -- ** ServiceUnavailableException
     , _ServiceUnavailableException
 
+    -- ** ResourceNotFoundException
+    , _ResourceNotFoundException
+
     -- ** TextSizeLimitExceededException
     , _TextSizeLimitExceededException
+
+    -- ** LimitExceededException
+    , _LimitExceededException
 
     -- * Waiters
     -- $waiters
@@ -49,12 +58,81 @@ module Network.AWS.Translate
     -- * Operations
     -- $operations
 
+    -- ** ListTerminologies (Paginated)
+    , module Network.AWS.Translate.ListTerminologies
+
+    -- ** GetTerminology
+    , module Network.AWS.Translate.GetTerminology
+
     -- ** TranslateText
     , module Network.AWS.Translate.TranslateText
 
+    -- ** ImportTerminology
+    , module Network.AWS.Translate.ImportTerminology
+
+    -- ** DeleteTerminology
+    , module Network.AWS.Translate.DeleteTerminology
+
     -- * Types
+
+    -- ** EncryptionKeyType
+    , EncryptionKeyType (..)
+
+    -- ** MergeStrategy
+    , MergeStrategy (..)
+
+    -- ** TerminologyDataFormat
+    , TerminologyDataFormat (..)
+
+    -- ** AppliedTerminology
+    , AppliedTerminology
+    , appliedTerminology
+    , atTerms
+    , atName
+
+    -- ** EncryptionKey
+    , EncryptionKey
+    , encryptionKey
+    , ekType
+    , ekId
+
+    -- ** Term
+    , Term
+    , term
+    , tTargetText
+    , tSourceText
+
+    -- ** TerminologyData
+    , TerminologyData
+    , terminologyData
+    , tdFile
+    , tdFormat
+
+    -- ** TerminologyDataLocation
+    , TerminologyDataLocation
+    , terminologyDataLocation
+    , tdlRepositoryType
+    , tdlLocation
+
+    -- ** TerminologyProperties
+    , TerminologyProperties
+    , terminologyProperties
+    , tpSizeBytes
+    , tpLastUpdatedAt
+    , tpARN
+    , tpTargetLanguageCodes
+    , tpCreatedAt
+    , tpName
+    , tpSourceLanguageCode
+    , tpTermCount
+    , tpEncryptionKey
+    , tpDescription
     ) where
 
+import Network.AWS.Translate.DeleteTerminology
+import Network.AWS.Translate.GetTerminology
+import Network.AWS.Translate.ImportTerminology
+import Network.AWS.Translate.ListTerminologies
 import Network.AWS.Translate.TranslateText
 import Network.AWS.Translate.Types
 import Network.AWS.Translate.Waiters

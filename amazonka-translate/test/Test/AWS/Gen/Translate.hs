@@ -28,26 +28,84 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestTranslateText $
+--         [ requestListTerminologies $
+--             listTerminologies
+--
+--         , requestGetTerminology $
+--             getTerminology
+--
+--         , requestTranslateText $
 --             translateText
+--
+--         , requestImportTerminology $
+--             importTerminology
+--
+--         , requestDeleteTerminology $
+--             deleteTerminology
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseTranslateText $
+--         [ responseListTerminologies $
+--             listTerminologiesResponse
+--
+--         , responseGetTerminology $
+--             getTerminologyResponse
+--
+--         , responseTranslateText $
 --             translateTextResponse
+--
+--         , responseImportTerminology $
+--             importTerminologyResponse
+--
+--         , responseDeleteTerminology $
+--             deleteTerminologyResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
+requestListTerminologies :: ListTerminologies -> TestTree
+requestListTerminologies = req
+    "ListTerminologies"
+    "fixture/ListTerminologies.yaml"
+
+requestGetTerminology :: GetTerminology -> TestTree
+requestGetTerminology = req
+    "GetTerminology"
+    "fixture/GetTerminology.yaml"
+
 requestTranslateText :: TranslateText -> TestTree
 requestTranslateText = req
     "TranslateText"
     "fixture/TranslateText.yaml"
 
+requestImportTerminology :: ImportTerminology -> TestTree
+requestImportTerminology = req
+    "ImportTerminology"
+    "fixture/ImportTerminology.yaml"
+
+requestDeleteTerminology :: DeleteTerminology -> TestTree
+requestDeleteTerminology = req
+    "DeleteTerminology"
+    "fixture/DeleteTerminology.yaml"
+
 -- Responses
+
+responseListTerminologies :: ListTerminologiesResponse -> TestTree
+responseListTerminologies = res
+    "ListTerminologiesResponse"
+    "fixture/ListTerminologiesResponse.proto"
+    translate
+    (Proxy :: Proxy ListTerminologies)
+
+responseGetTerminology :: GetTerminologyResponse -> TestTree
+responseGetTerminology = res
+    "GetTerminologyResponse"
+    "fixture/GetTerminologyResponse.proto"
+    translate
+    (Proxy :: Proxy GetTerminology)
 
 responseTranslateText :: TranslateTextResponse -> TestTree
 responseTranslateText = res
@@ -55,3 +113,17 @@ responseTranslateText = res
     "fixture/TranslateTextResponse.proto"
     translate
     (Proxy :: Proxy TranslateText)
+
+responseImportTerminology :: ImportTerminologyResponse -> TestTree
+responseImportTerminology = res
+    "ImportTerminologyResponse"
+    "fixture/ImportTerminologyResponse.proto"
+    translate
+    (Proxy :: Proxy ImportTerminology)
+
+responseDeleteTerminology :: DeleteTerminologyResponse -> TestTree
+responseDeleteTerminology = res
+    "DeleteTerminologyResponse"
+    "fixture/DeleteTerminologyResponse.proto"
+    translate
+    (Proxy :: Proxy DeleteTerminology)

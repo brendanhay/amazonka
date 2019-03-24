@@ -19,10 +19,66 @@ module Network.AWS.Translate.Types
     , _InvalidRequestException
     , _UnsupportedLanguagePairException
     , _DetectedLanguageLowConfidenceException
+    , _InvalidParameterValueException
     , _TooManyRequestsException
     , _InternalServerException
     , _ServiceUnavailableException
+    , _ResourceNotFoundException
     , _TextSizeLimitExceededException
+    , _LimitExceededException
+
+    -- * EncryptionKeyType
+    , EncryptionKeyType (..)
+
+    -- * MergeStrategy
+    , MergeStrategy (..)
+
+    -- * TerminologyDataFormat
+    , TerminologyDataFormat (..)
+
+    -- * AppliedTerminology
+    , AppliedTerminology
+    , appliedTerminology
+    , atTerms
+    , atName
+
+    -- * EncryptionKey
+    , EncryptionKey
+    , encryptionKey
+    , ekType
+    , ekId
+
+    -- * Term
+    , Term
+    , term
+    , tTargetText
+    , tSourceText
+
+    -- * TerminologyData
+    , TerminologyData
+    , terminologyData
+    , tdFile
+    , tdFormat
+
+    -- * TerminologyDataLocation
+    , TerminologyDataLocation
+    , terminologyDataLocation
+    , tdlRepositoryType
+    , tdlLocation
+
+    -- * TerminologyProperties
+    , TerminologyProperties
+    , terminologyProperties
+    , tpSizeBytes
+    , tpLastUpdatedAt
+    , tpARN
+    , tpTargetLanguageCodes
+    , tpCreatedAt
+    , tpName
+    , tpSourceLanguageCode
+    , tpTermCount
+    , tpEncryptionKey
+    , tpDescription
     ) where
 
 import Network.AWS.Lens
@@ -70,7 +126,7 @@ translate =
       | otherwise = Nothing
 
 
--- | The request is invalid.
+-- | The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.
 --
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -78,7 +134,7 @@ _InvalidRequestException =
   _MatchServiceError translate "InvalidRequestException"
 
 
--- | Amazon Translate cannot translate input text in the source language into this target language. For more information, see 'how-to-error-msg' .
+-- | Amazon Translate does not support translation from the language of the source text into the requested target language. For more information, see 'how-to-error-msg' .
 --
 --
 _UnsupportedLanguagePairException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -94,7 +150,15 @@ _DetectedLanguageLowConfidenceException =
   _MatchServiceError translate "DetectedLanguageLowConfidenceException"
 
 
--- | The number of requests exceeds the limit. Resubmit your request later.
+-- | The value of the parameter is invalid. Review the value of the parameter you are using to correct it, and then retry your operation.
+--
+--
+_InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValueException =
+  _MatchServiceError translate "InvalidParameterValueException"
+
+
+-- | You have made too many requests within a short period of time. Wait for a short time and then try your request again.
 --
 --
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -110,7 +174,7 @@ _InternalServerException =
   _MatchServiceError translate "InternalServerException"
 
 
--- | Amazon Translate is unavailable. Retry your request later.
+-- | The Amazon Translate service is temporarily unavailable. Please wait a bit and then retry your request.
 --
 --
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -118,10 +182,25 @@ _ServiceUnavailableException =
   _MatchServiceError translate "ServiceUnavailableException"
 
 
--- | The size of the input text exceeds the length constraint for the @Text@ field. Try again with a shorter text.
+-- | The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request. .
+--
+--
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+  _MatchServiceError translate "ResourceNotFoundException"
+
+
+-- | The size of the text you submitted exceeds the size limit. Reduce the size of the text or use a smaller document and then retry your request.
 --
 --
 _TextSizeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TextSizeLimitExceededException =
   _MatchServiceError translate "TextSizeLimitExceededException"
+
+
+-- | The specified limit has been exceeded. Review your request and retry it with a quantity below the stated limit.
+--
+--
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException = _MatchServiceError translate "LimitExceededException"
 

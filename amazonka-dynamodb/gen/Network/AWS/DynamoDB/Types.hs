@@ -21,16 +21,21 @@ module Network.AWS.DynamoDB.Types
     , _ContinuousBackupsUnavailableException
     , _ProvisionedThroughputExceededException
     , _GlobalTableNotFoundException
+    , _TransactionInProgressException
+    , _TransactionCanceledException
     , _ConditionalCheckFailedException
     , _GlobalTableAlreadyExistsException
     , _ReplicaNotFoundException
     , _TableAlreadyExistsException
+    , _RequestLimitExceeded
     , _ItemCollectionSizeLimitExceededException
     , _InternalServerError
     , _TableNotFoundException
     , _IndexNotFoundException
+    , _TransactionConflictException
     , _BackupInUseException
     , _PointInTimeRecoveryUnavailableException
+    , _IdempotentParameterMismatchException
     , _InvalidRestoreTimeException
     , _ResourceNotFoundException
     , _ReplicaAlreadyExistsException
@@ -42,6 +47,15 @@ module Network.AWS.DynamoDB.Types
 
     -- * BackupStatus
     , BackupStatus (..)
+
+    -- * BackupType
+    , BackupType (..)
+
+    -- * BackupTypeFilter
+    , BackupTypeFilter (..)
+
+    -- * BillingMode
+    , BillingMode (..)
 
     -- * ComparisonOperator
     , ComparisonOperator (..)
@@ -79,8 +93,14 @@ module Network.AWS.DynamoDB.Types
     -- * ReturnValue
     , ReturnValue (..)
 
+    -- * ReturnValuesOnConditionCheckFailure
+    , ReturnValuesOnConditionCheckFailure (..)
+
     -- * SSEStatus
     , SSEStatus (..)
+
+    -- * SSEType
+    , SSEType (..)
 
     -- * ScalarAttributeType
     , ScalarAttributeType (..)
@@ -123,6 +143,52 @@ module Network.AWS.DynamoDB.Types
     , avuValue
     , avuAction
 
+    -- * AutoScalingPolicyDescription
+    , AutoScalingPolicyDescription
+    , autoScalingPolicyDescription
+    , aspdPolicyName
+    , aspdTargetTrackingScalingPolicyConfiguration
+
+    -- * AutoScalingPolicyUpdate
+    , AutoScalingPolicyUpdate
+    , autoScalingPolicyUpdate
+    , aspuPolicyName
+    , aspuTargetTrackingScalingPolicyConfiguration
+
+    -- * AutoScalingSettingsDescription
+    , AutoScalingSettingsDescription
+    , autoScalingSettingsDescription
+    , assdAutoScalingDisabled
+    , assdMinimumUnits
+    , assdMaximumUnits
+    , assdScalingPolicies
+    , assdAutoScalingRoleARN
+
+    -- * AutoScalingSettingsUpdate
+    , AutoScalingSettingsUpdate
+    , autoScalingSettingsUpdate
+    , assuAutoScalingDisabled
+    , assuMinimumUnits
+    , assuScalingPolicyUpdate
+    , assuMaximumUnits
+    , assuAutoScalingRoleARN
+
+    -- * AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    , AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    , autoScalingTargetTrackingScalingPolicyConfigurationDescription
+    , asttspcdScaleInCooldown
+    , asttspcdDisableScaleIn
+    , asttspcdScaleOutCooldown
+    , asttspcdTargetValue
+
+    -- * AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+    , AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+    , autoScalingTargetTrackingScalingPolicyConfigurationUpdate
+    , asttspcuScaleInCooldown
+    , asttspcuDisableScaleIn
+    , asttspcuScaleOutCooldown
+    , asttspcuTargetValue
+
     -- * BackupDescription
     , BackupDescription
     , backupDescription
@@ -133,15 +199,18 @@ module Network.AWS.DynamoDB.Types
     -- * BackupDetails
     , BackupDetails
     , backupDetails
+    , bdBackupExpiryDateTime
     , bdBackupSizeBytes
     , bdBackupARN
     , bdBackupName
     , bdBackupStatus
+    , bdBackupType
     , bdBackupCreationDateTime
 
     -- * BackupSummary
     , BackupSummary
     , backupSummary
+    , bsBackupExpiryDateTime
     , bsTableARN
     , bsBackupName
     , bsBackupStatus
@@ -149,12 +218,21 @@ module Network.AWS.DynamoDB.Types
     , bsBackupARN
     , bsTableId
     , bsBackupCreationDateTime
+    , bsBackupType
     , bsTableName
+
+    -- * BillingModeSummary
+    , BillingModeSummary
+    , billingModeSummary
+    , bmsLastUpdateToPayPerRequestDateTime
+    , bmsBillingMode
 
     -- * Capacity
     , Capacity
     , capacity
-    , cCapacityUnits
+    , capReadCapacityUnits
+    , capCapacityUnits
+    , capWriteCapacityUnits
 
     -- * Condition
     , Condition
@@ -162,14 +240,26 @@ module Network.AWS.DynamoDB.Types
     , cAttributeValueList
     , cComparisonOperator
 
+    -- * ConditionCheck
+    , ConditionCheck
+    , conditionCheck
+    , ccExpressionAttributeNames
+    , ccExpressionAttributeValues
+    , ccReturnValuesOnConditionCheckFailure
+    , ccKey
+    , ccTableName
+    , ccConditionExpression
+
     -- * ConsumedCapacity
     , ConsumedCapacity
     , consumedCapacity
-    , ccGlobalSecondaryIndexes
-    , ccCapacityUnits
-    , ccLocalSecondaryIndexes
-    , ccTable
-    , ccTableName
+    , cReadCapacityUnits
+    , cGlobalSecondaryIndexes
+    , cCapacityUnits
+    , cWriteCapacityUnits
+    , cLocalSecondaryIndexes
+    , cTable
+    , cTableName
 
     -- * ContinuousBackupsDescription
     , ContinuousBackupsDescription
@@ -180,15 +270,25 @@ module Network.AWS.DynamoDB.Types
     -- * CreateGlobalSecondaryIndexAction
     , CreateGlobalSecondaryIndexAction
     , createGlobalSecondaryIndexAction
+    , cgsiaProvisionedThroughput
     , cgsiaIndexName
     , cgsiaKeySchema
     , cgsiaProjection
-    , cgsiaProvisionedThroughput
 
     -- * CreateReplicaAction
     , CreateReplicaAction
     , createReplicaAction
     , craRegionName
+
+    -- * Delete
+    , Delete
+    , delete'
+    , dExpressionAttributeNames
+    , dExpressionAttributeValues
+    , dReturnValuesOnConditionCheckFailure
+    , dConditionExpression
+    , dKey
+    , dTableName
 
     -- * DeleteGlobalSecondaryIndexAction
     , DeleteGlobalSecondaryIndexAction
@@ -205,6 +305,12 @@ module Network.AWS.DynamoDB.Types
     , deleteRequest
     , drKey
 
+    -- * Endpoint
+    , Endpoint
+    , endpoint
+    , eAddress
+    , eCachePeriodInMinutes
+
     -- * ExpectedAttributeValue
     , ExpectedAttributeValue
     , expectedAttributeValue
@@ -213,13 +319,21 @@ module Network.AWS.DynamoDB.Types
     , eavValue
     , eavComparisonOperator
 
+    -- * Get
+    , Get
+    , get'
+    , getProjectionExpression
+    , getExpressionAttributeNames
+    , getKey
+    , getTableName
+
     -- * GlobalSecondaryIndex
     , GlobalSecondaryIndex
     , globalSecondaryIndex
+    , gsiProvisionedThroughput
     , gsiIndexName
     , gsiKeySchema
     , gsiProjection
-    , gsiProvisionedThroughput
 
     -- * GlobalSecondaryIndexDescription
     , GlobalSecondaryIndexDescription
@@ -268,6 +382,7 @@ module Network.AWS.DynamoDB.Types
     , GlobalTableGlobalSecondaryIndexSettingsUpdate
     , globalTableGlobalSecondaryIndexSettingsUpdate
     , gtgsisuProvisionedWriteCapacityUnits
+    , gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate
     , gtgsisuIndexName
 
     -- * ItemCollectionMetrics
@@ -275,6 +390,11 @@ module Network.AWS.DynamoDB.Types
     , itemCollectionMetrics
     , icmItemCollectionKey
     , icmSizeEstimateRangeGB
+
+    -- * ItemResponse
+    , ItemResponse
+    , itemResponse
+    , iItem
 
     -- * KeySchemaElement
     , KeySchemaElement
@@ -348,6 +468,16 @@ module Network.AWS.DynamoDB.Types
     , ptdNumberOfDecreasesToday
     , ptdLastIncreaseDateTime
 
+    -- * Put
+    , Put
+    , put
+    , pExpressionAttributeNames
+    , pExpressionAttributeValues
+    , pReturnValuesOnConditionCheckFailure
+    , pConditionExpression
+    , pItem
+    , pTableName
+
     -- * PutRequest
     , PutRequest
     , putRequest
@@ -369,11 +499,14 @@ module Network.AWS.DynamoDB.Types
     , rgsisdIndexStatus
     , rgsisdProvisionedReadCapacityUnits
     , rgsisdProvisionedWriteCapacityUnits
+    , rgsisdProvisionedWriteCapacityAutoScalingSettings
+    , rgsisdProvisionedReadCapacityAutoScalingSettings
     , rgsisdIndexName
 
     -- * ReplicaGlobalSecondaryIndexSettingsUpdate
     , ReplicaGlobalSecondaryIndexSettingsUpdate
     , replicaGlobalSecondaryIndexSettingsUpdate
+    , rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate
     , rgsisuProvisionedReadCapacityUnits
     , rgsisuIndexName
 
@@ -383,12 +516,16 @@ module Network.AWS.DynamoDB.Types
     , rsdReplicaStatus
     , rsdReplicaProvisionedReadCapacityUnits
     , rsdReplicaProvisionedWriteCapacityUnits
+    , rsdReplicaBillingModeSummary
     , rsdReplicaGlobalSecondaryIndexSettings
+    , rsdReplicaProvisionedWriteCapacityAutoScalingSettings
+    , rsdReplicaProvisionedReadCapacityAutoScalingSettings
     , rsdRegionName
 
     -- * ReplicaSettingsUpdate
     , ReplicaSettingsUpdate
     , replicaSettingsUpdate
+    , rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate
     , rsuReplicaProvisionedReadCapacityUnits
     , rsuReplicaGlobalSecondaryIndexSettingsUpdate
     , rsuRegionName
@@ -411,17 +548,22 @@ module Network.AWS.DynamoDB.Types
     , SSEDescription
     , sSEDescription
     , ssedStatus
+    , ssedSSEType
+    , ssedKMSMasterKeyARN
 
     -- * SSESpecification
     , SSESpecification
     , sSESpecification
     , ssesEnabled
+    , ssesKMSMasterKeyId
+    , ssesSSEType
 
     -- * SourceTableDetails
     , SourceTableDetails
     , sourceTableDetails
     , stdTableSizeBytes
     , stdTableARN
+    , stdBillingMode
     , stdItemCount
     , stdTableName
     , stdTableId
@@ -457,6 +599,7 @@ module Network.AWS.DynamoDB.Types
     , tdKeySchema
     , tdGlobalSecondaryIndexes
     , tdLatestStreamLabel
+    , tdBillingModeSummary
     , tdLocalSecondaryIndexes
     , tdCreationDateTime
     , tdSSEDescription
@@ -482,6 +625,30 @@ module Network.AWS.DynamoDB.Types
     , timeToLiveSpecification
     , ttlsEnabled
     , ttlsAttributeName
+
+    -- * TransactGetItem
+    , TransactGetItem
+    , transactGetItem
+    , tgiGet
+
+    -- * TransactWriteItem
+    , TransactWriteItem
+    , transactWriteItem
+    , twiConditionCheck
+    , twiPut
+    , twiDelete
+    , twiUpdate
+
+    -- * Update
+    , Update
+    , update
+    , uExpressionAttributeNames
+    , uExpressionAttributeValues
+    , uReturnValuesOnConditionCheckFailure
+    , uConditionExpression
+    , uKey
+    , uUpdateExpression
+    , uTableName
 
     -- * UpdateGlobalSecondaryIndexAction
     , UpdateGlobalSecondaryIndexAction
@@ -534,6 +701,8 @@ dynamoDB =
       | has (hasCode "ProvisionedThroughputExceededException" . hasStatus 400) e =
         Just "throughput_exceeded"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "TransactionInProgressException" . hasStatus 400) e =
+        Just "still_processing"
       | has (hasCode "RequestThrottledException" . hasStatus 400) e =
         Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -581,6 +750,50 @@ _GlobalTableNotFoundException =
   _MatchServiceError dynamoDB "GlobalTableNotFoundException"
 
 
+-- | The transaction with the given request token is already in progress.
+--
+--
+_TransactionInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
+_TransactionInProgressException =
+  _MatchServiceError dynamoDB "TransactionInProgressException"
+
+
+-- | The entire transaction request was rejected.
+--
+--
+-- DynamoDB rejects a @TransactWriteItems@ request under the following circumstances:
+--
+--     * A condition in one of the condition expressions is not met.
+--
+--     * A table in the @TransactWriteItems@ request is in a different account or region.
+--
+--     * More than one action in the @TransactWriteItems@ operation targets the same item.
+--
+--     * There is insufficient provisioned capacity for the transaction to be completed.
+--
+--     * An item size becomes too large (larger than 400 KB), or a local secondary index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.
+--
+--     * There is a user error, such as an invalid data format.
+--
+--
+--
+-- DynamoDB rejects a @TransactGetItems@ request under the following circumstances:
+--
+--     * There is an ongoing @TransactGetItems@ operation that conflicts with a concurrent @PutItem@ , @UpdateItem@ , @DeleteItem@ or @TransactWriteItems@ request. In this case the @TransactGetItems@ operation fails with a @TransactionCanceledException@ .
+--
+--     * A table in the @TransactGetItems@ request is in a different account or region.
+--
+--     * There is insufficient provisioned capacity for the transaction to be completed.
+--
+--     * There is a user error, such as an invalid data format.
+--
+--
+--
+_TransactionCanceledException :: AsError a => Getting (First ServiceError) a ServiceError
+_TransactionCanceledException =
+  _MatchServiceError dynamoDB "TransactionCanceledException"
+
+
 -- | A condition specified in the operation could not be evaluated.
 --
 --
@@ -613,6 +826,13 @@ _TableAlreadyExistsException =
   _MatchServiceError dynamoDB "TableAlreadyExistsException"
 
 
+-- | Throughput exceeds the current throughput limit for your account. Please contact AWS Support at <http://docs.aws.amazon.com/https:/aws.amazon.com/support AWS Support> to request a limit increase.
+--
+--
+_RequestLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+_RequestLimitExceeded = _MatchServiceError dynamoDB "RequestLimitExceeded"
+
+
 -- | An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.
 --
 --
@@ -642,7 +862,15 @@ _IndexNotFoundException :: AsError a => Getting (First ServiceError) a ServiceEr
 _IndexNotFoundException = _MatchServiceError dynamoDB "IndexNotFoundException"
 
 
--- | There is another ongoing conflicting backup control plane operation on the table. The backups is either being created, deleted or restored to a table.
+-- | Operation was rejected because there is an ongoing transaction for the item.
+--
+--
+_TransactionConflictException :: AsError a => Getting (First ServiceError) a ServiceError
+_TransactionConflictException =
+  _MatchServiceError dynamoDB "TransactionConflictException"
+
+
+-- | There is another ongoing conflicting backup control plane operation on the table. The backup is either being created, deleted or restored to a table.
 --
 --
 _BackupInUseException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -655,6 +883,14 @@ _BackupInUseException = _MatchServiceError dynamoDB "BackupInUseException"
 _PointInTimeRecoveryUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _PointInTimeRecoveryUnavailableException =
   _MatchServiceError dynamoDB "PointInTimeRecoveryUnavailableException"
+
+
+-- | DynamoDB rejected the request because you retried a request with a different payload but with an idempotent token that was already used.
+--
+--
+_IdempotentParameterMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
+_IdempotentParameterMismatchException =
+  _MatchServiceError dynamoDB "IdempotentParameterMismatchException"
 
 
 -- | An invalid restore time was specified. RestoreDateTime must be between EarliestRestorableDateTime and LatestRestorableDateTime.
@@ -681,7 +917,7 @@ _ReplicaAlreadyExistsException =
   _MatchServiceError dynamoDB "ReplicaAlreadyExistsException"
 
 
--- | Up to 50 @CreateBackup@ operations are allowed per second, per account. There is no limit to the number of daily on-demand backups that can be taken.
+-- | There is no limit to the number of daily on-demand backups that can be taken.
 --
 --
 -- Up to 10 simultaneous table operations are allowed per account. These operations include @CreateTable@ , @UpdateTable@ , @DeleteTable@ ,@UpdateTimeToLive@ , @RestoreTableFromBackup@ , and @RestoreTableToPointInTime@ .

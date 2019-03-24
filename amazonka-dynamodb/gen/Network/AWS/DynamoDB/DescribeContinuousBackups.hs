@@ -119,7 +119,7 @@ data DescribeContinuousBackupsResponse = DescribeContinuousBackupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcbrsContinuousBackupsDescription' - @ContinuousBackupsDescription@ can be one of the following : ENABLED, DISABLED.
+-- * 'dcbrsContinuousBackupsDescription' - Represents the continuous backups and point in time recovery settings on the table.
 --
 -- * 'dcbrsResponseStatus' - -- | The response status code.
 describeContinuousBackupsResponse
@@ -132,7 +132,7 @@ describeContinuousBackupsResponse pResponseStatus_ =
     }
 
 
--- | @ContinuousBackupsDescription@ can be one of the following : ENABLED, DISABLED.
+-- | Represents the continuous backups and point in time recovery settings on the table.
 dcbrsContinuousBackupsDescription :: Lens' DescribeContinuousBackupsResponse (Maybe ContinuousBackupsDescription)
 dcbrsContinuousBackupsDescription = lens _dcbrsContinuousBackupsDescription (\ s a -> s{_dcbrsContinuousBackupsDescription = a})
 

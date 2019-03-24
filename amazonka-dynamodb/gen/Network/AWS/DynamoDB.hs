@@ -42,6 +42,12 @@ module Network.AWS.DynamoDB
     -- ** GlobalTableNotFoundException
     , _GlobalTableNotFoundException
 
+    -- ** TransactionInProgressException
+    , _TransactionInProgressException
+
+    -- ** TransactionCanceledException
+    , _TransactionCanceledException
+
     -- ** ConditionalCheckFailedException
     , _ConditionalCheckFailedException
 
@@ -53,6 +59,9 @@ module Network.AWS.DynamoDB
 
     -- ** TableAlreadyExistsException
     , _TableAlreadyExistsException
+
+    -- ** RequestLimitExceeded
+    , _RequestLimitExceeded
 
     -- ** ItemCollectionSizeLimitExceededException
     , _ItemCollectionSizeLimitExceededException
@@ -66,11 +75,17 @@ module Network.AWS.DynamoDB
     -- ** IndexNotFoundException
     , _IndexNotFoundException
 
+    -- ** TransactionConflictException
+    , _TransactionConflictException
+
     -- ** BackupInUseException
     , _BackupInUseException
 
     -- ** PointInTimeRecoveryUnavailableException
     , _PointInTimeRecoveryUnavailableException
+
+    -- ** IdempotentParameterMismatchException
+    , _IdempotentParameterMismatchException
 
     -- ** InvalidRestoreTimeException
     , _InvalidRestoreTimeException
@@ -135,7 +150,7 @@ module Network.AWS.DynamoDB
     -- ** DescribeGlobalTableSettings
     , module Network.AWS.DynamoDB.DescribeGlobalTableSettings
 
-    -- ** ListTagsOfResource
+    -- ** ListTagsOfResource (Paginated)
     , module Network.AWS.DynamoDB.ListTagsOfResource
 
     -- ** DescribeGlobalTable
@@ -156,8 +171,14 @@ module Network.AWS.DynamoDB
     -- ** UpdateGlobalTableSettings
     , module Network.AWS.DynamoDB.UpdateGlobalTableSettings
 
+    -- ** TransactGetItems
+    , module Network.AWS.DynamoDB.TransactGetItems
+
     -- ** BatchWriteItem
     , module Network.AWS.DynamoDB.BatchWriteItem
+
+    -- ** TransactWriteItems
+    , module Network.AWS.DynamoDB.TransactWriteItems
 
     -- ** ListTables (Paginated)
     , module Network.AWS.DynamoDB.ListTables
@@ -170,6 +191,9 @@ module Network.AWS.DynamoDB
 
     -- ** CreateTable
     , module Network.AWS.DynamoDB.CreateTable
+
+    -- ** DescribeEndpoints
+    , module Network.AWS.DynamoDB.DescribeEndpoints
 
     -- ** DescribeTimeToLive
     , module Network.AWS.DynamoDB.DescribeTimeToLive
@@ -205,6 +229,15 @@ module Network.AWS.DynamoDB
 
     -- ** BackupStatus
     , BackupStatus (..)
+
+    -- ** BackupType
+    , BackupType (..)
+
+    -- ** BackupTypeFilter
+    , BackupTypeFilter (..)
+
+    -- ** BillingMode
+    , BillingMode (..)
 
     -- ** ComparisonOperator
     , ComparisonOperator (..)
@@ -242,8 +275,14 @@ module Network.AWS.DynamoDB
     -- ** ReturnValue
     , ReturnValue (..)
 
+    -- ** ReturnValuesOnConditionCheckFailure
+    , ReturnValuesOnConditionCheckFailure (..)
+
     -- ** SSEStatus
     , SSEStatus (..)
+
+    -- ** SSEType
+    , SSEType (..)
 
     -- ** ScalarAttributeType
     , ScalarAttributeType (..)
@@ -286,6 +325,52 @@ module Network.AWS.DynamoDB
     , avuValue
     , avuAction
 
+    -- ** AutoScalingPolicyDescription
+    , AutoScalingPolicyDescription
+    , autoScalingPolicyDescription
+    , aspdPolicyName
+    , aspdTargetTrackingScalingPolicyConfiguration
+
+    -- ** AutoScalingPolicyUpdate
+    , AutoScalingPolicyUpdate
+    , autoScalingPolicyUpdate
+    , aspuPolicyName
+    , aspuTargetTrackingScalingPolicyConfiguration
+
+    -- ** AutoScalingSettingsDescription
+    , AutoScalingSettingsDescription
+    , autoScalingSettingsDescription
+    , assdAutoScalingDisabled
+    , assdMinimumUnits
+    , assdMaximumUnits
+    , assdScalingPolicies
+    , assdAutoScalingRoleARN
+
+    -- ** AutoScalingSettingsUpdate
+    , AutoScalingSettingsUpdate
+    , autoScalingSettingsUpdate
+    , assuAutoScalingDisabled
+    , assuMinimumUnits
+    , assuScalingPolicyUpdate
+    , assuMaximumUnits
+    , assuAutoScalingRoleARN
+
+    -- ** AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    , AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    , autoScalingTargetTrackingScalingPolicyConfigurationDescription
+    , asttspcdScaleInCooldown
+    , asttspcdDisableScaleIn
+    , asttspcdScaleOutCooldown
+    , asttspcdTargetValue
+
+    -- ** AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+    , AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+    , autoScalingTargetTrackingScalingPolicyConfigurationUpdate
+    , asttspcuScaleInCooldown
+    , asttspcuDisableScaleIn
+    , asttspcuScaleOutCooldown
+    , asttspcuTargetValue
+
     -- ** BackupDescription
     , BackupDescription
     , backupDescription
@@ -296,15 +381,18 @@ module Network.AWS.DynamoDB
     -- ** BackupDetails
     , BackupDetails
     , backupDetails
+    , bdBackupExpiryDateTime
     , bdBackupSizeBytes
     , bdBackupARN
     , bdBackupName
     , bdBackupStatus
+    , bdBackupType
     , bdBackupCreationDateTime
 
     -- ** BackupSummary
     , BackupSummary
     , backupSummary
+    , bsBackupExpiryDateTime
     , bsTableARN
     , bsBackupName
     , bsBackupStatus
@@ -312,12 +400,21 @@ module Network.AWS.DynamoDB
     , bsBackupARN
     , bsTableId
     , bsBackupCreationDateTime
+    , bsBackupType
     , bsTableName
+
+    -- ** BillingModeSummary
+    , BillingModeSummary
+    , billingModeSummary
+    , bmsLastUpdateToPayPerRequestDateTime
+    , bmsBillingMode
 
     -- ** Capacity
     , Capacity
     , capacity
-    , cCapacityUnits
+    , capReadCapacityUnits
+    , capCapacityUnits
+    , capWriteCapacityUnits
 
     -- ** Condition
     , Condition
@@ -325,14 +422,26 @@ module Network.AWS.DynamoDB
     , cAttributeValueList
     , cComparisonOperator
 
+    -- ** ConditionCheck
+    , ConditionCheck
+    , conditionCheck
+    , ccExpressionAttributeNames
+    , ccExpressionAttributeValues
+    , ccReturnValuesOnConditionCheckFailure
+    , ccKey
+    , ccTableName
+    , ccConditionExpression
+
     -- ** ConsumedCapacity
     , ConsumedCapacity
     , consumedCapacity
-    , ccGlobalSecondaryIndexes
-    , ccCapacityUnits
-    , ccLocalSecondaryIndexes
-    , ccTable
-    , ccTableName
+    , cReadCapacityUnits
+    , cGlobalSecondaryIndexes
+    , cCapacityUnits
+    , cWriteCapacityUnits
+    , cLocalSecondaryIndexes
+    , cTable
+    , cTableName
 
     -- ** ContinuousBackupsDescription
     , ContinuousBackupsDescription
@@ -343,15 +452,25 @@ module Network.AWS.DynamoDB
     -- ** CreateGlobalSecondaryIndexAction
     , CreateGlobalSecondaryIndexAction
     , createGlobalSecondaryIndexAction
+    , cgsiaProvisionedThroughput
     , cgsiaIndexName
     , cgsiaKeySchema
     , cgsiaProjection
-    , cgsiaProvisionedThroughput
 
     -- ** CreateReplicaAction
     , CreateReplicaAction
     , createReplicaAction
     , craRegionName
+
+    -- ** Delete
+    , Delete
+    , delete'
+    , dExpressionAttributeNames
+    , dExpressionAttributeValues
+    , dReturnValuesOnConditionCheckFailure
+    , dConditionExpression
+    , dKey
+    , dTableName
 
     -- ** DeleteGlobalSecondaryIndexAction
     , DeleteGlobalSecondaryIndexAction
@@ -368,6 +487,12 @@ module Network.AWS.DynamoDB
     , deleteRequest
     , drKey
 
+    -- ** Endpoint
+    , Endpoint
+    , endpoint
+    , eAddress
+    , eCachePeriodInMinutes
+
     -- ** ExpectedAttributeValue
     , ExpectedAttributeValue
     , expectedAttributeValue
@@ -376,13 +501,21 @@ module Network.AWS.DynamoDB
     , eavValue
     , eavComparisonOperator
 
+    -- ** Get
+    , Get
+    , get'
+    , getProjectionExpression
+    , getExpressionAttributeNames
+    , getKey
+    , getTableName
+
     -- ** GlobalSecondaryIndex
     , GlobalSecondaryIndex
     , globalSecondaryIndex
+    , gsiProvisionedThroughput
     , gsiIndexName
     , gsiKeySchema
     , gsiProjection
-    , gsiProvisionedThroughput
 
     -- ** GlobalSecondaryIndexDescription
     , GlobalSecondaryIndexDescription
@@ -431,6 +564,7 @@ module Network.AWS.DynamoDB
     , GlobalTableGlobalSecondaryIndexSettingsUpdate
     , globalTableGlobalSecondaryIndexSettingsUpdate
     , gtgsisuProvisionedWriteCapacityUnits
+    , gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate
     , gtgsisuIndexName
 
     -- ** ItemCollectionMetrics
@@ -438,6 +572,11 @@ module Network.AWS.DynamoDB
     , itemCollectionMetrics
     , icmItemCollectionKey
     , icmSizeEstimateRangeGB
+
+    -- ** ItemResponse
+    , ItemResponse
+    , itemResponse
+    , iItem
 
     -- ** KeySchemaElement
     , KeySchemaElement
@@ -511,6 +650,16 @@ module Network.AWS.DynamoDB
     , ptdNumberOfDecreasesToday
     , ptdLastIncreaseDateTime
 
+    -- ** Put
+    , Put
+    , put
+    , pExpressionAttributeNames
+    , pExpressionAttributeValues
+    , pReturnValuesOnConditionCheckFailure
+    , pConditionExpression
+    , pItem
+    , pTableName
+
     -- ** PutRequest
     , PutRequest
     , putRequest
@@ -532,11 +681,14 @@ module Network.AWS.DynamoDB
     , rgsisdIndexStatus
     , rgsisdProvisionedReadCapacityUnits
     , rgsisdProvisionedWriteCapacityUnits
+    , rgsisdProvisionedWriteCapacityAutoScalingSettings
+    , rgsisdProvisionedReadCapacityAutoScalingSettings
     , rgsisdIndexName
 
     -- ** ReplicaGlobalSecondaryIndexSettingsUpdate
     , ReplicaGlobalSecondaryIndexSettingsUpdate
     , replicaGlobalSecondaryIndexSettingsUpdate
+    , rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate
     , rgsisuProvisionedReadCapacityUnits
     , rgsisuIndexName
 
@@ -546,12 +698,16 @@ module Network.AWS.DynamoDB
     , rsdReplicaStatus
     , rsdReplicaProvisionedReadCapacityUnits
     , rsdReplicaProvisionedWriteCapacityUnits
+    , rsdReplicaBillingModeSummary
     , rsdReplicaGlobalSecondaryIndexSettings
+    , rsdReplicaProvisionedWriteCapacityAutoScalingSettings
+    , rsdReplicaProvisionedReadCapacityAutoScalingSettings
     , rsdRegionName
 
     -- ** ReplicaSettingsUpdate
     , ReplicaSettingsUpdate
     , replicaSettingsUpdate
+    , rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate
     , rsuReplicaProvisionedReadCapacityUnits
     , rsuReplicaGlobalSecondaryIndexSettingsUpdate
     , rsuRegionName
@@ -574,17 +730,22 @@ module Network.AWS.DynamoDB
     , SSEDescription
     , sSEDescription
     , ssedStatus
+    , ssedSSEType
+    , ssedKMSMasterKeyARN
 
     -- ** SSESpecification
     , SSESpecification
     , sSESpecification
     , ssesEnabled
+    , ssesKMSMasterKeyId
+    , ssesSSEType
 
     -- ** SourceTableDetails
     , SourceTableDetails
     , sourceTableDetails
     , stdTableSizeBytes
     , stdTableARN
+    , stdBillingMode
     , stdItemCount
     , stdTableName
     , stdTableId
@@ -620,6 +781,7 @@ module Network.AWS.DynamoDB
     , tdKeySchema
     , tdGlobalSecondaryIndexes
     , tdLatestStreamLabel
+    , tdBillingModeSummary
     , tdLocalSecondaryIndexes
     , tdCreationDateTime
     , tdSSEDescription
@@ -646,6 +808,30 @@ module Network.AWS.DynamoDB
     , ttlsEnabled
     , ttlsAttributeName
 
+    -- ** TransactGetItem
+    , TransactGetItem
+    , transactGetItem
+    , tgiGet
+
+    -- ** TransactWriteItem
+    , TransactWriteItem
+    , transactWriteItem
+    , twiConditionCheck
+    , twiPut
+    , twiDelete
+    , twiUpdate
+
+    -- ** Update
+    , Update
+    , update
+    , uExpressionAttributeNames
+    , uExpressionAttributeValues
+    , uReturnValuesOnConditionCheckFailure
+    , uConditionExpression
+    , uKey
+    , uUpdateExpression
+    , uTableName
+
     -- ** UpdateGlobalSecondaryIndexAction
     , UpdateGlobalSecondaryIndexAction
     , updateGlobalSecondaryIndexAction
@@ -669,6 +855,7 @@ import Network.AWS.DynamoDB.DeleteItem
 import Network.AWS.DynamoDB.DeleteTable
 import Network.AWS.DynamoDB.DescribeBackup
 import Network.AWS.DynamoDB.DescribeContinuousBackups
+import Network.AWS.DynamoDB.DescribeEndpoints
 import Network.AWS.DynamoDB.DescribeGlobalTable
 import Network.AWS.DynamoDB.DescribeGlobalTableSettings
 import Network.AWS.DynamoDB.DescribeLimits
@@ -685,6 +872,8 @@ import Network.AWS.DynamoDB.RestoreTableFromBackup
 import Network.AWS.DynamoDB.RestoreTableToPointInTime
 import Network.AWS.DynamoDB.Scan
 import Network.AWS.DynamoDB.TagResource
+import Network.AWS.DynamoDB.TransactGetItems
+import Network.AWS.DynamoDB.TransactWriteItems
 import Network.AWS.DynamoDB.Types
 import Network.AWS.DynamoDB.UntagResource
 import Network.AWS.DynamoDB.UpdateContinuousBackups

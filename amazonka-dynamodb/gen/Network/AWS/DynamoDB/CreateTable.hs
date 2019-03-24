@@ -33,14 +33,15 @@ module Network.AWS.DynamoDB.CreateTable
       createTable
     , CreateTable
     -- * Request Lenses
+    , ctProvisionedThroughput
     , ctSSESpecification
     , ctGlobalSecondaryIndexes
     , ctLocalSecondaryIndexes
+    , ctBillingMode
     , ctStreamSpecification
     , ctAttributeDefinitions
     , ctTableName
     , ctKeySchema
-    , ctProvisionedThroughput
 
     -- * Destructuring the Response
     , createTableResponse
@@ -63,14 +64,15 @@ import Network.AWS.Response
 --
 -- /See:/ 'createTable' smart constructor.
 data CreateTable = CreateTable'
-  { _ctSSESpecification       :: !(Maybe SSESpecification)
+  { _ctProvisionedThroughput  :: !(Maybe ProvisionedThroughput)
+  , _ctSSESpecification       :: !(Maybe SSESpecification)
   , _ctGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndex])
   , _ctLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndex])
+  , _ctBillingMode            :: !(Maybe BillingMode)
   , _ctStreamSpecification    :: !(Maybe StreamSpecification)
   , _ctAttributeDefinitions   :: ![AttributeDefinition]
   , _ctTableName              :: !Text
   , _ctKeySchema              :: !(List1 KeySchemaElement)
-  , _ctProvisionedThroughput  :: !ProvisionedThroughput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -78,11 +80,15 @@ data CreateTable = CreateTable'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'ctProvisionedThroughput' - Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the @UpdateTable@ operation. If you set BillingMode as @PROVISIONED@ , you must specify this property. If you set BillingMode as @PAY_PER_REQUEST@ , you cannot specify this property.  For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
+--
 -- * 'ctSSESpecification' - Represents the settings used to enable server-side encryption.
 --
--- * 'ctGlobalSecondaryIndexes' - One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:     * @IndexName@ - The name of the global secondary index. Must be unique only for this table.     * @KeySchema@ - Specifies the key schema for the global secondary index.     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * @ProjectionType@ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.     * @ProvisionedThroughput@ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.
+-- * 'ctGlobalSecondaryIndexes' - One or more global secondary indexes (the maximum is 20) to be created on the table. Each global secondary index in the array includes the following:     * @IndexName@ - The name of the global secondary index. Must be unique only for this table.     * @KeySchema@ - Specifies the key schema for the global secondary index.     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * @ProjectionType@ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.     * @ProvisionedThroughput@ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.
 --
--- * 'ctLocalSecondaryIndexes' - One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained. Each local secondary index in the array includes the following:     * @IndexName@ - The name of the local secondary index. Must be unique only for this table.     * @KeySchema@ - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * @ProjectionType@ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+-- * 'ctLocalSecondaryIndexes' - One or more local secondary indexes (the maximum is 5) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained. Each local secondary index in the array includes the following:     * @IndexName@ - The name of the local secondary index. Must be unique only for this table.     * @KeySchema@ - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * @ProjectionType@ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+--
+-- * 'ctBillingMode' - Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.     * @PROVISIONED@ - Sets the billing mode to @PROVISIONED@ . We recommend using @PROVISIONED@ for predictable workloads.     * @PAY_PER_REQUEST@ - Sets the billing mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
 --
 -- * 'ctStreamSpecification' - The settings for DynamoDB Streams on the table. These settings consist of:     * @StreamEnabled@ - Indicates whether Streams is to be enabled (true) or disabled (false).     * @StreamViewType@ - When an item in the table is modified, @StreamViewType@ determines what information is written to the table's stream. Valid values for @StreamViewType@ are:     * @KEYS_ONLY@ - Only the key attributes of the modified item are written to the stream.     * @NEW_IMAGE@ - The entire item, as it appears after it was modified, is written to the stream.     * @OLD_IMAGE@ - The entire item, as it appeared before it was modified, is written to the stream.     * @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of the item are written to the stream.
 --
@@ -91,37 +97,43 @@ data CreateTable = CreateTable'
 -- * 'ctTableName' - The name of the table to create.
 --
 -- * 'ctKeySchema' - Specifies the attributes that make up the primary key for a table or an index. The attributes in @KeySchema@ must also be defined in the @AttributeDefinitions@ array. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html Data Model> in the /Amazon DynamoDB Developer Guide/ . Each @KeySchemaElement@ in the array is composed of:     * @AttributeName@ - The name of this key attribute.     * @KeyType@ - The role that the key attribute will assume:     * @HASH@ - partition key     * @RANGE@ - sort key For a simple primary key (partition key), you must provide exactly one element with a @KeyType@ of @HASH@ . For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a @KeyType@ of @HASH@ , and the second element must have a @KeyType@ of @RANGE@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Specifying the Primary Key> in the /Amazon DynamoDB Developer Guide/ .
---
--- * 'ctProvisionedThroughput' - Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the @UpdateTable@ operation. For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
 createTable
     :: Text -- ^ 'ctTableName'
     -> NonEmpty KeySchemaElement -- ^ 'ctKeySchema'
-    -> ProvisionedThroughput -- ^ 'ctProvisionedThroughput'
     -> CreateTable
-createTable pTableName_ pKeySchema_ pProvisionedThroughput_ =
+createTable pTableName_ pKeySchema_ =
   CreateTable'
-    { _ctSSESpecification = Nothing
+    { _ctProvisionedThroughput = Nothing
+    , _ctSSESpecification = Nothing
     , _ctGlobalSecondaryIndexes = Nothing
     , _ctLocalSecondaryIndexes = Nothing
+    , _ctBillingMode = Nothing
     , _ctStreamSpecification = Nothing
     , _ctAttributeDefinitions = mempty
     , _ctTableName = pTableName_
     , _ctKeySchema = _List1 # pKeySchema_
-    , _ctProvisionedThroughput = pProvisionedThroughput_
     }
 
+
+-- | Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the @UpdateTable@ operation. If you set BillingMode as @PROVISIONED@ , you must specify this property. If you set BillingMode as @PAY_PER_REQUEST@ , you cannot specify this property.  For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
+ctProvisionedThroughput :: Lens' CreateTable (Maybe ProvisionedThroughput)
+ctProvisionedThroughput = lens _ctProvisionedThroughput (\ s a -> s{_ctProvisionedThroughput = a})
 
 -- | Represents the settings used to enable server-side encryption.
 ctSSESpecification :: Lens' CreateTable (Maybe SSESpecification)
 ctSSESpecification = lens _ctSSESpecification (\ s a -> s{_ctSSESpecification = a})
 
--- | One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:     * @IndexName@ - The name of the global secondary index. Must be unique only for this table.     * @KeySchema@ - Specifies the key schema for the global secondary index.     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * @ProjectionType@ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.     * @ProvisionedThroughput@ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.
+-- | One or more global secondary indexes (the maximum is 20) to be created on the table. Each global secondary index in the array includes the following:     * @IndexName@ - The name of the global secondary index. Must be unique only for this table.     * @KeySchema@ - Specifies the key schema for the global secondary index.     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * @ProjectionType@ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.     * @ProvisionedThroughput@ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.
 ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
 ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalSecondaryIndexes = a}) . _Default . _Coerce
 
--- | One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained. Each local secondary index in the array includes the following:     * @IndexName@ - The name of the local secondary index. Must be unique only for this table.     * @KeySchema@ - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * @ProjectionType@ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+-- | One or more local secondary indexes (the maximum is 5) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained. Each local secondary index in the array includes the following:     * @IndexName@ - The name of the local secondary index. Must be unique only for this table.     * @KeySchema@ - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * @ProjectionType@ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 ctLocalSecondaryIndexes :: Lens' CreateTable [LocalSecondaryIndex]
 ctLocalSecondaryIndexes = lens _ctLocalSecondaryIndexes (\ s a -> s{_ctLocalSecondaryIndexes = a}) . _Default . _Coerce
+
+-- | Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.     * @PROVISIONED@ - Sets the billing mode to @PROVISIONED@ . We recommend using @PROVISIONED@ for predictable workloads.     * @PAY_PER_REQUEST@ - Sets the billing mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
+ctBillingMode :: Lens' CreateTable (Maybe BillingMode)
+ctBillingMode = lens _ctBillingMode (\ s a -> s{_ctBillingMode = a})
 
 -- | The settings for DynamoDB Streams on the table. These settings consist of:     * @StreamEnabled@ - Indicates whether Streams is to be enabled (true) or disabled (false).     * @StreamViewType@ - When an item in the table is modified, @StreamViewType@ determines what information is written to the table's stream. Valid values for @StreamViewType@ are:     * @KEYS_ONLY@ - Only the key attributes of the modified item are written to the stream.     * @NEW_IMAGE@ - The entire item, as it appears after it was modified, is written to the stream.     * @OLD_IMAGE@ - The entire item, as it appeared before it was modified, is written to the stream.     * @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of the item are written to the stream.
 ctStreamSpecification :: Lens' CreateTable (Maybe StreamSpecification)
@@ -138,10 +150,6 @@ ctTableName = lens _ctTableName (\ s a -> s{_ctTableName = a})
 -- | Specifies the attributes that make up the primary key for a table or an index. The attributes in @KeySchema@ must also be defined in the @AttributeDefinitions@ array. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html Data Model> in the /Amazon DynamoDB Developer Guide/ . Each @KeySchemaElement@ in the array is composed of:     * @AttributeName@ - The name of this key attribute.     * @KeyType@ - The role that the key attribute will assume:     * @HASH@ - partition key     * @RANGE@ - sort key For a simple primary key (partition key), you must provide exactly one element with a @KeyType@ of @HASH@ . For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a @KeyType@ of @HASH@ , and the second element must have a @KeyType@ of @RANGE@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Specifying the Primary Key> in the /Amazon DynamoDB Developer Guide/ .
 ctKeySchema :: Lens' CreateTable (NonEmpty KeySchemaElement)
 ctKeySchema = lens _ctKeySchema (\ s a -> s{_ctKeySchema = a}) . _List1
-
--- | Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the @UpdateTable@ operation. For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
-ctProvisionedThroughput :: Lens' CreateTable ProvisionedThroughput
-ctProvisionedThroughput = lens _ctProvisionedThroughput (\ s a -> s{_ctProvisionedThroughput = a})
 
 instance AWSRequest CreateTable where
         type Rs CreateTable = CreateTableResponse
@@ -169,20 +177,20 @@ instance ToJSON CreateTable where
         toJSON CreateTable'{..}
           = object
               (catMaybes
-                 [("SSESpecification" .=) <$> _ctSSESpecification,
+                 [("ProvisionedThroughput" .=) <$>
+                    _ctProvisionedThroughput,
+                  ("SSESpecification" .=) <$> _ctSSESpecification,
                   ("GlobalSecondaryIndexes" .=) <$>
                     _ctGlobalSecondaryIndexes,
                   ("LocalSecondaryIndexes" .=) <$>
                     _ctLocalSecondaryIndexes,
+                  ("BillingMode" .=) <$> _ctBillingMode,
                   ("StreamSpecification" .=) <$>
                     _ctStreamSpecification,
                   Just
                     ("AttributeDefinitions" .= _ctAttributeDefinitions),
                   Just ("TableName" .= _ctTableName),
-                  Just ("KeySchema" .= _ctKeySchema),
-                  Just
-                    ("ProvisionedThroughput" .=
-                       _ctProvisionedThroughput)])
+                  Just ("KeySchema" .= _ctKeySchema)])
 
 instance ToPath CreateTable where
         toPath = const "/"

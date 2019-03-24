@@ -37,6 +37,7 @@ module Network.AWS.DynamoDB.ListBackups
     , lbTimeRangeLowerBound
     , lbLimit
     , lbExclusiveStartBackupARN
+    , lbBackupType
     , lbTableName
 
     -- * Destructuring the Response
@@ -62,6 +63,7 @@ data ListBackups = ListBackups'
   , _lbTimeRangeLowerBound     :: !(Maybe POSIX)
   , _lbLimit                   :: !(Maybe Nat)
   , _lbExclusiveStartBackupARN :: !(Maybe Text)
+  , _lbBackupType              :: !(Maybe BackupTypeFilter)
   , _lbTableName               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -76,9 +78,11 @@ data ListBackups = ListBackups'
 --
 -- * 'lbLimit' - Maximum number of backups to return at once.
 --
--- * 'lbExclusiveStartBackupARN' - @LastEvaluatedBackupARN@ returned by the previous ListBackups call.
+-- * 'lbExclusiveStartBackupARN' - @LastEvaluatedBackupArn@ is the ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
 --
--- * 'lbTableName' - The backups from the table specified by TableName are listed.
+-- * 'lbBackupType' - The backups from the table specified by @BackupType@ are listed. Where @BackupType@ can be:     * @USER@ - On-demand backup created by you.     * @SYSTEM@ - On-demand backup automatically created by DynamoDB.     * @ALL@ - All types of on-demand backups (USER and SYSTEM).
+--
+-- * 'lbTableName' - The backups from the table specified by @TableName@ are listed.
 listBackups
     :: ListBackups
 listBackups =
@@ -87,6 +91,7 @@ listBackups =
     , _lbTimeRangeLowerBound = Nothing
     , _lbLimit = Nothing
     , _lbExclusiveStartBackupARN = Nothing
+    , _lbBackupType = Nothing
     , _lbTableName = Nothing
     }
 
@@ -103,11 +108,15 @@ lbTimeRangeLowerBound = lens _lbTimeRangeLowerBound (\ s a -> s{_lbTimeRangeLowe
 lbLimit :: Lens' ListBackups (Maybe Natural)
 lbLimit = lens _lbLimit (\ s a -> s{_lbLimit = a}) . mapping _Nat
 
--- | @LastEvaluatedBackupARN@ returned by the previous ListBackups call.
+-- | @LastEvaluatedBackupArn@ is the ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
 lbExclusiveStartBackupARN :: Lens' ListBackups (Maybe Text)
 lbExclusiveStartBackupARN = lens _lbExclusiveStartBackupARN (\ s a -> s{_lbExclusiveStartBackupARN = a})
 
--- | The backups from the table specified by TableName are listed.
+-- | The backups from the table specified by @BackupType@ are listed. Where @BackupType@ can be:     * @USER@ - On-demand backup created by you.     * @SYSTEM@ - On-demand backup automatically created by DynamoDB.     * @ALL@ - All types of on-demand backups (USER and SYSTEM).
+lbBackupType :: Lens' ListBackups (Maybe BackupTypeFilter)
+lbBackupType = lens _lbBackupType (\ s a -> s{_lbBackupType = a})
+
+-- | The backups from the table specified by @TableName@ are listed.
 lbTableName :: Lens' ListBackups (Maybe Text)
 lbTableName = lens _lbTableName (\ s a -> s{_lbTableName = a})
 
@@ -155,6 +164,7 @@ instance ToJSON ListBackups where
                   ("Limit" .=) <$> _lbLimit,
                   ("ExclusiveStartBackupArn" .=) <$>
                     _lbExclusiveStartBackupARN,
+                  ("BackupType" .=) <$> _lbBackupType,
                   ("TableName" .=) <$> _lbTableName])
 
 instance ToPath ListBackups where
@@ -177,7 +187,7 @@ data ListBackupsResponse = ListBackupsResponse'
 --
 -- * 'lbrsBackupSummaries' - List of @BackupSummary@ objects.
 --
--- * 'lbrsLastEvaluatedBackupARN' - Last evaluated BackupARN.
+-- * 'lbrsLastEvaluatedBackupARN' - The ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.  If @LastEvaluatedBackupArn@ is empty, then the last page of results has been processed and there are no more results to be retrieved.  If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate there is more data to be returned. All results are guaranteed to have been returned if and only if no value for @LastEvaluatedBackupArn@ is returned.
 --
 -- * 'lbrsResponseStatus' - -- | The response status code.
 listBackupsResponse
@@ -195,7 +205,7 @@ listBackupsResponse pResponseStatus_ =
 lbrsBackupSummaries :: Lens' ListBackupsResponse [BackupSummary]
 lbrsBackupSummaries = lens _lbrsBackupSummaries (\ s a -> s{_lbrsBackupSummaries = a}) . _Default . _Coerce
 
--- | Last evaluated BackupARN.
+-- | The ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.  If @LastEvaluatedBackupArn@ is empty, then the last page of results has been processed and there are no more results to be retrieved.  If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate there is more data to be returned. All results are guaranteed to have been returned if and only if no value for @LastEvaluatedBackupArn@ is returned.
 lbrsLastEvaluatedBackupARN :: Lens' ListBackupsResponse (Maybe Text)
 lbrsLastEvaluatedBackupARN = lens _lbrsLastEvaluatedBackupARN (\ s a -> s{_lbrsLastEvaluatedBackupARN = a})
 

@@ -27,6 +27,8 @@ module Network.AWS.DynamoDB.UpdateGlobalTableSettings
       updateGlobalTableSettings
     , UpdateGlobalTableSettings
     -- * Request Lenses
+    , ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate
+    , ugtsGlobalTableBillingMode
     , ugtsGlobalTableProvisionedWriteCapacityUnits
     , ugtsReplicaSettingsUpdate
     , ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate
@@ -50,7 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateGlobalTableSettings' smart constructor.
 data UpdateGlobalTableSettings = UpdateGlobalTableSettings'
-  { _ugtsGlobalTableProvisionedWriteCapacityUnits :: !(Maybe Nat)
+  { _ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate :: !(Maybe AutoScalingSettingsUpdate)
+  , _ugtsGlobalTableBillingMode :: !(Maybe BillingMode)
+  , _ugtsGlobalTableProvisionedWriteCapacityUnits :: !(Maybe Nat)
   , _ugtsReplicaSettingsUpdate :: !(Maybe (List1 ReplicaSettingsUpdate))
   , _ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate :: !(Maybe (List1 GlobalTableGlobalSecondaryIndexSettingsUpdate))
   , _ugtsGlobalTableName :: !Text
@@ -60,6 +64,10 @@ data UpdateGlobalTableSettings = UpdateGlobalTableSettings'
 -- | Creates a value of 'UpdateGlobalTableSettings' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate' - AutoScaling settings for managing provisioned write capacity for the global table.
+--
+-- * 'ugtsGlobalTableBillingMode' - The billing mode of the global table. If @GlobalTableBillingMode@ is not specified, the global table defaults to @PROVISIONED@ capacity billing mode.
 --
 -- * 'ugtsGlobalTableProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
 --
@@ -73,12 +81,23 @@ updateGlobalTableSettings
     -> UpdateGlobalTableSettings
 updateGlobalTableSettings pGlobalTableName_ =
   UpdateGlobalTableSettings'
-    { _ugtsGlobalTableProvisionedWriteCapacityUnits = Nothing
+    { _ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate =
+        Nothing
+    , _ugtsGlobalTableBillingMode = Nothing
+    , _ugtsGlobalTableProvisionedWriteCapacityUnits = Nothing
     , _ugtsReplicaSettingsUpdate = Nothing
     , _ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate = Nothing
     , _ugtsGlobalTableName = pGlobalTableName_
     }
 
+
+-- | AutoScaling settings for managing provisioned write capacity for the global table.
+ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate :: Lens' UpdateGlobalTableSettings (Maybe AutoScalingSettingsUpdate)
+ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = lens _ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate (\ s a -> s{_ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = a})
+
+-- | The billing mode of the global table. If @GlobalTableBillingMode@ is not specified, the global table defaults to @PROVISIONED@ capacity billing mode.
+ugtsGlobalTableBillingMode :: Lens' UpdateGlobalTableSettings (Maybe BillingMode)
+ugtsGlobalTableBillingMode = lens _ugtsGlobalTableBillingMode (\ s a -> s{_ugtsGlobalTableBillingMode = a})
 
 -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
 ugtsGlobalTableProvisionedWriteCapacityUnits :: Lens' UpdateGlobalTableSettings (Maybe Natural)
@@ -126,7 +145,13 @@ instance ToJSON UpdateGlobalTableSettings where
         toJSON UpdateGlobalTableSettings'{..}
           = object
               (catMaybes
-                 [("GlobalTableProvisionedWriteCapacityUnits" .=) <$>
+                 [("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate"
+                     .=)
+                    <$>
+                    _ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
+                  ("GlobalTableBillingMode" .=) <$>
+                    _ugtsGlobalTableBillingMode,
+                  ("GlobalTableProvisionedWriteCapacityUnits" .=) <$>
                     _ugtsGlobalTableProvisionedWriteCapacityUnits,
                   ("ReplicaSettingsUpdate" .=) <$>
                     _ugtsReplicaSettingsUpdate,

@@ -21,17 +21,15 @@
 -- Creates a global table from an existing table. A global table creates a replication relationship between two or more DynamoDB tables with the same table name in the provided regions.
 --
 --
--- Tables can only be added as the replicas of a global table group under the following conditions:
+-- If you want to add a new replica table to a global table, each of the following conditions must be true:
 --
---     * The tables must have the same name.
+--     * The table must have the same primary key as all of the other replicas.
 --
---     * The tables must contain no items.
+--     * The table must have the same name as all of the other replicas.
 --
---     * The tables must have the same hash key and sort key (if present).
+--     * The table must have DynamoDB Streams enabled, with the stream containing both the new and the old images of the item.
 --
---     * The tables must have DynamoDB Streams enabled (NEW_AND_OLD_IMAGES).
---
---     * The tables must have same provisioned and maximum write capacity units.
+--     * None of the replica tables in the global table can contain any data.
 --
 --
 --
@@ -41,9 +39,11 @@
 --
 --     * The global secondary indexes must have the same hash key and sort key (if present).
 --
---     * The global secondary indexes must have the same provisioned and maximum write capacity units.
 --
 --
+-- /Important:/ Write capacity settings should be set consistently across your replica tables and secondary indexes. DynamoDB strongly recommends enabling auto scaling to manage the write capacity settings for all of your global tables replicas and indexes.
+--
+-- If you prefer to manage write capacity settings manually, you should provision equal replicated write capacity units to your replica tables. You should also provision equal replicated write capacity units to matching secondary indexes across your global table.
 --
 module Network.AWS.DynamoDB.CreateGlobalTable
     (

@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.DynamoDB
 import Test.AWS.DynamoDB.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "DynamoDB"

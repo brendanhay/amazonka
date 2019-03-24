@@ -43,7 +43,9 @@ module Network.AWS.DynamoDB.UpdateTable
     -- * Request Lenses
     , utAttributeDefinitions
     , utProvisionedThroughput
+    , utSSESpecification
     , utGlobalSecondaryIndexUpdates
+    , utBillingMode
     , utStreamSpecification
     , utTableName
 
@@ -70,7 +72,9 @@ import Network.AWS.Response
 data UpdateTable = UpdateTable'
   { _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
   , _utProvisionedThroughput       :: !(Maybe ProvisionedThroughput)
+  , _utSSESpecification            :: !(Maybe SSESpecification)
   , _utGlobalSecondaryIndexUpdates :: !(Maybe [GlobalSecondaryIndexUpdate])
+  , _utBillingMode                 :: !(Maybe BillingMode)
   , _utStreamSpecification         :: !(Maybe StreamSpecification)
   , _utTableName                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -84,7 +88,11 @@ data UpdateTable = UpdateTable'
 --
 -- * 'utProvisionedThroughput' - The new provisioned throughput settings for the specified table or index.
 --
+-- * 'utSSESpecification' - The new server-side encryption settings for the specified table.
+--
 -- * 'utGlobalSecondaryIndexUpdates' - An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:     * @Create@ - add a new global secondary index to the table.     * @Update@ - modify the provisioned throughput settings of an existing global secondary index.     * @Delete@ - remove a global secondary index from the table. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes> in the /Amazon DynamoDB Developer Guide/ .
+--
+-- * 'utBillingMode' - Controls how you are charged for read and write throughput and how you manage capacity. When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes over the past 30 minutes.     * @PROVISIONED@ - Sets the billing mode to @PROVISIONED@ . We recommend using @PROVISIONED@ for predictable workloads.     * @PAY_PER_REQUEST@ - Sets the billing mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
 --
 -- * 'utStreamSpecification' - Represents the DynamoDB Streams configuration for the table.
 --
@@ -96,7 +104,9 @@ updateTable pTableName_ =
   UpdateTable'
     { _utAttributeDefinitions = Nothing
     , _utProvisionedThroughput = Nothing
+    , _utSSESpecification = Nothing
     , _utGlobalSecondaryIndexUpdates = Nothing
+    , _utBillingMode = Nothing
     , _utStreamSpecification = Nothing
     , _utTableName = pTableName_
     }
@@ -110,9 +120,17 @@ utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDe
 utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
 utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvisionedThroughput = a})
 
+-- | The new server-side encryption settings for the specified table.
+utSSESpecification :: Lens' UpdateTable (Maybe SSESpecification)
+utSSESpecification = lens _utSSESpecification (\ s a -> s{_utSSESpecification = a})
+
 -- | An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:     * @Create@ - add a new global secondary index to the table.     * @Update@ - modify the provisioned throughput settings of an existing global secondary index.     * @Delete@ - remove a global secondary index from the table. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes> in the /Amazon DynamoDB Developer Guide/ .
 utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
 utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a}) . _Default . _Coerce
+
+-- | Controls how you are charged for read and write throughput and how you manage capacity. When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes over the past 30 minutes.     * @PROVISIONED@ - Sets the billing mode to @PROVISIONED@ . We recommend using @PROVISIONED@ for predictable workloads.     * @PAY_PER_REQUEST@ - Sets the billing mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
+utBillingMode :: Lens' UpdateTable (Maybe BillingMode)
+utBillingMode = lens _utBillingMode (\ s a -> s{_utBillingMode = a})
 
 -- | Represents the DynamoDB Streams configuration for the table.
 utStreamSpecification :: Lens' UpdateTable (Maybe StreamSpecification)
@@ -152,8 +170,10 @@ instance ToJSON UpdateTable where
                     _utAttributeDefinitions,
                   ("ProvisionedThroughput" .=) <$>
                     _utProvisionedThroughput,
+                  ("SSESpecification" .=) <$> _utSSESpecification,
                   ("GlobalSecondaryIndexUpdates" .=) <$>
                     _utGlobalSecondaryIndexUpdates,
+                  ("BillingMode" .=) <$> _utBillingMode,
                   ("StreamSpecification" .=) <$>
                     _utStreamSpecification,
                   Just ("TableName" .= _utTableName)])

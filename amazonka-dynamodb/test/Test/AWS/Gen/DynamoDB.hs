@@ -85,8 +85,14 @@ import Test.Tasty
 --         , requestUpdateGlobalTableSettings $
 --             updateGlobalTableSettings
 --
+--         , requestTransactGetItems $
+--             transactGetItems
+--
 --         , requestBatchWriteItem $
 --             batchWriteItem
+--
+--         , requestTransactWriteItems $
+--             transactWriteItems
 --
 --         , requestListTables $
 --             listTables
@@ -99,6 +105,9 @@ import Test.Tasty
 --
 --         , requestCreateTable $
 --             createTable
+--
+--         , requestDescribeEndpoints $
+--             describeEndpoints
 --
 --         , requestDescribeTimeToLive $
 --             describeTimeToLive
@@ -187,8 +196,14 @@ import Test.Tasty
 --         , responseUpdateGlobalTableSettings $
 --             updateGlobalTableSettingsResponse
 --
+--         , responseTransactGetItems $
+--             transactGetItemsResponse
+--
 --         , responseBatchWriteItem $
 --             batchWriteItemResponse
+--
+--         , responseTransactWriteItems $
+--             transactWriteItemsResponse
 --
 --         , responseListTables $
 --             listTablesResponse
@@ -201,6 +216,9 @@ import Test.Tasty
 --
 --         , responseCreateTable $
 --             createTableResponse
+--
+--         , responseDescribeEndpoints $
+--             describeEndpointsResponse
 --
 --         , responseDescribeTimeToLive $
 --             describeTimeToLiveResponse
@@ -329,10 +347,20 @@ requestUpdateGlobalTableSettings = req
     "UpdateGlobalTableSettings"
     "fixture/UpdateGlobalTableSettings.yaml"
 
+requestTransactGetItems :: TransactGetItems -> TestTree
+requestTransactGetItems = req
+    "TransactGetItems"
+    "fixture/TransactGetItems.yaml"
+
 requestBatchWriteItem :: BatchWriteItem -> TestTree
 requestBatchWriteItem = req
     "BatchWriteItem"
     "fixture/BatchWriteItem.yaml"
+
+requestTransactWriteItems :: TransactWriteItems -> TestTree
+requestTransactWriteItems = req
+    "TransactWriteItems"
+    "fixture/TransactWriteItems.yaml"
 
 requestListTables :: ListTables -> TestTree
 requestListTables = req
@@ -353,6 +381,11 @@ requestCreateTable :: CreateTable -> TestTree
 requestCreateTable = req
     "CreateTable"
     "fixture/CreateTable.yaml"
+
+requestDescribeEndpoints :: DescribeEndpoints -> TestTree
+requestDescribeEndpoints = req
+    "DescribeEndpoints"
+    "fixture/DescribeEndpoints.yaml"
 
 requestDescribeTimeToLive :: DescribeTimeToLive -> TestTree
 requestDescribeTimeToLive = req
@@ -534,12 +567,26 @@ responseUpdateGlobalTableSettings = res
     dynamoDB
     (Proxy :: Proxy UpdateGlobalTableSettings)
 
+responseTransactGetItems :: TransactGetItemsResponse -> TestTree
+responseTransactGetItems = res
+    "TransactGetItemsResponse"
+    "fixture/TransactGetItemsResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy TransactGetItems)
+
 responseBatchWriteItem :: BatchWriteItemResponse -> TestTree
 responseBatchWriteItem = res
     "BatchWriteItemResponse"
     "fixture/BatchWriteItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy BatchWriteItem)
+
+responseTransactWriteItems :: TransactWriteItemsResponse -> TestTree
+responseTransactWriteItems = res
+    "TransactWriteItemsResponse"
+    "fixture/TransactWriteItemsResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy TransactWriteItems)
 
 responseListTables :: ListTablesResponse -> TestTree
 responseListTables = res
@@ -568,6 +615,13 @@ responseCreateTable = res
     "fixture/CreateTableResponse.proto"
     dynamoDB
     (Proxy :: Proxy CreateTable)
+
+responseDescribeEndpoints :: DescribeEndpointsResponse -> TestTree
+responseDescribeEndpoints = res
+    "DescribeEndpointsResponse"
+    "fixture/DescribeEndpointsResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy DescribeEndpoints)
 
 responseDescribeTimeToLive :: DescribeTimeToLiveResponse -> TestTree
 responseDescribeTimeToLive = res

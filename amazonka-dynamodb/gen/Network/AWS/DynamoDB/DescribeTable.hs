@@ -27,7 +27,7 @@ module Network.AWS.DynamoDB.DescribeTable
       describeTable
     , DescribeTable
     -- * Request Lenses
-    , dTableName
+    , desTableName
 
     -- * Destructuring the Response
     , describeTableResponse
@@ -50,7 +50,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeTable' smart constructor.
 newtype DescribeTable = DescribeTable'
-  { _dTableName :: Text
+  { _desTableName :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -58,16 +58,16 @@ newtype DescribeTable = DescribeTable'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dTableName' - The name of the table to describe.
+-- * 'desTableName' - The name of the table to describe.
 describeTable
-    :: Text -- ^ 'dTableName'
+    :: Text -- ^ 'desTableName'
     -> DescribeTable
-describeTable pTableName_ = DescribeTable' {_dTableName = pTableName_}
+describeTable pTableName_ = DescribeTable' {_desTableName = pTableName_}
 
 
 -- | The name of the table to describe.
-dTableName :: Lens' DescribeTable Text
-dTableName = lens _dTableName (\ s a -> s{_dTableName = a})
+desTableName :: Lens' DescribeTable Text
+desTableName = lens _desTableName (\ s a -> s{_desTableName = a})
 
 instance AWSRequest DescribeTable where
         type Rs DescribeTable = DescribeTableResponse
@@ -94,7 +94,7 @@ instance ToHeaders DescribeTable where
 instance ToJSON DescribeTable where
         toJSON DescribeTable'{..}
           = object
-              (catMaybes [Just ("TableName" .= _dTableName)])
+              (catMaybes [Just ("TableName" .= _desTableName)])
 
 instance ToPath DescribeTable where
         toPath = const "/"

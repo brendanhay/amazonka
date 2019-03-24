@@ -101,7 +101,7 @@ data AttributeValue = AttributeValue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avL' - An attribute of type List. For example: @"L": ["Cookies", "Coffee", 3.14159]@
+-- * 'avL' - An attribute of type List. For example: @"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]@
 --
 -- * 'avNS' - An attribute of type Number Set. For example: @"NS": ["42.2", "-19", "7.5", "3.14"]@  Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
 --
@@ -137,7 +137,7 @@ attributeValue =
     }
 
 
--- | An attribute of type List. For example: @"L": ["Cookies", "Coffee", 3.14159]@
+-- | An attribute of type List. For example: @"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]@
 avL :: Lens' AttributeValue [AttributeValue]
 avL = lens _avL (\ s a -> s{_avL = a}) . _Default . _Coerce
 
@@ -251,6 +251,402 @@ instance ToJSON AttributeValueUpdate where
                  [("Value" .=) <$> _avuValue,
                   ("Action" .=) <$> _avuAction])
 
+-- | Represents the properties of the scaling policy.
+--
+--
+--
+-- /See:/ 'autoScalingPolicyDescription' smart constructor.
+data AutoScalingPolicyDescription = AutoScalingPolicyDescription'
+  { _aspdPolicyName :: !(Maybe Text)
+  , _aspdTargetTrackingScalingPolicyConfiguration :: !(Maybe AutoScalingTargetTrackingScalingPolicyConfigurationDescription)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AutoScalingPolicyDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aspdPolicyName' - The name of the scaling policy.
+--
+-- * 'aspdTargetTrackingScalingPolicyConfiguration' - Represents a target tracking scaling policy configuration.
+autoScalingPolicyDescription
+    :: AutoScalingPolicyDescription
+autoScalingPolicyDescription =
+  AutoScalingPolicyDescription'
+    { _aspdPolicyName = Nothing
+    , _aspdTargetTrackingScalingPolicyConfiguration = Nothing
+    }
+
+
+-- | The name of the scaling policy.
+aspdPolicyName :: Lens' AutoScalingPolicyDescription (Maybe Text)
+aspdPolicyName = lens _aspdPolicyName (\ s a -> s{_aspdPolicyName = a})
+
+-- | Represents a target tracking scaling policy configuration.
+aspdTargetTrackingScalingPolicyConfiguration :: Lens' AutoScalingPolicyDescription (Maybe AutoScalingTargetTrackingScalingPolicyConfigurationDescription)
+aspdTargetTrackingScalingPolicyConfiguration = lens _aspdTargetTrackingScalingPolicyConfiguration (\ s a -> s{_aspdTargetTrackingScalingPolicyConfiguration = a})
+
+instance FromJSON AutoScalingPolicyDescription where
+        parseJSON
+          = withObject "AutoScalingPolicyDescription"
+              (\ x ->
+                 AutoScalingPolicyDescription' <$>
+                   (x .:? "PolicyName") <*>
+                     (x .:? "TargetTrackingScalingPolicyConfiguration"))
+
+instance Hashable AutoScalingPolicyDescription where
+
+instance NFData AutoScalingPolicyDescription where
+
+-- | Represents the autoscaling policy to be modified.
+--
+--
+--
+-- /See:/ 'autoScalingPolicyUpdate' smart constructor.
+data AutoScalingPolicyUpdate = AutoScalingPolicyUpdate'
+  { _aspuPolicyName :: !(Maybe Text)
+  , _aspuTargetTrackingScalingPolicyConfiguration :: !AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AutoScalingPolicyUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aspuPolicyName' - The name of the scaling policy.
+--
+-- * 'aspuTargetTrackingScalingPolicyConfiguration' - Represents a target tracking scaling policy configuration.
+autoScalingPolicyUpdate
+    :: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate -- ^ 'aspuTargetTrackingScalingPolicyConfiguration'
+    -> AutoScalingPolicyUpdate
+autoScalingPolicyUpdate pTargetTrackingScalingPolicyConfiguration_ =
+  AutoScalingPolicyUpdate'
+    { _aspuPolicyName = Nothing
+    , _aspuTargetTrackingScalingPolicyConfiguration =
+        pTargetTrackingScalingPolicyConfiguration_
+    }
+
+
+-- | The name of the scaling policy.
+aspuPolicyName :: Lens' AutoScalingPolicyUpdate (Maybe Text)
+aspuPolicyName = lens _aspuPolicyName (\ s a -> s{_aspuPolicyName = a})
+
+-- | Represents a target tracking scaling policy configuration.
+aspuTargetTrackingScalingPolicyConfiguration :: Lens' AutoScalingPolicyUpdate AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+aspuTargetTrackingScalingPolicyConfiguration = lens _aspuTargetTrackingScalingPolicyConfiguration (\ s a -> s{_aspuTargetTrackingScalingPolicyConfiguration = a})
+
+instance Hashable AutoScalingPolicyUpdate where
+
+instance NFData AutoScalingPolicyUpdate where
+
+instance ToJSON AutoScalingPolicyUpdate where
+        toJSON AutoScalingPolicyUpdate'{..}
+          = object
+              (catMaybes
+                 [("PolicyName" .=) <$> _aspuPolicyName,
+                  Just
+                    ("TargetTrackingScalingPolicyConfiguration" .=
+                       _aspuTargetTrackingScalingPolicyConfiguration)])
+
+-- | Represents the autoscaling settings for a global table or global secondary index.
+--
+--
+--
+-- /See:/ 'autoScalingSettingsDescription' smart constructor.
+data AutoScalingSettingsDescription = AutoScalingSettingsDescription'
+  { _assdAutoScalingDisabled :: !(Maybe Bool)
+  , _assdMinimumUnits        :: !(Maybe Nat)
+  , _assdMaximumUnits        :: !(Maybe Nat)
+  , _assdScalingPolicies     :: !(Maybe [AutoScalingPolicyDescription])
+  , _assdAutoScalingRoleARN  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AutoScalingSettingsDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'assdAutoScalingDisabled' - Disabled autoscaling for this global table or global secondary index.
+--
+-- * 'assdMinimumUnits' - The minimum capacity units that a global table or global secondary index should be scaled down to.
+--
+-- * 'assdMaximumUnits' - The maximum capacity units that a global table or global secondary index should be scaled up to.
+--
+-- * 'assdScalingPolicies' - Information about the scaling policies.
+--
+-- * 'assdAutoScalingRoleARN' - Role ARN used for configuring autoScaling policy.
+autoScalingSettingsDescription
+    :: AutoScalingSettingsDescription
+autoScalingSettingsDescription =
+  AutoScalingSettingsDescription'
+    { _assdAutoScalingDisabled = Nothing
+    , _assdMinimumUnits = Nothing
+    , _assdMaximumUnits = Nothing
+    , _assdScalingPolicies = Nothing
+    , _assdAutoScalingRoleARN = Nothing
+    }
+
+
+-- | Disabled autoscaling for this global table or global secondary index.
+assdAutoScalingDisabled :: Lens' AutoScalingSettingsDescription (Maybe Bool)
+assdAutoScalingDisabled = lens _assdAutoScalingDisabled (\ s a -> s{_assdAutoScalingDisabled = a})
+
+-- | The minimum capacity units that a global table or global secondary index should be scaled down to.
+assdMinimumUnits :: Lens' AutoScalingSettingsDescription (Maybe Natural)
+assdMinimumUnits = lens _assdMinimumUnits (\ s a -> s{_assdMinimumUnits = a}) . mapping _Nat
+
+-- | The maximum capacity units that a global table or global secondary index should be scaled up to.
+assdMaximumUnits :: Lens' AutoScalingSettingsDescription (Maybe Natural)
+assdMaximumUnits = lens _assdMaximumUnits (\ s a -> s{_assdMaximumUnits = a}) . mapping _Nat
+
+-- | Information about the scaling policies.
+assdScalingPolicies :: Lens' AutoScalingSettingsDescription [AutoScalingPolicyDescription]
+assdScalingPolicies = lens _assdScalingPolicies (\ s a -> s{_assdScalingPolicies = a}) . _Default . _Coerce
+
+-- | Role ARN used for configuring autoScaling policy.
+assdAutoScalingRoleARN :: Lens' AutoScalingSettingsDescription (Maybe Text)
+assdAutoScalingRoleARN = lens _assdAutoScalingRoleARN (\ s a -> s{_assdAutoScalingRoleARN = a})
+
+instance FromJSON AutoScalingSettingsDescription
+         where
+        parseJSON
+          = withObject "AutoScalingSettingsDescription"
+              (\ x ->
+                 AutoScalingSettingsDescription' <$>
+                   (x .:? "AutoScalingDisabled") <*>
+                     (x .:? "MinimumUnits")
+                     <*> (x .:? "MaximumUnits")
+                     <*> (x .:? "ScalingPolicies" .!= mempty)
+                     <*> (x .:? "AutoScalingRoleArn"))
+
+instance Hashable AutoScalingSettingsDescription
+         where
+
+instance NFData AutoScalingSettingsDescription where
+
+-- | Represents the autoscaling settings to be modified for a global table or global secondary index.
+--
+--
+--
+-- /See:/ 'autoScalingSettingsUpdate' smart constructor.
+data AutoScalingSettingsUpdate = AutoScalingSettingsUpdate'
+  { _assuAutoScalingDisabled :: !(Maybe Bool)
+  , _assuMinimumUnits        :: !(Maybe Nat)
+  , _assuScalingPolicyUpdate :: !(Maybe AutoScalingPolicyUpdate)
+  , _assuMaximumUnits        :: !(Maybe Nat)
+  , _assuAutoScalingRoleARN  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AutoScalingSettingsUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'assuAutoScalingDisabled' - Disabled autoscaling for this global table or global secondary index.
+--
+-- * 'assuMinimumUnits' - The minimum capacity units that a global table or global secondary index should be scaled down to.
+--
+-- * 'assuScalingPolicyUpdate' - The scaling policy to apply for scaling target global table or global secondary index capacity units.
+--
+-- * 'assuMaximumUnits' - The maximum capacity units that a global table or global secondary index should be scaled up to.
+--
+-- * 'assuAutoScalingRoleARN' - Role ARN used for configuring autoscaling policy.
+autoScalingSettingsUpdate
+    :: AutoScalingSettingsUpdate
+autoScalingSettingsUpdate =
+  AutoScalingSettingsUpdate'
+    { _assuAutoScalingDisabled = Nothing
+    , _assuMinimumUnits = Nothing
+    , _assuScalingPolicyUpdate = Nothing
+    , _assuMaximumUnits = Nothing
+    , _assuAutoScalingRoleARN = Nothing
+    }
+
+
+-- | Disabled autoscaling for this global table or global secondary index.
+assuAutoScalingDisabled :: Lens' AutoScalingSettingsUpdate (Maybe Bool)
+assuAutoScalingDisabled = lens _assuAutoScalingDisabled (\ s a -> s{_assuAutoScalingDisabled = a})
+
+-- | The minimum capacity units that a global table or global secondary index should be scaled down to.
+assuMinimumUnits :: Lens' AutoScalingSettingsUpdate (Maybe Natural)
+assuMinimumUnits = lens _assuMinimumUnits (\ s a -> s{_assuMinimumUnits = a}) . mapping _Nat
+
+-- | The scaling policy to apply for scaling target global table or global secondary index capacity units.
+assuScalingPolicyUpdate :: Lens' AutoScalingSettingsUpdate (Maybe AutoScalingPolicyUpdate)
+assuScalingPolicyUpdate = lens _assuScalingPolicyUpdate (\ s a -> s{_assuScalingPolicyUpdate = a})
+
+-- | The maximum capacity units that a global table or global secondary index should be scaled up to.
+assuMaximumUnits :: Lens' AutoScalingSettingsUpdate (Maybe Natural)
+assuMaximumUnits = lens _assuMaximumUnits (\ s a -> s{_assuMaximumUnits = a}) . mapping _Nat
+
+-- | Role ARN used for configuring autoscaling policy.
+assuAutoScalingRoleARN :: Lens' AutoScalingSettingsUpdate (Maybe Text)
+assuAutoScalingRoleARN = lens _assuAutoScalingRoleARN (\ s a -> s{_assuAutoScalingRoleARN = a})
+
+instance Hashable AutoScalingSettingsUpdate where
+
+instance NFData AutoScalingSettingsUpdate where
+
+instance ToJSON AutoScalingSettingsUpdate where
+        toJSON AutoScalingSettingsUpdate'{..}
+          = object
+              (catMaybes
+                 [("AutoScalingDisabled" .=) <$>
+                    _assuAutoScalingDisabled,
+                  ("MinimumUnits" .=) <$> _assuMinimumUnits,
+                  ("ScalingPolicyUpdate" .=) <$>
+                    _assuScalingPolicyUpdate,
+                  ("MaximumUnits" .=) <$> _assuMaximumUnits,
+                  ("AutoScalingRoleArn" .=) <$>
+                    _assuAutoScalingRoleARN])
+
+-- | Represents the properties of a target tracking scaling policy.
+--
+--
+--
+-- /See:/ 'autoScalingTargetTrackingScalingPolicyConfigurationDescription' smart constructor.
+data AutoScalingTargetTrackingScalingPolicyConfigurationDescription = AutoScalingTargetTrackingScalingPolicyConfigurationDescription'
+  { _asttspcdScaleInCooldown  :: !(Maybe Int)
+  , _asttspcdDisableScaleIn   :: !(Maybe Bool)
+  , _asttspcdScaleOutCooldown :: !(Maybe Int)
+  , _asttspcdTargetValue      :: !Double
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AutoScalingTargetTrackingScalingPolicyConfigurationDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asttspcdScaleInCooldown' - The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application autoscaling scales out your scalable target immediately.
+--
+-- * 'asttspcdDisableScaleIn' - Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is false.
+--
+-- * 'asttspcdScaleOutCooldown' - The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. You should continuously (but not excessively) scale out.
+--
+-- * 'asttspcdTargetValue' - The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
+autoScalingTargetTrackingScalingPolicyConfigurationDescription
+    :: Double -- ^ 'asttspcdTargetValue'
+    -> AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+autoScalingTargetTrackingScalingPolicyConfigurationDescription pTargetValue_ =
+  AutoScalingTargetTrackingScalingPolicyConfigurationDescription'
+    { _asttspcdScaleInCooldown = Nothing
+    , _asttspcdDisableScaleIn = Nothing
+    , _asttspcdScaleOutCooldown = Nothing
+    , _asttspcdTargetValue = pTargetValue_
+    }
+
+
+-- | The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application autoscaling scales out your scalable target immediately.
+asttspcdScaleInCooldown :: Lens' AutoScalingTargetTrackingScalingPolicyConfigurationDescription (Maybe Int)
+asttspcdScaleInCooldown = lens _asttspcdScaleInCooldown (\ s a -> s{_asttspcdScaleInCooldown = a})
+
+-- | Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is false.
+asttspcdDisableScaleIn :: Lens' AutoScalingTargetTrackingScalingPolicyConfigurationDescription (Maybe Bool)
+asttspcdDisableScaleIn = lens _asttspcdDisableScaleIn (\ s a -> s{_asttspcdDisableScaleIn = a})
+
+-- | The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. You should continuously (but not excessively) scale out.
+asttspcdScaleOutCooldown :: Lens' AutoScalingTargetTrackingScalingPolicyConfigurationDescription (Maybe Int)
+asttspcdScaleOutCooldown = lens _asttspcdScaleOutCooldown (\ s a -> s{_asttspcdScaleOutCooldown = a})
+
+-- | The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
+asttspcdTargetValue :: Lens' AutoScalingTargetTrackingScalingPolicyConfigurationDescription Double
+asttspcdTargetValue = lens _asttspcdTargetValue (\ s a -> s{_asttspcdTargetValue = a})
+
+instance FromJSON
+           AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+         where
+        parseJSON
+          = withObject
+              "AutoScalingTargetTrackingScalingPolicyConfigurationDescription"
+              (\ x ->
+                 AutoScalingTargetTrackingScalingPolicyConfigurationDescription'
+                   <$>
+                   (x .:? "ScaleInCooldown") <*>
+                     (x .:? "DisableScaleIn")
+                     <*> (x .:? "ScaleOutCooldown")
+                     <*> (x .: "TargetValue"))
+
+instance Hashable
+           AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+         where
+
+instance NFData
+           AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+         where
+
+-- | Represents the settings of a target tracking scaling policy that will be modified.
+--
+--
+--
+-- /See:/ 'autoScalingTargetTrackingScalingPolicyConfigurationUpdate' smart constructor.
+data AutoScalingTargetTrackingScalingPolicyConfigurationUpdate = AutoScalingTargetTrackingScalingPolicyConfigurationUpdate'
+  { _asttspcuScaleInCooldown  :: !(Maybe Int)
+  , _asttspcuDisableScaleIn   :: !(Maybe Bool)
+  , _asttspcuScaleOutCooldown :: !(Maybe Int)
+  , _asttspcuTargetValue      :: !Double
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asttspcuScaleInCooldown' - The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application autoscaling scales out your scalable target immediately.
+--
+-- * 'asttspcuDisableScaleIn' - Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is false.
+--
+-- * 'asttspcuScaleOutCooldown' - The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. You should continuously (but not excessively) scale out.
+--
+-- * 'asttspcuTargetValue' - The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
+autoScalingTargetTrackingScalingPolicyConfigurationUpdate
+    :: Double -- ^ 'asttspcuTargetValue'
+    -> AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+autoScalingTargetTrackingScalingPolicyConfigurationUpdate pTargetValue_ =
+  AutoScalingTargetTrackingScalingPolicyConfigurationUpdate'
+    { _asttspcuScaleInCooldown = Nothing
+    , _asttspcuDisableScaleIn = Nothing
+    , _asttspcuScaleOutCooldown = Nothing
+    , _asttspcuTargetValue = pTargetValue_
+    }
+
+
+-- | The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application autoscaling scales out your scalable target immediately.
+asttspcuScaleInCooldown :: Lens' AutoScalingTargetTrackingScalingPolicyConfigurationUpdate (Maybe Int)
+asttspcuScaleInCooldown = lens _asttspcuScaleInCooldown (\ s a -> s{_asttspcuScaleInCooldown = a})
+
+-- | Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is false.
+asttspcuDisableScaleIn :: Lens' AutoScalingTargetTrackingScalingPolicyConfigurationUpdate (Maybe Bool)
+asttspcuDisableScaleIn = lens _asttspcuDisableScaleIn (\ s a -> s{_asttspcuDisableScaleIn = a})
+
+-- | The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. You should continuously (but not excessively) scale out.
+asttspcuScaleOutCooldown :: Lens' AutoScalingTargetTrackingScalingPolicyConfigurationUpdate (Maybe Int)
+asttspcuScaleOutCooldown = lens _asttspcuScaleOutCooldown (\ s a -> s{_asttspcuScaleOutCooldown = a})
+
+-- | The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
+asttspcuTargetValue :: Lens' AutoScalingTargetTrackingScalingPolicyConfigurationUpdate Double
+asttspcuTargetValue = lens _asttspcuTargetValue (\ s a -> s{_asttspcuTargetValue = a})
+
+instance Hashable
+           AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+         where
+
+instance NFData
+           AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+         where
+
+instance ToJSON
+           AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+         where
+        toJSON
+          AutoScalingTargetTrackingScalingPolicyConfigurationUpdate'{..}
+          = object
+              (catMaybes
+                 [("ScaleInCooldown" .=) <$> _asttspcuScaleInCooldown,
+                  ("DisableScaleIn" .=) <$> _asttspcuDisableScaleIn,
+                  ("ScaleOutCooldown" .=) <$>
+                    _asttspcuScaleOutCooldown,
+                  Just ("TargetValue" .= _asttspcuTargetValue)])
+
 -- | Contains the description of the backup created for the table.
 --
 --
@@ -313,10 +709,12 @@ instance NFData BackupDescription where
 --
 -- /See:/ 'backupDetails' smart constructor.
 data BackupDetails = BackupDetails'
-  { _bdBackupSizeBytes        :: !(Maybe Nat)
+  { _bdBackupExpiryDateTime   :: !(Maybe POSIX)
+  , _bdBackupSizeBytes        :: !(Maybe Nat)
   , _bdBackupARN              :: !Text
   , _bdBackupName             :: !Text
   , _bdBackupStatus           :: !BackupStatus
+  , _bdBackupType             :: !BackupType
   , _bdBackupCreationDateTime :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -324,6 +722,8 @@ data BackupDetails = BackupDetails'
 -- | Creates a value of 'BackupDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bdBackupExpiryDateTime' - Time at which the automatic on-demand backup created by DynamoDB will expire. This @SYSTEM@ on-demand backup expires automatically 35 days after its creation.
 --
 -- * 'bdBackupSizeBytes' - Size of the backup in bytes.
 --
@@ -333,22 +733,31 @@ data BackupDetails = BackupDetails'
 --
 -- * 'bdBackupStatus' - Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
 --
+-- * 'bdBackupType' - BackupType:     * @USER@ - You create and manage these using the on-demand backup feature.     * @SYSTEM@ - If you delete a table with point-in-time recovery enabled, a @SYSTEM@ backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.      * @AWS_BACKUP@ - On-demand backup created by you from AWS Backup service.
+--
 -- * 'bdBackupCreationDateTime' - Time at which the backup was created. This is the request time of the backup.
 backupDetails
     :: Text -- ^ 'bdBackupARN'
     -> Text -- ^ 'bdBackupName'
     -> BackupStatus -- ^ 'bdBackupStatus'
+    -> BackupType -- ^ 'bdBackupType'
     -> UTCTime -- ^ 'bdBackupCreationDateTime'
     -> BackupDetails
-backupDetails pBackupARN_ pBackupName_ pBackupStatus_ pBackupCreationDateTime_ =
+backupDetails pBackupARN_ pBackupName_ pBackupStatus_ pBackupType_ pBackupCreationDateTime_ =
   BackupDetails'
-    { _bdBackupSizeBytes = Nothing
+    { _bdBackupExpiryDateTime = Nothing
+    , _bdBackupSizeBytes = Nothing
     , _bdBackupARN = pBackupARN_
     , _bdBackupName = pBackupName_
     , _bdBackupStatus = pBackupStatus_
+    , _bdBackupType = pBackupType_
     , _bdBackupCreationDateTime = _Time # pBackupCreationDateTime_
     }
 
+
+-- | Time at which the automatic on-demand backup created by DynamoDB will expire. This @SYSTEM@ on-demand backup expires automatically 35 days after its creation.
+bdBackupExpiryDateTime :: Lens' BackupDetails (Maybe UTCTime)
+bdBackupExpiryDateTime = lens _bdBackupExpiryDateTime (\ s a -> s{_bdBackupExpiryDateTime = a}) . mapping _Time
 
 -- | Size of the backup in bytes.
 bdBackupSizeBytes :: Lens' BackupDetails (Maybe Natural)
@@ -366,6 +775,10 @@ bdBackupName = lens _bdBackupName (\ s a -> s{_bdBackupName = a})
 bdBackupStatus :: Lens' BackupDetails BackupStatus
 bdBackupStatus = lens _bdBackupStatus (\ s a -> s{_bdBackupStatus = a})
 
+-- | BackupType:     * @USER@ - You create and manage these using the on-demand backup feature.     * @SYSTEM@ - If you delete a table with point-in-time recovery enabled, a @SYSTEM@ backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.      * @AWS_BACKUP@ - On-demand backup created by you from AWS Backup service.
+bdBackupType :: Lens' BackupDetails BackupType
+bdBackupType = lens _bdBackupType (\ s a -> s{_bdBackupType = a})
+
 -- | Time at which the backup was created. This is the request time of the backup.
 bdBackupCreationDateTime :: Lens' BackupDetails UTCTime
 bdBackupCreationDateTime = lens _bdBackupCreationDateTime (\ s a -> s{_bdBackupCreationDateTime = a}) . _Time
@@ -375,9 +788,12 @@ instance FromJSON BackupDetails where
           = withObject "BackupDetails"
               (\ x ->
                  BackupDetails' <$>
-                   (x .:? "BackupSizeBytes") <*> (x .: "BackupArn") <*>
-                     (x .: "BackupName")
+                   (x .:? "BackupExpiryDateTime") <*>
+                     (x .:? "BackupSizeBytes")
+                     <*> (x .: "BackupArn")
+                     <*> (x .: "BackupName")
                      <*> (x .: "BackupStatus")
+                     <*> (x .: "BackupType")
                      <*> (x .: "BackupCreationDateTime"))
 
 instance Hashable BackupDetails where
@@ -390,13 +806,15 @@ instance NFData BackupDetails where
 --
 -- /See:/ 'backupSummary' smart constructor.
 data BackupSummary = BackupSummary'
-  { _bsTableARN               :: !(Maybe Text)
+  { _bsBackupExpiryDateTime   :: !(Maybe POSIX)
+  , _bsTableARN               :: !(Maybe Text)
   , _bsBackupName             :: !(Maybe Text)
   , _bsBackupStatus           :: !(Maybe BackupStatus)
   , _bsBackupSizeBytes        :: !(Maybe Nat)
   , _bsBackupARN              :: !(Maybe Text)
   , _bsTableId                :: !(Maybe Text)
   , _bsBackupCreationDateTime :: !(Maybe POSIX)
+  , _bsBackupType             :: !(Maybe BackupType)
   , _bsTableName              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -404,6 +822,8 @@ data BackupSummary = BackupSummary'
 -- | Creates a value of 'BackupSummary' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bsBackupExpiryDateTime' - Time at which the automatic on-demand backup created by DynamoDB will expire. This @SYSTEM@ on-demand backup expires automatically 35 days after its creation.
 --
 -- * 'bsTableARN' - ARN associated with the table.
 --
@@ -419,21 +839,29 @@ data BackupSummary = BackupSummary'
 --
 -- * 'bsBackupCreationDateTime' - Time at which the backup was created.
 --
+-- * 'bsBackupType' - BackupType:     * @USER@ - You create and manage these using the on-demand backup feature.     * @SYSTEM@ - If you delete a table with point-in-time recovery enabled, a @SYSTEM@ backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.      * @AWS_BACKUP@ - On-demand backup created by you from AWS Backup service.
+--
 -- * 'bsTableName' - Name of the table.
 backupSummary
     :: BackupSummary
 backupSummary =
   BackupSummary'
-    { _bsTableARN = Nothing
+    { _bsBackupExpiryDateTime = Nothing
+    , _bsTableARN = Nothing
     , _bsBackupName = Nothing
     , _bsBackupStatus = Nothing
     , _bsBackupSizeBytes = Nothing
     , _bsBackupARN = Nothing
     , _bsTableId = Nothing
     , _bsBackupCreationDateTime = Nothing
+    , _bsBackupType = Nothing
     , _bsTableName = Nothing
     }
 
+
+-- | Time at which the automatic on-demand backup created by DynamoDB will expire. This @SYSTEM@ on-demand backup expires automatically 35 days after its creation.
+bsBackupExpiryDateTime :: Lens' BackupSummary (Maybe UTCTime)
+bsBackupExpiryDateTime = lens _bsBackupExpiryDateTime (\ s a -> s{_bsBackupExpiryDateTime = a}) . mapping _Time
 
 -- | ARN associated with the table.
 bsTableARN :: Lens' BackupSummary (Maybe Text)
@@ -463,6 +891,10 @@ bsTableId = lens _bsTableId (\ s a -> s{_bsTableId = a})
 bsBackupCreationDateTime :: Lens' BackupSummary (Maybe UTCTime)
 bsBackupCreationDateTime = lens _bsBackupCreationDateTime (\ s a -> s{_bsBackupCreationDateTime = a}) . mapping _Time
 
+-- | BackupType:     * @USER@ - You create and manage these using the on-demand backup feature.     * @SYSTEM@ - If you delete a table with point-in-time recovery enabled, a @SYSTEM@ backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.      * @AWS_BACKUP@ - On-demand backup created by you from AWS Backup service.
+bsBackupType :: Lens' BackupSummary (Maybe BackupType)
+bsBackupType = lens _bsBackupType (\ s a -> s{_bsBackupType = a})
+
 -- | Name of the table.
 bsTableName :: Lens' BackupSummary (Maybe Text)
 bsTableName = lens _bsTableName (\ s a -> s{_bsTableName = a})
@@ -472,25 +904,74 @@ instance FromJSON BackupSummary where
           = withObject "BackupSummary"
               (\ x ->
                  BackupSummary' <$>
-                   (x .:? "TableArn") <*> (x .:? "BackupName") <*>
-                     (x .:? "BackupStatus")
+                   (x .:? "BackupExpiryDateTime") <*> (x .:? "TableArn")
+                     <*> (x .:? "BackupName")
+                     <*> (x .:? "BackupStatus")
                      <*> (x .:? "BackupSizeBytes")
                      <*> (x .:? "BackupArn")
                      <*> (x .:? "TableId")
                      <*> (x .:? "BackupCreationDateTime")
+                     <*> (x .:? "BackupType")
                      <*> (x .:? "TableName"))
 
 instance Hashable BackupSummary where
 
 instance NFData BackupSummary where
 
+-- | Contains the details for the read/write capacity mode.
+--
+--
+--
+-- /See:/ 'billingModeSummary' smart constructor.
+data BillingModeSummary = BillingModeSummary'
+  { _bmsLastUpdateToPayPerRequestDateTime :: !(Maybe POSIX)
+  , _bmsBillingMode                       :: !(Maybe BillingMode)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BillingModeSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bmsLastUpdateToPayPerRequestDateTime' - Represents the time when @PAY_PER_REQUEST@ was last set as the read/write capacity mode.
+--
+-- * 'bmsBillingMode' - Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.     * @PROVISIONED@ - Sets the read/write capacity mode to @PROVISIONED@ . We recommend using @PROVISIONED@ for predictable workloads.     * @PAY_PER_REQUEST@ - Sets the read/write capacity mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
+billingModeSummary
+    :: BillingModeSummary
+billingModeSummary =
+  BillingModeSummary'
+    {_bmsLastUpdateToPayPerRequestDateTime = Nothing, _bmsBillingMode = Nothing}
+
+
+-- | Represents the time when @PAY_PER_REQUEST@ was last set as the read/write capacity mode.
+bmsLastUpdateToPayPerRequestDateTime :: Lens' BillingModeSummary (Maybe UTCTime)
+bmsLastUpdateToPayPerRequestDateTime = lens _bmsLastUpdateToPayPerRequestDateTime (\ s a -> s{_bmsLastUpdateToPayPerRequestDateTime = a}) . mapping _Time
+
+-- | Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.     * @PROVISIONED@ - Sets the read/write capacity mode to @PROVISIONED@ . We recommend using @PROVISIONED@ for predictable workloads.     * @PAY_PER_REQUEST@ - Sets the read/write capacity mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
+bmsBillingMode :: Lens' BillingModeSummary (Maybe BillingMode)
+bmsBillingMode = lens _bmsBillingMode (\ s a -> s{_bmsBillingMode = a})
+
+instance FromJSON BillingModeSummary where
+        parseJSON
+          = withObject "BillingModeSummary"
+              (\ x ->
+                 BillingModeSummary' <$>
+                   (x .:? "LastUpdateToPayPerRequestDateTime") <*>
+                     (x .:? "BillingMode"))
+
+instance Hashable BillingModeSummary where
+
+instance NFData BillingModeSummary where
+
 -- | Represents the amount of provisioned throughput capacity consumed on a table or an index.
 --
 --
 --
 -- /See:/ 'capacity' smart constructor.
-newtype Capacity = Capacity'
-  { _cCapacityUnits :: Maybe Double
+data Capacity = Capacity'
+  { _capReadCapacityUnits  :: !(Maybe Double)
+  , _capCapacityUnits      :: !(Maybe Double)
+  , _capWriteCapacityUnits :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -498,20 +979,41 @@ newtype Capacity = Capacity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cCapacityUnits' - The total number of capacity units consumed on a table or an index.
+-- * 'capReadCapacityUnits' - The total number of read capacity units consumed on a table or an index.
+--
+-- * 'capCapacityUnits' - The total number of capacity units consumed on a table or an index.
+--
+-- * 'capWriteCapacityUnits' - The total number of write capacity units consumed on a table or an index.
 capacity
     :: Capacity
-capacity = Capacity' {_cCapacityUnits = Nothing}
+capacity =
+  Capacity'
+    { _capReadCapacityUnits = Nothing
+    , _capCapacityUnits = Nothing
+    , _capWriteCapacityUnits = Nothing
+    }
 
+
+-- | The total number of read capacity units consumed on a table or an index.
+capReadCapacityUnits :: Lens' Capacity (Maybe Double)
+capReadCapacityUnits = lens _capReadCapacityUnits (\ s a -> s{_capReadCapacityUnits = a})
 
 -- | The total number of capacity units consumed on a table or an index.
-cCapacityUnits :: Lens' Capacity (Maybe Double)
-cCapacityUnits = lens _cCapacityUnits (\ s a -> s{_cCapacityUnits = a})
+capCapacityUnits :: Lens' Capacity (Maybe Double)
+capCapacityUnits = lens _capCapacityUnits (\ s a -> s{_capCapacityUnits = a})
+
+-- | The total number of write capacity units consumed on a table or an index.
+capWriteCapacityUnits :: Lens' Capacity (Maybe Double)
+capWriteCapacityUnits = lens _capWriteCapacityUnits (\ s a -> s{_capWriteCapacityUnits = a})
 
 instance FromJSON Capacity where
         parseJSON
           = withObject "Capacity"
-              (\ x -> Capacity' <$> (x .:? "CapacityUnits"))
+              (\ x ->
+                 Capacity' <$>
+                   (x .:? "ReadCapacityUnits") <*>
+                     (x .:? "CapacityUnits")
+                     <*> (x .:? "WriteCapacityUnits"))
 
 instance Hashable Capacity where
 
@@ -574,17 +1076,107 @@ instance ToJSON Condition where
                  [("AttributeValueList" .=) <$> _cAttributeValueList,
                   Just ("ComparisonOperator" .= _cComparisonOperator)])
 
+-- | Represents a request to perform a check that an item exists or to check the condition of specific attributes of the item..
+--
+--
+--
+-- /See:/ 'conditionCheck' smart constructor.
+data ConditionCheck = ConditionCheck'
+  { _ccExpressionAttributeNames :: !(Maybe (Map Text Text))
+  , _ccExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+  , _ccReturnValuesOnConditionCheckFailure :: !(Maybe ReturnValuesOnConditionCheckFailure)
+  , _ccKey :: !(Map Text AttributeValue)
+  , _ccTableName :: !Text
+  , _ccConditionExpression :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ConditionCheck' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccExpressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
+--
+-- * 'ccExpressionAttributeValues' - One or more values that can be substituted in an expression.
+--
+-- * 'ccReturnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @ConditionCheck@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+--
+-- * 'ccKey' - The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.
+--
+-- * 'ccTableName' - Name of the table for the check item request.
+--
+-- * 'ccConditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
+conditionCheck
+    :: Text -- ^ 'ccTableName'
+    -> Text -- ^ 'ccConditionExpression'
+    -> ConditionCheck
+conditionCheck pTableName_ pConditionExpression_ =
+  ConditionCheck'
+    { _ccExpressionAttributeNames = Nothing
+    , _ccExpressionAttributeValues = Nothing
+    , _ccReturnValuesOnConditionCheckFailure = Nothing
+    , _ccKey = mempty
+    , _ccTableName = pTableName_
+    , _ccConditionExpression = pConditionExpression_
+    }
+
+
+-- | One or more substitution tokens for attribute names in an expression.
+ccExpressionAttributeNames :: Lens' ConditionCheck (HashMap Text Text)
+ccExpressionAttributeNames = lens _ccExpressionAttributeNames (\ s a -> s{_ccExpressionAttributeNames = a}) . _Default . _Map
+
+-- | One or more values that can be substituted in an expression.
+ccExpressionAttributeValues :: Lens' ConditionCheck (HashMap Text AttributeValue)
+ccExpressionAttributeValues = lens _ccExpressionAttributeValues (\ s a -> s{_ccExpressionAttributeValues = a}) . _Default . _Map
+
+-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @ConditionCheck@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+ccReturnValuesOnConditionCheckFailure :: Lens' ConditionCheck (Maybe ReturnValuesOnConditionCheckFailure)
+ccReturnValuesOnConditionCheckFailure = lens _ccReturnValuesOnConditionCheckFailure (\ s a -> s{_ccReturnValuesOnConditionCheckFailure = a})
+
+-- | The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.
+ccKey :: Lens' ConditionCheck (HashMap Text AttributeValue)
+ccKey = lens _ccKey (\ s a -> s{_ccKey = a}) . _Map
+
+-- | Name of the table for the check item request.
+ccTableName :: Lens' ConditionCheck Text
+ccTableName = lens _ccTableName (\ s a -> s{_ccTableName = a})
+
+-- | A condition that must be satisfied in order for a conditional update to succeed.
+ccConditionExpression :: Lens' ConditionCheck Text
+ccConditionExpression = lens _ccConditionExpression (\ s a -> s{_ccConditionExpression = a})
+
+instance Hashable ConditionCheck where
+
+instance NFData ConditionCheck where
+
+instance ToJSON ConditionCheck where
+        toJSON ConditionCheck'{..}
+          = object
+              (catMaybes
+                 [("ExpressionAttributeNames" .=) <$>
+                    _ccExpressionAttributeNames,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _ccExpressionAttributeValues,
+                  ("ReturnValuesOnConditionCheckFailure" .=) <$>
+                    _ccReturnValuesOnConditionCheckFailure,
+                  Just ("Key" .= _ccKey),
+                  Just ("TableName" .= _ccTableName),
+                  Just
+                    ("ConditionExpression" .= _ccConditionExpression)])
+
 -- | The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the request asked for it. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput> in the /Amazon DynamoDB Developer Guide/ .
 --
 --
 --
 -- /See:/ 'consumedCapacity' smart constructor.
 data ConsumedCapacity = ConsumedCapacity'
-  { _ccGlobalSecondaryIndexes :: !(Maybe (Map Text Capacity))
-  , _ccCapacityUnits          :: !(Maybe Double)
-  , _ccLocalSecondaryIndexes  :: !(Maybe (Map Text Capacity))
-  , _ccTable                  :: !(Maybe Capacity)
-  , _ccTableName              :: !(Maybe Text)
+  { _cReadCapacityUnits      :: !(Maybe Double)
+  , _cGlobalSecondaryIndexes :: !(Maybe (Map Text Capacity))
+  , _cCapacityUnits          :: !(Maybe Double)
+  , _cWriteCapacityUnits     :: !(Maybe Double)
+  , _cLocalSecondaryIndexes  :: !(Maybe (Map Text Capacity))
+  , _cTable                  :: !(Maybe Capacity)
+  , _cTableName              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -592,54 +1184,70 @@ data ConsumedCapacity = ConsumedCapacity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccGlobalSecondaryIndexes' - The amount of throughput consumed on each global index affected by the operation.
+-- * 'cReadCapacityUnits' - The total number of read capacity units consumed by the operation.
 --
--- * 'ccCapacityUnits' - The total number of capacity units consumed by the operation.
+-- * 'cGlobalSecondaryIndexes' - The amount of throughput consumed on each global index affected by the operation.
 --
--- * 'ccLocalSecondaryIndexes' - The amount of throughput consumed on each local index affected by the operation.
+-- * 'cCapacityUnits' - The total number of capacity units consumed by the operation.
 --
--- * 'ccTable' - The amount of throughput consumed on the table affected by the operation.
+-- * 'cWriteCapacityUnits' - The total number of write capacity units consumed by the operation.
 --
--- * 'ccTableName' - The name of the table that was affected by the operation.
+-- * 'cLocalSecondaryIndexes' - The amount of throughput consumed on each local index affected by the operation.
+--
+-- * 'cTable' - The amount of throughput consumed on the table affected by the operation.
+--
+-- * 'cTableName' - The name of the table that was affected by the operation.
 consumedCapacity
     :: ConsumedCapacity
 consumedCapacity =
   ConsumedCapacity'
-    { _ccGlobalSecondaryIndexes = Nothing
-    , _ccCapacityUnits = Nothing
-    , _ccLocalSecondaryIndexes = Nothing
-    , _ccTable = Nothing
-    , _ccTableName = Nothing
+    { _cReadCapacityUnits = Nothing
+    , _cGlobalSecondaryIndexes = Nothing
+    , _cCapacityUnits = Nothing
+    , _cWriteCapacityUnits = Nothing
+    , _cLocalSecondaryIndexes = Nothing
+    , _cTable = Nothing
+    , _cTableName = Nothing
     }
 
 
+-- | The total number of read capacity units consumed by the operation.
+cReadCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
+cReadCapacityUnits = lens _cReadCapacityUnits (\ s a -> s{_cReadCapacityUnits = a})
+
 -- | The amount of throughput consumed on each global index affected by the operation.
-ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
-ccGlobalSecondaryIndexes = lens _ccGlobalSecondaryIndexes (\ s a -> s{_ccGlobalSecondaryIndexes = a}) . _Default . _Map
+cGlobalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
+cGlobalSecondaryIndexes = lens _cGlobalSecondaryIndexes (\ s a -> s{_cGlobalSecondaryIndexes = a}) . _Default . _Map
 
 -- | The total number of capacity units consumed by the operation.
-ccCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
-ccCapacityUnits = lens _ccCapacityUnits (\ s a -> s{_ccCapacityUnits = a})
+cCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
+cCapacityUnits = lens _cCapacityUnits (\ s a -> s{_cCapacityUnits = a})
+
+-- | The total number of write capacity units consumed by the operation.
+cWriteCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
+cWriteCapacityUnits = lens _cWriteCapacityUnits (\ s a -> s{_cWriteCapacityUnits = a})
 
 -- | The amount of throughput consumed on each local index affected by the operation.
-ccLocalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
-ccLocalSecondaryIndexes = lens _ccLocalSecondaryIndexes (\ s a -> s{_ccLocalSecondaryIndexes = a}) . _Default . _Map
+cLocalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
+cLocalSecondaryIndexes = lens _cLocalSecondaryIndexes (\ s a -> s{_cLocalSecondaryIndexes = a}) . _Default . _Map
 
 -- | The amount of throughput consumed on the table affected by the operation.
-ccTable :: Lens' ConsumedCapacity (Maybe Capacity)
-ccTable = lens _ccTable (\ s a -> s{_ccTable = a})
+cTable :: Lens' ConsumedCapacity (Maybe Capacity)
+cTable = lens _cTable (\ s a -> s{_cTable = a})
 
 -- | The name of the table that was affected by the operation.
-ccTableName :: Lens' ConsumedCapacity (Maybe Text)
-ccTableName = lens _ccTableName (\ s a -> s{_ccTableName = a})
+cTableName :: Lens' ConsumedCapacity (Maybe Text)
+cTableName = lens _cTableName (\ s a -> s{_cTableName = a})
 
 instance FromJSON ConsumedCapacity where
         parseJSON
           = withObject "ConsumedCapacity"
               (\ x ->
                  ConsumedCapacity' <$>
-                   (x .:? "GlobalSecondaryIndexes" .!= mempty) <*>
-                     (x .:? "CapacityUnits")
+                   (x .:? "ReadCapacityUnits") <*>
+                     (x .:? "GlobalSecondaryIndexes" .!= mempty)
+                     <*> (x .:? "CapacityUnits")
+                     <*> (x .:? "WriteCapacityUnits")
                      <*> (x .:? "LocalSecondaryIndexes" .!= mempty)
                      <*> (x .:? "Table")
                      <*> (x .:? "TableName"))
@@ -665,7 +1273,7 @@ data ContinuousBackupsDescription = ContinuousBackupsDescription'
 --
 -- * 'cbdPointInTimeRecoveryDescription' - The description of the point in time recovery settings applied to the table.
 --
--- * 'cbdContinuousBackupsStatus' - @ContinuousBackupsStatus@ can be one of the following states : ENABLED, DISABLED
+-- * 'cbdContinuousBackupsStatus' - @ContinuousBackupsStatus@ can be one of the following states: ENABLED, DISABLED
 continuousBackupsDescription
     :: ContinuousBackupsStatus -- ^ 'cbdContinuousBackupsStatus'
     -> ContinuousBackupsDescription
@@ -680,7 +1288,7 @@ continuousBackupsDescription pContinuousBackupsStatus_ =
 cbdPointInTimeRecoveryDescription :: Lens' ContinuousBackupsDescription (Maybe PointInTimeRecoveryDescription)
 cbdPointInTimeRecoveryDescription = lens _cbdPointInTimeRecoveryDescription (\ s a -> s{_cbdPointInTimeRecoveryDescription = a})
 
--- | @ContinuousBackupsStatus@ can be one of the following states : ENABLED, DISABLED
+-- | @ContinuousBackupsStatus@ can be one of the following states: ENABLED, DISABLED
 cbdContinuousBackupsStatus :: Lens' ContinuousBackupsDescription ContinuousBackupsStatus
 cbdContinuousBackupsStatus = lens _cbdContinuousBackupsStatus (\ s a -> s{_cbdContinuousBackupsStatus = a})
 
@@ -702,10 +1310,10 @@ instance NFData ContinuousBackupsDescription where
 --
 -- /See:/ 'createGlobalSecondaryIndexAction' smart constructor.
 data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
-  { _cgsiaIndexName             :: !Text
+  { _cgsiaProvisionedThroughput :: !(Maybe ProvisionedThroughput)
+  , _cgsiaIndexName             :: !Text
   , _cgsiaKeySchema             :: !(List1 KeySchemaElement)
   , _cgsiaProjection            :: !Projection
-  , _cgsiaProvisionedThroughput :: !ProvisionedThroughput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -713,27 +1321,30 @@ data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cgsiaProvisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index. For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
+--
 -- * 'cgsiaIndexName' - The name of the global secondary index to be created.
 --
 -- * 'cgsiaKeySchema' - The key schema for the global secondary index.
 --
 -- * 'cgsiaProjection' - Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
---
--- * 'cgsiaProvisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index. For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
 createGlobalSecondaryIndexAction
     :: Text -- ^ 'cgsiaIndexName'
     -> NonEmpty KeySchemaElement -- ^ 'cgsiaKeySchema'
     -> Projection -- ^ 'cgsiaProjection'
-    -> ProvisionedThroughput -- ^ 'cgsiaProvisionedThroughput'
     -> CreateGlobalSecondaryIndexAction
-createGlobalSecondaryIndexAction pIndexName_ pKeySchema_ pProjection_ pProvisionedThroughput_ =
+createGlobalSecondaryIndexAction pIndexName_ pKeySchema_ pProjection_ =
   CreateGlobalSecondaryIndexAction'
-    { _cgsiaIndexName = pIndexName_
+    { _cgsiaProvisionedThroughput = Nothing
+    , _cgsiaIndexName = pIndexName_
     , _cgsiaKeySchema = _List1 # pKeySchema_
     , _cgsiaProjection = pProjection_
-    , _cgsiaProvisionedThroughput = pProvisionedThroughput_
     }
 
+
+-- | Represents the provisioned throughput settings for the specified global secondary index. For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
+cgsiaProvisionedThroughput :: Lens' CreateGlobalSecondaryIndexAction (Maybe ProvisionedThroughput)
+cgsiaProvisionedThroughput = lens _cgsiaProvisionedThroughput (\ s a -> s{_cgsiaProvisionedThroughput = a})
 
 -- | The name of the global secondary index to be created.
 cgsiaIndexName :: Lens' CreateGlobalSecondaryIndexAction Text
@@ -747,10 +1358,6 @@ cgsiaKeySchema = lens _cgsiaKeySchema (\ s a -> s{_cgsiaKeySchema = a}) . _List1
 cgsiaProjection :: Lens' CreateGlobalSecondaryIndexAction Projection
 cgsiaProjection = lens _cgsiaProjection (\ s a -> s{_cgsiaProjection = a})
 
--- | Represents the provisioned throughput settings for the specified global secondary index. For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
-cgsiaProvisionedThroughput :: Lens' CreateGlobalSecondaryIndexAction ProvisionedThroughput
-cgsiaProvisionedThroughput = lens _cgsiaProvisionedThroughput (\ s a -> s{_cgsiaProvisionedThroughput = a})
-
 instance Hashable CreateGlobalSecondaryIndexAction
          where
 
@@ -762,12 +1369,11 @@ instance ToJSON CreateGlobalSecondaryIndexAction
         toJSON CreateGlobalSecondaryIndexAction'{..}
           = object
               (catMaybes
-                 [Just ("IndexName" .= _cgsiaIndexName),
+                 [("ProvisionedThroughput" .=) <$>
+                    _cgsiaProvisionedThroughput,
+                  Just ("IndexName" .= _cgsiaIndexName),
                   Just ("KeySchema" .= _cgsiaKeySchema),
-                  Just ("Projection" .= _cgsiaProjection),
-                  Just
-                    ("ProvisionedThroughput" .=
-                       _cgsiaProvisionedThroughput)])
+                  Just ("Projection" .= _cgsiaProjection)])
 
 -- | Represents a replica to be added.
 --
@@ -803,6 +1409,92 @@ instance ToJSON CreateReplicaAction where
         toJSON CreateReplicaAction'{..}
           = object
               (catMaybes [Just ("RegionName" .= _craRegionName)])
+
+-- | Represents a request to perform a @DeleteItem@ operation.
+--
+--
+--
+-- /See:/ 'delete'' smart constructor.
+data Delete = Delete'
+  { _dExpressionAttributeNames :: !(Maybe (Map Text Text))
+  , _dExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+  , _dReturnValuesOnConditionCheckFailure :: !(Maybe ReturnValuesOnConditionCheckFailure)
+  , _dConditionExpression :: !(Maybe Text)
+  , _dKey :: !(Map Text AttributeValue)
+  , _dTableName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Delete' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dExpressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
+--
+-- * 'dExpressionAttributeValues' - One or more values that can be substituted in an expression.
+--
+-- * 'dReturnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+--
+-- * 'dConditionExpression' - A condition that must be satisfied in order for a conditional delete to succeed.
+--
+-- * 'dKey' - The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.
+--
+-- * 'dTableName' - Name of the table in which the item to be deleted resides.
+delete'
+    :: Text -- ^ 'dTableName'
+    -> Delete
+delete' pTableName_ =
+  Delete'
+    { _dExpressionAttributeNames = Nothing
+    , _dExpressionAttributeValues = Nothing
+    , _dReturnValuesOnConditionCheckFailure = Nothing
+    , _dConditionExpression = Nothing
+    , _dKey = mempty
+    , _dTableName = pTableName_
+    }
+
+
+-- | One or more substitution tokens for attribute names in an expression.
+dExpressionAttributeNames :: Lens' Delete (HashMap Text Text)
+dExpressionAttributeNames = lens _dExpressionAttributeNames (\ s a -> s{_dExpressionAttributeNames = a}) . _Default . _Map
+
+-- | One or more values that can be substituted in an expression.
+dExpressionAttributeValues :: Lens' Delete (HashMap Text AttributeValue)
+dExpressionAttributeValues = lens _dExpressionAttributeValues (\ s a -> s{_dExpressionAttributeValues = a}) . _Default . _Map
+
+-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+dReturnValuesOnConditionCheckFailure :: Lens' Delete (Maybe ReturnValuesOnConditionCheckFailure)
+dReturnValuesOnConditionCheckFailure = lens _dReturnValuesOnConditionCheckFailure (\ s a -> s{_dReturnValuesOnConditionCheckFailure = a})
+
+-- | A condition that must be satisfied in order for a conditional delete to succeed.
+dConditionExpression :: Lens' Delete (Maybe Text)
+dConditionExpression = lens _dConditionExpression (\ s a -> s{_dConditionExpression = a})
+
+-- | The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.
+dKey :: Lens' Delete (HashMap Text AttributeValue)
+dKey = lens _dKey (\ s a -> s{_dKey = a}) . _Map
+
+-- | Name of the table in which the item to be deleted resides.
+dTableName :: Lens' Delete Text
+dTableName = lens _dTableName (\ s a -> s{_dTableName = a})
+
+instance Hashable Delete where
+
+instance NFData Delete where
+
+instance ToJSON Delete where
+        toJSON Delete'{..}
+          = object
+              (catMaybes
+                 [("ExpressionAttributeNames" .=) <$>
+                    _dExpressionAttributeNames,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _dExpressionAttributeValues,
+                  ("ReturnValuesOnConditionCheckFailure" .=) <$>
+                    _dReturnValuesOnConditionCheckFailure,
+                  ("ConditionExpression" .=) <$> _dConditionExpression,
+                  Just ("Key" .= _dKey),
+                  Just ("TableName" .= _dTableName)])
 
 -- | Represents a global secondary index to be deleted from an existing table.
 --
@@ -914,6 +1606,52 @@ instance ToJSON DeleteRequest where
         toJSON DeleteRequest'{..}
           = object (catMaybes [Just ("Key" .= _drKey)])
 
+-- | An endpoint information details.
+--
+--
+--
+-- /See:/ 'endpoint' smart constructor.
+data Endpoint = Endpoint'
+  { _eAddress              :: !Text
+  , _eCachePeriodInMinutes :: !Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eAddress' - IP address of the endpoint.
+--
+-- * 'eCachePeriodInMinutes' - Endpoint cache time to live (TTL) value.
+endpoint
+    :: Text -- ^ 'eAddress'
+    -> Integer -- ^ 'eCachePeriodInMinutes'
+    -> Endpoint
+endpoint pAddress_ pCachePeriodInMinutes_ =
+  Endpoint'
+    {_eAddress = pAddress_, _eCachePeriodInMinutes = pCachePeriodInMinutes_}
+
+
+-- | IP address of the endpoint.
+eAddress :: Lens' Endpoint Text
+eAddress = lens _eAddress (\ s a -> s{_eAddress = a})
+
+-- | Endpoint cache time to live (TTL) value.
+eCachePeriodInMinutes :: Lens' Endpoint Integer
+eCachePeriodInMinutes = lens _eCachePeriodInMinutes (\ s a -> s{_eCachePeriodInMinutes = a})
+
+instance FromJSON Endpoint where
+        parseJSON
+          = withObject "Endpoint"
+              (\ x ->
+                 Endpoint' <$>
+                   (x .: "Address") <*> (x .: "CachePeriodInMinutes"))
+
+instance Hashable Endpoint where
+
+instance NFData Endpoint where
+
 -- | Represents a condition to be compared with an attribute value. This condition can be used with @DeleteItem@ , @PutItem@ or @UpdateItem@ operations; if the comparison evaluates to true, the operation succeeds; if not, the operation fails. You can use @ExpectedAttributeValue@ in one of two different ways:
 --
 --
@@ -941,7 +1679,7 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
 --
 -- * 'eavAttributeValueList' - One or more values to evaluate against the supplied attribute. The number of values in the list depends on the @ComparisonOperator@ being used. For type Number, value comparisons are numeric. String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, @a@ is greater than @A@ , and @a@ is greater than @B@ . For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters> . For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values. For information on specifying data types in JSON, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format> in the /Amazon DynamoDB Developer Guide/ .
 --
--- * 'eavExists' - Causes DynamoDB to evaluate the value before attempting a conditional operation:     * If @Exists@ is @true@ , DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a @ConditionalCheckFailedException@ .     * If @Exists@ is @false@ , DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a @ConditionalCheckFailedException@ . The default setting for @Exists@ is @true@ . If you supply a @Value@ all by itself, DynamoDB assumes the attribute exists: You don't have to set @Exists@ to @true@ , because it is implied. DynamoDB returns a @ValidationException@ if:     * @Exists@ is @true@ but there is no @Value@ to check. (You expect a value to exist, but don't specify what that value is.)     * @Exists@ is @false@ but you also provide a @Value@ . (You cannot expect an attribute to have a value, while also expecting it not to exist.)
+-- * 'eavExists' - Causes DynamoDB to evaluate the value before attempting a conditional operation:     * If @Exists@ is @true@ , DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a @ConditionCheckFailedException@ .     * If @Exists@ is @false@ , DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a @ConditionCheckFailedException@ . The default setting for @Exists@ is @true@ . If you supply a @Value@ all by itself, DynamoDB assumes the attribute exists: You don't have to set @Exists@ to @true@ , because it is implied. DynamoDB returns a @ValidationException@ if:     * @Exists@ is @true@ but there is no @Value@ to check. (You expect a value to exist, but don't specify what that value is.)     * @Exists@ is @false@ but you also provide a @Value@ . (You cannot expect an attribute to have a value, while also expecting it not to exist.)
 --
 -- * 'eavValue' - Represents the data for the expected attribute. Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data Types> in the /Amazon DynamoDB Developer Guide/ .
 --
@@ -961,7 +1699,7 @@ expectedAttributeValue =
 eavAttributeValueList :: Lens' ExpectedAttributeValue [AttributeValue]
 eavAttributeValueList = lens _eavAttributeValueList (\ s a -> s{_eavAttributeValueList = a}) . _Default . _Coerce
 
--- | Causes DynamoDB to evaluate the value before attempting a conditional operation:     * If @Exists@ is @true@ , DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a @ConditionalCheckFailedException@ .     * If @Exists@ is @false@ , DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a @ConditionalCheckFailedException@ . The default setting for @Exists@ is @true@ . If you supply a @Value@ all by itself, DynamoDB assumes the attribute exists: You don't have to set @Exists@ to @true@ , because it is implied. DynamoDB returns a @ValidationException@ if:     * @Exists@ is @true@ but there is no @Value@ to check. (You expect a value to exist, but don't specify what that value is.)     * @Exists@ is @false@ but you also provide a @Value@ . (You cannot expect an attribute to have a value, while also expecting it not to exist.)
+-- | Causes DynamoDB to evaluate the value before attempting a conditional operation:     * If @Exists@ is @true@ , DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a @ConditionCheckFailedException@ .     * If @Exists@ is @false@ , DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a @ConditionCheckFailedException@ . The default setting for @Exists@ is @true@ . If you supply a @Value@ all by itself, DynamoDB assumes the attribute exists: You don't have to set @Exists@ to @true@ , because it is implied. DynamoDB returns a @ValidationException@ if:     * @Exists@ is @true@ but there is no @Value@ to check. (You expect a value to exist, but don't specify what that value is.)     * @Exists@ is @false@ but you also provide a @Value@ . (You cannot expect an attribute to have a value, while also expecting it not to exist.)
 eavExists :: Lens' ExpectedAttributeValue (Maybe Bool)
 eavExists = lens _eavExists (\ s a -> s{_eavExists = a})
 
@@ -988,16 +1726,83 @@ instance ToJSON ExpectedAttributeValue where
                   ("ComparisonOperator" .=) <$>
                     _eavComparisonOperator])
 
+-- | Specifies an item and related attribute values to retrieve in a @TransactGetItem@ object.
+--
+--
+--
+-- /See:/ 'get'' smart constructor.
+data Get = Get'
+  { _getProjectionExpression     :: !(Maybe Text)
+  , _getExpressionAttributeNames :: !(Maybe (Map Text Text))
+  , _getKey                      :: !(Map Text AttributeValue)
+  , _getTableName                :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Get' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'getProjectionExpression' - A string that identifies one or more attributes of the specified item to retrieve from the table. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes of the specified item are returned. If any of the requested attributes are not found, they do not appear in the result.
+--
+-- * 'getExpressionAttributeNames' - One or more substitution tokens for attribute names in the ProjectionExpression parameter.
+--
+-- * 'getKey' - A map of attribute names to @AttributeValue@ objects that specifies the primary key of the item to retrieve.
+--
+-- * 'getTableName' - The name of the table from which to retrieve the specified item.
+get'
+    :: Text -- ^ 'getTableName'
+    -> Get
+get' pTableName_ =
+  Get'
+    { _getProjectionExpression = Nothing
+    , _getExpressionAttributeNames = Nothing
+    , _getKey = mempty
+    , _getTableName = pTableName_
+    }
+
+
+-- | A string that identifies one or more attributes of the specified item to retrieve from the table. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes of the specified item are returned. If any of the requested attributes are not found, they do not appear in the result.
+getProjectionExpression :: Lens' Get (Maybe Text)
+getProjectionExpression = lens _getProjectionExpression (\ s a -> s{_getProjectionExpression = a})
+
+-- | One or more substitution tokens for attribute names in the ProjectionExpression parameter.
+getExpressionAttributeNames :: Lens' Get (HashMap Text Text)
+getExpressionAttributeNames = lens _getExpressionAttributeNames (\ s a -> s{_getExpressionAttributeNames = a}) . _Default . _Map
+
+-- | A map of attribute names to @AttributeValue@ objects that specifies the primary key of the item to retrieve.
+getKey :: Lens' Get (HashMap Text AttributeValue)
+getKey = lens _getKey (\ s a -> s{_getKey = a}) . _Map
+
+-- | The name of the table from which to retrieve the specified item.
+getTableName :: Lens' Get Text
+getTableName = lens _getTableName (\ s a -> s{_getTableName = a})
+
+instance Hashable Get where
+
+instance NFData Get where
+
+instance ToJSON Get where
+        toJSON Get'{..}
+          = object
+              (catMaybes
+                 [("ProjectionExpression" .=) <$>
+                    _getProjectionExpression,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _getExpressionAttributeNames,
+                  Just ("Key" .= _getKey),
+                  Just ("TableName" .= _getTableName)])
+
 -- | Represents the properties of a global secondary index.
 --
 --
 --
 -- /See:/ 'globalSecondaryIndex' smart constructor.
 data GlobalSecondaryIndex = GlobalSecondaryIndex'
-  { _gsiIndexName             :: !Text
+  { _gsiProvisionedThroughput :: !(Maybe ProvisionedThroughput)
+  , _gsiIndexName             :: !Text
   , _gsiKeySchema             :: !(List1 KeySchemaElement)
   , _gsiProjection            :: !Projection
-  , _gsiProvisionedThroughput :: !ProvisionedThroughput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1005,27 +1810,30 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'gsiProvisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index. For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
+--
 -- * 'gsiIndexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
 --
 -- * 'gsiKeySchema' - The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:     * @HASH@ - partition key     * @RANGE@ - sort key
 --
 -- * 'gsiProjection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
---
--- * 'gsiProvisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index. For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
 globalSecondaryIndex
     :: Text -- ^ 'gsiIndexName'
     -> NonEmpty KeySchemaElement -- ^ 'gsiKeySchema'
     -> Projection -- ^ 'gsiProjection'
-    -> ProvisionedThroughput -- ^ 'gsiProvisionedThroughput'
     -> GlobalSecondaryIndex
-globalSecondaryIndex pIndexName_ pKeySchema_ pProjection_ pProvisionedThroughput_ =
+globalSecondaryIndex pIndexName_ pKeySchema_ pProjection_ =
   GlobalSecondaryIndex'
-    { _gsiIndexName = pIndexName_
+    { _gsiProvisionedThroughput = Nothing
+    , _gsiIndexName = pIndexName_
     , _gsiKeySchema = _List1 # pKeySchema_
     , _gsiProjection = pProjection_
-    , _gsiProvisionedThroughput = pProvisionedThroughput_
     }
 
+
+-- | Represents the provisioned throughput settings for the specified global secondary index. For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
+gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex (Maybe ProvisionedThroughput)
+gsiProvisionedThroughput = lens _gsiProvisionedThroughput (\ s a -> s{_gsiProvisionedThroughput = a})
 
 -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
 gsiIndexName :: Lens' GlobalSecondaryIndex Text
@@ -1039,10 +1847,6 @@ gsiKeySchema = lens _gsiKeySchema (\ s a -> s{_gsiKeySchema = a}) . _List1
 gsiProjection :: Lens' GlobalSecondaryIndex Projection
 gsiProjection = lens _gsiProjection (\ s a -> s{_gsiProjection = a})
 
--- | Represents the provisioned throughput settings for the specified global secondary index. For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/ .
-gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex ProvisionedThroughput
-gsiProvisionedThroughput = lens _gsiProvisionedThroughput (\ s a -> s{_gsiProvisionedThroughput = a})
-
 instance Hashable GlobalSecondaryIndex where
 
 instance NFData GlobalSecondaryIndex where
@@ -1051,12 +1855,11 @@ instance ToJSON GlobalSecondaryIndex where
         toJSON GlobalSecondaryIndex'{..}
           = object
               (catMaybes
-                 [Just ("IndexName" .= _gsiIndexName),
+                 [("ProvisionedThroughput" .=) <$>
+                    _gsiProvisionedThroughput,
+                  Just ("IndexName" .= _gsiIndexName),
                   Just ("KeySchema" .= _gsiKeySchema),
-                  Just ("Projection" .= _gsiProjection),
-                  Just
-                    ("ProvisionedThroughput" .=
-                       _gsiProvisionedThroughput)])
+                  Just ("Projection" .= _gsiProjection)])
 
 -- | Represents the properties of a global secondary index.
 --
@@ -1419,7 +2222,8 @@ instance NFData GlobalTableDescription where
 -- /See:/ 'globalTableGlobalSecondaryIndexSettingsUpdate' smart constructor.
 data GlobalTableGlobalSecondaryIndexSettingsUpdate = GlobalTableGlobalSecondaryIndexSettingsUpdate'
   { _gtgsisuProvisionedWriteCapacityUnits :: !(Maybe Nat)
-  , _gtgsisuIndexName                     :: !Text
+  , _gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate :: !(Maybe AutoScalingSettingsUpdate)
+  , _gtgsisuIndexName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1429,6 +2233,8 @@ data GlobalTableGlobalSecondaryIndexSettingsUpdate = GlobalTableGlobalSecondaryI
 --
 -- * 'gtgsisuProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
 --
+-- * 'gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate' - AutoScaling settings for managing a global secondary index's write capacity units.
+--
 -- * 'gtgsisuIndexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
 globalTableGlobalSecondaryIndexSettingsUpdate
     :: Text -- ^ 'gtgsisuIndexName'
@@ -1436,6 +2242,7 @@ globalTableGlobalSecondaryIndexSettingsUpdate
 globalTableGlobalSecondaryIndexSettingsUpdate pIndexName_ =
   GlobalTableGlobalSecondaryIndexSettingsUpdate'
     { _gtgsisuProvisionedWriteCapacityUnits = Nothing
+    , _gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate = Nothing
     , _gtgsisuIndexName = pIndexName_
     }
 
@@ -1443,6 +2250,10 @@ globalTableGlobalSecondaryIndexSettingsUpdate pIndexName_ =
 -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
 gtgsisuProvisionedWriteCapacityUnits :: Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Maybe Natural)
 gtgsisuProvisionedWriteCapacityUnits = lens _gtgsisuProvisionedWriteCapacityUnits (\ s a -> s{_gtgsisuProvisionedWriteCapacityUnits = a}) . mapping _Nat
+
+-- | AutoScaling settings for managing a global secondary index's write capacity units.
+gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate :: Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Maybe AutoScalingSettingsUpdate)
+gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate = lens _gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate (\ s a -> s{_gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate = a})
 
 -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
 gtgsisuIndexName :: Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate Text
@@ -1465,6 +2276,10 @@ instance ToJSON
               (catMaybes
                  [("ProvisionedWriteCapacityUnits" .=) <$>
                     _gtgsisuProvisionedWriteCapacityUnits,
+                  ("ProvisionedWriteCapacityAutoScalingSettingsUpdate"
+                     .=)
+                    <$>
+                    _gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate,
                   Just ("IndexName" .= _gtgsisuIndexName)])
 
 -- | Information about item collections, if any, that were affected by the operation. @ItemCollectionMetrics@ is only returned if the request asked for it. If the table does not have any local secondary indexes, this information is not returned in the response.
@@ -1511,6 +2326,39 @@ instance FromJSON ItemCollectionMetrics where
 instance Hashable ItemCollectionMetrics where
 
 instance NFData ItemCollectionMetrics where
+
+-- | Details for the requested item.
+--
+--
+--
+-- /See:/ 'itemResponse' smart constructor.
+newtype ItemResponse = ItemResponse'
+  { _iItem :: Maybe (Map Text AttributeValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ItemResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iItem' - Map of attribute data consisting of the data type and attribute value.
+itemResponse
+    :: ItemResponse
+itemResponse = ItemResponse' {_iItem = Nothing}
+
+
+-- | Map of attribute data consisting of the data type and attribute value.
+iItem :: Lens' ItemResponse (HashMap Text AttributeValue)
+iItem = lens _iItem (\ s a -> s{_iItem = a}) . _Default . _Map
+
+instance FromJSON ItemResponse where
+        parseJSON
+          = withObject "ItemResponse"
+              (\ x -> ItemResponse' <$> (x .:? "Item" .!= mempty))
+
+instance Hashable ItemResponse where
+
+instance NFData ItemResponse where
 
 -- | Represents /a single element/ of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
 --
@@ -2023,9 +2871,9 @@ data ProvisionedThroughput = ProvisionedThroughput'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ptReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'ptReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ . If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
 --
--- * 'ptWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'ptWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ . If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
 provisionedThroughput
     :: Natural -- ^ 'ptReadCapacityUnits'
     -> Natural -- ^ 'ptWriteCapacityUnits'
@@ -2037,11 +2885,11 @@ provisionedThroughput pReadCapacityUnits_ pWriteCapacityUnits_ =
     }
 
 
--- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+-- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ . If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
 ptReadCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptReadCapacityUnits = lens _ptReadCapacityUnits (\ s a -> s{_ptReadCapacityUnits = a}) . _Nat
 
--- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+-- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ . If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
 ptWriteCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptWriteCapacityUnits = lens _ptWriteCapacityUnits (\ s a -> s{_ptWriteCapacityUnits = a}) . _Nat
 
@@ -2141,6 +2989,92 @@ instance Hashable ProvisionedThroughputDescription
 
 instance NFData ProvisionedThroughputDescription
          where
+
+-- | Represents a request to perform a @PutItem@ operation.
+--
+--
+--
+-- /See:/ 'put' smart constructor.
+data Put = Put'
+  { _pExpressionAttributeNames :: !(Maybe (Map Text Text))
+  , _pExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+  , _pReturnValuesOnConditionCheckFailure :: !(Maybe ReturnValuesOnConditionCheckFailure)
+  , _pConditionExpression :: !(Maybe Text)
+  , _pItem :: !(Map Text AttributeValue)
+  , _pTableName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Put' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pExpressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
+--
+-- * 'pExpressionAttributeValues' - One or more values that can be substituted in an expression.
+--
+-- * 'pReturnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Put@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+--
+-- * 'pConditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
+--
+-- * 'pItem' - A map of attribute name to attribute values, representing the primary key of the item to be written by @PutItem@ . All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.
+--
+-- * 'pTableName' - Name of the table in which to write the item.
+put
+    :: Text -- ^ 'pTableName'
+    -> Put
+put pTableName_ =
+  Put'
+    { _pExpressionAttributeNames = Nothing
+    , _pExpressionAttributeValues = Nothing
+    , _pReturnValuesOnConditionCheckFailure = Nothing
+    , _pConditionExpression = Nothing
+    , _pItem = mempty
+    , _pTableName = pTableName_
+    }
+
+
+-- | One or more substitution tokens for attribute names in an expression.
+pExpressionAttributeNames :: Lens' Put (HashMap Text Text)
+pExpressionAttributeNames = lens _pExpressionAttributeNames (\ s a -> s{_pExpressionAttributeNames = a}) . _Default . _Map
+
+-- | One or more values that can be substituted in an expression.
+pExpressionAttributeValues :: Lens' Put (HashMap Text AttributeValue)
+pExpressionAttributeValues = lens _pExpressionAttributeValues (\ s a -> s{_pExpressionAttributeValues = a}) . _Default . _Map
+
+-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Put@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+pReturnValuesOnConditionCheckFailure :: Lens' Put (Maybe ReturnValuesOnConditionCheckFailure)
+pReturnValuesOnConditionCheckFailure = lens _pReturnValuesOnConditionCheckFailure (\ s a -> s{_pReturnValuesOnConditionCheckFailure = a})
+
+-- | A condition that must be satisfied in order for a conditional update to succeed.
+pConditionExpression :: Lens' Put (Maybe Text)
+pConditionExpression = lens _pConditionExpression (\ s a -> s{_pConditionExpression = a})
+
+-- | A map of attribute name to attribute values, representing the primary key of the item to be written by @PutItem@ . All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.
+pItem :: Lens' Put (HashMap Text AttributeValue)
+pItem = lens _pItem (\ s a -> s{_pItem = a}) . _Map
+
+-- | Name of the table in which to write the item.
+pTableName :: Lens' Put Text
+pTableName = lens _pTableName (\ s a -> s{_pTableName = a})
+
+instance Hashable Put where
+
+instance NFData Put where
+
+instance ToJSON Put where
+        toJSON Put'{..}
+          = object
+              (catMaybes
+                 [("ExpressionAttributeNames" .=) <$>
+                    _pExpressionAttributeNames,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _pExpressionAttributeValues,
+                  ("ReturnValuesOnConditionCheckFailure" .=) <$>
+                    _pReturnValuesOnConditionCheckFailure,
+                  ("ConditionExpression" .=) <$> _pConditionExpression,
+                  Just ("Item" .= _pItem),
+                  Just ("TableName" .= _pTableName)])
 
 -- | Represents a request to perform a @PutItem@ operation on an item.
 --
@@ -2256,10 +3190,12 @@ instance NFData ReplicaDescription where
 --
 -- /See:/ 'replicaGlobalSecondaryIndexSettingsDescription' smart constructor.
 data ReplicaGlobalSecondaryIndexSettingsDescription = ReplicaGlobalSecondaryIndexSettingsDescription'
-  { _rgsisdIndexStatus                   :: !(Maybe IndexStatus)
-  , _rgsisdProvisionedReadCapacityUnits  :: !(Maybe Nat)
+  { _rgsisdIndexStatus :: !(Maybe IndexStatus)
+  , _rgsisdProvisionedReadCapacityUnits :: !(Maybe Nat)
   , _rgsisdProvisionedWriteCapacityUnits :: !(Maybe Nat)
-  , _rgsisdIndexName                     :: !Text
+  , _rgsisdProvisionedWriteCapacityAutoScalingSettings :: !(Maybe AutoScalingSettingsDescription)
+  , _rgsisdProvisionedReadCapacityAutoScalingSettings :: !(Maybe AutoScalingSettingsDescription)
+  , _rgsisdIndexName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2273,6 +3209,10 @@ data ReplicaGlobalSecondaryIndexSettingsDescription = ReplicaGlobalSecondaryInde
 --
 -- * 'rgsisdProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ .
 --
+-- * 'rgsisdProvisionedWriteCapacityAutoScalingSettings' - AutoScaling settings for a global secondary index replica's write capacity units.
+--
+-- * 'rgsisdProvisionedReadCapacityAutoScalingSettings' - Autoscaling settings for a global secondary index replica's read capacity units.
+--
 -- * 'rgsisdIndexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
 replicaGlobalSecondaryIndexSettingsDescription
     :: Text -- ^ 'rgsisdIndexName'
@@ -2282,6 +3222,8 @@ replicaGlobalSecondaryIndexSettingsDescription pIndexName_ =
     { _rgsisdIndexStatus = Nothing
     , _rgsisdProvisionedReadCapacityUnits = Nothing
     , _rgsisdProvisionedWriteCapacityUnits = Nothing
+    , _rgsisdProvisionedWriteCapacityAutoScalingSettings = Nothing
+    , _rgsisdProvisionedReadCapacityAutoScalingSettings = Nothing
     , _rgsisdIndexName = pIndexName_
     }
 
@@ -2298,6 +3240,14 @@ rgsisdProvisionedReadCapacityUnits = lens _rgsisdProvisionedReadCapacityUnits (\
 rgsisdProvisionedWriteCapacityUnits :: Lens' ReplicaGlobalSecondaryIndexSettingsDescription (Maybe Natural)
 rgsisdProvisionedWriteCapacityUnits = lens _rgsisdProvisionedWriteCapacityUnits (\ s a -> s{_rgsisdProvisionedWriteCapacityUnits = a}) . mapping _Nat
 
+-- | AutoScaling settings for a global secondary index replica's write capacity units.
+rgsisdProvisionedWriteCapacityAutoScalingSettings :: Lens' ReplicaGlobalSecondaryIndexSettingsDescription (Maybe AutoScalingSettingsDescription)
+rgsisdProvisionedWriteCapacityAutoScalingSettings = lens _rgsisdProvisionedWriteCapacityAutoScalingSettings (\ s a -> s{_rgsisdProvisionedWriteCapacityAutoScalingSettings = a})
+
+-- | Autoscaling settings for a global secondary index replica's read capacity units.
+rgsisdProvisionedReadCapacityAutoScalingSettings :: Lens' ReplicaGlobalSecondaryIndexSettingsDescription (Maybe AutoScalingSettingsDescription)
+rgsisdProvisionedReadCapacityAutoScalingSettings = lens _rgsisdProvisionedReadCapacityAutoScalingSettings (\ s a -> s{_rgsisdProvisionedReadCapacityAutoScalingSettings = a})
+
 -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
 rgsisdIndexName :: Lens' ReplicaGlobalSecondaryIndexSettingsDescription Text
 rgsisdIndexName = lens _rgsisdIndexName (\ s a -> s{_rgsisdIndexName = a})
@@ -2313,6 +3263,10 @@ instance FromJSON
                    (x .:? "IndexStatus") <*>
                      (x .:? "ProvisionedReadCapacityUnits")
                      <*> (x .:? "ProvisionedWriteCapacityUnits")
+                     <*>
+                     (x .:? "ProvisionedWriteCapacityAutoScalingSettings")
+                     <*>
+                     (x .:? "ProvisionedReadCapacityAutoScalingSettings")
                      <*> (x .: "IndexName"))
 
 instance Hashable
@@ -2329,14 +3283,17 @@ instance NFData
 --
 -- /See:/ 'replicaGlobalSecondaryIndexSettingsUpdate' smart constructor.
 data ReplicaGlobalSecondaryIndexSettingsUpdate = ReplicaGlobalSecondaryIndexSettingsUpdate'
-  { _rgsisuProvisionedReadCapacityUnits :: !(Maybe Nat)
-  , _rgsisuIndexName                    :: !Text
+  { _rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate :: !(Maybe AutoScalingSettingsUpdate)
+  , _rgsisuProvisionedReadCapacityUnits :: !(Maybe Nat)
+  , _rgsisuIndexName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'ReplicaGlobalSecondaryIndexSettingsUpdate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate' - Autoscaling settings for managing a global secondary index replica's read capacity units.
 --
 -- * 'rgsisuProvisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ .
 --
@@ -2346,10 +3303,15 @@ replicaGlobalSecondaryIndexSettingsUpdate
     -> ReplicaGlobalSecondaryIndexSettingsUpdate
 replicaGlobalSecondaryIndexSettingsUpdate pIndexName_ =
   ReplicaGlobalSecondaryIndexSettingsUpdate'
-    { _rgsisuProvisionedReadCapacityUnits = Nothing
+    { _rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate = Nothing
+    , _rgsisuProvisionedReadCapacityUnits = Nothing
     , _rgsisuIndexName = pIndexName_
     }
 
+
+-- | Autoscaling settings for managing a global secondary index replica's read capacity units.
+rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate :: Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Maybe AutoScalingSettingsUpdate)
+rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate = lens _rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate (\ s a -> s{_rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate = a})
 
 -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ .
 rgsisuProvisionedReadCapacityUnits :: Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Maybe Natural)
@@ -2373,7 +3335,11 @@ instance ToJSON
         toJSON ReplicaGlobalSecondaryIndexSettingsUpdate'{..}
           = object
               (catMaybes
-                 [("ProvisionedReadCapacityUnits" .=) <$>
+                 [("ProvisionedReadCapacityAutoScalingSettingsUpdate"
+                     .=)
+                    <$>
+                    _rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate,
+                  ("ProvisionedReadCapacityUnits" .=) <$>
                     _rgsisuProvisionedReadCapacityUnits,
                   Just ("IndexName" .= _rgsisuIndexName)])
 
@@ -2386,7 +3352,10 @@ data ReplicaSettingsDescription = ReplicaSettingsDescription'
   { _rsdReplicaStatus :: !(Maybe ReplicaStatus)
   , _rsdReplicaProvisionedReadCapacityUnits :: !(Maybe Nat)
   , _rsdReplicaProvisionedWriteCapacityUnits :: !(Maybe Nat)
+  , _rsdReplicaBillingModeSummary :: !(Maybe BillingModeSummary)
   , _rsdReplicaGlobalSecondaryIndexSettings :: !(Maybe [ReplicaGlobalSecondaryIndexSettingsDescription])
+  , _rsdReplicaProvisionedWriteCapacityAutoScalingSettings :: !(Maybe AutoScalingSettingsDescription)
+  , _rsdReplicaProvisionedReadCapacityAutoScalingSettings :: !(Maybe AutoScalingSettingsDescription)
   , _rsdRegionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -2401,7 +3370,13 @@ data ReplicaSettingsDescription = ReplicaSettingsDescription'
 --
 -- * 'rsdReplicaProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
 --
+-- * 'rsdReplicaBillingModeSummary' - The read/write capacity mode of the replica.
+--
 -- * 'rsdReplicaGlobalSecondaryIndexSettings' - Replica global secondary index settings for the global table.
+--
+-- * 'rsdReplicaProvisionedWriteCapacityAutoScalingSettings' - AutoScaling settings for a global table replica's write capacity units.
+--
+-- * 'rsdReplicaProvisionedReadCapacityAutoScalingSettings' - Autoscaling settings for a global table replica's read capacity units.
 --
 -- * 'rsdRegionName' - The region name of the replica.
 replicaSettingsDescription
@@ -2412,7 +3387,10 @@ replicaSettingsDescription pRegionName_ =
     { _rsdReplicaStatus = Nothing
     , _rsdReplicaProvisionedReadCapacityUnits = Nothing
     , _rsdReplicaProvisionedWriteCapacityUnits = Nothing
+    , _rsdReplicaBillingModeSummary = Nothing
     , _rsdReplicaGlobalSecondaryIndexSettings = Nothing
+    , _rsdReplicaProvisionedWriteCapacityAutoScalingSettings = Nothing
+    , _rsdReplicaProvisionedReadCapacityAutoScalingSettings = Nothing
     , _rsdRegionName = pRegionName_
     }
 
@@ -2429,9 +3407,21 @@ rsdReplicaProvisionedReadCapacityUnits = lens _rsdReplicaProvisionedReadCapacity
 rsdReplicaProvisionedWriteCapacityUnits :: Lens' ReplicaSettingsDescription (Maybe Natural)
 rsdReplicaProvisionedWriteCapacityUnits = lens _rsdReplicaProvisionedWriteCapacityUnits (\ s a -> s{_rsdReplicaProvisionedWriteCapacityUnits = a}) . mapping _Nat
 
+-- | The read/write capacity mode of the replica.
+rsdReplicaBillingModeSummary :: Lens' ReplicaSettingsDescription (Maybe BillingModeSummary)
+rsdReplicaBillingModeSummary = lens _rsdReplicaBillingModeSummary (\ s a -> s{_rsdReplicaBillingModeSummary = a})
+
 -- | Replica global secondary index settings for the global table.
 rsdReplicaGlobalSecondaryIndexSettings :: Lens' ReplicaSettingsDescription [ReplicaGlobalSecondaryIndexSettingsDescription]
 rsdReplicaGlobalSecondaryIndexSettings = lens _rsdReplicaGlobalSecondaryIndexSettings (\ s a -> s{_rsdReplicaGlobalSecondaryIndexSettings = a}) . _Default . _Coerce
+
+-- | AutoScaling settings for a global table replica's write capacity units.
+rsdReplicaProvisionedWriteCapacityAutoScalingSettings :: Lens' ReplicaSettingsDescription (Maybe AutoScalingSettingsDescription)
+rsdReplicaProvisionedWriteCapacityAutoScalingSettings = lens _rsdReplicaProvisionedWriteCapacityAutoScalingSettings (\ s a -> s{_rsdReplicaProvisionedWriteCapacityAutoScalingSettings = a})
+
+-- | Autoscaling settings for a global table replica's read capacity units.
+rsdReplicaProvisionedReadCapacityAutoScalingSettings :: Lens' ReplicaSettingsDescription (Maybe AutoScalingSettingsDescription)
+rsdReplicaProvisionedReadCapacityAutoScalingSettings = lens _rsdReplicaProvisionedReadCapacityAutoScalingSettings (\ s a -> s{_rsdReplicaProvisionedReadCapacityAutoScalingSettings = a})
 
 -- | The region name of the replica.
 rsdRegionName :: Lens' ReplicaSettingsDescription Text
@@ -2445,9 +3435,16 @@ instance FromJSON ReplicaSettingsDescription where
                    (x .:? "ReplicaStatus") <*>
                      (x .:? "ReplicaProvisionedReadCapacityUnits")
                      <*> (x .:? "ReplicaProvisionedWriteCapacityUnits")
+                     <*> (x .:? "ReplicaBillingModeSummary")
                      <*>
                      (x .:? "ReplicaGlobalSecondaryIndexSettings" .!=
                         mempty)
+                     <*>
+                     (x .:?
+                        "ReplicaProvisionedWriteCapacityAutoScalingSettings")
+                     <*>
+                     (x .:?
+                        "ReplicaProvisionedReadCapacityAutoScalingSettings")
                      <*> (x .: "RegionName"))
 
 instance Hashable ReplicaSettingsDescription where
@@ -2460,7 +3457,8 @@ instance NFData ReplicaSettingsDescription where
 --
 -- /See:/ 'replicaSettingsUpdate' smart constructor.
 data ReplicaSettingsUpdate = ReplicaSettingsUpdate'
-  { _rsuReplicaProvisionedReadCapacityUnits :: !(Maybe Nat)
+  { _rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate :: !(Maybe AutoScalingSettingsUpdate)
+  , _rsuReplicaProvisionedReadCapacityUnits :: !(Maybe Nat)
   , _rsuReplicaGlobalSecondaryIndexSettingsUpdate :: !(Maybe (List1 ReplicaGlobalSecondaryIndexSettingsUpdate))
   , _rsuRegionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -2469,6 +3467,8 @@ data ReplicaSettingsUpdate = ReplicaSettingsUpdate'
 -- | Creates a value of 'ReplicaSettingsUpdate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate' - Autoscaling settings for managing a global table replica's read capacity units.
 --
 -- * 'rsuReplicaProvisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
 --
@@ -2480,11 +3480,16 @@ replicaSettingsUpdate
     -> ReplicaSettingsUpdate
 replicaSettingsUpdate pRegionName_ =
   ReplicaSettingsUpdate'
-    { _rsuReplicaProvisionedReadCapacityUnits = Nothing
+    { _rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate = Nothing
+    , _rsuReplicaProvisionedReadCapacityUnits = Nothing
     , _rsuReplicaGlobalSecondaryIndexSettingsUpdate = Nothing
     , _rsuRegionName = pRegionName_
     }
 
+
+-- | Autoscaling settings for managing a global table replica's read capacity units.
+rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate :: Lens' ReplicaSettingsUpdate (Maybe AutoScalingSettingsUpdate)
+rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate = lens _rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate (\ s a -> s{_rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate = a})
 
 -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
 rsuReplicaProvisionedReadCapacityUnits :: Lens' ReplicaSettingsUpdate (Maybe Natural)
@@ -2506,7 +3511,11 @@ instance ToJSON ReplicaSettingsUpdate where
         toJSON ReplicaSettingsUpdate'{..}
           = object
               (catMaybes
-                 [("ReplicaProvisionedReadCapacityUnits" .=) <$>
+                 [("ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate"
+                     .=)
+                    <$>
+                    _rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate,
+                  ("ReplicaProvisionedReadCapacityUnits" .=) <$>
                     _rsuReplicaProvisionedReadCapacityUnits,
                   ("ReplicaGlobalSecondaryIndexSettingsUpdate" .=) <$>
                     _rsuReplicaGlobalSecondaryIndexSettingsUpdate,
@@ -2634,8 +3643,10 @@ instance NFData RestoreSummary where
 --
 --
 -- /See:/ 'sSEDescription' smart constructor.
-newtype SSEDescription = SSEDescription'
-  { _ssedStatus :: Maybe SSEStatus
+data SSEDescription = SSEDescription'
+  { _ssedStatus          :: !(Maybe SSEStatus)
+  , _ssedSSEType         :: !(Maybe SSEType)
+  , _ssedKMSMasterKeyARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2643,20 +3654,40 @@ newtype SSEDescription = SSEDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssedStatus' - The current state of server-side encryption:     * @ENABLING@ - Server-side encryption is being enabled.     * @ENABLED@ - Server-side encryption is enabled.     * @DISABLING@ - Server-side encryption is being disabled.     * @DISABLED@ - Server-side encryption is disabled.
+-- * 'ssedStatus' - The current state of server-side encryption:     * @ENABLING@ - Server-side encryption is being enabled.     * @ENABLED@ - Server-side encryption is enabled.     * @DISABLING@ - Server-side encryption is being disabled.     * @DISABLED@ - Server-side encryption is disabled.     * @UPDATING@ - Server-side encryption is being updated.
+--
+-- * 'ssedSSEType' - Server-side encryption type:     * @AES256@ - Server-side encryption which uses the AES256 algorithm (not applicable).     * @KMS@ - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).
+--
+-- * 'ssedKMSMasterKeyARN' - The KMS master key ARN used for the KMS encryption.
 sSEDescription
     :: SSEDescription
-sSEDescription = SSEDescription' {_ssedStatus = Nothing}
+sSEDescription =
+  SSEDescription'
+    { _ssedStatus = Nothing
+    , _ssedSSEType = Nothing
+    , _ssedKMSMasterKeyARN = Nothing
+    }
 
 
--- | The current state of server-side encryption:     * @ENABLING@ - Server-side encryption is being enabled.     * @ENABLED@ - Server-side encryption is enabled.     * @DISABLING@ - Server-side encryption is being disabled.     * @DISABLED@ - Server-side encryption is disabled.
+-- | The current state of server-side encryption:     * @ENABLING@ - Server-side encryption is being enabled.     * @ENABLED@ - Server-side encryption is enabled.     * @DISABLING@ - Server-side encryption is being disabled.     * @DISABLED@ - Server-side encryption is disabled.     * @UPDATING@ - Server-side encryption is being updated.
 ssedStatus :: Lens' SSEDescription (Maybe SSEStatus)
 ssedStatus = lens _ssedStatus (\ s a -> s{_ssedStatus = a})
+
+-- | Server-side encryption type:     * @AES256@ - Server-side encryption which uses the AES256 algorithm (not applicable).     * @KMS@ - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).
+ssedSSEType :: Lens' SSEDescription (Maybe SSEType)
+ssedSSEType = lens _ssedSSEType (\ s a -> s{_ssedSSEType = a})
+
+-- | The KMS master key ARN used for the KMS encryption.
+ssedKMSMasterKeyARN :: Lens' SSEDescription (Maybe Text)
+ssedKMSMasterKeyARN = lens _ssedKMSMasterKeyARN (\ s a -> s{_ssedKMSMasterKeyARN = a})
 
 instance FromJSON SSEDescription where
         parseJSON
           = withObject "SSEDescription"
-              (\ x -> SSEDescription' <$> (x .:? "Status"))
+              (\ x ->
+                 SSEDescription' <$>
+                   (x .:? "Status") <*> (x .:? "SSEType") <*>
+                     (x .:? "KMSMasterKeyArn"))
 
 instance Hashable SSEDescription where
 
@@ -2667,8 +3698,10 @@ instance NFData SSEDescription where
 --
 --
 -- /See:/ 'sSESpecification' smart constructor.
-newtype SSESpecification = SSESpecification'
-  { _ssesEnabled :: Bool
+data SSESpecification = SSESpecification'
+  { _ssesEnabled        :: !(Maybe Bool)
+  , _ssesKMSMasterKeyId :: !(Maybe Text)
+  , _ssesSSEType        :: !(Maybe SSEType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2676,16 +3709,32 @@ newtype SSESpecification = SSESpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssesEnabled' - Indicates whether server-side encryption is enabled (true) or disabled (false) on the table.
+-- * 'ssesEnabled' - Indicates whether server-side encryption is enabled (true) or disabled (false) on the table. If enabled (true), server-side encryption type is set to @KMS@ . If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.
+--
+-- * 'ssesKMSMasterKeyId' - The KMS Master Key (CMK) which should be used for the KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS Master Key alias/aws/dynamodb.
+--
+-- * 'ssesSSEType' - Server-side encryption type:     * @AES256@ - Server-side encryption which uses the AES256 algorithm (not applicable).     * @KMS@ - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).
 sSESpecification
-    :: Bool -- ^ 'ssesEnabled'
-    -> SSESpecification
-sSESpecification pEnabled_ = SSESpecification' {_ssesEnabled = pEnabled_}
+    :: SSESpecification
+sSESpecification =
+  SSESpecification'
+    { _ssesEnabled = Nothing
+    , _ssesKMSMasterKeyId = Nothing
+    , _ssesSSEType = Nothing
+    }
 
 
--- | Indicates whether server-side encryption is enabled (true) or disabled (false) on the table.
-ssesEnabled :: Lens' SSESpecification Bool
+-- | Indicates whether server-side encryption is enabled (true) or disabled (false) on the table. If enabled (true), server-side encryption type is set to @KMS@ . If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.
+ssesEnabled :: Lens' SSESpecification (Maybe Bool)
 ssesEnabled = lens _ssesEnabled (\ s a -> s{_ssesEnabled = a})
+
+-- | The KMS Master Key (CMK) which should be used for the KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS Master Key alias/aws/dynamodb.
+ssesKMSMasterKeyId :: Lens' SSESpecification (Maybe Text)
+ssesKMSMasterKeyId = lens _ssesKMSMasterKeyId (\ s a -> s{_ssesKMSMasterKeyId = a})
+
+-- | Server-side encryption type:     * @AES256@ - Server-side encryption which uses the AES256 algorithm (not applicable).     * @KMS@ - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).
+ssesSSEType :: Lens' SSESpecification (Maybe SSEType)
+ssesSSEType = lens _ssesSSEType (\ s a -> s{_ssesSSEType = a})
 
 instance Hashable SSESpecification where
 
@@ -2694,7 +3743,10 @@ instance NFData SSESpecification where
 instance ToJSON SSESpecification where
         toJSON SSESpecification'{..}
           = object
-              (catMaybes [Just ("Enabled" .= _ssesEnabled)])
+              (catMaybes
+                 [("Enabled" .=) <$> _ssesEnabled,
+                  ("KMSMasterKeyId" .=) <$> _ssesKMSMasterKeyId,
+                  ("SSEType" .=) <$> _ssesSSEType])
 
 -- | Contains the details of the table when the backup was created.
 --
@@ -2704,6 +3756,7 @@ instance ToJSON SSESpecification where
 data SourceTableDetails = SourceTableDetails'
   { _stdTableSizeBytes        :: !(Maybe Integer)
   , _stdTableARN              :: !(Maybe Text)
+  , _stdBillingMode           :: !(Maybe BillingMode)
   , _stdItemCount             :: !(Maybe Nat)
   , _stdTableName             :: !Text
   , _stdTableId               :: !Text
@@ -2720,6 +3773,8 @@ data SourceTableDetails = SourceTableDetails'
 -- * 'stdTableSizeBytes' - Size of the table in bytes. Please note this is an approximate value.
 --
 -- * 'stdTableARN' - ARN of the table for which backup was created.
+--
+-- * 'stdBillingMode' - Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.     * @PROVISIONED@ - Sets the read/write capacity mode to @PROVISIONED@ . We recommend using @PROVISIONED@ for predictable workloads.     * @PAY_PER_REQUEST@ - Sets the read/write capacity mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
 --
 -- * 'stdItemCount' - Number of items in the table. Please note this is an approximate value.
 --
@@ -2743,6 +3798,7 @@ sourceTableDetails pTableName_ pTableId_ pKeySchema_ pTableCreationDateTime_ pPr
   SourceTableDetails'
     { _stdTableSizeBytes = Nothing
     , _stdTableARN = Nothing
+    , _stdBillingMode = Nothing
     , _stdItemCount = Nothing
     , _stdTableName = pTableName_
     , _stdTableId = pTableId_
@@ -2759,6 +3815,10 @@ stdTableSizeBytes = lens _stdTableSizeBytes (\ s a -> s{_stdTableSizeBytes = a})
 -- | ARN of the table for which backup was created.
 stdTableARN :: Lens' SourceTableDetails (Maybe Text)
 stdTableARN = lens _stdTableARN (\ s a -> s{_stdTableARN = a})
+
+-- | Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.     * @PROVISIONED@ - Sets the read/write capacity mode to @PROVISIONED@ . We recommend using @PROVISIONED@ for predictable workloads.     * @PAY_PER_REQUEST@ - Sets the read/write capacity mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
+stdBillingMode :: Lens' SourceTableDetails (Maybe BillingMode)
+stdBillingMode = lens _stdBillingMode (\ s a -> s{_stdBillingMode = a})
 
 -- | Number of items in the table. Please note this is an approximate value.
 stdItemCount :: Lens' SourceTableDetails (Maybe Natural)
@@ -2790,7 +3850,8 @@ instance FromJSON SourceTableDetails where
               (\ x ->
                  SourceTableDetails' <$>
                    (x .:? "TableSizeBytes") <*> (x .:? "TableArn") <*>
-                     (x .:? "ItemCount")
+                     (x .:? "BillingMode")
+                     <*> (x .:? "ItemCount")
                      <*> (x .: "TableName")
                      <*> (x .: "TableId")
                      <*> (x .: "KeySchema")
@@ -2941,6 +4002,7 @@ data TableDescription = TableDescription'
   , _tdKeySchema              :: !(Maybe (List1 KeySchemaElement))
   , _tdGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndexDescription])
   , _tdLatestStreamLabel      :: !(Maybe Text)
+  , _tdBillingModeSummary     :: !(Maybe BillingModeSummary)
   , _tdLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndexDescription])
   , _tdCreationDateTime       :: !(Maybe POSIX)
   , _tdSSEDescription         :: !(Maybe SSEDescription)
@@ -2975,6 +4037,8 @@ data TableDescription = TableDescription'
 --
 -- * 'tdLatestStreamLabel' - A timestamp, in ISO 8601 format, for this stream. Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name.     * the @StreamLabel@ .
 --
+-- * 'tdBillingModeSummary' - Contains the details for the read/write capacity mode.
+--
 -- * 'tdLocalSecondaryIndexes' - Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:     * @IndexName@ - The name of the local secondary index.     * @KeySchema@ - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * @ProjectionType@ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.     * @IndexSizeBytes@ - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.     * @ItemCount@ - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. If the table is in the @DELETING@ state, no information about indexes will be returned.
 --
 -- * 'tdCreationDateTime' - The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
@@ -3002,6 +4066,7 @@ tableDescription =
     , _tdKeySchema = Nothing
     , _tdGlobalSecondaryIndexes = Nothing
     , _tdLatestStreamLabel = Nothing
+    , _tdBillingModeSummary = Nothing
     , _tdLocalSecondaryIndexes = Nothing
     , _tdCreationDateTime = Nothing
     , _tdSSEDescription = Nothing
@@ -3052,6 +4117,10 @@ tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalS
 tdLatestStreamLabel :: Lens' TableDescription (Maybe Text)
 tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel = a})
 
+-- | Contains the details for the read/write capacity mode.
+tdBillingModeSummary :: Lens' TableDescription (Maybe BillingModeSummary)
+tdBillingModeSummary = lens _tdBillingModeSummary (\ s a -> s{_tdBillingModeSummary = a})
+
 -- | Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:     * @IndexName@ - The name of the local secondary index.     * @KeySchema@ - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * @ProjectionType@ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.     * @IndexSizeBytes@ - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.     * @ItemCount@ - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. If the table is in the @DELETING@ state, no information about indexes will be returned.
 tdLocalSecondaryIndexes :: Lens' TableDescription [LocalSecondaryIndexDescription]
 tdLocalSecondaryIndexes = lens _tdLocalSecondaryIndexes (\ s a -> s{_tdLocalSecondaryIndexes = a}) . _Default . _Coerce
@@ -3094,6 +4163,7 @@ instance FromJSON TableDescription where
                      <*> (x .:? "KeySchema")
                      <*> (x .:? "GlobalSecondaryIndexes" .!= mempty)
                      <*> (x .:? "LatestStreamLabel")
+                     <*> (x .:? "BillingModeSummary")
                      <*> (x .:? "LocalSecondaryIndexes" .!= mempty)
                      <*> (x .:? "CreationDateTime")
                      <*> (x .:? "SSEDescription")
@@ -3256,6 +4326,198 @@ instance ToJSON TimeToLiveSpecification where
               (catMaybes
                  [Just ("Enabled" .= _ttlsEnabled),
                   Just ("AttributeName" .= _ttlsAttributeName)])
+
+-- | Specifies an item to be retrieved as part of the transaction.
+--
+--
+--
+-- /See:/ 'transactGetItem' smart constructor.
+newtype TransactGetItem = TransactGetItem'
+  { _tgiGet :: Get
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransactGetItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgiGet' - Contains the primary key that identifies the item to get, together with the name of the table that contains the item, and optionally the specific attributes of the item to retrieve.
+transactGetItem
+    :: Get -- ^ 'tgiGet'
+    -> TransactGetItem
+transactGetItem pGet_ = TransactGetItem' {_tgiGet = pGet_}
+
+
+-- | Contains the primary key that identifies the item to get, together with the name of the table that contains the item, and optionally the specific attributes of the item to retrieve.
+tgiGet :: Lens' TransactGetItem Get
+tgiGet = lens _tgiGet (\ s a -> s{_tgiGet = a})
+
+instance Hashable TransactGetItem where
+
+instance NFData TransactGetItem where
+
+instance ToJSON TransactGetItem where
+        toJSON TransactGetItem'{..}
+          = object (catMaybes [Just ("Get" .= _tgiGet)])
+
+-- | A list of requests that can perform update, put, delete, or check operations on multiple items in one or more tables atomically.
+--
+--
+--
+-- /See:/ 'transactWriteItem' smart constructor.
+data TransactWriteItem = TransactWriteItem'
+  { _twiConditionCheck :: !(Maybe ConditionCheck)
+  , _twiPut            :: !(Maybe Put)
+  , _twiDelete         :: !(Maybe Delete)
+  , _twiUpdate         :: !(Maybe Update)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransactWriteItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'twiConditionCheck' - A request to perform a check item operation.
+--
+-- * 'twiPut' - A request to perform a @PutItem@ operation.
+--
+-- * 'twiDelete' - A request to perform a @DeleteItem@ operation.
+--
+-- * 'twiUpdate' - A request to perform an @UpdateItem@ operation.
+transactWriteItem
+    :: TransactWriteItem
+transactWriteItem =
+  TransactWriteItem'
+    { _twiConditionCheck = Nothing
+    , _twiPut = Nothing
+    , _twiDelete = Nothing
+    , _twiUpdate = Nothing
+    }
+
+
+-- | A request to perform a check item operation.
+twiConditionCheck :: Lens' TransactWriteItem (Maybe ConditionCheck)
+twiConditionCheck = lens _twiConditionCheck (\ s a -> s{_twiConditionCheck = a})
+
+-- | A request to perform a @PutItem@ operation.
+twiPut :: Lens' TransactWriteItem (Maybe Put)
+twiPut = lens _twiPut (\ s a -> s{_twiPut = a})
+
+-- | A request to perform a @DeleteItem@ operation.
+twiDelete :: Lens' TransactWriteItem (Maybe Delete)
+twiDelete = lens _twiDelete (\ s a -> s{_twiDelete = a})
+
+-- | A request to perform an @UpdateItem@ operation.
+twiUpdate :: Lens' TransactWriteItem (Maybe Update)
+twiUpdate = lens _twiUpdate (\ s a -> s{_twiUpdate = a})
+
+instance Hashable TransactWriteItem where
+
+instance NFData TransactWriteItem where
+
+instance ToJSON TransactWriteItem where
+        toJSON TransactWriteItem'{..}
+          = object
+              (catMaybes
+                 [("ConditionCheck" .=) <$> _twiConditionCheck,
+                  ("Put" .=) <$> _twiPut, ("Delete" .=) <$> _twiDelete,
+                  ("Update" .=) <$> _twiUpdate])
+
+-- | Represents a request to perform an @UpdateItem@ operation.
+--
+--
+--
+-- /See:/ 'update' smart constructor.
+data Update = Update'
+  { _uExpressionAttributeNames :: !(Maybe (Map Text Text))
+  , _uExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+  , _uReturnValuesOnConditionCheckFailure :: !(Maybe ReturnValuesOnConditionCheckFailure)
+  , _uConditionExpression :: !(Maybe Text)
+  , _uKey :: !(Map Text AttributeValue)
+  , _uUpdateExpression :: !Text
+  , _uTableName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Update' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uExpressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
+--
+-- * 'uExpressionAttributeValues' - One or more values that can be substituted in an expression.
+--
+-- * 'uReturnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
+--
+-- * 'uConditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
+--
+-- * 'uKey' - The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.
+--
+-- * 'uUpdateExpression' - An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.
+--
+-- * 'uTableName' - Name of the table for the @UpdateItem@ request.
+update
+    :: Text -- ^ 'uUpdateExpression'
+    -> Text -- ^ 'uTableName'
+    -> Update
+update pUpdateExpression_ pTableName_ =
+  Update'
+    { _uExpressionAttributeNames = Nothing
+    , _uExpressionAttributeValues = Nothing
+    , _uReturnValuesOnConditionCheckFailure = Nothing
+    , _uConditionExpression = Nothing
+    , _uKey = mempty
+    , _uUpdateExpression = pUpdateExpression_
+    , _uTableName = pTableName_
+    }
+
+
+-- | One or more substitution tokens for attribute names in an expression.
+uExpressionAttributeNames :: Lens' Update (HashMap Text Text)
+uExpressionAttributeNames = lens _uExpressionAttributeNames (\ s a -> s{_uExpressionAttributeNames = a}) . _Default . _Map
+
+-- | One or more values that can be substituted in an expression.
+uExpressionAttributeValues :: Lens' Update (HashMap Text AttributeValue)
+uExpressionAttributeValues = lens _uExpressionAttributeValues (\ s a -> s{_uExpressionAttributeValues = a}) . _Default . _Map
+
+-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
+uReturnValuesOnConditionCheckFailure :: Lens' Update (Maybe ReturnValuesOnConditionCheckFailure)
+uReturnValuesOnConditionCheckFailure = lens _uReturnValuesOnConditionCheckFailure (\ s a -> s{_uReturnValuesOnConditionCheckFailure = a})
+
+-- | A condition that must be satisfied in order for a conditional update to succeed.
+uConditionExpression :: Lens' Update (Maybe Text)
+uConditionExpression = lens _uConditionExpression (\ s a -> s{_uConditionExpression = a})
+
+-- | The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.
+uKey :: Lens' Update (HashMap Text AttributeValue)
+uKey = lens _uKey (\ s a -> s{_uKey = a}) . _Map
+
+-- | An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.
+uUpdateExpression :: Lens' Update Text
+uUpdateExpression = lens _uUpdateExpression (\ s a -> s{_uUpdateExpression = a})
+
+-- | Name of the table for the @UpdateItem@ request.
+uTableName :: Lens' Update Text
+uTableName = lens _uTableName (\ s a -> s{_uTableName = a})
+
+instance Hashable Update where
+
+instance NFData Update where
+
+instance ToJSON Update where
+        toJSON Update'{..}
+          = object
+              (catMaybes
+                 [("ExpressionAttributeNames" .=) <$>
+                    _uExpressionAttributeNames,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _uExpressionAttributeValues,
+                  ("ReturnValuesOnConditionCheckFailure" .=) <$>
+                    _uReturnValuesOnConditionCheckFailure,
+                  ("ConditionExpression" .=) <$> _uConditionExpression,
+                  Just ("Key" .= _uKey),
+                  Just ("UpdateExpression" .= _uUpdateExpression),
+                  Just ("TableName" .= _uTableName)])
 
 -- | Represents the new provisioned throughput settings to be applied to a global secondary index.
 --

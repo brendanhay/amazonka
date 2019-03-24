@@ -55,6 +55,7 @@ library
         , Network.AWS.DynamoDB.DeleteTable
         , Network.AWS.DynamoDB.DescribeBackup
         , Network.AWS.DynamoDB.DescribeContinuousBackups
+        , Network.AWS.DynamoDB.DescribeEndpoints
         , Network.AWS.DynamoDB.DescribeGlobalTable
         , Network.AWS.DynamoDB.DescribeGlobalTableSettings
         , Network.AWS.DynamoDB.DescribeLimits
@@ -71,6 +72,8 @@ library
         , Network.AWS.DynamoDB.RestoreTableToPointInTime
         , Network.AWS.DynamoDB.Scan
         , Network.AWS.DynamoDB.TagResource
+        , Network.AWS.DynamoDB.TransactGetItems
+        , Network.AWS.DynamoDB.TransactWriteItems
         , Network.AWS.DynamoDB.Types
         , Network.AWS.DynamoDB.UntagResource
         , Network.AWS.DynamoDB.UpdateContinuousBackups

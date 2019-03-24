@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the email sending status of the Amazon SES account.
+-- Returns the email sending status of the Amazon SES account for the current region.
 --
 --
 -- You can execute this operation no more than once per second.
@@ -85,7 +85,7 @@ instance ToQuery GetAccountSendingEnabled where
                     ("GetAccountSendingEnabled" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Represents a request to return the email sending status for your Amazon SES account.
+-- | Represents a request to return the email sending status for your Amazon SES account in the current AWS Region.
 --
 --
 --
@@ -100,7 +100,7 @@ data GetAccountSendingEnabledResponse = GetAccountSendingEnabledResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gasersEnabled' - Describes whether email sending is enabled or disabled for your Amazon SES account.
+-- * 'gasersEnabled' - Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
 --
 -- * 'gasersResponseStatus' - -- | The response status code.
 getAccountSendingEnabledResponse
@@ -111,7 +111,7 @@ getAccountSendingEnabledResponse pResponseStatus_ =
     {_gasersEnabled = Nothing, _gasersResponseStatus = pResponseStatus_}
 
 
--- | Describes whether email sending is enabled or disabled for your Amazon SES account.
+-- | Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
 gasersEnabled :: Lens' GetAccountSendingEnabledResponse (Maybe Bool)
 gasersEnabled = lens _gasersEnabled (\ s a -> s{_gasersEnabled = a})
 

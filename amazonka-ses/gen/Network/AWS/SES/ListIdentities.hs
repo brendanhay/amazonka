@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list containing all of the identities (email addresses and domains) for your AWS account, regardless of verification status.
+-- Returns a list containing all of the identities (email addresses and domains) for your AWS account in the current AWS Region, regardless of verification status.
 --
 --
 -- You can execute this operation no more than once per second.

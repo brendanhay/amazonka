@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Given an identity (an email address or a domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with that identity as the @Source@ .
+-- Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use this operation, you specify a verified identity, such as an email address or domain. When you send an email that uses the chosen identity in the Source field, Amazon SES sends notifications to the topic you specified. You can send bounce, complaint, or delivery notifications (or any combination of the three) to the Amazon SNS topic that you specify.
 --
 --
 -- You can execute this operation no more than once per second.
@@ -67,7 +67,7 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
 --
 -- * 'sintSNSTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, @SnsTopic@ is cleared and publishing is disabled.
 --
--- * 'sintIdentity' - The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+-- * 'sintIdentity' - The identity (email address or domain) that you want to set the Amazon SNS topic for. /Important:/ You can only specify a verified identity for this parameter. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). The following examples are all valid identities: @sender@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 --
 -- * 'sintNotificationType' - The type of notifications that will be published to the specified Amazon SNS topic.
 setIdentityNotificationTopic
@@ -86,7 +86,7 @@ setIdentityNotificationTopic pIdentity_ pNotificationType_ =
 sintSNSTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
 sintSNSTopic = lens _sintSNSTopic (\ s a -> s{_sintSNSTopic = a})
 
--- | The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+-- | The identity (email address or domain) that you want to set the Amazon SNS topic for. /Important:/ You can only specify a verified identity for this parameter. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). The following examples are all valid identities: @sender@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 sintIdentity :: Lens' SetIdentityNotificationTopic Text
 sintIdentity = lens _sintIdentity (\ s a -> s{_sintIdentity = a})
 

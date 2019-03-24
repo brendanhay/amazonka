@@ -15,9 +15,9 @@ module Test.AWS.SES
     , fixtures
     ) where
 
-import           Network.AWS.SES
-import           Test.AWS.Gen.SES
-import           Test.Tasty
+import Network.AWS.SES
+import Test.AWS.Gen.SES
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

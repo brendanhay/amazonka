@@ -629,7 +629,7 @@ _TrackingOptionsDoesNotExistException =
   _MatchServiceError ses "TrackingOptionsDoesNotExistException" . hasStatus 400
 
 
--- | Indicates that a template could not be created because it contained invalid JSON.
+-- | Indicates that the template that you specified could not be rendered. This issue may occur when a template refers to a partial that does not exist.
 --
 --
 _InvalidTemplateException :: AsError a => Getting (First ServiceError) a ServiceError

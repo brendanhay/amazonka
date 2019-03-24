@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the receipt rule sets that exist under your AWS account. If there are additional receipt rule sets to be retrieved, you will receive a @NextToken@ that you can provide to the next call to @ListReceiptRuleSets@ to retrieve the additional entries.
+-- Lists the receipt rule sets that exist under your AWS account in the current AWS Region. If there are additional receipt rule sets to be retrieved, you will receive a @NextToken@ that you can provide to the next call to @ListReceiptRuleSets@ to retrieve the additional entries.
 --
 --
 -- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
 --
 -- You can execute this operation no more than once per second.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SES.ListReceiptRuleSets
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.SES.ListReceiptRuleSets
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,6 +75,13 @@ listReceiptRuleSets = ListReceiptRuleSets' {_lrrsNextToken = Nothing}
 -- | A token returned from a previous call to @ListReceiptRuleSets@ to indicate the position in the receipt rule set list.
 lrrsNextToken :: Lens' ListReceiptRuleSets (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a})
+
+instance AWSPager ListReceiptRuleSets where
+        page rq rs
+          | stop (rs ^. lrrsrsNextToken) = Nothing
+          | stop (rs ^. lrrsrsRuleSets) = Nothing
+          | otherwise =
+            Just $ rq & lrrsNextToken .~ rs ^. lrrsrsNextToken
 
 instance AWSRequest ListReceiptRuleSets where
         type Rs ListReceiptRuleSets =

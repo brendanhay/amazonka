@@ -13,7 +13,7 @@
 --
 -- __Amazon Simple Email Service__
 --
--- This is the API Reference for <https://aws.amazon.com/ses/ Amazon Simple Email Service> (Amazon SES). This documentation is intended to be used in conjunction with the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide> .
+-- This document contains reference information for the <https://aws.amazon.com/ses/ Amazon Simple Email Service> (Amazon SES) API, version 2010-12-01. This document is best used in conjunction with the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide> .
 --
 module Network.AWS.SES
     (
@@ -200,7 +200,7 @@ module Network.AWS.SES
     -- ** SetIdentityFeedbackForwardingEnabled
     , module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
 
-    -- ** ListConfigurationSets
+    -- ** ListConfigurationSets (Paginated)
     , module Network.AWS.SES.ListConfigurationSets
 
     -- ** DeleteConfigurationSet
@@ -212,7 +212,7 @@ module Network.AWS.SES
     -- ** GetIdentityPolicies
     , module Network.AWS.SES.GetIdentityPolicies
 
-    -- ** ListTemplates
+    -- ** ListTemplates (Paginated)
     , module Network.AWS.SES.ListTemplates
 
     -- ** VerifyDomainIdentity
@@ -227,7 +227,7 @@ module Network.AWS.SES
     -- ** ReorderReceiptRuleSet
     , module Network.AWS.SES.ReorderReceiptRuleSet
 
-    -- ** ListReceiptRuleSets
+    -- ** ListReceiptRuleSets (Paginated)
     , module Network.AWS.SES.ListReceiptRuleSets
 
     -- ** DeleteReceiptRuleSet

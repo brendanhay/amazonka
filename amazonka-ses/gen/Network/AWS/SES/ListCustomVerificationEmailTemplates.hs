@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the existing custom verification email templates for your account.
+-- Lists the existing custom verification email templates for your account in the current AWS Region.
 --
 --
--- For more information about custom verification email templates, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html Using Custom Verification Email Templates> in the /Amazon SES Developer Guide/ .
+-- For more information about custom verification email templates, see <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html Using Custom Verification Email Templates> in the /Amazon SES Developer Guide/ .
 --
 -- You can execute this operation no more than once per second.
 --
@@ -56,7 +56,7 @@ import Network.AWS.SES.Types.Product
 -- | Represents a request to list the existing custom verification email templates for your account.
 --
 --
--- For more information about custom verification email templates, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html Using Custom Verification Email Templates> in the /Amazon SES Developer Guide/ .
+-- For more information about custom verification email templates, see <ses/latest/DeveloperGuide/custom-verification-emails.html Using Custom Verification Email Templates> in the /Amazon SES Developer Guide/ .
 --
 --
 -- /See:/ 'listCustomVerificationEmailTemplates' smart constructor.

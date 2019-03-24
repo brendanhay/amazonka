@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables or disables email sending across your entire Amazon SES account. You can use this operation in conjunction with Amazon CloudWatch alarms to temporarily pause email sending across your Amazon SES account when reputation metrics (such as your bounce on complaint rate) reach certain thresholds.
+-- Enables or disables email sending across your entire Amazon SES account in the current AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms to temporarily pause email sending across your Amazon SES account in a given AWS Region when reputation metrics (such as your bounce or complaint rates) reach certain thresholds.
 --
 --
 -- You can execute this operation no more than once per second.
@@ -57,14 +57,14 @@ newtype UpdateAccountSendingEnabled = UpdateAccountSendingEnabled'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaseEnabled' - Describes whether email sending is enabled or disabled for your Amazon SES account.
+-- * 'uaseEnabled' - Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
 updateAccountSendingEnabled
     :: UpdateAccountSendingEnabled
 updateAccountSendingEnabled =
   UpdateAccountSendingEnabled' {_uaseEnabled = Nothing}
 
 
--- | Describes whether email sending is enabled or disabled for your Amazon SES account.
+-- | Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
 uaseEnabled :: Lens' UpdateAccountSendingEnabled (Maybe Bool)
 uaseEnabled = lens _uaseEnabled (\ s a -> s{_uaseEnabled = a})
 

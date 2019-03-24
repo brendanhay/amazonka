@@ -22,6 +22,9 @@ module Network.AWS.KinesisVideoArchivedMedia
     -- * Errors
     -- $errors
 
+    -- ** NoDataRetentionException
+    , _NoDataRetentionException
+
     -- ** InvalidArgumentException
     , _InvalidArgumentException
 
@@ -30,6 +33,15 @@ module Network.AWS.KinesisVideoArchivedMedia
 
     -- ** ClientLimitExceededException
     , _ClientLimitExceededException
+
+    -- ** UnsupportedStreamMediaTypeException
+    , _UnsupportedStreamMediaTypeException
+
+    -- ** InvalidCodecPrivateDataException
+    , _InvalidCodecPrivateDataException
+
+    -- ** MissingCodecPrivateDataException
+    , _MissingCodecPrivateDataException
 
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
@@ -40,16 +52,34 @@ module Network.AWS.KinesisVideoArchivedMedia
     -- * Operations
     -- $operations
 
+    -- ** GetHLSStreamingSessionURL
+    , module Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
+
     -- ** GetMediaForFragmentList
     , module Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
 
-    -- ** ListFragments
+    -- ** ListFragments (Paginated)
     , module Network.AWS.KinesisVideoArchivedMedia.ListFragments
 
     -- * Types
 
+    -- ** ContainerFormat
+    , ContainerFormat (..)
+
+    -- ** DiscontinuityMode
+    , DiscontinuityMode (..)
+
+    -- ** DisplayFragmentTimestamp
+    , DisplayFragmentTimestamp (..)
+
     -- ** FragmentSelectorType
     , FragmentSelectorType (..)
+
+    -- ** HLSFragmentSelectorType
+    , HLSFragmentSelectorType (..)
+
+    -- ** PlaybackMode
+    , PlaybackMode (..)
 
     -- ** Fragment
     , Fragment
@@ -66,6 +96,18 @@ module Network.AWS.KinesisVideoArchivedMedia
     , fsFragmentSelectorType
     , fsTimestampRange
 
+    -- ** HLSFragmentSelector
+    , HLSFragmentSelector
+    , hLSFragmentSelector
+    , hlsfsFragmentSelectorType
+    , hlsfsTimestampRange
+
+    -- ** HLSTimestampRange
+    , HLSTimestampRange
+    , hLSTimestampRange
+    , hlstrEndTimestamp
+    , hlstrStartTimestamp
+
     -- ** TimestampRange
     , TimestampRange
     , timestampRange
@@ -73,6 +115,7 @@ module Network.AWS.KinesisVideoArchivedMedia
     , trEndTimestamp
     ) where
 
+import Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
 import Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
 import Network.AWS.KinesisVideoArchivedMedia.ListFragments
 import Network.AWS.KinesisVideoArchivedMedia.Types

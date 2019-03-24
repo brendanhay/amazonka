@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets media for a list of fragments (specified by fragment number) from the archived data in a Kinesis video stream.
+-- Gets media for a list of fragments (specified by fragment number) from the archived data in an Amazon Kinesis video stream.
 --
 --
 -- The following limits apply when using the @GetMediaForFragmentList@ API:
@@ -57,7 +57,7 @@ import Network.AWS.Response
 -- | /See:/ 'getMediaForFragmentList' smart constructor.
 data GetMediaForFragmentList = GetMediaForFragmentList'
   { _gmfflStreamName :: !Text
-  , _gmfflFragments  :: ![Text]
+  , _gmfflFragments  :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -70,10 +70,11 @@ data GetMediaForFragmentList = GetMediaForFragmentList'
 -- * 'gmfflFragments' - A list of the numbers of fragments for which to retrieve media. You retrieve these values with 'ListFragments' .
 getMediaForFragmentList
     :: Text -- ^ 'gmfflStreamName'
+    -> NonEmpty Text -- ^ 'gmfflFragments'
     -> GetMediaForFragmentList
-getMediaForFragmentList pStreamName_ =
+getMediaForFragmentList pStreamName_ pFragments_ =
   GetMediaForFragmentList'
-    {_gmfflStreamName = pStreamName_, _gmfflFragments = mempty}
+    {_gmfflStreamName = pStreamName_, _gmfflFragments = _List1 # pFragments_}
 
 
 -- | The name of the stream from which to retrieve fragment media.
@@ -81,8 +82,8 @@ gmfflStreamName :: Lens' GetMediaForFragmentList Text
 gmfflStreamName = lens _gmfflStreamName (\ s a -> s{_gmfflStreamName = a})
 
 -- | A list of the numbers of fragments for which to retrieve media. You retrieve these values with 'ListFragments' .
-gmfflFragments :: Lens' GetMediaForFragmentList [Text]
-gmfflFragments = lens _gmfflFragments (\ s a -> s{_gmfflFragments = a}) . _Coerce
+gmfflFragments :: Lens' GetMediaForFragmentList (NonEmpty Text)
+gmfflFragments = lens _gmfflFragments (\ s a -> s{_gmfflFragments = a}) . _List1
 
 instance AWSRequest GetMediaForFragmentList where
         type Rs GetMediaForFragmentList =
@@ -131,7 +132,7 @@ data GetMediaForFragmentListResponse = GetMediaForFragmentListResponse'
 --
 -- * 'gmfflrsResponseStatus' - -- | The response status code.
 --
--- * 'gmfflrsPayload' - The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see <docs.aws.amazon.com/acuity/latest/dg/API_dataplane_PutMedia.html PutMedia> . The chunks that Kinesis Video Streams returns in the @GetMediaForFragmentList@ call also include the following additional Matroska (MKV) tags:      * AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.     * AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side time stamp of the fragment.     * AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side time stamp of the fragment. The following tags will be included if an exception occurs:     * AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that threw the exception     * AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the exception     * AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the exception
+-- * 'gmfflrsPayload' - The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html PutMedia> . The chunks that Kinesis Video Streams returns in the @GetMediaForFragmentList@ call also include the following additional Matroska (MKV) tags:      * AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.     * AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side timestamp of the fragment.     * AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side timestamp of the fragment. The following tags will be included if an exception occurs:     * AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that threw the exception     * AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the exception     * AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the exception
 getMediaForFragmentListResponse
     :: Int -- ^ 'gmfflrsResponseStatus'
     -> RsBody -- ^ 'gmfflrsPayload'
@@ -152,6 +153,6 @@ gmfflrsContentType = lens _gmfflrsContentType (\ s a -> s{_gmfflrsContentType = 
 gmfflrsResponseStatus :: Lens' GetMediaForFragmentListResponse Int
 gmfflrsResponseStatus = lens _gmfflrsResponseStatus (\ s a -> s{_gmfflrsResponseStatus = a})
 
--- | The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see <docs.aws.amazon.com/acuity/latest/dg/API_dataplane_PutMedia.html PutMedia> . The chunks that Kinesis Video Streams returns in the @GetMediaForFragmentList@ call also include the following additional Matroska (MKV) tags:      * AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.     * AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side time stamp of the fragment.     * AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side time stamp of the fragment. The following tags will be included if an exception occurs:     * AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that threw the exception     * AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the exception     * AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the exception
+-- | The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html PutMedia> . The chunks that Kinesis Video Streams returns in the @GetMediaForFragmentList@ call also include the following additional Matroska (MKV) tags:      * AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.     * AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side timestamp of the fragment.     * AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side timestamp of the fragment. The following tags will be included if an exception occurs:     * AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that threw the exception     * AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the exception     * AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the exception
 gmfflrsPayload :: Lens' GetMediaForFragmentListResponse RsBody
 gmfflrsPayload = lens _gmfflrsPayload (\ s a -> s{_gmfflrsPayload = a})

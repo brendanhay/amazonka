@@ -28,7 +28,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetMediaForFragmentList $
+--         [ requestGetHLSStreamingSessionURL $
+--             getHLSStreamingSessionURL
+--
+--         , requestGetMediaForFragmentList $
 --             getMediaForFragmentList
 --
 --         , requestListFragments $
@@ -37,7 +40,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseGetMediaForFragmentList $
+--         [ responseGetHLSStreamingSessionURL $
+--             getHLSStreamingSessionURLResponse
+--
+--         , responseGetMediaForFragmentList $
 --             getMediaForFragmentListResponse
 --
 --         , responseListFragments $
@@ -47,6 +53,11 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestGetHLSStreamingSessionURL :: GetHLSStreamingSessionURL -> TestTree
+requestGetHLSStreamingSessionURL = req
+    "GetHLSStreamingSessionURL"
+    "fixture/GetHLSStreamingSessionURL.yaml"
 
 requestGetMediaForFragmentList :: GetMediaForFragmentList -> TestTree
 requestGetMediaForFragmentList = req
@@ -59,6 +70,13 @@ requestListFragments = req
     "fixture/ListFragments.yaml"
 
 -- Responses
+
+responseGetHLSStreamingSessionURL :: GetHLSStreamingSessionURLResponse -> TestTree
+responseGetHLSStreamingSessionURL = res
+    "GetHLSStreamingSessionURLResponse"
+    "fixture/GetHLSStreamingSessionURLResponse.proto"
+    kinesisVideoArchivedMedia
+    (Proxy :: Proxy GetHLSStreamingSessionURL)
 
 responseListFragments :: ListFragmentsResponse -> TestTree
 responseListFragments = res

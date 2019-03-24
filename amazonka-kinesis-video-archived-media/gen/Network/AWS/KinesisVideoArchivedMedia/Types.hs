@@ -16,13 +16,32 @@ module Network.AWS.KinesisVideoArchivedMedia.Types
       kinesisVideoArchivedMedia
 
     -- * Errors
+    , _NoDataRetentionException
     , _InvalidArgumentException
     , _NotAuthorizedException
     , _ClientLimitExceededException
+    , _UnsupportedStreamMediaTypeException
+    , _InvalidCodecPrivateDataException
+    , _MissingCodecPrivateDataException
     , _ResourceNotFoundException
+
+    -- * ContainerFormat
+    , ContainerFormat (..)
+
+    -- * DiscontinuityMode
+    , DiscontinuityMode (..)
+
+    -- * DisplayFragmentTimestamp
+    , DisplayFragmentTimestamp (..)
 
     -- * FragmentSelectorType
     , FragmentSelectorType (..)
+
+    -- * HLSFragmentSelectorType
+    , HLSFragmentSelectorType (..)
+
+    -- * PlaybackMode
+    , PlaybackMode (..)
 
     -- * Fragment
     , Fragment
@@ -38,6 +57,18 @@ module Network.AWS.KinesisVideoArchivedMedia.Types
     , fragmentSelector
     , fsFragmentSelectorType
     , fsTimestampRange
+
+    -- * HLSFragmentSelector
+    , HLSFragmentSelector
+    , hLSFragmentSelector
+    , hlsfsFragmentSelectorType
+    , hlsfsTimestampRange
+
+    -- * HLSTimestampRange
+    , HLSTimestampRange
+    , hLSTimestampRange
+    , hlstrEndTimestamp
+    , hlstrStartTimestamp
 
     -- * TimestampRange
     , TimestampRange
@@ -91,6 +122,15 @@ kinesisVideoArchivedMedia =
       | otherwise = Nothing
 
 
+-- | A @PlaybackMode@ of @ON_DEMAND@ was requested for a stream that does not retain data (that is, has a @DataRetentionInHours@ of 0).
+--
+--
+_NoDataRetentionException :: AsError a => Getting (First ServiceError) a ServiceError
+_NoDataRetentionException =
+  _MatchServiceError kinesisVideoArchivedMedia "NoDataRetentionException" .
+  hasStatus 400
+
+
 -- | A specified parameter exceeds its restrictions, is not supported, or can't be used.
 --
 --
@@ -118,8 +158,43 @@ _ClientLimitExceededException =
   hasStatus 400
 
 
--- | Kinesis Video Streams can't find the stream that you specified.
+-- | The type of the media (for example, h.264 video or ACC audio) could not be determined from the codec IDs of the tracks in the first fragment for a playback session. The codec ID for track 1 should be @V_MPEG/ISO/AVC@ and, optionally, the codec ID for track 2 should be @A_AAC@ .
 --
+--
+_UnsupportedStreamMediaTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedStreamMediaTypeException =
+  _MatchServiceError
+    kinesisVideoArchivedMedia
+    "UnsupportedStreamMediaTypeException" .
+  hasStatus 400
+
+
+-- | The codec private data in at least one of the tracks of the video stream is not valid for this operation.
+--
+--
+_InvalidCodecPrivateDataException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidCodecPrivateDataException =
+  _MatchServiceError
+    kinesisVideoArchivedMedia
+    "InvalidCodecPrivateDataException" .
+  hasStatus 400
+
+
+-- | No codec private data was found in at least one of tracks of the video stream.
+--
+--
+_MissingCodecPrivateDataException :: AsError a => Getting (First ServiceError) a ServiceError
+_MissingCodecPrivateDataException =
+  _MatchServiceError
+    kinesisVideoArchivedMedia
+    "MissingCodecPrivateDataException" .
+  hasStatus 400
+
+
+-- | @GetMedia@ throws this error when Kinesis Video Streams can't find the stream that you specified.
+--
+--
+-- @GetHLSStreamingSessionURL@ throws this error if a session with a @PlaybackMode@ of @ON_DEMAND@ is requested for a stream that has no fragments within the requested time range, or if a session with a @PlaybackMode@ of @LIVE@ is requested for a stream that has no fragments within the last 30 seconds.
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =

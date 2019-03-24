@@ -18,9 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of 'Fragment' objects from the specified stream and start location within the archived data.
+-- Returns a list of 'Fragment' objects from the specified stream and timestamp range within the archived data.
 --
 --
+-- Listing fragments is eventually consistent. This means that even if the producer receives an acknowledgment that a fragment is persisted, the result might not be returned immediately from a request to @ListFragments@ . However, results are typically available in less than one second.
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.KinesisVideoArchivedMedia.ListFragments
     (
     -- * Creating a Request
@@ -44,6 +48,7 @@ module Network.AWS.KinesisVideoArchivedMedia.ListFragments
 import Network.AWS.KinesisVideoArchivedMedia.Types
 import Network.AWS.KinesisVideoArchivedMedia.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -61,7 +66,7 @@ data ListFragments = ListFragments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfFragmentSelector' - Describes the time stamp range and time stamp origin for the range of fragments to return.
+-- * 'lfFragmentSelector' - Describes the timestamp range and timestamp origin for the range of fragments to return.
 --
 -- * 'lfNextToken' - A token to specify where to start paginating. This is the 'ListFragmentsOutput$NextToken' from a previously truncated response.
 --
@@ -80,7 +85,7 @@ listFragments pStreamName_ =
     }
 
 
--- | Describes the time stamp range and time stamp origin for the range of fragments to return.
+-- | Describes the timestamp range and timestamp origin for the range of fragments to return.
 lfFragmentSelector :: Lens' ListFragments (Maybe FragmentSelector)
 lfFragmentSelector = lens _lfFragmentSelector (\ s a -> s{_lfFragmentSelector = a})
 
@@ -95,6 +100,13 @@ lfMaxResults = lens _lfMaxResults (\ s a -> s{_lfMaxResults = a}) . mapping _Nat
 -- | The name of the stream from which to retrieve a fragment list.
 lfStreamName :: Lens' ListFragments Text
 lfStreamName = lens _lfStreamName (\ s a -> s{_lfStreamName = a})
+
+instance AWSPager ListFragments where
+        page rq rs
+          | stop (rs ^. lfrsNextToken) = Nothing
+          | stop (rs ^. lfrsFragments) = Nothing
+          | otherwise =
+            Just $ rq & lfNextToken .~ rs ^. lfrsNextToken
 
 instance AWSRequest ListFragments where
         type Rs ListFragments = ListFragmentsResponse
@@ -143,7 +155,7 @@ data ListFragmentsResponse = ListFragmentsResponse'
 --
 -- * 'lfrsNextToken' - If the returned list is truncated, the operation returns this token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'lfrsFragments' - A list of fragment numbers that correspond to the time stamp range provided.
+-- * 'lfrsFragments' - A list of archived 'Fragment' objects from the stream that meet the selector criteria. Results are in no specific order, even across pages.
 --
 -- * 'lfrsResponseStatus' - -- | The response status code.
 listFragmentsResponse
@@ -161,7 +173,7 @@ listFragmentsResponse pResponseStatus_ =
 lfrsNextToken :: Lens' ListFragmentsResponse (Maybe Text)
 lfrsNextToken = lens _lfrsNextToken (\ s a -> s{_lfrsNextToken = a})
 
--- | A list of fragment numbers that correspond to the time stamp range provided.
+-- | A list of archived 'Fragment' objects from the stream that meet the selector criteria. Results are in no specific order, even across pages.
 lfrsFragments :: Lens' ListFragmentsResponse [Fragment]
 lfrsFragments = lens _lfrsFragments (\ s a -> s{_lfrsFragments = a}) . _Default . _Coerce
 

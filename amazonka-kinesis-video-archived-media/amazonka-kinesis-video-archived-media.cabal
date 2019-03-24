@@ -45,6 +45,7 @@ library
 
     exposed-modules:
           Network.AWS.KinesisVideoArchivedMedia
+        , Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
         , Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
         , Network.AWS.KinesisVideoArchivedMedia.ListFragments
         , Network.AWS.KinesisVideoArchivedMedia.Types

@@ -21,6 +21,8 @@
 -- Lists the delegates associated with a resource. Users and groups can be resource delegates and answer requests on behalf of the resource.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WorkMail.ListResourceDelegates
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.WorkMail.ListResourceDelegates
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -96,6 +99,13 @@ lrdOrganizationId = lens _lrdOrganizationId (\ s a -> s{_lrdOrganizationId = a})
 -- | The identifier for the resource whose delegates are listed.
 lrdResourceId :: Lens' ListResourceDelegates Text
 lrdResourceId = lens _lrdResourceId (\ s a -> s{_lrdResourceId = a})
+
+instance AWSPager ListResourceDelegates where
+        page rq rs
+          | stop (rs ^. lrdrsNextToken) = Nothing
+          | stop (rs ^. lrdrsDelegates) = Nothing
+          | otherwise =
+            Just $ rq & lrdNextToken .~ rs ^. lrdrsNextToken
 
 instance AWSRequest ListResourceDelegates where
         type Rs ListResourceDelegates =

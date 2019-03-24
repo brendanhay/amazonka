@@ -21,6 +21,8 @@
 -- Lists the mailbox permissions associated with a mailbox.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WorkMail.ListMailboxPermissions
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.WorkMail.ListMailboxPermissions
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -96,6 +99,13 @@ lmpOrganizationId = lens _lmpOrganizationId (\ s a -> s{_lmpOrganizationId = a})
 -- | The identifier of the entity (user or group) for which to list mailbox permissions.
 lmpEntityId :: Lens' ListMailboxPermissions Text
 lmpEntityId = lens _lmpEntityId (\ s a -> s{_lmpEntityId = a})
+
+instance AWSPager ListMailboxPermissions where
+        page rq rs
+          | stop (rs ^. lmprsNextToken) = Nothing
+          | stop (rs ^. lmprsPermissions) = Nothing
+          | otherwise =
+            Just $ rq & lmpNextToken .~ rs ^. lmprsNextToken
 
 instance AWSRequest ListMailboxPermissions where
         type Rs ListMailboxPermissions =

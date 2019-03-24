@@ -144,7 +144,7 @@ module Network.AWS.WorkMail
     -- ** DeregisterFromWorkMail
     , module Network.AWS.WorkMail.DeregisterFromWorkMail
 
-    -- ** ListMailboxPermissions
+    -- ** ListMailboxPermissions (Paginated)
     , module Network.AWS.WorkMail.ListMailboxPermissions
 
     -- ** ListGroupMembers (Paginated)
@@ -153,7 +153,7 @@ module Network.AWS.WorkMail
     -- ** DisassociateDelegateFromResource
     , module Network.AWS.WorkMail.DisassociateDelegateFromResource
 
-    -- ** ListResourceDelegates
+    -- ** ListResourceDelegates (Paginated)
     , module Network.AWS.WorkMail.ListResourceDelegates
 
     -- ** DescribeUser

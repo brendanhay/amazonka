@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a certificate. Currently, you can use this function to specify whether to opt in to or out of recording your certificate in a certificate transparency log. For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging> . 
+-- Updates a certificate. Currently, you can use this function to specify whether to opt in to or out of recording your certificate in a certificate transparency log. For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging> .
 --
 --
 module Network.AWS.CertificateManager.UpdateCertificateOptions
@@ -45,7 +45,7 @@ import Network.AWS.Response
 -- | /See:/ 'updateCertificateOptions' smart constructor.
 data UpdateCertificateOptions = UpdateCertificateOptions'
   { _ucoCertificateARN :: !Text
-  , _ucoOptions :: !CertificateOptions
+  , _ucoOptions        :: !CertificateOptions
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -53,9 +53,9 @@ data UpdateCertificateOptions = UpdateCertificateOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucoCertificateARN' - ARN of the requested certificate to update. This must be of the form: @arn:aws:acm:us-east-1:/account/ :certificate//12345678-1234-1234-1234-123456789012/ @ 
+-- * 'ucoCertificateARN' - ARN of the requested certificate to update. This must be of the form: @arn:aws:acm:us-east-1:/account/ :certificate//12345678-1234-1234-1234-123456789012/ @
 --
--- * 'ucoOptions' - Use to update the options for your certificate. Currently, you can specify whether to add your certificate to a transparency log. Certificate transparency makes it possible to detect SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have not been logged typically produce an error message in a browser. 
+-- * 'ucoOptions' - Use to update the options for your certificate. Currently, you can specify whether to add your certificate to a transparency log. Certificate transparency makes it possible to detect SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have not been logged typically produce an error message in a browser.
 updateCertificateOptions
     :: Text -- ^ 'ucoCertificateARN'
     -> CertificateOptions -- ^ 'ucoOptions'
@@ -65,11 +65,11 @@ updateCertificateOptions pCertificateARN_ pOptions_ =
     {_ucoCertificateARN = pCertificateARN_, _ucoOptions = pOptions_}
 
 
--- | ARN of the requested certificate to update. This must be of the form: @arn:aws:acm:us-east-1:/account/ :certificate//12345678-1234-1234-1234-123456789012/ @ 
+-- | ARN of the requested certificate to update. This must be of the form: @arn:aws:acm:us-east-1:/account/ :certificate//12345678-1234-1234-1234-123456789012/ @
 ucoCertificateARN :: Lens' UpdateCertificateOptions Text
 ucoCertificateARN = lens _ucoCertificateARN (\ s a -> s{_ucoCertificateARN = a})
 
--- | Use to update the options for your certificate. Currently, you can specify whether to add your certificate to a transparency log. Certificate transparency makes it possible to detect SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have not been logged typically produce an error message in a browser. 
+-- | Use to update the options for your certificate. Currently, you can specify whether to add your certificate to a transparency log. Certificate transparency makes it possible to detect SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have not been logged typically produce an error message in a browser.
 ucoOptions :: Lens' UpdateCertificateOptions CertificateOptions
 ucoOptions = lens _ucoOptions (\ s a -> s{_ucoOptions = a})
 

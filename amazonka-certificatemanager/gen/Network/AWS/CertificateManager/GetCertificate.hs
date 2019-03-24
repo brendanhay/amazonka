@@ -104,9 +104,9 @@ instance ToQuery GetCertificate where
 
 -- | /See:/ 'getCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
-  { _gcrsCertificate :: !(Maybe Text)
+  { _gcrsCertificate      :: !(Maybe Text)
   , _gcrsCertificateChain :: !(Maybe Text)
-  , _gcrsResponseStatus :: !Int
+  , _gcrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

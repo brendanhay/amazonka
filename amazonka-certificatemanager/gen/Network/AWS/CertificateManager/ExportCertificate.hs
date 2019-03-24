@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Exports a private certificate issued by a private certificate authority (CA) for use anywhere. You can export the certificate, the certificate chain, and the encrypted private key associated with the public key embedded in the certificate. You must store the private key securely. The private key is a 2048 bit RSA key. You must provide a passphrase for the private key when exporting it. You can use the following OpenSSL command to decrypt it later. Provide the passphrase when prompted. 
+-- Exports a private certificate issued by a private certificate authority (CA) for use anywhere. You can export the certificate, the certificate chain, and the encrypted private key associated with the public key embedded in the certificate. You must store the private key securely. The private key is a 2048 bit RSA key. You must provide a passphrase for the private key when exporting it. You can use the following OpenSSL command to decrypt it later. Provide the passphrase when prompted.
 --
 --
--- @openssl rsa -in encrypted_key.pem -out decrypted_key.pem@ 
+-- @openssl rsa -in encrypted_key.pem -out decrypted_key.pem@
 --
 module Network.AWS.CertificateManager.ExportCertificate
     (
@@ -52,7 +52,7 @@ import Network.AWS.Response
 -- | /See:/ 'exportCertificate' smart constructor.
 data ExportCertificate = ExportCertificate'
   { _ecCertificateARN :: !Text
-  , _ecPassphrase :: !(Sensitive Base64)
+  , _ecPassphrase     :: !(Sensitive Base64)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -60,7 +60,7 @@ data ExportCertificate = ExportCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ecCertificateARN' - An Amazon Resource Name (ARN) of the issued certificate. This must be of the form: @arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012@ 
+-- * 'ecCertificateARN' - An Amazon Resource Name (ARN) of the issued certificate. This must be of the form: @arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012@
 --
 -- * 'ecPassphrase' - Passphrase to associate with the encrypted exported private key. If you want to later decrypt the private key, you must have the passphrase. You can use the following OpenSSL command to decrypt a private key:  @openssl rsa -in encrypted_key.pem -out decrypted_key.pem@ -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 exportCertificate
@@ -74,7 +74,7 @@ exportCertificate pCertificateARN_ pPassphrase_ =
     }
 
 
--- | An Amazon Resource Name (ARN) of the issued certificate. This must be of the form: @arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012@ 
+-- | An Amazon Resource Name (ARN) of the issued certificate. This must be of the form: @arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012@
 ecCertificateARN :: Lens' ExportCertificate Text
 ecCertificateARN = lens _ecCertificateARN (\ s a -> s{_ecCertificateARN = a})
 
@@ -122,10 +122,10 @@ instance ToQuery ExportCertificate where
 
 -- | /See:/ 'exportCertificateResponse' smart constructor.
 data ExportCertificateResponse = ExportCertificateResponse'
-  { _ecrsPrivateKey :: !(Maybe (Sensitive Text))
-  , _ecrsCertificate :: !(Maybe Text)
+  { _ecrsPrivateKey       :: !(Maybe (Sensitive Text))
+  , _ecrsCertificate      :: !(Maybe Text)
   , _ecrsCertificateChain :: !(Maybe Text)
-  , _ecrsResponseStatus :: !Int
+  , _ecrsResponseStatus   :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -133,7 +133,7 @@ data ExportCertificateResponse = ExportCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ecrsPrivateKey' - The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded. 
+-- * 'ecrsPrivateKey' - The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded.
 --
 -- * 'ecrsCertificate' - The base64 PEM-encoded certificate.
 --
@@ -152,7 +152,7 @@ exportCertificateResponse pResponseStatus_ =
     }
 
 
--- | The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded. 
+-- | The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded.
 ecrsPrivateKey :: Lens' ExportCertificateResponse (Maybe Text)
 ecrsPrivateKey = lens _ecrsPrivateKey (\ s a -> s{_ecrsPrivateKey = a}) . mapping _Sensitive
 
